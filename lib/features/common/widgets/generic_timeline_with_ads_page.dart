@@ -421,7 +421,7 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
       
       timelineWidgets.add(
         Padding(
-          padding: const EdgeInsets.only(top: 16.0, bottom: 8.0, left: 28.0),
+          padding: const EdgeInsets.only(top: 16.0, bottom: 8.0, left: 18.0),
           child: Text(groupKey, style: TextStyle(fontSize: 14, color: Colors.grey[600])),
         ),
       );
@@ -437,15 +437,17 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
 
         timelineWidgets.add(
           Padding(
-            padding: const EdgeInsets.only(left: 16.0),
+            padding: const EdgeInsets.only(left: 0.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Transform.translate(
-                  offset: const Offset(-11.0, 16.0),
+                Container(
+                  width: 12,
+                  margin: const EdgeInsets.only(top: 16.0),
+                  alignment: Alignment.center,
                   child: _buildTimelineNode(context, randomColor),
                 ),
-                const SizedBox(width: 5),
+                const SizedBox(width: 2),
                 Expanded(
                   child: _buildItemWidget(context, item),
                 ),

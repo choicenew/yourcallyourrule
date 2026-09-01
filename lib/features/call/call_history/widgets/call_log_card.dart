@@ -54,7 +54,7 @@ class CallLogCard extends ConsumerWidget {
     final hasLocation = region != null && region!.isNotEmpty;
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 5.0),
+      margin: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 5.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -105,7 +105,7 @@ class CallLogCard extends ConsumerWidget {
     );
   }
 
-  /// 构建卡片头部（右侧竖向堆叠时间与运营商，中间展示姓名号码与标签）
+  /// 构建卡片头部（右侧展示时间，中间展示姓名、号码、标签、归属地与运营商）
   Widget _buildCardHeader(
     BuildContext context,
     WidgetRef ref,
@@ -162,7 +162,7 @@ class CallLogCard extends ConsumerWidget {
         ),
         const SizedBox(width: 12),
 
-        // 中间：姓名、号码、标签、归属地
+        // 中间：姓名、号码、标签、归属地、运营商
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -172,7 +172,9 @@ class CallLogCard extends ConsumerWidget {
                 children: [
                   Flexible(
                     child: Text(
-                      log.name ?? log.phoneNumber,
+                      (log.name != null && log.name!.isNotEmpty)
+                          ? log.name!
+                          : AppLocalizations.of(context)!.unknown,
                       style: const TextStyle(
                         fontWeight: FontWeight.w900,
                         fontSize: 15,
@@ -203,76 +205,42 @@ class CallLogCard extends ConsumerWidget {
                 ],
               ),
               const SizedBox(height: 3),
-              Wrap(
-                spacing: 6,
-                runSpacing: 4,
-                crossAxisAlignment: WrapCrossAlignment.center,
-                children: [
-                  if (log.name != null)
-                    Text(
-                      log.phoneNumber,
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.grey[600],
-                      ),
-                    ),
-                  if (hasLocation)
-                    _buildRegionChip(context, locationText!),
-                ],
+              Text(
+                log.phoneNumber,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.grey[600],
+                ),
               ),
+              if (hasLocation || hasSimInfo) ...[
+                const SizedBox(height: 4),
+                Wrap(
+                  spacing: 6,
+                  runSpacing: 4,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: [
+                    if (hasLocation)
+                      _buildRegionChip(context, locationText!),
+                    if (hasSimInfo)
+                      _buildSimInfoChip(simInfo),
+                  ],
+                ),
+              ],
             ],
           ),
         ),
 
         const SizedBox(width: 8),
 
-        // 右侧：竖向堆叠时间与 SIM 卡/运营商信息
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              timeString,
-              style: TextStyle(
-                fontSize: 12.5,
-                fontWeight: FontWeight.w800,
-                color: Colors.grey[800],
-              ),
-            ),
-            if (hasSimInfo) ...[
-              const SizedBox(height: 3),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFF7F5F0),
-                  borderRadius: BorderRadius.circular(6),
-                  border: Border.all(
-                    color: const Color(0xFFEDE8DF),
-                  ),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(
-                      Icons.sim_card_outlined,
-                      size: 10,
-                      color: EliteDopamineTheme.sunsetTangerine,
-                    ),
-                    const SizedBox(width: 2),
-                    Text(
-                      simInfo,
-                      style: TextStyle(
-                        fontSize: 9,
-                        fontWeight: FontWeight.w800,
-                        color: Colors.grey[700],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ],
+        // 右侧：时间
+        Text(
+          timeString,
+          style: TextStyle(
+            fontSize: 12.5,
+            fontWeight: FontWeight.w800,
+            color: Colors.grey[800],
+          ),
         ),
       ],
     );
@@ -405,6 +373,38 @@ class CallLogCard extends ConsumerWidget {
           fontWeight: FontWeight.w500,
           color: Colors.grey[700],
         ),
+      ),
+    );
+  }
+
+  Widget _buildSimInfoChip(String simInfo) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+      decoration: BoxDecoration(
+        color: const Color(0xFFF7F5F0),
+        borderRadius: BorderRadius.circular(6),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+        ),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Icon(
+            Icons.sim_card_outlined,
+            size: 10,
+            color: EliteDopamineTheme.sunsetTangerine,
+          ),
+          const SizedBox(width: 2),
+          Text(
+            simInfo,
+            style: TextStyle(
+              fontSize: 9,
+              fontWeight: FontWeight.w800,
+              color: Colors.grey[700],
+            ),
+          ),
+        ],
       ),
     );
   }

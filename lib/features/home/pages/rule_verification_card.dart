@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/presentation/verification_page.dart';
+import 'package:yourcallyourrule/features/verification/presentation/pages/verification_page.dart';
 
 class RuleVerificationCard extends StatefulWidget {
   const RuleVerificationCard({super.key});
