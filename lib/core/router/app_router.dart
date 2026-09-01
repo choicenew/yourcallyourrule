@@ -38,7 +38,7 @@ import 'package:yourcallyourrule/features/sms/pages/sms_filter_settings_page.dar
 import 'package:yourcallyourrule/presentation/backup_restore/backup_restore_page.dart';
 import 'package:yourcallyourrule/presentation/cloud/cloud_settings_page.dart';
 import 'package:yourcallyourrule/presentation/device_management/device_management_page.dart';
-import 'package:yourcallyourrule/presentation/verification_page.dart';
+import 'package:yourcallyourrule/features/verification/presentation/pages/verification_page.dart';
 import 'package:yourcallyourrule/presentation/plugin_test_page.dart';
 import 'package:yourcallyourrule/presentation/regex_test_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
@@ -382,7 +382,9 @@ class AppRouter {
       GoRoute(
         path: '/$verificationPage',
         name: verificationPage,
-        builder: (context, state) => const VerificationPage(),
+        builder: (context, state) => VerificationPage(
+          initialPhoneNumber: state.extra as String?,
+        ),
       ),
 
       // 插件测试页面

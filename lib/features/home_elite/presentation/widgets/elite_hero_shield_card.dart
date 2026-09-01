@@ -49,17 +49,16 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
 
   void _handleSearchSubmit(String query) {
     final trimmed = query.trim();
-    if (trimmed.isNotEmpty) {
-      context.pushNamed(AppRouter.search, extra: trimmed);
-    } else {
-      context.pushNamed(AppRouter.verificationPage);
-    }
+    context.pushNamed(
+      AppRouter.verificationPage,
+      extra: trimmed.isNotEmpty ? trimmed : null,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final asyncStats = ref.watch(homeStatsProvider);
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
 
     final blockedToday = asyncStats.value?.todayBlocked ?? 0;
     final totalRules = asyncStats.value?.totalRules ?? 0;
