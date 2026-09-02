@@ -99,6 +99,16 @@ class KitLiveActivityHandler {
             )
           : null;
 
+      final String stirText = () {
+        final bool isVerified = stirInfo != null && stirInfo.isVerified;
+        if (context != null) {
+          return isVerified
+              ? AppLocalizations.of(context)!.stirVerified
+              : AppLocalizations.of(context)!.stirUnverified;
+        }
+        return isVerified ? '🛡️ Verified' : 'Not Verified';
+      }();
+
       // 提取详情信息 (包含运营商、地区、国家、SIM卡、号码类型与标记计数)
       final List<String> details = [];
       if (config.carrier.visible && callerIdData.carrier != null && callerIdData.carrier!.isNotEmpty) {
@@ -114,7 +124,10 @@ class KitLiveActivityHandler {
         details.add(callerIdData.numberType.name);
       }
       if (config.count.visible && callerIdData.count > 0) {
-        details.add('Marked: ${callerIdData.count}');
+        final String countDisplay = context != null
+            ? AppLocalizations.of(context)!.markedCountDisplay(callerIdData.count)
+            : 'Marked: ${callerIdData.count}';
+        details.add(countDisplay);
       }
       if (config.simCard.visible && simInfo?.displayName != null && simInfo!.displayName!.isNotEmpty) {
         details.add(simInfo.displayName!);
@@ -181,7 +194,7 @@ class KitLiveActivityHandler {
         if (config.stir.visible)
           LA.padding(
             LA.text(
-              (stirInfo != null && stirInfo.isVerified) ? '🛡️ STIR: Verified' : 'STIR: Unverified',
+              stirText,
               size: config.stir.fontSize,
               color: (stirInfo != null && stirInfo.isVerified)
                   ? const Color(0xFF2E7D32)

@@ -247,7 +247,9 @@ class _KitLiveNotificationCustomizationScreenState
     if (config.location.visible && mockData.region != null) details.add(mockData.region!);
     if (config.countryName.visible && mockData.countryName != null) details.add(mockData.countryName!);
     if (config.numberType.visible) details.add(mockData.numberType.name);
-    if (config.count.visible && mockData.count > 0) details.add('Marked: ${mockData.count}');
+    if (config.count.visible && mockData.count > 0) {
+      details.add(AppLocalizations.of(context).markedCountDisplay(mockData.count));
+    }
     if (config.simCard.visible && mockSimInfo.displayName != null) details.add(mockSimInfo.displayName!);
     final String detailLine = details.join(' · ');
 
@@ -346,8 +348,8 @@ class _KitLiveNotificationCustomizationScreenState
                     const SizedBox(width: 4),
                     Text(
                       mockStirInfo.isVerified
-                          ? '🛡️ ${AppLocalizations.of(context).stirVerificationTitle}'
-                          : 'STIR: Unverified',
+                          ? AppLocalizations.of(context).stirVerified
+                          : AppLocalizations.of(context).stirUnverified,
                       style: TextStyle(
                         color: mockStirInfo.isVerified ? Colors.green : Colors.grey[700],
                         fontSize: config.stir.fontSize,

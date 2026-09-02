@@ -4856,7 +4856,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get stirVerified => 'Verified';
+  String get stirVerified => '🛡️ Verified';
 
   @override
   String get stirNotVerified => 'Not Verified';
@@ -6265,4 +6265,12 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get answerThenHangupDescription =>
       'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
+  String get stirUnverified => 'Not Verified';
+
+  @override
+  String markedCountDisplay(int count) {
+    return 'Marked: $count';
+  }
 }
