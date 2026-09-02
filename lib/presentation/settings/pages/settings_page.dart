@@ -56,7 +56,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.warmSunAmber,
                 title: l10n.purchaseTitle,
                 subtitle: l10n.purchaseSubtitle,
-                onTap: () => GoRouter.of(context).push('/purchase'),
+                onTap: () => context.pushNamed(AppRouter.purchase),
               ),
               _buildDivider(),
               _buildTile(
@@ -64,7 +64,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.sunsetTangerine,
                 title: l10n.languageSettingsTitle,
                 subtitle: l10n.languageSettingsSubtitle,
-                onTap: () => GoRouter.of(context).push('/language-settings'),
+                onTap: () => context.pushNamed(AppRouter.languageSettings),
               ),
               _buildDivider(),
               _buildTile(
@@ -85,7 +85,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.freshMint,
                 title: l10n.autoUpdateTitle,
                 subtitle: l10n.autoUpdateSubtitle,
-                onTap: () => GoRouter.of(context).push('/auto-update'),
+                onTap: () => context.pushNamed(AppRouter.autoUpdate),
               ),
             ],
           ),
@@ -103,7 +103,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.vibrantCoral,
                 title: l10n.interceptionActionSettingsTitle,
                 subtitle: l10n.interceptionActionSettingsSubtitle,
-                onTap: () => GoRouter.of(context).push('/end-call-settings'),
+                onTap: () => context.pushNamed(AppRouter.endCallSettings),
               ),
               _buildDivider(),
               _buildTile(
@@ -111,7 +111,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.softLilac,
                 title: l10n.filterControlTitle,
                 subtitle: l10n.filterControlSubtitle,
-                onTap: () => GoRouter.of(context).push('/filter-settings'),
+                onTap: () => context.pushNamed(AppRouter.filterSettings),
               ),
               _buildDivider(),
               _buildTile(
@@ -127,7 +127,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.skyAzure,
                 title: l10n.callerIdSettingsTitle,
                 subtitle: l10n.callerIdSettingsSubtitle,
-                onTap: () => GoRouter.of(context).push('/caller-id-settings'),
+                onTap: () => context.pushNamed(AppRouter.callerIdSettings),
               ),
               _buildDivider(),
               _buildTile(
@@ -135,7 +135,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.warmSunAmber,
                 title: l10n.callerIdCustomizationTitle,
                 subtitle: l10n.callerIdCustomizationSubtitle,
-                onTap: () => GoRouter.of(context).push('/caller-id-customization'),
+                onTap: () => context.pushNamed(AppRouter.callerIdCustomization),
               ),
               _buildDivider(),
               _buildTile(
@@ -143,7 +143,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.freshMint,
                 title: l10n.liveNotificationCustomizationTitle,
                 subtitle: l10n.liveNotificationCustomizationSubtitle,
-                onTap: () => GoRouter.of(context).push('/kit-live-notification-customization'),
+                onTap: () => context.pushNamed(AppRouter.kitLiveNotificationCustomization),
               ),
               _buildDivider(),
               _buildTile(
@@ -151,7 +151,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: const Color(0xFFE11D48),
                 title: l10n.fraudAlerSettingTitle,
                 subtitle: l10n.fraudAlerSettingSubtitle,
-                onTap: () => GoRouter.of(context).push('/fraud-alert-settings'),
+                onTap: () => context.pushNamed(AppRouter.fraudAlertSettings),
               ),
               _buildDivider(),
               _buildTile(
@@ -159,7 +159,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.skyAzure,
                 title: l10n.permissionTitle,
                 subtitle: l10n.permissionSubtitle,
-                onTap: () => GoRouter.of(context).push('/special-permissions'),
+                onTap: () => context.pushNamed(AppRouter.specialPermissions),
               ),
             ],
           ),
@@ -177,7 +177,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.skyAzure,
                 title: l10n.countrySyncSettingsTitle,
                 subtitle: l10n.countrySyncSettingsSubtitle,
-                onTap: () => GoRouter.of(context).push('/${AppRouter.countrySyncSettings}'),
+                onTap: () => context.pushNamed(AppRouter.countrySyncSettings),
               ),
               _buildDivider(),
               _buildTile(
@@ -185,7 +185,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.freshMint,
                 title: l10n.localDatabaseSyncTitle,
                 subtitle: l10n.localDatabaseSyncSubtitle,
-                onTap: () => GoRouter.of(context).push('/supabase-settings'),
+                onTap: () => context.pushNamed(AppRouter.supabaseSettings),
               ),
               _buildDivider(),
               _buildTile(
@@ -193,7 +193,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.skyAzure,
                 title: l10n.cloudSyncSettingsTitle,
                 subtitle: l10n.cloudSyncSettingsSubtitle,
-                onTap: () => GoRouter.of(context).push('/cloud-settings'),
+                onTap: () => context.pushNamed(AppRouter.cloudSettings),
               ),
               _buildDivider(),
               _buildTile(
@@ -201,7 +201,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.warmSunAmber,
                 title: l10n.backupAndRestoreTitle,
                 subtitle: l10n.backupAndRestoreSubtitle,
-                onTap: () => GoRouter.of(context).push('/backup-restore'),
+                onTap: () => context.pushNamed(AppRouter.backupRestore),
               ),
               _buildDivider(),
               _buildTile(
@@ -209,7 +209,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.softLilac,
                 title: l10n.deviceManagementTitle,
                 subtitle: l10n.deviceManagementSubtitle,
-                onTap: () => GoRouter.of(context).push('/device-management'),
+                onTap: () => context.pushNamed(AppRouter.deviceManagement),
               ),
             ],
           ),
