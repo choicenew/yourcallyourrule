@@ -34,7 +34,7 @@ class _VerificationPageState extends ConsumerState<VerificationPage> {
   void initState() {
     super.initState();
     _phoneNumberController = TextEditingController();
-    _countryCodeController = TextEditingController(text: 'US');
+    _countryCodeController = TextEditingController();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final extra = GoRouterState.of(context).extra;
@@ -124,7 +124,14 @@ class _VerificationPageState extends ConsumerState<VerificationPage> {
             VerificationInputCard(
               countryCodeController: _countryCodeController,
               phoneNumberController: _phoneNumberController,
+              candidateCountries: verificationState.candidateCountries,
+              selectedCountry: verificationState.countryCode,
+              isInternational: verificationState.isInternational,
               isLoading: verificationState.isLoading,
+              onCountrySelected: (code) {
+                _countryCodeController.text = code;
+                notifier.selectCountry(code);
+              },
               onVerify: _handleVerify,
             ),
             const SizedBox(height: 16),

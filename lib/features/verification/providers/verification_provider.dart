@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dlibphonenumber/locale.dart' as dlibphone;
+import 'package:sim_reader/sim_reader.dart';
 
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
@@ -19,6 +21,7 @@ import 'package:yourcallyourrule/features/contacts/provider/contact_service_prov
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
+import 'package:yourcallyourrule/features/sync_country/provider/country_selection_provider.dart';
 import 'package:yourcallyourrule/features/verification/models/verification_state.dart';
 
 /// Verification 业务逻辑管理 Notifier
@@ -46,24 +49,60 @@ class VerificationNotifier extends Notifier<VerificationState> {
     });
   }
 
-  /// 初始化国家代码与号码（支持自动检测与默认区域适配）
+  /// 初始化国家代码与号码（支持单卡/双卡、多选同步国家及物理设备区域排序）
   Future<void> initLocaleAndNumber({String? initialNumber}) async {
+    final candidates = <String>[];
+
+    // 1. 优先读取 SIM 卡国家（支持单卡与双卡）
     try {
-      final currentLocale = await ref.read(localeProvider.future);
-      String defaultCountry = 'US';
-      if (currentLocale.countryCode != null && currentLocale.countryCode!.isNotEmpty) {
-        defaultCountry = currentLocale.countryCode!.toUpperCase();
-      }
-
-      state = state.copyWith(countryCode: defaultCountry);
-
-      if (initialNumber != null && initialNumber.trim().isNotEmpty) {
-        final trimmed = initialNumber.trim();
-        state = state.copyWith(phoneNumber: trimmed);
-        await detectCountryCode(trimmed);
-        await verifyNumber(trimmed);
+      final simInfoList = await SimReader.getAllSimInfo();
+      for (final sim in simInfoList) {
+        final code = sim.countryCode?.trim().toUpperCase();
+        if (code != null && code.isNotEmpty && !candidates.contains(code)) {
+          candidates.add(code);
+        }
       }
     } catch (_) {}
+
+    // 2. 读取用户在「同步国家」中配置的多选国家列表
+    try {
+      final selectedCountries = await ref.read(selectedCountriesProvider.future);
+      for (final code in selectedCountries) {
+        final upper = code.trim().toUpperCase();
+        if (upper.isNotEmpty && !candidates.contains(upper)) {
+          candidates.add(upper);
+        }
+      }
+    } catch (_) {}
+
+    // 3. 读取设备的物理系统地区（作为兜底）
+    try {
+      final platformCountry = PlatformDispatcher.instance.locale.countryCode?.trim().toUpperCase();
+      if (platformCountry != null && platformCountry.isNotEmpty && !candidates.contains(platformCountry)) {
+        candidates.add(platformCountry);
+      }
+    } catch (_) {}
+
+    final defaultCountry = candidates.isNotEmpty ? candidates.first : '';
+
+    state = state.copyWith(
+      candidateCountries: candidates,
+      countryCode: defaultCountry,
+    );
+
+    if (initialNumber != null && initialNumber.trim().isNotEmpty) {
+      final trimmed = initialNumber.trim();
+      final isIntl = trimmed.startsWith('+') || trimmed.startsWith('00');
+      state = state.copyWith(
+        phoneNumber: trimmed,
+        isInternational: isIntl,
+      );
+
+      if (isIntl) {
+        await detectCountryCode(trimmed);
+      }
+      await verifyNumber(trimmed);
+    }
   }
 
   /// 自动从输入的号码中检测国家代码（如果有 + 国际区号）
@@ -72,9 +111,21 @@ class VerificationNotifier extends Notifier<VerificationState> {
       final result = await PhoneUtils.parsePhoneNumber(phoneNumber);
       final code = result['countryCode'];
       if (code != null && code.isNotEmpty) {
-        state = state.copyWith(countryCode: code.toUpperCase());
+        state = state.copyWith(
+          countryCode: code.toUpperCase(),
+          isInternational: true,
+        );
       }
     } catch (_) {}
+  }
+
+  /// 用户在顶部 Chip 中快速切换候选国家
+  void selectCountry(String code) {
+    final upper = code.trim().toUpperCase();
+    if (upper.isNotEmpty && upper != state.countryCode) {
+      state = state.copyWith(countryCode: upper);
+      verifyNumber(state.phoneNumber);
+    }
   }
 
   void updateCountryCode(String code) {
@@ -82,17 +133,25 @@ class VerificationNotifier extends Notifier<VerificationState> {
   }
 
   void updatePhoneNumber(String number) {
-    state = state.copyWith(phoneNumber: number.trim());
+    final trimmed = number.trim();
+    final isIntl = trimmed.startsWith('+') || trimmed.startsWith('00');
+    state = state.copyWith(
+      phoneNumber: trimmed,
+      isInternational: isIntl,
+    );
   }
 
-  /// 执行综合号码验证业务逻辑（纯业务，不掺杂UI）
+  /// 执行综合号码验证业务逻辑
   Future<void> verifyNumber(String phoneNumberStr) async {
     final target = phoneNumberStr.trim();
     if (target.isEmpty) return;
 
+    final isIntl = target.startsWith('+') || target.startsWith('00');
+
     state = state.copyWith(
       isLoading: true,
       phoneNumber: target,
+      isInternational: isIntl,
       errorMessage: null,
     );
 
@@ -108,7 +167,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
       final callFilterConfig = await ref.read(callFilterConfigProvider.future);
       final number = vo.PhoneNumber.fromString(target);
       final currentLocale = await ref.read(localeProvider.future);
-      final countryCode = state.countryCode.isNotEmpty ? state.countryCode : 'US';
+      final countryCode = state.countryCode;
 
       final dlibLocale = dlibphone.Locale(
         language: currentLocale.languageCode,
@@ -132,6 +191,21 @@ class VerificationNotifier extends Notifier<VerificationState> {
         matchedLabel = null;
       }
 
+      bool timeRuleHit = false;
+      try {
+        timeRuleHit = await timeInterceptorService.shouldIntercept(number.value);
+      } catch (_) {}
+
+      bool localCountBlocked = false;
+      try {
+        localCountBlocked = !await localCountFilterService.shouldAcceptCall(number.value);
+      } catch (_) {}
+
+      bool remoteNumberBlocked = false;
+      try {
+        remoteNumberBlocked = !await remoteNumberFilterService.shouldAcceptCall(number.value);
+      } catch (_) {}
+
       final rulesMap = <String, bool>{
         'Allowed': rules.any((rule) => rule.action.type == RuleActionType.allow),
         'Blocked': rules.any((rule) => rule.action.type == RuleActionType.block),
@@ -141,9 +215,9 @@ class VerificationNotifier extends Notifier<VerificationState> {
         'Blacklist': rules.any((rule) => rule.action.type == RuleActionType.block),
         'Whitelist': rules.any((rule) => rule.action.type == RuleActionType.allow),
         'Regex': rules.any((rule) => rule is RegexRule),
-        'Time Rules': await timeInterceptorService.shouldIntercept(number.value),
-        'Local Count Filter': !await localCountFilterService.shouldAcceptCall(number.value),
-        'Remote Number Filter': !await remoteNumberFilterService.shouldAcceptCall(number.value),
+        'Time Rules': timeRuleHit,
+        'Local Count Filter': localCountBlocked,
+        'Remote Number Filter': remoteNumberBlocked,
       };
 
       state = state.copyWith(

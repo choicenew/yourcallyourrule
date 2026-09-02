@@ -49,4 +49,4 @@ final class KitLiveActivityHandlerProvider
 }
 
 String _$kitLiveActivityHandlerHash() =>
-    r'8f321d2837482910fedca1239847162983746192';
+    r'7878ad534460bef8bb34a6af49c89a5b9b2d9b6d';

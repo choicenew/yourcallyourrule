@@ -7,6 +7,8 @@ import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
 class VerificationState {
   final String phoneNumber;
   final String countryCode;
+  final List<String> candidateCountries;
+  final bool isInternational;
   final bool isLoading;
   final bool hasVerified;
   final CallerIdData? callerIdData;
@@ -19,7 +21,9 @@ class VerificationState {
 
   const VerificationState({
     this.phoneNumber = '',
-    this.countryCode = 'US',
+    this.countryCode = '',
+    this.candidateCountries = const [],
+    this.isInternational = false,
     this.isLoading = false,
     this.hasVerified = false,
     this.callerIdData,
@@ -34,6 +38,8 @@ class VerificationState {
   VerificationState copyWith({
     String? phoneNumber,
     String? countryCode,
+    List<String>? candidateCountries,
+    bool? isInternational,
     bool? isLoading,
     bool? hasVerified,
     CallerIdData? callerIdData,
@@ -47,6 +53,8 @@ class VerificationState {
     return VerificationState(
       phoneNumber: phoneNumber ?? this.phoneNumber,
       countryCode: countryCode ?? this.countryCode,
+      candidateCountries: candidateCountries ?? this.candidateCountries,
+      isInternational: isInternational ?? this.isInternational,
       isLoading: isLoading ?? this.isLoading,
       hasVerified: hasVerified ?? this.hasVerified,
       callerIdData: callerIdData ?? this.callerIdData,
