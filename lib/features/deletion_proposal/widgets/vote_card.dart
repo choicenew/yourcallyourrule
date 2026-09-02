@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 投票卡片组件
+/// 投票卡片组件 (基于统一 EliteDopamineTheme 主题系统规范)
 class VoteCard extends StatelessWidget {
   final Map<String, dynamic> vote;
   final VoidCallback onUpdate;
@@ -15,7 +15,6 @@ class VoteCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final proposalId = vote['proposal_id'] as String? ?? '';
     final phoneNumber = vote['phone_number'] as String? ?? '';
     final reason = vote['reason'] as String? ?? '';
     final riskLevel = vote['risk_level'] as int? ?? 1;
@@ -28,165 +27,175 @@ class VoteCard extends StatelessWidget {
     final totalVotes = supportCount + opposeCount;
     final supportPercentage = totalVotes > 0 ? (supportCount / totalVotes * 100).round() : 0;
 
-    return Card(
+    return Container(
       margin: const EdgeInsets.only(bottom: 12),
-      elevation: 1,
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Header with phone number and your vote
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    phoneNumber,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+      padding: const EdgeInsets.all(16),
+      decoration: EliteDopamineTheme.warmCardDecoration(
+        context: context,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // 头部：电话号码与投票标识
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  phoneNumber,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                _buildVoteChip(context, support),
+              ),
+              _buildVoteChip(context, support),
+            ],
+          ),
+          const SizedBox(height: 8),
+
+          // 状态、风险等级与投票时间
+          Row(
+            children: [
+              _buildStatusChip(context, status),
+              const SizedBox(width: 8),
+              _buildRiskLevelChip(context, riskLevel),
+              const Spacer(),
+              if (votedAt != null)
+                Text(
+                  '${AppLocalizations.of(context)!.voted} ${_formatDateTime(votedAt)}',
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
+                ),
+            ],
+          ),
+          const SizedBox(height: 12),
+
+          // 提议原因
+          if (reason.isNotEmpty) ...[
+            Text(
+              AppLocalizations.of(context)!.reason,
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              reason,
+              style: Theme.of(context).textTheme.bodyMedium,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const SizedBox(height: 12),
+          ],
+
+          // 投票进度
+          if (totalVotes > 0) ...[
+            Row(
+              children: [
+                Icon(
+                  Icons.poll,
+                  size: 16,
+                  color: Theme.of(context).colorScheme.outline,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  '${AppLocalizations.of(context)!.communityVotes}: $totalVotes ($supportPercentage% ${AppLocalizations.of(context)!.support})',
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: Theme.of(context).colorScheme.outline,
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 8),
-            
-            // Status and vote time
-            Row(
-              children: [
-                _buildStatusChip(context, status),
-                const SizedBox(width: 8),
-                _buildRiskLevelChip(context, riskLevel),
-                const Spacer(),
-                if (votedAt != null)
-                  Text(
-                  '${AppLocalizations.of(context)!.voted} ${_formatDateTime(votedAt)}',
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: Theme.of(context).colorScheme.outline,
-                    ),
-                  ),
-              ],
-            ),
-            const SizedBox(height: 12),
-            
-            // Reason
-            if (reason.isNotEmpty) ...[
-              Text(
-                AppLocalizations.of(context)!.reason,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
+            _buildVotingProgress(context, supportCount, opposeCount),
+          ] else ...[
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                borderRadius: BorderRadius.circular(8),
               ),
-              const SizedBox(height: 4),
-              Text(
-                reason,
-                style: Theme.of(context).textTheme.bodyMedium,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-              const SizedBox(height: 12),
-            ],
-            
-            // Current voting status
-            if (totalVotes > 0) ...[
-              Row(
+              child: Row(
                 children: [
                   Icon(
-                    Icons.poll,
+                    Icons.hourglass_empty,
                     size: 16,
                     color: Theme.of(context).colorScheme.outline,
                   ),
-                  const SizedBox(width: 4),
+                  const SizedBox(width: 8),
                   Text(
-                    '${AppLocalizations.of(context)!.communityVotes}: $totalVotes ($supportPercentage% ${AppLocalizations.of(context)!.support})',
+                    AppLocalizations.of(context)!.waitingForMoreVotes,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       color: Theme.of(context).colorScheme.outline,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 8),
-              _buildVotingProgress(context, supportCount, opposeCount),
-            ] else ...[
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.hourglass_empty,
-                      size: 16,
-                      color: Theme.of(context).colorScheme.outline,
-                    ),
-                    const SizedBox(width: 8),
-                    Text(
-                      AppLocalizations.of(context)!.waitingForMoreVotes,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Theme.of(context).colorScheme.outline,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-            
-            // Action based on status
-            if (status == 'completed') ...[
-              const SizedBox(height: 12),
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: Colors.green.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.green.withOpacity(0.3)),
-                ),
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.check_circle,
-                      size: 16,
-                      color: Colors.green,
-                    ),
-                    const SizedBox(width: 8),
-                    Text(
-                      AppLocalizations.of(context)!.proposalProcessed,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: Colors.green.shade700,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+            ),
           ],
-        ),
+
+          if (status == 'completed') ...[
+            const SizedBox(height: 12),
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: EliteDopamineTheme.freshMint.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: EliteDopamineTheme.freshMint.withValues(alpha: 0.3)),
+              ),
+              child: Row(
+                children: [
+                  const Icon(
+                    Icons.check_circle,
+                    size: 16,
+                    color: EliteDopamineTheme.freshMint,
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    AppLocalizations.of(context)!.proposalProcessed,
+                    style: TextStyle(
+                      color: Colors.green.shade700,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ],
       ),
     );
   }
 
   Widget _buildVoteChip(BuildContext context, bool support) {
-    return Chip(
-      avatar: Icon(
-        support ? Icons.thumb_up : Icons.thumb_down,
-        size: 16,
-        color: Colors.white,
+    final color = support ? EliteDopamineTheme.freshMint : Colors.red;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.12),
+        borderRadius: BorderRadius.circular(8),
       ),
-      label: Text(
-        support ? AppLocalizations.of(context)!.supported : AppLocalizations.of(context)!.opposed,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 11,
-          fontWeight: FontWeight.w600,
-        ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            support ? Icons.thumb_up : Icons.thumb_down,
+            size: 14,
+            color: color,
+          ),
+          const SizedBox(width: 4),
+          Text(
+            support ? AppLocalizations.of(context)!.supported : AppLocalizations.of(context)!.opposed,
+            style: TextStyle(
+              color: color,
+              fontSize: 11,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ],
       ),
-      backgroundColor: support ? Colors.green : Colors.red,
-      padding: EdgeInsets.zero,
-      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
     );
   }
 
@@ -194,10 +203,10 @@ class VoteCard extends StatelessWidget {
     Color chipColor;
     IconData icon;
     String displayText;
-    
+
     switch (status.toLowerCase()) {
       case 'approved':
-        chipColor = Colors.green;
+        chipColor = EliteDopamineTheme.freshMint;
         icon = Icons.check_circle;
         displayText = AppLocalizations.of(context)!.approved;
         break;
@@ -219,30 +228,34 @@ class VoteCard extends StatelessWidget {
         break;
     }
 
-    return Chip(
-      avatar: Icon(
-        icon,
-        size: 14,
-        color: Colors.white,
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      decoration: BoxDecoration(
+        color: chipColor.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(6),
       ),
-      label: Text(
-        displayText,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 10,
-          fontWeight: FontWeight.w600,
-        ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 13, color: chipColor),
+          const SizedBox(width: 4),
+          Text(
+            displayText,
+            style: TextStyle(
+              color: chipColor,
+              fontSize: 11,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ],
       ),
-      backgroundColor: chipColor,
-      padding: EdgeInsets.zero,
-      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
     );
   }
 
   Widget _buildRiskLevelChip(BuildContext context, int riskLevel) {
     Color chipColor;
     String label;
-    
+
     switch (riskLevel) {
       case 5:
         chipColor = Colors.red;
@@ -262,30 +275,32 @@ class VoteCard extends StatelessWidget {
         break;
       case 1:
       default:
-        chipColor = Colors.green;
+        chipColor = EliteDopamineTheme.freshMint;
         label = AppLocalizations.of(context)!.veryLow;
         break;
     }
 
-    return Chip(
-      label: Text(
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      decoration: BoxDecoration(
+        color: chipColor.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(6),
+      ),
+      child: Text(
         label,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 10,
-          fontWeight: FontWeight.w600,
+        style: TextStyle(
+          color: chipColor,
+          fontSize: 11,
+          fontWeight: FontWeight.w700,
         ),
       ),
-      backgroundColor: chipColor,
-      padding: const EdgeInsets.symmetric(horizontal: 6),
-      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
     );
   }
 
   Widget _buildVotingProgress(BuildContext context, int supportCount, int opposeCount) {
     final total = supportCount + opposeCount;
     if (total == 0) return const SizedBox.shrink();
-    
+
     return Column(
       children: [
         Row(
@@ -296,7 +311,7 @@ class VoteCard extends StatelessWidget {
                 child: Container(
                   height: 4,
                   decoration: BoxDecoration(
-                    color: Colors.green,
+                    color: EliteDopamineTheme.freshMint,
                     borderRadius: BorderRadius.horizontal(
                       left: const Radius.circular(2),
                       right: opposeCount == 0 ? const Radius.circular(2) : Radius.zero,

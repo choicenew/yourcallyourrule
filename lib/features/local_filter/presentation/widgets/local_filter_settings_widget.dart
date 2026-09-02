@@ -3,10 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 // [重构]: 导入对应的 Notifier Provider。
-
 
 /// [重构]: 将 StatelessWidget 改为 ConsumerWidget 以便访问 ref。
 class LocalFilterSettingsWidget extends ConsumerWidget {
@@ -29,20 +29,9 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
     return Column(
       children: [
         Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
+          decoration: EliteDopamineTheme.warmCardDecoration(
+            context: context,
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: const Color(0xFFEDE8DF),
-              width: 1.1,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.03),
-                blurRadius: 8,
-                offset: const Offset(0, 3),
-              ),
-            ],
           ),
           child: Column(
             children: [
@@ -59,20 +48,9 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
         const SizedBox(height: 14),
         Container(
           padding: const EdgeInsets.all(18),
-          decoration: BoxDecoration(
-            color: Colors.white,
+          decoration: EliteDopamineTheme.warmCardDecoration(
+            context: context,
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: const Color(0xFFEDE8DF),
-              width: 1.1,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.03),
-                blurRadius: 8,
-                offset: const Offset(0, 3),
-              ),
-            ],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,11 +1,10 @@
-// lib/features/caller_id/presentation/widgets/caller_id_display_mode_selector.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_provider.dart';
 import 'package:yourcallyourrule/features/caller_id/config/display_mode.dart';
+import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 来电显示模式选择器小部件
@@ -21,20 +20,9 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
 
     return Container(
       padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: Colors.white,
+      decoration: EliteDopamineTheme.warmCardDecoration(
+        context: context,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: const Color(0xFFEDE8DF),
-          width: 1.1,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.03),
-            blurRadius: 8,
-            offset: const Offset(0, 3),
-          ),
-        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

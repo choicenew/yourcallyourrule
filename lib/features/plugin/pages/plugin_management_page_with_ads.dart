@@ -14,6 +14,7 @@ import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_p
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 
 import 'package:yourcallyourrule/features/plugin/presentation/pages/plugin_script_editor_page.dart';
 import 'package:yourcallyourrule/features/plugin/presentation/pages/plugin_url_webview_page.dart';
@@ -663,57 +664,66 @@ class _PluginManagementPageWithAdsState
   Widget _buildPluginStatusCard() {
     final enabledCount = _plugins.where((p) => p.isEnabled).length;
     final autoUpdateCount = _plugins.where((p) => p.isAutoUpdate).length;
-    final allEnabled = _plugins.isNotEmpty && enabledCount == _plugins.length;
 
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Icon(
-                      Icons.extension,
-                      color: Theme.of(context).primaryColor,
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12.0),
+      padding: const EdgeInsets.all(16.0),
+      decoration: EliteDopamineTheme.warmCardDecoration(
+        context: context,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF6C5CE7).withValues(alpha: 0.12),
+                      borderRadius: BorderRadius.circular(12),
                     ),
-                    const SizedBox(width: 8),
-                    Text(
-                      AppLocalizations.of(context)!.pluginService,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    child: const Icon(
+                      Icons.extension_rounded,
+                      color: Color(0xFF6C5CE7),
+                      size: 20,
                     ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                _buildStatusItem(
-                  AppLocalizations.of(context)!.installed,
-                  _plugins.length.toString(),
-                ),
-                _buildStatusItem(
-                  AppLocalizations.of(context)!.enabled,
-                  enabledCount.toString(),
-                ),
-                _buildStatusItem(
-                  AppLocalizations.of(context)!.autoUpdate,
-                  autoUpdateCount.toString(),
-                ),
-              ],
-            ),
-          ],
-        ),
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    AppLocalizations.of(context)!.pluginService,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildStatusItem(
+                AppLocalizations.of(context)!.installed,
+                _plugins.length.toString(),
+              ),
+              _buildStatusItem(
+                AppLocalizations.of(context)!.enabled,
+                enabledCount.toString(),
+              ),
+              _buildStatusItem(
+                AppLocalizations.of(context)!.autoUpdate,
+                autoUpdateCount.toString(),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -723,9 +733,10 @@ class _PluginManagementPageWithAdsState
       children: [
         Text(
           value,
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900, color: Colors.black87),
         ),
-        Text(label, style: const TextStyle(fontSize: 14, color: Colors.grey)),
+        const SizedBox(height: 2),
+        Text(label, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.grey[600])),
       ],
     );
   }

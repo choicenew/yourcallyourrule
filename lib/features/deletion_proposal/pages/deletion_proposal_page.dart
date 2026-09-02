@@ -623,34 +623,60 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
 
   Widget _buildHeaderContent(BuildContext context) {
     final theme = Theme.of(context);
-    final noticeColor = Colors.amber;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 8.0),
-      child: Card(
-        color: noticeColor.shade50,
-        elevation: 2,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0), side: BorderSide(color: noticeColor.shade200, width: 1)),
-        clipBehavior: Clip.antiAlias,
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(Icons.info_outline, color: noticeColor.shade800, size: 24),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(AppLocalizations.of(context)!.importantNoticeTitle, style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold, color: noticeColor.shade900)),
-                    const SizedBox(height: 8),
-                    Text(AppLocalizations.of(context)!.dataSourceDisclaimer, style: theme.textTheme.bodyMedium?.copyWith(color: Colors.black87, height: 1.5)),
-                  ],
-                ),
-              ),
-            ],
-          ),
+    final l10n = AppLocalizations.of(context)!;
+    const noticeColor = Colors.deepPurple;
+
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8.0),
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: noticeColor.withValues(alpha: 0.05),
+        borderRadius: BorderRadius.circular(16.0),
+        border: Border.all(
+          color: noticeColor.withValues(alpha: 0.15),
+          width: 1.1,
         ),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(6.0),
+            decoration: BoxDecoration(
+              color: noticeColor.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: const Icon(
+              Icons.info_outline_rounded,
+              color: noticeColor,
+              size: 20,
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  l10n.importantNoticeTitle,
+                  style: theme.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w800,
+                    color: noticeColor,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  l10n.dataSourceDisclaimer,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: Colors.black87,
+                    height: 1.4,
+                    fontSize: 13,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

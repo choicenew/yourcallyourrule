@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_provider.dart';
+import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通知设置小部件
@@ -15,20 +16,9 @@ class NotificationSettingsWidget extends ConsumerWidget {
     
     return Container(
       padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: Colors.white,
+      decoration: EliteDopamineTheme.warmCardDecoration(
+        context: context,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: const Color(0xFFEDE8DF),
-          width: 1.1,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.03),
-            blurRadius: 8,
-            offset: const Offset(0, 3),
-          ),
-        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

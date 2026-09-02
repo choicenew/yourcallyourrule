@@ -3,20 +3,28 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:world_countries/world_countries.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/sync_country/provider/country_selection_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// A widget that allows users to select countries for data synchronization.
+/// 数据库同步国家选择界面 (Elite Dopamine 现代视觉规范)
 class CountrySelectionWidget extends ConsumerWidget {
   const CountrySelectionWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final selectedCountries = ref.watch(selectedCountriesProvider);
 
     return Scaffold(
+      backgroundColor: const Color(0xFFFAF8F5),
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.databaseSyncTitle),
+        title: Text(
+          l10n.databaseSyncTitle,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: selectedCountries.when(
         data: (codes) {
@@ -26,77 +34,136 @@ class CountrySelectionWidget extends ConsumerWidget {
 
           return Column(
             children: [
-
-              // --- START: 新增的小标题 ---
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 8.0),
-                child: Text(
-                  AppLocalizations.of(context)!.countrySyncSettingsSubtitle,
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: Colors.grey[600], // 使用灰色调，使其看起来像副标题
-                      ),
-                  textAlign: TextAlign.center, // 居中显示
+              // 顶部说明与已选国家卡片
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                padding: const EdgeInsets.all(16.0),
+                decoration: EliteDopamineTheme.warmCardDecoration(
+                  context: context,
+                  borderRadius: BorderRadius.circular(20),
                 ),
-              ),
-              // --- END: 新增的小标题 ---
-              // --- START: 新增的免责声明 ---
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16.0, 4.0, 16.0, 12.0),
-                child: Text(
-                  AppLocalizations.of(context)!.countryDataDisclaimer,
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith( // 使用更小的字体
-                        color: Colors.grey, // 使用更浅的颜色
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(6),
+                          decoration: BoxDecoration(
+                            color: EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.12),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const Icon(
+                            Icons.public_rounded,
+                            color: EliteDopamineTheme.sunsetTangerine,
+                            size: 18,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            l10n.countrySyncSettingsSubtitle,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w800,
+                              fontSize: 14,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      l10n.countryDataDisclaimer,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.grey[600],
+                        height: 1.3,
                       ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              // --- END: 新增的免责声明 ---
-              if (codes.isNotEmpty)
-              
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Wrap(
-                    spacing: 8.0,
-                    runSpacing: 4.0,
-                    children: chosenCountries
-                        .map((country) => Chip(
-                              label: Text(
-                                country.name.common,
-                                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                    if (codes.isNotEmpty) ...[
+                      const SizedBox(height: 12),
+                      Wrap(
+                        spacing: 8.0,
+                        runSpacing: 6.0,
+                        children: chosenCountries
+                            .map(
+                              (country) => Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                                decoration: BoxDecoration(
+                                  color: EliteDopamineTheme.sunsetTangerine,
+                                  borderRadius: BorderRadius.circular(12),
                                 ),
-                                                    backgroundColor: Colors.pink[100], // 使用更深的琥珀色
-                    deleteIconColor: Colors.white,
-                              onDeleted: () {
-                                ref
-                                    .read(selectedCountriesProvider.notifier)
-                                    .removeCountry(country.codeShort);
-                              },
-                            ))
-                        .toList(),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      country.name.common,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w800,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 4),
+                                    InkWell(
+                                      onTap: () {
+                                        ref
+                                            .read(selectedCountriesProvider.notifier)
+                                            .removeCountry(country.codeShort);
+                                      },
+                                      child: const Icon(
+                                        Icons.close_rounded,
+                                        size: 14,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            )
+                            .toList(),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+
+              const GoogleAdWidget(adInfo: AdManager.bannerAd),
+
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      color: const Color(0xFFEDE8DF),
+                      width: 1.1,
+                    ),
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  child: CountryPicker(
+                    chosen: chosenCountries,
+                    onSelect: (country) {
+                      final isoCode = country.codeShort;
+                      if (codes.contains(isoCode)) {
+                        ref
+                            .read(selectedCountriesProvider.notifier)
+                            .removeCountry(isoCode);
+                      } else {
+                        ref
+                            .read(selectedCountriesProvider.notifier)
+                            .addCountry(isoCode);
+                      }
+                    },
                   ),
                 ),
-                 GoogleAdWidget(adInfo: AdManager.bannerAd),
-              const Divider(),
-              Expanded(
-                child: CountryPicker(
-                  chosen: chosenCountries,
-                  onSelect: (country) {
-                    final isoCode = country.codeShort;
-                    if (codes.contains(isoCode)) {
-                      ref
-                          .read(selectedCountriesProvider.notifier)
-                          .removeCountry(isoCode);
-                    } else {
-                      ref
-                          .read(selectedCountriesProvider.notifier)
-                          .addCountry(isoCode);
-                    }
-                  },
-                ),
               ),
-               const SizedBox(height: 12),
-                 GoogleAdWidget(adInfo: AdManager.bannerAd),
-                  const SizedBox(height: 12),
+
+              const SizedBox(height: 8),
+              const GoogleAdWidget(adInfo: AdManager.bannerAd),
+              const SizedBox(height: 8),
             ],
           );
         },

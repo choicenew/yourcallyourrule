@@ -306,108 +306,126 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
   
   // --- Widget Builders (No Changes) ---
   // ... _buildLabelCard, _buildLabelCategoriesCard, _buildLabelChip, _buildInfoCard ...
-    Widget _buildLabelCard(LabelPhoneEntry label) {
-    return Card(
-      elevation: 2,
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          children: [
-            Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(color: Colors.blue.shade100, shape: BoxShape.circle),
-              child: Center(
-                child: FutureBuilder<String>(
-                  future: _getLabelText(label),
-                  builder: (context, snapshot) {
-                    final labelText = snapshot.data ?? '';
-                    return Text(
-                      label.icon ?? (labelText.isNotEmpty ? labelText.substring(0, 1) : '?'),
-                      style: const TextStyle(fontSize: 18, color: Colors.blue),
-                    );
-                  },
-                ),
+  Widget _buildLabelCard(LabelPhoneEntry label) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12.0),
+      padding: const EdgeInsets.all(16.0),
+      decoration: EliteDopamineTheme.warmCardDecoration(
+        context: context,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            decoration: BoxDecoration(
+              color: const Color(0xFF2D9CDB).withValues(alpha: 0.12),
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: FutureBuilder<String>(
+                future: _getLabelText(label),
+                builder: (context, snapshot) {
+                  final labelText = snapshot.data ?? '';
+                  return Text(
+                    label.icon ?? (labelText.isNotEmpty ? labelText.substring(0, 1) : '?'),
+                    style: const TextStyle(fontSize: 18, color: Color(0xFF2D9CDB), fontWeight: FontWeight.w800),
+                  );
+                },
               ),
             ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    label.name.isNotEmpty ? label.name : label.phoneNumber.value,
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 4),
-                  Row(
-                    children: [
-                      FutureBuilder<String>(
-                        future: _getLabelText(label),
-                        builder: (context, snapshot) => Flexible(
-                          child: Text(
-                            snapshot.data ?? '...',
-                            style: const TextStyle(fontSize: 14, color: Colors.blue),
-                            overflow: TextOverflow.ellipsis,
-                          ),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  label.name.isNotEmpty ? label.name : label.phoneNumber.value,
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 4),
+                Row(
+                  children: [
+                    FutureBuilder<String>(
+                      future: _getLabelText(label),
+                      builder: (context, snapshot) => Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF2D9CDB).withValues(alpha: 0.1),
+                          borderRadius: BorderRadius.circular(6),
                         ),
-                      ),
-                      const Text(" | ", style: TextStyle(color: Colors.grey)),
-                      Flexible(
                         child: Text(
-                          label.phoneNumber.toString(),
-                          style: const TextStyle(fontSize: 14, color: Colors.grey),
+                          snapshot.data ?? '...',
+                          style: const TextStyle(fontSize: 11, color: Color(0xFF2D9CDB), fontWeight: FontWeight.w700),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      label.phoneNumber.toString(),
+                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ],
             ),
-            IconButton(
-              icon: const Icon(Icons.edit, color: Colors.blue),
-              onPressed: () => _showEditLabelDialog(label),
-              tooltip: AppLocalizations.of(context)!.edit,
-            ),
-            IconButton(
-              icon: const Icon(Icons.delete, color: Colors.red),
-              onPressed: () => _deleteLabel(label),
-              tooltip: AppLocalizations.of(context)!.deleteButton,
-            ),
-          ],
-        ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.edit_rounded, color: Color(0xFF2D9CDB), size: 20),
+            onPressed: () => _showEditLabelDialog(label),
+            tooltip: AppLocalizations.of(context)!.edit,
+          ),
+          IconButton(
+            icon: const Icon(Icons.delete_outline_rounded, color: Colors.redAccent, size: 20),
+            onPressed: () => _deleteLabel(label),
+            tooltip: AppLocalizations.of(context)!.deleteButton,
+          ),
+        ],
       ),
     );
   }
 
   Widget _buildLabelCategoriesCard() {
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(AppLocalizations.of(context)!.labelCategories, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 16),
-            SizedBox(
-              height: 40,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: _uniqueLabelTexts.length,
-                itemBuilder: (context, index) {
-                  final label = _uniqueLabelTexts[index];
-                  return Padding(padding: const EdgeInsets.only(right: 8.0), child: _buildLabelChip(label));
-                },
-              ),
-            ),
-          ],
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12.0),
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 10,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(AppLocalizations.of(context)!.labelCategories, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w900, color: Colors.black87)),
+          const SizedBox(height: 12),
+          SizedBox(
+            height: 38,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: _uniqueLabelTexts.length,
+              itemBuilder: (context, index) {
+                final label = _uniqueLabelTexts[index];
+                return Padding(padding: const EdgeInsets.only(right: 8.0), child: _buildLabelChip(label));
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -423,40 +441,92 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
     return FutureBuilder<int>(
       future: getCount(),
       builder: (context, snapshot) {
-        return Chip(
-          label: Text(label),
-          avatar: CircleAvatar(
-            backgroundColor: Colors.blue.shade100,
-            child: Text((snapshot.data ?? 0).toString(), style: const TextStyle(fontSize: 12, color: Colors.blue)),
+        return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+          decoration: BoxDecoration(
+            color: const Color(0xFFF7F5F0),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: const Color(0xFFEDE8DF)),
           ),
-          backgroundColor: Colors.blue.shade50,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                label,
+                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.black87),
+              ),
+              const SizedBox(width: 6),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF2D9CDB).withValues(alpha: 0.15),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Text(
+                  (snapshot.data ?? 0).toString(),
+                  style: const TextStyle(fontSize: 11, color: Color(0xFF2D9CDB), fontWeight: FontWeight.w800),
+                ),
+              ),
+            ],
+          ),
         );
       },
     );
   }
 
   Widget _buildInfoCard() {
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          children: [
-            const Icon(Icons.info_outline, color: Colors.blue, size: 24),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(AppLocalizations.of(context)!.aboutLabels, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 4),
-                  Text(AppLocalizations.of(context)!.labelDescription, style: const TextStyle(fontSize: 14, color: Colors.grey)),
-                ],
-              ),
-            ),
-          ],
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12.0),
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: const Color(0xFF2D9CDB).withValues(alpha: 0.05),
+        borderRadius: BorderRadius.circular(16.0),
+        border: Border.all(
+          color: const Color(0xFF2D9CDB).withValues(alpha: 0.15),
+          width: 1.1,
         ),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(6.0),
+            decoration: BoxDecoration(
+              color: const Color(0xFF2D9CDB).withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: const Icon(
+              Icons.info_outline_rounded,
+              color: Color(0xFF2D9CDB),
+              size: 20,
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.aboutLabels,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w800,
+                    color: Color(0xFF2D9CDB),
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  AppLocalizations.of(context)!.labelDescription,
+                  style: const TextStyle(
+                    fontSize: 12.5,
+                    color: Colors.black87,
+                    height: 1.35,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
