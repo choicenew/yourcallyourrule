@@ -8,6 +8,8 @@ import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart';
+import 'package:yourcallyourrule/features/caller_id/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -55,10 +57,140 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     );
   }
 
+  String _getActionTitle(BuildContext context, InterceptAction action) {
+    final l10n = AppLocalizations.of(context)!;
+    switch (action) {
+      case InterceptAction.endCall:
+        return l10n.endCallImmediately;
+      case InterceptAction.answerThenHangup:
+        return l10n.answerThenHangup;
+      case InterceptAction.silenceNoAnswer:
+        return l10n.silenceAndNoAnswer;
+    }
+  }
+
+  void _showInterceptActionSheet(BuildContext context, InterceptAction currentAction) {
+    final l10n = AppLocalizations.of(context)!;
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (ctx) {
+        return Container(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          child: SafeArea(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Container(
+                    width: 36,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.12),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Icon(
+                        Icons.phone_disabled_rounded,
+                        color: EliteDopamineTheme.vibrantCoral,
+                        size: 20,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            l10n.incomingCallInterceptAction,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.black87,
+                            ),
+                          ),
+                          Text(
+                            l10n.chooseDefaultInterceptAction,
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                ...InterceptAction.values.map((action) {
+                  final isSelected = action == currentAction;
+                  return Container(
+                    margin: const EdgeInsets.only(bottom: 8),
+                    decoration: BoxDecoration(
+                      color: isSelected
+                          ? EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.08)
+                          : const Color(0xFFF7F5F0),
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: isSelected
+                            ? EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.3)
+                            : const Color(0xFFEDE8DF),
+                        width: 1.1,
+                      ),
+                    ),
+                    child: ListTile(
+                      dense: true,
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+                      title: Text(
+                        _getActionTitle(context, action),
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: isSelected ? FontWeight.w900 : FontWeight.w600,
+                          color: isSelected ? EliteDopamineTheme.vibrantCoral : Colors.black87,
+                        ),
+                      ),
+                      trailing: isSelected
+                          ? const Icon(
+                              Icons.check_circle_rounded,
+                              color: EliteDopamineTheme.vibrantCoral,
+                              size: 20,
+                            )
+                          : null,
+                      onTap: () {
+                        ref.read(interceptActionConfigProvider.notifier).setInterceptAction(action);
+                        Navigator.pop(ctx);
+                      },
+                    ),
+                  );
+                }),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final asyncStats = ref.watch(homeStatsProvider);
-    final l10n = AppLocalizations.of(context);
+    final currentAction = ref.watch(interceptActionConfigProvider);
+    final l10n = AppLocalizations.of(context)!;
 
     final blockedToday = asyncStats.value?.todayBlocked ?? 0;
     final totalRules = asyncStats.value?.totalRules ?? 0;
@@ -195,13 +327,17 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                   ),
                                 ),
                                 InkWell(
-                                  onTap: () => context.push('/end-call-settings'),
+                                  onTap: () => _showInterceptActionSheet(context, currentAction),
                                   borderRadius: BorderRadius.circular(10),
                                   child: Container(
                                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                                     decoration: BoxDecoration(
                                       color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.12),
                                       borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(
+                                        color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.25),
+                                        width: 1,
+                                      ),
                                     ),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
@@ -213,12 +349,18 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                         ),
                                         const SizedBox(width: 4),
                                         Text(
-                                          l10n.interceptionActionSettingsTitle,
+                                          _getActionTitle(context, currentAction),
                                           style: const TextStyle(
                                             fontSize: 10.5,
                                             fontWeight: FontWeight.w800,
                                             color: EliteDopamineTheme.vibrantCoral,
                                           ),
+                                        ),
+                                        const SizedBox(width: 2),
+                                        const Icon(
+                                          Icons.arrow_drop_down_rounded,
+                                          size: 14,
+                                          color: EliteDopamineTheme.vibrantCoral,
                                         ),
                                       ],
                                     ),

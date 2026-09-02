@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:intl/intl.dart'; // 需要加入这个用于时间格式化，如果没有请忽略或手动格式化
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
@@ -597,7 +598,7 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
   }
   
   Future<void> _showVipExchangeDialog(BuildContext context) async {
-    context.push('/vip-exchange');
+    context.pushNamed(AppRouter.vipExchange);
     if (mounted) {
       await ref.read(deletionProposalProvider.notifier).refreshProposals();
     }
