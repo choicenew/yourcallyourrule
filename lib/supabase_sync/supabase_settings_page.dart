@@ -67,12 +67,9 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
     }
   }
 
-  // ✅ 修正：直接使用 AppRouter 常量进行跳转
   bool _checkVipOrRedirect(bool isVip) {
     if (isVip) return true;
-    
-    // 直接使用常量，不再硬编码字符串
-    context.pushNamed(AppRouter.purchaseSettings); 
+    context.pushNamed(AppRouter.purchase); 
     return false;
   }
 
@@ -117,8 +114,10 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
-        backgroundColor: isError ? Colors.red : Colors.green,
+        backgroundColor: isError ? const Color(0xFFE11D48) : const Color(0xFF10B981),
         behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        margin: const EdgeInsets.all(12),
       ),
     );
   }
@@ -152,7 +151,21 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
     });
 
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context)!.localDatabaseSyncTitle)),
+      backgroundColor: const Color(0xFFFFFBF5),
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context)!.localDatabaseSyncTitle,
+          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        foregroundColor: Colors.black87,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          onPressed: () => Navigator.of(context).maybePop(),
+        ),
+      ),
       body: configAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (err, stack) => Center(child: Text("${AppLocalizations.of(context)!.errorLoadingSettings}: $err")),
@@ -162,185 +175,263 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
           final bool isBusy = _currentOp != _ActiveOperation.none;
           final bool canInteract = !isBusy;
 
-          return Column(
+          return ListView(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             children: [
               const _SupabaseStatusBar(),
-              
-              Expanded(
-                child: ListView(
-                  padding: const EdgeInsets.all(16),
-                  children: [
-                    // Master Device Switch
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.blue.shade50,
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.blue.shade100),
-                      ),
-                      child: SwitchListTile(
-                        title: Text(
-                          AppLocalizations.of(context)!.masterDeviceLabel,
-                          style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
-                        ),
-                        subtitle: Text(AppLocalizations.of(context)!.masterDeviceHelp, style: const TextStyle(fontSize: 12)),
-                        value: config.isMasterDevice,
-                        activeColor: Colors.blue,
-                        onChanged: canInteract ? (val) {
-                          ref.read(supabaseConfigProvider.notifier).toggleMasterDevice(val);
-                        } : null,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
+              const SizedBox(height: 14),
 
-                    // Form Fields
-                    Form(
-                      key: _formKey,
-                      child: Column(
-                        children: [
-                          TextFormField(
-                            controller: _urlCtrl,
-                            enabled: canInteract,
-                            decoration: InputDecoration(
-                              labelText: AppLocalizations.of(context)!.supabaseProjectUrl,
-                              border: const OutlineInputBorder(),
-                              prefixIcon: const Icon(Icons.link),
-                            ),
-                            validator: (v) => v!.isEmpty ? AppLocalizations.of(context)!.requiredField : null,
-                          ),
-                          const SizedBox(height: 16),
-                          TextFormField(
-                            controller: _keyCtrl,
-                            enabled: canInteract,
-                            decoration: InputDecoration(
-                              labelText: AppLocalizations.of(context)!.supabaseAnonKey,
-                              hintText: AppLocalizations.of(context)!.supabaseAnonKeyHint,
-                              border: const OutlineInputBorder(),
-                              prefixIcon: const Icon(Icons.vpn_key),
-                            ),
-                            obscureText: true,
-                            validator: (v) => v!.isEmpty ? AppLocalizations.of(context)!.requiredField : null,
-                          ),
-                          
-                          if (config.isMasterDevice) ...[
-                            const SizedBox(height: 16),
-                            TextFormField(
-                              controller: _connStringCtrl,
-                              enabled: canInteract,
-                              decoration: InputDecoration(
-                                labelText: AppLocalizations.of(context)!.connectionString,
-                                hintText: "postgres://postgres:pass@db.xxx...:5432/postgres",
-                                helperText: AppLocalizations.of(context)!.connectionStringHelper,
-                                border: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.orange),
-                                ),
-                                focusedBorder: const OutlineInputBorder(
-                                  borderSide: BorderSide(color: Colors.orange, width: 2),
-                                ),
-                                prefixIcon: const Icon(Icons.storage, color: Colors.orange),
-                              ),
-                              obscureText: true,
-                              validator: (v) => (config.isMasterDevice && (v == null || v.isEmpty))
-                                  ? AppLocalizations.of(context)!.requiredInitField
-                                  : null,
-                            ),
-                          ],
-                        ],
-                      ),
+              // Master Device Switch 卡片
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: const Color(0xFFEDE8DF), width: 1.2),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.03),
+                      blurRadius: 10,
+                      offset: const Offset(0, 3),
                     ),
-                    const SizedBox(height: 20),
-                    
-                    // Call Logs Switch
+                  ],
+                ),
+                child: SwitchListTile(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                  secondary: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF3B82F6).withValues(alpha: 0.12),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Icon(Icons.hub_rounded, color: Color(0xFF3B82F6), size: 22),
+                  ),
+                  title: Text(
+                    AppLocalizations.of(context)!.masterDeviceLabel,
+                    style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 15, color: Colors.black87),
+                  ),
+                  subtitle: Text(
+                    AppLocalizations.of(context)!.masterDeviceHelp,
+                    style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                  ),
+                  value: config.isMasterDevice,
+                  activeColor: const Color(0xFF3B82F6),
+                  onChanged: canInteract ? (val) {
+                    ref.read(supabaseConfigProvider.notifier).toggleMasterDevice(val);
+                  } : null,
+                ),
+              ),
+              const SizedBox(height: 14),
+
+              // Form Fields 卡片
+              Container(
+                padding: const EdgeInsets.all(18),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: const Color(0xFFEDE8DF), width: 1.2),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.03),
+                      blurRadius: 10,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Supabase Configuration",
+                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900, color: Colors.black87),
+                      ),
+                      const SizedBox(height: 14),
+                      TextFormField(
+                        controller: _urlCtrl,
+                        enabled: canInteract,
+                        decoration: InputDecoration(
+                          labelText: AppLocalizations.of(context)!.supabaseProjectUrl,
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
+                          prefixIcon: const Icon(Icons.link_rounded),
+                        ),
+                        validator: (v) => v!.isEmpty ? AppLocalizations.of(context)!.requiredField : null,
+                      ),
+                      const SizedBox(height: 14),
+                      TextFormField(
+                        controller: _keyCtrl,
+                        enabled: canInteract,
+                        decoration: InputDecoration(
+                          labelText: AppLocalizations.of(context)!.supabaseAnonKey,
+                          hintText: AppLocalizations.of(context)!.supabaseAnonKeyHint,
+                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
+                          prefixIcon: const Icon(Icons.vpn_key_rounded),
+                        ),
+                        obscureText: true,
+                        validator: (v) => v!.isEmpty ? AppLocalizations.of(context)!.requiredField : null,
+                      ),
+                      
+                      if (config.isMasterDevice) ...[
+                        const SizedBox(height: 14),
+                        TextFormField(
+                          controller: _connStringCtrl,
+                          enabled: canInteract,
+                          decoration: InputDecoration(
+                            labelText: AppLocalizations.of(context)!.connectionString,
+                            hintText: "postgres://postgres:pass@db.xxx...:5432/postgres",
+                            helperText: AppLocalizations.of(context)!.connectionStringHelper,
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
+                            prefixIcon: const Icon(Icons.storage_rounded, color: Colors.orange),
+                          ),
+                          obscureText: true,
+                          validator: (v) => (config.isMasterDevice && (v == null || v.isEmpty))
+                              ? AppLocalizations.of(context)!.requiredInitField
+                              : null,
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 14),
+              
+              // 同步选项卡片
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: const Color(0xFFEDE8DF), width: 1.2),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.03),
+                      blurRadius: 10,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  children: [
                     SwitchListTile(
-                      title: Text(AppLocalizations.of(context)!.syncCallHistory),
-                      subtitle: Text(AppLocalizations.of(context)!.syncCallHistorySubtitle),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                      secondary: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF10B981).withValues(alpha: 0.12),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const Icon(Icons.call_rounded, color: Color(0xFF10B981), size: 22),
+                      ),
+                      title: Text(
+                        AppLocalizations.of(context)!.syncCallHistory,
+                        style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14),
+                      ),
+                      subtitle: Text(
+                        AppLocalizations.of(context)!.syncCallHistorySubtitle,
+                        style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                      ),
                       value: config.syncCallLogs,
+                      activeColor: const Color(0xFF10B981),
                       onChanged: canInteract ? (val) {
                         ref.read(supabaseConfigProvider.notifier).toggleCallLogs(val);
                       } : null,
                     ),
-
-                    // Sync Interval Slider
-                    const Divider(),
+                    const Divider(height: 1),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      padding: const EdgeInsets.all(16.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            AppLocalizations.of(context)!.syncIntervalLabel,
-                            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                          ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Expanded(
-                                child: Slider(
-                                  value: config.syncIntervalHours.toDouble(),
-                                  min: 1,
-                                  max: 24,
-                                  divisions: 23,
-                                  label: "${config.syncIntervalHours} h",
-                                  onChanged: canInteract ? (val) {
-                                    ref.read(supabaseConfigProvider.notifier).setSyncInterval(val.toInt());
-                                  } : null,
-                                ),
+                              Text(
+                                AppLocalizations.of(context)!.syncIntervalLabel,
+                                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                               ),
                               Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                                 decoration: BoxDecoration(
-                                  color: Colors.grey.shade200,
-                                  borderRadius: BorderRadius.circular(12),
+                                  color: const Color(0xFFFFF3E0),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Text(
                                   AppLocalizations.of(context)!.syncIntervalValue(config.syncIntervalHours),
-                                  style: const TextStyle(fontWeight: FontWeight.bold),
+                                  style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 12, color: Color(0xFFFF9500)),
                                 ),
                               ),
                             ],
                           ),
+                          Slider(
+                            value: config.syncIntervalHours.toDouble(),
+                            min: 1,
+                            max: 24,
+                            divisions: 23,
+                            activeColor: const Color(0xFFFF9500),
+                            label: "${config.syncIntervalHours} h",
+                            onChanged: canInteract ? (val) {
+                              ref.read(supabaseConfigProvider.notifier).setSyncInterval(val.toInt());
+                            } : null,
+                          ),
                         ],
                       ),
-                    ),
-                    const Divider(height: 30),
-
-                    // 1. Save Button
-                    OutlinedButton.icon(
-                      onPressed: canInteract ? _handleSave : null,
-                      icon: _currentOp == _ActiveOperation.saving
-                          ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2))
-                          : const Icon(Icons.save),
-                      label: Text(AppLocalizations.of(context)!.saveButton),
-                      style: OutlinedButton.styleFrom(minimumSize: const Size(double.infinity, 45)),
-                    ),
-                    const SizedBox(height: 12),
-
-                    // 2. Init Button (Master Only)
-                    if (config.isMasterDevice) ...[
-                      OutlinedButton.icon(
-                        onPressed: canInteract ? () => _handleInitialize(isVip) : null,
-                        icon: _currentOp == _ActiveOperation.initializing
-                            ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.orange))
-                            : const Icon(Icons.settings_ethernet, color: Colors.orange),
-                        label: Text(AppLocalizations.of(context)!.initDbButton, style: const TextStyle(color: Colors.orange)),
-                        style: OutlinedButton.styleFrom(
-                          minimumSize: const Size(double.infinity, 45),
-                          side: const BorderSide(color: Colors.orange),
-                        ),
-                      ),
-                      const SizedBox(height: 12),
-                    ],
-
-                    // 3. Sync Button
-                    FilledButton.icon(
-                      onPressed: canInteract ? () => _handleSync(isVip) : null,
-                      icon: _currentOp == _ActiveOperation.syncing
-                          ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
-                          : (isVip ? const Icon(Icons.sync) : const Icon(Icons.lock)), 
-                      label: Text(isVip ? AppLocalizations.of(context)!.syncNowButton : AppLocalizations.of(context)!.exchangeVip),
-                      style: FilledButton.styleFrom(minimumSize: const Size(double.infinity, 50)),
                     ),
                   ],
                 ),
               ),
+              const SizedBox(height: 18),
+
+              // 操作按钮组
+              // 1. 保存设置
+              OutlinedButton.icon(
+                onPressed: canInteract ? _handleSave : null,
+                icon: _currentOp == _ActiveOperation.saving
+                    ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2))
+                    : const Icon(Icons.save_rounded),
+                label: Text(AppLocalizations.of(context)!.saveButton, style: const TextStyle(fontWeight: FontWeight.bold)),
+                style: OutlinedButton.styleFrom(
+                  minimumSize: const Size(double.infinity, 48),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                  side: const BorderSide(color: Color(0xFF3B82F6), width: 1.2),
+                  foregroundColor: const Color(0xFF3B82F6),
+                ),
+              ),
+              const SizedBox(height: 10),
+
+              // 2. 初始化数据库 (仅主设备)
+              if (config.isMasterDevice) ...[
+                OutlinedButton.icon(
+                  onPressed: canInteract ? () => _handleInitialize(isVip) : null,
+                  icon: _currentOp == _ActiveOperation.initializing
+                      ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.orange))
+                      : const Icon(Icons.settings_ethernet_rounded, color: Colors.orange),
+                  label: Text(AppLocalizations.of(context)!.initDbButton, style: const TextStyle(color: Colors.orange, fontWeight: FontWeight.bold)),
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 48),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                    side: const BorderSide(color: Colors.orange, width: 1.2),
+                  ),
+                ),
+                const SizedBox(height: 10),
+              ],
+
+              // 3. 立即同步
+              FilledButton.icon(
+                onPressed: canInteract ? () => _handleSync(isVip) : null,
+                icon: _currentOp == _ActiveOperation.syncing
+                    ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
+                    : (isVip ? const Icon(Icons.sync_rounded) : const Icon(Icons.lock_rounded)), 
+                label: Text(
+                  isVip ? AppLocalizations.of(context)!.syncNowButton : AppLocalizations.of(context)!.exchangeVip,
+                  style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 15),
+                ),
+                style: FilledButton.styleFrom(
+                  minimumSize: const Size(double.infinity, 50),
+                  backgroundColor: isVip ? const Color(0xFF10B981) : const Color(0xFFFF9500),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                  elevation: 2,
+                ),
+              ),
+              const SizedBox(height: 24),
             ],
           );
         },
@@ -354,15 +445,12 @@ class _SupabaseStatusBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // 1. 监听 VIP 状态
     final purchaseState = ref.watch(purchaseStateProvider);
     final isVip = purchaseState.isPurchasedOrHasTempAccess();
     
-    // 2. 监听配置状态
     final config = ref.watch(supabaseConfigProvider).value;
     final isConfigured = config != null && config.url.isNotEmpty && config.anonKey.isNotEmpty;
 
-    // 3. 定义样式和文本
     Color bgColor;
     IconData icon;
     Color iconColor;
@@ -371,94 +459,90 @@ class _SupabaseStatusBar extends ConsumerWidget {
     VoidCallback? onTap;
 
     if (!isVip) {
-      // --- 未购买状态 ---
-      bgColor = Colors.amber.shade50;
-      icon = Icons.lock_outline;
-      iconColor = Colors.amber.shade800;
-      
-      // 主标题
+      bgColor = const Color(0xFFFFF3E0);
+      icon = Icons.lock_outline_rounded;
+      iconColor = const Color(0xFFFF9500);
       titleText = AppLocalizations.of(context)!.needVipAccess;
-      // 副标题 (请确保 arb 文件中有 vipAccessSubtitle)
       subtitleText = AppLocalizations.of(context)!.vipAccessSubtitle;
-      
-      // 点击跳转逻辑
       onTap = () {
-        context.pushNamed(AppRouter.purchaseSettings);
+        context.pushNamed(AppRouter.purchase);
       };
     } else if (isConfigured) {
-      // --- 已配置且是 VIP ---
-      bgColor = Colors.green.shade50;
-      icon = Icons.check_circle;
-      iconColor = Colors.green;
+      bgColor = const Color(0xFFECFDF5);
+      icon = Icons.check_circle_rounded;
+      iconColor = const Color(0xFF10B981);
       titleText = AppLocalizations.of(context)!.statusConnected;
-      subtitleText = null; // 不需要副标题
-      onTap = null; // 不需要点击
+      subtitleText = null;
+      onTap = null;
     } else {
-      // --- 未配置但已是 VIP ---
       bgColor = Colors.grey.shade100;
-      icon = Icons.settings_remote;
-      iconColor = Colors.grey;
+      icon = Icons.settings_remote_rounded;
+      iconColor = Colors.grey[700]!;
       titleText = AppLocalizations.of(context)!.statusNotConfigured;
       subtitleText = null;
       onTap = null;
     }
 
-    // 4. 构建 UI
-    return Material(
-      color: bgColor, // 使用 Material 包裹以支持 InkWell 水波纹效果
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-          child: Row(
-            children: [
-              Icon(icon, color: iconColor, size: 28),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      AppLocalizations.of(context)!.statusLabel,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 11, // 稍微调小标签字体
-                        color: Colors.black54,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      titleText,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: iconColor,
-                      ),
-                    ),
-                    // 如果有副标题（未购买时），显示它
-                    if (subtitleText != null) ...[
-                      const SizedBox(height: 2),
+    return Container(
+      decoration: BoxDecoration(
+        color: bgColor,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: iconColor.withValues(alpha: 0.25), width: 1.1),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(18),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+            child: Row(
+              children: [
+                Icon(icon, color: iconColor, size: 26),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Text(
-                        subtitleText,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: iconColor.withValues(alpha:0.8),
-                          fontStyle: FontStyle.italic,
+                        AppLocalizations.of(context)!.statusLabel,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w800,
+                          fontSize: 11,
+                          color: Colors.black54,
                         ),
                       ),
+                      const SizedBox(height: 2),
+                      Text(
+                        titleText,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 14,
+                          color: iconColor,
+                        ),
+                      ),
+                      if (subtitleText != null) ...[
+                        const SizedBox(height: 2),
+                        Text(
+                          subtitleText,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: iconColor.withValues(alpha: 0.9),
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
                     ],
-                  ],
+                  ),
                 ),
-              ),
-              // 如果可点击（未购买），在右侧显示一个小箭头作为提示
-              if (onTap != null)
-                Icon(
-                  Icons.arrow_forward_ios, 
-                  size: 14, 
-                  color: iconColor.withValues(alpha:0.5)
-                ),
-            ],
+                if (onTap != null)
+                  Icon(
+                    Icons.arrow_forward_ios_rounded, 
+                    size: 14, 
+                    color: iconColor.withValues(alpha: 0.7),
+                  ),
+              ],
+            ),
           ),
         ),
       ),

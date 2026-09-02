@@ -3323,26 +3323,10 @@
   "fieldIsRequired": "This field is required",
   "@fieldIsRequired": {
     "description": "Validation error message for required fields"
+  },
+  "@answerThenHangup": {
+    "description": "Automatically answer the incoming call and then immediately hang up to terminate the call."
   }
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
- 
- 
- 
  
 
 

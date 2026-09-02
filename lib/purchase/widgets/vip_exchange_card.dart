@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/purchase/models/vip_exchange_rule_model.dart';
 import 'package:yourcallyourrule/purchase/services/vip_exchange_service.dart';
@@ -18,7 +20,7 @@ class VipExchangeCard extends ConsumerWidget {
       price: AppLocalizations.of(context)!.free,
       buttonText: AppLocalizations.of(context)!.exchange,
       onTap: () {
-        Navigator.of(context).pushNamed('/vip-exchange');
+        context.pushNamed(AppRouter.vipExchange);
       },
       gradientColors: const [Color(0xFFFFB74D), Color(0xFFFF9800)],
       icon: Icons.stars_rounded,

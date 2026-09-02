@@ -99,7 +99,7 @@ class KitLiveActivityHandler {
             )
           : null;
 
-      // 提取详情信息
+      // 提取详情信息 (包含运营商、地区、国家、SIM卡、号码类型与标记计数)
       final List<String> details = [];
       if (config.carrier.visible && callerIdData.carrier != null && callerIdData.carrier!.isNotEmpty) {
         details.add(callerIdData.carrier!);
@@ -109,6 +109,12 @@ class KitLiveActivityHandler {
       }
       if (config.countryName.visible && callerIdData.countryName != null && callerIdData.countryName!.isNotEmpty) {
         details.add(callerIdData.countryName!);
+      }
+      if (config.numberType.visible && callerIdData.numberType != PhoneNumberType.unknown) {
+        details.add(callerIdData.numberType.name);
+      }
+      if (config.count.visible && callerIdData.count > 0) {
+        details.add('Marked: ${callerIdData.count}');
       }
       if (config.simCard.visible && simInfo?.displayName != null && simInfo!.displayName!.isNotEmpty) {
         details.add(simInfo.displayName!);
@@ -172,27 +178,27 @@ class KitLiveActivityHandler {
             ),
             top: 4,
           ),
-        if (config.stir.visible && stirInfo != null)
+        if (config.stir.visible)
           LA.padding(
             LA.text(
-              stirInfo.isVerified ? '🛡️ Verified' : 'Not Verified',
+              (stirInfo != null && stirInfo.isVerified) ? '🛡️ STIR: Verified' : 'STIR: Unverified',
               size: config.stir.fontSize,
-              color: stirInfo.isVerified
+              color: (stirInfo != null && stirInfo.isVerified)
                   ? const Color(0xFF2E7D32)
                   : const Color(0xFF888888),
             ),
             top: 4,
           ),
-        if (config.securityMessage.visible && isFraudCall)
+        if (config.securityMessage.visible)
           LA.padding(
             LA.container(
               padding: const LAInsets(top: 6, bottom: 6, left: 8, right: 8),
-              background: const Color(0x22D32F2F),
+              background: isFraudCall ? const Color(0x22D32F2F) : const Color(0x11000000),
               cornerRadius: 6,
               child: LA.text(
                 securityMessageText,
                 size: config.securityMessage.fontSize,
-                color: const Color(0xFFD32F2F),
+                color: isFraudCall ? const Color(0xFFD32F2F) : const Color(0xFF555555),
               ),
             ),
             top: 6,

@@ -246,6 +246,8 @@ class _KitLiveNotificationCustomizationScreenState
     if (config.carrier.visible && mockData.carrier != null) details.add(mockData.carrier!);
     if (config.location.visible && mockData.region != null) details.add(mockData.region!);
     if (config.countryName.visible && mockData.countryName != null) details.add(mockData.countryName!);
+    if (config.numberType.visible) details.add(mockData.numberType.name);
+    if (config.count.visible && mockData.count > 0) details.add('Marked: ${mockData.count}');
     if (config.simCard.visible && mockSimInfo.displayName != null) details.add(mockSimInfo.displayName!);
     final String detailLine = details.join(' · ');
 
@@ -318,21 +320,58 @@ class _KitLiveNotificationCustomizationScreenState
                   ),
                 ),
               ],
-              if (config.stir.visible && mockStirInfo.isVerified) ...[
+              if (config.labels.visible && labelText != null && labelText.isNotEmpty) ...[
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF455A64),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    labelText,
+                    style: TextStyle(fontSize: config.labels.fontSize, color: Colors.white),
+                  ),
+                ),
+              ],
+              if (config.stir.visible) ...[
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    const Icon(Icons.verified_user, color: Colors.green, size: 16),
+                    Icon(
+                      mockStirInfo.isVerified ? Icons.verified_user : Icons.gpp_maybe,
+                      color: mockStirInfo.isVerified ? Colors.green : Colors.grey,
+                      size: 16,
+                    ),
                     const SizedBox(width: 4),
                     Text(
-                      AppLocalizations.of(context).stirVerificationTitle,
-                      style: const TextStyle(
-                        color: Colors.green,
-                        fontSize: 12,
+                      mockStirInfo.isVerified
+                          ? '🛡️ ${AppLocalizations.of(context).stirVerificationTitle}'
+                          : 'STIR: Unverified',
+                      style: TextStyle(
+                        color: mockStirInfo.isVerified ? Colors.green : Colors.grey[700],
+                        fontSize: config.stir.fontSize,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
+                ),
+              ],
+              if (config.securityMessage.visible) ...[
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: const Color(0x11000000),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: Text(
+                    AppLocalizations.of(context).securityMessage,
+                    style: TextStyle(
+                      fontSize: config.securityMessage.fontSize,
+                      color: Colors.grey[800],
+                    ),
+                  ),
                 ),
               ],
             ],
