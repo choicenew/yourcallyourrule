@@ -6039,6 +6039,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get fieldIsRequired => 'This field is required';
+
+  @override
+  String get answerThenHangupDescription => '自动接听来电并立即挂断以终止通话';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).

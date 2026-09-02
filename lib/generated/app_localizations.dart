@@ -814,7 +814,7 @@ abstract class AppLocalizations {
   /// **'All updates completed ({count} rules)'**
   String allUpdateSuccess(Object count);
 
-  /// No description provided for @answerThenHangup.
+  /// Automatically answer the incoming call and then immediately hang up to terminate the call.
   ///
   /// In en, this message translates to:
   /// **'Answer then hang up'**
@@ -11216,11 +11216,17 @@ abstract class AppLocalizations {
   /// **'No settings available for this plugin.'**
   String get noSettingsAvailable;
 
-  /// Validation error message for required fields
+  /// No description provided for @fieldIsRequired.
   ///
   /// In en, this message translates to:
   /// **'This field is required'**
   String get fieldIsRequired;
+
+  /// Description explaining what answer-then-hangup does
+  ///
+  /// In en, this message translates to:
+  /// **'Automatically answer the incoming call and then immediately hang up to terminate it'**
+  String get answerThenHangupDescription;
 }
 
 class _AppLocalizationsDelegate

@@ -3321,8 +3321,9 @@
     "description": "Message shown when a plugin has no settings"
   },
   "fieldIsRequired": "This field is required",
-  "@fieldIsRequired": {
-    "description": "Validation error message for required fields"
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
   },
   "@answerThenHangup": {
     "description": "Automatically answer the incoming call and then immediately hang up to terminate the call."

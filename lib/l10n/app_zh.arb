@@ -3088,5 +3088,6 @@
         "example": "5"
       }
     }
-  }
+  },
+  "answerThenHangupDescription": "自动接听来电并立即挂断以终止通话"
 }

@@ -75,7 +75,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
       case InterceptAction.endCall:
         return l10n.blockActionDescription;
       case InterceptAction.answerThenHangup:
-        return l10n.interceptionActionSettingsSubtitle;
+        return l10n.answerThenHangupDescription;
       case InterceptAction.silenceNoAnswer:
         return l10n.silenceActionDescription;
     }

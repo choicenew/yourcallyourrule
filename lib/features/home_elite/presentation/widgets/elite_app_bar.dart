@@ -123,42 +123,25 @@ class EliteAppBar extends StatelessWidget {
           // 右侧：Pro 模式切换胶囊 + 设置按钮
           Row(
             children: [
-              Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  onTap: () => _handleProSwitch(context),
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                    decoration: BoxDecoration(
-                      color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.12),
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.3),
-                        width: 1,
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Icon(
-                          Icons.dashboard_customize_outlined,
-                          size: 14,
-                          color: EliteDopamineTheme.sunsetTangerine,
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          l10n.phoneRuleManagement,
-                          style: const TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.w800,
-                            color: EliteDopamineTheme.sunsetTangerine,
-                          ),
-                        ),
-                      ],
+              IconButton(
+                icon: Container(
+                  padding: const EdgeInsets.all(7),
+                  decoration: BoxDecoration(
+                    color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.14),
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.35),
+                      width: 1,
                     ),
                   ),
+                  child: const Icon(
+                    Icons.dashboard_customize_outlined,
+                    size: 18,
+                    color: EliteDopamineTheme.sunsetTangerine,
+                  ),
                 ),
+                onPressed: () => _handleProSwitch(context),
+                tooltip: l10n.phoneRuleManagement,
               ),
               const SizedBox(width: 4),
               IconButton(

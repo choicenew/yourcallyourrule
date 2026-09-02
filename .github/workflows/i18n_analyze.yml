@@ -62,19 +62,15 @@ jobs:
         run: |
           REPORT_DIR="i18n_reports"
           echo "--- Analyzer produced the following files ---"
-          ls -la "$REPORT_DIR" || true
-          echo
-          if [ -f "$REPORT_DIR/05_原始数据.json" ]; then
-            echo "--- Top-level summary from 05_原始数据.json ---"
-            python - <<'PY'
-            import json
-            p = "i18n_reports/05_原始数据.json"
-            with open(p, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            s = data.get("summary", {})
-            for k, v in s.items():
-                print(f"  {k}: {v}")
-            PY
+          if [ -d "$REPORT_DIR" ]; then
+            ls -la "$REPORT_DIR"
+            echo
+            if [ -f "$REPORT_DIR/05_原始数据.json" ]; then
+              echo "--- Top-level summary from 05_原始数据.json ---"
+              python -c "import json; data = json.load(open('i18n_reports/05_原始数据.json', 'r', encoding='utf-8')).get('summary', {}); [print(f'  {k}: {v}') for k, v in data.items()]"
+            fi
+          else
+            echo "Warning: $REPORT_DIR not found"
           fi
 
       - name: Upload reports as workflow artifact

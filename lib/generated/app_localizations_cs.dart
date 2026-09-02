@@ -6313,4 +6313,8 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get fieldIsRequired => 'This field is required';
+
+  @override
+  String get answerThenHangupDescription =>
+      'Automatically answer the incoming call and then immediately hang up to terminate it';
 }

@@ -19,7 +19,7 @@ import glob
 from collections import defaultdict
 
 # ============ 配置 ============
-PROJECT_ROOT = r"c:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory"
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 LIB_DIR = os.path.join(PROJECT_ROOT, "lib")
 L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 REPORT_DIR = os.path.join(PROJECT_ROOT, "i18n_reports")
