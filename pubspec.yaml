@@ -2,7 +2,7 @@ name: yourcallyourrule
 description: "A new Flutter project."
 publish_to: 'none'
 
-version: 4.22.06+260902083
+version: 4.22.07+260902083
 
 environment:
   sdk: ^3.8.0
