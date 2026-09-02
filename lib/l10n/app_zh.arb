@@ -3090,8 +3090,5 @@
     }
   },
   "fieldIsRequired": "此字段为必填项",
-  "answerThenHangupDescription": "自动接听来电并立即挂断以终止通话",
-  "stirVerified": "🛡️ 已验证",
-  "stirUnverified": "未验证",
-  "markedCountDisplay": "标记: {count}次"
+  "answerThenHangupDescription": "自动接听来电并立即挂断以终止通话"
 }

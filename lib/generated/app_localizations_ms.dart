@@ -6310,12 +6310,4 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get answerThenHangupDescription =>
       'Automatically answer the incoming call and then immediately hang up to terminate it';
-
-  @override
-  String get stirUnverified => 'Not Verified';
-
-  @override
-  String markedCountDisplay(int count) {
-    return 'Marked: $count';
-  }
 }

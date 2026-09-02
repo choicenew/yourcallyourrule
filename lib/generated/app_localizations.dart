@@ -8776,10 +8776,10 @@ abstract class AppLocalizations {
   /// **'Blocked call from {phoneNumber}'**
   String blockedCallBody(String phoneNumber);
 
-  /// Status text when STIR/SHAKEN is verified
+  /// STIR/SHAKEN verification status: Verified
   ///
   /// In en, this message translates to:
-  /// **'🛡️ Verified'**
+  /// **'Verified'**
   String get stirVerified;
 
   /// STIR/SHAKEN verification status: Not Verified
@@ -11227,18 +11227,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Automatically answer the incoming call and then immediately hang up to terminate it'**
   String get answerThenHangupDescription;
-
-  /// Status text when STIR/SHAKEN is unverified
-  ///
-  /// In en, this message translates to:
-  /// **'Not Verified'**
-  String get stirUnverified;
-
-  /// Text showing number of times phone was marked
-  ///
-  /// In en, this message translates to:
-  /// **'Marked: {count}'**
-  String markedCountDisplay(int count);
 }
 
 class _AppLocalizationsDelegate

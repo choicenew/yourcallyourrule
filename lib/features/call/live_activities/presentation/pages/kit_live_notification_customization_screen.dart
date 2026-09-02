@@ -248,7 +248,7 @@ class _KitLiveNotificationCustomizationScreenState
     if (config.countryName.visible && mockData.countryName != null) details.add(mockData.countryName!);
     if (config.numberType.visible) details.add(mockData.numberType.name);
     if (config.count.visible && mockData.count > 0) {
-      details.add(AppLocalizations.of(context).markedCountDisplay(mockData.count));
+      details.add(AppLocalizations.of(context).callerIdMarkedByCount(mockData.count));
     }
     if (config.simCard.visible && mockSimInfo.displayName != null) details.add(mockSimInfo.displayName!);
     final String detailLine = details.join(' · ');
@@ -349,7 +349,7 @@ class _KitLiveNotificationCustomizationScreenState
                     Text(
                       mockStirInfo.isVerified
                           ? AppLocalizations.of(context).stirVerified
-                          : AppLocalizations.of(context).stirUnverified,
+                          : AppLocalizations.of(context).stirNotVerified,
                       style: TextStyle(
                         color: mockStirInfo.isVerified ? Colors.green : Colors.grey[700],
                         fontSize: config.stir.fontSize,

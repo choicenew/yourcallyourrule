@@ -147,6 +147,9 @@
     }
   },
   "answerThenHangup": "Answer then hang up", 
+  "@answerThenHangup": {
+    "description": "Automatically answer the incoming call and then immediately hang up to terminate the call."
+  }, 
   "appLegalese": "© 2023 Your Call Your Rule. All rights reserved.",
   "applicationSoftware": "Application Software",
   "apply": "Apply",
@@ -3327,36 +3330,6 @@
   "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
   "@answerThenHangupDescription": {
     "description": "Description explaining what answer-then-hangup does"
-  },
-  "@answerThenHangup": {
-    "description": "Automatically answer the incoming call and then immediately hang up to terminate the call."
-  },
-  "stirVerified": "🛡️ Verified",
-  "@stirVerified": {
-    "description": "Status text when STIR/SHAKEN is verified"
-  },
-  "stirUnverified": "Not Verified",
-  "@stirUnverified": {
-    "description": "Status text when STIR/SHAKEN is unverified"
-  },
-  "markedCountDisplay": "Marked: {count}",
-  "@markedCountDisplay": {
-    "description": "Text showing number of times phone was marked",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
   }
-  
-  
-  
-   
-   
- 
- 
- 
- 
-
 }
 

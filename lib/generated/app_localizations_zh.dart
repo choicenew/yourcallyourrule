@@ -4671,7 +4671,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get stirVerified => '🛡️ 已验证';
+  String get stirVerified => '已验证';
 
   @override
   String get stirNotVerified => '未验证';
@@ -6042,14 +6042,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get answerThenHangupDescription => '自动接听来电并立即挂断以终止通话';
-
-  @override
-  String get stirUnverified => '未验证';
-
-  @override
-  String markedCountDisplay(int count) {
-    return '标记: $count次';
-  }
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).

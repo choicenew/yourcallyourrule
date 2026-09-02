@@ -104,9 +104,9 @@ class KitLiveActivityHandler {
         if (context != null) {
           return isVerified
               ? AppLocalizations.of(context)!.stirVerified
-              : AppLocalizations.of(context)!.stirUnverified;
+              : AppLocalizations.of(context)!.stirNotVerified;
         }
-        return isVerified ? '🛡️ Verified' : 'Not Verified';
+        return isVerified ? 'Verified' : 'Not Verified';
       }();
 
       // 提取详情信息 (包含运营商、地区、国家、SIM卡、号码类型与标记计数)
@@ -125,7 +125,7 @@ class KitLiveActivityHandler {
       }
       if (config.count.visible && callerIdData.count > 0) {
         final String countDisplay = context != null
-            ? AppLocalizations.of(context)!.markedCountDisplay(callerIdData.count)
+            ? AppLocalizations.of(context)!.callerIdMarkedByCount(callerIdData.count)
             : 'Marked: ${callerIdData.count}';
         details.add(countDisplay);
       }
