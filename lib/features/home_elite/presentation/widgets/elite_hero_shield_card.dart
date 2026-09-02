@@ -69,121 +69,38 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     }
   }
 
-  void _showInterceptActionSheet(BuildContext context, InterceptAction currentAction) {
+  String _getActionDescription(BuildContext context, InterceptAction action) {
     final l10n = AppLocalizations.of(context)!;
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.transparent,
-      builder: (ctx) {
-        return Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-          child: SafeArea(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Container(
-                    width: 36,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.12),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Icon(
-                        Icons.phone_disabled_rounded,
-                        color: EliteDopamineTheme.vibrantCoral,
-                        size: 20,
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            l10n.incomingCallInterceptAction,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w900,
-                              color: Colors.black87,
-                            ),
-                          ),
-                          Text(
-                            l10n.chooseDefaultInterceptAction,
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.grey[600],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                ...InterceptAction.values.map((action) {
-                  final isSelected = action == currentAction;
-                  return Container(
-                    margin: const EdgeInsets.only(bottom: 8),
-                    decoration: BoxDecoration(
-                      color: isSelected
-                          ? EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.08)
-                          : const Color(0xFFF7F5F0),
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(
-                        color: isSelected
-                            ? EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.3)
-                            : const Color(0xFFEDE8DF),
-                        width: 1.1,
-                      ),
-                    ),
-                    child: ListTile(
-                      dense: true,
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
-                      title: Text(
-                        _getActionTitle(context, action),
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: isSelected ? FontWeight.w900 : FontWeight.w600,
-                          color: isSelected ? EliteDopamineTheme.vibrantCoral : Colors.black87,
-                        ),
-                      ),
-                      trailing: isSelected
-                          ? const Icon(
-                              Icons.check_circle_rounded,
-                              color: EliteDopamineTheme.vibrantCoral,
-                              size: 20,
-                            )
-                          : null,
-                      onTap: () {
-                        ref.read(interceptActionConfigProvider.notifier).setInterceptAction(action);
-                        Navigator.pop(ctx);
-                      },
-                    ),
-                  );
-                }),
-              ],
-            ),
-          ),
-        );
-      },
-    );
+    switch (action) {
+      case InterceptAction.endCall:
+        return l10n.blockActionDescription;
+      case InterceptAction.answerThenHangup:
+        return l10n.interceptionActionSettingsSubtitle;
+      case InterceptAction.silenceNoAnswer:
+        return l10n.silenceActionDescription;
+    }
+  }
+
+  Color _getActionColor(InterceptAction action) {
+    switch (action) {
+      case InterceptAction.endCall:
+        return EliteDopamineTheme.vibrantCoral;
+      case InterceptAction.answerThenHangup:
+        return EliteDopamineTheme.sunsetTangerine;
+      case InterceptAction.silenceNoAnswer:
+        return EliteDopamineTheme.skyAzure;
+    }
+  }
+
+  IconData _getActionIcon(InterceptAction action) {
+    switch (action) {
+      case InterceptAction.endCall:
+        return Icons.phone_disabled_rounded;
+      case InterceptAction.answerThenHangup:
+        return Icons.call_end_rounded;
+      case InterceptAction.silenceNoAnswer:
+        return Icons.notifications_off_rounded;
+    }
   }
 
   @override
@@ -296,77 +213,32 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                                  decoration: BoxDecoration(
-                                    color: EliteDopamineTheme.freshMint.withValues(alpha: 0.15),
-                                    borderRadius: BorderRadius.circular(10),
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                              decoration: BoxDecoration(
+                                color: EliteDopamineTheme.freshMint.withValues(alpha: 0.15),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Icon(
+                                    Icons.bolt_rounded,
+                                    size: 13,
+                                    color: EliteDopamineTheme.freshMint,
                                   ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      const Icon(
-                                        Icons.bolt_rounded,
-                                        size: 13,
-                                        color: EliteDopamineTheme.freshMint,
-                                      ),
-                                      const SizedBox(width: 3),
-                                      Text(
-                                        l10n.enabledStatus,
-                                        style: const TextStyle(
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.w900,
-                                          color: EliteDopamineTheme.freshMint,
-                                          letterSpacing: 0.5,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                InkWell(
-                                  onTap: () => _showInterceptActionSheet(context, currentAction),
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                                    decoration: BoxDecoration(
-                                      color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.12),
-                                      borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(
-                                        color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.25),
-                                        width: 1,
-                                      ),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        const Icon(
-                                          Icons.phone_disabled_rounded,
-                                          size: 12,
-                                          color: EliteDopamineTheme.vibrantCoral,
-                                        ),
-                                        const SizedBox(width: 4),
-                                        Text(
-                                          _getActionTitle(context, currentAction),
-                                          style: const TextStyle(
-                                            fontSize: 10.5,
-                                            fontWeight: FontWeight.w800,
-                                            color: EliteDopamineTheme.vibrantCoral,
-                                          ),
-                                        ),
-                                        const SizedBox(width: 2),
-                                        const Icon(
-                                          Icons.arrow_drop_down_rounded,
-                                          size: 14,
-                                          color: EliteDopamineTheme.vibrantCoral,
-                                        ),
-                                      ],
+                                  const SizedBox(width: 3),
+                                  Text(
+                                    l10n.enabledStatus,
+                                    style: const TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w900,
+                                      color: EliteDopamineTheme.freshMint,
+                                      letterSpacing: 0.5,
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                             const SizedBox(height: 5),
                             Text(
@@ -389,6 +261,141 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                         ),
                       ),
                     ],
+                  ),
+
+                  // 拦截动作快捷控制台：3 块并排选择 + 底部联动解释条
+                  Container(
+                    margin: const EdgeInsets.only(top: 14),
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFFBF9F5),
+                      borderRadius: BorderRadius.circular(18),
+                      border: Border.all(
+                        color: const Color(0xFFEDE8DF),
+                        width: 1.1,
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              l10n.interceptionActionSettingsTitle,
+                              style: const TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w800,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            Text(
+                              _getActionTitle(context, currentAction),
+                              style: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w900,
+                                color: _getActionColor(currentAction),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        // 3 块并排等分选择器
+                        Row(
+                          children: InterceptAction.values.map((action) {
+                            final isSelected = action == currentAction;
+                            final color = _getActionColor(action);
+                            return Expanded(
+                              child: GestureDetector(
+                                onTap: () => ref
+                                    .read(interceptActionConfigProvider.notifier)
+                                    .setInterceptAction(action),
+                                child: AnimatedContainer(
+                                  duration: const Duration(milliseconds: 200),
+                                  margin: const EdgeInsets.symmetric(horizontal: 3),
+                                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+                                  decoration: BoxDecoration(
+                                    color: isSelected ? Colors.white : Colors.transparent,
+                                    borderRadius: BorderRadius.circular(12),
+                                    border: Border.all(
+                                      color: isSelected ? color : const Color(0xFFE2DDD5),
+                                      width: isSelected ? 1.5 : 1,
+                                    ),
+                                    boxShadow: isSelected
+                                        ? [
+                                            BoxShadow(
+                                              color: color.withValues(alpha: 0.15),
+                                              blurRadius: 8,
+                                              offset: const Offset(0, 2),
+                                            ),
+                                          ]
+                                        : null,
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(
+                                        _getActionIcon(action),
+                                        size: 18,
+                                        color: isSelected ? color : Colors.grey[600],
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        _getActionTitle(context, action),
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 11,
+                                          fontWeight: isSelected ? FontWeight.w900 : FontWeight.w600,
+                                          color: isSelected ? color : Colors.grey[700],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                        const SizedBox(height: 8),
+                        // 底部联动解释条
+                        Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+                          decoration: BoxDecoration(
+                            color: _getActionColor(currentAction).withValues(alpha: 0.08),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color: _getActionColor(currentAction).withValues(alpha: 0.18),
+                              width: 1,
+                            ),
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.info_outline_rounded,
+                                size: 14,
+                                color: _getActionColor(currentAction),
+                              ),
+                              const SizedBox(width: 6),
+                              Expanded(
+                                child: Text(
+                                  _getActionDescription(context, currentAction),
+                                  style: TextStyle(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.grey[800],
+                                    height: 1.3,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
 
                   const SizedBox(height: 16),
