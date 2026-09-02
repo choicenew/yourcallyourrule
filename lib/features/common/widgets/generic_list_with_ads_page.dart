@@ -306,8 +306,8 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 提示卡片
-          if (widget.infoCard != null) ...[widget.infoCard!, const SizedBox(height: 12)],
+          // 提示卡片（支持标准折叠与展开）
+          if (widget.infoCard != null) ...[_buildCollapsibleInfoCard(), const SizedBox(height: 12)],
 
           // 头部内容（如果有）
           if (widget.headerContent != null) ...[widget.headerContent!, const SizedBox(height: 12)],

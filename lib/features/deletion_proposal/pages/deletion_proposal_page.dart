@@ -597,7 +597,7 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
   }
   
   Future<void> _showVipExchangeDialog(BuildContext context) async {
-    context.pushNamed('/vip-exchange');
+    context.push('/vip-exchange');
     if (mounted) {
       await ref.read(deletionProposalProvider.notifier).refreshProposals();
     }

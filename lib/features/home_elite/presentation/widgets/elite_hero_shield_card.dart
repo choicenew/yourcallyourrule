@@ -164,32 +164,67 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                              decoration: BoxDecoration(
-                                color: EliteDopamineTheme.freshMint.withValues(alpha: 0.15),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  const Icon(
-                                    Icons.bolt_rounded,
-                                    size: 13,
-                                    color: EliteDopamineTheme.freshMint,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                  decoration: BoxDecoration(
+                                    color: EliteDopamineTheme.freshMint.withValues(alpha: 0.15),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
-                                  const SizedBox(width: 3),
-                                  Text(
-                                    l10n.enabledStatus,
-                                    style: const TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w900,
-                                      color: EliteDopamineTheme.freshMint,
-                                      letterSpacing: 0.5,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      const Icon(
+                                        Icons.bolt_rounded,
+                                        size: 13,
+                                        color: EliteDopamineTheme.freshMint,
+                                      ),
+                                      const SizedBox(width: 3),
+                                      Text(
+                                        l10n.enabledStatus,
+                                        style: const TextStyle(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w900,
+                                          color: EliteDopamineTheme.freshMint,
+                                          letterSpacing: 0.5,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () => context.push('/end-call-settings'),
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                    decoration: BoxDecoration(
+                                      color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.12),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        const Icon(
+                                          Icons.phone_disabled_rounded,
+                                          size: 12,
+                                          color: EliteDopamineTheme.vibrantCoral,
+                                        ),
+                                        const SizedBox(width: 4),
+                                        Text(
+                                          l10n.interceptionActionSettingsTitle,
+                                          style: const TextStyle(
+                                            fontSize: 10.5,
+                                            fontWeight: FontWeight.w800,
+                                            color: EliteDopamineTheme.vibrantCoral,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                             const SizedBox(height: 5),
                             Text(

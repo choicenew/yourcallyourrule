@@ -292,14 +292,27 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
             ? AppLocalizations.of(context)!.save
             : AppLocalizations.of(context)!.add;
 
-    return Dialog(
-      child: Container(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children:
-              _isCropping
-                  ? [
+    return AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+      contentPadding: const EdgeInsets.fromLTRB(20, 20, 20, 12),
+      title: _isCropping
+          ? null
+          : Text(
+              title,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w900,
+                color: widget.themeColor,
+              ),
+            ),
+      content: SizedBox(
+        width: double.maxFinite,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: _isCropping
+                ? [
                     AvatarCropView(
                       imageFile: _croppingImage!,
                       onCrop: _onCrop,
@@ -307,52 +320,29 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                       themeColor: widget.themeColor,
                     ),
                   ]
-                  : [
-                    Text(
-                      title,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: widget.themeColor,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
+                : [
                     Center(
                       child: GestureDetector(
                         onTap: _pickImage,
                         child: Stack(
                           children: [
                             CircleAvatar(
-                              radius: 40,
-                              backgroundColor: widget.themeColor.withValues(
-                                alpha: 0.1,
-                              ),
-                              backgroundImage:
-                                  _newAvatarBytes != null
-                                      ? MemoryImage(_newAvatarBytes!)
-                                      : (widget.contact?.avatar != null
-                                          ? (widget.contact!.avatar!.startsWith(
-                                                'http',
-                                              )
-                                              ? NetworkImage(
-                                                widget.contact!.avatar!,
-                                              )
-                                              : FileImage(
-                                                    File(
-                                                      widget.contact!.avatar!,
-                                                    ),
-                                                  )
-                                                  as ImageProvider)
-                                          : null),
-                              child:
-                                  (_newAvatarBytes == null &&
-                                          widget.contact?.avatar == null)
-                                      ? Icon(
-                                        Icons.person,
-                                        size: 40,
-                                        color: widget.themeColor,
-                                      )
-                                      : null,
+                              radius: 36,
+                              backgroundColor: widget.themeColor.withValues(alpha: 0.1),
+                              backgroundImage: _newAvatarBytes != null
+                                  ? MemoryImage(_newAvatarBytes!)
+                                  : (widget.contact?.avatar != null
+                                      ? (widget.contact!.avatar!.startsWith('http')
+                                          ? NetworkImage(widget.contact!.avatar!)
+                                          : FileImage(File(widget.contact!.avatar!)) as ImageProvider)
+                                      : null),
+                              child: (_newAvatarBytes == null && widget.contact?.avatar == null)
+                                  ? Icon(
+                                      Icons.person_rounded,
+                                      size: 36,
+                                      color: widget.themeColor,
+                                    )
+                                  : null,
                             ),
                             Positioned(
                               right: 0,
@@ -364,8 +354,8 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Icon(
-                                  Icons.camera_alt,
-                                  size: 16,
+                                  Icons.camera_alt_rounded,
+                                  size: 14,
                                   color: widget.themeColor,
                                 ),
                               ),
@@ -379,52 +369,67 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                       controller: _nameController,
                       decoration: InputDecoration(
                         labelText: AppLocalizations.of(context)!.name,
-                        hintText:
-                            AppLocalizations.of(context)!.enterContactName,
-                        border: const OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: widget.themeColor),
+                        hintText: AppLocalizations.of(context)!.enterContactName,
+                        filled: true,
+                        fillColor: const Color(0xFFF7F5F0),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                          borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
                         ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                          borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 12),
                     TextField(
                       controller: _phoneController,
                       decoration: InputDecoration(
                         labelText: AppLocalizations.of(context)!.phoneNumber,
-                        hintText:
-                            AppLocalizations.of(
-                              context,
-                            )!.enterPhoneNumberMultiple,
-                        border: const OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: widget.themeColor),
+                        hintText: AppLocalizations.of(context)!.enterPhoneNumberMultiple,
+                        filled: true,
+                        fillColor: const Color(0xFFF7F5F0),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                          borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
                         ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                          borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                       ),
                       keyboardType: TextInputType.phone,
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 12),
                     TextField(
                       controller: _emailController,
                       decoration: InputDecoration(
                         labelText: AppLocalizations.of(context)!.email,
-                        hintText:
-                            AppLocalizations.of(context)!.enterEmailOptional,
-                        border: const OutlineInputBorder(),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: widget.themeColor),
+                        hintText: AppLocalizations.of(context)!.enterEmailOptional,
+                        filled: true,
+                        fillColor: const Color(0xFFF7F5F0),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                          borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
                         ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14),
+                          borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                       ),
                       keyboardType: TextInputType.emailAddress,
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 14),
                     _buildLabelChips(),
                     const SizedBox(height: 8),
                     PublicSelectLabel(
                       initialLabelId: null, // Always allow adding a new label
                       onLabelIdChanged: (labelId) {
-                        if (labelId != null &&
-                            !_selectedLabelIds.contains(labelId)) {
+                        if (labelId != null && !_selectedLabelIds.contains(labelId)) {
                           setState(() {
                             _selectedLabelIds.add(labelId);
                           });
@@ -432,45 +437,41 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                       },
                       themeColor: widget.themeColor,
                     ),
-                    const SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          onPressed:
-                              _isProcessing
-                                  ? null
-                                  : () => Navigator.pop(context),
-                          child: Text(
-                            AppLocalizations.of(context)!.cancelButton,
-                          ),
-                        ),
-                        ElevatedButton(
-                          onPressed: _isProcessing ? null : _saveContact,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: widget.themeColor,
-                            disabledBackgroundColor: widget.themeColor
-                                .withValues(alpha: 0.5),
-                          ),
-                          child:
-                              _isProcessing
-                                  ? const SizedBox(
-                                    width: 20,
-                                    height: 20,
-                                    child: CircularProgressIndicator(
-                                      strokeWidth: 2,
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                        Colors.white,
-                                      ),
-                                    ),
-                                  )
-                                  : Text(actionText),
-                        ),
-                      ],
-                    ),
                   ],
+          ),
         ),
       ),
+      actions: _isCropping
+          ? null
+          : [
+              TextButton(
+                onPressed: _isProcessing ? null : () => Navigator.pop(context),
+                child: Text(
+                  AppLocalizations.of(context)!.cancelButton,
+                  style: TextStyle(color: Colors.grey[600], fontWeight: FontWeight.w700),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: _isProcessing ? null : _saveContact,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: widget.themeColor,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                  elevation: 0,
+                ),
+                child: _isProcessing
+                    ? const SizedBox(
+                        width: 18,
+                        height: 18,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                        ),
+                      )
+                    : Text(actionText, style: const TextStyle(fontWeight: FontWeight.w800)),
+              ),
+            ],
     );
   }
 }
