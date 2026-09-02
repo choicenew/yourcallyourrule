@@ -274,6 +274,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
         callerIdData: state.callerIdData!,
         simInfo: null,
         stirInfo: null,
+        forceShow: true,
       );
     }
   }

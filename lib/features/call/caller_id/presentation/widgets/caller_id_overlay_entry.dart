@@ -122,9 +122,9 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
             key: Key(_callerIdData!.id),
             behavior: HitTestBehavior.translucent,
              onTap: () {
-              // 当用户点击内容卡片时，触发关闭操作。
-              debugPrint("Content tapped, closing overlay...");
-              FloatingWindowAndroid.closeOverlay();
+              // 当用户点击内容卡片时，触发从悬浮窗内部关闭操作。
+              debugPrint("Content tapped, closing overlay from overlay...");
+              FloatingWindowAndroid.closeOverlayFromOverlay();
             },
 
             child: CallerIdContentBuilder.buildOverlayContainer(

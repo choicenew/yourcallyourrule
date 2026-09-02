@@ -92,7 +92,7 @@ class SettingsPage extends ConsumerWidget {
 
           const SizedBox(height: 20),
 
-          // 2. 防护与拦截总控组
+          // 2. 防护与来电显示总控组
           _buildSectionHeader(l10n.functionSettingsTitle, Icons.security_rounded, EliteDopamineTheme.vibrantCoral),
           _buildGroupedCard(
             context: context,
@@ -107,11 +107,51 @@ class SettingsPage extends ConsumerWidget {
               ),
               _buildDivider(),
               _buildTile(
+                icon: Icons.filter_alt_rounded,
+                iconColor: EliteDopamineTheme.softLilac,
+                title: l10n.filterControlTitle,
+                subtitle: l10n.filterControlSubtitle,
+                onTap: () => GoRouter.of(context).push('/filter-settings'),
+              ),
+              _buildDivider(),
+              _buildTile(
                 icon: Icons.timelapse_rounded,
                 iconColor: EliteDopamineTheme.sunsetTangerine,
                 title: l10n.callFrequencyInterceptionTitle,
                 subtitle: l10n.callFrequencyInterceptionSubtitle,
                 onTap: () => _showTimeInterceptorSheet(context),
+              ),
+              _buildDivider(),
+              _buildTile(
+                icon: Icons.notifications_active_rounded,
+                iconColor: EliteDopamineTheme.skyAzure,
+                title: l10n.callerIdSettingsTitle,
+                subtitle: l10n.callerIdSettingsSubtitle,
+                onTap: () => GoRouter.of(context).push('/caller-id-settings'),
+              ),
+              _buildDivider(),
+              _buildTile(
+                icon: Icons.picture_in_picture_alt_rounded,
+                iconColor: EliteDopamineTheme.warmSunAmber,
+                title: l10n.callerIdCustomizationTitle,
+                subtitle: l10n.callerIdCustomizationSubtitle,
+                onTap: () => GoRouter.of(context).push('/caller-id-customization'),
+              ),
+              _buildDivider(),
+              _buildTile(
+                icon: Icons.flash_on_rounded,
+                iconColor: EliteDopamineTheme.freshMint,
+                title: l10n.liveNotificationCustomizationTitle,
+                subtitle: l10n.liveNotificationCustomizationSubtitle,
+                onTap: () => GoRouter.of(context).push('/kit-live-notification-customization'),
+              ),
+              _buildDivider(),
+              _buildTile(
+                icon: Icons.warning_amber_rounded,
+                iconColor: const Color(0xFFE11D48),
+                title: l10n.fraudAlerSettingTitle,
+                subtitle: l10n.fraudAlerSettingSubtitle,
+                onTap: () => GoRouter.of(context).push('/fraud-alert-settings'),
               ),
               _buildDivider(),
               _buildTile(
@@ -121,20 +161,12 @@ class SettingsPage extends ConsumerWidget {
                 subtitle: l10n.permissionSubtitle,
                 onTap: () => GoRouter.of(context).push('/special-permissions'),
               ),
-              _buildDivider(),
-              _buildTile(
-                icon: Icons.filter_alt_rounded,
-                iconColor: EliteDopamineTheme.softLilac,
-                title: l10n.filterControlTitle,
-                subtitle: l10n.filterControlSubtitle,
-                onTap: () => GoRouter.of(context).push('/filter-settings'),
-              ),
             ],
           ),
 
           const SizedBox(height: 20),
 
-          // 3. 云端同步与数据
+          // 3. 云端同步与数据备份组
           _buildSectionHeader(l10n.cloudSyncAndBackupTitle, Icons.cloud_done_rounded, EliteDopamineTheme.skyAzure),
           _buildGroupedCard(
             context: context,
@@ -143,24 +175,32 @@ class SettingsPage extends ConsumerWidget {
               _buildTile(
                 icon: Icons.public_rounded,
                 iconColor: EliteDopamineTheme.skyAzure,
-                title: l10n.databaseSyncTitle,
-                subtitle: l10n.localDatabaseSyncDescription,
-                onTap: () => GoRouter.of(context).push('/country-sync-settings'),
+                title: l10n.countrySyncSettingsTitle,
+                subtitle: l10n.countrySyncSettingsSubtitle,
+                onTap: () => GoRouter.of(context).push('/${AppRouter.countrySyncSettings}'),
               ),
               _buildDivider(),
               _buildTile(
                 icon: Icons.cloud_sync_rounded,
                 iconColor: EliteDopamineTheme.freshMint,
-                title: l10n.databaseSyncTitle,
-                subtitle: l10n.localDatabaseSyncDescription,
+                title: l10n.localDatabaseSyncTitle,
+                subtitle: l10n.localDatabaseSyncSubtitle,
                 onTap: () => GoRouter.of(context).push('/supabase-settings'),
+              ),
+              _buildDivider(),
+              _buildTile(
+                icon: Icons.cloud_queue_rounded,
+                iconColor: EliteDopamineTheme.skyAzure,
+                title: l10n.cloudSyncSettingsTitle,
+                subtitle: l10n.cloudSyncSettingsSubtitle,
+                onTap: () => GoRouter.of(context).push('/cloud-settings'),
               ),
               _buildDivider(),
               _buildTile(
                 icon: Icons.settings_backup_restore_rounded,
                 iconColor: EliteDopamineTheme.warmSunAmber,
-                title: l10n.backupRestoreTitle,
-                subtitle: l10n.backupRestoreSubtitle,
+                title: l10n.backupAndRestoreTitle,
+                subtitle: l10n.backupAndRestoreSubtitle,
                 onTap: () => GoRouter.of(context).push('/backup-restore'),
               ),
               _buildDivider(),

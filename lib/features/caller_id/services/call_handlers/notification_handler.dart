@@ -163,14 +163,15 @@ class NotificationHandler {
   /// 显示来电信息通知
   Future<void> showCallerIdNotification({
     required CallerIdData callerIdData,
-       required SimInfo? simInfo,
-       required StirInfo? stirInfo,
+    required SimInfo? simInfo,
+    required StirInfo? stirInfo,
+    bool forceShow = false,
   }) async {
   
-        // 【核心】: 在执行时，直接从 Repository 读取最新的状态
+    // 【核心】: 在执行时，直接从 Repository 读取最新的状态
     final useLocalNotification = await _configRepository.getUseLocalNotification();
-      debugPrint(">>> [NotificationHandler] Attempting to show CallerId notification. Is useLocalNotification enabled? $useLocalNotification");
-    if (!useLocalNotification) return;
+    debugPrint(">>> [NotificationHandler] Attempting to show CallerId notification. Is useLocalNotification enabled? $useLocalNotification, forceShow: $forceShow");
+    if (!useLocalNotification && !forceShow) return;
 
     final context = AppRouter.navigatorKey.currentContext;
     if (context == null) return;
