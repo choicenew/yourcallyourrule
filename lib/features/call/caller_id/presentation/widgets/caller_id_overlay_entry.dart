@@ -118,9 +118,9 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
           // 在 Isolate 中，浮窗通常是可关闭的
                  return Material(
                     color: Colors.transparent,
-                    child: InkWell(
+                    child: GestureDetector(
             key: Key(_callerIdData!.id),
-           
+            behavior: HitTestBehavior.translucent,
              onTap: () {
               // 当用户点击内容卡片时，触发关闭操作。
               debugPrint("Content tapped, closing overlay...");

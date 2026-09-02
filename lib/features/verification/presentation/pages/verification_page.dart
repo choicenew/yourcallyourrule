@@ -145,6 +145,7 @@ class _VerificationPageState extends ConsumerState<VerificationPage> {
                   callerIdData: verificationState.callerIdData!,
                   fallbackPhoneNumber: _phoneNumberController.text,
                   onTestOverlay: notifier.testOverlay,
+                  onCloseOverlay: notifier.closeOverlay,
                   onTestLiveActivity: notifier.testLiveActivity,
                   onTestNotification: notifier.testNotification,
                   onTestDefaultMode: notifier.testDefaultDisplayMode,

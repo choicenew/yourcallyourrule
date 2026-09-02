@@ -8,6 +8,7 @@ class VerificationCallerIdCard extends StatelessWidget {
   final CallerIdData callerIdData;
   final String fallbackPhoneNumber;
   final VoidCallback onTestOverlay;
+  final VoidCallback onCloseOverlay;
   final VoidCallback onTestLiveActivity;
   final VoidCallback onTestNotification;
   final VoidCallback onTestDefaultMode;
@@ -17,6 +18,7 @@ class VerificationCallerIdCard extends StatelessWidget {
     required this.callerIdData,
     required this.fallbackPhoneNumber,
     required this.onTestOverlay,
+    required this.onCloseOverlay,
     required this.onTestLiveActivity,
     required this.onTestNotification,
     required this.onTestDefaultMode,
@@ -186,6 +188,24 @@ class VerificationCallerIdCard extends StatelessWidget {
               const SizedBox(width: 8),
               Expanded(
                 child: OutlinedButton.icon(
+                  onPressed: onCloseOverlay,
+                  icon: const Icon(Icons.close_fullscreen_rounded, size: 14),
+                  label: Text(l10n.cancel, style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w800)),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: Colors.redAccent,
+                    side: const BorderSide(color: Colors.redAccent, width: 1.1),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              Expanded(
+                child: OutlinedButton.icon(
                   onPressed: onTestLiveActivity,
                   icon: const Icon(Icons.bolt_rounded, size: 14),
                   label: const Text('Live Island', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w800)),
@@ -197,11 +217,7 @@ class VerificationCallerIdCard extends StatelessWidget {
                   ),
                 ),
               ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Row(
-            children: [
+              const SizedBox(width: 8),
               Expanded(
                 child: OutlinedButton.icon(
                   onPressed: onTestNotification,

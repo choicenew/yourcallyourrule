@@ -248,6 +248,12 @@ class VerificationNotifier extends Notifier<VerificationState> {
     }
   }
 
+  /// 关闭悬浮窗 (Close Overlay)
+  Future<void> closeOverlay() async {
+    final overlayHandler = ref.read(overlayHandlerProvider);
+    overlayHandler.closeOverlay();
+  }
+
   /// 2. 触发 Live Activity / 灵动岛效果测试
   Future<void> testLiveActivity() async {
     if (state.callerIdData != null) {
