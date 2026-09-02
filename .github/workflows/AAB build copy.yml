@@ -1,0 +1,239 @@
+name: Test AAB Production Build & Release 
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - elite-ui
+
+jobs:
+  build_and_release:
+    name: 1. Build AAB & Extract APK
+    runs-on: ubuntu-latest
+    # 关键条件：如果是手动触发，或者提交信息包含 "update version" 则执行
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, 'update version')
+    permissions:
+      contents: write
+
+    outputs:
+      release_tag: ${{ steps.meta.outputs.version }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ==============================================
+      # 1. 清理磁盘空间 (保留此步骤，防止空间不足)
+      # ==============================================
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: false
+          android: false 
+          dotnet: true
+          haskell: true
+          large-packages: true
+          docker-images: true
+          swap-storage: false # 关闭 swap 清理以节省时间
+
+      - name: Extract metadata from pubspec.yaml
+        id: meta
+        run: |
+          VERSION_STRING=$(grep 'version: ' pubspec.yaml | sed 's/version: //')
+          echo "version=v$VERSION_STRING" >> $GITHUB_OUTPUT
+          
+      - name: Extract Latest Commit Message
+        id: commit_message
+        run: |
+          echo "message<<EOF" >> $GITHUB_OUTPUT
+          git log -1 --pretty=%B >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.1' # 锁定版本以保证稳定性
+          channel: 'stable'
+          cache: true
+
+      - name: Get Flutter packages
+        run: flutter pub get
+
+      - name: Create .env file for build
+        run: |
+          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
+          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
+
+      - name: Generate Envied variables
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+
+      - name: Decode keystore and create key.properties
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/app/key.jks
+          echo "storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" > android/key.properties
+          echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.ANDROID_KEYSTORE_ALIAS }}" >> android/key.properties
+          echo "storeFile=key.jks" >> android/key.properties
+
+      # ==========================================================
+      # 构建核心：只构建 AAB，不再构建 Split APKs
+      # ==========================================================
+      - name: Build AAB
+        run: flutter build appbundle --release
+
+      # 使用 Bundletool 从 AAB 提取 Universal APK
+      # 这样可以替代繁琐的 split-per-abi，且保证签名一致
+      - name: Setup Bundletool & Extract APK
+        run: |
+          wget https://github.com/google/bundletool/releases/download/1.15.6/bundletool-all-1.15.6.jar -O bundletool.jar
+          
+          echo "Generating Universal APK..."
+          java -jar bundletool.jar build-apks \
+            --bundle=build/app/outputs/bundle/release/app-release.aab \
+            --output=app.apks \
+            --mode=universal \
+            --ks=android/app/key.jks \
+            --ks-pass=pass:${{ secrets.ANDROID_KEYSTORE_PASSWORD }} \
+            --ks-key-alias=${{ secrets.ANDROID_KEYSTORE_ALIAS }} \
+            --key-pass=pass:${{ secrets.ANDROID_KEY_PASSWORD }}
+            
+          unzip -p app.apks universal.apk > app-release-universal.apk
+          echo "✅ Universal APK generated successfully"
+
+      # ==========================================================
+      # 发布步骤：上传 AAB 和 Universal APK
+      # ==========================================================
+      - name: Publish to Private GitHub Release (Current Repo)
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ steps.meta.outputs.version }}
+          name: "Internal Build ${{ steps.meta.outputs.version }}"
+          body: |
+            **✨ What's New:**
+            
+            ${{ steps.commit_message.outputs.message }}
+            
+            ---
+            *Note: APK is universal (compatible with all arm64/x86 devices).*
+          generateReleaseNotes: true
+          allowUpdates: true
+          artifacts: |
+            build/app/outputs/bundle/release/app-release.aab
+            app-release-universal.apk
+
+  # 下面的 Job 保持你的“正确版本”逻辑不变，用于同步到公共仓库和发送通知
+  sync_to_public:
+    name: 2. Sync Release to Public
+    needs: build_and_release
+    if: success()
+    runs-on: ubuntu-latest
+    outputs:
+      safe_release_tag: ${{ steps.sync_script.outputs.safe_tag }}
+    steps:
+      - name: Authenticate gh CLI with PAT
+        run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
+      - name: Sync Script
+        id: sync_script
+        env:
+          GH_TOKEN: ${{ secrets.MY_PAT }}
+          SOURCE_REPO: ${{ github.repository }}
+          TARGET_REPO: "choicenew/yourcallrule"
+          SOURCE_TAG: ${{ needs.build_and_release.outputs.release_tag }}
+        run: |
+          set -ex
+          RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo "$SOURCE_REPO" --json name,body)
+          TITLE=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.name')
+          BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
+          CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
+          
+          mkdir -p release_assets
+          # 只下载通用 APK
+          gh release download "$SOURCE_TAG" --repo "$SOURCE_REPO" --pattern "app-release-universal.apk" --dir release_assets
+          
+          SAFE_TARGET_TAG="${SOURCE_TAG//+/-}"
+          echo "safe_tag=${SAFE_TARGET_TAG}" >> $GITHUB_OUTPUT
+          
+          (gh release delete "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" --yes && echo "Deleted existing release.") || echo "No existing release found."
+          gh release create "$SAFE_TARGET_TAG" --repo "$TARGET_REPO" --title "$TITLE" --notes "$CLEAN_BODY" release_assets/*
+
+
+  send_to_telegram:
+    name: 3. Send Release to Telegram
+    needs: [build_and_release, sync_to_public]
+    if: success()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Authenticate gh CLI with PAT
+        run: echo "${{ secrets.MY_PAT }}" | gh auth login --with-token
+
+      - name: Send Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SOURCE_TAG: ${{ needs.build_and_release.outputs.release_tag }}
+          SAFE_TAG: ${{ needs.sync_to_public.outputs.safe_release_tag }}
+          SOURCE_REPO: ${{ github.repository }}
+          TARGET_REPO_URL: "https://github.com/ngodeel/yourcallrule"
+          PLAYSTORE_URL: "https://play.google.com/store/apps/details?id=com.yours.yourcallyourrule"
+        run: |
+          set -e
+          RELEASE_DETAILS_JSON=$(gh release view "$SOURCE_TAG" --repo "$SOURCE_REPO" --json name,body)
+          BODY=$(echo "$RELEASE_DETAILS_JSON" | jq -r '.body')
+
+          APK_FILENAME="app-release-universal.apk"
+          mkdir -p release_assets
+          (gh release download "$SOURCE_TAG" --repo "$SOURCE_REPO" --pattern "$APK_FILENAME" --dir release_assets) || echo "Warning: Failed to download APK. Will skip sending the file."
+          APK_PATH="release_assets/$APK_FILENAME"
+
+          RELEASE_URL="${TARGET_REPO_URL}/releases/tag/${SAFE_TAG}"
+          PLUGINS_LINK="${TARGET_REPO_URL}/tree/main/plugins"
+          TRANSLATE_LINK="${TARGET_REPO_URL}/tree/main/lib/l10n"
+
+          # 1. 移除 "Full Changelog"
+          CLEAN_BODY=$(echo "$BODY" | sed '/^\*\*Full Changelog\*\*:/,$d')
+
+          # 2. 使用已经验证可用的 += $'\n' 追加写法，和独立workflow完全一致
+          MESSAGE="🚀 *New Release Available: \`${SAFE_TAG}\`*"
+          MESSAGE+=$'\n\n'
+          MESSAGE+="*What's New:*"
+          MESSAGE+=$'\n'
+          MESSAGE+="$CLEAN_BODY"
+          MESSAGE+=$'\n\n'
+          MESSAGE+="[View Full Release on GitHub](${RELEASE_URL})"
+          MESSAGE+=$'\n'
+          MESSAGE+="[Get it on Play Store](${PLAYSTORE_URL})"
+
+          COMMUNITY_MESSAGE=$'\n\n---\n*Community contributions are welcome!*\nWe invite you to PR [plugins](${PLUGINS_LINK}) and help improve [translations](${TRANSLATE_LINK}).'
+          MESSAGE+="$COMMUNITY_MESSAGE"
+
+          echo "Sending message to Telegram..."
+          curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${MESSAGE}" \
+            -d "parse_mode=Markdown" \
+            -d "disable_web_page_preview=true"
+
+          if [ -f "$APK_PATH" ]; then
+            echo "Sending APK file to Telegram..."
+            (curl -s -f -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendDocument" \
+              -F "chat_id=${TELEGRAM_CHAT_ID}" \
+              -F "document=@${APK_PATH}" \
+              -F "caption=Direct download for \`${SAFE_TAG}\` (Universal)" \
+              -F "parse_mode=Markdown") || echo "Warning: Failed to send APK file, but continuing."
+          else
+            echo "Warning: APK file was not found at '$APK_PATH'. Skipping file send."
+          fi
+          echo "✅ Telegram notification process completed."

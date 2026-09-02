@@ -4,6 +4,7 @@ import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
+import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -140,7 +141,7 @@ class RuleListCard extends ConsumerWidget {
                   ],
                 ),
               ),
-              if (labelId.isNotEmpty) ...[
+              if (labelId.isNotEmpty && labelIdToTextMap.containsKey(labelId)) ...[
                 const SizedBox(width: 8),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
@@ -150,7 +151,7 @@ class RuleListCard extends ConsumerWidget {
                     border: Border.all(color: const Color(0xFFEDE8DF)),
                   ),
                   child: Text(
-                    labelIdToTextMap[labelId] ?? labelId,
+                    '${AppLocalizations.of(context)!.label}: ${LabelTranslationUtils.translateLabelText(context, labelIdToTextMap[labelId]!)}',
                     style: TextStyle(
                       color: Colors.grey[800],
                       fontSize: 11,

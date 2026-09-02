@@ -118,6 +118,7 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
 
       if (widget.rule == null) {
         final entry = ListEntry(
+          id: '',
           name: _nameController.text,
           phoneNumber: PhoneNumber.fromString(_phoneController.text),
           labelId: _selectedLabelId ?? '',
