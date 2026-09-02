@@ -24,6 +24,10 @@ class EliteAppBar extends StatelessWidget {
     context.pushNamed(AppRouter.settings);
   }
 
+  void _handleNotificationsTap(BuildContext context) {
+    context.pushNamed(AppRouter.notifications);
+  }
+
   void _handleProSwitch(BuildContext context) {
     if (onSwitchToPro != null) {
       onSwitchToPro!();
@@ -156,7 +160,23 @@ class EliteAppBar extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 6),
+              const SizedBox(width: 4),
+              IconButton(
+                icon: Container(
+                  padding: const EdgeInsets.all(7),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withValues(alpha: 0.04),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(
+                    Icons.notifications_outlined,
+                    size: 18,
+                    color: Colors.black87,
+                  ),
+                ),
+                onPressed: () => _handleNotificationsTap(context),
+                tooltip: l10n.notifications,
+              ),
               IconButton(
                 icon: Container(
                   padding: const EdgeInsets.all(7),
