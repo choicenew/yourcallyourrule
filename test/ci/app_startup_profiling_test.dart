@@ -113,6 +113,32 @@ void main() {
         _bootstrapPhases[tag] = ms;
       }
 
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(
+        const MethodChannel('plugins.flutter.io/path_provider'),
+        (MethodCall methodCall) async => Directory.systemTemp.path,
+      );
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(
+        const MethodChannel('plugins.flutter.io/shared_preferences'),
+        (MethodCall methodCall) async => <String, dynamic>{},
+      );
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(
+        const MethodChannel('dexterous.com/flutter/local_notifications'),
+        (MethodCall methodCall) async => true,
+      );
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(
+        const MethodChannel('floating_window_android'),
+        (MethodCall methodCall) async => false,
+      );
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(
+        const MethodChannel('flutter.baseflow.com/permissions/methods'),
+        (MethodCall methodCall) async => 1,
+      );
+
       final swMountMyApp = Stopwatch()..start();
       await tester.pumpWidget(
         UncontrolledProviderScope(
@@ -125,13 +151,28 @@ void main() {
           swMountMyApp.elapsedMicroseconds / 1000.0;
 
       final swNavHome = Stopwatch()..start();
-      final context = tester.element(find.byType(MaterialApp));
       try {
-        GoRouter.of(context).goNamed(AppRouter.eliteHome);
+        final contextFinder = find.byType(SplashScreen);
+        if (contextFinder.evaluate().isNotEmpty) {
+          final splashCtx = tester.element(contextFinder);
+          await Navigator.of(splashCtx).push(MaterialPageRoute(
+            builder: (_) => const ProviderScope(child: EliteHomePage()),
+          ));
+        } else {
+          await tester.pumpWidget(
+            UncontrolledProviderScope(
+              container: container,
+              child: _TestBootstrapApp(container: container, homeElite: true),
+            ),
+          );
+        }
       } catch (_) {
-        await Navigator.of(context).push(MaterialPageRoute(
-          builder: (_) => const ProviderScope(child: EliteHomePage()),
-        ));
+        await tester.pumpWidget(
+          UncontrolledProviderScope(
+            container: container,
+            child: _TestBootstrapApp(container: container, homeElite: true),
+          ),
+        );
       }
       await tester.pump(const Duration(milliseconds: 500));
       _bootstrapPhases['2.2_Splash->EliteHome_mount_pumpAndSettle'] =
