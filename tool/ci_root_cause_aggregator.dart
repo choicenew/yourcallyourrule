@@ -97,40 +97,58 @@ class Report {
   final double weightedScore; // 0..100, higher better
   final String grade; // A..F
 
-  Report({
+  Report._({
     required this.generatedAt,
+    required this.highCount,
+    required this.mediumCount,
+    required this.lowCount,
     required this.sortedCauses,
     required this.metrics,
-  })  : highCount = sortedCauses.where((c) => c.severity == 'HIGH').length,
-        mediumCount = sortedCauses.where((c) => c.severity == 'MEDIUM').length,
-        lowCount = sortedCauses.where((c) => c.severity == 'LOW').length,
-        weightedScore = () {
-          final h = sortedCauses.where((c) => c.severity == 'HIGH').length;
-          final m = sortedCauses.where((c) => c.severity == 'MEDIUM').length;
-          final l = sortedCauses.where((c) => c.severity == 'LOW').length;
-          double s = 100.0;
-          s -= h * 35.0;
-          s -= m * 10.0;
-          s -= l * 2.0;
-          if (s < 0) s = 0;
-          return s;
-        }(),
-        grade = () {
-          final h = sortedCauses.where((c) => c.severity == 'HIGH').length;
-          final m = sortedCauses.where((c) => c.severity == 'MEDIUM').length;
-          final l = sortedCauses.where((c) => c.severity == 'LOW').length;
-          double s = 100.0;
-          s -= h * 35.0;
-          s -= m * 10.0;
-          s -= l * 2.0;
-          if (s < 0) s = 0;
-          if (s >= 90) return 'A';
-          if (s >= 80) return 'B';
-          if (s >= 70) return 'C';
-          if (s >= 60) return 'D';
-          if (s >= 40) return 'E';
-          return 'F';
-        }();
+    required this.weightedScore,
+    required this.grade,
+  });
+
+  factory Report({
+    required String generatedAt,
+    required List<RootCause> sortedCauses,
+    required List<MetricRow> metrics,
+  }) {
+    final highCount = sortedCauses.where((c) => c.severity == 'HIGH').length;
+    final mediumCount = sortedCauses.where((c) => c.severity == 'MEDIUM').length;
+    final lowCount = sortedCauses.where((c) => c.severity == 'LOW').length;
+
+    double s = 100.0;
+    s -= highCount * 35.0;
+    s -= mediumCount * 10.0;
+    s -= lowCount * 2.0;
+    if (s < 0) s = 0;
+
+    String g;
+    if (s >= 90) {
+      g = 'A';
+    } else if (s >= 80) {
+      g = 'B';
+    } else if (s >= 70) {
+      g = 'C';
+    } else if (s >= 60) {
+      g = 'D';
+    } else if (s >= 40) {
+      g = 'E';
+    } else {
+      g = 'F';
+    }
+
+    return Report._(
+      generatedAt: generatedAt,
+      highCount: highCount,
+      mediumCount: mediumCount,
+      lowCount: lowCount,
+      sortedCauses: sortedCauses,
+      metrics: metrics,
+      weightedScore: s,
+      grade: g,
+    );
+  }
 }
 
 List<RootCause> _loadRootCauses(File f) {

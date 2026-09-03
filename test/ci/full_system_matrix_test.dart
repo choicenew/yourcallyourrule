@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 // 核心服务与 Providers
+import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/rules_provider.dart';
@@ -383,7 +384,17 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const PluginTestPage(), container: container));
+        const dummyPlugin = PluginEntry(
+          id: 'test_plugin_001',
+          name: 'CI Test Plugin',
+          url: 'https://example.com/plugin.js',
+          version: '1.0.0',
+          description: 'Automated CI Plugin Test',
+          isEnabled: true,
+          pluginOrder: 1,
+        );
+
+        await tester.pumpWidget(_createTestApp(const PluginTestPage(plugin: dummyPlugin), container: container));
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(PluginTestPage), findsOneWidget);
       });
