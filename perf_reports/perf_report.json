@@ -1,0 +1,465 @@
+{
+  "timestamp": "2026-09-03T11:42:54.334578",
+  "environment": {
+    "os": "windows",
+    "dart_version": "3.13.1 (stable) (Tue Aug 18 01:00:59 2026 -0700) on \"windows_x64\"",
+    "is_ci": false
+  },
+  "benchmark_metrics": [
+    {
+      "metric": "regex_rule_throughput",
+      "iterations": 5000,
+      "total_ms": 8.528,
+      "avg_micros_per_op": 0.34112,
+      "qps": 586304,
+      "matches": 3000
+    },
+    {
+      "metric": "regex_redos_check",
+      "total_ms": 0.181,
+      "risk": "LOW"
+    },
+    {
+      "metric": "dataset_processing",
+      "total_records": 5000,
+      "filtered_blocked": 2570,
+      "search_matches": 70,
+      "elapsed_ms": 18.088
+    },
+    {
+      "metric": "widget_frame_latency",
+      "frames": 60,
+      "avg_frame_ms": 34.58575,
+      "p95_frame_ms": 53.524,
+      "max_frame_ms": 105.817,
+      "jank_frames_above_16ms": 60
+    },
+    {
+      "metric": "initial_widget_mount",
+      "mount_ms": 277.562
+    }
+  ],
+  "code_issues": [
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (135 行)",
+      "file": "lib/cloud_sync/widgets/cloud_sync_status_section.dart",
+      "line": 12,
+      "cause": "Build 函数体积过大（135 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 135 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (173 行)",
+      "file": "lib/common/utils/hsv_color_picker.dart",
+      "line": 57,
+      "cause": "Build 函数体积过大（173 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 173 行"
+    },
+    {
+      "category": "EXPENSIVE_SAVELAYER",
+      "severity": "MEDIUM",
+      "title": "使用 Opacity 导致 GPU SaveLayer 离屏混合",
+      "file": "lib/features/call/caller_id/presentation/widgets/caller_id_content_builder.dart",
+      "line": 245,
+      "cause": "Opacity 控件会强制 Flutter 在 GPU 内存中分配额外的离屏缓冲区并进行多次绘制混合，特别在动画或滚动中造成显著掉帧。",
+      "suggestion": "若仅针对颜色透明，优先使用 Color.withValues / withOpacity；若用于淡入淡出动画，使用 AnimatedOpacity。",
+      "code_snippet": "return Opacity("
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (136 行)",
+      "file": "lib/features/call/caller_id/presentation/widgets/customization/button_panel.dart",
+      "line": 26,
+      "cause": "Build 函数体积过大（136 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 136 行"
+    },
+    {
+      "category": "GC_CHURN_IN_BUILD",
+      "severity": "MEDIUM",
+      "title": "Build 方法内部动态实例化 DateFormat",
+      "file": "lib/features/call/call_history/widgets/call_log_card.dart",
+      "line": 48,
+      "cause": "DateFormat 构造开销较大，且每次重构重复创建会导致不必要的垃圾回收。",
+      "suggestion": "提取为局部常量或静态缓存实例。",
+      "code_snippet": "final timeFormat = DateFormat('HH:mm');"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (168 行)",
+      "file": "lib/features/call/live_activities/presentation/pages/kit_live_notification_customization_screen.dart",
+      "line": 62,
+      "cause": "Build 函数体积过大（168 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 168 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (184 行)",
+      "file": "lib/features/call/live_activities/presentation/pages/live_notification_customization_screen.dart",
+      "line": 162,
+      "cause": "Build 函数体积过大（184 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 184 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (382 行)",
+      "file": "lib/features/call/live_activities/presentation/widgets/live_notification_preview.dart",
+      "line": 31,
+      "cause": "Build 函数体积过大（382 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 382 行"
+    },
+    {
+      "category": "EXPENSIVE_SAVELAYER",
+      "severity": "MEDIUM",
+      "title": "使用 Opacity 导致 GPU SaveLayer 离屏混合",
+      "file": "lib/features/call/time_interceptor/presentation/widgets/time_interceptor_settings_widget.dart",
+      "line": 53,
+      "cause": "Opacity 控件会强制 Flutter 在 GPU 内存中分配额外的离屏缓冲区并进行多次绘制混合，特别在动画或滚动中造成显著掉帧。",
+      "suggestion": "若仅针对颜色透明，优先使用 Color.withValues / withOpacity；若用于淡入淡出动画，使用 AnimatedOpacity。",
+      "code_snippet": "Opacity("
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (192 行)",
+      "file": "lib/features/common/widgets/dialogs/contact_edit_dialog.dart",
+      "line": 284,
+      "cause": "Build 函数体积过大（192 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 192 行"
+    },
+    {
+      "category": "GC_CHURN_IN_BUILD",
+      "severity": "HIGH",
+      "title": "Build 方法内部动态实例化 RegExp",
+      "file": "lib/features/contacts/pages/contacts_management_page.dart",
+      "line": 455,
+      "cause": "每一帧触发 build 时都会重复编译正则表达式并分配堆内存，引起高频 GC Stop-The-World 导致掉帧。",
+      "suggestion": "提取为类级 static final 或 top-level 常量。",
+      "code_snippet": "if (!RegExp(r'[A-Z]').hasMatch(firstLetter)) {"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (324 行)",
+      "file": "lib/features/contacts/pages/contacts_management_page.dart",
+      "line": 450,
+      "cause": "Build 函数体积过大（324 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 324 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (219 行)",
+      "file": "lib/features/deletion_proposal/pages/deletion_proposal_page.dart",
+      "line": 188,
+      "cause": "Build 函数体积过大（219 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 219 行"
+    },
+    {
+      "category": "GC_CHURN_IN_BUILD",
+      "severity": "HIGH",
+      "title": "Build 方法内部动态实例化 RegExp",
+      "file": "lib/features/deletion_proposal/widgets/create_proposal_dialog.dart",
+      "line": 177,
+      "cause": "每一帧触发 build 时都会重复编译正则表达式并分配堆内存，引起高频 GC Stop-The-World 导致掉帧。",
+      "suggestion": "提取为类级 static final 或 top-level 常量。",
+      "code_snippet": "FilteringTextInputFormatter.allow(RegExp(r'[0-9+\\-\\s\\(\\)]')),"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (270 行)",
+      "file": "lib/features/deletion_proposal/widgets/create_proposal_dialog.dart",
+      "line": 98,
+      "cause": "Build 函数体积过大（270 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 270 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (214 行)",
+      "file": "lib/features/deletion_proposal/widgets/proposal_card.dart",
+      "line": 28,
+      "cause": "Build 函数体积过大（214 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 214 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (256 行)",
+      "file": "lib/features/deletion_proposal/widgets/statistics_card.dart",
+      "line": 21,
+      "cause": "Build 函数体积过大（256 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 256 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (153 行)",
+      "file": "lib/features/deletion_proposal/widgets/vote_card.dart",
+      "line": 17,
+      "cause": "Build 函数体积过大（153 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 153 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (149 行)",
+      "file": "lib/features/home/pages/carousel_cards.dart",
+      "line": 87,
+      "cause": "Build 函数体积过大（149 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 149 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (144 行)",
+      "file": "lib/features/home_elite/presentation/widgets/elite_app_bar.dart",
+      "line": 40,
+      "cause": "Build 函数体积过大（144 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 144 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (374 行)",
+      "file": "lib/features/home_elite/presentation/widgets/elite_community_judge_card.dart",
+      "line": 35,
+      "cause": "Build 函数体积过大（374 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 374 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (366 行)",
+      "file": "lib/features/home_elite/presentation/widgets/elite_hero_shield_card.dart",
+      "line": 107,
+      "cause": "Build 函数体积过大（366 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 366 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (445 行)",
+      "file": "lib/features/home_elite/presentation/widgets/elite_primary_filter_card.dart",
+      "line": 49,
+      "cause": "Build 函数体积过大（445 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 445 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (144 行)",
+      "file": "lib/features/home_elite/presentation/widgets/elite_quick_capsules.dart",
+      "line": 19,
+      "cause": "Build 函数体积过大（144 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 144 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (218 行)",
+      "file": "lib/features/home_elite/presentation/widgets/elite_stats_insight_card.dart",
+      "line": 32,
+      "cause": "Build 函数体积过大（218 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 218 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (134 行)",
+      "file": "lib/features/local_filter/presentation/widgets/local_filter_settings_widget.dart",
+      "line": 17,
+      "cause": "Build 函数体积过大（134 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 134 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (147 行)",
+      "file": "lib/features/search/pages/search_page.dart",
+      "line": 179,
+      "cause": "Build 函数体积过大（147 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 147 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (146 行)",
+      "file": "lib/features/sim_slot_rules/widgets/sim_slot_rule_edit_dialog.dart",
+      "line": 169,
+      "cause": "Build 函数体积过大（146 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 146 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (159 行)",
+      "file": "lib/features/sync_country/widget/country_selection_widget.dart",
+      "line": 15,
+      "cause": "Build 函数体积过大（159 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 159 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (226 行)",
+      "file": "lib/features/verification/presentation/widgets/verification_caller_id_card.dart",
+      "line": 28,
+      "cause": "Build 函数体积过大（226 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 226 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (258 行)",
+      "file": "lib/features/verification/presentation/widgets/verification_input_card.dart",
+      "line": 39,
+      "cause": "Build 函数体积过大（258 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 258 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (237 行)",
+      "file": "lib/presentation/about.dart",
+      "line": 36,
+      "cause": "Build 函数体积过大（237 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 237 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (200 行)",
+      "file": "lib/presentation/plugin_test_page.dart",
+      "line": 296,
+      "cause": "Build 函数体积过大（200 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 200 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (189 行)",
+      "file": "lib/presentation/regex_test_page.dart",
+      "line": 83,
+      "cause": "Build 函数体积过大（189 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 189 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (228 行)",
+      "file": "lib/presentation/settings/pages/settings_page.dart",
+      "line": 16,
+      "cause": "Build 函数体积过大（228 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 228 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (185 行)",
+      "file": "lib/presentation/test copy 2.dart",
+      "line": 477,
+      "cause": "Build 函数体积过大（185 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 185 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (131 行)",
+      "file": "lib/presentation/test copy.dart",
+      "line": 300,
+      "cause": "Build 函数体积过大（131 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 131 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (205 行)",
+      "file": "lib/presentation/test.dart",
+      "line": 987,
+      "cause": "Build 函数体积过大（205 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 205 行"
+    },
+    {
+      "category": "MONOLITHIC_BUILD",
+      "severity": "HIGH",
+      "title": "巨型 Build 方法 (314 行)",
+      "file": "lib/supabase_sync/supabase_settings_page.dart",
+      "line": 126,
+      "cause": "Build 函数体积过大（314 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。",
+      "suggestion": "拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。",
+      "code_snippet": "Widget build(...) 跨度 314 行"
+    }
+  ],
+  "asset_issues": [
+    {
+      "file": "assets/feature5.png",
+      "size_bytes": 1065023,
+      "size_kb": "1040.1",
+      "severity": "HIGH",
+      "cause": "超大资源图片在移动设备加载解码时会长时间占用 UI 主线程，且占用巨大 GPU 显存，极易导致启动与切页卡顿。",
+      "suggestion": "进行 WebP 压缩或缩放分辨率，将体积控制在 150KB 以内。"
+    },
+    {
+      "file": "assets/feature1.png",
+      "size_bytes": 432594,
+      "size_kb": "422.5",
+      "severity": "MEDIUM",
+      "cause": "超大资源图片在移动设备加载解码时会长时间占用 UI 主线程，且占用巨大 GPU 显存，极易导致启动与切页卡顿。",
+      "suggestion": "进行 WebP 压缩或缩放分辨率，将体积控制在 150KB 以内。"
+    }
+  ],
+  "score": 20,
+  "summary": {
+    "total_issues": 41,
+    "high_severity": 37,
+    "medium_severity": 4,
+    "jank_frames_detected": 60
+  },
+  "asset_stats": {
+    "total_files": 48,
+    "total_size_mb": "3.72",
+    "heavy_count": 2
+  },
+  "grade": "D (存在严重性能瓶颈)"
+}

@@ -1,0 +1,64 @@
+name: Performance & Hitch Diagnostic
+
+on:
+  workflow_dispatch:
+    inputs:
+      fail_on_critical:
+        description: "Fail workflow if critical hitches detected"
+        type: boolean
+        default: false
+      run_full_tests:
+        description: "Run full performance benchmark suite"
+        type: boolean
+        default: true
+  push:
+    paths:
+      - "lib/**"
+      - "test/**"
+      - "assets/**"
+      - "tool/**"
+      - ".github/workflows/perf_check.yml"
+    branches-ignore: []
+  pull_request:
+    paths:
+      - "lib/**"
+      - "test/**"
+      - "assets/**"
+      - "tool/**"
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  performance_analysis:
+    name: App Performance & Lag Diagnostic
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+          cache-key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.yaml') }}
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run Full Performance CLI
+        run: |
+          dart run tool/perf_cli.dart --github-summary --ci
+
+      - name: Upload Performance Report Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-diagnostic-report
+          path: perf_reports/
