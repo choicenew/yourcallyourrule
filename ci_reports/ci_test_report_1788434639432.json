@@ -1,0 +1,369 @@
+{
+  "generated_at": "2026-09-03T19:25:53.739617",
+  "score": 82,
+  "grade": "B 良好 (Good)",
+  "total_groups": 4,
+  "passed_groups": 3,
+  "failed_groups": 1,
+  "failed_group_names": [
+    "app_startup_profiling"
+  ],
+  "total_metrics": 34,
+  "high_regressions": 1,
+  "warn_count": 1,
+  "info_count": 27,
+  "total_duration_ms": 114291.04200000002,
+  "per_category_metric_count": {
+    "UNKNOWN": 29,
+    "ROOT_CAUSE": 5
+  },
+  "all_metrics": [
+    {
+      "phase": "scroll_jank",
+      "run": "baseline_listview_builder",
+      "metric": "avg_frame_ms",
+      "value": 26.105829166666688,
+      "unit": "ms",
+      "samples": 240,
+      "threshold_hard": 32.0,
+      "threshold_warn": 20.0
+    },
+    {
+      "phase": "scroll_jank",
+      "run": "baseline_listview_builder",
+      "metric": "p95_frame_ms",
+      "value": 53.367,
+      "unit": "ms",
+      "threshold_hard": 50.0,
+      "threshold_warn": 33.0
+    },
+    {
+      "phase": "scroll_jank",
+      "run": "baseline_listview_builder",
+      "metric": "jank_over_16ms_count",
+      "value": 177.0,
+      "unit": "count",
+      "samples": 240,
+      "pct": 73.75
+    },
+    {
+      "category": "ROOT_CAUSE",
+      "metric": "baseline-scroll-jank",
+      "title": "虚拟化 ListView.builder 场景 P95 53.4ms 掉帧率 73.8%",
+      "cause": "基础滑动场景出现掉帧与不够跟手，说明 Tile 构建本身开销较高。",
+      "suggestion": "建议：(a) 拆分为 const Widget；(b) 缓存正则与 Format；(c) 图标/图片做内存预载。",
+      "cost_ms": 53.367,
+      "severity": "MEDIUM"
+    },
+    {
+      "phase": "scroll_jank",
+      "run": "with_opacity_wrapper",
+      "metric": "avg_frame_ms",
+      "value": 13.121966666666664,
+      "unit": "ms",
+      "samples": 240,
+      "threshold_hard": 32.0,
+      "threshold_warn": 20.0
+    },
+    {
+      "phase": "scroll_jank",
+      "run": "with_opacity_wrapper",
+      "metric": "p95_frame_ms",
+      "value": 20.699,
+      "unit": "ms",
+      "threshold_hard": 50.0,
+      "threshold_warn": 33.0
+    },
+    {
+      "phase": "scroll_jank",
+      "run": "with_opacity_wrapper",
+      "metric": "jank_over_16ms_count",
+      "value": 50.0,
+      "unit": "count",
+      "samples": 240,
+      "pct": 20.833333333333336
+    },
+    {
+      "phase": "scroll_jank",
+      "run": "baseline_for_opacity_compare",
+      "metric": "avg_frame_ms",
+      "value": 11.841620833333328,
+      "unit": "ms",
+      "samples": 240,
+      "threshold_hard": 32.0,
+      "threshold_warn": 20.0
+    },
+    {
+      "phase": "scroll_jank",
+      "run": "baseline_for_opacity_compare",
+      "metric": "p95_frame_ms",
+      "value": 16.771,
+      "unit": "ms",
+      "threshold_hard": 50.0,
+      "threshold_warn": 33.0
+    },
+    {
+      "phase": "scroll_jank",
+      "run": "baseline_for_opacity_compare",
+      "metric": "jank_over_16ms_count",
+      "value": 13.0,
+      "unit": "count",
+      "samples": 240,
+      "pct": 5.416666666666667
+    },
+    {
+      "phase": "antipattern_delta",
+      "antipattern": "Opacity_wrapper_over_list",
+      "metric": "p95_slowdown_x",
+      "value": 1.2342138214775507
+    },
+    {
+      "category": "ROOT_CAUSE",
+      "metric": "antipattern-opacity-savelayer",
+      "title": "Opacity() 包裹列表导致 SaveLayer 掉帧，耗时变慢 1.23x",
+      "cause": "Opacity 强制 GPU 分配离屏缓冲区，滚动时严重拖慢跟手感。",
+      "suggestion": "建议使用 Color.withValues 或 AnimatedOpacity。",
+      "cost_ms": 3.928000000000001,
+      "severity": "MEDIUM"
+    },
+    {
+      "phase": "scroll_jank",
+      "run": "listview_children_antipattern",
+      "metric": "avg_frame_ms",
+      "value": 12.130820833333326,
+      "unit": "ms",
+      "samples": 240,
+      "threshold_hard": 32.0,
+      "threshold_warn": 20.0
+    },
+    {
+      "phase": "scroll_jank",
+      "run": "listview_children_antipattern",
+      "metric": "p95_frame_ms",
+      "value": 17.99,
+      "unit": "ms",
+      "threshold_hard": 50.0,
+      "threshold_warn": 33.0
+    },
+    {
+      "phase": "scroll_jank",
+      "run": "listview_children_antipattern",
+      "metric": "jank_over_16ms_count",
+      "value": 19.0,
+      "unit": "count",
+      "samples": 240,
+      "pct": 7.916666666666666
+    },
+    {
+      "phase": "scroll_jank",
+      "run": "listview_builder_good",
+      "metric": "avg_frame_ms",
+      "value": 11.244724999999997,
+      "unit": "ms",
+      "samples": 240,
+      "threshold_hard": 32.0,
+      "threshold_warn": 20.0
+    },
+    {
+      "phase": "scroll_jank",
+      "run": "listview_builder_good",
+      "metric": "p95_frame_ms",
+      "value": 17.512,
+      "unit": "ms",
+      "threshold_hard": 50.0,
+      "threshold_warn": 33.0
+    },
+    {
+      "phase": "scroll_jank",
+      "run": "listview_builder_good",
+      "metric": "jank_over_16ms_count",
+      "value": 18.0,
+      "unit": "count",
+      "samples": 240,
+      "pct": 7.5
+    },
+    {
+      "phase": "provider_init_cost",
+      "type": "AsyncNotifier",
+      "metric": "rulesProvider (AsyncNotifier: RuleRepository.getAll)",
+      "cold_ms": 54.502,
+      "hot_read_ms": 0.047599999999999996,
+      "value": 54.502,
+      "unit": "ms",
+      "threshold_hard": 500.0,
+      "threshold_warn": 150.0
+    },
+    {
+      "phase": "provider_init_cost",
+      "type": "AsyncNotifier",
+      "metric": "contactsProvider (AsyncNotifier: ContactRepository.getAll)",
+      "cold_ms": 2.191,
+      "hot_read_ms": 0.0215,
+      "value": 2.191,
+      "unit": "ms",
+      "threshold_hard": 500.0,
+      "threshold_warn": 150.0
+    },
+    {
+      "phase": "provider_init_cost",
+      "type": "AsyncNotifier",
+      "metric": "labelsProvider (AsyncNotifier: LabelRepository.getAll)",
+      "cold_ms": 6.333,
+      "hot_read_ms": 0.0486,
+      "value": 6.333,
+      "unit": "ms",
+      "threshold_hard": 500.0,
+      "threshold_warn": 150.0
+    },
+    {
+      "phase": "provider_init_cost",
+      "type": "AsyncNotifier",
+      "metric": "predefinedLabelsProvider (AsyncNotifier: shared_prefs + decode)",
+      "cold_ms": 4.595,
+      "hot_read_ms": 0.028999999999999998,
+      "value": 4.595,
+      "unit": "ms",
+      "threshold_hard": 500.0,
+      "threshold_warn": 150.0
+    },
+    {
+      "phase": "provider_init_cost",
+      "type": "AsyncNotifier",
+      "metric": "subscriptionsProvider (AsyncNotifier: SubscriptionRepository.getAll)",
+      "cold_ms": 2.852,
+      "hot_read_ms": 0.031,
+      "value": 2.852,
+      "unit": "ms",
+      "threshold_hard": 500.0,
+      "threshold_warn": 150.0
+    },
+    {
+      "phase": "provider_init_cost",
+      "type": "AsyncNotifier",
+      "metric": "pluginsProvider (AsyncNotifier: PluginRepository.getAll + 校验)",
+      "cold_ms": 5.157,
+      "hot_read_ms": 0.0279,
+      "value": 5.157,
+      "unit": "ms",
+      "threshold_hard": 500.0,
+      "threshold_warn": 150.0
+    },
+    {
+      "phase": "provider_init_cost",
+      "type": "ServiceProvider",
+      "metric": "callLogServiceProvider (ref.watch 5 下游)",
+      "value": 5.611,
+      "unit": "ms",
+      "dep_count": 5,
+      "threshold_hard": 300.0,
+      "threshold_warn": 80.0
+    },
+    {
+      "phase": "provider_init_cost",
+      "type": "ServiceProvider",
+      "metric": "ruleManagementServiceProvider",
+      "value": 0.524,
+      "unit": "ms",
+      "dep_count": 1,
+      "threshold_hard": 300.0,
+      "threshold_warn": 80.0
+    },
+    {
+      "category": "ROOT_CAUSE",
+      "metric": "slow-provider-init-rulesProvider (AsyncNotifier: RuleRepository.getAll)",
+      "title": "Provider 启动慢速 Top 1: rulesProvider (AsyncNotifier: RuleRepository.getAll) 冷启动 54.5ms",
+      "cause": "AsyncNotifier.build() 直接触发 I/O 仓库查询，导致首帧前大量 UI 阻塞在 Provider build()/数据库读取上。",
+      "suggestion": "(a) 若为列表类 AsyncNotifier：拆分为 initial+loadMore 或 useQuery 懒加载；(b) 把 getAll() 放入 compute isolate；(c) 服务 Provider 使用依赖最小化，避免级联触发；(d) Service 拆分细粒度 Provider 避免全量 rebuild。",
+      "cost_ms": 54.502,
+      "severity": "LOW"
+    },
+    {
+      "category": "ROOT_CAUSE",
+      "metric": "slow-provider-init-callLogServiceProvider (ref.watch 5 下游)",
+      "title": "Provider 启动慢速 Top 3: callLogServiceProvider (ref.watch 5 下游) 冷启动 5.6ms",
+      "cause": "级联依赖 5 个下游 Provider (callLogRepositoryProvider, contactServiceProvider, labelServiceProvider, allowedBlockedServiceProvider, ruleManagementServiceProvider)，导致首帧前大量 UI 阻塞在 Provider build()/数据库读取上。",
+      "suggestion": "(a) 若为列表类 AsyncNotifier：拆分为 initial+loadMore 或 useQuery 懒加载；(b) 把 getAll() 放入 compute isolate；(c) 服务 Provider 使用依赖最小化，避免级联触发；(d) Service 拆分细粒度 Provider 避免全量 rebuild。",
+      "cost_ms": 5.611,
+      "severity": "MEDIUM"
+    },
+    {
+      "phase": "rebuild_storm",
+      "metric": "20_mutations_total_ms",
+      "value": 4.553,
+      "unit": "ms",
+      "per_mutation_ms": 0.22765,
+      "total_notify_count": 20,
+      "notify_per_mutation": 1.0,
+      "threshold_hard": 500.0,
+      "threshold_warn": 150.0
+    },
+    {
+      "phase": "memory_leak_provider_autodispose",
+      "metric": "proper_disposed_count",
+      "value": 200.0,
+      "expected": 200.0,
+      "unit": "count"
+    },
+    {
+      "phase": "service_blocking",
+      "service": "PhoneUtils.parsePhoneNumber",
+      "metric": "avg_ms",
+      "value": 1.6781133333333331,
+      "unit": "ms"
+    },
+    {
+      "phase": "service_blocking",
+      "service": "PhoneUtils.parsePhoneNumber",
+      "metric": "p95_ms",
+      "value": 2.47,
+      "unit": "ms",
+      "threshold_hard": 20.0,
+      "threshold_warn": 5.0
+    },
+    {
+      "category": "ROOT_CAUSE",
+      "metric": "service-blocking-phone-parse",
+      "title": "PhoneUtils 号码解析占用 UI 线程: P95=2.47ms (worst=265.7ms)",
+      "cause": "在主线程同步解析号码时耗时突破一帧预算 (16.6ms)，输入或来电拦截时会导致界面短暂冻结卡顿。",
+      "suggestion": "建议：对长字符串或批量号码解析放入 compute isolate 中处理。",
+      "cost_ms": 2.47,
+      "severity": "MEDIUM"
+    },
+    {
+      "phase": "service_ui_responsiveness",
+      "metric": "tap_p95_ms",
+      "value": 163.717,
+      "unit": "ms"
+    }
+  ],
+  "group_summary": {
+    "app_startup_profiling": {
+      "file": "test/ci\\app_startup_profiling_test.dart",
+      "passed": false,
+      "duration_ms": 42536.959,
+      "test_count": 0,
+      "metrics_count": 0
+    },
+    "jank_frames_scroll_stutter": {
+      "file": "test/ci\\jank_frames_scroll_stutter_test.dart",
+      "passed": true,
+      "duration_ms": 44977.641,
+      "test_count": 0,
+      "metrics_count": 18
+    },
+    "provider_init_rebuild_storm": {
+      "file": "test/ci\\provider_init_rebuild_storm_test.dart",
+      "passed": true,
+      "duration_ms": 12945.702,
+      "test_count": 0,
+      "metrics_count": 12
+    },
+    "service_responsiveness_blocking": {
+      "file": "test/ci\\service_responsiveness_blocking_test.dart",
+      "passed": true,
+      "duration_ms": 13830.74,
+      "test_count": 0,
+      "metrics_count": 4
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-09-03T19:22:16.047180",
+  "score": 60,
+  "grade": "D 警告 (Warning)",
+  "total_groups": 4,
+  "passed_groups": 0,
+  "failed_groups": 4,
+  "failed_group_names": [
+    "app_startup_profiling",
+    "jank_frames_scroll_stutter",
+    "provider_init_rebuild_storm",
+    "service_responsiveness_blocking"
+  ],
+  "total_metrics": 0,
+  "high_regressions": 0,
+  "warn_count": 0,
+  "info_count": 0,
+  "total_duration_ms": 340.559,
+  "per_category_metric_count": {},
+  "all_metrics": [],
+  "group_summary": {
+    "app_startup_profiling": {
+      "file": "test/ci\\app_startup_profiling_test.dart",
+      "passed": false,
+      "duration_ms": 98.018,
+      "test_count": 0,
+      "metrics_count": 0
+    },
+    "jank_frames_scroll_stutter": {
+      "file": "test/ci\\jank_frames_scroll_stutter_test.dart",
+      "passed": false,
+      "duration_ms": 94.373,
+      "test_count": 0,
+      "metrics_count": 0
+    },
+    "provider_init_rebuild_storm": {
+      "file": "test/ci\\provider_init_rebuild_storm_test.dart",
+      "passed": false,
+      "duration_ms": 78.908,
+      "test_count": 0,
+      "metrics_count": 0
+    },
+    "service_responsiveness_blocking": {
+      "file": "test/ci\\service_responsiveness_blocking_test.dart",
+      "passed": false,
+      "duration_ms": 69.26,
+      "test_count": 0,
+      "metrics_count": 0
+    }
+  }
+}
