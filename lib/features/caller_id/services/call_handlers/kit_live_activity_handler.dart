@@ -4,6 +4,7 @@ library;
 
 import 'dart:async';
 import 'dart:convert';
+import 'package:dlibphonenumber/enums/phone_number_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';

@@ -409,7 +409,6 @@ jobs:
       - jank_frames_and_scroll
       - full_system_matrix
     if: always()
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -484,27 +483,45 @@ jobs:
             !ci_reports/raw/**
           retention-days: 60
 
+      # ========== 修复后的 Pass/Fail Gate ==========
       - name: "Pass/Fail Gate: 任何上游 job fail 则 fail (可选按 HIGH fail)"
         run: |
           FAILURES=0
-          for j in real_app_startup_profiling provider_init_and_rebuild_storm service_responsiveness jank_frames_and_scroll full_system_matrix; do
-            case "${{ needs.$j.result }}" in
+          # 直接把每个job的结果通过github actions表达式导出到shell变量
+          JOB_real_app_startup_profiling="${{ needs.real_app_startup_profiling.result }}"
+          JOB_provider_init_and_rebuild_storm="${{ needs.provider_init_and_rebuild_storm.result }}"
+          JOB_service_responsiveness="${{ needs.service_responsiveness.result }}"
+          JOB_jank_frames_and_scroll="${{ needs.jank_frames_and_scroll.result }}"
+          JOB_full_system_matrix="${{ needs.full_system_matrix.result }}"
+
+          # bash数组维护job名称与状态
+          declare -A JOBS
+          JOBS["real_app_startup_profiling"]="${JOB_real_app_startup_profiling}"
+          JOBS["provider_init_and_rebuild_storm"]="${JOB_provider_init_and_rebuild_storm}"
+          JOBS["service_responsiveness"]="${JOB_service_responsiveness}"
+          JOBS["jank_frames_and_scroll"]="${JOB_jank_frames_and_scroll}"
+          JOBS["full_system_matrix"]="${JOB_full_system_matrix}"
+
+          for job_name in "${!JOBS[@]}"; do
+            res="${JOBS[$job_name]}"
+            case "$res" in
               failure)
                 FAILURES=$((FAILURES + 1))
-                echo "❌ FAILED JOB: $j"
+                echo "❌ FAILED JOB: $job_name"
                 ;;
               success)
-                echo "✅ PASSED JOB: $j"
+                echo "✅ PASSED JOB: $job_name"
                 ;;
               skipped)
-                echo "⏭  SKIPPED JOB: $j"
+                echo "⏭  SKIPPED JOB: $job_name"
                 ;;
               cancelled)
-                echo "✖  CANCELLED JOB: $j"
+                echo "✖  CANCELLED JOB: $job_name"
                 FAILURES=$((FAILURES + 1))
                 ;;
             esac
           done
+
           echo ""
           if [ "${{ github.event.inputs.fail_on_high }}" = "true" ]; then
             HIGH=$(cat ci_reports/aggregator_run.log 2>/dev/null \
@@ -516,6 +533,7 @@ jobs:
               exit 1
             fi
           fi
+
           if [ "${FAILURES}" -gt 0 ]; then
             echo "Gate FAIL: ${FAILURES} upstream job(s) failed"
             exit 1

@@ -234,7 +234,7 @@ class ModernPurchaseCard extends StatelessWidget {
             ],
           ),
         ),
-      ),
+ 
     );
   }
 
