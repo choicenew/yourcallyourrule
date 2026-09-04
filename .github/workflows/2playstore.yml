@@ -14,8 +14,19 @@ on:
 jobs:
   deploy-to-play-store:
     name: Deploy to Google Play Store
-    # 只有当构建工作流成功，或者您是手动触发时，才运行此任务
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    # 守门判断：
+    # 1. 手动直接触发 (workflow_dispatch) -> 随时允许上架
+    # 2. 或者构建成功且 Commit 包含 '[release]' 或 '[playstore]' -> 才自动上架
+    # 日常测试构建自动跳过 (Skipped)，杜绝误推商店
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (
+        github.event.workflow_run.conclusion == 'success' &&
+        (
+          contains(github.event.workflow_run.head_commit.message, '[release]') ||
+          contains(github.event.workflow_run.head_commit.message, '[playstore]')
+        )
+      )
     runs-on: ubuntu-latest
     
     steps:

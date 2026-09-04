@@ -2,6 +2,12 @@ name: Manual Build & Multi-Channel Release
 
 on:
   workflow_dispatch:
+    inputs:
+      deploy_to_playstore:
+        description: 'Deploy to Google Play Store & notify Telegram (Default: false)'
+        required: false
+        type: boolean
+        default: false
 
   # 新增：当有代码推送到 main 分支时，检查是否需要运行
   push:
@@ -58,12 +64,25 @@ jobs:
           swap-storage: false # 建议这里改为 false，因为 Swap 太慢导致了超时，不如直接限制内存
       # ==============================================
       
-      - name: Extract metadata from pubspec.yaml
+      - name: Auto Bump and Extract Version
         id: meta
         run: |
-          VERSION_STRING=$(grep 'version: ' pubspec.yaml | sed 's/version: //')
-          echo "version=v$VERSION_STRING" >> $GITHUB_OUTPUT
-          echo "version_code=$(echo $VERSION_STRING | sed 's/.*+//')" >> $GITHUB_OUTPUT
+          # 1. 提取当前主版本号 (如 4.22.07)
+          BASE_VERSION=$(grep '^version: ' pubspec.yaml | sed -E 's/version: ([0-9.]+)\+?.*/\1/' | tr -d ' ')
+          
+          # 2. 自动生成符合规范的 versionCode: YYMMDDHH + 当次构建序号 (如 260904121)
+          BUILD_TIME=$(TZ='Asia/Shanghai' date +'%y%m%d%H')
+          BUILD_SEQ=$(( (${{ github.run_number }}) % 10 ))
+          VERSION_CODE="${BUILD_TIME}${BUILD_SEQ}"
+          FULL_VERSION="${BASE_VERSION}+${VERSION_CODE}"
+          
+          # 3. 动态回写到 pubspec.yaml，确保 Flutter 编译打包注入最新版本号
+          sed -i "s/^version: .*/version: $FULL_VERSION/" pubspec.yaml
+          echo "Bumped version in pubspec.yaml to $FULL_VERSION"
+          
+          # 4. 导出给后续 Step 和 Release Tag 使用
+          echo "version=v$FULL_VERSION" >> $GITHUB_OUTPUT
+          echo "version_code=$VERSION_CODE" >> $GITHUB_OUTPUT
       - name: Extract Latest Commit Message
         id: commit_message
         run: |

@@ -2,7 +2,7 @@
 name: 3. Distribute to Telegram (The Right Way)
 on:
   workflow_run:
-    workflows: ["2. Sync Release to Public Repo"]
+    workflows: ["2. Distribute to Google Play"]
     types:
       - completed
 
