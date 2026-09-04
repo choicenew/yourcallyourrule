@@ -14,59 +14,46 @@ class VoteProgressBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final total = supportCount + opposeCount;
     if (total == 0) return const SizedBox.shrink();
 
+    final supportRatio = supportCount / total;
+
     return Column(
       children: [
-        Row(
-          children: [
-            if (supportCount > 0)
-              Expanded(
-                flex: supportCount,
-                child: Container(
-                  height: 4,
-                  decoration: BoxDecoration(
-                    color: EliteDopamineTheme.freshMint,
-                    borderRadius: BorderRadius.horizontal(
-                      left: const Radius.circular(2),
-                      right: opposeCount == 0 ? const Radius.circular(2) : Radius.zero,
-                    ),
-                  ),
-                ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(6),
+          child: Container(
+            height: 6,
+            color: Colors.redAccent.withValues(alpha: 0.25),
+            child: FractionallySizedBox(
+              alignment: Alignment.centerLeft,
+              widthFactor: supportRatio,
+              child: Container(
+                color: EliteDopamineTheme.freshMint,
               ),
-            if (opposeCount > 0)
-              Expanded(
-                flex: opposeCount,
-                child: Container(
-                  height: 4,
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.horizontal(
-                      left: supportCount == 0 ? const Radius.circular(2) : Radius.zero,
-                      right: const Radius.circular(2),
-                    ),
-                  ),
-                ),
-              ),
-          ],
+            ),
+          ),
         ),
-        const SizedBox(height: 6),
+        const SizedBox(height: 4),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              '${AppLocalizations.of(context)!.support}: $supportCount',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: Colors.green,
-                fontWeight: FontWeight.w500,
+              l10n.supportCount(supportCount),
+              style: const TextStyle(
+                color: EliteDopamineTheme.freshMint,
+                fontSize: 11,
+                fontWeight: FontWeight.w600,
               ),
             ),
             Text(
-              '${AppLocalizations.of(context)!.oppose}: $opposeCount',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: Colors.red,
-                fontWeight: FontWeight.w500,
+              l10n.opposeCount(opposeCount),
+              style: const TextStyle(
+                color: Colors.redAccent,
+                fontSize: 11,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ],
