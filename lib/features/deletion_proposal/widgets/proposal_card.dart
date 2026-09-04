@@ -60,7 +60,9 @@ class _ProposalCardState extends State<ProposalCard> {
     final supportPercentage =
         totalVotes > 0 ? (supportCount / totalVotes * 100).round() : 0;
 
-    return Container(
+    return Material(
+      type: MaterialType.transparency,
+      child: Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: EliteDopamineTheme.warmCardDecoration(
@@ -242,8 +244,9 @@ class _ProposalCardState extends State<ProposalCard> {
           ],
         ],
       ),
-    );
-  }
+    ),
+  );
+}
 
   String _formatDateTime(String dateTimeString) {
     try {

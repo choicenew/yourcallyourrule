@@ -205,6 +205,7 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
       ),
       body: StreamBuilder<int>(
         stream: voteCountStream,
+        initialData: 0,
         builder: (context, snapshot) {
           if (_currentViewType == ProposalViewType.public) {
             return _buildPublicProposalsView(context, proposalState);
@@ -372,7 +373,9 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
   Widget _buildSegmentControl() {
     final isPublic = _currentViewType == ProposalViewType.public;
     
-    return Padding(
+    return Material(
+      type: MaterialType.transparency,
+      child: Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: Container(
         width: double.infinity,
@@ -435,12 +438,15 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
           ],
         ),
       ),
-    );
+    ),
+  );
   }
   
   // --- 构建 My History 列表项 ---
   Widget _buildHistoryTile(BuildContext context, MyProposalHistoryItem item) {
-    return Container(
+    return Material(
+      type: MaterialType.transparency,
+      child: Container(
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
@@ -516,7 +522,8 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
           ),
         ],
       ),
-    );
+    ),
+  );
   }
 
   void _showMoreOptions(BuildContext context, int currentVoteCount) {
@@ -588,7 +595,9 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
     final l10n = AppLocalizations.of(context)!;
     const noticeColor = Colors.deepPurple;
 
-    return Container(
+    return Material(
+      type: MaterialType.transparency,
+      child: Container(
       margin: const EdgeInsets.only(bottom: 8.0),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
@@ -640,6 +649,7 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
           ),
         ],
       ),
-    );
+    ),
+  );
   }
 }

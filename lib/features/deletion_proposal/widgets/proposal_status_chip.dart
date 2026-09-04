@@ -29,6 +29,11 @@ class ProposalStatusChip extends StatelessWidget {
         icon = Icons.done_all;
         displayText = AppLocalizations.of(context)!.completed;
         break;
+      case 'expired':
+        chipColor = Colors.grey;
+        icon = Icons.timer_off_rounded;
+        displayText = status.toUpperCase();
+        break;
       case 'pending':
       default:
         chipColor = Colors.orange;
@@ -37,26 +42,29 @@ class ProposalStatusChip extends StatelessWidget {
         break;
     }
 
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(
-        color: chipColor.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 13, color: chipColor),
-          const SizedBox(width: 4),
-          Text(
-            displayText,
-            style: TextStyle(
-              color: chipColor,
-              fontSize: 11,
-              fontWeight: FontWeight.w700,
+    return Material(
+      type: MaterialType.transparency,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+        decoration: BoxDecoration(
+          color: chipColor.withValues(alpha: 0.1),
+          borderRadius: BorderRadius.circular(6),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, size: 13, color: chipColor),
+            const SizedBox(width: 4),
+            Text(
+              displayText,
+              style: TextStyle(
+                color: chipColor,
+                fontSize: 11,
+                fontWeight: FontWeight.w700,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
