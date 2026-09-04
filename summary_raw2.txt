@@ -1,0 +1,40 @@
+# 🔴 Flutter App 性能与卡顿深度诊断报告
+
+| 评估维度 | 检测结果 | 说明 |
+| :--- | :--- | :--- |
+| **综合健康得分** | **20 / 100** (D (存在严重性能瓶颈)) | 包含基准耗时、卡顿反模式及显存占比 |
+| **高危卡顿隐患** | `37` 处 | 包含大 Build 重建风暴、正则频繁创建等 |
+| **中危性能隐患** | `4` 处 | 包含 SaveLayer 离屏混合、超大图片等 |
+| **掉帧情况** | `0` 次 | 单帧渲染耗时突破 16.6ms 阈值 |
+
+### 🔍 代码卡顿隐患清单 (Hitch & Stutter Anti-Patterns)
+| 严重度 | 问题分类 | 文件位置 | 致卡原因与优化建议 |
+| :---: | :--- | :--- | :--- |
+| 🔴 **高危** | 巨型 Build 方法 (314 行) | `lib/supabase_sync/supabase_settings_page.dart:126` | **原因**: Build 函数体积过大（314 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (173 行) | `lib/common/utils/hsv_color_picker.dart:57` | **原因**: Build 函数体积过大（173 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (131 行) | `lib/presentation/test copy.dart:300` | **原因**: Build 函数体积过大（131 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (185 行) | `lib/presentation/test copy 2.dart:477` | **原因**: Build 函数体积过大（185 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (205 行) | `lib/presentation/test.dart:987` | **原因**: Build 函数体积过大（205 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (189 行) | `lib/presentation/regex_test_page.dart:83` | **原因**: Build 函数体积过大（189 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (228 行) | `lib/presentation/settings/pages/settings_page.dart:16` | **原因**: Build 函数体积过大（228 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (237 行) | `lib/presentation/about.dart:36` | **原因**: Build 函数体积过大（237 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (200 行) | `lib/presentation/plugin_test_page.dart:296` | **原因**: Build 函数体积过大（200 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (134 行) | `lib/features/local_filter/presentation/widgets/local_filter_settings_widget.dart:17` | **原因**: Build 函数体积过大（134 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | Build 方法内部动态实例化 RegExp | `lib/features/contacts/pages/contacts_management_page.dart:455` | **原因**: 每一帧触发 build 时都会重复编译正则表达式并分配堆内存，引起高频 GC Stop-The-World 导致掉帧。<br/>💡 **建议**: 提取为类级 static final 或 top-level 常量。 |
+| 🔴 **高危** | 巨型 Build 方法 (324 行) | `lib/features/contacts/pages/contacts_management_page.dart:450` | **原因**: Build 函数体积过大（324 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (219 行) | `lib/features/deletion_proposal/pages/deletion_proposal_page.dart:188` | **原因**: Build 函数体积过大（219 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (153 行) | `lib/features/deletion_proposal/widgets/vote_card.dart:17` | **原因**: Build 函数体积过大（153 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (256 行) | `lib/features/deletion_proposal/widgets/statistics_card.dart:21` | **原因**: Build 函数体积过大（256 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | Build 方法内部动态实例化 RegExp | `lib/features/deletion_proposal/widgets/create_proposal_dialog.dart:177` | **原因**: 每一帧触发 build 时都会重复编译正则表达式并分配堆内存，引起高频 GC Stop-The-World 导致掉帧。<br/>💡 **建议**: 提取为类级 static final 或 top-level 常量。 |
+| 🔴 **高危** | 巨型 Build 方法 (270 行) | `lib/features/deletion_proposal/widgets/create_proposal_dialog.dart:98` | **原因**: Build 函数体积过大（270 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (214 行) | `lib/features/deletion_proposal/widgets/proposal_card.dart:28` | **原因**: Build 函数体积过大（214 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (147 行) | `lib/features/search/pages/search_page.dart:179` | **原因**: Build 函数体积过大（147 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+| 🔴 **高危** | 巨型 Build 方法 (192 行) | `lib/features/common/widgets/dialogs/contact_edit_dialog.dart:284` | **原因**: Build 函数体积过大（192 行），局部状态更新会导致整棵深层 Widget 树全量重建，引起布局与绘制卡顿。<br/>💡 **建议**: 拆分为独立的 StatelessWidget，利用 Flutter 的 Element 缓存机制阻断重绘扩散。 |
+
+### 📦 超大图片资产检测 (显存与首屏解码瓶颈)
+| 资源文件 | 文件体积 | 影响分析 | 建议 |
+| :--- | :--- | :--- | :--- |
+| `assets/feature5.png` | **1040.1 KB** | 解码阻塞主线程，占用 GPU 显存 | 压缩为 WebP 或降低分辨率 |
+| `assets/feature1.png` | **422.5 KB** | 解码阻塞主线程，占用 GPU 显存 | 压缩为 WebP 或降低分辨率 |
+
+> 💡 *本报告由性能 CLI (tool/perf_cli.dart) 自动生成，未触碰主应用任何源码。*

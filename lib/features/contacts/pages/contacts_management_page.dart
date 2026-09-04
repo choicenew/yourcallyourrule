@@ -11,6 +11,7 @@ import 'package:yourcallyourrule/features/contacts/provider/contact_service_prov
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/contact_edit_dialog.dart';
+import 'package:yourcallyourrule/features/contacts/widgets/contact_import_export_dialog.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
@@ -32,6 +33,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
   // 多选模式相关变量
   bool _isMultiSelectMode = false;
   Set<String> _selectedContactIds = {}; // 存储选中的联系人ID
+  static final _alphabetRegex = RegExp(r'[A-Z]');
 
   @override
   void initState() {
@@ -452,7 +454,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
     Map<String, List<Contact>> groupedContacts = {};
     for (var contact in _filteredContacts) {
       String firstLetter = contact.name.isNotEmpty ? contact.name[0].toUpperCase() : '#';
-      if (!RegExp(r'[A-Z]').hasMatch(firstLetter)) {
+      if (!_alphabetRegex.hasMatch(firstLetter)) {
         firstLetter = '#';
       }
       groupedContacts.putIfAbsent(firstLetter, () => []).add(contact);
@@ -500,138 +502,9 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
             ),
             IconButton(
               icon: const Icon(Icons.import_export),
-            onPressed: () async {
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: Text(AppLocalizations.of(context)!.importExportContacts),
-                  content: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ListTile(
-                        leading: const Icon(Icons.file_upload),
-                        title: Text(AppLocalizations.of(context)!.importContacts),
-                        onTap: () async {
-                          Navigator.pop(context);
-                          try {
-                            final result = await FilePicker.pickFiles(
-                              type: FileType.custom,
-                              allowedExtensions: ['vcf', 'csv', 'yaml', 'json'],
-                            );
-                            if (result != null) {
-                              final file = File(result.files.single.path!);
-                              final content = await file.readAsString();
-                              final extension = result.files.single.extension?.toLowerCase();
-                                  final contactService = ref.read(contactServiceProvider);
-                                  final directory = await getExternalStorageDirectory();
-                                  switch (extension) {
-                                    case 'vcf':
-                                      await contactService.importContactsFromVcf(content, directory!);
-                                      break;
-                                    case 'csv':
-                                      await contactService.importContactsFromCsv(content);
-                                      break;
-                                    case 'yaml':
-                                      await contactService.importContactsFromYaml(content);
-                                      break;
-                                    case 'json':
-                                      final jsonData = jsonDecode(content) as List<dynamic>;
-                                      await contactService.importContactsFromJson(jsonData);
-                                      break;
-                                    default:
-                                      throw Exception(AppLocalizations.of(context)!.unsupportedFileFormat);
-                              }
-                              await _loadContacts(); // 刷新列表
-                              if (mounted) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text(AppLocalizations.of(context)!.importSuccess), backgroundColor: Colors.green),
-                                );
-                              }
-                            }
-                          } catch (e) {
-                            if (mounted) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('${AppLocalizations.of(context)!.importFailed}: $e'), backgroundColor: Colors.red),
-                              );
-                            }
-                          }
-                        },
-                      ),
-                      ListTile(
-                        leading: const Icon(Icons.file_download),
-                        title: Text(AppLocalizations.of(context)!.exportContacts),
-                        onTap: () async {
-                          Navigator.pop(context);
-                          try {
-                            final contactService = ref.read(contactServiceProvider);
-
-                            showDialog(
-                              context: context,
-                              builder: (context) => AlertDialog(
-                                title: Text(AppLocalizations.of(context)!.selectExportFormat),
-                                content: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    ListTile(
-                                      leading: const Icon(Icons.description),
-                                      title: Text(AppLocalizations.of(context)!.csvFormat),
-                                      onTap: () async {
-                                        Navigator.pop(context);
-                                        final csvContent = await contactService.exportContactsToCsv();
-                                        final directory = await getExternalStorageDirectory();
-                                        final file = File('${directory!.path}/contacts.csv');
-                                        await file.writeAsString(csvContent);
-
-                                        if (mounted) {
-                                          ScaffoldMessenger.of(context).showSnackBar(
-                                          SnackBar(
-                                            content: Text('${AppLocalizations.of(context)!.fileSavedTo}: ${file.path}'),
-                                            backgroundColor: Colors.green,
-                                          ),
-                                        );
-                                        }
-                                      },
-                                    ),
-                                    ListTile(
-                                      leading: const Icon(Icons.code),
-                                      title: Text(AppLocalizations.of(context)!.jsonFormat),
-                                      onTap: () async {
-                                        Navigator.pop(context);
-                                        final jsonContent = await contactService.exportContactsToJson();
-                                        final directory = await getExternalStorageDirectory();
-                                        final file = File('${directory!.path}/contacts.json');
-                                        await file.writeAsString(jsonContent);
-
-                                        if (mounted) {
-                                          ScaffoldMessenger.of(context).showSnackBar(
-                                          SnackBar(
-                                            content: Text('${AppLocalizations.of(context)!.fileSavedTo}: ${file.path}'),
-                                            backgroundColor: Colors.green,
-                                          ),
-                                        );
-                                        }
-                                      },
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          } catch (e) {
-                            if (mounted) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('${AppLocalizations.of(context)!.exportFailed}: $e'), backgroundColor: Colors.red),
-                              );
-                            }
-                          }
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-            tooltip: AppLocalizations.of(context)!.importExportContactsTooltip,
-          ),
+              onPressed: () => ContactImportExportDialog.show(context, onImportSuccess: _loadContacts),
+              tooltip: AppLocalizations.of(context)!.importExportContactsTooltip,
+            ),
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: _loadContacts,

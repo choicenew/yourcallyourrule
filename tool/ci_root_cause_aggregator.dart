@@ -1,15 +1,23 @@
 import 'dart:convert';
 import 'dart:io';
 
-/// 性能归因实体（量化组件耗时与根因定位）
-class RootCause {
+const _severityOrder = <String, int>{'HIGH': 0, 'MEDIUM': 1, 'LOW': 2};
+
+String _pad(String s, int w, {bool left = false}) {
+  if (s.length >= w) return s.substring(0, w);
+  final pad = ' ' * (w - s.length);
+  return left ? '$pad$s' : '$s$pad';
+}
+
+class RootCause implements Comparable<RootCause> {
   final String id;
-  final String severity; // HIGH, MEDIUM, LOW, INFO
+  final String severity;
   final String name;
   final String blamedComponent;
   final double costMs;
   final String reason;
   final String suggestion;
+  final Map<String, dynamic> raw;
 
   RootCause({
     required this.id,
@@ -19,18 +27,15 @@ class RootCause {
     required this.costMs,
     required this.reason,
     required this.suggestion,
+    required this.raw,
   });
 
-  factory RootCause.fromJson(Map<String, dynamic> j) {
-    return RootCause(
-      id: j['id']?.toString() ?? 'unknown-cause',
-      severity: j['severity']?.toString() ?? 'MEDIUM',
-      name: j['name']?.toString() ?? 'Unnamed Issue',
-      blamedComponent: j['blamed_component']?.toString() ?? 'lib/unknown',
-      costMs: (j['cost_ms'] as num?)?.toDouble() ?? 0.0,
-      reason: j['reason']?.toString() ?? '',
-      suggestion: j['suggestion']?.toString() ?? '',
-    );
+  @override
+  int compareTo(RootCause other) {
+    final sa = _severityOrder[severity] ?? 99;
+    final sb = _severityOrder[other.severity] ?? 99;
+    if (sa != sb) return sa.compareTo(sb);
+    return other.costMs.compareTo(costMs);
   }
 
   Map<String, dynamic> toJson() => {
@@ -41,16 +46,15 @@ class RootCause {
         'cost_ms': costMs,
         'reason': reason,
         'suggestion': suggestion,
+        'raw': raw,
       };
 }
 
-/// 真实实测指标行
 class MetricRow {
   final String phase;
   final String metric;
   final double value;
   final String unit;
-  final String verdict; // PASS, WARN, FAIL
   final double? thresholdHard;
   final double? thresholdWarn;
   final Map<String, dynamic> raw;
@@ -60,34 +64,15 @@ class MetricRow {
     required this.metric,
     required this.value,
     required this.unit,
-    required this.verdict,
     this.thresholdHard,
     this.thresholdWarn,
     required this.raw,
   });
 
-  factory MetricRow.fromJson(Map<String, dynamic> j) {
-    final v = (j['value'] as num?)?.toDouble() ?? 0.0;
-    final thHard = (j['threshold_hard'] as num?)?.toDouble();
-    final thWarn = (j['threshold_warn'] as num?)?.toDouble();
-
-    String verdict = 'PASS';
-    if (thHard != null && v >= thHard) {
-      verdict = 'FAIL';
-    } else if (thWarn != null && v >= thWarn) {
-      verdict = 'WARN';
-    }
-
-    return MetricRow(
-      phase: j['phase']?.toString() ?? 'unknown',
-      metric: j['metric']?.toString() ?? 'unnamed',
-      value: v,
-      unit: j['unit']?.toString() ?? '',
-      verdict: verdict,
-      thresholdHard: thHard,
-      thresholdWarn: thWarn,
-      raw: j,
-    );
+  String get verdict {
+    if (thresholdHard != null && value >= thresholdHard!) return 'HARD_FAIL';
+    if (thresholdWarn != null && value >= thresholdWarn!) return 'WARN';
+    return 'OK';
   }
 
   Map<String, dynamic> toJson() => {
@@ -102,197 +87,324 @@ class MetricRow {
       };
 }
 
-/// 综合性能诊断报告
-class ComprehensiveReport {
+class Report {
   final String generatedAt;
   final int highCount;
   final int mediumCount;
   final int lowCount;
   final List<RootCause> sortedCauses;
   final List<MetricRow> metrics;
-  final double weightedScore;
-  final String grade;
+  final double weightedScore; // 0..100, higher better
+  final String grade; // A..F
 
-  ComprehensiveReport._({
+  Report({
     required this.generatedAt,
-    required this.highCount,
-    required this.mediumCount,
-    required this.lowCount,
     required this.sortedCauses,
     required this.metrics,
-    required this.weightedScore,
-    required this.grade,
-  });
+  })  : highCount = sortedCauses.where((c) => c.severity == 'HIGH').length,
+        mediumCount = sortedCauses.where((c) => c.severity == 'MEDIUM').length,
+        lowCount = sortedCauses.where((c) => c.severity == 'LOW').length,
+        weightedScore = () {
+          final h = sortedCauses.where((c) => c.severity == 'HIGH').length;
+          final m = sortedCauses.where((c) => c.severity == 'MEDIUM').length;
+          final l = sortedCauses.where((c) => c.severity == 'LOW').length;
+          double s = 100.0;
+          s -= h * 35.0;
+          s -= m * 10.0;
+          s -= l * 2.0;
+          if (s < 0) s = 0;
+          return s;
+        }(),
+        grade = () {
+          final h = sortedCauses.where((c) => c.severity == 'HIGH').length;
+          final m = sortedCauses.where((c) => c.severity == 'MEDIUM').length;
+          final l = sortedCauses.where((c) => c.severity == 'LOW').length;
+          double s = 100.0;
+          s -= h * 35.0;
+          s -= m * 10.0;
+          s -= l * 2.0;
+          if (s < 0) s = 0;
+          if (s >= 90) return 'A';
+          if (s >= 80) return 'B';
+          if (s >= 70) return 'C';
+          if (s >= 60) return 'D';
+          if (s >= 40) return 'E';
+          return 'F';
+        }();
+}
 
-  factory ComprehensiveReport.create({
-    required List<RootCause> causes,
-    required List<MetricRow> metrics,
-  }) {
-    final sortedCauses = List<RootCause>.from(causes)
-      ..sort((a, b) => b.costMs.compareTo(a.costMs));
-
-    final highCount = sortedCauses.where((c) => c.severity == 'HIGH').length;
-    final mediumCount = sortedCauses.where((c) => c.severity == 'MEDIUM').length;
-    final lowCount = sortedCauses.where((c) => c.severity == 'LOW').length;
-
-    double s = 100.0 - (highCount * 30.0) - (mediumCount * 10.0) - (lowCount * 2.0);
-    if (s < 0) s = 0.0;
-
-    String g;
-    if (s >= 90) {
-      g = 'A (优秀)';
-    } else if (s >= 80) {
-      g = 'B (良好)';
-    } else if (s >= 70) {
-      g = 'C (中等)';
-    } else if (s >= 60) {
-      g = 'D (及格)';
-    } else {
-      g = 'F (极差需优化)';
+List<RootCause> _loadRootCauses(File f) {
+  if (!f.existsSync()) return const [];
+  final out = <RootCause>[];
+  for (final line in f.readAsLinesSync()) {
+    final l = line.trim();
+    if (l.isEmpty) continue;
+    try {
+      final d = jsonDecode(l) as Map<String, dynamic>;
+      out.add(RootCause(
+        id: d['id']?.toString() ?? 'id-${out.length}',
+        severity: d['severity']?.toString().toUpperCase() ?? 'MEDIUM',
+        name: d['name']?.toString() ?? '(unnamed)',
+        blamedComponent:
+            d['blamed_component']?.toString() ?? d['blame_component']?.toString() ?? '(unknown)',
+        costMs: _toDouble(d['cost_ms']) ?? _toDouble(d['costMs']) ?? 0.0,
+        reason: d['reason']?.toString() ?? '(no reason)',
+        suggestion: d['suggestion']?.toString() ?? '(no suggestion)',
+        raw: d,
+      ));
+    } catch (_) {
+      // skip malformed
     }
+  }
+  return out;
+}
 
-    return ComprehensiveReport._(
-      generatedAt: DateTime.now().toUtc().toIso8601String(),
-      highCount: highCount,
-      mediumCount: mediumCount,
-      lowCount: lowCount,
-      sortedCauses: sortedCauses,
-      metrics: metrics,
-      weightedScore: s,
-      grade: g,
-    );
+double? _toDouble(dynamic v) {
+  if (v == null) return null;
+  if (v is num) return v.toDouble();
+  if (v is String) return double.tryParse(v);
+  return null;
+}
+
+List<MetricRow> _loadMetrics(File f) {
+  if (!f.existsSync()) return const [];
+  final out = <MetricRow>[];
+  for (final line in f.readAsLinesSync()) {
+    final l = line.trim();
+    if (l.isEmpty) continue;
+    try {
+      final d = jsonDecode(l) as Map<String, dynamic>;
+      final value = _toDouble(d['value']);
+      if (value == null) continue;
+      out.add(MetricRow(
+        phase: d['phase']?.toString() ?? 'unknown',
+        metric: d['metric']?.toString() ?? 'unknown',
+        value: value,
+        unit: d['unit']?.toString() ?? 'n/a',
+        thresholdHard: _toDouble(d['threshold_hard'] ?? d['thresholdHard']),
+        thresholdWarn: _toDouble(d['threshold_warn'] ?? d['thresholdWarn']),
+        raw: d,
+      ));
+    } catch (_) {
+      // skip malformed
+    }
+  }
+  return out;
+}
+
+String _escapeMdCell(String s) =>
+    s.replaceAll('|', r'\|').replaceAll('\n', ' ').trim();
+
+String _renderMarkdown(Report r) {
+  final lines = <String>[];
+  lines.add('# 综合性能根因分析 · 谁拖慢了 App');
+  lines.add('');
+  lines.add('> 生成于 `${r.generatedAt}` | 样本: **${r.metrics.length} 项指标** | **${r.sortedCauses.length} 个根因**');
+  lines.add('');
+  lines.add('## 🎯 总体评分: **$r.grade** · ${r.weightedScore.toStringAsFixed(1)} / 100');
+  lines.add('');
+  lines.add('| 严重度 | 数量 |');
+  lines.add('|---|---:|');
+  lines.add('| 🔴 HIGH (阻塞级) | ${r.highCount} |');
+  lines.add('| 🟠 MEDIUM (需优化) | ${r.mediumCount} |');
+  lines.add('| 🟡 LOW (建议项) | ${r.lowCount} |');
+  lines.add('');
+
+  lines.add('## 🏆 Top-N 拖慢者排行榜 (按 严重度 → cost_ms 降序)');
+  lines.add('');
+  lines.add('| 排名 | 严重度 | 拖慢者组件 (blamed_component) | cost_ms | 名称 / 现象 | 根因分析 | 建议修复 |');
+  lines.add('|---|---|---|---:|---|---|---|');
+  int rank = 0;
+  for (final c in r.sortedCauses) {
+    rank++;
+    final sevMd = c.severity == 'HIGH'
+        ? '🔴 HIGH'
+        : c.severity == 'MEDIUM'
+            ? '🟠 MEDIUM'
+            : '🟡 LOW';
+    lines.add(
+        '| $rank | $sevMd | `${_escapeMdCell(c.blamedComponent)}` | ${c.costMs.toStringAsFixed(1)} | ${_escapeMdCell(c.name)} | ${_escapeMdCell(c.reason)} | ${_escapeMdCell(c.suggestion)} |');
+    if (rank >= 30) break;
+  }
+  lines.add('');
+
+  lines.add('## 📊 指标总览 (按 phase 分组)');
+  lines.add('');
+  final byPhase = <String, List<MetricRow>>{};
+  for (final m in r.metrics) {
+    byPhase.putIfAbsent(m.phase, () => []).add(m);
+  }
+  for (final e in byPhase.entries) {
+    lines.add('### `${e.key}`');
+    lines.add('');
+    lines.add('| 判决 | 指标 | 值 | 单位 | WARN 阈值 | HARD 阈值 |');
+    lines.add('|---|---|---:|---|---:|---:|');
+    final rows = e.value
+      ..sort((a, b) {
+        const order = {'HARD_FAIL': 0, 'WARN': 1, 'OK': 2};
+        final oa = order[a.verdict] ?? 99;
+        final ob = order[b.verdict] ?? 99;
+        if (oa != ob) return oa.compareTo(ob);
+        return b.value.compareTo(a.value);
+      });
+    for (final m in rows) {
+      final verdictEmoji = m.verdict == 'HARD_FAIL'
+          ? '❌ HARD_FAIL'
+          : m.verdict == 'WARN'
+              ? '⚠️ WARN'
+              : '✅ OK';
+      lines.add(
+          '| $verdictEmoji | `${m.metric}` | ${m.value.toStringAsFixed(2)} | ${m.unit} | ${m.thresholdWarn?.toStringAsFixed(1) ?? '-'} | ${m.thresholdHard?.toStringAsFixed(1) ?? '-'} |');
+    }
+    lines.add('');
   }
 
-  String toMarkdown() {
-    final sb = StringBuffer();
-    sb.writeln('# 📱 Flutter 全性能与系统矩阵 CI 综合诊断报告');
-    sb.writeln();
-    sb.writeln('- **测试生成时间**: `$generatedAt`');
-    sb.writeln('- **综合体验得分**: **${weightedScore.toStringAsFixed(1)} / 100** (等级: **$grade**)');
-    sb.writeln('- **归因瓶颈总计**: 高危 **$highCount** | 警告 **$mediumCount** | 轻微 **$lowCount**');
-    sb.writeln('- **采集指标总数**: `${metrics.length}`');
-    sb.writeln();
+  return lines.join('\n');
+}
 
-    // 1. 拖慢 App 核心瓶颈归因排行榜
-    if (sortedCauses.isNotEmpty) {
-      sb.writeln('## 🚨 拖慢 App 体验与跟手度的瓶颈排行榜 (Top Slowdowns)');
-      sb.writeln();
-      sb.writeln('| 严重度 | 问题描述 | 责任组件 / 模块 | 影响耗时 | 根因机理解释 | 优化建议 |');
-      sb.writeln('| :---: | :--- | :--- | :---: | :--- | :--- |');
-      for (final c in sortedCauses) {
-        final icon = c.severity == 'HIGH' ? '🔴 HIGH' : (c.severity == 'MEDIUM' ? '🟡 MEDIUM' : '🟢 LOW');
-        sb.writeln('| $icon | **${c.name}** | `${c.blamedComponent}` | **${c.costMs.toStringAsFixed(1)} ms** | ${c.reason} | ${c.suggestion} |');
-      }
-      sb.writeln();
-    }
-
-    // 2. 真实测量指标详情表
-    final sortedMetrics = List<MetricRow>.from(metrics)
-      ..sort((a, b) => b.value.compareTo(a.value));
-
-    sb.writeln('## ⏱️ 全链路性能与跟手度实测指标明细');
-    sb.writeln();
-    sb.writeln('| 阶段 / 模块 | 测量项 | 实测数值 | 预算标准 | 评定 |');
-    sb.writeln('| :--- | :--- | :---: | :---: | :---: |');
-    for (final m in sortedMetrics) {
-      final thStr = m.thresholdHard != null ? '<= ${m.thresholdHard} ${m.unit}' : '-';
-      final status = m.verdict == 'FAIL' ? '❌ FAIL' : (m.verdict == 'WARN' ? '⚠️ WARN' : '✅ PASS');
-      sb.writeln('| `${m.phase}` | `${m.metric}` | **${m.value.toStringAsFixed(2)} ${m.unit}** | $thStr | $status |');
-    }
-    sb.writeln();
-
-    return sb.toString();
+String _gradeColor(String g) {
+  switch (g) {
+    case 'A':
+      return 'bright green';
+    case 'B':
+      return 'green';
+    case 'C':
+      return 'yellow';
+    case 'D':
+      return 'yellow orange';
+    case 'E':
+      return 'red';
+    default:
+      return 'bright red';
   }
 }
 
-void main(List<String> args) {
-  final reportsDir = Directory('ci_reports');
-  if (!reportsDir.existsSync()) {
-    reportsDir.createSync(recursive: true);
+void _printConsole(Report r, List<String> args) {
+  final w = stdout.hasTerminal ? stdout.terminalColumns : 100;
+  final bar = '=' * (w > 120 ? 120 : w);
+  print(bar);
+  print('🎯 综合性能根因分析  ·  谁拖慢了 App ?');
+  print('📅 生成于: ${r.generatedAt}   |   指标 ${r.metrics.length} 条   |   根因 ${r.sortedCauses.length} 个');
+  print('📊 总评分: ${r.grade}  (${r.weightedScore.toStringAsFixed(1)} / 100)   '
+      '🔴H=${r.highCount}  🟠M=${r.mediumCount}  🟡L=${r.lowCount}');
+  print(bar);
+  print('');
+  const colRank = 5;
+  const colSev = 10;
+  const colCost = 12;
+  const colComp = 36;
+  int rest = (w > 160 ? 160 : w) - colRank - colSev - colCost - colComp - 4 * 3 - 5;
+  if (rest < 40) rest = 40;
+  final colName = (rest * 0.45).round();
+  final colReason = (rest * 0.55).round();
+  print('| ${_pad('#', colRank, left: true)} | ${_pad('SEV', colSev)} | ${_pad('COST(ms)', colCost, left: true)} | ${_pad('BLAMED COMPONENT', colComp)} | ${_pad('NAME / PHENOMENON', colName)} | ${_pad('REASON', colReason)} |');
+  print('| ${'-' * colRank} | ${'-' * colSev} | ${'-' * colCost} | ${'-' * colComp} | ${'-' * colName} | ${'-' * colReason} |');
+
+  int rank = 0;
+  for (final c in r.sortedCauses) {
+    rank++;
+    final sev = c.severity.padRight(4).substring(0, 4);
+    print('| ${_pad('$rank', colRank, left: true)} | ${_pad(sev, colSev)} | ${_pad(c.costMs.toStringAsFixed(1), colCost, left: true)} | ${_pad(c.blamedComponent, colComp)} | ${_pad(c.name, colName)} | ${_pad(c.reason, colReason)} |');
+    if (rank >= 20) break;
   }
-
-  final causes = <RootCause>[];
-  final metrics = <MetricRow>[];
-
-  // 1. 扫描所有的指标与根因 jsonl 文件
-  final jsonlFiles = reportsDir
-      .listSync(recursive: true)
-      .whereType<File>()
-      .where((f) => f.path.endsWith('.jsonl'));
-
-  for (final file in jsonlFiles) {
-    try {
-      for (final line in file.readAsLinesSync()) {
-        final t = line.trim();
-        if (t.isEmpty || !t.startsWith('{')) continue;
-        try {
-          final j = jsonDecode(t);
-          if (j is Map<String, dynamic>) {
-            if (j.containsKey('id') && j.containsKey('blamed_component')) {
-              causes.add(RootCause.fromJson(j));
-            } else if (j.containsKey('value') && j.containsKey('metric')) {
-              metrics.add(MetricRow.fromJson(j));
-            }
-          }
-        } catch (_) {}
-      }
-    } catch (_) {}
+  print('');
+  print(bar);
+  print('✅ 详细 Markdown 报告 + 完整 JSON 已写入 ci_reports/ 目录。');
+  print('   - HIGH_SEVERITY_COUNT = ${r.highCount}  (--fail-high 时据此判定 exit code)');
+  if (args.contains('--ci')) {
+    print('   - --ci 模式: 已追加报告到 \$GITHUB_STEP_SUMMARY 并写 HIGH_SEVERITY_COUNT 到 \$GITHUB_ENV');
   }
-
-  // 2. 扫描 .log 文件中输出的 ROOT_CAUSE 和 METRIC
-  final logFiles = reportsDir
-      .listSync(recursive: true)
-      .whereType<File>()
-      .where((f) => f.path.endsWith('.log'));
-
-  for (final file in logFiles) {
-    try {
-      for (final line in file.readAsLinesSync()) {
-        if (line.contains('ROOT_CAUSE:')) {
-          final payload = line.split('ROOT_CAUSE:').last.trim();
-          try {
-            causes.add(RootCause.fromJson(jsonDecode(payload)));
-          } catch (_) {}
-        } else if (line.contains('_METRIC:')) {
-          final payload = line.split(RegExp(r'[A-Za-z0-9_]+_METRIC:')).last.trim();
-          try {
-            metrics.add(MetricRow.fromJson(jsonDecode(payload)));
-          } catch (_) {}
-        }
-      }
-    } catch (_) {}
+  if (args.contains('--fail-high')) {
+    if (r.highCount > 0) {
+      print('   - --fail-high + HIGH>0: exit(1)');
+    } else {
+      print('   - --fail-high + HIGH=0: exit(0)');
+    }
   }
+  print(bar);
+}
 
-  // 去重
-  final uniqueCauses = <String, RootCause>{};
-  for (final c in causes) {
-    uniqueCauses[c.id] = c;
-  }
+Map<String, dynamic> _renderJson(Report r) {
+  return {
+    'generated_at': r.generatedAt,
+    'summary': {
+      'grade': r.grade,
+      'weighted_score_100': r.weightedScore,
+      'high_severity_count': r.highCount,
+      'medium_severity_count': r.mediumCount,
+      'low_severity_count': r.lowCount,
+      'total_root_causes': r.sortedCauses.length,
+      'total_metrics': r.metrics.length,
+    },
+    'root_causes_top_n': r.sortedCauses.take(50).map((c) => c.toJson()).toList(),
+    'metrics_verdicts': r.metrics.map((m) => m.toJson()).toList(),
+  };
+}
 
-  final report = ComprehensiveReport.create(
-    causes: uniqueCauses.values.toList(),
+void main(List<String> args) async {
+  final metricsFile = File('ci_reports/ALL_METRICS.jsonl');
+  final causesFile = File('ci_reports/ALL_ROOT_CAUSES.jsonl');
+  final metrics = _loadMetrics(metricsFile);
+  final causes = _loadRootCauses(causesFile)..sort();
+  final now = DateTime.now().toUtc().toIso8601String();
+  final stamp = DateTime.now()
+      .toUtc()
+      .toIso8601String()
+      .replaceAll(':', '-')
+      .replaceAll('.', '-')
+      .replaceAll('T', '_')
+      .substring(0, 19);
+  Directory('ci_reports').createSync(recursive: true);
+
+  final report = Report(
+    generatedAt: now,
+    sortedCauses: causes,
     metrics: metrics,
   );
 
-  final timestamp = DateTime.now().millisecondsSinceEpoch;
-  final mdFile = File('ci_reports/ci_root_cause_report_$timestamp.md');
-  final jsonFile = File('ci_reports/ci_root_cause_report_$timestamp.json');
+  final mdPath = 'ci_reports/ci_root_cause_report_$stamp.md';
+  final jsonPath = 'ci_reports/ci_root_cause_report_$stamp.json';
 
-  mdFile.writeAsStringSync(report.toMarkdown());
-  jsonFile.writeAsStringSync(jsonEncode({
-    'generated_at': report.generatedAt,
-    'score': report.weightedScore,
-    'grade': report.grade,
-    'high_count': report.highCount,
-    'medium_count': report.mediumCount,
-    'low_count': report.lowCount,
-    'causes': report.sortedCauses.map((c) => c.toJson()).toList(),
-    'metrics': report.metrics.map((m) => m.toJson()).toList(),
-  }));
+  File(mdPath).writeAsStringSync(_renderMarkdown(report));
+  File(jsonPath)
+      .writeAsStringSync(const JsonEncoder.withIndent('  ').convert(_renderJson(report)));
 
-  stdout.writeln('=== CI 性能综合报告已生成 ===');
-  stdout.writeln('综合得分: ${report.weightedScore.toStringAsFixed(1)} / 100 (${report.grade})');
-  stdout.writeln('发现瓶颈: ${report.sortedCauses.length} 项 (高危: ${report.highCount})');
-  stdout.writeln('采集指标: ${report.metrics.length} 项');
-  stdout.writeln('报告文件: ${mdFile.path}');
+  // 始终写一份 latest 方便下游取文件
+  File('ci_reports/ci_root_cause_report_latest.md')
+      .writeAsStringSync(_renderMarkdown(report));
+  File('ci_reports/ci_root_cause_report_latest.json').writeAsStringSync(
+      const JsonEncoder.withIndent('  ').convert(_renderJson(report)));
+
+  // CI 模式: 写 GITHUB_ENV / GITHUB_STEP_SUMMARY
+  if (args.contains('--ci')) {
+    final envFile =
+        Platform.environment['GITHUB_ENV'] ?? Platform.environment['GITHUB_OUTPUT'] ?? '';
+    if (envFile.isNotEmpty) {
+      final f = File(envFile);
+      try {
+        f.writeAsStringSync(
+          'HIGH_SEVERITY_COUNT=${report.highCount}\nMEDIUM_SEVERITY_COUNT=${report.mediumCount}\nLOW_SEVERITY_COUNT=${report.lowCount}\nCI_PERF_GRADE=${report.grade}\nCI_PERF_SCORE=${report.weightedScore.toStringAsFixed(1)}\n',
+          mode: FileMode.append,
+        );
+      } catch (_) {}
+    }
+    final stepSummary = Platform.environment['GITHUB_STEP_SUMMARY'] ?? '';
+    if (stepSummary.isNotEmpty) {
+      try {
+        File(stepSummary).writeAsStringSync(
+          '\n' + File(mdPath).readAsStringSync() + '\n',
+          mode: FileMode.append,
+        );
+      } catch (_) {}
+    }
+    stdout.writeln(
+        'HIGH_SEVERITY_COUNT=${report.highCount}\nMEDIUM_SEVERITY_COUNT=${report.mediumCount}\nLOW_SEVERITY_COUNT=${report.lowCount}\nCI_PERF_GRADE=${report.grade}\nCI_PERF_SCORE=${report.weightedScore.toStringAsFixed(1)}\n');
+  }
+
+  _printConsole(report, args);
+
+  exitCode = 0;
+  if (args.contains('--fail-high') && report.highCount > 0) {
+    exitCode = 1;
+  }
 }

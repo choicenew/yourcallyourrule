@@ -22,20 +22,6 @@ void main(List<String> args) async {
   final flutterIdx = args.indexOf('--flutter-path');
   if (flutterIdx != -1 && flutterIdx + 1 < args.length) {
     flutterCmd = args[flutterIdx + 1];
-  } else {
-    try {
-      final dartExe = File(Platform.resolvedExecutable);
-      final possibleFlutter1 = File('${dartExe.parent.parent.parent.parent.path}${Platform.pathSeparator}flutter.bat');
-      final possibleFlutter2 = File('${dartExe.parent.parent.parent.path}${Platform.pathSeparator}flutter.bat');
-      final possibleFlutter3 = File('${dartExe.parent.path}${Platform.pathSeparator}flutter.bat');
-      if (possibleFlutter1.existsSync()) {
-        flutterCmd = possibleFlutter1.path;
-      } else if (possibleFlutter2.existsSync()) {
-        flutterCmd = possibleFlutter2.path;
-      } else if (possibleFlutter3.existsSync()) {
-        flutterCmd = possibleFlutter3.path;
-      }
-    } catch (_) {}
   }
 
   final runId = DateTime.now().millisecondsSinceEpoch;
@@ -167,39 +153,21 @@ Future<Map<String, dynamic>> _runFlutterTest(
         .transform(const LineSplitter());
 
     await for (final line in lineStream) {
-      if (line.contains('_METRIC:')) {
+      if (line.contains('CI_METRIC:')) {
         final idx = line.indexOf('{');
         if (idx != -1) {
           try {
             final jsonStr = line.substring(idx);
             final parsed = jsonDecode(jsonStr) as Map<String, dynamic>;
             metrics.add(parsed);
-            final cat = parsed['phase'] ?? parsed['category'] ?? '?';
+            final cat = parsed['category'] ?? '?';
             final name = parsed['metric'] ?? '?';
-            final v = parsed['value'] ?? parsed['total_ms'] ?? parsed['avg_frame_ms'] ?? '-';
+            final v = parsed['value'] ?? parsed['total_ms'] ?? '-';
             final unit = parsed['unit'] ?? '';
             print('   \x1B[32m  📊 [$cat]\x1B[0m $name = $v $unit');
           } catch (e) {
-            stderr.writeln('      解析 METRIC 失败: $e in $line');
+            stderr.writeln('      解析 CI_METRIC 失败: $e in $line');
           }
-        }
-      } else if (line.contains('ROOT_CAUSE:')) {
-        final idx = line.indexOf('{');
-        if (idx != -1) {
-          try {
-            final jsonStr = line.substring(idx);
-            final parsed = jsonDecode(jsonStr) as Map<String, dynamic>;
-            metrics.add({
-              'category': 'ROOT_CAUSE',
-              'metric': parsed['id'] ?? 'root_cause',
-              'title': parsed['name'],
-              'cause': parsed['reason'],
-              'suggestion': parsed['suggestion'],
-              'cost_ms': parsed['cost_ms'],
-              'severity': parsed['severity'],
-            });
-            print('   \x1B[31m  🚨 [卡顿根因]\x1B[0m ${parsed['name']}');
-          } catch (_) {}
         }
       } else if (line.contains(RegExp(r'^(\+[0-9]+.*:.*|\d+:\d+\s+\+[0-9]+)'))) {
         final match = RegExp(r'\+(\d+)').firstMatch(line);

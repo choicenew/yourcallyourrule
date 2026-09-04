@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -62,6 +63,31 @@ void main() {
       final rss0 = _getSafeRssKb();
       final swWidgetsBinding = Stopwatch()..start();
       WidgetsFlutterBinding.ensureInitialized();
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(
+        const MethodChannel('plugins.flutter.io/path_provider'),
+        (MethodCall methodCall) async => Directory.systemTemp.path,
+      );
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(
+        const MethodChannel('plugins.flutter.io/shared_preferences'),
+        (MethodCall methodCall) async => <String, dynamic>{},
+      );
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(
+        const MethodChannel('dexterous.com/flutter/local_notifications'),
+        (MethodCall methodCall) async => true,
+      );
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(
+        const MethodChannel('floating_window_android'),
+        (MethodCall methodCall) async => false,
+      );
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(
+        const MethodChannel('flutter.baseflow.com/permissions/methods'),
+        (MethodCall methodCall) async => 1,
+      );
       _bootstrapPhases['0.1_WidgetsBinding'] =
           swWidgetsBinding.elapsedMicroseconds / 1000.0;
 
@@ -112,32 +138,6 @@ void main() {
         final double ms = s.elapsedMicroseconds / 1000.0;
         _bootstrapPhases[tag] = ms;
       }
-
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        const MethodChannel('plugins.flutter.io/path_provider'),
-        (MethodCall methodCall) async => Directory.systemTemp.path,
-      );
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        const MethodChannel('plugins.flutter.io/shared_preferences'),
-        (MethodCall methodCall) async => <String, dynamic>{},
-      );
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        const MethodChannel('dexterous.com/flutter/local_notifications'),
-        (MethodCall methodCall) async => true,
-      );
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        const MethodChannel('floating_window_android'),
-        (MethodCall methodCall) async => false,
-      );
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        const MethodChannel('flutter.baseflow.com/permissions/methods'),
-        (MethodCall methodCall) async => 1,
-      );
 
       final swMountMyApp = Stopwatch()..start();
       await tester.pumpWidget(

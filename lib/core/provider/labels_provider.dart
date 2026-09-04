@@ -15,10 +15,6 @@ final labelServiceProvider = Provider<LabelService>((ref) {
   
   return LabelService(ruleRepository, predefinedLabelService);
 });
-/// 电话标签数据提供者
-final labelPhonesProvider = AsyncNotifierProvider<LabelPhoneNotifier, List<LabelPhoneEntry>>(
-  () => LabelPhoneNotifier(),
-);
 
 /// 标签数据提供者 - 直接引用labelPhonesProvider
 final labelsProvider = Provider<LabelPhoneNotifier>((ref) {

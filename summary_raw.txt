@@ -1,0 +1,49 @@
+# 📱 Flutter 全性能与系统矩阵 CI 综合诊断报告
+
+- **测试生成时间**: `2026-09-03T13:03:17.191649Z`
+- **综合体验得分**: **78.0 / 100** (等级: **C (中等)**)
+- **归因瓶颈总计**: 高危 **0** | 警告 **2** | 轻微 **1**
+- **采集指标总数**: `29`
+
+## 🚨 拖慢 App 体验与跟手度的瓶颈排行榜 (Top Slowdowns)
+
+| 严重度 | 问题描述 | 责任组件 / 模块 | 影响耗时 | 根因机理解释 | 优化建议 |
+| :---: | :--- | :--- | :---: | :--- | :--- |
+| 🟢 LOW | **Provider 启动慢速 Top 1: rulesProvider (AsyncNotifier: RuleRepository.getAll) 冷启动 43.9ms** | `rulesProvider (AsyncNotifier: RuleRepository.getAll)` | **43.9 ms** | AsyncNotifier.build() 直接触发 I/O 仓库查询，导致首帧前大量 UI 阻塞在 Provider build()/数据库读取上。 | (a) 若为列表类 AsyncNotifier：拆分为 initial+loadMore 或 useQuery 懒加载；(b) 把 getAll() 放入 compute isolate；(c) 服务 Provider 使用依赖最小化，避免级联触发；(d) Service 拆分细粒度 Provider 避免全量 rebuild。 |
+| 🟡 MEDIUM | **Provider 启动慢速 Top 3: callLogServiceProvider (ref.watch 5 下游) 冷启动 4.8ms** | `callLogServiceProvider (ref.watch 5 下游)` | **4.8 ms** | 级联依赖 5 个下游 Provider (callLogRepositoryProvider, contactServiceProvider, labelServiceProvider, allowedBlockedServiceProvider, ruleManagementServiceProvider)，导致首帧前大量 UI 阻塞在 Provider build()/数据库读取上。 | (a) 若为列表类 AsyncNotifier：拆分为 initial+loadMore 或 useQuery 懒加载；(b) 把 getAll() 放入 compute isolate；(c) 服务 Provider 使用依赖最小化，避免级联触发；(d) Service 拆分细粒度 Provider 避免全量 rebuild。 |
+| 🟡 MEDIUM | **PhoneUtils 号码解析占用 UI 线程: P95=1.35ms (worst=249.3ms)** | `PhoneUtils / libphonenumber` | **1.4 ms** | 在主线程同步解析号码时耗时突破一帧预算 (16.6ms)，输入或来电拦截时会导致界面短暂冻结卡顿。 | 建议：对长字符串或批量号码解析放入 compute isolate 中处理。 |
+
+## ⏱️ 全链路性能与跟手度实测指标明细
+
+| 阶段 / 模块 | 测量项 | 实测数值 | 预算标准 | 评定 |
+| :--- | :--- | :---: | :---: | :---: |
+| `memory_leak_provider_autodispose` | `proper_disposed_count` | **200.00 count** | - | ✅ PASS |
+| `service_ui_responsiveness` | `tap_p95_ms` | **130.31 ms** | - | ✅ PASS |
+| `provider_init_cost` | `rulesProvider (AsyncNotifier: RuleRepository.getAll)` | **43.94 ms** | <= 500.0 ms | ✅ PASS |
+| `scroll_jank` | `p95_frame_ms` | **13.78 ms** | <= 50.0 ms | ✅ PASS |
+| `scroll_jank` | `p95_frame_ms` | **8.30 ms** | <= 50.0 ms | ✅ PASS |
+| `scroll_jank` | `avg_frame_ms` | **7.74 ms** | <= 32.0 ms | ✅ PASS |
+| `scroll_jank` | `p95_frame_ms` | **7.10 ms** | <= 50.0 ms | ✅ PASS |
+| `scroll_jank` | `p95_frame_ms` | **6.59 ms** | <= 50.0 ms | ✅ PASS |
+| `scroll_jank` | `jank_over_16ms_count` | **6.00 count** | - | ✅ PASS |
+| `scroll_jank` | `p95_frame_ms` | **5.33 ms** | <= 50.0 ms | ✅ PASS |
+| `provider_init_cost` | `labelsProvider (AsyncNotifier: LabelRepository.getAll)` | **5.30 ms** | <= 500.0 ms | ✅ PASS |
+| `scroll_jank` | `avg_frame_ms` | **4.87 ms** | <= 32.0 ms | ✅ PASS |
+| `provider_init_cost` | `callLogServiceProvider (ref.watch 5 下游)` | **4.78 ms** | <= 300.0 ms | ✅ PASS |
+| `scroll_jank` | `avg_frame_ms` | **4.48 ms** | <= 32.0 ms | ✅ PASS |
+| `provider_init_cost` | `pluginsProvider (AsyncNotifier: PluginRepository.getAll + 校验)` | **4.29 ms** | <= 500.0 ms | ✅ PASS |
+| `scroll_jank` | `avg_frame_ms` | **3.96 ms** | <= 32.0 ms | ✅ PASS |
+| `scroll_jank` | `avg_frame_ms` | **3.76 ms** | <= 32.0 ms | ✅ PASS |
+| `rebuild_storm` | `20_mutations_total_ms` | **3.40 ms** | <= 500.0 ms | ✅ PASS |
+| `provider_init_cost` | `predefinedLabelsProvider (AsyncNotifier: shared_prefs + decode)` | **3.26 ms** | <= 500.0 ms | ✅ PASS |
+| `provider_init_cost` | `contactsProvider (AsyncNotifier: ContactRepository.getAll)` | **2.77 ms** | <= 500.0 ms | ✅ PASS |
+| `provider_init_cost` | `subscriptionsProvider (AsyncNotifier: SubscriptionRepository.getAll)` | **1.97 ms** | <= 500.0 ms | ✅ PASS |
+| `service_blocking` | `avg_ms` | **1.49 ms** | - | ✅ PASS |
+| `service_blocking` | `p95_ms` | **1.35 ms** | <= 20.0 ms | ✅ PASS |
+| `antipattern_delta` | `p95_slowdown_x` | **1.17 ** | - | ✅ PASS |
+| `provider_init_cost` | `ruleManagementServiceProvider` | **0.55 ms** | <= 300.0 ms | ✅ PASS |
+| `scroll_jank` | `jank_over_16ms_count` | **0.00 count** | - | ✅ PASS |
+| `scroll_jank` | `jank_over_16ms_count` | **0.00 count** | - | ✅ PASS |
+| `scroll_jank` | `jank_over_16ms_count` | **0.00 count** | - | ✅ PASS |
+| `scroll_jank` | `jank_over_16ms_count` | **0.00 count** | - | ✅ PASS |
+

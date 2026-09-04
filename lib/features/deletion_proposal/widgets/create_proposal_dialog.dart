@@ -22,6 +22,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
   final _phoneController = TextEditingController();
   final _reasonController = TextEditingController();
   final _countryCodeController = TextEditingController();
+  static final _phoneInputRegex = RegExp(r'[0-9+\-\s\(\)]');
   
   int _selectedRiskLevel = 3;
   bool _isSubmitting = false;
@@ -174,7 +175,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                         ),
                         keyboardType: TextInputType.phone,
                         inputFormatters: [
-                          FilteringTextInputFormatter.allow(RegExp(r'[0-9+\-\s\(\)]')),
+                          FilteringTextInputFormatter.allow(_phoneInputRegex),
                         ],
                         validator: (value) {
                           if (value == null || value.isEmpty) {

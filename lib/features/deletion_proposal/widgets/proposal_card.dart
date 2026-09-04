@@ -3,6 +3,9 @@ import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/verification_report_card.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_status_chip.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_risk_chip.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/widgets/vote_progress_bar.dart';
 
 /// 删除提议卡片组件 (Elite Dopamine 现代视觉规范)
 class ProposalCard extends StatefulWidget {
@@ -80,7 +83,7 @@ class _ProposalCardState extends State<ProposalCard> {
                   ),
                 ),
               ),
-              _buildRiskLevelChip(context, riskLevel),
+              ProposalRiskChip(riskLevel: riskLevel),
             ],
           ),
           const SizedBox(height: 8),
@@ -88,7 +91,7 @@ class _ProposalCardState extends State<ProposalCard> {
           // 状态与创建时间
           Row(
             children: [
-              _buildStatusChip(context, status),
+              ProposalStatusChip(status: status),
               const Spacer(),
               Text(
                 _formatDateTime(createdAt),
@@ -115,7 +118,8 @@ class _ProposalCardState extends State<ProposalCard> {
           Text(
             reason,
             style: const TextStyle(
-              fontSize: 13.5,
+              fontSize: 13,
+              fontWeight: FontWeight.w500,
               color: Colors.black87,
               height: 1.4,
             ),
@@ -189,7 +193,7 @@ class _ProposalCardState extends State<ProposalCard> {
               ],
             ),
             const SizedBox(height: 6),
-            _buildVotingProgress(context, supportCount, opposeCount),
+            VoteProgressBar(supportCount: supportCount, opposeCount: opposeCount),
             const SizedBox(height: 14),
           ],
 
@@ -238,155 +242,6 @@ class _ProposalCardState extends State<ProposalCard> {
           ],
         ],
       ),
-    );
-  }
-
-  Widget _buildRiskLevelChip(BuildContext context, int riskLevel) {
-    final l10n = AppLocalizations.of(context)!;
-    Color color;
-    String label;
-
-    switch (riskLevel) {
-      case 5:
-        color = Colors.redAccent;
-        label = l10n.riskLevelCritical;
-        break;
-      case 4:
-        color = Colors.orangeAccent;
-        label = l10n.riskLevelHigh;
-        break;
-      case 3:
-        color = Colors.amber;
-        label = l10n.riskLevelMedium;
-        break;
-      case 2:
-        color = Colors.lightGreen;
-        label = l10n.riskLevelLow;
-        break;
-      case 1:
-        color = EliteDopamineTheme.freshMint;
-        label = l10n.riskLevelVeryLow;
-        break;
-      default:
-        color = Colors.grey;
-        label = l10n.unknown;
-    }
-
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Text(
-        label,
-        style: TextStyle(
-          color: color,
-          fontSize: 11,
-          fontWeight: FontWeight.w800,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildStatusChip(BuildContext context, String status) {
-    Color color;
-    IconData icon;
-
-    switch (status.toLowerCase()) {
-      case 'approved':
-        color = EliteDopamineTheme.freshMint;
-        icon = Icons.check_circle_rounded;
-        break;
-      case 'rejected':
-        color = Colors.redAccent;
-        icon = Icons.cancel_rounded;
-        break;
-      case 'expired':
-        color = Colors.grey;
-        icon = Icons.timer_off_rounded;
-        break;
-      case 'pending':
-      default:
-        color = Colors.orangeAccent;
-        icon = Icons.pending_rounded;
-        break;
-    }
-
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 13, color: color),
-          const SizedBox(width: 4),
-          Text(
-            status.toUpperCase(),
-            style: TextStyle(
-              color: color,
-              fontSize: 11,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildVotingProgress(
-    BuildContext context,
-    int supportCount,
-    int opposeCount,
-  ) {
-    final l10n = AppLocalizations.of(context)!;
-    final total = supportCount + opposeCount;
-    if (total == 0) return const SizedBox.shrink();
-
-    final supportRatio = supportCount / total;
-
-    return Column(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(6),
-          child: Container(
-            height: 6,
-            color: Colors.redAccent.withValues(alpha: 0.25),
-            child: FractionallySizedBox(
-              alignment: Alignment.centerLeft,
-              widthFactor: supportRatio,
-              child: Container(
-                color: EliteDopamineTheme.freshMint,
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(height: 4),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              l10n.supportCount(supportCount),
-              style: const TextStyle(
-                color: EliteDopamineTheme.freshMint,
-                fontSize: 11,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            Text(
-              l10n.opposeCount(opposeCount),
-              style: const TextStyle(
-                color: Colors.redAccent,
-                fontSize: 11,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
-        ),
-      ],
     );
   }
 

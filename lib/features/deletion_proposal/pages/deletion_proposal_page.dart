@@ -186,40 +186,55 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
 
   @override
   Widget build(BuildContext context) {
-    // =======================================================================
-    // 【核心修正】: 使用了【正确】的 Provider 名称 `deletionProposalProvider`。
-    // REASON: 这是由 @riverpod 为 DeletionProposalNotifier 自动生成的正确名称。
-    // =======================================================================
     final proposalState = ref.watch(deletionProposalProvider);
     final voteCountStream = ref.watch(deletionProposalStatisticsServiceProvider).voteCountStream;
 
-    // 1. 准备 Actions 列表 (保留所有原有逻辑)
-    // 我们在这里直接定义 actions，因为 GenericListWithAdsPage 的 AppBar 被隐藏了，
-    // 我们需要在外层的 Scaffold AppBar 中显示它们。
+    return Scaffold(
+      appBar: AppBar(
+        title: _isMultiSelectMode 
+          ? Text(AppLocalizations.of(context)!.selectedItems(_selectedProposalIds.length)) 
+          : Text(AppLocalizations.of(context)!.deletionProposals),
+        backgroundColor: Colors.deepPurple,
+        leading: _isMultiSelectMode 
+          ? IconButton(
+              icon: const Icon(Icons.close),
+              onPressed: _toggleMultiSelectMode,
+            )
+          : null,
+        actions: _buildAppBarActions(context),
+      ),
+      body: StreamBuilder<int>(
+        stream: voteCountStream,
+        builder: (context, snapshot) {
+          if (_currentViewType == ProposalViewType.public) {
+            return _buildPublicProposalsView(context, proposalState);
+          } else {
+            return _buildMyHistoryView(context);
+          }
+        },
+      ),
+    );
+  }
+
+  List<Widget> _buildAppBarActions(BuildContext context) {
     final List<Widget> appBarActions = [];
     
     if (_isMultiSelectMode) {
-      // 多选模式 Action
       appBarActions.add(
         IconButton(
           icon: const Icon(Icons.delete),
           onPressed: _selectedProposalIds.isNotEmpty ? _deleteSelectedProposals : null,
           tooltip: AppLocalizations.of(context)!.deleteSelected,
-        )
+        ),
       );
     } else {
-      // 默认模式 Actions (统计、筛选、添加、多选)
-      // 只有在查看 Public 列表时才显示统计和筛选
       if (_currentViewType == ProposalViewType.public) {
         appBarActions.add(
           IconButton(
-             // 这里需要获取实时数据，简单起见用 StreamBuilder 包裹或者在 Dialog 里获取
-             // 为了保持代码结构，我们这里传递一个空值或通过其他方式获取
-             // 注意：onPressed 回调里会处理 dialog，这里 icon 不需要实时数据
-             icon: const Icon(Icons.analytics_outlined),
-             onPressed: () => _showStatisticsDialog(0), // 实际点击会重新获取数据
-             tooltip: AppLocalizations.of(context)!.statistics,
-          )
+            icon: const Icon(Icons.analytics_outlined),
+            onPressed: () => _showStatisticsDialog(0),
+            tooltip: AppLocalizations.of(context)!.statistics,
+          ),
         );
         
         appBarActions.add(
@@ -230,179 +245,125 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
             ),
             onPressed: _showFilterAndSortDialog,
             tooltip: AppLocalizations.of(context)!.filterAndSortTitle,
-          )
+          ),
         );
       }
       
-      // 如果是 My History 模式，显示刷新按钮
       if (_currentViewType == ProposalViewType.mine) {
-         appBarActions.add(
-           IconButton(
-             icon: const Icon(Icons.refresh),
-             onPressed: () => ref.refresh(myProposalHistoryProvider.future),
-             tooltip: AppLocalizations.of(context)!.refresh,
-           )
-         );
+        appBarActions.add(
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () => ref.refresh(myProposalHistoryProvider.future),
+            tooltip: AppLocalizations.of(context)!.refresh,
+          ),
+        );
       }
 
-      // 添加按钮 (总是显示)
       appBarActions.add(
-         IconButton(
+        IconButton(
           icon: const Icon(Icons.add),
           onPressed: () => _showCreateProposalDialog(context),
           tooltip: AppLocalizations.of(context)!.add,
-        )
+        ),
       );
 
-      // 多选按钮 (仅 Public 显示)
       if (_currentViewType == ProposalViewType.public) {
         appBarActions.add(
           IconButton(
             icon: const Icon(Icons.select_all),
             onPressed: _toggleMultiSelectMode,
             tooltip: AppLocalizations.of(context)!.selectMultiple,
-          )
+          ),
         );
       }
       
-      // 更多选项 (保留)
       appBarActions.add(
         IconButton(
           icon: const Icon(Icons.more_vert),
           onPressed: () => _showMoreOptions(context, 0),
           tooltip: AppLocalizations.of(context)!.moreOptions,
-        )
+        ),
       );
     }
+    return appBarActions;
+  }
 
-    // 2. 构建外层 Scaffold，包含完整的 AppBar
-    return Scaffold(
-      appBar: AppBar(
-        title: _isMultiSelectMode 
-          ? Text(AppLocalizations.of(context)!.selectedItems(_selectedProposalIds.length)) 
-          : Text(AppLocalizations.of(context)!.deletionProposals),
-        backgroundColor: Colors.deepPurple, // 保持主题色
-        leading: _isMultiSelectMode 
-          ? IconButton(
-              icon: const Icon(Icons.close),
-              onPressed: _toggleMultiSelectMode,
-            )
-          : null,
-        actions: appBarActions, // 使用我们上面定义的 Actions
-      ),
-      
-      // 3. Body 部分根据视图类型切换
-      body: StreamBuilder<int>(
-        stream: voteCountStream,
-        builder: (context, snapshot) {
-          final currentVoteCount = snapshot.data ?? 0;
-          
-          // === 视图 1: 公共提议 (保留所有筛选逻辑) ===
-          if (_currentViewType == ProposalViewType.public) {
-              // 【MODIFIED】: 筛选和排序逻辑
-              final processedProposals = proposalState.proposals.where((proposal) {
-                if (_options.status != null && proposal.status != _options.status) return false;
-                if (_options.riskLevel != null && proposal.highestRiskLevel != _options.riskLevel) return false;
-                if (_options.onlyVerifiedOwner == true && proposal.verifiedOwnerCount == 0) return false;
-                return true;
-              }).toList();
+  Widget _buildPublicProposalsView(BuildContext context, dynamic proposalState) {
+    final processedProposals = proposalState.proposals.where((proposal) {
+      if (_options.status != null && proposal.status != _options.status) return false;
+      if (_options.riskLevel != null && proposal.highestRiskLevel != _options.riskLevel) return false;
+      if (_options.onlyVerifiedOwner == true && proposal.verifiedOwnerCount == 0) return false;
+      return true;
+    }).toList();
 
-              // 应用排序
-              processedProposals.sort((a, b) {
-                switch (_options.sortType) {
-                  case ProposalSortType.newest:
-                    return b.proposalStartTime.compareTo(a.proposalStartTime);
-                  case ProposalSortType.oldest:
-                    return a.proposalStartTime.compareTo(b.proposalStartTime);
-                  case ProposalSortType.mostPopular:
-                    return b.proposalCount.compareTo(a.proposalCount);
-                  case ProposalSortType.leastPopular:
-                    return a.proposalCount.compareTo(b.proposalCount);
-                }
-              });
-              
-              return GenericListWithAdsPage<Proposal>(
-                  // 【关键】隐藏 GenericList 的 AppBar，因为我们使用了外层 Scaffold 的 AppBar
-                  showAppBar: false, 
-                  title: AppLocalizations.of(context)!.deletionProposals,
-                  
-                  // 数据项
-                  items: processedProposals,
-                  itemBuilder: (context, proposal) => _buildProposalCard(context, proposal),
-                  
-                  // 广告和布局
-                  adBuilder: () => GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
-                  adInterval: 3,
-                  emptyText: AppLocalizations.of(context)!.noProposalsFound,
-                  emptyIcon: Icons.how_to_vote_outlined,
-                  themeColor: Colors.deepPurple,
-                  isLoading: proposalState.isLoading,
-                  onRefresh: () => ref.read(deletionProposalProvider.notifier).refreshProposals(),
-                  
-                  // 【核心修改】: 将 InfoCard 和 切换按钮 传递给 GenericList
-                  // InfoCard 传给 infoCard 参数
-                  infoCard: _buildHeaderContent(context),
-                  // 切换按钮传给 headerContent 参数 (位于 InfoCard 下方，SearchBar 上方)
-                  headerContent: _buildSegmentControl(),
+    processedProposals.sort((a, b) {
+      switch (_options.sortType) {
+        case ProposalSortType.newest:
+          return b.proposalStartTime.compareTo(a.proposalStartTime);
+        case ProposalSortType.oldest:
+          return a.proposalStartTime.compareTo(b.proposalStartTime);
+        case ProposalSortType.mostPopular:
+          return b.proposalCount.compareTo(a.proposalCount);
+        case ProposalSortType.leastPopular:
+          return a.proposalCount.compareTo(b.proposalCount);
+      }
+    });
 
-                  searchHintText: AppLocalizations.of(context)!.searchProposals,
-                  onSearchChanged: (query) => ref.read(deletionProposalProvider.notifier).searchProposals(query),
-                  
-                  // 多选逻辑
-                  isMultiSelectMode: _isMultiSelectMode,
-                  selectedItemIds: _selectedProposalIds,
-                  getItemId: (proposal) => proposal.phoneNumber,
-                  onToggleItemSelection: (itemId) => _toggleItemSelection(itemId),
-                  
-                  // 回调设为 null，因为我们在外层 AppBar 处理了
-                  onAdd: null,
-                  customActions: null,
-                  onToggleMultiSelectMode: null,
-                  onDeleteSelected: null,
-                  onMoreOptions: null,
-              );
-          } 
-          
-          // === 视图 2: 我的提交记录 ===
-          else {
-              final historyAsync = ref.watch(myProposalHistoryProvider);
-              final List<MyProposalHistoryItem> allItems = historyAsync.value ?? [];
-              
-              // 本地搜索逻辑
-              final List<MyProposalHistoryItem> filteredItems = allItems.where((item) {
-                if (_myHistorySearchQuery.isEmpty) return true;
-                return item.phoneNumber.contains(_myHistorySearchQuery);
-              }).toList();
+    return GenericListWithAdsPage<Proposal>(
+      showAppBar: false,
+      title: AppLocalizations.of(context)!.deletionProposals,
+      items: processedProposals,
+      itemBuilder: (context, proposal) => _buildProposalCard(context, proposal),
+      adBuilder: () => GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+      adInterval: 3,
+      emptyText: AppLocalizations.of(context)!.noProposalsFound,
+      emptyIcon: Icons.how_to_vote_outlined,
+      themeColor: Colors.deepPurple,
+      isLoading: proposalState.isLoading,
+      onRefresh: () => ref.read(deletionProposalProvider.notifier).refreshProposals(),
+      infoCard: _buildHeaderContent(context),
+      headerContent: _buildSegmentControl(),
+      searchHintText: AppLocalizations.of(context)!.searchProposals,
+      onSearchChanged: (query) => ref.read(deletionProposalProvider.notifier).searchProposals(query),
+      isMultiSelectMode: _isMultiSelectMode,
+      selectedItemIds: _selectedProposalIds,
+      getItemId: (proposal) => proposal.phoneNumber,
+      onToggleItemSelection: (itemId) => _toggleItemSelection(itemId),
+      onAdd: null,
+      customActions: null,
+      onToggleMultiSelectMode: null,
+      onDeleteSelected: null,
+      onMoreOptions: null,
+    );
+  }
 
-              // 排序
-              filteredItems.sort((a, b) => b.submissionTime.compareTo(a.submissionTime));
+  Widget _buildMyHistoryView(BuildContext context) {
+    final historyAsync = ref.watch(myProposalHistoryProvider);
+    final List<MyProposalHistoryItem> allItems = historyAsync.value ?? [];
 
-              return GenericListWithAdsPage<MyProposalHistoryItem>(
-                  showAppBar: false, // 隐藏内部 AppBar
-                  title: AppLocalizations.of(context)!.proposalCreated,
-                  
-                  items: filteredItems,
-                  itemBuilder: (context, item) => _buildHistoryTile(context, item),
-                  
-                  adBuilder: () => GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
-                  adInterval: 4,
-                  emptyText: AppLocalizations.of(context)!.noProposalsFound,
-                  emptyIcon: Icons.history_edu_outlined,
-                  isLoading: historyAsync.isLoading,
-                  onRefresh: () => ref.refresh(myProposalHistoryProvider.future),
-                  
-                  // 保持一致的布局：InfoCard -> 切换按钮 -> 搜索框
-                  infoCard: _buildHeaderContent(context),
-                  headerContent: _buildSegmentControl(),
-                  
-                  searchHintText: AppLocalizations.of(context)!.numberSearch,
-                  onSearchChanged: (query) => setState(() => _myHistorySearchQuery = query),
-                  
-                  isMultiSelectMode: false,
-              );
-          }
-        },
-      ),
+    final List<MyProposalHistoryItem> filteredItems = allItems.where((item) {
+      if (_myHistorySearchQuery.isEmpty) return true;
+      return item.phoneNumber.contains(_myHistorySearchQuery);
+    }).toList();
+
+    filteredItems.sort((a, b) => b.submissionTime.compareTo(a.submissionTime));
+
+    return GenericListWithAdsPage<MyProposalHistoryItem>(
+      showAppBar: false,
+      title: AppLocalizations.of(context)!.proposalCreated,
+      items: filteredItems,
+      itemBuilder: (context, item) => _buildHistoryTile(context, item),
+      adBuilder: () => GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+      adInterval: 4,
+      emptyText: AppLocalizations.of(context)!.noProposalsFound,
+      emptyIcon: Icons.history_edu_outlined,
+      isLoading: historyAsync.isLoading,
+      onRefresh: () => ref.refresh(myProposalHistoryProvider.future),
+      infoCard: _buildHeaderContent(context),
+      headerContent: _buildSegmentControl(),
+      searchHintText: AppLocalizations.of(context)!.numberSearch,
+      onSearchChanged: (query) => setState(() => _myHistorySearchQuery = query),
+      isMultiSelectMode: false,
     );
   }
   

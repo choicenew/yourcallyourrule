@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:isolate';
 
 import 'package:dlibphonenumber/dlibphonenumber.dart';
 // import 'package:sim_card_info/sim_card_info.dart';
@@ -31,6 +32,42 @@ class PhoneUtils {
   /// 内部解析电话号码的方法
   static Future<Map<String, String>> _parsePhoneNumber(
       String phoneNumber, String? simCountryCode) async {
+    List<String> simCountryCodes = [];
+
+    // 如果没有提供SIM国家代码，且不是国际号码，在主线程尝试从设备获取
+    if (simCountryCode == null && !phoneNumber.startsWith('+') && !phoneNumber.startsWith('00')) {
+      try {
+        // final simCardInfoPlugin = SimCardInfo(); // 原代码
+        // List<flutter.SimInfo> simInfoList =
+        //     await simCardInfoPlugin.getSimInfo() ?? []; // 原代码
+        List<SimInfo> simInfoList = await SimReader.getAllSimInfo(); // 替换后的代码
+
+        // List<String> simCountryCodes =
+        //     simInfoList.map((sim) => sim.countryIso).toList(); // 原代码
+        simCountryCodes = 
+            simInfoList.map((sim) => sim.countryCode ?? '')
+                       .where((code) => code.isNotEmpty)
+                       .toList(); // 替换后的代码
+      } catch (e) {
+        AppLogger.error('获取SIM信息失败', e);
+      }
+    }
+
+    try {
+      return await Isolate.run(() => _parsePhoneNumberSync(phoneNumber, simCountryCode, simCountryCodes));
+    } catch (e) {
+      AppLogger.error('电话号码解析失败', e);
+      return {
+        'countryCode': '',
+        'e164Number': '',
+        'nationalNumber': '',
+      };
+    }
+  }
+
+  /// 内部解析电话号码的同步计算逻辑（在后台 Isolate 中运行）
+  static Map<String, String> _parsePhoneNumberSync(
+      String phoneNumber, String? simCountryCode, List<String> simCountryCodes) {
     PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.instance;
     String? countryCode;
     String e164Number = "";
@@ -64,19 +101,6 @@ class PhoneUtils {
               phoneNumberUtil.parse(phoneNumber, simCountryCode.toUpperCase());
           parseAndFormat(parsedPhoneNumber);
         } else {
-          // 如果没有提供SIM国家代码，尝试从设备获取
-          // final simCardInfoPlugin = SimCardInfo(); // 原代码
-          // List<flutter.SimInfo> simInfoList =
-          //     await simCardInfoPlugin.getSimInfo() ?? []; // 原代码
-          List<SimInfo> simInfoList = await SimReader.getAllSimInfo(); // 替换后的代码
-
-          // List<String> simCountryCodes =
-          //     simInfoList.map((sim) => sim.countryIso).toList(); // 原代码
-          List<String> simCountryCodes = 
-              simInfoList.map((sim) => sim.countryCode ?? '')
-                         .where((code) => code.isNotEmpty)
-                         .toList(); // 替换后的代码
-
           for (String code in simCountryCodes) {
             try {
               PhoneNumber parsedPhoneNumber =

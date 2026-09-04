@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_status_chip.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_risk_chip.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/widgets/vote_progress_bar.dart';
 
 /// 投票卡片组件 (基于统一 EliteDopamineTheme 主题系统规范)
 class VoteCard extends StatelessWidget {
@@ -56,9 +59,9 @@ class VoteCard extends StatelessWidget {
           // 状态、风险等级与投票时间
           Row(
             children: [
-              _buildStatusChip(context, status),
+              ProposalStatusChip(status: status),
               const SizedBox(width: 8),
-              _buildRiskLevelChip(context, riskLevel),
+              ProposalRiskChip(riskLevel: riskLevel),
               const Spacer(),
               if (votedAt != null)
                 Text(
@@ -108,7 +111,7 @@ class VoteCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 8),
-            _buildVotingProgress(context, supportCount, opposeCount),
+            VoteProgressBar(supportCount: supportCount, opposeCount: opposeCount),
           ] else ...[
             Container(
               padding: const EdgeInsets.all(12),
@@ -196,166 +199,6 @@ class VoteCard extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildStatusChip(BuildContext context, String status) {
-    Color chipColor;
-    IconData icon;
-    String displayText;
-
-    switch (status.toLowerCase()) {
-      case 'approved':
-        chipColor = EliteDopamineTheme.freshMint;
-        icon = Icons.check_circle;
-        displayText = AppLocalizations.of(context)!.approved;
-        break;
-      case 'rejected':
-        chipColor = Colors.red;
-        icon = Icons.cancel;
-        displayText = AppLocalizations.of(context)!.rejected;
-        break;
-      case 'completed':
-        chipColor = Colors.blue;
-        icon = Icons.done_all;
-        displayText = AppLocalizations.of(context)!.completed;
-        break;
-      case 'pending':
-      default:
-        chipColor = Colors.orange;
-        icon = Icons.pending;
-        displayText = AppLocalizations.of(context)!.pending;
-        break;
-    }
-
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(
-        color: chipColor.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 13, color: chipColor),
-          const SizedBox(width: 4),
-          Text(
-            displayText,
-            style: TextStyle(
-              color: chipColor,
-              fontSize: 11,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildRiskLevelChip(BuildContext context, int riskLevel) {
-    Color chipColor;
-    String label;
-
-    switch (riskLevel) {
-      case 5:
-        chipColor = Colors.red;
-        label = AppLocalizations.of(context)!.critical;
-        break;
-      case 4:
-        chipColor = Colors.deepOrange;
-        label = AppLocalizations.of(context)!.high;
-        break;
-      case 3:
-        chipColor = Colors.orange;
-        label = AppLocalizations.of(context)!.medium;
-        break;
-      case 2:
-        chipColor = Colors.yellow.shade700;
-        label = AppLocalizations.of(context)!.low;
-        break;
-      case 1:
-      default:
-        chipColor = EliteDopamineTheme.freshMint;
-        label = AppLocalizations.of(context)!.veryLow;
-        break;
-    }
-
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(
-        color: chipColor.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: Text(
-        label,
-        style: TextStyle(
-          color: chipColor,
-          fontSize: 11,
-          fontWeight: FontWeight.w700,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildVotingProgress(BuildContext context, int supportCount, int opposeCount) {
-    final total = supportCount + opposeCount;
-    if (total == 0) return const SizedBox.shrink();
-
-    return Column(
-      children: [
-        Row(
-          children: [
-            if (supportCount > 0)
-              Expanded(
-                flex: supportCount,
-                child: Container(
-                  height: 4,
-                  decoration: BoxDecoration(
-                    color: EliteDopamineTheme.freshMint,
-                    borderRadius: BorderRadius.horizontal(
-                      left: const Radius.circular(2),
-                      right: opposeCount == 0 ? const Radius.circular(2) : Radius.zero,
-                    ),
-                  ),
-                ),
-              ),
-            if (opposeCount > 0)
-              Expanded(
-                flex: opposeCount,
-                child: Container(
-                  height: 4,
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.horizontal(
-                      left: supportCount == 0 ? const Radius.circular(2) : Radius.zero,
-                      right: const Radius.circular(2),
-                    ),
-                  ),
-                ),
-              ),
-          ],
-        ),
-        const SizedBox(height: 6),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              '${AppLocalizations.of(context)!.support}: $supportCount',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: Colors.green,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            Text(
-              '${AppLocalizations.of(context)!.oppose}: $opposeCount',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: Colors.red,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ],
-        ),
-      ],
     );
   }
 

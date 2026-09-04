@@ -2,6 +2,23 @@ name: Comprehensive CI Test Suite (UI / Service / Provider / Perf / Memory)
 
 on:
   workflow_dispatch:
+    inputs:
+      fail_on_high:
+        description: "Fail workflow if HIGH-severity regressions detected"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      verbose_logs:
+        description: "Enable verbose flutter test output"
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
   issue_comment:
     types: [created]
   push:
@@ -16,7 +33,6 @@ on:
     branches:
       - main
       - master
-      - elite-ui
       - "dev/**"
       - "feature/**"
   pull_request:
@@ -44,7 +60,7 @@ defaults:
     shell: bash
 
 env:
-  FLUTTER_VERSION: "3.47.1"
+  FLUTTER_VERSION: "3.44.0"
   CI: "true"
 
 jobs:
@@ -52,7 +68,7 @@ jobs:
   # JOB 1 : 真实 APP 冷启动剖析 (谁拖慢了打开 APP)
   # ============================================================
   real_app_startup_profiling:
-    name: 🚀 Real App Startup Profile
+    name: 🚀 Real App Startup Profile (Who Slows Launch)
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -68,35 +84,75 @@ jobs:
           channel: "stable"
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
+          cache-key: ${{ runner.os }}-flutter-ci-${{ hashFiles('**/pubspec.lock') }}
+          cache-path: ${{ runner.tool_cache }}/flutter
+
+      - name: Print toolchain versions
+        run: |
+          set -e
+          dart --version
+          flutter --version
 
       - name: Install dependencies
-        run: flutter pub get
-
-      - name: Create .env file for build
         run: |
-          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
-          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
+          set -e
+          flutter pub get
+          flutter pub deps --style=compact 2>&1 | head -100 || true
 
-      - name: Run Startup Profile Test
+      - name: Run code generation (for build_runner projects)
         run: |
+          if grep -qE "build_runner|riverpod_generator|json_serializable|envied_generator|freezed" pubspec.yaml; then
+            echo "build_runner detected; running build_runner build --delete-conflicting-outputs"
+            flutter pub run build_runner build --delete-conflicting-outputs 2>&1 | tail -40 || echo "build_runner exited (non-fatal)"
+          else
+            echo "no build_runner project, skipping"
+          fi
+
+      - name: "Run Startup Profile: main() bootstrap + Provider init + first frame + Splash→Home"
+        id: startup
+        run: |
+          set -o pipefail
           mkdir -p ci_reports
+          if [ "${{ github.event.inputs.verbose_logs }}" = "true" ]; then
+            EXTRA="--verbose"
+          else
+            EXTRA=""
+          fi
           flutter test test/ci/app_startup_profiling_test.dart \
             --reporter expanded \
             --timeout 300s \
             -r github \
+            ${EXTRA} \
             2>&1 | tee ci_reports/startup_profile.log
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
         continue-on-error: true
 
-      - name: Upload Startup Artifacts
+      - name: Extract structured startup metrics
+        if: always()
+        run: |
+          mkdir -p ci_reports
+          grep -a "STARTUP_METRIC:" ci_reports/startup_profile.log 2>/dev/null \
+            | sed 's/.*STARTUP_METRIC: //' > ci_reports/startup_metrics.jsonl || true
+          grep -a "ROOT_CAUSE:" ci_reports/startup_profile.log 2>/dev/null \
+            | sed 's/.*ROOT_CAUSE: //' > ci_reports/startup_root_causes.jsonl || true
+          echo "--- Startup metrics ---"
+          cat ci_reports/startup_metrics.jsonl 2>/dev/null
+          echo "--- Root causes ---"
+          cat ci_reports/startup_root_causes.jsonl 2>/dev/null
+          echo "metric_rows=$(wc -l < ci_reports/startup_metrics.jsonl 2>/dev/null || echo 0)" >> $GITHUB_OUTPUT
+          echo "root_cause_rows=$(wc -l < ci_reports/startup_root_causes.jsonl 2>/dev/null || echo 0)" >> $GITHUB_OUTPUT
+
+      - name: Upload Startup Profile artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: startup-profile-report
-          path: ci_reports/startup_*
+          path: |
+            ci_reports/startup_*
           retention-days: 30
 
   # ============================================================
-  # JOB 2 : Provider 初始化 / 重建风暴
+  # JOB 2 : Provider 初始化 / 重建风暴 / 内存泄漏
   # ============================================================
   provider_init_and_rebuild_storm:
     name: 🧰 Provider Init & Rebuild Storm Detection
@@ -113,20 +169,21 @@ jobs:
           channel: "stable"
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
-
-      - name: Clean stale backup files
-        run: find lib -type f \( -name "*.bak" -o -name "*.dartbak" \) -delete || true
+          cache-key: ${{ runner.os }}-flutter-ci-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Create .env file for build
+      - name: Code generation
         run: |
-          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
-          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
+          if grep -qE "build_runner|riverpod_generator|json_serializable|envied_generator|freezed" pubspec.yaml; then
+            flutter pub run build_runner build --delete-conflicting-outputs 2>&1 | tail -20 || true
+          fi
 
-      - name: Run Provider Test
+      - name: Run Provider init + rebuild storm test
+        id: prov
         run: |
+          set -o pipefail
           mkdir -p ci_reports
           flutter test test/ci/provider_init_rebuild_storm_test.dart \
             --reporter expanded \
@@ -135,19 +192,33 @@ jobs:
             2>&1 | tee ci_reports/provider_profile.log
         continue-on-error: true
 
-      - name: Upload Provider Artifacts
+      - name: Extract Provider metrics & root causes
+        if: always()
+        run: |
+          mkdir -p ci_reports
+          grep -a "PROVIDER_METRIC:" ci_reports/provider_profile.log 2>/dev/null \
+            | sed 's/.*PROVIDER_METRIC: //' > ci_reports/provider_metrics.jsonl || true
+          grep -a "ROOT_CAUSE:" ci_reports/provider_profile.log 2>/dev/null \
+            | sed 's/.*ROOT_CAUSE: //' > ci_reports/provider_root_causes.jsonl || true
+          echo "--- Provider metrics ---"
+          cat ci_reports/provider_metrics.jsonl 2>/dev/null || true
+          echo "--- Provider root causes ---"
+          cat ci_reports/provider_root_causes.jsonl 2>/dev/null || true
+
+      - name: Upload Provider Profile artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: provider-profile-report
-          path: ci_reports/provider_*
+          path: |
+            ci_reports/provider_*
           retention-days: 30
 
   # ============================================================
-  # JOB 3 : Service 响应延迟 & 主线程阻塞检测
+  # JOB 3 : Service 首屏响应延迟 & 阻塞 (不跟手)
   # ============================================================
   service_responsiveness:
-    name: ⚙️ Service 1st-Frame Responsiveness
+    name: ⚙️ Service 1st-Frame Responsiveness & Blockers
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -161,20 +232,21 @@ jobs:
           channel: "stable"
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
-
-      - name: Clean stale backup files
-        run: find lib -type f \( -name "*.bak" -o -name "*.dartbak" \) -delete || true
+          cache-key: ${{ runner.os }}-flutter-ci-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Create .env file for build
+      - name: Code generation
         run: |
-          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
-          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
+          if grep -qE "build_runner|riverpod_generator|json_serializable|envied_generator|freezed" pubspec.yaml; then
+            flutter pub run build_runner build --delete-conflicting-outputs 2>&1 | tail -20 || true
+          fi
 
-      - name: Run Service Test
+      - name: Run Service responsiveness test
+        id: svc
         run: |
+          set -o pipefail
           mkdir -p ci_reports
           flutter test test/ci/service_responsiveness_blocking_test.dart \
             --reporter expanded \
@@ -183,19 +255,33 @@ jobs:
             2>&1 | tee ci_reports/service_profile.log
         continue-on-error: true
 
-      - name: Upload Service Artifacts
+      - name: Extract Service metrics & root causes
+        if: always()
+        run: |
+          mkdir -p ci_reports
+          grep -a "SERVICE_METRIC:" ci_reports/service_profile.log 2>/dev/null \
+            | sed 's/.*SERVICE_METRIC: //' > ci_reports/service_metrics.jsonl || true
+          grep -a "ROOT_CAUSE:" ci_reports/service_profile.log 2>/dev/null \
+            | sed 's/.*ROOT_CAUSE: //' > ci_reports/service_root_causes.jsonl || true
+          echo "--- Service metrics ---"
+          cat ci_reports/service_metrics.jsonl 2>/dev/null || true
+          echo "--- Service root causes ---"
+          cat ci_reports/service_root_causes.jsonl 2>/dev/null || true
+
+      - name: Upload Service Profile artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: service-profile-report
-          path: ci_reports/service_*
+          path: |
+            ci_reports/service_*
           retention-days: 30
 
   # ============================================================
-  # JOB 4 : 界面跟手度 & 列表滚动掉帧 (Jank)
+  # JOB 4 : 滚动 / 交互掉帧 & 卡顿 (janky frames)
   # ============================================================
   jank_frames_and_scroll:
-    name: 🎯 Jank Frames & Touch Responsiveness
+    name: 🎨 Janky Frames & Scroll Stutter Detection
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -209,20 +295,21 @@ jobs:
           channel: "stable"
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
-
-      - name: Clean stale backup files
-        run: find lib -type f \( -name "*.bak" -o -name "*.dartbak" \) -delete || true
+          cache-key: ${{ runner.os }}-flutter-ci-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Create .env file for build
+      - name: Code generation
         run: |
-          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
-          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
+          if grep -qE "build_runner|riverpod_generator|json_serializable|envied_generator|freezed" pubspec.yaml; then
+            flutter pub run build_runner build --delete-conflicting-outputs 2>&1 | tail -20 || true
+          fi
 
-      - name: Run Jank Test
+      - name: Run jank / scroll test
+        id: jank
         run: |
+          set -o pipefail
           mkdir -p ci_reports
           flutter test test/ci/jank_frames_scroll_stutter_test.dart \
             --reporter expanded \
@@ -231,16 +318,30 @@ jobs:
             2>&1 | tee ci_reports/jank_profile.log
         continue-on-error: true
 
-      - name: Upload Jank Artifacts
+      - name: Extract Jank metrics & root causes
+        if: always()
+        run: |
+          mkdir -p ci_reports
+          grep -a "JANK_METRIC:" ci_reports/jank_profile.log 2>/dev/null \
+            | sed 's/.*JANK_METRIC: //' > ci_reports/jank_metrics.jsonl || true
+          grep -a "ROOT_CAUSE:" ci_reports/jank_profile.log 2>/dev/null \
+            | sed 's/.*ROOT_CAUSE: //' > ci_reports/jank_root_causes.jsonl || true
+          echo "--- Jank metrics ---"
+          cat ci_reports/jank_metrics.jsonl 2>/dev/null || true
+          echo "--- Jank root causes ---"
+          cat ci_reports/jank_root_causes.jsonl 2>/dev/null || true
+
+      - name: Upload Jank Profile artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: jank-profile-report
-          path: ci_reports/jank_*
+          path: |
+            ci_reports/jank_*
           retention-days: 30
 
   # ============================================================
-  # JOB 5 : 全应用 20+ 页面全功能系统矩阵 Smoke
+  # JOB 5 : 全应用全功能页面 Smoke 挂载与全矩阵测试
   # ============================================================
   full_system_matrix:
     name: 🛡️ Full App All-Feature System Matrix & Smoke
@@ -257,20 +358,15 @@ jobs:
           channel: "stable"
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
-
-      - name: Clean stale backup files
-        run: find lib -type f \( -name "*.bak" -o -name "*.dartbak" \) -delete || true
+          cache-key: ${{ runner.os }}-flutter-ci-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Create .env file for build
+      - name: Run Full App System Matrix Test (20+ Feature Pages)
+        id: matrix
         run: |
-          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
-          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
-
-      - name: Run Matrix Test
-        run: |
+          set -o pipefail
           mkdir -p ci_reports
           flutter test test/ci/full_system_matrix_test.dart \
             --reporter expanded \
@@ -279,19 +375,31 @@ jobs:
             2>&1 | tee ci_reports/matrix_profile.log
         continue-on-error: true
 
-      - name: Upload Matrix Artifacts
+      - name: Extract Matrix metrics & root causes
+        if: always()
+        run: |
+          mkdir -p ci_reports
+          grep -a "CI_METRIC:" ci_reports/matrix_profile.log 2>/dev/null \
+            | sed 's/.*CI_METRIC: //' > ci_reports/matrix_metrics.jsonl || true
+          grep -a "ROOT_CAUSE:" ci_reports/matrix_profile.log 2>/dev/null \
+            | sed 's/.*ROOT_CAUSE: //' > ci_reports/matrix_root_causes.jsonl || true
+          echo "--- Matrix metrics ---"
+          cat ci_reports/matrix_metrics.jsonl 2>/dev/null || true
+
+      - name: Upload Matrix Profile artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: matrix-profile-report
-          path: ci_reports/matrix_*
+          path: |
+            ci_reports/matrix_*
           retention-days: 30
 
   # ============================================================
-  # JOB 6 : 聚合输出根因排名与 GitHub Summary 报告
+  # JOB 6 : 聚合输出根因排名报告 (谁拖慢了 App)
   # ============================================================
   aggregate_root_cause_report:
-    name: 📊 Aggregate Root-Cause Ranking & Summary
+    name: 📊 Aggregate Root-Cause Ranking & Gate
     runs-on: ubuntu-latest
     timeout-minutes: 20
     needs:
@@ -301,7 +409,6 @@ jobs:
       - jank_frames_and_scroll
       - full_system_matrix
     if: always()
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -312,35 +419,124 @@ jobs:
           channel: "stable"
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
-
-      - name: Clean stale backup files
-        run: find lib -type f \( -name "*.bak" -o -name "*.dartbak" \) -delete || true
+          cache-key: ${{ runner.os }}-flutter-ci-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Download all profile artifacts
+      - name: Code generation
+        run: |
+          if grep -qE "build_runner|riverpod_generator|json_serializable|envied_generator|freezed" pubspec.yaml; then
+            flutter pub run build_runner build --delete-conflicting-outputs 2>&1 | tail -20 || true
+          fi
+
+      - name: Download all upstream profile artifacts
         uses: actions/download-artifact@v4
         with:
-          path: ci_reports/
+          path: ci_reports/raw/
           merge-multiple: true
 
-      - name: Run Root-Cause Aggregator
+      - name: Collate metrics + root-cause JSONL from all jobs
         run: |
-          dart run tool/ci_root_cause_aggregator.dart
+          mkdir -p ci_reports
+          find ci_reports/raw -type f -name "*_metrics.jsonl" 2>/dev/null | while read -r f; do
+            echo ">>> $f"
+            cat "$f" >> ci_reports/ALL_METRICS.jsonl || true
+          done
+          find ci_reports/raw -type f -name "*_root_causes.jsonl" 2>/dev/null | while read -r f; do
+            echo ">>> $f"
+            cat "$f" >> ci_reports/ALL_ROOT_CAUSES.jsonl || true
+          done
+          echo "--- Total metric rows: $(wc -l < ci_reports/ALL_METRICS.jsonl 2>/dev/null || echo 0) ---"
+          echo "--- Total root-cause rows: $(wc -l < ci_reports/ALL_ROOT_CAUSES.jsonl 2>/dev/null || echo 0) ---"
 
-      - name: Write GitHub Step Summary
+      - name: Run real root-cause aggregator → 谁拖慢了 App 排行榜
+        id: agg
+        run: |
+          set -o pipefail
+          FAIL_FLAG=""
+          if [ "${{ github.event.inputs.fail_on_high }}" = "true" ]; then
+            FAIL_FLAG="--fail-high"
+          fi
+          dart run tool/ci_root_cause_aggregator.dart --ci ${FAIL_FLAG} \
+            2>&1 | tee ci_reports/aggregator_run.log
+          EXIT_CODE=$?
+          echo "agg_exit_code=${EXIT_CODE}" >> $GITHUB_OUTPUT
+
+      - name: "Write GitHub Step Summary (markdown 报告, 含 Top 拖慢者)"
         if: always()
         run: |
           REPORT=$(ls -t ci_reports/ci_root_cause_report_*.md 2>/dev/null | head -1 || true)
           if [ -n "${REPORT}" ] && [ -s "${REPORT}" ]; then
-            cat "${REPORT}" >> "${GITHUB_STEP_SUMMARY}"
+            if [ -n "${GITHUB_STEP_SUMMARY}" ]; then
+              cat "${REPORT}" >> "${GITHUB_STEP_SUMMARY}"
+            fi
           fi
 
-      - name: Upload FINAL Comprehensive Report
+      - name: Upload FINAL comprehensive report (含 Top-N 拖慢者 排行榜)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: FINAL-PERFORMANCE-DIAGNOSIS-REPORT
-          path: ci_reports/ci_root_cause_report_*
+          name: FINAL-ROOT-CAUSE-REPORT
+          path: |
+            ci_reports/
+            !ci_reports/raw/**
           retention-days: 60
+
+      # ========== 修复后的 Pass/Fail Gate ==========
+      - name: "Pass/Fail Gate: 任何上游 job fail 则 fail (可选按 HIGH fail)"
+        run: |
+          FAILURES=0
+          # 直接把每个job的结果通过github actions表达式导出到shell变量
+          JOB_real_app_startup_profiling="${{ needs.real_app_startup_profiling.result }}"
+          JOB_provider_init_and_rebuild_storm="${{ needs.provider_init_and_rebuild_storm.result }}"
+          JOB_service_responsiveness="${{ needs.service_responsiveness.result }}"
+          JOB_jank_frames_and_scroll="${{ needs.jank_frames_and_scroll.result }}"
+          JOB_full_system_matrix="${{ needs.full_system_matrix.result }}"
+
+          # bash数组维护job名称与状态
+          declare -A JOBS
+          JOBS["real_app_startup_profiling"]="${JOB_real_app_startup_profiling}"
+          JOBS["provider_init_and_rebuild_storm"]="${JOB_provider_init_and_rebuild_storm}"
+          JOBS["service_responsiveness"]="${JOB_service_responsiveness}"
+          JOBS["jank_frames_and_scroll"]="${JOB_jank_frames_and_scroll}"
+          JOBS["full_system_matrix"]="${JOB_full_system_matrix}"
+
+          for job_name in "${!JOBS[@]}"; do
+            res="${JOBS[$job_name]}"
+            case "$res" in
+              failure)
+                FAILURES=$((FAILURES + 1))
+                echo "❌ FAILED JOB: $job_name"
+                ;;
+              success)
+                echo "✅ PASSED JOB: $job_name"
+                ;;
+              skipped)
+                echo "⏭  SKIPPED JOB: $job_name"
+                ;;
+              cancelled)
+                echo "✖  CANCELLED JOB: $job_name"
+                FAILURES=$((FAILURES + 1))
+                ;;
+            esac
+          done
+
+          echo ""
+          if [ "${{ github.event.inputs.fail_on_high }}" = "true" ]; then
+            HIGH=$(cat ci_reports/aggregator_run.log 2>/dev/null \
+              | grep -aoE 'HIGH_SEVERITY_COUNT=[0-9]+' \
+              | tail -1 | cut -d= -f2 || echo 0)
+            echo "HIGH-severity root-causes: ${HIGH}"
+            if [ "${HIGH}" -gt 0 ]; then
+              echo "FAIL: HIGH-severity root causes detected (fail_on_high=true)"
+              exit 1
+            fi
+          fi
+
+          if [ "${FAILURES}" -gt 0 ]; then
+            echo "Gate FAIL: ${FAILURES} upstream job(s) failed"
+            exit 1
+          fi
+          echo "Gate PASS"
+          exit 0

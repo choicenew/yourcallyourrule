@@ -26,253 +26,261 @@ class StatisticsCard extends StatelessWidget {
 
     return Column(
       children: [
-        // Vote statistics card (if voteCount is provided)
         if (voteCount != null) ...[
-          Container(
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                color: const Color(0xFFEDE8DF),
-                width: 1.1,
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.04),
-                  blurRadius: 10,
-                  offset: const Offset(0, 3),
-                ),
-              ],
-            ),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFFF9500).withValues(alpha: 0.12),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: const Icon(
-                        Icons.how_to_vote_rounded,
-                        color: Color(0xFFFF9500),
-                        size: 20,
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Text(
-                      AppLocalizations.of(context)!.statistics,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.black87,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                _buildStatisticItem(
-                  context,
-                  AppLocalizations.of(context)!.totalVotes(voteCount!),
-                  voteCount.toString(),
-                  Icons.how_to_vote_rounded,
-                  const Color(0xFFFF9500),
-                ),
-                if (onExchangeVip != null) ...[
-                  const SizedBox(height: 16),
-                  Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [Color(0xFFFF9500), Color(0xFFFF5E3A)],
-                      ),
-                      borderRadius: BorderRadius.circular(14),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0xFFFF9500).withValues(alpha: 0.35),
-                          blurRadius: 8,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: ElevatedButton.icon(
-                      onPressed: onExchangeVip,
-                      icon: const Icon(Icons.workspace_premium_rounded, color: Colors.white, size: 18),
-                      label: Text(
-                        AppLocalizations.of(context)!.exchangeVip,
-                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent,
-                        shadowColor: Colors.transparent,
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                      ),
-                    ),
-                  ),
-                ],
-              ],
-            ),
-          ),
+          _buildVoteStatsCard(context),
           const SizedBox(height: 14),
         ],
-
         GoogleAdWidget(adInfo: AdManager.bannerAd),
         const SizedBox(height: 14),
-
-        // Overview card
-        Container(
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: const Color(0xFFEDE8DF),
-              width: 1.1,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.04),
-                blurRadius: 10,
-                offset: const Offset(0, 3),
-              ),
-            ],
-          ),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF6C5CE7).withValues(alpha: 0.12),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Icon(
-                      Icons.analytics_rounded,
-                      color: Color(0xFF6C5CE7),
-                      size: 20,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Text(
-                    AppLocalizations.of(context)!.overview,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.black87,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              _buildStatisticItem(
-                context,
-                AppLocalizations.of(context)!.totalPendingProposals,
-                totalPending.toString(),
-                Icons.pending_actions_rounded,
-                const Color(0xFF6C5CE7),
-              ),
-            ],
-          ),
-        ),
+        _buildOverviewCard(context, totalPending),
         const SizedBox(height: 14),
         GoogleAdWidget(adInfo: AdManager.bannerAd),
         const SizedBox(height: 14),
-
-        // Risk level breakdown
-        Row(
-          children: [
-            Expanded(
-              child: _buildRiskLevelCard(
-                context,
-                AppLocalizations.of(context)!.highRisk,
-                highRisk,
-                Icons.warning_amber_rounded,
-                const Color(0xFFFF4B4B),
-              ),
-            ),
-            const SizedBox(width: 8),
-            Expanded(
-              child: _buildRiskLevelCard(
-                context,
-                AppLocalizations.of(context)!.mediumRisk,
-                mediumRisk,
-                Icons.info_outline_rounded,
-                const Color(0xFFFF9500),
-              ),
-            ),
-            const SizedBox(width: 8),
-            Expanded(
-              child: _buildRiskLevelCard(
-                context,
-                AppLocalizations.of(context)!.lowRisk,
-                lowRisk,
-                Icons.check_circle_outline_rounded,
-                const Color(0xFF34C759),
-              ),
-            ),
-          ],
-        ),
+        _buildRiskBreakdownRow(context, highRisk, mediumRisk, lowRisk),
         const SizedBox(height: 14),
         GoogleAdWidget(adInfo: AdManager.bannerAd),  
         const SizedBox(height: 14),
+        _buildImpactCard(context, totalPending, highRisk),
+      ],
+    );
+  }
 
-        // Additional metrics
-        Container(
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: const Color(0xFFEDE8DF),
-              width: 1.1,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.04),
-                blurRadius: 10,
-                offset: const Offset(0, 3),
-              ),
-            ],
+  Widget _buildVoteStatsCard(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.04),
+            blurRadius: 10,
+            offset: const Offset(0, 3),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+        ],
+      ),
+      child: Column(
+        children: [
+          Row(
             children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(
+                  Icons.how_to_vote_rounded,
+                  color: Color(0xFFFF9500),
+                  size: 20,
+                ),
+              ),
+              const SizedBox(width: 10),
               Text(
-                AppLocalizations.of(context)!.communityImpact,
+                AppLocalizations.of(context)!.statistics,
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w900,
                   color: Colors.black87,
                 ),
               ),
-              const SizedBox(height: 16),
-              _buildMetricRow(
-                context,
-                AppLocalizations.of(context)!.activeProposals,
-                totalPending.toString(),
-                Icons.assignment_outlined,
+            ],
+          ),
+          const SizedBox(height: 16),
+          _buildStatisticItem(
+            context,
+            AppLocalizations.of(context)!.totalVotes(voteCount!),
+            voteCount.toString(),
+            Icons.how_to_vote_rounded,
+            const Color(0xFFFF9500),
+          ),
+          if (onExchangeVip != null) ...[
+            const SizedBox(height: 16),
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [Color(0xFFFF9500), Color(0xFFFF5E3A)],
+                ),
+                borderRadius: BorderRadius.circular(14),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFFFF9500).withValues(alpha: 0.35),
+                    blurRadius: 8,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
               ),
-              const SizedBox(height: 12),
-              _buildMetricRow(
-                context,
-                AppLocalizations.of(context)!.criticalIssues,
-                highRisk.toString(),
-                Icons.priority_high_rounded,
+              child: ElevatedButton.icon(
+                onPressed: onExchangeVip,
+                icon: const Icon(Icons.workspace_premium_rounded, color: Colors.white, size: 18),
+                label: Text(
+                  AppLocalizations.of(context)!.exchangeVip,
+                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                ),
               ),
-              const SizedBox(height: 12),
-              _buildMetricRow(
-                context,
-                AppLocalizations.of(context)!.communityParticipation,
-                _calculateParticipationLevel(context, totalPending),
-                Icons.people_alt_outlined,
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+
+  Widget _buildOverviewCard(BuildContext context, int totalPending) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.04),
+            blurRadius: 10,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF6C5CE7).withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(
+                  Icons.analytics_rounded,
+                  color: Color(0xFF6C5CE7),
+                  size: 20,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Text(
+                AppLocalizations.of(context)!.overview,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.black87,
+                ),
               ),
             ],
           ),
+          const SizedBox(height: 16),
+          _buildStatisticItem(
+            context,
+            AppLocalizations.of(context)!.totalPendingProposals,
+            totalPending.toString(),
+            Icons.pending_actions_rounded,
+            const Color(0xFF6C5CE7),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildRiskBreakdownRow(BuildContext context, int highRisk, int mediumRisk, int lowRisk) {
+    return Row(
+      children: [
+        Expanded(
+          child: _buildRiskLevelCard(
+            context,
+            AppLocalizations.of(context)!.highRisk,
+            highRisk,
+            Icons.warning_amber_rounded,
+            const Color(0xFFFF4B4B),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: _buildRiskLevelCard(
+            context,
+            AppLocalizations.of(context)!.mediumRisk,
+            mediumRisk,
+            Icons.info_outline_rounded,
+            const Color(0xFFFF9500),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: _buildRiskLevelCard(
+            context,
+            AppLocalizations.of(context)!.lowRisk,
+            lowRisk,
+            Icons.check_circle_outline_rounded,
+            const Color(0xFF34C759),
+          ),
         ),
       ],
+    );
+  }
+
+  Widget _buildImpactCard(BuildContext context, int totalPending, int highRisk) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: const Color(0xFFEDE8DF),
+          width: 1.1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.04),
+            blurRadius: 10,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            AppLocalizations.of(context)!.communityImpact,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w900,
+              color: Colors.black87,
+            ),
+          ),
+          const SizedBox(height: 16),
+          _buildMetricRow(
+            context,
+            AppLocalizations.of(context)!.activeProposals,
+            totalPending.toString(),
+            Icons.assignment_outlined,
+          ),
+          const SizedBox(height: 12),
+          _buildMetricRow(
+            context,
+            AppLocalizations.of(context)!.criticalIssues,
+            highRisk.toString(),
+            Icons.priority_high_rounded,
+          ),
+          const SizedBox(height: 12),
+          _buildMetricRow(
+            context,
+            AppLocalizations.of(context)!.communityParticipation,
+            _calculateParticipationLevel(context, totalPending),
+            Icons.people_alt_outlined,
+          ),
+        ],
+      ),
     );
   }
 
