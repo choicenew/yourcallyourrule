@@ -289,15 +289,15 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
     return appBarActions;
   }
 
-  Widget _buildPublicProposalsView(BuildContext context, dynamic proposalState) {
-    final processedProposals = proposalState.proposals.where((proposal) {
+  Widget _buildPublicProposalsView(BuildContext context, DeletionProposalState proposalState) {
+    final List<Proposal> processedProposals = proposalState.proposals.where((proposal) {
       if (_options.status != null && proposal.status != _options.status) return false;
       if (_options.riskLevel != null && proposal.highestRiskLevel != _options.riskLevel) return false;
       if (_options.onlyVerifiedOwner == true && proposal.verifiedOwnerCount == 0) return false;
       return true;
     }).toList();
 
-    processedProposals.sort((a, b) {
+    processedProposals.sort((Proposal a, Proposal b) {
       switch (_options.sortType) {
         case ProposalSortType.newest:
           return b.proposalStartTime.compareTo(a.proposalStartTime);
