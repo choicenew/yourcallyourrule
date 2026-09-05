@@ -53,22 +53,6 @@ class MyCallScreeningService : CallScreeningService() {
           // 🔥 1. 在事件发生的源头，立刻捕獲時間戳！
         val eventTimestamp = System.currentTimeMillis()
 
-//尝试添加stir 检查服务
-    val stirChecker = StirChecker(this@MyCallScreeningService, callDetails)
-    
-    stirChecker.sendStirResultToFlutter() 
-
-//stir检查服务到此
-    // 初始化 SimChecker
-
-    val simChecker = SimChecker(this@MyCallScreeningService, callDetails)
-
-    simChecker.sendSimInfoToFlutter()
-//SimChecker检查服务到此
-
-
-
-
         // Send the incoming call information to Flutter
         incomingNumber?.let { 
             flutterEngine?.dartExecutor?.binaryMessenger?.let { binaryMessenger ->
@@ -93,6 +77,14 @@ class MyCallScreeningService : CallScreeningService() {
         } //?: Log.e("CallScreeningService", "Incoming number is null")
 
         serviceScope.launch {
+            // 尝试添加stir 检查服务
+            val stirChecker = StirChecker(this@MyCallScreeningService, callDetails)
+            stirChecker.sendStirResultToFlutter() 
+
+            // 初始化 SimChecker
+            val simChecker = SimChecker(this@MyCallScreeningService, callDetails)
+            simChecker.sendSimInfoToFlutter()
+
             val callAction = getCallAction(incomingNumber)
             respondToCall(callDetails, buildCallResponse(callAction))
         }

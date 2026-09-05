@@ -13,9 +13,21 @@ part 'local_count_filter_service.g.dart';
 
 @riverpod
 LocalCountFilterService localCountFilterService(Ref ref) {
+  LocalCountFilterConfig? cachedConfig = ref.watch(localCountFilterConfigProvider).valueOrNull;
+  ref.listen<AsyncValue<LocalCountFilterConfig>>(localCountFilterConfigProvider, (_, next) {
+    cachedConfig = next.valueOrNull;
+  });
+
   final service = LocalCountFilterService(
     callerIdService: ref.watch(callerIdServiceProvider),
-    getConfig: () async => await ref.read(localCountFilterConfigProvider.future),
+    getConfig: () async {
+      if (cachedConfig != null) return cachedConfig!;
+      try {
+        return await ref.read(localCountFilterConfigProvider.future);
+      } catch (_) {
+        return LocalCountFilterConfig();
+      }
+    },
   );
   service.initialize(); // 服务本身需要初始化监听器
   // 当 provider 销毁时，调用 dispose
@@ -29,6 +41,7 @@ class LocalCountFilterService implements CallFilterInterface {
   final Future<LocalCountFilterConfig> Function() _getConfig;
 
   PluginSourceData? _latestPluginData;
+  bool _isDisposed = false;
   
   // 订阅处理
   StreamSubscription<PluginSourceData>? _pluginDataSubscription;
@@ -42,6 +55,9 @@ class LocalCountFilterService implements CallFilterInterface {
   @override
   Future<bool> shouldAcceptCall(String phoneNumberStr) async {
     try {
+      if (_isDisposed) {
+        return true;
+      }
       final config = await _getConfig();
       // 如果未启用本地号码计数过滤，则默认接受
       if (!config.enableLocalCountFilter) {
@@ -85,6 +101,7 @@ class LocalCountFilterService implements CallFilterInterface {
   
   /// 释放资源
   void dispose() {
+    _isDisposed = true;
     _pluginDataSubscription?.cancel();
   }
 }

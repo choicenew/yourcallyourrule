@@ -2,6 +2,7 @@
 
 import 'package:dlibphonenumber/enums/phone_number_type.dart';
 import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 
 import '../base/base_entity.dart';
 import '../value_objects/phone_number.dart';
@@ -43,7 +44,7 @@ class CallerIdData extends BaseEntity {
     if (avatar == null || avatar!.isEmpty) {
       // 如果没有头像但有标签，则使用第一个标签
       if (labels != null && labels!.isNotEmpty) {
-        return AssetImage('assets/avatars/${labels!.first.label}.png');
+        return AssetImage(AvatarUtils.getSafeAvatarPath(labels!.first.label));
       }
       return null;
     }

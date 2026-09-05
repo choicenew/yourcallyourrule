@@ -14,17 +14,19 @@ class VipExchangeCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    if (l10n == null) return const SizedBox.shrink();
     return ModernPurchaseCard(
-      title: AppLocalizations.of(context)!.vipExchangeTitle,
-      description: AppLocalizations.of(context)!.vipExchangeDescription,
-      price: AppLocalizations.of(context)!.free,
-      buttonText: AppLocalizations.of(context)!.exchange,
+      title: l10n.vipExchangeTitle,
+      description: l10n.vipExchangeDescription,
+      price: l10n.free,
+      buttonText: l10n.exchange,
       onTap: () {
         context.pushNamed(AppRouter.vipExchange);
       },
       gradientColors: const [Color(0xFFFFB74D), Color(0xFFFF9800)],
       icon: Icons.stars_rounded,
-      labels: [AppLocalizations.of(context)!.markExchange, AppLocalizations.of(context)!.getFree],
+      labels: [l10n.markExchange, l10n.getFree],
     );
   }
 }
@@ -45,6 +47,8 @@ class VipExchangeRuleCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    if (l10n == null) return const SizedBox.shrink();
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
@@ -90,7 +94,7 @@ class VipExchangeRuleCard extends ConsumerWidget {
                     ),
                     const SizedBox(width: 10),
                     Text(
-                      AppLocalizations.of(context)!.requiredMarks('${rule.requiredMarks}'),
+                      l10n.requiredMarks('${rule.requiredMarks}'),
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w900,
@@ -108,7 +112,7 @@ class VipExchangeRuleCard extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Text(
-                    AppLocalizations.of(context)!.daysVip('${rule.days}'),
+                    l10n.daysVip('${rule.days}'),
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w800,
@@ -127,9 +131,9 @@ class VipExchangeRuleCard extends ConsumerWidget {
             Row(
               children: [
                 if (!rule.hasAds)
-                  _buildFeatureChip(AppLocalizations.of(context)!.noAds),
+                  _buildFeatureChip(l10n.noAds),
                 if (rule.hasSync)
-                  _buildFeatureChip(AppLocalizations.of(context)!.supportSync),
+                  _buildFeatureChip(l10n.supportSync),
               ],
             ),
             const SizedBox(height: 16),
@@ -148,7 +152,7 @@ class VipExchangeRuleCard extends ConsumerWidget {
                   ),
                 ),
                 child: Text(
-                  canExchange ? AppLocalizations.of(context)!.exchangeNow : AppLocalizations.of(context)!.insufficientMarks,
+                  canExchange ? l10n.exchangeNow : l10n.insufficientMarks,
                   style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14),
                 ),
               ),

@@ -32,7 +32,13 @@ class _SearchPageState extends ConsumerState<SearchPage> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final extra = GoRouterState.of(context).extra;
+      if (!mounted) return;
+      Object? extra;
+      try {
+        extra = GoRouterState.of(context).extra;
+      } catch (_) {
+        extra = null;
+      }
       String? searchText;
 
       if (extra != null && extra is String) {

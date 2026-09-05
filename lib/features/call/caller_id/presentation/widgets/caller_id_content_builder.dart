@@ -215,7 +215,7 @@ class CallerIdContentBuilder {
           : AssetImage(callerIdData.avatar!);
     } else {
       final label = callerIdData.labels?.isNotEmpty == true ? callerIdData.labels!.first.label : 'Unknown';
-      return AssetImage('assets/avatars/$label.png');
+      return AssetImage(AvatarUtils.getSafeAvatarPath(label));
     }
   }
 

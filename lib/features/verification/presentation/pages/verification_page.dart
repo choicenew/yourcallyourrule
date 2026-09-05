@@ -37,7 +37,13 @@ class _VerificationPageState extends ConsumerState<VerificationPage> {
     _countryCodeController = TextEditingController();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final extra = GoRouterState.of(context).extra;
+      if (!mounted) return;
+      Object? extra;
+      try {
+        extra = GoRouterState.of(context).extra;
+      } catch (_) {
+        extra = null;
+      }
       String? targetNumber;
 
       if (extra != null && extra is String && extra.trim().isNotEmpty) {

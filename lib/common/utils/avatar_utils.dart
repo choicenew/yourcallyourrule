@@ -25,13 +25,65 @@ class AvatarUtils {
       }
     } else if (labelText != null && labelText.isNotEmpty) {
       // 如果没有头像但有标签，则使用标签构建本地资源路径
-         debugPrint('assets/avatars/$labelText.png');
-      return AssetImage('assets/avatars/$labelText.png');
-   
+      return AssetImage(getSafeAvatarPath(labelText));
     } else {
       // 如果既没有头像也没有标签，则使用默认头像
       return const AssetImage('assets/avatars/Unknown.png');
     }
+  }
+
+  static const Set<String> _knownAvatarNames = {
+    'Agent', 'Application Software', 'Automotive Industry', 'Bank', 'Car Rental',
+    'Charity', 'Customer Service', 'Debt Collection', 'Delivery', 'Ecommerce',
+    'Education', 'Entertainment', 'Financial', 'Fraud Scam Likely', 'Government',
+    'Headhunter', 'Insurance', 'Internet', 'Loan', 'Local Services', 'Medical',
+    'Other', 'Political', 'Recruiter', 'Ridesharing', 'Risk', 'Robocall',
+    'Scams Likely', 'Silent Call(Voice Clone)', 'Spam Likely', 'Survey',
+    'Takeaway', 'Telecommunication', 'Telemarketing', 'Travel Ticketing', 'Unknown'
+  };
+
+  static const Map<String, String> _labelToAvatarMap = {
+    '未知': 'Unknown',
+    '骚扰': 'Spam Likely',
+    '骚扰电话': 'Spam Likely',
+    '疑似骚扰': 'Spam Likely',
+    '诈骗': 'Scams Likely',
+    '诈骗电话': 'Scams Likely',
+    '疑似诈骗': 'Scams Likely',
+    '推销': 'Telemarketing',
+    '广告营销': 'Telemarketing',
+    '快递': 'Delivery',
+    '快递送餐': 'Delivery',
+    '外卖': 'Takeaway',
+    '客服': 'Customer Service',
+    '客服电话': 'Customer Service',
+    '金融': 'Financial',
+    '理财': 'Financial',
+    '金融理财': 'Financial',
+    '保险': 'Insurance',
+    '银行': 'Bank',
+    '中介': 'Headhunter',
+    '房产中介': 'Headhunter',
+    '招聘': 'Recruiter',
+    '猎头': 'Recruiter',
+    '其它': 'Other',
+    '其他': 'Other',
+  };
+
+  /// 安全解析标签对应的本地头像资源路径
+  static String getSafeAvatarPath(String? labelText) {
+    if (labelText == null || labelText.trim().isEmpty) {
+      return 'assets/avatars/Unknown.png';
+    }
+    final trimmed = labelText.trim();
+    if (_knownAvatarNames.contains(trimmed)) {
+      return 'assets/avatars/$trimmed.png';
+    }
+    final mapped = _labelToAvatarMap[trimmed];
+    if (mapped != null && _knownAvatarNames.contains(mapped)) {
+      return 'assets/avatars/$mapped.png';
+    }
+    return 'assets/avatars/Unknown.png';
   }
 
   /// 获取头像的首字母（用于默认头像显示）

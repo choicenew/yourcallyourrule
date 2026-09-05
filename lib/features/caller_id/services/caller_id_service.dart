@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/common/error/logger.dart';
+import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 
 import 'package:flutter_contacts/flutter_contacts.dart' as fluttercontact;
@@ -307,7 +308,7 @@ class CallerIdService {
         finalContact?.avatar ?? phoneRule?.avatar ?? pluginSourceData?.avatar;
 
     // 如果没有头像但有标签，使用标签构建头像路径
-    avatar ??= 'assets/avatars/$labelText.png';
+    avatar ??= AvatarUtils.getSafeAvatarPath(labelText);
 
     // 确定计数
     final count =
@@ -447,7 +448,7 @@ class CallerIdService {
       if (!hasHighPriorityAvatar &&
           (effectiveAvatar == null || effectiveAvatar == 'assets/avatars/Unknown.png') &&
           labelText != 'Unknown' && labelText.isNotEmpty) {
-        effectiveAvatar = 'assets/avatars/$labelText.png';
+        effectiveAvatar = AvatarUtils.getSafeAvatarPath(labelText);
       }
 
       // 如果数据有变化，则发射更新

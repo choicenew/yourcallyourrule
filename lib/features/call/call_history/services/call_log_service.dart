@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/repositories/call_log_repository.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
@@ -212,7 +213,7 @@ class CallLogService {
       return null;
     }
     
-    return AssetImage('assets/avatars/$label.png');
+    return AssetImage(AvatarUtils.getSafeAvatarPath(label));
   }
   
   /// 清除头像缓存

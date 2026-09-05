@@ -11,6 +11,9 @@ import io.flutter.plugin.common.MethodChannel
 import android.os.Handler
 import android.os.Looper
 import androidx.annotation.RequiresApi
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SimChecker(private val context: Context, private val callDetails: Call.Details?) {
     private val simChannel = "com.yours.yourcallyourrule/sim_check"
@@ -29,19 +32,23 @@ class SimChecker(private val context: Context, private val callDetails: Call.Det
             return
         }
 
-        val telephonyManager = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-        val incomingNumber = callDetails.handle?.schemeSpecificPart
+        CoroutineScope(Dispatchers.IO).launch {
+            val telephonyManager = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+            val incomingNumber = callDetails.handle?.schemeSpecificPart
 
-        val activeSubscriptionInfoList = subscriptionManager.activeSubscriptionInfoList
+            val activeSubscriptionInfoList = subscriptionManager.activeSubscriptionInfoList
 
-        // 遍历 SIM 卡信息列表，并注册监听器
-        if (activeSubscriptionInfoList != null) {
-            for (subscriptionInfo in activeSubscriptionInfoList) {
-                val subscriptionId = subscriptionInfo.subscriptionId
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                    registerTelephonyCallbackForSubscription(subscriptionId, telephonyManager, incomingNumber)
-                } else {
-                    registerPhoneStateListenerForSubscription(subscriptionId, telephonyManager)
+            // 遍历 SIM 卡信息列表，并在主线程注册监听器
+            if (activeSubscriptionInfoList != null) {
+                handler.post {
+                    for (subscriptionInfo in activeSubscriptionInfoList) {
+                        val subscriptionId = subscriptionInfo.subscriptionId
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                            registerTelephonyCallbackForSubscription(subscriptionId, telephonyManager, incomingNumber)
+                        } else {
+                            registerPhoneStateListenerForSubscription(subscriptionId, telephonyManager)
+                        }
+                    }
                 }
             }
         }

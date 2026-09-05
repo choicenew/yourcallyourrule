@@ -231,7 +231,7 @@ class NotificationHandler {
     if (callerIdData.avatar != null && callerIdData.avatar!.isNotEmpty) {
       avatarResourcePath = callerIdData.avatar;
     } else if (labelText != null && labelText.isNotEmpty) {
-      avatarResourcePath = 'assets/avatars/$labelText.png';
+      avatarResourcePath = AvatarUtils.getSafeAvatarPath(labelText);
     }
     String? avatarFilePath;
     if (avatarResourcePath != null) {

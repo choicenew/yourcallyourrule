@@ -69,28 +69,30 @@ Future<void> main() async {
     container.read(callerIdMonitorServiceProvider);
     container.read(callEventListenerProvider);
 
-    // 【重要】读取一次 locationSyncServiceProvider 来激活它
-    // 我们不需要使用它的返回值，只是为了让它开始工作
-    container.read(locationSyncServiceProvider);
-
-    // 从而建立起 CallerIdService 和 LabelStreamSyncService 之间的连接。
-    container.read(labelSyncServiceInitializerProvider);
-
-    // 初始化插件同步服务
-    container.read(pluginSyncServiceInitializerProvider);
-
     // 初始化通知服务
     container.read(notificationServiceProvider);
     // --- Add ---
     container.read(overlayControlHandlerProvider);
-    // 后台同步服务将通过Provider系统初始化
-    if (!isOverlayMode) {
-      container.read(backgroundSyncInitProvider);
-    }
 
-    // 【新增】在应用启动时触发一次前台同步检查
-    // 这是一个可靠的备用机制，以防 Workmanager 后台任务失败
-    container.read(foregroundSyncServiceInitializerProvider);
+    // 后台与云端同步服务让出首帧，待首屏渲染完毕后异步启动
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // 【重要】读取一次 locationSyncServiceProvider 来激活它
+      container.read(locationSyncServiceProvider);
+
+      // 从而建立起 CallerIdService 和 LabelStreamSyncService 之间的连接。
+      container.read(labelSyncServiceInitializerProvider);
+
+      // 初始化插件同步服务
+      container.read(pluginSyncServiceInitializerProvider);
+
+      // 后台同步服务将通过Provider系统初始化
+      if (!isOverlayMode) {
+        container.read(backgroundSyncInitProvider);
+      }
+
+      // 在应用启动时触发一次前台同步检查
+      container.read(foregroundSyncServiceInitializerProvider);
+    });
 
     runApp(
       UncontrolledProviderScope(container: container, child: const MyApp()),
