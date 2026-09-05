@@ -8,7 +8,7 @@ import 'predefined_label_service_provider.dart';
 /// LabelToRemoteSyncService的Provider
 final labelToRemoteSyncServiceProvider = Provider<LabelToRemoteSyncService>((ref) {
   final remoteNumberService = ref.watch(remoteNumberServiceProvider);
-  final labelService = ref.watch(labelServiceProvider);
+  final labelService = ref.watch(labelServicePro他们都是在主线程还是在副线程啊 vider);
   final predefinedLabelService = ref.watch(predefinedLabelServiceProvider);
   
   return LabelToRemoteSyncService(

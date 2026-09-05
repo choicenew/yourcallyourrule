@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
@@ -103,6 +104,17 @@ class _RuleStub implements RuleBase {
 }
 
 void main() {
+  setUpAll(() {
+    TestWidgetsFlutterBinding.ensureInitialized();
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(
+          const MethodChannel('plugins.flutter.io/path_provider'),
+          (MethodCall methodCall) async {
+            return Directory.systemTemp.path;
+          },
+        );
+  });
+
   group('Service 首屏响应延迟 & 阻塞检测 (不跟手 / 卡顿根因)', () {
     test('PhoneUtils + 真实号码解析 p50/p95/p99 延迟 & 阻塞线程检测', () async {
       final samples = [
@@ -403,7 +415,7 @@ void main() {
       const taps = 60;
       final rand = Random(7);
       for (int i = 0; i < taps; i++) {
-        final idx = rand.nextInt(50) * 4; // 不连续项
+        final idx = rand.nextInt(5); // 限制在可视列表项的有效索引内
         await tester.tap(find.byType(ListTile).at(idx));
         await tester.pump(const Duration(milliseconds: 16));
         for (final s in _pendingLatencyStopwatches) {

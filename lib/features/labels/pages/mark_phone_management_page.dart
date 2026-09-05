@@ -1,20 +1,16 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
 import 'package:yourcallyourrule/ads/ad_list_utils.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/provider/providers/label_to_remote_sync_service_provider.dart.bak';
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
-
-import 'package:yourcallyourrule/features/labels/providers/label_mark_statistics_sync_service_provider.dart';
-import 'package:yourcallyourrule/features/labels/providers/mark_phone_service_provider.dart';
-
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
+import 'package:yourcallyourrule/features/labels/providers/label_mark_statistics_sync_service_provider.dart';
+import 'package:yourcallyourrule/features/labels/providers/label_phone_entry_to_remote_provider.dart';
+import 'package:yourcallyourrule/features/labels/providers/mark_phone_service_provider.dart';
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -24,10 +20,12 @@ class MarkPhoneManagementPage extends ConsumerStatefulWidget {
   const MarkPhoneManagementPage({super.key});
 
   @override
-  ConsumerState<MarkPhoneManagementPage> createState() => _MarkPhoneManagementPageState();
+  ConsumerState<MarkPhoneManagementPage> createState() =>
+      _MarkPhoneManagementPageState();
 }
 
-class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPage> {
+class _MarkPhoneManagementPageState
+    extends ConsumerState<MarkPhoneManagementPage> {
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   String? _selectedLabelId;
@@ -35,7 +33,7 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
   bool _isLoading = false;
   late LabelMarkStatisticsService _statisticsService;
   StreamSubscription? _markCountSubscription;
-  
+
   // 标记号码列表
   List<LabelPhoneEntry> _markedPhones = [];
   bool _isLoadingMarkedPhones = false;
@@ -51,10 +49,10 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    
+
     // 通过Provider获取服务实例
     _statisticsService = ref.read(labelMarkStatisticsServiceProvider);
-    
+
     // 监听标记计数变化
     _markCountSubscription?.cancel();
     _markCountSubscription = _statisticsService.markCountStream.listen((count) {
@@ -75,8 +73,7 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
         _markCount = count;
       });
     } catch (e) {
-      _showSnackBar('${AppLocalizations.of(context)!
-.loadMarkCountFailed}: $e');
+      _showSnackBar('${AppLocalizations.of(context)!.loadMarkCountFailed}: $e');
     } finally {
       setState(() {
         _isLoading = false;
@@ -104,12 +101,14 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
     try {
       final markPhoneService = ref.read(markPhoneServiceProvider);
       final markedPhones = await markPhoneService.getAllPhoneMarks();
-      
+
       setState(() {
         _markedPhones = markedPhones;
       });
     } catch (e) {
-      _showSnackBar(AppLocalizations.of(context)!.loadMarkedPhonesFailed( e.toString()));
+      _showSnackBar(
+        AppLocalizations.of(context)!.loadMarkedPhonesFailed(e.toString()),
+      );
     } finally {
       setState(() {
         _isLoadingMarkedPhones = false;
@@ -153,14 +152,18 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
         _selectedLabelId!,
         name: name,
       );
-      
+
       // 使用标记统计同步服务记录标记
-      final statisticsSyncService = ref.read(labelMarkStatisticsSyncServiceProvider);
+      final statisticsSyncService = ref.read(
+        labelMarkStatisticsSyncServiceProvider,
+      );
       await statisticsSyncService.syncSingleLabel(labelPhoneEntry);
-      
+
       // 使用标签到远程号码同步服务同步标记
-      final labelToRemoteSyncService = ref.read(labelToRemoteSyncServiceProvider);
-      await labelToRemoteSyncService.syncSingleLabel(labelPhoneEntry);
+      final labelToRemoteSyncService = ref.read(
+        labelPhoneEntryToRemoteProvider,
+      );
+      await labelToRemoteSyncService.sync(labelPhoneEntry);
 
       // 清空输入框
       _phoneController.clear();
@@ -174,8 +177,7 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
 
       _showSnackBar(AppLocalizations.of(context)!.markPhoneSuccess);
     } catch (e) {
-      _showSnackBar('${AppLocalizations.of(context)!
-.markPhoneFailed}: $e');
+      _showSnackBar('${AppLocalizations.of(context)!.markPhoneFailed}: $e');
     } finally {
       setState(() {
         _isLoading = false;
@@ -186,7 +188,7 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
   Future<void> _navigateToVipExchangePage() async {
     // 导航到VIP兑换页面
     await Navigator.of(context).pushNamed('/vip-exchange');
-    
+
     // 返回后刷新标记次数
     await _loadMarkCount();
   }
@@ -265,11 +267,18 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
               children: [
                 Text(
                   AppLocalizations.of(context)!.markCount,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Text(
                   '$_markCount',
-                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xFFF5A623)),
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFFF5A623),
+                  ),
                 ),
               ],
             ),
@@ -277,13 +286,14 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
             ElevatedButton.icon(
               onPressed: _navigateToVipExchangePage,
               icon: const Icon(Icons.card_membership),
-              label: Text(AppLocalizations.of(context)!
-.exchangeVip),
+              label: Text(AppLocalizations.of(context)!.exchangeVip),
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFFF5A623),
                 foregroundColor: Colors.white,
                 minimumSize: const Size(double.infinity, 48),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
               ),
             ),
           ],
@@ -342,7 +352,9 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
                 backgroundColor: const Color(0xFFF5A623),
                 foregroundColor: Colors.white,
                 minimumSize: const Size(double.infinity, 48),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
               ),
             ),
           ],
@@ -350,14 +362,14 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
       ),
     );
   }
-  
+
   /// 构建标记号码列表
   Widget _buildMarkedPhonesList() {
     // 如果正在加载，显示加载指示器
     if (_isLoadingMarkedPhones) {
       return const Center(child: CircularProgressIndicator());
     }
-    
+
     // 如果列表为空，显示空状态
     if (_markedPhones.isEmpty) {
       return Card(
@@ -381,7 +393,7 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
         ),
       );
     }
-    
+
     // 构建标记号码列表，每隔3个项目插入一个广告
     return Card(
       elevation: 4,
@@ -420,7 +432,7 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
       ),
     );
   }
-  
+
   /// 构建单个标记号码项
   Widget _buildMarkedPhoneItem(LabelPhoneEntry entry) {
     return Card(
@@ -448,23 +460,23 @@ class _MarkPhoneManagementPageState extends ConsumerState<MarkPhoneManagementPag
       ),
     );
   }
-  
+
   /// 获取标签名称
   Future<String> _getLabelName(String labelId) async {
     final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
     final label = await predefinedLabelService.getLabelById(labelId);
     return label?.text ?? AppLocalizations.of(context)!.unknown;
   }
-  
+
   /// 删除标记号码
   Future<void> _deleteMarkedPhone(LabelPhoneEntry entry) async {
     try {
       final markPhoneService = ref.read(markPhoneServiceProvider);
       await markPhoneService.removePhoneMark(entry.id);
-      
+
       // 重新加载标记号码列表
       _loadMarkedPhones();
-      
+
       _showSnackBar(AppLocalizations.of(context)!.deleteSuccess);
     } catch (e) {
       _showSnackBar(AppLocalizations.of(context)!.deleteFailed(e.toString()));
