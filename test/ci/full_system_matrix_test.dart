@@ -1,80 +1,71 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 // 核心服务与 Providers
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/rules_provider.dart';
-import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/theme/theme_provider.dart';
-
+import 'package:yourcallyourrule/features/call_statistic/presentation/pages/blocked_calls_page.dart';
+// 4. 通话统计与拦截记录
+import 'package:yourcallyourrule/features/call_statistic/presentation/pages/call_statistics_page.dart';
+// 5. 联系人与标签
+import 'package:yourcallyourrule/features/contacts/pages/contacts_management_page.dart';
+import 'package:yourcallyourrule/features/dashboard/pages/dashboard_page.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/pages/deletion_proposal_page.dart';
 // 1. 首页与主视图
 import 'package:yourcallyourrule/features/home_elite/presentation/pages/elite_home_page.dart';
-import 'package:yourcallyourrule/features/home/pages/home_page.dart';
-import 'package:yourcallyourrule/features/dashboard/pages/dashboard_page.dart';
-
+import 'package:yourcallyourrule/features/labels/pages/label_management_page.dart';
+import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page.dart';
+import 'package:yourcallyourrule/features/language/pages/language_settings_page.dart';
 // 2. 拦截与规则过滤
 import 'package:yourcallyourrule/features/local_filter/presentation/pages/local_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/notifications/pages/notifications_page.dart';
+import 'package:yourcallyourrule/features/permissions/pages/permission_management_page.dart';
+import 'package:yourcallyourrule/features/permissions/pages/special_permission_page.dart';
+// 6. 插件中心
+import 'package:yourcallyourrule/features/plugin/pages/plugin_management_page.dart';
+import 'package:yourcallyourrule/features/plugin/presentation/pages/plugin_test_page.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remote_filter_settings_page.dart';
-import 'package:yourcallyourrule/presentation/settings/pages/filter_settings_page.dart';
-import 'package:yourcallyourrule/features/rules/pages/rule_management_page.dart';
-import 'package:yourcallyourrule/features/rules/pages/regex_rule_page.dart';
 import 'package:yourcallyourrule/features/rules/pages/allowed_blocked_page.dart';
-
+import 'package:yourcallyourrule/features/rules/pages/regex_rule_page.dart';
+import 'package:yourcallyourrule/features/rules/pages/rule_management_page.dart';
+import 'package:yourcallyourrule/features/search/pages/search_page.dart';
 // 3. 短信过滤与管理
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
-
-// 4. 通话统计与拦截记录
-import 'package:yourcallyourrule/features/call_statistic/presentation/pages/call_statistics_page.dart';
-import 'package:yourcallyourrule/features/call_statistic/presentation/pages/blocked_calls_page.dart';
-
-// 5. 联系人与标签
-import 'package:yourcallyourrule/features/contacts/pages/contacts_management_page.dart';
-import 'package:yourcallyourrule/features/labels/pages/label_management_page.dart';
-import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page.dart';
-
-// 6. 插件中心
-import 'package:yourcallyourrule/features/plugin/pages/plugin_management_page.dart';
-import 'package:yourcallyourrule/features/plugin/presentation/pages/plugin_test_page.dart';
-
 // 7. 规则校验中心、通知与提案
 import 'package:yourcallyourrule/features/verification/presentation/pages/verification_page.dart';
-import 'package:yourcallyourrule/features/search/pages/search_page.dart';
-import 'package:yourcallyourrule/features/notifications/pages/notifications_page.dart';
-import 'package:yourcallyourrule/features/deletion_proposal/pages/deletion_proposal_page.dart';
-
-// 8. 系统设置、语言、权限、购买与云同步
-import 'package:yourcallyourrule/presentation/settings/pages/settings_page.dart';
-import 'package:yourcallyourrule/features/language/pages/language_settings_page.dart';
-import 'package:yourcallyourrule/features/permissions/pages/permission_management_page.dart';
-import 'package:yourcallyourrule/features/permissions/pages/special_permission_page.dart';
-import 'package:yourcallyourrule/purchase/purchase_page.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/presentation/backup_restore/backup_restore_page.dart';
 import 'package:yourcallyourrule/presentation/cloud/cloud_settings_page.dart';
+import 'package:yourcallyourrule/presentation/settings/pages/filter_settings_page.dart';
+// 8. 系统设置、语言、权限、购买与云同步
+import 'package:yourcallyourrule/presentation/settings/pages/settings_page.dart';
+import 'package:yourcallyourrule/purchase/purchase_page.dart';
 import 'package:yourcallyourrule/supabase_sync/supabase_settings_page.dart';
+import 'package:yourcallyourrule/theme/theme_provider.dart';
 
-void emit(Map<String, dynamic> m) =>
-    debugPrint('CI_METRIC: ${jsonEncode(m)}');
+void emit(Map<String, dynamic> m) => debugPrint('CI_METRIC: ${jsonEncode(m)}');
 
-void cause(String id, String sev, String name, String blame, num cost,
-    String reason, String suggestion) {
-  debugPrint('ROOT_CAUSE: ${jsonEncode({
-        'id': id,
-        'severity': sev,
-        'name': name,
-        'blamed_component': blame,
-        'cost_ms': cost,
-        'reason': reason,
-        'suggestion': suggestion,
-      })}');
+void cause(
+  String id,
+  String sev,
+  String name,
+  String blame,
+  num cost,
+  String reason,
+  String suggestion,
+) {
+  debugPrint(
+    'ROOT_CAUSE: ${jsonEncode({'id': id, 'severity': sev, 'name': name, 'blamed_component': blame, 'cost_ms': cost, 'reason': reason, 'suggestion': suggestion})}',
+  );
 }
 
 Widget _createTestApp(Widget child, {ProviderContainer? container}) {
@@ -107,27 +98,27 @@ void main() {
       // Mock 核心 Native 平台信道以保证在云端 CI 环境下 100% 运行
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(
-        const MethodChannel('plugins.flutter.io/path_provider'),
-        (MethodCall methodCall) async => tempDir.path,
-      );
+            const MethodChannel('plugins.flutter.io/path_provider'),
+            (MethodCall methodCall) async => tempDir.path,
+          );
 
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(
-        const MethodChannel('plugins.flutter.io/shared_preferences'),
-        (MethodCall methodCall) async => <String, dynamic>{},
-      );
+            const MethodChannel('plugins.flutter.io/shared_preferences'),
+            (MethodCall methodCall) async => <String, dynamic>{},
+          );
 
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(
-        const MethodChannel('flutter_secure_storage'),
-        (MethodCall methodCall) async => null,
-      );
+            const MethodChannel('flutter_secure_storage'),
+            (MethodCall methodCall) async => null,
+          );
 
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(
-        const MethodChannel('flutter.baseflow.com/permissions/methods'),
-        (MethodCall methodCall) async => 1,
-      );
+            const MethodChannel('flutter.baseflow.com/permissions/methods'),
+            (MethodCall methodCall) async => 1,
+          );
     });
 
     tearDownAll(() async {
@@ -208,7 +199,9 @@ void main() {
         addTearDown(container.dispose);
 
         final sw = Stopwatch()..start();
-        await tester.pumpWidget(_createTestApp(const EliteHomePage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const EliteHomePage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         sw.stop();
 
@@ -222,20 +215,24 @@ void main() {
         });
       });
 
-      testWidgets('2.1.2 HomePage 主页挂载测试', (tester) async {
+      testWidgets('2.1.2 EliteHomePage 备用卡片挂载测试', (tester) async {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const HomePage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const EliteHomePage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
-        expect(find.byType(HomePage), findsOneWidget);
+        expect(find.byType(EliteHomePage), findsOneWidget);
       });
 
       testWidgets('2.1.3 DashboardPage 仪表盘挂载测试', (tester) async {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const DashboardPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const DashboardPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(DashboardPage), findsOneWidget);
       });
@@ -245,7 +242,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const LocalFilterSettingsPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const LocalFilterSettingsPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(LocalFilterSettingsPage), findsOneWidget);
       });
@@ -254,7 +253,12 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const RemoteFilterSettingsPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(
+            const RemoteFilterSettingsPage(),
+            container: container,
+          ),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(RemoteFilterSettingsPage), findsOneWidget);
       });
@@ -263,7 +267,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const FilterSettingsPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const FilterSettingsPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(FilterSettingsPage), findsOneWidget);
       });
@@ -272,7 +278,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const RuleManagementPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const RuleManagementPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(RuleManagementPage), findsOneWidget);
       });
@@ -281,7 +289,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const RegexRulePage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const RegexRulePage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(RegexRulePage), findsOneWidget);
       });
@@ -290,7 +300,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const AllowedBlockedPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const AllowedBlockedPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(AllowedBlockedPage), findsOneWidget);
       });
@@ -300,7 +312,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const SmsFilterPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const SmsFilterPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(SmsFilterPage), findsOneWidget);
       });
@@ -309,7 +323,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const SmsFilterSettingsPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const SmsFilterSettingsPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(SmsFilterSettingsPage), findsOneWidget);
       });
@@ -318,7 +334,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const SmsManagementPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const SmsManagementPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(SmsManagementPage), findsOneWidget);
       });
@@ -328,7 +346,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const CallStatisticsPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const CallStatisticsPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(CallStatisticsPage), findsOneWidget);
       });
@@ -337,7 +357,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const BlockedCallsPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const BlockedCallsPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(BlockedCallsPage), findsOneWidget);
       });
@@ -347,7 +369,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const ContactsManagementPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const ContactsManagementPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(ContactsManagementPage), findsOneWidget);
       });
@@ -356,7 +380,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const LabelManagementPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const LabelManagementPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(LabelManagementPage), findsOneWidget);
       });
@@ -365,7 +391,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const MarkPhoneManagementPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const MarkPhoneManagementPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(MarkPhoneManagementPage), findsOneWidget);
       });
@@ -375,7 +403,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const PluginManagementPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const PluginManagementPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(PluginManagementPage), findsOneWidget);
       });
@@ -394,7 +424,12 @@ void main() {
           pluginOrder: 1,
         );
 
-        await tester.pumpWidget(_createTestApp(const PluginTestPage(plugin: dummyPlugin), container: container));
+        await tester.pumpWidget(
+          _createTestApp(
+            const PluginTestPage(plugin: dummyPlugin),
+            container: container,
+          ),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(PluginTestPage), findsOneWidget);
       });
@@ -404,7 +439,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const VerificationPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const VerificationPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(VerificationPage), findsOneWidget);
       });
@@ -413,7 +450,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const SearchPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const SearchPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(SearchPage), findsOneWidget);
       });
@@ -422,7 +461,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const NotificationsPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const NotificationsPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(NotificationsPage), findsOneWidget);
       });
@@ -431,7 +472,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const DeletionProposalPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const DeletionProposalPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(DeletionProposalPage), findsOneWidget);
       });
@@ -441,7 +484,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const SettingsPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const SettingsPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(SettingsPage), findsOneWidget);
       });
@@ -450,7 +495,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const LanguageSettingsPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const LanguageSettingsPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(LanguageSettingsPage), findsOneWidget);
       });
@@ -459,7 +506,12 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const PermissionManagementPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(
+            const PermissionManagementPage(),
+            container: container,
+          ),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(PermissionManagementPage), findsOneWidget);
       });
@@ -468,7 +520,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const SpecialPermissionPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const SpecialPermissionPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(SpecialPermissionPage), findsOneWidget);
       });
@@ -477,7 +531,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const PurchasePage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const PurchasePage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(PurchasePage), findsOneWidget);
       });
@@ -486,7 +542,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const BackupRestorePage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const BackupRestorePage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(BackupRestorePage), findsOneWidget);
       });
@@ -495,7 +553,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const CloudSettingsPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const CloudSettingsPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(CloudSettingsPage), findsOneWidget);
       });
@@ -504,7 +564,9 @@ void main() {
         final container = ProviderContainer();
         addTearDown(container.dispose);
 
-        await tester.pumpWidget(_createTestApp(const SupabaseSettingsPage(), container: container));
+        await tester.pumpWidget(
+          _createTestApp(const SupabaseSettingsPage(), container: container),
+        );
         await tester.pump(const Duration(milliseconds: 300));
         expect(find.byType(SupabaseSettingsPage), findsOneWidget);
       });

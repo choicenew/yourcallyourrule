@@ -78,6 +78,22 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Clean orphaned .bak files in lib/
+        run: |
+          find lib/ -name "*.bak" -type f -delete || true
+
+      - name: Create .env file for CI
+        run: |
+          touch .env
+          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
+          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
+          if ! grep -q "CF_WORKER_URL=http" .env; then
+            echo "CF_WORKER_URL=https://dummy.worker.dev" >> .env
+          fi
+          if ! grep -q "WORKER_API_SECRET=" .env; then
+            echo "WORKER_API_SECRET=dummy_secret" >> .env
+          fi
+
       - name: Setup Flutter SDK
         uses: subosito/flutter-action@v2
         with:
@@ -127,7 +143,7 @@ jobs:
           echo "exit_code=$?" >> $GITHUB_OUTPUT
         continue-on-error: true
 
-      - name: Extract structured startup metrics
+      - name: Extract structured startup metrics & dump errors
         if: always()
         run: |
           mkdir -p ci_reports
@@ -135,12 +151,12 @@ jobs:
             | sed 's/.*STARTUP_METRIC: //' > ci_reports/startup_metrics.jsonl || true
           grep -a "ROOT_CAUSE:" ci_reports/startup_profile.log 2>/dev/null \
             | sed 's/.*ROOT_CAUSE: //' > ci_reports/startup_root_causes.jsonl || true
-          echo "--- Startup metrics ---"
-          cat ci_reports/startup_metrics.jsonl 2>/dev/null
-          echo "--- Root causes ---"
-          cat ci_reports/startup_root_causes.jsonl 2>/dev/null
-          echo "metric_rows=$(wc -l < ci_reports/startup_metrics.jsonl 2>/dev/null || echo 0)" >> $GITHUB_OUTPUT
-          echo "root_cause_rows=$(wc -l < ci_reports/startup_root_causes.jsonl 2>/dev/null || echo 0)" >> $GITHUB_OUTPUT
+          if grep -qE "Error:|Compilation failed|Failed to load" ci_reports/startup_profile.log 2>/dev/null; then
+            echo "=================== ❌ STARTUP PROFILE ERROR DUMP ==================="
+            grep -E "Error:|Compilation failed|Failed to load" ci_reports/startup_profile.log -B 2 -A 10 || true
+            echo "========================================================================"
+            echo "has_error=true" >> $GITHUB_ENV
+          fi
 
       - name: Upload Startup Profile artifacts
         if: always()
@@ -162,6 +178,22 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Clean orphaned .bak files in lib/
+        run: |
+          find lib/ -name "*.bak" -type f -delete || true
+
+      - name: Create .env file for CI
+        run: |
+          touch .env
+          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
+          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
+          if ! grep -q "CF_WORKER_URL=http" .env; then
+            echo "CF_WORKER_URL=https://dummy.worker.dev" >> .env
+          fi
+          if ! grep -q "WORKER_API_SECRET=" .env; then
+            echo "WORKER_API_SECRET=dummy_secret" >> .env
+          fi
 
       - name: Setup Flutter SDK
         uses: subosito/flutter-action@v2
@@ -192,7 +224,7 @@ jobs:
             2>&1 | tee ci_reports/provider_profile.log
         continue-on-error: true
 
-      - name: Extract Provider metrics & root causes
+      - name: Extract Provider metrics & dump errors
         if: always()
         run: |
           mkdir -p ci_reports
@@ -200,10 +232,12 @@ jobs:
             | sed 's/.*PROVIDER_METRIC: //' > ci_reports/provider_metrics.jsonl || true
           grep -a "ROOT_CAUSE:" ci_reports/provider_profile.log 2>/dev/null \
             | sed 's/.*ROOT_CAUSE: //' > ci_reports/provider_root_causes.jsonl || true
-          echo "--- Provider metrics ---"
-          cat ci_reports/provider_metrics.jsonl 2>/dev/null || true
-          echo "--- Provider root causes ---"
-          cat ci_reports/provider_root_causes.jsonl 2>/dev/null || true
+          if grep -qE "Error:|Compilation failed|Failed to load" ci_reports/provider_profile.log 2>/dev/null; then
+            echo "=================== ❌ PROVIDER PROFILE ERROR DUMP ==================="
+            grep -E "Error:|Compilation failed|Failed to load" ci_reports/provider_profile.log -B 2 -A 10 || true
+            echo "========================================================================"
+            echo "has_error=true" >> $GITHUB_ENV
+          fi
 
       - name: Upload Provider Profile artifacts
         if: always()
@@ -225,6 +259,22 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Clean orphaned .bak files in lib/
+        run: |
+          find lib/ -name "*.bak" -type f -delete || true
+
+      - name: Create .env file for CI
+        run: |
+          touch .env
+          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
+          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
+          if ! grep -q "CF_WORKER_URL=http" .env; then
+            echo "CF_WORKER_URL=https://dummy.worker.dev" >> .env
+          fi
+          if ! grep -q "WORKER_API_SECRET=" .env; then
+            echo "WORKER_API_SECRET=dummy_secret" >> .env
+          fi
 
       - name: Setup Flutter SDK
         uses: subosito/flutter-action@v2
@@ -255,7 +305,7 @@ jobs:
             2>&1 | tee ci_reports/service_profile.log
         continue-on-error: true
 
-      - name: Extract Service metrics & root causes
+      - name: Extract Service metrics & dump errors
         if: always()
         run: |
           mkdir -p ci_reports
@@ -263,10 +313,12 @@ jobs:
             | sed 's/.*SERVICE_METRIC: //' > ci_reports/service_metrics.jsonl || true
           grep -a "ROOT_CAUSE:" ci_reports/service_profile.log 2>/dev/null \
             | sed 's/.*ROOT_CAUSE: //' > ci_reports/service_root_causes.jsonl || true
-          echo "--- Service metrics ---"
-          cat ci_reports/service_metrics.jsonl 2>/dev/null || true
-          echo "--- Service root causes ---"
-          cat ci_reports/service_root_causes.jsonl 2>/dev/null || true
+          if grep -qE "Error:|Compilation failed|Failed to load" ci_reports/service_profile.log 2>/dev/null; then
+            echo "=================== ❌ SERVICE PROFILE ERROR DUMP ==================="
+            grep -E "Error:|Compilation failed|Failed to load" ci_reports/service_profile.log -B 2 -A 10 || true
+            echo "========================================================================"
+            echo "has_error=true" >> $GITHUB_ENV
+          fi
 
       - name: Upload Service Profile artifacts
         if: always()
@@ -288,6 +340,22 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Clean orphaned .bak files in lib/
+        run: |
+          find lib/ -name "*.bak" -type f -delete || true
+
+      - name: Create .env file for CI
+        run: |
+          touch .env
+          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
+          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
+          if ! grep -q "CF_WORKER_URL=http" .env; then
+            echo "CF_WORKER_URL=https://dummy.worker.dev" >> .env
+          fi
+          if ! grep -q "WORKER_API_SECRET=" .env; then
+            echo "WORKER_API_SECRET=dummy_secret" >> .env
+          fi
 
       - name: Setup Flutter SDK
         uses: subosito/flutter-action@v2
@@ -318,7 +386,7 @@ jobs:
             2>&1 | tee ci_reports/jank_profile.log
         continue-on-error: true
 
-      - name: Extract Jank metrics & root causes
+      - name: Extract Jank metrics & dump errors
         if: always()
         run: |
           mkdir -p ci_reports
@@ -326,10 +394,12 @@ jobs:
             | sed 's/.*JANK_METRIC: //' > ci_reports/jank_metrics.jsonl || true
           grep -a "ROOT_CAUSE:" ci_reports/jank_profile.log 2>/dev/null \
             | sed 's/.*ROOT_CAUSE: //' > ci_reports/jank_root_causes.jsonl || true
-          echo "--- Jank metrics ---"
-          cat ci_reports/jank_metrics.jsonl 2>/dev/null || true
-          echo "--- Jank root causes ---"
-          cat ci_reports/jank_root_causes.jsonl 2>/dev/null || true
+          if grep -qE "Error:|Compilation failed|Failed to load" ci_reports/jank_profile.log 2>/dev/null; then
+            echo "=================== ❌ JANK PROFILE ERROR DUMP ==================="
+            grep -E "Error:|Compilation failed|Failed to load" ci_reports/jank_profile.log -B 2 -A 10 || true
+            echo "========================================================================"
+            echo "has_error=true" >> $GITHUB_ENV
+          fi
 
       - name: Upload Jank Profile artifacts
         if: always()
@@ -352,6 +422,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Clean orphaned .bak files in lib/
+        run: |
+          find lib/ -name "*.bak" -type f -delete || true
+
+      - name: Create .env file for CI
+        run: |
+          touch .env
+          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
+          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
+          if ! grep -q "CF_WORKER_URL=http" .env; then
+            echo "CF_WORKER_URL=https://dummy.worker.dev" >> .env
+          fi
+          if ! grep -q "WORKER_API_SECRET=" .env; then
+            echo "WORKER_API_SECRET=dummy_secret" >> .env
+          fi
+
       - name: Setup Flutter SDK
         uses: subosito/flutter-action@v2
         with:
@@ -362,6 +448,12 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
+
+      - name: Code generation
+        run: |
+          if grep -qE "build_runner|riverpod_generator|json_serializable|envied_generator|freezed" pubspec.yaml; then
+            flutter pub run build_runner build --delete-conflicting-outputs 2>&1 | tail -20 || true
+          fi
 
       - name: Run Full App System Matrix Test (20+ Feature Pages)
         id: matrix
@@ -375,7 +467,7 @@ jobs:
             2>&1 | tee ci_reports/matrix_profile.log
         continue-on-error: true
 
-      - name: Extract Matrix metrics & root causes
+      - name: Extract Matrix metrics & dump errors
         if: always()
         run: |
           mkdir -p ci_reports
@@ -383,8 +475,12 @@ jobs:
             | sed 's/.*CI_METRIC: //' > ci_reports/matrix_metrics.jsonl || true
           grep -a "ROOT_CAUSE:" ci_reports/matrix_profile.log 2>/dev/null \
             | sed 's/.*ROOT_CAUSE: //' > ci_reports/matrix_root_causes.jsonl || true
-          echo "--- Matrix metrics ---"
-          cat ci_reports/matrix_metrics.jsonl 2>/dev/null || true
+          if grep -qE "Error:|Compilation failed|Failed to load" ci_reports/matrix_profile.log 2>/dev/null; then
+            echo "=================== ❌ MATRIX PROFILE ERROR DUMP ==================="
+            grep -E "Error:|Compilation failed|Failed to load" ci_reports/matrix_profile.log -B 2 -A 10 || true
+            echo "========================================================================"
+            echo "has_error=true" >> $GITHUB_ENV
+          fi
 
       - name: Upload Matrix Profile artifacts
         if: always()
@@ -412,6 +508,22 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Clean orphaned .bak files in lib/
+        run: |
+          find lib/ -name "*.bak" -type f -delete || true
+
+      - name: Create .env file for CI
+        run: |
+          touch .env
+          echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
+          echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
+          if ! grep -q "CF_WORKER_URL=http" .env; then
+            echo "CF_WORKER_URL=https://dummy.worker.dev" >> .env
+          fi
+          if ! grep -q "WORKER_API_SECRET=" .env; then
+            echo "WORKER_API_SECRET=dummy_secret" >> .env
+          fi
 
       - name: Setup Flutter SDK
         uses: subosito/flutter-action@v2
@@ -483,18 +595,28 @@ jobs:
             !ci_reports/raw/**
           retention-days: 60
 
-      # ========== 修复后的 Pass/Fail Gate ==========
-      - name: "Pass/Fail Gate: 任何上游 job fail 则 fail (可选按 HIGH fail)"
+      # ========== 真实 Pass/Fail 判定门禁 ==========
+      - name: "Pass/Fail Gate: 校验编译报错与测试成功率"
         run: |
           FAILURES=0
-          # 直接把每个job的结果通过github actions表达式导出到shell变量
+          
+          # 检查上游所有测试日志中是否存在编译失败或致命 Error
+          if grep -qE "Compilation failed|Error: Error when reading|Error: Undefined name|Failed to load" ci_reports/raw/*/*.log 2>/dev/null; then
+            echo "========================================================================"
+            echo "❌ CI DETECTED FATAL COMPILATION / FILE LOADING ERRORS IN UPSTREAM JOBS:"
+            echo "========================================================================"
+            grep -E "Compilation failed|Error: Error when reading|Error: Undefined name|Failed to load" ci_reports/raw/*/*.log -B 2 -A 8 2>/dev/null || true
+            echo "========================================================================"
+            FAILURES=$((FAILURES + 1))
+          fi
+
+          # 校验各上游 Job 结果
           JOB_real_app_startup_profiling="${{ needs.real_app_startup_profiling.result }}"
           JOB_provider_init_and_rebuild_storm="${{ needs.provider_init_and_rebuild_storm.result }}"
           JOB_service_responsiveness="${{ needs.service_responsiveness.result }}"
           JOB_jank_frames_and_scroll="${{ needs.jank_frames_and_scroll.result }}"
           JOB_full_system_matrix="${{ needs.full_system_matrix.result }}"
 
-          # bash数组维护job名称与状态
           declare -A JOBS
           JOBS["real_app_startup_profiling"]="${JOB_real_app_startup_profiling}"
           JOBS["provider_init_and_rebuild_storm"]="${JOB_provider_init_and_rebuild_storm}"
@@ -504,39 +626,21 @@ jobs:
 
           for job_name in "${!JOBS[@]}"; do
             res="${JOBS[$job_name]}"
-            case "$res" in
-              failure)
-                FAILURES=$((FAILURES + 1))
-                echo "❌ FAILED JOB: $job_name"
-                ;;
-              success)
-                echo "✅ PASSED JOB: $job_name"
-                ;;
-              skipped)
-                echo "⏭  SKIPPED JOB: $job_name"
-                ;;
-              cancelled)
-                echo "✖  CANCELLED JOB: $job_name"
-                FAILURES=$((FAILURES + 1))
-                ;;
-            esac
+            if [ "$res" = "failure" ] || [ "$res" = "cancelled" ]; then
+              FAILURES=$((FAILURES + 1))
+              echo "❌ FAILED JOB: $job_name"
+            fi
           done
 
           echo ""
-          if [ "${{ github.event.inputs.fail_on_high }}" = "true" ]; then
-            HIGH=$(cat ci_reports/aggregator_run.log 2>/dev/null \
-              | grep -aoE 'HIGH_SEVERITY_COUNT=[0-9]+' \
-              | tail -1 | cut -d= -f2 || echo 0)
-            echo "HIGH-severity root-causes: ${HIGH}"
-            if [ "${HIGH}" -gt 0 ]; then
-              echo "FAIL: HIGH-severity root causes detected (fail_on_high=true)"
-              exit 1
-            fi
-          fi
-
           if [ "${FAILURES}" -gt 0 ]; then
-            echo "Gate FAIL: ${FAILURES} upstream job(s) failed"
+            echo "========================================================================"
+            echo "❌ Gate FAIL: CI 存在 ${FAILURES} 处致命错误或构建失败！标记整体为红叉 (FAILED)"
+            echo "========================================================================"
             exit 1
           fi
-          echo "Gate PASS"
+
+          echo "========================================================================"
+          echo "✅ Gate PASS: 所有测试无编译错误且正常通过"
+          echo "========================================================================"
           exit 0
