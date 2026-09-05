@@ -50,6 +50,7 @@ app.*.map.json
 /android/app/release/
 
 /临时参考/
+/yourcallrule/
 **/临时参考/
 plugins html/
 **/plugins html/
