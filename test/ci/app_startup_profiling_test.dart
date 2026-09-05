@@ -2,10 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/misc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/provider/providers/background_sync_service_provider.dart';
@@ -30,64 +31,45 @@ void emit(Map<String, dynamic> m) {
   debugPrint('STARTUP_METRIC: ${jsonEncode(m)}');
 }
 
-void cause(String id, String severity, String name, String blamedComponent,
-    num costMs, String reason, String suggestion) {
-  debugPrint('ROOT_CAUSE: ${jsonEncode({
-        'id': id,
-        'severity': severity,
-        'name': name,
-        'blamed_component': blamedComponent,
-        'cost_ms': costMs,
-        'reason': reason,
-        'suggestion': suggestion,
-      })}');
+void cause(
+  String id,
+  String severity,
+  String name,
+  String blamedComponent,
+  num costMs,
+  String reason,
+  String suggestion,
+) {
+  debugPrint(
+    'ROOT_CAUSE: ${jsonEncode({'id': id, 'severity': severity, 'name': name, 'blamed_component': blamedComponent, 'cost_ms': costMs, 'reason': reason, 'suggestion': suggestion})}',
+  );
 }
 
 typedef Task = FutureOr<void> Function();
 
-int _getSafeRssKb() {
-  try {
-    return ProcessInfo.currentRss ~/ 1024;
-  } catch (_) {
-    return 0;
+Future<double> _timeIt(Task fn, {int warmup = 0, int runs = 1}) async {
+  for (int i = 0; i < warmup; i++) {
+    await fn();
   }
+  final sw = Stopwatch()..start();
+  for (int i = 0; i < runs; i++) {
+    await fn();
+  }
+  sw.stop();
+  return sw.elapsedMicroseconds / 1000.0 / runs;
 }
 
 void main() {
   group('真实 App 冷启动链路剖析 (谁拖慢了 APP 打开)', () {
-    testWidgets('Step 1: 模拟 main() 全部初始化 + MyApp + Splash + 路由到首帧 EliteHomePage',
-        (WidgetTester tester) async {
+    testWidgets('Step 1: 模拟 main() 全部初始化 + MyApp + Splash + 路由到首帧 EliteHomePage', (
+      WidgetTester tester,
+    ) async {
       final _bootstrapPhases = <String, double>{};
       final swTotal = Stopwatch()..start();
 
-      final rss0 = _getSafeRssKb();
+      final rss0 = ProcessInfo.currentRss ~/ 1024;
       final swWidgetsBinding = Stopwatch()..start();
       WidgetsFlutterBinding.ensureInitialized();
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        const MethodChannel('plugins.flutter.io/path_provider'),
-        (MethodCall methodCall) async => Directory.systemTemp.path,
-      );
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        const MethodChannel('plugins.flutter.io/shared_preferences'),
-        (MethodCall methodCall) async => <String, dynamic>{},
-      );
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        const MethodChannel('dexterous.com/flutter/local_notifications'),
-        (MethodCall methodCall) async => true,
-      );
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        const MethodChannel('floating_window_android'),
-        (MethodCall methodCall) async => false,
-      );
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        const MethodChannel('flutter.baseflow.com/permissions/methods'),
-        (MethodCall methodCall) async => 1,
-      );
       _bootstrapPhases['0.1_WidgetsBinding'] =
           swWidgetsBinding.elapsedMicroseconds / 1000.0;
 
@@ -97,27 +79,29 @@ void main() {
       _bootstrapPhases['0.2_ProviderContainer.new'] =
           swLocale.elapsedMicroseconds / 1000.0;
 
-      final tasks = <(String, dynamic)>[
+      final tasks = <(String, ProviderBase<Object?>)>[
         ('1.1_languageProvider.future', localeProvider),
         ('1.2_themeModeProvider', themeModeProvider),
         ('1.3_appRouterProvider', appRouterProvider),
-        ('1.4_pluginExecutionServiceProvider',
-            pluginExecutionServiceProvider),
-        ('1.5_callerIdMonitorServiceProvider',
-            callerIdMonitorServiceProvider),
+        ('1.4_pluginExecutionServiceProvider', pluginExecutionServiceProvider),
+        ('1.5_callerIdMonitorServiceProvider', callerIdMonitorServiceProvider),
         ('1.6_callEventListenerProvider', callEventListenerProvider),
         ('1.7_locationSyncServiceProvider', locationSyncServiceProvider),
-        ('1.8_labelSyncServiceInitializerProvider',
-            labelSyncServiceInitializerProvider),
-        ('1.9_pluginSyncServiceInitializerProvider',
-            pluginSyncServiceInitializerProvider),
+        (
+          '1.8_labelSyncServiceInitializerProvider',
+          labelSyncServiceInitializerProvider,
+        ),
+        (
+          '1.9_pluginSyncServiceInitializerProvider',
+          pluginSyncServiceInitializerProvider,
+        ),
         ('1.10_notificationServiceProvider', notificationServiceProvider),
-        ('1.11_overlayControlHandlerProvider',
-            overlayControlHandlerProvider),
-        ('1.12_backgroundSyncInitProvider.future',
-            backgroundSyncInitProvider),
-        ('1.13_foregroundSyncServiceInitializerProvider.future',
-            foregroundSyncServiceInitializerProvider),
+        ('1.11_overlayControlHandlerProvider', overlayControlHandlerProvider),
+        ('1.12_backgroundSyncInitProvider.future', backgroundSyncInitProvider),
+        (
+          '1.13_foregroundSyncServiceInitializerProvider.future',
+          foregroundSyncServiceInitializerProvider,
+        ),
       ];
 
       for (final task in tasks) {
@@ -125,6 +109,7 @@ void main() {
         final p = task.$2;
         final s = Stopwatch()..start();
         try {
+          // ignore: unused_local_variable
           final dynamic v = container.read(p);
           if (v is Future) {
             try {
@@ -146,41 +131,29 @@ void main() {
           child: _TestBootstrapApp(container: container),
         ),
       );
-      await tester.pump(const Duration(milliseconds: 500));
+      await tester.pumpAndSettle(const Duration(seconds: 5));
       _bootstrapPhases['2.1_MyApp+Splash_mount_pumpAndSettle'] =
           swMountMyApp.elapsedMicroseconds / 1000.0;
 
       final swNavHome = Stopwatch()..start();
+      final context = tester.element(find.byType(MaterialApp));
       try {
-        final contextFinder = find.byType(SplashScreen);
-        if (contextFinder.evaluate().isNotEmpty) {
-          final splashCtx = tester.element(contextFinder);
-          await Navigator.of(splashCtx).push(MaterialPageRoute(
-            builder: (_) => const ProviderScope(child: EliteHomePage()),
-          ));
-        } else {
-          await tester.pumpWidget(
-            UncontrolledProviderScope(
-              container: container,
-              child: _TestBootstrapApp(container: container, homeElite: true),
-            ),
-          );
-        }
+        GoRouter.of(context).goNamed(AppRouter.eliteHome);
       } catch (_) {
-        await tester.pumpWidget(
-          UncontrolledProviderScope(
-            container: container,
-            child: _TestBootstrapApp(container: container, homeElite: true),
+        // fallback: direct push
+        await Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => const ProviderScope(child: EliteHomePage()),
           ),
         );
       }
-      await tester.pump(const Duration(milliseconds: 500));
+      await tester.pumpAndSettle(const Duration(seconds: 10));
       _bootstrapPhases['2.2_Splash->EliteHome_mount_pumpAndSettle'] =
           swNavHome.elapsedMicroseconds / 1000.0;
 
       swTotal.stop();
       final double totalMs = swTotal.elapsedMicroseconds / 1000.0;
-      final rss1 = _getSafeRssKb();
+      final rss1 = ProcessInfo.currentRss ~/ 1024;
       final double deltaRssKb = (rss1 - rss0).toDouble();
 
       for (final e in _bootstrapPhases.entries) {
@@ -212,12 +185,16 @@ void main() {
         'threshold_warn': 40 * 1024.0,
       });
 
+      // ======= 根因排名 =======
       final sortedDesc = _bootstrapPhases.entries.toList()
         ..sort((a, b) => b.value.compareTo(a.value));
       final topN = sortedDesc.take(5).toList();
-      final totalBootstrapMs =
-          _bootstrapPhases.values.fold<double>(0.0, (a, b) => a + b);
+      final totalBootstrapMs = _bootstrapPhases.values.fold<double>(
+        0.0,
+        (a, b) => a + b,
+      );
 
+      // Root cause rule 1: 初始化阶段占比 >= 15% 的 Provider，判定为启动拖慢者
       final rules = <String>{};
       for (int rank = 0; rank < topN.length; rank++) {
         final e = topN[rank];
@@ -225,8 +202,8 @@ void main() {
         String sev = pct >= 30
             ? 'HIGH'
             : pct >= 15
-                ? 'MEDIUM'
-                : 'LOW';
+            ? 'MEDIUM'
+            : 'LOW';
         if (e.value < 20) continue;
         final id = 'slow-startup-${e.key}';
         cause(
@@ -241,6 +218,7 @@ void main() {
         rules.add(id);
       }
 
+      // Root cause rule 2: rss 增长过大
       if (deltaRssKb > 40 * 1024) {
         cause(
           'memory-startup-rss-growth',
@@ -253,6 +231,7 @@ void main() {
         );
       }
 
+      // Root cause rule 3: 总启动耗时超过阈值
       if (totalMs > 5000) {
         cause(
           'startup-slow-overall',
@@ -265,27 +244,33 @@ void main() {
         );
       }
 
-      expect(tester.takeException(), isNull,
-          reason: '启动过程中发生了异常');
-      expect(find.byType(EliteHomePage), findsOneWidget,
-          reason: '首屏 EliteHomePage 没有正确挂载');
-      expect(totalMs, lessThan(30000.0),
-          reason: '启动 >30s 为灾难性失败');
+      expect(tester.takeException(), isNull, reason: '启动过程中发生了异常');
+      expect(
+        find.byType(EliteHomePage),
+        findsOneWidget,
+        reason: '首屏 EliteHomePage 没有正确挂载',
+      );
+      expect(totalMs, lessThan(30000.0), reason: '启动 >30s 为灾难性失败');
     });
 
-    test('Step 2: 逐个 Provider 冷启动成本基准（隔离容器，可排名 Top-N）',
-        () async {
-      final isolated = <(String, dynamic)>[
+    test('Step 2: 逐个 Provider 冷启动成本基准（隔离容器，可排名 Top-N）', () async {
+      final isolated = <(String, ProviderBase<Object?>)>[
         ('localeProvider.future', localeProvider),
         ('themeModeProvider', themeModeProvider),
         ('appRouterProvider', appRouterProvider),
-        ('labelSyncServiceInitializerProvider',
-            labelSyncServiceInitializerProvider),
-        ('pluginSyncServiceInitializerProvider',
-            pluginSyncServiceInitializerProvider),
+        (
+          'labelSyncServiceInitializerProvider',
+          labelSyncServiceInitializerProvider,
+        ),
+        (
+          'pluginSyncServiceInitializerProvider',
+          pluginSyncServiceInitializerProvider,
+        ),
         ('backgroundSyncInitProvider.future', backgroundSyncInitProvider),
-        ('foregroundSyncServiceInitializerProvider.future',
-            foregroundSyncServiceInitializerProvider),
+        (
+          'foregroundSyncServiceInitializerProvider.future',
+          foregroundSyncServiceInitializerProvider,
+        ),
       ];
 
       final results = <(String, double)>[];
@@ -296,7 +281,8 @@ void main() {
         try {
           final dynamic v = c.read(p);
           if (v is Future) {
-            await v.timeout(const Duration(milliseconds: 600))
+            await v
+                .timeout(const Duration(milliseconds: 600))
                 .catchError((_) {});
           }
         } catch (e) {
@@ -332,8 +318,9 @@ void main() {
       }
     });
 
-    testWidgets('Step 3: 首页首帧之后的前 100 帧渲染掉帧（启动后掉帧分析）',
-        (WidgetTester tester) async {
+    testWidgets('Step 3: 首页首帧之后的前 100 帧渲染掉帧（启动后掉帧分析）', (
+      WidgetTester tester,
+    ) async {
       final container = ProviderContainer();
       addTearDown(container.dispose);
 
@@ -343,7 +330,7 @@ void main() {
           child: _TestBootstrapApp(container: container, homeElite: true),
         ),
       );
-      await tester.pump(const Duration(milliseconds: 500));
+      await tester.pumpAndSettle(const Duration(seconds: 5));
 
       final frames = <double>[];
       const frameCount = 100;
@@ -356,9 +343,12 @@ void main() {
 
       frames.sort();
       final avg = frames.reduce((a, b) => a + b) / frames.length;
+      final p90 = frames[(frames.length * 0.90).floor()];
       final p95 = frames[(frames.length * 0.95).floor()];
+      final p99 = frames[(frames.length * 0.99).floor()];
       final worst = frames.last;
       final jankOver16 = frames.where((t) => t > 16.6).length;
+      final jankOver32 = frames.where((t) => t > 33.3).length;
 
       emit({
         'phase': 'first_100_frames_after_home',

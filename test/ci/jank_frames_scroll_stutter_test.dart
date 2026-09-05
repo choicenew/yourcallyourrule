@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -7,17 +8,18 @@ import 'package:flutter_test/flutter_test.dart';
 void emit(Map<String, dynamic> m) =>
     debugPrint('JANK_METRIC: ${jsonEncode(m)}');
 
-void cause(String id, String sev, String name, String blame, num cost,
-    String reason, String suggestion) {
-  debugPrint('ROOT_CAUSE: ${jsonEncode({
-        'id': id,
-        'severity': sev,
-        'name': name,
-        'blamed_component': blame,
-        'cost_ms': cost,
-        'reason': reason,
-        'suggestion': suggestion,
-      })}');
+void cause(
+  String id,
+  String sev,
+  String name,
+  String blame,
+  num cost,
+  String reason,
+  String suggestion,
+) {
+  debugPrint(
+    'ROOT_CAUSE: ${jsonEncode({'id': id, 'severity': sev, 'name': name, 'blamed_component': blame, 'cost_ms': cost, 'reason': reason, 'suggestion': suggestion})}',
+  );
 }
 
 class _TilePayload {
@@ -76,14 +78,19 @@ class _ComplexTile extends StatelessWidget {
                       Row(
                         children: [
                           Expanded(
-                            child: Text(p.name,
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 15)),
+                            child: Text(
+                              p.name,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 15,
+                              ),
+                            ),
                           ),
                           Container(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 3),
+                              horizontal: 8,
+                              vertical: 3,
+                            ),
                             decoration: BoxDecoration(
                               color: p.blocked
                                   ? Colors.red.withOpacity(0.15)
@@ -93,23 +100,26 @@ class _ComplexTile extends StatelessWidget {
                             child: Text(
                               p.blocked ? 'BLOCKED' : 'ALLOWED',
                               style: TextStyle(
-                                  fontSize: 11,
-                                  color: p.blocked ? Colors.red : Colors.green,
-                                  fontWeight: FontWeight.bold),
+                                fontSize: 11,
+                                color: p.blocked ? Colors.red : Colors.green,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ],
                       ),
                       const SizedBox(height: 2),
-                      Text(p.phone,
-                          style: TextStyle(
-                              color: Colors.grey[700], fontSize: 13)),
+                      Text(
+                        p.phone,
+                        style: TextStyle(color: Colors.grey[700], fontSize: 13),
+                      ),
                       const SizedBox(height: 4),
-                      Text(p.subtitle,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style:
-                              TextStyle(color: Colors.grey[600], fontSize: 12)),
+                      Text(
+                        p.subtitle,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                      ),
                     ],
                   ),
                 ),
@@ -122,9 +132,10 @@ class _ComplexTile extends StatelessWidget {
                       size: 20,
                     ),
                     const SizedBox(height: 8),
-                    Text('${p.callCount}',
-                        style: TextStyle(
-                            color: Colors.grey[500], fontSize: 12)),
+                    Text(
+                      '${p.callCount}',
+                      style: TextStyle(color: Colors.grey[500], fontSize: 12),
+                    ),
                     IconButton(
                       padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),
@@ -165,8 +176,7 @@ class _RealisticHomeList extends ConsumerStatefulWidget {
   });
 
   @override
-  ConsumerState<_RealisticHomeList> createState() =>
-      _RealisticHomeListState();
+  ConsumerState<_RealisticHomeList> createState() => _RealisticHomeListState();
 }
 
 class _RealisticHomeListState extends ConsumerState<_RealisticHomeList> {
@@ -195,14 +205,14 @@ class _RealisticHomeListState extends ConsumerState<_RealisticHomeList> {
         controller: _controller,
         cacheExtent: 0,
         children: widget.data
-            .map((p) => _ComplexTile(
-                  p: p,
-                  onTap: () {
-                    ref
-                        .read(widget.counterProvider.notifier)
-                        .increment();
-                  },
-                ))
+            .map(
+              (p) => _ComplexTile(
+                p: p,
+                onTap: () {
+                  ref.read(widget.counterProvider.notifier).increment();
+                },
+              ),
+            )
             .toList(),
       );
     } else {
@@ -216,9 +226,7 @@ class _RealisticHomeListState extends ConsumerState<_RealisticHomeList> {
           return _ComplexTile(
             p: p,
             onTap: () {
-              ref
-                  .read(widget.counterProvider.notifier)
-                  .increment();
+              ref.read(widget.counterProvider.notifier).increment();
             },
           );
         },
@@ -263,7 +271,7 @@ void main() {
       '高橋洋介',
       '김민수',
       'Иван Петров',
-      'Raj Patel'
+      'Raj Patel',
     ];
     const itemCount = 400;
     final data = List.generate(itemCount, (i) {
@@ -307,8 +315,9 @@ void main() {
       for (int i = 0; i < scrollSteps; i++) {
         final fw = Stopwatch()..start();
         await tester.drag(
-            find.byType(ListView),
-            Offset(0, opacity ? -110.0 : -130.0 - (i % 3) * 20.0));
+          find.byType(ListView),
+          Offset(0, opacity ? -110.0 : -130.0 - (i % 3) * 20.0),
+        );
         await tester.pump(const Duration(milliseconds: 16));
         fw.stop();
         frames.add(fw.elapsedMicroseconds / 1000.0);
@@ -317,8 +326,7 @@ void main() {
       // 反向滚回
       for (int i = 0; i < scrollSteps; i++) {
         final fw = Stopwatch()..start();
-        await tester.drag(
-            find.byType(ListView), const Offset(0, 120));
+        await tester.drag(find.byType(ListView), const Offset(0, 120));
         await tester.pump(const Duration(milliseconds: 16));
         fw.stop();
         frames.add(fw.elapsedMicroseconds / 1000.0);
@@ -418,10 +426,10 @@ void main() {
       };
     }
 
-    testWidgets('基准（好）: ListView.builder 虚拟化 滚动掉帧基准',
-        (tester) async {
-      final counter =
-          NotifierProvider<_JankCounterNotifier, int>(_JankCounterNotifier.new);
+    testWidgets('基准（好）: ListView.builder 虚拟化 滚动掉帧基准', (tester) async {
+      final counter = NotifierProvider<_JankCounterNotifier, int>(
+        _JankCounterNotifier.new,
+      );
       final r = await scrollAndMeasure(
         tester,
         'baseline_listview_builder',
@@ -441,10 +449,10 @@ void main() {
       }
     });
 
-    testWidgets('反模式 1: Opacity() 包裹整棵列表 → SaveLayer 掉帧',
-        (tester) async {
-      final counter =
-          NotifierProvider<_JankCounterNotifier, int>(_JankCounterNotifier.new);
+    testWidgets('反模式 1: Opacity() 包裹整棵列表 → SaveLayer 掉帧', (tester) async {
+      final counter = NotifierProvider<_JankCounterNotifier, int>(
+        _JankCounterNotifier.new,
+      );
       final r1 = await scrollAndMeasure(
         tester,
         'with_opacity_wrapper',
@@ -454,8 +462,9 @@ void main() {
       // 单独再跑一次基准 (无 Opacity) 做对比
       addTearDown(tester.view.resetPhysicalSize);
       // 使用单独 Provider 避免状态污染
-      final counter2 =
-          NotifierProvider<_JankCounterNotifier, int>(_JankCounterNotifier.new);
+      final counter2 = NotifierProvider<_JankCounterNotifier, int>(
+        _JankCounterNotifier.new,
+      );
       final r0 = await scrollAndMeasure(
         tester,
         'baseline_for_opacity_compare',
@@ -486,18 +495,21 @@ void main() {
       }
     });
 
-    testWidgets('反模式 2: ListView(children:[]) 一次性实例化 → 大列表首帧 & 内存爆',
-        (tester) async {
-      final counter =
-          NotifierProvider<_JankCounterNotifier, int>(_JankCounterNotifier.new);
+    testWidgets('反模式 2: ListView(children:[]) 一次性实例化 → 大列表首帧 & 内存爆', (
+      tester,
+    ) async {
+      final counter = NotifierProvider<_JankCounterNotifier, int>(
+        _JankCounterNotifier.new,
+      );
       final rBad = await scrollAndMeasure(
         tester,
         'listview_children_antipattern',
         listViewChildren: true,
         counter: counter,
       );
-      final counter2 =
-          NotifierProvider<_JankCounterNotifier, int>(_JankCounterNotifier.new);
+      final counter2 = NotifierProvider<_JankCounterNotifier, int>(
+        _JankCounterNotifier.new,
+      );
       final rGood = await scrollAndMeasure(
         tester,
         'listview_builder_good',
@@ -529,12 +541,12 @@ void main() {
       }
     });
 
-    testWidgets('Provider + 重建风暴：点击一次 FAB → 所有 item 重建 → 掉帧',
-        (tester) async {
+    testWidgets('Provider + 重建风暴：点击一次 FAB → 所有 item 重建 → 掉帧', (tester) async {
       // 全局 NotifierProvider，所有 tile 通过 ref.watch 监听整个 state（坏味道）
-      final global =
-          NotifierProvider<_JankCounterNotifier, int>(_JankCounterNotifier.new);
-      final data = this.data.sublist(0, 200);
+      final global = NotifierProvider<_JankCounterNotifier, int>(
+        _JankCounterNotifier.new,
+      );
+      final subData = data.sublist(0, 200);
 
       Widget buildList({bool useSelect = false}) {
         return ProviderScope(
@@ -549,24 +561,26 @@ void main() {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text('Global: ${ref.watch(global)}'),
-                      )
+                      ),
                     ],
                   ),
                   body: ListView.builder(
                     cacheExtent: 500,
-                    itemCount: data.length,
+                    itemCount: subData.length,
                     itemBuilder: (c, i) {
                       return Consumer(
                         builder: (ctx2, ref2, _) {
                           // 关键: useSelect 只看奇偶，整页不会全部重建
                           final int v = useSelect
                               ? ref2.watch(
-                                  global.select((v) => v.isOdd ? 1 : 0))
+                                  global.select((v) => v.isOdd ? 1 : 0),
+                                )
                               : ref2.watch(global);
                           return _ComplexTile(
-                            p: data[i].copyWith(callCount: data[i].callCount + v),
-                            onTap: () =>
-                                ref2.read(global.notifier).increment(),
+                            p: subData[i].copyWith(
+                              callCount: subData[i].callCount + v,
+                            ),
+                            onTap: () => ref2.read(global.notifier).increment(),
                           );
                         },
                       );
@@ -575,8 +589,8 @@ void main() {
                   floatingActionButton: FloatingActionButton(
                     onPressed: () =>
                         WidgetsBinding.instance.addPostFrameCallback((_) {
-                      // No-op, just used to ensure pump is run
-                    }),
+                          // No-op, just used to ensure pump is run
+                        }),
                     child: const Icon(Icons.refresh),
                   ),
                 );
@@ -626,7 +640,12 @@ void main() {
           'p99_ms': p99,
           'worst_ms': worst,
         });
-        return {'p95': p95, 'avg': avg, 'worst': worst, 'jank': jank.toDouble()};
+        return {
+          'p95': p95,
+          'avg': avg,
+          'worst': worst,
+          'jank': jank.toDouble(),
+        };
       }
 
       final rBad = await runCase('global_watch_all_tiles', false);

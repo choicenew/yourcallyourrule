@@ -13,21 +13,9 @@ part 'local_count_filter_service.g.dart';
 
 @riverpod
 LocalCountFilterService localCountFilterService(Ref ref) {
-  LocalCountFilterConfig? cachedConfig = ref.watch(localCountFilterConfigProvider).valueOrNull;
-  ref.listen<AsyncValue<LocalCountFilterConfig>>(localCountFilterConfigProvider, (_, next) {
-    cachedConfig = next.valueOrNull;
-  });
-
   final service = LocalCountFilterService(
     callerIdService: ref.watch(callerIdServiceProvider),
-    getConfig: () async {
-      if (cachedConfig != null) return cachedConfig!;
-      try {
-        return await ref.read(localCountFilterConfigProvider.future);
-      } catch (_) {
-        return LocalCountFilterConfig();
-      }
-    },
+    getConfig: () async => await ref.read(localCountFilterConfigProvider.future),
   );
   service.initialize(); // 服务本身需要初始化监听器
   // 当 provider 销毁时，调用 dispose

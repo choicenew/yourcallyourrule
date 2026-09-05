@@ -1,40 +1,48 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yourcallyourrule/core/provider/contacts_provider.dart';
 import 'package:yourcallyourrule/core/provider/label_phone_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/labels_provider.dart' ;
 import 'package:yourcallyourrule/core/provider/plugins_provider.dart';
 import 'package:yourcallyourrule/core/provider/predefined_labels_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/rules_provider.dart';
 import 'package:yourcallyourrule/core/provider/subscriptions_provider.dart';
-import 'package:yourcallyourrule/features/contacts/provider/contact_service_provider.dart';
-import 'package:yourcallyourrule/features/rules/providers/allowed_blocked_service_provider.dart';
 
 void emit(Map<String, dynamic> m) =>
     debugPrint('PROVIDER_METRIC: ${jsonEncode(m)}');
 
-void cause(String id, String sev, String name, String blame, num cost,
-    String reason, String suggestion) {
-  debugPrint('ROOT_CAUSE: ${jsonEncode({
-        'id': id,
-        'severity': sev,
-        'name': name,
-        'blamed_component': blame,
-        'cost_ms': cost,
-        'reason': reason,
-        'suggestion': suggestion,
-      })}');
+class _TriggerNotifier extends Notifier<int> {
+  @override
+  int build() => 0;
+  @override
+  set state(int value) => super.state = value;
 }
 
-double _measureRead(ProviderContainer c, ProviderBase<Object?> p,
-    {int runs = 1}) {
+void cause(
+  String id,
+  String sev,
+  String name,
+  String blame,
+  num cost,
+  String reason,
+  String suggestion,
+) {
+  debugPrint(
+    'ROOT_CAUSE: ${jsonEncode({'id': id, 'severity': sev, 'name': name, 'blamed_component': blame, 'cost_ms': cost, 'reason': reason, 'suggestion': suggestion})}',
+  );
+}
+
+double _measureRead(
+  ProviderContainer c,
+  ProviderBase<Object?> p, {
+  int runs = 1,
+}) {
   final sw = Stopwatch()..start();
   for (int i = 0; i < runs; i++) {
     try {
@@ -45,8 +53,11 @@ double _measureRead(ProviderContainer c, ProviderBase<Object?> p,
   return sw.elapsedMicroseconds / 1000.0 / runs;
 }
 
-Future<double> _measureAwait(ProviderContainer c, ProviderBase<Object?> p,
-    {Duration timeout = const Duration(milliseconds: 800)}) async {
+Future<double> _measureAwait(
+  ProviderContainer c,
+  ProviderBase<Object?> p, {
+  Duration timeout = const Duration(milliseconds: 800),
+}) async {
   final sw = Stopwatch()..start();
   try {
     final dynamic v = c.read(p);
@@ -64,27 +75,26 @@ void main() {
   group('Provider 初始化成本 & 重建风暴 & 级联依赖深度检测（谁拖慢了 App）', () {
     test('Top 冷启动 Provider 排序 + 级联依赖深度分析', () async {
       final asyncNotifierLike = <(String, ProviderBase<Object?>)>[
-        ('rulesProvider (AsyncNotifier: RuleRepository.getAll)',
-            rulesProvider),
+        ('rulesProvider (AsyncNotifier: RuleRepository.getAll)', rulesProvider),
         (
           'contactsProvider (AsyncNotifier: ContactRepository.getAll)',
-          contactsProvider
+          contactsProvider,
         ),
         (
           'labelsProvider (AsyncNotifier: LabelRepository.getAll)',
-          labelPhonesProvider
+          labelPhonesProvider,
         ),
         (
           'predefinedLabelsProvider (AsyncNotifier: shared_prefs + decode)',
-          predefinedLabelsProvider
+          predefinedLabelsProvider,
         ),
         (
           'subscriptionsProvider (AsyncNotifier: SubscriptionRepository.getAll)',
-          subscriptionsProvider
+          subscriptionsProvider,
         ),
         (
           'pluginsProvider (AsyncNotifier: PluginRepository.getAll + 校验)',
-          pluginsProvider
+          pluginsProvider,
         ),
       ];
 
@@ -98,12 +108,12 @@ void main() {
             'labelServiceProvider',
             'allowedBlockedServiceProvider',
             'ruleManagementServiceProvider',
-          ]
+          ],
         ),
         (
           'ruleManagementServiceProvider',
           ruleManagementServiceProvider,
-          ['ruleRepositoryProvider']
+          ['ruleRepositoryProvider'],
         ),
       ];
 
@@ -162,7 +172,8 @@ void main() {
 
       // 排序冷启动最慢
       results.sort(
-          (a, b) => (b['cold_ms'] as double).compareTo(a['cold_ms'] as double));
+        (a, b) => (b['cold_ms'] as double).compareTo(a['cold_ms'] as double),
+      );
 
       for (int i = 0; i < results.length; i++) {
         final r = results[i];
@@ -198,10 +209,10 @@ void main() {
       }
     });
 
-    test('Provider 重建风暴：触发 1 次上游 State 更新，量化级联 notify 次数',
-        () {
-      final trigger =
-          NotifierProvider<_StormTriggerNotifier, int>(_StormTriggerNotifier.new);
+    test('Provider 重建风暴：触发 1 次上游 State 更新，量化级联 notify 次数', () {
+      final trigger = NotifierProvider<_TriggerNotifier, int>(
+        _TriggerNotifier.new,
+      );
 
       // C 依赖 B，B 依赖 A（级联），模拟真实代码中的层层 ref.watch
       final providerA = Provider<int>((ref) {
@@ -246,31 +257,61 @@ void main() {
         'd4': 0,
         'd5': 0,
       };
-      c.listen(trigger, (p, n) => notifyCounts['trigger'] = notifyCounts['trigger']! + 1,
-          fireImmediately: false);
-      c.listen(providerA, (p, n) => notifyCounts['A'] = notifyCounts['A']! + 1,
-          fireImmediately: false);
-      c.listen(providerB, (p, n) => notifyCounts['B'] = notifyCounts['B']! + 1,
-          fireImmediately: false);
-      c.listen(providerC, (p, n) => notifyCounts['C'] = notifyCounts['C']! + 1,
-          fireImmediately: false);
-      c.listen(shared, (p, n) => notifyCounts['shared'] = notifyCounts['shared']! + 1,
-          fireImmediately: false);
-      c.listen(d1, (p, n) => notifyCounts['d1'] = notifyCounts['d1']! + 1,
-          fireImmediately: false);
-      c.listen(d2, (p, n) => notifyCounts['d2'] = notifyCounts['d2']! + 1,
-          fireImmediately: false);
-      c.listen(d3, (p, n) => notifyCounts['d3'] = notifyCounts['d3']! + 1,
-          fireImmediately: false);
-      c.listen(d4, (p, n) => notifyCounts['d4'] = notifyCounts['d4']! + 1,
-          fireImmediately: false);
-      c.listen(d5, (p, n) => notifyCounts['d5'] = notifyCounts['d5']! + 1,
-          fireImmediately: false);
+      c.listen(
+        trigger,
+        (p, n) => notifyCounts['trigger'] = notifyCounts['trigger']! + 1,
+        fireImmediately: false,
+      );
+      c.listen(
+        providerA,
+        (p, n) => notifyCounts['A'] = notifyCounts['A']! + 1,
+        fireImmediately: false,
+      );
+      c.listen(
+        providerB,
+        (p, n) => notifyCounts['B'] = notifyCounts['B']! + 1,
+        fireImmediately: false,
+      );
+      c.listen(
+        providerC,
+        (p, n) => notifyCounts['C'] = notifyCounts['C']! + 1,
+        fireImmediately: false,
+      );
+      c.listen(
+        shared,
+        (p, n) => notifyCounts['shared'] = notifyCounts['shared']! + 1,
+        fireImmediately: false,
+      );
+      c.listen(
+        d1,
+        (p, n) => notifyCounts['d1'] = notifyCounts['d1']! + 1,
+        fireImmediately: false,
+      );
+      c.listen(
+        d2,
+        (p, n) => notifyCounts['d2'] = notifyCounts['d2']! + 1,
+        fireImmediately: false,
+      );
+      c.listen(
+        d3,
+        (p, n) => notifyCounts['d3'] = notifyCounts['d3']! + 1,
+        fireImmediately: false,
+      );
+      c.listen(
+        d4,
+        (p, n) => notifyCounts['d4'] = notifyCounts['d4']! + 1,
+        fireImmediately: false,
+      );
+      c.listen(
+        d5,
+        (p, n) => notifyCounts['d5'] = notifyCounts['d5']! + 1,
+        fireImmediately: false,
+      );
 
       const mutations = 20;
       final sw = Stopwatch()..start();
       for (int i = 1; i <= mutations; i++) {
-        c.read(trigger.notifier).setVal(i);
+        c.read(trigger.notifier).state = i;
       }
       sw.stop();
       final double totalMs = sw.elapsedMicroseconds / 1000.0;
@@ -391,14 +432,11 @@ void main() {
         );
       }
 
-      expect(disposedProper, equals(cycles),
-          reason: 'autoDispose Provider 的 onDispose 被全部触发，否则真实 App 有内存泄漏');
+      expect(
+        disposedProper,
+        equals(cycles),
+        reason: 'autoDispose Provider 的 onDispose 被全部触发，否则真实 App 有内存泄漏',
+      );
     });
   });
-}
-
-class _StormTriggerNotifier extends Notifier<int> {
-  @override
-  int build() => 0;
-  void setVal(int v) => state = v;
 }

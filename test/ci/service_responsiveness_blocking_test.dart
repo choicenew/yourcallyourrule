@@ -1,8 +1,7 @@
-import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -13,22 +12,22 @@ import 'package:yourcallyourrule/core/services/rule_matcher_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_handlers/caller_id_handler.dart';
 
 void emit(Map<String, dynamic> m) =>
     debugPrint('SERVICE_METRIC: ${jsonEncode(m)}');
 
-void cause(String id, String sev, String name, String blame, num cost,
-    String reason, String suggestion) {
-  debugPrint('ROOT_CAUSE: ${jsonEncode({
-        'id': id,
-        'severity': sev,
-        'name': name,
-        'blamed_component': blame,
-        'cost_ms': cost,
-        'reason': reason,
-        'suggestion': suggestion,
-      })}');
+void cause(
+  String id,
+  String sev,
+  String name,
+  String blame,
+  num cost,
+  String reason,
+  String suggestion,
+) {
+  debugPrint(
+    'ROOT_CAUSE: ${jsonEncode({'id': id, 'severity': sev, 'name': name, 'blamed_component': blame, 'cost_ms': cost, 'reason': reason, 'suggestion': suggestion})}',
+  );
 }
 
 class _FakeRuleMatcher implements RuleMatcherService {
@@ -36,9 +35,11 @@ class _FakeRuleMatcher implements RuleMatcherService {
   Future<RuleBase?> matchPhoneNumber(PhoneNumber phoneNumber) async {
     await Future.delayed(Duration(microseconds: 50 + Random().nextInt(200)));
     if (phoneNumber.value.startsWith('+123')) return null;
-    return _RuleStub(action: phoneNumber.value.contains('888')
-        ? RuleAction.block
-        : RuleAction.allow);
+    return _RuleStub(
+      action: phoneNumber.value.contains('888')
+          ? RuleAction.block
+          : RuleAction.allow,
+    );
   }
 
   @override
@@ -86,7 +87,9 @@ class _RuleStub implements RuleBase {
   @override
   bool get isEnabled => true;
   @override
-  bool matches(String input) => false;
+  Map<String, dynamic> toMap() => {};
+  @override
+  String toJson() => jsonEncode(toMap());
   @override
   RuleBase copyWith({
     String? id,
@@ -94,12 +97,9 @@ class _RuleStub implements RuleBase {
     RulePriority? priority,
     RuleAction? action,
     bool? isEnabled,
-  }) =>
-      this;
+  }) => _RuleStub(action: action ?? this.action);
   @override
-  Map<String, dynamic> toMap() => {};
-  @override
-  String toJson() => '{}';
+  bool matches(String input) => false;
 }
 
 void main() {
@@ -117,7 +117,7 @@ void main() {
         '555-1234-5678',
         'tel:+1234567890',
         '',
-        'invalid-long-garbage-input-for-worst-case-123456789!!!'
+        'invalid-long-garbage-input-for-worst-case-123456789!!!',
       ];
       const iterations = 400;
       final latenciesMs = <double>[];
@@ -193,12 +193,15 @@ void main() {
       }
     });
 
-    test('RuleMatcherService 批匹配吞吐 & 单次响应延迟（通话拦截不跟手）',
-        () async {
+    test('RuleMatcherService 批匹配吞吐 & 单次响应延迟（通话拦截不跟手）', () async {
       final matcher = _FakeRuleMatcher();
       final random = Random(42);
-      final numbers = List.generate(600,
-          (i) => PhoneNumber.fromString('+${random.nextInt(90) + 10}${random.nextInt(900000000) + 100000000}'));
+      final numbers = List.generate(
+        600,
+        (i) => PhoneNumber.fromString(
+          '+${random.nextInt(90) + 10}${random.nextInt(900000000) + 100000000}',
+        ),
+      );
 
       final latenciesMs = <double>[];
       final sw = Stopwatch()..start();
@@ -257,8 +260,7 @@ void main() {
       }
     });
 
-    test('CallLogService.initialize() 延迟 & 内存：全量日志 vs 增量加载',
-        () async {
+    test('CallLogService.initialize() 延迟 & 内存：全量日志 vs 增量加载', () async {
       final container = ProviderContainer();
       addTearDown(container.dispose);
 
@@ -312,13 +314,14 @@ void main() {
       final futures = <Future<void>>[
         Future.delayed(const Duration(milliseconds: 120)), // locale
         Future.delayed(const Duration(milliseconds: 80)), // theme
-        Future(() async {
+        Future<void>(() async {
           // simulate phone parse contention (模拟主线程同步 parse 阻塞)
           final sw = Stopwatch()..start();
           int dummy = 0;
           while (sw.elapsedMicroseconds < 40000) {
             dummy ^= 1;
           }
+          if (dummy < 0) debugPrint('$dummy');
         }),
         Future.delayed(const Duration(milliseconds: 300)), // DB
         Future.delayed(const Duration(milliseconds: 60)), // labels
@@ -358,8 +361,9 @@ void main() {
       }
     });
 
-    testWidgets('UI 交互响应性：点击 → setState → paint 的 p95 延迟 (跟手度)',
-        (WidgetTester tester) async {
+    testWidgets('UI 交互响应性：点击 → setState → paint 的 p95 延迟 (跟手度)', (
+      WidgetTester tester,
+    ) async {
       int counter = 0;
       final latenciesMs = <double>[];
       await tester.pumpWidget(
