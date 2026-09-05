@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_script_service.dart';
+
 import 'core/js_execution_service.dart';
 
 /// 动态 URL 生成服务
@@ -33,7 +35,7 @@ class PluginUrlExecutionService {
       r"""const\s+baseUrl\s*=\s*[`'"](https?:\/\/[^/]+\/)[^'"`]*[`'"];""",
     );
     final targetUrlRegex = RegExp(
-      r"""const\s+targetSearchUrl\s*=\s*[`'"](https?:\/\/[^/]+\/)""",
+      r"""const\s+(?:targetUrl|targetSearchUrl|target_url|url)\s*=\s*[`'"](https?:\/\/[^/]+\/)""",
     );
     final headersRegex = RegExp(r"""const\s+headers\s*=\s*(\{[\s\S]*?\});""");
 
@@ -71,7 +73,7 @@ class PluginUrlExecutionService {
         final decodedHeaders =
             jsonDecode(headersString) as Map<String, dynamic>;
         headers = decodedHeaders.map(
-          (key, value) => MapEntry(key, value.toString()),
+          (key, value) => MapEntry(key.toString(), value.toString()),
         );
       } catch (e) {
         debugPrint('[PluginUrlExecutionService] Error parsing headers: $e');

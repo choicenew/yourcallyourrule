@@ -1,7 +1,9 @@
 import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:native_dio_adapter/native_dio_adapter.dart';
+
 import 'js_execution_service.dart';
 import 'plugin_access_bypass_service.dart';
 
@@ -165,6 +167,10 @@ class NativeRequestChannel {
       // [VALIDATION] Check if response contains expected marker (for JS-rendered pages)
       bool contentValid = true;
       final successMarker = originalRequest['successMarker'];
+      // strategy 枚举值标准：
+      // - 'direct' (默认): 原生 HTTP 直连模式。查无数据直接返回 No Match，绝不触发无头 WebView。
+      // - 'render': 动态渲染/过盾模式 (SPA)。需要无头 WebView 渲染 DOM 提取数据。
+      final String strategy = originalRequest['strategy'] ?? 'direct';
       final bodyStr = response.data.toString();
 
       if (successMarker != null &&
@@ -176,7 +182,8 @@ class NativeRequestChannel {
         );
       }
 
-      if (!contentValid) {
+      // 只有当内容无效，且策略明确指定为 'render' 时，才触发无头 WebView 渲染/过盾
+      if (!contentValid && strategy == 'render') {
         // Validation Failed -> Fallback to Bypass (WebView)
         await _attemptBypass(
           url,
@@ -185,7 +192,7 @@ class NativeRequestChannel {
           retryCount,
           "Missing Marker '$successMarker'",
         );
-        return; // Bypass handled it (rehcursively or sent response)
+        return; // Bypass handled it (recursively or sent response)
       }
 
       // [ADAPTATION] Map fields to plugindemo structure
