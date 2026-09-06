@@ -51,6 +51,7 @@ app.*.map.json
 
 /临时参考/
 /yourcallrule/
+**/yourcallrule/
 **/临时参考/
 plugins html/
 **/plugins html/

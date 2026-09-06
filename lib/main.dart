@@ -1,31 +1,28 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'package:yourcallyourrule/core/router/app_router_provider.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:yourcallyourrule/common/error/logger.dart';
+import 'package:yourcallyourrule/core/provider/providers/background_sync_service_provider.dart';
+import 'package:yourcallyourrule/core/provider/providers/foreground_sync_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/label_sync_service_initializer.dart';
+import 'package:yourcallyourrule/core/provider/providers/plugin_sync_service_initializer.dart';
+import 'package:yourcallyourrule/core/router/app_router_provider.dart';
+import 'package:yourcallyourrule/core/services/firebase_service.dart';
+import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/features/call/call_history/provider/call_event_listener_provider.dart';
-
 import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_overlay_entry.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_control_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_service.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/location/services/provider/location_sync_service_provider.dart';
-import 'package:yourcallyourrule/features/plugin/providers/plugin_execution_service_provider.dart';
+import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/core/services/firebase_service.dart';
-import 'package:yourcallyourrule/common/error/logger.dart';
-import 'package:yourcallyourrule/core/provider/providers/background_sync_service_provider.dart';
-import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/theme/app_theme.dart';
 import 'package:yourcallyourrule/theme/theme_provider.dart';
 
-import 'package:yourcallyourrule/core/provider/providers/plugin_sync_service_initializer.dart';
-
-import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
-import 'package:yourcallyourrule/core/provider/providers/foreground_sync_service_provider.dart';
 // 导入 FFI 包
 
 Future<void> main() async {
@@ -37,33 +34,32 @@ Future<void> main() async {
   try {
     // 异步初始化Firebase服务（非阻塞后台执行）
     final firebaseService = FirebaseService();
-    unawaited(firebaseService.initialize().then((_) {
-      firebaseService.logAppOpen();
-    }).catchError((e, st) {
-      debugPrint('Firebase init error: $e');
-    }));
+    unawaited(
+      firebaseService
+          .initialize()
+          .then((_) {
+            firebaseService.logAppOpen();
+          })
+          .catchError((e, st) {
+            debugPrint('Firebase init error: $e');
+          }),
+    );
 
     // 初始化应用日志服务
     AppLogger.initialize();
 
     // 初始化广告SDK（非阻塞后台执行）
-    unawaited(MobileAds.instance.initialize().catchError((e) {
-      debugPrint('MobileAds init error: $e');
-    }));
+    unawaited(
+      MobileAds.instance.initialize().catchError((e) {
+        debugPrint('MobileAds init error: $e');
+      }),
+    );
 
     // 初始化数据库服务（单例构造已完成内部初始化，无需显式 initialize）
     DatabaseService();
 
-    // --- Add ---
     // 创建一个顶层ProviderContainer
     final container = ProviderContainer();
-
-    // 启动插件服务（非阻塞执行，确保插件执行引擎就绪）
-    unawaited(
-      container.read(pluginExecutionServiceProvider).initialize().catchError((e) {
-        debugPrint('PluginExecutionService init error: $e');
-      }),
-    );
 
     // 核心来电监控与事件监听服务在后台激活（不需要在 main 里用 await 阻塞首帧渲染）
     container.read(callerIdMonitorServiceProvider);

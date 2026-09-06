@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:ua_client_hints/ua_client_hints.dart';
+import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/features/plugin/services/core/js_execution_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/core/native_request_channel.dart';
+import 'package:yourcallyourrule/features/plugin/services/core/transient_plugin_session.dart';
 
 /// 插件执行服务 - 负责插件 JS 的加载与执行
 /// [Refactored] 移除 WebView，改用 JsExecutionService + NativeRequestChannel
@@ -237,6 +240,27 @@ class PluginExecutionService {
       _pluginQueryCompleters.remove(requestId);
       rethrow;
     }
+  }
+
+  /// 使用瞬时闭环沙盒 (TransientPluginSession) 执行批量插件查询
+  /// [按需启用 ➔ 并发跑插件 ➔ 彻底物理销毁 QuickJS RAM]
+  Future<List<Map<String, dynamic>>> executeBatchSession({
+    required List<PluginEntry> enabledPlugins,
+    required String phoneNumber,
+    required String nationalNumber,
+    required String e164Number,
+    required void Function(Map<String, dynamic> firstValidResult) onFirstResult,
+    required void Function(Map<String, dynamic> singleResult) onResultCompleted,
+  }) async {
+    final session = TransientPluginSession();
+    return await session.executeSession(
+      enabledPlugins: enabledPlugins,
+      phoneNumber: phoneNumber,
+      nationalNumber: nationalNumber,
+      e164Number: e164Number,
+      onFirstResult: onFirstResult,
+      onResultCompleted: onResultCompleted,
+    );
   }
 
   void dispose() {

@@ -111,17 +111,16 @@ class TransientPluginSession {
       // 4. 一次性载入所有启用插件的脚本源码并注入 Config
       for (final plugin in enabledPlugins) {
         try {
-          final scriptPath = await _scriptService.getScriptPath(plugin.id);
           final scriptContent = await _scriptService.getScript(plugin);
           if (scriptContent.isNotEmpty) {
             await jsService.evaluate(scriptContent);
             await jsService.injectConfig(plugin.id, {
               'userAgent': sysUserAgent,
-              ...?plugin.config,
+              ...plugin.config,
             });
           } else {
             debugPrint(
-              '⚠️ TransientPluginSession: Empty script at $scriptPath',
+              '⚠️ TransientPluginSession: Empty script for plugin ${plugin.id}',
             );
           }
         } catch (e) {
