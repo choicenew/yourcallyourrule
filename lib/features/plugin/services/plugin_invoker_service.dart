@@ -2,10 +2,9 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_execution_service.dart';
+import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 
 /// 插件调用服务 - 负责协调插件管理服务和插件执行服务
 /// 遵循单向依赖原则，作为连接数据库和执行引擎的桥梁
@@ -310,7 +309,36 @@ class PluginInvokerService {
 
   // 定义一个函数来检查结果是否有效
   bool isValidResult(Map<String, dynamic> result) {
-    return result['count'] != null && result['count'] > 0;
+    if (result['success'] == false) return false;
+
+    final count = result['count'];
+    if (count is int && count > 0) return true;
+
+    final predefinedLabel = result['predefinedLabel']?.toString().trim();
+    if (predefinedLabel != null &&
+        predefinedLabel.isNotEmpty &&
+        predefinedLabel != 'Unknown') {
+      return true;
+    }
+
+    final action = result['action']?.toString().trim();
+    if (action != null && action.isNotEmpty && action != 'none') {
+      return true;
+    }
+
+    final sourceLabel = result['sourceLabel']?.toString().trim();
+    if (sourceLabel != null &&
+        sourceLabel.isNotEmpty &&
+        sourceLabel != 'No Match') {
+      return true;
+    }
+
+    final name = result['name']?.toString().trim();
+    if (name != null && name.isNotEmpty) {
+      return true;
+    }
+
+    return false;
   }
 
   // 安装插件

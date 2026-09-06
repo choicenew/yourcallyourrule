@@ -2,17 +2,15 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/core/repositories/plugin_repository.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/universal_import_export_service.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_manager_config.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/plugin/services/plugin_manager_config.dart';
 
 /// 插件管理服务 - 负责数据库操作
 /// 遵循单一职责原则，只负责插件的CRUD操作
@@ -318,13 +316,10 @@ class PluginManagerService extends ListService<PluginEntry, String> {
 
       final remoteVersion = extractRemoteVersion(script);
 
-      if (isNewerVersion(remoteVersion, entry.version)) {
-        final updatedEntry = entry.copyWith(version: remoteVersion);
-        await updatePlugin(updatedEntry);
-        await saveScriptToLocal(updatedEntry, script);
-        return true;
-      }
-      return false;
+      final updatedEntry = entry.copyWith(version: remoteVersion);
+      await updatePlugin(updatedEntry);
+      await saveScriptToLocal(updatedEntry, script);
+      return true;
     } catch (e) {
       //AppLogger.error('更新插件失败', e);
       debugPrint('更新插件失败: $e');
@@ -360,8 +355,9 @@ class PluginManagerService extends ListService<PluginEntry, String> {
     if (plugins.isEmpty) return;
 
     // 创建更新后的插件列表
-    final updatedPlugins =
-        plugins.map((plugin) => plugin.copyWith(isEnabled: isEnabled)).toList();
+    final updatedPlugins = plugins
+        .map((plugin) => plugin.copyWith(isEnabled: isEnabled))
+        .toList();
 
     // 批量更新到数据库
     await _repository.saveAll(updatedPlugins);
