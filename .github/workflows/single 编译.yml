@@ -88,8 +88,6 @@ jobs:
           echo "org.gradle.configureondemand=true" >> ~/.gradle/gradle.properties
 
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
