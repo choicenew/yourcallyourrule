@@ -38,11 +38,28 @@ jobs:
           docker-images: true
           swap-storage: false # 关闭 swap 清理以节省时间
 
-      - name: Extract metadata from pubspec.yaml
+      - name: Auto Bump and Extract Version
         id: meta
         run: |
-          VERSION_STRING=$(grep 'version: ' pubspec.yaml | sed 's/version: //')
-          echo "version=v$VERSION_STRING" >> $GITHUB_OUTPUT
+          # 1. 提取当前主版本号 (如 4.22.07)
+          BASE_VERSION=$(grep '^version: ' pubspec.yaml | sed -E 's/version: ([0-9.]+)\+?.*/\1/' | tr -d ' ')
+          if [ -z "$BASE_VERSION" ]; then
+            BASE_VERSION="1.0.0"
+          fi
+          
+          # 2. 自动生成符合规范的 versionCode/BUILD_NUM: YYMMDDHH + 当次构建序号尾气 (% 10)
+          YEAR_DIGIT=$(date -u +"%y" | tail -c 2)
+          TIME_PREFIX=$(date -u +"%m%d%H")
+          BUILD_NUM="${YEAR_DIGIT}${TIME_PREFIX}$(( ${{ github.run_number }} % 10 ))"
+          FULL_VERSION="${BASE_VERSION}+${BUILD_NUM}"
+          
+          # 3. 动态回写到 pubspec.yaml，确保 Flutter 编译打包注入最新版本号
+          sed -i "s/^version: .*/version: $FULL_VERSION/" pubspec.yaml
+          echo "Bumped version in pubspec.yaml to $FULL_VERSION"
+          
+          # 4. 导出给后续 Step 和 Release Tag 使用
+          echo "version=v$FULL_VERSION" >> $GITHUB_OUTPUT
+          echo "version_code=$BUILD_NUM" >> $GITHUB_OUTPUT
           
       - name: Extract Latest Commit Message
         id: commit_message
