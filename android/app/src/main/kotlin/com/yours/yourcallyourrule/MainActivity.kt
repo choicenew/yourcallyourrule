@@ -105,8 +105,8 @@ private fun requestAppPermissions() {
                 tryFinalInitialization()
                 // -----------------
             } else {
-                // 权限不足，跳转到引导页
-                navigateToOnboarding()
+                // 权限不足，静默跳过不跳转，避免引发 ActivityNotFoundException
+                // navigateToOnboarding()
             }
         }
     }
@@ -198,10 +198,10 @@ private fun requestAppPermissions() {
             .show()
     }
 
-    // 跳转到引导页
-    private fun navigateToOnboarding() {
-        startActivity(createDefaultIntent(this))
-    }
+    // 跳转到引导页 (因 FlutterActivity 未在 AndroidManifest 显式声明，已废弃以防 ActivityNotFoundException)
+    // private fun navigateToOnboarding() {
+    //     startActivity(createDefaultIntent(this))
+    // }
 
     override fun onDestroy() {
         super.onDestroy()

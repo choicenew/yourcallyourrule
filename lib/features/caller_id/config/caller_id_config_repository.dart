@@ -93,9 +93,9 @@ class CallerIdConfigRepository {
   /// 获取来电显示模式
   Future<DisplayMode> getDisplayMode() async {
     final config = await getConfig();
-    final modeString = config[displayModeKey] as String? ?? 'overlay';
+    final modeString = config[displayModeKey] as String? ?? DisplayMode.live_activity.name;
     // 使用 .name 属性进行比较，这是更健壮的方式
-    return DisplayMode.values.firstWhere((e) => e.name == modeString, orElse: () => DisplayMode.overlay);
+    return DisplayMode.values.firstWhere((e) => e.name == modeString, orElse: () => DisplayMode.live_activity);
   }
 
   /// 设置来电显示模式
@@ -130,7 +130,7 @@ class CallerIdConfigRepository {
       useLocalNotificationKey: false,
       cancelLocalNotificationKey: false,
       useStirNotificationKey: false,
-      displayModeKey: DisplayMode.overlay.name,
+      displayModeKey: DisplayMode.live_activity.name,
             // 【新增】: 提供默认的延迟时间（5秒）
       notificationAutoCancelDelayKey: defaultNotificationAutoCancelDelayInSeconds,
     };

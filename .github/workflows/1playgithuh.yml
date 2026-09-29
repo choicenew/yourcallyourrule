@@ -150,6 +150,7 @@ jobs:
         run: |
           flutter build appbundle --release --verbose
           flutter build apk --split-per-abi --release --verbose
+          flutter build apk --release --verbose
       # ==========================================================
       # 发布步骤 (已全部设置为独立运行，互不影响)
       # ==========================================================
