@@ -87,7 +87,7 @@ class CallerIdConfig {
       useStirNotification: map[CallerIdConfigRepository.useStirNotificationKey] as bool? ?? false,
       displayMode: DisplayMode.values.firstWhere(
         (e) => e.name == (map[CallerIdConfigRepository.displayModeKey] as String?),
-        orElse: () => DisplayMode.overlay
+        orElse: () => DisplayMode.live_activity
       ),
      notificationAutoCancelDelay: Duration(seconds: map[CallerIdConfigRepository.notificationAutoCancelDelayKey] as int? ?? CallerIdConfigRepository.defaultNotificationAutoCancelDelayInSeconds),
     );
