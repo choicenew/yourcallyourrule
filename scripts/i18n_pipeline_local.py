@@ -2,20 +2,19 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-100% 严格对照 AngelSlim 官方文档示例代码加载与推理
+按 AngelSlim 官方 vLLM / OpenAI API 部署规范，调用本地运行的 腾讯混元 Hy-MT2-1.8B 服务进行增量翻译
 
-说明：
-从腾讯官方 GitHub 仓库 (git+https://github.com/tencent/AngelSlim.git) 安装完整 AngelSlim 包，
-确保 `angelslim.compressor.qat` 及自定义量化内核完整装载。
+技术解答：
+之前的报错 `ValueError: Unrecognized model in AngelSlim/Hy-MT2-1.8B-2Bit-GGUF` 是因为 AngelSlim/Hy-MT2-1.8B-2Bit-GGUF 仓库只放了 gguf 文件，没有包含 PyTorch 的 config.json。
+按照 AngelSlim 官方部署规范（Section 2 启动服务 vLLM），使用 vLLM 挂载 `Tencent-Hunyuan/Hy-MT2-1.8B` 官方模型仓库并提供 http://127.0.0.1:8080/v1/chat/completions 接口服务。
 """
 
 import json
 import os
 import re
 import sys
-import torch
-import angelslim
-from transformers import AutoModelForCausalLM, AutoTokenizer
+import urllib.request
+import urllib.error
 
 # ============ 路径与模型配置 ============
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,42 +22,40 @@ L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "language_data.dart")
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
-MODEL_PATH = os.environ.get("HY_MT2_MODEL_PATH", "AngelSlim/Hy-MT2-1.8B-2Bit-GGUF")
-
-model = None
-tokenizer = None
+# 本地 vLLM 部署接口地址 (AngelSlim 官方部署规范 Section 2)
+LOCAL_API_URL = os.environ.get("LOCAL_API_URL", "http://127.0.0.1:8080/v1/chat/completions")
+MODEL_NAME = os.environ.get("HY_MT2_MODEL_NAME", "Tencent-Hunyuan/Hy-MT2-1.8B")
 
 
 def log(msg: str):
-    print(f"[i18n-Local-AngelSlim] {msg}", flush=True)
-
-
-def init_hymt2_model():
-    """100% 严格依官方文档示例代码逐字记载"""
-    global model, tokenizer
-    log(f"按官方文档代码加载模型: {MODEL_PATH}")
-
-    model = AutoModelForCausalLM.from_pretrained(
-        MODEL_PATH,
-        device_map="auto",
-        trust_remote_code=True,
-        torch_dtype='auto',
-        low_cpu_mem_usage=True,
-    )
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-    log("✅ 模型与分词器按官方规范成功加载！")
+    print(f"[i18n-Local-vLLM] {msg}", flush=True)
 
 
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
-    """100% 严格依官方文档示例代码进行 generate 与 decode 推理"""
-    prompt = f"Translate to {target_lang}: {text}"
-    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-    outputs = model.generate(**inputs, max_new_tokens=256)
-    translated = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    """按 AngelSlim 官方 vLLM OpenAI API 规范调用本地推理服务"""
+    headers = {"Content-Type": "application/json"}
+    payload = {
+        "model": MODEL_NAME,
+        "messages": [
+            {"role": "user", "content": f"Translate the following text into {target_lang}:\n{text}"}
+        ],
+        "temperature": 0.1,
+        "max_tokens": 256
+    }
+    data_bytes = json.dumps(payload).encode("utf-8")
 
-    if prompt in translated:
-        translated = translated.replace(prompt, "").strip()
-    return translated.strip()
+    try:
+        req = urllib.request.Request(LOCAL_API_URL, data=data_bytes, headers=headers, method="POST")
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            res_body = resp.read().decode("utf-8")
+            res_json = json.loads(res_body)
+            choices = res_json.get("choices", [])
+            if not choices:
+                raise ValueError("API 响应未包含 choices")
+            return choices[0]["message"]["content"].strip()
+    except Exception as e:
+        log(f"❌ 调用本地 vLLM API 服务失败 ({LOCAL_API_URL}): {e}")
+        raise e
 
 
 def load_arb(path: str) -> dict:
@@ -128,7 +125,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
         log(f"✅ 语言 `{target_locale}` 数据完备。")
         return
 
-    log(f"🌐 [AngelSlim 官方推理] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
+    log(f"🌐 [vLLM 官方 API] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
 
     translated_count = 0
     for key, en_text in need_translation.items():
@@ -181,10 +178,8 @@ def parse_target_locales_from_dart(file_path: str) -> list[str]:
 
 def main():
     log("==========================================")
-    log("  腾讯混元 Hy-MT2 100% 官方示例对照本地模型管道启动")
+    log("  腾讯混元 Hy-MT2 官方 vLLM API 本地管道启动")
     log("==========================================")
-
-    init_hymt2_model()
 
     baseline_data = load_arb(BASELINE_ARB)
     if not baseline_data:
@@ -199,7 +194,7 @@ def main():
         log("⚠️ 未解析到语言配置。")
         sys.exit(0)
 
-    log(f"🚀 开始调用 AngelSlim 官方标准模型处理 {len(target_locales)} 个语言...")
+    log(f"🚀 开始调用本地 vLLM API 处理 {len(target_locales)} 个语言...")
 
     for locale in target_locales:
         if locale.startswith("en"):
@@ -207,7 +202,7 @@ def main():
         process_language_task_local(locale, baseline_data)
 
     log("==========================================")
-    log("✅ 本地 AngelSlim 智能增量翻译全套完成！")
+    log("✅ 本地 vLLM Hy-MT2 智能增量翻译全套完成！")
     log("==========================================")
 
 

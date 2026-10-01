@@ -26,14 +26,30 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: 3. 部署 AngelSlim 官方 GitHub 最新完整依赖
+      - name: 3. 部署 AngelSlim 官方 vLLM OpenAI API 服务 (Section 2 官方部署规范)
         run: |
           python -m pip install --upgrade pip
-          python -m pip install torch transformers accelerate
-          # 解决 PyPI 包缺少 compressor.qat 模块问题：直接从腾讯官方 Git 仓库安装完整最新版 AngelSlim
-          python -m pip install git+https://github.com/tencent/AngelSlim.git
+          python -m pip install "vllm>=0.8.5.post1" angelslim transformers
 
-      - name: 4. 执行 腾讯混元 Hy-MT2-1.8B 官方模型本地增量翻译
+          echo "=== 启动 AngelSlim 官方 vLLM OpenAI 兼容 API 服务 (端口 8080) ==="
+          python3 -m vllm.entrypoints.openai.api_server \
+              --host 127.0.0.1 \
+              --port 8080 \
+              --model Tencent-Hunyuan/Hy-MT2-1.8B \
+              --trust-remote-code \
+              --max-model-len 2048 &
+
+          # 等待 vLLM API 服务启动就绪
+          for i in {1..40}; do
+            if curl -s http://127.0.0.1:8080/v1/models > /dev/null; then
+              echo "✅ 腾讯混元 Hy-MT2 vLLM 官方 API 服务启动就绪！"
+              break
+            fi
+            echo "等待 vLLM API 服务启动就绪中 ($i/40)..."
+            sleep 3
+          done
+
+      - name: 4. 执行 腾讯混元 Hy-MT2 官方 vLLM 本地增量翻译
         run: |
           python scripts/i18n_pipeline_local.py
 
@@ -49,7 +65,7 @@ jobs:
           title: "🌐 [Hy-MT2 本地模型] 自动修补多语言 ARB 与本地化代码"
           body: |
             ## 🤖 腾讯 Hy-MT2-1.8B 本地端侧模型翻译报告
-            - 100% 运行于 GitHub Actions 本地 CPU (AngelSlim 官方源码进程内推理)
+            - 100% 运行于 GitHub Actions 本地 CPU (AngelSlim 官方 vLLM API 服务)
             - 零外部 API 依赖，零费用，零 403 / 429 报错
             - 已重新运行 `flutter gen-l10n` 编译生成代码
 
