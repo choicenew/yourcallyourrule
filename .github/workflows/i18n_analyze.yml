@@ -52,11 +52,11 @@ jobs:
 
       - name: Verify analyzer script exists
         run: |
-          test -f "i18n_analyzer.py" || { echo "i18n_analyzer.py not found at project root"; exit 1; }
+          test -f "scripts/i18n_analyzer.py" || { echo "scripts/i18n_analyzer.py not found"; exit 1; }
 
       - name: Run i18n analyzer
         run: |
-          python i18n_analyzer.py
+          python scripts/i18n_analyzer.py
 
       - name: Print summary to job log
         run: |

@@ -1,0 +1,64 @@
+name: Auto i18n Check & Translate
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'lib/features/language/language_data.dart'
+      - 'lib/l10n/app_en.arb'
+  workflow_dispatch: # 支持在 GitHub Web 界面上点击“Run workflow”手动触发
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  i18n-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout 代码
+        uses: actions/checkout@v4
+
+      - name: 2. 配置 Python 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 3. 配置 Flutter 环境
+        uses: actions/setup-flutter@v2
+        with:
+          channel: 'stable'
+
+      - name: 4. 执行云端智能去重、差量检修与多 Provider AI 翻译
+        env:
+          # 支持配置多 Provider 数组 JSON（AI_PROVIDERS），或单 Provider 环境变量（AI_PROVIDER_URL / AI_TRANSLATE_KEY）
+          AI_PROVIDERS: ${{ secrets.AI_PROVIDERS }}
+          AI_PROVIDER_URL: ${{ secrets.AI_PROVIDER_URL }}
+          AI_TRANSLATE_KEY: ${{ secrets.AI_TRANSLATE_KEY }}
+          AI_MODEL: ${{ secrets.AI_MODEL }} # 可选，没有可不填
+        run: |
+          python scripts/i18n_pipeline.py
+
+      - name: 5. 编译生成 AppLocalizations 代码
+        run: |
+          flutter gen-l10n
+
+      - name: 6. 主库防污染：自动创建 Pull Request (隔离修改)
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "style(i18n): 自动去重、修补与 AI 增量翻译多语言 ARB"
+          title: "🌐 [i18n 自动检修] 补全多语言 ARB 与本地化生成代码"
+          body: |
+            ## 🤖 国际化自动修补机器人报告
+            - 自动读取了 `language_data.dart` 与 `app_en.arb`
+            - 完成了 ARB 文件的结构去重与清理
+            - 通过多 Provider AI 完成了缺失词条与未翻译词条的修补
+            - 重新运行 `flutter gen-l10n` 编译生成了本地化 Dart 代码
+
+            > 本 PR 由 GitHub Actions 隔离生成，主库未被污染。请核对更改后合并。
+          branch: "i18n/auto-translation-update"
+          base: "main"
+          delete-branch: true

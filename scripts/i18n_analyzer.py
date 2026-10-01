@@ -9,7 +9,7 @@ Internationalization (i18n) Analysis Script
 4. 对比其他语言与 app_en.arb，找出缺失的翻译键
 5. 生成分析报告
 
-使用方式：直接运行 python i18n_analyzer.py
+使用方式：直接运行 python scripts/i18n_analyzer.py
 """
 
 import os
@@ -19,7 +19,7 @@ import glob
 from collections import defaultdict
 
 # ============ 配置 ============
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LIB_DIR = os.path.join(PROJECT_ROOT, "lib")
 L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 REPORT_DIR = os.path.join(PROJECT_ROOT, "i18n_reports")
@@ -28,19 +28,10 @@ REPORT_DIR = os.path.join(PROJECT_ROOT, "i18n_reports")
 BASELINE_ARB = "app_en.arb"
 
 # 提取国际化调用的正则表达式
-# 匹配模式：
-#   AppLocalizations.of(context)!.xxx  或  AppLocalizations.of(context)?.xxx
-#   AppLocalizations.of(context)!.xxx(  或  AppLocalizations.of(context)?.xxx(
-#   l10n.xxx  或  l10n?.xxx
-#   l10n.xxx(  或  l10n?.xxx(
-#
-# 说明：只提取 .后面第一个标识符（属性/方法名），不提取参数
 I18N_PATTERNS = [
-    # AppLocalizations.of(context)!?
     re.compile(
         r"AppLocalizations\s*\.\s*of\s*\([^)]*\)\s*[!?]?\s*\.\s*([a-zA-Z_][a-zA-Z0-9_]*)"
     ),
-    # l10n 后面直接跟 .或?.
     re.compile(
         r"(?<![a-zA-Z0-9_])l10n\s*\?\.?\s*([a-zA-Z_][a-zA-Z0-9_]*)"
     ),
@@ -112,7 +103,6 @@ def extract_keys_from_arb(arb_path: str) -> dict[str, str]:
 def get_language_code_from_filename(filename: str) -> str:
     """从 app_zh_CN.arb 这样的文件名提取语言代码 zh_CN"""
     base = os.path.basename(filename)
-    # 去掉前缀 app_ 和后缀 .arb
     if base.startswith("app_"):
         base = base[4:]
     elif base.startswith("intl_"):
@@ -190,28 +180,21 @@ def main():
     for lang_code, translations in arb_data.items():
         if lang_code == baseline_lang_code:
             continue
-        # 当前语言拥有的键
         lang_keys = set(translations.keys())
-        # 基准有但当前语言没有 -> 缺失
         missing = baseline_keys - lang_keys
         missing_per_lang[lang_code] = missing
 
-        # 基准和当前都有，但值完全一致 -> 疑似未翻译
         untranslated = set()
         for k in baseline_keys & lang_keys:
             en_val = baseline_values.get(k, "")
             lang_val = translations.get(k, "")
-            # 仅当有占位符且完全相同时才判定（简单字符串常见不翻译，如 "All", "123"）
             if en_val and lang_val and en_val == lang_val and len(en_val) > 3:
-                # 跳过纯数字、短单词，保守一点：长度 > 3 且有至少一个字母
                 if re.search(r"[a-zA-Z]", en_val):
-                    # 如果含有占位符 {xxx}，则更可能是未翻译
                     has_placeholder = bool(re.search(r"\{[a-zA-Z_][a-zA-Z0-9_]*\}", en_val))
                     if has_placeholder or len(en_val) > 8:
                         untranslated.add(k)
         untranslated_per_lang[lang_code] = untranslated
 
-        # 当前语言中未被使用的键（相对于代码使用情况）
         unused = (set(translations.keys()) & baseline_keys) - all_used_keys
         unused_per_lang[lang_code] = unused
 
@@ -252,8 +235,6 @@ def generate_reports(
     arb_data: dict[str, dict[str, str]],
 ):
     """生成多个报告文档"""
-
-    # ============ 报告1: 未使用的翻译键（en 为准，附带其他语言对应条目） ============
     report1_path = os.path.join(report_dir, "01_未使用的翻译键.md")
     with open(report1_path, "w", encoding="utf-8") as f:
         f.write("# 未使用的翻译键分析报告\n\n")
@@ -278,7 +259,6 @@ def generate_reports(
                 preview = en_value.replace("\n", " ")
                 if len(preview) > 60:
                     preview = preview[:57] + "..."
-                # 统计哪些语言也有这个键
                 langs_with_key = []
                 for lc, vals in arb_data.items():
                     if lc == baseline_lang:
@@ -292,30 +272,22 @@ def generate_reports(
             f.write("```json\n")
             first = True
             for key in sorted_unused:
-                # 顺便把 @元数据 也带上（如果有）
-                meta_key = "@" + key
                 if not first:
                     f.write(",\n")
-                # 写键值对
                 value = baseline_values.get(key, "")
                 escaped = json.dumps(value, ensure_ascii=False)
                 f.write(f'  "{key}": {escaped}')
-                # 写元数据（如果在原始arb中存在）
-                # 这里我们只从 baseline_values 拿实际翻译值，不处理元数据
                 first = False
             f.write("\n```\n")
 
-    # ============ 报告2: 各语言缺失翻译键清单 ============
     report2_path = os.path.join(report_dir, "02_各语言缺失的翻译键.md")
     with open(report2_path, "w", encoding="utf-8") as f:
         f.write("# 各语言缺失翻译键报告\n\n")
         f.write(f"- 基准语言: `{baseline_lang}` (共 {len(baseline_keys)} 个键)\n\n")
         f.write("> 说明：基准语言有但其他语言文件中没有的键。已过滤掉基准语言中未被代码使用的键。\n\n")
 
-        # 只关心"基准语言中被实际使用"的那些键的缺失情况
         used_baseline_keys = baseline_keys & all_used_keys
 
-        # 概览表
         f.write("## 概览\n\n")
         f.write("| 语言 | 总键数 | 拥有数 | 缺失数 | 疑似未翻译数 | 未使用键数 |\n")
         f.write("|------|--------|--------|--------|--------------|------------|\n")
@@ -334,12 +306,10 @@ def generate_reports(
             )
         f.write("\n")
 
-        # 每种语言的详细清单
         for lc in sorted_langs:
             if lc == baseline_lang:
                 continue
             own_keys = set(arb_data[lc].keys())
-            # 过滤：只展示那些基准语言中被实际使用的缺失键
             missing_set = (baseline_keys - own_keys) & used_baseline_keys
             untranslated_set = untranslated_per_lang.get(lc, set()) & used_baseline_keys
 
@@ -353,12 +323,10 @@ def generate_reports(
                 f.write("| # | 翻译键 | en 原文 |\n|---|--------|--------|\n")
                 for idx, key in enumerate(sorted(missing_set), 1):
                     en_val = baseline_values.get(key, "")
-                    # 转义 markdown 表格中的管道符
                     safe_val = en_val.replace("|", "\\|").replace("\n", " ")
                     f.write(f"| {idx} | `{key}` | {safe_val} |\n")
                 f.write("\n")
 
-                # 生成可直接粘贴到 ARB 的 JSON 片段
                 f.write("#### 可粘贴到 `app_" + lc + ".arb` 的骨架\n\n")
                 f.write("```json\n")
                 first = True
@@ -382,7 +350,6 @@ def generate_reports(
                     f.write(f"| {idx} | `{key}` | {safe_val} |\n")
                 f.write("\n")
 
-    # ============ 报告3: 代码中使用但 en 中缺失的键 ============
     report3_path = os.path.join(report_dir, "03_代码使用但EN缺失的键.md")
     with open(report3_path, "w", encoding="utf-8") as f:
         f.write("# 代码中使用但 en 中缺失的翻译键\n\n")
@@ -402,11 +369,9 @@ def generate_reports(
                     preview += f" (+{len(occs) - 5} 处)"
                 f.write(f"| {idx} | `{key}` | {preview} |\n")
 
-    # ============ 报告4: 所有语言综合对比 CSV ============
     report4_path = os.path.join(report_dir, "04_所有语言翻译对比.csv")
     sorted_langs = sorted(arb_data.keys())
     with open(report4_path, "w", encoding="utf-8-sig") as f:
-        # BOM 保证 Excel 正确识别 UTF-8
         header = ["key", "是否被使用"] + sorted_langs
         f.write(",".join(f'"{h}"' for h in header) + "\n")
 
@@ -415,12 +380,10 @@ def generate_reports(
             row = [key, used_mark]
             for lc in sorted_langs:
                 val = arb_data[lc].get(key, "")
-                # CSV 转义：双引号转义为两个双引号
                 escaped = val.replace('"', '""')
                 row.append(escaped)
             f.write(",".join(f'"{c}"' for c in row) + "\n")
 
-    # ============ 报告5: 纯 JSON 导出，便于程序进一步处理 ============
     report5_path = os.path.join(report_dir, "05_原始数据.json")
     with open(report5_path, "w", encoding="utf-8") as f:
         export = {

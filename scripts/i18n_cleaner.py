@@ -12,10 +12,10 @@ Internationalization (i18n) Cleaner Script
   5. 删除前备份 l10n 目录
 
 用法：
-  python i18n_cleaner.py                    # 默认 dry-run，只打印将删除的内容
-  python i18n_cleaner.py --apply            # 真正执行删除（会先备份）
-  python i18n_cleaner.py --apply --nobackup # 执行删除，不备份
-  python i18n_cleaner.py --report-dir xxx   # 指定报告目录，复用已生成的分析结果
+  python scripts/i18n_cleaner.py                    # 默认 dry-run，只打印将删除的内容
+  python scripts/i18n_cleaner.py --apply            # 真正执行删除（会先备份）
+  python scripts/i18n_cleaner.py --apply --nobackup # 执行删除，不备份
+  python scripts/i18n_cleaner.py --report-dir xxx   # 指定报告目录，复用已生成的分析结果
 """
 
 import argparse
@@ -28,7 +28,7 @@ from datetime import datetime
 from typing import Optional
 
 # ============ 配置 ============
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LIB_DIR = os.path.join(PROJECT_ROOT, "lib")
 L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 REPORT_DIR = os.path.join(PROJECT_ROOT, "i18n_reports")
@@ -90,13 +90,9 @@ def extract_text_occurred_keys(
     只要出现过 "xxx"（双引号包起来，符合 ARB / Dart 字符串形态）就保留。
     这样即使正则漏了（比如间接拼接、反射、动态生成），也不会误删。
     """
-    # 预编译每个候选键的整词匹配：前后是双引号，中间是完整标识符
     appeared = set()
-    # 为了性能，把所有候选键按长度排序并合并成一个大正则
     if not candidate_keys:
         return appeared
-    # 构造一个整词匹配模式：前后必须是引号（单双都算）或边界
-    # 这里使用 "xxx" 或 'xxx' 或标识符作为独立 token 出现（前后非字母数字下划线）
     escaped_keys = [re.escape(k) for k in sorted(candidate_keys, key=len, reverse=True)]
     merged = re.compile(
         r'(["\'])(' + "|".join(escaped_keys) + r')\1'
@@ -129,10 +125,6 @@ def dump_arb_dict(arb_path: str, data: dict):
 
 
 def remove_keys_from_arb(arb_dict: dict, keys_to_remove: set[str]) -> tuple[dict, int]:
-    """
-    返回 (新字典, 删除的条目数)
-    除了 keys_to_remove 中的翻译键，还要删除对应的 @key 元数据。
-    """
     removed_count = 0
     new_dict = {}
     expanded_remove = set()
@@ -156,17 +148,12 @@ def backup_l10n() -> Optional[str]:
     backup_dir = os.path.join(BACKUP_ROOT, ts)
     dst = os.path.join(backup_dir, "l10n")
     os.makedirs(backup_dir, exist_ok=True)
-    # 只备份文件，不递归（l10n 下本来就是文件）
     shutil.copytree(L10N_DIR, dst)
     return backup_dir
 
 
 # ============ 主流程 ============
 def compute_safe_keys_to_remove() -> tuple[set[str], set[str], set[str]]:
-    """
-    返回 (safe_remove_set, confirmed_used, text_appeared)
-    safe_remove_set = en_keys - (confirmed_used ∪ text_appeared)
-    """
     print("[1/5] 扫描 Dart 文件，提取已确认使用的翻译键（调用级）...")
     dart_files = find_all_dart_files(LIB_DIR)
     confirmed_used = extract_confirmed_used_keys(dart_files)
@@ -184,17 +171,14 @@ def compute_safe_keys_to_remove() -> tuple[set[str], set[str], set[str]]:
         en_keys.add(k)
     print(f"      en 翻译键总数: {len(en_keys)}")
 
-    # 候选待删 = en 中定义但确认未调用
     candidate_to_remove = en_keys - confirmed_used
     print(f"      调用级未命中候选: {len(candidate_to_remove)} 个")
 
     print("[2/5] 第二层保险：全项目文本扫描整词出现情况...")
-    # 扫描所有 .dart 和 .arb，防止间接引用
     all_text_files = list(dart_files) + find_all_arb_files(L10N_DIR)
     text_appeared = extract_text_occurred_keys(candidate_to_remove, all_text_files)
     print(f"      文本级命中（排除）: {len(text_appeared)} 个")
 
-    # 100% 安全可删
     safe_remove_set = candidate_to_remove - text_appeared
     print(f"      -> 判定安全可删: {len(safe_remove_set)} 个")
 
@@ -205,14 +189,6 @@ def apply_cleanup(
     safe_remove_set: set[str],
     do_backup: bool,
 ) -> tuple[dict[str, int], str | None]:
-    """
-    对所有 ARB 执行删除。
-    第一步：如果 do_backup 为 True，先把整个 lib/l10n 文件夹原样备份。
-    第二步：逐个 ARB 执行删除。
-    返回：
-      - stats: 每个 ARB 文件名删除条目数
-      - backup_dir_path: 实际备份目录绝对路径（没备份时为 None）
-    """
     stats: dict[str, int] = {}
     backup_dir_path: str | None = None
 
@@ -273,7 +249,6 @@ def main():
 
     safe_remove_set, confirmed_used, text_appeared = compute_safe_keys_to_remove()
 
-    # 打印清单
     if safe_remove_set:
         print()
         print("[清单] 以下翻译键将被删除（基准 en 中存在 + 全局扫描未出现）：")
@@ -292,7 +267,7 @@ def main():
         print()
         print("=" * 70)
         print("  预览结束。若确认删除，请运行:")
-        print("    python i18n_cleaner.py --apply")
+        print("    python scripts/i18n_cleaner.py --apply")
         print("  （执行前会自动备份 lib/l10n 目录）")
         print("=" * 70)
         return
