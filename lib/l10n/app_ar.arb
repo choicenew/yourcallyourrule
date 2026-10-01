@@ -149,10 +149,13 @@
     }
   },
   "answerThenHangup": "الرد ثم إنهاء المكالمة",
+  "@answerThenHangup": {
+    "description": "Automatically answer the incoming call and then immediately hang up to terminate the call."
+  },
   "appLegalese": "© 2023 Your Call Your Rule. جميع الحقوق محفوظة.",
   "applicationSoftware": "برنامج التطبيق",
   "apply": "تطبيق",
-  "appName": "Your Call Your Rule",
+  "appName": "مكالمتك قاعدتك",
   "authorizationFailedCheckCredentialsMessage": "فشل التفويض: يرجى التحقق من معرف العميل والمفتاح",
   "authorizationFailedMessage": "فشل التفويض",
   "authorizationSuccessMessage": "نجح التفويض",
@@ -831,7 +834,7 @@
     }
   },
   "getFree": "احصل على مجاني",
-  "github": "GitHub",
+  "github": "جيت هاب",
   "globalFilterDescription": "تكوين الفلاتر العامة لجميع بطاقات SIM:",
   "globalFilterFeature": "• فلاتر عامة: قواعد أساسية لجميع المكالمات الواردة",
   "globalFilterSettings": "إعدادات الفلتر العام",
@@ -1153,7 +1156,6 @@
   },
   "noSubscriptionsYet": "لا توجد اشتراكات بعد",
   "notGranted": "لم يتم منح",
-  "notificationMode": "وضع الإشعارات",
   "notificationModeDescription": "عرض معلومات المتصل في شريط الإشعارات",
   "notificationPermission": "إذن الإشعارات",
   "notificationPermissionDescription": "تُستخدم لعرض إشعارات المكالمات والرسائل الواردة.",
@@ -1199,6 +1201,9 @@
   "overlayPermission": "إذن النافذة العائمة",
   "overlayPermissionDescription": "يُستخدم لعرض تراكب المكالمات الواردة.",
   "overview": "نظرة عامة",
+  "@overview": {
+    "description": "Overview label"
+  },
   "password": "كلمة المرور",
   "passwordCannotBeEmpty": "لا يمكن أن تكون كلمة المرور فارغة",
   "passwordLabel": "كلمة المرور",
@@ -1214,12 +1219,13 @@
   "permissionManagement": "إدارة الأذونات",
   "phoneCallsTab": "الهاتف",
   "phoneNumber": "رقم الهاتف",
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
   "phoneNumberCannotBeEmpty": "لا يمكن أن يكون رقم الهاتف فارغًا",
-  "phoneNumberHint": "أدخل رقم الهاتف",
   "phoneNumberHintText": "أدخل رقم الهاتف لإضافة قاعدة",
   "phoneNumberLabel": "رقم الهاتف",
   "phoneNumberRegexRequired": "يرجى إدخال كل من رقم الهاتف ونمط التعبير العادي",
-  "phoneNumberRequired": "رقم الهاتف مطلوب",
   "phoneNumberTypeFixedLine": "خط أرضي",
   "phoneNumberTypeFixedLineOrMobile": "خط أرضي أو جوال",
   "phoneNumberTypeMobile": "جوال",
@@ -2194,7 +2200,6 @@
   "numberInvalidFormat": "تنسيق الرقم غير صالح",
   "membershipFeature": "ميزة العضوية",
   "medium": "متوسط",
-  "verificationReport": "تقرير التحقق",
   "finalRisk": "المخاطر النهائية",
   "simState": "حالة الشريحة",
   "ipCountry": "بلد IP",
@@ -2259,10 +2264,6 @@
   "@deletionProposal": {
     "description": "Deletion proposal title"
   },
-  "deletionProposals": "اقتراحات حذف",
-  "@deletionProposals": {
-    "description": "Title for deletion proposals notification channel"
-  },
   "createProposal": "إنشاء اقتراح",
   "@createProposal": {
     "description": "Create proposal button text"
@@ -2270,9 +2271,6 @@
   "createProposalTitle": "إنشاء اقتراح حذف",
   "@createProposalTitle": {
     "description": "Create proposal dialog title"
-  },
-  "@phoneNumber": {
-    "description": "Phone number label"
   },
   "reason": "السبب",
   "@reason": {
@@ -2402,6 +2400,7 @@
       }
     }
   },
+  "verificationReport": "تقرير التحقق",
   "@verificationReport": {
     "description": "Verification report label"
   },
@@ -2460,9 +2459,6 @@
   "refreshProposals": "تحديث الاقتراحات",
   "@refreshProposals": {
     "description": "Refresh proposals button text"
-  },
-  "@overview": {
-    "description": "Overview label"
   },
   "totalPendingProposals": "إجمالي الاقتراحات المعلقة",
   "@totalPendingProposals": {
@@ -2563,6 +2559,10 @@
   "veryLow": "منخفض جداً",
   "@veryLow": {
     "description": "Very low risk level label"
+  },
+  "deletionProposals": "اقتراحات حذف",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
   },
   "deletionProposalNotificationDescription": "إشعارات حول نتائج وتحديثات تصويت اقتراحات الحذف.",
   "@deletionProposalNotificationDescription": {
@@ -2703,6 +2703,7 @@
   "@notificationFrequencyDescription": {
     "description": "A detailed explanation of what the notification frequency settings do"
   },
+  "notificationMode": "وضع الإشعارات",
   "@notificationMode": {
     "description": "Title for the mode selection part (Immediate, Batched, Custom)"
   },
@@ -2771,7 +2772,6 @@
   "pendingProposals": "المقترحات المعلقة",
   "pendingProposalsBody": "لديك {count, plural, =0 {لا توجد مقترحات معلقة} one {1 مقترح معلق} other {{count} مقترحات معلقة}}.",
   "guidelinesLabel": "إرشادات",
-  "reportingGuidelines": "• قم بالإبلاغ عن الأرقام التي تمثل مشكلة حقيقية فقط\n• قدم أسبابًا دقيقة ومفصلة\n• اختر مستوى المخاطرة المناسب بناءً على الخطورة\n• قد يؤدي الإبلاغ الكاذب إلى تقييد الحساب",
   "riskLevelLabel": "مستوى المخاطرة",
   "riskLevelDescription": "مستوى مخاطرة الرقم",
   "phoneNumberMinDigits": "يجب أن يتكون رقم الهاتف من 7 أرقام على الأقل",
@@ -2794,9 +2794,11 @@
   "@countryCodeLengthError": {
     "description": "Validation message for country code length"
   },
+  "phoneNumberHint": "أدخل رقم الهاتف",
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
+  "phoneNumberRequired": "رقم الهاتف مطلوب",
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
@@ -2885,24 +2887,6 @@
       }
     }
   },
-  "supportCount": "دعم ({supportCount})",
-  "@supportCount": {
-    "description": "Shows the number of support votes.",
-    "placeholders": {
-      "supportCount": {
-        "type": "int"
-      }
-    }
-  },
-  "opposeCount": "معارضة ({opposeCount})",
-  "@opposeCount": {
-    "description": "Shows the number of oppose votes.",
-    "placeholders": {
-      "opposeCount": {
-        "type": "int"
-      }
-    }
-  },
   "timeJustNow": "الآن",
   "@timeJustNow": {
     "description": "Time format for recent events"
@@ -2934,12 +2918,31 @@
       }
     }
   },
+  "reportingGuidelines": "• قم بالإبلاغ عن الأرقام التي تمثل مشكلة حقيقية فقط\n• قدم أسبابًا دقيقة ومفصلة\n• اختر مستوى المخاطرة المناسب بناءً على الخطورة\n• قد يؤدي الإبلاغ الكاذب إلى تقييد الحساب",
   "@reportingGuidelines": {
     "description": "Guidelines for reporting a number."
   },
   "notificationFrequencyHours": "تكرار الإشعارات (ساعات)",
   "@notificationFrequencyHours": {
     "description": "Title for the notification frequency setting."
+  },
+  "supportCount": "دعم ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "معارضة ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
   },
   "votesWithPercentage": "{totalVotes} صوت ({supportPercentage}% دعم)",
   "@votesWithPercentage": {
@@ -3088,5 +3091,78 @@
         "example": "5"
       }
     }
+  },
+  "ruleType": "نوع القاعدة",
+  "localDatabaseSyncTitle": "مزامنة قاعدة البيانات المحلية",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "مزامنة البيانات عبر الأجهزة",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "localDatabaseSyncDescription": "قم بتوصيل قاعدة بيانات Supabase الشخصية لمزامنة البيانات عبر الأجهزة.",
+  "supabaseProjectUrl": "رابط مشروع Supabase",
+  "supabaseAnonKey": "مفتاح المجهول",
+  "supabaseAnonKeyHint": "مفتاح API، مفتاح عام مجهول",
+  "connectionString": "سلسلة الاتصال (URI)",
+  "connectionStringHelper": "مطلوب فقط لـ 'تهيئة قاعدة البيانات'",
+  "syncCallHistory": "مزامنة سجل المكالمات",
+  "syncCallHistorySubtitle": "تضمين سجلات المكالمات الخاصة في المزامنة",
+  "requiredField": "مطلوب",
+  "requiredInitField": "مطلوب للتهيئة",
+  "initDbButton": "تهيئة قاعدة البيانات",
+  "dbInitSuccess": "تم تهيئة قاعدة البيانات بنجاح!",
+  "syncSuccess": "اكتملت المزامنة. تم الإرسال: {pushed}، تم الاستقبال: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "خطأ",
+  "errorLoadingSettings": "خطأ في تحميل الإعدادات",
+  "statusLabel": "الحالة",
+  "statusConnected": "متصل / مُعد",
+  "statusNotConfigured": "غير مُعد",
+  "configSaved": "تم حفظ الإعدادات!",
+  "masterDeviceLabel": "هل هو الجهاز الرئيسي (المشرف)",
+  "masterDeviceHelp": "فقط الجهاز الرئيسي يمكنه تهيئة هيكل قاعدة البيانات.",
+  "syncIntervalLabel": "فاصل المزامنة التلقائية",
+  "syncIntervalValue": "كل {hours} ساعات",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "اتركه فارغاً لاستخدام الافتراضي",
+  "vipAccessSubtitle": "شاهد الإعلانات مجاناً أو اشترِ VIP",
+  "failedToLoadSettingsSchema": "فشل تحميل مخطط الإعدادات: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noSettingsAvailable": "لا توجد إعدادات متاحة لهذا المكون الإضافي.",
+  "@noSettingsAvailable": {
+    "description": "Message shown when a plugin has no settings"
+  },
+  "fieldIsRequired": "هذا الحقل مطلوب",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "الرد تلقائياً على المكالمة الواردة ثم إنهاؤها فوراً",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
   }
 }

@@ -149,6 +149,9 @@
     }
   },
   "answerThenHangup": "መልስ ከዚያም አንጠልጥል",
+  "@answerThenHangup": {
+    "description": "Automatically answer the incoming call and then immediately hang up to terminate the call."
+  },
   "appLegalese": "© 2023 የእርስዎ ጥሪ የእርስዎ ህግ። ሁሉም መብቶች የተጠበቁ ናቸው።",
   "applicationSoftware": "የመተግበሪያ ሶፍትዌር",
   "apply": "ተግብር",
@@ -1153,7 +1156,6 @@
   },
   "noSubscriptionsYet": "ምዝገባዎች ገና የሉም",
   "notGranted": "አልተሰጠም",
-  "notificationMode": "የማሳወቂያ ሁነታ",
   "notificationModeDescription": "አስቸኳይ ጥሪ መረጃ በማስታወቂያ አሞሌ ውስጥ አሳይ",
   "notificationPermission": "የማሳወቂያ ፈቃድ",
   "notificationPermissionDescription": "የገቢ ጥሪ እና የመልዕክት ማሳወቂያዎችን ለማሳየት ጥቅም ላይ ይውላል።",
@@ -1199,6 +1201,9 @@
   "overlayPermission": "ተንሳፋፊ ፈቃድ",
   "overlayPermissionDescription": "ለገቢ ጥሪ ተንሳፋፊ ማሳያ ጥቅም ላይ ይውላል።",
   "overview": "አጠቃላይ እይታ",
+  "@overview": {
+    "description": "Overview label"
+  },
   "password": "የይለፍ ቃል",
   "passwordCannotBeEmpty": "የይለፍ ቃል ባዶ ሊሆን አይችልም",
   "passwordLabel": "የይለፍ ቃል",
@@ -1214,12 +1219,13 @@
   "permissionManagement": "የፈቃድ አስተዳደር",
   "phoneCallsTab": "ስልክ",
   "phoneNumber": "የስልክ ቁጥር",
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
   "phoneNumberCannotBeEmpty": "የስልክ ቁጥር ባዶ ሊሆን አይችልም",
-  "phoneNumberHint": "የስልክ ቁጥር ያስገቡ",
   "phoneNumberHintText": "ህግ ለመጨመር የስልክ ቁጥር ያስገቡ",
   "phoneNumberLabel": "የስልክ ቁጥር",
   "phoneNumberRegexRequired": "እባክዎ የስልክ ቁጥር እና የሬጅክስ ንድፍ ያስገቡ",
-  "phoneNumberRequired": "የስልክ ቁጥር ያስፈልጋል",
   "phoneNumberTypeFixedLine": "የተስተካከለ መስመር",
   "phoneNumberTypeFixedLineOrMobile": "የተስተካከለ መስመር ወይም ተንቀሳቃሽ",
   "phoneNumberTypeMobile": "ተንቀሳቃሽ",
@@ -2194,7 +2200,6 @@
   "numberInvalidFormat": "ቁጥር ባልተለመደ ቅርጸት",
   "membershipFeature": "የአባልነት ባህሪ",
   "medium": "መካከለኛ",
-  "verificationReport": "የማረጋገጫ ሪፖርት",
   "finalRisk": "የመጨረሻ ስጋት",
   "simState": "የሲም ሁኔታ",
   "ipCountry": "የአይፒ ሀገር",
@@ -2259,10 +2264,6 @@
   "@deletionProposal": {
     "description": "Deletion proposal title"
   },
-  "deletionProposals": "የመሰረዝ ጥያቄዎች",
-  "@deletionProposals": {
-    "description": "Title for deletion proposals notification channel"
-  },
   "createProposal": "ጥያቄ ፍጠር",
   "@createProposal": {
     "description": "Create proposal button text"
@@ -2270,9 +2271,6 @@
   "createProposalTitle": "የመሰረዝ ጥያቄ ፍጠር",
   "@createProposalTitle": {
     "description": "Create proposal dialog title"
-  },
-  "@phoneNumber": {
-    "description": "Phone number label"
   },
   "reason": "ምክንያት",
   "@reason": {
@@ -2402,6 +2400,7 @@
       }
     }
   },
+  "verificationReport": "የማረጋገጫ ሪፖርት",
   "@verificationReport": {
     "description": "Verification report label"
   },
@@ -2460,9 +2459,6 @@
   "refreshProposals": "ጥያቄዎችን አድስ",
   "@refreshProposals": {
     "description": "Refresh proposals button text"
-  },
-  "@overview": {
-    "description": "Overview label"
   },
   "totalPendingProposals": "ጠቅላላ ጥያቄዎች በመጠባበቅ ላይ",
   "@totalPendingProposals": {
@@ -2563,6 +2559,10 @@
   "veryLow": "በጣም ዝቅተኛ",
   "@veryLow": {
     "description": "Very low risk level label"
+  },
+  "deletionProposals": "የመሰረዝ ጥያቄዎች",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
   },
   "deletionProposalNotificationDescription": "ስለ የመሰረዝ ጥያቄ የድምጽ መስጫ ውጤቶች እና ዝመናዎች ማሳወቂያዎች።",
   "@deletionProposalNotificationDescription": {
@@ -2692,6 +2692,7 @@
   "voteFailed": "ድምጽ መስጠት አልተሳካም",
   "searchProposals": "ጥያቄዎችን ፈልግ",
   "defaultNotifications": "ነባሪ ማሳወቂያዎች",
+  "defaultNotificationsDescription": "ለመተግበሪያው የሚደርስ የማይታወቅ የማሳወቂያ ክፍያ።",
   "blockedCallNotifications": "የታገዱ ጥሪ ማሳወቂያዎች",
   "blockedCallNotificationsDescription": "በታገዱ ጥሪዎች ላይ መረጃን ያሳያል።",
   "stirVerification": "STIR/SHAKEN ማረጋገጫ",
@@ -2702,6 +2703,7 @@
   "@notificationFrequencyDescription": {
     "description": "A detailed explanation of what the notification frequency settings do"
   },
+  "notificationMode": "የማሳወቂያ ሁነታ",
   "@notificationMode": {
     "description": "Title for the mode selection part (Immediate, Batched, Custom)"
   },
@@ -2770,7 +2772,6 @@
   "pendingProposals": "የሚጠባበቁ ጥያቄዎች",
   "pendingProposalsBody": "{count, plural, =0 {የሚጠባበቁ ጥያቄዎች የሉም} one {1 የሚጠባበቅ ጥያቄ} other {{count} የሚጠባበቁ ጥያቄዎች}}.",
   "guidelinesLabel": "መመሪያዎች",
-  "reportingGuidelines": "• በእርግጥ ችግር ያለባቸውን ቁጥሮች ብቻ ሪፖርት ያድርጉ\n• ትክክለኛ እና ዝርዝር ምክንያቶችን ያቅርቡ\n• እንደ አስከፊነቱ ተገቢውን የአደጋ ደረጃ ይምረጡ\n• የውሸት ሪፖርቶች የመለያ እገዳ ሊያስከትሉ ይችላሉ",
   "riskLevelLabel": "የአደጋ ደረጃ",
   "riskLevelDescription": "የቁጥሩ የአደጋ ደረጃ",
   "phoneNumberMinDigits": "የስልክ ቁጥር ቢያንስ 7 አሃዞች ሊኖረው ይገባል",
@@ -2793,9 +2794,11 @@
   "@countryCodeLengthError": {
     "description": "Validation message for country code length"
   },
+  "phoneNumberHint": "የስልክ ቁጥር ያስገቡ",
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
+  "phoneNumberRequired": "የስልክ ቁጥር ያስፈልጋል",
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
@@ -2884,24 +2887,6 @@
       }
     }
   },
-  "supportCount": "ድጋፍ ({supportCount})",
-  "@supportCount": {
-    "description": "Shows the number of support votes.",
-    "placeholders": {
-      "supportCount": {
-        "type": "int"
-      }
-    }
-  },
-  "opposeCount": "ተቃውሞ ({opposeCount})",
-  "@opposeCount": {
-    "description": "Shows the number of oppose votes.",
-    "placeholders": {
-      "opposeCount": {
-        "type": "int"
-      }
-    }
-  },
   "timeJustNow": "አሁን",
   "@timeJustNow": {
     "description": "Time format for recent events"
@@ -2933,12 +2918,31 @@
       }
     }
   },
+  "reportingGuidelines": "• በእርግጥ ችግር ያለባቸውን ቁጥሮች ብቻ ሪፖርት ያድርጉ\n• ትክክለኛ እና ዝርዝር ምክንያቶችን ያቅርቡ\n• እንደ አስከፊነቱ ተገቢውን የአደጋ ደረጃ ይምረጡ\n• የውሸት ሪፖርቶች የመለያ እገዳ ሊያስከትሉ ይችላሉ",
   "@reportingGuidelines": {
     "description": "Guidelines for reporting a number."
   },
   "notificationFrequencyHours": "የማሳወቂያ ድግግሞሽ (ሰዓቶች)",
   "@notificationFrequencyHours": {
     "description": "Title for the notification frequency setting."
+  },
+  "supportCount": "ድጋፍ ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "ተቃውሞ ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
   },
   "votesWithPercentage": "{totalVotes} ድምጾች ({supportPercentage}% ድጋፍ)",
   "@votesWithPercentage": {
@@ -3087,5 +3091,78 @@
         "example": "5"
       }
     }
+  },
+  "ruleType": "የደንቦች አይነት",
+  "localDatabaseSyncTitle": "የስፋት ዳታቤስ ማስተላለፍ",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "ዳታን በላይ መሳሪያዎች ላይ ማስተላለፍ",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "localDatabaseSyncDescription": "የልማድ ሱፓቤስ ዳታቤስዎን ያግኙ እና ዳታን በላይ መሳሪያዎች ላይ ማስተላለፍ።",
+  "supabaseProjectUrl": "የሱፓቤስ ፕሮጀክት URL",
+  "supabaseAnonKey": "የሚለበስ ቁልፍ",
+  "supabaseAnonKeyHint": "API ቁልፍ፣ የሕዝብ ማስታወቂያ ቁልፍ",
+  "connectionString": "የግንኙነት ሰብር (URI)",
+  "connectionStringHelper": "ለ'ዳታቤስ አስቀምጥ' ብቻ የሚያስፈልግ",
+  "syncCallHistory": "የጥሪ ታሪክ ማስተላለፍ",
+  "syncCallHistorySubtitle": "የግል ጥሪ መዝገቦችን በማስተላለፍ ውስጥ አስቀምጡ",
+  "requiredField": "የሚያስፈልግ",
+  "requiredInitField": "ለማስጀመር የሚያስፈልግ",
+  "initDbButton": "ዳታቤስን አስቀምጡ",
+  "dbInitSuccess": "ዳታቤስ በተሳካ ሁኔታ ተነስቷል፡፡",
+  "syncSuccess": "ማስተላለፍ ተጠናቋል፡፡ የተላከው: {pushed}፣ የተቀበለው: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "ስህተት",
+  "errorLoadingSettings": "ቅንብሮችን በማውረድ ላይ ስህተት",
+  "statusLabel": "ሁኔታ",
+  "statusConnected": "ተገናኝቷል / ተዋቀረ",
+  "statusNotConfigured": "አልተዋቀረም",
+  "configSaved": "ዋቀር ተቀምጧል፡፡",
+  "masterDeviceLabel": "ዋና መሳሪያ ነው? (አስተዳደር)",
+  "masterDeviceHelp": "ዋና መሳሪያ ብቻ የዳታቤስ አቀማመጥን ማስቀመጥ አለበት።",
+  "syncIntervalLabel": "የራስ-ማጣበሻ ክፍያ",
+  "syncIntervalValue": "በየ {hours} ሰዓት",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "ባዶ ተው ለመጠቀም የሥርዓቱን ማረጋገጫ ይጠቀሙ",
+  "vipAccessSubtitle": "ለነጻ ማሳያዎችን ይመልከቱ ወይም VIP ይግዙ",
+  "failedToLoadSettingsSchema": "የቅንብሮችን ዘይቤ ማጫን አልተሳካም: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noSettingsAvailable": "ለዚህ ፕላግን ምንም ቅንብሮች አሉም።",
+  "@noSettingsAvailable": {
+    "description": "Message shown when a plugin has no settings"
+  },
+  "fieldIsRequired": "ይህ መስክ ያስፈልጋል",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "የሚገባ ጥሪን በቀጣይ ይመልሱ እና ለማስወገድ ወዲያውኑ ይቁርጡ",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
   }
 }

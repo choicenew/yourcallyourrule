@@ -1,6 +1,5 @@
 {
   "@@locale": "en",
-
   "aboutContactSubscription": "About Contact Subscription",
   "@aboutContactSubscription": {
     "description": "About contact subscription title"
@@ -41,7 +40,6 @@
   "@addBlockSubscription": {
     "description": "Add block subscription dialog title"
   },
-  
   "addContactButton": "Add Contact",
   "addContactFailed": "Failed to add contact: {error}",
   "addedToAllowedRules": "Added to Allowed Rules",
@@ -91,7 +89,9 @@
   "@addSubscriptionFailed": {
     "description": "Failed to add subscription error message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "addSubscriptionTooltip": "Add Subscription",
@@ -143,10 +143,15 @@
   "@allUpdateSuccess": {
     "description": "Full update success message",
     "placeholders": {
-      "count": {"type": "Object"}
+      "count": {
+        "type": "Object"
+      }
     }
   },
-  "answerThenHangup": "Answer then hang up", 
+  "answerThenHangup": "Answer then hang up",
+  "@answerThenHangup": {
+    "description": "Automatically answer the incoming call and then immediately hang up to terminate the call."
+  },
   "appLegalese": "© 2023 Your Call Your Rule. All rights reserved.",
   "applicationSoftware": "Application Software",
   "apply": "Apply",
@@ -260,7 +265,9 @@
   "@callerIdMarkedByCount": {
     "description": "Mark count display",
     "placeholders": {
-      "count": {"type": "Object"}
+      "count": {
+        "type": "Object"
+      }
     }
   },
   "callerIdPreview": "Caller ID Preview",
@@ -278,14 +285,18 @@
   "@callHistoryInitFailed": {
     "description": "Call history initialization failure message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "callHistoryRefreshFailed": "Failed to refresh call history: {error}",
   "@callHistoryRefreshFailed": {
     "description": "Call history refresh failure message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "callHistoryTab": "Call History",
@@ -317,7 +328,9 @@
   "@changeSubscriptionStatusFailed": {
     "description": "Failed to change subscription status error message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "changeTag": "Change Tag",
@@ -347,7 +360,6 @@
   "clearFilter": "Clear Filter",
   "clearLabelFilter": "Clear Label Filter",
   "clearLabelFilterButton": "Clear Label Filter",
-
   "closeButton": "Close",
   "cloudSync": "Cloud Sync",
   "cloudSyncAndBackupTitle": "Cloud Sync & Backup",
@@ -475,7 +487,9 @@
   "@dataLoadFailure": {
     "description": "Data loading failure message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "dataLoadingFailed": "Failed to load data: {error}",
@@ -489,7 +503,9 @@
   "@days": {
     "description": "Day count display",
     "placeholders": {
-      "count": {"type": "num"}
+      "count": {
+        "type": "num"
+      }
     }
   },
   "daysVip": "{days} Days VIP",
@@ -522,14 +538,18 @@
   "@deleteSubscriptionConfirm": {
     "description": "Delete subscription confirmation message",
     "placeholders": {
-      "name": {"type": "Object"}
+      "name": {
+        "type": "Object"
+      }
     }
   },
   "deleteSubscriptionFailed": "Failed to delete subscription: {error}",
   "@deleteSubscriptionFailed": {
     "description": "Failed to delete subscription error message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "deleteSuccess": "Delete successful",
@@ -785,8 +805,12 @@
   "@filterToggleStatus": {
     "description": "Filter enable/disable status change notification",
     "placeholders": {
-      "status": {"type": "Object"},
-      "filterName": {"type": "Object"}
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
     }
   },
   "filterType": "Filter Type",
@@ -804,7 +828,9 @@
   "@generalUpdateFailure": {
     "description": "General update failure message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "getFree": "Get Free",
@@ -887,8 +913,12 @@
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
     "placeholders": {
-      "service": {"type": "Object"},
-      "days": {"type": "Object"}
+      "service": {
+        "type": "Object"
+      },
+      "days": {
+        "type": "Object"
+      }
     }
   },
   "invalidContentRegex": "Invalid content regex",
@@ -918,7 +948,9 @@
   "@labelRemoveFailed": {
     "description": "Label removal failure message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "labels": "Labels",
@@ -934,7 +966,9 @@
   "@labelUpdateFailed": {
     "description": "Label update failure message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "labelUpdateSuccess": "Label \"$labelText\" updated successfully",
@@ -948,7 +982,9 @@
   "@lastUpdated": {
     "description": "Last updated label",
     "placeholders": {
-      "date": {"type": "Object"}
+      "date": {
+        "type": "Object"
+      }
     }
   },
   "lifetimeMembership": "Lifetime Membership",
@@ -966,7 +1002,6 @@
   "loadMore": "Load More",
   "loadPluginButton": "Load Plugin",
   "loadPluginsFailed": "Failed to load plugins: {error}",
-
   "loadSettingsFailed": "Failed to load settings: {error}",
   "loadSmsRulesFailed": "Failed to load SMS rules: {error}",
   "loadStatusFailedMessage": "Failed to load status",
@@ -974,7 +1009,9 @@
   "@loadSubscriptionsFailed": {
     "description": "Failed to load subscriptions error message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "loan": "Loan",
@@ -1065,7 +1102,9 @@
   "@nameLabel": {
     "description": "Caller ID name label",
     "placeholders": {
-      "name": {"type": "Object"}
+      "name": {
+        "type": "Object"
+      }
     }
   },
   "namePosition": "Name Position",
@@ -1085,7 +1124,6 @@
   "noAction": "No Action",
   "noActionRules": "No Action Rules",
   "noActiveCloudSyncServiceMessage": "No active cloud sync service",
-
   "noCallLogs": "No Call Logs",
   "noCallRecords": "No call records",
   "noContacts": "No contacts yet",
@@ -1118,7 +1156,6 @@
   },
   "noSubscriptionsYet": "No Subscriptions Yet",
   "notGranted": "Not Granted",
-
   "notificationModeDescription": "Show caller information in the notification bar",
   "notificationPermission": "Notification Permission",
   "notificationPermissionDescription": "Used to display incoming call and message notifications.",
@@ -1180,11 +1217,9 @@
   "phoneCallsTab": "Phone",
   "phoneNumber": "Phone Number",
   "phoneNumberCannotBeEmpty": "Phone number cannot be empty",
-
   "phoneNumberHintText": "Enter phone number to add rule",
   "phoneNumberLabel": "Phone Number",
   "phoneNumberRegexRequired": "Please enter both phone number and regex pattern",
-
   "phoneNumberTypeFixedLine": "Fixed line",
   "phoneNumberTypeFixedLineOrMobile": "Fixed line or mobile",
   "phoneNumberTypeMobile": "Mobile",
@@ -1343,7 +1378,9 @@
   "@ruleAddFailure": {
     "description": "Rule creation failure message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "ruleAddSuccess": "Rule added successfully",
@@ -1356,7 +1393,9 @@
   "@ruleDeleteFailure": {
     "description": "Rule deletion failure message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "ruleDeleteSuccess": "Rule deleted successfully",
@@ -1449,7 +1488,9 @@
   "@serviceUpdateFailure": {
     "description": "Service update failure message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "setButton": "Set",
@@ -1489,8 +1530,12 @@
   "@simInfo": {
     "description": "SIM Card information",
     "placeholders": {
-      "slotNumber": {"type": "Object"},
-      "countryIso": {"type": "Object"}
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
     }
   },
   "simInfoLoadFailure": "Failed to load SIM card information: {error}",
@@ -1531,7 +1576,9 @@
   "@simSlotFilterSettingsTitle": {
     "description": "Title for SIM slot filter settings",
     "placeholders": {
-      "slotNumber": {"type": "Object"}
+      "slotNumber": {
+        "type": "Object"
+      }
     }
   },
   "simSlotLoadFailed": "Failed to load SIM slots: {error}",
@@ -1540,7 +1587,9 @@
   "@simSlotOperationFailed": {
     "description": "SIM slot operation failure message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "simSlotPosition": "SIM Slot Position {slotNumber}",
@@ -1613,7 +1662,9 @@
   "@subscriptionAddSuccess": {
     "description": "Subscription added success message",
     "placeholders": {
-      "name": {"type": "Object"}
+      "name": {
+        "type": "Object"
+      }
     }
   },
   "subscriptionDeleteConfirmContent": "Are you sure you want to delete this subscription?",
@@ -1654,7 +1705,6 @@
   "supportSync": "Support Sync",
   "survey": "Survey",
   "syncDevicesButton": "Sync Devices",
-
   "@synced": {
     "description": "Synced status label"
   },
@@ -1739,7 +1789,6 @@
   "@unknown": {
     "description": "Display text for unknown status"
   },
-
   "unknownLabel": "Unknown Label",
   "unknownTag": "Tag: Unknown",
   "unregisterButton": "Unregister",
@@ -1765,15 +1814,21 @@
   "@updateSubscriptionFailed": {
     "description": "Failed to update subscription error message",
     "placeholders": {
-      "error": {"type": "Object"}
+      "error": {
+        "type": "Object"
+      }
     }
   },
   "updateSuccess": "{service} updated successfully ({count} rules)",
   "@updateSuccess": {
     "description": "Single service update success message",
     "placeholders": {
-      "service": {"type": "Object"},
-      "count": {"type": "Object"}
+      "service": {
+        "type": "Object"
+      },
+      "count": {
+        "type": "Object"
+      }
     }
   },
   "updateTags": "Update Tags",
@@ -1826,18 +1881,15 @@
   "year": "Year",
   "yearly": "Yearly",
   "yearlyChartTitle": "Yearly Blocked Calls",
-    "noSimCardsDetected": "No SIM cards detected",
+  "noSimCardsDetected": "No SIM cards detected",
   "filterManagementDescription": "Set Call Filters",
   "callerIdCustomizationSubtitle": "Customize Caller ID Layout",
-
-
-
-              "fraudAlerSettingTitle": "Fraud Alert Setting",
-              "fraudAlerSettingSubtitle": "To Set Fraud Alert",
+  "fraudAlerSettingTitle": "Fraud Alert Setting",
+  "fraudAlerSettingSubtitle": "To Set Fraud Alert",
   "enableFraudAlert": "Enable Fraud Alert",
   "enableFraudAlertDescription": "Alert for suspected scam calls",
-      "enableVibration": "Enable Vibration",
-      "enableVibrationDescription": "Vibrate when call is suspected scam calls",
+  "enableVibration": "Enable Vibration",
+  "enableVibrationDescription": "Vibrate when call is suspected scam calls",
   "notificationSettingsTitle": "Notification Settings",
   "useLocalNotification": "Use Local Notifications",
   "useLocalNotificationDescription": "Enable local notifications for incoming calls",
@@ -1846,11 +1898,10 @@
   "useStirNotificationDescription": "Enable STIR notifications for incoming calls",
   "cancelLocalNotificationDescription": "Close Local Notifications Automatically",
   "callerIdSettingsTitle": "Caller ID Settings",
-    "callerIdSettingsSubtitle": "To Set up Incoming Call Notification & Display Mode", 
-    "purchaseTitle": "Purchase",
-
-    "purchaseSubtitle": "To Purchase the Service",
-       "callerIdNotificationTitle": "Incoming Call Info",
+  "callerIdSettingsSubtitle": "To Set up Incoming Call Notification & Display Mode",
+  "purchaseTitle": "Purchase",
+  "purchaseSubtitle": "To Purchase the Service",
+  "callerIdNotificationTitle": "Incoming Call Info",
   "@callerIdNotificationTitle": {
     "description": "Title for the Incoming Call Info"
   },
@@ -1864,8 +1915,7 @@
       }
     }
   },
- 
-   "blockedCallTitle": "Blocked Call",
+  "blockedCallTitle": "Blocked Call",
   "@blockedCallTitle": {
     "description": "Title for blocked call notification"
   },
@@ -1913,8 +1963,6 @@
       }
     }
   },
- 
- 
   "scrollingSecurityMessageSettings": "Scrolling Security Message Settings",
   "messageColor": "Message Color",
   "messageFontSize": "Message Font Size",
@@ -1936,11 +1984,10 @@
       }
     }
   },
-
   "loadRulesFailed": "Failed to load rules: {error}",
   "loadCallLogFailed": "Failed to load call log: {error}",
   "noBlockedTypeData": "No blocked type data available",
- "importEntity": "Import {entityTypeName}",
+  "importEntity": "Import {entityTypeName}",
   "@importEntity": {
     "description": "Dialog title for importing an entity",
     "placeholders": {
@@ -2004,9 +2051,7 @@
       }
     }
   },
-
-
- "cloudSyncService": "Cloud Sync Service",
+  "cloudSyncService": "Cloud Sync Service",
   "membershipCenter": "Membership Center",
   "redeemVipWithMarks": "Redeem VIP with Marks",
   "currentMarkCount": "Current Mark Count",
@@ -2021,149 +2066,94 @@
   "temporaryVip": "Temporary VIP",
   "removeAds": "Remove Ads",
   "unknownAction": "Unknown Action",
-
-
   "settingsBackup": "Settings Backup ",
   "allServicesStatusTitle": "Current Service Status",
   "allServicesStatusSubtitle": "Current Status of Each Cloud Service",
- 
   "redirect": "Redirect",
- "notify": "Notify",
- "log": "Log",
- "custom": "Custom",
- "allowActionDescription": "Calls will be allowed, even if the number is on the blocklist.",
- "blockActionDescription": "Calls will be blocked and shown in the call log.",
- "silenceActionDescription": "Calls will be silenced but shown in the call log.",
- "noneActionDescription": "No special action will be taken for the call.",
- "redirectActionDescription": "Redirect the call to a specified number.",
- "labelActionDescription": "Add a label to the call for easy identification.",
- "notifyActionDescription": "Send a notification when a call is received.",
- "logActionDescription": "Log the call information without taking any other action.",
- "customActionDescription": "Perform a custom action.",
- "synced": "Synced",
-
- 
-   "needVipAccess": "You need VIP access to use this feature",
-"importExportDescription": "Import or export {entityTypeName} data",
-
-   "importExportTitle": "Import/Export",
- "noPhoneRules": "No phone rules found",
-"noRegexRules": "No regex rules found",
- "noAllowedBlockedRules": "No allowed/blocked rules found",
-   "importExport": "Import/Export",
-   "filterByAction": "Filter by Action",
+  "notify": "Notify",
+  "log": "Log",
+  "custom": "Custom",
+  "allowActionDescription": "Calls will be allowed, even if the number is on the blocklist.",
+  "blockActionDescription": "Calls will be blocked and shown in the call log.",
+  "silenceActionDescription": "Calls will be silenced but shown in the call log.",
+  "noneActionDescription": "No special action will be taken for the call.",
+  "redirectActionDescription": "Redirect the call to a specified number.",
+  "labelActionDescription": "Add a label to the call for easy identification.",
+  "notifyActionDescription": "Send a notification when a call is received.",
+  "logActionDescription": "Log the call information without taking any other action.",
+  "customActionDescription": "Perform a custom action.",
+  "synced": "Synced",
+  "needVipAccess": "You need VIP access to use this feature",
+  "importExportDescription": "Import or export {entityTypeName} data",
+  "importExportTitle": "Import/Export",
+  "noPhoneRules": "No phone rules found",
+  "noRegexRules": "No regex rules found",
+  "noAllowedBlockedRules": "No allowed/blocked rules found",
+  "importExport": "Import/Export",
+  "filterByAction": "Filter by Action",
   "upgradeToVip": "Upgrade to VIP",
   "batteryOptimizationPermission": "Battery Optimization",
   "batteryOptimizationPermissionDescription": "Allow the app to run in the background to provide services like caller ID.",
-    "permissionTitle": "Special Permissions",
-  "permissionSubtitle": "Manage overlay and battery optimization permissions", 
-    "themeSettingsTitle": "Theme Settings",
+  "permissionTitle": "Special Permissions",
+  "permissionSubtitle": "Manage overlay and battery optimization permissions",
+  "themeSettingsTitle": "Theme Settings",
   "themeSettingsSubtitle": "Choose your favorite theme",
-  
   "databaseSyncTitle": "Database Sync",
   "countrySyncSettingsTitle": "Country Based Database Sync Settings",
   "countrySyncSettingsSubtitle": "Select countries for data synchronization",
   "countryDataDisclaimer": "Please note: The database may not include data for all specific countries or regions.",
   "editSubscription": "Edit Subscription",
-
-"searchByNameOrPhoneNumber": "Search By Name or PhoneNumber",
-"allowedBlockedRulesInfo": "Allowed/blocked rules are used to match calls to specific phone numbers, which have the highest priority.",
-"searchPhoneRulesHint": "Search phone rules",
-"phoneRulesInfo": "Phone rules are used to match calls to specific phone numbers, which havve a lower priority. Some comes from the phoneRule subscriptions",
-"searchSubscriptionsHint": "Search subscriptions",
-"searchPluginsHint": "Search plugins",
-"searchLabelsHint": "Search labels",
+  "searchByNameOrPhoneNumber": "Search By Name or PhoneNumber",
+  "allowedBlockedRulesInfo": "Allowed/blocked rules are used to match calls to specific phone numbers, which have the highest priority.",
+  "searchPhoneRulesHint": "Search phone rules",
+  "phoneRulesInfo": "Phone rules are used to match calls to specific phone numbers, which havve a lower priority. Some comes from the phoneRule subscriptions",
+  "searchSubscriptionsHint": "Search subscriptions",
+  "searchPluginsHint": "Search plugins",
+  "searchLabelsHint": "Search labels",
   "pluginDescription": "Plugin description",
-"enterPluginDescription": "Enter plugin description",
-"searchRegexRulesHint": "Search regex rules",
-"regexRulesInfo": "Regex rules are used to filter calls based on the Regex Patterns.",
-"searchMarkedPhonesHint": "Search marked phones",
-"searchContactSubscriptionsHint": "Search contact subscriptions",
-"showAllContacts": "Show All Contacts",
-"showFavorites": "Show Favorites",
-
-
-
-"manualEntry": "Manual Entry Info",
-
+  "enterPluginDescription": "Enter plugin description",
+  "searchRegexRulesHint": "Search regex rules",
+  "regexRulesInfo": "Regex rules are used to filter calls based on the Regex Patterns.",
+  "searchMarkedPhonesHint": "Search marked phones",
+  "searchContactSubscriptionsHint": "Search contact subscriptions",
+  "showAllContacts": "Show All Contacts",
+  "showFavorites": "Show Favorites",
+  "manualEntry": "Manual Entry Info",
   "scriptSaved": "Script saved",
-    "editScriptFor": "Edit script for {pluginName}",
-    "@editScriptFor": {
-        "description": "The title text for the page where a user can edit a script for a specific plugin.",
-        "placeholders": {
-            "pluginName": {
-                "type": "String",
-                "description": "The name of the plugin that the script belongs to."
-            }
-        }
-    },
+  "editScriptFor": "Edit script for {pluginName}",
+  "@editScriptFor": {
+    "description": "The title text for the page where a user can edit a script for a specific plugin.",
+    "placeholders": {
+      "pluginName": {
+        "type": "String",
+        "description": "The name of the plugin that the script belongs to."
+      }
+    }
+  },
   "saveScript": "Save Script",
-
-
- "testPlugin": "Test Plugin",
-
-"description": "Description",
-
-
-    "accessTargetUrl": "Access Target URL",
- 
- 
- "result": "Result",
-
-    "editScript": "Edit Script",
-
-"numberFormat": "Number Format",
-
-"nationalNumber": "National Number",
-"e164Number": "E164 Number",
-"pluginRulesInfo": "For security, please use plugins from trusted sources only. Feel free to use our templates to create your own custom plugins!",
-
-
-
-
-"advancedMode": "Advanced Mode",
-
-
+  "testPlugin": "Test Plugin",
+  "description": "Description",
+  "accessTargetUrl": "Access Target URL",
+  "result": "Result",
+  "editScript": "Edit Script",
+  "numberFormat": "Number Format",
+  "nationalNumber": "National Number",
+  "e164Number": "E164 Number",
+  "pluginRulesInfo": "For security, please use plugins from trusted sources only. Feel free to use our templates to create your own custom plugins!",
+  "advancedMode": "Advanced Mode",
   "pleaseEnterAtLeastOneNumber": "Please enter at least one number.",
-
-
-
   "openInWebView": "Open in WebView",
-
   "pluginLabel": "Plugin Label",
   "pluginID": "ID",
-
-
   "pluginURL": "URL",
-
-"messageBackgroundColor": "Message Background Color",
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- "clearAllCallLogs": "Clear All Call Logs",
+  "messageBackgroundColor": "Message Background Color",
+  "clearAllCallLogs": "Clear All Call Logs",
   "clearAllCallLogsConfirmation": "Confirm to clear all call logs",
- "allCallLogsCleared": "All call logs cleared",
+  "allCallLogsCleared": "All call logs cleared",
   "unblocked": "Unblocked",
- "blockNumber": "Block Number",
-
- "blockNumberSuccess": "Block number success",
- "blockNumberFailed": "Block number failed",
-
-
-
-
+  "blockNumber": "Block Number",
+  "blockNumberSuccess": "Block number success",
+  "blockNumberFailed": "Block number failed",
   "unblockNumberConfirmation": "Are you sure you want to unblock {phoneNumber}?",
   "@unblockNumberConfirmation": {
     "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
@@ -2175,7 +2165,6 @@
       }
     }
   },
-
   "callingNumber": "Calling {phoneNumber}...",
   "@callingNumber": {
     "description": "Status text displayed on the screen when an outgoing call is initiated.",
@@ -2187,53 +2176,31 @@
       }
     }
   },
-
   "viewDetails": "View Details",
- "unblock": "Unblock",
- "unblockNumber": "Unblock Number",
- "unblockNumberSuccess": "Number unblocked successfully",
-
- "unblockNumberFailed": "Unblock number failed",
-
- "serviceNotAvailable": "Service not available",
-
-"callingNumberFailed": "Calling number failed",
-
-
-
+  "unblock": "Unblock",
+  "unblockNumber": "Unblock Number",
+  "unblockNumberSuccess": "Number unblocked successfully",
+  "unblockNumberFailed": "Unblock number failed",
+  "serviceNotAvailable": "Service not available",
+  "callingNumberFailed": "Calling number failed",
   "listView": "List View",
-
-
-
   "timelineView": "Timeline View",
   "nameCannotBeEmpty": "Name cannot be empty",
   "selectAction": "Select the action",
-"selectTargetService": "Select the target service",
-
-"callDetails": "Call Details",
-
- "callType": "Call Type",
-"callTime": "Call Time",
-"numberInvalidFormat": "Number invalid format",
-
-
-
-
+  "selectTargetService": "Select the target service",
+  "callDetails": "Call Details",
+  "callType": "Call Type",
+  "callTime": "Call Time",
+  "numberInvalidFormat": "Number invalid format",
   "membershipFeature": "Membership Feature",
-
-
-"medium": "Medium",
-
-
+  "medium": "Medium",
   "finalRisk": "Final Risk",
   "simState": "SIM State",
   "ipCountry": "IP Country",
   "simCountry": "SIM Country",
   "isRoaming": "Roaming",
   "isNumberMatch": "Number Match",
-
- "support": "Support",
-
+  "support": "Support",
   "rewardedAdService": "Rewarded Ad Service",
   "hasVipPrivilegeExceptAds": "You already have VIP privileges (except for ads)",
   "hasTempPrivilegeWithExpiry": "You already have temporary privileges, expiry date: {expiryDate}",
@@ -2250,20 +2217,12 @@
   "vip3DaysWithAds": "3-day VIP with ads (sync only)",
   "vip5DaysNoAds": "5-day full-featured ad-free VIP",
   "vip7DaysNoAds": "7-day full-featured ad-free VIP",
-
-
-"noNotifications": "No notifications",
-
- "clearAllNotifications": "Clear All Notifications",
- "clearAllNotificationsConfirmation": "Confirm to clear all notifications",
- "allNotificationsCleared": "All notifications cleared",
-
-
-
- "clearButton": "Clear",
-
+  "noNotifications": "No notifications",
+  "clearAllNotifications": "Clear All Notifications",
+  "clearAllNotificationsConfirmation": "Confirm to clear all notifications",
+  "allNotificationsCleared": "All notifications cleared",
+  "clearButton": "Clear",
   "justNow": "Just now",
-
   "minutesAgo": "{count,plural, =1{1 minute ago} other{{count} minutes ago}}",
   "@minutesAgo": {
     "description": "Relative time for minutes ago.",
@@ -2274,7 +2233,6 @@
       }
     }
   },
-
   "hoursAgo": "{count,plural, =1{1 hour ago} other{{count} hours ago}}",
   "@hoursAgo": {
     "description": "Relative time for hours ago.",
@@ -2285,7 +2243,6 @@
       }
     }
   },
-
   "daysAgo": "{count,plural, =1{1 day ago} other{{count} days ago}}",
   "@daysAgo": {
     "description": "Relative time for days ago.",
@@ -2296,15 +2253,11 @@
       }
     }
   },
-
-
   "yesterday": "Yesterday",
-
   "deletionProposal": "Deletion Proposal",
   "@deletionProposal": {
     "description": "Deletion proposal title"
   },
-
   "createProposal": "Create Proposal",
   "@createProposal": {
     "description": "Create proposal button text"
@@ -2313,7 +2266,6 @@
   "@createProposalTitle": {
     "description": "Create proposal dialog title"
   },
- 
   "@phoneNumber": {
     "description": "Phone number label"
   },
@@ -2321,41 +2273,30 @@
   "@reason": {
     "description": "Reason label"
   },
-
-"reasonOutdated": "Outdated Number",
-"@reasonOutdated": {
-  "description": "Outdated Number reason option"
-},
-"reasonPrivacy": "Privacy Concern",
-"@reasonPrivacy": {
-  "description": "Privacy Concern reason option"
-},
-"reasonNotInService": "Not in Service",
-"@reasonNotInService": {
-  "description": "Not in Service reason option"
-},
-"reasonWronglyIdentified": "Wrongly Identified",
-"@reasonWronglyIdentified": {
-  "description": "Wrongly Identified reason option"
-},
-
-
-"reasonInaccurateInfo": "Inaccurate Information",
-"@reasonInaccurateInfo": {
-  "description": "Inaccurate Information reason option"
-},
-
-
-
-
-
-
-
+  "reasonOutdated": "Outdated Number",
+  "@reasonOutdated": {
+    "description": "Outdated Number reason option"
+  },
+  "reasonPrivacy": "Privacy Concern",
+  "@reasonPrivacy": {
+    "description": "Privacy Concern reason option"
+  },
+  "reasonNotInService": "Not in Service",
+  "@reasonNotInService": {
+    "description": "Not in Service reason option"
+  },
+  "reasonWronglyIdentified": "Wrongly Identified",
+  "@reasonWronglyIdentified": {
+    "description": "Wrongly Identified reason option"
+  },
+  "reasonInaccurateInfo": "Inaccurate Information",
+  "@reasonInaccurateInfo": {
+    "description": "Inaccurate Information reason option"
+  },
   "reasonWrongMarked": "Wrong Marked",
   "@reasonWrongMarked": {
     "description": "Wrong marked reason option"
   },
-
   "reasonOther": "Other",
   "@reasonOther": {
     "description": "Other reason option"
@@ -2516,7 +2457,6 @@
   "@refreshProposals": {
     "description": "Refresh proposals button text"
   },
-
   "@overview": {
     "description": "Overview label"
   },
@@ -2746,76 +2686,55 @@
   },
   "loadVoteCountFailed": "Failed to load vote count",
   "voteCount": "Vote Count",
-
   "deletionProposalInfo": "Deletion Proposal Information",
   "deletionProposalDescription": "Propose numbers for deletion that violate community guidelines. Your participation helps keep the platform safe.",
   "voteToEarnVip": "Vote on proposals to earn VIP privileges!",
- 
   "voteFailed": "Vote failed",
-
-
-"searchProposals": "Search Proposals",
-
-
-    "defaultNotifications": "Default Notifications",
-    "defaultNotificationsDescription": "Default notification channel for the app.",
-    "blockedCallNotifications": "Blocked Call Notifications",
-    "blockedCallNotificationsDescription": "Displays information about blocked calls.",
-    "stirVerification": "STIR/SHAKEN Verification",
-    "stirVerificationDescription": "Displays STIR/SHAKEN verification results for numbers.",
-    "fraudAlerts": "Fraud Alerts",
-    "fraudAlertsDescription": "Displays warnings for potential fraudulent calls.",
-
-
-
-
-
-
+  "searchProposals": "Search Proposals",
+  "defaultNotifications": "Default Notifications",
+  "defaultNotificationsDescription": "Default notification channel for the app.",
+  "blockedCallNotifications": "Blocked Call Notifications",
+  "blockedCallNotificationsDescription": "Displays information about blocked calls.",
+  "stirVerification": "STIR/SHAKEN Verification",
+  "stirVerificationDescription": "Displays STIR/SHAKEN verification results for numbers.",
+  "fraudAlerts": "Fraud Alerts",
+  "fraudAlertsDescription": "Displays warnings for potential fraudulent calls.",
   "notificationFrequencyDescription": "Choose how often you receive notifications about new deletion proposals. You can receive them immediately, in batches, or at a custom interval.",
   "@notificationFrequencyDescription": {
     "description": "A detailed explanation of what the notification frequency settings do"
   },
-
   "notificationMode": "Notification Mode",
   "@notificationMode": {
     "description": "Title for the mode selection part (Immediate, Batched, Custom)"
   },
-
   "immediateNotifications": "Immediate",
   "@immediateNotifications": {
     "description": "Label for the immediate notification mode"
   },
-
   "immediateNotificationsDescription": "Receive a notification as soon as a proposal is created.",
   "@immediateNotificationsDescription": {
     "description": "Description for the immediate notification mode"
   },
-
   "batchNotifications": "Batched",
   "@batchNotifications": {
     "description": "Label for the batched notification mode"
   },
-
   "batchNotificationsDescription": "Receive a summary of notifications periodically.",
   "@batchNotificationsDescription": {
     "description": "Description for the batched notification mode"
   },
-
   "customNotifications": "Custom",
   "@customNotifications": {
     "description": "Label for the custom notification mode"
   },
-
   "customNotificationsDescription": "Define your own interval for receiving notifications.",
   "@customNotificationsDescription": {
     "description": "Description for the custom notification mode"
   },
-
   "customFrequency": "Custom Frequency",
   "@customFrequency": {
     "description": "Title for the custom frequency slider section"
   },
-
   "notificationFrequencyDurationMinutes": "{minutes} min",
   "@notificationFrequencyDurationMinutes": {
     "description": "Formats a duration that is only in minutes.",
@@ -2826,7 +2745,6 @@
       }
     }
   },
-
   "notificationFrequencyDurationHours": "{hours} h",
   "@notificationFrequencyDurationHours": {
     "description": "Formats a duration that is in whole hours.",
@@ -2837,7 +2755,6 @@
       }
     }
   },
-
   "notificationFrequencyDurationHoursAndMinutes": "{hours} h {minutes} min",
   "@notificationFrequencyDurationHoursAndMinutes": {
     "description": "Formats a duration that has both hours and minutes.",
@@ -2852,134 +2769,103 @@
       }
     }
   },
-   "pendingProposals": "Pending Proposals",
+  "pendingProposals": "Pending Proposals",
   "pendingProposalsBody": "You have {count, plural, =0 {no pending proposals} one {1 pending proposal} other {{count} pending proposals}}.",
-  
-"guidelinesLabel": "Guidelines",
-
- "riskLevelLabel": "Risk Level",
+  "guidelinesLabel": "Guidelines",
+  "riskLevelLabel": "Risk Level",
   "riskLevelDescription": "Risk level of the number",
- 
-"phoneNumberMinDigits": "Phone number must be at least 7 digits",
-"provideDetailedExplanation": "Provide a detailed explanation(minimum 10 characters)",
-"reasonMinCharacters": "Reason must be at least 10 characters",
-
-
-"countryCodeTwoLetters": "Country Code (ISO 3166-1 alpha-2) *",
- "countryCodeLabel": "Country Code (ISO 3166-1 alpha-2) *",
+  "phoneNumberMinDigits": "Phone number must be at least 7 digits",
+  "provideDetailedExplanation": "Provide a detailed explanation(minimum 10 characters)",
+  "reasonMinCharacters": "Reason must be at least 10 characters",
+  "countryCodeTwoLetters": "Country Code (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "Country Code (ISO 3166-1 alpha-2) *",
   "@countryCodeLabel": {
     "description": "Label for country code input field"
   },
-  
   "countryCodeHint": "e.g., US, CN, GB",
   "@countryCodeHint": {
     "description": "Hint text for country code input field"
   },
-  
   "countryCodeRequired": "Country code is required",
   "@countryCodeRequired": {
     "description": "Validation message for required country code"
   },
-  
   "countryCodeLengthError": "Country code must be 2 letters",
   "@countryCodeLengthError": {
     "description": "Validation message for country code length"
   },
-  
   "phoneNumberHint": "Enter phone number",
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
-  
   "phoneNumberRequired": "Phone number is required",
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
-  
   "phoneNumberLengthError": "Phone number must be at least 7 digits",
   "@phoneNumberLengthError": {
     "description": "Validation message for phone number length"
   },
-  
   "reasonHint": "Provide detailed explanation (minimum 10 characters)",
   "@reasonHint": {
     "description": "Hint text for reason input field"
   },
-  
   "reasonRequired": "Reason is required",
   "@reasonRequired": {
     "description": "Validation message for required reason"
   },
-  
   "reasonLengthError": "Reason must be at least 10 characters",
   "@reasonLengthError": {
     "description": "Validation message for reason length"
   },
-  
   "guidelinesTitle": "Guidelines",
   "@guidelinesTitle": {
     "description": "Title for guidelines section"
   },
-  
   "guidelinesText": "• Only report numbers that are genuinely problematic\n• Provide accurate and detailed reasons\n• Choose appropriate risk level based on severity\n• False reports may result in account restrictions",
   "@guidelinesText": {
     "description": "Text content for guidelines section"
   },
-  
   "riskLevelCritical": "Critical",
   "@riskLevelCritical": {
     "description": "Label for critical risk level"
   },
-  
-
-  
   "riskLevelMedium": "Medium",
   "@riskLevelMedium": {
     "description": "Label for medium risk level"
   },
-  
-
-  
   "riskLevelVeryLow": "Very Low",
   "@riskLevelVeryLow": {
     "description": "Label for very low risk level"
   },
-  
   "riskDescriptionVeryLow": "Very Low - Minor annoyance, infrequent calls",
   "@riskDescriptionVeryLow": {
     "description": "Description for very low risk level"
   },
-  
   "riskDescriptionLow": "Low - Occasional unwanted calls",
   "@riskDescriptionLow": {
     "description": "Description for low risk level"
   },
-  
   "riskDescriptionMedium": "Medium - Regular spam or telemarketing",
   "@riskDescriptionMedium": {
     "description": "Description for medium risk level"
   },
-  
   "riskDescriptionHigh": "High - Persistent harassment or scam attempts",
   "@riskDescriptionHigh": {
     "description": "Description for high risk level"
   },
-  
   "riskDescriptionCritical": "Critical - Dangerous scams or threats",
   "@riskDescriptionCritical": {
     "description": "Description for critical risk level"
   },
-  
   "notificationFrequencyTitle": "Notification Frequency",
   "@notificationFrequencyTitle": {
     "description": "Title for notification frequency settings"
   },
-  
   "notificationFrequencyLabel": "Notification Frequency (hours)",
   "@notificationFrequencyLabel": {
     "description": "Label for notification frequency dropdown"
   },
-  
   "errorMessage": "Error: {error}",
   "@errorMessage": {
     "description": "Generic error message template",
@@ -2989,7 +2875,6 @@
       }
     }
   },
-  
   "votesStatistics": "Votes: {totalVotes} ({supportPercentage}% support)",
   "@votesStatistics": {
     "description": "Voting statistics text",
@@ -3002,16 +2887,10 @@
       }
     }
   },
-  
-
-  
- 
-  
   "timeJustNow": "Just now",
   "@timeJustNow": {
     "description": "Time format for recent events"
   },
-  
   "timeMinutesAgo": "{minutes}m ago",
   "@timeMinutesAgo": {
     "description": "Time format for minutes ago",
@@ -3021,7 +2900,6 @@
       }
     }
   },
-  
   "timeHoursAgo": "{hours}h ago",
   "@timeHoursAgo": {
     "description": "Time format for hours ago",
@@ -3031,7 +2909,6 @@
       }
     }
   },
-  
   "timeDaysAgo": "{days}d ago",
   "@timeDaysAgo": {
     "description": "Time format for days ago",
@@ -3041,16 +2918,14 @@
       }
     }
   },
-    "reportingGuidelines": "• Only report numbers that are genuinely problematic\n• Provide accurate and detailed reasons\n• Choose appropriate risk level based on severity\n• False reports may result in account restrictions",
+  "reportingGuidelines": "• Only report numbers that are genuinely problematic\n• Provide accurate and detailed reasons\n• Choose appropriate risk level based on severity\n• False reports may result in account restrictions",
   "@reportingGuidelines": {
     "description": "Guidelines for reporting a number."
   },
-
   "notificationFrequencyHours": "Notification Frequency (Hours)",
   "@notificationFrequencyHours": {
     "description": "Title for the notification frequency setting."
   },
-
   "supportCount": "Support ({supportCount})",
   "@supportCount": {
     "description": "Shows the number of support votes.",
@@ -3060,7 +2935,6 @@
       }
     }
   },
-
   "opposeCount": "Oppose ({opposeCount})",
   "@opposeCount": {
     "description": "Shows the number of oppose votes.",
@@ -3070,7 +2944,6 @@
       }
     }
   },
-
   "votesWithPercentage": "{totalVotes} votes ({supportPercentage}% support)",
   "@votesWithPercentage": {
     "description": "Displays the total vote count and the percentage of support votes.",
@@ -3080,11 +2953,9 @@
       },
       "supportPercentage": {
         "type": "int"
-      
       }
     }
   },
-
   "hoursDuration": "{count, plural, =0{0 hours} =1{1 hour} other{{count} hours}}",
   "@hoursDuration": {
     "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
@@ -3094,20 +2965,15 @@
       }
     }
   },
-
- 
- 
   "importantNoticeTitle": "Important Notice",
   "@importantNoticeTitle": {
     "description": "The title for the data source disclaimer card."
   },
-
   "dataSourceDisclaimer": "Numbers are sourced from the internet and user submissions. We cannot guarantee that a number, once deleted, will not be re-submitted by other users or sources. Please actively search and verify information.",
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
   },
- 
- "avatar": "Avatar",
+  "avatar": "Avatar",
   "@avatar": {
     "description": "The avatar of the user."
   },
@@ -3116,30 +2982,20 @@
     "description": "The location of the user."
   },
   "simCardTitle": "SIM Card",
-
-"liveActivitiesSettingsTitle": "Live Activities Settings",
- "elementsSettingsTitle":"Elements Settings",
- "liveActivityMode": "Live Activity",
+  "liveActivitiesSettingsTitle": "Live Activities Settings",
+  "elementsSettingsTitle": "Elements Settings",
+  "liveActivityMode": "Live Activity",
   "liveActivityModeDescription": "Displays call information as a persistent notification on the lock screen and in the Dynamic Island (iOS).",
-
-"phoneNumberType": "PhoneNumber Type",
-"liveActivitiesTestEndActivity": "End Activity",
-"liveActivitiesTestSendNewActivity": "Send New Activity",
-
-
-"liveActivitiesTestUpdateActivity": "Update Activity",
-
-"liveActivityControlsTitle": "Live Activity Controls",
-
-
-
-"liveActivitiesTestTitle": "Live Activities Test",
+  "phoneNumberType": "PhoneNumber Type",
+  "liveActivitiesTestEndActivity": "End Activity",
+  "liveActivitiesTestSendNewActivity": "Send New Activity",
+  "liveActivitiesTestUpdateActivity": "Update Activity",
+  "liveActivityControlsTitle": "Live Activity Controls",
+  "liveActivitiesTestTitle": "Live Activities Test",
   "liveActivitiesTestSubtitle": "Test the live activity Notification.",
   "liveNotificationCustomizationTitle": "Live Notification Customization",
   "liveNotificationCustomizationSubtitle": "Customize the appearance of live notifications.",
-
- 
-   "notification_instructions": "Instructions:\n1. Tap \"SEND\" to create or update a notification.\n2. Go to your home screen or pull down the notification tray to see the result.\n3. Tap \"END\" to dismiss the notification.",
+  "notification_instructions": "Instructions:\n1. Tap \"SEND\" to create or update a notification.\n2. Go to your home screen or pull down the notification tray to see the result.\n3. Tap \"END\" to dismiss the notification.",
   "@notification_instructions": {
     "description": "A single string containing all instructions for the notification."
   },
@@ -3151,99 +3007,82 @@
   "@autoCancelNotificationDescription": {
     "description": "A description of the auto cancel notification checkbox."
   },
-
-"setDelayTime": "Set Delay Time",
+  "setDelayTime": "Set Delay Time",
   "@setDelayTime": {
     "description": "A button to set the delay time for the notification."
   },
   "proposalDetails": "Proposal Details",
   "@proposalDetails": {
-    "description": "The title of the proposal details page."  
+    "description": "The title of the proposal details page."
   },
-   "filterByStatus": "Filter by Status",
-
-
-"proposalNotFound": "Proposal not found",
-"@proposalNotFound": {
+  "filterByStatus": "Filter by Status",
+  "proposalNotFound": "Proposal not found",
+  "@proposalNotFound": {
     "description": "A message displayed when a proposal is not found."
   },
-
-
- "processed": "Processed",
- "@processed": {
-   "description": "A label for the processed status."
- },
-"showAll": "Show All",
-
-"@showAll": {
+  "processed": "Processed",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "showAll": "Show All",
+  "@showAll": {
     "description": "A button to show all proposals."
   },
- 
- "filterAndSortTitle": "Filter and Sort",
-
-"filterVerifiedOwner": "Filter Verified Owner",
-"@filterVerifiedOwner": {
+  "filterAndSortTitle": "Filter and Sort",
+  "filterVerifiedOwner": "Filter Verified Owner",
+  "@filterVerifiedOwner": {
     "description": "A checkbox to toggle whether to filter verified owners."
   },
- 
- 
-"filterBy": "Filter By",
-"@filterBy": {
+  "filterBy": "Filter By",
+  "@filterBy": {
     "description": "A label for the filter by dropdown."
   },
-
-"sortOldest": "Sort Oldest",
-"sortNewest": "Sort Newest",
-
-"sortMostPopular": "Sort Most Popular",
-
-"sortLeastPopular": "Sort Least Popular",
-"sortBy": "Sort By",
-"simRulesNotFound": "SIM Rules not found",
-"@simRulesNotFound": {
+  "sortOldest": "Sort Oldest",
+  "sortNewest": "Sort Newest",
+  "sortMostPopular": "Sort Most Popular",
+  "sortLeastPopular": "Sort Least Popular",
+  "sortBy": "Sort By",
+  "simRulesNotFound": "SIM Rules not found",
+  "@simRulesNotFound": {
     "description": "A message displayed when SIM rules are not found."
   },
-"simSlotRules": "SIM Slot Rules",
-"@simSlotRules": {
+  "simSlotRules": "SIM Slot Rules",
+  "@simSlotRules": {
     "description": "A label for the SIM slot rules."
   },
-"noSimCardDetected": "No SIM card detected",
-"@noSimCardDetected": {
+  "noSimCardDetected": "No SIM card detected",
+  "@noSimCardDetected": {
     "description": "A message displayed when no SIM card is detected."
   },
-"invalidSimData": "Invalid SIM data",
-"@invalidSimData": {
+  "invalidSimData": "Invalid SIM data",
+  "@invalidSimData": {
     "description": "A message displayed when the SIM data is invalid."
   },
-"simCardData": "SIM Card Data",
-"@simCardData": {
+  "simCardData": "SIM Card Data",
+  "@simCardData": {
     "description": "A label for the SIM card data."
   },
-"simSlot": "SIM Slot",
-"@simSlot": {
+  "simSlot": "SIM Slot",
+  "@simSlot": {
     "description": "A label for the SIM slot."
   },
   "enableFiltering": "Enable Filtering",
   "@enableFiltering": {
     "description": "A checkbox to toggle whether to enable filtering."
   },
-
-"detailedSettingsTitle": "Detailed Settings",
-"@detailedSettingsTitle": {
+  "detailedSettingsTitle": "Detailed Settings",
+  "@detailedSettingsTitle": {
     "description": "The title of the detailed settings page."
   },
-"entryPointViewTitle": "Entry Point View",
-"@entryPointViewTitle": {
+  "entryPointViewTitle": "Entry Point View",
+  "@entryPointViewTitle": {
     "description": "The title of the entry point view."
   },
-
-"callTypeRejected": "Rejected",
-
-"callTypeSilenced": "Silenced",
-"callTypeVoicemail": "Voicemail",
-"callTypeUnknownIntercept": "Unknown Intercept",
-
-    "andMoreItems": "and {count} more items",
+  "callTypeRejected": "Rejected",
+  "callTypeSilenced": "Silenced",
+  "callTypeVoicemail": "Voicemail",
+  "callTypeUnknownIntercept": "Unknown Intercept",
+  "andMoreItems": "and {count} more items",
   "@andMoreItems": {
     "description": "Text to show when there are more items than displayed.",
     "placeholders": {
@@ -3253,13 +3092,9 @@
       }
     }
   },
- 
- 
- 
- "ruleType": "Rule Type",
-
-   "localDatabaseSyncTitle": "Local Database Sync",
-   "@localDatabaseSyncTitle": {
+  "ruleType": "Rule Type",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
     "description": "The title of the local database sync section."
   },
   "localDatabaseSyncSubtitle": "Sync data across devices",
@@ -3277,37 +3112,39 @@
   "requiredField": "Required",
   "requiredInitField": "Required for initialization",
   "initDbButton": "Initialize Database",
-
   "dbInitSuccess": "Database Initialized Successfully!",
   "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
   "@syncSuccess": {
     "description": "Message shown when sync completes successfully",
     "placeholders": {
-      "pushed": { "type": "int" },
-      "pulled": { "type": "int" }
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
     }
   },
-
   "errorPrefix": "Error",
   "errorLoadingSettings": "Error loading settings",
   "statusLabel": "Status",
   "statusConnected": "Connected / Configured",
   "statusNotConfigured": "Not Configured",
-"configSaved": "Configuration Saved!",
-    "masterDeviceLabel": "Is Master Device (Admin)",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
   "masterDeviceHelp": "Only the master device can initialize the database structure.",
-    "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalLabel": "Auto-sync Interval",
   "syncIntervalValue": "Every {hours} hours",
   "@syncIntervalValue": {
     "placeholders": {
-      "hours": { "type": "int" }
+      "hours": {
+        "type": "int"
+      }
     }
   },
-
- "leaveEmptyToUseDefault": "Leave empty to use default",
- 
- "vipAccessSubtitle": "Watch ads for free or purchase VIP",
- "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
   "@failedToLoadSettingsSchema": {
     "description": "Error message when plugin settings schema fails to load",
     "placeholders": {
@@ -3359,4 +3196,3 @@
  
 
 }
-

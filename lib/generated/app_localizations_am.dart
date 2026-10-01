@@ -1,5 +1,6 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
+
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -5677,7 +5678,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get defaultNotificationsDescription =>
-      'Default notification channel for the app.';
+      'ለመተግበሪያው የሚደርስ የማይታወቅ የማሳወቂያ ክፍያ።';
 
   @override
   String get blockedCallNotifications => 'የታገዱ ጥሪ ማሳወቂያዎች';
@@ -6063,104 +6064,106 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => 'የደንቦች አይነት';
 
   @override
-  String get localDatabaseSyncTitle => 'Local Database Sync';
+  String get localDatabaseSyncTitle => 'የስፋት ዳታቤስ ማስተላለፍ';
 
   @override
-  String get localDatabaseSyncSubtitle => 'Sync data across devices';
+  String get localDatabaseSyncSubtitle => 'ዳታን በላይ መሳሪያዎች ላይ ማስተላለፍ';
 
   @override
   String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
+      'የልማድ ሱፓቤስ ዳታቤስዎን ያግኙ እና ዳታን በላይ መሳሪያዎች ላይ ማስተላለፍ።';
 
   @override
-  String get supabaseProjectUrl => 'Supabase Project URL';
+  String get supabaseProjectUrl => 'የሱፓቤስ ፕሮጀክት URL';
 
   @override
-  String get supabaseAnonKey => 'Anon Key';
+  String get supabaseAnonKey => 'የሚለበስ ቁልፍ';
 
   @override
-  String get supabaseAnonKeyHint => 'API Key, anon public key';
+  String get supabaseAnonKeyHint => 'API ቁልፍ፣ የሕዝብ ማስታወቂያ ቁልፍ';
 
   @override
-  String get connectionString => 'Connection String (URI)';
+  String get connectionString => 'የግንኙነት ሰብር (URI)';
 
   @override
-  String get connectionStringHelper =>
-      'Only needed for \'Initialize Database\'';
+  String get connectionStringHelper => 'ለ\'ዳታቤስ አስቀምጥ\' ብቻ የሚያስፈልግ';
 
   @override
-  String get syncCallHistory => 'Sync Call History';
+  String get syncCallHistory => 'የጥሪ ታሪክ ማስተላለፍ';
 
   @override
-  String get syncCallHistorySubtitle => 'Include private call logs in sync';
+  String get syncCallHistorySubtitle => 'የግል ጥሪ መዝገቦችን በማስተላለፍ ውስጥ አስቀምጡ';
 
   @override
-  String get requiredField => 'Required';
+  String get requiredField => 'የሚያስፈልግ';
 
   @override
-  String get requiredInitField => 'Required for initialization';
+  String get requiredInitField => 'ለማስጀመር የሚያስፈልግ';
 
   @override
-  String get initDbButton => 'Initialize Database';
+  String get initDbButton => 'ዳታቤስን አስቀምጡ';
 
   @override
-  String get dbInitSuccess => 'Database Initialized Successfully!';
+  String get dbInitSuccess => 'ዳታቤስ በተሳካ ሁኔታ ተነስቷል፡፡';
 
   @override
   String syncSuccess(int pushed, int pulled) {
-    return 'Sync Complete. Sent: $pushed, Received: $pulled';
+    return 'ማስተላለፍ ተጠናቋል፡፡ የተላከው: $pushed፣ የተቀበለው: $pulled';
   }
 
   @override
-  String get errorPrefix => 'Error';
+  String get errorPrefix => 'ስህተት';
 
   @override
-  String get errorLoadingSettings => 'Error loading settings';
+  String get errorLoadingSettings => 'ቅንብሮችን በማውረድ ላይ ስህተት';
 
   @override
-  String get statusLabel => 'Status';
+  String get statusLabel => 'ሁኔታ';
 
   @override
-  String get statusConnected => 'Connected / Configured';
+  String get statusConnected => 'ተገናኝቷል / ተዋቀረ';
 
   @override
-  String get statusNotConfigured => 'Not Configured';
+  String get statusNotConfigured => 'አልተዋቀረም';
 
   @override
-  String get configSaved => 'Configuration Saved!';
+  String get configSaved => 'ዋቀር ተቀምጧል፡፡';
 
   @override
-  String get masterDeviceLabel => 'Is Master Device (Admin)';
+  String get masterDeviceLabel => 'ዋና መሳሪያ ነው? (አስተዳደር)';
 
   @override
-  String get masterDeviceHelp =>
-      'Only the master device can initialize the database structure.';
+  String get masterDeviceHelp => 'ዋና መሳሪያ ብቻ የዳታቤስ አቀማመጥን ማስቀመጥ አለበት።';
 
   @override
-  String get syncIntervalLabel => 'Auto-sync Interval';
+  String get syncIntervalLabel => 'የራስ-ማጣበሻ ክፍያ';
 
   @override
   String syncIntervalValue(int hours) {
-    return 'Every $hours hours';
+    return 'በየ $hours ሰዓት';
   }
 
   @override
-  String get leaveEmptyToUseDefault => 'Leave empty to use default';
+  String get leaveEmptyToUseDefault => 'ባዶ ተው ለመጠቀም የሥርዓቱን ማረጋገጫ ይጠቀሙ';
 
   @override
-  String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+  String get vipAccessSubtitle => 'ለነጻ ማሳያዎችን ይመልከቱ ወይም VIP ይግዙ';
 
   @override
   String failedToLoadSettingsSchema(String error) {
-    return 'Failed to load settings schema: $error';
+    return 'የቅንብሮችን ዘይቤ ማጫን አልተሳካም: $error';
   }
 
   @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
+  String get noSettingsAvailable => 'ለዚህ ፕላግን ምንም ቅንብሮች አሉም።';
 
   @override
-  String get fieldIsRequired => 'This field is required';
+  String get fieldIsRequired => 'ይህ መስክ ያስፈልጋል';
+
+  @override
+  String get answerThenHangupDescription =>
+      'የሚገባ ጥሪን በቀጣይ ይመልሱ እና ለማስወገድ ወዲያውኑ ይቁርጡ';
 }

@@ -1,5 +1,6 @@
 // ignore: unused_import
 import 'package:intl/intl.dart' as intl;
+
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -360,7 +361,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get apply => 'تطبيق';
 
   @override
-  String get appName => 'Your Call Your Rule';
+  String get appName => 'مكالمتك قاعدتك';
 
   @override
   String get authorizationFailedCheckCredentialsMessage =>
@@ -2125,7 +2126,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get getFree => 'احصل على مجاني';
 
   @override
-  String get github => 'GitHub';
+  String get github => 'جيت هاب';
 
   @override
   String get globalFilterDescription =>
@@ -6149,104 +6150,109 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => 'نوع القاعدة';
 
   @override
-  String get localDatabaseSyncTitle => 'Local Database Sync';
+  String get localDatabaseSyncTitle => 'مزامنة قاعدة البيانات المحلية';
 
   @override
-  String get localDatabaseSyncSubtitle => 'Sync data across devices';
+  String get localDatabaseSyncSubtitle => 'مزامنة البيانات عبر الأجهزة';
 
   @override
   String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
+      'قم بتوصيل قاعدة بيانات Supabase الشخصية لمزامنة البيانات عبر الأجهزة.';
 
   @override
-  String get supabaseProjectUrl => 'Supabase Project URL';
+  String get supabaseProjectUrl => 'رابط مشروع Supabase';
 
   @override
-  String get supabaseAnonKey => 'Anon Key';
+  String get supabaseAnonKey => 'مفتاح المجهول';
 
   @override
-  String get supabaseAnonKeyHint => 'API Key, anon public key';
+  String get supabaseAnonKeyHint => 'مفتاح API، مفتاح عام مجهول';
 
   @override
-  String get connectionString => 'Connection String (URI)';
+  String get connectionString => 'سلسلة الاتصال (URI)';
 
   @override
-  String get connectionStringHelper =>
-      'Only needed for \'Initialize Database\'';
+  String get connectionStringHelper => 'مطلوب فقط لـ \'تهيئة قاعدة البيانات\'';
 
   @override
-  String get syncCallHistory => 'Sync Call History';
+  String get syncCallHistory => 'مزامنة سجل المكالمات';
 
   @override
-  String get syncCallHistorySubtitle => 'Include private call logs in sync';
+  String get syncCallHistorySubtitle =>
+      'تضمين سجلات المكالمات الخاصة في المزامنة';
 
   @override
-  String get requiredField => 'Required';
+  String get requiredField => 'مطلوب';
 
   @override
-  String get requiredInitField => 'Required for initialization';
+  String get requiredInitField => 'مطلوب للتهيئة';
 
   @override
-  String get initDbButton => 'Initialize Database';
+  String get initDbButton => 'تهيئة قاعدة البيانات';
 
   @override
-  String get dbInitSuccess => 'Database Initialized Successfully!';
+  String get dbInitSuccess => 'تم تهيئة قاعدة البيانات بنجاح!';
 
   @override
   String syncSuccess(int pushed, int pulled) {
-    return 'Sync Complete. Sent: $pushed, Received: $pulled';
+    return 'اكتملت المزامنة. تم الإرسال: $pushed، تم الاستقبال: $pulled';
   }
 
   @override
-  String get errorPrefix => 'Error';
+  String get errorPrefix => 'خطأ';
 
   @override
-  String get errorLoadingSettings => 'Error loading settings';
+  String get errorLoadingSettings => 'خطأ في تحميل الإعدادات';
 
   @override
-  String get statusLabel => 'Status';
+  String get statusLabel => 'الحالة';
 
   @override
-  String get statusConnected => 'Connected / Configured';
+  String get statusConnected => 'متصل / مُعد';
 
   @override
-  String get statusNotConfigured => 'Not Configured';
+  String get statusNotConfigured => 'غير مُعد';
 
   @override
-  String get configSaved => 'Configuration Saved!';
+  String get configSaved => 'تم حفظ الإعدادات!';
 
   @override
-  String get masterDeviceLabel => 'Is Master Device (Admin)';
+  String get masterDeviceLabel => 'هل هو الجهاز الرئيسي (المشرف)';
 
   @override
   String get masterDeviceHelp =>
-      'Only the master device can initialize the database structure.';
+      'فقط الجهاز الرئيسي يمكنه تهيئة هيكل قاعدة البيانات.';
 
   @override
-  String get syncIntervalLabel => 'Auto-sync Interval';
+  String get syncIntervalLabel => 'فاصل المزامنة التلقائية';
 
   @override
   String syncIntervalValue(int hours) {
-    return 'Every $hours hours';
+    return 'كل $hours ساعات';
   }
 
   @override
-  String get leaveEmptyToUseDefault => 'Leave empty to use default';
+  String get leaveEmptyToUseDefault => 'اتركه فارغاً لاستخدام الافتراضي';
 
   @override
-  String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+  String get vipAccessSubtitle => 'شاهد الإعلانات مجاناً أو اشترِ VIP';
 
   @override
   String failedToLoadSettingsSchema(String error) {
-    return 'Failed to load settings schema: $error';
+    return 'فشل تحميل مخطط الإعدادات: $error';
   }
 
   @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
+  String get noSettingsAvailable =>
+      'لا توجد إعدادات متاحة لهذا المكون الإضافي.';
 
   @override
-  String get fieldIsRequired => 'This field is required';
+  String get fieldIsRequired => 'هذا الحقل مطلوب';
+
+  @override
+  String get answerThenHangupDescription =>
+      'الرد تلقائياً على المكالمة الواردة ثم إنهاؤها فوراً';
 }
