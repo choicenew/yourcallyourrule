@@ -2,11 +2,25 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-遵循 AngelSlim / Hy-MT2 官方与 Transformers GGUF 规范进行本地增量翻译
+100% 严格对照 AngelSlim 官方文档无差异加载与推理
 
-核心修补：
-Transformers 依赖安装 `gguf>=0.10.0` 模块，用于解析 AngelSlim GGUF 权重的二进制 Header。
-文件选择优先挑选 `Hy-MT2-1.8B-2bit-v2.gguf` 修复版本。
+官方示范代码对照：
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+model = AutoModelForCausalLM.from_pretrained(
+    model_path,
+    device_map="auto",
+    trust_remote_code=True,
+    torch_dtype='auto',
+    low_cpu_mem_usage=True,
+)
+tokenizer = AutoTokenizer.from_pretrained(model_path)
+
+inputs = tokenizer("Hello, my name is", return_tensors="pt").to(model.device)
+outputs = model.generate(**inputs)
+print(tokenizer.decode(outputs[0]))
+```
 """
 
 import json
@@ -14,7 +28,7 @@ import os
 import re
 import sys
 import torch
-from huggingface_hub import list_repo_files
+import angelslim
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # ============ 路径与模型配置 ============
@@ -23,7 +37,7 @@ L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "language_data.dart")
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
-MODEL_PATH = os.environ.get("HY_MT2_MODEL_PATH", "AngelSlim/Hy-MT2-1.8B-2Bit-GGUF")
+MODEL_PATH = "AngelSlim/Hy-MT2-1.8B-2Bit-GGUF"
 
 model = None
 tokenizer = None
@@ -34,48 +48,26 @@ def log(msg: str):
 
 
 def init_hymt2_model():
-    """使用 Transformers GGUF 规范加载 AngelSlim/Hy-MT2-1.8B-2Bit-GGUF"""
+    """100% 严格依官方文档示例代码逐字记载"""
     global model, tokenizer
-    log(f"开始加载 GGUF 镜像模型: {MODEL_PATH}")
+    log(f"按官方文档代码加载模型: {MODEL_PATH}")
 
-    try:
-        repo_files = list_repo_files(MODEL_PATH)
-        gguf_files = [f for f in repo_files if f.endswith(".gguf")]
-    except Exception as e:
-        log(f"⚠️ 查询仓库文件失败: {e}")
-        gguf_files = []
-
-    # 优先顺序挑选: v2 -> 小写 2bit -> 大写 2Bit -> 其它
-    preferred_order = ["Hy-MT2-1.8B-2bit-v2.gguf", "Hy-MT2-1.8B-2bit.gguf", "Hy-MT2-1.8B-2Bit.gguf"]
-    target_gguf = next((f for f in preferred_order if f in gguf_files), gguf_files[0] if gguf_files else None)
-
-    if target_gguf:
-        log(f"锁定 GGUF 权重目标文件: `{target_gguf}`，通过 Transformers 核心载入...")
-        model = AutoModelForCausalLM.from_pretrained(
-            MODEL_PATH,
-            gguf_file=target_gguf,
-            device_map="auto",
-            trust_remote_code=True,
-            low_cpu_mem_usage=True,
-        )
-    else:
-        model = AutoModelForCausalLM.from_pretrained(
-            MODEL_PATH,
-            device_map="auto",
-            trust_remote_code=True,
-            torch_dtype='auto',
-            low_cpu_mem_usage=True,
-        )
-
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, gguf_file=target_gguf) if target_gguf else AutoTokenizer.from_pretrained(MODEL_PATH)
-    log("✅ 模型与分词器通过 Transformers GGUF 规范成功加载！")
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_PATH,
+        device_map="auto",
+        trust_remote_code=True,
+        torch_dtype='auto',
+        low_cpu_mem_usage=True,
+    )
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+    log("✅ 模型与分词器按官方规范成功加载！")
 
 
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
-    """按官方规范进行 generate 推理"""
+    """100% 严格依官方文档示例代码进行 generate 与 decode 推理"""
     prompt = f"Translate to {target_lang}: {text}"
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-    outputs = model.generate(**inputs, max_new_tokens=256)
+    outputs = model.generate(**inputs)
     translated = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
     if prompt in translated:
@@ -203,7 +195,7 @@ def parse_target_locales_from_dart(file_path: str) -> list[str]:
 
 def main():
     log("==========================================")
-    log("  腾讯混元 Hy-MT2 GGUF 本地模型管道启动")
+    log("  腾讯混元 Hy-MT2 100% 官方示例对照本地模型管道启动")
     log("==========================================")
 
     init_hymt2_model()
@@ -221,7 +213,7 @@ def main():
         log("⚠️ 未解析到语言配置。")
         sys.exit(0)
 
-    log(f"🚀 开始处理 {len(target_locales)} 个语言...")
+    log(f"🚀 开始调用 AngelSlim 官方标准模型处理 {len(target_locales)} 个语言...")
 
     for locale in target_locales:
         if locale.startswith("en"):
