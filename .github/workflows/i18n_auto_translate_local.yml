@@ -20,39 +20,46 @@ jobs:
       - name: 1. Checkout 代码
         uses: actions/checkout@v4
 
-      - name: 2. 配置 Python 与 Flutter 环境
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-
-      - name: 3. 部署 uv 多线程极速包管理器与依赖缓存
+      - name: 2.1 部署 uv 多线程极速包管理器与依赖缓存
         uses: astral-sh/setup-uv@v5
         with:
           enable-cache: true
 
-      - name: 4. 依照 AngelSlim 官方 README 递归克隆全量源码并安装 (--recursive)
+      - name: 2.2 缓存 HuggingFace 模型权重文件 (避免重复下载 ~500MB)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-models-hy-mt2-2bit-v1
+          restore-keys: |
+            hf-models-hy-mt2-
+
+      - name: 2.3 配置 Python 3.10 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 2.4 配置 Flutter 环境 (带 Pub 缓存)
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: 3. 安装 AngelSlim 官方全量环境与依赖
         run: |
           uv pip install --system torch torchvision --index-url https://download.pytorch.org/whl/cpu
           uv pip install --system transformers accelerate huggingface_hub
-          
-          # 100% 遵照官方 README：克隆时包含 --recursive 拉取全部 git submodules，解决 qat 缺失问题
           git clone --recursive https://github.com/Tencent/AngelSlim.git /tmp/AngelSlim
           cd /tmp/AngelSlim && uv pip install --system -e .
 
-      - name: 5. 执行 腾讯混元 Hy-MT2 本地 CPU 进程内翻译
+      - name: 4. 执行 腾讯混元 2Bit 官方 AngelSlim 框架本地翻译
         run: |
           python scripts/i18n_pipeline_local.py
 
-      - name: 6. 编译生成 AppLocalizations 代码
+      - name: 5. 编译生成 AppLocalizations 代码
         run: |
           flutter gen-l10n
 
-      - name: 7. 自动创建隔离 Pull Request
+      - name: 6. 自动创建隔离 Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -60,7 +67,7 @@ jobs:
           title: "🌐 [Hy-MT2 本地模型] 自动修补多语言 ARB 与本地化代码"
           body: |
             ## 🤖 腾讯 Hy-MT2-1.8B 本地端侧模型翻译报告
-            - 100% 运行于 GitHub Actions 本地 CPU (AngelSlim 原生推理)
+            - 100% 运行于 GitHub Actions 本地 CPU (AngelSlim 官方框架推理)
             - 零外部 API 依赖，零费用，零 403 / 429 报错
             - 已重新运行 `flutter gen-l10n` 编译生成代码
           branch: "i18n/auto-translation-hymt2-update"
