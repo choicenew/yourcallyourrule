@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '/core/entities/plugin/plugin_entry.dart';
-import '/features/plugin/services/plugin_invoker_service.dart';
+import 'package:plugindemo/core/entities/plugin/plugin_entry.dart';
+import 'package:plugindemo/features/plugin/services/plugin_invoker_service.dart';
 import 'package:plugindemo/features/plugin/services/plugin_url_execution_service.dart';
-import '/generated/app_localizations.dart';
+import 'package:plugindemo/generated/app_localizations.dart';
 
 class PluginSettingsDialog extends StatefulWidget {
   final PluginEntry plugin;
@@ -60,7 +60,7 @@ class _PluginSettingsDialogState extends State<PluginSettingsDialog> {
             content: Text(
               AppLocalizations.of(
                 context,
-              ).failedToLoadSettingsSchema(e.toString()),
+              )!.failedToLoadSettingsSchema(e.toString()),
             ),
           ),
         );
@@ -72,7 +72,7 @@ class _PluginSettingsDialogState extends State<PluginSettingsDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(
-        '${AppLocalizations.of(context).settings}: ${widget.plugin.name}',
+        '${AppLocalizations.of(context)!.settings}: ${widget.plugin.name}',
       ),
       content: SizedBox(
         width: double.maxFinite,
@@ -93,7 +93,7 @@ class _PluginSettingsDialogState extends State<PluginSettingsDialog> {
                             hintText:
                                 AppLocalizations.of(
                                   context,
-                                ).leaveEmptyToUseDefault,
+                                )!.leaveEmptyToUseDefault,
                             helperText:
                                 'Default: ${PluginUrlExecutionService.defaultUserAgent}',
                             helperMaxLines: 3,
@@ -123,7 +123,7 @@ class _PluginSettingsDialogState extends State<PluginSettingsDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text(AppLocalizations.of(context).cancel),
+          child: Text(AppLocalizations.of(context)!.cancel),
         ),
         if (!_isLoading)
           ElevatedButton(
@@ -133,7 +133,7 @@ class _PluginSettingsDialogState extends State<PluginSettingsDialog> {
                 Navigator.of(context).pop(_config);
               }
             },
-            child: Text(AppLocalizations.of(context).save),
+            child: Text(AppLocalizations.of(context)!.save),
           ),
       ],
     );
@@ -162,7 +162,7 @@ class _PluginSettingsDialogState extends State<PluginSettingsDialog> {
               required
                   ? (value) =>
                       value == null || value.isEmpty
-                          ? AppLocalizations.of(context).fieldIsRequired
+                          ? AppLocalizations.of(context)!.fieldIsRequired
                           : null
                   : null,
           onSaved: (value) => _config[key] = value,
@@ -170,7 +170,6 @@ class _PluginSettingsDialogState extends State<PluginSettingsDialog> {
       );
     }
 
-    // Default to text
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: TextFormField(
@@ -184,7 +183,7 @@ class _PluginSettingsDialogState extends State<PluginSettingsDialog> {
             required
                 ? (value) =>
                     value == null || value.isEmpty
-                        ? AppLocalizations.of(context).fieldIsRequired
+                        ? AppLocalizations.of(context)!.fieldIsRequired
                         : null
                 : null,
         onSaved: (value) => _config[key] = value,

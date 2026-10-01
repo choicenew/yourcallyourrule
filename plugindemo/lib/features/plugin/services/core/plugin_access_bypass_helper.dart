@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'bypass_scripts.dart';
 
-// [REFACTOR] Ephemeral Session Class
 class _BypassSession {
   final String id;
   final String targetUrl;
@@ -44,32 +43,27 @@ class _BypassSession {
           _controller = controller;
           _setupCallbacks(controller);
         },
-        onLoadStop: (controller, url) async {
-          // debugPrint('🛡️ [Session-$id] Page Loaded: $url');
-        },
+        onLoadStop: (controller, url) async {},
       );
 
       debugPrint('🛡️ [Session-$id] Creating Headless WebView...');
       await _headlessWebView?.run();
 
-      // Wait for Controller
       int attempts = 0;
       while (_controller == null && attempts < 20) {
         await Future.delayed(const Duration(milliseconds: 100));
         attempts++;
       }
 
-      if (_controller == null)
+      if (_controller == null) {
         throw Exception('WebViewController failed to initialize');
+      }
 
-      // Start Logic
       await _injectScriptsAndLoad();
 
-      // Polling
       _isPolling = true;
       _startNativePolling();
 
-      // Wait for result
       return await _completer.future.timeout(
         const Duration(seconds: 60),
         onTimeout: () => {'success': false, 'error': 'Timeout'},
@@ -95,7 +89,6 @@ class _BypassSession {
         if (args.isNotEmpty) _onFailed(args[0]);
       },
     );
-    // [RESTORE] Restore interaction logging channel
     controller.addJavaScriptHandler(
       handlerName: 'TestPageChannel',
       callback: (args) {
@@ -190,7 +183,6 @@ class _BypassSession {
 
   void dispose() {
     _isPolling = false;
-    // Destroy the WebView strictly
     _headlessWebView?.dispose();
     _headlessWebView = null;
     _controller = null;
@@ -204,7 +196,6 @@ class PluginAccessBypassHelper {
   factory PluginAccessBypassHelper() => _instance;
   PluginAccessBypassHelper._internal();
 
-  // Semaphore / Queue
   static const int MAX_CONCURRENT_SESSIONS = 3;
   int _activeSessions = 0;
   final Queue<Completer<void>> _waitQueue = Queue();
@@ -231,7 +222,6 @@ class PluginAccessBypassHelper {
     }
   }
 
-  /// Execute Bypass: Creates an Ephemeral Session, Runs it, then Destroys it.
   Future<Map<String, dynamic>?> executeBypass(
     String targetUrl, {
     String? userAgent,
@@ -255,14 +245,7 @@ class PluginAccessBypassHelper {
     }
   }
 
-  // Legacy Stop method - deprecated but kept for API compatibility,
-  // can't easily kill specific sessions without tracking references,
-  // but since sessions are auto-disposed in finally, this might be less critical.
-  // We could implement a _trackSession list if "Force Stop All" is needed.
-  Future<void> stop() async {
-    // For now, no-op or we could track active sessions to kill them.
-    // Given "Destroy after use" paradigm, explicit stop is mostly for cancelling mid-flight.
-  }
+  Future<void> stop() async {}
 
   void dispose() {}
 }

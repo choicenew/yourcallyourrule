@@ -4,10 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:plugindemo/core/entities/plugin/plugin_entry.dart';
 import 'package:plugindemo/features/plugin/services/core/js_execution_service.dart';
 import 'package:plugindemo/features/plugin/services/core/native_request_channel.dart';
-import 'package:http/http.dart' as http; // For loading script via URL
+import 'package:http/http.dart' as http;
 
 /// 插件测试服务
-/// [Refactored] 使用 JsExecutionService + NativeRequestChannel (Core)
 class PluginTestService {
   JsExecutionService? _jsService;
   NativeRequestChannel? _requestChannel;
@@ -31,7 +30,6 @@ class PluginTestService {
     _jsService = JsExecutionService(onLog: (msg) => _addLog(msg));
     await _jsService!.init();
 
-    // Use Core Native Channel
     const defaultUA =
         'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36';
 
@@ -48,17 +46,13 @@ class PluginTestService {
   }
 
   void _setupHandlers() {
-    // Plugin Loaded Monitor
     _jsService!.registerHandler('TestPageChannel', (args) {
-      // ... (Logic to detect 'pluginLoaded' message similar to PluginExecutionService)
-      // For testing, we just log and check simple string logic or JSON
       dynamic message = args;
       if (args is List && args.isNotEmpty) message = args[0];
 
       _addLog("TestPageChannel: $message");
 
       if (message.toString().contains('pluginLoaded')) {
-        // Try parsing
         try {
           if (message is String) message = jsonDecode(message);
           if (message['type'] == 'pluginLoaded') {
@@ -72,7 +66,6 @@ class PluginTestService {
       }
     });
 
-    // Result Monitor
     _jsService!.registerHandler('PluginResultChannel', (args) {
       dynamic message = args;
       if (args is List && args.isNotEmpty) message = args[0];
@@ -106,8 +99,12 @@ class PluginTestService {
     try {
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
-        await _jsService!.evaluate(response.body);
-        _addLog("Script injected.");
+        final res = await _jsService!.evaluate(response.body);
+        if (res.isError) {
+          _addLog("❌ Script Load Error: ${res.stringResult}");
+        } else {
+          _addLog("Script injected.");
+        }
       } else {
         _addLog("Failed to fetch script: ${response.statusCode}");
       }
@@ -131,7 +128,6 @@ class PluginTestService {
 
     await _loadPluginJs(plugin);
 
-    // Wait for load
     int attempts = 0;
     while (!_isPluginJsLoaded && attempts < 50) {
       await Future.delayed(const Duration(milliseconds: 100));
@@ -142,7 +138,7 @@ class PluginTestService {
       _addLog(
         "Warning: pluginLoaded message not received. Attempting to run anyway (assuming explicit ID ${plugin.id})...",
       );
-      _loadedPluginId = plugin.id; // Fallback
+      _loadedPluginId = plugin.id;
     }
 
     final requestId = 'test_${DateTime.now().millisecondsSinceEpoch}';
@@ -153,10 +149,10 @@ class PluginTestService {
     try {
       await _jsService!.injectConfig(plugin.id, plugin.config);
 
-      await _jsService!.evaluate('''
+      final evalRes = await _jsService!.evaluate('''
          (function() {
-            if (window.plugin && window.plugin['${plugin.id}']) {
-               window.plugin['${plugin.id}'].generateOutput(
+            if (globalThis.plugin && globalThis.plugin['${plugin.id}']) {
+               globalThis.plugin['${plugin.id}'].generateOutput(
                   '$phoneNumber', '$nationalNumber', '$e164Number', '$requestId'
                );
             } else {
@@ -164,6 +160,9 @@ class PluginTestService {
             }
          })();
        ''');
+      if (evalRes.isError) {
+        _addLog("❌ JS Execution Error: ${evalRes.stringResult}");
+      }
 
       return await completer.future.timeout(
         const Duration(seconds: 30),
@@ -178,7 +177,6 @@ class PluginTestService {
       _addLog("Error: $e");
       rethrow;
     } finally {
-      // [FIX] Ensure Headless WebView is stopped and cleaned up after test
       _addLog("Cleaning up channel resources...");
       await _requestChannel?.cleanup();
     }

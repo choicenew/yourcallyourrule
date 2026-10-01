@@ -1,12 +1,14 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:ua_client_hints/ua_client_hints.dart';
+import 'package:plugindemo/core/entities/plugin/plugin_entry.dart';
 import 'package:plugindemo/features/plugin/services/core/js_execution_service.dart';
 import 'package:plugindemo/features/plugin/services/core/native_request_channel.dart';
+import 'package:plugindemo/features/plugin/services/core/transient_plugin_session.dart';
 
 /// 插件执行服务 - 负责插件 JS 的加载与执行
-/// [Refactored] 移除 WebView，改用 JsExecutionService + NativeRequestChannel
 class PluginExecutionService {
   static final PluginExecutionService _instance =
       PluginExecutionService._internal();
@@ -15,19 +17,16 @@ class PluginExecutionService {
 
   JsExecutionService? _jsService;
   NativeRequestChannel? _requestChannel;
-  String? _systemUserAgent; // Store System UA
+  String? _systemUserAgent;
 
   final Completer<void> _initCompleter = Completer<void>();
   bool _isInitializing = false;
 
-  // 跟踪每个插件的就绪状态
   final Map<String, bool> _pluginReadyStatus = {};
 
-  // 用于通知插件就绪状态的StreamController
   final StreamController<String> _pluginReadyController =
       StreamController<String>.broadcast();
 
-  // 存储每个插件查询的Completer
   final Map<String, Completer<Map<String, dynamic>?>> _pluginQueryCompleters =
       {};
 
@@ -42,20 +41,17 @@ class PluginExecutionService {
     try {
       debugPrint('[PluginExecutionService] Initializing Core Services...');
 
-      // 1. Init JS Engine
       _jsService = JsExecutionService(
         onLog: (msg) => debugPrint('[JS-LOG] $msg'),
       );
       await _jsService!.init();
 
-      // 2. Init Network Channel
-      // Use Real Device User-Agent (System UA) to match ztest behavior.
       try {
-        _systemUserAgent = await InAppWebViewController.getDefaultUserAgent();
+        _systemUserAgent = await userAgent();
       } catch (e) {
-        debugPrint('⚠️ Failed to get system UA, using default: $e');
+        debugPrint('⚠️ ua_client_hints failed, using fallback: $e');
         _systemUserAgent =
-            'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36';
+            'Mozilla/5.0 (Linux; Android 14; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36';
       }
 
       _requestChannel = NativeRequestChannel(
@@ -67,7 +63,6 @@ class PluginExecutionService {
       );
       _requestChannel!.register();
 
-      // 3. Register Callbacks
       _registerJsCallbacks();
 
       debugPrint(
@@ -82,17 +77,12 @@ class PluginExecutionService {
   }
 
   void _registerJsCallbacks() {
-    // Plugin Ready
     _jsService!.registerHandler('TestPageChannel', (args) {
-      // Adapted from ztest/plugindemo logic
-      // The old format was stringified JSON
       try {
         dynamic message = args;
         if (args is List && args.isNotEmpty) message = args[0];
 
         if (message is String && message.contains('pluginLoaded')) {
-          // Sometimes it's mixed: "Plugin Loaded: {json}"
-          // But if it's pure JSON, let's try decode.
           try {
             final data = jsonDecode(message);
             if (data['type'] == 'pluginLoaded') {
@@ -114,7 +104,6 @@ class PluginExecutionService {
       }
     });
 
-    // Plugin Result
     _jsService!.registerHandler('PluginResultChannel', (args) {
       try {
         dynamic message = args;
@@ -159,15 +148,9 @@ class PluginExecutionService {
 
     await _jsService!.evaluate(script);
 
-    // CRITICAL FIX: Inject System UA immediately, matching ztest logic.
-    // This prevents the plugin from using its fallback hardcoded UA.
     if (_systemUserAgent != null) {
       await _jsService!.injectConfig(pluginId, {'userAgent': _systemUserAgent});
     }
-
-    // Auto-notify that script execution is done (though we usually wait for explicit 'pluginReady')
-    // ztest doesn't use 'waitForPluginReady' the same way, but plugindemo does.
-    // We rely on the script calling `sendPluginLoaded()` or similar.
   }
 
   Future<void> waitForPluginReady(String pluginId) async {
@@ -190,7 +173,6 @@ class PluginExecutionService {
     }
   }
 
-  // 生成插件输出 (核心业务)
   Future<Map<String, dynamic>?> generatePluginOutput(
     String pluginId,
     String phoneNumber,
@@ -206,15 +188,12 @@ class PluginExecutionService {
     _pluginQueryCompleters[requestId] = completer;
 
     try {
-      // 1. Inject Config
       await _jsService!.injectConfig(pluginId, config ?? {});
 
-      // 2. Call generateOutput
-      // Note: We use window.plugin... as per our JS environment
       await _jsService!.evaluate('''
         (function() {
-          if (window.plugin && window.plugin['$pluginId']) {
-            window.plugin['$pluginId'].generateOutput(
+          if (globalThis.plugin && globalThis.plugin['$pluginId']) {
+            globalThis.plugin['$pluginId'].generateOutput(
               "$phoneNumber",
               "$nationalNumber",
               "$e164Number",
@@ -239,24 +218,41 @@ class PluginExecutionService {
     }
   }
 
+  Future<List<Map<String, dynamic>>> executeBatchSession({
+    required List<PluginEntry> enabledPlugins,
+    required String phoneNumber,
+    required String nationalNumber,
+    required String e164Number,
+    required void Function(Map<String, dynamic> firstValidResult) onFirstResult,
+    required void Function(Map<String, dynamic> singleResult) onResultCompleted,
+  }) async {
+    final session = TransientPluginSession();
+    return await session.executeSession(
+      enabledPlugins: enabledPlugins,
+      phoneNumber: phoneNumber,
+      nationalNumber: nationalNumber,
+      e164Number: e164Number,
+      onFirstResult: onFirstResult,
+      onResultCompleted: onResultCompleted,
+    );
+  }
+
   void dispose() {
     _jsService?.dispose();
     _pluginReadyController.close();
   }
 
-  // 辅助方法：获取 Settings
   Future<List<dynamic>?> getPluginSettings(String pluginId) async {
     await initialize();
     try {
       final res = await _jsService!.evaluate('''
         (function() {
-           if (window.plugin && window.plugin['$pluginId'] && window.plugin['$pluginId'].info) {
-              return JSON.stringify(window.plugin['$pluginId'].info.settings || []);
+           if (globalThis.plugin && globalThis.plugin['$pluginId'] && globalThis.plugin['$pluginId'].info) {
+              return JSON.stringify(globalThis.plugin['$pluginId'].info.settings || []);
            }
            return "[]";
         })();
       ''');
-      // res is JsEvalResult, stringResult
       return jsonDecode(res.stringResult);
     } catch (e) {
       return [];

@@ -29,16 +29,13 @@
 *   **模板文件**：在 `/plugins` 目录中，我们提供了一个 `template.js` 文件，您可以基于此模板来开发自己的插件。
 *   **更新状态**：请注意，目前只有 `/plugins` 目录下的插件是最新且经过维护的。
 
-### 如何创建自己的插件？
+### 如何创建与测试自己的插件？（AI 自动化测试工作流）
 
-创建插件比您想象的要简单，即使没有编程背景也可以完成：
+无需安装或运行 Android 模拟器，即可轻松开发并测试插件：
 
-1.  在浏览器中打开您想作为数据源的网站（例如，任何一个号码查询网站）。
-2.  打开浏览器的开发者工具（通常是 `Ctrl`+`Shift`+`I`），复制网页的源代码。
-3.  将 **网页源代码**、`/plugins` 目录下的 **`template.js` 模板** 以及 **任意一个已有的插件文件作为示例** 一同提供给 AI（如 ChatGPT, Gemini 等）。
-4.  指示 AI ：“请根据这个网页源码和模板，参考这个示例，帮我创建一个用于解析号码信息的插件。”
-
-AI 通常能够理解您的需求并生成可用的插件代码。
+1. **下载/打开 `plugindemo`**：使用本仓库中的独立 `plugindemo` 示例工程，其中包含了全套插件服务与本地无模拟器测试工具。
+2. **AI 自动化 Skill (`SKILL.md`)**：将目标查询网页源码（或 API 文档）与 [plugindemo/SKILL.md](file:///C:/Users/Ngokel/Desktop/en/test/github/yourcallyourrulemixhistory/plugindemo/SKILL.md) 技能文档一同提供给 AI（如 Cursor, ChatGPT, Gemini, Claude 等）。
+3. **全自动编写与单元测试**：AI 将严格遵照 `SKILL.md` 中的标准 SOP，自动选择最新的 API 模版（`Chinese_API.js` 等）或非 API 纯正则 HTML 模版（`Chinese.js`, `Universal_Regex_API_HTML_CN.js` 等）编写脚本，并直接在本地 QuickJS 环境中运行单测与自愈校验。
 
 ## 贡献与支持
 

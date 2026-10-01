@@ -1,7 +1,9 @@
 import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:native_dio_adapter/native_dio_adapter.dart';
+
 import 'js_execution_service.dart';
 import 'plugin_access_bypass_service.dart';
 
@@ -54,9 +56,6 @@ class NativeRequestChannel {
     }
 
     final String url = requestData['url'] ?? '';
-    // [ADAPTATION] plugindemo might not send pluginId in requestData, we might need to rely on what JS sends or external context.
-    // However, for robustness, we assume JS sends it or we default to 'unknown'.
-    // In plugindemo's current logic, the JS side uses window.plugin[id].handleResponse.
     final String pluginId = requestData['pluginId'] ?? 'unknown';
 
     if (url.isEmpty) {
@@ -69,12 +68,10 @@ class NativeRequestChannel {
     );
     onLog?.call("📡 Native: Fetching $url (via $pluginId)");
 
-    // [LEGACY PATTERN] Fire-and-Forget
-    // Return immediately so JS does NOT block.
-    // Process in background and call back.
+    // Fire-and-Forget
     Future.microtask(() => _performRequest(url, requestData, 0));
 
-    return null; // Return null to close the prompt synchronously
+    return null;
   }
 
   Future<void> _performRequest(
@@ -103,7 +100,6 @@ class NativeRequestChannel {
         requestHeaders = Map<String, dynamic>.from(originalRequest['headers']);
       }
 
-      // Ensure the headers use the resolved userAgent
       bool uaFound = false;
       requestHeaders.forEach((k, v) {
         if (k.toLowerCase() == 'user-agent') {
@@ -114,9 +110,6 @@ class NativeRequestChannel {
       if (!uaFound) {
         requestHeaders['User-Agent'] = userAgent;
       }
-
-      // NativeAdapter handles TLS fingerprint natively - no need for manual Client Hints
-      // Manual Client Hints with hardcoded values can cause version mismatch with dynamic UA
 
       final options = Options(
         headers: requestHeaders,
@@ -138,7 +131,6 @@ class NativeRequestChannel {
           options: options,
         );
       } else {
-        // [ADAPTATION] Handle other methods if needed (PUT, DELETE), plugindemo supports them.
         final method = options.method?.toUpperCase();
         if (method == 'PUT') {
           response = await dio.put(
@@ -162,9 +154,10 @@ class NativeRequestChannel {
       debugPrint(logMsg);
       onLog?.call(logMsg);
 
-      // [VALIDATION] Check if response contains expected marker (for JS-rendered pages)
+      // Check if response contains expected marker (for JS-rendered pages)
       bool contentValid = true;
       final successMarker = originalRequest['successMarker'];
+      final String strategy = originalRequest['strategy'] ?? 'direct';
       final bodyStr = response.data.toString();
 
       if (successMarker != null &&
@@ -176,8 +169,7 @@ class NativeRequestChannel {
         );
       }
 
-      if (!contentValid) {
-        // Validation Failed -> Fallback to Bypass (WebView)
+      if (!contentValid && strategy == 'render') {
         await _attemptBypass(
           url,
           originalRequest,
@@ -185,23 +177,19 @@ class NativeRequestChannel {
           retryCount,
           "Missing Marker '$successMarker'",
         );
-        return; // Bypass handled it (rehcursively or sent response)
+        return;
       }
 
-      // [ADAPTATION] Map fields to plugindemo structure
       responseMap = {
         'success': true,
         'status': response.statusCode,
         'responseText': bodyStr,
         'headers': response.headers.map,
-        'requestId': originalRequest['phoneRequestId'], // [ADAPTATION]
-        'phoneRequestId':
-            originalRequest['phoneRequestId'], // [ADAPTATION] Redundant but safe
-        'externalRequestId':
-            originalRequest['externalRequestId'], // [ADAPTATION]
+        'requestId': originalRequest['phoneRequestId'],
+        'phoneRequestId': originalRequest['phoneRequestId'],
+        'externalRequestId': originalRequest['externalRequestId'],
       };
     } on DioException catch (e) {
-      // 4. Handle Cloudflare 403 / 503 OR Timeouts
       if ((e.type == DioExceptionType.connectionTimeout ||
               e.type == DioExceptionType.receiveTimeout ||
               e.type == DioExceptionType.sendTimeout ||
@@ -230,10 +218,9 @@ class NativeRequestChannel {
           'error': errorMsg,
           'status': e.response?.statusCode,
           'type': e.type.toString(),
-          'requestId': originalRequest['phoneRequestId'], // [ADAPTATION]
-          'phoneRequestId': originalRequest['phoneRequestId'], // [ADAPTATION]
-          'externalRequestId':
-              originalRequest['externalRequestId'], // [ADAPTATION]
+          'requestId': originalRequest['phoneRequestId'],
+          'phoneRequestId': originalRequest['phoneRequestId'],
+          'externalRequestId': originalRequest['externalRequestId'],
         };
       }
     } catch (e) {
@@ -241,17 +228,14 @@ class NativeRequestChannel {
       responseMap = {
         'success': false,
         'error': "Unknown Error: $e",
-        'requestId': originalRequest['phoneRequestId'], // [ADAPTATION]
-        'phoneRequestId': originalRequest['phoneRequestId'], // [ADAPTATION]
+        'requestId': originalRequest['phoneRequestId'],
+        'phoneRequestId': originalRequest['phoneRequestId'],
       };
     }
 
-    // 5. Send Result Back to JS (Legacy Callback)
     await _sendResponseToJs(responseMap, originalRequest['pluginId']);
   }
 
-  /// [HELPER] Unified Bypass / Retry Logic
-  /// Handles both 403/503 challenges and "Missing Marker" (JS-rendered) cases.
   Future<void> _attemptBypass(
     String url,
     Map<String, dynamic> originalRequest,
@@ -262,7 +246,6 @@ class NativeRequestChannel {
     debugPrint("⚠️ NativeRequestChannel: Triggering Bypass. Reason: $reason");
     onLog?.call("⚠️ $reason -> Attempting WebView Bypass...");
 
-    // Invoke Shield Bypass (Proxy Mode)
     final bypassService = PluginAccessBypassService();
     final successMarker = originalRequest['successMarker'];
 
@@ -293,14 +276,12 @@ class NativeRequestChannel {
       await _sendResponseToJs(responseMap, originalRequest['pluginId']);
     } else if (bypassResult != null && bypassResult['cookies'] != null) {
       onLog?.call("🛡️ Bypass OK. Got Cookies. Retrying Request...");
-      // Retry with cookies
       if (originalRequest['headers'] == null) {
         originalRequest['headers'] = {};
       }
       originalRequest['headers']['Cookie'] = bypassResult['cookies'];
       originalRequest['headers']['User-Agent'] = userAgent;
 
-      // Recursive retry
       await _performRequest(url, originalRequest, retryCount + 1);
     } else {
       onLog?.call("❌ Bypass Failed. No content/cookies.");
@@ -319,19 +300,15 @@ class NativeRequestChannel {
     Map<String, dynamic> responseData,
     String? pluginId,
   ) async {
-    // [ADAPTATION] Fallback to 'truecallerPluginchannel' if ID is missing (as per plugindemo logic)
-    // But since this is a cleaner refactor, we prefer the actual ID.
-    // However, to keep safety:
     final actualPluginId = pluginId ?? 'truecallerPluginchannel';
 
     try {
-      // [USER REQUEST] Print Full HTML Content for Verification
       if (responseData.containsKey('responseText')) {
         final htmlContent = responseData['responseText'].toString();
         debugPrint(
           "📄 [NATIVE HTML DUMP START] --------------------------------",
         );
-        debugPrint(htmlContent); // Print raw HTML
+        debugPrint(htmlContent);
         debugPrint(
           "📄 [NATIVE HTML DUMP END] ----------------------------------",
         );
@@ -341,10 +318,8 @@ class NativeRequestChannel {
 
       debugPrint("📦 Sending Native Response to JS (Plugin: $actualPluginId)");
 
-      // Ensure quotes are escaped by jsonEncode
-      // Pass the JSON object literal directly to the function
       final script =
-          "if(window.plugin && window.plugin['$actualPluginId']) { window.plugin['$actualPluginId'].handleResponse($jsonResponse); } else { console.warn('Plugin $actualPluginId not found for response'); }";
+          "if(globalThis.plugin && globalThis.plugin['$actualPluginId']) { globalThis.plugin['$actualPluginId'].handleResponse($jsonResponse); } else { console.warn('Plugin $actualPluginId not found for response'); }";
 
       await jsService.sendNativeResponse(script);
     } catch (e) {
@@ -353,7 +328,6 @@ class NativeRequestChannel {
     }
   }
 
-  /// Force stop any active bypass operations (cleanup)
   Future<void> cleanup() async {
     await PluginAccessBypassService().stop();
   }

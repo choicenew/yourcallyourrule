@@ -18,15 +18,12 @@ class JsExecutionService {
 
     // 2. Initialize JS Runtime & Console Bridge
     // We need 'console' to see logs in the UI.
-    // CRITICAL FIX: The plugin relies on 'window' to Attach itself.
-    // QuickJS does not have 'window' by default. We must polyfill it.
     const consoleBridge = """
-      var window = this; 
       if (typeof console === 'undefined' || !console.log) {
-          var console = {
-              log: function(msg) { sendMessage('Log', msg); },
-              error: function(msg) { sendMessage('Log', '[ERROR] ' + msg); },
-              warn: function(msg) { sendMessage('Log', '[WARN] ' + msg); }
+          globalThis.console = {
+              log: function(msg) { sendMessage('Log', JSON.stringify(msg)); },
+              error: function(msg) { sendMessage('Log', JSON.stringify('[ERROR] ' + msg)); },
+              warn: function(msg) { sendMessage('Log', JSON.stringify('[WARN] ' + msg)); }
           };
       }
     """;
@@ -62,8 +59,15 @@ class JsExecutionService {
     });
 
     _runtime.onMessage('Log', (dynamic args) {
-      debugPrint("JS Log: $args");
-      onLog?.call("JS: $args");
+      dynamic logContent = args;
+      if (args is List && args.isNotEmpty) logContent = args[0];
+      if (logContent is String) {
+        try {
+          logContent = jsonDecode(logContent);
+        } catch (_) {}
+      }
+      debugPrint("JS Log: $logContent");
+      onLog?.call("JS: $logContent");
     });
   }
 
@@ -94,8 +98,8 @@ class JsExecutionService {
   ) async {
     final configJson = jsonEncode(config);
     final script = """
-      if (window.plugin && window.plugin['$pluginId']) {
-          window.plugin['$pluginId'].config = $configJson;
+      if (globalThis.plugin && globalThis.plugin['$pluginId']) {
+          globalThis.plugin['$pluginId'].config = $configJson;
           console.log('[Native] Injected config for $pluginId');
       } else {
           console.warn('[Native] Plugin $pluginId not found during config injection');

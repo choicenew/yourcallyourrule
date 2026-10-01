@@ -1,13 +1,8 @@
-import 'dart:convert';
-import 'dart:typed_data';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '/core/entities/plugin/plugin_entry.dart';
-import '/features/plugin/providers/plugin_url_webview_service_provider.dart';
-import 'package:plugindemo/features/plugin/services/plugin_url_execution_service.dart';
+import 'package:plugindemo/core/entities/plugin/plugin_entry.dart';
+import 'package:plugindemo/features/plugin/providers/plugin_url_webview_service_provider.dart';
 
 enum PageState {
   initial,
@@ -34,7 +29,6 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
   Map<String, String> _headers = {};
   String? _errorMessage;
 
-  // For switching between static and dynamic modes
   String? _staticUrl;
   Map<String, String> _staticHeaders = {};
 
@@ -82,7 +76,7 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
       _errorMessage = null;
     });
 
-    final service = ref.read(pluginUrlWebViewServiceProvider);
+    final service = ref.read(pluginUrlExecutionServiceProvider);
     try {
       final staticResult = await service.extractUrlFromScript(widget.plugin!);
       if (!mounted) return;
@@ -133,7 +127,7 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
       _errorMessage = null;
     });
 
-    final service = ref.read(pluginUrlWebViewServiceProvider);
+    final service = ref.read(pluginUrlExecutionServiceProvider);
     try {
       final generatedUrl = await service.generateUrlFromPhoneNumber(
         widget.plugin!,
@@ -143,7 +137,7 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
 
       setState(() {
         _urlToLoad = generatedUrl;
-        _headers = {}; // Dynamic URL has no special headers
+        _headers = {};
         _pageState = PageState.showWebView;
         _urlController.text = "Loading dynamic content...";
       });
@@ -309,8 +303,8 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
               onPressed: () {
                 setState(() {
                   _pageState = PageState.showWebView;
-                  _urlToLoad = _staticUrl; // Restore static URL
-                  _headers = _staticHeaders; // Restore static headers
+                  _urlToLoad = _staticUrl;
+                  _headers = _staticHeaders;
                   _urlController.text = _urlToLoad!;
                   _errorMessage = null;
                 });
@@ -394,9 +388,7 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
           });
         }
       },
-
       shouldOverrideUrlLoading: (controller, navigationAction) async {
-        // Allow all navigation requests.
         return NavigationActionPolicy.ALLOW;
       },
       shouldInterceptRequest: (controller, request) async {

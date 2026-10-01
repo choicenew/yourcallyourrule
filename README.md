@@ -30,16 +30,13 @@ One of the core strengths of `YourCallYourRule` is its powerful plugin system, w
 *   **Template File**: Inside the `/plugins` directory, you'll find a `template.js` file. You can use this as a starting point to develop your own plugins.
 *   **Update Status**: Please note that only the plugins located directly in the `/plugins` directory are currently maintained and up-to-date.
 
-### How to Create Your Own Plugin
+### How to Create & Test Your Own Plugin (AI Automation Workflow)
 
-Creating a plugin is easier than you might think, even without a background in programming:
+You can develop and test plugins seamlessly without installing an Android emulator:
 
-1.  Open your desired data source website (e.g., any reverse phone lookup site) in your browser.
-2.  Open the browser's Developer Tools (usually `Ctrl`+`Shift`+`I`) and copy the page's HTML source code.
-3.  Provide the **HTML source code**, the **`template.js` file** from the `/plugins` directory, and **any existing plugin file as an example** to an AI (like ChatGPT, Gemini, etc.).
-4.  Instruct the AI: "Please create a plugin to parse phone number information from this HTML source code, using this template and referencing this example."
-
-The AI can typically understand the request and generate the necessary plugin code for you.
+1. **Download / Open `plugindemo`**: Use the standalone `plugindemo` folder in this repository, which contains all plugin services and local testing tools.
+2. **AI Automation Skill (`SKILL.md`)**: Provide your AI (ChatGPT, Gemini, Claude, Cursor, etc.) with the target website HTML (or API docs) and the [plugindemo/SKILL.md](file:///C:/Users/Ngokel/Desktop/en/test/github/yourcallyourrulemixhistory/plugindemo/SKILL.md) file.
+3. **Automated Generation & Testing**: The AI will follow the official SOP in `SKILL.md` to automatically generate the plugin JS using the latest API/Regex templates (`Chinese.js`, `Chinese_API.js`, `Universal_Regex_API_HTML_CN.js`, etc.) and run headless QuickJS unit tests locally.
 
 ## Contributing & Support
 
