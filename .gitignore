@@ -65,3 +65,9 @@ key.properties
 **/key.properties
 # Widget Preview related
 .widget_preview/
+
+# i18n temporary reports and untranslated messages
+i18n_reports/
+_l10n_backups/
+lib/l10n/untranslated.json
+

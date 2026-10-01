@@ -113,25 +113,22 @@ def sanitize_and_deduplicate_arb(data: dict) -> dict:
 def clean_obsolete_keys_from_target(target_data: dict, baseline_keys: set) -> dict:
     """清理在英文基准表中已注销/废弃的旧 Key"""
     cleaned = {}
-    if "@@locale" in target_data:
-        cleaned["@@locale"] = target_data["@@locale"]
-
     for k, v in target_data.items():
-        if k in baseline_keys or k.startswith("@"):
+        if k == "@@locale":
+            cleaned[k] = v
+        elif k.startswith("@"):
+            base_k = k[1:]
+            if base_k in baseline_keys:
+                cleaned[k] = v
+        elif k in baseline_keys:
             cleaned[k] = v
     return cleaned
 
 
 def is_untranslated_value(en_val: str, target_val: str) -> bool:
-    """判定某个 Key 是否为空或疑似未翻译（直接复制英文原文）"""
-    if not target_val or not str(target_val).strip():
+    """判定某个 Key 是否缺失或为空（只有为空或未定义时才触发 AI 增量补全，绝不覆盖已有翻译）"""
+    if target_val is None or not str(target_val).strip():
         return True
-
-    # 原文与目标值相同，且长度大于 3 包含英文字母
-    if en_val == target_val and len(en_val) > 3:
-        if re.search(r"[a-zA-Z]", en_val):
-            return True
-
     return False
 
 
@@ -222,9 +219,11 @@ def process_language_task(target_locale: str, baseline_data: dict):
     arb_path = os.path.join(L10N_DIR, f"app_{target_locale}.arb")
     current_data = load_arb(arb_path)
 
+    baseline_keys_set = set(baseline_data.keys())
+
     # 1. 前置查重与清理废弃键
     current_data = sanitize_and_deduplicate_arb(current_data)
-    current_data = clean_obsolete_keys_from_target(current_data, set(baseline_data.keys()))
+    current_data = clean_obsolete_keys_from_target(current_data, baseline_keys_set)
 
     valid_en_keys = {k: v for k, v in baseline_data.items() if not k.startswith("@") and k != "@@locale"}
 
@@ -235,35 +234,39 @@ def process_language_task(target_locale: str, baseline_data: dict):
         if is_untranslated_value(en_val, curr_val):
             need_translation[k] = en_val
 
-    if not need_translation:
-        save_arb(arb_path, current_data)
-        log(f"✅ 语言 `{target_locale}` 已清理且数据完备，无需翻译。")
-        return target_locale, True
-
-    log(f"🌐 [并发线程] 语言 `{target_locale}` 开始翻译修补 {len(need_translation)} 个词条...")
-
+    # 3. 如果需要翻译，执行 AI 分块处理
     translated_results = {}
-    items = list(need_translation.items())
+    if need_translation:
+        log(f"🌐 [并发线程] 语言 `{target_locale}` 开始翻译修补 {len(need_translation)} 个缺失/空词条...")
+        items = list(need_translation.items())
+        for i in range(0, len(items), CHUNK_SIZE):
+            chunk = dict(items[i:i + CHUNK_SIZE])
+            chunk_res = translate_chunk(chunk, target_locale)
+            translated_results.update(chunk_res)
 
-    # 3. 分块处理
-    for i in range(0, len(items), CHUNK_SIZE):
-        chunk = dict(items[i:i + CHUNK_SIZE])
-        chunk_res = translate_chunk(chunk, target_locale)
-        translated_results.update(chunk_res)
-
-    # 4. 最终合并与顺序排列写回
+    # 4. 最终按基准顺序统一合并写回
     final_data = {"@@locale": target_locale}
     merged = {**current_data, **translated_results}
 
     for k in baseline_data.keys():
+        if k == "@@locale" or k.startswith("@"):
+            continue
         if k in merged:
             final_data[k] = merged[k]
             meta_k = "@" + k
-            if meta_k in baseline_data:
-                final_data[meta_k] = baseline_data[meta_k]
+            if meta_k in merged:
+                final_data[meta_k] = merged[meta_k]
 
-    save_arb(arb_path, final_data)
-    log(f"🎉 语言 `{target_locale}` 并发翻译与写回完成！")
+    # 判断数据是否有实际变动，无变动时不动文件，避免污染 git diff 与时间戳
+    if final_data != current_data:
+        save_arb(arb_path, final_data)
+        if need_translation:
+            log(f"🎉 语言 `{target_locale}` 并发翻译与写回完成！")
+        else:
+            log(f"🧹 语言 `{target_locale}` 结构规范化写回完成。")
+    else:
+        log(f"✅ 语言 `{target_locale}` 已是最新状态，无改动。")
+
     return target_locale, True
 
 
