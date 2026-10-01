@@ -2,20 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-遵循 AngelSlim / Hy-MT2 官方文档加载示例代码进行本地增量翻译
+遵循 AngelSlim / Hy-MT2 官方与 Transformers GGUF 规范进行本地增量翻译
 
-完全按官方文档规范编写：
-```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
-model = AutoModelForCausalLM.from_pretrained(
-    model_path,
-    device_map="auto",
-    trust_remote_code=True,
-    torch_dtype='auto',
-    low_cpu_mem_usage=True,
-)
-tokenizer = AutoTokenizer.from_pretrained(model_path)
-```
+技术解答：
+为什么报 `ValueError: Unrecognized model in ... Should have a model_type key in its config.json`:
+`AngelSlim/Hy-MT2-1.8B-2Bit-GGUF` 是纯 GGUF 权重仓库，不包含常规 PyTorch 的 `config.json`。
+Transformers 4.40+ 规定，从 GGUF 仓库加载 AutoModelForCausalLM 时，必须显式指定 `gguf_file` 参数！
 """
 
 import json
@@ -23,6 +15,7 @@ import os
 import re
 import sys
 import torch
+from huggingface_hub import list_repo_files
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # ============ 路径与模型配置 ============
@@ -42,23 +35,44 @@ def log(msg: str):
 
 
 def init_hymt2_model():
-    """按官方文档标准代码加载模型与分词器"""
+    """使用 Transformers GGUF 加载规范加载 AngelSlim/Hy-MT2-1.8B-2Bit-GGUF"""
     global model, tokenizer
-    log(f"按官方文档标准代码加载模型: {MODEL_PATH}")
+    log(f"开始加载 GGUF 镜像模型: {MODEL_PATH}")
 
-    model = AutoModelForCausalLM.from_pretrained(
-        MODEL_PATH,
-        device_map="auto",
-        trust_remote_code=True,
-        torch_dtype='auto',
-        low_cpu_mem_usage=True,
-    )
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-    log("✅ 模型与分词器按官方规范成功加载！")
+    # 动态查询仓库内部的 GGUF 文件
+    try:
+        repo_files = list_repo_files(MODEL_PATH)
+        gguf_files = [f for f in repo_files if f.endswith(".gguf")]
+    except Exception as e:
+        log(f"⚠️ 查询仓库文件失败: {e}")
+        gguf_files = []
+
+    target_gguf = gguf_files[0] if gguf_files else None
+
+    if target_gguf:
+        log(f"锁定 GGUF 权重目标文件: `{target_gguf}`，通过 Transformers 核心载入...")
+        model = AutoModelForCausalLM.from_pretrained(
+            MODEL_PATH,
+            gguf_file=target_gguf,
+            device_map="auto",
+            trust_remote_code=True,
+            low_cpu_mem_usage=True,
+        )
+    else:
+        model = AutoModelForCausalLM.from_pretrained(
+            MODEL_PATH,
+            device_map="auto",
+            trust_remote_code=True,
+            torch_dtype='auto',
+            low_cpu_mem_usage=True,
+        )
+
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, gguf_file=target_gguf) if target_gguf else AutoTokenizer.from_pretrained(MODEL_PATH)
+    log("✅ 模型与分词器通过 Transformers GGUF 规范成功加载！")
 
 
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
-    """按官方文档代码示范进行 generate 与 decode 推理"""
+    """按官方规范进行 generate 推理"""
     prompt = f"Translate to {target_lang}: {text}"
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
     outputs = model.generate(**inputs, max_new_tokens=256)
@@ -189,7 +203,7 @@ def parse_target_locales_from_dart(file_path: str) -> list[str]:
 
 def main():
     log("==========================================")
-    log("  腾讯混元 Hy-MT2 官方 AngelSlim 示例本地模型管道启动")
+    log("  腾讯混元 Hy-MT2 GGUF 本地模型管道启动")
     log("==========================================")
 
     init_hymt2_model()
@@ -207,7 +221,7 @@ def main():
         log("⚠️ 未解析到语言配置。")
         sys.exit(0)
 
-    log(f"🚀 开始调用 AngelSlim 官方标准模型处理 {len(target_locales)} 个语言...")
+    log(f"🚀 开始处理 {len(target_locales)} 个语言...")
 
     for locale in target_locales:
         if locale.startswith("en"):
