@@ -2,7 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-遵循 AngelSlim / Hy-MT2 官方说明，使用 HunyuanDense 模型架构进行本地推理
+遵循 AngelSlim 官方 README 发布公告链接：
+`[26/02/09] 我们发布了 HY-1.8B-2Bit, 2比特端侧大模型, 模型可见 Huggingface (https://huggingface.co/AngelSlim/HY-1.8B-2Bit)`
+
+说明：
+AngelSlim 引擎 prepare_model 加载的是包含 config.json 的官方 2Bit 模型仓库 `AngelSlim/HY-1.8B-2Bit`。
 """
 
 import json
@@ -18,7 +22,8 @@ L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "language_data.dart")
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
-MODEL_PATH = "AngelSlim/Hy-MT2-1.8B-2Bit-GGUF"
+# 精确使用 AngelSlim 官方 README 给出的 2Bit 模型 HuggingFace 仓库路径
+MODEL_PATH = os.environ.get("HY_MT2_MODEL_PATH", "AngelSlim/HY-1.8B-2Bit")
 
 slim_engine = None
 
@@ -28,14 +33,13 @@ def log(msg: str):
 
 
 def init_hymt2_model():
-    """按 AngelSlim 工厂映射：混元 Dense 系列使用 model_name="HunyuanDense" """
+    """按 AngelSlim 官方 README 说明：通过 Engine 载入 AngelSlim/HY-1.8B-2Bit """
     global slim_engine
-    log(f"通过 AngelSlim Engine 加载 HunyuanDense 架构模型: {MODEL_PATH}")
+    log(f"通过 AngelSlim Engine 加载官方 2Bit 模型: {MODEL_PATH}")
 
     slim_engine = Engine()
-    # 按照 AngelSlim 模型工厂名称，Hunyuan 密集型模型使用 HunyuanDense
     slim_engine.prepare_model(model_name="HunyuanDense", model_path=MODEL_PATH)
-    log("✅ 腾讯混元 Hy-MT2 模型已通过 AngelSlim 框架成功加载！")
+    log("✅ 腾讯混元 2Bit 本地模型已通过 AngelSlim 框架成功加载！")
 
 
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
@@ -168,7 +172,7 @@ def parse_target_locales_from_dart(file_path: str) -> list[str]:
 
 def main():
     log("==========================================")
-    log("  腾讯混元 Hy-MT2 官方 AngelSlim 框架推理管道启动")
+    log("  腾讯混元 2Bit 官方 AngelSlim 框架推理管道启动")
     log("==========================================")
 
     init_hymt2_model()
@@ -186,7 +190,7 @@ def main():
         log("⚠️ 未解析到语言配置。")
         sys.exit(0)
 
-    log(f"🚀 开始调用本地 Hy-MT2 2Bit 模型处理 {len(target_locales)} 个语言...")
+    log(f"🚀 开始调用本地 AngelSlim 2Bit 模型处理 {len(target_locales)} 个语言...")
 
     for locale in target_locales:
         if locale.startswith("en"):
@@ -194,7 +198,7 @@ def main():
         process_language_task_local(locale, baseline_data)
 
     log("==========================================")
-    log("✅ 本地 AngelSlim Hy-MT2 智能增量翻译全套完成！")
+    log("✅ 本地 AngelSlim 智能增量翻译全套完成！")
     log("==========================================")
 
 
