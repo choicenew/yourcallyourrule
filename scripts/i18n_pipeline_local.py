@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-云端全自动 腾讯混元 Hy-MT2-1.8B 本地 GGUF 模型 (via HuggingFace AngelSlim + 动态 GGUF 查找 + llama_cpp) 翻译管道
+云端全自动 腾讯混元 Hy-MT2-1.8B 本地 GGUF 模型 (via HuggingFace AngelSlim + 候选切牌 + llama_cpp) 翻译管道
 
 核心特征：
 1. 精确指向 HuggingFace 官方仓库: AngelSlim/Hy-MT2-1.8B-2Bit-GGUF
-2. 动态列出 Hugging Face 仓库文件，精准匹配实际出现的 .gguf 权重文件名，彻底杜绝 404
+2. 优先顺序切牌测试 (Hy-MT2-1.8B-2bit-v2.gguf -> Hy-MT2-1.8B-2bit.gguf -> Hy-MT2-1.8B-2Bit.gguf)，自动降级尝试
 3. 使用 hf_hub_download 自动下载 GGUF 权重文件并由 llama_cpp 原生内存加载
 """
 
@@ -32,7 +32,7 @@ def log(msg: str):
 
 
 def init_hymt2_model():
-    """从 HuggingFace 动态查找并初始化加载 Hy-MT2 GGUF 模型"""
+    """从 HuggingFace 动态查找并顺序尝试加载 Hy-MT2 GGUF 模型"""
     global llm
     log(f"正在查询 HuggingFace 仓库 `{REPO_ID}` 的文件列表...")
 
@@ -46,23 +46,32 @@ def init_hymt2_model():
     if not gguf_files:
         raise FileNotFoundError(f"仓库 `{REPO_ID}` 中未找到任何 .gguf 扩展名的权重文件！包含文件: {repo_files}")
 
-    target_filename = gguf_files[0]
-    log(f"✅ 动态精准查找到 GGUF 权重文件名: `{target_filename}`，开始下载...")
+    # 优先顺序切牌尝试：v2 -> 小写 2bit -> 大写 2Bit -> 其他
+    preferred_order = ["Hy-MT2-1.8B-2bit-v2.gguf", "Hy-MT2-1.8B-2bit.gguf", "Hy-MT2-1.8B-2Bit.gguf"]
+    candidates = [f for f in preferred_order if f in gguf_files] + [f for f in gguf_files if f not in preferred_order]
 
-    model_path = hf_hub_download(
-        repo_id=REPO_ID,
-        filename=target_filename,
-        repo_type="model"
-    )
-    log(f"模型权重已下载至本地缓存: {model_path}")
-    log("正在通过 llama_cpp 引擎装载本地 GGUF 模型...")
+    last_error = None
+    for target_filename in candidates:
+        log(f"尝试装载 GGUF 权重文件: `{target_filename}`...")
+        try:
+            model_path = hf_hub_download(
+                repo_id=REPO_ID,
+                filename=target_filename,
+                repo_type="model"
+            )
+            log(f"权重已就绪: {model_path}，正装载至 llama_cpp 引擎...")
+            llm = Llama(
+                model_path=model_path,
+                n_ctx=2048,
+                verbose=False
+            )
+            log(f"✅ 成功通过权重 `{target_filename}` 装载 腾讯混元 Hy-MT2-1.8B 模型！")
+            return
+        except Exception as e:
+            log(f"⚠️ 文件 `{target_filename}` 装载失败: {e}，自动切牌尝试下一个权重点...")
+            last_error = e
 
-    llm = Llama(
-        model_path=model_path,
-        n_ctx=2048,
-        verbose=False
-    )
-    log("✅ 腾讯混元 Hy-MT2-1.8B 2Bit-GGUF 本地模型加载成功！")
+    raise RuntimeError(f"❌ 仓库内所有 GGUF 候选文件均无法装载，报错信息: {last_error}")
 
 
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
@@ -156,7 +165,6 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
             current_data[key] = translated_text
             translated_count += 1
 
-            # 每 10 条进度落盘硬保存
             if translated_count % 10 == 0:
                 final_data = {"@@locale": target_locale}
                 for k in baseline_data.keys():
