@@ -10,7 +10,7 @@ on:
       - 'lib/l10n/app_en.arb'
       - 'scripts/i18n_pipeline_local.py'
       - '.github/workflows/i18n_auto_translate_local.yml'
-  workflow_dispatch: # 手动触发备用
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -40,22 +40,47 @@ jobs:
         with:
           enable-cache: true
 
-      - name: 4. 多线程极速安装 CPU 轻量版依赖 (体积从 4GB 锐减至 200MB)
+      - name: 4. 多线程极速安装 vLLM 及相关依赖
         run: |
-          # 1. 优先使用 CPU 专属 PyTorch 索引，将 2.5GB 庞大 CUDA 镜像压缩至 150MB
           uv pip install --system torch --index-url https://download.pytorch.org/whl/cpu
-          # 2. 多线程并发安装 AngelSlim 及关联依赖
-          uv pip install --system transformers accelerate angelslim
+          uv pip install --system "vllm>=0.8.5.post1" angelslim transformers
 
-      - name: 5. 执行 腾讯混元 Hy-MT2 官方示例本地增量翻译
+      - name: 5. 同步启动 vLLM 服务并执行翻译 (同 Step 防进程被杀)
         run: |
+          echo "=== 启动 AngelSlim 官方 vLLM OpenAI 兼容 API 服务 (端口 8080) ==="
+          python3 -m vllm.entrypoints.openai.api_server \
+              --host 127.0.0.1 \
+              --port 8080 \
+              --model Tencent-Hunyuan/Hy-MT2-1.8B \
+              --trust-remote-code \
+              --max-model-len 2048 > vllm_server.log 2>&1 &
+
+          echo "等待 vLLM API 服务启动就绪..."
+          READY=0
+          for i in {1..60}; do
+            if curl -s http://127.0.0.1:8080/v1/models > /dev/null || curl -s http://127.0.0.1:8080/health > /dev/null; then
+              echo "✅ 腾讯混元 Hy-MT2 vLLM 官方 API 服务启动就绪！"
+              READY=1
+              break
+            fi
+            echo "等待 vLLM API 服务启动就绪中 ($i/60)..."
+            sleep 3
+          done
+
+          if [ $READY -ne 1 ]; then
+            echo "❌ vLLM API 服务启动超时或失败！查看完整服务端日志："
+            cat vllm_server.log
+            exit 1
+          fi
+
+          echo "=== 执行 腾讯混元 Hy-MT2 官方 vLLM 本地增量翻译 ==="
           python scripts/i18n_pipeline_local.py
 
       - name: 6. 编译生成 AppLocalizations 代码
         run: |
           flutter gen-l10n
 
-      - name: 7. 自动创建隔离 Pull Request (不污染主库)
+      - name: 7. 自动创建隔离 Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -66,8 +91,6 @@ jobs:
             - 100% 运行于 GitHub Actions 本地 CPU (AngelSlim 官方示例进程内推理)
             - 零外部 API 依赖，零费用，零 403 / 429 报错
             - 已重新运行 `flutter gen-l10n` 编译生成代码
-
-            > 本 PR 由隔离的本地模型 Workflow 提交，主库未被污染。请核对后 Merge。
           branch: "i18n/auto-translation-hymt2-update"
           base: "main"
           delete-branch: true
