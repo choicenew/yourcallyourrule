@@ -2,20 +2,21 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-遵循 AngelSlim / Hy-MT2 官方 SGLang 规范调用本地模型服务进行增量翻译
+遵循 AngelSlim / Hy-MT2 官方文档进行本地 CPU 进程内翻译
 
-技术解答：
-之前的报错 `RuntimeError: Failed to infer device type` 是因为 vLLM 默认强制需要 Nvidia GPU 才能启动。
-在 GitHub Actions 的无显卡 CPU 虚拟机中，vLLM 检测不到 CUDA 设备直接崩溃。
-根据 AngelSlim 官方部署规范（Section 2 - 启动服务 SGLang），SGLang 对硬件架构的兼容性更好，我们将使用 SGLang 启动 OpenAI 兼容服务。
+技术澄清：
+官方文档指出，由于采用了极致量化技术，Hy-MT2 1.8B 可以极速在 CPU 上运行。
+而 SGLang 和 vLLM 等框架默认会查找 GPU；如果我们要严格在 GitHub Actions 无显卡虚拟机上发挥其官方宣称的 CPU 能力，
+必须使用官方推荐的 Transformers `low_cpu_mem_usage=True` 并在加载时剥离 GPU device_map！
 """
 
 import json
 import os
 import re
 import sys
-import urllib.request
-import urllib.error
+import torch
+import angelslim
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # ============ 路径与模型配置 ============
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,40 +24,42 @@ L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "language_data.dart")
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
-# 本地 SGLang 部署接口地址 (AngelSlim 官方部署规范 Section 2)
-LOCAL_API_URL = os.environ.get("LOCAL_API_URL", "http://127.0.0.1:8080/v1/chat/completions")
-MODEL_NAME = os.environ.get("HY_MT2_MODEL_NAME", "Tencent-Hunyuan/Hy-MT2-1.8B")
+MODEL_PATH = "Tencent-Hunyuan/Hy-MT2-1.8B"
+
+model = None
+tokenizer = None
 
 
 def log(msg: str):
-    print(f"[i18n-Local-SGLang] {msg}", flush=True)
+    print(f"[i18n-Local-AngelSlim] {msg}", flush=True)
+
+
+def init_hymt2_model():
+    """100% 依官方规范加载，强制指定 CPU 执行，剥离所有 GPU/CUDA 寻址"""
+    global model, tokenizer
+    log(f"按官方文档代码加载模型 (强制 CPU 推理): {MODEL_PATH}")
+
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_PATH,
+        device_map="cpu",  # 核心修正: 强制在 GitHub Actions 的 CPU 上执行
+        trust_remote_code=True,
+        torch_dtype=torch.float32, # CPU 不支持 auto 或 float16 计算，强制转为 float32
+        low_cpu_mem_usage=True,
+    )
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+    log("✅ 模型与分词器按官方 CPU 规范成功加载！")
 
 
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
-    """按 AngelSlim 官方 SGLang OpenAI API 规范调用本地推理服务"""
-    headers = {"Content-Type": "application/json"}
-    payload = {
-        "model": MODEL_NAME,
-        "messages": [
-            {"role": "user", "content": f"Translate the following text into {target_lang}:\n{text}"}
-        ],
-        "temperature": 0.1,
-        "max_tokens": 256
-    }
-    data_bytes = json.dumps(payload).encode("utf-8")
+    """CPU 进程内原生生成推理"""
+    prompt = f"Translate to {target_lang}: {text}"
+    inputs = tokenizer(prompt, return_tensors="pt") # CPU 默认生成在主存，不需要 .to(model.device)
+    outputs = model.generate(**inputs, max_new_tokens=256)
+    translated = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-    try:
-        req = urllib.request.Request(LOCAL_API_URL, data=data_bytes, headers=headers, method="POST")
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            res_body = resp.read().decode("utf-8")
-            res_json = json.loads(res_body)
-            choices = res_json.get("choices", [])
-            if not choices:
-                raise ValueError("API 响应未包含 choices")
-            return choices[0]["message"]["content"].strip()
-    except Exception as e:
-        log(f"❌ 调用本地 SGLang API 服务失败 ({LOCAL_API_URL}): {e}")
-        raise e
+    if prompt in translated:
+        translated = translated.replace(prompt, "").strip()
+    return translated.strip()
 
 
 def load_arb(path: str) -> dict:
@@ -126,7 +129,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
         log(f"✅ 语言 `{target_locale}` 数据完备。")
         return
 
-    log(f"🌐 [SGLang 官方 API] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
+    log(f"🌐 [AngelSlim 官方 CPU 推理] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
 
     translated_count = 0
     for key, en_text in need_translation.items():
@@ -179,8 +182,10 @@ def parse_target_locales_from_dart(file_path: str) -> list[str]:
 
 def main():
     log("==========================================")
-    log("  腾讯混元 Hy-MT2 官方 SGLang API 本地管道启动")
+    log("  腾讯混元 Hy-MT2 官方 CPU 示例本地管道启动")
     log("==========================================")
+
+    init_hymt2_model()
 
     baseline_data = load_arb(BASELINE_ARB)
     if not baseline_data:
@@ -195,7 +200,7 @@ def main():
         log("⚠️ 未解析到语言配置。")
         sys.exit(0)
 
-    log(f"🚀 开始调用本地 SGLang API 处理 {len(target_locales)} 个语言...")
+    log(f"🚀 开始调用 AngelSlim 官方标准 CPU 模型处理 {len(target_locales)} 个语言...")
 
     for locale in target_locales:
         if locale.startswith("en"):
@@ -203,7 +208,7 @@ def main():
         process_language_task_local(locale, baseline_data)
 
     log("==========================================")
-    log("✅ 本地 SGLang Hy-MT2 智能增量翻译全套完成！")
+    log("✅ 本地 AngelSlim 智能增量翻译全套完成！")
     log("==========================================")
 
 
