@@ -2,7 +2,10 @@ name: Auto i18n Check & Translate
 
 on:
   push:
-  workflow_dispatch: # 支持在 GitHub Web 界面上点击“Run workflow”手动触发
+    branches:
+      - main
+      - elite-ui
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -28,11 +31,10 @@ jobs:
 
       - name: 4. 执行云端智能去重、差量检修与多 Provider AI 翻译
         env:
-          # 支持配置多 Provider 数组 JSON（AI_PROVIDERS），或单 Provider 环境变量（AI_PROVIDER_URL / AI_TRANSLATE_KEY）
           AI_PROVIDERS: ${{ secrets.AI_PROVIDERS }}
           AI_PROVIDER_URL: ${{ secrets.AI_PROVIDER_URL }}
           AI_TRANSLATE_KEY: ${{ secrets.AI_TRANSLATE_KEY }}
-          AI_MODEL: ${{ secrets.AI_MODEL }} # 可选，没有可不填
+          AI_MODEL: ${{ secrets.AI_MODEL }}
         run: |
           python scripts/i18n_pipeline.py
 
@@ -40,14 +42,20 @@ jobs:
         run: |
           flutter gen-l10n
 
-      - name: 6. 机器人直接提交与推送变更 (github-actions[bot])
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add lib/l10n/
-          if git diff --cached --quiet; then
-            echo "✅ 经检查，没有发现任何需要提交的本地化变动。"
-          else
-            git commit -m "style(i18n): 自动去重、修补与 AI 增量翻译多语言 ARB [skip ci]"
-            git push
-          fi
+      - name: 6. 主库防污染：自动创建 Pull Request (隔离修改)
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "style(i18n): 自动去重、修补与 AI 增量翻译多语言 ARB"
+          title: "🌐 [i18n 自动检修] 补全多语言 ARB 与本地化代码"
+          body: |
+            ## 🤖 国际化自动修补机器人报告
+            - 自动读取了 `language_data.dart` 与 `app_en.arb`
+            - 完成了 ARB 文件的结构去重与清理
+            - 通过多 Provider AI 完成了缺失词条与未翻译词条的修补
+            - 重新运行 `flutter gen-l10n` 编译生成了本地化 Dart 代码
+
+            > 本 PR 由 GitHub Actions 隔离生成，主库未被污染。请核对后 Merge。
+          branch: "i18n/auto-translation-update"
+          base: "main"
+          delete-branch: true

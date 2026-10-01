@@ -5,12 +5,7 @@ on:
     branches:
       - main
       - elite-ui
-    paths:
-      - 'lib/features/language/language_data.dart'
-      - 'lib/l10n/app_en.arb'
-      - 'scripts/i18n_pipeline_local.py'
-      - '.github/workflows/i18n_auto_translate_local.yml'
-  workflow_dispatch:
+  workflow_dispatch: # 备用手动触发按钮
 
 permissions:
   contents: write
