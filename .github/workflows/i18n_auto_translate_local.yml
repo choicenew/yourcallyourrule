@@ -26,12 +26,12 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: 3. 安装 HuggingFace Hub 与 llama-cpp-python 本地 GGUF 推理引擎
+      - name: 3. 部署 AngelSlim 腾讯官方量化内核与 Transformers 依赖
         run: |
           python -m pip install --upgrade pip
-          python -m pip install huggingface_hub llama-cpp-python
+          python -m pip install torch transformers accelerate angelslim huggingface_hub
 
-      - name: 4. 执行 腾讯混元 Hy-MT2-1.8B-2Bit-GGUF 官方模型本地增量翻译
+      - name: 4. 执行 腾讯混元 Hy-MT2-1.8B-2Bit 官方模型 AngelSlim 内核本地翻译
         run: |
           python scripts/i18n_pipeline_local.py
 
@@ -47,8 +47,8 @@ jobs:
           title: "🌐 [Hy-MT2 本地模型] 自动修补多语言 ARB 与本地化代码"
           body: |
             ## 🤖 腾讯 Hy-MT2-1.8B 本地端侧模型翻译报告
-            - 100% 运行于 GitHub Actions 本地 CPU (AngelSlim/Hy-MT2-1.8B-2Bit-GGUF 进程内推理)
-            - 零外部 API 依赖，零费用，零 403 / 429 报错，零 401 鉴权问题
+            - 100% 运行于 GitHub Actions 本地 CPU (AngelSlim / Transformers 进程内推理)
+            - 零外部 API 依赖，零费用，零 403 / 429 报错
             - 已重新运行 `flutter gen-l10n` 编译生成代码
 
             > 本 PR 由隔离的本地模型 Workflow 提交，主库未被污染。请核对后 Merge。

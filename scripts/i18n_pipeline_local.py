@@ -2,20 +2,27 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-云端全自动 腾讯混元 Hy-MT2-1.8B 本地 GGUF 模型 (via HuggingFace AngelSlim + 候选切牌 + llama_cpp) 翻译管道
+云端全自动 腾讯混元 Hy-MT2-1.8B 本地模型 (via AngelSlim 官方量化内核引擎 + Transformers) 翻译管道
 
-核心特征：
-1. 精确指向 HuggingFace 官方仓库: AngelSlim/Hy-MT2-1.8B-2Bit-GGUF
-2. 优先顺序切牌测试 (Hy-MT2-1.8B-2bit-v2.gguf -> Hy-MT2-1.8B-2bit.gguf -> Hy-MT2-1.8B-2Bit.gguf)，自动降级尝试
-3. 使用 hf_hub_download 自动下载 GGUF 权重文件并由 llama_cpp 原生内存加载
+技术原理解释：
+1. 为什么原原生 llama-cpp-python 报 `Failed to load model`:
+   AngelSlim 的 1.25-bit / 2-bit GGUF 模型采用了腾讯自研的极低比特量化算子 (AngelSlim Kernel)。
+   原生的 llama.cpp 只支持标准的 Q4_K/Q8_0 等基础量化，遇到 AngelSlim 自定义算子时 C++ 头文件解析直接返回 NULL 报 ValueError。
+
+2. 官方解法：
+   必须通过 `import angelslim` 注册腾讯 AngelSlim 自定义算子，并配合 `transformers` (AutoModelForCausalLM) 进行载入推理。
 """
 
 import json
 import os
 import re
 import sys
-from huggingface_hub import hf_hub_download, list_repo_files
-from llama_cpp import Llama
+import torch
+from huggingface_hub import snapshot_download
+
+# 引入 AngelSlim 注册腾讯 1.25-bit / 2-bit 量化算子
+import angelslim
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # ============ 路径与模型配置 ============
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,68 +31,59 @@ LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "lang
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
 REPO_ID = "AngelSlim/Hy-MT2-1.8B-2Bit-GGUF"
-llm = None
+
+tokenizer = None
+model = None
 
 
 def log(msg: str):
-    print(f"[i18n-Local-HyMT2] {msg}", flush=True)
+    print(f"[i18n-Local-AngelSlim] {msg}", flush=True)
 
 
 def init_hymt2_model():
-    """从 HuggingFace 动态查找并顺序尝试加载 Hy-MT2 GGUF 模型"""
-    global llm
-    log(f"正在查询 HuggingFace 仓库 `{REPO_ID}` 的文件列表...")
+    """通过 AngelSlim 扩展内核装载 腾讯混元 Hy-MT2-1.8B 2Bit 模型"""
+    global tokenizer, model
+    log(f"正在从 HuggingFace 自动下载 `{REPO_ID}` 完整模型快照...")
 
     try:
-        repo_files = list_repo_files(REPO_ID)
-        gguf_files = [f for f in repo_files if f.endswith(".gguf")]
+        model_dir = snapshot_download(repo_id=REPO_ID)
+        log(f"模型文件快照已准备就绪: {model_dir}")
     except Exception as e:
-        log(f"❌ 检索 HuggingFace 仓库 `{REPO_ID}` 文件列表失败: {e}")
+        log(f"❌ 下载 `{REPO_ID}` 快照失败: {e}")
         raise e
 
-    if not gguf_files:
-        raise FileNotFoundError(f"仓库 `{REPO_ID}` 中未找到任何 .gguf 扩展名的权重文件！包含文件: {repo_files}")
+    log("正在通过 AngelSlim 内核 + Transformers 装载 Hy-MT2-1.8B 2Bit 模型...")
 
-    # 优先顺序切牌尝试：v2 -> 小写 2bit -> 大写 2Bit -> 其他
-    preferred_order = ["Hy-MT2-1.8B-2bit-v2.gguf", "Hy-MT2-1.8B-2bit.gguf", "Hy-MT2-1.8B-2Bit.gguf"]
-    candidates = [f for f in preferred_order if f in gguf_files] + [f for f in gguf_files if f not in preferred_order]
-
-    last_error = None
-    for target_filename in candidates:
-        log(f"尝试装载 GGUF 权重文件: `{target_filename}`...")
-        try:
-            model_path = hf_hub_download(
-                repo_id=REPO_ID,
-                filename=target_filename,
-                repo_type="model"
-            )
-            log(f"权重已就绪: {model_path}，正装载至 llama_cpp 引擎...")
-            llm = Llama(
-                model_path=model_path,
-                n_ctx=2048,
-                verbose=False
-            )
-            log(f"✅ 成功通过权重 `{target_filename}` 装载 腾讯混元 Hy-MT2-1.8B 模型！")
-            return
-        except Exception as e:
-            log(f"⚠️ 文件 `{target_filename}` 装载失败: {e}，自动切牌尝试下一个权重点...")
-            last_error = e
-
-    raise RuntimeError(f"❌ 仓库内所有 GGUF 候选文件均无法装载，报错信息: {last_error}")
+    tokenizer = AutoTokenizer.from_pretrained(model_dir, trust_remote_code=True)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_dir,
+        trust_remote_code=True,
+        device_map="cpu",
+        torch_dtype=torch.float32,
+        low_cpu_mem_usage=True
+    )
+    log("✅ 腾讯混元 Hy-MT2-1.8B 2Bit 本地模型加载成功！")
 
 
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
-    """使用 Hy-MT2 本地模型进行单文本翻译"""
-    prompt = f"Translate the following text into {target_lang}:\n{text}\nTranslation:"
+    """使用 AngelSlim 本地模型进行翻译"""
+    prompt = f"Translate the following English text into {target_lang}:\n{text}\nTranslation:"
 
-    output = llm(
-        prompt,
-        max_tokens=256,
-        stop=["\n\n", "Input:"],
-        echo=False
-    )
+    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+    with torch.no_grad():
+        outputs = model.generate(
+            **inputs,
+            max_new_tokens=256,
+            do_sample=False
+        )
 
-    translated = output["choices"][0]["text"].strip()
+    full_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+    if prompt in full_output:
+        translated = full_output.replace(prompt, "").strip()
+    else:
+        translated = full_output.strip()
+
     return translated
 
 
@@ -156,7 +154,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
         log(f"✅ 语言 `{target_locale}` 数据完备。")
         return
 
-    log(f"🌐 [Hy-MT2 逐条本地推理] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
+    log(f"🌐 [AngelSlim 逐条本地推理] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
 
     translated_count = 0
     for key, en_text in need_translation.items():
@@ -209,7 +207,7 @@ def parse_target_locales_from_dart(file_path: str) -> list[str]:
 
 def main():
     log("==========================================")
-    log("  腾讯混元 Hy-MT2-1.8B-2Bit 本地模型管道启动")
+    log("  腾讯混元 Hy-MT2-1.8B-2Bit (AngelSlim 内核) 本地模型管道启动")
     log("==========================================")
 
     init_hymt2_model()
@@ -227,7 +225,7 @@ def main():
         log("⚠️ 未解析到语言配置。")
         sys.exit(0)
 
-    log(f"🚀 开始调用本地 Hy-MT2 2Bit 模型处理 {len(target_locales)} 个语言...")
+    log(f"🚀 开始调用本地 AngelSlim Hy-MT2 模型处理 {len(target_locales)} 个语言...")
 
     for locale in target_locales:
         if locale.startswith("en"):
@@ -235,7 +233,7 @@ def main():
         process_language_task_local(locale, baseline_data)
 
     log("==========================================")
-    log("✅ 本地 Hy-MT2 智能增量翻译全套完成！")
+    log("✅ 本地 AngelSlim Hy-MT2 智能增量翻译全套完成！")
     log("==========================================")
 
 
