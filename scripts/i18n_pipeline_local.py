@@ -2,12 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-遵循 AngelSlim / Hy-MT 官方文档规范，使用确实开源可下载的 Hy-MT1.5-1.8B FP16 权重进行 CPU 推理翻译
-
-说明：
-之前报错 `401 Unauthorized` 和 `OSError` 的根本原因是：
-腾讯官方的 `Tencent-Hunyuan/Hy-MT2-1.8B` 在 Hugging Face 上并未开源或设为私有！
-经过文档查阅，腾讯真正开源可供下载的未量化版本是 `AngelSlim/Hy-MT1.5-1.8B-fp16`。
+遵循 AngelSlim / Hy-MT2 官方说明，使用 GGUF 2-bit 极限压缩权重进行本地推理
 """
 
 import json
@@ -15,6 +10,8 @@ import os
 import re
 import sys
 import torch
+import angelslim
+from huggingface_hub import list_repo_files
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # ============ 路径与模型配置 ============
@@ -23,31 +20,47 @@ L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "language_data.dart")
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
-# 使用确实对外公开可下载的 FP16 原版模型
-MODEL_PATH = "AngelSlim/Hy-MT1.5-1.8B-fp16"
+# 精确指向您指定的 Hy-MT2-1.8B-2Bit-GGUF 仓库
+MODEL_PATH = "AngelSlim/Hy-MT2-1.8B-2Bit-GGUF"
 
 model = None
 tokenizer = None
 
 
 def log(msg: str):
-    print(f"[i18n-Local-HyMT-CPU] {msg}", flush=True)
+    print(f"[i18n-Local-HyMT2] {msg}", flush=True)
 
 
 def init_hymt2_model():
-    """按官方原生 Transformers 规范加载"""
+    """按官方代码与 Hugging Face 真实文件名加载 GGUF 权重"""
     global model, tokenizer
-    log(f"开始加载公开开源模型: {MODEL_PATH} (强制指定 CPU，不使用量化，防报错)...")
+    log(f"正在从 HuggingFace 查询并加载模型: {MODEL_PATH}")
+
+    try:
+        repo_files = list_repo_files(MODEL_PATH)
+        gguf_files = [f for f in repo_files if f.endswith(".gguf")]
+    except Exception as e:
+        log(f"❌ 检索 HuggingFace 仓库失败: {e}")
+        raise e
+
+    if not gguf_files:
+        raise FileNotFoundError(f"仓库 `{MODEL_PATH}` 中未找到任何 .gguf 权重文件！")
+
+    # 优先挑选官方 v2 版本
+    preferred_order = ["Hy-MT2-1.8B-2bit-v2.gguf", "Hy-MT2-1.8B-2bit.gguf", "Hy-MT2-1.8B-2Bit.gguf"]
+    target_gguf = next((f for f in preferred_order if f in gguf_files), gguf_files[0])
+
+    log(f"锁定真实权重文件: `{target_gguf}`，开始载入...")
 
     model = AutoModelForCausalLM.from_pretrained(
         MODEL_PATH,
+        gguf_file=target_gguf,
         device_map="cpu",
         trust_remote_code=True,
-        torch_dtype=torch.float32,
         low_cpu_mem_usage=True,
     )
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-    log("✅ 模型与分词器成功在 CPU 内存加载就绪！")
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, gguf_file=target_gguf)
+    log("✅ 腾讯混元 Hy-MT2-1.8B 2Bit 模型与分词器在 CPU 成功加载！")
 
 
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
@@ -128,7 +141,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
         log(f"✅ 语言 `{target_locale}` 数据完备。")
         return
 
-    log(f"🌐 [Hy-MT 原版推理] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
+    log(f"🌐 [Hy-MT2 2Bit 原版推理] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
 
     translated_count = 0
     for key, en_text in need_translation.items():
@@ -181,7 +194,7 @@ def parse_target_locales_from_dart(file_path: str) -> list[str]:
 
 def main():
     log("==========================================")
-    log("  腾讯混元 Hy-MT 开源 CPU 推理管道启动")
+    log("  腾讯混元 Hy-MT2-1.8B-2Bit 本地 CPU 推理管道启动")
     log("==========================================")
 
     init_hymt2_model()
@@ -199,7 +212,7 @@ def main():
         log("⚠️ 未解析到语言配置。")
         sys.exit(0)
 
-    log(f"🚀 开始调用本地 Hy-MT 模型处理 {len(target_locales)} 个语言...")
+    log(f"🚀 开始调用本地 Hy-MT2 2Bit 模型处理 {len(target_locales)} 个语言...")
 
     for locale in target_locales:
         if locale.startswith("en"):
@@ -207,7 +220,7 @@ def main():
         process_language_task_local(locale, baseline_data)
 
     log("==========================================")
-    log("✅ 本地 Hy-MT 智能增量翻译全套完成！")
+    log("✅ 本地 Hy-MT2 2Bit 智能增量翻译全套完成！")
     log("==========================================")
 
 
