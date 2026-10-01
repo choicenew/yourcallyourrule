@@ -22,7 +22,7 @@ jobs:
           python-version: '3.10'
 
       - name: Setup Flutter
-        uses: actions/setup-flutter@v2
+        uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
 
@@ -31,7 +31,7 @@ jobs:
           echo "=== 正在下载 llama.cpp 高效推理服务器预编译包 ==="
           curl -L -o llama-bin.zip https://github.com/ggerganov/llama.cpp/releases/download/b4800/llama-b4800-bin-ubuntu-x64.zip || true
           if [ ! -f "llama-server" ]; then
-            # 使用包含可执行二进制的构建包或通过 pip 安装 llama-cpp-python 内置服务器
+            # 使用包含可执行二进制的构建包或通过 pip 安装 llama-cpp-python[server]
             python -m pip install llama-cpp-python[server]
           fi
 
