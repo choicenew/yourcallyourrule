@@ -2,25 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-100% 严格对照 AngelSlim 官方文档无差异加载与推理
+100% 严格对照 AngelSlim 官方文档示例代码加载与推理
 
-官方示范代码对照：
-```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
-
-model = AutoModelForCausalLM.from_pretrained(
-    model_path,
-    device_map="auto",
-    trust_remote_code=True,
-    torch_dtype='auto',
-    low_cpu_mem_usage=True,
-)
-tokenizer = AutoTokenizer.from_pretrained(model_path)
-
-inputs = tokenizer("Hello, my name is", return_tensors="pt").to(model.device)
-outputs = model.generate(**inputs)
-print(tokenizer.decode(outputs[0]))
-```
+说明：
+从腾讯官方 GitHub 仓库 (git+https://github.com/tencent/AngelSlim.git) 安装完整 AngelSlim 包，
+确保 `angelslim.compressor.qat` 及自定义量化内核完整装载。
 """
 
 import json
@@ -37,7 +23,7 @@ L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "language_data.dart")
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
-MODEL_PATH = "AngelSlim/Hy-MT2-1.8B-2Bit-GGUF"
+MODEL_PATH = os.environ.get("HY_MT2_MODEL_PATH", "AngelSlim/Hy-MT2-1.8B-2Bit-GGUF")
 
 model = None
 tokenizer = None
@@ -67,7 +53,7 @@ def translate_text_with_hymt2(text: str, target_lang: str) -> str:
     """100% 严格依官方文档示例代码进行 generate 与 decode 推理"""
     prompt = f"Translate to {target_lang}: {text}"
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-    outputs = model.generate(**inputs)
+    outputs = model.generate(**inputs, max_new_tokens=256)
     translated = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
     if prompt in translated:
