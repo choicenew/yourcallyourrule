@@ -4,10 +4,9 @@
 scripts/i18n_pipeline_local.py
 遵循 AngelSlim / Hy-MT2 官方与 Transformers GGUF 规范进行本地增量翻译
 
-技术解答：
-为什么报 `ValueError: Unrecognized model in ... Should have a model_type key in its config.json`:
-`AngelSlim/Hy-MT2-1.8B-2Bit-GGUF` 是纯 GGUF 权重仓库，不包含常规 PyTorch 的 `config.json`。
-Transformers 4.40+ 规定，从 GGUF 仓库加载 AutoModelForCausalLM 时，必须显式指定 `gguf_file` 参数！
+核心修补：
+Transformers 依赖安装 `gguf>=0.10.0` 模块，用于解析 AngelSlim GGUF 权重的二进制 Header。
+文件选择优先挑选 `Hy-MT2-1.8B-2bit-v2.gguf` 修复版本。
 """
 
 import json
@@ -35,11 +34,10 @@ def log(msg: str):
 
 
 def init_hymt2_model():
-    """使用 Transformers GGUF 加载规范加载 AngelSlim/Hy-MT2-1.8B-2Bit-GGUF"""
+    """使用 Transformers GGUF 规范加载 AngelSlim/Hy-MT2-1.8B-2Bit-GGUF"""
     global model, tokenizer
     log(f"开始加载 GGUF 镜像模型: {MODEL_PATH}")
 
-    # 动态查询仓库内部的 GGUF 文件
     try:
         repo_files = list_repo_files(MODEL_PATH)
         gguf_files = [f for f in repo_files if f.endswith(".gguf")]
@@ -47,7 +45,9 @@ def init_hymt2_model():
         log(f"⚠️ 查询仓库文件失败: {e}")
         gguf_files = []
 
-    target_gguf = gguf_files[0] if gguf_files else None
+    # 优先顺序挑选: v2 -> 小写 2bit -> 大写 2Bit -> 其它
+    preferred_order = ["Hy-MT2-1.8B-2bit-v2.gguf", "Hy-MT2-1.8B-2bit.gguf", "Hy-MT2-1.8B-2Bit.gguf"]
+    target_gguf = next((f for f in preferred_order if f in gguf_files), gguf_files[0] if gguf_files else None)
 
     if target_gguf:
         log(f"锁定 GGUF 权重目标文件: `{target_gguf}`，通过 Transformers 核心载入...")
