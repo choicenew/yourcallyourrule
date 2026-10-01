@@ -2,13 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline.py
-云端全自动 i18n 增量检修、去重与多 Provider + 多 Flash/Mini 低消耗 Model 自动重试与降级 AI 翻译管道脚本
+云端全自动 i18n 增量检修、去重与多 Provider + 忠实精准 OpenRouter 免费模型池 AI 翻译管道脚本
 
 优化要点：
-1. 【小参数/低消耗优先】默认挑选极速、极低 Token 消耗的 Flash / Nano / Mini / Instant 轻量模型，节省 API 免费额度并秒级响应。
-2. 【ChatAnywhere 配额优化】针对 ChatAnywhere 优先匹配 gpt-4.1-nano (0.4 CA)、gpt-4o-mini (0.75 CA)、deepseek-v4.1-flash (1 CA) 等低消耗模型。
-3. 【Groq 极速优化】针对 Groq 优先匹配 llama-3.1-8b-instant (每秒上千 Token，0 延迟)。
-4. 【OpenRouter 免费池】针对 OpenRouter 优先匹配 gemini-2.0-flash-exp:free、llama-3.2-3b-instruct:free。
+1. 【忠实使用用户指定的 OpenRouter 免费模型池】替换掉失效旧模型，精确搭载用户提供的最新免费模型列表。
+2. 【智能响应动态建议修补】当 OpenRouter 报 404 并提示 "use this slug instead: xxx" 时，脚本自动实时捕获建议的 Slug 并无缝切牌重试。
+3. 【极速高可用】多 Provider 与候选模型自动平滑切牌降级。
 """
 
 import json
@@ -41,16 +40,19 @@ def log(msg: str):
     print(f"[i18n-Pipeline] {msg}", flush=True)
 
 
-# 极速、极低配额消耗的 Flash / Nano / Mini 默认模型池
+# 用户精确提供的 OpenRouter 免费模型列表及常见中转站模型
 DEFAULT_MODELS = {
     "openrouter": [
-        "google/gemini-2.0-flash-exp:free",
-        "meta-llama/llama-3.2-3b-instruct:free",
-        "qwen/qwen-2.5-7b-instruct:free",
-        "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+        "inception/mercury-decide:free",
+        "respan/span-01-lite:free",
+        "inclusionai/ling-3.0-flash-sante:free",
+        "qwen/qwen3.8-27b:free",
+        "dots-studio/dots-3-note-preview:free",
+        "liquid/lfm-2.5-2.6b:free",
+        "cognitivecomputations/dolphin-mistral-24b-venice-edition",
     ],
     "groq": [
-        "llama-3.1-8b-instant",   # 极速 8B 模型，秒级响应
+        "llama-3.1-8b-instant",
         "llama-3.3-70b-versatile",
         "mixtral-8x7b-32768",
     ],
@@ -59,9 +61,9 @@ DEFAULT_MODELS = {
         "deepseek-ai/DeepSeek-V3",
     ],
     "chatanywhere": [
-        "gpt-4.1-nano",           # 消耗极低：仅 0.4 CA / M tokens
-        "gpt-4o-mini",            # 消耗极低：仅 0.75 CA / M tokens
-        "deepseek-v4.1-flash",     # 消耗极低：仅 1 CA / M tokens
+        "gpt-4.1-nano",
+        "gpt-4o-mini",
+        "deepseek-v4.1-flash",
         "deepseek-chat",
     ],
 }
@@ -69,7 +71,6 @@ DEFAULT_MODELS = {
 
 # ============ 1. 动态多 Provider & 多 Model 加载 ============
 def load_providers() -> list[dict]:
-    """从环境变量动态加载 Provider 配置，并补全轻量候选 Model 列表"""
     providers_json = os.environ.get("AI_PROVIDERS", "").strip()
     raw_providers = []
 
@@ -107,7 +108,7 @@ def load_providers() -> list[dict]:
             if p["model"] not in candidate_models:
                 candidate_models.append(p["model"])
 
-        # 未指定 model 时，根据 URL 匹配超小/超低消耗默认模型
+        # 未指定 model 时，根据 URL 精确匹配用户给出的免费默认模型列表
         if not candidate_models:
             url_lower = url.lower()
             for kw, defaults in DEFAULT_MODELS.items():
@@ -182,7 +183,7 @@ def is_untranslated_value(en_val: str, target_val: str) -> bool:
     return False
 
 
-# ============ 3. API 请求处理 ============
+# ============ 3. API 请求处理 (含 OpenRouter 动态建议 Slug 提取) ============
 def call_ai_api_with_failover(prompt: str) -> str:
     if not PROVIDERS:
         raise RuntimeError("云端未配置任何有效的 AI Provider！")
@@ -197,7 +198,7 @@ def call_ai_api_with_failover(prompt: str) -> str:
         provider_name = provider["name"]
         url = provider["url"]
         key = provider["key"]
-        models = provider["models"]
+        models = list(provider["models"])
 
         for model in models:
             headers = {"Content-Type": "application/json"}
@@ -234,8 +235,17 @@ def call_ai_api_with_failover(prompt: str) -> str:
                             return choices[0]["message"]["content"]
 
                 except urllib.error.HTTPError as e:
-                    err_msg = e.read().decode("utf-8", errors="ignore")[:300]
-                    log(f"⚠️ Provider [{provider_name}] (Model: {model or 'default'}) 触发 HTTP {e.code}: {err_msg}")
+                    err_msg = e.read().decode("utf-8", errors="ignore")
+                    log(f"⚠️ Provider [{provider_name}] (Model: {model or 'default'}) HTTP {e.code}: {err_msg[:200]}")
+
+                    # 动态捕获 OpenRouter 返回的替代 Slug
+                    suggested_slug_match = re.search(r"use this slug instead:\s*([a-zA-Z0-9_\-\.\/:]+)", err_msg)
+                    if suggested_slug_match:
+                        suggested_slug = suggested_slug_match.group(1).strip()
+                        if suggested_slug and suggested_slug not in models:
+                            log(f"💡 动态捕获到 OpenRouter 官方建议的替代模型 Slug: `{suggested_slug}`，加入重试队列！")
+                            models.append(suggested_slug)
+
                     if e.code == 429 or e.code >= 500:
                         time.sleep((2 ** attempt) * 2)
                     else:
@@ -335,7 +345,7 @@ def main():
         sys.exit(1)
 
     log("==========================================")
-    log("  启动云端 i18n 多 Provider + 超小/超低消耗 Model 并发翻译")
+    log("  启动云端 i18n 多 Provider + 忠实 OpenRouter 免费池并发翻译")
     log("==========================================")
 
     baseline_data = load_arb(BASELINE_ARB)
