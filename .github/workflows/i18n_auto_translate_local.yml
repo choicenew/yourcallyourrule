@@ -44,11 +44,21 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: 3. 安装 AngelSlim 官方全量环境与依赖
+      - name: 3. 并行并发安装 AngelSlim 官方全量环境与 PyTorch
         run: |
-          uv pip install --system torch torchvision --index-url https://download.pytorch.org/whl/cpu
-          uv pip install --system transformers accelerate huggingface_hub
-          git clone --recursive https://github.com/Tencent/AngelSlim.git /tmp/AngelSlim
+          # 开启多线程并行并发（Parallel Jobs & Multithreading）加速解压与安装
+          uv pip install --system torch torchvision --index-url https://download.pytorch.org/whl/cpu &
+          PID_TORCH=$!
+          
+          uv pip install --system transformers accelerate huggingface_hub &
+          PID_TRANS=$!
+
+          git clone --recursive https://github.com/Tencent/AngelSlim.git /tmp/AngelSlim &
+          PID_GIT=$!
+
+          # 等待并行安装任务全部就绪
+          wait $PID_TORCH $PID_TRANS $PID_GIT
+
           cd /tmp/AngelSlim && uv pip install --system -e .
 
       - name: 4. 执行 腾讯混元 2Bit 官方 AngelSlim 框架本地翻译
