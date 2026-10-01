@@ -2,11 +2,6 @@ name: Auto i18n Check & Translate
 
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'lib/features/language/language_data.dart'
-      - 'lib/l10n/app_en.arb'
   workflow_dispatch: # 支持在 GitHub Web 界面上点击“Run workflow”手动触发
 
 permissions:
