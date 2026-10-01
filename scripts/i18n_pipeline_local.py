@@ -2,15 +2,20 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-云端全自动 腾讯混元 Hy-MT2-1.8B 本地模型 (via AngelSlim 官方量化内核引擎 + Transformers) 翻译管道
+遵循 AngelSlim / Hy-MT2 官方文档加载示例代码进行本地增量翻译
 
-技术原理解释：
-1. 为什么原原生 llama-cpp-python 报 `Failed to load model`:
-   AngelSlim 的 1.25-bit / 2-bit GGUF 模型采用了腾讯自研的极低比特量化算子 (AngelSlim Kernel)。
-   原生的 llama.cpp 只支持标准的 Q4_K/Q8_0 等基础量化，遇到 AngelSlim 自定义算子时 C++ 头文件解析直接返回 NULL 报 ValueError。
-
-2. 官方解法：
-   必须通过 `import angelslim` 注册腾讯 AngelSlim 自定义算子，并配合 `transformers` (AutoModelForCausalLM) 进行载入推理。
+完全按官方文档规范编写：
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+model = AutoModelForCausalLM.from_pretrained(
+    model_path,
+    device_map="auto",
+    trust_remote_code=True,
+    torch_dtype='auto',
+    low_cpu_mem_usage=True,
+)
+tokenizer = AutoTokenizer.from_pretrained(model_path)
+```
 """
 
 import json
@@ -18,10 +23,6 @@ import os
 import re
 import sys
 import torch
-from huggingface_hub import snapshot_download
-
-# 引入 AngelSlim 注册腾讯 1.25-bit / 2-bit 量化算子
-import angelslim
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # ============ 路径与模型配置 ============
@@ -30,10 +31,10 @@ L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "language_data.dart")
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
-REPO_ID = "AngelSlim/Hy-MT2-1.8B-2Bit-GGUF"
+MODEL_PATH = os.environ.get("HY_MT2_MODEL_PATH", "AngelSlim/Hy-MT2-1.8B-2Bit-GGUF")
 
-tokenizer = None
 model = None
+tokenizer = None
 
 
 def log(msg: str):
@@ -41,50 +42,31 @@ def log(msg: str):
 
 
 def init_hymt2_model():
-    """通过 AngelSlim 扩展内核装载 腾讯混元 Hy-MT2-1.8B 2Bit 模型"""
-    global tokenizer, model
-    log(f"正在从 HuggingFace 自动下载 `{REPO_ID}` 完整模型快照...")
+    """按官方文档标准代码加载模型与分词器"""
+    global model, tokenizer
+    log(f"按官方文档标准代码加载模型: {MODEL_PATH}")
 
-    try:
-        model_dir = snapshot_download(repo_id=REPO_ID)
-        log(f"模型文件快照已准备就绪: {model_dir}")
-    except Exception as e:
-        log(f"❌ 下载 `{REPO_ID}` 快照失败: {e}")
-        raise e
-
-    log("正在通过 AngelSlim 内核 + Transformers 装载 Hy-MT2-1.8B 2Bit 模型...")
-
-    tokenizer = AutoTokenizer.from_pretrained(model_dir, trust_remote_code=True)
     model = AutoModelForCausalLM.from_pretrained(
-        model_dir,
+        MODEL_PATH,
+        device_map="auto",
         trust_remote_code=True,
-        device_map="cpu",
-        torch_dtype=torch.float32,
-        low_cpu_mem_usage=True
+        torch_dtype='auto',
+        low_cpu_mem_usage=True,
     )
-    log("✅ 腾讯混元 Hy-MT2-1.8B 2Bit 本地模型加载成功！")
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+    log("✅ 模型与分词器按官方规范成功加载！")
 
 
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
-    """使用 AngelSlim 本地模型进行翻译"""
-    prompt = f"Translate the following English text into {target_lang}:\n{text}\nTranslation:"
-
+    """按官方文档代码示范进行 generate 与 decode 推理"""
+    prompt = f"Translate to {target_lang}: {text}"
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-    with torch.no_grad():
-        outputs = model.generate(
-            **inputs,
-            max_new_tokens=256,
-            do_sample=False
-        )
+    outputs = model.generate(**inputs, max_new_tokens=256)
+    translated = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-    full_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
-
-    if prompt in full_output:
-        translated = full_output.replace(prompt, "").strip()
-    else:
-        translated = full_output.strip()
-
-    return translated
+    if prompt in translated:
+        translated = translated.replace(prompt, "").strip()
+    return translated.strip()
 
 
 def load_arb(path: str) -> dict:
@@ -154,7 +136,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
         log(f"✅ 语言 `{target_locale}` 数据完备。")
         return
 
-    log(f"🌐 [AngelSlim 逐条本地推理] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
+    log(f"🌐 [AngelSlim 官方推理] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
 
     translated_count = 0
     for key, en_text in need_translation.items():
@@ -172,7 +154,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
                         if meta_k in baseline_data:
                             final_data[meta_k] = baseline_data[meta_k]
                 save_arb(arb_path, final_data)
-                log(f"   [磁盘硬保存] `{target_locale}` 进度: {translated_count}/{len(need_translation)} 条")
+                log(f"   [磁盘落盘] `{target_locale}` 进度: {translated_count}/{len(need_translation)} 条")
 
         except Exception as e:
             log(f"⚠️ `{target_locale}` 词条 `{key}` 翻译异常: {e}")
@@ -207,7 +189,7 @@ def parse_target_locales_from_dart(file_path: str) -> list[str]:
 
 def main():
     log("==========================================")
-    log("  腾讯混元 Hy-MT2-1.8B-2Bit (AngelSlim 内核) 本地模型管道启动")
+    log("  腾讯混元 Hy-MT2 官方 AngelSlim 示例本地模型管道启动")
     log("==========================================")
 
     init_hymt2_model()
@@ -225,7 +207,7 @@ def main():
         log("⚠️ 未解析到语言配置。")
         sys.exit(0)
 
-    log(f"🚀 开始调用本地 AngelSlim Hy-MT2 模型处理 {len(target_locales)} 个语言...")
+    log(f"🚀 开始调用 AngelSlim 官方标准模型处理 {len(target_locales)} 个语言...")
 
     for locale in target_locales:
         if locale.startswith("en"):
@@ -233,7 +215,7 @@ def main():
         process_language_task_local(locale, baseline_data)
 
     log("==========================================")
-    log("✅ 本地 AngelSlim Hy-MT2 智能增量翻译全套完成！")
+    log("✅ 本地 AngelSlim 智能增量翻译全套完成！")
     log("==========================================")
 
 
