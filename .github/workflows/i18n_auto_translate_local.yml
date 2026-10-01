@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - elite-ui
-  workflow_dispatch: # 备用手动触发按钮
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -35,11 +35,11 @@ jobs:
         with:
           enable-cache: true
 
-      - name: 4. 安装官方 AngelSlim 引擎及相关依赖
+      - name: 4. 安装 CPU 匹配版的 torch 与 torchvision (彻底消除 torchvision::nms C++ 算子不匹配报错)
         run: |
-          uv pip install --system torch --index-url https://download.pytorch.org/whl/cpu
+          # 统一安装 CPU 版 torch 和 torchvision，防止预装的 GPU 版 torchvision 与 CPU 版 torch 冲突
+          uv pip install --system torch torchvision --index-url https://download.pytorch.org/whl/cpu
           uv pip install --system transformers accelerate huggingface_hub
-          # 直接从腾讯官方 GitHub 仓库安装完整无缺的 AngelSlim 引擎
           uv pip install --system git+https://github.com/tencent/AngelSlim.git
 
       - name: 5. 执行 腾讯混元 Hy-MT2 本地 CPU 进程内翻译
