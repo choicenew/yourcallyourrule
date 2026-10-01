@@ -364,24 +364,40 @@ def main():
         log("⚠️ 未在 language_data.dart 解析到目标语言配置。")
         sys.exit(0)
 
-    # 步骤 3：多线程并发处理（全新语言与缺项修补并行双线运行）
+    # 步骤 3：多线程并发处理（支持断点续修与部分成功持久化）
     log(f"🚀 开启并发多线程 ({MAX_WORKERS} Workers) 执行处理...")
 
-    tasks = []
+    tasks = {}
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         for locale in target_locales:
             if locale.startswith("en"):
                 continue
-            tasks.append(executor.submit(process_language_task, locale, baseline_data))
+            future = executor.submit(process_language_task, locale, baseline_data)
+            tasks[future] = locale
+
+        succeeded_locales = []
+        failed_locales = []
 
         for future in as_completed(tasks):
+            locale = tasks[future]
             try:
                 future.result()
+                succeeded_locales.append(locale)
             except Exception as e:
-                log(f"❌ 某个并发任务执行报错: {e}")
+                failed_locales.append(locale)
+                log(f"⚠️ 语言 `{locale}` 处理失败 (已安全隔离，不影响其他成功语言): {e}")
 
     log("==========================================")
-    log("✅ 全套并发去重、检修与 AI 增量翻译成功完成！")
+    log("📊 增量翻译与检修断点续修报告:")
+    log(f"   - 成功/完备语言 ({len(succeeded_locales)} 个): {', '.join(succeeded_locales) if succeeded_locales else '无'}")
+    if failed_locales:
+        log(f"   - 失败/未完成语言 ({len(failed_locales)} 个): {', '.join(failed_locales)}")
+        log(f"   💡 已成功语言的改动已持久化保存。下一次运行将自动断点续修剩余 {len(failed_locales)} 个语言。")
+
+    if not succeeded_locales and failed_locales:
+        log("❌ 所有语言处理均失败，请检查 AI Provider 与网络状态。")
+        sys.exit(1)
+
     log("==========================================")
 
 
