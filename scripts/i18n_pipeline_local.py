@@ -2,20 +2,20 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-云端全自动 腾讯混元 Hy-MT2-1.8B 本地模型 (via AngelSlim / Transformers) 增量翻译管道
+云端全自动 腾讯混元 Hy-MT2-1.8B 本地 GGUF 模型 (via HuggingFace AngelSlim/Hy-MT2-1.8B-2Bit-GGUF + llama_cpp) 翻译管道
 
 核心特征：
-1. 100% 遵循腾讯 AngelSlim / HuggingFace 官方加载规范 (AutoModelForCausalLM / AutoTokenizer)
-2. 无需后台独立 Server 挂载，直接在 Python 进程内完成本地 CPU 高效加载与推理
-3. 零外部 API 依赖，零 403 / 429 报错，零缺失动态链接库问题
+1. 精确指向 HuggingFace 官方仓库: AngelSlim/Hy-MT2-1.8B-2Bit-GGUF
+2. 使用 hf_hub_download 自动下载 GGUF 权重文件并由 llama_cpp 原生内存加载
+3. 无需独立 HTTP Server、无需 401 鉴权 Token、零外部 API 依赖
 """
 
 import json
 import os
 import re
 import sys
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from huggingface_hub import hf_hub_download
+from llama_cpp import Llama
 
 # ============ 路径与模型配置 ============
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,55 +23,52 @@ L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "language_data.dart")
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
-# 模型路径：支持使用 HuggingFace 官方库 Tencent-Hunyuan/Hy-MT2-1.8B 或 AngelSlim 量化版
-MODEL_PATH = os.environ.get("HY_MT2_MODEL_PATH", "Tencent-Hunyuan/Hy-MT2-1.8B")
+# 精确对应的 HuggingFace 仓库与 GGUF 文件名
+REPO_ID = "AngelSlim/Hy-MT2-1.8B-2Bit-GGUF"
+FILENAME = "hy-mt2-1.8b-2bit.gguf"
 
-tokenizer = None
-model = None
+llm = None
 
 
 def log(msg: str):
-    print(f"[i18n-Local-AngelSlim] {msg}", flush=True)
+    print(f"[i18n-Local-HyMT2] {msg}", flush=True)
 
 
 def init_hymt2_model():
-    """初始化装载 腾讯混元 Hy-MT2-1.8B 模型"""
-    global tokenizer, model
-    log(f"正在基于 AngelSlim / Transformers 加载 腾讯混元 Hy-MT2-1.8B 模型 ({MODEL_PATH})...")
+    """从 HuggingFace AngelSlim 仓库下载并初始化加载 Hy-MT2 GGUF 模型"""
+    global llm
+    log(f"正在从 HuggingFace 仓库 `{REPO_ID}` 下载权重文件 `{FILENAME}`...")
 
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, trust_remote_code=True)
-    model = AutoModelForCausalLM.from_pretrained(
-        MODEL_PATH,
-        device_map="auto",
-        trust_remote_code=True,
-        torch_dtype=torch.float32,
-        low_cpu_mem_usage=True
+    # 从 HuggingFace 自动下载 GGUF 文件并缓存
+    model_path = hf_hub_download(
+        repo_id=REPO_ID,
+        filename=FILENAME,
+        repo_type="model"
     )
-    log("✅ 腾讯混元 Hy-MT2-1.8B 模型加载成功！")
+    log(f"权重已就绪: {model_path}")
+    log("正在通过 llama_cpp 原生引擎加载模型...")
+
+    # 内存中直接加载 GGUF 推理引擎
+    llm = Llama(
+        model_path=model_path,
+        n_ctx=2048,
+        verbose=False
+    )
+    log("✅ 腾讯混元 Hy-MT2-1.8B 2Bit-GGUF 本地模型加载成功！")
 
 
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
-    """使用 Hy-MT2-1.8B 原生执行翻译"""
-    prompt = f"Translate the following English text to {target_lang}:\n{text}"
-    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+    """使用 Hy-MT2 本地模型进行单文本翻译"""
+    prompt = f"Translate the following text into {target_lang}:\n{text}\nTranslation:"
 
-    with torch.no_grad():
-        outputs = model.generate(
-            **inputs,
-            max_new_tokens=256,
-            temperature=0.1,
-            top_p=0.9,
-            do_sample=False
-        )
+    output = llm(
+        prompt,
+        max_tokens=256,
+        stop=["\n\n", "Input:"],
+        echo=False
+    )
 
-    full_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
-
-    # 截取新生成的文本
-    if prompt in full_output:
-        translated = full_output.replace(prompt, "").strip()
-    else:
-        translated = full_output.strip()
-
+    translated = output["choices"][0]["text"].strip()
     return translated
 
 
@@ -142,7 +139,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
         log(f"✅ 语言 `{target_locale}` 数据完备。")
         return
 
-    log(f"🌐 [Hy-MT2 逐条推理] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
+    log(f"🌐 [Hy-MT2 逐条本地推理] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
 
     translated_count = 0
     for key, en_text in need_translation.items():
@@ -151,7 +148,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
             current_data[key] = translated_text
             translated_count += 1
 
-            # 每 10 条更新即时保存落盘
+            # 每 10 条进度落盘硬保存
             if translated_count % 10 == 0:
                 final_data = {"@@locale": target_locale}
                 for k in baseline_data.keys():
@@ -161,7 +158,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
                         if meta_k in baseline_data:
                             final_data[meta_k] = baseline_data[meta_k]
                 save_arb(arb_path, final_data)
-                log(f"   [磁盘落盘] `{target_locale}` 进度: {translated_count}/{len(need_translation)} 条")
+                log(f"   [磁盘硬保存] `{target_locale}` 进度: {translated_count}/{len(need_translation)} 条")
 
         except Exception as e:
             log(f"⚠️ `{target_locale}` 词条 `{key}` 翻译异常: {e}")
@@ -197,7 +194,7 @@ def parse_target_locales_from_dart(file_path: str) -> list[str]:
 
 def main():
     log("==========================================")
-    log("  腾讯混元 Hy-MT2-1.8B 本地模型管道启动")
+    log("  腾讯混元 Hy-MT2-1.8B-2Bit 本地模型管道启动")
     log("==========================================")
 
     init_hymt2_model()
@@ -215,7 +212,7 @@ def main():
         log("⚠️ 未解析到语言配置。")
         sys.exit(0)
 
-    log(f"🚀 开始逐语言调用本地 Hy-MT2 模型处理 {len(target_locales)} 个语言...")
+    log(f"🚀 开始调用本地 Hy-MT2 2Bit 模型处理 {len(target_locales)} 个语言...")
 
     for locale in target_locales:
         if locale.startswith("en"):

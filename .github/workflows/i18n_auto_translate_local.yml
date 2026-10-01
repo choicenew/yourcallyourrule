@@ -1,7 +1,7 @@
 name: Auto i18n Translate (Tencent Hy-MT2-1.8B Local LLM)
 
 on:
-  workflow_dispatch: # 手动触发，方便独立测试与对比
+  workflow_dispatch: # 手动触发
 
 permissions:
   contents: write
@@ -26,13 +26,12 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: 3. 部署 AngelSlim / HuggingFace Transformers 本地推理依赖
+      - name: 3. 安装 HuggingFace Hub 与 llama-cpp-python 本地 GGUF 推理引擎
         run: |
           python -m pip install --upgrade pip
-          # 100% 遵循腾讯 AngelSlim 官方文档依赖配置
-          python -m pip install torch transformers accelerate angelslim
+          python -m pip install huggingface_hub llama-cpp-python
 
-      - name: 4. 执行 腾讯混元 Hy-MT2-1.8B 官方模型本地增量翻译
+      - name: 4. 执行 腾讯混元 Hy-MT2-1.8B-2Bit-GGUF 官方模型本地增量翻译
         run: |
           python scripts/i18n_pipeline_local.py
 
@@ -48,8 +47,8 @@ jobs:
           title: "🌐 [Hy-MT2 本地模型] 自动修补多语言 ARB 与本地化代码"
           body: |
             ## 🤖 腾讯 Hy-MT2-1.8B 本地端侧模型翻译报告
-            - 100% 运行于 GitHub Actions 本地 CPU (AngelSlim / Transformers 进程内推理)
-            - 零外部云端 API 依赖，零费用，零 403 / 429 报错，零 C++ 动态库丢失问题
+            - 100% 运行于 GitHub Actions 本地 CPU (AngelSlim/Hy-MT2-1.8B-2Bit-GGUF 进程内推理)
+            - 零外部 API 依赖，零费用，零 403 / 429 报错，零 401 鉴权问题
             - 已重新运行 `flutter gen-l10n` 编译生成代码
 
             > 本 PR 由隔离的本地模型 Workflow 提交，主库未被污染。请核对后 Merge。
