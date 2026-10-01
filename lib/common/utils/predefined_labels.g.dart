@@ -51,7 +51,7 @@ extension LabelTranslationExtension on String {
       case 'other':
         return appLocalizations.other;
       case 'debtcollection':
-        return appLocalizations.collection;
+        return appLocalizations.debtCollection;
       case 'survey':
         return appLocalizations.survey;
       case 'political':

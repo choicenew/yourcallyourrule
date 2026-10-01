@@ -26,7 +26,7 @@ const List<Map<String, dynamic>> predefinedLabels = [
   {'text': 'Medical'},
   {'text': 'Charity'},
   {'text': 'Other'},
-  {'text': 'Debt Collection', 'key': 'collection'},
+  {'text': 'Debt Collection'},
   {'text': 'Survey'},
   {'text': 'Political'},
   {'text': 'Ecommerce'},

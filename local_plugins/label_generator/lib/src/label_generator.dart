@@ -93,11 +93,6 @@ class LabelGenerator extends Generator {
     buffer.writeln();
     buffer.writeln('    switch (normalizedLabel) {');
 
-    // Special overrides
-    final overrides = {
-      'Debt Collection': 'collection',
-    };
-
     for (final item in listValue) {
       final mapValue = item.toMapValue();
       if (mapValue != null) {
@@ -120,8 +115,6 @@ class LabelGenerator extends Generator {
 
           if (key != null) {
             getterName = key!;
-          } else if (overrides.containsKey(text)) {
-            getterName = overrides[text]!;
           } else {
             final parts = text!.split(' ');
             getterName = parts[0].toLowerCase();

@@ -8,39 +8,21 @@ part of 'ad_cache_provider.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 【核心修改】: 使用 @riverpod 注解
-///
-/// - `@Riverpod()`: 告诉生成器为这个 Notifier 创建一个 Provider。
-/// - `keepAlive`: 类似于 `.autoDispose` 的反向操作。我们在这里设置为 `true`，
-///              意味着即使用户滑走了（最后一个监听者被移除），Provider 也不会被销毁。
-///              这正是我们“缓存”所需要的行为！广告会一直保留在内存中，直到应用关闭。
-///              如果您仍然希望它在不被使用时销毁，可以移除 `keepAlive: true`。
+/// 【优化】: 移除 keepAlive: true，允许广告页面离开时自动销毁和清理 Native 贴图与内存
 
 @ProviderFor(AdCache)
 const adCacheProvider = AdCacheFamily._();
 
-/// 【核心修改】: 使用 @riverpod 注解
-///
-/// - `@Riverpod()`: 告诉生成器为这个 Notifier 创建一个 Provider。
-/// - `keepAlive`: 类似于 `.autoDispose` 的反向操作。我们在这里设置为 `true`，
-///              意味着即使用户滑走了（最后一个监听者被移除），Provider 也不会被销毁。
-///              这正是我们“缓存”所需要的行为！广告会一直保留在内存中，直到应用关闭。
-///              如果您仍然希望它在不被使用时销毁，可以移除 `keepAlive: true`。
+/// 【优化】: 移除 keepAlive: true，允许广告页面离开时自动销毁和清理 Native 贴图与内存
 final class AdCacheProvider extends $NotifierProvider<AdCache, AdCacheState> {
-  /// 【核心修改】: 使用 @riverpod 注解
-  ///
-  /// - `@Riverpod()`: 告诉生成器为这个 Notifier 创建一个 Provider。
-  /// - `keepAlive`: 类似于 `.autoDispose` 的反向操作。我们在这里设置为 `true`，
-  ///              意味着即使用户滑走了（最后一个监听者被移除），Provider 也不会被销毁。
-  ///              这正是我们“缓存”所需要的行为！广告会一直保留在内存中，直到应用关闭。
-  ///              如果您仍然希望它在不被使用时销毁，可以移除 `keepAlive: true`。
+  /// 【优化】: 移除 keepAlive: true，允许广告页面离开时自动销毁和清理 Native 贴图与内存
   const AdCacheProvider._({
     required AdCacheFamily super.from,
     required AdInfo super.argument,
   }) : super(
          retry: null,
          name: r'adCacheProvider',
-         isAutoDispose: false,
+         isAutoDispose: true,
          dependencies: null,
          $allTransitiveDependencies: null,
        );
@@ -78,15 +60,9 @@ final class AdCacheProvider extends $NotifierProvider<AdCache, AdCacheState> {
   }
 }
 
-String _$adCacheHash() => r'fe67cbb823ef8b44207872927ed92dfa7b272e91';
+String _$adCacheHash() => r'f51f0f815fb5191bc1cd9f3146ba35206ed3eee4';
 
-/// 【核心修改】: 使用 @riverpod 注解
-///
-/// - `@Riverpod()`: 告诉生成器为这个 Notifier 创建一个 Provider。
-/// - `keepAlive`: 类似于 `.autoDispose` 的反向操作。我们在这里设置为 `true`，
-///              意味着即使用户滑走了（最后一个监听者被移除），Provider 也不会被销毁。
-///              这正是我们“缓存”所需要的行为！广告会一直保留在内存中，直到应用关闭。
-///              如果您仍然希望它在不被使用时销毁，可以移除 `keepAlive: true`。
+/// 【优化】: 移除 keepAlive: true，允许广告页面离开时自动销毁和清理 Native 贴图与内存
 
 final class AdCacheFamily extends $Family
     with
@@ -103,16 +79,10 @@ final class AdCacheFamily extends $Family
         name: r'adCacheProvider',
         dependencies: null,
         $allTransitiveDependencies: null,
-        isAutoDispose: false,
+        isAutoDispose: true,
       );
 
-  /// 【核心修改】: 使用 @riverpod 注解
-  ///
-  /// - `@Riverpod()`: 告诉生成器为这个 Notifier 创建一个 Provider。
-  /// - `keepAlive`: 类似于 `.autoDispose` 的反向操作。我们在这里设置为 `true`，
-  ///              意味着即使用户滑走了（最后一个监听者被移除），Provider 也不会被销毁。
-  ///              这正是我们“缓存”所需要的行为！广告会一直保留在内存中，直到应用关闭。
-  ///              如果您仍然希望它在不被使用时销毁，可以移除 `keepAlive: true`。
+  /// 【优化】: 移除 keepAlive: true，允许广告页面离开时自动销毁和清理 Native 贴图与内存
 
   AdCacheProvider call(AdInfo adInfo) =>
       AdCacheProvider._(argument: adInfo, from: this);
@@ -121,13 +91,7 @@ final class AdCacheFamily extends $Family
   String toString() => r'adCacheProvider';
 }
 
-/// 【核心修改】: 使用 @riverpod 注解
-///
-/// - `@Riverpod()`: 告诉生成器为这个 Notifier 创建一个 Provider。
-/// - `keepAlive`: 类似于 `.autoDispose` 的反向操作。我们在这里设置为 `true`，
-///              意味着即使用户滑走了（最后一个监听者被移除），Provider 也不会被销毁。
-///              这正是我们“缓存”所需要的行为！广告会一直保留在内存中，直到应用关闭。
-///              如果您仍然希望它在不被使用时销毁，可以移除 `keepAlive: true`。
+/// 【优化】: 移除 keepAlive: true，允许广告页面离开时自动销毁和清理 Native 贴图与内存
 
 abstract class _$AdCache extends $Notifier<AdCacheState> {
   late final _$args = ref.$arg as AdInfo;
