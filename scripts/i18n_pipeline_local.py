@@ -2,19 +2,19 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-云端全自动 腾讯混元 Hy-MT2-1.8B 本地 GGUF 模型 (via HuggingFace AngelSlim/Hy-MT2-1.8B-2Bit-GGUF + llama_cpp) 翻译管道
+云端全自动 腾讯混元 Hy-MT2-1.8B 本地 GGUF 模型 (via HuggingFace AngelSlim + 动态 GGUF 查找 + llama_cpp) 翻译管道
 
 核心特征：
 1. 精确指向 HuggingFace 官方仓库: AngelSlim/Hy-MT2-1.8B-2Bit-GGUF
-2. 使用 hf_hub_download 自动下载 GGUF 权重文件并由 llama_cpp 原生内存加载
-3. 无需独立 HTTP Server、无需 401 鉴权 Token、零外部 API 依赖
+2. 动态列出 Hugging Face 仓库文件，精准匹配实际出现的 .gguf 权重文件名，彻底杜绝 404
+3. 使用 hf_hub_download 自动下载 GGUF 权重文件并由 llama_cpp 原生内存加载
 """
 
 import json
 import os
 import re
 import sys
-from huggingface_hub import hf_hub_download
+from huggingface_hub import hf_hub_download, list_repo_files
 from llama_cpp import Llama
 
 # ============ 路径与模型配置 ============
@@ -23,10 +23,7 @@ L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "language_data.dart")
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
-# 精确对应的 HuggingFace 仓库与 GGUF 文件名
 REPO_ID = "AngelSlim/Hy-MT2-1.8B-2Bit-GGUF"
-FILENAME = "hy-mt2-1.8b-2bit.gguf"
-
 llm = None
 
 
@@ -35,20 +32,31 @@ def log(msg: str):
 
 
 def init_hymt2_model():
-    """从 HuggingFace AngelSlim 仓库下载并初始化加载 Hy-MT2 GGUF 模型"""
+    """从 HuggingFace 动态查找并初始化加载 Hy-MT2 GGUF 模型"""
     global llm
-    log(f"正在从 HuggingFace 仓库 `{REPO_ID}` 下载权重文件 `{FILENAME}`...")
+    log(f"正在查询 HuggingFace 仓库 `{REPO_ID}` 的文件列表...")
 
-    # 从 HuggingFace 自动下载 GGUF 文件并缓存
+    try:
+        repo_files = list_repo_files(REPO_ID)
+        gguf_files = [f for f in repo_files if f.endswith(".gguf")]
+    except Exception as e:
+        log(f"❌ 检索 HuggingFace 仓库 `{REPO_ID}` 文件列表失败: {e}")
+        raise e
+
+    if not gguf_files:
+        raise FileNotFoundError(f"仓库 `{REPO_ID}` 中未找到任何 .gguf 扩展名的权重文件！包含文件: {repo_files}")
+
+    target_filename = gguf_files[0]
+    log(f"✅ 动态精准查找到 GGUF 权重文件名: `{target_filename}`，开始下载...")
+
     model_path = hf_hub_download(
         repo_id=REPO_ID,
-        filename=FILENAME,
+        filename=target_filename,
         repo_type="model"
     )
-    log(f"权重已就绪: {model_path}")
-    log("正在通过 llama_cpp 原生引擎加载模型...")
+    log(f"模型权重已下载至本地缓存: {model_path}")
+    log("正在通过 llama_cpp 引擎装载本地 GGUF 模型...")
 
-    # 内存中直接加载 GGUF 推理引擎
     llm = Llama(
         model_path=model_path,
         n_ctx=2048,
@@ -163,7 +171,6 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
         except Exception as e:
             log(f"⚠️ `{target_locale}` 词条 `{key}` 翻译异常: {e}")
 
-    # 最终完整落盘
     final_data = {"@@locale": target_locale}
     for k in baseline_data.keys():
         if k in current_data:
