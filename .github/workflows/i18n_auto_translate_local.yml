@@ -18,7 +18,7 @@ permissions:
 
 jobs:
   local-hymt2-translate:
-    name: Translate via Local Tencent Hy-MT2-1.8B Model
+    name: Translate via Local Tencent Hy-MT2-1.8B CPU
     runs-on: ubuntu-latest
 
     steps:
@@ -40,42 +40,14 @@ jobs:
         with:
           enable-cache: true
 
-      - name: 4. 多线程极速安装 SGLang 及相关依赖
+      - name: 4. 安装官方推荐的基础 CPU 推理依赖
         run: |
+          # 根据官方指示：如果在 CPU 运行且不涉及量化，直接安装 transformers 和 CPU 版 PyTorch 即可
           uv pip install --system torch --index-url https://download.pytorch.org/whl/cpu
-          uv pip install --system "sglang[all]>=0.4.6.post1" angelslim transformers
+          uv pip install --system transformers accelerate huggingface_hub
 
-      - name: 5. 同步启动 SGLang 服务并执行翻译 (同 Step 防进程被杀)
+      - name: 5. 执行 腾讯混元 Hy-MT2 官方 CPU 进程内翻译
         run: |
-          echo "=== 启动 AngelSlim 官方 SGLang OpenAI 兼容 API 服务 (端口 8080) ==="
-          python3 -m sglang.launch_server \
-              --host 127.0.0.1 \
-              --port 8080 \
-              --model-path Tencent-Hunyuan/Hy-MT2-1.8B \
-              --tp 1 \
-              --mem-fraction-static 0.9 \
-              --context-length 2048 \
-              --trust-remote-code > sglang_server.log 2>&1 &
-
-          echo "等待 SGLang API 服务启动就绪..."
-          READY=0
-          for i in {1..60}; do
-            if curl -s http://127.0.0.1:8080/v1/models > /dev/null || curl -s http://127.0.0.1:8080/health > /dev/null; then
-              echo "✅ 腾讯混元 Hy-MT2 SGLang 官方 API 服务启动就绪！"
-              READY=1
-              break
-            fi
-            echo "等待 SGLang API 服务启动就绪中 ($i/60)..."
-            sleep 3
-          done
-
-          if [ $READY -ne 1 ]; then
-            echo "❌ SGLang API 服务启动超时或失败！查看完整服务端日志："
-            cat sglang_server.log
-            exit 1
-          fi
-
-          echo "=== 执行 腾讯混元 Hy-MT2 官方 SGLang 本地增量翻译 ==="
           python scripts/i18n_pipeline_local.py
 
       - name: 6. 编译生成 AppLocalizations 代码
@@ -90,7 +62,7 @@ jobs:
           title: "🌐 [Hy-MT2 本地模型] 自动修补多语言 ARB 与本地化代码"
           body: |
             ## 🤖 腾讯 Hy-MT2-1.8B 本地端侧模型翻译报告
-            - 100% 运行于 GitHub Actions 本地 CPU (AngelSlim 官方 SGLang API 服务)
+            - 100% 运行于 GitHub Actions 本地 CPU (Transformers 原生推理)
             - 零外部 API 依赖，零费用，零 403 / 429 报错
             - 已重新运行 `flutter gen-l10n` 编译生成代码
           branch: "i18n/auto-translation-hymt2-update"
