@@ -1,0 +1,79 @@
+name: Auto i18n Translate (Tencent Hy-MT2-1.8B Local LLM)
+
+on:
+  workflow_dispatch: # 手动触发，方便独立测试与对比
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  local-hymt2-translate:
+    name: Translate via Local Tencent Hy-MT2-1.8B Model
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout 代码
+        uses: actions/checkout@v4
+
+      - name: 2. 配置 Python 与 Flutter 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Setup Flutter
+        uses: actions/setup-flutter@v2
+        with:
+          channel: 'stable'
+
+      - name: 3. 下载并部署 腾讯 Hy-MT2-1.8B (1.25-bit GGUF) 与 llama-server
+        run: |
+          echo "=== 正在下载 llama.cpp 高效推理服务器预编译包 ==="
+          curl -L -o llama-bin.zip https://github.com/ggerganov/llama.cpp/releases/download/b4800/llama-b4800-bin-ubuntu-x64.zip || true
+          if [ ! -f "llama-server" ]; then
+            # 使用包含可执行二进制的构建包或通过 pip 安装 llama-cpp-python 内置服务器
+            python -m pip install llama-cpp-python[server]
+          fi
+
+          echo "=== 正在下载 腾讯 Hy-MT2-1.8B 1.25-bit 量化权重 (~500MB) ==="
+          mkdir -p models
+          curl -L -o models/hy-mt2-1.8b-1.25bit.gguf "https://huggingface.co/AngelSlim/Hy-MT2-1.8B-1.25Bit-GGUF/resolve/main/hy-mt2-1.8b-1.25bit.gguf?download=true" || \
+          curl -L -o models/hy-mt2-1.8b-1.25bit.gguf "https://hf-mirror.com/AngelSlim/Hy-MT2-1.8B-1.25Bit-GGUF/resolve/main/hy-mt2-1.8b-1.25bit.gguf?download=true"
+
+          echo "=== 启动本地 Hy-MT2-1.8B OpenAI 兼容服务器 (端口 8080) ==="
+          python -m llama_cpp.server --model models/hy-mt2-1.8b-1.25bit.gguf --port 8080 --host 127.0.0.1 &
+          
+          # 等待服务器启动就绪
+          for i in {1..30}; do
+            if curl -s http://127.0.0.1:8080/v1/models > /dev/null; then
+              echo "✅ 腾讯 Hy-MT2-1.8B 本地推理服务就绪！"
+              break
+            fi
+            echo "等待本地模型服务就绪中 ($i/30)..."
+            sleep 2
+          done
+
+      - name: 4. 执行本地模型无依赖自动化增量翻译
+        run: |
+          python scripts/i18n_pipeline_local.py
+
+      - name: 5. 编译生成 AppLocalizations 代码
+        run: |
+          flutter gen-l10n
+
+      - name: 6. 自动创建隔离 Pull Request (不污染主库)
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "style(i18n): 本地 腾讯 Hy-MT2-1.8B 模型自动翻译补全 ARB"
+          title: "🌐 [Hy-MT2 本地模型] 自动修补多语言 ARB 与本地化代码"
+          body: |
+            ## 🤖 腾讯 Hy-MT2-1.8B 本地端侧模型翻译报告
+            - 100% 运行于 GitHub Actions 本地 CPU
+            - 无任何云端 API 依赖，零费用，零 403 / 429 报错
+            - 已重新运行 `flutter gen-l10n` 编译生成代码
+
+            > 本 PR 由隔离的本地模型 Workflow 提交，主库未被污染。请核对后 Merge。
+          branch: "i18n/auto-translation-hymt2-update"
+          base: "main"
+          delete-branch: true
