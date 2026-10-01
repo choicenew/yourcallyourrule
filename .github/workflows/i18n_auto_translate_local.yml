@@ -40,40 +40,42 @@ jobs:
         with:
           enable-cache: true
 
-      - name: 4. 多线程极速安装 vLLM 及相关依赖
+      - name: 4. 多线程极速安装 SGLang 及相关依赖
         run: |
           uv pip install --system torch --index-url https://download.pytorch.org/whl/cpu
-          uv pip install --system "vllm>=0.8.5.post1" angelslim transformers
+          uv pip install --system "sglang[all]>=0.4.6.post1" angelslim transformers
 
-      - name: 5. 同步启动 vLLM 服务并执行翻译 (同 Step 防进程被杀)
+      - name: 5. 同步启动 SGLang 服务并执行翻译 (同 Step 防进程被杀)
         run: |
-          echo "=== 启动 AngelSlim 官方 vLLM OpenAI 兼容 API 服务 (端口 8080) ==="
-          python3 -m vllm.entrypoints.openai.api_server \
+          echo "=== 启动 AngelSlim 官方 SGLang OpenAI 兼容 API 服务 (端口 8080) ==="
+          python3 -m sglang.launch_server \
               --host 127.0.0.1 \
               --port 8080 \
-              --model Tencent-Hunyuan/Hy-MT2-1.8B \
-              --trust-remote-code \
-              --max-model-len 2048 > vllm_server.log 2>&1 &
+              --model-path Tencent-Hunyuan/Hy-MT2-1.8B \
+              --tp 1 \
+              --mem-fraction-static 0.9 \
+              --context-length 2048 \
+              --trust-remote-code > sglang_server.log 2>&1 &
 
-          echo "等待 vLLM API 服务启动就绪..."
+          echo "等待 SGLang API 服务启动就绪..."
           READY=0
           for i in {1..60}; do
             if curl -s http://127.0.0.1:8080/v1/models > /dev/null || curl -s http://127.0.0.1:8080/health > /dev/null; then
-              echo "✅ 腾讯混元 Hy-MT2 vLLM 官方 API 服务启动就绪！"
+              echo "✅ 腾讯混元 Hy-MT2 SGLang 官方 API 服务启动就绪！"
               READY=1
               break
             fi
-            echo "等待 vLLM API 服务启动就绪中 ($i/60)..."
+            echo "等待 SGLang API 服务启动就绪中 ($i/60)..."
             sleep 3
           done
 
           if [ $READY -ne 1 ]; then
-            echo "❌ vLLM API 服务启动超时或失败！查看完整服务端日志："
-            cat vllm_server.log
+            echo "❌ SGLang API 服务启动超时或失败！查看完整服务端日志："
+            cat sglang_server.log
             exit 1
           fi
 
-          echo "=== 执行 腾讯混元 Hy-MT2 官方 vLLM 本地增量翻译 ==="
+          echo "=== 执行 腾讯混元 Hy-MT2 官方 SGLang 本地增量翻译 ==="
           python scripts/i18n_pipeline_local.py
 
       - name: 6. 编译生成 AppLocalizations 代码
@@ -88,7 +90,7 @@ jobs:
           title: "🌐 [Hy-MT2 本地模型] 自动修补多语言 ARB 与本地化代码"
           body: |
             ## 🤖 腾讯 Hy-MT2-1.8B 本地端侧模型翻译报告
-            - 100% 运行于 GitHub Actions 本地 CPU (AngelSlim 官方示例进程内推理)
+            - 100% 运行于 GitHub Actions 本地 CPU (AngelSlim 官方 SGLang API 服务)
             - 零外部 API 依赖，零费用，零 403 / 429 报错
             - 已重新运行 `flutter gen-l10n` 编译生成代码
           branch: "i18n/auto-translation-hymt2-update"

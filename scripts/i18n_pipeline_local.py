@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-按 AngelSlim 官方 vLLM / OpenAI API 部署规范，调用本地运行的 腾讯混元 Hy-MT2-1.8B 服务进行增量翻译
+遵循 AngelSlim / Hy-MT2 官方 SGLang 规范调用本地模型服务进行增量翻译
 
 技术解答：
-之前的报错 `ValueError: Unrecognized model in AngelSlim/Hy-MT2-1.8B-2Bit-GGUF` 是因为 AngelSlim/Hy-MT2-1.8B-2Bit-GGUF 仓库只放了 gguf 文件，没有包含 PyTorch 的 config.json。
-按照 AngelSlim 官方部署规范（Section 2 启动服务 vLLM），使用 vLLM 挂载 `Tencent-Hunyuan/Hy-MT2-1.8B` 官方模型仓库并提供 http://127.0.0.1:8080/v1/chat/completions 接口服务。
+之前的报错 `RuntimeError: Failed to infer device type` 是因为 vLLM 默认强制需要 Nvidia GPU 才能启动。
+在 GitHub Actions 的无显卡 CPU 虚拟机中，vLLM 检测不到 CUDA 设备直接崩溃。
+根据 AngelSlim 官方部署规范（Section 2 - 启动服务 SGLang），SGLang 对硬件架构的兼容性更好，我们将使用 SGLang 启动 OpenAI 兼容服务。
 """
 
 import json
@@ -22,17 +23,17 @@ L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "language_data.dart")
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
-# 本地 vLLM 部署接口地址 (AngelSlim 官方部署规范 Section 2)
+# 本地 SGLang 部署接口地址 (AngelSlim 官方部署规范 Section 2)
 LOCAL_API_URL = os.environ.get("LOCAL_API_URL", "http://127.0.0.1:8080/v1/chat/completions")
 MODEL_NAME = os.environ.get("HY_MT2_MODEL_NAME", "Tencent-Hunyuan/Hy-MT2-1.8B")
 
 
 def log(msg: str):
-    print(f"[i18n-Local-vLLM] {msg}", flush=True)
+    print(f"[i18n-Local-SGLang] {msg}", flush=True)
 
 
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
-    """按 AngelSlim 官方 vLLM OpenAI API 规范调用本地推理服务"""
+    """按 AngelSlim 官方 SGLang OpenAI API 规范调用本地推理服务"""
     headers = {"Content-Type": "application/json"}
     payload = {
         "model": MODEL_NAME,
@@ -54,7 +55,7 @@ def translate_text_with_hymt2(text: str, target_lang: str) -> str:
                 raise ValueError("API 响应未包含 choices")
             return choices[0]["message"]["content"].strip()
     except Exception as e:
-        log(f"❌ 调用本地 vLLM API 服务失败 ({LOCAL_API_URL}): {e}")
+        log(f"❌ 调用本地 SGLang API 服务失败 ({LOCAL_API_URL}): {e}")
         raise e
 
 
@@ -125,7 +126,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
         log(f"✅ 语言 `{target_locale}` 数据完备。")
         return
 
-    log(f"🌐 [vLLM 官方 API] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
+    log(f"🌐 [SGLang 官方 API] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
 
     translated_count = 0
     for key, en_text in need_translation.items():
@@ -178,7 +179,7 @@ def parse_target_locales_from_dart(file_path: str) -> list[str]:
 
 def main():
     log("==========================================")
-    log("  腾讯混元 Hy-MT2 官方 vLLM API 本地管道启动")
+    log("  腾讯混元 Hy-MT2 官方 SGLang API 本地管道启动")
     log("==========================================")
 
     baseline_data = load_arb(BASELINE_ARB)
@@ -194,7 +195,7 @@ def main():
         log("⚠️ 未解析到语言配置。")
         sys.exit(0)
 
-    log(f"🚀 开始调用本地 vLLM API 处理 {len(target_locales)} 个语言...")
+    log(f"🚀 开始调用本地 SGLang API 处理 {len(target_locales)} 个语言...")
 
     for locale in target_locales:
         if locale.startswith("en"):
@@ -202,7 +203,7 @@ def main():
         process_language_task_local(locale, baseline_data)
 
     log("==========================================")
-    log("✅ 本地 vLLM Hy-MT2 智能增量翻译全套完成！")
+    log("✅ 本地 SGLang Hy-MT2 智能增量翻译全套完成！")
     log("==========================================")
 
 
