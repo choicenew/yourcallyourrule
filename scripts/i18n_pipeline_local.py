@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-遵循 AngelSlim / Hy-MT2 官方说明，使用 GGUF 2-bit 极限压缩权重进行本地推理
+遵循 AngelSlim/Hy-MT2 官方 README_CN.md 指南：
+"通过 AngelSlim 框架加载下载的权重... 调用英特尔优化后的 VNNI 指令集内核以获得最佳性能"
 """
 
 import json
@@ -10,9 +11,9 @@ import os
 import re
 import sys
 import torch
-import angelslim
-from huggingface_hub import list_repo_files
-from transformers import AutoModelForCausalLM, AutoTokenizer
+
+# 官方说明: 用 AngelSlim 框架加载下载的权重，在本地 CPU 上执行翻译推理
+from angelslim.engine import Engine
 
 # ============ 路径与模型配置 ============
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,58 +21,35 @@ L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "language_data.dart")
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
-# 精确指向您指定的 Hy-MT2-1.8B-2Bit-GGUF 仓库
 MODEL_PATH = "AngelSlim/Hy-MT2-1.8B-2Bit-GGUF"
 
-model = None
-tokenizer = None
+slim_engine = None
 
 
 def log(msg: str):
-    print(f"[i18n-Local-HyMT2] {msg}", flush=True)
+    print(f"[i18n-Local-AngelSlim] {msg}", flush=True)
 
 
 def init_hymt2_model():
-    """按官方代码与 Hugging Face 真实文件名加载 GGUF 权重"""
-    global model, tokenizer
-    log(f"正在从 HuggingFace 查询并加载模型: {MODEL_PATH}")
+    """按官方 README 说明：用 AngelSlim 框架加载权重"""
+    global slim_engine
+    log(f"按官方说明通过 AngelSlim Engine 加载模型: {MODEL_PATH}")
 
-    try:
-        repo_files = list_repo_files(MODEL_PATH)
-        gguf_files = [f for f in repo_files if f.endswith(".gguf")]
-    except Exception as e:
-        log(f"❌ 检索 HuggingFace 仓库失败: {e}")
-        raise e
-
-    if not gguf_files:
-        raise FileNotFoundError(f"仓库 `{MODEL_PATH}` 中未找到任何 .gguf 权重文件！")
-
-    # 优先挑选官方 v2 版本
-    preferred_order = ["Hy-MT2-1.8B-2bit-v2.gguf", "Hy-MT2-1.8B-2bit.gguf", "Hy-MT2-1.8B-2Bit.gguf"]
-    target_gguf = next((f for f in preferred_order if f in gguf_files), gguf_files[0])
-
-    log(f"锁定真实权重文件: `{target_gguf}`，开始载入...")
-
-    model = AutoModelForCausalLM.from_pretrained(
-        MODEL_PATH,
-        gguf_file=target_gguf,
-        device_map="cpu",
-        trust_remote_code=True,
-        low_cpu_mem_usage=True,
-    )
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, gguf_file=target_gguf)
-    log("✅ 腾讯混元 Hy-MT2-1.8B 2Bit 模型与分词器在 CPU 成功加载！")
+    slim_engine = Engine()
+    # 根据官方指引加载模型，不直接使用 raw transformers API
+    slim_engine.prepare_model(model_name="Hy-MT2", model_path=MODEL_PATH)
+    log("✅ 腾讯混元 Hy-MT2 模型已通过 AngelSlim 框架成功加载！")
 
 
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
+    """使用 AngelSlim 原生框架进行生成"""
     prompt = f"Translate to {target_lang}: {text}"
-    inputs = tokenizer(prompt, return_tensors="pt")
-    outputs = model.generate(**inputs, max_new_tokens=256)
-    translated = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    # AngelSlim 内置的 generate 方法
+    output = slim_engine.generate(prompt, max_new_tokens=256)
 
-    if prompt in translated:
-        translated = translated.replace(prompt, "").strip()
-    return translated.strip()
+    if prompt in output:
+        output = output.replace(prompt, "").strip()
+    return output.strip()
 
 
 def load_arb(path: str) -> dict:
@@ -141,7 +119,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
         log(f"✅ 语言 `{target_locale}` 数据完备。")
         return
 
-    log(f"🌐 [Hy-MT2 2Bit 原版推理] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
+    log(f"🌐 [AngelSlim 框架推理] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
 
     translated_count = 0
     for key, en_text in need_translation.items():
@@ -194,7 +172,7 @@ def parse_target_locales_from_dart(file_path: str) -> list[str]:
 
 def main():
     log("==========================================")
-    log("  腾讯混元 Hy-MT2-1.8B-2Bit 本地 CPU 推理管道启动")
+    log("  腾讯混元 Hy-MT2 官方 AngelSlim 框架推理管道启动")
     log("==========================================")
 
     init_hymt2_model()
@@ -220,7 +198,7 @@ def main():
         process_language_task_local(locale, baseline_data)
 
     log("==========================================")
-    log("✅ 本地 Hy-MT2 2Bit 智能增量翻译全套完成！")
+    log("✅ 本地 AngelSlim Hy-MT2 智能增量翻译全套完成！")
     log("==========================================")
 
 
