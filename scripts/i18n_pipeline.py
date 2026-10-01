@@ -8,6 +8,7 @@ scripts/i18n_pipeline.py
 1. 【忠实使用用户指定的 OpenRouter 免费模型池】替换掉失效旧模型，精确搭载用户提供的最新免费模型列表。
 2. 【智能响应动态建议修补】当 OpenRouter 报 404 并提示 "use this slug instead: xxx" 时，脚本自动实时捕获建议的 Slug 并无缝切牌重试。
 3. 【极速高可用】多 Provider 与候选模型自动平滑切牌降级。
+4. 【自动 Base-Locale 补全】当生成 app_hu_HU.arb 时，自动创建 app_hu.arb 避免 Flutter gen-l10n 报错。
 """
 
 import json
@@ -108,7 +109,6 @@ def load_providers() -> list[dict]:
             if p["model"] not in candidate_models:
                 candidate_models.append(p["model"])
 
-        # 未指定 model 时，根据 URL 精确匹配用户给出的免费默认模型列表
         if not candidate_models:
             url_lower = url.lower()
             for kw, defaults in DEFAULT_MODELS.items():
@@ -146,11 +146,24 @@ def load_arb(path: str) -> dict:
         return {}
 
 
-def save_arb(path: str, data: dict):
+def save_arb_with_fallback(path: str, data: dict, target_locale: str):
+    """写回 ARB 文件，并自动处理 Flutter 要求的 base-locale 基础兜底文件 (如 app_hu_HU.arb -> app_hu.arb)"""
     os.makedirs(os.path.dirname(path), exist_ok=True)
+
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
         f.write("\n")
+
+    if "_" in target_locale:
+        base_lang = target_locale.split("_")[0]
+        base_arb_path = os.path.join(L10N_DIR, f"app_{base_lang}.arb")
+        if not os.path.exists(base_arb_path):
+            base_data = dict(data)
+            base_data["@@locale"] = base_lang
+            with open(base_arb_path, "w", encoding="utf-8") as f:
+                json.dump(base_data, f, ensure_ascii=False, indent=2)
+                f.write("\n")
+            log(f"💡 自动生成 Flutter gen-l10n 所需的 Base Fallback 文件: app_{base_lang}.arb")
 
 
 def sanitize_and_deduplicate_arb(data: dict) -> dict:
@@ -183,7 +196,7 @@ def is_untranslated_value(en_val: str, target_val: str) -> bool:
     return False
 
 
-# ============ 3. API 请求处理 (含 OpenRouter 动态建议 Slug 提取) ============
+# ============ 3. API 请求处理 ============
 def call_ai_api_with_failover(prompt: str) -> str:
     if not PROVIDERS:
         raise RuntimeError("云端未配置任何有效的 AI Provider！")
@@ -238,7 +251,6 @@ def call_ai_api_with_failover(prompt: str) -> str:
                     err_msg = e.read().decode("utf-8", errors="ignore")
                     log(f"⚠️ Provider [{provider_name}] (Model: {model or 'default'}) HTTP {e.code}: {err_msg[:200]}")
 
-                    # 动态捕获 OpenRouter 返回的替代 Slug
                     suggested_slug_match = re.search(r"use this slug instead:\s*([a-zA-Z0-9_\-\.\/:]+)", err_msg)
                     if suggested_slug_match:
                         suggested_slug = suggested_slug_match.group(1).strip()
@@ -293,7 +305,7 @@ def process_language_task(target_locale: str, baseline_data: dict):
             need_translation[k] = en_val
 
     if not need_translation:
-        save_arb(arb_path, current_data)
+        save_arb_with_fallback(arb_path, current_data, target_locale)
         log(f"✅ 语言 `{target_locale}` 已清理且数据完备。")
         return target_locale, True
 
@@ -317,7 +329,7 @@ def process_language_task(target_locale: str, baseline_data: dict):
             if meta_k in baseline_data:
                 final_data[meta_k] = baseline_data[meta_k]
 
-    save_arb(arb_path, final_data)
+    save_arb_with_fallback(arb_path, final_data, target_locale)
     log(f"🎉 语言 `{target_locale}` 并发翻译与写回完成！")
     return target_locale, True
 
@@ -350,11 +362,11 @@ def main():
 
     baseline_data = load_arb(BASELINE_ARB)
     if not baseline_data:
-        log(f"❌ 错误: 基准文件 {BASELINE_ARB} 不存在或为空！")
+        log(f"❌ 错误: 基准文件 {BASELINE_ARB} 不存在！")
         sys.exit(1)
 
     baseline_data = sanitize_and_deduplicate_arb(baseline_data)
-    save_arb(BASELINE_ARB, baseline_data)
+    save_arb_with_fallback(BASELINE_ARB, baseline_data, "en")
 
     target_locales = parse_target_locales_from_dart(LANG_DATA_FILE)
     if not target_locales:

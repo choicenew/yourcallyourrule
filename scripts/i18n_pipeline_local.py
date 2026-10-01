@@ -2,11 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-遵循 AngelSlim 官方 README 发布公告链接：
-`[26/02/09] 我们发布了 HY-1.8B-2Bit, 2比特端侧大模型, 模型可见 Huggingface (https://huggingface.co/AngelSlim/HY-1.8B-2Bit)`
-
-说明：
-AngelSlim 引擎 prepare_model 加载的是包含 config.json 的官方 2Bit 模型仓库 `AngelSlim/HY-1.8B-2Bit`。
+遵循 AngelSlim 官方规范，通过 Engine 装载 AngelSlim 内核模型，并自动保证 Flutter 本地化 base-locale 兜底文件
 """
 
 import json
@@ -15,6 +11,7 @@ import re
 import sys
 import torch
 from angelslim.engine import Engine
+from transformers import AutoTokenizer
 
 # ============ 路径与模型配置 ============
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,10 +19,11 @@ L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "language_data.dart")
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
-# 精确使用 AngelSlim 官方 README 给出的 2Bit 模型 HuggingFace 仓库路径
-MODEL_PATH = os.environ.get("HY_MT2_MODEL_PATH", "AngelSlim/HY-1.8B-2Bit")
+MODEL_PATH = "AngelSlim/HY-1.8B-2Bit"
 
 slim_engine = None
+model = None
+tokenizer = None
 
 
 def log(msg: str):
@@ -33,23 +31,36 @@ def log(msg: str):
 
 
 def init_hymt2_model():
-    """按 AngelSlim 官方 README 说明：通过 Engine 载入 AngelSlim/HY-1.8B-2Bit """
-    global slim_engine
-    log(f"通过 AngelSlim Engine 加载官方 2Bit 模型: {MODEL_PATH}")
+    """按 AngelSlim 规范初始化 prepare_model，并提取 AngelSlim 内核修饰后的 model 与 tokenizer"""
+    global slim_engine, model, tokenizer
+    log(f"通过 AngelSlim Engine 加载模型: {MODEL_PATH}")
 
     slim_engine = Engine()
     slim_engine.prepare_model(model_name="HunyuanDense", model_path=MODEL_PATH)
-    log("✅ 腾讯混元 2Bit 本地模型已通过 AngelSlim 框架成功加载！")
+
+    # 从 AngelSlim SlimModel 中提取已经过量化算子修饰的底层 PyTorch 模型与分词器
+    if hasattr(slim_engine, "slim_model") and slim_engine.slim_model:
+        model = getattr(slim_engine.slim_model, "model", slim_engine.slim_model)
+        tokenizer = getattr(slim_engine.slim_model, "tokenizer", None)
+
+    if not tokenizer:
+        tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+
+    log("✅ 腾讯混元 2Bit 模型与分词器已成功通过 AngelSlim 框架初始化就绪！")
 
 
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
-    """使用 AngelSlim 原生框架进行生成"""
+    """使用 AngelSlim 算子修饰后的模型进行标准 generate 推理"""
     prompt = f"Translate to {target_lang}: {text}"
-    output = slim_engine.generate(prompt, max_new_tokens=256)
+    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 
-    if prompt in output:
-        output = output.replace(prompt, "").strip()
-    return output.strip()
+    with torch.no_grad():
+        outputs = model.generate(**inputs, max_new_tokens=256, do_sample=False)
+
+    translated = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    if prompt in translated:
+        translated = translated.replace(prompt, "").strip()
+    return translated.strip()
 
 
 def load_arb(path: str) -> dict:
@@ -62,11 +73,26 @@ def load_arb(path: str) -> dict:
         return {}
 
 
-def save_arb(path: str, data: dict):
+def save_arb_with_fallback(path: str, data: dict, target_locale: str):
+    """写回 ARB 文件，并自动处理 Flutter 要求的 base-locale 基础兜底文件 (如 app_hu_HU.arb -> app_hu.arb)"""
     os.makedirs(os.path.dirname(path), exist_ok=True)
+
+    # 1. 写入目标 ARB 文件
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
         f.write("\n")
+
+    # 2. 如果包含下划线 (如 hu_HU, zh_CN)，自动确保基础文件 app_hu.arb 存在，规避 Flutter gen-l10n 报错
+    if "_" in target_locale:
+        base_lang = target_locale.split("_")[0]
+        base_arb_path = os.path.join(L10N_DIR, f"app_{base_lang}.arb")
+        if not os.path.exists(base_arb_path):
+            base_data = dict(data)
+            base_data["@@locale"] = base_lang
+            with open(base_arb_path, "w", encoding="utf-8") as f:
+                json.dump(base_data, f, ensure_ascii=False, indent=2)
+                f.write("\n")
+            log(f"💡 自动生成 Flutter gen-l10n 所需的 Base Fallback 文件: app_{base_lang}.arb")
 
 
 def sanitize_and_deduplicate_arb(data: dict) -> dict:
@@ -115,7 +141,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
             need_translation[k] = en_val
 
     if not need_translation:
-        save_arb(arb_path, current_data)
+        save_arb_with_fallback(arb_path, current_data, target_locale)
         log(f"✅ 语言 `{target_locale}` 数据完备。")
         return
 
@@ -136,7 +162,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
                         meta_k = "@" + k
                         if meta_k in baseline_data:
                             final_data[meta_k] = baseline_data[meta_k]
-                save_arb(arb_path, final_data)
+                save_arb_with_fallback(arb_path, final_data, target_locale)
                 log(f"   [磁盘落盘] `{target_locale}` 进度: {translated_count}/{len(need_translation)} 条")
 
         except Exception as e:
@@ -149,7 +175,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
             meta_k = "@" + k
             if meta_k in baseline_data:
                 final_data[meta_k] = baseline_data[meta_k]
-    save_arb(arb_path, final_data)
+    save_arb_with_fallback(arb_path, final_data, target_locale)
     log(f"🎉 语言 `{target_locale}` 处理完毕！")
 
 
@@ -183,7 +209,7 @@ def main():
         sys.exit(1)
 
     baseline_data = sanitize_and_deduplicate_arb(baseline_data)
-    save_arb(BASELINE_ARB, baseline_data)
+    save_arb_with_fallback(BASELINE_ARB, baseline_data, "en")
 
     target_locales = parse_target_locales_from_dart(LANG_DATA_FILE)
     if not target_locales:
