@@ -1,7 +1,16 @@
 name: Auto i18n Translate (Tencent Hy-MT2-1.8B Local LLM)
 
 on:
-  workflow_dispatch: # 手动触发
+  push:
+    branches:
+      - main
+      - elite-ui
+    paths:
+      - 'lib/features/language/language_data.dart'
+      - 'lib/l10n/app_en.arb'
+      - 'scripts/i18n_pipeline_local.py'
+      - '.github/workflows/i18n_auto_translate_local.yml'
+  workflow_dispatch: # 手动触发备用
 
 permissions:
   contents: write
