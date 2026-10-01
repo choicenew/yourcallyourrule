@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-遵循 AngelSlim/Hy-MT2 官方 README_CN.md 指南：
-"通过 AngelSlim 框架加载下载的权重... 调用英特尔优化后的 VNNI 指令集内核以获得最佳性能"
+遵循 AngelSlim / Hy-MT2 官方说明，使用 HunyuanDense 模型架构进行本地推理
 """
 
 import json
@@ -11,8 +10,6 @@ import os
 import re
 import sys
 import torch
-
-# 官方说明: 用 AngelSlim 框架加载下载的权重，在本地 CPU 上执行翻译推理
 from angelslim.engine import Engine
 
 # ============ 路径与模型配置 ============
@@ -31,20 +28,19 @@ def log(msg: str):
 
 
 def init_hymt2_model():
-    """按官方 README 说明：用 AngelSlim 框架加载权重"""
+    """按 AngelSlim 工厂映射：混元 Dense 系列使用 model_name="HunyuanDense" """
     global slim_engine
-    log(f"按官方说明通过 AngelSlim Engine 加载模型: {MODEL_PATH}")
+    log(f"通过 AngelSlim Engine 加载 HunyuanDense 架构模型: {MODEL_PATH}")
 
     slim_engine = Engine()
-    # 根据官方指引加载模型，不直接使用 raw transformers API
-    slim_engine.prepare_model(model_name="Hy-MT2", model_path=MODEL_PATH)
+    # 按照 AngelSlim 模型工厂名称，Hunyuan 密集型模型使用 HunyuanDense
+    slim_engine.prepare_model(model_name="HunyuanDense", model_path=MODEL_PATH)
     log("✅ 腾讯混元 Hy-MT2 模型已通过 AngelSlim 框架成功加载！")
 
 
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
     """使用 AngelSlim 原生框架进行生成"""
     prompt = f"Translate to {target_lang}: {text}"
-    # AngelSlim 内置的 generate 方法
     output = slim_engine.generate(prompt, max_new_tokens=256)
 
     if prompt in output:
