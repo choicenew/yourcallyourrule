@@ -35,12 +35,14 @@ jobs:
         with:
           enable-cache: true
 
-      - name: 4. 安装 CPU 匹配版的 torch 与 torchvision (彻底消除 torchvision::nms C++ 算子不匹配报错)
+      - name: 4. 依照 AngelSlim 官方 README 递归克隆全量源码并安装 (--recursive)
         run: |
-          # 统一安装 CPU 版 torch 和 torchvision，防止预装的 GPU 版 torchvision 与 CPU 版 torch 冲突
           uv pip install --system torch torchvision --index-url https://download.pytorch.org/whl/cpu
           uv pip install --system transformers accelerate huggingface_hub
-          uv pip install --system git+https://github.com/tencent/AngelSlim.git
+          
+          # 100% 遵照官方 README：克隆时包含 --recursive 拉取全部 git submodules，解决 qat 缺失问题
+          git clone --recursive https://github.com/Tencent/AngelSlim.git /tmp/AngelSlim
+          cd /tmp/AngelSlim && uv pip install --system -e .
 
       - name: 5. 执行 腾讯混元 Hy-MT2 本地 CPU 进程内翻译
         run: |
