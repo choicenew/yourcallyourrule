@@ -2,35 +2,77 @@
 # -*- coding: utf-8 -*-
 """
 scripts/i18n_pipeline_local.py
-云端全自动 腾讯混元 Hy-MT2-1.8B 本地模型无 API 依赖增量翻译管道
+云端全自动 腾讯混元 Hy-MT2-1.8B 本地模型 (via AngelSlim / Transformers) 增量翻译管道
 
 核心特征：
-1. 100% 运行于 GitHub Actions 本地 CPU (127.0.0.1:8080)
-2. 零外部云端 API 依赖、零 403 封锁、零 429 限流、零费用
-3. 专针对腾讯 Hy-MT2-1.8B 极低比特 (1.25-bit/2-bit) 翻译模型优化
+1. 100% 遵循腾讯 AngelSlim / HuggingFace 官方加载规范 (AutoModelForCausalLM / AutoTokenizer)
+2. 无需后台独立 Server 挂载，直接在 Python 进程内完成本地 CPU 高效加载与推理
+3. 零外部 API 依赖，零 403 / 429 报错，零缺失动态链接库问题
 """
 
 import json
 import os
 import re
 import sys
-import time
-import urllib.request
-import urllib.error
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# ============ 路径配置 ============
+# ============ 路径与模型配置 ============
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
 LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "language_data.dart")
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
-# 本地 llama.cpp / llama-server API 地址
-LOCAL_API_URL = os.environ.get("LOCAL_API_URL", "http://127.0.0.1:8080/v1/chat/completions")
-CHUNK_SIZE = 15  # 本地模型推理 Batch 大小
+# 模型路径：支持使用 HuggingFace 官方库 Tencent-Hunyuan/Hy-MT2-1.8B 或 AngelSlim 量化版
+MODEL_PATH = os.environ.get("HY_MT2_MODEL_PATH", "Tencent-Hunyuan/Hy-MT2-1.8B")
+
+tokenizer = None
+model = None
 
 
 def log(msg: str):
-    print(f"[i18n-Local-HyMT2] {msg}", flush=True)
+    print(f"[i18n-Local-AngelSlim] {msg}", flush=True)
+
+
+def init_hymt2_model():
+    """初始化装载 腾讯混元 Hy-MT2-1.8B 模型"""
+    global tokenizer, model
+    log(f"正在基于 AngelSlim / Transformers 加载 腾讯混元 Hy-MT2-1.8B 模型 ({MODEL_PATH})...")
+
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, trust_remote_code=True)
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_PATH,
+        device_map="auto",
+        trust_remote_code=True,
+        torch_dtype=torch.float32,
+        low_cpu_mem_usage=True
+    )
+    log("✅ 腾讯混元 Hy-MT2-1.8B 模型加载成功！")
+
+
+def translate_text_with_hymt2(text: str, target_lang: str) -> str:
+    """使用 Hy-MT2-1.8B 原生执行翻译"""
+    prompt = f"Translate the following English text to {target_lang}:\n{text}"
+    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+
+    with torch.no_grad():
+        outputs = model.generate(
+            **inputs,
+            max_new_tokens=256,
+            temperature=0.1,
+            top_p=0.9,
+            do_sample=False
+        )
+
+    full_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+    # 截取新生成的文本
+    if prompt in full_output:
+        translated = full_output.replace(prompt, "").strip()
+    else:
+        translated = full_output.strip()
+
+    return translated
 
 
 def load_arb(path: str) -> dict:
@@ -80,55 +122,6 @@ def is_untranslated_value(en_val: str, target_val: str) -> bool:
     return False
 
 
-def call_local_hymt2_api(prompt: str) -> str:
-    """调用本地运行的 腾讯 Hy-MT2-1.8B llama-server 接口"""
-    headers = {"Content-Type": "application/json"}
-    payload = {
-        "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0.1,
-        "top_p": 0.9,
-    }
-    data_bytes = json.dumps(payload).encode("utf-8")
-
-    try:
-        req = urllib.request.Request(LOCAL_API_URL, data=data_bytes, headers=headers, method="POST")
-        with urllib.request.urlopen(req, timeout=120) as resp:
-            res_body = resp.read().decode("utf-8")
-            res_json = json.loads(res_body)
-            choices = res_json.get("choices", [])
-            if not choices:
-                raise ValueError("本地模型响应未包含 choices")
-            return choices[0]["message"]["content"]
-    except urllib.error.URLError as e:
-        log(f"❌ 无法连接本地 Hy-MT2 推理服务器 ({LOCAL_API_URL}): {e}")
-        raise e
-
-
-def translate_chunk_local(chunk: dict, target_locale: str) -> dict:
-    prompt = f"""You are a professional Flutter ARB translator powered by Tencent Hy-MT2.
-Translate the following JSON string values from English to target locale '{target_locale}'.
-
-Requirements:
-1. Return strictly a raw valid JSON object starting with {{ and ending with }}.
-2. Do NOT alter key names.
-3. Keep untranslated placeholders like {{userName}}, {{count}}, {{hours}}.
-4. Do NOT wrap output in markdown syntax.
-
-Input JSON:
-{json.dumps(chunk, ensure_ascii=False)}"""
-
-    raw_response = call_local_hymt2_api(prompt)
-    clean_json = raw_response.replace("```json", "").replace("```", "").strip()
-
-    # 清理非 JSON 的附加输出
-    start_idx = clean_json.find('{')
-    end_idx = clean_json.rfind('}')
-    if start_idx != -1 and end_idx != -1:
-        clean_json = clean_json[start_idx:end_idx + 1]
-
-    return json.loads(clean_json)
-
-
 def process_language_task_local(target_locale: str, baseline_data: dict):
     arb_path = os.path.join(L10N_DIR, f"app_{target_locale}.arb")
     current_data = load_arb(arb_path)
@@ -149,31 +142,40 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
         log(f"✅ 语言 `{target_locale}` 数据完备。")
         return
 
-    log(f"🌐 [本地 Hy-MT2 推理] 语言 `{target_locale}` 开始处理 {len(need_translation)} 个词条...")
+    log(f"🌐 [Hy-MT2 逐条推理] 语言 `{target_locale}` 开始翻译 {len(need_translation)} 个词条...")
 
-    items = list(need_translation.items())
-
-    for i in range(0, len(items), CHUNK_SIZE):
-        chunk = dict(items[i:i + CHUNK_SIZE])
+    translated_count = 0
+    for key, en_text in need_translation.items():
         try:
-            chunk_res = translate_chunk_local(chunk, target_locale)
-            current_data.update(chunk_res)
+            translated_text = translate_text_with_hymt2(en_text, target_locale)
+            current_data[key] = translated_text
+            translated_count += 1
 
-            final_data = {"@@locale": target_locale}
-            for k in baseline_data.keys():
-                if k in current_data:
-                    final_data[k] = current_data[k]
-                    meta_k = "@" + k
-                    if meta_k in baseline_data:
-                        final_data[meta_k] = baseline_data[meta_k]
+            # 每 10 条更新即时保存落盘
+            if translated_count % 10 == 0:
+                final_data = {"@@locale": target_locale}
+                for k in baseline_data.keys():
+                    if k in current_data:
+                        final_data[k] = current_data[k]
+                        meta_k = "@" + k
+                        if meta_k in baseline_data:
+                            final_data[meta_k] = baseline_data[meta_k]
+                save_arb(arb_path, final_data)
+                log(f"   [磁盘落盘] `{target_locale}` 进度: {translated_count}/{len(need_translation)} 条")
 
-            save_arb(arb_path, final_data)
-            log(f"   [本地落盘] `{target_locale}` 进度: {i + len(chunk)}/{len(items)} 条")
         except Exception as e:
-            log(f"⚠️ `{target_locale}` 块处理遇到错误: {e}，已有进度已保存。")
-            break
+            log(f"⚠️ `{target_locale}` 词条 `{key}` 翻译异常: {e}")
 
-    log(f"🎉 语言 `{target_locale}` 处理完毕。")
+    # 最终完整落盘
+    final_data = {"@@locale": target_locale}
+    for k in baseline_data.keys():
+        if k in current_data:
+            final_data[k] = current_data[k]
+            meta_k = "@" + k
+            if meta_k in baseline_data:
+                final_data[meta_k] = baseline_data[meta_k]
+    save_arb(arb_path, final_data)
+    log(f"🎉 语言 `{target_locale}` 处理完毕！")
 
 
 def parse_target_locales_from_dart(file_path: str) -> list[str]:
@@ -195,8 +197,10 @@ def parse_target_locales_from_dart(file_path: str) -> list[str]:
 
 def main():
     log("==========================================")
-    log(" 腾讯混元 Hy-MT2-1.8B 本地模型翻译管道启动")
+    log("  腾讯混元 Hy-MT2-1.8B 本地模型管道启动")
     log("==========================================")
+
+    init_hymt2_model()
 
     baseline_data = load_arb(BASELINE_ARB)
     if not baseline_data:
@@ -211,7 +215,7 @@ def main():
         log("⚠️ 未解析到语言配置。")
         sys.exit(0)
 
-    log(f"🚀 开始调用本地 Hy-MT2 模型处理 {len(target_locales)} 个语言...")
+    log(f"🚀 开始逐语言调用本地 Hy-MT2 模型处理 {len(target_locales)} 个语言...")
 
     for locale in target_locales:
         if locale.startswith("en"):

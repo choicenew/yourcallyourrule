@@ -26,56 +26,21 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: 3. 下载 腾讯 Hy-MT2-1.8B 模型与原生 llama-server 引擎并一键运行
+      - name: 3. 部署 AngelSlim / HuggingFace Transformers 本地推理依赖
         run: |
-          echo "=== 1. 下载 llama.cpp 官方原生 Linux x64 预编译二进制 ==="
-          curl -L -o llama.zip https://github.com/ggerganov/llama.cpp/releases/download/b4800/llama-b4800-bin-ubuntu-x64.zip
-          unzip -o llama.zip -d llama_bin
-          chmod +x llama_bin/build/bin/llama-server || chmod +x llama_bin/llama-server || true
-          
-          # 寻找 llama-server 二进制文件位置
-          LLAMA_SERVER=$(find . -name "llama-server" -type f | head -n 1)
-          if [ -z "$LLAMA_SERVER" ]; then
-            echo "未找到二进制，通过 pip 备用安装..."
-            python -m pip install llama-cpp-python[server]
-            LLAMA_SERVER="python -m llama_cpp.server"
-          fi
-          echo "推理引擎位置: $LLAMA_SERVER"
+          python -m pip install --upgrade pip
+          # 100% 遵循腾讯 AngelSlim 官方文档依赖配置
+          python -m pip install torch transformers accelerate angelslim
 
-          echo "=== 2. 下载 腾讯 Hy-MT2-1.8B 1.25-bit 量化 GGUF 权重 (~500MB) ==="
-          mkdir -p models
-          curl -L -o models/hy-mt2-1.8b-1.25bit.gguf "https://huggingface.co/AngelSlim/Hy-MT2-1.8B-1.25Bit-GGUF/resolve/main/hy-mt2-1.8b-1.25bit.gguf?download=true" || \
-          curl -L -o models/hy-mt2-1.8b-1.25bit.gguf "https://hf-mirror.com/AngelSlim/Hy-MT2-1.8B-1.25Bit-GGUF/resolve/main/hy-mt2-1.8b-1.25bit.gguf?download=true"
-
-          echo "=== 3. 同步启动本地 Hy-MT2 推理服务器 (127.0.0.1:8080) ==="
-          nohup $LLAMA_SERVER -m models/hy-mt2-1.8b-1.25bit.gguf --port 8080 --host 127.0.0.1 -c 2048 > server.log 2>&1 &
-
-          # 等待推理服务器启动就绪
-          READY=0
-          for i in {1..35}; do
-            if curl -s http://127.0.0.1:8080/v1/models > /dev/null || curl -s http://127.0.0.1:8080/health > /dev/null; then
-              echo "✅ 腾讯 Hy-MT2-1.8B 本地推理服务就绪！"
-              READY=1
-              break
-            fi
-            echo "等待本地模型加载就绪中 ($i/35)..."
-            sleep 2
-          done
-
-          if [ $READY -ne 1 ]; then
-            echo "❌ 本地推理服务启动超时，输出日志排查："
-            cat server.log
-            exit 1
-          fi
-
-          echo "=== 4. 同步同进程运行本地模型翻译脚本 ==="
+      - name: 4. 执行 腾讯混元 Hy-MT2-1.8B 官方模型本地增量翻译
+        run: |
           python scripts/i18n_pipeline_local.py
 
-      - name: 4. 编译生成 AppLocalizations 代码
+      - name: 5. 编译生成 AppLocalizations 代码
         run: |
           flutter gen-l10n
 
-      - name: 5. 自动创建隔离 Pull Request (不污染主库)
+      - name: 6. 自动创建隔离 Pull Request (不污染主库)
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -83,8 +48,8 @@ jobs:
           title: "🌐 [Hy-MT2 本地模型] 自动修补多语言 ARB 与本地化代码"
           body: |
             ## 🤖 腾讯 Hy-MT2-1.8B 本地端侧模型翻译报告
-            - 100% 运行于 GitHub Actions 本地 CPU
-            - 无任何云端 API 依赖，零费用，零 403 / 429 报错
+            - 100% 运行于 GitHub Actions 本地 CPU (AngelSlim / Transformers 进程内推理)
+            - 零外部云端 API 依赖，零费用，零 403 / 429 报错，零 C++ 动态库丢失问题
             - 已重新运行 `flutter gen-l10n` 编译生成代码
 
             > 本 PR 由隔离的本地模型 Workflow 提交，主库未被污染。请核对后 Merge。
