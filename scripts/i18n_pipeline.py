@@ -195,6 +195,49 @@ def call_ai_api_with_failover(prompt: str) -> str:
     raise RuntimeError("❌ 列表中所有 AI Provider 均尝试失败，请检查云端 Secrets 配置。")
 
 
+def extract_json_from_response(text: str) -> dict:
+    text = text.strip()
+    if "```" in text:
+        text = re.sub(r"```(?:json)?", "", text).strip()
+    try:
+        return json.loads(text)
+    except Exception:
+        pass
+
+    match = re.search(r"\{.*\}", text, re.DOTALL)
+    if match:
+        try:
+            return json.loads(match.group(0))
+        except Exception:
+            pass
+
+    raise ValueError(f"AI 响应无法解析为有效的 JSON 数据:\n{text[:200]}")
+
+
+def validate_and_fix_placeholders(en_val: str, translated_val: str) -> str:
+    """保障占位符 100% 格式安全，防止 flutter gen-l10n 校验失败"""
+    if not isinstance(translated_val, str) or not translated_val.strip():
+        return en_val
+
+    en_placeholders = re.findall(r"\{([a-zA-Z0-9_]+)\}", en_val)
+    if not en_placeholders:
+        return translated_val
+
+    missing = [ph for ph in en_placeholders if f"{{{ph}}}" not in translated_val]
+    if missing:
+        trans_placeholders = re.findall(r"\{([^\}]+)\}", translated_val)
+        if len(trans_placeholders) == len(en_placeholders):
+            fixed = translated_val
+            for old_ph, correct_ph in zip(trans_placeholders, en_placeholders):
+                fixed = fixed.replace(f"{{{old_ph}}}", f"{{{correct_ph}}}")
+            return fixed
+        else:
+            log(f"⚠️ 占位符损坏且无法修复，安全回退英文: `{en_val}` vs `{translated_val}`")
+            return en_val
+
+    return translated_val
+
+
 def translate_chunk(chunk: dict, target_locale: str) -> dict:
     prompt = f"""
 You are a professional Flutter ARB translator.
@@ -210,8 +253,16 @@ Input JSON:
 {json.dumps(chunk, ensure_ascii=False)}
 """
     raw_response = call_ai_api_with_failover(prompt)
-    clean_json = raw_response.replace("```json", "").replace("```", "").strip()
-    return json.loads(clean_json)
+    raw_dict = extract_json_from_response(raw_response)
+
+    validated_dict = {}
+    for k, trans_v in raw_dict.items():
+        if k in chunk:
+            validated_dict[k] = validate_and_fix_placeholders(chunk[k], trans_v)
+        else:
+            validated_dict[k] = trans_v
+
+    return validated_dict
 
 
 # ============ 4. 语言任务构建与多线程执行 ============
