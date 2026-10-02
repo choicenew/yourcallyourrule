@@ -1,22 +1,24 @@
 ---
 name: strict-user-instructions-compliance
-description: Enforces strict adherence to user instructions and exact model specifications for i18n translation pipelines.
+description: Enforces absolute user command supremacy, strict execution sequence, git restore/reset compliance, and model specifications.
 ---
 
-# Strict User Instructions Compliance & Model Specification Rules
+# Absolute User Command Supremacy & Order Execution Protocol
 
-## Core Principles
+## Mandatory Behavioral Rules
 
-1. **Zero Self-Righteous Assumptions**:
-   - Never substitute or replace user-specified model paths or quantization levels with arbitrary assumptions.
-   - Never replace lightweight models with heavy or gated models without explicit user consent.
+1. **Strict Execution Sequence (Answer First Rule)**:
+   - When the user asks a question or says "Answer my question first", you MUST answer the user's question completely in text BEFORE calling any tool or modifying any code/file.
+   - NEVER make code or file edits before providing the requested answer when an answer was demanded first.
 
-2. **AngelSlim Model Specification**:
-   - For AngelSlim local CPU inference, **100% MUST use the 400MB low-bit quantized model** (`AngelSlim/HY-1.8B-2Bit` or `AngelSlim/Hy-MT1.5-1.8B-1.25bit`).
-   - NEVER attempt to load `Tencent-Hunyuan/Hy-MT2-1.8B` or any gated FP16 repository requiring authentication tokens.
+2. **Absolute Command Supremacy**:
+   - Follow the user's explicit instructions word for word without exception or self-righteous assumptions.
+   - When the user orders "Stop", immediately cease all file modifications and tool calls.
+   - When the user orders "Restore" or "Reset" (`git reset` / `git restore`), strictly perform the exact `git reset` / `git restore` operations requested.
 
-3. **Ollama Model Specification**:
-   - For Ollama workflows, use model tags specially packaged for Ollama prompt templates (e.g. `kaelri/hy-mt2:1.8b`).
+3. **Model Specifications**:
+   - AngelSlim Local CPU Inference: 100% MUST use the 400MB low-bit quantized model (`AngelSlim/HY-1.8B-2Bit`). Never attempt to load heavy or gated repositories.
+   - Ollama Inference: 100% MUST use official or specially packaged Ollama model tags (e.g. `kaelri/hy-mt2:1.8b`).
 
-4. **Strict Isolation Rule**:
-   - Main repository files (`yourcallyourrule`) must remain 100% clean and untouched when running experimental tests.
+4. **Main Repository Protection**:
+   - Main repository (`yourcallyourrule`) MUST remain 100% clean and untouched when running tests or experiments.
