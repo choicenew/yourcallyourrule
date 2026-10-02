@@ -1,0 +1,46 @@
+name: Test Ollama Hy-MT2 Model (Pure YML Test)
+
+on:
+  push:
+    branches:
+      - main
+      - elite-ui
+  workflow_dispatch:
+
+jobs:
+  test-ollama:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Checkout
+        uses: actions/checkout@v4
+
+      - name: 2. Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 3. Install Ollama CLI & Python library
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          python -m pip install ollama
+
+      - name: 4. Start Ollama Server & Pull Model
+        run: |
+          ollama serve &
+          sleep 5
+          echo "=== Pulling dzgg/Hy-MT2-1.8B-GGUF:1.25Bit ==="
+          ollama pull dzgg/Hy-MT2-1.8B-GGUF:1.25Bit
+
+      - name: 5. Pure Inline Python Test for Ollama
+        run: |
+          python -c "
+          from ollama import chat
+
+          print('=== Sending chat request to Ollama ===')
+          response = chat(
+              model='dzgg/Hy-MT2-1.8B-GGUF:1.25Bit',
+              messages=[{'role': 'user', 'content': 'Translate to Chinese: Hello world'}]
+          )
+          print('=== Translation Result ===')
+          print(response.message.content)
+          "
