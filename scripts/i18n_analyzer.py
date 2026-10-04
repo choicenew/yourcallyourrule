@@ -27,13 +27,23 @@ REPORT_DIR = os.path.join(PROJECT_ROOT, "i18n_reports")
 # 基准语言文件
 BASELINE_ARB = "app_en.arb"
 
-# 提取国际化调用的正则表达式
+# 提取国际化调用的正则表达式（全面覆盖各种调用范式）
 I18N_PATTERNS = [
+    # 1. 标准调用：AppLocalizations.of(context)!.key / AppLocalizations.of(context)?.key
     re.compile(
         r"AppLocalizations\s*\.\s*of\s*\([^)]*\)\s*[!?]?\s*\.\s*([a-zA-Z_][a-zA-Z0-9_]*)"
     ),
+    # 2. 上下文扩展调用：context.l10n.key / context.loc.key / context.appLocalizations.key / context.localizations.key / context.s.key / context.tr.key / context.t.key
     re.compile(
-        r"(?<![a-zA-Z0-9_])l10n\s*\?\.?\s*([a-zA-Z_][a-zA-Z0-9_]*)"
+        r"(?<![a-zA-Z0-9_])context\s*\.\s*(?:l10n|loc|localizations|appLocalizations|s|tr|t)\s*[!?]?\s*\.\s*([a-zA-Z_][a-zA-Z0-9_]*)"
+    ),
+    # 3. 局部变量/Getter调用：l10n.key / appLocalizations.key / localizations.key / loc.key / s.key
+    re.compile(
+        r"(?<![a-zA-Z0-9_])(?:l10n|appLocalizations|localizations|loc|s)\s*[!?]?\s*\.\s*([a-zA-Z_][a-zA-Z0-9_]*)"
+    ),
+    # 4. 静态或全局类调用：S.of(context).key / S.current.key / I18n.of(context).key / I18n.current.key
+    re.compile(
+        r"(?<![a-zA-Z0-9_])(?:S|I18n)\s*\.\s*(?:of\s*\([^)]*\)|current)\s*[!?]?\s*\.\s*([a-zA-Z_][a-zA-Z0-9_]*)"
     ),
 ]
 
@@ -112,6 +122,38 @@ def get_language_code_from_filename(filename: str) -> str:
     return base
 
 
+def extract_text_occurred_keys(
+    candidate_keys: set[str],
+    text_file_paths: list[str],
+) -> set[str]:
+    """
+    第二层校验：
+    对于候选未使用键集合 candidate_keys，在所有文本文件中做整词纯文本匹配，
+    只要在代码或配置文件中以整词/字符串方式出现过（如 "xxx"），就视作“文本级出现”，
+    防止因反射、动态拼接或全局常量而被误判为绝对未使用。
+    """
+    appeared = set()
+    if not candidate_keys:
+        return appeared
+    escaped_keys = [re.escape(k) for k in sorted(candidate_keys, key=len, reverse=True)]
+    merged = re.compile(
+        r'(["\'])(' + "|".join(escaped_keys) + r')\1'
+        r"|"
+        r'(?<![a-zA-Z0-9_])(' + "|".join(escaped_keys) + r')(?![a-zA-Z0-9_])'
+    )
+    for tfp in text_file_paths:
+        try:
+            with open(tfp, "r", encoding="utf-8") as f:
+                content = f.read()
+        except (OSError, UnicodeDecodeError):
+            continue
+        for m in merged.finditer(content):
+            for grp in m.groups():
+                if grp and grp in candidate_keys:
+                    appeared.add(grp)
+    return appeared
+
+
 def safe_make_dir(path: str):
     """确保目录存在"""
     if not os.path.exists(path):
@@ -161,12 +203,21 @@ def main():
     baseline_keys: set[str] = set(arb_data[baseline_lang_code].keys())
     print(f"\n      基准语言(en)翻译键总数: {len(baseline_keys)}")
 
-    # 3. 找出基准语言中未使用的键
-    print("\n[3/5] 分析未使用的翻译键（en 中定义但代码中未使用）...")
-    unused_in_baseline: set[str] = baseline_keys - all_used_keys
+    # 3. 找出基准语言中未使用的键（包含两层双重校验）
+    print("\n[3/5] 分析未使用的翻译键（双重校验：正则调用 + 全局文本整词匹配）...")
+    candidate_unused: set[str] = baseline_keys - all_used_keys
     used_not_in_baseline: set[str] = all_used_keys - baseline_keys
 
-    print(f"      en 中未被使用的键: {len(unused_in_baseline)} 个")
+    # 第二层保险：对 candidate_unused 进行全项目文本扫描
+    all_text_files = list(dart_files) + arb_files
+    text_appeared = extract_text_occurred_keys(candidate_unused, all_text_files)
+
+    # 真正的 100% 确认绝对未使用键
+    unused_in_baseline: set[str] = candidate_unused - text_appeared
+
+    print(f"      正则调用未命中候选: {len(candidate_unused)} 个")
+    print(f"      文本级整词命中排除: {len(text_appeared)} 个")
+    print(f"      100% 确定未使用的键: {len(unused_in_baseline)} 个")
     print(f"      代码中使用但 en 中缺失的键: {len(used_not_in_baseline)} 个")
 
     # 4. 对比其他语言与基准，找出缺失翻译

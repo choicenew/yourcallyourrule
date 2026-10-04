@@ -38,12 +38,23 @@ BASELINE_ARB = "app_en.arb"
 SPECIAL_KEYS = {"@@locale"}
 METADATA_PREFIX = "@"
 
+# 提取国际化调用的正则表达式（全面覆盖各种调用范式）
 I18N_PATTERNS = [
+    # 1. 标准调用：AppLocalizations.of(context)!.key / AppLocalizations.of(context)?.key
     re.compile(
         r"AppLocalizations\s*\.\s*of\s*\([^)]*\)\s*[!?]?\s*\.\s*([a-zA-Z_][a-zA-Z0-9_]*)"
     ),
+    # 2. 上下文扩展调用：context.l10n.key / context.loc.key / context.appLocalizations.key / context.localizations.key / context.s.key / context.tr.key / context.t.key
     re.compile(
-        r"(?<![a-zA-Z0-9_])l10n\s*\?\.?\s*([a-zA-Z_][a-zA-Z0-9_]*)"
+        r"(?<![a-zA-Z0-9_])context\s*\.\s*(?:l10n|loc|localizations|appLocalizations|s|tr|t)\s*[!?]?\s*\.\s*([a-zA-Z_][a-zA-Z0-9_]*)"
+    ),
+    # 3. 局部变量/Getter调用：l10n.key / appLocalizations.key / localizations.key / loc.key / s.key
+    re.compile(
+        r"(?<![a-zA-Z0-9_])(?:l10n|appLocalizations|localizations|loc|s)\s*[!?]?\s*\.\s*([a-zA-Z_][a-zA-Z0-9_]*)"
+    ),
+    # 4. 静态或全局类调用：S.of(context).key / S.current.key / I18n.of(context).key / I18n.current.key
+    re.compile(
+        r"(?<![a-zA-Z0-9_])(?:S|I18n)\s*\.\s*(?:of\s*\([^)]*\)|current)\s*[!?]?\s*\.\s*([a-zA-Z_][a-zA-Z0-9_]*)"
     ),
 ]
 
