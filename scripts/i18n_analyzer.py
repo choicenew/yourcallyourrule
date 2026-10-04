@@ -54,11 +54,15 @@ SPECIAL_KEYS = {"@@locale"}
 
 # ============ 工具函数 ============
 def find_all_dart_files(root_dir: str) -> list[str]:
-    """递归查找所有 .dart 文件"""
+    """递归查找所有 .dart 文件，排除自动生成的文件"""
     dart_files = []
     for dirpath, _dirnames, filenames in os.walk(root_dir):
+        if "generated" in dirpath.split(os.sep):
+            continue
         for filename in filenames:
             if filename.endswith(".dart"):
+                if filename.startswith("app_localizations"):
+                    continue
                 dart_files.append(os.path.join(dirpath, filename))
     return sorted(dart_files)
 

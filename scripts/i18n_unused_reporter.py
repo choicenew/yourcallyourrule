@@ -58,8 +58,14 @@ I18N_PATTERNS = [
 def find_all_dart_files(root_dir: str) -> list[str]:
     dart_files = []
     for dirpath, _dn, filenames in os.walk(root_dir):
+        # 排除自动生成的本地化目录或文件
+        if "generated" in dirpath.split(os.sep):
+            continue
         for fn in filenames:
             if fn.endswith(".dart"):
+                # 排除自动生成的文件
+                if fn.startswith("app_localizations"):
+                    continue
                 dart_files.append(os.path.join(dirpath, fn))
     return sorted(dart_files)
 
