@@ -50,24 +50,24 @@ jobs:
         run: |
           python -m pip install --upgrade pip
 
-      - name: Verify analyzer script exists
+      - name: [Step 1] Run Initial i18n Analysis (Regex)
         run: |
-          test -f "scripts/i18n_analyzer.py" || { echo "scripts/i18n_analyzer.py not found"; exit 1; }
+          python scripts/step1_i18n_analyze.py
 
-      - name: Run i18n analyzer
+      - name: [Step 2] Run Secondary Recheck (Global Text Verification)
         run: |
-          python scripts/i18n_analyzer.py
+          python scripts/step2_i18n_recheck.py
 
       - name: Print summary to job log
         run: |
           REPORT_DIR="i18n_reports"
-          echo "--- Analyzer produced the following files ---"
+          echo "--- Workflow produced the following reports ---"
           if [ -d "$REPORT_DIR" ]; then
             ls -la "$REPORT_DIR"
             echo
-            if [ -f "$REPORT_DIR/05_原始数据.json" ]; then
-              echo "--- Top-level summary from 05_原始数据.json ---"
-              python -c "import json; data = json.load(open('i18n_reports/05_原始数据.json', 'r', encoding='utf-8')).get('summary', {}); [print(f'  {k}: {v}') for k, v in data.items()]"
+            if [ -f "$REPORT_DIR/02_综合验证数据摘要.json" ]; then
+              echo "--- Final Summary ---"
+              python -c "import json; data = json.load(open('i18n_reports/02_综合验证数据摘要.json', 'r', encoding='utf-8')).get('summary', {}); [print(f'  {k}: {v}') for k, v in data.items()]"
             fi
           else
             echo "Warning: $REPORT_DIR not found"
