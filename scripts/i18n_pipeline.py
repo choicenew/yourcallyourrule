@@ -29,10 +29,10 @@ LANG_DATA_FILE = os.path.join(PROJECT_ROOT, "lib", "features", "language", "lang
 BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
 # ============ 并发与频控配置 ============
-MAX_WORKERS = 3           # 多线程并发处理语言数
-CHUNK_SIZE = 25           # 每次发给 AI 的分块词条数
-INTER_REQUEST_DELAY = 1.2 # 并发硬休眠秒数（防频控）
-MAX_RETRIES_PER_MODEL = 2
+MAX_WORKERS = 2           # 降低并发线程，防止多国语言并发联动导致海外 API 锁死
+CHUNK_SIZE = 80           # 提高单包条数至 80（1900条只需 ~24 次请求，大幅节省频率开销）
+INTER_REQUEST_DELAY = 3.0 # 提高单次休眠间隔，完美卡在 OpenRouter 20 RPM 与 Groq 30 RPM 限制之内
+MAX_RETRIES_PER_MODEL = 3
 
 rate_limit_lock = Lock()
 
@@ -44,28 +44,21 @@ def log(msg: str):
 # 用户精确提供的 OpenRouter 免费模型列表及常见中转站模型
 DEFAULT_MODELS = {
     "openrouter": [
-        "inception/mercury-decide:free",
-        "respan/span-01-lite:free",
-        "inclusionai/ling-3.0-flash-sante:free",
         "qwen/qwen3.8-27b:free",
-        "dots-studio/dots-3-note-preview:free",
-        "liquid/lfm-2.5-2.6b:free",
-        "cognitivecomputations/dolphin-mistral-24b-venice-edition",
+        "google/gemma-2-9b-it:free",
+        "meta-llama/llama-3-8b-instruct:free",
+        "mistralai/mistral-7b-instruct:free",
+        "apex2104/gecko-7b:free"
     ],
     "groq": [
-        "llama-3.1-8b-instant",
-        "llama-3.3-70b-versatile",
-        "mixtral-8x7b-32768",
+        "qwen/qwen3.8-27b",
+        "llama-3.1-8b-instant"
     ],
     "modelscope": [
-        "qwen/Qwen2.5-7B-Instruct",
-        "deepseek-ai/DeepSeek-V3",
+        "qwen-turbo"
     ],
     "chatanywhere": [
-        "gpt-4.1-nano",
-        "gpt-4o-mini",
-        "deepseek-v4.1-flash",
-        "deepseek-chat",
+        "gpt-4o-mini"
     ],
 }
 
