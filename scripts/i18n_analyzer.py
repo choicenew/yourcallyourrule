@@ -212,7 +212,7 @@ def main():
     candidate_unused: set[str] = baseline_keys - all_used_keys
     used_not_in_baseline: set[str] = all_used_keys - baseline_keys
 
-    # 第二层保险：仅在 .dart 代码文件中做整词纯文本扫描（排除 .arb 文件本身）
+    # 第二层保险：仅在 .dart 代码文件中做整词纯文本扫描（排除 .arb 文件本身，且之前已排除了 generated 和 app_localizations 文件）
     text_appeared = extract_text_occurred_keys(candidate_unused, dart_files)
 
     # 真正的 100% 确认绝对未使用键
@@ -221,8 +221,8 @@ def main():
     print(f"      基准语言 (en) 翻译键总数: {len(baseline_keys)} 个")
     print(f"      第一层正则调用的键数: {len(all_used_keys)} 个")
     print(f"      正则未命中候选数: {len(candidate_unused)} 个")
-    print(f"      第二层代码文本匹配数（如字符串常量引用）: {len(text_appeared)} 个")
-    print(f"      100% 确定未使用的键: {len(unused_in_baseline)} 个")
+    print(f"      第二层代码文本匹配自证清白数: {len(text_appeared)} 个")
+    print(f"      -> 最终 100% 确定完全未使用的废键数: {len(unused_in_baseline)} 个")
     print(f"      代码中使用但 en 中缺失的键: {len(used_not_in_baseline)} 个")
 
     # 4. 对比其他语言与基准，找出缺失翻译
