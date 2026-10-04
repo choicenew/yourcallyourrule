@@ -1,0 +1,75 @@
+name: Auto i18n Translate (Index-Translate 2B GGUF)
+
+on:
+  push:
+    branches:
+      - main
+      - elite-ui
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  local-gguf-translate:
+    name: Translate via Index-Translate 2B GGUF
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout 代码
+        uses: actions/checkout@v4
+
+      - name: 2.1 部署 uv 极速包管理器
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: 2.2 缓存 HuggingFace 模型权重文件 (避免重复下载 ~1.2GB)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-models-index-translate-2b-iq4-xs-v1
+          restore-keys: |
+            hf-models-index-translate-2b-
+
+      - name: 2.3 配置 Python 3.10 环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: 2.4 配置 Flutter 环境 (带 Pub 缓存)
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: 3. 安装 llama-cpp-python 与 huggingface_hub
+        run: |
+          uv pip install --system huggingface_hub
+          # 针对 CPU 指令集安装预编译 llama-cpp-python
+          uv pip install --system llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+
+      - name: 4. 执行 Index-Translate 2B GGUF 极速量化本地翻译
+        run: |
+          python scripts/i18n_pipeline_index_gguf.py
+
+      - name: 5. 编译生成 AppLocalizations 代码
+        run: |
+          flutter gen-l10n
+
+      - name: 6. 自动创建隔离 Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "style(i18n): Index-Translate 2B GGUF 模型自动翻译补全 ARB"
+          title: "🌐 [Index-Translate 2B GGUF] 自动修补多语言 ARB 与本地化代码"
+          body: |
+            ## 🤖 Index-Translate 2B GGUF (llama.cpp) 本地翻译报告
+            - 选用 1.23GB 极速轻量模型: `Index-Translate-2B.IQ4_XS.gguf`
+            - 100% 运行于 GitHub Actions 本地 CPU
+            - 零外部 API 依赖，零费用，零 403 / 429 报错
+            - 已重新运行 `flutter gen-l10n` 编译生成代码
+          branch: "i18n/auto-translation-gguf-update"
+          base: "main"
+          delete-branch: true

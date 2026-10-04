@@ -262,7 +262,44 @@ def call_ai_api_with_failover(prompt: str) -> str:
     raise RuntimeError("❌ 所有 Provider 及候选模型均尝试失败，请检查云端 Key 及模型配置！")
 
 
-def translate_chunk(chunk: dict, target_locale: str) -> dict:
+def extract_json_from_text(text: str) -> dict:
+    """极其鲁棒的 JSON 提取与修复器，防范模型输出前后缀、未闭合 Markdown 及多余逗号"""
+    if not text:
+        return {}
+    clean = text.replace("```json", "").replace("```", "").strip()
+    try:
+        res = json.loads(clean)
+        if isinstance(res, dict):
+            return res
+    except Exception:
+        pass
+
+    match = re.search(r"(\{[\s\S]*\})", clean)
+    if match:
+        json_str = match.group(1)
+        try:
+            res = json.loads(json_str)
+            if isinstance(res, dict):
+                return res
+        except Exception:
+            pass
+        # 移除常见的 JSON 尾随逗号 (Trailing comma)
+        fixed_str = re.sub(r",\s*([\}\]])", r"\1", json_str)
+        try:
+            res = json.loads(fixed_str)
+            if isinstance(res, dict):
+                return res
+        except Exception:
+            pass
+
+    return {}
+
+
+def translate_chunk_safe(chunk: dict, target_locale: str, depth: int = 0) -> dict:
+    """带自动切分与毒药词条自愈降级的高容错翻译执行器"""
+    if not chunk:
+        return {}
+
     prompt = f"""
 You are a professional Flutter ARB translator.
 Translate the following JSON string values from English to target locale '{target_locale}'.
@@ -276,9 +313,29 @@ Requirements:
 Input JSON:
 {json.dumps(chunk, ensure_ascii=False)}
 """
-    raw_response = call_ai_api_with_failover(prompt)
-    clean_json = raw_response.replace("```json", "").replace("```", "").strip()
-    return json.loads(clean_json)
+    try:
+        raw_response = call_ai_api_with_failover(prompt)
+        parsed = extract_json_from_text(raw_response)
+        if parsed and isinstance(parsed, dict) and len(parsed) > 0:
+            # 过滤出合法的键值对
+            valid_res = {k: str(v) for k, v in parsed.items() if k in chunk}
+            if len(valid_res) >= len(chunk) * 0.7:  # 成功率达到 70% 以上即可接受
+                return valid_res
+    except Exception as e:
+        log(f"⚠️ 批次翻译异常 (大小: {len(chunk)}, 目标: {target_locale}): {e}")
+
+    # 若整体解析失败且当前 chunk > 1，自动二分切小重试（隔离毒药词条）
+    if len(chunk) > 1 and depth < 3:
+        items = list(chunk.items())
+        mid = len(items) // 2
+        log(f"🔄 正在对失败批次进行二分降级重试: {len(items[:mid])} 条 + {len(items[mid:])} 条")
+        res_a = translate_chunk_safe(dict(items[:mid]), target_locale, depth + 1)
+        res_b = translate_chunk_safe(dict(items[mid:]), target_locale, depth + 1)
+        return {**res_a, **res_b}
+
+    # 单条如果仍然失败，保留原文兜底，绝不卡死任务
+    log(f"⚠️ 无法完成翻译的词条已降级保留原文: {list(chunk.keys())}")
+    return chunk
 
 
 # ============ 4. 语言任务处理 ============
@@ -306,23 +363,25 @@ def process_language_task(target_locale: str, baseline_data: dict):
 
     translated_results = {}
     items = list(need_translation.items())
+    total_batches = (len(items) + CHUNK_SIZE - 1) // CHUNK_SIZE
 
-    for i in range(0, len(items), CHUNK_SIZE):
+    for batch_idx, i in enumerate(range(0, len(items), CHUNK_SIZE), start=1):
         chunk = dict(items[i:i + CHUNK_SIZE])
-        chunk_res = translate_chunk(chunk, target_locale)
+        log(f"   [{target_locale}] 处理批次 {batch_idx}/{total_batches} ({len(chunk)} 条)...")
+        chunk_res = translate_chunk_safe(chunk, target_locale)
         translated_results.update(chunk_res)
 
-    final_data = {"@@locale": target_locale}
-    merged = {**current_data, **translated_results}
+        # 增量落盘：每批次完成立即保存，防止异常中断丢失进度
+        merged_snapshot = {**current_data, **translated_results}
+        final_snapshot = {"@@locale": target_locale}
+        for k in baseline_data.keys():
+            if k in merged_snapshot:
+                final_snapshot[k] = merged_snapshot[k]
+                meta_k = "@" + k
+                if meta_k in baseline_data:
+                    final_snapshot[meta_k] = baseline_data[meta_k]
+        save_arb_with_fallback(arb_path, final_snapshot, target_locale)
 
-    for k in baseline_data.keys():
-        if k in merged:
-            final_data[k] = merged[k]
-            meta_k = "@" + k
-            if meta_k in baseline_data:
-                final_data[meta_k] = baseline_data[meta_k]
-
-    save_arb_with_fallback(arb_path, final_data, target_locale)
     log(f"🎉 语言 `{target_locale}` 并发翻译与写回完成！")
     return target_locale, True
 

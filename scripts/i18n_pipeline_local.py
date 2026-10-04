@@ -49,13 +49,22 @@ def init_hymt2_model():
     log("✅ 腾讯混元 2Bit 模型与分词器已成功通过 AngelSlim 框架初始化就绪！")
 
 
+import gc
+
+
 def translate_text_with_hymt2(text: str, target_lang: str) -> str:
     """使用 AngelSlim 算子修饰后的模型进行标准 generate 推理"""
     prompt = f"Translate to {target_lang}: {text}"
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 
     with torch.no_grad():
-        outputs = model.generate(**inputs, max_new_tokens=256, do_sample=False)
+        outputs = model.generate(
+            **inputs,
+            max_new_tokens=128,
+            do_sample=False,
+            repetition_penalty=1.15,
+            pad_token_id=tokenizer.eos_token_id if hasattr(tokenizer, "eos_token_id") else None
+        )
 
     translated = tokenizer.decode(outputs[0], skip_special_tokens=True)
     if prompt in translated:
@@ -163,6 +172,7 @@ def process_language_task_local(target_locale: str, baseline_data: dict):
                         if meta_k in baseline_data:
                             final_data[meta_k] = baseline_data[meta_k]
                 save_arb_with_fallback(arb_path, final_data, target_locale)
+                gc.collect()
                 log(f"   [磁盘落盘] `{target_locale}` 进度: {translated_count}/{len(need_translation)} 条")
 
         except Exception as e:
