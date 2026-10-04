@@ -55,7 +55,7 @@ app.*.map.json
 **/临时参考/
 plugins html/
 **/plugins html/
-/docs/
+
 /plugins/
 
 # Sensitive & Local files
