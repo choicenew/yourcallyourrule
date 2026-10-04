@@ -185,10 +185,9 @@ def compute_safe_keys_to_remove() -> tuple[set[str], set[str], set[str]]:
     candidate_to_remove = en_keys - confirmed_used
     print(f"      调用级未命中候选: {len(candidate_to_remove)} 个")
 
-    print("[2/5] 第二层保险：全项目文本扫描整词出现情况...")
-    all_text_files = list(dart_files) + find_all_arb_files(L10N_DIR)
-    text_appeared = extract_text_occurred_keys(candidate_to_remove, all_text_files)
-    print(f"      文本级命中（排除）: {len(text_appeared)} 个")
+    print("[2/5] 第二层保险：代码文本扫描整词出现情况（排除 .arb 文件本身）...")
+    text_appeared = extract_text_occurred_keys(candidate_to_remove, dart_files)
+    print(f"      代码文本级命中（排除）: {len(text_appeared)} 个")
 
     safe_remove_set = candidate_to_remove - text_appeared
     print(f"      -> 判定安全可删: {len(safe_remove_set)} 个")

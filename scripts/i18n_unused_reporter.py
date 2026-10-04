@@ -165,17 +165,18 @@ def main():
     print(f"      基准语言({BASELINE_ARB}) 翻译键总数: {len(baseline_keys)}")
 
     # 3. 双重校验查找未使用键
-    print("\n[2/4] 执行双重校验（正则调用 + 全局文本整词匹配）...")
+    print("\n[2/4] 执行双重校验（正则调用 + 代码文本整词匹配）...")
     candidate_unused = baseline_keys - all_used_keys
 
-    arb_files = find_all_arb_files(L10N_DIR)
-    all_text_files = list(dart_files) + arb_files
-    text_appeared = extract_text_occurred_keys(candidate_unused, all_text_files)
+    # 第二层保险：仅在 .dart 代码文件中做整词纯文本匹配（不能包含 .arb 文件本身，否则定义本身会被误判为调用）
+    text_appeared = extract_text_occurred_keys(candidate_unused, dart_files)
 
     final_unused_keys = candidate_unused - text_appeared
 
-    print(f"      第一层正则未命中候选: {len(candidate_unused)} 个")
-    print(f"      第二层文本整词命中排除: {len(text_appeared)} 个")
+    print(f"      基准语言 (en) 翻译键总数: {len(baseline_keys)} 个")
+    print(f"      第一层正则调用的键数: {len(all_used_keys)} 个")
+    print(f"      正则未命中候选数: {len(candidate_unused)} 个")
+    print(f"      第二层代码文本匹配数（如字符串常量引用）: {len(text_appeared)} 个")
     print(f"      -> 最终判定 100% 确认为未使用的多余键: {len(final_unused_keys)} 个")
 
     # 4. 输出 Markdown 报告
