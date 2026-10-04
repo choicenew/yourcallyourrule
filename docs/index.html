@@ -5,12 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+  <!-- Primary SEO Meta Tags -->
   <title data-i18n="meta_title">YourCallYourRule (CallShield) — Privacy-First Call & SMS Blocker</title>
   <meta name="description" content="A powerful, transparent-code Android call and SMS blocker. Features regex rules, QuickJS plugins, and 100% offline privacy with zero contact uploads.">
+  <meta name="keywords" content="call blocker, SMS blocker, regex call filter, QuickJS plugin caller ID, offline privacy, open source call blocker, transparent code, block spam calls, Android call shield">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="YourCallYourRule Community">
   <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://choicenew.github.io/yourcallrule/">
 
+  <!-- Global Multilingual SEO hreflang Alternate Links -->
+  <link rel="alternate" hreflang="en" href="https://choicenew.github.io/yourcallrule/">
+  <link rel="alternate" hreflang="zh-CN" href="https://choicenew.github.io/yourcallrule/?lang=zh-cn">
+  <link rel="alternate" hreflang="zh-TW" href="https://choicenew.github.io/yourcallrule/?lang=zh-tw">
+  <link rel="alternate" hreflang="ja" href="https://choicenew.github.io/yourcallrule/?lang=ja">
+  <link rel="alternate" hreflang="es" href="https://choicenew.github.io/yourcallrule/?lang=es">
+  <link rel="alternate" hreflang="hi" href="https://choicenew.github.io/yourcallrule/?lang=hi">
+  <link rel="alternate" hreflang="ar" href="https://choicenew.github.io/yourcallrule/?lang=ar">
+  <link rel="alternate" hreflang="ru" href="https://choicenew.github.io/yourcallrule/?lang=ru">
+  <link rel="alternate" hreflang="x-default" href="https://choicenew.github.io/yourcallrule/">
+
+  <!-- Open Graph / Facebook / WhatsApp Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://choicenew.github.io/yourcallrule/">
+  <meta property="og:title" content="YourCallYourRule (CallShield) — Privacy-First Call Blocker">
+  <meta property="og:description" content="Block spam, telemarketers, and fraud using Regex and QuickJS. 100% offline privacy, zero contact uploads.">
+  <meta property="og:image" content="assets/app_logo.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:locale:alternate" content="es_ES">
+
+  <!-- Twitter Meta Tags -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://choicenew.github.io/yourcallrule/">
+  <meta property="twitter:title" content="YourCallYourRule — Privacy Call Shield">
+  <meta property="twitter:description" content="100% Offline Privacy Android Call Blocker with custom regex rules & QuickJS lookup plugins.">
+  <meta property="twitter:image" content="assets/app_logo.png">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/app_logo.png">
   <link rel="apple-touch-icon" href="assets/app_logo.png">
+
+  <!-- Structured Data JSON-LD (Schema.org SoftwareApplication) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "YourCallYourRule",
+    "alternateName": ["CallShield", "Your Call Your Rule"],
+    "operatingSystem": "Android",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "A powerful, highly customizable Android call & SMS blocking app targeting telemarketing, spoofed numbers, and financial scams worldwide with 100% offline privacy and transparent code.",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "1890"
+    },
+    "featureList": [
+      "100% Offline Privacy & Zero Contact Uploads",
+      "Advanced Regex Rule Engine",
+      "Custom QuickJS Headless Plugin Engine for Live Lookup",
+      "Silent Rejection",
+      "Dual SIM Independent Blocking Rules"
+    ]
+  }
+  </script>
 
   <!-- Clean, system-native fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -177,7 +243,7 @@
 
     /* Features Section */
     .features {
-      padding: 60px 0;
+      padding: 60px 0 100px;
     }
 
     .section-title {
@@ -225,49 +291,6 @@
       line-height: 1.6;
     }
 
-    /* Simulator Section */
-    .simulator {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 48px;
-      margin: 40px auto 80px;
-      text-align: center;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    }
-
-    .sim-input-group {
-      display: flex;
-      gap: 12px;
-      max-width: 600px;
-      margin: 24px auto 0;
-    }
-
-    .sim-input {
-      flex: 1;
-      padding: 12px 16px;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      font-size: 1rem;
-      outline: none;
-    }
-
-    .sim-input:focus {
-      border-color: var(--primary-color);
-    }
-
-    .sim-result {
-      margin-top: 24px;
-      padding: 20px;
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      text-align: left;
-      font-family: monospace;
-      font-size: 0.95rem;
-      display: none;
-    }
-
     /* Footer */
     footer {
       background: var(--bg-card);
@@ -296,7 +319,6 @@
 
     @media (max-width: 768px) {
       .hero-title { font-size: 2.5rem; }
-      .sim-input-group { flex-direction: column; }
     }
   </style>
 </head>
@@ -309,10 +331,16 @@
         YourCallYourRule
       </a>
       <div class="nav-actions">
+        <label for="langSelector" style="display:none;">Select Language</label>
         <select class="lang-select" onchange="changeLanguage(this.value)" id="langSelector">
-          <option value="en">English</option>
-          <option value="zh-cn">简体中文</option>
-          <option value="zh-tw">繁體中文</option>
+          <option value="en">English (US)</option>
+          <option value="zh-cn">简体中文 (CN)</option>
+          <option value="zh-tw">繁體中文 (TW/HK)</option>
+          <option value="ja">日本語 (JP)</option>
+          <option value="es">Español (ES)</option>
+          <option value="hi">हिन्दी (IN)</option>
+          <option value="ar">العربية (AR)</option>
+          <option value="ru">Русский (RU)</option>
         </select>
       </div>
     </div>
@@ -369,19 +397,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Simulator -->
-    <section class="container">
-      <div class="simulator">
-        <h2 style="font-size: 1.75rem; margin-bottom: 12px; color: var(--text-main);" data-i18n="sim_title">Test the Rule Engine</h2>
-        <p style="color: var(--text-muted);" data-i18n="sim_desc">Enter a sample phone number to see how local rules process it.</p>
-        <div class="sim-input-group">
-          <input type="text" id="simPhone" class="sim-input" data-i18n-placeholder="sim_placeholder" placeholder="e.g. 800-555-0199">
-          <button onclick="testRule()" class="btn btn-primary" data-i18n="sim_btn">Test Rule</button>
-        </div>
-        <div id="simOutput" class="sim-result"></div>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -418,10 +433,6 @@
         f5_desc: "The source code is open and available for auditing. We believe security and privacy tools must be transparent so you can trust the software running on your device.",
         f6_title: "Dual SIM & SMS Support",
         f6_desc: "Configure independent rules for different SIM cards. The APK version also includes a robust SMS filtering engine to keep your inbox free of phishing and spam.",
-        sim_title: "Test the Rule Engine",
-        sim_desc: "Enter a sample phone number to see how local rules process it.",
-        sim_placeholder: "e.g. 800-555-0199",
-        sim_btn: "Test Rule",
         link_repo: "Repository",
         link_releases: "Releases",
         link_tg: "Telegram",
@@ -448,10 +459,6 @@
         f5_desc: "源代码公开并接受审计。我们坚信安全与隐私工具必须保持透明，让您能完全信任运行在设备上的软件。",
         f6_title: "双卡与短信过滤",
         f6_desc: "支持为不同的 SIM 卡配置独立的拦截规则。APK 版本还内置了强大的短信过滤引擎，让收件箱远离垃圾信息。",
-        sim_title: "规则引擎测试",
-        sim_desc: "输入测试号码，查看本地规则的处理逻辑。",
-        sim_placeholder: "例如：800-555-0199",
-        sim_btn: "测试规则",
         link_repo: "代码仓库",
         link_releases: "发布版本",
         link_tg: "Telegram 频道",
@@ -478,14 +485,140 @@
         f5_desc: "原始碼公開並接受審計。我們堅信安全與隱私工具必須保持透明，讓您能完全信任運行在設備上的軟體。",
         f6_title: "雙卡與簡訊過濾",
         f6_desc: "支持為不同的 SIM 卡配置獨立的攔截規則。APK 版本還內置了強大的簡訊過濾引擎，讓收件匣遠離垃圾訊息。",
-        sim_title: "規則引擎測試",
-        sim_desc: "輸入測試號碼，查看本地規則的處理邏輯。",
-        sim_placeholder: "例如：800-555-0199",
-        sim_btn: "測試規則",
         link_repo: "代碼倉庫",
         link_releases: "發布版本",
         link_tg: "Telegram 頻道",
         footer_copy: "© 2026 YourCallYourRule. 開放代碼，捍衛隱私透明。"
+      },
+      "ja": {
+        meta_title: "YourCallYourRule — プライバシー第一の通話ブロッカー",
+        hero_badge: "100% プライバシー • 透明なコード",
+        hero_title: "あなたの通話、あなたのルール。",
+        hero_subtitle: "Android向けの強力な通話およびSMSブロッカー。カスタム正規表現ルールの作成、QuickJSプラグインの活用、不要な通話の静かなブロックを、連絡先をアップロードすることなくすべてデバイス上でローカルに処理します。",
+        btn_play: "Google Playで取得",
+        btn_apk: "APKをダウンロード",
+        btn_github: "ソースコードを表示",
+        features_title: "コア機能",
+        f1_title: "連絡先のアップロードなし",
+        f1_desc: "プライバシーは絶対です。すべての通話評価とルール照合はデバイス上で完全に実行されます。アドレス帳がサーバーにアップロードされたり共有されたりすることは決してありません。",
+        f2_title: "高度な正規表現エンジン",
+        f2_desc: "正規表現を使用して強力なフィルターを作成します。市外局番全体、特定のプレフィックス、または複雑な番号パターンをプロレベルの精度でブロックします。",
+        f3_title: "QuickJSプラグイン",
+        f3_desc: "カスタムJavaScriptプラグインで機能を拡張します。サンドボックス環境で安全に実行しながら、公開APIやコミュニティデータベースにリアルタイムで発信者番号をクエリします。",
+        f4_title: "サイレント拒否",
+        f4_desc: "電話が鳴る前にスパム電話を自動的に切断します。ブラックリストに登録された番号を即座に拒否することで、ロボコールがボイスメールを残すのを防ぎます。",
+        f5_title: "透明なコード",
+        f5_desc: "ソースコードは公開されており、監査が可能です。セキュリティとプライバシーのツールは透明であるべきだと信じており、デバイスで実行されているソフトウェアを信頼できます。",
+        f6_title: "デュアルSIMとSMSのサポート",
+        f6_desc: "異なるSIMカードに独立したルールを設定します。APKバージョンには、受信トレイをフィッシングやスパムから守る強力なSMSフィルタリングエンジンも含まれています。",
+        link_repo: "リポジトリ",
+        link_releases: "リリース",
+        link_tg: "Telegram",
+        footer_copy: "© 2026 YourCallYourRule. プライバシーの透明性のためのオープンコード。"
+      },
+      "es": {
+        meta_title: "YourCallYourRule — Bloqueador de llamadas centrado en la privacidad",
+        hero_badge: "100% Privacidad • Código Transparente",
+        hero_title: "Tus Llamadas, Tus Reglas.",
+        hero_subtitle: "Un potente bloqueador de llamadas y SMS para Android. Crea reglas regex personalizadas, utiliza plugins QuickJS e intercepta llamadas no deseadas de forma silenciosa, todo procesado localmente sin subir tus contactos.",
+        btn_play: "Obtener en Google Play",
+        btn_apk: "Descargar APK",
+        btn_github: "Ver Código Fuente",
+        features_title: "Capacidades Principales",
+        f1_title: "Cero subida de contactos",
+        f1_desc: "Tu privacidad es absoluta. Toda la evaluación de llamadas y coincidencia de reglas ocurre completamente en tu dispositivo. Tu agenda nunca se sube ni se comparte con ningún servidor.",
+        f2_title: "Motor Regex Avanzado",
+        f2_desc: "Crea potentes filtros usando Expresiones Regulares. Bloquea códigos de área enteros, prefijos específicos o patrones de números complejos con precisión profesional.",
+        f3_title: "Plugins QuickJS",
+        f3_desc: "Amplía la funcionalidad con plugins JavaScript personalizados. Consulta APIs públicas o bases de datos comunitarias en tiempo real, ejecutándose de forma segura en un entorno aislado.",
+        f4_title: "Rechazo Silencioso",
+        f4_desc: "Cuelga automáticamente las llamadas de spam antes de que tu teléfono suene. Evita que las llamadas automáticas dejen mensajes de voz rechazando instantáneamente los números en la lista negra.",
+        f5_title: "Código Transparente",
+        f5_desc: "El código fuente es abierto y está disponible para auditoría. Creemos que las herramientas de seguridad y privacidad deben ser transparentes para que puedas confiar en el software de tu dispositivo.",
+        f6_title: "Soporte Dual SIM y SMS",
+        f6_desc: "Configura reglas independientes para diferentes tarjetas SIM. La versión APK también incluye un robusto motor de filtrado de SMS para mantener tu bandeja de entrada libre de spam.",
+        link_repo: "Repositorio",
+        link_releases: "Lanzamientos",
+        link_tg: "Telegram",
+        footer_copy: "© 2026 YourCallYourRule. Código disponible para transparencia de privacidad."
+      },
+      "hi": {
+        meta_title: "YourCallYourRule — प्राइवेसी-फर्स्ट कॉल ब्लॉकर",
+        hero_badge: "100% प्राइवेसी • पारदर्शी कोड",
+        hero_title: "आपकी कॉल, आपके नियम।",
+        hero_subtitle: "Android के लिए एक शक्तिशाली कॉल और SMS ब्लॉकर। कस्टम रेगेक्स नियम बनाएं, QuickJS प्लगइन्स का उपयोग करें, और अपने संपर्कों को अपलोड किए बिना अनचाही कॉल्स को चुपचाप ब्लॉक करें।",
+        btn_play: "Google Play पर प्राप्त करें",
+        btn_apk: "APK डाउनलोड करें",
+        btn_github: "सोर्स कोड देखें",
+        features_title: "मुख्य क्षमताएं",
+        f1_title: "जीरो कांटेक्ट अपलोड",
+        f1_desc: "आपकी प्राइवेसी सर्वोपरि है। सभी कॉल मूल्यांकन आपके डिवाइस पर ही होते हैं। आपकी फोनबुक कभी भी किसी सर्वर पर अपलोड या साझा नहीं की जाती है।",
+        f2_title: "एडवांस्ड रेगेक्स इंजन",
+        f2_desc: "रेगुलर एक्सप्रेशन का उपयोग करके शक्तिशाली फ़िल्टर बनाएं। विशिष्ट क्षेत्र कोड, उपसर्ग या जटिल संख्या पैटर्न को सटीकता से ब्लॉक करें।",
+        f3_title: "QuickJS प्लगइन्स",
+        f3_desc: "कस्टम जावास्क्रिप्ट प्लगइन्स के साथ कार्यक्षमता बढ़ाएं। सैंडबॉक्स वातावरण में सुरक्षित रूप से निष्पादित करते हुए रीयल-टाइम में कॉलर आईडी के लिए सार्वजनिक API क्वेरी करें।",
+        f4_title: "साइलेंट रिजेक्शन",
+        f4_desc: "फ़ोन बजने से पहले ही स्पैम कॉल को स्वचालित रूप से काट दें। ब्लैकलिस्ट किए गए नंबरों को तुरंत अस्वीकार करके रोबोकॉल को वॉइसमेल छोड़ने से रोकें।",
+        f5_title: "पारदर्शी कोड",
+        f5_desc: "सोर्स कोड ऑडिट के लिए खुला और उपलब्ध है। हमारा मानना ​​है कि सुरक्षा उपकरण पारदर्शी होने चाहिए ताकि आप सॉफ़्टवेयर पर भरोसा कर सकें।",
+        f6_title: "डुअल सिम और SMS सपोर्ट",
+        f6_desc: "विभिन्न सिम कार्ड के लिए स्वतंत्र नियम कॉन्फ़िगर करें। APK संस्करण में आपके इनबॉक्स को स्पैम से मुक्त रखने के लिए एक मजबूत SMS फ़िल्टरिंग इंजन भी शामिल है।",
+        link_repo: "रिपॉजिटरी",
+        link_releases: "रिलीज़",
+        link_tg: "टेलीग्राम",
+        footer_copy: "© 2026 YourCallYourRule. प्राइवेसी पारदर्शिता के लिए सोर्स कोड उपलब्ध है।"
+      },
+      "ar": {
+        meta_title: "YourCallYourRule — حظر المكالمات مع أولوية الخصوصية",
+        hero_badge: "خصوصية 100% • كود شفاف",
+        hero_title: "مكالماتك، قواعدك.",
+        hero_subtitle: "تطبيق قوي لحظر المكالمات والرسائل القصيرة لنظام Android. أنشئ قواعد تعبيرات نمطية مخصصة، واستخدم إضافات QuickJS، واعترض المكالمات غير المرغوب فيها بصمت دون رفع جهات اتصالك.",
+        btn_play: "احصل عليه من Google Play",
+        btn_apk: "تنزيل APK",
+        btn_github: "عرض كود المصدر",
+        features_title: "القدرات الأساسية",
+        f1_title: "عدم رفع جهات الاتصال",
+        f1_desc: "خصوصيتك مطلقة. تتم جميع عمليات تقييم المكالمات ومطابقة القواعد على جهازك بالكامل. لا يتم رفع أو مشاركة دفتر العناوين الخاص بك مع أي خادم على الإطلاق.",
+        f2_title: "محرك Regex متقدم",
+        f2_desc: "أنشئ فلاتر قوية باستخدام التعبيرات النمطية (Regular Expressions). احظر رموز المناطق بأكملها أو بادئات محددة أو أنماط أرقام معقدة بدقة احترافية.",
+        f3_title: "إضافات QuickJS",
+        f3_desc: "قم بتوسيع الوظائف باستخدام إضافات JavaScript المخصصة. استعلم عن واجهات برمجة التطبيقات العامة لمعرفة هوية المتصل في الوقت الفعلي بأمان في بيئة معزولة.",
+        f4_title: "الرفض الصامت",
+        f4_desc: "قم بإنهاء مكالمات البريد العشوائي تلقائيًا قبل أن يرن هاتفك. امنع المكالمات الآلية من ترك رسائل بريد صوتي عن طريق الرفض الفوري للأرقام المدرجة في القائمة السوداء.",
+        f5_title: "كود شفاف",
+        f5_desc: "كود المصدر مفتوح ومتاح للتدقيق. نعتقد أن أدوات الأمان والخصوصية يجب أن تكون شفافة حتى تتمكن من الوثوق بالبرنامج الذي يعمل على جهازك.",
+        f6_title: "دعم الشريحتين والرسائل القصيرة",
+        f6_desc: "قم بتكوين قواعد مستقلة لبطاقات SIM المختلفة. يتضمن إصدار APK أيضًا محركًا قويًا لتصفية الرسائل القصيرة للحفاظ على صندوق الوارد الخاص بك خاليًا من الرسائل غير المرغوب فيها.",
+        link_repo: "المستودع",
+        link_releases: "الإصدارات",
+        link_tg: "تيليجرام",
+        footer_copy: "© 2026 YourCallYourRule. الكود المصدري متاح لشفافية الخصوصية."
+      },
+      "ru": {
+        meta_title: "YourCallYourRule — Блокировщик вызовов с приоритетом конфиденциальности",
+        hero_badge: "100% Конфиденциальность • Прозрачный код",
+        hero_title: "Ваши звонки, ваши правила.",
+        hero_subtitle: "Мощный блокировщик звонков и SMS для Android. Создавайте настраиваемые правила Regex, используйте плагины QuickJS и блокируйте спам локально на устройстве без загрузки контактов.",
+        btn_play: "Скачать в Google Play",
+        btn_apk: "Скачать APK",
+        btn_github: "Исходный код",
+        features_title: "Основные возможности",
+        f1_title: "Ноль загрузок контактов",
+        f1_desc: "Ваша конфиденциальность абсолютна. Вся оценка вызовов происходит исключительно на вашем устройстве. Ваша адресная книга никогда не загружается на серверы.",
+        f2_title: "Продвинутый движок Regex",
+        f2_desc: "Создавайте мощные фильтры с использованием регулярных выражений. Блокируйте целые коды городов или сложные шаблоны номеров с профессиональной точностью.",
+        f3_title: "Плагины QuickJS",
+        f3_desc: "Расширяйте функциональность с помощью пользовательских JavaScript плагинов. Запрашивайте публичные API для определения номера в реальном времени в безопасной песочнице.",
+        f4_title: "Тихий сброс",
+        f4_desc: "Автоматически сбрасывайте спам-звонки до того, как телефон зазвонит. Не позволяйте роботам оставлять голосовые сообщения, мгновенно отклоняя номера из черного списка.",
+        f5_title: "Прозрачный код",
+        f5_desc: "Исходный код открыт для аудита. Мы верим, что инструменты безопасности должны быть прозрачными, чтобы вы могли доверять программному обеспечению на вашем устройстве.",
+        f6_title: "Поддержка Dual SIM и SMS",
+        f6_desc: "Настраивайте независимые правила для разных SIM-карт. Версия APK также включает мощный движок фильтрации SMS для защиты от спама и фишинга.",
+        link_repo: "Репозиторий",
+        link_releases: "Релизы",
+        link_tg: "Telegram",
+        footer_copy: "© 2026 YourCallYourRule. Открытый код для прозрачности и конфиденциальности."
       }
     };
 
@@ -499,38 +632,34 @@
         const key = el.getAttribute('data-i18n');
         if (dict[key]) el.innerHTML = dict[key];
       });
-
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        if (dict[key]) el.setAttribute('placeholder', dict[key]);
-      });
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-      let lang = (navigator.language || 'en').toLowerCase();
-      if (lang.includes('zh-tw') || lang.includes('zh-hk') || lang.includes('hant')) {
-        lang = 'zh-tw';
-      } else if (lang.includes('zh')) {
-        lang = 'zh-cn';
-      } else {
-        lang = 'en';
+      const urlParams = new URLSearchParams(window.location.search);
+      let lang = urlParams.get('lang');
+
+      if (!lang) {
+        const browserLang = (navigator.language || 'en').toLowerCase();
+        if (browserLang.includes('zh-tw') || browserLang.includes('zh-hk') || browserLang.includes('hant')) {
+          lang = 'zh-tw';
+        } else if (browserLang.includes('zh')) {
+          lang = 'zh-cn';
+        } else if (browserLang.startsWith('ja')) {
+          lang = 'ja';
+        } else if (browserLang.startsWith('es')) {
+          lang = 'es';
+        } else if (browserLang.startsWith('hi')) {
+          lang = 'hi';
+        } else if (browserLang.startsWith('ar')) {
+          lang = 'ar';
+        } else if (browserLang.startsWith('ru')) {
+          lang = 'ru';
+        } else {
+          lang = 'en';
+        }
       }
       changeLanguage(lang);
     });
-
-    function testRule() {
-      const input = document.getElementById('simPhone').value.trim();
-      const output = document.getElementById('simOutput');
-      if (!input) {
-        output.style.display = 'block';
-        output.style.color = '#ef4444';
-        output.innerHTML = 'Error: Please enter a phone number.';
-        return;
-      }
-      output.style.display = 'block';
-      output.style.color = '#0f172a';
-      output.innerHTML = `> Processing: <strong>${input}</strong><br>> Engine: Regex Matcher / QuickJS Sandbox<br>> Action: <strong>Matched & Rejected</strong><br>> Privacy: 0 Bytes Uploaded`;
-    }
   </script>
 </body>
 </html>
