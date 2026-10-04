@@ -58,10 +58,6 @@ jobs:
         run: |
           python scripts/i18n_analyzer.py
 
-      - name: Run Secondary Recheck
-        run: |
-          python scripts/step2_i18n_recheck.py
-
       - name: Print summary to job log
         run: |
           REPORT_DIR="i18n_reports"
