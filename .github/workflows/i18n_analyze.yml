@@ -7,15 +7,16 @@ on:
         description: "Artifacts name for generated i18n reports"
         required: false
         default: "i18n-reports"
-  push:
-    paths:
-      - "lib/**/*.dart"
-      - "lib/l10n/**"
-    branches-ignore: []
-  pull_request:
-    paths:
-      - "lib/**/*.dart"
-      - "lib/l10n/**"
+  # [DISABLED] 已停用自动触发翻译/分析流程
+  # push:
+  #   paths:
+  #     - "lib/**/*.dart"
+  #     - "lib/l10n/**"
+  #   branches-ignore: []
+  # pull_request:
+  #   paths:
+  #     - "lib/**/*.dart"
+  #     - "lib/l10n/**"
 
 permissions:
   contents: read

@@ -1,11 +1,12 @@
 name: Test Ollama Hy-MT2 Model (Pure YML Test)
 
 on:
-  push:
-    branches:
-      - main
-      - elite-ui
   workflow_dispatch:
+  # [DISABLED] 已停用自动触发翻译测试流程
+  # push:
+  #   branches:
+  #     - main
+  #     - elite-ui
 
 jobs:
   test-ollama:

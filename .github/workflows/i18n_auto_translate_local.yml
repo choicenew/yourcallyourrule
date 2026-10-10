@@ -1,11 +1,12 @@
 name: Auto i18n Translate (Tencent Hy-MT2-1.8B Local LLM)
 
 on:
-  push:
-    branches:
-      - main
-      - elite-ui
   workflow_dispatch:
+  # [DISABLED] 已停用自动触发翻译流程
+  # push:
+  #   branches:
+  #     - main
+  #     - elite-ui
 
 permissions:
   contents: write

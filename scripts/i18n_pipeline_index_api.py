@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-scripts/i18n_pipeline_index_gguf.py
-Index-Translate 2B GGUF (llama.cpp CPU 极速量化推理) 全量 ARB 翻译管道
+scripts/i18n_pipeline_index_api.py
+Index-Translate 35B-A3B 官方免费公网 API 极速 ARB 本地化翻译管道
 特点：
-  1. 采用官方 Index-Translate-2B-GGUF (Index-Translate-2B.IQ4_XS.gguf 1.23GB 极速轻量) 模型
-  2. 严格对齐普通版逻辑：600 条大任务切分，内部按 60 条批次 (CHUNK_SIZE = 60) 组包推进
-  3. 单模型独占 2 线程 (n_threads=2) 完美适配 GitHub Actions Runner
-  4. 具备多层 JSON 自愈、二分重试与异常兜底容错机制，绝不卡死
-  5. 每次批次落盘强制 gc.collect() 释放内存，防止 Swap 换页卡顿
-  6. 独立进度分支 i18n/checkpoint-gguf-progress，避免与普通版分支互相覆盖
+  1. 零本地 GPU/CPU 算力消耗，直连官方 35B-A3B 免费公网接口 (OpenAI 规范)
+  2. 智能底稿继承 (load_arb_with_fallback)，仅做增量翻译
+  3. 具备多层 JSON 自愈、二分重试与异常兜底容错机制，绝不卡死
+  4. 专用隔离分支 i18n/checkpoint-api-progress，单条 Commit 覆盖存盘推送
 """
 
 import json
@@ -17,9 +15,8 @@ import os
 import re
 import sys
 import time
-import gc
-from huggingface_hub import hf_hub_download
-from llama_cpp import Llama
+import urllib.request
+import urllib.error
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 L10N_DIR = os.path.join(PROJECT_ROOT, "lib", "l10n")
@@ -28,23 +25,22 @@ BASELINE_ARB = os.path.join(L10N_DIR, "app_en.arb")
 
 sys.path.insert(0, os.path.join(PROJECT_ROOT, "scripts"))
 
-MODEL_REPO = "IndexTeam/Index-Translate-2B-GGUF"
-MODEL_FILENAME = "Index-Translate-2B.IQ4_XS.gguf"
-CHUNK_SIZE = 60        # 严格与普通版保持一致：60 条批次组包
-SUBTASK_MAX_SIZE = 600 # 严格与普通版保持一致：600 条大任务切分上限
-PUSH_INTERVAL = 1000   # 累计每满 1000 条词条才执行一次远程分支存盘推送
-PROGRESS_BRANCH = "i18n/checkpoint-gguf-progress"  # 独立隔离分支，防与普通版覆盖
+API_URL = "https://index-translate.bilibili.com/v1/chat/completions"
+MODEL_NAME = "Index-Translate-35B-A3B"
+CHUNK_SIZE = 60
+SUBTASK_MAX_SIZE = 600
+PUSH_INTERVAL = 1000
+PROGRESS_BRANCH = "i18n/checkpoint-api-progress"
 
-llm = None
 translated_counter = 0
 
 
 def log(msg: str):
-    print(f"[i18n-Pipeline-IndexGGUF] {msg}", flush=True)
+    print(f"[i18n-Pipeline-Index35B-API] {msg}", flush=True)
 
 
 def git_checkpoint_commit_amend(target_locale: str, force: bool = False, count_inc: int = 0):
-    """在独立隔离分支 i18n/checkpoint-gguf-progress 上保持永远只有一条 commit 记录存盘推送"""
+    """在专用隔离分支 i18n/checkpoint-api-progress 上保持单条 commit 记录存盘推送"""
     global translated_counter
     translated_counter += count_inc
 
@@ -62,37 +58,16 @@ def git_checkpoint_commit_amend(target_locale: str, force: bool = False, count_i
         os.system(f"git checkout -B {PROGRESS_BRANCH}")
         os.system("git add lib/l10n/*.arb")
 
-        commit_msg = f"style(i18n): checkpoint GGUF translation progress for {target_locale} [github-actions-bot]"
+        commit_msg = f"style(i18n): checkpoint translation progress for {target_locale} [github-actions-bot]"
         os.system(f"git commit --amend -m '{commit_msg}' || git commit -m '{commit_msg}'")
 
         if token and repository:
             push_url = f"https://x-access-token:{token}@github.com/{repository}.git"
             ret = os.system(f"git push --force {push_url} {PROGRESS_BRANCH}")
             if ret == 0:
-                log(f"💾 [隔离分支增量存盘] 进度已成功单条覆盖推送至 `{PROGRESS_BRANCH}` 分支！")
+                log(f"💾 [隔离分支存盘] 进度已成功覆盖推送至 `{PROGRESS_BRANCH}` 分支！")
     except Exception as e:
-        log(f"⚠️ 隔离分支增量存盘提示: {e}")
-
-
-def init_gguf_model():
-    """下载并加载 Index-Translate 2B GGUF 极速模型"""
-    global llm
-    log(f"📦 正在准备 Index-Translate 2B GGUF 官方量化模型: {MODEL_REPO} ({MODEL_FILENAME})...")
-    start_time = time.time()
-
-    model_path = hf_hub_download(
-        repo_id=MODEL_REPO,
-        filename=MODEL_FILENAME
-    )
-
-    log(f"🚀 初始化 llama.cpp 引擎 (n_threads=2, n_ctx=4096)...")
-    llm = Llama(
-        model_path=model_path,
-        n_threads=2,
-        n_ctx=4096,
-        verbose=False
-    )
-    log(f"✅ GGUF 模型加载就绪！耗时 {time.time() - start_time:.2f}s")
+        log(f"⚠️ 隔离分支存盘提示: {e}")
 
 
 def extract_json_from_text(text: str) -> dict:
@@ -127,43 +102,56 @@ def extract_json_from_text(text: str) -> dict:
     return {}
 
 
-def translate_chunk_with_gguf_safe(chunk: dict, target_lang: str, depth: int = 0) -> dict:
-    """60 条 JSON 批次提交 llama.cpp GGUF 推理，带自动重试与二分降级容错"""
+def translate_chunk_with_api_safe(chunk: dict, target_lang: str, depth: int = 0) -> dict:
+    """带自动重试与二分降级容错的 API 请求"""
     if not chunk:
         return {}
 
-    prompt = f"""Translate the values in the following JSON key-value pairs from English into target language '{target_lang}'. Note that you should only output the translated result without any additional explanation:
+    prompt = f"Translate the values in the following JSON key-value pairs from English into target language '{target_lang}'. Note that you should only output the translated result without any additional explanation:\n\n{json.dumps(chunk, ensure_ascii=False)}"
 
-{json.dumps(chunk, ensure_ascii=False)}"""
+    payload = {
+        "model": MODEL_NAME,
+        "messages": [
+            {"role": "user", "content": prompt}
+        ],
+        "max_tokens": 2048,
+        "temperature": 0.0
+    }
 
-    messages = [{"role": "user", "content": prompt}]
+    req_data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+    req = urllib.request.Request(
+        API_URL,
+        data=req_data,
+        headers={
+            "Content-Type": "application/json",
+            "User-Agent": "Index-Translate-Pipeline-Client/1.0"
+        }
+    )
 
-    for attempt in range(1, 3):
+    max_retries = 3
+    for attempt in range(1, max_retries + 1):
         try:
-            response = llm.create_chat_completion(
-                messages=messages,
-                max_tokens=2048,
-                temperature=0.0
-            )
-            raw_text = response["choices"][0]["message"]["content"]
-            parsed = extract_json_from_text(raw_text)
-            if parsed and isinstance(parsed, dict) and len(parsed) > 0:
-                valid_res = {k: str(v) for k, v in parsed.items() if k in chunk}
-                if len(valid_res) >= len(chunk) * 0.7:
-                    return valid_res
+            with urllib.request.urlopen(req, timeout=45) as resp:
+                res_body = resp.read().decode("utf-8")
+                res_json = json.loads(res_body)
+                raw_text = res_json["choices"][0]["message"]["content"]
+                parsed = extract_json_from_text(raw_text)
+                if parsed and isinstance(parsed, dict) and len(parsed) > 0:
+                    valid_res = {k: str(v) for k, v in parsed.items() if k in chunk}
+                    if len(valid_res) >= len(chunk) * 0.7:
+                        return valid_res
         except Exception as e:
-            if attempt < 2:
-                time.sleep(1)
+            if attempt < max_retries:
+                time.sleep(2 * attempt)
             else:
-                log(f"⚠️ GGUF 批次推理异常: {e}")
+                log(f"⚠️ API 请求异常: {e}")
 
-    # 若整体解析失败且当前 chunk > 1，自动二分切小重试（隔离毒药词条）
     if len(chunk) > 1 and depth < 3:
         items = list(chunk.items())
         mid = len(items) // 2
         log(f"🔄 对异常批次进行二分降级重试: {len(items[:mid])} 条 + {len(items[mid:])} 条")
-        res_a = translate_chunk_with_gguf_safe(dict(items[:mid]), target_lang, depth + 1)
-        res_b = translate_chunk_with_gguf_safe(dict(items[mid:]), target_lang, depth + 1)
+        res_a = translate_chunk_with_api_safe(dict(items[:mid]), target_lang, depth + 1)
+        res_b = translate_chunk_with_api_safe(dict(items[mid:]), target_lang, depth + 1)
         return {**res_a, **res_b}
 
     log(f"⚠️ 无法翻译的词条降级保留原文: {list(chunk.keys())}")
@@ -260,10 +248,10 @@ def process_subtask_index(subtask_id: str, target_locale: str, sub_items: list, 
     for i in range(0, len(sub_items), CHUNK_SIZE):
         chunk = dict(sub_items[i:i + CHUNK_SIZE])
         chunk_idx = i // CHUNK_SIZE + 1
-        log(f"   [批次推理] 子任务 `{subtask_id}` 提交批次 {chunk_idx}/{total_chunks} ({len(chunk)} 条)...")
+        log(f"   [批次请求] 子任务 `{subtask_id}` 提交批次 {chunk_idx}/{total_chunks} ({len(chunk)} 条)...")
 
         try:
-            translated_chunk = translate_chunk_with_gguf_safe(chunk, target_locale)
+            translated_chunk = translate_chunk_with_api_safe(chunk, target_locale)
             current_data.update(translated_chunk)
 
             final_data = {"@@locale": target_locale}
@@ -279,10 +267,7 @@ def process_subtask_index(subtask_id: str, target_locale: str, sub_items: list, 
 
             git_checkpoint_commit_amend(target_locale, force=False, count_inc=len(chunk))
         except Exception as e:
-            log(f"⚠️ `{subtask_id}` 批次 {chunk_idx}/{total_chunks} 翻译异常: {e}")
-
-        # 每次批次执行完毕强制清理内存，防止 Swap 卡死
-        gc.collect()
+            log(f"⚠️ `{subtask_id}` 批次 {chunk_idx}/{total_chunks} 请求异常: {e}")
 
     git_checkpoint_commit_amend(target_locale, force=True)
     log(f"🎉 子任务 `{subtask_id}` 处理完毕！")
@@ -307,7 +292,7 @@ def parse_target_locales_from_dart(file_path: str) -> list[str]:
 
 def main():
     log("======================================================")
-    log("  Index-Translate 2B GGUF (llama.cpp CPU 极速量化) 管道")
+    log("  Index-Translate 35B-A3B 官方免费公网 API 极速管道")
     log("======================================================")
 
     # 1. 静态代码级扫描清理
@@ -323,8 +308,6 @@ def main():
             log("   ✅ 未检测到无用词条，无需剔除。")
     except Exception as e:
         log(f"⚠️ 静态清理阶段跳过警告: {e}")
-
-    init_gguf_model()
 
     baseline_data = load_arb(BASELINE_ARB)
     if not baseline_data:
@@ -357,7 +340,6 @@ def main():
             log(f"✅ 语言 `{locale}` 数据完备。")
             continue
 
-        # 按 600 条切分子任务
         sub_count = (len(need_items) + SUBTASK_MAX_SIZE - 1) // SUBTASK_MAX_SIZE
         for s_idx in range(sub_count):
             part_items = need_items[s_idx * SUBTASK_MAX_SIZE: (s_idx + 1) * SUBTASK_MAX_SIZE]
@@ -372,7 +354,7 @@ def main():
     git_checkpoint_commit_amend("all_completed", force=True)
 
     log("======================================================")
-    log("✅ Index-Translate 2B GGUF 全量 ARB 翻译全套完成！")
+    log("✅ Index-Translate 35B-A3B 全量 ARB 翻译全套完成！")
     log("======================================================")
 
 
