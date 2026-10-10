@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:yourcallyourrule/common/utils/regex_hint.dart';
 import 'package:yourcallyourrule/core/entities/regex/regex_pattern.dart';
 
 import 'package:yourcallyourrule/core/provider/providers/regex_service_provider.dart';
@@ -96,6 +97,9 @@ class RegexTestPageState extends ConsumerState<RegexTestPage> {
           icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
+        actions: const [
+          RegexPatternExplanationButton(),
+        ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),

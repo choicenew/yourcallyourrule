@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:yourcallyourrule/common/utils/regex_hint.dart';
 import 'package:yourcallyourrule/core/entities/regex/regex_pattern.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/provider/providers/regex_service_provider.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/services/import_export_service_component.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/features/rules/services/regex_rule_import_export_adapter.dart';
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
+import 'package:yourcallyourrule/features/rules/widgets/regex_ai_skills_dialog.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
@@ -178,8 +181,58 @@ class _RegexRulePageWithAdsState extends ConsumerState<RegexRulePageWithAds> {
                   importExportComponent.showImportExportDialog(context);
                 },
               ),
+              const Divider(height: 1),
+              ListTile(
+                leading: const Icon(Icons.help_outline),
+                title: Text(AppLocalizations.of(context)!.regexPatternExplanationButton),
+                onTap: () {
+                  Navigator.pop(context);
+                  _showRegexHintDialog(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.science_outlined),
+                title: Text(AppLocalizations.of(context)!.regexTesterTitle),
+                onTap: () {
+                  Navigator.pop(context);
+                  context.pushNamed(AppRouter.regexTest);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.psychology_outlined),
+                title: const Text('AI Rules Guide (Skills)'),
+                onTap: () {
+                  Navigator.pop(context);
+                  RegexAiSkillsDialog.show(context);
+                },
+              ),
             ],
           ),
+    );
+  }
+
+  void _showRegexHintDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(
+          AppLocalizations.of(context)!.regexPatternExplanation,
+          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+              fontWeight: FontWeight.w600),
+        ),
+        backgroundColor: Theme.of(context).colorScheme.surfaceContainerLowest,
+        content: const SingleChildScrollView(
+          child: RegexPatternHint(),
+        ),
+        actions: [
+          FilledButton.tonal(
+            onPressed: () => Navigator.pop(context),
+            child: Text(AppLocalizations.of(context)!.closeButton),
+          ),
+        ],
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
     );
   }
 
@@ -463,11 +516,51 @@ class _RegexRulePageWithAdsState extends ConsumerState<RegexRulePageWithAds> {
     return Card(
       elevation: 2,
       margin: const EdgeInsets.only(bottom: 16),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Text(
-          AppLocalizations.of(context)!.regexRulesInfo,
-          style: TextStyle(color: Colors.grey[700]),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              AppLocalizations.of(context)!.regexRulesInfo,
+              style: TextStyle(color: Colors.grey[700], fontSize: 13),
+            ),
+            const SizedBox(height: 12),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                OutlinedButton.icon(
+                  onPressed: () => _showRegexHintDialog(context),
+                  icon: const Icon(Icons.help_outline_rounded, size: 16),
+                  label: Text(AppLocalizations.of(context)!.regexPatternExplanationButton),
+                  style: OutlinedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                    visualDensity: VisualDensity.compact,
+                  ),
+                ),
+                OutlinedButton.icon(
+                  onPressed: () => context.pushNamed(AppRouter.regexTest),
+                  icon: const Icon(Icons.science_outlined, size: 16),
+                  label: Text(AppLocalizations.of(context)!.regexTesterTitle),
+                  style: OutlinedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                    visualDensity: VisualDensity.compact,
+                  ),
+                ),
+                OutlinedButton.icon(
+                  onPressed: () => RegexAiSkillsDialog.show(context),
+                  icon: const Icon(Icons.psychology_outlined, size: 16),
+                  label: const Text('AI Skills'),
+                  style: OutlinedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                    visualDensity: VisualDensity.compact,
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
