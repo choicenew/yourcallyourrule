@@ -6,14 +6,6 @@
   },
   "aboutLabels": "關於標籤",
   "aboutPhoneSubscriptionRules": "關於電話訂閱規則",
-  "aboutPhoneSubscriptions": "關於電話訂閱",
-  "@aboutPhoneSubscriptions": {
-    "description": "About phone subscriptions title"
-  },
-  "aboutPhoneSubscriptionsDesc": "通過 URL 訂閱電話規則列表，自動更新規則。支持 JSON、CSV 格式規則文件。",
-  "@aboutPhoneSubscriptionsDesc": {
-    "description": "About phone subscriptions description"
-  },
   "aboutSmsFilter": "關於 SMS 過濾",
   "aboutSmsSubscriptionRules": "關於 SMS 訂閱規則",
   "aboutSubtitle": "應用程式版本和法律資訊",
@@ -22,7 +14,6 @@
   "actionAll": "全部",
   "actionAllow": "允許",
   "actionBlock": "封鎖",
-  "actionFilterAll": "全部過濾",
   "actionFilterTitle": "按操作類型過濾",
   "actionFilterTooltip": "操作過濾器",
   "actionNone": "無操作",
@@ -42,24 +33,15 @@
   },
   "addContactButton": "新增聯絡人",
   "addContactFailed": "新增聯絡人失敗：{error}",
-  "addedToAllowedRules": "已新增至允許規則",
-  "addedToBlacklist": "已新增至黑名單",
-  "addedToBlockedRules": "已新增至封鎖規則",
-  "addedToFavoriteContacts": "已新增至收藏聯絡人",
   "addedToFavorites": "已新增至收藏聯絡人",
-  "addedToWhitelist": "已新增至白名單",
-  "addFavorite": "新增收藏",
-  "addFilter": "新增過濾器",
   "addLabel": "新增標籤",
   "addLabelButton": "新增標籤",
   "addLabelFailed": "新增標籤失敗：{error}",
-  "addLabelToCall": "新增標籤至通話記錄",
   "addName": "新增名稱",
   "addNoneSubscription": "新增無訂閱",
   "@addNoneSubscription": {
     "description": "Add none subscription dialog title"
   },
-  "addOrEditContactInfo": "用於新增或編輯聯絡人資訊",
   "addPhoneMark": "新增電話標記",
   "addPhoneNumberRule": "新增電話號碼規則",
   "addPlugin": "新增插件",
@@ -69,14 +51,12 @@
   "addPluginFromUrl": "從 URL 新增插件",
   "addRegexRule": "新增正則表達式規則",
   "addRule": "新增規則",
-  "addRuleButton": "新增規則",
   "addRuleFailed": "新增規則失敗：{error}",
   "addRuleTooltip": "新增規則",
   "addSilenceSubscription": "新增靜音訂閱",
   "@addSilenceSubscription": {
     "description": "Add silence subscription dialog title"
   },
-  "addSimRuleButton": "新增 SIM 卡規則",
   "addSmsFilterRule": "新增 SMS 過濾規則",
   "addSmsRule": "新增 SMS 規則",
   "addSmsSubscription": "新增 SMS 訂閱",
@@ -95,26 +75,17 @@
     }
   },
   "addSubscriptionTooltip": "新增訂閱",
-  "addToAllowedRules": "新增至允許規則",
   "addToBlacklist": "新增至黑名單",
-  "addToBlockedRules": "新增至封鎖規則",
-  "addToFavoriteContacts": "新增至常用聯絡人",
   "addToFavorites": "新增至我的最愛",
   "addToRules": "新增至規則",
   "addToWhitelist": "新增至白名單",
-  "adPlaceholder": "廣告佔位符",
   "agent": "代理",
   "all": "全部",
   "allCallsTab": "全部",
-  "allDataClearedSuccessfully": "已成功清除所有資料",
   "allow": "允許",
   "allowAllAllowRules": "允許所有允許規則",
   "allowAllAllowRulesDesc": "允許來自允許規則的通話",
   "allowAllBlacklistedNumbers": "允許所有黑名單號碼",
-  "allowAllBlacklistedNumbersDesc": "允許來自黑名單的通話",
-  "@allowAllBlacklistedNumbersDesc": {
-    "description": "Allow calls from blocklist"
-  },
   "allowAllBlockRules": "允許所有封鎖規則",
   "allowAllBlockRulesDesc": "允許來自封鎖規則的通話",
   "allowAllowedNumbers": "允許允許的號碼",
@@ -135,8 +106,6 @@
   "allowRegexBlockRulesDescription": "啟用基於Regex的封鎖規則",
   "allowRule": "允許規則",
   "allowRules": "允許規則",
-  "allowWhitelistedNumbers": "允許白名單號碼",
-  "allowWhitelistedNumbersDescription": "允許白名單中的所有號碼",
   "allPermissionsGranted": "已授予所有權限",
   "allSettingsCompleted": "所有設定已完成。",
   "allUpdateSuccess": "所有更新已完成（{count} 條規則）",
@@ -149,7 +118,6 @@
     }
   },
   "answerThenHangup": "接聽後掛斷",
-  "appLegalese": "© 2023 Your Call Your Rule。保留所有權利。",
   "applicationSoftware": "應用程式軟件",
   "apply": "應用",
   "appName": "Your Call Your Rule",
@@ -162,8 +130,6 @@
   "autoUpdate": "自動更新",
   "autoUpdateDescription": "設定訂閱的自動更新間隔或手動更新",
   "autoUpdateSettings": "自動更新設定",
-  "autoUpdateSettingsSubtitle": "管理規則和插件的自動更新",
-  "autoUpdateSettingsTitle": "自動更新設定",
   "autoUpdateSubtitle": "管理規則和插件的自動更新",
   "autoUpdateTitle": "自動更新",
   "avatarBorderColor": "頭像邊框顏色",
@@ -178,57 +144,33 @@
   "backupAndRestoreSubtitle": "備份或還原應用程式數據",
   "backupAndRestoreTitle": "備份和還原",
   "backupFailed": "備份失敗",
-  "backupFailedMessage": "備份失敗",
-  "backupFailedWithError": "備份失敗：{error}",
-  "backupRestoreSubtitle": "備份或還原應用程式數據",
-  "backupRestoreTitle": "備份和還原",
-  "backupSectionTitle": "備份",
   "backupSettings": "備份設定",
-  "backupSettingsDialogTitle": "備份設定",
-  "backupSettingsTitle": "備份設定",
-  "backupSuccessMessage": "成功備份到雲端",
-  "backupSuccessToLocal": "成功備份到：{path}",
   "backupToCloud": "備份到雲端",
-  "backupToCloudDescription": "備份設定和規則到雲端儲存",
   "backupToCloudFailed": "備份到雲端失敗：{error}",
-  "backupToCloudLabel": "備份到雲端",
   "backupToCloudSuccess": "成功備份到雲端",
-  "backupToCloudTitle": "備份到雲端",
-  "backupToLocalLabel": "備份到本地",
   "bank": "銀行",
   "basicInfo": "基本信息",
   "basicRuleFilter": "基本規則過濾器",
   "basicRuleFiltering": "基本規則過濾",
   "basicRuleFilteringExplanation": "• 基本規則過濾：基於黑名單、白名單和正則表達式的過濾規則",
-  "basicRuleFilterSettings": "基本規則過濾器設置",
-  "@basicRuleFilterSettings": {
-    "description": "Title for basic rule filter settings page"
-  },
   "basicRuleFilterSubtitle": "使用黑名單/白名單和正則表達式過濾通話",
-  "batchDeleteContacts": "批量刪除聯絡人",
   "batchDeleteContactsConfirm": "您確定要刪除 {count} 個選定的聯絡人嗎？",
-  "batchDeleteFailed": "批量刪除失敗",
   "batchDeleteLabelsConfirm": "您確定要刪除 {count} 個標籤嗎？",
   "blacklist": "黑名單",
   "@blacklist": {
     "description": "Blacklist label"
   },
   "blacklistingAndWhitelisting": "黑名單和白名單",
-  "blacklistLabel": "黑名單",
   "blackWhiteList": "黑/白名單",
   "block": "封鎖",
   "blockCalls": "封鎖通話",
   "blocked": "已封鎖",
-  "blockedCallAction": "已封鎖通話操作",
   "blockedCalls": "已封鎖通話",
   "blockedCallsTitle": "已封鎖通話",
-  "blockedCommunications": "已封鎖通訊",
-  "blockedPhoneLabel": "已封鎖通話",
   "blockedSpamCalls": "已封鎖垃圾電話",
   "blockingTrend": "封鎖趨勢",
   "blockInternationalCalls": "匹配不以 + 或 00 開頭的號碼",
   "blockInternationalCallsTitle": "封鎖國際電話",
-  "blockLandlineNumbersTitle": "封鎖固網電話號碼",
   "blockMobileNumbers": "匹配不以 13-19 開頭的號碼",
   "blockMobileNumbersTitle": "封鎖手機號碼",
   "blockPremiumRateNumbers": "匹配不以 118 或 120-190 開頭的號碼",
@@ -244,19 +186,9 @@
   "bulkDeleteLabels": "批量刪除標籤",
   "call": "通話",
   "callback": "回撥",
-  "callbackTo": "回撥至 {number}",
-  "@callbackTo": {
-    "description": "Callback notification message",
-    "placeholders": {
-      "number": {
-        "type": "String"
-      }
-    }
-  },
   "callBlocking": "通話封鎖",
   "callerIdApp": "來電顯示應用程式",
   "callerIdCustomizationTitle": "自訂來電顯示",
-  "callerIdDialogTitle": "來電顯示信息",
   "callerIdDisplayMode": "來電顯示模式",
   "callerIdMarkedByCount": "被標記 {count} 次",
   "@callerIdMarkedByCount": {
@@ -268,8 +200,6 @@
     }
   },
   "callerIdPreview": "來電顯示預覽",
-  "callFilter": "來電過濾",
-  "callFilterDescription": "啟用後，來電會根據以下規則列表進行檢查。 預設情況下，來電過濾規則不會在裝置之間同步。",
   "callFilterRules": "來電過濾規則",
   "callFilterRulesDescription": "設定來電過濾的基本規則",
   "callFilterSettings": "來電過濾設定",
@@ -278,33 +208,10 @@
   "callHistory": "通話記錄",
   "callHistoryInfoDesc": "此處顯示您的通話記錄，包括來電、去電和未接來電。",
   "callHistoryInfoTitle": "通話記錄",
-  "callHistoryInitFailed": "初始化通話記錄失敗：{error}",
-  "@callHistoryInitFailed": {
-    "description": "Call history initialization failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
-  "callHistoryRefreshFailed": "刷新通話記錄失敗：{error}",
-  "@callHistoryRefreshFailed": {
-    "description": "Call history refresh failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "callHistoryTab": "通話記錄",
-  "callHistoryTimelineEarlier": "更早",
-  "callHistoryTimelineToday": "今天",
-  "callHistoryTimelineYesterday": "昨天",
   "callScreeningPermission": "來電篩選權限",
   "callScreeningPermissionDescription": "用於篩選和封鎖垃圾電話。",
   "callScreeningPermissionNotGranted": "未授予來電篩選權限，可能會影響應用程式功能。",
-  "callSettingsSubtitle": "來電顯示、過濾和封鎖設定",
-  "callSettingsTitle": "通話設定",
   "callStatistics": "通話統計",
   "callTypeAnswered": "已接聽",
   "callTypeBlocked": "已封鎖",
@@ -330,32 +237,14 @@
       }
     }
   },
-  "changeTag": "更改標籤",
   "charity": "慈善機構",
-  "chartMonthFormat": "月份 {month}",
-  "@chartMonthFormat": {
-    "description": "Month format for chart labels",
-    "placeholders": {
-      "month": {
-        "type": "int"
-      }
-    }
-  },
-  "chartOneDayAgo": "1 天前",
-  "chartOneMonthAgo": "1 個月前",
   "chartOneWeekAgo": "1 週前",
-  "chartTenDaysAgo": "10 天前",
   "chartThreeDaysAgo": "3 天前",
   "chartToday": "今天",
   "checkFileFormat": "請檢查檔案格式或權限",
   "checkPermissionFailed": "檢查權限失敗：{error}",
   "chooseDefaultInterceptAction": "選擇預設攔截動作",
-  "clearAllData": "清除所有數據",
-  "clearAllDataConfirmation": "您確定要清除所有應用程式數據嗎？ 此操作無法撤銷。",
-  "clearAllDataDescription": "清除所有應用程式數據",
-  "clearAllDataLabel": "清除所有數據",
   "clearFilter": "清除篩選器",
-  "clearLabelFilter": "清除標籤篩選器",
   "clearLabelFilterButton": "清除標籤篩選器",
   "closeButton": "關閉",
   "cloudSync": "雲端同步",
@@ -363,26 +252,18 @@
   "cloudSyncSettingsSubtitle": "設定 WebDAV、OneDrive 和 Google Drive",
   "cloudSyncSettingsTitle": "雲端同步設定",
   "cloudSyncTitle": "雲端同步",
-  "collapseLabelSelector": "摺疊標籤選擇器",
   "collection": "催收",
   "colorPickerTitle": "選擇顏色",
   "configManagement": "配置管理",
   "configUpdated": "配置已更新",
   "configurationAdvice": "透過正確的配置，您可以為工作和個人 SIM 卡設定不同的篩選策略。",
   "configureBackupOptions": "設定備份選項",
-  "configureBackupOptionsSubtitle": "設定備份選項",
   "configureCloudSyncService": "設定雲端同步服務",
-  "configureCloudSyncServiceHint": "請設定雲端同步服務以啟用多設備同步。",
   "configureCloudSyncServiceMessage": "請設定雲端同步服務以啟用多設備同步。",
   "configureSimCardFilterRules": "設定 SIM 卡篩選規則",
-  "configureSyncServiceHint": "請先在雲端同步設定中配置同步服務",
   "confirm": "確認",
-  "confirmBatchDeleteContacts": "您確定要刪除所選的",
   "confirmButton": "確認",
   "confirmDelete": "確認刪除",
-  "confirmDeleteContact": "您確定要刪除",
-  "confirmDeleteContactName": "確認刪除？",
-  "confirmDeleteFilter": "您確定要刪除此篩選器嗎？",
   "confirmDeleteLabel": "您確定要刪除標籤 \"{name}\" 嗎？",
   "confirmDeletePlugin": "您確定要刪除插件 \"{name}\" 嗎？",
   "confirmDeletePlugins": "您確定要刪除 {count} 個插件嗎？",
@@ -396,10 +277,8 @@
     }
   },
   "confirmDeleteRuleMessage": "您確定要刪除此規則嗎？ 此操作無法撤銷。",
-  "confirmDeleteSelectedContacts": "您確定要刪除選定的聯絡人嗎？",
   "confirmDeleteSmsFilterRule": "您確定要刪除此簡訊篩選規則嗎？",
   "confirmDeleteSmsRule": "您確定要刪除此簡訊規則嗎？",
-  "confirmDeleteSubscription": "您確定要刪除此訂閱嗎？",
   "confirmDeleteSubscriptions": "您確定要刪除 {name}？",
   "@confirmDeleteSubscriptions": {
     "description": "Confirmation message shown before deleting a subscription.",
@@ -411,7 +290,6 @@
     }
   },
   "confirmPassword": "確認密碼",
-  "confirmPasswordLabel": "確認密碼",
   "connectedStatus": "已連接",
   "connectionFailedCheckCredentialsMessage": "連接失敗：請檢查伺服器地址、用戶名和密碼",
   "connectionFailedMessage": "連接失敗",
@@ -419,19 +297,11 @@
   "connectionSuccessMessage": "連線成功",
   "contactAddSuccess": "成功新增聯絡人",
   "contactDeleted": "已刪除聯絡人",
-  "contactEditDialog": "編輯聯絡人對話框",
-  "contactNameHint": "輸入聯絡人姓名（可選）",
   "contactNameLabel": "姓名",
-  "contactNameOptional": "聯絡人姓名（可選）",
   "contactNotFound": "找不到聯絡人",
   "contacts": "聯絡人",
   "contactsDeleted": "已刪除 {count} 個聯絡人",
-  "contactSettingsSubtitle": "聯絡人管理和標籤設定",
-  "contactSettingsTitle": "聯絡人設定",
-  "contactsLoadingFailed": "載入聯絡人失敗：{error}",
   "contactsManagement": "聯絡人管理",
-  "contactsManagementPageTitle": "聯絡人管理頁面",
-  "contactsPageTitle": "聯絡人管理",
   "contactsPermission": "聯絡人權限",
   "contactsPermissionDescription": "用於識別聯絡人通話。",
   "contactsTab": "聯絡人",
@@ -439,8 +309,6 @@
   "@contactSubscriptionDescription": {
     "description": "About contact subscription description"
   },
-  "contactSubscriptionLoadingFailed": "載入聯絡人訂閱失敗：{error}",
-  "contactSubscriptionPageTitle": "聯絡人訂閱",
   "contactUpdateSuccess": "成功更新聯絡人",
   "contactUs": "聯絡我們",
   "content": "內容",
@@ -452,34 +320,16 @@
   "countryNameColor": "國家名稱顏色",
   "countryNameFontSize": "國家名稱字體大小",
   "countryRegionNamePosition": "國家/地區名稱位置",
-  "countrySelectionDialog": "國家選擇對話框",
-  "countrySelectionDialogDescription": "用於選擇國家以查詢來電顯示信息",
   "countThresholdDescription": "設置觸發過濾操作所需的最小計數閾值",
   "countThresholdLabel": "計數閾值",
-  "countThresholdSettings": "計數閾值設定",
-  "countThresholdValue": "計數閾值：{count}",
   "createdRules": "已創建規則",
   "csvFormat": "CSV 格式",
-  "currentDeviceChip": "目前",
   "currentDeviceLabel": "目前裝置標籤",
   "currentDeviceTitle": "目前裝置",
-  "currentLabels": "目前標籤：",
   "currentLanguage": "目前語言",
-  "currentPasswordLabel": "目前密碼",
   "customerService": "客戶服務",
-  "customRange": "自定義範圍",
-  "dailyStatistics": "每日統計",
-  "@dailyStatistics": {
-    "description": "Daily statistics notification option"
-  },
-  "dailyStatisticsDesc": "接收有關已封鎖的通話和訊息的每日統計資訊",
-  "@dailyStatisticsDesc": {
-    "description": "Description for daily statistics option"
-  },
   "dashboardTab": "儀表板",
   "dataAnalysis": "數據分析",
-  "dataAnalysisDashboardPage": "數據分析儀表板頁面",
-  "dataExport": "數據匯出",
   "dataLoadFailure": "數據加載失敗：{error}",
   "@dataLoadFailure": {
     "description": "Data loading failure message",
@@ -492,9 +342,6 @@
   "dataLoadingFailed": "數據加載失敗：{error}",
   "dataMigration": "數據遷移",
   "dataMigrationDescription": "此功能允許您在設備之間傳輸所有數據。目前，您可以使用備份和還原功能手動遷移數據。",
-  "dataMigrationDialogContent": "此功能允許您在設備之間傳輸所有數據。目前，您可以使用備份和還原功能手動遷移數據。",
-  "dataMigrationDialogTitle": "數據遷移",
-  "dataMigrationSectionTitle": "數據遷移",
   "dataSourceReminder": "數據源提示",
   "days": "{count, plural, =1{1 日} other{{count} 日}}",
   "@days": {
@@ -507,16 +354,11 @@
   },
   "daysVip": "{days} 天 VIP",
   "debtCollection": "債務催收",
-  "defaultPeriod": "週",
   "delete": "刪除",
   "deleteButton": "刪除",
   "deleteContact": "刪除聯絡人",
   "deleteContactConfirm": "確定要刪除 {name} 嗎？",
-  "deleteContactConfirmation": "確定要刪除聯絡人嗎",
-  "deleteDeviceConfirmation": "確定要刪除 {deviceName} 嗎？",
-  "deleteDeviceDialogTitle": "刪除裝置",
   "deleteFailed": "刪除失敗：{error}",
-  "deleteFilter": "刪除篩選器",
   "deleteLabel": "刪除標籤",
   "deleteLabelFailed": "刪除標籤失敗：{error}",
   "deletePlugin": "刪除插件",
@@ -526,7 +368,6 @@
   "deleteRule": "刪除規則",
   "deleteRuleFailed": "刪除規則失敗：{error}",
   "deleteSelected": "刪除選定",
-  "deleteSmsRule": "刪除 SMS 規則",
   "deleteSubscription": "刪除訂閱",
   "@deleteSubscription": {
     "description": "Delete subscription dialog title"
@@ -551,21 +392,13 @@
   },
   "deleteSuccess": "刪除成功",
   "delivery": "速遞",
-  "deviceDeletedSuccessfully": "裝置已成功刪除",
-  "deviceDeletedSuccessfullyMessage": "裝置已成功刪除",
-  "deviceIdLabel": "裝置 ID",
   "deviceIDLabel": "裝置 ID",
   "deviceManagementSubtitle": "管理多裝置同步",
   "deviceManagementTitle": "裝置管理",
   "deviceModelLabel": "裝置型號",
   "deviceName": "裝置名稱",
-  "deviceNameCannotBeEmpty": "設備名稱不能為空",
-  "deviceNameHint": "請輸入設備名稱",
   "deviceNameLabel": "設備名稱",
-  "deviceRenamedSuccessfully": "設備已成功重新命名",
   "deviceRenamedSuccessfullyMessage": "設備已成功重新命名",
-  "devicesSyncedSuccessfully": "設備已成功同步",
-  "devicesSyncedSuccessfullyMessage": "設備已成功同步",
   "devicesSynchronizedSuccessfullyMessage": "設備已成功同步",
   "deviceUnregisteredSuccessfullyMessage": "設備已成功取消註冊",
   "dialogTitle": "正則表達式模式說明",
@@ -576,7 +409,6 @@
   },
   "disabledStatus": "已停用",
   "disableGlobalPlugins": "停用全域外掛程式",
-  "disableSubscriptionSuccessfully": "已成功停用訂閱",
   "disconnectButton": "中斷連線",
   "disconnectedMessage": "已中斷連線",
   "disconnectedStatus": "已中斷連線",
@@ -587,17 +419,12 @@
   "ecommerce": "電子商務",
   "edit": "編輯",
   "editContact": "編輯聯絡人",
-  "editFilter": "編輯過濾器",
   "editLabel": "編輯標籤",
   "editPhoneRule": "編輯電話規則",
-  "editPhoneRules": "用於編輯電話規則",
-  "editPhoneRuleTitle": "編輯電話規則",
   "editRule": "編輯規則",
-  "editSmsRule": "編輯 SMS 規則",
   "education": "教育",
   "elementPositionsSetting": "元素位置",
   "email": "電子郵件",
-  "emailOptional": "電子郵件 (可選)",
   "enableCallFilter": "啟用通話過濾器",
   "enableCallFilterDescription": "啟用後，來電會根據下面的規則列表進行檢查。預設情況下，通話過濾規則不會在設備之間同步。",
   "enabled": "已啟用",
@@ -607,9 +434,6 @@
   "enabledStatus": "已啟用",
   "enableEncryption": "啟用加密",
   "enableEncryptionDescription": "加密備份檔案",
-  "enableEncryptionLabel": "啟用加密",
-  "enableEncryptionSubtitle": "備份檔案將被加密",
-  "enableEncryptionTitle": "啟用加密",
   "enableGlobalPlugins": "啟用全域外掛程式",
   "enableLocalCountFilter": "啟用本地計數過濾器",
   "enableLocalCountFilterDescription": "根據通話標記計數自動過濾垃圾電話",
@@ -620,14 +444,11 @@
   "enableMuteRulesDesc": "應用靜音攔截規則配置",
   "enableNoneActionRules": "啟用無操作規則",
   "enableNoneActionRulesDesc": "允許無攔截操作的規則配置",
-  "enableNotifications": "啟用通知",
   "enableRemoteNumberFilter": "啟用遠端號碼過濾",
   "enableRemoteNumberFilterDescription": "使用遠端資料庫過濾號碼",
   "enableRule": "啟用規則",
   "enableSmsFilter": "啟用短訊過濾",
   "enableSmsFilterDescription": "啟用後，訊息將根據規則自動過濾",
-  "enableStatisticsNotifications": "啟用統計通知",
-  "enableSubscriptionSuccessfully": "成功啟用訂閱",
   "enableTimeInterception": "啟用時間攔截",
   "enableTimeInterceptionDescription": "短時間內攔截重複來電",
   "enableTimeInterceptor": "啟用時間攔截器",
@@ -641,24 +462,15 @@
   },
   "enhancedFilterSettingsTitle": "增強型過濾設定",
   "enhancedFilterSystemDescription": "增強型過濾系統支援全域規則和每張 SIM 卡的過濾配置。",
-  "enterBothPhoneNumberAndRegexPattern": "請同時輸入電話號碼和正則表達式",
   "enterBothPhoneNumberAndRegexPatternMessage": "請同時輸入電話號碼和正則表達式。",
   "enterContactName": "請輸入聯絡人姓名",
-  "enterCurrentPasswordHint": "請輸入當前密碼",
   "enterDeviceName": "輸入裝置名稱",
-  "enterDeviceNameHint": "請輸入裝置名稱",
-  "enterEmail": "請輸入電郵",
   "enterEmailOptional": "請輸入電郵 (可選)",
   "enterEncryptionPasswordHint": "輸入加密密碼",
-  "enterEncryptionPasswordTitle": "輸入加密密碼",
-  "enterFilterName": "請輸入過濾器名稱",
-  "enterFilterPattern": "請輸入過濾器模式",
   "enterIconCode": "輸入圖標代碼",
   "enterName": "輸入聯絡人姓名",
   "enterNewDeviceNameHint": "輸入此裝置的新名稱",
-  "enterNewPasswordHint": "請輸入新密碼",
   "enterPasswordAgain": "再次輸入密碼",
-  "enterPasswordHint": "請輸入密碼",
   "enterPhoneNumber": "輸入電話號碼",
   "enterPhoneNumberHint": "輸入要測試的電話號碼",
   "enterPhoneNumberMultiple": "請輸入電話號碼，多個號碼用逗號分隔",
@@ -667,7 +479,6 @@
   "enterPluginName": "輸入插件名稱",
   "enterPluginUrl": "輸入插件 URL 地址",
   "enterRegexHint": "輸入正則表達式",
-  "enterRuleNameAndPattern": "請輸入規則名稱和模式",
   "enterRuleNameAndPatternMessage": "請輸入規則名稱和正則表達式。",
   "enterRuleNameHint": "輸入規則名稱",
   "enterSearchContent": "請輸入搜尋內容",
@@ -690,79 +501,50 @@
   "enterWebDAVPasswordHint": "請輸入 WebDAV 密碼",
   "enterWebDAVServerAddressHint": "請輸入 WebDAV 伺服器地址",
   "enterWebDAVUsernameHint": "請輸入 WebDAV 用戶名",
-  "errorDeletingDeviceMessage": "刪除設備時出錯: {error}",
-  "errorLoadingPlugin": "載入外掛程式時出錯",
   "errorOccurredMessage": "發生錯誤: {error}",
   "errorRenamingDeviceMessage": "重命名設備時出錯: {error}",
   "errorSynchronizingDevicesMessage": "同步設備時出錯: {error}",
-  "errorSyncingDevicesMessage": "同步設備時出錯: {error}",
-  "errorText": "錯誤",
   "errorUnregisteringDeviceMessage": "取消註冊設備時出錯: {error}",
   "exampleBlock400Prefix": "例如：攔截 400 字頭號碼",
   "exampleBlockMarketingSms": "例如：攔截促銷短信",
-  "exampleContentRegex": "例如：.*offer.*",
   "exampleContentRegexHint": "內容正則表達式範例",
   "exampleCouponPromotionDiscount": "例如：.*(coupon|promotion|discount).*",
   "exampleFamilyFriends": "例如：家人、朋友等",
   "examplePhoneNumber": "例如：10086、12345 等",
   "exampleRegex400Prefix": "400 字頭正則表達式範例",
-  "exampleRegexFormat": "範例：^10086$ 格式",
   "exampleSenderRegexHint": "範例",
   "exchange": "兌換",
   "exchangeNow": "立即兌換",
   "exchangeVip": "兌換 VIP",
-  "expandLabelSelector": "展開標籤選擇器",
   "expiryTime": "到期時間: {time}",
   "export": "匯出",
   "exportAllApplicationSettings": "匯出所有應用程式設定",
-  "exportAllApplicationSettingsSubtitle": "匯出所有應用程式設定",
   "exportAllRuleConfigurations": "匯出所有規則配置",
-  "exportAllRuleConfigurationsSubtitle": "匯出所有規則配置",
-  "exportComplete": "匯出完成",
   "exportConfig": "匯出配置",
   "exportContacts": "匯出聯絡人",
   "exportData": "匯出資料",
-  "exportError": "匯出錯誤",
   "exportFailed": "匯出失敗",
   "exportFailure": "匯出配置失敗",
   "exportFeatureComingSoon": "匯出功能即將推出",
-  "exporting": "匯出中...",
   "exportLabels": "匯出標籤",
   "exportLabelsFailed": "匯出標籤失敗：{error}",
   "exportPluginList": "匯出插件列表",
   "exportPluginListFailed": "匯出插件列表失敗：{error}",
   "exportRules": "匯出規則",
-  "exportRulesDialogTitle": "匯出規則",
-  "exportRulesTitle": "匯出規則",
   "exportSmsRules": "匯出 SMS 規則",
   "exportStatisticsData": "匯出統計數據",
-  "exportSuccess": "匯出成功",
   "exportSuccesslly": "配置匯出成功",
-  "failedToAddContact": "新增聯絡人失敗",
   "failedToAddRule": "新增規則失敗：{error}",
-  "failedToAddSmsRule": "新增 SMS 規則失敗：{error}",
   "failedToAddSmsSubscription": "新增 SMS 訂閱失敗：{error}",
   "failedToBackupSettings": "備份設定失敗：{error}",
   "failedToDecryptBackupFile": "解密備份檔案失敗",
-  "failedToDeleteDevice": "刪除裝置失敗",
   "failedToDeleteSmsRule": "刪除 SMS 規則失敗：{error}",
   "failedToExportRules": "匯出規則失敗：{error}",
-  "failedToExportSmsRules": "匯出 SMS 規則失敗：{error}",
   "failedToGetCallerIdInfo": "獲取來電顯示資訊失敗：{error}",
   "failedToImportRules": "匯入規則失敗：{error}",
-  "failedToImportSmsRules": "匯入 SMS 規則失敗：{error}",
-  "failedToLoadContacts": "載入聯絡人失敗",
-  "failedToLoadPlugin": "載入插件失敗",
-  "failedToRenameDevice": "重新命名裝置失敗",
   "failedToRestoreSettings": "還原設定失敗",
   "failedToRestoreSettingsWithError": "還原設定失敗：{error}",
-  "failedToSetPassword": "設定密碼失敗：{error}",
-  "failedToSyncDevices": "同步裝置失敗",
   "failedToToggleRuleStatus": "切換規則狀態失敗：{error}",
-  "failedToToggleSubscriptionStatus": "切換訂閱狀態失敗",
-  "failedToUpdateContact": "更新聯絡人失敗",
-  "failedToUpdateSmsRule": "更新 SMS 規則失敗：{error}",
-  "failure": "失敗",
   "favoriteContacts": "我的最愛聯絡人",
   "featureAddRules": "• 新增特定電話號碼規則",
   "featureCenter": "功能中心",
@@ -777,23 +559,14 @@
   "fileSavedTo": "檔案已儲存至：{path}",
   "filter": "過濾器",
   "filterByLabel": "按標籤過濾",
-  "filterClear": "清除過濾器",
   "filterControlPanelTitle": "過濾器控制面板",
   "filterControlSubtitle": "管理所有過濾器的開啟/關閉狀態",
   "filterControlTitle": "篩選控制",
-  "filterDeleteFailed": "篩選刪除失敗",
-  "filterDeleteSuccess": "篩選刪除成功",
-  "filterDetails": "篩選詳細資料",
   "filtered": "已篩選",
-  "filteredSms": "已篩選 SMS",
-  "filteredSmsLabel": "已篩選 SMS",
   "filterExplanation": "篩選說明",
   "filterManagement": "篩選管理",
   "filterName": "篩選名稱",
-  "filterPattern": "篩選模式",
   "filterPriorityNote": "注意：篩選器之間存在優先關係，詳情請參閱幫助文檔",
-  "filterSaveFailed": "篩選儲存失敗",
-  "filterSaveSuccess": "篩選儲存成功",
   "filterSettings": "篩選設定",
   "filterSettingsTitle": "篩選設定",
   "filterSMS": "篩選 SMS",
@@ -815,8 +588,6 @@
   "flexibleCombinationFeature": "• 靈活組合：啟用/停用每個 SIM 卡槽的篩選器",
   "fontSizesSetting": "字體大小",
   "foundRules": "找到 {count} 條規則",
-  "foundRulesDoYouWantToImport": "找到 {count} 條規則。您想導入它們嗎？",
-  "foundRulesToImport": "找到 {count} 條規則。您想導入它們嗎？",
   "fraudAlert": "詐騙警報 - 掛斷電話",
   "fraudScamLikely": "詐騙可能",
   "free": "免費",
@@ -838,29 +609,18 @@
   "@globalFilterSettings": {
     "description": "Global filter settings section title"
   },
-  "globalFilterToggleInstructions": "配置應用於所有 SIM 卡槽的全局篩選設定：",
-  "@globalFilterToggleInstructions": {
-    "description": "Instructions for configuring global filter settings"
-  },
-  "globalSearchSubtitle": "搜尋聯絡人、標籤、黑名單、白名單等",
-  "globalSearchTitle": "全局搜尋",
   "globalSettings": "全局設定",
   "@globalSettings": {
     "description": "Title for global settings page"
   },
-  "googleAdDisplayPosition": "Google 廣告顯示位置",
-  "googleAdMobIntegrationText": "Google AdMob 廣告可以在此處整合",
   "googleDriveAuthDescription": "使用系統配置的 Google Drive 客戶端 ID 和金鑰進行授權",
-  "googleDriveAuthorizationHint": "使用系統配置的 Google Drive 客戶端 ID 和金鑰進行授權",
   "googleDriveConfigTitle": "Google Drive 配置",
-  "googleDriveConfigurationTitle": "Google Drive 配置",
   "government": "政府",
   "granted": "已授權",
   "grantNecessaryPermissions": "授予必要的權限",
   "grantPermissions": "授予權限",
   "headhunter": "獵頭",
   "height": "身高",
-  "homePageTitle": "主頁",
   "homeTab": "首頁",
   "howItWorksPoint1": "• 系統將自動允許在設定的時間範圍內來自同一號碼的呼叫",
   "howItWorksPoint2": "• 較短的時間範圍會導致更嚴格的攔截；較長的時間範圍會導致較寬鬆的攔截",
@@ -870,7 +630,6 @@
   "iconSize": "圖示大小",
   "import": "導入",
   "important": "重要",
-  "importButton": "導入",
   "importConfig": "導入配置",
   "importContacts": "導入聯絡人",
   "importExportContacts": "導入/導出聯絡人",
@@ -885,17 +644,9 @@
   "importPluginListFailed": "導入插件列表失敗：{error}",
   "importPluginSuccess": "成功導入 {count} 個插件",
   "importRuleConfigurationsFromFile": "從檔案導入規則配置",
-  "importRuleConfigurationsFromFileSubtitle": "從檔案導入規則配置",
   "importRules": "導入規則",
-  "importRulesButton": "導入規則",
-  "importRulesDialogTitle": "導入規則",
-  "importRulesError": "導入規則失敗：{error}",
-  "importRulesInstructions": "從 CSV 檔案導入規則",
-  "importRulesSuccess": "規則導入成功",
-  "importRulesTitle": "導入規則",
   "importSuccess": "導入成功",
   "incomingCallInterceptAction": "來電攔截操作",
-  "incomingCallNotification": "來電通知",
   "incorrectPassword": "密碼錯誤",
   "initializing": "正在初始化",
   "installed": "已安裝",
@@ -923,33 +674,18 @@
   "invalidRegexPattern": "無效的 Regex 模式",
   "invalidSenderRegex": "無效的發送者 Regex",
   "joinTheTelegramChannelAndGroupForMoreInfo": "加入 Telegram 頻道和群組以獲取更多資訊",
-  "jsLogsTitle": "JS 日誌",
   "jsonFormat": "JSON 格式",
   "keepAllVersions": "保留所有版本",
   "keepAllVersionsDescription": "保留每個備份的所有歷史版本",
-  "keepAllVersionsLabel": "保留所有版本",
-  "keepAllVersionsSubtitle": "保留每個備份的歷史版本",
-  "keepAllVersionsTitle": "保留所有版本",
   "label": "標籤",
   "labelAddedSuccessfully": "成功新增標籤 \"{name}\"",
   "labelCategories": "標籤分類",
   "labelDeleted": "標籤已刪除",
   "labelDescription": "標籤可幫助您更好地管理聯絡人，為電話號碼新增自訂標籤，以便輕鬆識別來電和訊息。",
-  "labelFilter": "標籤篩選器",
   "labelFilterTooltip": "標籤篩選器",
   "labelIconColor": "標籤圖示顏色",
   "labelManagement": "標籤管理",
   "labelNotFound": "找不到標籤",
-  "labelRemoved": "標籤已移除",
-  "labelRemoveFailed": "移除標籤失敗：{error}",
-  "@labelRemoveFailed": {
-    "description": "Label removal failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "labels": "標籤",
   "labelsColor": "標籤顏色",
   "labelsDeleted": "已刪除 {count} 個標籤",
@@ -958,7 +694,6 @@
   "labelsImportedSuccessfully": "成功匯入 {count} 個標籤",
   "labelsPosition": "標籤位置",
   "labelTag": "標籤：{labelId}",
-  "labelUpdated": "標籤已更新",
   "labelUpdateFailed": "更新標籤失敗：{error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -972,8 +707,6 @@
   "languageSettings": "語言設定",
   "languageSettingsSubtitle": "更改應用程式顯示語言",
   "languageSettingsTitle": "語言設定",
-  "last30Days": "過去 30 天",
-  "last7Days": "過去 7 天",
   "lastSyncLabel": "上次同步",
   "lastUpdated": "上次更新：{date}",
   "@lastUpdated": {
@@ -988,16 +721,12 @@
   "lifetimeMembershipDescription": "一次性購買，永久解鎖所有高級功能和未來更新",
   "loadContactsFailed": "載入聯絡人失敗：{error}",
   "loadDataFailed": "載入資料失敗",
-  "loadFailed": "載入失敗",
   "loading": "載入中...",
-  "loadingData": "載入資料中...",
   "loadingTags": "載入標籤中...",
   "loadLabelFailed": "載入標籤失敗：{error}",
   "loadLabelsFailed": "載入標籤失敗：{error}",
   "loadMarkCountFailed": "載入已標記電話號碼數量失敗：{error}",
   "loadMarkedPhonesFailed": "載入已標記電話失敗：{error}",
-  "loadMore": "載入更多",
-  "loadPluginButton": "載入插件",
   "loadPluginsFailed": "載入插件失敗：{error}",
   "loadSettingsFailed": "載入設定失敗：{error}",
   "loadSmsRulesFailed": "載入 SMS 規則失敗：{error}",
@@ -1012,7 +741,6 @@
     }
   },
   "loan": "貸款",
-  "localBackupTitle": "本地備份",
   "localCounterFilter": "本地計數器過濾",
   "localCounterFilterSubtitle": "根據通話頻率自動過濾垃圾電話",
   "localCountFilter": "本地計數過濾",
@@ -1043,11 +771,9 @@
   "logAllRemoteQueries": "記錄所有遠程查詢",
   "logAllRemoteQueriesDescription": "記錄所有遠程號碼查詢操作",
   "manage": "管理聯絡人",
-  "manageContacts": "管理",
   "manageFavoriteContacts": "管理我的最愛聯絡人",
   "manageFilterRules": "管理過濾規則",
   "manageFilterRulesDescription": "新增、編輯或刪除 SMS 過濾規則",
-  "manageFrequentContacts": "管理常用聯絡人",
   "markCounts": "標記計數",
   "markCount": "標記計數",
   "markedByCount": "被 {count} 標記",
@@ -1064,84 +790,48 @@
   "markExchange": "標記交換",
   "markPhone": "標記電話號碼",
   "markPhoneFailed": "標記電話號碼失敗：{error}",
-  "markPhoneManagementSubtitle": "標記電話號碼",
   "markPhoneManagementTitle": "標記電話管理",
   "markPhoneSuccess": "電話號碼標記成功",
-  "matchFailed": "匹配失敗！",
   "matchFailedMessage": "匹配失敗。",
   "matchNumbersWithSpecialCharacters": "匹配特定號碼格式",
   "matchNumbersWithSpecialCharactersTitle": "匹配帶特殊字符的號碼：",
   "matchSpecificDigitPatterns": "匹配 XXX-XXXX-XXXX 格式",
   "matchSpecificDigitPatternsTitle": "匹配特定數字模式：",
-  "matchSuccessful": "匹配成功！",
   "matchSuccessfulMessage": "匹配成功！",
   "medical": "醫療",
   "membershipPrivileges": "會員權益",
   "migrationTool": "遷移工具",
-  "migrationToolTitle": "遷移工具",
   "minutes": "分鐘",
   "month": "月",
   "monthly": "每月",
   "monthlyCallCount": "每月通話次數",
-  "monthlyChartTitle": "每月攔截通話",
   "monthlyMembership": "每月會員",
   "monthlyMembershipDescription": "解鎖所有高級功能，每月自動續訂",
   "monthlyTotal": "每月總計",
-  "monthlyTotalLabel": "每月總計",
   "moreOptions": "更多選項",
   "mute": "靜音",
   "name": "名稱",
   "nameAndPhoneNumberCannotBeEmpty": "名稱和電話號碼不能為空",
-  "nameAndPhoneNumberRequired": "名稱和電話號碼不能為空",
   "nameColor": "名稱顏色",
   "nameFontSize": "名稱字體大小",
-  "nameLabel": "名稱：{name}",
-  "@nameLabel": {
-    "description": "Caller ID name label",
-    "placeholders": {
-      "name": {
-        "type": "Object"
-      }
-    }
-  },
   "namePosition": "名稱位置",
   "nameUnknown": "名稱：未知",
-  "nameWithValue": "名稱：{name}",
-  "@nameWithValue": {
-    "description": "Text showing the name of a contact",
-    "placeholders": {
-      "name": {
-        "type": "String",
-        "example": "John Doe"
-      }
-    }
-  },
-  "newPasswordLabel": "新密碼",
   "nextStep": "下一步",
   "noAction": "無操作",
   "noActionRules": "無操作規則",
   "noActiveCloudSyncServiceMessage": "沒有啟用的雲同步服務",
-  "noCallLogs": "沒有通話記錄",
   "noCallRecords": "沒有通話紀錄",
-  "noContacts": "還沒有聯絡人",
   "noContactsYet": "還沒有聯絡人",
   "noData": "沒有數據",
   "noDevicesRegisteredMessage": "沒有註冊的設備",
-  "noDevicesRegisteredYet": "還沒有註冊的設備。",
-  "noFilters": "還沒有篩選器",
   "noLabels": "還沒有標籤",
   "noMarkedPhones": "沒有已標記的電話號碼",
-  "noMatchingContacts": "沒有匹配的聯絡人",
   "noMatchingContactsFound": "找不到匹配的聯絡人",
   "noMatchingNumbersFound": "找不到匹配的號碼",
-  "noMatchingRecords": "沒有匹配的通話記錄",
   "noMatchingRules": "沒有匹配的 {ruleType}",
   "none": "無",
   "noneServiceType": "無",
   "noPlugins": "暫時沒有插件",
-  "noRecords": "沒有通話記錄",
-  "noResultReturned": "沒有返回結果",
-  "noResultReturnedLog": "插件沒有返回結果",
   "noRules": "暫時沒有 {ruleType}",
   "noRulesPrompt": "沒有找到規則，請新增規則",
   "noRulesToExport": "沒有要匯出的規則",
@@ -1151,7 +841,6 @@
   "@noSubscriptions": {
     "description": "No subscriptions message"
   },
-  "noSubscriptionsYet": "暫時沒有訂閱",
   "notGranted": "未授權",
   "notificationMode": "通知模式",
   "notificationModeDescription": "在通知欄中顯示來電者資訊",
@@ -1162,8 +851,6 @@
   "@notificationSettings": {
     "description": "Notification settings title"
   },
-  "notificationSettingsSaved": "通知設定已成功儲存",
-  "notSet": "未設定",
   "notVerifiedText": "未驗證",
   "noValidSmsRulesFoundInFile": "在檔案中找不到有效的簡訊規則",
   "number": "號碼",
@@ -1174,7 +861,6 @@
   "numberTypeColor": "號碼類型顏色",
   "numberTypeFontSize": "號碼類型字體大小",
   "numberTypePosition": "號碼類型位置",
-  "ok": "確定",
   "okButton": "確定",
   "onboardingCompleteDescription": "您的通話安全管理員已準備就緒，開始享受安全的通話體驗！",
   "onboardingLanguageDescription": "選擇您偏好的語言以獲得最佳體驗。",
@@ -1183,9 +869,7 @@
   "onboardingSmartCallerIdDescription": "自動識別未知來電，標記可疑號碼，保護您的通話安全。",
   "onboardingWelcomeDescription": "您的通話管理專家，提供全面的來電識別和封鎖服務。",
   "oneDriveAuthDescription": "使用系統配置的 OneDrive 客戶端 ID 和金鑰進行授權",
-  "oneDriveAuthorizationHint": "使用系統配置的 OneDrive 客戶端 ID 和金鑰進行授權",
   "oneDriveConfigTitle": "OneDrive 配置",
-  "oneDriveConfigurationTitle": "OneDrive 配置",
   "onlineCallerIdSubscription": "線上來電顯示訂閱",
   "openAppSettings": "開啟應用程式設定",
   "openAppSettingsFailed": "無法開啟應用程式設定：{error}",
@@ -1203,7 +887,6 @@
   "passwordCannotBeEmpty": "密碼不能為空",
   "passwordLabel": "密碼",
   "passwordsDoNotMatch": "密碼不匹配",
-  "passwordSetSuccessfully": "密碼設定成功",
   "pattern": "模式",
   "pendingSync": "等待同步",
   "periodMonth": "月",
@@ -1216,9 +899,7 @@
   "phoneNumber": "電話號碼",
   "phoneNumberCannotBeEmpty": "電話號碼不能為空",
   "phoneNumberHint": "輸入電話號碼",
-  "phoneNumberHintText": "輸入電話號碼以新增規則",
   "phoneNumberLabel": "電話號碼",
-  "phoneNumberRegexRequired": "請輸入電話號碼和正則表達式",
   "phoneNumberRequired": "電話號碼是必需的",
   "phoneNumberTypeFixedLine": "固定電話",
   "phoneNumberTypeFixedLineOrMobile": "固定電話或行動電話",
@@ -1235,34 +916,23 @@
   "phonePermission": "電話權限",
   "phonePermissionDescription": "用於識別和阻止來電。",
   "phoneRule": "電話規則",
-  "phoneRuleEditDialog": "電話規則編輯對話框",
   "phoneRuleManagement": "電話規則管理",
   "phoneRuleSubscription": "電話規則訂閱",
   "phoneSubscription": "電話訂閱",
   "phoneSubscriptionRulesDescription": "通過 URL 訂閱電話規則列表，以自動更新白名單和黑名單規則。支持 JSON 格式的規則文件。",
-  "phoneSubscriptionTitle": "電話規則訂閱",
-  "@phoneSubscriptionTitle": {
-    "description": "Phone subscription page title"
-  },
   "pleaseSelectLabelAndEnterValidPhone": "請選擇一個標籤並輸入有效的電話號碼",
   "pluginAddedSuccess": "插件 \"{name}\" 添加成功",
   "pluginDeleted": "插件已刪除",
   "pluginLatestVersion": "插件已是最新版本",
   "pluginListExportSuccess": "插件列表導出成功",
-  "pluginLoadedSuccessfully": "插件加載成功",
   "pluginManagement": "插件管理",
   "pluginManagementSubtitle": "管理和配置第三方插件",
-  "pluginManagementTitle": "插件管理",
   "pluginName": "插件名稱",
-  "pluginNotLoaded": "插件尚未加載。請先加載插件。",
   "pluginsDeleted": "{count} 個插件已成功刪除。",
   "pluginService": "插件服務",
   "pluginTestPageTitle": "插件測試",
   "pluginUpdateSuccess": "插件更新成功",
   "pluginUrl": "插件 URL",
-  "pluginUrlCannotBeEmpty": "插件 URL 不能為空",
-  "pluginUrlHint": "輸入插件 URL",
-  "pluginUrlLabel": "插件 URL",
   "pluginVersion": "插件版本",
   "political": "政治",
   "powerfulSpamBlocking": "強大的垃圾郵件攔截功能",
@@ -1274,26 +944,16 @@
   "purchase": "購買",
   "quarterlyMembership": "季度會員",
   "quarterlyMembershipDescription": "解鎖所有高級功能，每季自動續訂",
-  "queryButton": "查詢",
-  "queryFailed": "查詢失敗",
-  "queryFailedLog": "查詢失敗",
-  "querying": "查詢中...",
-  "queryingPhoneNumber": "查詢電話號碼",
-  "queryResultTitle": "查詢結果",
   "ready": "準備就緒！",
-  "receiveWeeklyStatistics": "接收每週統計數據",
   "recruiter": "招聘人員",
-  "reEnterPasswordHint": "請重新輸入密碼",
   "refresh": "刷新",
   "refreshPermissionStatus": "刷新權限狀態",
   "refreshTooltip": "刷新",
-  "regexError": "Regex 錯誤：{error}",
   "regexErrorMessage": "Regex 錯誤：{error}",
   "regexPattern": "正則表達式模式",
   "regexPatternExplanation": "正則表達式模式說明",
   "regexPatternExplanationButton": "正則表達式模式說明",
   "regexPatternLabel": "正則表達式模式",
-  "regexPatternsExamples": "使用標準正則表達式語法來定義模式。例如：",
   "regexPatternsForPhoneNumberMatching": "用於電話號碼匹配的正則表達式模式",
   "regexRule": "正則表達式規則",
   "regexRuleAddFailed": "添加正則表達式規則失敗：{error}",
@@ -1302,8 +962,6 @@
   "regexRuleNamePatternRequired": "規則名稱和正則表達式模式不能為空",
   "regexRules": "正則表達式規則",
   "regexTesterTitle": "正則表達式測試器",
-  "regexValidationFailed": "正則表達式驗證失敗：{error}",
-  "regexValidationSuccess": "正則表達式驗證成功",
   "region": "地區",
   "registeredDevicesTitle": "已註冊設備",
   "rejectAllCalls": "拒絕所有來電",
@@ -1318,27 +976,15 @@
   },
   "remoteFilterSettingsPageTitle": "遠程號碼過濾器設定",
   "remoteNumberFilter": "遠程號碼過濾器",
-  "remoteNumberFilterDatabaseInfo": "此過濾器使用獨立的遠程數據庫來獲取最新的號碼信息。",
   "remoteNumberFilterDescription": "基於遠程數據庫信息攔截騷擾電話",
-  "remoteNumberFilterExplanationContent": "遠程號碼過濾器通過查詢基於號碼次數的遠程數據庫來識別和阻止垃圾電話。",
-  "remoteNumberFilterExplanationTitle": "遠程號碼過濾器說明",
-  "remoteNumberFilterFeatureCountThreshold": "• 次數閾值：根據號碼出現頻率確定",
-  "remoteNumberFilterFeatureFilterAction": "• 過濾操作：配置如何處理超過閾值的號碼",
-  "remoteNumberFilterFeaturePriority": "• 優先級設定：設置遠程操作的優先級",
-  "remoteNumberFilterFeatures": "功能：",
   "remoteNumberFiltering": "遠程號碼過濾",
   "remoteNumberFilteringExplanation": "• 遠程號碼過濾：基於遠程數據庫信息的過濾規則",
   "remoteNumberFilterSubtitle": "使用雲數據庫和社區報告識別垃圾電話",
   "removeAdsDescription": "永久移除應用程式中的所有廣告，以獲得更流暢的體驗",
   "removeAdsTitle": "移除廣告",
-  "removedFromFavoriteContacts": "已從收藏聯絡人中移除",
   "removedFromFavorites": "已從收藏聯絡人中移除",
-  "removeFavorite": "移除收藏",
   "removeFromFavorites": "從收藏中移除",
-  "renameButton": "重新命名",
-  "renameDeviceDialogTitle": "重新命名設備",
   "renameDeviceTitle": "重新命名設備",
-  "replaceCurrentSettingsConfirmation": "這將替換您目前的所有設定。您確定要繼續嗎？",
   "requestAllPermissions": "請求所有權限",
   "requestPermission": "請求權限",
   "requestPermissionFailed": "請求權限失敗：{error}",
@@ -1346,84 +992,44 @@
   "reset": "重設",
   "restore": "還原",
   "restoreApplicationSettingsFromBackup": "從備份還原應用程式設定",
-  "restoreApplicationSettingsFromBackupSubtitle": "從備份還原應用程式設定",
-  "restoreButton": "還原",
-  "restoreFailedWithError": "從雲端還原失敗：{error}",
   "restoreFromCloud": "從雲端還原",
-  "restoreFromCloudDescription": "從雲端儲存空間還原設定和規則",
   "restoreFromCloudFailed": "從雲端還原失敗：{error}",
-  "restoreFromCloudLabel": "從雲端還原",
   "restoreFromCloudSuccess": "已成功從雲端還原",
-  "restoreFromCloudTitle": "從雲端還原",
-  "restoreFromLocal": "從本地還原",
   "restorePurchases": "還原購買項目",
-  "restoreSectionTitle": "還原",
   "restoreSettings": "還原設定",
   "restoreSettingsConfirmation": "這將取代您目前的所有設定。您確定要繼續嗎？",
-  "restoreSettingsDialogTitle": "還原設定",
-  "restoreSettingsTitle": "還原設定",
-  "restoreSuccessFromLocal": "已成功從本地還原",
-  "restoreSuccessMessage": "已成功從雲端還原",
   "retry": "重試",
   "ridesharing": "共享乘車",
   "risk": "風險",
   "robocall": "自動電話",
   "ruleAction": "規則動作",
-  "ruleAddButton": "新增規則",
   "ruleAddedSuccess": "規則已成功新增",
   "@ruleAddedSuccess": {
     "description": "Rule creation success message"
   },
-  "ruleAddFailure": "新增規則失敗：{error}",
-  "@ruleAddFailure": {
-    "description": "Rule creation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleAddSuccess": "規則已成功新增",
   "ruleDeleteConfirmContent": "您確定要刪除此 {ruleType} 嗎？",
   "ruleDeleteConfirmTitle": "刪除規則",
-  "ruleDeletedSuccess": "規則已成功刪除",
   "ruleDeletedSuccessfully": "規則已成功刪除",
   "ruleDeleteFailed": "刪除規則失敗：{error}",
-  "ruleDeleteFailure": "刪除規則失敗：{error}",
-  "@ruleDeleteFailure": {
-    "description": "Rule deletion failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleDeleteSuccess": "規則已成功刪除",
   "ruleDisabledSuccessfully": "規則已成功停用",
   "ruleEnabledSuccessfully": "規則已成功啟用",
   "ruleLoadFailed": "載入規則失敗：{error}",
   "ruleManagement": "規則管理",
-  "ruleManagementTitle": "規則管理",
   "ruleName": "規則名稱",
   "ruleNameAndContentRegexCannotBeEmpty": "規則名稱和內容正則表達式不能為空",
   "ruleNameAndPhoneNumberCannotBeEmpty": "規則名稱和電話號碼不能為空",
   "ruleNameHint": "例如，家人、朋友等。",
   "ruleNameLabel": "規則名稱",
-  "ruleNamePatternRequired": "請輸入規則名稱和模式",
   "ruleNameRequired": "規則名稱和電話號碼不能為空",
   "ruleNotExist": "規則不存在或已被刪除",
   "ruleNotFound": "找不到規則：{error}",
-  "ruleSavedSuccessfully": "規則已成功儲存！",
   "ruleSavedSuccessMessage": "規則已成功儲存！",
-  "ruleSaveFailed": "儲存失敗：{error}",
-  "ruleSaveFailedMessage": "儲存失敗：{error}",
-  "ruleSaveSuccess": "規則已成功儲存！",
   "rulesExportedSuccessfully": "規則已成功匯出",
   "rulesExportedTo": "規則匯出到：{path}",
   "rulesImported": "規則已成功匯入",
   "rulesImportedSuccessfully": "已成功匯入 {count} 條規則",
-  "rulesImportFailed": "匯入規則失敗：{error}",
-  "ruleStatistics": "規則統計",
   "ruleStatusChanged": "規則已成功{status}",
   "ruleToggleFailed": "操作失敗：{error}",
   "ruleToggleSuccess": "規則已成功{status}",
@@ -1432,32 +1038,19 @@
   "ruleVerification": "規則驗證",
   "save": "儲存",
   "saveButton": "儲存",
-  "saveButtonLabel": "儲存",
   "saveButtonText": "儲存",
   "saveFailed": "儲存失敗：{error}",
-  "saveFilter": "儲存篩選器",
   "saveSettings": "儲存設定",
-  "saveSettingsFailed": "儲存設定失敗：{error}",
   "scamsLikely": "可能係詐騙",
   "search": "搜尋",
   "searchContacts": "搜尋聯絡人",
   "searchError": "搜尋錯誤：{error}",
-  "searchFilters": "搜尋篩選器",
-  "searchForContacts": "搜尋聯絡人",
   "searchHint": "搜尋...",
-  "searchSettingsSubtitle": "搜尋聯絡人、標籤、黑名單、白名單等",
-  "searchSettingsTitle": "搜尋設定",
   "securityMessage": "唔好相信任何電話。務必獨立驗證客戶服務號碼。切勿分享密碼、驗證碼、卡號或個人資料。",
-  "selectActionToPerform": "選擇規則符合時要執行的操作",
   "selectActionWhenBlockingCalls": "選擇封鎖來電時嘅操作",
   "selectActionWhenRuleMatches": "選擇規則符合時嘅操作",
   "selectAll": "全選",
   "selectCountry": "選擇國家",
-  "selectDateRange": "選擇日期範圍",
-  "selectedDateRange": "已選日期範圍",
-  "@selectedDateRange": {
-    "description": "Selected date range text"
-  },
   "selectedItems": "已選 {count} 個項目",
   "selectedLabel": "已選擇：",
   "selectExportFormat": "選擇匯出格式",
@@ -1465,14 +1058,7 @@
   "selectLabelAndEnterPhoneNumber": "請選擇標籤並輸入有效嘅電話號碼",
   "selectLanguage": "選擇語言",
   "selectMultiple": "選擇多個",
-  "selectPeriod": "選擇時段",
   "selectSimCard": "選擇 SIM 卡",
-  "selectSimSlot": "選擇 SIM 卡槽",
-  "@selectSimSlot": {
-    "description": "Title for SIM slot selection dialog"
-  },
-  "selectSpecificActionForBlockedCalls": "選擇封鎖來電時要執行的特定操作",
-  "selectTag": "選擇標籤",
   "selectTags": "選擇標籤",
   "selectTrustedDataSource": "請選擇信任的數據源",
   "selectYourLanguage": "選擇您的語言",
@@ -1493,16 +1079,9 @@
       }
     }
   },
-  "setButton": "設定",
   "setEncryptionPassword": "設定加密密碼",
-  "setEncryptionPasswordDescription": "設定用於備份和還原的加密密碼",
-  "setEncryptionPasswordLabel": "設定加密密碼",
-  "setEncryptionPasswordTitle": "設定加密密碼",
-  "setPasswordButton": "設定",
   "settings": "設定",
   "settingsBackedUpTo": "設定已備份到：{path}",
-  "settingsLoaded": "設定已載入",
-  "settingsLoadFailed": "載入設定失敗：{error}",
   "settingsRestoredSuccessfully": "設定已成功還原。請重新啟動應用程式以使變更生效。",
   "settingsSaved": "設定已儲存",
   "@settingsSaved": {
@@ -1512,8 +1091,6 @@
   "settingsTab": "設定",
   "settingsTitle": "設定",
   "setup": "設定",
-  "showContactEditDialogStaticMethod": "用於顯示聯絡人編輯對話框的靜態方法",
-  "showExplanation": "顯示說明",
   "silence": "靜音",
   "silenceAndNoAnswer": "靜音且不接聽",
   "silenceNoAnswer": "靜音不接聽",
@@ -1538,15 +1115,10 @@
       }
     }
   },
-  "simInfoLoadFailure": "載入 SIM 卡資訊失敗：{error}",
   "simRuleInstructions": "SIM 卡槽規則允許您為每個 SIM 卡槽配置獨立的過濾規則。",
   "simRuleInstructionsTitle": "SIM 卡槽規則",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simRuleManagement": "SIM 卡槽規則管理",
-  "@simRuleManagement": {
-    "description": "SIM slot rule management section title"
   },
   "simSlot1": "SIM 1,-{countryIso}",
   "@simSlot1": {
@@ -1568,9 +1140,6 @@
       }
     }
   },
-  "simSlotDataLoadFailed": "SIM 卡數據加載失敗：{error}",
-  "simSlotFilterConfiguration": "SIM 卡槽過濾配置",
-  "simSlotFilterConfigurationDescription": "允許按 SIM 卡槽設置過濾規則",
   "simSlotFilterDescription": "為每張 SIM 卡配置獨立的過濾規則：",
   "simSlotFilterSettingsTitle": "SIM 卡槽 {slotNumber} 過濾設定",
   "@simSlotFilterSettingsTitle": {
@@ -1581,17 +1150,7 @@
       }
     }
   },
-  "simSlotLoadFailed": "SIM 卡槽加載失敗：{error}",
   "simSlotManagement": "SIM 卡槽管理",
-  "simSlotOperationFailed": "SIM 卡槽操作失敗：{error}",
-  "@simSlotOperationFailed": {
-    "description": "SIM slot operation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "simSlotPosition": "SIM 卡槽位置 {slotNumber}",
   "@simSlotPosition": {
     "description": "SIM slot position display",
@@ -1605,11 +1164,6 @@
   "simSlotRuleFeature": "• SIM 卡槽規則：每個 SIM 卡獨立的過濾策略",
   "simSlotRuleListTitle": "SIM 卡槽規則列表",
   "simSlotRuleManagement": "SIM 卡槽規則",
-  "simSlotRuleManagementTitle": "規則管理",
-  "simSlotSettings": "SIM 卡槽設定",
-  "@simSlotSettings": {
-    "description": "Title for SIM slot settings page"
-  },
   "simSlotTitle": "SIM 卡槽 {slotNumber}",
   "skip": "跳過",
   "smartCallerId": "智能來電顯示",
@@ -1620,7 +1174,6 @@
   "smsFilterRuleAddedSuccessfully": "SMS 過濾規則已成功新增",
   "smsFilterRules": "SMS 過濾規則",
   "smsFilterSettings": "SMS 過濾設定",
-  "smsHistory": "SMS 歷史記錄",
   "smsManagement": "SMS 管理",
   "smsPermission": "SMS 權限",
   "smsPermissionDescription": "用於過濾垃圾訊息。",
@@ -1628,12 +1181,7 @@
   "smsRuleDeletedSuccessfully": "SMS 規則已成功刪除",
   "smsRuleLoadFailed": "SMS 規則加載失敗：{error}",
   "smsRuleManagement": "SMS 規則管理",
-  "smsRulesExportedSuccessfully": "SMS 規則已成功匯出到 {filePath}",
-  "smsRulesImportedSuccessfully": "SMS 規則已成功導入",
   "smsRuleSubscription": "SMS 規則訂閱",
-  "smsRuleUpdatedSuccessfully": "SMS 規則已成功更新",
-  "smsSettingsSubtitle": "SMS 過濾和關鍵字封鎖",
-  "smsSettingsTitle": "SMS 設定",
   "smsSubscription": "SMS 訂閱",
   "smsSubscriptionAddedSuccessfully": "SMS 訂閱已成功新增",
   "smsSubscriptionRulesDescription": "通過 URL 訂閱 SMS 規則列表，支持正則表達式匹配。您可以設定封鎖或允許操作。",
@@ -1645,12 +1193,7 @@
   "startUsing": "開始使用",
   "statAnswered": "已接聽",
   "statBlocked": "已封鎖",
-  "staticMethodShowCallerIdDialog": "顯示來電顯示資訊對話框的靜態方法",
-  "staticMethodToDisplayCountrySelectionDialog": "顯示國家/地區選擇對話框的靜態方法",
-  "staticMethodToDisplayDialog": "顯示對話框的靜態方法",
   "statistics": "統計",
-  "statisticsExportFeatureComingSoon": "統計資料匯出功能即將推出",
-  "statisticsGrid": "統計資料網格",
   "statisticsPageTitle": "數據分析",
   "stirColor": "STIR 顏色",
   "stirFontSize": "STIR 字體大小",
@@ -1673,23 +1216,16 @@
   "@subscriptionDeleted": {
     "description": "Subscription deleted success message"
   },
-  "subscriptionDeletedSuccessfully": "已成功刪除訂閱",
   "subscriptionDeleteFailed": "刪除訂閱失敗：{error}",
   "subscriptionDeleteSuccess": "已刪除訂閱",
-  "subscriptionEmptyState": "沒有可用的訂閱",
-  "subscriptionEmptyText": "尚無訂閱",
   "subscriptionLoadFailed": "載入訂閱失敗：{error}",
-  "subscriptionLoadingFailed": "載入訂閱失敗：{error}",
-  "subscriptionManagementTitle": "訂閱管理",
   "subscriptionName": "訂閱名稱",
   "@subscriptionName": {
     "description": "Subscription name field label"
   },
   "subscriptionNameAndUrlCannotBeEmpty": "訂閱名稱和 URL 不能為空",
   "subscriptionNameHint": "輸入訂閱名稱",
-  "subscriptionPageTitle": "訂閱管理",
   "subscriptionStatusChangeFailed": "變更訂閱狀態失敗：{error}",
-  "subscriptionToggleFailed": "切換訂閱狀態失敗：{error}",
   "subscriptionUpdateFailed": "更新訂閱失敗：{error}",
   "subscriptionUpdateSuccess": "已成功更新訂閱",
   "@subscriptionUpdateSuccess": {
@@ -1710,7 +1246,6 @@
   },
   "syncFailed": "同步失敗",
   "syncFailedMessage": "同步失敗",
-  "syncFolderNameHint": "請輸入同步資料夾名稱（預設：NotificationManager）",
   "syncFolderNameLabel": "同步資料夾名稱",
   "synchronized": "已同步",
   "@synchronized": {
@@ -1724,10 +1259,8 @@
   "syncNowButton": "立即同步",
   "syncStatusTitle": "同步狀態",
   "syncStatusUpdatedMessage": "同步狀態已更新",
-  "syncSuccessful": "同步成功",
   "syncSuccessMessage": "同步成功",
   "syncWithCloudStorage": "與雲端儲存空間同步",
-  "syncWithCloudStorageSubtitle": "與雲端儲存空間同步",
   "systemFeatures": "系統功能：",
   "systemSettingsTitle": "系統設定",
   "tabAll": "全部",
@@ -1743,13 +1276,11 @@
       }
     }
   },
-  "tagsUpdated": "標籤已更新",
   "takeaway": "外賣",
   "telecommunication": "電訊",
   "telegram": "Telegram",
   "telemarketing": "電話推銷",
   "testButton": "測試",
-  "testButtonLabel": "測試",
   "testConnectionButton": "測試連線",
   "textColorsSetting": "文字及標籤顏色",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "此應用程式是一個強大的來電顯示工具，可讓您識別和封鎖不需要的來電。",
@@ -1760,8 +1291,6 @@
   "timeInterceptorExplanationContent": "通話頻率攔截功能會分析通話頻率，以自動識別和攔截/允許頻繁的垃圾電話。",
   "timeInterceptorExplanationTitle": "通話頻率攔截說明",
   "timeInterceptorSettingsTitle": "通話頻率攔截設定",
-  "timeInterceptorSubtitle": "根據通話頻率自動攔截潛在的垃圾電話",
-  "timeInterceptorTitle": "啟用通話頻率攔截",
   "timeWindowDescription": "設定允許重複通話的時間窗口大小。來自同一號碼在此窗口內的通話將被允許",
   "timeWindowLabel": "攔截時間窗口（分鐘）：{minutes}",
   "@timeWindowLabel": {
@@ -1772,16 +1301,11 @@
       }
     }
   },
-  "timeWindowSetting": "設定允許重複通話的時間窗口大小。來自同一號碼在此窗口內的通話將被允許",
   "today": "今天",
   "total": "總計",
   "totalBlocked": "總封鎖",
-  "totalFiltered": "總過濾",
   "transferDataBetweenDevicesOrPlatforms": "在裝置或平台之間傳輸數據",
-  "transferDataBetweenDevicesOrPlatformsSubtitle": "在裝置或平台之間傳輸數據",
   "travelTicketing": "旅遊票務",
-  "trend": "趨勢",
-  "trendChart": "趨勢圖",
   "tutorial": "教學",
   "type": "類型",
   "unassignedSIMCard": "未分配的 SIM 卡",
@@ -1789,7 +1313,6 @@
   "@unknown": {
     "description": "Display text for unknown status"
   },
-  "unknownLabel": "不明標籤",
   "unknownTag": "標籤：不明",
   "unregisterButton": "取消註冊",
   "unregisterDeviceConfirmationMessage": "你確定要取消註冊 {deviceName} 嗎？",
@@ -1797,15 +1320,9 @@
   "unsupportedFileFormat": "不支援的檔案格式",
   "update": "更新",
   "updateAllNow": "立即全部更新",
-  "updateCallFilterConfig": "更新來電過濾配置",
-  "@updateCallFilterConfig": {
-    "description": "Button text for updating call filter configuration"
-  },
   "updateContactFailed": "更新聯絡人失敗：{error}",
   "updateFavoriteStatus": "更新喜好狀態",
-  "updateFavoriteStatusFailed": "更新喜好狀態失敗：{error}",
   "updateInterval": "更新間隔",
-  "updateLabelFailed": "更新標籤失敗",
   "updateNow": "立即更新",
   "updatePlugin": "更新插件",
   "updatePluginFailed": "更新插件失敗：{error}",
@@ -1831,16 +1348,13 @@
       }
     }
   },
-  "updateTags": "更新標籤",
   "useCasesPoint1": "• 識別自動重撥垃圾電話",
   "useCasesPoint2": "• 攔截在短時間內多次撥打的行銷電話",
   "useCasesPoint3": "• 預防電話轟炸和騷擾",
   "useCasesTitle": "使用案例：",
   "useGlobalSettings": "使用全域設定",
-  "userEmail": "user@example.com",
   "usernameLabel": "使用者名稱",
   "useStandardRegexSyntaxToDefinePatternsExamples": "使用標準正則表達式語法來定義模式。例子：",
-  "validateRegex": "驗證正則表達式",
   "verificationFailedText": "驗證失敗",
   "verifiedText": "已驗證",
   "verify": "驗證",
@@ -1851,36 +1365,18 @@
   "watchAdForTemp": "觀看廣告以獲得臨時權限",
   "watchAdForTempDescription": "觀看短片廣告以暫時解鎖一些高級功能",
   "webDAVConfigTitle": "WebDAV 配置",
-  "webdavConfigurationTitle": "WebDAV 配置",
-  "webdavPasswordHint": "請輸入 WebDAV 密碼",
-  "webdavServerAddressHint": "請輸入 WebDAV 伺服器地址",
-  "webdavUsernameHint": "請輸入 WebDAV 使用者名稱",
   "week": "週",
-  "weekly": "每週",
-  "weeklyBlockedCallsSummary": "每週攔截電話摘要",
-  "weeklyChartTitle": "每週攔截電話",
-  "weeklyReport": "每週報告",
-  "@weeklyReport": {
-    "description": "Weekly report notification option"
-  },
-  "weeklyReportDesc": "接收每週來電攔截活動摘要報告",
-  "@weeklyReportDesc": {
-    "description": "Description for weekly report option"
-  },
   "welcome": "歡迎",
   "whitelist": "白名單",
   "@whitelist": {
     "description": "Whitelist label"
   },
-  "whitelistLabel": "白名單",
   "width": "寬度",
   "wildcardMatchingDescription": "使用 '.' 匹配任何字符 (例如 '123.456' 匹配 123-456)",
   "wildcardMatchingTitle": "萬用字元匹配:",
   "wildcardSupportForFlexibleFiltering": "萬用字元支援靈活過濾",
   "windowSizeSetting": "視窗大小",
   "year": "年",
-  "yearly": "每年",
-  "yearlyChartTitle": "每年封鎖的通話",
   "noSimCardsDetected": "未偵測到 SIM 卡",
   "filterManagementDescription": "設定通話過濾器",
   "callerIdCustomizationSubtitle": "自訂來電顯示版面",
@@ -1895,7 +1391,6 @@
   "useLocalNotificationDescription": "啟用來電的本地通知",
   "cancelLocalNotification": "關閉本地通知",
   "useStirNotification": "使用 STIR 通知",
-  "useStirNotificationDescription": "啟用來自 STIR 的通知",
   "cancelLocalNotificationDescription": "自動關閉本地通知",
   "callerIdSettingsTitle": "來電顯示設定",
   "callerIdSettingsSubtitle": "設定來電通知和顯示模式",
@@ -1904,16 +1399,6 @@
   "callerIdNotificationTitle": "來電資訊",
   "@callerIdNotificationTitle": {
     "description": "Title for the Incoming Call Info"
-  },
-  "callerIdBody": "號碼: {phoneNumber}",
-  "@callerIdBody": {
-    "description": "Body for the caller ID notification, showing the phone number",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
   },
   "blockedCallTitle": "已封鎖的通話",
   "@blockedCallTitle": {
@@ -1974,18 +1459,6 @@
   "@fraudAlertTitle": {
     "description": "Title for the fraud alert notification"
   },
-  "fraudAlertBody": "來自 {phoneNumber} 的潛在詐騙電話",
-  "@fraudAlertBody": {
-    "description": "Body for the fraud alert notification",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
-  },
-  "loadRulesFailed": "載入規則失敗：{error}",
-  "loadCallLogFailed": "載入通話記錄失敗：{error}",
   "noBlockedTypeData": "沒有可用的封鎖類型資料",
   "importEntity": "匯入 {entityTypeName}",
   "@importEntity": {
@@ -2065,7 +1538,6 @@
   "vipUser": "VIP 用戶",
   "temporaryVip": "臨時 VIP",
   "removeAds": "移除廣告",
-  "unknownAction": "未知操作",
   "settingsBackup": "設定備份",
   "allServicesStatusTitle": "目前服務狀態",
   "allServicesStatusSubtitle": "各雲端服務的目前狀態",
@@ -2153,7 +1625,6 @@
   "unblocked": "已解除封鎖",
   "blockNumber": "封鎖號碼",
   "blockNumberSuccess": "封鎖號碼成功",
-  "blockNumberFailed": "封鎖號碼失敗",
   "unblockNumberConfirmation": "你確定要解除封鎖 {phoneNumber} 嗎？",
   "@unblockNumberConfirmation": {
     "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
@@ -2165,23 +1636,11 @@
       }
     }
   },
-  "callingNumber": "正在撥打 {phoneNumber}...",
-  "@callingNumber": {
-    "description": "Status text displayed on the screen when an outgoing call is initiated.",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "description": "The phone number that is being dialed.",
-        "example": "+1 555-123-4567"
-      }
-    }
-  },
   "viewDetails": "查看詳情",
   "unblock": "解除封鎖",
   "unblockNumber": "解除封鎖號碼",
   "unblockNumberSuccess": "成功解除封鎖號碼",
   "unblockNumberFailed": "解除封鎖號碼失敗",
-  "serviceNotAvailable": "服務不可用",
   "callingNumberFailed": "撥打號碼失敗",
   "listView": "列表視圖",
   "timelineView": "時間軸視圖",
@@ -2192,7 +1651,6 @@
   "callType": "通話類型",
   "callTime": "通話時間",
   "numberInvalidFormat": "號碼格式無效",
-  "membershipFeature": "會員功能",
   "medium": "媒介",
   "verificationReport": "驗證報告",
   "finalRisk": "最終風險",
@@ -2221,7 +1679,6 @@
   "noNotifications": "沒有通知",
   "clearAllNotifications": "清除所有通知",
   "clearAllNotificationsConfirmation": "確定清除所有通知嗎？",
-  "allNotificationsCleared": "所有通知已清除",
   "clearButton": "清除",
   "justNow": "剛剛",
   "minutesAgo": "{count,plural, =1{1 分鐘前} other{{count} 分鐘前}}",
@@ -2298,10 +1755,6 @@
   "@reasonInaccurateInfo": {
     "description": "Inaccurate Information reason option"
   },
-  "reasonWrongMarked": "錯誤標記",
-  "@reasonWrongMarked": {
-    "description": "Wrong marked reason option"
-  },
   "reasonOther": "其他",
   "@reasonOther": {
     "description": "Other reason option"
@@ -2314,33 +1767,9 @@
   "@cancel": {
     "description": "Cancel button text"
   },
-  "proposalStatus": "狀態",
-  "@proposalStatus": {
-    "description": "Proposal status label"
-  },
-  "statusPending": "待定",
-  "@statusPending": {
-    "description": "Pending status"
-  },
-  "statusActive": "進行中",
-  "@statusActive": {
-    "description": "Active status"
-  },
-  "statusCompleted": "已完成",
-  "@statusCompleted": {
-    "description": "Completed status"
-  },
-  "statusExpired": "已過期",
-  "@statusExpired": {
-    "description": "Expired status"
-  },
   "riskLevel": "風險級別",
   "@riskLevel": {
     "description": "Risk level label"
-  },
-  "riskLevelVerified": "已驗證",
-  "@riskLevelVerified": {
-    "description": "Verified risk level"
   },
   "riskLevelLow": "低",
   "@riskLevelLow": {
@@ -2350,26 +1779,9 @@
   "@riskLevelHigh": {
     "description": "Label for high risk level"
   },
-  "riskLevelUnknown": "未知",
-  "@riskLevelUnknown": {
-    "description": "Unknown risk level"
-  },
-  "votingProgress": "投票進度",
-  "@votingProgress": {
-    "description": "Voting progress label"
-  },
   "agreeVotes": "贊成: {count}",
   "@agreeVotes": {
     "description": "Agree votes count",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "disagreeVotes": "反對: {count}",
-  "@disagreeVotes": {
-    "description": "Disagree votes count",
     "placeholders": {
       "count": {
         "type": "int"
@@ -2405,14 +1817,6 @@
   "@verificationReport": {
     "description": "Verification report label"
   },
-  "showReport": "顯示報告",
-  "@showReport": {
-    "description": "Show report button text"
-  },
-  "hideReport": "隱藏報告",
-  "@hideReport": {
-    "description": "Hide report button text"
-  },
   "proposalStatistics": "建議統計",
   "@proposalStatistics": {
     "description": "Proposal statistics title"
@@ -2425,37 +1829,17 @@
   "@activeProposals": {
     "description": "Active proposals label"
   },
-  "completedProposals": "已完成建議",
-  "@completedProposals": {
-    "description": "Completed proposals label"
-  },
-  "myVotes": "我的投票",
-  "@myVotes": {
-    "description": "My votes label"
-  },
   "proposalCreated": "建議建立成功",
   "@proposalCreated": {
     "description": "Proposal created success message"
-  },
-  "proposalCreateFailed": "建立建議失敗",
-  "@proposalCreateFailed": {
-    "description": "Proposal create failed message"
   },
   "voteSubmitted": "投票提交成功",
   "@voteSubmitted": {
     "description": "Vote submitted success message"
   },
-  "voteSubmitFailed": "投票提交失敗",
-  "@voteSubmitFailed": {
-    "description": "Vote submit failed message"
-  },
   "noProposalsFound": "找不到建議",
   "@noProposalsFound": {
     "description": "No proposals found message"
-  },
-  "loadingProposals": "載入提案中...",
-  "@loadingProposals": {
-    "description": "Loading proposals message"
   },
   "refreshProposals": "刷新提案",
   "@refreshProposals": {
@@ -2684,12 +2068,8 @@
       }
     }
   },
-  "loadVoteCountFailed": "載入投票數失敗",
   "voteCount": "投票數",
-  "deletionProposalInfo": "刪除提案資訊",
   "deletionProposalDescription": "提議刪除違反社區準則的號碼。您的參與有助於保持平台安全。",
-  "voteToEarnVip": "對提案進行投票以賺取 VIP 權限！",
-  "voteFailed": "投票失敗",
   "searchProposals": "搜尋提案",
   "defaultNotifications": "預設通知",
   "defaultNotificationsDescription": "應用程式的預設通知頻道。",
@@ -2699,81 +2079,14 @@
   "stirVerificationDescription": "顯示號碼的 STIR/SHAKEN 驗證結果。",
   "fraudAlerts": "詐騙警報",
   "fraudAlertsDescription": "顯示潛在詐騙來電的警告。",
-  "notificationFrequencyDescription": "選擇您接收關於新刪除建議通知的頻率。您可以立即、分批或以自訂間隔接收。",
-  "@notificationFrequencyDescription": {
-    "description": "A detailed explanation of what the notification frequency settings do"
-  },
   "@notificationMode": {
     "description": "Title for the mode selection part (Immediate, Batched, Custom)"
-  },
-  "immediateNotifications": "立即",
-  "@immediateNotifications": {
-    "description": "Label for the immediate notification mode"
-  },
-  "immediateNotificationsDescription": "在建立建議後立即收到通知。",
-  "@immediateNotificationsDescription": {
-    "description": "Description for the immediate notification mode"
-  },
-  "batchNotifications": "分批",
-  "@batchNotifications": {
-    "description": "Label for the batched notification mode"
-  },
-  "batchNotificationsDescription": "定期接收通知摘要。",
-  "@batchNotificationsDescription": {
-    "description": "Description for the batched notification mode"
-  },
-  "customNotifications": "自訂",
-  "@customNotifications": {
-    "description": "Label for the custom notification mode"
-  },
-  "customNotificationsDescription": "定義您自己的接收通知間隔。",
-  "@customNotificationsDescription": {
-    "description": "Description for the custom notification mode"
-  },
-  "customFrequency": "自訂頻率",
-  "@customFrequency": {
-    "description": "Title for the custom frequency slider section"
-  },
-  "notificationFrequencyDurationMinutes": "{minutes} 分鐘",
-  "@notificationFrequencyDurationMinutes": {
-    "description": "Formats a duration that is only in minutes.",
-    "placeholders": {
-      "minutes": {
-        "type": "int",
-        "example": "45"
-      }
-    }
-  },
-  "notificationFrequencyDurationHours": "{hours} 小時",
-  "@notificationFrequencyDurationHours": {
-    "description": "Formats a duration that is in whole hours.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "2"
-      }
-    }
-  },
-  "notificationFrequencyDurationHoursAndMinutes": "{hours} 小時 {minutes} 分鐘",
-  "@notificationFrequencyDurationHoursAndMinutes": {
-    "description": "Formats a duration that has both hours and minutes.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "1"
-      },
-      "minutes": {
-        "type": "int",
-        "example": "30"
-      }
-    }
   },
   "pendingProposals": "待處理的建議",
   "pendingProposalsBody": "您有 {count, plural, =0 {沒有待處理的建議} one {1 個待處理的建議} other {{count} 個待處理的建議}}。",
   "guidelinesLabel": "指引",
   "reportingGuidelines": "• 只舉報真正有問題的號碼\n• 提供準確及詳細的原因\n• 根據嚴重程度選擇適當的風險級別\n• 虛假舉報可能會導致帳戶限制",
   "riskLevelLabel": "風險級別",
-  "riskLevelDescription": "號碼的風險級別",
   "phoneNumberMinDigits": "電話號碼必須至少有 7 位數字",
   "provideDetailedExplanation": "提供詳細解釋（最少 10 個字元）",
   "reasonMinCharacters": "原因必須至少有 10 個字元",
@@ -2790,39 +2103,15 @@
   "@countryCodeRequired": {
     "description": "Validation message for required country code"
   },
-  "countryCodeLengthError": "國家代碼必須是 2 個字母",
-  "@countryCodeLengthError": {
-    "description": "Validation message for country code length"
-  },
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
-  "phoneNumberLengthError": "電話號碼必須至少有 7 位數字",
-  "@phoneNumberLengthError": {
-    "description": "Validation message for phone number length"
-  },
-  "reasonHint": "提供詳細解釋（最少 10 個字元）",
-  "@reasonHint": {
-    "description": "Hint text for reason input field"
-  },
   "reasonRequired": "必須填寫原因",
   "@reasonRequired": {
     "description": "Validation message for required reason"
-  },
-  "reasonLengthError": "原因必須至少有 10 個字元",
-  "@reasonLengthError": {
-    "description": "Validation message for reason length"
-  },
-  "guidelinesTitle": "指引",
-  "@guidelinesTitle": {
-    "description": "Title for guidelines section"
-  },
-  "guidelinesText": "• 只舉報真正有問題的號碼\n• 提供準確及詳細的原因\n• 根據嚴重程度選擇適當的風險級別\n• 虛假舉報可能會導致帳戶限制",
-  "@guidelinesText": {
-    "description": "Text content for guidelines section"
   },
   "riskLevelCritical": "危急",
   "@riskLevelCritical": {
@@ -2836,33 +2125,9 @@
   "@riskLevelVeryLow": {
     "description": "Label for very low risk level"
   },
-  "riskDescriptionVeryLow": "非常低 - 輕微滋擾，不頻繁的來電",
-  "@riskDescriptionVeryLow": {
-    "description": "Description for very low risk level"
-  },
-  "riskDescriptionLow": "低 - 偶爾出現的垃圾或電話推銷來電",
-  "@riskDescriptionLow": {
-    "description": "Description for low risk level"
-  },
-  "riskDescriptionMedium": "中等 - 定期的垃圾郵件或電話推銷",
-  "@riskDescriptionMedium": {
-    "description": "Description for medium risk level"
-  },
-  "riskDescriptionHigh": "高 - 持續的騷擾或詐騙企圖",
-  "@riskDescriptionHigh": {
-    "description": "Description for high risk level"
-  },
-  "riskDescriptionCritical": "危急 - 危險的詐騙或威脅",
-  "@riskDescriptionCritical": {
-    "description": "Description for critical risk level"
-  },
   "notificationFrequencyTitle": "通知頻率",
   "@notificationFrequencyTitle": {
     "description": "Title for notification frequency settings"
-  },
-  "notificationFrequencyLabel": "通知頻率（小時）",
-  "@notificationFrequencyLabel": {
-    "description": "Label for notification frequency dropdown"
   },
   "errorMessage": "錯誤：{error}",
   "@errorMessage": {
@@ -2870,18 +2135,6 @@
     "placeholders": {
       "error": {
         "type": "String"
-      }
-    }
-  },
-  "votesStatistics": "投票：{totalVotes}（{supportPercentage}% 支持）",
-  "@votesStatistics": {
-    "description": "Voting statistics text",
-    "placeholders": {
-      "totalVotes": {
-        "type": "int"
-      },
-      "supportPercentage": {
-        "type": "int"
       }
     }
   },
@@ -2899,37 +2152,6 @@
     "description": "Shows the number of oppose votes.",
     "placeholders": {
       "opposeCount": {
-        "type": "int"
-      }
-    }
-  },
-  "timeJustNow": "啱啱",
-  "@timeJustNow": {
-    "description": "Time format for recent events"
-  },
-  "timeMinutesAgo": "{minutes} 分鐘前",
-  "@timeMinutesAgo": {
-    "description": "Time format for minutes ago",
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
-  "timeHoursAgo": "{hours} 小時前",
-  "@timeHoursAgo": {
-    "description": "Time format for hours ago",
-    "placeholders": {
-      "hours": {
-        "type": "int"
-      }
-    }
-  },
-  "timeDaysAgo": "{days} 日前",
-  "@timeDaysAgo": {
-    "description": "Time format for days ago",
-    "placeholders": {
-      "days": {
         "type": "int"
       }
     }
@@ -2989,7 +2211,6 @@
   "liveActivitiesTestUpdateActivity": "更新活動",
   "liveActivityControlsTitle": "即時動態控制",
   "liveActivitiesTestTitle": "即時動態測試",
-  "liveActivitiesTestSubtitle": "測試即時動態通知。",
   "liveNotificationCustomizationTitle": "即時通知自訂",
   "liveNotificationCustomizationSubtitle": "自訂即時通知嘅外觀。",
   "notification_instructions": "指示：\n1. 點擊「發送」以建立或更新通知。\n2. 去你嘅主畫面或者下拉通知欄睇吓結果。\n3. 點擊「結束」以關閉通知。",
@@ -3012,7 +2233,6 @@
   "@proposalDetails": {
     "description": "The title of the proposal details page."
   },
-  "filterByStatus": "按狀態篩選",
   "proposalNotFound": "搵唔到提案",
   "@proposalNotFound": {
     "description": "A message displayed when a proposal is not found."
@@ -3020,10 +2240,6 @@
   "processed": "已處理",
   "@processed": {
     "description": "A label for the processed status."
-  },
-  "showAll": "顯示全部",
-  "@showAll": {
-    "description": "A button to show all proposals."
   },
   "filterAndSortTitle": "篩選同排序",
   "filterVerifiedOwner": "篩選已驗證嘅擁有者",
@@ -3055,10 +2271,6 @@
   "@invalidSimData": {
     "description": "A message displayed when the SIM data is invalid."
   },
-  "simCardData": "SIM 卡數據",
-  "@simCardData": {
-    "description": "A label for the SIM card data."
-  },
   "simSlot": "SIM 卡槽",
   "@simSlot": {
     "description": "A label for the SIM slot."
@@ -3077,8 +2289,6 @@
   },
   "callTypeRejected": "已拒絕",
   "callTypeSilenced": "已靜音",
-  "callTypeVoicemail": "語音信箱",
-  "callTypeUnknownIntercept": "未知攔截",
   "andMoreItems": "以及 {count} 個更多項目",
   "@andMoreItems": {
     "description": "Text to show when there are more items than displayed.",

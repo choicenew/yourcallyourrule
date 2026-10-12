@@ -6,14 +6,6 @@
   },
   "aboutLabels": "Game da Lakabi",
   "aboutPhoneSubscriptionRules": "Game da Dokokin Biyan Kuɗi na Wayar",
-  "aboutPhoneSubscriptions": "Game da Biyan Kuɗi na Wayar",
-  "@aboutPhoneSubscriptions": {
-    "description": "About phone subscriptions title"
-  },
-  "aboutPhoneSubscriptionsDesc": "Biyan kuɗi zuwa jerin dokokin waya ta hanyar URL, sabunta dokoki ta atomatik. Yana goyan bayan fayilolin dokoki na JSON, CSV.",
-  "@aboutPhoneSubscriptionsDesc": {
-    "description": "About phone subscriptions description"
-  },
   "aboutSmsFilter": "Game da Tace SMS",
   "aboutSmsSubscriptionRules": "Game da Dokokin Biyan Kuɗi na SMS",
   "aboutSubtitle": "Bayanin sigar aikace-aikacen da na doka",
@@ -22,7 +14,6 @@
   "actionAll": "Duka",
   "actionAllow": "Bada damar",
   "actionBlock": "Gina",
-  "actionFilterAll": "Duk Tace",
   "actionFilterTitle": "Tace ta Nau'in Aiki",
   "actionFilterTooltip": "Tace Aiki",
   "actionNone": "Babu Aiki",
@@ -42,24 +33,15 @@
   },
   "addContactButton": "Ƙara Lambar",
   "addContactFailed": "An kasa ƙara lambar: {error}",
-  "addedToAllowedRules": "An ƙara shi zuwa Dokokin Ba da Dama",
-  "addedToBlacklist": "An ƙara shi zuwa Baƙar Fata",
-  "addedToBlockedRules": "An ƙara shi zuwa Dokokin Gina",
-  "addedToFavoriteContacts": "An ƙara shi zuwa lambobin da aka fi so",
   "addedToFavorites": "An ƙara shi zuwa waɗanda aka fi so",
-  "addedToWhitelist": "An ƙara shi zuwa Jerin Farar Fata",
-  "addFavorite": "Ƙara Mai So",
-  "addFilter": "Ƙara Tace",
   "addLabel": "Ƙara Lakabi",
   "addLabelButton": "Ƙara Lakabi",
   "addLabelFailed": "An kasa ƙara lakabi: {error}",
-  "addLabelToCall": "Ƙara Lakabi zuwa Rikodin Kira",
   "addName": "Ƙara Suna",
   "addNoneSubscription": "Ƙara Biyan Kuɗi na Babu",
   "@addNoneSubscription": {
     "description": "Add none subscription dialog title"
   },
-  "addOrEditContactInfo": "Ana amfani da shi don ƙarawa ko gyara bayanan lamba",
   "addPhoneMark": "Ƙara Alamar Wayar",
   "addPhoneNumberRule": "Ƙara Dokar Lambar Wayar",
   "addPlugin": "Ƙara Plugin",
@@ -69,14 +51,12 @@
   "addPluginFromUrl": "Ƙara Plugin daga URL",
   "addRegexRule": "Ƙara Dokar Regex",
   "addRule": "Ƙara Dokar",
-  "addRuleButton": "Ƙara Dokar",
   "addRuleFailed": "An kasa ƙara doka: {error}",
   "addRuleTooltip": "Ƙara Dokar",
   "addSilenceSubscription": "Ƙara Biyan Kuɗi na Shiru",
   "@addSilenceSubscription": {
     "description": "Add silence subscription dialog title"
   },
-  "addSimRuleButton": "Ƙara Dokar SIM",
   "addSmsFilterRule": "Ƙara Dokar Tace SMS",
   "addSmsRule": "Ƙara Dokar SMS",
   "addSmsSubscription": "Ƙara Biyan Kuɗi na SMS",
@@ -95,26 +75,17 @@
     }
   },
   "addSubscriptionTooltip": "Ƙara Biyan Kuɗi",
-  "addToAllowedRules": "Ƙara zuwa Dokokin Ba da Dama",
   "addToBlacklist": "Ƙara zuwa Baƙar Fata",
-  "addToBlockedRules": "Ƙara zuwa Dokokin Gina",
-  "addToFavoriteContacts": "Ƙara zuwa Lambobin Da Aka Fi So",
   "addToFavorites": "Ƙara zuwa Waɗanda Aka Fi So",
   "addToRules": "Ƙara zuwa Dokoki",
   "addToWhitelist": "Ƙara zuwa Jerin Farar Fata",
-  "adPlaceholder": "Wurin Alamar Tallan",
   "agent": "Wakilin",
   "all": "Duka",
   "allCallsTab": "Duka",
-  "allDataClearedSuccessfully": "An share duk bayanan cikin nasara",
   "allow": "Bada damar",
   "allowAllAllowRules": "Bada Dama Ga Duk Dokokin Ba da Dama",
   "allowAllAllowRulesDesc": "Bada damar kiran daga dokokin ba da dama",
   "allowAllBlacklistedNumbers": "Bada Dama Ga Duk Lambobin da Aka Lissafa",
-  "allowAllBlacklistedNumbersDesc": "Bada damar kiran daga jerin baƙi",
-  "@allowAllBlacklistedNumbersDesc": {
-    "description": "Allow calls from blocklist"
-  },
   "allowAllBlockRules": "Bada Dama Ga Duk Dokokin Gina",
   "allowAllBlockRulesDesc": "Bada damar kiran daga dokokin gina",
   "allowAllowedNumbers": "Bada Dama Ga Lambobin Da Aka Ba Da Dama",
@@ -135,8 +106,6 @@
   "allowRegexBlockRulesDescription": "Karfafa dokokin gina ta hanyar regex",
   "allowRule": "Dokar Ba Da Dama",
   "allowRules": "Dokoki Na Ba Da Dama",
-  "allowWhitelistedNumbers": "Bada damar yin amfani da lambobi a jerin gwaje-gwajen",
-  "allowWhitelistedNumbersDescription": "Bada damar yin amfani da duk lambobi a cikin jerin gwaje-gwajen",
   "allPermissionsGranted": "An bada duk izini",
   "allSettingsCompleted": "An kammala duk saitunan.",
   "allUpdateSuccess": "An kammala duk sabuntawa ({count} dokoki)",
@@ -149,7 +118,6 @@
     }
   },
   "answerThenHangup": "Amsa sannan a kashe",
-  "appLegalese": "© 2023 Kira naka Dokarka. An tanada duk haƙƙoƙi.",
   "applicationSoftware": "Sabis na Aikace-aikace",
   "apply": "Aiwatar",
   "appName": "Kira naka Dokarka",
@@ -162,8 +130,6 @@
   "autoUpdate": "Sabunta ta atomatik",
   "autoUpdateDescription": "Saita lokutan sabuntawa ta atomatik don biyan kuɗi ko sabuntawa da hannu",
   "autoUpdateSettings": "Saitunan sabuntawa ta atomatik",
-  "autoUpdateSettingsSubtitle": "Gudanar da sabuntawa ta atomatik don dokoki da fakiti",
-  "autoUpdateSettingsTitle": "Saitunan sabuntawa ta atomatik",
   "autoUpdateSubtitle": "Gudanar da sabuntawa ta atomatik don dokoki da fakiti",
   "autoUpdateTitle": "Sabunta ta atomatik",
   "avatarBorderColor": "Launin gefen hoto",
@@ -178,57 +144,33 @@
   "backupAndRestoreSubtitle": "Ajiyayyi ko mayar da bayanan aikace-aikace",
   "backupAndRestoreTitle": "Ajiyayyi & Maidawa",
   "backupFailed": "Ajiyayyi ta gaza",
-  "backupFailedMessage": "Ajiyayyi ta gaza",
-  "backupFailedWithError": "Ajiyayyi ta gaza: {error}",
-  "backupRestoreSubtitle": "Ajiyayyi ko mayar da bayanan aikace-aikace",
-  "backupRestoreTitle": "Ajiyayyi & Maidawa",
-  "backupSectionTitle": "Ajiyayyi",
   "backupSettings": "Saitunan Ajiyayyi",
-  "backupSettingsDialogTitle": "Saitunan Ajiyayyi",
-  "backupSettingsTitle": "Saitunan Ajiyayyi",
-  "backupSuccessMessage": "An yi ajiyayyi cikin nasara zuwa gajimare",
-  "backupSuccessToLocal": "Ajiyayyi ya yi nasara zuwa: {path}",
   "backupToCloud": "Ajiyayyi zuwa Gajimare",
-  "backupToCloudDescription": "Ajiyayyi saitunan da dokoki zuwa ajiyar gajimare",
   "backupToCloudFailed": "An kasa ajiyayyi zuwa gajimare: {error}",
-  "backupToCloudLabel": "Ajiyayyi zuwa Gajimare",
   "backupToCloudSuccess": "An yi ajiyayyi cikin nasara zuwa gajimare",
-  "backupToCloudTitle": "Ajiyayyi zuwa Gajimare",
-  "backupToLocalLabel": "Ajiyayyi zuwa Wuri",
   "bank": "Banki",
   "basicInfo": "Bayanai na Asali",
   "basicRuleFilter": "Tace Dokoki na Asali",
   "basicRuleFiltering": "Tace Dokoki na Asali",
   "basicRuleFilteringExplanation": "• Tace Dokoki na Asali: Tace dokoki gwargwadon jerin bakar fata, jerin gwaje-gwaje, da regex",
-  "basicRuleFilterSettings": "Saitunan Tace Dokoki na Asali",
-  "@basicRuleFilterSettings": {
-    "description": "Title for basic rule filter settings page"
-  },
   "basicRuleFilterSubtitle": "Tace kiran ta amfani da jerin bakar fata/gwaje-gwaje da lambobin regex",
-  "batchDeleteContacts": "Ganin share lambobi",
   "batchDeleteContactsConfirm": "Shin haƙiƙa kuna son share lambobi {count} da aka zaɓa?",
-  "batchDeleteFailed": "An kasa sharewa ta rukuni",
   "batchDeleteLabelsConfirm": "Shin haƙiƙa kuna son share alamun {count} da aka zaɓa?",
   "blacklist": "Jerin Bakar Fata",
   "@blacklist": {
     "description": "Blacklist label"
   },
   "blacklistingAndWhitelisting": "Rubuta a jerin bakar fata da gwaje-gwaje",
-  "blacklistLabel": "Jerin Bakar Fata",
   "blackWhiteList": "Jerin Bakar Fata/Gwaje-gwaje",
   "block": "Mata",
   "blockCalls": "Mata kiran",
   "blocked": "An Mata",
-  "blockedCallAction": "Ayyukan Kira da aka Mata",
   "blockedCalls": "Kiran da aka Mata",
   "blockedCallsTitle": "Kiran da aka Mata",
-  "blockedCommunications": "Sadarwa da aka Mata",
-  "blockedPhoneLabel": "Kiran da aka Mata",
   "blockedSpamCalls": "Kiran spam da aka Mata",
   "blockingTrend": "Halin Mata",
   "blockInternationalCalls": "ya dace da lambobi waɗanda basu fara da + ko 00 ba",
   "blockInternationalCallsTitle": "Mata kiran kasa da kasa",
-  "blockLandlineNumbersTitle": "Mata lambobi na layin kasa",
   "blockMobileNumbers": "ya dace da lambobi waɗanda basu fara da 13-19 ba",
   "blockMobileNumbersTitle": "Mata lambobi na wayar hannu",
   "blockPremiumRateNumbers": "ya dace da lambobi waɗanda basu fara da 118 ko 120-190 ba",
@@ -244,19 +186,9 @@
   "bulkDeleteLabels": "Share Alamomi ta Rukuni",
   "call": "Kira",
   "callback": "Kira koma",
-  "callbackTo": "Kira koma zuwa {number}",
-  "@callbackTo": {
-    "description": "Callback notification message",
-    "placeholders": {
-      "number": {
-        "type": "String"
-      }
-    }
-  },
   "callBlocking": "Mata kiran",
   "callerIdApp": "Aikace-aikacen ID na wanda ya kira",
   "callerIdCustomizationTitle": "Keɓance ID na wanda ya kira",
-  "callerIdDialogTitle": "Bayanan ID na wanda ya kira",
   "callerIdDisplayMode": "Hanyar Nuna ID Mai Kira",
   "callerIdMarkedByCount": "Alama ta {count}",
   "@callerIdMarkedByCount": {
@@ -268,8 +200,6 @@
     }
   },
   "callerIdPreview": "Binciken ID Mai Kira",
-  "callFilter": "Tace Kira",
-  "callFilterDescription": "Idan an kunna shi, ana duba kiran da ke shigowa akan jerin ƙa'idodi da ke ƙasa. Ba a daidaita ƙa'idodin tace kira tsakanin na'urori ta tsohuwa ba.",
   "callFilterRules": "Ka'idodin Tace Kira",
   "callFilterRulesDescription": "Saita asali ka'idodi don tace kira",
   "callFilterSettings": "Saitunan Tace Kira",
@@ -278,33 +208,10 @@
   "callHistory": "Tarihin Kira",
   "callHistoryInfoDesc": "Anan yana nuna tarihin kiranku, gami da kiran da aka karɓa, fita, da waɗanda aka rasa.",
   "callHistoryInfoTitle": "Tarihin Kira",
-  "callHistoryInitFailed": "Gaza fara tarihin kira: {error}",
-  "@callHistoryInitFailed": {
-    "description": "Call history initialization failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
-  "callHistoryRefreshFailed": "Gaza sabunta tarihin kira: {error}",
-  "@callHistoryRefreshFailed": {
-    "description": "Call history refresh failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "callHistoryTab": "Tarihin Kira",
-  "callHistoryTimelineEarlier": "Da wuri",
-  "callHistoryTimelineToday": "Yau",
-  "callHistoryTimelineYesterday": "Jiya",
   "callScreeningPermission": "Izinin Shirye-shiryen Kira",
   "callScreeningPermissionDescription": "Ana amfani da shi don dubawa da toshe kiran spam.",
   "callScreeningPermissionNotGranted": "An kasa bayar da izinin duba kira, zai iya shafar aikin app.",
-  "callSettingsSubtitle": "Saitunan ID Mai Kira, Tace da Blocking",
-  "callSettingsTitle": "Saitunan Kira",
   "callStatistics": "Kididdigar Kira",
   "callTypeAnswered": "An Amsa",
   "callTypeBlocked": "An Toshe",
@@ -330,32 +237,14 @@
       }
     }
   },
-  "changeTag": "Canza Alama",
   "charity": "Agaji",
-  "chartMonthFormat": "Wata {month}",
-  "@chartMonthFormat": {
-    "description": "Month format for chart labels",
-    "placeholders": {
-      "month": {
-        "type": "int"
-      }
-    }
-  },
-  "chartOneDayAgo": "Ranar 1 da ta wuce",
-  "chartOneMonthAgo": "Wata 1 da ta wuce",
   "chartOneWeekAgo": "Mako 1 da ta wuce",
-  "chartTenDaysAgo": "Kwanaki 10 da suka wuce",
   "chartThreeDaysAgo": "Kwanaki 3 da suka wuce",
   "chartToday": "Yau",
   "checkFileFormat": "Da fatan za a duba tsarin fayil ko izini",
   "checkPermissionFailed": "Gaza duba izini: {error}",
   "chooseDefaultInterceptAction": "Zaɓi aikin dakatarwa na tsohuwa",
-  "clearAllData": "Share Duk Bayanai",
-  "clearAllDataConfirmation": "Kuna tabbatar da cewa kuna son share duk bayanan aikace-aikacen? Wannan aikin ba za a iya mayar da shi ba.",
-  "clearAllDataDescription": "Share duk bayanan aikace-aikacen",
-  "clearAllDataLabel": "Share Duk Bayanai",
   "clearFilter": "Share Tace",
-  "clearLabelFilter": "Share Tace Lakabi",
   "clearLabelFilterButton": "Share Tace Lakabi",
   "closeButton": "Rufe",
   "cloudSync": "Daidaita ta Gizon",
@@ -363,26 +252,18 @@
   "cloudSyncSettingsSubtitle": "Sanya WebDAV, OneDrive, da Google Drive",
   "cloudSyncSettingsTitle": "Saitunan Daidaita ta Gizon",
   "cloudSyncTitle": "Daidaita ta Gizon",
-  "collapseLabelSelector": "Rufe Mai Zaɓin Lakabi",
   "collection": "Tarar Bashi",
   "colorPickerTitle": "Zaɓi Launi",
   "configManagement": "Gudanarwar Sanyi",
   "configUpdated": "An sabunta sanyi",
   "configurationAdvice": "Ta hanyar da ta dace, zaku iya saita daban-daban hanyoyin tacewa don katunan SIM na aiki da na sirri.",
   "configureBackupOptions": "Sanya zaɓuɓɓukan Ajiyayye",
-  "configureBackupOptionsSubtitle": "Sanya zaɓuɓɓukan ajiyayye",
   "configureCloudSyncService": "Sanya sabis na Daidaita ta Gizon",
-  "configureCloudSyncServiceHint": "Da fatan za a saita sabis na daidaita ta gizon don kunna daidaita na'urori da yawa.",
   "configureCloudSyncServiceMessage": "Da fatan za a saita sabis na daidaita ta gizon don kunna daidaita na'urori da yawa.",
   "configureSimCardFilterRules": "Sanya Ka'idodin Tace Katin SIM",
-  "configureSyncServiceHint": "Da fatan za a saita sabis na daidaitawa a cikin saitunan daidaita ta gizon da farko",
   "confirm": "Tabbatar",
-  "confirmBatchDeleteContacts": "Kuna tabbatar da cewa kuna son share zaɓaɓɓu",
   "confirmButton": "Tabbatar",
   "confirmDelete": "Tabbatar Sharewa",
-  "confirmDeleteContact": "Kuna tabbatar da cewa kuna son share",
-  "confirmDeleteContactName": "Tabbatar sharewa?",
-  "confirmDeleteFilter": "Kuna tabbatar da cewa kuna son share wannan tacewa?",
   "confirmDeleteLabel": "Kuna tabbatar da cewa kuna son share lakabi \"{name}\"",
   "confirmDeletePlugin": "Kuna tabbatar da cewa kuna son share plugin \"{name}\"?",
   "confirmDeletePlugins": "Kuna tabbatar da cewa kuna son share plugins {count} ?",
@@ -396,10 +277,8 @@
     }
   },
   "confirmDeleteRuleMessage": "Kuna tabbatar da cewa kuna son share wannan ka'idar? Wannan aikin ba za a iya mayar da shi ba.",
-  "confirmDeleteSelectedContacts": "Kuna tabbatar da share zaɓaɓɓun lamba?",
   "confirmDeleteSmsFilterRule": "Kuna tabbatar da cewa kuna son share wannan ka'idar tace SMS?",
   "confirmDeleteSmsRule": "Kuna tabbatar da cewa kuna son share wannan ka'idar SMS?",
-  "confirmDeleteSubscription": "Kuna tabbatar da cewa kuna son share wannan biyan kuɗi?",
   "confirmDeleteSubscriptions": "Kuna tabbatar da cewa kuna son share {name}?",
   "@confirmDeleteSubscriptions": {
     "description": "Confirmation message shown before deleting a subscription.",
@@ -411,7 +290,6 @@
     }
   },
   "confirmPassword": "Tabbatar Kalmar Wucewa",
-  "confirmPasswordLabel": "Tabbatar Kalmar Wucewa",
   "connectedStatus": "An Haɗa",
   "connectionFailedCheckCredentialsMessage": "Haɗin ya gaza: Da fatan za a duba adireshin uwar garke, sunan mai amfani, da kalmar wucewa",
   "connectionFailedMessage": "Haɗin ya gaza",
@@ -419,19 +297,11 @@
   "connectionSuccessMessage": "An yi nasarar haɗawa",
   "contactAddSuccess": "An ƙara lamba a nasara",
   "contactDeleted": "An goge lamba",
-  "contactEditDialog": "Tattalin Lambar Sadarwa",
-  "contactNameHint": "Shigar da sunan lamba (na zaɓi)",
   "contactNameLabel": "Suna",
-  "contactNameOptional": "Sunan lamba (na zaɓi)",
   "contactNotFound": "Ba a sami lamba ba",
   "contacts": "lambobi",
   "contactsDeleted": "An goge lambobi {count}",
-  "contactSettingsSubtitle": "Gudanar da lamba da saitunan lakabi",
-  "contactSettingsTitle": "Saitunan Lamba",
-  "contactsLoadingFailed": "An kasa loda lambobi: {error}",
   "contactsManagement": "Gudanar da Lambobi",
-  "contactsManagementPageTitle": "Shafin Gudanar da Lambobi",
-  "contactsPageTitle": "Gudanar da Lambobi",
   "contactsPermission": "Izinin Lambobi",
   "contactsPermissionDescription": "Ana amfani dashi don gano kiran lambobi.",
   "contactsTab": "Lambobi",
@@ -439,8 +309,6 @@
   "@contactSubscriptionDescription": {
     "description": "About contact subscription description"
   },
-  "contactSubscriptionLoadingFailed": "An kasa loda rajistar lambobi: {error}",
-  "contactSubscriptionPageTitle": "Rajistar Lambobi",
   "contactUpdateSuccess": "An sabunta lamba a nasara",
   "contactUs": "Tuntube Mu",
   "content": "Abun ciki",
@@ -452,34 +320,16 @@
   "countryNameColor": "Launin Sunan Ƙasa",
   "countryNameFontSize": "Girman Font Sunan Ƙasa",
   "countryRegionNamePosition": "Matsayin Sunan Ƙasa/Yanki",
-  "countrySelectionDialog": "Tattalin zaɓin Ƙasa",
-  "countrySelectionDialogDescription": "Ana amfani dashi don zaɓar ƙasa don bincika bayanan ID mai kira",
   "countThresholdDescription": "Saita mafi ƙarancin iyaka na Ƙididdiga da ake buƙata don kunna ayyukan tacewa",
   "countThresholdLabel": "Iyaka Ƙididdiga",
-  "countThresholdSettings": "Saitunan Iyaka Ƙididdiga",
-  "countThresholdValue": "Iyaka Ƙididdiga: {count}",
   "createdRules": "Ka'idojin da aka kirkira",
   "csvFormat": "Tsarin CSV",
-  "currentDeviceChip": "Na Yanzu",
   "currentDeviceLabel": "Lakabin Na'ura ta Yanzu",
   "currentDeviceTitle": "Na'ura ta Yanzu",
-  "currentLabels": "Lakabobi na Yanzu:",
   "currentLanguage": "Harshen Yanzu",
-  "currentPasswordLabel": "Tsohuwar Kalmar Wucewa",
   "customerService": "Sabis na Abokin Ciniki",
-  "customRange": "Tsawon Lokaci na Musamman",
-  "dailyStatistics": "Kididdiga ta Rana",
-  "@dailyStatistics": {
-    "description": "Daily statistics notification option"
-  },
-  "dailyStatisticsDesc": "Karɓi kididdiga ta rana game da kiran da aka toshe da saƙonni",
-  "@dailyStatisticsDesc": {
-    "description": "Description for daily statistics option"
-  },
   "dashboardTab": "Dashboard",
   "dataAnalysis": "Binciken Bayanai",
-  "dataAnalysisDashboardPage": "Shafin Dashboard na Binciken Bayanai",
-  "dataExport": "Fitarda Bayanai",
   "dataLoadFailure": "An kasa loda bayanan: {error}",
   "@dataLoadFailure": {
     "description": "Data loading failure message",
@@ -492,9 +342,6 @@
   "dataLoadingFailed": "An kasa loda bayanan: {error}",
   "dataMigration": "Hijira ta Bayanai",
   "dataMigrationDescription": "Wannan fasalin yana ba ku damar canja wurin duk bayanan ku tsakanin na'urori. A halin yanzu, zaku iya amfani da fasalolin madauki da maidowa don canja wurin bayanan ku.",
-  "dataMigrationDialogContent": "Wannan fasalin yana ba ku damar canja wurin duk bayanan ku tsakanin na'urori. A halin yanzu, zaku iya amfani da fasalolin madauki da maidowa don canja wurin bayanan ku.",
-  "dataMigrationDialogTitle": "Hijira ta Bayanai",
-  "dataMigrationSectionTitle": "Hijira ta Bayanai",
   "dataSourceReminder": "Taimakon Madogarar Bayanai",
   "days": "{count, plural, =1{1 rana} other{{count} ranaku}}",
   "@days": {
@@ -507,16 +354,11 @@
   },
   "daysVip": "{days} Ranar VIP",
   "debtCollection": "Tattalin Bashi",
-  "defaultPeriod": "Mako",
   "delete": "Goge",
   "deleteButton": "Goge",
   "deleteContact": "Goge Lamba",
   "deleteContactConfirm": "Kuna tabbata kana son goge {name}?",
-  "deleteContactConfirmation": "Kuna tabbata kana son goge lamba",
-  "deleteDeviceConfirmation": "Kuna tabbata kana son goge {deviceName}?",
-  "deleteDeviceDialogTitle": "Goge Na'ura",
   "deleteFailed": "An gaza gogewa: {error}",
-  "deleteFilter": "Goge Tacewa",
   "deleteLabel": "Goge Lakabi",
   "deleteLabelFailed": "An gaza goge lakabi: {error}",
   "deletePlugin": "Goge Plugin",
@@ -526,7 +368,6 @@
   "deleteRule": "Goge Ka'ida",
   "deleteRuleFailed": "An gaza goge: {error}",
   "deleteSelected": "Goge Abubuwan da aka Zaba",
-  "deleteSmsRule": "Goge Ka'idar SMS",
   "deleteSubscription": "Goge Rajista",
   "@deleteSubscription": {
     "description": "Delete subscription dialog title"
@@ -551,21 +392,13 @@
   },
   "deleteSuccess": "An goge a nasara",
   "delivery": "Isarwa",
-  "deviceDeletedSuccessfully": "An goge na'ura a nasara",
-  "deviceDeletedSuccessfullyMessage": "An goge na'ura a nasara",
-  "deviceIdLabel": "ID Na'ura",
   "deviceIDLabel": "ID Na'ura",
   "deviceManagementSubtitle": "Gudanar da daidaita na'urori da yawa",
   "deviceManagementTitle": "Gudanar da Na'ura",
   "deviceModelLabel": "Samfurin Na'ura",
   "deviceName": "Sunan Na'ura",
-  "deviceNameCannotBeEmpty": "Sunan na'ura ba zai iya zama babu komai",
-  "deviceNameHint": "Da fatan za a shigar da sunan na'ura",
   "deviceNameLabel": "Sunan Na'ura",
-  "deviceRenamedSuccessfully": "An sake suna na'urar cikin nasara",
   "deviceRenamedSuccessfullyMessage": "An sake suna na'urar cikin nasara",
-  "devicesSyncedSuccessfully": "An daidaita na'urori cikin nasara",
-  "devicesSyncedSuccessfullyMessage": "An daidaita na'urori cikin nasara",
   "devicesSynchronizedSuccessfullyMessage": "An daidaita na'urori cikin nasara",
   "deviceUnregisteredSuccessfullyMessage": "An cire rajistar na'urar cikin nasara",
   "dialogTitle": "Bayanin Tsarin Regex",
@@ -576,7 +409,6 @@
   },
   "disabledStatus": "An kashe",
   "disableGlobalPlugins": "Kashe manyan plugins na duniya",
-  "disableSubscriptionSuccessfully": "An kashe biyan kuɗi cikin nasara",
   "disconnectButton": "Yanke",
   "disconnectedMessage": "An yanke",
   "disconnectedStatus": "An yanke",
@@ -587,17 +419,12 @@
   "ecommerce": "Ecommerce",
   "edit": "Gyara",
   "editContact": "Gyara Lara",
-  "editFilter": "Gyara Tace",
   "editLabel": "Gyara Lakabi",
   "editPhoneRule": "Gyara Kaidar Wayar",
-  "editPhoneRules": "Ana amfani da ita don gyara kaidodin waya",
-  "editPhoneRuleTitle": "Gyara Kaidar Wayar",
   "editRule": "Gyara Kaida",
-  "editSmsRule": "Gyara Kaidar SMS",
   "education": "Ilimi",
   "elementPositionsSetting": "Bayanin Matsayin Abubuwa",
   "email": "Imel",
-  "emailOptional": "Imel (Na son rai)",
   "enableCallFilter": "Ba da damar Tacewar Kira",
   "enableCallFilterDescription": "Lokacin da aka kunna, ana duba kiran shigowa akan jerin ka'idoji a ƙasa. Ka'idojin tacewar kira ba sa daidaitawa tsakanin na'urori ta tsohuwa.",
   "enabled": "An kunna",
@@ -607,9 +434,6 @@
   "enabledStatus": "An kunna",
   "enableEncryption": "Ba da damar Encryption",
   "enableEncryptionDescription": "Daidaita fayilolin ajiyar ku",
-  "enableEncryptionLabel": "Ba da damar Encryption",
-  "enableEncryptionSubtitle": "Fayilolin ajiyar ku za su zama masu ɓoye",
-  "enableEncryptionTitle": "Ba da damar Encryption",
   "enableGlobalPlugins": "Ba da damar manyan plugins na duniya",
   "enableLocalCountFilter": "Ba da damar Tacewar Ƙididdiga ta Gida",
   "enableLocalCountFilterDescription": "T automatically filter spam calls based on call marking count",
@@ -620,14 +444,11 @@
   "enableMuteRulesDesc": "Aiwatar da saitunan ka'idojin tsangwama na shiru",
   "enableNoneActionRules": "Ba da damar Ka'idojin Babu Aiki",
   "enableNoneActionRulesDesc": "Bada damar saitunan ka'ida ba tare da ayyukan tsangwama ba",
-  "enableNotifications": "Ba da damar Sanarwa",
   "enableRemoteNumberFilter": "Ba da damar Tacewar Lambobin Nesa",
   "enableRemoteNumberFilterDescription": "Yi amfani da bayanan lambobin nesa don tace lambobi",
   "enableRule": "Ba da damar Kaida",
   "enableSmsFilter": "Ba da damar Tacewar SMS",
   "enableSmsFilterDescription": "Lokacin da aka kunna, za a tace saƙonni ta atomatik bisa ga ka'idoji",
-  "enableStatisticsNotifications": "Ba da damar Sanarwar Kididdiga",
-  "enableSubscriptionSuccessfully": "An kunna biyan kuɗi cikin nasara",
   "enableTimeInterception": "Ba da damar Tsangwamawa ta Lokaci",
   "enableTimeInterceptionDescription": "Tsangwama ga kiran da aka maimaita a cikin ɗan gajeren lokaci",
   "enableTimeInterceptor": "Ba da damar Tsangwamawa ta Lokaci",
@@ -641,24 +462,15 @@
   },
   "enhancedFilterSettingsTitle": "Saitunan Tacewa na Ingantacce",
   "enhancedFilterSystemDescription": "Tsarin tacewa na ingantacce yana goyan bayan ka'idoji na duniya da kuma saitunan tacewa na kowane SIM.",
-  "enterBothPhoneNumberAndRegexPattern": "Da fatan za a shigar da duka lambar waya da tsarin regex",
   "enterBothPhoneNumberAndRegexPatternMessage": "Da fatan za a shigar da duka lambar waya da tsarin regex.",
   "enterContactName": "Da fatan za a shigar da sunan lamba",
-  "enterCurrentPasswordHint": "Da fatan za a shigar da kalmar sirri ta yanzu",
   "enterDeviceName": "Shigar da Sunan Na'ura",
-  "enterDeviceNameHint": "Da fatan za a shigar da sunan na'ura",
-  "enterEmail": "Shigar da Imel",
   "enterEmailOptional": "Shigar da Imel (na son rai)",
   "enterEncryptionPasswordHint": "Shigar da kalmar sirrin ɓoye",
-  "enterEncryptionPasswordTitle": "Shigar da Kalmar Sirrin Buriya",
-  "enterFilterName": "Shigar da Sunan Tace",
-  "enterFilterPattern": "Shigar da Tsarin Tace",
   "enterIconCode": "Shigar da Lambar Alama",
   "enterName": "Shigar da Sunan Lara",
   "enterNewDeviceNameHint": "Shigar da sabon suna ga wannan na'urar",
-  "enterNewPasswordHint": "Da fatan za a shigar da sabon kalmar sirri",
   "enterPasswordAgain": "Shigar da Kalmar Sirri A Sake",
-  "enterPasswordHint": "Da fatan za a shigar da kalmar sirri",
   "enterPhoneNumber": "Shigar da Lambar Wayar",
   "enterPhoneNumberHint": "Shigar da lambar waya don gwadawa",
   "enterPhoneNumberMultiple": "Da fatan za a shigar da lambar waya, lambobi da yawa da aka raba da commas",
@@ -667,7 +479,6 @@
   "enterPluginName": "Shigar da Sunan Plugin",
   "enterPluginUrl": "Shigar da adireshin URL na plugin",
   "enterRegexHint": "Shigar da tsarin regex",
-  "enterRuleNameAndPattern": "Da fatan za a shigar da sunan ka'ida da tsari",
   "enterRuleNameAndPatternMessage": "Da fatar sunan mulki da kuma tsarin regex.",
   "enterRuleNameHint": "Shigar da sunan mulki",
   "enterSearchContent": "Da fatar abin bincike",
@@ -690,79 +501,50 @@
   "enterWebDAVPasswordHint": "Da fatar kalmar sirri ta WebDAV",
   "enterWebDAVServerAddressHint": "Da fatar adireshin uwar garken WebDAV",
   "enterWebDAVUsernameHint": "Da fatar sunan mai amfani na WebDAV",
-  "errorDeletingDeviceMessage": "Kuskuren goge na'ura: {error}",
-  "errorLoadingPlugin": "Kuskuren lodi plugin",
   "errorOccurredMessage": "Kuskure ya faru: {error}",
   "errorRenamingDeviceMessage": "Kuskuren sake suna na'ura: {error}",
   "errorSynchronizingDevicesMessage": "Kuskuren haɗin na'urori: {error}",
-  "errorSyncingDevicesMessage": "Kuskuren haɗin na'urori: {error}",
-  "errorText": "Kuskure",
   "errorUnregisteringDeviceMessage": "Kuskuren cire rajistar na'ura: {error}",
   "exampleBlock400Prefix": "misali. Lambobi na prefix na Block 400",
   "exampleBlockMarketingSms": "misali. Block SMS na tallatawa",
-  "exampleContentRegex": "misali, .*offer.*",
   "exampleContentRegexHint": "Misali na abun ciki Regex",
   "exampleCouponPromotionDiscount": "misali. .*(coupon|promotion|discount).*",
   "exampleFamilyFriends": "misali. Iyali, Abokai, da dai sauransu.",
   "examplePhoneNumber": "misali. 10086, 12345, da dai sauransu.",
   "exampleRegex400Prefix": "Misali regex don prefix 400",
-  "exampleRegexFormat": "Misali: ^10086$ tsarin",
   "exampleSenderRegexHint": "Misali",
   "exchange": "Tukarwa",
   "exchangeNow": "Tukarwa Yanzu",
   "exchangeVip": "Tukarwa VIP",
-  "expandLabelSelector": "Faɗaɗa Mai Zaɓin Lakabi",
   "expiryTime": "Lokacin karewa: {time}",
   "export": "Fitowa",
   "exportAllApplicationSettings": "Fitowa duk saitunan aikace-aikace",
-  "exportAllApplicationSettingsSubtitle": "Fitowa duk saitunan aikace-aikace",
   "exportAllRuleConfigurations": "Fitowa Duk Shirye-shiryen Mulki",
-  "exportAllRuleConfigurationsSubtitle": "Fitowa duk shirye-shiryen mulki",
-  "exportComplete": "Fitowa Ta Gama",
   "exportConfig": "Fitowa Saituna",
   "exportContacts": "Fitowa Abokan Hulɗa",
   "exportData": "Fitowa Bayanai",
-  "exportError": "Kuskuren Fitowa",
   "exportFailed": "Fitowa Ta Gaza",
   "exportFailure": "Ta kasa fitowa da tsari",
   "exportFeatureComingSoon": "Fitowa fasalulluka na zuwa nan da nan",
-  "exporting": "Fitowa...",
   "exportLabels": "Fitowa Lakabi",
   "exportLabelsFailed": "Ta kasa fitowa da lakabi: {error}",
   "exportPluginList": "Fitowa Jerin Plugin",
   "exportPluginListFailed": "Ta kasa fitowa da jerin plugin: {error}",
   "exportRules": "Fitowa Mulki",
-  "exportRulesDialogTitle": "Fitowa Mulki",
-  "exportRulesTitle": "Fitowa Mulki",
   "exportSmsRules": "Fitowa Mulkin SMS",
   "exportStatisticsData": "Fitowa Bayanai na Kididdiga",
-  "exportSuccess": "Fitowa Ta Yi Nasara",
   "exportSuccesslly": "An fitar da tsari cikin nasara",
-  "failedToAddContact": "Ta kasa ƙara lamba",
   "failedToAddRule": "Ta kasa ƙara mulki: {error}",
-  "failedToAddSmsRule": "Ta kasa ƙara mulkin SMS: {error}",
   "failedToAddSmsSubscription": "Ta kasa ƙara biyan kuɗin SMS: {error}",
   "failedToBackupSettings": "Ta kasa adana saituna: {error}",
   "failedToDecryptBackupFile": "Ta kasa buɗe fayil ɗin ajiyar da aka ɓoye",
-  "failedToDeleteDevice": "Ta kasa goge na'ura",
   "failedToDeleteSmsRule": "Ta kasa goge mulkin SMS: {error}",
   "failedToExportRules": "Ta kasa fitowa da mulki: {error}",
-  "failedToExportSmsRules": "Ta kasa fitowa da mulkin SMS: {error}",
   "failedToGetCallerIdInfo": "Ta kasa samun bayanin ID mai kira: {error}",
   "failedToImportRules": "Ta kasa shigo da mulki: {error}",
-  "failedToImportSmsRules": "Ta kasa shigo da mulkin SMS: {error}",
-  "failedToLoadContacts": "Ta kasa loda lambobin sadarwa",
-  "failedToLoadPlugin": "Ta kasa loda plugin",
-  "failedToRenameDevice": "Ta kasa sake suna na'ura",
   "failedToRestoreSettings": "Ta kasa dawo da saituna",
   "failedToRestoreSettingsWithError": "Ta kasa dawo da saituna: {error}",
-  "failedToSetPassword": "Ta kasa saita kalmar sirri: {error}",
-  "failedToSyncDevices": "Ta kasa haɗin na'urori",
   "failedToToggleRuleStatus": "Ta kasa canza matsayin mulki: {error}",
-  "failedToToggleSubscriptionStatus": "Ta kasa canza matsayin biyan kuɗi",
-  "failedToUpdateContact": "Ta kasa sabunta lamba",
-  "failedToUpdateSmsRule": "Ta kasa sabunta mulkin SMS: {error}",
-  "failure": "Gaza",
   "favoriteContacts": "Abokan Hulɗa da Aka fi So",
   "featureAddRules": "• Ƙara mulki na musamman ga lambobin waya",
   "featureCenter": "Cibiyar Fasalulluka",
@@ -777,23 +559,14 @@
   "fileSavedTo": "An adana fayil a: {path}",
   "filter": "Tace",
   "filterByLabel": "Tace ta Lakabi",
-  "filterClear": "Share Tace",
   "filterControlPanelTitle": "Majalisar Sarrafa Tace",
   "filterControlSubtitle": "Sarrafa matsayin kunnawa/kashewa na duk masu tace",
   "filterControlTitle": "Tsofawa",
-  "filterDeleteFailed": "An kasa share tace",
-  "filterDeleteSuccess": "An share tace cikin nasara",
-  "filterDetails": "Cikakken Bayani kan Tace",
   "filtered": "An Tace",
-  "filteredSms": "SMS da aka Tace",
-  "filteredSmsLabel": "SMS da aka Tace",
   "filterExplanation": "Bayanin Tace",
   "filterManagement": "Gudanarwar Tace",
   "filterName": "Sunan Tace",
-  "filterPattern": "Tsarin Tace",
   "filterPriorityNote": "Lura: Akwai dangantakar fifiko tsakanin tace, da fatan duba littafin taimako don cikakkun bayanai",
-  "filterSaveFailed": "An kasa ajiyewa tace",
-  "filterSaveSuccess": "An ajiye tace cikin nasara",
   "filterSettings": "Saitunan Tace",
   "filterSettingsTitle": "Saitunan Tace",
   "filterSMS": "Tace SMS",
@@ -815,8 +588,6 @@
   "flexibleCombinationFeature": "• Haɗuwa masu sassauƙa: Kunna/kashe tace kowane ramin SIM",
   "fontSizesSetting": "Girma Font",
   "foundRules": "An Sami dokoki {count}",
-  "foundRulesDoYouWantToImport": "An sami dokoki {count}. Kuna son shigo dasu?",
-  "foundRulesToImport": "An sami dokoki {count}. Kuna son shigo dasu?",
   "fraudAlert": "GARGADI MAKU - Kashe kiran",
   "fraudScamLikely": "Mai Haddarar Zamba",
   "free": "Kyauta",
@@ -838,29 +609,18 @@
   "@globalFilterSettings": {
     "description": "Global filter settings section title"
   },
-  "globalFilterToggleInstructions": "Saita saitunan tace duniya da ke aiki ga duk ramummuka na SIM:",
-  "@globalFilterToggleInstructions": {
-    "description": "Instructions for configuring global filter settings"
-  },
-  "globalSearchSubtitle": "Binciken lambobi, lakabi, jerin baki, jerin fari, da sauransu",
-  "globalSearchTitle": "Binciken Duniya",
   "globalSettings": "Saitunan Duniya",
   "@globalSettings": {
     "description": "Title for global settings page"
   },
-  "googleAdDisplayPosition": "Matsayin Nuni na Google Ad",
-  "googleAdMobIntegrationText": "Ana iya haɗa tallan Google AdMob a nan",
   "googleDriveAuthDescription": "Bada izini ta amfani da ID da mabudin Google Drive da aka saita na tsarin",
-  "googleDriveAuthorizationHint": "Bada izini ta amfani da ID da mabudin Google Drive da aka saita na tsarin",
   "googleDriveConfigTitle": "Saitunan Google Drive",
-  "googleDriveConfigurationTitle": "Saitunan Google Drive",
   "government": "Gwamnati",
   "granted": "An Ba",
   "grantNecessaryPermissions": "Ba da Izini masu Buƙata",
   "grantPermissions": "Ba da Izini",
   "headhunter": "Mai Neman Ayyuka",
   "height": "Tsayi",
-  "homePageTitle": "Shafin Farko",
   "homeTab": "Farko",
   "howItWorksPoint1": "• Tsarin zai ta atomatik ba da damar kiran daga lambar da ta dace a cikin lokacin da aka saita",
   "howItWorksPoint2": "• Ƙananan lokaci yana haifar da tsauraran hana; tsawon lokaci yana haifar da hana mai sassauƙa",
@@ -870,7 +630,6 @@
   "iconSize": "Girma Alama",
   "import": "Shigo",
   "important": "Mahimmanci",
-  "importButton": "Shigo",
   "importConfig": "Shigo da Saitunan",
   "importContacts": "Shigo da Lambobin Sadarwa",
   "importExportContacts": "Shigo/Fitar da Lambobin Sadarwa",
@@ -885,17 +644,9 @@
   "importPluginListFailed": "An kasa shigo da jerin plugin: {error}",
   "importPluginSuccess": "An shigo da plugins {count} cikin nasara",
   "importRuleConfigurationsFromFile": "Shigo da Shirye-shiryen Doka daga Fayil",
-  "importRuleConfigurationsFromFileSubtitle": "Shigo da shirye-shiryen doka daga fayil",
   "importRules": "Shigo da Dokoki",
-  "importRulesButton": "Shigo da Dokoki",
-  "importRulesDialogTitle": "Shigo da Dokoki",
-  "importRulesError": "An kasa shigo da dokoki: {error}",
-  "importRulesInstructions": "Shigo da dokoki daga fayil na CSV",
-  "importRulesSuccess": "An shigo da dokoki cikin nasara",
-  "importRulesTitle": "Shigo da Dokoki",
   "importSuccess": "An shigo da cikin nasara",
   "incomingCallInterceptAction": "Aikin Hana Kiran da ke Shigo",
-  "incomingCallNotification": "Sanarwar Kiran da ke Shigo",
   "incorrectPassword": "Makarancin Kalmar Sirri",
   "initializing": "Ana Fara",
   "installed": "An Sanya",
@@ -923,33 +674,18 @@
   "invalidRegexPattern": "Hassas regex pattern",
   "invalidSenderRegex": "Hassas mai aikawa regex",
   "joinTheTelegramChannelAndGroupForMoreInfo": "Shiga Telegram Channel da Group don Karin Bayani",
-  "jsLogsTitle": "JS Logs",
   "jsonFormat": "JSON Tsarin",
   "keepAllVersions": "Ajiye Duk Sigogi",
   "keepAllVersionsDescription": "Ajiye duk sigogin da suka gabata na kowane ajiyar waje",
-  "keepAllVersionsLabel": "Ajiye Duk Sigogi",
-  "keepAllVersionsSubtitle": "Ajiye sigogin da suka gabata na kowane ajiyar waje",
-  "keepAllVersionsTitle": "Ajiye Duk Sigogi",
   "label": "Alama",
   "labelAddedSuccessfully": "Alamar \"{name}\" ta samu cikin nasara",
   "labelCategories": "Rukunan Alama",
   "labelDeleted": "An goge alama",
   "labelDescription": "Alamomi suna taimaka muku sarrafa lamba, ƙara alamomi na musamman ga lambobin waya don sauƙin gano kiran da saƙonni.",
-  "labelFilter": "Alamar Tacewa",
   "labelFilterTooltip": "Alamar Tacewa",
   "labelIconColor": "Lambar Launi Alama",
   "labelManagement": "Sarrafa Alama",
   "labelNotFound": "Ba a sami alama ba",
-  "labelRemoved": "An cire alama",
-  "labelRemoveFailed": "An kasa cire alama: {error}",
-  "@labelRemoveFailed": {
-    "description": "Label removal failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "labels": "Alamomi",
   "labelsColor": "Launukan Alamomi",
   "labelsDeleted": "An goge alamomi {count}",
@@ -958,7 +694,6 @@
   "labelsImportedSuccessfully": "An shigo da alamomi {count} cikin nasara",
   "labelsPosition": "Matsayin Alamomi",
   "labelTag": "Alama: {labelId}",
-  "labelUpdated": "An sabunta alama",
   "labelUpdateFailed": "An kasa sabunta alama: {error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -972,8 +707,6 @@
   "languageSettings": "Saitunan Harshe",
   "languageSettingsSubtitle": "Canza harshen aikace-aikacen nuni",
   "languageSettingsTitle": "Saitunan Harshe",
-  "last30Days": "Kwanaki 30 na Karshe",
-  "last7Days": "Kwanaki 7 na Karshe",
   "lastSyncLabel": "Karshe Sync",
   "lastUpdated": "Karshe Sabuntawa: {date}",
   "@lastUpdated": {
@@ -988,16 +721,12 @@
   "lifetimeMembershipDescription": "Siye sau daya, buɗe dukkan fasalulluka na premium da sabuntawa na gaba har abada",
   "loadContactsFailed": "An kasa loda lambobi: {error}",
   "loadDataFailed": "An kasa loda bayanai",
-  "loadFailed": "An kasa Loda",
   "loading": "Ana Loda...",
-  "loadingData": "Ana loda bayanai...",
   "loadingTags": "Ana loda alamomi...",
   "loadLabelFailed": "An kasa loda alamomi: {error}",
   "loadLabelsFailed": "An kasa loda alamomi: {error}",
   "loadMarkCountFailed": "An kasa loda lambobin waya da aka yiwa alama: {error}",
   "loadMarkedPhonesFailed": "An kasa loda lambobin waya da aka yiwa alama: {error}",
-  "loadMore": "Loda Karin",
-  "loadPluginButton": "Loda Plugin",
   "loadPluginsFailed": "An kasa loda plugins: {error}",
   "loadSettingsFailed": "An kasa loda saituna: {error}",
   "loadSmsRulesFailed": "An kasa loda dokokin SMS: {error}",
@@ -1012,7 +741,6 @@
     }
   },
   "loan": "Lamuni",
-  "localBackupTitle": "Ajiyar Waje na Gida",
   "localCounterFilter": "Tacewa ta Yankin Kididdiga",
   "localCounterFilterSubtitle": "Tattara kiran spam ta atomatik dangane da yawan kira",
   "localCountFilter": "Tacewa ta Yankin Kididdiga",
@@ -1043,11 +771,9 @@
   "logAllRemoteQueries": "Yi Rijistar Duk Tambayoyin Nesa",
   "logAllRemoteQueriesDescription": "Yi rikodin duk ayyukan tambayar lambar nesa",
   "manage": "Gudanar da Lambobi",
-  "manageContacts": "Gudanarwa",
   "manageFavoriteContacts": "Gudanar da Lambobin da Aka Fi So",
   "manageFilterRules": "Gudanar da Dokokin Tacewa",
   "manageFilterRulesDescription": "Ƙara, gyara, ko share dokokin tacewa na SMS",
-  "manageFrequentContacts": "Gudanar da Lambobin da Suke Da Yawa",
   "markCounts": "Adadin Alama",
   "markCount": "Alamar Adadi",
   "markedByCount": "An yiwa alama da {count}",
@@ -1064,84 +790,48 @@
   "markExchange": "Tushen Alama",
   "markPhone": "Yiwa Lambar Wayar Alama",
   "markPhoneFailed": "An yi kasa mark phone number: {error}",
-  "markPhoneManagementSubtitle": "Don Mark Phone Numbers",
   "markPhoneManagementTitle": "Mark Phone Management",
   "markPhoneSuccess": "An yi nasarar marking phone number",
-  "matchFailed": "Match ya gaza!",
   "matchFailedMessage": "Match ya gaza.",
   "matchNumbersWithSpecialCharacters": "matches specific number format",
   "matchNumbersWithSpecialCharactersTitle": "Match lambobi tare da haruffa na musamman:",
   "matchSpecificDigitPatterns": "matches XXX-XXXX-XXXX format",
   "matchSpecificDigitPatternsTitle": "Match lambobi na musamman:",
-  "matchSuccessful": "Match ya yi nasara!",
   "matchSuccessfulMessage": "Match ya yi nasara!",
   "medical": "Medical",
   "membershipPrivileges": "Memba Privileges",
   "migrationTool": "Migration Tool",
-  "migrationToolTitle": "Migration Tool",
   "minutes": "minutes",
   "month": "Wata",
   "monthly": "Wata-wata",
   "monthlyCallCount": "Wata-wata Kira",
-  "monthlyChartTitle": "Wata-wata Blocked Calls",
   "monthlyMembership": "Wata-wata Memba",
   "monthlyMembershipDescription": "Bude duk premium fasali, sabunta ta atomatik duk wata",
   "monthlyTotal": "Wata-wata Jimlar",
-  "monthlyTotalLabel": "Wata-wata Jimlar",
   "moreOptions": " Karin Zaɓuɓɓuka",
   "mute": "Mute",
   "name": "Suna",
   "nameAndPhoneNumberCannotBeEmpty": "Suna da lambar waya ba za su iya zama fanko ba",
-  "nameAndPhoneNumberRequired": "Suna da lambar waya ba za su iya zama fanko ba",
   "nameColor": "Suna Launi",
   "nameFontSize": "Suna Girman Font",
-  "nameLabel": "Suna: {name}",
-  "@nameLabel": {
-    "description": "Caller ID name label",
-    "placeholders": {
-      "name": {
-        "type": "Object"
-      }
-    }
-  },
   "namePosition": "Suna Matsayi",
   "nameUnknown": "Suna: Ba a sani ba",
-  "nameWithValue": "Suna: {name}",
-  "@nameWithValue": {
-    "description": "Text showing the name of a contact",
-    "placeholders": {
-      "name": {
-        "type": "String",
-        "example": "John Doe"
-      }
-    }
-  },
-  "newPasswordLabel": "Sabon Kalmar Sirri",
   "nextStep": "Na gaba",
   "noAction": "Babu Aiki",
   "noActionRules": "Babu Dokokin Aiki",
   "noActiveCloudSyncServiceMessage": "Babu sabis na sync na girgije mai aiki",
-  "noCallLogs": "Babu Logs na Kira",
   "noCallRecords": "Babu bayanan kira",
-  "noContacts": "Babu lambobi tukuna",
   "noContactsYet": "Babu lambobi tukuna",
   "noData": "Babu Bayani",
   "noDevicesRegisteredMessage": "Babu na'urori da aka yi rajista",
-  "noDevicesRegisteredYet": "Babu na'urori da aka yi rajista tukuna.",
-  "noFilters": "Babu masu tacewa tukuna",
   "noLabels": "Babu lakabi tukuna",
   "noMarkedPhones": "Babu lambobi masu alama",
-  "noMatchingContacts": "Babu lambobin da suka dace",
   "noMatchingContactsFound": "Babu lambobin da suka dace da aka samu",
   "noMatchingNumbersFound": "Babu lambobin da suka dace da aka samu",
-  "noMatchingRecords": "Babu bayanan kira da suka dace",
   "noMatchingRules": "Babu {ruleType} da suka dace",
   "none": "Babu",
   "noneServiceType": "Babu",
   "noPlugins": "Babu plugins tukuna",
-  "noRecords": "Babu bayanan kira",
-  "noResultReturned": "Babu sakamakon da ya dawo",
-  "noResultReturnedLog": "Babu sakamakon da ya dawo daga plugin",
   "noRules": "Babu {ruleType} tukuna",
   "noRulesPrompt": "Babu dokoki da aka samu, da fatan za a ƙara dokoki",
   "noRulesToExport": "Babu dokoki da za a fitarwa",
@@ -1151,7 +841,6 @@
   "@noSubscriptions": {
     "description": "No subscriptions message"
   },
-  "noSubscriptionsYet": "Babu Biyaɗi Tukuna",
   "notGranted": "Ba a bayar ba",
   "notificationMode": "Yanayin Sanarwa",
   "notificationModeDescription": "Nuna bayanin mai kira a sandar sanarwa",
@@ -1162,8 +851,6 @@
   "@notificationSettings": {
     "description": "Notification settings title"
   },
-  "notificationSettingsSaved": "An adana saitunan sanarwa cikin nasara",
-  "notSet": "Ba a Saitawa ba",
   "notVerifiedText": "Ba a Tabbatar ba",
   "noValidSmsRulesFoundInFile": "Babu ingantattun dokoki na SMS da aka samu a cikin fayil",
   "number": "Lamba",
@@ -1174,7 +861,6 @@
   "numberTypeColor": "Lamba Nau'in Launi",
   "numberTypeFontSize": "Lamba Nau'in Girman Font",
   "numberTypePosition": "Lamba Nau'in Matsayi",
-  "ok": "OK",
   "okButton": "OK",
   "onboardingCompleteDescription": "Manajan tsaron kiranku ya shirya, fara jin daɗin kwarewar kira mai tsaro!",
   "onboardingLanguageDescription": "Zaɓi yaren da kuka fi so don kwarewa mafi kyau.",
@@ -1183,9 +869,7 @@
   "onboardingSmartCallerIdDescription": "Tattara kiran da ba a sani ba ta atomatik, yiwa lambobi masu tuhuma alama, kuma ku kare amincin kiranku.",
   "onboardingWelcomeDescription": "Kwararren sarrafa kiranku, samar da cikakken ganewar kira da ayyukan toshewa.",
   "oneDriveAuthDescription": "Bada izinin amfani da tsarin tsarin OneDrive na tsarin da aka tsara da kuma maɓalli",
-  "oneDriveAuthorizationHint": "Bada izinin amfani da tsarin tsarin OneDrive na tsarin da aka tsara da kuma maɓalli",
   "oneDriveConfigTitle": "OneDrive Tsarin",
-  "oneDriveConfigurationTitle": "OneDrive Tsarin",
   "onlineCallerIdSubscription": "Langganar ID Mai Kira Layi",
   "openAppSettings": "Bude saitunan app",
   "openAppSettingsFailed": "Kasa wajen buɗe saitunan app: {error}",
@@ -1203,7 +887,6 @@
   "passwordCannotBeEmpty": "Ba za a iya barin kalmar sirri babu komai ba",
   "passwordLabel": "Kalmar Sirri",
   "passwordsDoNotMatch": "Kalmar sirri ba ta dace ba",
-  "passwordSetSuccessfully": "An saita kalmar sirri cikin nasara",
   "pattern": "Tsari",
   "pendingSync": "Jiran Haɗakawa",
   "periodMonth": "Wata",
@@ -1216,9 +899,7 @@
   "phoneNumber": "Lambar Wayar",
   "phoneNumberCannotBeEmpty": "Ba za a iya barin lambar waya babu komai ba",
   "phoneNumberHint": "Shigar da lambar waya",
-  "phoneNumberHintText": "Shigar da lambar waya don ƙara doka",
   "phoneNumberLabel": "Lambar Wayar",
-  "phoneNumberRegexRequired": "Da fatan za a shigar da lambar waya da tsarin regex",
   "phoneNumberRequired": "Ana buƙatar lambar waya",
   "phoneNumberTypeFixedLine": "Layin layi na Hannun",
   "phoneNumberTypeFixedLineOrMobile": "Layin layi ko Wayar Hannu",
@@ -1235,34 +916,23 @@
   "phonePermission": "Amincin Wayar",
   "phonePermissionDescription": "Ana amfani dashi don gano da toshe kira masu shigowa.",
   "phoneRule": "Doka ta Wayar",
-  "phoneRuleEditDialog": "Dialog na Gyaran Doka ta Wayar",
   "phoneRuleManagement": "Gudanarwar Dokokin Wayar",
   "phoneRuleSubscription": "Langganar Dokar Wayar",
   "phoneSubscription": "Langganar Wayar",
   "phoneSubscriptionRulesDescription": "Yi rijista don jerin dokokin waya ta URL don sabunta dokokin farar hula da baƙar fata ta atomatik. Yana goyan bayan fayilolin doka na tsarin JSON.",
-  "phoneSubscriptionTitle": "Langganonin Dokokin Wayar",
-  "@phoneSubscriptionTitle": {
-    "description": "Phone subscription page title"
-  },
   "pleaseSelectLabelAndEnterValidPhone": "Da fatan za a zaɓi lakabi kuma shigar da ingantacciyar lambar waya",
   "pluginAddedSuccess": "An ƙara plugin \"{name}\" cikin nasara",
   "pluginDeleted": "An share plugin",
   "pluginLatestVersion": "Plugin yana riga yana mafi girman sigar",
   "pluginListExportSuccess": "An fitar da jerin plugins cikin nasara",
-  "pluginLoadedSuccessfully": "An ɗora plugin cikin nasara",
   "pluginManagement": "Gudanarwar Plugin",
   "pluginManagementSubtitle": "Gudanarwa da tsara plugins na ɓangare na uku",
-  "pluginManagementTitle": "Gudanarwar Plugin",
   "pluginName": "Sunan Plugin",
-  "pluginNotLoaded": "An riga an ɗora plugin. Da fatan za a fara ɗora plugin.",
   "pluginsDeleted": "An share plugins {count} cikin nasara.",
   "pluginService": "Sabis na Plugin",
   "pluginTestPageTitle": "Gwaji na Plugin",
   "pluginUpdateSuccess": "An sabunta plugin cikin nasara",
   "pluginUrl": "URL na Plugin",
-  "pluginUrlCannotBeEmpty": "Ba za a iya barin URL na plugin babu komai ba",
-  "pluginUrlHint": "Shigar da URL na plugin",
-  "pluginUrlLabel": "URL na Plugin",
   "pluginVersion": "Sigar Plugin",
   "political": "Siyasa",
   "powerfulSpamBlocking": "Tushen Spam Mai Ƙarfi",
@@ -1274,26 +944,16 @@
   "purchase": "Saiya",
   "quarterlyMembership": "Membobi na Kwata-kwata",
   "quarterlyMembershipDescription": "Bude duk fasalolin premium, atomatik sabunta kowace kwata",
-  "queryButton": "Nemo",
-  "queryFailed": "Nemo ya kasa",
-  "queryFailedLog": "Nemo ya kasa",
-  "querying": "Neman...",
-  "queryingPhoneNumber": "Neman lambar waya",
-  "queryResultTitle": "Sakamakon Binciken",
   "ready": "Shirya!",
-  "receiveWeeklyStatistics": "Karɓi kididdigar mako-mako",
   "recruiter": "Mai daukar ma'aikata",
-  "reEnterPasswordHint": "Da fatan za a sake shigar da kalmar sirri",
   "refresh": "Sake Sakewa",
   "refreshPermissionStatus": "Sake Sabunta Yanayin Aminci",
   "refreshTooltip": "Sake Sakewa",
-  "regexError": "Kuskuren Regex: {error}",
   "regexErrorMessage": "Kuskuren Regex: {error}",
   "regexPattern": "Tsarin Regex",
   "regexPatternExplanation": "Bayanin Tsarin Regex",
   "regexPatternExplanationButton": "Bayanin Tsarin Regex",
   "regexPatternLabel": "Tsarin Regex",
-  "regexPatternsExamples": "Yi amfani da al'ada na regex don bayyana samfura. Misalai:",
   "regexPatternsForPhoneNumberMatching": "Samfuran Regex don Daidaita Lambobin Wayar",
   "regexRule": "Dokar Regex",
   "regexRuleAddFailed": "Gaza ƙara dokar regex: {error}",
@@ -1302,8 +962,6 @@
   "regexRuleNamePatternRequired": "Sunan doka da tsarin regex ba za su iya zama babu komai ba",
   "regexRules": "Dokokin Regex",
   "regexTesterTitle": "Mai Gwajin Regex",
-  "regexValidationFailed": "Gwajin Regex ya kasa: {error}",
-  "regexValidationSuccess": "Gwajin Regex ya yi nasara",
   "region": "Yankin",
   "registeredDevicesTitle": "Na'urori masu rijista",
   "rejectAllCalls": "Karyata Duk Kiran",
@@ -1318,27 +976,15 @@
   },
   "remoteFilterSettingsPageTitle": "Saitunan Tacewar Lambar Nesa",
   "remoteNumberFilter": "Tacewar Lambar Nesa",
-  "remoteNumberFilterDatabaseInfo": "Wannan tacewa tana amfani da bayanai daban-daban na nesa don samun sabbin bayanan lamba.",
   "remoteNumberFilterDescription": "Cire kiran da ake dannawa bisa ga bayanan bayanai na nesa",
-  "remoteNumberFilterExplanationContent": "Tacewar lambar nesa tana gano kuma tana toshe kiran spam ta hanyar tambayar bayanai na nesa bisa ga ƙididdigar lamba.",
-  "remoteNumberFilterExplanationTitle": "Bayanin Tacewar Lambar Nesa",
-  "remoteNumberFilterFeatureCountThreshold": "• Ƙimar Ƙididdiga: Ƙayyade bisa ga yawan lokacin da lamba ta bayyana",
-  "remoteNumberFilterFeatureFilterAction": "• Hanyoyin Tace: Saita yadda za a yi mu'amala da lambobi da suka wuce ƙima",
-  "remoteNumberFilterFeaturePriority": "• Saitunan Fifiko: Saita fifiko don ayyukan nesa",
-  "remoteNumberFilterFeatures": "Fasali:",
   "remoteNumberFiltering": "Tacewar Lambar Nesa",
   "remoteNumberFilteringExplanation": "• Tacewar Lambar Nesa: Dokokin tace bisa ga bayanan bayanai na nesa",
   "remoteNumberFilterSubtitle": "Gano kiran spam ta amfani da bayanai na gajimare da rahoton al'umma",
   "removeAdsDescription": "Cire dukkan tallace-tallace a cikin app har abada don kwarewa mai santsi",
   "removeAdsTitle": "Cire Tallace-tallace",
-  "removedFromFavoriteContacts": "An cire daga lambobin da aka fi so",
   "removedFromFavorites": "An cire daga lambobin da aka fi so",
-  "removeFavorite": "Cire Wanda Aka Fi So",
   "removeFromFavorites": "Cire daga Masu Rabin Farko",
-  "renameButton": "Sake suna",
-  "renameDeviceDialogTitle": "Sake Sunan Na'ura",
   "renameDeviceTitle": "Sake Sunan Na'ura",
-  "replaceCurrentSettingsConfirmation": "Wannan zai maye gurbin duk saitunan ku na yanzu. Kuna da tabbacin kuna son ci gaba?",
   "requestAllPermissions": "Nemi Duk Izinai",
   "requestPermission": "Nemi Izin",
   "requestPermissionFailed": "Gaza neman izini: {error}",
@@ -1346,84 +992,44 @@
   "reset": "Sake saiti",
   "restore": "Maido",
   "restoreApplicationSettingsFromBackup": "Maido da Saitunan Aikace-aikacen daga Madara",
-  "restoreApplicationSettingsFromBackupSubtitle": "Maido da saitunan aikace-aikace daga madara",
-  "restoreButton": "Maido",
-  "restoreFailedWithError": "Maido daga girgije ya kasa: {error}",
   "restoreFromCloud": "Maido daga Girgije",
-  "restoreFromCloudDescription": "Maido da saituna da dokoki daga wurin ajiya na girgije",
   "restoreFromCloudFailed": "Gaza maido daga girgije: {error}",
-  "restoreFromCloudLabel": "Maido daga Girgije",
   "restoreFromCloudSuccess": "An yi nasarar maido daga girgije",
-  "restoreFromCloudTitle": "Maido daga Girgije",
-  "restoreFromLocal": "Maido daga Gida",
   "restorePurchases": "Maido da Sayayya",
-  "restoreSectionTitle": "Maido",
   "restoreSettings": "Maido da Saituna",
   "restoreSettingsConfirmation": "Wannan zai maye gurbin duk saitunan ku na yanzu. Kuna da tabbacin kuna son ci gaba?",
-  "restoreSettingsDialogTitle": "Maido da Saituna",
-  "restoreSettingsTitle": "Maido da Saituna",
-  "restoreSuccessFromLocal": "An yi nasarar maido daga gida",
-  "restoreSuccessMessage": "An yi nasarar maido daga girgije",
   "retry": "Sublim",
   "ridesharing": "Tafiya da Wurin Dauka",
   "risk": "Hatsari",
   "robocall": "Robocall",
   "ruleAction": "Aikin Dokar",
-  "ruleAddButton": "Ƙara Dokar",
   "ruleAddedSuccess": "An ƙara dokar yadda ya kamata",
   "@ruleAddedSuccess": {
     "description": "Rule creation success message"
   },
-  "ruleAddFailure": "Gaza ƙara dokar: {error}",
-  "@ruleAddFailure": {
-    "description": "Rule creation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleAddSuccess": "An ƙara dokar yadda ya kamata",
   "ruleDeleteConfirmContent": "Shin, kun tabbata kana son goge wannan {ruleType}?",
   "ruleDeleteConfirmTitle": "Goge Dokar",
-  "ruleDeletedSuccess": "An goge dokar yadda ya kamata",
   "ruleDeletedSuccessfully": "An goge dokar yadda ya kamata",
   "ruleDeleteFailed": "Gaza goge dokar: {error}",
-  "ruleDeleteFailure": "Gaza goge dokar: {error}",
-  "@ruleDeleteFailure": {
-    "description": "Rule deletion failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleDeleteSuccess": "An goge dokar yadda ya kamata",
   "ruleDisabledSuccessfully": "An kashe dokar yadda ya kamata",
   "ruleEnabledSuccessfully": "An kunna dokar yadda ya kamata",
   "ruleLoadFailed": "Gaza lodin dokoki: {error}",
   "ruleManagement": "Gudanar da Dokoki",
-  "ruleManagementTitle": "Gudanar da Dokoki",
   "ruleName": "Sunan Dokar",
   "ruleNameAndContentRegexCannotBeEmpty": "Sunan doka da abun regex ba za su iya zama babu komai ba",
   "ruleNameAndPhoneNumberCannotBeEmpty": "Sunan doka da lambar waya ba za su iya zama babu komai ba",
   "ruleNameHint": "misali, Iyali, Abokai, da dai sauransu.",
   "ruleNameLabel": "Sunan Dokar",
-  "ruleNamePatternRequired": "Da fatan za a shigar da sunan doka da tsari",
   "ruleNameRequired": "Sunan doka da lambar waya ba za su iya zama babu komai ba",
   "ruleNotExist": "Rundunar ba ta wanzu ko kuma an goge ta",
   "ruleNotFound": "Ba a sami rundunar ba: {error}",
-  "ruleSavedSuccessfully": "An adana rundunar ta yi nasara!",
   "ruleSavedSuccessMessage": "An adana rundunar ta yi nasara!",
-  "ruleSaveFailed": "Ajiye ya kasa: {error}",
-  "ruleSaveFailedMessage": "Ajiye ya kasa: {error}",
-  "ruleSaveSuccess": "An adana rundunar ta yi nasara!",
   "rulesExportedSuccessfully": "An fitar da rundunonin ta yi nasara",
   "rulesExportedTo": "An fitar da rundunonin zuwa: {path}",
   "rulesImported": "An shigo da rundunonin ta yi nasara",
   "rulesImportedSuccessfully": "An shigo da rundunoni {count} ta yi nasara",
-  "rulesImportFailed": "An kasa shigo da rundunonin: {error}",
-  "ruleStatistics": "Kididdigar Runduna",
   "ruleStatusChanged": "Runduna {status} ta yi nasara",
   "ruleToggleFailed": "Ayyukan ya kasa: {error}",
   "ruleToggleSuccess": "Runduna {status} ta yi nasara",
@@ -1432,32 +1038,19 @@
   "ruleVerification": "Tabbatar da Runduna",
   "save": "Ajiye",
   "saveButton": "Ajiye",
-  "saveButtonLabel": "AJIYE",
   "saveButtonText": "Ajiye",
   "saveFailed": "Ajiye ya kasa: {error}",
-  "saveFilter": "Ajiye Tacewa",
   "saveSettings": "Ajiye Saituna",
-  "saveSettingsFailed": "An kasa adana saituna: {error}",
   "scamsLikely": "Yiwuwar Damfara",
   "search": "Nemo",
   "searchContacts": "Nemo Lambobi",
   "searchError": "Kuskuren Bincike: {error}",
-  "searchFilters": "Tacewar Bincike",
-  "searchForContacts": "Nemo lambobi",
   "searchHint": "Nemo...",
-  "searchSettingsSubtitle": "Bincike lambobi, lakabi, jerin masu zamba, jerin amintattu, da sauransu.",
-  "searchSettingsTitle": "Saitunan Bincike",
   "securityMessage": "Kada ku amince da kowace wayar tarho. Koyaushe ku tabbatar da lambobin sabis na abokin ciniki da kanku. Kada ku taɓa raba kalmomin shiga, lambobin tabbaci, lambobin kati, ko bayanan sirri.",
-  "selectActionToPerform": "Zaɓi aikin da za a yi lokacin da rundunar ta dace",
   "selectActionWhenBlockingCalls": "Zaɓi aiki lokacin toshe kiran",
   "selectActionWhenRuleMatches": "Zaɓi aiki lokacin da rundunar ta dace",
   "selectAll": "Zaɓi Duk",
   "selectCountry": "Zaɓi Ƙasa",
-  "selectDateRange": "Zaɓi Yanayin Kwanakin",
-  "selectedDateRange": "Yanayin Kwanakin da aka zaɓa",
-  "@selectedDateRange": {
-    "description": "Selected date range text"
-  },
   "selectedItems": "An zaɓi abubuwa {count}",
   "selectedLabel": "An zaɓa:",
   "selectExportFormat": "Zaɓi Tsarin Fitowa",
@@ -1465,14 +1058,7 @@
   "selectLabelAndEnterPhoneNumber": "Da fatan za a zaɓi lakabi kuma shigar da ingantacciyar lambar waya",
   "selectLanguage": "Zaɓi Harshe",
   "selectMultiple": "Zaɓi Mabambanta",
-  "selectPeriod": "Zaɓi Lokaci",
   "selectSimCard": "Zaɓi SIM ɗin Waya",
-  "selectSimSlot": "Zaɓi Slot ɗin SIM",
-  "@selectSimSlot": {
-    "description": "Title for SIM slot selection dialog"
-  },
-  "selectSpecificActionForBlockedCalls": "Zaɓi takamaiman aikin da za a yi lokacin toshe kiran",
-  "selectTag": "Zaɓi Alama",
   "selectTags": "Zaɓi Alamomi",
   "selectTrustedDataSource": "Da fatan za a zaɓi amintattun tushen bayanai",
   "selectYourLanguage": "Zaɓi Harshenku",
@@ -1493,16 +1079,9 @@
       }
     }
   },
-  "setButton": "Saita",
   "setEncryptionPassword": "Saita Kalmar Sirri ta Ƙididdigewa",
-  "setEncryptionPasswordDescription": "Saita kalmar sirri don ajiyawa da dawo da ita",
-  "setEncryptionPasswordLabel": "Saita Kalmar Sirri ta Ƙididdigewa",
-  "setEncryptionPasswordTitle": "Saita Kalmar Sirri ta Ƙididdigewa",
-  "setPasswordButton": "Saita",
   "settings": "Saituna",
   "settingsBackedUpTo": "An adana saitunan zuwa: {path}",
-  "settingsLoaded": "An loda saituna",
-  "settingsLoadFailed": "An kasa loda saituna: {error}",
   "settingsRestoredSuccessfully": "An dawo da saituna ta yi nasara. Da fatan za a sake kunna aikace-aikacen don canje-canje su yi tasiri.",
   "settingsSaved": "An adana saituna",
   "@settingsSaved": {
@@ -1512,8 +1091,6 @@
   "settingsTab": "Saituna",
   "settingsTitle": "Saituna",
   "setup": "Shiryawa",
-  "showContactEditDialogStaticMethod": "Hanyar tsaye don nuna tattaunawar gyaran lamba",
-  "showExplanation": "Nuna Bayani",
   "silence": "Shuru",
   "silenceAndNoAnswer": "Shuru da Babu Amsa",
   "silenceNoAnswer": "Shuru Babu Amsa",
@@ -1538,15 +1115,10 @@
       }
     }
   },
-  "simInfoLoadFailure": "An kasa loda bayanan SIM ɗin Waya: {error}",
   "simRuleInstructions": "Dokokin ramin SIM suna ba ka damar saita dokokin tacewa masu zaman kansu don kowane ramin SIM.",
   "simRuleInstructionsTitle": "Dokokin Ramuka na SIM",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simRuleManagement": "Gudanar da Dokokin Ramuka na SIM",
-  "@simRuleManagement": {
-    "description": "SIM slot rule management section title"
   },
   "simSlot1": "SIM 1,-{countryIso}",
   "@simSlot1": {
@@ -1568,9 +1140,6 @@
       }
     }
   },
-  "simSlotDataLoadFailed": "An kasa loda bayanan SIM: {error}",
-  "simSlotFilterConfiguration": "Saitunan Tacewa na Ramin SIM",
-  "simSlotFilterConfigurationDescription": "Yana ba da damar saita dokokin tacewa ta hanyar ramin SIM",
   "simSlotFilterDescription": "Saita dokokin tacewa masu zaman kansu don kowace katin SIM:",
   "simSlotFilterSettingsTitle": "Saitunan Tacewa na Ramin SIM {slotNumber}",
   "@simSlotFilterSettingsTitle": {
@@ -1581,17 +1150,7 @@
       }
     }
   },
-  "simSlotLoadFailed": "An kasa loda ramuka na SIM: {error}",
   "simSlotManagement": "Gudanar da Ramuka na SIM",
-  "simSlotOperationFailed": "Ayyukan ramin SIM ya gaza: {error}",
-  "@simSlotOperationFailed": {
-    "description": "SIM slot operation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "simSlotPosition": "Matsayin Ramin SIM {slotNumber}",
   "@simSlotPosition": {
     "description": "SIM slot position display",
@@ -1605,11 +1164,6 @@
   "simSlotRuleFeature": "• Dokokin Ramuka na SIM: Dabarun tacewa masu zaman kansu ga kowane SIM",
   "simSlotRuleListTitle": "Jerin Dokokin Ramuka na SIM",
   "simSlotRuleManagement": "Dokokin Ramuka na SIM",
-  "simSlotRuleManagementTitle": "Gudanar da Doka",
-  "simSlotSettings": "Saitunan Ramuka na SIM",
-  "@simSlotSettings": {
-    "description": "Title for SIM slot settings page"
-  },
   "simSlotTitle": "Ramin SIM {slotNumber}",
   "skip": "Tsallake",
   "smartCallerId": "Gano Kira Mai Kyau",
@@ -1620,7 +1174,6 @@
   "smsFilterRuleAddedSuccessfully": "An ƙara dokar tacewar SMS yadda ya kamata",
   "smsFilterRules": "Dokokin Tacewa na SMS",
   "smsFilterSettings": "Saitunan Tacewa na SMS",
-  "smsHistory": "Tarihin SMS",
   "smsManagement": "Gudanar da SMS",
   "smsPermission": "Izinin SMS",
   "smsPermissionDescription": "Ana amfani da shi don tattara saƙonnin spam.",
@@ -1628,12 +1181,7 @@
   "smsRuleDeletedSuccessfully": "An share dokar SMS yadda ya kamata",
   "smsRuleLoadFailed": "An kasa loda dokokin SMS: {error}",
   "smsRuleManagement": "Gudanar da Dokokin SMS",
-  "smsRulesExportedSuccessfully": "An fitar da dokokin SMS yadda ya kamata zuwa {filePath}",
-  "smsRulesImportedSuccessfully": "An shigo da dokokin SMS yadda ya kamata",
   "smsRuleSubscription": "Biyan Kuɗin Dokar SMS",
-  "smsRuleUpdatedSuccessfully": "An sabunta dokar SMS yadda ya kamata",
-  "smsSettingsSubtitle": "Tacewar SMS da toshe kalmomi",
-  "smsSettingsTitle": "Saitunan SMS",
   "smsSubscription": "Biyan Kuɗin SMS",
   "smsSubscriptionAddedSuccessfully": "An ƙara biyan kuɗin SMS yadda ya kamata",
   "smsSubscriptionRulesDescription": "Biyan kuɗi zuwa jerin dokokin SMS ta hanyar URL, yana goyan bayan dacewa da dabarun regex. Zaka iya saita ayyukan toshewa ko yarda.",
@@ -1645,12 +1193,7 @@
   "startUsing": "Fara Amfani",
   "statAnswered": "An Amsa",
   "statBlocked": "An Toshe",
-  "staticMethodShowCallerIdDialog": "Hanyar Daidaita don Nuna Shirin Bayanan ID na Kira",
-  "staticMethodToDisplayCountrySelectionDialog": "Hanyar Daidaita don Nuna Shirin Zaɓin Ƙasa",
-  "staticMethodToDisplayDialog": "Hanyar Daidaita don Nuna Shiri",
   "statistics": "Kididdiga",
-  "statisticsExportFeatureComingSoon": "Tsarin fitar da kididdiga zai zo nan bada jimawa ba",
-  "statisticsGrid": "Rijiyar Kididdiga",
   "statisticsPageTitle": "Binciken Bayanai",
   "stirColor": "Launin STIR",
   "stirFontSize": "Girman Font na STIR",
@@ -1673,23 +1216,16 @@
   "@subscriptionDeleted": {
     "description": "Subscription deleted success message"
   },
-  "subscriptionDeletedSuccessfully": "An share biyan kuɗi yadda ya kamata",
   "subscriptionDeleteFailed": "An kasa share biyan kuɗi: {error}",
   "subscriptionDeleteSuccess": "An share biyan kuɗi",
-  "subscriptionEmptyState": "Babu biyan kuɗi da ake samu",
-  "subscriptionEmptyText": "Babu biyan kuɗi tukuna",
   "subscriptionLoadFailed": "An kasa loda biyan kuɗi: {error}",
-  "subscriptionLoadingFailed": "An kasa loda biyan kuɗi: {error}",
-  "subscriptionManagementTitle": "Gudanar da Biyan Kuɗi",
   "subscriptionName": "Sunan Biyan Kuɗi",
   "@subscriptionName": {
     "description": "Subscription name field label"
   },
   "subscriptionNameAndUrlCannotBeEmpty": "Sunan biyan kuɗi da URL ba za su iya zama babu komai ba",
   "subscriptionNameHint": "Shigar da sunan biyan kuɗi",
-  "subscriptionPageTitle": "Gudanar da Biyan Kuɗi",
   "subscriptionStatusChangeFailed": "An kasa canza matsayin biyan kuɗi: {error}",
-  "subscriptionToggleFailed": "An kasa sauya matsayin biyan kuɗi: {error}",
   "subscriptionUpdateFailed": "An kasa sabunta biyan kuɗi: {error}",
   "subscriptionUpdateSuccess": "An sabunta biyan kuɗi yadda ya kamata",
   "@subscriptionUpdateSuccess": {
@@ -1710,7 +1246,6 @@
   },
   "syncFailed": "Haɗin kai ya gaza",
   "syncFailedMessage": "Haɗin kai ya gaza",
-  "syncFolderNameHint": "Da fatan za a shigar da sunan babban fayil ɗin haɗin kai (na asali: NotificationManager)",
   "syncFolderNameLabel": "Sunan Babban Fayil na Haɗin Kai",
   "synchronized": "An Haɗa",
   "@synchronized": {
@@ -1724,10 +1259,8 @@
   "syncNowButton": "Sync Yanzu",
   "syncStatusTitle": "Dakin Duba Tashin Hankali",
   "syncStatusUpdatedMessage": "An sabunta matsayin tattara bayanai",
-  "syncSuccessful": "Tattara bayanai ya yi nasara",
   "syncSuccessMessage": "Tattara bayanai ya yi nasara",
   "syncWithCloudStorage": "Tattara tare da Ajiya na Girgije",
-  "syncWithCloudStorageSubtitle": "Tattara tare da ajiya na girgije",
   "systemFeatures": "Abubuwan Amfani na Tsarin:",
   "systemSettingsTitle": "Saitunan Tsarin",
   "tabAll": "Duka",
@@ -1743,13 +1276,11 @@
       }
     }
   },
-  "tagsUpdated": "An sabunta tags",
   "takeaway": "Ɗauka",
   "telecommunication": "Sadarwa ta Waya",
   "telegram": "Telegram",
   "telemarketing": "Sarrafa ta Waya",
   "testButton": "GWADA",
-  "testButtonLabel": "GWADA",
   "testConnectionButton": "Gwada Haɗin Kai",
   "textColorsSetting": "Launukan Rubutu & Alamar Alama",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Wannan app ɗin yana da ƙarfin aikin gano mai kira wanda ke ba ku damar gano masu kira mara amfani da kuma toshe su.",
@@ -1760,8 +1291,6 @@
   "timeInterceptorExplanationContent": "Fasalin hana kiran da ake yi akai-akai yana nazarin yawan kiran don gano kiran spam akai-akai da kuma hana su ko ba su damar yin kira.",
   "timeInterceptorExplanationTitle": "Bayanin Hana Kiran da Ake Yi Akai-akai",
   "timeInterceptorSettingsTitle": "Saitunan Hana Kiran da Ake Yi Akai-akai",
-  "timeInterceptorSubtitle": "Tsayarwa ta atomatik ga masu yiwuwa spam kira dangane da yawan kira",
-  "timeInterceptorTitle": "Kunna Hana Kiran da Ake Yi Akai-akai",
   "timeWindowDescription": "Saita girman taga lokacin don ba da damar kiran da ake yi akai-akai. Kira daga lambar iri ɗaya a cikin wannan taga za a ba su dama",
   "timeWindowLabel": "Taga Lokacin Hana Kira (minti): {minutes}",
   "@timeWindowLabel": {
@@ -1772,16 +1301,11 @@
       }
     }
   },
-  "timeWindowSetting": "Saita girman taga lokacin don ba da damar kiran da ake yi akai-akai. Kira daga lambar iri ɗaya a cikin wannan taga za a ba su dama",
   "today": "Yau",
   "total": "Jimilla",
   "totalBlocked": "Jimillar Abubuwan Da Aka Hana",
-  "totalFiltered": "Jimillar Abubuwan Da Aka Tace",
   "transferDataBetweenDevicesOrPlatforms": "Canja bayanai tsakanin na'urori ko dandamali",
-  "transferDataBetweenDevicesOrPlatformsSubtitle": "Canja bayanai tsakanin na'urori ko dandamali",
   "travelTicketing": "Tikitin Tafiya",
-  "trend": "Juyawa",
-  "trendChart": "Jadawalin Juyawa",
   "tutorial": "Jagora",
   "type": "Nau'i",
   "unassignedSIMCard": "SIM Card Mara Haɗi",
@@ -1789,7 +1313,6 @@
   "@unknown": {
     "description": "Display text for unknown status"
   },
-  "unknownLabel": "Alamar da ba a sani ba",
   "unknownTag": "Tag: Babu Sani",
   "unregisterButton": "Cire Rijista",
   "unregisterDeviceConfirmationMessage": "Shin, ka tabbata kana son cire rijista {deviceName}?",
@@ -1797,15 +1320,9 @@
   "unsupportedFileFormat": "Tsarin Fayil Mara Tallafi",
   "update": "Sabuntawa",
   "updateAllNow": "Sabunta Duk Yanzu",
-  "updateCallFilterConfig": "Sabunta Saitunan Tacewar Kira",
-  "@updateCallFilterConfig": {
-    "description": "Button text for updating call filter configuration"
-  },
   "updateContactFailed": "Faɗakarwa wajen sabunta lamba: {error}",
   "updateFavoriteStatus": "Sabunta Matsayin Abun So",
-  "updateFavoriteStatusFailed": "Faɗakarwa wajen sabunta matsayin abun so: {error}",
   "updateInterval": "Yanayin Sabuntawa",
-  "updateLabelFailed": "Faɗakarwa wajen sabunta alamar",
   "updateNow": "Sabunta Yanzu",
   "updatePlugin": "Sabunta Plugin",
   "updatePluginFailed": "Faɗakarwa wajen sabunta plugin: {error}",
@@ -1831,16 +1348,13 @@
       }
     }
   },
-  "updateTags": "Sabunta Tags",
   "useCasesPoint1": "• Gano kiran spam na atomatik",
   "useCasesPoint2": "• Hana kiran tallace-tallace masu kira sau da yawa a cikin ɗan lokaci",
   "useCasesPoint3": "• Kare waya da zalunci",
   "useCasesTitle": "Abubuwan Amfani:",
   "useGlobalSettings": "Yi Amfani da Saitunan Duniya",
-  "userEmail": "user@example.com",
   "usernameLabel": "Sunan Mai Amfani",
   "useStandardRegexSyntaxToDefinePatternsExamples": "Yi amfani da tsarin regex na al'ada don ayyana alamu. Misalan:",
-  "validateRegex": "Duba Regex",
   "verificationFailedText": "Faɗakarwa",
   "verifiedText": "An Tabbatar",
   "verify": "Tabbatar",
@@ -1851,36 +1365,18 @@
   "watchAdForTemp": "Kalli talla don dindindin na wucin gadi",
   "watchAdForTempDescription": "Kalli ɗan gajeren talla don buɗe wasu fasalulluka na farko na wucin gadi",
   "webDAVConfigTitle": "Saitunan WebDAV",
-  "webdavConfigurationTitle": "Saitunan WebDAV",
-  "webdavPasswordHint": "Da fatan za a shigar da kalmar sirri ta WebDAV",
-  "webdavServerAddressHint": "Da fatan za a shigar da adireshin sabar WebDAV",
-  "webdavUsernameHint": "Da fatan za a shigar da sunan mai amfani na WebDAV",
   "week": "Mako",
-  "weekly": "Mako-mako",
-  "weeklyBlockedCallsSummary": "Jimillar Kiran Da Aka Hana na Mako",
-  "weeklyChartTitle": "Kiran Da Aka Hana na Mako",
-  "weeklyReport": "Rahoton Mako",
-  "@weeklyReport": {
-    "description": "Weekly report notification option"
-  },
-  "weeklyReportDesc": "Karɓi rahoto na mako-mako na aikin hana kira",
-  "@weeklyReportDesc": {
-    "description": "Description for weekly report option"
-  },
   "welcome": "Barka da zuwa",
   "whitelist": "Fitar da jeri",
   "@whitelist": {
     "description": "Whitelist label"
   },
-  "whitelistLabel": "Fitar da jeri",
   "width": "Nisa",
   "wildcardMatchingDescription": "Yi amfani da '.' don dacewa da kowane hali (misali '123.456' ya dace da 123-456)",
   "wildcardMatchingTitle": "Dacewa da kowane hali:",
   "wildcardSupportForFlexibleFiltering": "Taimakon dacewa da kowane hali don tsarin tacewa mai sassaucin ra'ayi",
   "windowSizeSetting": "Girma na Window",
   "year": "Shekara",
-  "yearly": "Kowace Shekara",
-  "yearlyChartTitle": "Kiran da aka toshe a kowace shekara",
   "noSimCardsDetected": "Babu katunan SIM da aka gano",
   "filterManagementDescription": " Saitin Tacewar Kira",
   "callerIdCustomizationSubtitle": "Sanya Salo na ID Mai Kira",
@@ -1895,7 +1391,6 @@
   "useLocalNotificationDescription": "Kunna sanarwa ta gida don kiran da ke shigowa",
   "cancelLocalNotification": "Rufe Sanarwa ta Gida",
   "useStirNotification": "Yi amfani da Sanarwa daga STIR",
-  "useStirNotificationDescription": "Kunna sanarwar STIR don kiran da ke shigowa",
   "cancelLocalNotificationDescription": "Rufe Sanarwa ta Gida ta atomatik",
   "callerIdSettingsTitle": "Saitunan ID Mai Kira",
   "callerIdSettingsSubtitle": "Don Sanya Sanarwa & Yanayin Nuni na Kira",
@@ -1904,16 +1399,6 @@
   "callerIdNotificationTitle": "Bayanin Kira mai shigowa",
   "@callerIdNotificationTitle": {
     "description": "Title for the Incoming Call Info"
-  },
-  "callerIdBody": "Lambar: {phoneNumber}",
-  "@callerIdBody": {
-    "description": "Body for the caller ID notification, showing the phone number",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
   },
   "blockedCallTitle": "Kira da aka toshe",
   "@blockedCallTitle": {
@@ -1974,18 +1459,6 @@
   "@fraudAlertTitle": {
     "description": "Title for the fraud alert notification"
   },
-  "fraudAlertBody": "Potential fraud call from {phoneNumber}",
-  "@fraudAlertBody": {
-    "description": "Body for the fraud alert notification",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
-  },
-  "loadRulesFailed": "Ya kasa loda dokoki: {error}",
-  "loadCallLogFailed": "Ya kasa loda rajistar kira: {error}",
   "noBlockedTypeData": "Babu bayanan nau'in da aka toshe",
   "importEntity": "Shigo da {entityTypeName}",
   "@importEntity": {
@@ -2065,7 +1538,6 @@
   "vipUser": "Mai Amfani VIP",
   "temporaryVip": "Mai Amfani VIP na Lokaci",
   "removeAds": "Cire Iklilimi",
-  "unknownAction": "Aikin da ba a Sani ba",
   "settingsBackup": "Ajiyayye na Saiti ",
   "allServicesStatusTitle": "Matsayin Sabis na Yanzu",
   "allServicesStatusSubtitle": "Matsayin Yanzu na Kowace Sabis na Girgije",
@@ -2153,7 +1625,6 @@
   "unblocked": "An cire katanga",
   "blockNumber": "Toshe Lamba",
   "blockNumberSuccess": "An toshe lambar da nasara",
-  "blockNumberFailed": "An kasa toshe lambar",
   "unblockNumberConfirmation": "Ka tabbata kana son cire katanga ga {phoneNumber}?",
   "@unblockNumberConfirmation": {
     "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
@@ -2165,23 +1636,11 @@
       }
     }
   },
-  "callingNumber": "Kira {phoneNumber}...",
-  "@callingNumber": {
-    "description": "Status text displayed on the screen when an outgoing call is initiated.",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "description": "The phone number that is being dialed.",
-        "example": "+1 555-123-4567"
-      }
-    }
-  },
   "viewDetails": "Duba Cikakkun Bayanai",
   "unblock": "Cire Katanga",
   "unblockNumber": "Cire Katanga Lambar",
   "unblockNumberSuccess": "An cire katanga lambar da nasara",
   "unblockNumberFailed": "An kasa cire katanga lambar",
-  "serviceNotAvailable": "Sabis baya nan",
   "callingNumberFailed": "Kira lambar ya gaza",
   "listView": "Duban Jere",
   "timelineView": "Duban Lokaci",
@@ -2192,7 +1651,6 @@
   "callType": "Nau'in Kira",
   "callTime": "Lokacin Kira",
   "numberInvalidFormat": "Tsarin lambar mara inganci",
-  "membershipFeature": "Fasalin Membobin",
   "medium": "Matsakaici",
   "verificationReport": "Rahoton Tantancewa",
   "finalRisk": "Hadari Na Ƙarshe",
@@ -2221,7 +1679,6 @@
   "noNotifications": "Babu sanarwa",
   "clearAllNotifications": "Share Duk Sanarwa",
   "clearAllNotificationsConfirmation": "Tabbatar don share duk sanarwa",
-  "allNotificationsCleared": "An share dukkan sanarwa",
   "clearButton": "Share",
   "justNow": "Yanzun nan",
   "minutesAgo": "{count,plural, =1{minti 1 da suka wuce} other{{count} mintuna da suka wuce}}",
@@ -2298,10 +1755,6 @@
   "@reasonInaccurateInfo": {
     "description": "Inaccurate Information reason option"
   },
-  "reasonWrongMarked": "An Yiwa Alama da Kuskure",
-  "@reasonWrongMarked": {
-    "description": "Wrong marked reason option"
-  },
   "reasonOther": "Sauran",
   "@reasonOther": {
     "description": "Other reason option"
@@ -2314,33 +1767,9 @@
   "@cancel": {
     "description": "Cancel button text"
   },
-  "proposalStatus": "Matsayi",
-  "@proposalStatus": {
-    "description": "Proposal status label"
-  },
-  "statusPending": "Jiran Aiki",
-  "@statusPending": {
-    "description": "Pending status"
-  },
-  "statusActive": "Mai Aiki",
-  "@statusActive": {
-    "description": "Active status"
-  },
-  "statusCompleted": "An Kammala",
-  "@statusCompleted": {
-    "description": "Completed status"
-  },
-  "statusExpired": "Ya ƙare",
-  "@statusExpired": {
-    "description": "Expired status"
-  },
   "riskLevel": "Matsayin Hatsari",
   "@riskLevel": {
     "description": "Risk level label"
-  },
-  "riskLevelVerified": "An Tabbatar",
-  "@riskLevelVerified": {
-    "description": "Verified risk level"
   },
   "riskLevelLow": "Ƙarami",
   "@riskLevelLow": {
@@ -2350,26 +1779,9 @@
   "@riskLevelHigh": {
     "description": "Label for high risk level"
   },
-  "riskLevelUnknown": "Ba a Sani ba",
-  "@riskLevelUnknown": {
-    "description": "Unknown risk level"
-  },
-  "votingProgress": "Ci gaban Zaɓe",
-  "@votingProgress": {
-    "description": "Voting progress label"
-  },
   "agreeVotes": "Yardajewa: {count}",
   "@agreeVotes": {
     "description": "Agree votes count",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "disagreeVotes": "Ƙi Yardajewa: {count}",
-  "@disagreeVotes": {
-    "description": "Disagree votes count",
     "placeholders": {
       "count": {
         "type": "int"
@@ -2405,14 +1817,6 @@
   "@verificationReport": {
     "description": "Verification report label"
   },
-  "showReport": "Nuna Rahoto",
-  "@showReport": {
-    "description": "Show report button text"
-  },
-  "hideReport": "Boye Rahoto",
-  "@hideReport": {
-    "description": "Hide report button text"
-  },
   "proposalStatistics": "Kididdigar Shawara",
   "@proposalStatistics": {
     "description": "Proposal statistics title"
@@ -2425,37 +1829,17 @@
   "@activeProposals": {
     "description": "Active proposals label"
   },
-  "completedProposals": "Shawara da aka Kammala",
-  "@completedProposals": {
-    "description": "Completed proposals label"
-  },
-  "myVotes": "Zaɓe na",
-  "@myVotes": {
-    "description": "My votes label"
-  },
   "proposalCreated": "An ƙirƙiri shawarar cikin nasara",
   "@proposalCreated": {
     "description": "Proposal created success message"
-  },
-  "proposalCreateFailed": "An kasa ƙirƙirar shawara",
-  "@proposalCreateFailed": {
-    "description": "Proposal create failed message"
   },
   "voteSubmitted": "An miƙa zaɓen cikin nasara",
   "@voteSubmitted": {
     "description": "Vote submitted success message"
   },
-  "voteSubmitFailed": "An kasa miƙa zaɓe",
-  "@voteSubmitFailed": {
-    "description": "Vote submit failed message"
-  },
   "noProposalsFound": "Ba a sami shawara ba",
   "@noProposalsFound": {
     "description": "No proposals found message"
-  },
-  "loadingProposals": "Ana ɗora shawarwari...",
-  "@loadingProposals": {
-    "description": "Loading proposals message"
   },
   "refreshProposals": "Sake ɗora Shawara",
   "@refreshProposals": {
@@ -2684,12 +2068,8 @@
       }
     }
   },
-  "loadVoteCountFailed": "An kasa ɗora adadin zaɓe",
   "voteCount": "Adadin Zaɓe",
-  "deletionProposalInfo": "Bayanin Shawarar Goge Bayani",
   "deletionProposalDescription": "Miƙa shawarar lambobi don gogewa waɗanda suka saba wa ƙa'idodin al'umma. Shigar ka na taimakawa wajen kiyaye tsaron dandalin.",
-  "voteToEarnVip": "Yi zaɓe akan shawarwari don samun gata na VIP!",
-  "voteFailed": "Zaɓe ya gaza",
   "searchProposals": "Bincika Shawarwari",
   "defaultNotifications": "Sanarwa na Asali",
   "defaultNotificationsDescription": "Tashar sanarwa ta asali don manhajar.",
@@ -2699,81 +2079,14 @@
   "stirVerificationDescription": "Yana nuna sakamakon STIR/SHAKEN na tabbatarwa ga lambobi.",
   "fraudAlerts": "Faɗakarwar Zamba",
   "fraudAlertsDescription": "Yana nuna gargaɗi game da yiwuwar kiran zamba.",
-  "notificationFrequencyDescription": "Zaɓi yadda kake son karɓar sanarwa game da sabbin shawarwarin sharewa. Zaka iya karɓar su nan da nan, a cikin rukuni, ko a tsaka-tsakin lokaci na musamman.",
-  "@notificationFrequencyDescription": {
-    "description": "A detailed explanation of what the notification frequency settings do"
-  },
   "@notificationMode": {
     "description": "Title for the mode selection part (Immediate, Batched, Custom)"
-  },
-  "immediateNotifications": "Nan take",
-  "@immediateNotifications": {
-    "description": "Label for the immediate notification mode"
-  },
-  "immediateNotificationsDescription": "Karɓi sanarwa da zaran an ƙirƙiri shawara.",
-  "@immediateNotificationsDescription": {
-    "description": "Description for the immediate notification mode"
-  },
-  "batchNotifications": "A Rukuni",
-  "@batchNotifications": {
-    "description": "Label for the batched notification mode"
-  },
-  "batchNotificationsDescription": "Karɓi taƙaitaccen sanarwa lokaci-lokaci.",
-  "@batchNotificationsDescription": {
-    "description": "Description for the batched notification mode"
-  },
-  "customNotifications": "Na Musamman",
-  "@customNotifications": {
-    "description": "Label for the custom notification mode"
-  },
-  "customNotificationsDescription": "Bayyana tsaka-tsakin lokaci naka don karɓar sanarwa.",
-  "@customNotificationsDescription": {
-    "description": "Description for the custom notification mode"
-  },
-  "customFrequency": "Mitar Na Musamman",
-  "@customFrequency": {
-    "description": "Title for the custom frequency slider section"
-  },
-  "notificationFrequencyDurationMinutes": "{minutes} min",
-  "@notificationFrequencyDurationMinutes": {
-    "description": "Formats a duration that is only in minutes.",
-    "placeholders": {
-      "minutes": {
-        "type": "int",
-        "example": "45"
-      }
-    }
-  },
-  "notificationFrequencyDurationHours": "{hours} h",
-  "@notificationFrequencyDurationHours": {
-    "description": "Formats a duration that is in whole hours.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "2"
-      }
-    }
-  },
-  "notificationFrequencyDurationHoursAndMinutes": "{hours} h {minutes} min",
-  "@notificationFrequencyDurationHoursAndMinutes": {
-    "description": "Formats a duration that has both hours and minutes.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "1"
-      },
-      "minutes": {
-        "type": "int",
-        "example": "30"
-      }
-    }
   },
   "pendingProposals": "Shawara Mai Jiran Gata",
   "pendingProposalsBody": "Kuna da {count, plural, =0 {babu shawarwari masu jiran gata} one {shawara 1 mai jiran gata} other {{count} shawarwari masu jiran gata}}.",
   "guidelinesLabel": "Jagororin",
   "reportingGuidelines": "• Kawai ka bada rahoto kan lambobi da suke da matsala sosai\n• Bayar da dalilai sahihai kuma cikakku\n• Zaɓi matakin haɗari da ya dace bisa ga tsanani\n• Rahotannin ƙarya na iya haifar da ƙuntatawa ga asusu",
   "riskLevelLabel": "Matakin Haɗari",
-  "riskLevelDescription": "Matakin haɗari na lambar",
   "phoneNumberMinDigits": "Lambar waya dole ne ta kasance aƙalla lambobi 7",
   "provideDetailedExplanation": "Bayar da cikakken bayani (aƙalla haruffa 10)",
   "reasonMinCharacters": "Dalili dole ne ya kasance aƙalla haruffa 10",
@@ -2790,39 +2103,15 @@
   "@countryCodeRequired": {
     "description": "Validation message for required country code"
   },
-  "countryCodeLengthError": "Lambobin ƙasa dole ne su kasance haruffa 2",
-  "@countryCodeLengthError": {
-    "description": "Validation message for country code length"
-  },
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
-  "phoneNumberLengthError": "Lambar waya dole ne ta kasance aƙalla lambobi 7",
-  "@phoneNumberLengthError": {
-    "description": "Validation message for phone number length"
-  },
-  "reasonHint": "Bayar da cikakken bayani (aƙalla haruffa 10)",
-  "@reasonHint": {
-    "description": "Hint text for reason input field"
-  },
   "reasonRequired": "Dalili wajibi ne",
   "@reasonRequired": {
     "description": "Validation message for required reason"
-  },
-  "reasonLengthError": "Dalili dole ne ya kasance aƙalla haruffa 10",
-  "@reasonLengthError": {
-    "description": "Validation message for reason length"
-  },
-  "guidelinesTitle": "Jagororin",
-  "@guidelinesTitle": {
-    "description": "Title for guidelines section"
-  },
-  "guidelinesText": "• Kawai ka bada rahoto kan lambobi da suke da matsala sosai\n• Bayar da dalilai sahihai kuma cikakku\n• Zaɓi matakin haɗari da ya dace bisa ga tsanani\n• Rahotannin ƙarya na iya haifar da ƙuntatawa ga asusu",
-  "@guidelinesText": {
-    "description": "Text content for guidelines section"
   },
   "riskLevelCritical": "Mai Tsanani",
   "@riskLevelCritical": {
@@ -2836,33 +2125,9 @@
   "@riskLevelVeryLow": {
     "description": "Label for very low risk level"
   },
-  "riskDescriptionVeryLow": "Ƙasa sosai - Damuwa kaɗan, kiran da ba kasafai ba",
-  "@riskDescriptionVeryLow": {
-    "description": "Description for very low risk level"
-  },
-  "riskDescriptionLow": "Ƙasa - Kiran da ba a so lokaci-lokaci",
-  "@riskDescriptionLow": {
-    "description": "Description for low risk level"
-  },
-  "riskDescriptionMedium": "Matsakaici - Spam na yau da kullun ko tallan waya",
-  "@riskDescriptionMedium": {
-    "description": "Description for medium risk level"
-  },
-  "riskDescriptionHigh": "Babba - Cin zarafi na dindindin ko ƙoƙarin zamba",
-  "@riskDescriptionHigh": {
-    "description": "Description for high risk level"
-  },
-  "riskDescriptionCritical": "Mai Tsanani - Zamba mai haɗari ko barazana",
-  "@riskDescriptionCritical": {
-    "description": "Description for critical risk level"
-  },
   "notificationFrequencyTitle": "Mitar Sanarwa",
   "@notificationFrequencyTitle": {
     "description": "Title for notification frequency settings"
-  },
-  "notificationFrequencyLabel": "Mitar Sanarwa (sa'o'i)",
-  "@notificationFrequencyLabel": {
-    "description": "Label for notification frequency dropdown"
   },
   "errorMessage": "Kuskure: {error}",
   "@errorMessage": {
@@ -2870,18 +2135,6 @@
     "placeholders": {
       "error": {
         "type": "String"
-      }
-    }
-  },
-  "votesStatistics": "Ƙuri'u: {totalVotes} ({supportPercentage}% goyon baya)",
-  "@votesStatistics": {
-    "description": "Voting statistics text",
-    "placeholders": {
-      "totalVotes": {
-        "type": "int"
-      },
-      "supportPercentage": {
-        "type": "int"
       }
     }
   },
@@ -2899,37 +2152,6 @@
     "description": "Shows the number of oppose votes.",
     "placeholders": {
       "opposeCount": {
-        "type": "int"
-      }
-    }
-  },
-  "timeJustNow": "Yanzu nan",
-  "@timeJustNow": {
-    "description": "Time format for recent events"
-  },
-  "timeMinutesAgo": "da {minutes}m da suka wuce",
-  "@timeMinutesAgo": {
-    "description": "Time format for minutes ago",
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
-  "timeHoursAgo": "da {hours}h da suka wuce",
-  "@timeHoursAgo": {
-    "description": "Time format for hours ago",
-    "placeholders": {
-      "hours": {
-        "type": "int"
-      }
-    }
-  },
-  "timeDaysAgo": "da {days}d da suka wuce",
-  "@timeDaysAgo": {
-    "description": "Time format for days ago",
-    "placeholders": {
-      "days": {
         "type": "int"
       }
     }
@@ -2989,7 +2211,6 @@
   "liveActivitiesTestUpdateActivity": "Sabunta Aiki",
   "liveActivityControlsTitle": "Sarrafe-Sarrafe na Ayyukan Kai tsaye",
   "liveActivitiesTestTitle": "Gwaji Ayyukan Kai tsaye",
-  "liveActivitiesTestSubtitle": "Gwada sanarwar ayyukan kai tsaye.",
   "liveNotificationCustomizationTitle": "Saitin Sanarwa Na Kai tsaye",
   "liveNotificationCustomizationSubtitle": "Saita yadda sanarwar kai tsaye zai bayyana.",
   "notification_instructions": "Umarni:\n1. Matsa \"SEND\" don ƙirƙira ko sabunta sanarwa.\n2. Je zuwa allon gida ko jawo allon sanarwa don ganin sakamakon.\n3. Matsa \"END\" don korar sanarwar.",
@@ -3012,7 +2233,6 @@
   "@proposalDetails": {
     "description": "The title of the proposal details page."
   },
-  "filterByStatus": "Tace ta Matsayi",
   "proposalNotFound": "Ba a sami shawara ba",
   "@proposalNotFound": {
     "description": "A message displayed when a proposal is not found."
@@ -3020,10 +2240,6 @@
   "processed": "An Ayyana",
   "@processed": {
     "description": "A label for the processed status."
-  },
-  "showAll": "Nuna Duka",
-  "@showAll": {
-    "description": "A button to show all proposals."
   },
   "filterAndSortTitle": "Tace da Tsara",
   "filterVerifiedOwner": "Tace Ma'abocin da Aka Tabbatar",
@@ -3055,10 +2271,6 @@
   "@invalidSimData": {
     "description": "A message displayed when the SIM data is invalid."
   },
-  "simCardData": "Bayanin Katin SIM",
-  "@simCardData": {
-    "description": "A label for the SIM card data."
-  },
   "simSlot": "Ramin SIM",
   "@simSlot": {
     "description": "A label for the SIM slot."
@@ -3077,8 +2289,6 @@
   },
   "callTypeRejected": "An ƙi",
   "callTypeSilenced": "An yi shiru",
-  "callTypeVoicemail": "Saƙon murya",
-  "callTypeUnknownIntercept": "Katsalandan da ba a sani ba",
   "andMoreItems": "da ƙarin abubuwa {count}",
   "@andMoreItems": {
     "description": "Text to show when there are more items than displayed.",

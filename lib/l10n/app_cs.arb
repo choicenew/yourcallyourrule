@@ -6,14 +6,6 @@
   },
   "aboutLabels": "O štítcích",
   "aboutPhoneSubscriptionRules": "O pravidlech pro předplatná telefonů",
-  "aboutPhoneSubscriptions": "O předplatných telefonů",
-  "@aboutPhoneSubscriptions": {
-    "description": "About phone subscriptions title"
-  },
-  "aboutPhoneSubscriptionsDesc": "Přihlaste se k odběru seznamů pravidel pro telefony přes URL, automaticky aktualizujte pravidla. Podporuje soubory pravidel ve formátu JSON, CSV.",
-  "@aboutPhoneSubscriptionsDesc": {
-    "description": "About phone subscriptions description"
-  },
   "aboutSmsFilter": "O filtrování SMS",
   "aboutSmsSubscriptionRules": "O pravidlech pro předplatná SMS",
   "aboutSubtitle": "Informace o verzi aplikace a právní informace",
@@ -22,7 +14,6 @@
   "actionAll": "Všechny",
   "actionAllow": "Povolit",
   "actionBlock": "Blokovat",
-  "actionFilterAll": "Všechny filtry",
   "actionFilterTitle": "Filtrovat podle typu akce",
   "actionFilterTooltip": "Filtr akcí",
   "actionNone": "Žádná akce",
@@ -42,24 +33,15 @@
   },
   "addContactButton": "Přidat kontakt",
   "addContactFailed": "Nepodařilo se přidat kontakt: {error}",
-  "addedToAllowedRules": "Přidáno do povolených pravidel",
-  "addedToBlacklist": "Přidáno na černou listinu",
-  "addedToBlockedRules": "Přidáno do blokovaných pravidel",
-  "addedToFavoriteContacts": "Přidáno mezi oblíbené kontakty",
   "addedToFavorites": "Přidáno mezi oblíbené",
-  "addedToWhitelist": "Přidáno na bílou listinu",
-  "addFavorite": "Přidat oblíbený",
-  "addFilter": "Přidat filtr",
   "addLabel": "Přidat štítek",
   "addLabelButton": "Přidat štítek",
   "addLabelFailed": "Nepodařilo se přidat štítek: {error}",
-  "addLabelToCall": "Přidat štítek k záznamu hovoru",
   "addName": "Přidat jméno",
   "addNoneSubscription": "Přidat předplatné Žádné",
   "@addNoneSubscription": {
     "description": "Add none subscription dialog title"
   },
-  "addOrEditContactInfo": "Slouží k přidání nebo úpravě informací o kontaktu",
   "addPhoneMark": "Přidat značku telefonu",
   "addPhoneNumberRule": "Přidat pravidlo pro telefonní číslo",
   "addPlugin": "Přidat plugin",
@@ -69,14 +51,12 @@
   "addPluginFromUrl": "Přidat plugin z URL",
   "addRegexRule": "Přidat regulární pravidlo",
   "addRule": "Přidat pravidlo",
-  "addRuleButton": "Přidat pravidlo",
   "addRuleFailed": "Nepodařilo se přidat pravidlo: {error}",
   "addRuleTooltip": "Přidat pravidlo",
   "addSilenceSubscription": "Přidat předplatné Ticho",
   "@addSilenceSubscription": {
     "description": "Add silence subscription dialog title"
   },
-  "addSimRuleButton": "Přidat pravidlo SIM",
   "addSmsFilterRule": "Přidat pravidlo filtru SMS",
   "addSmsRule": "Přidat pravidlo SMS",
   "addSmsSubscription": "Přidat předplatné SMS",
@@ -95,26 +75,17 @@
     }
   },
   "addSubscriptionTooltip": "Přidat předplatné",
-  "addToAllowedRules": "Přidat do povolených pravidel",
   "addToBlacklist": "Přidat na černou listinu",
-  "addToBlockedRules": "Přidat do blokovaných pravidel",
-  "addToFavoriteContacts": "Přidat mezi oblíbené kontakty",
   "addToFavorites": "Přidat mezi oblíbené",
   "addToRules": "Přidat do pravidel",
   "addToWhitelist": "Přidat na bílou listinu",
-  "adPlaceholder": "Zástupný text reklamy",
   "agent": "Agent",
   "all": "Všechny",
   "allCallsTab": "Všechny",
-  "allDataClearedSuccessfully": "Všechna data byla úspěšně vymazána",
   "allow": "Povolit",
   "allowAllAllowRules": "Povolit všechna povolovací pravidla",
   "allowAllAllowRulesDesc": "Povolit hovory z povolených pravidel",
   "allowAllBlacklistedNumbers": "Povolit všechna čísla na černé listině",
-  "allowAllBlacklistedNumbersDesc": "Povolit hovory z černé listiny",
-  "@allowAllBlacklistedNumbersDesc": {
-    "description": "Allow calls from blocklist"
-  },
   "allowAllBlockRules": "Povolit všechna blokovací pravidla",
   "allowAllBlockRulesDesc": "Povolit hovory z blokovacích pravidel",
   "allowAllowedNumbers": "Povolit povolená čísla",
@@ -135,8 +106,6 @@
   "allowRegexBlockRulesDescription": "Povolit blokovací pravidla založená na regulárních výrazech",
   "allowRule": "Povolovací pravidlo",
   "allowRules": "Povolovací pravidla",
-  "allowWhitelistedNumbers": "Povolit povolená čísla",
-  "allowWhitelistedNumbersDescription": "Povolit všechna čísla na povoleném seznamu",
   "allPermissionsGranted": "Všechna oprávnění udělena",
   "allSettingsCompleted": "Všechna nastavení dokončena.",
   "allUpdateSuccess": "Všechny aktualizace dokončeny ({count} pravidel)",
@@ -149,7 +118,6 @@
     }
   },
   "answerThenHangup": "Odpovědět a poté zavěsit",
-  "appLegalese": "© 2023 Vaše volání Vaše pravidla. Všechna práva vyhrazena.",
   "applicationSoftware": "Aplikační software",
   "apply": "Použít",
   "appName": "Vaše volání Vaše pravidla",
@@ -162,8 +130,6 @@
   "autoUpdate": "Automatická aktualizace",
   "autoUpdateDescription": "Nastavit intervaly automatických aktualizací pro předplatná nebo aktualizovat ručně",
   "autoUpdateSettings": "Nastavení automatické aktualizace",
-  "autoUpdateSettingsSubtitle": "Spravovat automatické aktualizace pravidel a pluginů",
-  "autoUpdateSettingsTitle": "Nastavení automatické aktualizace",
   "autoUpdateSubtitle": "Spravovat automatické aktualizace pravidel a pluginů",
   "autoUpdateTitle": "Automatická aktualizace",
   "avatarBorderColor": "Barva ohraničení avatara",
@@ -178,57 +144,33 @@
   "backupAndRestoreSubtitle": "Zálohovat nebo obnovit data aplikace",
   "backupAndRestoreTitle": "Zálohování a obnovení",
   "backupFailed": "Zálohování selhalo",
-  "backupFailedMessage": "Zálohování selhalo",
-  "backupFailedWithError": "Zálohování selhalo: {error}",
-  "backupRestoreSubtitle": "Zálohovat nebo obnovit data aplikace",
-  "backupRestoreTitle": "Zálohování a obnovení",
-  "backupSectionTitle": "Zálohování",
   "backupSettings": "Nastavení zálohování",
-  "backupSettingsDialogTitle": "Nastavení zálohování",
-  "backupSettingsTitle": "Nastavení zálohování",
-  "backupSuccessMessage": "Úspěšně zálohováno do cloudu",
-  "backupSuccessToLocal": "Zálohování úspěšné do: {path}",
   "backupToCloud": "Zálohovat do cloudu",
-  "backupToCloudDescription": "Zálohovat nastavení a pravidla do cloudového úložiště",
   "backupToCloudFailed": "Zálohování do cloudu selhalo: {error}",
-  "backupToCloudLabel": "Zálohovat do cloudu",
   "backupToCloudSuccess": "Úspěšně zálohováno do cloudu",
-  "backupToCloudTitle": "Zálohování do cloudu",
-  "backupToLocalLabel": "Zálohovat lokálně",
   "bank": "Banka",
   "basicInfo": "Základní informace",
   "basicRuleFilter": "Základní filtr pravidel",
   "basicRuleFiltering": "Základní filtrování pravidel",
   "basicRuleFilteringExplanation": "• Základní filtrování pravidel: filtrování pravidel na základě černé listiny, bílé listiny a regulárních výrazů",
-  "basicRuleFilterSettings": "Nastavení základního filtru pravidel",
-  "@basicRuleFilterSettings": {
-    "description": "Title for basic rule filter settings page"
-  },
   "basicRuleFilterSubtitle": "Filtrovat hovory pomocí černé/bílé listiny a regulárních výrazů",
-  "batchDeleteContacts": "Hromadné smazání kontaktů",
   "batchDeleteContactsConfirm": "Opravdu chcete smazat {count} vybraných kontaktů?",
-  "batchDeleteFailed": "Hromadné smazání selhalo",
   "batchDeleteLabelsConfirm": "Opravdu chcete smazat {count} štítků?",
   "blacklist": "Černá listina",
   "@blacklist": {
     "description": "Blacklist label"
   },
   "blacklistingAndWhitelisting": "Blokování a povolování",
-  "blacklistLabel": "Černá listina",
   "blackWhiteList": "Černá/Bílá listina",
   "block": "Blokovat",
   "blockCalls": "Blokovat hovory",
   "blocked": "Blokováno",
-  "blockedCallAction": "Akce blokovaného hovoru",
   "blockedCalls": "Blokované hovory",
   "blockedCallsTitle": "Blokované hovory",
-  "blockedCommunications": "Blokovaná komunikace",
-  "blockedPhoneLabel": "Blokované hovory",
   "blockedSpamCalls": "Blokované spamové hovory",
   "blockingTrend": "Trend blokování",
   "blockInternationalCalls": "odpovídá číslům, která nezačínají na + nebo 00",
   "blockInternationalCallsTitle": "Blokovat mezinárodní hovory",
-  "blockLandlineNumbersTitle": "Blokovat pevné linky",
   "blockMobileNumbers": "odpovídá číslům, která nezačínají na 13-19",
   "blockMobileNumbersTitle": "Blokovat mobilní čísla",
   "blockPremiumRateNumbers": "odpovídá číslům, která nezačínají na 118 nebo 120-190",
@@ -244,19 +186,9 @@
   "bulkDeleteLabels": "Hromadné smazání štítků",
   "call": "Volat",
   "callback": "Zavolat zpět",
-  "callbackTo": "Zavolat zpět na {number}",
-  "@callbackTo": {
-    "description": "Callback notification message",
-    "placeholders": {
-      "number": {
-        "type": "String"
-      }
-    }
-  },
   "callBlocking": "Blokování hovorů",
   "callerIdApp": "Aplikace ID volajícího",
   "callerIdCustomizationTitle": "Přizpůsobit ID volajícího",
-  "callerIdDialogTitle": "Informace o ID volajícího",
   "callerIdDisplayMode": "Režim zobrazení ID volajícího",
   "callerIdMarkedByCount": "Označeno {count}",
   "@callerIdMarkedByCount": {
@@ -268,8 +200,6 @@
     }
   },
   "callerIdPreview": "Náhled ID volajícího",
-  "callFilter": "Filtr hovorů",
-  "callFilterDescription": "Když je povoleno, příchozí hovory jsou kontrolovány proti níže uvedenému seznamu pravidel. Pravidla filtrování hovorů se standardně nesynchronizují mezi zařízeními.",
   "callFilterRules": "Pravidla filtru hovorů",
   "callFilterRulesDescription": "Nastavte základní pravidla pro filtrování hovorů",
   "callFilterSettings": "Nastavení filtru hovorů",
@@ -278,33 +208,10 @@
   "callHistory": "Historie hovorů",
   "callHistoryInfoDesc": "Zde se zobrazuje historie vašich hovorů, včetně příchozích, odchozích a zmeškaných hovorů.",
   "callHistoryInfoTitle": "Historie hovorů",
-  "callHistoryInitFailed": "Inicializace historie hovorů selhala: {error}",
-  "@callHistoryInitFailed": {
-    "description": "Call history initialization failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
-  "callHistoryRefreshFailed": "Obnovení historie hovorů selhalo: {error}",
-  "@callHistoryRefreshFailed": {
-    "description": "Call history refresh failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "callHistoryTab": "Historie hovorů",
-  "callHistoryTimelineEarlier": "Dříve",
-  "callHistoryTimelineToday": "Dnes",
-  "callHistoryTimelineYesterday": "Včera",
   "callScreeningPermission": "Oprávnění pro filtrování hovorů",
   "callScreeningPermissionDescription": "Používá se k filtrování a blokování spamových hovorů.",
   "callScreeningPermissionNotGranted": "Oprávnění pro filtrování hovorů není uděleno, což může ovlivnit funkčnost aplikace.",
-  "callSettingsSubtitle": "Nastavení ID volajícího, filtrování a blokování",
-  "callSettingsTitle": "Nastavení hovorů",
   "callStatistics": "Statistiky hovorů",
   "callTypeAnswered": "Přijato",
   "callTypeBlocked": "Blokováno",
@@ -330,32 +237,14 @@
       }
     }
   },
-  "changeTag": "Změnit značku",
   "charity": "Charita",
-  "chartMonthFormat": "Měsíc {month}",
-  "@chartMonthFormat": {
-    "description": "Month format for chart labels",
-    "placeholders": {
-      "month": {
-        "type": "int"
-      }
-    }
-  },
-  "chartOneDayAgo": "1 den zpět",
-  "chartOneMonthAgo": "1 měsíc zpět",
   "chartOneWeekAgo": "1 týden zpět",
-  "chartTenDaysAgo": "10 dní zpět",
   "chartThreeDaysAgo": "3 dny zpět",
   "chartToday": "Dnes",
   "checkFileFormat": "Zkontrolujte prosím formát souboru nebo oprávnění",
   "checkPermissionFailed": "Kontrola oprávnění selhala: {error}",
   "chooseDefaultInterceptAction": "Vyberte výchozí akci zachycení",
-  "clearAllData": "Vymazat všechna data",
-  "clearAllDataConfirmation": "Opravdu chcete vymazat všechna data aplikace? Tuto akci nelze vrátit zpět.",
-  "clearAllDataDescription": "Vymazat všechna data aplikace",
-  "clearAllDataLabel": "Vymazat všechna data",
   "clearFilter": "Vymazat filtr",
-  "clearLabelFilter": "Vymazat filtr popisků",
   "clearLabelFilterButton": "Vymazat filtr popisků",
   "closeButton": "Zavřít",
   "cloudSync": "Synchronizace v cloudu",
@@ -363,26 +252,18 @@
   "cloudSyncSettingsSubtitle": "Konfigurace WebDAV, OneDrive a Google Drive",
   "cloudSyncSettingsTitle": "Nastavení synchronizace v cloudu",
   "cloudSyncTitle": "Synchronizace v cloudu",
-  "collapseLabelSelector": "Sbalit výběr popisků",
   "collection": "Vymáhání dluhu",
   "colorPickerTitle": "Vyberte barvu",
   "configManagement": "Správa konfigurace",
   "configUpdated": "Konfigurace aktualizována",
   "configurationAdvice": "Správnou konfigurací můžete nastavit různé strategie filtrování pro pracovní a osobní SIM karty.",
   "configureBackupOptions": "Konfigurovat možnosti zálohování",
-  "configureBackupOptionsSubtitle": "Konfigurujte možnosti zálohování",
   "configureCloudSyncService": "Konfigurujte službu synchronizace v cloudu",
-  "configureCloudSyncServiceHint": "Nakonfigurujte prosím službu synchronizace v cloudu, abyste povolili synchronizaci mezi více zařízeními.",
   "configureCloudSyncServiceMessage": "Nakonfigurujte prosím službu synchronizace v cloudu, abyste povolili synchronizaci mezi více zařízeními.",
   "configureSimCardFilterRules": "Konfigurovat pravidla filtru SIM karty",
-  "configureSyncServiceHint": "Nejprve prosím nakonfigurujte synchronizační službu v nastavení synchronizace v cloudu",
   "confirm": "Potvrdit",
-  "confirmBatchDeleteContacts": "Opravdu chcete odstranit vybrané",
   "confirmButton": "Potvrdit",
   "confirmDelete": "Potvrdit smazání",
-  "confirmDeleteContact": "Opravdu chcete odstranit",
-  "confirmDeleteContactName": "Potvrdit smazání?",
-  "confirmDeleteFilter": "Opravdu chcete smazat tento filtr?",
   "confirmDeleteLabel": "Opravdu chcete smazat popisek \"{name}\"?",
   "confirmDeletePlugin": "Opravdu chcete smazat plugin \"{name}\"?",
   "confirmDeletePlugins": "Opravdu chcete smazat {count} pluginů?",
@@ -396,10 +277,8 @@
     }
   },
   "confirmDeleteRuleMessage": "Opravdu chcete smazat toto pravidlo? Tuto akci nelze vrátit zpět.",
-  "confirmDeleteSelectedContacts": "Opravdu chcete smazat vybrané kontakty?",
   "confirmDeleteSmsFilterRule": "Opravdu chcete smazat toto pravidlo SMS filtru?",
   "confirmDeleteSmsRule": "Opravdu chcete smazat toto SMS pravidlo?",
-  "confirmDeleteSubscription": "Opravdu chcete smazat toto předplatné?",
   "confirmDeleteSubscriptions": "Opravdu chcete smazat {name}?",
   "@confirmDeleteSubscriptions": {
     "description": "Confirmation message shown before deleting a subscription.",
@@ -411,7 +290,6 @@
     }
   },
   "confirmPassword": "Potvrdit heslo",
-  "confirmPasswordLabel": "Potvrdit heslo",
   "connectedStatus": "Připojeno",
   "connectionFailedCheckCredentialsMessage": "Připojení selhalo: Zkontrolujte prosím adresu serveru, uživatelské jméno a heslo",
   "connectionFailedMessage": "Připojení selhalo",
@@ -419,19 +297,11 @@
   "connectionSuccessMessage": "Připojení úspěšné",
   "contactAddSuccess": "Kontakt úspěšně přidán",
   "contactDeleted": "Kontakt odstraněn",
-  "contactEditDialog": "Dialog pro úpravu kontaktu",
-  "contactNameHint": "Zadejte jméno kontaktu (nepovinné)",
   "contactNameLabel": "Jméno",
-  "contactNameOptional": "Jméno kontaktu (nepovinné)",
   "contactNotFound": "Kontakt nenalezen",
   "contacts": "Kontakty",
   "contactsDeleted": "Odstraněno {count} kontaktů",
-  "contactSettingsSubtitle": "Správa kontaktů a nastavení popisků",
-  "contactSettingsTitle": "Nastavení kontaktů",
-  "contactsLoadingFailed": "Načítání kontaktů selhalo: {error}",
   "contactsManagement": "Správa kontaktů",
-  "contactsManagementPageTitle": "Stránka správy kontaktů",
-  "contactsPageTitle": "Správa kontaktů",
   "contactsPermission": "Povolení kontaktů",
   "contactsPermissionDescription": "Používá se k identifikaci hovorů z kontaktů.",
   "contactsTab": "Kontakty",
@@ -439,8 +309,6 @@
   "@contactSubscriptionDescription": {
     "description": "About contact subscription description"
   },
-  "contactSubscriptionLoadingFailed": "Načítání odběrů kontaktů selhalo: {error}",
-  "contactSubscriptionPageTitle": "Odběry kontaktů",
   "contactUpdateSuccess": "Kontakt úspěšně aktualizován",
   "contactUs": "Kontaktujte nás",
   "content": "Obsah",
@@ -452,34 +320,16 @@
   "countryNameColor": "Barva názvu země",
   "countryNameFontSize": "Velikost písma názvu země",
   "countryRegionNamePosition": "Pozice názvu země/regionu",
-  "countrySelectionDialog": "Dialog pro výběr země",
-  "countrySelectionDialogDescription": "Používá se k výběru země pro dotaz na informace o ID volajícího",
   "countThresholdDescription": "Nastavte minimální prahovou hodnotu počtu požadovanou pro spuštění akcí filtrování",
   "countThresholdLabel": "Prahová hodnota počtu",
-  "countThresholdSettings": "Nastavení prahové hodnoty počtu",
-  "countThresholdValue": "Prahová hodnota počtu: {count}",
   "createdRules": "Vytvořená pravidla",
   "csvFormat": "Formát CSV",
-  "currentDeviceChip": "Aktuální",
   "currentDeviceLabel": "Popisek aktuálního zařízení",
   "currentDeviceTitle": "Aktuální zařízení",
-  "currentLabels": "Aktuální popisky:",
   "currentLanguage": "Aktuální jazyk",
-  "currentPasswordLabel": "Aktuální heslo",
   "customerService": "Zákaznický servis",
-  "customRange": "Vlastní rozsah",
-  "dailyStatistics": "Denní statistiky",
-  "@dailyStatistics": {
-    "description": "Daily statistics notification option"
-  },
-  "dailyStatisticsDesc": "Přijímat denní statistiky o blokovaných hovorech a zprávách",
-  "@dailyStatisticsDesc": {
-    "description": "Description for daily statistics option"
-  },
   "dashboardTab": "Přehled",
   "dataAnalysis": "Analýza dat",
-  "dataAnalysisDashboardPage": "Stránka přehledu analýzy dat",
-  "dataExport": "Export dat",
   "dataLoadFailure": "Načítání dat selhalo: {error}",
   "@dataLoadFailure": {
     "description": "Data loading failure message",
@@ -492,9 +342,6 @@
   "dataLoadingFailed": "Načítání dat selhalo: {error}",
   "dataMigration": "Migrace dat",
   "dataMigrationDescription": "Tato funkce vám umožňuje přenášet všechna vaše data mezi zařízeními. V současné době můžete k ruční migraci dat použít funkce zálohování a obnovení.",
-  "dataMigrationDialogContent": "Tato funkce vám umožňuje přenášet všechna vaše data mezi zařízeními. V současné době můžete k ruční migraci dat použít funkce zálohování a obnovení.",
-  "dataMigrationDialogTitle": "Migrace dat",
-  "dataMigrationSectionTitle": "Migrace dat",
   "dataSourceReminder": "Připomenutí zdroje dat",
   "days": "{count, plural, =1{1 den} other{{count} dnů}}",
   "@days": {
@@ -507,16 +354,11 @@
   },
   "daysVip": "{days} dnů VIP",
   "debtCollection": "Vymáhání dluhu",
-  "defaultPeriod": "Týden",
   "delete": "Smazat",
   "deleteButton": "Smazat",
   "deleteContact": "Smazat kontakt",
   "deleteContactConfirm": "Jste si jisti, že chcete smazat {name}?",
-  "deleteContactConfirmation": "Jste si jisti, že chcete smazat kontakt",
-  "deleteDeviceConfirmation": "Jste si jisti, že chcete smazat {deviceName}?",
-  "deleteDeviceDialogTitle": "Smazat zařízení",
   "deleteFailed": "Smazání selhalo: {error}",
-  "deleteFilter": "Smazat filtr",
   "deleteLabel": "Smazat popisek",
   "deleteLabelFailed": "Smazání popisku selhalo: {error}",
   "deletePlugin": "Smazat plugin",
@@ -526,7 +368,6 @@
   "deleteRule": "Smazat pravidlo",
   "deleteRuleFailed": "Smazání selhalo: {error}",
   "deleteSelected": "Smazat vybrané",
-  "deleteSmsRule": "Smazat pravidlo SMS",
   "deleteSubscription": "Smazat odběr",
   "@deleteSubscription": {
     "description": "Delete subscription dialog title"
@@ -551,21 +392,13 @@
   },
   "deleteSuccess": "Smazání úspěšné",
   "delivery": "Doručení",
-  "deviceDeletedSuccessfully": "Zařízení bylo úspěšně smazáno",
-  "deviceDeletedSuccessfullyMessage": "Zařízení bylo úspěšně smazáno",
-  "deviceIdLabel": "ID zařízení",
   "deviceIDLabel": "ID zařízení",
   "deviceManagementSubtitle": "Spravujte synchronizaci více zařízení",
   "deviceManagementTitle": "Správa zařízení",
   "deviceModelLabel": "Model zařízení",
   "deviceName": "Název zařízení",
-  "deviceNameCannotBeEmpty": "Název zařízení nesmí být prázdný",
-  "deviceNameHint": "Zadejte prosím název zařízení",
   "deviceNameLabel": "Název zařízení",
-  "deviceRenamedSuccessfully": "Zařízení bylo úspěšně přejmenováno",
   "deviceRenamedSuccessfullyMessage": "Zařízení bylo úspěšně přejmenováno",
-  "devicesSyncedSuccessfully": "Zařízení byla úspěšně synchronizována",
-  "devicesSyncedSuccessfullyMessage": "Zařízení byla úspěšně synchronizována",
   "devicesSynchronizedSuccessfullyMessage": "Zařízení byla úspěšně synchronizována",
   "deviceUnregisteredSuccessfullyMessage": "Zařízení bylo úspěšně odregistrováno",
   "dialogTitle": "Vysvětlení Regex Vzoru",
@@ -576,7 +409,6 @@
   },
   "disabledStatus": "Zakázáno",
   "disableGlobalPlugins": "Zakázat globální pluginy",
-  "disableSubscriptionSuccessfully": "Předplatné bylo úspěšně zakázáno",
   "disconnectButton": "Odpojit",
   "disconnectedMessage": "Odpojeno",
   "disconnectedStatus": "Odpojeno",
@@ -587,17 +419,12 @@
   "ecommerce": "Elektronický obchod",
   "edit": "Upravit",
   "editContact": "Upravit kontakt",
-  "editFilter": "Upravit filtr",
   "editLabel": "Upravit štítek",
   "editPhoneRule": "Upravit pravidlo pro telefonní čísla",
-  "editPhoneRules": "Používá se k úpravě pravidel pro telefonní čísla",
-  "editPhoneRuleTitle": "Upravit pravidlo pro telefonní čísla",
   "editRule": "Upravit pravidlo",
-  "editSmsRule": "Upravit pravidlo pro SMS",
   "education": "Vzdělání",
   "elementPositionsSetting": "Pozice prvků",
   "email": "E-mail",
-  "emailOptional": "E-mail (volitelné)",
   "enableCallFilter": "Povolit filtr volání",
   "enableCallFilterDescription": "Když je povoleno, příchozí hovory jsou kontrolovány proti níže uvedenému seznamu pravidel. Pravidla filtrování hovorů nejsou ve výchozím stavu synchronizována mezi zařízeními.",
   "enabled": "Povoleno",
@@ -607,9 +434,6 @@
   "enabledStatus": "Povoleno",
   "enableEncryption": "Povolit šifrování",
   "enableEncryptionDescription": "Šifrovat záložní soubory",
-  "enableEncryptionLabel": "Povolit šifrování",
-  "enableEncryptionSubtitle": "Záložní soubory budou zašifrovány",
-  "enableEncryptionTitle": "Povolit šifrování",
   "enableGlobalPlugins": "Povolit globální pluginy",
   "enableLocalCountFilter": "Povolit lokální filtr počítadla",
   "enableLocalCountFilterDescription": "Automaticky filtrovat spamové hovory na základě počtu označení hovorů",
@@ -620,14 +444,11 @@
   "enableMuteRulesDesc": "Aplikovat konfiguraci pravidel pro přerušení ztlumení",
   "enableNoneActionRules": "Povolit pravidla bez akce",
   "enableNoneActionRulesDesc": "Umožnit konfigurace pravidel bez akcí přerušení",
-  "enableNotifications": "Povolit oznámení",
   "enableRemoteNumberFilter": "Povolit vzdálený filtr čísel",
   "enableRemoteNumberFilterDescription": "Použít vzdálenou databázi k filtrování čísel",
   "enableRule": "Povolit pravidlo",
   "enableSmsFilter": "Povolit filtrování SMS",
   "enableSmsFilterDescription": "Když je povoleno, zprávy budou automaticky filtrovány podle pravidel",
-  "enableStatisticsNotifications": "Povolit oznámení o statistikách",
-  "enableSubscriptionSuccessfully": "Předplatné bylo úspěšně povoleno",
   "enableTimeInterception": "Povolit časové přerušení",
   "enableTimeInterceptionDescription": "Přerušit opakovaná volání v krátkém časovém intervalu",
   "enableTimeInterceptor": "Povolit časový přerušovač",
@@ -641,24 +462,15 @@
   },
   "enhancedFilterSettingsTitle": "Nastavení rozšířeného filtrování",
   "enhancedFilterSystemDescription": "Systém rozšířeného filtrování podporuje globální pravidla i konfiguraci filtrování pro jednotlivé SIM karty.",
-  "enterBothPhoneNumberAndRegexPattern": "Zadejte prosím telefonní číslo i regex vzor",
   "enterBothPhoneNumberAndRegexPatternMessage": "Zadejte prosím telefonní číslo i regex vzor.",
   "enterContactName": "Zadejte prosím název kontaktu",
-  "enterCurrentPasswordHint": "Zadejte prosím aktuální heslo",
   "enterDeviceName": "Zadejte název zařízení",
-  "enterDeviceNameHint": "Zadejte prosím název zařízení",
-  "enterEmail": "Zadejte e-mail",
   "enterEmailOptional": "Zadejte e-mail (volitelné)",
   "enterEncryptionPasswordHint": "Zadejte šifrovací heslo",
-  "enterEncryptionPasswordTitle": "Zadejte šifrovací heslo",
-  "enterFilterName": "Zadejte název filtru",
-  "enterFilterPattern": "Zadejte vzor filtru",
   "enterIconCode": "Zadejte kód ikony",
   "enterName": "Zadejte název kontaktu",
   "enterNewDeviceNameHint": "Zadejte nový název pro toto zařízení",
-  "enterNewPasswordHint": "Zadejte prosím nové heslo",
   "enterPasswordAgain": "Zadejte heslo znovu",
-  "enterPasswordHint": "Zadejte prosím heslo",
   "enterPhoneNumber": "Zadejte telefonní číslo",
   "enterPhoneNumberHint": "Zadejte telefonní číslo k otestování",
   "enterPhoneNumberMultiple": "Zadejte telefonní číslo, více čísel oddělených čárkami",
@@ -667,7 +479,6 @@
   "enterPluginName": "Zadejte název pluginu",
   "enterPluginUrl": "Zadejte adresu URL pluginu",
   "enterRegexHint": "Zadejte regex vzor",
-  "enterRuleNameAndPattern": "Zadejte prosím název pravidla a vzor",
   "enterRuleNameAndPatternMessage": "Prosím zadejte název pravidla i vzor regulárního výrazu.",
   "enterRuleNameHint": "Zadejte název pravidla",
   "enterSearchContent": "Prosím zadejte obsah vyhledávání",
@@ -690,79 +501,50 @@
   "enterWebDAVPasswordHint": "Prosím zadejte heslo WebDAV",
   "enterWebDAVServerAddressHint": "Prosím zadejte adresu serveru WebDAV",
   "enterWebDAVUsernameHint": "Prosím zadejte uživatelské jméno WebDAV",
-  "errorDeletingDeviceMessage": "Chyba při mazání zařízení: {error}",
-  "errorLoadingPlugin": "Chyba při načítání pluginu",
   "errorOccurredMessage": "Došlo k chybě: {error}",
   "errorRenamingDeviceMessage": "Chyba při přejmenovávání zařízení: {error}",
   "errorSynchronizingDevicesMessage": "Chyba při synchronizaci zařízení: {error}",
-  "errorSyncingDevicesMessage": "Chyba při synchronizaci zařízení: {error}",
-  "errorText": "Chyba",
   "errorUnregisteringDeviceMessage": "Chyba při odhlášení zařízení: {error}",
   "exampleBlock400Prefix": "např. Blokovat předčíslí čísel 400",
   "exampleBlockMarketingSms": "např. Blokovat marketingové SMS",
-  "exampleContentRegex": "např. .*nabídka.*",
   "exampleContentRegexHint": "Příklad regulárního výrazu pro obsah",
   "exampleCouponPromotionDiscount": "např. .*(kupón|akce|sleva).*",
   "exampleFamilyFriends": "např. Rodina, přátelé atd.",
   "examplePhoneNumber": "např. 10086, 12345 atd.",
   "exampleRegex400Prefix": "Příklad regulárního výrazu pro předčíslí 400",
-  "exampleRegexFormat": "Příklad: formát ^10086$",
   "exampleSenderRegexHint": "Příklad",
   "exchange": "Výměna",
   "exchangeNow": "Vyměnit nyní",
   "exchangeVip": "Vyměnit VIP",
-  "expandLabelSelector": "Rozbalit výběr štítků",
   "expiryTime": "Čas vypršení platnosti: {time}",
   "export": "Exportovat",
   "exportAllApplicationSettings": "Exportovat všechna nastavení aplikace",
-  "exportAllApplicationSettingsSubtitle": "Exportovat všechna nastavení aplikace",
   "exportAllRuleConfigurations": "Exportovat všechny konfigurace pravidel",
-  "exportAllRuleConfigurationsSubtitle": "Exportovat všechny konfigurace pravidel",
-  "exportComplete": "Export dokončen",
   "exportConfig": "Exportovat konfiguraci",
   "exportContacts": "Exportovat kontakty",
   "exportData": "Exportovat data",
-  "exportError": "Chyba exportu",
   "exportFailed": "Export selhal",
   "exportFailure": "Nepodařilo se exportovat konfiguraci",
   "exportFeatureComingSoon": "Funkce exportu bude brzy přidána",
-  "exporting": "Exportuje se...",
   "exportLabels": "Exportovat štítky",
   "exportLabelsFailed": "Nepodařilo se exportovat štítky: {error}",
   "exportPluginList": "Exportovat seznam pluginů",
   "exportPluginListFailed": "Nepodařilo se exportovat seznam pluginů: {error}",
   "exportRules": "Exportovat pravidla",
-  "exportRulesDialogTitle": "Exportovat pravidla",
-  "exportRulesTitle": "Exportovat pravidla",
   "exportSmsRules": "Exportovat pravidla SMS",
   "exportStatisticsData": "Exportovat statistická data",
-  "exportSuccess": "Export úspěšný",
   "exportSuccesslly": "Konfigurace úspěšně exportována",
-  "failedToAddContact": "Nepodařilo se přidat kontakt",
   "failedToAddRule": "Nepodařilo se přidat pravidlo: {error}",
-  "failedToAddSmsRule": "Nepodařilo se přidat pravidlo SMS: {error}",
   "failedToAddSmsSubscription": "Nepodařilo se přidat odběr SMS: {error}",
   "failedToBackupSettings": "Nepodařilo se zálohovat nastavení: {error}",
   "failedToDecryptBackupFile": "Nepodařilo se dešifrovat záložní soubor",
-  "failedToDeleteDevice": "Nepodařilo se smazat zařízení",
   "failedToDeleteSmsRule": "Nepodařilo se smazat pravidlo SMS: {error}",
   "failedToExportRules": "Nepodařilo se exportovat pravidla: {error}",
-  "failedToExportSmsRules": "Nepodařilo se exportovat pravidla SMS: {error}",
   "failedToGetCallerIdInfo": "Nepodařilo se získat informace o ID volajícího: {error}",
   "failedToImportRules": "Nepodařilo se importovat pravidla: {error}",
-  "failedToImportSmsRules": "Nepodařilo se importovat pravidla SMS: {error}",
-  "failedToLoadContacts": "Nepodařilo se načíst kontakty",
-  "failedToLoadPlugin": "Nepodařilo se načíst plugin",
-  "failedToRenameDevice": "Nepodařilo se přejmenovat zařízení",
   "failedToRestoreSettings": "Nepodařilo se obnovit nastavení",
   "failedToRestoreSettingsWithError": "Nepodařilo se obnovit nastavení: {error}",
-  "failedToSetPassword": "Nepodařilo se nastavit heslo: {error}",
-  "failedToSyncDevices": "Nepodařilo se synchronizovat zařízení",
   "failedToToggleRuleStatus": "Nepodařilo se přepnout stav pravidla: {error}",
-  "failedToToggleSubscriptionStatus": "Nepodařilo se přepnout stav odběru",
-  "failedToUpdateContact": "Nepodařilo se aktualizovat kontakt",
-  "failedToUpdateSmsRule": "Nepodařilo se aktualizovat pravidlo SMS: {error}",
-  "failure": "Chyba",
   "favoriteContacts": "Oblíbené kontakty",
   "featureAddRules": "• Přidat specifická pravidla pro telefonní čísla",
   "featureCenter": "Centrum funkcí",
@@ -777,23 +559,14 @@
   "fileSavedTo": "Soubor uložen do: {path}",
   "filter": "Filtr",
   "filterByLabel": "Filtrovat podle štítku",
-  "filterClear": "Vymazat filtr",
   "filterControlPanelTitle": "Ovládací panel filtrů",
   "filterControlSubtitle": "Spravujte stav zapnutí/vypnutí všech filtrů",
   "filterControlTitle": "Ovládací panel filtrů",
-  "filterDeleteFailed": "Odstranění filtru selhalo",
-  "filterDeleteSuccess": "Filtr úspěšně odstraněn",
-  "filterDetails": "Podrobnosti filtru",
   "filtered": "Filtrováno",
-  "filteredSms": "Filtrované SMS",
-  "filteredSmsLabel": "Filtrované SMS",
   "filterExplanation": "Vysvětlení filtru",
   "filterManagement": "Správa filtrů",
   "filterName": "Název filtru",
-  "filterPattern": "Vzor filtru",
   "filterPriorityNote": "Poznámka: Mezi filtry existují prioritní vztahy, podrobnosti naleznete v dokumentaci nápovědy",
-  "filterSaveFailed": "Uložení filtru selhalo",
-  "filterSaveSuccess": "Filtr úspěšně uložen",
   "filterSettings": "Nastavení filtrů",
   "filterSettingsTitle": "Nastavení filtrů",
   "filterSMS": "Filtrovat SMS",
@@ -815,8 +588,6 @@
   "flexibleCombinationFeature": "• Flexibilní kombinace: Povolit/zakázat filtry na slot SIM karty",
   "fontSizesSetting": "Velikost písma",
   "foundRules": "Nalezeno {count} pravidel",
-  "foundRulesDoYouWantToImport": "Nalezeno {count} pravidel. Chcete je importovat?",
-  "foundRulesToImport": "Nalezeno {count} pravidel. Chcete je importovat?",
   "fraudAlert": "POZOR NA PODVOD – Ukončete hovor",
   "fraudScamLikely": "Pravděpodobně podvodný hovor",
   "free": "Zdarma",
@@ -838,29 +609,18 @@
   "@globalFilterSettings": {
     "description": "Global filter settings section title"
   },
-  "globalFilterToggleInstructions": "Konfigurujte nastavení globálního filtru, které platí pro všechny sloty SIM karty:",
-  "@globalFilterToggleInstructions": {
-    "description": "Instructions for configuring global filter settings"
-  },
-  "globalSearchSubtitle": "Vyhledávejte kontakty, štítky, blokované seznamy, povolené seznamy atd.",
-  "globalSearchTitle": "Globální vyhledávání",
   "globalSettings": "Globální nastavení",
   "@globalSettings": {
     "description": "Title for global settings page"
   },
-  "googleAdDisplayPosition": "Pozice zobrazení reklamy Google",
-  "googleAdMobIntegrationText": "Zde lze integrovat reklamy Google AdMob",
   "googleDriveAuthDescription": "Autorizujte pomocí systémově nakonfigurovaného ID klienta a klíče služby Google Drive",
-  "googleDriveAuthorizationHint": "Autorizujte pomocí systémově nakonfigurovaného ID klienta a klíče služby Google Drive",
   "googleDriveConfigTitle": "Konfigurace Google Drive",
-  "googleDriveConfigurationTitle": "Konfigurace Google Drive",
   "government": "Vládní",
   "granted": "Udělena",
   "grantNecessaryPermissions": "Udělit potřebná oprávnění",
   "grantPermissions": "Udělit oprávnění",
   "headhunter": "Lovec lebek",
   "height": "Výška",
-  "homePageTitle": "Domovská stránka",
   "homeTab": "Domů",
   "howItWorksPoint1": "• Systém automaticky povolí hovory ze stejného čísla v nastaveném časovém okně",
   "howItWorksPoint2": "• Kratší časová okna znamenají přísnější zachycení; delší časová okna znamenají volnější zachycení",
@@ -870,7 +630,6 @@
   "iconSize": "Velikost ikony",
   "import": "Importovat",
   "important": "Důležité",
-  "importButton": "Importovat",
   "importConfig": "Importovat konfiguraci",
   "importContacts": "Importovat kontakty",
   "importExportContacts": "Import/Export kontaktů",
@@ -885,17 +644,9 @@
   "importPluginListFailed": "Nepodařilo se importovat seznam pluginů: {error}",
   "importPluginSuccess": "Úspěšně importováno {count} pluginů",
   "importRuleConfigurationsFromFile": "Importovat konfigurace pravidel ze souboru",
-  "importRuleConfigurationsFromFileSubtitle": "Importovat konfigurace pravidel ze souboru",
   "importRules": "Importovat pravidla",
-  "importRulesButton": "Importovat pravidla",
-  "importRulesDialogTitle": "Importovat pravidla",
-  "importRulesError": "Nepodařilo se importovat pravidla: {error}",
-  "importRulesInstructions": "Importovat pravidla ze souboru CSV",
-  "importRulesSuccess": "Pravidla úspěšně importována",
-  "importRulesTitle": "Importovat pravidla",
   "importSuccess": "Import úspěšný",
   "incomingCallInterceptAction": "Akce zachycení příchozího hovoru",
-  "incomingCallNotification": "Oznámení o příchozím hovoru",
   "incorrectPassword": "Nesprávné heslo",
   "initializing": "Inicializace",
   "installed": "Nainstalováno",
@@ -923,33 +674,18 @@
   "invalidRegexPattern": "Neplatný vzor regulárního výrazu",
   "invalidSenderRegex": "Neplatný regulární výraz pro odesílatele",
   "joinTheTelegramChannelAndGroupForMoreInfo": "Připojte se k Telegram kanálu a skupině pro více informací",
-  "jsLogsTitle": "JS protokoly",
   "jsonFormat": "Formát JSON",
   "keepAllVersions": "Ponechat všechny verze",
   "keepAllVersionsDescription": "Ponechat všechny historické verze každého zálohování",
-  "keepAllVersionsLabel": "Ponechat všechny verze",
-  "keepAllVersionsSubtitle": "Ponechat historické verze každého zálohování",
-  "keepAllVersionsTitle": "Ponechat všechny verze",
   "label": "Popisek",
   "labelAddedSuccessfully": "Popisek \"{name}\" byl úspěšně přidán",
   "labelCategories": "Kategorie popisků",
   "labelDeleted": "Popisek byl smazán",
   "labelDescription": "Popisky vám pomohou lépe spravovat kontakty, přidávejte vlastní popisky k telefonním číslům pro snadnou identifikaci hovorů a zpráv.",
-  "labelFilter": "Filtr popisků",
   "labelFilterTooltip": "Filtr popisků",
   "labelIconColor": "Barva ikony popisku",
   "labelManagement": "Správa popisků",
   "labelNotFound": "Popisek nebyl nalezen",
-  "labelRemoved": "Popisek byl odstraněn",
-  "labelRemoveFailed": "Nepodařilo se odstranit popisek: {error}",
-  "@labelRemoveFailed": {
-    "description": "Label removal failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "labels": "Popisky",
   "labelsColor": "Barva popisků",
   "labelsDeleted": "{count} popisků bylo smazáno",
@@ -958,7 +694,6 @@
   "labelsImportedSuccessfully": "Úspěšně importováno {count} popisků",
   "labelsPosition": "Pozice popisků",
   "labelTag": "Popisek: {labelId}",
-  "labelUpdated": "Popisek byl aktualizován",
   "labelUpdateFailed": "Nepodařilo se aktualizovat popisek: {error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -972,8 +707,6 @@
   "languageSettings": "Nastavení jazyka",
   "languageSettingsSubtitle": "Změnit jazyk zobrazení aplikace",
   "languageSettingsTitle": "Nastavení jazyka",
-  "last30Days": "Posledních 30 dní",
-  "last7Days": "Posledních 7 dní",
   "lastSyncLabel": "Poslední synchronizace",
   "lastUpdated": "Poslední aktualizace: {date}",
   "@lastUpdated": {
@@ -988,16 +721,12 @@
   "lifetimeMembershipDescription": "Jednorázový nákup, trvale odemkne všechny prémiové funkce a budoucí aktualizace",
   "loadContactsFailed": "Nepodařilo se načíst kontakty: {error}",
   "loadDataFailed": "Nepodařilo se načíst data",
-  "loadFailed": "Načtení selhalo",
   "loading": "Načítání...",
-  "loadingData": "Načítání dat...",
   "loadingTags": "Načítání značek...",
   "loadLabelFailed": "Nepodařilo se načíst popisky: {error}",
   "loadLabelsFailed": "Nepodařilo se načíst popisky: {error}",
   "loadMarkCountFailed": "Nepodařilo se načíst označená telefonní čísla: {error}",
   "loadMarkedPhonesFailed": "Nepodařilo se načíst označená čísla: {error}",
-  "loadMore": "Načíst více",
-  "loadPluginButton": "Načíst plugin",
   "loadPluginsFailed": "Nepodařilo se načíst pluginy: {error}",
   "loadSettingsFailed": "Nepodařilo se načíst nastavení: {error}",
   "loadSmsRulesFailed": "Nepodařilo se načíst pravidla SMS: {error}",
@@ -1012,7 +741,6 @@
     }
   },
   "loan": "Půjčka",
-  "localBackupTitle": "Lokální záloha",
   "localCounterFilter": "Filtr lokálního počtu",
   "localCounterFilterSubtitle": "Automaticky filtrovat spamové hovory na základě frekvence hovorů",
   "localCountFilter": "Filtr lokálního počtu",
@@ -1043,11 +771,9 @@
   "logAllRemoteQueries": "Zaznamenat všechny vzdálené dotazy",
   "logAllRemoteQueriesDescription": "Zaznamenat všechny operace vzdálených dotazů na čísla",
   "manage": "Spravovat kontakty",
-  "manageContacts": "Správa",
   "manageFavoriteContacts": "Správa oblíbených kontaktů",
   "manageFilterRules": "Správa pravidel filtru",
   "manageFilterRulesDescription": "Přidat, upravit nebo smazat pravidla filtru SMS",
-  "manageFrequentContacts": "Správa častých kontaktů",
   "markCounts": "Počty označení",
   "markCount": "Počet označení",
   "markedByCount": "Označeno {count}",
@@ -1064,84 +790,48 @@
   "markExchange": "Výměna značky",
   "markPhone": "Označit telefonní číslo",
   "markPhoneFailed": "Nepodařilo se označit telefonní číslo: {error}",
-  "markPhoneManagementSubtitle": "Označit telefonní čísla",
   "markPhoneManagementTitle": "Správa označování telefonů",
   "markPhoneSuccess": "Telefonní číslo úspěšně označeno",
-  "matchFailed": "Shoda selhala!",
   "matchFailedMessage": "Shoda selhala.",
   "matchNumbersWithSpecialCharacters": "odpovídá specifickému formátu čísla",
   "matchNumbersWithSpecialCharactersTitle": "Shoda čísel se speciálními znaky:",
   "matchSpecificDigitPatterns": "odpovídá formátu XXX-XXXX-XXXX",
   "matchSpecificDigitPatternsTitle": "Shoda specifických vzorů číslic:",
-  "matchSuccessful": "Shoda úspěšná!",
   "matchSuccessfulMessage": "Shoda úspěšná!",
   "medical": "Zdravotní",
   "membershipPrivileges": "Výhody členství",
   "migrationTool": "Nástroj pro migraci",
-  "migrationToolTitle": "Nástroj pro migraci",
   "minutes": "minuty",
   "month": "Měsíc",
   "monthly": "Měsíčně",
   "monthlyCallCount": "Měsíční hovory",
-  "monthlyChartTitle": "Měsíční zablokované hovory",
   "monthlyMembership": "Měsíční členství",
   "monthlyMembershipDescription": "Odemkněte všechny prémiové funkce, automatické obnovení měsíčně",
   "monthlyTotal": "Měsíční celkem",
-  "monthlyTotalLabel": "Měsíční celkem",
   "moreOptions": "Další možnosti",
   "mute": "Ztlumit",
   "name": "Jméno",
   "nameAndPhoneNumberCannotBeEmpty": "Jméno a telefonní číslo nemohou být prázdné",
-  "nameAndPhoneNumberRequired": "Jméno a telefonní číslo nemohou být prázdné",
   "nameColor": "Barva jména",
   "nameFontSize": "Velikost písma jména",
-  "nameLabel": "Jméno: {name}",
-  "@nameLabel": {
-    "description": "Caller ID name label",
-    "placeholders": {
-      "name": {
-        "type": "Object"
-      }
-    }
-  },
   "namePosition": "Pozice jména",
   "nameUnknown": "Jméno: Neznámé",
-  "nameWithValue": "Jméno: {name}",
-  "@nameWithValue": {
-    "description": "Text showing the name of a contact",
-    "placeholders": {
-      "name": {
-        "type": "String",
-        "example": "John Doe"
-      }
-    }
-  },
-  "newPasswordLabel": "Nové heslo",
   "nextStep": "Další",
   "noAction": "Žádná akce",
   "noActionRules": "Pravidla pro žádnou akci",
   "noActiveCloudSyncServiceMessage": "Žádná aktivní služba synchronizace cloudu",
-  "noCallLogs": "Žádné protokoly hovorů",
   "noCallRecords": "Žádné záznamy o hovorech",
-  "noContacts": "Zatím žádné kontakty",
   "noContactsYet": "Zatím žádné kontakty",
   "noData": "Žádná data",
   "noDevicesRegisteredMessage": "Žádná registrovaná zařízení",
-  "noDevicesRegisteredYet": "Zatím žádná registrovaná zařízení.",
-  "noFilters": "Zatím žádné filtry",
   "noLabels": "Zatím žádné štítky",
   "noMarkedPhones": "Žádná označená telefonní čísla",
-  "noMatchingContacts": "Žádné shodné kontakty",
   "noMatchingContactsFound": "Nebyly nalezeny žádné shodné kontakty",
   "noMatchingNumbersFound": "Nebyly nalezeny žádná shodná čísla",
-  "noMatchingRecords": "Žádné shodné záznamy o hovorech",
   "noMatchingRules": "Žádná shodná {ruleType}",
   "none": "Žádný",
   "noneServiceType": "Žádný",
   "noPlugins": "Zatím žádné pluginy",
-  "noRecords": "Žádné záznamy o hovorech",
-  "noResultReturned": "Nebyl vrácen žádný výsledek",
-  "noResultReturnedLog": "Nebyl vrácen žádný výsledek z pluginu",
   "noRules": "Žádná {ruleType} zatím",
   "noRulesPrompt": "Nebyly nalezeny žádné pravidla, přidejte pravidla",
   "noRulesToExport": "Žádná pravidla k exportu",
@@ -1151,7 +841,6 @@
   "@noSubscriptions": {
     "description": "No subscriptions message"
   },
-  "noSubscriptionsYet": "Zatím žádná předplatná",
   "notGranted": "Není uděleno",
   "notificationMode": "Režim oznámení",
   "notificationModeDescription": "Zobrazit informace o volajícím v notifikační liště",
@@ -1162,8 +851,6 @@
   "@notificationSettings": {
     "description": "Notification settings title"
   },
-  "notificationSettingsSaved": "Nastavení oznámení bylo úspěšně uloženo",
-  "notSet": "Není nastaveno",
   "notVerifiedText": "Není ověřeno",
   "noValidSmsRulesFoundInFile": "V souboru nebyly nalezeny žádná platná pravidla pro SMS",
   "number": "Číslo",
@@ -1174,7 +861,6 @@
   "numberTypeColor": "Barva typu čísla",
   "numberTypeFontSize": "Velikost písma typu čísla",
   "numberTypePosition": "Pozice typu čísla",
-  "ok": "OK",
   "okButton": "OK",
   "onboardingCompleteDescription": "Váš správce zabezpečení hovorů je připraven, začněte si užívat zabezpečenou telefonickou komunikaci!",
   "onboardingLanguageDescription": "Vyberte si preferovaný jazyk pro nejlepší zážitek.",
@@ -1183,9 +869,7 @@
   "onboardingSmartCallerIdDescription": "Automaticky identifikujte neznámé hovory, označte podezřelá čísla a chraňte bezpečnost vašich hovorů.",
   "onboardingWelcomeDescription": "Váš odborník na správu hovorů, poskytující komplexní služby identifikace a blokování hovorů.",
   "oneDriveAuthDescription": "Autorizujte pomocí klientského ID a klíče OneDrive nakonfigurovaného systémem",
-  "oneDriveAuthorizationHint": "Autorizujte pomocí klientského ID a klíče OneDrive nakonfigurovaného systémem",
   "oneDriveConfigTitle": "Konfigurace OneDrive",
-  "oneDriveConfigurationTitle": "Konfigurace OneDrive",
   "onlineCallerIdSubscription": "Předplatné online identifikace volajícího",
   "openAppSettings": "Otevřít nastavení aplikace",
   "openAppSettingsFailed": "Nepodařilo se otevřít nastavení aplikace: {error}",
@@ -1203,7 +887,6 @@
   "passwordCannotBeEmpty": "Heslo nemůže být prázdné",
   "passwordLabel": "Heslo",
   "passwordsDoNotMatch": "Hesla se neshodují",
-  "passwordSetSuccessfully": "Heslo bylo úspěšně nastaveno",
   "pattern": "Vzor",
   "pendingSync": "Čeká na synchronizaci",
   "periodMonth": "Měsíc",
@@ -1216,9 +899,7 @@
   "phoneNumber": "Telefonní číslo",
   "phoneNumberCannotBeEmpty": "Telefonní číslo nemůže být prázdné",
   "phoneNumberHint": "Zadejte telefonní číslo",
-  "phoneNumberHintText": "Zadejte telefonní číslo pro přidání pravidla",
   "phoneNumberLabel": "Telefonní číslo",
-  "phoneNumberRegexRequired": "Zadejte prosím telefonní číslo i vzor regex",
   "phoneNumberRequired": "Telefonní číslo je vyžadováno",
   "phoneNumberTypeFixedLine": "Pevná linka",
   "phoneNumberTypeFixedLineOrMobile": "Pevná linka nebo mobil",
@@ -1235,34 +916,23 @@
   "phonePermission": "Oprávnění k telefonu",
   "phonePermissionDescription": "Používá se k identifikaci a blokování příchozích hovorů.",
   "phoneRule": "Pravidlo pro telefon",
-  "phoneRuleEditDialog": "Dialog pro úpravu pravidla pro telefon",
   "phoneRuleManagement": "Správa pravidel pro telefon",
   "phoneRuleSubscription": "Předplatné pravidel pro telefon",
   "phoneSubscription": "Předplatné telefonu",
   "phoneSubscriptionRulesDescription": "Přihlaste se k odběru seznamů pravidel pro telefony přes URL a automaticky aktualizujte seznamy povolených a zakázaných pravidel. Podporuje soubory pravidel ve formátu JSON.",
-  "phoneSubscriptionTitle": "Předplatná pravidel pro telefon",
-  "@phoneSubscriptionTitle": {
-    "description": "Phone subscription page title"
-  },
   "pleaseSelectLabelAndEnterValidPhone": "Vyberte prosím popisek a zadejte platné telefonní číslo",
   "pluginAddedSuccess": "Zásuvný modul „{name}“ byl úspěšně přidán",
   "pluginDeleted": "Zásuvný modul byl odstraněn",
   "pluginLatestVersion": "Zásuvný modul je již nejnovější verze",
   "pluginListExportSuccess": "Seznam zásuvných modulů byl úspěšně exportován",
-  "pluginLoadedSuccessfully": "Zásuvný modul byl úspěšně načten",
   "pluginManagement": "Správa zásuvných modulů",
   "pluginManagementSubtitle": "Spravujte a konfigurujte zásuvné moduly třetích stran",
-  "pluginManagementTitle": "Správa zásuvných modulů",
   "pluginName": "Název zásuvného modulu",
-  "pluginNotLoaded": "Zásuvný modul ještě není načten. Nejprve jej prosím načtěte.",
   "pluginsDeleted": "{count} zásuvných modulů bylo úspěšně odstraněno.",
   "pluginService": "Služba zásuvných modulů",
   "pluginTestPageTitle": "Test zásuvných modulů",
   "pluginUpdateSuccess": "Zásuvný modul byl úspěšně aktualizován",
   "pluginUrl": "URL zásuvného modulu",
-  "pluginUrlCannotBeEmpty": "URL zásuvného modulu nemůže být prázdné",
-  "pluginUrlHint": "Zadejte URL zásuvného modulu",
-  "pluginUrlLabel": "URL zásuvného modulu",
   "pluginVersion": "Verze zásuvného modulu",
   "political": "Politické",
   "powerfulSpamBlocking": "Silné blokování spamu",
@@ -1274,26 +944,16 @@
   "purchase": "Nákup",
   "quarterlyMembership": "Čtvrtletní členství",
   "quarterlyMembershipDescription": "Odemkněte všechny prémiové funkce, automatické obnovení čtvrtletně",
-  "queryButton": "Dotaz",
-  "queryFailed": "Dotaz selhal",
-  "queryFailedLog": "Dotaz selhal",
-  "querying": "Dotazuje se...",
-  "queryingPhoneNumber": "Dotazuje se telefonní číslo",
-  "queryResultTitle": "Výsledek dotazu",
   "ready": "Připraveno!",
-  "receiveWeeklyStatistics": "Přijímat týdenní statistiky",
   "recruiter": "Náborář",
-  "reEnterPasswordHint": "Znovu zadejte heslo",
   "refresh": "Obnovit",
   "refreshPermissionStatus": "Obnovit stav oprávnění",
   "refreshTooltip": "Obnovit",
-  "regexError": "Chyba regulárního výrazu: {error}",
   "regexErrorMessage": "Chyba regulárního výrazu: {error}",
   "regexPattern": "Vzor regulárního výrazu",
   "regexPatternExplanation": "Vysvětlení regulárního výrazu",
   "regexPatternExplanationButton": "Vysvětlení regulárního výrazu",
   "regexPatternLabel": "Vzor regulárního výrazu",
-  "regexPatternsExamples": "Použijte standardní syntaxi regulárních výrazů k definování vzorů. Příklady:",
   "regexPatternsForPhoneNumberMatching": "Vzory regulárních výrazů pro shodu telefonních čísel",
   "regexRule": "Pravidlo regulárního výrazu",
   "regexRuleAddFailed": "Nepodařilo se přidat pravidlo regulárního výrazu: {error}",
@@ -1302,8 +962,6 @@
   "regexRuleNamePatternRequired": "Název pravidla a vzor regulárního výrazu nemohou být prázdné",
   "regexRules": "Pravidla regulárních výrazů",
   "regexTesterTitle": "Tester regulárních výrazů",
-  "regexValidationFailed": "Validace regulárního výrazu selhala: {error}",
-  "regexValidationSuccess": "Validace regulárního výrazu proběhla úspěšně",
   "region": "Region",
   "registeredDevicesTitle": "Registrovaná zařízení",
   "rejectAllCalls": "Odmítnout všechny hovory",
@@ -1318,27 +976,15 @@
   },
   "remoteFilterSettingsPageTitle": "Nastavení vzdáleného filtru čísel",
   "remoteNumberFilter": "Vzdálený filtr čísel",
-  "remoteNumberFilterDatabaseInfo": "Tento filtr používá nezávislou vzdálenou databázi k získání nejnovějších informací o číslech.",
   "remoteNumberFilterDescription": "Zachytávat obtěžující hovory na základě informací ze vzdálené databáze",
-  "remoteNumberFilterExplanationContent": "Vzdálený filtr čísel identifikuje a blokuje spamové hovory dotazováním vzdálené databáze na základě počtu čísel.",
-  "remoteNumberFilterExplanationTitle": "Vysvětlení vzdáleného filtru čísel",
-  "remoteNumberFilterFeatureCountThreshold": "• Prahová hodnota počtu: Určete na základě frekvence výskytu čísla",
-  "remoteNumberFilterFeatureFilterAction": "• Akce filtru: Nakonfigurujte, jak nakládat s čísly přesahujícími prahovou hodnotu",
-  "remoteNumberFilterFeaturePriority": "• Nastavení priority: Nastavte prioritu pro vzdálené akce",
-  "remoteNumberFilterFeatures": "Funkce:",
   "remoteNumberFiltering": "Vzdálené filtrování čísel",
   "remoteNumberFilteringExplanation": "• Vzdálené filtrování čísel: Filtrační pravidla založená na informacích ze vzdálené databáze",
   "remoteNumberFilterSubtitle": "Identifikujte spamové hovory pomocí cloudové databáze a komunitních hlášení",
   "removeAdsDescription": "Trvale odstraňte veškerou reklamu v aplikaci pro plynulejší zážitek",
   "removeAdsTitle": "Odstranit reklamy",
-  "removedFromFavoriteContacts": "Odstraněno z oblíbených kontaktů",
   "removedFromFavorites": "Odstraněno z oblíbených",
-  "removeFavorite": "Odstranit oblíbený",
   "removeFromFavorites": "Odstranit z oblíbených",
-  "renameButton": "Přejmenovat",
-  "renameDeviceDialogTitle": "Přejmenovat zařízení",
   "renameDeviceTitle": "Přejmenovat zařízení",
-  "replaceCurrentSettingsConfirmation": "Toto nahradí všechna vaše aktuální nastavení. Jste si jisti, že chcete pokračovat?",
   "requestAllPermissions": "Požádat o všechna oprávnění",
   "requestPermission": "Požádat o oprávnění",
   "requestPermissionFailed": "Nepodařilo se vyžádat oprávnění: {error}",
@@ -1346,84 +992,44 @@
   "reset": "Resetovat",
   "restore": "Obnovit",
   "restoreApplicationSettingsFromBackup": "Obnovit nastavení aplikace ze zálohy",
-  "restoreApplicationSettingsFromBackupSubtitle": "Obnovit nastavení aplikace ze zálohy",
-  "restoreButton": "Obnovit",
-  "restoreFailedWithError": "Obnovení z cloudu selhalo: {error}",
   "restoreFromCloud": "Obnovit z cloudu",
-  "restoreFromCloudDescription": "Obnovit nastavení a pravidla z cloudového úložiště",
   "restoreFromCloudFailed": "Nepodařilo se obnovit z cloudu: {error}",
-  "restoreFromCloudLabel": "Obnovit z cloudu",
   "restoreFromCloudSuccess": "Úspěšně obnoveno z cloudu",
-  "restoreFromCloudTitle": "Obnovit z cloudu",
-  "restoreFromLocal": "Obnovit z místního zdroje",
   "restorePurchases": "Obnovit nákupy",
-  "restoreSectionTitle": "Obnovit",
   "restoreSettings": "Obnovit nastavení",
   "restoreSettingsConfirmation": "Toto nahradí všechna vaše aktuální nastavení. Jste si jisti, že chcete pokračovat?",
-  "restoreSettingsDialogTitle": "Obnovit nastavení",
-  "restoreSettingsTitle": "Obnovit nastavení",
-  "restoreSuccessFromLocal": "Úspěšně obnoveno z místního zdroje",
-  "restoreSuccessMessage": "Úspěšně obnoveno z cloudu",
   "retry": "Zkusit znovu",
   "ridesharing": "Sdílení jízd",
   "risk": "Riziko",
   "robocall": "Robohovor",
   "ruleAction": "Akce pravidla",
-  "ruleAddButton": "Přidat pravidlo",
   "ruleAddedSuccess": "Pravidlo bylo přidáno úspěšně",
   "@ruleAddedSuccess": {
     "description": "Rule creation success message"
   },
-  "ruleAddFailure": "Nepodařilo se přidat pravidlo: {error}",
-  "@ruleAddFailure": {
-    "description": "Rule creation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleAddSuccess": "Pravidlo bylo přidáno úspěšně",
   "ruleDeleteConfirmContent": "Jste si jisti, že chcete smazat tento {ruleType}?",
   "ruleDeleteConfirmTitle": "Smazat pravidlo",
-  "ruleDeletedSuccess": "Pravidlo bylo úspěšně smazáno",
   "ruleDeletedSuccessfully": "Pravidlo bylo úspěšně smazáno",
   "ruleDeleteFailed": "Nepodařilo se smazat pravidlo: {error}",
-  "ruleDeleteFailure": "Nepodařilo se smazat pravidlo: {error}",
-  "@ruleDeleteFailure": {
-    "description": "Rule deletion failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleDeleteSuccess": "Pravidlo bylo úspěšně smazáno",
   "ruleDisabledSuccessfully": "Pravidlo bylo úspěšně zakázáno",
   "ruleEnabledSuccessfully": "Pravidlo bylo úspěšně povoleno",
   "ruleLoadFailed": "Nepodařilo se načíst pravidla: {error}",
   "ruleManagement": "Správa pravidel",
-  "ruleManagementTitle": "Správa pravidel",
   "ruleName": "Název pravidla",
   "ruleNameAndContentRegexCannotBeEmpty": "Název pravidla a regulární výraz obsahu nemohou být prázdné",
   "ruleNameAndPhoneNumberCannotBeEmpty": "Název pravidla a telefonní číslo nemohou být prázdné",
   "ruleNameHint": "např. Rodina, Přátelé atd.",
   "ruleNameLabel": "Název pravidla",
-  "ruleNamePatternRequired": "Zadejte název pravidla a vzor",
   "ruleNameRequired": "Název pravidla a telefonní číslo nemohou být prázdné",
   "ruleNotExist": "Pravidlo neexistuje nebo bylo smazáno",
   "ruleNotFound": "Pravidlo nenalezeno: {error}",
-  "ruleSavedSuccessfully": "Pravidlo bylo úspěšně uloženo!",
   "ruleSavedSuccessMessage": "Pravidlo bylo úspěšně uloženo!",
-  "ruleSaveFailed": "Uložení selhalo: {error}",
-  "ruleSaveFailedMessage": "Uložení selhalo: {error}",
-  "ruleSaveSuccess": "Pravidlo bylo úspěšně uloženo!",
   "rulesExportedSuccessfully": "Pravidla byla úspěšně exportována",
   "rulesExportedTo": "Pravidla byla exportována do: {path}",
   "rulesImported": "Pravidla byla úspěšně importována",
   "rulesImportedSuccessfully": "{count} pravidel bylo úspěšně importováno",
-  "rulesImportFailed": "Nepodařilo se importovat pravidla: {error}",
-  "ruleStatistics": "Statistiky pravidel",
   "ruleStatusChanged": "Pravidlo bylo úspěšně {status}",
   "ruleToggleFailed": "Operace selhala: {error}",
   "ruleToggleSuccess": "Pravidlo bylo úspěšně {status}",
@@ -1432,32 +1038,19 @@
   "ruleVerification": "Ověření pravidla",
   "save": "Uložit",
   "saveButton": "Uložit",
-  "saveButtonLabel": "ULOŽIT",
   "saveButtonText": "Uložit",
   "saveFailed": "Uložení selhalo: {error}",
-  "saveFilter": "Uložit filtr",
   "saveSettings": "Uložit nastavení",
-  "saveSettingsFailed": "Nepodařilo se uložit nastavení: {error}",
   "scamsLikely": "Pravděpodobně podvod",
   "search": "Hledat",
   "searchContacts": "Vyhledat kontakty",
   "searchError": "Chyba vyhledávání: {error}",
-  "searchFilters": "Filtry vyhledávání",
-  "searchForContacts": "Hledat kontakty",
   "searchHint": "Hledat...",
-  "searchSettingsSubtitle": "Vyhledávat kontakty, štítky, blokované seznamy, povolené seznamy atd.",
-  "searchSettingsTitle": "Nastavení vyhledávání",
   "securityMessage": "Nevěřte žádným telefonním hovorům. Čísla zákaznických služeb si vždy ověřujte nezávisle. Nikdy nesdílejte hesla, ověřovací kódy, čísla karet ani osobní údaje.",
-  "selectActionToPerform": "Vyberte akci, kterou chcete provést, když pravidlo odpovídá",
   "selectActionWhenBlockingCalls": "Vyberte akci při blokování hovorů",
   "selectActionWhenRuleMatches": "Vyberte akci, když pravidlo odpovídá",
   "selectAll": "Vybrat vše",
   "selectCountry": "Vybrat zemi",
-  "selectDateRange": "Vybrat časové období",
-  "selectedDateRange": "Vybrané časové období",
-  "@selectedDateRange": {
-    "description": "Selected date range text"
-  },
   "selectedItems": "Vybráno {count} položek",
   "selectedLabel": "Vybráno:",
   "selectExportFormat": "Vybrat formát exportu",
@@ -1465,14 +1058,7 @@
   "selectLabelAndEnterPhoneNumber": "Vyberte prosím štítek a zadejte platné telefonní číslo",
   "selectLanguage": "Vybrat jazyk",
   "selectMultiple": "Vybrat více",
-  "selectPeriod": "Vybrat období",
   "selectSimCard": "Vybrat SIM kartu",
-  "selectSimSlot": "Vybrat slot SIM",
-  "@selectSimSlot": {
-    "description": "Title for SIM slot selection dialog"
-  },
-  "selectSpecificActionForBlockedCalls": "Vyberte konkrétní akci pro blokované hovory",
-  "selectTag": "Vybrat značku",
   "selectTags": "Vybrat značky",
   "selectTrustedDataSource": "Vyberte důvěryhodné zdroje dat",
   "selectYourLanguage": "Vybrat svůj jazyk",
@@ -1493,16 +1079,9 @@
       }
     }
   },
-  "setButton": "Nastavit",
   "setEncryptionPassword": "Nastavit heslo pro šifrování",
-  "setEncryptionPasswordDescription": "Nastavte heslo pro šifrování pro zálohování a obnovení",
-  "setEncryptionPasswordLabel": "Nastavit heslo pro šifrování",
-  "setEncryptionPasswordTitle": "Nastavit heslo pro šifrování",
-  "setPasswordButton": "Nastavit",
   "settings": "Nastavení",
   "settingsBackedUpTo": "Nastavení zálohováno do: {path}",
-  "settingsLoaded": "Nastavení načteno",
-  "settingsLoadFailed": "Nepodařilo se načíst nastavení: {error}",
   "settingsRestoredSuccessfully": "Nastavení bylo úspěšně obnoveno. Restartujte prosím aplikaci, aby se změny projevily.",
   "settingsSaved": "Nastavení uloženo",
   "@settingsSaved": {
@@ -1512,8 +1091,6 @@
   "settingsTab": "Nastavení",
   "settingsTitle": "Nastavení",
   "setup": "Nastavení",
-  "showContactEditDialogStaticMethod": "Statická metoda pro zobrazení dialogového okna pro úpravu kontaktu",
-  "showExplanation": "Zobrazit vysvětlení",
   "silence": "Ticho",
   "silenceAndNoAnswer": "Ticho a žádná odpověď",
   "silenceNoAnswer": "Ticho bez odpovědi",
@@ -1538,15 +1115,10 @@
       }
     }
   },
-  "simInfoLoadFailure": "Nepodařilo se načíst informace o SIM kartě: {error}",
   "simRuleInstructions": "Pravidla pro sloty SIM vám umožňují konfigurovat nezávislá pravidla filtrování pro každý slot SIM.",
   "simRuleInstructionsTitle": "Pravidla slotů SIM",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simRuleManagement": "Správa pravidel slotů SIM",
-  "@simRuleManagement": {
-    "description": "SIM slot rule management section title"
   },
   "simSlot1": "SIM 1,-{countryIso}",
   "@simSlot1": {
@@ -1568,9 +1140,6 @@
       }
     }
   },
-  "simSlotDataLoadFailed": "Nepodařilo se načíst data SIM: {error}",
-  "simSlotFilterConfiguration": "Konfigurace filtru slotu SIM",
-  "simSlotFilterConfigurationDescription": "Umožňuje nastavit pravidla filtrování podle slotu SIM",
   "simSlotFilterDescription": "Konfigurujte nezávislá pravidla filtrování pro každou SIM kartu:",
   "simSlotFilterSettingsTitle": "Nastavení filtru slotu SIM {slotNumber}",
   "@simSlotFilterSettingsTitle": {
@@ -1581,17 +1150,7 @@
       }
     }
   },
-  "simSlotLoadFailed": "Nepodařilo se načíst sloty SIM: {error}",
   "simSlotManagement": "Správa slotů SIM",
-  "simSlotOperationFailed": "Operace se slotem SIM se nezdařila: {error}",
-  "@simSlotOperationFailed": {
-    "description": "SIM slot operation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "simSlotPosition": "Pozice slotu SIM {slotNumber}",
   "@simSlotPosition": {
     "description": "SIM slot position display",
@@ -1605,11 +1164,6 @@
   "simSlotRuleFeature": "• Pravidla slotů SIM: Nezávislé strategie filtrování na SIM",
   "simSlotRuleListTitle": "Seznam pravidel slotů SIM",
   "simSlotRuleManagement": "Pravidla slotů SIM",
-  "simSlotRuleManagementTitle": "Správa pravidel",
-  "simSlotSettings": "Nastavení slotu SIM",
-  "@simSlotSettings": {
-    "description": "Title for SIM slot settings page"
-  },
   "simSlotTitle": "Slot SIM {slotNumber}",
   "skip": "Přeskočit",
   "smartCallerId": "Chytrá identifikace volajícího",
@@ -1620,7 +1174,6 @@
   "smsFilterRuleAddedSuccessfully": "Pravidlo filtru SMS bylo úspěšně přidáno",
   "smsFilterRules": "Pravidla filtru SMS",
   "smsFilterSettings": "Nastavení filtru SMS",
-  "smsHistory": "Historie SMS",
   "smsManagement": "Správa SMS",
   "smsPermission": "Povolení SMS",
   "smsPermissionDescription": "Používá se k filtrování spamových zpráv.",
@@ -1628,12 +1181,7 @@
   "smsRuleDeletedSuccessfully": "Pravidlo SMS bylo úspěšně smazáno",
   "smsRuleLoadFailed": "Nepodařilo se načíst pravidla SMS: {error}",
   "smsRuleManagement": "Správa pravidel SMS",
-  "smsRulesExportedSuccessfully": "Pravidla SMS byla úspěšně exportována do {filePath}",
-  "smsRulesImportedSuccessfully": "Pravidla SMS byla úspěšně importována",
   "smsRuleSubscription": "Předplatné pravidel SMS",
-  "smsRuleUpdatedSuccessfully": "Pravidlo SMS bylo úspěšně aktualizováno",
-  "smsSettingsSubtitle": "Filtrování SMS a blokování klíčových slov",
-  "smsSettingsTitle": "Nastavení SMS",
   "smsSubscription": "Předplatné SMS",
   "smsSubscriptionAddedSuccessfully": "Předplatné SMS bylo úspěšně přidáno",
   "smsSubscriptionRulesDescription": "Přihlaste se k odběru seznamů pravidel SMS prostřednictvím URL, podporuje shodu s regulárními výrazy. Můžete nastavit akce blokování nebo povolení.",
@@ -1645,12 +1193,7 @@
   "startUsing": "Začít používat",
   "statAnswered": "Odpovězeno",
   "statBlocked": "Blokováno",
-  "staticMethodShowCallerIdDialog": "Statická metoda pro zobrazení dialogu s informacemi o volajícím",
-  "staticMethodToDisplayCountrySelectionDialog": "Statická metoda pro zobrazení dialogu pro výběr země",
-  "staticMethodToDisplayDialog": "Statická metoda pro zobrazení dialogu",
   "statistics": "Statistiky",
-  "statisticsExportFeatureComingSoon": "Funkce exportu statistik bude brzy k dispozici",
-  "statisticsGrid": "Mřížka statistik",
   "statisticsPageTitle": "Analýza dat",
   "stirColor": "Barva STIR",
   "stirFontSize": "Velikost písma STIR",
@@ -1673,23 +1216,16 @@
   "@subscriptionDeleted": {
     "description": "Subscription deleted success message"
   },
-  "subscriptionDeletedSuccessfully": "Předplatné bylo úspěšně smazáno",
   "subscriptionDeleteFailed": "Nepodařilo se smazat předplatné: {error}",
   "subscriptionDeleteSuccess": "Předplatné smazáno",
-  "subscriptionEmptyState": "Žádná předplatná nejsou k dispozici",
-  "subscriptionEmptyText": "Zatím žádná předplatná",
   "subscriptionLoadFailed": "Nepodařilo se načíst předplatná: {error}",
-  "subscriptionLoadingFailed": "Nepodařilo se načíst předplatná: {error}",
-  "subscriptionManagementTitle": "Správa předplatného",
   "subscriptionName": "Název předplatného",
   "@subscriptionName": {
     "description": "Subscription name field label"
   },
   "subscriptionNameAndUrlCannotBeEmpty": "Název a URL předplatného nemohou být prázdné",
   "subscriptionNameHint": "Zadejte název předplatného",
-  "subscriptionPageTitle": "Správa předplatného",
   "subscriptionStatusChangeFailed": "Nepodařilo se změnit stav předplatného: {error}",
-  "subscriptionToggleFailed": "Nepodařilo se přepnout stav předplatného: {error}",
   "subscriptionUpdateFailed": "Nepodařilo se aktualizovat předplatné: {error}",
   "subscriptionUpdateSuccess": "Předplatné bylo úspěšně aktualizováno",
   "@subscriptionUpdateSuccess": {
@@ -1710,7 +1246,6 @@
   },
   "syncFailed": "Synchronizace selhala",
   "syncFailedMessage": "Synchronizace selhala",
-  "syncFolderNameHint": "Zadejte název složky pro synchronizaci (výchozí: NotificationManager)",
   "syncFolderNameLabel": "Název složky pro synchronizaci",
   "synchronized": "Synchronizováno",
   "@synchronized": {
@@ -1724,10 +1259,8 @@
   "syncNowButton": "Synchronizovat nyní",
   "syncStatusTitle": "Stav synchronizace",
   "syncStatusUpdatedMessage": "Stav synchronizace byl aktualizován",
-  "syncSuccessful": "Synchronizace úspěšná",
   "syncSuccessMessage": "Synchronizace úspěšná",
   "syncWithCloudStorage": "Synchronizovat s cloudovým úložištěm",
-  "syncWithCloudStorageSubtitle": "Synchronizovat s cloudovým úložištěm",
   "systemFeatures": "Systémové funkce:",
   "systemSettingsTitle": "Nastavení systému",
   "tabAll": "Vše",
@@ -1743,13 +1276,11 @@
       }
     }
   },
-  "tagsUpdated": "Štítky aktualizovány",
   "takeaway": "S sebou",
   "telecommunication": "Telekomunikace",
   "telegram": "Telegram",
   "telemarketing": "Telemarketing",
   "testButton": "TEST",
-  "testButtonLabel": "TEST",
   "testConnectionButton": "Otestovat připojení",
   "textColorsSetting": "Barvy textu a štítků",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Tato aplikace je výkonný nástroj pro identifikaci volajícího, který vám umožňuje identifikovat a blokovat nechtěná volání.",
@@ -1760,8 +1291,6 @@
   "timeInterceptorExplanationContent": "Funkce zachycování frekvence volání analyzuje frekvenci volání k automatické identifikaci a zachycení/povolení častých spamových volání.",
   "timeInterceptorExplanationTitle": "Vysvětlení zachycování frekvence volání",
   "timeInterceptorSettingsTitle": "Nastavení zachycování frekvence volání",
-  "timeInterceptorSubtitle": "Automaticky zachytávat potenciální spamová volání na základě frekvence volání",
-  "timeInterceptorTitle": "Povolit zachycování frekvence volání",
   "timeWindowDescription": "Nastavte velikost časového okna pro povolování opakovaných volání. Volání ze stejného čísla v tomto okně budou povolena",
   "timeWindowLabel": "Časové okno pro zachycení (minuty): {minutes}",
   "@timeWindowLabel": {
@@ -1772,16 +1301,11 @@
       }
     }
   },
-  "timeWindowSetting": "Nastavte velikost časového okna pro povolování opakovaných volání. Volání ze stejného čísla v tomto okně budou povolena",
   "today": "Dnes",
   "total": "Celkem",
   "totalBlocked": "Celkem zablokováno",
-  "totalFiltered": "Celkem filtrováno",
   "transferDataBetweenDevicesOrPlatforms": "Přenos dat mezi zařízeními nebo platformami",
-  "transferDataBetweenDevicesOrPlatformsSubtitle": "Přenos dat mezi zařízeními nebo platformami",
   "travelTicketing": "Cestovní jízdenky",
-  "trend": "Trend",
-  "trendChart": "Graf trendu",
   "tutorial": "Návod",
   "type": "Typ",
   "unassignedSIMCard": "Nepřiřazená SIM karta",
@@ -1789,7 +1313,6 @@
   "@unknown": {
     "description": "Display text for unknown status"
   },
-  "unknownLabel": "Neznámý štítek",
   "unknownTag": "Štítek: Neznámý",
   "unregisterButton": "Odhlásit registraci",
   "unregisterDeviceConfirmationMessage": "Opravdu chcete odhlásit registraci zařízení {deviceName}?",
@@ -1797,15 +1320,9 @@
   "unsupportedFileFormat": "Nepodporovaný formát souboru",
   "update": "Aktualizovat",
   "updateAllNow": "Aktualizovat vše nyní",
-  "updateCallFilterConfig": "Aktualizovat konfiguraci filtru hovorů",
-  "@updateCallFilterConfig": {
-    "description": "Button text for updating call filter configuration"
-  },
   "updateContactFailed": "Nepodařilo se aktualizovat kontakt: {error}",
   "updateFavoriteStatus": "Aktualizovat stav oblíbených položek",
-  "updateFavoriteStatusFailed": "Nepodařilo se aktualizovat stav oblíbených položek: {error}",
   "updateInterval": "Interval aktualizace",
-  "updateLabelFailed": "Nepodařilo se aktualizovat štítek",
   "updateNow": "Aktualizovat nyní",
   "updatePlugin": "Aktualizovat modul",
   "updatePluginFailed": "Nepodařilo se aktualizovat modul: {error}",
@@ -1831,16 +1348,13 @@
       }
     }
   },
-  "updateTags": "Aktualizovat štítky",
   "useCasesPoint1": "• Identifikovat spamová volání s automatickým opakovaným vytáčením",
   "useCasesPoint2": "• Zachytávat marketingová volání, která volají vícekrát v krátkém období",
   "useCasesPoint3": "• Předcházet telefonním bombám a obtěžování",
   "useCasesTitle": "Případy použití:",
   "useGlobalSettings": "Použít globální nastavení",
-  "userEmail": "user@example.com",
   "usernameLabel": "Uživatelské jméno",
   "useStandardRegexSyntaxToDefinePatternsExamples": "Použijte standardní syntaxi regulárních výrazů k definování vzorů. Příklady:",
-  "validateRegex": "Ověřit regulární výraz",
   "verificationFailedText": "Selhalo",
   "verifiedText": "Ověřeno",
   "verify": "Ověřit",
@@ -1851,36 +1365,18 @@
   "watchAdForTemp": "Sledovat reklamu pro dočasné privilegium",
   "watchAdForTempDescription": "Sledujte krátkou reklamu a dočasně odemkněte některé prémiové funkce",
   "webDAVConfigTitle": "Konfigurace WebDAV",
-  "webdavConfigurationTitle": "Konfigurace WebDAV",
-  "webdavPasswordHint": "Zadejte prosím heslo WebDAV",
-  "webdavServerAddressHint": "Zadejte prosím adresu serveru WebDAV",
-  "webdavUsernameHint": "Zadejte prosím uživatelské jméno WebDAV",
   "week": "Týden",
-  "weekly": "Týdenní",
-  "weeklyBlockedCallsSummary": "Souhrn týdenních blokovaných hovorů",
-  "weeklyChartTitle": "Týdenní blokované hovory",
-  "weeklyReport": "Týdenní zpráva",
-  "@weeklyReport": {
-    "description": "Weekly report notification option"
-  },
-  "weeklyReportDesc": "Obdržíte týdenní souhrnnou zprávu o aktivitě blokování hovorů",
-  "@weeklyReportDesc": {
-    "description": "Description for weekly report option"
-  },
   "welcome": "Vítejte",
   "whitelist": "Seznam povolených",
   "@whitelist": {
     "description": "Whitelist label"
   },
-  "whitelistLabel": "Seznam povolených",
   "width": "Šířka",
   "wildcardMatchingDescription": "Použijte '.' k nahrazení libovolného znaku (např. '123.456' odpovídá 123-456)",
   "wildcardMatchingTitle": "Porovnání s divokou kartou:",
   "wildcardSupportForFlexibleFiltering": "Podpora divokých karet pro flexibilní filtrování",
   "windowSizeSetting": "Velikost okna",
   "year": "Rok",
-  "yearly": "Ročně",
-  "yearlyChartTitle": "Roční zablokovaná volání",
   "noSimCardsDetected": "Nebyly detekovány žádné SIM karty",
   "filterManagementDescription": "Nastavit filtry hovorů",
   "callerIdCustomizationSubtitle": "Přizpůsobit rozložení ID volajícího",
@@ -1895,7 +1391,6 @@
   "useLocalNotificationDescription": "Povolit místní upozornění na příchozí hovory",
   "cancelLocalNotification": "Zavřít místní upozornění",
   "useStirNotification": "Použít upozornění z STIR",
-  "useStirNotificationDescription": "Povolit upozornění STIR pro příchozí hovory",
   "cancelLocalNotificationDescription": "Automaticky zavřít místní upozornění",
   "callerIdSettingsTitle": "Nastavení ID volajícího",
   "callerIdSettingsSubtitle": "Nastavit upozornění na příchozí hovory a režim zobrazení",
@@ -1904,16 +1399,6 @@
   "callerIdNotificationTitle": "Informace o příchozím hovoru",
   "@callerIdNotificationTitle": {
     "description": "Title for the Incoming Call Info"
-  },
-  "callerIdBody": "Číslo: {phoneNumber}",
-  "@callerIdBody": {
-    "description": "Body for the caller ID notification, showing the phone number",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
   },
   "blockedCallTitle": "Zablokované volání",
   "@blockedCallTitle": {
@@ -1974,18 +1459,6 @@
   "@fraudAlertTitle": {
     "description": "Title for the fraud alert notification"
   },
-  "fraudAlertBody": "Potenciální podvodný hovor z {phoneNumber}",
-  "@fraudAlertBody": {
-    "description": "Body for the fraud alert notification",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
-  },
-  "loadRulesFailed": "Nepodařilo se načíst pravidla: {error}",
-  "loadCallLogFailed": "Nepodařilo se načíst historii volání: {error}",
   "noBlockedTypeData": "Žádná data typu blokovaného hovoru nejsou k dispozici",
   "importEntity": "Importovat {entityTypeName}",
   "@importEntity": {
@@ -2065,7 +1538,6 @@
   "vipUser": "VIP uživatel",
   "temporaryVip": "Dočasný VIP",
   "removeAds": "Odstranit reklamy",
-  "unknownAction": "Neznámá akce",
   "settingsBackup": "Záloha nastavení ",
   "allServicesStatusTitle": "Aktuální stav služeb",
   "allServicesStatusSubtitle": "Aktuální stav každé cloudové služby",
@@ -2153,7 +1625,6 @@
   "unblocked": "Odblokováno",
   "blockNumber": "Blokovat číslo",
   "blockNumberSuccess": "Číslo úspěšně zablokováno",
-  "blockNumberFailed": "Blokování čísla selhalo",
   "unblockNumberConfirmation": "Opravdu chcete odblokovat číslo {phoneNumber}?",
   "@unblockNumberConfirmation": {
     "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
@@ -2165,23 +1636,11 @@
       }
     }
   },
-  "callingNumber": "Volám na číslo {phoneNumber}...",
-  "@callingNumber": {
-    "description": "Status text displayed on the screen when an outgoing call is initiated.",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "description": "The phone number that is being dialed.",
-        "example": "+1 555-123-4567"
-      }
-    }
-  },
   "viewDetails": "Zobrazit podrobnosti",
   "unblock": "Odblokovat",
   "unblockNumber": "Odblokovat číslo",
   "unblockNumberSuccess": "Číslo úspěšně odblokováno",
   "unblockNumberFailed": "Odblokování čísla selhalo",
-  "serviceNotAvailable": "Služba není dostupná",
   "callingNumberFailed": "Volání čísla selhalo",
   "listView": "Zobrazení seznamu",
   "timelineView": "Časová osa",
@@ -2192,7 +1651,6 @@
   "callType": "Typ hovoru",
   "callTime": "Čas hovoru",
   "numberInvalidFormat": "Neplatný formát čísla",
-  "membershipFeature": "Funkce členství",
   "medium": "Médium",
   "verificationReport": "Zpráva o ověření",
   "finalRisk": "Konečné riziko",
@@ -2221,7 +1679,6 @@
   "noNotifications": "Žádná oznámení",
   "clearAllNotifications": "Vymazat všechna oznámení",
   "clearAllNotificationsConfirmation": "Potvrdit vymazání všech oznámení",
-  "allNotificationsCleared": "Všechna oznámení byla vymazána",
   "clearButton": "Vymazat",
   "justNow": "Právě teď",
   "minutesAgo": "{count,plural, =1{před 1 minutou} other{před {count} minutami}}",
@@ -2298,10 +1755,6 @@
   "@reasonInaccurateInfo": {
     "description": "Inaccurate Information reason option"
   },
-  "reasonWrongMarked": "Nesprávně označeno",
-  "@reasonWrongMarked": {
-    "description": "Wrong marked reason option"
-  },
   "reasonOther": "Jiné",
   "@reasonOther": {
     "description": "Other reason option"
@@ -2314,33 +1767,9 @@
   "@cancel": {
     "description": "Cancel button text"
   },
-  "proposalStatus": "Stav",
-  "@proposalStatus": {
-    "description": "Proposal status label"
-  },
-  "statusPending": "Čeká se",
-  "@statusPending": {
-    "description": "Pending status"
-  },
-  "statusActive": "Aktivní",
-  "@statusActive": {
-    "description": "Active status"
-  },
-  "statusCompleted": "Dokončeno",
-  "@statusCompleted": {
-    "description": "Completed status"
-  },
-  "statusExpired": "Expirováno",
-  "@statusExpired": {
-    "description": "Expired status"
-  },
   "riskLevel": "Úroveň rizika",
   "@riskLevel": {
     "description": "Risk level label"
-  },
-  "riskLevelVerified": "Ověřeno",
-  "@riskLevelVerified": {
-    "description": "Verified risk level"
   },
   "riskLevelLow": "Nízká",
   "@riskLevelLow": {
@@ -2350,26 +1779,9 @@
   "@riskLevelHigh": {
     "description": "Label for high risk level"
   },
-  "riskLevelUnknown": "Neznámá",
-  "@riskLevelUnknown": {
-    "description": "Unknown risk level"
-  },
-  "votingProgress": "Průběh hlasování",
-  "@votingProgress": {
-    "description": "Voting progress label"
-  },
   "agreeVotes": "Souhlas: {count}",
   "@agreeVotes": {
     "description": "Agree votes count",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "disagreeVotes": "Nesouhlas: {count}",
-  "@disagreeVotes": {
-    "description": "Disagree votes count",
     "placeholders": {
       "count": {
         "type": "int"
@@ -2405,14 +1817,6 @@
   "@verificationReport": {
     "description": "Verification report label"
   },
-  "showReport": "Zobrazit zprávu",
-  "@showReport": {
-    "description": "Show report button text"
-  },
-  "hideReport": "Skrýt zprávu",
-  "@hideReport": {
-    "description": "Hide report button text"
-  },
   "proposalStatistics": "Statistiky návrhů",
   "@proposalStatistics": {
     "description": "Proposal statistics title"
@@ -2425,37 +1829,17 @@
   "@activeProposals": {
     "description": "Active proposals label"
   },
-  "completedProposals": "Dokončené návrhy",
-  "@completedProposals": {
-    "description": "Completed proposals label"
-  },
-  "myVotes": "Moje hlasy",
-  "@myVotes": {
-    "description": "My votes label"
-  },
   "proposalCreated": "Návrh byl úspěšně vytvořen",
   "@proposalCreated": {
     "description": "Proposal created success message"
-  },
-  "proposalCreateFailed": "Nepodařilo se vytvořit návrh",
-  "@proposalCreateFailed": {
-    "description": "Proposal create failed message"
   },
   "voteSubmitted": "Hlas byl úspěšně odeslán",
   "@voteSubmitted": {
     "description": "Vote submitted success message"
   },
-  "voteSubmitFailed": "Nepodařilo se odeslat hlas",
-  "@voteSubmitFailed": {
-    "description": "Vote submit failed message"
-  },
   "noProposalsFound": "Nebyly nalezeny žádné návrhy",
   "@noProposalsFound": {
     "description": "No proposals found message"
-  },
-  "loadingProposals": "Načítání návrhů...",
-  "@loadingProposals": {
-    "description": "Loading proposals message"
   },
   "refreshProposals": "Obnovit návrhy",
   "@refreshProposals": {
@@ -2684,12 +2068,8 @@
       }
     }
   },
-  "loadVoteCountFailed": "Nepodařilo se načíst počet hlasů",
   "voteCount": "Počet hlasů",
-  "deletionProposalInfo": "Informace o návrhu na smazání",
   "deletionProposalDescription": "Navrhujte čísla ke smazání, která porušují komunitní pravidla. Vaše účast pomáhá udržovat platformu bezpečnou.",
-  "voteToEarnVip": "Hlasujte o návrzích a získejte VIP privilegia!",
-  "voteFailed": "Hlasování selhalo",
   "searchProposals": "Vyhledat návrhy",
   "defaultNotifications": "Výchozí oznámení",
   "defaultNotificationsDescription": "Výchozí kanál oznámení pro aplikaci.",
@@ -2699,81 +2079,14 @@
   "stirVerificationDescription": "Zobrazuje výsledky ověření STIR/SHAKEN pro čísla.",
   "fraudAlerts": "Upozornění na podvody",
   "fraudAlertsDescription": "Zobrazuje varování před potenciálně podvodnými hovory.",
-  "notificationFrequencyDescription": "Vyberte, jak často chcete dostávat oznámení o nových návrzích na smazání. Můžete je dostávat okamžitě, v dávkách nebo v intervalu na míru.",
-  "@notificationFrequencyDescription": {
-    "description": "A detailed explanation of what the notification frequency settings do"
-  },
   "@notificationMode": {
     "description": "Title for the mode selection part (Immediate, Batched, Custom)"
-  },
-  "immediateNotifications": "Okamžitě",
-  "@immediateNotifications": {
-    "description": "Label for the immediate notification mode"
-  },
-  "immediateNotificationsDescription": "Obdržíte oznámení ihned po vytvoření návrhu.",
-  "@immediateNotificationsDescription": {
-    "description": "Description for the immediate notification mode"
-  },
-  "batchNotifications": "V dávkách",
-  "@batchNotifications": {
-    "description": "Label for the batched notification mode"
-  },
-  "batchNotificationsDescription": "Periodicky obdržíte souhrn oznámení.",
-  "@batchNotificationsDescription": {
-    "description": "Description for the batched notification mode"
-  },
-  "customNotifications": "Vlastní",
-  "@customNotifications": {
-    "description": "Label for the custom notification mode"
-  },
-  "customNotificationsDescription": "Definujte si vlastní interval pro příjem oznámení.",
-  "@customNotificationsDescription": {
-    "description": "Description for the custom notification mode"
-  },
-  "customFrequency": "Vlastní frekvence",
-  "@customFrequency": {
-    "description": "Title for the custom frequency slider section"
-  },
-  "notificationFrequencyDurationMinutes": "{minutes} min",
-  "@notificationFrequencyDurationMinutes": {
-    "description": "Formats a duration that is only in minutes.",
-    "placeholders": {
-      "minutes": {
-        "type": "int",
-        "example": "45"
-      }
-    }
-  },
-  "notificationFrequencyDurationHours": "{hours} h",
-  "@notificationFrequencyDurationHours": {
-    "description": "Formats a duration that is in whole hours.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "2"
-      }
-    }
-  },
-  "notificationFrequencyDurationHoursAndMinutes": "{hours} h {minutes} min",
-  "@notificationFrequencyDurationHoursAndMinutes": {
-    "description": "Formats a duration that has both hours and minutes.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "1"
-      },
-      "minutes": {
-        "type": "int",
-        "example": "30"
-      }
-    }
   },
   "pendingProposals": "Čekající návrhy",
   "pendingProposalsBody": "Máte {count, plural, =0 {žádné čekající návrhy} one {1 čekající návrh} other {{count} čekajících návrhů}}.",
   "guidelinesLabel": "Pokyny",
   "reportingGuidelines": "• Hlasujte pouze pro čísla, která jsou skutečně problematická\n• Uvádějte přesné a podrobné důvody\n• Zvolte odpovídající úroveň rizika na základě závažnosti\n• Falešná hlášení mohou vést k omezení účtu",
   "riskLevelLabel": "Úroveň rizika",
-  "riskLevelDescription": "Úroveň rizika čísla",
   "phoneNumberMinDigits": "Telefonní číslo musí mít minimálně 7 číslic",
   "provideDetailedExplanation": "Uveďte podrobné vysvětlení (minimálně 10 znaků)",
   "reasonMinCharacters": "Důvod musí mít minimálně 10 znaků",
@@ -2790,39 +2103,15 @@
   "@countryCodeRequired": {
     "description": "Validation message for required country code"
   },
-  "countryCodeLengthError": "Kód země musí mít 2 písmena",
-  "@countryCodeLengthError": {
-    "description": "Validation message for country code length"
-  },
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
-  "phoneNumberLengthError": "Telefonní číslo musí mít minimálně 7 číslic",
-  "@phoneNumberLengthError": {
-    "description": "Validation message for phone number length"
-  },
-  "reasonHint": "Uveďte podrobné vysvětlení (minimálně 10 znaků)",
-  "@reasonHint": {
-    "description": "Hint text for reason input field"
-  },
   "reasonRequired": "Důvod je vyžadován",
   "@reasonRequired": {
     "description": "Validation message for required reason"
-  },
-  "reasonLengthError": "Důvod musí mít minimálně 10 znaků",
-  "@reasonLengthError": {
-    "description": "Validation message for reason length"
-  },
-  "guidelinesTitle": "Pokyny",
-  "@guidelinesTitle": {
-    "description": "Title for guidelines section"
-  },
-  "guidelinesText": "• Hlasujte pouze pro čísla, která jsou skutečně problematická\n• Uvádějte přesné a podrobné důvody\n• Zvolte odpovídající úroveň rizika na základě závažnosti\n• Falešná hlášení mohou vést k omezení účtu",
-  "@guidelinesText": {
-    "description": "Text content for guidelines section"
   },
   "riskLevelCritical": "Kritické",
   "@riskLevelCritical": {
@@ -2836,33 +2125,9 @@
   "@riskLevelVeryLow": {
     "description": "Label for very low risk level"
   },
-  "riskDescriptionVeryLow": "Velmi nízké - Menší obtěžování, občasné hovory",
-  "@riskDescriptionVeryLow": {
-    "description": "Description for very low risk level"
-  },
-  "riskDescriptionLow": "Nízké - Občasné nevyžádané hovory",
-  "@riskDescriptionLow": {
-    "description": "Description for low risk level"
-  },
-  "riskDescriptionMedium": "Střední - Pravidelný spam nebo telemarketing",
-  "@riskDescriptionMedium": {
-    "description": "Description for medium risk level"
-  },
-  "riskDescriptionHigh": "Vysoké - Vytrvalé obtěžování nebo pokusy o podvod",
-  "@riskDescriptionHigh": {
-    "description": "Description for high risk level"
-  },
-  "riskDescriptionCritical": "Kritické - Nebezpečné podvody nebo hrozby",
-  "@riskDescriptionCritical": {
-    "description": "Description for critical risk level"
-  },
   "notificationFrequencyTitle": "Frekvence oznámení",
   "@notificationFrequencyTitle": {
     "description": "Title for notification frequency settings"
-  },
-  "notificationFrequencyLabel": "Frekvence oznámení (hodiny)",
-  "@notificationFrequencyLabel": {
-    "description": "Label for notification frequency dropdown"
   },
   "errorMessage": "Chyba: {error}",
   "@errorMessage": {
@@ -2870,18 +2135,6 @@
     "placeholders": {
       "error": {
         "type": "String"
-      }
-    }
-  },
-  "votesStatistics": "Hlasy: {totalVotes} ({supportPercentage}% podpora)",
-  "@votesStatistics": {
-    "description": "Voting statistics text",
-    "placeholders": {
-      "totalVotes": {
-        "type": "int"
-      },
-      "supportPercentage": {
-        "type": "int"
       }
     }
   },
@@ -2899,37 +2152,6 @@
     "description": "Shows the number of oppose votes.",
     "placeholders": {
       "opposeCount": {
-        "type": "int"
-      }
-    }
-  },
-  "timeJustNow": "Právě teď",
-  "@timeJustNow": {
-    "description": "Time format for recent events"
-  },
-  "timeMinutesAgo": "{minutes}m zpět",
-  "@timeMinutesAgo": {
-    "description": "Time format for minutes ago",
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
-  "timeHoursAgo": "{hours}h zpět",
-  "@timeHoursAgo": {
-    "description": "Time format for hours ago",
-    "placeholders": {
-      "hours": {
-        "type": "int"
-      }
-    }
-  },
-  "timeDaysAgo": "{days}d zpět",
-  "@timeDaysAgo": {
-    "description": "Time format for days ago",
-    "placeholders": {
-      "days": {
         "type": "int"
       }
     }
@@ -2989,7 +2211,6 @@
   "liveActivitiesTestUpdateActivity": "Aktualizovat aktivitu",
   "liveActivityControlsTitle": "Ovládací prvky živé aktivity",
   "liveActivitiesTestTitle": "Test živých aktivit",
-  "liveActivitiesTestSubtitle": "Otestujte oznámení živé aktivity.",
   "liveNotificationCustomizationTitle": "Přizpůsobení živých oznámení",
   "liveNotificationCustomizationSubtitle": "Přizpůsobte vzhled živých oznámení.",
   "notification_instructions": "Instrukce:\n1. Klepnutím na „ODESLAT“ vytvořte nebo aktualizujte oznámení.\n2. Přejděte na domovskou obrazovku nebo stáhněte dolů lištu oznámení, abyste viděli výsledek.\n3. Klepnutím na „UKONČIT“ oznámení zavřete.",
@@ -3012,7 +2233,6 @@
   "@proposalDetails": {
     "description": "The title of the proposal details page."
   },
-  "filterByStatus": "Filtrovat podle stavu",
   "proposalNotFound": "Návrh nebyl nalezen",
   "@proposalNotFound": {
     "description": "A message displayed when a proposal is not found."
@@ -3020,10 +2240,6 @@
   "processed": "Zpracováno",
   "@processed": {
     "description": "A label for the processed status."
-  },
-  "showAll": "Zobrazit vše",
-  "@showAll": {
-    "description": "A button to show all proposals."
   },
   "filterAndSortTitle": "Filtrovat a řadit",
   "filterVerifiedOwner": "Filtrovat ověřeného vlastníka",
@@ -3055,10 +2271,6 @@
   "@invalidSimData": {
     "description": "A message displayed when the SIM data is invalid."
   },
-  "simCardData": "Data SIM karty",
-  "@simCardData": {
-    "description": "A label for the SIM card data."
-  },
   "simSlot": "Slot pro SIM kartu",
   "@simSlot": {
     "description": "A label for the SIM slot."
@@ -3077,8 +2289,6 @@
   },
   "callTypeRejected": "Odmítnuto",
   "callTypeSilenced": "Ztišeno",
-  "callTypeVoicemail": "Hlasová schránka",
-  "callTypeUnknownIntercept": "Neznámé zachycení",
   "andMoreItems": "a dalších {count} položek",
   "@andMoreItems": {
     "description": "Text to show when there are more items than displayed.",

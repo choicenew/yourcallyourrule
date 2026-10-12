@@ -6,14 +6,6 @@
   },
   "aboutLabels": "Malunga neeLeyibhile",
   "aboutPhoneSubscriptionRules": "Malunga neMithetho yoRhuma lweFowuni",
-  "aboutPhoneSubscriptions": "Malunga noRhuma lweFowuni",
-  "@aboutPhoneSubscriptions": {
-    "description": "About phone subscriptions title"
-  },
-  "aboutPhoneSubscriptionsDesc": "Rhuma kuluhlu lwemigaqo yefowuni nge-URL, uhlaziye imithetho ngokuzenzekelayo. Ixhasa iifayile zemigaqo zefomati yeJSON, CSV.",
-  "@aboutPhoneSubscriptionsDesc": {
-    "description": "About phone subscriptions description"
-  },
   "aboutSmsFilter": "Malunga nokuCwangcisa kweSMS",
   "aboutSmsSubscriptionRules": "Malunga neMithetho yoRhuma lweSMS",
   "aboutSubtitle": "Uhlobo lweApp kunye nolwazi lwezomthetho",
@@ -22,7 +14,6 @@
   "actionAll": "Zonke",
   "actionAllow": "Vumela",
   "actionBlock": "Thintela",
-  "actionFilterAll": "Zonke iiFiltara",
   "actionFilterTitle": "Cwangcisa ngohlobo lweSenzo",
   "actionFilterTooltip": "Isixhobo sokuCwangcisa iSenzo",
   "actionNone": "Akukho Senzo",
@@ -42,24 +33,15 @@
   },
   "addContactButton": "Yongeza uQhagamshelwano",
   "addContactFailed": "Ayiphumelelanga ukongeza uqhagamshelwano: {error}",
-  "addedToAllowedRules": "Yongezwe kwiMithetho eVunyelweyo",
-  "addedToBlacklist": "Yongezwe kuluhlu oluMnyama",
-  "addedToBlockedRules": "Yongezwe kwiMithetho eThintelweyo",
-  "addedToFavoriteContacts": "Yongezwe kuqhagamshelwano oluthandwayo",
   "addedToFavorites": "Yongezwe kuqhagamshelwano oluthandwayo",
-  "addedToWhitelist": "Yongezwe kuluhlu oluMhlophe",
-  "addFavorite": "Yongeza oThandwayo",
-  "addFilter": "Yongeza iiFiltara",
   "addLabel": "Yongeza iLeyibhile",
   "addLabelButton": "Yongeza iLeyibhile",
   "addLabelFailed": "Ayiphumelelanga ukongeza ileyibhile: {error}",
-  "addLabelToCall": "Yongeza iLeyibhile kuMlando weFowuni",
   "addName": "Yongeza Igama",
   "addNoneSubscription": "Yongeza uRhuma ongenanto",
   "@addNoneSubscription": {
     "description": "Add none subscription dialog title"
   },
-  "addOrEditContactInfo": "Isetyenziselwa ukongeza okanye ukuhlela ulwazi loqhagamshelwano",
   "addPhoneMark": "Yongeza uPhawu lweFowuni",
   "addPhoneNumberRule": "Yongeza uMthetho weNombolo yeFowuni",
   "addPlugin": "Yongeza iPlagin",
@@ -69,14 +51,12 @@
   "addPluginFromUrl": "Yongeza iPlagin kwi-URL",
   "addRegexRule": "Yongeza uMthetho weRegex",
   "addRule": "Yongeza uMthetho",
-  "addRuleButton": "Yongeza uMthetho",
   "addRuleFailed": "Ayiphumelelanga ukongeza umthetho: {error}",
   "addRuleTooltip": "Yongeza uMthetho",
   "addSilenceSubscription": "Yongeza uRhuma wokuNciphisa",
   "@addSilenceSubscription": {
     "description": "Add silence subscription dialog title"
   },
-  "addSimRuleButton": "Yongeza uMthetho weSIM",
   "addSmsFilterRule": "Yongeza uMthetho wokuCwangcisa weSMS",
   "addSmsRule": "Yongeza uMthetho weSMS",
   "addSmsSubscription": "Yongeza uRhuma weSMS",
@@ -95,26 +75,17 @@
     }
   },
   "addSubscriptionTooltip": "Yongeza uRhuma",
-  "addToAllowedRules": "Yongeza kwiMithetho eVunyelweyo",
   "addToBlacklist": "Yongeza kuLuhlu oluMnyama",
-  "addToBlockedRules": "Yongeza kwiMithetho eThintelweyo",
-  "addToFavoriteContacts": "Yongeza kuQhagamshelwano oluThandwayo",
   "addToFavorites": "Yongeza kuBathandwayo",
   "addToRules": "Yongeza kwiMithetho",
   "addToWhitelist": "Yongeza kuLuhlu oluMhlophe",
-  "adPlaceholder": "Indawo yeNtengiso",
   "agent": "Iarhente",
   "all": "Zonke",
   "allCallsTab": "Zonke",
-  "allDataClearedSuccessfully": "Yonke idatha icinywe ngempumelelo",
   "allow": "Vumela",
   "allowAllAllowRules": "Vumela Yonke iMithetho eVunyelweyo",
   "allowAllAllowRulesDesc": "Vumela iifowuni ezivela kwimithetho yokuvumela",
   "allowAllBlacklistedNumbers": "Vumela Zonke iiNombolo kuLuhlu oluMnyama",
-  "allowAllBlacklistedNumbersDesc": "Vumela iifowuni ezivela kuluhlu olumnyama",
-  "@allowAllBlacklistedNumbersDesc": {
-    "description": "Allow calls from blocklist"
-  },
   "allowAllBlockRules": "Vumela Yonke iMithetho yokuThintela",
   "allowAllBlockRulesDesc": "Vumela iifowuni ezivela kwimithetho yokuthintela",
   "allowAllowedNumbers": "Vumela iiNombolo eziVunyelweyo",
@@ -135,8 +106,6 @@
   "allowRegexBlockRulesDescription": "Vumela imithetho yokuthintela esekelwe kwi-regex",
   "allowRule": "Umthetho wokuVumela",
   "allowRules": "IMithetho yokuVumela",
-  "allowWhitelistedNumbers": "Vumela Amanani aWhitelistiweyo",
-  "allowWhitelistedNumbersDescription": "Vumela onke amanani akwiwhitelist",
   "allPermissionsGranted": "Zonke iimvume zinikiwe",
   "allSettingsCompleted": "Zonke izicwangciso zigqityiwe.",
   "allUpdateSuccess": "Zonke izinto ezihlaziyiweyo zigqityiwe ({count} imithetho)",
@@ -149,7 +118,6 @@
     }
   },
   "answerThenHangup": "Phendula uze uvale",
-  "appLegalese": "© 2023 Your Call Your Rule. Onke amalungelo agciniwe.",
   "applicationSoftware": "Isoftware Yesicelo",
   "apply": "Sebenzisa",
   "appName": "Umnxeba Wakho Umthetho Wakho",
@@ -162,8 +130,6 @@
   "autoUpdate": "Uhlaziyo Oluzenzekelayo",
   "autoUpdateDescription": "Cwangcisa amaxesha okuhlaziya ngokuzenzekelayo kwizirhwelo okanye uhlaziye ngesandla",
   "autoUpdateSettings": "Izicwangciso zokuhlaziya ngokuzenzekelayo",
-  "autoUpdateSettingsSubtitle": "Lawula uhlaziyo oluzenzekelayo lwemigaqo kunye neeplagin",
-  "autoUpdateSettingsTitle": "Izicwangciso zokuhlaziya ngokuzenzekelayo",
   "autoUpdateSubtitle": "Lawula uhlaziyo oluzenzekelayo lwemigaqo kunye neeplagin",
   "autoUpdateTitle": "Uhlaziyo Oluzenzekelayo",
   "avatarBorderColor": "Umbala Womda We-Avatar",
@@ -178,57 +144,33 @@
   "backupAndRestoreSubtitle": "Gcina okanye ubuyisele idatha yesicelo",
   "backupAndRestoreTitle": "Ugcinomagama nokuBuyisela",
   "backupFailed": "Ugcinomagama lwahlulekile",
-  "backupFailedMessage": "Ugcinomagama lwahlulekile",
-  "backupFailedWithError": "Ugcinomagama lwahlulekile: {error}",
-  "backupRestoreSubtitle": "Gcina okanye ubuyisele idatha yesicelo",
-  "backupRestoreTitle": "Ugcinomagama nokuBuyisela",
-  "backupSectionTitle": "Ugcinomagama",
   "backupSettings": "Izicwangciso zoGcinomagama",
-  "backupSettingsDialogTitle": "Izicwangciso zoGcinomagama",
-  "backupSettingsTitle": "Izicwangciso zoGcinomagama",
-  "backupSuccessMessage": "Kugcinwe ngempumelelo kwilifu",
-  "backupSuccessToLocal": "Ugcinomagama luphumelele kule ndawo: {path}",
   "backupToCloud": "Gcina kwiLifu",
-  "backupToCloudDescription": "Gcina izicwangciso nemigaqo kwindawo yokugcina yelifu",
   "backupToCloudFailed": "Ukugcina kwilifu kuhlulekile: {error}",
-  "backupToCloudLabel": "Gcina kwiLifu",
   "backupToCloudSuccess": "Kugcinwe ngempumelelo kwilifu",
-  "backupToCloudTitle": "Gcina kwiLifu",
-  "backupToLocalLabel": "Gcina Kwindawo Yakho",
   "bank": "Ibhanki",
   "basicInfo": "Ulwazi Olusisiseko",
   "basicRuleFilter": "Isihluzi Somgaqo Osisiseko",
   "basicRuleFiltering": "Ukuhluzwa Komgaqo Osisiseko",
   "basicRuleFilteringExplanation": "• Ukuhluzwa Komgaqo Osisiseko: Ukuhluzwa kwemigaqo ngokusekelwe kwi-blacklist, whitelist, kunye ne-regex",
-  "basicRuleFilterSettings": "Izicwangciso zesihluzi Somgaqo Osisiseko",
-  "@basicRuleFilterSettings": {
-    "description": "Title for basic rule filter settings page"
-  },
   "basicRuleFilterSubtitle": "Hluza iifowuni usebenzisa i-blacklist/whitelist kunye nee-regular expressions",
-  "batchDeleteContacts": "Cima Abafowunelwa Ngobuninzi",
   "batchDeleteContactsConfirm": "Uqinisekile ufuna ukucima {count} abafowunelwa abakhethiweyo?",
-  "batchDeleteFailed": "Ukucima ngobuninzi kuhlulekile",
   "batchDeleteLabelsConfirm": "Uqinisekile ufuna ukucima {count} iileyibhile?",
   "blacklist": "I-Blacklist",
   "@blacklist": {
     "description": "Blacklist label"
   },
   "blacklistingAndWhitelisting": "I-Blacklisting kunye ne-Whitelisting",
-  "blacklistLabel": "I-Blacklist",
   "blackWhiteList": "I-Black/White List",
   "block": "Thintela",
   "blockCalls": "Thintela Iifowuni",
   "blocked": "Ithinteliwe",
-  "blockedCallAction": "Isenzo Sefowuni Ethinteliweyo",
   "blockedCalls": "Iifowuni Ezithinteliweyo",
   "blockedCallsTitle": "Iifowuni Ezithinteliweyo",
-  "blockedCommunications": "Unxibelelwano Oluthinteliweyo",
-  "blockedPhoneLabel": "Iifowuni Ezithinteliweyo",
   "blockedSpamCalls": "Iifowuni Ze-Spam Ezithinteliweyo",
   "blockingTrend": "Umkhwa Wokuthintela",
   "blockInternationalCalls": "ifana namanani angaqalisi ngo + okanye 00",
   "blockInternationalCallsTitle": "Thintela Iifowuni Zamazwe Ngamazwe",
-  "blockLandlineNumbersTitle": "Thintela Amanani Efowuni Yasemhlabeni",
   "blockMobileNumbers": "ifana namanani angaqalisi ngo 13-19",
   "blockMobileNumbersTitle": "Thintela Amanani Eselfowuni",
   "blockPremiumRateNumbers": "ifana namanani angaqalisi ngo 118 okanye 120-190",
@@ -244,19 +186,9 @@
   "bulkDeleteLabels": "Cima Iileyibhile Ngobuninzi",
   "call": "Ifowuni",
   "callback": "Tsalela Umva",
-  "callbackTo": "Tsalela umva ku {number}",
-  "@callbackTo": {
-    "description": "Callback notification message",
-    "placeholders": {
-      "number": {
-        "type": "String"
-      }
-    }
-  },
   "callBlocking": "Ukuthintela Iifowuni",
   "callerIdApp": "Isicelo se-Caller ID",
   "callerIdCustomizationTitle": "Yenza ngokwezakho i-Caller ID",
-  "callerIdDialogTitle": "Ulwazi lwe-Caller ID",
   "callerIdDisplayMode": "Indlela yokubonisa i-ID yomntu ofonayo",
   "callerIdMarkedByCount": "Imakwe yi-{count}",
   "@callerIdMarkedByCount": {
@@ -268,8 +200,6 @@
     }
   },
   "callerIdPreview": "Umboniso wangaphambili we-ID yomntu ofonayo",
-  "callFilter": "Isihluzi seFowuni",
-  "callFilterDescription": "Xa ivuliwe, iifowuni ezingenayo zihlolwa ngokuchasene noluhlu lomthetho olungezantsi. Imithetho yokucoca iifowuni ayihlengahlengiswanga phakathi kwezixhobo ngokungagqibekanga.",
   "callFilterRules": "Imithetho yoKucoca iFowuni",
   "callFilterRulesDescription": "Setha imithetho esisiseko yokucoca iifowuni",
   "callFilterSettings": "Izicwangciso zokucoca iifowuni",
@@ -278,33 +208,10 @@
   "callHistory": "Imbali yeeFowuni",
   "callHistoryInfoDesc": "Apha ibonisa imbali yefowuni yakho, kubandakanywa iifowuni ezingenayo, eziphumayo nezingaphendulwanga.",
   "callHistoryInfoTitle": "Imbali yeeFowuni",
-  "callHistoryInitFailed": "Ayiphumelelanga ukuqala imbali yefowuni: {error}",
-  "@callHistoryInitFailed": {
-    "description": "Call history initialization failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
-  "callHistoryRefreshFailed": "Ayiphumelelanga ukuhlaziya imbali yefowuni: {error}",
-  "@callHistoryRefreshFailed": {
-    "description": "Call history refresh failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "callHistoryTab": "Imbali yeeFowuni",
-  "callHistoryTimelineEarlier": "Ngaphambili",
-  "callHistoryTimelineToday": "Namhlanje",
-  "callHistoryTimelineYesterday": "Izolo",
   "callScreeningPermission": "Imvume yoKuhluza iFowuni",
   "callScreeningPermissionDescription": "Isetyenziselwa ukuhluza kunye nokuvala iifowuni ze-spam.",
   "callScreeningPermissionNotGranted": "Imvume yokuhluza iifowuni ayinikwanga, ingachaphazela ukusebenza kwe-app.",
-  "callSettingsSubtitle": "I-ID yomntu ofonayo, ukucoca kunye nokucwangcisa ukuvala",
-  "callSettingsTitle": "Izicwangciso zokufowuna",
   "callStatistics": "Izibalo zeFowuni",
   "callTypeAnswered": "Uphendulwe",
   "callTypeBlocked": "Ivaliwe",
@@ -330,32 +237,14 @@
       }
     }
   },
-  "changeTag": "Guqula iTag",
   "charity": "Uthando",
-  "chartMonthFormat": "Inyanga {month}",
-  "@chartMonthFormat": {
-    "description": "Month format for chart labels",
-    "placeholders": {
-      "month": {
-        "type": "int"
-      }
-    }
-  },
-  "chartOneDayAgo": "Usuku olu-1 oludlulileyo",
-  "chartOneMonthAgo": "Inyanga e-1 edlulileyo",
   "chartOneWeekAgo": "Iveki e-1 edlulileyo",
-  "chartTenDaysAgo": "Iintsuku ezili-10 ezidlulileyo",
   "chartThreeDaysAgo": "Iintsuku ezi-3 ezidlulileyo",
   "chartToday": "Namhlanje",
   "checkFileFormat": "Nceda ujonge ifomathi yefayile okanye iimvume",
   "checkPermissionFailed": "Ayiphumelelanga ukujonga iimvume: {error}",
   "chooseDefaultInterceptAction": "Khetha isenzo sokunqanda esingagqibekanga",
-  "clearAllData": "Sula Yonke Idatha",
-  "clearAllDataConfirmation": "Ngaba uqinisekile ukuba ufuna ukucima yonke idatha yesicelo? Le nto ayinakurhoxiswa.",
-  "clearAllDataDescription": "Sula yonke idatha yesicelo",
-  "clearAllDataLabel": "Sula Yonke Idatha",
   "clearFilter": "Sula Isihluzi",
-  "clearLabelFilter": "Sula Isihluzi Selebhile",
   "clearLabelFilterButton": "Sula Isihluzi Selebhile",
   "closeButton": "Vala",
   "cloudSync": "UkuHlengahlengisa kweLifu",
@@ -363,26 +252,18 @@
   "cloudSyncSettingsSubtitle": "Lungiselela iWebDAV, iOneDrive kunye neGoogle Drive",
   "cloudSyncSettingsTitle": "Izicwangciso zokuhlengahlengisa kweLifu",
   "cloudSyncTitle": "UkuHlengahlengisa kweLifu",
-  "collapseLabelSelector": "Songeza iLejende yokuKhetha",
   "collection": "Ingqokelela yeTyala",
   "colorPickerTitle": "Khetha Umbala",
   "configManagement": "Ulawulo loCwangciso",
   "configUpdated": "Ucwango luhlaziyiwe",
   "configurationAdvice": "Ngolungelelwaniso olufanelekileyo, unokuseta ubuchule bokucoca obahlukeneyo kwiSIM khadi zomsebenzi kunye nezobuqu.",
   "configureBackupOptions": "Lungiselela Iinketho zoGcino",
-  "configureBackupOptionsSubtitle": "Lungiselela iinketho zogcino",
   "configureCloudSyncService": "Lungiselela Inkonzo yokuHlengahlengisa kweLifu",
-  "configureCloudSyncServiceHint": "Nceda ulungiselele inkonzo yokuhlengahlengisa kwefu ukuvula ukuhambelanisa kwezixhobo ezininzi.",
   "configureCloudSyncServiceMessage": "Nceda ulungiselele inkonzo yokuhlengahlengisa kwefu ukuvula ukuhambelanisa kwezixhobo ezininzi.",
   "configureSimCardFilterRules": "Lungiselela Imithetho yokuCoca iSIM Khadi",
-  "configureSyncServiceHint": "Nceda ulungiselele inkonzo yokuhambelanisa kwizicwangciso zokuhambelanisa kwefu kuqala",
   "confirm": "Qinisekisa",
-  "confirmBatchDeleteContacts": "Ngaba uqinisekile ukuba ufuna ukucima okukhethiweyo",
   "confirmButton": "Qinisekisa",
   "confirmDelete": "Qinisekisa ukucima",
-  "confirmDeleteContact": "Ngaba uqinisekile ukuba ufuna ukucima",
-  "confirmDeleteContactName": "Qinisekisa ukucima?",
-  "confirmDeleteFilter": "Ngaba uqinisekile ukuba ufuna ukucima esi sihluzi?",
   "confirmDeleteLabel": "Ngaba uqinisekile ukuba ufuna ukucima ilebhile \"{name}\"",
   "confirmDeletePlugin": "Ngaba uqinisekile ukuba ufuna ukucima i-plugin \"{name}\"?",
   "confirmDeletePlugins": "Ngaba uqinisekile ukuba ufuna ukucima ii-plugins ezi-{count}?",
@@ -396,10 +277,8 @@
     }
   },
   "confirmDeleteRuleMessage": "Ngaba uqinisekile ukuba ufuna ukucima lo mthetho? Le nto ayinakurhoxiswa.",
-  "confirmDeleteSelectedContacts": "Ngaba uqinisekile ukucima abafowunelwa abakhethiweyo?",
   "confirmDeleteSmsFilterRule": "Ngaba uqinisekile ukuba ufuna ukucima lo mthetho wokucoca i-SMS?",
   "confirmDeleteSmsRule": "Ngaba uqinisekile ukuba ufuna ukucima lo mthetho we-SMS?",
-  "confirmDeleteSubscription": "Ngaba uqinisekile ukuba ufuna ukucima olu bhaliso?",
   "confirmDeleteSubscriptions": "Ngaba uqinisekile ukuba ufuna ukucima {name}?",
   "@confirmDeleteSubscriptions": {
     "description": "Confirmation message shown before deleting a subscription.",
@@ -411,7 +290,6 @@
     }
   },
   "confirmPassword": "Qinisekisa iPhasiwedi",
-  "confirmPasswordLabel": "Qinisekisa iPhasiwedi",
   "connectedStatus": "Iqhagamshelwe",
   "connectionFailedCheckCredentialsMessage": "Uqhagamshelo lwahlulekile: Nceda ujonge idilesi yeseva, igama lomsebenzisi, kunye nephasiwedi",
   "connectionFailedMessage": "Uqhagamshelo lwahlulekile",
@@ -419,19 +297,11 @@
   "connectionSuccessMessage": "Uqhagamshelwano luphumelele",
   "contactAddSuccess": "Umnxibelelanisi wongezwe ngempumelelo",
   "contactDeleted": "Umnxibelelanisi ucinyiwe",
-  "contactEditDialog": "Intelekelelo yokuHlela uMnxibelelanisi",
-  "contactNameHint": "Faka igama lomnxibelelanisi (ukhetho)",
   "contactNameLabel": "Igama",
-  "contactNameOptional": "Igama lomnxibelelanisi (ukhetho)",
   "contactNotFound": "Umnxibelelanisi akafunyanwanga",
   "contacts": "abaxibelelanisi",
   "contactsDeleted": "Abaxibelelanisi abayi-{count} bacinyiwe",
-  "contactSettingsSubtitle": "Ulawulo lwabaxibelelanisi kunye nezicwangciso zelebhile",
-  "contactSettingsTitle": "Izicwangciso zoMnxibelelanisi",
-  "contactsLoadingFailed": "Ukulayisha abaxibelelanisi akwenzekanga: {error}",
   "contactsManagement": "Ulawulo lwabaxibelelanisi",
-  "contactsManagementPageTitle": "Iphepha loLawulo lwabaxibelelanisi",
-  "contactsPageTitle": "Ulawulo lwabaxibelelanisi",
   "contactsPermission": "Imvume yoBaxibelelanisi",
   "contactsPermissionDescription": "Isetyenziselwa ukuchonga iifowuni zabaxibelelanisi.",
   "contactsTab": "Abaxibelelanisi",
@@ -439,8 +309,6 @@
   "@contactSubscriptionDescription": {
     "description": "About contact subscription description"
   },
-  "contactSubscriptionLoadingFailed": "Ukulayisha ubhaliso lwabaxibelelanisi akwenzekanga: {error}",
-  "contactSubscriptionPageTitle": "Ubhaliso lwabaxibelelanisi",
   "contactUpdateSuccess": "Umnxibelelanisi uhlaziywe ngempumelelo",
   "contactUs": "Qhagamshelana nathi",
   "content": "Umxholo",
@@ -452,34 +320,16 @@
   "countryNameColor": "Umbala weGama leLizwe",
   "countryNameFontSize": "Ubungakanani befomthi yeGama leLizwe",
   "countryRegionNamePosition": "Indawo yeGama leLizwe/Ingingqi",
-  "countrySelectionDialog": "Intelekelelo yokuKhetha Ilizwe",
-  "countrySelectionDialogDescription": "Isetyenziselwa ukukhetha ilizwe ukuze kubuzwe ulwazi lwe-ID yomnxibelelanisi",
   "countThresholdDescription": "Cwangcisa umda wobuncinci wesimo ofunekayo ukwenzela ukuba kuqaliswe iintshukumo zokucoca",
   "countThresholdLabel": "Umda weSimo",
-  "countThresholdSettings": "Izicwangciso zoMda weSimo",
-  "countThresholdValue": "Umda weSimo: {count}",
   "createdRules": "Imithetho eyenziweyo",
   "csvFormat": "Ifomathi ye-CSV",
-  "currentDeviceChip": "Okwangoku",
   "currentDeviceLabel": "Ileybhile yeSixhobo saKwangoku",
   "currentDeviceTitle": "Isixhobo saKwangoku",
-  "currentLabels": "Iilebhile zaKwangoku:",
   "currentLanguage": "Ulwimi lwaKwangoku",
-  "currentPasswordLabel": "Ipaswedi yaKwangoku",
   "customerService": "Inkonzo yaBathengi",
-  "customRange": "Uluhlu oluHleliweyo",
-  "dailyStatistics": "Iinkcukacha-manani zaMihla ngemihla",
-  "@dailyStatistics": {
-    "description": "Daily statistics notification option"
-  },
-  "dailyStatisticsDesc": "Fumana iinkcukacha-manani zemihla ngemihla malunga neefowuni kunye nemiyalezo evalweyo",
-  "@dailyStatisticsDesc": {
-    "description": "Description for daily statistics option"
-  },
   "dashboardTab": "Ideshibhodi",
   "dataAnalysis": "Uhlahlelo lweDatha",
-  "dataAnalysisDashboardPage": "Iphepha leDeshibhodi yoHlahlelo lweDatha",
-  "dataExport": "Ukuthunyelwa kweDatha",
   "dataLoadFailure": "Ukulayisha idatha akwenzekanga: {error}",
   "@dataLoadFailure": {
     "description": "Data loading failure message",
@@ -492,9 +342,6 @@
   "dataLoadingFailed": "Ukulayisha idatha akwenzekanga: {error}",
   "dataMigration": "Ukufuduka kweDatha",
   "dataMigrationDescription": "Le mpawu ikuvumela ukuba ufudusele yonke idatha yakho phakathi kwezixhobo. Okwangoku, ungasebenzisa iimpawu zokugcina kunye nokubuyisela ukuze ufuduse idatha yakho ngesandla.",
-  "dataMigrationDialogContent": "Le mpawu ikuvumela ukuba ufudusele yonke idatha yakho phakathi kwezixhobo. Okwangoku, ungasebenzisa iimpawu zokugcina kunye nokubuyisela ukuze ufuduse idatha yakho ngesandla.",
-  "dataMigrationDialogTitle": "Ukufuduka kweDatha",
-  "dataMigrationSectionTitle": "Ukufuduka kweDatha",
   "dataSourceReminder": "Isikhumbuzo soMthombo weDatha",
   "days": "{count, plural, =1{usuku olu-1} other{{count} iintsuku}}",
   "@days": {
@@ -507,16 +354,11 @@
   },
   "daysVip": "{days} Iintsuku ze-VIP",
   "debtCollection": "Ingqokelela yeTyala",
-  "defaultPeriod": "Iveki",
   "delete": "Cima",
   "deleteButton": "Cima",
   "deleteContact": "Cima uMnxibelelanisi",
   "deleteContactConfirm": "Uqinisekile ufuna ukucima u-{name}?",
-  "deleteContactConfirmation": "Uqinisekile ufuna ukucima umnxibelelanisi",
-  "deleteDeviceConfirmation": "Uqinisekile ufuna ukucima {deviceName}?",
-  "deleteDeviceDialogTitle": "Cima Isixhobo",
   "deleteFailed": "Ukucima akwenzekanga: {error}",
-  "deleteFilter": "Cima uCoci",
   "deleteLabel": "Cima Ileybhile",
   "deleteLabelFailed": "Ukucima ilebhile akwenzekanga: {error}",
   "deletePlugin": "Cima Iplagi-in",
@@ -526,7 +368,6 @@
   "deleteRule": "Cima Umthetho",
   "deleteRuleFailed": "Ukucima akwenzekanga: {error}",
   "deleteSelected": "Cima okukhethiweyo",
-  "deleteSmsRule": "Cima Umthetho we-SMS",
   "deleteSubscription": "Cima Ubhaliso",
   "@deleteSubscription": {
     "description": "Delete subscription dialog title"
@@ -551,21 +392,13 @@
   },
   "deleteSuccess": "Ukucima kuphumelele",
   "delivery": "Ukuhanjiswa",
-  "deviceDeletedSuccessfully": "Isixhobo sicinywe ngempumelelo",
-  "deviceDeletedSuccessfullyMessage": "Isixhobo sicinywe ngempumelelo",
-  "deviceIdLabel": "ID yeSixhobo",
   "deviceIDLabel": "ID yeSixhobo",
   "deviceManagementSubtitle": "Lawula unxulumaniso lwezixhobo ezininzi",
   "deviceManagementTitle": "Ulawulo lweSixhobo",
   "deviceModelLabel": "Umzekelo weSixhobo",
   "deviceName": "Igama leSixhobo",
-  "deviceNameCannotBeEmpty": "Igama lesixhobo alinakuba lingenanto",
-  "deviceNameHint": "Nceda ufake igama lesixhobo",
   "deviceNameLabel": "Igama Lesixhobo",
-  "deviceRenamedSuccessfully": "Isixhobo sihlaziywe ngempumelelo",
   "deviceRenamedSuccessfullyMessage": "Isixhobo sihlaziywe ngempumelelo",
-  "devicesSyncedSuccessfully": "Izixhobo zivumelaniswe ngempumelelo",
-  "devicesSyncedSuccessfullyMessage": "Izixhobo zivumelaniswe ngempumelelo",
   "devicesSynchronizedSuccessfullyMessage": "Izixhobo zivumelaniswe ngempumelelo",
   "deviceUnregisteredSuccessfullyMessage": "Isixhobo sikhutshwe ngempumelelo",
   "dialogTitle": "Ingcaciso ye-Regex Pattern",
@@ -576,7 +409,6 @@
   },
   "disabledStatus": "Khubazekile",
   "disableGlobalPlugins": "Khubaza iiplagini zehlabathi",
-  "disableSubscriptionSuccessfully": "Khubaza ubhaliso ngempumelelo",
   "disconnectButton": "Nqamula",
   "disconnectedMessage": "Kunqanyulwe",
   "disconnectedStatus": "Kunqanyulwe",
@@ -587,17 +419,12 @@
   "ecommerce": "E-commerce",
   "edit": "Hlela",
   "editContact": "Hlela uMqhagamshelani",
-  "editFilter": "Hlela Icebo Lokucoca",
   "editLabel": "Hlela Ileyibhuli",
   "editPhoneRule": "Hlela uMthetho weFowuni",
-  "editPhoneRules": "Isetyenziselwa ukuhlela imithetho yefowuni",
-  "editPhoneRuleTitle": "Hlela uMthetho weFowuni",
   "editRule": "Hlela uMthetho",
-  "editSmsRule": "Hlela uMthetho weSMS",
   "education": "Ezemfundo",
   "elementPositionsSetting": "Indawo Zezixhobo",
   "email": "I-email",
-  "emailOptional": "I-email (Onganyanzelekanga)",
   "enableCallFilter": "Vula Icebo Lokucoca Iifowuni",
   "enableCallFilterDescription": "Xa ivuliwe, iifowuni ezingenayo ziyakujongwa ngokwe-rule list engezantsi. Imithetho yokucoca iifowuni ayivumelaniswa phakathi kwezixhobo ngokwendalo.",
   "enabled": "Vuliwe",
@@ -607,9 +434,6 @@
   "enabledStatus": "Vuliwe",
   "enableEncryption": "Vula uFihlo",
   "enableEncryptionDescription": "Fihla iifayile zogcino",
-  "enableEncryptionLabel": "Vula uFihlo",
-  "enableEncryptionSubtitle": "Iifayile zogcino ziya kufihlwa",
-  "enableEncryptionTitle": "Vula uFihlo",
   "enableGlobalPlugins": "Vula iiplagini zehlabathi",
   "enableLocalCountFilter": "Vula iLocal Count Filter",
   "enableLocalCountFilterDescription": "Coca ngokuzenzekelayo iifowuni ze-spam ngokusekelwe ekubaleni kokuphawulwa kwefowuni",
@@ -620,14 +444,11 @@
   "enableMuteRulesDesc": "Sebenzisa uqwalaselo lwemigaqo yokuthulisa",
   "enableNoneActionRules": "Vula Imithetho Engenzi Lutho",
   "enableNoneActionRulesDesc": "Vumela uqwalaselo lwemigaqo engenzi nto",
-  "enableNotifications": "Vula Izaziso",
   "enableRemoteNumberFilter": "Vula Icebo lokucoca Inombolo ekude",
   "enableRemoteNumberFilterDescription": "Sebenzisa database ekude ukucoca iinombolo",
   "enableRule": "Vula uMthetho",
   "enableSmsFilter": "Vula Ukucocwa Kwe-SMS",
   "enableSmsFilterDescription": "Xa ivuliwe, imiyalezo iya kucocwa ngokuzenzekelayo ngokwemigaqo",
-  "enableStatisticsNotifications": "Vula Izaziso Ze-Izibalo",
-  "enableSubscriptionSuccessfully": "Vula ubhaliso ngempumelelo",
   "enableTimeInterception": "Vula Ukunqanda Ngexesha",
   "enableTimeInterceptionDescription": "Nqanda iifowuni eziphindaphindiweyo kwixesha elifutshane",
   "enableTimeInterceptor": "Vula Isithinteli Sexesha",
@@ -641,24 +462,15 @@
   },
   "enhancedFilterSettingsTitle": "Useto lweSistim yokucoca ehlaziyiweyo",
   "enhancedFilterSystemDescription": "Inkqubo yokucoca ehlaziyiweyo ixhasa imithetho yehlabathi kunye noqwalaselo lokucoca lwekhadi ngalinye le-SIM.",
-  "enterBothPhoneNumberAndRegexPattern": "Nceda ufake inombolo yefowuni kunye ne-regex pattern",
   "enterBothPhoneNumberAndRegexPatternMessage": "Nceda ufake inombolo yefowuni kunye ne-regex pattern.",
   "enterContactName": "Nceda ufake igama lomqhagamshelani",
-  "enterCurrentPasswordHint": "Nceda ufake ipassword yangoku",
   "enterDeviceName": "Faka Igama Lesixhobo",
-  "enterDeviceNameHint": "Nceda ufake igama lesixhobo",
-  "enterEmail": "Nceda ufake i-email",
   "enterEmailOptional": "Nceda ufake i-email (onganyanzelekanga)",
   "enterEncryptionPasswordHint": "Faka ipassword yofihlo",
-  "enterEncryptionPasswordTitle": "Faka Ipassword Yofihlo",
-  "enterFilterName": "Nceda ufake igama lecebo lokucoca",
-  "enterFilterPattern": "Nceda ufake ipatheni yokucoca",
   "enterIconCode": "Faka ikhowudi ye-ayikhoni",
   "enterName": "Faka igama lomqhagamshelani",
   "enterNewDeviceNameHint": "Faka igama elitsha lesi sixhobo",
-  "enterNewPasswordHint": "Nceda ufake ipassword entsha",
   "enterPasswordAgain": "Faka Ipassword Kwakhona",
-  "enterPasswordHint": "Nceda ufake ipassword",
   "enterPhoneNumber": "Faka inombolo yefowuni",
   "enterPhoneNumberHint": "Faka inombolo yefowuni ukuyivavanya",
   "enterPhoneNumberMultiple": "Nceda ufake inombolo yefowuni, iinombolo ezininzi zohlulwe ngekhoma",
@@ -667,7 +479,6 @@
   "enterPluginName": "Faka Igama Le-Plugin",
   "enterPluginUrl": "Faka idilesi ye-URL ye-plugin",
   "enterRegexHint": "Faka i-regex pattern",
-  "enterRuleNameAndPattern": "Nceda ufake igama lomthetho kunye nepatheni",
   "enterRuleNameAndPatternMessage": "Nceda ufake igama leregula kunye nepatheni ye-regex.",
   "enterRuleNameHint": "Faka igama leregula",
   "enterSearchContent": "Nceda ufake umxholo wophendlo",
@@ -690,79 +501,50 @@
   "enterWebDAVPasswordHint": "Nceda ufake iphasiwedi yeWebDAV",
   "enterWebDAVServerAddressHint": "Nceda ufake idilesi yeseva yeWebDAV",
   "enterWebDAVUsernameHint": "Nceda ufake igama lomsebenzisi leWebDAV",
-  "errorDeletingDeviceMessage": "Impazamo yokucima isixhobo: {error}",
-  "errorLoadingPlugin": "Impazamo yokulayisha iplagin",
   "errorOccurredMessage": "Kukho impazamo eyenzekileyo: {error}",
   "errorRenamingDeviceMessage": "Impazamo yokuthiya kwakhona isixhobo: {error}",
   "errorSynchronizingDevicesMessage": "Impazamo yokuvumelanisa izixhobo: {error}",
-  "errorSyncingDevicesMessage": "Impazamo yokuvumelanisa izixhobo: {error}",
-  "errorText": "Impazamo",
   "errorUnregisteringDeviceMessage": "Impazamo yokukhupha ubhaliso lwesixhobo: {error}",
   "exampleBlock400Prefix": "umz. Vimba iinombolo ezine-prefix 400",
   "exampleBlockMarketingSms": "umz. Vimba ii-SMS zentengiso",
-  "exampleContentRegex": "umz., .*offer.*",
   "exampleContentRegexHint": "Umzekelo weRegex yoMxholo",
   "exampleCouponPromotionDiscount": "umz. .*(coupon|promotion|discount).*",
   "exampleFamilyFriends": "umz. Usapho, Abahlobo, njl.njl.",
   "examplePhoneNumber": "umz. 10086, 12345, njl.njl.",
   "exampleRegex400Prefix": "Umzekelo we-regex ye-prefix 400",
-  "exampleRegexFormat": "Umzekelo: ^10086$ ifomathi",
   "exampleSenderRegexHint": "Umzekelo",
   "exchange": "Tshintsha",
   "exchangeNow": "Tshintsha Ngoku",
   "exchangeVip": "Tshintsha i-VIP",
-  "expandLabelSelector": "Yandisa Ukhetho Lweleyibhile",
   "expiryTime": "Ixesha lokuphelelwa: {time}",
   "export": "Thumela Ngaphandle",
   "exportAllApplicationSettings": "Thumela zonke izicwangciso zesicelo ngaphandle",
-  "exportAllApplicationSettingsSubtitle": "Thumela zonke izicwangciso zesicelo ngaphandle",
   "exportAllRuleConfigurations": "Thumela Zonke Izicwangciso Zerula Ngaphandle",
-  "exportAllRuleConfigurationsSubtitle": "Thumela zonke izicwangciso zerula ngaphandle",
-  "exportComplete": "Ukuthunyelwa Ngaphandle Kugqityiwe",
   "exportConfig": "Thumela Ucwangciso Ngaphandle",
   "exportContacts": "Thumela Abafowunelwa Ngaphandle",
   "exportData": "Thumela Idatha Ngaphandle",
-  "exportError": "Impazamo yokuthumela ngaphandle",
   "exportFailed": "Ukuthumela ngaphandle akwenzekanga",
   "exportFailure": "Kusilele ukuthumela ucwangciso ngaphandle",
   "exportFeatureComingSoon": "Ukuthumela ngaphandle kuza kungekudala",
-  "exporting": "Kuyathunyelwa ngaphandle...",
   "exportLabels": "Thumela Iileyibhile Ngaphandle",
   "exportLabelsFailed": "Kusilele ukuthumela iileyibhile ngaphandle: {error}",
   "exportPluginList": "Thumela Uluhlu Lweeplagin Ngaphandle",
   "exportPluginListFailed": "Kusilele ukuthumela uluhlu lweeplagin ngaphandle: {error}",
   "exportRules": "Thumela Iirula Ngaphandle",
-  "exportRulesDialogTitle": "Thumela Iirula Ngaphandle",
-  "exportRulesTitle": "Thumela Iirula Ngaphandle",
   "exportSmsRules": "Thumela Iirula Ze-SMS Ngaphandle",
   "exportStatisticsData": "Thumela Idatha YeNkcukacha-manani Ngaphandle",
-  "exportSuccess": "Ukuthumela ngaphandle kuphumelele",
   "exportSuccesslly": "Ucwangciso luthunyelwe ngaphandle ngempumelelo",
-  "failedToAddContact": "Kusilele ukongeza umfowunelwa",
   "failedToAddRule": "Kusilele ukongeza irula: {error}",
-  "failedToAddSmsRule": "Kusilele ukongeza irula ye-SMS: {error}",
   "failedToAddSmsSubscription": "Kusilele ukongeza ubhaliso lwe-SMS: {error}",
   "failedToBackupSettings": "Kusilele ukwenza ugcino lwezicwangciso: {error}",
   "failedToDecryptBackupFile": "Kusilele ukucazulula ifayile yogcino",
-  "failedToDeleteDevice": "Kusilele ukucima isixhobo",
   "failedToDeleteSmsRule": "Kusilele ukucima irula ye-SMS: {error}",
   "failedToExportRules": "Kusilele ukuthumela iirula ngaphandle: {error}",
-  "failedToExportSmsRules": "Kusilele ukuthumela iirula ze-SMS ngaphandle: {error}",
   "failedToGetCallerIdInfo": "Kusilele ukufumana ulwazi lwe-ID yomfowuni: {error}",
   "failedToImportRules": "Kusilele ukungenisa iirula: {error}",
-  "failedToImportSmsRules": "Kusilele ukungenisa iirula ze-SMS: {error}",
-  "failedToLoadContacts": "Kusilele ukulayisha abafowunelwa",
-  "failedToLoadPlugin": "Kusilele ukulayisha iplagin",
-  "failedToRenameDevice": "Kusilele ukuthiya kwakhona isixhobo",
   "failedToRestoreSettings": "Kusilele ukubuyisela izicwangciso",
   "failedToRestoreSettingsWithError": "Kusilele ukubuyisela izicwangciso: {error}",
-  "failedToSetPassword": "Kusilele ukuseta iphasiwedi: {error}",
-  "failedToSyncDevices": "Kusilele ukuvumelanisa izixhobo",
   "failedToToggleRuleStatus": "Kusilele ukutshintsha imeko yerula: {error}",
-  "failedToToggleSubscriptionStatus": "Kusilele ukutshintsha imeko yobhaliso",
-  "failedToUpdateContact": "Kusilele ukuhlaziya umfowunelwa",
-  "failedToUpdateSmsRule": "Kusilele ukuhlaziya irula ye-SMS: {error}",
-  "failure": "Ukusilela",
   "favoriteContacts": "Abafowunelwa Abathandayo",
   "featureAddRules": "• Yongeza iirula ezithile zenombolo yefowuni",
   "featureCenter": "Iziko LeeNqobo",
@@ -777,23 +559,14 @@
   "fileSavedTo": "Ifayile igcinwe ku: {path}",
   "filter": "Isihluzo",
   "filterByLabel": "Hluza ngeleyibhile",
-  "filterClear": "Sula Isihluzo",
   "filterControlPanelTitle": "Iphaneli Yokulawula Izihluzo",
   "filterControlSubtitle": "Lawula imeko yokuvula/yokuvala yazo zonke izihluzo",
   "filterControlTitle": "Ulawulo Lokucoca",
-  "filterDeleteFailed": "Ukucima kokucoca akusebenzanga",
-  "filterDeleteSuccess": "Ukucoca kucinywe ngempumelelo",
-  "filterDetails": "Iinkcukacha Zokucoca",
   "filtered": "Kucociwe",
-  "filteredSms": "I-SMS ecociweyo",
-  "filteredSmsLabel": "I-SMS ecociweyo",
   "filterExplanation": "Ingcaciso Yokucoca",
   "filterManagement": "Ulawulo Lokucoca",
   "filterName": "Igama Lokucoca",
-  "filterPattern": "Ipateni Yokucoca",
   "filterPriorityNote": "Qaphela: Kukho ubudlelwane phakathi kwezicoci, nceda ujonge kumaxwebhu oncedo ukufumana iinkcukacha",
-  "filterSaveFailed": "Ukugcina ukucoca akusebenzanga",
-  "filterSaveSuccess": "Ukucoca kugcinwe ngempumelelo",
   "filterSettings": "Useto Lokucoca",
   "filterSettingsTitle": "Useto Lokucoca",
   "filterSMS": "Coca i-SMS",
@@ -815,8 +588,6 @@
   "flexibleCombinationFeature": "• Ukudibanisa okuguquguqukayo: Vula/vala izicoci kwindawo nganye ye-SIM",
   "fontSizesSetting": "Ubungakanani Befonti",
   "foundRules": "Kufumaneke imithetho eli-{count}",
-  "foundRulesDoYouWantToImport": "Kufumaneke imithetho eli-{count}. Ufuna ukuyingenisa?",
-  "foundRulesToImport": "Kufumaneke imithetho eli-{count}. Ufuna ukuyingenisa?",
   "fraudAlert": "ISILUMKISO NGOBUQHUQHUVA - Yinqumle umnxeba",
   "fraudScamLikely": "Ubuxoki bobuqhophololo Bunokwenzeka",
   "free": "Simahla",
@@ -838,29 +609,18 @@
   "@globalFilterSettings": {
     "description": "Global filter settings section title"
   },
-  "globalFilterToggleInstructions": "Lungiselela useto lwezicoci zehlabathi lonke olusebenza kuzo zonke iindawo ze-SIM:",
-  "@globalFilterToggleInstructions": {
-    "description": "Instructions for configuring global filter settings"
-  },
-  "globalSearchSubtitle": "Khangela abafowunelwa, iilebhile, uluhlu olumnyama, uluhlu olumhlophe, njl.",
-  "globalSearchTitle": "Ukukhangela Kwehlabathi Lonke",
   "globalSettings": "Useto Lwehlabathi Lonke",
   "@globalSettings": {
     "description": "Title for global settings page"
   },
-  "googleAdDisplayPosition": "Indawo Yokubonisa Intengiso kaGoogle",
-  "googleAdMobIntegrationText": "Iintengiso ze-AdMob kaGoogle zinokudityaniswa apha",
   "googleDriveAuthDescription": "Gunyazisa usebenzisa i-ID yomxhasi ye-Google Drive elungiselelwe yinkqubo kunye nesitshixo",
-  "googleDriveAuthorizationHint": "Gunyazisa usebenzisa i-ID yomxhasi ye-Google Drive elungiselelwe yinkqubo kunye nesitshixo",
   "googleDriveConfigTitle": "Ulungiselelo Lwe-Google Drive",
-  "googleDriveConfigurationTitle": "Ulungiselelo Lwe-Google Drive",
   "government": "Urhulumente",
   "granted": "Kuvunyelwe",
   "grantNecessaryPermissions": "Nikeza Iimvume Ezifunekayo",
   "grantPermissions": "Nikeza Iimvume",
   "headhunter": "Umzingeli Wabasebenzi",
   "height": "Ubude",
-  "homePageTitle": "Iphepha Lasekhaya",
   "homeTab": "Ekhaya",
   "howItWorksPoint1": "• Inkqubo iya kuvumela ngokuzenzekelayo iminxeba evela kwinombolo efanayo ngaphakathi kwexesha elimisiweyo",
   "howItWorksPoint2": "• Amaxesha amafutshane akhokelela ekunqandeni okungqongqo; amaxesha amade akhokelela ekunqandeni okungqongqo",
@@ -870,7 +630,6 @@
   "iconSize": "Ubungakanani Be-icon",
   "import": "Ngenisa",
   "important": "Okubalulekileyo",
-  "importButton": "Ngenisa",
   "importConfig": "Ngenisa Ulungiselelo",
   "importContacts": "Ngenisa Abafowunelwa",
   "importExportContacts": "Ngenisa/Thumela Abafowunelwa",
@@ -885,17 +644,9 @@
   "importPluginListFailed": "Ukungenisa uluhlu lwama-plugin akusebenzanga: {error}",
   "importPluginSuccess": "Kungeniswe ngempumelelo {count} plugins",
   "importRuleConfigurationsFromFile": "Ngenisa Ulungiselelo Lwemithetho Kwifayile",
-  "importRuleConfigurationsFromFileSubtitle": "Ngenisa ulungiselelo lwemithetho kwifayile",
   "importRules": "Ngenisa Imithetho",
-  "importRulesButton": "Ngenisa Imithetho",
-  "importRulesDialogTitle": "Ngenisa Imithetho",
-  "importRulesError": "Ukungenisa imithetho akusebenzanga: {error}",
-  "importRulesInstructions": "Ngenisa imithetho kwifayile ye-CSV",
-  "importRulesSuccess": "Imithetho ingeniswe ngempumelelo",
-  "importRulesTitle": "Ngenisa Imithetho",
   "importSuccess": "Ukungenisa kuphumelele",
   "incomingCallInterceptAction": "Isenzo Sokunqanda Umnxeba Ongenayo",
-  "incomingCallNotification": "Isaziso Somnxeba Ongenayo",
   "incorrectPassword": "Igama lokugqitha elingafanelekanga",
   "initializing": "Iyaqala",
   "installed": "Ifakwe",
@@ -923,33 +674,18 @@
   "invalidRegexPattern": "Iphethini yeregesi engasebenzi",
   "invalidSenderRegex": "I-regex yomthumeli engasebenzi",
   "joinTheTelegramChannelAndGroupForMoreInfo": "Joyina iTelegram Channel kunye neGroup ngolwazi oluthe vetshe",
-  "jsLogsTitle": "I-JS Logs",
   "jsonFormat": "Ifomathi ye-JSON",
   "keepAllVersions": "Gcina Zonke iiNguqulelo",
   "keepAllVersionsDescription": "Gcina zonke iinguqulelo zembali zoluhlu ngalunye",
-  "keepAllVersionsLabel": "Gcina Zonke iiNguqulelo",
-  "keepAllVersionsSubtitle": "Gcina iinguqulelo zembali zoluhlu ngalunye",
-  "keepAllVersionsTitle": "Gcina Zonke iiNguqulelo",
   "label": "Ilebhile",
   "labelAddedSuccessfully": "Ilebhile \"{name}\" yongezwe ngempumelelo",
   "labelCategories": "Iindidi zeeLebhile",
   "labelDeleted": "Ilebhile icinyiwe",
   "labelDescription": "IiLebhile zikunceda ulawule abafowunelwa ngcono, yongeza iilebhile zesiko kumanani efowuni ukuze kube lula ukuchonga iminxeba kunye nemiyalezo.",
-  "labelFilter": "Isihluzi seeLebhile",
   "labelFilterTooltip": "Isihluzi seeLebhile",
   "labelIconColor": "Umbala weIcon yeLebhile",
   "labelManagement": "Ulawulo lweeLebhile",
   "labelNotFound": "Ilebhile ayifunyanwanga",
-  "labelRemoved": "Ilebhile isusiwe",
-  "labelRemoveFailed": "Kusilele ukususa ilebhile: {error}",
-  "@labelRemoveFailed": {
-    "description": "Label removal failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "labels": "IiLebhile",
   "labelsColor": "Umbala weeLebhile",
   "labelsDeleted": "{count} iilebhile zicinyiwe",
@@ -958,7 +694,6 @@
   "labelsImportedSuccessfully": "Kungeniswe {count} iilebhile ngempumelelo",
   "labelsPosition": "Indawo yeeLebhile",
   "labelTag": "Ilebhile: {labelId}",
-  "labelUpdated": "Ilebhile ihlaziyiwe",
   "labelUpdateFailed": "Kusilele ukuhlaziya ilebhile: {error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -972,8 +707,6 @@
   "languageSettings": "Useto loLwimi",
   "languageSettingsSubtitle": "Tshintsha ulwimi lokubonisa lwesicelo",
   "languageSettingsTitle": "Useto loLwimi",
-  "last30Days": "Iintsuku Ezingama-30 Ezidlulileyo",
-  "last7Days": "Iintsuku Ezisi-7 Ezidlulileyo",
   "lastSyncLabel": "Uvumelaniso lwamva nje",
   "lastUpdated": "Ihlaziywe: {date}",
   "@lastUpdated": {
@@ -988,16 +721,12 @@
   "lifetimeMembershipDescription": "Ukuthenga kanye, vula ngokusisigxina zonke iimpawu zepremiyamu kunye nohlaziyo lwexesha elizayo",
   "loadContactsFailed": "Kusilele ukulayisha abafowunelwa: {error}",
   "loadDataFailed": "Kusilele ukulayisha idatha",
-  "loadFailed": "Ukulayisha Kusilele",
   "loading": "Iyalayisha...",
-  "loadingData": "Iyalayisha iDatha...",
   "loadingTags": "Iyalayisha iithegi...",
   "loadLabelFailed": "Kusilele ukulayisha iilebhile: {error}",
   "loadLabelsFailed": "Kusilele ukulayisha iilebhile: {error}",
   "loadMarkCountFailed": "Kusilele ukulayisha amanani efowuni aphawuliweyo: {error}",
   "loadMarkedPhonesFailed": "Kusilele ukulayisha iifowuni eziphawuliweyo: {error}",
-  "loadMore": "Layisha Okunye",
-  "loadPluginButton": "Layisha iPlugin",
   "loadPluginsFailed": "Kusilele ukulayisha iiplagini: {error}",
   "loadSettingsFailed": "Kusilele ukulayisha useto: {error}",
   "loadSmsRulesFailed": "Kusilele ukulayisha imithetho yeSMS: {error}",
@@ -1012,7 +741,6 @@
     }
   },
   "loan": "Imali-mboleko",
-  "localBackupTitle": "Ugcino lwaseKhaya",
   "localCounterFilter": "Isihluzi seKhawuntara yaseKhaya",
   "localCounterFilterSubtitle": "Hluza ngokuzenzekelayo iminxeba yogaxekile ngokusekelwe kubuninzi beefowuni",
   "localCountFilter": "Isihluzi seKhawuntara yaseKhaya",
@@ -1043,11 +771,9 @@
   "logAllRemoteQueries": "Rekhoda Yonke Imibuzo Ekude",
   "logAllRemoteQueriesDescription": "Rekhoda zonke iintshukumo zemibuzo yenombolo ekude",
   "manage": "Lawula Abafowunelwa",
-  "manageContacts": "Lawula",
   "manageFavoriteContacts": "Lawula Abafowunelwa AbaKhethiweyo",
   "manageFilterRules": "Lawula Imithetho Yesihluzi",
   "manageFilterRulesDescription": "Yongeza, hlela, okanye ucime imithetho yesihluzi seSMS",
-  "manageFrequentContacts": "Lawula Abafowunelwa Abafowunela Rhoqo",
   "markCounts": "IiKhaunti Zophawu",
   "markCount": "IKhawuntara yoPhawu",
   "markedByCount": "Ifakwe uphawu ngu {count}",
@@ -1064,84 +790,48 @@
   "markExchange": "Phawula Utshintshiselwano",
   "markPhone": "Phawula Inombolo Yefowuni",
   "markPhoneFailed": "Ukumaka inombolo kufunwe ukusilela: {error}",
-  "markPhoneManagementSubtitle": "Ukumaka Iinombolo Zefowuni",
   "markPhoneManagementTitle": "Ulawulo Lokumaka Ifowuni",
   "markPhoneSuccess": "Inombolo yefowuni imakwe ngempumelelo",
-  "matchFailed": "Ukufana akwenzekanga!",
   "matchFailedMessage": "Ukufana akwenzekanga.",
   "matchNumbersWithSpecialCharacters": "ihambelana nefomathi ethile yenombolo",
   "matchNumbersWithSpecialCharactersTitle": "Hambelana neenombolo ezinomlinganiselo okhethekileyo:",
   "matchSpecificDigitPatterns": "ihambelana nefomathi XXX-XXXX-XXXX",
   "matchSpecificDigitPatternsTitle": "Hambelana neepateni ezithile zamanani:",
-  "matchSuccessful": "Ukufana kuphumelele!",
   "matchSuccessfulMessage": "Ukufana kuphumelele!",
   "medical": "Ezempilo",
   "membershipPrivileges": "Amalungelo Obulungu",
   "migrationTool": "Isixhobo SokuFuduka",
-  "migrationToolTitle": "Isixhobo SokuFuduka",
   "minutes": "imizuzu",
   "month": "Inyanga",
   "monthly": "Ngenyanga",
   "monthlyCallCount": "Iifowuni Zenyanga",
-  "monthlyChartTitle": "Iifowuni Ezivaliweyo Zenyanga",
   "monthlyMembership": "Ubulungu Benyanga",
   "monthlyMembershipDescription": "Vula zonke iimpawu zepremiyamu, hlaziya ngokuzenzekelayo nyanga zonke",
   "monthlyTotal": "Itotali Yenyanga",
-  "monthlyTotalLabel": "Itotali Yenyanga",
   "moreOptions": "Ezinye Iinketho",
   "mute": "Thulisa",
   "name": "Igama",
   "nameAndPhoneNumberCannotBeEmpty": "Igama nenombolo yefowuni ayinakushiywa ingenanto",
-  "nameAndPhoneNumberRequired": "Igama nenombolo yefowuni ayinakushiywa ingenanto",
   "nameColor": "Umbala Wegama",
   "nameFontSize": "Ubungakanani Befonti Yegama",
-  "nameLabel": "Igama: {name}",
-  "@nameLabel": {
-    "description": "Caller ID name label",
-    "placeholders": {
-      "name": {
-        "type": "Object"
-      }
-    }
-  },
   "namePosition": "Indawo Yegama",
   "nameUnknown": "Igama: Akwaziwa",
-  "nameWithValue": "Igama: {name}",
-  "@nameWithValue": {
-    "description": "Text showing the name of a contact",
-    "placeholders": {
-      "name": {
-        "type": "String",
-        "example": "John Doe"
-      }
-    }
-  },
-  "newPasswordLabel": "Iphasiwedi Entsha",
   "nextStep": "Okulandelayo",
   "noAction": "Akukho Senzo",
   "noActionRules": "Akukho Mithetho Yesenzo",
   "noActiveCloudSyncServiceMessage": "Akukho nkonzo isebenzayo yokuvumelanisa ilifu",
-  "noCallLogs": "Akukho Zingxelo Zeefowuni",
   "noCallRecords": "Akukho zingxelo zeefowuni",
-  "noContacts": "Akukho baqhagamshelani okwangoku",
   "noContactsYet": "Akukho baqhagamshelani okwangoku",
   "noData": "Akukho Data",
   "noDevicesRegisteredMessage": "Akukho zixhobo zibhalisiweyo",
-  "noDevicesRegisteredYet": "Akukho zixhobo zibhalisiweyo okwangoku.",
-  "noFilters": "Akukho zihluzi okwangoku",
   "noLabels": "Akukho zilebheli okwangoku",
   "noMarkedPhones": "Akukho nombolo zefowuni zimakwe",
-  "noMatchingContacts": "Akukho baqhagamshelani abafanayo",
   "noMatchingContactsFound": "Akukho baqhagamshelani abafanayo bafunyenweyo",
   "noMatchingNumbersFound": "Akukho nombolo zifanayo zifunyenweyo",
-  "noMatchingRecords": "Akukho zingxelo zeefowuni ezifanayo",
   "noMatchingRules": "Akukho {ruleType} ifanayo",
   "none": "Akukho",
   "noneServiceType": "Akukho",
   "noPlugins": "Akukho ziiplugins okwangoku",
-  "noRecords": "Akukho zingxelo zeefowuni",
-  "noResultReturned": "Akukho siphumo sibuyisweyo",
-  "noResultReturnedLog": "Akukho siphumo sibuyiswe kwiplugin",
   "noRules": "Akukho {ruleType} okwangoku",
   "noRulesPrompt": "Akukho mithetho ifunyenweyo, nceda ungeze imithetho",
   "noRulesToExport": "Akukho mithetho yokuthumela ngaphandle",
@@ -1151,7 +841,6 @@
   "@noSubscriptions": {
     "description": "No subscriptions message"
   },
-  "noSubscriptionsYet": "Akukho Bhaliso Okwangoku",
   "notGranted": "Ayinikwanga",
   "notificationMode": "Indlela Yesaziso",
   "notificationModeDescription": "Bonisa ulwazi lomntu ofowunayo kwibar yesaziso",
@@ -1162,8 +851,6 @@
   "@notificationSettings": {
     "description": "Notification settings title"
   },
-  "notificationSettingsSaved": "Izicwangciso zesaziso zigcinwe ngempumelelo",
-  "notSet": "Asetwanga",
   "notVerifiedText": "Ayingqinwanga",
   "noValidSmsRulesFoundInFile": "Akukho mithetho yeSMS esebenzayo efumaneke kwifayile",
   "number": "Inombolo",
@@ -1174,7 +861,6 @@
   "numberTypeColor": "Umbala Wohlobo Lwenombolo",
   "numberTypeFontSize": "Ubungakanani Befonti Yohlobo Lwenombolo",
   "numberTypePosition": "Indawo Yohlobo Lwenombolo",
-  "ok": "Kulungile",
   "okButton": "Kulungile",
   "onboardingCompleteDescription": "Ulawulo lwakho lokhuseleko lwefowuni lulungele, qala ukonwabela amava efowuni akhuselekileyo!",
   "onboardingLanguageDescription": "Khetha ulwimi olukhethayo ukuze ufumane amava angcono.",
@@ -1183,9 +869,7 @@
   "onboardingSmartCallerIdDescription": "Chonga ngokuzenzekelayo iifowuni ezingaziwayo, maka iinombolo ezirhanelwayo, kwaye ukhusele ukhuseleko lwefowuni yakho.",
   "onboardingWelcomeDescription": "Ingcali yakho yolawulo lwefowuni, ebonelela ngenkonzo epheleleyo yokuchonga kunye nokuthintela iifowuni.",
   "oneDriveAuthDescription": "Gunyazisa usebenzisa i-ID yomxhasi ye-OneDrive ecwangciswe yinkqubo kunye nesitshixo",
-  "oneDriveAuthorizationHint": "Gunyazisa usebenzisa i-ID yomxhasi ye-OneDrive ecwangciswe yinkqubo kunye nesitshixo",
   "oneDriveConfigTitle": "Uqwalaselo Lwe-OneDrive",
-  "oneDriveConfigurationTitle": "Uqwalaselo Lwe-OneDrive",
   "onlineCallerIdSubscription": "Ukubhalisa kwi-ID Yomntu Okukwi-Intanethi",
   "openAppSettings": "Vula useto lwesicelo",
   "openAppSettingsFailed": "Ukusilela ekuvuleni useto lwesicelo: {error}",
@@ -1203,7 +887,6 @@
   "passwordCannotBeEmpty": "Iphasiwedi ayinakushiya ingenanto",
   "passwordLabel": "Iphasiwedi",
   "passwordsDoNotMatch": "Iiphaswedi azihambelani",
-  "passwordSetSuccessfully": "Iphasiwedi imiselwe ngempumelelo",
   "pattern": "Iphethini",
   "pendingSync": "Ukulinda Uvumelaniso",
   "periodMonth": "Inyanga",
@@ -1216,9 +899,7 @@
   "phoneNumber": "Inombolo Yefowuni",
   "phoneNumberCannotBeEmpty": "Inombolo yefowuni ayinakushiya ingenanto",
   "phoneNumberHint": "Faka inombolo yefowuni",
-  "phoneNumberHintText": "Faka inombolo yefowuni ukongeza umthetho",
   "phoneNumberLabel": "Inombolo Yefowuni",
-  "phoneNumberRegexRequired": "Nceda ufake inombolo yefowuni kunye nephethini ye-regex",
   "phoneNumberRequired": "Inombolo yefowuni iyafuneka",
   "phoneNumberTypeFixedLine": "Umgca omiselweyo",
   "phoneNumberTypeFixedLineOrMobile": "Umgca omiselweyo okanye weselfowuni",
@@ -1235,34 +916,23 @@
   "phonePermission": "Imvume Yefowuni",
   "phonePermissionDescription": "Isetyenziselwa ukuchonga nokubhloka iifowuni ezingenayo.",
   "phoneRule": "Umthetho Wefowuni",
-  "phoneRuleEditDialog": "Incoko Yababini Yokuhlela Umthetho Wefowuni",
   "phoneRuleManagement": "Ulawulo Lwemithetho Yefowuni",
   "phoneRuleSubscription": "Ukubhalisa Kwemithetho Yefowuni",
   "phoneSubscription": "Ukubhalisa Kwefowuni",
   "phoneSubscriptionRulesDescription": "Bhalisela uluhlu lwemithetho yefowuni nge-URL ukuze uhlaziye ngokuzenzekelayo uluhlu oluvunyelweyo noluhlu olubhlokiweyo. Ixhasa iifayile zomthetho zefomathi ye-JSON.",
-  "phoneSubscriptionTitle": "Ukubhalisa Kwemithetho Yefowuni",
-  "@phoneSubscriptionTitle": {
-    "description": "Phone subscription page title"
-  },
   "pleaseSelectLabelAndEnterValidPhone": "Nceda ukhethe ilebhile uze ufake inombolo yefowuni esebenzayo",
   "pluginAddedSuccess": "I-plugin \"{name}\" yongezwe ngempumelelo",
   "pluginDeleted": "I-plugin icinyiwe",
   "pluginLatestVersion": "I-plugin sele ingeyona nguqulo yamva nje",
   "pluginListExportSuccess": "Uluhlu lwee-plugin luthunyelwe ngaphandle ngempumelelo",
-  "pluginLoadedSuccessfully": "I-plugin ilayishwe ngempumelelo",
   "pluginManagement": "Ulawulo Lwee-plugin",
   "pluginManagementSubtitle": "Lawula kwaye ufake useto lwee-plugin zabantu besithathu",
-  "pluginManagementTitle": "Ulawulo Lwee-plugin",
   "pluginName": "Igama Le-plugin",
-  "pluginNotLoaded": "I-plugin ayikalayishwa okwangoku. Nceda ulayishe i-plugin kuqala.",
   "pluginsDeleted": "Ii-plugin eziyi-{count} zicinywe ngempumelelo.",
   "pluginService": "Inkonzo Ye-plugin",
   "pluginTestPageTitle": "Uvavanyo Lwe-plugin",
   "pluginUpdateSuccess": "I-plugin ihlaziywe ngempumelelo",
   "pluginUrl": "I-URL ye-plugin",
-  "pluginUrlCannotBeEmpty": "I-URL ye-plugin ayinakushiya ingenanto",
-  "pluginUrlHint": "Faka i-URL ye-plugin",
-  "pluginUrlLabel": "I-URL ye-plugin",
   "pluginVersion": "Inguqulo Ye-plugin",
   "political": "Ezopolitiko",
   "powerfulSpamBlocking": "Ukubhloka okunamandla kwe-Spam",
@@ -1274,26 +944,16 @@
   "purchase": "Ukuthenga",
   "quarterlyMembership": "Ubulungu beKota",
   "quarterlyMembershipDescription": "Vula zonke izinto ezikhethekileyo, hlaziya ngokuzenzekelayo ngekota",
-  "queryButton": "Buza",
-  "queryFailed": "Ukubuza kusilele",
-  "queryFailedLog": "Ukubuza kusilele",
-  "querying": "Kubuzwa...",
-  "queryingPhoneNumber": "Kubuzwa inombolo yefowuni",
-  "queryResultTitle": "Isiphumo Sobuzo",
   "ready": "Ulungele!",
-  "receiveWeeklyStatistics": "Fumana iinkcukacha-manani zeveki",
   "recruiter": "Umrekhuthi",
-  "reEnterPasswordHint": "Nceda ufake iphasiwedi kwakhona",
   "refresh": "Hlaziya",
   "refreshPermissionStatus": "Hlaziya ubume bemvume",
   "refreshTooltip": "Hlaziya",
-  "regexError": "Impazamo ye-Regex: {error}",
   "regexErrorMessage": "Impazamo ye-Regex: {error}",
   "regexPattern": "Iphethini ye-Regex",
   "regexPatternExplanation": "Ingcaciso yephethini ye-Regex",
   "regexPatternExplanationButton": "Ingcaciso yephethini ye-Regex",
   "regexPatternLabel": "Iphethini ye-Regex",
-  "regexPatternsExamples": "Sebenzisa i-syntax ye-regex esemgangathweni ukuchaza iipatheni. Imizekelo:",
   "regexPatternsForPhoneNumberMatching": "Iipatheni ze-Regex zokufanisa inombolo yefowuni",
   "regexRule": "Umthetho we-Regex",
   "regexRuleAddFailed": "Kusilele ukongeza umthetho we-regex: {error}",
@@ -1302,8 +962,6 @@
   "regexRuleNamePatternRequired": "Igama lomthetho kunye nephethini ye-regex akufunekanga zibe zingenanto",
   "regexRules": "Imithetho ye-Regex",
   "regexTesterTitle": "Umvavanyi we-Regex",
-  "regexValidationFailed": "Ukuqinisekiswa kwe-regex kusilele: {error}",
-  "regexValidationSuccess": "Ukuqinisekiswa kwe-regex kuphumelele",
   "region": "Umda",
   "registeredDevicesTitle": "Izixhobo eziBhalisiweyo",
   "rejectAllCalls": "Nqaba zonke iifowuni",
@@ -1318,27 +976,15 @@
   },
   "remoteFilterSettingsPageTitle": "Useto loLuhlu lweNombolo olukude",
   "remoteNumberFilter": "Uhluzo lweNombolo olukude",
-  "remoteNumberFilterDatabaseInfo": "Olu luhlu lusebenzisa isiseko sedatha esikude esizimeleyo ukufumana ulwazi lwenombolo lwamva nje.",
   "remoteNumberFilterDescription": "Thintela iifowuni ezihluphayo ngokusekelwe kulwazi lwesiseko sedatha esikude",
-  "remoteNumberFilterExplanationContent": "Uhluzo lwenombolo olukude luchonga kwaye luvale iifowuni ze-spam ngokubuza isiseko sedatha esikude ngokusekelwe kwinani lokubala.",
-  "remoteNumberFilterExplanationTitle": "Ingcaciso yoLuhlu lweNombolo olukude",
-  "remoteNumberFilterFeatureCountThreshold": "• Umda wokuBala: Misela ngokusekelwe kubuninzi bokwenzeka kwenani",
-  "remoteNumberFilterFeatureFilterAction": "• Iintshukumo zoLuhlu: Qwalasela indlela yokuphatha iinombolo ezigqithisa umda",
-  "remoteNumberFilterFeaturePriority": "• Useto lokuQala: Misela ukuqala kwezenzo ezikude",
-  "remoteNumberFilterFeatures": "Iimpawu:",
   "remoteNumberFiltering": "Uhluzo lweNombolo olukude",
   "remoteNumberFilteringExplanation": "• Uhluzo lweNombolo olukude: Imithetho yokuhluzo esekelwe kulwazi lwesiseko sedatha esikude",
   "remoteNumberFilterSubtitle": "Chonga iifowuni ze-spam usebenzisa isiseko sedatha samafu kunye neengxelo zoluntu",
   "removeAdsDescription": "Susa unaphakade zonke iintengiso kwi-app ukuze ube namava alula",
   "removeAdsTitle": "Susa iintengiso",
-  "removedFromFavoriteContacts": "Kususiwe kubafowunelwa abathandayo",
   "removedFromFavorites": "Kususiwe kubafowunelwa abathandayo",
-  "removeFavorite": "Susa kwiZithandwa",
   "removeFromFavorites": "Susa kwiZithandwa",
-  "renameButton": "Qamba kwakhona",
-  "renameDeviceDialogTitle": "Qamba kwakhona isiXhobo",
   "renameDeviceTitle": "Qamba kwakhona isiXhobo",
-  "replaceCurrentSettingsConfirmation": "Oku kuya kuthatha indawo yalo lonke useto lwakho lwangoku. Uqinisekile ufuna ukuqhubeka?",
   "requestAllPermissions": "Cela zonke iimvume",
   "requestPermission": "Cela Imvume",
   "requestPermissionFailed": "Kusilele ukucela imvume: {error}",
@@ -1346,84 +992,44 @@
   "reset": "Hlela kwakhona",
   "restore": "Buyisela",
   "restoreApplicationSettingsFromBackup": "Buyisela Useto lweSicelo kwiBackup",
-  "restoreApplicationSettingsFromBackupSubtitle": "Buyisela useto lwesicelo kwi-backup",
-  "restoreButton": "Buyisela",
-  "restoreFailedWithError": "Ukubuyisela kwi-cloud kusilele: {error}",
   "restoreFromCloud": "Buyisela kwi-Cloud",
-  "restoreFromCloudDescription": "Buyisela useto kunye nemithetho kwindawo yokugcina yamafu",
   "restoreFromCloudFailed": "Kusilele ukubuyisela kwi-cloud: {error}",
-  "restoreFromCloudLabel": "Buyisela kwi-Cloud",
   "restoreFromCloudSuccess": "Kubuyiswe ngempumelelo kwi-cloud",
-  "restoreFromCloudTitle": "Buyisela kwi-Cloud",
-  "restoreFromLocal": "Buyisela kwiLocal",
   "restorePurchases": "Buyisela iintengo",
-  "restoreSectionTitle": "Buyisela",
   "restoreSettings": "Buyisela Useto",
   "restoreSettingsConfirmation": "Oku kuya kuthatha indawo yalo lonke useto lwakho lwangoku. Uqinisekile ufuna ukuqhubeka?",
-  "restoreSettingsDialogTitle": "Buyisela Useto",
-  "restoreSettingsTitle": "Buyisela Useto",
-  "restoreSuccessFromLocal": "Kubuyiswe ngempumelelo kwi-local",
-  "restoreSuccessMessage": "Kubuyiswe ngempumelelo kwi-cloud",
   "retry": "Zama kwakhona",
   "ridesharing": "Ukwabelana ngekhethini",
   "risk": "Umngcipheko",
   "robocall": "Ifowuni yerobhoti",
   "ruleAction": "Isenzo soMthetho",
-  "ruleAddButton": "Yongeza Umthetho",
   "ruleAddedSuccess": "Umthetho wongezwe ngempumelelo",
   "@ruleAddedSuccess": {
     "description": "Rule creation success message"
   },
-  "ruleAddFailure": "Kusilele ukongeza umthetho: {error}",
-  "@ruleAddFailure": {
-    "description": "Rule creation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleAddSuccess": "Umthetho wongezwe ngempumelelo",
   "ruleDeleteConfirmContent": "Uqinisekile ufuna ukucima olu {ruleType}?",
   "ruleDeleteConfirmTitle": "Cima Umthetho",
-  "ruleDeletedSuccess": "Umthetho ucinywe ngempumelelo",
   "ruleDeletedSuccessfully": "Umthetho ucinywe ngempumelelo",
   "ruleDeleteFailed": "Kusilele ukucima umthetho: {error}",
-  "ruleDeleteFailure": "Kusilele ukucima umthetho: {error}",
-  "@ruleDeleteFailure": {
-    "description": "Rule deletion failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleDeleteSuccess": "Umthetho ucinywe ngempumelelo",
   "ruleDisabledSuccessfully": "Umthetho ukhubazekile ngempumelelo",
   "ruleEnabledSuccessfully": "Umthetho wenziwe wasebenza ngempumelelo",
   "ruleLoadFailed": "Kusilele ukulayisha imithetho: {error}",
   "ruleManagement": "Ulawulo loMthetho",
-  "ruleManagementTitle": "Ulawulo loMthetho",
   "ruleName": "Igama loMthetho",
   "ruleNameAndContentRegexCannotBeEmpty": "Igama lomthetho kunye ne-regex yomxholo akufunekanga ibe zingenanto",
   "ruleNameAndPhoneNumberCannotBeEmpty": "Igama lomthetho kunye nenombolo yefowuni akufunekanga ibe zingenanto",
   "ruleNameHint": "umz., Usapho, Abahlobo, njl.",
   "ruleNameLabel": "Ileyibhile yeGama loMthetho",
-  "ruleNamePatternRequired": "Nceda ufake igama lomthetho kunye nephethini",
   "ruleNameRequired": "Igama lomthetho kunye nenombolo yefowuni akufunekanga ibe zingenanto",
   "ruleNotExist": "Ummiselo awukho okanye ucinyiwe",
   "ruleNotFound": "Ummiselo awufunyanwanga: {error}",
-  "ruleSavedSuccessfully": "Ummiselo ugcinwe ngempumelelo!",
   "ruleSavedSuccessMessage": "Ummiselo ugcinwe ngempumelelo!",
-  "ruleSaveFailed": "Ukugcina akusebenzanga: {error}",
-  "ruleSaveFailedMessage": "Ukugcina akusebenzanga: {error}",
-  "ruleSaveSuccess": "Ummiselo ugcinwe ngempumelelo!",
   "rulesExportedSuccessfully": "Imithetho ithunyelwe ngaphandle ngempumelelo",
   "rulesExportedTo": "Imithetho ithunyelwe ngaphandle ku: {path}",
   "rulesImported": "Imithetho ingeniswe ngempumelelo",
   "rulesImportedSuccessfully": "{count} imithetho ingeniswe ngempumelelo",
-  "rulesImportFailed": "Kusilele ukungenisa imithetho: {error}",
-  "ruleStatistics": "Iinkcukacha-manani zemithetho",
   "ruleStatusChanged": "Ummiselo {status} ngempumelelo",
   "ruleToggleFailed": "Intshukumo ayisebenzanga: {error}",
   "ruleToggleSuccess": "Ummiselo {status} ngempumelelo",
@@ -1432,32 +1038,19 @@
   "ruleVerification": "Ukuqinisekiswa kommiselo",
   "save": "Gcina",
   "saveButton": "Gcina",
-  "saveButtonLabel": "GCINA",
   "saveButtonText": "Gcina",
   "saveFailed": "Ukugcina akusebenzanga: {error}",
-  "saveFilter": "Gcina Isihluzi",
   "saveSettings": "Gcina Useto",
-  "saveSettingsFailed": "Kusilele ukugcina useto: {error}",
   "scamsLikely": "Bubuqhophololo Obunokwenzeka",
   "search": "Khangela",
   "searchContacts": "Khangela Abafowunelwa",
   "searchError": "Impazamo yokukhangela: {error}",
-  "searchFilters": "Izihluzi Zokukhangela",
-  "searchForContacts": "Khangela abafowunelwa",
   "searchHint": "Khangela...",
-  "searchSettingsSubtitle": "Khangela abafowunelwa, iilebhile, uluhlu olumnyama, uluhlu olumhlophe, njl.",
-  "searchSettingsTitle": "Useto Lokukhangela",
   "securityMessage": "Musa ukuthemba nayiphi na ifowuni. Soloko uqinisekisa iinombolo zenkonzo yabathengi ngokwakho. Ungaze wabelane ngamagamakhethe, iikhowudi zokuqinisekisa, iinombolo zekhadi, okanye ulwazi lobuqu.",
-  "selectActionToPerform": "Khetha intshukumo yokwenza xa ummiselo uhambelana",
   "selectActionWhenBlockingCalls": "Khetha intshukumo xa uvala iifowuni",
   "selectActionWhenRuleMatches": "Khetha intshukumo xa ummiselo uhambelana",
   "selectAll": "Khetha Konke",
   "selectCountry": "Khetha Ilizwe",
-  "selectDateRange": "Khetha Uluhlu Lwemihla",
-  "selectedDateRange": "Uluhlu lwemihla olukhethiweyo",
-  "@selectedDateRange": {
-    "description": "Selected date range text"
-  },
   "selectedItems": "{count} izinto zikhethiwe",
   "selectedLabel": "Kukhethwe:",
   "selectExportFormat": "Khetha Ifomathi Yokuthumela Ngaphandle",
@@ -1465,14 +1058,7 @@
   "selectLabelAndEnterPhoneNumber": "Nceda ukhethe ilebhile kwaye ufake inombolo yefowuni esebenzayo",
   "selectLanguage": "Khetha Ulwimi",
   "selectMultiple": "Khetha Okuninzi",
-  "selectPeriod": "Khetha Ixesha",
   "selectSimCard": "Khetha i-SIM Card",
-  "selectSimSlot": "Khetha indawo ye-SIM",
-  "@selectSimSlot": {
-    "description": "Title for SIM slot selection dialog"
-  },
-  "selectSpecificActionForBlockedCalls": "Khetha intshukumo ethile yokwenza xa uvala iifowuni",
-  "selectTag": "Khetha Ithegi",
   "selectTags": "Khetha Iithegi",
   "selectTrustedDataSource": "Nceda ukhethe imithombo yedatha ethembekileyo",
   "selectYourLanguage": "Khetha Ulwimi Lwakho",
@@ -1493,16 +1079,9 @@
       }
     }
   },
-  "setButton": "Seta",
   "setEncryptionPassword": "Seta Igama Lokugqitha Lokufihla",
-  "setEncryptionPasswordDescription": "Seta igama lokugqitha lokufihla logcino kunye nokubuyisela",
-  "setEncryptionPasswordLabel": "Seta Igama Lokugqitha Lokufihla",
-  "setEncryptionPasswordTitle": "Seta Igama Lokugqitha Lokufihla",
-  "setPasswordButton": "Seta",
   "settings": "Useto",
   "settingsBackedUpTo": "Useto lugcinwe ku: {path}",
-  "settingsLoaded": "Useto lulayishiwe",
-  "settingsLoadFailed": "Kusilele ukulayisha useto: {error}",
   "settingsRestoredSuccessfully": "Useto lubuyiselwe ngempumelelo. Nceda uqalise kwakhona i-app ukuze utshintsho lusebenze.",
   "settingsSaved": "Useto lugciniwe",
   "@settingsSaved": {
@@ -1512,8 +1091,6 @@
   "settingsTab": "Useto",
   "settingsTitle": "Useto",
   "setup": "Cwangcisa",
-  "showContactEditDialogStaticMethod": "Indlela engatshintshiyo yokubonisa incoko yababini yokuhlela abafowunelwa",
-  "showExplanation": "Bonisa Ingcaciso",
   "silence": "Cima Isandi",
   "silenceAndNoAnswer": "Cima Isandi Kwaye Ungaphenduli",
   "silenceNoAnswer": "Cima Isandi Ungaphenduli",
@@ -1538,15 +1115,10 @@
       }
     }
   },
-  "simInfoLoadFailure": "Kusilele ukulayisha ulwazi lwe-SIM card: {error}",
   "simRuleInstructions": "Iimithetho ze-SIM slot zikuvumela ukuba uqwalasele imithetho yokucoca ezimeleyo kwindawo nganye ye-SIM.",
   "simRuleInstructionsTitle": "Imithetho ye-SIM Slot",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simRuleManagement": "Ulawulo lweMithetho ye-SIM Slot",
-  "@simRuleManagement": {
-    "description": "SIM slot rule management section title"
   },
   "simSlot1": "I-SIM 1,-{countryIso}",
   "@simSlot1": {
@@ -1568,9 +1140,6 @@
       }
     }
   },
-  "simSlotDataLoadFailed": "Ayiphumelelanga ukulayisha idatha ye-SIM: {error}",
-  "simSlotFilterConfiguration": "Uqwalaselo lweSihluzo se-SIM Slot",
-  "simSlotFilterConfigurationDescription": "Ukuvumela ukuseta imithetho yokucoca nge-SIM slot",
   "simSlotFilterDescription": "Qwalasela imithetho yokucoca ezimeleyo kwi-SIM khadi nganye:",
   "simSlotFilterSettingsTitle": "Iisetingi zeSihluzo se-SIM Slot {slotNumber}",
   "@simSlotFilterSettingsTitle": {
@@ -1581,17 +1150,7 @@
       }
     }
   },
-  "simSlotLoadFailed": "Ayiphumelelanga ukulayisha ii-SIM slots: {error}",
   "simSlotManagement": "Ulawulo lwe-SIM Slot",
-  "simSlotOperationFailed": "Ukusebenza kwe-SIM slot akwenzekanga: {error}",
-  "@simSlotOperationFailed": {
-    "description": "SIM slot operation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "simSlotPosition": "Indawo ye-SIM Slot {slotNumber}",
   "@simSlotPosition": {
     "description": "SIM slot position display",
@@ -1605,11 +1164,6 @@
   "simSlotRuleFeature": "• Imithetho ye-SIM Slot: Izicwangciso zokucoca ezizimeleyo kwi-SIM nganye",
   "simSlotRuleListTitle": "Uluhlu lweMithetho ye-SIM Slot",
   "simSlotRuleManagement": "Imithetho ye-SIM Slot",
-  "simSlotRuleManagementTitle": "Ulawulo lweMithetho",
-  "simSlotSettings": "Iisetingi ze-SIM Slot",
-  "@simSlotSettings": {
-    "description": "Title for SIM slot settings page"
-  },
   "simSlotTitle": "I-SIM Slot {slotNumber}",
   "skip": "Yeqa",
   "smartCallerId": "Ukwazisa ngomnxeba oSmart",
@@ -1620,7 +1174,6 @@
   "smsFilterRuleAddedSuccessfully": "Umtu wokucoca we-SMS wongezwe ngempumelelo",
   "smsFilterRules": "Imithetho yeSihluzo se-SMS",
   "smsFilterSettings": "Iisetingi zeSihluzo se-SMS",
-  "smsHistory": "Imbali ye-SMS",
   "smsManagement": "Ulawulo lwe-SMS",
   "smsPermission": "Imvume ye-SMS",
   "smsPermissionDescription": "Isetyenziselwa ukucoca imiyalezo ye-spam.",
@@ -1628,12 +1181,7 @@
   "smsRuleDeletedSuccessfully": "Umtu we-SMS ucinyiwe ngempumelelo",
   "smsRuleLoadFailed": "Ayiphumelelanga ukulayisha imithetho ye-SMS: {error}",
   "smsRuleManagement": "Ulawulo lweMithetho ye-SMS",
-  "smsRulesExportedSuccessfully": "Imithetho ye-SMS ithunyelwe ngempumelelo ku-{filePath}",
-  "smsRulesImportedSuccessfully": "Imithetho ye-SMS ingeniswe ngempumelelo",
   "smsRuleSubscription": "Ukubhalisela iMithetho ye-SMS",
-  "smsRuleUpdatedSuccessfully": "Umtu we-SMS uhlaziywe ngempumelelo",
-  "smsSettingsSubtitle": "Ukucoca kwe-SMS kunye nokuthintela amagama angundoqo",
-  "smsSettingsTitle": "Iisetingi ze-SMS",
   "smsSubscription": "Ukubhalisela i-SMS",
   "smsSubscriptionAddedSuccessfully": "Ukubhalisela i-SMS kongezwe ngempumelelo",
   "smsSubscriptionRulesDescription": "Bhalisa kwiiluhlu zemigangatho ye-SMS nge-URL, ixhasa ukufana kokubonakaliswa rhoqo. Ungaseta iintshukumo zokuthintela okanye zokuvumela.",
@@ -1645,12 +1193,7 @@
   "startUsing": "Qalisa Ukusebenzisa",
   "statAnswered": "Phendulwe",
   "statBlocked": "Ivinjwe",
-  "staticMethodShowCallerIdDialog": "Indlela emileyo yokubonisa i-Caller ID Information Dialog",
-  "staticMethodToDisplayCountrySelectionDialog": "Indlela emileyo yokubonisa incoko yokukhetha ilizwe",
-  "staticMethodToDisplayDialog": "Indlela emileyo yokubonisa incoko",
   "statistics": "Iinkcukacha-manani",
-  "statisticsExportFeatureComingSoon": "Ukuthunyelwa kweempawu zeenkcukacha-manani kuza kungekudala",
-  "statisticsGrid": "Igridi yeenkcukacha-manani",
   "statisticsPageTitle": "Uhlahlelo lweDatha",
   "stirColor": "Umbala we-STIR",
   "stirFontSize": "Ubungakanani befomathi ye-STIR",
@@ -1673,23 +1216,16 @@
   "@subscriptionDeleted": {
     "description": "Subscription deleted success message"
   },
-  "subscriptionDeletedSuccessfully": "Ukubhalisa kucinywe ngempumelelo",
   "subscriptionDeleteFailed": "Ayiphumelelanga ukucima ubhaliso: {error}",
   "subscriptionDeleteSuccess": "Ukubhalisa kucinyiwe",
-  "subscriptionEmptyState": "Akukho kubhalisa kufumanekayo",
-  "subscriptionEmptyText": "Akukho kubhalisa okwangoku",
   "subscriptionLoadFailed": "Ayiphumelelanga ukulayisha ubhaliso: {error}",
-  "subscriptionLoadingFailed": "Ayiphumelelanga ukulayisha ubhaliso: {error}",
-  "subscriptionManagementTitle": "Ulawulo loBhaliso",
   "subscriptionName": "Igama loBhaliso",
   "@subscriptionName": {
     "description": "Subscription name field label"
   },
   "subscriptionNameAndUrlCannotBeEmpty": "Igama loBhaliso kunye ne-URL ayinakuba nanto",
   "subscriptionNameHint": "Faka igama lobhaliso",
-  "subscriptionPageTitle": "Ulawulo loBhaliso",
   "subscriptionStatusChangeFailed": "Ayiphumelelanga ukutshintsha imeko yobhaliso: {error}",
-  "subscriptionToggleFailed": "Ayiphumelelanga ukuguqula imeko yobhaliso: {error}",
   "subscriptionUpdateFailed": "Ayiphumelelanga ukuhlaziya ubhaliso: {error}",
   "subscriptionUpdateSuccess": "Ukubhalisa kuhlaziywe ngempumelelo",
   "@subscriptionUpdateSuccess": {
@@ -1710,7 +1246,6 @@
   },
   "syncFailed": "Ukungavumelanisi",
   "syncFailedMessage": "Ukungavumelanisi",
-  "syncFolderNameHint": "Nceda ufake igama lefowulda yokuvumelanisa (okungagqibekanga: NotificationManager)",
   "syncFolderNameLabel": "Igama leFowulda yoVumelaniso",
   "synchronized": "Kuvumelanisiwe",
   "@synchronized": {
@@ -1724,10 +1259,8 @@
   "syncNowButton": "Vumelanisa Ngoku",
   "syncStatusTitle": "Isimo Sokuvumelanisa",
   "syncStatusUpdatedMessage": "Isimo sokuvumelanisa sihlaziyiwe",
-  "syncSuccessful": "Uvumelaniso luphumelele",
   "syncSuccessMessage": "Uvumelaniso luphumelele",
   "syncWithCloudStorage": "Vumelanisa noGcino lweLifu",
-  "syncWithCloudStorageSubtitle": "Vumelanisa noGcino lweLifu",
   "systemFeatures": "Iimpawu zeNkqubo:",
   "systemSettingsTitle": "Izicwangciso zeNkqubo",
   "tabAll": "Zonke",
@@ -1743,13 +1276,11 @@
       }
     }
   },
-  "tagsUpdated": "Iithegi zihlaziyiwe",
   "takeaway": "Ukutya okuthathwayo",
   "telecommunication": "Unxibelelwano lweefowuni",
   "telegram": "Telegram",
   "telemarketing": "Urhwebo ngefowuni",
   "testButton": "VAVANYA",
-  "testButtonLabel": "VAVANYA",
   "testConnectionButton": "Vavanya Uqhagamshelo",
   "textColorsSetting": "Imibala yoMbhalo kunye neLabel",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Le app sisixhobo esinamandla sokukhomba umntu ofowunayo esikuvumela ukuba uchonge kwaye uvimbe iifowuni ezingafunwayo.",
@@ -1760,8 +1291,6 @@
   "timeInterceptorExplanationContent": "Inqaku lokuvimba ngokusekelwe kubukho beefowuni lihlaziya ubukho beefowuni ukuze ngokuzenzekelayo lichonge kwaye livimbe/livumele iifowuni ze-spam ezinqabileyo.",
   "timeInterceptorExplanationTitle": "Inkcazo Yokuvala Ngokusekelwe Kubukho Befowuni",
   "timeInterceptorSettingsTitle": "Izicwangciso zokuvala Ngokusekelwe Kubukho Befowuni",
-  "timeInterceptorSubtitle": "Vimba ngokuzenzekelayo iifowuni ze-spam ezinokuba yingozi ngokusekelwe kubukho beefowuni",
-  "timeInterceptorTitle": "Vula Ukuvala Ngokusekelwe Kubukho Befowuni",
   "timeWindowDescription": "Setha ubungakanani befestile yexesha lokuvumela iifowuni eziphindaphindiweyo. Iifowuni ezenziwe ngeli nani linye ngaphakathi kule festile ziya kuvunyelwa",
   "timeWindowLabel": "Ifestile Yexesha Lokuvala (imizuzu): {minutes}",
   "@timeWindowLabel": {
@@ -1772,16 +1301,11 @@
       }
     }
   },
-  "timeWindowSetting": "Setha ubungakanani befestile yexesha lokuvumela iifowuni eziphindaphindiweyo. Iifowuni ezenziwe ngeli nani linye ngaphakathi kule festile ziya kuvunyelwa",
   "today": "Namhlanje",
   "total": "Iyonke",
   "totalBlocked": "Zivinjiwe Zizonke",
-  "totalFiltered": "Zihluze Zizonke",
   "transferDataBetweenDevicesOrPlatforms": "Dlulisa idatha phakathi kwezixhobo okanye iiplatform",
-  "transferDataBetweenDevicesOrPlatformsSubtitle": "Dlulisa idata phakathi kwezixhobo okanye iiplatform",
   "travelTicketing": "Ukubhukisha uhambo",
-  "trend": "Indlela",
-  "trendChart": "Itshathi yendlela",
   "tutorial": "Isifundo",
   "type": "Uhlobo",
   "unassignedSIMCard": "I-SIM khadi engabelwanga",
@@ -1789,7 +1313,6 @@
   "@unknown": {
     "description": "Display text for unknown status"
   },
-  "unknownLabel": "Ileyibhile Engaziwayo",
   "unknownTag": "Itheygi: Akwaziwa",
   "unregisterButton": "Khulula Ubhaliso",
   "unregisterDeviceConfirmationMessage": "Uqinisekile ufuna ukukhulula ubhaliso lwe-{deviceName}?",
@@ -1797,15 +1320,9 @@
   "unsupportedFileFormat": "Ifomathi yefayile engaxhaswanga",
   "update": "Hlaziya",
   "updateAllNow": "Hlaziya Konke Ngoku",
-  "updateCallFilterConfig": "Hlaziya Uqwalaselo Lwesihluzi Sefowuni",
-  "@updateCallFilterConfig": {
-    "description": "Button text for updating call filter configuration"
-  },
   "updateContactFailed": "Ayiphumelelanga ukuhlaziya umfowunelwa: {error}",
   "updateFavoriteStatus": "Hlaziya Isimo Esithandwayo",
-  "updateFavoriteStatusFailed": "Ayiphumelelanga ukuhlaziya isimo esithandwayo: {error}",
   "updateInterval": "Isithuba SokuHlaziya",
-  "updateLabelFailed": "Ayiphumelelanga ukuhlaziya ileyibhile",
   "updateNow": "Hlaziya Ngoku",
   "updatePlugin": "Hlaziya I-Plugin",
   "updatePluginFailed": "Ayiphumelelanga ukuhlaziya i-plugin: {error}",
@@ -1831,16 +1348,13 @@
       }
     }
   },
-  "updateTags": "Hlaziya Iithegi",
   "useCasesPoint1": "• Chonga iifowuni ze-spam eziphinda-phinda ngokuzenzekelayo",
   "useCasesPoint2": "• Vimba iifowuni zentengiso ezifowuna kaninzi kwixesha elifutshane",
   "useCasesPoint3": "• Thintela ukuqhushumbiswa kwefowuni kunye nokuxhatshazwa",
   "useCasesTitle": "Iimeko Zokusetyenziswa:",
   "useGlobalSettings": "Sebenzisa Izicwangciso Zehlabathi Lonke",
-  "userEmail": "user@example.com",
   "usernameLabel": "Igama Lomsebenzisi",
   "useStandardRegexSyntaxToDefinePatternsExamples": "Sebenzisa isintaksi se-regex esiqhelekileyo ukuchonga iipateni. Imizekelo:",
-  "validateRegex": "Qinisekisa i-Regex",
   "verificationFailedText": "Ayiphumelelanga",
   "verifiedText": "Iqinisekisiwe",
   "verify": "Qinisekisa",
@@ -1851,36 +1365,18 @@
   "watchAdForTemp": "Bukela Intengiso Ngamalungelo Exeshana",
   "watchAdForTempDescription": "Bukela intengiso emfutshane ukuvula okwethutyana ezinye iimpawu zepremiyamu",
   "webDAVConfigTitle": "Uqwalaselo lwe-WebDAV",
-  "webdavConfigurationTitle": "Uqwalaselo lwe-WebDAV",
-  "webdavPasswordHint": "Nceda ufake igama eliyimfihlo le-WebDAV",
-  "webdavServerAddressHint": "Nceda ufake idilesi yeseva ye-WebDAV",
-  "webdavUsernameHint": "Nceda ufake igama lomsebenzisi le-WebDAV",
   "week": "Veki",
-  "weekly": "Yonke Veki",
-  "weeklyBlockedCallsSummary": "Isishwankathelo SeeFowuni Ezivinjiweyo Zeveki",
-  "weeklyChartTitle": "Iifowuni Ezivinjiweyo Zeveki",
-  "weeklyReport": "Ingxelo Yeveki",
-  "@weeklyReport": {
-    "description": "Weekly report notification option"
-  },
-  "weeklyReportDesc": "Fumana ingxelo yesishwankathelo yeveki yomsebenzi wokuvimba iifowuni",
-  "@weeklyReportDesc": {
-    "description": "Description for weekly report option"
-  },
   "welcome": "Wamkelekile",
   "whitelist": "Uluhlu Lwabamkelekile",
   "@whitelist": {
     "description": "Whitelist label"
   },
-  "whitelistLabel": "Uluhlu Lwabamkelekile",
   "width": "Ububanzi",
   "wildcardMatchingDescription": "Sebenzisa '.' ukufanisa nayiphi na unobumba (umzekelo: '123.456' ifanisa i-123-456)",
   "wildcardMatchingTitle": "Ukufaniswa kweWildcard:",
   "wildcardSupportForFlexibleFiltering": "Inkxaso yeWildcard yokucoca okuguquguqukayo",
   "windowSizeSetting": "Ubungakanani befesitile",
   "year": "Unyaka",
-  "yearly": "Ngonyaka",
-  "yearlyChartTitle": "Itshathi yeeFowuni eziNgathintelweyo zonyaka",
   "noSimCardsDetected": "Akukho khadi zeSIM zifunyenwe",
   "filterManagementDescription": "Seta Izihlungi zokuFowuna",
   "callerIdCustomizationSubtitle": "Yenza ngokwezifiso ubume be-Caller ID",
@@ -1895,7 +1391,6 @@
   "useLocalNotificationDescription": "Vula izaziso zaseNdawo kwiifowuni ezingenayo",
   "cancelLocalNotification": "Vala Izaziso zaseNdawo",
   "useStirNotification": "Sebenzisa Isaziso esivela kwi-STIR",
-  "useStirNotificationDescription": "Vula izaziso ze-STIR kwiifowuni ezingenayo",
   "cancelLocalNotificationDescription": "Vala Izaziso zaseNdawo ngokuzenzekelayo",
   "callerIdSettingsTitle": "Useto lwe-Caller ID",
   "callerIdSettingsSubtitle": "Ukuseta Isaziso seFowuni engenayo & Indlela yokuBonisa",
@@ -1904,16 +1399,6 @@
   "callerIdNotificationTitle": "Ulwazi lweFowuni engenayo",
   "@callerIdNotificationTitle": {
     "description": "Title for the Incoming Call Info"
-  },
-  "callerIdBody": "Inombolo: {phoneNumber}",
-  "@callerIdBody": {
-    "description": "Body for the caller ID notification, showing the phone number",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
   },
   "blockedCallTitle": "Ifowuni Ethintelweyo",
   "@blockedCallTitle": {
@@ -1974,18 +1459,6 @@
   "@fraudAlertTitle": {
     "description": "Title for the fraud alert notification"
   },
-  "fraudAlertBody": "Ifowuni enobugebengu obunokwenzeka evela ku-{phoneNumber}",
-  "@fraudAlertBody": {
-    "description": "Body for the fraud alert notification",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
-  },
-  "loadRulesFailed": "Kuhlulekile ukulayisha imithetho: {error}",
-  "loadCallLogFailed": "Kuhlulekile ukulayisha ilog yefowuni: {error}",
   "noBlockedTypeData": "Akukho datha yohlobo oluthintelweyo efumanekayo",
   "importEntity": "Ngenisa {entityTypeName}",
   "@importEntity": {
@@ -2065,7 +1538,6 @@
   "vipUser": "Umsebenzisi we-VIP",
   "temporaryVip": "I-VIP Yethutyana",
   "removeAds": "Susa Iintengiso",
-  "unknownAction": "Isenzo Esingaziwayo",
   "settingsBackup": "Ukugcina Useto ",
   "allServicesStatusTitle": "Isimo Senkonzo Sangoku",
   "allServicesStatusSubtitle": "Isimo Sangoku seNkonzo nganye yeLifu",
@@ -2153,7 +1625,6 @@
   "unblocked": "Ikhululiwe",
   "blockNumber": "Vala Inombolo",
   "blockNumberSuccess": "Inombolo ivaliwe ngempumelelo",
-  "blockNumberFailed": "Ukuyivala inombolo akwenzekanga",
   "unblockNumberConfirmation": "Uqinisekile ufuna ukukhulula {phoneNumber}?",
   "@unblockNumberConfirmation": {
     "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
@@ -2165,23 +1636,11 @@
       }
     }
   },
-  "callingNumber": "Kufowunelwa {phoneNumber}...",
-  "@callingNumber": {
-    "description": "Status text displayed on the screen when an outgoing call is initiated.",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "description": "The phone number that is being dialed.",
-        "example": "+1 555-123-4567"
-      }
-    }
-  },
   "viewDetails": "Jonga Iinkcukacha",
   "unblock": "Khulula",
   "unblockNumber": "Khulula Inombolo",
   "unblockNumberSuccess": "Inombolo ikhululwe ngempumelelo",
   "unblockNumberFailed": "Ukuyikhulula inombolo akwenzekanga",
-  "serviceNotAvailable": "Inkonzo ayifumaneki",
   "callingNumberFailed": "Ukufowunela inombolo akwenzekanga",
   "listView": "Ukujonga Uluhlu",
   "timelineView": "Ukujonga Ixesha",
@@ -2192,7 +1651,6 @@
   "callType": "Uhlobo Lomnxeba",
   "callTime": "Ixesha Lomnxeba",
   "numberInvalidFormat": "Ifomathi yenombolo ingalunganga",
-  "membershipFeature": "Inqanaba Lobulungu",
   "medium": "Phakathi",
   "verificationReport": "Ingxelo Yokuqinisekisa",
   "finalRisk": "Ingozi Yokugqibela",
@@ -2221,7 +1679,6 @@
   "noNotifications": "Akukho zaziso",
   "clearAllNotifications": "Cima Zonke Izaziso",
   "clearAllNotificationsConfirmation": "Qinisekisa ukucima zonke izaziso",
-  "allNotificationsCleared": "Zonke izaziso zicinyiwe",
   "clearButton": "Cima",
   "justNow": "Ngoku kanye",
   "minutesAgo": "{count,plural, =1{1 umzuzu odlulileyo} other{{count} imizuzu edlulileyo}}",
@@ -2298,10 +1755,6 @@
   "@reasonInaccurateInfo": {
     "description": "Inaccurate Information reason option"
   },
-  "reasonWrongMarked": "Iphawulwe Ngendlela Engafanelekanga",
-  "@reasonWrongMarked": {
-    "description": "Wrong marked reason option"
-  },
   "reasonOther": "Esinye",
   "@reasonOther": {
     "description": "Other reason option"
@@ -2314,33 +1767,9 @@
   "@cancel": {
     "description": "Cancel button text"
   },
-  "proposalStatus": "Isimo",
-  "@proposalStatus": {
-    "description": "Proposal status label"
-  },
-  "statusPending": "Ilindile",
-  "@statusPending": {
-    "description": "Pending status"
-  },
-  "statusActive": "Iyasebenza",
-  "@statusActive": {
-    "description": "Active status"
-  },
-  "statusCompleted": "Igqityiwe",
-  "@statusCompleted": {
-    "description": "Completed status"
-  },
-  "statusExpired": "Iphelile",
-  "@statusExpired": {
-    "description": "Expired status"
-  },
   "riskLevel": "Inqanaba Lomngcipheko",
   "@riskLevel": {
     "description": "Risk level label"
-  },
-  "riskLevelVerified": "Iqinisekisiwe",
-  "@riskLevelVerified": {
-    "description": "Verified risk level"
   },
   "riskLevelLow": "Phantsi",
   "@riskLevelLow": {
@@ -2350,26 +1779,9 @@
   "@riskLevelHigh": {
     "description": "Label for high risk level"
   },
-  "riskLevelUnknown": "Engaziwa",
-  "@riskLevelUnknown": {
-    "description": "Unknown risk level"
-  },
-  "votingProgress": "Inkqubela Yevoti",
-  "@votingProgress": {
-    "description": "Voting progress label"
-  },
   "agreeVotes": "Vuma: {count}",
   "@agreeVotes": {
     "description": "Agree votes count",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "disagreeVotes": "Ungavumi: {count}",
-  "@disagreeVotes": {
-    "description": "Disagree votes count",
     "placeholders": {
       "count": {
         "type": "int"
@@ -2405,14 +1817,6 @@
   "@verificationReport": {
     "description": "Verification report label"
   },
-  "showReport": "Bonisa Ingxelo",
-  "@showReport": {
-    "description": "Show report button text"
-  },
-  "hideReport": "Fihla Ingxelo",
-  "@hideReport": {
-    "description": "Hide report button text"
-  },
   "proposalStatistics": "Iinkcukacha Zesiphakamiso",
   "@proposalStatistics": {
     "description": "Proposal statistics title"
@@ -2425,37 +1829,17 @@
   "@activeProposals": {
     "description": "Active proposals label"
   },
-  "completedProposals": "Iziphakamiso Ezigqityiweyo",
-  "@completedProposals": {
-    "description": "Completed proposals label"
-  },
-  "myVotes": "Iivoti Zam",
-  "@myVotes": {
-    "description": "My votes label"
-  },
   "proposalCreated": "Isiphakamiso senziwe ngempumelelo",
   "@proposalCreated": {
     "description": "Proposal created success message"
-  },
-  "proposalCreateFailed": "Ukwehluleka ukwenza isiphakamiso",
-  "@proposalCreateFailed": {
-    "description": "Proposal create failed message"
   },
   "voteSubmitted": "Ivoti ingenisiwe ngempumelelo",
   "@voteSubmitted": {
     "description": "Vote submitted success message"
   },
-  "voteSubmitFailed": "Ukwehluleka ukungenisa ivoti",
-  "@voteSubmitFailed": {
-    "description": "Vote submit failed message"
-  },
   "noProposalsFound": "Akukho ziphakamiso zifunyenweyo",
   "@noProposalsFound": {
     "description": "No proposals found message"
-  },
-  "loadingProposals": "Kukhutshelwa iziphakamiso...",
-  "@loadingProposals": {
-    "description": "Loading proposals message"
   },
   "refreshProposals": "Hlaziywa Iziphakamiso",
   "@refreshProposals": {
@@ -2684,12 +2068,8 @@
       }
     }
   },
-  "loadVoteCountFailed": "Ukwehluleka ukukhuphela inani levoti",
   "voteCount": "Inani Levoti",
-  "deletionProposalInfo": "Ulwazi Lwesiphakamiso Sokucinywa",
   "deletionProposalDescription": "Phakamisa iinombolo zokucinywa ezophula izikhokelo zoluntu. Ukuthatha kwakho inxaxheba kunceda ekugcineni iqonga likhuselekile.",
-  "voteToEarnVip": "Vota kwiziphakamiso ukuze uzuze amalungelo eVIP!",
-  "voteFailed": "Ivoti ayiphumelelanga",
   "searchProposals": "Khangela Iziphakamiso",
   "defaultNotifications": "Izaziso Ezisisiseko",
   "defaultNotificationsDescription": "Isiteshi sesaziso esisisiseko se-app.",
@@ -2699,81 +2079,14 @@
   "stirVerificationDescription": "Ibonisa iziphumo zokuqinisekiswa kwe-STIR/SHAKEN zamanani.",
   "fraudAlerts": "Izilumkiso zokuqhatha",
   "fraudAlertsDescription": "Ibonisa izilumkiso ngeefowuni ezinokuqhatha.",
-  "notificationFrequencyDescription": "Khetha ukuba ufumana izilumkiso kangaphi malunga neengcebiso ezintsha zokususa. Ungazifumana kwangoko, ngokweebhetshi, okanye ngexesha elithile elimisiweyo.",
-  "@notificationFrequencyDescription": {
-    "description": "A detailed explanation of what the notification frequency settings do"
-  },
   "@notificationMode": {
     "description": "Title for the mode selection part (Immediate, Batched, Custom)"
-  },
-  "immediateNotifications": "Kwangoko",
-  "@immediateNotifications": {
-    "description": "Label for the immediate notification mode"
-  },
-  "immediateNotificationsDescription": "Fumana isilumkiso nje xa isindululo sisungulwa.",
-  "@immediateNotificationsDescription": {
-    "description": "Description for the immediate notification mode"
-  },
-  "batchNotifications": "Ngokweebhetshi",
-  "@batchNotifications": {
-    "description": "Label for the batched notification mode"
-  },
-  "batchNotificationsDescription": "Fumana isishwankathelo sezilumkiso ngamaxesha athile.",
-  "@batchNotificationsDescription": {
-    "description": "Description for the batched notification mode"
-  },
-  "customNotifications": "Ngokwesiko",
-  "@customNotifications": {
-    "description": "Label for the custom notification mode"
-  },
-  "customNotificationsDescription": "Chaza elakho ixesha lokufumana izilumkiso.",
-  "@customNotificationsDescription": {
-    "description": "Description for the custom notification mode"
-  },
-  "customFrequency": "Ubude bexesha olumisiweyo",
-  "@customFrequency": {
-    "description": "Title for the custom frequency slider section"
-  },
-  "notificationFrequencyDurationMinutes": "{minutes} min",
-  "@notificationFrequencyDurationMinutes": {
-    "description": "Formats a duration that is only in minutes.",
-    "placeholders": {
-      "minutes": {
-        "type": "int",
-        "example": "45"
-      }
-    }
-  },
-  "notificationFrequencyDurationHours": "{hours} h",
-  "@notificationFrequencyDurationHours": {
-    "description": "Formats a duration that is in whole hours.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "2"
-      }
-    }
-  },
-  "notificationFrequencyDurationHoursAndMinutes": "{hours} h {minutes} min",
-  "@notificationFrequencyDurationHoursAndMinutes": {
-    "description": "Formats a duration that has both hours and minutes.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "1"
-      },
-      "minutes": {
-        "type": "int",
-        "example": "30"
-      }
-    }
   },
   "pendingProposals": "Iingcebiso ezilindileyo",
   "pendingProposalsBody": "Une {count, plural, =0 {zingcebiso zilindileyo} one {1 ingcebiso elindileyo} other {{count} iingcebiso ezilindileyo}}.",
   "guidelinesLabel": "Izikhokelo",
   "reportingGuidelines": "• Bika kuphela amanani anengxaki ngokwenene\n• Nika izizathu ezichanekileyo nezicacileyo\n• Khetha inqanaba lobungozi elifanelekileyo ngokusekwe kubunzima\n• Iingxelo zobuxoki zingakhokelela ekuthintelweni kweakhawunti",
   "riskLevelLabel": "Inqanaba lobungozi",
-  "riskLevelDescription": "Inqanaba lobungozi lenani",
   "phoneNumberMinDigits": "Inombolo yefowuni kufuneka ibe nobuncinane beedijithi ezi-7",
   "provideDetailedExplanation": "Nika inkcazo ecacileyo (ubuncinane beempawu ezili-10)",
   "reasonMinCharacters": "Isizathu kufuneka sibe nobuncinane beempawu ezili-10",
@@ -2790,39 +2103,15 @@
   "@countryCodeRequired": {
     "description": "Validation message for required country code"
   },
-  "countryCodeLengthError": "Ikhowudi yelizwe kufuneka ibe ziileta ezi-2",
-  "@countryCodeLengthError": {
-    "description": "Validation message for country code length"
-  },
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
-  "phoneNumberLengthError": "Inombolo yefowuni kufuneka ibe nobuncinane beedijithi ezi-7",
-  "@phoneNumberLengthError": {
-    "description": "Validation message for phone number length"
-  },
-  "reasonHint": "Nika inkcazo ecacileyo (ubuncinane beempawu ezili-10)",
-  "@reasonHint": {
-    "description": "Hint text for reason input field"
-  },
   "reasonRequired": "Isizathu siyafuneka",
   "@reasonRequired": {
     "description": "Validation message for required reason"
-  },
-  "reasonLengthError": "Isizathu kufuneka sibe nobuncinane beempawu ezili-10",
-  "@reasonLengthError": {
-    "description": "Validation message for reason length"
-  },
-  "guidelinesTitle": "Izikhokelo",
-  "@guidelinesTitle": {
-    "description": "Title for guidelines section"
-  },
-  "guidelinesText": "• Bika kuphela amanani anengxaki ngokwenene\n• Nika izizathu ezichanekileyo nezicacileyo\n• Khetha inqanaba lobungozi elifanelekileyo ngokusekwe kubunzima\n• Iingxelo zobuxoki zingakhokelela ekuthintelweni kweakhawunti",
-  "@guidelinesText": {
-    "description": "Text content for guidelines section"
   },
   "riskLevelCritical": "Ubungozi obukhulu",
   "@riskLevelCritical": {
@@ -2836,33 +2125,9 @@
   "@riskLevelVeryLow": {
     "description": "Label for very low risk level"
   },
-  "riskDescriptionVeryLow": "Buthathaka kakhulu - Ingxaki encinci, iifowuni ezingaqhelekanga",
-  "@riskDescriptionVeryLow": {
-    "description": "Description for very low risk level"
-  },
-  "riskDescriptionLow": "Buthathaka - Iifowuni ezingafunwayo ngamanye amaxesha",
-  "@riskDescriptionLow": {
-    "description": "Description for low risk level"
-  },
-  "riskDescriptionMedium": "Phakathi - Ugaxelekile rhoqo okanye intengiso ngefowuni",
-  "@riskDescriptionMedium": {
-    "description": "Description for medium risk level"
-  },
-  "riskDescriptionHigh": "Phezulu - Ukuhlukumeza okungapheliyo okanye iinzame zokuqhatha",
-  "@riskDescriptionHigh": {
-    "description": "Description for high risk level"
-  },
-  "riskDescriptionCritical": "Ubungozi obukhulu - Ukuqhatha okuyingozi okanye izoyikiso",
-  "@riskDescriptionCritical": {
-    "description": "Description for critical risk level"
-  },
   "notificationFrequencyTitle": "Ubude bexesha lesilumkiso",
   "@notificationFrequencyTitle": {
     "description": "Title for notification frequency settings"
-  },
-  "notificationFrequencyLabel": "Ubude bexesha lesilumkiso (iiyure)",
-  "@notificationFrequencyLabel": {
-    "description": "Label for notification frequency dropdown"
   },
   "errorMessage": "Impazamo: {error}",
   "@errorMessage": {
@@ -2870,18 +2135,6 @@
     "placeholders": {
       "error": {
         "type": "String"
-      }
-    }
-  },
-  "votesStatistics": "Iivoti: {totalVotes} ({supportPercentage}% inkxaso)",
-  "@votesStatistics": {
-    "description": "Voting statistics text",
-    "placeholders": {
-      "totalVotes": {
-        "type": "int"
-      },
-      "supportPercentage": {
-        "type": "int"
       }
     }
   },
@@ -2899,37 +2152,6 @@
     "description": "Shows the number of oppose votes.",
     "placeholders": {
       "opposeCount": {
-        "type": "int"
-      }
-    }
-  },
-  "timeJustNow": "Okwangoku",
-  "@timeJustNow": {
-    "description": "Time format for recent events"
-  },
-  "timeMinutesAgo": "{minutes}m edlulileyo",
-  "@timeMinutesAgo": {
-    "description": "Time format for minutes ago",
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
-  "timeHoursAgo": "{hours}h edlulileyo",
-  "@timeHoursAgo": {
-    "description": "Time format for hours ago",
-    "placeholders": {
-      "hours": {
-        "type": "int"
-      }
-    }
-  },
-  "timeDaysAgo": "{days}d edlulileyo",
-  "@timeDaysAgo": {
-    "description": "Time format for days ago",
-    "placeholders": {
-      "days": {
         "type": "int"
       }
     }
@@ -2989,7 +2211,6 @@
   "liveActivitiesTestUpdateActivity": "Hlaziya Umsebenzi",
   "liveActivityControlsTitle": "Ulawulo loMsebenzi oPhilayo",
   "liveActivitiesTestTitle": "Uvavanyo loMsebenzi oPhilayo",
-  "liveActivitiesTestSubtitle": "Vavanya isilumkiso somsebenzi ophilayo.",
   "liveNotificationCustomizationTitle": "Ukwenza ngokweSiko kwesiLumkiso esiPhilayo",
   "liveNotificationCustomizationSubtitle": "Yenza ngokwesiko inkangeleko yezilumkiso eziphilayo.",
   "notification_instructions": "Izikhokelo:\n1. Cofa \"THUMELA\" ukwenza okanye ukuhlaziya isilumkiso.\n2. Yiya kwiscreen sakho sasekhaya okanye tsala phantsi itreyi yesilumkiso ukuze ubone isiphumo.\n3. Cofa \"PHELISA\" ukususa isilumkiso.",
@@ -3012,7 +2233,6 @@
   "@proposalDetails": {
     "description": "The title of the proposal details page."
   },
-  "filterByStatus": "Hluza ngeSimo",
   "proposalNotFound": "Ingcebiso ayifunyanwanga",
   "@proposalNotFound": {
     "description": "A message displayed when a proposal is not found."
@@ -3020,10 +2240,6 @@
   "processed": "Kuqhubekekisiwe",
   "@processed": {
     "description": "A label for the processed status."
-  },
-  "showAll": "Bonisa Konke",
-  "@showAll": {
-    "description": "A button to show all proposals."
   },
   "filterAndSortTitle": "Hluza kwaye Ulungelelanise",
   "filterVerifiedOwner": "Hluza Umnini oQinisekisiweyo",
@@ -3055,10 +2271,6 @@
   "@invalidSimData": {
     "description": "A message displayed when the SIM data is invalid."
   },
-  "simCardData": "Idatha yeKhadi le-SIM",
-  "@simCardData": {
-    "description": "A label for the SIM card data."
-  },
   "simSlot": "SIM Slot",
   "@simSlot": {
     "description": "A label for the SIM slot."
@@ -3077,8 +2289,6 @@
   },
   "callTypeRejected": "Yaliwe",
   "callTypeSilenced": "Ithulisiwe",
-  "callTypeVoicemail": "Umyalezo Welizwi",
-  "callTypeUnknownIntercept": "Ukunqamla Okungaziwayo",
   "andMoreItems": "kunye {count} ezinye izinto",
   "@andMoreItems": {
     "description": "Text to show when there are more items than displayed.",

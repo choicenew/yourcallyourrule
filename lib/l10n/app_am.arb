@@ -6,14 +6,6 @@
   },
   "aboutLabels": "ስለ መለያዎች",
   "aboutPhoneSubscriptionRules": "ስለ የስልክ የደንበኝነት ምዝገባ ህጎች",
-  "aboutPhoneSubscriptions": "ስለ የስልክ ምዝገባዎች",
-  "@aboutPhoneSubscriptions": {
-    "description": "About phone subscriptions title"
-  },
-  "aboutPhoneSubscriptionsDesc": "የስልክ ህግ ዝርዝሮችን በዩአርኤል ይመዝገቡ፣ ህጎችን በራስ-ሰር ያዘምኑ። የJSON፣CSV ቅርጸት ህግ ፋይሎችን ይደግፋል።",
-  "@aboutPhoneSubscriptionsDesc": {
-    "description": "About phone subscriptions description"
-  },
   "aboutSmsFilter": "ስለ ኤስኤምኤስ ማጣሪያ",
   "aboutSmsSubscriptionRules": "ስለ ኤስኤምኤስ የደንበኝነት ምዝገባ ህጎች",
   "aboutSubtitle": "የመተግበሪያ ስሪት እና ህጋዊ መረጃ",
@@ -22,7 +14,6 @@
   "actionAll": "ሁሉም",
   "actionAllow": "ፍቀድ",
   "actionBlock": "አግድ",
-  "actionFilterAll": "ሁሉም ማጣሪያ",
   "actionFilterTitle": "በድርጊት አይነት ማጣሪያ",
   "actionFilterTooltip": "የድርጊት ማጣሪያ",
   "actionNone": "ምንም እርምጃ የለም",
@@ -42,24 +33,15 @@
   },
   "addContactButton": "እውቂያ አክል",
   "addContactFailed": "እውቂያ ማከል አልተሳካም: {error}",
-  "addedToAllowedRules": "ወደ ፍቀድ ህጎች ተጨምሯል",
-  "addedToBlacklist": "ወደ ጥቁር መዝገብ ተጨምሯል",
-  "addedToBlockedRules": "ወደ አግድ ህጎች ተጨምሯል",
-  "addedToFavoriteContacts": "ወደ ተወዳጅ እውቂያዎች ተጨምሯል",
   "addedToFavorites": "ወደ ተወዳጆች ተጨምሯል",
-  "addedToWhitelist": "ወደ ነጭ ዝርዝር ተጨምሯል",
-  "addFavorite": "ተወዳጅ አክል",
-  "addFilter": "ማጣሪያ አክል",
   "addLabel": "መለያ አክል",
   "addLabelButton": "መለያ አክል",
   "addLabelFailed": "መለያ ማከል አልተሳካም: {error}",
-  "addLabelToCall": "የጥሪ መዝገብ ላይ መለያ አክል",
   "addName": "ስም አክል",
   "addNoneSubscription": "ምንም ምዝገባ የለም",
   "@addNoneSubscription": {
     "description": "Add none subscription dialog title"
   },
-  "addOrEditContactInfo": "የእውቂያ መረጃን ለማከል ወይም ለማርትዕ ጥቅም ላይ ይውላል",
   "addPhoneMark": "የስልክ ምልክት አክል",
   "addPhoneNumberRule": "የስልክ ቁጥር ህግን አክል",
   "addPlugin": "ተሰኪ አክል",
@@ -69,14 +51,12 @@
   "addPluginFromUrl": "ተሰኪ ከዩአርኤል",
   "addRegexRule": "የቁጥር ግጥሚያ ህግን አክል",
   "addRule": "ህግ አክል",
-  "addRuleButton": "ህግ አክል",
   "addRuleFailed": "ህግ ማከል አልተሳካም: {error}",
   "addRuleTooltip": "ህግ አክል",
   "addSilenceSubscription": "የዝምታ ምዝገባን አክል",
   "@addSilenceSubscription": {
     "description": "Add silence subscription dialog title"
   },
-  "addSimRuleButton": "የሲም ህግን አክል",
   "addSmsFilterRule": "የኤስኤምኤስ ማጣሪያ ህግን አክል",
   "addSmsRule": "የኤስኤምኤስ ህግን አክል",
   "addSmsSubscription": "የኤስኤምኤስ ምዝገባን አክል",
@@ -95,26 +75,17 @@
     }
   },
   "addSubscriptionTooltip": "ምዝገባ አክል",
-  "addToAllowedRules": "ወደ ፍቀድ ህጎች አክል",
   "addToBlacklist": "ወደ ጥቁር መዝገብ አክል",
-  "addToBlockedRules": "ወደ አግድ ህጎች አክል",
-  "addToFavoriteContacts": "ወደ ተወዳጅ እውቂያዎች አክል",
   "addToFavorites": "ወደ ተወዳጆች አክል",
   "addToRules": "ወደ ህጎች አክል",
   "addToWhitelist": "ወደ ነጭ ዝርዝር አክል",
-  "adPlaceholder": "የማስታወቂያ መሙያ",
   "agent": "ወኪል",
   "all": "ሁሉም",
   "allCallsTab": "ሁሉም",
-  "allDataClearedSuccessfully": "ሁሉም ውሂብ በተሳካ ሁኔታ ተጠርጓል",
   "allow": "ፍቀድ",
   "allowAllAllowRules": "ሁሉንም የፍቀድ ህጎች ፍቀድ",
   "allowAllAllowRulesDesc": "ከፍቀድ ህጎች ጥሪዎችን ፍቀድ",
   "allowAllBlacklistedNumbers": "ሁሉንም በጥቁር መዝገብ የተመዘገቡ ቁጥሮችን ፍቀድ",
-  "allowAllBlacklistedNumbersDesc": "ከጥቁር መዝገብ ጥሪዎችን ፍቀድ",
-  "@allowAllBlacklistedNumbersDesc": {
-    "description": "Allow calls from blocklist"
-  },
   "allowAllBlockRules": "ሁሉንም የአግድ ህጎች ፍቀድ",
   "allowAllBlockRulesDesc": "ከአግድ ህጎች ጥሪዎችን ፍቀድ",
   "allowAllowedNumbers": "የተፈቀዱ ቁጥሮችን ፍቀድ",
@@ -135,8 +106,6 @@
   "allowRegexBlockRulesDescription": "በቁጥር ላይ የተመሰረቱ የአግድ ህጎችን አንቃ",
   "allowRule": "የፍቀድ ህግ",
   "allowRules": "የፍቀድ ህጎች",
-  "allowWhitelistedNumbers": "ነጭ መዝገብ ቁጥሮች ይፍቀዱ",
-  "allowWhitelistedNumbersDescription": "ነጭ መዝገብ ያሉትን ሁሉንም ቁጥሮች ፍቀድ",
   "allPermissionsGranted": "ሁሉም ፈቃዶች ተሰጥተዋል",
   "allSettingsCompleted": "ሁሉም ቅንብሮች ተጠናቀዋል።",
   "allUpdateSuccess": "ሁሉም ዝማኔዎች ተጠናቀዋል ({count} ህጎች)",
@@ -149,7 +118,6 @@
     }
   },
   "answerThenHangup": "መልስ ከዚያም አንጠልጥል",
-  "appLegalese": "© 2023 የእርስዎ ጥሪ የእርስዎ ህግ። ሁሉም መብቶች የተጠበቁ ናቸው።",
   "applicationSoftware": "የመተግበሪያ ሶፍትዌር",
   "apply": "ተግብር",
   "appName": "የእርስዎ ጥሪ የእርስዎ ህግ",
@@ -162,8 +130,6 @@
   "autoUpdate": "ራስ-አዘምን",
   "autoUpdateDescription": "ለደንበኝነት ምዝገባዎች ራስ-ዝማኔ ክፍተቶችን ያዘጋጁ ወይም በእጅ ያዘምኑ",
   "autoUpdateSettings": "ራስ-ዝማኔ ቅንብሮች",
-  "autoUpdateSettingsSubtitle": "ለህጎች እና ተሰኪዎች ራስ-አውቶማቲክ ዝማኔዎችን ያስተዳድሩ",
-  "autoUpdateSettingsTitle": "ራስ-ዝማኔ ቅንብሮች",
   "autoUpdateSubtitle": "ለህጎች እና ተሰኪዎች ራስ-አውቶማቲክ ዝማኔዎችን ያስተዳድሩ",
   "autoUpdateTitle": "ራስ-ዝማኔ",
   "avatarBorderColor": "የአቫታር ድንበር ቀለም",
@@ -178,57 +144,33 @@
   "backupAndRestoreSubtitle": "የመተግበሪያ ውሂብ ምትኬ ያስቀምጡ ወይም ይመልሱ",
   "backupAndRestoreTitle": "ምትኬ & መልሶ ማግኛ",
   "backupFailed": "ምትኬ አልተሳካም",
-  "backupFailedMessage": "ምትኬ አልተሳካም",
-  "backupFailedWithError": "ምትኬ አልተሳካም: {error}",
-  "backupRestoreSubtitle": "የመተግበሪያ ውሂብ ምትኬ ያስቀምጡ ወይም ይመልሱ",
-  "backupRestoreTitle": "ምትኬ & መልሶ ማግኛ",
-  "backupSectionTitle": "ምትኬ",
   "backupSettings": "ምትኬ ቅንብሮች",
-  "backupSettingsDialogTitle": "ምትኬ ቅንብሮች",
-  "backupSettingsTitle": "ምትኬ ቅንብሮች",
-  "backupSuccessMessage": "በደመና ላይ በስኬት ምትኬ ተቀምጧል",
-  "backupSuccessToLocal": "ምትኬ ወደ: {path} በተሳካ ሁኔታ ተቀምጧል",
   "backupToCloud": "ወደ ደመና ምትኬ",
-  "backupToCloudDescription": "ቅንብሮች እና ህጎች ወደ ደመና ማከማቻ ምትኬ ያስቀምጡ",
   "backupToCloudFailed": "ወደ ደመና ምትኬ አልተሳካም: {error}",
-  "backupToCloudLabel": "ወደ ደመና ምትኬ",
   "backupToCloudSuccess": "በደመና ላይ በስኬት ምትኬ ተቀምጧል",
-  "backupToCloudTitle": "ወደ ደመና ምትኬ",
-  "backupToLocalLabel": "ወደ አካባቢያዊ ምትኬ",
   "bank": "ባንክ",
   "basicInfo": "መሰረታዊ መረጃ",
   "basicRuleFilter": "መሰረታዊ ህግ ማጣሪያ",
   "basicRuleFiltering": "መሰረታዊ ህግ ማጣሪያ",
   "basicRuleFilteringExplanation": "• መሰረታዊ ህግ ማጣሪያ፡ ከጥቁር መዝገብ፣ ነጭ መዝገብ እና ሬጌክስ ላይ ተመስርተው ህጎችን ማጣራት",
-  "basicRuleFilterSettings": "መሰረታዊ ህግ ማጣሪያ ቅንብሮች",
-  "@basicRuleFilterSettings": {
-    "description": "Title for basic rule filter settings page"
-  },
   "basicRuleFilterSubtitle": "ጥሪዎችን በጥቁር/በነጭ መዝገብ እና መደበኛ አገላለጾችን በመጠቀም ያጣሩ",
-  "batchDeleteContacts": "የጅምላ እውቂያዎች ሰርዝ",
   "batchDeleteContactsConfirm": "{count} የተመረጡ እውቂያዎችን መሰረዝዎን እርግጠኛ ነዎት?",
-  "batchDeleteFailed": "የጅምላ መሰረዝ አልተሳካም",
   "batchDeleteLabelsConfirm": "{count} መለያዎችን መሰረዝዎን እርግጠኛ ነዎት?",
   "blacklist": "ጥቁር መዝገብ",
   "@blacklist": {
     "description": "Blacklist label"
   },
   "blacklistingAndWhitelisting": "ጥቁር መዝገብ እና ነጭ መዝገብ",
-  "blacklistLabel": "ጥቁር መዝገብ",
   "blackWhiteList": "ጥቁር/ነጭ ዝርዝር",
   "block": "አግድ",
   "blockCalls": "ጥሪዎችን አግድ",
   "blocked": "ታገደ",
-  "blockedCallAction": "የታገደ ጥሪ እርምጃ",
   "blockedCalls": "የታገዱ ጥሪዎች",
   "blockedCallsTitle": "የታገዱ ጥሪዎች",
-  "blockedCommunications": "የታገዱ ግንኙነቶች",
-  "blockedPhoneLabel": "የታገዱ ጥሪዎች",
   "blockedSpamCalls": "የታገዱ የስፓም ጥሪዎች",
   "blockingTrend": "የማገድ አዝማሚያ",
   "blockInternationalCalls": "+ ወይም 00 የማይጀምሩ ቁጥሮችን ይዛመዳል",
   "blockInternationalCallsTitle": "አለምአቀፍ ጥሪዎችን አግድ",
-  "blockLandlineNumbersTitle": "የመሬት መስመር ቁጥሮችን አግድ",
   "blockMobileNumbers": "13-19 የማይጀምሩ ቁጥሮችን ይዛመዳል",
   "blockMobileNumbersTitle": "የሞባይል ቁጥሮችን አግድ",
   "blockPremiumRateNumbers": "118 ወይም 120-190 የማይጀምሩ ቁጥሮችን ይዛመዳል",
@@ -244,19 +186,9 @@
   "bulkDeleteLabels": "የጅምላ መለያዎች ሰርዝ",
   "call": "ጥሪ",
   "callback": "ጥሪ ተመለስ",
-  "callbackTo": "ወደ {number} ጥሪ ተመለስ",
-  "@callbackTo": {
-    "description": "Callback notification message",
-    "placeholders": {
-      "number": {
-        "type": "String"
-      }
-    }
-  },
   "callBlocking": "የጥሪ ማገድ",
   "callerIdApp": "ደዋይ መታወቂያ መተግበሪያ",
   "callerIdCustomizationTitle": "የደዋይ መታወቂያ ያብጁ",
-  "callerIdDialogTitle": "የደዋይ መታወቂያ መረጃ",
   "callerIdDisplayMode": "የደዋይ መታወቂያ ማሳያ ሁኔታ",
   "callerIdMarkedByCount": "በ{count} ተሰይሟል",
   "@callerIdMarkedByCount": {
@@ -268,8 +200,6 @@
     }
   },
   "callerIdPreview": "የደዋይ መታወቂያ ቅድመ እይታ",
-  "callFilter": "የጥሪ ማጣሪያ",
-  "callFilterDescription": "ሲነቃ ገቢ ጥሪዎች ከታች ባለው የደንብ ዝርዝር ጋር ይነጻጸራሉ። የጥሪ ማጣሪያ ህጎች በመሣሪያዎች መካከል በነባሪነት አልተመሳሰሉም።",
   "callFilterRules": "የጥሪ ማጣሪያ ህጎች",
   "callFilterRulesDescription": "ለጥሪ ማጣሪያ መሰረታዊ ህጎችን ያዘጋጁ",
   "callFilterSettings": "የጥሪ ማጣሪያ ቅንብሮች",
@@ -278,33 +208,10 @@
   "callHistory": "የጥሪ ታሪክ",
   "callHistoryInfoDesc": "እዚህ ገቢ፣ ወጪ እና የጠፉ ጥሪዎችን ጨምሮ የጥሪ ታሪክዎን ያሳያል።",
   "callHistoryInfoTitle": "የጥሪ ታሪክ",
-  "callHistoryInitFailed": "የጥሪ ታሪክን ለማስጀመር አልተሳካም: {error}",
-  "@callHistoryInitFailed": {
-    "description": "Call history initialization failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
-  "callHistoryRefreshFailed": "የጥሪ ታሪክን ለማደስ አልተሳካም: {error}",
-  "@callHistoryRefreshFailed": {
-    "description": "Call history refresh failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "callHistoryTab": "የጥሪ ታሪክ",
-  "callHistoryTimelineEarlier": "ቀደም ብሎ",
-  "callHistoryTimelineToday": "ዛሬ",
-  "callHistoryTimelineYesterday": "ትናንት",
   "callScreeningPermission": "የጥሪ ማጣሪያ ፈቃድ",
   "callScreeningPermissionDescription": "የስፓም ጥሪዎችን ለማጣራት እና ለማገድ ያገለግላል።",
   "callScreeningPermissionNotGranted": "የጥሪ ማጣሪያ ፈቃድ አልተሰጠም፣ የኛን መተግበሪያ ተግባራዊነት ሊጎዳ ይችላል።",
-  "callSettingsSubtitle": "የደዋይ መታወቂያ፣ ማጣሪያ እና የማገድ ቅንብሮች",
-  "callSettingsTitle": "የጥሪ ቅንብሮች",
   "callStatistics": "የጥሪ ስታትስቲክስ",
   "callTypeAnswered": "መልስ የተሰጠበት",
   "callTypeBlocked": "የተከለከለ",
@@ -330,32 +237,14 @@
       }
     }
   },
-  "changeTag": "መለያ ቀይር",
   "charity": "በጎ አድራጎት",
-  "chartMonthFormat": "ወር {month}",
-  "@chartMonthFormat": {
-    "description": "Month format for chart labels",
-    "placeholders": {
-      "month": {
-        "type": "int"
-      }
-    }
-  },
-  "chartOneDayAgo": "1 ቀን በፊት",
-  "chartOneMonthAgo": "1 ወር በፊት",
   "chartOneWeekAgo": "1 ሳምንት በፊት",
-  "chartTenDaysAgo": "10 ቀናት በፊት",
   "chartThreeDaysAgo": "3 ቀናት በፊት",
   "chartToday": "ዛሬ",
   "checkFileFormat": "እባክዎ የፋይል ቅርጸት ወይም ፍቃዶችን ይፈትሹ",
   "checkPermissionFailed": "ፍቃዶችን ለመፈተሽ አልተሳካም: {error}",
   "chooseDefaultInterceptAction": "ነባሪ የመጥለፍያ እርምጃ ይምረጡ",
-  "clearAllData": "ሁሉንም ውሂብ ሰርዝ",
-  "clearAllDataConfirmation": "ሁሉንም የመተግበሪያ ውሂብ ማጽዳት ይፈልጋሉ? ይህ እርምጃ ሊቀለበስ አይችልም።",
-  "clearAllDataDescription": "ሁሉንም የመተግበሪያ ውሂብ ሰርዝ",
-  "clearAllDataLabel": "ሁሉንም ውሂብ ሰርዝ",
   "clearFilter": "ማጣሪያ ሰርዝ",
-  "clearLabelFilter": "የመለያ ማጣሪያ ሰርዝ",
   "clearLabelFilterButton": "የመለያ ማጣሪያ ሰርዝ",
   "closeButton": "ዝጋ",
   "cloudSync": "የደመና ማመሳሰል",
@@ -363,26 +252,18 @@
   "cloudSyncSettingsSubtitle": "WebDAV፣ OneDrive እና Google Drive ያዋቅሩ",
   "cloudSyncSettingsTitle": "የደመና ማመሳሰል ቅንብሮች",
   "cloudSyncTitle": "የደመና ማመሳሰል",
-  "collapseLabelSelector": "የመለያ መራጭን ዝጋ",
   "collection": "ዕዳ መሰብሰብ",
   "colorPickerTitle": "ቀለም ይምረጡ",
   "configManagement": "የውቅር አስተዳደር",
   "configUpdated": "ውቅር ተዘምኗል",
   "configurationAdvice": "ትክክለኛ ውቅርን በመጠቀም ለስራ እና ለግል ሲም ካርዶች የተለያዩ የማጣሪያ ስልቶችን ማዘጋጀት ይችላሉ።",
   "configureBackupOptions": "የመጠባቂያ አማራጮችን ያዋቅሩ",
-  "configureBackupOptionsSubtitle": "የመጠባቂያ አማራጮችን ያዋቅሩ",
   "configureCloudSyncService": "የደመና ማመሳሰል አገልግሎት ያዋቅሩ",
-  "configureCloudSyncServiceHint": "እባክዎ የብዙ-መሣሪያ ማመሳሰልን ለማንቃት የደመና ማመሳሰል አገልግሎት ያዋቅሩ።",
   "configureCloudSyncServiceMessage": "እባክዎ የብዙ-መሣሪያ ማመሳሰልን ለማንቃት የደመና ማመሳሰል አገልግሎት ያዋቅሩ።",
   "configureSimCardFilterRules": "የሲም ካርድ ማጣሪያ ህጎችን ያዋቅሩ",
-  "configureSyncServiceHint": "እባክዎ በመጀመሪያ የደመና ማመሳሰል ቅንብሮች ውስጥ የማመሳሰል አገልግሎት ያዋቅሩ",
   "confirm": "አረጋግጥ",
-  "confirmBatchDeleteContacts": "የተመረጡትን መሰረዝ ይፈልጋሉ?",
   "confirmButton": "አረጋግጥ",
   "confirmDelete": "አረጋግጥ ሰርዝ",
-  "confirmDeleteContact": "እርግጠኛ ነዎት መሰረዝ ይፈልጋሉ",
-  "confirmDeleteContactName": "መሰረዙን ያረጋግጡ?",
-  "confirmDeleteFilter": "ይህን ማጣሪያ መሰረዝ ይፈልጋሉ?",
   "confirmDeleteLabel": "መለያ \"{name}\" መሰረዙን ያረጋግጡ",
   "confirmDeletePlugin": "ፕለጊን \"{name}\" መሰረዙን ያረጋግጡ?",
   "confirmDeletePlugins": "{count} ፕለጊኖችን መሰረዙን ያረጋግጡ?",
@@ -396,10 +277,8 @@
     }
   },
   "confirmDeleteRuleMessage": "ይህን ህግ መሰረዝ ይፈልጋሉ? ይህ እርምጃ ሊቀለበስ አይችልም።",
-  "confirmDeleteSelectedContacts": "የተመረጡ እውቂያዎችን መሰረዙን ያረጋግጡ?",
   "confirmDeleteSmsFilterRule": "ይህን የኤስኤምኤስ ማጣሪያ ህግ መሰረዝ ይፈልጋሉ?",
   "confirmDeleteSmsRule": "ይህን የኤስኤምኤስ ህግ መሰረዝ ይፈልጋሉ?",
-  "confirmDeleteSubscription": "ይህን የደንበኝነት ምዝገባ መሰረዝ ይፈልጋሉ?",
   "confirmDeleteSubscriptions": "{name} መሰረዙን ያረጋግጡ?",
   "@confirmDeleteSubscriptions": {
     "description": "Confirmation message shown before deleting a subscription.",
@@ -411,7 +290,6 @@
     }
   },
   "confirmPassword": "የይለፍ ቃል ያረጋግጡ",
-  "confirmPasswordLabel": "የይለፍ ቃል ያረጋግጡ",
   "connectedStatus": "ተገናኝቷል",
   "connectionFailedCheckCredentialsMessage": "ግንኙነት አልተሳካም: እባክዎ የአገልጋዩን አድራሻ፣ የተጠቃሚ ስም እና የይለፍ ቃል ይፈትሹ",
   "connectionFailedMessage": "ግንኙነት አልተሳካም",
@@ -419,19 +297,11 @@
   "connectionSuccessMessage": "ግንኙነት ተሳክቷል",
   "contactAddSuccess": "ዕውቂያ በተሳካ ሁኔታ ታክሏል",
   "contactDeleted": "ዕውቂያ ተሰርዟል",
-  "contactEditDialog": "የዕውቂያ ማረምያ መስኮት",
-  "contactNameHint": "የዕውቂያ ስም ያስገቡ (አማራጭ)",
   "contactNameLabel": "ስም",
-  "contactNameOptional": "የዕውቂያ ስም (አማራጭ)",
   "contactNotFound": "ዕውቂያ አልተገኘም",
   "contacts": "ዕውቂያዎች",
   "contactsDeleted": "{count} ዕውቂያዎች ተሰርዘዋል",
-  "contactSettingsSubtitle": "የዕውቂያ አስተዳደር እና መለያ ቅንብሮች",
-  "contactSettingsTitle": "የዕውቂያ ቅንብሮች",
-  "contactsLoadingFailed": "ዕውቂያዎችን በመጫን ላይ አልተሳካም: {error}",
   "contactsManagement": "የዕውቂያዎች አስተዳደር",
-  "contactsManagementPageTitle": "የዕውቂያዎች አስተዳደር ገጽ",
-  "contactsPageTitle": "የዕውቂያዎች አስተዳደር",
   "contactsPermission": "የዕውቂያዎች ፈቃድ",
   "contactsPermissionDescription": "ለጥሪዎች ዕውቂያዎችን ለመለየት ጥቅም ላይ ይውላል።",
   "contactsTab": "ዕውቂያዎች",
@@ -439,8 +309,6 @@
   "@contactSubscriptionDescription": {
     "description": "About contact subscription description"
   },
-  "contactSubscriptionLoadingFailed": "የዕውቂያ ምዝገባዎችን በመጫን ላይ አልተሳካም: {error}",
-  "contactSubscriptionPageTitle": "የዕውቂያ ምዝገባዎች",
   "contactUpdateSuccess": "ዕውቂያ በተሳካ ሁኔታ ተዘምኗል",
   "contactUs": "ያግኙን",
   "content": "ይዘት",
@@ -452,34 +320,16 @@
   "countryNameColor": "የሀገር ስም ቀለም",
   "countryNameFontSize": "የሀገር ስም ቅርጸ-ቁመት",
   "countryRegionNamePosition": "የሀገር/ክልል ስም ቦታ",
-  "countrySelectionDialog": "የሀገር ምርጫ መስኮት",
-  "countrySelectionDialogDescription": "የደዋይ መረጃዎችን ለመጠየቅ ሀገር ለመምረጥ ጥቅም ላይ ይውላል",
   "countThresholdDescription": "ማጣሪያዎችን ለማንቀሳቀስ የሚያስፈልገውን ዝቅተኛ የመቆጠር ገደብ ያዘጋጁ",
   "countThresholdLabel": "የመቆጠር ገደብ",
-  "countThresholdSettings": "የመቆጠር ገደብ ቅንብሮች",
-  "countThresholdValue": "የመቆጠር ገደብ: {count}",
   "createdRules": "የተፈጠሩ ህጎች",
   "csvFormat": "CSV ቅርጸት",
-  "currentDeviceChip": "አሁን ያለው",
   "currentDeviceLabel": "አሁን ያለው የመሣሪያ መለያ",
   "currentDeviceTitle": "አሁን ያለው መሣሪያ",
-  "currentLabels": "አሁን ያሉ መለያዎች:",
   "currentLanguage": "አሁን ያለው ቋንቋ",
-  "currentPasswordLabel": "አሁን ያለው የይለፍ ቃል",
   "customerService": "የደንበኞች አገልግሎት",
-  "customRange": "የተስተካከለ ክልል",
-  "dailyStatistics": "ዕለታዊ ስታትስቲክስ",
-  "@dailyStatistics": {
-    "description": "Daily statistics notification option"
-  },
-  "dailyStatisticsDesc": "ስለታገዱ ጥሪዎች እና መልእክቶች ዕለታዊ ስታትስቲክስ ይቀበሉ",
-  "@dailyStatisticsDesc": {
-    "description": "Description for daily statistics option"
-  },
   "dashboardTab": "ዳሽቦርድ",
   "dataAnalysis": "የውሂብ ትንተና",
-  "dataAnalysisDashboardPage": "የውሂብ ትንተና ዳሽቦርድ ገጽ",
-  "dataExport": "የውሂብ ኤክስፖርት",
   "dataLoadFailure": "ውሂብ መጫን አልተሳካም: {error}",
   "@dataLoadFailure": {
     "description": "Data loading failure message",
@@ -492,9 +342,6 @@
   "dataLoadingFailed": "ውሂብ መጫን አልተሳካም: {error}",
   "dataMigration": "የውሂብ ማስተላለፍ",
   "dataMigrationDescription": "ይህ ባህሪ ሁሉንም ውሂቦችዎን በመሣሪያዎች መካከል እንዲያስተላልፉ ያስችልዎታል። በአሁኑ ጊዜ ውሂቦችዎን በእጅ ለማስተላለፍ ምትኬ እና እነበረበት መልስ ባህሪያትን መጠቀም ይችላሉ።",
-  "dataMigrationDialogContent": "ይህ ባህሪ ሁሉንም ውሂቦችዎን በመሣሪያዎች መካከል እንዲያስተላልፉ ያስችልዎታል። በአሁኑ ጊዜ ውሂቦችዎን በእጅ ለማስተላለፍ ምትኬ እና እነበረበት መልስ ባህሪያትን መጠቀም ይችላሉ።",
-  "dataMigrationDialogTitle": "የውሂብ ማስተላለፍ",
-  "dataMigrationSectionTitle": "የውሂብ ማስተላለፍ",
   "dataSourceReminder": "የውሂብ ምንጭ አስታዋሽ",
   "days": "{count, plural, =1{1 ቀን} other{{count} ቀናት}}",
   "@days": {
@@ -507,16 +354,11 @@
   },
   "daysVip": "{days} ቀናት VIP",
   "debtCollection": "ዕዳ መሰብሰብ",
-  "defaultPeriod": "ሳምንት",
   "delete": "ሰርዝ",
   "deleteButton": "ሰርዝ",
   "deleteContact": "ዕውቂያ ሰርዝ",
   "deleteContactConfirm": "{name}ን መሰረዝ ይፈልጋሉ?",
-  "deleteContactConfirmation": "ዕውቂያ መሰረዝ ይፈልጋሉ",
-  "deleteDeviceConfirmation": "{deviceName}ን መሰረዝ ይፈልጋሉ?",
-  "deleteDeviceDialogTitle": "መሣሪያ ሰርዝ",
   "deleteFailed": "መሰረዝ አልተሳካም: {error}",
-  "deleteFilter": "ማጣሪያ ሰርዝ",
   "deleteLabel": "መለያ ሰርዝ",
   "deleteLabelFailed": "መለያ መሰረዝ አልተሳካም: {error}",
   "deletePlugin": "ተሰኪ ሰርዝ",
@@ -526,7 +368,6 @@
   "deleteRule": "ህግ ሰርዝ",
   "deleteRuleFailed": "መሰረዝ አልተሳካም: {error}",
   "deleteSelected": "የተመረጡትን ሰርዝ",
-  "deleteSmsRule": "የኤስኤምኤስ ህግ ሰርዝ",
   "deleteSubscription": "ምዝገባ ሰርዝ",
   "@deleteSubscription": {
     "description": "Delete subscription dialog title"
@@ -551,21 +392,13 @@
   },
   "deleteSuccess": "መሰረዝ ተሳክቷል",
   "delivery": "ማድረስ",
-  "deviceDeletedSuccessfully": "መሣሪያ በተሳካ ሁኔታ ተሰርዟል",
-  "deviceDeletedSuccessfullyMessage": "መሣሪያ በተሳካ ሁኔታ ተሰርዟል",
-  "deviceIdLabel": "የመሣሪያ መታወቂያ",
   "deviceIDLabel": "የመሣሪያ መታወቂያ",
   "deviceManagementSubtitle": "በርካታ የመሣሪያ ማመሳሰልን ያቀናብሩ",
   "deviceManagementTitle": "የመሣሪያ አስተዳደር",
   "deviceModelLabel": "የመሣሪያ ሞዴል",
   "deviceName": "የመሣሪያ ስም",
-  "deviceNameCannotBeEmpty": "የመሳሪያ ስም ባዶ ሊሆን አይችልም",
-  "deviceNameHint": "እባክዎ የመሳሪያውን ስም ያስገቡ",
   "deviceNameLabel": "የመሳሪያ ስም",
-  "deviceRenamedSuccessfully": "መሳሪያው በተሳካ ሁኔታ ተሰይሟል",
   "deviceRenamedSuccessfullyMessage": "መሳሪያው በተሳካ ሁኔታ ተሰይሟል",
-  "devicesSyncedSuccessfully": "መሳሪያዎች በተሳካ ሁኔታ ተመሳስለዋል",
-  "devicesSyncedSuccessfullyMessage": "መሳሪያዎች በተሳካ ሁኔታ ተመሳስለዋል",
   "devicesSynchronizedSuccessfullyMessage": "መሳሪያዎች በተሳካ ሁኔታ ተመሳስለዋል",
   "deviceUnregisteredSuccessfullyMessage": "መሳሪያው በተሳካ ሁኔታ ተመዝግቧል",
   "dialogTitle": "የRegex Pattern ማብራሪያ",
@@ -576,7 +409,6 @@
   },
   "disabledStatus": "የተሰናከለ",
   "disableGlobalPlugins": "አለም አቀፍ ተሰኪዎችን ያሰናክሉ",
-  "disableSubscriptionSuccessfully": "ምዝገባ በተሳካ ሁኔታ ተሰናክሏል",
   "disconnectButton": "አቋረጥ",
   "disconnectedMessage": "ተቋርጧል",
   "disconnectedStatus": "ተቋርጧል",
@@ -587,17 +419,12 @@
   "ecommerce": "ኢ-ኮሜርስ",
   "edit": "አርትዕ",
   "editContact": "እውቂያ አርትዕ",
-  "editFilter": "ማጣሪያ አርትዕ",
   "editLabel": "መለያ አርትዕ",
   "editPhoneRule": "የስልክ ደንብ አርትዕ",
-  "editPhoneRules": "ለስልክ ደንቦች አርትዕ ለማድረግ ጥቅም ላይ ይውላል",
-  "editPhoneRuleTitle": "የስልክ ደንብ አርትዕ",
   "editRule": "ደንብ አርትዕ",
-  "editSmsRule": "የኤስኤምኤስ ደንብ አርትዕ",
   "education": "ትምህርት",
   "elementPositionsSetting": "የኤለመንት ቦታዎች",
   "email": "ኢሜል",
-  "emailOptional": "ኢሜል (አማራጭ)",
   "enableCallFilter": "የጥሪ ማጣሪያን አንቃ",
   "enableCallFilterDescription": "ሲነቃ ገቢ ጥሪዎች ከታች ካለው የደንብ ዝርዝር ጋር ይነጻጸራሉ። የጥሪ ማጣሪያ ደንቦች በአብዛኛው በመሳሪያዎች መካከል አይመሳሰሉም።",
   "enabled": "ነቅቷል",
@@ -607,9 +434,6 @@
   "enabledStatus": "ነቅቷል",
   "enableEncryption": "ምስጠራን አንቃ",
   "enableEncryptionDescription": "የመጠባበቂያ ፋይሎችን ኢንክሪፕት አድርግ",
-  "enableEncryptionLabel": "ምስጠራን አንቃ",
-  "enableEncryptionSubtitle": "የመጠባበቂያ ፋይሎች ይመሰጠራሉ",
-  "enableEncryptionTitle": "ምስጠራን አንቃ",
   "enableGlobalPlugins": "አለም አቀፍ ተሰኪዎችን አንቃ",
   "enableLocalCountFilter": "የሀገር ውስጥ ቆጠራ ማጣሪያን አንቃ",
   "enableLocalCountFilterDescription": "በጥሪ ምልክት ብዛት ላይ ተመስርተው በራስ-ሰር አይፈለጌ መልዕክቶችን ያጣሩ",
@@ -620,14 +444,11 @@
   "enableMuteRulesDesc": "የድምጸ-ከል ጣልቃገብነት ደንቦችን ውቅር ተግብር",
   "enableNoneActionRules": "ምንም እርምጃ የሌላቸውን ደንቦች አንቃ",
   "enableNoneActionRulesDesc": "የጣልቃገብነት እርምጃዎች የሌላቸውን ደንቦች ውቅረት ይፍቀዱ",
-  "enableNotifications": "ማሳወቂያዎችን አንቃ",
   "enableRemoteNumberFilter": "የርቀት ቁጥር ማጣሪያን አንቃ",
   "enableRemoteNumberFilterDescription": "ቁጥሮችን ለማጣራት የርቀት ዳታቤዝ ይጠቀሙ",
   "enableRule": "ደንብ አንቃ",
   "enableSmsFilter": "የኤስኤምኤስ ማጣሪያን አንቃ",
   "enableSmsFilterDescription": "ሲነቃ መልእክቶች እንደ ደንቦቹ በራስ-ሰር ይጣራሉ",
-  "enableStatisticsNotifications": "የስታቲስቲክስ ማሳወቂያዎችን አንቃ",
-  "enableSubscriptionSuccessfully": "ምዝገባ በተሳካ ሁኔታ ተንቀሳቅሷል",
   "enableTimeInterception": "የጊዜ ጣልቃገብነትን አንቃ",
   "enableTimeInterceptionDescription": "በአጭር ጊዜ ውስጥ የተደጋገሙ ጥሪዎችን ጣልቃ ይግቡ",
   "enableTimeInterceptor": "የጊዜ ጣልቃገብነትን አንቃ",
@@ -641,24 +462,15 @@
   },
   "enhancedFilterSettingsTitle": "የተሻሻለ የማጣሪያ ቅንብሮች",
   "enhancedFilterSystemDescription": "የተሻሻለ የማጣሪያ ስርዓቱ ዓለም አቀፍ ደንቦችን እና ለእያንዳንዱ ሲም ካርድ የማጣሪያ ውቅረቶችን ይደግፋል።",
-  "enterBothPhoneNumberAndRegexPattern": "እባክዎ የስልክ ቁጥር እና የregex pattern ሁለቱንም ያስገቡ",
   "enterBothPhoneNumberAndRegexPatternMessage": "እባክዎ የስልክ ቁጥር እና የregex pattern ሁለቱንም ያስገቡ።",
   "enterContactName": "እባክዎ የእውቂያ ስም ያስገቡ",
-  "enterCurrentPasswordHint": "እባክዎ የአሁኑን የይለፍ ቃል ያስገቡ",
   "enterDeviceName": "የመሳሪያ ስም አስገባ",
-  "enterDeviceNameHint": "እባክዎ የመሳሪያውን ስም ያስገቡ",
-  "enterEmail": "እባክዎ ኢሜል ያስገቡ",
   "enterEmailOptional": "እባክዎ ኢሜል (አማራጭ) ያስገቡ",
   "enterEncryptionPasswordHint": "የምስጠራ ይለፍ ቃል አስገባ",
-  "enterEncryptionPasswordTitle": "የምስጠራ ይለፍ ቃል አስገባ",
-  "enterFilterName": "እባክዎ የማጣሪያ ስም ያስገቡ",
-  "enterFilterPattern": "እባክዎ የማጣሪያ pattern ያስገቡ",
   "enterIconCode": "የአዶ ኮድ አስገባ",
   "enterName": "የእውቂያ ስም አስገባ",
   "enterNewDeviceNameHint": "ለዚህ መሣሪያ አዲስ ስም ያስገቡ",
-  "enterNewPasswordHint": "እባክዎ አዲስ የይለፍ ቃል ያስገቡ",
   "enterPasswordAgain": "የይለፍ ቃል እንደገና አስገባ",
-  "enterPasswordHint": "እባክዎ የይለፍ ቃል ያስገቡ",
   "enterPhoneNumber": "የስልክ ቁጥር አስገባ",
   "enterPhoneNumberHint": "ለመፈተሽ የስልክ ቁጥር አስገባ",
   "enterPhoneNumberMultiple": "እባክዎ የስልክ ቁጥር ያስገቡ፣ ብዙ ቁጥሮች በነጠላ ሰረዝ የተከፋፈሉ",
@@ -667,7 +479,6 @@
   "enterPluginName": "የተሰኪ ስም አስገባ",
   "enterPluginUrl": "የተሰኪ URL አድራሻ አስገባ",
   "enterRegexHint": "የ regex pattern አስገባ",
-  "enterRuleNameAndPattern": "እባክዎ የደንብ ስም እና pattern ያስገቡ",
   "enterRuleNameAndPatternMessage": "እባክዎ የህግ ስም እና የቁጥር ንድፍ ያስገቡ።",
   "enterRuleNameHint": "የህግ ስም ያስገቡ",
   "enterSearchContent": "እባክዎ የፍለጋ ይዘት ያስገቡ",
@@ -690,79 +501,50 @@
   "enterWebDAVPasswordHint": "እባክዎ የWebDAV የይለፍ ቃል ያስገቡ",
   "enterWebDAVServerAddressHint": "እባክዎ የWebDAV አገልጋይ አድራሻ ያስገቡ",
   "enterWebDAVUsernameHint": "እባክዎ የWebDAV የተጠቃሚ ስም ያስገቡ",
-  "errorDeletingDeviceMessage": "መሳሪያን በመሰረዝ ላይ ስህተት፡ {error}",
-  "errorLoadingPlugin": "ተሰኪ በመጫን ላይ ስህተት",
   "errorOccurredMessage": "ስህተት ተከስቷል፡ {error}",
   "errorRenamingDeviceMessage": "መሳሪያን በመሰየም ላይ ስህተት፡ {error}",
   "errorSynchronizingDevicesMessage": "መሳሪያዎችን በማመሳሰል ላይ ስህተት፡ {error}",
-  "errorSyncingDevicesMessage": "መሳሪያዎችን በማመሳሰል ላይ ስህተት፡ {error}",
-  "errorText": "ስህተት",
   "errorUnregisteringDeviceMessage": "መሳሪያን በማስመዝገብ ላይ ስህተት፡ {error}",
   "exampleBlock400Prefix": "ለምሳሌ የ400 ቅድመ-ቁጥር ቁጥሮችን አግድ",
   "exampleBlockMarketingSms": "ለምሳሌ የማስታወቂያ ኤስኤምኤስ አግድ",
-  "exampleContentRegex": "ለምሳሌ፣ .*offer.*",
   "exampleContentRegexHint": "የይዘት ምሳሌ ንድፍ",
   "exampleCouponPromotionDiscount": "ለምሳሌ .*(coupon|promotion|discount).*",
   "exampleFamilyFriends": "ለምሳሌ ቤተሰብ፣ ጓደኞች፣ ወዘተ.",
   "examplePhoneNumber": "ለምሳሌ 10086፣ 12345፣ ወዘተ.",
   "exampleRegex400Prefix": "የ400 ቅድመ-ቁጥር ምሳሌ ንድፍ",
-  "exampleRegexFormat": "ለምሳሌ፡ ^10086$ ቅርጸት",
   "exampleSenderRegexHint": "ምሳሌ",
   "exchange": "መለዋወጥ",
   "exchangeNow": "አሁን ይለውጡ",
   "exchangeVip": "VIP ይለውጡ",
-  "expandLabelSelector": "መለያ መራጭን አስፋ",
   "expiryTime": "የማለቂያ ጊዜ፡ {time}",
   "export": "ላክ",
   "exportAllApplicationSettings": "ሁሉንም የመተግበሪያ ቅንብሮች ላክ",
-  "exportAllApplicationSettingsSubtitle": "ሁሉንም የመተግበሪያ ቅንብሮች ላክ",
   "exportAllRuleConfigurations": "ሁሉንም የህግ ውቅሮች ላክ",
-  "exportAllRuleConfigurationsSubtitle": "ሁሉንም የህግ ውቅሮች ላክ",
-  "exportComplete": "ላክ ተጠናቀቀ",
   "exportConfig": "ውቅሮስ ላክ",
   "exportContacts": "ዕውቂያዎችን ላክ",
   "exportData": "ውሂብ ላክ",
-  "exportError": "ላክ ስህተት",
   "exportFailed": "ላክ አልተሳካም",
   "exportFailure": "ውቅሮስ መላክ አልተሳካም",
   "exportFeatureComingSoon": "የላክ ባህሪ በቅርቡ ይመጣል",
-  "exporting": "እየላከ ነው...",
   "exportLabels": "መለያዎችን ላክ",
   "exportLabelsFailed": "መለያዎችን መላክ አልተሳካም፡ {error}",
   "exportPluginList": "ተሰኪ ዝርዝር ላክ",
   "exportPluginListFailed": "ተሰኪ ዝርዝር መላክ አልተሳካም፡ {error}",
   "exportRules": "ህጎችን ላክ",
-  "exportRulesDialogTitle": "ህጎችን ላክ",
-  "exportRulesTitle": "ህጎችን ላክ",
   "exportSmsRules": "የኤስኤምኤስ ህጎችን ላክ",
   "exportStatisticsData": "የስታቲስቲክስ ውሂብ ላክ",
-  "exportSuccess": "ላክ የተሳካ",
   "exportSuccesslly": "ውቅሮስ በተሳካ ሁኔታ ተልኳል",
-  "failedToAddContact": "ዕውቂያ ማከል አልተሳካም",
   "failedToAddRule": "ህግ ማከል አልተሳካም፡ {error}",
-  "failedToAddSmsRule": "የኤስኤምኤስ ህግ ማከል አልተሳካም፡ {error}",
   "failedToAddSmsSubscription": "የኤስኤምኤስ ምዝገባ ማከል አልተሳካም፡ {error}",
   "failedToBackupSettings": "ቅንብሮችን ምትኬ ማስቀመጥ አልተሳካም፡ {error}",
   "failedToDecryptBackupFile": "ምትኬ ፋይል መፍታት አልተሳካም",
-  "failedToDeleteDevice": "መሳሪያ መሰረዝ አልተሳካም",
   "failedToDeleteSmsRule": "የኤስኤምኤስ ህግ መሰረዝ አልተሳካም፡ {error}",
   "failedToExportRules": "ህጎችን መላክ አልተሳካም፡ {error}",
-  "failedToExportSmsRules": "የኤስኤምኤስ ህጎችን መላክ አልተሳካም፡ {error}",
   "failedToGetCallerIdInfo": "የደዋይ መታወቂያ መረጃ ማግኘት አልተሳካም፡ {error}",
   "failedToImportRules": "ህጎችን ማስመጣት አልተሳካም፡ {error}",
-  "failedToImportSmsRules": "የኤስኤምኤስ ህጎችን ማስመጣት አልተሳካም፡ {error}",
-  "failedToLoadContacts": "ዕውቂያዎችን መጫን አልተሳካም",
-  "failedToLoadPlugin": "ተሰኪ መጫን አልተሳካም",
-  "failedToRenameDevice": "መሳሪያ መሰየም አልተሳካም",
   "failedToRestoreSettings": "ቅንብሮችን መልሰው ማግኘት አልተሳካም",
   "failedToRestoreSettingsWithError": "ቅንብሮችን መልሰው ማግኘት አልተሳካም፡ {error}",
-  "failedToSetPassword": "የይለፍ ቃል ማዘጋጀት አልተሳካም፡ {error}",
-  "failedToSyncDevices": "መሳሪያዎችን ማመሳሰል አልተሳካም",
   "failedToToggleRuleStatus": "የህግን ሁኔታ መቀየር አልተሳካም፡ {error}",
-  "failedToToggleSubscriptionStatus": "የምዝገባን ሁኔታ መቀየር አልተሳካም",
-  "failedToUpdateContact": "ዕውቂያ ማዘመን አልተሳካም",
-  "failedToUpdateSmsRule": "የኤስኤምኤስ ህግ ማዘመን አልተሳካም፡ {error}",
-  "failure": "ውድቀት",
   "favoriteContacts": "ተወዳጅ ዕውቂያዎች",
   "featureAddRules": "• ለስልክ ቁጥር የተለዩ ህጎችን ያክሉ",
   "featureCenter": "የባህሪ ማዕከል",
@@ -777,23 +559,14 @@
   "fileSavedTo": "ፋይል ተቀምጧል በ፡ {path}",
   "filter": "አጣራ",
   "filterByLabel": "በመለያ አጣራ",
-  "filterClear": "አጣራ ሰርዝ",
   "filterControlPanelTitle": "የማጣሪያ መቆጣጠሪያ ፓነል",
   "filterControlSubtitle": "የሁሉንም ማጣሪያዎች በርቷል/አጥፏል ሁኔታን ያቀናብሩ",
   "filterControlTitle": "የማጣሪያ መቆጣጠሪያ",
-  "filterDeleteFailed": "ማጣሪያ መሰረዝ አልተሳካም",
-  "filterDeleteSuccess": "ማጣሪያው በተሳካ ሁኔታ ተሰርዟል",
-  "filterDetails": "የማጣሪያ ዝርዝሮች",
   "filtered": "ተጣርቶ",
-  "filteredSms": "የተጣራ ኤስኤምኤስ",
-  "filteredSmsLabel": "የተጣራ ኤስኤምኤስ",
   "filterExplanation": "የማጣሪያ ማብራሪያ",
   "filterManagement": "የማጣሪያ አስተዳደር",
   "filterName": "የማጣሪያ ስም",
-  "filterPattern": "የማጣሪያ ንድፍ",
   "filterPriorityNote": "ማሳሰቢያ፡ በማጣሪያዎች መካከል የቅድሚያ ግንኙነቶች አሉ፣ ለዝርዝሮች የእርዳታ ሰነዱን ይመልከቱ",
-  "filterSaveFailed": "ማጣሪያ ማስቀመጥ አልተሳካም",
-  "filterSaveSuccess": "ማጣሪያው በተሳካ ሁኔታ ተቀምጧል",
   "filterSettings": "የማጣሪያ ቅንብሮች",
   "filterSettingsTitle": "የማጣሪያ ቅንብሮች",
   "filterSMS": "ኤስኤምኤስ ማጣራት",
@@ -815,8 +588,6 @@
   "flexibleCombinationFeature": "• ተለዋዋጭ ውህዶች፡ በማጣሪያዎች አንቃ/አጥፋ ለእያንዳንዱ ሲም ማስገቢያ",
   "fontSizesSetting": "የቅርጸ-ቁምፊ መጠኖች",
   "foundRules": "{count} ህግ ተገኝቷል",
-  "foundRulesDoYouWantToImport": "{count} ህግ ተገኝቷል። እነሱን ማስመጣት ይፈልጋሉ?",
-  "foundRulesToImport": "{count} ህግ ተገኝቷል። እነሱን ማስመጣት ይፈልጋሉ?",
   "fraudAlert": "የማጭበርበር ማስጠንቀቂያ - ጥሪውን ያቋርጡ",
   "fraudScamLikely": "የማጭበርበር ማጭበርበር ሊሆን ይችላል",
   "free": "ነፃ",
@@ -838,29 +609,18 @@
   "@globalFilterSettings": {
     "description": "Global filter settings section title"
   },
-  "globalFilterToggleInstructions": "ለሁሉም ሲም ማስገቢያዎች የሚተገበሩትን የአለምአቀፍ ማጣሪያ ቅንብሮችን ያዋቅሩ፡",
-  "@globalFilterToggleInstructions": {
-    "description": "Instructions for configuring global filter settings"
-  },
-  "globalSearchSubtitle": "እውቂያዎችን፣ መለያዎችን፣ ጥቁር ዝርዝሮችን፣ ነጭ ዝርዝሮችን፣ ወዘተ ይፈልጉ።",
-  "globalSearchTitle": "አለምአቀፍ ፍለጋ",
   "globalSettings": "አለምአቀፍ ቅንብሮች",
   "@globalSettings": {
     "description": "Title for global settings page"
   },
-  "googleAdDisplayPosition": "የጉግል ማስታወቂያ ማሳያ ቦታ",
-  "googleAdMobIntegrationText": "የጉግል AdMob ማስታወቂያዎች እዚህ ሊዋሃዱ ይችላሉ",
   "googleDriveAuthDescription": "በስርዓት የተዋቀረ የGoogle Drive ደንበኛ መታወቂያ እና ቁልፍ በመጠቀም ፈቃድ ይስጡ",
-  "googleDriveAuthorizationHint": "በስርዓት የተዋቀረ የGoogle Drive ደንበኛ መታወቂያ እና ቁልፍ በመጠቀም ፈቃድ ይስጡ",
   "googleDriveConfigTitle": "የGoogle Drive ውቅር",
-  "googleDriveConfigurationTitle": "የGoogle Drive ውቅር",
   "government": "መንግስት",
   "granted": "ተሰጥቷል",
   "grantNecessaryPermissions": "አስፈላጊ ፈቃዶችን ይስጡ",
   "grantPermissions": "ፈቃዶችን ይስጡ",
   "headhunter": "የጭንቅላት አዳኝ",
   "height": "ቁመት",
-  "homePageTitle": "የመነሻ ገጽ",
   "homeTab": "መነሻ",
   "howItWorksPoint1": "• ስርዓቱ በነባሪነት በተጠቀሰው የጊዜ ገደብ ውስጥ ከሚደውሉ ቁጥሮች ጥሪዎችን በራስ-ሰር ይፈቅዳል",
   "howItWorksPoint2": "• አጭር የጊዜ ገደቦች ጥብቅ ጣልቃገብነትን ያስከትላሉ፤ ረዘም ያለ የጊዜ ገደቦች ይበልጥ ዘና ያለ ጣልቃገብነትን ያስከትላሉ",
@@ -870,7 +630,6 @@
   "iconSize": "የአዶ መጠን",
   "import": "አስመጣ",
   "important": "አስፈላጊ",
-  "importButton": "አስመጣ",
   "importConfig": "ውቅር አስመጣ",
   "importContacts": "እውቂያዎችን አስመጣ",
   "importExportContacts": "እውቂያዎችን አስመጣ/ላክ",
@@ -885,17 +644,9 @@
   "importPluginListFailed": "የፕለጊን ዝርዝር ማስመጣት አልተሳካም፡ {error}",
   "importPluginSuccess": "በተሳካ ሁኔታ {count} ፕለጊን አስመጥቷል",
   "importRuleConfigurationsFromFile": "የህግ ውቅረቶችን ከፋይል አስመጣ",
-  "importRuleConfigurationsFromFileSubtitle": "የህግ ውቅረቶችን ከፋይል አስመጣ",
   "importRules": "ህጎችን አስመጣ",
-  "importRulesButton": "ህጎችን አስመጣ",
-  "importRulesDialogTitle": "ህጎችን አስመጣ",
-  "importRulesError": "ህጎችን ማስመጣት አልተሳካም፡ {error}",
-  "importRulesInstructions": "ህጎችን ከCSV ፋይል አስመጣ",
-  "importRulesSuccess": "ህጎች በተሳካ ሁኔታ ተመትተዋል",
-  "importRulesTitle": "ህጎችን አስመጣ",
   "importSuccess": "አስመጣ በተሳካ ሁኔታ ተከናውኗል",
   "incomingCallInterceptAction": "ገቢ ጥሪ ጣልቃገብነት እርምጃ",
-  "incomingCallNotification": "የገቢ ጥሪ ማሳወቂያ",
   "incorrectPassword": "የይለፍ ቃል የተሳሳተ ነው",
   "initializing": "በመጀመር ላይ",
   "installed": "ተጭኗል",
@@ -923,33 +674,18 @@
   "invalidRegexPattern": "ትክክል ያልሆነ የራግኤክስ ንድፍ",
   "invalidSenderRegex": "ትክክል ያልሆነ ላኪ ራግኤክስ",
   "joinTheTelegramChannelAndGroupForMoreInfo": "ለተጨማሪ መረጃ የቴሌግራም ቻናል እና ቡድን ይቀላቀሉ",
-  "jsLogsTitle": "JS ምዝግብ ማስታወሻዎች",
   "jsonFormat": "JSON ቅርጸት",
   "keepAllVersions": "ሁሉንም ስሪቶች አስቀምጥ",
   "keepAllVersionsDescription": "የእያንዳንዱ ምትኬ ታሪካዊ ስሪቶች ሁሉንም ያስቀምጡ",
-  "keepAllVersionsLabel": "ሁሉንም ስሪቶች አስቀምጥ",
-  "keepAllVersionsSubtitle": "የእያንዳንዱ ምትኬ ታሪካዊ ስሪቶች ያስቀምጡ",
-  "keepAllVersionsTitle": "ሁሉንም ስሪቶች አስቀምጥ",
   "label": "መለያ",
   "labelAddedSuccessfully": "መለያ \"{name}\" በተሳካ ሁኔታ ታክሏል",
   "labelCategories": "የመለያ ምድቦች",
   "labelDeleted": "መለያ ተሰርዟል",
   "labelDescription": "መለያዎች እውቂያዎችን በተሻለ ሁኔታ እንዲያስተዳድሩ ያግዙዎታል፣ ጥሪዎችን እና መልዕክቶችን በቀላሉ ለመለየት ለስልክ ቁጥሮች ብጁ መለያዎችን ያክሉ።",
-  "labelFilter": "የመለያ ማጣሪያ",
   "labelFilterTooltip": "የመለያ ማጣሪያ",
   "labelIconColor": "የመለያ አዶ ቀለም",
   "labelManagement": "የመለያ አስተዳደር",
   "labelNotFound": "መለያ አልተገኘም",
-  "labelRemoved": "መለያ ተወግዷል",
-  "labelRemoveFailed": "መለያውን ማስወገድ አልተቻለም፦ {error}",
-  "@labelRemoveFailed": {
-    "description": "Label removal failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "labels": "መለያዎች",
   "labelsColor": "የመለያዎች ቀለም",
   "labelsDeleted": "{count} መለያዎች ተሰርዘዋል",
@@ -958,7 +694,6 @@
   "labelsImportedSuccessfully": "{count} መለያዎች በተሳካ ሁኔታ ገብቷል",
   "labelsPosition": "የመለያዎች ቦታ",
   "labelTag": "መለያ፦ {labelId}",
-  "labelUpdated": "መለያ ተዘምኗል",
   "labelUpdateFailed": "መለያውን ማዘመን አልተቻለም፦ {error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -972,8 +707,6 @@
   "languageSettings": "የቋንቋ ቅንብሮች",
   "languageSettingsSubtitle": "የመተግበሪያ ማሳያ ቋንቋን ይቀይሩ",
   "languageSettingsTitle": "የቋንቋ ቅንብሮች",
-  "last30Days": "ባለፉት 30 ቀናት",
-  "last7Days": "ባለፉት 7 ቀናት",
   "lastSyncLabel": "የመጨረሻ ማመሳሰል",
   "lastUpdated": "የመጨረሻ ማሻሻያ፦ {date}",
   "@lastUpdated": {
@@ -988,16 +721,12 @@
   "lifetimeMembershipDescription": "አንድ ጊዜ ክፍያ፣ ሁሉንም ፕሪሚየም ባህሪያት እና የወደፊት ዝማኔዎችን በቋሚነት ይክፈቱ",
   "loadContactsFailed": "እውቂያዎችን መጫን አልተቻለም፦ {error}",
   "loadDataFailed": "ውሂብ መጫን አልተቻለም",
-  "loadFailed": "መጫን አልተቻለም",
   "loading": "በመጫን ላይ...",
-  "loadingData": "ውሂብ በመጫን ላይ...",
   "loadingTags": "መለያዎች በመጫን ላይ...",
   "loadLabelFailed": "መለያዎችን መጫን አልተቻለም፦ {error}",
   "loadLabelsFailed": "መለያዎችን መጫን አልተቻለም፦ {error}",
   "loadMarkCountFailed": "ምልክት የተደረገባቸውን የስልክ ቁጥሮች መጫን አልተቻለም፦ {error}",
   "loadMarkedPhonesFailed": "ምልክት የተደረገባቸውን የስልክ ቁጥሮች መጫን አልተቻለም፦ {error}",
-  "loadMore": "ተጨማሪ ይጫኑ",
-  "loadPluginButton": "ተሰኪን ይጫኑ",
   "loadPluginsFailed": "ተሰኪዎችን መጫን አልተቻለም፦ {error}",
   "loadSettingsFailed": "ቅንብሮችን መጫን አልተቻለም፦ {error}",
   "loadSmsRulesFailed": "የኤስኤምኤስ ህጎችን መጫን አልተቻለም፦ {error}",
@@ -1012,7 +741,6 @@
     }
   },
   "loan": "ብድር",
-  "localBackupTitle": "አካባቢያዊ ምትኬ",
   "localCounterFilter": "የአካባቢያዊ ቆጣሪ ማጣሪያ",
   "localCounterFilterSubtitle": "በጥሪ ድግግሞሽ ላይ በመመስረት የአይፈለጌ ጥሪዎችን በራስ-ሰር ያጣሩ",
   "localCountFilter": "የአካባቢያዊ ቆጠራ ማጣሪያ",
@@ -1043,11 +771,9 @@
   "logAllRemoteQueries": "ሁሉንም የሩቅ ጥያቄዎች ይመዝገቡ",
   "logAllRemoteQueriesDescription": "የሩቅ ቁጥር ጥያቄዎች ሁሉንም ክዋኔዎች ይመዝገቡ",
   "manage": "እውቂያዎችን ያቀናብሩ",
-  "manageContacts": "ያቀናብሩ",
   "manageFavoriteContacts": "ተወዳጅ እውቂያዎችን ያቀናብሩ",
   "manageFilterRules": "የማጣሪያ ህጎችን ያቀናብሩ",
   "manageFilterRulesDescription": "የኤስኤምኤስ ማጣሪያ ህጎችን ያክሉ፣ ያርትዑ ወይም ይሰርዙ",
-  "manageFrequentContacts": "ተደጋጋሚ እውቂያዎችን ያቀናብሩ",
   "markCounts": "የምልክት ቆጠራዎች",
   "markCount": "የምልክት ቆጠራ",
   "markedByCount": "በ {count} ምልክት ተደርጓል",
@@ -1064,84 +790,48 @@
   "markExchange": "ምልክት ልውውጥ",
   "markPhone": "ስልክ ቁጥር ምልክት ያድርጉ",
   "markPhoneFailed": "ስልክ ቁጥር ምልክት ማድረግ አልተሳካም፡ {error}",
-  "markPhoneManagementSubtitle": "ስልክ ቁጥሮችን ለመሰየም",
   "markPhoneManagementTitle": "የስልክ ቁጥር አስተዳደር ምልክት",
   "markPhoneSuccess": "ስልክ ቁጥር በተሳካ ሁኔታ ምልክት ተደርጓል",
-  "matchFailed": "ግጥሚያ አልተሳካም!",
   "matchFailedMessage": "ግጥሚያ አልተሳካም።",
   "matchNumbersWithSpecialCharacters": "የተወሰነ የቁጥር ቅርጸት ይዛመዳል",
   "matchNumbersWithSpecialCharactersTitle": "ልዩ ቁምፊዎችን የያዙ ቁጥሮችን ያዛምዱ፡",
   "matchSpecificDigitPatterns": "XXX-XXXX-XXXX ቅርጸት ይዛመዳል",
   "matchSpecificDigitPatternsTitle": "የተወሰኑ የቁጥር ቅጦችን ያዛምዱ፡",
-  "matchSuccessful": "ግጥሚያ ተሳክቷል!",
   "matchSuccessfulMessage": "ግጥሚያ ተሳክቷል።",
   "medical": "ሕክምና",
   "membershipPrivileges": "የአባልነት መብቶች",
   "migrationTool": "የፍልሰት መሣሪያ",
-  "migrationToolTitle": "የፍልሰት መሣሪያ",
   "minutes": "ደቂቃዎች",
   "month": "ወር",
   "monthly": "በወር",
   "monthlyCallCount": "የወርሃዊ ጥሪዎች",
-  "monthlyChartTitle": "የወርሃዊ የታገዱ ጥሪዎች",
   "monthlyMembership": "ወርሃዊ አባልነት",
   "monthlyMembershipDescription": "ሁሉንም ፕሪሚየም ባህሪያት ይክፈቱ፣ በየወሩ በራስ-ሰር ይታደሳል",
   "monthlyTotal": "የወርሃዊ ጠቅላላ",
-  "monthlyTotalLabel": "የወርሃዊ ጠቅላላ",
   "moreOptions": "ተጨማሪ አማራጮች",
   "mute": "ድምጸ-ከል",
   "name": "ስም",
   "nameAndPhoneNumberCannotBeEmpty": "ስም እና የስልክ ቁጥር ባዶ ሊሆኑ አይችሉም",
-  "nameAndPhoneNumberRequired": "ስም እና የስልክ ቁጥር ባዶ ሊሆኑ አይችሉም",
   "nameColor": "የስም ቀለም",
   "nameFontSize": "የስም ቅርጸ-ቁምፊ መጠን",
-  "nameLabel": "ስም፡ {name}",
-  "@nameLabel": {
-    "description": "Caller ID name label",
-    "placeholders": {
-      "name": {
-        "type": "Object"
-      }
-    }
-  },
   "namePosition": "የስም አቀማመጥ",
   "nameUnknown": "ስም፡ непознат",
-  "nameWithValue": "ስም፡ {name}",
-  "@nameWithValue": {
-    "description": "Text showing the name of a contact",
-    "placeholders": {
-      "name": {
-        "type": "String",
-        "example": "John Doe"
-      }
-    }
-  },
-  "newPasswordLabel": "አዲስ የይለፍ ቃል",
   "nextStep": "ቀጣይ",
   "noAction": "ምንም እርምጃ የለም",
   "noActionRules": "ምንም የእርምጃ ህጎች የሉም",
   "noActiveCloudSyncServiceMessage": "ምንም ንቁ የደመና ማመሳሰል አገልግሎት የለም",
-  "noCallLogs": "የጥሪ ምዝግብ ማስታወሻዎች የሉም",
   "noCallRecords": "የጥሪ መዝገቦች የሉም",
-  "noContacts": "ገና እውቂያዎች የሉም",
   "noContactsYet": "ገና እውቂያዎች የሉም",
   "noData": "ምንም ውሂብ የለም",
   "noDevicesRegisteredMessage": "ምንም መሣሪያዎች አልተመዘገቡም",
-  "noDevicesRegisteredYet": "ምንም መሣሪያዎች ገና አልተመዘገቡም።",
-  "noFilters": "ማጣሪያዎች ገና የሉም",
   "noLabels": "መለያዎች ገና የሉም",
   "noMarkedPhones": "ምልክት የተደረገባቸው የስልክ ቁጥሮች የሉም",
-  "noMatchingContacts": "የሚዛመዱ እውቂያዎች የሉም",
   "noMatchingContactsFound": "የሚዛመዱ እውቂያዎች አልተገኙም።",
   "noMatchingNumbersFound": "የሚዛመዱ ቁጥሮች አልተገኙም።",
-  "noMatchingRecords": "የሚዛመዱ የጥሪ መዝገቦች የሉም",
   "noMatchingRules": "የሚዛመዱ {ruleType} የሉም",
   "none": "ምንም የለም",
   "noneServiceType": "ምንም የለም",
   "noPlugins": "ተሰኪዎች ገና የሉም",
-  "noRecords": "የጥሪ መዝገቦች የሉም",
-  "noResultReturned": "ምንም ውጤት አልተመለሰም",
-  "noResultReturnedLog": "ከፕለጊን ምንም ውጤት አልተመለሰም",
   "noRules": "{ruleType} ገና የሉም",
   "noRulesPrompt": "ምንም ህጎች አልተገኙም፣ እባክዎ ህጎችን ያክሉ",
   "noRulesToExport": "ለመላክ ምንም ህጎች የሉም",
@@ -1151,7 +841,6 @@
   "@noSubscriptions": {
     "description": "No subscriptions message"
   },
-  "noSubscriptionsYet": "ምዝገባዎች ገና የሉም",
   "notGranted": "አልተሰጠም",
   "notificationMode": "የማሳወቂያ ሁነታ",
   "notificationModeDescription": "አስቸኳይ ጥሪ መረጃ በማስታወቂያ አሞሌ ውስጥ አሳይ",
@@ -1162,8 +851,6 @@
   "@notificationSettings": {
     "description": "Notification settings title"
   },
-  "notificationSettingsSaved": "የማሳወቂያ ቅንብሮች በተሳካ ሁኔታ ተቀምጠዋል",
-  "notSet": "አልተዘጋጀም",
   "notVerifiedText": "አልተረጋገጠ",
   "noValidSmsRulesFoundInFile": "በፋይሉ ውስጥ ምንም ትክክለኛ የኤስኤምኤስ ህጎች አልተገኙም",
   "number": "ቁጥር",
@@ -1174,7 +861,6 @@
   "numberTypeColor": "የቁጥር አይነት ቀለም",
   "numberTypeFontSize": "የቁጥር አይነት ቅርጸ-ቁምፊ መጠን",
   "numberTypePosition": "የቁጥር አይነት አቀማመጥ",
-  "ok": "እሺ",
   "okButton": "እሺ",
   "onboardingCompleteDescription": "የጥሪ ደህንነት አስተዳዳሪዎ ዝግጁ ነው፣ ደህንነቱ የተጠበቀ የጥሪ ተሞክሮ ይጀምሩ!",
   "onboardingLanguageDescription": "ለተሻለ ተሞክሮ የሚፈልጉትን ቋንቋ ይምረጡ።",
@@ -1183,9 +869,7 @@
   "onboardingSmartCallerIdDescription": "ያልታወቁ ጥሪዎችን በራስ-ሰር መለየት፣ አደገኛ ቁጥሮችን ምልክት ማድረግ እና የጥሪዎን ደህንነት መጠበቅ።",
   "onboardingWelcomeDescription": "የጥሪ አስተዳደር ባለሙያዎ፣ አጠቃላይ የጥሪ መታወቂያ እና የማገድ አገልግሎቶችን ይሰጣል።",
   "oneDriveAuthDescription": "በስርዓት የተዋቀረ የOneDrive ደንበኛ መታወቂያ እና ቁልፍ በመጠቀም ፍቃድ ይስጡ",
-  "oneDriveAuthorizationHint": "በስርዓት የተዋቀረ የOneDrive ደንበኛ መታወቂያ እና ቁልፍ በመጠቀም ፍቃድ ይስጡ",
   "oneDriveConfigTitle": "OneDrive ውቅር",
-  "oneDriveConfigurationTitle": "OneDrive ውቅር",
   "onlineCallerIdSubscription": "የመስመር ላይ ጥሪ መታወቂያ ምዝገባ",
   "openAppSettings": "የመተግበሪያ ቅንብሮችን ይክፈቱ",
   "openAppSettingsFailed": "የመተግበሪያ ቅንብሮችን መክፈት አልተቻለም፡ {error}",
@@ -1203,7 +887,6 @@
   "passwordCannotBeEmpty": "የይለፍ ቃል ባዶ ሊሆን አይችልም",
   "passwordLabel": "የይለፍ ቃል",
   "passwordsDoNotMatch": "የይለፍ ቃላት አይዛመዱም",
-  "passwordSetSuccessfully": "የይለፍ ቃሉ በተሳካ ሁኔታ ተቀናብሯል",
   "pattern": "አብነት",
   "pendingSync": "በመጠባበቅ ላይ ያለ ማመሳሰል",
   "periodMonth": "ወር",
@@ -1216,9 +899,7 @@
   "phoneNumber": "የስልክ ቁጥር",
   "phoneNumberCannotBeEmpty": "የስልክ ቁጥር ባዶ ሊሆን አይችልም",
   "phoneNumberHint": "የስልክ ቁጥር ያስገቡ",
-  "phoneNumberHintText": "ህግ ለመጨመር የስልክ ቁጥር ያስገቡ",
   "phoneNumberLabel": "የስልክ ቁጥር",
-  "phoneNumberRegexRequired": "እባክዎ የስልክ ቁጥር እና የሬጅክስ ንድፍ ያስገቡ",
   "phoneNumberRequired": "የስልክ ቁጥር ያስፈልጋል",
   "phoneNumberTypeFixedLine": "የተስተካከለ መስመር",
   "phoneNumberTypeFixedLineOrMobile": "የተስተካከለ መስመር ወይም ተንቀሳቃሽ",
@@ -1235,34 +916,23 @@
   "phonePermission": "የስልክ ፈቃድ",
   "phonePermissionDescription": "ገቢ ጥሪዎችን ለመለየት እና ለማገድ ያገለግላል።",
   "phoneRule": "የስልክ ህግ",
-  "phoneRuleEditDialog": "የስልክ ህግ ማረሚያ ንግግር",
   "phoneRuleManagement": "የስልክ ህግ አስተዳደር",
   "phoneRuleSubscription": "የስልክ ህግ ምዝገባ",
   "phoneSubscription": "የስልክ ምዝገባ",
   "phoneSubscriptionRulesDescription": "የነጭ እና ጥቁር መዝገብ ህጎችን በራስ-ሰር ለማዘመን ከዩአርኤል የህግ ህግ ዝርዝሮችን ይመዝገቡ። የJSONException ቅርጸት ህግ ፋይሎችን ይደግፋል።",
-  "phoneSubscriptionTitle": "የስልክ ህግ ምዝገባዎች",
-  "@phoneSubscriptionTitle": {
-    "description": "Phone subscription page title"
-  },
   "pleaseSelectLabelAndEnterValidPhone": "እባክዎ መለያ ይምረጡ እና ትክክለኛውን የስልክ ቁጥር ያስገቡ",
   "pluginAddedSuccess": "ተሰኪ \"{name}\" በተሳካ ሁኔታ ተጨምሯል",
   "pluginDeleted": "ተሰኪ ተሰርዟል",
   "pluginLatestVersion": "ተሰኪው ቀድሞውንም የቅርብ ጊዜው ስሪት ነው።",
   "pluginListExportSuccess": "የተሰኪ ዝርዝር በተሳካ ሁኔታ ተልኳል።",
-  "pluginLoadedSuccessfully": "ተሰኪው በተሳካ ሁኔታ ተጭኗል",
   "pluginManagement": "የተሰኪ አስተዳደር",
   "pluginManagementSubtitle": "የሶስተኛ ወገን ተሰኪዎችን ያስተዳድሩ እና ያዋቅሩ",
-  "pluginManagementTitle": "የተሰኪ አስተዳደር",
   "pluginName": "የተሰኪ ስም",
-  "pluginNotLoaded": "ተሰኪው ገና አልተጫነም። እባክዎ ተሰኪውን በመጀመሪያ ይጫኑ።",
   "pluginsDeleted": "{count} ተሰኪዎች በተሳካ ሁኔታ ተሰርዘዋል።",
   "pluginService": "የተሰኪ አገልግሎት",
   "pluginTestPageTitle": "የተሰኪ ሙከራ",
   "pluginUpdateSuccess": "ተሰኪው በተሳካ ሁኔታ ተዘምኗል",
   "pluginUrl": "የተሰኪ ዩአርኤል",
-  "pluginUrlCannotBeEmpty": "የተሰኪ ዩአርኤል ባዶ ሊሆን አይችልም",
-  "pluginUrlHint": "የተሰኪ ዩአርኤል ያስገቡ",
-  "pluginUrlLabel": "የተሰኪ ዩአርኤል",
   "pluginVersion": "የተሰኪ ስሪት",
   "political": "ፖለቲካዊ",
   "powerfulSpamBlocking": "ኃይለኛ የስፓም ማገጃ",
@@ -1274,26 +944,16 @@
   "purchase": "ግዛ",
   "quarterlyMembership": "የሩብ ዓመት አባልነት",
   "quarterlyMembershipDescription": "ሁሉንም የፕሪሚየም ባህሪያት ይክፈቱ፣ በሩብ ዓመት በራስ-ሰር ያድሱ",
-  "queryButton": "ጠይቅ",
-  "queryFailed": "ጥያቄው አልተሳካም",
-  "queryFailedLog": "ጥያቄው አልተሳካም",
-  "querying": "በመጠየቅ ላይ...",
-  "queryingPhoneNumber": "የስልክ ቁጥር በመጠየቅ ላይ",
-  "queryResultTitle": "የጥያቄ ውጤት",
   "ready": "ዝግጁ!",
-  "receiveWeeklyStatistics": "ሳምንታዊ ስታቲስቲክስ ይቀበሉ",
   "recruiter": "ቀጣሪ",
-  "reEnterPasswordHint": "እባክዎ የይለፍ ቃሉን እንደገና ያስገቡ",
   "refresh": "አድስ",
   "refreshPermissionStatus": "የፈቃድ ሁኔታን አድስ",
   "refreshTooltip": "አድስ",
-  "regexError": "የሬጅክስ ስህተት፡ {error}",
   "regexErrorMessage": "የሬጅክስ ስህተት፡ {error}",
   "regexPattern": "የመግለጫ ንድፍ",
   "regexPatternExplanation": "የመግለጫ ንድፍ ማብራሪያ",
   "regexPatternExplanationButton": "የመግለጫ ንድፍ ማብራሪያ",
   "regexPatternLabel": "የመግለጫ ንድፍ",
-  "regexPatternsExamples": "ደረጃውን የጠበቀ የመግለጫ ውህዶችን በመጠቀም ንድፎችን ይግለጹ። ምሳሌዎች፦",
   "regexPatternsForPhoneNumberMatching": "ለስልክ ቁጥር ተዛማጅ የመግለጫ ንድፎች",
   "regexRule": "የመግለጫ ደንብ",
   "regexRuleAddFailed": "የመግለጫ ደንብ ለማከል አልተሳካም፦ {error}",
@@ -1302,8 +962,6 @@
   "regexRuleNamePatternRequired": "የደንቡ ስም እና የመግለጫ ንድፍ ባዶ ሊሆኑ አይችሉም",
   "regexRules": "የመግለጫ ህጎች",
   "regexTesterTitle": "የመግለጫ ሞካሪ",
-  "regexValidationFailed": "የመግለጫ ማረጋገጫ አልተሳካም፦ {error}",
-  "regexValidationSuccess": "የመግለጫ ማረጋገጫ በተሳካ ሁኔታ ተጠናቋል",
   "region": "ክልል",
   "registeredDevicesTitle": "የተመዘገቡ መሣሪያዎች",
   "rejectAllCalls": "ሁሉንም ጥሪዎች ውድቅ አድርግ",
@@ -1318,27 +976,15 @@
   },
   "remoteFilterSettingsPageTitle": "የርቀት ቁጥር ማጣሪያ ቅንብሮች",
   "remoteNumberFilter": "የርቀት ቁጥር ማጣሪያ",
-  "remoteNumberFilterDatabaseInfo": "ይህ ማጣሪያ የቅርብ ጊዜውን የቁጥር መረጃ ለማግኘት ገለልተኛ የርቀት የውሂብ ጎታ ይጠቀማል።",
   "remoteNumberFilterDescription": "በርቀት የውሂብ ጎታ መረጃ ላይ ተመስርተው የሚያበሳጩ ጥሪዎችን ያቁሙ",
-  "remoteNumberFilterExplanationContent": "የርቀት ቁጥር ማጣሪያው በቁጥር ብዛት ላይ በመመስረት የርቀት የውሂብ ጎታውን በመጠየቅ የጽሁፍ ጥሪዎችን ይለያል እና ያግዳል።",
-  "remoteNumberFilterExplanationTitle": "የርቀት ቁጥር ማጣሪያ ማብራሪያ",
-  "remoteNumberFilterFeatureCountThreshold": "• የቁጥር ገደብ፦ በቁጥር የመከሰት ድግግሞሽ ላይ በመመስረት ይወስኑ",
-  "remoteNumberFilterFeatureFilterAction": "• የማጣሪያ እርምጃዎች፦ የገደቡን የሚያልፉ ቁጥሮችን እንዴት እንደሚይዙ ያዘጋጁ",
-  "remoteNumberFilterFeaturePriority": "• የቅድሚያ ቅንብሮች፦ ለርቀት እርምጃዎች ቅድሚያ ያዘጋጁ",
-  "remoteNumberFilterFeatures": "ባህሪዎች፦",
   "remoteNumberFiltering": "የርቀት ቁጥር ማጣሪያ",
   "remoteNumberFilteringExplanation": "• የርቀት ቁጥር ማጣሪያ፦ በማጣሪያ ላይ የተመሰረቱ የርቀት የውሂብ መረጃ",
   "remoteNumberFilterSubtitle": "የክላውድ የውሂብ ጎታ እና የማህበረሰብ ሪፖርቶችን በመጠቀም የጽሁፍ ጥሪዎችን ይለዩ",
   "removeAdsDescription": "ለስላሳ ተሞክሮ መተግበሪያውን ሁሉንም ማስታወቂያዎች በቋሚነት ያስወግዱ",
   "removeAdsTitle": "ማስታወቂያዎችን አስወግድ",
-  "removedFromFavoriteContacts": "ከተወዳጅ እውቂያዎች ተወግዷል",
   "removedFromFavorites": "ከተወዳጆች ተወግዷል",
-  "removeFavorite": "ተወዳጅን አስወግድ",
   "removeFromFavorites": "ከተወዳጆች አስወግድ",
-  "renameButton": "ስም ቀይር",
-  "renameDeviceDialogTitle": "መሣሪያን ስም ቀይር",
   "renameDeviceTitle": "መሣሪያን ስም ቀይር",
-  "replaceCurrentSettingsConfirmation": "ይህ ሁሉንም አሁን ያሉትን ቅንብሮችዎን ይተካል። ለመቀጠል እርግጠኛ ነዎት?",
   "requestAllPermissions": "ሁሉንም ፈቃዶች ጠይቅ",
   "requestPermission": "ፈቃድ ጠይቅ",
   "requestPermissionFailed": "ፈቃድ ለመጠየቅ አልተሳካም፦ {error}",
@@ -1346,84 +992,44 @@
   "reset": "ዳግም አስጀምር",
   "restore": "መልስ",
   "restoreApplicationSettingsFromBackup": "የመተግበሪያ ቅንብሮችን ከመጠባቂያ መልስ",
-  "restoreApplicationSettingsFromBackupSubtitle": "የመተግበሪያ ቅንብሮችን ከመጠባቂያ መልስ",
-  "restoreButton": "መልስ",
-  "restoreFailedWithError": "ከደመና መልሶ ማቋቋም አልተሳካም፦ {error}",
   "restoreFromCloud": "ከደመና መልስ",
-  "restoreFromCloudDescription": "ቅንብሮችን እና ህጎችን ከደመና ማከማቻ መልስ",
   "restoreFromCloudFailed": "ከደመና መልሶ ማቋቋም አልተሳካም፦ {error}",
-  "restoreFromCloudLabel": "ከደመና መልስ",
   "restoreFromCloudSuccess": "ከደመና በተሳካ ሁኔታ መልሶ ተቋቋመ",
-  "restoreFromCloudTitle": "ከደመና መልስ",
-  "restoreFromLocal": "ከአካባቢያዊ መልስ",
   "restorePurchases": "ግዢዎችን መልስ",
-  "restoreSectionTitle": "መልስ",
   "restoreSettings": "ቅንብሮችን መልስ",
   "restoreSettingsConfirmation": "ይህ ሁሉንም አሁን ያሉትን ቅንብሮችዎን ይተካ። ለመቀጠል እርግጠኛ ነዎት?",
-  "restoreSettingsDialogTitle": "ቅንብሮችን መልስ",
-  "restoreSettingsTitle": "ቅንብሮችን መልስ",
-  "restoreSuccessFromLocal": "ከአካባቢያዊ በተሳካ ሁኔታ መልሶ ተቋቋመ",
-  "restoreSuccessMessage": "ከደመና በተሳካ ሁኔታ መልሶ ተቋቋመ",
   "retry": "እንደገና ሞክር",
   "ridesharing": "የመኪና መጋራት",
   "risk": "አደጋ",
   "robocall": "ሮቦ ጥሪ",
   "ruleAction": "የደንብ እርምጃ",
-  "ruleAddButton": "ደንብ ጨምር",
   "ruleAddedSuccess": "ደንብ በተሳካ ሁኔታ ተጨምሯል",
   "@ruleAddedSuccess": {
     "description": "Rule creation success message"
   },
-  "ruleAddFailure": "ደንብ ለመጨመር አልተሳካም፦ {error}",
-  "@ruleAddFailure": {
-    "description": "Rule creation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleAddSuccess": "ደንብ በተሳካ ሁኔታ ተጨምሯል",
   "ruleDeleteConfirmContent": "ይህን {ruleType} መሰረዝዎን እርግጠኛ ነዎት?",
   "ruleDeleteConfirmTitle": "ደንብ ሰርዝ",
-  "ruleDeletedSuccess": "ደንብ በተሳካ ሁኔታ ተሰርዟል",
   "ruleDeletedSuccessfully": "ደንብ በተሳካ ሁኔታ ተሰርዟል",
   "ruleDeleteFailed": "ደንብ ለመሰረዝ አልተሳካም፦ {error}",
-  "ruleDeleteFailure": "ደንብ ለመሰረዝ አልተሳካም፦ {error}",
-  "@ruleDeleteFailure": {
-    "description": "Rule deletion failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleDeleteSuccess": "ደንብ በተሳካ ሁኔታ ተሰርዟል",
   "ruleDisabledSuccessfully": "ደንብ በተሳካ ሁኔታ ተሰናክሏል",
   "ruleEnabledSuccessfully": "ደንብ በተሳካ ሁኔታ ነቅቷል",
   "ruleLoadFailed": "ህጎችን ለመጫን አልተሳካም፦ {error}",
   "ruleManagement": "የደንብ አስተዳደር",
-  "ruleManagementTitle": "የደንብ አስተዳደር",
   "ruleName": "የደንብ ስም",
   "ruleNameAndContentRegexCannotBeEmpty": "የደንቡ ስም እና ይዘት መግለጫ ባዶ ሊሆኑ አይችሉም",
   "ruleNameAndPhoneNumberCannotBeEmpty": "የደንቡ ስም እና የስልክ ቁጥር ባዶ ሊሆኑ አይችሉም",
   "ruleNameHint": "ለምሳሌ የቤተሰብ፣ የጓደኞች፣ ወዘተ",
   "ruleNameLabel": "የደንብ ስም",
-  "ruleNamePatternRequired": "እባክዎ የደንቡን ስም እና ንድፍ ያስገቡ",
   "ruleNameRequired": "የደንቡ ስም እና የስልክ ቁጥር ባዶ ሊሆኑ አይችሉም",
   "ruleNotExist": "ደንቡ የለም ወይም ተሰርዟል",
   "ruleNotFound": "ደንቡ አልተገኘም፡ {error}",
-  "ruleSavedSuccessfully": "ደንቡ በተሳካ ሁኔታ ተቀምጧል!",
   "ruleSavedSuccessMessage": "ደንቡ በተሳካ ሁኔታ ተቀምጧል!",
-  "ruleSaveFailed": "ማስቀመጥ አልተሳካም፡ {error}",
-  "ruleSaveFailedMessage": "ማስቀመጥ አልተሳካም፡ {error}",
-  "ruleSaveSuccess": "ደንቡ በተሳካ ሁኔታ ተቀምጧል!",
   "rulesExportedSuccessfully": "ህጎች በተሳካ ሁኔታ ተልከዋል",
   "rulesExportedTo": "ህጎች ወደዚህ ተልከዋል፡ {path}",
   "rulesImported": "ህጎች በተሳካ ሁኔታ ገብተዋል",
   "rulesImportedSuccessfully": "{count} ህጎች በተሳካ ሁኔታ ገብተዋል",
-  "rulesImportFailed": "ህጎችን ማስገባት አልተቻለም፡ {error}",
-  "ruleStatistics": "የህግ ስታቲስቲክስ",
   "ruleStatusChanged": "ህጉ {status} በተሳካ ሁኔታ",
   "ruleToggleFailed": "ክንዋኔው አልተሳካም፡ {error}",
   "ruleToggleSuccess": "ህጉ {status} በተሳካ ሁኔታ",
@@ -1432,32 +1038,19 @@
   "ruleVerification": "የህግ ማረጋገጫ",
   "save": "አስቀምጥ",
   "saveButton": "አስቀምጥ",
-  "saveButtonLabel": "አስቀምጥ",
   "saveButtonText": "አስቀምጥ",
   "saveFailed": "ማስቀመጥ አልተሳካም፡ {error}",
-  "saveFilter": "ማጣሪያን አስቀምጥ",
   "saveSettings": "ቅንብሮችን አስቀምጥ",
-  "saveSettingsFailed": "ቅንብሮችን ማስቀመጥ አልተቻለም፡ {error}",
   "scamsLikely": "ማጭበርበሮች ሊኖሩ ይችላሉ",
   "search": "ፈልግ",
   "searchContacts": "እውቂያዎችን ፈልግ",
   "searchError": "የፍለጋ ስህተት፡ {error}",
-  "searchFilters": "የፍለጋ ማጣሪያዎች",
-  "searchForContacts": "እውቂያዎችን ፈልግ",
   "searchHint": "ፈልግ...",
-  "searchSettingsSubtitle": "እውቂያዎችን፣ መለያዎችን፣ ጥቁር ዝርዝሮችን፣ ነጭ ዝርዝሮችን እና የመሳሰሉትን ይፈልጉ።",
-  "searchSettingsTitle": "የፍለጋ ቅንብሮች",
   "securityMessage": "በስልክ ጥሪዎች አትመኑ። የአገልግሎት ማዕከል ቁጥሮችን ሁልጊዜ በራስዎ ያረጋግጡ። የይለፍ ቃሎችን፣ የማረጋገጫ ኮዶችን፣ የካርድ ቁጥሮችን ወይም የግል መረጃን በጭራሽ አያጋሩ።",
-  "selectActionToPerform": "ህጉ በሚዛመድበት ጊዜ የሚከናወነውን እርምጃ ይምረጡ",
   "selectActionWhenBlockingCalls": "ጥሪዎችን በሚያግዱበት ጊዜ እርምጃ ይምረጡ",
   "selectActionWhenRuleMatches": "ህጉ በሚዛመድበት ጊዜ እርምጃ ይምረጡ",
   "selectAll": "ሁሉንም ምረጥ",
   "selectCountry": "ሀገር ምረጥ",
-  "selectDateRange": "የቀን ወሰን ምረጥ",
-  "selectedDateRange": "የተመረጠው የቀን ወሰን",
-  "@selectedDateRange": {
-    "description": "Selected date range text"
-  },
   "selectedItems": "{count} ንጥሎች ተመርጠዋል",
   "selectedLabel": "የተመረጠ:",
   "selectExportFormat": "የላኪ ቅርጸት ምረጥ",
@@ -1465,14 +1058,7 @@
   "selectLabelAndEnterPhoneNumber": "እባክዎ መለያ ይምረጡ እና ትክክለኛ የስልክ ቁጥር ያስገቡ",
   "selectLanguage": "ቋንቋ ምረጥ",
   "selectMultiple": "ብዙ ምረጥ",
-  "selectPeriod": "ጊዜ ይምረጡ",
   "selectSimCard": "የሲም ካርድ ምረጥ",
-  "selectSimSlot": "የሲም ማስገቢያ ምረጥ",
-  "@selectSimSlot": {
-    "description": "Title for SIM slot selection dialog"
-  },
-  "selectSpecificActionForBlockedCalls": "በታገዱ ጥሪዎች ጊዜ የሚከናወነውን የተለየ እርምጃ ይምረጡ",
-  "selectTag": "መለያ ምረጥ",
   "selectTags": "መለያዎች ምረጥ",
   "selectTrustedDataSource": "እባክዎ የታመኑ የውሂብ ምንጮችን ይምረጡ",
   "selectYourLanguage": "ቋንቋዎን ይምረጡ",
@@ -1493,16 +1079,9 @@
       }
     }
   },
-  "setButton": "አዘጋጅ",
   "setEncryptionPassword": "የምስጠራ የይለፍ ቃል አዘጋጅ",
-  "setEncryptionPasswordDescription": "ለማስቀመጥ እና መልሶ ለማግኘት የምስጠራ የይለፍ ቃል ያዘጋጁ",
-  "setEncryptionPasswordLabel": "የምስጠራ የይለፍ ቃል አዘጋጅ",
-  "setEncryptionPasswordTitle": "የምስጠራ የይለፍ ቃል አዘጋጅ",
-  "setPasswordButton": "አዘጋጅ",
   "settings": "ቅንብሮች",
   "settingsBackedUpTo": "ቅንብሮች እዚህ ተቀምጠዋል፡ {path}",
-  "settingsLoaded": "ቅንብሮች ተጭነዋል",
-  "settingsLoadFailed": "ቅንብሮችን መጫን አልተቻለም፡ {error}",
   "settingsRestoredSuccessfully": "ቅንብሮች በተሳካ ሁኔታ መልሰዋል። ለውጦቹ እንዲተገበሩ እባክዎ መተግበሪያውን እንደገና ያስጀምሩ።",
   "settingsSaved": "ቅንብሮች ተቀምጠዋል",
   "@settingsSaved": {
@@ -1512,8 +1091,6 @@
   "settingsTab": "ቅንብሮች",
   "settingsTitle": "ቅንብሮች",
   "setup": "ማዋቀር",
-  "showContactEditDialogStaticMethod": "የእውቂያ አርትዕ የንግግር ሳጥን ለማሳየት የማይንቀሳቀስ ዘዴ",
-  "showExplanation": "ማብራሪያ አሳይ",
   "silence": "ዝምታ",
   "silenceAndNoAnswer": "ዝምታ እና መልስ የለም",
   "silenceNoAnswer": "ዝምታ መልስ የለም",
@@ -1538,15 +1115,10 @@
       }
     }
   },
-  "simInfoLoadFailure": "የሲም ካርድ መረጃ መጫን አልተቻለም፡ {error}",
   "simRuleInstructions": "የSIM ማስገቢያ ደንቦች ለእያንዳንዱ የSIM ማስገቢያ የነጻ ማጣሪያ ደንቦችን እንዲያዘጋጁ ያስችሉዎታል።",
   "simRuleInstructionsTitle": "የSIM ማስገቢያ ደንቦች",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simRuleManagement": "የSIM ማስገቢያ የደንብ አስተዳደር",
-  "@simRuleManagement": {
-    "description": "SIM slot rule management section title"
   },
   "simSlot1": "SIM 1,-{countryIso}",
   "@simSlot1": {
@@ -1568,9 +1140,6 @@
       }
     }
   },
-  "simSlotDataLoadFailed": "የSIM መረጃ መጫን አልተሳካም፡ {error}",
-  "simSlotFilterConfiguration": "የSIM ማስገቢያ ማጣሪያ ውቅር",
-  "simSlotFilterConfigurationDescription": "በSIM ማስገቢያ ማጣሪያ ደንቦችን እንዲያዘጋጁ ያስችላል",
   "simSlotFilterDescription": "ለእያንዳንዱ SIM ካርድ ነጻ ማጣሪያ ደንቦችን ያዘጋጁ፡",
   "simSlotFilterSettingsTitle": "የSIM ማስገቢያ {slotNumber} ማጣሪያ ቅንብሮች",
   "@simSlotFilterSettingsTitle": {
@@ -1581,17 +1150,7 @@
       }
     }
   },
-  "simSlotLoadFailed": "የSIM ማስገቢያዎች መጫን አልተሳካም፡ {error}",
   "simSlotManagement": "የSIM ማስገቢያ አስተዳደር",
-  "simSlotOperationFailed": "የSIM ማስገቢያ ክወና አልተሳካም፡ {error}",
-  "@simSlotOperationFailed": {
-    "description": "SIM slot operation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "simSlotPosition": "የSIM ማስገቢያ ቦታ {slotNumber}",
   "@simSlotPosition": {
     "description": "SIM slot position display",
@@ -1605,11 +1164,6 @@
   "simSlotRuleFeature": "• የSIM ማስገቢያ ደንቦች፡ ለእያንዳንዱ SIM ነጻ የማጣሪያ ስልቶች",
   "simSlotRuleListTitle": "የSIM ማስገቢያ የደንቦች ዝርዝር",
   "simSlotRuleManagement": "የSIM ማስገቢያ ደንቦች",
-  "simSlotRuleManagementTitle": "የደንብ አስተዳደር",
-  "simSlotSettings": "የSIM ማስገቢያ ቅንብሮች",
-  "@simSlotSettings": {
-    "description": "Title for SIM slot settings page"
-  },
   "simSlotTitle": "SIM ማስገቢያ {slotNumber}",
   "skip": "ዝለል",
   "smartCallerId": "ብልጥ የደዋይ መታወቂያ",
@@ -1620,7 +1174,6 @@
   "smsFilterRuleAddedSuccessfully": "የኤስኤምኤስ ማጣሪያ ደንብ በተሳካ ሁኔታ ታክሏል",
   "smsFilterRules": "የኤስኤምኤስ ማጣሪያ ደንቦች",
   "smsFilterSettings": "የኤስኤምኤስ ማጣሪያ ቅንብሮች",
-  "smsHistory": "የኤስኤምኤስ ታሪክ",
   "smsManagement": "የኤስኤምኤስ አስተዳደር",
   "smsPermission": "የኤስኤምኤስ ፈቃድ",
   "smsPermissionDescription": "አይፈለጌ መልዕክቶችን ለማጣራት ጥቅም ላይ ይውላል።",
@@ -1628,12 +1181,7 @@
   "smsRuleDeletedSuccessfully": "የኤስኤምኤስ ደንብ በተሳካ ሁኔታ ተሰርዟል",
   "smsRuleLoadFailed": "የኤስኤምኤስ ደንቦች መጫን አልተሳካም፡ {error}",
   "smsRuleManagement": "የኤስኤምኤስ የደንብ አስተዳደር",
-  "smsRulesExportedSuccessfully": "የኤስኤምኤስ ደንቦች በተሳካ ሁኔታ ወደ {filePath} ተልከዋል",
-  "smsRulesImportedSuccessfully": "የኤስኤምኤስ ደንቦች በተሳካ ሁኔታ ገብተዋል",
   "smsRuleSubscription": "የኤስኤምኤስ የደንብ ምዝገባ",
-  "smsRuleUpdatedSuccessfully": "የኤስኤምኤስ ደንብ በተሳካ ሁኔታ ተዘምኗል",
-  "smsSettingsSubtitle": "የኤስኤምኤስ ማጣሪያ እና የቁልፍ ቃል እገዳ",
-  "smsSettingsTitle": "የኤስኤምኤስ ቅንብሮች",
   "smsSubscription": "የኤስኤምኤስ ምዝገባ",
   "smsSubscriptionAddedSuccessfully": "የኤስኤምኤስ ምዝገባ በተሳካ ሁኔታ ታክሏል",
   "smsSubscriptionRulesDescription": "የኤስኤምኤስ የደንብ ዝርዝሮችን በURL ይግቡ፣ መደበኛውን የቁጥር ግጥሚያ ይደግፋል። የማገድ ወይም የመፍቀድ እርምጃዎችን ማዘጋጀት ይችላሉ።",
@@ -1645,12 +1193,7 @@
   "startUsing": "ጀምር",
   "statAnswered": "መልስ የተሰጠባቸው",
   "statBlocked": "የታገዱ",
-  "staticMethodShowCallerIdDialog": "የደዋይ መታወቂያ መረጃ ማሳያ መገናኛን ለማሳየት የማይንቀሳቀስ ዘዴ",
-  "staticMethodToDisplayCountrySelectionDialog": "የሀገር ምርጫ መገናኛን ለማሳየት የማይንቀሳቀስ ዘዴ",
-  "staticMethodToDisplayDialog": "መገናኛን ለማሳየት የማይንቀሳቀስ ዘዴ",
   "statistics": "ስታቲስቲክስ",
-  "statisticsExportFeatureComingSoon": "የስታቲስቲክስ መላክ ባህሪ በቅርቡ ይመጣል",
-  "statisticsGrid": "የስታቲስቲክስ ፍርግርግ",
   "statisticsPageTitle": "የውሂብ ትንታኔ",
   "stirColor": "STIR ቀለም",
   "stirFontSize": "STIR የቅርጸ-ቁጥር መጠን",
@@ -1673,23 +1216,16 @@
   "@subscriptionDeleted": {
     "description": "Subscription deleted success message"
   },
-  "subscriptionDeletedSuccessfully": "ምዝገባ በተሳካ ሁኔታ ተሰርዟል",
   "subscriptionDeleteFailed": "ምዝገባን መሰረዝ አልተሳካም፡ {error}",
   "subscriptionDeleteSuccess": "ምዝገባ ተሰርዟል",
-  "subscriptionEmptyState": "ምዝገባዎች የሉም",
-  "subscriptionEmptyText": "ምዝገባዎች ገና የሉም",
   "subscriptionLoadFailed": "ምዝገባዎች መጫን አልተሳካም፡ {error}",
-  "subscriptionLoadingFailed": "ምዝገባዎች መጫን አልተሳካም፡ {error}",
-  "subscriptionManagementTitle": "የምዝገባ አስተዳደር",
   "subscriptionName": "የምዝገባ ስም",
   "@subscriptionName": {
     "description": "Subscription name field label"
   },
   "subscriptionNameAndUrlCannotBeEmpty": "የምዝገባ ስም እና URL ባዶ ሊሆኑ አይችሉም",
   "subscriptionNameHint": "የምዝገባ ስም ያስገቡ",
-  "subscriptionPageTitle": "የምዝገባ አስተዳደር",
   "subscriptionStatusChangeFailed": "የምዝገባ ሁኔታን መቀየር አልተሳካም፡ {error}",
-  "subscriptionToggleFailed": "የምዝገባ ሁኔታን መቀየር አልተሳካም፡ {error}",
   "subscriptionUpdateFailed": "ምዝገባን ማዘመን አልተሳካም፡ {error}",
   "subscriptionUpdateSuccess": "ምዝገባ በተሳካ ሁኔታ ተዘምኗል",
   "@subscriptionUpdateSuccess": {
@@ -1710,7 +1246,6 @@
   },
   "syncFailed": "ማመሳሰል አልተሳካም",
   "syncFailedMessage": "ማመሳሰል አልተሳካም",
-  "syncFolderNameHint": "እባክዎ የማመሳሰል አቃፊ ስም ያስገቡ (ነባሪ፡ NotificationManager)",
   "syncFolderNameLabel": "የማመሳሰል አቃፊ ስም",
   "synchronized": "ተመሳስሏል",
   "@synchronized": {
@@ -1724,10 +1259,8 @@
   "syncNowButton": "አሁን አመሳስል",
   "syncStatusTitle": "የማመሳሰል ሁኔታ",
   "syncStatusUpdatedMessage": "የማመሳሰል ሁኔታ ተዘምኗል",
-  "syncSuccessful": "ማመሳሰል ተሳክቷል",
   "syncSuccessMessage": "ማመሳሰል ተሳክቷል",
   "syncWithCloudStorage": "ከደመና ማከማቻ ጋር አመሳስል",
-  "syncWithCloudStorageSubtitle": "ከደመና ማከማቻ ጋር አመሳስል",
   "systemFeatures": "የስርዓት ባህሪዎች:",
   "systemSettingsTitle": "የስርዓት ቅንብሮች",
   "tabAll": "ሁሉም",
@@ -1743,13 +1276,11 @@
       }
     }
   },
-  "tagsUpdated": "መለያዎች ተዘምነዋል",
   "takeaway": "ማጠቃለያ",
   "telecommunication": "የቴሌኮሙኒኬሽን",
   "telegram": "ቴሌግራም",
   "telemarketing": "የቴሌማርኬቲንግ",
   "testButton": "ሙከራ",
-  "testButtonLabel": "ሙከራ",
   "testConnectionButton": "ግንኙነትን ፈትሽ",
   "textColorsSetting": "የጽሑፍ እና የመለያ ቀለሞች",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "ይህ መተግበሪያ ኃይለኛ የጥሪ መታወቂያ መሣሪያ ሲሆን ያልተፈለጉ ጥሪዎችን ለመለየት እና ለመከልከል ያስችልዎታል።",
@@ -1760,8 +1291,6 @@
   "timeInterceptorExplanationContent": "የጥሪ ድግግሞሽ ጣልቃ ገብ ባህሪው ተደጋጋሚ አይፈለጌ ጥሪዎችን በራስ-ሰር ለመለየት እና ለመጥለፍ/ለመፍቀድ የጥሪ ድግግሞሹን ይተነትናል።",
   "timeInterceptorExplanationTitle": "የጥሪ ድግግሞሽ ጣልቃ ገብ ማብራሪያ",
   "timeInterceptorSettingsTitle": "የጥሪ ድግግሞሽ ጣልቃ ገብ ቅንብሮች",
-  "timeInterceptorSubtitle": "በጥሪ ድግግሞሽ ላይ በመመስረት እምብዛም አይፈለጌ ጥሪዎችን በራስ-ሰር ይጥለፍ",
-  "timeInterceptorTitle": "የጥሪ ድግግሞሽ ጣልቃ ገብን አንቃ",
   "timeWindowDescription": "ለተደጋጋሚ ጥሪዎች የሚፈቀደውን የጊዜ መስኮት መጠን ያዘጋጁ። በዚህ መስኮት ውስጥ ካሉ ተመሳሳይ ቁጥር የተደረጉ ጥሪዎች ይፈቀዳሉ።",
   "timeWindowLabel": "የጣልቃ ገብ ጊዜ መስኮት (ደቂቃዎች): {minutes}",
   "@timeWindowLabel": {
@@ -1772,16 +1301,11 @@
       }
     }
   },
-  "timeWindowSetting": "ለተደጋጋሚ ጥሪዎች የሚፈቀደውን የጊዜ መስኮት መጠን ያዘጋጁ። በዚህ መስኮት ውስጥ ካሉ ተመሳሳይ ቁጥር የተደረጉ ጥሪዎች ይፈቀዳሉ።",
   "today": "ዛሬ",
   "total": "አጠቃላይ",
   "totalBlocked": "ጠቅላላ የተከለከሉ",
-  "totalFiltered": "ጠቅላላ የተጣሩ",
   "transferDataBetweenDevicesOrPlatforms": "በመሣሪያዎች ወይም መድረኮች መካከል ውሂብ ያስተላልፉ",
-  "transferDataBetweenDevicesOrPlatformsSubtitle": "በመሣሪያዎች ወይም መድረኮች መካከል ውሂብ ያስተላልፉ",
   "travelTicketing": "የጉዞ ትኬት",
-  "trend": "አዝማሚያ",
-  "trendChart": "የአዝማሚያ ገበታ",
   "tutorial": "አጋዥ ስልጠና",
   "type": "አይነት",
   "unassignedSIMCard": "ያልተመደበ SIM ካርድ",
@@ -1789,7 +1313,6 @@
   "@unknown": {
     "description": "Display text for unknown status"
   },
-  "unknownLabel": "ያልታወቀ መለያ",
   "unknownTag": "መለያ: ያልታወቀ",
   "unregisterButton": "ምዝገባ ስርዝ",
   "unregisterDeviceConfirmationMessage": "{deviceName} ማሰናከልዎን እርግጠኛ ነዎት?",
@@ -1797,15 +1320,9 @@
   "unsupportedFileFormat": "የማይደገፍ የፋይል ቅርጸት",
   "update": "አዘምን",
   "updateAllNow": "ሁሉንም አሁን አዘምን",
-  "updateCallFilterConfig": "የጥሪ ማጣሪያ ውቅር አዘምን",
-  "@updateCallFilterConfig": {
-    "description": "Button text for updating call filter configuration"
-  },
   "updateContactFailed": "ዕውቂያን ማዘመን አልተሳካም: {error}",
   "updateFavoriteStatus": "ተወዳጅ ሁኔታን አዘምን",
-  "updateFavoriteStatusFailed": "ተወዳጅ ሁኔታን ማዘመን አልተሳካም: {error}",
   "updateInterval": "የማዘመኛ ክፍተት",
-  "updateLabelFailed": "መለያን ማዘመን አልተሳካም",
   "updateNow": "አሁን አዘምን",
   "updatePlugin": "ተሰኪን አዘምን",
   "updatePluginFailed": "ተሰኪን ማዘመን አልተሳካም: {error}",
@@ -1831,16 +1348,13 @@
       }
     }
   },
-  "updateTags": "መለያዎችን አዘምን",
   "useCasesPoint1": "• ራስ-ሰርድ የውሸት ጥሪዎችን ይለዩ",
   "useCasesPoint2": "• በአጭር ጊዜ ውስጥ ብዙ ጊዜ የሚደውሉ የማስታወቂያ ጥሪዎችን ይጥለፍ",
   "useCasesPoint3": "• የልብ ምት ጥሪ እና አድባሪነትን ይከላከሉ",
   "useCasesTitle": "የአጠቃቀም ሁኔታዎች:",
   "useGlobalSettings": "አለምአቀፍ ቅንብሮችን ይጠቀሙ",
-  "userEmail": "user@example.com",
   "usernameLabel": "የተጠቃሚ ስም",
   "useStandardRegexSyntaxToDefinePatternsExamples": "ቅጦችን ለመግለጽ መደበኛ የ regex ሰዋስውን ይጠቀሙ። ምሳሌዎች:",
-  "validateRegex": "Regex ን አረጋግጥ",
   "verificationFailedText": "አልተሳካም",
   "verifiedText": "ተረጋግጧል",
   "verify": "አረጋግጥ",
@@ -1851,36 +1365,18 @@
   "watchAdForTemp": "ለጊዜያዊ መብቶች ማስታወቂያ ተመልከት",
   "watchAdForTempDescription": "ፕሪሚየም ባህሪያትን ለጊዜው ለመክፈት አጭር ማስታወቂያ ይመልከቱ",
   "webDAVConfigTitle": "WebDAV ውቅር",
-  "webdavConfigurationTitle": "WebDAV ውቅር",
-  "webdavPasswordHint": "እባክዎ WebDAV የይለፍ ቃል ያስገቡ",
-  "webdavServerAddressHint": "እባክዎ WebDAV አገልጋይ አድራሻ ያስገቡ",
-  "webdavUsernameHint": "እባክዎ WebDAV የተጠቃሚ ስም ያስገቡ",
   "week": "ሳምንት",
-  "weekly": "በየሳምንቱ",
-  "weeklyBlockedCallsSummary": "በየሳምንቱ የተከለከሉ ጥሪዎች ማጠቃለያ",
-  "weeklyChartTitle": "በየሳምንቱ የተከለከሉ ጥሪዎች",
-  "weeklyReport": "በየሳምንቱ ሪፖርት",
-  "@weeklyReport": {
-    "description": "Weekly report notification option"
-  },
-  "weeklyReportDesc": "የጥሪ መከልከል እንቅስቃሴ የሳምንታዊ ማጠቃለያ ሪፖርት ይቀበሉ",
-  "@weeklyReportDesc": {
-    "description": "Description for weekly report option"
-  },
   "welcome": "እንኳን ደህና መጡ",
   "whitelist": "ነጭ ዝርዝር",
   "@whitelist": {
     "description": "Whitelist label"
   },
-  "whitelistLabel": "ነጭ ዝርዝር",
   "width": "ስፋት",
   "wildcardMatchingDescription": "ማንኛውንም ቁምፊ ለመምሰል '.' ይጠቀሙ (ለምሳሌ '123.456' 123-456ን ይገጥማል)",
   "wildcardMatchingTitle": "ዱርዬ ግጥሚያ:",
   "wildcardSupportForFlexibleFiltering": "ለተለዋዋጭ ማጣሪያ የዱርዬ ድጋፍ",
   "windowSizeSetting": "የመስኮት መጠን",
   "year": "ዓመት",
-  "yearly": "በየዓመቱ",
-  "yearlyChartTitle": "በየዓመቱ የታገዱ ጥሪዎች",
   "noSimCardsDetected": "የሲም ካርዶች አልተገኙም",
   "filterManagementDescription": "የጥሪ ማጣሪያዎችን ያዘጋጁ",
   "callerIdCustomizationSubtitle": "የደዋዩን መታወቂያ አቀማመጥ ያብጁ",
@@ -1895,7 +1391,6 @@
   "useLocalNotificationDescription": "ለገቢ ጥሪዎች የአካባቢ ማሳወቂያዎችን ያንቁ",
   "cancelLocalNotification": "የአካባቢ ማሳወቂያዎችን ዝጋ",
   "useStirNotification": "ከSTIR ማሳወቂያ ተጠቀም",
-  "useStirNotificationDescription": "ለገቢ ጥሪዎች የSTIR ማሳወቂያዎችን ያንቁ",
   "cancelLocalNotificationDescription": "የአካባቢ ማሳወቂያዎችን በራስ-ሰር ዝጋ",
   "callerIdSettingsTitle": "የደዋዩ መታወቂያ ቅንብሮች",
   "callerIdSettingsSubtitle": "ለገቢ ጥሪ ማሳወቂያ እና የማሳያ ሁነታ ለማዘጋጀት",
@@ -1904,16 +1399,6 @@
   "callerIdNotificationTitle": "ገቢ የጥሪ መረጃ",
   "@callerIdNotificationTitle": {
     "description": "Title for the Incoming Call Info"
-  },
-  "callerIdBody": "ቁጥር: {phoneNumber}",
-  "@callerIdBody": {
-    "description": "Body for the caller ID notification, showing the phone number",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
   },
   "blockedCallTitle": "የታገደ ጥሪ",
   "@blockedCallTitle": {
@@ -1974,18 +1459,6 @@
   "@fraudAlertTitle": {
     "description": "Title for the fraud alert notification"
   },
-  "fraudAlertBody": "ከ {phoneNumber} ሊሆን የሚችል የማጭበርበር ጥሪ",
-  "@fraudAlertBody": {
-    "description": "Body for the fraud alert notification",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
-  },
-  "loadRulesFailed": "ደንቦችን መጫን አልተሳካም: {error}",
-  "loadCallLogFailed": "የጥሪ ምዝግብ ማስታወሻ መጫን አልተሳካም: {error}",
   "noBlockedTypeData": "የታገዱ የውሂብ አይነቶች የሉም",
   "importEntity": "{entityTypeName} አስመጣ",
   "@importEntity": {
@@ -2065,7 +1538,6 @@
   "vipUser": "VIP ተጠቃሚ",
   "temporaryVip": "ጊዜያዊ VIP",
   "removeAds": "ማስታወቂያዎችን አስወግድ",
-  "unknownAction": "ያልታወቀ ድርጊት",
   "settingsBackup": "ቅንብሮች ምትኬ ",
   "allServicesStatusTitle": "የአሁኑ የአገልግሎት ሁኔታ",
   "allServicesStatusSubtitle": "የእያንዳንዱ የደመና አገልግሎት የአሁኑ ሁኔታ",
@@ -2153,7 +1625,6 @@
   "unblocked": "ያልታገደ",
   "blockNumber": "ቁጥርን አግድ",
   "blockNumberSuccess": "ቁጥርን ማገድ ስኬታማ ሆነ",
-  "blockNumberFailed": "ቁጥርን ማገድ አልተሳካም",
   "unblockNumberConfirmation": "{phoneNumber} ን ማገድ ይፈልጋሉ?",
   "@unblockNumberConfirmation": {
     "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
@@ -2165,23 +1636,11 @@
       }
     }
   },
-  "callingNumber": "{phoneNumber} እየደወለ ነው...",
-  "@callingNumber": {
-    "description": "Status text displayed on the screen when an outgoing call is initiated.",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "description": "The phone number that is being dialed.",
-        "example": "+1 555-123-4567"
-      }
-    }
-  },
   "viewDetails": "ዝርዝሮችን ይመልከቱ",
   "unblock": "አግድ",
   "unblockNumber": "ቁጥርን እገድ",
   "unblockNumberSuccess": "ቁጥር በተሳካ ሁኔታ ታገደ",
   "unblockNumberFailed": "ቁጥርን ማገድ አልተሳካም",
-  "serviceNotAvailable": "አገልግሎት የለም",
   "callingNumberFailed": "የመደወል ቁጥር አልተሳካም",
   "listView": "የዝርዝር እይታ",
   "timelineView": "የጊዜ መስመር እይታ",
@@ -2192,7 +1651,6 @@
   "callType": "የጥሪ ዓይነት",
   "callTime": "የጥሪ ጊዜ",
   "numberInvalidFormat": "ቁጥር ባልተለመደ ቅርጸት",
-  "membershipFeature": "የአባልነት ባህሪ",
   "medium": "መካከለኛ",
   "verificationReport": "የማረጋገጫ ሪፖርት",
   "finalRisk": "የመጨረሻ ስጋት",
@@ -2221,7 +1679,6 @@
   "noNotifications": "ማስታወቂያ የለም",
   "clearAllNotifications": "ሁሉንም ማሳወቂያዎች ያጽዱ",
   "clearAllNotificationsConfirmation": "ሁሉንም ማሳወቂያዎች ለማጽዳት ያረጋግጡ",
-  "allNotificationsCleared": "ሁሉም ማሳወቂያዎች ተጠርገዋል",
   "clearButton": "አጥራ",
   "justNow": "አሁን",
   "minutesAgo": "{count,plural, =1{1 ደቂቃ በፊት} other{{count} ደቂቃዎች በፊት}}",
@@ -2298,10 +1755,6 @@
   "@reasonInaccurateInfo": {
     "description": "Inaccurate Information reason option"
   },
-  "reasonWrongMarked": "በስህተት ምልክት ተደርጎበታል",
-  "@reasonWrongMarked": {
-    "description": "Wrong marked reason option"
-  },
   "reasonOther": "ሌላ",
   "@reasonOther": {
     "description": "Other reason option"
@@ -2314,33 +1767,9 @@
   "@cancel": {
     "description": "Cancel button text"
   },
-  "proposalStatus": "ሁኔታ",
-  "@proposalStatus": {
-    "description": "Proposal status label"
-  },
-  "statusPending": "በመጠባበቅ ላይ",
-  "@statusPending": {
-    "description": "Pending status"
-  },
-  "statusActive": "ንቁ",
-  "@statusActive": {
-    "description": "Active status"
-  },
-  "statusCompleted": "ተጠናቀቀ",
-  "@statusCompleted": {
-    "description": "Completed status"
-  },
-  "statusExpired": "አብቅቷል",
-  "@statusExpired": {
-    "description": "Expired status"
-  },
   "riskLevel": "የአደጋ ደረጃ",
   "@riskLevel": {
     "description": "Risk level label"
-  },
-  "riskLevelVerified": "ተረጋግጧል",
-  "@riskLevelVerified": {
-    "description": "Verified risk level"
   },
   "riskLevelLow": "ዝቅተኛ",
   "@riskLevelLow": {
@@ -2350,26 +1779,9 @@
   "@riskLevelHigh": {
     "description": "Label for high risk level"
   },
-  "riskLevelUnknown": "ያልታወቀ",
-  "@riskLevelUnknown": {
-    "description": "Unknown risk level"
-  },
-  "votingProgress": "የድምጽ መስጫ እድገት",
-  "@votingProgress": {
-    "description": "Voting progress label"
-  },
   "agreeVotes": "ይስማሙ: {count}",
   "@agreeVotes": {
     "description": "Agree votes count",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "disagreeVotes": "አይስማሙ: {count}",
-  "@disagreeVotes": {
-    "description": "Disagree votes count",
     "placeholders": {
       "count": {
         "type": "int"
@@ -2405,14 +1817,6 @@
   "@verificationReport": {
     "description": "Verification report label"
   },
-  "showReport": "ሪፖርት አሳይ",
-  "@showReport": {
-    "description": "Show report button text"
-  },
-  "hideReport": "ሪፖርት ደብቅ",
-  "@hideReport": {
-    "description": "Hide report button text"
-  },
   "proposalStatistics": "የጥያቄ ስታቲስቲክስ",
   "@proposalStatistics": {
     "description": "Proposal statistics title"
@@ -2425,37 +1829,17 @@
   "@activeProposals": {
     "description": "Active proposals label"
   },
-  "completedProposals": "የተጠናቀቁ ጥያቄዎች",
-  "@completedProposals": {
-    "description": "Completed proposals label"
-  },
-  "myVotes": "የእኔ ድምጾች",
-  "@myVotes": {
-    "description": "My votes label"
-  },
   "proposalCreated": "ጥያቄው በተሳካ ሁኔታ ተፈጥሯል",
   "@proposalCreated": {
     "description": "Proposal created success message"
-  },
-  "proposalCreateFailed": "ጥያቄ መፍጠር አልተቻለም",
-  "@proposalCreateFailed": {
-    "description": "Proposal create failed message"
   },
   "voteSubmitted": "ድምጽዎ በተሳካ ሁኔታ ገብቷል",
   "@voteSubmitted": {
     "description": "Vote submitted success message"
   },
-  "voteSubmitFailed": "ድምጽ ማስገባት አልተቻለም",
-  "@voteSubmitFailed": {
-    "description": "Vote submit failed message"
-  },
   "noProposalsFound": "ምንም ጥያቄዎች አልተገኙም",
   "@noProposalsFound": {
     "description": "No proposals found message"
-  },
-  "loadingProposals": "ጥያቄዎች በመጫን ላይ...",
-  "@loadingProposals": {
-    "description": "Loading proposals message"
   },
   "refreshProposals": "ጥያቄዎችን አድስ",
   "@refreshProposals": {
@@ -2684,12 +2068,8 @@
       }
     }
   },
-  "loadVoteCountFailed": "የድምጽ ብዛት መጫን አልተቻለም",
   "voteCount": "የድምጽ ብዛት",
-  "deletionProposalInfo": "የመሰረዝ ጥያቄ መረጃ",
   "deletionProposalDescription": "የማህበረሰብ መመሪያዎችን የሚጥሱ ቁጥሮችን ለመሰረዝ ጥያቄ ያቅርቡ። ተሳትፎዎ መድረኩን ደህንነቱ የተጠበቀ ለማድረግ ይረዳል።",
-  "voteToEarnVip": "የቪአይፒ መብቶችን ለማግኘት በቀረቡ ጥያቄዎች ላይ ድምጽ ይስጡ!",
-  "voteFailed": "ድምጽ መስጠት አልተሳካም",
   "searchProposals": "ጥያቄዎችን ፈልግ",
   "defaultNotifications": "ነባሪ ማሳወቂያዎች",
   "blockedCallNotifications": "የታገዱ ጥሪ ማሳወቂያዎች",
@@ -2698,81 +2078,14 @@
   "stirVerificationDescription": "ለቁጥሮች የSTIR/SHAKEN ማረጋገጫ ውጤቶችን ያሳያል።",
   "fraudAlerts": "የማጭበርበር ማስጠንቀቂያዎች",
   "fraudAlertsDescription": "ሊመጡ ስለሚችሉ የማጭበርበር ጥሪዎች ማስጠንቀቂያዎችን ያሳያል።",
-  "notificationFrequencyDescription": "ስለ አዲስ የሰርዝ ጥያቄዎች ምን ያህል ጊዜ ማሳወቂያ እንደሚያገኙ ይምረጡ። ወዲያውኑ፣ በቡድን፣ ወይም በተወሰነ የጊዜ ክፍተት ማሳወቂያዎችን መቀበል ይችላሉ።",
-  "@notificationFrequencyDescription": {
-    "description": "A detailed explanation of what the notification frequency settings do"
-  },
   "@notificationMode": {
     "description": "Title for the mode selection part (Immediate, Batched, Custom)"
-  },
-  "immediateNotifications": "ወዲያውኑ",
-  "@immediateNotifications": {
-    "description": "Label for the immediate notification mode"
-  },
-  "immediateNotificationsDescription": "ጥያቄ እንደተፈጠረ ማሳወቂያ ይቀበሉ።",
-  "@immediateNotificationsDescription": {
-    "description": "Description for the immediate notification mode"
-  },
-  "batchNotifications": "በቡድን",
-  "@batchNotifications": {
-    "description": "Label for the batched notification mode"
-  },
-  "batchNotificationsDescription": "በየጊዜው የማሳወቂያዎችን ማጠቃለያ ይቀበሉ።",
-  "@batchNotificationsDescription": {
-    "description": "Description for the batched notification mode"
-  },
-  "customNotifications": "ብጁ",
-  "@customNotifications": {
-    "description": "Label for the custom notification mode"
-  },
-  "customNotificationsDescription": "ማሳወቂያዎችን ለመቀበል የራስዎን የጊዜ ክፍተት ይግለጹ።",
-  "@customNotificationsDescription": {
-    "description": "Description for the custom notification mode"
-  },
-  "customFrequency": "ብጁ ድግግሞሽ",
-  "@customFrequency": {
-    "description": "Title for the custom frequency slider section"
-  },
-  "notificationFrequencyDurationMinutes": "{minutes} ደቂቃ",
-  "@notificationFrequencyDurationMinutes": {
-    "description": "Formats a duration that is only in minutes.",
-    "placeholders": {
-      "minutes": {
-        "type": "int",
-        "example": "45"
-      }
-    }
-  },
-  "notificationFrequencyDurationHours": "{hours} ሰ",
-  "@notificationFrequencyDurationHours": {
-    "description": "Formats a duration that is in whole hours.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "2"
-      }
-    }
-  },
-  "notificationFrequencyDurationHoursAndMinutes": "{hours} ሰ {minutes} ደቂቃ",
-  "@notificationFrequencyDurationHoursAndMinutes": {
-    "description": "Formats a duration that has both hours and minutes.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "1"
-      },
-      "minutes": {
-        "type": "int",
-        "example": "30"
-      }
-    }
   },
   "pendingProposals": "የሚጠባበቁ ጥያቄዎች",
   "pendingProposalsBody": "{count, plural, =0 {የሚጠባበቁ ጥያቄዎች የሉም} one {1 የሚጠባበቅ ጥያቄ} other {{count} የሚጠባበቁ ጥያቄዎች}}.",
   "guidelinesLabel": "መመሪያዎች",
   "reportingGuidelines": "• በእርግጥ ችግር ያለባቸውን ቁጥሮች ብቻ ሪፖርት ያድርጉ\n• ትክክለኛ እና ዝርዝር ምክንያቶችን ያቅርቡ\n• እንደ አስከፊነቱ ተገቢውን የአደጋ ደረጃ ይምረጡ\n• የውሸት ሪፖርቶች የመለያ እገዳ ሊያስከትሉ ይችላሉ",
   "riskLevelLabel": "የአደጋ ደረጃ",
-  "riskLevelDescription": "የቁጥሩ የአደጋ ደረጃ",
   "phoneNumberMinDigits": "የስልክ ቁጥር ቢያንስ 7 አሃዞች ሊኖረው ይገባል",
   "provideDetailedExplanation": "ዝርዝር ማብራሪያ ይስጡ (ቢያንስ 10 ቁምፊዎች)",
   "reasonMinCharacters": "ምክንያት ቢያንስ 10 ቁምፊዎች መሆን አለበት",
@@ -2789,39 +2102,15 @@
   "@countryCodeRequired": {
     "description": "Validation message for required country code"
   },
-  "countryCodeLengthError": "የሀገር ኮድ 2 ፊደሎች መሆን አለበት",
-  "@countryCodeLengthError": {
-    "description": "Validation message for country code length"
-  },
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
-  "phoneNumberLengthError": "የስልክ ቁጥር ቢያንስ 7 አሃዞች ሊኖረው ይገባል",
-  "@phoneNumberLengthError": {
-    "description": "Validation message for phone number length"
-  },
-  "reasonHint": "ዝርዝር ማብራሪያ ይስጡ (ቢያንስ 10 ቁምፊዎች)",
-  "@reasonHint": {
-    "description": "Hint text for reason input field"
-  },
   "reasonRequired": "ምክንያት ያስፈልጋል",
   "@reasonRequired": {
     "description": "Validation message for required reason"
-  },
-  "reasonLengthError": "ምክንያት ቢያንስ 10 ቁምፊዎች መሆን አለበት",
-  "@reasonLengthError": {
-    "description": "Validation message for reason length"
-  },
-  "guidelinesTitle": "መመሪያዎች",
-  "@guidelinesTitle": {
-    "description": "Title for guidelines section"
-  },
-  "guidelinesText": "• በእርግጥ ችግር ያለባቸውን ቁጥሮች ብቻ ሪፖርት ያድርጉ\n• ትክክለኛ እና ዝርዝር ምክንያቶችን ያቅርቡ\n• እንደ አስከፊነቱ ተገቢውን የአደጋ ደረጃ ይምረጡ\n• የውሸት ሪፖርቶች የመለያ እገዳ ሊያስከትሉ ይችላሉ",
-  "@guidelinesText": {
-    "description": "Text content for guidelines section"
   },
   "riskLevelCritical": "ወሳኝ",
   "@riskLevelCritical": {
@@ -2835,33 +2124,9 @@
   "@riskLevelVeryLow": {
     "description": "Label for very low risk level"
   },
-  "riskDescriptionVeryLow": "በጣም ዝቅተኛ - ትንሽ ብስጭት፣ አልፎ አልፎ የሚደረጉ ጥሪዎች",
-  "@riskDescriptionVeryLow": {
-    "description": "Description for very low risk level"
-  },
-  "riskDescriptionLow": "ዝቅተኛ - አልፎ አልፎ የማይፈለጉ ጥሪዎች",
-  "@riskDescriptionLow": {
-    "description": "Description for low risk level"
-  },
-  "riskDescriptionMedium": "መካከለኛ - መደበኛ ስፓም ወይም የቴሌማርኬቲንግ",
-  "@riskDescriptionMedium": {
-    "description": "Description for medium risk level"
-  },
-  "riskDescriptionHigh": "ከፍተኛ - የማያቋርጥ ጥቃት ወይም የማጭበርበር ሙከራዎች",
-  "@riskDescriptionHigh": {
-    "description": "Description for high risk level"
-  },
-  "riskDescriptionCritical": "ወሳኝ - አደገኛ ማጭበርበሮች ወይም ስጋቶች",
-  "@riskDescriptionCritical": {
-    "description": "Description for critical risk level"
-  },
   "notificationFrequencyTitle": "የማሳወቂያ ድግግሞሽ",
   "@notificationFrequencyTitle": {
     "description": "Title for notification frequency settings"
-  },
-  "notificationFrequencyLabel": "የማሳወቂያ ድግግሞሽ (ሰዓቶች)",
-  "@notificationFrequencyLabel": {
-    "description": "Label for notification frequency dropdown"
   },
   "errorMessage": "ስህተት: {error}",
   "@errorMessage": {
@@ -2869,18 +2134,6 @@
     "placeholders": {
       "error": {
         "type": "String"
-      }
-    }
-  },
-  "votesStatistics": "ድምጾች: {totalVotes} ({supportPercentage}% ድጋፍ)",
-  "@votesStatistics": {
-    "description": "Voting statistics text",
-    "placeholders": {
-      "totalVotes": {
-        "type": "int"
-      },
-      "supportPercentage": {
-        "type": "int"
       }
     }
   },
@@ -2898,37 +2151,6 @@
     "description": "Shows the number of oppose votes.",
     "placeholders": {
       "opposeCount": {
-        "type": "int"
-      }
-    }
-  },
-  "timeJustNow": "አሁን",
-  "@timeJustNow": {
-    "description": "Time format for recent events"
-  },
-  "timeMinutesAgo": "{minutes}m በፊት",
-  "@timeMinutesAgo": {
-    "description": "Time format for minutes ago",
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
-  "timeHoursAgo": "{hours}h በፊት",
-  "@timeHoursAgo": {
-    "description": "Time format for hours ago",
-    "placeholders": {
-      "hours": {
-        "type": "int"
-      }
-    }
-  },
-  "timeDaysAgo": "{days}d በፊት",
-  "@timeDaysAgo": {
-    "description": "Time format for days ago",
-    "placeholders": {
-      "days": {
         "type": "int"
       }
     }
@@ -2988,7 +2210,6 @@
   "liveActivitiesTestUpdateActivity": "እንቅስቃሴ አዘምን",
   "liveActivityControlsTitle": "የቀጥታ እንቅስቃሴ ቁጥጥሮች",
   "liveActivitiesTestTitle": "የቀጥታ እንቅስቃሴ ሙከራ",
-  "liveActivitiesTestSubtitle": "የቀጥታ እንቅስቃሴ ማሳወቂያውን ይሞክሩ።",
   "liveNotificationCustomizationTitle": "የቀጥታ ማሳወቂያ ማበጀት",
   "liveNotificationCustomizationSubtitle": "የቀጥታ ማሳወቂያዎችን ገጽታ ያብጁ።",
   "notification_instructions": "መመሪያዎች:\n1. ለማሳወቂያ ለመፍጠር ወይም ለማዘመን \"ላክ\" የሚለውን ይንኩ።\n2. ውጤቱን ለማየት ወደ መነሻ ማያ ገጽዎ ይሂዱ ወይም የማሳወቂያ መሳቢያውን ይጎትቱ።\n3. ማሳወቂያውን ለማስወገድ \"ጨርስ\" የሚለውን ይንኩ።",
@@ -3011,7 +2232,6 @@
   "@proposalDetails": {
     "description": "The title of the proposal details page."
   },
-  "filterByStatus": "በሁኔታ ያጣሩ",
   "proposalNotFound": "ጥያቄ አልተገኘም",
   "@proposalNotFound": {
     "description": "A message displayed when a proposal is not found."
@@ -3019,10 +2239,6 @@
   "processed": "ተከናውኗል",
   "@processed": {
     "description": "A label for the processed status."
-  },
-  "showAll": "ሁሉንም አሳይ",
-  "@showAll": {
-    "description": "A button to show all proposals."
   },
   "filterAndSortTitle": "አጣራ እና ደርድር",
   "filterVerifiedOwner": "የተረጋገጠ ባለቤት አጣራ",
@@ -3054,10 +2270,6 @@
   "@invalidSimData": {
     "description": "A message displayed when the SIM data is invalid."
   },
-  "simCardData": "የሲም ካርድ ውሂብ",
-  "@simCardData": {
-    "description": "A label for the SIM card data."
-  },
   "simSlot": "የሲም ማስገቢያ",
   "@simSlot": {
     "description": "A label for the SIM slot."
@@ -3076,8 +2288,6 @@
   },
   "callTypeRejected": "ተቀባይነት አጥቷል",
   "callTypeSilenced": "ጸጥ አለ",
-  "callTypeVoicemail": "የድምፅ መልዕክት",
-  "callTypeUnknownIntercept": "ያልታወቀ መቅረት",
   "andMoreItems": "እና {count} ተጨማሪ እቃዎች",
   "@andMoreItems": {
     "description": "Text to show when there are more items than displayed.",

@@ -6,14 +6,6 @@
   },
   "aboutLabels": "Over Labels",
   "aboutPhoneSubscriptionRules": "Over Telefoon Abonnementregels",
-  "aboutPhoneSubscriptions": "Over Telefoonabonnementen",
-  "@aboutPhoneSubscriptions": {
-    "description": "About phone subscriptions title"
-  },
-  "aboutPhoneSubscriptionsDesc": "Abonneer u op telefoonregelgroepen via URL, update regels automatisch. Ondersteunt regelbestanden in JSON- en CSV-formaat.",
-  "@aboutPhoneSubscriptionsDesc": {
-    "description": "About phone subscriptions description"
-  },
   "aboutSmsFilter": "Over SMS-filtering",
   "aboutSmsSubscriptionRules": "Over SMS-abonnementregels",
   "aboutSubtitle": "Applicatieversie en juridische informatie",
@@ -22,7 +14,6 @@
   "actionAll": "Alles",
   "actionAllow": "Toestaan",
   "actionBlock": "Blokkeren",
-  "actionFilterAll": "Alle filters",
   "actionFilterTitle": "Filter op Actietype",
   "actionFilterTooltip": "Actie Filter",
   "actionNone": "Geen Actie",
@@ -42,24 +33,15 @@
   },
   "addContactButton": "Contact Toevoegen",
   "addContactFailed": "Contact toevoegen mislukt: {error}",
-  "addedToAllowedRules": "Toegevoegd aan Toegestane Regels",
-  "addedToBlacklist": "Toegevoegd aan Zwarte Lijst",
-  "addedToBlockedRules": "Toegevoegd aan Geblokkeerde Regels",
-  "addedToFavoriteContacts": "Toegevoegd aan favoriete contacten",
   "addedToFavorites": "Toegevoegd aan favorieten",
-  "addedToWhitelist": "Toegevoegd aan Witte Lijst",
-  "addFavorite": "Favoriet Toevoegen",
-  "addFilter": "Filter Toevoegen",
   "addLabel": "Label Toevoegen",
   "addLabelButton": "Label Toevoegen",
   "addLabelFailed": "Label toevoegen mislukt: {error}",
-  "addLabelToCall": "Label Toevoegen aan Oproeprecord",
   "addName": "Naam Toevoegen",
   "addNoneSubscription": "Geen Abonnement Toevoegen",
   "@addNoneSubscription": {
     "description": "Add none subscription dialog title"
   },
-  "addOrEditContactInfo": "Gebruikt om contactinformatie toe te voegen of te bewerken",
   "addPhoneMark": "Telefoonmarkering Toevoegen",
   "addPhoneNumberRule": "Telefoonnummerregel Toevoegen",
   "addPlugin": "Plugin Toevoegen",
@@ -69,14 +51,12 @@
   "addPluginFromUrl": "Plugin Toevoegen vanuit URL",
   "addRegexRule": "Regex Regel Toevoegen",
   "addRule": "Regel Toevoegen",
-  "addRuleButton": "Regel Toevoegen",
   "addRuleFailed": "Regel toevoegen mislukt: {error}",
   "addRuleTooltip": "Regel Toevoegen",
   "addSilenceSubscription": "Stil Abonnement Toevoegen",
   "@addSilenceSubscription": {
     "description": "Add silence subscription dialog title"
   },
-  "addSimRuleButton": "SIM Regel Toevoegen",
   "addSmsFilterRule": "SMS Filterregel Toevoegen",
   "addSmsRule": "SMS Regel Toevoegen",
   "addSmsSubscription": "SMS Abonnement Toevoegen",
@@ -95,26 +75,17 @@
     }
   },
   "addSubscriptionTooltip": "Abonnement Toevoegen",
-  "addToAllowedRules": "Toevoegen aan Toegestane Regels",
   "addToBlacklist": "Toevoegen aan Zwarte Lijst",
-  "addToBlockedRules": "Toevoegen aan Geblokkeerde Regels",
-  "addToFavoriteContacts": "Toevoegen aan Favoriete Contacten",
   "addToFavorites": "Toevoegen aan Favorieten",
   "addToRules": "Toevoegen aan Regels",
   "addToWhitelist": "Toevoegen aan Witte Lijst",
-  "adPlaceholder": "Advertentie Placeholder",
   "agent": "Agent",
   "all": "Alle",
   "allCallsTab": "Alle",
-  "allDataClearedSuccessfully": "Alle gegevens succesvol gewist",
   "allow": "Toestaan",
   "allowAllAllowRules": "Alle Toestaan Regels Toestaan",
   "allowAllAllowRulesDesc": "Sta oproepen toe van toestaan regels",
   "allowAllBlacklistedNumbers": "Alle Geblokkeerde Nummers Toestaan",
-  "allowAllBlacklistedNumbersDesc": "Sta oproepen toe van de blokkeerlijst",
-  "@allowAllBlacklistedNumbersDesc": {
-    "description": "Allow calls from blocklist"
-  },
   "allowAllBlockRules": "Alle Blokkeren Regels Toestaan",
   "allowAllBlockRulesDesc": "Sta oproepen toe van blokkeer regels",
   "allowAllowedNumbers": "Toegestane Nummers Toestaan",
@@ -135,8 +106,6 @@
   "allowRegexBlockRulesDescription": "Schakel regex-gebaseerde blokkeren regels in",
   "allowRule": "Toestaan Regel",
   "allowRules": "Toestaan Regels",
-  "allowWhitelistedNumbers": "Staande nummers toestaan",
-  "allowWhitelistedNumbersDescription": "Sta alle nummers op de lijst toe",
   "allPermissionsGranted": "Alle machtigingen verleend",
   "allSettingsCompleted": "Alle instellingen voltooid.",
   "allUpdateSuccess": "Alle updates voltooid ({count} regels)",
@@ -149,7 +118,6 @@
     }
   },
   "answerThenHangup": "Antwoorden en ophangen",
-  "appLegalese": "© 2023 Your Call Your Rule. Alle rechten voorbehouden.",
   "applicationSoftware": "Toepassingssoftware",
   "apply": "Toepassen",
   "appName": "Your Call Your Rule",
@@ -162,8 +130,6 @@
   "autoUpdate": "Automatische update",
   "autoUpdateDescription": "Stel automatische update-intervallen in voor abonnementen of werk handmatig bij",
   "autoUpdateSettings": "Automatische update-instellingen",
-  "autoUpdateSettingsSubtitle": "Beheer automatische updates voor regels en plugins",
-  "autoUpdateSettingsTitle": "Automatische update-instellingen",
   "autoUpdateSubtitle": "Beheer automatische updates voor regels en plugins",
   "autoUpdateTitle": "Automatische update",
   "avatarBorderColor": "Avatar randkleur",
@@ -178,57 +144,33 @@
   "backupAndRestoreSubtitle": "Back-up of herstel applicatiegegevens",
   "backupAndRestoreTitle": "Back-up & Herstel",
   "backupFailed": "Back-up mislukt",
-  "backupFailedMessage": "Back-up mislukt",
-  "backupFailedWithError": "Back-up mislukt: {error}",
-  "backupRestoreSubtitle": "Back-up of herstel applicatiegegevens",
-  "backupRestoreTitle": "Back-up & Herstel",
-  "backupSectionTitle": "Back-up",
   "backupSettings": "Back-upinstellingen",
-  "backupSettingsDialogTitle": "Back-upinstellingen",
-  "backupSettingsTitle": "Back-upinstellingen",
-  "backupSuccessMessage": "Succesvol geback-upt naar de cloud",
-  "backupSuccessToLocal": "Back-up succesvol naar: {path}",
   "backupToCloud": "Back-up naar Cloud",
-  "backupToCloudDescription": "Back-up instellingen en regels naar cloudopslag",
   "backupToCloudFailed": "Back-up naar cloud mislukt: {error}",
-  "backupToCloudLabel": "Back-up naar Cloud",
   "backupToCloudSuccess": "Succesvol geback-upt naar de cloud",
-  "backupToCloudTitle": "Back-up naar Cloud",
-  "backupToLocalLabel": "Back-up naar Lokaal",
   "bank": "Bank",
   "basicInfo": "Basisgegevens",
   "basicRuleFilter": "Basisregel filter",
   "basicRuleFiltering": "Basisregel filtering",
   "basicRuleFilteringExplanation": "• Basisregel filtering: Regels filteren op basis van zwarte lijst, witte lijst en regex",
-  "basicRuleFilterSettings": "Basisregel filterinstellingen",
-  "@basicRuleFilterSettings": {
-    "description": "Title for basic rule filter settings page"
-  },
   "basicRuleFilterSubtitle": "Filter oproepen met zwarte/witte lijsten en reguliere expressies",
-  "batchDeleteContacts": "Batch contacten verwijderen",
   "batchDeleteContactsConfirm": "Weet u zeker dat u {count} geselecteerde contacten wilt verwijderen?",
-  "batchDeleteFailed": "Batchverwijdering mislukt",
   "batchDeleteLabelsConfirm": "Weet u zeker dat u {count} labels wilt verwijderen?",
   "blacklist": "Zwarte lijst",
   "@blacklist": {
     "description": "Blacklist label"
   },
   "blacklistingAndWhitelisting": "Zwarte en witte lijsten",
-  "blacklistLabel": "Zwarte lijst",
   "blackWhiteList": "Zwarte/Witte Lijst",
   "block": "Blokkeren",
   "blockCalls": "Oproepen blokkeren",
   "blocked": "Geblokkeerd",
-  "blockedCallAction": "Geblokkeerde oproepactie",
   "blockedCalls": "Geblokkeerde oproepen",
   "blockedCallsTitle": "Geblokkeerde oproepen",
-  "blockedCommunications": "Geblokkeerde communicatie",
-  "blockedPhoneLabel": "Geblokkeerde oproepen",
   "blockedSpamCalls": "Geblokkeerde spamoproepen",
   "blockingTrend": "Blokkeringstrend",
   "blockInternationalCalls": "komt overeen met nummers die niet beginnen met + of 00",
   "blockInternationalCallsTitle": "Internationale oproepen blokkeren",
-  "blockLandlineNumbersTitle": "Vaste nummers blokkeren",
   "blockMobileNumbers": "komt overeen met nummers die niet beginnen met 13-19",
   "blockMobileNumbersTitle": "Mobiele nummers blokkeren",
   "blockPremiumRateNumbers": "komt overeen met nummers die niet beginnen met 118 of 120-190",
@@ -244,19 +186,9 @@
   "bulkDeleteLabels": "Batch labels verwijderen",
   "call": "Oproep",
   "callback": "Terugbellen",
-  "callbackTo": "Terugbellen naar {number}",
-  "@callbackTo": {
-    "description": "Callback notification message",
-    "placeholders": {
-      "number": {
-        "type": "String"
-      }
-    }
-  },
   "callBlocking": "Oproep blokkering",
   "callerIdApp": "Oproep-ID App",
   "callerIdCustomizationTitle": "Oproep-ID aanpassen",
-  "callerIdDialogTitle": "Oproep-ID informatie",
   "callerIdDisplayMode": "Weergavemodus nummerherkenning",
   "callerIdMarkedByCount": "Gemarkeerd door {count}",
   "@callerIdMarkedByCount": {
@@ -268,8 +200,6 @@
     }
   },
   "callerIdPreview": "Voorbeeld nummerherkenning",
-  "callFilter": "Oproepfilter",
-  "callFilterDescription": "Wanneer ingeschakeld, worden inkomende oproepen gecontroleerd aan de hand van de onderstaande regel lijst. Oproepfilterregels worden standaard niet tussen apparaten gesynchroniseerd.",
   "callFilterRules": "Oproepfilterregels",
   "callFilterRulesDescription": "Stel basisregels in voor het filteren van oproepen",
   "callFilterSettings": "Oproepfilterinstellingen",
@@ -278,33 +208,10 @@
   "callHistory": "Oproepgeschiedenis",
   "callHistoryInfoDesc": "Hier wordt uw oproepgeschiedenis weergegeven, inclusief inkomende, uitgaande en gemiste oproepen.",
   "callHistoryInfoTitle": "Oproepgeschiedenis",
-  "callHistoryInitFailed": "Initialisatie oproepgeschiedenis mislukt: {error}",
-  "@callHistoryInitFailed": {
-    "description": "Call history initialization failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
-  "callHistoryRefreshFailed": "Vernieuwen oproepgeschiedenis mislukt: {error}",
-  "@callHistoryRefreshFailed": {
-    "description": "Call history refresh failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "callHistoryTab": "Oproepgeschiedenis",
-  "callHistoryTimelineEarlier": "Eerder",
-  "callHistoryTimelineToday": "Vandaag",
-  "callHistoryTimelineYesterday": "Gisteren",
   "callScreeningPermission": "Toestemming oproepfiltering",
   "callScreeningPermissionDescription": "Gebruikt om spamoproepen te filteren en te blokkeren.",
   "callScreeningPermissionNotGranted": "Toestemming oproepfiltering niet verleend, kan functionaliteit van de app beïnvloeden.",
-  "callSettingsSubtitle": "Instellingen voor nummerherkenning, filtering en blokkering",
-  "callSettingsTitle": "Oproepinstellingen",
   "callStatistics": "Oproepstatistieken",
   "callTypeAnswered": "Beantwoord",
   "callTypeBlocked": "Geblokkeerd",
@@ -330,32 +237,14 @@
       }
     }
   },
-  "changeTag": "Tag wijzigen",
   "charity": "Liefdadigheid",
-  "chartMonthFormat": "Maand {month}",
-  "@chartMonthFormat": {
-    "description": "Month format for chart labels",
-    "placeholders": {
-      "month": {
-        "type": "int"
-      }
-    }
-  },
-  "chartOneDayAgo": "1 dag geleden",
-  "chartOneMonthAgo": "1 maand geleden",
   "chartOneWeekAgo": "1 week geleden",
-  "chartTenDaysAgo": "10 dagen geleden",
   "chartThreeDaysAgo": "3 dagen geleden",
   "chartToday": "Vandaag",
   "checkFileFormat": "Controleer bestandsformaat of -machtigingen",
   "checkPermissionFailed": "Machtigingen controleren mislukt: {error}",
   "chooseDefaultInterceptAction": "Kies de standaard onderscheppingsactie",
-  "clearAllData": "Alle gegevens wissen",
-  "clearAllDataConfirmation": "Weet u zeker dat u alle toepassingsgegevens wilt wissen? Deze actie kan niet ongedaan worden gemaakt.",
-  "clearAllDataDescription": "Alle toepassingsgegevens wissen",
-  "clearAllDataLabel": "Alle gegevens wissen",
   "clearFilter": "Filter wissen",
-  "clearLabelFilter": "Labelfilter wissen",
   "clearLabelFilterButton": "Labelfilter wissen",
   "closeButton": "Sluiten",
   "cloudSync": "Cloudsynchronisatie",
@@ -363,26 +252,18 @@
   "cloudSyncSettingsSubtitle": "WebDAV, OneDrive en Google Drive configureren",
   "cloudSyncSettingsTitle": "Cloudsynchronisatie-instellingen",
   "cloudSyncTitle": "Cloudsynchronisatie",
-  "collapseLabelSelector": "Labelkiezer inklappen",
   "collection": "Incasso",
   "colorPickerTitle": "Kleur kiezen",
   "configManagement": "Configuratiebeheer",
   "configUpdated": "Configuratie bijgewerkt",
   "configurationAdvice": "Door de juiste configuratie kunt u verschillende filterstrategieën instellen voor werk- en persoonlijke simkaarten.",
   "configureBackupOptions": "Back-upopties configureren",
-  "configureBackupOptionsSubtitle": "Back-upopties configureren",
   "configureCloudSyncService": "Cloudsynchronisatieservice configureren",
-  "configureCloudSyncServiceHint": "Configureer een cloudsynchronisatieservice om synchronisatie tussen meerdere apparaten mogelijk te maken.",
   "configureCloudSyncServiceMessage": "Configureer een cloudsynchronisatieservice om synchronisatie tussen meerdere apparaten mogelijk te maken.",
   "configureSimCardFilterRules": "SIM-kaartfilterregels configureren",
-  "configureSyncServiceHint": "Configureer eerst de synchronisatieservice in de cloudsynchronisatie-instellingen",
   "confirm": "Bevestigen",
-  "confirmBatchDeleteContacts": "Weet u zeker dat u de geselecteerde",
   "confirmButton": "Bevestigen",
   "confirmDelete": "Bevestig Verwijderen",
-  "confirmDeleteContact": "Weet u zeker dat u wilt verwijderen",
-  "confirmDeleteContactName": "Verwijderen bevestigen?",
-  "confirmDeleteFilter": "Weet u zeker dat u dit filter wilt verwijderen?",
   "confirmDeleteLabel": "Weet u zeker dat u label \"{name}\" wilt verwijderen",
   "confirmDeletePlugin": "Weet u zeker dat u plugin \"{name}\" wilt verwijderen?",
   "confirmDeletePlugins": "Weet u zeker dat u {count} plugins wilt verwijderen?",
@@ -396,10 +277,8 @@
     }
   },
   "confirmDeleteRuleMessage": "Weet u zeker dat u deze regel wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.",
-  "confirmDeleteSelectedContacts": "Weet u zeker dat u geselecteerde contacten wilt verwijderen?",
   "confirmDeleteSmsFilterRule": "Weet u zeker dat u deze sms-filterregel wilt verwijderen?",
   "confirmDeleteSmsRule": "Weet u zeker dat u deze sms-regel wilt verwijderen?",
-  "confirmDeleteSubscription": "Weet u zeker dat u dit abonnement wilt verwijderen?",
   "confirmDeleteSubscriptions": "Weet u zeker dat u {name} wilt verwijderen?",
   "@confirmDeleteSubscriptions": {
     "description": "Confirmation message shown before deleting a subscription.",
@@ -411,7 +290,6 @@
     }
   },
   "confirmPassword": "Wachtwoord bevestigen",
-  "confirmPasswordLabel": "Wachtwoord bevestigen",
   "connectedStatus": "Verbonden",
   "connectionFailedCheckCredentialsMessage": "Verbinding mislukt: Controleer serveradres, gebruikersnaam en wachtwoord",
   "connectionFailedMessage": "Verbinding mislukt",
@@ -419,19 +297,11 @@
   "connectionSuccessMessage": "Verbinding succesvol",
   "contactAddSuccess": "Contact succesvol toegevoegd",
   "contactDeleted": "Contact verwijderd",
-  "contactEditDialog": "Contact Bewerken Dialoogvenster",
-  "contactNameHint": "Voer contactnaam in (optioneel)",
   "contactNameLabel": "Naam",
-  "contactNameOptional": "Contactnaam (optioneel)",
   "contactNotFound": "Contact niet gevonden",
   "contacts": "Contacten",
   "contactsDeleted": "{count} contacten verwijderd",
-  "contactSettingsSubtitle": "Contactbeheer en labelinstellingen",
-  "contactSettingsTitle": "Contactinstellingen",
-  "contactsLoadingFailed": "Contacten laden mislukt: {error}",
   "contactsManagement": "Contactbeheer",
-  "contactsManagementPageTitle": "Contactbeheer Pagina",
-  "contactsPageTitle": "Contactbeheer",
   "contactsPermission": "Contacten Machtiging",
   "contactsPermissionDescription": "Gebruikt om contactoproepen te identificeren.",
   "contactsTab": "Contacten",
@@ -439,8 +309,6 @@
   "@contactSubscriptionDescription": {
     "description": "About contact subscription description"
   },
-  "contactSubscriptionLoadingFailed": "Contactabonnementen laden mislukt: {error}",
-  "contactSubscriptionPageTitle": "Contactabonnementen",
   "contactUpdateSuccess": "Contact succesvol bijgewerkt",
   "contactUs": "Neem contact met ons op",
   "content": "Inhoud",
@@ -452,34 +320,16 @@
   "countryNameColor": "Landnaam Kleur",
   "countryNameFontSize": "Landnaam Lettergrootte",
   "countryRegionNamePosition": "Land/Regio Naam Positie",
-  "countrySelectionDialog": "Land Selectie Dialoogvenster",
-  "countrySelectionDialogDescription": "Gebruikt om een land te selecteren voor het opvragen van beller-ID-informatie",
   "countThresholdDescription": "Stel de minimale drempelwaarde in die nodig is om filteracties te activeren",
   "countThresholdLabel": "Aantal Drempelwaarde",
-  "countThresholdSettings": "Aantal Drempelwaarde Instellingen",
-  "countThresholdValue": "Aantal Drempelwaarde: {count}",
   "createdRules": "Aan gemaakte Regels",
   "csvFormat": "CSV Formaat",
-  "currentDeviceChip": "Huidig",
   "currentDeviceLabel": "Huidig Apparaat Label",
   "currentDeviceTitle": "Huidig Apparaat",
-  "currentLabels": "Huidige Labels:",
   "currentLanguage": "Huidige Taal",
-  "currentPasswordLabel": "Huidig Wachtwoord",
   "customerService": "Klantenservice",
-  "customRange": "Aangepast Bereik",
-  "dailyStatistics": "Dagelijkse Statistieken",
-  "@dailyStatistics": {
-    "description": "Daily statistics notification option"
-  },
-  "dailyStatisticsDesc": "Ontvang dagelijkse statistieken over geblokkeerde oproepen en berichten",
-  "@dailyStatisticsDesc": {
-    "description": "Description for daily statistics option"
-  },
   "dashboardTab": "Dashboard",
   "dataAnalysis": "Gegevensanalyse",
-  "dataAnalysisDashboardPage": "Gegevensanalyse Dashboard Pagina",
-  "dataExport": "Gegevens Exporteren",
   "dataLoadFailure": "Gegevens laden mislukt: {error}",
   "@dataLoadFailure": {
     "description": "Data loading failure message",
@@ -492,9 +342,6 @@
   "dataLoadingFailed": "Gegevens laden mislukt: {error}",
   "dataMigration": "Gegevensmigratie",
   "dataMigrationDescription": "Met deze functie kunt u al uw gegevens tussen apparaten overzetten. Momenteel kunt u de back-up- en herstel functies gebruiken om uw gegevens handmatig te migreren.",
-  "dataMigrationDialogContent": "Met deze functie kunt u al uw gegevens tussen apparaten overzetten. Momenteel kunt u de back-up- en herstel functies gebruiken om uw gegevens handmatig te migreren.",
-  "dataMigrationDialogTitle": "Gegevensmigratie",
-  "dataMigrationSectionTitle": "Gegevensmigratie",
   "dataSourceReminder": "Gegevensbron Herinnering",
   "days": "{count, plural, =1{1 dag} other{{count} dagen}}",
   "@days": {
@@ -507,16 +354,11 @@
   },
   "daysVip": "{days} Dagen VIP",
   "debtCollection": "Incasso",
-  "defaultPeriod": "Week",
   "delete": "Verwijderen",
   "deleteButton": "Verwijderen",
   "deleteContact": "Contact Verwijderen",
   "deleteContactConfirm": "Weet u zeker dat u {name} wilt verwijderen?",
-  "deleteContactConfirmation": "Weet u zeker dat u contact wilt verwijderen",
-  "deleteDeviceConfirmation": "Weet u zeker dat u {deviceName} wilt verwijderen?",
-  "deleteDeviceDialogTitle": "Apparaat Verwijderen",
   "deleteFailed": "Verwijderen mislukt: {error}",
-  "deleteFilter": "Filter Verwijderen",
   "deleteLabel": "Label Verwijderen",
   "deleteLabelFailed": "Label verwijderen mislukt: {error}",
   "deletePlugin": "Plugin Verwijderen",
@@ -526,7 +368,6 @@
   "deleteRule": "Regel Verwijderen",
   "deleteRuleFailed": "Verwijderen mislukt: {error}",
   "deleteSelected": "Geselecteerde Verwijderen",
-  "deleteSmsRule": "SMS Regel Verwijderen",
   "deleteSubscription": "Abonnement Verwijderen",
   "@deleteSubscription": {
     "description": "Delete subscription dialog title"
@@ -551,21 +392,13 @@
   },
   "deleteSuccess": "Verwijderen succesvol",
   "delivery": "Levering",
-  "deviceDeletedSuccessfully": "Apparaat succesvol verwijderd",
-  "deviceDeletedSuccessfullyMessage": "Apparaat succesvol verwijderd",
-  "deviceIdLabel": "Apparaat ID",
   "deviceIDLabel": "Apparaat ID",
   "deviceManagementSubtitle": "Beheer synchronisatie van meerdere apparaten",
   "deviceManagementTitle": "Apparaatbeheer",
   "deviceModelLabel": "Apparaat Model",
   "deviceName": "Apparaatnaam",
-  "deviceNameCannotBeEmpty": "Apparaatnaam kan niet leeg zijn",
-  "deviceNameHint": "Voer de apparaatnaam in",
   "deviceNameLabel": "Apparaatnaam",
-  "deviceRenamedSuccessfully": "Apparaat succesvol hernoemd",
   "deviceRenamedSuccessfullyMessage": "Apparaat succesvol hernoemd",
-  "devicesSyncedSuccessfully": "Apparaten succesvol gesynchroniseerd",
-  "devicesSyncedSuccessfullyMessage": "Apparaten succesvol gesynchroniseerd",
   "devicesSynchronizedSuccessfullyMessage": "Apparaten succesvol gesynchroniseerd",
   "deviceUnregisteredSuccessfullyMessage": "Apparaat succesvol gederegistreerd",
   "dialogTitle": "Uitleg Regex Patronen",
@@ -576,7 +409,6 @@
   },
   "disabledStatus": "Uitgeschakeld",
   "disableGlobalPlugins": "Globale plugins uitschakelen",
-  "disableSubscriptionSuccessfully": "Abonnement succesvol uitgeschakeld",
   "disconnectButton": "Verbinding verbreken",
   "disconnectedMessage": "Verbinding verbroken",
   "disconnectedStatus": "Verbinding verbroken",
@@ -587,17 +419,12 @@
   "ecommerce": "E-commerce",
   "edit": "Bewerken",
   "editContact": "Contact bewerken",
-  "editFilter": "Filter bewerken",
   "editLabel": "Label bewerken",
   "editPhoneRule": "Telefoonregel bewerken",
-  "editPhoneRules": "Gebruikt om telefoonregels te bewerken",
-  "editPhoneRuleTitle": "Telefoonregel bewerken",
   "editRule": "Regel bewerken",
-  "editSmsRule": "Sms-regel bewerken",
   "education": "Onderwijs",
   "elementPositionsSetting": "Elementposities",
   "email": "E-mail",
-  "emailOptional": "E-mail (optioneel)",
   "enableCallFilter": "Oproepfilter inschakelen",
   "enableCallFilterDescription": "Wanneer ingeschakeld, worden inkomende oproepen gecontroleerd aan de hand van de onderstaande regellijst. Oproepfilterregels worden standaard niet gesynchroniseerd tussen apparaten.",
   "enabled": "Ingeschakeld",
@@ -607,9 +434,6 @@
   "enabledStatus": "Ingeschakeld",
   "enableEncryption": "Encryptie inschakelen",
   "enableEncryptionDescription": "Back-upbestanden versleutelen",
-  "enableEncryptionLabel": "Encryptie inschakelen",
-  "enableEncryptionSubtitle": "Back-upbestanden worden versleuteld",
-  "enableEncryptionTitle": "Encryptie inschakelen",
   "enableGlobalPlugins": "Globale plugins inschakelen",
   "enableLocalCountFilter": "Lokaal tellerfilter inschakelen",
   "enableLocalCountFilterDescription": "Automatisch spamoproepen filteren op basis van het aantal markeringen van oproepen",
@@ -620,14 +444,11 @@
   "enableMuteRulesDesc": "Mute onderscheppingsregels configuratie toepassen",
   "enableNoneActionRules": "Geen actie-regels inschakelen",
   "enableNoneActionRulesDesc": "Sta regelconfiguraties toe zonder onderscheppingsacties",
-  "enableNotifications": "Meldingen inschakelen",
   "enableRemoteNumberFilter": "Extern nummerfilter inschakelen",
   "enableRemoteNumberFilterDescription": "Gebruik externe database om nummers te filteren",
   "enableRule": "Regel inschakelen",
   "enableSmsFilter": "Sms-filtering inschakelen",
   "enableSmsFilterDescription": "Wanneer ingeschakeld, worden berichten automatisch gefilterd volgens de regels",
-  "enableStatisticsNotifications": "Statistiekenmeldingen inschakelen",
-  "enableSubscriptionSuccessfully": "Abonnement succesvol ingeschakeld",
   "enableTimeInterception": "Tijdonderschepping inschakelen",
   "enableTimeInterceptionDescription": "Herhaalde oproepen binnen korte tijd onderscheppen",
   "enableTimeInterceptor": "Tijdonderschepper inschakelen",
@@ -641,24 +462,15 @@
   },
   "enhancedFilterSettingsTitle": "Instellingen voor verbeterd filter",
   "enhancedFilterSystemDescription": "Het verbeterde filtersysteem ondersteunt zowel globale regels als filterconfiguraties per SIM-kaart.",
-  "enterBothPhoneNumberAndRegexPattern": "Voer zowel een telefoonnummer als een regex-patroon in",
   "enterBothPhoneNumberAndRegexPatternMessage": "Voer zowel een telefoonnummer als een regex-patroon in.",
   "enterContactName": "Voer de contactnaam in",
-  "enterCurrentPasswordHint": "Voer het huidige wachtwoord in",
   "enterDeviceName": "Apparaatnaam invoeren",
-  "enterDeviceNameHint": "Voer de apparaatnaam in",
-  "enterEmail": "Voer e-mailadres in",
   "enterEmailOptional": "Voer e-mailadres in (optioneel)",
   "enterEncryptionPasswordHint": "Voer versleutelingswachtwoord in",
-  "enterEncryptionPasswordTitle": "Voer versleutelingswachtwoord in",
-  "enterFilterName": "Voer filternaam in",
-  "enterFilterPattern": "Voer filterpatroon in",
   "enterIconCode": "Voer icooncode in",
   "enterName": "Voer contactnaam in",
   "enterNewDeviceNameHint": "Voer een nieuwe naam in voor dit apparaat",
-  "enterNewPasswordHint": "Voer nieuw wachtwoord in",
   "enterPasswordAgain": "Voer wachtwoord opnieuw in",
-  "enterPasswordHint": "Voer wachtwoord in",
   "enterPhoneNumber": "Voer telefoonnummer in",
   "enterPhoneNumberHint": "Voer telefoonnummer in om te testen",
   "enterPhoneNumberMultiple": "Voer telefoonnummer in, meerdere nummers gescheiden door komma's",
@@ -667,7 +479,6 @@
   "enterPluginName": "Voer plug-in naam in",
   "enterPluginUrl": "Voer plug-in URL-adres in",
   "enterRegexHint": "Voer regex-patroon in",
-  "enterRuleNameAndPattern": "Voer zowel de regelnaam als het patroon in",
   "enterRuleNameAndPatternMessage": "Voer zowel regelnaam als regex-patroon in.",
   "enterRuleNameHint": "Voer regelnaam in",
   "enterSearchContent": "Voer zoekinhoud in",
@@ -690,79 +501,50 @@
   "enterWebDAVPasswordHint": "Voer WebDAV-wachtwoord in",
   "enterWebDAVServerAddressHint": "Voer WebDAV-serveradres in",
   "enterWebDAVUsernameHint": "Voer WebDAV-gebruikersnaam in",
-  "errorDeletingDeviceMessage": "Fout bij het verwijderen van apparaat: {error}",
-  "errorLoadingPlugin": "Fout bij het laden van plugin",
   "errorOccurredMessage": "Er is een fout opgetreden: {error}",
   "errorRenamingDeviceMessage": "Fout bij het hernoemen van apparaat: {error}",
   "errorSynchronizingDevicesMessage": "Fout bij het synchroniseren van apparaten: {error}",
-  "errorSyncingDevicesMessage": "Fout bij het synchroniseren van apparaten: {error}",
-  "errorText": "Fout",
   "errorUnregisteringDeviceMessage": "Fout bij het de-registreren van apparaat: {error}",
   "exampleBlock400Prefix": "bv. Blokkeer 400-prefixnummers",
   "exampleBlockMarketingSms": "bv. Blokkeer marketing-sms'en",
-  "exampleContentRegex": "bv., .*aanbieding.*",
   "exampleContentRegexHint": "Voorbeeld Content Regex",
   "exampleCouponPromotionDiscount": "bv. .*(coupon|promotie|korting).*",
   "exampleFamilyFriends": "bv. Familie, Vrienden, etc.",
   "examplePhoneNumber": "bv. 10086, 12345, etc.",
   "exampleRegex400Prefix": "Voorbeeld regex voor 400-prefix",
-  "exampleRegexFormat": "Voorbeeld: ^10086$ formaat",
   "exampleSenderRegexHint": "Voorbeeld",
   "exchange": "Uitwisselen",
   "exchangeNow": "Nu uitwisselen",
   "exchangeVip": "VIP uitwisselen",
-  "expandLabelSelector": "Labelkiezer uitvouwen",
   "expiryTime": "Vervaltijd: {time}",
   "export": "Exporteren",
   "exportAllApplicationSettings": "Alle app-instellingen exporteren",
-  "exportAllApplicationSettingsSubtitle": "Alle app-instellingen exporteren",
   "exportAllRuleConfigurations": "Alle regelconfiguraties exporteren",
-  "exportAllRuleConfigurationsSubtitle": "Alle regelconfiguraties exporteren",
-  "exportComplete": "Exporteren voltooid",
   "exportConfig": "Configuratie exporteren",
   "exportContacts": "Contacten exporteren",
   "exportData": "Gegevens exporteren",
-  "exportError": "Exportfout",
   "exportFailed": "Exporteren mislukt",
   "exportFailure": "Configuratie niet kunnen exporteren",
   "exportFeatureComingSoon": "Exportfunctie binnenkort beschikbaar",
-  "exporting": "Exporteren...",
   "exportLabels": "Labels exporteren",
   "exportLabelsFailed": "Labels niet kunnen exporteren: {error}",
   "exportPluginList": "Pluginlijst exporteren",
   "exportPluginListFailed": "Pluginlijst niet kunnen exporteren: {error}",
   "exportRules": "Regels exporteren",
-  "exportRulesDialogTitle": "Regels exporteren",
-  "exportRulesTitle": "Regels exporteren",
   "exportSmsRules": "SMS-regels exporteren",
   "exportStatisticsData": "Statistieken exporteren",
-  "exportSuccess": "Exporteren succesvol",
   "exportSuccesslly": "Configuratie succesvol geëxporteerd",
-  "failedToAddContact": "Contactpersoon niet kunnen toevoegen",
   "failedToAddRule": "Regel niet kunnen toevoegen: {error}",
-  "failedToAddSmsRule": "SMS-regel niet kunnen toevoegen: {error}",
   "failedToAddSmsSubscription": "SMS-abonnement niet kunnen toevoegen: {error}",
   "failedToBackupSettings": "Instellingen niet kunnen back-uppen: {error}",
   "failedToDecryptBackupFile": "Back-upbestand niet kunnen ontsleutelen",
-  "failedToDeleteDevice": "Apparaat niet kunnen verwijderen",
   "failedToDeleteSmsRule": "SMS-regel niet kunnen verwijderen: {error}",
   "failedToExportRules": "Regels niet kunnen exporteren: {error}",
-  "failedToExportSmsRules": "SMS-regels niet kunnen exporteren: {error}",
   "failedToGetCallerIdInfo": "Info over beller-ID niet kunnen ophalen: {error}",
   "failedToImportRules": "Regels niet kunnen importeren: {error}",
-  "failedToImportSmsRules": "SMS-regels niet kunnen importeren: {error}",
-  "failedToLoadContacts": "Contacten niet kunnen laden",
-  "failedToLoadPlugin": "Plugin niet kunnen laden",
-  "failedToRenameDevice": "Apparaat niet kunnen hernoemen",
   "failedToRestoreSettings": "Instellingen niet kunnen herstellen",
   "failedToRestoreSettingsWithError": "Instellingen niet kunnen herstellen: {error}",
-  "failedToSetPassword": "Wachtwoord niet kunnen instellen: {error}",
-  "failedToSyncDevices": "Apparaten niet kunnen synchroniseren",
   "failedToToggleRuleStatus": "Regelstatus niet kunnen wisselen: {error}",
-  "failedToToggleSubscriptionStatus": "Abonnementsstatus niet kunnen wisselen",
-  "failedToUpdateContact": "Contactpersoon niet kunnen bijwerken",
-  "failedToUpdateSmsRule": "SMS-regel niet kunnen bijwerken: {error}",
-  "failure": "Fout",
   "favoriteContacts": "Favoriete contacten",
   "featureAddRules": "• Specifieke regels toevoegen per telefoonnummer",
   "featureCenter": "Functiecentrum",
@@ -777,23 +559,14 @@
   "fileSavedTo": "Bestand opgeslagen naar: {path}",
   "filter": "Filter",
   "filterByLabel": "Filteren op label",
-  "filterClear": "Filter wissen",
   "filterControlPanelTitle": "Filter bedieningspaneel",
   "filterControlSubtitle": "Status van alle filters in-/uitschakelen beheren",
   "filterControlTitle": "Filter Controle",
-  "filterDeleteFailed": "Filter verwijderen mislukt",
-  "filterDeleteSuccess": "Filter succesvol verwijderd",
-  "filterDetails": "Filter Details",
   "filtered": "Gefilterd",
-  "filteredSms": "Gefilterde SMS",
-  "filteredSmsLabel": "Gefilterde SMS",
   "filterExplanation": "Filter Uitleg",
   "filterManagement": "Filter Beheer",
   "filterName": "Filter Naam",
-  "filterPattern": "Filter Patroon",
   "filterPriorityNote": "Opmerking: Er zijn prioriteitsrelaties tussen filters, raadpleeg de helpdocumentatie voor details",
-  "filterSaveFailed": "Filter opslaan mislukt",
-  "filterSaveSuccess": "Filter succesvol opgeslagen",
   "filterSettings": "Filter Instellingen",
   "filterSettingsTitle": "Filter Instellingen",
   "filterSMS": "Filter SMS",
@@ -815,8 +588,6 @@
   "flexibleCombinationFeature": "• Flexibele Combinaties: Filters in-/uitschakelen per SIM-slot",
   "fontSizesSetting": "Lettergroottes",
   "foundRules": "{count} regels gevonden",
-  "foundRulesDoYouWantToImport": "{count} regels gevonden. Wilt u ze importeren?",
-  "foundRulesToImport": "{count} regels gevonden. Wilt u ze importeren?",
   "fraudAlert": "FRAUDE ALERT - Hang de oproep op",
   "fraudScamLikely": "Fraude Scam Waarschijnlijk",
   "free": "Gratis",
@@ -838,29 +609,18 @@
   "@globalFilterSettings": {
     "description": "Global filter settings section title"
   },
-  "globalFilterToggleInstructions": "Configureer globale filterinstellingen die van toepassing zijn op alle SIM-slots:",
-  "@globalFilterToggleInstructions": {
-    "description": "Instructions for configuring global filter settings"
-  },
-  "globalSearchSubtitle": "Zoek contacten, labels, zwarte lijsten, witte lijsten, etc.",
-  "globalSearchTitle": "Globale Zoekopdracht",
   "globalSettings": "Globale Instellingen",
   "@globalSettings": {
     "description": "Title for global settings page"
   },
-  "googleAdDisplayPosition": "Google Advertentie Weergavepositie",
-  "googleAdMobIntegrationText": "Google AdMob advertenties kunnen hier worden geïntegreerd",
   "googleDriveAuthDescription": "Autoriseer met behulp van de systeemgeconfigureerde Google Drive client ID en sleutel",
-  "googleDriveAuthorizationHint": "Autoriseer met behulp van de systeemgeconfigureerde Google Drive client ID en sleutel",
   "googleDriveConfigTitle": "Google Drive Configuratie",
-  "googleDriveConfigurationTitle": "Google Drive Configuratie",
   "government": "Overheid",
   "granted": "Verleend",
   "grantNecessaryPermissions": "Verleen Noodzakelijke Rechten",
   "grantPermissions": "Verleen Rechten",
   "headhunter": "Headhunter",
   "height": "Hoogte",
-  "homePageTitle": "Startpagina",
   "homeTab": "Start",
   "howItWorksPoint1": "• Het systeem zal automatisch oproepen van hetzelfde nummer binnen het ingestelde tijmvenster toestaan",
   "howItWorksPoint2": "• Kortere tijmvensters resulteren in strengere onderschepping; langere tijmvensters resulteren in lossere onderschepping",
@@ -870,7 +630,6 @@
   "iconSize": "Icoon Grootte",
   "import": "Importeren",
   "important": "Belangrijk",
-  "importButton": "Importeren",
   "importConfig": "Configuratie Importeren",
   "importContacts": "Contacten Importeren",
   "importExportContacts": "Contacten Importeren/Exporteren",
@@ -885,17 +644,9 @@
   "importPluginListFailed": "Kon plugin lijst niet importeren: {error}",
   "importPluginSuccess": "Succesvol {count} plugins geïmporteerd",
   "importRuleConfigurationsFromFile": "Regelconfiguraties Importeren vanuit Bestand",
-  "importRuleConfigurationsFromFileSubtitle": "Regelconfiguraties importeren vanuit bestand",
   "importRules": "Regels Importeren",
-  "importRulesButton": "Regels Importeren",
-  "importRulesDialogTitle": "Regels Importeren",
-  "importRulesError": "Kon regels niet importeren: {error}",
-  "importRulesInstructions": "Regels importeren uit een CSV-bestand",
-  "importRulesSuccess": "Regels succesvol geïmporteerd",
-  "importRulesTitle": "Regels Importeren",
   "importSuccess": "Import succesvol",
   "incomingCallInterceptAction": "Onderscheppingsactie Inkomende Oproep",
-  "incomingCallNotification": "Oproepmelding Inkomende Oproep",
   "incorrectPassword": "Onjuist wachtwoord",
   "initializing": "Initialiseren",
   "installed": "Geïnstalleerd",
@@ -923,33 +674,18 @@
   "invalidRegexPattern": "Ongeldabel regex patroon",
   "invalidSenderRegex": "Ongeldabel afzender regex",
   "joinTheTelegramChannelAndGroupForMoreInfo": "Word lid van het Telegram Kanaal en Groep voor meer informatie",
-  "jsLogsTitle": "JS Logs",
   "jsonFormat": "JSON Formaat",
   "keepAllVersions": "Behoud alle versies",
   "keepAllVersionsDescription": "Behoud alle historische versies van elke back-up",
-  "keepAllVersionsLabel": "Behoud alle versies",
-  "keepAllVersionsSubtitle": "Behoud historische versies van elke back-up",
-  "keepAllVersionsTitle": "Behoud alle versies",
   "label": "Label",
   "labelAddedSuccessfully": "Label \"{name}\" succesvol toegevoegd",
   "labelCategories": "Label Categorieën",
   "labelDeleted": "Label verwijderd",
   "labelDescription": "Labels helpen u contacten beter te beheren, aangepaste labels toe te voegen aan telefoonnummers voor eenvoudige identificatie van oproepen en berichten.",
-  "labelFilter": "Label Filter",
   "labelFilterTooltip": "Label Filter",
   "labelIconColor": "Label Icoon Kleur",
   "labelManagement": "Label Beheer",
   "labelNotFound": "Label niet gevonden",
-  "labelRemoved": "Label verwijderd",
-  "labelRemoveFailed": "Kon label niet verwijderen: {error}",
-  "@labelRemoveFailed": {
-    "description": "Label removal failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "labels": "Labels",
   "labelsColor": "Labels Kleur",
   "labelsDeleted": "{count} labels verwijderd",
@@ -958,7 +694,6 @@
   "labelsImportedSuccessfully": "Succesvol {count} labels geïmporteerd",
   "labelsPosition": "Labels Positie",
   "labelTag": "Label: {labelId}",
-  "labelUpdated": "Label bijgewerkt",
   "labelUpdateFailed": "Kon label niet bijwerken: {error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -972,8 +707,6 @@
   "languageSettings": "Taalinstellingen",
   "languageSettingsSubtitle": "Wijzig de weergavetaal van de applicatie",
   "languageSettingsTitle": "Taalinstellingen",
-  "last30Days": "Laatste 30 Dagen",
-  "last7Days": "Laatste 7 Dagen",
   "lastSyncLabel": "Laatste Synchronisatie",
   "lastUpdated": "Laatst bijgewerkt: {date}",
   "@lastUpdated": {
@@ -988,16 +721,12 @@
   "lifetimeMembershipDescription": "Eenmalige aankoop, ontgrendel permanent alle premium functies en toekomstige updates",
   "loadContactsFailed": "Kon contacten niet laden: {error}",
   "loadDataFailed": "Kon gegevens niet laden",
-  "loadFailed": "Laden mislukt",
   "loading": "Laden...",
-  "loadingData": "Gegevens laden...",
   "loadingTags": "Tags laden...",
   "loadLabelFailed": "Kon labels niet laden: {error}",
   "loadLabelsFailed": "Kon labels niet laden: {error}",
   "loadMarkCountFailed": "Kon gemarkeerde telefoonnummers niet laden: {error}",
   "loadMarkedPhonesFailed": "Kon gemarkeerde telefoons niet laden: {error}",
-  "loadMore": "Meer laden",
-  "loadPluginButton": "Plugin laden",
   "loadPluginsFailed": "Kon plugins niet laden: {error}",
   "loadSettingsFailed": "Kon instellingen niet laden: {error}",
   "loadSmsRulesFailed": "Kon SMS regels niet laden: {error}",
@@ -1012,7 +741,6 @@
     }
   },
   "loan": "Lening",
-  "localBackupTitle": "Lokale Back-up",
   "localCounterFilter": "Lokale Teller Filter",
   "localCounterFilterSubtitle": "Automatisch spamoproepen filteren op basis van oproepfrequentie",
   "localCountFilter": "Lokale Aantal Filter",
@@ -1043,11 +771,9 @@
   "logAllRemoteQueries": "Log alle externe query's",
   "logAllRemoteQueriesDescription": "Leg alle externe nummerquery-operaties vast",
   "manage": "Beheer Contacten",
-  "manageContacts": "Beheer",
   "manageFavoriteContacts": "Favoriete Contacten Beheren",
   "manageFilterRules": "Filterregels Beheren",
   "manageFilterRulesDescription": "Voeg SMS filterregels toe, bewerk ze of verwijder ze",
-  "manageFrequentContacts": "Frequente Contacten Beheren",
   "markCounts": "Markeer Aantallen",
   "markCount": "Markeer Aantal",
   "markedByCount": "Gemarkeerd door {count}",
@@ -1064,84 +790,48 @@
   "markExchange": "Markeer Wissel",
   "markPhone": "Markeer Telefoonnummer",
   "markPhoneFailed": "Telefoonnummer markeren mislukt: {error}",
-  "markPhoneManagementSubtitle": "Telefoonnummers markeren",
   "markPhoneManagementTitle": "Telefoonnummerbeheer markeren",
   "markPhoneSuccess": "Telefoonnummer succesvol gemarkeerd",
-  "matchFailed": "Geen overeenkomst!",
   "matchFailedMessage": "Geen overeenkomst.",
   "matchNumbersWithSpecialCharacters": "komt overeen met specifiek nummerformaat",
   "matchNumbersWithSpecialCharactersTitle": "Nummers matchen met speciale tekens:",
   "matchSpecificDigitPatterns": "komt overeen met XXX-XXXX-XXXX formaat",
   "matchSpecificDigitPatternsTitle": "Specifieke cijferpatronen matchen:",
-  "matchSuccessful": "Overeenkomst succesvol!",
   "matchSuccessfulMessage": "Overeenkomst succesvol!",
   "medical": "Medisch",
   "membershipPrivileges": "Lidmaatschapsvoordelen",
   "migrationTool": "Migratietool",
-  "migrationToolTitle": "Migratietool",
   "minutes": "minuten",
   "month": "Maand",
   "monthly": "Maandelijks",
   "monthlyCallCount": "Maandelijkse oproepen",
-  "monthlyChartTitle": "Maandelijkse geblokkeerde oproepen",
   "monthlyMembership": "Maandelijks lidmaatschap",
   "monthlyMembershipDescription": "Ontgrendel alle premium functies, automatisch maandelijks verlengd",
   "monthlyTotal": "Maandelijks totaal",
-  "monthlyTotalLabel": "Maandelijks totaal",
   "moreOptions": "Meer opties",
   "mute": "Dempen",
   "name": "Naam",
   "nameAndPhoneNumberCannotBeEmpty": "Naam en telefoonnummer mogen niet leeg zijn",
-  "nameAndPhoneNumberRequired": "Naam en telefoonnummer mogen niet leeg zijn",
   "nameColor": "Naamkleur",
   "nameFontSize": "Naam lettergrootte",
-  "nameLabel": "Naam: {name}",
-  "@nameLabel": {
-    "description": "Caller ID name label",
-    "placeholders": {
-      "name": {
-        "type": "Object"
-      }
-    }
-  },
   "namePosition": "Naampositie",
   "nameUnknown": "Naam: Onbekend",
-  "nameWithValue": "Naam: {name}",
-  "@nameWithValue": {
-    "description": "Text showing the name of a contact",
-    "placeholders": {
-      "name": {
-        "type": "String",
-        "example": "John Doe"
-      }
-    }
-  },
-  "newPasswordLabel": "Nieuw wachtwoord",
   "nextStep": "Volgende",
   "noAction": "Geen actie",
   "noActionRules": "Geen actieregels",
   "noActiveCloudSyncServiceMessage": "Geen actieve cloud synchronisatieservice",
-  "noCallLogs": "Geen oproepgeschiedenis",
   "noCallRecords": "Geen oproepgegevens",
-  "noContacts": "Nog geen contacten",
   "noContactsYet": "Nog geen contacten",
   "noData": "Geen gegevens",
   "noDevicesRegisteredMessage": "Geen apparaten geregistreerd",
-  "noDevicesRegisteredYet": "Nog geen apparaten geregistreerd.",
-  "noFilters": "Nog geen filters",
   "noLabels": "Nog geen labels",
   "noMarkedPhones": "Geen gemarkeerde telefoonnummers",
-  "noMatchingContacts": "Geen overeenkomende contacten",
   "noMatchingContactsFound": "Geen overeenkomende contacten gevonden",
   "noMatchingNumbersFound": "Geen overeenkomende nummers gevonden",
-  "noMatchingRecords": "Geen overeenkomende oproepgegevens",
   "noMatchingRules": "Geen overeenkomende {ruleType}",
   "none": "Geen",
   "noneServiceType": "Geen",
   "noPlugins": "Nog geen plugins",
-  "noRecords": "Geen oproepgegevens",
-  "noResultReturned": "Geen resultaat geretourneerd",
-  "noResultReturnedLog": "Geen resultaat geretourneerd van plugin",
   "noRules": "Geen {ruleType} nog",
   "noRulesPrompt": "Geen regels gevonden, voeg regels toe",
   "noRulesToExport": "Geen regels om te exporteren",
@@ -1151,7 +841,6 @@
   "@noSubscriptions": {
     "description": "No subscriptions message"
   },
-  "noSubscriptionsYet": "Nog geen abonnementen",
   "notGranted": "Niet verleend",
   "notificationMode": "Meldingsmodus",
   "notificationModeDescription": "Toon bellerinformatie in de meldingsbalk",
@@ -1162,8 +851,6 @@
   "@notificationSettings": {
     "description": "Notification settings title"
   },
-  "notificationSettingsSaved": "Meldingsinstellingen succesvol opgeslagen",
-  "notSet": "Niet ingesteld",
   "notVerifiedText": "Niet geverifieerd",
   "noValidSmsRulesFoundInFile": "Geen geldige SMS-regels gevonden in bestand",
   "number": "Nummer",
@@ -1174,7 +861,6 @@
   "numberTypeColor": "Nummertype kleur",
   "numberTypeFontSize": "Nummertype lettergrootte",
   "numberTypePosition": "Nummertype positie",
-  "ok": "OK",
   "okButton": "OK",
   "onboardingCompleteDescription": "Uw oproepbeveiligingsmanager is klaar, geniet van een veilige oproepervaring!",
   "onboardingLanguageDescription": "Kies uw voorkeurstaal voor de beste ervaring.",
@@ -1183,9 +869,7 @@
   "onboardingSmartCallerIdDescription": "Identificeer automatisch onbekende oproepen, markeer verdachte nummers en bescherm uw oproepveiligheid.",
   "onboardingWelcomeDescription": "Uw oproepbeheer-expert, die uitgebreide oproepidentificatie- en blokkeringsdiensten biedt.",
   "oneDriveAuthDescription": "Autoriseer met behulp van de door het systeem geconfigureerde OneDrive client-ID en sleutel",
-  "oneDriveAuthorizationHint": "Autoriseer met behulp van de door het systeem geconfigureerde OneDrive client-ID en sleutel",
   "oneDriveConfigTitle": "OneDrive configuratie",
-  "oneDriveConfigurationTitle": "OneDrive configuratie",
   "onlineCallerIdSubscription": "Online Caller ID Abonnement",
   "openAppSettings": "App-instellingen openen",
   "openAppSettingsFailed": "Kon app-instellingen niet openen: {error}",
@@ -1203,7 +887,6 @@
   "passwordCannotBeEmpty": "Wachtwoord mag niet leeg zijn",
   "passwordLabel": "Wachtwoord",
   "passwordsDoNotMatch": "Wachtwoorden komen niet overeen",
-  "passwordSetSuccessfully": "Wachtwoord succesvol ingesteld",
   "pattern": "Patroon",
   "pendingSync": "Wacht op synchronisatie",
   "periodMonth": "Maand",
@@ -1216,9 +899,7 @@
   "phoneNumber": "Telefoonnummer",
   "phoneNumberCannotBeEmpty": "Telefoonnummer mag niet leeg zijn",
   "phoneNumberHint": "Voer telefoonnummer in",
-  "phoneNumberHintText": "Voer telefoonnummer in om regel toe te voegen",
   "phoneNumberLabel": "Telefoonnummer",
-  "phoneNumberRegexRequired": "Voer zowel telefoonnummer als regex-patroon in",
   "phoneNumberRequired": "Telefoonnummer is vereist",
   "phoneNumberTypeFixedLine": "Vaste lijn",
   "phoneNumberTypeFixedLineOrMobile": "Vaste lijn of mobiel",
@@ -1235,34 +916,23 @@
   "phonePermission": "Telefoon toestemming",
   "phonePermissionDescription": "Gebruikt om inkomende oproepen te identificeren en te blokkeren.",
   "phoneRule": "Telefoonregel",
-  "phoneRuleEditDialog": "Telefoonregel bewerkingsdialoog",
   "phoneRuleManagement": "Beheer van telefoonregels",
   "phoneRuleSubscription": "Abonnement op telefoonregels",
   "phoneSubscription": "Telefoonabonnement",
   "phoneSubscriptionRulesDescription": "Abonneren op telefoonregel-lijsten via URL om wit- en zwartlijstregels automatisch bij te werken. Ondersteunt regelbestanden in JSON-formaat.",
-  "phoneSubscriptionTitle": "Abonnementen op telefoonregels",
-  "@phoneSubscriptionTitle": {
-    "description": "Phone subscription page title"
-  },
   "pleaseSelectLabelAndEnterValidPhone": "Selecteer een label en voer een geldig telefoonnummer in",
   "pluginAddedSuccess": "Plugin \"{name}\" succesvol toegevoegd",
   "pluginDeleted": "Plugin verwijderd",
   "pluginLatestVersion": "Plugin is al de nieuwste versie",
   "pluginListExportSuccess": "Pluginlijst succesvol geëxporteerd",
-  "pluginLoadedSuccessfully": "Plugin succesvol geladen",
   "pluginManagement": "Pluginbeheer",
   "pluginManagementSubtitle": "Beheer en configureer plug-ins van derden",
-  "pluginManagementTitle": "Pluginbeheer",
   "pluginName": "Pluginnaam",
-  "pluginNotLoaded": "Plugin is nog niet geladen. Laad eerst de plugin.",
   "pluginsDeleted": "{count} plugins succesvol verwijderd.",
   "pluginService": "Plugin Service",
   "pluginTestPageTitle": "Plugin Test",
   "pluginUpdateSuccess": "Plugin succesvol bijgewerkt",
   "pluginUrl": "Plugin URL",
-  "pluginUrlCannotBeEmpty": "Plugin URL mag niet leeg zijn",
-  "pluginUrlHint": "Voer plugin URL in",
-  "pluginUrlLabel": "Plugin URL",
   "pluginVersion": "Pluginversie",
   "political": "Politiek",
   "powerfulSpamBlocking": "Krachtige spamblokkering",
@@ -1274,26 +944,16 @@
   "purchase": "Aankoop",
   "quarterlyMembership": "Kwartierlijks lidmaatschap",
   "quarterlyMembershipDescription": "Ontgrendel alle premiumfuncties, automatisch verlengd per kwartaal",
-  "queryButton": "Query",
-  "queryFailed": "Query mislukt",
-  "queryFailedLog": "Query mislukt",
-  "querying": "Query aan het uitvoeren...",
-  "queryingPhoneNumber": "Telefoonnummer aan het opvragen",
-  "queryResultTitle": "Query Resultaat",
   "ready": "Klaar!",
-  "receiveWeeklyStatistics": "Ontvang wekelijkse statistieken",
   "recruiter": "Recruiter",
-  "reEnterPasswordHint": "Voer het wachtwoord opnieuw in",
   "refresh": "Vernieuwen",
   "refreshPermissionStatus": "Vernieuw toestemmingsstatus",
   "refreshTooltip": "Vernieuwen",
-  "regexError": "Regex-fout: {error}",
   "regexErrorMessage": "Regex-fout: {error}",
   "regexPattern": "Regex Patroon",
   "regexPatternExplanation": "Uitleg Regex Patroon",
   "regexPatternExplanationButton": "Uitleg Regex Patroon",
   "regexPatternLabel": "Regex Patroon",
-  "regexPatternsExamples": "Gebruik standaard regex-syntax om patronen te definiëren. Voorbeelden:",
   "regexPatternsForPhoneNumberMatching": "Regex Patronen voor Telefoonnummer Matching",
   "regexRule": "Regex Regel",
   "regexRuleAddFailed": "Kon regex-regel niet toevoegen: {error}",
@@ -1302,8 +962,6 @@
   "regexRuleNamePatternRequired": "Regelnaam en regex-patroon mogen niet leeg zijn",
   "regexRules": "Regex Regels",
   "regexTesterTitle": "Regex Tester",
-  "regexValidationFailed": "Regex validatie mislukt: {error}",
-  "regexValidationSuccess": "Regex validatie succesvol",
   "region": "Regio",
   "registeredDevicesTitle": "Geregistreerde Apparaten",
   "rejectAllCalls": "Alle Oproepen Weigeren",
@@ -1318,27 +976,15 @@
   },
   "remoteFilterSettingsPageTitle": "Instellingen voor Externe Nummerfilter",
   "remoteNumberFilter": "Extern Nummerfilter",
-  "remoteNumberFilterDatabaseInfo": "Dit filter gebruikt een onafhankelijke externe database om de meest recente nummerinformatie te verkrijgen.",
   "remoteNumberFilterDescription": "Onderschep hinderlijke oproepen op basis van externe database-informatie",
-  "remoteNumberFilterExplanationContent": "Het externe nummerfilter identificeert en blokkeert spamoproepen door een externe database te bevragen op basis van het aantal nummers.",
-  "remoteNumberFilterExplanationTitle": "Uitleg Extern Nummerfilter",
-  "remoteNumberFilterFeatureCountThreshold": "• Aantaldrempel: Bepaal op basis van de frequentie van nummer-voorkomens",
-  "remoteNumberFilterFeatureFilterAction": "• Filteracties: Configureer hoe nummers die de drempel overschrijden moeten worden afgehandeld",
-  "remoteNumberFilterFeaturePriority": "• Prioriteitsinstellingen: Stel prioriteit in voor externe acties",
-  "remoteNumberFilterFeatures": "Functies:",
   "remoteNumberFiltering": "Extern Nummerfilteren",
   "remoteNumberFilteringExplanation": "• Extern Nummerfilteren: Filterregels gebaseerd op externe database-informatie",
   "remoteNumberFilterSubtitle": "Identificeer spamoproepen met behulp van een clouddatabase en community-rapporten",
   "removeAdsDescription": "Verwijder permanent alle advertenties in de app voor een soepelere ervaring",
   "removeAdsTitle": "Advertenties Verwijderen",
-  "removedFromFavoriteContacts": "Verwijderd uit favoriete contacten",
   "removedFromFavorites": "Verwijderd uit favorieten",
-  "removeFavorite": "Favoriet Verwijderen",
   "removeFromFavorites": "Verwijderen uit Favorieten",
-  "renameButton": "Hernoemen",
-  "renameDeviceDialogTitle": "Apparaat Hernoemen",
   "renameDeviceTitle": "Apparaat Hernoemen",
-  "replaceCurrentSettingsConfirmation": "Dit vervangt al uw huidige instellingen. Weet u zeker dat u wilt doorgaan?",
   "requestAllPermissions": "Alle Machtigingen Aanvragen",
   "requestPermission": "Machtiging Aanvragen",
   "requestPermissionFailed": "Kon machtiging niet aanvragen: {error}",
@@ -1346,84 +992,44 @@
   "reset": "Herstellen",
   "restore": "Herstellen",
   "restoreApplicationSettingsFromBackup": "Applicatie-instellingen Herstellen van Back-up",
-  "restoreApplicationSettingsFromBackupSubtitle": "Herstel applicatie-instellingen van back-up",
-  "restoreButton": "Herstellen",
-  "restoreFailedWithError": "Herstellen van cloud mislukt: {error}",
   "restoreFromCloud": "Herstellen van Cloud",
-  "restoreFromCloudDescription": "Herstel instellingen en regels van cloudopslag",
   "restoreFromCloudFailed": "Herstellen van cloud mislukt: {error}",
-  "restoreFromCloudLabel": "Herstellen van Cloud",
   "restoreFromCloudSuccess": "Succesvol hersteld van cloud",
-  "restoreFromCloudTitle": "Herstellen van Cloud",
-  "restoreFromLocal": "Herstellen van Lokaal",
   "restorePurchases": "Aankopen Herstellen",
-  "restoreSectionTitle": "Herstellen",
   "restoreSettings": "Instellingen Herstellen",
   "restoreSettingsConfirmation": "Dit vervangt al uw huidige instellingen. Weet u zeker dat u wilt doorgaan?",
-  "restoreSettingsDialogTitle": "Instellingen Herstellen",
-  "restoreSettingsTitle": "Instellingen Herstellen",
-  "restoreSuccessFromLocal": "Succesvol hersteld van lokaal",
-  "restoreSuccessMessage": "Succesvol hersteld van cloud",
   "retry": "Opnieuw Proberen",
   "ridesharing": "Ridesharing",
   "risk": "Risico",
   "robocall": "Robocall",
   "ruleAction": "Regel Actie",
-  "ruleAddButton": "Regel Toevoegen",
   "ruleAddedSuccess": "Regel succesvol toegevoegd",
   "@ruleAddedSuccess": {
     "description": "Rule creation success message"
   },
-  "ruleAddFailure": "Kon regel niet toevoegen: {error}",
-  "@ruleAddFailure": {
-    "description": "Rule creation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleAddSuccess": "Regel succesvol toegevoegd",
   "ruleDeleteConfirmContent": "Weet u zeker dat u deze {ruleType} wilt verwijderen?",
   "ruleDeleteConfirmTitle": "Regel Verwijderen",
-  "ruleDeletedSuccess": "Regel succesvol verwijderd",
   "ruleDeletedSuccessfully": "Regel succesvol verwijderd",
   "ruleDeleteFailed": "Kon regel niet verwijderen: {error}",
-  "ruleDeleteFailure": "Kon regel niet verwijderen: {error}",
-  "@ruleDeleteFailure": {
-    "description": "Rule deletion failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleDeleteSuccess": "Regel succesvol verwijderd",
   "ruleDisabledSuccessfully": "Regel succesvol uitgeschakeld",
   "ruleEnabledSuccessfully": "Regel succesvol ingeschakeld",
   "ruleLoadFailed": "Kon regels niet laden: {error}",
   "ruleManagement": "Regelbeheer",
-  "ruleManagementTitle": "Regelbeheer",
   "ruleName": "Regelnaam",
   "ruleNameAndContentRegexCannotBeEmpty": "Regelnaam en inhoud regex mogen niet leeg zijn",
   "ruleNameAndPhoneNumberCannotBeEmpty": "Regelnaam en telefoonnummer mogen niet leeg zijn",
   "ruleNameHint": "bijv. Familie, Vrienden, etc.",
   "ruleNameLabel": "Regelnaam",
-  "ruleNamePatternRequired": "Voer regelnaam en patroon in",
   "ruleNameRequired": "Regelnaam en telefoonnummer mogen niet leeg zijn",
   "ruleNotExist": "Regel bestaat niet of is verwijderd",
   "ruleNotFound": "Regel niet gevonden: {error}",
-  "ruleSavedSuccessfully": "Regel succesvol opgeslagen!",
   "ruleSavedSuccessMessage": "Regel succesvol opgeslagen!",
-  "ruleSaveFailed": "Opslaan mislukt: {error}",
-  "ruleSaveFailedMessage": "Opslaan mislukt: {error}",
-  "ruleSaveSuccess": "Regel succesvol opgeslagen!",
   "rulesExportedSuccessfully": "Regels succesvol geëxporteerd",
   "rulesExportedTo": "Regels geëxporteerd naar: {path}",
   "rulesImported": "Regels succesvol geïmporteerd",
   "rulesImportedSuccessfully": "{count} regels succesvol geïmporteerd",
-  "rulesImportFailed": "Regels importeren mislukt: {error}",
-  "ruleStatistics": "Regelstatistieken",
   "ruleStatusChanged": "Regel {status} succesvol",
   "ruleToggleFailed": "Bewerking mislukt: {error}",
   "ruleToggleSuccess": "Regel {status} succesvol",
@@ -1432,32 +1038,19 @@
   "ruleVerification": "Regel Verificatie",
   "save": "Opslaan",
   "saveButton": "Opslaan",
-  "saveButtonLabel": "OPSLAAN",
   "saveButtonText": "Opslaan",
   "saveFailed": "Opslaan mislukt: {error}",
-  "saveFilter": "Filter opslaan",
   "saveSettings": "Instellingen opslaan",
-  "saveSettingsFailed": "Instellingen opslaan mislukt: {error}",
   "scamsLikely": "Waarschijnlijk scams",
   "search": "Zoeken",
   "searchContacts": "Contacten zoeken",
   "searchError": "Zoekfout: {error}",
-  "searchFilters": "Zoekfilters",
-  "searchForContacts": "Zoek naar contacten",
   "searchHint": "Zoeken...",
-  "searchSettingsSubtitle": "Zoek contacten, labels, blokkades, toegestane lijsten, etc.",
-  "searchSettingsTitle": "Zoekinstellingen",
   "securityMessage": "Vertrouw geen telefoongesprekken. Verifieer altijd klantenservicenummers onafhankelijk. Deel nooit wachtwoorden, verificatiecodes, kaartnummers of persoonlijke informatie.",
-  "selectActionToPerform": "Selecteer de actie die moet worden uitgevoerd wanneer de regel overeenkomt",
   "selectActionWhenBlockingCalls": "Selecteer actie bij het blokkeren van oproepen",
   "selectActionWhenRuleMatches": "Selecteer actie wanneer de regel overeenkomt",
   "selectAll": "Alles selecteren",
   "selectCountry": "Land selecteren",
-  "selectDateRange": "Selecteer datumbereik",
-  "selectedDateRange": "Geselecteerd datumbereik",
-  "@selectedDateRange": {
-    "description": "Selected date range text"
-  },
   "selectedItems": "{count} items geselecteerd",
   "selectedLabel": "Geselecteerd:",
   "selectExportFormat": "Selecteer Exportformaat",
@@ -1465,14 +1058,7 @@
   "selectLabelAndEnterPhoneNumber": "Selecteer een label en voer een geldig telefoonnummer in",
   "selectLanguage": "Taal selecteren",
   "selectMultiple": "Meerdere selecteren",
-  "selectPeriod": "Periode selecteren",
   "selectSimCard": "SIM-kaart selecteren",
-  "selectSimSlot": "SIM-slot selecteren",
-  "@selectSimSlot": {
-    "description": "Title for SIM slot selection dialog"
-  },
-  "selectSpecificActionForBlockedCalls": "Selecteer de specifieke actie die moet worden uitgevoerd bij het blokkeren van oproepen",
-  "selectTag": "Tag selecteren",
   "selectTags": "Tags selecteren",
   "selectTrustedDataSource": "Selecteer vertrouwde gegevensbronnen",
   "selectYourLanguage": "Selecteer uw taal",
@@ -1493,16 +1079,9 @@
       }
     }
   },
-  "setButton": "Instellen",
   "setEncryptionPassword": "Encryptiewachtwoord instellen",
-  "setEncryptionPasswordDescription": "Stel een encryptiewachtwoord in voor back-up en herstel",
-  "setEncryptionPasswordLabel": "Encryptiewachtwoord instellen",
-  "setEncryptionPasswordTitle": "Encryptiewachtwoord instellen",
-  "setPasswordButton": "Instellen",
   "settings": "Instellingen",
   "settingsBackedUpTo": "Instellingen geback-upt naar: {path}",
-  "settingsLoaded": "Instellingen geladen",
-  "settingsLoadFailed": "Instellingen laden mislukt: {error}",
   "settingsRestoredSuccessfully": "Instellingen succesvol hersteld. Start de app opnieuw op om de wijzigingen van kracht te laten worden.",
   "settingsSaved": "Instellingen opgeslagen",
   "@settingsSaved": {
@@ -1512,8 +1091,6 @@
   "settingsTab": "Instellingen",
   "settingsTitle": "Instellingen",
   "setup": "Installatie",
-  "showContactEditDialogStaticMethod": "Statische methode om dialoogvenster voor contactbewerking weer te geven",
-  "showExplanation": "Uitleg tonen",
   "silence": "Stilte",
   "silenceAndNoAnswer": "Stilte en geen antwoord",
   "silenceNoAnswer": "Stilte geen antwoord",
@@ -1538,15 +1115,10 @@
       }
     }
   },
-  "simInfoLoadFailure": "SIM-kaart informatie laden mislukt: {error}",
   "simRuleInstructions": "SIM-slotregels stellen u in staat om onafhankelijke filterregels te configureren voor elke SIM-sleuf.",
   "simRuleInstructionsTitle": "SIM-sleufregels",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simRuleManagement": "SIM-sleufregelbeheer",
-  "@simRuleManagement": {
-    "description": "SIM slot rule management section title"
   },
   "simSlot1": "SIM 1,-{countryIso}",
   "@simSlot1": {
@@ -1568,9 +1140,6 @@
       }
     }
   },
-  "simSlotDataLoadFailed": "SIM-gegevens konden niet worden geladen: {error}",
-  "simSlotFilterConfiguration": "SIM-sleuffilterconfiguratie",
-  "simSlotFilterConfigurationDescription": "Sta het instellen van filterregels per SIM-sleuf toe",
   "simSlotFilterDescription": "Configureer onafhankelijke filterregels voor elke simkaart:",
   "simSlotFilterSettingsTitle": "SIM-sleuf {slotNumber} Filterinstellingen",
   "@simSlotFilterSettingsTitle": {
@@ -1581,17 +1150,7 @@
       }
     }
   },
-  "simSlotLoadFailed": "SIM-sleuven konden niet worden geladen: {error}",
   "simSlotManagement": "SIM-sleufbeheer",
-  "simSlotOperationFailed": "SIM-sleufbewerking mislukt: {error}",
-  "@simSlotOperationFailed": {
-    "description": "SIM slot operation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "simSlotPosition": "SIM-sleufpositie {slotNumber}",
   "@simSlotPosition": {
     "description": "SIM slot position display",
@@ -1605,11 +1164,6 @@
   "simSlotRuleFeature": "• SIM-sleufregels: Onafhankelijke filterstrategieën per SIM",
   "simSlotRuleListTitle": "Lijst met SIM-sleufregels",
   "simSlotRuleManagement": "SIM-sleufregels",
-  "simSlotRuleManagementTitle": "Regelbeheer",
-  "simSlotSettings": "SIM-sleufinstellingen",
-  "@simSlotSettings": {
-    "description": "Title for SIM slot settings page"
-  },
   "simSlotTitle": "SIM-sleuf {slotNumber}",
   "skip": "Overslaan",
   "smartCallerId": "Slimme oproepidentificatie",
@@ -1620,7 +1174,6 @@
   "smsFilterRuleAddedSuccessfully": "SMS-filterregel succesvol toegevoegd",
   "smsFilterRules": "SMS-filterregels",
   "smsFilterSettings": "SMS-filterinstellingen",
-  "smsHistory": "SMS-geschiedenis",
   "smsManagement": "SMS-beheer",
   "smsPermission": "SMS-toestemming",
   "smsPermissionDescription": "Gebruikt om spamberichten te filteren.",
@@ -1628,12 +1181,7 @@
   "smsRuleDeletedSuccessfully": "SMS-regel succesvol verwijderd",
   "smsRuleLoadFailed": "SMS-regels konden niet worden geladen: {error}",
   "smsRuleManagement": "SMS-regelbeheer",
-  "smsRulesExportedSuccessfully": "SMS-regels succesvol geëxporteerd naar {filePath}",
-  "smsRulesImportedSuccessfully": "SMS-regels succesvol geïmporteerd",
   "smsRuleSubscription": "SMS-regelsabonnement",
-  "smsRuleUpdatedSuccessfully": "SMS-regel succesvol bijgewerkt",
-  "smsSettingsSubtitle": "SMS-filtering en trefwoordblokkering",
-  "smsSettingsTitle": "SMS-instellingen",
   "smsSubscription": "SMS-abonnement",
   "smsSubscriptionAddedSuccessfully": "SMS-abonnement succesvol toegevoegd",
   "smsSubscriptionRulesDescription": "Abonneer u op SMS-regellijsten via URL, ondersteuning voor reguliere expressie-matching. U kunt blokkeer- of toestaande acties instellen.",
@@ -1645,12 +1193,7 @@
   "startUsing": "Beginnen met gebruiken",
   "statAnswered": "Beantwoord",
   "statBlocked": "Geblokkeerd",
-  "staticMethodShowCallerIdDialog": "Statische methode om het dialoogvenster met oproeper-ID-informatie weer te geven",
-  "staticMethodToDisplayCountrySelectionDialog": "Statische methode om het dialoogvenster voor landenselectie weer te geven",
-  "staticMethodToDisplayDialog": "Statische methode om een dialoogvenster weer te geven",
   "statistics": "Statistieken",
-  "statisticsExportFeatureComingSoon": "Exporteerfunctie voor statistieken komt binnenkort",
-  "statisticsGrid": "Statistiekenraster",
   "statisticsPageTitle": "Gegevensanalyse",
   "stirColor": "STIR-kleur",
   "stirFontSize": "STIR-lettergrootte",
@@ -1673,23 +1216,16 @@
   "@subscriptionDeleted": {
     "description": "Subscription deleted success message"
   },
-  "subscriptionDeletedSuccessfully": "Abonnement succesvol verwijderd",
   "subscriptionDeleteFailed": "Abonnement kon niet worden verwijderd: {error}",
   "subscriptionDeleteSuccess": "Abonnement verwijderd",
-  "subscriptionEmptyState": "Geen abonnementen beschikbaar",
-  "subscriptionEmptyText": "Nog geen abonnementen",
   "subscriptionLoadFailed": "Abonnementen konden niet worden geladen: {error}",
-  "subscriptionLoadingFailed": "Abonnementen konden niet worden geladen: {error}",
-  "subscriptionManagementTitle": "Abonnementbeheer",
   "subscriptionName": "Abonnementsnaam",
   "@subscriptionName": {
     "description": "Subscription name field label"
   },
   "subscriptionNameAndUrlCannotBeEmpty": "Abonnementsnaam en URL mogen niet leeg zijn",
   "subscriptionNameHint": "Voer abonnementsnaam in",
-  "subscriptionPageTitle": "Abonnementbeheer",
   "subscriptionStatusChangeFailed": "Status van abonnement kon niet worden gewijzigd: {error}",
-  "subscriptionToggleFailed": "Status van abonnement kon niet worden geschakeld: {error}",
   "subscriptionUpdateFailed": "Abonnement kon niet worden bijgewerkt: {error}",
   "subscriptionUpdateSuccess": "Abonnement succesvol bijgewerkt",
   "@subscriptionUpdateSuccess": {
@@ -1710,7 +1246,6 @@
   },
   "syncFailed": "Synchronisatie mislukt",
   "syncFailedMessage": "Synchronisatie mislukt",
-  "syncFolderNameHint": "Voer de synchronisatiemapnaam in (standaard: NotificationManager)",
   "syncFolderNameLabel": "Naam synchronisatiemap",
   "synchronized": "Gesynchroniseerd",
   "@synchronized": {
@@ -1724,10 +1259,8 @@
   "syncNowButton": "Nu synchroniseren",
   "syncStatusTitle": "Synchronisatiestatus",
   "syncStatusUpdatedMessage": "Synchronisatiestatus bijgewerkt",
-  "syncSuccessful": "Synchronisatie succesvol",
   "syncSuccessMessage": "Synchronisatie succesvol",
   "syncWithCloudStorage": "Synchroniseren met Cloudopslag",
-  "syncWithCloudStorageSubtitle": "Synchroniseren met cloudopslag",
   "systemFeatures": "Systeembeloningen:",
   "systemSettingsTitle": "Systeeminstellingen",
   "tabAll": "Alles",
@@ -1743,13 +1276,11 @@
       }
     }
   },
-  "tagsUpdated": "Tags bijgewerkt",
   "takeaway": "Afhalen",
   "telecommunication": "Telecommunicatie",
   "telegram": "Telegram",
   "telemarketing": "Telemarketing",
   "testButton": "TEST",
-  "testButtonLabel": "TEST",
   "testConnectionButton": "Verbinding testen",
   "textColorsSetting": "Tekst- en labelkleuren",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Deze app is een krachtige tool voor nummerherkenning waarmee u ongewenste oproepen kunt identificeren en blokkeren.",
@@ -1760,8 +1291,6 @@
   "timeInterceptorExplanationContent": "De functie voor het onderscheppen van oproepfrequentie analyseert de oproepfrequentie om frequente spamoproepen automatisch te identificeren en te onderscheppen/toestaan.",
   "timeInterceptorExplanationTitle": "Uitleg Onderscheppen Oproepfrequentie",
   "timeInterceptorSettingsTitle": "Instellingen Onderscheppen Oproepfrequentie",
-  "timeInterceptorSubtitle": "Onderschep automatisch potentiële spamoproepen op basis van oproepfrequentie",
-  "timeInterceptorTitle": "Onderscheppen Oproepfrequentie Inschakelen",
   "timeWindowDescription": "Stel de tijdsvenstergrootte in voor het toestaan van herhaalde oproepen. Oproepen van hetzelfde nummer binnen dit venster worden toegestaan",
   "timeWindowLabel": "Onderscheppingstijdsvenster (minuten): {minutes}",
   "@timeWindowLabel": {
@@ -1772,16 +1301,11 @@
       }
     }
   },
-  "timeWindowSetting": "Stel de tijdsvenstergrootte in voor het toestaan van herhaalde oproepen. Oproepen van hetzelfde nummer binnen dit venster worden toegestaan",
   "today": "Vandaag",
   "total": "Totaal",
   "totalBlocked": "Totaal Geblokkeerd",
-  "totalFiltered": "Totaal Geselecteerd",
   "transferDataBetweenDevicesOrPlatforms": "Gegevens overdragen tussen apparaten of platforms",
-  "transferDataBetweenDevicesOrPlatformsSubtitle": "Gegevens overdragen tussen apparaten of platforms",
   "travelTicketing": "Reisticketverkoop",
-  "trend": "Trend",
-  "trendChart": "Trendgrafiek",
   "tutorial": "Tutorial",
   "type": "Type",
   "unassignedSIMCard": "Niet-toegewezen SIM-kaart",
@@ -1789,7 +1313,6 @@
   "@unknown": {
     "description": "Display text for unknown status"
   },
-  "unknownLabel": "Onbekend Label",
   "unknownTag": "Tag: Onbekend",
   "unregisterButton": "Afmelden",
   "unregisterDeviceConfirmationMessage": "Weet u zeker dat u {deviceName} wilt afmelden?",
@@ -1797,15 +1320,9 @@
   "unsupportedFileFormat": "Niet-ondersteund bestandsformaat",
   "update": "Bijwerken",
   "updateAllNow": "Alles nu bijwerken",
-  "updateCallFilterConfig": "Update Call Filter Configuratie",
-  "@updateCallFilterConfig": {
-    "description": "Button text for updating call filter configuration"
-  },
   "updateContactFailed": "Contact bijwerken mislukt: {error}",
   "updateFavoriteStatus": "Favoriete status bijwerken",
-  "updateFavoriteStatusFailed": "Favoriete status bijwerken mislukt: {error}",
   "updateInterval": "Update Interval",
-  "updateLabelFailed": "Label bijwerken mislukt",
   "updateNow": "Nu bijwerken",
   "updatePlugin": "Plugin bijwerken",
   "updatePluginFailed": "Plugin bijwerken mislukt: {error}",
@@ -1831,16 +1348,13 @@
       }
     }
   },
-  "updateTags": "Tags bijwerken",
   "useCasesPoint1": "• Identificeer automatisch opnieuw kiezen spamoproepen",
   "useCasesPoint2": "• Onderschep marketingoproepen die meerdere keren in korte tijd bellen",
   "useCasesPoint3": "• Voorkom telefoonbombardementen en intimidatie",
   "useCasesTitle": "Gebruiksscenario's:",
   "useGlobalSettings": "Gebruik Globale Instellingen",
-  "userEmail": "gebruiker@voorbeeld.com",
   "usernameLabel": "Gebruikersnaam",
   "useStandardRegexSyntaxToDefinePatternsExamples": "Gebruik standaard regex-syntaxis om patronen te definiëren. Voorbeelden:",
-  "validateRegex": "Regex Valideren",
   "verificationFailedText": "Mislukt",
   "verifiedText": "Geverifieerd",
   "verify": "Verifiëren",
@@ -1851,36 +1365,18 @@
   "watchAdForTemp": "Bekijk advertentie voor tijdelijke privileges",
   "watchAdForTempDescription": "Bekijk een korte advertentie om tijdelijk enkele premium functies te ontgrendelen",
   "webDAVConfigTitle": "WebDAV Configuratie",
-  "webdavConfigurationTitle": "WebDAV Configuratie",
-  "webdavPasswordHint": "Voer het WebDAV-wachtwoord in",
-  "webdavServerAddressHint": "Voer het WebDAV-serveradres in",
-  "webdavUsernameHint": "Voer de WebDAV-gebruikersnaam in",
   "week": "Week",
-  "weekly": "Wekelijks",
-  "weeklyBlockedCallsSummary": "Wekelijkse Samenvatting Geblokkeerde Oproepen",
-  "weeklyChartTitle": "Wekelijkse Geblokkeerde Oproepen",
-  "weeklyReport": "Wekelijks Rapport",
-  "@weeklyReport": {
-    "description": "Weekly report notification option"
-  },
-  "weeklyReportDesc": "Ontvang wekelijks een samenvattend rapport van de blokkeeractiviteit",
-  "@weeklyReportDesc": {
-    "description": "Description for weekly report option"
-  },
   "welcome": "Welkom",
   "whitelist": "Whitelist",
   "@whitelist": {
     "description": "Whitelist label"
   },
-  "whitelistLabel": "Whitelist",
   "width": "Breedte",
   "wildcardMatchingDescription": "Gebruik '.' om elk willekeurig teken te matchen (bv. '123.456' matcht 123-456)",
   "wildcardMatchingTitle": "Wildcard matching:",
   "wildcardSupportForFlexibleFiltering": "Wildcard Ondersteuning voor Flexibele Filtering",
   "windowSizeSetting": "Venstergrootte",
   "year": "Jaar",
-  "yearly": "Jaarlijks",
-  "yearlyChartTitle": "Jaarlijkse Geblokkeerde Oproepen",
   "noSimCardsDetected": "Geen SIM-kaarten gedetecteerd",
   "filterManagementDescription": "Bel Filters Instellen",
   "callerIdCustomizationSubtitle": "Aanpassen Telefoonnummer Weergave Lay-out",
@@ -1895,7 +1391,6 @@
   "useLocalNotificationDescription": "Lokale notificaties inschakelen voor inkomende oproepen",
   "cancelLocalNotification": "Lokale Notificaties Sluiten",
   "useStirNotification": "Notificatie van STIR Gebruiken",
-  "useStirNotificationDescription": "STIR notificaties inschakelen voor inkomende oproepen",
   "cancelLocalNotificationDescription": "Lokale Notificaties Automatisch Sluiten",
   "callerIdSettingsTitle": "Telefoonnummer Weergave Instellingen",
   "callerIdSettingsSubtitle": "Instellen Melding & Weergavemodus Inkomende Oproep",
@@ -1904,16 +1399,6 @@
   "callerIdNotificationTitle": "Info Inkomende Oproep",
   "@callerIdNotificationTitle": {
     "description": "Title for the Incoming Call Info"
-  },
-  "callerIdBody": "Nummer: {phoneNumber}",
-  "@callerIdBody": {
-    "description": "Body for the caller ID notification, showing the phone number",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
   },
   "blockedCallTitle": "Geblokkeerde Oproep",
   "@blockedCallTitle": {
@@ -1974,18 +1459,6 @@
   "@fraudAlertTitle": {
     "description": "Title for the fraud alert notification"
   },
-  "fraudAlertBody": "Potentiële fraude oproep van {phoneNumber}",
-  "@fraudAlertBody": {
-    "description": "Body for the fraud alert notification",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
-  },
-  "loadRulesFailed": "Regels laden mislukt: {error}",
-  "loadCallLogFailed": "Oproepenlogboek laden mislukt: {error}",
   "noBlockedTypeData": "Geen geblokkeerde type gegevens beschikbaar",
   "importEntity": "Importeer {entityTypeName}",
   "@importEntity": {
@@ -2065,7 +1538,6 @@
   "vipUser": "VIP Gebruiker",
   "temporaryVip": "Tijdelijke VIP",
   "removeAds": "Advertenties Verwijderen",
-  "unknownAction": "Onbekende Actie",
   "settingsBackup": "Back-up Instellingen ",
   "allServicesStatusTitle": "Huidige Service Status",
   "allServicesStatusSubtitle": "Huidige Status van Elke Cloud Service",
@@ -2153,7 +1625,6 @@
   "unblocked": "Gedeblokkeerd",
   "blockNumber": "Nummer Blokkeren",
   "blockNumberSuccess": "Nummer succesvol geblokkeerd",
-  "blockNumberFailed": "Nummer blokkeren mislukt",
   "unblockNumberConfirmation": "Weet u zeker dat u {phoneNumber} wilt deblokkeren?",
   "@unblockNumberConfirmation": {
     "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
@@ -2165,23 +1636,11 @@
       }
     }
   },
-  "callingNumber": "Oproepen {phoneNumber}...",
-  "@callingNumber": {
-    "description": "Status text displayed on the screen when an outgoing call is initiated.",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "description": "The phone number that is being dialed.",
-        "example": "+1 555-123-4567"
-      }
-    }
-  },
   "viewDetails": "Details Bekijken",
   "unblock": "Deblokkeren",
   "unblockNumber": "Nummer Deblokkeren",
   "unblockNumberSuccess": "Nummer succesvol gedeblokkeerd",
   "unblockNumberFailed": "Nummer deblokkeren mislukt",
-  "serviceNotAvailable": "Service niet beschikbaar",
   "callingNumberFailed": "Oproepen van nummer mislukt",
   "listView": "Lijstweergave",
   "timelineView": "Tijdlijnweergave",
@@ -2192,7 +1651,6 @@
   "callType": "Oproeptype",
   "callTime": "Oproeptijd",
   "numberInvalidFormat": "Nummer ongeldig formaat",
-  "membershipFeature": "Lidmaatschapsfunctie",
   "medium": "Medium",
   "verificationReport": "Verificatierapport",
   "finalRisk": "Eindrisico",
@@ -2221,7 +1679,6 @@
   "noNotifications": "Geen meldingen",
   "clearAllNotifications": "Alle Meldingen Wissen",
   "clearAllNotificationsConfirmation": "Bevestig om alle meldingen te wissen",
-  "allNotificationsCleared": "Alle meldingen gewist",
   "clearButton": "Wissen",
   "justNow": "Zojuist",
   "minutesAgo": "{count,plural, =1{1 minuut geleden} other{{count} minuten geleden}}",
@@ -2298,10 +1755,6 @@
   "@reasonInaccurateInfo": {
     "description": "Inaccurate Information reason option"
   },
-  "reasonWrongMarked": "Verkeerd gemarkeerd",
-  "@reasonWrongMarked": {
-    "description": "Wrong marked reason option"
-  },
   "reasonOther": "Overig",
   "@reasonOther": {
     "description": "Other reason option"
@@ -2314,33 +1767,9 @@
   "@cancel": {
     "description": "Cancel button text"
   },
-  "proposalStatus": "Status",
-  "@proposalStatus": {
-    "description": "Proposal status label"
-  },
-  "statusPending": "In afwachting",
-  "@statusPending": {
-    "description": "Pending status"
-  },
-  "statusActive": "Actief",
-  "@statusActive": {
-    "description": "Active status"
-  },
-  "statusCompleted": "Voltooid",
-  "@statusCompleted": {
-    "description": "Completed status"
-  },
-  "statusExpired": "Vervallen",
-  "@statusExpired": {
-    "description": "Expired status"
-  },
   "riskLevel": "Risiconiveau",
   "@riskLevel": {
     "description": "Risk level label"
-  },
-  "riskLevelVerified": "Geverifieerd",
-  "@riskLevelVerified": {
-    "description": "Verified risk level"
   },
   "riskLevelLow": "Laag",
   "@riskLevelLow": {
@@ -2350,26 +1779,9 @@
   "@riskLevelHigh": {
     "description": "Label for high risk level"
   },
-  "riskLevelUnknown": "Onbekend",
-  "@riskLevelUnknown": {
-    "description": "Unknown risk level"
-  },
-  "votingProgress": "Stemvoortgang",
-  "@votingProgress": {
-    "description": "Voting progress label"
-  },
   "agreeVotes": "Eens: {count}",
   "@agreeVotes": {
     "description": "Agree votes count",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "disagreeVotes": "Oneens: {count}",
-  "@disagreeVotes": {
-    "description": "Disagree votes count",
     "placeholders": {
       "count": {
         "type": "int"
@@ -2405,14 +1817,6 @@
   "@verificationReport": {
     "description": "Verification report label"
   },
-  "showReport": "Rapport tonen",
-  "@showReport": {
-    "description": "Show report button text"
-  },
-  "hideReport": "Rapport verbergen",
-  "@hideReport": {
-    "description": "Hide report button text"
-  },
   "proposalStatistics": "Voorstelstatistieken",
   "@proposalStatistics": {
     "description": "Proposal statistics title"
@@ -2425,37 +1829,17 @@
   "@activeProposals": {
     "description": "Active proposals label"
   },
-  "completedProposals": "Voltooide voorstellen",
-  "@completedProposals": {
-    "description": "Completed proposals label"
-  },
-  "myVotes": "Mijn stemmen",
-  "@myVotes": {
-    "description": "My votes label"
-  },
   "proposalCreated": "Voorstel succesvol aangemaakt",
   "@proposalCreated": {
     "description": "Proposal created success message"
-  },
-  "proposalCreateFailed": "Kon voorstel niet aanmaken",
-  "@proposalCreateFailed": {
-    "description": "Proposal create failed message"
   },
   "voteSubmitted": "Stem succesvol ingediend",
   "@voteSubmitted": {
     "description": "Vote submitted success message"
   },
-  "voteSubmitFailed": "Kon stem niet indienen",
-  "@voteSubmitFailed": {
-    "description": "Vote submit failed message"
-  },
   "noProposalsFound": "Geen voorstellen gevonden",
   "@noProposalsFound": {
     "description": "No proposals found message"
-  },
-  "loadingProposals": "Voorstellen laden...",
-  "@loadingProposals": {
-    "description": "Loading proposals message"
   },
   "refreshProposals": "Voorstellen vernieuwen",
   "@refreshProposals": {
@@ -2684,12 +2068,8 @@
       }
     }
   },
-  "loadVoteCountFailed": "Kon stemmenaantal niet laden",
   "voteCount": "Aantal stemmen",
-  "deletionProposalInfo": "Informatie verwijderingsvoorstel",
   "deletionProposalDescription": "Stel nummers voor ter verwijdering die communityrichtlijnen schenden. Uw deelname helpt het platform veilig te houden.",
-  "voteToEarnVip": "Stem op voorstellen om VIP-privileges te verdienen!",
-  "voteFailed": "Stemmen mislukt",
   "searchProposals": "Voorstellen zoeken",
   "defaultNotifications": "Standaardmeldingen",
   "defaultNotificationsDescription": "Standaard meldingskanaal voor de app.",
@@ -2699,81 +2079,14 @@
   "stirVerificationDescription": "Toont STIR/SHAKEN verificatieresultaten voor nummers.",
   "fraudAlerts": "Fraude waarschuwingen",
   "fraudAlertsDescription": "Toont waarschuwingen voor potentieel frauduleuze oproepen.",
-  "notificationFrequencyDescription": "Kies hoe vaak u meldingen ontvangt over nieuwe verwijderingsvoorstellen. U kunt ze direct, in batches, of met aangepaste intervallen ontvangen.",
-  "@notificationFrequencyDescription": {
-    "description": "A detailed explanation of what the notification frequency settings do"
-  },
   "@notificationMode": {
     "description": "Title for the mode selection part (Immediate, Batched, Custom)"
-  },
-  "immediateNotifications": "Direct",
-  "@immediateNotifications": {
-    "description": "Label for the immediate notification mode"
-  },
-  "immediateNotificationsDescription": "Ontvang een melding zodra een voorstel is aangemaakt.",
-  "@immediateNotificationsDescription": {
-    "description": "Description for the immediate notification mode"
-  },
-  "batchNotifications": "In batches",
-  "@batchNotifications": {
-    "description": "Label for the batched notification mode"
-  },
-  "batchNotificationsDescription": "Ontvang periodiek een samenvatting van meldingen.",
-  "@batchNotificationsDescription": {
-    "description": "Description for the batched notification mode"
-  },
-  "customNotifications": "Aangepast",
-  "@customNotifications": {
-    "description": "Label for the custom notification mode"
-  },
-  "customNotificationsDescription": "Definieer uw eigen interval voor het ontvangen van meldingen.",
-  "@customNotificationsDescription": {
-    "description": "Description for the custom notification mode"
-  },
-  "customFrequency": "Aangepaste frequentie",
-  "@customFrequency": {
-    "description": "Title for the custom frequency slider section"
-  },
-  "notificationFrequencyDurationMinutes": "{minutes} min",
-  "@notificationFrequencyDurationMinutes": {
-    "description": "Formats a duration that is only in minutes.",
-    "placeholders": {
-      "minutes": {
-        "type": "int",
-        "example": "45"
-      }
-    }
-  },
-  "notificationFrequencyDurationHours": "{hours} u",
-  "@notificationFrequencyDurationHours": {
-    "description": "Formats a duration that is in whole hours.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "2"
-      }
-    }
-  },
-  "notificationFrequencyDurationHoursAndMinutes": "{hours} u {minutes} min",
-  "@notificationFrequencyDurationHoursAndMinutes": {
-    "description": "Formats a duration that has both hours and minutes.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "1"
-      },
-      "minutes": {
-        "type": "int",
-        "example": "30"
-      }
-    }
   },
   "pendingProposals": "In afwachting van voorstellen",
   "pendingProposalsBody": "U heeft {count, plural, =0 {geen openstaande voorstellen} one {1 openstaand voorstel} other {{count} openstaande voorstellen}}.",
   "guidelinesLabel": "Richtlijnen",
   "reportingGuidelines": "• Rapporteer alleen nummers die echt problematisch zijn\n• Geef nauwkeurige en gedetailleerde redenen\n• Kies het juiste risiconiveau op basis van de ernst\n• Valse meldingen kunnen leiden tot accountbeperkingen",
   "riskLevelLabel": "Risiconiveau",
-  "riskLevelDescription": "Risiconiveau van het nummer",
   "phoneNumberMinDigits": "Telefoonnummer moet minimaal 7 cijfers bevatten",
   "provideDetailedExplanation": "Geef een gedetailleerde uitleg (minimaal 10 tekens)",
   "reasonMinCharacters": "Reden moet minimaal 10 tekens bevatten",
@@ -2790,39 +2103,15 @@
   "@countryCodeRequired": {
     "description": "Validation message for required country code"
   },
-  "countryCodeLengthError": "Landcode moet uit 2 letters bestaan",
-  "@countryCodeLengthError": {
-    "description": "Validation message for country code length"
-  },
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
-  "phoneNumberLengthError": "Telefoonnummer moet minimaal 7 cijfers bevatten",
-  "@phoneNumberLengthError": {
-    "description": "Validation message for phone number length"
-  },
-  "reasonHint": "Geef gedetailleerde uitleg (minimaal 10 tekens)",
-  "@reasonHint": {
-    "description": "Hint text for reason input field"
-  },
   "reasonRequired": "Reden is verplicht",
   "@reasonRequired": {
     "description": "Validation message for required reason"
-  },
-  "reasonLengthError": "Reden moet minimaal 10 tekens bevatten",
-  "@reasonLengthError": {
-    "description": "Validation message for reason length"
-  },
-  "guidelinesTitle": "Richtlijnen",
-  "@guidelinesTitle": {
-    "description": "Title for guidelines section"
-  },
-  "guidelinesText": "• Rapporteer alleen nummers die echt problematisch zijn\n• Geef nauwkeurige en gedetailleerde redenen\n• Kies het juiste risiconiveau op basis van de ernst\n• Valse meldingen kunnen leiden tot accountbeperkingen",
-  "@guidelinesText": {
-    "description": "Text content for guidelines section"
   },
   "riskLevelCritical": "Kritiek",
   "@riskLevelCritical": {
@@ -2836,33 +2125,9 @@
   "@riskLevelVeryLow": {
     "description": "Label for very low risk level"
   },
-  "riskDescriptionVeryLow": "Zeer Laag - Kleine ergernis, incidentele oproepen",
-  "@riskDescriptionVeryLow": {
-    "description": "Description for very low risk level"
-  },
-  "riskDescriptionLow": "Laag - Incidentele ongewenste oproepen",
-  "@riskDescriptionLow": {
-    "description": "Description for low risk level"
-  },
-  "riskDescriptionMedium": "Medium - Regelmatige spam of telemarketing",
-  "@riskDescriptionMedium": {
-    "description": "Description for medium risk level"
-  },
-  "riskDescriptionHigh": "Hoog - Aanhoudende pesterijen of scam-pogingen",
-  "@riskDescriptionHigh": {
-    "description": "Description for high risk level"
-  },
-  "riskDescriptionCritical": "Kritiek - Gevaarlijke scams of bedreigingen",
-  "@riskDescriptionCritical": {
-    "description": "Description for critical risk level"
-  },
   "notificationFrequencyTitle": "Meldingsfrequentie",
   "@notificationFrequencyTitle": {
     "description": "Title for notification frequency settings"
-  },
-  "notificationFrequencyLabel": "Meldingsfrequentie (uren)",
-  "@notificationFrequencyLabel": {
-    "description": "Label for notification frequency dropdown"
   },
   "errorMessage": "Fout: {error}",
   "@errorMessage": {
@@ -2870,18 +2135,6 @@
     "placeholders": {
       "error": {
         "type": "String"
-      }
-    }
-  },
-  "votesStatistics": "Stemmen: {totalVotes} ({supportPercentage}% ondersteuning)",
-  "@votesStatistics": {
-    "description": "Voting statistics text",
-    "placeholders": {
-      "totalVotes": {
-        "type": "int"
-      },
-      "supportPercentage": {
-        "type": "int"
       }
     }
   },
@@ -2899,37 +2152,6 @@
     "description": "Shows the number of oppose votes.",
     "placeholders": {
       "opposeCount": {
-        "type": "int"
-      }
-    }
-  },
-  "timeJustNow": "Zojuist",
-  "@timeJustNow": {
-    "description": "Time format for recent events"
-  },
-  "timeMinutesAgo": "{minutes}m geleden",
-  "@timeMinutesAgo": {
-    "description": "Time format for minutes ago",
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
-  "timeHoursAgo": "{hours}u geleden",
-  "@timeHoursAgo": {
-    "description": "Time format for hours ago",
-    "placeholders": {
-      "hours": {
-        "type": "int"
-      }
-    }
-  },
-  "timeDaysAgo": "{days}d geleden",
-  "@timeDaysAgo": {
-    "description": "Time format for days ago",
-    "placeholders": {
-      "days": {
         "type": "int"
       }
     }
@@ -2989,7 +2211,6 @@
   "liveActivitiesTestUpdateActivity": "Activiteit Bijwerken",
   "liveActivityControlsTitle": "Live Activiteit Bedieningselementen",
   "liveActivitiesTestTitle": "Live Activiteiten Test",
-  "liveActivitiesTestSubtitle": "Test de live activiteit melding.",
   "liveNotificationCustomizationTitle": "Live Melding Aanpassing",
   "liveNotificationCustomizationSubtitle": "Pas het uiterlijk van live meldingen aan.",
   "notification_instructions": "Instructies:\n1. Tik op \"VERSTUUR\" om een melding te maken of bij te werken.\n2. Ga naar uw startscherm of trek de meldingslade naar beneden om het resultaat te zien.\n3. Tik op \"BEËINDIG\" om de melding te sluiten.",
@@ -3012,7 +2233,6 @@
   "@proposalDetails": {
     "description": "The title of the proposal details page."
   },
-  "filterByStatus": "Filter op Status",
   "proposalNotFound": "Voorstel niet gevonden",
   "@proposalNotFound": {
     "description": "A message displayed when a proposal is not found."
@@ -3020,10 +2240,6 @@
   "processed": "Verwerkt",
   "@processed": {
     "description": "A label for the processed status."
-  },
-  "showAll": "Alles Tonen",
-  "@showAll": {
-    "description": "A button to show all proposals."
   },
   "filterAndSortTitle": "Filteren en Sorteren",
   "filterVerifiedOwner": "Filter Geverifieerde Eigenaar",
@@ -3055,10 +2271,6 @@
   "@invalidSimData": {
     "description": "A message displayed when the SIM data is invalid."
   },
-  "simCardData": "SIM-kaart Gegevens",
-  "@simCardData": {
-    "description": "A label for the SIM card data."
-  },
   "simSlot": "SIM-slot",
   "@simSlot": {
     "description": "A label for the SIM slot."
@@ -3077,8 +2289,6 @@
   },
   "callTypeRejected": "Geweigerd",
   "callTypeSilenced": "Stilgezet",
-  "callTypeVoicemail": "Voicemail",
-  "callTypeUnknownIntercept": "Onbekende interceptie",
   "andMoreItems": "en nog {count} items",
   "@andMoreItems": {
     "description": "Text to show when there are more items than displayed.",
