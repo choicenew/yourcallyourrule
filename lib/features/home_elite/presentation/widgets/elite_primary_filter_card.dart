@@ -3,6 +3,7 @@ import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/call/call_filter/config/call_filter_config.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/enhanced_filter_config_provider.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/provider/time_interceptor_provider.dart';
@@ -13,7 +14,7 @@ import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_f
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-// ------------------- Widget 定义 -------------------
+// ------------------- ElitePrimaryFilterCard 定义 -------------------
 
 class ElitePrimaryFilterCard extends ConsumerStatefulWidget {
   const ElitePrimaryFilterCard({super.key});
@@ -24,15 +25,10 @@ class ElitePrimaryFilterCard extends ConsumerStatefulWidget {
 
 class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
     with SingleTickerProviderStateMixin {
-  int _selectedDefenseLevel = 0; // 0: 智能防护, 1: 强力拦截, 2: 标记与静音
-  bool _showAdvancedSettings = false;
-  TabController? _simTabController;
-
-  @override
-  void dispose() {
-    _simTabController?.dispose();
-    super.dispose();
-  }
+  int _selectedDefenseIndex = 0; // 当前选中的策略卡片（用于下方 info banner 实时展示）
+  bool _separateSims = false; // 右上角分卡槽控制开关 (Separate SIMs)
+  int _selectedSimSlot = 0; // 当前选中的 SIM 卡槽（0 为 SIM 1，1 为 SIM 2）
+  bool _showAdvancedSettings = false; // 底部 Filter Management 展开状态
 
   void _navigateToFilterSettings() {
     context.pushNamed(AppRouter.filterSettings);
@@ -41,7 +37,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
   void _navigateToSimSlotRules() {
     context.pushNamed(
       AppRouter.simSlotRuleWithAds,
-      pathParameters: {'simSlotIndex': '0'},
+      pathParameters: {'simSlotIndex': '$_selectedSimSlot'},
     );
   }
 
@@ -53,10 +49,11 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
     );
     final callNotifier = ref.read(callFilterConfigProvider.notifier);
 
-    final defenseOptions = [
+    // 5 个常用防御策略项 (Daily Defense Options)
+    final dailyDefenseOptions = [
       _DefenseStrategyItem(
         index: 0,
-        title: l10n.allowRules,
+        title: l10n.allowAllowedNumbers,
         subtitle: l10n.allowAllowedNumbersDesc,
         detailedDesc: l10n.allowAllowedNumbersDesc,
         icon: Icons.shield_rounded,
@@ -64,83 +61,45 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.allowAllAllowedNumbers ?? true,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(
-              callConfig.copyWith(allowAllAllowedNumbers: val),
-            );
+            callNotifier.updateConfig(callConfig.copyWith(allowAllAllowedNumbers: val));
           }
         },
       ),
       _DefenseStrategyItem(
         index: 1,
-        title: l10n.blockRules,
-        subtitle: l10n.blockActionDescription,
-        detailedDesc: l10n.blockActionDescription,
+        title: l10n.allowRegexBlockRules,
+        subtitle: l10n.allowRegexBlockRulesDesc,
+        detailedDesc: l10n.allowRegexBlockRulesDesc,
         icon: Icons.gpp_bad_rounded,
         activeColor: EliteDopamineTheme.vibrantCoral,
         isEnabled: callConfig?.allowRegexBlockRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(
-              callConfig.copyWith(allowRegexBlockRules: val),
-            );
+            callNotifier.updateConfig(callConfig.copyWith(allowRegexBlockRules: val));
           }
         },
       ),
       _DefenseStrategyItem(
         index: 2,
-        title: l10n.silentRules,
-        subtitle: l10n.silenceActionDescription,
-        detailedDesc: l10n.silenceActionDescription,
+        title: l10n.enableMuteRules,
+        subtitle: l10n.enableMuteRulesDesc,
+        detailedDesc: l10n.enableMuteRulesDesc,
         icon: Icons.notifications_paused_rounded,
-        activeColor: EliteDopamineTheme.sunsetTangerine,
+        activeColor: const Color(0xFF8B5CF6),
         isEnabled: callConfig?.allowSilenceRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(
-              callConfig.copyWith(allowSilenceRules: val),
-            );
+            callNotifier.updateConfig(callConfig.copyWith(allowSilenceRules: val));
           }
         },
       ),
       _DefenseStrategyItem(
         index: 3,
-        title: l10n.rejectAllCalls,
-        subtitle: l10n.rejectAllCallsDescription,
-        detailedDesc: l10n.rejectAllCallsDescription,
-        icon: Icons.phone_disabled_rounded,
-        activeColor: const Color(0xFFE11D48),
-        isEnabled: callConfig?.rejectAllNumbers ?? false,
-        onToggle: (val) {
-          if (callConfig != null) {
-            callNotifier.updateConfig(
-              callConfig.copyWith(rejectAllNumbers: val),
-            );
-          }
-        },
-      ),
-      _DefenseStrategyItem(
-        index: 4,
-        title: l10n.allowRegexAllowRules,
-        subtitle: l10n.allowRegexAllowRulesDescription,
-        detailedDesc: l10n.allowRegexAllowRulesDescription,
-        icon: Icons.code_rounded,
-        activeColor: EliteDopamineTheme.skyAzure,
-        isEnabled: callConfig?.allowRegexAllowRules ?? true,
-        onToggle: (val) {
-          if (callConfig != null) {
-            callNotifier.updateConfig(
-              callConfig.copyWith(allowRegexAllowRules: val),
-            );
-          }
-        },
-      ),
-      _DefenseStrategyItem(
-        index: 5,
         title: l10n.enableNoneActionRules,
         subtitle: l10n.enableNoneActionRulesDesc,
         detailedDesc: l10n.enableNoneActionRulesDesc,
-        icon: Icons.label_important_outline_rounded,
-        activeColor: EliteDopamineTheme.softLilac,
+        icon: Icons.visibility_rounded,
+        activeColor: EliteDopamineTheme.sunsetTangerine,
         isEnabled: callConfig?.allowNoneRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
@@ -149,58 +108,85 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         },
       ),
       _DefenseStrategyItem(
-        index: 6,
-        title: l10n.allowBlockedNumbers,
-        subtitle: l10n.allowBlockedNumbersDesc,
-        detailedDesc: l10n.allowBlockedNumbersDesc,
-        icon: Icons.no_accounts_rounded,
-        activeColor: const Color(0xFFD97706),
-        isEnabled: callConfig?.allowBlockedNumbers ?? false,
+        index: 4,
+        title: l10n.rejectAllNumbers,
+        subtitle: l10n.rejectAllNumbersDesc,
+        detailedDesc: l10n.rejectAllNumbersDesc,
+        icon: Icons.remove_circle_rounded,
+        activeColor: const Color(0xFFE11D48),
+        isEnabled: callConfig?.rejectAllNumbers ?? false,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(
-              callConfig.copyWith(allowBlockedNumbers: val),
-            );
-          }
-        },
-      ),
-      _DefenseStrategyItem(
-        index: 7,
-        title: l10n.allowAllAllowRules,
-        subtitle: l10n.allowAllAllowRulesDesc,
-        detailedDesc: l10n.allowAllAllowRulesDesc,
-        icon: Icons.checklist_rtl_rounded,
-        activeColor: const Color(0xFF10B981),
-        isEnabled: callConfig?.allowAllAllowRules ?? true,
-        onToggle: (val) {
-          if (callConfig != null) {
-            callNotifier.updateConfig(
-              callConfig.copyWith(allowAllAllowRules: val),
-            );
-          }
-        },
-      ),
-      _DefenseStrategyItem(
-        index: 8,
-        title: l10n.allowAllBlockRules,
-        subtitle: l10n.allowAllBlockRulesDesc,
-        detailedDesc: l10n.allowAllBlockRulesDesc,
-        icon: Icons.block_flipped,
-        activeColor: const Color(0xFFC2410C),
-        isEnabled: callConfig?.allowAllBlockRules ?? true,
-        onToggle: (val) {
-          if (callConfig != null) {
-            callNotifier.updateConfig(
-              callConfig.copyWith(allowAllBlockRules: val),
-            );
+            callNotifier.updateConfig(callConfig.copyWith(rejectAllNumbers: val));
           }
         },
       ),
     ];
 
-    final currentOption = defenseOptions.firstWhere(
-      (opt) => opt.index == _selectedDefenseLevel,
-      orElse: () => defenseOptions.first,
+    // 4 个总控特例项 (Master & Overrides Options)
+    final masterOverrideOptions = [
+      _DefenseStrategyItem(
+        index: 5,
+        title: l10n.allowAllAllowRules,
+        subtitle: l10n.allowAllAllowRulesDesc,
+        detailedDesc: l10n.allowAllAllowRulesDesc,
+        icon: Icons.settings_rounded,
+        activeColor: const Color(0xFFD97706),
+        isEnabled: callConfig?.allowAllAllowRules ?? true,
+        onToggle: (val) {
+          if (callConfig != null) {
+            callNotifier.updateConfig(callConfig.copyWith(allowAllAllowRules: val));
+          }
+        },
+      ),
+      _DefenseStrategyItem(
+        index: 6,
+        title: l10n.allowAllBlockRules,
+        subtitle: l10n.allowAllBlockRulesDesc,
+        detailedDesc: l10n.allowAllBlockRulesDesc,
+        icon: Icons.settings_suggest_rounded,
+        activeColor: const Color(0xFFEF4444),
+        isEnabled: callConfig?.allowAllBlockRules ?? true,
+        onToggle: (val) {
+          if (callConfig != null) {
+            callNotifier.updateConfig(callConfig.copyWith(allowAllBlockRules: val));
+          }
+        },
+      ),
+      _DefenseStrategyItem(
+        index: 7,
+        title: l10n.allowBlockedNumbers,
+        subtitle: l10n.allowBlockedNumbersDesc,
+        detailedDesc: l10n.allowBlockedNumbersDesc,
+        icon: Icons.warning_amber_rounded,
+        activeColor: const Color(0xFFEAB308),
+        isEnabled: callConfig?.allowBlockedNumbers ?? false,
+        onToggle: (val) {
+          if (callConfig != null) {
+            callNotifier.updateConfig(callConfig.copyWith(allowBlockedNumbers: val));
+          }
+        },
+      ),
+      _DefenseStrategyItem(
+        index: 8,
+        title: l10n.allowRegexAllowRules,
+        subtitle: l10n.allowRegexAllowRulesDesc,
+        detailedDesc: l10n.allowRegexAllowRulesDesc,
+        icon: Icons.code_rounded,
+        activeColor: EliteDopamineTheme.skyAzure,
+        isEnabled: callConfig?.allowRegexAllowRules ?? true,
+        onToggle: (val) {
+          if (callConfig != null) {
+            callNotifier.updateConfig(callConfig.copyWith(allowRegexAllowRules: val));
+          }
+        },
+      ),
+    ];
+
+    final allOptions = [...dailyDefenseOptions, ...masterOverrideOptions];
+    final currentOption = allOptions.firstWhere(
+      (opt) => opt.index == _selectedDefenseIndex,
+      orElse: () => dailyDefenseOptions.first,
     );
 
     return Container(
@@ -226,310 +212,38 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
           ),
         ],
       ),
-      padding: const EdgeInsets.all(18.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 标题与管理跳转
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(7),
-                    decoration: BoxDecoration(
-                      gradient: EliteDopamineTheme.coralSunsetGradient,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Icon(
-                      Icons.tune_rounded,
-                      color: Colors.white,
-                      size: 18,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        l10n.callFilterRules,
-                        style: const TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.black87,
-                        ),
-                      ),
-                      Text(
-                        l10n.callFilterRulesDescription,
-                        style: TextStyle(
-                          fontSize: 10,
-                          color: Colors.grey[600],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              TextButton.icon(
-                onPressed: _navigateToFilterSettings,
-                icon: const Icon(Icons.settings_suggest_rounded, size: 15),
-                label: Text(
-                  l10n.filterSettingsTitle,
-                  style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
-                ),
-                style: TextButton.styleFrom(
-                  foregroundColor: EliteDopamineTheme.sunsetTangerine,
-                  padding: const EdgeInsets.symmetric(horizontal: 6),
-                ),
-              ),
-            ],
-          ),
-
-          const SizedBox(height: 14),
-
-          // 横向左右滑动的大卡片矩阵（支持完整描述展示与横滑浏览全部过滤模式）
-          SizedBox(
-            height: 128,
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              physics: const BouncingScrollPhysics(),
-              itemCount: defenseOptions.length,
-              separatorBuilder: (_, __) => const SizedBox(width: 10),
-              itemBuilder: (context, idx) {
-                final item = defenseOptions[idx];
-                final isSelected = _selectedDefenseLevel == item.index;
-
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _selectedDefenseLevel = item.index;
-                    });
-                  },
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 220),
-                    width: 156,
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: isSelected
-                          ? item.activeColor.withValues(alpha: 0.12)
-                          : const Color(0xFFFBF9F5),
-                      borderRadius: BorderRadius.circular(18),
-                      border: Border.all(
-                        color: isSelected
-                            ? item.activeColor
-                            : const Color(0xFFEDE8DF),
-                        width: isSelected ? 1.8 : 1,
-                      ),
-                      boxShadow: isSelected
-                          ? [
-                              BoxShadow(
-                                color: item.activeColor.withValues(alpha: 0.20),
-                                blurRadius: 10,
-                                offset: const Offset(0, 4),
-                              ),
-                            ]
-                          : null,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.all(6),
-                              decoration: BoxDecoration(
-                                color: isSelected
-                                    ? item.activeColor
-                                    : item.activeColor.withValues(alpha: 0.15),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Icon(
-                                item.icon,
-                                color: isSelected
-                                    ? Colors.white
-                                    : item.activeColor,
-                                size: 16,
-                              ),
-                            ),
-                            Switch.adaptive(
-                              value: item.isEnabled,
-                              activeColor: item.activeColor,
-                              materialTapTargetSize:
-                                  MaterialTapTargetSize.shrinkWrap,
-                              onChanged: item.onToggle,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          item.title,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w900,
-                            color: isSelected
-                                ? Colors.black87
-                                : Colors.grey[800],
-                          ),
-                        ),
-                        const SizedBox(height: 2),
-                        Expanded(
-                          child: Text(
-                            item.subtitle,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontSize: 9.5,
-                              height: 1.25,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.grey[600],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
+          // 头部：标题与 Separate SIMs 独立开关
+          _buildHeaderRow(l10n),
 
           const SizedBox(height: 12),
 
-          // 底部当前选中策略的完整详情阐述条与 SIM 卡快捷直达
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-            decoration: BoxDecoration(
-              color: currentOption.activeColor.withValues(alpha: 0.08),
-              borderRadius: BorderRadius.circular(14),
-              border: Border.all(
-                color: currentOption.activeColor.withValues(alpha: 0.25),
-              ),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Icon(
-                  Icons.info_outline_rounded,
-                  size: 16,
-                  color: currentOption.activeColor,
-                ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        currentOption.title,
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.black87,
-                        ),
-                      ),
-                      const SizedBox(height: 2),
-                      Text(
-                        currentOption.detailedDesc,
-                        style: TextStyle(
-                          fontSize: 10,
-                          height: 1.3,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.grey[700],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: 8),
-                InkWell(
-                  onTap: _navigateToSimSlotRules,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 6,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(
-                        color: EliteDopamineTheme.sunsetTangerine.withValues(
-                          alpha: 0.3,
-                        ),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Icon(
-                          Icons.sim_card_outlined,
-                          size: 12,
-                          color: EliteDopamineTheme.sunsetTangerine,
-                        ),
-                        const SizedBox(width: 3),
-                        Text(
-                          l10n.simSlotRules,
-                          style: const TextStyle(
-                            fontSize: 9.5,
-                            fontWeight: FontWeight.w800,
-                            color: EliteDopamineTheme.sunsetTangerine,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          // 分卡槽切换卡（受 Separate SIMs 开关控制）
+          if (_separateSims) ...[
+            _buildSimSlotTabBar(),
+            const SizedBox(height: 14),
+          ],
 
-          const SizedBox(height: 10),
+          // 第一层级：5 个常用策略大卡片 (Daily Defense Grid)
+          _buildDailyDefenseSection(dailyDefenseOptions),
 
-          // 展开/收起完整高级过滤规则总控按钮
-          InkWell(
-            onTap: () {
-              setState(() {
-                _showAdvancedSettings = !_showAdvancedSettings;
-              });
-            },
-            borderRadius: BorderRadius.circular(12),
-            child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
-              decoration: BoxDecoration(
-                color: _showAdvancedSettings
-                    ? EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.1)
-                    : const Color(0xFFF7F5F0),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    _showAdvancedSettings ? Icons.tune_rounded : Icons.tune_outlined,
-                    size: 14,
-                    color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : Colors.grey[700],
-                  ),
-                  const SizedBox(width: 5),
-                  Text(
-                    _showAdvancedSettings ? l10n.closeButton : l10n.filterManagement,
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w800,
-                      color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : Colors.grey[800],
-                    ),
-                  ),
-                  const SizedBox(width: 4),
-                  Icon(
-                    _showAdvancedSettings ? Icons.keyboard_arrow_up_rounded : Icons.keyboard_arrow_down_rounded,
-                    size: 16,
-                    color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : Colors.grey[700],
-                  ),
-                ],
-              ),
-            ),
-          ),
+          const SizedBox(height: 12),
+
+          // 选中的策略详情提示条 ((i) Info Banner)
+          _buildInfoBanner(currentOption, l10n),
+
+          const SizedBox(height: 16),
+
+          // 第二层级：4 个总控与特例胶囊网格 (Master & Overrides)
+          _buildMasterOverridesSection(masterOverrideOptions),
+
+          const SizedBox(height: 12),
+
+          // 底部折叠：Filter Management 入口
+          _buildAdvancedExpandToggle(l10n),
 
           // 高级原生多巴胺拦截管理控件
           if (_showAdvancedSettings) ...[
@@ -537,6 +251,587 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
             _buildAdvancedFilterSettingsSection(l10n),
           ],
         ],
+      ),
+    );
+  }
+
+  // --- 子组件拆分 (Clean Modular Sub-Components) ---
+
+  Widget _buildHeaderRow(AppLocalizations l10n) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(7),
+                  decoration: BoxDecoration(
+                    gradient: EliteDopamineTheme.coralSunsetGradient,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(
+                    Icons.tune_rounded,
+                    color: Colors.white,
+                    size: 18,
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l10n.callFilterRules,
+                      style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.black87,
+                      ),
+                    ),
+                    Text(
+                      l10n.callFilterRulesDescription,
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: Colors.grey[600],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            InkWell(
+              onTap: _navigateToFilterSettings,
+              borderRadius: BorderRadius.circular(8),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.settings_suggest_rounded,
+                      size: 14,
+                      color: EliteDopamineTheme.sunsetTangerine,
+                    ),
+                    const SizedBox(width: 3),
+                    Text(
+                      l10n.filterSettingsTitle,
+                      style: const TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.bold,
+                        color: EliteDopamineTheme.sunsetTangerine,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 8),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            const Icon(Icons.signal_cellular_alt_rounded, size: 14, color: Color(0xFFD97706)),
+            const SizedBox(width: 4),
+            const Text(
+              'Separate SIMs',
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(width: 6),
+            Transform.scale(
+              scale: 0.85,
+              child: Switch.adaptive(
+                value: _separateSims,
+                activeColor: const Color(0xFFD97706),
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                onChanged: (val) {
+                  setState(() {
+                    _separateSims = val;
+                  });
+                },
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSimSlotTabBar() {
+    final simCardsAsync = ref.watch(simCardsProvider);
+
+    return simCardsAsync.when(
+      data: (simCards) {
+        return Container(
+          decoration: BoxDecoration(
+            color: const Color(0xFFF7F5F0),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          padding: const EdgeInsets.all(3),
+          child: Row(
+            children: [
+              Expanded(
+                child: _buildSimTabButton(
+                  slotIndex: 0,
+                  label: 'SIM 1 (Active)',
+                  color: EliteDopamineTheme.freshMint,
+                  isSelected: _selectedSimSlot == 0,
+                ),
+              ),
+              const SizedBox(width: 4),
+              Expanded(
+                child: _buildSimTabButton(
+                  slotIndex: 1,
+                  label: 'SIM 2 (Active)',
+                  color: EliteDopamineTheme.sunsetTangerine,
+                  isSelected: _selectedSimSlot == 1,
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+      loading: () => const SizedBox.shrink(),
+      error: (_, __) => const SizedBox.shrink(),
+    );
+  }
+
+  Widget _buildSimTabButton({
+    required int slotIndex,
+    required String label,
+    required Color color,
+    required bool isSelected,
+  }) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _selectedSimSlot = slotIndex;
+        });
+      },
+      borderRadius: BorderRadius.circular(13),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        decoration: BoxDecoration(
+          color: isSelected ? Colors.white : Colors.transparent,
+          borderRadius: BorderRadius.circular(13),
+          boxShadow: isSelected
+              ? [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.06),
+                    blurRadius: 6,
+                    offset: const Offset(0, 2),
+                  ),
+                ]
+              : null,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.signal_cellular_alt_rounded, size: 14, color: color),
+            const SizedBox(width: 5),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: isSelected ? FontWeight.w900 : FontWeight.w600,
+                color: isSelected ? Colors.black87 : Colors.grey[700],
+              ),
+            ),
+            const SizedBox(width: 5),
+            Container(
+              width: 7,
+              height: 7,
+              decoration: BoxDecoration(
+                color: color,
+                shape: BoxShape.circle,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDailyDefenseSection(List<_DefenseStrategyItem> dailyOptions) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // 第一行 3 个大卡片
+        Row(
+          children: [
+            Expanded(child: _buildDailyCardItem(dailyOptions[0])),
+            const SizedBox(width: 8),
+            Expanded(child: _buildDailyCardItem(dailyOptions[1])),
+            const SizedBox(width: 8),
+            Expanded(child: _buildDailyCardItem(dailyOptions[2])),
+          ],
+        ),
+        const SizedBox(height: 8),
+        // 第二行 2 个大卡片
+        Row(
+          children: [
+            Expanded(child: _buildDailyCardItem(dailyOptions[3])),
+            const SizedBox(width: 8),
+            Expanded(child: _buildDailyCardItem(dailyOptions[4])),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildDailyCardItem(_DefenseStrategyItem item) {
+    final isSelected = _selectedDefenseIndex == item.index;
+
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selectedDefenseIndex = item.index;
+        });
+      },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: isSelected
+              ? item.activeColor.withValues(alpha: 0.12)
+              : const Color(0xFFFBF9F5),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(
+            color: isSelected ? item.activeColor : const Color(0xFFEDE8DF),
+            width: isSelected ? 1.8 : 1,
+          ),
+          boxShadow: isSelected
+              ? [
+                  BoxShadow(
+                    color: item.activeColor.withValues(alpha: 0.16),
+                    blurRadius: 8,
+                    offset: const Offset(0, 3),
+                  ),
+                ]
+              : null,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    color: isSelected
+                        ? item.activeColor
+                        : item.activeColor.withValues(alpha: 0.15),
+                    borderRadius: BorderRadius.circular(9),
+                  ),
+                  child: Icon(
+                    item.icon,
+                    color: isSelected ? Colors.white : item.activeColor,
+                    size: 15,
+                  ),
+                ),
+                Transform.scale(
+                  scale: 0.75,
+                  child: Switch.adaptive(
+                    value: item.isEnabled,
+                    activeColor: item.activeColor,
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    onChanged: item.onToggle,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 6),
+            Text(
+              item.title,
+              maxLines: 2,
+              softWrap: true,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 11,
+                height: 1.1,
+                fontWeight: FontWeight.w900,
+                color: isSelected ? Colors.black87 : Colors.grey[800],
+              ),
+            ),
+            const SizedBox(height: 2),
+            Text(
+              item.subtitle,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 9,
+                height: 1.2,
+                fontWeight: FontWeight.w500,
+                color: Colors.grey[600],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildInfoBanner(_DefenseStrategyItem currentOption, AppLocalizations l10n) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      decoration: BoxDecoration(
+        color: currentOption.activeColor.withValues(alpha: 0.08),
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(
+          color: currentOption.activeColor.withValues(alpha: 0.25),
+        ),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.info_outline_rounded,
+            size: 16,
+            color: currentOption.activeColor,
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  currentOption.title,
+                  style: const TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w800,
+                    color: Colors.black87,
+                  ),
+                ),
+                Text(
+                  currentOption.detailedDesc,
+                  style: TextStyle(
+                    fontSize: 9.5,
+                    height: 1.2,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.grey[700],
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 8),
+          InkWell(
+            onTap: _navigateToSimSlotRules,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(
+                  color: EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.3),
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.sim_card_outlined,
+                    size: 12,
+                    color: EliteDopamineTheme.sunsetTangerine,
+                  ),
+                  const SizedBox(width: 3),
+                  Text(
+                    l10n.simSlotRules,
+                    style: const TextStyle(
+                      fontSize: 9.5,
+                      fontWeight: FontWeight.w800,
+                      color: EliteDopamineTheme.sunsetTangerine,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMasterOverridesSection(List<_DefenseStrategyItem> masterOptions) {
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: const Color(0xFFF4F6FA),
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: const Color(0xFFE2E8F0),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Text(
+                '4 总控特例 (Master & Overrides)',
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.black87,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 2),
+          Text(
+            'Advanced & Master Controls',
+            style: TextStyle(
+              fontSize: 9.5,
+              color: Colors.grey[600],
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Expanded(child: _buildMasterPillItem(masterOptions[0])),
+              const SizedBox(width: 8),
+              Expanded(child: _buildMasterPillItem(masterOptions[1])),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              Expanded(child: _buildMasterPillItem(masterOptions[2])),
+              const SizedBox(width: 8),
+              Expanded(child: _buildMasterPillItem(masterOptions[3])),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMasterPillItem(_DefenseStrategyItem item) {
+    final isSelected = _selectedDefenseIndex == item.index;
+
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selectedDefenseIndex = item.index;
+        });
+      },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+        decoration: BoxDecoration(
+          color: isSelected
+              ? item.activeColor.withValues(alpha: 0.15)
+              : Colors.white,
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(
+            color: isSelected ? item.activeColor : const Color(0xFFE2E8F0),
+            width: isSelected ? 1.6 : 1,
+          ),
+        ),
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                color: item.activeColor.withValues(alpha: 0.15),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Icon(item.icon, color: item.activeColor, size: 14),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    item.title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 10.5,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.black87,
+                    ),
+                  ),
+                  Text(
+                    item.subtitle,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 8.5,
+                      color: Colors.grey[600],
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Transform.scale(
+              scale: 0.7,
+              child: Switch.adaptive(
+                value: item.isEnabled,
+                activeColor: item.activeColor,
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                onChanged: item.onToggle,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAdvancedExpandToggle(AppLocalizations l10n) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _showAdvancedSettings = !_showAdvancedSettings;
+        });
+      },
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+        decoration: BoxDecoration(
+          color: _showAdvancedSettings
+              ? EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.1)
+              : const Color(0xFFF7F5F0),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              _showAdvancedSettings ? Icons.tune_rounded : Icons.tune_outlined,
+              size: 14,
+              color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : Colors.grey[700],
+            ),
+            const SizedBox(width: 5),
+            Text(
+              _showAdvancedSettings ? l10n.closeButton : l10n.filterManagement,
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.w800,
+                color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : Colors.grey[800],
+              ),
+            ),
+            const SizedBox(width: 4),
+            Icon(
+              _showAdvancedSettings ? Icons.keyboard_arrow_up_rounded : Icons.keyboard_arrow_down_rounded,
+              size: 16,
+              color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : Colors.grey[700],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -669,46 +964,9 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
           );
         }
 
-        if (_simTabController == null || _simTabController!.length != simCards.length) {
-          _simTabController?.dispose();
-          _simTabController = TabController(length: simCards.length, vsync: this);
-        }
-
         return Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                color: const Color(0xFFF7F5F0),
-                borderRadius: BorderRadius.circular(14),
-              ),
-              child: TabBar(
-                controller: _simTabController,
-                indicator: BoxDecoration(
-                  gradient: EliteDopamineTheme.heroWarmGradient,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                indicatorSize: TabBarIndicatorSize.tab,
-                dividerColor: Colors.transparent,
-                labelColor: Colors.white,
-                unselectedLabelColor: Colors.grey[700],
-                labelStyle: const TextStyle(fontWeight: FontWeight.w800, fontSize: 11),
-                tabs: simCards.map((sim) {
-                  final slot = sim.simSlotIndex ?? 0;
-                  return Tab(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(Icons.sim_card_outlined, size: 14),
-                        const SizedBox(width: 4),
-                        Text('SIM ${slot + 1} (${sim.carrierName ?? ""})'),
-                      ],
-                    ),
-                  );
-                }).toList(),
-              ),
-            ),
-            const SizedBox(height: 10),
-            _buildSimSlotRulesList(l10n, simCards[_simTabController?.index ?? 0].simSlotIndex ?? 0),
+            _buildSimSlotRulesList(l10n, simCards[_selectedSimSlot < simCards.length ? _selectedSimSlot : 0].simSlotIndex ?? 0),
           ],
         );
       },
@@ -838,80 +1096,6 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
             onChanged: onChanged,
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildDefenseOption({
-    required int index,
-    required String title,
-    required String subtitle,
-    required IconData icon,
-    required Color activeColor,
-  }) {
-    final isSelected = _selectedDefenseLevel == index;
-
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: () {
-          setState(() {
-            _selectedDefenseLevel = index;
-          });
-        },
-        borderRadius: BorderRadius.circular(16),
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 220),
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
-          decoration: BoxDecoration(
-            color: isSelected ? activeColor.withValues(alpha: 0.12) : const Color(0xFFFBF9F5),
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(
-              color: isSelected ? activeColor : const Color(0xFFEDE8DF),
-              width: isSelected ? 2 : 1,
-            ),
-            boxShadow: isSelected
-                ? [
-                    BoxShadow(
-                      color: activeColor.withValues(alpha: 0.18),
-                      blurRadius: 8,
-                      offset: const Offset(0, 3),
-                    ),
-                  ]
-                : null,
-          ),
-          child: Column(
-            children: [
-              Icon(
-                icon,
-                color: isSelected ? activeColor : Colors.grey[600],
-                size: 22,
-              ),
-              const SizedBox(height: 5),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w800,
-                  color: isSelected ? Colors.black87 : Colors.grey[800],
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 1),
-              Text(
-                subtitle,
-                style: TextStyle(
-                  fontSize: 8.5,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.grey[600],
-                ),
-                textAlign: TextAlign.center,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }

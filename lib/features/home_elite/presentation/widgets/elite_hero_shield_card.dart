@@ -14,6 +14,7 @@ import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart
 import 'package:yourcallyourrule/features/caller_id/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
+import 'package:yourcallyourrule/features/home_elite/presentation/widgets/professional_shield_radar.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ------------------- Widget 定义 -------------------
@@ -37,6 +38,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
   @override
   void initState() {
     super.initState();
+    // 设置 3 秒周期的柔和呼吸缩放动画
     _pulseController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
@@ -157,36 +159,10 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // 动态脉冲盾牌（左侧）
-                  AnimatedBuilder(
-                    animation: _pulseAnimation,
-                    builder: (context, child) {
-                      return Transform.scale(
-                        scale: _pulseAnimation.value,
-                        child: Container(
-                          width: 60,
-                          height: 60,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            gradient: EliteDopamineTheme.shieldMintGradient,
-                            boxShadow: [
-                              BoxShadow(
-                                color: EliteDopamineTheme.freshMint.withValues(alpha: 0.30),
-                                blurRadius: 16,
-                                spreadRadius: 2,
-                              ),
-                            ],
-                          ),
-                          child: const Center(
-                            child: Icon(
-                              Icons.verified_user_rounded,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                          ),
-                        ),
-                      );
-                    },
+                  // 动态脉冲雷达盾牌（独立小组件）包裹 ScaleTransition 实现微弱呼吸感
+                  ScaleTransition(
+                    scale: _pulseAnimation,
+                    child: const ProfessionalShieldRadar(),
                   ),
                   const SizedBox(width: 14),
                   // 右侧动态信息栏
