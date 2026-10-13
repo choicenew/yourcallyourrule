@@ -1,18 +1,22 @@
 // -----------------------------------------------------------------------------
 // 文件: elite_app_bar.dart
-// 描述: Elite 顶部应用栏，包含品牌动态标识、双向模式切换胶囊与设置入口。
+// 描述: Elite 顶部应用栏，动态读取系统默认来电拦截角色权限状态（Protection Active/Inactive），支持点击直接调起原生授权。
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/caller_id/services/call_protection_service.dart';
+import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.dart';
+import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ------------------- Widget 定义 -------------------
 
-class EliteAppBar extends StatelessWidget {
+class EliteAppBar extends ConsumerWidget {
   final VoidCallback? onSwitchToPro;
 
   const EliteAppBar({
@@ -36,9 +40,37 @@ class EliteAppBar extends StatelessWidget {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Future<void> _handleStatusTap(BuildContext context, WidgetRef ref, bool isProtectionActive) async {
     final l10n = AppLocalizations.of(context)!;
+    if (isProtectionActive) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(l10n.callScreeningPermission),
+          backgroundColor: Colors.green,
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    } else {
+      // 调起 Android 原生“设为默认来电拦截与识别应用”对话框
+      CallProtectionService().clearCachedStatus();
+      final granted = await CallScreeningPlugin.requestCallScreeningRole();
+      if (context.mounted) {
+        ref.invalidate(homeStatsProvider);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(granted ? l10n.permissionGranted : l10n.callScreeningPermissionNotGranted),
+            backgroundColor: granted ? Colors.green : Colors.orange,
+          ),
+        );
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
+    final asyncStats = ref.watch(homeStatsProvider);
+    final isProtectionActive = asyncStats.value?.isProtectionActive ?? false;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -90,27 +122,37 @@ class EliteAppBar extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Row(
-                        children: [
-                          Container(
-                            width: 6,
-                            height: 6,
-                            decoration: const BoxDecoration(
-                              color: EliteDopamineTheme.freshMint,
-                              shape: BoxShape.circle,
+                      // 动态系统默认来电防护激活状态条
+                      GestureDetector(
+                        onTap: () => _handleStatusTap(context, ref, isProtectionActive),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            AnimatedContainer(
+                              duration: const Duration(milliseconds: 300),
+                              width: 6,
+                              height: 6,
+                              decoration: BoxDecoration(
+                                color: isProtectionActive
+                                    ? EliteDopamineTheme.freshMint
+                                    : EliteDopamineTheme.warmSunAmber,
+                                shape: BoxShape.circle,
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: 4),
-                          Text(
-                            l10n.enabled,
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w800,
-                              letterSpacing: 0.5,
-                              color: Colors.grey[600],
+                            const SizedBox(width: 4),
+                            Text(
+                              isProtectionActive ? l10n.enabled : l10n.disabled,
+                              style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.w800,
+                                letterSpacing: 0.5,
+                                color: isProtectionActive
+                                    ? EliteDopamineTheme.freshMint
+                                    : EliteDopamineTheme.sunsetTangerine,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -188,13 +230,15 @@ class EliteAppBar extends StatelessWidget {
 
 @Preview(name: 'Elite App Bar', group: 'Elite Showcase')
 Widget previewEliteAppBar() {
-  return const MaterialApp(
-    localizationsDelegates: AppLocalizations.localizationsDelegates,
-    supportedLocales: AppLocalizations.supportedLocales,
-    home: Scaffold(
-      backgroundColor: EliteDopamineTheme.warmCanvasBackground,
-      body: SafeArea(
-        child: EliteAppBar(),
+  return const ProviderScope(
+    child: MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: Scaffold(
+        backgroundColor: EliteDopamineTheme.warmCanvasBackground,
+        body: SafeArea(
+          child: EliteAppBar(),
+        ),
       ),
     ),
   );
