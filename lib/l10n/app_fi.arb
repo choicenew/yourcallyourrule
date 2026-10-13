@@ -6,14 +6,6 @@
   },
   "aboutLabels": "Tietoja tunnisteista",
   "aboutPhoneSubscriptionRules": "Tietoja puhelintilaussäännöistä",
-  "aboutPhoneSubscriptions": "Tietoja puhelintilauksista",
-  "@aboutPhoneSubscriptions": {
-    "description": "About phone subscriptions title"
-  },
-  "aboutPhoneSubscriptionsDesc": "Tilaa puhelinsääntöluetteloita URL-osoitteen kautta, päivitä sääntöjä automaattisesti. Tukee JSON-, CSV-muotoisia sääntötiedostoja.",
-  "@aboutPhoneSubscriptionsDesc": {
-    "description": "About phone subscriptions description"
-  },
   "aboutSmsFilter": "Tietoja tekstiviestisuodatuksesta",
   "aboutSmsSubscriptionRules": "Tietoja tekstiviestitilaussäännöistä",
   "aboutSubtitle": "Sovelluksen versio ja lakitiedot",
@@ -22,7 +14,6 @@
   "actionAll": "Kaikki",
   "actionAllow": "Salli",
   "actionBlock": "Estä",
-  "actionFilterAll": "Kaikki suodattimet",
   "actionFilterTitle": "Suodata toimintatyypin mukaan",
   "actionFilterTooltip": "Toimintosuodatin",
   "actionNone": "Ei toimintoa",
@@ -42,24 +33,15 @@
   },
   "addContactButton": "Lisää yhteystieto",
   "addContactFailed": "Yhteystiedon lisäys epäonnistui: {error}",
-  "addedToAllowedRules": "Lisätty sallittuihin sääntöihin",
-  "addedToBlacklist": "Lisätty estolistalle",
-  "addedToBlockedRules": "Lisätty estettyihin sääntöihin",
-  "addedToFavoriteContacts": "Lisätty suosikk yhteystietoihin",
   "addedToFavorites": "Lisätty suosikkeihin",
-  "addedToWhitelist": "Lisätty sallittujen luetteloon",
-  "addFavorite": "Lisää suosikki",
-  "addFilter": "Lisää suodatin",
   "addLabel": "Lisää tunniste",
   "addLabelButton": "Lisää tunniste",
   "addLabelFailed": "Tunnisteen lisäys epäonnistui: {error}",
-  "addLabelToCall": "Lisää tunniste puhelutietoihin",
   "addName": "Lisää nimi",
   "addNoneSubscription": "Lisää ei mitään tilausta",
   "@addNoneSubscription": {
     "description": "Add none subscription dialog title"
   },
-  "addOrEditContactInfo": "Käytetään yhteystietojen lisäämiseen tai muokkaamiseen",
   "addPhoneMark": "Lisää puhelinmerkki",
   "addPhoneNumberRule": "Lisää puhelinnumerosääntö",
   "addPlugin": "Lisää lisäosa",
@@ -69,14 +51,12 @@
   "addPluginFromUrl": "Lisää lisäosa URL-osoitteesta",
   "addRegexRule": "Lisää säännöllinen lausekesääntö",
   "addRule": "Lisää sääntö",
-  "addRuleButton": "Lisää sääntö",
   "addRuleFailed": "Säännön lisäys epäonnistui: {error}",
   "addRuleTooltip": "Lisää sääntö",
   "addSilenceSubscription": "Lisää hiljentävä tilaus",
   "@addSilenceSubscription": {
     "description": "Add silence subscription dialog title"
   },
-  "addSimRuleButton": "Lisää SIM-sääntö",
   "addSmsFilterRule": "Lisää tekstiviestisuodatus sääntö",
   "addSmsRule": "Lisää tekstiviestisääntö",
   "addSmsSubscription": "Lisää tekstiviestitilaus",
@@ -95,26 +75,17 @@
     }
   },
   "addSubscriptionTooltip": "Lisää tilaus",
-  "addToAllowedRules": "Lisää sallittuihin sääntöihin",
   "addToBlacklist": "Lisää estolistalle",
-  "addToBlockedRules": "Lisää estettyihin sääntöihin",
-  "addToFavoriteContacts": "Lisää suosikki yhteystietoihin",
   "addToFavorites": "Lisää suosikkeihin",
   "addToRules": "Lisää sääntöihin",
   "addToWhitelist": "Lisää sallittujen luetteloon",
-  "adPlaceholder": "Mainos paikkamerkki",
   "agent": "Agentti",
   "all": "Kaikki",
   "allCallsTab": "Kaikki",
-  "allDataClearedSuccessfully": "Kaikki tiedot tyhjennetty onnistuneesti",
   "allow": "Salli",
   "allowAllAllowRules": "Salli kaikki sallitut säännöt",
   "allowAllAllowRulesDesc": "Salli puhelut sallituista säännöistä",
   "allowAllBlacklistedNumbers": "Salli kaikki estolistalla olevat numerot",
-  "allowAllBlacklistedNumbersDesc": "Salli puhelut estolistalta",
-  "@allowAllBlacklistedNumbersDesc": {
-    "description": "Allow calls from blocklist"
-  },
   "allowAllBlockRules": "Salli kaikki estetyt säännöt",
   "allowAllBlockRulesDesc": "Salli puhelut estetyistä säännöistä",
   "allowAllowedNumbers": "Salli sallitut numerot",
@@ -135,8 +106,6 @@
   "allowRegexBlockRulesDescription": "Ota käyttöön säännöllisiin lausekkeisiin perustuvat estetyt säännöt",
   "allowRule": "Salli sääntö",
   "allowRules": "Salli säännöt",
-  "allowWhitelistedNumbers": "Salli valkoisten numeroiden salliminen",
-  "allowWhitelistedNumbersDescription": "Salli kaikki valkoisella listalla olevat numerot",
   "allPermissionsGranted": "Kaikki käyttöoikeudet myönnetty",
   "allSettingsCompleted": "Kaikki asetukset suoritettu.",
   "allUpdateSuccess": "Kaikki päivitykset suoritettu ({count} sääntöä)",
@@ -149,7 +118,6 @@
     }
   },
   "answerThenHangup": "Vastaa ja katkaise puhelu",
-  "appLegalese": "© 2023 Sinun Puhelusi Sinun Sääntösi. Kaikki oikeudet pidätetään.",
   "applicationSoftware": "Sovellusohjelmisto",
   "apply": "Käytä",
   "appName": "Sinun Puhelusi Sinun Sääntösi",
@@ -162,8 +130,6 @@
   "autoUpdate": "Automaattinen päivitys",
   "autoUpdateDescription": "Aseta automaattiset päivitysvälit tilauksille tai päivitä manuaalisesti",
   "autoUpdateSettings": "Automaattisen päivityksen asetukset",
-  "autoUpdateSettingsSubtitle": "Hallitse sääntöjen ja lisäosien automaattisia päivityksiä",
-  "autoUpdateSettingsTitle": "Automaattisen päivityksen asetukset",
   "autoUpdateSubtitle": "Hallitse sääntöjen ja lisäosien automaattisia päivityksiä",
   "autoUpdateTitle": "Automaattinen päivitys",
   "avatarBorderColor": "Avatarin reunaväri",
@@ -178,57 +144,33 @@
   "backupAndRestoreSubtitle": "Varmuuskopioi tai palauta sovelluksen tiedot",
   "backupAndRestoreTitle": "Varmuuskopiointi ja palautus",
   "backupFailed": "Varmuuskopiointi epäonnistui",
-  "backupFailedMessage": "Varmuuskopiointi epäonnistui",
-  "backupFailedWithError": "Varmuuskopiointi epäonnistui: {error}",
-  "backupRestoreSubtitle": "Varmuuskopioi tai palauta sovelluksen tiedot",
-  "backupRestoreTitle": "Varmuuskopiointi ja palautus",
-  "backupSectionTitle": "Varmuuskopiointi",
   "backupSettings": "Varmuuskopiointiasetukset",
-  "backupSettingsDialogTitle": "Varmuuskopiointiasetukset",
-  "backupSettingsTitle": "Varmuuskopiointiasetukset",
-  "backupSuccessMessage": "Varmuuskopiointi pilveen onnistui onnistuneesti",
-  "backupSuccessToLocal": "Varmuuskopiointi onnistui sijaintiin: {path}",
   "backupToCloud": "Varmuuskopiointi pilveen",
-  "backupToCloudDescription": "Varmuuskopioi asetukset ja säännöt pilvitallennustilaan",
   "backupToCloudFailed": "Varmuuskopiointi pilveen epäonnistui: {error}",
-  "backupToCloudLabel": "Varmuuskopiointi pilveen",
   "backupToCloudSuccess": "Varmuuskopiointi pilveen onnistui onnistuneesti",
-  "backupToCloudTitle": "Varmuuskopiointi pilveen",
-  "backupToLocalLabel": "Varmuuskopiointi paikallisesti",
   "bank": "Pankki",
   "basicInfo": "Perustiedot",
   "basicRuleFilter": "Perussääntösuodatin",
   "basicRuleFiltering": "Perussääntöjen suodatus",
   "basicRuleFilteringExplanation": "• Perussääntöjen suodatus: Sääntöjen suodatus mustan listan, valkoisen listan ja säännöllisten lausekkeiden perusteella",
-  "basicRuleFilterSettings": "Perussääntösuodattimen asetukset",
-  "@basicRuleFilterSettings": {
-    "description": "Title for basic rule filter settings page"
-  },
   "basicRuleFilterSubtitle": "Suodata puheluita mustan/valkoisen listan ja säännöllisten lausekkeiden avulla",
-  "batchDeleteContacts": "Useamman kontaktin poisto",
   "batchDeleteContactsConfirm": "Haluatko varmasti poistaa {count} valittua kontaktia?",
-  "batchDeleteFailed": "Useamman poisto epäonnistui",
   "batchDeleteLabelsConfirm": "Haluatko varmasti poistaa {count} valittua tunnusta?",
   "blacklist": "Musta lista",
   "@blacklist": {
     "description": "Blacklist label"
   },
   "blacklistingAndWhitelisting": "Mustalle listalle lisääminen ja valkoiselle listalle lisääminen",
-  "blacklistLabel": "Musta lista",
   "blackWhiteList": "Musta/valkoinen lista",
   "block": "Estä",
   "blockCalls": "Estä puhelut",
   "blocked": "Estetty",
-  "blockedCallAction": "Estetty puhelun toiminto",
   "blockedCalls": "Estetyt puhelut",
   "blockedCallsTitle": "Estetyt puhelut",
-  "blockedCommunications": "Estetyt yhteydenotot",
-  "blockedPhoneLabel": "Estetyt puhelut",
   "blockedSpamCalls": "Estetyt roskapuhelut",
   "blockingTrend": "Estotrendi",
   "blockInternationalCalls": "vastaa numeroita, jotka eivät ala + tai 00",
   "blockInternationalCallsTitle": "Estä kansainväliset puhelut",
-  "blockLandlineNumbersTitle": "Estä lankapuhelinnumerot",
   "blockMobileNumbers": "vastaa numeroita, jotka eivät ala 13-19",
   "blockMobileNumbersTitle": "Estä matkapuhelinnumerot",
   "blockPremiumRateNumbers": "vastaa numeroita, jotka eivät ala 118 tai 120-190",
@@ -244,19 +186,9 @@
   "bulkDeleteLabels": "Useamman tunnuksen poisto",
   "call": "Puhelu",
   "callback": "Takaisinsoitto",
-  "callbackTo": "Soita takaisin numeroon {number}",
-  "@callbackTo": {
-    "description": "Callback notification message",
-    "placeholders": {
-      "number": {
-        "type": "String"
-      }
-    }
-  },
   "callBlocking": "Puheluiden esto",
   "callerIdApp": "Soittajan tunnuksen sovellus",
   "callerIdCustomizationTitle": "Soittajan tunnuksen mukauttaminen",
-  "callerIdDialogTitle": "Soittajan tunnuksen tiedot",
   "callerIdDisplayMode": "Puhelun tunnuksen näyttötila",
   "callerIdMarkedByCount": "Merkitty {count} kertaa",
   "@callerIdMarkedByCount": {
@@ -268,8 +200,6 @@
     }
   },
   "callerIdPreview": "Puhelun tunnuksen esikatselu",
-  "callFilter": "Puhelusuodatus",
-  "callFilterDescription": "Kun tämä on käytössä, saapuvat puhelut tarkistetaan alla olevan sääntölistan perusteella. Puhelusuodatussääntöjä ei oletusarvoisesti synkronoida laitteiden välillä.",
   "callFilterRules": "Puhelusuodatussäännöt",
   "callFilterRulesDescription": "Aseta perussäännöt puhelusuodatukselle",
   "callFilterSettings": "Puhelusuodatusasetukset",
@@ -278,33 +208,10 @@
   "callHistory": "Puheluhistoria",
   "callHistoryInfoDesc": "Tässä näkyy puheluhistoriasi, mukaan lukien saapuneet, lähteneet ja vastaamattomat puhelut.",
   "callHistoryInfoTitle": "Puheluhistoria",
-  "callHistoryInitFailed": "Puheluhistorian alustus epäonnistui: {error}",
-  "@callHistoryInitFailed": {
-    "description": "Call history initialization failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
-  "callHistoryRefreshFailed": "Puheluhistorian päivitys epäonnistui: {error}",
-  "@callHistoryRefreshFailed": {
-    "description": "Call history refresh failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "callHistoryTab": "Puheluhistoria",
-  "callHistoryTimelineEarlier": "Aikaisemmin",
-  "callHistoryTimelineToday": "Tänään",
-  "callHistoryTimelineYesterday": "Eilen",
   "callScreeningPermission": "Puhelun seulontaoikeus",
   "callScreeningPermissionDescription": "Käytetään roskapuheluiden seulontaan ja estämiseen.",
   "callScreeningPermissionNotGranted": "Puhelun seulontaoikeutta ei ole myönnetty, mikä voi vaikuttaa sovelluksen toimintaan.",
-  "callSettingsSubtitle": "Puhelun tunnuksen, suodatuksen ja eston asetukset",
-  "callSettingsTitle": "Puhelun asetukset",
   "callStatistics": "Puhelutilastot",
   "callTypeAnswered": "Vastattu",
   "callTypeBlocked": "Estetty",
@@ -330,32 +237,14 @@
       }
     }
   },
-  "changeTag": "Vaihda merkintä",
   "charity": "Hyväntekeväisyys",
-  "chartMonthFormat": "Kuukausi {month}",
-  "@chartMonthFormat": {
-    "description": "Month format for chart labels",
-    "placeholders": {
-      "month": {
-        "type": "int"
-      }
-    }
-  },
-  "chartOneDayAgo": "1 päivä sitten",
-  "chartOneMonthAgo": "1 kuukausi sitten",
   "chartOneWeekAgo": "1 viikko sitten",
-  "chartTenDaysAgo": "10 päivää sitten",
   "chartThreeDaysAgo": "3 päivää sitten",
   "chartToday": "Tänään",
   "checkFileFormat": "Tarkista tiedostomuoto tai käyttöoikeudet",
   "checkPermissionFailed": "Käyttöoikeuksien tarkistus epäonnistui: {error}",
   "chooseDefaultInterceptAction": "Valitse oletus sieppaustoiminto",
-  "clearAllData": "Tyhjennä kaikki tiedot",
-  "clearAllDataConfirmation": "Oletko varma, että haluat tyhjentää kaikki sovelluksen tiedot? Tätä toimenpidettä ei voi peruuttaa.",
-  "clearAllDataDescription": "Tyhjennä kaikki sovelluksen tiedot",
-  "clearAllDataLabel": "Tyhjennä kaikki tiedot",
   "clearFilter": "Tyhjennä suodatin",
-  "clearLabelFilter": "Tyhjennä tunnistesuodatin",
   "clearLabelFilterButton": "Tyhjennä tunnistesuodatin",
   "closeButton": "Sulje",
   "cloudSync": "Pilvisynkronointi",
@@ -363,26 +252,18 @@
   "cloudSyncSettingsSubtitle": "Määritä WebDAV, OneDrive ja Google Drive",
   "cloudSyncSettingsTitle": "Pilvisynkronoinnin asetukset",
   "cloudSyncTitle": "Pilvisynkronointi",
-  "collapseLabelSelector": "Kokoa tunnisteen valitsin",
   "collection": "Velanperintä",
   "colorPickerTitle": "Valitse väri",
   "configManagement": "Konfiguraationhallinta",
   "configUpdated": "Konfiguraatio päivitetty",
   "configurationAdvice": "Asianmukaisella konfiguraatiolla voit asettaa erilaisia suodatusstrategioita työ- ja henkilökohtaisille SIM-korteille.",
   "configureBackupOptions": "Määritä varmuuskopiointivaihtoehdot",
-  "configureBackupOptionsSubtitle": "Määritä varmuuskopiointivaihtoehdot",
   "configureCloudSyncService": "Määritä pilvisynkronointipalvelu",
-  "configureCloudSyncServiceHint": "Määritä pilvisynkronointipalvelu monilaitteisen synkronoinnin mahdollistamiseksi.",
   "configureCloudSyncServiceMessage": "Määritä pilvisynkronointipalvelu monilaitteisen synkronoinnin mahdollistamiseksi.",
   "configureSimCardFilterRules": "Määritä SIM-kortin suodatussäännöt",
-  "configureSyncServiceHint": "Määritä ensin synkronointipalvelu pilvisynkronoinnin asetuksissa",
   "confirm": "Vahvista",
-  "confirmBatchDeleteContacts": "Oletko varma, että haluat poistaa valitut",
   "confirmButton": "Vahvista",
   "confirmDelete": "Vahvista poisto",
-  "confirmDeleteContact": "Oletko varma, että haluat poistaa",
-  "confirmDeleteContactName": "Vahvista poisto?",
-  "confirmDeleteFilter": "Oletko varma, että haluat poistaa tämän suodattimen?",
   "confirmDeleteLabel": "Oletko varma, että haluat poistaa tunnisteen \"{name}\"",
   "confirmDeletePlugin": "Oletko varma, että haluat poistaa liitännäisen \"{name}\"?",
   "confirmDeletePlugins": "Oletko varma, että haluat poistaa {count} liitännäistä?",
@@ -396,10 +277,8 @@
     }
   },
   "confirmDeleteRuleMessage": "Oletko varma, että haluat poistaa tämän säännön? Tätä toimenpidettä ei voi peruuttaa.",
-  "confirmDeleteSelectedContacts": "Oletko varma, että haluat poistaa valitut yhteystiedot?",
   "confirmDeleteSmsFilterRule": "Oletko varma, että haluat poistaa tämän tekstiviestisuodatussäännön?",
   "confirmDeleteSmsRule": "Oletko varma, että haluat poistaa tämän tekstiviestin säännön?",
-  "confirmDeleteSubscription": "Oletko varma, että haluat poistaa tämän tilauksen?",
   "confirmDeleteSubscriptions": "Oletko varma, että haluat poistaa {name}?",
   "@confirmDeleteSubscriptions": {
     "description": "Confirmation message shown before deleting a subscription.",
@@ -411,7 +290,6 @@
     }
   },
   "confirmPassword": "Vahvista salasana",
-  "confirmPasswordLabel": "Vahvista salasana",
   "connectedStatus": "Yhdistetty",
   "connectionFailedCheckCredentialsMessage": "Yhteys epäonnistui: Tarkista palvelimen osoite, käyttäjänimi ja salasana",
   "connectionFailedMessage": "Yhteys epäonnistui",
@@ -419,19 +297,11 @@
   "connectionSuccessMessage": "Yhteys onnistui",
   "contactAddSuccess": "Yhteyshenkilö lisätty onnistuneesti",
   "contactDeleted": "Yhteyshenkilö poistettu",
-  "contactEditDialog": "Yhteyshenkilön muokkausikkuna",
-  "contactNameHint": "Syötä yhteyshenkilön nimi (valinnainen)",
   "contactNameLabel": "Nimi",
-  "contactNameOptional": "Yhteyshenkilön nimi (valinnainen)",
   "contactNotFound": "Yhteyshenkilöä ei löydy",
   "contacts": "Yhteystiedot",
   "contactsDeleted": "Poistettu {count} yhteystietoa",
-  "contactSettingsSubtitle": "Yhteystietojen ja tarrojen hallinta",
-  "contactSettingsTitle": "Yhteystietojen asetukset",
-  "contactsLoadingFailed": "Yhteystietojen lataus epäonnistui: {error}",
   "contactsManagement": "Yhteystietojen hallinta",
-  "contactsManagementPageTitle": "Yhteystietojen hallintasivu",
-  "contactsPageTitle": "Yhteystietojen hallinta",
   "contactsPermission": "Yhteystietojen käyttöoikeus",
   "contactsPermissionDescription": "Käytetään tunnistamaan yhteystietoihin liittyviä puheluita.",
   "contactsTab": "Yhteystiedot",
@@ -439,8 +309,6 @@
   "@contactSubscriptionDescription": {
     "description": "About contact subscription description"
   },
-  "contactSubscriptionLoadingFailed": "Yhteystietotilausten lataus epäonnistui: {error}",
-  "contactSubscriptionPageTitle": "Yhteystietotilaukset",
   "contactUpdateSuccess": "Yhteystieto päivitetty onnistuneesti",
   "contactUs": "Ota yhteyttä",
   "content": "Sisältö",
@@ -452,34 +320,16 @@
   "countryNameColor": "Maan nimen väri",
   "countryNameFontSize": "Maan nimen fonttikoko",
   "countryRegionNamePosition": "Maan/alueen nimen sijainti",
-  "countrySelectionDialog": "Maavalintaikkuna",
-  "countrySelectionDialogDescription": "Käytetään maan valintaan puhelinnumerotietojen hakemiseksi",
   "countThresholdDescription": "Aseta vähimmäismääräraja, joka vaaditaan suodatustoimintojen käynnistämiseksi",
   "countThresholdLabel": "Määräraja",
-  "countThresholdSettings": "Määrärajan asetukset",
-  "countThresholdValue": "Määräraja: {count}",
   "createdRules": "Luodut säännöt",
   "csvFormat": "CSV-muoto",
-  "currentDeviceChip": "Nykyinen",
   "currentDeviceLabel": "Nykyisen laitteen tarra",
   "currentDeviceTitle": "Nykyinen laite",
-  "currentLabels": "Nykyiset tarrat:",
   "currentLanguage": "Nykyinen kieli",
-  "currentPasswordLabel": "Nykyinen salasana",
   "customerService": "Asiakaspalvelu",
-  "customRange": "Mukautettu alue",
-  "dailyStatistics": "Päivittäiset tilastot",
-  "@dailyStatistics": {
-    "description": "Daily statistics notification option"
-  },
-  "dailyStatisticsDesc": "Vastaanota päivittäisiä tilastoja estetyistä puheluista ja viesteistä",
-  "@dailyStatisticsDesc": {
-    "description": "Description for daily statistics option"
-  },
   "dashboardTab": "Kojelauta",
   "dataAnalysis": "Data-analyysi",
-  "dataAnalysisDashboardPage": "Data-analyysin kojelautasivu",
-  "dataExport": "Datan vienti",
   "dataLoadFailure": "Datan lataus epäonnistui: {error}",
   "@dataLoadFailure": {
     "description": "Data loading failure message",
@@ -492,9 +342,6 @@
   "dataLoadingFailed": "Datan lataus epäonnistui: {error}",
   "dataMigration": "Datan siirto",
   "dataMigrationDescription": "Tämän ominaisuuden avulla voit siirtää kaiken datasi laitteiden välillä. Tällä hetkellä voit käyttää varmuuskopiointi- ja palautustoimintoja datan manuaaliseen siirtämiseen.",
-  "dataMigrationDialogContent": "Tämän ominaisuuden avulla voit siirtää kaiken datasi laitteiden välillä. Tällä hetkellä voit käyttää varmuuskopiointi- ja palautustoimintoja datan manuaaliseen siirtämiseen.",
-  "dataMigrationDialogTitle": "Datan siirto",
-  "dataMigrationSectionTitle": "Datan siirto",
   "dataSourceReminder": "Datalähteen muistutus",
   "days": "{count, plural, =1{1 päivä} other{{count} päivää}}",
   "@days": {
@@ -507,16 +354,11 @@
   },
   "daysVip": "{days} Päivää VIP",
   "debtCollection": "Velkojen perintä",
-  "defaultPeriod": "Viikko",
   "delete": "Poista",
   "deleteButton": "Poista",
   "deleteContact": "Poista yhteyshenkilö",
   "deleteContactConfirm": "Haluatko varmasti poistaa {name}?",
-  "deleteContactConfirmation": "Haluatko varmasti poistaa yhteyshenkilön",
-  "deleteDeviceConfirmation": "Haluatko varmasti poistaa laitteen {deviceName}?",
-  "deleteDeviceDialogTitle": "Laitteen poisto",
   "deleteFailed": "Poisto epäonnistui: {error}",
-  "deleteFilter": "Poista suodatin",
   "deleteLabel": "Poista tarra",
   "deleteLabelFailed": "Tarran poisto epäonnistui: {error}",
   "deletePlugin": "Poista liitännäinen",
@@ -526,7 +368,6 @@
   "deleteRule": "Poista sääntö",
   "deleteRuleFailed": "Poisto epäonnistui: {error}",
   "deleteSelected": "Poista valitut",
-  "deleteSmsRule": "Poista tekstiviestiasetus",
   "deleteSubscription": "Poista tilaus",
   "@deleteSubscription": {
     "description": "Delete subscription dialog title"
@@ -551,21 +392,13 @@
   },
   "deleteSuccess": "Poisto onnistui",
   "delivery": "Toimitus",
-  "deviceDeletedSuccessfully": "Laite poistettu onnistuneesti",
-  "deviceDeletedSuccessfullyMessage": "Laite poistettu onnistuneesti",
-  "deviceIdLabel": "Laitetunnus",
   "deviceIDLabel": "Laitetunnus",
   "deviceManagementSubtitle": "Hallitse monilaitetason synkronointia",
   "deviceManagementTitle": "Laitteiston hallinta",
   "deviceModelLabel": "Laitteen malli",
   "deviceName": "Laitteen nimi",
-  "deviceNameCannotBeEmpty": "Laite nimeä ei voi jättää tyhjäksi",
-  "deviceNameHint": "Syötä laitteen nimi",
   "deviceNameLabel": "Laitteen nimi",
-  "deviceRenamedSuccessfully": "Laite nimettiin uudelleen onnistuneesti",
   "deviceRenamedSuccessfullyMessage": "Laite nimettiin uudelleen onnistuneesti",
-  "devicesSyncedSuccessfully": "Laitteet synkronoitiin onnistuneesti",
-  "devicesSyncedSuccessfullyMessage": "Laitteet synkronoitiin onnistuneesti",
   "devicesSynchronizedSuccessfullyMessage": "Laitteet synkronoitiin onnistuneesti",
   "deviceUnregisteredSuccessfullyMessage": "Laite poistettiin rekisteröinnistä onnistuneesti",
   "dialogTitle": "Säännöllisen lausekkeen kuvio selitys",
@@ -576,7 +409,6 @@
   },
   "disabledStatus": "Poistettu käytöstä",
   "disableGlobalPlugins": "Poista globaalit laajennukset käytöstä",
-  "disableSubscriptionSuccessfully": "Tilaus poistettiin käytöstä onnistuneesti",
   "disconnectButton": "Katkaise yhteys",
   "disconnectedMessage": "Yhteys katkaistu",
   "disconnectedStatus": "Yhteys katkaistu",
@@ -587,17 +419,12 @@
   "ecommerce": "Verkkokauppa",
   "edit": "Muokkaa",
   "editContact": "Muokkaa yhteystietoa",
-  "editFilter": "Muokkaa suodatinta",
   "editLabel": "Muokkaa etikettiä",
   "editPhoneRule": "Muokkaa puhelusääntöä",
-  "editPhoneRules": "Käytetään puhelusääntöjen muokkaamiseen",
-  "editPhoneRuleTitle": "Muokkaa puhelusääntöä",
   "editRule": "Muokkaa sääntöä",
-  "editSmsRule": "Muokkaa tekstiviestin sääntöä",
   "education": "Koulutus",
   "elementPositionsSetting": "Elementtien sijainnit",
   "email": "Sähköposti",
-  "emailOptional": "Sähköposti (valinnainen)",
   "enableCallFilter": "Ota puhelusuodatus käyttöön",
   "enableCallFilterDescription": "Kun tämä on käytössä, saapuvat puhelut tarkistetaan alla olevan sääntölistan perusteella. Puhelun suodatussääntöjä ei synkronoida laitteiden välillä oletusarvoisesti.",
   "enabled": "Käytössä",
@@ -607,9 +434,6 @@
   "enabledStatus": "Käytössä",
   "enableEncryption": "Ota salaus käyttöön",
   "enableEncryptionDescription": "Salaa varmuuskopiotiedostot",
-  "enableEncryptionLabel": "Ota salaus käyttöön",
-  "enableEncryptionSubtitle": "Varmuuskopiotiedostot salataan",
-  "enableEncryptionTitle": "Ota salaus käyttöön",
   "enableGlobalPlugins": "Ota globaalit laajennukset käyttöön",
   "enableLocalCountFilter": "Ota paikallinen laskurisuodatin käyttöön",
   "enableLocalCountFilterDescription": "Suodata roskapuhelut automaattisesti puheluiden merkitsemismäärien perusteella",
@@ -620,14 +444,11 @@
   "enableMuteRulesDesc": "Ota käyttöön mykistyksen sieppaussääntöjen määritys",
   "enableNoneActionRules": "Ota käyttöön ei-toimintosäännöt",
   "enableNoneActionRulesDesc": "Salli sääntökonfiguraatiot ilman sieppaustoimintoja",
-  "enableNotifications": "Ota ilmoitukset käyttöön",
   "enableRemoteNumberFilter": "Ota etänumero suodatus käyttöön",
   "enableRemoteNumberFilterDescription": "Käytä etätietokantaa numeroiden suodattamiseen",
   "enableRule": "Ota sääntö käyttöön",
   "enableSmsFilter": "Ota tekstiviestien suodatus käyttöön",
   "enableSmsFilterDescription": "Kun tämä on käytössä, viestit suodatetaan automaattisesti sääntöjen mukaisesti",
-  "enableStatisticsNotifications": "Ota tilasto ilmoitukset käyttöön",
-  "enableSubscriptionSuccessfully": "Tilaus otettiin käyttöön onnistuneesti",
   "enableTimeInterception": "Ota aikapoiminta käyttöön",
   "enableTimeInterceptionDescription": "Sieppaa toistuvat puhelut lyhyen ajan sisällä",
   "enableTimeInterceptor": "Ota aikapoimija käyttöön",
@@ -641,24 +462,15 @@
   },
   "enhancedFilterSettingsTitle": "Tehostetut suodatusasetukset",
   "enhancedFilterSystemDescription": "Tehostettu suodatusjärjestelmä tukee sekä globaaleja sääntöjä että SIM-korttikohtaisia suodatuskonfiguraatioita.",
-  "enterBothPhoneNumberAndRegexPattern": "Syötä sekä puhelinnumero että säännöllisen lausekkeen kuvio",
   "enterBothPhoneNumberAndRegexPatternMessage": "Syötä sekä puhelinnumero että säännöllisen lausekkeen kuvio.",
   "enterContactName": "Syötä yhteystiedon nimi",
-  "enterCurrentPasswordHint": "Syötä nykyinen salasana",
   "enterDeviceName": "Syötä laitteen nimi",
-  "enterDeviceNameHint": "Syötä laitteen nimi",
-  "enterEmail": "Syötä sähköposti",
   "enterEmailOptional": "Syötä sähköposti (valinnainen)",
   "enterEncryptionPasswordHint": "Syötä salaus salasana",
-  "enterEncryptionPasswordTitle": "Syötä salaus salasana",
-  "enterFilterName": "Syötä suodattimen nimi",
-  "enterFilterPattern": "Syötä suodattimen kuvio",
   "enterIconCode": "Syötä kuvakekoodi",
   "enterName": "Syötä yhteystiedon nimi",
   "enterNewDeviceNameHint": "Syötä uusi nimi tälle laitteelle",
-  "enterNewPasswordHint": "Syötä uusi salasana",
   "enterPasswordAgain": "Syötä salasana uudelleen",
-  "enterPasswordHint": "Syötä salasana",
   "enterPhoneNumber": "Syötä puhelinnumero",
   "enterPhoneNumberHint": "Syötä puhelinnumero testattavaksi",
   "enterPhoneNumberMultiple": "Syötä puhelinnumero, useita numeroita pilkuilla erotettuna",
@@ -667,7 +479,6 @@
   "enterPluginName": "Syötä laajennuksen nimi",
   "enterPluginUrl": "Syötä laajennuksen URL-osoite",
   "enterRegexHint": "Syötä säännöllisen lausekkeen kuvio",
-  "enterRuleNameAndPattern": "Syötä säännön nimi ja kuvio",
   "enterRuleNameAndPatternMessage": "Anna sekä säännön nimi että säännön malli.",
   "enterRuleNameHint": "Anna säännön nimi",
   "enterSearchContent": "Anna hakusisältö",
@@ -690,79 +501,50 @@
   "enterWebDAVPasswordHint": "Anna WebDAV-salasana",
   "enterWebDAVServerAddressHint": "Anna WebDAV-palvelimen osoite",
   "enterWebDAVUsernameHint": "Anna WebDAV-käyttäjänimi",
-  "errorDeletingDeviceMessage": "Virhe poistettaessa laitetta: {error}",
-  "errorLoadingPlugin": "Virhe ladattaessa lisäosaa",
   "errorOccurredMessage": "Tapahtui virhe: {error}",
   "errorRenamingDeviceMessage": "Virhe nimetäessä laitetta uudelleen: {error}",
   "errorSynchronizingDevicesMessage": "Virhe synkronoidessa laitteita: {error}",
-  "errorSyncingDevicesMessage": "Virhe synkronoidessa laitteita: {error}",
-  "errorText": "Virhe",
   "errorUnregisteringDeviceMessage": "Virhe poistettaessa laitteen rekisteröintiä: {error}",
   "exampleBlock400Prefix": "esim. 400-alkuisten numeroiden esto",
   "exampleBlockMarketingSms": "esim. Markkinointi-SMS:ien esto",
-  "exampleContentRegex": "esim. .*tarjous.*",
   "exampleContentRegexHint": "Esimerkkisisällön malli",
   "exampleCouponPromotionDiscount": "esim. .*(kuponki|tarjous|alennus).*",
   "exampleFamilyFriends": "esim. Perhe, Ystävät, jne.",
   "examplePhoneNumber": "esim. 10086, 12345, jne.",
   "exampleRegex400Prefix": "Esimerkkimalli 400-alkuisille numeroille",
-  "exampleRegexFormat": "Esimerkki: ^10086$ muoto",
   "exampleSenderRegexHint": "Esimerkki",
   "exchange": "Vaihto",
   "exchangeNow": "Vaihda nyt",
   "exchangeVip": "Vaihda VIP",
-  "expandLabelSelector": "Laajenna tunnistevalitsin",
   "expiryTime": "Vanhenemisaika: {time}",
   "export": "Vie",
   "exportAllApplicationSettings": "Vie kaikki sovellusasetukset",
-  "exportAllApplicationSettingsSubtitle": "Vie kaikki sovellusasetukset",
   "exportAllRuleConfigurations": "Vie kaikki sääntömääritykset",
-  "exportAllRuleConfigurationsSubtitle": "Vie kaikki sääntömääritykset",
-  "exportComplete": "Vienti valmis",
   "exportConfig": "Vie määritykset",
   "exportContacts": "Vie yhteystiedot",
   "exportData": "Vie tiedot",
-  "exportError": "Vientivirhe",
   "exportFailed": "Vienti epäonnistui",
   "exportFailure": "Määritysten vienti epäonnistui",
   "exportFeatureComingSoon": "Vientitoiminto tulossa pian",
-  "exporting": "Viedään...",
   "exportLabels": "Vie tunnisteet",
   "exportLabelsFailed": "Tunnisteiden vienti epäonnistui: {error}",
   "exportPluginList": "Vie lisäosaluettelo",
   "exportPluginListFailed": "Lisäosaluettelon vienti epäonnistui: {error}",
   "exportRules": "Vie säännöt",
-  "exportRulesDialogTitle": "Vie säännöt",
-  "exportRulesTitle": "Vie säännöt",
   "exportSmsRules": "Vie SMS-säännöt",
   "exportStatisticsData": "Vie tilastotiedot",
-  "exportSuccess": "Vienti onnistui",
   "exportSuccesslly": "Määritykset viety onnistuneesti",
-  "failedToAddContact": "Yhteystiedon lisääminen epäonnistui",
   "failedToAddRule": "Säännön lisääminen epäonnistui: {error}",
-  "failedToAddSmsRule": "SMS-säännön lisääminen epäonnistui: {error}",
   "failedToAddSmsSubscription": "SMS-tilauksen lisääminen epäonnistui: {error}",
   "failedToBackupSettings": "Asetusten varmuuskopiointi epäonnistui: {error}",
   "failedToDecryptBackupFile": "Varmuuskopiotiedoston purkaminen epäonnistui",
-  "failedToDeleteDevice": "Laitteen poistaminen epäonnistui",
   "failedToDeleteSmsRule": "SMS-säännön poistaminen epäonnistui: {error}",
   "failedToExportRules": "Sääntöjen vienti epäonnistui: {error}",
-  "failedToExportSmsRules": "SMS-sääntöjen vienti epäonnistui: {error}",
   "failedToGetCallerIdInfo": "Soittajan tunnustietojen hakeminen epäonnistui: {error}",
   "failedToImportRules": "Sääntöjen tuonti epäonnistui: {error}",
-  "failedToImportSmsRules": "SMS-sääntöjen tuonti epäonnistui: {error}",
-  "failedToLoadContacts": "Yhteystietojen lataaminen epäonnistui",
-  "failedToLoadPlugin": "Lisäosan lataaminen epäonnistui",
-  "failedToRenameDevice": "Laitteen uudelleennimeäminen epäonnistui",
   "failedToRestoreSettings": "Asetusten palauttaminen epäonnistui",
   "failedToRestoreSettingsWithError": "Asetusten palauttaminen epäonnistui: {error}",
-  "failedToSetPassword": "Salasanan asettaminen epäonnistui: {error}",
-  "failedToSyncDevices": "Laitteiden synkronointi epäonnistui",
   "failedToToggleRuleStatus": "Säännön tilan vaihtaminen epäonnistui: {error}",
-  "failedToToggleSubscriptionStatus": "Tilauksen tilan vaihtaminen epäonnistui",
-  "failedToUpdateContact": "Yhteystiedon päivittäminen epäonnistui",
-  "failedToUpdateSmsRule": "SMS-säännön päivittäminen epäonnistui: {error}",
-  "failure": "Epäonnistuminen",
   "favoriteContacts": "Suosikkiyhteystiedot",
   "featureAddRules": "• Lisää puhelinnumerokohtaisia sääntöjä",
   "featureCenter": "Ominaisuuskeskus",
@@ -777,23 +559,14 @@
   "fileSavedTo": "Tiedosto tallennettu: {path}",
   "filter": "Suodata",
   "filterByLabel": "Suodata tunnisteen mukaan",
-  "filterClear": "Tyhjennä suodatin",
   "filterControlPanelTitle": "Suodattimen ohjauspaneeli",
   "filterControlSubtitle": "Hallitse kaikkien suodattimien tilaa (päällä/pois)",
   "filterControlTitle": "Suodatusohjaus",
-  "filterDeleteFailed": "Suodatuksen poisto epäonnistui",
-  "filterDeleteSuccess": "Suodatus poistettu onnistuneesti",
-  "filterDetails": "Suodatuksen tiedot",
   "filtered": "Suodatettu",
-  "filteredSms": "Suodatettu tekstiviesti",
-  "filteredSmsLabel": "Suodatettu tekstiviesti",
   "filterExplanation": "Suodatusselitys",
   "filterManagement": "Suodatuksen hallinta",
   "filterName": "Suodattimen nimi",
-  "filterPattern": "Suodatusmallinnus",
   "filterPriorityNote": "Huom: Suodattimilla on prioriteettisuhteita, katso lisätietoja ohjedokumentaatiosta",
-  "filterSaveFailed": "Suodatuksen tallennus epäonnistui",
-  "filterSaveSuccess": "Suodatus tallennettu onnistuneesti",
   "filterSettings": "Suodatusasetukset",
   "filterSettingsTitle": "Suodatusasetukset",
   "filterSMS": "Suodata tekstiviestit",
@@ -815,8 +588,6 @@
   "flexibleCombinationFeature": "• Joustavat yhdistelmät: Ota käyttöön/poista käytöstä suodattimet SIM-paikkaa kohden",
   "fontSizesSetting": "Fonttikoot",
   "foundRules": "Löytyi {count} sääntöä",
-  "foundRulesDoYouWantToImport": "Löytyi {count} sääntöä. Haluatko tuoda ne?",
-  "foundRulesToImport": "Löytyi {count} sääntöä. Haluatko tuoda ne?",
   "fraudAlert": "PETOSVAROITUS - Katkaise puhelu",
   "fraudScamLikely": "Petollinen huijaus todennäköinen",
   "free": "Ilmainen",
@@ -838,29 +609,18 @@
   "@globalFilterSettings": {
     "description": "Global filter settings section title"
   },
-  "globalFilterToggleInstructions": "Määritä globaalit suodatusasetukset, jotka koskevat kaikkia SIM-paikkoja:",
-  "@globalFilterToggleInstructions": {
-    "description": "Instructions for configuring global filter settings"
-  },
-  "globalSearchSubtitle": "Etsi yhteystietoja, tunnisteita, mustia listoja, valkoisia listoja jne.",
-  "globalSearchTitle": "Globaali haku",
   "globalSettings": "Globaalit asetukset",
   "@globalSettings": {
     "description": "Title for global settings page"
   },
-  "googleAdDisplayPosition": "Google-mainoksen näyttöpaikka",
-  "googleAdMobIntegrationText": "Google AdMob -mainokset voidaan integroida tähän",
   "googleDriveAuthDescription": "Valtuuta käyttämällä järjestelmään määritettyä Google Drive -asiakastunnusta ja avainta",
-  "googleDriveAuthorizationHint": "Valtuuta käyttämällä järjestelmään määritettyä Google Drive -asiakastunnusta ja avainta",
   "googleDriveConfigTitle": "Google Drive -määritys",
-  "googleDriveConfigurationTitle": "Google Drive -määritys",
   "government": "Hallitus",
   "granted": "Myönnetty",
   "grantNecessaryPermissions": "Myönnä tarvittavat luvat",
   "grantPermissions": "Myönnä luvat",
   "headhunter": "Rekrytoija",
   "height": "Korkeus",
-  "homePageTitle": "Aloitusnäyttö",
   "homeTab": "Aloitus",
   "howItWorksPoint1": "• Järjestelmä sallii automaattisesti puhelut samasta numerosta asetetun aikarajan sisällä",
   "howItWorksPoint2": "• Lyhyemmät aikarajat johtavat tiukempaan estoon; pidemmät aikarajat johtavat löysempään estoon",
@@ -870,7 +630,6 @@
   "iconSize": "Kuvakkeen koko",
   "import": "Tuo",
   "important": "Tärkeää",
-  "importButton": "Tuo",
   "importConfig": "Tuo määritys",
   "importContacts": "Tuo yhteystiedot",
   "importExportContacts": "Tuo/vie yhteystiedot",
@@ -885,17 +644,9 @@
   "importPluginListFailed": "Liitännäisluettelon tuonti epäonnistui: {error}",
   "importPluginSuccess": "Onnistuneesti tuotu {count} liitännäistä",
   "importRuleConfigurationsFromFile": "Tuo sääntömääritykset tiedostosta",
-  "importRuleConfigurationsFromFileSubtitle": "Tuo sääntömääritykset tiedostosta",
   "importRules": "Tuo säännöt",
-  "importRulesButton": "Tuo säännöt",
-  "importRulesDialogTitle": "Tuo säännöt",
-  "importRulesError": "Sääntöjen tuonti epäonnistui: {error}",
-  "importRulesInstructions": "Tuo säännöt CSV-tiedostosta",
-  "importRulesSuccess": "Säännöt tuotu onnistuneesti",
-  "importRulesTitle": "Tuo säännöt",
   "importSuccess": "Tuonti onnistui",
   "incomingCallInterceptAction": "Saapuvan puhelun esto-toiminto",
-  "incomingCallNotification": "Saapuvan puhelun ilmoitus",
   "incorrectPassword": "Väärä salasana",
   "initializing": "Alustetaan",
   "installed": "Asennettu",
@@ -923,33 +674,18 @@
   "invalidRegexPattern": "Virheellinen säännöllinen lauseke",
   "invalidSenderRegex": "Virheellinen lähettäjän säännöllinen lauseke",
   "joinTheTelegramChannelAndGroupForMoreInfo": "Liity Telegram-kanavalle ja ryhmään saadaksesi lisätietoja",
-  "jsLogsTitle": "JS-lokit",
   "jsonFormat": "JSON-muoto",
   "keepAllVersions": "Säilytä kaikki versiot",
   "keepAllVersionsDescription": "Säilytä jokaisen varmuuskopion kaikki historialliset versiot",
-  "keepAllVersionsLabel": "Säilytä kaikki versiot",
-  "keepAllVersionsSubtitle": "Säilytä jokaisen varmuuskopion historialliset versiot",
-  "keepAllVersionsTitle": "Säilytä kaikki versiot",
   "label": "Merkintä",
   "labelAddedSuccessfully": "Merkintä \"{name}\" lisätty onnistuneesti",
   "labelCategories": "Merkintäkategoriat",
   "labelDeleted": "Merkintä poistettu",
   "labelDescription": "Merkinnät auttavat sinua hallitsemaan yhteystietojasi paremmin. Lisää mukautettuja merkintöjä puhelinnumeroihin puheluiden ja viestien helppoa tunnistamista varten.",
-  "labelFilter": "Merkintäsuodatin",
   "labelFilterTooltip": "Merkintäsuodatin",
   "labelIconColor": "Merkinnän kuvakkeen väri",
   "labelManagement": "Merkinnän hallinta",
   "labelNotFound": "Merkintää ei löytynyt",
-  "labelRemoved": "Merkintä poistettu",
-  "labelRemoveFailed": "Merkinnän poistaminen epäonnistui: {error}",
-  "@labelRemoveFailed": {
-    "description": "Label removal failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "labels": "Merkinnät",
   "labelsColor": "Merkintöjen väri",
   "labelsDeleted": "{count} merkintää poistettu",
@@ -958,7 +694,6 @@
   "labelsImportedSuccessfully": "{count} merkintää tuotu onnistuneesti",
   "labelsPosition": "Merkintöjen sijainti",
   "labelTag": "Merkintä: {labelId}",
-  "labelUpdated": "Merkintä päivitetty",
   "labelUpdateFailed": "Merkinnän päivittäminen epäonnistui: {error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -972,8 +707,6 @@
   "languageSettings": "Kieliasetukset",
   "languageSettingsSubtitle": "Muuta sovelluksen näyttökieltä",
   "languageSettingsTitle": "Kieliasetukset",
-  "last30Days": "Viimeiset 30 päivää",
-  "last7Days": "Viimeiset 7 päivää",
   "lastSyncLabel": "Viimeisin synkronointi",
   "lastUpdated": "Viimeksi päivitetty: {date}",
   "@lastUpdated": {
@@ -988,16 +721,12 @@
   "lifetimeMembershipDescription": "Ein-kertainen ostos, avaa pysyvästi kaikki premium-ominaisuudet ja tulevat päivitykset",
   "loadContactsFailed": "Yhteystietojen lataaminen epäonnistui: {error}",
   "loadDataFailed": "Tietojen lataaminen epäonnistui",
-  "loadFailed": "Lataaminen epäonnistui",
   "loading": "Ladataan...",
-  "loadingData": "Ladataan tietoja...",
   "loadingTags": "Ladataan tunnisteita...",
   "loadLabelFailed": "Merkintöjen lataaminen epäonnistui: {error}",
   "loadLabelsFailed": "Merkintöjen lataaminen epäonnistui: {error}",
   "loadMarkCountFailed": "Merkittyjen puhelinnumeroiden lataaminen epäonnistui: {error}",
   "loadMarkedPhonesFailed": "Merkittyjen puhelimien lataaminen epäonnistui: {error}",
-  "loadMore": "Lataa lisää",
-  "loadPluginButton": "Lataa lisäosa",
   "loadPluginsFailed": "Lisäosien lataaminen epäonnistui: {error}",
   "loadSettingsFailed": "Asetusten lataaminen epäonnistui: {error}",
   "loadSmsRulesFailed": "SMS-sääntöjen lataaminen epäonnistui: {error}",
@@ -1012,7 +741,6 @@
     }
   },
   "loan": "Laina",
-  "localBackupTitle": "Paikallinen varmuuskopiointi",
   "localCounterFilter": "Paikallinen laskurisuodatin",
   "localCounterFilterSubtitle": "Suodata roskapuhelut automaattisesti puhelutiheyden perusteella",
   "localCountFilter": "Paikallinen lukumääräsuodatin",
@@ -1043,11 +771,9 @@
   "logAllRemoteQueries": "Kirjaa kaikki etäkyselyt",
   "logAllRemoteQueriesDescription": "Tallenna kaikki etänumeroitua koskevat kyselytoiminnot",
   "manage": "Hallitse yhteystietoja",
-  "manageContacts": "Hallitse",
   "manageFavoriteContacts": "Hallitse suosikkikontakteja",
   "manageFilterRules": "Hallitse suodatussääntöjä",
   "manageFilterRulesDescription": "Lisää, muokkaa tai poista SMS-suodatussääntöjä",
-  "manageFrequentContacts": "Hallitse usein käytettyjä kontakteja",
   "markCounts": "Merkittyjen lukumäärät",
   "markCount": "Merkitty lukumäärä",
   "markedByCount": "Merkitty {count} kertaa",
@@ -1064,84 +790,48 @@
   "markExchange": "Merkinnän vaihto",
   "markPhone": "Merkkaa puhelinnumero",
   "markPhoneFailed": "Puhelinnumeron merkitseminen epäonnistui: {error}",
-  "markPhoneManagementSubtitle": "Puhelinnumeroiden merkitseminen",
   "markPhoneManagementTitle": "Puhelinnumeroiden hallinta",
   "markPhoneSuccess": "Puhelinnumero merkitty onnistuneesti",
-  "matchFailed": "Täsmäytys epäonnistui!",
   "matchFailedMessage": "Täsmäytys epäonnistui.",
   "matchNumbersWithSpecialCharacters": "täsmää tiettyä numeromuotoa",
   "matchNumbersWithSpecialCharactersTitle": "Täsmäytä numerot erikoismerkeillä:",
   "matchSpecificDigitPatterns": "täsmää XXX-XXXX-XXXX-muotoa",
   "matchSpecificDigitPatternsTitle": "Täsmäytä tiettyjä numerokuvioita:",
-  "matchSuccessful": "Täsmäytys onnistui!",
   "matchSuccessfulMessage": "Täsmäytys onnistui!",
   "medical": "Lääketieteellinen",
   "membershipPrivileges": "Jäsenyyden edut",
   "migrationTool": "Siirtotyökalu",
-  "migrationToolTitle": "Siirtotyökalu",
   "minutes": "minuuttia",
   "month": "Kuukausi",
   "monthly": "Kuukausittainen",
   "monthlyCallCount": "Kuukausittaiset puhelut",
-  "monthlyChartTitle": "Kuukausittaiset estetyt puhelut",
   "monthlyMembership": "Kuukausijäsenyys",
   "monthlyMembershipDescription": "Avaa kaikki premium-ominaisuudet, uusiutuu automaattisesti kuukausittain",
   "monthlyTotal": "Kuukausisumma",
-  "monthlyTotalLabel": "Kuukausisumma",
   "moreOptions": "Lisää asetuksia",
   "mute": "Mykistää",
   "name": "Nimi",
   "nameAndPhoneNumberCannotBeEmpty": "Nimi ja puhelinnumero eivät voi olla tyhjiä",
-  "nameAndPhoneNumberRequired": "Nimi ja puhelinnumero vaaditaan",
   "nameColor": "Nimen väri",
   "nameFontSize": "Nimen fonttikoko",
-  "nameLabel": "Nimi: {name}",
-  "@nameLabel": {
-    "description": "Caller ID name label",
-    "placeholders": {
-      "name": {
-        "type": "Object"
-      }
-    }
-  },
   "namePosition": "Nimen sijainti",
   "nameUnknown": "Nimi: Tuntematon",
-  "nameWithValue": "Nimi: {name}",
-  "@nameWithValue": {
-    "description": "Text showing the name of a contact",
-    "placeholders": {
-      "name": {
-        "type": "String",
-        "example": "John Doe"
-      }
-    }
-  },
-  "newPasswordLabel": "Uusi salasana",
   "nextStep": "Seuraava",
   "noAction": "Ei toimintoa",
   "noActionRules": "Ei toimintosääntöjä",
   "noActiveCloudSyncServiceMessage": "Ei aktiivista pilvisynkronointipalvelua",
-  "noCallLogs": "Ei puhelulokeja",
   "noCallRecords": "Ei puhelutietueita",
-  "noContacts": "Ei yhteystietoja",
   "noContactsYet": "Ei yhteystietoja vielä",
   "noData": "Ei tietoja",
   "noDevicesRegisteredMessage": "Ei rekisteröityjä laitteita",
-  "noDevicesRegisteredYet": "Ei rekisteröityjä laitteita vielä.",
-  "noFilters": "Ei suodattimia vielä",
   "noLabels": "Ei tunnisteita vielä",
   "noMarkedPhones": "Ei merkittyjä puhelinnumeroita",
-  "noMatchingContacts": "Ei vastaavia yhteystietoja",
   "noMatchingContactsFound": "Ei vastaavia yhteystietoja löytynyt",
   "noMatchingNumbersFound": "Ei vastaavia numeroita löytynyt",
-  "noMatchingRecords": "Ei vastaavia puhelutietueita",
   "noMatchingRules": "Ei vastaavia {ruleType}",
   "none": "Ei mitään",
   "noneServiceType": "Ei mitään",
   "noPlugins": "Ei laajennuksia vielä",
-  "noRecords": "Ei puhelutietueita",
-  "noResultReturned": "Ei tulosta palautettu",
-  "noResultReturnedLog": "Ei tulosta palautettu laajennuksesta",
   "noRules": "Ei {ruleType} vielä",
   "noRulesPrompt": "Ei sääntöjä löydy, lisää sääntöjä",
   "noRulesToExport": "Ei sääntöjä vietäväksi",
@@ -1151,7 +841,6 @@
   "@noSubscriptions": {
     "description": "No subscriptions message"
   },
-  "noSubscriptionsYet": "Ei tilauksia vielä",
   "notGranted": "Ei myönnetty",
   "notificationMode": "Ilmoitustila",
   "notificationModeDescription": "Näytä soittajan tiedot ilmoituspalkissa",
@@ -1162,8 +851,6 @@
   "@notificationSettings": {
     "description": "Notification settings title"
   },
-  "notificationSettingsSaved": "Ilmoitusasetukset tallennettu onnistuneesti",
-  "notSet": "Ei asetettu",
   "notVerifiedText": "Ei varmistettu",
   "noValidSmsRulesFoundInFile": "Ei kelvollisia SMS-sääntöjä löytynyt tiedostosta",
   "number": "Numero",
@@ -1174,7 +861,6 @@
   "numberTypeColor": "Numerotyypin väri",
   "numberTypeFontSize": "Numerotyypin fonttikoko",
   "numberTypePosition": "Numerotyypin sijainti",
-  "ok": "OK",
   "okButton": "OK",
   "onboardingCompleteDescription": "Puheluturvallisuushallintasi on valmis, nauti turvallisesta puhelukokemuksesta!",
   "onboardingLanguageDescription": "Valitse haluamasi kieli parhaan kokemuksen saavuttamiseksi.",
@@ -1183,9 +869,7 @@
   "onboardingSmartCallerIdDescription": "Tunnista tuntemattomat puhelut automaattisesti, merkitse epäilyttävät numerot ja suojaa puhelusi.",
   "onboardingWelcomeDescription": "Puhelunhallinta-asiantuntijasi tarjoaa kattavat puheluiden tunnistus- ja estopalvelut.",
   "oneDriveAuthDescription": "Valtuuta järjestelmän määrittämää OneDrive-asiakasohjelman tunnusta ja avainta käyttäen",
-  "oneDriveAuthorizationHint": "Valtuuta järjestelmän määrittämää OneDrive-asiakasohjelman tunnusta ja avainta käyttäen",
   "oneDriveConfigTitle": "OneDrive-asetukset",
-  "oneDriveConfigurationTitle": "OneDrive-asetukset",
   "onlineCallerIdSubscription": "Online Caller ID -tilaus",
   "openAppSettings": "Avaa sovellusasetukset",
   "openAppSettingsFailed": "Sovellusasetusten avaaminen epäonnistui: {error}",
@@ -1203,7 +887,6 @@
   "passwordCannotBeEmpty": "Salasana ei voi olla tyhjä",
   "passwordLabel": "Salasana",
   "passwordsDoNotMatch": "Salasanat eivät täsmää",
-  "passwordSetSuccessfully": "Salasana asetettu onnistuneesti",
   "pattern": "Kuvio",
   "pendingSync": "Odottaa synkronointia",
   "periodMonth": "Kuukausi",
@@ -1216,9 +899,7 @@
   "phoneNumber": "Puhelinnumero",
   "phoneNumberCannotBeEmpty": "Puhelinnumero ei voi olla tyhjä",
   "phoneNumberHint": "Syötä puhelinnumero",
-  "phoneNumberHintText": "Syötä puhelinnumero säännön lisäämiseksi",
   "phoneNumberLabel": "Puhelinnumero",
-  "phoneNumberRegexRequired": "Syötä sekä puhelinnumero että säännöllinen lauseke",
   "phoneNumberRequired": "Puhelinnumero vaaditaan",
   "phoneNumberTypeFixedLine": "Lankapuhelin",
   "phoneNumberTypeFixedLineOrMobile": "Lankapuhelin tai matkapuhelin",
@@ -1235,34 +916,23 @@
   "phonePermission": "Puhelimen käyttöoikeus",
   "phonePermissionDescription": "Käytetään saapuvien puheluiden tunnistamiseen ja estämiseen.",
   "phoneRule": "Puhelusääntö",
-  "phoneRuleEditDialog": "Puhelusäännön muokkausikkuna",
   "phoneRuleManagement": "Puhelusääntöjen hallinta",
   "phoneRuleSubscription": "Puhelusääntöjen tilaus",
   "phoneSubscription": "Puhelutilaus",
   "phoneSubscriptionRulesDescription": "Tilaa puhelusääntölistoja URL-osoitteesta päivittääksesi automaattisesti sallittujen ja estettyjen listojen säännöt. Tukee JSON-muotoisia sääntötiedostoja.",
-  "phoneSubscriptionTitle": "Puhelusääntötilaukset",
-  "@phoneSubscriptionTitle": {
-    "description": "Phone subscription page title"
-  },
   "pleaseSelectLabelAndEnterValidPhone": "Valitse merkintä ja syötä kelvollinen puhelinnumero",
   "pluginAddedSuccess": "Lisäosa \"{name}\" lisätty onnistuneesti",
   "pluginDeleted": "Lisäosa poistettu",
   "pluginLatestVersion": "Lisäosa on jo uusimmassa versiossa",
   "pluginListExportSuccess": "Lisäosaluettelo viety onnistuneesti",
-  "pluginLoadedSuccessfully": "Lisäosa ladattu onnistuneesti",
   "pluginManagement": "Lisäosien hallinta",
   "pluginManagementSubtitle": "Hallitse ja konfiguroi kolmannen osapuolen lisäosia",
-  "pluginManagementTitle": "Lisäosien hallinta",
   "pluginName": "Lisäosan nimi",
-  "pluginNotLoaded": "Lisäosaa ei ole vielä ladattu. Lataa lisäosa ensin.",
   "pluginsDeleted": "{count} lisäosaa poistettu onnistuneesti.",
   "pluginService": "Lisäosapalvelu",
   "pluginTestPageTitle": "Lisäosan testi",
   "pluginUpdateSuccess": "Lisäosa päivitetty onnistuneesti",
   "pluginUrl": "Lisäosan URL",
-  "pluginUrlCannotBeEmpty": "Lisäosan URL ei voi olla tyhjä",
-  "pluginUrlHint": "Syötä lisäosan URL",
-  "pluginUrlLabel": "Lisäosan URL",
   "pluginVersion": "Lisäosan versio",
   "political": "Poliittinen",
   "powerfulSpamBlocking": "Tehokas roskapostin esto",
@@ -1274,26 +944,16 @@
   "purchase": "Osta",
   "quarterlyMembership": "Neljännesvuosijäsenyys",
   "quarterlyMembershipDescription": "Avaa kaikki premium-ominaisuudet, automaattinen uusinta neljännesvuosittain",
-  "queryButton": "Kysely",
-  "queryFailed": "Kysely epäonnistui",
-  "queryFailedLog": "Kysely epäonnistui",
-  "querying": "Kysellään...",
-  "queryingPhoneNumber": "Kysellään puhelinnumeroa",
-  "queryResultTitle": "Kyselyn tulos",
   "ready": "Valmis!",
-  "receiveWeeklyStatistics": "Vastaanota viikoittaisia tilastoja",
   "recruiter": "Rekrytoija",
-  "reEnterPasswordHint": "Syötä salasana uudelleen",
   "refresh": "Päivitä",
   "refreshPermissionStatus": "Päivitä lupatila",
   "refreshTooltip": "Päivitä",
-  "regexError": "Säännöllisen lausekkeen virhe: {error}",
   "regexErrorMessage": "Säännöllisen lausekkeen virhe: {error}",
   "regexPattern": "Säännön kuvio",
   "regexPatternExplanation": "Säännön kuvion selitys",
   "regexPatternExplanationButton": "Säännön kuvion selitys",
   "regexPatternLabel": "Säännön kuvio",
-  "regexPatternsExamples": "Käytä tavallista regex-syntaksia kuvioiden määrittämiseen. Esimerkkejä:",
   "regexPatternsForPhoneNumberMatching": "Puhelinnumeroiden vastaavuussäännöt",
   "regexRule": "Sääntö",
   "regexRuleAddFailed": "Säännön lisääminen epäonnistui: {error}",
@@ -1302,8 +962,6 @@
   "regexRuleNamePatternRequired": "Säännön nimi ja kuvio eivät saa olla tyhjiä",
   "regexRules": "Säännöt",
   "regexTesterTitle": "Regex-testausohjelma",
-  "regexValidationFailed": "Regex-validointi epäonnistui: {error}",
-  "regexValidationSuccess": "Regex-validointi onnistui",
   "region": "Alue",
   "registeredDevicesTitle": "Rekisteröidyt laitteet",
   "rejectAllCalls": "Hylkää kaikki puhelut",
@@ -1318,27 +976,15 @@
   },
   "remoteFilterSettingsPageTitle": "Etänumerosuodattimen asetukset",
   "remoteNumberFilter": "Etänumerosuodatin",
-  "remoteNumberFilterDatabaseInfo": "Tämä suodatin käyttää itsenäistä etä-tietokantaa saadakseen uusimmat numerotiedot.",
   "remoteNumberFilterDescription": "Estä häiritsevät puhelut etä-tietokannan tietojen perusteella",
-  "remoteNumberFilterExplanationContent": "Etänumerosuodatin tunnistaa ja estää roskapostipuhelut kysymällä etä-tietokantaa numeroiden määrän perusteella.",
-  "remoteNumberFilterExplanationTitle": "Etänumerosuodattimen selitys",
-  "remoteNumberFilterFeatureCountThreshold": "• Määräraja: Määritä numeron esiintymistiheyden perusteella",
-  "remoteNumberFilterFeatureFilterAction": "• Suodatus toiminnot: Määritä, miten käsitellään raja-arvon ylittäviä numeroita",
-  "remoteNumberFilterFeaturePriority": "• Prioriteettiasetukset: Määritä etätoimintojen prioriteetti",
-  "remoteNumberFilterFeatures": "Ominaisuudet:",
   "remoteNumberFiltering": "Etäpuhelusuodatus",
   "remoteNumberFilteringExplanation": "• Etäpuhelusuodatus: Suodatus säännöt perustuen etä-tietokannan tietoihin",
   "remoteNumberFilterSubtitle": "Tunnista roskapostipuhelut käyttämällä pilvitietokantaa ja yhteisöraportteja",
   "removeAdsDescription": "Poista kaikki mainokset sovelluksesta pysyvästi sujuvampaa käyttökokemusta varten",
   "removeAdsTitle": "Poista mainokset",
-  "removedFromFavoriteContacts": "Poistettu suosikkikontakteista",
   "removedFromFavorites": "Poistettu suosikeista",
-  "removeFavorite": "Poista suosikki",
   "removeFromFavorites": "Poista suosikeista",
-  "renameButton": "Nimeä uudelleen",
-  "renameDeviceDialogTitle": "Nimeä laite uudelleen",
   "renameDeviceTitle": "Nimeä laite uudelleen",
-  "replaceCurrentSettingsConfirmation": "Tämä korvaa kaikki nykyiset asetuksesi. Haluatko varmasti jatkaa?",
   "requestAllPermissions": "Pyydä kaikki käyttöoikeudet",
   "requestPermission": "Pyydä käyttöoikeus",
   "requestPermissionFailed": "Käyttöoikeuden pyytäminen epäonnistui: {error}",
@@ -1346,84 +992,44 @@
   "reset": "Nollaa",
   "restore": "Palauta",
   "restoreApplicationSettingsFromBackup": "Palauta sovelluksen asetukset varmuuskopiosta",
-  "restoreApplicationSettingsFromBackupSubtitle": "Palauta sovelluksen asetukset varmuuskopiosta",
-  "restoreButton": "Palauta",
-  "restoreFailedWithError": "Palauttaminen pilvestä epäonnistui: {error}",
   "restoreFromCloud": "Palauta pilvestä",
-  "restoreFromCloudDescription": "Palauta asetukset ja säännöt pilvitallennustilasta",
   "restoreFromCloudFailed": "Palauttaminen pilvestä epäonnistui: {error}",
-  "restoreFromCloudLabel": "Palauta pilvestä",
   "restoreFromCloudSuccess": "Onnistuneesti palautettu pilvestä",
-  "restoreFromCloudTitle": "Palauta pilvestä",
-  "restoreFromLocal": "Palauta paikallisesti",
   "restorePurchases": "Palauta ostokset",
-  "restoreSectionTitle": "Palauta",
   "restoreSettings": "Palauta asetukset",
   "restoreSettingsConfirmation": "Tämä korvaa kaikki nykyiset asetuksesi. Haluatko varmasti jatkaa?",
-  "restoreSettingsDialogTitle": "Palauta asetukset",
-  "restoreSettingsTitle": "Palauta asetukset",
-  "restoreSuccessFromLocal": "Onnistuneesti palautettu paikallisesti",
-  "restoreSuccessMessage": "Onnistuneesti palautettu pilvestä",
   "retry": "Yritä uudelleen",
   "ridesharing": "Kyydinjakaminen",
   "risk": "Riski",
   "robocall": "Robopuhelu",
   "ruleAction": "Säännön toiminto",
-  "ruleAddButton": "Lisää sääntö",
   "ruleAddedSuccess": "Sääntö lisätty onnistuneesti",
   "@ruleAddedSuccess": {
     "description": "Rule creation success message"
   },
-  "ruleAddFailure": "Säännön lisääminen epäonnistui: {error}",
-  "@ruleAddFailure": {
-    "description": "Rule creation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleAddSuccess": "Sääntö lisätty onnistuneesti",
   "ruleDeleteConfirmContent": "Haluatko varmasti poistaa tämän {ruleType}?",
   "ruleDeleteConfirmTitle": "Poista sääntö",
-  "ruleDeletedSuccess": "Sääntö poistettu onnistuneesti",
   "ruleDeletedSuccessfully": "Sääntö poistettu onnistuneesti",
   "ruleDeleteFailed": "Säännön poistaminen epäonnistui: {error}",
-  "ruleDeleteFailure": "Säännön poistaminen epäonnistui: {error}",
-  "@ruleDeleteFailure": {
-    "description": "Rule deletion failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleDeleteSuccess": "Sääntö poistettu onnistuneesti",
   "ruleDisabledSuccessfully": "Sääntö poistettu käytöstä onnistuneesti",
   "ruleEnabledSuccessfully": "Sääntö otettu käyttöön onnistuneesti",
   "ruleLoadFailed": "Sääntöjen lataaminen epäonnistui: {error}",
   "ruleManagement": "Sääntöjen hallinta",
-  "ruleManagementTitle": "Sääntöjen hallinta",
   "ruleName": "Säännön nimi",
   "ruleNameAndContentRegexCannotBeEmpty": "Säännön nimi ja sisältö regex eivät saa olla tyhjiä",
   "ruleNameAndPhoneNumberCannotBeEmpty": "Säännön nimi ja puhelinnumero eivät saa olla tyhjiä",
   "ruleNameHint": "esim. Perhe, Ystävät, jne.",
   "ruleNameLabel": "Säännön nimi",
-  "ruleNamePatternRequired": "Syötä säännön nimi ja kuvio",
   "ruleNameRequired": "Säännön nimi ja puhelinnumero eivät saa olla tyhjiä",
   "ruleNotExist": "Sääntöä ei löydy tai se on poistettu",
   "ruleNotFound": "Sääntöä ei löydy: {error}",
-  "ruleSavedSuccessfully": "Sääntö tallennettu onnistuneesti!",
   "ruleSavedSuccessMessage": "Sääntö tallennettu onnistuneesti!",
-  "ruleSaveFailed": "Tallennus epäonnistui: {error}",
-  "ruleSaveFailedMessage": "Tallennus epäonnistui: {error}",
-  "ruleSaveSuccess": "Sääntö tallennettu onnistuneesti!",
   "rulesExportedSuccessfully": "Säännöt viety onnistuneesti",
   "rulesExportedTo": "Säännöt viety kohteeseen: {path}",
   "rulesImported": "Säännöt tuotu onnistuneesti",
   "rulesImportedSuccessfully": "{count} sääntöä tuotu onnistuneesti",
-  "rulesImportFailed": "Sääntöjen tuonti epäonnistui: {error}",
-  "ruleStatistics": "Sääntötilastot",
   "ruleStatusChanged": "Sääntö {status} onnistuneesti",
   "ruleToggleFailed": "Toiminto epäonnistui: {error}",
   "ruleToggleSuccess": "Sääntö {status} onnistuneesti",
@@ -1432,32 +1038,19 @@
   "ruleVerification": "Säännön vahvistus",
   "save": "Tallenna",
   "saveButton": "Tallenna",
-  "saveButtonLabel": "TALLENNA",
   "saveButtonText": "Tallenna",
   "saveFailed": "Tallennus epäonnistui: {error}",
-  "saveFilter": "Tallenna suodatin",
   "saveSettings": "Tallenna asetukset",
-  "saveSettingsFailed": "Asetusten tallennus epäonnistui: {error}",
   "scamsLikely": "Todennäköisesti huijaus",
   "search": "Hae",
   "searchContacts": "Etsi yhteystietoja",
   "searchError": "Hakuvirhe: {error}",
-  "searchFilters": "Hakusuodattimet",
-  "searchForContacts": "Etsi yhteystietoja",
   "searchHint": "Hae...",
-  "searchSettingsSubtitle": "Etsi yhteystietoja, luokkia, mustia listoja, valkoisia listoja jne.",
-  "searchSettingsTitle": "Hakuaikasetukset",
   "securityMessage": "Älä luota puheluihin. Varmista asiakaspalvelun numerot aina itsenäisesti. Älä koskaan jaa salasanoja, vahvistuskoodeja, korttinumeroita tai henkilökohtaisia tietoja.",
-  "selectActionToPerform": "Valitse suoritettava toiminto, kun sääntö täsmää",
   "selectActionWhenBlockingCalls": "Valitse toiminto puheluita estettäessä",
   "selectActionWhenRuleMatches": "Valitse toiminto, kun sääntö täsmää",
   "selectAll": "Valitse kaikki",
   "selectCountry": "Valitse maa",
-  "selectDateRange": "Valitse päivämääräalue",
-  "selectedDateRange": "Valittu päivämääräalue",
-  "@selectedDateRange": {
-    "description": "Selected date range text"
-  },
   "selectedItems": "{count} kohdetta valittu",
   "selectedLabel": "Valittu:",
   "selectExportFormat": "Valitse vientimuoto",
@@ -1465,14 +1058,7 @@
   "selectLabelAndEnterPhoneNumber": "Valitse luokka ja anna kelvollinen puhelinnumero",
   "selectLanguage": "Valitse kieli",
   "selectMultiple": "Valitse useita",
-  "selectPeriod": "Valitse ajanjakso",
   "selectSimCard": "Valitse SIM-kortti",
-  "selectSimSlot": "Valitse SIM-paikka",
-  "@selectSimSlot": {
-    "description": "Title for SIM slot selection dialog"
-  },
-  "selectSpecificActionForBlockedCalls": "Valitse tietty toiminto estetyille puheluille",
-  "selectTag": "Valitse tunniste",
   "selectTags": "Valitse tunnisteet",
   "selectTrustedDataSource": "Valitse luotettavat tietolähteet",
   "selectYourLanguage": "Valitse kielesi",
@@ -1493,16 +1079,9 @@
       }
     }
   },
-  "setButton": "Aseta",
   "setEncryptionPassword": "Aseta salaus salasana",
-  "setEncryptionPasswordDescription": "Aseta salaus salasana varmuuskopiointia ja palautusta varten",
-  "setEncryptionPasswordLabel": "Aseta salaus salasana",
-  "setEncryptionPasswordTitle": "Aseta salaus salasana",
-  "setPasswordButton": "Aseta",
   "settings": "Asetukset",
   "settingsBackedUpTo": "Asetukset varmuuskopioitu kohteeseen: {path}",
-  "settingsLoaded": "Asetukset ladattu",
-  "settingsLoadFailed": "Asetusten lataus epäonnistui: {error}",
   "settingsRestoredSuccessfully": "Asetukset palautettu onnistuneesti. Käynnistä sovellus uudelleen, jotta muutokset tulevat voimaan.",
   "settingsSaved": "Asetukset tallennettu",
   "@settingsSaved": {
@@ -1512,8 +1091,6 @@
   "settingsTab": "Asetukset",
   "settingsTitle": "Asetukset",
   "setup": "Asennus",
-  "showContactEditDialogStaticMethod": "Staattinen metodi yhteystietojen muokkausikkunan näyttämiseen",
-  "showExplanation": "Näytä selitys",
   "silence": "Hiljennä",
   "silenceAndNoAnswer": "Hiljennä ja ei vastausta",
   "silenceNoAnswer": "Hiljennä, ei vastausta",
@@ -1538,15 +1115,10 @@
       }
     }
   },
-  "simInfoLoadFailure": "SIM-korttitietojen lataus epäonnistui: {error}",
   "simRuleInstructions": "SIM-paikkasäännöt antavat sinulle mahdollisuuden määrittää itsenäiset suodatussäännöt kullekin SIM-paikalle.",
   "simRuleInstructionsTitle": "SIM-paikkasäännöt",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simRuleManagement": "SIM-paikkasääntöjen hallinta",
-  "@simRuleManagement": {
-    "description": "SIM slot rule management section title"
   },
   "simSlot1": "SIM 1,-{countryIso}",
   "@simSlot1": {
@@ -1568,9 +1140,6 @@
       }
     }
   },
-  "simSlotDataLoadFailed": "SIM-tietojen lataaminen epäonnistui: {error}",
-  "simSlotFilterConfiguration": "SIM-paikan suodatuksen määritys",
-  "simSlotFilterConfigurationDescription": "Mahdollistaa suodatussääntöjen asettamisen SIM-paikan mukaan",
   "simSlotFilterDescription": "Määritä itsenäiset suodatussäännöt kullekin SIM-kortille:",
   "simSlotFilterSettingsTitle": "SIM-paikan {slotNumber} suodatusasetukset",
   "@simSlotFilterSettingsTitle": {
@@ -1581,17 +1150,7 @@
       }
     }
   },
-  "simSlotLoadFailed": "SIM-paikkojen lataaminen epäonnistui: {error}",
   "simSlotManagement": "SIM-paikkojen hallinta",
-  "simSlotOperationFailed": "SIM-paikan toiminto epäonnistui: {error}",
-  "@simSlotOperationFailed": {
-    "description": "SIM slot operation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "simSlotPosition": "SIM-paikan sijainti {slotNumber}",
   "@simSlotPosition": {
     "description": "SIM slot position display",
@@ -1605,11 +1164,6 @@
   "simSlotRuleFeature": "• SIM-paikkasäännöt: Itsenäiset suodatusstrategiat per SIM",
   "simSlotRuleListTitle": "SIM-paikkasääntöjen luettelo",
   "simSlotRuleManagement": "SIM-paikkasäännöt",
-  "simSlotRuleManagementTitle": "Sääntöjen hallinta",
-  "simSlotSettings": "SIM-paikan asetukset",
-  "@simSlotSettings": {
-    "description": "Title for SIM slot settings page"
-  },
   "simSlotTitle": "SIM-paikka {slotNumber}",
   "skip": "Ohita",
   "smartCallerId": "Älykäs puhelun tunnistus",
@@ -1620,7 +1174,6 @@
   "smsFilterRuleAddedSuccessfully": "Tekstiviestien suodatussääntö lisätty onnistuneesti",
   "smsFilterRules": "Tekstiviestien suodatussäännöt",
   "smsFilterSettings": "Tekstiviestien suodatusasetukset",
-  "smsHistory": "Tekstiviestihistoria",
   "smsManagement": "Tekstiviestien hallinta",
   "smsPermission": "Tekstiviestilupa",
   "smsPermissionDescription": "Käytetään roskapostiviestien suodattamiseen.",
@@ -1628,12 +1181,7 @@
   "smsRuleDeletedSuccessfully": "Tekstiviestisääntö poistettu onnistuneesti",
   "smsRuleLoadFailed": "Tekstiviestisääntöjen lataaminen epäonnistui: {error}",
   "smsRuleManagement": "Tekstiviestisääntöjen hallinta",
-  "smsRulesExportedSuccessfully": "Tekstiviestisäännöt viety onnistuneesti kohteeseen {filePath}",
-  "smsRulesImportedSuccessfully": "Tekstiviestisäännöt tuotu onnistuneesti",
   "smsRuleSubscription": "Tekstiviestisääntöjen tilaus",
-  "smsRuleUpdatedSuccessfully": "Tekstiviestisääntö päivitetty onnistuneesti",
-  "smsSettingsSubtitle": "Tekstiviestien suodatus ja avainsanojen esto",
-  "smsSettingsTitle": "Tekstiviestiasetukset",
   "smsSubscription": "Tekstiviestitilaus",
   "smsSubscriptionAddedSuccessfully": "Tekstiviestitilaus lisätty onnistuneesti",
   "smsSubscriptionRulesDescription": "Tilaa tekstiviestisääntölistoja URL-osoitteen kautta, tukee säännöllisiä lausekkeita. Voit asettaa esto- tai sallimistoimintoja.",
@@ -1645,12 +1193,7 @@
   "startUsing": "Aloita käyttö",
   "statAnswered": "Vastattu",
   "statBlocked": "Estetty",
-  "staticMethodShowCallerIdDialog": "Staattinen menetelmä puhelun tunnuksen tietojen näyttämiseksi",
-  "staticMethodToDisplayCountrySelectionDialog": "Staattinen menetelmä maanvalintavalintaikkunan näyttämiseksi",
-  "staticMethodToDisplayDialog": "Staattinen menetelmä valintaikkunan näyttämiseksi",
   "statistics": "Tilastot",
-  "statisticsExportFeatureComingSoon": "Tilastojen vientiominaisuus tulossa pian",
-  "statisticsGrid": "Tilastotaulukko",
   "statisticsPageTitle": "Data-analyysi",
   "stirColor": "STIR-väri",
   "stirFontSize": "STIR-fonttikoko",
@@ -1673,23 +1216,16 @@
   "@subscriptionDeleted": {
     "description": "Subscription deleted success message"
   },
-  "subscriptionDeletedSuccessfully": "Tilaus poistettu onnistuneesti",
   "subscriptionDeleteFailed": "Tilauksen poistaminen epäonnistui: {error}",
   "subscriptionDeleteSuccess": "Tilaus poistettu",
-  "subscriptionEmptyState": "Ei tilauksia saatavilla",
-  "subscriptionEmptyText": "Ei vielä tilauksia",
   "subscriptionLoadFailed": "Tilausten lataaminen epäonnistui: {error}",
-  "subscriptionLoadingFailed": "Tilausten lataaminen epäonnistui: {error}",
-  "subscriptionManagementTitle": "Tilausten hallinta",
   "subscriptionName": "Tilauksen nimi",
   "@subscriptionName": {
     "description": "Subscription name field label"
   },
   "subscriptionNameAndUrlCannotBeEmpty": "Tilauksen nimi ja URL eivät voi olla tyhjiä",
   "subscriptionNameHint": "Syötä tilauksen nimi",
-  "subscriptionPageTitle": "Tilausten hallinta",
   "subscriptionStatusChangeFailed": "Tilauksen tilan muuttaminen epäonnistui: {error}",
-  "subscriptionToggleFailed": "Tilauksen tilan vaihtaminen epäonnistui: {error}",
   "subscriptionUpdateFailed": "Tilauksen päivittäminen epäonnistui: {error}",
   "subscriptionUpdateSuccess": "Tilaus päivitetty onnistuneesti",
   "@subscriptionUpdateSuccess": {
@@ -1710,7 +1246,6 @@
   },
   "syncFailed": "Synkronointi epäonnistui",
   "syncFailedMessage": "Synkronointi epäonnistui",
-  "syncFolderNameHint": "Syötä synkronointikansion nimi (oletus: NotificationManager)",
   "syncFolderNameLabel": "Synkronointikansion nimi",
   "synchronized": "Synkronoitu",
   "@synchronized": {
@@ -1724,10 +1259,8 @@
   "syncNowButton": "Synkronoi nyt",
   "syncStatusTitle": "Synkronointitila",
   "syncStatusUpdatedMessage": "Synkronointitila päivitetty",
-  "syncSuccessful": "Synkronointi onnistui",
   "syncSuccessMessage": "Synkronointi onnistui",
   "syncWithCloudStorage": "Synkronoi pilvitallennustilan kanssa",
-  "syncWithCloudStorageSubtitle": "Synkronoi pilvitallennustilan kanssa",
   "systemFeatures": "Järjestelmän ominaisuudet:",
   "systemSettingsTitle": "Järjestelmäasetukset",
   "tabAll": "Kaikki",
@@ -1743,13 +1276,11 @@
       }
     }
   },
-  "tagsUpdated": "Tunnisteet päivitetty",
   "takeaway": "Noutoruoka",
   "telecommunication": "Tietoliikenne",
   "telegram": "Telegram",
   "telemarketing": "Puhelinmarkkinointi",
   "testButton": "TESTAA",
-  "testButtonLabel": "TESTAA",
   "testConnectionButton": "Testaa yhteys",
   "textColorsSetting": "Tekstin ja tunnisteiden värit",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Tämä sovellus on tehokas soittajan tunnistustyökalu, jonka avulla voit tunnistaa ja estää ei-toivottuja puheluita.",
@@ -1760,8 +1291,6 @@
   "timeInterceptorExplanationContent": "Puhelutiheyden sieppaustoiminto analysoi puhelutiheyttä tunnistaakseen ja siepatakseen/salliakseen automaattisesti toistuvat roskapuhelut.",
   "timeInterceptorExplanationTitle": "Puhelutiheyden sieppauksen selitys",
   "timeInterceptorSettingsTitle": "Puhelutiheyden sieppausten asetukset",
-  "timeInterceptorSubtitle": "Sieppaa automaattisesti potentiaaliset roskapuhelut puhelutiheyden perusteella",
-  "timeInterceptorTitle": "Ota käyttöön puhelutiheyden sieppaus",
   "timeWindowDescription": "Aseta sallittujen toistuvien puheluiden aikavälivalinta. Puhelut samasta numerosta tämän ikkunan sisällä sallitaan.",
   "timeWindowLabel": "Sieppausaikaväli (minuuttia): {minutes}",
   "@timeWindowLabel": {
@@ -1772,16 +1301,11 @@
       }
     }
   },
-  "timeWindowSetting": "Aseta sallittujen toistuvien puheluiden aikavälivalinta. Puhelut samasta numerosta tämän ikkunan sisällä sallitaan",
   "today": "Tänään",
   "total": "Yhteensä",
   "totalBlocked": "Yhteensä estetty",
-  "totalFiltered": "Yhteensä suodatettu",
   "transferDataBetweenDevicesOrPlatforms": "Siirrä dataa laitteiden tai alustojen välillä",
-  "transferDataBetweenDevicesOrPlatformsSubtitle": "Siirrä dataa laitteiden tai alustojen välillä",
   "travelTicketing": "Matkalippujen myynti",
-  "trend": "Trendi",
-  "trendChart": "Trendikaavio",
   "tutorial": "Tutoriaali",
   "type": "Tyyppi",
   "unassignedSIMCard": "Määrittämätön SIM-kortti",
@@ -1789,7 +1313,6 @@
   "@unknown": {
     "description": "Display text for unknown status"
   },
-  "unknownLabel": "Tuntematon tunniste",
   "unknownTag": "Tunniste: Tuntematon",
   "unregisterButton": "Poistu rekisteröinnistä",
   "unregisterDeviceConfirmationMessage": "Oletko varma, että haluat poistaa laitteen rekisteröinnin {deviceName}?",
@@ -1797,15 +1320,9 @@
   "unsupportedFileFormat": "Tiedostomuotoa ei tueta",
   "update": "Päivitä",
   "updateAllNow": "Päivitä kaikki nyt",
-  "updateCallFilterConfig": "Päivitä puhelusuodattimen määritykset",
-  "@updateCallFilterConfig": {
-    "description": "Button text for updating call filter configuration"
-  },
   "updateContactFailed": "Yhteystiedon päivitys epäonnistui: {error}",
   "updateFavoriteStatus": "Päivitä suosikkitila",
-  "updateFavoriteStatusFailed": "Suosikkitilan päivitys epäonnistui: {error}",
   "updateInterval": "Päivitysväli",
-  "updateLabelFailed": "Tunnisteen päivitys epäonnistui",
   "updateNow": "Päivitä nyt",
   "updatePlugin": "Päivitä lisäosa",
   "updatePluginFailed": "Lisäosan päivitys epäonnistui: {error}",
@@ -1831,16 +1348,13 @@
       }
     }
   },
-  "updateTags": "Päivitä tunnisteet",
   "useCasesPoint1": "• Tunnista automaattisesti uudelleenvalitsevat roskapuhelut",
   "useCasesPoint2": "• Sieppaa markkinointipuhelut, jotka soittavat useita kertoja lyhyen ajan sisällä",
   "useCasesPoint3": "• Estä puhelinpommitus ja häirintä",
   "useCasesTitle": "Käyttötapaukset:",
   "useGlobalSettings": "Käytä globaaleja asetuksia",
-  "userEmail": "kayttaja@esimerkki.com",
   "usernameLabel": "Käyttäjänimi",
   "useStandardRegexSyntaxToDefinePatternsExamples": "Käytä tavallista regex-syntaksia kuvioiden määrittelyyn. Esimerkkejä:",
-  "validateRegex": "Validoi Regex",
   "verificationFailedText": "Epäonnistui",
   "verifiedText": "Vahvistettu",
   "verify": "Vahvista",
@@ -1851,36 +1365,18 @@
   "watchAdForTemp": "Katso mainos väliaikaisia etuja varten",
   "watchAdForTempDescription": "Katso lyhyt mainos avataksesi väliaikaisesti joitakin premium-ominaisuuksia",
   "webDAVConfigTitle": "WebDAV-määritykset",
-  "webdavConfigurationTitle": "WebDAV-määritykset",
-  "webdavPasswordHint": "Syötä WebDAV-salasana",
-  "webdavServerAddressHint": "Syötä WebDAV-palvelimen osoite",
-  "webdavUsernameHint": "Syötä WebDAV-käyttäjänimi",
   "week": "Viikko",
-  "weekly": "Viikoittain",
-  "weeklyBlockedCallsSummary": "Viikoittainen estettyjen puheluiden yhteenveto",
-  "weeklyChartTitle": "Viikoittainen estettyjen puheluiden kaavio",
-  "weeklyReport": "Viikoittainen raportti",
-  "@weeklyReport": {
-    "description": "Weekly report notification option"
-  },
-  "weeklyReportDesc": "Vastaanota viikoittainen yhteenvetoraportti puhelujen estotoiminnasta",
-  "@weeklyReportDesc": {
-    "description": "Description for weekly report option"
-  },
   "welcome": "Tervetuloa",
   "whitelist": "Valkoinen lista",
   "@whitelist": {
     "description": "Whitelist label"
   },
-  "whitelistLabel": "Valkoinen lista",
   "width": "Leveys",
   "wildcardMatchingDescription": "Käytä '.' vastaamaan mitä tahansa merkkiä (esim. '123.456' vastaa 123-456)",
   "wildcardMatchingTitle": "Vapaakuvioiden täsmäytys:",
   "wildcardSupportForFlexibleFiltering": "Vapaakuvioiden tuki joustavalle suodatukselle",
   "windowSizeSetting": "Ikkunan koko",
   "year": "Vuosi",
-  "yearly": "Vuosittain",
-  "yearlyChartTitle": "Vuosittaiset estetyt puhelut",
   "noSimCardsDetected": "SIM-kortteja ei löydy",
   "filterManagementDescription": "Aseta puhelusuodattimet",
   "callerIdCustomizationSubtitle": "Mukauta soittajan tunnistetietojen asettelua",
@@ -1895,7 +1391,6 @@
   "useLocalNotificationDescription": "Ota paikalliset ilmoitukset saapuville puheluille käyttöön",
   "cancelLocalNotification": "Sulje paikalliset ilmoitukset",
   "useStirNotification": "Käytä STIR-ilmoitusta",
-  "useStirNotificationDescription": "Ota STIR-ilmoitukset saapuville puheluille käyttöön",
   "cancelLocalNotificationDescription": "Sulje paikalliset ilmoitukset automaattisesti",
   "callerIdSettingsTitle": "Soittajan tunnistetietojen asetukset",
   "callerIdSettingsSubtitle": "Saapuvan puhelun ilmoituksen ja näyttötilan määrittämiseksi",
@@ -1904,16 +1399,6 @@
   "callerIdNotificationTitle": "Saapuvan puhelun tiedot",
   "@callerIdNotificationTitle": {
     "description": "Title for the Incoming Call Info"
-  },
-  "callerIdBody": "Numero: {phoneNumber}",
-  "@callerIdBody": {
-    "description": "Body for the caller ID notification, showing the phone number",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
   },
   "blockedCallTitle": "Estetty puhelu",
   "@blockedCallTitle": {
@@ -1974,18 +1459,6 @@
   "@fraudAlertTitle": {
     "description": "Title for the fraud alert notification"
   },
-  "fraudAlertBody": "Mahdollinen huijauspuhelu numerosta {phoneNumber}",
-  "@fraudAlertBody": {
-    "description": "Body for the fraud alert notification",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
-  },
-  "loadRulesFailed": "Sääntöjen lataus epäonnistui: {error}",
-  "loadCallLogFailed": "Puhelulokin lataus epäonnistui: {error}",
   "noBlockedTypeData": "Estettyjä tyyppitietoja ei saatavilla",
   "importEntity": "Tuo {entityTypeName}",
   "@importEntity": {
@@ -2065,7 +1538,6 @@
   "vipUser": "VIP-käyttäjä",
   "temporaryVip": "Tilapäinen VIP",
   "removeAds": "Poista mainokset",
-  "unknownAction": "Tuntematon toiminto",
   "settingsBackup": "Asetusten varmuuskopiointi ",
   "allServicesStatusTitle": "Nykyinen palvelutila",
   "allServicesStatusSubtitle": "Pilvipalveluiden kunkin tilan nykytila",
@@ -2153,7 +1625,6 @@
   "unblocked": "Estetty",
   "blockNumber": "Estä numero",
   "blockNumberSuccess": "Numeron esto onnistui",
-  "blockNumberFailed": "Numeron esto epäonnistui",
   "unblockNumberConfirmation": "Haluatko varmasti poistaa numeron {phoneNumber} eston?",
   "@unblockNumberConfirmation": {
     "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
@@ -2165,23 +1636,11 @@
       }
     }
   },
-  "callingNumber": "Soitetaan numeroon {phoneNumber}...",
-  "@callingNumber": {
-    "description": "Status text displayed on the screen when an outgoing call is initiated.",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "description": "The phone number that is being dialed.",
-        "example": "+1 555-123-4567"
-      }
-    }
-  },
   "viewDetails": "Näytä tiedot",
   "unblock": "Poista esto",
   "unblockNumber": "Poista numeron esto",
   "unblockNumberSuccess": "Numeron esto poistettu onnistuneesti",
   "unblockNumberFailed": "Numeron esto epäonnistui",
-  "serviceNotAvailable": "Palvelua ei saatavilla",
   "callingNumberFailed": "Soitto numeroon epäonnistui",
   "listView": "Luettelonäkymä",
   "timelineView": "Aikajananäkymä",
@@ -2192,7 +1651,6 @@
   "callType": "Puhelutyyppi",
   "callTime": "Puheluaika",
   "numberInvalidFormat": "Virheellinen numeromuoto",
-  "membershipFeature": "Jäsenyysominaisuus",
   "medium": "Media",
   "verificationReport": "Vahvinnusraportti",
   "finalRisk": "Lopullinen riski",
@@ -2221,7 +1679,6 @@
   "noNotifications": "Ei ilmoituksia",
   "clearAllNotifications": "Tyhjennä kaikki ilmoitukset",
   "clearAllNotificationsConfirmation": "Vahvista tyhjentää kaikki ilmoitukset",
-  "allNotificationsCleared": "Kaikki ilmoitukset tyhjennetty",
   "clearButton": "Tyhjennä",
   "justNow": "Juuri nyt",
   "minutesAgo": "{count,plural, =1{1 minuutti sitten} other{{count} minuuttia sitten}}",
@@ -2298,10 +1755,6 @@
   "@reasonInaccurateInfo": {
     "description": "Inaccurate Information reason option"
   },
-  "reasonWrongMarked": "Väärin merkitty",
-  "@reasonWrongMarked": {
-    "description": "Wrong marked reason option"
-  },
   "reasonOther": "Muu",
   "@reasonOther": {
     "description": "Other reason option"
@@ -2314,33 +1767,9 @@
   "@cancel": {
     "description": "Cancel button text"
   },
-  "proposalStatus": "Tila",
-  "@proposalStatus": {
-    "description": "Proposal status label"
-  },
-  "statusPending": "Odottaa",
-  "@statusPending": {
-    "description": "Pending status"
-  },
-  "statusActive": "Aktiivinen",
-  "@statusActive": {
-    "description": "Active status"
-  },
-  "statusCompleted": "Valmis",
-  "@statusCompleted": {
-    "description": "Completed status"
-  },
-  "statusExpired": "Vanhentunut",
-  "@statusExpired": {
-    "description": "Expired status"
-  },
   "riskLevel": "Riskitaso",
   "@riskLevel": {
     "description": "Risk level label"
-  },
-  "riskLevelVerified": "Vahvistettu",
-  "@riskLevelVerified": {
-    "description": "Verified risk level"
   },
   "riskLevelLow": "Matala",
   "@riskLevelLow": {
@@ -2350,26 +1779,9 @@
   "@riskLevelHigh": {
     "description": "Label for high risk level"
   },
-  "riskLevelUnknown": "Tuntematon",
-  "@riskLevelUnknown": {
-    "description": "Unknown risk level"
-  },
-  "votingProgress": "Äänestyksen eteneminen",
-  "@votingProgress": {
-    "description": "Voting progress label"
-  },
   "agreeVotes": "Kyllä: {count}",
   "@agreeVotes": {
     "description": "Agree votes count",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "disagreeVotes": "Ei: {count}",
-  "@disagreeVotes": {
-    "description": "Disagree votes count",
     "placeholders": {
       "count": {
         "type": "int"
@@ -2405,14 +1817,6 @@
   "@verificationReport": {
     "description": "Verification report label"
   },
-  "showReport": "Näytä raportti",
-  "@showReport": {
-    "description": "Show report button text"
-  },
-  "hideReport": "Piilota raportti",
-  "@hideReport": {
-    "description": "Hide report button text"
-  },
   "proposalStatistics": "Esitystilastot",
   "@proposalStatistics": {
     "description": "Proposal statistics title"
@@ -2425,37 +1829,17 @@
   "@activeProposals": {
     "description": "Active proposals label"
   },
-  "completedProposals": "Valmiita esityksiä",
-  "@completedProposals": {
-    "description": "Completed proposals label"
-  },
-  "myVotes": "Omat ääneni",
-  "@myVotes": {
-    "description": "My votes label"
-  },
   "proposalCreated": "Esitys luotu onnistuneesti",
   "@proposalCreated": {
     "description": "Proposal created success message"
-  },
-  "proposalCreateFailed": "Esityksen luominen epäonnistui",
-  "@proposalCreateFailed": {
-    "description": "Proposal create failed message"
   },
   "voteSubmitted": "Ääni annettu onnistuneesti",
   "@voteSubmitted": {
     "description": "Vote submitted success message"
   },
-  "voteSubmitFailed": "Äänen antaminen epäonnistui",
-  "@voteSubmitFailed": {
-    "description": "Vote submit failed message"
-  },
   "noProposalsFound": "Esityksiä ei löytynyt",
   "@noProposalsFound": {
     "description": "No proposals found message"
-  },
-  "loadingProposals": "Ladataan esityksiä...",
-  "@loadingProposals": {
-    "description": "Loading proposals message"
   },
   "refreshProposals": "Päivitä esitykset",
   "@refreshProposals": {
@@ -2684,12 +2068,8 @@
       }
     }
   },
-  "loadVoteCountFailed": "Äänten määrän lataaminen epäonnistui",
   "voteCount": "Äänten määrä",
-  "deletionProposalInfo": "Poistoesityksen tiedot",
   "deletionProposalDescription": "Ehdottele numeroita poistettavaksi, jotka rikkovat yhteisön sääntöjä. Osallistumisesi auttaa pitämään alustan turvallisena.",
-  "voteToEarnVip": "Äänestä esityksiä ansaitaksesi VIP-oikeuksia!",
-  "voteFailed": "Äänestäminen epäonnistui",
   "searchProposals": "Etsi esityksiä",
   "defaultNotifications": "Oletusilmoitukset",
   "defaultNotificationsDescription": "Oletusilmoituskanava sovellukselle.",
@@ -2699,81 +2079,14 @@
   "stirVerificationDescription": "Näyttää STIR/SHAKEN-varmennustulokset numeroille.",
   "fraudAlerts": "Petosvaroitukset",
   "fraudAlertsDescription": "Näyttää varoituksia mahdollisista petollisista puheluista.",
-  "notificationFrequencyDescription": "Valitse, kuinka usein saat ilmoituksia uusista poistoehdotuksista. Voit saada ne välittömästi, erissä tai mukautetulla aikavälillä.",
-  "@notificationFrequencyDescription": {
-    "description": "A detailed explanation of what the notification frequency settings do"
-  },
   "@notificationMode": {
     "description": "Title for the mode selection part (Immediate, Batched, Custom)"
-  },
-  "immediateNotifications": "Välitön",
-  "@immediateNotifications": {
-    "description": "Label for the immediate notification mode"
-  },
-  "immediateNotificationsDescription": "Saat ilmoituksen heti, kun ehdotus luodaan.",
-  "@immediateNotificationsDescription": {
-    "description": "Description for the immediate notification mode"
-  },
-  "batchNotifications": "Erissä",
-  "@batchNotifications": {
-    "description": "Label for the batched notification mode"
-  },
-  "batchNotificationsDescription": "Saat yhteenvedon ilmoituksista ajoittain.",
-  "@batchNotificationsDescription": {
-    "description": "Description for the batched notification mode"
-  },
-  "customNotifications": "Mukautettu",
-  "@customNotifications": {
-    "description": "Label for the custom notification mode"
-  },
-  "customNotificationsDescription": "Määritä oma aikavälisi ilmoitusten vastaanottamiselle.",
-  "@customNotificationsDescription": {
-    "description": "Description for the custom notification mode"
-  },
-  "customFrequency": "Mukautettu tiheys",
-  "@customFrequency": {
-    "description": "Title for the custom frequency slider section"
-  },
-  "notificationFrequencyDurationMinutes": "{minutes} min",
-  "@notificationFrequencyDurationMinutes": {
-    "description": "Formats a duration that is only in minutes.",
-    "placeholders": {
-      "minutes": {
-        "type": "int",
-        "example": "45"
-      }
-    }
-  },
-  "notificationFrequencyDurationHours": "{hours} h",
-  "@notificationFrequencyDurationHours": {
-    "description": "Formats a duration that is in whole hours.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "2"
-      }
-    }
-  },
-  "notificationFrequencyDurationHoursAndMinutes": "{hours} h {minutes} min",
-  "@notificationFrequencyDurationHoursAndMinutes": {
-    "description": "Formats a duration that has both hours and minutes.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "1"
-      },
-      "minutes": {
-        "type": "int",
-        "example": "30"
-      }
-    }
   },
   "pendingProposals": "Odottaa ehdotuksia",
   "pendingProposalsBody": "Sinulla on {count, plural, =0 {ei odottavia ehdotuksia} one {1 odottava ehdotus} other {{count} odottavaa ehdotusta}}.",
   "guidelinesLabel": "Ohjeet",
   "reportingGuidelines": "• Raportoi vain todella ongelmallisia numeroita\n• Anna tarkat ja yksityiskohtaiset syyt\n• Valitse asianmukainen riskitaso vakavuuden perusteella\n• Vääristä raportoinnista voi seurata tilin rajoituksia",
   "riskLevelLabel": "Riskitaso",
-  "riskLevelDescription": "Numeron riskitaso",
   "phoneNumberMinDigits": "Puhelinnumerossa on oltava vähintään 7 numeroa",
   "provideDetailedExplanation": "Anna yksityiskohtainen selitys (vähintään 10 merkkiä)",
   "reasonMinCharacters": "Syyn on oltava vähintään 10 merkkiä pitkä",
@@ -2790,39 +2103,15 @@
   "@countryCodeRequired": {
     "description": "Validation message for required country code"
   },
-  "countryCodeLengthError": "Maakoodin on oltava 2 kirjainta pitkä",
-  "@countryCodeLengthError": {
-    "description": "Validation message for country code length"
-  },
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
-  "phoneNumberLengthError": "Puhelinnumerossa on oltava vähintään 7 numeroa",
-  "@phoneNumberLengthError": {
-    "description": "Validation message for phone number length"
-  },
-  "reasonHint": "Anna yksityiskohtainen selitys (vähintään 10 merkkiä)",
-  "@reasonHint": {
-    "description": "Hint text for reason input field"
-  },
   "reasonRequired": "Syy on pakollinen",
   "@reasonRequired": {
     "description": "Validation message for required reason"
-  },
-  "reasonLengthError": "Syy on oltava vähintään 10 merkkiä pitkä",
-  "@reasonLengthError": {
-    "description": "Validation message for reason length"
-  },
-  "guidelinesTitle": "Ohjeet",
-  "@guidelinesTitle": {
-    "description": "Title for guidelines section"
-  },
-  "guidelinesText": "• Raportoi vain todella ongelmallisia numeroita\n• Anna tarkat ja yksityiskohtaiset syyt\n• Valitse asianmukainen riskitaso vakavuuden perusteella\n• Vääristä raportoinnista voi seurata tilin rajoituksia",
-  "@guidelinesText": {
-    "description": "Text content for guidelines section"
   },
   "riskLevelCritical": "Kriittinen",
   "@riskLevelCritical": {
@@ -2836,33 +2125,9 @@
   "@riskLevelVeryLow": {
     "description": "Label for very low risk level"
   },
-  "riskDescriptionVeryLow": "Erittäin matala - Vähäinen häiriö, harvinaiset puhelut",
-  "@riskDescriptionVeryLow": {
-    "description": "Description for very low risk level"
-  },
-  "riskDescriptionLow": "Matala - Satunnaiset ei-toivotut puhelut",
-  "@riskDescriptionLow": {
-    "description": "Description for low risk level"
-  },
-  "riskDescriptionMedium": "Keskisuuri - Säännöllinen roskaposti tai puhelinmyynti",
-  "@riskDescriptionMedium": {
-    "description": "Description for medium risk level"
-  },
-  "riskDescriptionHigh": "Korkea - Jatkuva häirintä tai huijausyritykset",
-  "@riskDescriptionHigh": {
-    "description": "Description for high risk level"
-  },
-  "riskDescriptionCritical": "Kriittinen - Vaaralliset huijaukset tai uhkaukset",
-  "@riskDescriptionCritical": {
-    "description": "Description for critical risk level"
-  },
   "notificationFrequencyTitle": "Ilmoitustiheys",
   "@notificationFrequencyTitle": {
     "description": "Title for notification frequency settings"
-  },
-  "notificationFrequencyLabel": "Ilmoitustiheys (tuntia)",
-  "@notificationFrequencyLabel": {
-    "description": "Label for notification frequency dropdown"
   },
   "errorMessage": "Virhe: {error}",
   "@errorMessage": {
@@ -2870,18 +2135,6 @@
     "placeholders": {
       "error": {
         "type": "String"
-      }
-    }
-  },
-  "votesStatistics": "Äänet: {totalVotes} ({supportPercentage}% tukee)",
-  "@votesStatistics": {
-    "description": "Voting statistics text",
-    "placeholders": {
-      "totalVotes": {
-        "type": "int"
-      },
-      "supportPercentage": {
-        "type": "int"
       }
     }
   },
@@ -2899,37 +2152,6 @@
     "description": "Shows the number of oppose votes.",
     "placeholders": {
       "opposeCount": {
-        "type": "int"
-      }
-    }
-  },
-  "timeJustNow": "Juuri nyt",
-  "@timeJustNow": {
-    "description": "Time format for recent events"
-  },
-  "timeMinutesAgo": "{minutes}m sitten",
-  "@timeMinutesAgo": {
-    "description": "Time format for minutes ago",
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
-  "timeHoursAgo": "{hours}h sitten",
-  "@timeHoursAgo": {
-    "description": "Time format for hours ago",
-    "placeholders": {
-      "hours": {
-        "type": "int"
-      }
-    }
-  },
-  "timeDaysAgo": "{days}d sitten",
-  "@timeDaysAgo": {
-    "description": "Time format for days ago",
-    "placeholders": {
-      "days": {
         "type": "int"
       }
     }
@@ -2989,7 +2211,6 @@
   "liveActivitiesTestUpdateActivity": "Päivitä aktiviteetti",
   "liveActivityControlsTitle": "Live-aktiviteetin hallinta",
   "liveActivitiesTestTitle": "Live-aktiviteettien testi",
-  "liveActivitiesTestSubtitle": "Testaa live-aktiviteetti-ilmoitusta.",
   "liveNotificationCustomizationTitle": "Live-ilmoituksen mukauttaminen",
   "liveNotificationCustomizationSubtitle": "Mukauta live-ilmoitusten ulkoasua.",
   "notification_instructions": "Ohjeet:\n1. Napauta \"LÄHETÄ\" luodaksesi tai päivittääksesi ilmoituksen.\n2. Siirry aloitusnäyttöön tai vedä ilmoituskeskus alas nähdäksesi tuloksen.\n3. Napauta \"LOPETA\" hylätäksesi ilmoituksen.",
@@ -3012,7 +2233,6 @@
   "@proposalDetails": {
     "description": "The title of the proposal details page."
   },
-  "filterByStatus": "Suodata tilan mukaan",
   "proposalNotFound": "Ehdotusta ei löytynyt",
   "@proposalNotFound": {
     "description": "A message displayed when a proposal is not found."
@@ -3020,10 +2240,6 @@
   "processed": "Käsitelty",
   "@processed": {
     "description": "A label for the processed status."
-  },
-  "showAll": "Näytä kaikki",
-  "@showAll": {
-    "description": "A button to show all proposals."
   },
   "filterAndSortTitle": "Suodata ja järjestä",
   "filterVerifiedOwner": "Suodata vahvistettu omistaja",
@@ -3055,10 +2271,6 @@
   "@invalidSimData": {
     "description": "A message displayed when the SIM data is invalid."
   },
-  "simCardData": "SIM-kortin tiedot",
-  "@simCardData": {
-    "description": "A label for the SIM card data."
-  },
   "simSlot": "SIM-paikka",
   "@simSlot": {
     "description": "A label for the SIM slot."
@@ -3077,8 +2289,6 @@
   },
   "callTypeRejected": "Hylätty",
   "callTypeSilenced": "Mykistetty",
-  "callTypeVoicemail": "Äänipuhelin",
-  "callTypeUnknownIntercept": "Tuntematon katkaisu",
   "andMoreItems": "ja {count} muuta kohdetta",
   "@andMoreItems": {
     "description": "Text to show when there are more items than displayed.",

@@ -6,14 +6,6 @@
   },
   "aboutLabels": "О метках",
   "aboutPhoneSubscriptionRules": "О правилах подписки на телефон",
-  "aboutPhoneSubscriptions": "О подписках на телефон",
-  "@aboutPhoneSubscriptions": {
-    "description": "About phone subscriptions title"
-  },
-  "aboutPhoneSubscriptionsDesc": "Подпишитесь на списки правил телефона по URL, автоматически обновляйте правила. Поддерживает файлы правил в формате JSON, CSV.",
-  "@aboutPhoneSubscriptionsDesc": {
-    "description": "About phone subscriptions description"
-  },
   "aboutSmsFilter": "Об SMS фильтрации",
   "aboutSmsSubscriptionRules": "О правилах подписки на SMS",
   "aboutSubtitle": "Версия приложения и юридическая информация",
@@ -22,7 +14,6 @@
   "actionAll": "Все",
   "actionAllow": "Разрешить",
   "actionBlock": "Блокировать",
-  "actionFilterAll": "Все фильтры",
   "actionFilterTitle": "Фильтровать по типу действия",
   "actionFilterTooltip": "Фильтр действий",
   "actionNone": "Нет действий",
@@ -42,24 +33,15 @@
   },
   "addContactButton": "Добавить контакт",
   "addContactFailed": "Не удалось добавить контакт: {error}",
-  "addedToAllowedRules": "Добавлено в разрешенные правила",
-  "addedToBlacklist": "Добавлено в черный список",
-  "addedToBlockedRules": "Добавлено в заблокированные правила",
-  "addedToFavoriteContacts": "Добавлено в избранные контакты",
   "addedToFavorites": "Добавлено в избранное",
-  "addedToWhitelist": "Добавлено в белый список",
-  "addFavorite": "Добавить в избранное",
-  "addFilter": "Добавить фильтр",
   "addLabel": "Добавить метку",
   "addLabelButton": "Добавить метку",
   "addLabelFailed": "Не удалось добавить метку: {error}",
-  "addLabelToCall": "Добавить метку к записи звонка",
   "addName": "Добавить имя",
   "addNoneSubscription": "Добавить подписку \"Нет\"",
   "@addNoneSubscription": {
     "description": "Add none subscription dialog title"
   },
-  "addOrEditContactInfo": "Используется для добавления или редактирования информации о контакте",
   "addPhoneMark": "Добавить отметку телефона",
   "addPhoneNumberRule": "Добавить правило для номера телефона",
   "addPlugin": "Добавить плагин",
@@ -69,14 +51,12 @@
   "addPluginFromUrl": "Добавить плагин из URL",
   "addRegexRule": "Добавить правило регулярного выражения",
   "addRule": "Добавить правило",
-  "addRuleButton": "Добавить правило",
   "addRuleFailed": "Не удалось добавить правило: {error}",
   "addRuleTooltip": "Добавить правило",
   "addSilenceSubscription": "Добавить подписку на тишину",
   "@addSilenceSubscription": {
     "description": "Add silence subscription dialog title"
   },
-  "addSimRuleButton": "Добавить SIM правило",
   "addSmsFilterRule": "Добавить правило фильтрации SMS",
   "addSmsRule": "Добавить SMS правило",
   "addSmsSubscription": "Добавить SMS подписку",
@@ -95,26 +75,17 @@
     }
   },
   "addSubscriptionTooltip": "Добавить подписку",
-  "addToAllowedRules": "Добавить в разрешенные правила",
   "addToBlacklist": "Добавить в черный список",
-  "addToBlockedRules": "Добавить в заблокированные правила",
-  "addToFavoriteContacts": "Добавить в избранные контакты",
   "addToFavorites": "Добавить в избранное",
   "addToRules": "Добавить в правила",
   "addToWhitelist": "Добавить в белый список",
-  "adPlaceholder": "Заполнитель рекламы",
   "agent": "Агент",
   "all": "Все",
   "allCallsTab": "Все",
-  "allDataClearedSuccessfully": "Все данные успешно очищены",
   "allow": "Разрешить",
   "allowAllAllowRules": "Разрешить все разрешающие правила",
   "allowAllAllowRulesDesc": "Разрешить звонки из разрешающих правил",
   "allowAllBlacklistedNumbers": "Разрешить все номера из черного списка",
-  "allowAllBlacklistedNumbersDesc": "Разрешить звонки из черного списка",
-  "@allowAllBlacklistedNumbersDesc": {
-    "description": "Allow calls from blocklist"
-  },
   "allowAllBlockRules": "Разрешить все блокирующие правила",
   "allowAllBlockRulesDesc": "Разрешить звонки из блокирующих правил",
   "allowAllowedNumbers": "Разрешить разрешенные номера",
@@ -135,8 +106,6 @@
   "allowRegexBlockRulesDescription": "Включить блокирующие правила на основе regex",
   "allowRule": "Разрешающее правило",
   "allowRules": "Разрешающие правила",
-  "allowWhitelistedNumbers": "Разрешить номера из белого списка",
-  "allowWhitelistedNumbersDescription": "Разрешить все номера из белого списка",
   "allPermissionsGranted": "Все разрешения предоставлены",
   "allSettingsCompleted": "Все настройки завершены.",
   "allUpdateSuccess": "Все обновления завершены ({count} правил)",
@@ -149,7 +118,6 @@
     }
   },
   "answerThenHangup": "Ответить и положить трубку",
-  "appLegalese": "© 2023 Your Call Your Rule. Все права защищены.",
   "applicationSoftware": "Прикладное ПО",
   "apply": "Применить",
   "appName": "Your Call Your Rule",
@@ -162,8 +130,6 @@
   "autoUpdate": "Автообновление",
   "autoUpdateDescription": "Установите интервалы автоматического обновления для подписок или обновляйте вручную",
   "autoUpdateSettings": "Настройки автообновления",
-  "autoUpdateSettingsSubtitle": "Управление автоматическими обновлениями правил и плагинов",
-  "autoUpdateSettingsTitle": "Настройки автообновления",
   "autoUpdateSubtitle": "Управление автоматическими обновлениями правил и плагинов",
   "autoUpdateTitle": "Автообновление",
   "avatarBorderColor": "Цвет границы аватара",
@@ -178,57 +144,33 @@
   "backupAndRestoreSubtitle": "Резервное копирование или восстановление данных приложения",
   "backupAndRestoreTitle": "Резервное копирование и восстановление",
   "backupFailed": "Ошибка резервного копирования",
-  "backupFailedMessage": "Ошибка резервного копирования",
-  "backupFailedWithError": "Ошибка резервного копирования: {error}",
-  "backupRestoreSubtitle": "Резервное копирование или восстановление данных приложения",
-  "backupRestoreTitle": "Резервное копирование и восстановление",
-  "backupSectionTitle": "Резервное копирование",
   "backupSettings": "Настройки резервного копирования",
-  "backupSettingsDialogTitle": "Настройки резервного копирования",
-  "backupSettingsTitle": "Настройки резервного копирования",
-  "backupSuccessMessage": "Успешно скопировано в облако",
-  "backupSuccessToLocal": "Резервное копирование успешно выполнено в: {path}",
   "backupToCloud": "Резервное копирование в облако",
-  "backupToCloudDescription": "Резервное копирование настроек и правил в облачное хранилище",
   "backupToCloudFailed": "Не удалось выполнить резервное копирование в облако: {error}",
-  "backupToCloudLabel": "Резервное копирование в облако",
   "backupToCloudSuccess": "Успешно скопировано в облако",
-  "backupToCloudTitle": "Резервное копирование в облако",
-  "backupToLocalLabel": "Резервное копирование на локальный диск",
   "bank": "Банк",
   "basicInfo": "Основная информация",
   "basicRuleFilter": "Базовый фильтр правил",
   "basicRuleFiltering": "Базовая фильтрация правил",
   "basicRuleFilteringExplanation": "• Базовая фильтрация правил: правила фильтрации на основе черного списка, белого списка и регулярных выражений",
-  "basicRuleFilterSettings": "Настройки базового фильтра правил",
-  "@basicRuleFilterSettings": {
-    "description": "Title for basic rule filter settings page"
-  },
   "basicRuleFilterSubtitle": "Фильтрация вызовов с использованием черного/белого списков и регулярных выражений",
-  "batchDeleteContacts": "Пакетное удаление контактов",
   "batchDeleteContactsConfirm": "Вы уверены, что хотите удалить {count} выбранных контактов?",
-  "batchDeleteFailed": "Не удалось выполнить пакетное удаление",
   "batchDeleteLabelsConfirm": "Вы уверены, что хотите удалить {count} меток?",
   "blacklist": "Черный список",
   "@blacklist": {
     "description": "Blacklist label"
   },
   "blacklistingAndWhitelisting": "Черный и белый списки",
-  "blacklistLabel": "Черный список",
   "blackWhiteList": "Черный/Белый список",
   "block": "Блокировать",
   "blockCalls": "Блокировать вызовы",
   "blocked": "Заблокировано",
-  "blockedCallAction": "Действие заблокированного вызова",
   "blockedCalls": "Заблокированные вызовы",
   "blockedCallsTitle": "Заблокированные вызовы",
-  "blockedCommunications": "Заблокированные сообщения",
-  "blockedPhoneLabel": "Заблокированные вызовы",
   "blockedSpamCalls": "Заблокированные спам-вызовы",
   "blockingTrend": "Тенденция блокировки",
   "blockInternationalCalls": "соответствует номерам, которые не начинаются с + или 00",
   "blockInternationalCallsTitle": "Блокировать международные звонки",
-  "blockLandlineNumbersTitle": "Блокировать номера стационарных телефонов",
   "blockMobileNumbers": "соответствует номерам, которые не начинаются с 13-19",
   "blockMobileNumbersTitle": "Блокировать номера мобильных телефонов",
   "blockPremiumRateNumbers": "соответствует номерам, которые не начинаются с 118 или 120-190",
@@ -244,19 +186,9 @@
   "bulkDeleteLabels": "Пакетное удаление меток",
   "call": "Вызов",
   "callback": "Перезвонить",
-  "callbackTo": "Перезвонить на {number}",
-  "@callbackTo": {
-    "description": "Callback notification message",
-    "placeholders": {
-      "number": {
-        "type": "String"
-      }
-    }
-  },
   "callBlocking": "Блокировка вызовов",
   "callerIdApp": "Приложение Caller ID",
   "callerIdCustomizationTitle": "Настроить Caller ID",
-  "callerIdDialogTitle": "Информация о Caller ID",
   "callerIdDisplayMode": "Режим отображения идентификатора вызывающего абонента",
   "callerIdMarkedByCount": "Отмечено {count}",
   "@callerIdMarkedByCount": {
@@ -268,8 +200,6 @@
     }
   },
   "callerIdPreview": "Предварительный просмотр идентификатора вызывающего абонента",
-  "callFilter": "Фильтр вызовов",
-  "callFilterDescription": "При включении входящие вызовы проверяются в соответствии со списком правил ниже. Правила фильтрации вызовов по умолчанию не синхронизируются между устройствами.",
   "callFilterRules": "Правила фильтрации вызовов",
   "callFilterRulesDescription": "Установите основные правила для фильтрации вызовов",
   "callFilterSettings": "Настройки фильтра вызовов",
@@ -278,33 +208,10 @@
   "callHistory": "История вызовов",
   "callHistoryInfoDesc": "Здесь отображается ваша история вызовов, включая входящие, исходящие и пропущенные вызовы.",
   "callHistoryInfoTitle": "История вызовов",
-  "callHistoryInitFailed": "Не удалось инициализировать историю вызовов: {error}",
-  "@callHistoryInitFailed": {
-    "description": "Call history initialization failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
-  "callHistoryRefreshFailed": "Не удалось обновить историю вызовов: {error}",
-  "@callHistoryRefreshFailed": {
-    "description": "Call history refresh failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "callHistoryTab": "История вызовов",
-  "callHistoryTimelineEarlier": "Раньше",
-  "callHistoryTimelineToday": "Сегодня",
-  "callHistoryTimelineYesterday": "Вчера",
   "callScreeningPermission": "Разрешение на фильтрацию вызовов",
   "callScreeningPermissionDescription": "Используется для фильтрации и блокировки спам-звонков.",
   "callScreeningPermissionNotGranted": "Разрешение на фильтрацию вызовов не предоставлено, может повлиять на функциональность приложения.",
-  "callSettingsSubtitle": "Настройки идентификатора вызывающего абонента, фильтрации и блокировки",
-  "callSettingsTitle": "Настройки вызовов",
   "callStatistics": "Статистика вызовов",
   "callTypeAnswered": "Ответил",
   "callTypeBlocked": "Заблокирован",
@@ -330,32 +237,14 @@
       }
     }
   },
-  "changeTag": "Изменить тег",
   "charity": "Благотворительность",
-  "chartMonthFormat": "Месяц {month}",
-  "@chartMonthFormat": {
-    "description": "Month format for chart labels",
-    "placeholders": {
-      "month": {
-        "type": "int"
-      }
-    }
-  },
-  "chartOneDayAgo": "1 день назад",
-  "chartOneMonthAgo": "1 месяц назад",
   "chartOneWeekAgo": "1 неделю назад",
-  "chartTenDaysAgo": "10 дней назад",
   "chartThreeDaysAgo": "3 дня назад",
   "chartToday": "Сегодня",
   "checkFileFormat": "Пожалуйста, проверьте формат файла или разрешения",
   "checkPermissionFailed": "Не удалось проверить разрешения: {error}",
   "chooseDefaultInterceptAction": "Выберите действие перехвата по умолчанию",
-  "clearAllData": "Очистить все данные",
-  "clearAllDataConfirmation": "Вы уверены, что хотите очистить все данные приложения? Это действие нельзя отменить.",
-  "clearAllDataDescription": "Очистить все данные приложения",
-  "clearAllDataLabel": "Очистить все данные",
   "clearFilter": "Очистить фильтр",
-  "clearLabelFilter": "Очистить фильтр меток",
   "clearLabelFilterButton": "Очистить фильтр меток",
   "closeButton": "Закрыть",
   "cloudSync": "Синхронизация с облаком",
@@ -363,26 +252,18 @@
   "cloudSyncSettingsSubtitle": "Настройте WebDAV, OneDrive и Google Drive",
   "cloudSyncSettingsTitle": "Настройки синхронизации с облаком",
   "cloudSyncTitle": "Синхронизация с облаком",
-  "collapseLabelSelector": "Свернуть выбор меток",
   "collection": "Сбор долгов",
   "colorPickerTitle": "Выбрать цвет",
   "configManagement": "Управление конфигурацией",
   "configUpdated": "Конфигурация обновлена",
   "configurationAdvice": "Благодаря правильной настройке, вы можете установить различные стратегии фильтрации для рабочих и личных SIM-карт.",
   "configureBackupOptions": "Настроить параметры резервного копирования",
-  "configureBackupOptionsSubtitle": "Настроить параметры резервного копирования",
   "configureCloudSyncService": "Настроить службу синхронизации с облаком",
-  "configureCloudSyncServiceHint": "Пожалуйста, настройте службу синхронизации с облаком, чтобы включить синхронизацию между несколькими устройствами.",
   "configureCloudSyncServiceMessage": "Пожалуйста, настройте службу синхронизации с облаком, чтобы включить синхронизацию между несколькими устройствами.",
   "configureSimCardFilterRules": "Настроить правила фильтрации SIM-карт",
-  "configureSyncServiceHint": "Пожалуйста, сначала настройте службу синхронизации в настройках синхронизации с облаком",
   "confirm": "Подтвердить",
-  "confirmBatchDeleteContacts": "Вы уверены, что хотите удалить выбранные",
   "confirmButton": "Подтвердить",
   "confirmDelete": "Подтвердить удаление",
-  "confirmDeleteContact": "Вы уверены, что хотите удалить",
-  "confirmDeleteContactName": "Подтвердить удаление?",
-  "confirmDeleteFilter": "Вы уверены, что хотите удалить этот фильтр?",
   "confirmDeleteLabel": "Вы уверены, что хотите удалить метку \"{name}\"",
   "confirmDeletePlugin": "Вы уверены, что хотите удалить плагин \"{name}\"?",
   "confirmDeletePlugins": "Вы уверены, что хотите удалить {count} плагинов?",
@@ -396,10 +277,8 @@
     }
   },
   "confirmDeleteRuleMessage": "Вы уверены, что хотите удалить это правило? Это действие нельзя отменить.",
-  "confirmDeleteSelectedContacts": "Вы уверены, что хотите удалить выбранные контакты?",
   "confirmDeleteSmsFilterRule": "Вы уверены, что хотите удалить это правило фильтрации SMS?",
   "confirmDeleteSmsRule": "Вы уверены, что хотите удалить это правило SMS?",
-  "confirmDeleteSubscription": "Вы уверены, что хотите удалить эту подписку?",
   "confirmDeleteSubscriptions": "Вы уверены, что хотите удалить {name}?",
   "@confirmDeleteSubscriptions": {
     "description": "Confirmation message shown before deleting a subscription.",
@@ -411,7 +290,6 @@
     }
   },
   "confirmPassword": "Подтвердите пароль",
-  "confirmPasswordLabel": "Подтвердите пароль",
   "connectedStatus": "Подключено",
   "connectionFailedCheckCredentialsMessage": "Не удалось подключиться: Проверьте адрес сервера, имя пользователя и пароль",
   "connectionFailedMessage": "Подключение не удалось",
@@ -419,19 +297,11 @@
   "connectionSuccessMessage": "Подключение успешно",
   "contactAddSuccess": "Контакт успешно добавлен",
   "contactDeleted": "Контакт удален",
-  "contactEditDialog": "Диалог редактирования контакта",
-  "contactNameHint": "Введите имя контакта (необязательно)",
   "contactNameLabel": "Имя",
-  "contactNameOptional": "Имя контакта (необязательно)",
   "contactNotFound": "Контакт не найден",
   "contacts": "Контакты",
   "contactsDeleted": "Удалено {count} контактов",
-  "contactSettingsSubtitle": "Управление контактами и настройка меток",
-  "contactSettingsTitle": "Настройки контактов",
-  "contactsLoadingFailed": "Не удалось загрузить контакты: {error}",
   "contactsManagement": "Управление контактами",
-  "contactsManagementPageTitle": "Страница управления контактами",
-  "contactsPageTitle": "Управление контактами",
   "contactsPermission": "Разрешение на контакты",
   "contactsPermissionDescription": "Используется для идентификации звонков контактов.",
   "contactsTab": "Контакты",
@@ -439,8 +309,6 @@
   "@contactSubscriptionDescription": {
     "description": "About contact subscription description"
   },
-  "contactSubscriptionLoadingFailed": "Не удалось загрузить подписки на контакты: {error}",
-  "contactSubscriptionPageTitle": "Подписки на контакты",
   "contactUpdateSuccess": "Контакт успешно обновлен",
   "contactUs": "Свяжитесь с нами",
   "content": "Содержание",
@@ -452,34 +320,16 @@
   "countryNameColor": "Цвет названия страны",
   "countryNameFontSize": "Размер шрифта названия страны",
   "countryRegionNamePosition": "Позиция названия страны/региона",
-  "countrySelectionDialog": "Диалог выбора страны",
-  "countrySelectionDialogDescription": "Используется для выбора страны для запроса информации об идентификации вызывающего абонента",
   "countThresholdDescription": "Установите минимальный порог счетчика, необходимый для запуска действий фильтрации",
   "countThresholdLabel": "Порог счетчика",
-  "countThresholdSettings": "Настройки порога счетчика",
-  "countThresholdValue": "Порог счетчика: {count}",
   "createdRules": "Созданные правила",
   "csvFormat": "Формат CSV",
-  "currentDeviceChip": "Текущий",
   "currentDeviceLabel": "Метка текущего устройства",
   "currentDeviceTitle": "Текущее устройство",
-  "currentLabels": "Текущие метки:",
   "currentLanguage": "Текущий язык",
-  "currentPasswordLabel": "Текущий пароль",
   "customerService": "Служба поддержки",
-  "customRange": "Пользовательский диапазон",
-  "dailyStatistics": "Ежедневная статистика",
-  "@dailyStatistics": {
-    "description": "Daily statistics notification option"
-  },
-  "dailyStatisticsDesc": "Получайте ежедневную статистику о заблокированных вызовах и сообщениях",
-  "@dailyStatisticsDesc": {
-    "description": "Description for daily statistics option"
-  },
   "dashboardTab": "Панель",
   "dataAnalysis": "Анализ данных",
-  "dataAnalysisDashboardPage": "Страница панели анализа данных",
-  "dataExport": "Экспорт данных",
   "dataLoadFailure": "Не удалось загрузить данные: {error}",
   "@dataLoadFailure": {
     "description": "Data loading failure message",
@@ -492,9 +342,6 @@
   "dataLoadingFailed": "Не удалось загрузить данные: {error}",
   "dataMigration": "Миграция данных",
   "dataMigrationDescription": "Эта функция позволяет переносить все ваши данные между устройствами. В настоящее время вы можете использовать функции резервного копирования и восстановления для ручной миграции данных.",
-  "dataMigrationDialogContent": "Эта функция позволяет переносить все ваши данные между устройствами. В настоящее время вы можете использовать функции резервного копирования и восстановления для ручной миграции данных.",
-  "dataMigrationDialogTitle": "Миграция данных",
-  "dataMigrationSectionTitle": "Миграция данных",
   "dataSourceReminder": "Напоминание об источнике данных",
   "days": "{count, plural, =1{1 день} other{{count} дней}}",
   "@days": {
@@ -507,16 +354,11 @@
   },
   "daysVip": "{days} Дней VIP",
   "debtCollection": "Сбор долгов",
-  "defaultPeriod": "Неделя",
   "delete": "Удалить",
   "deleteButton": "Удалить",
   "deleteContact": "Удалить контакт",
   "deleteContactConfirm": "Вы уверены, что хотите удалить {name}?",
-  "deleteContactConfirmation": "Вы уверены, что хотите удалить контакт",
-  "deleteDeviceConfirmation": "Вы уверены, что хотите удалить {deviceName}?",
-  "deleteDeviceDialogTitle": "Удалить устройство",
   "deleteFailed": "Не удалось удалить: {error}",
-  "deleteFilter": "Удалить фильтр",
   "deleteLabel": "Удалить метку",
   "deleteLabelFailed": "Не удалось удалить метку: {error}",
   "deletePlugin": "Удалить плагин",
@@ -526,7 +368,6 @@
   "deleteRule": "Удалить правило",
   "deleteRuleFailed": "Не удалось удалить: {error}",
   "deleteSelected": "Удалить выбранное",
-  "deleteSmsRule": "Удалить SMS правило",
   "deleteSubscription": "Удалить подписку",
   "@deleteSubscription": {
     "description": "Delete subscription dialog title"
@@ -551,21 +392,13 @@
   },
   "deleteSuccess": "Успешно удалено",
   "delivery": "Доставка",
-  "deviceDeletedSuccessfully": "Устройство успешно удалено",
-  "deviceDeletedSuccessfullyMessage": "Устройство успешно удалено",
-  "deviceIdLabel": "ID устройства",
   "deviceIDLabel": "ID устройства",
   "deviceManagementSubtitle": "Управление синхронизацией нескольких устройств",
   "deviceManagementTitle": "Управление устройствами",
   "deviceModelLabel": "Модель устройства",
   "deviceName": "Имя устройства",
-  "deviceNameCannotBeEmpty": "Имя устройства не может быть пустым",
-  "deviceNameHint": "Пожалуйста, введите имя устройства",
   "deviceNameLabel": "Имя устройства",
-  "deviceRenamedSuccessfully": "Устройство переименовано успешно",
   "deviceRenamedSuccessfullyMessage": "Устройство переименовано успешно",
-  "devicesSyncedSuccessfully": "Устройства успешно синхронизированы",
-  "devicesSyncedSuccessfullyMessage": "Устройства успешно синхронизированы",
   "devicesSynchronizedSuccessfullyMessage": "Устройства успешно синхронизированы",
   "deviceUnregisteredSuccessfullyMessage": "Устройство успешно удалено",
   "dialogTitle": "Объяснение шаблона Regex",
@@ -576,7 +409,6 @@
   },
   "disabledStatus": "Отключено",
   "disableGlobalPlugins": "Отключить глобальные плагины",
-  "disableSubscriptionSuccessfully": "Подписка успешно отключена",
   "disconnectButton": "Отключить",
   "disconnectedMessage": "Отключено",
   "disconnectedStatus": "Отключено",
@@ -587,17 +419,12 @@
   "ecommerce": "Электронная коммерция",
   "edit": "Редактировать",
   "editContact": "Редактировать контакт",
-  "editFilter": "Редактировать фильтр",
   "editLabel": "Редактировать метку",
   "editPhoneRule": "Редактировать правило для телефона",
-  "editPhoneRules": "Используется для редактирования правил для телефона",
-  "editPhoneRuleTitle": "Редактировать правило для телефона",
   "editRule": "Редактировать правило",
-  "editSmsRule": "Редактировать SMS правило",
   "education": "Образование",
   "elementPositionsSetting": "Положения элементов",
   "email": "Электронная почта",
-  "emailOptional": "Электронная почта (Необязательно)",
   "enableCallFilter": "Включить фильтр вызовов",
   "enableCallFilterDescription": "При включении входящие вызовы проверяются по списку правил ниже. Правила фильтрации вызовов по умолчанию не синхронизируются между устройствами.",
   "enabled": "Включено",
@@ -607,9 +434,6 @@
   "enabledStatus": "Включено",
   "enableEncryption": "Включить шифрование",
   "enableEncryptionDescription": "Зашифровать файлы резервных копий",
-  "enableEncryptionLabel": "Включить шифрование",
-  "enableEncryptionSubtitle": "Файлы резервных копий будут зашифрованы",
-  "enableEncryptionTitle": "Включить шифрование",
   "enableGlobalPlugins": "Включить глобальные плагины",
   "enableLocalCountFilter": "Включить фильтр локального счетчика",
   "enableLocalCountFilterDescription": "Автоматически фильтровать спам-вызовы на основе количества отметок вызовов",
@@ -620,14 +444,11 @@
   "enableMuteRulesDesc": "Применить конфигурацию правил перехвата отключения звука",
   "enableNoneActionRules": "Включить правила без действий",
   "enableNoneActionRulesDesc": "Разрешить конфигурации правил без действий перехвата",
-  "enableNotifications": "Включить уведомления",
   "enableRemoteNumberFilter": "Включить фильтр удаленных номеров",
   "enableRemoteNumberFilterDescription": "Использовать удаленную базу данных для фильтрации номеров",
   "enableRule": "Включить правило",
   "enableSmsFilter": "Включить SMS фильтрацию",
   "enableSmsFilterDescription": "При включении сообщения будут автоматически фильтроваться в соответствии с правилами",
-  "enableStatisticsNotifications": "Включить уведомления статистики",
-  "enableSubscriptionSuccessfully": "Подписка успешно включена",
   "enableTimeInterception": "Включить перехват по времени",
   "enableTimeInterceptionDescription": "Перехватывать повторяющиеся звонки за короткий промежуток времени",
   "enableTimeInterceptor": "Включить временной перехватчик",
@@ -641,24 +462,15 @@
   },
   "enhancedFilterSettingsTitle": "Расширенные настройки фильтрации",
   "enhancedFilterSystemDescription": "Улучшенная система фильтрации поддерживает как глобальные правила, так и конфигурации фильтрации для каждой SIM-карты.",
-  "enterBothPhoneNumberAndRegexPattern": "Пожалуйста, введите номер телефона и шаблон регулярного выражения",
   "enterBothPhoneNumberAndRegexPatternMessage": "Пожалуйста, введите номер телефона и шаблон регулярного выражения.",
   "enterContactName": "Пожалуйста, введите имя контакта",
-  "enterCurrentPasswordHint": "Пожалуйста, введите текущий пароль",
   "enterDeviceName": "Введите название устройства",
-  "enterDeviceNameHint": "Пожалуйста, введите название устройства",
-  "enterEmail": "Введите адрес электронной почты",
   "enterEmailOptional": "Введите адрес электронной почты (необязательно)",
   "enterEncryptionPasswordHint": "Введите пароль шифрования",
-  "enterEncryptionPasswordTitle": "Введите пароль шифрования",
-  "enterFilterName": "Пожалуйста, введите имя фильтра",
-  "enterFilterPattern": "Введите шаблон фильтра",
   "enterIconCode": "Введите код значка",
   "enterName": "Введите имя контакта",
   "enterNewDeviceNameHint": "Введите новое имя для этого устройства",
-  "enterNewPasswordHint": "Пожалуйста, введите новый пароль",
   "enterPasswordAgain": "Повторите пароль",
-  "enterPasswordHint": "Введите пароль",
   "enterPhoneNumber": "Введите номер телефона",
   "enterPhoneNumberHint": "Введите номер телефона для тестирования",
   "enterPhoneNumberMultiple": "Пожалуйста, введите номер телефона, несколько номеров разделенных запятыми",
@@ -667,7 +479,6 @@
   "enterPluginName": "Введите имя плагина",
   "enterPluginUrl": "Введите URL-адрес плагина",
   "enterRegexHint": "Введите шаблон регулярного выражения",
-  "enterRuleNameAndPattern": "Пожалуйста, введите имя правила и шаблон",
   "enterRuleNameAndPatternMessage": "Пожалуйста, введите название правила и шаблон регулярного выражения.",
   "enterRuleNameHint": "Введите название правила",
   "enterSearchContent": "Пожалуйста, введите поисковый запрос",
@@ -690,79 +501,50 @@
   "enterWebDAVPasswordHint": "Пожалуйста, введите пароль WebDAV",
   "enterWebDAVServerAddressHint": "Пожалуйста, введите адрес сервера WebDAV",
   "enterWebDAVUsernameHint": "Пожалуйста, введите имя пользователя WebDAV",
-  "errorDeletingDeviceMessage": "Ошибка при удалении устройства: {error}",
-  "errorLoadingPlugin": "Ошибка при загрузке плагина",
   "errorOccurredMessage": "Произошла ошибка: {error}",
   "errorRenamingDeviceMessage": "Ошибка при переименовании устройства: {error}",
   "errorSynchronizingDevicesMessage": "Ошибка при синхронизации устройств: {error}",
-  "errorSyncingDevicesMessage": "Ошибка при синхронизации устройств: {error}",
-  "errorText": "Ошибка",
   "errorUnregisteringDeviceMessage": "Ошибка при отмене регистрации устройства: {error}",
   "exampleBlock400Prefix": "например, префиксы номеров 400",
   "exampleBlockMarketingSms": "например, Блокировать рекламные SMS",
-  "exampleContentRegex": "например, .*offer.*",
   "exampleContentRegexHint": "Пример регулярного выражения для контента",
   "exampleCouponPromotionDiscount": "например, .*(coupon|promotion|discount).*",
   "exampleFamilyFriends": "например, Семья, Друзья и т. д.",
   "examplePhoneNumber": "например, 10086, 12345 и т. д.",
   "exampleRegex400Prefix": "Пример регулярного выражения для префикса 400",
-  "exampleRegexFormat": "Пример: формат ^10086$",
   "exampleSenderRegexHint": "Пример",
   "exchange": "Обмен",
   "exchangeNow": "Обменять сейчас",
   "exchangeVip": "Обмен VIP",
-  "expandLabelSelector": "Развернуть выбор меток",
   "expiryTime": "Время истечения срока действия: {time}",
   "export": "Экспорт",
   "exportAllApplicationSettings": "Экспортировать все настройки приложения",
-  "exportAllApplicationSettingsSubtitle": "Экспортировать все настройки приложения",
   "exportAllRuleConfigurations": "Экспортировать все конфигурации правил",
-  "exportAllRuleConfigurationsSubtitle": "Экспортировать все конфигурации правил",
-  "exportComplete": "Экспорт завершен",
   "exportConfig": "Экспорт конфигурации",
   "exportContacts": "Экспортировать контакты",
   "exportData": "Экспортировать данные",
-  "exportError": "Ошибка экспорта",
   "exportFailed": "Экспорт не удался",
   "exportFailure": "Не удалось экспортировать конфигурацию",
   "exportFeatureComingSoon": "Функция экспорта скоро появится",
-  "exporting": "Экспорт...",
   "exportLabels": "Экспорт меток",
   "exportLabelsFailed": "Не удалось экспортировать метки: {error}",
   "exportPluginList": "Экспорт списка плагинов",
   "exportPluginListFailed": "Не удалось экспортировать список плагинов: {error}",
   "exportRules": "Экспорт правил",
-  "exportRulesDialogTitle": "Экспорт правил",
-  "exportRulesTitle": "Экспорт правил",
   "exportSmsRules": "Экспорт SMS правил",
   "exportStatisticsData": "Экспорт данных статистики",
-  "exportSuccess": "Экспорт успешен",
   "exportSuccesslly": "Конфигурация успешно экспортирована",
-  "failedToAddContact": "Не удалось добавить контакт",
   "failedToAddRule": "Не удалось добавить правило: {error}",
-  "failedToAddSmsRule": "Не удалось добавить SMS правило: {error}",
   "failedToAddSmsSubscription": "Не удалось добавить SMS подписку: {error}",
   "failedToBackupSettings": "Не удалось создать резервную копию настроек: {error}",
   "failedToDecryptBackupFile": "Не удалось расшифровать файл резервной копии",
-  "failedToDeleteDevice": "Не удалось удалить устройство",
   "failedToDeleteSmsRule": "Не удалось удалить SMS правило: {error}",
   "failedToExportRules": "Не удалось экспортировать правила: {error}",
-  "failedToExportSmsRules": "Не удалось экспортировать SMS правила: {error}",
   "failedToGetCallerIdInfo": "Не удалось получить информацию об идентификаторе вызывающего абонента: {error}",
   "failedToImportRules": "Не удалось импортировать правила: {error}",
-  "failedToImportSmsRules": "Не удалось импортировать SMS правила: {error}",
-  "failedToLoadContacts": "Не удалось загрузить контакты",
-  "failedToLoadPlugin": "Не удалось загрузить плагин",
-  "failedToRenameDevice": "Не удалось переименовать устройство",
   "failedToRestoreSettings": "Не удалось восстановить настройки",
   "failedToRestoreSettingsWithError": "Не удалось восстановить настройки: {error}",
-  "failedToSetPassword": "Не удалось установить пароль: {error}",
-  "failedToSyncDevices": "Не удалось синхронизировать устройства",
   "failedToToggleRuleStatus": "Не удалось изменить статус правила: {error}",
-  "failedToToggleSubscriptionStatus": "Не удалось изменить статус подписки",
-  "failedToUpdateContact": "Не удалось обновить контакт",
-  "failedToUpdateSmsRule": "Не удалось обновить SMS правило: {error}",
-  "failure": "Сбой",
   "favoriteContacts": "Избранные контакты",
   "featureAddRules": "• Добавление правил для конкретных номеров телефонов",
   "featureCenter": "Центр функций",
@@ -777,23 +559,14 @@
   "fileSavedTo": "Файл сохранен в: {path}",
   "filter": "Фильтр",
   "filterByLabel": "Фильтр по метке",
-  "filterClear": "Очистить фильтр",
   "filterControlPanelTitle": "Панель управления фильтрами",
   "filterControlSubtitle": "Управление статусом включения/выключения всех фильтров",
   "filterControlTitle": "Управление фильтрами",
-  "filterDeleteFailed": "Не удалось удалить фильтр",
-  "filterDeleteSuccess": "Фильтр успешно удален",
-  "filterDetails": "Детали фильтра",
   "filtered": "Отфильтровано",
-  "filteredSms": "Отфильтрованные SMS",
-  "filteredSmsLabel": "Отфильтрованные SMS",
   "filterExplanation": "Объяснение фильтра",
   "filterManagement": "Управление фильтрами",
   "filterName": "Имя фильтра",
-  "filterPattern": "Шаблон фильтра",
   "filterPriorityNote": "Примечание: между фильтрами существуют приоритетные отношения, подробности см. в документации.",
-  "filterSaveFailed": "Не удалось сохранить фильтр",
-  "filterSaveSuccess": "Фильтр успешно сохранен",
   "filterSettings": "Настройки фильтра",
   "filterSettingsTitle": "Настройки фильтра",
   "filterSMS": "Фильтр SMS",
@@ -815,8 +588,6 @@
   "flexibleCombinationFeature": "• Гибкие комбинации: Включение/отключение фильтров для каждого слота SIM-карты",
   "fontSizesSetting": "Размеры шрифта",
   "foundRules": "Найдено {count} правил",
-  "foundRulesDoYouWantToImport": "Найдено {count} правил. Хотите импортировать их?",
-  "foundRulesToImport": "Найдено {count} правил. Хотите импортировать их?",
   "fraudAlert": "ПРЕДУПРЕЖДЕНИЕ О МОШЕННИЧЕСТВЕ - Положите трубку",
   "fraudScamLikely": "Вероятно мошенничество",
   "free": "Бесплатно",
@@ -838,29 +609,18 @@
   "@globalFilterSettings": {
     "description": "Global filter settings section title"
   },
-  "globalFilterToggleInstructions": "Настройте параметры глобального фильтра, которые применяются ко всем слотам SIM-карт:",
-  "@globalFilterToggleInstructions": {
-    "description": "Instructions for configuring global filter settings"
-  },
-  "globalSearchSubtitle": "Поиск контактов, меток, черных списков, белых списков и т. д.",
-  "globalSearchTitle": "Глобальный поиск",
   "globalSettings": "Глобальные настройки",
   "@globalSettings": {
     "description": "Title for global settings page"
   },
-  "googleAdDisplayPosition": "Положение отображения рекламы Google",
-  "googleAdMobIntegrationText": "Реклама Google AdMob может быть интегрирована здесь",
   "googleDriveAuthDescription": "Авторизуйтесь, используя настроенные в системе идентификатор и ключ клиента Google Drive",
-  "googleDriveAuthorizationHint": "Авторизуйтесь, используя настроенные в системе идентификатор и ключ клиента Google Drive",
   "googleDriveConfigTitle": "Конфигурация Google Drive",
-  "googleDriveConfigurationTitle": "Конфигурация Google Drive",
   "government": "Правительство",
   "granted": "Предоставлено",
   "grantNecessaryPermissions": "Предоставить необходимые разрешения",
   "grantPermissions": "Предоставить разрешения",
   "headhunter": "Headhunter",
   "height": "Рост",
-  "homePageTitle": "Домашняя страница",
   "homeTab": "Главная",
   "howItWorksPoint1": "• Система автоматически разрешит звонки с того же номера в течение установленного временного окна",
   "howItWorksPoint2": "• Более короткие временные окна приводят к более строгой перехвату; более длинные временные окна приводят к более слабому перехвату",
@@ -870,7 +630,6 @@
   "iconSize": "Размер значка",
   "import": "Импорт",
   "important": "Важно",
-  "importButton": "Импорт",
   "importConfig": "Импорт конфигурации",
   "importContacts": "Импорт контактов",
   "importExportContacts": "Импорт/Экспорт контактов",
@@ -885,17 +644,9 @@
   "importPluginListFailed": "Не удалось импортировать список плагинов: {error}",
   "importPluginSuccess": "Успешно импортировано {count} плагинов",
   "importRuleConfigurationsFromFile": "Импортировать конфигурации правил из файла",
-  "importRuleConfigurationsFromFileSubtitle": "Импортировать конфигурации правил из файла",
   "importRules": "Импорт правил",
-  "importRulesButton": "Импорт правил",
-  "importRulesDialogTitle": "Импорт правил",
-  "importRulesError": "Не удалось импортировать правила: {error}",
-  "importRulesInstructions": "Импортировать правила из CSV-файла",
-  "importRulesSuccess": "Правила успешно импортированы",
-  "importRulesTitle": "Импорт правил",
   "importSuccess": "Импорт выполнен успешно",
   "incomingCallInterceptAction": "Действие перехвата входящего вызова",
-  "incomingCallNotification": "Уведомление о входящем вызове",
   "incorrectPassword": "Неверный пароль",
   "initializing": "Инициализация",
   "installed": "Установлено",
@@ -923,33 +674,18 @@
   "invalidRegexPattern": "Неверный шаблон регулярного выражения",
   "invalidSenderRegex": "Неверный regex отправителя",
   "joinTheTelegramChannelAndGroupForMoreInfo": "Присоединяйтесь к каналу и группе Telegram для получения дополнительной информации",
-  "jsLogsTitle": "Журналы JS",
   "jsonFormat": "Формат JSON",
   "keepAllVersions": "Сохранять все версии",
   "keepAllVersionsDescription": "Сохранять все исторические версии каждой резервной копии",
-  "keepAllVersionsLabel": "Сохранять все версии",
-  "keepAllVersionsSubtitle": "Сохранение исторических версий каждой резервной копии",
-  "keepAllVersionsTitle": "Сохранять все версии",
   "label": "Метка",
   "labelAddedSuccessfully": "Метка \"{name}\" успешно добавлена",
   "labelCategories": "Категории меток",
   "labelDeleted": "Метка удалена",
   "labelDescription": "Метки помогают вам лучше управлять контактами, добавлять пользовательские метки к номерам телефонов для упрощения идентификации звонков и сообщений.",
-  "labelFilter": "Фильтр меток",
   "labelFilterTooltip": "Фильтр меток",
   "labelIconColor": "Цвет значка метки",
   "labelManagement": "Управление метками",
   "labelNotFound": "Метка не найдена",
-  "labelRemoved": "Метка удалена",
-  "labelRemoveFailed": "Не удалось удалить метку: {error}",
-  "@labelRemoveFailed": {
-    "description": "Label removal failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "labels": "Метки",
   "labelsColor": "Цвет меток",
   "labelsDeleted": "Удалено меток: {count}",
@@ -958,7 +694,6 @@
   "labelsImportedSuccessfully": "Успешно импортировано {count} меток",
   "labelsPosition": "Положение меток",
   "labelTag": "Метка: {labelId}",
-  "labelUpdated": "Метка обновлена",
   "labelUpdateFailed": "Не удалось обновить метку: {error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -972,8 +707,6 @@
   "languageSettings": "Настройки языка",
   "languageSettingsSubtitle": "Изменить язык отображения приложения",
   "languageSettingsTitle": "Настройки языка",
-  "last30Days": "Последние 30 дней",
-  "last7Days": "Последние 7 дней",
   "lastSyncLabel": "Последняя синхронизация",
   "lastUpdated": "Последнее обновление: {date}",
   "@lastUpdated": {
@@ -988,16 +721,12 @@
   "lifetimeMembershipDescription": "Единовременная покупка, навсегда разблокирует все премиум-функции и будущие обновления",
   "loadContactsFailed": "Не удалось загрузить контакты: {error}",
   "loadDataFailed": "Не удалось загрузить данные",
-  "loadFailed": "Ошибка загрузки",
   "loading": "Загрузка...",
-  "loadingData": "Загрузка данных...",
   "loadingTags": "Загрузка меток...",
   "loadLabelFailed": "Не удалось загрузить метки: {error}",
   "loadLabelsFailed": "Не удалось загрузить метки: {error}",
   "loadMarkCountFailed": "Не удалось загрузить помеченные номера телефонов: {error}",
   "loadMarkedPhonesFailed": "Не удалось загрузить помеченные телефоны: {error}",
-  "loadMore": "Загрузить еще",
-  "loadPluginButton": "Загрузить плагин",
   "loadPluginsFailed": "Не удалось загрузить плагины: {error}",
   "loadSettingsFailed": "Не удалось загрузить настройки: {error}",
   "loadSmsRulesFailed": "Не удалось загрузить правила SMS: {error}",
@@ -1012,7 +741,6 @@
     }
   },
   "loan": "Кредит",
-  "localBackupTitle": "Локальная резервная копия",
   "localCounterFilter": "Локальный счетчик фильтра",
   "localCounterFilterSubtitle": "Автоматически фильтровать спам-звонки на основе частоты звонков",
   "localCountFilter": "Локальный счетчик фильтрации",
@@ -1043,11 +771,9 @@
   "logAllRemoteQueries": "Записывать все удаленные запросы",
   "logAllRemoteQueriesDescription": "Записывать все операции удаленных запросов номеров",
   "manage": "Управление контактами",
-  "manageContacts": "Управление",
   "manageFavoriteContacts": "Управление избранными контактами",
   "manageFilterRules": "Управление правилами фильтрации",
   "manageFilterRulesDescription": "Добавление, редактирование или удаление правил фильтрации SMS",
-  "manageFrequentContacts": "Управление часто используемыми контактами",
   "markCounts": "Количество меток",
   "markCount": "Количество меток",
   "markedByCount": "Отмечено {count}",
@@ -1064,84 +790,48 @@
   "markExchange": "Обмен метками",
   "markPhone": "Пометить номер телефона",
   "markPhoneFailed": "Не удалось пометить номер телефона: {error}",
-  "markPhoneManagementSubtitle": "Для пометки номеров телефонов",
   "markPhoneManagementTitle": "Управление пометкой номеров телефонов",
   "markPhoneSuccess": "Номер телефона успешно помечен",
-  "matchFailed": "Совпадение не найдено!",
   "matchFailedMessage": "Совпадение не найдено.",
   "matchNumbersWithSpecialCharacters": "соответствует определенному формату номера",
   "matchNumbersWithSpecialCharactersTitle": "Сопоставление номеров со специальными символами:",
   "matchSpecificDigitPatterns": "соответствует формату XXX-XXXX-XXXX",
   "matchSpecificDigitPatternsTitle": "Сопоставление определенных шаблонов цифр:",
-  "matchSuccessful": "Совпадение найдено!",
   "matchSuccessfulMessage": "Совпадение найдено!",
   "medical": "Медицинский",
   "membershipPrivileges": "Привилегии членства",
   "migrationTool": "Инструмент миграции",
-  "migrationToolTitle": "Инструмент миграции",
   "minutes": "минут",
   "month": "Месяц",
   "monthly": "Ежемесячно",
   "monthlyCallCount": "Ежемесячные звонки",
-  "monthlyChartTitle": "Ежемесячные заблокированные вызовы",
   "monthlyMembership": "Ежемесячное членство",
   "monthlyMembershipDescription": "Откройте все премиум-функции, автоматическое продление ежемесячно",
   "monthlyTotal": "Ежемесячная сумма",
-  "monthlyTotalLabel": "Ежемесячная сумма",
   "moreOptions": "Дополнительные опции",
   "mute": "Отключить звук",
   "name": "Имя",
   "nameAndPhoneNumberCannotBeEmpty": "Имя и номер телефона не могут быть пустыми",
-  "nameAndPhoneNumberRequired": "Имя и номер телефона обязательны",
   "nameColor": "Цвет имени",
   "nameFontSize": "Размер шрифта имени",
-  "nameLabel": "Имя: {name}",
-  "@nameLabel": {
-    "description": "Caller ID name label",
-    "placeholders": {
-      "name": {
-        "type": "Object"
-      }
-    }
-  },
   "namePosition": "Положение имени",
   "nameUnknown": "Имя: Неизвестно",
-  "nameWithValue": "Имя: {name}",
-  "@nameWithValue": {
-    "description": "Text showing the name of a contact",
-    "placeholders": {
-      "name": {
-        "type": "String",
-        "example": "John Doe"
-      }
-    }
-  },
-  "newPasswordLabel": "Новый пароль",
   "nextStep": "Далее",
   "noAction": "Нет действия",
   "noActionRules": "Нет правил действия",
   "noActiveCloudSyncServiceMessage": "Нет активной службы облачной синхронизации",
-  "noCallLogs": "Нет журналов вызовов",
   "noCallRecords": "Нет записей вызовов",
-  "noContacts": "Контактов пока нет",
   "noContactsYet": "Контактов пока нет",
   "noData": "Нет данных",
   "noDevicesRegisteredMessage": "Устройства не зарегистрированы",
-  "noDevicesRegisteredYet": "Устройства еще не зарегистрированы.",
-  "noFilters": "Фильтров пока нет",
   "noLabels": "Нет меток",
   "noMarkedPhones": "Нет отмеченных номеров телефонов",
-  "noMatchingContacts": "Нет подходящих контактов",
   "noMatchingContactsFound": "Не найдено подходящих контактов",
   "noMatchingNumbersFound": "Не найдено подходящих номеров",
-  "noMatchingRecords": "Нет соответствующих записей о вызовах",
   "noMatchingRules": "Нет соответствующих {ruleType}",
   "none": "Нет",
   "noneServiceType": "Нет",
   "noPlugins": "Еще нет плагинов",
-  "noRecords": "Нет записей о вызовах",
-  "noResultReturned": "Результат не вернулся",
-  "noResultReturnedLog": "Результат не вернулся из плагина",
   "noRules": "Нет {ruleType}",
   "noRulesPrompt": "Правила не найдены, добавьте правила",
   "noRulesToExport": "Нет правил для экспорта",
@@ -1151,7 +841,6 @@
   "@noSubscriptions": {
     "description": "No subscriptions message"
   },
-  "noSubscriptionsYet": "Нет подписок",
   "notGranted": "Не предоставлено",
   "notificationMode": "Режим уведомлений",
   "notificationModeDescription": "Показывать информацию о вызывающем абоненте в строке уведомлений",
@@ -1162,8 +851,6 @@
   "@notificationSettings": {
     "description": "Notification settings title"
   },
-  "notificationSettingsSaved": "Настройки уведомлений успешно сохранены",
-  "notSet": "Не установлено",
   "notVerifiedText": "Не проверено",
   "noValidSmsRulesFoundInFile": "В файле не найдено действительных правил SMS",
   "number": "Номер",
@@ -1174,7 +861,6 @@
   "numberTypeColor": "Цвет типа номера",
   "numberTypeFontSize": "Размер шрифта типа номера",
   "numberTypePosition": "Положение типа номера",
-  "ok": "OK",
   "okButton": "OK",
   "onboardingCompleteDescription": "Ваш менеджер безопасности вызовов готов, начните пользоваться безопасными вызовами!",
   "onboardingLanguageDescription": "Выберите предпочитаемый язык для наилучшего опыта.",
@@ -1183,9 +869,7 @@
   "onboardingSmartCallerIdDescription": "Автоматическое определение неизвестных вызовов, отметка подозрительных номеров и защита вашей безопасности вызовов.",
   "onboardingWelcomeDescription": "Ваш эксперт по управлению вызовами, предоставляющий комплексные услуги по идентификации и блокировке вызовов.",
   "oneDriveAuthDescription": "Авторизоваться с использованием настроенных системой идентификатора и ключа клиента OneDrive",
-  "oneDriveAuthorizationHint": "Авторизоваться с использованием настроенных системой идентификатора и ключа клиента OneDrive",
   "oneDriveConfigTitle": "Конфигурация OneDrive",
-  "oneDriveConfigurationTitle": "Конфигурация OneDrive",
   "onlineCallerIdSubscription": "Подписка на онлайн-определение номера",
   "openAppSettings": "Открыть настройки приложения",
   "openAppSettingsFailed": "Не удалось открыть настройки приложения: {error}",
@@ -1203,7 +887,6 @@
   "passwordCannotBeEmpty": "Пароль не может быть пустым",
   "passwordLabel": "Пароль",
   "passwordsDoNotMatch": "Пароли не совпадают",
-  "passwordSetSuccessfully": "Пароль успешно установлен",
   "pattern": "Шаблон",
   "pendingSync": "Ожидает синхронизации",
   "periodMonth": "Месяц",
@@ -1216,9 +899,7 @@
   "phoneNumber": "Номер телефона",
   "phoneNumberCannotBeEmpty": "Номер телефона не может быть пустым",
   "phoneNumberHint": "Введите номер телефона",
-  "phoneNumberHintText": "Введите номер телефона, чтобы добавить правило",
   "phoneNumberLabel": "Номер телефона",
-  "phoneNumberRegexRequired": "Пожалуйста, введите номер телефона и шаблон регулярного выражения",
   "phoneNumberRequired": "Номер телефона обязателен",
   "phoneNumberTypeFixedLine": "Стационарный",
   "phoneNumberTypeFixedLineOrMobile": "Стационарный или мобильный",
@@ -1235,34 +916,23 @@
   "phonePermission": "Разрешение на доступ к телефону",
   "phonePermissionDescription": "Используется для идентификации и блокировки входящих вызовов.",
   "phoneRule": "Правило для телефона",
-  "phoneRuleEditDialog": "Диалог редактирования правила для телефона",
   "phoneRuleManagement": "Управление правилами телефона",
   "phoneRuleSubscription": "Подписка на правила телефона",
   "phoneSubscription": "Подписка на телефон",
   "phoneSubscriptionRulesDescription": "Подпишитесь на списки правил телефона по URL для автоматического обновления правил белого и черного списков. Поддерживает файлы правил в формате JSON.",
-  "phoneSubscriptionTitle": "Подписки на правила телефона",
-  "@phoneSubscriptionTitle": {
-    "description": "Phone subscription page title"
-  },
   "pleaseSelectLabelAndEnterValidPhone": "Пожалуйста, выберите метку и введите действительный номер телефона",
   "pluginAddedSuccess": "Плагин \"{name}\" успешно добавлен",
   "pluginDeleted": "Плагин удален",
   "pluginLatestVersion": "Плагин уже последней версии",
   "pluginListExportSuccess": "Список плагинов успешно экспортирован",
-  "pluginLoadedSuccessfully": "Плагин успешно загружен",
   "pluginManagement": "Управление плагинами",
   "pluginManagementSubtitle": "Управление и настройка сторонних плагинов",
-  "pluginManagementTitle": "Управление плагинами",
   "pluginName": "Имя плагина",
-  "pluginNotLoaded": "Плагин еще не загружен. Пожалуйста, сначала загрузите плагин.",
   "pluginsDeleted": "Успешно удалено {count} плагинов.",
   "pluginService": "Сервис плагинов",
   "pluginTestPageTitle": "Тестирование плагина",
   "pluginUpdateSuccess": "Плагин успешно обновлен",
   "pluginUrl": "URL плагина",
-  "pluginUrlCannotBeEmpty": "URL плагина не может быть пустым",
-  "pluginUrlHint": "Введите URL плагина",
-  "pluginUrlLabel": "URL плагина",
   "pluginVersion": "Версия плагина",
   "political": "Политический",
   "powerfulSpamBlocking": "Мощная блокировка спама",
@@ -1274,26 +944,16 @@
   "purchase": "Купить",
   "quarterlyMembership": "Ежеквартальное членство",
   "quarterlyMembershipDescription": "Разблокировать все премиум функции, автопродление ежеквартально",
-  "queryButton": "Запрос",
-  "queryFailed": "Ошибка запроса",
-  "queryFailedLog": "Ошибка запроса",
-  "querying": "Запрос...",
-  "queryingPhoneNumber": "Запрос номера телефона",
-  "queryResultTitle": "Результат запроса",
   "ready": "Готово!",
-  "receiveWeeklyStatistics": "Получать еженедельную статистику",
   "recruiter": "Рекрутер",
-  "reEnterPasswordHint": "Пожалуйста, повторите пароль",
   "refresh": "Обновить",
   "refreshPermissionStatus": "Обновить статус разрешений",
   "refreshTooltip": "Обновить",
-  "regexError": "Ошибка Regex: {error}",
   "regexErrorMessage": "Ошибка Regex: {error}",
   "regexPattern": "Регулярное выражение",
   "regexPatternExplanation": "Объяснение регулярного выражения",
   "regexPatternExplanationButton": "Объяснение регулярного выражения",
   "regexPatternLabel": "Регулярное выражение",
-  "regexPatternsExamples": "Используйте стандартный синтаксис регулярных выражений для определения шаблонов. Примеры:",
   "regexPatternsForPhoneNumberMatching": "Регулярные выражения для сопоставления номеров телефонов",
   "regexRule": "Правило регулярного выражения",
   "regexRuleAddFailed": "Не удалось добавить правило регулярного выражения: {error}",
@@ -1302,8 +962,6 @@
   "regexRuleNamePatternRequired": "Имя правила и шаблон регулярного выражения не могут быть пустыми",
   "regexRules": "Правила регулярных выражений",
   "regexTesterTitle": "Тестер регулярных выражений",
-  "regexValidationFailed": "Проверка регулярного выражения не удалась: {error}",
-  "regexValidationSuccess": "Проверка регулярного выражения успешна",
   "region": "Регион",
   "registeredDevicesTitle": "Зарегистрированные устройства",
   "rejectAllCalls": "Отклонить все вызовы",
@@ -1318,27 +976,15 @@
   },
   "remoteFilterSettingsPageTitle": "Настройки удаленного фильтра номеров",
   "remoteNumberFilter": "Удаленный фильтр номеров",
-  "remoteNumberFilterDatabaseInfo": "Этот фильтр использует независимую удаленную базу данных для получения последней информации о номерах.",
   "remoteNumberFilterDescription": "Перехватывайте надоедливые вызовы на основе информации из удаленной базы данных",
-  "remoteNumberFilterExplanationContent": "Удаленный фильтр номеров идентифицирует и блокирует спам-вызовы путем запроса удаленной базы данных на основе количества номеров.",
-  "remoteNumberFilterExplanationTitle": "Объяснение удаленного фильтра номеров",
-  "remoteNumberFilterFeatureCountThreshold": "• Пороговое значение количества: Определяется на основе частоты появления номера",
-  "remoteNumberFilterFeatureFilterAction": "• Действия фильтра: Настройте способ обработки номеров, превышающих пороговое значение",
-  "remoteNumberFilterFeaturePriority": "• Настройки приоритета: Установите приоритет для удаленных действий",
-  "remoteNumberFilterFeatures": "Особенности:",
   "remoteNumberFiltering": "Удаленная фильтрация номеров",
   "remoteNumberFilteringExplanation": "• Удаленная фильтрация номеров: Правила фильтрации на основе информации из удаленной базы данных",
   "remoteNumberFilterSubtitle": "Идентифицируйте спам-вызовы, используя облачную базу данных и отчеты сообщества",
   "removeAdsDescription": "Навсегда удалить всю рекламу в приложении для более плавного взаимодействия",
   "removeAdsTitle": "Удалить рекламу",
-  "removedFromFavoriteContacts": "Удалено из избранных контактов",
   "removedFromFavorites": "Удалено из избранного",
-  "removeFavorite": "Удалить из избранного",
   "removeFromFavorites": "Удалить из избранного",
-  "renameButton": "Переименовать",
-  "renameDeviceDialogTitle": "Переименовать устройство",
   "renameDeviceTitle": "Переименовать устройство",
-  "replaceCurrentSettingsConfirmation": "Это заменит все ваши текущие настройки. Вы уверены, что хотите продолжить?",
   "requestAllPermissions": "Запросить все разрешения",
   "requestPermission": "Запросить разрешение",
   "requestPermissionFailed": "Не удалось запросить разрешение: {error}",
@@ -1346,84 +992,44 @@
   "reset": "Сброс",
   "restore": "Восстановить",
   "restoreApplicationSettingsFromBackup": "Восстановить настройки приложения из резервной копии",
-  "restoreApplicationSettingsFromBackupSubtitle": "Восстановить настройки приложения из резервной копии",
-  "restoreButton": "Восстановить",
-  "restoreFailedWithError": "Ошибка восстановления из облака: {error}",
   "restoreFromCloud": "Восстановить из облака",
-  "restoreFromCloudDescription": "Восстановить настройки и правила из облачного хранилища",
   "restoreFromCloudFailed": "Не удалось восстановить из облака: {error}",
-  "restoreFromCloudLabel": "Восстановить из облака",
   "restoreFromCloudSuccess": "Успешно восстановлено из облака",
-  "restoreFromCloudTitle": "Восстановить из облака",
-  "restoreFromLocal": "Восстановить из локального хранилища",
   "restorePurchases": "Восстановить покупки",
-  "restoreSectionTitle": "Восстановить",
   "restoreSettings": "Восстановить настройки",
   "restoreSettingsConfirmation": "Это заменит все ваши текущие настройки. Вы уверены, что хотите продолжить?",
-  "restoreSettingsDialogTitle": "Восстановление настроек",
-  "restoreSettingsTitle": "Восстановление настроек",
-  "restoreSuccessFromLocal": "Успешно восстановлено из локального хранилища",
-  "restoreSuccessMessage": "Успешно восстановлено из облака",
   "retry": "Повторить",
   "ridesharing": "Поездки",
   "risk": "Риск",
   "robocall": "Робозвонок",
   "ruleAction": "Действие правила",
-  "ruleAddButton": "Добавить правило",
   "ruleAddedSuccess": "Правило успешно добавлено",
   "@ruleAddedSuccess": {
     "description": "Rule creation success message"
   },
-  "ruleAddFailure": "Не удалось добавить правило: {error}",
-  "@ruleAddFailure": {
-    "description": "Rule creation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleAddSuccess": "Правило успешно добавлено",
   "ruleDeleteConfirmContent": "Вы уверены, что хотите удалить это {ruleType}?",
   "ruleDeleteConfirmTitle": "Удалить правило",
-  "ruleDeletedSuccess": "Правило успешно удалено",
   "ruleDeletedSuccessfully": "Правило успешно удалено",
   "ruleDeleteFailed": "Не удалось удалить правило: {error}",
-  "ruleDeleteFailure": "Не удалось удалить правило: {error}",
-  "@ruleDeleteFailure": {
-    "description": "Rule deletion failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleDeleteSuccess": "Правило успешно удалено",
   "ruleDisabledSuccessfully": "Правило успешно отключено",
   "ruleEnabledSuccessfully": "Правило успешно включено",
   "ruleLoadFailed": "Не удалось загрузить правила: {error}",
   "ruleManagement": "Управление правилами",
-  "ruleManagementTitle": "Управление правилами",
   "ruleName": "Имя правила",
   "ruleNameAndContentRegexCannotBeEmpty": "Имя правила и регулярное выражение контента не могут быть пустыми",
   "ruleNameAndPhoneNumberCannotBeEmpty": "Имя правила и номер телефона не могут быть пустыми",
   "ruleNameHint": "Например, Семья, Друзья и т. д.",
   "ruleNameLabel": "Имя правила",
-  "ruleNamePatternRequired": "Пожалуйста, введите имя правила и шаблон",
   "ruleNameRequired": "Имя правила и номер телефона не могут быть пустыми",
   "ruleNotExist": "Правило не существует или было удалено",
   "ruleNotFound": "Правило не найдено: {error}",
-  "ruleSavedSuccessfully": "Правило успешно сохранено!",
   "ruleSavedSuccessMessage": "Правило успешно сохранено!",
-  "ruleSaveFailed": "Не удалось сохранить: {error}",
-  "ruleSaveFailedMessage": "Не удалось сохранить: {error}",
-  "ruleSaveSuccess": "Правило успешно сохранено!",
   "rulesExportedSuccessfully": "Правила успешно экспортированы",
   "rulesExportedTo": "Правила экспортированы в: {path}",
   "rulesImported": "Правила успешно импортированы",
   "rulesImportedSuccessfully": "Успешно импортировано {count} правил",
-  "rulesImportFailed": "Не удалось импортировать правила: {error}",
-  "ruleStatistics": "Статистика правил",
   "ruleStatusChanged": "Статус правила {status} успешно изменен",
   "ruleToggleFailed": "Операция не удалась: {error}",
   "ruleToggleSuccess": "Статус правила {status} успешно изменен",
@@ -1432,32 +1038,19 @@
   "ruleVerification": "Проверка правила",
   "save": "Сохранить",
   "saveButton": "Сохранить",
-  "saveButtonLabel": "СОХРАНИТЬ",
   "saveButtonText": "Сохранить",
   "saveFailed": "Не удалось сохранить: {error}",
-  "saveFilter": "Сохранить фильтр",
   "saveSettings": "Сохранить настройки",
-  "saveSettingsFailed": "Не удалось сохранить настройки: {error}",
   "scamsLikely": "Вероятно, мошенничество",
   "search": "Поиск",
   "searchContacts": "Поиск контактов",
   "searchError": "Ошибка поиска: {error}",
-  "searchFilters": "Поиск фильтров",
-  "searchForContacts": "Поиск контактов",
   "searchHint": "Поиск...",
-  "searchSettingsSubtitle": "Поиск контактов, меток, черных списков, белых списков и т. д.",
-  "searchSettingsTitle": "Настройки поиска",
   "securityMessage": "Не доверяйте телефонным звонкам. Всегда проверяйте номера служб поддержки независимо. Никогда не сообщайте пароли, коды подтверждения, номера карт или личную информацию.",
-  "selectActionToPerform": "Выберите действие, которое необходимо выполнить при совпадении правила",
   "selectActionWhenBlockingCalls": "Выберите действие при блокировке вызовов",
   "selectActionWhenRuleMatches": "Выберите действие, если правило совпадает",
   "selectAll": "Выбрать все",
   "selectCountry": "Выберите страну",
-  "selectDateRange": "Выберите диапазон дат",
-  "selectedDateRange": "Выбранный диапазон дат",
-  "@selectedDateRange": {
-    "description": "Selected date range text"
-  },
   "selectedItems": "Выбрано {count} элементов",
   "selectedLabel": "Выбрано:",
   "selectExportFormat": "Выберите формат экспорта",
@@ -1465,14 +1058,7 @@
   "selectLabelAndEnterPhoneNumber": "Пожалуйста, выберите метку и введите действительный номер телефона",
   "selectLanguage": "Выберите язык",
   "selectMultiple": "Выбрать несколько",
-  "selectPeriod": "Выбрать период",
   "selectSimCard": "Выбрать SIM-карту",
-  "selectSimSlot": "Выберите слот SIM-карты",
-  "@selectSimSlot": {
-    "description": "Title for SIM slot selection dialog"
-  },
-  "selectSpecificActionForBlockedCalls": "Выберите конкретное действие для заблокированных вызовов",
-  "selectTag": "Выбрать тег",
   "selectTags": "Выбрать теги",
   "selectTrustedDataSource": "Пожалуйста, выберите доверенные источники данных",
   "selectYourLanguage": "Выберите свой язык",
@@ -1493,16 +1079,9 @@
       }
     }
   },
-  "setButton": "Установить",
   "setEncryptionPassword": "Установить пароль шифрования",
-  "setEncryptionPasswordDescription": "Установите пароль шифрования для резервного копирования и восстановления",
-  "setEncryptionPasswordLabel": "Установить пароль шифрования",
-  "setEncryptionPasswordTitle": "Установить пароль шифрования",
-  "setPasswordButton": "Установить",
   "settings": "Настройки",
   "settingsBackedUpTo": "Настройки скопированы в: {path}",
-  "settingsLoaded": "Настройки загружены",
-  "settingsLoadFailed": "Не удалось загрузить настройки: {error}",
   "settingsRestoredSuccessfully": "Настройки успешно восстановлены. Пожалуйста, перезапустите приложение, чтобы изменения вступили в силу.",
   "settingsSaved": "Настройки сохранены",
   "@settingsSaved": {
@@ -1512,8 +1091,6 @@
   "settingsTab": "Настройки",
   "settingsTitle": "Настройки",
   "setup": "Настройка",
-  "showContactEditDialogStaticMethod": "Статический метод для отображения диалога редактирования контакта",
-  "showExplanation": "Показать пояснение",
   "silence": "Тишина",
   "silenceAndNoAnswer": "Тишина и нет ответа",
   "silenceNoAnswer": "Тишина без ответа",
@@ -1538,15 +1115,10 @@
       }
     }
   },
-  "simInfoLoadFailure": "Не удалось загрузить информацию о SIM-карте: {error}",
   "simRuleInstructions": "Правила для SIM-карт позволяют настраивать независимые правила фильтрации для каждого слота SIM-карты.",
   "simRuleInstructionsTitle": "Правила для SIM-карт",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simRuleManagement": "Управление правилами SIM-карт",
-  "@simRuleManagement": {
-    "description": "SIM slot rule management section title"
   },
   "simSlot1": "SIM 1,-{countryIso}",
   "@simSlot1": {
@@ -1568,9 +1140,6 @@
       }
     }
   },
-  "simSlotDataLoadFailed": "Не удалось загрузить данные SIM-карты: {error}",
-  "simSlotFilterConfiguration": "Настройка фильтрации SIM-карты",
-  "simSlotFilterConfigurationDescription": "Позволяет настраивать правила фильтрации по слотам SIM-карт",
   "simSlotFilterDescription": "Настройте независимые правила фильтрации для каждой SIM-карты:",
   "simSlotFilterSettingsTitle": "Настройки фильтра для SIM-карты {slotNumber}",
   "@simSlotFilterSettingsTitle": {
@@ -1581,17 +1150,7 @@
       }
     }
   },
-  "simSlotLoadFailed": "Не удалось загрузить слоты SIM-карт: {error}",
   "simSlotManagement": "Управление слотами SIM-карт",
-  "simSlotOperationFailed": "Ошибка при работе со слотом SIM-карты: {error}",
-  "@simSlotOperationFailed": {
-    "description": "SIM slot operation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "simSlotPosition": "Положение слота SIM-карты {slotNumber}",
   "@simSlotPosition": {
     "description": "SIM slot position display",
@@ -1605,11 +1164,6 @@
   "simSlotRuleFeature": "• Правила для SIM-карт: независимые стратегии фильтрации для каждой SIM-карты",
   "simSlotRuleListTitle": "Список правил для SIM-карт",
   "simSlotRuleManagement": "Правила для SIM-карт",
-  "simSlotRuleManagementTitle": "Управление правилами",
-  "simSlotSettings": "Настройки SIM-карты",
-  "@simSlotSettings": {
-    "description": "Title for SIM slot settings page"
-  },
   "simSlotTitle": "Слот SIM-карты {slotNumber}",
   "skip": "Пропустить",
   "smartCallerId": "Интеллектуальная идентификация вызова",
@@ -1620,7 +1174,6 @@
   "smsFilterRuleAddedSuccessfully": "Правило фильтрации SMS успешно добавлено",
   "smsFilterRules": "Правила фильтрации SMS",
   "smsFilterSettings": "Настройки фильтрации SMS",
-  "smsHistory": "История SMS",
   "smsManagement": "Управление SMS",
   "smsPermission": "Разрешение SMS",
   "smsPermissionDescription": "Используется для фильтрации спам-сообщений.",
@@ -1628,12 +1181,7 @@
   "smsRuleDeletedSuccessfully": "Правило SMS успешно удалено",
   "smsRuleLoadFailed": "Не удалось загрузить правила SMS: {error}",
   "smsRuleManagement": "Управление правилами SMS",
-  "smsRulesExportedSuccessfully": "Правила SMS успешно экспортированы в {filePath}",
-  "smsRulesImportedSuccessfully": "Правила SMS успешно импортированы",
   "smsRuleSubscription": "Подписка на правила SMS",
-  "smsRuleUpdatedSuccessfully": "Правило SMS успешно обновлено",
-  "smsSettingsSubtitle": "Фильтрация SMS и блокировка по ключевым словам",
-  "smsSettingsTitle": "Настройки SMS",
   "smsSubscription": "Подписка SMS",
   "smsSubscriptionAddedSuccessfully": "Подписка на SMS успешно добавлена",
   "smsSubscriptionRulesDescription": "Подпишитесь на списки правил SMS по URL, поддерживается сопоставление регулярных выражений. Вы можете установить действия блокировки или разрешения.",
@@ -1645,12 +1193,7 @@
   "startUsing": "Начать",
   "statAnswered": "Отвечено",
   "statBlocked": "Заблокировано",
-  "staticMethodShowCallerIdDialog": "Статический метод для отображения диалога информации об идентификаторе вызывающего абонента",
-  "staticMethodToDisplayCountrySelectionDialog": "Статический метод для отображения диалога выбора страны",
-  "staticMethodToDisplayDialog": "Статический метод для отображения диалога",
   "statistics": "Статистика",
-  "statisticsExportFeatureComingSoon": "Функция экспорта статистики скоро появится",
-  "statisticsGrid": "Таблица статистики",
   "statisticsPageTitle": "Анализ данных",
   "stirColor": "Цвет STIR",
   "stirFontSize": "Размер шрифта STIR",
@@ -1673,23 +1216,16 @@
   "@subscriptionDeleted": {
     "description": "Subscription deleted success message"
   },
-  "subscriptionDeletedSuccessfully": "Подписка успешно удалена",
   "subscriptionDeleteFailed": "Не удалось удалить подписку: {error}",
   "subscriptionDeleteSuccess": "Подписка удалена",
-  "subscriptionEmptyState": "Нет доступных подписок",
-  "subscriptionEmptyText": "Подписок пока нет",
   "subscriptionLoadFailed": "Не удалось загрузить подписки: {error}",
-  "subscriptionLoadingFailed": "Не удалось загрузить подписки: {error}",
-  "subscriptionManagementTitle": "Управление подписками",
   "subscriptionName": "Название подписки",
   "@subscriptionName": {
     "description": "Subscription name field label"
   },
   "subscriptionNameAndUrlCannotBeEmpty": "Название и URL подписки не могут быть пустыми",
   "subscriptionNameHint": "Введите название подписки",
-  "subscriptionPageTitle": "Управление подписками",
   "subscriptionStatusChangeFailed": "Не удалось изменить статус подписки: {error}",
-  "subscriptionToggleFailed": "Не удалось переключить статус подписки: {error}",
   "subscriptionUpdateFailed": "Не удалось обновить подписку: {error}",
   "subscriptionUpdateSuccess": "Подписка успешно обновлена",
   "@subscriptionUpdateSuccess": {
@@ -1710,7 +1246,6 @@
   },
   "syncFailed": "Синхронизация не удалась",
   "syncFailedMessage": "Синхронизация не удалась",
-  "syncFolderNameHint": "Пожалуйста, введите имя папки синхронизации (по умолчанию: NotificationManager)",
   "syncFolderNameLabel": "Имя папки синхронизации",
   "synchronized": "Синхронизировано",
   "@synchronized": {
@@ -1724,10 +1259,8 @@
   "syncNowButton": "Синхронизировать сейчас",
   "syncStatusTitle": "Статус синхронизации",
   "syncStatusUpdatedMessage": "Статус синхронизации обновлен",
-  "syncSuccessful": "Синхронизация успешна",
   "syncSuccessMessage": "Синхронизация успешна",
   "syncWithCloudStorage": "Синхронизация с облачным хранилищем",
-  "syncWithCloudStorageSubtitle": "Синхронизация с облачным хранилищем",
   "systemFeatures": "Системные функции:",
   "systemSettingsTitle": "Настройки системы",
   "tabAll": "Все",
@@ -1743,13 +1276,11 @@
       }
     }
   },
-  "tagsUpdated": "Теги обновлены",
   "takeaway": "Вывод",
   "telecommunication": "Телекоммуникации",
   "telegram": "Telegram",
   "telemarketing": "Телемаркетинг",
   "testButton": "ТЕСТ",
-  "testButtonLabel": "ТЕСТ",
   "testConnectionButton": "Проверить соединение",
   "textColorsSetting": "Цвета текста и меток",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Это приложение — мощный инструмент идентификации абонентов, который позволяет идентифицировать и блокировать нежелательные вызовы.",
@@ -1760,8 +1291,6 @@
   "timeInterceptorExplanationContent": "Функция перехвата частоты вызовов анализирует частоту вызовов, чтобы автоматически выявлять и перехватывать/разрешать частые спам-вызовы.",
   "timeInterceptorExplanationTitle": "Пояснение по перехвату частоты вызовов",
   "timeInterceptorSettingsTitle": "Настройки перехвата частоты вызовов",
-  "timeInterceptorSubtitle": "Автоматически перехватывать потенциальные спам-вызовы на основе частоты вызовов",
-  "timeInterceptorTitle": "Включить перехват частоты вызовов",
   "timeWindowDescription": "Установите размер временного окна для разрешения повторяющихся вызовов. Вызовы с одного и того же номера в пределах этого окна будут разрешены",
   "timeWindowLabel": "Временное окно перехвата (минут): {minutes}",
   "@timeWindowLabel": {
@@ -1772,16 +1301,11 @@
       }
     }
   },
-  "timeWindowSetting": "Установите размер временного окна для разрешения повторяющихся вызовов. Вызовы с одного и того же номера в пределах этого окна будут разрешены",
   "today": "Сегодня",
   "total": "Всего",
   "totalBlocked": "Всего заблокировано",
-  "totalFiltered": "Всего отфильтровано",
   "transferDataBetweenDevicesOrPlatforms": "Перенос данных между устройствами или платформами",
-  "transferDataBetweenDevicesOrPlatformsSubtitle": "Перенос данных между устройствами или платформами",
   "travelTicketing": "Бронирование билетов",
-  "trend": "Тенденция",
-  "trendChart": "График тренда",
   "tutorial": "Руководство",
   "type": "Тип",
   "unassignedSIMCard": "Неназначенная SIM-карта",
@@ -1789,7 +1313,6 @@
   "@unknown": {
     "description": "Display text for unknown status"
   },
-  "unknownLabel": "Неизвестная метка",
   "unknownTag": "Тег: Неизвестно",
   "unregisterButton": "Отменить регистрацию",
   "unregisterDeviceConfirmationMessage": "Вы уверены, что хотите отменить регистрацию {deviceName}?",
@@ -1797,15 +1320,9 @@
   "unsupportedFileFormat": "Неподдерживаемый формат файла",
   "update": "Обновить",
   "updateAllNow": "Обновить все сейчас",
-  "updateCallFilterConfig": "Обновить конфигурацию фильтра вызовов",
-  "@updateCallFilterConfig": {
-    "description": "Button text for updating call filter configuration"
-  },
   "updateContactFailed": "Не удалось обновить контакт: {error}",
   "updateFavoriteStatus": "Обновить статус избранного",
-  "updateFavoriteStatusFailed": "Не удалось обновить статус избранного: {error}",
   "updateInterval": "Интервал обновления",
-  "updateLabelFailed": "Не удалось обновить метку",
   "updateNow": "Обновить сейчас",
   "updatePlugin": "Обновить плагин",
   "updatePluginFailed": "Не удалось обновить плагин: {error}",
@@ -1831,16 +1348,13 @@
       }
     }
   },
-  "updateTags": "Обновить теги",
   "useCasesPoint1": "• Определять спам-звонки с автодозвоном",
   "useCasesPoint2": "• Перехватывать маркетинговые звонки, которые звонят несколько раз за короткий период времени",
   "useCasesPoint3": "• Предотвращать телефонный терроризм и преследования",
   "useCasesTitle": "Варианты использования:",
   "useGlobalSettings": "Использовать глобальные настройки",
-  "userEmail": "user@example.com",
   "usernameLabel": "Имя пользователя",
   "useStandardRegexSyntaxToDefinePatternsExamples": "Используйте стандартный синтаксис регулярных выражений для определения шаблонов. Примеры:",
-  "validateRegex": "Проверить Regex",
   "verificationFailedText": "Не удалось",
   "verifiedText": "Проверено",
   "verify": "Проверить",
@@ -1851,36 +1365,18 @@
   "watchAdForTemp": "Смотреть рекламу для временных привилегий",
   "watchAdForTempDescription": "Посмотрите короткую рекламу, чтобы временно разблокировать некоторые премиум-функции",
   "webDAVConfigTitle": "Конфигурация WebDAV",
-  "webdavConfigurationTitle": "Конфигурация WebDAV",
-  "webdavPasswordHint": "Пожалуйста, введите пароль WebDAV",
-  "webdavServerAddressHint": "Пожалуйста, введите адрес сервера WebDAV",
-  "webdavUsernameHint": "Пожалуйста, введите имя пользователя WebDAV",
   "week": "Неделя",
-  "weekly": "Еженедельно",
-  "weeklyBlockedCallsSummary": "Еженедельный обзор заблокированных вызовов",
-  "weeklyChartTitle": "Еженедельные заблокированные вызовы",
-  "weeklyReport": "Еженедельный отчет",
-  "@weeklyReport": {
-    "description": "Weekly report notification option"
-  },
-  "weeklyReportDesc": "Получать еженедельный сводный отчет о деятельности по блокировке вызовов",
-  "@weeklyReportDesc": {
-    "description": "Description for weekly report option"
-  },
   "welcome": "Добро пожаловать",
   "whitelist": "Белый список",
   "@whitelist": {
     "description": "Whitelist label"
   },
-  "whitelistLabel": "Белый список",
   "width": "Ширина",
   "wildcardMatchingDescription": "Используйте '.' для соответствия любому символу (например, '123.456' соответствует 123-456)",
   "wildcardMatchingTitle": "Сопоставление с подстановочными знаками:",
   "wildcardSupportForFlexibleFiltering": "Поддержка подстановочных знаков для гибкой фильтрации",
   "windowSizeSetting": "Размер окна",
   "year": "Год",
-  "yearly": "Ежегодно",
-  "yearlyChartTitle": "Ежегодные заблокированные вызовы",
   "noSimCardsDetected": "SIM-карты не обнаружены",
   "filterManagementDescription": "Установить фильтры вызовов",
   "callerIdCustomizationSubtitle": "Настроить макет идентификатора вызывающего абонента",
@@ -1895,7 +1391,6 @@
   "useLocalNotificationDescription": "Включить локальные уведомления для входящих вызовов",
   "cancelLocalNotification": "Закрыть локальные уведомления",
   "useStirNotification": "Использовать уведомления от STIR",
-  "useStirNotificationDescription": "Включить уведомления STIR для входящих вызовов",
   "cancelLocalNotificationDescription": "Автоматически закрывать локальные уведомления",
   "callerIdSettingsTitle": "Настройки идентификатора вызывающего абонента",
   "callerIdSettingsSubtitle": "Чтобы настроить уведомления о входящих вызовах и режим отображения",
@@ -1904,16 +1399,6 @@
   "callerIdNotificationTitle": "Информация о входящем вызове",
   "@callerIdNotificationTitle": {
     "description": "Title for the Incoming Call Info"
-  },
-  "callerIdBody": "Номер: {phoneNumber}",
-  "@callerIdBody": {
-    "description": "Body for the caller ID notification, showing the phone number",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
   },
   "blockedCallTitle": "Заблокированный вызов",
   "@blockedCallTitle": {
@@ -1974,18 +1459,6 @@
   "@fraudAlertTitle": {
     "description": "Title for the fraud alert notification"
   },
-  "fraudAlertBody": "Потенциальный мошеннический вызов от {phoneNumber}",
-  "@fraudAlertBody": {
-    "description": "Body for the fraud alert notification",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
-  },
-  "loadRulesFailed": "Не удалось загрузить правила: {error}",
-  "loadCallLogFailed": "Не удалось загрузить журнал вызовов: {error}",
   "noBlockedTypeData": "Нет данных о заблокированных типах",
   "importEntity": "Импортировать {entityTypeName}",
   "@importEntity": {
@@ -2065,7 +1538,6 @@
   "vipUser": "VIP пользователь",
   "temporaryVip": "Временный VIP",
   "removeAds": "Удалить рекламу",
-  "unknownAction": "Неизвестное действие",
   "settingsBackup": "Резервное копирование настроек",
   "allServicesStatusTitle": "Текущий статус сервисов",
   "allServicesStatusSubtitle": "Текущий статус каждого облачного сервиса",
@@ -2153,7 +1625,6 @@
   "unblocked": "Разблокировано",
   "blockNumber": "Номер блока",
   "blockNumberSuccess": "Номер блока успешно",
-  "blockNumberFailed": "Номер блока не удался",
   "unblockNumberConfirmation": "Вы уверены, что хотите разблокировать номер {phoneNumber}?",
   "@unblockNumberConfirmation": {
     "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
@@ -2165,23 +1636,11 @@
       }
     }
   },
-  "callingNumber": "Вызов {phoneNumber}...",
-  "@callingNumber": {
-    "description": "Status text displayed on the screen when an outgoing call is initiated.",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "description": "The phone number that is being dialed.",
-        "example": "+1 555-123-4567"
-      }
-    }
-  },
   "viewDetails": "Просмотреть детали",
   "unblock": "Разблокировать",
   "unblockNumber": "Разблокировать номер",
   "unblockNumberSuccess": "Номер успешно разблокирован",
   "unblockNumberFailed": "Разблокировка номера не удалась",
-  "serviceNotAvailable": "Сервис недоступен",
   "callingNumberFailed": "Вызов номера не удался",
   "listView": "Вид списка",
   "timelineView": "Вид временной шкалы",
@@ -2192,7 +1651,6 @@
   "callType": "Тип вызова",
   "callTime": "Время вызова",
   "numberInvalidFormat": "Неверный формат номера",
-  "membershipFeature": "Функция членства",
   "medium": "Средний",
   "verificationReport": "Отчет о проверке",
   "finalRisk": "Конечный риск",
@@ -2221,7 +1679,6 @@
   "noNotifications": "Нет уведомлений",
   "clearAllNotifications": "Очистить все уведомления",
   "clearAllNotificationsConfirmation": "Подтвердите очистку всех уведомлений",
-  "allNotificationsCleared": "Все уведомления очищены",
   "clearButton": "Очистить",
   "justNow": "Только что",
   "minutesAgo": "{count,plural, =1{1 минуту назад} other{{count} минут назад}}",
@@ -2298,10 +1755,6 @@
   "@reasonInaccurateInfo": {
     "description": "Inaccurate Information reason option"
   },
-  "reasonWrongMarked": "Отмечено неправильно",
-  "@reasonWrongMarked": {
-    "description": "Wrong marked reason option"
-  },
   "reasonOther": "Другое",
   "@reasonOther": {
     "description": "Other reason option"
@@ -2314,33 +1767,9 @@
   "@cancel": {
     "description": "Cancel button text"
   },
-  "proposalStatus": "Статус",
-  "@proposalStatus": {
-    "description": "Proposal status label"
-  },
-  "statusPending": "В ожидании",
-  "@statusPending": {
-    "description": "Pending status"
-  },
-  "statusActive": "Активно",
-  "@statusActive": {
-    "description": "Active status"
-  },
-  "statusCompleted": "Завершено",
-  "@statusCompleted": {
-    "description": "Completed status"
-  },
-  "statusExpired": "Истекло",
-  "@statusExpired": {
-    "description": "Expired status"
-  },
   "riskLevel": "Уровень риска",
   "@riskLevel": {
     "description": "Risk level label"
-  },
-  "riskLevelVerified": "Проверено",
-  "@riskLevelVerified": {
-    "description": "Verified risk level"
   },
   "riskLevelLow": "Низкий",
   "@riskLevelLow": {
@@ -2350,26 +1779,9 @@
   "@riskLevelHigh": {
     "description": "Label for high risk level"
   },
-  "riskLevelUnknown": "Неизвестно",
-  "@riskLevelUnknown": {
-    "description": "Unknown risk level"
-  },
-  "votingProgress": "Прогресс голосования",
-  "@votingProgress": {
-    "description": "Voting progress label"
-  },
   "agreeVotes": "За: {count}",
   "@agreeVotes": {
     "description": "Agree votes count",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "disagreeVotes": "Против: {count}",
-  "@disagreeVotes": {
-    "description": "Disagree votes count",
     "placeholders": {
       "count": {
         "type": "int"
@@ -2405,14 +1817,6 @@
   "@verificationReport": {
     "description": "Verification report label"
   },
-  "showReport": "Показать отчет",
-  "@showReport": {
-    "description": "Show report button text"
-  },
-  "hideReport": "Скрыть отчет",
-  "@hideReport": {
-    "description": "Hide report button text"
-  },
   "proposalStatistics": "Статистика предложений",
   "@proposalStatistics": {
     "description": "Proposal statistics title"
@@ -2425,37 +1829,17 @@
   "@activeProposals": {
     "description": "Active proposals label"
   },
-  "completedProposals": "Завершенные предложения",
-  "@completedProposals": {
-    "description": "Completed proposals label"
-  },
-  "myVotes": "Мои голоса",
-  "@myVotes": {
-    "description": "My votes label"
-  },
   "proposalCreated": "Предложение успешно создано",
   "@proposalCreated": {
     "description": "Proposal created success message"
-  },
-  "proposalCreateFailed": "Не удалось создать предложение",
-  "@proposalCreateFailed": {
-    "description": "Proposal create failed message"
   },
   "voteSubmitted": "Голос успешно отправлен",
   "@voteSubmitted": {
     "description": "Vote submitted success message"
   },
-  "voteSubmitFailed": "Не удалось отправить голос",
-  "@voteSubmitFailed": {
-    "description": "Vote submit failed message"
-  },
   "noProposalsFound": "Предложения не найдены",
   "@noProposalsFound": {
     "description": "No proposals found message"
-  },
-  "loadingProposals": "Загрузка предложений...",
-  "@loadingProposals": {
-    "description": "Loading proposals message"
   },
   "refreshProposals": "Обновить предложения",
   "@refreshProposals": {
@@ -2684,12 +2068,8 @@
       }
     }
   },
-  "loadVoteCountFailed": "Не удалось загрузить количество голосов",
   "voteCount": "Количество голосов",
-  "deletionProposalInfo": "Информация о предложении об удалении",
   "deletionProposalDescription": "Предложите номера для удаления, которые нарушают правила сообщества. Ваше участие помогает поддерживать безопасность платформы.",
-  "voteToEarnVip": "Голосуйте за предложения, чтобы получить VIP-привилегии!",
-  "voteFailed": "Голосование не удалось",
   "searchProposals": "Поиск предложений",
   "defaultNotifications": "Уведомления по умолчанию",
   "defaultNotificationsDescription": "Канал уведомлений по умолчанию для приложения.",
@@ -2699,81 +2079,14 @@
   "stirVerificationDescription": "Отображает результаты проверки STIR/SHAKEN для номеров.",
   "fraudAlerts": "Предупреждения о мошенничестве",
   "fraudAlertsDescription": "Отображает предупреждения о потенциально мошеннических вызовах.",
-  "notificationFrequencyDescription": "Выберите, как часто вы будете получать уведомления о новых предложениях на удаление. Вы можете получать их немедленно, пакетами или с пользовательским интервалом.",
-  "@notificationFrequencyDescription": {
-    "description": "A detailed explanation of what the notification frequency settings do"
-  },
   "@notificationMode": {
     "description": "Title for the mode selection part (Immediate, Batched, Custom)"
-  },
-  "immediateNotifications": "Немедленно",
-  "@immediateNotifications": {
-    "description": "Label for the immediate notification mode"
-  },
-  "immediateNotificationsDescription": "Получать уведомление, как только предложение будет создано.",
-  "@immediateNotificationsDescription": {
-    "description": "Description for the immediate notification mode"
-  },
-  "batchNotifications": "Пакетные",
-  "@batchNotifications": {
-    "description": "Label for the batched notification mode"
-  },
-  "batchNotificationsDescription": "Получать сводку уведомлений периодически.",
-  "@batchNotificationsDescription": {
-    "description": "Description for the batched notification mode"
-  },
-  "customNotifications": "Пользовательский",
-  "@customNotifications": {
-    "description": "Label for the custom notification mode"
-  },
-  "customNotificationsDescription": "Определите свой собственный интервал для получения уведомлений.",
-  "@customNotificationsDescription": {
-    "description": "Description for the custom notification mode"
-  },
-  "customFrequency": "Пользовательская частота",
-  "@customFrequency": {
-    "description": "Title for the custom frequency slider section"
-  },
-  "notificationFrequencyDurationMinutes": "{minutes} мин",
-  "@notificationFrequencyDurationMinutes": {
-    "description": "Formats a duration that is only in minutes.",
-    "placeholders": {
-      "minutes": {
-        "type": "int",
-        "example": "45"
-      }
-    }
-  },
-  "notificationFrequencyDurationHours": "{hours} ч",
-  "@notificationFrequencyDurationHours": {
-    "description": "Formats a duration that is in whole hours.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "2"
-      }
-    }
-  },
-  "notificationFrequencyDurationHoursAndMinutes": "{hours} ч {minutes} мин",
-  "@notificationFrequencyDurationHoursAndMinutes": {
-    "description": "Formats a duration that has both hours and minutes.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "1"
-      },
-      "minutes": {
-        "type": "int",
-        "example": "30"
-      }
-    }
   },
   "pendingProposals": "Ожидающие предложения",
   "pendingProposalsBody": "У вас {count, plural, =0 {нет ожидающих предложений} one {1 ожидающее предложение} other {{count} ожидающих предложений}}.",
   "guidelinesLabel": "Рекомендации",
   "reportingGuidelines": "• Сообщайте только о номерах, которые действительно вызывают проблемы\n• Предоставляйте точные и подробные причины\n• Выбирайте соответствующий уровень риска в зависимости от серьезности\n• Ложные сообщения могут привести к ограничениям учетной записи",
   "riskLevelLabel": "Уровень риска",
-  "riskLevelDescription": "Уровень риска номера",
   "phoneNumberMinDigits": "Номер телефона должен состоять как минимум из 7 цифр",
   "provideDetailedExplanation": "Предоставьте подробное объяснение (минимум 10 символов)",
   "reasonMinCharacters": "Причина должна содержать не менее 10 символов",
@@ -2790,39 +2103,15 @@
   "@countryCodeRequired": {
     "description": "Validation message for required country code"
   },
-  "countryCodeLengthError": "Код страны должен состоять из 2 букв",
-  "@countryCodeLengthError": {
-    "description": "Validation message for country code length"
-  },
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
-  "phoneNumberLengthError": "Номер телефона должен состоять как минимум из 7 цифр",
-  "@phoneNumberLengthError": {
-    "description": "Validation message for phone number length"
-  },
-  "reasonHint": "Предоставьте подробное объяснение (минимум 10 символов)",
-  "@reasonHint": {
-    "description": "Hint text for reason input field"
-  },
   "reasonRequired": "Причина обязательна",
   "@reasonRequired": {
     "description": "Validation message for required reason"
-  },
-  "reasonLengthError": "Причина должна содержать не менее 10 символов",
-  "@reasonLengthError": {
-    "description": "Validation message for reason length"
-  },
-  "guidelinesTitle": "Рекомендации",
-  "@guidelinesTitle": {
-    "description": "Title for guidelines section"
-  },
-  "guidelinesText": "• Сообщайте только о номерах, которые действительно вызывают проблемы\n• Предоставляйте точные и подробные причины\n• Выбирайте соответствующий уровень риска в зависимости от серьезности\n• Ложные сообщения могут привести к ограничениям учетной записи",
-  "@guidelinesText": {
-    "description": "Text content for guidelines section"
   },
   "riskLevelCritical": "Критический",
   "@riskLevelCritical": {
@@ -2836,33 +2125,9 @@
   "@riskLevelVeryLow": {
     "description": "Label for very low risk level"
   },
-  "riskDescriptionVeryLow": "Очень низкий - Незначительное неудобство, редкие звонки",
-  "@riskDescriptionVeryLow": {
-    "description": "Description for very low risk level"
-  },
-  "riskDescriptionLow": "Низкий - Нежелательные звонки время от времени",
-  "@riskDescriptionLow": {
-    "description": "Description for low risk level"
-  },
-  "riskDescriptionMedium": "Средний - Регулярный спам или телемаркетинг",
-  "@riskDescriptionMedium": {
-    "description": "Description for medium risk level"
-  },
-  "riskDescriptionHigh": "Высокий - Постоянные преследования или попытки мошенничества",
-  "@riskDescriptionHigh": {
-    "description": "Description for high risk level"
-  },
-  "riskDescriptionCritical": "Критический - Опасное мошенничество или угрозы",
-  "@riskDescriptionCritical": {
-    "description": "Description for critical risk level"
-  },
   "notificationFrequencyTitle": "Частота уведомлений",
   "@notificationFrequencyTitle": {
     "description": "Title for notification frequency settings"
-  },
-  "notificationFrequencyLabel": "Частота уведомлений (часы)",
-  "@notificationFrequencyLabel": {
-    "description": "Label for notification frequency dropdown"
   },
   "errorMessage": "Ошибка: {error}",
   "@errorMessage": {
@@ -2870,18 +2135,6 @@
     "placeholders": {
       "error": {
         "type": "String"
-      }
-    }
-  },
-  "votesStatistics": "Голоса: {totalVotes} ({supportPercentage}% поддержка)",
-  "@votesStatistics": {
-    "description": "Voting statistics text",
-    "placeholders": {
-      "totalVotes": {
-        "type": "int"
-      },
-      "supportPercentage": {
-        "type": "int"
       }
     }
   },
@@ -2899,37 +2152,6 @@
     "description": "Shows the number of oppose votes.",
     "placeholders": {
       "opposeCount": {
-        "type": "int"
-      }
-    }
-  },
-  "timeJustNow": "Только что",
-  "@timeJustNow": {
-    "description": "Time format for recent events"
-  },
-  "timeMinutesAgo": "{minutes}м назад",
-  "@timeMinutesAgo": {
-    "description": "Time format for minutes ago",
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
-  "timeHoursAgo": "{hours}ч назад",
-  "@timeHoursAgo": {
-    "description": "Time format for hours ago",
-    "placeholders": {
-      "hours": {
-        "type": "int"
-      }
-    }
-  },
-  "timeDaysAgo": "{days}д назад",
-  "@timeDaysAgo": {
-    "description": "Time format for days ago",
-    "placeholders": {
-      "days": {
         "type": "int"
       }
     }
@@ -2989,7 +2211,6 @@
   "liveActivitiesTestUpdateActivity": "Обновить Activity",
   "liveActivityControlsTitle": "Элементы управления Live Activity",
   "liveActivitiesTestTitle": "Тест Live Activities",
-  "liveActivitiesTestSubtitle": "Протестируйте уведомление live activity.",
   "liveNotificationCustomizationTitle": "Настройка Live уведомления",
   "liveNotificationCustomizationSubtitle": "Настройте внешний вид live уведомлений.",
   "notification_instructions": "Инструкции:\n1. Нажмите \"ОТПРАВИТЬ\", чтобы создать или обновить уведомление.\n2. Перейдите на главный экран или потяните вниз панель уведомлений, чтобы увидеть результат.\n3. Нажмите \"ЗАВЕРШИТЬ\", чтобы отклонить уведомление.",
@@ -3012,7 +2233,6 @@
   "@proposalDetails": {
     "description": "The title of the proposal details page."
   },
-  "filterByStatus": "Фильтровать по статусу",
   "proposalNotFound": "Предложение не найдено",
   "@proposalNotFound": {
     "description": "A message displayed when a proposal is not found."
@@ -3020,10 +2240,6 @@
   "processed": "Обработано",
   "@processed": {
     "description": "A label for the processed status."
-  },
-  "showAll": "Показать все",
-  "@showAll": {
-    "description": "A button to show all proposals."
   },
   "filterAndSortTitle": "Фильтр и сортировка",
   "filterVerifiedOwner": "Фильтровать по проверенному владельцу",
@@ -3055,10 +2271,6 @@
   "@invalidSimData": {
     "description": "A message displayed when the SIM data is invalid."
   },
-  "simCardData": "Данные SIM-карты",
-  "@simCardData": {
-    "description": "A label for the SIM card data."
-  },
   "simSlot": "Слот SIM-карты",
   "@simSlot": {
     "description": "A label for the SIM slot."
@@ -3077,8 +2289,6 @@
   },
   "callTypeRejected": "Отклонено",
   "callTypeSilenced": "Отключен",
-  "callTypeVoicemail": "Голосовое сообщение",
-  "callTypeUnknownIntercept": "Неизвестный перехват",
   "andMoreItems": "и еще {count} элемента",
   "@andMoreItems": {
     "description": "Text to show when there are more items than displayed.",

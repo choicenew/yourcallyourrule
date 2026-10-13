@@ -6,14 +6,6 @@
   },
   "aboutLabels": "关于标签",
   "aboutPhoneSubscriptionRules": "关于电话订阅规则",
-  "aboutPhoneSubscriptions": "关于电话订阅",
-  "@aboutPhoneSubscriptions": {
-    "description": "About phone subscriptions title"
-  },
-  "aboutPhoneSubscriptionsDesc": "通过 URL 订阅电话规则列表，自动更新规则。支持 JSON、CSV 格式的规则文件。",
-  "@aboutPhoneSubscriptionsDesc": {
-    "description": "About phone subscriptions description"
-  },
   "aboutSmsFilter": "关于短信过滤",
   "aboutSmsSubscriptionRules": "关于短信订阅规则",
   "aboutSubtitle": "应用版本和法律信息",
@@ -22,7 +14,6 @@
   "actionAll": "全部",
   "actionAllow": "允许",
   "actionBlock": "阻止",
-  "actionFilterAll": "全部过滤",
   "actionFilterTitle": "按操作类型过滤",
   "actionFilterTooltip": "操作过滤器",
   "actionNone": "无操作",
@@ -42,24 +33,15 @@
   },
   "addContactButton": "添加联系人",
   "addContactFailed": "添加联系人失败: {error}",
-  "addedToAllowedRules": "已添加到允许规则",
-  "addedToBlacklist": "已添加到黑名单",
-  "addedToBlockedRules": "已添加到阻止规则",
-  "addedToFavoriteContacts": "已添加到收藏联系人",
   "addedToFavorites": "已添加到收藏联系人",
-  "addedToWhitelist": "已添加到白名单",
-  "addFavorite": "添加收藏",
-  "addFilter": "添加过滤器",
   "addLabel": "添加标签",
   "addLabelButton": "添加标签",
   "addLabelFailed": "添加标签失败: {error}",
-  "addLabelToCall": "为通话记录添加标签",
   "addName": "添加名称",
   "addNoneSubscription": "添加无订阅",
   "@addNoneSubscription": {
     "description": "Add none subscription dialog title"
   },
-  "addOrEditContactInfo": "用于添加或编辑联系人信息",
   "addPhoneMark": "添加电话标记",
   "addPhoneNumberRule": "添加电话号码规则",
   "addPlugin": "添加插件",
@@ -69,14 +51,12 @@
   "addPluginFromUrl": "从 URL 添加插件",
   "addRegexRule": "添加正则表达式规则",
   "addRule": "添加规则",
-  "addRuleButton": "添加规则",
   "addRuleFailed": "添加规则失败：{error}",
   "addRuleTooltip": "添加规则",
   "addSilenceSubscription": "添加静音订阅",
   "@addSilenceSubscription": {
     "description": "Add silence subscription dialog title"
   },
-  "addSimRuleButton": "添加 SIM 卡规则",
   "addSmsFilterRule": "添加短信过滤规则",
   "addSmsRule": "添加短信规则",
   "addSmsSubscription": "添加短信订阅",
@@ -95,26 +75,17 @@
     }
   },
   "addSubscriptionTooltip": "添加订阅",
-  "addToAllowedRules": "添加到允许规则",
   "addToBlacklist": "添加到黑名单",
-  "addToBlockedRules": "添加到阻止规则",
-  "addToFavoriteContacts": "添加到收藏联系人",
   "addToFavorites": "添加到收藏夹",
   "addToRules": "添加到规则",
   "addToWhitelist": "添加到白名单",
-  "adPlaceholder": "广告占位符",
   "agent": "中介",
   "all": "全部",
   "allCallsTab": "全部",
-  "allDataClearedSuccessfully": "所有数据已成功清除",
   "allow": "允许",
   "allowAllAllowRules": "允许所有允许规则",
   "allowAllAllowRulesDesc": "允许来自允许规则的呼叫",
   "allowAllBlacklistedNumbers": "允许所有黑名单号码",
-  "allowAllBlacklistedNumbersDesc": "允许来自黑名单的呼叫",
-  "@allowAllBlacklistedNumbersDesc": {
-    "description": "Allow calls from blocklist"
-  },
   "allowAllBlockRules": "允许所有阻止规则",
   "allowAllBlockRulesDesc": "允许来自阻止规则的呼叫",
   "allowAllowedNumbers": "允许允许的号码",
@@ -135,8 +106,6 @@
   "allowRegexBlockRulesDescription": "启用基于正则表达式的阻止规则",
   "allowRule": "允许规则",
   "allowRules": "允许规则",
-  "allowWhitelistedNumbers": "允许白名单号码",
-  "allowWhitelistedNumbersDescription": "允许白名单中的所有号码",
   "allPermissionsGranted": "已授予所有权限",
   "allSettingsCompleted": "所有设置已完成。",
   "allUpdateSuccess": "所有更新已完成（{count} 条规则）",
@@ -149,7 +118,6 @@
     }
   },
   "answerThenHangup": "接听然后挂断",
-  "appLegalese": "© 2023 Your Call Your Rule。保留所有权利。",
   "applicationSoftware": "应用软件",
   "apply": "应用",
   "appName": "Your Call Your Rule",
@@ -162,8 +130,6 @@
   "autoUpdate": "自动更新",
   "autoUpdateDescription": "设置订阅的自动更新间隔或手动更新",
   "autoUpdateSettings": "自动更新设置",
-  "autoUpdateSettingsSubtitle": "管理规则和插件的自动更新",
-  "autoUpdateSettingsTitle": "自动更新设置",
   "autoUpdateSubtitle": "管理规则和插件的自动更新",
   "autoUpdateTitle": "自动更新",
   "avatarBorderColor": "头像边框颜色",
@@ -178,57 +144,33 @@
   "backupAndRestoreSubtitle": "备份或还原应用程序数据",
   "backupAndRestoreTitle": "备份和还原",
   "backupFailed": "备份失败",
-  "backupFailedMessage": "备份失败",
-  "backupFailedWithError": "备份失败：{error}",
-  "backupRestoreSubtitle": "备份或还原应用程序数据",
-  "backupRestoreTitle": "备份和还原",
-  "backupSectionTitle": "备份",
   "backupSettings": "备份设置",
-  "backupSettingsDialogTitle": "备份设置",
-  "backupSettingsTitle": "备份设置",
-  "backupSuccessMessage": "成功备份到云",
-  "backupSuccessToLocal": "备份成功到：{path}",
   "backupToCloud": "备份到云",
-  "backupToCloudDescription": "将设置和规则备份到云存储",
   "backupToCloudFailed": "备份到云失败：{error}",
-  "backupToCloudLabel": "备份到云",
   "backupToCloudSuccess": "成功备份到云",
-  "backupToCloudTitle": "备份到云",
-  "backupToLocalLabel": "备份到本地",
   "bank": "银行",
   "basicInfo": "基本信息",
   "basicRuleFilter": "基本规则过滤",
   "basicRuleFiltering": "基本规则过滤",
   "basicRuleFilteringExplanation": "• 基本规则过滤：基于黑名单、白名单和正则表达式的过滤规则",
-  "basicRuleFilterSettings": "基本规则过滤设置",
-  "@basicRuleFilterSettings": {
-    "description": "Title for basic rule filter settings page"
-  },
   "basicRuleFilterSubtitle": "使用黑名单/白名单和正则表达式过滤呼叫",
-  "batchDeleteContacts": "批量删除联系人",
   "batchDeleteContactsConfirm": "确定要删除 {count} 个选定的联系人吗？",
-  "batchDeleteFailed": "批量删除失败",
   "batchDeleteLabelsConfirm": "确定要删除 {count} 个标签吗？",
   "blacklist": "黑名单",
   "@blacklist": {
     "description": "Blacklist label"
   },
   "blacklistingAndWhitelisting": "黑名单和白名单",
-  "blacklistLabel": "黑名单",
   "blackWhiteList": "黑/白名单",
   "block": "阻止",
   "blockCalls": "阻止呼叫",
   "blocked": "已阻止",
-  "blockedCallAction": "已阻止的呼叫操作",
   "blockedCalls": "已阻止的呼叫",
   "blockedCallsTitle": "已阻止的呼叫",
-  "blockedCommunications": "已阻止的通讯",
-  "blockedPhoneLabel": "已阻止的呼叫",
   "blockedSpamCalls": "已阻止的垃圾呼叫",
   "blockingTrend": "阻止趋势",
   "blockInternationalCalls": "匹配不以 + 或 00 开头的号码",
   "blockInternationalCallsTitle": "阻止国际呼叫",
-  "blockLandlineNumbersTitle": "阻止座机号码",
   "blockMobileNumbers": "匹配不以 13-19 开头的号码",
   "blockMobileNumbersTitle": "阻止手机号码",
   "blockPremiumRateNumbers": "匹配不以 118 或 120-190 开头的号码",
@@ -244,19 +186,9 @@
   "bulkDeleteLabels": "批量删除标签",
   "call": "呼叫",
   "callback": "回拨",
-  "callbackTo": "回拨至 {number}",
-  "@callbackTo": {
-    "description": "Callback notification message",
-    "placeholders": {
-      "number": {
-        "type": "String"
-      }
-    }
-  },
   "callBlocking": "呼叫阻止",
   "callerIdApp": "来电显示应用",
   "callerIdCustomizationTitle": "自定义来电显示",
-  "callerIdDialogTitle": "来电显示信息",
   "callerIdDisplayMode": "来电显示模式",
   "callerIdMarkedByCount": "被标记 {count} 次",
   "@callerIdMarkedByCount": {
@@ -268,8 +200,6 @@
     }
   },
   "callerIdPreview": "来电显示预览",
-  "callFilter": "来电过滤",
-  "callFilterDescription": "启用后，来电将根据以下规则列表进行检查。默认情况下，呼叫过滤规则不会在设备之间同步。",
   "callFilterRules": "来电过滤规则",
   "callFilterRulesDescription": "设置来电过滤的基本规则",
   "callFilterSettings": "来电过滤设置",
@@ -278,33 +208,10 @@
   "callHistory": "通话记录",
   "callHistoryInfoDesc": "此处显示您的通话记录，包括来电、去电和未接来电。",
   "callHistoryInfoTitle": "通话记录",
-  "callHistoryInitFailed": "初始化通话记录失败: {error}",
-  "@callHistoryInitFailed": {
-    "description": "Call history initialization failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
-  "callHistoryRefreshFailed": "刷新通话记录失败: {error}",
-  "@callHistoryRefreshFailed": {
-    "description": "Call history refresh failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "callHistoryTab": "通话记录",
-  "callHistoryTimelineEarlier": "更早",
-  "callHistoryTimelineToday": "今天",
-  "callHistoryTimelineYesterday": "昨天",
   "callScreeningPermission": "来电筛选权限",
   "callScreeningPermissionDescription": "用于筛选和阻止垃圾电话。",
   "callScreeningPermissionNotGranted": "未授予来电筛选权限，可能会影响应用程序功能。",
-  "callSettingsSubtitle": "来电显示、过滤和阻止设置",
-  "callSettingsTitle": "通话设置",
   "callStatistics": "通话统计",
   "callTypeAnswered": "已接听",
   "callTypeBlocked": "已阻止",
@@ -330,32 +237,14 @@
       }
     }
   },
-  "changeTag": "更改标签",
   "charity": "慈善机构",
-  "chartMonthFormat": "月份 {month}",
-  "@chartMonthFormat": {
-    "description": "Month format for chart labels",
-    "placeholders": {
-      "month": {
-        "type": "int"
-      }
-    }
-  },
-  "chartOneDayAgo": "1 天前",
-  "chartOneMonthAgo": "1 个月前",
   "chartOneWeekAgo": "1 周前",
-  "chartTenDaysAgo": "10 天前",
   "chartThreeDaysAgo": "3 天前",
   "chartToday": "今天",
   "checkFileFormat": "请检查文件格式或权限",
   "checkPermissionFailed": "检查权限失败：{error}",
   "chooseDefaultInterceptAction": "选择默认拦截操作",
-  "clearAllData": "清除所有数据",
-  "clearAllDataConfirmation": "确定要清除所有应用程序数据吗？此操作无法撤销。",
-  "clearAllDataDescription": "清除所有应用程序数据",
-  "clearAllDataLabel": "清除所有数据",
   "clearFilter": "清除过滤器",
-  "clearLabelFilter": "清除标签过滤器",
   "clearLabelFilterButton": "清除标签过滤器",
   "closeButton": "关闭",
   "cloudSync": "云同步",
@@ -363,26 +252,18 @@
   "cloudSyncSettingsSubtitle": "配置 WebDAV、OneDrive 和 Google Drive",
   "cloudSyncSettingsTitle": "云同步设置",
   "cloudSyncTitle": "云同步",
-  "collapseLabelSelector": "折叠标签选择器",
   "collection": "催收",
   "colorPickerTitle": "选择颜色",
   "configManagement": "配置管理",
   "configUpdated": "配置已更新",
   "configurationAdvice": "通过适当的配置，您可以为工作和个人 SIM 卡设置不同的过滤策略。",
   "configureBackupOptions": "配置备份选项",
-  "configureBackupOptionsSubtitle": "配置备份选项",
   "configureCloudSyncService": "配置云同步服务",
-  "configureCloudSyncServiceHint": "请配置云同步服务以启用多设备同步。",
   "configureCloudSyncServiceMessage": "请配置云同步服务以启用多设备同步。",
   "configureSimCardFilterRules": "配置 SIM 卡过滤规则",
-  "configureSyncServiceHint": "请先在云同步设置中配置同步服务",
   "confirm": "确认",
-  "confirmBatchDeleteContacts": "确定要删除所选",
   "confirmButton": "确认",
   "confirmDelete": "确认删除",
-  "confirmDeleteContact": "确定要删除",
-  "confirmDeleteContactName": "确认删除？",
-  "confirmDeleteFilter": "确定要删除此过滤器吗？",
   "confirmDeleteLabel": "确定要删除标签 \"{name}\" 吗",
   "confirmDeletePlugin": "确定要删除插件 \"{name}\" 吗？",
   "confirmDeletePlugins": "确定要删除 {count} 个插件吗？",
@@ -396,10 +277,8 @@
     }
   },
   "confirmDeleteRuleMessage": "确定要删除此规则吗？此操作无法撤销。",
-  "confirmDeleteSelectedContacts": "确定要删除选定的联系人吗？",
   "confirmDeleteSmsFilterRule": "确定要删除此短信过滤规则吗？",
   "confirmDeleteSmsRule": "确定要删除此短信规则吗？",
-  "confirmDeleteSubscription": "确定要删除此订阅吗？",
   "confirmDeleteSubscriptions": "确定要删除 {name} 吗？",
   "@confirmDeleteSubscriptions": {
     "description": "Confirmation message shown before deleting a subscription.",
@@ -411,7 +290,6 @@
     }
   },
   "confirmPassword": "确认密码",
-  "confirmPasswordLabel": "确认密码",
   "connectedStatus": "已连接",
   "connectionFailedCheckCredentialsMessage": "连接失败：请检查服务器地址、用户名和密码",
   "connectionFailedMessage": "连接失败",
@@ -419,19 +297,11 @@
   "connectionSuccessMessage": "连接成功",
   "contactAddSuccess": "联系人添加成功",
   "contactDeleted": "联系人已删除",
-  "contactEditDialog": "联系人编辑对话框",
-  "contactNameHint": "输入联系人姓名（可选）",
   "contactNameLabel": "姓名",
-  "contactNameOptional": "联系人姓名（可选）",
   "contactNotFound": "未找到联系人",
   "contacts": "联系人",
   "contactsDeleted": "已删除 {count} 个联系人",
-  "contactSettingsSubtitle": "联系人管理和标签设置",
-  "contactSettingsTitle": "联系人设置",
-  "contactsLoadingFailed": "加载联系人失败: {error}",
   "contactsManagement": "联系人管理",
-  "contactsManagementPageTitle": "联系人管理页面",
-  "contactsPageTitle": "联系人管理",
   "contactsPermission": "联系人权限",
   "contactsPermissionDescription": "用于识别联系人来电。",
   "contactsTab": "联系人",
@@ -439,8 +309,6 @@
   "@contactSubscriptionDescription": {
     "description": "About contact subscription description"
   },
-  "contactSubscriptionLoadingFailed": "加载联系人订阅失败: {error}",
-  "contactSubscriptionPageTitle": "联系人订阅",
   "contactUpdateSuccess": "联系人更新成功",
   "contactUs": "联系我们",
   "content": "内容",
@@ -452,34 +320,16 @@
   "countryNameColor": "国家/地区名称颜色",
   "countryNameFontSize": "国家/地区名称字体大小",
   "countryRegionNamePosition": "国家/地区名称位置",
-  "countrySelectionDialog": "国家/地区选择对话框",
-  "countrySelectionDialogDescription": "用于选择国家/地区以查询来电显示信息",
   "countThresholdDescription": "设置触发过滤操作所需的最小计数阈值",
   "countThresholdLabel": "计数阈值",
-  "countThresholdSettings": "计数阈值设置",
-  "countThresholdValue": "计数阈值: {count}",
   "createdRules": "已创建规则",
   "csvFormat": "CSV 格式",
-  "currentDeviceChip": "当前",
   "currentDeviceLabel": "当前设备标签",
   "currentDeviceTitle": "当前设备",
-  "currentLabels": "当前标签:",
   "currentLanguage": "当前语言",
-  "currentPasswordLabel": "当前密码",
   "customerService": "客户服务",
-  "customRange": "自定义范围",
-  "dailyStatistics": "每日统计",
-  "@dailyStatistics": {
-    "description": "Daily statistics notification option"
-  },
-  "dailyStatisticsDesc": "接收有关被阻止的呼叫和消息的每日统计信息",
-  "@dailyStatisticsDesc": {
-    "description": "Description for daily statistics option"
-  },
   "dashboardTab": "仪表盘",
   "dataAnalysis": "数据分析",
-  "dataAnalysisDashboardPage": "数据分析仪表盘页面",
-  "dataExport": "数据导出",
   "dataLoadFailure": "数据加载失败：{error}",
   "@dataLoadFailure": {
     "description": "Data loading failure message",
@@ -492,9 +342,6 @@
   "dataLoadingFailed": "加载数据失败：{error}",
   "dataMigration": "数据迁移",
   "dataMigrationDescription": "此功能允许您在设备之间传输所有数据。目前，您可以使用备份和还原功能手动迁移数据。",
-  "dataMigrationDialogContent": "此功能允许您在设备之间传输所有数据。目前，您可以使用备份和还原功能手动迁移数据。",
-  "dataMigrationDialogTitle": "数据迁移",
-  "dataMigrationSectionTitle": "数据迁移",
   "dataSourceReminder": "数据源提醒",
   "days": "{count, plural, =1{1 天} other{{count} 天}}",
   "@days": {
@@ -507,16 +354,11 @@
   },
   "daysVip": "{days} 天 VIP",
   "debtCollection": "催收",
-  "defaultPeriod": "周",
   "delete": "删除",
   "deleteButton": "删除",
   "deleteContact": "删除联系人",
   "deleteContactConfirm": "确定要删除 {name} 吗？",
-  "deleteContactConfirmation": "确定要删除联系人吗",
-  "deleteDeviceConfirmation": "确定要删除 {deviceName} 吗？",
-  "deleteDeviceDialogTitle": "删除设备",
   "deleteFailed": "删除失败：{error}",
-  "deleteFilter": "删除过滤器",
   "deleteLabel": "删除标签",
   "deleteLabelFailed": "删除标签失败：{error}",
   "deletePlugin": "删除插件",
@@ -526,7 +368,6 @@
   "deleteRule": "删除规则",
   "deleteRuleFailed": "删除规则失败：{error}",
   "deleteSelected": "删除所选",
-  "deleteSmsRule": "删除短信规则",
   "deleteSubscription": "删除订阅",
   "@deleteSubscription": {
     "description": "Delete subscription dialog title"
@@ -551,21 +392,13 @@
   },
   "deleteSuccess": "删除成功",
   "delivery": "快递",
-  "deviceDeletedSuccessfully": "设备已成功删除",
-  "deviceDeletedSuccessfullyMessage": "设备已成功删除",
-  "deviceIdLabel": "设备 ID",
   "deviceIDLabel": "设备 ID",
   "deviceManagementSubtitle": "管理多设备同步",
   "deviceManagementTitle": "设备管理",
   "deviceModelLabel": "设备型号",
   "deviceName": "设备名称",
-  "deviceNameCannotBeEmpty": "设备名称不能为空",
-  "deviceNameHint": "请输入设备名称",
   "deviceNameLabel": "设备名称",
-  "deviceRenamedSuccessfully": "设备重命名成功",
   "deviceRenamedSuccessfullyMessage": "设备重命名成功",
-  "devicesSyncedSuccessfully": "设备同步成功",
-  "devicesSyncedSuccessfullyMessage": "设备同步成功",
   "devicesSynchronizedSuccessfullyMessage": "设备同步成功",
   "deviceUnregisteredSuccessfullyMessage": "设备注销成功",
   "dialogTitle": "正则表达式说明",
@@ -576,7 +409,6 @@
   },
   "disabledStatus": "已禁用",
   "disableGlobalPlugins": "禁用全局插件",
-  "disableSubscriptionSuccessfully": "禁用订阅成功",
   "disconnectButton": "断开连接",
   "disconnectedMessage": "已断开连接",
   "disconnectedStatus": "已断开连接",
@@ -587,17 +419,12 @@
   "ecommerce": "电子商务",
   "edit": "编辑",
   "editContact": "编辑联系人",
-  "editFilter": "编辑过滤器",
   "editLabel": "编辑标签",
   "editPhoneRule": "编辑电话规则",
-  "editPhoneRules": "用于编辑电话规则",
-  "editPhoneRuleTitle": "编辑电话规则",
   "editRule": "编辑规则",
-  "editSmsRule": "编辑短信规则",
   "education": "教育",
   "elementPositionsSetting": "元素位置",
   "email": "电子邮件",
-  "emailOptional": "电子邮件（可选）",
   "enableCallFilter": "启用呼叫过滤",
   "enableCallFilterDescription": "启用后，传入呼叫将根据以下规则列表进行检查。默认情况下，呼叫过滤规则不会在设备之间同步。",
   "enabled": "已启用",
@@ -607,9 +434,6 @@
   "enabledStatus": "已启用",
   "enableEncryption": "启用加密",
   "enableEncryptionDescription": "加密备份文件",
-  "enableEncryptionLabel": "启用加密",
-  "enableEncryptionSubtitle": "备份文件将被加密",
-  "enableEncryptionTitle": "启用加密",
   "enableGlobalPlugins": "启用全局插件",
   "enableLocalCountFilter": "启用本地计数过滤器",
   "enableLocalCountFilterDescription": "根据呼叫标记计数自动过滤垃圾呼叫",
@@ -620,14 +444,11 @@
   "enableMuteRulesDesc": "应用静音拦截规则配置",
   "enableNoneActionRules": "启用无操作规则",
   "enableNoneActionRulesDesc": "允许没有拦截操作的规则配置",
-  "enableNotifications": "启用通知",
   "enableRemoteNumberFilter": "启用远程号码过滤",
   "enableRemoteNumberFilterDescription": "使用远程数据库过滤号码",
   "enableRule": "启用规则",
   "enableSmsFilter": "启用短信过滤",
   "enableSmsFilterDescription": "启用后，消息将根据规则自动过滤",
-  "enableStatisticsNotifications": "启用统计通知",
-  "enableSubscriptionSuccessfully": "成功启用订阅",
   "enableTimeInterception": "启用时间拦截",
   "enableTimeInterceptionDescription": "在短时间内拦截重复呼叫",
   "enableTimeInterceptor": "启用时间拦截器",
@@ -641,24 +462,15 @@
   },
   "enhancedFilterSettingsTitle": "增强型过滤设置",
   "enhancedFilterSystemDescription": "增强型过滤系统支持全局规则和每个 SIM 卡的过滤配置。",
-  "enterBothPhoneNumberAndRegexPattern": "请输入电话号码和正则表达式模式",
   "enterBothPhoneNumberAndRegexPatternMessage": "请输入电话号码和正则表达式模式。",
   "enterContactName": "请输入联系人姓名",
-  "enterCurrentPasswordHint": "请输入当前密码",
   "enterDeviceName": "输入设备名称",
-  "enterDeviceNameHint": "请输入设备名称",
-  "enterEmail": "请输入电子邮件",
   "enterEmailOptional": "请输入电子邮件（可选）",
   "enterEncryptionPasswordHint": "输入加密密码",
-  "enterEncryptionPasswordTitle": "输入加密密码",
-  "enterFilterName": "请输入过滤器名称",
-  "enterFilterPattern": "请输入过滤模式",
   "enterIconCode": "输入图标代码",
   "enterName": "输入联系人姓名",
   "enterNewDeviceNameHint": "输入此设备的新名称",
-  "enterNewPasswordHint": "请输入新密码",
   "enterPasswordAgain": "再次输入密码",
-  "enterPasswordHint": "请输入密码",
   "enterPhoneNumber": "输入电话号码",
   "enterPhoneNumberHint": "输入电话号码进行测试",
   "enterPhoneNumberMultiple": "请输入电话号码，多个号码用逗号分隔",
@@ -667,7 +479,6 @@
   "enterPluginName": "输入插件名称",
   "enterPluginUrl": "输入插件 URL 地址",
   "enterRegexHint": "输入正则表达式模式",
-  "enterRuleNameAndPattern": "请输入规则名称和模式",
   "enterRuleNameAndPatternMessage": "请输入规则名称和正则表达式模式。",
   "enterRuleNameHint": "输入规则名称",
   "enterSearchContent": "请输入搜索内容",
@@ -690,79 +501,50 @@
   "enterWebDAVPasswordHint": "请输入 WebDAV 密码",
   "enterWebDAVServerAddressHint": "请输入 WebDAV 服务器地址",
   "enterWebDAVUsernameHint": "请输入 WebDAV 用户名",
-  "errorDeletingDeviceMessage": "删除设备时出错：{error}",
-  "errorLoadingPlugin": "加载插件时出错",
   "errorOccurredMessage": "发生错误：{error}",
   "errorRenamingDeviceMessage": "重命名设备时出错：{error}",
   "errorSynchronizingDevicesMessage": "同步设备时出错：{error}",
-  "errorSyncingDevicesMessage": "同步设备时出错：{error}",
-  "errorText": "错误",
   "errorUnregisteringDeviceMessage": "注销设备时出错：{error}",
   "exampleBlock400Prefix": "例如，阻止 400 前缀号码",
   "exampleBlockMarketingSms": "例如，阻止营销短信",
-  "exampleContentRegex": "例如，.*offer.*",
   "exampleContentRegexHint": "内容正则表达式示例",
   "exampleCouponPromotionDiscount": "例如，.*(优惠券|促销|折扣).*",
   "exampleFamilyFriends": "例如，家人、朋友等",
   "examplePhoneNumber": "例如，10086、12345 等",
   "exampleRegex400Prefix": "400 前缀的正则表达式示例",
-  "exampleRegexFormat": "示例：^10086$ 格式",
   "exampleSenderRegexHint": "示例",
   "exchange": "兑换",
   "exchangeNow": "立即兑换",
   "exchangeVip": "兑换 VIP",
-  "expandLabelSelector": "展开标签选择器",
   "expiryTime": "到期时间：{time}",
   "export": "导出",
   "exportAllApplicationSettings": "导出所有应用程序设置",
-  "exportAllApplicationSettingsSubtitle": "导出所有应用程序设置",
   "exportAllRuleConfigurations": "导出所有规则配置",
-  "exportAllRuleConfigurationsSubtitle": "导出所有规则配置",
-  "exportComplete": "导出完成",
   "exportConfig": "导出配置",
   "exportContacts": "导出联系人",
   "exportData": "导出数据",
-  "exportError": "导出错误",
   "exportFailed": "导出失败",
   "exportFailure": "导出配置失败",
   "exportFeatureComingSoon": "导出功能即将推出",
-  "exporting": "正在导出...",
   "exportLabels": "导出标签",
   "exportLabelsFailed": "导出标签失败: {error}",
   "exportPluginList": "导出插件列表",
   "exportPluginListFailed": "导出插件列表失败: {error}",
   "exportRules": "导出规则",
-  "exportRulesDialogTitle": "导出规则",
-  "exportRulesTitle": "导出规则",
   "exportSmsRules": "导出短信规则",
   "exportStatisticsData": "导出统计数据",
-  "exportSuccess": "导出成功",
   "exportSuccesslly": "配置导出成功",
-  "failedToAddContact": "添加联系人失败",
   "failedToAddRule": "添加规则失败: {error}",
-  "failedToAddSmsRule": "添加短信规则失败: {error}",
   "failedToAddSmsSubscription": "添加短信订阅失败: {error}",
   "failedToBackupSettings": "备份设置失败: {error}",
   "failedToDecryptBackupFile": "解密备份文件失败",
-  "failedToDeleteDevice": "删除设备失败",
   "failedToDeleteSmsRule": "删除短信规则失败: {error}",
   "failedToExportRules": "导出规则失败: {error}",
-  "failedToExportSmsRules": "导出短信规则失败: {error}",
   "failedToGetCallerIdInfo": "获取来电显示信息失败: {error}",
   "failedToImportRules": "导入规则失败: {error}",
-  "failedToImportSmsRules": "导入短信规则失败: {error}",
-  "failedToLoadContacts": "加载联系人失败",
-  "failedToLoadPlugin": "加载插件失败",
-  "failedToRenameDevice": "重命名设备失败",
   "failedToRestoreSettings": "恢复设置失败",
   "failedToRestoreSettingsWithError": "恢复设置失败: {error}",
-  "failedToSetPassword": "设置密码失败: {error}",
-  "failedToSyncDevices": "同步设备失败",
   "failedToToggleRuleStatus": "切换规则状态失败: {error}",
-  "failedToToggleSubscriptionStatus": "切换订阅状态失败",
-  "failedToUpdateContact": "更新联系人失败",
-  "failedToUpdateSmsRule": "更新短信规则失败: {error}",
-  "failure": "失败",
   "favoriteContacts": "收藏的联系人",
   "featureAddRules": "• 添加特定电话号码的规则",
   "featureCenter": "功能中心",
@@ -777,23 +559,14 @@
   "fileSavedTo": "文件保存到：{path}",
   "filter": "过滤器",
   "filterByLabel": "按标签过滤",
-  "filterClear": "清除过滤器",
   "filterControlPanelTitle": "过滤器控制面板",
   "filterControlSubtitle": "管理所有过滤器的开启/关闭状态",
   "filterControlTitle": "筛选器控制",
-  "filterDeleteFailed": "筛选器删除失败",
-  "filterDeleteSuccess": "筛选器删除成功",
-  "filterDetails": "筛选器详情",
   "filtered": "已筛选",
-  "filteredSms": "已筛选短信",
-  "filteredSmsLabel": "已筛选短信",
   "filterExplanation": "筛选器说明",
   "filterManagement": "筛选器管理",
   "filterName": "筛选器名称",
-  "filterPattern": "筛选器模式",
   "filterPriorityNote": "注意：筛选器之间存在优先级关系，详情请参考帮助文档",
-  "filterSaveFailed": "筛选器保存失败",
-  "filterSaveSuccess": "筛选器保存成功",
   "filterSettings": "筛选器设置",
   "filterSettingsTitle": "筛选器设置",
   "filterSMS": "筛选短信",
@@ -815,8 +588,6 @@
   "flexibleCombinationFeature": "• 灵活组合：为每个 SIM 卡槽启用/禁用筛选器",
   "fontSizesSetting": "字体大小",
   "foundRules": "找到 {count} 条规则",
-  "foundRulesDoYouWantToImport": "找到 {count} 条规则。是否要导入它们？",
-  "foundRulesToImport": "找到 {count} 条规则。是否要导入它们？",
   "fraudAlert": "欺诈警报 - 挂断电话",
   "fraudScamLikely": "疑似欺诈诈骗",
   "free": "免费",
@@ -838,29 +609,18 @@
   "@globalFilterSettings": {
     "description": "Global filter settings section title"
   },
-  "globalFilterToggleInstructions": "配置应用于所有 SIM 卡槽的全局筛选器设置：",
-  "@globalFilterToggleInstructions": {
-    "description": "Instructions for configuring global filter settings"
-  },
-  "globalSearchSubtitle": "搜索联系人、标签、黑名单、白名单等",
-  "globalSearchTitle": "全局搜索",
   "globalSettings": "全局设置",
   "@globalSettings": {
     "description": "Title for global settings page"
   },
-  "googleAdDisplayPosition": "Google 广告展示位置",
-  "googleAdMobIntegrationText": "可以在此处集成 Google AdMob 广告",
   "googleDriveAuthDescription": "使用系统配置的 Google Drive 客户端 ID 和密钥进行授权",
-  "googleDriveAuthorizationHint": "使用系统配置的 Google Drive 客户端 ID 和密钥进行授权",
   "googleDriveConfigTitle": "Google Drive 配置",
-  "googleDriveConfigurationTitle": "Google Drive 配置",
   "government": "政府",
   "granted": "已授予",
   "grantNecessaryPermissions": "授予必要的权限",
   "grantPermissions": "授予权限",
   "headhunter": "猎头",
   "height": "身高",
-  "homePageTitle": "主页",
   "homeTab": "主页",
   "howItWorksPoint1": "• 系统将自动允许在设定的时间窗口内来自同一号码的呼叫",
   "howItWorksPoint2": "• 较短的时间窗口会导致更严格的拦截；较长的时间窗口会导致更宽松的拦截",
@@ -870,7 +630,6 @@
   "iconSize": "图标大小",
   "import": "导入",
   "important": "重要",
-  "importButton": "导入",
   "importConfig": "导入配置",
   "importContacts": "导入联系人",
   "importExportContacts": "导入/导出联系人",
@@ -885,17 +644,9 @@
   "importPluginListFailed": "导入插件列表失败：{error}",
   "importPluginSuccess": "成功导入 {count} 个插件",
   "importRuleConfigurationsFromFile": "从文件导入规则配置",
-  "importRuleConfigurationsFromFileSubtitle": "从文件导入规则配置",
   "importRules": "导入规则",
-  "importRulesButton": "导入规则",
-  "importRulesDialogTitle": "导入规则",
-  "importRulesError": "导入规则失败：{error}",
-  "importRulesInstructions": "从 CSV 文件导入规则",
-  "importRulesSuccess": "规则导入成功",
-  "importRulesTitle": "导入规则",
   "importSuccess": "导入成功",
   "incomingCallInterceptAction": "来电拦截动作",
-  "incomingCallNotification": "来电通知",
   "incorrectPassword": "密码错误",
   "initializing": "正在初始化",
   "installed": "已安装",
@@ -923,33 +674,18 @@
   "invalidRegexPattern": "无效的正则表达式模式",
   "invalidSenderRegex": "无效的发件人正则表达式",
   "joinTheTelegramChannelAndGroupForMoreInfo": "加入 Telegram 频道和群组以获取更多信息",
-  "jsLogsTitle": "JS 日志",
   "jsonFormat": "JSON 格式",
   "keepAllVersions": "保留所有版本",
   "keepAllVersionsDescription": "保留每个备份的所有历史版本",
-  "keepAllVersionsLabel": "保留所有版本",
-  "keepAllVersionsSubtitle": "保留每个备份的历史版本",
-  "keepAllVersionsTitle": "保留所有版本",
   "label": "标签",
   "labelAddedSuccessfully": "成功添加标签 \"{name}\"",
   "labelCategories": "标签类别",
   "labelDeleted": "标签已删除",
   "labelDescription": "标签可帮助您更好地管理联系人，将自定义标签添加到电话号码，以便于识别来电和消息。",
-  "labelFilter": "标签筛选",
   "labelFilterTooltip": "标签筛选",
   "labelIconColor": "标签图标颜色",
   "labelManagement": "标签管理",
   "labelNotFound": "未找到标签",
-  "labelRemoved": "标签已移除",
-  "labelRemoveFailed": "移除标签失败：{error}",
-  "@labelRemoveFailed": {
-    "description": "Label removal failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "labels": "标签",
   "labelsColor": "标签颜色",
   "labelsDeleted": "已删除 {count} 个标签",
@@ -958,7 +694,6 @@
   "labelsImportedSuccessfully": "成功导入 {count} 个标签",
   "labelsPosition": "标签位置",
   "labelTag": "标签: {labelId}",
-  "labelUpdated": "标签已更新",
   "labelUpdateFailed": "更新标签失败：{error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -972,8 +707,6 @@
   "languageSettings": "语言设置",
   "languageSettingsSubtitle": "更改应用程序显示语言",
   "languageSettingsTitle": "语言设置",
-  "last30Days": "最近 30 天",
-  "last7Days": "最近 7 天",
   "lastSyncLabel": "上次同步",
   "lastUpdated": "上次更新时间：{date}",
   "@lastUpdated": {
@@ -988,16 +721,12 @@
   "lifetimeMembershipDescription": "一次性购买，永久解锁所有高级功能和未来更新",
   "loadContactsFailed": "加载联系人失败：{error}",
   "loadDataFailed": "加载数据失败",
-  "loadFailed": "加载失败",
   "loading": "加载中...",
-  "loadingData": "正在加载数据...",
   "loadingTags": "正在加载标签...",
   "loadLabelFailed": "加载标签失败：{error}",
   "loadLabelsFailed": "加载标签失败：{error}",
   "loadMarkCountFailed": "加载标记的电话号码失败：{error}",
   "loadMarkedPhonesFailed": "加载标记的电话失败：{error}",
-  "loadMore": "加载更多",
-  "loadPluginButton": "加载插件",
   "loadPluginsFailed": "加载插件失败：{error}",
   "loadSettingsFailed": "加载设置失败：{error}",
   "loadSmsRulesFailed": "加载短信规则失败：{error}",
@@ -1012,7 +741,6 @@
     }
   },
   "loan": "贷款",
-  "localBackupTitle": "本地备份",
   "localCounterFilter": "本地计数器过滤器",
   "localCounterFilterSubtitle": "根据通话频率自动过滤垃圾电话",
   "localCountFilter": "本地计数过滤器",
@@ -1043,11 +771,9 @@
   "logAllRemoteQueries": "记录所有远程查询",
   "logAllRemoteQueriesDescription": "记录所有远程号码查询操作",
   "manage": "管理联系人",
-  "manageContacts": "管理",
   "manageFavoriteContacts": "管理收藏联系人",
   "manageFilterRules": "管理过滤规则",
   "manageFilterRulesDescription": "添加、编辑或删除短信过滤规则",
-  "manageFrequentContacts": "管理常用联系人",
   "markCounts": "标记计数",
   "markCount": "标记计数",
   "markedByCount": "标记为 {count}",
@@ -1064,84 +790,48 @@
   "markExchange": "标记交换",
   "markPhone": "标记电话号码",
   "markPhoneFailed": "标记电话号码失败: {error}",
-  "markPhoneManagementSubtitle": "标记电话号码",
   "markPhoneManagementTitle": "标记电话管理",
   "markPhoneSuccess": "电话号码标记成功",
-  "matchFailed": "匹配失败!",
   "matchFailedMessage": "匹配失败。",
   "matchNumbersWithSpecialCharacters": "匹配特定的号码格式",
   "matchNumbersWithSpecialCharactersTitle": "匹配带特殊字符的号码:",
   "matchSpecificDigitPatterns": "匹配 XXX-XXXX-XXXX 格式",
   "matchSpecificDigitPatternsTitle": "匹配特定的数字模式:",
-  "matchSuccessful": "匹配成功!",
   "matchSuccessfulMessage": "匹配成功!",
   "medical": "医疗",
   "membershipPrivileges": "会员特权",
   "migrationTool": "迁移工具",
-  "migrationToolTitle": "迁移工具",
   "minutes": "分钟",
   "month": "月",
   "monthly": "每月",
   "monthlyCallCount": "每月通话",
-  "monthlyChartTitle": "每月拦截的通话",
   "monthlyMembership": "每月会员",
   "monthlyMembershipDescription": "解锁所有高级功能，每月自动续订",
   "monthlyTotal": "每月总计",
-  "monthlyTotalLabel": "每月总计",
   "moreOptions": "更多选项",
   "mute": "静音",
   "name": "名称",
   "nameAndPhoneNumberCannotBeEmpty": "名称和电话号码不能为空",
-  "nameAndPhoneNumberRequired": "名称和电话号码不能为空",
   "nameColor": "姓名颜色",
   "nameFontSize": "姓名字体大小",
-  "nameLabel": "姓名: {name}",
-  "@nameLabel": {
-    "description": "Caller ID name label",
-    "placeholders": {
-      "name": {
-        "type": "Object"
-      }
-    }
-  },
   "namePosition": "姓名位置",
   "nameUnknown": "姓名：未知",
-  "nameWithValue": "姓名: {name}",
-  "@nameWithValue": {
-    "description": "Text showing the name of a contact",
-    "placeholders": {
-      "name": {
-        "type": "String",
-        "example": "John Doe"
-      }
-    }
-  },
-  "newPasswordLabel": "新密码",
   "nextStep": "下一步",
   "noAction": "无操作",
   "noActionRules": "无操作规则",
   "noActiveCloudSyncServiceMessage": "没有活动的云同步服务",
-  "noCallLogs": "没有通话记录",
   "noCallRecords": "没有通话记录",
-  "noContacts": "还没有联系人",
   "noContactsYet": "还没有联系人",
   "noData": "没有数据",
   "noDevicesRegisteredMessage": "没有注册的设备",
-  "noDevicesRegisteredYet": "还没有注册的设备。",
-  "noFilters": "还没有过滤器",
   "noLabels": "还没有标签",
   "noMarkedPhones": "没有标记的电话号码",
-  "noMatchingContacts": "没有匹配的联系人",
   "noMatchingContactsFound": "没有找到匹配的联系人",
   "noMatchingNumbersFound": "没有找到匹配的号码",
-  "noMatchingRecords": "没有匹配的通话记录",
   "noMatchingRules": "没有匹配的 {ruleType}",
   "none": "无",
   "noneServiceType": "无",
   "noPlugins": "暂无插件",
-  "noRecords": "没有通话记录",
-  "noResultReturned": "没有返回结果",
-  "noResultReturnedLog": "插件没有返回结果",
   "noRules": "暂无 {ruleType}",
   "noRulesPrompt": "未找到规则，请添加规则",
   "noRulesToExport": "没有要导出的规则",
@@ -1151,7 +841,6 @@
   "@noSubscriptions": {
     "description": "No subscriptions message"
   },
-  "noSubscriptionsYet": "还没有订阅",
   "notGranted": "未授权",
   "notificationMode": "通知模式",
   "notificationModeDescription": "在通知栏中显示来电信息",
@@ -1162,8 +851,6 @@
   "@notificationSettings": {
     "description": "Notification settings title"
   },
-  "notificationSettingsSaved": "通知设置保存成功",
-  "notSet": "未设置",
   "notVerifiedText": "未验证",
   "noValidSmsRulesFoundInFile": "文件中未找到有效的短信规则",
   "number": "号码",
@@ -1174,7 +861,6 @@
   "numberTypeColor": "号码类型颜色",
   "numberTypeFontSize": "号码类型字体大小",
   "numberTypePosition": "号码类型位置",
-  "ok": "确定",
   "okButton": "确定",
   "onboardingCompleteDescription": "您的通话安全管家已准备就绪，开始享受安全的通话体验！",
   "onboardingLanguageDescription": "选择您喜欢的语言，以获得最佳体验。",
@@ -1183,9 +869,7 @@
   "onboardingSmartCallerIdDescription": "自动识别未知来电，标记可疑号码，保护您的通话安全。",
   "onboardingWelcomeDescription": "您的通话管理专家，提供全面的来电识别和拦截服务。",
   "oneDriveAuthDescription": "使用系统配置的 OneDrive 客户端 ID 和密钥进行授权",
-  "oneDriveAuthorizationHint": "使用系统配置的 OneDrive 客户端 ID 和密钥进行授权",
   "oneDriveConfigTitle": "OneDrive 配置",
-  "oneDriveConfigurationTitle": "OneDrive 配置",
   "onlineCallerIdSubscription": "在线来电显示订阅",
   "openAppSettings": "打开应用设置",
   "openAppSettingsFailed": "打开应用设置失败：{error}",
@@ -1203,7 +887,6 @@
   "passwordCannotBeEmpty": "密码不能为空",
   "passwordLabel": "密码",
   "passwordsDoNotMatch": "密码不匹配",
-  "passwordSetSuccessfully": "密码设置成功",
   "pattern": "模式",
   "pendingSync": "待同步",
   "periodMonth": "月",
@@ -1216,9 +899,7 @@
   "phoneNumber": "电话号码",
   "phoneNumberCannotBeEmpty": "电话号码不能为空",
   "phoneNumberHint": "输入电话号码",
-  "phoneNumberHintText": "输入要添加规则的电话号码",
   "phoneNumberLabel": "电话号码",
-  "phoneNumberRegexRequired": "请输入电话号码和正则表达式",
   "phoneNumberRequired": "电话号码是必需的",
   "phoneNumberTypeFixedLine": "固定电话",
   "phoneNumberTypeFixedLineOrMobile": "固定电话或移动电话",
@@ -1235,34 +916,23 @@
   "phonePermission": "电话权限",
   "phonePermissionDescription": "用于识别和阻止来电。",
   "phoneRule": "电话规则",
-  "phoneRuleEditDialog": "电话规则编辑对话框",
   "phoneRuleManagement": "电话规则管理",
   "phoneRuleSubscription": "电话规则订阅",
   "phoneSubscription": "电话订阅",
   "phoneSubscriptionRulesDescription": "通过 URL 订阅电话规则列表，以自动更新白名单和黑名单规则。支持 JSON 格式的规则文件。",
-  "phoneSubscriptionTitle": "电话规则订阅",
-  "@phoneSubscriptionTitle": {
-    "description": "Phone subscription page title"
-  },
   "pleaseSelectLabelAndEnterValidPhone": "请选择一个标签并输入有效的电话号码",
   "pluginAddedSuccess": "插件 \"{name}\" 添加成功",
   "pluginDeleted": "插件已删除",
   "pluginLatestVersion": "插件已是最新版本",
   "pluginListExportSuccess": "插件列表导出成功",
-  "pluginLoadedSuccessfully": "插件加载成功",
   "pluginManagement": "插件管理",
   "pluginManagementSubtitle": "管理和配置第三方插件",
-  "pluginManagementTitle": "插件管理",
   "pluginName": "插件名称",
-  "pluginNotLoaded": "插件尚未加载。请先加载插件。",
   "pluginsDeleted": "成功删除 {count} 个插件。",
   "pluginService": "插件服务",
   "pluginTestPageTitle": "插件测试",
   "pluginUpdateSuccess": "插件更新成功",
   "pluginUrl": "插件 URL",
-  "pluginUrlCannotBeEmpty": "插件 URL 不能为空",
-  "pluginUrlHint": "输入插件 URL",
-  "pluginUrlLabel": "插件 URL",
   "pluginVersion": "插件版本",
   "political": "政治",
   "powerfulSpamBlocking": "强大的垃圾邮件拦截",
@@ -1274,26 +944,16 @@
   "purchase": "购买",
   "quarterlyMembership": "季度会员",
   "quarterlyMembershipDescription": "解锁所有高级功能，每季度自动续订",
-  "queryButton": "查询",
-  "queryFailed": "查询失败",
-  "queryFailedLog": "查询失败",
-  "querying": "查询中...",
-  "queryingPhoneNumber": "查询电话号码",
-  "queryResultTitle": "查询结果",
   "ready": "准备就绪！",
-  "receiveWeeklyStatistics": "接收每周统计信息",
   "recruiter": "招聘人员",
-  "reEnterPasswordHint": "请重新输入密码",
   "refresh": "刷新",
   "refreshPermissionStatus": "刷新权限状态",
   "refreshTooltip": "刷新",
-  "regexError": "正则表达式错误：{error}",
   "regexErrorMessage": "正则表达式错误：{error}",
   "regexPattern": "正则表达式",
   "regexPatternExplanation": "正则表达式解释",
   "regexPatternExplanationButton": "正则表达式解释",
   "regexPatternLabel": "正则表达式",
-  "regexPatternsExamples": "使用标准正则表达式语法定义模式。例如：",
   "regexPatternsForPhoneNumberMatching": "用于电话号码匹配的正则表达式",
   "regexRule": "正则表达式规则",
   "regexRuleAddFailed": "添加正则表达式规则失败：{error}",
@@ -1302,8 +962,6 @@
   "regexRuleNamePatternRequired": "规则名称和正则表达式不能为空",
   "regexRules": "正则表达式规则",
   "regexTesterTitle": "正则表达式测试器",
-  "regexValidationFailed": "正则表达式验证失败：{error}",
-  "regexValidationSuccess": "正则表达式验证成功",
   "region": "地区",
   "registeredDevicesTitle": "注册设备",
   "rejectAllCalls": "拒绝所有来电",
@@ -1318,27 +976,15 @@
   },
   "remoteFilterSettingsPageTitle": "远程号码过滤设置",
   "remoteNumberFilter": "远程号码过滤",
-  "remoteNumberFilterDatabaseInfo": "此过滤器使用独立的远程数据库来获取最新的号码信息。",
   "remoteNumberFilterDescription": "根据远程数据库信息拦截骚扰电话",
-  "remoteNumberFilterExplanationContent": "远程号码过滤器通过查询基于号码计数的远程数据库来识别和阻止垃圾电话。",
-  "remoteNumberFilterExplanationTitle": "远程号码过滤说明",
-  "remoteNumberFilterFeatureCountThreshold": "• 数量阈值：根据号码出现频率确定",
-  "remoteNumberFilterFeatureFilterAction": "• 过滤操作：配置如何处理超过阈值的号码",
-  "remoteNumberFilterFeaturePriority": "• 优先级设置：设置远程操作的优先级",
-  "remoteNumberFilterFeatures": "功能：",
   "remoteNumberFiltering": "远程号码过滤",
   "remoteNumberFilteringExplanation": "• 远程号码过滤：基于远程数据库信息的过滤规则",
   "remoteNumberFilterSubtitle": "使用云数据库和社区报告识别垃圾电话",
   "removeAdsDescription": "永久删除应用程序中的所有广告，以获得更流畅的体验",
   "removeAdsTitle": "移除广告",
-  "removedFromFavoriteContacts": "从收藏联系人中移除",
   "removedFromFavorites": "从收藏夹中移除",
-  "removeFavorite": "移除收藏",
   "removeFromFavorites": "从收藏夹中移除",
-  "renameButton": "重命名",
-  "renameDeviceDialogTitle": "重命名设备",
   "renameDeviceTitle": "重命名设备",
-  "replaceCurrentSettingsConfirmation": "这将替换您当前的所有设置。您确定要继续吗？",
   "requestAllPermissions": "请求所有权限",
   "requestPermission": "请求权限",
   "requestPermissionFailed": "请求权限失败：{error}",
@@ -1346,84 +992,44 @@
   "reset": "重置",
   "restore": "恢复",
   "restoreApplicationSettingsFromBackup": "从备份恢复应用程序设置",
-  "restoreApplicationSettingsFromBackupSubtitle": "从备份恢复应用程序设置",
-  "restoreButton": "恢复",
-  "restoreFailedWithError": "从云恢复失败：{error}",
   "restoreFromCloud": "从云恢复",
-  "restoreFromCloudDescription": "从云存储恢复设置和规则",
   "restoreFromCloudFailed": "从云恢复失败：{error}",
-  "restoreFromCloudLabel": "从云恢复",
   "restoreFromCloudSuccess": "从云恢复成功",
-  "restoreFromCloudTitle": "从云恢复",
-  "restoreFromLocal": "从本地恢复",
   "restorePurchases": "恢复购买",
-  "restoreSectionTitle": "恢复",
   "restoreSettings": "恢复设置",
   "restoreSettingsConfirmation": "这将替换您当前的所有设置。您确定要继续吗？",
-  "restoreSettingsDialogTitle": "恢复设置",
-  "restoreSettingsTitle": "恢复设置",
-  "restoreSuccessFromLocal": "从本地恢复成功",
-  "restoreSuccessMessage": "从云恢复成功",
   "retry": "重试",
   "ridesharing": "共享出行",
   "risk": "风险",
   "robocall": "自动电话",
   "ruleAction": "规则操作",
-  "ruleAddButton": "添加规则",
   "ruleAddedSuccess": "规则添加成功",
   "@ruleAddedSuccess": {
     "description": "Rule creation success message"
   },
-  "ruleAddFailure": "添加规则失败：{error}",
-  "@ruleAddFailure": {
-    "description": "Rule creation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleAddSuccess": "规则添加成功",
   "ruleDeleteConfirmContent": "您确定要删除此{ruleType}吗？",
   "ruleDeleteConfirmTitle": "删除规则",
-  "ruleDeletedSuccess": "规则删除成功",
   "ruleDeletedSuccessfully": "规则删除成功",
   "ruleDeleteFailed": "删除规则失败：{error}",
-  "ruleDeleteFailure": "删除规则失败：{error}",
-  "@ruleDeleteFailure": {
-    "description": "Rule deletion failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleDeleteSuccess": "规则删除成功",
   "ruleDisabledSuccessfully": "规则已成功禁用",
   "ruleEnabledSuccessfully": "规则已成功启用",
   "ruleLoadFailed": "加载规则失败：{error}",
   "ruleManagement": "规则管理",
-  "ruleManagementTitle": "规则管理",
   "ruleName": "规则名称",
   "ruleNameAndContentRegexCannotBeEmpty": "规则名称和内容正则表达式不能为空",
   "ruleNameAndPhoneNumberCannotBeEmpty": "规则名称和电话号码不能为空",
   "ruleNameHint": "例如，家人、朋友等。",
   "ruleNameLabel": "规则名称",
-  "ruleNamePatternRequired": "请输入规则名称和模式",
   "ruleNameRequired": "规则名称和电话号码不能为空",
   "ruleNotExist": "规则不存在或已被删除",
   "ruleNotFound": "未找到规则：{error}",
-  "ruleSavedSuccessfully": "规则保存成功！",
   "ruleSavedSuccessMessage": "规则保存成功！",
-  "ruleSaveFailed": "保存失败: {error}",
-  "ruleSaveFailedMessage": "保存失败: {error}",
-  "ruleSaveSuccess": "规则保存成功！",
   "rulesExportedSuccessfully": "规则导出成功",
   "rulesExportedTo": "规则导出到: {path}",
   "rulesImported": "规则导入成功",
   "rulesImportedSuccessfully": "{count} 条规则导入成功",
-  "rulesImportFailed": "导入规则失败: {error}",
-  "ruleStatistics": "规则统计",
   "ruleStatusChanged": "规则 {status} 成功",
   "ruleToggleFailed": "操作失败: {error}",
   "ruleToggleSuccess": "规则 {status} 成功",
@@ -1432,32 +1038,19 @@
   "ruleVerification": "规则验证",
   "save": "保存",
   "saveButton": "保存",
-  "saveButtonLabel": "保存",
   "saveButtonText": "保存",
   "saveFailed": "保存失败: {error}",
-  "saveFilter": "保存过滤器",
   "saveSettings": "保存设置",
-  "saveSettingsFailed": "保存设置失败: {error}",
   "scamsLikely": "疑似诈骗",
   "search": "搜索",
   "searchContacts": "搜索联系人",
   "searchError": "搜索错误: {error}",
-  "searchFilters": "搜索过滤器",
-  "searchForContacts": "搜索联系人",
   "searchHint": "搜索...",
-  "searchSettingsSubtitle": "搜索联系人、标签、黑名单、白名单等。",
-  "searchSettingsTitle": "搜索设置",
   "securityMessage": "不要相信任何电话。始终独立验证客户服务号码。切勿分享密码、验证码、银行卡号或个人信息。",
-  "selectActionToPerform": "选择规则匹配时要执行的操作",
   "selectActionWhenBlockingCalls": "选择阻止呼叫时的操作",
   "selectActionWhenRuleMatches": "选择规则匹配时的操作",
   "selectAll": "全选",
   "selectCountry": "选择国家",
-  "selectDateRange": "选择日期范围",
-  "selectedDateRange": "所选日期范围",
-  "@selectedDateRange": {
-    "description": "Selected date range text"
-  },
   "selectedItems": "已选择 {count} 项",
   "selectedLabel": "已选择：",
   "selectExportFormat": "选择导出格式",
@@ -1465,14 +1058,7 @@
   "selectLabelAndEnterPhoneNumber": "请选择一个标签并输入有效的电话号码",
   "selectLanguage": "选择语言",
   "selectMultiple": "选择多个",
-  "selectPeriod": "选择时间段",
   "selectSimCard": "选择 SIM 卡",
-  "selectSimSlot": "选择 SIM 卡槽",
-  "@selectSimSlot": {
-    "description": "Title for SIM slot selection dialog"
-  },
-  "selectSpecificActionForBlockedCalls": "选择阻止来电时要执行的特定操作",
-  "selectTag": "选择标签",
   "selectTags": "选择标签",
   "selectTrustedDataSource": "请选择受信任的数据源",
   "selectYourLanguage": "选择您的语言",
@@ -1493,16 +1079,9 @@
       }
     }
   },
-  "setButton": "设置",
   "setEncryptionPassword": "设置加密密码",
-  "setEncryptionPasswordDescription": "设置用于备份和恢复的加密密码",
-  "setEncryptionPasswordLabel": "设置加密密码",
-  "setEncryptionPasswordTitle": "设置加密密码",
-  "setPasswordButton": "设置",
   "settings": "设置",
   "settingsBackedUpTo": "设置已备份到：{path}",
-  "settingsLoaded": "设置已加载",
-  "settingsLoadFailed": "加载设置失败：{error}",
   "settingsRestoredSuccessfully": "设置已成功恢复。请重启应用以使更改生效。",
   "settingsSaved": "设置已保存",
   "@settingsSaved": {
@@ -1512,8 +1091,6 @@
   "settingsTab": "设置",
   "settingsTitle": "设置",
   "setup": "设置",
-  "showContactEditDialogStaticMethod": "用于显示联系人编辑对话框的静态方法",
-  "showExplanation": "显示说明",
   "silence": "静音",
   "silenceAndNoAnswer": "静音且不接听",
   "silenceNoAnswer": "静音不接听",
@@ -1538,15 +1115,10 @@
       }
     }
   },
-  "simInfoLoadFailure": "加载 SIM 卡信息失败：{error}",
   "simRuleInstructions": "SIM 卡槽规则允许您为每个 SIM 卡槽配置独立的过滤规则。",
   "simRuleInstructionsTitle": "SIM 卡槽规则",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simRuleManagement": "SIM卡槽规则管理",
-  "@simRuleManagement": {
-    "description": "SIM slot rule management section title"
   },
   "simSlot1": "SIM卡 1,-{countryIso}",
   "@simSlot1": {
@@ -1568,9 +1140,6 @@
       }
     }
   },
-  "simSlotDataLoadFailed": "加载SIM数据失败: {error}",
-  "simSlotFilterConfiguration": "SIM卡槽过滤配置",
-  "simSlotFilterConfigurationDescription": "允许按SIM卡槽设置过滤规则",
   "simSlotFilterDescription": "为每个SIM卡配置独立的过滤规则：",
   "simSlotFilterSettingsTitle": "SIM卡槽 {slotNumber} 过滤设置",
   "@simSlotFilterSettingsTitle": {
@@ -1581,17 +1150,7 @@
       }
     }
   },
-  "simSlotLoadFailed": "加载SIM卡槽失败: {error}",
   "simSlotManagement": "SIM卡槽管理",
-  "simSlotOperationFailed": "SIM卡槽操作失败: {error}",
-  "@simSlotOperationFailed": {
-    "description": "SIM slot operation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "simSlotPosition": "SIM卡槽位置 {slotNumber}",
   "@simSlotPosition": {
     "description": "SIM slot position display",
@@ -1605,11 +1164,6 @@
   "simSlotRuleFeature": "• SIM卡槽规则：每个SIM卡独立的过滤策略",
   "simSlotRuleListTitle": "SIM卡槽规则列表",
   "simSlotRuleManagement": "SIM卡槽规则",
-  "simSlotRuleManagementTitle": "规则管理",
-  "simSlotSettings": "SIM卡槽设置",
-  "@simSlotSettings": {
-    "description": "Title for SIM slot settings page"
-  },
   "simSlotTitle": "SIM卡槽 {slotNumber}",
   "skip": "跳过",
   "smartCallerId": "智能来电识别",
@@ -1620,7 +1174,6 @@
   "smsFilterRuleAddedSuccessfully": "短信过滤规则添加成功",
   "smsFilterRules": "短信过滤规则",
   "smsFilterSettings": "短信过滤设置",
-  "smsHistory": "短信历史",
   "smsManagement": "短信管理",
   "smsPermission": "短信权限",
   "smsPermissionDescription": "用于过滤垃圾短信。",
@@ -1628,12 +1181,7 @@
   "smsRuleDeletedSuccessfully": "短信规则删除成功",
   "smsRuleLoadFailed": "加载短信规则失败: {error}",
   "smsRuleManagement": "短信规则管理",
-  "smsRulesExportedSuccessfully": "短信规则已成功导出到 {filePath}",
-  "smsRulesImportedSuccessfully": "短信规则已成功导入",
   "smsRuleSubscription": "短信规则订阅",
-  "smsRuleUpdatedSuccessfully": "短信规则更新成功",
-  "smsSettingsSubtitle": "短信过滤和关键词阻止",
-  "smsSettingsTitle": "短信设置",
   "smsSubscription": "短信订阅",
   "smsSubscriptionAddedSuccessfully": "短信订阅添加成功",
   "smsSubscriptionRulesDescription": "通过URL订阅短信规则列表，支持正则表达式匹配。您可以设置阻止或允许操作。",
@@ -1645,12 +1193,7 @@
   "startUsing": "开始使用",
   "statAnswered": "已接听",
   "statBlocked": "已阻止",
-  "staticMethodShowCallerIdDialog": "用于显示来电显示信息对话框的静态方法",
-  "staticMethodToDisplayCountrySelectionDialog": "用于显示国家/地区选择对话框的静态方法",
-  "staticMethodToDisplayDialog": "用于显示对话框的静态方法",
   "statistics": "统计",
-  "statisticsExportFeatureComingSoon": "统计导出功能即将推出",
-  "statisticsGrid": "统计网格",
   "statisticsPageTitle": "数据分析",
   "stirColor": "STIR 颜色",
   "stirFontSize": "STIR 字体大小",
@@ -1673,23 +1216,16 @@
   "@subscriptionDeleted": {
     "description": "Subscription deleted success message"
   },
-  "subscriptionDeletedSuccessfully": "订阅已成功删除",
   "subscriptionDeleteFailed": "删除订阅失败：{error}",
   "subscriptionDeleteSuccess": "订阅已删除",
-  "subscriptionEmptyState": "没有可用的订阅",
-  "subscriptionEmptyText": "尚无订阅",
   "subscriptionLoadFailed": "加载订阅失败：{error}",
-  "subscriptionLoadingFailed": "加载订阅失败：{error}",
-  "subscriptionManagementTitle": "订阅管理",
   "subscriptionName": "订阅名称",
   "@subscriptionName": {
     "description": "Subscription name field label"
   },
   "subscriptionNameAndUrlCannotBeEmpty": "订阅名称和 URL 不能为空",
   "subscriptionNameHint": "输入订阅名称",
-  "subscriptionPageTitle": "订阅管理",
   "subscriptionStatusChangeFailed": "更改订阅状态失败：{error}",
-  "subscriptionToggleFailed": "切换订阅状态失败：{error}",
   "subscriptionUpdateFailed": "更新订阅失败：{error}",
   "subscriptionUpdateSuccess": "订阅已成功更新",
   "@subscriptionUpdateSuccess": {
@@ -1710,7 +1246,6 @@
   },
   "syncFailed": "同步失败",
   "syncFailedMessage": "同步失败",
-  "syncFolderNameHint": "请输入同步文件夹名称 (默认: NotificationManager)",
   "syncFolderNameLabel": "同步文件夹名称",
   "synchronized": "已同步",
   "@synchronized": {
@@ -1724,10 +1259,8 @@
   "syncNowButton": "立即同步",
   "syncStatusTitle": "同步状态",
   "syncStatusUpdatedMessage": "同步状态已更新",
-  "syncSuccessful": "同步成功",
   "syncSuccessMessage": "同步成功",
   "syncWithCloudStorage": "与云存储同步",
-  "syncWithCloudStorageSubtitle": "与云存储同步",
   "systemFeatures": "系统功能：",
   "systemSettingsTitle": "系统设置",
   "tabAll": "全部",
@@ -1743,13 +1276,11 @@
       }
     }
   },
-  "tagsUpdated": "标签已更新",
   "takeaway": "外卖",
   "telecommunication": "电信",
   "telegram": "Telegram",
   "telemarketing": "电话销售",
   "testButton": "测试",
-  "testButtonLabel": "测试",
   "testConnectionButton": "测试连接",
   "textColorsSetting": "文本和标签颜色",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "这款应用是一款强大的来电显示工具，可以识别并拦截不需要的来电。",
@@ -1760,8 +1291,6 @@
   "timeInterceptorExplanationContent": "呼叫频率拦截功能分析呼叫频率，以自动识别和拦截/允许频繁的垃圾电话。",
   "timeInterceptorExplanationTitle": "呼叫频率拦截说明",
   "timeInterceptorSettingsTitle": "呼叫频率拦截设置",
-  "timeInterceptorSubtitle": "根据呼叫频率自动拦截潜在的垃圾电话",
-  "timeInterceptorTitle": "启用呼叫频率拦截",
   "timeWindowDescription": "设置允许重复呼叫的时间窗口大小。来自同一号码在此窗口内的呼叫将被允许",
   "timeWindowLabel": "拦截时间窗口（分钟）：{minutes}",
   "@timeWindowLabel": {
@@ -1772,16 +1301,11 @@
       }
     }
   },
-  "timeWindowSetting": "设置允许重复呼叫的时间窗口大小。来自同一号码在此窗口内的呼叫将被允许",
   "today": "今天",
   "total": "总计",
   "totalBlocked": "总拦截",
-  "totalFiltered": "总过滤",
   "transferDataBetweenDevicesOrPlatforms": "在设备或平台之间传输数据",
-  "transferDataBetweenDevicesOrPlatformsSubtitle": "在设备或平台之间传输数据",
   "travelTicketing": "旅游票务",
-  "trend": "趋势",
-  "trendChart": "趋势图",
   "tutorial": "教程",
   "type": "类型",
   "unassignedSIMCard": "未分配的 SIM 卡",
@@ -1789,7 +1313,6 @@
   "@unknown": {
     "description": "Display text for unknown status"
   },
-  "unknownLabel": "未知标签",
   "unknownTag": "标签：未知",
   "unregisterButton": "取消注册",
   "unregisterDeviceConfirmationMessage": "确定要取消注册 {deviceName} 吗？",
@@ -1797,15 +1320,9 @@
   "unsupportedFileFormat": "不支持的文件格式",
   "update": "更新",
   "updateAllNow": "立即全部更新",
-  "updateCallFilterConfig": "更新呼叫过滤配置",
-  "@updateCallFilterConfig": {
-    "description": "Button text for updating call filter configuration"
-  },
   "updateContactFailed": "更新联系人失败：{error}",
   "updateFavoriteStatus": "更新收藏状态",
-  "updateFavoriteStatusFailed": "更新收藏状态失败：{error}",
   "updateInterval": "更新间隔",
-  "updateLabelFailed": "更新标签失败",
   "updateNow": "立即更新",
   "updatePlugin": "更新插件",
   "updatePluginFailed": "更新插件失败：{error}",
@@ -1831,16 +1348,13 @@
       }
     }
   },
-  "updateTags": "更新标签",
   "useCasesPoint1": "• 识别自动重拨的垃圾电话",
   "useCasesPoint2": "• 拦截在短时间内多次拨打的营销电话",
   "useCasesPoint3": "• 阻止电话轰炸和骚扰",
   "useCasesTitle": "使用场景：",
   "useGlobalSettings": "使用全局设置",
-  "userEmail": "user@example.com",
   "usernameLabel": "用户名",
   "useStandardRegexSyntaxToDefinePatternsExamples": "使用标准正则表达式语法来定义模式。例如：",
-  "validateRegex": "验证正则表达式",
   "verificationFailedText": "失败",
   "verifiedText": "已验证",
   "verify": "验证",
@@ -1851,36 +1365,18 @@
   "watchAdForTemp": "观看广告以获得临时权限",
   "watchAdForTempDescription": "观看一个短片广告，以暂时解锁一些高级功能",
   "webDAVConfigTitle": "WebDAV 配置",
-  "webdavConfigurationTitle": "WebDAV 配置",
-  "webdavPasswordHint": "请输入 WebDAV 密码",
-  "webdavServerAddressHint": "请输入 WebDAV 服务器地址",
-  "webdavUsernameHint": "请输入 WebDAV 用户名",
   "week": "周",
-  "weekly": "每周",
-  "weeklyBlockedCallsSummary": "每周拦截电话摘要",
-  "weeklyChartTitle": "每周拦截电话",
-  "weeklyReport": "每周报告",
-  "@weeklyReport": {
-    "description": "Weekly report notification option"
-  },
-  "weeklyReportDesc": "接收每周的呼叫阻止活动总结报告",
-  "@weeklyReportDesc": {
-    "description": "Description for weekly report option"
-  },
   "welcome": "欢迎",
   "whitelist": "白名单",
   "@whitelist": {
     "description": "Whitelist label"
   },
-  "whitelistLabel": "白名单",
   "width": "宽度",
   "wildcardMatchingDescription": "使用 '.' 匹配任何字符 (例如 '123.456' 匹配 123-456)",
   "wildcardMatchingTitle": "通配符匹配:",
   "wildcardSupportForFlexibleFiltering": "通配符支持灵活过滤",
   "windowSizeSetting": "窗口大小",
   "year": "年",
-  "yearly": "每年",
-  "yearlyChartTitle": "年度拦截通话",
   "noSimCardsDetected": "未检测到 SIM 卡",
   "filterManagementDescription": "设置呼叫过滤",
   "callerIdCustomizationSubtitle": "自定义来电显示布局",
@@ -1895,7 +1391,6 @@
   "useLocalNotificationDescription": "为来电启用本地通知",
   "cancelLocalNotification": "关闭本地通知",
   "useStirNotification": "使用来自 STIR 的通知",
-  "useStirNotificationDescription": "启用来自 STIR 的通知来电",
   "cancelLocalNotificationDescription": "自动关闭本地通知",
   "callerIdSettingsTitle": "来电显示设置",
   "callerIdSettingsSubtitle": "设置来电通知和显示模式",
@@ -1904,16 +1399,6 @@
   "callerIdNotificationTitle": "来电信息",
   "@callerIdNotificationTitle": {
     "description": "Title for the Incoming Call Info"
-  },
-  "callerIdBody": "号码: {phoneNumber}",
-  "@callerIdBody": {
-    "description": "Body for the caller ID notification, showing the phone number",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
   },
   "blockedCallTitle": "已阻止的呼叫",
   "@blockedCallTitle": {
@@ -1974,18 +1459,6 @@
   "@fraudAlertTitle": {
     "description": "Title for the fraud alert notification"
   },
-  "fraudAlertBody": "来自 {phoneNumber} 的潜在欺诈电话",
-  "@fraudAlertBody": {
-    "description": "Body for the fraud alert notification",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
-  },
-  "loadRulesFailed": "加载规则失败: {error}",
-  "loadCallLogFailed": "加载通话记录失败: {error}",
   "noBlockedTypeData": "无可用阻止类型数据",
   "importEntity": "导入 {entityTypeName}",
   "@importEntity": {
@@ -2065,7 +1538,6 @@
   "vipUser": "VIP 用户",
   "temporaryVip": "临时 VIP",
   "removeAds": "移除广告",
-  "unknownAction": "未知操作",
   "settingsBackup": "设置备份",
   "allServicesStatusTitle": "当前服务状态",
   "allServicesStatusSubtitle": "每个云服务的当前状态",
@@ -2153,7 +1625,6 @@
   "unblocked": "已取消阻止",
   "blockNumber": "阻止号码",
   "blockNumberSuccess": "阻止号码成功",
-  "blockNumberFailed": "阻止号码失败",
   "unblockNumberConfirmation": "确定要取消阻止 {phoneNumber} 吗？",
   "@unblockNumberConfirmation": {
     "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
@@ -2165,23 +1636,11 @@
       }
     }
   },
-  "callingNumber": "正在呼叫 {phoneNumber}...",
-  "@callingNumber": {
-    "description": "Status text displayed on the screen when an outgoing call is initiated.",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "description": "The phone number that is being dialed.",
-        "example": "+1 555-123-4567"
-      }
-    }
-  },
   "viewDetails": "查看详情",
   "unblock": "取消阻止",
   "unblockNumber": "取消阻止号码",
   "unblockNumberSuccess": "号码已成功取消阻止",
   "unblockNumberFailed": "取消阻止号码失败",
-  "serviceNotAvailable": "服务不可用",
   "callingNumberFailed": "呼叫号码失败",
   "listView": "列表视图",
   "timelineView": "时间线视图",
@@ -2192,7 +1651,6 @@
   "callType": "通话类型",
   "callTime": "通话时间",
   "numberInvalidFormat": "号码格式无效",
-  "membershipFeature": "会员功能",
   "medium": "媒介",
   "verificationReport": "验证报告",
   "finalRisk": "最终风险",
@@ -2221,7 +1679,6 @@
   "noNotifications": "没有通知",
   "clearAllNotifications": "清除所有通知",
   "clearAllNotificationsConfirmation": "确认清除所有通知",
-  "allNotificationsCleared": "所有通知已清除",
   "clearButton": "清除",
   "justNow": "刚刚",
   "minutesAgo": "{count,plural, =1{1 分钟前} other{{count} 分钟前}}",
@@ -2298,10 +1755,6 @@
   "@reasonInaccurateInfo": {
     "description": "Inaccurate Information reason option"
   },
-  "reasonWrongMarked": "标记错误",
-  "@reasonWrongMarked": {
-    "description": "标记错误原因选项"
-  },
   "reasonOther": "其他",
   "@reasonOther": {
     "description": "其他原因选项"
@@ -2314,33 +1767,9 @@
   "@cancel": {
     "description": "取消按钮文本"
   },
-  "proposalStatus": "状态",
-  "@proposalStatus": {
-    "description": "提议状态标签"
-  },
-  "statusPending": "待处理",
-  "@statusPending": {
-    "description": "待处理状态"
-  },
-  "statusActive": "进行中",
-  "@statusActive": {
-    "description": "进行中状态"
-  },
-  "statusCompleted": "已完成",
-  "@statusCompleted": {
-    "description": "已完成状态"
-  },
-  "statusExpired": "已过期",
-  "@statusExpired": {
-    "description": "已过期状态"
-  },
   "riskLevel": "风险等级",
   "@riskLevel": {
     "description": "风险等级标签"
-  },
-  "riskLevelVerified": "已验证",
-  "@riskLevelVerified": {
-    "description": "已验证风险等级"
   },
   "riskLevelLow": "低风险",
   "@riskLevelLow": {
@@ -2350,26 +1779,9 @@
   "@riskLevelHigh": {
     "description": "高风险等级"
   },
-  "riskLevelUnknown": "未知",
-  "@riskLevelUnknown": {
-    "description": "未知风险等级"
-  },
-  "votingProgress": "投票进度",
-  "@votingProgress": {
-    "description": "投票进度标签"
-  },
   "agreeVotes": "同意: {count}",
   "@agreeVotes": {
     "description": "同意票数",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "disagreeVotes": "反对: {count}",
-  "@disagreeVotes": {
-    "description": "反对票数",
     "placeholders": {
       "count": {
         "type": "int"
@@ -2405,14 +1817,6 @@
   "@verificationReport": {
     "description": "验证报告标签"
   },
-  "showReport": "显示报告",
-  "@showReport": {
-    "description": "显示报告按钮文本"
-  },
-  "hideReport": "隐藏报告",
-  "@hideReport": {
-    "description": "隐藏报告按钮文本"
-  },
   "proposalStatistics": "提议统计",
   "@proposalStatistics": {
     "description": "提议统计标题"
@@ -2425,37 +1829,17 @@
   "@activeProposals": {
     "description": "进行中提议标签"
   },
-  "completedProposals": "已完成提议",
-  "@completedProposals": {
-    "description": "已完成提议标签"
-  },
-  "myVotes": "我的投票",
-  "@myVotes": {
-    "description": "我的投票标签"
-  },
   "proposalCreated": "提议创建成功",
   "@proposalCreated": {
     "description": "提议创建成功消息"
-  },
-  "proposalCreateFailed": "创建提议失败",
-  "@proposalCreateFailed": {
-    "description": "提议创建失败消息"
   },
   "voteSubmitted": "投票提交成功",
   "@voteSubmitted": {
     "description": "投票提交成功消息"
   },
-  "voteSubmitFailed": "投票提交失败",
-  "@voteSubmitFailed": {
-    "description": "投票提交失败消息"
-  },
   "noProposalsFound": "未找到提议",
   "@noProposalsFound": {
     "description": "未找到提议消息"
-  },
-  "loadingProposals": "正在加载提议...",
-  "@loadingProposals": {
-    "description": "正在加载提议消息"
   },
   "refreshProposals": "刷新提议",
   "@refreshProposals": {
@@ -2684,12 +2068,8 @@
       }
     }
   },
-  "loadVoteCountFailed": "加载投票数失败",
   "voteCount": "投票数",
-  "deletionProposalInfo": "删除建议信息",
   "deletionProposalDescription": "建议删除违反社区准则的号码。您的参与有助于保持平台安全。",
-  "voteToEarnVip": "对提案进行投票以赚取 VIP 特权！",
-  "voteFailed": "投票失败",
   "searchProposals": "搜索建议",
   "defaultNotifications": "默认通知",
   "defaultNotificationsDescription": "应用程序的默认通知通道。",
@@ -2699,81 +2079,14 @@
   "stirVerificationDescription": "显示号码的 STIR/SHAKEN 验证结果。",
   "fraudAlerts": "欺诈警报",
   "fraudAlertsDescription": "显示潜在欺诈呼叫的警告。",
-  "notificationFrequencyDescription": "选择您接收有关新删除建议的通知频率。您可以立即、批量或按自定义间隔接收它们。",
-  "@notificationFrequencyDescription": {
-    "description": "A detailed explanation of what the notification frequency settings do"
-  },
   "@notificationMode": {
     "description": "Title for the mode selection part (Immediate, Batched, Custom)"
-  },
-  "immediateNotifications": "立即",
-  "@immediateNotifications": {
-    "description": "Label for the immediate notification mode"
-  },
-  "immediateNotificationsDescription": "一旦创建提案，立即收到通知。",
-  "@immediateNotificationsDescription": {
-    "description": "Description for the immediate notification mode"
-  },
-  "batchNotifications": "批量",
-  "@batchNotifications": {
-    "description": "Label for the batched notification mode"
-  },
-  "batchNotificationsDescription": "定期接收通知摘要。",
-  "@batchNotificationsDescription": {
-    "description": "Description for the batched notification mode"
-  },
-  "customNotifications": "自定义",
-  "@customNotifications": {
-    "description": "Label for the custom notification mode"
-  },
-  "customNotificationsDescription": "定义您自己的接收通知的间隔。",
-  "@customNotificationsDescription": {
-    "description": "Description for the custom notification mode"
-  },
-  "customFrequency": "自定义频率",
-  "@customFrequency": {
-    "description": "Title for the custom frequency slider section"
-  },
-  "notificationFrequencyDurationMinutes": "{minutes} 分钟",
-  "@notificationFrequencyDurationMinutes": {
-    "description": "Formats a duration that is only in minutes.",
-    "placeholders": {
-      "minutes": {
-        "type": "int",
-        "example": "45"
-      }
-    }
-  },
-  "notificationFrequencyDurationHours": "{hours} 小时",
-  "@notificationFrequencyDurationHours": {
-    "description": "Formats a duration that is in whole hours.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "2"
-      }
-    }
-  },
-  "notificationFrequencyDurationHoursAndMinutes": "{hours} 小时 {minutes} 分钟",
-  "@notificationFrequencyDurationHoursAndMinutes": {
-    "description": "Formats a duration that has both hours and minutes.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "1"
-      },
-      "minutes": {
-        "type": "int",
-        "example": "30"
-      }
-    }
   },
   "pendingProposals": "待定提案",
   "pendingProposalsBody": "您有 {count, plural, =0 {没有待定提案} one {1 个待定提案} other {{count} 个待定提案}}。",
   "guidelinesLabel": "指南",
   "reportingGuidelines": "• 仅报告真正有问题的号码\n• 提供准确和详细的原因\n• 根据严重程度选择适当的风险等级\n• 虚假报告可能会导致帐户受限",
   "riskLevelLabel": "风险等级",
-  "riskLevelDescription": "号码的风险等级",
   "phoneNumberMinDigits": "电话号码必须至少为 7 位数字",
   "provideDetailedExplanation": "提供详细的解释（最少 10 个字符）",
   "reasonMinCharacters": "原因必须至少 10 个字符",
@@ -2790,39 +2103,15 @@
   "@countryCodeRequired": {
     "description": "Validation message for required country code"
   },
-  "countryCodeLengthError": "国家代码必须为 2 个字母",
-  "@countryCodeLengthError": {
-    "description": "Validation message for country code length"
-  },
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
-  "phoneNumberLengthError": "电话号码必须至少为 7 位数字",
-  "@phoneNumberLengthError": {
-    "description": "Validation message for phone number length"
-  },
-  "reasonHint": "提供详细解释（至少 10 个字符）",
-  "@reasonHint": {
-    "description": "Hint text for reason input field"
-  },
   "reasonRequired": "必须填写理由",
   "@reasonRequired": {
     "description": "Validation message for required reason"
-  },
-  "reasonLengthError": "理由必须至少 10 个字符",
-  "@reasonLengthError": {
-    "description": "Validation message for reason length"
-  },
-  "guidelinesTitle": "指南",
-  "@guidelinesTitle": {
-    "description": "Title for guidelines section"
-  },
-  "guidelinesText": "• 仅报告真正有问题的号码\n• 提供准确且详细的理由\n• 根据严重程度选择适当的风险等级\n• 虚假报告可能会导致帐户受限",
-  "@guidelinesText": {
-    "description": "Text content for guidelines section"
   },
   "riskLevelCritical": "严重",
   "@riskLevelCritical": {
@@ -2836,33 +2125,9 @@
   "@riskLevelVeryLow": {
     "description": "Label for very low risk level"
   },
-  "riskDescriptionVeryLow": "非常低 - 轻微的烦恼，不频繁的通话",
-  "@riskDescriptionVeryLow": {
-    "description": "Description for very low risk level"
-  },
-  "riskDescriptionLow": "低 - 偶尔的不必要电话",
-  "@riskDescriptionLow": {
-    "description": "Description for low risk level"
-  },
-  "riskDescriptionMedium": "中等 - 定期垃圾邮件或电话销售",
-  "@riskDescriptionMedium": {
-    "description": "Description for medium risk level"
-  },
-  "riskDescriptionHigh": "高 - 持久的骚扰或诈骗企图",
-  "@riskDescriptionHigh": {
-    "description": "Description for high risk level"
-  },
-  "riskDescriptionCritical": "严重 - 危险的诈骗或威胁",
-  "@riskDescriptionCritical": {
-    "description": "Description for critical risk level"
-  },
   "notificationFrequencyTitle": "通知频率",
   "@notificationFrequencyTitle": {
     "description": "Title for notification frequency settings"
-  },
-  "notificationFrequencyLabel": "通知频率（小时）",
-  "@notificationFrequencyLabel": {
-    "description": "Label for notification frequency dropdown"
   },
   "errorMessage": "错误：{error}",
   "@errorMessage": {
@@ -2870,18 +2135,6 @@
     "placeholders": {
       "error": {
         "type": "String"
-      }
-    }
-  },
-  "votesStatistics": "投票：{totalVotes}（{supportPercentage}% 支持）",
-  "@votesStatistics": {
-    "description": "Voting statistics text",
-    "placeholders": {
-      "totalVotes": {
-        "type": "int"
-      },
-      "supportPercentage": {
-        "type": "int"
       }
     }
   },
@@ -2899,37 +2152,6 @@
     "description": "Shows the number of oppose votes.",
     "placeholders": {
       "opposeCount": {
-        "type": "int"
-      }
-    }
-  },
-  "timeJustNow": "刚刚",
-  "@timeJustNow": {
-    "description": "Time format for recent events"
-  },
-  "timeMinutesAgo": "{minutes}分钟前",
-  "@timeMinutesAgo": {
-    "description": "Time format for minutes ago",
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
-  "timeHoursAgo": "{hours}小时前",
-  "@timeHoursAgo": {
-    "description": "Time format for hours ago",
-    "placeholders": {
-      "hours": {
-        "type": "int"
-      }
-    }
-  },
-  "timeDaysAgo": "{days}天前",
-  "@timeDaysAgo": {
-    "description": "Time format for days ago",
-    "placeholders": {
-      "days": {
         "type": "int"
       }
     }
@@ -2989,7 +2211,6 @@
   "liveActivitiesTestUpdateActivity": "更新活动",
   "liveActivityControlsTitle": "实时活动控件",
   "liveActivitiesTestTitle": "实时活动测试",
-  "liveActivitiesTestSubtitle": "测试实时活动通知。",
   "liveNotificationCustomizationTitle": "实时通知自定义",
   "liveNotificationCustomizationSubtitle": "自定义实时通知的外观。",
   "notification_instructions": "说明：\n1. 点击“发送”以创建或更新通知。\n2. 转到您的主屏幕或下拉通知栏以查看结果。\n3. 点击“结束”以关闭通知。",
@@ -3012,7 +2233,6 @@
   "@proposalDetails": {
     "description": "The title of the proposal details page."
   },
-  "filterByStatus": "按状态筛选",
   "proposalNotFound": "未找到提案",
   "@proposalNotFound": {
     "description": "A message displayed when a proposal is not found."
@@ -3020,10 +2240,6 @@
   "processed": "已处理",
   "@processed": {
     "description": "A label for the processed status."
-  },
-  "showAll": "显示全部",
-  "@showAll": {
-    "description": "A button to show all proposals."
   },
   "filterAndSortTitle": "筛选和排序",
   "filterVerifiedOwner": "筛选已验证的所有者",
@@ -3055,10 +2271,6 @@
   "@invalidSimData": {
     "description": "A message displayed when the SIM data is invalid."
   },
-  "simCardData": "SIM 卡数据",
-  "@simCardData": {
-    "description": "A label for the SIM card data."
-  },
   "simSlot": "SIM 卡槽",
   "@simSlot": {
     "description": "A label for the SIM slot."
@@ -3077,8 +2289,6 @@
   },
   "callTypeRejected": "已拒绝",
   "callTypeSilenced": "已静音",
-  "callTypeVoicemail": "语音邮件",
-  "callTypeUnknownIntercept": "未知拦截",
   "andMoreItems": "以及更多 {count} 个项目",
   "@andMoreItems": {
     "description": "Text to show when there are more items than displayed.",

@@ -6,14 +6,6 @@
   },
   "aboutLabels": "라벨 정보",
   "aboutPhoneSubscriptionRules": "전화 구독 규칙 정보",
-  "aboutPhoneSubscriptions": "전화 구독 정보",
-  "@aboutPhoneSubscriptions": {
-    "description": "About phone subscriptions title"
-  },
-  "aboutPhoneSubscriptionsDesc": "URL을 통해 전화 규칙 목록을 구독하고, 규칙을 자동으로 업데이트합니다. JSON, CSV 형식의 규칙 파일을 지원합니다.",
-  "@aboutPhoneSubscriptionsDesc": {
-    "description": "About phone subscriptions description"
-  },
   "aboutSmsFilter": "SMS 필터 정보",
   "aboutSmsSubscriptionRules": "SMS 구독 규칙 정보",
   "aboutSubtitle": "애플리케이션 버전 및 법적 정보",
@@ -22,7 +14,6 @@
   "actionAll": "모두",
   "actionAllow": "허용",
   "actionBlock": "차단",
-  "actionFilterAll": "모든 필터",
   "actionFilterTitle": "작업 유형으로 필터링",
   "actionFilterTooltip": "작업 필터",
   "actionNone": "작업 없음",
@@ -42,24 +33,15 @@
   },
   "addContactButton": "연락처 추가",
   "addContactFailed": "연락처 추가 실패: {error}",
-  "addedToAllowedRules": "허용 규칙에 추가됨",
-  "addedToBlacklist": "블랙리스트에 추가됨",
-  "addedToBlockedRules": "차단 규칙에 추가됨",
-  "addedToFavoriteContacts": "즐겨찾는 연락처에 추가됨",
   "addedToFavorites": "즐겨찾는 연락처에 추가됨",
-  "addedToWhitelist": "화이트리스트에 추가됨",
-  "addFavorite": "즐겨찾기 추가",
-  "addFilter": "필터 추가",
   "addLabel": "라벨 추가",
   "addLabelButton": "라벨 추가",
   "addLabelFailed": "라벨 추가 실패: {error}",
-  "addLabelToCall": "통화 기록에 라벨 추가",
   "addName": "이름 추가",
   "addNoneSubscription": "없음 구독 추가",
   "@addNoneSubscription": {
     "description": "Add none subscription dialog title"
   },
-  "addOrEditContactInfo": "연락처 정보를 추가하거나 편집하는 데 사용",
   "addPhoneMark": "전화 번호 표시 추가",
   "addPhoneNumberRule": "전화 번호 규칙 추가",
   "addPlugin": "플러그인 추가",
@@ -69,14 +51,12 @@
   "addPluginFromUrl": "URL에서 플러그인 추가",
   "addRegexRule": "정규식 규칙 추가",
   "addRule": "규칙 추가",
-  "addRuleButton": "규칙 추가",
   "addRuleFailed": "규칙 추가 실패: {error}",
   "addRuleTooltip": "규칙 추가",
   "addSilenceSubscription": "무음 구독 추가",
   "@addSilenceSubscription": {
     "description": "Add silence subscription dialog title"
   },
-  "addSimRuleButton": "SIM 규칙 추가",
   "addSmsFilterRule": "SMS 필터 규칙 추가",
   "addSmsRule": "SMS 규칙 추가",
   "addSmsSubscription": "SMS 구독 추가",
@@ -95,26 +75,17 @@
     }
   },
   "addSubscriptionTooltip": "구독 추가",
-  "addToAllowedRules": "허용 규칙에 추가",
   "addToBlacklist": "블랙리스트에 추가",
-  "addToBlockedRules": "차단된 규칙에 추가",
-  "addToFavoriteContacts": "즐겨찾는 연락처에 추가",
   "addToFavorites": "즐겨찾기에 추가",
   "addToRules": "규칙에 추가",
   "addToWhitelist": "화이트리스트에 추가",
-  "adPlaceholder": "광고 자리 표시자",
   "agent": "에이전트",
   "all": "전체",
   "allCallsTab": "전체",
-  "allDataClearedSuccessfully": "모든 데이터가 성공적으로 삭제되었습니다.",
   "allow": "허용",
   "allowAllAllowRules": "모든 허용 규칙 허용",
   "allowAllAllowRulesDesc": "허용 규칙에서 통화 허용",
   "allowAllBlacklistedNumbers": "모든 블랙리스트 번호 허용",
-  "allowAllBlacklistedNumbersDesc": "블랙리스트에서 통화 허용",
-  "@allowAllBlacklistedNumbersDesc": {
-    "description": "Allow calls from blocklist"
-  },
   "allowAllBlockRules": "모든 차단 규칙 허용",
   "allowAllBlockRulesDesc": "차단 규칙에서 통화 허용",
   "allowAllowedNumbers": "허용된 번호 허용",
@@ -135,8 +106,6 @@
   "allowRegexBlockRulesDescription": "정규식 기반 차단 규칙 활성화",
   "allowRule": "허용 규칙",
   "allowRules": "허용 규칙",
-  "allowWhitelistedNumbers": "화이트리스트 번호 허용",
-  "allowWhitelistedNumbersDescription": "화이트리스트에 있는 모든 번호 허용",
   "allPermissionsGranted": "모든 권한이 부여되었습니다",
   "allSettingsCompleted": "모든 설정이 완료되었습니다.",
   "allUpdateSuccess": "모든 업데이트 완료 ({count} 규칙)",
@@ -149,7 +118,6 @@
     }
   },
   "answerThenHangup": "응답 후 끊기",
-  "appLegalese": "© 2023 Your Call Your Rule. 모든 권리 보유.",
   "applicationSoftware": "응용 프로그램 소프트웨어",
   "apply": "적용",
   "appName": "Your Call Your Rule",
@@ -162,8 +130,6 @@
   "autoUpdate": "자동 업데이트",
   "autoUpdateDescription": "구독에 대한 자동 업데이트 간격을 설정하거나 수동으로 업데이트",
   "autoUpdateSettings": "자동 업데이트 설정",
-  "autoUpdateSettingsSubtitle": "규칙 및 플러그인의 자동 업데이트 관리",
-  "autoUpdateSettingsTitle": "자동 업데이트 설정",
   "autoUpdateSubtitle": "규칙 및 플러그인의 자동 업데이트 관리",
   "autoUpdateTitle": "자동 업데이트",
   "avatarBorderColor": "아바타 테두리 색상",
@@ -178,57 +144,33 @@
   "backupAndRestoreSubtitle": "응용 프로그램 데이터를 백업 또는 복원",
   "backupAndRestoreTitle": "백업 및 복원",
   "backupFailed": "백업 실패",
-  "backupFailedMessage": "백업 실패",
-  "backupFailedWithError": "백업 실패: {error}",
-  "backupRestoreSubtitle": "응용 프로그램 데이터를 백업 또는 복원",
-  "backupRestoreTitle": "백업 및 복원",
-  "backupSectionTitle": "백업",
   "backupSettings": "백업 설정",
-  "backupSettingsDialogTitle": "백업 설정",
-  "backupSettingsTitle": "백업 설정",
-  "backupSuccessMessage": "클라우드에 성공적으로 백업되었습니다",
-  "backupSuccessToLocal": "다음 위치에 백업 성공: {path}",
   "backupToCloud": "클라우드로 백업",
-  "backupToCloudDescription": "설정 및 규칙을 클라우드 저장소에 백업",
   "backupToCloudFailed": "클라우드로 백업 실패: {error}",
-  "backupToCloudLabel": "클라우드로 백업",
   "backupToCloudSuccess": "클라우드에 성공적으로 백업되었습니다",
-  "backupToCloudTitle": "클라우드에 백업",
-  "backupToLocalLabel": "로컬에 백업",
   "bank": "은행",
   "basicInfo": "기본 정보",
   "basicRuleFilter": "기본 규칙 필터",
   "basicRuleFiltering": "기본 규칙 필터링",
   "basicRuleFilteringExplanation": "• 기본 규칙 필터링: 블랙리스트, 화이트리스트 및 정규 표현식을 기반으로 하는 필터링 규칙",
-  "basicRuleFilterSettings": "기본 규칙 필터 설정",
-  "@basicRuleFilterSettings": {
-    "description": "Title for basic rule filter settings page"
-  },
   "basicRuleFilterSubtitle": "블랙리스트/화이트리스트 및 정규 표현식을 사용하여 통화 필터링",
-  "batchDeleteContacts": "연락처 일괄 삭제",
   "batchDeleteContactsConfirm": "{count}개의 선택된 연락처를 삭제하시겠습니까?",
-  "batchDeleteFailed": "일괄 삭제 실패",
   "batchDeleteLabelsConfirm": "{count}개의 라벨을 삭제하시겠습니까?",
   "blacklist": "블랙리스트",
   "@blacklist": {
     "description": "Blacklist label"
   },
   "blacklistingAndWhitelisting": "블랙리스트 및 화이트리스트",
-  "blacklistLabel": "블랙리스트",
   "blackWhiteList": "블랙/화이트 목록",
   "block": "차단",
   "blockCalls": "통화 차단",
   "blocked": "차단됨",
-  "blockedCallAction": "차단된 통화 작업",
   "blockedCalls": "차단된 통화",
   "blockedCallsTitle": "차단된 통화",
-  "blockedCommunications": "차단된 커뮤니케이션",
-  "blockedPhoneLabel": "차단된 통화",
   "blockedSpamCalls": "차단된 스팸 통화",
   "blockingTrend": "차단 추세",
   "blockInternationalCalls": "+ 또는 00으로 시작하지 않는 번호와 일치",
   "blockInternationalCallsTitle": "국제 전화 차단",
-  "blockLandlineNumbersTitle": "유선 전화 번호 차단",
   "blockMobileNumbers": "13-19로 시작하지 않는 번호와 일치",
   "blockMobileNumbersTitle": "휴대폰 번호 차단",
   "blockPremiumRateNumbers": "118 또는 120-190으로 시작하지 않는 번호와 일치",
@@ -244,19 +186,9 @@
   "bulkDeleteLabels": "라벨 일괄 삭제",
   "call": "전화",
   "callback": "다시 전화",
-  "callbackTo": "{number}로 다시 전화",
-  "@callbackTo": {
-    "description": "Callback notification message",
-    "placeholders": {
-      "number": {
-        "type": "String"
-      }
-    }
-  },
   "callBlocking": "통화 차단",
   "callerIdApp": "발신자 ID 앱",
   "callerIdCustomizationTitle": "발신자 ID 사용자 지정",
-  "callerIdDialogTitle": "발신자 ID 정보",
   "callerIdDisplayMode": "발신자 ID 표시 모드",
   "callerIdMarkedByCount": "{count}에 의해 표시됨",
   "@callerIdMarkedByCount": {
@@ -268,8 +200,6 @@
     }
   },
   "callerIdPreview": "발신자 ID 미리보기",
-  "callFilter": "통화 필터",
-  "callFilterDescription": "활성화되면 수신 전화가 아래 규칙 목록에 대해 확인됩니다. 통화 필터링 규칙은 기본적으로 장치 간에 동기화되지 않습니다.",
   "callFilterRules": "통화 필터 규칙",
   "callFilterRulesDescription": "통화 필터링에 대한 기본 규칙 설정",
   "callFilterSettings": "통화 필터 설정",
@@ -278,33 +208,10 @@
   "callHistory": "통화 기록",
   "callHistoryInfoDesc": "수신, 발신 및 부재중 전화를 포함한 통화 기록을 보여줍니다.",
   "callHistoryInfoTitle": "통화 기록",
-  "callHistoryInitFailed": "통화 기록을 초기화하지 못했습니다: {error}",
-  "@callHistoryInitFailed": {
-    "description": "Call history initialization failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
-  "callHistoryRefreshFailed": "통화 기록을 새로 고치지 못했습니다: {error}",
-  "@callHistoryRefreshFailed": {
-    "description": "Call history refresh failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "callHistoryTab": "통화 기록",
-  "callHistoryTimelineEarlier": "이전",
-  "callHistoryTimelineToday": "오늘",
-  "callHistoryTimelineYesterday": "어제",
   "callScreeningPermission": "통화 스크리닝 권한",
   "callScreeningPermissionDescription": "스팸 통화를 스크리닝하고 차단하는 데 사용됩니다.",
   "callScreeningPermissionNotGranted": "통화 스크리닝 권한이 부여되지 않아 앱 기능에 영향을 미칠 수 있습니다.",
-  "callSettingsSubtitle": "발신자 ID, 필터링 및 차단 설정",
-  "callSettingsTitle": "통화 설정",
   "callStatistics": "통화 통계",
   "callTypeAnswered": "응답됨",
   "callTypeBlocked": "차단됨",
@@ -330,32 +237,14 @@
       }
     }
   },
-  "changeTag": "태그 변경",
   "charity": "자선 단체",
-  "chartMonthFormat": "{month}월",
-  "@chartMonthFormat": {
-    "description": "Month format for chart labels",
-    "placeholders": {
-      "month": {
-        "type": "int"
-      }
-    }
-  },
-  "chartOneDayAgo": "1일 전",
-  "chartOneMonthAgo": "1개월 전",
   "chartOneWeekAgo": "1주 전",
-  "chartTenDaysAgo": "10일 전",
   "chartThreeDaysAgo": "3일 전",
   "chartToday": "오늘",
   "checkFileFormat": "파일 형식 또는 권한을 확인하십시오.",
   "checkPermissionFailed": "권한 확인 실패: {error}",
   "chooseDefaultInterceptAction": "기본 차단 작업을 선택하세요.",
-  "clearAllData": "모든 데이터 지우기",
-  "clearAllDataConfirmation": "정말로 모든 애플리케이션 데이터를 지우시겠습니까? 이 작업은 실행 취소할 수 없습니다.",
-  "clearAllDataDescription": "모든 애플리케이션 데이터 지우기",
-  "clearAllDataLabel": "모든 데이터 지우기",
   "clearFilter": "필터 지우기",
-  "clearLabelFilter": "라벨 필터 지우기",
   "clearLabelFilterButton": "라벨 필터 지우기",
   "closeButton": "닫기",
   "cloudSync": "클라우드 동기화",
@@ -363,26 +252,18 @@
   "cloudSyncSettingsSubtitle": "WebDAV, OneDrive 및 Google Drive 구성",
   "cloudSyncSettingsTitle": "클라우드 동기화 설정",
   "cloudSyncTitle": "클라우드 동기화",
-  "collapseLabelSelector": "라벨 선택기 축소",
   "collection": "채권 추심",
   "colorPickerTitle": "색상 선택",
   "configManagement": "구성 관리",
   "configUpdated": "구성 업데이트됨",
   "configurationAdvice": "적절한 구성을 통해 업무용 및 개인용 SIM 카드에 대해 서로 다른 필터링 전략을 설정할 수 있습니다.",
   "configureBackupOptions": "백업 옵션 구성",
-  "configureBackupOptionsSubtitle": "백업 옵션 구성",
   "configureCloudSyncService": "클라우드 동기화 서비스 구성",
-  "configureCloudSyncServiceHint": "다중 장치 동기화를 사용하려면 클라우드 동기화 서비스를 구성하세요.",
   "configureCloudSyncServiceMessage": "다중 장치 동기화를 사용하려면 클라우드 동기화 서비스를 구성하세요.",
   "configureSimCardFilterRules": "SIM 카드 필터 규칙 구성",
-  "configureSyncServiceHint": "먼저 클라우드 동기화 설정에서 동기화 서비스를 구성하세요.",
   "confirm": "확인",
-  "confirmBatchDeleteContacts": "선택한 항목을 삭제하시겠습니까?",
   "confirmButton": "확인",
   "confirmDelete": "삭제 확인",
-  "confirmDeleteContact": "정말로 삭제하시겠습니까?",
-  "confirmDeleteContactName": "삭제를 확인하시겠습니까?",
-  "confirmDeleteFilter": "이 필터를 삭제하시겠습니까?",
   "confirmDeleteLabel": "라벨 \"{name}\"을(를) 삭제하시겠습니까?",
   "confirmDeletePlugin": "플러그인 \"{name}\"을(를) 삭제하시겠습니까?",
   "confirmDeletePlugins": "{count}개의 플러그인을 삭제하시겠습니까?",
@@ -396,10 +277,8 @@
     }
   },
   "confirmDeleteRuleMessage": "이 규칙을 삭제하시겠습니까? 이 작업은 실행 취소할 수 없습니다.",
-  "confirmDeleteSelectedContacts": "선택한 연락처를 삭제하시겠습니까?",
   "confirmDeleteSmsFilterRule": "이 SMS 필터 규칙을 삭제하시겠습니까?",
   "confirmDeleteSmsRule": "이 SMS 규칙을 삭제하시겠습니까?",
-  "confirmDeleteSubscription": "이 구독을 삭제하시겠습니까?",
   "confirmDeleteSubscriptions": "{name}을(를) 삭제하시겠습니까?",
   "@confirmDeleteSubscriptions": {
     "description": "Confirmation message shown before deleting a subscription.",
@@ -411,7 +290,6 @@
     }
   },
   "confirmPassword": "비밀번호 확인",
-  "confirmPasswordLabel": "비밀번호 확인",
   "connectedStatus": "연결됨",
   "connectionFailedCheckCredentialsMessage": "연결 실패: 서버 주소, 사용자 이름 및 비밀번호를 확인하세요.",
   "connectionFailedMessage": "연결 실패",
@@ -419,19 +297,11 @@
   "connectionSuccessMessage": "연결 성공",
   "contactAddSuccess": "연락처가 성공적으로 추가되었습니다.",
   "contactDeleted": "연락처가 삭제되었습니다.",
-  "contactEditDialog": "연락처 편집 대화 상자",
-  "contactNameHint": "연락처 이름 입력 (선택 사항)",
   "contactNameLabel": "이름",
-  "contactNameOptional": "연락처 이름 (선택 사항)",
   "contactNotFound": "연락처를 찾을 수 없습니다.",
   "contacts": "연락처",
   "contactsDeleted": "{count}개의 연락처가 삭제되었습니다.",
-  "contactSettingsSubtitle": "연락처 관리 및 레이블 설정",
-  "contactSettingsTitle": "연락처 설정",
-  "contactsLoadingFailed": "연락처를 로드하는 데 실패했습니다: {error}",
   "contactsManagement": "연락처 관리",
-  "contactsManagementPageTitle": "연락처 관리 페이지",
-  "contactsPageTitle": "연락처 관리",
   "contactsPermission": "연락처 권한",
   "contactsPermissionDescription": "연락처 통화를 식별하는 데 사용됩니다.",
   "contactsTab": "연락처",
@@ -439,8 +309,6 @@
   "@contactSubscriptionDescription": {
     "description": "About contact subscription description"
   },
-  "contactSubscriptionLoadingFailed": "연락처 구독을 로드하는 데 실패했습니다: {error}",
-  "contactSubscriptionPageTitle": "연락처 구독",
   "contactUpdateSuccess": "연락처가 성공적으로 업데이트되었습니다.",
   "contactUs": "문의하기",
   "content": "내용",
@@ -452,34 +320,16 @@
   "countryNameColor": "국가 이름 색상",
   "countryNameFontSize": "국가 이름 글꼴 크기",
   "countryRegionNamePosition": "국가/지역 이름 위치",
-  "countrySelectionDialog": "국가 선택 대화 상자",
-  "countrySelectionDialogDescription": "발신자 ID 정보를 쿼리하기 위해 국가를 선택하는 데 사용됩니다.",
   "countThresholdDescription": "필터링 작업을 트리거하는 데 필요한 최소 개수 임계값을 설정합니다.",
   "countThresholdLabel": "개수 임계값",
-  "countThresholdSettings": "개수 임계값 설정",
-  "countThresholdValue": "개수 임계값: {count}",
   "createdRules": "생성된 규칙",
   "csvFormat": "CSV 형식",
-  "currentDeviceChip": "현재",
   "currentDeviceLabel": "현재 기기 라벨",
   "currentDeviceTitle": "현재 기기",
-  "currentLabels": "현재 레이블:",
   "currentLanguage": "현재 언어",
-  "currentPasswordLabel": "현재 비밀번호",
   "customerService": "고객 서비스",
-  "customRange": "사용자 지정 범위",
-  "dailyStatistics": "일일 통계",
-  "@dailyStatistics": {
-    "description": "Daily statistics notification option"
-  },
-  "dailyStatisticsDesc": "차단된 전화 및 메시지에 대한 일일 통계를 받으세요.",
-  "@dailyStatisticsDesc": {
-    "description": "Description for daily statistics option"
-  },
   "dashboardTab": "대시보드",
   "dataAnalysis": "데이터 분석",
-  "dataAnalysisDashboardPage": "데이터 분석 대시보드 페이지",
-  "dataExport": "데이터 내보내기",
   "dataLoadFailure": "데이터 로드 실패: {error}",
   "@dataLoadFailure": {
     "description": "Data loading failure message",
@@ -492,9 +342,6 @@
   "dataLoadingFailed": "데이터 로드 실패: {error}",
   "dataMigration": "데이터 마이그레이션",
   "dataMigrationDescription": "이 기능을 사용하면 기기 간에 모든 데이터를 전송할 수 있습니다. 현재 백업 및 복원 기능을 사용하여 데이터를 수동으로 마이그레이션할 수 있습니다.",
-  "dataMigrationDialogContent": "이 기능을 사용하면 기기 간에 모든 데이터를 전송할 수 있습니다. 현재 백업 및 복원 기능을 사용하여 데이터를 수동으로 마이그레이션할 수 있습니다.",
-  "dataMigrationDialogTitle": "데이터 마이그레이션",
-  "dataMigrationSectionTitle": "데이터 마이그레이션",
   "dataSourceReminder": "데이터 소스 알림",
   "days": "{count, plural, =1{1일} other{{count}일}}",
   "@days": {
@@ -507,16 +354,11 @@
   },
   "daysVip": "{days}일 VIP",
   "debtCollection": "채권 추심",
-  "defaultPeriod": "주",
   "delete": "삭제",
   "deleteButton": "삭제",
   "deleteContact": "연락처 삭제",
   "deleteContactConfirm": "{name}을(를) 삭제하시겠습니까?",
-  "deleteContactConfirmation": "연락처를 삭제하시겠습니까?",
-  "deleteDeviceConfirmation": "{deviceName}을(를) 삭제하시겠습니까?",
-  "deleteDeviceDialogTitle": "기기 삭제",
   "deleteFailed": "삭제 실패: {error}",
-  "deleteFilter": "필터 삭제",
   "deleteLabel": "레이블 삭제",
   "deleteLabelFailed": "레이블 삭제 실패: {error}",
   "deletePlugin": "플러그인 삭제",
@@ -526,7 +368,6 @@
   "deleteRule": "규칙 삭제",
   "deleteRuleFailed": "삭제 실패: {error}",
   "deleteSelected": "선택 항목 삭제",
-  "deleteSmsRule": "SMS 규칙 삭제",
   "deleteSubscription": "구독 삭제",
   "@deleteSubscription": {
     "description": "Delete subscription dialog title"
@@ -551,21 +392,13 @@
   },
   "deleteSuccess": "삭제 성공",
   "delivery": "전달",
-  "deviceDeletedSuccessfully": "기기가 성공적으로 삭제되었습니다.",
-  "deviceDeletedSuccessfullyMessage": "기기가 성공적으로 삭제되었습니다.",
-  "deviceIdLabel": "기기 ID",
   "deviceIDLabel": "기기 ID",
   "deviceManagementSubtitle": "다중 기기 동기화 관리",
   "deviceManagementTitle": "기기 관리",
   "deviceModelLabel": "기기 모델",
   "deviceName": "기기 이름",
-  "deviceNameCannotBeEmpty": "기기 이름은 비워둘 수 없습니다.",
-  "deviceNameHint": "기기 이름을 입력하세요.",
   "deviceNameLabel": "기기 이름",
-  "deviceRenamedSuccessfully": "기기 이름이 성공적으로 변경되었습니다.",
   "deviceRenamedSuccessfullyMessage": "기기 이름이 성공적으로 변경되었습니다.",
-  "devicesSyncedSuccessfully": "기기가 성공적으로 동기화되었습니다.",
-  "devicesSyncedSuccessfullyMessage": "기기가 성공적으로 동기화되었습니다.",
   "devicesSynchronizedSuccessfullyMessage": "기기가 성공적으로 동기화되었습니다.",
   "deviceUnregisteredSuccessfullyMessage": "기기 등록이 성공적으로 해제되었습니다.",
   "dialogTitle": "정규식 패턴 설명",
@@ -576,7 +409,6 @@
   },
   "disabledStatus": "사용 안 함",
   "disableGlobalPlugins": "글로벌 플러그인 비활성화",
-  "disableSubscriptionSuccessfully": "구독을 성공적으로 비활성화했습니다.",
   "disconnectButton": "연결 해제",
   "disconnectedMessage": "연결 해제됨",
   "disconnectedStatus": "연결 해제됨",
@@ -587,17 +419,12 @@
   "ecommerce": "전자 상거래",
   "edit": "편집",
   "editContact": "연락처 편집",
-  "editFilter": "필터 편집",
   "editLabel": "레이블 편집",
   "editPhoneRule": "전화 규칙 편집",
-  "editPhoneRules": "전화 규칙 편집에 사용",
-  "editPhoneRuleTitle": "전화 규칙 편집",
   "editRule": "규칙 편집",
-  "editSmsRule": "SMS 규칙 편집",
   "education": "교육",
   "elementPositionsSetting": "요소 위치",
   "email": "이메일",
-  "emailOptional": "이메일(선택 사항)",
   "enableCallFilter": "통화 필터 활성화",
   "enableCallFilterDescription": "활성화되면 수신 전화가 아래 규칙 목록과 대조됩니다. 통화 필터링 규칙은 기본적으로 기기 간에 동기화되지 않습니다.",
   "enabled": "사용",
@@ -607,9 +434,6 @@
   "enabledStatus": "사용",
   "enableEncryption": "암호화 활성화",
   "enableEncryptionDescription": "백업 파일 암호화",
-  "enableEncryptionLabel": "암호화 활성화",
-  "enableEncryptionSubtitle": "백업 파일이 암호화됩니다.",
-  "enableEncryptionTitle": "암호화 활성화",
   "enableGlobalPlugins": "글로벌 플러그인 활성화",
   "enableLocalCountFilter": "로컬 수 카운트 필터 활성화",
   "enableLocalCountFilterDescription": "통화 마킹 횟수를 기준으로 스팸 통화를 자동으로 필터링합니다.",
@@ -620,14 +444,11 @@
   "enableMuteRulesDesc": "음소거 차단 규칙 설정을 적용합니다.",
   "enableNoneActionRules": "작업 없음 규칙 사용",
   "enableNoneActionRulesDesc": "차단 작업이 없는 규칙 설정을 허용합니다.",
-  "enableNotifications": "알림 사용",
   "enableRemoteNumberFilter": "원격 번호 필터 사용",
   "enableRemoteNumberFilterDescription": "원격 데이터베이스를 사용하여 번호를 필터링합니다.",
   "enableRule": "규칙 사용",
   "enableSmsFilter": "SMS 필터링 사용",
   "enableSmsFilterDescription": "활성화되면 규칙에 따라 메시지가 자동으로 필터링됩니다.",
-  "enableStatisticsNotifications": "통계 알림 사용",
-  "enableSubscriptionSuccessfully": "구독 성공적으로 사용",
   "enableTimeInterception": "시간 차단 사용",
   "enableTimeInterceptionDescription": "짧은 시간 내에 반복되는 통화를 차단합니다.",
   "enableTimeInterceptor": "시간 차단기 사용",
@@ -641,24 +462,15 @@
   },
   "enhancedFilterSettingsTitle": "향상된 필터 설정",
   "enhancedFilterSystemDescription": "향상된 필터 시스템은 글로벌 규칙과 SIM 카드별 필터링 설정을 모두 지원합니다.",
-  "enterBothPhoneNumberAndRegexPattern": "전화번호와 정규식 패턴을 모두 입력하세요",
   "enterBothPhoneNumberAndRegexPatternMessage": "전화번호와 정규식 패턴을 모두 입력하세요.",
   "enterContactName": "연락처 이름을 입력하세요",
-  "enterCurrentPasswordHint": "현재 비밀번호를 입력하세요",
   "enterDeviceName": "기기 이름 입력",
-  "enterDeviceNameHint": "기기 이름을 입력하세요",
-  "enterEmail": "이메일 주소 입력",
   "enterEmailOptional": "이메일 주소 입력 (선택 사항)",
   "enterEncryptionPasswordHint": "암호화 비밀번호 입력",
-  "enterEncryptionPasswordTitle": "암호화 비밀번호 입력",
-  "enterFilterName": "필터 이름을 입력하세요",
-  "enterFilterPattern": "필터 패턴을 입력하세요",
   "enterIconCode": "아이콘 코드 입력",
   "enterName": "연락처 이름 입력",
   "enterNewDeviceNameHint": "이 기기의 새 이름을 입력하세요",
-  "enterNewPasswordHint": "새 비밀번호를 입력하세요",
   "enterPasswordAgain": "비밀번호 다시 입력",
-  "enterPasswordHint": "비밀번호를 입력하세요",
   "enterPhoneNumber": "전화번호 입력",
   "enterPhoneNumberHint": "테스트할 전화번호 입력",
   "enterPhoneNumberMultiple": "전화번호를 입력하세요. 여러 번호는 쉼표로 구분합니다.",
@@ -667,7 +479,6 @@
   "enterPluginName": "플러그인 이름 입력",
   "enterPluginUrl": "플러그인 URL 주소 입력",
   "enterRegexHint": "정규식 패턴 입력",
-  "enterRuleNameAndPattern": "규칙 이름과 패턴을 입력하세요",
   "enterRuleNameAndPatternMessage": "규칙 이름과 정규식 패턴을 모두 입력하세요.",
   "enterRuleNameHint": "규칙 이름 입력",
   "enterSearchContent": "검색 내용을 입력하세요.",
@@ -690,79 +501,50 @@
   "enterWebDAVPasswordHint": "WebDAV 비밀번호를 입력하세요.",
   "enterWebDAVServerAddressHint": "WebDAV 서버 주소를 입력하세요.",
   "enterWebDAVUsernameHint": "WebDAV 사용자 이름을 입력하세요.",
-  "errorDeletingDeviceMessage": "기기 삭제 오류: {error}",
-  "errorLoadingPlugin": "플러그인 로딩 오류",
   "errorOccurredMessage": "오류 발생: {error}",
   "errorRenamingDeviceMessage": "기기 이름 변경 오류: {error}",
   "errorSynchronizingDevicesMessage": "기기 동기화 오류: {error}",
-  "errorSyncingDevicesMessage": "기기 동기화 오류: {error}",
-  "errorText": "오류",
   "errorUnregisteringDeviceMessage": "기기 등록 해제 오류: {error}",
   "exampleBlock400Prefix": "예: 400 접두사 번호 차단",
   "exampleBlockMarketingSms": "예: 마케팅 SMS 차단",
-  "exampleContentRegex": "예: .*offer.*",
   "exampleContentRegexHint": "예시 내용 정규식",
   "exampleCouponPromotionDiscount": "예: .*(쿠폰|프로모션|할인).*",
   "exampleFamilyFriends": "예: 가족, 친구 등",
   "examplePhoneNumber": "예: 10086, 12345 등",
   "exampleRegex400Prefix": "400 접두사 예시 정규식",
-  "exampleRegexFormat": "예시: ^10086$ 형식",
   "exampleSenderRegexHint": "예시",
   "exchange": "교환",
   "exchangeNow": "지금 교환",
   "exchangeVip": "VIP 교환",
-  "expandLabelSelector": "라벨 선택기 확장",
   "expiryTime": "만료 시간: {time}",
   "export": "내보내기",
   "exportAllApplicationSettings": "모든 애플리케이션 설정 내보내기",
-  "exportAllApplicationSettingsSubtitle": "모든 애플리케이션 설정 내보내기",
   "exportAllRuleConfigurations": "모든 규칙 구성 내보내기",
-  "exportAllRuleConfigurationsSubtitle": "모든 규칙 구성 내보내기",
-  "exportComplete": "내보내기 완료",
   "exportConfig": "구성 내보내기",
   "exportContacts": "연락처 내보내기",
   "exportData": "데이터 내보내기",
-  "exportError": "내보내기 오류",
   "exportFailed": "내보내기 실패",
   "exportFailure": "구성 내보내기 실패",
   "exportFeatureComingSoon": "내보내기 기능은 곧 제공될 예정입니다.",
-  "exporting": "내보내는 중...",
   "exportLabels": "라벨 내보내기",
   "exportLabelsFailed": "라벨 내보내기 실패: {error}",
   "exportPluginList": "플러그인 목록 내보내기",
   "exportPluginListFailed": "플러그인 목록 내보내기 실패: {error}",
   "exportRules": "규칙 내보내기",
-  "exportRulesDialogTitle": "규칙 내보내기",
-  "exportRulesTitle": "규칙 내보내기",
   "exportSmsRules": "SMS 규칙 내보내기",
   "exportStatisticsData": "통계 데이터 내보내기",
-  "exportSuccess": "내보내기 성공",
   "exportSuccesslly": "구성 내보내기 성공",
-  "failedToAddContact": "연락처 추가 실패",
   "failedToAddRule": "규칙 추가 실패: {error}",
-  "failedToAddSmsRule": "SMS 규칙 추가 실패: {error}",
   "failedToAddSmsSubscription": "SMS 구독 추가 실패: {error}",
   "failedToBackupSettings": "설정 백업 실패: {error}",
   "failedToDecryptBackupFile": "백업 파일 해독 실패",
-  "failedToDeleteDevice": "기기 삭제 실패",
   "failedToDeleteSmsRule": "SMS 규칙 삭제 실패: {error}",
   "failedToExportRules": "규칙 내보내기 실패: {error}",
-  "failedToExportSmsRules": "SMS 규칙 내보내기 실패: {error}",
   "failedToGetCallerIdInfo": "발신자 정보 가져오기 실패: {error}",
   "failedToImportRules": "규칙 가져오기 실패: {error}",
-  "failedToImportSmsRules": "SMS 규칙 가져오기 실패: {error}",
-  "failedToLoadContacts": "연락처 로드 실패",
-  "failedToLoadPlugin": "플러그인 로드 실패",
-  "failedToRenameDevice": "기기 이름 변경 실패",
   "failedToRestoreSettings": "설정 복원 실패",
   "failedToRestoreSettingsWithError": "설정 복원 실패: {error}",
-  "failedToSetPassword": "비밀번호 설정 실패: {error}",
-  "failedToSyncDevices": "기기 동기화 실패",
   "failedToToggleRuleStatus": "규칙 상태 전환 실패: {error}",
-  "failedToToggleSubscriptionStatus": "구독 상태 전환 실패",
-  "failedToUpdateContact": "연락처 업데이트 실패",
-  "failedToUpdateSmsRule": "SMS 규칙 업데이트 실패: {error}",
-  "failure": "실패",
   "favoriteContacts": "즐겨찾는 연락처",
   "featureAddRules": "• 전화번호별 규칙 추가",
   "featureCenter": "기능 센터",
@@ -777,23 +559,14 @@
   "fileSavedTo": "파일 저장 위치: {path}",
   "filter": "필터",
   "filterByLabel": "라벨별 필터",
-  "filterClear": "필터 지우기",
   "filterControlPanelTitle": "필터 제어판",
   "filterControlSubtitle": "모든 필터의 켜짐/꺼짐 상태 관리",
   "filterControlTitle": "필터 제어",
-  "filterDeleteFailed": "필터 삭제 실패",
-  "filterDeleteSuccess": "필터가 성공적으로 삭제되었습니다",
-  "filterDetails": "필터 세부 정보",
   "filtered": "필터링됨",
-  "filteredSms": "필터링된 SMS",
-  "filteredSmsLabel": "필터링된 SMS",
   "filterExplanation": "필터 설명",
   "filterManagement": "필터 관리",
   "filterName": "필터 이름",
-  "filterPattern": "필터 패턴",
   "filterPriorityNote": "참고: 필터 간에 우선 순위 관계가 있습니다. 자세한 내용은 도움말 문서를 참조하십시오.",
-  "filterSaveFailed": "필터 저장 실패",
-  "filterSaveSuccess": "필터가 성공적으로 저장되었습니다",
   "filterSettings": "필터 설정",
   "filterSettingsTitle": "필터 설정",
   "filterSMS": "필터 SMS",
@@ -815,8 +588,6 @@
   "flexibleCombinationFeature": "• 유연한 조합: SIM 슬롯별로 필터 활성화/비활성화",
   "fontSizesSetting": "글꼴 크기",
   "foundRules": "{count}개의 규칙을 찾았습니다",
-  "foundRulesDoYouWantToImport": "{count}개의 규칙을 찾았습니다. 가져오시겠습니까?",
-  "foundRulesToImport": "{count}개의 규칙을 찾았습니다. 가져오시겠습니까?",
   "fraudAlert": "사기 경고 - 통화를 끊으십시오",
   "fraudScamLikely": "사기 사기 가능성",
   "free": "무료",
@@ -838,29 +609,18 @@
   "@globalFilterSettings": {
     "description": "Global filter settings section title"
   },
-  "globalFilterToggleInstructions": "모든 SIM 슬롯에 적용되는 글로벌 필터 설정을 구성합니다:",
-  "@globalFilterToggleInstructions": {
-    "description": "Instructions for configuring global filter settings"
-  },
-  "globalSearchSubtitle": "연락처, 레이블, 블랙리스트, 화이트리스트 등을 검색합니다.",
-  "globalSearchTitle": "글로벌 검색",
   "globalSettings": "글로벌 설정",
   "@globalSettings": {
     "description": "Title for global settings page"
   },
-  "googleAdDisplayPosition": "Google 광고 표시 위치",
-  "googleAdMobIntegrationText": "Google AdMob 광고를 여기에 통합할 수 있습니다",
   "googleDriveAuthDescription": "시스템 구성 Google 드라이브 클라이언트 ID 및 키를 사용하여 권한 부여",
-  "googleDriveAuthorizationHint": "시스템 구성 Google 드라이브 클라이언트 ID 및 키를 사용하여 권한 부여",
   "googleDriveConfigTitle": "Google 드라이브 구성",
-  "googleDriveConfigurationTitle": "Google 드라이브 구성",
   "government": "정부",
   "granted": "허용됨",
   "grantNecessaryPermissions": "필요한 권한 부여",
   "grantPermissions": "권한 부여",
   "headhunter": "헤드헌터",
   "height": "높이",
-  "homePageTitle": "홈 페이지",
   "homeTab": "홈",
   "howItWorksPoint1": "• 시스템은 설정된 시간 내에 동일한 번호로부터의 전화를 자동으로 허용합니다.",
   "howItWorksPoint2": "• 짧은 시간 창은 더 엄격한 가로채기를 초래하고, 긴 시간 창은 더 느슨한 가로채기를 초래합니다.",
@@ -870,7 +630,6 @@
   "iconSize": "아이콘 크기",
   "import": "가져오기",
   "important": "중요",
-  "importButton": "가져오기",
   "importConfig": "구성 가져오기",
   "importContacts": "연락처 가져오기",
   "importExportContacts": "연락처 가져오기/내보내기",
@@ -885,17 +644,9 @@
   "importPluginListFailed": "플러그인 목록 가져오기 실패: {error}",
   "importPluginSuccess": "{count}개의 플러그인을 성공적으로 가져왔습니다.",
   "importRuleConfigurationsFromFile": "파일에서 규칙 구성 가져오기",
-  "importRuleConfigurationsFromFileSubtitle": "파일에서 규칙 구성 가져오기",
   "importRules": "규칙 가져오기",
-  "importRulesButton": "규칙 가져오기",
-  "importRulesDialogTitle": "규칙 가져오기",
-  "importRulesError": "규칙 가져오기 실패: {error}",
-  "importRulesInstructions": "CSV 파일에서 규칙 가져오기",
-  "importRulesSuccess": "규칙이 성공적으로 가져왔습니다.",
-  "importRulesTitle": "규칙 가져오기",
   "importSuccess": "가져오기 성공",
   "incomingCallInterceptAction": "수신 전화 가로채기 작업",
-  "incomingCallNotification": "수신 전화 알림",
   "incorrectPassword": "잘못된 비밀번호",
   "initializing": "초기화 중",
   "installed": "설치됨",
@@ -923,33 +674,18 @@
   "invalidRegexPattern": "잘못된 정규식 패턴",
   "invalidSenderRegex": "잘못된 발신자 정규식",
   "joinTheTelegramChannelAndGroupForMoreInfo": "자세한 내용은 Telegram 채널 및 그룹에 가입하십시오.",
-  "jsLogsTitle": "JS 로그",
   "jsonFormat": "JSON 형식",
   "keepAllVersions": "모든 버전 유지",
   "keepAllVersionsDescription": "각 백업의 모든 기록 버전을 유지합니다.",
-  "keepAllVersionsLabel": "모든 버전 유지",
-  "keepAllVersionsSubtitle": "각 백업의 기록 버전 유지",
-  "keepAllVersionsTitle": "모든 버전 유지",
   "label": "라벨",
   "labelAddedSuccessfully": "\"{name}\" 라벨이 성공적으로 추가되었습니다.",
   "labelCategories": "라벨 카테고리",
   "labelDeleted": "라벨이 삭제되었습니다.",
   "labelDescription": "라벨을 사용하면 연락처를 더 잘 관리하고, 전화 및 메시지를 쉽게 식별하기 위해 전화번호에 사용자 정의 라벨을 추가할 수 있습니다.",
-  "labelFilter": "라벨 필터",
   "labelFilterTooltip": "라벨 필터",
   "labelIconColor": "라벨 아이콘 색상",
   "labelManagement": "라벨 관리",
   "labelNotFound": "라벨을 찾을 수 없습니다.",
-  "labelRemoved": "라벨이 제거되었습니다.",
-  "labelRemoveFailed": "라벨을 제거하지 못했습니다: {error}",
-  "@labelRemoveFailed": {
-    "description": "Label removal failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "labels": "라벨",
   "labelsColor": "라벨 색상",
   "labelsDeleted": "{count} 개의 라벨이 삭제되었습니다.",
@@ -958,7 +694,6 @@
   "labelsImportedSuccessfully": "{count} 개의 라벨을 성공적으로 가져왔습니다.",
   "labelsPosition": "라벨 위치",
   "labelTag": "라벨: {labelId}",
-  "labelUpdated": "라벨이 업데이트되었습니다.",
   "labelUpdateFailed": "라벨을 업데이트하지 못했습니다: {error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -972,8 +707,6 @@
   "languageSettings": "언어 설정",
   "languageSettingsSubtitle": "애플리케이션 표시 언어 변경",
   "languageSettingsTitle": "언어 설정",
-  "last30Days": "지난 30일",
-  "last7Days": "지난 7일",
   "lastSyncLabel": "마지막 동기화",
   "lastUpdated": "마지막 업데이트: {date}",
   "@lastUpdated": {
@@ -988,16 +721,12 @@
   "lifetimeMembershipDescription": "1회 구매로 모든 프리미엄 기능과 향후 업데이트를 영구적으로 잠금 해제합니다.",
   "loadContactsFailed": "연락처를 로드하지 못했습니다: {error}",
   "loadDataFailed": "데이터를 로드하지 못했습니다",
-  "loadFailed": "로드 실패",
   "loading": "로드 중...",
-  "loadingData": "데이터 로드 중...",
   "loadingTags": "태그 로드 중...",
   "loadLabelFailed": "라벨을 로드하지 못했습니다: {error}",
   "loadLabelsFailed": "라벨을 불러오는 데 실패했습니다: {error}",
   "loadMarkCountFailed": "표시된 전화번호를 불러오는 데 실패했습니다: {error}",
   "loadMarkedPhonesFailed": "표시된 전화번호를 불러오는 데 실패했습니다: {error}",
-  "loadMore": "더 보기",
-  "loadPluginButton": "플러그인 로드",
   "loadPluginsFailed": "플러그인을 불러오는 데 실패했습니다: {error}",
   "loadSettingsFailed": "설정을 불러오는 데 실패했습니다: {error}",
   "loadSmsRulesFailed": "SMS 규칙을 불러오는 데 실패했습니다: {error}",
@@ -1012,7 +741,6 @@
     }
   },
   "loan": "대출",
-  "localBackupTitle": "로컬 백업",
   "localCounterFilter": "로컬 카운터 필터",
   "localCounterFilterSubtitle": "통화 빈도에 따라 스팸 통화를 자동으로 필터링합니다.",
   "localCountFilter": "로컬 카운트 필터",
@@ -1043,11 +771,9 @@
   "logAllRemoteQueries": "모든 원격 쿼리 기록",
   "logAllRemoteQueriesDescription": "모든 원격 번호 쿼리 작업을 기록합니다.",
   "manage": "연락처 관리",
-  "manageContacts": "관리",
   "manageFavoriteContacts": "즐겨찾는 연락처 관리",
   "manageFilterRules": "필터 규칙 관리",
   "manageFilterRulesDescription": "SMS 필터 규칙을 추가, 편집 또는 삭제합니다.",
-  "manageFrequentContacts": "자주 연락하는 연락처 관리",
   "markCounts": "마크 수",
   "markCount": "마크 수",
   "markedByCount": "{count}에 의해 표시됨",
@@ -1064,84 +790,48 @@
   "markExchange": "마크 교환",
   "markPhone": "전화 번호 표시",
   "markPhoneFailed": "전화 번호 표시 실패: {error}",
-  "markPhoneManagementSubtitle": "전화 번호 표시",
   "markPhoneManagementTitle": "전화 번호 관리",
   "markPhoneSuccess": "전화 번호가 성공적으로 표시되었습니다.",
-  "matchFailed": "일치 실패!",
   "matchFailedMessage": "일치 실패.",
   "matchNumbersWithSpecialCharacters": "특정 번호 형식 일치",
   "matchNumbersWithSpecialCharactersTitle": "특수 문자가 있는 번호 일치:",
   "matchSpecificDigitPatterns": "XXX-XXXX-XXXX 형식 일치",
   "matchSpecificDigitPatternsTitle": "특정 숫자 패턴 일치:",
-  "matchSuccessful": "일치 성공!",
   "matchSuccessfulMessage": "일치 성공!",
   "medical": "의료",
   "membershipPrivileges": "회원 혜택",
   "migrationTool": "마이그레이션 도구",
-  "migrationToolTitle": "마이그레이션 도구",
   "minutes": "분",
   "month": "월",
   "monthly": "매월",
   "monthlyCallCount": "월별 통화",
-  "monthlyChartTitle": "월별 차단된 통화",
   "monthlyMembership": "월간 멤버십",
   "monthlyMembershipDescription": "모든 프리미엄 기능을 잠금 해제하고 매월 자동 갱신됩니다.",
   "monthlyTotal": "월간 총액",
-  "monthlyTotalLabel": "월간 총액",
   "moreOptions": "더 많은 옵션",
   "mute": "음소거",
   "name": "이름",
   "nameAndPhoneNumberCannotBeEmpty": "이름과 전화번호는 비워둘 수 없습니다.",
-  "nameAndPhoneNumberRequired": "이름과 전화번호가 필요합니다.",
   "nameColor": "이름 색상",
   "nameFontSize": "이름 글꼴 크기",
-  "nameLabel": "이름: {name}",
-  "@nameLabel": {
-    "description": "Caller ID name label",
-    "placeholders": {
-      "name": {
-        "type": "Object"
-      }
-    }
-  },
   "namePosition": "이름 위치",
   "nameUnknown": "이름: 알 수 없음",
-  "nameWithValue": "이름: {name}",
-  "@nameWithValue": {
-    "description": "Text showing the name of a contact",
-    "placeholders": {
-      "name": {
-        "type": "String",
-        "example": "John Doe"
-      }
-    }
-  },
-  "newPasswordLabel": "새 비밀번호",
   "nextStep": "다음",
   "noAction": "작업 없음",
   "noActionRules": "작업 규칙 없음",
   "noActiveCloudSyncServiceMessage": "활성 클라우드 동기화 서비스 없음",
-  "noCallLogs": "통화 기록 없음",
   "noCallRecords": "통화 기록 없음",
-  "noContacts": "아직 연락처가 없습니다",
   "noContactsYet": "아직 연락처가 없습니다",
   "noData": "데이터 없음",
   "noDevicesRegisteredMessage": "등록된 기기가 없습니다",
-  "noDevicesRegisteredYet": "등록된 기기가 없습니다.",
-  "noFilters": "아직 필터가 없습니다",
   "noLabels": "아직 레이블이 없습니다",
   "noMarkedPhones": "표시된 전화 번호 없음",
-  "noMatchingContacts": "일치하는 연락처 없음",
   "noMatchingContactsFound": "일치하는 연락처를 찾을 수 없음",
   "noMatchingNumbersFound": "일치하는 번호를 찾을 수 없음",
-  "noMatchingRecords": "일치하는 통화 기록 없음",
   "noMatchingRules": "일치하는 {ruleType} 없음",
   "none": "없음",
   "noneServiceType": "없음",
   "noPlugins": "아직 플러그인이 없습니다",
-  "noRecords": "통화 기록 없음",
-  "noResultReturned": "결과가 반환되지 않음",
-  "noResultReturnedLog": "플러그인에서 결과가 반환되지 않음",
   "noRules": "아직 {ruleType} 없음",
   "noRulesPrompt": "규칙을 찾을 수 없습니다. 규칙을 추가하십시오.",
   "noRulesToExport": "내보낼 규칙이 없습니다.",
@@ -1151,7 +841,6 @@
   "@noSubscriptions": {
     "description": "No subscriptions message"
   },
-  "noSubscriptionsYet": "아직 구독이 없습니다",
   "notGranted": "승인되지 않음",
   "notificationMode": "알림 모드",
   "notificationModeDescription": "알림 표시줄에 발신자 정보 표시",
@@ -1162,8 +851,6 @@
   "@notificationSettings": {
     "description": "Notification settings title"
   },
-  "notificationSettingsSaved": "알림 설정이 성공적으로 저장되었습니다",
-  "notSet": "설정되지 않음",
   "notVerifiedText": "확인되지 않음",
   "noValidSmsRulesFoundInFile": "파일에서 유효한 SMS 규칙을 찾을 수 없음",
   "number": "번호",
@@ -1174,7 +861,6 @@
   "numberTypeColor": "번호 유형 색상",
   "numberTypeFontSize": "번호 유형 글꼴 크기",
   "numberTypePosition": "번호 유형 위치",
-  "ok": "확인",
   "okButton": "확인",
   "onboardingCompleteDescription": "통화 보안 관리자가 준비되었습니다. 안전한 통화 경험을 즐기세요!",
   "onboardingLanguageDescription": "최상의 경험을 위해 선호하는 언어를 선택하세요.",
@@ -1183,9 +869,7 @@
   "onboardingSmartCallerIdDescription": "알 수 없는 전화를 자동으로 식별하고, 의심스러운 번호를 표시하며, 통화 안전을 보호합니다.",
   "onboardingWelcomeDescription": "종합적인 통화 식별 및 차단 서비스를 제공하는 통화 관리 전문가.",
   "oneDriveAuthDescription": "시스템 구성 OneDrive 클라이언트 ID 및 키를 사용하여 권한 부여",
-  "oneDriveAuthorizationHint": "시스템 구성 OneDrive 클라이언트 ID 및 키를 사용하여 권한 부여",
   "oneDriveConfigTitle": "OneDrive 구성",
-  "oneDriveConfigurationTitle": "OneDrive 구성",
   "onlineCallerIdSubscription": "온라인 발신자 ID 구독",
   "openAppSettings": "앱 설정 열기",
   "openAppSettingsFailed": "앱 설정을 여는 데 실패했습니다: {error}",
@@ -1203,7 +887,6 @@
   "passwordCannotBeEmpty": "비밀번호는 비워둘 수 없습니다",
   "passwordLabel": "비밀번호",
   "passwordsDoNotMatch": "비밀번호가 일치하지 않습니다",
-  "passwordSetSuccessfully": "비밀번호가 성공적으로 설정되었습니다",
   "pattern": "패턴",
   "pendingSync": "동기화 대기 중",
   "periodMonth": "개월",
@@ -1216,9 +899,7 @@
   "phoneNumber": "전화번호",
   "phoneNumberCannotBeEmpty": "전화번호는 비워둘 수 없습니다",
   "phoneNumberHint": "전화번호를 입력하세요",
-  "phoneNumberHintText": "규칙을 추가하려면 전화번호를 입력하세요",
   "phoneNumberLabel": "전화번호",
-  "phoneNumberRegexRequired": "전화번호와 정규식 패턴을 모두 입력하세요",
   "phoneNumberRequired": "전화번호는 필수입니다",
   "phoneNumberTypeFixedLine": "유선 전화",
   "phoneNumberTypeFixedLineOrMobile": "유선 전화 또는 휴대폰",
@@ -1235,34 +916,23 @@
   "phonePermission": "전화 권한",
   "phonePermissionDescription": "수신 통화를 식별하고 차단하는 데 사용됩니다.",
   "phoneRule": "전화 규칙",
-  "phoneRuleEditDialog": "전화 규칙 편집 대화 상자",
   "phoneRuleManagement": "전화 규칙 관리",
   "phoneRuleSubscription": "전화 규칙 구독",
   "phoneSubscription": "전화 구독",
   "phoneSubscriptionRulesDescription": "URL을 통해 전화 규칙 목록을 구독하여 화이트리스트 및 블랙리스트 규칙을 자동으로 업데이트합니다. JSON 형식의 규칙 파일을 지원합니다.",
-  "phoneSubscriptionTitle": "전화 규칙 구독",
-  "@phoneSubscriptionTitle": {
-    "description": "Phone subscription page title"
-  },
   "pleaseSelectLabelAndEnterValidPhone": "레이블을 선택하고 유효한 전화번호를 입력하세요.",
   "pluginAddedSuccess": "플러그인 \"{name}\"이(가) 성공적으로 추가되었습니다.",
   "pluginDeleted": "플러그인이 삭제되었습니다.",
   "pluginLatestVersion": "플러그인이 이미 최신 버전입니다.",
   "pluginListExportSuccess": "플러그인 목록이 성공적으로 내보내졌습니다.",
-  "pluginLoadedSuccessfully": "플러그인이 성공적으로 로드되었습니다.",
   "pluginManagement": "플러그인 관리",
   "pluginManagementSubtitle": "타사 플러그인을 관리하고 구성합니다.",
-  "pluginManagementTitle": "플러그인 관리",
   "pluginName": "플러그인 이름",
-  "pluginNotLoaded": "플러그인이 아직 로드되지 않았습니다. 먼저 플러그인을 로드하십시오.",
   "pluginsDeleted": "{count}개의 플러그인이 성공적으로 삭제되었습니다.",
   "pluginService": "플러그인 서비스",
   "pluginTestPageTitle": "플러그인 테스트",
   "pluginUpdateSuccess": "플러그인이 성공적으로 업데이트되었습니다.",
   "pluginUrl": "플러그인 URL",
-  "pluginUrlCannotBeEmpty": "플러그인 URL은 비워둘 수 없습니다.",
-  "pluginUrlHint": "플러그인 URL을 입력하세요.",
-  "pluginUrlLabel": "플러그인 URL",
   "pluginVersion": "플러그인 버전",
   "political": "정치적",
   "powerfulSpamBlocking": "강력한 스팸 차단",
@@ -1274,26 +944,16 @@
   "purchase": "구매",
   "quarterlyMembership": "분기별 멤버십",
   "quarterlyMembershipDescription": "모든 프리미엄 기능을 잠금 해제하고 분기별로 자동 갱신합니다.",
-  "queryButton": "쿼리",
-  "queryFailed": "쿼리 실패",
-  "queryFailedLog": "쿼리 실패",
-  "querying": "쿼리 중...",
-  "queryingPhoneNumber": "전화번호 쿼리 중",
-  "queryResultTitle": "쿼리 결과",
   "ready": "준비 완료!",
-  "receiveWeeklyStatistics": "주간 통계 수신",
   "recruiter": "모집인",
-  "reEnterPasswordHint": "비밀번호를 다시 입력하세요.",
   "refresh": "새로 고침",
   "refreshPermissionStatus": "권한 상태 새로 고침",
   "refreshTooltip": "새로 고침",
-  "regexError": "정규식 오류: {error}",
   "regexErrorMessage": "정규식 오류: {error}",
   "regexPattern": "정규식 패턴",
   "regexPatternExplanation": "정규식 패턴 설명",
   "regexPatternExplanationButton": "정규식 패턴 설명",
   "regexPatternLabel": "정규식 패턴",
-  "regexPatternsExamples": "패턴을 정의하려면 표준 정규식 구문을 사용하십시오. 예: ",
   "regexPatternsForPhoneNumberMatching": "전화 번호 일치를 위한 정규식 패턴",
   "regexRule": "정규식 규칙",
   "regexRuleAddFailed": "정규식 규칙 추가 실패: {error}",
@@ -1302,8 +962,6 @@
   "regexRuleNamePatternRequired": "규칙 이름과 정규식 패턴은 비워둘 수 없습니다",
   "regexRules": "정규식 규칙",
   "regexTesterTitle": "정규식 테스터",
-  "regexValidationFailed": "정규식 유효성 검사 실패: {error}",
-  "regexValidationSuccess": "정규식 유효성 검사 성공",
   "region": "지역",
   "registeredDevicesTitle": "등록된 기기",
   "rejectAllCalls": "모든 통화 거부",
@@ -1318,27 +976,15 @@
   },
   "remoteFilterSettingsPageTitle": "원격 번호 필터 설정",
   "remoteNumberFilter": "원격 번호 필터",
-  "remoteNumberFilterDatabaseInfo": "이 필터는 최신 번호 정보를 얻기 위해 독립적인 원격 데이터베이스를 사용합니다.",
   "remoteNumberFilterDescription": "원격 데이터베이스 정보를 기반으로 괴롭힘 전화를 차단합니다.",
-  "remoteNumberFilterExplanationContent": "원격 번호 필터는 번호 발생 빈도를 기반으로 원격 데이터베이스를 쿼리하여 스팸 전화를 식별하고 차단합니다.",
-  "remoteNumberFilterExplanationTitle": "원격 번호 필터 설명",
-  "remoteNumberFilterFeatureCountThreshold": "• 수량 임계값: 번호 발생 빈도를 기준으로 결정",
-  "remoteNumberFilterFeatureFilterAction": "• 필터 작업: 임계값을 초과하는 번호 처리 방법 구성",
-  "remoteNumberFilterFeaturePriority": "• 우선 순위 설정: 원격 작업의 우선 순위 설정",
-  "remoteNumberFilterFeatures": "기능:",
   "remoteNumberFiltering": "원격 번호 필터링",
   "remoteNumberFilteringExplanation": "• 원격 번호 필터링: 원격 데이터베이스 정보를 기반으로 필터링 규칙",
   "remoteNumberFilterSubtitle": "클라우드 데이터베이스 및 커뮤니티 보고서를 사용하여 스팸 전화 식별",
   "removeAdsDescription": "더 부드러운 환경을 위해 앱의 모든 광고를 영구적으로 제거합니다.",
   "removeAdsTitle": "광고 제거",
-  "removedFromFavoriteContacts": "즐겨찾는 연락처에서 삭제됨",
   "removedFromFavorites": "즐겨찾기에서 삭제됨",
-  "removeFavorite": "즐겨찾기 삭제",
   "removeFromFavorites": "즐겨찾기에서 삭제",
-  "renameButton": "이름 바꾸기",
-  "renameDeviceDialogTitle": "기기 이름 바꾸기",
   "renameDeviceTitle": "기기 이름 바꾸기",
-  "replaceCurrentSettingsConfirmation": "이렇게 하면 현재 설정이 모두 교체됩니다. 계속하시겠습니까?",
   "requestAllPermissions": "모든 권한 요청",
   "requestPermission": "권한 요청",
   "requestPermissionFailed": "권한 요청 실패: {error}",
@@ -1346,84 +992,44 @@
   "reset": "재설정",
   "restore": "복원",
   "restoreApplicationSettingsFromBackup": "백업에서 앱 설정 복원",
-  "restoreApplicationSettingsFromBackupSubtitle": "백업에서 앱 설정 복원",
-  "restoreButton": "복원",
-  "restoreFailedWithError": "클라우드에서 복원 실패: {error}",
   "restoreFromCloud": "클라우드에서 복원",
-  "restoreFromCloudDescription": "클라우드 저장소에서 설정 및 규칙 복원",
   "restoreFromCloudFailed": "클라우드에서 복원 실패: {error}",
-  "restoreFromCloudLabel": "클라우드에서 복원",
   "restoreFromCloudSuccess": "클라우드에서 성공적으로 복원되었습니다.",
-  "restoreFromCloudTitle": "클라우드에서 복원",
-  "restoreFromLocal": "로컬에서 복원",
   "restorePurchases": "구매 복원",
-  "restoreSectionTitle": "복원",
   "restoreSettings": "설정 복원",
   "restoreSettingsConfirmation": "이렇게 하면 현재 설정이 모두 교체됩니다. 계속하시겠습니까?",
-  "restoreSettingsDialogTitle": "설정 복원",
-  "restoreSettingsTitle": "설정 복원",
-  "restoreSuccessFromLocal": "로컬에서 성공적으로 복원되었습니다.",
-  "restoreSuccessMessage": "클라우드에서 성공적으로 복원되었습니다.",
   "retry": "다시 시도",
   "ridesharing": "차량 공유",
   "risk": "위험",
   "robocall": "로보콜",
   "ruleAction": "규칙 동작",
-  "ruleAddButton": "규칙 추가",
   "ruleAddedSuccess": "규칙이 성공적으로 추가되었습니다.",
   "@ruleAddedSuccess": {
     "description": "Rule creation success message"
   },
-  "ruleAddFailure": "규칙 추가 실패: {error}",
-  "@ruleAddFailure": {
-    "description": "Rule creation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleAddSuccess": "규칙이 성공적으로 추가되었습니다.",
   "ruleDeleteConfirmContent": "이 {ruleType}을(를) 삭제하시겠습니까?",
   "ruleDeleteConfirmTitle": "규칙 삭제",
-  "ruleDeletedSuccess": "규칙이 성공적으로 삭제되었습니다.",
   "ruleDeletedSuccessfully": "규칙이 성공적으로 삭제되었습니다.",
   "ruleDeleteFailed": "규칙 삭제 실패: {error}",
-  "ruleDeleteFailure": "규칙 삭제 실패: {error}",
-  "@ruleDeleteFailure": {
-    "description": "Rule deletion failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleDeleteSuccess": "규칙이 성공적으로 삭제되었습니다.",
   "ruleDisabledSuccessfully": "규칙이 성공적으로 비활성화되었습니다.",
   "ruleEnabledSuccessfully": "규칙이 성공적으로 활성화되었습니다.",
   "ruleLoadFailed": "규칙 로드 실패: {error}",
   "ruleManagement": "규칙 관리",
-  "ruleManagementTitle": "규칙 관리",
   "ruleName": "규칙 이름",
   "ruleNameAndContentRegexCannotBeEmpty": "규칙 이름과 내용 정규 표현식은 비워둘 수 없습니다.",
   "ruleNameAndPhoneNumberCannotBeEmpty": "규칙 이름과 전화번호는 비워둘 수 없습니다.",
   "ruleNameHint": "예: 가족, 친구 등",
   "ruleNameLabel": "규칙 이름",
-  "ruleNamePatternRequired": "규칙 이름과 패턴을 입력하세요.",
   "ruleNameRequired": "규칙 이름과 전화번호는 비워둘 수 없습니다.",
   "ruleNotExist": "규칙이 존재하지 않거나 삭제되었습니다",
   "ruleNotFound": "규칙을 찾을 수 없습니다: {error}",
-  "ruleSavedSuccessfully": "규칙이 성공적으로 저장되었습니다!",
   "ruleSavedSuccessMessage": "규칙이 성공적으로 저장되었습니다!",
-  "ruleSaveFailed": "저장 실패: {error}",
-  "ruleSaveFailedMessage": "저장 실패: {error}",
-  "ruleSaveSuccess": "규칙이 성공적으로 저장되었습니다!",
   "rulesExportedSuccessfully": "규칙이 성공적으로 내보내졌습니다",
   "rulesExportedTo": "규칙이 내보내졌습니다: {path}",
   "rulesImported": "규칙이 성공적으로 가져왔습니다",
   "rulesImportedSuccessfully": "{count} 개의 규칙이 성공적으로 가져왔습니다",
-  "rulesImportFailed": "규칙 가져오기 실패: {error}",
-  "ruleStatistics": "규칙 통계",
   "ruleStatusChanged": "규칙 {status} 성공",
   "ruleToggleFailed": "작업 실패: {error}",
   "ruleToggleSuccess": "규칙 {status} 성공",
@@ -1432,32 +1038,19 @@
   "ruleVerification": "규칙 확인",
   "save": "저장",
   "saveButton": "저장",
-  "saveButtonLabel": "저장",
   "saveButtonText": "저장",
   "saveFailed": "저장 실패: {error}",
-  "saveFilter": "필터 저장",
   "saveSettings": "설정 저장",
-  "saveSettingsFailed": "설정 저장 실패: {error}",
   "scamsLikely": "스캠 가능성",
   "search": "검색",
   "searchContacts": "연락처 검색",
   "searchError": "검색 오류: {error}",
-  "searchFilters": "필터 검색",
-  "searchForContacts": "연락처 검색",
   "searchHint": "검색...",
-  "searchSettingsSubtitle": "연락처, 레이블, 블랙리스트, 화이트리스트 등을 검색하세요.",
-  "searchSettingsTitle": "검색 설정",
   "securityMessage": "어떤 전화도 신뢰하지 마세요. 항상 고객 서비스 번호를 독립적으로 확인하세요. 비밀번호, 인증 코드, 카드 번호 또는 개인 정보를 절대 공유하지 마세요.",
-  "selectActionToPerform": "규칙이 일치할 때 수행할 작업을 선택하세요",
   "selectActionWhenBlockingCalls": "전화 차단 시 작업 선택",
   "selectActionWhenRuleMatches": "규칙이 일치할 때 작업 선택",
   "selectAll": "모두 선택",
   "selectCountry": "국가 선택",
-  "selectDateRange": "날짜 범위 선택",
-  "selectedDateRange": "선택된 날짜 범위",
-  "@selectedDateRange": {
-    "description": "Selected date range text"
-  },
   "selectedItems": "{count} 개 항목 선택됨",
   "selectedLabel": "선택됨:",
   "selectExportFormat": "내보내기 형식 선택",
@@ -1465,14 +1058,7 @@
   "selectLabelAndEnterPhoneNumber": "레이블을 선택하고 유효한 전화 번호를 입력하세요",
   "selectLanguage": "언어 선택",
   "selectMultiple": "여러 개 선택",
-  "selectPeriod": "기간 선택",
   "selectSimCard": "SIM 카드 선택",
-  "selectSimSlot": "SIM 슬롯 선택",
-  "@selectSimSlot": {
-    "description": "Title for SIM slot selection dialog"
-  },
-  "selectSpecificActionForBlockedCalls": "차단된 통화에 대해 수행할 특정 작업을 선택하세요.",
-  "selectTag": "태그 선택",
   "selectTags": "태그 선택",
   "selectTrustedDataSource": "신뢰할 수 있는 데이터 소스를 선택하세요.",
   "selectYourLanguage": "언어 선택",
@@ -1493,16 +1079,9 @@
       }
     }
   },
-  "setButton": "설정",
   "setEncryptionPassword": "암호화 비밀번호 설정",
-  "setEncryptionPasswordDescription": "백업 및 복원을 위한 암호화 비밀번호 설정",
-  "setEncryptionPasswordLabel": "암호화 비밀번호 설정",
-  "setEncryptionPasswordTitle": "암호화 비밀번호 설정",
-  "setPasswordButton": "설정",
   "settings": "설정",
   "settingsBackedUpTo": "설정이 백업되었습니다: {path}",
-  "settingsLoaded": "설정 로드됨",
-  "settingsLoadFailed": "설정을 로드하지 못했습니다: {error}",
   "settingsRestoredSuccessfully": "설정이 성공적으로 복원되었습니다. 변경 사항을 적용하려면 앱을 다시 시작하세요.",
   "settingsSaved": "설정 저장됨",
   "@settingsSaved": {
@@ -1512,8 +1091,6 @@
   "settingsTab": "설정",
   "settingsTitle": "설정",
   "setup": "설정",
-  "showContactEditDialogStaticMethod": "연락처 편집 대화 상자를 표시하는 정적 메서드",
-  "showExplanation": "설명 보기",
   "silence": "무음",
   "silenceAndNoAnswer": "무음 및 응답 없음",
   "silenceNoAnswer": "무음 응답 없음",
@@ -1538,15 +1115,10 @@
       }
     }
   },
-  "simInfoLoadFailure": "SIM 카드 정보를 로드하지 못했습니다: {error}",
   "simRuleInstructions": "SIM 슬롯 규칙을 사용하면 각 SIM 슬롯에 대해 독립적인 필터링 규칙을 구성할 수 있습니다.",
   "simRuleInstructionsTitle": "SIM 슬롯 규칙",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simRuleManagement": "SIM 슬롯 규칙 관리",
-  "@simRuleManagement": {
-    "description": "SIM slot rule management section title"
   },
   "simSlot1": "SIM 1,-{countryIso}",
   "@simSlot1": {
@@ -1568,9 +1140,6 @@
       }
     }
   },
-  "simSlotDataLoadFailed": "SIM 데이터를 로드하지 못했습니다: {error}",
-  "simSlotFilterConfiguration": "SIM 슬롯 필터 구성",
-  "simSlotFilterConfigurationDescription": "SIM 슬롯별 필터 규칙 설정 허용",
   "simSlotFilterDescription": "각 SIM 카드에 대해 독립적인 필터링 규칙을 구성합니다.",
   "simSlotFilterSettingsTitle": "SIM 슬롯 {slotNumber} 필터 설정",
   "@simSlotFilterSettingsTitle": {
@@ -1581,17 +1150,7 @@
       }
     }
   },
-  "simSlotLoadFailed": "SIM 슬롯을 로드하지 못했습니다: {error}",
   "simSlotManagement": "SIM 슬롯 관리",
-  "simSlotOperationFailed": "SIM 슬롯 작업 실패: {error}",
-  "@simSlotOperationFailed": {
-    "description": "SIM slot operation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "simSlotPosition": "SIM 슬롯 위치 {slotNumber}",
   "@simSlotPosition": {
     "description": "SIM slot position display",
@@ -1605,11 +1164,6 @@
   "simSlotRuleFeature": "• SIM 슬롯 규칙: SIM별 독립적인 필터링 전략",
   "simSlotRuleListTitle": "SIM 슬롯 규칙 목록",
   "simSlotRuleManagement": "SIM 슬롯 규칙",
-  "simSlotRuleManagementTitle": "규칙 관리",
-  "simSlotSettings": "SIM 슬롯 설정",
-  "@simSlotSettings": {
-    "description": "Title for SIM slot settings page"
-  },
   "simSlotTitle": "SIM 슬롯 {slotNumber}",
   "skip": "건너뛰기",
   "smartCallerId": "스마트 전화 식별",
@@ -1620,7 +1174,6 @@
   "smsFilterRuleAddedSuccessfully": "SMS 필터 규칙이 성공적으로 추가되었습니다.",
   "smsFilterRules": "SMS 필터 규칙",
   "smsFilterSettings": "SMS 필터 설정",
-  "smsHistory": "SMS 기록",
   "smsManagement": "SMS 관리",
   "smsPermission": "SMS 권한",
   "smsPermissionDescription": "스팸 메시지를 필터링하는 데 사용됩니다.",
@@ -1628,12 +1181,7 @@
   "smsRuleDeletedSuccessfully": "SMS 규칙이 성공적으로 삭제되었습니다.",
   "smsRuleLoadFailed": "SMS 규칙을 로드하지 못했습니다: {error}",
   "smsRuleManagement": "SMS 규칙 관리",
-  "smsRulesExportedSuccessfully": "SMS 규칙이 {filePath}로 성공적으로 내보내졌습니다.",
-  "smsRulesImportedSuccessfully": "SMS 규칙이 성공적으로 가져왔습니다.",
   "smsRuleSubscription": "SMS 규칙 구독",
-  "smsRuleUpdatedSuccessfully": "SMS 규칙이 성공적으로 업데이트되었습니다.",
-  "smsSettingsSubtitle": "SMS 필터링 및 키워드 차단",
-  "smsSettingsTitle": "SMS 설정",
   "smsSubscription": "SMS 구독",
   "smsSubscriptionAddedSuccessfully": "SMS 구독이 성공적으로 추가되었습니다.",
   "smsSubscriptionRulesDescription": "URL을 통해 SMS 규칙 목록을 구독하여 정규식 일치 기능을 지원합니다. 차단 또는 허용 작업을 설정할 수 있습니다.",
@@ -1645,12 +1193,7 @@
   "startUsing": "시작하기",
   "statAnswered": "응답됨",
   "statBlocked": "차단됨",
-  "staticMethodShowCallerIdDialog": "발신자 ID 정보 대화 상자를 표시하는 정적 메서드",
-  "staticMethodToDisplayCountrySelectionDialog": "국가 선택 대화 상자를 표시하는 정적 메서드",
-  "staticMethodToDisplayDialog": "대화 상자를 표시하는 정적 메서드",
   "statistics": "통계",
-  "statisticsExportFeatureComingSoon": "통계 내보내기 기능이 곧 출시될 예정입니다",
-  "statisticsGrid": "통계 그리드",
   "statisticsPageTitle": "데이터 분석",
   "stirColor": "STIR 색상",
   "stirFontSize": "STIR 글꼴 크기",
@@ -1673,23 +1216,16 @@
   "@subscriptionDeleted": {
     "description": "Subscription deleted success message"
   },
-  "subscriptionDeletedSuccessfully": "구독이 성공적으로 삭제되었습니다",
   "subscriptionDeleteFailed": "구독 삭제에 실패했습니다: {error}",
   "subscriptionDeleteSuccess": "구독 삭제",
-  "subscriptionEmptyState": "사용 가능한 구독이 없습니다",
-  "subscriptionEmptyText": "구독이 아직 없습니다",
   "subscriptionLoadFailed": "구독을 로드하는 데 실패했습니다: {error}",
-  "subscriptionLoadingFailed": "구독을 로드하는 데 실패했습니다: {error}",
-  "subscriptionManagementTitle": "구독 관리",
   "subscriptionName": "구독 이름",
   "@subscriptionName": {
     "description": "Subscription name field label"
   },
   "subscriptionNameAndUrlCannotBeEmpty": "구독 이름과 URL은 비워둘 수 없습니다",
   "subscriptionNameHint": "구독 이름을 입력하세요",
-  "subscriptionPageTitle": "구독 관리",
   "subscriptionStatusChangeFailed": "구독 상태를 변경하는 데 실패했습니다: {error}",
-  "subscriptionToggleFailed": "구독 상태를 전환하는 데 실패했습니다: {error}",
   "subscriptionUpdateFailed": "구독을 업데이트하는 데 실패했습니다: {error}",
   "subscriptionUpdateSuccess": "구독이 성공적으로 업데이트되었습니다",
   "@subscriptionUpdateSuccess": {
@@ -1710,7 +1246,6 @@
   },
   "syncFailed": "동기화 실패",
   "syncFailedMessage": "동기화 실패",
-  "syncFolderNameHint": "동기화 폴더 이름을 입력하십시오 (기본값: NotificationManager)",
   "syncFolderNameLabel": "동기화 폴더 이름",
   "synchronized": "동기화됨",
   "@synchronized": {
@@ -1724,10 +1259,8 @@
   "syncNowButton": "지금 동기화",
   "syncStatusTitle": "동기화 상태",
   "syncStatusUpdatedMessage": "동기화 상태가 업데이트되었습니다",
-  "syncSuccessful": "동기화 성공",
   "syncSuccessMessage": "동기화 성공",
   "syncWithCloudStorage": "클라우드 스토리지와 동기화",
-  "syncWithCloudStorageSubtitle": "클라우드 스토리지와 동기화",
   "systemFeatures": "시스템 기능:",
   "systemSettingsTitle": "시스템 설정",
   "tabAll": "전체",
@@ -1743,13 +1276,11 @@
       }
     }
   },
-  "tagsUpdated": "태그가 업데이트되었습니다",
   "takeaway": "핵심 내용",
   "telecommunication": "통신",
   "telegram": "텔레그램",
   "telemarketing": "텔레마케팅",
   "testButton": "테스트",
-  "testButtonLabel": "테스트",
   "testConnectionButton": "연결 테스트",
   "textColorsSetting": "텍스트 및 레이블 색상",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "이 앱은 원치 않는 전화를 식별하고 차단할 수 있는 강력한 발신자 ID 도구입니다.",
@@ -1760,8 +1291,6 @@
   "timeInterceptorExplanationContent": "통화 빈도 차단 기능은 통화 빈도를 분석하여 빈번한 스팸 전화를 자동으로 식별하고 차단/허용합니다.",
   "timeInterceptorExplanationTitle": "통화 빈도 차단 설명",
   "timeInterceptorSettingsTitle": "통화 빈도 차단 설정",
-  "timeInterceptorSubtitle": "통화 빈도에 따라 잠재적인 스팸 전화를 자동으로 차단",
-  "timeInterceptorTitle": "통화 빈도 차단 활성화",
   "timeWindowDescription": "반복되는 통화를 허용하기 위한 시간 창 크기를 설정합니다. 이 창 내의 동일한 번호로부터의 통화는 허용됩니다.",
   "timeWindowLabel": "차단 시간 창 (분): {minutes}",
   "@timeWindowLabel": {
@@ -1772,16 +1301,11 @@
       }
     }
   },
-  "timeWindowSetting": "반복되는 통화를 허용하기 위한 시간 창 크기를 설정합니다. 이 창 내의 동일한 번호로부터의 통화는 허용됩니다.",
   "today": "오늘",
   "total": "총",
   "totalBlocked": "총 차단됨",
-  "totalFiltered": "총 필터링됨",
   "transferDataBetweenDevicesOrPlatforms": "기기 또는 플랫폼 간 데이터 전송",
-  "transferDataBetweenDevicesOrPlatformsSubtitle": "기기 또는 플랫폼 간 데이터 전송",
   "travelTicketing": "여행 티켓팅",
-  "trend": "추세",
-  "trendChart": "추세 차트",
   "tutorial": "튜토리얼",
   "type": "유형",
   "unassignedSIMCard": "할당되지 않은 SIM 카드",
@@ -1789,7 +1313,6 @@
   "@unknown": {
     "description": "Display text for unknown status"
   },
-  "unknownLabel": "알 수 없는 라벨",
   "unknownTag": "태그: 알 수 없음",
   "unregisterButton": "등록 취소",
   "unregisterDeviceConfirmationMessage": "{deviceName}의 등록을 취소하시겠습니까?",
@@ -1797,15 +1320,9 @@
   "unsupportedFileFormat": "지원되지 않는 파일 형식",
   "update": "업데이트",
   "updateAllNow": "지금 모두 업데이트",
-  "updateCallFilterConfig": "통화 필터 구성 업데이트",
-  "@updateCallFilterConfig": {
-    "description": "Button text for updating call filter configuration"
-  },
   "updateContactFailed": "연락처 업데이트 실패: {error}",
   "updateFavoriteStatus": "즐겨찾기 상태 업데이트",
-  "updateFavoriteStatusFailed": "즐겨찾기 상태 업데이트 실패: {error}",
   "updateInterval": "업데이트 간격",
-  "updateLabelFailed": "라벨 업데이트 실패",
   "updateNow": "지금 업데이트",
   "updatePlugin": "플러그인 업데이트",
   "updatePluginFailed": "플러그인 업데이트 실패: {error}",
@@ -1831,16 +1348,13 @@
       }
     }
   },
-  "updateTags": "태그 업데이트",
   "useCasesPoint1": "• 자동 재다이얼 스팸 통화 식별",
   "useCasesPoint2": "• 짧은 시간 안에 여러 번 전화하는 마케팅 통화 차단",
   "useCasesPoint3": "• 전화 폭탄 및 괴롭힘 방지",
   "useCasesTitle": "사용 사례:",
   "useGlobalSettings": "글로벌 설정 사용",
-  "userEmail": "user@example.com",
   "usernameLabel": "사용자 이름",
   "useStandardRegexSyntaxToDefinePatternsExamples": "표준 정규식 구문을 사용하여 패턴을 정의합니다. 예시:",
-  "validateRegex": "정규식 검증",
   "verificationFailedText": "실패",
   "verifiedText": "확인됨",
   "verify": "확인",
@@ -1851,36 +1365,18 @@
   "watchAdForTemp": "임시 권한을 위해 광고 시청",
   "watchAdForTempDescription": "일부 프리미엄 기능을 임시로 잠금 해제하려면 짧은 광고를 시청하십시오.",
   "webDAVConfigTitle": "WebDAV 구성",
-  "webdavConfigurationTitle": "WebDAV 구성",
-  "webdavPasswordHint": "WebDAV 비밀번호를 입력하세요.",
-  "webdavServerAddressHint": "WebDAV 서버 주소를 입력하세요.",
-  "webdavUsernameHint": "WebDAV 사용자 이름을 입력하세요.",
   "week": "주",
-  "weekly": "주간",
-  "weeklyBlockedCallsSummary": "주간 차단된 통화 요약",
-  "weeklyChartTitle": "주간 차단된 통화",
-  "weeklyReport": "주간 보고서",
-  "@weeklyReport": {
-    "description": "Weekly report notification option"
-  },
-  "weeklyReportDesc": "통화 차단 활동에 대한 주간 요약 보고서를 받으세요.",
-  "@weeklyReportDesc": {
-    "description": "Description for weekly report option"
-  },
   "welcome": "환영합니다",
   "whitelist": "화이트리스트",
   "@whitelist": {
     "description": "Whitelist label"
   },
-  "whitelistLabel": "화이트리스트",
   "width": "너비",
   "wildcardMatchingDescription": "'.'를 사용하여 모든 문자를 일치시킵니다(예: '123.456'은 123-456과 일치).",
   "wildcardMatchingTitle": "와일드카드 일치:",
   "wildcardSupportForFlexibleFiltering": "유연한 필터링을 위한 와일드카드 지원",
   "windowSizeSetting": "창 크기",
   "year": "년",
-  "yearly": "연간",
-  "yearlyChartTitle": "연간 차단된 통화",
   "noSimCardsDetected": "SIM 카드가 감지되지 않았습니다",
   "filterManagementDescription": "통화 필터 설정",
   "callerIdCustomizationSubtitle": "발신자 ID 레이아웃 사용자 지정",
@@ -1895,7 +1391,6 @@
   "useLocalNotificationDescription": "수신 통화에 대한 로컬 알림 사용",
   "cancelLocalNotification": "로컬 알림 닫기",
   "useStirNotification": "STIR의 알림 사용",
-  "useStirNotificationDescription": "수신 통화에 대한 STIR 알림 사용",
   "cancelLocalNotificationDescription": "로컬 알림 자동 닫기",
   "callerIdSettingsTitle": "발신자 ID 설정",
   "callerIdSettingsSubtitle": "수신 통화 알림 및 표시 모드 설정",
@@ -1904,16 +1399,6 @@
   "callerIdNotificationTitle": "수신 통화 정보",
   "@callerIdNotificationTitle": {
     "description": "Title for the Incoming Call Info"
-  },
-  "callerIdBody": "번호: {phoneNumber}",
-  "@callerIdBody": {
-    "description": "Body for the caller ID notification, showing the phone number",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
   },
   "blockedCallTitle": "차단된 통화",
   "@blockedCallTitle": {
@@ -1974,18 +1459,6 @@
   "@fraudAlertTitle": {
     "description": "Title for the fraud alert notification"
   },
-  "fraudAlertBody": "{phoneNumber}에서 잠재적 사기 통화",
-  "@fraudAlertBody": {
-    "description": "Body for the fraud alert notification",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
-  },
-  "loadRulesFailed": "규칙을 로드하지 못했습니다: {error}",
-  "loadCallLogFailed": "통화 기록을 로드하지 못했습니다: {error}",
   "noBlockedTypeData": "차단된 유형 데이터가 없습니다",
   "importEntity": "{entityTypeName} 가져오기",
   "@importEntity": {
@@ -2065,7 +1538,6 @@
   "vipUser": "VIP 사용자",
   "temporaryVip": "임시 VIP",
   "removeAds": "광고 제거",
-  "unknownAction": "알 수 없는 작업",
   "settingsBackup": "설정 백업",
   "allServicesStatusTitle": "현재 서비스 상태",
   "allServicesStatusSubtitle": "각 클라우드 서비스의 현재 상태",
@@ -2153,7 +1625,6 @@
   "unblocked": "차단 해제됨",
   "blockNumber": "차단 번호",
   "blockNumberSuccess": "번호 차단 성공",
-  "blockNumberFailed": "번호 차단 실패",
   "unblockNumberConfirmation": "{phoneNumber}의 차단을 해제하시겠습니까?",
   "@unblockNumberConfirmation": {
     "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
@@ -2165,23 +1636,11 @@
       }
     }
   },
-  "callingNumber": "{phoneNumber}에 전화 거는 중...",
-  "@callingNumber": {
-    "description": "Status text displayed on the screen when an outgoing call is initiated.",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "description": "The phone number that is being dialed.",
-        "example": "+1 555-123-4567"
-      }
-    }
-  },
   "viewDetails": "세부 정보 보기",
   "unblock": "차단 해제",
   "unblockNumber": "번호 차단 해제",
   "unblockNumberSuccess": "번호 차단 해제 성공",
   "unblockNumberFailed": "번호 차단 해제 실패",
-  "serviceNotAvailable": "서비스를 사용할 수 없습니다",
   "callingNumberFailed": "전화 걸기 실패",
   "listView": "목록 보기",
   "timelineView": "타임라인 보기",
@@ -2192,7 +1651,6 @@
   "callType": "통화 유형",
   "callTime": "통화 시간",
   "numberInvalidFormat": "번호 형식이 잘못되었습니다",
-  "membershipFeature": "멤버십 기능",
   "medium": "매체",
   "verificationReport": "인증 보고서",
   "finalRisk": "최종 위험",
@@ -2221,7 +1679,6 @@
   "noNotifications": "알림 없음",
   "clearAllNotifications": "모든 알림 지우기",
   "clearAllNotificationsConfirmation": "모든 알림을 지우시겠습니까?",
-  "allNotificationsCleared": "모든 알림을 지웠습니다",
   "clearButton": "지우기",
   "justNow": "방금",
   "minutesAgo": "{count,plural, =1{1분 전} other{{count}분 전}}",
@@ -2298,10 +1755,6 @@
   "@reasonInaccurateInfo": {
     "description": "Inaccurate Information reason option"
   },
-  "reasonWrongMarked": "잘못 표시됨",
-  "@reasonWrongMarked": {
-    "description": "Wrong marked reason option"
-  },
   "reasonOther": "기타",
   "@reasonOther": {
     "description": "Other reason option"
@@ -2314,33 +1767,9 @@
   "@cancel": {
     "description": "Cancel button text"
   },
-  "proposalStatus": "상태",
-  "@proposalStatus": {
-    "description": "Proposal status label"
-  },
-  "statusPending": "보류 중",
-  "@statusPending": {
-    "description": "Pending status"
-  },
-  "statusActive": "활성",
-  "@statusActive": {
-    "description": "Active status"
-  },
-  "statusCompleted": "완료됨",
-  "@statusCompleted": {
-    "description": "Completed status"
-  },
-  "statusExpired": "만료됨",
-  "@statusExpired": {
-    "description": "Expired status"
-  },
   "riskLevel": "위험 수준",
   "@riskLevel": {
     "description": "Risk level label"
-  },
-  "riskLevelVerified": "확인됨",
-  "@riskLevelVerified": {
-    "description": "Verified risk level"
   },
   "riskLevelLow": "낮음",
   "@riskLevelLow": {
@@ -2350,26 +1779,9 @@
   "@riskLevelHigh": {
     "description": "Label for high risk level"
   },
-  "riskLevelUnknown": "알 수 없음",
-  "@riskLevelUnknown": {
-    "description": "Unknown risk level"
-  },
-  "votingProgress": "투표 진행률",
-  "@votingProgress": {
-    "description": "Voting progress label"
-  },
   "agreeVotes": "동의: {count}",
   "@agreeVotes": {
     "description": "Agree votes count",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "disagreeVotes": "반대: {count}",
-  "@disagreeVotes": {
-    "description": "Disagree votes count",
     "placeholders": {
       "count": {
         "type": "int"
@@ -2405,14 +1817,6 @@
   "@verificationReport": {
     "description": "Verification report label"
   },
-  "showReport": "보고서 보기",
-  "@showReport": {
-    "description": "Show report button text"
-  },
-  "hideReport": "보고서 숨기기",
-  "@hideReport": {
-    "description": "Hide report button text"
-  },
   "proposalStatistics": "제안 통계",
   "@proposalStatistics": {
     "description": "Proposal statistics title"
@@ -2425,37 +1829,17 @@
   "@activeProposals": {
     "description": "Active proposals label"
   },
-  "completedProposals": "완료된 제안",
-  "@completedProposals": {
-    "description": "Completed proposals label"
-  },
-  "myVotes": "내 투표",
-  "@myVotes": {
-    "description": "My votes label"
-  },
   "proposalCreated": "제안이 성공적으로 생성되었습니다",
   "@proposalCreated": {
     "description": "Proposal created success message"
-  },
-  "proposalCreateFailed": "제안 생성에 실패했습니다",
-  "@proposalCreateFailed": {
-    "description": "Proposal create failed message"
   },
   "voteSubmitted": "투표가 성공적으로 제출되었습니다",
   "@voteSubmitted": {
     "description": "Vote submitted success message"
   },
-  "voteSubmitFailed": "투표 제출에 실패했습니다",
-  "@voteSubmitFailed": {
-    "description": "Vote submit failed message"
-  },
   "noProposalsFound": "제안이 없습니다",
   "@noProposalsFound": {
     "description": "No proposals found message"
-  },
-  "loadingProposals": "제안 로딩 중...",
-  "@loadingProposals": {
-    "description": "Loading proposals message"
   },
   "refreshProposals": "제안 새로 고침",
   "@refreshProposals": {
@@ -2684,12 +2068,8 @@
       }
     }
   },
-  "loadVoteCountFailed": "투표 수 로드 실패",
   "voteCount": "투표 수",
-  "deletionProposalInfo": "삭제 제안 정보",
   "deletionProposalDescription": "커뮤니티 가이드라인을 위반하는 삭제할 번호를 제안하세요. 참여는 플랫폼 안전을 유지하는 데 도움이 됩니다.",
-  "voteToEarnVip": "VIP 특권을 얻기 위해 제안에 투표하세요!",
-  "voteFailed": "투표 실패",
   "searchProposals": "제안 검색",
   "defaultNotifications": "기본 알림",
   "defaultNotificationsDescription": "앱의 기본 알림 채널.",
@@ -2699,81 +2079,14 @@
   "stirVerificationDescription": "번호에 대한 STIR/SHAKEN 인증 결과를 표시합니다.",
   "fraudAlerts": "사기 알림",
   "fraudAlertsDescription": "잠재적인 사기 통화에 대한 경고를 표시합니다.",
-  "notificationFrequencyDescription": "새로운 삭제 제안에 대한 알림을 얼마나 자주 받을지 선택하세요. 즉시, 일괄적으로 또는 사용자 지정 간격으로 받을 수 있습니다.",
-  "@notificationFrequencyDescription": {
-    "description": "A detailed explanation of what the notification frequency settings do"
-  },
   "@notificationMode": {
     "description": "Title for the mode selection part (Immediate, Batched, Custom)"
-  },
-  "immediateNotifications": "즉시",
-  "@immediateNotifications": {
-    "description": "Label for the immediate notification mode"
-  },
-  "immediateNotificationsDescription": "제안이 생성되는 즉시 알림을 받습니다.",
-  "@immediateNotificationsDescription": {
-    "description": "Description for the immediate notification mode"
-  },
-  "batchNotifications": "일괄 처리됨",
-  "@batchNotifications": {
-    "description": "Label for the batched notification mode"
-  },
-  "batchNotificationsDescription": "알림 요약을 주기적으로 받습니다.",
-  "@batchNotificationsDescription": {
-    "description": "Description for the batched notification mode"
-  },
-  "customNotifications": "사용자 지정",
-  "@customNotifications": {
-    "description": "Label for the custom notification mode"
-  },
-  "customNotificationsDescription": "알림 수신 간격을 직접 정의합니다.",
-  "@customNotificationsDescription": {
-    "description": "Description for the custom notification mode"
-  },
-  "customFrequency": "사용자 지정 빈도",
-  "@customFrequency": {
-    "description": "Title for the custom frequency slider section"
-  },
-  "notificationFrequencyDurationMinutes": "{minutes} 분",
-  "@notificationFrequencyDurationMinutes": {
-    "description": "Formats a duration that is only in minutes.",
-    "placeholders": {
-      "minutes": {
-        "type": "int",
-        "example": "45"
-      }
-    }
-  },
-  "notificationFrequencyDurationHours": "{hours} 시간",
-  "@notificationFrequencyDurationHours": {
-    "description": "Formats a duration that is in whole hours.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "2"
-      }
-    }
-  },
-  "notificationFrequencyDurationHoursAndMinutes": "{hours} 시간 {minutes} 분",
-  "@notificationFrequencyDurationHoursAndMinutes": {
-    "description": "Formats a duration that has both hours and minutes.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "1"
-      },
-      "minutes": {
-        "type": "int",
-        "example": "30"
-      }
-    }
   },
   "pendingProposals": "대기 중인 제안",
   "pendingProposalsBody": "대기 중인 제안이 {count, plural, =0 {없습니다} one {1개 있습니다} other {{count}개 있습니다}}.",
   "guidelinesLabel": "가이드라인",
   "reportingGuidelines": "• 정말 문제 있는 번호만 신고하세요.\n• 정확하고 상세한 이유를 제공하세요.\n• 심각성에 따라 적절한 위험 수준을 선택하세요.\n• 허위 신고는 계정 제한으로 이어질 수 있습니다.",
   "riskLevelLabel": "위험 수준",
-  "riskLevelDescription": "전화번호의 위험 수준",
   "phoneNumberMinDigits": "전화번호는 최소 7자리여야 합니다.",
   "provideDetailedExplanation": "상세한 설명을 제공하세요 (최소 10자)",
   "reasonMinCharacters": "이유는 최소 10자 이상이어야 합니다.",
@@ -2790,39 +2103,15 @@
   "@countryCodeRequired": {
     "description": "Validation message for required country code"
   },
-  "countryCodeLengthError": "국가 코드는 2글자여야 합니다.",
-  "@countryCodeLengthError": {
-    "description": "Validation message for country code length"
-  },
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
-  "phoneNumberLengthError": "전화번호는 최소 7자리여야 합니다.",
-  "@phoneNumberLengthError": {
-    "description": "Validation message for phone number length"
-  },
-  "reasonHint": "상세한 설명을 제공하세요 (최소 10자)",
-  "@reasonHint": {
-    "description": "Hint text for reason input field"
-  },
   "reasonRequired": "이유가 필요합니다.",
   "@reasonRequired": {
     "description": "Validation message for required reason"
-  },
-  "reasonLengthError": "이유는 최소 10자 이상이어야 합니다.",
-  "@reasonLengthError": {
-    "description": "Validation message for reason length"
-  },
-  "guidelinesTitle": "가이드라인",
-  "@guidelinesTitle": {
-    "description": "Title for guidelines section"
-  },
-  "guidelinesText": "• 정말 문제 있는 번호만 신고하세요.\n• 정확하고 상세한 이유를 제공하세요.\n• 심각성에 따라 적절한 위험 수준을 선택하세요.\n• 허위 신고는 계정 제한으로 이어질 수 있습니다.",
-  "@guidelinesText": {
-    "description": "Text content for guidelines section"
   },
   "riskLevelCritical": "위험",
   "@riskLevelCritical": {
@@ -2836,33 +2125,9 @@
   "@riskLevelVeryLow": {
     "description": "Label for very low risk level"
   },
-  "riskDescriptionVeryLow": "매우 낮음 - 약간의 불쾌감, 드문 통화",
-  "@riskDescriptionVeryLow": {
-    "description": "Description for very low risk level"
-  },
-  "riskDescriptionLow": "낮음 - 가끔 원치 않는 전화",
-  "@riskDescriptionLow": {
-    "description": "Description for low risk level"
-  },
-  "riskDescriptionMedium": "중간 - 정기적인 스팸 또는 텔레마케팅",
-  "@riskDescriptionMedium": {
-    "description": "Description for medium risk level"
-  },
-  "riskDescriptionHigh": "높음 - 지속적인 괴롭힘 또는 사기 시도",
-  "@riskDescriptionHigh": {
-    "description": "Description for high risk level"
-  },
-  "riskDescriptionCritical": "위험 - 위험한 사기 또는 위협",
-  "@riskDescriptionCritical": {
-    "description": "Description for critical risk level"
-  },
   "notificationFrequencyTitle": "알림 빈도",
   "@notificationFrequencyTitle": {
     "description": "Title for notification frequency settings"
-  },
-  "notificationFrequencyLabel": "알림 빈도 (시간)",
-  "@notificationFrequencyLabel": {
-    "description": "Label for notification frequency dropdown"
   },
   "errorMessage": "오류: {error}",
   "@errorMessage": {
@@ -2870,18 +2135,6 @@
     "placeholders": {
       "error": {
         "type": "String"
-      }
-    }
-  },
-  "votesStatistics": "투표: {totalVotes} (찬성 {supportPercentage}%)",
-  "@votesStatistics": {
-    "description": "Voting statistics text",
-    "placeholders": {
-      "totalVotes": {
-        "type": "int"
-      },
-      "supportPercentage": {
-        "type": "int"
       }
     }
   },
@@ -2899,37 +2152,6 @@
     "description": "Shows the number of oppose votes.",
     "placeholders": {
       "opposeCount": {
-        "type": "int"
-      }
-    }
-  },
-  "timeJustNow": "방금 전",
-  "@timeJustNow": {
-    "description": "Time format for recent events"
-  },
-  "timeMinutesAgo": "{minutes}분 전",
-  "@timeMinutesAgo": {
-    "description": "Time format for minutes ago",
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
-  "timeHoursAgo": "{hours}시간 전",
-  "@timeHoursAgo": {
-    "description": "Time format for hours ago",
-    "placeholders": {
-      "hours": {
-        "type": "int"
-      }
-    }
-  },
-  "timeDaysAgo": "{days}일 전",
-  "@timeDaysAgo": {
-    "description": "Time format for days ago",
-    "placeholders": {
-      "days": {
         "type": "int"
       }
     }
@@ -2989,7 +2211,6 @@
   "liveActivitiesTestUpdateActivity": "활동 업데이트",
   "liveActivityControlsTitle": "실시간 활동 제어",
   "liveActivitiesTestTitle": "실시간 활동 테스트",
-  "liveActivitiesTestSubtitle": "실시간 활동 알림을 테스트합니다.",
   "liveNotificationCustomizationTitle": "실시간 알림 사용자 지정",
   "liveNotificationCustomizationSubtitle": "실시간 알림의 모양을 사용자 지정합니다.",
   "notification_instructions": "지침:\n1. 알림을 생성하거나 업데이트하려면 \"보내기\"를 탭하세요.\n2. 결과를 확인하려면 홈 화면으로 이동하거나 알림 트레이를 아래로 당기세요.\n3. 알림을 닫으려면 \"종료\"를 탭하세요.",
@@ -3012,7 +2233,6 @@
   "@proposalDetails": {
     "description": "The title of the proposal details page."
   },
-  "filterByStatus": "상태별 필터링",
   "proposalNotFound": "제안을 찾을 수 없습니다",
   "@proposalNotFound": {
     "description": "A message displayed when a proposal is not found."
@@ -3020,10 +2240,6 @@
   "processed": "처리됨",
   "@processed": {
     "description": "A label for the processed status."
-  },
-  "showAll": "모두 보기",
-  "@showAll": {
-    "description": "A button to show all proposals."
   },
   "filterAndSortTitle": "필터 및 정렬",
   "filterVerifiedOwner": "확인된 소유자 필터링",
@@ -3055,10 +2271,6 @@
   "@invalidSimData": {
     "description": "A message displayed when the SIM data is invalid."
   },
-  "simCardData": "SIM 카드 데이터",
-  "@simCardData": {
-    "description": "A label for the SIM card data."
-  },
   "simSlot": "SIM 슬롯",
   "@simSlot": {
     "description": "A label for the SIM slot."
@@ -3077,8 +2289,6 @@
   },
   "callTypeRejected": "거절됨",
   "callTypeSilenced": "무음",
-  "callTypeVoicemail": "음성 사서함",
-  "callTypeUnknownIntercept": "알 수 없는 가로채기",
   "andMoreItems": "그리고 {count}개 더",
   "@andMoreItems": {
     "description": "Text to show when there are more items than displayed.",

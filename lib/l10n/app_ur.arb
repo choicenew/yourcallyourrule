@@ -6,14 +6,6 @@
   },
   "aboutLabels": "لیبل کے بارے میں",
   "aboutPhoneSubscriptionRules": "فون سبسکرپشن کے اصولوں کے بارے میں",
-  "aboutPhoneSubscriptions": "فون سبسکرپشن کے بارے میں",
-  "@aboutPhoneSubscriptions": {
-    "description": "About phone subscriptions title"
-  },
-  "aboutPhoneSubscriptionsDesc": "یو آر ایل کے ذریعے فون رول لسٹ کو سبسکرائب کریں، اصولوں کو خود بخود اپ ڈیٹ کریں۔ JSON، CSV فارمیٹ رول فائلز کو سپورٹ کرتا ہے۔",
-  "@aboutPhoneSubscriptionsDesc": {
-    "description": "About phone subscriptions description"
-  },
   "aboutSmsFilter": "ایس ایم ایس فلٹرنگ کے بارے میں",
   "aboutSmsSubscriptionRules": "ایس ایم ایس سبسکرپشن کے اصولوں کے بارے میں",
   "aboutSubtitle": "ایپلیکیشن ورژن اور قانونی معلومات",
@@ -22,7 +14,6 @@
   "actionAll": "تمام",
   "actionAllow": "اجازت",
   "actionBlock": "بلاک",
-  "actionFilterAll": "تمام فلٹر",
   "actionFilterTitle": "عمل کی قسم کے لحاظ سے فلٹر",
   "actionFilterTooltip": "عمل فلٹر",
   "actionNone": "کوئی عمل نہیں",
@@ -42,24 +33,15 @@
   },
   "addContactButton": "رابطہ شامل کریں",
   "addContactFailed": "رابطہ شامل کرنے میں ناکام: {error}",
-  "addedToAllowedRules": "اجازت والے اصولوں میں شامل کیا گیا",
-  "addedToBlacklist": "بلیک لسٹ میں شامل کیا گیا",
-  "addedToBlockedRules": "بلاک اصولوں میں شامل کیا گیا",
-  "addedToFavoriteContacts": "پسندیدہ رابطوں میں شامل کیا گیا",
   "addedToFavorites": "پسندیدہ رابطوں میں شامل کیا گیا",
-  "addedToWhitelist": "وائٹ لسٹ میں شامل کیا گیا",
-  "addFavorite": "پسندیدہ شامل کریں",
-  "addFilter": "فلٹر شامل کریں",
   "addLabel": "لیبل شامل کریں",
   "addLabelButton": "لیبل شامل کریں",
   "addLabelFailed": "لیبل شامل کرنے میں ناکام: {error}",
-  "addLabelToCall": "کال ریکارڈ میں لیبل شامل کریں",
   "addName": "نام شامل کریں",
   "addNoneSubscription": "کوئی سبسکرپشن شامل نہیں",
   "@addNoneSubscription": {
     "description": "Add none subscription dialog title"
   },
-  "addOrEditContactInfo": "رابطے کی معلومات شامل یا ترمیم کرنے کے لئے استعمال کیا جاتا ہے",
   "addPhoneMark": "فون مارک شامل کریں",
   "addPhoneNumberRule": "فون نمبر رول شامل کریں",
   "addPlugin": "پلگ ان شامل کریں",
@@ -69,14 +51,12 @@
   "addPluginFromUrl": "یو آر ایل سے پلگ ان شامل کریں",
   "addRegexRule": "ریجیکس رول شامل کریں",
   "addRule": "رول شامل کریں",
-  "addRuleButton": "رول شامل کریں",
   "addRuleFailed": "رول شامل کرنے میں ناکام: {error}",
   "addRuleTooltip": "رول شامل کریں",
   "addSilenceSubscription": "خاموش سبسکرپشن شامل کریں",
   "@addSilenceSubscription": {
     "description": "Add silence subscription dialog title"
   },
-  "addSimRuleButton": "سم رول بٹن شامل کریں",
   "addSmsFilterRule": "ایس ایم ایس فلٹر رول شامل کریں",
   "addSmsRule": "ایس ایم ایس رول شامل کریں",
   "addSmsSubscription": "ایس ایم ایس سبسکرپشن شامل کریں",
@@ -95,26 +75,17 @@
     }
   },
   "addSubscriptionTooltip": "سبسکرپشن شامل کریں",
-  "addToAllowedRules": "اجازت والے اصولوں میں شامل کریں",
   "addToBlacklist": "بلیک لسٹ میں شامل کریں",
-  "addToBlockedRules": "بلاک اصولوں میں شامل کریں",
-  "addToFavoriteContacts": "پسندیدہ رابطوں میں شامل کریں",
   "addToFavorites": "پسندیدہ میں شامل کریں",
   "addToRules": "قواعد میں شامل کریں",
   "addToWhitelist": "وائٹ لسٹ میں شامل کریں",
-  "adPlaceholder": "اشتہار کی جگہ",
   "agent": "ایجنٹ",
   "all": "تمام",
   "allCallsTab": "تمام",
-  "allDataClearedSuccessfully": "تمام ڈیٹا کامیابی سے صاف ہوگیا",
   "allow": "اجازت",
   "allowAllAllowRules": "تمام اجازت والے قواعد کی اجازت دیں",
   "allowAllAllowRulesDesc": "اجازت والے قواعد سے کالوں کی اجازت دیں",
   "allowAllBlacklistedNumbers": "تمام بلیک لسٹڈ نمبروں کی اجازت دیں",
-  "allowAllBlacklistedNumbersDesc": "بلاک لسٹ سے کالوں کی اجازت دیں",
-  "@allowAllBlacklistedNumbersDesc": {
-    "description": "Allow calls from blocklist"
-  },
   "allowAllBlockRules": "تمام بلاک قواعد کی اجازت دیں",
   "allowAllBlockRulesDesc": "بلاک قواعد سے کالوں کی اجازت دیں",
   "allowAllowedNumbers": "اجازت والے نمبروں کی اجازت دیں",
@@ -135,8 +106,6 @@
   "allowRegexBlockRulesDescription": "ریجیکس پر مبنی بلاک قواعد کو فعال کریں",
   "allowRule": "اجازت کا قاعدہ",
   "allowRules": "اجازت کے قواعد",
-  "allowWhitelistedNumbers": "وائٹ لسٹ میں شامل نمبروں کی اجازت دیں",
-  "allowWhitelistedNumbersDescription": "وائٹ لسٹ میں شامل تمام نمبروں کی اجازت دیں",
   "allPermissionsGranted": "تمام اجازتیں مل گئیں",
   "allSettingsCompleted": "تمام ترتیبات مکمل ہو گئیں۔",
   "allUpdateSuccess": "تمام اپ ڈیٹس مکمل ہو گئے ({count} اصول)",
@@ -149,7 +118,6 @@
     }
   },
   "answerThenHangup": "جواب دیں پھر منقطع کریں",
-  "appLegalese": "© 2023 آپ کی کال آپ کا اصول۔ جملہ حقوق محفوظ ہیں.",
   "applicationSoftware": "ایپلیکیشن سافٹ ویئر",
   "apply": "درخواست دیں",
   "appName": "آپ کی کال آپ کا اصول",
@@ -162,8 +130,6 @@
   "autoUpdate": "خودکار اپ ڈیٹ",
   "autoUpdateDescription": "سبسکرپشن کے لیے خودکار اپ ڈیٹ وقفے مقرر کریں یا دستی طور پر اپ ڈیٹ کریں",
   "autoUpdateSettings": "خودکار اپ ڈیٹ ترتیبات",
-  "autoUpdateSettingsSubtitle": "اصولوں اور پلگ ان کے لیے خودکار اپ ڈیٹس کا نظم کریں",
-  "autoUpdateSettingsTitle": "خودکار اپ ڈیٹ ترتیبات",
   "autoUpdateSubtitle": "اصولوں اور پلگ ان کے لیے خودکار اپ ڈیٹس کا نظم کریں",
   "autoUpdateTitle": "خودکار اپ ڈیٹ",
   "avatarBorderColor": "اوتار بارڈر رنگ",
@@ -178,57 +144,33 @@
   "backupAndRestoreSubtitle": "ایپلیکیشن ڈیٹا کا بیک اپ یا بحال کریں",
   "backupAndRestoreTitle": "بیک اپ اور بحال کریں",
   "backupFailed": "بیک اپ میں ناکامی",
-  "backupFailedMessage": "بیک اپ میں ناکامی",
-  "backupFailedWithError": "بیک اپ میں ناکامی: {error}",
-  "backupRestoreSubtitle": "ایپلیکیشن ڈیٹا کا بیک اپ یا بحال کریں",
-  "backupRestoreTitle": "بیک اپ اور بحال کریں",
-  "backupSectionTitle": "بیک اپ",
   "backupSettings": "بیک اپ ترتیبات",
-  "backupSettingsDialogTitle": "بیک اپ ترتیبات",
-  "backupSettingsTitle": "بیک اپ ترتیبات",
-  "backupSuccessMessage": "کامیابی سے کلاؤڈ پر بیک اپ ہوگیا",
-  "backupSuccessToLocal": "بیک اپ کامیاب: {path}",
   "backupToCloud": "کلاؤڈ پر بیک اپ",
-  "backupToCloudDescription": "ترتیبات اور اصولوں کو کلاؤڈ اسٹوریج پر بیک اپ کریں",
   "backupToCloudFailed": "کلاؤڈ پر بیک اپ میں ناکامی: {error}",
-  "backupToCloudLabel": "کلاؤڈ پر بیک اپ",
   "backupToCloudSuccess": "کامیابی سے کلاؤڈ پر بیک اپ ہوگیا",
-  "backupToCloudTitle": "کلاؤڈ پر بیک اپ",
-  "backupToLocalLabel": "لوکل پر بیک اپ",
   "bank": "بینک",
   "basicInfo": "بنیادی معلومات",
   "basicRuleFilter": "بنیادی اصول فلٹر",
   "basicRuleFiltering": "بنیادی اصول فلٹرنگ",
   "basicRuleFilteringExplanation": "• بنیادی اصول فلٹرنگ: بلیک لسٹ، وائٹ لسٹ اور regex کی بنیاد پر اصولوں کو فلٹر کرنا",
-  "basicRuleFilterSettings": "بنیادی اصول فلٹر ترتیبات",
-  "@basicRuleFilterSettings": {
-    "description": "Title for basic rule filter settings page"
-  },
   "basicRuleFilterSubtitle": "بلیک لسٹ/وائٹ لسٹ اور باقاعدہ اظہار کا استعمال کرتے ہوئے کالوں کو فلٹر کریں",
-  "batchDeleteContacts": "بیچ میں رابطہ حذف کریں",
   "batchDeleteContactsConfirm": "کیا آپ واقعی منتخب کردہ {count} روابط کو حذف کرنا چاہتے ہیں؟",
-  "batchDeleteFailed": "بیچ حذف کرنے میں ناکامی",
   "batchDeleteLabelsConfirm": "کیا آپ واقعی {count} لیبلز کو حذف کرنا چاہتے ہیں؟",
   "blacklist": "بلیک لسٹ",
   "@blacklist": {
     "description": "Blacklist label"
   },
   "blacklistingAndWhitelisting": "بلیک لسٹنگ اور وائٹ لسٹنگ",
-  "blacklistLabel": "بلیک لسٹ",
   "blackWhiteList": "سیاہ/سفید فہرست",
   "block": "بلاک کریں",
   "blockCalls": "کالیں مسدود کریں",
   "blocked": "مسدود",
-  "blockedCallAction": "مسدود کال کارروائی",
   "blockedCalls": "مسدود کالز",
   "blockedCallsTitle": "مسدود کالز",
-  "blockedCommunications": "مسدود مواصلات",
-  "blockedPhoneLabel": "مسدود کالز",
   "blockedSpamCalls": "مسدود اسپام کالز",
   "blockingTrend": "مسدود کرنے کا رجحان",
   "blockInternationalCalls": "ان نمبروں سے میل کھاتا ہے جو + یا 00 سے شروع نہیں ہوتے ہیں",
   "blockInternationalCallsTitle": "بین الاقوامی کالیں مسدود کریں",
-  "blockLandlineNumbersTitle": "لینڈ لائن نمبر مسدود کریں",
   "blockMobileNumbers": "ان نمبروں سے میل کھاتا ہے جو 13-19 سے شروع نہیں ہوتے ہیں",
   "blockMobileNumbersTitle": "موبائل نمبر مسدود کریں",
   "blockPremiumRateNumbers": "ان نمبروں سے میل کھاتا ہے جو 118 یا 120-190 سے شروع نہیں ہوتے ہیں",
@@ -244,19 +186,9 @@
   "bulkDeleteLabels": "بیچ میں لیبلز حذف کریں",
   "call": "کال کریں",
   "callback": "کال بیک",
-  "callbackTo": "{number} پر کال بیک کریں",
-  "@callbackTo": {
-    "description": "Callback notification message",
-    "placeholders": {
-      "number": {
-        "type": "String"
-      }
-    }
-  },
   "callBlocking": "کال مسدود کرنا",
   "callerIdApp": "کالر ID ایپ",
   "callerIdCustomizationTitle": "کالر ID کو حسب ضرورت بنائیں",
-  "callerIdDialogTitle": "کالر ID معلومات",
   "callerIdDisplayMode": "کالر آئی ڈی ڈسپلے موڈ",
   "callerIdMarkedByCount": "{count} نے نشان زد کیا",
   "@callerIdMarkedByCount": {
@@ -268,8 +200,6 @@
     }
   },
   "callerIdPreview": "کالر آئی ڈی کا پیش منظر",
-  "callFilter": "کال فلٹر",
-  "callFilterDescription": "جب فعال ہو تو، آنے والی کالوں کو نیچے دی گئی قاعدہ فہرست کے خلاف جانچا جاتا ہے۔ کال فلٹرنگ کے قواعد کو ڈیفالٹ طور پر آلات کے درمیان مطابقت پذیر نہیں کیا جاتا ہے۔",
   "callFilterRules": "کال فلٹر کے قواعد",
   "callFilterRulesDescription": "کال فلٹرنگ کے لیے بنیادی قواعد مرتب کریں",
   "callFilterSettings": "کال فلٹر کی ترتیبات",
@@ -278,33 +208,10 @@
   "callHistory": "کال کی تاریخ",
   "callHistoryInfoDesc": "یہاں آپ کی کال کی تاریخ دکھائی گئی ہے، بشمول موصول ہونے والی، بھیجی جانے والی اور مسڈ کالیں۔",
   "callHistoryInfoTitle": "کال کی تاریخ",
-  "callHistoryInitFailed": "کال کی تاریخ شروع کرنے میں ناکام: {error}",
-  "@callHistoryInitFailed": {
-    "description": "Call history initialization failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
-  "callHistoryRefreshFailed": "کال کی تاریخ کو تازہ کرنے میں ناکام: {error}",
-  "@callHistoryRefreshFailed": {
-    "description": "Call history refresh failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "callHistoryTab": "کال کی تاریخ",
-  "callHistoryTimelineEarlier": "پہلے",
-  "callHistoryTimelineToday": "آج",
-  "callHistoryTimelineYesterday": "کل",
   "callScreeningPermission": "کال اسکریننگ کی اجازت",
   "callScreeningPermissionDescription": "سپیم کالوں کو اسکرین اور بلاک کرنے کے لیے استعمال کیا جاتا ہے۔",
   "callScreeningPermissionNotGranted": "کال اسکریننگ کی اجازت نہیں دی گئی، ایپ کی فعالیت متاثر ہو سکتی ہے۔",
-  "callSettingsSubtitle": "کالر آئی ڈی، فلٹرنگ اور بلاکنگ کی ترتیبات",
-  "callSettingsTitle": "کال کی ترتیبات",
   "callStatistics": "کال کے اعدادوشمار",
   "callTypeAnswered": "جواب دیا",
   "callTypeBlocked": "بلاک کی گئی",
@@ -330,32 +237,14 @@
       }
     }
   },
-  "changeTag": "ٹیگ تبدیل کریں",
   "charity": "چیریٹی",
-  "chartMonthFormat": "مہینہ {month}",
-  "@chartMonthFormat": {
-    "description": "Month format for chart labels",
-    "placeholders": {
-      "month": {
-        "type": "int"
-      }
-    }
-  },
-  "chartOneDayAgo": "1 دن پہلے",
-  "chartOneMonthAgo": "1 مہینہ پہلے",
   "chartOneWeekAgo": "1 ہفتہ پہلے",
-  "chartTenDaysAgo": "10 دن پہلے",
   "chartThreeDaysAgo": "3 دن پہلے",
   "chartToday": "آج",
   "checkFileFormat": "براہ کرم فائل کی شکل یا اجازتیں چیک کریں",
   "checkPermissionFailed": "اجازتیں چیک کرنے میں ناکام: {error}",
   "chooseDefaultInterceptAction": "ڈیفالٹ مداخلت عمل کا انتخاب کریں",
-  "clearAllData": "تمام ڈیٹا صاف کریں",
-  "clearAllDataConfirmation": "کیا آپ واقعی تمام ایپلیکیشن ڈیٹا صاف کرنا چاہتے ہیں؟ یہ عمل واپس نہیں کیا جا سکتا۔",
-  "clearAllDataDescription": "ایپلیکیشن کا تمام ڈیٹا صاف کریں",
-  "clearAllDataLabel": "تمام ڈیٹا صاف کریں",
   "clearFilter": "فلٹر صاف کریں",
-  "clearLabelFilter": "لیبل فلٹر صاف کریں",
   "clearLabelFilterButton": "لیبل فلٹر صاف کریں",
   "closeButton": "بند کریں",
   "cloudSync": "کلاؤڈ سنک",
@@ -363,26 +252,18 @@
   "cloudSyncSettingsSubtitle": "ویب ڈی اے وی، ون ڈرائیو اور گوگل ڈرائیو کو ترتیب دیں",
   "cloudSyncSettingsTitle": "کلاؤڈ سنک کی ترتیبات",
   "cloudSyncTitle": "کلاؤڈ سنک",
-  "collapseLabelSelector": "لیبل سلیکٹر کو جمع کریں",
   "collection": "قرض کی وصولی",
   "colorPickerTitle": "رنگ منتخب کریں",
   "configManagement": "ترتیب کا انتظام",
   "configUpdated": "ترتیب اپ ڈیٹ ہو گئی",
   "configurationAdvice": "مناسب ترتیب کے ذریعے، آپ کام اور ذاتی سم کارڈ کے لیے مختلف فلٹرنگ حکمت عملی مرتب کر سکتے ہیں۔",
   "configureBackupOptions": "بیک اپ کے اختیارات کو ترتیب دیں",
-  "configureBackupOptionsSubtitle": "بیک اپ کے اختیارات کو ترتیب دیں",
   "configureCloudSyncService": "کلاؤڈ سنک سروس ترتیب دیں",
-  "configureCloudSyncServiceHint": "ملٹی ڈیوائس سنکرونائزیشن کو فعال کرنے کے لیے براہ کرم کلاؤڈ سنک سروس ترتیب دیں۔",
   "configureCloudSyncServiceMessage": "ملٹی ڈیوائس سنکرونائزیشن کو فعال کرنے کے لیے براہ کرم کلاؤڈ سنک سروس ترتیب دیں۔",
   "configureSimCardFilterRules": "سم کارڈ فلٹر کے قواعد ترتیب دیں",
-  "configureSyncServiceHint": "براہ کرم پہلے کلاؤڈ سنک کی ترتیبات میں سنک سروس ترتیب دیں۔",
   "confirm": "تصدیق کریں",
-  "confirmBatchDeleteContacts": "کیا آپ واقعی منتخب کو حذف کرنا چاہتے ہیں",
   "confirmButton": "تصدیق کریں",
   "confirmDelete": "حذف کرنے کی تصدیق کریں",
-  "confirmDeleteContact": "کیا آپ واقعی حذف کرنا چاہتے ہیں",
-  "confirmDeleteContactName": "حذف کرنے کی تصدیق کریں؟",
-  "confirmDeleteFilter": "کیا آپ واقعی اس فلٹر کو حذف کرنا چاہتے ہیں؟",
   "confirmDeleteLabel": "کیا آپ واقعی لیبل \"{name}\" کو حذف کرنا چاہتے ہیں؟",
   "confirmDeletePlugin": "کیا آپ واقعی پلگ ان \"{name}\" کو حذف کرنا چاہتے ہیں؟",
   "confirmDeletePlugins": "کیا آپ واقعی {count} پلگ ان حذف کرنا چاہتے ہیں؟",
@@ -396,10 +277,8 @@
     }
   },
   "confirmDeleteRuleMessage": "کیا آپ واقعی اس قاعدہ کو حذف کرنا چاہتے ہیں؟ یہ عمل واپس نہیں کیا جا سکتا۔",
-  "confirmDeleteSelectedContacts": "کیا آپ واقعی منتخب رابطوں کو حذف کرنا چاہتے ہیں؟",
   "confirmDeleteSmsFilterRule": "کیا آپ واقعی اس ایس ایم ایس فلٹر قاعدہ کو حذف کرنا چاہتے ہیں؟",
   "confirmDeleteSmsRule": "کیا آپ واقعی اس ایس ایم ایس قاعدہ کو حذف کرنا چاہتے ہیں؟",
-  "confirmDeleteSubscription": "کیا آپ واقعی اس سبسکرپشن کو حذف کرنا چاہتے ہیں؟",
   "confirmDeleteSubscriptions": "کیا آپ واقعی {name} حذف کرنا چاہتے ہیں؟",
   "@confirmDeleteSubscriptions": {
     "description": "Confirmation message shown before deleting a subscription.",
@@ -411,7 +290,6 @@
     }
   },
   "confirmPassword": "پاس ورڈ کی تصدیق کریں",
-  "confirmPasswordLabel": "پاس ورڈ کی تصدیق کریں",
   "connectedStatus": "منسلک",
   "connectionFailedCheckCredentialsMessage": "کنکشن ناکام: براہ کرم سرور ایڈریس، صارف نام اور پاس ورڈ چیک کریں",
   "connectionFailedMessage": "کنکشن ناکام",
@@ -419,19 +297,11 @@
   "connectionSuccessMessage": "کنکشن کامیاب",
   "contactAddSuccess": "رابطہ کامیابی سے شامل ہو گیا",
   "contactDeleted": "رابطہ حذف ہو گیا",
-  "contactEditDialog": "رابطہ ترمیم ڈائیلاگ",
-  "contactNameHint": "رابطہ نام درج کریں (اختیاری)",
   "contactNameLabel": "نام",
-  "contactNameOptional": "رابطہ نام (اختیاری)",
   "contactNotFound": "رابطہ نہیں ملا",
   "contacts": "روابط",
   "contactsDeleted": "{count} روابط حذف ہو گئے",
-  "contactSettingsSubtitle": "رابطہ مینجمنٹ اور لیبل سیٹنگز",
-  "contactSettingsTitle": "رابطہ سیٹنگز",
-  "contactsLoadingFailed": "روابط لوڈ کرنے میں ناکام: {error}",
   "contactsManagement": "روابط مینجمنٹ",
-  "contactsManagementPageTitle": "روابط مینجمنٹ صفحہ",
-  "contactsPageTitle": "روابط مینجمنٹ",
   "contactsPermission": "روابط کی اجازت",
   "contactsPermissionDescription": "رابطہ کالوں کی شناخت کے لیے استعمال کیا جاتا ہے۔",
   "contactsTab": "روابط",
@@ -439,8 +309,6 @@
   "@contactSubscriptionDescription": {
     "description": "About contact subscription description"
   },
-  "contactSubscriptionLoadingFailed": "رابطہ سبسکرپشن لوڈ کرنے میں ناکام: {error}",
-  "contactSubscriptionPageTitle": "رابطہ سبسکرپشنز",
   "contactUpdateSuccess": "رابطہ کامیابی سے اپ ڈیٹ ہو گیا",
   "contactUs": "ہم سے رابطہ کریں",
   "content": "مواد",
@@ -452,34 +320,16 @@
   "countryNameColor": "ملک کا نام رنگ",
   "countryNameFontSize": "ملک کا نام فونٹ سائز",
   "countryRegionNamePosition": "ملک/علاقہ نام پوزیشن",
-  "countrySelectionDialog": "ملک انتخاب ڈائیلاگ",
-  "countrySelectionDialogDescription": "کالر آئی ڈی معلومات کو استفسار کرنے کے لیے ایک ملک منتخب کرنے کے لیے استعمال کیا جاتا ہے۔",
   "countThresholdDescription": "فلٹرنگ ایکشن شروع کرنے کے لیے کم سے کم تعداد حد مقرر کریں۔",
   "countThresholdLabel": "تعداد حد",
-  "countThresholdSettings": "تعداد حد سیٹنگز",
-  "countThresholdValue": "تعداد حد: {count}",
   "createdRules": "تخلیق کردہ اصول",
   "csvFormat": "CSV فارمیٹ",
-  "currentDeviceChip": "موجودہ",
   "currentDeviceLabel": "موجودہ آلہ لیبل",
   "currentDeviceTitle": "موجودہ آلہ",
-  "currentLabels": "موجودہ لیبلز:",
   "currentLanguage": "موجودہ زبان",
-  "currentPasswordLabel": "موجودہ پاس ورڈ",
   "customerService": "کسٹمر سروس",
-  "customRange": "کسٹم رینج",
-  "dailyStatistics": "روزانہ کے اعدادوشمار",
-  "@dailyStatistics": {
-    "description": "Daily statistics notification option"
-  },
-  "dailyStatisticsDesc": "مسدود کالز اور پیغامات کے بارے میں روزانہ کے اعدادوشمار موصول کریں۔",
-  "@dailyStatisticsDesc": {
-    "description": "Description for daily statistics option"
-  },
   "dashboardTab": "ڈیش بورڈ",
   "dataAnalysis": "ڈیٹا تجزیہ",
-  "dataAnalysisDashboardPage": "ڈیٹا تجزیہ ڈیش بورڈ صفحہ",
-  "dataExport": "ڈیٹا ایکسپورٹ",
   "dataLoadFailure": "ڈیٹا لوڈ کرنے میں ناکامی: {error}",
   "@dataLoadFailure": {
     "description": "Data loading failure message",
@@ -492,9 +342,6 @@
   "dataLoadingFailed": "ڈیٹا لوڈ کرنے میں ناکام: {error}",
   "dataMigration": "ڈیٹا منتقلی",
   "dataMigrationDescription": "یہ فیچر آپ کو اپنے تمام ڈیٹا کو آلات کے مابین منتقل کرنے کی اجازت دیتا ہے۔ فی الحال ، آپ اپنے ڈیٹا کو دستی طور پر منتقل کرنے کے لئے بیک اپ اور بحال خصوصیات کا استعمال کرسکتے ہیں۔",
-  "dataMigrationDialogContent": "یہ فیچر آپ کو اپنے تمام ڈیٹا کو آلات کے مابین منتقل کرنے کی اجازت دیتا ہے۔ فی الحال ، آپ اپنے ڈیٹا کو دستی طور پر منتقل کرنے کے لئے بیک اپ اور بحال خصوصیات کا استعمال کرسکتے ہیں۔",
-  "dataMigrationDialogTitle": "ڈیٹا منتقلی",
-  "dataMigrationSectionTitle": "ڈیٹا منتقلی",
   "dataSourceReminder": "ڈیٹا ماخذ یاد دہانی",
   "days": "{count, plural, =1{1 دن} other{{count} دن}}",
   "@days": {
@@ -507,16 +354,11 @@
   },
   "daysVip": "{days} دن VIP",
   "debtCollection": "قرض کی وصولی",
-  "defaultPeriod": "ہفتہ",
   "delete": "حذف کریں",
   "deleteButton": "حذف کریں",
   "deleteContact": "رابطہ حذف کریں",
   "deleteContactConfirm": "کیا آپ واقعی {name} کو حذف کرنا چاہتے ہیں؟",
-  "deleteContactConfirmation": "کیا آپ واقعی رابطہ حذف کرنا چاہتے ہیں",
-  "deleteDeviceConfirmation": "کیا آپ واقعی {deviceName} کو حذف کرنا چاہتے ہیں؟",
-  "deleteDeviceDialogTitle": "آلہ حذف کریں",
   "deleteFailed": "حذف کرنے میں ناکامی: {error}",
-  "deleteFilter": "فلٹر حذف کریں",
   "deleteLabel": "لیبل حذف کریں",
   "deleteLabelFailed": "لیبل حذف کرنے میں ناکام: {error}",
   "deletePlugin": "پلگ ان حذف کریں",
@@ -526,7 +368,6 @@
   "deleteRule": "اصول حذف کریں",
   "deleteRuleFailed": "حذف کرنے میں ناکامی: {error}",
   "deleteSelected": "منتخب حذف کریں",
-  "deleteSmsRule": "SMS اصول حذف کریں",
   "deleteSubscription": "سبسکرپشن حذف کریں",
   "@deleteSubscription": {
     "description": "Delete subscription dialog title"
@@ -551,21 +392,13 @@
   },
   "deleteSuccess": "حذف کامیاب",
   "delivery": "ترسیل",
-  "deviceDeletedSuccessfully": "آلہ کامیابی سے حذف ہوگیا",
-  "deviceDeletedSuccessfullyMessage": "آلہ کامیابی سے حذف ہوگیا",
-  "deviceIdLabel": "آلہ ID",
   "deviceIDLabel": "آلہ ID",
   "deviceManagementSubtitle": "ملٹی ڈیوائس سنکرونائزیشن کا نظم کریں",
   "deviceManagementTitle": "آلہ مینجمنٹ",
   "deviceModelLabel": "آلہ ماڈل",
   "deviceName": "آلہ کا نام",
-  "deviceNameCannotBeEmpty": "ڈیوائس کا نام خالی نہیں ہو سکتا",
-  "deviceNameHint": "براہ کرم ڈیوائس کا نام درج کریں",
   "deviceNameLabel": "ڈیوائس کا نام",
-  "deviceRenamedSuccessfully": "ڈیوائس کا نام کامیابی سے تبدیل کر دیا گیا",
   "deviceRenamedSuccessfullyMessage": "ڈیوائس کا نام کامیابی سے تبدیل کر دیا گیا",
-  "devicesSyncedSuccessfully": "ڈیوائسز کامیابی سے مطابقت پذیر ہو گئیں",
-  "devicesSyncedSuccessfullyMessage": "ڈیوائسز کامیابی سے مطابقت پذیر ہو گئیں",
   "devicesSynchronizedSuccessfullyMessage": "ڈیوائسز کامیابی سے مطابقت پذیر ہو گئیں",
   "deviceUnregisteredSuccessfullyMessage": "ڈیوائس کامیابی سے غیر رجسٹرڈ ہو گئی",
   "dialogTitle": "Regex پیٹرن کی وضاحت",
@@ -576,7 +409,6 @@
   },
   "disabledStatus": "غیر فعال",
   "disableGlobalPlugins": "عالمی پلگ انز کو غیر فعال کریں",
-  "disableSubscriptionSuccessfully": "سبسکرپشن کامیابی سے غیر فعال ہو گئی",
   "disconnectButton": "منقطع کریں",
   "disconnectedMessage": "منقطع ہو گیا",
   "disconnectedStatus": "منقطع ہو گیا",
@@ -587,17 +419,12 @@
   "ecommerce": "ای کامرس",
   "edit": "ترمیم",
   "editContact": "رابطہ میں ترمیم کریں",
-  "editFilter": "فلٹر میں ترمیم کریں",
   "editLabel": "لیبل میں ترمیم کریں",
   "editPhoneRule": "فون رول میں ترمیم کریں",
-  "editPhoneRules": "فون رولز میں ترمیم کرنے کے لیے استعمال کیا جاتا ہے",
-  "editPhoneRuleTitle": "فون رول میں ترمیم کریں",
   "editRule": "رول میں ترمیم کریں",
-  "editSmsRule": "ایس ایم ایس رول میں ترمیم کریں",
   "education": "تعلیم",
   "elementPositionsSetting": "عناصر کی پوزیشنیں",
   "email": "ای میل",
-  "emailOptional": "ای میل (اختیاری)",
   "enableCallFilter": "کال فلٹر کو فعال کریں",
   "enableCallFilterDescription": "فعال ہونے پر، آنے والی کالوں کو نیچے دی گئی رول لسٹ کے خلاف چیک کیا جاتا ہے۔ کال فلٹرنگ رولز ڈیفالٹ طور پر ڈیوائسز کے درمیان مطابقت پذیر نہیں ہوتے ہیں۔",
   "enabled": "فعال",
@@ -607,9 +434,6 @@
   "enabledStatus": "فعال",
   "enableEncryption": "انکرپشن کو فعال کریں",
   "enableEncryptionDescription": "بیک اپ فائلوں کو انکرپٹ کریں",
-  "enableEncryptionLabel": "انکرپشن کو فعال کریں",
-  "enableEncryptionSubtitle": "بیک اپ فائلیں انکرپٹ کی جائیں گی",
-  "enableEncryptionTitle": "انکرپشن کو فعال کریں",
   "enableGlobalPlugins": "عالمی پلگ انز کو فعال کریں",
   "enableLocalCountFilter": "لوکل کاؤنٹ فلٹر کو فعال کریں",
   "enableLocalCountFilterDescription": "کال مارکنگ گنتی کی بنیاد پر خود بخود سپیم کالوں کو فلٹر کریں",
@@ -620,14 +444,11 @@
   "enableMuteRulesDesc": "خاموش مداخلت کے رولز کی ترتیب کا اطلاق کریں",
   "enableNoneActionRules": "کوئی ایکشن رولز کو فعال کریں",
   "enableNoneActionRulesDesc": "بغیر مداخلت کے ایکشنز کے رول کنفیگریشنز کی اجازت دیں",
-  "enableNotifications": "اطلاعات کو فعال کریں",
   "enableRemoteNumberFilter": "ریموٹ نمبر فلٹر کو فعال کریں",
   "enableRemoteNumberFilterDescription": "نمبروں کو فلٹر کرنے کے لیے ریموٹ ڈیٹا بیس استعمال کریں",
   "enableRule": "رول کو فعال کریں",
   "enableSmsFilter": "ایس ایم ایس فلٹرنگ کو فعال کریں",
   "enableSmsFilterDescription": "فعال ہونے پر، پیغامات خود بخود رولز کے مطابق فلٹر ہو جائیں گے",
-  "enableStatisticsNotifications": "شماریات کی اطلاعات کو فعال کریں",
-  "enableSubscriptionSuccessfully": "سبسکرپشن کامیابی سے فعال ہو گئی",
   "enableTimeInterception": "وقت کی مداخلت کو فعال کریں",
   "enableTimeInterceptionDescription": "مختصر وقت میں بار بار آنے والی کالوں کو روکیں",
   "enableTimeInterceptor": "ٹائم انٹرسیپٹر کو فعال کریں",
@@ -641,24 +462,15 @@
   },
   "enhancedFilterSettingsTitle": "بہتر فلٹر ترتیبات",
   "enhancedFilterSystemDescription": "بہتر فلٹر سسٹم عالمی رولز اور فی سم کارڈ فلٹرنگ کنفیگریشنز دونوں کی حمایت کرتا ہے۔",
-  "enterBothPhoneNumberAndRegexPattern": "براہ کرم فون نمبر اور Regex پیٹرن دونوں درج کریں",
   "enterBothPhoneNumberAndRegexPatternMessage": "براہ کرم فون نمبر اور Regex پیٹرن دونوں درج کریں۔",
   "enterContactName": "براہ کرم رابطہ کا نام درج کریں",
-  "enterCurrentPasswordHint": "براہ کرم موجودہ پاس ورڈ درج کریں",
   "enterDeviceName": "ڈیوائس کا نام درج کریں",
-  "enterDeviceNameHint": "براہ کرم ڈیوائس کا نام درج کریں",
-  "enterEmail": "ای میل درج کریں",
   "enterEmailOptional": "ای میل درج کریں (اختیاری)",
   "enterEncryptionPasswordHint": "انکرپشن پاس ورڈ درج کریں",
-  "enterEncryptionPasswordTitle": "انکرپشن پاس ورڈ درج کریں",
-  "enterFilterName": "براہ کرم فلٹر کا نام درج کریں",
-  "enterFilterPattern": "براہ کرم فلٹر پیٹرن درج کریں",
   "enterIconCode": "آئیکن کوڈ درج کریں",
   "enterName": "رابطہ کا نام درج کریں",
   "enterNewDeviceNameHint": "اس ڈیوائس کے لیے ایک نیا نام درج کریں",
-  "enterNewPasswordHint": "براہ کرم نیا پاس ورڈ درج کریں",
   "enterPasswordAgain": "دوبارہ پاس ورڈ درج کریں",
-  "enterPasswordHint": "براہ کرم پاس ورڈ درج کریں",
   "enterPhoneNumber": "فون نمبر درج کریں",
   "enterPhoneNumberHint": "ٹیسٹ کرنے کے لیے فون نمبر درج کریں",
   "enterPhoneNumberMultiple": "براہ کرم فون نمبر درج کریں، متعدد نمبرز کوما سے جدا کریں",
@@ -667,7 +479,6 @@
   "enterPluginName": "پلگ ان کا نام درج کریں",
   "enterPluginUrl": "پلگ ان URL ایڈریس درج کریں",
   "enterRegexHint": "Regex پیٹرن درج کریں",
-  "enterRuleNameAndPattern": "براہ کرم رول کا نام اور پیٹرن درج کریں",
   "enterRuleNameAndPatternMessage": "براہ کرم اصول کا نام اور ریجیکس پیٹرن دونوں درج کریں۔",
   "enterRuleNameHint": "اصول کا نام درج کریں",
   "enterSearchContent": "براہ کرم تلاش کا مواد درج کریں",
@@ -690,79 +501,50 @@
   "enterWebDAVPasswordHint": "براہ کرم WebDAV پاس ورڈ درج کریں",
   "enterWebDAVServerAddressHint": "براہ کرم WebDAV سرور ایڈریس درج کریں",
   "enterWebDAVUsernameHint": "براہ کرم WebDAV صارف نام درج کریں",
-  "errorDeletingDeviceMessage": "آلہ کو حذف کرنے میں خرابی: {error}",
-  "errorLoadingPlugin": "پلاگ ان لوڈ کرنے میں خرابی",
   "errorOccurredMessage": "ایک خرابی پیش آئی: {error}",
   "errorRenamingDeviceMessage": "آلہ کا نام تبدیل کرنے میں خرابی: {error}",
   "errorSynchronizingDevicesMessage": "آلات کی مطابقت پذیری میں خرابی: {error}",
-  "errorSyncingDevicesMessage": "آلات کی مطابقت پذیری میں خرابی: {error}",
-  "errorText": "خرابی",
   "errorUnregisteringDeviceMessage": "آلہ کو غیر رجسٹر کرنے میں خرابی: {error}",
   "exampleBlock400Prefix": "مثال کے طور پر 400 پریفکس نمبرز کو بلاک کریں",
   "exampleBlockMarketingSms": "مثال کے طور پر مارکیٹنگ SMS کو بلاک کریں",
-  "exampleContentRegex": "مثال کے طور پر، .*offer.*",
   "exampleContentRegexHint": "مواد کے ریجیکس کی مثال",
   "exampleCouponPromotionDiscount": "مثال کے طور پر .*(coupon|promotion|discount).*",
   "exampleFamilyFriends": "مثال کے طور پر فیملی، دوست وغیرہ۔",
   "examplePhoneNumber": "مثال کے طور پر 10086, 12345 وغیرہ۔",
   "exampleRegex400Prefix": "400 پریفکس کے لیے ریجیکس کی مثال",
-  "exampleRegexFormat": "مثال: ^10086$ فارمیٹ",
   "exampleSenderRegexHint": "مثال",
   "exchange": "تبادلہ",
   "exchangeNow": "ابھی تبادلہ کریں",
   "exchangeVip": "VIP تبادلہ",
-  "expandLabelSelector": "لیبل سلیکٹر کو پھیلائیں",
   "expiryTime": "میعاد ختم ہونے کا وقت: {time}",
   "export": "ایکسپورٹ کریں",
   "exportAllApplicationSettings": "ایپلیکیشن کی تمام ترتیبات ایکسپورٹ کریں",
-  "exportAllApplicationSettingsSubtitle": "ایپلیکیشن کی تمام ترتیبات ایکسپورٹ کریں",
   "exportAllRuleConfigurations": "تمام اصول کنفیگریشنز ایکسپورٹ کریں",
-  "exportAllRuleConfigurationsSubtitle": "تمام اصول کنفیگریشنز ایکسپورٹ کریں",
-  "exportComplete": "ایکسپورٹ مکمل",
   "exportConfig": "کنفیگریشن ایکسپورٹ کریں",
   "exportContacts": "رابطے ایکسپورٹ کریں",
   "exportData": "ڈیٹا ایکسپورٹ کریں",
-  "exportError": "ایکسپورٹ کی خرابی",
   "exportFailed": "ایکسپورٹ ناکام رہا",
   "exportFailure": "کنفیگریشن ایکسپورٹ کرنے میں ناکامی",
   "exportFeatureComingSoon": "ایکسپورٹ کی خصوصیت جلد آرہی ہے",
-  "exporting": "ایکسپورٹ کیا جا رہا ہے...",
   "exportLabels": "لیبل ایکسپورٹ کریں",
   "exportLabelsFailed": "لیبل ایکسپورٹ کرنے میں ناکامی: {error}",
   "exportPluginList": "پلاگ ان کی فہرست ایکسپورٹ کریں",
   "exportPluginListFailed": "پلاگ ان کی فہرست ایکسپورٹ کرنے میں ناکامی: {error}",
   "exportRules": "اصول ایکسپورٹ کریں",
-  "exportRulesDialogTitle": "اصول ایکسپورٹ کریں",
-  "exportRulesTitle": "اصول ایکسپورٹ کریں",
   "exportSmsRules": "SMS اصول ایکسپورٹ کریں",
   "exportStatisticsData": "شماریاتی ڈیٹا ایکسپورٹ کریں",
-  "exportSuccess": "ایکسپورٹ کامیاب",
   "exportSuccesslly": "کنفیگریشن کامیابی سے ایکسپورٹ ہو گئی",
-  "failedToAddContact": "رابطہ شامل کرنے میں ناکامی",
   "failedToAddRule": "اصول شامل کرنے میں ناکامی: {error}",
-  "failedToAddSmsRule": "SMS اصول شامل کرنے میں ناکامی: {error}",
   "failedToAddSmsSubscription": "SMS سبسکرپشن شامل کرنے میں ناکامی: {error}",
   "failedToBackupSettings": "ترتیبات کا بیک اپ لینے میں ناکامی: {error}",
   "failedToDecryptBackupFile": "بیک اپ فائل کو ڈکرپٹ کرنے میں ناکامی",
-  "failedToDeleteDevice": "آلہ کو حذف کرنے میں ناکامی",
   "failedToDeleteSmsRule": "SMS اصول حذف کرنے میں ناکامی: {error}",
   "failedToExportRules": "اصول ایکسپورٹ کرنے میں ناکامی: {error}",
-  "failedToExportSmsRules": "SMS اصول ایکسپورٹ کرنے میں ناکامی: {error}",
   "failedToGetCallerIdInfo": "کالر ID کی معلومات حاصل کرنے میں ناکامی: {error}",
   "failedToImportRules": "اصول درآمد کرنے میں ناکامی: {error}",
-  "failedToImportSmsRules": "SMS اصول درآمد کرنے میں ناکامی: {error}",
-  "failedToLoadContacts": "رابطے لوڈ کرنے میں ناکامی",
-  "failedToLoadPlugin": "پلاگ ان لوڈ کرنے میں ناکامی",
-  "failedToRenameDevice": "آلہ کا نام تبدیل کرنے میں ناکامی",
   "failedToRestoreSettings": "ترتیبات بحال کرنے میں ناکامی",
   "failedToRestoreSettingsWithError": "ترتیبات بحال کرنے میں ناکامی: {error}",
-  "failedToSetPassword": "پاس ورڈ سیٹ کرنے میں ناکامی: {error}",
-  "failedToSyncDevices": "آلات کی مطابقت پذیری میں ناکامی",
   "failedToToggleRuleStatus": "اصول کی حیثیت تبدیل کرنے میں ناکامی: {error}",
-  "failedToToggleSubscriptionStatus": "سبسکرپشن کی حیثیت تبدیل کرنے میں ناکامی",
-  "failedToUpdateContact": "رابطہ اپ ڈیٹ کرنے میں ناکامی",
-  "failedToUpdateSmsRule": "SMS اصول اپ ڈیٹ کرنے میں ناکامی: {error}",
-  "failure": "ناکامی",
   "favoriteContacts": "پسندیدہ رابطے",
   "featureAddRules": "• فون نمبر کے مخصوص اصول شامل کریں",
   "featureCenter": "فیچر سینٹر",
@@ -777,23 +559,14 @@
   "fileSavedTo": "فائل یہاں محفوظ کی گئی: {path}",
   "filter": "فلٹر",
   "filterByLabel": "لیبل کے لحاظ سے فلٹر کریں",
-  "filterClear": "فلٹر صاف کریں",
   "filterControlPanelTitle": "فلٹر کنٹرول پینل",
   "filterControlSubtitle": "تمام فلٹرز کی آن/آف حیثیت کا انتظام کریں",
   "filterControlTitle": "فلٹر کنٹرول",
-  "filterDeleteFailed": "فلٹر حذف کرنے میں ناکامی ہوئی",
-  "filterDeleteSuccess": "فلٹر کامیابی سے حذف ہو گیا",
-  "filterDetails": "فلٹر کی تفصیلات",
   "filtered": "فلٹر شدہ",
-  "filteredSms": "فلٹر شدہ ایس ایم ایس",
-  "filteredSmsLabel": "فلٹر شدہ ایس ایم ایس",
   "filterExplanation": "فلٹر کی وضاحت",
   "filterManagement": "فلٹر کا انتظام",
   "filterName": "فلٹر کا نام",
-  "filterPattern": "فلٹر پیٹرن",
   "filterPriorityNote": "نوٹ: فلٹرز کے درمیان ترجیحی تعلقات موجود ہیں، تفصیلات کے لیے مدد کی دستاویزات سے رجوع کریں",
-  "filterSaveFailed": "فلٹر محفوظ کرنے میں ناکامی ہوئی",
-  "filterSaveSuccess": "فلٹر کامیابی سے محفوظ ہو گیا",
   "filterSettings": "فلٹر کی ترتیبات",
   "filterSettingsTitle": "فلٹر کی ترتیبات",
   "filterSMS": "ایس ایم ایس فلٹر کریں",
@@ -815,8 +588,6 @@
   "flexibleCombinationFeature": "• لچکدار امتزاج: فی سم سلاٹ فلٹرز کو فعال/غیر فعال کریں",
   "fontSizesSetting": "فونٹ کے سائز",
   "foundRules": "{count} قواعد پائے گئے",
-  "foundRulesDoYouWantToImport": "{count} قواعد پائے گئے ہیں۔ کیا آپ انہیں درآمد کرنا چاہتے ہیں؟",
-  "foundRulesToImport": "{count} قواعد پائے گئے ہیں۔ کیا آپ انہیں درآمد کرنا چاہتے ہیں؟",
   "fraudAlert": "دھوکہ دہی کا انتباہ - کال کاٹ دیں",
   "fraudScamLikely": "دھوکہ دہی کا شبہ ہے",
   "free": "مفت",
@@ -838,29 +609,18 @@
   "@globalFilterSettings": {
     "description": "Global filter settings section title"
   },
-  "globalFilterToggleInstructions": "عالمی فلٹر کی ترتیبات ترتیب دیں جو تمام سم سلاٹس پر لاگو ہوتی ہیں:",
-  "@globalFilterToggleInstructions": {
-    "description": "Instructions for configuring global filter settings"
-  },
-  "globalSearchSubtitle": "رابطوں، لیبلز، بلیک لسٹس، وائٹ لسٹس وغیرہ کو تلاش کریں",
-  "globalSearchTitle": "عالمی تلاش",
   "globalSettings": "عالمی ترتیبات",
   "@globalSettings": {
     "description": "Title for global settings page"
   },
-  "googleAdDisplayPosition": "گوگل اشتہار کی نمائش کی پوزیشن",
-  "googleAdMobIntegrationText": "گوگل ایڈموب اشتہارات کو یہاں ضم کیا جا سکتا ہے",
   "googleDriveAuthDescription": "سسٹم کنفیگر شدہ گوگل ڈرائیو کلائنٹ آئی ڈی اور کلید کا استعمال کرتے ہوئے اجازت دیں",
-  "googleDriveAuthorizationHint": "سسٹم کنفیگر شدہ گوگل ڈرائیو کلائنٹ آئی ڈی اور کلید کا استعمال کرتے ہوئے اجازت دیں",
   "googleDriveConfigTitle": "گوگل ڈرائیو کنفیگریشن",
-  "googleDriveConfigurationTitle": "گوگل ڈرائیو کنفیگریشن",
   "government": "حکومتی",
   "granted": "اجازت دے دی گئی",
   "grantNecessaryPermissions": "ضروری اجازتیں دیں",
   "grantPermissions": "اجازتیں دیں",
   "headhunter": "ہیڈ ہنٹر",
   "height": "اونچائی",
-  "homePageTitle": "ہوم پیج",
   "homeTab": "ہوم",
   "howItWorksPoint1": "• سسٹم خودکار طور پر مقررہ وقت کی حد کے اندر ایک ہی نمبر سے آنے والی کالز کی اجازت دے گا",
   "howItWorksPoint2": "• چھوٹی ٹائم ونڈوز سخت رکاوٹ کا باعث بنتی ہیں؛ لمبی ٹائم ونڈوز ڈھیلی رکاوٹ کا باعث بنتی ہیں",
@@ -870,7 +630,6 @@
   "iconSize": "آئیکن کا سائز",
   "import": "درآمد کریں",
   "important": "اہم",
-  "importButton": "درآمد کریں",
   "importConfig": "کنفیگریشن درآمد کریں",
   "importContacts": "رابطے درآمد کریں",
   "importExportContacts": "رابطے درآمد/برآمد کریں",
@@ -885,17 +644,9 @@
   "importPluginListFailed": "پلگ ان کی فہرست درآمد کرنے میں ناکامی ہوئی: {error}",
   "importPluginSuccess": "{count} پلگ ان کامیابی سے درآمد ہو گئے",
   "importRuleConfigurationsFromFile": "فائل سے قواعد کی کنفیگریشنز درآمد کریں",
-  "importRuleConfigurationsFromFileSubtitle": "فائل سے قواعد کی کنفیگریشنز درآمد کریں",
   "importRules": "قواعد درآمد کریں",
-  "importRulesButton": "قواعد درآمد کریں",
-  "importRulesDialogTitle": "قواعد درآمد کریں",
-  "importRulesError": "قواعد درآمد کرنے میں ناکامی ہوئی: {error}",
-  "importRulesInstructions": "CSV فائل سے قواعد درآمد کریں",
-  "importRulesSuccess": "قواعد کامیابی سے درآمد ہو گئے",
-  "importRulesTitle": "قواعد درآمد کریں",
   "importSuccess": "درآمد کامیاب",
   "incomingCallInterceptAction": "آنے والی کال کو روکنے کا عمل",
-  "incomingCallNotification": "آنے والی کال کی اطلاع",
   "incorrectPassword": "غلط پاس ورڈ",
   "initializing": "شروع ہو رہا ہے",
   "installed": "انسٹال شدہ",
@@ -923,33 +674,18 @@
   "invalidRegexPattern": "غلط ریجیکس پیٹرن",
   "invalidSenderRegex": "غلط سینڈر ریجیکس",
   "joinTheTelegramChannelAndGroupForMoreInfo": "مزید معلومات کے لیے ٹیلی گرام چینل اور گروپ میں شامل ہوں",
-  "jsLogsTitle": "جے ایس لاگز",
   "jsonFormat": "JSON فارمیٹ",
   "keepAllVersions": "تمام ورژنز رکھیں",
   "keepAllVersionsDescription": "ہر بیک اپ کے تمام تاریخی ورژنز محفوظ رکھیں",
-  "keepAllVersionsLabel": "تمام ورژنز رکھیں",
-  "keepAllVersionsSubtitle": "ہر بیک اپ کے تاریخی ورژنز رکھیں",
-  "keepAllVersionsTitle": "تمام ورژنز رکھیں",
   "label": "لیبل",
   "labelAddedSuccessfully": "لیبل \"{name}\" کامیابی سے شامل کر دیا گیا",
   "labelCategories": "لیبل کیٹیگریز",
   "labelDeleted": "لیبل حذف کر دیا گیا",
   "labelDescription": "لیبل آپ کو رابطوں کو بہتر طریقے سے منظم کرنے میں مدد کرتے ہیں، کالز اور پیغامات کی آسانی سے شناخت کے لیے فون نمبرز پر کسٹم لیبلز شامل کریں۔",
-  "labelFilter": "لیبل فلٹر",
   "labelFilterTooltip": "لیبل فلٹر",
   "labelIconColor": "لیبل آئیکن کا رنگ",
   "labelManagement": "لیبل کا انتظام",
   "labelNotFound": "لیبل نہیں ملا",
-  "labelRemoved": "لیبل ہٹا دیا گیا",
-  "labelRemoveFailed": "لیبل ہٹانے میں ناکامی: {error}",
-  "@labelRemoveFailed": {
-    "description": "Label removal failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "labels": "لیبلز",
   "labelsColor": "لیبلز کا رنگ",
   "labelsDeleted": "{count} لیبلز حذف کر دیے گئے",
@@ -958,7 +694,6 @@
   "labelsImportedSuccessfully": "کامیابی سے {count} لیبلز درآمد ہو گئے",
   "labelsPosition": "لیبلز کی پوزیشن",
   "labelTag": "لیبل: {labelId}",
-  "labelUpdated": "لیبل اپ ڈیٹ ہو گیا",
   "labelUpdateFailed": "لیبل اپ ڈیٹ کرنے میں ناکامی: {error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -972,8 +707,6 @@
   "languageSettings": "زبان کی ترتیبات",
   "languageSettingsSubtitle": "ایپلی کیشن کی ڈسپلے زبان تبدیل کریں",
   "languageSettingsTitle": "زبان کی ترتیبات",
-  "last30Days": "آخری 30 دن",
-  "last7Days": "آخری 7 دن",
   "lastSyncLabel": "آخری ہم آہنگی",
   "lastUpdated": "آخری اپ ڈیٹ: {date}",
   "@lastUpdated": {
@@ -988,16 +721,12 @@
   "lifetimeMembershipDescription": "ایک بار کی خریداری، تمام پریمیم خصوصیات اور مستقبل کی اپ ڈیٹس کو مستقل طور پر غیر مقفل کریں",
   "loadContactsFailed": "رابطے لوڈ کرنے میں ناکامی: {error}",
   "loadDataFailed": "ڈیٹا لوڈ کرنے میں ناکامی",
-  "loadFailed": "لوڈ کرنے میں ناکامی",
   "loading": "لوڈ ہو رہا ہے...",
-  "loadingData": "ڈیٹا لوڈ ہو رہا ہے...",
   "loadingTags": "ٹیگز لوڈ ہو رہے ہیں...",
   "loadLabelFailed": "لیبلز لوڈ کرنے میں ناکامی: {error}",
   "loadLabelsFailed": "لیبلز لوڈ کرنے میں ناکامی: {error}",
   "loadMarkCountFailed": "نشان زد فون نمبرز لوڈ کرنے میں ناکامی: {error}",
   "loadMarkedPhonesFailed": "نشان زد فونز لوڈ کرنے میں ناکامی: {error}",
-  "loadMore": "مزید لوڈ کریں",
-  "loadPluginButton": "پلاگ ان لوڈ کریں",
   "loadPluginsFailed": "پلاگ انز لوڈ کرنے میں ناکامی: {error}",
   "loadSettingsFailed": "ترتیبات لوڈ کرنے میں ناکامی: {error}",
   "loadSmsRulesFailed": "ایس ایم ایس قواعد لوڈ کرنے میں ناکامی: {error}",
@@ -1012,7 +741,6 @@
     }
   },
   "loan": "قرض",
-  "localBackupTitle": "مقامی بیک اپ",
   "localCounterFilter": "مقامی کاؤنٹر فلٹر",
   "localCounterFilterSubtitle": "کال کی فریکوئنسی کی بنیاد پر اسپام کالز کو خود بخود فلٹر کریں",
   "localCountFilter": "مقامی شمار فلٹر",
@@ -1043,11 +771,9 @@
   "logAllRemoteQueries": "تمام ریموٹ استفسارات کو لاگ کریں",
   "logAllRemoteQueriesDescription": "تمام ریموٹ نمبر استفسار آپریشنز کو ریکارڈ کریں",
   "manage": "رابطوں کا انتظام کریں",
-  "manageContacts": "انتظام کریں",
   "manageFavoriteContacts": "پسندیدہ رابطوں کا انتظام کریں",
   "manageFilterRules": "فلٹر قواعد کا انتظام کریں",
   "manageFilterRulesDescription": "ایس ایم ایس فلٹر قواعد شامل کریں، ترمیم کریں، یا حذف کریں",
-  "manageFrequentContacts": "بار بار استعمال ہونے والے رابطوں کا انتظام کریں",
   "markCounts": "مارک کی تعداد",
   "markCount": "مارک کی تعداد",
   "markedByCount": "{count} کی طرف سے نشان زد",
@@ -1064,84 +790,48 @@
   "markExchange": "ایکسچینج کو نشان زد کریں",
   "markPhone": "فون نمبر کو نشان زد کریں",
   "markPhoneFailed": "فون نمبر مارک کرنے میں ناکامی: {error}",
-  "markPhoneManagementSubtitle": "فون نمبرز کو مارک کرنے کے لیے",
   "markPhoneManagementTitle": "فون مارک مینجمنٹ",
   "markPhoneSuccess": "فون نمبر کامیابی سے مارک ہو گیا",
-  "matchFailed": "میچ ناکام!",
   "matchFailedMessage": "میچ ناکام ہو گیا۔",
   "matchNumbersWithSpecialCharacters": "خاص نمبر فارمیٹ سے مماثل",
   "matchNumbersWithSpecialCharactersTitle": "خاص حروف والے نمبروں سے مماثل کریں:",
   "matchSpecificDigitPatterns": "XXX-XXXX-XXXX فارمیٹ سے مماثل ہے",
   "matchSpecificDigitPatternsTitle": "مخصوص ہندسوں کے پیٹرن سے مماثل کریں:",
-  "matchSuccessful": "میچ کامیاب!",
   "matchSuccessfulMessage": "میچ کامیاب!",
   "medical": "میڈیکل",
   "membershipPrivileges": "ممبرشپ کے مراعات",
   "migrationTool": "مائگریشن ٹول",
-  "migrationToolTitle": "مائگریشن ٹول",
   "minutes": "منٹ",
   "month": "مہینہ",
   "monthly": "ماہانہ",
   "monthlyCallCount": "ماہانہ کالز",
-  "monthlyChartTitle": "ماہانہ بلاک شدہ کالز",
   "monthlyMembership": "ماہانہ ممبرشپ",
   "monthlyMembershipDescription": "تمام پریمیم خصوصیات کو غیر مقفل کریں، ماہانہ خودکار تجدید",
   "monthlyTotal": "ماہانہ کل",
-  "monthlyTotalLabel": "ماہانہ کل",
   "moreOptions": "مزید اختیارات",
   "mute": "خاموش کریں",
   "name": "نام",
   "nameAndPhoneNumberCannotBeEmpty": "نام اور فون نمبر خالی نہیں ہو سکتے",
-  "nameAndPhoneNumberRequired": "نام اور فون نمبر خالی نہیں ہو سکتے",
   "nameColor": "نام کا رنگ",
   "nameFontSize": "نام فونٹ سائز",
-  "nameLabel": "نام: {name}",
-  "@nameLabel": {
-    "description": "Caller ID name label",
-    "placeholders": {
-      "name": {
-        "type": "Object"
-      }
-    }
-  },
   "namePosition": "نام کی پوزیشن",
   "nameUnknown": "نام: نامعلوم",
-  "nameWithValue": "نام: {name}",
-  "@nameWithValue": {
-    "description": "Text showing the name of a contact",
-    "placeholders": {
-      "name": {
-        "type": "String",
-        "example": "John Doe"
-      }
-    }
-  },
-  "newPasswordLabel": "نیا پاس ورڈ",
   "nextStep": "اگلا",
   "noAction": "کوئی کارروائی نہیں",
   "noActionRules": "کوئی کارروائی کے قوانین نہیں",
   "noActiveCloudSyncServiceMessage": "کوئی فعال کلاؤڈ سنک سروس نہیں",
-  "noCallLogs": "کوئی کال لاگز نہیں",
   "noCallRecords": "کوئی کال ریکارڈز نہیں",
-  "noContacts": "ابھی تک کوئی رابطہ نہیں",
   "noContactsYet": "ابھی تک کوئی رابطہ نہیں",
   "noData": "کوئی ڈیٹا نہیں",
   "noDevicesRegisteredMessage": "کوئی ڈیوائس رجسٹرڈ نہیں ہے",
-  "noDevicesRegisteredYet": "ابھی تک کوئی ڈیوائس رجسٹرڈ نہیں ہے۔",
-  "noFilters": "ابھی تک کوئی فلٹر نہیں",
   "noLabels": "ابھی تک کوئی لیبل نہیں",
   "noMarkedPhones": "کوئی مارک شدہ فون نمبر نہیں",
-  "noMatchingContacts": "کوئی مماثل رابطے نہیں",
   "noMatchingContactsFound": "کوئی مماثل رابطے نہیں ملے",
   "noMatchingNumbersFound": "کوئی مماثل نمبرز نہیں ملے",
-  "noMatchingRecords": "کوئی مماثل کال ریکارڈز نہیں",
   "noMatchingRules": "کوئی مماثل {ruleType} نہیں",
   "none": "کوئی نہیں",
   "noneServiceType": "کوئی نہیں",
   "noPlugins": "ابھی تک کوئی پلگ ان نہیں",
-  "noRecords": "کوئی کال ریکارڈز نہیں",
-  "noResultReturned": "کوئی نتیجہ واپس نہیں آیا",
-  "noResultReturnedLog": "پلگ ان سے کوئی نتیجہ واپس نہیں آیا",
   "noRules": "ابھی تک کوئی {ruleType} نہیں",
   "noRulesPrompt": "کوئی اصول نہیں ملا، براہ کرم اصول شامل کریں",
   "noRulesToExport": "برآمد کرنے کے لیے کوئی اصول نہیں",
@@ -1151,7 +841,6 @@
   "@noSubscriptions": {
     "description": "No subscriptions message"
   },
-  "noSubscriptionsYet": "ابھی تک کوئی سبسکرپشن نہیں",
   "notGranted": "اجازت نہیں دی گئی",
   "notificationMode": "نوٹیفکیشن موڈ",
   "notificationModeDescription": "نوٹیفکیشن بار میں کال کرنے والے کی معلومات دکھائیں",
@@ -1162,8 +851,6 @@
   "@notificationSettings": {
     "description": "Notification settings title"
   },
-  "notificationSettingsSaved": "اطلاعات کی ترتیبات کامیابی سے محفوظ ہو گئیں",
-  "notSet": "سیٹ نہیں کیا گیا",
   "notVerifiedText": "تصدیق شدہ نہیں",
   "noValidSmsRulesFoundInFile": "فائل میں کوئی درست SMS اصول نہیں ملے",
   "number": "نمبر",
@@ -1174,7 +861,6 @@
   "numberTypeColor": "نمبر کی قسم کا رنگ",
   "numberTypeFontSize": "نمبر کی قسم کا فونٹ سائز",
   "numberTypePosition": "نمبر کی قسم کی پوزیشن",
-  "ok": "ٹھیک ہے",
   "okButton": "ٹھیک ہے",
   "onboardingCompleteDescription": "آپ کا کال سیکیورٹی مینیجر تیار ہے، محفوظ کال کے تجربے سے لطف اندوز ہونا شروع کریں!",
   "onboardingLanguageDescription": "بہترین تجربے کے لیے اپنی پسندیدہ زبان منتخب کریں۔",
@@ -1183,9 +869,7 @@
   "onboardingSmartCallerIdDescription": "نامعلوم کالز کو خود بخود پہچانیں، مشتبہ نمبرز کو مارک کریں، اور اپنی کال کی حفاظت کریں۔",
   "onboardingWelcomeDescription": "آپ کا کال مینجمنٹ ماہر، جو جامع کال شناخت اور بلاکنگ خدمات فراہم کرتا ہے۔",
   "oneDriveAuthDescription": "سسٹم کی تشکیل شدہ OneDrive کلائنٹ ID اور کلید کا استعمال کرتے ہوئے اجازت دیں",
-  "oneDriveAuthorizationHint": "سسٹم کی تشکیل شدہ OneDrive کلائنٹ ID اور کلید کا استعمال کرتے ہوئے اجازت دیں",
   "oneDriveConfigTitle": "OneDrive کنفیگریشن",
-  "oneDriveConfigurationTitle": "OneDrive کنفیگریشن",
   "onlineCallerIdSubscription": "آن لائن کالر آئی ڈی سبسکرپشن",
   "openAppSettings": "ایپ کی ترتیبات کھولیں",
   "openAppSettingsFailed": "ایپ کی ترتیبات کھولنے میں ناکامی: {error}",
@@ -1203,7 +887,6 @@
   "passwordCannotBeEmpty": "پاس ورڈ خالی نہیں ہو سکتا",
   "passwordLabel": "پاس ورڈ",
   "passwordsDoNotMatch": "پاس ورڈز آپس میں نہیں ملتے",
-  "passwordSetSuccessfully": "پاس ورڈ کامیابی سے سیٹ ہو گیا",
   "pattern": "پیٹرن",
   "pendingSync": "زیر التواء مطابقت پذیری",
   "periodMonth": "مہینہ",
@@ -1216,9 +899,7 @@
   "phoneNumber": "فون نمبر",
   "phoneNumberCannotBeEmpty": "فون نمبر خالی نہیں ہو سکتا",
   "phoneNumberHint": "فون نمبر درج کریں",
-  "phoneNumberHintText": "اصول شامل کرنے کے لیے فون نمبر درج کریں",
   "phoneNumberLabel": "فون نمبر",
-  "phoneNumberRegexRequired": "براہ کرم فون نمبر اور ریجیکس پیٹرن دونوں درج کریں",
   "phoneNumberRequired": "فون نمبر ضروری ہے",
   "phoneNumberTypeFixedLine": "فکسڈ لائن",
   "phoneNumberTypeFixedLineOrMobile": "فکسڈ لائن یا موبائل",
@@ -1235,34 +916,23 @@
   "phonePermission": "فون کی اجازت",
   "phonePermissionDescription": "آنے والی کالز کی شناخت اور انہیں بلاک کرنے کے لیے استعمال کیا جاتا ہے۔",
   "phoneRule": "فون اصول",
-  "phoneRuleEditDialog": "فون اصول میں ترمیم کا ڈائیلاگ",
   "phoneRuleManagement": "فون اصول کا انتظام",
   "phoneRuleSubscription": "فون اصول کی سبسکرپشن",
   "phoneSubscription": "فون سبسکرپشن",
   "phoneSubscriptionRulesDescription": "URL کے ذریعے فون اصول کی فہرستوں کو سبسکرائب کریں تاکہ وائٹ لسٹ اور بلیک لسٹ کے اصولوں کو خود بخود اپ ڈیٹ کیا جا سکے۔ JSON فارمیٹ کی اصول فائلوں کو سپورٹ کرتا ہے۔",
-  "phoneSubscriptionTitle": "فون اصول کی سبسکرپشنز",
-  "@phoneSubscriptionTitle": {
-    "description": "Phone subscription page title"
-  },
   "pleaseSelectLabelAndEnterValidPhone": "براہ کرم ایک لیبل منتخب کریں اور ایک درست فون نمبر درج کریں",
   "pluginAddedSuccess": "پلگ ان \"{name}\" کامیابی سے شامل ہو گیا",
   "pluginDeleted": "پلگ ان حذف کر دیا گیا",
   "pluginLatestVersion": "پلگ ان پہلے ہی تازہ ترین ورژن ہے",
   "pluginListExportSuccess": "پلگ ان کی فہرست کامیابی سے ایکسپورٹ ہو گئی",
-  "pluginLoadedSuccessfully": "پلگ ان کامیابی سے لوڈ ہو گیا",
   "pluginManagement": "پلگ ان کا انتظام",
   "pluginManagementSubtitle": "فریق ثالث کے پلگ انز کا انتظام اور کنفیگر کریں",
-  "pluginManagementTitle": "پلگ ان کا انتظام",
   "pluginName": "پلگ ان کا نام",
-  "pluginNotLoaded": "پلگ ان ابھی تک لوڈ نہیں ہوا ہے۔ براہ کرم پہلے پلگ ان لوڈ کریں۔",
   "pluginsDeleted": "{count} پلگ ان کامیابی سے حذف کر دیے گئے۔",
   "pluginService": "پلگ ان سروس",
   "pluginTestPageTitle": "پلگ ان ٹیسٹ",
   "pluginUpdateSuccess": "پلگ ان کامیابی سے اپ ڈیٹ ہو گیا",
   "pluginUrl": "پلگ ان یو آر ایل",
-  "pluginUrlCannotBeEmpty": "پلگ ان یو آر ایل خالی نہیں ہو سکتا",
-  "pluginUrlHint": "پلگ ان یو آر ایل درج کریں",
-  "pluginUrlLabel": "پلگ ان یو آر ایل",
   "pluginVersion": "پلگ ان ورژن",
   "political": "سیاسی",
   "powerfulSpamBlocking": "طاقتور سپیم بلاکنگ",
@@ -1274,26 +944,16 @@
   "purchase": "خریدیں",
   "quarterlyMembership": "سہ ماہی رکنیت",
   "quarterlyMembershipDescription": "تمام پریمیم خصوصیات کو غیر مقفل کریں، سہ ماہی خودکار تجدید",
-  "queryButton": "سوال کریں",
-  "queryFailed": "سوال ناکام ہو گیا",
-  "queryFailedLog": "سوال ناکام ہو گیا",
-  "querying": "سوال کیا جا رہا ہے...",
-  "queryingPhoneNumber": "فون نمبر سے سوال کیا جا رہا ہے",
-  "queryResultTitle": "سوال کا نتیجہ",
   "ready": "تیار ہے!",
-  "receiveWeeklyStatistics": "ہفتہ وار اعدادوشمار وصول کریں",
   "recruiter": "بھرتی کرنے والا",
-  "reEnterPasswordHint": "براہ کرم پاس ورڈ دوبارہ درج کریں",
   "refresh": "ریفریش کریں",
   "refreshPermissionStatus": "اجازت کی حیثیت کو ریفریش کریں",
   "refreshTooltip": "ریفریش کریں",
-  "regexError": "ریجیکس کی خرابی: {error}",
   "regexErrorMessage": "ریجیکس کی خرابی: {error}",
   "regexPattern": "ریجیکس پیٹرن",
   "regexPatternExplanation": "ریجیکس پیٹرن کی وضاحت",
   "regexPatternExplanationButton": "ریجیکس پیٹرن کی وضاحت",
   "regexPatternLabel": "ریجیکس پیٹرن",
-  "regexPatternsExamples": "پیٹرن کی تعریف کے لیے معیاری ریجیکس سینٹیکس استعمال کریں۔ مثالیں:",
   "regexPatternsForPhoneNumberMatching": "فون نمبر کی مطابقت کے لیے ریجیکس پیٹرن",
   "regexRule": "ریجیکس اصول",
   "regexRuleAddFailed": "ریجیکس اصول شامل کرنے میں ناکامی: {error}",
@@ -1302,8 +962,6 @@
   "regexRuleNamePatternRequired": "اصول کا نام اور ریجیکس پیٹرن خالی نہیں ہو سکتے",
   "regexRules": "ریجیکس اصول",
   "regexTesterTitle": "ریجیکس ٹیسٹر",
-  "regexValidationFailed": "ریجیکس کی توثیق ناکام: {error}",
-  "regexValidationSuccess": "ریجیکس کی توثیق کامیاب",
   "region": "علاقہ",
   "registeredDevicesTitle": "رجسٹرڈ آلات",
   "rejectAllCalls": "تمام کالز مسترد کریں",
@@ -1318,27 +976,15 @@
   },
   "remoteFilterSettingsPageTitle": "ریموٹ نمبر فلٹر کی ترتیبات کا صفحہ",
   "remoteNumberFilter": "ریموٹ نمبر فلٹر",
-  "remoteNumberFilterDatabaseInfo": "یہ فلٹر تازہ ترین نمبر کی معلومات حاصل کرنے کے لیے ایک آزاد ریموٹ ڈیٹا بیس کا استعمال کرتا ہے۔",
   "remoteNumberFilterDescription": "ریموٹ ڈیٹا بیس کی معلومات کی بنیاد پر ہراساں کرنے والی کالز کو روکیں",
-  "remoteNumberFilterExplanationContent": "ریموٹ نمبر فلٹر نمبر کی گنتی کی بنیاد پر ایک ریموٹ ڈیٹا بیس سے سوال کر کے سپیم کالز کی شناخت اور انہیں بلاک کرتا ہے۔",
-  "remoteNumberFilterExplanationTitle": "ریموٹ نمبر فلٹر کی وضاحت",
-  "remoteNumberFilterFeatureCountThreshold": "• گنتی کی حد: نمبر کی موجودگی کی فریکوئنسی کی بنیاد پر تعین کریں",
-  "remoteNumberFilterFeatureFilterAction": "• فلٹر کے اعمال: حد سے تجاوز کرنے والے نمبروں کو کیسے سنبھالنا ہے ترتیب دیں",
-  "remoteNumberFilterFeaturePriority": "• ترجیحی ترتیبات: ریموٹ اعمال کے لیے ترجیح سیٹ کریں",
-  "remoteNumberFilterFeatures": "خصوصیات:",
   "remoteNumberFiltering": "ریموٹ نمبر فلٹرنگ",
   "remoteNumberFilteringExplanation": "• ریموٹ نمبر فلٹرنگ: ریموٹ ڈیٹا بیس کی معلومات کی بنیاد پر فلٹرنگ کے اصول",
   "remoteNumberFilterSubtitle": "کلاؤڈ ڈیٹا بیس اور کمیونٹی رپورٹس کا استعمال کرتے ہوئے سپیم کالز کی شناخت کریں",
   "removeAdsDescription": "بہتر تجربے کے لیے ایپ میں تمام اشتہارات کو مستقل طور پر ہٹا دیں",
   "removeAdsTitle": "اشتہارات ہٹائیں",
-  "removedFromFavoriteContacts": "پسندیدہ رابطوں سے ہٹا دیا گیا",
   "removedFromFavorites": "پسندیدہ رابطوں سے ہٹا دیا گیا",
-  "removeFavorite": "پسندیدہ ہٹائیں",
   "removeFromFavorites": "پسندیدہ سے ہٹائیں",
-  "renameButton": "نام بدلیں",
-  "renameDeviceDialogTitle": "آلہ کا نام بدلیں",
   "renameDeviceTitle": "آلہ کا نام بدلیں",
-  "replaceCurrentSettingsConfirmation": "یہ آپ کی تمام موجودہ ترتیبات کو بدل دے گا۔ کیا آپ واقعی جاری رکھنا چاہتے ہیں؟",
   "requestAllPermissions": "تمام اجازتیں طلب کریں",
   "requestPermission": "اجازت طلب کریں",
   "requestPermissionFailed": "اجازت طلب کرنے میں ناکامی: {error}",
@@ -1346,84 +992,44 @@
   "reset": "ری سیٹ کریں",
   "restore": "بحال کریں",
   "restoreApplicationSettingsFromBackup": "بیک اپ سے ایپلیکیشن کی ترتیبات بحال کریں",
-  "restoreApplicationSettingsFromBackupSubtitle": "بیک اپ سے ایپلیکیشن کی ترتیبات بحال کریں",
-  "restoreButton": "بحال کریں",
-  "restoreFailedWithError": "کلاؤڈ سے بحالی ناکام: {error}",
   "restoreFromCloud": "کلاؤڈ سے بحال کریں",
-  "restoreFromCloudDescription": "کلاؤڈ سٹوریج سے ترتیبات اور اصول بحال کریں",
   "restoreFromCloudFailed": "کلاؤڈ سے بحال کرنے میں ناکامی: {error}",
-  "restoreFromCloudLabel": "کلاؤڈ سے بحال کریں",
   "restoreFromCloudSuccess": "کلاؤڈ سے کامیابی سے بحال کیا گیا",
-  "restoreFromCloudTitle": "کلاؤڈ سے بحال کریں",
-  "restoreFromLocal": "مقامی سے بحال کریں",
   "restorePurchases": "خریداریوں کو بحال کریں",
-  "restoreSectionTitle": "بحالی",
   "restoreSettings": "ترتیبات بحال کریں",
   "restoreSettingsConfirmation": "یہ آپ کی تمام موجودہ ترتیبات کو بدل دے گا۔ کیا آپ واقعی جاری رکھنا چاہتے ہیں؟",
-  "restoreSettingsDialogTitle": "ترتیبات بحالی کا ڈائیلاگ",
-  "restoreSettingsTitle": "ترتیبات بحال کریں",
-  "restoreSuccessFromLocal": "مقامی سے کامیابی سے بحال کیا گیا",
-  "restoreSuccessMessage": "کلاؤڈ سے کامیابی سے بحال کیا گیا",
   "retry": "دوبارہ کوشش کریں",
   "ridesharing": "رائڈ شیئرنگ",
   "risk": "خطرہ",
   "robocall": "روبوکال",
   "ruleAction": "اصول کا عمل",
-  "ruleAddButton": "اصول شامل کریں",
   "ruleAddedSuccess": "اصول کامیابی سے شامل کر دیا گیا",
   "@ruleAddedSuccess": {
     "description": "Rule creation success message"
   },
-  "ruleAddFailure": "اصول شامل کرنے میں ناکامی: {error}",
-  "@ruleAddFailure": {
-    "description": "Rule creation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleAddSuccess": "اصول کامیابی سے شامل کر دیا گیا",
   "ruleDeleteConfirmContent": "کیا آپ واقعی اس {ruleType} کو حذف کرنا چاہتے ہیں؟",
   "ruleDeleteConfirmTitle": "اصول حذف کریں",
-  "ruleDeletedSuccess": "اصول کامیابی سے حذف کر دیا گیا",
   "ruleDeletedSuccessfully": "اصول کامیابی سے حذف کر دیا گیا",
   "ruleDeleteFailed": "اصول حذف کرنے میں ناکامی: {error}",
-  "ruleDeleteFailure": "اصول حذف کرنے میں ناکامی: {error}",
-  "@ruleDeleteFailure": {
-    "description": "Rule deletion failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "ruleDeleteSuccess": "اصول کامیابی سے حذف کر دیا گیا",
   "ruleDisabledSuccessfully": "اصول کامیابی سے غیر فعال کر دیا گیا",
   "ruleEnabledSuccessfully": "اصول کامیابی سے فعال کر دیا گیا",
   "ruleLoadFailed": "اصول لوڈ کرنے میں ناکامی: {error}",
   "ruleManagement": "اصول کا انتظام",
-  "ruleManagementTitle": "اصول کا انتظام",
   "ruleName": "اصول کا نام",
   "ruleNameAndContentRegexCannotBeEmpty": "اصول کا نام اور مواد ریجیکس خالی نہیں ہو سکتے",
   "ruleNameAndPhoneNumberCannotBeEmpty": "اصول کا نام اور فون نمبر خالی نہیں ہو سکتے",
   "ruleNameHint": "مثلاً، فیملی، دوست وغیرہ۔",
   "ruleNameLabel": "اصول کا نام",
-  "ruleNamePatternRequired": "براہ کرم اصول کا نام اور پیٹرن درج کریں",
   "ruleNameRequired": "اصول کا نام اور فون نمبر خالی نہیں ہو سکتے",
   "ruleNotExist": "قاعدہ موجود نہیں ہے یا اسے حذف کر دیا گیا ہے",
   "ruleNotFound": "قاعدہ نہیں ملا: {error}",
-  "ruleSavedSuccessfully": "قاعدہ کامیابی سے محفوظ ہو گیا!",
   "ruleSavedSuccessMessage": "قاعدہ کامیابی سے محفوظ ہو گیا!",
-  "ruleSaveFailed": "محفوظ کرنا ناکام ہو گیا: {error}",
-  "ruleSaveFailedMessage": "محفوظ کرنا ناکام ہو گیا: {error}",
-  "ruleSaveSuccess": "قاعدہ کامیابی سے محفوظ ہو گیا!",
   "rulesExportedSuccessfully": "قواعد کامیابی سے ایکسپورٹ ہو گئے",
   "rulesExportedTo": "قواعد یہاں ایکسپورٹ ہو گئے: {path}",
   "rulesImported": "قواعد کامیابی سے امپورٹ ہو گئے",
   "rulesImportedSuccessfully": "{count} قواعد کامیابی سے امپورٹ ہو گئے",
-  "rulesImportFailed": "قواعد امپورٹ کرنے میں ناکامی: {error}",
-  "ruleStatistics": "قاعدہ کے اعداد و شمار",
   "ruleStatusChanged": "قاعدہ کامیابی سے {status}",
   "ruleToggleFailed": "آپریشن ناکام ہو گیا: {error}",
   "ruleToggleSuccess": "قاعدہ کامیابی سے {status}",
@@ -1432,32 +1038,19 @@
   "ruleVerification": "قاعدہ کی تصدیق",
   "save": "محفوظ کریں",
   "saveButton": "محفوظ کریں",
-  "saveButtonLabel": "محفوظ کریں",
   "saveButtonText": "محفوظ کریں",
   "saveFailed": "محفوظ کرنا ناکام ہو گیا: {error}",
-  "saveFilter": "فلٹر محفوظ کریں",
   "saveSettings": "ترتیبات محفوظ کریں",
-  "saveSettingsFailed": "ترتیبات محفوظ کرنے میں ناکامی: {error}",
   "scamsLikely": "فراڈ کا امکان",
   "search": "تلاش کریں",
   "searchContacts": "رابطے تلاش کریں",
   "searchError": "تلاش میں خرابی: {error}",
-  "searchFilters": "تلاش کے فلٹرز",
-  "searchForContacts": "رابطوں کو تلاش کریں",
   "searchHint": "تلاش کریں...",
-  "searchSettingsSubtitle": "رابطوں، لیبلز، بلیک لسٹس، وائٹ لسٹس وغیرہ میں تلاش کریں",
-  "searchSettingsTitle": "تلاش کی ترتیبات",
   "securityMessage": "کسی بھی فون کال پر بھروسہ نہ کریں۔ کسٹمر سروس نمبرز کی ہمیشہ آزادانہ طور پر تصدیق کریں۔ پاس ورڈ، تصدیقی کوڈ، کارڈ نمبرز، یا ذاتی معلومات کبھی بھی شیئر نہ کریں۔",
-  "selectActionToPerform": "وہ عمل منتخب کریں جو قاعدہ کے ملنے پر انجام دیا جائے",
   "selectActionWhenBlockingCalls": "کالز بلاک کرتے وقت عمل منتخب کریں",
   "selectActionWhenRuleMatches": "وہ عمل منتخب کریں جو قاعدہ کے ملنے پر انجام دیا جائے",
   "selectAll": "سب کو منتخب کریں",
   "selectCountry": "ملک منتخب کریں",
-  "selectDateRange": "تاریخ کی حد منتخب کریں",
-  "selectedDateRange": "منتخب کردہ تاریخ کی حد",
-  "@selectedDateRange": {
-    "description": "Selected date range text"
-  },
   "selectedItems": "{count} اشیاء منتخب کی گئیں",
   "selectedLabel": "منتخب کردہ:",
   "selectExportFormat": "ایکسپورٹ فارمیٹ منتخب کریں",
@@ -1465,14 +1058,7 @@
   "selectLabelAndEnterPhoneNumber": "براہ کرم ایک لیبل منتخب کریں اور ایک درست فون نمبر درج کریں",
   "selectLanguage": "زبان منتخب کریں",
   "selectMultiple": "متعدد منتخب کریں",
-  "selectPeriod": "مدت منتخب کریں",
   "selectSimCard": "سم کارڈ منتخب کریں",
-  "selectSimSlot": "سم سلاٹ منتخب کریں",
-  "@selectSimSlot": {
-    "description": "Title for SIM slot selection dialog"
-  },
-  "selectSpecificActionForBlockedCalls": "کالز بلاک کرتے وقت انجام دینے کے لیے مخصوص عمل منتخب کریں",
-  "selectTag": "ٹیگ منتخب کریں",
   "selectTags": "ٹیگز منتخب کریں",
   "selectTrustedDataSource": "براہ کرم قابل بھروسہ ڈیٹا ذرائع منتخب کریں",
   "selectYourLanguage": "اپنی زبان منتخب کریں",
@@ -1493,16 +1079,9 @@
       }
     }
   },
-  "setButton": "سیٹ کریں",
   "setEncryptionPassword": "انکرپشن پاس ورڈ سیٹ کریں",
-  "setEncryptionPasswordDescription": "بیک اپ اور بحالی کے لیے انکرپشن پاس ورڈ سیٹ کریں",
-  "setEncryptionPasswordLabel": "انکرپشن پاس ورڈ سیٹ کریں",
-  "setEncryptionPasswordTitle": "انکرپشن پاس ورڈ سیٹ کریں",
-  "setPasswordButton": "سیٹ کریں",
   "settings": "ترتیبات",
   "settingsBackedUpTo": "ترتیبات کا بیک اپ یہاں ہو گیا: {path}",
-  "settingsLoaded": "ترتیبات لوڈ ہو گئیں",
-  "settingsLoadFailed": "ترتیبات لوڈ کرنے میں ناکامی: {error}",
   "settingsRestoredSuccessfully": "ترتیبات کامیابی سے بحال ہو گئیں۔ تبدیلیوں کے اثر انداز ہونے کے لیے براہ کرم ایپ کو دوبارہ شروع کریں۔",
   "settingsSaved": "ترتیبات محفوظ ہو گئیں",
   "@settingsSaved": {
@@ -1512,8 +1091,6 @@
   "settingsTab": "ترتیبات",
   "settingsTitle": "ترتیبات",
   "setup": "سیٹ اپ",
-  "showContactEditDialogStaticMethod": "رابطہ میں ترمیم کے ڈائیلاگ کو ظاہر کرنے کے لیے جامد طریقہ",
-  "showExplanation": "وضاحت دکھائیں",
   "silence": "خاموش کریں",
   "silenceAndNoAnswer": "خاموش کریں اور جواب نہ دیں",
   "silenceNoAnswer": "خاموش کریں جواب نہ دیں",
@@ -1538,15 +1115,10 @@
       }
     }
   },
-  "simInfoLoadFailure": "سم کارڈ کی معلومات لوڈ کرنے میں ناکامی: {error}",
   "simRuleInstructions": "سم سلاٹ کے قواعد آپ کو ہر سم سلاٹ کے لیے آزاد فلٹرنگ قواعد ترتیب دینے کی اجازت دیتے ہیں۔",
   "simRuleInstructionsTitle": "سم سلاٹ کے قواعد",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simRuleManagement": "سم سلاٹ قواعد کا انتظام",
-  "@simRuleManagement": {
-    "description": "SIM slot rule management section title"
   },
   "simSlot1": "سم 1،-{countryIso}",
   "@simSlot1": {
@@ -1568,9 +1140,6 @@
       }
     }
   },
-  "simSlotDataLoadFailed": "سم ڈیٹا لوڈ کرنے میں ناکامی: {error}",
-  "simSlotFilterConfiguration": "سم سلاٹ فلٹر ترتیب",
-  "simSlotFilterConfigurationDescription": "سم سلاٹ کے ذریعے فلٹر قواعد ترتیب دینے کی اجازت",
   "simSlotFilterDescription": "ہر سم کارڈ کے لیے آزاد فلٹرنگ قواعد ترتیب دیں:",
   "simSlotFilterSettingsTitle": "سم سلاٹ {slotNumber} فلٹر کی ترتیبات",
   "@simSlotFilterSettingsTitle": {
@@ -1581,17 +1150,7 @@
       }
     }
   },
-  "simSlotLoadFailed": "سم سلاٹس لوڈ کرنے میں ناکامی: {error}",
   "simSlotManagement": "سم سلاٹ کا انتظام",
-  "simSlotOperationFailed": "سم سلاٹ آپریشن ناکام: {error}",
-  "@simSlotOperationFailed": {
-    "description": "SIM slot operation failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "simSlotPosition": "سم سلاٹ پوزیشن {slotNumber}",
   "@simSlotPosition": {
     "description": "SIM slot position display",
@@ -1605,11 +1164,6 @@
   "simSlotRuleFeature": "• سم سلاٹ کے قواعد: ہر سم کے لیے آزاد فلٹرنگ حکمت عملی",
   "simSlotRuleListTitle": "سم سلاٹ کے قواعد کی فہرست",
   "simSlotRuleManagement": "سم سلاٹ کے قواعد",
-  "simSlotRuleManagementTitle": "قواعد کا انتظام",
-  "simSlotSettings": "سم سلاٹ کی ترتیبات",
-  "@simSlotSettings": {
-    "description": "Title for SIM slot settings page"
-  },
   "simSlotTitle": "سم سلاٹ {slotNumber}",
   "skip": "چھوڑ دیں",
   "smartCallerId": "سمارٹ کالر کی شناخت",
@@ -1620,7 +1174,6 @@
   "smsFilterRuleAddedSuccessfully": "ایس ایم ایس فلٹر کا قاعدہ کامیابی سے شامل کر دیا گیا",
   "smsFilterRules": "ایس ایم ایس فلٹر کے قواعد",
   "smsFilterSettings": "ایس ایم ایس فلٹر کی ترتیبات",
-  "smsHistory": "ایس ایم ایس کی تاریخ",
   "smsManagement": "ایس ایم ایس کا انتظام",
   "smsPermission": "ایس ایم ایس کی اجازت",
   "smsPermissionDescription": "اسپام پیغامات کو فلٹر کرنے کے لیے استعمال ہوتا ہے۔",
@@ -1628,12 +1181,7 @@
   "smsRuleDeletedSuccessfully": "ایس ایم ایس کا قاعدہ کامیابی سے حذف کر دیا گیا",
   "smsRuleLoadFailed": "ایس ایم ایس قواعد لوڈ کرنے میں ناکامی: {error}",
   "smsRuleManagement": "ایس ایم ایس قواعد کا انتظام",
-  "smsRulesExportedSuccessfully": "ایس ایم ایس قواعد کامیابی سے {filePath} میں ایکسپورٹ کر دیے گئے",
-  "smsRulesImportedSuccessfully": "ایس ایم ایس قواعد کامیابی سے امپورٹ کر دیے گئے",
   "smsRuleSubscription": "ایس ایم ایس قواعد کی سبسکرپشن",
-  "smsRuleUpdatedSuccessfully": "ایس ایم ایس کا قاعدہ کامیابی سے اپ ڈیٹ کر دیا گیا",
-  "smsSettingsSubtitle": "ایس ایم ایس فلٹرنگ اور کلیدی الفاظ کی روک تھام",
-  "smsSettingsTitle": "ایس ایم ایس کی ترتیبات",
   "smsSubscription": "ایس ایم ایس سبسکرپشن",
   "smsSubscriptionAddedSuccessfully": "ایس ایم ایس سبسکرپشن کامیابی سے شامل کر دی گئی",
   "smsSubscriptionRulesDescription": "یو آر ایل کے ذریعے ایس ایم ایس قواعد کی فہرستوں کو سبسکرائب کریں، جو ریگولر ایکسپریشن میچنگ کو سپورٹ کرتا ہے۔ آپ بلاک یا اجازت دینے کے اعمال سیٹ کر سکتے ہیں۔",
@@ -1645,12 +1193,7 @@
   "startUsing": "شروع کریں",
   "statAnswered": "جواب دیا گیا",
   "statBlocked": "بلاک کر دیا گیا",
-  "staticMethodShowCallerIdDialog": "کالر آئی ڈی معلومات ڈائیلاگ دکھانے کے لیے جامد طریقہ",
-  "staticMethodToDisplayCountrySelectionDialog": "ملک کے انتخاب کا ڈائیلاگ دکھانے کے لیے جامد طریقہ",
-  "staticMethodToDisplayDialog": "ڈائیلاگ دکھانے کے لیے جامد طریقہ",
   "statistics": "شماریات",
-  "statisticsExportFeatureComingSoon": "شماریات ایکسپورٹ فیچر جلد آرہا ہے",
-  "statisticsGrid": "شماریاتی گرڈ",
   "statisticsPageTitle": "ڈیٹا کا تجزیہ",
   "stirColor": "STIR رنگ",
   "stirFontSize": "STIR فونٹ سائز",
@@ -1673,23 +1216,16 @@
   "@subscriptionDeleted": {
     "description": "Subscription deleted success message"
   },
-  "subscriptionDeletedSuccessfully": "سبسکرپشن کامیابی سے حذف کر دی گئی",
   "subscriptionDeleteFailed": "سبسکرپشن حذف کرنے میں ناکامی: {error}",
   "subscriptionDeleteSuccess": "سبسکرپشن حذف کر دی گئی",
-  "subscriptionEmptyState": "کوئی سبسکرپشن دستیاب نہیں",
-  "subscriptionEmptyText": "ابھی تک کوئی سبسکرپشن نہیں",
   "subscriptionLoadFailed": "سبسکرپشنز لوڈ کرنے میں ناکامی: {error}",
-  "subscriptionLoadingFailed": "سبسکرپشنز لوڈ کرنے میں ناکامی: {error}",
-  "subscriptionManagementTitle": "سبسکرپشن کا انتظام",
   "subscriptionName": "سبسکرپشن کا نام",
   "@subscriptionName": {
     "description": "Subscription name field label"
   },
   "subscriptionNameAndUrlCannotBeEmpty": "سبسکرپشن کا نام اور یو آر ایل خالی نہیں ہو سکتے",
   "subscriptionNameHint": "سبسکرپشن کا نام درج کریں",
-  "subscriptionPageTitle": "سبسکرپشن کا انتظام",
   "subscriptionStatusChangeFailed": "سبسکرپشن کی حیثیت تبدیل کرنے میں ناکامی: {error}",
-  "subscriptionToggleFailed": "سبسکرپشن کی حیثیت تبدیل کرنے میں ناکامی: {error}",
   "subscriptionUpdateFailed": "سبسکرپشن اپ ڈیٹ کرنے میں ناکامی: {error}",
   "subscriptionUpdateSuccess": "سبسکرپشن کامیابی سے اپ ڈیٹ ہو گئی",
   "@subscriptionUpdateSuccess": {
@@ -1710,7 +1246,6 @@
   },
   "syncFailed": "مطابقت پذیری ناکام",
   "syncFailedMessage": "مطابقت پذیری ناکام",
-  "syncFolderNameHint": "براہ کرم مطابقت پذیری فولڈر کا نام درج کریں (پہلے سے طے شدہ: NotificationManager)",
   "syncFolderNameLabel": "مطابقت پذیری فولڈر کا نام",
   "synchronized": "مطابقت پذیر",
   "@synchronized": {
@@ -1724,10 +1259,8 @@
   "syncNowButton": "ابھی مطابقت پذیری کریں",
   "syncStatusTitle": "مطابقت پذیری کی صورتحال",
   "syncStatusUpdatedMessage": "مطابقت پذیری کی صورتحال اپ ڈیٹ ہو گئی",
-  "syncSuccessful": "مطابقت پذیری کامیاب",
   "syncSuccessMessage": "مطابقت پذیری کامیاب",
   "syncWithCloudStorage": "کلاؤڈ سٹوریج کے ساتھ مطابقت پذیری کریں",
-  "syncWithCloudStorageSubtitle": "کلاؤڈ سٹوریج کے ساتھ مطابقت پذیری کریں",
   "systemFeatures": "سسٹم کی خصوصیات:",
   "systemSettingsTitle": "سسٹم کی ترتیبات",
   "tabAll": "تمام",
@@ -1743,13 +1276,11 @@
       }
     }
   },
-  "tagsUpdated": "ٹیگز اپ ڈیٹ ہو گئے",
   "takeaway": "خلاصہ",
   "telecommunication": "ٹیلی کمیونیکیشن",
   "telegram": "ٹیلی گرام",
   "telemarketing": "ٹیلی مارکیٹنگ",
   "testButton": "ٹیسٹ",
-  "testButtonLabel": "ٹیسٹ",
   "testConnectionButton": "کنکشن کی جانچ کریں",
   "textColorsSetting": "ٹیکسٹ اور لیبل کے رنگ",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "یہ ایپ ایک طاقتور کالر آئی ڈی ٹول ہے جو آپ کو ناپسندیدہ کالز کی شناخت اور بلاک کرنے کی سہولت دیتا ہے۔",
@@ -1760,8 +1291,6 @@
   "timeInterceptorExplanationContent": "کال فریکوئنسی انٹرسیپشن کی خصوصیت کال کی فریکوئنسی کا تجزیہ کرتی ہے تاکہ بار بار آنے والی اسپام کالز کو خود بخود شناخت کر کے روکا/اجازت دی جا سکے۔",
   "timeInterceptorExplanationTitle": "کال فریکوئنسی انٹرسیپشن کی وضاحت",
   "timeInterceptorSettingsTitle": "کال فریکوئنسی انٹرسیپشن کی ترتیبات",
-  "timeInterceptorSubtitle": "کال کی فریکوئنسی کی بنیاد پر ممکنہ اسپام کالز کو خود بخود روکیں",
-  "timeInterceptorTitle": "کال فریکوئنسی انٹرسیپشن کو فعال کریں",
   "timeWindowDescription": "دہرائی جانے والی کالز کی اجازت دینے کے لیے ٹائم ونڈو کا سائز سیٹ کریں۔ اس ونڈو کے اندر ایک ہی نمبر سے آنے والی کالز کی اجازت دی جائے گی",
   "timeWindowLabel": "روک تھام کا ٹائم ونڈو (منٹ): {minutes}",
   "@timeWindowLabel": {
@@ -1772,16 +1301,11 @@
       }
     }
   },
-  "timeWindowSetting": "دہرائی جانے والی کالز کی اجازت دینے کے لیے ٹائم ونڈو کا سائز سیٹ کریں۔ اس ونڈو کے اندر ایک ہی نمبر سے آنے والی کالز کی اجازت دی جائے گی",
   "today": "آج",
   "total": "کل",
   "totalBlocked": "کل بلاک شدہ",
-  "totalFiltered": "کل فلٹر شدہ",
   "transferDataBetweenDevicesOrPlatforms": "آلات یا پلیٹ فارمز کے درمیان ڈیٹا منتقل کریں",
-  "transferDataBetweenDevicesOrPlatformsSubtitle": "آلات یا پلیٹ فارمز کے درمیان ڈیٹا منتقل کریں",
   "travelTicketing": "ٹریول ٹکٹنگ",
-  "trend": "رجحان",
-  "trendChart": "رجحان چارٹ",
   "tutorial": "ٹیوٹوریل",
   "type": "قسم",
   "unassignedSIMCard": "غیر مختص شدہ سم کارڈ",
@@ -1789,7 +1313,6 @@
   "@unknown": {
     "description": "Display text for unknown status"
   },
-  "unknownLabel": "نامعلوم لیبل",
   "unknownTag": "ٹیگ: نامعلوم",
   "unregisterButton": "اندراج ختم کریں",
   "unregisterDeviceConfirmationMessage": "کیا آپ واقعی {deviceName} کا اندراج ختم کرنا چاہتے ہیں؟",
@@ -1797,15 +1320,9 @@
   "unsupportedFileFormat": "غیر تعاون یافتہ فائل فارمیٹ",
   "update": "اپ ڈیٹ کریں",
   "updateAllNow": "ابھی سب کو اپ ڈیٹ کریں",
-  "updateCallFilterConfig": "کال فلٹر کنفیگریشن اپ ڈیٹ کریں",
-  "@updateCallFilterConfig": {
-    "description": "Button text for updating call filter configuration"
-  },
   "updateContactFailed": "رابطہ اپ ڈیٹ کرنے میں ناکامی: {error}",
   "updateFavoriteStatus": "پسندیدہ کی حیثیت اپ ڈیٹ کریں",
-  "updateFavoriteStatusFailed": "پسندیدہ کی حیثیت اپ ڈیٹ کرنے میں ناکامی: {error}",
   "updateInterval": "اپ ڈیٹ کا وقفہ",
-  "updateLabelFailed": "لیبل اپ ڈیٹ کرنے میں ناکامی",
   "updateNow": "ابھی اپ ڈیٹ کریں",
   "updatePlugin": "پلگ ان اپ ڈیٹ کریں",
   "updatePluginFailed": "پلگ ان اپ ڈیٹ کرنے میں ناکامی: {error}",
@@ -1831,16 +1348,13 @@
       }
     }
   },
-  "updateTags": "ٹیگز اپ ڈیٹ کریں",
   "useCasesPoint1": "• خودکار ری ڈائل اسپام کالز کی شناخت کریں",
   "useCasesPoint2": "• مارکیٹنگ کالز کو روکیں جو مختصر وقت میں کئی بار کال کرتی ہیں",
   "useCasesPoint3": "• فون بمباری اور ہراسانی کو روکیں",
   "useCasesTitle": "استعمال کے طریقے:",
   "useGlobalSettings": "گلوبل ترتیبات استعمال کریں",
-  "userEmail": "user@example.com",
   "usernameLabel": "صارف نام",
   "useStandardRegexSyntaxToDefinePatternsExamples": "پیٹرن کی وضاحت کے لیے معیاری ریجیکس سینٹیکس استعمال کریں۔ مثالیں:",
-  "validateRegex": "ریجیکس کی توثیق کریں",
   "verificationFailedText": "ناکام",
   "verifiedText": "توثیق شدہ",
   "verify": "توثیق کریں",
@@ -1851,36 +1365,18 @@
   "watchAdForTemp": "عارضی مراعات کے لیے اشتہار دیکھیں",
   "watchAdForTempDescription": "کچھ پریمیم خصوصیات کو عارضی طور پر غیر مقفل کرنے کے لیے ایک مختصر اشتہار دیکھیں",
   "webDAVConfigTitle": "WebDAV کنفیگریشن",
-  "webdavConfigurationTitle": "WebDAV کنفیگریشن",
-  "webdavPasswordHint": "براہ کرم WebDAV پاس ورڈ درج کریں",
-  "webdavServerAddressHint": "براہ کرم WebDAV سرور ایڈریس درج کریں",
-  "webdavUsernameHint": "براہ کرم WebDAV صارف نام درج کریں",
   "week": "ہفتہ",
-  "weekly": "ہفتہ وار",
-  "weeklyBlockedCallsSummary": "ہفتہ وار بلاک شدہ کالز کا خلاصہ",
-  "weeklyChartTitle": "ہفتہ وار بلاک شدہ کالز",
-  "weeklyReport": "ہفتہ وار رپورٹ",
-  "@weeklyReport": {
-    "description": "Weekly report notification option"
-  },
-  "weeklyReportDesc": "کال بلاکنگ سرگرمی کی ہفتہ وار خلاصہ رپورٹ موصول کریں",
-  "@weeklyReportDesc": {
-    "description": "Description for weekly report option"
-  },
   "welcome": "خوش آمدید",
   "whitelist": "سفید فہرست",
   "@whitelist": {
     "description": "Whitelist label"
   },
-  "whitelistLabel": "سفید فہرست",
   "width": "چوڑائی",
   "wildcardMatchingDescription": "کسی بھی کردار سے ملانے کے لیے '.' استعمال کریں (مثال کے طور پر '123.456' کا مطلب 123-456 ہے)",
   "wildcardMatchingTitle": "وائلڈ کارڈ میچنگ:",
   "wildcardSupportForFlexibleFiltering": "لچکدار فلٹرنگ کے لیے وائلڈ کارڈ سپورٹ",
   "windowSizeSetting": "ونڈو سائز",
   "year": "سال",
-  "yearly": "سالانہ",
-  "yearlyChartTitle": "سالانہ بلاک شدہ کالز",
   "noSimCardsDetected": "کوئی سم کارڈز نہیں ملے",
   "filterManagementDescription": "کال فلٹر سیٹ کریں",
   "callerIdCustomizationSubtitle": "کالر آئی ڈی لے آؤٹ کو حسب ضرورت بنائیں",
@@ -1895,7 +1391,6 @@
   "useLocalNotificationDescription": "آنے والی کالز کے لیے مقامی اطلاعات فعال کریں",
   "cancelLocalNotification": "مقامی اطلاعات بند کریں",
   "useStirNotification": "STIR سے اطلاع استعمال کریں",
-  "useStirNotificationDescription": "آنے والی کالز کے لیے STIR اطلاعات فعال کریں",
   "cancelLocalNotificationDescription": "مقامی اطلاعات خود بخود بند کریں",
   "callerIdSettingsTitle": "کالر آئی ڈی سیٹنگز",
   "callerIdSettingsSubtitle": "آنے والی کال کی اطلاع اور ڈسپلے موڈ سیٹ کرنے کے لیے",
@@ -1904,16 +1399,6 @@
   "callerIdNotificationTitle": "آنے والی کال کی معلومات",
   "@callerIdNotificationTitle": {
     "description": "Title for the Incoming Call Info"
-  },
-  "callerIdBody": "نمبر: {phoneNumber}",
-  "@callerIdBody": {
-    "description": "Body for the caller ID notification, showing the phone number",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
   },
   "blockedCallTitle": "بلاک شدہ کال",
   "@blockedCallTitle": {
@@ -1974,18 +1459,6 @@
   "@fraudAlertTitle": {
     "description": "Title for the fraud alert notification"
   },
-  "fraudAlertBody": "{phoneNumber} سے ممکنہ فراڈ کال",
-  "@fraudAlertBody": {
-    "description": "Body for the fraud alert notification",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "example": "+1234567890"
-      }
-    }
-  },
-  "loadRulesFailed": "قواعد لوڈ کرنے میں ناکام: {error}",
-  "loadCallLogFailed": "کال لاگ لوڈ کرنے میں ناکام: {error}",
   "noBlockedTypeData": "بلاک شدہ قسم کا ڈیٹا دستیاب نہیں",
   "importEntity": "{entityTypeName} درآمد کریں",
   "@importEntity": {
@@ -2065,7 +1538,6 @@
   "vipUser": "VIP صارف",
   "temporaryVip": "عارضی VIP",
   "removeAds": "اشتہارات ہٹائیں",
-  "unknownAction": "نامعلوم کارروائی",
   "settingsBackup": "سیٹنگز بیک اپ",
   "allServicesStatusTitle": "موجودہ سروس کی حیثیت",
   "allServicesStatusSubtitle": "ہر کلاؤڈ سروس کی موجودہ حیثیت",
@@ -2153,7 +1625,6 @@
   "unblocked": "غیر مسدود",
   "blockNumber": "نمبر مسدود کریں",
   "blockNumberSuccess": "نمبر کامیابی سے مسدود کر دیا گیا",
-  "blockNumberFailed": "نمبر مسدود کرنے میں ناکامی",
   "unblockNumberConfirmation": "کیا آپ واقعی {phoneNumber} کو غیر مسدود کرنا چاہتے ہیں؟",
   "@unblockNumberConfirmation": {
     "description": "Confirmation message shown when a user tries to unblock a number from their blocklist.",
@@ -2165,23 +1636,11 @@
       }
     }
   },
-  "callingNumber": "{phoneNumber} کو کال کیا جا رہا ہے...",
-  "@callingNumber": {
-    "description": "Status text displayed on the screen when an outgoing call is initiated.",
-    "placeholders": {
-      "phoneNumber": {
-        "type": "String",
-        "description": "The phone number that is being dialed.",
-        "example": "+1 555-123-4567"
-      }
-    }
-  },
   "viewDetails": "تفصیلات دیکھیں",
   "unblock": "غیر مسدود کریں",
   "unblockNumber": "نمبر غیر مسدود کریں",
   "unblockNumberSuccess": "نمبر کامیابی سے غیر مسدود کر دیا گیا",
   "unblockNumberFailed": "نمبر غیر مسدود کرنے میں ناکامی",
-  "serviceNotAvailable": "خدمت دستیاب نہیں",
   "callingNumberFailed": "کال کرنے میں ناکامی",
   "listView": "فہرست منظر",
   "timelineView": "ٹائم لائن منظر",
@@ -2192,7 +1651,6 @@
   "callType": "کال کی قسم",
   "callTime": "کال کا وقت",
   "numberInvalidFormat": "نمبر کا فارمیٹ غلط ہے",
-  "membershipFeature": "ممبرشپ کی خصوصیت",
   "medium": "درمیانہ",
   "verificationReport": "تصدیقی رپورٹ",
   "finalRisk": "حتمی خطرہ",
@@ -2221,7 +1679,6 @@
   "noNotifications": "کوئی اطلاعات نہیں",
   "clearAllNotifications": "تمام اطلاعات صاف کریں",
   "clearAllNotificationsConfirmation": "تمام اطلاعات صاف کرنے کی تصدیق کریں",
-  "allNotificationsCleared": "تمام اطلاعات صاف کر دی گئیں",
   "clearButton": "صاف کریں",
   "justNow": "ابھی",
   "minutesAgo": "{count,plural, =1{1 منٹ پہلے} other{{count} منٹ پہلے}}",
@@ -2298,10 +1755,6 @@
   "@reasonInaccurateInfo": {
     "description": "Inaccurate Information reason option"
   },
-  "reasonWrongMarked": "غلط نشان زد",
-  "@reasonWrongMarked": {
-    "description": "Wrong marked reason option"
-  },
   "reasonOther": "دیگر",
   "@reasonOther": {
     "description": "Other reason option"
@@ -2314,33 +1767,9 @@
   "@cancel": {
     "description": "Cancel button text"
   },
-  "proposalStatus": "حیثیت",
-  "@proposalStatus": {
-    "description": "Proposal status label"
-  },
-  "statusPending": "زیر التواء",
-  "@statusPending": {
-    "description": "Pending status"
-  },
-  "statusActive": "فعال",
-  "@statusActive": {
-    "description": "Active status"
-  },
-  "statusCompleted": "مکمل",
-  "@statusCompleted": {
-    "description": "Completed status"
-  },
-  "statusExpired": "میعاد ختم",
-  "@statusExpired": {
-    "description": "Expired status"
-  },
   "riskLevel": "خطرے کی سطح",
   "@riskLevel": {
     "description": "Risk level label"
-  },
-  "riskLevelVerified": "تصدیق شدہ",
-  "@riskLevelVerified": {
-    "description": "Verified risk level"
   },
   "riskLevelLow": "کم",
   "@riskLevelLow": {
@@ -2350,26 +1779,9 @@
   "@riskLevelHigh": {
     "description": "Label for high risk level"
   },
-  "riskLevelUnknown": "نامعلوم",
-  "@riskLevelUnknown": {
-    "description": "Unknown risk level"
-  },
-  "votingProgress": "ووٹنگ کی پیشرفت",
-  "@votingProgress": {
-    "description": "Voting progress label"
-  },
   "agreeVotes": "متفق: {count}",
   "@agreeVotes": {
     "description": "Agree votes count",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "disagreeVotes": "متفق نہیں: {count}",
-  "@disagreeVotes": {
-    "description": "Disagree votes count",
     "placeholders": {
       "count": {
         "type": "int"
@@ -2405,14 +1817,6 @@
   "@verificationReport": {
     "description": "Verification report label"
   },
-  "showReport": "رپورٹ دکھائیں",
-  "@showReport": {
-    "description": "Show report button text"
-  },
-  "hideReport": "رپورٹ چھپائیں",
-  "@hideReport": {
-    "description": "Hide report button text"
-  },
   "proposalStatistics": "تجویز کے اعداد و شمار",
   "@proposalStatistics": {
     "description": "Proposal statistics title"
@@ -2425,37 +1829,17 @@
   "@activeProposals": {
     "description": "Active proposals label"
   },
-  "completedProposals": "مکمل شدہ تجاویز",
-  "@completedProposals": {
-    "description": "Completed proposals label"
-  },
-  "myVotes": "میرے ووٹ",
-  "@myVotes": {
-    "description": "My votes label"
-  },
   "proposalCreated": "تجویز کامیابی سے بنائی گئی",
   "@proposalCreated": {
     "description": "Proposal created success message"
-  },
-  "proposalCreateFailed": "تجویز بنانے میں ناکامی",
-  "@proposalCreateFailed": {
-    "description": "Proposal create failed message"
   },
   "voteSubmitted": "ووٹ کامیابی سے جمع کرایا گیا",
   "@voteSubmitted": {
     "description": "Vote submitted success message"
   },
-  "voteSubmitFailed": "ووٹ جمع کرانے میں ناکامی",
-  "@voteSubmitFailed": {
-    "description": "Vote submit failed message"
-  },
   "noProposalsFound": "کوئی تجاویز نہیں ملیں",
   "@noProposalsFound": {
     "description": "No proposals found message"
-  },
-  "loadingProposals": "تجاویز لوڈ ہو رہی ہیں...",
-  "@loadingProposals": {
-    "description": "Loading proposals message"
   },
   "refreshProposals": "تجاویز ریفریش کریں",
   "@refreshProposals": {
@@ -2684,12 +2068,8 @@
       }
     }
   },
-  "loadVoteCountFailed": "ووٹوں کی تعداد لوڈ کرنے میں ناکامی",
   "voteCount": "ووٹوں کی تعداد",
-  "deletionProposalInfo": "حذف کرنے کی تجویز کی معلومات",
   "deletionProposalDescription": "ایسے نمبرز کو حذف کرنے کی تجویز دیں جو کمیونٹی رہنما اصولوں کی خلاف ورزی کرتے ہیں۔ آپ کی شرکت پلیٹ فارم کو محفوظ رکھنے میں مدد کرتی ہے۔",
-  "voteToEarnVip": "VIP مراعات حاصل کرنے کے لیے تجاویز پر ووٹ دیں!",
-  "voteFailed": "ووٹ ناکام ہو گیا",
   "searchProposals": "تجاویز تلاش کریں",
   "defaultNotifications": "ڈیفالٹ اطلاعات",
   "defaultNotificationsDescription": "ایپ کے لیے ڈیفالٹ نوٹیفکیشن چینل۔",
@@ -2699,81 +2079,14 @@
   "stirVerificationDescription": "نمبرز کے لیے STIR/SHAKEN توثیق کے نتائج دکھاتا ہے۔",
   "fraudAlerts": "فراڈ الرٹس",
   "fraudAlertsDescription": "ممکنہ فراڈ کالز کے لیے انتباہات دکھاتا ہے۔",
-  "notificationFrequencyDescription": "منتخب کریں کہ آپ کو نئی ڈیلیشن تجاویز کے بارے میں کتنی بار اطلاعات موصول ہوں۔ آپ انہیں فوری طور پر، بیچوں میں، یا اپنی مرضی کے وقفے پر موصول کر سکتے ہیں۔",
-  "@notificationFrequencyDescription": {
-    "description": "A detailed explanation of what the notification frequency settings do"
-  },
   "@notificationMode": {
     "description": "Title for the mode selection part (Immediate, Batched, Custom)"
-  },
-  "immediateNotifications": "فوری",
-  "@immediateNotifications": {
-    "description": "Label for the immediate notification mode"
-  },
-  "immediateNotificationsDescription": "تجویز بنتے ہی اطلاع موصول کریں۔",
-  "@immediateNotificationsDescription": {
-    "description": "Description for the immediate notification mode"
-  },
-  "batchNotifications": "بیچوں میں",
-  "@batchNotifications": {
-    "description": "Label for the batched notification mode"
-  },
-  "batchNotificationsDescription": "وقتاً فوقتاً اطلاعات کا خلاصہ موصول کریں۔",
-  "@batchNotificationsDescription": {
-    "description": "Description for the batched notification mode"
-  },
-  "customNotifications": "اپنی مرضی کے مطابق",
-  "@customNotifications": {
-    "description": "Label for the custom notification mode"
-  },
-  "customNotificationsDescription": "اطلاعات موصول کرنے کے لیے اپنا وقفہ متعین کریں۔",
-  "@customNotificationsDescription": {
-    "description": "Description for the custom notification mode"
-  },
-  "customFrequency": "اپنی مرضی کی فریکوئنسی",
-  "@customFrequency": {
-    "description": "Title for the custom frequency slider section"
-  },
-  "notificationFrequencyDurationMinutes": "{minutes} منٹ",
-  "@notificationFrequencyDurationMinutes": {
-    "description": "Formats a duration that is only in minutes.",
-    "placeholders": {
-      "minutes": {
-        "type": "int",
-        "example": "45"
-      }
-    }
-  },
-  "notificationFrequencyDurationHours": "{hours} گھنٹے",
-  "@notificationFrequencyDurationHours": {
-    "description": "Formats a duration that is in whole hours.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "2"
-      }
-    }
-  },
-  "notificationFrequencyDurationHoursAndMinutes": "{hours} گھنٹے {minutes} منٹ",
-  "@notificationFrequencyDurationHoursAndMinutes": {
-    "description": "Formats a duration that has both hours and minutes.",
-    "placeholders": {
-      "hours": {
-        "type": "int",
-        "example": "1"
-      },
-      "minutes": {
-        "type": "int",
-        "example": "30"
-      }
-    }
   },
   "pendingProposals": "زیر التواء تجاویز",
   "pendingProposalsBody": "آپ کے پاس {count, plural, =0 {کوئی زیر التواء تجویز نہیں ہے} one {1 زیر التواء تجویز ہے} other {{count} زیر التواء تجاویز ہیں}}۔",
   "guidelinesLabel": "ہدایات",
   "reportingGuidelines": "• صرف ایسے نمبرز کی اطلاع دیں جو واقعی میں مسئلہ پیدا کرتے ہوں\n• درست اور تفصیلی وجوہات فراہم کریں\n• شدت کی بنیاد پر مناسب رسک لیول کا انتخاب کریں\n• جھوٹی رپورٹیں اکاؤنٹ کی پابندیوں کا باعث بن سکتی ہیں",
   "riskLevelLabel": "رسک لیول",
-  "riskLevelDescription": "نمبر کا رسک لیول",
   "phoneNumberMinDigits": "فون نمبر کم از کم 7 ہندسوں کا ہونا چاہیے",
   "provideDetailedExplanation": "تفصیلی وضاحت فراہم کریں (کم از کم 10 حروف)",
   "reasonMinCharacters": "وجہ کم از کم 10 حروف پر مشتمل ہونی چاہیے",
@@ -2790,39 +2103,15 @@
   "@countryCodeRequired": {
     "description": "Validation message for required country code"
   },
-  "countryCodeLengthError": "ملکی کوڈ 2 حروف کا ہونا چاہیے",
-  "@countryCodeLengthError": {
-    "description": "Validation message for country code length"
-  },
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
-  "phoneNumberLengthError": "فون نمبر کم از کم 7 ہندسوں کا ہونا چاہیے",
-  "@phoneNumberLengthError": {
-    "description": "Validation message for phone number length"
-  },
-  "reasonHint": "تفصیلی وضاحت فراہم کریں (کم از کم 10 حروف)",
-  "@reasonHint": {
-    "description": "Hint text for reason input field"
-  },
   "reasonRequired": "وجہ درکار ہے",
   "@reasonRequired": {
     "description": "Validation message for required reason"
-  },
-  "reasonLengthError": "وجہ کم از کم 10 حروف پر مشتمل ہونی چاہیے",
-  "@reasonLengthError": {
-    "description": "Validation message for reason length"
-  },
-  "guidelinesTitle": "ہدایات",
-  "@guidelinesTitle": {
-    "description": "Title for guidelines section"
-  },
-  "guidelinesText": "• صرف ایسے نمبرز کی اطلاع دیں جو واقعی میں مسئلہ پیدا کرتے ہوں\n• درست اور تفصیلی وجوہات فراہم کریں\n• شدت کی بنیاد پر مناسب رسک لیول کا انتخاب کریں\n• جھوٹی رپورٹیں اکاؤنٹ کی پابندیوں کا باعث بن سکتی ہیں",
-  "@guidelinesText": {
-    "description": "Text content for guidelines section"
   },
   "riskLevelCritical": "نازک",
   "@riskLevelCritical": {
@@ -2836,33 +2125,9 @@
   "@riskLevelVeryLow": {
     "description": "Label for very low risk level"
   },
-  "riskDescriptionVeryLow": "بہت کم - معمولی پریشانی، کبھی کبھار کالز",
-  "@riskDescriptionVeryLow": {
-    "description": "Description for very low risk level"
-  },
-  "riskDescriptionLow": "کم - کبھی کبھار ناپسندیدہ کالز",
-  "@riskDescriptionLow": {
-    "description": "Description for low risk level"
-  },
-  "riskDescriptionMedium": "درمیانہ - باقاعدہ اسپام یا ٹیلی مارکیٹنگ",
-  "@riskDescriptionMedium": {
-    "description": "Description for medium risk level"
-  },
-  "riskDescriptionHigh": "زیادہ - مسلسل ہراساں کرنا یا گھوٹالے کی کوششیں",
-  "@riskDescriptionHigh": {
-    "description": "Description for high risk level"
-  },
-  "riskDescriptionCritical": "نازک - خطرناک گھوٹالے یا دھمکیاں",
-  "@riskDescriptionCritical": {
-    "description": "Description for critical risk level"
-  },
   "notificationFrequencyTitle": "اطلاع کی فریکوئنسی",
   "@notificationFrequencyTitle": {
     "description": "Title for notification frequency settings"
-  },
-  "notificationFrequencyLabel": "اطلاع کی فریکوئنسی (گھنٹے)",
-  "@notificationFrequencyLabel": {
-    "description": "Label for notification frequency dropdown"
   },
   "errorMessage": "خرابی: {error}",
   "@errorMessage": {
@@ -2870,18 +2135,6 @@
     "placeholders": {
       "error": {
         "type": "String"
-      }
-    }
-  },
-  "votesStatistics": "ووٹ: {totalVotes} ({supportPercentage}% حمایت)",
-  "@votesStatistics": {
-    "description": "Voting statistics text",
-    "placeholders": {
-      "totalVotes": {
-        "type": "int"
-      },
-      "supportPercentage": {
-        "type": "int"
       }
     }
   },
@@ -2899,37 +2152,6 @@
     "description": "Shows the number of oppose votes.",
     "placeholders": {
       "opposeCount": {
-        "type": "int"
-      }
-    }
-  },
-  "timeJustNow": "ابھی",
-  "@timeJustNow": {
-    "description": "Time format for recent events"
-  },
-  "timeMinutesAgo": "{minutes} منٹ پہلے",
-  "@timeMinutesAgo": {
-    "description": "Time format for minutes ago",
-    "placeholders": {
-      "minutes": {
-        "type": "int"
-      }
-    }
-  },
-  "timeHoursAgo": "{hours} گھنٹے پہلے",
-  "@timeHoursAgo": {
-    "description": "Time format for hours ago",
-    "placeholders": {
-      "hours": {
-        "type": "int"
-      }
-    }
-  },
-  "timeDaysAgo": "{days} دن پہلے",
-  "@timeDaysAgo": {
-    "description": "Time format for days ago",
-    "placeholders": {
-      "days": {
         "type": "int"
       }
     }
@@ -2989,7 +2211,6 @@
   "liveActivitiesTestUpdateActivity": "ایکٹیویٹی اپ ڈیٹ کریں",
   "liveActivityControlsTitle": "Live Activity کنٹرولز",
   "liveActivitiesTestTitle": "Live Activities ٹیسٹ",
-  "liveActivitiesTestSubtitle": "Live activity نوٹیفکیشن کی جانچ کریں۔",
   "liveNotificationCustomizationTitle": "Live نوٹیفکیشن حسب ضرورت",
   "liveNotificationCustomizationSubtitle": "Live نوٹیفکیشنز کی ظاہری شکل کو حسب ضرورت بنائیں۔",
   "notification_instructions": "ہدایات:\n1. نوٹیفکیشن بنانے یا اپ ڈیٹ کرنے کے لیے \"SEND\" پر ٹیپ کریں۔\n2. نتیجہ دیکھنے کے لیے اپنی ہوم اسکرین پر جائیں یا نوٹیفکیشن ٹرے نیچے کھینچیں۔\n3. نوٹیفکیشن کو برخاست کرنے کے لیے \"END\" پر ٹیپ کریں۔",
@@ -3012,7 +2233,6 @@
   "@proposalDetails": {
     "description": "The title of the proposal details page."
   },
-  "filterByStatus": "حالت کے لحاظ سے فلٹر کریں",
   "proposalNotFound": "تجویز نہیں ملی",
   "@proposalNotFound": {
     "description": "A message displayed when a proposal is not found."
@@ -3020,10 +2240,6 @@
   "processed": "عمل میں لایا گیا",
   "@processed": {
     "description": "A label for the processed status."
-  },
-  "showAll": "سب دکھائیں",
-  "@showAll": {
-    "description": "A button to show all proposals."
   },
   "filterAndSortTitle": "فلٹر اور ترتیب دیں",
   "filterVerifiedOwner": "تصدیق شدہ مالک کے ذریعے فلٹر کریں",
@@ -3055,10 +2271,6 @@
   "@invalidSimData": {
     "description": "A message displayed when the SIM data is invalid."
   },
-  "simCardData": "SIM کارڈ ڈیٹا",
-  "@simCardData": {
-    "description": "A label for the SIM card data."
-  },
   "simSlot": "SIM سلاٹ",
   "@simSlot": {
     "description": "A label for the SIM slot."
@@ -3077,8 +2289,6 @@
   },
   "callTypeRejected": "رد شدہ",
   "callTypeSilenced": "خاموش کردہ",
-  "callTypeVoicemail": "وائس میل",
-  "callTypeUnknownIntercept": "نامعلوم مداخلت",
   "andMoreItems": "اور {count} مزید آئٹمز",
   "@andMoreItems": {
     "description": "Text to show when there are more items than displayed.",
