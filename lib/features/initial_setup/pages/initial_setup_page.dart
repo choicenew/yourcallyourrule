@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -145,11 +146,17 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
     );
   }
 
-  void _exit(BuildContext context) {
-    if (context.canPop()) {
-      context.pop();
-    } else {
-      context.goNamed('home');
+  Future<void> _exit(BuildContext context) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('has_completed_initial_setup', true);
+    } catch (_) {}
+    if (context.mounted) {
+      if (context.canPop()) {
+        context.pop();
+      } else {
+        context.goNamed('home');
+      }
     }
   }
 

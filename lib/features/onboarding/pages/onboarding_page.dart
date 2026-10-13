@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/features/language/language_data.dart';
 import 'package:yourcallyourrule/features/language/widgets/language_selection_widget.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 
 /// 应用引导页面
 class OnboardingPage extends ConsumerStatefulWidget {
@@ -35,7 +37,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         curve: Curves.easeInOut,
       );
     } else {
-      GoRouter.of(context).goNamed('home');
+      _proceedToNextFlow();
     }
   }
 
@@ -49,7 +51,24 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   }
 
   void _skipOnboarding() {
-    GoRouter.of(context).goNamed('home');
+    _proceedToNextFlow();
+  }
+
+  Future<void> _proceedToNextFlow() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final hasCompletedSetup = prefs.getBool('has_completed_initial_setup') ?? false;
+      if (!mounted) return;
+      if (!hasCompletedSetup) {
+        GoRouter.of(context).goNamed(AppRouter.initialSetup);
+      } else {
+        GoRouter.of(context).goNamed(AppRouter.home);
+      }
+    } catch (_) {
+      if (mounted) {
+        GoRouter.of(context).goNamed(AppRouter.home);
+      }
+    }
   }
 
   @override
