@@ -46,7 +46,7 @@ void showLabelFilterDialog(BuildContext context, ValueChanged<String?> onLabelSe
             onLabelSelected(labelId);
             Navigator.pop(context);
           },
-          themeColor: themeColor ?? Colors.blue,
+          themeColor: themeColor,
         ),
       ),
       actions: [

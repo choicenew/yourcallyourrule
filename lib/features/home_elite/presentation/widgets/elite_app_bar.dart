@@ -8,8 +8,8 @@ import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
-import 'package:yourcallyourrule/features/permissions/providers/permission_providers.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ------------------- Widget 定义 -------------------
@@ -36,22 +36,17 @@ class EliteAppBar extends ConsumerWidget {
     }
 
     try {
-      final permissionService = ref.read(permissionServiceProvider);
-      final isDefaultRole = await permissionService.isDefaultCallScreeningApp();
-
-      if (!isDefaultRole) {
-        final granted = await permissionService.requestDefaultCallScreeningApp();
-        if (granted && context.mounted) {
-          ref.invalidate(homeStatsProvider);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(l10n.enabledStatus),
-              duration: const Duration(seconds: 2),
-              behavior: SnackBarBehavior.floating,
-            ),
-          );
-          return;
-        }
+      final granted = await CallScreeningPlugin.requestCallScreeningRole();
+      if (granted && context.mounted) {
+        ref.invalidate(homeStatsProvider);
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(l10n.enabledStatus),
+            duration: const Duration(seconds: 2),
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+        return;
       }
 
       if (context.mounted) {

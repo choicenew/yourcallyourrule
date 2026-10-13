@@ -4,7 +4,7 @@ import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 import 'package:yourcallyourrule/features/rules/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
-import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
+
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 /// 允许/阻止规则编辑对话框
@@ -13,26 +13,32 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 class AllowedBlockedRuleEditDialog extends ConsumerStatefulWidget {
   final AllowedBlockedRule rule;
   final Function? onRuleUpdated;
+  final Color? themeColor;
 
   const AllowedBlockedRuleEditDialog({
     super.key,
     required this.rule,
     this.onRuleUpdated,
+    this.themeColor,
   });
 
   @override
   ConsumerState<AllowedBlockedRuleEditDialog> createState() => _AllowedBlockedRuleEditDialogState();
   /// 显示允许/阻止规则编辑对话框的静态方法
   /// Static method to show the Allowed/Blocked Rule Edit Dialog
-  static void show(BuildContext context, AllowedBlockedRule rule, {Function? onRuleUpdated}) {
+  static void show(
+    BuildContext context,
+    AllowedBlockedRule rule, {
+    Function? onRuleUpdated,
+    Color? themeColor,
+  }) {
     showDialog(
       context: context,
       builder: (context) => AllowedBlockedRuleEditDialog(
         rule: rule,
         onRuleUpdated: onRuleUpdated,
-      ),
-    );
-  }
+        themeColor: themeColor,
+
       ),
     );
   }
@@ -158,6 +164,7 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
                 _selectedLabelId = labelId;
               });
             },
+            themeColor: widget.themeColor,
           ),
           const SizedBox(height: 16),
           RuleActionSelector(

@@ -62,7 +62,8 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
 
     try {
       final autoUpdateService = ref.read(autoUpdateServiceProvider);
-      await autoUpdateService.checkAndUpdateAll(context);
+      await autoUpdateService.updateAll();
+      ref.invalidate(homeStatsProvider);
     } catch (e) {
       debugPrint('一键更新规则失败: $e');
     } finally {
@@ -89,11 +90,11 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     final l10n = AppLocalizations.of(context)!;
     switch (action) {
       case InterceptAction.endCall:
-        return l10n.endCallAction;
+        return l10n.endCallImmediately;
       case InterceptAction.answerThenHangup:
-        return l10n.answerThenHangupAction;
+        return l10n.answerThenHangup;
       case InterceptAction.silenceNoAnswer:
-        return l10n.silenceAction;
+        return l10n.silenceNoAnswer;
     }
   }
 
@@ -101,7 +102,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     final l10n = AppLocalizations.of(context)!;
     switch (action) {
       case InterceptAction.endCall:
-        return l10n.endCallDescription;
+        return l10n.blockActionDescription;
       case InterceptAction.answerThenHangup:
         return l10n.answerThenHangupDescription;
       case InterceptAction.silenceNoAnswer:

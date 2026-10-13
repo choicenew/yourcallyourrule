@@ -10,14 +10,14 @@ class AvatarCropView extends StatefulWidget {
   final File imageFile;
   final Function(Uint8List) onCrop;
   final VoidCallback onCancel;
-  final Color themeColor;
+  final Color? themeColor;
 
   const AvatarCropView({
     super.key,
     required this.imageFile,
     required this.onCrop,
     required this.onCancel,
-    this.themeColor = Colors.blue,
+    this.themeColor,
   });
 
   @override
@@ -48,6 +48,8 @@ class _AvatarCropViewState extends State<AvatarCropView> {
 
   @override
   Widget build(BuildContext context) {
+    final activeColor = widget.themeColor ?? Theme.of(context).colorScheme.primary;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -73,12 +75,12 @@ class _AvatarCropViewState extends State<AvatarCropView> {
           children: [
             IconButton(
               icon: const Icon(Icons.rotate_left),
-              color: widget.themeColor,
+              color: activeColor,
               onPressed: () => _controller.rotateLeft(),
             ),
             IconButton(
               icon: const Icon(Icons.rotate_right),
-              color: widget.themeColor,
+              color: activeColor,
               onPressed: () => _controller.rotateRight(),
             ),
           ],
@@ -95,7 +97,7 @@ class _AvatarCropViewState extends State<AvatarCropView> {
             ElevatedButton(
               onPressed: _isProcessing ? null : _performCrop,
               style: ElevatedButton.styleFrom(
-                backgroundColor: widget.themeColor,
+                backgroundColor: activeColor,
               ),
               child:
                   _isProcessing

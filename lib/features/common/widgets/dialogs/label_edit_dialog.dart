@@ -154,6 +154,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
                 });
               },
               selectLabelService: selectLabelService,
+              themeColor: widget.themeColor,
             ),
             const SizedBox(height: 16),
             TextField(
@@ -188,7 +189,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
                   height: 20,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : Text(AppLocalizations.of(context)!.save, style: TextStyle(color: widget.themeColor)),
+              : Text(AppLocalizations.of(context)!.save, style: TextStyle(color: widget.themeColor ?? Theme.of(context).colorScheme.primary)),
         ),
       ],
     );

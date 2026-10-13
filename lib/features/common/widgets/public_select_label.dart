@@ -66,6 +66,9 @@ class PublicSelectLabel extends ConsumerStatefulWidget {
   /// 标签服务
   final SelectLabelService? selectLabelService;
   
+  /// 主题色（可选）
+  final Color? themeColor;
+  
   /// 构造函数
   const PublicSelectLabel({
     super.key,
@@ -74,6 +77,7 @@ class PublicSelectLabel extends ConsumerStatefulWidget {
     this.phoneNumber,
     required this.onLabelIdChanged,
     this.selectLabelService,
+    this.themeColor,
   });
 
   @override
@@ -148,7 +152,7 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
   @override
   @override
   Widget build(BuildContext context) {
-    final activeThemeColor = Theme.of(context).colorScheme.primary;
+    final activeThemeColor = widget.themeColor ?? Theme.of(context).colorScheme.primary;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -259,34 +263,7 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
       ),
     );
   }
-                  setState(() {
-                    _selectedLabelText = labelText;
-                    _selectedLabelId = labelId;
-                  });
-                  widget.onLabelIdChanged(labelId);
-                }
-              },
-              selectedColor: widget.themeColor,
-              backgroundColor: Colors.grey.shade200,
-              labelStyle: TextStyle(
-                color: isSelected ? Colors.white : Colors.black87,
-                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-              ),
-              avatar: isSelected
-                  ? const Icon(Icons.check, size: 12, color: Colors.orange)
-                  : null,
-              padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 7),
-            );
-          }).toList(),
-        ),
-      ),
-    );
-  }
 }
-
-
-
-
 
 /// 标签选择页面
 class LabelSelectionPage extends ConsumerWidget {
@@ -299,7 +276,6 @@ class LabelSelectionPage extends ConsumerWidget {
     required this.onLabelIdSelected,
   });
 
-  @override
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(

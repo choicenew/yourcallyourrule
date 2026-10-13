@@ -48,6 +48,9 @@ class RuleManagementWidget<T extends BaseEntity> extends StatefulWidget {
   /// 添加按钮文本
   final String addButtonText;
   
+  /// 主题颜色（可选）
+  final Color? themeColor;
+  
   /// 是否使用标签筛选
   final bool useLabelFilter;
   
@@ -87,6 +90,7 @@ class RuleManagementWidget<T extends BaseEntity> extends StatefulWidget {
     required this.emptyIcon,
     required this.emptyText,
     required this.addButtonText,
+    this.themeColor,
     this.useLabelFilter = false,
     this.selectedLabelId,
     this.onShowLabelFilter,
@@ -135,12 +139,12 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
   }
   @override
   Widget build(BuildContext context) {
-    final primaryColor = Theme.of(context).colorScheme.primary;
+    final activeThemeColor = widget.themeColor ?? Theme.of(context).colorScheme.primary;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        backgroundColor: primaryColor,
+        backgroundColor: activeThemeColor,
         elevation: 0,
         actions: [
           if (widget.useLabelFilter)
@@ -236,7 +240,7 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: widget.onAddRule,
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: widget.themeColor ?? Theme.of(context).colorScheme.primary,
         tooltip: AppLocalizations.of(context)!.addRuleTooltip,
         child: const Icon(Icons.add),
       ),
@@ -267,7 +271,7 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
               icon: const Icon(Icons.add),
               label: Text(widget.addButtonText),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.primary,
+                backgroundColor: widget.themeColor ?? Theme.of(context).colorScheme.primary,
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 shape: RoundedRectangleBorder(

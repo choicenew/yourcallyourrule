@@ -10,7 +10,8 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/services/import_export_service_component.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_rule_page.dart';
-import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
+import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart'
+    hide Icon;
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';

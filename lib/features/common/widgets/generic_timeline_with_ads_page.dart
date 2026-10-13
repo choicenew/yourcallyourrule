@@ -48,6 +48,9 @@ class GenericTimelineListWithAdsPage<T> extends ConsumerStatefulWidget {
   /// 空状态操作按钮
   final Widget? emptyActionButton;
   
+  /// 主题颜色（可选）
+  final Color? themeColor;
+  
   /// 是否正在加载
   final bool isLoading;
   
@@ -116,6 +119,7 @@ class GenericTimelineListWithAdsPage<T> extends ConsumerStatefulWidget {
     required this.emptyText,
     this.emptyIcon = Icons.info_outline,
     this.emptyActionButton,
+    this.themeColor,
     this.isLoading = false,
     this.onRefresh,
     this.onAdd,
@@ -294,7 +298,7 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
                   decoration: InputDecoration(
                     hintText: widget.searchHintText ?? AppLocalizations.of(context)!.search,
                     hintStyle: TextStyle(color: Colors.grey[400], fontSize: 13, fontWeight: FontWeight.w500),
-                    prefixIcon: Icon(Icons.search_rounded, color: Theme.of(context).colorScheme.primary, size: 20),
+                    prefixIcon: Icon(Icons.search_rounded, color: widget.themeColor ?? Theme.of(context).colorScheme.primary, size: 20),
                     suffixIcon: _searchController.text.isNotEmpty
                         ? IconButton(
                             icon: const Icon(Icons.clear_rounded, size: 16, color: Colors.grey),
@@ -331,7 +335,7 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
             Checkbox(
               value: isSelected,
               onChanged: (_) => widget.onToggleItemSelection?.call(itemId),
-              activeColor: Theme.of(context).colorScheme.primary,
+              activeColor: widget.themeColor ?? Theme.of(context).colorScheme.primary,
             ),
             Expanded(child: widget.itemBuilder(context, item)),
           ],
