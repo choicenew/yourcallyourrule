@@ -18,13 +18,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get aboutPhoneSubscriptionRules => '전화 구독 규칙 정보';
 
   @override
-  String get aboutPhoneSubscriptions => '전화 구독 정보';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'URL을 통해 전화 규칙 목록을 구독하고, 규칙을 자동으로 업데이트합니다. JSON, CSV 형식의 규칙 파일을 지원합니다.';
-
-  @override
   String get aboutSmsFilter => 'SMS 필터 정보';
 
   @override
@@ -47,9 +40,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get actionBlock => '차단';
-
-  @override
-  String get actionFilterAll => '모든 필터';
 
   @override
   String get actionFilterTitle => '작업 유형으로 필터링';
@@ -95,28 +85,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => '허용 규칙에 추가됨';
-
-  @override
-  String get addedToBlacklist => '블랙리스트에 추가됨';
-
-  @override
-  String get addedToBlockedRules => '차단 규칙에 추가됨';
-
-  @override
-  String get addedToFavoriteContacts => '즐겨찾는 연락처에 추가됨';
-
-  @override
   String get addedToFavorites => '즐겨찾는 연락처에 추가됨';
-
-  @override
-  String get addedToWhitelist => '화이트리스트에 추가됨';
-
-  @override
-  String get addFavorite => '즐겨찾기 추가';
-
-  @override
-  String get addFilter => '필터 추가';
 
   @override
   String get addLabel => '라벨 추가';
@@ -130,16 +99,10 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => '통화 기록에 라벨 추가';
-
-  @override
   String get addName => '이름 추가';
 
   @override
   String get addNoneSubscription => '없음 구독 추가';
-
-  @override
-  String get addOrEditContactInfo => '연락처 정보를 추가하거나 편집하는 데 사용';
 
   @override
   String get addPhoneMark => '전화 번호 표시 추가';
@@ -171,9 +134,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get addRule => '규칙 추가';
 
   @override
-  String get addRuleButton => '규칙 추가';
-
-  @override
   String addRuleFailed(Object error) {
     return '규칙 추가 실패: $error';
   }
@@ -183,9 +143,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => '무음 구독 추가';
-
-  @override
-  String get addSimRuleButton => 'SIM 규칙 추가';
 
   @override
   String get addSmsFilterRule => 'SMS 필터 규칙 추가';
@@ -211,16 +168,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get addSubscriptionTooltip => '구독 추가';
 
   @override
-  String get addToAllowedRules => '허용 규칙에 추가';
-
-  @override
   String get addToBlacklist => '블랙리스트에 추가';
-
-  @override
-  String get addToBlockedRules => '차단된 규칙에 추가';
-
-  @override
-  String get addToFavoriteContacts => '즐겨찾는 연락처에 추가';
 
   @override
   String get addToFavorites => '즐겨찾기에 추가';
@@ -232,9 +180,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get addToWhitelist => '화이트리스트에 추가';
 
   @override
-  String get adPlaceholder => '광고 자리 표시자';
-
-  @override
   String get agent => '에이전트';
 
   @override
@@ -242,9 +187,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get allCallsTab => '전체';
-
-  @override
-  String get allDataClearedSuccessfully => '모든 데이터가 성공적으로 삭제되었습니다.';
 
   @override
   String get allow => '허용';
@@ -257,9 +199,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get allowAllBlacklistedNumbers => '모든 블랙리스트 번호 허용';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc => '블랙리스트에서 통화 허용';
 
   @override
   String get allowAllBlockRules => '모든 차단 규칙 허용';
@@ -323,12 +262,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get allowRules => '허용 규칙';
 
   @override
-  String get allowWhitelistedNumbers => '화이트리스트 번호 허용';
-
-  @override
-  String get allowWhitelistedNumbersDescription => '화이트리스트에 있는 모든 번호 허용';
-
-  @override
   String get allPermissionsGranted => '모든 권한이 부여되었습니다';
 
   @override
@@ -341,9 +274,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get answerThenHangup => '응답 후 끊기';
-
-  @override
-  String get appLegalese => '© 2023 Your Call Your Rule. 모든 권리 보유.';
 
   @override
   String get applicationSoftware => '응용 프로그램 소프트웨어';
@@ -381,12 +311,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => '자동 업데이트 설정';
-
-  @override
-  String get autoUpdateSettingsSubtitle => '규칙 및 플러그인의 자동 업데이트 관리';
-
-  @override
-  String get autoUpdateSettingsTitle => '자동 업데이트 설정';
 
   @override
   String get autoUpdateSubtitle => '규칙 및 플러그인의 자동 업데이트 관리';
@@ -433,44 +357,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get backupFailed => '백업 실패';
 
   @override
-  String get backupFailedMessage => '백업 실패';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return '백업 실패: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle => '응용 프로그램 데이터를 백업 또는 복원';
-
-  @override
-  String get backupRestoreTitle => '백업 및 복원';
-
-  @override
-  String get backupSectionTitle => '백업';
-
-  @override
   String get backupSettings => '백업 설정';
 
   @override
-  String get backupSettingsDialogTitle => '백업 설정';
-
-  @override
-  String get backupSettingsTitle => '백업 설정';
-
-  @override
-  String get backupSuccessMessage => '클라우드에 성공적으로 백업되었습니다';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return '다음 위치에 백업 성공: $path';
-  }
-
-  @override
   String get backupToCloud => '클라우드로 백업';
-
-  @override
-  String get backupToCloudDescription => '설정 및 규칙을 클라우드 저장소에 백업';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -478,16 +368,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => '클라우드로 백업';
-
-  @override
   String get backupToCloudSuccess => '클라우드에 성공적으로 백업되었습니다';
-
-  @override
-  String get backupToCloudTitle => '클라우드에 백업';
-
-  @override
-  String get backupToLocalLabel => '로컬에 백업';
 
   @override
   String get bank => '은행';
@@ -506,21 +387,12 @@ class AppLocalizationsKo extends AppLocalizations {
       '• 기본 규칙 필터링: 블랙리스트, 화이트리스트 및 정규 표현식을 기반으로 하는 필터링 규칙';
 
   @override
-  String get basicRuleFilterSettings => '기본 규칙 필터 설정';
-
-  @override
   String get basicRuleFilterSubtitle => '블랙리스트/화이트리스트 및 정규 표현식을 사용하여 통화 필터링';
-
-  @override
-  String get batchDeleteContacts => '연락처 일괄 삭제';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return '$count개의 선택된 연락처를 삭제하시겠습니까?';
   }
-
-  @override
-  String get batchDeleteFailed => '일괄 삭제 실패';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -532,9 +404,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get blacklistingAndWhitelisting => '블랙리스트 및 화이트리스트';
-
-  @override
-  String get blacklistLabel => '블랙리스트';
 
   @override
   String get blackWhiteList => '블랙/화이트 목록';
@@ -549,19 +418,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get blocked => '차단됨';
 
   @override
-  String get blockedCallAction => '차단된 통화 작업';
-
-  @override
   String get blockedCalls => '차단된 통화';
 
   @override
   String get blockedCallsTitle => '차단된 통화';
-
-  @override
-  String get blockedCommunications => '차단된 커뮤니케이션';
-
-  @override
-  String get blockedPhoneLabel => '차단된 통화';
 
   @override
   String get blockedSpamCalls => '차단된 스팸 통화';
@@ -574,9 +434,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get blockInternationalCallsTitle => '국제 전화 차단';
-
-  @override
-  String get blockLandlineNumbersTitle => '유선 전화 번호 차단';
 
   @override
   String get blockMobileNumbers => '13-19로 시작하지 않는 번호와 일치';
@@ -624,11 +481,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get callback => '다시 전화';
 
   @override
-  String callbackTo(String number) {
-    return '$number로 다시 전화';
-  }
-
-  @override
   String get callBlocking => '통화 차단';
 
   @override
@@ -636,9 +488,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => '발신자 ID 사용자 지정';
-
-  @override
-  String get callerIdDialogTitle => '발신자 ID 정보';
 
   @override
   String get callerIdDisplayMode => '발신자 ID 표시 모드';
@@ -650,13 +499,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get callerIdPreview => '발신자 ID 미리보기';
-
-  @override
-  String get callFilter => '통화 필터';
-
-  @override
-  String get callFilterDescription =>
-      '활성화되면 수신 전화가 아래 규칙 목록에 대해 확인됩니다. 통화 필터링 규칙은 기본적으로 장치 간에 동기화되지 않습니다.';
 
   @override
   String get callFilterRules => '통화 필터 규칙';
@@ -683,26 +525,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get callHistoryInfoTitle => '통화 기록';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return '통화 기록을 초기화하지 못했습니다: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return '통화 기록을 새로 고치지 못했습니다: $error';
-  }
-
-  @override
   String get callHistoryTab => '통화 기록';
-
-  @override
-  String get callHistoryTimelineEarlier => '이전';
-
-  @override
-  String get callHistoryTimelineToday => '오늘';
-
-  @override
-  String get callHistoryTimelineYesterday => '어제';
 
   @override
   String get callScreeningPermission => '통화 스크리닝 권한';
@@ -714,12 +537,6 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       '통화 스크리닝 권한이 부여되지 않아 앱 기능에 영향을 미칠 수 있습니다.';
-
-  @override
-  String get callSettingsSubtitle => '발신자 ID, 필터링 및 차단 설정';
-
-  @override
-  String get callSettingsTitle => '통화 설정';
 
   @override
   String get callStatistics => '통화 통계';
@@ -777,27 +594,10 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get changeTag => '태그 변경';
-
-  @override
   String get charity => '자선 단체';
 
   @override
-  String chartMonthFormat(int month) {
-    return '$month월';
-  }
-
-  @override
-  String get chartOneDayAgo => '1일 전';
-
-  @override
-  String get chartOneMonthAgo => '1개월 전';
-
-  @override
   String get chartOneWeekAgo => '1주 전';
-
-  @override
-  String get chartTenDaysAgo => '10일 전';
 
   @override
   String get chartThreeDaysAgo => '3일 전';
@@ -817,23 +617,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get chooseDefaultInterceptAction => '기본 차단 작업을 선택하세요.';
 
   @override
-  String get clearAllData => '모든 데이터 지우기';
-
-  @override
-  String get clearAllDataConfirmation =>
-      '정말로 모든 애플리케이션 데이터를 지우시겠습니까? 이 작업은 실행 취소할 수 없습니다.';
-
-  @override
-  String get clearAllDataDescription => '모든 애플리케이션 데이터 지우기';
-
-  @override
-  String get clearAllDataLabel => '모든 데이터 지우기';
-
-  @override
   String get clearFilter => '필터 지우기';
-
-  @override
-  String get clearLabelFilter => '라벨 필터 지우기';
 
   @override
   String get clearLabelFilterButton => '라벨 필터 지우기';
@@ -857,9 +641,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get cloudSyncTitle => '클라우드 동기화';
 
   @override
-  String get collapseLabelSelector => '라벨 선택기 축소';
-
-  @override
   String get collection => '채권 추심';
 
   @override
@@ -879,14 +660,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get configureBackupOptions => '백업 옵션 구성';
 
   @override
-  String get configureBackupOptionsSubtitle => '백업 옵션 구성';
-
-  @override
   String get configureCloudSyncService => '클라우드 동기화 서비스 구성';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      '다중 장치 동기화를 사용하려면 클라우드 동기화 서비스를 구성하세요.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -896,28 +670,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get configureSimCardFilterRules => 'SIM 카드 필터 규칙 구성';
 
   @override
-  String get configureSyncServiceHint => '먼저 클라우드 동기화 설정에서 동기화 서비스를 구성하세요.';
-
-  @override
   String get confirm => '확인';
-
-  @override
-  String get confirmBatchDeleteContacts => '선택한 항목을 삭제하시겠습니까?';
 
   @override
   String get confirmButton => '확인';
 
   @override
   String get confirmDelete => '삭제 확인';
-
-  @override
-  String get confirmDeleteContact => '정말로 삭제하시겠습니까?';
-
-  @override
-  String get confirmDeleteContactName => '삭제를 확인하시겠습니까?';
-
-  @override
-  String get confirmDeleteFilter => '이 필터를 삭제하시겠습니까?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -938,16 +697,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get confirmDeleteRuleMessage => '이 규칙을 삭제하시겠습니까? 이 작업은 실행 취소할 수 없습니다.';
 
   @override
-  String get confirmDeleteSelectedContacts => '선택한 연락처를 삭제하시겠습니까?';
-
-  @override
   String get confirmDeleteSmsFilterRule => '이 SMS 필터 규칙을 삭제하시겠습니까?';
 
   @override
   String get confirmDeleteSmsRule => '이 SMS 규칙을 삭제하시겠습니까?';
-
-  @override
-  String get confirmDeleteSubscription => '이 구독을 삭제하시겠습니까?';
 
   @override
   String confirmDeleteSubscriptions(String name) {
@@ -956,9 +709,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get confirmPassword => '비밀번호 확인';
-
-  @override
-  String get confirmPasswordLabel => '비밀번호 확인';
 
   @override
   String get connectedStatus => '연결됨';
@@ -983,16 +733,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get contactDeleted => '연락처가 삭제되었습니다.';
 
   @override
-  String get contactEditDialog => '연락처 편집 대화 상자';
-
-  @override
-  String get contactNameHint => '연락처 이름 입력 (선택 사항)';
-
-  @override
   String get contactNameLabel => '이름';
-
-  @override
-  String get contactNameOptional => '연락처 이름 (선택 사항)';
 
   @override
   String get contactNotFound => '연락처를 찾을 수 없습니다.';
@@ -1006,24 +747,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle => '연락처 관리 및 레이블 설정';
-
-  @override
-  String get contactSettingsTitle => '연락처 설정';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return '연락처를 로드하는 데 실패했습니다: $error';
-  }
-
-  @override
   String get contactsManagement => '연락처 관리';
-
-  @override
-  String get contactsManagementPageTitle => '연락처 관리 페이지';
-
-  @override
-  String get contactsPageTitle => '연락처 관리';
 
   @override
   String get contactsPermission => '연락처 권한';
@@ -1037,14 +761,6 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'URL을 통해 연락처 목록을 구독하고, 연락처 정보와 레이블을 자동으로 업데이트합니다. JSON 형식 데이터를 지원합니다.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return '연락처 구독을 로드하는 데 실패했습니다: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => '연락처 구독';
 
   @override
   String get contactUpdateSuccess => '연락처가 성공적으로 업데이트되었습니다.';
@@ -1080,26 +796,11 @@ class AppLocalizationsKo extends AppLocalizations {
   String get countryRegionNamePosition => '국가/지역 이름 위치';
 
   @override
-  String get countrySelectionDialog => '국가 선택 대화 상자';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      '발신자 ID 정보를 쿼리하기 위해 국가를 선택하는 데 사용됩니다.';
-
-  @override
   String get countThresholdDescription =>
       '필터링 작업을 트리거하는 데 필요한 최소 개수 임계값을 설정합니다.';
 
   @override
   String get countThresholdLabel => '개수 임계값';
-
-  @override
-  String get countThresholdSettings => '개수 임계값 설정';
-
-  @override
-  String countThresholdValue(Object count) {
-    return '개수 임계값: $count';
-  }
 
   @override
   String get createdRules => '생성된 규칙';
@@ -1108,46 +809,22 @@ class AppLocalizationsKo extends AppLocalizations {
   String get csvFormat => 'CSV 형식';
 
   @override
-  String get currentDeviceChip => '현재';
-
-  @override
   String get currentDeviceLabel => '현재 기기 라벨';
 
   @override
   String get currentDeviceTitle => '현재 기기';
 
   @override
-  String get currentLabels => '현재 레이블:';
-
-  @override
   String get currentLanguage => '현재 언어';
 
   @override
-  String get currentPasswordLabel => '현재 비밀번호';
-
-  @override
   String get customerService => '고객 서비스';
-
-  @override
-  String get customRange => '사용자 지정 범위';
-
-  @override
-  String get dailyStatistics => '일일 통계';
-
-  @override
-  String get dailyStatisticsDesc => '차단된 전화 및 메시지에 대한 일일 통계를 받으세요.';
 
   @override
   String get dashboardTab => '대시보드';
 
   @override
   String get dataAnalysis => '데이터 분석';
-
-  @override
-  String get dataAnalysisDashboardPage => '데이터 분석 대시보드 페이지';
-
-  @override
-  String get dataExport => '데이터 내보내기';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1165,16 +842,6 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       '이 기능을 사용하면 기기 간에 모든 데이터를 전송할 수 있습니다. 현재 백업 및 복원 기능을 사용하여 데이터를 수동으로 마이그레이션할 수 있습니다.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      '이 기능을 사용하면 기기 간에 모든 데이터를 전송할 수 있습니다. 현재 백업 및 복원 기능을 사용하여 데이터를 수동으로 마이그레이션할 수 있습니다.';
-
-  @override
-  String get dataMigrationDialogTitle => '데이터 마이그레이션';
-
-  @override
-  String get dataMigrationSectionTitle => '데이터 마이그레이션';
 
   @override
   String get dataSourceReminder => '데이터 소스 알림';
@@ -1199,9 +866,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get debtCollection => '채권 추심';
 
   @override
-  String get defaultPeriod => '주';
-
-  @override
   String get delete => '삭제';
 
   @override
@@ -1216,23 +880,9 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation => '연락처를 삭제하시겠습니까?';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return '$deviceName을(를) 삭제하시겠습니까?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => '기기 삭제';
-
-  @override
   String deleteFailed(Object error) {
     return '삭제 실패: $error';
   }
-
-  @override
-  String get deleteFilter => '필터 삭제';
 
   @override
   String get deleteLabel => '레이블 삭제';
@@ -1270,9 +920,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get deleteSelected => '선택 항목 삭제';
 
   @override
-  String get deleteSmsRule => 'SMS 규칙 삭제';
-
-  @override
   String get deleteSubscription => '구독 삭제';
 
   @override
@@ -1292,15 +939,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get delivery => '전달';
 
   @override
-  String get deviceDeletedSuccessfully => '기기가 성공적으로 삭제되었습니다.';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage => '기기가 성공적으로 삭제되었습니다.';
-
-  @override
-  String get deviceIdLabel => '기기 ID';
-
-  @override
   String get deviceIDLabel => '기기 ID';
 
   @override
@@ -1316,25 +954,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get deviceName => '기기 이름';
 
   @override
-  String get deviceNameCannotBeEmpty => '기기 이름은 비워둘 수 없습니다.';
-
-  @override
-  String get deviceNameHint => '기기 이름을 입력하세요.';
-
-  @override
   String get deviceNameLabel => '기기 이름';
 
   @override
-  String get deviceRenamedSuccessfully => '기기 이름이 성공적으로 변경되었습니다.';
-
-  @override
   String get deviceRenamedSuccessfullyMessage => '기기 이름이 성공적으로 변경되었습니다.';
-
-  @override
-  String get devicesSyncedSuccessfully => '기기가 성공적으로 동기화되었습니다.';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage => '기기가 성공적으로 동기화되었습니다.';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage => '기기가 성공적으로 동기화되었습니다.';
@@ -1357,9 +980,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => '글로벌 플러그인 비활성화';
-
-  @override
-  String get disableSubscriptionSuccessfully => '구독을 성공적으로 비활성화했습니다.';
 
   @override
   String get disconnectButton => '연결 해제';
@@ -1393,25 +1013,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get editContact => '연락처 편집';
 
   @override
-  String get editFilter => '필터 편집';
-
-  @override
   String get editLabel => '레이블 편집';
 
   @override
   String get editPhoneRule => '전화 규칙 편집';
 
   @override
-  String get editPhoneRules => '전화 규칙 편집에 사용';
-
-  @override
-  String get editPhoneRuleTitle => '전화 규칙 편집';
-
-  @override
   String get editRule => '규칙 편집';
-
-  @override
-  String get editSmsRule => 'SMS 규칙 편집';
 
   @override
   String get education => '교육';
@@ -1421,9 +1029,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get email => '이메일';
-
-  @override
-  String get emailOptional => '이메일(선택 사항)';
 
   @override
   String get enableCallFilter => '통화 필터 활성화';
@@ -1443,15 +1048,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => '백업 파일 암호화';
-
-  @override
-  String get enableEncryptionLabel => '암호화 활성화';
-
-  @override
-  String get enableEncryptionSubtitle => '백업 파일이 암호화됩니다.';
-
-  @override
-  String get enableEncryptionTitle => '암호화 활성화';
 
   @override
   String get enableGlobalPlugins => '글로벌 플러그인 활성화';
@@ -1486,9 +1082,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get enableNoneActionRulesDesc => '차단 작업이 없는 규칙 설정을 허용합니다.';
 
   @override
-  String get enableNotifications => '알림 사용';
-
-  @override
   String get enableRemoteNumberFilter => '원격 번호 필터 사용';
 
   @override
@@ -1503,12 +1096,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get enableSmsFilterDescription => '활성화되면 규칙에 따라 메시지가 자동으로 필터링됩니다.';
-
-  @override
-  String get enableStatisticsNotifications => '통계 알림 사용';
-
-  @override
-  String get enableSubscriptionSuccessfully => '구독 성공적으로 사용';
 
   @override
   String get enableTimeInterception => '시간 차단 사용';
@@ -1542,9 +1129,6 @@ class AppLocalizationsKo extends AppLocalizations {
       '향상된 필터 시스템은 글로벌 규칙과 SIM 카드별 필터링 설정을 모두 지원합니다.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern => '전화번호와 정규식 패턴을 모두 입력하세요';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       '전화번호와 정규식 패턴을 모두 입력하세요.';
 
@@ -1552,31 +1136,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get enterContactName => '연락처 이름을 입력하세요';
 
   @override
-  String get enterCurrentPasswordHint => '현재 비밀번호를 입력하세요';
-
-  @override
   String get enterDeviceName => '기기 이름 입력';
-
-  @override
-  String get enterDeviceNameHint => '기기 이름을 입력하세요';
-
-  @override
-  String get enterEmail => '이메일 주소 입력';
 
   @override
   String get enterEmailOptional => '이메일 주소 입력 (선택 사항)';
 
   @override
   String get enterEncryptionPasswordHint => '암호화 비밀번호 입력';
-
-  @override
-  String get enterEncryptionPasswordTitle => '암호화 비밀번호 입력';
-
-  @override
-  String get enterFilterName => '필터 이름을 입력하세요';
-
-  @override
-  String get enterFilterPattern => '필터 패턴을 입력하세요';
 
   @override
   String get enterIconCode => '아이콘 코드 입력';
@@ -1588,13 +1154,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get enterNewDeviceNameHint => '이 기기의 새 이름을 입력하세요';
 
   @override
-  String get enterNewPasswordHint => '새 비밀번호를 입력하세요';
-
-  @override
   String get enterPasswordAgain => '비밀번호 다시 입력';
-
-  @override
-  String get enterPasswordHint => '비밀번호를 입력하세요';
 
   @override
   String get enterPhoneNumber => '전화번호 입력';
@@ -1619,9 +1179,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get enterRegexHint => '정규식 패턴 입력';
-
-  @override
-  String get enterRuleNameAndPattern => '규칙 이름과 패턴을 입력하세요';
 
   @override
   String get enterRuleNameAndPatternMessage => '규칙 이름과 정규식 패턴을 모두 입력하세요.';
@@ -1664,14 +1221,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get enterWebDAVUsernameHint => 'WebDAV 사용자 이름을 입력하세요.';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return '기기 삭제 오류: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => '플러그인 로딩 오류';
-
-  @override
   String errorOccurredMessage(Object error) {
     return '오류 발생: $error';
   }
@@ -1687,14 +1236,6 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return '기기 동기화 오류: $error';
-  }
-
-  @override
-  String get errorText => '오류';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return '기기 등록 해제 오류: $error';
   }
@@ -1704,9 +1245,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => '예: 마케팅 SMS 차단';
-
-  @override
-  String get exampleContentRegex => '예: .*offer.*';
 
   @override
   String get exampleContentRegexHint => '예시 내용 정규식';
@@ -1724,9 +1262,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get exampleRegex400Prefix => '400 접두사 예시 정규식';
 
   @override
-  String get exampleRegexFormat => '예시: ^10086\$ 형식';
-
-  @override
   String get exampleSenderRegexHint => '예시';
 
   @override
@@ -1737,9 +1272,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get exchangeVip => 'VIP 교환';
-
-  @override
-  String get expandLabelSelector => '라벨 선택기 확장';
 
   @override
   String expiryTime(Object time) {
@@ -1753,16 +1285,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get exportAllApplicationSettings => '모든 애플리케이션 설정 내보내기';
 
   @override
-  String get exportAllApplicationSettingsSubtitle => '모든 애플리케이션 설정 내보내기';
-
-  @override
   String get exportAllRuleConfigurations => '모든 규칙 구성 내보내기';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle => '모든 규칙 구성 내보내기';
-
-  @override
-  String get exportComplete => '내보내기 완료';
 
   @override
   String get exportConfig => '구성 내보내기';
@@ -1774,9 +1297,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get exportData => '데이터 내보내기';
 
   @override
-  String get exportError => '내보내기 오류';
-
-  @override
   String get exportFailed => '내보내기 실패';
 
   @override
@@ -1784,9 +1304,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => '내보내기 기능은 곧 제공될 예정입니다.';
-
-  @override
-  String get exporting => '내보내는 중...';
 
   @override
   String get exportLabels => '라벨 내보내기';
@@ -1808,34 +1325,17 @@ class AppLocalizationsKo extends AppLocalizations {
   String get exportRules => '규칙 내보내기';
 
   @override
-  String get exportRulesDialogTitle => '규칙 내보내기';
-
-  @override
-  String get exportRulesTitle => '규칙 내보내기';
-
-  @override
   String get exportSmsRules => 'SMS 규칙 내보내기';
 
   @override
   String get exportStatisticsData => '통계 데이터 내보내기';
 
   @override
-  String get exportSuccess => '내보내기 성공';
-
-  @override
   String get exportSuccesslly => '구성 내보내기 성공';
-
-  @override
-  String get failedToAddContact => '연락처 추가 실패';
 
   @override
   String failedToAddRule(Object error) {
     return '규칙 추가 실패: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'SMS 규칙 추가 실패: $error';
   }
 
   @override
@@ -1852,9 +1352,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get failedToDecryptBackupFile => '백업 파일 해독 실패';
 
   @override
-  String get failedToDeleteDevice => '기기 삭제 실패';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'SMS 규칙 삭제 실패: $error';
   }
@@ -1862,11 +1359,6 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return '규칙 내보내기 실패: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'SMS 규칙 내보내기 실패: $error';
   }
 
   @override
@@ -1880,20 +1372,6 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'SMS 규칙 가져오기 실패: $error';
-  }
-
-  @override
-  String get failedToLoadContacts => '연락처 로드 실패';
-
-  @override
-  String get failedToLoadPlugin => '플러그인 로드 실패';
-
-  @override
-  String get failedToRenameDevice => '기기 이름 변경 실패';
-
-  @override
   String get failedToRestoreSettings => '설정 복원 실패';
 
   @override
@@ -1902,31 +1380,9 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return '비밀번호 설정 실패: $error';
-  }
-
-  @override
-  String get failedToSyncDevices => '기기 동기화 실패';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return '규칙 상태 전환 실패: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus => '구독 상태 전환 실패';
-
-  @override
-  String get failedToUpdateContact => '연락처 업데이트 실패';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'SMS 규칙 업데이트 실패: $error';
-  }
-
-  @override
-  String get failure => '실패';
 
   @override
   String get favoriteContacts => '즐겨찾는 연락처';
@@ -1964,9 +1420,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get filterByLabel => '라벨별 필터';
 
   @override
-  String get filterClear => '필터 지우기';
-
-  @override
   String get filterControlPanelTitle => '필터 제어판';
 
   @override
@@ -1976,22 +1429,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get filterControlTitle => '필터 제어';
 
   @override
-  String get filterDeleteFailed => '필터 삭제 실패';
-
-  @override
-  String get filterDeleteSuccess => '필터가 성공적으로 삭제되었습니다';
-
-  @override
-  String get filterDetails => '필터 세부 정보';
-
-  @override
   String get filtered => '필터링됨';
-
-  @override
-  String get filteredSms => '필터링된 SMS';
-
-  @override
-  String get filteredSmsLabel => '필터링된 SMS';
 
   @override
   String get filterExplanation => '필터 설명';
@@ -2003,17 +1441,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get filterName => '필터 이름';
 
   @override
-  String get filterPattern => '필터 패턴';
-
-  @override
   String get filterPriorityNote =>
       '참고: 필터 간에 우선 순위 관계가 있습니다. 자세한 내용은 도움말 문서를 참조하십시오.';
-
-  @override
-  String get filterSaveFailed => '필터 저장 실패';
-
-  @override
-  String get filterSaveSuccess => '필터가 성공적으로 저장되었습니다';
 
   @override
   String get filterSettings => '필터 설정';
@@ -2050,16 +1479,6 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return '$count개의 규칙을 찾았습니다. 가져오시겠습니까?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return '$count개의 규칙을 찾았습니다. 가져오시겠습니까?';
-  }
-
-  @override
   String get fraudAlert => '사기 경고 - 통화를 끊으십시오';
 
   @override
@@ -2092,37 +1511,14 @@ class AppLocalizationsKo extends AppLocalizations {
   String get globalFilterSettings => '글로벌 필터 설정';
 
   @override
-  String get globalFilterToggleInstructions =>
-      '모든 SIM 슬롯에 적용되는 글로벌 필터 설정을 구성합니다:';
-
-  @override
-  String get globalSearchSubtitle => '연락처, 레이블, 블랙리스트, 화이트리스트 등을 검색합니다.';
-
-  @override
-  String get globalSearchTitle => '글로벌 검색';
-
-  @override
   String get globalSettings => '글로벌 설정';
-
-  @override
-  String get googleAdDisplayPosition => 'Google 광고 표시 위치';
-
-  @override
-  String get googleAdMobIntegrationText => 'Google AdMob 광고를 여기에 통합할 수 있습니다';
 
   @override
   String get googleDriveAuthDescription =>
       '시스템 구성 Google 드라이브 클라이언트 ID 및 키를 사용하여 권한 부여';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      '시스템 구성 Google 드라이브 클라이언트 ID 및 키를 사용하여 권한 부여';
-
-  @override
   String get googleDriveConfigTitle => 'Google 드라이브 구성';
-
-  @override
-  String get googleDriveConfigurationTitle => 'Google 드라이브 구성';
 
   @override
   String get government => '정부';
@@ -2141,9 +1537,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get height => '높이';
-
-  @override
-  String get homePageTitle => '홈 페이지';
 
   @override
   String get homeTab => '홈';
@@ -2172,9 +1565,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get important => '중요';
-
-  @override
-  String get importButton => '가져오기';
 
   @override
   String get importConfig => '구성 가져오기';
@@ -2227,39 +1617,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get importRuleConfigurationsFromFile => '파일에서 규칙 구성 가져오기';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle => '파일에서 규칙 구성 가져오기';
-
-  @override
   String get importRules => '규칙 가져오기';
-
-  @override
-  String get importRulesButton => '규칙 가져오기';
-
-  @override
-  String get importRulesDialogTitle => '규칙 가져오기';
-
-  @override
-  String importRulesError(Object error) {
-    return '규칙 가져오기 실패: $error';
-  }
-
-  @override
-  String get importRulesInstructions => 'CSV 파일에서 규칙 가져오기';
-
-  @override
-  String get importRulesSuccess => '규칙이 성공적으로 가져왔습니다.';
-
-  @override
-  String get importRulesTitle => '규칙 가져오기';
 
   @override
   String get importSuccess => '가져오기 성공';
 
   @override
   String get incomingCallInterceptAction => '수신 전화 가로채기 작업';
-
-  @override
-  String get incomingCallNotification => '수신 전화 알림';
 
   @override
   String get incorrectPassword => '잘못된 비밀번호';
@@ -2313,9 +1677,6 @@ class AppLocalizationsKo extends AppLocalizations {
       '자세한 내용은 Telegram 채널 및 그룹에 가입하십시오.';
 
   @override
-  String get jsLogsTitle => 'JS 로그';
-
-  @override
   String get jsonFormat => 'JSON 형식';
 
   @override
@@ -2323,15 +1684,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get keepAllVersionsDescription => '각 백업의 모든 기록 버전을 유지합니다.';
-
-  @override
-  String get keepAllVersionsLabel => '모든 버전 유지';
-
-  @override
-  String get keepAllVersionsSubtitle => '각 백업의 기록 버전 유지';
-
-  @override
-  String get keepAllVersionsTitle => '모든 버전 유지';
 
   @override
   String get label => '라벨';
@@ -2352,9 +1704,6 @@ class AppLocalizationsKo extends AppLocalizations {
       '라벨을 사용하면 연락처를 더 잘 관리하고, 전화 및 메시지를 쉽게 식별하기 위해 전화번호에 사용자 정의 라벨을 추가할 수 있습니다.';
 
   @override
-  String get labelFilter => '라벨 필터';
-
-  @override
   String get labelFilterTooltip => '라벨 필터';
 
   @override
@@ -2365,14 +1714,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get labelNotFound => '라벨을 찾을 수 없습니다.';
-
-  @override
-  String get labelRemoved => '라벨이 제거되었습니다.';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return '라벨을 제거하지 못했습니다: $error';
-  }
 
   @override
   String get labels => '라벨';
@@ -2405,9 +1746,6 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => '라벨이 업데이트되었습니다.';
-
-  @override
   String labelUpdateFailed(Object error) {
     return '라벨을 업데이트하지 못했습니다: $error';
   }
@@ -2423,12 +1761,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => '언어 설정';
-
-  @override
-  String get last30Days => '지난 30일';
-
-  @override
-  String get last7Days => '지난 7일';
 
   @override
   String get lastSyncLabel => '마지막 동기화';
@@ -2454,13 +1786,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get loadDataFailed => '데이터를 로드하지 못했습니다';
 
   @override
-  String get loadFailed => '로드 실패';
-
-  @override
   String get loading => '로드 중...';
-
-  @override
-  String get loadingData => '데이터 로드 중...';
 
   @override
   String get loadingTags => '태그 로드 중...';
@@ -2484,12 +1810,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return '표시된 전화번호를 불러오는 데 실패했습니다: $error';
   }
-
-  @override
-  String get loadMore => '더 보기';
-
-  @override
-  String get loadPluginButton => '플러그인 로드';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2516,9 +1836,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get loan => '대출';
-
-  @override
-  String get localBackupTitle => '로컬 백업';
 
   @override
   String get localCounterFilter => '로컬 카운터 필터';
@@ -2609,9 +1926,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get manage => '연락처 관리';
 
   @override
-  String get manageContacts => '관리';
-
-  @override
   String get manageFavoriteContacts => '즐겨찾는 연락처 관리';
 
   @override
@@ -2619,9 +1933,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get manageFilterRulesDescription => 'SMS 필터 규칙을 추가, 편집 또는 삭제합니다.';
-
-  @override
-  String get manageFrequentContacts => '자주 연락하는 연락처 관리';
 
   @override
   String get markCounts => '마크 수';
@@ -2649,16 +1960,10 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle => '전화 번호 표시';
-
-  @override
   String get markPhoneManagementTitle => '전화 번호 관리';
 
   @override
   String get markPhoneSuccess => '전화 번호가 성공적으로 표시되었습니다.';
-
-  @override
-  String get matchFailed => '일치 실패!';
 
   @override
   String get matchFailedMessage => '일치 실패.';
@@ -2676,9 +1981,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get matchSpecificDigitPatternsTitle => '특정 숫자 패턴 일치:';
 
   @override
-  String get matchSuccessful => '일치 성공!';
-
-  @override
   String get matchSuccessfulMessage => '일치 성공!';
 
   @override
@@ -2689,9 +1991,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get migrationTool => '마이그레이션 도구';
-
-  @override
-  String get migrationToolTitle => '마이그레이션 도구';
 
   @override
   String get minutes => '분';
@@ -2706,9 +2005,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get monthlyCallCount => '월별 통화';
 
   @override
-  String get monthlyChartTitle => '월별 차단된 통화';
-
-  @override
   String get monthlyMembership => '월간 멤버십';
 
   @override
@@ -2716,9 +2012,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get monthlyTotal => '월간 총액';
-
-  @override
-  String get monthlyTotalLabel => '월간 총액';
 
   @override
   String get moreOptions => '더 많은 옵션';
@@ -2733,32 +2026,16 @@ class AppLocalizationsKo extends AppLocalizations {
   String get nameAndPhoneNumberCannotBeEmpty => '이름과 전화번호는 비워둘 수 없습니다.';
 
   @override
-  String get nameAndPhoneNumberRequired => '이름과 전화번호가 필요합니다.';
-
-  @override
   String get nameColor => '이름 색상';
 
   @override
   String get nameFontSize => '이름 글꼴 크기';
 
   @override
-  String nameLabel(Object name) {
-    return '이름: $name';
-  }
-
-  @override
   String get namePosition => '이름 위치';
 
   @override
   String get nameUnknown => '이름: 알 수 없음';
-
-  @override
-  String nameWithValue(String name) {
-    return '이름: $name';
-  }
-
-  @override
-  String get newPasswordLabel => '새 비밀번호';
 
   @override
   String get nextStep => '다음';
@@ -2773,13 +2050,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get noActiveCloudSyncServiceMessage => '활성 클라우드 동기화 서비스 없음';
 
   @override
-  String get noCallLogs => '통화 기록 없음';
-
-  @override
   String get noCallRecords => '통화 기록 없음';
-
-  @override
-  String get noContacts => '아직 연락처가 없습니다';
 
   @override
   String get noContactsYet => '아직 연락처가 없습니다';
@@ -2791,28 +2062,16 @@ class AppLocalizationsKo extends AppLocalizations {
   String get noDevicesRegisteredMessage => '등록된 기기가 없습니다';
 
   @override
-  String get noDevicesRegisteredYet => '등록된 기기가 없습니다.';
-
-  @override
-  String get noFilters => '아직 필터가 없습니다';
-
-  @override
   String get noLabels => '아직 레이블이 없습니다';
 
   @override
   String get noMarkedPhones => '표시된 전화 번호 없음';
 
   @override
-  String get noMatchingContacts => '일치하는 연락처 없음';
-
-  @override
   String get noMatchingContactsFound => '일치하는 연락처를 찾을 수 없음';
 
   @override
   String get noMatchingNumbersFound => '일치하는 번호를 찾을 수 없음';
-
-  @override
-  String get noMatchingRecords => '일치하는 통화 기록 없음';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2827,15 +2086,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get noPlugins => '아직 플러그인이 없습니다';
-
-  @override
-  String get noRecords => '통화 기록 없음';
-
-  @override
-  String get noResultReturned => '결과가 반환되지 않음';
-
-  @override
-  String get noResultReturnedLog => '플러그인에서 결과가 반환되지 않음';
 
   @override
   String noRules(Object ruleType) {
@@ -2858,9 +2108,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get noSubscriptions => '구독 없음';
 
   @override
-  String get noSubscriptionsYet => '아직 구독이 없습니다';
-
-  @override
   String get notGranted => '승인되지 않음';
 
   @override
@@ -2878,12 +2125,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get notificationSettings => '알림 설정';
-
-  @override
-  String get notificationSettingsSaved => '알림 설정이 성공적으로 저장되었습니다';
-
-  @override
-  String get notSet => '설정되지 않음';
 
   @override
   String get notVerifiedText => '확인되지 않음';
@@ -2916,9 +2157,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get numberTypePosition => '번호 유형 위치';
 
   @override
-  String get ok => '확인';
-
-  @override
   String get okButton => '확인';
 
   @override
@@ -2948,14 +2186,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '시스템 구성 OneDrive 클라이언트 ID 및 키를 사용하여 권한 부여';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      '시스템 구성 OneDrive 클라이언트 ID 및 키를 사용하여 권한 부여';
-
-  @override
   String get oneDriveConfigTitle => 'OneDrive 구성';
-
-  @override
-  String get oneDriveConfigurationTitle => 'OneDrive 구성';
 
   @override
   String get onlineCallerIdSubscription => '온라인 발신자 ID 구독';
@@ -3013,9 +2244,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get passwordsDoNotMatch => '비밀번호가 일치하지 않습니다';
 
   @override
-  String get passwordSetSuccessfully => '비밀번호가 성공적으로 설정되었습니다';
-
-  @override
   String get pattern => '패턴';
 
   @override
@@ -3049,13 +2277,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => '전화번호는 비워둘 수 없습니다';
 
   @override
-  String get phoneNumberHintText => '규칙을 추가하려면 전화번호를 입력하세요';
-
-  @override
   String get phoneNumberLabel => '전화번호';
-
-  @override
-  String get phoneNumberRegexRequired => '전화번호와 정규식 패턴을 모두 입력하세요';
 
   @override
   String get phoneNumberTypeFixedLine => '유선 전화';
@@ -3103,9 +2325,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get phoneRule => '전화 규칙';
 
   @override
-  String get phoneRuleEditDialog => '전화 규칙 편집 대화 상자';
-
-  @override
   String get phoneRuleManagement => '전화 규칙 관리';
 
   @override
@@ -3117,9 +2336,6 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'URL을 통해 전화 규칙 목록을 구독하여 화이트리스트 및 블랙리스트 규칙을 자동으로 업데이트합니다. JSON 형식의 규칙 파일을 지원합니다.';
-
-  @override
-  String get phoneSubscriptionTitle => '전화 규칙 구독';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3140,22 +2356,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get pluginListExportSuccess => '플러그인 목록이 성공적으로 내보내졌습니다.';
 
   @override
-  String get pluginLoadedSuccessfully => '플러그인이 성공적으로 로드되었습니다.';
-
-  @override
   String get pluginManagement => '플러그인 관리';
 
   @override
   String get pluginManagementSubtitle => '타사 플러그인을 관리하고 구성합니다.';
 
   @override
-  String get pluginManagementTitle => '플러그인 관리';
-
-  @override
   String get pluginName => '플러그인 이름';
-
-  @override
-  String get pluginNotLoaded => '플러그인이 아직 로드되지 않았습니다. 먼저 플러그인을 로드하십시오.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3173,15 +2380,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get pluginUrl => '플러그인 URL';
-
-  @override
-  String get pluginUrlCannotBeEmpty => '플러그인 URL은 비워둘 수 없습니다.';
-
-  @override
-  String get pluginUrlHint => '플러그인 URL을 입력하세요.';
-
-  @override
-  String get pluginUrlLabel => '플러그인 URL';
 
   @override
   String get pluginVersion => '플러그인 버전';
@@ -3218,34 +2416,10 @@ class AppLocalizationsKo extends AppLocalizations {
       '모든 프리미엄 기능을 잠금 해제하고 분기별로 자동 갱신합니다.';
 
   @override
-  String get queryButton => '쿼리';
-
-  @override
-  String get queryFailed => '쿼리 실패';
-
-  @override
-  String get queryFailedLog => '쿼리 실패';
-
-  @override
-  String get querying => '쿼리 중...';
-
-  @override
-  String get queryingPhoneNumber => '전화번호 쿼리 중';
-
-  @override
-  String get queryResultTitle => '쿼리 결과';
-
-  @override
   String get ready => '준비 완료!';
 
   @override
-  String get receiveWeeklyStatistics => '주간 통계 수신';
-
-  @override
   String get recruiter => '모집인';
-
-  @override
-  String get reEnterPasswordHint => '비밀번호를 다시 입력하세요.';
 
   @override
   String get refresh => '새로 고침';
@@ -3255,11 +2429,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get refreshTooltip => '새로 고침';
-
-  @override
-  String regexError(Object error) {
-    return '정규식 오류: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3277,9 +2446,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get regexPatternLabel => '정규식 패턴';
-
-  @override
-  String get regexPatternsExamples => '패턴을 정의하려면 표준 정규식 구문을 사용하십시오. 예: ';
 
   @override
   String get regexPatternsForPhoneNumberMatching => '전화 번호 일치를 위한 정규식 패턴';
@@ -3306,14 +2472,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get regexTesterTitle => '정규식 테스터';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return '정규식 유효성 검사 실패: $error';
-  }
-
-  @override
-  String get regexValidationSuccess => '정규식 유효성 검사 성공';
 
   @override
   String get region => '지역';
@@ -3349,33 +2507,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get remoteNumberFilter => '원격 번호 필터';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      '이 필터는 최신 번호 정보를 얻기 위해 독립적인 원격 데이터베이스를 사용합니다.';
-
-  @override
   String get remoteNumberFilterDescription =>
       '원격 데이터베이스 정보를 기반으로 괴롭힘 전화를 차단합니다.';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      '원격 번호 필터는 번호 발생 빈도를 기반으로 원격 데이터베이스를 쿼리하여 스팸 전화를 식별하고 차단합니다.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle => '원격 번호 필터 설명';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• 수량 임계값: 번호 발생 빈도를 기준으로 결정';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• 필터 작업: 임계값을 초과하는 번호 처리 방법 구성';
-
-  @override
-  String get remoteNumberFilterFeaturePriority => '• 우선 순위 설정: 원격 작업의 우선 순위 설정';
-
-  @override
-  String get remoteNumberFilterFeatures => '기능:';
 
   @override
   String get remoteNumberFiltering => '원격 번호 필터링';
@@ -3395,29 +2528,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get removeAdsTitle => '광고 제거';
 
   @override
-  String get removedFromFavoriteContacts => '즐겨찾는 연락처에서 삭제됨';
-
-  @override
   String get removedFromFavorites => '즐겨찾기에서 삭제됨';
-
-  @override
-  String get removeFavorite => '즐겨찾기 삭제';
 
   @override
   String get removeFromFavorites => '즐겨찾기에서 삭제';
 
   @override
-  String get renameButton => '이름 바꾸기';
-
-  @override
-  String get renameDeviceDialogTitle => '기기 이름 바꾸기';
-
-  @override
   String get renameDeviceTitle => '기기 이름 바꾸기';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      '이렇게 하면 현재 설정이 모두 교체됩니다. 계속하시겠습니까?';
 
   @override
   String get requestAllPermissions => '모든 권한 요청';
@@ -3445,21 +2562,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get restoreApplicationSettingsFromBackup => '백업에서 앱 설정 복원';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle => '백업에서 앱 설정 복원';
-
-  @override
-  String get restoreButton => '복원';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return '클라우드에서 복원 실패: $error';
-  }
-
-  @override
   String get restoreFromCloud => '클라우드에서 복원';
-
-  @override
-  String get restoreFromCloudDescription => '클라우드 저장소에서 설정 및 규칙 복원';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3467,40 +2570,16 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => '클라우드에서 복원';
-
-  @override
   String get restoreFromCloudSuccess => '클라우드에서 성공적으로 복원되었습니다.';
 
   @override
-  String get restoreFromCloudTitle => '클라우드에서 복원';
-
-  @override
-  String get restoreFromLocal => '로컬에서 복원';
-
-  @override
   String get restorePurchases => '구매 복원';
-
-  @override
-  String get restoreSectionTitle => '복원';
 
   @override
   String get restoreSettings => '설정 복원';
 
   @override
   String get restoreSettingsConfirmation => '이렇게 하면 현재 설정이 모두 교체됩니다. 계속하시겠습니까?';
-
-  @override
-  String get restoreSettingsDialogTitle => '설정 복원';
-
-  @override
-  String get restoreSettingsTitle => '설정 복원';
-
-  @override
-  String get restoreSuccessFromLocal => '로컬에서 성공적으로 복원되었습니다.';
-
-  @override
-  String get restoreSuccessMessage => '클라우드에서 성공적으로 복원되었습니다.';
 
   @override
   String get retry => '다시 시도';
@@ -3518,15 +2597,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get ruleAction => '규칙 동작';
 
   @override
-  String get ruleAddButton => '규칙 추가';
-
-  @override
   String get ruleAddedSuccess => '규칙이 성공적으로 추가되었습니다.';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return '규칙 추가 실패: $error';
-  }
 
   @override
   String get ruleAddSuccess => '규칙이 성공적으로 추가되었습니다.';
@@ -3540,18 +2611,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get ruleDeleteConfirmTitle => '규칙 삭제';
 
   @override
-  String get ruleDeletedSuccess => '규칙이 성공적으로 삭제되었습니다.';
-
-  @override
   String get ruleDeletedSuccessfully => '규칙이 성공적으로 삭제되었습니다.';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return '규칙 삭제 실패: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return '규칙 삭제 실패: $error';
   }
 
@@ -3573,9 +2636,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get ruleManagement => '규칙 관리';
 
   @override
-  String get ruleManagementTitle => '규칙 관리';
-
-  @override
   String get ruleName => '규칙 이름';
 
   @override
@@ -3592,9 +2652,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get ruleNameLabel => '규칙 이름';
 
   @override
-  String get ruleNamePatternRequired => '규칙 이름과 패턴을 입력하세요.';
-
-  @override
   String get ruleNameRequired => '규칙 이름과 전화번호는 비워둘 수 없습니다.';
 
   @override
@@ -3606,23 +2663,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => '규칙이 성공적으로 저장되었습니다!';
-
-  @override
   String get ruleSavedSuccessMessage => '규칙이 성공적으로 저장되었습니다!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return '저장 실패: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return '저장 실패: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => '규칙이 성공적으로 저장되었습니다!';
 
   @override
   String get rulesExportedSuccessfully => '규칙이 성공적으로 내보내졌습니다';
@@ -3639,14 +2680,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return '$count 개의 규칙이 성공적으로 가져왔습니다';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return '규칙 가져오기 실패: $error';
-  }
-
-  @override
-  String get ruleStatistics => '규칙 통계';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3681,9 +2714,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get saveButton => '저장';
 
   @override
-  String get saveButtonLabel => '저장';
-
-  @override
   String get saveButtonText => '저장';
 
   @override
@@ -3692,15 +2722,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => '필터 저장';
-
-  @override
   String get saveSettings => '설정 저장';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return '설정 저장 실패: $error';
-  }
 
   @override
   String get scamsLikely => '스캠 가능성';
@@ -3717,26 +2739,11 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => '필터 검색';
-
-  @override
-  String get searchForContacts => '연락처 검색';
-
-  @override
   String get searchHint => '검색...';
-
-  @override
-  String get searchSettingsSubtitle => '연락처, 레이블, 블랙리스트, 화이트리스트 등을 검색하세요.';
-
-  @override
-  String get searchSettingsTitle => '검색 설정';
 
   @override
   String get securityMessage =>
       '어떤 전화도 신뢰하지 마세요. 항상 고객 서비스 번호를 독립적으로 확인하세요. 비밀번호, 인증 코드, 카드 번호 또는 개인 정보를 절대 공유하지 마세요.';
-
-  @override
-  String get selectActionToPerform => '규칙이 일치할 때 수행할 작업을 선택하세요';
 
   @override
   String get selectActionWhenBlockingCalls => '전화 차단 시 작업 선택';
@@ -3749,12 +2756,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get selectCountry => '국가 선택';
-
-  @override
-  String get selectDateRange => '날짜 범위 선택';
-
-  @override
-  String get selectedDateRange => '선택된 날짜 범위';
 
   @override
   String selectedItems(Object count) {
@@ -3780,20 +2781,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get selectMultiple => '여러 개 선택';
 
   @override
-  String get selectPeriod => '기간 선택';
-
-  @override
   String get selectSimCard => 'SIM 카드 선택';
-
-  @override
-  String get selectSimSlot => 'SIM 슬롯 선택';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      '차단된 통화에 대해 수행할 특정 작업을 선택하세요.';
-
-  @override
-  String get selectTag => '태그 선택';
 
   @override
   String get selectTags => '태그 선택';
@@ -3834,22 +2822,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get setButton => '설정';
-
-  @override
   String get setEncryptionPassword => '암호화 비밀번호 설정';
-
-  @override
-  String get setEncryptionPasswordDescription => '백업 및 복원을 위한 암호화 비밀번호 설정';
-
-  @override
-  String get setEncryptionPasswordLabel => '암호화 비밀번호 설정';
-
-  @override
-  String get setEncryptionPasswordTitle => '암호화 비밀번호 설정';
-
-  @override
-  String get setPasswordButton => '설정';
 
   @override
   String get settings => '설정';
@@ -3857,14 +2830,6 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return '설정이 백업되었습니다: $path';
-  }
-
-  @override
-  String get settingsLoaded => '설정 로드됨';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return '설정을 로드하지 못했습니다: $error';
   }
 
   @override
@@ -3887,12 +2852,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get setup => '설정';
-
-  @override
-  String get showContactEditDialogStaticMethod => '연락처 편집 대화 상자를 표시하는 정적 메서드';
-
-  @override
-  String get showExplanation => '설명 보기';
 
   @override
   String get silence => '무음';
@@ -3939,19 +2898,11 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'SIM 카드 정보를 로드하지 못했습니다: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'SIM 슬롯 규칙을 사용하면 각 SIM 슬롯에 대해 독립적인 필터링 규칙을 구성할 수 있습니다.';
 
   @override
   String get simRuleInstructionsTitle => 'SIM 슬롯 규칙';
-
-  @override
-  String get simRuleManagement => 'SIM 슬롯 규칙 관리';
 
   @override
   String simSlot1(String countryIso) {
@@ -3964,17 +2915,6 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'SIM 데이터를 로드하지 못했습니다: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration => 'SIM 슬롯 필터 구성';
-
-  @override
-  String get simSlotFilterConfigurationDescription => 'SIM 슬롯별 필터 규칙 설정 허용';
-
-  @override
   String get simSlotFilterDescription => '각 SIM 카드에 대해 독립적인 필터링 규칙을 구성합니다.';
 
   @override
@@ -3983,17 +2923,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'SIM 슬롯을 로드하지 못했습니다: $error';
-  }
-
-  @override
   String get simSlotManagement => 'SIM 슬롯 관리';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'SIM 슬롯 작업 실패: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4013,12 +2943,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'SIM 슬롯 규칙';
-
-  @override
-  String get simSlotRuleManagementTitle => '규칙 관리';
-
-  @override
-  String get simSlotSettings => 'SIM 슬롯 설정';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4054,9 +2978,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get smsFilterSettings => 'SMS 필터 설정';
 
   @override
-  String get smsHistory => 'SMS 기록';
-
-  @override
   String get smsManagement => 'SMS 관리';
 
   @override
@@ -4080,24 +3001,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get smsRuleManagement => 'SMS 규칙 관리';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'SMS 규칙이 $filePath로 성공적으로 내보내졌습니다.';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully => 'SMS 규칙이 성공적으로 가져왔습니다.';
-
-  @override
   String get smsRuleSubscription => 'SMS 규칙 구독';
-
-  @override
-  String get smsRuleUpdatedSuccessfully => 'SMS 규칙이 성공적으로 업데이트되었습니다.';
-
-  @override
-  String get smsSettingsSubtitle => 'SMS 필터링 및 키워드 차단';
-
-  @override
-  String get smsSettingsTitle => 'SMS 설정';
 
   @override
   String get smsSubscription => 'SMS 구독';
@@ -4134,23 +3038,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get statBlocked => '차단됨';
 
   @override
-  String get staticMethodShowCallerIdDialog => '발신자 ID 정보 대화 상자를 표시하는 정적 메서드';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      '국가 선택 대화 상자를 표시하는 정적 메서드';
-
-  @override
-  String get staticMethodToDisplayDialog => '대화 상자를 표시하는 정적 메서드';
-
-  @override
   String get statistics => '통계';
-
-  @override
-  String get statisticsExportFeatureComingSoon => '통계 내보내기 기능이 곧 출시될 예정입니다';
-
-  @override
-  String get statisticsGrid => '통계 그리드';
 
   @override
   String get statisticsPageTitle => '데이터 분석';
@@ -4188,9 +3076,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get subscriptionDeleted => '구독이 삭제되었습니다';
 
   @override
-  String get subscriptionDeletedSuccessfully => '구독이 성공적으로 삭제되었습니다';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return '구독 삭제에 실패했습니다: $error';
   }
@@ -4199,23 +3084,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get subscriptionDeleteSuccess => '구독 삭제';
 
   @override
-  String get subscriptionEmptyState => '사용 가능한 구독이 없습니다';
-
-  @override
-  String get subscriptionEmptyText => '구독이 아직 없습니다';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return '구독을 로드하는 데 실패했습니다: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return '구독을 로드하는 데 실패했습니다: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => '구독 관리';
 
   @override
   String get subscriptionName => '구독 이름';
@@ -4227,16 +3098,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get subscriptionNameHint => '구독 이름을 입력하세요';
 
   @override
-  String get subscriptionPageTitle => '구독 관리';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
     return '구독 상태를 변경하는 데 실패했습니다: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
-    return '구독 상태를 전환하는 데 실패했습니다: $error';
   }
 
   @override
@@ -4274,10 +3137,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get syncFailedMessage => '동기화 실패';
 
   @override
-  String get syncFolderNameHint =>
-      '동기화 폴더 이름을 입력하십시오 (기본값: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => '동기화 폴더 이름';
 
   @override
@@ -4299,16 +3158,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get syncStatusUpdatedMessage => '동기화 상태가 업데이트되었습니다';
 
   @override
-  String get syncSuccessful => '동기화 성공';
-
-  @override
   String get syncSuccessMessage => '동기화 성공';
 
   @override
   String get syncWithCloudStorage => '클라우드 스토리지와 동기화';
-
-  @override
-  String get syncWithCloudStorageSubtitle => '클라우드 스토리지와 동기화';
 
   @override
   String get systemFeatures => '시스템 기능:';
@@ -4337,9 +3190,6 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => '태그가 업데이트되었습니다';
-
-  @override
   String get takeaway => '핵심 내용';
 
   @override
@@ -4353,9 +3203,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get testButton => '테스트';
-
-  @override
-  String get testButtonLabel => '테스트';
 
   @override
   String get testConnectionButton => '연결 테스트';
@@ -4391,12 +3238,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get timeInterceptorSettingsTitle => '통화 빈도 차단 설정';
 
   @override
-  String get timeInterceptorSubtitle => '통화 빈도에 따라 잠재적인 스팸 전화를 자동으로 차단';
-
-  @override
-  String get timeInterceptorTitle => '통화 빈도 차단 활성화';
-
-  @override
   String get timeWindowDescription =>
       '반복되는 통화를 허용하기 위한 시간 창 크기를 설정합니다. 이 창 내의 동일한 번호로부터의 통화는 허용됩니다.';
 
@@ -4404,10 +3245,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return '차단 시간 창 (분): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      '반복되는 통화를 허용하기 위한 시간 창 크기를 설정합니다. 이 창 내의 동일한 번호로부터의 통화는 허용됩니다.';
 
   @override
   String get today => '오늘';
@@ -4419,23 +3256,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get totalBlocked => '총 차단됨';
 
   @override
-  String get totalFiltered => '총 필터링됨';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms => '기기 또는 플랫폼 간 데이터 전송';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      '기기 또는 플랫폼 간 데이터 전송';
-
-  @override
   String get travelTicketing => '여행 티켓팅';
-
-  @override
-  String get trend => '추세';
-
-  @override
-  String get trendChart => '추세 차트';
 
   @override
   String get tutorial => '튜토리얼';
@@ -4448,9 +3272,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get unknown => '알 수 없음';
-
-  @override
-  String get unknownLabel => '알 수 없는 라벨';
 
   @override
   String get unknownTag => '태그: 알 수 없음';
@@ -4476,9 +3297,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get updateAllNow => '지금 모두 업데이트';
 
   @override
-  String get updateCallFilterConfig => '통화 필터 구성 업데이트';
-
-  @override
   String updateContactFailed(Object error) {
     return '연락처 업데이트 실패: $error';
   }
@@ -4487,15 +3305,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get updateFavoriteStatus => '즐겨찾기 상태 업데이트';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return '즐겨찾기 상태 업데이트 실패: $error';
-  }
-
-  @override
   String get updateInterval => '업데이트 간격';
-
-  @override
-  String get updateLabelFailed => '라벨 업데이트 실패';
 
   @override
   String get updateNow => '지금 업데이트';
@@ -4524,9 +3334,6 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get updateTags => '태그 업데이트';
-
-  @override
   String get useCasesPoint1 => '• 자동 재다이얼 스팸 통화 식별';
 
   @override
@@ -4542,17 +3349,11 @@ class AppLocalizationsKo extends AppLocalizations {
   String get useGlobalSettings => '글로벌 설정 사용';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => '사용자 이름';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       '표준 정규식 구문을 사용하여 패턴을 정의합니다. 예시:';
-
-  @override
-  String get validateRegex => '정규식 검증';
 
   @override
   String get verificationFailedText => '실패';
@@ -4588,43 +3389,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get webDAVConfigTitle => 'WebDAV 구성';
 
   @override
-  String get webdavConfigurationTitle => 'WebDAV 구성';
-
-  @override
-  String get webdavPasswordHint => 'WebDAV 비밀번호를 입력하세요.';
-
-  @override
-  String get webdavServerAddressHint => 'WebDAV 서버 주소를 입력하세요.';
-
-  @override
-  String get webdavUsernameHint => 'WebDAV 사용자 이름을 입력하세요.';
-
-  @override
   String get week => '주';
-
-  @override
-  String get weekly => '주간';
-
-  @override
-  String get weeklyBlockedCallsSummary => '주간 차단된 통화 요약';
-
-  @override
-  String get weeklyChartTitle => '주간 차단된 통화';
-
-  @override
-  String get weeklyReport => '주간 보고서';
-
-  @override
-  String get weeklyReportDesc => '통화 차단 활동에 대한 주간 요약 보고서를 받으세요.';
 
   @override
   String get welcome => '환영합니다';
 
   @override
   String get whitelist => '화이트리스트';
-
-  @override
-  String get whitelistLabel => '화이트리스트';
 
   @override
   String get width => '너비';
@@ -4644,12 +3415,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get year => '년';
-
-  @override
-  String get yearly => '연간';
-
-  @override
-  String get yearlyChartTitle => '연간 차단된 통화';
 
   @override
   String get noSimCardsDetected => 'SIM 카드가 감지되지 않았습니다';
@@ -4694,9 +3459,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get useStirNotification => 'STIR의 알림 사용';
 
   @override
-  String get useStirNotificationDescription => '수신 통화에 대한 STIR 알림 사용';
-
-  @override
   String get cancelLocalNotificationDescription => '로컬 알림 자동 닫기';
 
   @override
@@ -4713,11 +3475,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => '수신 통화 정보';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return '번호: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => '차단된 통화';
@@ -4770,21 +3527,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => '사기 경고';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return '$phoneNumber에서 잠재적 사기 통화';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return '규칙을 로드하지 못했습니다: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return '통화 기록을 로드하지 못했습니다: $error';
-  }
 
   @override
   String get noBlockedTypeData => '차단된 유형 데이터가 없습니다';
@@ -4860,9 +3602,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get removeAds => '광고 제거';
-
-  @override
-  String get unknownAction => '알 수 없는 작업';
 
   @override
   String get settingsBackup => '설정 백업';
@@ -5108,16 +3847,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get blockNumberSuccess => '번호 차단 성공';
 
   @override
-  String get blockNumberFailed => '번호 차단 실패';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return '$phoneNumber의 차단을 해제하시겠습니까?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return '$phoneNumber에 전화 거는 중...';
   }
 
   @override
@@ -5134,9 +3865,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => '번호 차단 해제 실패';
-
-  @override
-  String get serviceNotAvailable => '서비스를 사용할 수 없습니다';
 
   @override
   String get callingNumberFailed => '전화 걸기 실패';
@@ -5167,9 +3895,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => '번호 형식이 잘못되었습니다';
-
-  @override
-  String get membershipFeature => '멤버십 기능';
 
   @override
   String get medium => '매체';
@@ -5263,9 +3988,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get clearAllNotificationsConfirmation => '모든 알림을 지우시겠습니까?';
 
   @override
-  String get allNotificationsCleared => '모든 알림을 지웠습니다';
-
-  @override
   String get clearButton => '지우기';
 
   @override
@@ -5335,9 +4057,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get reasonInaccurateInfo => '정확하지 않은 정보';
 
   @override
-  String get reasonWrongMarked => '잘못 표시됨';
-
-  @override
   String get reasonOther => '기타';
 
   @override
@@ -5347,25 +4066,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get cancel => '취소';
 
   @override
-  String get proposalStatus => '상태';
-
-  @override
-  String get statusPending => '보류 중';
-
-  @override
-  String get statusActive => '활성';
-
-  @override
-  String get statusCompleted => '완료됨';
-
-  @override
-  String get statusExpired => '만료됨';
-
-  @override
   String get riskLevel => '위험 수준';
-
-  @override
-  String get riskLevelVerified => '확인됨';
 
   @override
   String get riskLevelLow => '낮음';
@@ -5374,19 +4075,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get riskLevelHigh => '높음';
 
   @override
-  String get riskLevelUnknown => '알 수 없음';
-
-  @override
-  String get votingProgress => '투표 진행률';
-
-  @override
   String agreeVotes(int count) {
     return '동의: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return '반대: $count';
   }
 
   @override
@@ -5409,12 +4099,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get verificationReport => '인증 보고서';
 
   @override
-  String get showReport => '보고서 보기';
-
-  @override
-  String get hideReport => '보고서 숨기기';
-
-  @override
   String get proposalStatistics => '제안 통계';
 
   @override
@@ -5424,28 +4108,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get activeProposals => '활성 제안';
 
   @override
-  String get completedProposals => '완료된 제안';
-
-  @override
-  String get myVotes => '내 투표';
-
-  @override
   String get proposalCreated => '제안이 성공적으로 생성되었습니다';
-
-  @override
-  String get proposalCreateFailed => '제안 생성에 실패했습니다';
 
   @override
   String get voteSubmitted => '투표가 성공적으로 제출되었습니다';
 
   @override
-  String get voteSubmitFailed => '투표 제출에 실패했습니다';
-
-  @override
   String get noProposalsFound => '제안이 없습니다';
-
-  @override
-  String get loadingProposals => '제안 로딩 중...';
 
   @override
   String get refreshProposals => '제안 새로 고침';
@@ -5597,23 +4266,11 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => '투표 수 로드 실패';
-
-  @override
   String get voteCount => '투표 수';
-
-  @override
-  String get deletionProposalInfo => '삭제 제안 정보';
 
   @override
   String get deletionProposalDescription =>
       '커뮤니티 가이드라인을 위반하는 삭제할 번호를 제안하세요. 참여는 플랫폼 안전을 유지하는 데 도움이 됩니다.';
-
-  @override
-  String get voteToEarnVip => 'VIP 특권을 얻기 위해 제안에 투표하세요!';
-
-  @override
-  String get voteFailed => '투표 실패';
 
   @override
   String get searchProposals => '제안 검색';
@@ -5643,47 +4300,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get fraudAlertsDescription => '잠재적인 사기 통화에 대한 경고를 표시합니다.';
 
   @override
-  String get notificationFrequencyDescription =>
-      '새로운 삭제 제안에 대한 알림을 얼마나 자주 받을지 선택하세요. 즉시, 일괄적으로 또는 사용자 지정 간격으로 받을 수 있습니다.';
-
-  @override
   String get notificationMode => '알림 모드';
-
-  @override
-  String get immediateNotifications => '즉시';
-
-  @override
-  String get immediateNotificationsDescription => '제안이 생성되는 즉시 알림을 받습니다.';
-
-  @override
-  String get batchNotifications => '일괄 처리됨';
-
-  @override
-  String get batchNotificationsDescription => '알림 요약을 주기적으로 받습니다.';
-
-  @override
-  String get customNotifications => '사용자 지정';
-
-  @override
-  String get customNotificationsDescription => '알림 수신 간격을 직접 정의합니다.';
-
-  @override
-  String get customFrequency => '사용자 지정 빈도';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes 분';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours 시간';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours 시간 $minutes 분';
-  }
 
   @override
   String get pendingProposals => '대기 중인 제안';
@@ -5707,9 +4324,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get riskLevelLabel => '위험 수준';
 
   @override
-  String get riskLevelDescription => '전화번호의 위험 수준';
-
-  @override
   String get phoneNumberMinDigits => '전화번호는 최소 7자리여야 합니다.';
 
   @override
@@ -5731,32 +4345,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get countryCodeRequired => '국가 코드가 필요합니다.';
 
   @override
-  String get countryCodeLengthError => '국가 코드는 2글자여야 합니다.';
-
-  @override
   String get phoneNumberHint => '전화번호를 입력하세요';
 
   @override
   String get phoneNumberRequired => '전화번호는 필수입니다';
 
   @override
-  String get phoneNumberLengthError => '전화번호는 최소 7자리여야 합니다.';
-
-  @override
-  String get reasonHint => '상세한 설명을 제공하세요 (최소 10자)';
-
-  @override
   String get reasonRequired => '이유가 필요합니다.';
-
-  @override
-  String get reasonLengthError => '이유는 최소 10자 이상이어야 합니다.';
-
-  @override
-  String get guidelinesTitle => '가이드라인';
-
-  @override
-  String get guidelinesText =>
-      '• 정말 문제 있는 번호만 신고하세요.\n• 정확하고 상세한 이유를 제공하세요.\n• 심각성에 따라 적절한 위험 수준을 선택하세요.\n• 허위 신고는 계정 제한으로 이어질 수 있습니다.';
 
   @override
   String get riskLevelCritical => '위험';
@@ -5768,52 +4363,11 @@ class AppLocalizationsKo extends AppLocalizations {
   String get riskLevelVeryLow => '매우 낮음';
 
   @override
-  String get riskDescriptionVeryLow => '매우 낮음 - 약간의 불쾌감, 드문 통화';
-
-  @override
-  String get riskDescriptionLow => '낮음 - 가끔 원치 않는 전화';
-
-  @override
-  String get riskDescriptionMedium => '중간 - 정기적인 스팸 또는 텔레마케팅';
-
-  @override
-  String get riskDescriptionHigh => '높음 - 지속적인 괴롭힘 또는 사기 시도';
-
-  @override
-  String get riskDescriptionCritical => '위험 - 위험한 사기 또는 위협';
-
-  @override
   String get notificationFrequencyTitle => '알림 빈도';
-
-  @override
-  String get notificationFrequencyLabel => '알림 빈도 (시간)';
 
   @override
   String errorMessage(String error) {
     return '오류: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return '투표: $totalVotes (찬성 $supportPercentage%)';
-  }
-
-  @override
-  String get timeJustNow => '방금 전';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return '$minutes분 전';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return '$hours시간 전';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return '$days일 전';
   }
 
   @override
@@ -5898,9 +4452,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get liveActivitiesTestTitle => '실시간 활동 테스트';
 
   @override
-  String get liveActivitiesTestSubtitle => '실시간 활동 알림을 테스트합니다.';
-
-  @override
   String get liveNotificationCustomizationTitle => '실시간 알림 사용자 지정';
 
   @override
@@ -5924,16 +4475,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get proposalDetails => '제안 세부 정보';
 
   @override
-  String get filterByStatus => '상태별 필터링';
-
-  @override
   String get proposalNotFound => '제안을 찾을 수 없습니다';
 
   @override
   String get processed => '처리됨';
-
-  @override
-  String get showAll => '모두 보기';
 
   @override
   String get filterAndSortTitle => '필터 및 정렬';
@@ -5972,9 +4517,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get invalidSimData => '잘못된 SIM 데이터';
 
   @override
-  String get simCardData => 'SIM 카드 데이터';
-
-  @override
   String get simSlot => 'SIM 슬롯';
 
   @override
@@ -5993,12 +4535,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String get callTypeSilenced => '무음';
 
   @override
-  String get callTypeVoicemail => '음성 사서함';
-
-  @override
-  String get callTypeUnknownIntercept => '알 수 없는 가로채기';
-
-  @override
   String andMoreItems(int count) {
     return '그리고 $count개 더';
   }
@@ -6011,10 +4547,6 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6098,9 +4630,6 @@ class AppLocalizationsKo extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

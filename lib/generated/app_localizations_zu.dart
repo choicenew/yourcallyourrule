@@ -20,13 +20,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Mayelana Nemithetho Yokubhaliselwa Kwezingcingo';
 
   @override
-  String get aboutPhoneSubscriptions => 'Mayelana Nokubhaliselwa Kwezingcingo';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'Bhalisela uhlu lwemithetho yezingcingo nge-URL, buyekeza imithetho ngokuzenzakalelayo. Isekela amafayela emithetho efomethi ye-JSON, CSV.';
-
-  @override
   String get aboutSmsFilter => 'Mayelana Nokuhlunga Kwe-SMS';
 
   @override
@@ -50,9 +43,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get actionBlock => 'Vimba';
-
-  @override
-  String get actionFilterAll => 'Hlunga Konke';
 
   @override
   String get actionFilterTitle => 'Hlunga Ngohlobo Lwesenzo';
@@ -98,28 +88,7 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'Kufakwe Emithethweni Evunyelwe';
-
-  @override
-  String get addedToBlacklist => 'Kufakwe Ohlwini Lwabavinjiwe';
-
-  @override
-  String get addedToBlockedRules => 'Kufakwe Emithethweni Evinjiwe';
-
-  @override
-  String get addedToFavoriteContacts => 'Kufakwe kubathintwayo abayintandokazi';
-
-  @override
   String get addedToFavorites => 'Kufakwe kubathintwayo abayintandokazi';
-
-  @override
-  String get addedToWhitelist => 'Kufakwe Ohlwini Lwabavunyelwe';
-
-  @override
-  String get addFavorite => 'Faka Intandokazi';
-
-  @override
-  String get addFilter => 'Faka Isihlungi';
 
   @override
   String get addLabel => 'Faka Ilebula';
@@ -133,17 +102,10 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'Faka Ilebula Erekhodini Lekholi';
-
-  @override
   String get addName => 'Faka Igama';
 
   @override
   String get addNoneSubscription => 'Faka Ukubhaliselwa Kwangeyodwa';
-
-  @override
-  String get addOrEditContactInfo =>
-      'Isetshenziselwa ukufaka noma ukuhlela ulwazi loxhumana naye';
 
   @override
   String get addPhoneMark => 'Faka Uphawu Lwefoni';
@@ -176,9 +138,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get addRule => 'Faka Umthetho';
 
   @override
-  String get addRuleButton => 'Faka Umthetho';
-
-  @override
   String addRuleFailed(Object error) {
     return 'Kwehlulekile ukufaka umthetho: $error';
   }
@@ -188,9 +147,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'Faka Ukubhaliselwa Kwesithulisi';
-
-  @override
-  String get addSimRuleButton => 'Faka Umthetho We-SIM';
 
   @override
   String get addSmsFilterRule => 'Faka Umthetho Wesihlungi Se-SMS';
@@ -216,16 +172,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get addSubscriptionTooltip => 'Faka Ukubhaliselwa';
 
   @override
-  String get addToAllowedRules => 'Faka Emithethweni Evunyelwe';
-
-  @override
   String get addToBlacklist => 'Faka Ohlwini Lwabavinjiwe';
-
-  @override
-  String get addToBlockedRules => 'Faka Emithethweni Evinjiwe';
-
-  @override
-  String get addToFavoriteContacts => 'Faka Kubathintwayo Abayintandokazi';
 
   @override
   String get addToFavorites => 'Faka Ezintandokazini';
@@ -237,9 +184,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get addToWhitelist => 'Faka Ohlwini Lwabavunyelwe';
 
   @override
-  String get adPlaceholder => 'Indawo Yokubeka Isikhangiso';
-
-  @override
   String get agent => 'Ummeleli';
 
   @override
@@ -247,9 +191,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get allCallsTab => 'Konke';
-
-  @override
-  String get allDataClearedSuccessfully => 'Yonke idatha isuswe ngempumelelo';
 
   @override
   String get allow => 'Vumela';
@@ -263,10 +204,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get allowAllBlacklistedNumbers => 'Vumela Zonke Izinombolo Ezivinjiwe';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc =>
-      'Vumela izingcingo ezivela ohlwini lwamabhulokhi';
 
   @override
   String get allowAllBlockRules => 'Vumela Yonke Imithetho Yokuvimba';
@@ -340,14 +277,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get allowRules => 'Imithetho Yokuvumela';
 
   @override
-  String get allowWhitelistedNumbers =>
-      'Vumela Izinombolo Ezibhalwe Uhlu Olumhlophe';
-
-  @override
-  String get allowWhitelistedNumbersDescription =>
-      'Vumela zonke izinombolo ezisohlwini olumhlophe';
-
-  @override
   String get allPermissionsGranted => 'Zonke izimvume zihlinzekiwe';
 
   @override
@@ -360,10 +289,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'Phendula bese uvala ucingo';
-
-  @override
-  String get appLegalese =>
-      '© 2023 Your Call Your Rule. Wonke amalungelo agodliwe.';
 
   @override
   String get applicationSoftware => 'Isoftware Yesicelo';
@@ -402,14 +327,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get autoUpdateSettings =>
-      'Izilungiselelo Zokuvuselela Okuzenzakalelayo';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'Phatha izibuyekezo ezizenzakalelayo zemithetho nama-plugins';
-
-  @override
-  String get autoUpdateSettingsTitle =>
       'Izilungiselelo Zokuvuselela Okuzenzakalelayo';
 
   @override
@@ -459,46 +376,10 @@ class AppLocalizationsZu extends AppLocalizations {
   String get backupFailed => 'Isipele sehlulekile';
 
   @override
-  String get backupFailedMessage => 'Isipele sehlulekile';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'Isipele sehlulekile: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle =>
-      'Yenza isipele noma buyisela idatha yesicelo';
-
-  @override
-  String get backupRestoreTitle => 'Isipele Nokubuyisela';
-
-  @override
-  String get backupSectionTitle => 'Isipele';
-
-  @override
   String get backupSettings => 'Izilungiselelo Zesipele';
 
   @override
-  String get backupSettingsDialogTitle => 'Izilungiselelo Zesipele';
-
-  @override
-  String get backupSettingsTitle => 'Izilungiselelo Zesipele';
-
-  @override
-  String get backupSuccessMessage => 'Kwenziwe isipele ngempumelelo efwini';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'Isipele siphumelele ku: $path';
-  }
-
-  @override
   String get backupToCloud => 'Isipele Efini';
-
-  @override
-  String get backupToCloudDescription =>
-      'Yenza isipele sezilungiselelo nemithetho kusitoreji sefu';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -506,16 +387,7 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'Isipele Efini';
-
-  @override
   String get backupToCloudSuccess => 'Kwenziwe isipele ngempumelelo efwini';
-
-  @override
-  String get backupToCloudTitle => 'Isipele Efini';
-
-  @override
-  String get backupToLocalLabel => 'Isipele Kwasendaweni';
 
   @override
   String get bank => 'Ibhange';
@@ -534,23 +406,13 @@ class AppLocalizationsZu extends AppLocalizations {
       '• Ukuhlunga Komthetho Oyisisekelo: Ukuhlunga imithetho ngokuya ngohlu olumnyama, uhlu olumhlophe, kanye ne-regex';
 
   @override
-  String get basicRuleFilterSettings =>
-      'Izilungiselelo Zesihlungi Somthetho Oyisisekelo';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'Hlunga izingcingo usebenzisa uhlu olumnyama/olumhlophe kanye nezinkulumo ezijwayelekile';
-
-  @override
-  String get batchDeleteContacts => 'Susa Oxhumana Nabo Abaningi';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'Ingabe uqinisekile ukuthi ufuna ukususa oxhumana nabo abakhethiwe abangu-$count?';
   }
-
-  @override
-  String get batchDeleteFailed => 'Ukususa okuningi kwehlulekile';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -562,9 +424,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get blacklistingAndWhitelisting => 'Uhlu Olumnyama Nohlu Olumhlophe';
-
-  @override
-  String get blacklistLabel => 'Uhlu Olumnyama';
 
   @override
   String get blackWhiteList => 'Uhlu Olumnyama/Olumhlophe';
@@ -579,19 +438,10 @@ class AppLocalizationsZu extends AppLocalizations {
   String get blocked => 'Kuvinjiwe';
 
   @override
-  String get blockedCallAction => 'Isenzo Socingo Olunqatshelwe';
-
-  @override
   String get blockedCalls => 'Izingcingo Ezinqatshelwe';
 
   @override
   String get blockedCallsTitle => 'Izingcingo Ezinqatshelwe';
-
-  @override
-  String get blockedCommunications => 'Ukuxhumana Okunqatshelwe';
-
-  @override
-  String get blockedPhoneLabel => 'Izingcingo Ezinqatshelwe';
 
   @override
   String get blockedSpamCalls => 'Izingcingo ze-Spam Ezinqatshelwe';
@@ -606,9 +456,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get blockInternationalCallsTitle =>
       'Vimba Izingcingo Zamazwe Ngamazwe';
-
-  @override
-  String get blockLandlineNumbersTitle => 'Vimba Izinombolo Zasendlini';
 
   @override
   String get blockMobileNumbers => 'ifana nezinombolo ezingaqali ngo-13-19';
@@ -659,11 +506,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get callback => 'Shayela Ubuyele';
 
   @override
-  String callbackTo(String number) {
-    return 'Shayela Ubuyele ku-$number';
-  }
-
-  @override
   String get callBlocking => 'Ukuvinjwa Kwezingcingo';
 
   @override
@@ -671,9 +513,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'Enza Ngokwezifiso I-Caller ID';
-
-  @override
-  String get callerIdDialogTitle => 'Ulwazi Lwe-Caller ID';
 
   @override
   String get callerIdDisplayMode => 'Indlela Yokubonisa i-Caller ID';
@@ -685,13 +524,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'Ukubuka kuqala kwe-Caller ID';
-
-  @override
-  String get callFilter => 'Isihlungi Sezingcingo';
-
-  @override
-  String get callFilterDescription =>
-      'Uma inikwe amandla, izingcingo ezingenayo zihlolwa ngokumelene nohlu lwemithetho olungezansi. Imithetho yesihlungi sezingcingo ayivumelanisiwe phakathi kwamadivayisi ngokuzenzakalelayo.';
 
   @override
   String get callFilterRules => 'Imithetho Yesihlungi Sezingcingo';
@@ -722,26 +554,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get callHistoryInfoTitle => 'Umlando Wezingcingo';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'Yehlulekile ukuqala umlando wezingcingo: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'Yehlulekile ukuvuselela umlando wezingcingo: $error';
-  }
-
-  @override
   String get callHistoryTab => 'Umlando Wezingcingo';
-
-  @override
-  String get callHistoryTimelineEarlier => 'Phambilini';
-
-  @override
-  String get callHistoryTimelineToday => 'Namuhla';
-
-  @override
-  String get callHistoryTimelineYesterday => 'Izolo';
 
   @override
   String get callScreeningPermission => 'Imvume Yokuhlunga Izingcingo';
@@ -753,13 +566,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'Imvume yokuhlunga izingcingo ayinikeziwe, ingase ithinte ukusebenza kohlelo lokusebenza.';
-
-  @override
-  String get callSettingsSubtitle =>
-      'Izilungiselelo ze-Caller ID, ukuhlunga nokuvimba';
-
-  @override
-  String get callSettingsTitle => 'Izilungiselelo Zezingcingo';
 
   @override
   String get callStatistics => 'Izibalo Zezingcingo';
@@ -817,27 +623,10 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'Shintsha Ithegi';
-
-  @override
   String get charity => 'Usizo';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'Inyanga $month';
-  }
-
-  @override
-  String get chartOneDayAgo => 'Ezinsukwini ezingu-1 ezedlule';
-
-  @override
-  String get chartOneMonthAgo => 'Ezinyangeni ezingu-1 ezedlule';
-
-  @override
   String get chartOneWeekAgo => 'Emasontweni angu-1 edlule';
-
-  @override
-  String get chartTenDaysAgo => 'Ezinsukwini ezingu-10 ezedlule';
 
   @override
   String get chartThreeDaysAgo => 'Ezinsukwini ezingu-3 ezedlule';
@@ -858,23 +647,7 @@ class AppLocalizationsZu extends AppLocalizations {
       'Khetha isenzo sokunqamula esizenzakalelayo';
 
   @override
-  String get clearAllData => 'Sula Yonke Idatha';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'Uqinisekile ufuna ukusula yonke idatha yohlelo lokusebenza? Lesi senzo ngeke sibuyiswe emuva.';
-
-  @override
-  String get clearAllDataDescription => 'Sula yonke idatha yohlelo lokusebenza';
-
-  @override
-  String get clearAllDataLabel => 'Sula Yonke Idatha';
-
-  @override
   String get clearFilter => 'Sula Isihlungi';
-
-  @override
-  String get clearLabelFilter => 'Sula Isihlungi Selebula';
 
   @override
   String get clearLabelFilterButton => 'Sula Isihlungi Selebula';
@@ -900,9 +673,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get cloudSyncTitle => 'Ukuvumelanisa Efwini';
 
   @override
-  String get collapseLabelSelector => 'Goqa Isikhethi Selebhula';
-
-  @override
   String get collection => 'Ukuqoqwa Kwezikweletu';
 
   @override
@@ -922,16 +692,8 @@ class AppLocalizationsZu extends AppLocalizations {
   String get configureBackupOptions => 'Lungiselela Izinketho Zokulondoloza';
 
   @override
-  String get configureBackupOptionsSubtitle =>
-      'Lungiselela izinketho zokulondoloza';
-
-  @override
   String get configureCloudSyncService =>
       'Lungiselela Isevisi Yokuvumelanisa Efwini';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'Sicela ulungiselele isevisi yokuvumelanisa efwini ukuze unike amandla ukuvumelanisa kwamadivayisi amaningi.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -942,30 +704,13 @@ class AppLocalizationsZu extends AppLocalizations {
       'Lungiselela Imithetho Yesihlungi Sekhadi Le-SIM';
 
   @override
-  String get configureSyncServiceHint =>
-      'Sicela ulungiselele isevisi yokuvumelanisa kuzilungiselelo zokuvumelanisa efwini kuqala';
-
-  @override
   String get confirm => 'Qinisekisa';
-
-  @override
-  String get confirmBatchDeleteContacts =>
-      'Uqinisekile ufuna ukususa abakhethiweyo';
 
   @override
   String get confirmButton => 'Qinisekisa';
 
   @override
   String get confirmDelete => 'Qinisekisa Ukususa';
-
-  @override
-  String get confirmDeleteContact => 'Uqinisekile ufuna ukususa';
-
-  @override
-  String get confirmDeleteContactName => 'Qinisekisa ukususa?';
-
-  @override
-  String get confirmDeleteFilter => 'Uqinisekile ufuna ukususa lesi sihlungi?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -987,10 +732,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Uqinisekile ufuna ukususa lo mthetho? Lesi senzo ngeke sibuyiswe emuva.';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'Uqinisekile ukususa oxhumana nabo abakhethiwe?';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'Uqinisekile ufuna ukususa lo mthetho wesihlungi se-SMS?';
 
@@ -999,19 +740,12 @@ class AppLocalizationsZu extends AppLocalizations {
       'Uqinisekile ufuna ukususa lo mthetho we-SMS?';
 
   @override
-  String get confirmDeleteSubscription =>
-      'Uqinisekile ufuna ukususa lokhu kubhalisa?';
-
-  @override
   String confirmDeleteSubscriptions(String name) {
     return 'Uqinisekile ufuna ukususa $name?';
   }
 
   @override
   String get confirmPassword => 'Qinisekisa Iphasiwedi';
-
-  @override
-  String get confirmPasswordLabel => 'Qinisekisa Iphasiwedi';
 
   @override
   String get connectedStatus => 'Kuxhunyiwe';
@@ -1036,16 +770,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get contactDeleted => 'Oxhumana naye ususiwe';
 
   @override
-  String get contactEditDialog => 'Ingxoxo Yokuhlela Oxhumana Naye';
-
-  @override
-  String get contactNameHint => 'Faka igama loxhumana naye (uyazikhethela)';
-
-  @override
   String get contactNameLabel => 'Igama';
-
-  @override
-  String get contactNameOptional => 'Igama loxhumana naye (uyazikhethela)';
 
   @override
   String get contactNotFound => 'Oxhumana naye akatholakali';
@@ -1059,25 +784,7 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle =>
-      'Ukuphathwa koxhumana nabo kanye nezilungiselelo zamalebula';
-
-  @override
-  String get contactSettingsTitle => 'Izilungiselelo Zoxhumana Nabo';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'Kwehlulekile ukulayisha oxhumana nabo: $error';
-  }
-
-  @override
   String get contactsManagement => 'Ukuphathwa Koxhumana Nabo';
-
-  @override
-  String get contactsManagementPageTitle => 'Ikhasi Lokuphathwa Koxhumana Nabo';
-
-  @override
-  String get contactsPageTitle => 'Ukuphathwa Koxhumana Nabo';
 
   @override
   String get contactsPermission => 'Imvume Yokufinyelela Oxhumana Nabo';
@@ -1092,14 +799,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'Bhalisela uhlu loxhumana nabo nge-URL, buyekeza ngokuzenzakalelayo imininingwane yoxhumana nabo namalebula. Usekela idatha yefomethi ye-JSON.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'Kwehlulekile ukulayisha okubhaliselwe koxhumana nabo: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'Okubhaliselwe Koxhumana Nabo';
 
   @override
   String get contactUpdateSuccess => 'Oxhumana naye ubuyekezwe ngempumelelo';
@@ -1135,26 +834,11 @@ class AppLocalizationsZu extends AppLocalizations {
   String get countryRegionNamePosition => 'Indawo Yegama Lezwe/Lesifunda';
 
   @override
-  String get countrySelectionDialog => 'Ingxoxo Yokukhetha Izwe';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'Isetshenziselwa ukukhetha izwe ukuze kubuzwe imininingwane ye-ID yocingo';
-
-  @override
   String get countThresholdDescription =>
       'Setha umkhawulo omncane wesibalo odingekayo ukuze kuqalise izenzo zokuhlunga';
 
   @override
   String get countThresholdLabel => 'Umkhawulo Wesibalo';
-
-  @override
-  String get countThresholdSettings => 'Izilungiselelo Zomkhawulo Wesibalo';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'Umkhawulo Wesibalo: $count';
-  }
 
   @override
   String get createdRules => 'Imithetho Edaliwe';
@@ -1163,48 +847,22 @@ class AppLocalizationsZu extends AppLocalizations {
   String get csvFormat => 'Ifomethi ye-CSV';
 
   @override
-  String get currentDeviceChip => 'Okwamanje';
-
-  @override
   String get currentDeviceLabel => 'Ilebula Yedivayisi Yamanje';
 
   @override
   String get currentDeviceTitle => 'Idivayisi Yamanje';
 
   @override
-  String get currentLabels => 'Amalebula Amanje:';
-
-  @override
   String get currentLanguage => 'Ulimi Lwamanje';
 
   @override
-  String get currentPasswordLabel => 'Iphasiwedi Yamanje';
-
-  @override
   String get customerService => 'Isevisi Yamakhasimende';
-
-  @override
-  String get customRange => 'Ibanga Langokwezifiso';
-
-  @override
-  String get dailyStatistics => 'Izibalo Zansuku Zonke';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'Thola izibalo zansuku zonke mayelana nezingcingo nemiyalezo evimbekile';
 
   @override
   String get dashboardTab => 'Ideshibhodi';
 
   @override
   String get dataAnalysis => 'Ukuhlaziywa Kwedatha';
-
-  @override
-  String get dataAnalysisDashboardPage =>
-      'Ikhasi Ledeshibhodi Yokuhlaziywa Kwedatha';
-
-  @override
-  String get dataExport => 'Ukuthekelisa Idatha';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1222,16 +880,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'Lesi sici sikuvumela ukuthi udlulise yonke idatha yakho phakathi kwamadivayisi. Okwamanje, ungasebenzisa izici zokwenza ikhophi yasenqolobaneni nokubuyisela ukuze ufuduse idatha yakho mathupha.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'Lesi sici sikuvumela ukuthi udlulise yonke idatha yakho phakathi kwamadivayisi. Okwamanje, ungasebenzisa izici zokwenza ikhophi yasenqolobaneni nokubuyisela ukuze ufuduse idatha yakho mathupha.';
-
-  @override
-  String get dataMigrationDialogTitle => 'Ukufuduka Kwedatha';
-
-  @override
-  String get dataMigrationSectionTitle => 'Ukufuduka Kwedatha';
 
   @override
   String get dataSourceReminder => 'Isikhumbuzi Somthombo Wedatha';
@@ -1256,9 +904,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get debtCollection => 'Ukuqoqwa Kwezikweletu';
 
   @override
-  String get defaultPeriod => 'Iviki';
-
-  @override
   String get delete => 'Susa';
 
   @override
@@ -1273,24 +918,9 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation =>
-      'Uqinisekile ukuthi ufuna ukususa oxhumana naye';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return 'Uqinisekile ukuthi ufuna ukususa $deviceName?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'Susa Idivayisi';
-
-  @override
   String deleteFailed(Object error) {
     return 'Kwehlulekile ukususa: $error';
   }
-
-  @override
-  String get deleteFilter => 'Susa Isihlungi';
 
   @override
   String get deleteLabel => 'Susa Ilebula';
@@ -1328,9 +958,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get deleteSelected => 'Susa Okukhethiwe';
 
   @override
-  String get deleteSmsRule => 'Susa Umthetho We-SMS';
-
-  @override
   String get deleteSubscription => 'Susa Okubhaliselwe';
 
   @override
@@ -1350,16 +977,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get delivery => 'Ukulethwa';
 
   @override
-  String get deviceDeletedSuccessfully => 'Idivayisi isusiwe ngempumelelo';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage =>
-      'Idivayisi isusiwe ngempumelelo';
-
-  @override
-  String get deviceIdLabel => 'I-ID Yedivayisi';
-
-  @override
   String get deviceIDLabel => 'I-ID Yedivayisi';
 
   @override
@@ -1376,30 +993,11 @@ class AppLocalizationsZu extends AppLocalizations {
   String get deviceName => 'Igama Ledivayisi';
 
   @override
-  String get deviceNameCannotBeEmpty =>
-      'Igama ledivayisi alikwazi ukuba lingenalutho';
-
-  @override
-  String get deviceNameHint => 'Sicela ufake igama ledivayisi';
-
-  @override
   String get deviceNameLabel => 'Igama leDivayisi';
-
-  @override
-  String get deviceRenamedSuccessfully =>
-      'Idivayisi iqanjwe kabusha ngempumelelo';
 
   @override
   String get deviceRenamedSuccessfullyMessage =>
       'Idivayisi iqanjwe kabusha ngempumelelo';
-
-  @override
-  String get devicesSyncedSuccessfully =>
-      'Amadivayisi avumelaniswe ngempumelelo';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage =>
-      'Amadivayisi avumelaniswe ngempumelelo';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1424,10 +1022,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'Khubaza amapulagini omhlaba wonke';
-
-  @override
-  String get disableSubscriptionSuccessfully =>
-      'Khubaza ukubhalisa ngempumelelo';
 
   @override
   String get disconnectButton => 'Nqamula';
@@ -1461,25 +1055,13 @@ class AppLocalizationsZu extends AppLocalizations {
   String get editContact => 'Hlela Oxhumana naye';
 
   @override
-  String get editFilter => 'Hlela Isihlungi';
-
-  @override
   String get editLabel => 'Hlela Ilebula';
 
   @override
   String get editPhoneRule => 'Hlela Umthetho Wefoni';
 
   @override
-  String get editPhoneRules => 'Kusetshenziselwa ukuhlela imithetho yefoni';
-
-  @override
-  String get editPhoneRuleTitle => 'Hlela Umthetho Wefoni';
-
-  @override
   String get editRule => 'Hlela Umthetho';
-
-  @override
-  String get editSmsRule => 'Hlela Umthetho We-SMS';
 
   @override
   String get education => 'Imfundo';
@@ -1489,9 +1071,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get email => 'I-imeyili';
-
-  @override
-  String get emailOptional => 'I-imeyili (Ongayikhetha)';
 
   @override
   String get enableCallFilter => 'Nika Amandla Isihlungi Sezingcingo';
@@ -1511,15 +1090,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => 'Betha amakhophi okulondoloza';
-
-  @override
-  String get enableEncryptionLabel => 'Nika Amandla Ukubethela';
-
-  @override
-  String get enableEncryptionSubtitle => 'Amakhophi okulondoloza azobethelwa';
-
-  @override
-  String get enableEncryptionTitle => 'Nika Amandla Ukubethela';
 
   @override
   String get enableGlobalPlugins => 'Nika amandla amapulagini omhlaba wonke';
@@ -1558,9 +1128,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Vumela ukulungiselelwa kwemithetho ngaphandle kwezenzo zokuvimbela';
 
   @override
-  String get enableNotifications => 'Nika Amandla Izaziso';
-
-  @override
   String get enableRemoteNumberFilter =>
       'Nika Amandla Isihlungi Senombolo Ekude';
 
@@ -1577,13 +1144,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'Uma inikwe amandla, imilayezo izohlungwa ngokuzenzakalelayo ngokuya ngemithetho';
-
-  @override
-  String get enableStatisticsNotifications => 'Nika Amandla Izaziso Zezibalo';
-
-  @override
-  String get enableSubscriptionSuccessfully =>
-      'Nika amandla ukubhalisa ngempumelelo';
 
   @override
   String get enableTimeInterception => 'Nika Amandla Ukungenelela Kwesikhathi';
@@ -1621,10 +1181,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Uhlelo oluthuthukisiwe lokuhlunga lusekela imithetho yomhlaba wonke kanye nokulungiswa kokuhlunga kwe-SIM ngayinye.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'Sicela ufake inombolo yefoni kanye nephethini ye-regex';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'Sicela ufake inombolo yefoni kanye nephethini ye-regex.';
 
@@ -1632,31 +1188,13 @@ class AppLocalizationsZu extends AppLocalizations {
   String get enterContactName => 'Sicela ufake igama loxhumana naye';
 
   @override
-  String get enterCurrentPasswordHint => 'Sicela ufake iphasiwedi yamanje';
-
-  @override
   String get enterDeviceName => 'Faka Igama Ledivayisi';
-
-  @override
-  String get enterDeviceNameHint => 'Sicela ufake igama ledivayisi';
-
-  @override
-  String get enterEmail => 'Sicela ufake i-imeyili';
 
   @override
   String get enterEmailOptional => 'Sicela ufake i-imeyili (uyazikhethela)';
 
   @override
   String get enterEncryptionPasswordHint => 'Faka iphasiwedi yokubethela';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'Faka Iphasiwedi Yokubethela';
-
-  @override
-  String get enterFilterName => 'Sicela ufake igama lesihlungi';
-
-  @override
-  String get enterFilterPattern => 'Sicela ufake iphethini yesihlungi';
 
   @override
   String get enterIconCode => 'Faka ikhodi yesithonjana';
@@ -1668,13 +1206,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get enterNewDeviceNameHint => 'Faka igama elisha lale divayisi';
 
   @override
-  String get enterNewPasswordHint => 'Sicela ufake iphasiwedi entsha';
-
-  @override
   String get enterPasswordAgain => 'Faka Iphasiwedi Futhi';
-
-  @override
-  String get enterPasswordHint => 'Sicela ufake iphasiwedi';
 
   @override
   String get enterPhoneNumber => 'Faka inombolo yefoni';
@@ -1702,10 +1234,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'Faka iphethini ye-regex';
-
-  @override
-  String get enterRuleNameAndPattern =>
-      'Sicela ufake igama lomthetho kanye nephethini';
 
   @override
   String get enterRuleNameAndPatternMessage =>
@@ -1752,14 +1280,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Sicela ufake igama lomsebenzisi le-WebDAV';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'Iphutha lokususa idivayisi: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'Iphutha lokulayisha i-plugin';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'Kube nephutha: $error';
   }
@@ -1775,14 +1295,6 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'Iphutha lokuvumelanisa amadivayisi: $error';
-  }
-
-  @override
-  String get errorText => 'Iphutha';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'Iphutha lokususa ukubhaliswa kwedivayisi: $error';
   }
@@ -1793,9 +1305,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'isb. Vimba ama-SMS okumaketha';
-
-  @override
-  String get exampleContentRegex => 'isb., .*offer.*';
 
   @override
   String get exampleContentRegexHint => 'Isibonelo Sokuqukethwe Regex';
@@ -1815,9 +1324,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Isibonelo se-regex sengxenye yokuqala engu-400';
 
   @override
-  String get exampleRegexFormat => 'Isibonelo: ^10086\$ ifomethi';
-
-  @override
   String get exampleSenderRegexHint => 'Isibonelo';
 
   @override
@@ -1828,9 +1334,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get exchangeVip => 'Shintshanisa i-VIP';
-
-  @override
-  String get expandLabelSelector => 'Nweba Isikhethi Selebula';
 
   @override
   String expiryTime(Object time) {
@@ -1845,18 +1348,7 @@ class AppLocalizationsZu extends AppLocalizations {
       'Khipha zonke izilungiselelo zohlelo lokusebenza';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'Khipha zonke izilungiselelo zohlelo lokusebenza';
-
-  @override
   String get exportAllRuleConfigurations => 'Khipha Konke Ukumiswa Kwemithetho';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle =>
-      'Khipha konke ukumiswa kwemithetho';
-
-  @override
-  String get exportComplete => 'Ukukhipha Kuqediwe';
 
   @override
   String get exportConfig => 'Khipha Ukumiswa';
@@ -1868,9 +1360,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get exportData => 'Khipha Idatha';
 
   @override
-  String get exportError => 'Iphutha Lokukhipha';
-
-  @override
   String get exportFailed => 'Ukukhipha kwehlulekile';
 
   @override
@@ -1878,9 +1367,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'Isici sokukhipha siyeza maduze';
-
-  @override
-  String get exporting => 'Iyakhipha...';
 
   @override
   String get exportLabels => 'Khipha Amalebula';
@@ -1902,34 +1388,17 @@ class AppLocalizationsZu extends AppLocalizations {
   String get exportRules => 'Khipha Imithetho';
 
   @override
-  String get exportRulesDialogTitle => 'Khipha Imithetho';
-
-  @override
-  String get exportRulesTitle => 'Isihloko Sokukhipha Imithetho';
-
-  @override
   String get exportSmsRules => 'Khipha Imithetho Yama-SMS';
 
   @override
   String get exportStatisticsData => 'Khipha Idatha Yezibalo';
 
   @override
-  String get exportSuccess => 'Ukukhipha kuphumelele';
-
-  @override
   String get exportSuccesslly => 'Ukumiswa kukhishwe ngempumelelo';
-
-  @override
-  String get failedToAddContact => 'Yehlulekile ukwengeza oxhumana naye';
 
   @override
   String failedToAddRule(Object error) {
     return 'Yehlulekile ukwengeza umthetho: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'Yehlulekile ukwengeza umthetho we-SMS: $error';
   }
 
   @override
@@ -1947,9 +1416,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Yehlulekile ukukhipha ikhodi yefayela lekhophi yasenqolobaneni';
 
   @override
-  String get failedToDeleteDevice => 'Yehlulekile ukususa idivayisi';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'Yehlulekile ukususa umthetho we-SMS: $error';
   }
@@ -1957,11 +1423,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'Yehlulekile ukukhipha imithetho: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'Yehlulekile ukukhipha imithetho ye-SMS: $error';
   }
 
   @override
@@ -1975,20 +1436,6 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'Yehlulekile ukungenisa imithetho ye-SMS: $error';
-  }
-
-  @override
-  String get failedToLoadContacts => 'Yehlulekile ukulayisha oxhumana nabo';
-
-  @override
-  String get failedToLoadPlugin => 'Yehlulekile ukulayisha i-plugin';
-
-  @override
-  String get failedToRenameDevice => 'Yehlulekile ukushintsha igama ledivayisi';
-
-  @override
   String get failedToRestoreSettings =>
       'Yehlulekile ukubuyisela izilungiselelo';
 
@@ -1998,32 +1445,9 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'Yehlulekile ukusetha iphasiwedi: $error';
-  }
-
-  @override
-  String get failedToSyncDevices => 'Yehlulekile ukuvumelanisa amadivayisi';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'Yehlulekile ukushintsha isimo somthetho: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus =>
-      'Yehlulekile ukushintsha isimo sokubhalisa';
-
-  @override
-  String get failedToUpdateContact => 'Yehlulekile ukubuyekeza oxhumana naye';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'Yehlulekile ukubuyekeza umthetho we-SMS: $error';
-  }
-
-  @override
-  String get failure => 'Ukwehluleka';
 
   @override
   String get favoriteContacts => 'Oxhumana Nabo Abayintandokazi';
@@ -2062,9 +1486,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get filterByLabel => 'Hlunga Ngalebula';
 
   @override
-  String get filterClear => 'Sula Isihlungi';
-
-  @override
   String get filterControlPanelTitle => 'Iphaneli Yokulawula Isihlungi';
 
   @override
@@ -2075,22 +1496,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get filterControlTitle => 'Isilawuli Sokuhlunga';
 
   @override
-  String get filterDeleteFailed => 'Ukuhlunga kwehlulekile ukususa';
-
-  @override
-  String get filterDeleteSuccess => 'Ukuhlunga kususwe ngempumelelo';
-
-  @override
-  String get filterDetails => 'Imininingwane Yokuhlunga';
-
-  @override
   String get filtered => 'Kuhlungiwe';
-
-  @override
-  String get filteredSms => 'Ama-SMS Ahlungiwe';
-
-  @override
-  String get filteredSmsLabel => 'Ama-SMS Ahlungiwe';
 
   @override
   String get filterExplanation => 'Incazelo Yokuhlunga';
@@ -2102,17 +1508,8 @@ class AppLocalizationsZu extends AppLocalizations {
   String get filterName => 'Igama Lokuhlunga';
 
   @override
-  String get filterPattern => 'Iphethini Lokuhlunga';
-
-  @override
   String get filterPriorityNote =>
       'Qaphela: Kukhona ubudlelwane bezinto eziza kuqala phakathi kokuhlunga, sicela ubheke kumadokhumenti osizo ngemininingwane';
-
-  @override
-  String get filterSaveFailed => 'Ukuhlunga kwehlulekile ukulondolozwa';
-
-  @override
-  String get filterSaveSuccess => 'Ukuhlunga kulondolozwe ngempumelelo';
 
   @override
   String get filterSettings => 'Izilungiselelo Zokuhlunga';
@@ -2151,16 +1548,6 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return 'Kutholwe imithetho engu-$count. Ingabe ufuna ukuyingenisa?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return 'Kutholwe imithetho engu-$count. Ingabe ufuna ukuyingenisa?';
-  }
-
-  @override
   String get fraudAlert => 'ISIXWAYISO SOKUKHOHLISA - Vala ucingo';
 
   @override
@@ -2195,40 +1582,14 @@ class AppLocalizationsZu extends AppLocalizations {
   String get globalFilterSettings => 'Izilungiselelo Zokuhlunga Zomhlaba Wonke';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'Lungiselela izilungiselelo zokuhlunga zomhlaba wonke ezisebenza kuwo wonke ama-slot e-SIM:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'Sesha oxhumana nabo, amalebula, uhlu olumnyama, uhlu olumhlophe, njll.';
-
-  @override
-  String get globalSearchTitle => 'Ukusesha Komhlaba Wonke';
-
-  @override
   String get globalSettings => 'Izilungiselelo Zomhlaba Wonke';
-
-  @override
-  String get googleAdDisplayPosition =>
-      'Indawo Yokubonisa Yesikhangiso se-Google';
-
-  @override
-  String get googleAdMobIntegrationText =>
-      'Izikhangiso ze-Google AdMob zingahlanganiswa lapha';
 
   @override
   String get googleDriveAuthDescription =>
       'Gunyaza usebenzisa i-ID yeklayenti le-Google Drive elilungiselelwe uhlelo kanye nokhiye';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'Gunyaza usebenzisa i-ID yeklayenti le-Google Drive elilungiselelwe uhlelo kanye nokhiye';
-
-  @override
   String get googleDriveConfigTitle => 'Ukucushwa Kwe-Google Drive';
-
-  @override
-  String get googleDriveConfigurationTitle => 'Ukucushwa Kwe-Google Drive';
 
   @override
   String get government => 'Uhulumeni';
@@ -2247,9 +1608,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get height => 'Ukuphakama';
-
-  @override
-  String get homePageTitle => 'Ikhasi Lasekhaya';
 
   @override
   String get homeTab => 'Ekhaya';
@@ -2280,9 +1638,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get important => 'Okubalulekile';
-
-  @override
-  String get importButton => 'Ngenisa';
 
   @override
   String get importConfig => 'Ngenisa Ukucushwa';
@@ -2336,32 +1691,7 @@ class AppLocalizationsZu extends AppLocalizations {
       'Ngenisa Ukucushwa Kwemithetho Kusuka Kufayela';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'Ngenisa ukucushwa kwemithetho kusuka kufayela';
-
-  @override
   String get importRules => 'Ngenisa Imithetho';
-
-  @override
-  String get importRulesButton => 'Ngenisa Imithetho';
-
-  @override
-  String get importRulesDialogTitle => 'Ngenisa Imithetho';
-
-  @override
-  String importRulesError(Object error) {
-    return 'Kwehlulekile ukungenisa imithetho: $error';
-  }
-
-  @override
-  String get importRulesInstructions =>
-      'Ngenisa imithetho kusuka kufayela le-CSV';
-
-  @override
-  String get importRulesSuccess => 'Imithetho ingeniswe ngempumelelo';
-
-  @override
-  String get importRulesTitle => 'Ngenisa Imithetho';
 
   @override
   String get importSuccess => 'Ukungenisa kuphumelele';
@@ -2369,9 +1699,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get incomingCallInterceptAction =>
       'Isenzo Sokuphazamisa Ucingo Olungenayo';
-
-  @override
-  String get incomingCallNotification => 'Isaziso Sothingo Olungenayo';
 
   @override
   String get incorrectPassword => 'Iphasiwedi engalungile';
@@ -2427,9 +1754,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Joyina Isiteshi SeTelegram Neqembu Ukuze Uthole Ulwazi Olwengeziwe';
 
   @override
-  String get jsLogsTitle => 'Amalogi we-JS';
-
-  @override
   String get jsonFormat => 'Ifomethi ye-JSON';
 
   @override
@@ -2438,16 +1762,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'Gcina zonke izinguqulo zomlando zekhophi yasenqolobaneni ngayinye';
-
-  @override
-  String get keepAllVersionsLabel => 'Gcina Zonke Izinguqulo';
-
-  @override
-  String get keepAllVersionsSubtitle =>
-      'Gcina izinguqulo zomlando zekhophi yasenqolobaneni ngayinye';
-
-  @override
-  String get keepAllVersionsTitle => 'Gcina Zonke Izinguqulo';
 
   @override
   String get label => 'Ilebula';
@@ -2468,9 +1782,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Amalebula akusiza ukuthi uphathe kangcono oxhumana nabo, engeza amalebula angokwezifiso ezinombolweni zocingo ukuze ubone kalula izingcingo nemilayezo.';
 
   @override
-  String get labelFilter => 'Isihlungi Seleyibuli';
-
-  @override
   String get labelFilterTooltip => 'Isihlungi Seleyibuli';
 
   @override
@@ -2481,14 +1792,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get labelNotFound => 'Ilebula ayitholakalanga';
-
-  @override
-  String get labelRemoved => 'Ilebula isusiwe';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'Kwehlulekile ukususa ilebula: $error';
-  }
 
   @override
   String get labels => 'Amalebula';
@@ -2522,9 +1825,6 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'Ilebula ibuyekeziwe';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'Kwehlulekile ukubuyekeza ilebula: $error';
   }
@@ -2542,12 +1842,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'Izilungiselelo Zolimi';
-
-  @override
-  String get last30Days => 'Izinsuku Ezingama-30 Ezedlule';
-
-  @override
-  String get last7Days => 'Izinsuku Eziyi-7 Ezedlule';
 
   @override
   String get lastSyncLabel => 'Ukuvumelanisa Kokugcina';
@@ -2573,13 +1867,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get loadDataFailed => 'Kwehlulekile ukulayisha idatha';
 
   @override
-  String get loadFailed => 'Ukulayisha Kwehlulekile';
-
-  @override
   String get loading => 'Iyalayisha...';
-
-  @override
-  String get loadingData => 'Ilayisha Idatha...';
 
   @override
   String get loadingTags => 'Ilayisha amatagi...';
@@ -2603,12 +1891,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'Kwehlulekile ukulayisha izingcingo ezimakwe: $error';
   }
-
-  @override
-  String get loadMore => 'Layisha Okwengeziwe';
-
-  @override
-  String get loadPluginButton => 'Layisha Ipulagi';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2635,9 +1917,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get loan => 'Imalimboleko';
-
-  @override
-  String get localBackupTitle => 'Ikhophi Yasenqolobaneni Yasendaweni';
 
   @override
   String get localCounterFilter => 'Isihlungi Sesibali Sasendaweni';
@@ -2734,9 +2013,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get manage => 'Phatha Oxhumana Nabo';
 
   @override
-  String get manageContacts => 'Phatha';
-
-  @override
   String get manageFavoriteContacts => 'Phatha Oxhumana Nabo Abayizintandokazi';
 
   @override
@@ -2745,9 +2021,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'Engeza, hlela, noma susa imithetho yesihlungi se-SMS';
-
-  @override
-  String get manageFrequentContacts => 'Phatha Oxhumana Nabo Abavamile';
 
   @override
   String get markCounts => 'Amakhawundi Okumaka';
@@ -2775,16 +2048,10 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle => 'Ukumaka Izinombolo Zocingo';
-
-  @override
   String get markPhoneManagementTitle => 'Ukuphathwa Kokumaka Ucingo';
 
   @override
   String get markPhoneSuccess => 'Inombolo yocingo imakwe ngempumelelo';
-
-  @override
-  String get matchFailed => 'Ukufanisa kwehlulekile!';
 
   @override
   String get matchFailedMessage => 'Ukufanisa kwehlulekile.';
@@ -2805,9 +2072,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Fanisa amaphethini wedijithi athile:';
 
   @override
-  String get matchSuccessful => 'Ukufanisa kuphumelele!';
-
-  @override
   String get matchSuccessfulMessage => 'Ukufanisa kuphumelele!';
 
   @override
@@ -2818,9 +2082,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get migrationTool => 'Ithuluzi Lokufuduka';
-
-  @override
-  String get migrationToolTitle => 'Ithuluzi Lokufuduka';
 
   @override
   String get minutes => 'amaminithi';
@@ -2835,9 +2096,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get monthlyCallCount => 'Izingcingo Zenyanga Zonke';
 
   @override
-  String get monthlyChartTitle => 'Izingcingo Ezivinjiwe Zenyanga Zonke';
-
-  @override
   String get monthlyMembership => 'Ubulungu Benyanga Yonke';
 
   @override
@@ -2846,9 +2104,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'Isamba Senyanga Yonke';
-
-  @override
-  String get monthlyTotalLabel => 'Isamba Senyanga Yonke';
 
   @override
   String get moreOptions => 'Izinketho Eziningi';
@@ -2864,33 +2119,16 @@ class AppLocalizationsZu extends AppLocalizations {
       'Igama nenombolo yocingo akumele kube nalutho';
 
   @override
-  String get nameAndPhoneNumberRequired =>
-      'Igama nenombolo yocingo akumele kube nalutho';
-
-  @override
   String get nameColor => 'Umbala Wegama';
 
   @override
   String get nameFontSize => 'Usayizi Wefonti Wegama';
 
   @override
-  String nameLabel(Object name) {
-    return 'Igama: $name';
-  }
-
-  @override
   String get namePosition => 'Indawo Yegama';
 
   @override
   String get nameUnknown => 'Igama: Akwaziwa';
-
-  @override
-  String nameWithValue(String name) {
-    return 'Igama: $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'Iphasiwedi Entsha';
 
   @override
   String get nextStep => 'Okulandelayo';
@@ -2906,13 +2144,7 @@ class AppLocalizationsZu extends AppLocalizations {
       'Ayikho insizakalo yokuvumelanisa efu esebenzayo';
 
   @override
-  String get noCallLogs => 'Ayikho Izingodo Zezingcingo';
-
-  @override
   String get noCallRecords => 'Ayikho irekhodi lezingcingo';
-
-  @override
-  String get noContacts => 'Akukho oxhumana nabo okwamanje';
 
   @override
   String get noContactsYet => 'Akukho oxhumana nabo okwamanje';
@@ -2924,20 +2156,10 @@ class AppLocalizationsZu extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'Awekho amadivayisi abhalisiwe';
 
   @override
-  String get noDevicesRegisteredYet =>
-      'Awekho amadivayisi abhalisiwe okwamanje.';
-
-  @override
-  String get noFilters => 'Azikho izihlungi okwamanje';
-
-  @override
   String get noLabels => 'Awekho amalebula okwamanje';
 
   @override
   String get noMarkedPhones => 'Azikho izinombolo zocingo ezimakwe';
-
-  @override
-  String get noMatchingContacts => 'Ayikho oxhumana nabo abafanayo';
 
   @override
   String get noMatchingContactsFound =>
@@ -2946,9 +2168,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get noMatchingNumbersFound =>
       'Azikho izinombolo ezifanayo ezitholakele';
-
-  @override
-  String get noMatchingRecords => 'Azikho irekhodi lezingcingo ezifanayo';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2963,16 +2182,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get noPlugins => 'Azikho izijobelelo okwamanje';
-
-  @override
-  String get noRecords => 'Ayikho irekhodi lezingcingo';
-
-  @override
-  String get noResultReturned => 'Ayikho imiphumela ebuyisiwe';
-
-  @override
-  String get noResultReturnedLog =>
-      'Ayikho imiphumela ebuyisiwe kusuka kusijobelelo';
 
   @override
   String noRules(Object ruleType) {
@@ -2997,9 +2206,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get noSubscriptions => 'Akukho okubhaliselwe';
 
   @override
-  String get noSubscriptionsYet => 'Akukho Okubhaliselwe Okwamanje';
-
-  @override
   String get notGranted => 'Akanikwanga';
 
   @override
@@ -3018,13 +2224,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get notificationSettings => 'Izilungiselelo Zesaziso';
-
-  @override
-  String get notificationSettingsSaved =>
-      'Izilungiselelo zesaziso zilondolozwe ngempumelelo';
-
-  @override
-  String get notSet => 'Akukahlaliswa';
 
   @override
   String get notVerifiedText => 'Akaqinisekisiwe';
@@ -3058,9 +2257,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get numberTypePosition => 'Indawo Yomdada Wenombolo';
 
   @override
-  String get ok => 'KULUNGILE';
-
-  @override
   String get okButton => 'KULUNGILE';
 
   @override
@@ -3092,14 +2288,7 @@ class AppLocalizationsZu extends AppLocalizations {
       'Gunyaza usebenzisa i-ID yeklayenti le-OneDrive elihlelwe uhlelo kanye nokhiye';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'Gunyaza usebenzisa i-ID yeklayenti le-OneDrive elihlelwe uhlelo kanye nokhiye';
-
-  @override
   String get oneDriveConfigTitle => 'Ukumisa kwe-OneDrive';
-
-  @override
-  String get oneDriveConfigurationTitle => 'Ukumisa kwe-OneDrive';
 
   @override
   String get onlineCallerIdSubscription =>
@@ -3160,9 +2349,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get passwordsDoNotMatch => 'Amaphasiwedi awafani';
 
   @override
-  String get passwordSetSuccessfully => 'Iphasiwedi isethwe ngempumelelo';
-
-  @override
   String get pattern => 'Iphethini';
 
   @override
@@ -3196,15 +2382,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Inombolo yefoni ayikwazi ukuba yize';
 
   @override
-  String get phoneNumberHintText =>
-      'Faka inombolo yefoni ukuze ungeze umthetho';
-
-  @override
   String get phoneNumberLabel => 'Inombolo Yefoni';
-
-  @override
-  String get phoneNumberRegexRequired =>
-      'Sicela ufake inombolo yefoni kanye nephethini ye-regex';
 
   @override
   String get phoneNumberTypeFixedLine => 'Ulayini ogxilile';
@@ -3254,9 +2432,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get phoneRule => 'Umthetho Wefoni';
 
   @override
-  String get phoneRuleEditDialog => 'Ingxoxo Yokuhlela Umthetho Wefoni';
-
-  @override
   String get phoneRuleManagement => 'Ukuphathwa Kwemithetho Yefoni';
 
   @override
@@ -3268,9 +2443,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'Bhalisela izinhlu zemigomo yefoni nge-URL ukuze ubuyekeze ngokuzenzakalelayo imithetho yohlu olumhlophe nolumnyama. Usekela amafayela emithetho efomethi ye-JSON.';
-
-  @override
-  String get phoneSubscriptionTitle => 'Okubhaliselwe Imithetho Yefoni';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3292,9 +2464,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Uhlu lwamapulaki luthunyelwe ngaphandle ngempumelelo';
 
   @override
-  String get pluginLoadedSuccessfully => 'Ipulaki ilayishwe ngempumelelo';
-
-  @override
   String get pluginManagement => 'Ukuphathwa Kwamapulaki';
 
   @override
@@ -3302,14 +2471,7 @@ class AppLocalizationsZu extends AppLocalizations {
       'Phatha futhi ulungiselele amapulaki ezinkampani zangaphandle';
 
   @override
-  String get pluginManagementTitle => 'Ukuphathwa Kwamapulaki';
-
-  @override
   String get pluginName => 'Igama Lepulaki';
-
-  @override
-  String get pluginNotLoaded =>
-      'Ipulaki ayikalayishwa okwamanje. Sicela ulayishe ipulaki kuqala.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3327,15 +2489,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get pluginUrl => 'I-URL Yepulaki';
-
-  @override
-  String get pluginUrlCannotBeEmpty => 'I-URL yepulaki ayikwazi ukuba yize';
-
-  @override
-  String get pluginUrlHint => 'Faka i-URL yepulaki';
-
-  @override
-  String get pluginUrlLabel => 'I-URL Yepulaki';
 
   @override
   String get pluginVersion => 'Inguqulo Yepulaki';
@@ -3374,34 +2527,10 @@ class AppLocalizationsZu extends AppLocalizations {
       'Vula zonke izici ze-premium, vuselela ngokuzenzakalelayo njalo ngekota';
 
   @override
-  String get queryButton => 'Buza';
-
-  @override
-  String get queryFailed => 'Ukubuza kuhlulekile';
-
-  @override
-  String get queryFailedLog => 'Ukubuza kuhlulekile';
-
-  @override
-  String get querying => 'Kuyabuzwa...';
-
-  @override
-  String get queryingPhoneNumber => 'Kuyabuzwa inombolo yefoni';
-
-  @override
-  String get queryResultTitle => 'Umphumela Wokubuza';
-
-  @override
   String get ready => 'Ilungile!';
 
   @override
-  String get receiveWeeklyStatistics => 'Thola izibalo zamaviki onke';
-
-  @override
   String get recruiter => 'Umrekrutha';
-
-  @override
-  String get reEnterPasswordHint => 'Sicela uphinde ufake iphasiwedi';
 
   @override
   String get refresh => 'Buyekeza';
@@ -3411,11 +2540,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'Buyekeza';
-
-  @override
-  String regexError(Object error) {
-    return 'Iphutha le-Regex: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3433,10 +2557,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'Iphethini Ye-Regex';
-
-  @override
-  String get regexPatternsExamples =>
-      'Sebenzisa i-syntax ye-regex ejwayelekile ukuchaza amaphethini. Izibonelo:';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3465,14 +2585,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'Isihloli Se-Regex';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'Ukuqinisekisa kwe-regex kwehlulekile: $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'Ukuqinisekisa kwe-regex kuphumelele';
 
   @override
   String get region => 'Isifunda';
@@ -3512,35 +2624,8 @@ class AppLocalizationsZu extends AppLocalizations {
   String get remoteNumberFilter => 'Isihlungi Senombolo Ekude';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'Lesi sihlungi sisebenzisa i-database ekude ezimele ukuze sithole ulwazi lwakamuva lwenombolo.';
-
-  @override
   String get remoteNumberFilterDescription =>
       'Nqanda izingcingo eziphazamisayo ngokusekelwe kulwazi lwe-database ekude';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'Isihlungi senombolo ekude sikhomba futhi sivimba izingcingo zogaxekile ngokubuza i-database ekude ngokusekelwe enanini lenombolo.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle =>
-      'Incazelo Yesihlungi Senombolo Ekude';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• Umkhawulo Wenani: Nquma ngokusekelwe ekwenzekeni kwenombolo';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• Izenzo Zokuhlunga: Lungiselela ukuthi uziphathe kanjani izinombolo ezedlule umkhawulo';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• Izilungiselelo Zokubaluleka: Setha okubalulekile ngezenzo ezikude';
-
-  @override
-  String get remoteNumberFilterFeatures => 'Izici:';
 
   @override
   String get remoteNumberFiltering => 'Ukuhlunga Kwenombolo Ekude';
@@ -3561,30 +2646,13 @@ class AppLocalizationsZu extends AppLocalizations {
   String get removeAdsTitle => 'Susa Izikhangiso';
 
   @override
-  String get removedFromFavoriteContacts =>
-      'Kususiwe koxhumana nabo abayintandokazi';
-
-  @override
   String get removedFromFavorites => 'Kususiwe koxhumana nabo abayintandokazi';
-
-  @override
-  String get removeFavorite => 'Susa Intandokazi';
 
   @override
   String get removeFromFavorites => 'Susa Ezintandokazini';
 
   @override
-  String get renameButton => 'Qamba Kabusha';
-
-  @override
-  String get renameDeviceDialogTitle => 'Qamba Kabusha Idivayisi';
-
-  @override
   String get renameDeviceTitle => 'Qamba Kabusha Idivayisi';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'Lokhu kuzothatha indawo yazo zonke izilungiselelo zakho zamanje. Uqinisekile ukuthi ufuna ukuqhubeka?';
 
   @override
   String get requestAllPermissions => 'Cela Zonke Izimvume';
@@ -3613,23 +2681,7 @@ class AppLocalizationsZu extends AppLocalizations {
       'Buyisela Izilungiselelo Zohlelo Lokusebenza Kusuka Ku-Backup';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'Buyisela izilungiselelo zohlelo lokusebenza kusuka ku-backup';
-
-  @override
-  String get restoreButton => 'Buyisela';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'Ukubuyisela kusuka efwini kwehlulekile: $error';
-  }
-
-  @override
   String get restoreFromCloud => 'Buyisela Kusuka Efini';
-
-  @override
-  String get restoreFromCloudDescription =>
-      'Buyisela izilungiselelo nemithetho kusuka kusitoreji sefu';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3637,22 +2689,10 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'Buyisela Kusuka Efini';
-
-  @override
   String get restoreFromCloudSuccess => 'Kubuyiselwe ngempumelelo kusuka efini';
 
   @override
-  String get restoreFromCloudTitle => 'Buyisela Kusuka Efini';
-
-  @override
-  String get restoreFromLocal => 'Buyisela Kusuka Endaweni';
-
-  @override
   String get restorePurchases => 'Buyisela Ukuthenga';
-
-  @override
-  String get restoreSectionTitle => 'Buyisela';
 
   @override
   String get restoreSettings => 'Buyisela Izilungiselelo';
@@ -3660,19 +2700,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'Lokhu kuzothatha indawo yazo zonke izilungiselelo zakho zamanje. Uqinisekile ukuthi ufuna ukuqhubeka?';
-
-  @override
-  String get restoreSettingsDialogTitle => 'Buyisela Izilungiselelo';
-
-  @override
-  String get restoreSettingsTitle => 'Buyisela Izilungiselelo';
-
-  @override
-  String get restoreSuccessFromLocal =>
-      'Kubuyiselwe ngempumelelo kusuka endaweni';
-
-  @override
-  String get restoreSuccessMessage => 'Kubuyiselwe ngempumelelo kusuka efini';
 
   @override
   String get retry => 'Zama Futhi';
@@ -3690,15 +2717,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get ruleAction => 'Isenzo Somthetho';
 
   @override
-  String get ruleAddButton => 'Engeza Umthetho';
-
-  @override
   String get ruleAddedSuccess => 'Umthetho wengezwe ngempumelelo';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'Kwehlulekile ukwengeza umthetho: $error';
-  }
 
   @override
   String get ruleAddSuccess => 'Umthetho wengezwe ngempumelelo';
@@ -3712,18 +2731,10 @@ class AppLocalizationsZu extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'Susa Umthetho';
 
   @override
-  String get ruleDeletedSuccess => 'Umthetho ususwe ngempumelelo';
-
-  @override
   String get ruleDeletedSuccessfully => 'Umthetho ususwe ngempumelelo';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'Kwehlulekile ukususa umthetho: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'Kwehlulekile ukususa umthetho: $error';
   }
 
@@ -3745,9 +2756,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get ruleManagement => 'Ukuphathwa Kwemithetho';
 
   @override
-  String get ruleManagementTitle => 'Ukuphathwa Kwemithetho';
-
-  @override
   String get ruleName => 'Igama Lomthetho';
 
   @override
@@ -3765,10 +2773,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get ruleNameLabel => 'Igama Lomthetho';
 
   @override
-  String get ruleNamePatternRequired =>
-      'Sicela ufake igama lomthetho nephethini';
-
-  @override
   String get ruleNameRequired =>
       'Igama lomthetho kanye nenombolo yefoni akumele kube nalutho';
 
@@ -3781,23 +2785,7 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'Umthetho ulondolozwe ngempumelelo!';
-
-  @override
   String get ruleSavedSuccessMessage => 'Umthetho ulondolozwe ngempumelelo!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'Ukulondoloza kwehlulekile: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'Ukulondoloza kwehlulekile: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'Umthetho ulondolozwe ngempumelelo!';
 
   @override
   String get rulesExportedSuccessfully =>
@@ -3815,14 +2803,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return '$count imithetho ingeniswe ngempumelelo';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'Kwehlulekile ukungenisa imithetho: $error';
-  }
-
-  @override
-  String get ruleStatistics => 'Izibalo Zomthetho';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3857,9 +2837,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get saveButton => 'Londoloza';
 
   @override
-  String get saveButtonLabel => 'LONDOLOZA';
-
-  @override
   String get saveButtonText => 'Londoloza';
 
   @override
@@ -3868,15 +2845,7 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'Londoloza Isihlungi';
-
-  @override
   String get saveSettings => 'Londoloza Izilungiselelo';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'Kwehlulekile ukulondoloza izilungiselelo: $error';
-  }
 
   @override
   String get scamsLikely => 'Amacala Okukhohlisa Angenzeka';
@@ -3893,28 +2862,11 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'Izihlungi Zokusesha';
-
-  @override
-  String get searchForContacts => 'Sesha oxhumana nabo';
-
-  @override
   String get searchHint => 'Sesha...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'Sesha oxhumana nabo, amalebula, izinhlu ezimnyama, izinhlu ezimhlophe, njll.';
-
-  @override
-  String get searchSettingsTitle => 'Izilungiselelo Zokusesha';
 
   @override
   String get securityMessage =>
       'Ungathembi noma yiziphi izingcingo. Njalo qinisekisa izinombolo zesevisi yamakhasimende ngokuzimela. Ungalokothi wabelane ngamaphasiwedi, amakhodi okuqinisekisa, izinombolo zamakhadi, noma ulwazi lomuntu siqu.';
-
-  @override
-  String get selectActionToPerform =>
-      'Khetha isenzo okufanele senziwe uma umthetho uhambelana';
 
   @override
   String get selectActionWhenBlockingCalls =>
@@ -3929,12 +2881,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get selectCountry => 'Khetha Izwe';
-
-  @override
-  String get selectDateRange => 'Khetha Ububanzi Bosuku';
-
-  @override
-  String get selectedDateRange => 'Ububanzi bosuku obukhethiwe';
 
   @override
   String selectedItems(Object count) {
@@ -3961,20 +2907,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get selectMultiple => 'Khetha Okuningi';
 
   @override
-  String get selectPeriod => 'Khetha Isikhathi';
-
-  @override
   String get selectSimCard => 'Khetha I-SIM Card';
-
-  @override
-  String get selectSimSlot => 'Khetha Isikhala Se-SIM';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'Khetha isenzo esithile okufanele senziwe uma uvimba izingcingo';
-
-  @override
-  String get selectTag => 'Khetha Ithegi';
 
   @override
   String get selectTags => 'Khetha Amathegi';
@@ -4016,23 +2949,7 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'Setha';
-
-  @override
   String get setEncryptionPassword => 'Setha Iphasiwedi Yokubethela';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'Setha iphasiwedi yokubethela yokwenza ikhophi yasenqolobaneni nokubuyisela';
-
-  @override
-  String get setEncryptionPasswordLabel => 'Setha Iphasiwedi Yokubethela';
-
-  @override
-  String get setEncryptionPasswordTitle => 'Setha Iphasiwedi Yokubethela';
-
-  @override
-  String get setPasswordButton => 'Setha';
 
   @override
   String get settings => 'Izilungiselelo';
@@ -4040,14 +2957,6 @@ class AppLocalizationsZu extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'Izilungiselelo zenziwe ikhophi yasenqolobaneni ku: $path';
-  }
-
-  @override
-  String get settingsLoaded => 'Izilungiselelo zilayishiwe';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'Kwehlulekile ukulayisha izilungiselelo: $error';
   }
 
   @override
@@ -4070,13 +2979,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get setup => 'Setha';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'Indlela engaguquki yokubonisa ibhokisi lokuhlela oxhumana nabo';
-
-  @override
-  String get showExplanation => 'Bonisa Incazelo';
 
   @override
   String get silence => 'Thulisa';
@@ -4124,19 +3026,11 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'Kwehlulekile ukulayisha ulwazi lwe-SIM Card: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'Imithetho yesikhala se-SIM ikuvumela ukuthi ulungiselele imithetho yokuhlunga ezimele yesikhala ngasinye se-SIM.';
 
   @override
   String get simRuleInstructionsTitle => 'Imithetho Yesikhala Se-SIM';
-
-  @override
-  String get simRuleManagement => 'Ukuphathwa Kwemithetho Yesikhala Se-SIM';
 
   @override
   String simSlot1(String countryIso) {
@@ -4149,19 +3043,6 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'Ukuhlulekile ukulayisha idatha ye-SIM: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration =>
-      'Ukulungiselelwa Kokuhlunga Kwesikhala Se-SIM';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'Ukuvumela ukusetha imithetho yokuhlunga ngesikhala se-SIM';
-
-  @override
   String get simSlotFilterDescription =>
       'Lungiselela imithetho yokuhlunga ezimele yekhadi le-SIM ngalinye:';
 
@@ -4171,17 +3052,7 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'Ukuhlulekile ukulayisha izikhala ze-SIM: $error';
-  }
-
-  @override
   String get simSlotManagement => 'Ukuphathwa Kwezikhala Ze-SIM';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'Ukusebenza kwesikhala se-SIM kuhlulekile: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4202,12 +3073,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'Imithetho Yesikhala Se-SIM';
-
-  @override
-  String get simSlotRuleManagementTitle => 'Ukuphathwa Kwemithetho';
-
-  @override
-  String get simSlotSettings => 'Izilungiselelo Zesikhala Se-SIM';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4244,9 +3109,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get smsFilterSettings => 'Izilungiselelo Zokuhlunga Ze-SMS';
 
   @override
-  String get smsHistory => 'Umlando We-SMS';
-
-  @override
   String get smsManagement => 'Ukuphathwa Kwe-SMS';
 
   @override
@@ -4272,27 +3134,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get smsRuleManagement => 'Ukuphathwa Kwemithetho Ye-SMS';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'Imithetho ye-SMS ithunyelwe ngaphandle ngempumelelo ku-$filePath';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully =>
-      'Imithetho ye-SMS ingeniswe ngempumelelo';
-
-  @override
   String get smsRuleSubscription => 'Ukubhalisela Imithetho Ye-SMS';
-
-  @override
-  String get smsRuleUpdatedSuccessfully =>
-      'Umtlomo we-SMS uvuselelwe ngempumelelo';
-
-  @override
-  String get smsSettingsSubtitle =>
-      'Ukuhlunga kwe-SMS nokuvimbela amagama angukhiye';
-
-  @override
-  String get smsSettingsTitle => 'Izilungiselelo Ze-SMS';
 
   @override
   String get smsSubscription => 'Ukubhalisela I-SMS';
@@ -4330,26 +3172,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get statBlocked => 'Kuvinjiwe';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'Indlela engaguquki yokubonisa Ibhokisi Lengxoxo Ledatha Yokuhlonza Oshaya';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'Indlela engaguquki yokubonisa ibhokisi lengxoxo lokukhetha izwe';
-
-  @override
-  String get staticMethodToDisplayDialog =>
-      'Indlela engaguquki yokubonisa ibhokisi lengxoxo';
-
-  @override
   String get statistics => 'Izibalo';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'Isici sokuthumela izibalo ngaphandle siyeza maduze';
-
-  @override
-  String get statisticsGrid => 'Igridi Yezibalo';
 
   @override
   String get statisticsPageTitle => 'Ukuhlaziya Idatha';
@@ -4389,10 +3212,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get subscriptionDeleted => 'Ukubhalisela kususiwe';
 
   @override
-  String get subscriptionDeletedSuccessfully =>
-      'Ukubhalisela kususiwe ngempumelelo';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'Ukuhlulekile ukususa ukubhalisela: $error';
   }
@@ -4401,23 +3220,9 @@ class AppLocalizationsZu extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'Ukubhalisela kususiwe';
 
   @override
-  String get subscriptionEmptyState => 'Azikho izibhaliso ezitholakalayo';
-
-  @override
-  String get subscriptionEmptyText => 'Azikho izibhaliso okwamanje';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'Ukuhlulekile ukulayisha izibhaliso: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'Ukuhlulekile ukulayisha izibhaliso: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'Ukuphathwa Kokubhalisela';
 
   @override
   String get subscriptionName => 'Igama Lokubhalisela';
@@ -4430,16 +3235,8 @@ class AppLocalizationsZu extends AppLocalizations {
   String get subscriptionNameHint => 'Faka igama lokubhalisela';
 
   @override
-  String get subscriptionPageTitle => 'Ukuphathwa Kokubhalisela';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
     return 'Ukuhlulekile ukushintsha isimo sokubhalisela: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
-    return 'Ukuhlulekile ukuguqula isimo sokubhalisela: $error';
   }
 
   @override
@@ -4478,10 +3275,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get syncFailedMessage => 'Ukuvumelanisa kuhlulekile';
 
   @override
-  String get syncFolderNameHint =>
-      'Sicela ufake igama lefayela lokuvumelanisa (okuzenzakalelayo: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'Igama Lefayela Lokuvumelanisa';
 
   @override
@@ -4503,16 +3296,10 @@ class AppLocalizationsZu extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'Isimo sokuvumelanisa sibuyekeziwe';
 
   @override
-  String get syncSuccessful => 'Ukuvumelanisa kuphumelele';
-
-  @override
   String get syncSuccessMessage => 'Ukuvumelanisa kuphumelele';
 
   @override
   String get syncWithCloudStorage => 'Vumelanisa Nesitoreji Samafu';
-
-  @override
-  String get syncWithCloudStorageSubtitle => 'Vumelanisa nesitoreji samafu';
 
   @override
   String get systemFeatures => 'Izici Zohlelo:';
@@ -4541,9 +3328,6 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'Amathegi abuyekeziwe';
-
-  @override
   String get takeaway => 'Okubalulekile';
 
   @override
@@ -4557,9 +3341,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get testButton => 'HLOLA';
-
-  @override
-  String get testButtonLabel => 'HLOLA';
 
   @override
   String get testConnectionButton => 'Hlola Ukuxhuma';
@@ -4598,14 +3379,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Izilungiselelo Zokuvimbela Ukushaya Kanjingi';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'Vimba ngokuzenzakalelayo izingcingo zogaxekile ezingaba khona ngokusekelwe ekutheni kushaywa kaningi kangakanani';
-
-  @override
-  String get timeInterceptorTitle =>
-      'Nika amandla Ukuvimbela Ukushaya Kanjingi';
-
-  @override
   String get timeWindowDescription =>
       'Setha ubukhulu bewindi lesikhathi lokuvumela izingcingo eziphindaphindwayo. Izingcingo ezivela kunombolo efanayo ngaphakathi kwaleli windi zizovunyelwa';
 
@@ -4613,10 +3386,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'Iwindi Lesikhathi Lokuvimbela (imizuzu): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'Setha ubukhulu bewindi lesikhathi lokuvumela izingcingo eziphindaphindwayo. Izingcingo ezivela kunombolo efanayo ngaphakathi kwaleli windi zizovunyelwa';
 
   @override
   String get today => 'Namuhla';
@@ -4628,24 +3397,11 @@ class AppLocalizationsZu extends AppLocalizations {
   String get totalBlocked => 'Isamba Esivinjwe';
 
   @override
-  String get totalFiltered => 'Isamba Esihlungiwe';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'Dlulisa idatha phakathi kwamadivayisi noma amapulatifomu';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'Dlulisa idatha phakathi kwamadivayisi noma amapulatifomu';
-
-  @override
   String get travelTicketing => 'Amathikithi Wokuvakasha';
-
-  @override
-  String get trend => 'Umgomo';
-
-  @override
-  String get trendChart => 'Ishadi Lomgomo';
 
   @override
   String get tutorial => 'Isifundo';
@@ -4658,9 +3414,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get unknown => 'Okungaziwa';
-
-  @override
-  String get unknownLabel => 'Ilebuli Engaziwa';
 
   @override
   String get unknownTag => 'Ithegi: Okungaziwa';
@@ -4686,10 +3439,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get updateAllNow => 'Buyekeza Konke Manje';
 
   @override
-  String get updateCallFilterConfig =>
-      'Buyekeza Ukulungiselela Kwesihlungi Sezingcingo';
-
-  @override
   String updateContactFailed(Object error) {
     return 'Kwehlulekile ukubuyekeza oxhumana naye: $error';
   }
@@ -4698,15 +3447,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get updateFavoriteStatus => 'Buyekeza Isimo Sokuthandayo';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'Kwehlulekile ukubuyekeza isimo sokuthandayo: $error';
-  }
-
-  @override
   String get updateInterval => 'Isikhathi Sokubuyekeza';
-
-  @override
-  String get updateLabelFailed => 'Kwehlulekile ukubuyekeza ilebuli';
 
   @override
   String get updateNow => 'Buyekeza Manje';
@@ -4735,9 +3476,6 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'Buyekeza Amathegi';
-
-  @override
   String get useCasesPoint1 =>
       '• Hlola izingcingo zogaxekile ezishaya kabusha ngokuzenzakalelayo';
 
@@ -4756,17 +3494,11 @@ class AppLocalizationsZu extends AppLocalizations {
   String get useGlobalSettings => 'Sebenzisa Izilungiselelo Zomhlaba Wonke';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => 'Igama lomsebenzisi';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'Sebenzisa i-regex syntax ejwayelekile ukuchaza amaphethini. Izibonelo:';
-
-  @override
-  String get validateRegex => 'Qinisekisa i-Regex';
 
   @override
   String get verificationFailedText => 'Kwehlulekile';
@@ -4803,45 +3535,13 @@ class AppLocalizationsZu extends AppLocalizations {
   String get webDAVConfigTitle => 'Ukulungiselela kwe-WebDAV';
 
   @override
-  String get webdavConfigurationTitle => 'Ukulungiselela kwe-WebDAV';
-
-  @override
-  String get webdavPasswordHint => 'Sicela ufake iphasiwedi ye-WebDAV';
-
-  @override
-  String get webdavServerAddressHint => 'Sicela ufake ikheli leseva le-WebDAV';
-
-  @override
-  String get webdavUsernameHint => 'Sicela ufake igama lomsebenzisi le-WebDAV';
-
-  @override
   String get week => 'Isonto';
-
-  @override
-  String get weekly => 'Masonto onke';
-
-  @override
-  String get weeklyBlockedCallsSummary =>
-      'Isifinyezo Sezingcingo Ezivinjiwe Masonto Onke';
-
-  @override
-  String get weeklyChartTitle => 'Izingcingo Ezivinjiwe Masonto Onke';
-
-  @override
-  String get weeklyReport => 'Umbiko Masonto onke';
-
-  @override
-  String get weeklyReportDesc =>
-      'Thola umbiko wesifinyezo masonto onke wemisebenzi yokuvimba izingcingo';
 
   @override
   String get welcome => 'Siyakwamukela';
 
   @override
   String get whitelist => 'Uhlu lwabamukelekile';
-
-  @override
-  String get whitelistLabel => 'Uhlu lwabamukelekile';
 
   @override
   String get width => 'Ububanzi';
@@ -4862,12 +3562,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get year => 'Unyaka';
-
-  @override
-  String get yearly => 'Ngonyaka';
-
-  @override
-  String get yearlyChartTitle => 'Izingcingo Ezivinjiwe Zaminyaka Yonke';
 
   @override
   String get noSimCardsDetected => 'Awekho amakhadi e-SIM atholakele';
@@ -4918,10 +3612,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get useStirNotification => 'Sebenzisa Isaziso Esivela ku-STIR';
 
   @override
-  String get useStirNotificationDescription =>
-      'Vula izaziso ze-STIR zezingcingo ezingenayo';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'Vala Izaziso Zendawo Ngokuzenzakalelayo';
 
@@ -4940,11 +3630,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'Ulwazi Lwengcingo Engenayo';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'Inombolo: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'Ingcingo Evinjiwe';
@@ -4998,21 +3683,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'Isixwayiso Sokukhwabanisa';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return 'Ucingo olungaba yinkohliso oluvela ku-$phoneNumber';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'Ihlulekile ukulayisha imithetho: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'Ihlulekile ukulayisha ilogi yezingcingo: $error';
-  }
 
   @override
   String get noBlockedTypeData =>
@@ -5090,9 +3760,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get removeAds => 'Susa Izikhangiso';
-
-  @override
-  String get unknownAction => 'Isenzo Esingaziwa';
 
   @override
   String get settingsBackup => 'Isipele Sezilungiselelo ';
@@ -5356,16 +4023,8 @@ class AppLocalizationsZu extends AppLocalizations {
   String get blockNumberSuccess => 'Inombolo ivinjwe ngempumelelo';
 
   @override
-  String get blockNumberFailed => 'Ukwehluleka ukuvimba inombolo';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return 'Uqinisekile ufuna ukuvula $phoneNumber?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return 'Ushaya u-$phoneNumber...';
   }
 
   @override
@@ -5382,9 +4041,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => 'Ukwehluleka ukuvula inombolo';
-
-  @override
-  String get serviceNotAvailable => 'Insizakalo ayitholakali';
 
   @override
   String get callingNumberFailed => 'Ukwehluleka ukushaya inombolo';
@@ -5415,9 +4071,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'Inombolo ifomethi engafanele';
-
-  @override
-  String get membershipFeature => 'Isici Sobulungu';
 
   @override
   String get medium => 'Okumaphakathi';
@@ -5517,9 +4170,6 @@ class AppLocalizationsZu extends AppLocalizations {
       'Qinisekisa ukusula zonke izaziso';
 
   @override
-  String get allNotificationsCleared => 'Zonke izaziso zisusiwe';
-
-  @override
   String get clearButton => 'Sula';
 
   @override
@@ -5589,9 +4239,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get reasonInaccurateInfo => 'Ulwazi Olungalungile';
 
   @override
-  String get reasonWrongMarked => 'Imakwe Ngokungalungile';
-
-  @override
   String get reasonOther => 'Okunye';
 
   @override
@@ -5601,25 +4248,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get cancel => 'Khansela';
 
   @override
-  String get proposalStatus => 'Isimo';
-
-  @override
-  String get statusPending => 'Ilindile';
-
-  @override
-  String get statusActive => 'Iyasebenza';
-
-  @override
-  String get statusCompleted => 'Iqediwe';
-
-  @override
-  String get statusExpired => 'Isiphelelwe Isikhathi';
-
-  @override
   String get riskLevel => 'Izinga Lobungozi';
-
-  @override
-  String get riskLevelVerified => 'Kuqinisekisiwe';
 
   @override
   String get riskLevelLow => 'Phansi';
@@ -5628,19 +4257,8 @@ class AppLocalizationsZu extends AppLocalizations {
   String get riskLevelHigh => 'Phezulu';
 
   @override
-  String get riskLevelUnknown => 'Ayaziwa';
-
-  @override
-  String get votingProgress => 'Inqubekelaphambili Yokuvota';
-
-  @override
   String agreeVotes(int count) {
     return 'Vuma: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'Phikisa: $count';
   }
 
   @override
@@ -5663,12 +4281,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get verificationReport => 'Umbiko Wokuqinisekisa';
 
   @override
-  String get showReport => 'Bonisa Umbiko';
-
-  @override
-  String get hideReport => 'Fihla Umbiko';
-
-  @override
   String get proposalStatistics => 'Izibalo Zesiphakamiso';
 
   @override
@@ -5678,28 +4290,13 @@ class AppLocalizationsZu extends AppLocalizations {
   String get activeProposals => 'Iziphakamiso Ezisebenzayo';
 
   @override
-  String get completedProposals => 'Iziphakamiso Eziqediwe';
-
-  @override
-  String get myVotes => 'Amavoti Ami';
-
-  @override
   String get proposalCreated => 'Isiphakamiso sidalwe ngempumelelo';
-
-  @override
-  String get proposalCreateFailed => 'Ukudalwa kwesiphakamiso kuhlulekile';
 
   @override
   String get voteSubmitted => 'Ivoti lithunyelwe ngempumelelo';
 
   @override
-  String get voteSubmitFailed => 'Ukuthunyelwa kwevoti kuhlulekile';
-
-  @override
   String get noProposalsFound => 'Azikho iziphakamiso ezitholakele';
-
-  @override
-  String get loadingProposals => 'Kulayishwa iziphakamiso...';
 
   @override
   String get refreshProposals => 'Vuselela Iziphakamiso';
@@ -5851,24 +4448,11 @@ class AppLocalizationsZu extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'Ukulayisha inani lamavoti kuhlulekile';
-
-  @override
   String get voteCount => 'Inani Lamavoti';
-
-  @override
-  String get deletionProposalInfo => 'Ulwazi Lwesiphakamiso Sokususwa';
 
   @override
   String get deletionProposalDescription =>
       'Phakamisa izinombolo zokususa ezephula imihlahlandlela yomphakathi. Ukubamba kwakho iqhaza kusiza ukugcina inkundla iphephile.';
-
-  @override
-  String get voteToEarnVip =>
-      'Vota eziphakamisweni ukuze uzuze amalungelo e-VIP!';
-
-  @override
-  String get voteFailed => 'Ukuvota kuhlulekile';
 
   @override
   String get searchProposals => 'Sesha Iziphakamiso';
@@ -5902,50 +4486,7 @@ class AppLocalizationsZu extends AppLocalizations {
       'Ibonisa izexwayiso zamakholi angase abe ngawokukhwabanisa.';
 
   @override
-  String get notificationFrequencyDescription =>
-      'Khetha ukuthi uvamise kangakanani ukuthola izaziso mayelana neziphakamiso ezintsha zokususa. Ungazithola ngokushesha, ngamaqoqo, noma ngesikhathi esithile osikhethile.';
-
-  @override
   String get notificationMode => 'Imodi Yesaziso';
-
-  @override
-  String get immediateNotifications => 'Ngokushesha';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'Thola isaziso ngokushesha uma isiphakamiso senziwe.';
-
-  @override
-  String get batchNotifications => 'Ngamaqoqo';
-
-  @override
-  String get batchNotificationsDescription =>
-      'Thola isifinyezo sezaziso ngezikhathi ezithile.';
-
-  @override
-  String get customNotifications => 'Okwenziwe Ngokwakho';
-
-  @override
-  String get customNotificationsDescription =>
-      'Chaza isikhathi sakho sokuthola izaziso.';
-
-  @override
-  String get customFrequency => 'Ukuvama Okukhethekile';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes imiz';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours amah';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours amah $minutes imiz';
-  }
 
   @override
   String get pendingProposals => 'Iziphakamiso Ezisalindile';
@@ -5967,9 +4508,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get riskLevelLabel => 'Izinga Lobungozi';
-
-  @override
-  String get riskLevelDescription => 'Izinga lobungozi lenombolo';
 
   @override
   String get phoneNumberMinDigits =>
@@ -5996,36 +4534,13 @@ class AppLocalizationsZu extends AppLocalizations {
   String get countryCodeRequired => 'Ikhodi yezwe iyadingeka';
 
   @override
-  String get countryCodeLengthError =>
-      'Ikhodi yezwe kufanele ibe izinhlamvu ezi-2';
-
-  @override
   String get phoneNumberHint => 'Faka inombolo yefoni';
 
   @override
   String get phoneNumberRequired => 'Inombolo yefoni iyadingeka';
 
   @override
-  String get phoneNumberLengthError =>
-      'Inombolo yocingo kufanele okungenani ibe namadijithi angu-7';
-
-  @override
-  String get reasonHint =>
-      'Nikeza incazelo eningiliziwe (okungenani izinhlamvu eziyi-10)';
-
-  @override
   String get reasonRequired => 'Isizathu siyadingeka';
-
-  @override
-  String get reasonLengthError =>
-      'Isizathu kufanele okungenani sibe izinhlamvu eziyi-10';
-
-  @override
-  String get guidelinesTitle => 'Imihlahlandlela';
-
-  @override
-  String get guidelinesText =>
-      '• Bika kuphela izinombolo ezinenkinga ngempela\n• Nikeza izizathu ezinembile neziningiliziwe\n• Khetha izinga lobungozi elifanele ngokusekelwe ebucayi\n• Imibiko yamanga ingaholela ekukhawuleleni kwe-akhawunti';
 
   @override
   String get riskLevelCritical => 'Okubucayi';
@@ -6037,57 +4552,11 @@ class AppLocalizationsZu extends AppLocalizations {
   String get riskLevelVeryLow => 'Okuphansi Kakhulu';
 
   @override
-  String get riskDescriptionVeryLow =>
-      'Okuphansi Kakhulu - Ukuhlukumeza okuncane, izingcingo ezingavamile';
-
-  @override
-  String get riskDescriptionLow =>
-      'Okuphansi - Izingcingo ezingafuneki ngezikhathi ezithile';
-
-  @override
-  String get riskDescriptionMedium =>
-      'Okulinganiselayo - Ugaxekile ovamile noma ukumaketha ngocingo';
-
-  @override
-  String get riskDescriptionHigh =>
-      'Okuphezulu - Ukuhlukumeza okuqhubekayo noma imizamo yokukhwabanisa';
-
-  @override
-  String get riskDescriptionCritical =>
-      'Okubucayi - Ukukhwabanisa okuyingozi noma izinsongo';
-
-  @override
   String get notificationFrequencyTitle => 'Ukuvama Kwezaziso';
-
-  @override
-  String get notificationFrequencyLabel => 'Ukuvama Kwezaziso (amahora)';
 
   @override
   String errorMessage(String error) {
     return 'Iphutha: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'Amavoti: $totalVotes ($supportPercentage% ukwesekwa)';
-  }
-
-  @override
-  String get timeJustNow => 'Manje nje';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return 'Eminyaminyeni engu-$minutes edlule';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return 'Emahoreni angu-$hours edlule';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return 'Ezinsukwini ezingu-$days ezedlule';
   }
 
   @override
@@ -6173,9 +4642,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get liveActivitiesTestTitle => 'Ukuhlolwa Komsebenzi Obukhoma';
 
   @override
-  String get liveActivitiesTestSubtitle => 'Hlola isaziso somsebenzi obukhoma.';
-
-  @override
   String get liveNotificationCustomizationTitle =>
       'Ukwenza Ngokwezifiso Kwezaziso Ezibukhoma';
 
@@ -6201,16 +4667,10 @@ class AppLocalizationsZu extends AppLocalizations {
   String get proposalDetails => 'Imininingwane Yesiphakamiso';
 
   @override
-  String get filterByStatus => 'Hlunga Ngesimo';
-
-  @override
   String get proposalNotFound => 'Isiphakamiso asitholakali';
 
   @override
   String get processed => 'Kucutshunguliwe';
-
-  @override
-  String get showAll => 'Bonisa Konke';
 
   @override
   String get filterAndSortTitle => 'Hlunga futhi Uhlele';
@@ -6249,9 +4709,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get invalidSimData => 'Idatha ye-SIM engavumelekile';
 
   @override
-  String get simCardData => 'Idatha Yekhadi Le-SIM';
-
-  @override
   String get simSlot => 'Isikhala Se-SIM';
 
   @override
@@ -6270,12 +4727,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String get callTypeSilenced => 'Kuthuliswe';
 
   @override
-  String get callTypeVoicemail => 'Umyalezo Wezwi';
-
-  @override
-  String get callTypeUnknownIntercept => 'Ukutholwa Okungaziwa';
-
-  @override
   String andMoreItems(int count) {
     return 'kanye nezinto ezingaba $count';
   }
@@ -6288,10 +4739,6 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6375,9 +4822,6 @@ class AppLocalizationsZu extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

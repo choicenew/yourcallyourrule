@@ -19,13 +19,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'Game da Dokokin Biyan Kuɗi na Wayar';
 
   @override
-  String get aboutPhoneSubscriptions => 'Game da Biyan Kuɗi na Wayar';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'Biyan kuɗi zuwa jerin dokokin waya ta hanyar URL, sabunta dokoki ta atomatik. Yana goyan bayan fayilolin dokoki na JSON, CSV.';
-
-  @override
   String get aboutSmsFilter => 'Game da Tace SMS';
 
   @override
@@ -48,9 +41,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get actionBlock => 'Gina';
-
-  @override
-  String get actionFilterAll => 'Duk Tace';
 
   @override
   String get actionFilterTitle => 'Tace ta Nau\'in Aiki';
@@ -96,29 +86,7 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'An ƙara shi zuwa Dokokin Ba da Dama';
-
-  @override
-  String get addedToBlacklist => 'An ƙara shi zuwa Baƙar Fata';
-
-  @override
-  String get addedToBlockedRules => 'An ƙara shi zuwa Dokokin Gina';
-
-  @override
-  String get addedToFavoriteContacts =>
-      'An ƙara shi zuwa lambobin da aka fi so';
-
-  @override
   String get addedToFavorites => 'An ƙara shi zuwa waɗanda aka fi so';
-
-  @override
-  String get addedToWhitelist => 'An ƙara shi zuwa Jerin Farar Fata';
-
-  @override
-  String get addFavorite => 'Ƙara Mai So';
-
-  @override
-  String get addFilter => 'Ƙara Tace';
 
   @override
   String get addLabel => 'Ƙara Lakabi';
@@ -132,17 +100,10 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'Ƙara Lakabi zuwa Rikodin Kira';
-
-  @override
   String get addName => 'Ƙara Suna';
 
   @override
   String get addNoneSubscription => 'Ƙara Biyan Kuɗi na Babu';
-
-  @override
-  String get addOrEditContactInfo =>
-      'Ana amfani da shi don ƙarawa ko gyara bayanan lamba';
 
   @override
   String get addPhoneMark => 'Ƙara Alamar Wayar';
@@ -174,9 +135,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get addRule => 'Ƙara Dokar';
 
   @override
-  String get addRuleButton => 'Ƙara Dokar';
-
-  @override
   String addRuleFailed(Object error) {
     return 'An kasa ƙara doka: $error';
   }
@@ -186,9 +144,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'Ƙara Biyan Kuɗi na Shiru';
-
-  @override
-  String get addSimRuleButton => 'Ƙara Dokar SIM';
 
   @override
   String get addSmsFilterRule => 'Ƙara Dokar Tace SMS';
@@ -214,16 +169,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get addSubscriptionTooltip => 'Ƙara Biyan Kuɗi';
 
   @override
-  String get addToAllowedRules => 'Ƙara zuwa Dokokin Ba da Dama';
-
-  @override
   String get addToBlacklist => 'Ƙara zuwa Baƙar Fata';
-
-  @override
-  String get addToBlockedRules => 'Ƙara zuwa Dokokin Gina';
-
-  @override
-  String get addToFavoriteContacts => 'Ƙara zuwa Lambobin Da Aka Fi So';
 
   @override
   String get addToFavorites => 'Ƙara zuwa Waɗanda Aka Fi So';
@@ -235,9 +181,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get addToWhitelist => 'Ƙara zuwa Jerin Farar Fata';
 
   @override
-  String get adPlaceholder => 'Wurin Alamar Tallan';
-
-  @override
   String get agent => 'Wakilin';
 
   @override
@@ -245,9 +188,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get allCallsTab => 'Duka';
-
-  @override
-  String get allDataClearedSuccessfully => 'An share duk bayanan cikin nasara';
 
   @override
   String get allow => 'Bada damar';
@@ -262,10 +202,6 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get allowAllBlacklistedNumbers =>
       'Bada Dama Ga Duk Lambobin da Aka Lissafa';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc =>
-      'Bada damar kiran daga jerin baƙi';
 
   @override
   String get allowAllBlockRules => 'Bada Dama Ga Duk Dokokin Gina';
@@ -334,14 +270,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get allowRules => 'Dokoki Na Ba Da Dama';
 
   @override
-  String get allowWhitelistedNumbers =>
-      'Bada damar yin amfani da lambobi a jerin gwaje-gwajen';
-
-  @override
-  String get allowWhitelistedNumbersDescription =>
-      'Bada damar yin amfani da duk lambobi a cikin jerin gwaje-gwajen';
-
-  @override
   String get allPermissionsGranted => 'An bada duk izini';
 
   @override
@@ -354,9 +282,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'Amsa sannan a kashe';
-
-  @override
-  String get appLegalese => '© 2023 Kira naka Dokarka. An tanada duk haƙƙoƙi.';
 
   @override
   String get applicationSoftware => 'Sabis na Aikace-aikace';
@@ -395,13 +320,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'Saitunan sabuntawa ta atomatik';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'Gudanar da sabuntawa ta atomatik don dokoki da fakiti';
-
-  @override
-  String get autoUpdateSettingsTitle => 'Saitunan sabuntawa ta atomatik';
 
   @override
   String get autoUpdateSubtitle =>
@@ -450,47 +368,10 @@ class AppLocalizationsHa extends AppLocalizations {
   String get backupFailed => 'Ajiyayyi ta gaza';
 
   @override
-  String get backupFailedMessage => 'Ajiyayyi ta gaza';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'Ajiyayyi ta gaza: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle =>
-      'Ajiyayyi ko mayar da bayanan aikace-aikace';
-
-  @override
-  String get backupRestoreTitle => 'Ajiyayyi & Maidawa';
-
-  @override
-  String get backupSectionTitle => 'Ajiyayyi';
-
-  @override
   String get backupSettings => 'Saitunan Ajiyayyi';
 
   @override
-  String get backupSettingsDialogTitle => 'Saitunan Ajiyayyi';
-
-  @override
-  String get backupSettingsTitle => 'Saitunan Ajiyayyi';
-
-  @override
-  String get backupSuccessMessage =>
-      'An yi ajiyayyi cikin nasara zuwa gajimare';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'Ajiyayyi ya yi nasara zuwa: $path';
-  }
-
-  @override
   String get backupToCloud => 'Ajiyayyi zuwa Gajimare';
-
-  @override
-  String get backupToCloudDescription =>
-      'Ajiyayyi saitunan da dokoki zuwa ajiyar gajimare';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -498,17 +379,8 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'Ajiyayyi zuwa Gajimare';
-
-  @override
   String get backupToCloudSuccess =>
       'An yi ajiyayyi cikin nasara zuwa gajimare';
-
-  @override
-  String get backupToCloudTitle => 'Ajiyayyi zuwa Gajimare';
-
-  @override
-  String get backupToLocalLabel => 'Ajiyayyi zuwa Wuri';
 
   @override
   String get bank => 'Banki';
@@ -527,22 +399,13 @@ class AppLocalizationsHa extends AppLocalizations {
       '• Tace Dokoki na Asali: Tace dokoki gwargwadon jerin bakar fata, jerin gwaje-gwaje, da regex';
 
   @override
-  String get basicRuleFilterSettings => 'Saitunan Tace Dokoki na Asali';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'Tace kiran ta amfani da jerin bakar fata/gwaje-gwaje da lambobin regex';
-
-  @override
-  String get batchDeleteContacts => 'Ganin share lambobi';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'Shin haƙiƙa kuna son share lambobi $count da aka zaɓa?';
   }
-
-  @override
-  String get batchDeleteFailed => 'An kasa sharewa ta rukuni';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -557,9 +420,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'Rubuta a jerin bakar fata da gwaje-gwaje';
 
   @override
-  String get blacklistLabel => 'Jerin Bakar Fata';
-
-  @override
   String get blackWhiteList => 'Jerin Bakar Fata/Gwaje-gwaje';
 
   @override
@@ -572,19 +432,10 @@ class AppLocalizationsHa extends AppLocalizations {
   String get blocked => 'An Mata';
 
   @override
-  String get blockedCallAction => 'Ayyukan Kira da aka Mata';
-
-  @override
   String get blockedCalls => 'Kiran da aka Mata';
 
   @override
   String get blockedCallsTitle => 'Kiran da aka Mata';
-
-  @override
-  String get blockedCommunications => 'Sadarwa da aka Mata';
-
-  @override
-  String get blockedPhoneLabel => 'Kiran da aka Mata';
 
   @override
   String get blockedSpamCalls => 'Kiran spam da aka Mata';
@@ -598,9 +449,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get blockInternationalCallsTitle => 'Mata kiran kasa da kasa';
-
-  @override
-  String get blockLandlineNumbersTitle => 'Mata lambobi na layin kasa';
 
   @override
   String get blockMobileNumbers =>
@@ -651,11 +499,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get callback => 'Kira koma';
 
   @override
-  String callbackTo(String number) {
-    return 'Kira koma zuwa $number';
-  }
-
-  @override
   String get callBlocking => 'Mata kiran';
 
   @override
@@ -663,9 +506,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'Keɓance ID na wanda ya kira';
-
-  @override
-  String get callerIdDialogTitle => 'Bayanan ID na wanda ya kira';
 
   @override
   String get callerIdDisplayMode => 'Hanyar Nuna ID Mai Kira';
@@ -677,13 +517,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'Binciken ID Mai Kira';
-
-  @override
-  String get callFilter => 'Tace Kira';
-
-  @override
-  String get callFilterDescription =>
-      'Idan an kunna shi, ana duba kiran da ke shigowa akan jerin ƙa\'idodi da ke ƙasa. Ba a daidaita ƙa\'idodin tace kira tsakanin na\'urori ta tsohuwa ba.';
 
   @override
   String get callFilterRules => 'Ka\'idodin Tace Kira';
@@ -713,26 +546,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get callHistoryInfoTitle => 'Tarihin Kira';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'Gaza fara tarihin kira: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'Gaza sabunta tarihin kira: $error';
-  }
-
-  @override
   String get callHistoryTab => 'Tarihin Kira';
-
-  @override
-  String get callHistoryTimelineEarlier => 'Da wuri';
-
-  @override
-  String get callHistoryTimelineToday => 'Yau';
-
-  @override
-  String get callHistoryTimelineYesterday => 'Jiya';
 
   @override
   String get callScreeningPermission => 'Izinin Shirye-shiryen Kira';
@@ -744,12 +558,6 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'An kasa bayar da izinin duba kira, zai iya shafar aikin app.';
-
-  @override
-  String get callSettingsSubtitle => 'Saitunan ID Mai Kira, Tace da Blocking';
-
-  @override
-  String get callSettingsTitle => 'Saitunan Kira';
 
   @override
   String get callStatistics => 'Kididdigar Kira';
@@ -807,27 +615,10 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'Canza Alama';
-
-  @override
   String get charity => 'Agaji';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'Wata $month';
-  }
-
-  @override
-  String get chartOneDayAgo => 'Ranar 1 da ta wuce';
-
-  @override
-  String get chartOneMonthAgo => 'Wata 1 da ta wuce';
-
-  @override
   String get chartOneWeekAgo => 'Mako 1 da ta wuce';
-
-  @override
-  String get chartTenDaysAgo => 'Kwanaki 10 da suka wuce';
 
   @override
   String get chartThreeDaysAgo => 'Kwanaki 3 da suka wuce';
@@ -847,23 +638,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get chooseDefaultInterceptAction => 'Zaɓi aikin dakatarwa na tsohuwa';
 
   @override
-  String get clearAllData => 'Share Duk Bayanai';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'Kuna tabbatar da cewa kuna son share duk bayanan aikace-aikacen? Wannan aikin ba za a iya mayar da shi ba.';
-
-  @override
-  String get clearAllDataDescription => 'Share duk bayanan aikace-aikacen';
-
-  @override
-  String get clearAllDataLabel => 'Share Duk Bayanai';
-
-  @override
   String get clearFilter => 'Share Tace';
-
-  @override
-  String get clearLabelFilter => 'Share Tace Lakabi';
 
   @override
   String get clearLabelFilterButton => 'Share Tace Lakabi';
@@ -888,9 +663,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get cloudSyncTitle => 'Daidaita ta Gizon';
 
   @override
-  String get collapseLabelSelector => 'Rufe Mai Zaɓin Lakabi';
-
-  @override
   String get collection => 'Tarar Bashi';
 
   @override
@@ -910,14 +682,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get configureBackupOptions => 'Sanya zaɓuɓɓukan Ajiyayye';
 
   @override
-  String get configureBackupOptionsSubtitle => 'Sanya zaɓuɓɓukan ajiyayye';
-
-  @override
   String get configureCloudSyncService => 'Sanya sabis na Daidaita ta Gizon';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'Da fatan za a saita sabis na daidaita ta gizon don kunna daidaita na\'urori da yawa.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -927,31 +692,13 @@ class AppLocalizationsHa extends AppLocalizations {
   String get configureSimCardFilterRules => 'Sanya Ka\'idodin Tace Katin SIM';
 
   @override
-  String get configureSyncServiceHint =>
-      'Da fatan za a saita sabis na daidaitawa a cikin saitunan daidaita ta gizon da farko';
-
-  @override
   String get confirm => 'Tabbatar';
-
-  @override
-  String get confirmBatchDeleteContacts =>
-      'Kuna tabbatar da cewa kuna son share zaɓaɓɓu';
 
   @override
   String get confirmButton => 'Tabbatar';
 
   @override
   String get confirmDelete => 'Tabbatar Sharewa';
-
-  @override
-  String get confirmDeleteContact => 'Kuna tabbatar da cewa kuna son share';
-
-  @override
-  String get confirmDeleteContactName => 'Tabbatar sharewa?';
-
-  @override
-  String get confirmDeleteFilter =>
-      'Kuna tabbatar da cewa kuna son share wannan tacewa?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -973,10 +720,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'Kuna tabbatar da cewa kuna son share wannan ka\'idar? Wannan aikin ba za a iya mayar da shi ba.';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'Kuna tabbatar da share zaɓaɓɓun lamba?';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'Kuna tabbatar da cewa kuna son share wannan ka\'idar tace SMS?';
 
@@ -985,19 +728,12 @@ class AppLocalizationsHa extends AppLocalizations {
       'Kuna tabbatar da cewa kuna son share wannan ka\'idar SMS?';
 
   @override
-  String get confirmDeleteSubscription =>
-      'Kuna tabbatar da cewa kuna son share wannan biyan kuɗi?';
-
-  @override
   String confirmDeleteSubscriptions(String name) {
     return 'Kuna tabbatar da cewa kuna son share $name?';
   }
 
   @override
   String get confirmPassword => 'Tabbatar Kalmar Wucewa';
-
-  @override
-  String get confirmPasswordLabel => 'Tabbatar Kalmar Wucewa';
 
   @override
   String get connectedStatus => 'An Haɗa';
@@ -1022,16 +758,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get contactDeleted => 'An goge lamba';
 
   @override
-  String get contactEditDialog => 'Tattalin Lambar Sadarwa';
-
-  @override
-  String get contactNameHint => 'Shigar da sunan lamba (na zaɓi)';
-
-  @override
   String get contactNameLabel => 'Suna';
-
-  @override
-  String get contactNameOptional => 'Sunan lamba (na zaɓi)';
 
   @override
   String get contactNotFound => 'Ba a sami lamba ba';
@@ -1045,24 +772,7 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle => 'Gudanar da lamba da saitunan lakabi';
-
-  @override
-  String get contactSettingsTitle => 'Saitunan Lamba';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'An kasa loda lambobi: $error';
-  }
-
-  @override
   String get contactsManagement => 'Gudanar da Lambobi';
-
-  @override
-  String get contactsManagementPageTitle => 'Shafin Gudanar da Lambobi';
-
-  @override
-  String get contactsPageTitle => 'Gudanar da Lambobi';
 
   @override
   String get contactsPermission => 'Izinin Lambobi';
@@ -1077,14 +787,6 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'Yi rijistar jerin lambobi ta hanyar URL, dawo da sabbin bayanan lamba da lakabi. Yana goyan bayan bayanan tsarin JSON.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'An kasa loda rajistar lambobi: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'Rajistar Lambobi';
 
   @override
   String get contactUpdateSuccess => 'An sabunta lamba a nasara';
@@ -1120,26 +822,11 @@ class AppLocalizationsHa extends AppLocalizations {
   String get countryRegionNamePosition => 'Matsayin Sunan Ƙasa/Yanki';
 
   @override
-  String get countrySelectionDialog => 'Tattalin zaɓin Ƙasa';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'Ana amfani dashi don zaɓar ƙasa don bincika bayanan ID mai kira';
-
-  @override
   String get countThresholdDescription =>
       'Saita mafi ƙarancin iyaka na Ƙididdiga da ake buƙata don kunna ayyukan tacewa';
 
   @override
   String get countThresholdLabel => 'Iyaka Ƙididdiga';
-
-  @override
-  String get countThresholdSettings => 'Saitunan Iyaka Ƙididdiga';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'Iyaka Ƙididdiga: $count';
-  }
 
   @override
   String get createdRules => 'Ka\'idojin da aka kirkira';
@@ -1148,48 +835,22 @@ class AppLocalizationsHa extends AppLocalizations {
   String get csvFormat => 'Tsarin CSV';
 
   @override
-  String get currentDeviceChip => 'Na Yanzu';
-
-  @override
   String get currentDeviceLabel => 'Lakabin Na\'ura ta Yanzu';
 
   @override
   String get currentDeviceTitle => 'Na\'ura ta Yanzu';
 
   @override
-  String get currentLabels => 'Lakabobi na Yanzu:';
-
-  @override
   String get currentLanguage => 'Harshen Yanzu';
 
   @override
-  String get currentPasswordLabel => 'Tsohuwar Kalmar Wucewa';
-
-  @override
   String get customerService => 'Sabis na Abokin Ciniki';
-
-  @override
-  String get customRange => 'Tsawon Lokaci na Musamman';
-
-  @override
-  String get dailyStatistics => 'Kididdiga ta Rana';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'Karɓi kididdiga ta rana game da kiran da aka toshe da saƙonni';
 
   @override
   String get dashboardTab => 'Dashboard';
 
   @override
   String get dataAnalysis => 'Binciken Bayanai';
-
-  @override
-  String get dataAnalysisDashboardPage =>
-      'Shafin Dashboard na Binciken Bayanai';
-
-  @override
-  String get dataExport => 'Fitarda Bayanai';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1207,16 +868,6 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'Wannan fasalin yana ba ku damar canja wurin duk bayanan ku tsakanin na\'urori. A halin yanzu, zaku iya amfani da fasalolin madauki da maidowa don canja wurin bayanan ku.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'Wannan fasalin yana ba ku damar canja wurin duk bayanan ku tsakanin na\'urori. A halin yanzu, zaku iya amfani da fasalolin madauki da maidowa don canja wurin bayanan ku.';
-
-  @override
-  String get dataMigrationDialogTitle => 'Hijira ta Bayanai';
-
-  @override
-  String get dataMigrationSectionTitle => 'Hijira ta Bayanai';
 
   @override
   String get dataSourceReminder => 'Taimakon Madogarar Bayanai';
@@ -1241,9 +892,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get debtCollection => 'Tattalin Bashi';
 
   @override
-  String get defaultPeriod => 'Mako';
-
-  @override
   String get delete => 'Goge';
 
   @override
@@ -1258,23 +906,9 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation => 'Kuna tabbata kana son goge lamba';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return 'Kuna tabbata kana son goge $deviceName?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'Goge Na\'ura';
-
-  @override
   String deleteFailed(Object error) {
     return 'An gaza gogewa: $error';
   }
-
-  @override
-  String get deleteFilter => 'Goge Tacewa';
 
   @override
   String get deleteLabel => 'Goge Lakabi';
@@ -1312,9 +946,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get deleteSelected => 'Goge Abubuwan da aka Zaba';
 
   @override
-  String get deleteSmsRule => 'Goge Ka\'idar SMS';
-
-  @override
   String get deleteSubscription => 'Goge Rajista';
 
   @override
@@ -1334,15 +965,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get delivery => 'Isarwa';
 
   @override
-  String get deviceDeletedSuccessfully => 'An goge na\'ura a nasara';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage => 'An goge na\'ura a nasara';
-
-  @override
-  String get deviceIdLabel => 'ID Na\'ura';
-
-  @override
   String get deviceIDLabel => 'ID Na\'ura';
 
   @override
@@ -1359,28 +981,11 @@ class AppLocalizationsHa extends AppLocalizations {
   String get deviceName => 'Sunan Na\'ura';
 
   @override
-  String get deviceNameCannotBeEmpty =>
-      'Sunan na\'ura ba zai iya zama babu komai';
-
-  @override
-  String get deviceNameHint => 'Da fatan za a shigar da sunan na\'ura';
-
-  @override
   String get deviceNameLabel => 'Sunan Na\'ura';
-
-  @override
-  String get deviceRenamedSuccessfully => 'An sake suna na\'urar cikin nasara';
 
   @override
   String get deviceRenamedSuccessfullyMessage =>
       'An sake suna na\'urar cikin nasara';
-
-  @override
-  String get devicesSyncedSuccessfully => 'An daidaita na\'urori cikin nasara';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage =>
-      'An daidaita na\'urori cikin nasara';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1405,10 +1010,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'Kashe manyan plugins na duniya';
-
-  @override
-  String get disableSubscriptionSuccessfully =>
-      'An kashe biyan kuɗi cikin nasara';
 
   @override
   String get disconnectButton => 'Yanke';
@@ -1442,25 +1043,13 @@ class AppLocalizationsHa extends AppLocalizations {
   String get editContact => 'Gyara Lara';
 
   @override
-  String get editFilter => 'Gyara Tace';
-
-  @override
   String get editLabel => 'Gyara Lakabi';
 
   @override
   String get editPhoneRule => 'Gyara Kaidar Wayar';
 
   @override
-  String get editPhoneRules => 'Ana amfani da ita don gyara kaidodin waya';
-
-  @override
-  String get editPhoneRuleTitle => 'Gyara Kaidar Wayar';
-
-  @override
   String get editRule => 'Gyara Kaida';
-
-  @override
-  String get editSmsRule => 'Gyara Kaidar SMS';
 
   @override
   String get education => 'Ilimi';
@@ -1470,9 +1059,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get email => 'Imel';
-
-  @override
-  String get emailOptional => 'Imel (Na son rai)';
 
   @override
   String get enableCallFilter => 'Ba da damar Tacewar Kira';
@@ -1492,16 +1078,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => 'Daidaita fayilolin ajiyar ku';
-
-  @override
-  String get enableEncryptionLabel => 'Ba da damar Encryption';
-
-  @override
-  String get enableEncryptionSubtitle =>
-      'Fayilolin ajiyar ku za su zama masu ɓoye';
-
-  @override
-  String get enableEncryptionTitle => 'Ba da damar Encryption';
 
   @override
   String get enableGlobalPlugins => 'Ba da damar manyan plugins na duniya';
@@ -1538,9 +1114,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'Bada damar saitunan ka\'ida ba tare da ayyukan tsangwama ba';
 
   @override
-  String get enableNotifications => 'Ba da damar Sanarwa';
-
-  @override
   String get enableRemoteNumberFilter => 'Ba da damar Tacewar Lambobin Nesa';
 
   @override
@@ -1556,13 +1129,6 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'Lokacin da aka kunna, za a tace saƙonni ta atomatik bisa ga ka\'idoji';
-
-  @override
-  String get enableStatisticsNotifications => 'Ba da damar Sanarwar Kididdiga';
-
-  @override
-  String get enableSubscriptionSuccessfully =>
-      'An kunna biyan kuɗi cikin nasara';
 
   @override
   String get enableTimeInterception => 'Ba da damar Tsangwamawa ta Lokaci';
@@ -1598,10 +1164,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'Tsarin tacewa na ingantacce yana goyan bayan ka\'idoji na duniya da kuma saitunan tacewa na kowane SIM.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'Da fatan za a shigar da duka lambar waya da tsarin regex';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'Da fatan za a shigar da duka lambar waya da tsarin regex.';
 
@@ -1609,32 +1171,13 @@ class AppLocalizationsHa extends AppLocalizations {
   String get enterContactName => 'Da fatan za a shigar da sunan lamba';
 
   @override
-  String get enterCurrentPasswordHint =>
-      'Da fatan za a shigar da kalmar sirri ta yanzu';
-
-  @override
   String get enterDeviceName => 'Shigar da Sunan Na\'ura';
-
-  @override
-  String get enterDeviceNameHint => 'Da fatan za a shigar da sunan na\'ura';
-
-  @override
-  String get enterEmail => 'Shigar da Imel';
 
   @override
   String get enterEmailOptional => 'Shigar da Imel (na son rai)';
 
   @override
   String get enterEncryptionPasswordHint => 'Shigar da kalmar sirrin ɓoye';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'Shigar da Kalmar Sirrin Buriya';
-
-  @override
-  String get enterFilterName => 'Shigar da Sunan Tace';
-
-  @override
-  String get enterFilterPattern => 'Shigar da Tsarin Tace';
 
   @override
   String get enterIconCode => 'Shigar da Lambar Alama';
@@ -1647,14 +1190,7 @@ class AppLocalizationsHa extends AppLocalizations {
       'Shigar da sabon suna ga wannan na\'urar';
 
   @override
-  String get enterNewPasswordHint =>
-      'Da fatan za a shigar da sabon kalmar sirri';
-
-  @override
   String get enterPasswordAgain => 'Shigar da Kalmar Sirri A Sake';
-
-  @override
-  String get enterPasswordHint => 'Da fatan za a shigar da kalmar sirri';
 
   @override
   String get enterPhoneNumber => 'Shigar da Lambar Wayar';
@@ -1681,10 +1217,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'Shigar da tsarin regex';
-
-  @override
-  String get enterRuleNameAndPattern =>
-      'Da fatan za a shigar da sunan ka\'ida da tsari';
 
   @override
   String get enterRuleNameAndPatternMessage =>
@@ -1731,14 +1263,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get enterWebDAVUsernameHint => 'Da fatar sunan mai amfani na WebDAV';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'Kuskuren goge na\'ura: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'Kuskuren lodi plugin';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'Kuskure ya faru: $error';
   }
@@ -1754,14 +1278,6 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'Kuskuren haɗin na\'urori: $error';
-  }
-
-  @override
-  String get errorText => 'Kuskure';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'Kuskuren cire rajistar na\'ura: $error';
   }
@@ -1771,9 +1287,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'misali. Block SMS na tallatawa';
-
-  @override
-  String get exampleContentRegex => 'misali, .*offer.*';
 
   @override
   String get exampleContentRegexHint => 'Misali na abun ciki Regex';
@@ -1792,9 +1305,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get exampleRegex400Prefix => 'Misali regex don prefix 400';
 
   @override
-  String get exampleRegexFormat => 'Misali: ^10086\$ tsarin';
-
-  @override
   String get exampleSenderRegexHint => 'Misali';
 
   @override
@@ -1805,9 +1315,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get exchangeVip => 'Tukarwa VIP';
-
-  @override
-  String get expandLabelSelector => 'Faɗaɗa Mai Zaɓin Lakabi';
 
   @override
   String expiryTime(Object time) {
@@ -1822,18 +1329,7 @@ class AppLocalizationsHa extends AppLocalizations {
       'Fitowa duk saitunan aikace-aikace';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'Fitowa duk saitunan aikace-aikace';
-
-  @override
   String get exportAllRuleConfigurations => 'Fitowa Duk Shirye-shiryen Mulki';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle =>
-      'Fitowa duk shirye-shiryen mulki';
-
-  @override
-  String get exportComplete => 'Fitowa Ta Gama';
 
   @override
   String get exportConfig => 'Fitowa Saituna';
@@ -1845,9 +1341,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get exportData => 'Fitowa Bayanai';
 
   @override
-  String get exportError => 'Kuskuren Fitowa';
-
-  @override
   String get exportFailed => 'Fitowa Ta Gaza';
 
   @override
@@ -1855,9 +1348,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'Fitowa fasalulluka na zuwa nan da nan';
-
-  @override
-  String get exporting => 'Fitowa...';
 
   @override
   String get exportLabels => 'Fitowa Lakabi';
@@ -1879,34 +1369,17 @@ class AppLocalizationsHa extends AppLocalizations {
   String get exportRules => 'Fitowa Mulki';
 
   @override
-  String get exportRulesDialogTitle => 'Fitowa Mulki';
-
-  @override
-  String get exportRulesTitle => 'Fitowa Mulki';
-
-  @override
   String get exportSmsRules => 'Fitowa Mulkin SMS';
 
   @override
   String get exportStatisticsData => 'Fitowa Bayanai na Kididdiga';
 
   @override
-  String get exportSuccess => 'Fitowa Ta Yi Nasara';
-
-  @override
   String get exportSuccesslly => 'An fitar da tsari cikin nasara';
-
-  @override
-  String get failedToAddContact => 'Ta kasa ƙara lamba';
 
   @override
   String failedToAddRule(Object error) {
     return 'Ta kasa ƙara mulki: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'Ta kasa ƙara mulkin SMS: $error';
   }
 
   @override
@@ -1924,9 +1397,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'Ta kasa buɗe fayil ɗin ajiyar da aka ɓoye';
 
   @override
-  String get failedToDeleteDevice => 'Ta kasa goge na\'ura';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'Ta kasa goge mulkin SMS: $error';
   }
@@ -1934,11 +1404,6 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'Ta kasa fitowa da mulki: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'Ta kasa fitowa da mulkin SMS: $error';
   }
 
   @override
@@ -1952,20 +1417,6 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'Ta kasa shigo da mulkin SMS: $error';
-  }
-
-  @override
-  String get failedToLoadContacts => 'Ta kasa loda lambobin sadarwa';
-
-  @override
-  String get failedToLoadPlugin => 'Ta kasa loda plugin';
-
-  @override
-  String get failedToRenameDevice => 'Ta kasa sake suna na\'ura';
-
-  @override
   String get failedToRestoreSettings => 'Ta kasa dawo da saituna';
 
   @override
@@ -1974,32 +1425,9 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'Ta kasa saita kalmar sirri: $error';
-  }
-
-  @override
-  String get failedToSyncDevices => 'Ta kasa haɗin na\'urori';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'Ta kasa canza matsayin mulki: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus =>
-      'Ta kasa canza matsayin biyan kuɗi';
-
-  @override
-  String get failedToUpdateContact => 'Ta kasa sabunta lamba';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'Ta kasa sabunta mulkin SMS: $error';
-  }
-
-  @override
-  String get failure => 'Gaza';
 
   @override
   String get favoriteContacts => 'Abokan Hulɗa da Aka fi So';
@@ -2038,9 +1466,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get filterByLabel => 'Tace ta Lakabi';
 
   @override
-  String get filterClear => 'Share Tace';
-
-  @override
   String get filterControlPanelTitle => 'Majalisar Sarrafa Tace';
 
   @override
@@ -2051,22 +1476,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get filterControlTitle => 'Tsofawa';
 
   @override
-  String get filterDeleteFailed => 'An kasa share tace';
-
-  @override
-  String get filterDeleteSuccess => 'An share tace cikin nasara';
-
-  @override
-  String get filterDetails => 'Cikakken Bayani kan Tace';
-
-  @override
   String get filtered => 'An Tace';
-
-  @override
-  String get filteredSms => 'SMS da aka Tace';
-
-  @override
-  String get filteredSmsLabel => 'SMS da aka Tace';
 
   @override
   String get filterExplanation => 'Bayanin Tace';
@@ -2078,17 +1488,8 @@ class AppLocalizationsHa extends AppLocalizations {
   String get filterName => 'Sunan Tace';
 
   @override
-  String get filterPattern => 'Tsarin Tace';
-
-  @override
   String get filterPriorityNote =>
       'Lura: Akwai dangantakar fifiko tsakanin tace, da fatan duba littafin taimako don cikakkun bayanai';
-
-  @override
-  String get filterSaveFailed => 'An kasa ajiyewa tace';
-
-  @override
-  String get filterSaveSuccess => 'An ajiye tace cikin nasara';
 
   @override
   String get filterSettings => 'Saitunan Tace';
@@ -2127,16 +1528,6 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return 'An sami dokoki $count. Kuna son shigo dasu?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return 'An sami dokoki $count. Kuna son shigo dasu?';
-  }
-
-  @override
   String get fraudAlert => 'GARGADI MAKU - Kashe kiran';
 
   @override
@@ -2171,39 +1562,14 @@ class AppLocalizationsHa extends AppLocalizations {
   String get globalFilterSettings => 'Saitunan Tace Duniya';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'Saita saitunan tace duniya da ke aiki ga duk ramummuka na SIM:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'Binciken lambobi, lakabi, jerin baki, jerin fari, da sauransu';
-
-  @override
-  String get globalSearchTitle => 'Binciken Duniya';
-
-  @override
   String get globalSettings => 'Saitunan Duniya';
-
-  @override
-  String get googleAdDisplayPosition => 'Matsayin Nuni na Google Ad';
-
-  @override
-  String get googleAdMobIntegrationText =>
-      'Ana iya haɗa tallan Google AdMob a nan';
 
   @override
   String get googleDriveAuthDescription =>
       'Bada izini ta amfani da ID da mabudin Google Drive da aka saita na tsarin';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'Bada izini ta amfani da ID da mabudin Google Drive da aka saita na tsarin';
-
-  @override
   String get googleDriveConfigTitle => 'Saitunan Google Drive';
-
-  @override
-  String get googleDriveConfigurationTitle => 'Saitunan Google Drive';
 
   @override
   String get government => 'Gwamnati';
@@ -2222,9 +1588,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get height => 'Tsayi';
-
-  @override
-  String get homePageTitle => 'Shafin Farko';
 
   @override
   String get homeTab => 'Farko';
@@ -2255,9 +1618,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get important => 'Mahimmanci';
-
-  @override
-  String get importButton => 'Shigo';
 
   @override
   String get importConfig => 'Shigo da Saitunan';
@@ -2312,40 +1672,13 @@ class AppLocalizationsHa extends AppLocalizations {
       'Shigo da Shirye-shiryen Doka daga Fayil';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'Shigo da shirye-shiryen doka daga fayil';
-
-  @override
   String get importRules => 'Shigo da Dokoki';
-
-  @override
-  String get importRulesButton => 'Shigo da Dokoki';
-
-  @override
-  String get importRulesDialogTitle => 'Shigo da Dokoki';
-
-  @override
-  String importRulesError(Object error) {
-    return 'An kasa shigo da dokoki: $error';
-  }
-
-  @override
-  String get importRulesInstructions => 'Shigo da dokoki daga fayil na CSV';
-
-  @override
-  String get importRulesSuccess => 'An shigo da dokoki cikin nasara';
-
-  @override
-  String get importRulesTitle => 'Shigo da Dokoki';
 
   @override
   String get importSuccess => 'An shigo da cikin nasara';
 
   @override
   String get incomingCallInterceptAction => 'Aikin Hana Kiran da ke Shigo';
-
-  @override
-  String get incomingCallNotification => 'Sanarwar Kiran da ke Shigo';
 
   @override
   String get incorrectPassword => 'Makarancin Kalmar Sirri';
@@ -2400,9 +1733,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'Shiga Telegram Channel da Group don Karin Bayani';
 
   @override
-  String get jsLogsTitle => 'JS Logs';
-
-  @override
   String get jsonFormat => 'JSON Tsarin';
 
   @override
@@ -2411,16 +1741,6 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'Ajiye duk sigogin da suka gabata na kowane ajiyar waje';
-
-  @override
-  String get keepAllVersionsLabel => 'Ajiye Duk Sigogi';
-
-  @override
-  String get keepAllVersionsSubtitle =>
-      'Ajiye sigogin da suka gabata na kowane ajiyar waje';
-
-  @override
-  String get keepAllVersionsTitle => 'Ajiye Duk Sigogi';
 
   @override
   String get label => 'Alama';
@@ -2441,9 +1761,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'Alamomi suna taimaka muku sarrafa lamba, ƙara alamomi na musamman ga lambobin waya don sauƙin gano kiran da saƙonni.';
 
   @override
-  String get labelFilter => 'Alamar Tacewa';
-
-  @override
   String get labelFilterTooltip => 'Alamar Tacewa';
 
   @override
@@ -2454,14 +1771,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get labelNotFound => 'Ba a sami alama ba';
-
-  @override
-  String get labelRemoved => 'An cire alama';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'An kasa cire alama: $error';
-  }
 
   @override
   String get labels => 'Alamomi';
@@ -2494,9 +1803,6 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'An sabunta alama';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'An kasa sabunta alama: $error';
   }
@@ -2513,12 +1819,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'Saitunan Harshe';
-
-  @override
-  String get last30Days => 'Kwanaki 30 na Karshe';
-
-  @override
-  String get last7Days => 'Kwanaki 7 na Karshe';
 
   @override
   String get lastSyncLabel => 'Karshe Sync';
@@ -2544,13 +1844,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get loadDataFailed => 'An kasa loda bayanai';
 
   @override
-  String get loadFailed => 'An kasa Loda';
-
-  @override
   String get loading => 'Ana Loda...';
-
-  @override
-  String get loadingData => 'Ana loda bayanai...';
 
   @override
   String get loadingTags => 'Ana loda alamomi...';
@@ -2574,12 +1868,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'An kasa loda lambobin waya da aka yiwa alama: $error';
   }
-
-  @override
-  String get loadMore => 'Loda Karin';
-
-  @override
-  String get loadPluginButton => 'Loda Plugin';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2606,9 +1894,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get loan => 'Lamuni';
-
-  @override
-  String get localBackupTitle => 'Ajiyar Waje na Gida';
 
   @override
   String get localCounterFilter => 'Tacewa ta Yankin Kididdiga';
@@ -2704,9 +1989,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get manage => 'Gudanar da Lambobi';
 
   @override
-  String get manageContacts => 'Gudanarwa';
-
-  @override
   String get manageFavoriteContacts => 'Gudanar da Lambobin da Aka Fi So';
 
   @override
@@ -2715,9 +1997,6 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'Ƙara, gyara, ko share dokokin tacewa na SMS';
-
-  @override
-  String get manageFrequentContacts => 'Gudanar da Lambobin da Suke Da Yawa';
 
   @override
   String get markCounts => 'Adadin Alama';
@@ -2745,16 +2024,10 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle => 'Don Mark Phone Numbers';
-
-  @override
   String get markPhoneManagementTitle => 'Mark Phone Management';
 
   @override
   String get markPhoneSuccess => 'An yi nasarar marking phone number';
-
-  @override
-  String get matchFailed => 'Match ya gaza!';
 
   @override
   String get matchFailedMessage => 'Match ya gaza.';
@@ -2774,9 +2047,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get matchSpecificDigitPatternsTitle => 'Match lambobi na musamman:';
 
   @override
-  String get matchSuccessful => 'Match ya yi nasara!';
-
-  @override
   String get matchSuccessfulMessage => 'Match ya yi nasara!';
 
   @override
@@ -2787,9 +2057,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get migrationTool => 'Migration Tool';
-
-  @override
-  String get migrationToolTitle => 'Migration Tool';
 
   @override
   String get minutes => 'minutes';
@@ -2804,9 +2071,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get monthlyCallCount => 'Wata-wata Kira';
 
   @override
-  String get monthlyChartTitle => 'Wata-wata Blocked Calls';
-
-  @override
   String get monthlyMembership => 'Wata-wata Memba';
 
   @override
@@ -2815,9 +2079,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'Wata-wata Jimlar';
-
-  @override
-  String get monthlyTotalLabel => 'Wata-wata Jimlar';
 
   @override
   String get moreOptions => ' Karin Zaɓuɓɓuka';
@@ -2833,33 +2094,16 @@ class AppLocalizationsHa extends AppLocalizations {
       'Suna da lambar waya ba za su iya zama fanko ba';
 
   @override
-  String get nameAndPhoneNumberRequired =>
-      'Suna da lambar waya ba za su iya zama fanko ba';
-
-  @override
   String get nameColor => 'Suna Launi';
 
   @override
   String get nameFontSize => 'Suna Girman Font';
 
   @override
-  String nameLabel(Object name) {
-    return 'Suna: $name';
-  }
-
-  @override
   String get namePosition => 'Suna Matsayi';
 
   @override
   String get nameUnknown => 'Suna: Ba a sani ba';
-
-  @override
-  String nameWithValue(String name) {
-    return 'Suna: $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'Sabon Kalmar Sirri';
 
   @override
   String get nextStep => 'Na gaba';
@@ -2875,13 +2119,7 @@ class AppLocalizationsHa extends AppLocalizations {
       'Babu sabis na sync na girgije mai aiki';
 
   @override
-  String get noCallLogs => 'Babu Logs na Kira';
-
-  @override
   String get noCallRecords => 'Babu bayanan kira';
-
-  @override
-  String get noContacts => 'Babu lambobi tukuna';
 
   @override
   String get noContactsYet => 'Babu lambobi tukuna';
@@ -2893,20 +2131,10 @@ class AppLocalizationsHa extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'Babu na\'urori da aka yi rajista';
 
   @override
-  String get noDevicesRegisteredYet =>
-      'Babu na\'urori da aka yi rajista tukuna.';
-
-  @override
-  String get noFilters => 'Babu masu tacewa tukuna';
-
-  @override
   String get noLabels => 'Babu lakabi tukuna';
 
   @override
   String get noMarkedPhones => 'Babu lambobi masu alama';
-
-  @override
-  String get noMatchingContacts => 'Babu lambobin da suka dace';
 
   @override
   String get noMatchingContactsFound =>
@@ -2914,9 +2142,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get noMatchingNumbersFound => 'Babu lambobin da suka dace da aka samu';
-
-  @override
-  String get noMatchingRecords => 'Babu bayanan kira da suka dace';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2931,15 +2156,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get noPlugins => 'Babu plugins tukuna';
-
-  @override
-  String get noRecords => 'Babu bayanan kira';
-
-  @override
-  String get noResultReturned => 'Babu sakamakon da ya dawo';
-
-  @override
-  String get noResultReturnedLog => 'Babu sakamakon da ya dawo daga plugin';
 
   @override
   String noRules(Object ruleType) {
@@ -2963,9 +2179,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get noSubscriptions => 'Babu biyan kuɗi';
 
   @override
-  String get noSubscriptionsYet => 'Babu Biyaɗi Tukuna';
-
-  @override
   String get notGranted => 'Ba a bayar ba';
 
   @override
@@ -2984,13 +2197,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get notificationSettings => 'Saitunan Sanarwa';
-
-  @override
-  String get notificationSettingsSaved =>
-      'An adana saitunan sanarwa cikin nasara';
-
-  @override
-  String get notSet => 'Ba a Saitawa ba';
 
   @override
   String get notVerifiedText => 'Ba a Tabbatar ba';
@@ -3024,9 +2230,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get numberTypePosition => 'Lamba Nau\'in Matsayi';
 
   @override
-  String get ok => 'OK';
-
-  @override
   String get okButton => 'OK';
 
   @override
@@ -3058,14 +2261,7 @@ class AppLocalizationsHa extends AppLocalizations {
       'Bada izinin amfani da tsarin tsarin OneDrive na tsarin da aka tsara da kuma maɓalli';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'Bada izinin amfani da tsarin tsarin OneDrive na tsarin da aka tsara da kuma maɓalli';
-
-  @override
   String get oneDriveConfigTitle => 'OneDrive Tsarin';
-
-  @override
-  String get oneDriveConfigurationTitle => 'OneDrive Tsarin';
 
   @override
   String get onlineCallerIdSubscription => 'Langganar ID Mai Kira Layi';
@@ -3126,9 +2322,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get passwordsDoNotMatch => 'Kalmar sirri ba ta dace ba';
 
   @override
-  String get passwordSetSuccessfully => 'An saita kalmar sirri cikin nasara';
-
-  @override
   String get pattern => 'Tsari';
 
   @override
@@ -3163,14 +2356,7 @@ class AppLocalizationsHa extends AppLocalizations {
       'Ba za a iya barin lambar waya babu komai ba';
 
   @override
-  String get phoneNumberHintText => 'Shigar da lambar waya don ƙara doka';
-
-  @override
   String get phoneNumberLabel => 'Lambar Wayar';
-
-  @override
-  String get phoneNumberRegexRequired =>
-      'Da fatan za a shigar da lambar waya da tsarin regex';
 
   @override
   String get phoneNumberTypeFixedLine => 'Layin layi na Hannun';
@@ -3219,9 +2405,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get phoneRule => 'Doka ta Wayar';
 
   @override
-  String get phoneRuleEditDialog => 'Dialog na Gyaran Doka ta Wayar';
-
-  @override
   String get phoneRuleManagement => 'Gudanarwar Dokokin Wayar';
 
   @override
@@ -3233,9 +2416,6 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'Yi rijista don jerin dokokin waya ta URL don sabunta dokokin farar hula da baƙar fata ta atomatik. Yana goyan bayan fayilolin doka na tsarin JSON.';
-
-  @override
-  String get phoneSubscriptionTitle => 'Langganonin Dokokin Wayar';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3257,9 +2437,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'An fitar da jerin plugins cikin nasara';
 
   @override
-  String get pluginLoadedSuccessfully => 'An ɗora plugin cikin nasara';
-
-  @override
   String get pluginManagement => 'Gudanarwar Plugin';
 
   @override
@@ -3267,14 +2444,7 @@ class AppLocalizationsHa extends AppLocalizations {
       'Gudanarwa da tsara plugins na ɓangare na uku';
 
   @override
-  String get pluginManagementTitle => 'Gudanarwar Plugin';
-
-  @override
   String get pluginName => 'Sunan Plugin';
-
-  @override
-  String get pluginNotLoaded =>
-      'An riga an ɗora plugin. Da fatan za a fara ɗora plugin.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3292,16 +2462,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get pluginUrl => 'URL na Plugin';
-
-  @override
-  String get pluginUrlCannotBeEmpty =>
-      'Ba za a iya barin URL na plugin babu komai ba';
-
-  @override
-  String get pluginUrlHint => 'Shigar da URL na plugin';
-
-  @override
-  String get pluginUrlLabel => 'URL na Plugin';
 
   @override
   String get pluginVersion => 'Sigar Plugin';
@@ -3339,34 +2499,10 @@ class AppLocalizationsHa extends AppLocalizations {
       'Bude duk fasalolin premium, atomatik sabunta kowace kwata';
 
   @override
-  String get queryButton => 'Nemo';
-
-  @override
-  String get queryFailed => 'Nemo ya kasa';
-
-  @override
-  String get queryFailedLog => 'Nemo ya kasa';
-
-  @override
-  String get querying => 'Neman...';
-
-  @override
-  String get queryingPhoneNumber => 'Neman lambar waya';
-
-  @override
-  String get queryResultTitle => 'Sakamakon Binciken';
-
-  @override
   String get ready => 'Shirya!';
 
   @override
-  String get receiveWeeklyStatistics => 'Karɓi kididdigar mako-mako';
-
-  @override
   String get recruiter => 'Mai daukar ma\'aikata';
-
-  @override
-  String get reEnterPasswordHint => 'Da fatan za a sake shigar da kalmar sirri';
 
   @override
   String get refresh => 'Sake Sakewa';
@@ -3376,11 +2512,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'Sake Sakewa';
-
-  @override
-  String regexError(Object error) {
-    return 'Kuskuren Regex: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3398,10 +2529,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'Tsarin Regex';
-
-  @override
-  String get regexPatternsExamples =>
-      'Yi amfani da al\'ada na regex don bayyana samfura. Misalai:';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3430,14 +2557,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'Mai Gwajin Regex';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'Gwajin Regex ya kasa: $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'Gwajin Regex ya yi nasara';
 
   @override
   String get region => 'Yankin';
@@ -3476,35 +2595,8 @@ class AppLocalizationsHa extends AppLocalizations {
   String get remoteNumberFilter => 'Tacewar Lambar Nesa';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'Wannan tacewa tana amfani da bayanai daban-daban na nesa don samun sabbin bayanan lamba.';
-
-  @override
   String get remoteNumberFilterDescription =>
       'Cire kiran da ake dannawa bisa ga bayanan bayanai na nesa';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'Tacewar lambar nesa tana gano kuma tana toshe kiran spam ta hanyar tambayar bayanai na nesa bisa ga ƙididdigar lamba.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle =>
-      'Bayanin Tacewar Lambar Nesa';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• Ƙimar Ƙididdiga: Ƙayyade bisa ga yawan lokacin da lamba ta bayyana';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• Hanyoyin Tace: Saita yadda za a yi mu\'amala da lambobi da suka wuce ƙima';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• Saitunan Fifiko: Saita fifiko don ayyukan nesa';
-
-  @override
-  String get remoteNumberFilterFeatures => 'Fasali:';
 
   @override
   String get remoteNumberFiltering => 'Tacewar Lambar Nesa';
@@ -3525,30 +2617,13 @@ class AppLocalizationsHa extends AppLocalizations {
   String get removeAdsTitle => 'Cire Tallace-tallace';
 
   @override
-  String get removedFromFavoriteContacts =>
-      'An cire daga lambobin da aka fi so';
-
-  @override
   String get removedFromFavorites => 'An cire daga lambobin da aka fi so';
-
-  @override
-  String get removeFavorite => 'Cire Wanda Aka Fi So';
 
   @override
   String get removeFromFavorites => 'Cire daga Masu Rabin Farko';
 
   @override
-  String get renameButton => 'Sake suna';
-
-  @override
-  String get renameDeviceDialogTitle => 'Sake Sunan Na\'ura';
-
-  @override
   String get renameDeviceTitle => 'Sake Sunan Na\'ura';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'Wannan zai maye gurbin duk saitunan ku na yanzu. Kuna da tabbacin kuna son ci gaba?';
 
   @override
   String get requestAllPermissions => 'Nemi Duk Izinai';
@@ -3577,23 +2652,7 @@ class AppLocalizationsHa extends AppLocalizations {
       'Maido da Saitunan Aikace-aikacen daga Madara';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'Maido da saitunan aikace-aikace daga madara';
-
-  @override
-  String get restoreButton => 'Maido';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'Maido daga girgije ya kasa: $error';
-  }
-
-  @override
   String get restoreFromCloud => 'Maido daga Girgije';
-
-  @override
-  String get restoreFromCloudDescription =>
-      'Maido da saituna da dokoki daga wurin ajiya na girgije';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3601,22 +2660,10 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'Maido daga Girgije';
-
-  @override
   String get restoreFromCloudSuccess => 'An yi nasarar maido daga girgije';
 
   @override
-  String get restoreFromCloudTitle => 'Maido daga Girgije';
-
-  @override
-  String get restoreFromLocal => 'Maido daga Gida';
-
-  @override
   String get restorePurchases => 'Maido da Sayayya';
-
-  @override
-  String get restoreSectionTitle => 'Maido';
 
   @override
   String get restoreSettings => 'Maido da Saituna';
@@ -3624,18 +2671,6 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'Wannan zai maye gurbin duk saitunan ku na yanzu. Kuna da tabbacin kuna son ci gaba?';
-
-  @override
-  String get restoreSettingsDialogTitle => 'Maido da Saituna';
-
-  @override
-  String get restoreSettingsTitle => 'Maido da Saituna';
-
-  @override
-  String get restoreSuccessFromLocal => 'An yi nasarar maido daga gida';
-
-  @override
-  String get restoreSuccessMessage => 'An yi nasarar maido daga girgije';
 
   @override
   String get retry => 'Sublim';
@@ -3653,15 +2688,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get ruleAction => 'Aikin Dokar';
 
   @override
-  String get ruleAddButton => 'Ƙara Dokar';
-
-  @override
   String get ruleAddedSuccess => 'An ƙara dokar yadda ya kamata';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'Gaza ƙara dokar: $error';
-  }
 
   @override
   String get ruleAddSuccess => 'An ƙara dokar yadda ya kamata';
@@ -3675,18 +2702,10 @@ class AppLocalizationsHa extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'Goge Dokar';
 
   @override
-  String get ruleDeletedSuccess => 'An goge dokar yadda ya kamata';
-
-  @override
   String get ruleDeletedSuccessfully => 'An goge dokar yadda ya kamata';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'Gaza goge dokar: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'Gaza goge dokar: $error';
   }
 
@@ -3708,9 +2727,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get ruleManagement => 'Gudanar da Dokoki';
 
   @override
-  String get ruleManagementTitle => 'Gudanar da Dokoki';
-
-  @override
   String get ruleName => 'Sunan Dokar';
 
   @override
@@ -3728,10 +2744,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get ruleNameLabel => 'Sunan Dokar';
 
   @override
-  String get ruleNamePatternRequired =>
-      'Da fatan za a shigar da sunan doka da tsari';
-
-  @override
   String get ruleNameRequired =>
       'Sunan doka da lambar waya ba za su iya zama babu komai ba';
 
@@ -3744,23 +2756,7 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'An adana rundunar ta yi nasara!';
-
-  @override
   String get ruleSavedSuccessMessage => 'An adana rundunar ta yi nasara!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'Ajiye ya kasa: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'Ajiye ya kasa: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'An adana rundunar ta yi nasara!';
 
   @override
   String get rulesExportedSuccessfully => 'An fitar da rundunonin ta yi nasara';
@@ -3777,14 +2773,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return 'An shigo da rundunoni $count ta yi nasara';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'An kasa shigo da rundunonin: $error';
-  }
-
-  @override
-  String get ruleStatistics => 'Kididdigar Runduna';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3819,9 +2807,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get saveButton => 'Ajiye';
 
   @override
-  String get saveButtonLabel => 'AJIYE';
-
-  @override
   String get saveButtonText => 'Ajiye';
 
   @override
@@ -3830,15 +2815,7 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'Ajiye Tacewa';
-
-  @override
   String get saveSettings => 'Ajiye Saituna';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'An kasa adana saituna: $error';
-  }
 
   @override
   String get scamsLikely => 'Yiwuwar Damfara';
@@ -3855,28 +2832,11 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'Tacewar Bincike';
-
-  @override
-  String get searchForContacts => 'Nemo lambobi';
-
-  @override
   String get searchHint => 'Nemo...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'Bincike lambobi, lakabi, jerin masu zamba, jerin amintattu, da sauransu.';
-
-  @override
-  String get searchSettingsTitle => 'Saitunan Bincike';
 
   @override
   String get securityMessage =>
       'Kada ku amince da kowace wayar tarho. Koyaushe ku tabbatar da lambobin sabis na abokin ciniki da kanku. Kada ku taɓa raba kalmomin shiga, lambobin tabbaci, lambobin kati, ko bayanan sirri.';
-
-  @override
-  String get selectActionToPerform =>
-      'Zaɓi aikin da za a yi lokacin da rundunar ta dace';
 
   @override
   String get selectActionWhenBlockingCalls => 'Zaɓi aiki lokacin toshe kiran';
@@ -3890,12 +2850,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get selectCountry => 'Zaɓi Ƙasa';
-
-  @override
-  String get selectDateRange => 'Zaɓi Yanayin Kwanakin';
-
-  @override
-  String get selectedDateRange => 'Yanayin Kwanakin da aka zaɓa';
 
   @override
   String selectedItems(Object count) {
@@ -3922,20 +2876,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get selectMultiple => 'Zaɓi Mabambanta';
 
   @override
-  String get selectPeriod => 'Zaɓi Lokaci';
-
-  @override
   String get selectSimCard => 'Zaɓi SIM ɗin Waya';
-
-  @override
-  String get selectSimSlot => 'Zaɓi Slot ɗin SIM';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'Zaɓi takamaiman aikin da za a yi lokacin toshe kiran';
-
-  @override
-  String get selectTag => 'Zaɓi Alama';
 
   @override
   String get selectTags => 'Zaɓi Alamomi';
@@ -3977,23 +2918,7 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'Saita';
-
-  @override
   String get setEncryptionPassword => 'Saita Kalmar Sirri ta Ƙididdigewa';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'Saita kalmar sirri don ajiyawa da dawo da ita';
-
-  @override
-  String get setEncryptionPasswordLabel => 'Saita Kalmar Sirri ta Ƙididdigewa';
-
-  @override
-  String get setEncryptionPasswordTitle => 'Saita Kalmar Sirri ta Ƙididdigewa';
-
-  @override
-  String get setPasswordButton => 'Saita';
 
   @override
   String get settings => 'Saituna';
@@ -4001,14 +2926,6 @@ class AppLocalizationsHa extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'An adana saitunan zuwa: $path';
-  }
-
-  @override
-  String get settingsLoaded => 'An loda saituna';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'An kasa loda saituna: $error';
   }
 
   @override
@@ -4031,13 +2948,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get setup => 'Shiryawa';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'Hanyar tsaye don nuna tattaunawar gyaran lamba';
-
-  @override
-  String get showExplanation => 'Nuna Bayani';
 
   @override
   String get silence => 'Shuru';
@@ -4085,19 +2995,11 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'An kasa loda bayanan SIM ɗin Waya: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'Dokokin ramin SIM suna ba ka damar saita dokokin tacewa masu zaman kansu don kowane ramin SIM.';
 
   @override
   String get simRuleInstructionsTitle => 'Dokokin Ramuka na SIM';
-
-  @override
-  String get simRuleManagement => 'Gudanar da Dokokin Ramuka na SIM';
 
   @override
   String simSlot1(String countryIso) {
@@ -4110,18 +3012,6 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'An kasa loda bayanan SIM: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration => 'Saitunan Tacewa na Ramin SIM';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'Yana ba da damar saita dokokin tacewa ta hanyar ramin SIM';
-
-  @override
   String get simSlotFilterDescription =>
       'Saita dokokin tacewa masu zaman kansu don kowace katin SIM:';
 
@@ -4131,17 +3021,7 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'An kasa loda ramuka na SIM: $error';
-  }
-
-  @override
   String get simSlotManagement => 'Gudanar da Ramuka na SIM';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'Ayyukan ramin SIM ya gaza: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4162,12 +3042,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'Dokokin Ramuka na SIM';
-
-  @override
-  String get simSlotRuleManagementTitle => 'Gudanar da Doka';
-
-  @override
-  String get simSlotSettings => 'Saitunan Ramuka na SIM';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4204,9 +3078,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get smsFilterSettings => 'Saitunan Tacewa na SMS';
 
   @override
-  String get smsHistory => 'Tarihin SMS';
-
-  @override
   String get smsManagement => 'Gudanar da SMS';
 
   @override
@@ -4231,26 +3102,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get smsRuleManagement => 'Gudanar da Dokokin SMS';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'An fitar da dokokin SMS yadda ya kamata zuwa $filePath';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully =>
-      'An shigo da dokokin SMS yadda ya kamata';
-
-  @override
   String get smsRuleSubscription => 'Biyan Kuɗin Dokar SMS';
-
-  @override
-  String get smsRuleUpdatedSuccessfully =>
-      'An sabunta dokar SMS yadda ya kamata';
-
-  @override
-  String get smsSettingsSubtitle => 'Tacewar SMS da toshe kalmomi';
-
-  @override
-  String get smsSettingsTitle => 'Saitunan SMS';
 
   @override
   String get smsSubscription => 'Biyan Kuɗin SMS';
@@ -4288,25 +3140,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get statBlocked => 'An Toshe';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'Hanyar Daidaita don Nuna Shirin Bayanan ID na Kira';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'Hanyar Daidaita don Nuna Shirin Zaɓin Ƙasa';
-
-  @override
-  String get staticMethodToDisplayDialog => 'Hanyar Daidaita don Nuna Shiri';
-
-  @override
   String get statistics => 'Kididdiga';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'Tsarin fitar da kididdiga zai zo nan bada jimawa ba';
-
-  @override
-  String get statisticsGrid => 'Rijiyar Kididdiga';
 
   @override
   String get statisticsPageTitle => 'Binciken Bayanai';
@@ -4346,10 +3180,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get subscriptionDeleted => 'An share biyan kuɗi';
 
   @override
-  String get subscriptionDeletedSuccessfully =>
-      'An share biyan kuɗi yadda ya kamata';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'An kasa share biyan kuɗi: $error';
   }
@@ -4358,23 +3188,9 @@ class AppLocalizationsHa extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'An share biyan kuɗi';
 
   @override
-  String get subscriptionEmptyState => 'Babu biyan kuɗi da ake samu';
-
-  @override
-  String get subscriptionEmptyText => 'Babu biyan kuɗi tukuna';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'An kasa loda biyan kuɗi: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'An kasa loda biyan kuɗi: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'Gudanar da Biyan Kuɗi';
 
   @override
   String get subscriptionName => 'Sunan Biyan Kuɗi';
@@ -4387,16 +3203,8 @@ class AppLocalizationsHa extends AppLocalizations {
   String get subscriptionNameHint => 'Shigar da sunan biyan kuɗi';
 
   @override
-  String get subscriptionPageTitle => 'Gudanar da Biyan Kuɗi';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
     return 'An kasa canza matsayin biyan kuɗi: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
-    return 'An kasa sauya matsayin biyan kuɗi: $error';
   }
 
   @override
@@ -4435,10 +3243,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get syncFailedMessage => 'Haɗin kai ya gaza';
 
   @override
-  String get syncFolderNameHint =>
-      'Da fatan za a shigar da sunan babban fayil ɗin haɗin kai (na asali: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'Sunan Babban Fayil na Haɗin Kai';
 
   @override
@@ -4460,16 +3264,10 @@ class AppLocalizationsHa extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'An sabunta matsayin tattara bayanai';
 
   @override
-  String get syncSuccessful => 'Tattara bayanai ya yi nasara';
-
-  @override
   String get syncSuccessMessage => 'Tattara bayanai ya yi nasara';
 
   @override
   String get syncWithCloudStorage => 'Tattara tare da Ajiya na Girgije';
-
-  @override
-  String get syncWithCloudStorageSubtitle => 'Tattara tare da ajiya na girgije';
 
   @override
   String get systemFeatures => 'Abubuwan Amfani na Tsarin:';
@@ -4498,9 +3296,6 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'An sabunta tags';
-
-  @override
   String get takeaway => 'Ɗauka';
 
   @override
@@ -4514,9 +3309,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get testButton => 'GWADA';
-
-  @override
-  String get testButtonLabel => 'GWADA';
 
   @override
   String get testConnectionButton => 'Gwada Haɗin Kai';
@@ -4555,13 +3347,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'Saitunan Hana Kiran da Ake Yi Akai-akai';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'Tsayarwa ta atomatik ga masu yiwuwa spam kira dangane da yawan kira';
-
-  @override
-  String get timeInterceptorTitle => 'Kunna Hana Kiran da Ake Yi Akai-akai';
-
-  @override
   String get timeWindowDescription =>
       'Saita girman taga lokacin don ba da damar kiran da ake yi akai-akai. Kira daga lambar iri ɗaya a cikin wannan taga za a ba su dama';
 
@@ -4569,10 +3354,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'Taga Lokacin Hana Kira (minti): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'Saita girman taga lokacin don ba da damar kiran da ake yi akai-akai. Kira daga lambar iri ɗaya a cikin wannan taga za a ba su dama';
 
   @override
   String get today => 'Yau';
@@ -4584,24 +3365,11 @@ class AppLocalizationsHa extends AppLocalizations {
   String get totalBlocked => 'Jimillar Abubuwan Da Aka Hana';
 
   @override
-  String get totalFiltered => 'Jimillar Abubuwan Da Aka Tace';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'Canja bayanai tsakanin na\'urori ko dandamali';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'Canja bayanai tsakanin na\'urori ko dandamali';
-
-  @override
   String get travelTicketing => 'Tikitin Tafiya';
-
-  @override
-  String get trend => 'Juyawa';
-
-  @override
-  String get trendChart => 'Jadawalin Juyawa';
 
   @override
   String get tutorial => 'Jagora';
@@ -4614,9 +3382,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get unknown => 'Babu Sani';
-
-  @override
-  String get unknownLabel => 'Alamar da ba a sani ba';
 
   @override
   String get unknownTag => 'Tag: Babu Sani';
@@ -4642,9 +3407,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get updateAllNow => 'Sabunta Duk Yanzu';
 
   @override
-  String get updateCallFilterConfig => 'Sabunta Saitunan Tacewar Kira';
-
-  @override
   String updateContactFailed(Object error) {
     return 'Faɗakarwa wajen sabunta lamba: $error';
   }
@@ -4653,15 +3415,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get updateFavoriteStatus => 'Sabunta Matsayin Abun So';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'Faɗakarwa wajen sabunta matsayin abun so: $error';
-  }
-
-  @override
   String get updateInterval => 'Yanayin Sabuntawa';
-
-  @override
-  String get updateLabelFailed => 'Faɗakarwa wajen sabunta alamar';
 
   @override
   String get updateNow => 'Sabunta Yanzu';
@@ -4690,9 +3444,6 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'Sabunta Tags';
-
-  @override
   String get useCasesPoint1 => '• Gano kiran spam na atomatik';
 
   @override
@@ -4709,17 +3460,11 @@ class AppLocalizationsHa extends AppLocalizations {
   String get useGlobalSettings => 'Yi Amfani da Saitunan Duniya';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => 'Sunan Mai Amfani';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'Yi amfani da tsarin regex na al\'ada don ayyana alamu. Misalan:';
-
-  @override
-  String get validateRegex => 'Duba Regex';
 
   @override
   String get verificationFailedText => 'Faɗakarwa';
@@ -4756,46 +3501,13 @@ class AppLocalizationsHa extends AppLocalizations {
   String get webDAVConfigTitle => 'Saitunan WebDAV';
 
   @override
-  String get webdavConfigurationTitle => 'Saitunan WebDAV';
-
-  @override
-  String get webdavPasswordHint =>
-      'Da fatan za a shigar da kalmar sirri ta WebDAV';
-
-  @override
-  String get webdavServerAddressHint =>
-      'Da fatan za a shigar da adireshin sabar WebDAV';
-
-  @override
-  String get webdavUsernameHint =>
-      'Da fatan za a shigar da sunan mai amfani na WebDAV';
-
-  @override
   String get week => 'Mako';
-
-  @override
-  String get weekly => 'Mako-mako';
-
-  @override
-  String get weeklyBlockedCallsSummary => 'Jimillar Kiran Da Aka Hana na Mako';
-
-  @override
-  String get weeklyChartTitle => 'Kiran Da Aka Hana na Mako';
-
-  @override
-  String get weeklyReport => 'Rahoton Mako';
-
-  @override
-  String get weeklyReportDesc => 'Karɓi rahoto na mako-mako na aikin hana kira';
 
   @override
   String get welcome => 'Barka da zuwa';
 
   @override
   String get whitelist => 'Fitar da jeri';
-
-  @override
-  String get whitelistLabel => 'Fitar da jeri';
 
   @override
   String get width => 'Nisa';
@@ -4816,12 +3528,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get year => 'Shekara';
-
-  @override
-  String get yearly => 'Kowace Shekara';
-
-  @override
-  String get yearlyChartTitle => 'Kiran da aka toshe a kowace shekara';
 
   @override
   String get noSimCardsDetected => 'Babu katunan SIM da aka gano';
@@ -4869,10 +3575,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get useStirNotification => 'Yi amfani da Sanarwa daga STIR';
 
   @override
-  String get useStirNotificationDescription =>
-      'Kunna sanarwar STIR don kiran da ke shigowa';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'Rufe Sanarwa ta Gida ta atomatik';
 
@@ -4891,11 +3593,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'Bayanin Kira mai shigowa';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'Lambar: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'Kira da aka toshe';
@@ -4949,21 +3646,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'Gargadi game da Zamba';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return 'Potential fraud call from $phoneNumber';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'Ya kasa loda dokoki: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'Ya kasa loda rajistar kira: $error';
-  }
 
   @override
   String get noBlockedTypeData => 'Babu bayanan nau\'in da aka toshe';
@@ -5040,9 +3722,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get removeAds => 'Cire Iklilimi';
-
-  @override
-  String get unknownAction => 'Aikin da ba a Sani ba';
 
   @override
   String get settingsBackup => 'Ajiyayye na Saiti ';
@@ -5304,16 +3983,8 @@ class AppLocalizationsHa extends AppLocalizations {
   String get blockNumberSuccess => 'An toshe lambar da nasara';
 
   @override
-  String get blockNumberFailed => 'An kasa toshe lambar';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return 'Ka tabbata kana son cire katanga ga $phoneNumber?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return 'Kira $phoneNumber...';
   }
 
   @override
@@ -5330,9 +4001,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => 'An kasa cire katanga lambar';
-
-  @override
-  String get serviceNotAvailable => 'Sabis baya nan';
 
   @override
   String get callingNumberFailed => 'Kira lambar ya gaza';
@@ -5363,9 +4031,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'Tsarin lambar mara inganci';
-
-  @override
-  String get membershipFeature => 'Fasalin Membobin';
 
   @override
   String get medium => 'Matsakaici';
@@ -5464,9 +4129,6 @@ class AppLocalizationsHa extends AppLocalizations {
       'Tabbatar don share duk sanarwa';
 
   @override
-  String get allNotificationsCleared => 'An share dukkan sanarwa';
-
-  @override
   String get clearButton => 'Share';
 
   @override
@@ -5536,9 +4198,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get reasonInaccurateInfo => 'Bayanin da ba daidai ba';
 
   @override
-  String get reasonWrongMarked => 'An Yiwa Alama da Kuskure';
-
-  @override
   String get reasonOther => 'Sauran';
 
   @override
@@ -5548,25 +4207,7 @@ class AppLocalizationsHa extends AppLocalizations {
   String get cancel => 'Soke';
 
   @override
-  String get proposalStatus => 'Matsayi';
-
-  @override
-  String get statusPending => 'Jiran Aiki';
-
-  @override
-  String get statusActive => 'Mai Aiki';
-
-  @override
-  String get statusCompleted => 'An Kammala';
-
-  @override
-  String get statusExpired => 'Ya ƙare';
-
-  @override
   String get riskLevel => 'Matsayin Hatsari';
-
-  @override
-  String get riskLevelVerified => 'An Tabbatar';
 
   @override
   String get riskLevelLow => 'Ƙarami';
@@ -5575,19 +4216,8 @@ class AppLocalizationsHa extends AppLocalizations {
   String get riskLevelHigh => 'Mai Girma';
 
   @override
-  String get riskLevelUnknown => 'Ba a Sani ba';
-
-  @override
-  String get votingProgress => 'Ci gaban Zaɓe';
-
-  @override
   String agreeVotes(int count) {
     return 'Yardajewa: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'Ƙi Yardajewa: $count';
   }
 
   @override
@@ -5610,12 +4240,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get verificationReport => 'Rahoton Tantancewa';
 
   @override
-  String get showReport => 'Nuna Rahoto';
-
-  @override
-  String get hideReport => 'Boye Rahoto';
-
-  @override
   String get proposalStatistics => 'Kididdigar Shawara';
 
   @override
@@ -5625,28 +4249,13 @@ class AppLocalizationsHa extends AppLocalizations {
   String get activeProposals => 'Shawara Mai Aiki';
 
   @override
-  String get completedProposals => 'Shawara da aka Kammala';
-
-  @override
-  String get myVotes => 'Zaɓe na';
-
-  @override
   String get proposalCreated => 'An ƙirƙiri shawarar cikin nasara';
-
-  @override
-  String get proposalCreateFailed => 'An kasa ƙirƙirar shawara';
 
   @override
   String get voteSubmitted => 'An miƙa zaɓen cikin nasara';
 
   @override
-  String get voteSubmitFailed => 'An kasa miƙa zaɓe';
-
-  @override
   String get noProposalsFound => 'Ba a sami shawara ba';
-
-  @override
-  String get loadingProposals => 'Ana ɗora shawarwari...';
 
   @override
   String get refreshProposals => 'Sake ɗora Shawara';
@@ -5798,23 +4407,11 @@ class AppLocalizationsHa extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'An kasa ɗora adadin zaɓe';
-
-  @override
   String get voteCount => 'Adadin Zaɓe';
-
-  @override
-  String get deletionProposalInfo => 'Bayanin Shawarar Goge Bayani';
 
   @override
   String get deletionProposalDescription =>
       'Miƙa shawarar lambobi don gogewa waɗanda suka saba wa ƙa\'idodin al\'umma. Shigar ka na taimakawa wajen kiyaye tsaron dandalin.';
-
-  @override
-  String get voteToEarnVip => 'Yi zaɓe akan shawarwari don samun gata na VIP!';
-
-  @override
-  String get voteFailed => 'Zaɓe ya gaza';
 
   @override
   String get searchProposals => 'Bincika Shawarwari';
@@ -5848,50 +4445,7 @@ class AppLocalizationsHa extends AppLocalizations {
       'Yana nuna gargaɗi game da yiwuwar kiran zamba.';
 
   @override
-  String get notificationFrequencyDescription =>
-      'Zaɓi yadda kake son karɓar sanarwa game da sabbin shawarwarin sharewa. Zaka iya karɓar su nan da nan, a cikin rukuni, ko a tsaka-tsakin lokaci na musamman.';
-
-  @override
   String get notificationMode => 'Yanayin Sanarwa';
-
-  @override
-  String get immediateNotifications => 'Nan take';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'Karɓi sanarwa da zaran an ƙirƙiri shawara.';
-
-  @override
-  String get batchNotifications => 'A Rukuni';
-
-  @override
-  String get batchNotificationsDescription =>
-      'Karɓi taƙaitaccen sanarwa lokaci-lokaci.';
-
-  @override
-  String get customNotifications => 'Na Musamman';
-
-  @override
-  String get customNotificationsDescription =>
-      'Bayyana tsaka-tsakin lokaci naka don karɓar sanarwa.';
-
-  @override
-  String get customFrequency => 'Mitar Na Musamman';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes min';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours h';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours h $minutes min';
-  }
 
   @override
   String get pendingProposals => 'Shawara Mai Jiran Gata';
@@ -5913,9 +4467,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get riskLevelLabel => 'Matakin Haɗari';
-
-  @override
-  String get riskLevelDescription => 'Matakin haɗari na lambar';
 
   @override
   String get phoneNumberMinDigits =>
@@ -5942,34 +4493,13 @@ class AppLocalizationsHa extends AppLocalizations {
   String get countryCodeRequired => 'Lambobin ƙasa wajibi ne';
 
   @override
-  String get countryCodeLengthError =>
-      'Lambobin ƙasa dole ne su kasance haruffa 2';
-
-  @override
   String get phoneNumberHint => 'Shigar da lambar waya';
 
   @override
   String get phoneNumberRequired => 'Ana buƙatar lambar waya';
 
   @override
-  String get phoneNumberLengthError =>
-      'Lambar waya dole ne ta kasance aƙalla lambobi 7';
-
-  @override
-  String get reasonHint => 'Bayar da cikakken bayani (aƙalla haruffa 10)';
-
-  @override
   String get reasonRequired => 'Dalili wajibi ne';
-
-  @override
-  String get reasonLengthError => 'Dalili dole ne ya kasance aƙalla haruffa 10';
-
-  @override
-  String get guidelinesTitle => 'Jagororin';
-
-  @override
-  String get guidelinesText =>
-      '• Kawai ka bada rahoto kan lambobi da suke da matsala sosai\n• Bayar da dalilai sahihai kuma cikakku\n• Zaɓi matakin haɗari da ya dace bisa ga tsanani\n• Rahotannin ƙarya na iya haifar da ƙuntatawa ga asusu';
 
   @override
   String get riskLevelCritical => 'Mai Tsanani';
@@ -5981,56 +4511,11 @@ class AppLocalizationsHa extends AppLocalizations {
   String get riskLevelVeryLow => 'Ƙasa sosai';
 
   @override
-  String get riskDescriptionVeryLow =>
-      'Ƙasa sosai - Damuwa kaɗan, kiran da ba kasafai ba';
-
-  @override
-  String get riskDescriptionLow => 'Ƙasa - Kiran da ba a so lokaci-lokaci';
-
-  @override
-  String get riskDescriptionMedium =>
-      'Matsakaici - Spam na yau da kullun ko tallan waya';
-
-  @override
-  String get riskDescriptionHigh =>
-      'Babba - Cin zarafi na dindindin ko ƙoƙarin zamba';
-
-  @override
-  String get riskDescriptionCritical =>
-      'Mai Tsanani - Zamba mai haɗari ko barazana';
-
-  @override
   String get notificationFrequencyTitle => 'Mitar Sanarwa';
-
-  @override
-  String get notificationFrequencyLabel => 'Mitar Sanarwa (sa\'o\'i)';
 
   @override
   String errorMessage(String error) {
     return 'Kuskure: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'Ƙuri\'u: $totalVotes ($supportPercentage% goyon baya)';
-  }
-
-  @override
-  String get timeJustNow => 'Yanzu nan';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return 'da ${minutes}m da suka wuce';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return 'da ${hours}h da suka wuce';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return 'da ${days}d da suka wuce';
   }
 
   @override
@@ -6116,9 +4601,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get liveActivitiesTestTitle => 'Gwaji Ayyukan Kai tsaye';
 
   @override
-  String get liveActivitiesTestSubtitle => 'Gwada sanarwar ayyukan kai tsaye.';
-
-  @override
   String get liveNotificationCustomizationTitle =>
       'Saitin Sanarwa Na Kai tsaye';
 
@@ -6144,16 +4626,10 @@ class AppLocalizationsHa extends AppLocalizations {
   String get proposalDetails => 'Cikakkun Bayanan Shawara';
 
   @override
-  String get filterByStatus => 'Tace ta Matsayi';
-
-  @override
   String get proposalNotFound => 'Ba a sami shawara ba';
 
   @override
   String get processed => 'An Ayyana';
-
-  @override
-  String get showAll => 'Nuna Duka';
 
   @override
   String get filterAndSortTitle => 'Tace da Tsara';
@@ -6192,9 +4668,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get invalidSimData => 'Bayanin SIM mara inganci';
 
   @override
-  String get simCardData => 'Bayanin Katin SIM';
-
-  @override
   String get simSlot => 'Ramin SIM';
 
   @override
@@ -6213,12 +4686,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String get callTypeSilenced => 'An yi shiru';
 
   @override
-  String get callTypeVoicemail => 'Saƙon murya';
-
-  @override
-  String get callTypeUnknownIntercept => 'Katsalandan da ba a sani ba';
-
-  @override
   String andMoreItems(int count) {
     return 'da ƙarin abubuwa $count';
   }
@@ -6231,10 +4698,6 @@ class AppLocalizationsHa extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6318,9 +4781,6 @@ class AppLocalizationsHa extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

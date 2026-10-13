@@ -18,13 +18,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get aboutPhoneSubscriptionRules => 'Telefon obunasi qoidalari haqida';
 
   @override
-  String get aboutPhoneSubscriptions => 'Telefon obunalari haqida';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'Telefon qoidalari ro\'yxatiga URL orqali obuna bo\'ling, qoidalar avtomatik yangilanadi. JSON, CSV formatidagi qoidalar fayllarini qo\'llab-quvvatlaydi.';
-
-  @override
   String get aboutSmsFilter => 'SMS filtrlash haqida';
 
   @override
@@ -47,9 +40,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get actionBlock => 'Bloklash';
-
-  @override
-  String get actionFilterAll => 'Hamma filtrlar';
 
   @override
   String get actionFilterTitle => 'Harakat turiga ko\'ra filtrlash';
@@ -96,28 +86,7 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'Ruxsat etilgan qoidalarga qo\'shildi';
-
-  @override
-  String get addedToBlacklist => 'Qora ro\'yxatga qo\'shildi';
-
-  @override
-  String get addedToBlockedRules => 'Bloklangan qoidalarga qo\'shildi';
-
-  @override
-  String get addedToFavoriteContacts => 'Sevimli kontaktlarga qo\'shildi';
-
-  @override
   String get addedToFavorites => 'Sevimli kontaktlarga qo\'shildi';
-
-  @override
-  String get addedToWhitelist => 'Oq ro\'yxatga qo\'shildi';
-
-  @override
-  String get addFavorite => 'Sevimli qo\'shish';
-
-  @override
-  String get addFilter => 'Filtr qo\'shish';
 
   @override
   String get addLabel => 'Yorliq qo\'shish';
@@ -131,17 +100,10 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'Qo\'ng\'iroq yozuviga yorliq qo\'shish';
-
-  @override
   String get addName => 'Ism qo\'shish';
 
   @override
   String get addNoneSubscription => 'Obuna qo\'shmaslik';
-
-  @override
-  String get addOrEditContactInfo =>
-      'Kontakt ma\'lumotlarini qo\'shish yoki tahrirlash uchun ishlatiladi';
 
   @override
   String get addPhoneMark => 'Telefon belgisini qo\'shish';
@@ -173,9 +135,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get addRule => 'Qoida qo\'shish';
 
   @override
-  String get addRuleButton => 'Qoida qo\'shish';
-
-  @override
   String addRuleFailed(Object error) {
     return 'Qoidani qo\'shishda xatolik: $error';
   }
@@ -185,9 +144,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'Ovozsiz obunani qo\'shish';
-
-  @override
-  String get addSimRuleButton => 'SIM qoidasini qo\'shish';
 
   @override
   String get addSmsFilterRule => 'SMS filtrlash qoidasini qo\'shish';
@@ -213,16 +169,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get addSubscriptionTooltip => 'Obuna qo\'shish';
 
   @override
-  String get addToAllowedRules => 'Ruxsat etilgan qoidalarga qo\'shish';
-
-  @override
   String get addToBlacklist => 'Qora ro\'yxatga qo\'shish';
-
-  @override
-  String get addToBlockedRules => 'Bloklangan qoidalarga qo\'shish';
-
-  @override
-  String get addToFavoriteContacts => 'Sevimli kontaktlarga qo\'shish';
 
   @override
   String get addToFavorites => 'Sevimli kontaktlarga qo\'shish';
@@ -234,9 +181,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get addToWhitelist => 'Oq ro\'yxatga qo\'shish';
 
   @override
-  String get adPlaceholder => 'Reklama joyi';
-
-  @override
   String get agent => 'Agent';
 
   @override
@@ -244,10 +188,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get allCallsTab => 'Hammasi';
-
-  @override
-  String get allDataClearedSuccessfully =>
-      'Barcha ma\'lumotlar muvaffaqiyatli tozalandi';
 
   @override
   String get allow => 'Ruxsat berish';
@@ -262,10 +202,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get allowAllBlacklistedNumbers =>
       'Barcha qora ro\'yxatdagi raqamlarga ruxsat berish';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc =>
-      'Blok ro\'yxatidan qo\'ng\'iroqlarga ruxsat berish';
 
   @override
   String get allowAllBlockRules => 'Barcha bloklash qoidalariga ruxsat berish';
@@ -339,14 +275,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get allowRules => 'Ruxsat etish qoidalari';
 
   @override
-  String get allowWhitelistedNumbers =>
-      'Ruxsat etilgan ro\'yxatdagi raqamlarga ruxsat berish';
-
-  @override
-  String get allowWhitelistedNumbersDescription =>
-      'Ruxsat etilgan ro\'yxatdagi barcha raqamlarga ruxsat berish';
-
-  @override
   String get allPermissionsGranted => 'Barcha ruxsatlar berildi';
 
   @override
@@ -359,10 +287,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'Javob berish va keyin qo\'yib yuborish';
-
-  @override
-  String get appLegalese =>
-      '© 2023 Your Call Your Rule. Barcha huquqlar himoyalangan.';
 
   @override
   String get applicationSoftware => 'Dasturiy ta\'minot';
@@ -402,13 +326,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'Avtomatik yangilash sozlamalari';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'Qoidalar va plaginlar uchun avtomatik yangilanishlarni boshqarish';
-
-  @override
-  String get autoUpdateSettingsTitle => 'Avtomatik yangilash sozlamalari';
 
   @override
   String get autoUpdateSubtitle =>
@@ -457,48 +374,10 @@ class AppLocalizationsUz extends AppLocalizations {
   String get backupFailed => 'Zaxira nusxa yaratish muvaffaqiyatsiz tugadi';
 
   @override
-  String get backupFailedMessage =>
-      'Zaxira nusxa yaratish muvaffaqiyatsiz tugadi';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'Zaxira nusxa yaratish muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle =>
-      'Ilova ma\'lumotlarini zaxiralash yoki tiklash';
-
-  @override
-  String get backupRestoreTitle => 'Zaxira nusxalash va tiklash';
-
-  @override
-  String get backupSectionTitle => 'Zaxira nusxasi';
-
-  @override
   String get backupSettings => 'Zaxira nusxalash sozlamalari';
 
   @override
-  String get backupSettingsDialogTitle => 'Zaxira nusxalash sozlamalari';
-
-  @override
-  String get backupSettingsTitle => 'Zaxira nusxalash sozlamalari';
-
-  @override
-  String get backupSuccessMessage =>
-      'Bulutga muvaffaqiyatli zaxira nusxa yaratildi';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'Muvaffaqiyatli zaxira nusxasi yaratildi: $path';
-  }
-
-  @override
   String get backupToCloud => 'Bulutga zaxira nusxalash';
-
-  @override
-  String get backupToCloudDescription =>
-      'Sozlamalar va qoidalarni bulut xotirasiga zaxiralash';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -506,17 +385,8 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'Bulutga zaxira nusxalash';
-
-  @override
   String get backupToCloudSuccess =>
       'Bulutga muvaffaqiyatli zaxira nusxa yaratildi';
-
-  @override
-  String get backupToCloudTitle => 'Bulutga zaxira nusxalash';
-
-  @override
-  String get backupToLocalLabel => 'Mahalliy zaxira nusxalash';
 
   @override
   String get bank => 'Bank';
@@ -535,22 +405,13 @@ class AppLocalizationsUz extends AppLocalizations {
       '• Asosiy qoida filtrlash: Qoidalarni qora ro\'yxat, oq ro\'yxat va muntazam ifodalar asosida filtrlash';
 
   @override
-  String get basicRuleFilterSettings => 'Asosiy qoida filtri sozlamalari';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'Qora/oq ro\'yxat va muntazam ifodalar yordamida qo\'ng\'iroqlarni filtrlash';
-
-  @override
-  String get batchDeleteContacts => 'Kontaktlarni ommaviy o\'chirish';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'Haqiqatan ham $count ta tanlangan kontaktni o\'chirmoqchimisiz?';
   }
-
-  @override
-  String get batchDeleteFailed => 'Ommaviy o\'chirish muvaffaqiyatsiz tugadi';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -565,9 +426,6 @@ class AppLocalizationsUz extends AppLocalizations {
       'Qora ro\'yxatga kiritish va oq ro\'yxatga kiritish';
 
   @override
-  String get blacklistLabel => 'Qora ro\'yxat';
-
-  @override
   String get blackWhiteList => 'Qora/Oq ro\'yxat';
 
   @override
@@ -580,19 +438,10 @@ class AppLocalizationsUz extends AppLocalizations {
   String get blocked => 'Bloklangan';
 
   @override
-  String get blockedCallAction => 'Bloklangan qo\'ng\'iroq harakati';
-
-  @override
   String get blockedCalls => 'Bloklangan qo\'ng\'iroqlar';
 
   @override
   String get blockedCallsTitle => 'Bloklangan qo\'ng\'iroqlar';
-
-  @override
-  String get blockedCommunications => 'Bloklangan aloqalar';
-
-  @override
-  String get blockedPhoneLabel => 'Bloklangan qo\'ng\'iroqlar';
 
   @override
   String get blockedSpamCalls => 'Bloklangan spam qo\'ng\'iroqlari';
@@ -607,9 +456,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get blockInternationalCallsTitle =>
       'Xalqaro qo\'ng\'iroqlarni bloklash';
-
-  @override
-  String get blockLandlineNumbersTitle => 'Shahar raqamlarini bloklash';
 
   @override
   String get blockMobileNumbers =>
@@ -661,11 +507,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get callback => 'Qayta qo\'ng\'iroq qilish';
 
   @override
-  String callbackTo(String number) {
-    return '$number raqamiga qayta qo\'ng\'iroq qilish';
-  }
-
-  @override
   String get callBlocking => 'Qo\'ng\'iroqlarni bloklash';
 
   @override
@@ -674,9 +515,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get callerIdCustomizationTitle =>
       'Qo\'ng\'iroq qiluvchi ID ni sozlash';
-
-  @override
-  String get callerIdDialogTitle => 'Qo\'ng\'iroq qiluvchi ID ma\'lumotlari';
 
   @override
   String get callerIdDisplayMode =>
@@ -690,13 +528,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get callerIdPreview =>
       'Qo\'ng\'iroq qiluvchi identifikatorini oldindan ko\'rish';
-
-  @override
-  String get callFilter => 'Qo\'ng\'iroq filtri';
-
-  @override
-  String get callFilterDescription =>
-      'Yoqilganda, kiruvchi qo\'ng\'iroqlar quyidagi qoidalar ro\'yxatiga muvofiq tekshiriladi. Qo\'ng\'iroqlarni filtrlash qoidalari qurilmalar o\'rtasida sukut bo\'yicha sinxronlanmaydi.';
 
   @override
   String get callFilterRules => 'Qo\'ng\'iroq filtri qoidalari';
@@ -727,26 +558,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get callHistoryInfoTitle => 'Qo\'ng\'iroqlar tarixi';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'Qo\'ng\'iroqlar tarixini ishga tushirib bo\'lmadi: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'Qo\'ng\'iroqlar tarixini yangilab bo\'lmadi: $error';
-  }
-
-  @override
   String get callHistoryTab => 'Qo\'ng\'iroqlar tarixi';
-
-  @override
-  String get callHistoryTimelineEarlier => 'Oldinroq';
-
-  @override
-  String get callHistoryTimelineToday => 'Bugun';
-
-  @override
-  String get callHistoryTimelineYesterday => 'Kecha';
 
   @override
   String get callScreeningPermission => 'Qo\'ng\'iroqlarni tekshirish ruxsati';
@@ -758,13 +570,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'Qo\'ng\'iroqlarni tekshirish ruxsati berilmagan, ilova funksionalligiga ta\'sir qilishi mumkin.';
-
-  @override
-  String get callSettingsSubtitle =>
-      'Qo\'ng\'iroq qiluvchi identifikatori, filtrlash va bloklash sozlamalari';
-
-  @override
-  String get callSettingsTitle => 'Qo\'ng\'iroq sozlamalari';
 
   @override
   String get callStatistics => 'Qo\'ng\'iroq statistikasi';
@@ -822,27 +627,10 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'Tegni o\'zgartirish';
-
-  @override
   String get charity => 'Xayriya';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'Oy $month';
-  }
-
-  @override
-  String get chartOneDayAgo => '1 kun oldin';
-
-  @override
-  String get chartOneMonthAgo => '1 oy oldin';
-
-  @override
   String get chartOneWeekAgo => '1 hafta oldin';
-
-  @override
-  String get chartTenDaysAgo => '10 kun oldin';
 
   @override
   String get chartThreeDaysAgo => '3 kun oldin';
@@ -864,23 +652,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Standart ushlab qolish harakatini tanlang';
 
   @override
-  String get clearAllData => 'Barcha ma\'lumotlarni tozalash';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'Haqiqatan ham barcha ilova ma\'lumotlarini tozalashni xohlaysizmi? Bu amalni bekor qilib bo\'lmaydi.';
-
-  @override
-  String get clearAllDataDescription => 'Barcha ilova ma\'lumotlarini tozalash';
-
-  @override
-  String get clearAllDataLabel => 'Barcha ma\'lumotlarni tozalash';
-
-  @override
   String get clearFilter => 'Filtrni tozalash';
-
-  @override
-  String get clearLabelFilter => 'Yorliq filtrini tozalash';
 
   @override
   String get clearLabelFilterButton => 'Yorliq filtrini tozalash';
@@ -905,9 +677,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get cloudSyncTitle => 'Bulutli sinxronizatsiya';
 
   @override
-  String get collapseLabelSelector => 'Yorliq tanlagichini yig\'ish';
-
-  @override
   String get collection => 'Qarz yig\'ish';
 
   @override
@@ -928,16 +697,8 @@ class AppLocalizationsUz extends AppLocalizations {
       'Zaxira nusxalash parametrlarini sozlash';
 
   @override
-  String get configureBackupOptionsSubtitle =>
-      'Zaxira nusxalash parametrlarini sozlash';
-
-  @override
   String get configureCloudSyncService =>
       'Bulutli sinxronizatsiya xizmatini sozlash';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'Bir nechta qurilmani sinxronlashni yoqish uchun bulutli sinxronizatsiya xizmatini sozlang.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -948,31 +709,13 @@ class AppLocalizationsUz extends AppLocalizations {
       'SIM karta filtri qoidalarini sozlash';
 
   @override
-  String get configureSyncServiceHint =>
-      'Avval bulutli sinxronizatsiya sozlamalarida sinxronizatsiya xizmatini sozlang';
-
-  @override
   String get confirm => 'Tasdiqlash';
-
-  @override
-  String get confirmBatchDeleteContacts =>
-      'Tanlanganlarni o\'chirishni xohlaysizmi?';
 
   @override
   String get confirmButton => 'Tasdiqlash';
 
   @override
   String get confirmDelete => 'O\'chirishni tasdiqlash';
-
-  @override
-  String get confirmDeleteContact => 'O\'chirishni xohlaysizmi?';
-
-  @override
-  String get confirmDeleteContactName => 'O\'chirishni tasdiqlaysizmi?';
-
-  @override
-  String get confirmDeleteFilter =>
-      'Haqiqatan ham ushbu filtrni o\'chirishni xohlaysizmi?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -994,10 +737,6 @@ class AppLocalizationsUz extends AppLocalizations {
       'Haqiqatan ham ushbu qoidani o\'chirishni xohlaysizmi? Bu amalni bekor qilib bo\'lmaydi.';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'Tanlangan kontaktlarni o\'chirishga ishonchingiz komilmi?';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'Haqiqatan ham ushbu SMS filtr qoidasini o\'chirishni xohlaysizmi?';
 
@@ -1006,19 +745,12 @@ class AppLocalizationsUz extends AppLocalizations {
       'Haqiqatan ham ushbu SMS qoidasini o\'chirishni xohlaysizmi?';
 
   @override
-  String get confirmDeleteSubscription =>
-      'Haqiqatan ham ushbu obunani o\'chirishni xohlaysizmi?';
-
-  @override
   String confirmDeleteSubscriptions(String name) {
     return 'Haqiqatan ham $name ni o\'chirishni xohlaysizmi?';
   }
 
   @override
   String get confirmPassword => 'Parolni tasdiqlash';
-
-  @override
-  String get confirmPasswordLabel => 'Parolni tasdiqlash';
 
   @override
   String get connectedStatus => 'Ulangan';
@@ -1043,16 +775,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get contactDeleted => 'Kontakt o\'chirildi';
 
   @override
-  String get contactEditDialog => 'Kontaktni tahrirlash dialogi';
-
-  @override
-  String get contactNameHint => 'Kontakt nomini kiriting (ixtiyoriy)';
-
-  @override
   String get contactNameLabel => 'Ism';
-
-  @override
-  String get contactNameOptional => 'Kontakt nomi (ixtiyoriy)';
 
   @override
   String get contactNotFound => 'Kontakt topilmadi';
@@ -1066,25 +789,7 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle =>
-      'Kontaktni boshqarish va yorliq sozlamalari';
-
-  @override
-  String get contactSettingsTitle => 'Kontakt sozlamalari';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'Kontaktlarni yuklash muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
   String get contactsManagement => 'Kontaktlarni boshqarish';
-
-  @override
-  String get contactsManagementPageTitle => 'Kontaktlarni boshqarish sahifasi';
-
-  @override
-  String get contactsPageTitle => 'Kontaktlarni boshqarish';
 
   @override
   String get contactsPermission => 'Kontaktlarga ruxsat';
@@ -1099,14 +804,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'URL orqali kontaktlar ro\'yxatiga obuna bo\'ling, kontakt ma\'lumotlari va yorliqlarni avtomatik yangilang. JSON formatidagi ma\'lumotlarni qo\'llab-quvvatlaydi.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'Kontakt obunalarini yuklash muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'Kontakt obunalari';
 
   @override
   String get contactUpdateSuccess => 'Kontakt muvaffaqiyatli yangilandi';
@@ -1142,26 +839,11 @@ class AppLocalizationsUz extends AppLocalizations {
   String get countryRegionNamePosition => 'Mamlakat/Mintaqa nomi pozitsiyasi';
 
   @override
-  String get countrySelectionDialog => 'Mamlakatni tanlash dialogi';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'Qo\'ng\'iroq qiluvchi ID ma\'lumotlarini so\'rash uchun mamlakatni tanlash uchun ishlatiladi';
-
-  @override
   String get countThresholdDescription =>
       'Filtrlash harakatlarini ishga tushirish uchun zarur bo\'lgan minimal sanoq chegarasini o\'rnating';
 
   @override
   String get countThresholdLabel => 'Sanoq chegarasi';
-
-  @override
-  String get countThresholdSettings => 'Sanoq chegarasi sozlamalari';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'Sanoq chegarasi: $count';
-  }
 
   @override
   String get createdRules => 'Yaratilgan qoidalar';
@@ -1170,48 +852,22 @@ class AppLocalizationsUz extends AppLocalizations {
   String get csvFormat => 'CSV formati';
 
   @override
-  String get currentDeviceChip => 'Joriy';
-
-  @override
   String get currentDeviceLabel => 'Joriy qurilma yorlig\'i';
 
   @override
   String get currentDeviceTitle => 'Joriy qurilma';
 
   @override
-  String get currentLabels => 'Joriy yorliqlar:';
-
-  @override
   String get currentLanguage => 'Joriy til';
 
   @override
-  String get currentPasswordLabel => 'Joriy parol';
-
-  @override
   String get customerService => 'Mijozlarga xizmat ko\'rsatish';
-
-  @override
-  String get customRange => 'Maxsus diapazon';
-
-  @override
-  String get dailyStatistics => 'Kunlik statistika';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'Bloklangan qo\'ng\'iroqlar va xabarlar haqida kunlik statistikani oling';
 
   @override
   String get dashboardTab => 'Boshqaruv paneli';
 
   @override
   String get dataAnalysis => 'Ma\'lumotlar tahlili';
-
-  @override
-  String get dataAnalysisDashboardPage =>
-      'Ma\'lumotlar tahlili boshqaruv paneli sahifasi';
-
-  @override
-  String get dataExport => 'Ma\'lumotlarni eksport qilish';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1229,16 +885,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'Bu funksiya barcha ma\'lumotlaringizni qurilmalar o\'rtasida o\'tkazish imkonini beradi. Hozirda siz ma\'lumotlaringizni qo\'lda ko\'chirish uchun zaxiralash va tiklash funksiyalaridan foydalanishingiz mumkin.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'Bu funksiya barcha ma\'lumotlaringizni qurilmalar o\'rtasida o\'tkazish imkonini beradi. Hozirda siz ma\'lumotlaringizni qo\'lda ko\'chirish uchun zaxiralash va tiklash funksiyalaridan foydalanishingiz mumkin.';
-
-  @override
-  String get dataMigrationDialogTitle => 'Ma\'lumotlarni ko\'chirish';
-
-  @override
-  String get dataMigrationSectionTitle => 'Ma\'lumotlarni ko\'chirish bo\'limi';
 
   @override
   String get dataSourceReminder => 'Ma\'lumot manbai eslatmasi';
@@ -1263,9 +909,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get debtCollection => 'Qarz yig\'ish';
 
   @override
-  String get defaultPeriod => 'Hafta';
-
-  @override
   String get delete => 'O\'chirish';
 
   @override
@@ -1280,24 +923,9 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation =>
-      'Kontaktni o\'chirmoqchi ekanligingizga ishonchingiz komilmi';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return '${deviceName}ni o\'chirmoqchimisiz?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'Qurilmani o\'chirish';
-
-  @override
   String deleteFailed(Object error) {
     return 'O\'chirish muvaffaqiyatsiz tugadi: $error';
   }
-
-  @override
-  String get deleteFilter => 'Filtrni o\'chirish';
 
   @override
   String get deleteLabel => 'Yorliqni o\'chirish';
@@ -1335,9 +963,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get deleteSelected => 'Tanlanganlarni o\'chirish';
 
   @override
-  String get deleteSmsRule => 'SMS qoidasini o\'chirish';
-
-  @override
   String get deleteSubscription => 'Obunani o\'chirish';
 
   @override
@@ -1357,16 +982,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get delivery => 'Yetkazib berish';
 
   @override
-  String get deviceDeletedSuccessfully => 'Qurilma muvaffaqiyatli o\'chirildi';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage =>
-      'Qurilma muvaffaqiyatli o\'chirildi';
-
-  @override
-  String get deviceIdLabel => 'Qurilma IDsi';
-
-  @override
   String get deviceIDLabel => 'Qurilma IDsi';
 
   @override
@@ -1383,30 +998,11 @@ class AppLocalizationsUz extends AppLocalizations {
   String get deviceName => 'Qurilma nomi';
 
   @override
-  String get deviceNameCannotBeEmpty =>
-      'Qurilma nomi boʻsh boʻlishi mumkin emas';
-
-  @override
-  String get deviceNameHint => 'Iltimos, qurilma nomini kiriting';
-
-  @override
   String get deviceNameLabel => 'Qurilma nomi';
-
-  @override
-  String get deviceRenamedSuccessfully =>
-      'Qurilma nomi muvaffaqiyatli o\'zgartirildi';
 
   @override
   String get deviceRenamedSuccessfullyMessage =>
       'Qurilma nomi muvaffaqiyatli o\'zgartirildi';
-
-  @override
-  String get devicesSyncedSuccessfully =>
-      'Qurilmalar muvaffaqiyatli sinxronlandi';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage =>
-      'Qurilmalar muvaffaqiyatli sinxronlandi';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1431,10 +1027,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'Global plaginlarni o\'chirish';
-
-  @override
-  String get disableSubscriptionSuccessfully =>
-      'Obunani muvaffaqiyatli o\'chirish';
 
   @override
   String get disconnectButton => 'Uzish';
@@ -1469,26 +1061,13 @@ class AppLocalizationsUz extends AppLocalizations {
   String get editContact => 'Kontaktni tahrirlash';
 
   @override
-  String get editFilter => 'Filtrni tahrirlash';
-
-  @override
   String get editLabel => 'Yorliqni tahrirlash';
 
   @override
   String get editPhoneRule => 'Telefon qoidasini tahrirlash';
 
   @override
-  String get editPhoneRules =>
-      'Telefon qoidalarini tahrirlash uchun ishlatiladi';
-
-  @override
-  String get editPhoneRuleTitle => 'Telefon qoidasini tahrirlash';
-
-  @override
   String get editRule => 'Qoidani tahrirlash';
-
-  @override
-  String get editSmsRule => 'SMS qoidasini tahrirlash';
 
   @override
   String get education => 'Ta\'lim';
@@ -1498,9 +1077,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get email => 'Elektron pochta';
-
-  @override
-  String get emailOptional => 'Elektron pochta (Ixtiyoriy)';
 
   @override
   String get enableCallFilter => 'Qo\'ng\'iroq filtrini yoqish';
@@ -1521,16 +1097,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get enableEncryptionDescription =>
       'Zaxira nusxalash fayllarini shifrlash';
-
-  @override
-  String get enableEncryptionLabel => 'Shifrlashni yoqish';
-
-  @override
-  String get enableEncryptionSubtitle =>
-      'Zaxira nusxalash fayllari shifrlanadi';
-
-  @override
-  String get enableEncryptionTitle => 'Shifrlashni yoqish';
 
   @override
   String get enableGlobalPlugins => 'Global plaginlarni yoqish';
@@ -1567,9 +1133,6 @@ class AppLocalizationsUz extends AppLocalizations {
       'Hech qanday ushlash harakatlari bo\'lmagan qoida konfiguratsiyalariga ruxsat berish';
 
   @override
-  String get enableNotifications => 'Bildirishnomalarni yoqish';
-
-  @override
   String get enableRemoteNumberFilter => 'Masofaviy raqam filtrini yoqish';
 
   @override
@@ -1585,13 +1148,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'Yoqilganda, xabarlar qoidalarga muvofiq avtomatik filtrladi';
-
-  @override
-  String get enableStatisticsNotifications =>
-      'Statistika bildirishnomalarini yoqish';
-
-  @override
-  String get enableSubscriptionSuccessfully => 'Obunani muvaffaqiyatli yoqish';
 
   @override
   String get enableTimeInterception => 'Vaqt bo\'yicha ushlashni yoqish';
@@ -1626,10 +1182,6 @@ class AppLocalizationsUz extends AppLocalizations {
       'Kengaytirilgan filtr tizimi ham global qoidalarni, ham har bir SIM-karta uchun filtrlash konfiguratsiyalarini qo\'llab-quvvatlaydi.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'Iltimos, telefon raqami va regex namunasini kiriting';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'Iltimos, telefon raqami va regex namunasini kiriting.';
 
@@ -1637,16 +1189,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get enterContactName => 'Iltimos, kontakt nomini kiriting';
 
   @override
-  String get enterCurrentPasswordHint => 'Iltimos, joriy parolni kiriting';
-
-  @override
   String get enterDeviceName => 'Qurilma nomini kiriting';
-
-  @override
-  String get enterDeviceNameHint => 'Iltimos, qurilma nomini kiriting';
-
-  @override
-  String get enterEmail => 'Iltimos, elektron pochtani kiriting';
 
   @override
   String get enterEmailOptional =>
@@ -1654,15 +1197,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get enterEncryptionPasswordHint => 'Shifrlash parolini kiriting';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'Shifrlash parolini kiriting';
-
-  @override
-  String get enterFilterName => 'Iltimos, filtr nomini kiriting';
-
-  @override
-  String get enterFilterPattern => 'Iltimos, filtr namunasini kiriting';
 
   @override
   String get enterIconCode => 'Ikona kodini kiriting';
@@ -1674,13 +1208,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get enterNewDeviceNameHint => 'Bu qurilma uchun yangi nom kiriting';
 
   @override
-  String get enterNewPasswordHint => 'Iltimos, yangi parolni kiriting';
-
-  @override
   String get enterPasswordAgain => 'Parolni qayta kiriting';
-
-  @override
-  String get enterPasswordHint => 'Iltimos, parolni kiriting';
 
   @override
   String get enterPhoneNumber => 'Telefon raqamini kiriting';
@@ -1708,10 +1236,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'Regex namunasini kiriting';
-
-  @override
-  String get enterRuleNameAndPattern =>
-      'Iltimos, qoida nomi va namunasini kiriting';
 
   @override
   String get enterRuleNameAndPatternMessage =>
@@ -1758,14 +1282,6 @@ class AppLocalizationsUz extends AppLocalizations {
       'Iltimos, WebDAV foydalanuvchi nomini kiriting';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'Qurilmani oʻchirishda xatolik: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'Plaginni yuklashda xatolik';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'Xatolik yuz berdi: $error';
   }
@@ -1781,14 +1297,6 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'Qurilmalarni sinxronizatsiya qilishda xatolik: $error';
-  }
-
-  @override
-  String get errorText => 'Xato';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'Qurilmani roʻyxatdan oʻchirishda xatolik: $error';
   }
@@ -1800,9 +1308,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get exampleBlockMarketingSms =>
       'masalan. Marketing SMSlarini bloklash';
-
-  @override
-  String get exampleContentRegex => 'masalan., .*taklif.*';
 
   @override
   String get exampleContentRegexHint => 'Kontent regex namunasi';
@@ -1821,9 +1326,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get exampleRegex400Prefix => '400 prefiksi uchun regex namunasi';
 
   @override
-  String get exampleRegexFormat => 'Namuna: ^10086\$ formati';
-
-  @override
   String get exampleSenderRegexHint => 'Namuna';
 
   @override
@@ -1834,9 +1336,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get exchangeVip => 'VIP almashish';
-
-  @override
-  String get expandLabelSelector => 'Yorliq tanlagichini kengaytirish';
 
   @override
   String expiryTime(Object time) {
@@ -1851,19 +1350,8 @@ class AppLocalizationsUz extends AppLocalizations {
       'Barcha dastur sozlamalarini eksport qilish';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'Barcha dastur sozlamalarini eksport qilish';
-
-  @override
   String get exportAllRuleConfigurations =>
       'Barcha qoida konfiguratsiyalarini eksport qilish';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle =>
-      'Barcha qoida konfiguratsiyalarini eksport qilish';
-
-  @override
-  String get exportComplete => 'Eksport yakunlandi';
 
   @override
   String get exportConfig => 'Konfiguratsiyani eksport qilish';
@@ -1875,9 +1363,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get exportData => 'Maʼlumotlarni eksport qilish';
 
   @override
-  String get exportError => 'Eksport xatosi';
-
-  @override
   String get exportFailed => 'Eksport muvaffaqiyatsiz tugadi';
 
   @override
@@ -1886,9 +1371,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'Eksport funksiyasi tez orada';
-
-  @override
-  String get exporting => 'Eksport qilinmoqda...';
 
   @override
   String get exportLabels => 'Yorliqlarni eksport qilish';
@@ -1910,35 +1392,18 @@ class AppLocalizationsUz extends AppLocalizations {
   String get exportRules => 'Qoidalarni eksport qilish';
 
   @override
-  String get exportRulesDialogTitle => 'Qoidalarni eksport qilish';
-
-  @override
-  String get exportRulesTitle => 'Qoidalarni eksport qilish';
-
-  @override
   String get exportSmsRules => 'SMS qoidalarini eksport qilish';
 
   @override
   String get exportStatisticsData => 'Statistika maʼlumotlarini eksport qilish';
 
   @override
-  String get exportSuccess => 'Eksport muvaffaqiyatli';
-
-  @override
   String get exportSuccesslly =>
       'Konfiguratsiya muvaffaqiyatli eksport qilindi';
 
   @override
-  String get failedToAddContact => 'Kontakt qoʻshish muvaffaqiyatsiz tugadi';
-
-  @override
   String failedToAddRule(Object error) {
     return 'Qoida qoʻshish muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'SMS qoidasini qoʻshish muvaffaqiyatsiz tugadi: $error';
   }
 
   @override
@@ -1956,10 +1421,6 @@ class AppLocalizationsUz extends AppLocalizations {
       'Zaxira faylini shifrini ochish muvaffaqiyatsiz tugadi';
 
   @override
-  String get failedToDeleteDevice =>
-      'Qurilmani oʻchirish muvaffaqiyatsiz tugadi';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'SMS qoidasini oʻchirish muvaffaqiyatsiz tugadi: $error';
   }
@@ -1967,11 +1428,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'Qoidalarni eksport qilish muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'SMS qoidalarini eksport qilish muvaffaqiyatsiz tugadi: $error';
   }
 
   @override
@@ -1985,22 +1441,6 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'SMS qoidalarini import qilish muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String get failedToLoadContacts =>
-      'Kontaktlarni yuklash muvaffaqiyatsiz tugadi';
-
-  @override
-  String get failedToLoadPlugin => 'Plaginni yuklash muvaffaqiyatsiz tugadi';
-
-  @override
-  String get failedToRenameDevice =>
-      'Qurilma nomini oʻzgartirish muvaffaqiyatsiz tugadi';
-
-  @override
   String get failedToRestoreSettings =>
       'Sozlamalarni tiklash muvaffaqiyatsiz tugadi';
 
@@ -2010,34 +1450,9 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'Parolni oʻrnatish muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String get failedToSyncDevices =>
-      'Qurilmalarni sinxronizatsiya qilish muvaffaqiyatsiz tugadi';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'Qoida holatini oʻzgartirish muvaffaqiyatsiz tugadi: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus =>
-      'Obuna holatini oʻzgartirish muvaffaqiyatsiz tugadi';
-
-  @override
-  String get failedToUpdateContact =>
-      'Kontaktni yangilash muvaffaqiyatsiz tugadi';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'SMS qoidasini yangilash muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String get failure => 'Muvaffaqiyatsizlik';
 
   @override
   String get favoriteContacts => 'Tanlangan kontaktlar';
@@ -2078,9 +1493,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get filterByLabel => 'Yorliq boʻyicha filtrlash';
 
   @override
-  String get filterClear => 'Filtrni tozalash';
-
-  @override
   String get filterControlPanelTitle => 'Filtr boshqaruv paneli';
 
   @override
@@ -2091,22 +1503,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get filterControlTitle => 'Filtr boshqaruvi';
 
   @override
-  String get filterDeleteFailed => 'Filtrni o\'chirish muvaffaqiyatsiz tugadi';
-
-  @override
-  String get filterDeleteSuccess => 'Filtr muvaffaqiyatli o\'chirildi';
-
-  @override
-  String get filterDetails => 'Filtr tafsilotlari';
-
-  @override
   String get filtered => 'Filtrlangan';
-
-  @override
-  String get filteredSms => 'Filtrlangan SMS';
-
-  @override
-  String get filteredSmsLabel => 'Filtrlangan SMS';
 
   @override
   String get filterExplanation => 'Filtr tushuntirishi';
@@ -2118,17 +1515,8 @@ class AppLocalizationsUz extends AppLocalizations {
   String get filterName => 'Filtr nomi';
 
   @override
-  String get filterPattern => 'Filtr namunasi';
-
-  @override
   String get filterPriorityNote =>
       'Eslatma: Filtrlar o\'rtasida ustuvorlik munosabatlari mavjud, tafsilotlar uchun yordam hujjatlariga qarang';
-
-  @override
-  String get filterSaveFailed => 'Filtrni saqlash muvaffaqiyatsiz tugadi';
-
-  @override
-  String get filterSaveSuccess => 'Filtr muvaffaqiyatli saqlandi';
 
   @override
   String get filterSettings => 'Filtr sozlamalari';
@@ -2167,16 +1555,6 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return '$count ta qoida topildi. Ularni import qilishni xohlaysizmi?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return '$count ta qoida topildi. Ularni import qilishni xohlaysizmi?';
-  }
-
-  @override
   String get fraudAlert =>
       'FIRIBGARLIK OGOHLANTIRISHI - Qo\'ng\'iroqni tugating';
 
@@ -2212,40 +1590,14 @@ class AppLocalizationsUz extends AppLocalizations {
   String get globalFilterSettings => 'Global filtr sozlamalari';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'Barcha SIM uyalariga taalluqli bo\'lgan global filtr sozlamalarini sozlang:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'Kontaktlarni, yorliqlarni, qora ro\'yxatlarni, oq ro\'yxatlarni va hokazolarni qidirish.';
-
-  @override
-  String get globalSearchTitle => 'Global qidiruv';
-
-  @override
   String get globalSettings => 'Global sozlamalar';
-
-  @override
-  String get googleAdDisplayPosition =>
-      'Google reklamasi ko\'rsatish pozitsiyasi';
-
-  @override
-  String get googleAdMobIntegrationText =>
-      'Google AdMob reklamalari bu yerda integratsiya qilinishi mumkin';
 
   @override
   String get googleDriveAuthDescription =>
       'Tizim tomonidan sozlangan Google Drive mijoz IDsi va kaliti yordamida avtorizatsiya qiling';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'Tizim tomonidan sozlangan Google Drive mijoz IDsi va kaliti yordamida avtorizatsiya qiling';
-
-  @override
   String get googleDriveConfigTitle => 'Google Drive konfiguratsiyasi';
-
-  @override
-  String get googleDriveConfigurationTitle => 'Google Drive konfiguratsiyasi';
 
   @override
   String get government => 'Davlat';
@@ -2264,9 +1616,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get height => 'Balandlik';
-
-  @override
-  String get homePageTitle => 'Bosh sahifa';
 
   @override
   String get homeTab => 'Bosh sahifa';
@@ -2297,9 +1646,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get important => 'Muhim';
-
-  @override
-  String get importButton => 'Import qilish';
 
   @override
   String get importConfig => 'Konfiguratsiyani import qilish';
@@ -2355,31 +1701,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Fayldan qoida konfiguratsiyalarini import qilish';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'Fayldan qoida konfiguratsiyalarini import qilish';
-
-  @override
   String get importRules => 'Qoidalarni import qilish';
-
-  @override
-  String get importRulesButton => 'Qoidalarni import qilish';
-
-  @override
-  String get importRulesDialogTitle => 'Qoidalarni import qilish oynasi';
-
-  @override
-  String importRulesError(Object error) {
-    return 'Qoidalarni import qilish muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String get importRulesInstructions => 'CSV faylidan qoidalarni import qilish';
-
-  @override
-  String get importRulesSuccess => 'Qoidalar muvaffaqiyatli import qilindi';
-
-  @override
-  String get importRulesTitle => 'Qoidalarni import qilish';
 
   @override
   String get importSuccess => 'Import muvaffaqiyatli yakunlandi';
@@ -2387,10 +1709,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get incomingCallInterceptAction =>
       'Kiruvchi qo\'ng\'iroqlarni ushlab qolish harakati';
-
-  @override
-  String get incomingCallNotification =>
-      'Kiruvchi qo\'ng\'iroq bildirishnomasi';
 
   @override
   String get incorrectPassword => 'Noto\'g\'ri parol';
@@ -2446,9 +1764,6 @@ class AppLocalizationsUz extends AppLocalizations {
       'Qo\'shimcha ma\'lumot olish uchun Telegram kanal va guruhiga qo\'shiling';
 
   @override
-  String get jsLogsTitle => 'JS Loglari';
-
-  @override
   String get jsonFormat => 'JSON Formati';
 
   @override
@@ -2457,16 +1772,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'Har bir zaxira nusxasining barcha tarixiy versiyalarini saqlab qolish';
-
-  @override
-  String get keepAllVersionsLabel => 'Barcha versiyalarni saqlash';
-
-  @override
-  String get keepAllVersionsSubtitle =>
-      'Har bir zaxira nusxasining tarixiy versiyalarini saqlash';
-
-  @override
-  String get keepAllVersionsTitle => 'Barcha versiyalarni saqlash';
 
   @override
   String get label => 'Yorliq';
@@ -2487,9 +1792,6 @@ class AppLocalizationsUz extends AppLocalizations {
       'Yorliqlar kontaktlarni yaxshiroq boshqarishga yordam beradi, qo\'ng\'iroqlar va xabarlarni osongina aniqlash uchun telefon raqamlariga shaxsiy yorliqlar qo\'shing.';
 
   @override
-  String get labelFilter => 'Yorliq filtri';
-
-  @override
   String get labelFilterTooltip => 'Yorliq filtri';
 
   @override
@@ -2500,14 +1802,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get labelNotFound => 'Yorliq topilmadi';
-
-  @override
-  String get labelRemoved => 'Yorliq olib tashlandi';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'Yorliqni olib tashlash muvaffaqiyatsiz tugadi: $error';
-  }
 
   @override
   String get labels => 'Yorliqlar';
@@ -2541,9 +1835,6 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'Yorliq yangilandi';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'Yorliqni yangilash muvaffaqiyatsiz tugadi: $error';
   }
@@ -2561,12 +1852,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'Til sozlamalari';
-
-  @override
-  String get last30Days => 'Oxirgi 30 kun';
-
-  @override
-  String get last7Days => 'Oxirgi 7 kun';
 
   @override
   String get lastSyncLabel => 'Oxirgi sinxronizatsiya';
@@ -2592,13 +1877,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get loadDataFailed => 'Ma\'lumotlarni yuklash muvaffaqiyatsiz tugadi';
 
   @override
-  String get loadFailed => 'Yuklash muvaffaqiyatsiz tugadi';
-
-  @override
   String get loading => 'Yuklanmoqda...';
-
-  @override
-  String get loadingData => 'Ma\'lumotlar yuklanmoqda...';
 
   @override
   String get loadingTags => 'Teglar yuklanmoqda...';
@@ -2622,12 +1901,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'Belgilangan telefonlarni yuklash muvaffaqiyatsiz tugadi: $error';
   }
-
-  @override
-  String get loadMore => 'Ko\'proq yuklash';
-
-  @override
-  String get loadPluginButton => 'Plaginni yuklash';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2655,9 +1928,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get loan => 'Kredit';
-
-  @override
-  String get localBackupTitle => 'Mahalliy zaxira nusxasi';
 
   @override
   String get localCounterFilter => 'Mahalliy hisoblagich filtri';
@@ -2753,9 +2023,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get manage => 'Kontaktlarni boshqarish';
 
   @override
-  String get manageContacts => 'Boshqarish';
-
-  @override
   String get manageFavoriteContacts =>
       'Sevimlilar ro\'yxatidagi kontaktlarni boshqarish';
 
@@ -2765,10 +2032,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'SMS filtrlash qoidalarini qo\'shish, tahrirlash yoki o\'chirish';
-
-  @override
-  String get manageFrequentContacts =>
-      'Tez-tez aloqa qiladigan kontaktlarni boshqarish';
 
   @override
   String get markCounts => 'Belgilash hisoblari';
@@ -2796,18 +2059,11 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle =>
-      'Telefon raqamlarini belgilash uchun';
-
-  @override
   String get markPhoneManagementTitle =>
       'Telefon raqamlarini belgilashni boshqarish';
 
   @override
   String get markPhoneSuccess => 'Telefon raqami muvaffaqiyatli belgilandi';
-
-  @override
-  String get matchFailed => 'Moslik topilmadi!';
 
   @override
   String get matchFailedMessage => 'Moslik topilmadi.';
@@ -2828,9 +2084,6 @@ class AppLocalizationsUz extends AppLocalizations {
       'Maxsus raqam naqshlariga moslik:';
 
   @override
-  String get matchSuccessful => 'Moslik muvaffaqiyatli topildi!';
-
-  @override
   String get matchSuccessfulMessage => 'Moslik muvaffaqiyatli topildi!';
 
   @override
@@ -2841,9 +2094,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get migrationTool => 'Migratsiya vositasi';
-
-  @override
-  String get migrationToolTitle => 'Migratsiya vositasi';
 
   @override
   String get minutes => 'daqiqa';
@@ -2858,9 +2108,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get monthlyCallCount => 'Oylik qo\'ng\'iroqlar';
 
   @override
-  String get monthlyChartTitle => 'Oylik bloklangan qo\'ng\'iroqlar';
-
-  @override
   String get monthlyMembership => 'Oylik a\'zolik';
 
   @override
@@ -2869,9 +2116,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'Oylik jami';
-
-  @override
-  String get monthlyTotalLabel => 'Oylik jami';
 
   @override
   String get moreOptions => 'Ko\'proq imkoniyatlar';
@@ -2887,33 +2131,16 @@ class AppLocalizationsUz extends AppLocalizations {
       'Ism va telefon raqami bo\'sh bo\'lishi mumkin emas';
 
   @override
-  String get nameAndPhoneNumberRequired =>
-      'Ism va telefon raqami bo\'sh bo\'lishi mumkin emas';
-
-  @override
   String get nameColor => 'Ism rangi';
 
   @override
   String get nameFontSize => 'Ism shrift hajmi';
 
   @override
-  String nameLabel(Object name) {
-    return 'Ism: $name';
-  }
-
-  @override
   String get namePosition => 'Ism joylashuvi';
 
   @override
   String get nameUnknown => 'Ism: Noma\'lum';
-
-  @override
-  String nameWithValue(String name) {
-    return 'Ism: $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'Yangi parol';
 
   @override
   String get nextStep => 'Keyingi';
@@ -2929,13 +2156,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Faol bulutli sinxronizatsiya xizmati yo\'q';
 
   @override
-  String get noCallLogs => 'Qo\'ng\'iroqlar jurnali yo\'q';
-
-  @override
   String get noCallRecords => 'Qo\'ng\'iroq yozuvlari yo\'q';
-
-  @override
-  String get noContacts => 'Hali kontaktlar yo\'q';
 
   @override
   String get noContactsYet => 'Hali kontaktlar yo\'q';
@@ -2948,29 +2169,16 @@ class AppLocalizationsUz extends AppLocalizations {
       'Ro\'yxatdan o\'tgan qurilmalar yo\'q';
 
   @override
-  String get noDevicesRegisteredYet =>
-      'Hali ro\'yxatdan o\'tgan qurilmalar yo\'q.';
-
-  @override
-  String get noFilters => 'Hali filtrlar yo\'q';
-
-  @override
   String get noLabels => 'Hali yorliqlar yo\'q';
 
   @override
   String get noMarkedPhones => 'Belgilangan telefon raqamlari yo\'q';
 
   @override
-  String get noMatchingContacts => 'Mos keladigan kontaktlar yo\'q';
-
-  @override
   String get noMatchingContactsFound => 'Mos keladigan kontaktlar topilmadi';
 
   @override
   String get noMatchingNumbersFound => 'Mos keladigan raqamlar topilmadi';
-
-  @override
-  String get noMatchingRecords => 'Mos keladigan qo\'ng\'iroq yozuvlari yo\'q';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2985,15 +2193,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get noPlugins => 'Hali plaginlar yo\'q';
-
-  @override
-  String get noRecords => 'Qo\'ng\'iroq yozuvlari yo\'q';
-
-  @override
-  String get noResultReturned => 'Natija qaytarilmadi';
-
-  @override
-  String get noResultReturnedLog => 'Plagindan natija qaytarilmadi';
 
   @override
   String noRules(Object ruleType) {
@@ -3016,9 +2215,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get noSubscriptions => 'Obunalar yo\'q';
 
   @override
-  String get noSubscriptionsYet => 'Hali obunalar yo\'q';
-
-  @override
   String get notGranted => 'Berilmagan';
 
   @override
@@ -3037,13 +2233,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get notificationSettings => 'Bildirishnoma sozlamalari';
-
-  @override
-  String get notificationSettingsSaved =>
-      'Bildirishnoma sozlamalari muvaffaqiyatli saqlandi';
-
-  @override
-  String get notSet => 'O\'rnatilmagan';
 
   @override
   String get notVerifiedText => 'Tasdiqlanmagan';
@@ -3077,9 +2266,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get numberTypePosition => 'Raqam turi joylashuvi';
 
   @override
-  String get ok => 'OK';
-
-  @override
   String get okButton => 'OK';
 
   @override
@@ -3111,14 +2297,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Tizimda sozlatilgan OneDrive mijoz IDsi va kaliti yordamida avtorizatsiya qiling';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'Tizimda sozlatilgan OneDrive mijoz IDsi va kaliti yordamida avtorizatsiya qiling';
-
-  @override
   String get oneDriveConfigTitle => 'OneDrive konfiguratsiyasi';
-
-  @override
-  String get oneDriveConfigurationTitle => 'OneDrive konfiguratsiyasi';
 
   @override
   String get onlineCallerIdSubscription => 'Onlayn Qo\'ng\'iroqchi ID Obunasi';
@@ -3178,9 +2357,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get passwordsDoNotMatch => 'Parollar mos kelmaydi';
 
   @override
-  String get passwordSetSuccessfully => 'Parol muvaffaqiyatli o\'rnatildi';
-
-  @override
   String get pattern => 'Namuna';
 
   @override
@@ -3215,15 +2391,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Telefon raqami bo\'sh bo\'lishi mumkin emas';
 
   @override
-  String get phoneNumberHintText =>
-      'Qoida qo\'shish uchun telefon raqamini kiriting';
-
-  @override
   String get phoneNumberLabel => 'Telefon raqami';
-
-  @override
-  String get phoneNumberRegexRequired =>
-      'Iltimos, telefon raqami va regex namunasini kiriting';
 
   @override
   String get phoneNumberTypeFixedLine => 'Statsionar liniya';
@@ -3272,9 +2440,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get phoneRule => 'Telefon qoidasi';
 
   @override
-  String get phoneRuleEditDialog => 'Telefon qoidasini tahrirlash dialogi';
-
-  @override
   String get phoneRuleManagement => 'Telefon qoidalarini boshqarish';
 
   @override
@@ -3286,9 +2451,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'Avtomatik ravishda oq ro\'yxat va qora ro\'yxat qoidalarini yangilash uchun URL orqali telefon qoidalari ro\'yxatlariga obuna bo\'ling. JSON formatidagi qoida fayllarini qo\'llab-quvvatlaydi.';
-
-  @override
-  String get phoneSubscriptionTitle => 'Telefon qoidasi obunalari';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3310,9 +2472,6 @@ class AppLocalizationsUz extends AppLocalizations {
       'Plagin ro\'yxati muvaffaqiyatli eksport qilindi';
 
   @override
-  String get pluginLoadedSuccessfully => 'Plagin muvaffaqiyatli yuklandi';
-
-  @override
   String get pluginManagement => 'Plaginlarni boshqarish';
 
   @override
@@ -3320,14 +2479,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Uchinchi tomon plaginlarini boshqarish va sozlash';
 
   @override
-  String get pluginManagementTitle => 'Plaginlarni boshqarish';
-
-  @override
   String get pluginName => 'Plagin nomi';
-
-  @override
-  String get pluginNotLoaded =>
-      'Plagin hali yuklanmagan. Iltimos, avval plaginni yuklang.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3345,16 +2497,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get pluginUrl => 'Plagin URL\'i';
-
-  @override
-  String get pluginUrlCannotBeEmpty =>
-      'Plagin URL\'i bo\'sh bo\'lishi mumkin emas';
-
-  @override
-  String get pluginUrlHint => 'Plagin URL\'ini kiriting';
-
-  @override
-  String get pluginUrlLabel => 'Plagin URL\'i';
 
   @override
   String get pluginVersion => 'Plagin versiyasi';
@@ -3393,34 +2535,10 @@ class AppLocalizationsUz extends AppLocalizations {
       'Barcha premium funksiyalarni ochish, chorak yillik avtomatik yangilash';
 
   @override
-  String get queryButton => 'So\'rov';
-
-  @override
-  String get queryFailed => 'So\'rov muvaffaqiyatsiz tugadi';
-
-  @override
-  String get queryFailedLog => 'So\'rov muvaffaqiyatsiz tugadi';
-
-  @override
-  String get querying => 'So\'rov yuborilmoqda...';
-
-  @override
-  String get queryingPhoneNumber => 'Telefon raqami so\'ralmoqda';
-
-  @override
-  String get queryResultTitle => 'So\'rov natijasi';
-
-  @override
   String get ready => 'Tayyor!';
 
   @override
-  String get receiveWeeklyStatistics => 'Haftalik statistikalarni olish';
-
-  @override
   String get recruiter => 'Ishga yollashchi';
-
-  @override
-  String get reEnterPasswordHint => 'Iltimos, parolni qayta kiriting';
 
   @override
   String get refresh => 'Yangilash';
@@ -3430,11 +2548,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'Yangilash';
-
-  @override
-  String regexError(Object error) {
-    return 'Regex xatosi: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3452,10 +2565,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'Regex naqshi';
-
-  @override
-  String get regexPatternsExamples =>
-      'Naqshlarni aniqlash uchun standart regex sintaksisidan foydalaning. Misollar:';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3484,14 +2593,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'Regex tekshirgich';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'Regex tekshiruvi muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'Regex tekshiruvi muvaffaqiyatli o\'tdi';
 
   @override
   String get region => 'Hudud';
@@ -3531,35 +2632,8 @@ class AppLocalizationsUz extends AppLocalizations {
   String get remoteNumberFilter => 'Masofaviy raqam filtri';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'Bu filtr so\'nggi raqam ma\'lumotlarini olish uchun mustaqil masofaviy ma\'lumotlar bazasidan foydalanadi.';
-
-  @override
   String get remoteNumberFilterDescription =>
       'Masofaviy ma\'lumotlar bazasidagi ma\'lumotlarga asoslanib bezovta qiluvchi qo\'ng\'iroqlarni to\'xtatish';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'Masofaviy raqam filtri raqamlar soniga asoslangan masofaviy ma\'lumotlar bazasiga so\'rov yuborish orqali spam qo\'ng\'iroqlarni aniqlaydi va bloklaydi.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle =>
-      'Masofaviy raqam filtri tushuntirishi';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• Hisoblash chegarasi: Raqam paydo bo\'lish chastotasiga qarab aniqlash';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• Filtrlash harakatlari: Chegaradan oshgan raqamlar bilan qanday ishlashni sozlash';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• Ustuvorlik sozlamalari: Masofaviy harakatlar uchun ustuvorlikni belgilash';
-
-  @override
-  String get remoteNumberFilterFeatures => 'Xususiyatlari:';
 
   @override
   String get remoteNumberFiltering => 'Masofaviy raqam filtrlash';
@@ -3580,30 +2654,13 @@ class AppLocalizationsUz extends AppLocalizations {
   String get removeAdsTitle => 'Reklamalarni olib tashlash';
 
   @override
-  String get removedFromFavoriteContacts =>
-      'Sevimli kontaktlardan olib tashlandi';
-
-  @override
   String get removedFromFavorites => 'Sevimli kontaktlardan olib tashlandi';
-
-  @override
-  String get removeFavorite => 'Sevimli kontaktlardan olib tashlash';
 
   @override
   String get removeFromFavorites => 'Sevimlilardan olib tashlash';
 
   @override
-  String get renameButton => 'Qayta nomlash';
-
-  @override
-  String get renameDeviceDialogTitle => 'Qurilmani qayta nomlash';
-
-  @override
   String get renameDeviceTitle => 'Qurilmani qayta nomlash';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'Bu sizning joriy sozlamalaringizni butunlay almashtiradi. Davom etishni xohlaysizmi?';
 
   @override
   String get requestAllPermissions => 'Barcha ruxsatnomalarni so\'rash';
@@ -3632,23 +2689,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Ilova sozlamalarini zaxiradan tiklash';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'Ilova sozlamalarini zaxiradan tiklash';
-
-  @override
-  String get restoreButton => 'Tiklash';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'Bulutdan tiklash muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
   String get restoreFromCloud => 'Bulutdan tiklash';
-
-  @override
-  String get restoreFromCloudDescription =>
-      'Sozlamalar va qoidalarni bulutli saqlash joyidan tiklash';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3656,22 +2697,10 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'Bulutdan tiklash';
-
-  @override
   String get restoreFromCloudSuccess => 'Bulutdan muvaffaqiyatli tiklandi';
 
   @override
-  String get restoreFromCloudTitle => 'Bulutdan tiklash';
-
-  @override
-  String get restoreFromLocal => 'Mahalliy joydan tiklash';
-
-  @override
   String get restorePurchases => 'Xaridlarni tiklash';
-
-  @override
-  String get restoreSectionTitle => 'Tiklash';
 
   @override
   String get restoreSettings => 'Sozlamalarni tiklash';
@@ -3679,19 +2708,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'Bu sizning joriy sozlamalaringizni butunlay almashtiradi. Davom etishni xohlaysizmi?';
-
-  @override
-  String get restoreSettingsDialogTitle => 'Sozlamalarni tiklash';
-
-  @override
-  String get restoreSettingsTitle => 'Sozlamalarni tiklash';
-
-  @override
-  String get restoreSuccessFromLocal =>
-      'Mahalliy joydan muvaffaqiyatli tiklandi';
-
-  @override
-  String get restoreSuccessMessage => 'Bulutdan muvaffaqiyatli tiklandi';
 
   @override
   String get retry => 'Qayta urinish';
@@ -3709,15 +2725,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get ruleAction => 'Qoida harakati';
 
   @override
-  String get ruleAddButton => 'Qoida qo\'shish';
-
-  @override
   String get ruleAddedSuccess => 'Qoida muvaffaqiyatli qo\'shildi';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'Qoida qo\'shish muvaffaqiyatsiz tugadi: $error';
-  }
 
   @override
   String get ruleAddSuccess => 'Qoida muvaffaqiyatli qo\'shildi';
@@ -3731,18 +2739,10 @@ class AppLocalizationsUz extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'Qoidani o\'chirish';
 
   @override
-  String get ruleDeletedSuccess => 'Qoida muvaffaqiyatli o\'chirildi';
-
-  @override
   String get ruleDeletedSuccessfully => 'Qoida muvaffaqiyatli o\'chirildi';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'Qoidani o\'chirish muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'Qoidani o\'chirish muvaffaqiyatsiz tugadi: $error';
   }
 
@@ -3764,9 +2764,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get ruleManagement => 'Qoidalarni boshqarish';
 
   @override
-  String get ruleManagementTitle => 'Qoidalarni boshqarish';
-
-  @override
   String get ruleName => 'Qoida nomi';
 
   @override
@@ -3784,10 +2781,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get ruleNameLabel => 'Qoida nomi';
 
   @override
-  String get ruleNamePatternRequired =>
-      'Iltimos, qoida nomi va naqshini kiriting';
-
-  @override
   String get ruleNameRequired =>
       'Qoida nomi va telefon raqami bo\'sh bo\'lishi mumkin emas';
 
@@ -3800,23 +2793,7 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'Qoida muvaffaqiyatli saqlandi!';
-
-  @override
   String get ruleSavedSuccessMessage => 'Qoida muvaffaqiyatli saqlandi!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'Saqlash muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'Saqlash muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'Qoida muvaffaqiyatli saqlandi!';
 
   @override
   String get rulesExportedSuccessfully =>
@@ -3834,14 +2811,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return '$count ta qoida muvaffaqiyatli import qilindi';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'Qoidalarni import qilish muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String get ruleStatistics => 'Qoida statistikasi';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3876,9 +2845,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get saveButton => 'Saqlash';
 
   @override
-  String get saveButtonLabel => 'SAQLASH';
-
-  @override
   String get saveButtonText => 'Saqlash';
 
   @override
@@ -3887,15 +2853,7 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'Filtrni saqlash';
-
-  @override
   String get saveSettings => 'Sozlamalarni saqlash';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'Sozlamalarni saqlash muvaffaqiyatsiz tugadi: $error';
-  }
 
   @override
   String get scamsLikely => 'Firibgarlik ehtimoli bor';
@@ -3912,28 +2870,11 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'Qidiruv filtrlari';
-
-  @override
-  String get searchForContacts => 'Kontaktlarni qidirish';
-
-  @override
   String get searchHint => 'Qidirish...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'Kontaktlarni, yorliqlarni, qora ro\'yxatlarni, oq ro\'yxatlarni va hokazolarni qidirish';
-
-  @override
-  String get searchSettingsTitle => 'Qidiruv sozlamalari';
 
   @override
   String get securityMessage =>
       'Hech qanday telefon qo\'ng\'irog\'iga ishonmang. Har doim mijozlarga xizmat ko\'rsatish raqamlarini mustaqil ravishda tekshiring. Hech qachon parollarni, tasdiqlash kodlarini, karta raqamlarini yoki shaxsiy ma\'lumotlarni baham ko\'rmang.';
-
-  @override
-  String get selectActionToPerform =>
-      'Qoida mos kelganda bajariladigan amalni tanlang';
 
   @override
   String get selectActionWhenBlockingCalls =>
@@ -3947,12 +2888,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get selectCountry => 'Mamlakatni tanlash';
-
-  @override
-  String get selectDateRange => 'Sana oralig\'ini tanlash';
-
-  @override
-  String get selectedDateRange => 'Tanlangan sana oralig\'i';
 
   @override
   String selectedItems(Object count) {
@@ -3979,20 +2914,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get selectMultiple => 'Bir nechtasini tanlash';
 
   @override
-  String get selectPeriod => 'Davrni tanlash';
-
-  @override
   String get selectSimCard => 'SIM kartani tanlash';
-
-  @override
-  String get selectSimSlot => 'SIM slotini tanlash';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'Qo\'ng\'iroqlarni bloklashda bajariladigan aniq amalni tanlang';
-
-  @override
-  String get selectTag => 'Tegni tanlash';
 
   @override
   String get selectTags => 'Teglarni tanlash';
@@ -4034,23 +2956,7 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'O\'rnatish';
-
-  @override
   String get setEncryptionPassword => 'Shifrlash parolini o\'rnatish';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'Zaxira nusxalash va tiklash uchun shifrlash parolini o\'rnating';
-
-  @override
-  String get setEncryptionPasswordLabel => 'Shifrlash parolini o\'rnatish';
-
-  @override
-  String get setEncryptionPasswordTitle => 'Shifrlash parolini o\'rnatish';
-
-  @override
-  String get setPasswordButton => 'O\'rnatish';
 
   @override
   String get settings => 'Sozlamalar';
@@ -4058,14 +2964,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'Sozlamalar zaxira nusxasi olindi: $path';
-  }
-
-  @override
-  String get settingsLoaded => 'Sozlamalar yuklandi';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'Sozlamalarni yuklash muvaffaqiyatsiz tugadi: $error';
   }
 
   @override
@@ -4088,13 +2986,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get setup => 'Sozlash';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'Kontaktni tahrirlash dialogini ko\'rsatish uchun statik metod';
-
-  @override
-  String get showExplanation => 'Tushuntirishni ko\'rsatish';
 
   @override
   String get silence => 'Ovozsizlantirish';
@@ -4142,19 +3033,11 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'SIM karta ma\'lumotlarini yuklash muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'SIM slot qoidalari har bir SIM slot uchun mustaqil filtrlash qoidalarini sozlash imkonini beradi.';
 
   @override
   String get simRuleInstructionsTitle => 'SIM Slot Qoidalari';
-
-  @override
-  String get simRuleManagement => 'SIM Slot Qoidalarini Boshqarish';
 
   @override
   String simSlot1(String countryIso) {
@@ -4167,18 +3050,6 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'SIM ma\'lumotlarini yuklash muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration => 'SIM Slot Filtrlash Sozlamasi';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'SIM slot bo\'yicha filtrlash qoidalarini o\'rnatish imkonini beradi';
-
-  @override
   String get simSlotFilterDescription =>
       'Har bir SIM karta uchun mustaqil filtrlash qoidalarini sozlang:';
 
@@ -4188,17 +3059,7 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'SIM slotlarini yuklash muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
   String get simSlotManagement => 'SIM Slotlarni Boshqarish';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'SIM slot bilan operatsiya muvaffaqiyatsiz tugadi: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4219,12 +3080,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'SIM Slot Qoidalari';
-
-  @override
-  String get simSlotRuleManagementTitle => 'Qoidalarni Boshqarish';
-
-  @override
-  String get simSlotSettings => 'SIM Slot Sozlamalari';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4261,9 +3116,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get smsFilterSettings => 'SMS Filtrlash Sozlamalari';
 
   @override
-  String get smsHistory => 'SMS Tarixi';
-
-  @override
   String get smsManagement => 'SMS Boshqaruvi';
 
   @override
@@ -4290,27 +3142,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get smsRuleManagement => 'SMS Qoidalarini Boshqarish';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'SMS qoidalari $filePath joyiga muvaffaqiyatli eksport qilindi';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully =>
-      'SMS qoidalari muvaffaqiyatli import qilindi';
-
-  @override
   String get smsRuleSubscription => 'SMS Qoidasiga Obuna';
-
-  @override
-  String get smsRuleUpdatedSuccessfully =>
-      'SMS qoidasi muvaffaqiyatli yangilandi';
-
-  @override
-  String get smsSettingsSubtitle =>
-      'SMS filtrlash va kalit so\'zlarni bloklash';
-
-  @override
-  String get smsSettingsTitle => 'SMS Sozlamalari';
 
   @override
   String get smsSubscription => 'SMS Obunasi';
@@ -4348,26 +3180,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get statBlocked => 'Bloklangan';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'Qo\'ng\'iroq qiluvchi ID ma\'lumotlari dialogini ko\'rsatish uchun statik usul';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'Mamlakat tanlash dialogini ko\'rsatish uchun statik usul';
-
-  @override
-  String get staticMethodToDisplayDialog =>
-      'Dialog oynasini ko\'rsatish uchun statik usul';
-
-  @override
   String get statistics => 'Statistika';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'Statistikani eksport qilish funksiyasi tez orada';
-
-  @override
-  String get statisticsGrid => 'Statistika Jadvallari';
 
   @override
   String get statisticsPageTitle => 'Ma\'lumotlar Tahlili';
@@ -4407,10 +3220,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get subscriptionDeleted => 'Obuna o\'chirildi';
 
   @override
-  String get subscriptionDeletedSuccessfully =>
-      'Obuna muvaffaqiyatli o\'chirildi';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'Obunani o\'chirish muvaffaqiyatsiz tugadi: $error';
   }
@@ -4419,23 +3228,9 @@ class AppLocalizationsUz extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'Obuna o\'chirildi';
 
   @override
-  String get subscriptionEmptyState => 'Obunalar mavjud emas';
-
-  @override
-  String get subscriptionEmptyText => 'Hali obunalar yo\'q';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'Obunalarni yuklash muvaffaqiyatsiz tugadi: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'Obunalarni yuklash muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'Obunalarni Boshqarish';
 
   @override
   String get subscriptionName => 'Obuna nomi';
@@ -4448,16 +3243,8 @@ class AppLocalizationsUz extends AppLocalizations {
   String get subscriptionNameHint => 'Obuna nomini kiriting';
 
   @override
-  String get subscriptionPageTitle => 'Obunalarni Boshqarish';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
     return 'Obuna holatini o\'zgartirish muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
-    return 'Obuna holatini yoqish/o\'chirish muvaffaqiyatsiz tugadi: $error';
   }
 
   @override
@@ -4495,10 +3282,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get syncFailedMessage => 'Sinxronizatsiya muvaffaqiyatsiz tugadi';
 
   @override
-  String get syncFolderNameHint =>
-      'Iltimos, sinxronizatsiya jild nomini kiriting (standart: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'Sinxronizatsiya jildi nomi';
 
   @override
@@ -4520,16 +3303,10 @@ class AppLocalizationsUz extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'Sinxronlash holati yangilandi';
 
   @override
-  String get syncSuccessful => 'Sinxronlash muvaffaqiyatli';
-
-  @override
   String get syncSuccessMessage => 'Sinxronlash muvaffaqiyatli';
 
   @override
   String get syncWithCloudStorage => 'Bulutli xotira bilan sinxronlash';
-
-  @override
-  String get syncWithCloudStorageSubtitle => 'Bulutli xotira bilan sinxronlash';
 
   @override
   String get systemFeatures => 'Tizim funksiyalari:';
@@ -4558,9 +3335,6 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'Teglar yangilandi';
-
-  @override
   String get takeaway => 'Olib ketish';
 
   @override
@@ -4574,9 +3348,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get testButton => 'TEST';
-
-  @override
-  String get testButtonLabel => 'TEST';
 
   @override
   String get testConnectionButton => 'Ulanishni sinash';
@@ -4615,14 +3386,6 @@ class AppLocalizationsUz extends AppLocalizations {
       'Qo\'ng\'iroq chastotasini to\'xtatish sozlamalari';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'Qo\'ng\'iroq chastotasiga qarab potentsial spam qo\'ng\'iroqlarni avtomatik to\'xtatish';
-
-  @override
-  String get timeInterceptorTitle =>
-      'Qo\'ng\'iroq chastotasini to\'xtatishni yoqish';
-
-  @override
   String get timeWindowDescription =>
       'Takroriy qo\'ng\'iroqlarga ruxsat berish uchun vaqt oralig\'i hajmini belgilang. Shu vaqt oralig\'idagi bir xil raqamdan qilingan qo\'ng\'iroqlarga ruxsat beriladi';
 
@@ -4630,10 +3393,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'To\'xtatish vaqt oralig\'i (daqiqalar): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'Takroriy qo\'ng\'iroqlarga ruxsat berish uchun vaqt oralig\'i hajmini belgilang. Shu vaqt oralig\'idagi bir xil raqamdan qilingan qo\'ng\'iroqlarga ruxsat beriladi';
 
   @override
   String get today => 'Bugun';
@@ -4645,24 +3404,11 @@ class AppLocalizationsUz extends AppLocalizations {
   String get totalBlocked => 'Jami bloklangan';
 
   @override
-  String get totalFiltered => 'Jami filtrlangan';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'Qurilmalar yoki platformalar orasida ma\'lumotlarni uzatish';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'Qurilmalar yoki platformalar orasida ma\'lumotlarni uzatish';
-
-  @override
   String get travelTicketing => 'Sayohat chiptalari';
-
-  @override
-  String get trend => 'Trend';
-
-  @override
-  String get trendChart => 'Trend jadvali';
 
   @override
   String get tutorial => 'Qo\'llanma';
@@ -4675,9 +3421,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get unknown => 'Noma\'lum';
-
-  @override
-  String get unknownLabel => 'Noma\'lum yorliq';
 
   @override
   String get unknownTag => 'Teg: Noma\'lum';
@@ -4703,10 +3446,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get updateAllNow => 'Hozir barchasini yangilash';
 
   @override
-  String get updateCallFilterConfig =>
-      'Qo\'ng\'iroq filtrini sozlashni yangilash';
-
-  @override
   String updateContactFailed(Object error) {
     return 'Kontaktni yangilash muvaffaqiyatsiz tugadi: $error';
   }
@@ -4715,15 +3454,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get updateFavoriteStatus => 'Sevimlilar holatini yangilash';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'Sevimlilar holatini yangilash muvaffaqiyatsiz tugadi: $error';
-  }
-
-  @override
   String get updateInterval => 'Yangilash oralig\'i';
-
-  @override
-  String get updateLabelFailed => 'Yorliqni yangilash muvaffaqiyatsiz tugadi';
 
   @override
   String get updateNow => 'Hozir yangilash';
@@ -4752,9 +3483,6 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'Teglarni yangilash';
-
-  @override
   String get useCasesPoint1 =>
       '• Avtomatik qayta terish spam qo\'ng\'iroqlarini aniqlash';
 
@@ -4773,17 +3501,11 @@ class AppLocalizationsUz extends AppLocalizations {
   String get useGlobalSettings => 'Global sozlamalardan foydalanish';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => 'Foydalanuvchi nomi';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'Namunalarni aniqlash uchun standart regex sintaksisidan foydalaning. Misollar:';
-
-  @override
-  String get validateRegex => 'Regexni tasdiqlash';
 
   @override
   String get verificationFailedText => 'Muvaffaqiyatsiz';
@@ -4820,47 +3542,13 @@ class AppLocalizationsUz extends AppLocalizations {
   String get webDAVConfigTitle => 'WebDAV konfiguratsiyasi';
 
   @override
-  String get webdavConfigurationTitle => 'WebDAV konfiguratsiyasi';
-
-  @override
-  String get webdavPasswordHint => 'Iltimos, WebDAV parolini kiriting';
-
-  @override
-  String get webdavServerAddressHint =>
-      'Iltimos, WebDAV server manzilini kiriting';
-
-  @override
-  String get webdavUsernameHint =>
-      'Iltimos, WebDAV foydalanuvchi nomini kiriting';
-
-  @override
   String get week => 'Hafta';
-
-  @override
-  String get weekly => 'Haftalik';
-
-  @override
-  String get weeklyBlockedCallsSummary =>
-      'Haftalik bloklangan qo\'ng\'iroqlar xulosasi';
-
-  @override
-  String get weeklyChartTitle => 'Haftalik bloklangan qo\'ng\'iroqlar';
-
-  @override
-  String get weeklyReport => 'Haftalik hisobot';
-
-  @override
-  String get weeklyReportDesc =>
-      'Qo\'ng\'iroqlarni bloklash faoliyati bo\'yicha haftalik xulosa hisobotini olish';
 
   @override
   String get welcome => 'Xush kelibsiz';
 
   @override
   String get whitelist => 'Ruxsat berilganlar ro\'yxati';
-
-  @override
-  String get whitelistLabel => 'Ruxsat berilganlar ro\'yxati';
 
   @override
   String get width => 'Kenglik';
@@ -4881,12 +3569,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get year => 'Yil';
-
-  @override
-  String get yearly => 'Yillik';
-
-  @override
-  String get yearlyChartTitle => 'Yillik bloklangan qo\'ng\'iroqlar';
 
   @override
   String get noSimCardsDetected => 'SIM kartalar topilmadi';
@@ -4937,10 +3619,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get useStirNotification => 'STIR\'dan bildirishnomadan foydalanish';
 
   @override
-  String get useStirNotificationDescription =>
-      'Kiruvchi qo\'ng\'iroqlar uchun STIR bildirishnomalarini yoqish';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'Mahalliy bildirishnomalarni avtomatik yopish';
 
@@ -4959,11 +3637,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'Kiruvchi qo\'ng\'iroq ma\'lumoti';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'Raqam: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'Bloklangan qo\'ng\'iroq';
@@ -5017,21 +3690,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'Firibgarlik haqida ogohlantirish';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return '$phoneNumber raqamidan potentsial firibgarlik qo\'ng\'irog\'i';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'Qoidalar yuklanmadi: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'Qo\'ng\'iroqlar jurnalini yuklash muvaffaqiyatsiz tugadi: $error';
-  }
 
   @override
   String get noBlockedTypeData => 'Bloklangan turdagi ma\'lumotlar mavjud emas';
@@ -5109,9 +3767,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get removeAds => 'Reklamalarni olib tashlash';
-
-  @override
-  String get unknownAction => 'Noma\'lum harakat';
 
   @override
   String get settingsBackup => 'Sozlamalar zaxira nusxasi';
@@ -5376,16 +4031,8 @@ class AppLocalizationsUz extends AppLocalizations {
       'Raqamni bloklash muvaffaqiyatli amalga oshirildi';
 
   @override
-  String get blockNumberFailed => 'Raqamni bloklash muvaffaqiyatsiz tugadi';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return '$phoneNumber ni blokdan chiqarishni xohlaysizmi?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return '$phoneNumber ga qo\'ng\'iroq qilinmoqda...';
   }
 
   @override
@@ -5403,9 +4050,6 @@ class AppLocalizationsUz extends AppLocalizations {
   @override
   String get unblockNumberFailed =>
       'Raqamni blokdan chiqarish muvaffaqiyatsiz tugadi';
-
-  @override
-  String get serviceNotAvailable => 'Xizmat mavjud emas';
 
   @override
   String get callingNumberFailed =>
@@ -5437,9 +4081,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'Raqam formati noto\'g\'ri';
-
-  @override
-  String get membershipFeature => 'A\'zolik funksiyasi';
 
   @override
   String get medium => 'O\'rta';
@@ -5538,9 +4179,6 @@ class AppLocalizationsUz extends AppLocalizations {
       'Barcha bildirishnomalarni tozalashni tasdiqlang';
 
   @override
-  String get allNotificationsCleared => 'Barcha bildirishnomalar tozalandi';
-
-  @override
   String get clearButton => 'Tozalash';
 
   @override
@@ -5610,9 +4248,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get reasonInaccurateInfo => 'Noto\'g\'ri ma\'lumot';
 
   @override
-  String get reasonWrongMarked => 'Noto\'g\'ri belgilangan';
-
-  @override
   String get reasonOther => 'Boshqa';
 
   @override
@@ -5622,25 +4257,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get cancel => 'Bekor qilish';
 
   @override
-  String get proposalStatus => 'Holat';
-
-  @override
-  String get statusPending => 'Kutilmoqda';
-
-  @override
-  String get statusActive => 'Faol';
-
-  @override
-  String get statusCompleted => 'Yakunlangan';
-
-  @override
-  String get statusExpired => 'Muddati o\'tgan';
-
-  @override
   String get riskLevel => 'Xavf darajasi';
-
-  @override
-  String get riskLevelVerified => 'Tasdiqlangan';
 
   @override
   String get riskLevelLow => 'Past';
@@ -5649,19 +4266,8 @@ class AppLocalizationsUz extends AppLocalizations {
   String get riskLevelHigh => 'Yuqori';
 
   @override
-  String get riskLevelUnknown => 'Noma\'lum';
-
-  @override
-  String get votingProgress => 'Ovoz berish jarayoni';
-
-  @override
   String agreeVotes(int count) {
     return 'Rozilar: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'Qarshilar: $count';
   }
 
   @override
@@ -5684,12 +4290,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get verificationReport => 'Tekshirish hisoboti';
 
   @override
-  String get showReport => 'Hisobotni ko\'rsatish';
-
-  @override
-  String get hideReport => 'Hisobotni yashirish';
-
-  @override
   String get proposalStatistics => 'Takliflar statistikasi';
 
   @override
@@ -5699,28 +4299,13 @@ class AppLocalizationsUz extends AppLocalizations {
   String get activeProposals => 'Faol takliflar';
 
   @override
-  String get completedProposals => 'Yakunlangan takliflar';
-
-  @override
-  String get myVotes => 'Mening ovozlarim';
-
-  @override
   String get proposalCreated => 'Taklif muvaffaqiyatli yaratildi';
-
-  @override
-  String get proposalCreateFailed => 'Taklif yaratish muvaffaqiyatsiz tugadi';
 
   @override
   String get voteSubmitted => 'Ovoz muvaffaqiyatli yuborildi';
 
   @override
-  String get voteSubmitFailed => 'Ovoz yuborish muvaffaqiyatsiz tugadi';
-
-  @override
   String get noProposalsFound => 'Takliflar topilmadi';
-
-  @override
-  String get loadingProposals => 'Takliflar yuklanmoqda...';
 
   @override
   String get refreshProposals => 'Takliflarni yangilash';
@@ -5872,25 +4457,11 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed =>
-      'Ovozlar sonini yuklash muvaffaqiyatsiz tugadi';
-
-  @override
   String get voteCount => 'Ovozlar soni';
-
-  @override
-  String get deletionProposalInfo => 'O\'chirish taklifi ma\'lumotlari';
 
   @override
   String get deletionProposalDescription =>
       'Jamiyat qoidalarini buzadigan raqamlarni o\'chirish uchun taklif qiling. Sizning ishtirokingiz platformani xavfsiz saqlashga yordam beradi.';
-
-  @override
-  String get voteToEarnVip =>
-      'VIP imtiyozlarni qo\'lga kiritish uchun takliflarga ovoz bering!';
-
-  @override
-  String get voteFailed => 'Ovoz berish muvaffaqiyatsiz tugadi';
 
   @override
   String get searchProposals => 'Takliflarni qidirish';
@@ -5925,50 +4496,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Potentsial firibgarlik qo\'ng\'iroqlari haqida ogohlantirishlarni ko\'rsatadi.';
 
   @override
-  String get notificationFrequencyDescription =>
-      'Yangi oʻchirish takliflari haqida bildirishnomalarni qanchalik tez-tez qabul qilishni tanlang. Siz ularni darhol, toʻplamlar orqali yoki shaxsiy intervalda qabul qilishingiz mumkin.';
-
-  @override
   String get notificationMode => 'Bildirishnoma rejimi';
-
-  @override
-  String get immediateNotifications => 'Darhol';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'Taklif yaratilishi bilanoq bildirishnoma oling.';
-
-  @override
-  String get batchNotifications => 'Toʻplamda';
-
-  @override
-  String get batchNotificationsDescription =>
-      'Bildirishnomalar xulosasini davriy ravishda oling.';
-
-  @override
-  String get customNotifications => 'Shaxsiy';
-
-  @override
-  String get customNotificationsDescription =>
-      'Bildirishnomalarni qabul qilish uchun oʻzingizning intervalingizni belgilang.';
-
-  @override
-  String get customFrequency => 'Shaxsiy chastota';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes daqiqa';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours soat';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours soat $minutes daqiqa';
-  }
 
   @override
   String get pendingProposals => 'Kutilayotgan takliflar';
@@ -5990,9 +4518,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get riskLevelLabel => 'Xavf darajasi';
-
-  @override
-  String get riskLevelDescription => 'Raqamning xavf darajasi';
 
   @override
   String get phoneNumberMinDigits =>
@@ -6019,35 +4544,13 @@ class AppLocalizationsUz extends AppLocalizations {
   String get countryCodeRequired => 'Davlat kodi talab qilinadi';
 
   @override
-  String get countryCodeLengthError =>
-      'Davlat kodi 2 harfdan iborat bo\'lishi kerak';
-
-  @override
   String get phoneNumberHint => 'Telefon raqamini kiriting';
 
   @override
   String get phoneNumberRequired => 'Telefon raqami talab qilinadi';
 
   @override
-  String get phoneNumberLengthError =>
-      'Telefon raqami kamida 7 raqamdan iborat bo\'lishi kerak';
-
-  @override
-  String get reasonHint => 'Batafsil tushuntirish bering (kamida 10 belgi)';
-
-  @override
   String get reasonRequired => 'Sabab talab qilinadi';
-
-  @override
-  String get reasonLengthError =>
-      'Sabab kamida 10 belgidan iborat bo\'lishi kerak';
-
-  @override
-  String get guidelinesTitle => 'Ko\'rsatmalar';
-
-  @override
-  String get guidelinesText =>
-      '• Faqat haqiqatan ham muammoli bo\'lgan raqamlarni xabar qiling\n• Aniq va batafsil sabablarni taqdim eting\n• Jiddiyligiga qarab tegishli xavf darajasini tanlang\n• Yolg\'on hisobotlar hisob qaydnomasining cheklanishiga olib kelishi mumkin';
 
   @override
   String get riskLevelCritical => 'Muhim';
@@ -6059,57 +4562,11 @@ class AppLocalizationsUz extends AppLocalizations {
   String get riskLevelVeryLow => 'Juda past';
 
   @override
-  String get riskDescriptionVeryLow =>
-      'Juda past - Kichik bezovtalik, kamdan-kam qo\'ng\'iroqlar';
-
-  @override
-  String get riskDescriptionLow =>
-      'Past - Vaqti-vaqti bilan keladigan istalmagan qo\'ng\'iroqlar';
-
-  @override
-  String get riskDescriptionMedium =>
-      'O\'rtacha - Doimiy spam yoki telemarketing';
-
-  @override
-  String get riskDescriptionHigh =>
-      'Yuqori - Doimiy ta\'qib yoki firibgarlik urinishlari';
-
-  @override
-  String get riskDescriptionCritical =>
-      'Muhim - Xavfli firibgarliklar yoki tahdidlar';
-
-  @override
   String get notificationFrequencyTitle => 'Bildirishnoma chastotasi';
-
-  @override
-  String get notificationFrequencyLabel => 'Bildirishnoma chastotasi (soat)';
 
   @override
   String errorMessage(String error) {
     return 'Xato: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'Ovozlar: $totalVotes ($supportPercentage% qo\'llab-quvvatlash)';
-  }
-
-  @override
-  String get timeJustNow => 'Hozirgina';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return '$minutes daqiqa oldin';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return '$hours soat oldin';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return '$days kun oldin';
   }
 
   @override
@@ -6194,10 +4651,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get liveActivitiesTestTitle => 'Jonli faoliyatni sinash';
 
   @override
-  String get liveActivitiesTestSubtitle =>
-      'Jonli faoliyat bildirishnomasini sinab ko\'rish.';
-
-  @override
   String get liveNotificationCustomizationTitle =>
       'Jonli bildirishnomani sozlash';
 
@@ -6223,16 +4676,10 @@ class AppLocalizationsUz extends AppLocalizations {
   String get proposalDetails => 'Taklif tafsilotlari';
 
   @override
-  String get filterByStatus => 'Holat bo\'yicha filtrlash';
-
-  @override
   String get proposalNotFound => 'Taklif topilmadi';
 
   @override
   String get processed => 'Qayta ishlangan';
-
-  @override
-  String get showAll => 'Hammasini ko\'rsatish';
 
   @override
   String get filterAndSortTitle => 'Filtrlash va saralash';
@@ -6271,9 +4718,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get invalidSimData => 'Noto\'g\'ri SIM ma\'lumotlari';
 
   @override
-  String get simCardData => 'SIM karta ma\'lumotlari';
-
-  @override
   String get simSlot => 'SIM uyasi';
 
   @override
@@ -6292,12 +4736,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get callTypeSilenced => 'Jim qilingan';
 
   @override
-  String get callTypeVoicemail => 'Ovozli xabar';
-
-  @override
-  String get callTypeUnknownIntercept => 'Noma\'lum tutib olish';
-
-  @override
   String andMoreItems(int count) {
     return 'va $count ta qo\'shimcha element';
   }
@@ -6310,10 +4748,6 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6397,9 +4831,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

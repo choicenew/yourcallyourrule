@@ -18,13 +18,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get aboutPhoneSubscriptionRules => 'Over Telefoon Abonnementregels';
 
   @override
-  String get aboutPhoneSubscriptions => 'Over Telefoonabonnementen';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'Abonneer u op telefoonregelgroepen via URL, update regels automatisch. Ondersteunt regelbestanden in JSON- en CSV-formaat.';
-
-  @override
   String get aboutSmsFilter => 'Over SMS-filtering';
 
   @override
@@ -47,9 +40,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get actionBlock => 'Blokkeren';
-
-  @override
-  String get actionFilterAll => 'Alle filters';
 
   @override
   String get actionFilterTitle => 'Filter op Actietype';
@@ -95,28 +85,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'Toegevoegd aan Toegestane Regels';
-
-  @override
-  String get addedToBlacklist => 'Toegevoegd aan Zwarte Lijst';
-
-  @override
-  String get addedToBlockedRules => 'Toegevoegd aan Geblokkeerde Regels';
-
-  @override
-  String get addedToFavoriteContacts => 'Toegevoegd aan favoriete contacten';
-
-  @override
   String get addedToFavorites => 'Toegevoegd aan favorieten';
-
-  @override
-  String get addedToWhitelist => 'Toegevoegd aan Witte Lijst';
-
-  @override
-  String get addFavorite => 'Favoriet Toevoegen';
-
-  @override
-  String get addFilter => 'Filter Toevoegen';
 
   @override
   String get addLabel => 'Label Toevoegen';
@@ -130,17 +99,10 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'Label Toevoegen aan Oproeprecord';
-
-  @override
   String get addName => 'Naam Toevoegen';
 
   @override
   String get addNoneSubscription => 'Geen Abonnement Toevoegen';
-
-  @override
-  String get addOrEditContactInfo =>
-      'Gebruikt om contactinformatie toe te voegen of te bewerken';
 
   @override
   String get addPhoneMark => 'Telefoonmarkering Toevoegen';
@@ -172,9 +134,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get addRule => 'Regel Toevoegen';
 
   @override
-  String get addRuleButton => 'Regel Toevoegen';
-
-  @override
   String addRuleFailed(Object error) {
     return 'Regel toevoegen mislukt: $error';
   }
@@ -184,9 +143,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'Stil Abonnement Toevoegen';
-
-  @override
-  String get addSimRuleButton => 'SIM Regel Toevoegen';
 
   @override
   String get addSmsFilterRule => 'SMS Filterregel Toevoegen';
@@ -212,16 +168,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get addSubscriptionTooltip => 'Abonnement Toevoegen';
 
   @override
-  String get addToAllowedRules => 'Toevoegen aan Toegestane Regels';
-
-  @override
   String get addToBlacklist => 'Toevoegen aan Zwarte Lijst';
-
-  @override
-  String get addToBlockedRules => 'Toevoegen aan Geblokkeerde Regels';
-
-  @override
-  String get addToFavoriteContacts => 'Toevoegen aan Favoriete Contacten';
 
   @override
   String get addToFavorites => 'Toevoegen aan Favorieten';
@@ -233,9 +180,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get addToWhitelist => 'Toevoegen aan Witte Lijst';
 
   @override
-  String get adPlaceholder => 'Advertentie Placeholder';
-
-  @override
   String get agent => 'Agent';
 
   @override
@@ -243,9 +187,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get allCallsTab => 'Alle';
-
-  @override
-  String get allDataClearedSuccessfully => 'Alle gegevens succesvol gewist';
 
   @override
   String get allow => 'Toestaan';
@@ -258,10 +199,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get allowAllBlacklistedNumbers => 'Alle Geblokkeerde Nummers Toestaan';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc =>
-      'Sta oproepen toe van de blokkeerlijst';
 
   @override
   String get allowAllBlockRules => 'Alle Blokkeren Regels Toestaan';
@@ -330,13 +267,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get allowRules => 'Toestaan Regels';
 
   @override
-  String get allowWhitelistedNumbers => 'Staande nummers toestaan';
-
-  @override
-  String get allowWhitelistedNumbersDescription =>
-      'Sta alle nummers op de lijst toe';
-
-  @override
   String get allPermissionsGranted => 'Alle machtigingen verleend';
 
   @override
@@ -349,10 +279,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'Antwoorden en ophangen';
-
-  @override
-  String get appLegalese =>
-      '© 2023 Your Call Your Rule. Alle rechten voorbehouden.';
 
   @override
   String get applicationSoftware => 'Toepassingssoftware';
@@ -391,13 +317,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'Automatische update-instellingen';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'Beheer automatische updates voor regels en plugins';
-
-  @override
-  String get autoUpdateSettingsTitle => 'Automatische update-instellingen';
 
   @override
   String get autoUpdateSubtitle =>
@@ -446,45 +365,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get backupFailed => 'Back-up mislukt';
 
   @override
-  String get backupFailedMessage => 'Back-up mislukt';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'Back-up mislukt: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle => 'Back-up of herstel applicatiegegevens';
-
-  @override
-  String get backupRestoreTitle => 'Back-up & Herstel';
-
-  @override
-  String get backupSectionTitle => 'Back-up';
-
-  @override
   String get backupSettings => 'Back-upinstellingen';
 
   @override
-  String get backupSettingsDialogTitle => 'Back-upinstellingen';
-
-  @override
-  String get backupSettingsTitle => 'Back-upinstellingen';
-
-  @override
-  String get backupSuccessMessage => 'Succesvol geback-upt naar de cloud';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'Back-up succesvol naar: $path';
-  }
-
-  @override
   String get backupToCloud => 'Back-up naar Cloud';
-
-  @override
-  String get backupToCloudDescription =>
-      'Back-up instellingen en regels naar cloudopslag';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -492,16 +376,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'Back-up naar Cloud';
-
-  @override
   String get backupToCloudSuccess => 'Succesvol geback-upt naar de cloud';
-
-  @override
-  String get backupToCloudTitle => 'Back-up naar Cloud';
-
-  @override
-  String get backupToLocalLabel => 'Back-up naar Lokaal';
 
   @override
   String get bank => 'Bank';
@@ -520,22 +395,13 @@ class AppLocalizationsNl extends AppLocalizations {
       '• Basisregel filtering: Regels filteren op basis van zwarte lijst, witte lijst en regex';
 
   @override
-  String get basicRuleFilterSettings => 'Basisregel filterinstellingen';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'Filter oproepen met zwarte/witte lijsten en reguliere expressies';
-
-  @override
-  String get batchDeleteContacts => 'Batch contacten verwijderen';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'Weet u zeker dat u $count geselecteerde contacten wilt verwijderen?';
   }
-
-  @override
-  String get batchDeleteFailed => 'Batchverwijdering mislukt';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -547,9 +413,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get blacklistingAndWhitelisting => 'Zwarte en witte lijsten';
-
-  @override
-  String get blacklistLabel => 'Zwarte lijst';
 
   @override
   String get blackWhiteList => 'Zwarte/Witte Lijst';
@@ -564,19 +427,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get blocked => 'Geblokkeerd';
 
   @override
-  String get blockedCallAction => 'Geblokkeerde oproepactie';
-
-  @override
   String get blockedCalls => 'Geblokkeerde oproepen';
 
   @override
   String get blockedCallsTitle => 'Geblokkeerde oproepen';
-
-  @override
-  String get blockedCommunications => 'Geblokkeerde communicatie';
-
-  @override
-  String get blockedPhoneLabel => 'Geblokkeerde oproepen';
 
   @override
   String get blockedSpamCalls => 'Geblokkeerde spamoproepen';
@@ -591,9 +445,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get blockInternationalCallsTitle =>
       'Internationale oproepen blokkeren';
-
-  @override
-  String get blockLandlineNumbersTitle => 'Vaste nummers blokkeren';
 
   @override
   String get blockMobileNumbers =>
@@ -644,11 +495,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get callback => 'Terugbellen';
 
   @override
-  String callbackTo(String number) {
-    return 'Terugbellen naar $number';
-  }
-
-  @override
   String get callBlocking => 'Oproep blokkering';
 
   @override
@@ -656,9 +502,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'Oproep-ID aanpassen';
-
-  @override
-  String get callerIdDialogTitle => 'Oproep-ID informatie';
 
   @override
   String get callerIdDisplayMode => 'Weergavemodus nummerherkenning';
@@ -670,13 +513,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'Voorbeeld nummerherkenning';
-
-  @override
-  String get callFilter => 'Oproepfilter';
-
-  @override
-  String get callFilterDescription =>
-      'Wanneer ingeschakeld, worden inkomende oproepen gecontroleerd aan de hand van de onderstaande regel lijst. Oproepfilterregels worden standaard niet tussen apparaten gesynchroniseerd.';
 
   @override
   String get callFilterRules => 'Oproepfilterregels';
@@ -707,26 +543,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get callHistoryInfoTitle => 'Oproepgeschiedenis';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'Initialisatie oproepgeschiedenis mislukt: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'Vernieuwen oproepgeschiedenis mislukt: $error';
-  }
-
-  @override
   String get callHistoryTab => 'Oproepgeschiedenis';
-
-  @override
-  String get callHistoryTimelineEarlier => 'Eerder';
-
-  @override
-  String get callHistoryTimelineToday => 'Vandaag';
-
-  @override
-  String get callHistoryTimelineYesterday => 'Gisteren';
 
   @override
   String get callScreeningPermission => 'Toestemming oproepfiltering';
@@ -738,13 +555,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'Toestemming oproepfiltering niet verleend, kan functionaliteit van de app beïnvloeden.';
-
-  @override
-  String get callSettingsSubtitle =>
-      'Instellingen voor nummerherkenning, filtering en blokkering';
-
-  @override
-  String get callSettingsTitle => 'Oproepinstellingen';
 
   @override
   String get callStatistics => 'Oproepstatistieken';
@@ -802,27 +612,10 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'Tag wijzigen';
-
-  @override
   String get charity => 'Liefdadigheid';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'Maand $month';
-  }
-
-  @override
-  String get chartOneDayAgo => '1 dag geleden';
-
-  @override
-  String get chartOneMonthAgo => '1 maand geleden';
-
-  @override
   String get chartOneWeekAgo => '1 week geleden';
-
-  @override
-  String get chartTenDaysAgo => '10 dagen geleden';
 
   @override
   String get chartThreeDaysAgo => '3 dagen geleden';
@@ -843,23 +636,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Kies de standaard onderscheppingsactie';
 
   @override
-  String get clearAllData => 'Alle gegevens wissen';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'Weet u zeker dat u alle toepassingsgegevens wilt wissen? Deze actie kan niet ongedaan worden gemaakt.';
-
-  @override
-  String get clearAllDataDescription => 'Alle toepassingsgegevens wissen';
-
-  @override
-  String get clearAllDataLabel => 'Alle gegevens wissen';
-
-  @override
   String get clearFilter => 'Filter wissen';
-
-  @override
-  String get clearLabelFilter => 'Labelfilter wissen';
 
   @override
   String get clearLabelFilterButton => 'Labelfilter wissen';
@@ -884,9 +661,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get cloudSyncTitle => 'Cloudsynchronisatie';
 
   @override
-  String get collapseLabelSelector => 'Labelkiezer inklappen';
-
-  @override
   String get collection => 'Incasso';
 
   @override
@@ -906,15 +680,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get configureBackupOptions => 'Back-upopties configureren';
 
   @override
-  String get configureBackupOptionsSubtitle => 'Back-upopties configureren';
-
-  @override
   String get configureCloudSyncService =>
       'Cloudsynchronisatieservice configureren';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'Configureer een cloudsynchronisatieservice om synchronisatie tussen meerdere apparaten mogelijk te maken.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -925,31 +692,13 @@ class AppLocalizationsNl extends AppLocalizations {
       'SIM-kaartfilterregels configureren';
 
   @override
-  String get configureSyncServiceHint =>
-      'Configureer eerst de synchronisatieservice in de cloudsynchronisatie-instellingen';
-
-  @override
   String get confirm => 'Bevestigen';
-
-  @override
-  String get confirmBatchDeleteContacts =>
-      'Weet u zeker dat u de geselecteerde';
 
   @override
   String get confirmButton => 'Bevestigen';
 
   @override
   String get confirmDelete => 'Bevestig Verwijderen';
-
-  @override
-  String get confirmDeleteContact => 'Weet u zeker dat u wilt verwijderen';
-
-  @override
-  String get confirmDeleteContactName => 'Verwijderen bevestigen?';
-
-  @override
-  String get confirmDeleteFilter =>
-      'Weet u zeker dat u dit filter wilt verwijderen?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -971,10 +720,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Weet u zeker dat u deze regel wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'Weet u zeker dat u geselecteerde contacten wilt verwijderen?';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'Weet u zeker dat u deze sms-filterregel wilt verwijderen?';
 
@@ -983,19 +728,12 @@ class AppLocalizationsNl extends AppLocalizations {
       'Weet u zeker dat u deze sms-regel wilt verwijderen?';
 
   @override
-  String get confirmDeleteSubscription =>
-      'Weet u zeker dat u dit abonnement wilt verwijderen?';
-
-  @override
   String confirmDeleteSubscriptions(String name) {
     return 'Weet u zeker dat u $name wilt verwijderen?';
   }
 
   @override
   String get confirmPassword => 'Wachtwoord bevestigen';
-
-  @override
-  String get confirmPasswordLabel => 'Wachtwoord bevestigen';
 
   @override
   String get connectedStatus => 'Verbonden';
@@ -1020,16 +758,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get contactDeleted => 'Contact verwijderd';
 
   @override
-  String get contactEditDialog => 'Contact Bewerken Dialoogvenster';
-
-  @override
-  String get contactNameHint => 'Voer contactnaam in (optioneel)';
-
-  @override
   String get contactNameLabel => 'Naam';
-
-  @override
-  String get contactNameOptional => 'Contactnaam (optioneel)';
 
   @override
   String get contactNotFound => 'Contact niet gevonden';
@@ -1043,24 +772,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle => 'Contactbeheer en labelinstellingen';
-
-  @override
-  String get contactSettingsTitle => 'Contactinstellingen';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'Contacten laden mislukt: $error';
-  }
-
-  @override
   String get contactsManagement => 'Contactbeheer';
-
-  @override
-  String get contactsManagementPageTitle => 'Contactbeheer Pagina';
-
-  @override
-  String get contactsPageTitle => 'Contactbeheer';
 
   @override
   String get contactsPermission => 'Contacten Machtiging';
@@ -1075,14 +787,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'Abonneren op contactlijsten via URL, contactinformatie en labels automatisch bijwerken. Ondersteunt JSON-formaatgegevens.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'Contactabonnementen laden mislukt: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'Contactabonnementen';
 
   @override
   String get contactUpdateSuccess => 'Contact succesvol bijgewerkt';
@@ -1118,26 +822,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get countryRegionNamePosition => 'Land/Regio Naam Positie';
 
   @override
-  String get countrySelectionDialog => 'Land Selectie Dialoogvenster';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'Gebruikt om een land te selecteren voor het opvragen van beller-ID-informatie';
-
-  @override
   String get countThresholdDescription =>
       'Stel de minimale drempelwaarde in die nodig is om filteracties te activeren';
 
   @override
   String get countThresholdLabel => 'Aantal Drempelwaarde';
-
-  @override
-  String get countThresholdSettings => 'Aantal Drempelwaarde Instellingen';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'Aantal Drempelwaarde: $count';
-  }
 
   @override
   String get createdRules => 'Aan gemaakte Regels';
@@ -1146,47 +835,22 @@ class AppLocalizationsNl extends AppLocalizations {
   String get csvFormat => 'CSV Formaat';
 
   @override
-  String get currentDeviceChip => 'Huidig';
-
-  @override
   String get currentDeviceLabel => 'Huidig Apparaat Label';
 
   @override
   String get currentDeviceTitle => 'Huidig Apparaat';
 
   @override
-  String get currentLabels => 'Huidige Labels:';
-
-  @override
   String get currentLanguage => 'Huidige Taal';
 
   @override
-  String get currentPasswordLabel => 'Huidig Wachtwoord';
-
-  @override
   String get customerService => 'Klantenservice';
-
-  @override
-  String get customRange => 'Aangepast Bereik';
-
-  @override
-  String get dailyStatistics => 'Dagelijkse Statistieken';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'Ontvang dagelijkse statistieken over geblokkeerde oproepen en berichten';
 
   @override
   String get dashboardTab => 'Dashboard';
 
   @override
   String get dataAnalysis => 'Gegevensanalyse';
-
-  @override
-  String get dataAnalysisDashboardPage => 'Gegevensanalyse Dashboard Pagina';
-
-  @override
-  String get dataExport => 'Gegevens Exporteren';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1204,16 +868,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'Met deze functie kunt u al uw gegevens tussen apparaten overzetten. Momenteel kunt u de back-up- en herstel functies gebruiken om uw gegevens handmatig te migreren.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'Met deze functie kunt u al uw gegevens tussen apparaten overzetten. Momenteel kunt u de back-up- en herstel functies gebruiken om uw gegevens handmatig te migreren.';
-
-  @override
-  String get dataMigrationDialogTitle => 'Gegevensmigratie';
-
-  @override
-  String get dataMigrationSectionTitle => 'Gegevensmigratie';
 
   @override
   String get dataSourceReminder => 'Gegevensbron Herinnering';
@@ -1238,9 +892,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get debtCollection => 'Incasso';
 
   @override
-  String get defaultPeriod => 'Week';
-
-  @override
   String get delete => 'Verwijderen';
 
   @override
@@ -1255,24 +906,9 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation =>
-      'Weet u zeker dat u contact wilt verwijderen';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return 'Weet u zeker dat u $deviceName wilt verwijderen?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'Apparaat Verwijderen';
-
-  @override
   String deleteFailed(Object error) {
     return 'Verwijderen mislukt: $error';
   }
-
-  @override
-  String get deleteFilter => 'Filter Verwijderen';
 
   @override
   String get deleteLabel => 'Label Verwijderen';
@@ -1310,9 +946,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get deleteSelected => 'Geselecteerde Verwijderen';
 
   @override
-  String get deleteSmsRule => 'SMS Regel Verwijderen';
-
-  @override
   String get deleteSubscription => 'Abonnement Verwijderen';
 
   @override
@@ -1332,16 +965,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get delivery => 'Levering';
 
   @override
-  String get deviceDeletedSuccessfully => 'Apparaat succesvol verwijderd';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage =>
-      'Apparaat succesvol verwijderd';
-
-  @override
-  String get deviceIdLabel => 'Apparaat ID';
-
-  @override
   String get deviceIDLabel => 'Apparaat ID';
 
   @override
@@ -1358,27 +981,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get deviceName => 'Apparaatnaam';
 
   @override
-  String get deviceNameCannotBeEmpty => 'Apparaatnaam kan niet leeg zijn';
-
-  @override
-  String get deviceNameHint => 'Voer de apparaatnaam in';
-
-  @override
   String get deviceNameLabel => 'Apparaatnaam';
 
   @override
-  String get deviceRenamedSuccessfully => 'Apparaat succesvol hernoemd';
-
-  @override
   String get deviceRenamedSuccessfullyMessage => 'Apparaat succesvol hernoemd';
-
-  @override
-  String get devicesSyncedSuccessfully =>
-      'Apparaten succesvol gesynchroniseerd';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage =>
-      'Apparaten succesvol gesynchroniseerd';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1403,10 +1009,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'Globale plugins uitschakelen';
-
-  @override
-  String get disableSubscriptionSuccessfully =>
-      'Abonnement succesvol uitgeschakeld';
 
   @override
   String get disconnectButton => 'Verbinding verbreken';
@@ -1440,25 +1042,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get editContact => 'Contact bewerken';
 
   @override
-  String get editFilter => 'Filter bewerken';
-
-  @override
   String get editLabel => 'Label bewerken';
 
   @override
   String get editPhoneRule => 'Telefoonregel bewerken';
 
   @override
-  String get editPhoneRules => 'Gebruikt om telefoonregels te bewerken';
-
-  @override
-  String get editPhoneRuleTitle => 'Telefoonregel bewerken';
-
-  @override
   String get editRule => 'Regel bewerken';
-
-  @override
-  String get editSmsRule => 'Sms-regel bewerken';
 
   @override
   String get education => 'Onderwijs';
@@ -1468,9 +1058,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get email => 'E-mail';
-
-  @override
-  String get emailOptional => 'E-mail (optioneel)';
 
   @override
   String get enableCallFilter => 'Oproepfilter inschakelen';
@@ -1490,15 +1077,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => 'Back-upbestanden versleutelen';
-
-  @override
-  String get enableEncryptionLabel => 'Encryptie inschakelen';
-
-  @override
-  String get enableEncryptionSubtitle => 'Back-upbestanden worden versleuteld';
-
-  @override
-  String get enableEncryptionTitle => 'Encryptie inschakelen';
 
   @override
   String get enableGlobalPlugins => 'Globale plugins inschakelen';
@@ -1535,9 +1113,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Sta regelconfiguraties toe zonder onderscheppingsacties';
 
   @override
-  String get enableNotifications => 'Meldingen inschakelen';
-
-  @override
   String get enableRemoteNumberFilter => 'Extern nummerfilter inschakelen';
 
   @override
@@ -1553,14 +1128,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'Wanneer ingeschakeld, worden berichten automatisch gefilterd volgens de regels';
-
-  @override
-  String get enableStatisticsNotifications =>
-      'Statistiekenmeldingen inschakelen';
-
-  @override
-  String get enableSubscriptionSuccessfully =>
-      'Abonnement succesvol ingeschakeld';
 
   @override
   String get enableTimeInterception => 'Tijdonderschepping inschakelen';
@@ -1596,10 +1163,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Het verbeterde filtersysteem ondersteunt zowel globale regels als filterconfiguraties per SIM-kaart.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'Voer zowel een telefoonnummer als een regex-patroon in';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'Voer zowel een telefoonnummer als een regex-patroon in.';
 
@@ -1607,31 +1170,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get enterContactName => 'Voer de contactnaam in';
 
   @override
-  String get enterCurrentPasswordHint => 'Voer het huidige wachtwoord in';
-
-  @override
   String get enterDeviceName => 'Apparaatnaam invoeren';
-
-  @override
-  String get enterDeviceNameHint => 'Voer de apparaatnaam in';
-
-  @override
-  String get enterEmail => 'Voer e-mailadres in';
 
   @override
   String get enterEmailOptional => 'Voer e-mailadres in (optioneel)';
 
   @override
   String get enterEncryptionPasswordHint => 'Voer versleutelingswachtwoord in';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'Voer versleutelingswachtwoord in';
-
-  @override
-  String get enterFilterName => 'Voer filternaam in';
-
-  @override
-  String get enterFilterPattern => 'Voer filterpatroon in';
 
   @override
   String get enterIconCode => 'Voer icooncode in';
@@ -1644,13 +1189,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Voer een nieuwe naam in voor dit apparaat';
 
   @override
-  String get enterNewPasswordHint => 'Voer nieuw wachtwoord in';
-
-  @override
   String get enterPasswordAgain => 'Voer wachtwoord opnieuw in';
-
-  @override
-  String get enterPasswordHint => 'Voer wachtwoord in';
 
   @override
   String get enterPhoneNumber => 'Voer telefoonnummer in';
@@ -1678,10 +1217,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'Voer regex-patroon in';
-
-  @override
-  String get enterRuleNameAndPattern =>
-      'Voer zowel de regelnaam als het patroon in';
 
   @override
   String get enterRuleNameAndPatternMessage =>
@@ -1725,14 +1260,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get enterWebDAVUsernameHint => 'Voer WebDAV-gebruikersnaam in';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'Fout bij het verwijderen van apparaat: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'Fout bij het laden van plugin';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'Er is een fout opgetreden: $error';
   }
@@ -1748,14 +1275,6 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'Fout bij het synchroniseren van apparaten: $error';
-  }
-
-  @override
-  String get errorText => 'Fout';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'Fout bij het de-registreren van apparaat: $error';
   }
@@ -1765,9 +1284,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'bv. Blokkeer marketing-sms\'en';
-
-  @override
-  String get exampleContentRegex => 'bv., .*aanbieding.*';
 
   @override
   String get exampleContentRegexHint => 'Voorbeeld Content Regex';
@@ -1786,9 +1302,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get exampleRegex400Prefix => 'Voorbeeld regex voor 400-prefix';
 
   @override
-  String get exampleRegexFormat => 'Voorbeeld: ^10086\$ formaat';
-
-  @override
   String get exampleSenderRegexHint => 'Voorbeeld';
 
   @override
@@ -1799,9 +1312,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get exchangeVip => 'VIP uitwisselen';
-
-  @override
-  String get expandLabelSelector => 'Labelkiezer uitvouwen';
 
   @override
   String expiryTime(Object time) {
@@ -1815,19 +1325,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get exportAllApplicationSettings => 'Alle app-instellingen exporteren';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'Alle app-instellingen exporteren';
-
-  @override
   String get exportAllRuleConfigurations =>
       'Alle regelconfiguraties exporteren';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle =>
-      'Alle regelconfiguraties exporteren';
-
-  @override
-  String get exportComplete => 'Exporteren voltooid';
 
   @override
   String get exportConfig => 'Configuratie exporteren';
@@ -1839,9 +1338,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get exportData => 'Gegevens exporteren';
 
   @override
-  String get exportError => 'Exportfout';
-
-  @override
   String get exportFailed => 'Exporteren mislukt';
 
   @override
@@ -1849,9 +1345,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'Exportfunctie binnenkort beschikbaar';
-
-  @override
-  String get exporting => 'Exporteren...';
 
   @override
   String get exportLabels => 'Labels exporteren';
@@ -1873,34 +1366,17 @@ class AppLocalizationsNl extends AppLocalizations {
   String get exportRules => 'Regels exporteren';
 
   @override
-  String get exportRulesDialogTitle => 'Regels exporteren';
-
-  @override
-  String get exportRulesTitle => 'Regels exporteren';
-
-  @override
   String get exportSmsRules => 'SMS-regels exporteren';
 
   @override
   String get exportStatisticsData => 'Statistieken exporteren';
 
   @override
-  String get exportSuccess => 'Exporteren succesvol';
-
-  @override
   String get exportSuccesslly => 'Configuratie succesvol geëxporteerd';
-
-  @override
-  String get failedToAddContact => 'Contactpersoon niet kunnen toevoegen';
 
   @override
   String failedToAddRule(Object error) {
     return 'Regel niet kunnen toevoegen: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'SMS-regel niet kunnen toevoegen: $error';
   }
 
   @override
@@ -1918,9 +1394,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Back-upbestand niet kunnen ontsleutelen';
 
   @override
-  String get failedToDeleteDevice => 'Apparaat niet kunnen verwijderen';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'SMS-regel niet kunnen verwijderen: $error';
   }
@@ -1928,11 +1401,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'Regels niet kunnen exporteren: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'SMS-regels niet kunnen exporteren: $error';
   }
 
   @override
@@ -1946,20 +1414,6 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'SMS-regels niet kunnen importeren: $error';
-  }
-
-  @override
-  String get failedToLoadContacts => 'Contacten niet kunnen laden';
-
-  @override
-  String get failedToLoadPlugin => 'Plugin niet kunnen laden';
-
-  @override
-  String get failedToRenameDevice => 'Apparaat niet kunnen hernoemen';
-
-  @override
   String get failedToRestoreSettings => 'Instellingen niet kunnen herstellen';
 
   @override
@@ -1968,32 +1422,9 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'Wachtwoord niet kunnen instellen: $error';
-  }
-
-  @override
-  String get failedToSyncDevices => 'Apparaten niet kunnen synchroniseren';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'Regelstatus niet kunnen wisselen: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus =>
-      'Abonnementsstatus niet kunnen wisselen';
-
-  @override
-  String get failedToUpdateContact => 'Contactpersoon niet kunnen bijwerken';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'SMS-regel niet kunnen bijwerken: $error';
-  }
-
-  @override
-  String get failure => 'Fout';
 
   @override
   String get favoriteContacts => 'Favoriete contacten';
@@ -2033,9 +1464,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get filterByLabel => 'Filteren op label';
 
   @override
-  String get filterClear => 'Filter wissen';
-
-  @override
   String get filterControlPanelTitle => 'Filter bedieningspaneel';
 
   @override
@@ -2046,22 +1474,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get filterControlTitle => 'Filter Controle';
 
   @override
-  String get filterDeleteFailed => 'Filter verwijderen mislukt';
-
-  @override
-  String get filterDeleteSuccess => 'Filter succesvol verwijderd';
-
-  @override
-  String get filterDetails => 'Filter Details';
-
-  @override
   String get filtered => 'Gefilterd';
-
-  @override
-  String get filteredSms => 'Gefilterde SMS';
-
-  @override
-  String get filteredSmsLabel => 'Gefilterde SMS';
 
   @override
   String get filterExplanation => 'Filter Uitleg';
@@ -2073,17 +1486,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get filterName => 'Filter Naam';
 
   @override
-  String get filterPattern => 'Filter Patroon';
-
-  @override
   String get filterPriorityNote =>
       'Opmerking: Er zijn prioriteitsrelaties tussen filters, raadpleeg de helpdocumentatie voor details';
-
-  @override
-  String get filterSaveFailed => 'Filter opslaan mislukt';
-
-  @override
-  String get filterSaveSuccess => 'Filter succesvol opgeslagen';
 
   @override
   String get filterSettings => 'Filter Instellingen';
@@ -2122,16 +1526,6 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return '$count regels gevonden. Wilt u ze importeren?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return '$count regels gevonden. Wilt u ze importeren?';
-  }
-
-  @override
   String get fraudAlert => 'FRAUDE ALERT - Hang de oproep op';
 
   @override
@@ -2166,39 +1560,14 @@ class AppLocalizationsNl extends AppLocalizations {
   String get globalFilterSettings => 'Globale Filter Instellingen';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'Configureer globale filterinstellingen die van toepassing zijn op alle SIM-slots:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'Zoek contacten, labels, zwarte lijsten, witte lijsten, etc.';
-
-  @override
-  String get globalSearchTitle => 'Globale Zoekopdracht';
-
-  @override
   String get globalSettings => 'Globale Instellingen';
-
-  @override
-  String get googleAdDisplayPosition => 'Google Advertentie Weergavepositie';
-
-  @override
-  String get googleAdMobIntegrationText =>
-      'Google AdMob advertenties kunnen hier worden geïntegreerd';
 
   @override
   String get googleDriveAuthDescription =>
       'Autoriseer met behulp van de systeemgeconfigureerde Google Drive client ID en sleutel';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'Autoriseer met behulp van de systeemgeconfigureerde Google Drive client ID en sleutel';
-
-  @override
   String get googleDriveConfigTitle => 'Google Drive Configuratie';
-
-  @override
-  String get googleDriveConfigurationTitle => 'Google Drive Configuratie';
 
   @override
   String get government => 'Overheid';
@@ -2217,9 +1586,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get height => 'Hoogte';
-
-  @override
-  String get homePageTitle => 'Startpagina';
 
   @override
   String get homeTab => 'Start';
@@ -2250,9 +1616,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get important => 'Belangrijk';
-
-  @override
-  String get importButton => 'Importeren';
 
   @override
   String get importConfig => 'Configuratie Importeren';
@@ -2306,31 +1669,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Regelconfiguraties Importeren vanuit Bestand';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'Regelconfiguraties importeren vanuit bestand';
-
-  @override
   String get importRules => 'Regels Importeren';
-
-  @override
-  String get importRulesButton => 'Regels Importeren';
-
-  @override
-  String get importRulesDialogTitle => 'Regels Importeren';
-
-  @override
-  String importRulesError(Object error) {
-    return 'Kon regels niet importeren: $error';
-  }
-
-  @override
-  String get importRulesInstructions => 'Regels importeren uit een CSV-bestand';
-
-  @override
-  String get importRulesSuccess => 'Regels succesvol geïmporteerd';
-
-  @override
-  String get importRulesTitle => 'Regels Importeren';
 
   @override
   String get importSuccess => 'Import succesvol';
@@ -2338,9 +1677,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get incomingCallInterceptAction =>
       'Onderscheppingsactie Inkomende Oproep';
-
-  @override
-  String get incomingCallNotification => 'Oproepmelding Inkomende Oproep';
 
   @override
   String get incorrectPassword => 'Onjuist wachtwoord';
@@ -2396,9 +1732,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Word lid van het Telegram Kanaal en Groep voor meer informatie';
 
   @override
-  String get jsLogsTitle => 'JS Logs';
-
-  @override
   String get jsonFormat => 'JSON Formaat';
 
   @override
@@ -2407,16 +1740,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'Behoud alle historische versies van elke back-up';
-
-  @override
-  String get keepAllVersionsLabel => 'Behoud alle versies';
-
-  @override
-  String get keepAllVersionsSubtitle =>
-      'Behoud historische versies van elke back-up';
-
-  @override
-  String get keepAllVersionsTitle => 'Behoud alle versies';
 
   @override
   String get label => 'Label';
@@ -2437,9 +1760,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Labels helpen u contacten beter te beheren, aangepaste labels toe te voegen aan telefoonnummers voor eenvoudige identificatie van oproepen en berichten.';
 
   @override
-  String get labelFilter => 'Label Filter';
-
-  @override
   String get labelFilterTooltip => 'Label Filter';
 
   @override
@@ -2450,14 +1770,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get labelNotFound => 'Label niet gevonden';
-
-  @override
-  String get labelRemoved => 'Label verwijderd';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'Kon label niet verwijderen: $error';
-  }
 
   @override
   String get labels => 'Labels';
@@ -2490,9 +1802,6 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'Label bijgewerkt';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'Kon label niet bijwerken: $error';
   }
@@ -2509,12 +1818,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'Taalinstellingen';
-
-  @override
-  String get last30Days => 'Laatste 30 Dagen';
-
-  @override
-  String get last7Days => 'Laatste 7 Dagen';
 
   @override
   String get lastSyncLabel => 'Laatste Synchronisatie';
@@ -2540,13 +1843,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get loadDataFailed => 'Kon gegevens niet laden';
 
   @override
-  String get loadFailed => 'Laden mislukt';
-
-  @override
   String get loading => 'Laden...';
-
-  @override
-  String get loadingData => 'Gegevens laden...';
 
   @override
   String get loadingTags => 'Tags laden...';
@@ -2570,12 +1867,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'Kon gemarkeerde telefoons niet laden: $error';
   }
-
-  @override
-  String get loadMore => 'Meer laden';
-
-  @override
-  String get loadPluginButton => 'Plugin laden';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2602,9 +1893,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get loan => 'Lening';
-
-  @override
-  String get localBackupTitle => 'Lokale Back-up';
 
   @override
   String get localCounterFilter => 'Lokale Teller Filter';
@@ -2699,9 +1987,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get manage => 'Beheer Contacten';
 
   @override
-  String get manageContacts => 'Beheer';
-
-  @override
   String get manageFavoriteContacts => 'Favoriete Contacten Beheren';
 
   @override
@@ -2710,9 +1995,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'Voeg SMS filterregels toe, bewerk ze of verwijder ze';
-
-  @override
-  String get manageFrequentContacts => 'Frequente Contacten Beheren';
 
   @override
   String get markCounts => 'Markeer Aantallen';
@@ -2740,16 +2022,10 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle => 'Telefoonnummers markeren';
-
-  @override
   String get markPhoneManagementTitle => 'Telefoonnummerbeheer markeren';
 
   @override
   String get markPhoneSuccess => 'Telefoonnummer succesvol gemarkeerd';
-
-  @override
-  String get matchFailed => 'Geen overeenkomst!';
 
   @override
   String get matchFailedMessage => 'Geen overeenkomst.';
@@ -2771,9 +2047,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Specifieke cijferpatronen matchen:';
 
   @override
-  String get matchSuccessful => 'Overeenkomst succesvol!';
-
-  @override
   String get matchSuccessfulMessage => 'Overeenkomst succesvol!';
 
   @override
@@ -2784,9 +2057,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get migrationTool => 'Migratietool';
-
-  @override
-  String get migrationToolTitle => 'Migratietool';
 
   @override
   String get minutes => 'minuten';
@@ -2801,9 +2071,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get monthlyCallCount => 'Maandelijkse oproepen';
 
   @override
-  String get monthlyChartTitle => 'Maandelijkse geblokkeerde oproepen';
-
-  @override
   String get monthlyMembership => 'Maandelijks lidmaatschap';
 
   @override
@@ -2812,9 +2079,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'Maandelijks totaal';
-
-  @override
-  String get monthlyTotalLabel => 'Maandelijks totaal';
 
   @override
   String get moreOptions => 'Meer opties';
@@ -2830,33 +2094,16 @@ class AppLocalizationsNl extends AppLocalizations {
       'Naam en telefoonnummer mogen niet leeg zijn';
 
   @override
-  String get nameAndPhoneNumberRequired =>
-      'Naam en telefoonnummer mogen niet leeg zijn';
-
-  @override
   String get nameColor => 'Naamkleur';
 
   @override
   String get nameFontSize => 'Naam lettergrootte';
 
   @override
-  String nameLabel(Object name) {
-    return 'Naam: $name';
-  }
-
-  @override
   String get namePosition => 'Naampositie';
 
   @override
   String get nameUnknown => 'Naam: Onbekend';
-
-  @override
-  String nameWithValue(String name) {
-    return 'Naam: $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'Nieuw wachtwoord';
 
   @override
   String get nextStep => 'Volgende';
@@ -2872,13 +2119,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Geen actieve cloud synchronisatieservice';
 
   @override
-  String get noCallLogs => 'Geen oproepgeschiedenis';
-
-  @override
   String get noCallRecords => 'Geen oproepgegevens';
-
-  @override
-  String get noContacts => 'Nog geen contacten';
 
   @override
   String get noContactsYet => 'Nog geen contacten';
@@ -2890,19 +2131,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'Geen apparaten geregistreerd';
 
   @override
-  String get noDevicesRegisteredYet => 'Nog geen apparaten geregistreerd.';
-
-  @override
-  String get noFilters => 'Nog geen filters';
-
-  @override
   String get noLabels => 'Nog geen labels';
 
   @override
   String get noMarkedPhones => 'Geen gemarkeerde telefoonnummers';
-
-  @override
-  String get noMatchingContacts => 'Geen overeenkomende contacten';
 
   @override
   String get noMatchingContactsFound =>
@@ -2910,9 +2142,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get noMatchingNumbersFound => 'Geen overeenkomende nummers gevonden';
-
-  @override
-  String get noMatchingRecords => 'Geen overeenkomende oproepgegevens';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2927,15 +2156,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get noPlugins => 'Nog geen plugins';
-
-  @override
-  String get noRecords => 'Geen oproepgegevens';
-
-  @override
-  String get noResultReturned => 'Geen resultaat geretourneerd';
-
-  @override
-  String get noResultReturnedLog => 'Geen resultaat geretourneerd van plugin';
 
   @override
   String noRules(Object ruleType) {
@@ -2958,9 +2178,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get noSubscriptions => 'Geen abonnementen';
 
   @override
-  String get noSubscriptionsYet => 'Nog geen abonnementen';
-
-  @override
   String get notGranted => 'Niet verleend';
 
   @override
@@ -2979,13 +2196,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get notificationSettings => 'Meldingsinstellingen';
-
-  @override
-  String get notificationSettingsSaved =>
-      'Meldingsinstellingen succesvol opgeslagen';
-
-  @override
-  String get notSet => 'Niet ingesteld';
 
   @override
   String get notVerifiedText => 'Niet geverifieerd';
@@ -3019,9 +2229,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get numberTypePosition => 'Nummertype positie';
 
   @override
-  String get ok => 'OK';
-
-  @override
   String get okButton => 'OK';
 
   @override
@@ -3053,14 +2260,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Autoriseer met behulp van de door het systeem geconfigureerde OneDrive client-ID en sleutel';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'Autoriseer met behulp van de door het systeem geconfigureerde OneDrive client-ID en sleutel';
-
-  @override
   String get oneDriveConfigTitle => 'OneDrive configuratie';
-
-  @override
-  String get oneDriveConfigurationTitle => 'OneDrive configuratie';
 
   @override
   String get onlineCallerIdSubscription => 'Online Caller ID Abonnement';
@@ -3120,9 +2320,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get passwordsDoNotMatch => 'Wachtwoorden komen niet overeen';
 
   @override
-  String get passwordSetSuccessfully => 'Wachtwoord succesvol ingesteld';
-
-  @override
   String get pattern => 'Patroon';
 
   @override
@@ -3156,15 +2353,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Telefoonnummer mag niet leeg zijn';
 
   @override
-  String get phoneNumberHintText =>
-      'Voer telefoonnummer in om regel toe te voegen';
-
-  @override
   String get phoneNumberLabel => 'Telefoonnummer';
-
-  @override
-  String get phoneNumberRegexRequired =>
-      'Voer zowel telefoonnummer als regex-patroon in';
 
   @override
   String get phoneNumberTypeFixedLine => 'Vaste lijn';
@@ -3213,9 +2402,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get phoneRule => 'Telefoonregel';
 
   @override
-  String get phoneRuleEditDialog => 'Telefoonregel bewerkingsdialoog';
-
-  @override
   String get phoneRuleManagement => 'Beheer van telefoonregels';
 
   @override
@@ -3227,9 +2413,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'Abonneren op telefoonregel-lijsten via URL om wit- en zwartlijstregels automatisch bij te werken. Ondersteunt regelbestanden in JSON-formaat.';
-
-  @override
-  String get phoneSubscriptionTitle => 'Abonnementen op telefoonregels';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3250,9 +2433,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get pluginListExportSuccess => 'Pluginlijst succesvol geëxporteerd';
 
   @override
-  String get pluginLoadedSuccessfully => 'Plugin succesvol geladen';
-
-  @override
   String get pluginManagement => 'Pluginbeheer';
 
   @override
@@ -3260,14 +2440,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Beheer en configureer plug-ins van derden';
 
   @override
-  String get pluginManagementTitle => 'Pluginbeheer';
-
-  @override
   String get pluginName => 'Pluginnaam';
-
-  @override
-  String get pluginNotLoaded =>
-      'Plugin is nog niet geladen. Laad eerst de plugin.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3285,15 +2458,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get pluginUrl => 'Plugin URL';
-
-  @override
-  String get pluginUrlCannotBeEmpty => 'Plugin URL mag niet leeg zijn';
-
-  @override
-  String get pluginUrlHint => 'Voer plugin URL in';
-
-  @override
-  String get pluginUrlLabel => 'Plugin URL';
 
   @override
   String get pluginVersion => 'Pluginversie';
@@ -3332,34 +2496,10 @@ class AppLocalizationsNl extends AppLocalizations {
       'Ontgrendel alle premiumfuncties, automatisch verlengd per kwartaal';
 
   @override
-  String get queryButton => 'Query';
-
-  @override
-  String get queryFailed => 'Query mislukt';
-
-  @override
-  String get queryFailedLog => 'Query mislukt';
-
-  @override
-  String get querying => 'Query aan het uitvoeren...';
-
-  @override
-  String get queryingPhoneNumber => 'Telefoonnummer aan het opvragen';
-
-  @override
-  String get queryResultTitle => 'Query Resultaat';
-
-  @override
   String get ready => 'Klaar!';
 
   @override
-  String get receiveWeeklyStatistics => 'Ontvang wekelijkse statistieken';
-
-  @override
   String get recruiter => 'Recruiter';
-
-  @override
-  String get reEnterPasswordHint => 'Voer het wachtwoord opnieuw in';
 
   @override
   String get refresh => 'Vernieuwen';
@@ -3369,11 +2509,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'Vernieuwen';
-
-  @override
-  String regexError(Object error) {
-    return 'Regex-fout: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3391,10 +2526,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'Regex Patroon';
-
-  @override
-  String get regexPatternsExamples =>
-      'Gebruik standaard regex-syntax om patronen te definiëren. Voorbeelden:';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3423,14 +2554,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'Regex Tester';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'Regex validatie mislukt: $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'Regex validatie succesvol';
 
   @override
   String get region => 'Regio';
@@ -3470,34 +2593,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get remoteNumberFilter => 'Extern Nummerfilter';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'Dit filter gebruikt een onafhankelijke externe database om de meest recente nummerinformatie te verkrijgen.';
-
-  @override
   String get remoteNumberFilterDescription =>
       'Onderschep hinderlijke oproepen op basis van externe database-informatie';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'Het externe nummerfilter identificeert en blokkeert spamoproepen door een externe database te bevragen op basis van het aantal nummers.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle => 'Uitleg Extern Nummerfilter';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• Aantaldrempel: Bepaal op basis van de frequentie van nummer-voorkomens';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• Filteracties: Configureer hoe nummers die de drempel overschrijden moeten worden afgehandeld';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• Prioriteitsinstellingen: Stel prioriteit in voor externe acties';
-
-  @override
-  String get remoteNumberFilterFeatures => 'Functies:';
 
   @override
   String get remoteNumberFiltering => 'Extern Nummerfilteren';
@@ -3518,30 +2615,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get removeAdsTitle => 'Advertenties Verwijderen';
 
   @override
-  String get removedFromFavoriteContacts =>
-      'Verwijderd uit favoriete contacten';
-
-  @override
   String get removedFromFavorites => 'Verwijderd uit favorieten';
-
-  @override
-  String get removeFavorite => 'Favoriet Verwijderen';
 
   @override
   String get removeFromFavorites => 'Verwijderen uit Favorieten';
 
   @override
-  String get renameButton => 'Hernoemen';
-
-  @override
-  String get renameDeviceDialogTitle => 'Apparaat Hernoemen';
-
-  @override
   String get renameDeviceTitle => 'Apparaat Hernoemen';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'Dit vervangt al uw huidige instellingen. Weet u zeker dat u wilt doorgaan?';
 
   @override
   String get requestAllPermissions => 'Alle Machtigingen Aanvragen';
@@ -3570,23 +2650,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Applicatie-instellingen Herstellen van Back-up';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'Herstel applicatie-instellingen van back-up';
-
-  @override
-  String get restoreButton => 'Herstellen';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'Herstellen van cloud mislukt: $error';
-  }
-
-  @override
   String get restoreFromCloud => 'Herstellen van Cloud';
-
-  @override
-  String get restoreFromCloudDescription =>
-      'Herstel instellingen en regels van cloudopslag';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3594,22 +2658,10 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'Herstellen van Cloud';
-
-  @override
   String get restoreFromCloudSuccess => 'Succesvol hersteld van cloud';
 
   @override
-  String get restoreFromCloudTitle => 'Herstellen van Cloud';
-
-  @override
-  String get restoreFromLocal => 'Herstellen van Lokaal';
-
-  @override
   String get restorePurchases => 'Aankopen Herstellen';
-
-  @override
-  String get restoreSectionTitle => 'Herstellen';
 
   @override
   String get restoreSettings => 'Instellingen Herstellen';
@@ -3617,18 +2669,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'Dit vervangt al uw huidige instellingen. Weet u zeker dat u wilt doorgaan?';
-
-  @override
-  String get restoreSettingsDialogTitle => 'Instellingen Herstellen';
-
-  @override
-  String get restoreSettingsTitle => 'Instellingen Herstellen';
-
-  @override
-  String get restoreSuccessFromLocal => 'Succesvol hersteld van lokaal';
-
-  @override
-  String get restoreSuccessMessage => 'Succesvol hersteld van cloud';
 
   @override
   String get retry => 'Opnieuw Proberen';
@@ -3646,15 +2686,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get ruleAction => 'Regel Actie';
 
   @override
-  String get ruleAddButton => 'Regel Toevoegen';
-
-  @override
   String get ruleAddedSuccess => 'Regel succesvol toegevoegd';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'Kon regel niet toevoegen: $error';
-  }
 
   @override
   String get ruleAddSuccess => 'Regel succesvol toegevoegd';
@@ -3668,18 +2700,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'Regel Verwijderen';
 
   @override
-  String get ruleDeletedSuccess => 'Regel succesvol verwijderd';
-
-  @override
   String get ruleDeletedSuccessfully => 'Regel succesvol verwijderd';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'Kon regel niet verwijderen: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'Kon regel niet verwijderen: $error';
   }
 
@@ -3701,9 +2725,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get ruleManagement => 'Regelbeheer';
 
   @override
-  String get ruleManagementTitle => 'Regelbeheer';
-
-  @override
   String get ruleName => 'Regelnaam';
 
   @override
@@ -3721,9 +2742,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get ruleNameLabel => 'Regelnaam';
 
   @override
-  String get ruleNamePatternRequired => 'Voer regelnaam en patroon in';
-
-  @override
   String get ruleNameRequired =>
       'Regelnaam en telefoonnummer mogen niet leeg zijn';
 
@@ -3736,23 +2754,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'Regel succesvol opgeslagen!';
-
-  @override
   String get ruleSavedSuccessMessage => 'Regel succesvol opgeslagen!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'Opslaan mislukt: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'Opslaan mislukt: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'Regel succesvol opgeslagen!';
 
   @override
   String get rulesExportedSuccessfully => 'Regels succesvol geëxporteerd';
@@ -3769,14 +2771,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return '$count regels succesvol geïmporteerd';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'Regels importeren mislukt: $error';
-  }
-
-  @override
-  String get ruleStatistics => 'Regelstatistieken';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3811,9 +2805,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get saveButton => 'Opslaan';
 
   @override
-  String get saveButtonLabel => 'OPSLAAN';
-
-  @override
   String get saveButtonText => 'Opslaan';
 
   @override
@@ -3822,15 +2813,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'Filter opslaan';
-
-  @override
   String get saveSettings => 'Instellingen opslaan';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'Instellingen opslaan mislukt: $error';
-  }
 
   @override
   String get scamsLikely => 'Waarschijnlijk scams';
@@ -3847,28 +2830,11 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'Zoekfilters';
-
-  @override
-  String get searchForContacts => 'Zoek naar contacten';
-
-  @override
   String get searchHint => 'Zoeken...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'Zoek contacten, labels, blokkades, toegestane lijsten, etc.';
-
-  @override
-  String get searchSettingsTitle => 'Zoekinstellingen';
 
   @override
   String get securityMessage =>
       'Vertrouw geen telefoongesprekken. Verifieer altijd klantenservicenummers onafhankelijk. Deel nooit wachtwoorden, verificatiecodes, kaartnummers of persoonlijke informatie.';
-
-  @override
-  String get selectActionToPerform =>
-      'Selecteer de actie die moet worden uitgevoerd wanneer de regel overeenkomt';
 
   @override
   String get selectActionWhenBlockingCalls =>
@@ -3883,12 +2849,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get selectCountry => 'Land selecteren';
-
-  @override
-  String get selectDateRange => 'Selecteer datumbereik';
-
-  @override
-  String get selectedDateRange => 'Geselecteerd datumbereik';
 
   @override
   String selectedItems(Object count) {
@@ -3915,20 +2875,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get selectMultiple => 'Meerdere selecteren';
 
   @override
-  String get selectPeriod => 'Periode selecteren';
-
-  @override
   String get selectSimCard => 'SIM-kaart selecteren';
-
-  @override
-  String get selectSimSlot => 'SIM-slot selecteren';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'Selecteer de specifieke actie die moet worden uitgevoerd bij het blokkeren van oproepen';
-
-  @override
-  String get selectTag => 'Tag selecteren';
 
   @override
   String get selectTags => 'Tags selecteren';
@@ -3969,23 +2916,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'Instellen';
-
-  @override
   String get setEncryptionPassword => 'Encryptiewachtwoord instellen';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'Stel een encryptiewachtwoord in voor back-up en herstel';
-
-  @override
-  String get setEncryptionPasswordLabel => 'Encryptiewachtwoord instellen';
-
-  @override
-  String get setEncryptionPasswordTitle => 'Encryptiewachtwoord instellen';
-
-  @override
-  String get setPasswordButton => 'Instellen';
 
   @override
   String get settings => 'Instellingen';
@@ -3993,14 +2924,6 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'Instellingen geback-upt naar: $path';
-  }
-
-  @override
-  String get settingsLoaded => 'Instellingen geladen';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'Instellingen laden mislukt: $error';
   }
 
   @override
@@ -4023,13 +2946,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get setup => 'Installatie';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'Statische methode om dialoogvenster voor contactbewerking weer te geven';
-
-  @override
-  String get showExplanation => 'Uitleg tonen';
 
   @override
   String get silence => 'Stilte';
@@ -4077,19 +2993,11 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'SIM-kaart informatie laden mislukt: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'SIM-slotregels stellen u in staat om onafhankelijke filterregels te configureren voor elke SIM-sleuf.';
 
   @override
   String get simRuleInstructionsTitle => 'SIM-sleufregels';
-
-  @override
-  String get simRuleManagement => 'SIM-sleufregelbeheer';
 
   @override
   String simSlot1(String countryIso) {
@@ -4102,18 +3010,6 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'SIM-gegevens konden niet worden geladen: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration => 'SIM-sleuffilterconfiguratie';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'Sta het instellen van filterregels per SIM-sleuf toe';
-
-  @override
   String get simSlotFilterDescription =>
       'Configureer onafhankelijke filterregels voor elke simkaart:';
 
@@ -4123,17 +3019,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'SIM-sleuven konden niet worden geladen: $error';
-  }
-
-  @override
   String get simSlotManagement => 'SIM-sleufbeheer';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'SIM-sleufbewerking mislukt: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4154,12 +3040,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'SIM-sleufregels';
-
-  @override
-  String get simSlotRuleManagementTitle => 'Regelbeheer';
-
-  @override
-  String get simSlotSettings => 'SIM-sleufinstellingen';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4196,9 +3076,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get smsFilterSettings => 'SMS-filterinstellingen';
 
   @override
-  String get smsHistory => 'SMS-geschiedenis';
-
-  @override
   String get smsManagement => 'SMS-beheer';
 
   @override
@@ -4223,25 +3100,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get smsRuleManagement => 'SMS-regelbeheer';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'SMS-regels succesvol geëxporteerd naar $filePath';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully =>
-      'SMS-regels succesvol geïmporteerd';
-
-  @override
   String get smsRuleSubscription => 'SMS-regelsabonnement';
-
-  @override
-  String get smsRuleUpdatedSuccessfully => 'SMS-regel succesvol bijgewerkt';
-
-  @override
-  String get smsSettingsSubtitle => 'SMS-filtering en trefwoordblokkering';
-
-  @override
-  String get smsSettingsTitle => 'SMS-instellingen';
 
   @override
   String get smsSubscription => 'SMS-abonnement';
@@ -4279,26 +3138,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get statBlocked => 'Geblokkeerd';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'Statische methode om het dialoogvenster met oproeper-ID-informatie weer te geven';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'Statische methode om het dialoogvenster voor landenselectie weer te geven';
-
-  @override
-  String get staticMethodToDisplayDialog =>
-      'Statische methode om een dialoogvenster weer te geven';
-
-  @override
   String get statistics => 'Statistieken';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'Exporteerfunctie voor statistieken komt binnenkort';
-
-  @override
-  String get statisticsGrid => 'Statistiekenraster';
 
   @override
   String get statisticsPageTitle => 'Gegevensanalyse';
@@ -4338,10 +3178,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get subscriptionDeleted => 'Abonnement verwijderd';
 
   @override
-  String get subscriptionDeletedSuccessfully =>
-      'Abonnement succesvol verwijderd';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'Abonnement kon niet worden verwijderd: $error';
   }
@@ -4350,23 +3186,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'Abonnement verwijderd';
 
   @override
-  String get subscriptionEmptyState => 'Geen abonnementen beschikbaar';
-
-  @override
-  String get subscriptionEmptyText => 'Nog geen abonnementen';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'Abonnementen konden niet worden geladen: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'Abonnementen konden niet worden geladen: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'Abonnementbeheer';
 
   @override
   String get subscriptionName => 'Abonnementsnaam';
@@ -4379,16 +3201,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get subscriptionNameHint => 'Voer abonnementsnaam in';
 
   @override
-  String get subscriptionPageTitle => 'Abonnementbeheer';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
     return 'Status van abonnement kon niet worden gewijzigd: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
-    return 'Status van abonnement kon niet worden geschakeld: $error';
   }
 
   @override
@@ -4426,10 +3240,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get syncFailedMessage => 'Synchronisatie mislukt';
 
   @override
-  String get syncFolderNameHint =>
-      'Voer de synchronisatiemapnaam in (standaard: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'Naam synchronisatiemap';
 
   @override
@@ -4451,16 +3261,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'Synchronisatiestatus bijgewerkt';
 
   @override
-  String get syncSuccessful => 'Synchronisatie succesvol';
-
-  @override
   String get syncSuccessMessage => 'Synchronisatie succesvol';
 
   @override
   String get syncWithCloudStorage => 'Synchroniseren met Cloudopslag';
-
-  @override
-  String get syncWithCloudStorageSubtitle => 'Synchroniseren met cloudopslag';
 
   @override
   String get systemFeatures => 'Systeembeloningen:';
@@ -4489,9 +3293,6 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'Tags bijgewerkt';
-
-  @override
   String get takeaway => 'Afhalen';
 
   @override
@@ -4505,9 +3306,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get testButton => 'TEST';
-
-  @override
-  String get testButtonLabel => 'TEST';
 
   @override
   String get testConnectionButton => 'Verbinding testen';
@@ -4546,14 +3344,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Instellingen Onderscheppen Oproepfrequentie';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'Onderschep automatisch potentiële spamoproepen op basis van oproepfrequentie';
-
-  @override
-  String get timeInterceptorTitle =>
-      'Onderscheppen Oproepfrequentie Inschakelen';
-
-  @override
   String get timeWindowDescription =>
       'Stel de tijdsvenstergrootte in voor het toestaan van herhaalde oproepen. Oproepen van hetzelfde nummer binnen dit venster worden toegestaan';
 
@@ -4561,10 +3351,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'Onderscheppingstijdsvenster (minuten): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'Stel de tijdsvenstergrootte in voor het toestaan van herhaalde oproepen. Oproepen van hetzelfde nummer binnen dit venster worden toegestaan';
 
   @override
   String get today => 'Vandaag';
@@ -4576,24 +3362,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get totalBlocked => 'Totaal Geblokkeerd';
 
   @override
-  String get totalFiltered => 'Totaal Geselecteerd';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'Gegevens overdragen tussen apparaten of platforms';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'Gegevens overdragen tussen apparaten of platforms';
-
-  @override
   String get travelTicketing => 'Reisticketverkoop';
-
-  @override
-  String get trend => 'Trend';
-
-  @override
-  String get trendChart => 'Trendgrafiek';
 
   @override
   String get tutorial => 'Tutorial';
@@ -4606,9 +3379,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get unknown => 'Onbekend';
-
-  @override
-  String get unknownLabel => 'Onbekend Label';
 
   @override
   String get unknownTag => 'Tag: Onbekend';
@@ -4634,9 +3404,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get updateAllNow => 'Alles nu bijwerken';
 
   @override
-  String get updateCallFilterConfig => 'Update Call Filter Configuratie';
-
-  @override
   String updateContactFailed(Object error) {
     return 'Contact bijwerken mislukt: $error';
   }
@@ -4645,15 +3412,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get updateFavoriteStatus => 'Favoriete status bijwerken';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'Favoriete status bijwerken mislukt: $error';
-  }
-
-  @override
   String get updateInterval => 'Update Interval';
-
-  @override
-  String get updateLabelFailed => 'Label bijwerken mislukt';
 
   @override
   String get updateNow => 'Nu bijwerken';
@@ -4682,9 +3441,6 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'Tags bijwerken';
-
-  @override
   String get useCasesPoint1 =>
       '• Identificeer automatisch opnieuw kiezen spamoproepen';
 
@@ -4703,17 +3459,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get useGlobalSettings => 'Gebruik Globale Instellingen';
 
   @override
-  String get userEmail => 'gebruiker@voorbeeld.com';
-
-  @override
   String get usernameLabel => 'Gebruikersnaam';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'Gebruik standaard regex-syntaxis om patronen te definiëren. Voorbeelden:';
-
-  @override
-  String get validateRegex => 'Regex Valideren';
 
   @override
   String get verificationFailedText => 'Mislukt';
@@ -4750,45 +3500,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get webDAVConfigTitle => 'WebDAV Configuratie';
 
   @override
-  String get webdavConfigurationTitle => 'WebDAV Configuratie';
-
-  @override
-  String get webdavPasswordHint => 'Voer het WebDAV-wachtwoord in';
-
-  @override
-  String get webdavServerAddressHint => 'Voer het WebDAV-serveradres in';
-
-  @override
-  String get webdavUsernameHint => 'Voer de WebDAV-gebruikersnaam in';
-
-  @override
   String get week => 'Week';
-
-  @override
-  String get weekly => 'Wekelijks';
-
-  @override
-  String get weeklyBlockedCallsSummary =>
-      'Wekelijkse Samenvatting Geblokkeerde Oproepen';
-
-  @override
-  String get weeklyChartTitle => 'Wekelijkse Geblokkeerde Oproepen';
-
-  @override
-  String get weeklyReport => 'Wekelijks Rapport';
-
-  @override
-  String get weeklyReportDesc =>
-      'Ontvang wekelijks een samenvattend rapport van de blokkeeractiviteit';
 
   @override
   String get welcome => 'Welkom';
 
   @override
   String get whitelist => 'Whitelist';
-
-  @override
-  String get whitelistLabel => 'Whitelist';
 
   @override
   String get width => 'Breedte';
@@ -4809,12 +3527,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get year => 'Jaar';
-
-  @override
-  String get yearly => 'Jaarlijks';
-
-  @override
-  String get yearlyChartTitle => 'Jaarlijkse Geblokkeerde Oproepen';
 
   @override
   String get noSimCardsDetected => 'Geen SIM-kaarten gedetecteerd';
@@ -4863,10 +3575,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get useStirNotification => 'Notificatie van STIR Gebruiken';
 
   @override
-  String get useStirNotificationDescription =>
-      'STIR notificaties inschakelen voor inkomende oproepen';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'Lokale Notificaties Automatisch Sluiten';
 
@@ -4885,11 +3593,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'Info Inkomende Oproep';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'Nummer: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'Geblokkeerde Oproep';
@@ -4943,21 +3646,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'Fraude Alert';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return 'Potentiële fraude oproep van $phoneNumber';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'Regels laden mislukt: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'Oproepenlogboek laden mislukt: $error';
-  }
 
   @override
   String get noBlockedTypeData => 'Geen geblokkeerde type gegevens beschikbaar';
@@ -5033,9 +3721,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get removeAds => 'Advertenties Verwijderen';
-
-  @override
-  String get unknownAction => 'Onbekende Actie';
 
   @override
   String get settingsBackup => 'Back-up Instellingen ';
@@ -5298,16 +3983,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get blockNumberSuccess => 'Nummer succesvol geblokkeerd';
 
   @override
-  String get blockNumberFailed => 'Nummer blokkeren mislukt';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return 'Weet u zeker dat u $phoneNumber wilt deblokkeren?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return 'Oproepen $phoneNumber...';
   }
 
   @override
@@ -5324,9 +4001,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => 'Nummer deblokkeren mislukt';
-
-  @override
-  String get serviceNotAvailable => 'Service niet beschikbaar';
 
   @override
   String get callingNumberFailed => 'Oproepen van nummer mislukt';
@@ -5357,9 +4031,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'Nummer ongeldig formaat';
-
-  @override
-  String get membershipFeature => 'Lidmaatschapsfunctie';
 
   @override
   String get medium => 'Medium';
@@ -5458,9 +4129,6 @@ class AppLocalizationsNl extends AppLocalizations {
       'Bevestig om alle meldingen te wissen';
 
   @override
-  String get allNotificationsCleared => 'Alle meldingen gewist';
-
-  @override
   String get clearButton => 'Wissen';
 
   @override
@@ -5530,9 +4198,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get reasonInaccurateInfo => 'Onnauwkeurige informatie';
 
   @override
-  String get reasonWrongMarked => 'Verkeerd gemarkeerd';
-
-  @override
   String get reasonOther => 'Overig';
 
   @override
@@ -5542,25 +4207,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get cancel => 'Annuleren';
 
   @override
-  String get proposalStatus => 'Status';
-
-  @override
-  String get statusPending => 'In afwachting';
-
-  @override
-  String get statusActive => 'Actief';
-
-  @override
-  String get statusCompleted => 'Voltooid';
-
-  @override
-  String get statusExpired => 'Vervallen';
-
-  @override
   String get riskLevel => 'Risiconiveau';
-
-  @override
-  String get riskLevelVerified => 'Geverifieerd';
 
   @override
   String get riskLevelLow => 'Laag';
@@ -5569,19 +4216,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get riskLevelHigh => 'Hoog';
 
   @override
-  String get riskLevelUnknown => 'Onbekend';
-
-  @override
-  String get votingProgress => 'Stemvoortgang';
-
-  @override
   String agreeVotes(int count) {
     return 'Eens: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'Oneens: $count';
   }
 
   @override
@@ -5604,12 +4240,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get verificationReport => 'Verificatierapport';
 
   @override
-  String get showReport => 'Rapport tonen';
-
-  @override
-  String get hideReport => 'Rapport verbergen';
-
-  @override
   String get proposalStatistics => 'Voorstelstatistieken';
 
   @override
@@ -5619,28 +4249,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get activeProposals => 'Actieve voorstellen';
 
   @override
-  String get completedProposals => 'Voltooide voorstellen';
-
-  @override
-  String get myVotes => 'Mijn stemmen';
-
-  @override
   String get proposalCreated => 'Voorstel succesvol aangemaakt';
-
-  @override
-  String get proposalCreateFailed => 'Kon voorstel niet aanmaken';
 
   @override
   String get voteSubmitted => 'Stem succesvol ingediend';
 
   @override
-  String get voteSubmitFailed => 'Kon stem niet indienen';
-
-  @override
   String get noProposalsFound => 'Geen voorstellen gevonden';
-
-  @override
-  String get loadingProposals => 'Voorstellen laden...';
 
   @override
   String get refreshProposals => 'Voorstellen vernieuwen';
@@ -5792,24 +4407,11 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'Kon stemmenaantal niet laden';
-
-  @override
   String get voteCount => 'Aantal stemmen';
-
-  @override
-  String get deletionProposalInfo => 'Informatie verwijderingsvoorstel';
 
   @override
   String get deletionProposalDescription =>
       'Stel nummers voor ter verwijdering die communityrichtlijnen schenden. Uw deelname helpt het platform veilig te houden.';
-
-  @override
-  String get voteToEarnVip =>
-      'Stem op voorstellen om VIP-privileges te verdienen!';
-
-  @override
-  String get voteFailed => 'Stemmen mislukt';
 
   @override
   String get searchProposals => 'Voorstellen zoeken';
@@ -5843,50 +4445,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Toont waarschuwingen voor potentieel frauduleuze oproepen.';
 
   @override
-  String get notificationFrequencyDescription =>
-      'Kies hoe vaak u meldingen ontvangt over nieuwe verwijderingsvoorstellen. U kunt ze direct, in batches, of met aangepaste intervallen ontvangen.';
-
-  @override
   String get notificationMode => 'Meldingsmodus';
-
-  @override
-  String get immediateNotifications => 'Direct';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'Ontvang een melding zodra een voorstel is aangemaakt.';
-
-  @override
-  String get batchNotifications => 'In batches';
-
-  @override
-  String get batchNotificationsDescription =>
-      'Ontvang periodiek een samenvatting van meldingen.';
-
-  @override
-  String get customNotifications => 'Aangepast';
-
-  @override
-  String get customNotificationsDescription =>
-      'Definieer uw eigen interval voor het ontvangen van meldingen.';
-
-  @override
-  String get customFrequency => 'Aangepaste frequentie';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes min';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours u';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours u $minutes min';
-  }
 
   @override
   String get pendingProposals => 'In afwachting van voorstellen';
@@ -5908,9 +4467,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get riskLevelLabel => 'Risiconiveau';
-
-  @override
-  String get riskLevelDescription => 'Risiconiveau van het nummer';
 
   @override
   String get phoneNumberMinDigits =>
@@ -5936,33 +4492,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get countryCodeRequired => 'Landcode is verplicht';
 
   @override
-  String get countryCodeLengthError => 'Landcode moet uit 2 letters bestaan';
-
-  @override
   String get phoneNumberHint => 'Voer telefoonnummer in';
 
   @override
   String get phoneNumberRequired => 'Telefoonnummer is vereist';
 
   @override
-  String get phoneNumberLengthError =>
-      'Telefoonnummer moet minimaal 7 cijfers bevatten';
-
-  @override
-  String get reasonHint => 'Geef gedetailleerde uitleg (minimaal 10 tekens)';
-
-  @override
   String get reasonRequired => 'Reden is verplicht';
-
-  @override
-  String get reasonLengthError => 'Reden moet minimaal 10 tekens bevatten';
-
-  @override
-  String get guidelinesTitle => 'Richtlijnen';
-
-  @override
-  String get guidelinesText =>
-      '• Rapporteer alleen nummers die echt problematisch zijn\n• Geef nauwkeurige en gedetailleerde redenen\n• Kies het juiste risiconiveau op basis van de ernst\n• Valse meldingen kunnen leiden tot accountbeperkingen';
 
   @override
   String get riskLevelCritical => 'Kritiek';
@@ -5974,56 +4510,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get riskLevelVeryLow => 'Zeer Laag';
 
   @override
-  String get riskDescriptionVeryLow =>
-      'Zeer Laag - Kleine ergernis, incidentele oproepen';
-
-  @override
-  String get riskDescriptionLow => 'Laag - Incidentele ongewenste oproepen';
-
-  @override
-  String get riskDescriptionMedium =>
-      'Medium - Regelmatige spam of telemarketing';
-
-  @override
-  String get riskDescriptionHigh =>
-      'Hoog - Aanhoudende pesterijen of scam-pogingen';
-
-  @override
-  String get riskDescriptionCritical =>
-      'Kritiek - Gevaarlijke scams of bedreigingen';
-
-  @override
   String get notificationFrequencyTitle => 'Meldingsfrequentie';
-
-  @override
-  String get notificationFrequencyLabel => 'Meldingsfrequentie (uren)';
 
   @override
   String errorMessage(String error) {
     return 'Fout: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'Stemmen: $totalVotes ($supportPercentage% ondersteuning)';
-  }
-
-  @override
-  String get timeJustNow => 'Zojuist';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return '${minutes}m geleden';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return '${hours}u geleden';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return '${days}d geleden';
   }
 
   @override
@@ -6108,9 +4599,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get liveActivitiesTestTitle => 'Live Activiteiten Test';
 
   @override
-  String get liveActivitiesTestSubtitle => 'Test de live activiteit melding.';
-
-  @override
   String get liveNotificationCustomizationTitle => 'Live Melding Aanpassing';
 
   @override
@@ -6135,16 +4623,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get proposalDetails => 'Voorstel Details';
 
   @override
-  String get filterByStatus => 'Filter op Status';
-
-  @override
   String get proposalNotFound => 'Voorstel niet gevonden';
 
   @override
   String get processed => 'Verwerkt';
-
-  @override
-  String get showAll => 'Alles Tonen';
 
   @override
   String get filterAndSortTitle => 'Filteren en Sorteren';
@@ -6183,9 +4665,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get invalidSimData => 'Ongeldige SIM-gegevens';
 
   @override
-  String get simCardData => 'SIM-kaart Gegevens';
-
-  @override
   String get simSlot => 'SIM-slot';
 
   @override
@@ -6204,12 +4683,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get callTypeSilenced => 'Stilgezet';
 
   @override
-  String get callTypeVoicemail => 'Voicemail';
-
-  @override
-  String get callTypeUnknownIntercept => 'Onbekende interceptie';
-
-  @override
   String andMoreItems(int count) {
     return 'en nog $count items';
   }
@@ -6222,10 +4695,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6309,9 +4778,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

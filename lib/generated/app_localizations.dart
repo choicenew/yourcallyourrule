@@ -202,18 +202,6 @@ abstract class AppLocalizations {
   /// **'About Phone Subscription Rules'**
   String get aboutPhoneSubscriptionRules;
 
-  /// About phone subscriptions title
-  ///
-  /// In en, this message translates to:
-  /// **'About Phone Subscriptions'**
-  String get aboutPhoneSubscriptions;
-
-  /// About phone subscriptions description
-  ///
-  /// In en, this message translates to:
-  /// **'Subscribe to phone rule lists via URL, automatically update rules. Supports JSON, CSV format rule files.'**
-  String get aboutPhoneSubscriptionsDesc;
-
   /// No description provided for @aboutSmsFilter.
   ///
   /// In en, this message translates to:
@@ -261,12 +249,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Block'**
   String get actionBlock;
-
-  /// No description provided for @actionFilterAll.
-  ///
-  /// In en, this message translates to:
-  /// **'All Filter'**
-  String get actionFilterAll;
 
   /// No description provided for @actionFilterTitle.
   ///
@@ -346,53 +328,11 @@ abstract class AppLocalizations {
   /// **'Failed to add contact: {error}'**
   String addContactFailed(Object error);
 
-  /// No description provided for @addedToAllowedRules.
-  ///
-  /// In en, this message translates to:
-  /// **'Added to Allowed Rules'**
-  String get addedToAllowedRules;
-
-  /// No description provided for @addedToBlacklist.
-  ///
-  /// In en, this message translates to:
-  /// **'Added to Blacklist'**
-  String get addedToBlacklist;
-
-  /// No description provided for @addedToBlockedRules.
-  ///
-  /// In en, this message translates to:
-  /// **'Added to Blocked Rules'**
-  String get addedToBlockedRules;
-
-  /// No description provided for @addedToFavoriteContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Added to favorite contacts'**
-  String get addedToFavoriteContacts;
-
   /// No description provided for @addedToFavorites.
   ///
   /// In en, this message translates to:
   /// **'Added to favorite contacts'**
   String get addedToFavorites;
-
-  /// No description provided for @addedToWhitelist.
-  ///
-  /// In en, this message translates to:
-  /// **'Added to Whitelist'**
-  String get addedToWhitelist;
-
-  /// No description provided for @addFavorite.
-  ///
-  /// In en, this message translates to:
-  /// **'Add Favorite'**
-  String get addFavorite;
-
-  /// No description provided for @addFilter.
-  ///
-  /// In en, this message translates to:
-  /// **'Add Filter'**
-  String get addFilter;
 
   /// No description provided for @addLabel.
   ///
@@ -412,12 +352,6 @@ abstract class AppLocalizations {
   /// **'Failed to add label: {error}'**
   String addLabelFailed(Object error);
 
-  /// No description provided for @addLabelToCall.
-  ///
-  /// In en, this message translates to:
-  /// **'Add Label to Call Record'**
-  String get addLabelToCall;
-
   /// No description provided for @addName.
   ///
   /// In en, this message translates to:
@@ -429,12 +363,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add None Subscription'**
   String get addNoneSubscription;
-
-  /// No description provided for @addOrEditContactInfo.
-  ///
-  /// In en, this message translates to:
-  /// **'Used to add or edit contact information'**
-  String get addOrEditContactInfo;
 
   /// No description provided for @addPhoneMark.
   ///
@@ -490,12 +418,6 @@ abstract class AppLocalizations {
   /// **'Add Rule'**
   String get addRule;
 
-  /// No description provided for @addRuleButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Add Rule'**
-  String get addRuleButton;
-
   /// No description provided for @addRuleFailed.
   ///
   /// In en, this message translates to:
@@ -513,12 +435,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add Silence Subscription'**
   String get addSilenceSubscription;
-
-  /// No description provided for @addSimRuleButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Add SIM Rule'**
-  String get addSimRuleButton;
 
   /// No description provided for @addSmsFilterRule.
   ///
@@ -562,29 +478,11 @@ abstract class AppLocalizations {
   /// **'Add Subscription'**
   String get addSubscriptionTooltip;
 
-  /// No description provided for @addToAllowedRules.
-  ///
-  /// In en, this message translates to:
-  /// **'Add to Allowed Rules'**
-  String get addToAllowedRules;
-
   /// No description provided for @addToBlacklist.
   ///
   /// In en, this message translates to:
   /// **'Add to Blacklist'**
   String get addToBlacklist;
-
-  /// No description provided for @addToBlockedRules.
-  ///
-  /// In en, this message translates to:
-  /// **'Add to Blocked Rules'**
-  String get addToBlockedRules;
-
-  /// No description provided for @addToFavoriteContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Add to Favorite Contacts'**
-  String get addToFavoriteContacts;
 
   /// No description provided for @addToFavorites.
   ///
@@ -604,12 +502,6 @@ abstract class AppLocalizations {
   /// **'Add to Whitelist'**
   String get addToWhitelist;
 
-  /// No description provided for @adPlaceholder.
-  ///
-  /// In en, this message translates to:
-  /// **'Ad Placeholder'**
-  String get adPlaceholder;
-
   /// No description provided for @agent.
   ///
   /// In en, this message translates to:
@@ -627,12 +519,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All'**
   String get allCallsTab;
-
-  /// No description provided for @allDataClearedSuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'All data cleared successfully'**
-  String get allDataClearedSuccessfully;
 
   /// No description provided for @allow.
   ///
@@ -657,12 +543,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Allow All Blacklisted Numbers'**
   String get allowAllBlacklistedNumbers;
-
-  /// Allow calls from blocklist
-  ///
-  /// In en, this message translates to:
-  /// **'Allow calls from blocklist'**
-  String get allowAllBlacklistedNumbersDesc;
 
   /// No description provided for @allowAllBlockRules.
   ///
@@ -784,18 +664,6 @@ abstract class AppLocalizations {
   /// **'Allow Rules'**
   String get allowRules;
 
-  /// No description provided for @allowWhitelistedNumbers.
-  ///
-  /// In en, this message translates to:
-  /// **'Allow Whitelisted Numbers'**
-  String get allowWhitelistedNumbers;
-
-  /// No description provided for @allowWhitelistedNumbersDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Allow all numbers in the whitelist'**
-  String get allowWhitelistedNumbersDescription;
-
   /// No description provided for @allPermissionsGranted.
   ///
   /// In en, this message translates to:
@@ -819,12 +687,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Answer then hang up'**
   String get answerThenHangup;
-
-  /// No description provided for @appLegalese.
-  ///
-  /// In en, this message translates to:
-  /// **'© 2023 Your Call Your Rule. All rights reserved.'**
-  String get appLegalese;
 
   /// No description provided for @applicationSoftware.
   ///
@@ -897,18 +759,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Auto Update Settings'**
   String get autoUpdateSettings;
-
-  /// No description provided for @autoUpdateSettingsSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Manage automatic updates for rules and plugins'**
-  String get autoUpdateSettingsSubtitle;
-
-  /// No description provided for @autoUpdateSettingsTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Auto Update Settings'**
-  String get autoUpdateSettingsTitle;
 
   /// No description provided for @autoUpdateSubtitle.
   ///
@@ -994,65 +844,11 @@ abstract class AppLocalizations {
   /// **'Backup failed'**
   String get backupFailed;
 
-  /// No description provided for @backupFailedMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup failed'**
-  String get backupFailedMessage;
-
-  /// No description provided for @backupFailedWithError.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup failed: {error}'**
-  String backupFailedWithError(Object error);
-
-  /// No description provided for @backupRestoreSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup or restore application data'**
-  String get backupRestoreSubtitle;
-
-  /// No description provided for @backupRestoreTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup & Restore'**
-  String get backupRestoreTitle;
-
-  /// No description provided for @backupSectionTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup'**
-  String get backupSectionTitle;
-
   /// No description provided for @backupSettings.
   ///
   /// In en, this message translates to:
   /// **'Backup Settings'**
   String get backupSettings;
-
-  /// No description provided for @backupSettingsDialogTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup Settings'**
-  String get backupSettingsDialogTitle;
-
-  /// No description provided for @backupSettingsTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup Settings'**
-  String get backupSettingsTitle;
-
-  /// No description provided for @backupSuccessMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Successfully backed up to cloud'**
-  String get backupSuccessMessage;
-
-  /// No description provided for @backupSuccessToLocal.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup successful to: {path}'**
-  String backupSuccessToLocal(Object path);
 
   /// No description provided for @backupToCloud.
   ///
@@ -1060,41 +856,17 @@ abstract class AppLocalizations {
   /// **'Backup to Cloud'**
   String get backupToCloud;
 
-  /// No description provided for @backupToCloudDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup settings and rules to cloud storage'**
-  String get backupToCloudDescription;
-
   /// No description provided for @backupToCloudFailed.
   ///
   /// In en, this message translates to:
   /// **'Failed to backup to cloud: {error}'**
   String backupToCloudFailed(Object error);
 
-  /// No description provided for @backupToCloudLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup to Cloud'**
-  String get backupToCloudLabel;
-
   /// No description provided for @backupToCloudSuccess.
   ///
   /// In en, this message translates to:
   /// **'Successfully backed up to cloud'**
   String get backupToCloudSuccess;
-
-  /// No description provided for @backupToCloudTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup to Cloud'**
-  String get backupToCloudTitle;
-
-  /// No description provided for @backupToLocalLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup to Local'**
-  String get backupToLocalLabel;
 
   /// No description provided for @bank.
   ///
@@ -1126,35 +898,17 @@ abstract class AppLocalizations {
   /// **'• Basic Rule Filtering: Filtering rules based on blacklist, whitelist, and regex'**
   String get basicRuleFilteringExplanation;
 
-  /// Title for basic rule filter settings page
-  ///
-  /// In en, this message translates to:
-  /// **'Basic Rule Filter Settings'**
-  String get basicRuleFilterSettings;
-
   /// No description provided for @basicRuleFilterSubtitle.
   ///
   /// In en, this message translates to:
   /// **'Filter calls using blacklist/whitelist and regular expressions'**
   String get basicRuleFilterSubtitle;
 
-  /// No description provided for @batchDeleteContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Batch Delete Contacts'**
-  String get batchDeleteContacts;
-
   /// No description provided for @batchDeleteContactsConfirm.
   ///
   /// In en, this message translates to:
   /// **'Are you sure you want to delete {count} selected contacts?'**
   String batchDeleteContactsConfirm(Object count);
-
-  /// No description provided for @batchDeleteFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Batch delete failed'**
-  String get batchDeleteFailed;
 
   /// No description provided for @batchDeleteLabelsConfirm.
   ///
@@ -1173,12 +927,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Blacklisting and Whitelisting'**
   String get blacklistingAndWhitelisting;
-
-  /// No description provided for @blacklistLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Blacklist'**
-  String get blacklistLabel;
 
   /// No description provided for @blackWhiteList.
   ///
@@ -1204,12 +952,6 @@ abstract class AppLocalizations {
   /// **'Blocked'**
   String get blocked;
 
-  /// No description provided for @blockedCallAction.
-  ///
-  /// In en, this message translates to:
-  /// **'Blocked Call Action'**
-  String get blockedCallAction;
-
   /// No description provided for @blockedCalls.
   ///
   /// In en, this message translates to:
@@ -1221,18 +963,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Blocked Calls'**
   String get blockedCallsTitle;
-
-  /// No description provided for @blockedCommunications.
-  ///
-  /// In en, this message translates to:
-  /// **'Blocked Communications'**
-  String get blockedCommunications;
-
-  /// No description provided for @blockedPhoneLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Blocked Calls'**
-  String get blockedPhoneLabel;
 
   /// No description provided for @blockedSpamCalls.
   ///
@@ -1257,12 +987,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Block International Calls'**
   String get blockInternationalCallsTitle;
-
-  /// No description provided for @blockLandlineNumbersTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Block Landline Numbers'**
-  String get blockLandlineNumbersTitle;
 
   /// No description provided for @blockMobileNumbers.
   ///
@@ -1354,12 +1078,6 @@ abstract class AppLocalizations {
   /// **'Call Back'**
   String get callback;
 
-  /// Callback notification message
-  ///
-  /// In en, this message translates to:
-  /// **'Call back to {number}'**
-  String callbackTo(String number);
-
   /// No description provided for @callBlocking.
   ///
   /// In en, this message translates to:
@@ -1378,12 +1096,6 @@ abstract class AppLocalizations {
   /// **'Customize Caller ID'**
   String get callerIdCustomizationTitle;
 
-  /// No description provided for @callerIdDialogTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Caller ID Information'**
-  String get callerIdDialogTitle;
-
   /// No description provided for @callerIdDisplayMode.
   ///
   /// In en, this message translates to:
@@ -1401,18 +1113,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Caller ID Preview'**
   String get callerIdPreview;
-
-  /// No description provided for @callFilter.
-  ///
-  /// In en, this message translates to:
-  /// **'Call Filter'**
-  String get callFilter;
-
-  /// No description provided for @callFilterDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'When enabled, incoming calls are checked against the rule list below. Call filtering rules are not synchronized between devices by default.'**
-  String get callFilterDescription;
 
   /// No description provided for @callFilterRules.
   ///
@@ -1462,41 +1162,11 @@ abstract class AppLocalizations {
   /// **'Call History'**
   String get callHistoryInfoTitle;
 
-  /// Call history initialization failure message
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to initialize call history: {error}'**
-  String callHistoryInitFailed(Object error);
-
-  /// Call history refresh failure message
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to refresh call history: {error}'**
-  String callHistoryRefreshFailed(Object error);
-
   /// No description provided for @callHistoryTab.
   ///
   /// In en, this message translates to:
   /// **'Call History'**
   String get callHistoryTab;
-
-  /// No description provided for @callHistoryTimelineEarlier.
-  ///
-  /// In en, this message translates to:
-  /// **'Earlier'**
-  String get callHistoryTimelineEarlier;
-
-  /// No description provided for @callHistoryTimelineToday.
-  ///
-  /// In en, this message translates to:
-  /// **'Today'**
-  String get callHistoryTimelineToday;
-
-  /// No description provided for @callHistoryTimelineYesterday.
-  ///
-  /// In en, this message translates to:
-  /// **'Yesterday'**
-  String get callHistoryTimelineYesterday;
 
   /// No description provided for @callScreeningPermission.
   ///
@@ -1515,18 +1185,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Call screening permission not granted, may affect app functionality.'**
   String get callScreeningPermissionNotGranted;
-
-  /// No description provided for @callSettingsSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Caller ID, filtering and blocking settings'**
-  String get callSettingsSubtitle;
-
-  /// No description provided for @callSettingsTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Call Settings'**
-  String get callSettingsTitle;
 
   /// No description provided for @callStatistics.
   ///
@@ -1630,47 +1288,17 @@ abstract class AppLocalizations {
   /// **'Failed to change subscription status: {error}'**
   String changeSubscriptionStatusFailed(Object error);
 
-  /// No description provided for @changeTag.
-  ///
-  /// In en, this message translates to:
-  /// **'Change Tag'**
-  String get changeTag;
-
   /// No description provided for @charity.
   ///
   /// In en, this message translates to:
   /// **'Charity'**
   String get charity;
 
-  /// Month format for chart labels
-  ///
-  /// In en, this message translates to:
-  /// **'Month {month}'**
-  String chartMonthFormat(int month);
-
-  /// No description provided for @chartOneDayAgo.
-  ///
-  /// In en, this message translates to:
-  /// **'1 day ago'**
-  String get chartOneDayAgo;
-
-  /// No description provided for @chartOneMonthAgo.
-  ///
-  /// In en, this message translates to:
-  /// **'1 month ago'**
-  String get chartOneMonthAgo;
-
   /// No description provided for @chartOneWeekAgo.
   ///
   /// In en, this message translates to:
   /// **'1 week ago'**
   String get chartOneWeekAgo;
-
-  /// No description provided for @chartTenDaysAgo.
-  ///
-  /// In en, this message translates to:
-  /// **'10 days ago'**
-  String get chartTenDaysAgo;
 
   /// No description provided for @chartThreeDaysAgo.
   ///
@@ -1702,41 +1330,11 @@ abstract class AppLocalizations {
   /// **'Choose the default intercept action'**
   String get chooseDefaultInterceptAction;
 
-  /// No description provided for @clearAllData.
-  ///
-  /// In en, this message translates to:
-  /// **'Clear All Data'**
-  String get clearAllData;
-
-  /// No description provided for @clearAllDataConfirmation.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to clear all application data? This action cannot be undone.'**
-  String get clearAllDataConfirmation;
-
-  /// No description provided for @clearAllDataDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Clear all application data'**
-  String get clearAllDataDescription;
-
-  /// No description provided for @clearAllDataLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Clear All Data'**
-  String get clearAllDataLabel;
-
   /// No description provided for @clearFilter.
   ///
   /// In en, this message translates to:
   /// **'Clear Filter'**
   String get clearFilter;
-
-  /// No description provided for @clearLabelFilter.
-  ///
-  /// In en, this message translates to:
-  /// **'Clear Label Filter'**
-  String get clearLabelFilter;
 
   /// No description provided for @clearLabelFilterButton.
   ///
@@ -1780,12 +1378,6 @@ abstract class AppLocalizations {
   /// **'Cloud Sync'**
   String get cloudSyncTitle;
 
-  /// No description provided for @collapseLabelSelector.
-  ///
-  /// In en, this message translates to:
-  /// **'Collapse Label Selector'**
-  String get collapseLabelSelector;
-
   /// No description provided for @collection.
   ///
   /// In en, this message translates to:
@@ -1822,23 +1414,11 @@ abstract class AppLocalizations {
   /// **'Configure Backup Options'**
   String get configureBackupOptions;
 
-  /// No description provided for @configureBackupOptionsSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Configure backup options'**
-  String get configureBackupOptionsSubtitle;
-
   /// No description provided for @configureCloudSyncService.
   ///
   /// In en, this message translates to:
   /// **'Configure Cloud Sync Service'**
   String get configureCloudSyncService;
-
-  /// No description provided for @configureCloudSyncServiceHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Please configure a cloud sync service to enable multi-device synchronization.'**
-  String get configureCloudSyncServiceHint;
 
   /// No description provided for @configureCloudSyncServiceMessage.
   ///
@@ -1852,23 +1432,11 @@ abstract class AppLocalizations {
   /// **'Configure SIM Card Filter Rules'**
   String get configureSimCardFilterRules;
 
-  /// No description provided for @configureSyncServiceHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Please configure sync service in cloud sync settings first'**
-  String get configureSyncServiceHint;
-
   /// No description provided for @confirm.
   ///
   /// In en, this message translates to:
   /// **'Confirm'**
   String get confirm;
-
-  /// No description provided for @confirmBatchDeleteContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to delete the selected'**
-  String get confirmBatchDeleteContacts;
 
   /// No description provided for @confirmButton.
   ///
@@ -1881,24 +1449,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Confirm Delete'**
   String get confirmDelete;
-
-  /// No description provided for @confirmDeleteContact.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to delete'**
-  String get confirmDeleteContact;
-
-  /// No description provided for @confirmDeleteContactName.
-  ///
-  /// In en, this message translates to:
-  /// **'Confirm delete?'**
-  String get confirmDeleteContactName;
-
-  /// No description provided for @confirmDeleteFilter.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to delete this filter?'**
-  String get confirmDeleteFilter;
 
   /// No description provided for @confirmDeleteLabel.
   ///
@@ -1924,12 +1474,6 @@ abstract class AppLocalizations {
   /// **'Are you sure you want to delete this rule? This action cannot be undone.'**
   String get confirmDeleteRuleMessage;
 
-  /// No description provided for @confirmDeleteSelectedContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure to delete selected contacts?'**
-  String get confirmDeleteSelectedContacts;
-
   /// No description provided for @confirmDeleteSmsFilterRule.
   ///
   /// In en, this message translates to:
@@ -1942,12 +1486,6 @@ abstract class AppLocalizations {
   /// **'Are you sure you want to delete this SMS rule?'**
   String get confirmDeleteSmsRule;
 
-  /// No description provided for @confirmDeleteSubscription.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to delete this subscription?'**
-  String get confirmDeleteSubscription;
-
   /// Confirmation message shown before deleting a subscription.
   ///
   /// In en, this message translates to:
@@ -1959,12 +1497,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Confirm Password'**
   String get confirmPassword;
-
-  /// No description provided for @confirmPasswordLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Confirm Password'**
-  String get confirmPasswordLabel;
 
   /// No description provided for @connectedStatus.
   ///
@@ -2008,29 +1540,11 @@ abstract class AppLocalizations {
   /// **'Contact deleted'**
   String get contactDeleted;
 
-  /// No description provided for @contactEditDialog.
-  ///
-  /// In en, this message translates to:
-  /// **'Contact Edit Dialog'**
-  String get contactEditDialog;
-
-  /// No description provided for @contactNameHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter contact name (optional)'**
-  String get contactNameHint;
-
   /// No description provided for @contactNameLabel.
   ///
   /// In en, this message translates to:
   /// **'Name'**
   String get contactNameLabel;
-
-  /// No description provided for @contactNameOptional.
-  ///
-  /// In en, this message translates to:
-  /// **'Contact name (optional)'**
-  String get contactNameOptional;
 
   /// No description provided for @contactNotFound.
   ///
@@ -2050,41 +1564,11 @@ abstract class AppLocalizations {
   /// **'Deleted {count} contacts'**
   String contactsDeleted(Object count);
 
-  /// No description provided for @contactSettingsSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Contact management and label settings'**
-  String get contactSettingsSubtitle;
-
-  /// No description provided for @contactSettingsTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Contact Settings'**
-  String get contactSettingsTitle;
-
-  /// No description provided for @contactsLoadingFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to load contacts: {error}'**
-  String contactsLoadingFailed(Object error);
-
   /// No description provided for @contactsManagement.
   ///
   /// In en, this message translates to:
   /// **'Contacts Management'**
   String get contactsManagement;
-
-  /// No description provided for @contactsManagementPageTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Contacts Management Page'**
-  String get contactsManagementPageTitle;
-
-  /// No description provided for @contactsPageTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Contacts Management'**
-  String get contactsPageTitle;
 
   /// No description provided for @contactsPermission.
   ///
@@ -2109,18 +1593,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Subscribe to contact lists via URL, automatically update contact information and labels. Supports JSON format data.'**
   String get contactSubscriptionDescription;
-
-  /// No description provided for @contactSubscriptionLoadingFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to load contact subscriptions: {error}'**
-  String contactSubscriptionLoadingFailed(Object error);
-
-  /// No description provided for @contactSubscriptionPageTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Contact Subscriptions'**
-  String get contactSubscriptionPageTitle;
 
   /// No description provided for @contactUpdateSuccess.
   ///
@@ -2188,18 +1660,6 @@ abstract class AppLocalizations {
   /// **'Country/Region Name Position'**
   String get countryRegionNamePosition;
 
-  /// No description provided for @countrySelectionDialog.
-  ///
-  /// In en, this message translates to:
-  /// **'Country Selection Dialog'**
-  String get countrySelectionDialog;
-
-  /// No description provided for @countrySelectionDialogDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Used to select a country to query caller ID information'**
-  String get countrySelectionDialogDescription;
-
   /// No description provided for @countThresholdDescription.
   ///
   /// In en, this message translates to:
@@ -2211,18 +1671,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Count Threshold'**
   String get countThresholdLabel;
-
-  /// No description provided for @countThresholdSettings.
-  ///
-  /// In en, this message translates to:
-  /// **'Count Threshold Settings'**
-  String get countThresholdSettings;
-
-  /// No description provided for @countThresholdValue.
-  ///
-  /// In en, this message translates to:
-  /// **'Count Threshold: {count}'**
-  String countThresholdValue(Object count);
 
   /// No description provided for @createdRules.
   ///
@@ -2236,12 +1684,6 @@ abstract class AppLocalizations {
   /// **'CSV Format'**
   String get csvFormat;
 
-  /// No description provided for @currentDeviceChip.
-  ///
-  /// In en, this message translates to:
-  /// **'Current'**
-  String get currentDeviceChip;
-
   /// No description provided for @currentDeviceLabel.
   ///
   /// In en, this message translates to:
@@ -2254,47 +1696,17 @@ abstract class AppLocalizations {
   /// **'Current Device'**
   String get currentDeviceTitle;
 
-  /// No description provided for @currentLabels.
-  ///
-  /// In en, this message translates to:
-  /// **'Current Labels:'**
-  String get currentLabels;
-
   /// No description provided for @currentLanguage.
   ///
   /// In en, this message translates to:
   /// **'Current Language'**
   String get currentLanguage;
 
-  /// No description provided for @currentPasswordLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Current Password'**
-  String get currentPasswordLabel;
-
   /// No description provided for @customerService.
   ///
   /// In en, this message translates to:
   /// **'Customer Service'**
   String get customerService;
-
-  /// No description provided for @customRange.
-  ///
-  /// In en, this message translates to:
-  /// **'Custom Range'**
-  String get customRange;
-
-  /// Daily statistics notification option
-  ///
-  /// In en, this message translates to:
-  /// **'Daily Statistics'**
-  String get dailyStatistics;
-
-  /// Description for daily statistics option
-  ///
-  /// In en, this message translates to:
-  /// **'Receive daily statistics about blocked calls and messages'**
-  String get dailyStatisticsDesc;
 
   /// No description provided for @dashboardTab.
   ///
@@ -2307,18 +1719,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Data Analysis'**
   String get dataAnalysis;
-
-  /// No description provided for @dataAnalysisDashboardPage.
-  ///
-  /// In en, this message translates to:
-  /// **'Data Analysis Dashboard Page'**
-  String get dataAnalysisDashboardPage;
-
-  /// No description provided for @dataExport.
-  ///
-  /// In en, this message translates to:
-  /// **'Data Export'**
-  String get dataExport;
 
   /// Data loading failure message
   ///
@@ -2344,24 +1744,6 @@ abstract class AppLocalizations {
   /// **'This feature allows you to transfer all your data between devices. Currently, you can use the backup and restore features to manually migrate your data.'**
   String get dataMigrationDescription;
 
-  /// No description provided for @dataMigrationDialogContent.
-  ///
-  /// In en, this message translates to:
-  /// **'This feature allows you to transfer all your data between devices. Currently, you can use the backup and restore features to manually migrate your data.'**
-  String get dataMigrationDialogContent;
-
-  /// No description provided for @dataMigrationDialogTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Data Migration'**
-  String get dataMigrationDialogTitle;
-
-  /// No description provided for @dataMigrationSectionTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Data Migration'**
-  String get dataMigrationSectionTitle;
-
   /// No description provided for @dataSourceReminder.
   ///
   /// In en, this message translates to:
@@ -2385,12 +1767,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Debt Collection'**
   String get debtCollection;
-
-  /// No description provided for @defaultPeriod.
-  ///
-  /// In en, this message translates to:
-  /// **'Week'**
-  String get defaultPeriod;
 
   /// No description provided for @delete.
   ///
@@ -2416,35 +1792,11 @@ abstract class AppLocalizations {
   /// **'Are you sure you want to delete {name}?'**
   String deleteContactConfirm(Object name);
 
-  /// No description provided for @deleteContactConfirmation.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to delete contact'**
-  String get deleteContactConfirmation;
-
-  /// No description provided for @deleteDeviceConfirmation.
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to delete {deviceName}?'**
-  String deleteDeviceConfirmation(Object deviceName);
-
-  /// No description provided for @deleteDeviceDialogTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete Device'**
-  String get deleteDeviceDialogTitle;
-
   /// No description provided for @deleteFailed.
   ///
   /// In en, this message translates to:
   /// **'Delete failed: {error}'**
   String deleteFailed(Object error);
-
-  /// No description provided for @deleteFilter.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete Filter'**
-  String get deleteFilter;
 
   /// No description provided for @deleteLabel.
   ///
@@ -2500,12 +1852,6 @@ abstract class AppLocalizations {
   /// **'Delete Selected'**
   String get deleteSelected;
 
-  /// No description provided for @deleteSmsRule.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete SMS Rule'**
-  String get deleteSmsRule;
-
   /// Delete subscription dialog title
   ///
   /// In en, this message translates to:
@@ -2535,24 +1881,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delivery'**
   String get delivery;
-
-  /// No description provided for @deviceDeletedSuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'Device deleted successfully'**
-  String get deviceDeletedSuccessfully;
-
-  /// No description provided for @deviceDeletedSuccessfullyMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Device deleted successfully'**
-  String get deviceDeletedSuccessfullyMessage;
-
-  /// No description provided for @deviceIdLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Device ID'**
-  String get deviceIdLabel;
 
   /// No description provided for @deviceIDLabel.
   ///
@@ -2584,47 +1912,17 @@ abstract class AppLocalizations {
   /// **'Device Name'**
   String get deviceName;
 
-  /// No description provided for @deviceNameCannotBeEmpty.
-  ///
-  /// In en, this message translates to:
-  /// **'Device name cannot be empty'**
-  String get deviceNameCannotBeEmpty;
-
-  /// No description provided for @deviceNameHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter device name'**
-  String get deviceNameHint;
-
   /// No description provided for @deviceNameLabel.
   ///
   /// In en, this message translates to:
   /// **'Device Name'**
   String get deviceNameLabel;
 
-  /// No description provided for @deviceRenamedSuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'Device renamed successfully'**
-  String get deviceRenamedSuccessfully;
-
   /// No description provided for @deviceRenamedSuccessfullyMessage.
   ///
   /// In en, this message translates to:
   /// **'Device renamed successfully'**
   String get deviceRenamedSuccessfullyMessage;
-
-  /// No description provided for @devicesSyncedSuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'Devices synchronized successfully'**
-  String get devicesSyncedSuccessfully;
-
-  /// No description provided for @devicesSyncedSuccessfullyMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Devices synchronized successfully'**
-  String get devicesSyncedSuccessfullyMessage;
 
   /// No description provided for @devicesSynchronizedSuccessfullyMessage.
   ///
@@ -2667,12 +1965,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Disable global plugins'**
   String get disableGlobalPlugins;
-
-  /// No description provided for @disableSubscriptionSuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'Disable subscription successfully'**
-  String get disableSubscriptionSuccessfully;
 
   /// No description provided for @disconnectButton.
   ///
@@ -2734,12 +2026,6 @@ abstract class AppLocalizations {
   /// **'Edit Contact'**
   String get editContact;
 
-  /// No description provided for @editFilter.
-  ///
-  /// In en, this message translates to:
-  /// **'Edit Filter'**
-  String get editFilter;
-
   /// No description provided for @editLabel.
   ///
   /// In en, this message translates to:
@@ -2752,29 +2038,11 @@ abstract class AppLocalizations {
   /// **'Edit Phone Rule'**
   String get editPhoneRule;
 
-  /// No description provided for @editPhoneRules.
-  ///
-  /// In en, this message translates to:
-  /// **'Used to edit phone rules'**
-  String get editPhoneRules;
-
-  /// No description provided for @editPhoneRuleTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Edit Phone Rule'**
-  String get editPhoneRuleTitle;
-
   /// No description provided for @editRule.
   ///
   /// In en, this message translates to:
   /// **'Edit Rule'**
   String get editRule;
-
-  /// No description provided for @editSmsRule.
-  ///
-  /// In en, this message translates to:
-  /// **'Edit SMS Rule'**
-  String get editSmsRule;
 
   /// No description provided for @education.
   ///
@@ -2793,12 +2061,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Email'**
   String get email;
-
-  /// No description provided for @emailOptional.
-  ///
-  /// In en, this message translates to:
-  /// **'Email (Optional)'**
-  String get emailOptional;
 
   /// No description provided for @enableCallFilter.
   ///
@@ -2835,24 +2097,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Encrypt backup files'**
   String get enableEncryptionDescription;
-
-  /// No description provided for @enableEncryptionLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Enable Encryption'**
-  String get enableEncryptionLabel;
-
-  /// No description provided for @enableEncryptionSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Backup files will be encrypted'**
-  String get enableEncryptionSubtitle;
-
-  /// No description provided for @enableEncryptionTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Enable Encryption'**
-  String get enableEncryptionTitle;
 
   /// No description provided for @enableGlobalPlugins.
   ///
@@ -2914,12 +2158,6 @@ abstract class AppLocalizations {
   /// **'Allow rule configurations with no interception actions'**
   String get enableNoneActionRulesDesc;
 
-  /// No description provided for @enableNotifications.
-  ///
-  /// In en, this message translates to:
-  /// **'Enable Notifications'**
-  String get enableNotifications;
-
   /// No description provided for @enableRemoteNumberFilter.
   ///
   /// In en, this message translates to:
@@ -2949,18 +2187,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'When enabled, messages will be automatically filtered according to the rules'**
   String get enableSmsFilterDescription;
-
-  /// No description provided for @enableStatisticsNotifications.
-  ///
-  /// In en, this message translates to:
-  /// **'Enable Statistics Notifications'**
-  String get enableStatisticsNotifications;
-
-  /// No description provided for @enableSubscriptionSuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'Enable subscription successfully'**
-  String get enableSubscriptionSuccessfully;
 
   /// No description provided for @enableTimeInterception.
   ///
@@ -3022,12 +2248,6 @@ abstract class AppLocalizations {
   /// **'The enhanced filter system supports both global rules and per-SIM card filtering configurations.'**
   String get enhancedFilterSystemDescription;
 
-  /// No description provided for @enterBothPhoneNumberAndRegexPattern.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter both phone number and regex pattern'**
-  String get enterBothPhoneNumberAndRegexPattern;
-
   /// No description provided for @enterBothPhoneNumberAndRegexPatternMessage.
   ///
   /// In en, this message translates to:
@@ -3040,29 +2260,11 @@ abstract class AppLocalizations {
   /// **'Please enter contact name'**
   String get enterContactName;
 
-  /// No description provided for @enterCurrentPasswordHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter current password'**
-  String get enterCurrentPasswordHint;
-
   /// No description provided for @enterDeviceName.
   ///
   /// In en, this message translates to:
   /// **'Enter Device Name'**
   String get enterDeviceName;
-
-  /// No description provided for @enterDeviceNameHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter device name'**
-  String get enterDeviceNameHint;
-
-  /// No description provided for @enterEmail.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter email'**
-  String get enterEmail;
 
   /// No description provided for @enterEmailOptional.
   ///
@@ -3075,24 +2277,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter encryption password'**
   String get enterEncryptionPasswordHint;
-
-  /// No description provided for @enterEncryptionPasswordTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter Encryption Password'**
-  String get enterEncryptionPasswordTitle;
-
-  /// No description provided for @enterFilterName.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter filter name'**
-  String get enterFilterName;
-
-  /// No description provided for @enterFilterPattern.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter filter pattern'**
-  String get enterFilterPattern;
 
   /// No description provided for @enterIconCode.
   ///
@@ -3112,23 +2296,11 @@ abstract class AppLocalizations {
   /// **'Enter a new name for this device'**
   String get enterNewDeviceNameHint;
 
-  /// No description provided for @enterNewPasswordHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter new password'**
-  String get enterNewPasswordHint;
-
   /// No description provided for @enterPasswordAgain.
   ///
   /// In en, this message translates to:
   /// **'Enter Password Again'**
   String get enterPasswordAgain;
-
-  /// No description provided for @enterPasswordHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter password'**
-  String get enterPasswordHint;
 
   /// No description provided for @enterPhoneNumber.
   ///
@@ -3177,12 +2349,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter regex pattern'**
   String get enterRegexHint;
-
-  /// No description provided for @enterRuleNameAndPattern.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter rule name and pattern'**
-  String get enterRuleNameAndPattern;
 
   /// No description provided for @enterRuleNameAndPatternMessage.
   ///
@@ -3262,18 +2428,6 @@ abstract class AppLocalizations {
   /// **'Please enter WebDAV username'**
   String get enterWebDAVUsernameHint;
 
-  /// No description provided for @errorDeletingDeviceMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Error deleting device: {error}'**
-  String errorDeletingDeviceMessage(Object error);
-
-  /// No description provided for @errorLoadingPlugin.
-  ///
-  /// In en, this message translates to:
-  /// **'Error loading plugin'**
-  String get errorLoadingPlugin;
-
   /// No description provided for @errorOccurredMessage.
   ///
   /// In en, this message translates to:
@@ -3292,18 +2446,6 @@ abstract class AppLocalizations {
   /// **'Error synchronizing devices: {error}'**
   String errorSynchronizingDevicesMessage(Object error);
 
-  /// No description provided for @errorSyncingDevicesMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Error syncing devices: {error}'**
-  String errorSyncingDevicesMessage(Object error);
-
-  /// No description provided for @errorText.
-  ///
-  /// In en, this message translates to:
-  /// **'Error'**
-  String get errorText;
-
   /// No description provided for @errorUnregisteringDeviceMessage.
   ///
   /// In en, this message translates to:
@@ -3321,12 +2463,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'e.g. Block marketing SMS'**
   String get exampleBlockMarketingSms;
-
-  /// No description provided for @exampleContentRegex.
-  ///
-  /// In en, this message translates to:
-  /// **'e.g., .*offer.*'**
-  String get exampleContentRegex;
 
   /// No description provided for @exampleContentRegexHint.
   ///
@@ -3358,12 +2494,6 @@ abstract class AppLocalizations {
   /// **'Example regex for 400 prefix'**
   String get exampleRegex400Prefix;
 
-  /// No description provided for @exampleRegexFormat.
-  ///
-  /// In en, this message translates to:
-  /// **'Example: ^10086\$ format'**
-  String get exampleRegexFormat;
-
   /// No description provided for @exampleSenderRegexHint.
   ///
   /// In en, this message translates to:
@@ -3388,12 +2518,6 @@ abstract class AppLocalizations {
   /// **'Exchange VIP'**
   String get exchangeVip;
 
-  /// No description provided for @expandLabelSelector.
-  ///
-  /// In en, this message translates to:
-  /// **'Expand Label Selector'**
-  String get expandLabelSelector;
-
   /// No description provided for @expiryTime.
   ///
   /// In en, this message translates to:
@@ -3412,29 +2536,11 @@ abstract class AppLocalizations {
   /// **'Export all application settings'**
   String get exportAllApplicationSettings;
 
-  /// No description provided for @exportAllApplicationSettingsSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Export all application settings'**
-  String get exportAllApplicationSettingsSubtitle;
-
   /// No description provided for @exportAllRuleConfigurations.
   ///
   /// In en, this message translates to:
   /// **'Export All Rule Configurations'**
   String get exportAllRuleConfigurations;
-
-  /// No description provided for @exportAllRuleConfigurationsSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Export all rule configurations'**
-  String get exportAllRuleConfigurationsSubtitle;
-
-  /// No description provided for @exportComplete.
-  ///
-  /// In en, this message translates to:
-  /// **'Export Complete'**
-  String get exportComplete;
 
   /// No description provided for @exportConfig.
   ///
@@ -3454,12 +2560,6 @@ abstract class AppLocalizations {
   /// **'Export Data'**
   String get exportData;
 
-  /// No description provided for @exportError.
-  ///
-  /// In en, this message translates to:
-  /// **'Export Error'**
-  String get exportError;
-
   /// No description provided for @exportFailed.
   ///
   /// In en, this message translates to:
@@ -3477,12 +2577,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Export feature coming soon'**
   String get exportFeatureComingSoon;
-
-  /// No description provided for @exporting.
-  ///
-  /// In en, this message translates to:
-  /// **'Exporting...'**
-  String get exporting;
 
   /// No description provided for @exportLabels.
   ///
@@ -3514,18 +2608,6 @@ abstract class AppLocalizations {
   /// **'Export Rules'**
   String get exportRules;
 
-  /// No description provided for @exportRulesDialogTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Export Rules'**
-  String get exportRulesDialogTitle;
-
-  /// No description provided for @exportRulesTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Export Rules'**
-  String get exportRulesTitle;
-
   /// No description provided for @exportSmsRules.
   ///
   /// In en, this message translates to:
@@ -3538,35 +2620,17 @@ abstract class AppLocalizations {
   /// **'Export Statistics Data'**
   String get exportStatisticsData;
 
-  /// No description provided for @exportSuccess.
-  ///
-  /// In en, this message translates to:
-  /// **'Export successful'**
-  String get exportSuccess;
-
   /// No description provided for @exportSuccesslly.
   ///
   /// In en, this message translates to:
   /// **'Configuration exported successfully'**
   String get exportSuccesslly;
 
-  /// No description provided for @failedToAddContact.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to add contact'**
-  String get failedToAddContact;
-
   /// No description provided for @failedToAddRule.
   ///
   /// In en, this message translates to:
   /// **'Failed to add rule: {error}'**
   String failedToAddRule(Object error);
-
-  /// No description provided for @failedToAddSmsRule.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to add SMS rule: {error}'**
-  String failedToAddSmsRule(Object error);
 
   /// No description provided for @failedToAddSmsSubscription.
   ///
@@ -3586,12 +2650,6 @@ abstract class AppLocalizations {
   /// **'Failed to decrypt backup file'**
   String get failedToDecryptBackupFile;
 
-  /// No description provided for @failedToDeleteDevice.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to delete device'**
-  String get failedToDeleteDevice;
-
   /// No description provided for @failedToDeleteSmsRule.
   ///
   /// In en, this message translates to:
@@ -3603,12 +2661,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to export rules: {error}'**
   String failedToExportRules(Object error);
-
-  /// No description provided for @failedToExportSmsRules.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to export SMS rules: {error}'**
-  String failedToExportSmsRules(Object error);
 
   /// No description provided for @failedToGetCallerIdInfo.
   ///
@@ -3622,30 +2674,6 @@ abstract class AppLocalizations {
   /// **'Failed to import rules: {error}'**
   String failedToImportRules(Object error);
 
-  /// No description provided for @failedToImportSmsRules.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to import SMS rules: {error}'**
-  String failedToImportSmsRules(Object error);
-
-  /// No description provided for @failedToLoadContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to load contacts'**
-  String get failedToLoadContacts;
-
-  /// No description provided for @failedToLoadPlugin.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to load plugin'**
-  String get failedToLoadPlugin;
-
-  /// No description provided for @failedToRenameDevice.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to rename device'**
-  String get failedToRenameDevice;
-
   /// No description provided for @failedToRestoreSettings.
   ///
   /// In en, this message translates to:
@@ -3658,47 +2686,11 @@ abstract class AppLocalizations {
   /// **'Failed to restore settings: {error}'**
   String failedToRestoreSettingsWithError(Object error);
 
-  /// No description provided for @failedToSetPassword.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to set password: {error}'**
-  String failedToSetPassword(Object error);
-
-  /// No description provided for @failedToSyncDevices.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to sync devices'**
-  String get failedToSyncDevices;
-
   /// No description provided for @failedToToggleRuleStatus.
   ///
   /// In en, this message translates to:
   /// **'Failed to toggle rule status: {error}'**
   String failedToToggleRuleStatus(Object error);
-
-  /// No description provided for @failedToToggleSubscriptionStatus.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to toggle subscription status'**
-  String get failedToToggleSubscriptionStatus;
-
-  /// No description provided for @failedToUpdateContact.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to update contact'**
-  String get failedToUpdateContact;
-
-  /// No description provided for @failedToUpdateSmsRule.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to update SMS rule: {error}'**
-  String failedToUpdateSmsRule(Object error);
-
-  /// No description provided for @failure.
-  ///
-  /// In en, this message translates to:
-  /// **'Failure'**
-  String get failure;
 
   /// No description provided for @favoriteContacts.
   ///
@@ -3766,12 +2758,6 @@ abstract class AppLocalizations {
   /// **'Filter by Label'**
   String get filterByLabel;
 
-  /// No description provided for @filterClear.
-  ///
-  /// In en, this message translates to:
-  /// **'Clear Filter'**
-  String get filterClear;
-
   /// No description provided for @filterControlPanelTitle.
   ///
   /// In en, this message translates to:
@@ -3790,41 +2776,11 @@ abstract class AppLocalizations {
   /// **'Filter Control'**
   String get filterControlTitle;
 
-  /// No description provided for @filterDeleteFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Filter delete failed'**
-  String get filterDeleteFailed;
-
-  /// No description provided for @filterDeleteSuccess.
-  ///
-  /// In en, this message translates to:
-  /// **'Filter deleted successfully'**
-  String get filterDeleteSuccess;
-
-  /// No description provided for @filterDetails.
-  ///
-  /// In en, this message translates to:
-  /// **'Filter Details'**
-  String get filterDetails;
-
   /// No description provided for @filtered.
   ///
   /// In en, this message translates to:
   /// **'Filtered'**
   String get filtered;
-
-  /// No description provided for @filteredSms.
-  ///
-  /// In en, this message translates to:
-  /// **'Filtered SMS'**
-  String get filteredSms;
-
-  /// No description provided for @filteredSmsLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Filtered SMS'**
-  String get filteredSmsLabel;
 
   /// No description provided for @filterExplanation.
   ///
@@ -3844,29 +2800,11 @@ abstract class AppLocalizations {
   /// **'Filter Name'**
   String get filterName;
 
-  /// No description provided for @filterPattern.
-  ///
-  /// In en, this message translates to:
-  /// **'Filter Pattern'**
-  String get filterPattern;
-
   /// No description provided for @filterPriorityNote.
   ///
   /// In en, this message translates to:
   /// **'Note: There are priority relationships between filters, please refer to the help documentation for details'**
   String get filterPriorityNote;
-
-  /// No description provided for @filterSaveFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Filter save failed'**
-  String get filterSaveFailed;
-
-  /// No description provided for @filterSaveSuccess.
-  ///
-  /// In en, this message translates to:
-  /// **'Filter saved successfully'**
-  String get filterSaveSuccess;
 
   /// No description provided for @filterSettings.
   ///
@@ -3928,18 +2866,6 @@ abstract class AppLocalizations {
   /// **'Found {count} rules'**
   String foundRules(Object count);
 
-  /// No description provided for @foundRulesDoYouWantToImport.
-  ///
-  /// In en, this message translates to:
-  /// **'Found {count} rules. Do you want to import them?'**
-  String foundRulesDoYouWantToImport(Object count);
-
-  /// No description provided for @foundRulesToImport.
-  ///
-  /// In en, this message translates to:
-  /// **'Found {count} rules. Do you want to import them?'**
-  String foundRulesToImport(Object count);
-
   /// No description provided for @fraudAlert.
   ///
   /// In en, this message translates to:
@@ -4000,41 +2926,11 @@ abstract class AppLocalizations {
   /// **'Global Filter Settings'**
   String get globalFilterSettings;
 
-  /// Instructions for configuring global filter settings
-  ///
-  /// In en, this message translates to:
-  /// **'Configure global filter settings that apply to all SIM slots:'**
-  String get globalFilterToggleInstructions;
-
-  /// No description provided for @globalSearchSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Search contacts, labels, blacklists, whitelists, etc.'**
-  String get globalSearchSubtitle;
-
-  /// No description provided for @globalSearchTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Global Search'**
-  String get globalSearchTitle;
-
   /// Title for global settings page
   ///
   /// In en, this message translates to:
   /// **'Global Settings'**
   String get globalSettings;
-
-  /// No description provided for @googleAdDisplayPosition.
-  ///
-  /// In en, this message translates to:
-  /// **'Google Ad Display Position'**
-  String get googleAdDisplayPosition;
-
-  /// No description provided for @googleAdMobIntegrationText.
-  ///
-  /// In en, this message translates to:
-  /// **'Google AdMob ads can be integrated here'**
-  String get googleAdMobIntegrationText;
 
   /// No description provided for @googleDriveAuthDescription.
   ///
@@ -4042,23 +2938,11 @@ abstract class AppLocalizations {
   /// **'Authorize using system-configured Google Drive client ID and key'**
   String get googleDriveAuthDescription;
 
-  /// No description provided for @googleDriveAuthorizationHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Authorize using system-configured Google Drive client ID and key'**
-  String get googleDriveAuthorizationHint;
-
   /// No description provided for @googleDriveConfigTitle.
   ///
   /// In en, this message translates to:
   /// **'Google Drive Configuration'**
   String get googleDriveConfigTitle;
-
-  /// No description provided for @googleDriveConfigurationTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Google Drive Configuration'**
-  String get googleDriveConfigurationTitle;
 
   /// No description provided for @government.
   ///
@@ -4095,12 +2979,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Height'**
   String get height;
-
-  /// No description provided for @homePageTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Home Page'**
-  String get homePageTitle;
 
   /// No description provided for @homeTab.
   ///
@@ -4155,12 +3033,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Important'**
   String get important;
-
-  /// No description provided for @importButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Import'**
-  String get importButton;
 
   /// No description provided for @importConfig.
   ///
@@ -4246,53 +3118,11 @@ abstract class AppLocalizations {
   /// **'Import Rule Configurations from File'**
   String get importRuleConfigurationsFromFile;
 
-  /// No description provided for @importRuleConfigurationsFromFileSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Import rule configurations from file'**
-  String get importRuleConfigurationsFromFileSubtitle;
-
   /// No description provided for @importRules.
   ///
   /// In en, this message translates to:
   /// **'Import Rules'**
   String get importRules;
-
-  /// No description provided for @importRulesButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Import Rules'**
-  String get importRulesButton;
-
-  /// No description provided for @importRulesDialogTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Import Rules'**
-  String get importRulesDialogTitle;
-
-  /// No description provided for @importRulesError.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to import rules: {error}'**
-  String importRulesError(Object error);
-
-  /// No description provided for @importRulesInstructions.
-  ///
-  /// In en, this message translates to:
-  /// **'Import rules from a CSV file'**
-  String get importRulesInstructions;
-
-  /// No description provided for @importRulesSuccess.
-  ///
-  /// In en, this message translates to:
-  /// **'Rules imported successfully'**
-  String get importRulesSuccess;
-
-  /// No description provided for @importRulesTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Import Rules'**
-  String get importRulesTitle;
 
   /// No description provided for @importSuccess.
   ///
@@ -4305,12 +3135,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Incoming Call Intercept Action'**
   String get incomingCallInterceptAction;
-
-  /// No description provided for @incomingCallNotification.
-  ///
-  /// In en, this message translates to:
-  /// **'Incoming Call Notification'**
-  String get incomingCallNotification;
 
   /// No description provided for @incorrectPassword.
   ///
@@ -4408,12 +3232,6 @@ abstract class AppLocalizations {
   /// **'Join the Telegram Channel and Group for More Info'**
   String get joinTheTelegramChannelAndGroupForMoreInfo;
 
-  /// No description provided for @jsLogsTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'JS Logs'**
-  String get jsLogsTitle;
-
   /// No description provided for @jsonFormat.
   ///
   /// In en, this message translates to:
@@ -4431,24 +3249,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Keep all historical versions of each backup'**
   String get keepAllVersionsDescription;
-
-  /// No description provided for @keepAllVersionsLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Keep All Versions'**
-  String get keepAllVersionsLabel;
-
-  /// No description provided for @keepAllVersionsSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Keep historical versions of each backup'**
-  String get keepAllVersionsSubtitle;
-
-  /// No description provided for @keepAllVersionsTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Keep All Versions'**
-  String get keepAllVersionsTitle;
 
   /// No description provided for @label.
   ///
@@ -4480,12 +3280,6 @@ abstract class AppLocalizations {
   /// **'Labels help you better manage contacts, add custom labels to phone numbers for easy identification of calls and messages.'**
   String get labelDescription;
 
-  /// No description provided for @labelFilter.
-  ///
-  /// In en, this message translates to:
-  /// **'Label Filter'**
-  String get labelFilter;
-
   /// No description provided for @labelFilterTooltip.
   ///
   /// In en, this message translates to:
@@ -4509,18 +3303,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Label not found'**
   String get labelNotFound;
-
-  /// No description provided for @labelRemoved.
-  ///
-  /// In en, this message translates to:
-  /// **'Label removed'**
-  String get labelRemoved;
-
-  /// Label removal failure message
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to remove label: {error}'**
-  String labelRemoveFailed(Object error);
 
   /// No description provided for @labels.
   ///
@@ -4570,12 +3352,6 @@ abstract class AppLocalizations {
   /// **'Label: {labelId}'**
   String labelTag(Object labelId);
 
-  /// No description provided for @labelUpdated.
-  ///
-  /// In en, this message translates to:
-  /// **'Label updated'**
-  String get labelUpdated;
-
   /// Label update failure message
   ///
   /// In en, this message translates to:
@@ -4605,18 +3381,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Language Settings'**
   String get languageSettingsTitle;
-
-  /// No description provided for @last30Days.
-  ///
-  /// In en, this message translates to:
-  /// **'Last 30 Days'**
-  String get last30Days;
-
-  /// No description provided for @last7Days.
-  ///
-  /// In en, this message translates to:
-  /// **'Last 7 Days'**
-  String get last7Days;
 
   /// No description provided for @lastSyncLabel.
   ///
@@ -4654,23 +3418,11 @@ abstract class AppLocalizations {
   /// **'Failed to load data'**
   String get loadDataFailed;
 
-  /// No description provided for @loadFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Load Failed'**
-  String get loadFailed;
-
   /// No description provided for @loading.
   ///
   /// In en, this message translates to:
   /// **'Loading...'**
   String get loading;
-
-  /// No description provided for @loadingData.
-  ///
-  /// In en, this message translates to:
-  /// **'Loading Data...'**
-  String get loadingData;
 
   /// No description provided for @loadingTags.
   ///
@@ -4701,18 +3453,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to load marked phones: {error}'**
   String loadMarkedPhonesFailed(Object error);
-
-  /// No description provided for @loadMore.
-  ///
-  /// In en, this message translates to:
-  /// **'Load More'**
-  String get loadMore;
-
-  /// No description provided for @loadPluginButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Load Plugin'**
-  String get loadPluginButton;
 
   /// No description provided for @loadPluginsFailed.
   ///
@@ -4749,12 +3489,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Loan'**
   String get loan;
-
-  /// No description provided for @localBackupTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Local Backup'**
-  String get localBackupTitle;
 
   /// No description provided for @localCounterFilter.
   ///
@@ -4918,12 +3652,6 @@ abstract class AppLocalizations {
   /// **'Manage Contacts'**
   String get manage;
 
-  /// No description provided for @manageContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Manage'**
-  String get manageContacts;
-
   /// No description provided for @manageFavoriteContacts.
   ///
   /// In en, this message translates to:
@@ -4941,12 +3669,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add, edit, or delete SMS filter rules'**
   String get manageFilterRulesDescription;
-
-  /// No description provided for @manageFrequentContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Manage Frequent Contacts'**
-  String get manageFrequentContacts;
 
   /// No description provided for @markCounts.
   ///
@@ -4990,12 +3712,6 @@ abstract class AppLocalizations {
   /// **'Failed to mark phone number: {error}'**
   String markPhoneFailed(Object error);
 
-  /// No description provided for @markPhoneManagementSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'To Mark Phone Numbers'**
-  String get markPhoneManagementSubtitle;
-
   /// No description provided for @markPhoneManagementTitle.
   ///
   /// In en, this message translates to:
@@ -5007,12 +3723,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Phone number marked successfully'**
   String get markPhoneSuccess;
-
-  /// No description provided for @matchFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Match failed!'**
-  String get matchFailed;
 
   /// No description provided for @matchFailedMessage.
   ///
@@ -5044,12 +3754,6 @@ abstract class AppLocalizations {
   /// **'Match specific digit patterns:'**
   String get matchSpecificDigitPatternsTitle;
 
-  /// No description provided for @matchSuccessful.
-  ///
-  /// In en, this message translates to:
-  /// **'Match successful!'**
-  String get matchSuccessful;
-
   /// No description provided for @matchSuccessfulMessage.
   ///
   /// In en, this message translates to:
@@ -5073,12 +3777,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Migration Tool'**
   String get migrationTool;
-
-  /// No description provided for @migrationToolTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Migration Tool'**
-  String get migrationToolTitle;
 
   /// No description provided for @minutes.
   ///
@@ -5104,12 +3802,6 @@ abstract class AppLocalizations {
   /// **'Monthly Calls'**
   String get monthlyCallCount;
 
-  /// No description provided for @monthlyChartTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Monthly Blocked Calls'**
-  String get monthlyChartTitle;
-
   /// No description provided for @monthlyMembership.
   ///
   /// In en, this message translates to:
@@ -5127,12 +3819,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Monthly Total'**
   String get monthlyTotal;
-
-  /// No description provided for @monthlyTotalLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Monthly Total'**
-  String get monthlyTotalLabel;
 
   /// No description provided for @moreOptions.
   ///
@@ -5158,12 +3844,6 @@ abstract class AppLocalizations {
   /// **'Name and phone number cannot be empty'**
   String get nameAndPhoneNumberCannotBeEmpty;
 
-  /// No description provided for @nameAndPhoneNumberRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'Name and phone number cannot be empty'**
-  String get nameAndPhoneNumberRequired;
-
   /// No description provided for @nameColor.
   ///
   /// In en, this message translates to:
@@ -5176,12 +3856,6 @@ abstract class AppLocalizations {
   /// **'Name Font Size'**
   String get nameFontSize;
 
-  /// Caller ID name label
-  ///
-  /// In en, this message translates to:
-  /// **'Name: {name}'**
-  String nameLabel(Object name);
-
   /// No description provided for @namePosition.
   ///
   /// In en, this message translates to:
@@ -5193,18 +3867,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Name: Unknown'**
   String get nameUnknown;
-
-  /// Text showing the name of a contact
-  ///
-  /// In en, this message translates to:
-  /// **'Name: {name}'**
-  String nameWithValue(String name);
-
-  /// No description provided for @newPasswordLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'New Password'**
-  String get newPasswordLabel;
 
   /// No description provided for @nextStep.
   ///
@@ -5230,23 +3892,11 @@ abstract class AppLocalizations {
   /// **'No active cloud sync service'**
   String get noActiveCloudSyncServiceMessage;
 
-  /// No description provided for @noCallLogs.
-  ///
-  /// In en, this message translates to:
-  /// **'No Call Logs'**
-  String get noCallLogs;
-
   /// No description provided for @noCallRecords.
   ///
   /// In en, this message translates to:
   /// **'No call records'**
   String get noCallRecords;
-
-  /// No description provided for @noContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'No contacts yet'**
-  String get noContacts;
 
   /// No description provided for @noContactsYet.
   ///
@@ -5266,18 +3916,6 @@ abstract class AppLocalizations {
   /// **'No devices registered'**
   String get noDevicesRegisteredMessage;
 
-  /// No description provided for @noDevicesRegisteredYet.
-  ///
-  /// In en, this message translates to:
-  /// **'No devices registered yet.'**
-  String get noDevicesRegisteredYet;
-
-  /// No description provided for @noFilters.
-  ///
-  /// In en, this message translates to:
-  /// **'No filters yet'**
-  String get noFilters;
-
   /// No description provided for @noLabels.
   ///
   /// In en, this message translates to:
@@ -5290,12 +3928,6 @@ abstract class AppLocalizations {
   /// **'No marked phone numbers'**
   String get noMarkedPhones;
 
-  /// No description provided for @noMatchingContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'No matching contacts'**
-  String get noMatchingContacts;
-
   /// No description provided for @noMatchingContactsFound.
   ///
   /// In en, this message translates to:
@@ -5307,12 +3939,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No matching numbers found'**
   String get noMatchingNumbersFound;
-
-  /// No description provided for @noMatchingRecords.
-  ///
-  /// In en, this message translates to:
-  /// **'No matching call records'**
-  String get noMatchingRecords;
 
   /// No description provided for @noMatchingRules.
   ///
@@ -5337,24 +3963,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No plugins yet'**
   String get noPlugins;
-
-  /// No description provided for @noRecords.
-  ///
-  /// In en, this message translates to:
-  /// **'No call records'**
-  String get noRecords;
-
-  /// No description provided for @noResultReturned.
-  ///
-  /// In en, this message translates to:
-  /// **'No result returned'**
-  String get noResultReturned;
-
-  /// No description provided for @noResultReturnedLog.
-  ///
-  /// In en, this message translates to:
-  /// **'No result returned from plugin'**
-  String get noResultReturnedLog;
 
   /// No description provided for @noRules.
   ///
@@ -5392,12 +4000,6 @@ abstract class AppLocalizations {
   /// **'No subscriptions'**
   String get noSubscriptions;
 
-  /// No description provided for @noSubscriptionsYet.
-  ///
-  /// In en, this message translates to:
-  /// **'No Subscriptions Yet'**
-  String get noSubscriptionsYet;
-
   /// No description provided for @notGranted.
   ///
   /// In en, this message translates to:
@@ -5433,18 +4035,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Notification Settings'**
   String get notificationSettings;
-
-  /// No description provided for @notificationSettingsSaved.
-  ///
-  /// In en, this message translates to:
-  /// **'Notification settings saved successfully'**
-  String get notificationSettingsSaved;
-
-  /// No description provided for @notSet.
-  ///
-  /// In en, this message translates to:
-  /// **'Not Set'**
-  String get notSet;
 
   /// No description provided for @notVerifiedText.
   ///
@@ -5506,12 +4096,6 @@ abstract class AppLocalizations {
   /// **'Number Type Position'**
   String get numberTypePosition;
 
-  /// No description provided for @ok.
-  ///
-  /// In en, this message translates to:
-  /// **'OK'**
-  String get ok;
-
   /// No description provided for @okButton.
   ///
   /// In en, this message translates to:
@@ -5560,23 +4144,11 @@ abstract class AppLocalizations {
   /// **'Authorize using system-configured OneDrive client ID and key'**
   String get oneDriveAuthDescription;
 
-  /// No description provided for @oneDriveAuthorizationHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Authorize using system-configured OneDrive client ID and key'**
-  String get oneDriveAuthorizationHint;
-
   /// No description provided for @oneDriveConfigTitle.
   ///
   /// In en, this message translates to:
   /// **'OneDrive Configuration'**
   String get oneDriveConfigTitle;
-
-  /// No description provided for @oneDriveConfigurationTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'OneDrive Configuration'**
-  String get oneDriveConfigurationTitle;
 
   /// No description provided for @onlineCallerIdSubscription.
   ///
@@ -5680,12 +4252,6 @@ abstract class AppLocalizations {
   /// **'Passwords do not match'**
   String get passwordsDoNotMatch;
 
-  /// No description provided for @passwordSetSuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'Password set successfully'**
-  String get passwordSetSuccessfully;
-
   /// No description provided for @pattern.
   ///
   /// In en, this message translates to:
@@ -5752,23 +4318,11 @@ abstract class AppLocalizations {
   /// **'Phone number cannot be empty'**
   String get phoneNumberCannotBeEmpty;
 
-  /// No description provided for @phoneNumberHintText.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter phone number to add rule'**
-  String get phoneNumberHintText;
-
   /// No description provided for @phoneNumberLabel.
   ///
   /// In en, this message translates to:
   /// **'Phone Number'**
   String get phoneNumberLabel;
-
-  /// No description provided for @phoneNumberRegexRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter both phone number and regex pattern'**
-  String get phoneNumberRegexRequired;
 
   /// No description provided for @phoneNumberTypeFixedLine.
   ///
@@ -5860,12 +4414,6 @@ abstract class AppLocalizations {
   /// **'Phone Rule'**
   String get phoneRule;
 
-  /// No description provided for @phoneRuleEditDialog.
-  ///
-  /// In en, this message translates to:
-  /// **'Phone Rule Edit Dialog'**
-  String get phoneRuleEditDialog;
-
   /// No description provided for @phoneRuleManagement.
   ///
   /// In en, this message translates to:
@@ -5889,12 +4437,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Subscribe to phone rule lists via URL to automatically update whitelist and blacklist rules. Supports JSON format rule files.'**
   String get phoneSubscriptionRulesDescription;
-
-  /// Phone subscription page title
-  ///
-  /// In en, this message translates to:
-  /// **'Phone Rule Subscriptions'**
-  String get phoneSubscriptionTitle;
 
   /// No description provided for @pleaseSelectLabelAndEnterValidPhone.
   ///
@@ -5926,12 +4468,6 @@ abstract class AppLocalizations {
   /// **'Plugin list exported successfully'**
   String get pluginListExportSuccess;
 
-  /// No description provided for @pluginLoadedSuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'Plugin loaded successfully'**
-  String get pluginLoadedSuccessfully;
-
   /// No description provided for @pluginManagement.
   ///
   /// In en, this message translates to:
@@ -5944,23 +4480,11 @@ abstract class AppLocalizations {
   /// **'Manage and configure third-party plugins'**
   String get pluginManagementSubtitle;
 
-  /// No description provided for @pluginManagementTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Plugin Management'**
-  String get pluginManagementTitle;
-
   /// No description provided for @pluginName.
   ///
   /// In en, this message translates to:
   /// **'Plugin Name'**
   String get pluginName;
-
-  /// No description provided for @pluginNotLoaded.
-  ///
-  /// In en, this message translates to:
-  /// **'Plugin is not loaded yet. Please load the plugin first.'**
-  String get pluginNotLoaded;
 
   /// No description provided for @pluginsDeleted.
   ///
@@ -5991,24 +4515,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Plugin URL'**
   String get pluginUrl;
-
-  /// No description provided for @pluginUrlCannotBeEmpty.
-  ///
-  /// In en, this message translates to:
-  /// **'Plugin URL cannot be empty'**
-  String get pluginUrlCannotBeEmpty;
-
-  /// No description provided for @pluginUrlHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter plugin URL'**
-  String get pluginUrlHint;
-
-  /// No description provided for @pluginUrlLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Plugin URL'**
-  String get pluginUrlLabel;
 
   /// No description provided for @pluginVersion.
   ///
@@ -6076,65 +4582,17 @@ abstract class AppLocalizations {
   /// **'Unlock all premium features, auto-renew quarterly'**
   String get quarterlyMembershipDescription;
 
-  /// No description provided for @queryButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Query'**
-  String get queryButton;
-
-  /// No description provided for @queryFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Query failed'**
-  String get queryFailed;
-
-  /// No description provided for @queryFailedLog.
-  ///
-  /// In en, this message translates to:
-  /// **'Query failed'**
-  String get queryFailedLog;
-
-  /// No description provided for @querying.
-  ///
-  /// In en, this message translates to:
-  /// **'Querying...'**
-  String get querying;
-
-  /// No description provided for @queryingPhoneNumber.
-  ///
-  /// In en, this message translates to:
-  /// **'Querying phone number'**
-  String get queryingPhoneNumber;
-
-  /// No description provided for @queryResultTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Query Result'**
-  String get queryResultTitle;
-
   /// No description provided for @ready.
   ///
   /// In en, this message translates to:
   /// **'Ready!'**
   String get ready;
 
-  /// No description provided for @receiveWeeklyStatistics.
-  ///
-  /// In en, this message translates to:
-  /// **'Receive weekly statistics'**
-  String get receiveWeeklyStatistics;
-
   /// No description provided for @recruiter.
   ///
   /// In en, this message translates to:
   /// **'Recruiter'**
   String get recruiter;
-
-  /// No description provided for @reEnterPasswordHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Please re-enter password'**
-  String get reEnterPasswordHint;
 
   /// No description provided for @refresh.
   ///
@@ -6153,12 +4611,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Refresh'**
   String get refreshTooltip;
-
-  /// No description provided for @regexError.
-  ///
-  /// In en, this message translates to:
-  /// **'Regex error: {error}'**
-  String regexError(Object error);
 
   /// No description provided for @regexErrorMessage.
   ///
@@ -6189,12 +4641,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Regex Pattern'**
   String get regexPatternLabel;
-
-  /// No description provided for @regexPatternsExamples.
-  ///
-  /// In en, this message translates to:
-  /// **'Use standard regex syntax to define patterns. Examples:'**
-  String get regexPatternsExamples;
 
   /// No description provided for @regexPatternsForPhoneNumberMatching.
   ///
@@ -6243,18 +4689,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Regex Tester'**
   String get regexTesterTitle;
-
-  /// No description provided for @regexValidationFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Regex validation failed: {error}'**
-  String regexValidationFailed(Object error);
-
-  /// No description provided for @regexValidationSuccess.
-  ///
-  /// In en, this message translates to:
-  /// **'Regex validation successful'**
-  String get regexValidationSuccess;
 
   /// No description provided for @region.
   ///
@@ -6322,53 +4756,11 @@ abstract class AppLocalizations {
   /// **'Remote Number Filter'**
   String get remoteNumberFilter;
 
-  /// No description provided for @remoteNumberFilterDatabaseInfo.
-  ///
-  /// In en, this message translates to:
-  /// **'This filter uses an independent remote database to get the latest number information.'**
-  String get remoteNumberFilterDatabaseInfo;
-
   /// No description provided for @remoteNumberFilterDescription.
   ///
   /// In en, this message translates to:
   /// **'Intercept harassing calls based on remote database information'**
   String get remoteNumberFilterDescription;
-
-  /// No description provided for @remoteNumberFilterExplanationContent.
-  ///
-  /// In en, this message translates to:
-  /// **'The remote number filter identifies and blocks spam calls by querying a remote database based on number count.'**
-  String get remoteNumberFilterExplanationContent;
-
-  /// No description provided for @remoteNumberFilterExplanationTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Remote Number Filter Explanation'**
-  String get remoteNumberFilterExplanationTitle;
-
-  /// No description provided for @remoteNumberFilterFeatureCountThreshold.
-  ///
-  /// In en, this message translates to:
-  /// **'• Count Threshold: Determine based on number occurrence frequency'**
-  String get remoteNumberFilterFeatureCountThreshold;
-
-  /// No description provided for @remoteNumberFilterFeatureFilterAction.
-  ///
-  /// In en, this message translates to:
-  /// **'• Filter Actions: Configure how to handle numbers exceeding threshold'**
-  String get remoteNumberFilterFeatureFilterAction;
-
-  /// No description provided for @remoteNumberFilterFeaturePriority.
-  ///
-  /// In en, this message translates to:
-  /// **'• Priority Settings: Set priority for remote actions'**
-  String get remoteNumberFilterFeaturePriority;
-
-  /// No description provided for @remoteNumberFilterFeatures.
-  ///
-  /// In en, this message translates to:
-  /// **'Features:'**
-  String get remoteNumberFilterFeatures;
 
   /// No description provided for @remoteNumberFiltering.
   ///
@@ -6400,23 +4792,11 @@ abstract class AppLocalizations {
   /// **'Remove Ads'**
   String get removeAdsTitle;
 
-  /// No description provided for @removedFromFavoriteContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Removed from favorite contacts'**
-  String get removedFromFavoriteContacts;
-
   /// No description provided for @removedFromFavorites.
   ///
   /// In en, this message translates to:
   /// **'Removed from favorite contacts'**
   String get removedFromFavorites;
-
-  /// No description provided for @removeFavorite.
-  ///
-  /// In en, this message translates to:
-  /// **'Remove Favorite'**
-  String get removeFavorite;
 
   /// No description provided for @removeFromFavorites.
   ///
@@ -6424,29 +4804,11 @@ abstract class AppLocalizations {
   /// **'Remove from Favorites'**
   String get removeFromFavorites;
 
-  /// No description provided for @renameButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Rename'**
-  String get renameButton;
-
-  /// No description provided for @renameDeviceDialogTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Rename Device'**
-  String get renameDeviceDialogTitle;
-
   /// No description provided for @renameDeviceTitle.
   ///
   /// In en, this message translates to:
   /// **'Rename Device'**
   String get renameDeviceTitle;
-
-  /// No description provided for @replaceCurrentSettingsConfirmation.
-  ///
-  /// In en, this message translates to:
-  /// **'This will replace all your current settings. Are you sure you want to continue?'**
-  String get replaceCurrentSettingsConfirmation;
 
   /// No description provided for @requestAllPermissions.
   ///
@@ -6490,35 +4852,11 @@ abstract class AppLocalizations {
   /// **'Restore Application Settings from Backup'**
   String get restoreApplicationSettingsFromBackup;
 
-  /// No description provided for @restoreApplicationSettingsFromBackupSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Restore application settings from backup'**
-  String get restoreApplicationSettingsFromBackupSubtitle;
-
-  /// No description provided for @restoreButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Restore'**
-  String get restoreButton;
-
-  /// No description provided for @restoreFailedWithError.
-  ///
-  /// In en, this message translates to:
-  /// **'Restore from cloud failed: {error}'**
-  String restoreFailedWithError(Object error);
-
   /// No description provided for @restoreFromCloud.
   ///
   /// In en, this message translates to:
   /// **'Restore from Cloud'**
   String get restoreFromCloud;
-
-  /// No description provided for @restoreFromCloudDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Restore settings and rules from cloud storage'**
-  String get restoreFromCloudDescription;
 
   /// No description provided for @restoreFromCloudFailed.
   ///
@@ -6526,41 +4864,17 @@ abstract class AppLocalizations {
   /// **'Failed to restore from cloud: {error}'**
   String restoreFromCloudFailed(Object error);
 
-  /// No description provided for @restoreFromCloudLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Restore from Cloud'**
-  String get restoreFromCloudLabel;
-
   /// No description provided for @restoreFromCloudSuccess.
   ///
   /// In en, this message translates to:
   /// **'Successfully restored from cloud'**
   String get restoreFromCloudSuccess;
 
-  /// No description provided for @restoreFromCloudTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Restore from Cloud'**
-  String get restoreFromCloudTitle;
-
-  /// No description provided for @restoreFromLocal.
-  ///
-  /// In en, this message translates to:
-  /// **'Restore from Local'**
-  String get restoreFromLocal;
-
   /// No description provided for @restorePurchases.
   ///
   /// In en, this message translates to:
   /// **'Restore Purchases'**
   String get restorePurchases;
-
-  /// No description provided for @restoreSectionTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Restore'**
-  String get restoreSectionTitle;
 
   /// No description provided for @restoreSettings.
   ///
@@ -6573,30 +4887,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This will replace all your current settings. Are you sure you want to continue?'**
   String get restoreSettingsConfirmation;
-
-  /// No description provided for @restoreSettingsDialogTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Restore Settings'**
-  String get restoreSettingsDialogTitle;
-
-  /// No description provided for @restoreSettingsTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Restore Settings'**
-  String get restoreSettingsTitle;
-
-  /// No description provided for @restoreSuccessFromLocal.
-  ///
-  /// In en, this message translates to:
-  /// **'Successfully restored from local'**
-  String get restoreSuccessFromLocal;
-
-  /// No description provided for @restoreSuccessMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Successfully restored from cloud'**
-  String get restoreSuccessMessage;
 
   /// No description provided for @retry.
   ///
@@ -6628,23 +4918,11 @@ abstract class AppLocalizations {
   /// **'Rule Action'**
   String get ruleAction;
 
-  /// No description provided for @ruleAddButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Add Rule'**
-  String get ruleAddButton;
-
   /// Rule creation success message
   ///
   /// In en, this message translates to:
   /// **'Rule added successfully'**
   String get ruleAddedSuccess;
-
-  /// Rule creation failure message
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to add rule: {error}'**
-  String ruleAddFailure(Object error);
 
   /// No description provided for @ruleAddSuccess.
   ///
@@ -6664,12 +4942,6 @@ abstract class AppLocalizations {
   /// **'Delete Rule'**
   String get ruleDeleteConfirmTitle;
 
-  /// No description provided for @ruleDeletedSuccess.
-  ///
-  /// In en, this message translates to:
-  /// **'Rule deleted successfully'**
-  String get ruleDeletedSuccess;
-
   /// No description provided for @ruleDeletedSuccessfully.
   ///
   /// In en, this message translates to:
@@ -6681,12 +4953,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to delete rule: {error}'**
   String ruleDeleteFailed(Object error);
-
-  /// Rule deletion failure message
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to delete rule: {error}'**
-  String ruleDeleteFailure(Object error);
 
   /// No description provided for @ruleDeleteSuccess.
   ///
@@ -6718,12 +4984,6 @@ abstract class AppLocalizations {
   /// **'Rule Management'**
   String get ruleManagement;
 
-  /// No description provided for @ruleManagementTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Rule Management'**
-  String get ruleManagementTitle;
-
   /// No description provided for @ruleName.
   ///
   /// In en, this message translates to:
@@ -6754,12 +5014,6 @@ abstract class AppLocalizations {
   /// **'Rule Name'**
   String get ruleNameLabel;
 
-  /// No description provided for @ruleNamePatternRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter rule name and pattern'**
-  String get ruleNamePatternRequired;
-
   /// No description provided for @ruleNameRequired.
   ///
   /// In en, this message translates to:
@@ -6778,35 +5032,11 @@ abstract class AppLocalizations {
   /// **'Rule not found: {error}'**
   String ruleNotFound(Object error);
 
-  /// No description provided for @ruleSavedSuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'Rule saved successfully!'**
-  String get ruleSavedSuccessfully;
-
   /// No description provided for @ruleSavedSuccessMessage.
   ///
   /// In en, this message translates to:
   /// **'Rule saved successfully!'**
   String get ruleSavedSuccessMessage;
-
-  /// No description provided for @ruleSaveFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Save failed: {error}'**
-  String ruleSaveFailed(Object error);
-
-  /// No description provided for @ruleSaveFailedMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Save failed: {error}'**
-  String ruleSaveFailedMessage(Object error);
-
-  /// No description provided for @ruleSaveSuccess.
-  ///
-  /// In en, this message translates to:
-  /// **'Rule saved successfully!'**
-  String get ruleSaveSuccess;
 
   /// No description provided for @rulesExportedSuccessfully.
   ///
@@ -6831,18 +5061,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} rules imported successfully'**
   String rulesImportedSuccessfully(Object count);
-
-  /// No description provided for @rulesImportFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to import rules: {error}'**
-  String rulesImportFailed(Object error);
-
-  /// No description provided for @ruleStatistics.
-  ///
-  /// In en, this message translates to:
-  /// **'Rule Statistics'**
-  String get ruleStatistics;
 
   /// No description provided for @ruleStatusChanged.
   ///
@@ -6892,12 +5110,6 @@ abstract class AppLocalizations {
   /// **'Save'**
   String get saveButton;
 
-  /// No description provided for @saveButtonLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'SAVE'**
-  String get saveButtonLabel;
-
   /// No description provided for @saveButtonText.
   ///
   /// In en, this message translates to:
@@ -6910,23 +5122,11 @@ abstract class AppLocalizations {
   /// **'Save failed: {error}'**
   String saveFailed(Object error);
 
-  /// No description provided for @saveFilter.
-  ///
-  /// In en, this message translates to:
-  /// **'Save Filter'**
-  String get saveFilter;
-
   /// No description provided for @saveSettings.
   ///
   /// In en, this message translates to:
   /// **'Save Settings'**
   String get saveSettings;
-
-  /// No description provided for @saveSettingsFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to save settings: {error}'**
-  String saveSettingsFailed(Object error);
 
   /// No description provided for @scamsLikely.
   ///
@@ -6952,47 +5152,17 @@ abstract class AppLocalizations {
   /// **'Search error: {error}'**
   String searchError(Object error);
 
-  /// No description provided for @searchFilters.
-  ///
-  /// In en, this message translates to:
-  /// **'Search Filters'**
-  String get searchFilters;
-
-  /// No description provided for @searchForContacts.
-  ///
-  /// In en, this message translates to:
-  /// **'Search for contacts'**
-  String get searchForContacts;
-
   /// No description provided for @searchHint.
   ///
   /// In en, this message translates to:
   /// **'Search...'**
   String get searchHint;
 
-  /// No description provided for @searchSettingsSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Search contacts, labels, blacklists, whitelists, etc.'**
-  String get searchSettingsSubtitle;
-
-  /// No description provided for @searchSettingsTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Search Settings'**
-  String get searchSettingsTitle;
-
   /// No description provided for @securityMessage.
   ///
   /// In en, this message translates to:
   /// **'Do not trust any phone calls. Always verify customer service numbers independently. Never share passwords, verification codes, card numbers, or personal information.'**
   String get securityMessage;
-
-  /// No description provided for @selectActionToPerform.
-  ///
-  /// In en, this message translates to:
-  /// **'Select the action to perform when the rule matches'**
-  String get selectActionToPerform;
 
   /// No description provided for @selectActionWhenBlockingCalls.
   ///
@@ -7017,18 +5187,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Select Country'**
   String get selectCountry;
-
-  /// No description provided for @selectDateRange.
-  ///
-  /// In en, this message translates to:
-  /// **'Select Date Range'**
-  String get selectDateRange;
-
-  /// Selected date range text
-  ///
-  /// In en, this message translates to:
-  /// **'Selected date range'**
-  String get selectedDateRange;
 
   /// No description provided for @selectedItems.
   ///
@@ -7072,35 +5230,11 @@ abstract class AppLocalizations {
   /// **'Select Multiple'**
   String get selectMultiple;
 
-  /// No description provided for @selectPeriod.
-  ///
-  /// In en, this message translates to:
-  /// **'Select Period'**
-  String get selectPeriod;
-
   /// No description provided for @selectSimCard.
   ///
   /// In en, this message translates to:
   /// **'Select SIM Card'**
   String get selectSimCard;
-
-  /// Title for SIM slot selection dialog
-  ///
-  /// In en, this message translates to:
-  /// **'Select SIM Slot'**
-  String get selectSimSlot;
-
-  /// No description provided for @selectSpecificActionForBlockedCalls.
-  ///
-  /// In en, this message translates to:
-  /// **'Select the specific action to perform when blocking calls'**
-  String get selectSpecificActionForBlockedCalls;
-
-  /// No description provided for @selectTag.
-  ///
-  /// In en, this message translates to:
-  /// **'Select Tag'**
-  String get selectTag;
 
   /// No description provided for @selectTags.
   ///
@@ -7174,41 +5308,11 @@ abstract class AppLocalizations {
   /// **'{error}'**
   String serviceUpdateFailure(Object error);
 
-  /// No description provided for @setButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Set'**
-  String get setButton;
-
   /// No description provided for @setEncryptionPassword.
   ///
   /// In en, this message translates to:
   /// **'Set Encryption Password'**
   String get setEncryptionPassword;
-
-  /// No description provided for @setEncryptionPasswordDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Set encryption password for backup and restore'**
-  String get setEncryptionPasswordDescription;
-
-  /// No description provided for @setEncryptionPasswordLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Set Encryption Password'**
-  String get setEncryptionPasswordLabel;
-
-  /// No description provided for @setEncryptionPasswordTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Set Encryption Password'**
-  String get setEncryptionPasswordTitle;
-
-  /// No description provided for @setPasswordButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Set'**
-  String get setPasswordButton;
 
   /// No description provided for @settings.
   ///
@@ -7221,18 +5325,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Settings backed up to: {path}'**
   String settingsBackedUpTo(Object path);
-
-  /// No description provided for @settingsLoaded.
-  ///
-  /// In en, this message translates to:
-  /// **'Settings loaded'**
-  String get settingsLoaded;
-
-  /// No description provided for @settingsLoadFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to load settings: {error}'**
-  String settingsLoadFailed(Object error);
 
   /// No description provided for @settingsRestoredSuccessfully.
   ///
@@ -7269,18 +5361,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Setup'**
   String get setup;
-
-  /// No description provided for @showContactEditDialogStaticMethod.
-  ///
-  /// In en, this message translates to:
-  /// **'Static method to display contact edit dialog'**
-  String get showContactEditDialogStaticMethod;
-
-  /// No description provided for @showExplanation.
-  ///
-  /// In en, this message translates to:
-  /// **'Show Explanation'**
-  String get showExplanation;
 
   /// No description provided for @silence.
   ///
@@ -7360,12 +5440,6 @@ abstract class AppLocalizations {
   /// **'SIM {slotNumber} - {countryIso}'**
   String simInfo(Object slotNumber, Object countryIso);
 
-  /// No description provided for @simInfoLoadFailure.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to load SIM card information: {error}'**
-  String simInfoLoadFailure(Object error);
-
   /// No description provided for @simRuleInstructions.
   ///
   /// In en, this message translates to:
@@ -7377,12 +5451,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'SIM Slot Rules'**
   String get simRuleInstructionsTitle;
-
-  /// SIM slot rule management section title
-  ///
-  /// In en, this message translates to:
-  /// **'SIM Slot Rule Management'**
-  String get simRuleManagement;
 
   /// Text showing SIM slot 1 with country ISO code
   ///
@@ -7396,24 +5464,6 @@ abstract class AppLocalizations {
   /// **'SIM 2,-{countryIso}'**
   String simSlot2(String countryIso);
 
-  /// No description provided for @simSlotDataLoadFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to load SIM data: {error}'**
-  String simSlotDataLoadFailed(Object error);
-
-  /// No description provided for @simSlotFilterConfiguration.
-  ///
-  /// In en, this message translates to:
-  /// **'SIM Slot Filter Configuration'**
-  String get simSlotFilterConfiguration;
-
-  /// No description provided for @simSlotFilterConfigurationDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Allowing to set filter rules by SIM slot'**
-  String get simSlotFilterConfigurationDescription;
-
   /// No description provided for @simSlotFilterDescription.
   ///
   /// In en, this message translates to:
@@ -7426,23 +5476,11 @@ abstract class AppLocalizations {
   /// **'SIM Slot {slotNumber} Filter Settings'**
   String simSlotFilterSettingsTitle(Object slotNumber);
 
-  /// No description provided for @simSlotLoadFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to load SIM slots: {error}'**
-  String simSlotLoadFailed(Object error);
-
   /// No description provided for @simSlotManagement.
   ///
   /// In en, this message translates to:
   /// **'SIM Slot Management'**
   String get simSlotManagement;
-
-  /// SIM slot operation failure message
-  ///
-  /// In en, this message translates to:
-  /// **'SIM slot operation failed: {error}'**
-  String simSlotOperationFailed(Object error);
 
   /// SIM slot position display
   ///
@@ -7467,18 +5505,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'SIM Slot Rules'**
   String get simSlotRuleManagement;
-
-  /// No description provided for @simSlotRuleManagementTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Rule Management'**
-  String get simSlotRuleManagementTitle;
-
-  /// Title for SIM slot settings page
-  ///
-  /// In en, this message translates to:
-  /// **'SIM Slot Settings'**
-  String get simSlotSettings;
 
   /// No description provided for @simSlotTitle.
   ///
@@ -7540,12 +5566,6 @@ abstract class AppLocalizations {
   /// **'SMS Filter Settings'**
   String get smsFilterSettings;
 
-  /// No description provided for @smsHistory.
-  ///
-  /// In en, this message translates to:
-  /// **'SMS History'**
-  String get smsHistory;
-
   /// No description provided for @smsManagement.
   ///
   /// In en, this message translates to:
@@ -7588,41 +5608,11 @@ abstract class AppLocalizations {
   /// **'SMS Rule Management'**
   String get smsRuleManagement;
 
-  /// No description provided for @smsRulesExportedSuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'SMS rules exported successfully to {filePath}'**
-  String smsRulesExportedSuccessfully(Object filePath);
-
-  /// No description provided for @smsRulesImportedSuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'SMS rules imported successfully'**
-  String get smsRulesImportedSuccessfully;
-
   /// No description provided for @smsRuleSubscription.
   ///
   /// In en, this message translates to:
   /// **'SMS Rule Subscription'**
   String get smsRuleSubscription;
-
-  /// No description provided for @smsRuleUpdatedSuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'SMS rule updated successfully'**
-  String get smsRuleUpdatedSuccessfully;
-
-  /// No description provided for @smsSettingsSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'SMS filtering and keyword blocking'**
-  String get smsSettingsSubtitle;
-
-  /// No description provided for @smsSettingsTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'SMS Settings'**
-  String get smsSettingsTitle;
 
   /// No description provided for @smsSubscription.
   ///
@@ -7690,41 +5680,11 @@ abstract class AppLocalizations {
   /// **'Blocked'**
   String get statBlocked;
 
-  /// No description provided for @staticMethodShowCallerIdDialog.
-  ///
-  /// In en, this message translates to:
-  /// **'Static method to show the Caller ID Information Dialog'**
-  String get staticMethodShowCallerIdDialog;
-
-  /// No description provided for @staticMethodToDisplayCountrySelectionDialog.
-  ///
-  /// In en, this message translates to:
-  /// **'Static method to display country selection dialog'**
-  String get staticMethodToDisplayCountrySelectionDialog;
-
-  /// No description provided for @staticMethodToDisplayDialog.
-  ///
-  /// In en, this message translates to:
-  /// **'Static method to display dialog'**
-  String get staticMethodToDisplayDialog;
-
   /// No description provided for @statistics.
   ///
   /// In en, this message translates to:
   /// **'Statistics'**
   String get statistics;
-
-  /// No description provided for @statisticsExportFeatureComingSoon.
-  ///
-  /// In en, this message translates to:
-  /// **'Statistics export feature coming soon'**
-  String get statisticsExportFeatureComingSoon;
-
-  /// No description provided for @statisticsGrid.
-  ///
-  /// In en, this message translates to:
-  /// **'Statistics Grid'**
-  String get statisticsGrid;
 
   /// No description provided for @statisticsPageTitle.
   ///
@@ -7792,12 +5752,6 @@ abstract class AppLocalizations {
   /// **'Subscription deleted'**
   String get subscriptionDeleted;
 
-  /// No description provided for @subscriptionDeletedSuccessfully.
-  ///
-  /// In en, this message translates to:
-  /// **'Subscription deleted successfully'**
-  String get subscriptionDeletedSuccessfully;
-
   /// No description provided for @subscriptionDeleteFailed.
   ///
   /// In en, this message translates to:
@@ -7810,35 +5764,11 @@ abstract class AppLocalizations {
   /// **'Subscription deleted'**
   String get subscriptionDeleteSuccess;
 
-  /// No description provided for @subscriptionEmptyState.
-  ///
-  /// In en, this message translates to:
-  /// **'No subscriptions available'**
-  String get subscriptionEmptyState;
-
-  /// No description provided for @subscriptionEmptyText.
-  ///
-  /// In en, this message translates to:
-  /// **'No subscriptions yet'**
-  String get subscriptionEmptyText;
-
   /// No description provided for @subscriptionLoadFailed.
   ///
   /// In en, this message translates to:
   /// **'Failed to load subscriptions: {error}'**
   String subscriptionLoadFailed(Object error);
-
-  /// No description provided for @subscriptionLoadingFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to load subscriptions: {error}'**
-  String subscriptionLoadingFailed(Object error);
-
-  /// No description provided for @subscriptionManagementTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Subscription Management'**
-  String get subscriptionManagementTitle;
 
   /// Subscription name field label
   ///
@@ -7858,23 +5788,11 @@ abstract class AppLocalizations {
   /// **'Enter subscription name'**
   String get subscriptionNameHint;
 
-  /// No description provided for @subscriptionPageTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Subscription Management'**
-  String get subscriptionPageTitle;
-
   /// No description provided for @subscriptionStatusChangeFailed.
   ///
   /// In en, this message translates to:
   /// **'Failed to change subscription status: {error}'**
   String subscriptionStatusChangeFailed(Object error);
-
-  /// No description provided for @subscriptionToggleFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to toggle subscription status: {error}'**
-  String subscriptionToggleFailed(Object error);
 
   /// No description provided for @subscriptionUpdateFailed.
   ///
@@ -7936,12 +5854,6 @@ abstract class AppLocalizations {
   /// **'Sync failed'**
   String get syncFailedMessage;
 
-  /// No description provided for @syncFolderNameHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter sync folder name (default: NotificationManager)'**
-  String get syncFolderNameHint;
-
   /// No description provided for @syncFolderNameLabel.
   ///
   /// In en, this message translates to:
@@ -7984,12 +5896,6 @@ abstract class AppLocalizations {
   /// **'Sync status updated'**
   String get syncStatusUpdatedMessage;
 
-  /// No description provided for @syncSuccessful.
-  ///
-  /// In en, this message translates to:
-  /// **'Sync successful'**
-  String get syncSuccessful;
-
   /// No description provided for @syncSuccessMessage.
   ///
   /// In en, this message translates to:
@@ -8001,12 +5907,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sync with Cloud Storage'**
   String get syncWithCloudStorage;
-
-  /// No description provided for @syncWithCloudStorageSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Sync with cloud storage'**
-  String get syncWithCloudStorageSubtitle;
 
   /// No description provided for @systemFeatures.
   ///
@@ -8056,12 +5956,6 @@ abstract class AppLocalizations {
   /// **'Tag: {tag}'**
   String tagLabel(String tag);
 
-  /// No description provided for @tagsUpdated.
-  ///
-  /// In en, this message translates to:
-  /// **'Tags updated'**
-  String get tagsUpdated;
-
   /// No description provided for @takeaway.
   ///
   /// In en, this message translates to:
@@ -8091,12 +5985,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'TEST'**
   String get testButton;
-
-  /// No description provided for @testButtonLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'TEST'**
-  String get testButtonLabel;
 
   /// No description provided for @testConnectionButton.
   ///
@@ -8158,18 +6046,6 @@ abstract class AppLocalizations {
   /// **'Call Frequency Interception Settings'**
   String get timeInterceptorSettingsTitle;
 
-  /// No description provided for @timeInterceptorSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Automatically intercept potential spam calls based on call frequency'**
-  String get timeInterceptorSubtitle;
-
-  /// No description provided for @timeInterceptorTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Enable Call Frequency Interception'**
-  String get timeInterceptorTitle;
-
   /// No description provided for @timeWindowDescription.
   ///
   /// In en, this message translates to:
@@ -8181,12 +6057,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Interception Time Window (minutes): {minutes}'**
   String timeWindowLabel(int minutes);
-
-  /// No description provided for @timeWindowSetting.
-  ///
-  /// In en, this message translates to:
-  /// **'Set the time window size for intercepting repeated calls. Calls from the same number within this window will be intercepted'**
-  String get timeWindowSetting;
 
   /// No description provided for @today.
   ///
@@ -8206,41 +6076,17 @@ abstract class AppLocalizations {
   /// **'Total Blocked'**
   String get totalBlocked;
 
-  /// No description provided for @totalFiltered.
-  ///
-  /// In en, this message translates to:
-  /// **'Total Filtered'**
-  String get totalFiltered;
-
   /// No description provided for @transferDataBetweenDevicesOrPlatforms.
   ///
   /// In en, this message translates to:
   /// **'Transfer data between devices or platforms'**
   String get transferDataBetweenDevicesOrPlatforms;
 
-  /// No description provided for @transferDataBetweenDevicesOrPlatformsSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Transfer data between devices or platforms'**
-  String get transferDataBetweenDevicesOrPlatformsSubtitle;
-
   /// No description provided for @travelTicketing.
   ///
   /// In en, this message translates to:
   /// **'Travel Ticketing'**
   String get travelTicketing;
-
-  /// No description provided for @trend.
-  ///
-  /// In en, this message translates to:
-  /// **'Trend'**
-  String get trend;
-
-  /// No description provided for @trendChart.
-  ///
-  /// In en, this message translates to:
-  /// **'Trend Chart'**
-  String get trendChart;
 
   /// No description provided for @tutorial.
   ///
@@ -8265,12 +6111,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unknown'**
   String get unknown;
-
-  /// No description provided for @unknownLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Unknown Label'**
-  String get unknownLabel;
 
   /// No description provided for @unknownTag.
   ///
@@ -8314,12 +6154,6 @@ abstract class AppLocalizations {
   /// **'Update All Now'**
   String get updateAllNow;
 
-  /// Button text for updating call filter configuration
-  ///
-  /// In en, this message translates to:
-  /// **'Update Call Filter Configuration'**
-  String get updateCallFilterConfig;
-
   /// No description provided for @updateContactFailed.
   ///
   /// In en, this message translates to:
@@ -8332,23 +6166,11 @@ abstract class AppLocalizations {
   /// **'Update Favorite Status'**
   String get updateFavoriteStatus;
 
-  /// No description provided for @updateFavoriteStatusFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to update favorite status: {error}'**
-  String updateFavoriteStatusFailed(Object error);
-
   /// No description provided for @updateInterval.
   ///
   /// In en, this message translates to:
   /// **'Update Interval'**
   String get updateInterval;
-
-  /// No description provided for @updateLabelFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to update label'**
-  String get updateLabelFailed;
 
   /// No description provided for @updateNow.
   ///
@@ -8386,12 +6208,6 @@ abstract class AppLocalizations {
   /// **'{service} updated successfully ({count} rules)'**
   String updateSuccess(Object service, Object count);
 
-  /// No description provided for @updateTags.
-  ///
-  /// In en, this message translates to:
-  /// **'Update Tags'**
-  String get updateTags;
-
   /// No description provided for @useCasesPoint1.
   ///
   /// In en, this message translates to:
@@ -8422,12 +6238,6 @@ abstract class AppLocalizations {
   /// **'Use Global Settings'**
   String get useGlobalSettings;
 
-  /// No description provided for @userEmail.
-  ///
-  /// In en, this message translates to:
-  /// **'user@example.com'**
-  String get userEmail;
-
   /// No description provided for @usernameLabel.
   ///
   /// In en, this message translates to:
@@ -8439,12 +6249,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Use standard regex syntax to define patterns. Examples:'**
   String get useStandardRegexSyntaxToDefinePatternsExamples;
-
-  /// No description provided for @validateRegex.
-  ///
-  /// In en, this message translates to:
-  /// **'Validate Regex'**
-  String get validateRegex;
 
   /// No description provided for @verificationFailedText.
   ///
@@ -8506,65 +6310,11 @@ abstract class AppLocalizations {
   /// **'WebDAV Configuration'**
   String get webDAVConfigTitle;
 
-  /// No description provided for @webdavConfigurationTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'WebDAV Configuration'**
-  String get webdavConfigurationTitle;
-
-  /// No description provided for @webdavPasswordHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter WebDAV password'**
-  String get webdavPasswordHint;
-
-  /// No description provided for @webdavServerAddressHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter WebDAV server address'**
-  String get webdavServerAddressHint;
-
-  /// No description provided for @webdavUsernameHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Please enter WebDAV username'**
-  String get webdavUsernameHint;
-
   /// No description provided for @week.
   ///
   /// In en, this message translates to:
   /// **'Week'**
   String get week;
-
-  /// No description provided for @weekly.
-  ///
-  /// In en, this message translates to:
-  /// **'Weekly'**
-  String get weekly;
-
-  /// No description provided for @weeklyBlockedCallsSummary.
-  ///
-  /// In en, this message translates to:
-  /// **'Weekly Blocked Calls Summary'**
-  String get weeklyBlockedCallsSummary;
-
-  /// No description provided for @weeklyChartTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Weekly Blocked Calls'**
-  String get weeklyChartTitle;
-
-  /// Weekly report notification option
-  ///
-  /// In en, this message translates to:
-  /// **'Weekly Report'**
-  String get weeklyReport;
-
-  /// Description for weekly report option
-  ///
-  /// In en, this message translates to:
-  /// **'Receive weekly summary report of call blocking activity'**
-  String get weeklyReportDesc;
 
   /// No description provided for @welcome.
   ///
@@ -8577,12 +6327,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Whitelist'**
   String get whitelist;
-
-  /// No description provided for @whitelistLabel.
-  ///
-  /// In en, this message translates to:
-  /// **'Whitelist'**
-  String get whitelistLabel;
 
   /// No description provided for @width.
   ///
@@ -8619,18 +6363,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Year'**
   String get year;
-
-  /// No description provided for @yearly.
-  ///
-  /// In en, this message translates to:
-  /// **'Yearly'**
-  String get yearly;
-
-  /// No description provided for @yearlyChartTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Yearly Blocked Calls'**
-  String get yearlyChartTitle;
 
   /// No description provided for @noSimCardsDetected.
   ///
@@ -8716,12 +6448,6 @@ abstract class AppLocalizations {
   /// **'Use Notification from STIR'**
   String get useStirNotification;
 
-  /// No description provided for @useStirNotificationDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Enable STIR notifications for incoming calls'**
-  String get useStirNotificationDescription;
-
   /// No description provided for @cancelLocalNotificationDescription.
   ///
   /// In en, this message translates to:
@@ -8757,12 +6483,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Incoming Call Info'**
   String get callerIdNotificationTitle;
-
-  /// Body for the caller ID notification, showing the phone number
-  ///
-  /// In en, this message translates to:
-  /// **'Number: {phoneNumber}'**
-  String callerIdBody(String phoneNumber);
 
   /// Title for blocked call notification
   ///
@@ -8859,24 +6579,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Fraud Alert'**
   String get fraudAlertTitle;
-
-  /// Body for the fraud alert notification
-  ///
-  /// In en, this message translates to:
-  /// **'Potential fraud call from {phoneNumber}'**
-  String fraudAlertBody(String phoneNumber);
-
-  /// No description provided for @loadRulesFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to load rules: {error}'**
-  String loadRulesFailed(Object error);
-
-  /// No description provided for @loadCallLogFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to load call log: {error}'**
-  String loadCallLogFailed(Object error);
 
   /// No description provided for @noBlockedTypeData.
   ///
@@ -9003,12 +6705,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Remove Ads'**
   String get removeAds;
-
-  /// No description provided for @unknownAction.
-  ///
-  /// In en, this message translates to:
-  /// **'Unknown Action'**
-  String get unknownAction;
 
   /// No description provided for @settingsBackup.
   ///
@@ -9478,23 +7174,11 @@ abstract class AppLocalizations {
   /// **'Block number success'**
   String get blockNumberSuccess;
 
-  /// No description provided for @blockNumberFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Block number failed'**
-  String get blockNumberFailed;
-
   /// Confirmation message shown when a user tries to unblock a number from their blocklist.
   ///
   /// In en, this message translates to:
   /// **'Are you sure you want to unblock {phoneNumber}?'**
   String unblockNumberConfirmation(String phoneNumber);
-
-  /// Status text displayed on the screen when an outgoing call is initiated.
-  ///
-  /// In en, this message translates to:
-  /// **'Calling {phoneNumber}...'**
-  String callingNumber(String phoneNumber);
 
   /// No description provided for @viewDetails.
   ///
@@ -9525,12 +7209,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unblock number failed'**
   String get unblockNumberFailed;
-
-  /// No description provided for @serviceNotAvailable.
-  ///
-  /// In en, this message translates to:
-  /// **'Service not available'**
-  String get serviceNotAvailable;
 
   /// No description provided for @callingNumberFailed.
   ///
@@ -9591,12 +7269,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Number invalid format'**
   String get numberInvalidFormat;
-
-  /// No description provided for @membershipFeature.
-  ///
-  /// In en, this message translates to:
-  /// **'Membership Feature'**
-  String get membershipFeature;
 
   /// No description provided for @medium.
   ///
@@ -9760,12 +7432,6 @@ abstract class AppLocalizations {
   /// **'Confirm to clear all notifications'**
   String get clearAllNotificationsConfirmation;
 
-  /// No description provided for @allNotificationsCleared.
-  ///
-  /// In en, this message translates to:
-  /// **'All notifications cleared'**
-  String get allNotificationsCleared;
-
   /// No description provided for @clearButton.
   ///
   /// In en, this message translates to:
@@ -9856,12 +7522,6 @@ abstract class AppLocalizations {
   /// **'Inaccurate Information'**
   String get reasonInaccurateInfo;
 
-  /// Wrong marked reason option
-  ///
-  /// In en, this message translates to:
-  /// **'Wrong Marked'**
-  String get reasonWrongMarked;
-
   /// Other reason option
   ///
   /// In en, this message translates to:
@@ -9880,47 +7540,11 @@ abstract class AppLocalizations {
   /// **'Cancel'**
   String get cancel;
 
-  /// Proposal status label
-  ///
-  /// In en, this message translates to:
-  /// **'Status'**
-  String get proposalStatus;
-
-  /// Pending status
-  ///
-  /// In en, this message translates to:
-  /// **'Pending'**
-  String get statusPending;
-
-  /// Active status
-  ///
-  /// In en, this message translates to:
-  /// **'Active'**
-  String get statusActive;
-
-  /// Completed status
-  ///
-  /// In en, this message translates to:
-  /// **'Completed'**
-  String get statusCompleted;
-
-  /// Expired status
-  ///
-  /// In en, this message translates to:
-  /// **'Expired'**
-  String get statusExpired;
-
   /// Risk level label
   ///
   /// In en, this message translates to:
   /// **'Risk Level'**
   String get riskLevel;
-
-  /// Verified risk level
-  ///
-  /// In en, this message translates to:
-  /// **'Verified'**
-  String get riskLevelVerified;
 
   /// Low risk level
   ///
@@ -9934,29 +7558,11 @@ abstract class AppLocalizations {
   /// **'High'**
   String get riskLevelHigh;
 
-  /// Unknown risk level
-  ///
-  /// In en, this message translates to:
-  /// **'Unknown'**
-  String get riskLevelUnknown;
-
-  /// Voting progress label
-  ///
-  /// In en, this message translates to:
-  /// **'Voting Progress'**
-  String get votingProgress;
-
   /// Agree votes count
   ///
   /// In en, this message translates to:
   /// **'Agree: {count}'**
   String agreeVotes(int count);
-
-  /// Disagree votes count
-  ///
-  /// In en, this message translates to:
-  /// **'Disagree: {count}'**
-  String disagreeVotes(int count);
 
   /// Total votes count
   ///
@@ -9988,18 +7594,6 @@ abstract class AppLocalizations {
   /// **'Verification Report'**
   String get verificationReport;
 
-  /// Show report button text
-  ///
-  /// In en, this message translates to:
-  /// **'Show Report'**
-  String get showReport;
-
-  /// Hide report button text
-  ///
-  /// In en, this message translates to:
-  /// **'Hide Report'**
-  String get hideReport;
-
   /// Proposal statistics title
   ///
   /// In en, this message translates to:
@@ -10018,29 +7612,11 @@ abstract class AppLocalizations {
   /// **'Active Proposals'**
   String get activeProposals;
 
-  /// Completed proposals label
-  ///
-  /// In en, this message translates to:
-  /// **'Completed Proposals'**
-  String get completedProposals;
-
-  /// My votes label
-  ///
-  /// In en, this message translates to:
-  /// **'My Votes'**
-  String get myVotes;
-
   /// Proposal created success message
   ///
   /// In en, this message translates to:
   /// **'Proposal created successfully'**
   String get proposalCreated;
-
-  /// Proposal create failed message
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to create proposal'**
-  String get proposalCreateFailed;
 
   /// Vote submitted success message
   ///
@@ -10048,23 +7624,11 @@ abstract class AppLocalizations {
   /// **'Vote submitted successfully'**
   String get voteSubmitted;
 
-  /// Vote submit failed message
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to submit vote'**
-  String get voteSubmitFailed;
-
   /// No proposals found message
   ///
   /// In en, this message translates to:
   /// **'No proposals found'**
   String get noProposalsFound;
-
-  /// Loading proposals message
-  ///
-  /// In en, this message translates to:
-  /// **'Loading proposals...'**
-  String get loadingProposals;
 
   /// Refresh proposals button text
   ///
@@ -10322,41 +7886,17 @@ abstract class AppLocalizations {
     int totalVotes,
   );
 
-  /// No description provided for @loadVoteCountFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Failed to load vote count'**
-  String get loadVoteCountFailed;
-
   /// No description provided for @voteCount.
   ///
   /// In en, this message translates to:
   /// **'Vote Count'**
   String get voteCount;
 
-  /// No description provided for @deletionProposalInfo.
-  ///
-  /// In en, this message translates to:
-  /// **'Deletion Proposal Information'**
-  String get deletionProposalInfo;
-
   /// No description provided for @deletionProposalDescription.
   ///
   /// In en, this message translates to:
   /// **'Propose numbers for deletion that violate community guidelines. Your participation helps keep the platform safe.'**
   String get deletionProposalDescription;
-
-  /// No description provided for @voteToEarnVip.
-  ///
-  /// In en, this message translates to:
-  /// **'Vote on proposals to earn VIP privileges!'**
-  String get voteToEarnVip;
-
-  /// No description provided for @voteFailed.
-  ///
-  /// In en, this message translates to:
-  /// **'Vote failed'**
-  String get voteFailed;
 
   /// No description provided for @searchProposals.
   ///
@@ -10412,77 +7952,11 @@ abstract class AppLocalizations {
   /// **'Displays warnings for potential fraudulent calls.'**
   String get fraudAlertsDescription;
 
-  /// A detailed explanation of what the notification frequency settings do
-  ///
-  /// In en, this message translates to:
-  /// **'Choose how often you receive notifications about new deletion proposals. You can receive them immediately, in batches, or at a custom interval.'**
-  String get notificationFrequencyDescription;
-
   /// Title for the mode selection part (Immediate, Batched, Custom)
   ///
   /// In en, this message translates to:
   /// **'Notification Mode'**
   String get notificationMode;
-
-  /// Label for the immediate notification mode
-  ///
-  /// In en, this message translates to:
-  /// **'Immediate'**
-  String get immediateNotifications;
-
-  /// Description for the immediate notification mode
-  ///
-  /// In en, this message translates to:
-  /// **'Receive a notification as soon as a proposal is created.'**
-  String get immediateNotificationsDescription;
-
-  /// Label for the batched notification mode
-  ///
-  /// In en, this message translates to:
-  /// **'Batched'**
-  String get batchNotifications;
-
-  /// Description for the batched notification mode
-  ///
-  /// In en, this message translates to:
-  /// **'Receive a summary of notifications periodically.'**
-  String get batchNotificationsDescription;
-
-  /// Label for the custom notification mode
-  ///
-  /// In en, this message translates to:
-  /// **'Custom'**
-  String get customNotifications;
-
-  /// Description for the custom notification mode
-  ///
-  /// In en, this message translates to:
-  /// **'Define your own interval for receiving notifications.'**
-  String get customNotificationsDescription;
-
-  /// Title for the custom frequency slider section
-  ///
-  /// In en, this message translates to:
-  /// **'Custom Frequency'**
-  String get customFrequency;
-
-  /// Formats a duration that is only in minutes.
-  ///
-  /// In en, this message translates to:
-  /// **'{minutes} min'**
-  String notificationFrequencyDurationMinutes(int minutes);
-
-  /// Formats a duration that is in whole hours.
-  ///
-  /// In en, this message translates to:
-  /// **'{hours} h'**
-  String notificationFrequencyDurationHours(int hours);
-
-  /// Formats a duration that has both hours and minutes.
-  ///
-  /// In en, this message translates to:
-  /// **'{hours} h {minutes} min'**
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes);
 
   /// No description provided for @pendingProposals.
   ///
@@ -10507,12 +7981,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Risk Level'**
   String get riskLevelLabel;
-
-  /// No description provided for @riskLevelDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Risk level of the number'**
-  String get riskLevelDescription;
 
   /// No description provided for @phoneNumberMinDigits.
   ///
@@ -10556,12 +8024,6 @@ abstract class AppLocalizations {
   /// **'Country code is required'**
   String get countryCodeRequired;
 
-  /// Validation message for country code length
-  ///
-  /// In en, this message translates to:
-  /// **'Country code must be 2 letters'**
-  String get countryCodeLengthError;
-
   /// Hint text for phone number input field
   ///
   /// In en, this message translates to:
@@ -10574,41 +8036,11 @@ abstract class AppLocalizations {
   /// **'Phone number is required'**
   String get phoneNumberRequired;
 
-  /// Validation message for phone number length
-  ///
-  /// In en, this message translates to:
-  /// **'Phone number must be at least 7 digits'**
-  String get phoneNumberLengthError;
-
-  /// Hint text for reason input field
-  ///
-  /// In en, this message translates to:
-  /// **'Provide detailed explanation (minimum 10 characters)'**
-  String get reasonHint;
-
   /// Validation message for required reason
   ///
   /// In en, this message translates to:
   /// **'Reason is required'**
   String get reasonRequired;
-
-  /// Validation message for reason length
-  ///
-  /// In en, this message translates to:
-  /// **'Reason must be at least 10 characters'**
-  String get reasonLengthError;
-
-  /// Title for guidelines section
-  ///
-  /// In en, this message translates to:
-  /// **'Guidelines'**
-  String get guidelinesTitle;
-
-  /// Text content for guidelines section
-  ///
-  /// In en, this message translates to:
-  /// **'• Only report numbers that are genuinely problematic\n• Provide accurate and detailed reasons\n• Choose appropriate risk level based on severity\n• False reports may result in account restrictions'**
-  String get guidelinesText;
 
   /// Label for critical risk level
   ///
@@ -10628,83 +8060,17 @@ abstract class AppLocalizations {
   /// **'Very Low'**
   String get riskLevelVeryLow;
 
-  /// Description for very low risk level
-  ///
-  /// In en, this message translates to:
-  /// **'Very Low - Minor annoyance, infrequent calls'**
-  String get riskDescriptionVeryLow;
-
-  /// Description for low risk level
-  ///
-  /// In en, this message translates to:
-  /// **'Low - Occasional unwanted calls'**
-  String get riskDescriptionLow;
-
-  /// Description for medium risk level
-  ///
-  /// In en, this message translates to:
-  /// **'Medium - Regular spam or telemarketing'**
-  String get riskDescriptionMedium;
-
-  /// Description for high risk level
-  ///
-  /// In en, this message translates to:
-  /// **'High - Persistent harassment or scam attempts'**
-  String get riskDescriptionHigh;
-
-  /// Description for critical risk level
-  ///
-  /// In en, this message translates to:
-  /// **'Critical - Dangerous scams or threats'**
-  String get riskDescriptionCritical;
-
   /// Title for notification frequency settings
   ///
   /// In en, this message translates to:
   /// **'Notification Frequency'**
   String get notificationFrequencyTitle;
 
-  /// Label for notification frequency dropdown
-  ///
-  /// In en, this message translates to:
-  /// **'Notification Frequency (hours)'**
-  String get notificationFrequencyLabel;
-
   /// Generic error message template
   ///
   /// In en, this message translates to:
   /// **'Error: {error}'**
   String errorMessage(String error);
-
-  /// Voting statistics text
-  ///
-  /// In en, this message translates to:
-  /// **'Votes: {totalVotes} ({supportPercentage}% support)'**
-  String votesStatistics(int totalVotes, int supportPercentage);
-
-  /// Time format for recent events
-  ///
-  /// In en, this message translates to:
-  /// **'Just now'**
-  String get timeJustNow;
-
-  /// Time format for minutes ago
-  ///
-  /// In en, this message translates to:
-  /// **'{minutes}m ago'**
-  String timeMinutesAgo(int minutes);
-
-  /// Time format for hours ago
-  ///
-  /// In en, this message translates to:
-  /// **'{hours}h ago'**
-  String timeHoursAgo(int hours);
-
-  /// Time format for days ago
-  ///
-  /// In en, this message translates to:
-  /// **'{days}d ago'**
-  String timeDaysAgo(int days);
 
   /// Guidelines for reporting a number.
   ///
@@ -10832,12 +8198,6 @@ abstract class AppLocalizations {
   /// **'Live Activities Test'**
   String get liveActivitiesTestTitle;
 
-  /// No description provided for @liveActivitiesTestSubtitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Test the live activity Notification.'**
-  String get liveActivitiesTestSubtitle;
-
   /// No description provided for @liveNotificationCustomizationTitle.
   ///
   /// In en, this message translates to:
@@ -10880,12 +8240,6 @@ abstract class AppLocalizations {
   /// **'Proposal Details'**
   String get proposalDetails;
 
-  /// No description provided for @filterByStatus.
-  ///
-  /// In en, this message translates to:
-  /// **'Filter by Status'**
-  String get filterByStatus;
-
   /// A message displayed when a proposal is not found.
   ///
   /// In en, this message translates to:
@@ -10897,12 +8251,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Processed'**
   String get processed;
-
-  /// A button to show all proposals.
-  ///
-  /// In en, this message translates to:
-  /// **'Show All'**
-  String get showAll;
 
   /// No description provided for @filterAndSortTitle.
   ///
@@ -10976,12 +8324,6 @@ abstract class AppLocalizations {
   /// **'Invalid SIM data'**
   String get invalidSimData;
 
-  /// A label for the SIM card data.
-  ///
-  /// In en, this message translates to:
-  /// **'SIM Card Data'**
-  String get simCardData;
-
   /// A label for the SIM slot.
   ///
   /// In en, this message translates to:
@@ -11018,18 +8360,6 @@ abstract class AppLocalizations {
   /// **'Silenced'**
   String get callTypeSilenced;
 
-  /// No description provided for @callTypeVoicemail.
-  ///
-  /// In en, this message translates to:
-  /// **'Voicemail'**
-  String get callTypeVoicemail;
-
-  /// No description provided for @callTypeUnknownIntercept.
-  ///
-  /// In en, this message translates to:
-  /// **'Unknown Intercept'**
-  String get callTypeUnknownIntercept;
-
   /// Text to show when there are more items than displayed.
   ///
   /// In en, this message translates to:
@@ -11053,12 +8383,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sync data across devices'**
   String get localDatabaseSyncSubtitle;
-
-  /// No description provided for @localDatabaseSyncDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Connect your personal Supabase database to sync data across devices.'**
-  String get localDatabaseSyncDescription;
 
   /// No description provided for @supabaseProjectUrl.
   ///
@@ -11209,12 +8533,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Failed to load settings schema: {error}'**
   String failedToLoadSettingsSchema(String error);
-
-  /// Message shown when a plugin has no settings
-  ///
-  /// In en, this message translates to:
-  /// **'No settings available for this plugin.'**
-  String get noSettingsAvailable;
 
   /// Validation error message for required fields
   ///

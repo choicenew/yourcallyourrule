@@ -18,13 +18,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get aboutPhoneSubscriptionRules => 'Om telefonabonnementregler';
 
   @override
-  String get aboutPhoneSubscriptions => 'Om telefonabonnementer';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'Abonner på telefonregellister via URL, opdater automatisk regler. Understøtter regel-filer i JSON, CSV-format.';
-
-  @override
   String get aboutSmsFilter => 'Om SMS-filtrering';
 
   @override
@@ -47,9 +40,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get actionBlock => 'Bloker';
-
-  @override
-  String get actionFilterAll => 'Alle filtre';
 
   @override
   String get actionFilterTitle => 'Filtrer efter handlingstype';
@@ -95,28 +85,7 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'Tilføjet til tilladte regler';
-
-  @override
-  String get addedToBlacklist => 'Tilføjet til sortliste';
-
-  @override
-  String get addedToBlockedRules => 'Tilføjet til blokerede regler';
-
-  @override
-  String get addedToFavoriteContacts => 'Tilføjet til favoritkontakter';
-
-  @override
   String get addedToFavorites => 'Tilføjet til favoritter';
-
-  @override
-  String get addedToWhitelist => 'Tilføjet til hvidliste';
-
-  @override
-  String get addFavorite => 'Tilføj favorit';
-
-  @override
-  String get addFilter => 'Tilføj filter';
 
   @override
   String get addLabel => 'Tilføj etikette';
@@ -130,17 +99,10 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'Tilføj etikette til opkaldsregistrering';
-
-  @override
   String get addName => 'Tilføj navn';
 
   @override
   String get addNoneSubscription => 'Tilføj ingen abonnement';
-
-  @override
-  String get addOrEditContactInfo =>
-      'Bruges til at tilføje eller redigere kontaktoplysninger';
 
   @override
   String get addPhoneMark => 'Tilføj telefonmarkering';
@@ -172,9 +134,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get addRule => 'Tilføj regel';
 
   @override
-  String get addRuleButton => 'Tilføj regel';
-
-  @override
   String addRuleFailed(Object error) {
     return 'Kunne ikke tilføje regel: $error';
   }
@@ -184,9 +143,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'Tilføj lydløs abonnement';
-
-  @override
-  String get addSimRuleButton => 'Tilføj SIM-regel';
 
   @override
   String get addSmsFilterRule => 'Tilføj SMS-filterregel';
@@ -212,16 +168,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get addSubscriptionTooltip => 'Tilføj abonnement';
 
   @override
-  String get addToAllowedRules => 'Tilføj til tilladte regler';
-
-  @override
   String get addToBlacklist => 'Tilføj til sortliste';
-
-  @override
-  String get addToBlockedRules => 'Tilføj til blokerede regler';
-
-  @override
-  String get addToFavoriteContacts => 'Tilføj til favoritkontakter';
 
   @override
   String get addToFavorites => 'Tilføj til favoritter';
@@ -233,9 +180,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get addToWhitelist => 'Tilføj til hvidliste';
 
   @override
-  String get adPlaceholder => 'Annoncepladsholder';
-
-  @override
   String get agent => 'Agent';
 
   @override
@@ -243,9 +187,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get allCallsTab => 'Alle';
-
-  @override
-  String get allDataClearedSuccessfully => 'Alle data er ryddet med succes';
 
   @override
   String get allow => 'Tillad';
@@ -258,9 +199,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get allowAllBlacklistedNumbers => 'Tillad alle sortlistede numre';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc => 'Tillad opkald fra sortlisten';
 
   @override
   String get allowAllBlockRules => 'Tillad alle blokeringsregler';
@@ -330,13 +268,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get allowRules => 'Tilladelsesregler';
 
   @override
-  String get allowWhitelistedNumbers => 'Tillad Hvidlistede Numre';
-
-  @override
-  String get allowWhitelistedNumbersDescription =>
-      'Tillad alle numre på hvidlisten';
-
-  @override
   String get allPermissionsGranted => 'Alle tilladelser givet';
 
   @override
@@ -349,10 +280,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'Besvar og læg derefter på';
-
-  @override
-  String get appLegalese =>
-      '© 2023 Your Call Your Rule. Alle rettigheder forbeholdes.';
 
   @override
   String get applicationSoftware => 'Applikationssoftware';
@@ -391,14 +318,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'Indstillinger for automatisk opdatering';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'Administrer automatiske opdateringer til regler og plugins';
-
-  @override
-  String get autoUpdateSettingsTitle =>
-      'Indstillinger for automatisk opdatering';
 
   @override
   String get autoUpdateSubtitle =>
@@ -447,46 +366,10 @@ class AppLocalizationsDa extends AppLocalizations {
   String get backupFailed => 'Sikkerhedskopi mislykkedes';
 
   @override
-  String get backupFailedMessage => 'Sikkerhedskopi mislykkedes';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'Sikkerhedskopi mislykkedes: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle =>
-      'Sikkerhedskopier eller gendan applikationsdata';
-
-  @override
-  String get backupRestoreTitle => 'Sikkerhedskopi & Gendannelse';
-
-  @override
-  String get backupSectionTitle => 'Sikkerhedskopi';
-
-  @override
   String get backupSettings => 'Indstillinger for sikkerhedskopi';
 
   @override
-  String get backupSettingsDialogTitle => 'Indstillinger for sikkerhedskopi';
-
-  @override
-  String get backupSettingsTitle => 'Indstillinger for sikkerhedskopi';
-
-  @override
-  String get backupSuccessMessage => 'Sikkerhedskopieret til skyen med succes';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'Sikkerhedskopi lykkedes til: $path';
-  }
-
-  @override
   String get backupToCloud => 'Sikkerhedskopi til skyen';
-
-  @override
-  String get backupToCloudDescription =>
-      'Sikkerhedskopier indstillinger og regler til cloud-lager';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -494,16 +377,7 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'Sikkerhedskopi til skyen';
-
-  @override
   String get backupToCloudSuccess => 'Sikkerhedskopieret til skyen med succes';
-
-  @override
-  String get backupToCloudTitle => 'Sikkerhedskopi til skyen';
-
-  @override
-  String get backupToLocalLabel => 'Sikkerhedskopi til lokal';
 
   @override
   String get bank => 'Bank';
@@ -522,23 +396,13 @@ class AppLocalizationsDa extends AppLocalizations {
       '• Grundlæggende regel filtrering: Filtrering af regler baseret på sortliste, hvidliste og regex';
 
   @override
-  String get basicRuleFilterSettings =>
-      'Indstillinger for grundlæggende regel Filter';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'Filtrer opkald ved hjælp af sort-/hvidliste og regulære udtryk';
-
-  @override
-  String get batchDeleteContacts => 'Slet flere kontakter';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'Er du sikker på, at du vil slette $count valgte kontakter?';
   }
-
-  @override
-  String get batchDeleteFailed => 'Bulk sletning mislykkedes';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -550,9 +414,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get blacklistingAndWhitelisting => 'Sortlistning og hvidlistning';
-
-  @override
-  String get blacklistLabel => 'Sortliste';
 
   @override
   String get blackWhiteList => 'Sort/Hvid Liste';
@@ -567,19 +428,10 @@ class AppLocalizationsDa extends AppLocalizations {
   String get blocked => 'Blokeret';
 
   @override
-  String get blockedCallAction => 'Blokeret opkalds handling';
-
-  @override
   String get blockedCalls => 'Blokerede opkald';
 
   @override
   String get blockedCallsTitle => 'Blokerede opkald';
-
-  @override
-  String get blockedCommunications => 'Blokerede kommunikationer';
-
-  @override
-  String get blockedPhoneLabel => 'Blokerede opkald';
 
   @override
   String get blockedSpamCalls => 'Blokerede spam-opkald';
@@ -593,9 +445,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get blockInternationalCallsTitle => 'Bloker internationale opkald';
-
-  @override
-  String get blockLandlineNumbersTitle => 'Bloker fastnetnumre';
 
   @override
   String get blockMobileNumbers => 'matcher numre, der ikke starter med 13-19';
@@ -645,11 +494,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get callback => 'Ring tilbage';
 
   @override
-  String callbackTo(String number) {
-    return 'Ring tilbage til $number';
-  }
-
-  @override
   String get callBlocking => 'Opkaldsblokering';
 
   @override
@@ -657,9 +501,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'Tilpas OpkaldsID';
-
-  @override
-  String get callerIdDialogTitle => 'OpkaldsID Information';
 
   @override
   String get callerIdDisplayMode => 'Opkalds-ID Visningstilstand';
@@ -671,13 +512,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'Opkalds-ID Forhåndsvisning';
-
-  @override
-  String get callFilter => 'Opkaldsfilter';
-
-  @override
-  String get callFilterDescription =>
-      'Når aktiveret, tjekkes indkommende opkald mod regellisten nedenfor. Opkaldsfiltreringsregler synkroniseres ikke mellem enheder som standard.';
 
   @override
   String get callFilterRules => 'Opkaldsfiltreringsregler';
@@ -707,26 +541,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get callHistoryInfoTitle => 'Opkaldshistorik';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'Kunne ikke initialisere opkaldshistorik: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'Kunne ikke opdatere opkaldshistorik: $error';
-  }
-
-  @override
   String get callHistoryTab => 'Opkaldshistorik';
-
-  @override
-  String get callHistoryTimelineEarlier => 'Tidligere';
-
-  @override
-  String get callHistoryTimelineToday => 'I dag';
-
-  @override
-  String get callHistoryTimelineYesterday => 'I går';
 
   @override
   String get callScreeningPermission => 'Tilladelse til opkaldsscreening';
@@ -738,13 +553,6 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'Tilladelse til opkaldsscreening ikke givet, kan påvirke appens funktionalitet.';
-
-  @override
-  String get callSettingsSubtitle =>
-      'Indstillinger for opkalds-ID, filtrering og blokering';
-
-  @override
-  String get callSettingsTitle => 'Opkaldsindstillinger';
 
   @override
   String get callStatistics => 'Opkaldsstatistik';
@@ -802,27 +610,10 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'Skift tag';
-
-  @override
   String get charity => 'Velgørenhed';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'Måned $month';
-  }
-
-  @override
-  String get chartOneDayAgo => 'For 1 dag siden';
-
-  @override
-  String get chartOneMonthAgo => 'For 1 måned siden';
-
-  @override
   String get chartOneWeekAgo => 'For 1 uge siden';
-
-  @override
-  String get chartTenDaysAgo => 'For 10 dage siden';
 
   @override
   String get chartThreeDaysAgo => 'For 3 dage siden';
@@ -842,23 +633,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get chooseDefaultInterceptAction => 'Vælg standard aflytningshandling';
 
   @override
-  String get clearAllData => 'Ryd alle data';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'Er du sikker på, at du vil rydde alle applikationsdata? Denne handling kan ikke fortrydes.';
-
-  @override
-  String get clearAllDataDescription => 'Ryd alle applikationsdata';
-
-  @override
-  String get clearAllDataLabel => 'Ryd alle data';
-
-  @override
   String get clearFilter => 'Ryd filter';
-
-  @override
-  String get clearLabelFilter => 'Ryd mærkatfilter';
 
   @override
   String get clearLabelFilterButton => 'Ryd mærkatfilter';
@@ -883,9 +658,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get cloudSyncTitle => 'Cloud Sync';
 
   @override
-  String get collapseLabelSelector => 'Luk mærkatvælger';
-
-  @override
   String get collection => 'Inkasso';
 
   @override
@@ -905,15 +677,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get configureBackupOptions => 'Konfigurer backup-indstillinger';
 
   @override
-  String get configureBackupOptionsSubtitle =>
-      'Konfigurer backup-indstillinger';
-
-  @override
   String get configureCloudSyncService => 'Konfigurer Cloud Sync Service';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'Konfigurer venligst en cloud sync-tjeneste for at aktivere synkronisering på tværs af flere enheder.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -924,31 +688,13 @@ class AppLocalizationsDa extends AppLocalizations {
       'Konfigurer SIM-kort filtreringsregler';
 
   @override
-  String get configureSyncServiceHint =>
-      'Konfigurer venligst synkroniseringstjeneste i cloud sync-indstillinger først';
-
-  @override
   String get confirm => 'Bekræft';
-
-  @override
-  String get confirmBatchDeleteContacts =>
-      'Er du sikker på, at du vil slette de valgte';
 
   @override
   String get confirmButton => 'Bekræft';
 
   @override
   String get confirmDelete => 'Bekræft sletning';
-
-  @override
-  String get confirmDeleteContact => 'Er du sikker på, at du vil slette';
-
-  @override
-  String get confirmDeleteContactName => 'Bekræft sletning?';
-
-  @override
-  String get confirmDeleteFilter =>
-      'Er du sikker på, at du vil slette dette filter?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -970,10 +716,6 @@ class AppLocalizationsDa extends AppLocalizations {
       'Er du sikker på, at du vil slette denne regel? Denne handling kan ikke fortrydes.';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'Er du sikker på, at du vil slette de valgte kontakter?';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'Er du sikker på, at du vil slette denne SMS-filterregel?';
 
@@ -982,19 +724,12 @@ class AppLocalizationsDa extends AppLocalizations {
       'Er du sikker på, at du vil slette denne SMS-regel?';
 
   @override
-  String get confirmDeleteSubscription =>
-      'Er du sikker på, at du vil slette dette abonnement?';
-
-  @override
   String confirmDeleteSubscriptions(String name) {
     return 'Er du sikker på, at du vil slette $name?';
   }
 
   @override
   String get confirmPassword => 'Bekræft adgangskode';
-
-  @override
-  String get confirmPasswordLabel => 'Bekræft adgangskode';
 
   @override
   String get connectedStatus => 'Forbundet';
@@ -1019,16 +754,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get contactDeleted => 'Kontakt slettet';
 
   @override
-  String get contactEditDialog => 'Kontakt Rediger Dialog';
-
-  @override
-  String get contactNameHint => 'Indtast kontaktnavn (valgfrit)';
-
-  @override
   String get contactNameLabel => 'Navn';
-
-  @override
-  String get contactNameOptional => 'Kontaktnavn (valgfrit)';
 
   @override
   String get contactNotFound => 'Kontakt ikke fundet';
@@ -1042,25 +768,7 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle =>
-      'Kontaktstyring og etiketteindstillinger';
-
-  @override
-  String get contactSettingsTitle => 'Kontaktindstillinger';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'Kunne ikke indlæse kontakter: $error';
-  }
-
-  @override
   String get contactsManagement => 'Kontaktstyring';
-
-  @override
-  String get contactsManagementPageTitle => 'Side til Kontaktstyring';
-
-  @override
-  String get contactsPageTitle => 'Kontaktstyring';
 
   @override
   String get contactsPermission => 'Kontakttilladelse';
@@ -1075,14 +783,6 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'Abonner på kontaktlister via URL, opdater automatisk kontaktinformation og etiketter. Understøtter data i JSON-format.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'Kunne ikke indlæse kontaktabonnementer: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'Kontaktabonnementer';
 
   @override
   String get contactUpdateSuccess => 'Kontakt opdateret med succes';
@@ -1118,26 +818,11 @@ class AppLocalizationsDa extends AppLocalizations {
   String get countryRegionNamePosition => 'Land/Regionsnavn position';
 
   @override
-  String get countrySelectionDialog => 'Landvalg dialog';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'Bruges til at vælge et land for at forespørge oplysninger om opkalds-id';
-
-  @override
   String get countThresholdDescription =>
       'Indstil minimumstærsklen for antal, der kræves for at udløse filtreringshandlinger';
 
   @override
   String get countThresholdLabel => 'Antal tærskel';
-
-  @override
-  String get countThresholdSettings => 'Antal tærskelindstillinger';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'Antal tærskel: $count';
-  }
 
   @override
   String get createdRules => 'Oprettet regler';
@@ -1146,47 +831,22 @@ class AppLocalizationsDa extends AppLocalizations {
   String get csvFormat => 'CSV-format';
 
   @override
-  String get currentDeviceChip => 'Nuværende';
-
-  @override
   String get currentDeviceLabel => 'Nuværende enhedslabel';
 
   @override
   String get currentDeviceTitle => 'Nuværende enhed';
 
   @override
-  String get currentLabels => 'Nuværende etiketter:';
-
-  @override
   String get currentLanguage => 'Nuværende sprog';
 
   @override
-  String get currentPasswordLabel => 'Nuværende adgangskode';
-
-  @override
   String get customerService => 'Kundeservice';
-
-  @override
-  String get customRange => 'Brugerdefineret område';
-
-  @override
-  String get dailyStatistics => 'Daglige statistikker';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'Modtag daglige statistikker om blokerede opkald og beskeder';
 
   @override
   String get dashboardTab => 'Dashboard';
 
   @override
   String get dataAnalysis => 'Dataanalyse';
-
-  @override
-  String get dataAnalysisDashboardPage => 'Side til dataanalyse-dashboard';
-
-  @override
-  String get dataExport => 'Dataeksport';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1204,16 +864,6 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'Denne funktion giver dig mulighed for at overføre alle dine data mellem enheder. I øjeblikket kan du bruge backup- og gendannelsesfunktionerne til manuelt at migrere dine data.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'Denne funktion giver dig mulighed for at overføre alle dine data mellem enheder. I øjeblikket kan du bruge backup- og gendannelsesfunktionerne til manuelt at migrere dine data.';
-
-  @override
-  String get dataMigrationDialogTitle => 'Datamigrering';
-
-  @override
-  String get dataMigrationSectionTitle => 'Datamigrering';
 
   @override
   String get dataSourceReminder => 'Datakilde påmindelse';
@@ -1238,9 +888,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get debtCollection => 'Gældsinddrivelse';
 
   @override
-  String get defaultPeriod => 'Uge';
-
-  @override
   String get delete => 'Slet';
 
   @override
@@ -1255,24 +902,9 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation =>
-      'Er du sikker på, at du vil slette kontakt';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return 'Er du sikker på, at du vil slette $deviceName?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'Slet enhed';
-
-  @override
   String deleteFailed(Object error) {
     return 'Sletning fejlede: $error';
   }
-
-  @override
-  String get deleteFilter => 'Slet filter';
 
   @override
   String get deleteLabel => 'Slet etikette';
@@ -1310,9 +942,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get deleteSelected => 'Slet valgte';
 
   @override
-  String get deleteSmsRule => 'Slet SMS-regel';
-
-  @override
   String get deleteSubscription => 'Slet abonnement';
 
   @override
@@ -1332,15 +961,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get delivery => 'Levering';
 
   @override
-  String get deviceDeletedSuccessfully => 'Enhed slettet med succes';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage => 'Enhed slettet med succes';
-
-  @override
-  String get deviceIdLabel => 'Enheds ID';
-
-  @override
   String get deviceIDLabel => 'Enheds ID';
 
   @override
@@ -1357,26 +977,10 @@ class AppLocalizationsDa extends AppLocalizations {
   String get deviceName => 'Enhedsnavn';
 
   @override
-  String get deviceNameCannotBeEmpty => 'Enhedsnavn må ikke være tomt';
-
-  @override
-  String get deviceNameHint => 'Indtast venligst enhedsnavn';
-
-  @override
   String get deviceNameLabel => 'Enhedsnavn';
 
   @override
-  String get deviceRenamedSuccessfully => 'Enhed omdøbt med succes';
-
-  @override
   String get deviceRenamedSuccessfullyMessage => 'Enhed omdøbt med succes';
-
-  @override
-  String get devicesSyncedSuccessfully => 'Enheder synkroniseret med succes';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage =>
-      'Enheder synkroniseret med succes';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1401,10 +1005,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'Deaktiver globale plugins';
-
-  @override
-  String get disableSubscriptionSuccessfully =>
-      'Abonnement deaktiveret med succes';
 
   @override
   String get disconnectButton => 'Frakobl';
@@ -1438,25 +1038,13 @@ class AppLocalizationsDa extends AppLocalizations {
   String get editContact => 'Rediger kontakt';
 
   @override
-  String get editFilter => 'Rediger filter';
-
-  @override
   String get editLabel => 'Rediger etiket';
 
   @override
   String get editPhoneRule => 'Rediger telefonregel';
 
   @override
-  String get editPhoneRules => 'Bruges til at redigere telefonregler';
-
-  @override
-  String get editPhoneRuleTitle => 'Rediger telefonregel';
-
-  @override
   String get editRule => 'Rediger regel';
-
-  @override
-  String get editSmsRule => 'Rediger SMS-regel';
 
   @override
   String get education => 'Uddannelse';
@@ -1466,9 +1054,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get email => 'E-mail';
-
-  @override
-  String get emailOptional => 'E-mail (valgfrit)';
 
   @override
   String get enableCallFilter => 'Aktivér opkaldsfilter';
@@ -1488,15 +1073,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => 'Krypter backupfiler';
-
-  @override
-  String get enableEncryptionLabel => 'Aktivér kryptering';
-
-  @override
-  String get enableEncryptionSubtitle => 'Backupfiler vil blive krypteret';
-
-  @override
-  String get enableEncryptionTitle => 'Aktivér kryptering';
 
   @override
   String get enableGlobalPlugins => 'Aktivér globale plugins';
@@ -1533,9 +1109,6 @@ class AppLocalizationsDa extends AppLocalizations {
       'Tillad regelkonfigurationer uden afskæringsaktioner';
 
   @override
-  String get enableNotifications => 'Aktivér notifikationer';
-
-  @override
   String get enableRemoteNumberFilter => 'Aktivér fjernnummerfilter';
 
   @override
@@ -1551,13 +1124,6 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'Når aktiveret, vil beskeder automatisk blive filtreret i henhold til reglerne';
-
-  @override
-  String get enableStatisticsNotifications => 'Aktivér statistiknotifikationer';
-
-  @override
-  String get enableSubscriptionSuccessfully =>
-      'Abonnement aktiveret med succes';
 
   @override
   String get enableTimeInterception => 'Aktivér tidsafskæring';
@@ -1592,10 +1158,6 @@ class AppLocalizationsDa extends AppLocalizations {
       'Det forbedrede filtersystem understøtter både globale regler og konfigurationer for filtrering pr. SIM-kort.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'Indtast venligst både telefonnummer og regex-mønster';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'Indtast venligst både telefonnummer og regex-mønster.';
 
@@ -1603,32 +1165,13 @@ class AppLocalizationsDa extends AppLocalizations {
   String get enterContactName => 'Indtast venligst kontaktnavn';
 
   @override
-  String get enterCurrentPasswordHint =>
-      'Indtast venligst nuværende adgangskode';
-
-  @override
   String get enterDeviceName => 'Indtast enhedsnavn';
-
-  @override
-  String get enterDeviceNameHint => 'Indtast venligst enhedsnavn';
-
-  @override
-  String get enterEmail => 'Indtast venligst e-mail';
 
   @override
   String get enterEmailOptional => 'Indtast venligst e-mail (valgfrit)';
 
   @override
   String get enterEncryptionPasswordHint => 'Indtast krypteringsadgangskode';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'Indtast krypteringsadgangskode';
-
-  @override
-  String get enterFilterName => 'Indtast venligst filter navn';
-
-  @override
-  String get enterFilterPattern => 'Indtast venligst filter mønster';
 
   @override
   String get enterIconCode => 'Indtast ikonkode';
@@ -1640,13 +1183,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get enterNewDeviceNameHint => 'Indtast et nyt navn for denne enhed';
 
   @override
-  String get enterNewPasswordHint => 'Indtast venligst ny adgangskode';
-
-  @override
   String get enterPasswordAgain => 'Indtast adgangskode igen';
-
-  @override
-  String get enterPasswordHint => 'Indtast venligst adgangskode';
 
   @override
   String get enterPhoneNumber => 'Indtast telefonnummer';
@@ -1674,9 +1211,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'Indtast regex mønster';
-
-  @override
-  String get enterRuleNameAndPattern => 'Indtast venligst regelnavn og mønster';
 
   @override
   String get enterRuleNameAndPatternMessage =>
@@ -1720,14 +1254,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get enterWebDAVUsernameHint => 'Indtast WebDAV-brugernavn';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'Fejl ved sletning af enhed: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'Fejl ved indlæsning af plugin';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'Der opstod en fejl: $error';
   }
@@ -1743,14 +1269,6 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'Fejl ved synkronisering af enheder: $error';
-  }
-
-  @override
-  String get errorText => 'Fejl';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'Fejl ved afregistrering af enhed: $error';
   }
@@ -1760,9 +1278,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'f.eks. Blok markedsførings-SMS';
-
-  @override
-  String get exampleContentRegex => 'f.eks., .*tilbud.*';
 
   @override
   String get exampleContentRegexHint => 'Eksempel på indholds-regex';
@@ -1781,9 +1296,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get exampleRegex400Prefix => 'Eksempel på regex for 400-præfiks';
 
   @override
-  String get exampleRegexFormat => 'Eksempel: ^10086\$ format';
-
-  @override
   String get exampleSenderRegexHint => 'Eksempel';
 
   @override
@@ -1794,9 +1306,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get exchangeVip => 'Udveksl VIP';
-
-  @override
-  String get expandLabelSelector => 'Udvid etiketvælger';
 
   @override
   String expiryTime(Object time) {
@@ -1811,19 +1320,8 @@ class AppLocalizationsDa extends AppLocalizations {
       'Eksportér alle applikationsindstillinger';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'Eksportér alle applikationsindstillinger';
-
-  @override
   String get exportAllRuleConfigurations =>
       'Eksportér alle regelkonfigurationer';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle =>
-      'Eksportér alle regelkonfigurationer';
-
-  @override
-  String get exportComplete => 'Eksport fuldført';
 
   @override
   String get exportConfig => 'Eksportér konfiguration';
@@ -1835,9 +1333,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get exportData => 'Eksportér data';
 
   @override
-  String get exportError => 'Eksportfejl';
-
-  @override
   String get exportFailed => 'Eksport mislykkedes';
 
   @override
@@ -1845,9 +1340,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'Eksportfunktion kommer snart';
-
-  @override
-  String get exporting => 'Eksporterer...';
 
   @override
   String get exportLabels => 'Eksportér etiketter';
@@ -1869,34 +1361,17 @@ class AppLocalizationsDa extends AppLocalizations {
   String get exportRules => 'Eksportér regler';
 
   @override
-  String get exportRulesDialogTitle => 'Eksportér regler';
-
-  @override
-  String get exportRulesTitle => 'Eksportér regler';
-
-  @override
   String get exportSmsRules => 'Eksportér SMS-regler';
 
   @override
   String get exportStatisticsData => 'Eksportér statistikdata';
 
   @override
-  String get exportSuccess => 'Eksport lykkedes';
-
-  @override
   String get exportSuccesslly => 'Konfiguration eksporteret succesfuldt';
-
-  @override
-  String get failedToAddContact => 'Kunne ikke tilføje kontakt';
 
   @override
   String failedToAddRule(Object error) {
     return 'Kunne ikke tilføje regel: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'Kunne ikke tilføje SMS-regel: $error';
   }
 
   @override
@@ -1913,9 +1388,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get failedToDecryptBackupFile => 'Kunne ikke dekryptere backupfil';
 
   @override
-  String get failedToDeleteDevice => 'Kunne ikke slette enhed';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'Kunne ikke slette SMS-regel: $error';
   }
@@ -1923,11 +1395,6 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'Kunne ikke eksportere regler: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'Kunne ikke eksportere SMS-regler: $error';
   }
 
   @override
@@ -1941,20 +1408,6 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'Kunne ikke importere SMS-regler: $error';
-  }
-
-  @override
-  String get failedToLoadContacts => 'Kunne ikke indlæse kontakter';
-
-  @override
-  String get failedToLoadPlugin => 'Kunne ikke indlæse plugin';
-
-  @override
-  String get failedToRenameDevice => 'Kunne ikke omdøbe enhed';
-
-  @override
   String get failedToRestoreSettings => 'Kunne ikke gendanne indstillinger';
 
   @override
@@ -1963,32 +1416,9 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'Kunne ikke indstille adgangskode: $error';
-  }
-
-  @override
-  String get failedToSyncDevices => 'Kunne ikke synkronisere enheder';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'Kunne ikke skifte regelstatus: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus =>
-      'Kunne ikke skifte abonnementsstatus';
-
-  @override
-  String get failedToUpdateContact => 'Kunne ikke opdatere kontakt';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'Kunne ikke opdatere SMS-regel: $error';
-  }
-
-  @override
-  String get failure => 'Fejl';
 
   @override
   String get favoriteContacts => 'Favoritkontakter';
@@ -2027,9 +1457,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get filterByLabel => 'Filtrer efter etiket';
 
   @override
-  String get filterClear => 'Ryd filter';
-
-  @override
   String get filterControlPanelTitle => 'Filterkontrolpanel';
 
   @override
@@ -2040,22 +1467,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get filterControlTitle => 'Filterkontrol';
 
   @override
-  String get filterDeleteFailed => 'Filter sletning mislykkedes';
-
-  @override
-  String get filterDeleteSuccess => 'Filter slettet med succes';
-
-  @override
-  String get filterDetails => 'Filterdetaljer';
-
-  @override
   String get filtered => 'Filtreret';
-
-  @override
-  String get filteredSms => 'Filtreret SMS';
-
-  @override
-  String get filteredSmsLabel => 'Filtreret SMS';
 
   @override
   String get filterExplanation => 'Filterforklaring';
@@ -2067,17 +1479,8 @@ class AppLocalizationsDa extends AppLocalizations {
   String get filterName => 'Filternavn';
 
   @override
-  String get filterPattern => 'Filtermønster';
-
-  @override
   String get filterPriorityNote =>
       'Bemærk: Der er prioriteringsrelationer mellem filtre, se hjælpedokumentationen for detaljer';
-
-  @override
-  String get filterSaveFailed => 'Filter gemning mislykkedes';
-
-  @override
-  String get filterSaveSuccess => 'Filter gemt med succes';
 
   @override
   String get filterSettings => 'Filterindstillinger';
@@ -2116,16 +1519,6 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return 'Fandt $count regler. Vil du importere dem?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return 'Fandt $count regler. Vil du importere dem?';
-  }
-
-  @override
   String get fraudAlert => 'SVINDEL ALARM - Læg på';
 
   @override
@@ -2160,39 +1553,14 @@ class AppLocalizationsDa extends AppLocalizations {
   String get globalFilterSettings => 'Globale filterindstillinger';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'Konfigurer globale filterindstillinger, der gælder for alle SIM-slots:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'Søg efter kontakter, etiketter, sortlister, hvidlister osv.';
-
-  @override
-  String get globalSearchTitle => 'Global søgning';
-
-  @override
   String get globalSettings => 'Globale indstillinger';
-
-  @override
-  String get googleAdDisplayPosition => 'Google Annoncevisningsposition';
-
-  @override
-  String get googleAdMobIntegrationText =>
-      'Google AdMob-annoncer kan integreres her';
 
   @override
   String get googleDriveAuthDescription =>
       'Autoriser ved hjælp af systemkonfigureret Google Drive-klient-id og nøgle';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'Autoriser ved hjælp af systemkonfigureret Google Drive-klient-id og nøgle';
-
-  @override
   String get googleDriveConfigTitle => 'Google Drev-konfiguration';
-
-  @override
-  String get googleDriveConfigurationTitle => 'Google Drev-konfiguration';
 
   @override
   String get government => 'Regering';
@@ -2211,9 +1579,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get height => 'Højde';
-
-  @override
-  String get homePageTitle => 'Hjemmeside';
 
   @override
   String get homeTab => 'Hjem';
@@ -2244,9 +1609,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get important => 'Vigtigt';
-
-  @override
-  String get importButton => 'Importér';
 
   @override
   String get importConfig => 'Importér konfiguration';
@@ -2300,31 +1662,7 @@ class AppLocalizationsDa extends AppLocalizations {
       'Importér regelkonfigurationer fra fil';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'Importér regelkonfigurationer fra fil';
-
-  @override
   String get importRules => 'Importér regler';
-
-  @override
-  String get importRulesButton => 'Importér regler';
-
-  @override
-  String get importRulesDialogTitle => 'Importér regler';
-
-  @override
-  String importRulesError(Object error) {
-    return 'Kunne ikke importere regler: $error';
-  }
-
-  @override
-  String get importRulesInstructions => 'Importér regler fra en CSV-fil';
-
-  @override
-  String get importRulesSuccess => 'Regler importeret med succes';
-
-  @override
-  String get importRulesTitle => 'Importér regler';
 
   @override
   String get importSuccess => 'Import lykkedes';
@@ -2332,9 +1670,6 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get incomingCallInterceptAction =>
       'Indgående opkaldsaflytningshandling';
-
-  @override
-  String get incomingCallNotification => 'Indgående opkaldsmeddelelse';
 
   @override
   String get incorrectPassword => 'Forkert adgangskode';
@@ -2390,9 +1725,6 @@ class AppLocalizationsDa extends AppLocalizations {
       'Tilmeld dig Telegram-kanalen og gruppen for mere information';
 
   @override
-  String get jsLogsTitle => 'JS-logs';
-
-  @override
   String get jsonFormat => 'JSON-format';
 
   @override
@@ -2401,16 +1733,6 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'Behold alle historiske versioner af hver backup';
-
-  @override
-  String get keepAllVersionsLabel => 'Behold alle versioner';
-
-  @override
-  String get keepAllVersionsSubtitle =>
-      'Behold historiske versioner af hver backup';
-
-  @override
-  String get keepAllVersionsTitle => 'Behold alle versioner';
 
   @override
   String get label => 'Mærkat';
@@ -2431,9 +1753,6 @@ class AppLocalizationsDa extends AppLocalizations {
       'Mærkater hjælper dig med bedre at administrere kontakter, tilføj brugerdefinerede mærkater til telefonnumre for nem identifikation af opkald og beskeder.';
 
   @override
-  String get labelFilter => 'Mærkatfilter';
-
-  @override
   String get labelFilterTooltip => 'Mærkatfilter';
 
   @override
@@ -2444,14 +1763,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get labelNotFound => 'Mærkat ikke fundet';
-
-  @override
-  String get labelRemoved => 'Mærkat fjernet';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'Kunne ikke fjerne mærkat: $error';
-  }
 
   @override
   String get labels => 'Mærkater';
@@ -2484,9 +1795,6 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'Mærkat opdateret';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'Kunne ikke opdatere mærkat: $error';
   }
@@ -2503,12 +1811,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'Sprogindstillinger';
-
-  @override
-  String get last30Days => 'Sidste 30 dage';
-
-  @override
-  String get last7Days => 'Sidste 7 dage';
 
   @override
   String get lastSyncLabel => 'Sidste synkronisering';
@@ -2534,13 +1836,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get loadDataFailed => 'Kunne ikke indlæse data';
 
   @override
-  String get loadFailed => 'Indlæsning mislykkedes';
-
-  @override
   String get loading => 'Indlæser...';
-
-  @override
-  String get loadingData => 'Indlæser data...';
 
   @override
   String get loadingTags => 'Indlæser tags...';
@@ -2564,12 +1860,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'Kunne ikke indlæse markerede telefonnumre: $error';
   }
-
-  @override
-  String get loadMore => 'Indlæs mere';
-
-  @override
-  String get loadPluginButton => 'Indlæs plugin';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2596,9 +1886,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get loan => 'Lån';
-
-  @override
-  String get localBackupTitle => 'Lokal backup';
 
   @override
   String get localCounterFilter => 'Lokal tællerfilter';
@@ -2695,9 +1982,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get manage => 'Administrer kontakter';
 
   @override
-  String get manageContacts => 'Administrer';
-
-  @override
   String get manageFavoriteContacts => 'Administrer favoritkontakter';
 
   @override
@@ -2706,9 +1990,6 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'Tilføj, rediger eller slet SMS-filterregler';
-
-  @override
-  String get manageFrequentContacts => 'Administrer hyppige kontakter';
 
   @override
   String get markCounts => 'Markeringstællinger';
@@ -2736,16 +2017,10 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle => 'For at markere telefonnumre';
-
-  @override
   String get markPhoneManagementTitle => 'Markér telefonnummerstyring';
 
   @override
   String get markPhoneSuccess => 'Telefonnummer markeret succesfuldt';
-
-  @override
-  String get matchFailed => 'Match mislykkedes!';
 
   @override
   String get matchFailedMessage => 'Match mislykkedes.';
@@ -2766,9 +2041,6 @@ class AppLocalizationsDa extends AppLocalizations {
       'Match specifikke ciffermønstre:';
 
   @override
-  String get matchSuccessful => 'Match lykkedes!';
-
-  @override
   String get matchSuccessfulMessage => 'Match lykkedes!';
 
   @override
@@ -2779,9 +2051,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get migrationTool => 'Migrationsværktøj';
-
-  @override
-  String get migrationToolTitle => 'Migrationsværktøj';
 
   @override
   String get minutes => 'minutter';
@@ -2796,9 +2065,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get monthlyCallCount => 'Månedlige opkald';
 
   @override
-  String get monthlyChartTitle => 'Månedlige blokerede opkald';
-
-  @override
   String get monthlyMembership => 'Månedligt medlemskab';
 
   @override
@@ -2807,9 +2073,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'Månedligt i alt';
-
-  @override
-  String get monthlyTotalLabel => 'Månedligt i alt';
 
   @override
   String get moreOptions => 'Flere indstillinger';
@@ -2825,33 +2088,16 @@ class AppLocalizationsDa extends AppLocalizations {
       'Navn og telefonnummer kan ikke være tomme';
 
   @override
-  String get nameAndPhoneNumberRequired =>
-      'Navn og telefonnummer kan ikke være tomme';
-
-  @override
   String get nameColor => 'Navnefarve';
 
   @override
   String get nameFontSize => 'Navnestørrelse';
 
   @override
-  String nameLabel(Object name) {
-    return 'Navn: $name';
-  }
-
-  @override
   String get namePosition => 'Navneposition';
 
   @override
   String get nameUnknown => 'Navn: Ukendt';
-
-  @override
-  String nameWithValue(String name) {
-    return 'Navn: $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'Nyt adgangskode';
 
   @override
   String get nextStep => 'Næste';
@@ -2867,13 +2113,7 @@ class AppLocalizationsDa extends AppLocalizations {
       'Ingen aktiv cloud-synkroniseringstjeneste';
 
   @override
-  String get noCallLogs => 'Ingen opkaldslogger';
-
-  @override
   String get noCallRecords => 'Ingen opkaldsregistre';
-
-  @override
-  String get noContacts => 'Ingen kontakter endnu';
 
   @override
   String get noContactsYet => 'Ingen kontakter endnu';
@@ -2885,28 +2125,16 @@ class AppLocalizationsDa extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'Ingen enheder registreret';
 
   @override
-  String get noDevicesRegisteredYet => 'Ingen enheder registreret endnu.';
-
-  @override
-  String get noFilters => 'Ingen filtre endnu';
-
-  @override
   String get noLabels => 'Ingen etiketter endnu';
 
   @override
   String get noMarkedPhones => 'Ingen markerede telefonnumre';
 
   @override
-  String get noMatchingContacts => 'Ingen matchende kontakter';
-
-  @override
   String get noMatchingContactsFound => 'Ingen matchende kontakter fundet';
 
   @override
   String get noMatchingNumbersFound => 'Ingen matchende numre fundet';
-
-  @override
-  String get noMatchingRecords => 'Ingen matchende opkaldsregistre';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2921,15 +2149,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get noPlugins => 'Ingen plugins endnu';
-
-  @override
-  String get noRecords => 'Ingen opkaldsregistre';
-
-  @override
-  String get noResultReturned => 'Intet resultat returneret';
-
-  @override
-  String get noResultReturnedLog => 'Intet resultat returneret fra plugin';
 
   @override
   String noRules(Object ruleType) {
@@ -2952,9 +2171,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get noSubscriptions => 'Ingen abonnementer';
 
   @override
-  String get noSubscriptionsYet => 'Ingen abonnementer endnu';
-
-  @override
   String get notGranted => 'Ikke givet';
 
   @override
@@ -2973,13 +2189,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get notificationSettings => 'Notifikationindstillinger';
-
-  @override
-  String get notificationSettingsSaved =>
-      'Notifikationsindstillinger gemt succesfuldt';
-
-  @override
-  String get notSet => 'Ikke indstillet';
 
   @override
   String get notVerifiedText => 'Ikke verificeret';
@@ -3013,9 +2222,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get numberTypePosition => 'Nummertypposition';
 
   @override
-  String get ok => 'OK';
-
-  @override
   String get okButton => 'OK';
 
   @override
@@ -3047,14 +2253,7 @@ class AppLocalizationsDa extends AppLocalizations {
       'Godkend ved hjælp af systemkonfigureret OneDrive-klient-id og nøgle';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'Godkend ved hjælp af systemkonfigureret OneDrive-klient-id og nøgle';
-
-  @override
   String get oneDriveConfigTitle => 'OneDrive-konfiguration';
-
-  @override
-  String get oneDriveConfigurationTitle => 'OneDrive-konfiguration';
 
   @override
   String get onlineCallerIdSubscription => 'Online Opkalds-ID Abonnement';
@@ -3114,9 +2313,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get passwordsDoNotMatch => 'Adgangskoder stemmer ikke overens';
 
   @override
-  String get passwordSetSuccessfully => 'Adgangskode er sat succesfuldt';
-
-  @override
   String get pattern => 'Mønster';
 
   @override
@@ -3150,15 +2346,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Telefonnummer kan ikke være tomt';
 
   @override
-  String get phoneNumberHintText =>
-      'Indtast telefonnummer for at tilføje regel';
-
-  @override
   String get phoneNumberLabel => 'Telefonnummer';
-
-  @override
-  String get phoneNumberRegexRequired =>
-      'Indtast venligst både telefonnummer og regex-mønster';
 
   @override
   String get phoneNumberTypeFixedLine => 'Fastnet';
@@ -3207,9 +2395,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get phoneRule => 'Telefonregel';
 
   @override
-  String get phoneRuleEditDialog => 'Rediger dialog for telefonregel';
-
-  @override
   String get phoneRuleManagement => 'Styring af telefonregler';
 
   @override
@@ -3221,9 +2406,6 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'Abonner på URL-lister over telefonregler for automatisk at opdatere hvidliste- og sortlisteregler. Understøtter regel filer i JSON-format.';
-
-  @override
-  String get phoneSubscriptionTitle => 'Abonnementer på telefonregler';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3244,9 +2426,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get pluginListExportSuccess => 'Pluginliste eksporteret succesfuldt';
 
   @override
-  String get pluginLoadedSuccessfully => 'Plugin indlæst succesfuldt';
-
-  @override
   String get pluginManagement => 'Pluginstyring';
 
   @override
@@ -3254,14 +2433,7 @@ class AppLocalizationsDa extends AppLocalizations {
       'Administrer og konfigurer tredjeparts plugins';
 
   @override
-  String get pluginManagementTitle => 'Pluginstyring';
-
-  @override
   String get pluginName => 'Pluginnavn';
-
-  @override
-  String get pluginNotLoaded =>
-      'Plugin er endnu ikke indlæst. Indlæs venligst plugin først.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3279,15 +2451,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get pluginUrl => 'Plugin URL';
-
-  @override
-  String get pluginUrlCannotBeEmpty => 'Plugin URL kan ikke være tom';
-
-  @override
-  String get pluginUrlHint => 'Indtast plugin URL';
-
-  @override
-  String get pluginUrlLabel => 'Plugin URL';
 
   @override
   String get pluginVersion => 'Plugin Version';
@@ -3325,34 +2488,10 @@ class AppLocalizationsDa extends AppLocalizations {
       'Lås op for alle premium-funktioner, automatisk fornyelse kvartalsvis';
 
   @override
-  String get queryButton => 'Forespørgsel';
-
-  @override
-  String get queryFailed => 'Forespørgsel mislykkedes';
-
-  @override
-  String get queryFailedLog => 'Forespørgsel mislykkedes';
-
-  @override
-  String get querying => 'Forespørger...';
-
-  @override
-  String get queryingPhoneNumber => 'Forespørger telefonnummer';
-
-  @override
-  String get queryResultTitle => 'Forespørgselsresultat';
-
-  @override
   String get ready => 'Klar!';
 
   @override
-  String get receiveWeeklyStatistics => 'Modtag ugentlige statistikker';
-
-  @override
   String get recruiter => 'Rekrutterer';
-
-  @override
-  String get reEnterPasswordHint => 'Indtast venligst adgangskoden igen';
 
   @override
   String get refresh => 'Opdater';
@@ -3362,11 +2501,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'Opdater';
-
-  @override
-  String regexError(Object error) {
-    return 'Regex-fejl: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3384,10 +2518,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'Regex Mønster';
-
-  @override
-  String get regexPatternsExamples =>
-      'Brug standard regex-syntaks til at definere mønstre. Eksempler:';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3416,14 +2546,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'Regex Tester';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'Regex-validering mislykkedes: $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'Regex-validering lykkedes';
 
   @override
   String get region => 'Region';
@@ -3463,35 +2585,8 @@ class AppLocalizationsDa extends AppLocalizations {
   String get remoteNumberFilter => 'Fjern Nummerfilter';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'Dette filter bruger en uafhængig fjern-database til at få de seneste nummeroplysninger.';
-
-  @override
   String get remoteNumberFilterDescription =>
       'Afskær chikanerende opkald baseret på information fra fjern-database';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'Fjern nummerfilteret identificerer og blokerer spam-opkald ved at forespørge en fjern-database baseret på antallet af forekomster.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle =>
-      'Forklaring af Fjern Nummerfilter';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• Antal Tærskel: Bestem baseret på hyppigheden af nummerforekomster';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• Filterhandlinger: Konfigurer hvordan numre, der overskrider tærsklen, skal håndteres';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• Prioritetsindstillinger: Indstil prioritet for fjernhandlinger';
-
-  @override
-  String get remoteNumberFilterFeatures => 'Funktioner:';
 
   @override
   String get remoteNumberFiltering => 'Fjern Nummerfiltrering';
@@ -3512,29 +2607,13 @@ class AppLocalizationsDa extends AppLocalizations {
   String get removeAdsTitle => 'Fjern Annoncer';
 
   @override
-  String get removedFromFavoriteContacts => 'Fjernet fra favoritkontakter';
-
-  @override
   String get removedFromFavorites => 'Fjernet fra favoritkontakter';
-
-  @override
-  String get removeFavorite => 'Fjern Favorit';
 
   @override
   String get removeFromFavorites => 'Fjern fra Favoritter';
 
   @override
-  String get renameButton => 'Omdøb';
-
-  @override
-  String get renameDeviceDialogTitle => 'Omdøb Enhed';
-
-  @override
   String get renameDeviceTitle => 'Omdøb Enhed';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'Dette vil erstatte alle dine nuværende indstillinger. Er du sikker på, at du vil fortsætte?';
 
   @override
   String get requestAllPermissions => 'Anmod om Alle Tilladelser';
@@ -3563,23 +2642,7 @@ class AppLocalizationsDa extends AppLocalizations {
       'Gendan Applikationsindstillinger fra Backup';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'Gendan applikationsindstillinger fra backup';
-
-  @override
-  String get restoreButton => 'Gendan';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'Gendan fra skyen mislykkedes: $error';
-  }
-
-  @override
   String get restoreFromCloud => 'Gendan fra Skyen';
-
-  @override
-  String get restoreFromCloudDescription =>
-      'Gendan indstillinger og regler fra cloud-lager';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3587,22 +2650,10 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'Gendan fra Skyen';
-
-  @override
   String get restoreFromCloudSuccess => 'Succesfuldt gendannet fra skyen';
 
   @override
-  String get restoreFromCloudTitle => 'Gendan fra Skyen';
-
-  @override
-  String get restoreFromLocal => 'Gendan fra Lokal';
-
-  @override
   String get restorePurchases => 'Gendan Køb';
-
-  @override
-  String get restoreSectionTitle => 'Gendan';
 
   @override
   String get restoreSettings => 'Gendan Indstillinger';
@@ -3610,18 +2661,6 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'Dette vil erstatte alle dine nuværende indstillinger. Er du sikker på, at du vil fortsætte?';
-
-  @override
-  String get restoreSettingsDialogTitle => 'Gendan Indstillinger';
-
-  @override
-  String get restoreSettingsTitle => 'Gendan Indstillinger';
-
-  @override
-  String get restoreSuccessFromLocal => 'Succesfuldt gendannet fra lokal';
-
-  @override
-  String get restoreSuccessMessage => 'Succesfuldt gendannet fra skyen';
 
   @override
   String get retry => 'Prøv Igen';
@@ -3639,15 +2678,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get ruleAction => 'Regelhandling';
 
   @override
-  String get ruleAddButton => 'Tilføj Regel';
-
-  @override
   String get ruleAddedSuccess => 'Regel tilføjet succesfuldt';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'Kunne ikke tilføje regel: $error';
-  }
 
   @override
   String get ruleAddSuccess => 'Regel tilføjet succesfuldt';
@@ -3661,18 +2692,10 @@ class AppLocalizationsDa extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'Slet Regel';
 
   @override
-  String get ruleDeletedSuccess => 'Regel slettet succesfuldt';
-
-  @override
   String get ruleDeletedSuccessfully => 'Regel slettet succesfuldt';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'Kunne ikke slette regel: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'Kunne ikke slette regel: $error';
   }
 
@@ -3694,9 +2717,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get ruleManagement => 'Regel Administration';
 
   @override
-  String get ruleManagementTitle => 'Regel Administration';
-
-  @override
   String get ruleName => 'Regelnavn';
 
   @override
@@ -3714,9 +2734,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get ruleNameLabel => 'Regelnavn';
 
   @override
-  String get ruleNamePatternRequired => 'Indtast venligst regelnavn og mønster';
-
-  @override
   String get ruleNameRequired =>
       'Regelnavn og telefonnummer kan ikke være tomme';
 
@@ -3729,23 +2746,7 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'Regel gemt succesfuldt!';
-
-  @override
   String get ruleSavedSuccessMessage => 'Regel gemt succesfuldt!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'Gemning mislykkedes: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'Gemning mislykkedes: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'Regel gemt succesfuldt!';
 
   @override
   String get rulesExportedSuccessfully => 'Regler eksporteret succesfuldt';
@@ -3762,14 +2763,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return '$count regler importeret succesfuldt';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'Kunne ikke importere regler: $error';
-  }
-
-  @override
-  String get ruleStatistics => 'Regelstatistik';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3804,9 +2797,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get saveButton => 'Gem';
 
   @override
-  String get saveButtonLabel => 'GEM';
-
-  @override
   String get saveButtonText => 'Gem';
 
   @override
@@ -3815,15 +2805,7 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'Gem filter';
-
-  @override
   String get saveSettings => 'Gem indstillinger';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'Kunne ikke gemme indstillinger: $error';
-  }
 
   @override
   String get scamsLikely => 'Svindel sandsynlig';
@@ -3840,28 +2822,11 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'Søgefiltre';
-
-  @override
-  String get searchForContacts => 'Søg efter kontakter';
-
-  @override
   String get searchHint => 'Søg...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'Søg efter kontakter, etiketter, sort-/hvidlister osv.';
-
-  @override
-  String get searchSettingsTitle => 'Søgeindstillinger';
 
   @override
   String get securityMessage =>
       'Stol ikke på telefonopkald. Verificer altid kundeservicenumre uafhængigt. Del aldrig adgangskoder, bekræftelseskoder, kortnumre eller personlige oplysninger.';
-
-  @override
-  String get selectActionToPerform =>
-      'Vælg den handling, der skal udføres, når reglen matcher';
 
   @override
   String get selectActionWhenBlockingCalls =>
@@ -3875,12 +2840,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get selectCountry => 'Vælg land';
-
-  @override
-  String get selectDateRange => 'Vælg datointerval';
-
-  @override
-  String get selectedDateRange => 'Valgt datointerval';
 
   @override
   String selectedItems(Object count) {
@@ -3907,20 +2866,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get selectMultiple => 'Vælg flere';
 
   @override
-  String get selectPeriod => 'Vælg periode';
-
-  @override
   String get selectSimCard => 'Vælg SIM-kort';
-
-  @override
-  String get selectSimSlot => 'Vælg SIM-slot';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'Vælg den specifikke handling, der skal udføres ved blokerede opkald';
-
-  @override
-  String get selectTag => 'Vælg tag';
 
   @override
   String get selectTags => 'Vælg tags';
@@ -3961,23 +2907,7 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'Indstil';
-
-  @override
   String get setEncryptionPassword => 'Indstil krypteringsadgangskode';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'Indstil krypteringsadgangskode til backup og gendannelse';
-
-  @override
-  String get setEncryptionPasswordLabel => 'Indstil krypteringsadgangskode';
-
-  @override
-  String get setEncryptionPasswordTitle => 'Indstil krypteringsadgangskode';
-
-  @override
-  String get setPasswordButton => 'Indstil';
 
   @override
   String get settings => 'Indstillinger';
@@ -3985,14 +2915,6 @@ class AppLocalizationsDa extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'Indstillinger sikkerhedskopieret til: $path';
-  }
-
-  @override
-  String get settingsLoaded => 'Indstillinger indlæst';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'Kunne ikke indlæse indstillinger: $error';
   }
 
   @override
@@ -4015,13 +2937,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get setup => 'Opsætning';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'Statisk metode til at vise dialog for redigering af kontakt';
-
-  @override
-  String get showExplanation => 'Vis forklaring';
 
   @override
   String get silence => 'Afbryd';
@@ -4069,19 +2984,11 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'Kunne ikke indlæse SIM-kortinformation: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'SIM-slotregler giver dig mulighed for at konfigurere uafhængige filtreringsregler for hvert SIM-slot.';
 
   @override
   String get simRuleInstructionsTitle => 'SIM-slotregler';
-
-  @override
-  String get simRuleManagement => 'SIM-slotregelhåndtering';
 
   @override
   String simSlot1(String countryIso) {
@@ -4094,18 +3001,6 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'Kunne ikke indlæse SIM-data: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration => 'SIM-slotfilterkonfiguration';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'Tillader indstilling af filterregler efter SIM-slot';
-
-  @override
   String get simSlotFilterDescription =>
       'Konfigurer uafhængige filtreringsregler for hvert SIM-kort:';
 
@@ -4115,17 +3010,7 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'Kunne ikke indlæse SIM-slots: $error';
-  }
-
-  @override
   String get simSlotManagement => 'SIM-slotshåndtering';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'SIM-slotoperation mislykkedes: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4146,12 +3031,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'SIM-slotregler';
-
-  @override
-  String get simSlotRuleManagementTitle => 'Regelhåndtering';
-
-  @override
-  String get simSlotSettings => 'SIM-slotindstillinger';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4188,9 +3067,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get smsFilterSettings => 'SMS-filterindstillinger';
 
   @override
-  String get smsHistory => 'SMS-historik';
-
-  @override
   String get smsManagement => 'SMS-håndtering';
 
   @override
@@ -4215,25 +3091,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get smsRuleManagement => 'SMS-regelhåndtering';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'SMS-regler eksporteret succesfuldt til $filePath';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully =>
-      'SMS-regler importeret succesfuldt';
-
-  @override
   String get smsRuleSubscription => 'SMS-regelsubskription';
-
-  @override
-  String get smsRuleUpdatedSuccessfully => 'SMS-regel opdateret succesfuldt';
-
-  @override
-  String get smsSettingsSubtitle => 'SMS-filtrering og blokeringsord';
-
-  @override
-  String get smsSettingsTitle => 'SMS-indstillinger';
 
   @override
   String get smsSubscription => 'SMS-abonnements';
@@ -4271,26 +3129,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get statBlocked => 'Blokeret';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'Statisk metode til at vise dialogen for opkalds-id-oplysninger';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'Statisk metode til at vise dialogen for valg af land';
-
-  @override
-  String get staticMethodToDisplayDialog =>
-      'Statisk metode til at vise dialogen';
-
-  @override
   String get statistics => 'Statistik';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'Funktion til eksport af statistik kommer snart';
-
-  @override
-  String get statisticsGrid => 'Statistikgitter';
 
   @override
   String get statisticsPageTitle => 'Dataanalyse';
@@ -4330,10 +3169,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get subscriptionDeleted => 'Abonnement slettet';
 
   @override
-  String get subscriptionDeletedSuccessfully =>
-      'Abonnement slettet succesfuldt';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'Kunne ikke slette abonnement: $error';
   }
@@ -4342,23 +3177,9 @@ class AppLocalizationsDa extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'Abonnement slettet';
 
   @override
-  String get subscriptionEmptyState => 'Ingen abonnementer tilgængelige';
-
-  @override
-  String get subscriptionEmptyText => 'Endnu ingen abonnementer';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'Kunne ikke indlæse abonnementer: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'Kunne ikke indlæse abonnementer: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'Abonnementshåndtering';
 
   @override
   String get subscriptionName => 'Abonnementsnavn';
@@ -4371,16 +3192,8 @@ class AppLocalizationsDa extends AppLocalizations {
   String get subscriptionNameHint => 'Indtast abonnementsnavn';
 
   @override
-  String get subscriptionPageTitle => 'Abonnementshåndtering';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
     return 'Kunne ikke ændre abonnementsstatus: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
-    return 'Kunne ikke skifte abonnementsstatus: $error';
   }
 
   @override
@@ -4418,10 +3231,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get syncFailedMessage => 'Synkronisering mislykkedes';
 
   @override
-  String get syncFolderNameHint =>
-      'Indtast synkroniseringsfoldernavn (standard: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'Synkroniseringsfoldernavn';
 
   @override
@@ -4443,16 +3252,10 @@ class AppLocalizationsDa extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'Synkroniseringsstatus opdateret';
 
   @override
-  String get syncSuccessful => 'Synkronisering lykkedes';
-
-  @override
   String get syncSuccessMessage => 'Synkronisering lykkedes';
 
   @override
   String get syncWithCloudStorage => 'Synkroniser med cloud-lagring';
-
-  @override
-  String get syncWithCloudStorageSubtitle => 'Synkroniser med cloud-lagring';
 
   @override
   String get systemFeatures => 'Systemfunktioner:';
@@ -4481,9 +3284,6 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'Mærkater opdateret';
-
-  @override
   String get takeaway => 'Takeaway';
 
   @override
@@ -4497,9 +3297,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get testButton => 'TEST';
-
-  @override
-  String get testButtonLabel => 'TEST';
 
   @override
   String get testConnectionButton => 'Test forbindelse';
@@ -4538,13 +3335,6 @@ class AppLocalizationsDa extends AppLocalizations {
       'Indstillinger for afskæring af opkaldsfrekvens';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'Afskær automatisk potentielle spamopkald baseret på opkaldsfrekvens';
-
-  @override
-  String get timeInterceptorTitle => 'Aktivér afskæring af opkaldsfrekvens';
-
-  @override
   String get timeWindowDescription =>
       'Indstil tidsvinduets størrelse for tilladelse af gentagne opkald. Opkald fra samme nummer inden for dette vindue vil blive tilladt';
 
@@ -4552,10 +3342,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'Afskæringstidsvindue (minutter): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'Indstil tidsvinduets størrelse for tilladelse af gentagne opkald. Opkald fra samme nummer inden for dette vindue vil blive tilladt';
 
   @override
   String get today => 'I dag';
@@ -4567,24 +3353,11 @@ class AppLocalizationsDa extends AppLocalizations {
   String get totalBlocked => 'Totalt blokeret';
 
   @override
-  String get totalFiltered => 'Totalt filtreret';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'Overfør data mellem enheder eller platforme';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'Overfør data mellem enheder eller platforme';
-
-  @override
   String get travelTicketing => 'Rejsebillettering';
-
-  @override
-  String get trend => 'Tendens';
-
-  @override
-  String get trendChart => 'Tendensdiagram';
 
   @override
   String get tutorial => 'Tutorial';
@@ -4597,9 +3370,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get unknown => 'Ukendt';
-
-  @override
-  String get unknownLabel => 'Ukendt etiket';
 
   @override
   String get unknownTag => 'Mærkat: Ukendt';
@@ -4625,9 +3395,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get updateAllNow => 'Opdater alle nu';
 
   @override
-  String get updateCallFilterConfig => 'Opdater konfiguration af opkaldsfilter';
-
-  @override
   String updateContactFailed(Object error) {
     return 'Kunne ikke opdatere kontakt: $error';
   }
@@ -4636,15 +3403,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get updateFavoriteStatus => 'Opdater favoritstatus';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'Kunne ikke opdatere favoritstatus: $error';
-  }
-
-  @override
   String get updateInterval => 'Opdateringsinterval';
-
-  @override
-  String get updateLabelFailed => 'Kunne ikke opdatere etiket';
 
   @override
   String get updateNow => 'Opdater nu';
@@ -4673,9 +3432,6 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'Opdater mærkater';
-
-  @override
   String get useCasesPoint1 => '• Identificer auto-genopkalds-spamopkald';
 
   @override
@@ -4692,17 +3448,11 @@ class AppLocalizationsDa extends AppLocalizations {
   String get useGlobalSettings => 'Brug globale indstillinger';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => 'Brugernavn';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'Brug standard regex-syntaks til at definere mønstre. Eksempler:';
-
-  @override
-  String get validateRegex => 'Valider Regex';
 
   @override
   String get verificationFailedText => 'Mislykkedes';
@@ -4739,45 +3489,13 @@ class AppLocalizationsDa extends AppLocalizations {
   String get webDAVConfigTitle => 'WebDAV-konfiguration';
 
   @override
-  String get webdavConfigurationTitle => 'WebDAV-konfiguration';
-
-  @override
-  String get webdavPasswordHint => 'Indtast venligst WebDAV-adgangskode';
-
-  @override
-  String get webdavServerAddressHint => 'Indtast venligst WebDAV-serveradresse';
-
-  @override
-  String get webdavUsernameHint => 'Indtast venligst WebDAV-brugernavn';
-
-  @override
   String get week => 'Uge';
-
-  @override
-  String get weekly => 'Ugentlig';
-
-  @override
-  String get weeklyBlockedCallsSummary =>
-      'Ugentlig oversigt over blokerede opkald';
-
-  @override
-  String get weeklyChartTitle => 'Ugentlig blokerede opkald';
-
-  @override
-  String get weeklyReport => 'Ugentlig rapport';
-
-  @override
-  String get weeklyReportDesc =>
-      'Modtag ugentlig opsummeringsrapport over blokeringsaktivitet for opkald';
 
   @override
   String get welcome => 'Velkommen';
 
   @override
   String get whitelist => 'Hvidliste';
-
-  @override
-  String get whitelistLabel => 'Hvidliste';
 
   @override
   String get width => 'Bredde';
@@ -4798,12 +3516,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get year => 'År';
-
-  @override
-  String get yearly => 'Årligt';
-
-  @override
-  String get yearlyChartTitle => 'Årlige blokerede opkald';
 
   @override
   String get noSimCardsDetected => 'Ingen SIM-kort fundet';
@@ -4850,10 +3562,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get useStirNotification => 'Brug notifikation fra STIR';
 
   @override
-  String get useStirNotificationDescription =>
-      'Aktivér STIR-notifikationer for indgående opkald';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'Luk lokale notifikationer automatisk';
 
@@ -4872,11 +3580,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'Info om indgående opkald';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'Nummer: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'Blokeret opkald';
@@ -4930,21 +3633,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'Svindel-alarm';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return 'Potentielt svindelopkald fra $phoneNumber';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'Kunne ikke indlæse regler: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'Kunne ikke indlæse opkaldslog: $error';
-  }
 
   @override
   String get noBlockedTypeData => 'Ingen data om blokeret type tilgængelig';
@@ -5020,9 +3708,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get removeAds => 'Fjern reklamer';
-
-  @override
-  String get unknownAction => 'Ukendt handling';
 
   @override
   String get settingsBackup => 'Indstillingsbackup ';
@@ -5283,16 +3968,8 @@ class AppLocalizationsDa extends AppLocalizations {
   String get blockNumberSuccess => 'Nummer blokeret succesfuldt';
 
   @override
-  String get blockNumberFailed => 'Blokering af nummer mislykkedes';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return 'Er du sikker på, at du vil fjerne blokeringen af $phoneNumber?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return 'Ringer til $phoneNumber...';
   }
 
   @override
@@ -5309,9 +3986,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => 'Fjernelse af nummer blokering mislykkedes';
-
-  @override
-  String get serviceNotAvailable => 'Tjeneste ikke tilgængelig';
 
   @override
   String get callingNumberFailed => 'Opkald til nummer mislykkedes';
@@ -5342,9 +4016,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'Nummer i ugyldigt format';
-
-  @override
-  String get membershipFeature => 'Medlemskabsfunktion';
 
   @override
   String get medium => 'Medium';
@@ -5440,9 +4111,6 @@ class AppLocalizationsDa extends AppLocalizations {
       'Bekræft for at rydde alle notifikationer';
 
   @override
-  String get allNotificationsCleared => 'Alle notifikationer ryddet';
-
-  @override
   String get clearButton => 'Ryd';
 
   @override
@@ -5512,9 +4180,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get reasonInaccurateInfo => 'Unøjagtige oplysninger';
 
   @override
-  String get reasonWrongMarked => 'Forkert markeret';
-
-  @override
   String get reasonOther => 'Andet';
 
   @override
@@ -5524,25 +4189,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get cancel => 'Annuller';
 
   @override
-  String get proposalStatus => 'Status';
-
-  @override
-  String get statusPending => 'Afventer';
-
-  @override
-  String get statusActive => 'Aktiv';
-
-  @override
-  String get statusCompleted => 'Gennemført';
-
-  @override
-  String get statusExpired => 'Udløbet';
-
-  @override
   String get riskLevel => 'Risikoniveau';
-
-  @override
-  String get riskLevelVerified => 'Bekræftet';
 
   @override
   String get riskLevelLow => 'Lav';
@@ -5551,19 +4198,8 @@ class AppLocalizationsDa extends AppLocalizations {
   String get riskLevelHigh => 'Høj';
 
   @override
-  String get riskLevelUnknown => 'Ukendt';
-
-  @override
-  String get votingProgress => 'Afstemningsfremgang';
-
-  @override
   String agreeVotes(int count) {
     return 'Enige: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'Uenige: $count';
   }
 
   @override
@@ -5586,12 +4222,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get verificationReport => 'Verifikationsrapport';
 
   @override
-  String get showReport => 'Vis rapport';
-
-  @override
-  String get hideReport => 'Skjul rapport';
-
-  @override
   String get proposalStatistics => 'Forslagsstatistik';
 
   @override
@@ -5601,28 +4231,13 @@ class AppLocalizationsDa extends AppLocalizations {
   String get activeProposals => 'Aktive forslag';
 
   @override
-  String get completedProposals => 'Gennemførte forslag';
-
-  @override
-  String get myVotes => 'Mine stemmer';
-
-  @override
   String get proposalCreated => 'Forslag oprettet succesfuldt';
-
-  @override
-  String get proposalCreateFailed => 'Kunne ikke oprette forslag';
 
   @override
   String get voteSubmitted => 'Stemme indsendt succesfuldt';
 
   @override
-  String get voteSubmitFailed => 'Kunne ikke indsende stemme';
-
-  @override
   String get noProposalsFound => 'Ingen forslag fundet';
-
-  @override
-  String get loadingProposals => 'Indlæser forslag...';
 
   @override
   String get refreshProposals => 'Opdater forslag';
@@ -5774,23 +4389,11 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'Kunne ikke indlæse antal stemmer';
-
-  @override
   String get voteCount => 'Antal stemmer';
-
-  @override
-  String get deletionProposalInfo => 'Oplysninger om sletningsforslag';
 
   @override
   String get deletionProposalDescription =>
       'Foreslå numre til sletning, der overtræder fællesskabets retningslinjer. Din deltagelse hjælper med at holde platformen sikker.';
-
-  @override
-  String get voteToEarnVip => 'Stem på forslag for at tjene VIP-privilegier!';
-
-  @override
-  String get voteFailed => 'Afstemning mislykkedes';
 
   @override
   String get searchProposals => 'Søg forslag';
@@ -5824,50 +4427,7 @@ class AppLocalizationsDa extends AppLocalizations {
       'Viser advarsler om potentielt svigagtige opkald.';
 
   @override
-  String get notificationFrequencyDescription =>
-      'Vælg, hvor ofte du modtager notifikationer om nye sletteforslag. Du kan modtage dem øjeblikkeligt, i batches eller med et brugerdefineret interval.';
-
-  @override
   String get notificationMode => 'Notifikationstilstand';
-
-  @override
-  String get immediateNotifications => 'Øjeblikkelig';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'Modtag en notifikation, så snart et forslag er oprettet.';
-
-  @override
-  String get batchNotifications => 'Batch';
-
-  @override
-  String get batchNotificationsDescription =>
-      'Modtag en opsummering af notifikationer med jævne mellemrum.';
-
-  @override
-  String get customNotifications => 'Brugerdefineret';
-
-  @override
-  String get customNotificationsDescription =>
-      'Definer dit eget interval for modtagelse af notifikationer.';
-
-  @override
-  String get customFrequency => 'Brugerdefineret frekvens';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes min';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours t';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours t $minutes min';
-  }
 
   @override
   String get pendingProposals => 'Afventende forslag';
@@ -5889,9 +4449,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get riskLevelLabel => 'Risikoniveau';
-
-  @override
-  String get riskLevelDescription => 'Risikoniveau for nummeret';
 
   @override
   String get phoneNumberMinDigits =>
@@ -5917,33 +4474,13 @@ class AppLocalizationsDa extends AppLocalizations {
   String get countryCodeRequired => 'Landekode er påkrævet';
 
   @override
-  String get countryCodeLengthError => 'Landekoden skal være 2 bogstaver';
-
-  @override
   String get phoneNumberHint => 'Indtast telefonnummer';
 
   @override
   String get phoneNumberRequired => 'Telefonnummer er påkrævet';
 
   @override
-  String get phoneNumberLengthError =>
-      'Telefonnummer skal være mindst 7 cifre langt';
-
-  @override
-  String get reasonHint => 'Angiv detaljeret forklaring (minimum 10 tegn)';
-
-  @override
   String get reasonRequired => 'Årsag er påkrævet';
-
-  @override
-  String get reasonLengthError => 'Årsag skal være mindst 10 tegn lang';
-
-  @override
-  String get guidelinesTitle => 'Retningslinjer';
-
-  @override
-  String get guidelinesText =>
-      '• Rapporter kun numre, der er reelt problematiske\n• Angiv nøjagtige og detaljerede årsager\n• Vælg passende risikoniveau baseret på sværhedsgrad\n• Falske rapporter kan medføre begrænsninger på kontoen';
 
   @override
   String get riskLevelCritical => 'Kritisk';
@@ -5955,56 +4492,11 @@ class AppLocalizationsDa extends AppLocalizations {
   String get riskLevelVeryLow => 'Meget lav';
 
   @override
-  String get riskDescriptionVeryLow =>
-      'Meget lav - Mindre irritation, sjældne opkald';
-
-  @override
-  String get riskDescriptionLow => 'Lav - Lejlighedsvise uønskede opkald';
-
-  @override
-  String get riskDescriptionMedium =>
-      'Mellem - Regelmæssig spam eller telemarketing';
-
-  @override
-  String get riskDescriptionHigh =>
-      'Høj - Vedvarende chikane eller svindelforsøg';
-
-  @override
-  String get riskDescriptionCritical =>
-      'Kritisk - Farlige svindelnumre eller trusler';
-
-  @override
   String get notificationFrequencyTitle => 'Notifikationsfrekvens';
-
-  @override
-  String get notificationFrequencyLabel => 'Notifikationsfrekvens (timer)';
 
   @override
   String errorMessage(String error) {
     return 'Fejl: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'Stemmer: $totalVotes ($supportPercentage% opbakning)';
-  }
-
-  @override
-  String get timeJustNow => 'Lige nu';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return '${minutes}m siden';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return '${hours}t siden';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return '${days}d siden';
   }
 
   @override
@@ -6089,10 +4581,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get liveActivitiesTestTitle => 'Live Aktivitets Test';
 
   @override
-  String get liveActivitiesTestSubtitle =>
-      'Test live aktivitetsnotifikationen.';
-
-  @override
   String get liveNotificationCustomizationTitle =>
       'Tilpasning af Live Notifikation';
 
@@ -6118,16 +4606,10 @@ class AppLocalizationsDa extends AppLocalizations {
   String get proposalDetails => 'Forslagsdetaljer';
 
   @override
-  String get filterByStatus => 'Filtrer efter status';
-
-  @override
   String get proposalNotFound => 'Forslag ikke fundet';
 
   @override
   String get processed => 'Behandlet';
-
-  @override
-  String get showAll => 'Vis alle';
 
   @override
   String get filterAndSortTitle => 'Filtrer og Sorter';
@@ -6166,9 +4648,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get invalidSimData => 'Ugyldige SIM-data';
 
   @override
-  String get simCardData => 'SIM-kort data';
-
-  @override
   String get simSlot => 'SIM-slot';
 
   @override
@@ -6187,12 +4666,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String get callTypeSilenced => 'Dæmpet';
 
   @override
-  String get callTypeVoicemail => 'Svarer';
-
-  @override
-  String get callTypeUnknownIntercept => 'Ukendt opsnapning';
-
-  @override
   String andMoreItems(int count) {
     return 'og $count flere emner';
   }
@@ -6205,10 +4678,6 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6292,9 +4761,6 @@ class AppLocalizationsDa extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

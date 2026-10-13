@@ -18,13 +18,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get aboutPhoneSubscriptionRules => 'អំពីច្បាប់ជាវទូរស័ព្ទ';
 
   @override
-  String get aboutPhoneSubscriptions => 'អំពីការជាវទូរស័ព្ទ';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'ជាវបញ្ជីច្បាប់ទូរស័ព្ទតាមរយៈ URL អាប់ដេតច្បាប់ដោយស្វ័យប្រវត្តិ។ គាំទ្រឯកសារច្បាប់ទម្រង់ JSON, CSV។';
-
-  @override
   String get aboutSmsFilter => 'អំពីការត្រងសារ SMS';
 
   @override
@@ -47,9 +40,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get actionBlock => 'ទប់ស្កាត់';
-
-  @override
-  String get actionFilterAll => 'តម្រងទាំងអស់';
 
   @override
   String get actionFilterTitle => 'តម្រងតាមប្រភេទសកម្មភាព';
@@ -95,28 +85,7 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'បានបន្ថែមទៅក្នុងច្បាប់ដែលបានអនុញ្ញាត';
-
-  @override
-  String get addedToBlacklist => 'បានបន្ថែមទៅក្នុងបញ្ជីខ្មៅ';
-
-  @override
-  String get addedToBlockedRules => 'បានបន្ថែមទៅក្នុងច្បាប់ដែលបានទប់ស្កាត់';
-
-  @override
-  String get addedToFavoriteContacts => 'បានបន្ថែមទៅក្នុងទំនាក់ទំនងដែលចូលចិត្ត';
-
-  @override
   String get addedToFavorites => 'បានបន្ថែមទៅក្នុងទំនាក់ទំនងដែលចូលចិត្ត';
-
-  @override
-  String get addedToWhitelist => 'បានបន្ថែមទៅក្នុងបញ្ជីស';
-
-  @override
-  String get addFavorite => 'បន្ថែមទំនាក់ទំនងដែលចូលចិត្ត';
-
-  @override
-  String get addFilter => 'បន្ថែមតម្រង';
 
   @override
   String get addLabel => 'បន្ថែមស្លាក';
@@ -130,17 +99,10 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'បន្ថែមស្លាកទៅកំណត់ត្រាវីដេអូ';
-
-  @override
   String get addName => 'បន្ថែមឈ្មោះ';
 
   @override
   String get addNoneSubscription => 'បន្ថែមការជាវគ្មាន';
-
-  @override
-  String get addOrEditContactInfo =>
-      'ប្រើដើម្បីបន្ថែម ឬកែសម្រួលព័ត៌មានទំនាក់ទំនង';
 
   @override
   String get addPhoneMark => 'បន្ថែមសញ្ញាទូរស័ព្ទ';
@@ -173,9 +135,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get addRule => 'បន្ថែមច្បាប់';
 
   @override
-  String get addRuleButton => 'បន្ថែមច្បាប់';
-
-  @override
   String addRuleFailed(Object error) {
     return 'បរាជ័យក្នុងការបន្ថែមច្បាប់៖ $error';
   }
@@ -185,9 +144,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'បន្ថែមការជាវស្ងាត់';
-
-  @override
-  String get addSimRuleButton => 'បន្ថែមច្បាប់ SIM';
 
   @override
   String get addSmsFilterRule => 'បន្ថែមច្បាប់ត្រង SMS';
@@ -213,16 +169,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get addSubscriptionTooltip => 'បន្ថែមការជាវ';
 
   @override
-  String get addToAllowedRules => 'បន្ថែមទៅក្នុងច្បាប់ដែលបានអនុញ្ញាត';
-
-  @override
   String get addToBlacklist => 'បន្ថែមទៅក្នុងបញ្ជីខ្មៅ';
-
-  @override
-  String get addToBlockedRules => 'បន្ថែមទៅក្នុងច្បាប់ដែលបានទប់ស្កាត់';
-
-  @override
-  String get addToFavoriteContacts => 'បន្ថែមទៅក្នុងទំនាក់ទំនងដែលចូលចិត្ត';
 
   @override
   String get addToFavorites => 'បន្ថែមទៅក្នុងទំនាក់ទំនងដែលចូលចិត្ត';
@@ -234,9 +181,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get addToWhitelist => 'បន្ថែមទៅក្នុងបញ្ជីស';
 
   @override
-  String get adPlaceholder => 'Ad Placeholder';
-
-  @override
   String get agent => 'ភ្នាក់ងារ';
 
   @override
@@ -244,9 +188,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get allCallsTab => 'ទាំងអស់';
-
-  @override
-  String get allDataClearedSuccessfully => 'បានលុបទិន្នន័យទាំងអស់ដោយជោគជ័យ';
 
   @override
   String get allow => 'អនុញ្ញាត';
@@ -259,10 +200,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get allowAllBlacklistedNumbers => 'អនុញ្ញាតលេខក្នុងបញ្ជីខ្មៅទាំងអស់';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc =>
-      'អនុញ្ញាតការហៅទូរស័ព្ទពីបញ្ជីទប់ស្កាត់';
 
   @override
   String get allowAllBlockRules => 'អនុញ្ញាតច្បាប់ទប់ស្កាត់ទាំងអស់';
@@ -332,13 +269,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get allowRules => 'ច្បាប់អនុញ្ញាត';
 
   @override
-  String get allowWhitelistedNumbers => 'អនុញ្ញាតលេខទូរស័ព្ទក្នុងបញ្ជីស';
-
-  @override
-  String get allowWhitelistedNumbersDescription =>
-      'អនុញ្ញាតលេខទូរស័ព្ទទាំងអស់ក្នុងបញ្ជីស';
-
-  @override
   String get allPermissionsGranted => 'បានផ្តល់សិទ្ធិទាំងអស់';
 
   @override
@@ -351,9 +281,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'ឆ្លើយតប រួចផ្ដាច់';
-
-  @override
-  String get appLegalese => '© 2023 Your Call Your Rule. រក្សាសិទ្ធិគ្រប់យ៉ាង។';
 
   @override
   String get applicationSoftware => 'កម្មវិធី';
@@ -392,14 +319,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'ការកំណត់ធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'គ្រប់គ្រងការធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិសម្រាប់ច្បាប់ និងកម្មវិធីបន្ថែម';
-
-  @override
-  String get autoUpdateSettingsTitle =>
-      'ការកំណត់ធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ';
 
   @override
   String get autoUpdateSubtitle =>
@@ -448,45 +367,10 @@ class AppLocalizationsKm extends AppLocalizations {
   String get backupFailed => 'ការបម្រុងទុកបរាជ័យ';
 
   @override
-  String get backupFailedMessage => 'ការបម្រុងទុកបរាជ័យ';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'ការបម្រុងទុកបរាជ័យ៖ $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle => 'បម្រុងទុក ឬស្ដារទិន្នន័យកម្មវិធីឡើងវិញ';
-
-  @override
-  String get backupRestoreTitle => 'បម្រុងទុក និងស្ដារឡើងវិញ';
-
-  @override
-  String get backupSectionTitle => 'បម្រុងទុក';
-
-  @override
   String get backupSettings => 'ការកំណត់ការបម្រុងទុក';
 
   @override
-  String get backupSettingsDialogTitle => 'ការកំណត់ការបម្រុងទុក';
-
-  @override
-  String get backupSettingsTitle => 'ការកំណត់ការបម្រុងទុក';
-
-  @override
-  String get backupSuccessMessage => 'បានបម្រុងទុកទៅពពកដោយជោគជ័យ';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'ការបម្រុងទុកជោគជ័យទៅ៖ $path';
-  }
-
-  @override
   String get backupToCloud => 'បម្រុងទុកទៅពពក';
-
-  @override
-  String get backupToCloudDescription =>
-      'បម្រុងទុកការកំណត់ និងច្បាប់ទៅកន្លែងផ្ទុកពពក';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -494,16 +378,7 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'បម្រុងទុកទៅពពក';
-
-  @override
   String get backupToCloudSuccess => 'បានបម្រុងទុកទៅពពកដោយជោគជ័យ';
-
-  @override
-  String get backupToCloudTitle => 'បម្រុងទុកទៅពពក';
-
-  @override
-  String get backupToLocalLabel => 'បម្រុងទុកទៅក្នុងម៉ាស៊ីន';
 
   @override
   String get bank => 'ធនាគារ';
@@ -522,22 +397,13 @@ class AppLocalizationsKm extends AppLocalizations {
       '• ការត្រងច្បាប់មូលដ្ឋាន៖ ត្រងច្បាប់ដោយផ្អែកលើបញ្ជីខ្មៅ បញ្ជីស និង regex';
 
   @override
-  String get basicRuleFilterSettings => 'ការកំណត់តម្រងច្បាប់មូលដ្ឋាន';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'ត្រងការហៅទូរស័ព្ទដោយប្រើបញ្ជីខ្មៅ/បញ្ជីស និងកន្សោមធម្មតា';
-
-  @override
-  String get batchDeleteContacts => 'លុបទំនាក់ទំនងជាបាច់';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'តើអ្នកប្រាកដថាអ្នកចង់លុបទំនាក់ទំនងដែលបានជ្រើសរើស $count ដែរឬទេ?';
   }
-
-  @override
-  String get batchDeleteFailed => 'ការលុបជាបាច់បរាជ័យ';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -549,9 +415,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get blacklistingAndWhitelisting => 'ការដាក់ក្នុងបញ្ជីខ្មៅ និងបញ្ជីស';
-
-  @override
-  String get blacklistLabel => 'បញ្ជីខ្មៅ';
 
   @override
   String get blackWhiteList => 'បញ្ជីខ្មៅ/ស';
@@ -566,19 +429,10 @@ class AppLocalizationsKm extends AppLocalizations {
   String get blocked => 'បានទប់ស្កាត់';
 
   @override
-  String get blockedCallAction => 'សកម្មភាពការហៅដែលបានទប់ស្កាត់';
-
-  @override
   String get blockedCalls => 'ការហៅដែលបានទប់ស្កាត់';
 
   @override
   String get blockedCallsTitle => 'ការហៅដែលបានទប់ស្កាត់';
-
-  @override
-  String get blockedCommunications => 'ទំនាក់ទំនងដែលបានទប់ស្កាត់';
-
-  @override
-  String get blockedPhoneLabel => 'ការហៅដែលបានទប់ស្កាត់';
 
   @override
   String get blockedSpamCalls => 'ការហៅទូរស័ព្ទសារឥតបានការដែលបានទប់ស្កាត់';
@@ -591,9 +445,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get blockInternationalCallsTitle => 'ទប់ស្កាត់ការហៅអន្តរជាតិ';
-
-  @override
-  String get blockLandlineNumbersTitle => 'ទប់ស្កាត់លេខទូរស័ព្ទលើគោក';
 
   @override
   String get blockMobileNumbers => 'ផ្គូផ្គងលេខដែលមិនចាប់ផ្តើមដោយ 13-19';
@@ -643,11 +494,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get callback => 'ហៅត្រឡប់';
 
   @override
-  String callbackTo(String number) {
-    return 'ហៅត្រឡប់ទៅ $number';
-  }
-
-  @override
   String get callBlocking => 'ការទប់ស្កាត់ការហៅ';
 
   @override
@@ -655,9 +501,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'ប្ដូរតាមបំណង Caller ID';
-
-  @override
-  String get callerIdDialogTitle => 'ព័ត៌មាន Caller ID';
 
   @override
   String get callerIdDisplayMode => 'របៀបបង្ហាញអត្តសញ្ញាណអ្នកហៅ';
@@ -669,13 +512,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'ទិដ្ឋភាព​ជា​មុន​អត្តសញ្ញាណ​អ្នក​ហៅ';
-
-  @override
-  String get callFilter => 'តម្រង​ការ​ហៅ';
-
-  @override
-  String get callFilterDescription =>
-      'នៅពេល​បើក​ដំណើរការ ការ​ហៅ​ចូល​នឹង​ត្រូវ​បាន​ត្រួតពិនិត្យ​ប្រឆាំង​នឹង​បញ្ជី​ច្បាប់​ខាងក្រោម។ ច្បាប់​តម្រង​ការ​ហៅ​មិន​ត្រូវ​បាន​ធ្វើ​សមកាលកម្ម​រវាង​ឧបករណ៍​តាម​លំនាំដើម​ទេ។';
 
   @override
   String get callFilterRules => 'ច្បាប់​តម្រង​ការ​ហៅ';
@@ -705,26 +541,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get callHistoryInfoTitle => 'ប្រវត្តិ​ការ​ហៅ';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'មិន​អាច​ចាប់ផ្ដើម​ប្រវត្តិ​ការ​ហៅ​បាន​ទេ៖ $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'មិន​អាច​ធ្វើ​បច្ចុប្បន្នភាព​ប្រវត្តិ​ការ​ហៅ​បាន​ទេ៖ $error';
-  }
-
-  @override
   String get callHistoryTab => 'ប្រវត្តិ​ការ​ហៅ';
-
-  @override
-  String get callHistoryTimelineEarlier => 'មុន​នេះ';
-
-  @override
-  String get callHistoryTimelineToday => 'ថ្ងៃ​នេះ';
-
-  @override
-  String get callHistoryTimelineYesterday => 'ម្សិលមិញ';
 
   @override
   String get callScreeningPermission => 'ការ​អនុញ្ញាត​ត្រួត​ពិនិត្យ​ការ​ហៅ';
@@ -736,13 +553,6 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'មិន​បាន​ផ្ដល់​ការ​អនុញ្ញាត​ត្រួត​ពិនិត្យ​ការ​ហៅ​ទេ វា​អាច​ប៉ះពាល់​ដល់​មុខងារ​របស់​កម្មវិធី។';
-
-  @override
-  String get callSettingsSubtitle =>
-      'ការ​កំណត់​អត្តសញ្ញាណ​អ្នក​ហៅ ការ​តម្រង និង​ការ​ទប់ស្កាត់';
-
-  @override
-  String get callSettingsTitle => 'ការ​កំណត់​ការ​ហៅ';
 
   @override
   String get callStatistics => 'ស្ថិតិ​ការ​ហៅ';
@@ -800,27 +610,10 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'ផ្លាស់ប្ដូរ​ស្លាក';
-
-  @override
   String get charity => 'អង្គការ​សប្បុរសធម៌';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'ខែ $month';
-  }
-
-  @override
-  String get chartOneDayAgo => '១ ថ្ងៃ​មុន';
-
-  @override
-  String get chartOneMonthAgo => '១ ខែ​មុន';
-
-  @override
   String get chartOneWeekAgo => '១ សប្តាហ៍​មុន';
-
-  @override
-  String get chartTenDaysAgo => '១០ ថ្ងៃ​មុន';
 
   @override
   String get chartThreeDaysAgo => '៣ ថ្ងៃ​មុន';
@@ -841,23 +634,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'ជ្រើសរើស​សកម្មភាព​ទប់ស្កាត់​លំនាំដើម';
 
   @override
-  String get clearAllData => 'លុប​ទិន្នន័យ​ទាំងអស់';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ទិន្នន័យ​កម្មវិធី​ទាំងអស់? សកម្មភាព​នេះ​មិន​អាច​យក​មក​វិញ​បាន​ទេ។';
-
-  @override
-  String get clearAllDataDescription => 'លុប​ទិន្នន័យ​កម្មវិធី​ទាំងអស់';
-
-  @override
-  String get clearAllDataLabel => 'លុប​ទិន្នន័យ​ទាំងអស់';
-
-  @override
   String get clearFilter => 'លុប​តម្រង';
-
-  @override
-  String get clearLabelFilter => 'លុប​តម្រង​ស្លាក';
 
   @override
   String get clearLabelFilterButton => 'លុប​តម្រង​ស្លាក';
@@ -883,9 +660,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get cloudSyncTitle => 'ការ​ធ្វើ​សមកាលកម្ម​ពពក';
 
   @override
-  String get collapseLabelSelector => 'បង្រួម​អ្នក​ជ្រើសរើស​ស្លាក';
-
-  @override
   String get collection => 'ការ​ប្រមូល​បំណុល';
 
   @override
@@ -906,16 +680,8 @@ class AppLocalizationsKm extends AppLocalizations {
   String get configureBackupOptions => 'កំណត់​រចនាសម្ព័ន្ធ​ជម្រើស​បម្រុង​ទុក';
 
   @override
-  String get configureBackupOptionsSubtitle =>
-      'កំណត់​រចនាសម្ព័ន្ធ​ជម្រើស​បម្រុង​ទុក';
-
-  @override
   String get configureCloudSyncService =>
       'កំណត់​រចនាសម្ព័ន្ធ​សេវា​ធ្វើ​សមកាលកម្ម​ពពក';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'សូម​កំណត់​រចនាសម្ព័ន្ធ​សេវា​ធ្វើ​សមកាលកម្ម​ពពក​ដើម្បី​បើក​ដំណើរការ​ការ​ធ្វើ​សមកាលកម្ម​ច្រើន​ឧបករណ៍។';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -926,31 +692,13 @@ class AppLocalizationsKm extends AppLocalizations {
       'កំណត់​រចនាសម្ព័ន្ធ​ច្បាប់​តម្រង​ស៊ីម​កាត';
 
   @override
-  String get configureSyncServiceHint =>
-      'សូម​កំណត់​រចនាសម្ព័ន្ធ​សេវា​ធ្វើ​សមកាលកម្ម​ក្នុង​ការ​កំណត់​ការ​ធ្វើ​សមកាលកម្ម​ពពក​ជាមុន​សិន';
-
-  @override
   String get confirm => 'បញ្ជាក់';
-
-  @override
-  String get confirmBatchDeleteContacts =>
-      'តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ការ​ជ្រើសរើស';
 
   @override
   String get confirmButton => 'បញ្ជាក់';
 
   @override
   String get confirmDelete => 'បញ្ជាក់​ការ​លុប';
-
-  @override
-  String get confirmDeleteContact => 'តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប';
-
-  @override
-  String get confirmDeleteContactName => 'បញ្ជាក់​ការ​លុប?';
-
-  @override
-  String get confirmDeleteFilter =>
-      'តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​តម្រង​នេះ?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -972,10 +720,6 @@ class AppLocalizationsKm extends AppLocalizations {
       'តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ច្បាប់​នេះ? សកម្មភាព​នេះ​មិន​អាច​យក​មក​វិញ​បាន​ទេ។';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ទំនាក់ទំនង​ដែល​បាន​ជ្រើសរើស?';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ច្បាប់​តម្រង SMS នេះ?';
 
@@ -984,19 +728,12 @@ class AppLocalizationsKm extends AppLocalizations {
       'តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ច្បាប់ SMS នេះ?';
 
   @override
-  String get confirmDeleteSubscription =>
-      'តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ការ​ជាវ​នេះ?';
-
-  @override
   String confirmDeleteSubscriptions(String name) {
     return 'តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប $name?';
   }
 
   @override
   String get confirmPassword => 'បញ្ជាក់​ពាក្យ​សម្ងាត់';
-
-  @override
-  String get confirmPasswordLabel => 'បញ្ជាក់​ពាក្យ​សម្ងាត់';
 
   @override
   String get connectedStatus => 'បាន​ភ្ជាប់';
@@ -1021,16 +758,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get contactDeleted => 'ទំនាក់ទំនងត្រូវបានលុប';
 
   @override
-  String get contactEditDialog => 'ការសន្ទនាបកស្រាយទំនាក់ទំនង';
-
-  @override
-  String get contactNameHint => 'បញ្ចូលឈ្មោះទំនាក់ទំនង (ជាជម្រើស)';
-
-  @override
   String get contactNameLabel => 'ឈ្មោះ';
-
-  @override
-  String get contactNameOptional => 'ឈ្មោះទំនាក់ទំនង (ជាជម្រើស)';
 
   @override
   String get contactNotFound => 'រកមិនឃើញទំនាក់ទំនង';
@@ -1044,25 +772,7 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle =>
-      'ការគ្រប់គ្រងទំនាក់ទំនង និងការកំណត់ស្លាក';
-
-  @override
-  String get contactSettingsTitle => 'ការកំណត់ទំនាក់ទំនង';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'មិនអាចផ្ទុកទំនាក់ទំនង៖ $error';
-  }
-
-  @override
   String get contactsManagement => 'ការគ្រប់គ្រងទំនាក់ទំនង';
-
-  @override
-  String get contactsManagementPageTitle => 'ទំព័រគ្រប់គ្រងទំនាក់ទំនង';
-
-  @override
-  String get contactsPageTitle => 'ការគ្រប់គ្រងទំនាក់ទំនង';
 
   @override
   String get contactsPermission => 'ការអនុញ្ញាតទំនាក់ទំនង';
@@ -1077,14 +787,6 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'ជាវបញ្ជីទំនាក់ទំនងតាមរយៈ URL អាប់ដេតព័ត៌មានទំនាក់ទំនង និងស្លាកដោយស្វ័យប្រវត្តិ។ គាំទ្រទិន្នន័យទ្រង់ទ្រាយ JSON។';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'មិនអាចផ្ទុកការជាវទំនាក់ទំនង៖ $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'ការជាវទំនាក់ទំនង';
 
   @override
   String get contactUpdateSuccess => 'ទំនាក់ទំនងត្រូវបានអាប់ដេតដោយជោគជ័យ';
@@ -1120,26 +822,11 @@ class AppLocalizationsKm extends AppLocalizations {
   String get countryRegionNamePosition => 'ទីតាំងឈ្មោះប្រទេស/តំបន់';
 
   @override
-  String get countrySelectionDialog => 'ការសន្ទនាជ្រើសរើសប្រទេស';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'ប្រើដើម្បីជ្រើសរើសប្រទេសដើម្បីស្វែងរកព័ត៌មានអត្តសញ្ញាណអ្នកទូរស័ព្ទ';
-
-  @override
   String get countThresholdDescription =>
       'កំណត់ចំនួនអប្បបរមាដែលទាមទារដើម្បីបង្កឱ្យមានសកម្មភាពត្រង';
 
   @override
   String get countThresholdLabel => 'ដែនកំណត់ចំនួន';
-
-  @override
-  String get countThresholdSettings => 'ការកំណត់ដែនកំណត់ចំនួន';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'ដែនកំណត់ចំនួន៖ $count';
-  }
 
   @override
   String get createdRules => 'ច្បាប់ដែលបានបង្កើត';
@@ -1148,48 +835,22 @@ class AppLocalizationsKm extends AppLocalizations {
   String get csvFormat => 'ទ្រង់ទ្រាយ CSV';
 
   @override
-  String get currentDeviceChip => 'បច្ចុប្បន្ន';
-
-  @override
   String get currentDeviceLabel => 'ស្លាប៊ rekordឧបករណ៍បច្ចុប្បន្ន';
 
   @override
   String get currentDeviceTitle => 'ឧបករណ៍បច្ចុប្បន្ន';
 
   @override
-  String get currentLabels => 'ស្លាប៊ rekordបច្ចុប្បន្ន៖';
-
-  @override
   String get currentLanguage => 'ភាសា​បច្ចុប្បន្ន';
 
   @override
-  String get currentPasswordLabel => 'ពាក្យសម្ងាត់បច្ចុប្បន្ន';
-
-  @override
   String get customerService => 'សេវាកម្មអតិថិជន';
-
-  @override
-  String get customRange => 'ជួរផ្ទាល់ខ្លួន';
-
-  @override
-  String get dailyStatistics => 'ស្ថិតិប្រចាំថ្ងៃ';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'ទទួលបានស្ថិតិប្រចាំថ្ងៃអំពីការហៅ និងសារដែលត្រូវបានទប់ស្កាត់';
 
   @override
   String get dashboardTab => 'ផ្ទាំងគ្រប់គ្រង';
 
   @override
   String get dataAnalysis => 'ការវិភាគទិន្នន័យ';
-
-  @override
-  String get dataAnalysisDashboardPage =>
-      'ទំព័រផ្ទាំងគ្រប់គ្រងការវិភាគទិន្នន័យ';
-
-  @override
-  String get dataExport => 'ការនាំចេញទិន្នន័យ';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1207,16 +868,6 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'មុខងារនេះអនុញ្ញាតឱ្យអ្នកផ្ទេរទិន្នន័យទាំងអស់របស់អ្នករវាងឧបករណ៍។ បច្ចុប្បន្នអ្នកអាចប្រើមុខងារបម្រុងទុក និងស្តារឡើងវិញដើម្បីផ្លាស់ទីលំនៅទិន្នន័យរបស់អ្នកដោយដៃ។';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'មុខងារនេះអនុញ្ញាតឱ្យអ្នកផ្ទេរទិន្នន័យទាំងអស់របស់អ្នករវាងឧបករណ៍។ បច្ចុប្បន្នអ្នកអាចប្រើមុខងារបម្រុងទុក និងស្តារឡើងវិញដើម្បីផ្លាស់ទីលំនៅទិន្នន័យរបស់អ្នកដោយដៃ។';
-
-  @override
-  String get dataMigrationDialogTitle => 'ការផ្លាស់ទីលំនៅទិន្នន័យ';
-
-  @override
-  String get dataMigrationSectionTitle => 'ការផ្លាស់ទីលំនៅទិន្នន័យ';
 
   @override
   String get dataSourceReminder => 'ការរំលឹកប្រភពទិន្នន័យ';
@@ -1241,9 +892,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get debtCollection => 'ការប្រមូលបំណុល';
 
   @override
-  String get defaultPeriod => 'សប្តាហ៍';
-
-  @override
   String get delete => 'លុប';
 
   @override
@@ -1258,23 +906,9 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation => 'តើអ្នកប្រាកដថាអ្នកចង់លុបទំនាក់ទំនង';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return 'តើអ្នកប្រាកដថាអ្នកចង់លុប $deviceName?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'លុបឧបករណ៍';
-
-  @override
   String deleteFailed(Object error) {
     return 'លុបរងការខាតបង់៖ $error';
   }
-
-  @override
-  String get deleteFilter => 'លុបតម្រង';
 
   @override
   String get deleteLabel => 'លុបស្លាប៊ rekord';
@@ -1312,9 +946,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get deleteSelected => 'លុបដែលបានជ្រើសរើស';
 
   @override
-  String get deleteSmsRule => 'លុបច្បាប់ SMS';
-
-  @override
   String get deleteSubscription => 'លុបការជាវ';
 
   @override
@@ -1334,15 +965,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get delivery => 'ការដឹកជញ្ជូន';
 
   @override
-  String get deviceDeletedSuccessfully => 'ឧបករណ៍ត្រូវបានលុបដោយជោគជ័យ';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage => 'ឧបករណ៍ត្រូវបានលុបដោយជោគជ័យ';
-
-  @override
-  String get deviceIdLabel => 'លេខសម្គាល់ឧបករណ៍';
-
-  @override
   String get deviceIDLabel => 'លេខសម្គាល់ឧបករណ៍';
 
   @override
@@ -1358,26 +980,10 @@ class AppLocalizationsKm extends AppLocalizations {
   String get deviceName => 'ឈ្មោះឧបករណ៍';
 
   @override
-  String get deviceNameCannotBeEmpty => 'ឈ្មោះឧបករណ៍មិនអាចទទេបាន';
-
-  @override
-  String get deviceNameHint => 'សូមបញ្ចូលឈ្មោះឧបករណ៍';
-
-  @override
   String get deviceNameLabel => 'ឈ្មោះឧបករណ៍';
 
   @override
-  String get deviceRenamedSuccessfully => 'បានប្តូរឈ្មោះឧបករណ៍ដោយជោគជ័យ';
-
-  @override
   String get deviceRenamedSuccessfullyMessage => 'បានប្តូរឈ្មោះឧបករណ៍ដោយជោគជ័យ';
-
-  @override
-  String get devicesSyncedSuccessfully => 'បានធ្វើសមកាលកម្មឧបករណ៍ដោយជោគជ័យ';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage =>
-      'បានធ្វើសមកាលកម្មឧបករណ៍ដោយជោគជ័យ';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1402,9 +1008,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'បិទកម្មវិធីជំនួយសកល';
-
-  @override
-  String get disableSubscriptionSuccessfully => 'បានបិទការជាវដោយជោគជ័យ';
 
   @override
   String get disconnectButton => 'ផ្តាច់';
@@ -1438,25 +1041,13 @@ class AppLocalizationsKm extends AppLocalizations {
   String get editContact => 'កែសម្រួលទំនាក់ទំនង';
 
   @override
-  String get editFilter => 'កែសម្រួលតម្រង';
-
-  @override
   String get editLabel => 'កែសម្រួលស្លាក';
 
   @override
   String get editPhoneRule => 'កែសម្រួលច្បាប់ទូរស័ព្ទ';
 
   @override
-  String get editPhoneRules => 'ប្រើដើម្បីកែសម្រួលច្បាប់ទូរស័ព្ទ';
-
-  @override
-  String get editPhoneRuleTitle => 'កែសម្រួលច្បាប់ទូរស័ព្ទ';
-
-  @override
   String get editRule => 'កែសម្រួលច្បាប់';
-
-  @override
-  String get editSmsRule => 'កែសម្រួលច្បាប់ SMS';
 
   @override
   String get education => 'អប់រំ';
@@ -1466,9 +1057,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get email => 'អ៊ីមែល';
-
-  @override
-  String get emailOptional => 'អ៊ីមែល (ជាជម្រើស)';
 
   @override
   String get enableCallFilter => 'បើកដំណើរការតម្រងការហៅទូរស័ព្ទ';
@@ -1488,15 +1076,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => 'អ៊ិនគ្រីបឯកសារបម្រុងទុក';
-
-  @override
-  String get enableEncryptionLabel => 'បើកការអ៊ិនគ្រីប';
-
-  @override
-  String get enableEncryptionSubtitle => 'ឯកសារបម្រុងទុកនឹងត្រូវបានអ៊ិនគ្រីប';
-
-  @override
-  String get enableEncryptionTitle => 'បើកការអ៊ិនគ្រីប';
 
   @override
   String get enableGlobalPlugins => 'បើកកម្មវិធីជំនួយសកល';
@@ -1533,9 +1112,6 @@ class AppLocalizationsKm extends AppLocalizations {
       'អនុញ្ញាតការកំណត់រចនាសម្ព័ន្ធច្បាប់ដោយគ្មានសកម្មភាពទប់ស្កាត់';
 
   @override
-  String get enableNotifications => 'បើកដំណើរការការជូនដំណឹង';
-
-  @override
   String get enableRemoteNumberFilter => 'បើកដំណើរការតម្រងលេខពីចម្ងាយ';
 
   @override
@@ -1551,12 +1127,6 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'នៅពេលបើកដំណើរការ សារនឹងត្រូវបានតម្រងដោយស្វ័យប្រវត្តិដោយយោងតាមច្បាប់';
-
-  @override
-  String get enableStatisticsNotifications => 'បើកដំណើរការការជូនដំណឹងស្ថិតិ';
-
-  @override
-  String get enableSubscriptionSuccessfully => 'បានបើកការជាវដោយជោគជ័យ';
 
   @override
   String get enableTimeInterception => 'បើកដំណើរការការទប់ស្កាត់ពេលវេលា';
@@ -1592,10 +1162,6 @@ class AppLocalizationsKm extends AppLocalizations {
       'ប្រព័ន្ធតម្រងកែលម្អគាំទ្រទាំងច្បាប់សកល និងការកំណត់រចនាសម្ព័ន្ធតម្រងក្នុងមួយកាត SIM';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'សូមបញ្ចូលទាំងលេខទូរស័ព្ទ និងគំរូ Regex';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'សូមបញ្ចូលទាំងលេខទូរស័ព្ទ និងគំរូ Regex។';
 
@@ -1603,31 +1169,13 @@ class AppLocalizationsKm extends AppLocalizations {
   String get enterContactName => 'សូមបញ្ចូលឈ្មោះទំនាក់ទំនង';
 
   @override
-  String get enterCurrentPasswordHint => 'សូមបញ្ចូលពាក្យសម្ងាត់បច្ចុប្បន្ន';
-
-  @override
   String get enterDeviceName => 'បញ្ចូលឈ្មោះឧបករណ៍';
-
-  @override
-  String get enterDeviceNameHint => 'សូមបញ្ចូលឈ្មោះឧបករណ៍';
-
-  @override
-  String get enterEmail => 'សូមបញ្ចូលអ៊ីមែល';
 
   @override
   String get enterEmailOptional => 'សូមបញ្ចូលអ៊ីមែល (ជាជម្រើស)';
 
   @override
   String get enterEncryptionPasswordHint => 'បញ្ចូលពាក្យសម្ងាត់អ៊ិនគ្រីប';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'បញ្ចូលពាក្យសម្ងាត់អ៊ិនគ្រីប';
-
-  @override
-  String get enterFilterName => 'សូមបញ្ចូលឈ្មោះតម្រង';
-
-  @override
-  String get enterFilterPattern => 'សូមបញ្ចូលគំរូតម្រង';
 
   @override
   String get enterIconCode => 'បញ្ចូលកូដរូបតំណាង';
@@ -1639,13 +1187,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get enterNewDeviceNameHint => 'បញ្ចូលឈ្មោះថ្មីសម្រាប់ឧបករណ៍នេះ';
 
   @override
-  String get enterNewPasswordHint => 'សូមបញ្ចូលពាក្យសម្ងាត់ថ្មី';
-
-  @override
   String get enterPasswordAgain => 'បញ្ចូលពាក្យសម្ងាត់ម្តងទៀត';
-
-  @override
-  String get enterPasswordHint => 'សូមបញ្ចូលពាក្យសម្ងាត់';
 
   @override
   String get enterPhoneNumber => 'បញ្ចូលលេខទូរស័ព្ទ';
@@ -1672,9 +1214,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'បញ្ចូលគំរូ regex';
-
-  @override
-  String get enterRuleNameAndPattern => 'សូមបញ្ចូលឈ្មោះច្បាប់ និងគំរូ';
 
   @override
   String get enterRuleNameAndPatternMessage =>
@@ -1719,14 +1258,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get enterWebDAVUsernameHint => 'សូមបញ្ចូលឈ្មោះអ្នកប្រើ WebDAV';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'មានកំហុសក្នុងការលុបឧបករណ៍៖ $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'មានកំហុសក្នុងការផ្ទុកកម្មវិធីបន្ថែម';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'មានកំហុសកើតឡើង៖ $error';
   }
@@ -1742,14 +1273,6 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'មានកំហុសក្នុងការធ្វើសមកាលកម្មឧបករណ៍៖ $error';
-  }
-
-  @override
-  String get errorText => 'កំហុស';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'មានកំហុសក្នុងការលុបការចុះឈ្មោះឧបករណ៍៖ $error';
   }
@@ -1759,9 +1282,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'ឧទាហរណ៍ ប្លុក SMS ទីផ្សារ';
-
-  @override
-  String get exampleContentRegex => 'ឧទាហរណ៍, .*offer.*';
 
   @override
   String get exampleContentRegexHint => 'ឧទាហរណ៍ លំនាំ regex មាតិកា';
@@ -1780,9 +1300,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get exampleRegex400Prefix => 'ឧទាហរណ៍ លំនាំ regex សម្រាប់លេខ 400 មុខ';
 
   @override
-  String get exampleRegexFormat => 'ឧទាហរណ៍: ^10086\$';
-
-  @override
   String get exampleSenderRegexHint => 'ឧទាហរណ៍';
 
   @override
@@ -1793,9 +1310,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get exchangeVip => 'ផ្លាស់ប្តូរ VIP';
-
-  @override
-  String get expandLabelSelector => 'ពង្រីកអ្នកជ្រើសរើសស្លាក';
 
   @override
   String expiryTime(Object time) {
@@ -1809,18 +1323,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get exportAllApplicationSettings => 'នាំចេញការកំណត់កម្មវិធីទាំងអស់';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'នាំចេញការកំណត់កម្មវិធីទាំងអស់';
-
-  @override
   String get exportAllRuleConfigurations => 'នាំចេញការកំណត់ក្បួនទាំងអស់';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle =>
-      'នាំចេញការកំណត់ក្បួនទាំងអស់';
-
-  @override
-  String get exportComplete => 'ការនាំចេញបានបញ្ចប់';
 
   @override
   String get exportConfig => 'នាំចេញការកំណត់';
@@ -1832,9 +1335,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get exportData => 'នាំចេញទិន្នន័យ';
 
   @override
-  String get exportError => 'កំហុសក្នុងការនាំចេញ';
-
-  @override
   String get exportFailed => 'បរាជ័យក្នុងការនាំចេញ';
 
   @override
@@ -1842,9 +1342,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'មុខងារនាំចេញនឹងមកដល់ឆាប់ៗនេះ';
-
-  @override
-  String get exporting => 'កំពុងនាំចេញ...';
 
   @override
   String get exportLabels => 'នាំចេញស្លាក';
@@ -1866,34 +1363,17 @@ class AppLocalizationsKm extends AppLocalizations {
   String get exportRules => 'នាំចេញក្បួន';
 
   @override
-  String get exportRulesDialogTitle => 'នាំចេញក្បួន';
-
-  @override
-  String get exportRulesTitle => 'នាំចេញក្បួន';
-
-  @override
   String get exportSmsRules => 'នាំចេញក្បួន SMS';
 
   @override
   String get exportStatisticsData => 'នាំចេញទិន្នន័យស្ថិតិ';
 
   @override
-  String get exportSuccess => 'ការនាំចេញជោគជ័យ';
-
-  @override
   String get exportSuccesslly => 'ការកំណត់ត្រូវបាននាំចេញដោយជោគជ័យ';
-
-  @override
-  String get failedToAddContact => 'បរាជ័យក្នុងការបន្ថែមទំនាក់ទំនង';
 
   @override
   String failedToAddRule(Object error) {
     return 'បរាជ័យក្នុងការបន្ថែមប��ួន៖ $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'បរាជ័យក្នុងការបន្ថែមប��ួន SMS៖ $error';
   }
 
   @override
@@ -1911,9 +1391,6 @@ class AppLocalizationsKm extends AppLocalizations {
       'បរាជ័យក្នុងការឌិកគ្រីបឯ��រ����������';
 
   @override
-  String get failedToDeleteDevice => 'បរាជ័យក្នុងការលុបឧបករណ៍';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'បរាជ័យក្នុងការលុបប��ួន SMS៖ $error';
   }
@@ -1921,11 +1398,6 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'បរាជ័យក្នុងការនាំចេញក្បួន៖ $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'បរាជ័យក្នុងការនាំចេញក្បួន SMS៖ $error';
   }
 
   @override
@@ -1939,20 +1411,6 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'បរាជ័យក្នុងការនាំចូលក��������������';
-  }
-
-  @override
-  String get failedToLoadContacts => 'បរាជ័យក្នុងការផ្ទុកទំនាក់ទំនង';
-
-  @override
-  String get failedToLoadPlugin => 'បរាជ័យក្នុងការផ្ទុកកម្មវិធីបន្ថែម';
-
-  @override
-  String get failedToRenameDevice => 'បរាជ័យក្នុងការប្តូរឈ្មោះឧបករណ៍';
-
-  @override
   String get failedToRestoreSettings => 'បរាជ័យក្នុងការ������������';
 
   @override
@@ -1961,31 +1419,9 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'បរាជ័យក្នុងការកំណត់លេខសម្ងាត់៖ $error';
-  }
-
-  @override
-  String get failedToSyncDevices => 'បរាជ័យក្នុងការធ្វើសមកាលកម្មឧបករណ៍';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'បរាជ័យក្នុងការប������������';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus => 'បរាជ័យក្នុងការប������������';
-
-  @override
-  String get failedToUpdateContact => 'បរាជ័យក្នុងការ����������';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'បរាជ័យក្នុងការ������������';
-  }
-
-  @override
-  String get failure => 'បរាជ័យ';
 
   @override
   String get favoriteContacts => 'ទំនាក់ទំនងដែលចូលចិត្ត';
@@ -2023,9 +1459,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get filterByLabel => '����������';
 
   @override
-  String get filterClear => '����������';
-
-  @override
   String get filterControlPanelTitle => '����������';
 
   @override
@@ -2035,22 +1468,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get filterControlTitle => 'ការគ្រប់គ្រងតម្រង';
 
   @override
-  String get filterDeleteFailed => 'លុបតម្រងមិនបានជោគជ័យ';
-
-  @override
-  String get filterDeleteSuccess => 'ល��តម្រងដោយជោគជ័យ';
-
-  @override
-  String get filterDetails => 'ព័��������������������';
-
-  @override
   String get filtered => 'បានតម្រ����';
-
-  @override
-  String get filteredSms => 'សារ SMS ដែល��������';
-
-  @override
-  String get filteredSmsLabel => 'សារ SMS ដែល������';
 
   @override
   String get filterExplanation => 'ការព������������������';
@@ -2062,17 +1480,8 @@ class AppLocalizationsKm extends AppLocalizations {
   String get filterName => 'ឈ្មោះតម្រ����';
 
   @override
-  String get filterPattern => 'គ������������������';
-
-  @override
   String get filterPriorityNote =>
       'ចំណ���������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������';
-
-  @override
-  String get filterSaveFailed => 'Filter save failed';
-
-  @override
-  String get filterSaveSuccess => 'Filter saved successfully';
 
   @override
   String get filterSettings => 'ការកំណត់រ������';
@@ -2111,16 +1520,6 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return 'Found $count rules. Do you want to import them?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return 'Found $count rules. Do you want to import them?';
-  }
-
-  @override
   String get fraudAlert => 'FRAUD ALERT - Hang up the call';
 
   @override
@@ -2155,39 +1554,14 @@ class AppLocalizationsKm extends AppLocalizations {
   String get globalFilterSettings => 'Global Filter Settings';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'Configure global filter settings that apply to all SIM slots:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'Search contacts, labels, blacklists, whitelists, etc.';
-
-  @override
-  String get globalSearchTitle => 'Global Search';
-
-  @override
   String get globalSettings => 'Global Settings';
-
-  @override
-  String get googleAdDisplayPosition => 'Google Ad Display Position';
-
-  @override
-  String get googleAdMobIntegrationText =>
-      'Google AdMob ads can be integrated here';
 
   @override
   String get googleDriveAuthDescription =>
       'Authorize using system-configured Google Drive client ID and key';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'Authorize using system-configured Google Drive client ID and key';
-
-  @override
   String get googleDriveConfigTitle => 'Google Drive Configuration';
-
-  @override
-  String get googleDriveConfigurationTitle => 'Google Drive Configuration';
 
   @override
   String get government => 'Government';
@@ -2206,9 +1580,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get height => 'Height';
-
-  @override
-  String get homePageTitle => 'Home Page';
 
   @override
   String get homeTab => 'Home';
@@ -2239,9 +1610,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get important => 'Important';
-
-  @override
-  String get importButton => 'Import';
 
   @override
   String get importConfig => 'Import Configuration';
@@ -2295,40 +1663,13 @@ class AppLocalizationsKm extends AppLocalizations {
       'Import Rule Configurations from File';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'Import rule configurations from file';
-
-  @override
   String get importRules => 'Import Rules';
-
-  @override
-  String get importRulesButton => 'Import Rules';
-
-  @override
-  String get importRulesDialogTitle => 'Import Rules';
-
-  @override
-  String importRulesError(Object error) {
-    return 'Failed to import rules: $error';
-  }
-
-  @override
-  String get importRulesInstructions => 'Import rules from a CSV file';
-
-  @override
-  String get importRulesSuccess => 'Rules imported successfully';
-
-  @override
-  String get importRulesTitle => 'Import Rules';
 
   @override
   String get importSuccess => 'Import successful';
 
   @override
   String get incomingCallInterceptAction => 'Incoming Call Intercept Action';
-
-  @override
-  String get incomingCallNotification => 'Incoming Call Notification';
 
   @override
   String get incorrectPassword => 'Incorrect password';
@@ -2384,9 +1725,6 @@ class AppLocalizationsKm extends AppLocalizations {
       'ចូល Telegram 頻道和群組以獲取更多資訊';
 
   @override
-  String get jsLogsTitle => 'កំណត់ហេតុ JS';
-
-  @override
   String get jsonFormat => 'ទម្រង់ JSON';
 
   @override
@@ -2395,16 +1733,6 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'រក្សា​កំណែ​ប្រវត្តិសាស្រ្ត​ទាំងអស់​នៃ​ការ​បម្រុង​ទុក​នីមួយៗ';
-
-  @override
-  String get keepAllVersionsLabel => 'រក្សា​កំណែ​ទាំងអស់';
-
-  @override
-  String get keepAllVersionsSubtitle =>
-      'រក្សា​កំណែ​ប្រវត្តិសាស្រ្ត​នៃ​ការ​បម្រុង​ទុក​នីមួយៗ';
-
-  @override
-  String get keepAllVersionsTitle => 'រក្សា​កំណែ​ទាំងអស់';
 
   @override
   String get label => 'ស្លាក';
@@ -2425,9 +1753,6 @@ class AppLocalizationsKm extends AppLocalizations {
       'ស្លាក​ជួយ​អ្នក​គ្រប់គ្រង​ទំនាក់ទំនង​បាន​កាន់តែ​ប្រសើរ​ បន្ថែម​ស្លាក​ផ្ទាល់ខ្លួន​ទៅ​លេខ​ទូរស័ព្ទ​ដើម្បី​កំណត់​អត្តសញ្ញាណ​ការ​ហៅ​ទូរស័ព្ទ​និង​សារ​បាន​យ៉ាង​ងាយស្រួល';
 
   @override
-  String get labelFilter => 'តម្រង​ស្លាក';
-
-  @override
   String get labelFilterTooltip => 'តម្រង​ស្លាក';
 
   @override
@@ -2438,14 +1763,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get labelNotFound => 'រក​មិនឃើញ​ស្លាក';
-
-  @override
-  String get labelRemoved => 'ស្លាក​ត្រូវបាន​ដកចេញ';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'បរាជ័យ​ក្នុងការ​ដកចេញ​ស្លាក៖ $error';
-  }
 
   @override
   String get labels => 'ស្លាក';
@@ -2478,9 +1795,6 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'ស្លាក​ត្រូវបាន​ធ្វើបច្ចុប្បន្នភាព';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'បរាជ័យ​ក្នុងការ​ធ្វើបច្ចុប្បន្នភាព​ស្លាក៖ $error';
   }
@@ -2497,12 +1811,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'ការ​កំណត់​ភាសា';
-
-  @override
-  String get last30Days => '30​ថ្ងៃ​ចុងក្រោយ';
-
-  @override
-  String get last7Days => '7​ថ្ងៃ​ចុងក្រោយ';
 
   @override
   String get lastSyncLabel => 'ការ​ធ្វើ​សមកាលកម្ម​ចុងក្រោយ';
@@ -2528,13 +1836,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get loadDataFailed => 'បរាជ័យ​ក្នុងការ​ផ្ទុក​ទិន្នន័យ';
 
   @override
-  String get loadFailed => 'បរាជ័យ​ក្នុងការ​ផ្ទុក';
-
-  @override
   String get loading => 'កំពុង​ផ្ទុក...';
-
-  @override
-  String get loadingData => 'កំពុង​ផ្ទុក​ទិន្នន័យ...';
 
   @override
   String get loadingTags => 'កំពុង​ផ្ទុក​ស្លាក...';
@@ -2558,12 +1860,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'បរាជ័យ​ក្នុងការ​ផ្ទុក​លេខ​ទូរស័ព្ទ​ដែល​បាន​សម្គាល់៖ $error';
   }
-
-  @override
-  String get loadMore => 'ផ្ទុក​បន្ថែម';
-
-  @override
-  String get loadPluginButton => 'ផ្ទុក​កម្មវិធី​ជំនួយ';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2590,9 +1886,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get loan => 'ប្រាក់កម្ចី';
-
-  @override
-  String get localBackupTitle => 'ការ​បម្រុង​ទុក​ក្នុង​មូលដ្ឋាន';
 
   @override
   String get localCounterFilter => 'តម្រង​ឧបករណ៍​រាប់​ក្នុង​មូលដ្ឋាន';
@@ -2690,9 +1983,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get manage => 'គ្រប់គ្រង';
 
   @override
-  String get manageContacts => 'គ្រប់គ្រង​ទំនាក់ទំនង';
-
-  @override
   String get manageFavoriteContacts => 'គ្រប់គ្រង​ទំនាក់ទំនង​ដែល​ចូលចិត្ត';
 
   @override
@@ -2701,9 +1991,6 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'បន្ថែម​ កែសម្រួល​ ឬ​លុប​ច្បាប់​តម្រង SMS';
-
-  @override
-  String get manageFrequentContacts => 'គ្រប់គ្រង​ទំនាក់ទំនង​ញឹកញាប់';
 
   @override
   String get markCounts => 'ចំនួន​សម្គាល់';
@@ -2731,16 +2018,10 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle => 'ដើម្បី​សម្គាល់​លេខ​ទូរស័ព្ទ';
-
-  @override
   String get markPhoneManagementTitle => 'ការ​គ្រប់គ្រង​សម្គាល់​លេខ​ទូរស័ព្ទ';
 
   @override
   String get markPhoneSuccess => 'លេខ​ទូរស័ព្ទ​ត្រូវ​បាន​សម្គាល់​ដោយ​ជោគជ័យ';
-
-  @override
-  String get matchFailed => 'ការ​ផ្គូផ្គង​បរាជ័យ!';
 
   @override
   String get matchFailedMessage => 'ការ​ផ្គូផ្គង​បរាជ័យ។';
@@ -2760,9 +2041,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get matchSpecificDigitPatternsTitle => 'ផ្គូផ្គង​លំនាំ​លេខ​ជាក់លាក់៖';
 
   @override
-  String get matchSuccessful => 'ការ​ផ្គូផ្គង​ជោគជ័យ!';
-
-  @override
   String get matchSuccessfulMessage => 'ការ​ផ្គូផ្គង​ជោគជ័យ!';
 
   @override
@@ -2773,9 +2051,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get migrationTool => 'ឧបករណ៍​ផ្លាស់ទី​ទិន្នន័យ';
-
-  @override
-  String get migrationToolTitle => 'ឧបករណ៍​ផ្លាស់ទី​ទិន្នន័យ';
 
   @override
   String get minutes => 'នាទី';
@@ -2790,9 +2065,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get monthlyCallCount => 'ការ​ហៅ​ទូរស័ព្ទ​ប្រចាំខែ';
 
   @override
-  String get monthlyChartTitle => 'ការ​ហៅ​ទូរស័ព្ទ​ដែល​បាន​ទប់ស្កាត់​ប្រចាំខែ';
-
-  @override
   String get monthlyMembership => 'សមាជិកភាព​ប្រចាំខែ';
 
   @override
@@ -2801,9 +2073,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'សរុប​ប្រចាំខែ';
-
-  @override
-  String get monthlyTotalLabel => 'សរុប​ប្រចាំខែ';
 
   @override
   String get moreOptions => 'ជម្រើស​បន្ថែម';
@@ -2819,33 +2088,16 @@ class AppLocalizationsKm extends AppLocalizations {
       'ឈ្មោះ និង​លេខ​ទូរស័ព្ទ​មិន​អាច​ទទេ​បាន​ទេ';
 
   @override
-  String get nameAndPhoneNumberRequired =>
-      'ឈ្មោះ និង​លេខ​ទូរស័ព្ទ​ត្រូវ​បាន​ទាមទារ';
-
-  @override
   String get nameColor => 'ពណ៌​ឈ្មោះ';
 
   @override
   String get nameFontSize => 'ទំហំ​ពុម្ព​អក្សរ​ឈ្មោះ';
 
   @override
-  String nameLabel(Object name) {
-    return 'ឈ្មោះ៖ $name';
-  }
-
-  @override
   String get namePosition => 'ទីតាំង​ឈ្មោះ';
 
   @override
   String get nameUnknown => 'ឈ្មោះ៖ មិន​ស្គាល់';
-
-  @override
-  String nameWithValue(String name) {
-    return 'ឈ្មោះ៖ $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'ពាក្យសម្ងាត់​ថ្មី';
 
   @override
   String get nextStep => 'បន្ទាប់';
@@ -2861,13 +2113,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'គ្មាន​សេវា​ធ្វើ​សមកាលកម្ម​ពពក​សកម្ម';
 
   @override
-  String get noCallLogs => 'គ្មាន​កំណត់ត្រា​ការ​ហៅ​ទូរស័ព្ទ';
-
-  @override
   String get noCallRecords => 'គ្មាន​កំណត់ត្រា​ការ​ហៅ​ទូរស័ព្ទ';
-
-  @override
-  String get noContacts => 'មិន​ទាន់​មាន​ទំនាក់ទំនង';
 
   @override
   String get noContactsYet => 'មិន​ទាន់​មាន​ទំនាក់ទំនង';
@@ -2879,29 +2125,16 @@ class AppLocalizationsKm extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'មិន​មាន​ឧបករណ៍​ដែល​បាន​ចុះឈ្មោះ';
 
   @override
-  String get noDevicesRegisteredYet => 'មិន​ទាន់​មាន​ឧបករណ៍​ដែល​បាន​ចុះឈ្មោះ។';
-
-  @override
-  String get noFilters => 'មិន​ទាន់​មាន​តម្រង';
-
-  @override
   String get noLabels => 'មិន​ទាន់​មាន​ស្លាក';
 
   @override
   String get noMarkedPhones => 'គ្មាន​លេខ​ទូរស័ព្ទ​ដែល​បាន​សម្គាល់';
 
   @override
-  String get noMatchingContacts => 'គ្មាន​ទំនាក់ទំនង​ដែល​ផ្គូផ្គង';
-
-  @override
   String get noMatchingContactsFound => 'រក​មិន​ឃើញ​ទំនាក់ទំនង​ដែល​ផ្គូផ្គង';
 
   @override
   String get noMatchingNumbersFound => 'រក​មិន​ឃើញ​លេខ​ដែល​ផ្គូផ្គង';
-
-  @override
-  String get noMatchingRecords =>
-      'គ្មាន​កំណត់ត្រា​ការ​ហៅ​ទូរស័ព្ទ​ដែល​ផ្គូផ្គង';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2916,16 +2149,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get noPlugins => 'មិន​ទាន់​មាន​កម្មវិធី​ជំនួយ';
-
-  @override
-  String get noRecords => 'គ្មាន​កំណត់ត្រា​ការ​ហៅ​ទូរស័ព្ទ';
-
-  @override
-  String get noResultReturned => 'មិន​មាន​លទ្ធផល​ត្រឡប់​មក​វិញ';
-
-  @override
-  String get noResultReturnedLog =>
-      'មិន​មាន​លទ្ធផល​ត្រឡប់​មក​ពី​កម្មវិធី​ជំនួយ';
 
   @override
   String noRules(Object ruleType) {
@@ -2948,9 +2171,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get noSubscriptions => 'គ្មាន​ការ​ជាវ';
 
   @override
-  String get noSubscriptionsYet => 'មិន​ទាន់​មាន​ការ​ជាវ';
-
-  @override
   String get notGranted => 'មិន​បាន​ផ្តល់';
 
   @override
@@ -2969,13 +2189,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get notificationSettings => 'ការ​កំណត់​ការ​ជូន​ដំណឹង';
-
-  @override
-  String get notificationSettingsSaved =>
-      'ការ​កំណត់​ការ​ជូន​ដំណឹង​ត្រូវ​បាន​រក្សាទុក​ដោយ​ជោគជ័យ';
-
-  @override
-  String get notSet => 'មិន​បាន​កំណត់';
 
   @override
   String get notVerifiedText => 'មិន​បាន​ផ្ទៀងផ្ទាត់';
@@ -3009,9 +2222,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get numberTypePosition => 'ទីតាំង​ប្រភេទ​លេខ';
 
   @override
-  String get ok => 'យល់ព្រម';
-
-  @override
   String get okButton => 'យល់ព្រម';
 
   @override
@@ -3043,14 +2253,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'ផ្តល់​សិទ្ធិ​ដោយ​ប្រើ​អត្តសញ្ញាណ​អតិថិជន OneDrive ដែល​បាន​កំណត់​រចនាសម្ព័ន្ធ​ប្រព័ន្ធ និង​កូនសោ';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'ផ្តល់​សិទ្ធិ​ដោយ​ប្រើ​អត្តសញ្ញាណ​អតិថិជន OneDrive ដែល​បាន​កំណត់​រចនាសម្ព័ន្ធ​ប្រព័ន្ធ និង​កូនសោ';
-
-  @override
   String get oneDriveConfigTitle => 'ការ​កំណត់​រចនាសម្ព័ន្ធ OneDrive';
-
-  @override
-  String get oneDriveConfigurationTitle => 'ការ​កំណត់​រចនាសម្ព័ន្ធ OneDrive';
 
   @override
   String get onlineCallerIdSubscription =>
@@ -3110,9 +2313,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get passwordsDoNotMatch => 'ពាក្យសម្ងាត់មិនស៊ីគ្នាទេ';
 
   @override
-  String get passwordSetSuccessfully => 'បានកំណត់ពាក្យសម្ងាត់ដោយជោគជ័យ';
-
-  @override
   String get pattern => 'គំរូ';
 
   @override
@@ -3146,14 +2346,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'លេខទូរស័ព្ទមិនអាចទទេបានទេ';
 
   @override
-  String get phoneNumberHintText => 'បញ្ចូលលេខទូរស័ព្ទដើម្បីបន្ថែមច្បាប់';
-
-  @override
   String get phoneNumberLabel => 'លេខទូរស័ព្ទ';
-
-  @override
-  String get phoneNumberRegexRequired =>
-      'សូមបញ្ចូលទាំងលេខទូរស័ព្ទ និងគំរូ regex';
 
   @override
   String get phoneNumberTypeFixedLine => 'ទូរស័ព្ទស្ថានីយ';
@@ -3203,9 +2396,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get phoneRule => 'ច្បាប់ទូរស័ព្ទ';
 
   @override
-  String get phoneRuleEditDialog => 'ប្រអប់កែសម្រួលច្បាប់ទូរស័ព្ទ';
-
-  @override
   String get phoneRuleManagement => 'ការគ្រប់គ្រងច្បាប់ទូរស័ព្ទ';
 
   @override
@@ -3217,9 +2407,6 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'ជាវបញ្ជីច្បាប់ទូរស័ព្ទតាមរយៈ URL ដើម្បីធ្វើបច្ចុប្បន្នភាពបញ្ជីសរុប និងបញ្ជីខ្មៅដោយស្វ័យប្រវត្តិ។ គាំទ្រឯកសារច្បាប់ក្នុងទម្រង់ JSON។';
-
-  @override
-  String get phoneSubscriptionTitle => 'ការជាវច្បាប់ទូរស័ព្ទ';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3240,9 +2427,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get pluginListExportSuccess => 'បាននាំចេញបញ្ជីកម្មវិធីជំនួយដោយជោគជ័យ';
 
   @override
-  String get pluginLoadedSuccessfully => 'បានផ្ទុកកម្មវិធីជំនួយដោយជោគជ័យ';
-
-  @override
   String get pluginManagement => 'ការគ្រប់គ្រងកម្មវិធីជំនួយ';
 
   @override
@@ -3250,14 +2434,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'គ្រប់គ្រង និងកំណត់រចនាសម្ព័ន្ធកម្មវិធីជំនួយភាគីទីបី';
 
   @override
-  String get pluginManagementTitle => 'ការគ្រប់គ្រងកម្មវិធីជំនួយ';
-
-  @override
   String get pluginName => 'ឈ្មោះកម្មវិធីជំនួយ';
-
-  @override
-  String get pluginNotLoaded =>
-      'កម្មវិធីជំនួយមិនទាន់ត្រូវបានផ្ទុកទេ។ សូមផ្ទុកកម្មវិធីជំនួយជាមុនសិន។';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3276,15 +2453,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get pluginUrl => 'URL កម្មវិធីជំនួយ';
-
-  @override
-  String get pluginUrlCannotBeEmpty => 'URL កម្មវិធីជំនួយមិនអាចទទេបានទេ';
-
-  @override
-  String get pluginUrlHint => 'បញ្ចូល URL កម្មវិធីជំនួយ';
-
-  @override
-  String get pluginUrlLabel => 'URL កម្មវិធីជំនួយ';
 
   @override
   String get pluginVersion => 'កំណែកម្មវិធីជំនួយ';
@@ -3323,34 +2491,10 @@ class AppLocalizationsKm extends AppLocalizations {
       'ដោះសោមុខងារបុព្វលាភទាំងអស់ ធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិរៀងរាល់ត្រីមាស';
 
   @override
-  String get queryButton => 'ស្វែងរក';
-
-  @override
-  String get queryFailed => 'ការស្វែងរកបរាជ័យ';
-
-  @override
-  String get queryFailedLog => 'ការស្វែងរកបរាជ័យ';
-
-  @override
-  String get querying => 'កំពុងស្វែងរក...';
-
-  @override
-  String get queryingPhoneNumber => 'កំពុងស្វែងរកលេខទូរស័ព្ទ';
-
-  @override
-  String get queryResultTitle => 'លទ្ធផលស្វែងរក';
-
-  @override
   String get ready => 'រួចរាល់!';
 
   @override
-  String get receiveWeeklyStatistics => 'ទទួលបានស្ថិតិប្រចាំសប្តាហ៍';
-
-  @override
   String get recruiter => 'អ្នកជ្រើសរើសបុគ្គលិក';
-
-  @override
-  String get reEnterPasswordHint => 'សូមបញ្ចូលពាក្យសម្ងាត់ឡើងវិញ';
 
   @override
   String get refresh => 'ធ្វើបច្ចុប្បន្នភាព';
@@ -3360,11 +2504,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'ធ្វើបច្ចុប្បន្នភាព';
-
-  @override
-  String regexError(Object error) {
-    return 'កំហុស Regex៖ $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3382,10 +2521,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'ទម្រង់​正则表达式';
-
-  @override
-  String get regexPatternsExamples =>
-      'ប្រើ​វេយ្យាករណ៍​正则表达式​ស្តង់ដារ​ដើម្បី​កំណត់​ទម្រង់​។ ឧទាហរណ៍​៖';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3414,14 +2549,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'ឧបករណ៍​ทดสอบ​正则表达式';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'ការ​ផ្ទៀងផ្ទាត់​正则表达式​បរាជ័យ​៖ $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'ការ​ផ្ទៀងផ្ទាត់​正则表达式​ជោគជ័យ';
 
   @override
   String get region => 'តំបន់';
@@ -3459,35 +2586,8 @@ class AppLocalizationsKm extends AppLocalizations {
   String get remoteNumberFilter => 'តម្រង​លេខ​ពី​ចម្ងាយ';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'តម្រង​នេះ​ប្រើ​មូលដ្ឋាន​ទិន្នន័យ​ពី​ចម្ងាយ​ឯករាជ្យ​ដើម្បី​ទទួល​បាន​ព័ត៌មាន​លេខ​ចុងក្រោយ​បំផុត​។';
-
-  @override
   String get remoteNumberFilterDescription =>
       'ស្ទាក់​ចាប់​ការ​ហៅ​រំខាន​ដោយ​ផ្អែក​លើ​ព័ត៌មាន​មូលដ្ឋាន​ទិន្នន័យ​ពី​ចម្ងាយ';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'តម្រង​លេខ​ពី​ចម្ងាយ​កំណត់​អត្តសញ្ញាណ​និង​ទប់ស្កាត់​ការ​ហៅ​សារ​ឥត​បាន​ការ​ដោយ​ការ​សាកសួរ​មូលដ្ឋាន​ទិន្នន័យ​ពី​ចម្ងាយ​ដោយ​ផ្អែក​លើ​ចំនួន​លេខ​។';
-
-  @override
-  String get remoteNumberFilterExplanationTitle =>
-      'ការពន្យល់​តម្រង​លេខ​ពី​ចម្ងាយ';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• ចំនួន​កំណត់​៖ កំណត់​ដោយ​ផ្អែក​លើ​ភាព​ញឹកញាប់​នៃ​ការ​កើតឡើង​នៃ​លេខ';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• សកម្មភាព​តម្រង​៖ កំណត់​ពី​របៀប​ដោះស្រាយ​លេខ​ដែល​លើស​ពី​កំណត់';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• ការ​កំណត់​អាទិភាព​៖ កំណត់​អាទិភាព​សម្រាប់​សកម្មភាព​ពី​ចម្ងាយ';
-
-  @override
-  String get remoteNumberFilterFeatures => 'លក្ខណៈពិសេស​៖';
 
   @override
   String get remoteNumberFiltering => 'ការ​กรอง​លេខ​ពី​ចម្ងាយ';
@@ -3508,30 +2608,13 @@ class AppLocalizationsKm extends AppLocalizations {
   String get removeAdsTitle => 'លុប​ការ​ផ្សាយ';
 
   @override
-  String get removedFromFavoriteContacts =>
-      'បាន​ដក​ចេញ​ពី​ទំនាក់ទំនង​ដែល​ចូលចិត្ត';
-
-  @override
   String get removedFromFavorites => 'បាន​ដក​ចេញ​ពី​ទំនាក់ទំនង​ដែល​ចូលចិត្ត';
-
-  @override
-  String get removeFavorite => 'លុប​ទំនាក់ទំនង​ដែល​ចូលចិត្ត';
 
   @override
   String get removeFromFavorites => 'ដក​ចេញ​ពី​ទំនាក់ទំនង​ដែល​ចូលចិត្ត';
 
   @override
-  String get renameButton => 'ប្តូរ​ឈ្មោះ';
-
-  @override
-  String get renameDeviceDialogTitle => 'ប្តូរ​ឈ្មោះ​ឧបករណ៍';
-
-  @override
   String get renameDeviceTitle => 'ប្តូរ​ឈ្មោះ​ឧបករណ៍';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'នេះ​នឹង​ជំនួស​ការ​កំណត់​បច្ចុប្បន្ន​ទាំងអស់​របស់​អ្នក​។ តើ​អ្នក​ប្រាកដ​ថា​ចង់​បន្ត​ទេ​?';
 
   @override
   String get requestAllPermissions => 'ស្នើសុំ​សិទ្ធិ​ទាំងអស់';
@@ -3560,23 +2643,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'ស្តារ​ការ​កំណត់​កម្មវិធី​ឡើងវិញ​ពី​ការ​បម្រុង​ទុក';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'ស្តារ​ការ​កំណត់​កម្មវិធី​ឡើងវិញ​ពី​ការ​បម្រុង​ទុក';
-
-  @override
-  String get restoreButton => 'ស្តារ​ឡើងវិញ';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'បរាជ័យ​ក្នុង​ការ​ស្តារ​ពី​ពពក​៖ $error';
-  }
-
-  @override
   String get restoreFromCloud => 'ស្តារ​ឡើងវិញ​ពី​ពពក';
-
-  @override
-  String get restoreFromCloudDescription =>
-      'ស្តារ​ការ​កំណត់​និង​ច្បាប់​ឡើងវិញ​ពី​កន្លែង​ផ្ទុក​ពពក';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3584,22 +2651,10 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'ស្តារ​ឡើងវិញ​ពី​ពពក';
-
-  @override
   String get restoreFromCloudSuccess => 'បាន​ស្តារ​ឡើងវិញ​ពី​ពពក​ដោយ​ជោគជ័យ';
 
   @override
-  String get restoreFromCloudTitle => 'ស្តារ​ឡើងវិញ​ពី​ពពក';
-
-  @override
-  String get restoreFromLocal => 'ស្តារ​ឡើងវិញ​ពី​ក្នុង​ស្រុក';
-
-  @override
   String get restorePurchases => 'ស្តារ​ការ​ទិញ​ឡើងវិញ';
-
-  @override
-  String get restoreSectionTitle => 'ស្តារ​ឡើងវិញ';
 
   @override
   String get restoreSettings => 'ស្តារ​ការ​កំណត់​ឡើងវិញ';
@@ -3607,19 +2662,6 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'នេះ​នឹង​ជំនួស​ការ​កំណត់​បច្ចុប្បន្ន​ទាំងអស់​របស់​អ្នក​។ តើ​អ្នក​ប្រាកដ​ថា​ចង់​បន្ត​ទេ​?';
-
-  @override
-  String get restoreSettingsDialogTitle => 'ស្តារ​ការ​កំណត់​ឡើងវិញ';
-
-  @override
-  String get restoreSettingsTitle => 'ស្តារ​ការ​កំណត់​ឡើងវិញ';
-
-  @override
-  String get restoreSuccessFromLocal =>
-      'បាន​ស្តារ​ឡើងវិញ​ពី​ក្នុង​ស្រុក​ដោយ​ជោគជ័យ';
-
-  @override
-  String get restoreSuccessMessage => 'បាន​ស្តារ​ឡើងវិញ​ពី​ពពក​ដោយ​ជោគជ័យ';
 
   @override
   String get retry => 'ព្យាយាម​ម្ដង​ទៀត';
@@ -3637,15 +2679,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get ruleAction => 'សកម្មភាព​ច្បាប់';
 
   @override
-  String get ruleAddButton => 'បន្ថែម​ច្បាប់';
-
-  @override
   String get ruleAddedSuccess => 'បាន​បន្ថែម​ច្បាប់​ដោយ​ជោគជ័យ';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'បរាជ័យ​ក្នុង​ការ​បន្ថែម​ច្បាប់​៖ $error';
-  }
 
   @override
   String get ruleAddSuccess => 'បាន​បន្ថែម​ច្បាប់​ដោយ​ជោគជ័យ';
@@ -3659,18 +2693,10 @@ class AppLocalizationsKm extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'លុប​ច្បាប់';
 
   @override
-  String get ruleDeletedSuccess => 'បាន​លុប​ច្បាប់​ដោយ​ជោគជ័យ';
-
-  @override
   String get ruleDeletedSuccessfully => 'បាន​លុប​ច្បាប់​ដោយ​ជោគជ័យ';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'បរាជ័យ​ក្នុង​ការ​លុប​ច្បាប់​៖ $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'បរាជ័យ​ក្នុង​ការ​លុប​ច្បាប់​៖ $error';
   }
 
@@ -3692,9 +2718,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get ruleManagement => 'ការ​គ្រប់គ្រង​ច្បាប់';
 
   @override
-  String get ruleManagementTitle => 'ការ​គ្រប់គ្រង​ច្បាប់';
-
-  @override
   String get ruleName => 'ឈ្មោះ​ច្បាប់';
 
   @override
@@ -3712,9 +2735,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get ruleNameLabel => 'ឈ្មោះ​ច្បាប់';
 
   @override
-  String get ruleNamePatternRequired => 'សូម​បញ្ចូល​ឈ្មោះ​ច្បាប់​និង​ទម្រង់​';
-
-  @override
   String get ruleNameRequired =>
       'ឈ្មោះ​ច្បាប់​និង​លេខ​ទូរស័ព្ទ​មិន​អាច​ទទេ​បាន​ទេ';
 
@@ -3727,23 +2747,7 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'រក្សាទុកច្បាប់ដោយជោគជ័យ!';
-
-  @override
   String get ruleSavedSuccessMessage => 'រក្សាទុកច្បាប់ដោយជោគជ័យ!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'រក្សាទុកមិនបានសម្រេច៖ $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'រក្សាទុកមិនបានសម្រេច៖ $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'រក្សាទុកច្បាប់ដោយជោគជ័យ!';
 
   @override
   String get rulesExportedSuccessfully => 'បាននាំចេញច្បាប់ដោយជោគជ័យ';
@@ -3760,14 +2764,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return 'បាននាំចូលច្បាប់ $count ដោយជោគជ័យ';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'មិនអាចនាំចូលច្បាប់បាន៖ $error';
-  }
-
-  @override
-  String get ruleStatistics => 'ស្ថិតិច្បាប់';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3802,9 +2798,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get saveButton => 'រក្សាទុក';
 
   @override
-  String get saveButtonLabel => 'រក្សាទុក';
-
-  @override
   String get saveButtonText => 'រក្សាទុក';
 
   @override
@@ -3813,15 +2806,7 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'រក្សាទុកតម្រង';
-
-  @override
   String get saveSettings => 'រក្សាទុកការកំណត់';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'មិនអាចរក្សាទុកការកំណត់បាន៖ $error';
-  }
 
   @override
   String get scamsLikely => 'លទ្ធភាពនៃការបោកប្រាស់';
@@ -3838,28 +2823,11 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'តម្រងស្វែងរក';
-
-  @override
-  String get searchForContacts => 'ស្វែងរកទំនាក់ទំនង';
-
-  @override
   String get searchHint => 'ស្វែងរក...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'ស្វែងរកទំនាក់ទំនង, ការដាក់ស្លាក, បញ្ជីខ្មៅ, បញ្ជីស, ល.';
-
-  @override
-  String get searchSettingsTitle => 'ការកំណត់ស្វែងរក';
 
   @override
   String get securityMessage =>
       'កុំទុកចិត្តការហៅទូរស័ព្ទណាមួយ។ តែងតែផ្ទៀងផ្ទាត់លេខសេវាអតិថិជនដោយឯករាជ្យ។ កុំចែករំលែកលេខសម្ងាត់, លេខកូដផ្ទៀងផ្ទាត់, លេខកាត, ឬព័ត៌មានផ្ទាល់ខ្លួន។';
-
-  @override
-  String get selectActionToPerform =>
-      'ជ្រើសរើសសកម្មភាពដែលត្រូវអនុវត្ត នៅពេលច្បាប់ត្រូវគ្នា';
 
   @override
   String get selectActionWhenBlockingCalls =>
@@ -3874,12 +2842,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get selectCountry => 'ជ្រើសរើសប្រទេស';
-
-  @override
-  String get selectDateRange => 'ជ្រើសរើសជួរកាលបរិច្ឆេទ';
-
-  @override
-  String get selectedDateRange => 'ជួរកាលបរិច្ឆេទដែលបានជ្រើសរើស';
 
   @override
   String selectedItems(Object count) {
@@ -3906,20 +2868,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get selectMultiple => 'ជ្រើសរើសច្រើន';
 
   @override
-  String get selectPeriod => 'ជ្រើសរើសរយៈពេល';
-
-  @override
   String get selectSimCard => 'ជ្រើសរើសកាត SIM';
-
-  @override
-  String get selectSimSlot => 'ជ្រើសរើសរន្ធ SIM';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'ជ្រើសរើសសកម្មភាពជាក់លាក់ នៅពេលរារាំងការហៅទូរស័ព្ទ';
-
-  @override
-  String get selectTag => 'ជ្រើសរើសស្លាក';
 
   @override
   String get selectTags => 'ជ្រើសរើសស្លាក';
@@ -3960,23 +2909,7 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'កំណត់';
-
-  @override
   String get setEncryptionPassword => 'កំណត់លេខសម្ងាត់ការអ៊ិនគ្រីប';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'កំណត់លេខសម្ងាត់ការអ៊ិនគ្រីបសម្រាប់ការបម្រុងទុក និងការស្ដារឡើងវិញ';
-
-  @override
-  String get setEncryptionPasswordLabel => 'កំណត់លេខសម្ងាត់ការអ៊ិនគ្រីប';
-
-  @override
-  String get setEncryptionPasswordTitle => 'កំណត់លេខសម្ងាត់ការអ៊ិនគ្រីប';
-
-  @override
-  String get setPasswordButton => 'កំណត់';
 
   @override
   String get settings => 'ការកំណត់';
@@ -3984,14 +2917,6 @@ class AppLocalizationsKm extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'ការកំណត់ត្រូវបានបម្រុងទុកទៅ៖ $path';
-  }
-
-  @override
-  String get settingsLoaded => 'ការកំណត់ត្រូវបានផ្ទុក';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'មិនអាចផ្ទុកការកំណត់បាន៖ $error';
   }
 
   @override
@@ -4014,13 +2939,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get setup => 'ការរៀបចំ';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'វិធីសាស្ត្រឋិតិវន្ត ដើម្បីបង្ហាញប្រអប់កែសម្រួលទំនាក់ទំនង';
-
-  @override
-  String get showExplanation => 'បង្ហាញការពន្យល់';
 
   @override
   String get silence => 'ស្ងាត់';
@@ -4068,19 +2986,11 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'មិនអាចផ្ទុកព័ត៌មានកាត SIM បាន៖ $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'ច្បាប់​រន្ធ SIM អនុញ្ញាត​ឱ្យ​អ្នក​កំណត់​រចនាសម្ព័ន្ធ​ច្បាប់​តម្រង​ឯករាជ្យ​សម្រាប់​រន្ធ SIM នីមួយៗ។';
 
   @override
   String get simRuleInstructionsTitle => 'ច្បាប់​រន្ធ SIM';
-
-  @override
-  String get simRuleManagement => 'ការ​គ្រប់គ្រង​ច្បាប់​រន្ធ SIM';
 
   @override
   String simSlot1(String countryIso) {
@@ -4093,19 +3003,6 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'បរាជ័យ​ក្នុង​ការ​ផ្ទុក​ទិន្នន័យ SIM៖ $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration =>
-      'ការ​កំណត់​រចនាសម្ព័ន្ធ​តម្រង​រន្ធ SIM';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'អនុញ្ញាត​ឱ្យ​កំណត់​ច្បាប់​តម្រង​តាម​រន្ធ SIM';
-
-  @override
   String get simSlotFilterDescription =>
       'កំណត់​រចនាសម្ព័ន្ធ​ច្បាប់​តម្រង​ឯករាជ្យ​សម្រាប់​កាត SIM នីមួយៗ៖';
 
@@ -4115,17 +3012,7 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'បរាជ័យ​ក្នុង​ការ​ផ្ទុក​រន្ធ SIM៖ $error';
-  }
-
-  @override
   String get simSlotManagement => 'ការ​គ្រប់គ្រង​រន្ធ SIM';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'ប្រតិបត្តិការ​រន្ធ SIM ៖ $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4146,12 +3033,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'ច្បាប់​រន្ធ SIM';
-
-  @override
-  String get simSlotRuleManagementTitle => 'ការ​គ្រប់គ្រង​ច្បាប់';
-
-  @override
-  String get simSlotSettings => 'ការ​កំណត់​រន្ធ SIM';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4188,9 +3069,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get smsFilterSettings => 'ការ​កំណត់​រចនាសម្ព័ន្ធ​តម្រង​សារ SMS';
 
   @override
-  String get smsHistory => 'ប្រវត្តិ​សារ SMS';
-
-  @override
   String get smsManagement => 'ការ​គ្រប់គ្រង​សារ SMS';
 
   @override
@@ -4214,26 +3092,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get smsRuleManagement => 'ការ​គ្រប់គ្រង​ច្បាប់​សារ SMS';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'បាន​នាំចេញ​ច្បាប់​សារ SMS ជោគជ័យ​ទៅ `$filePath`';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully => 'បាន​នាំចូល​ច្បាប់​សារ SMS ជោគជ័យ';
-
-  @override
   String get smsRuleSubscription => 'ការ​ជាវ​ច្បាប់​សារ SMS';
-
-  @override
-  String get smsRuleUpdatedSuccessfully =>
-      'បាន​ធ្វើ​បច្ចុប្បន្នភាព​ច្បាប់​សារ SMS ជោគជ័យ';
-
-  @override
-  String get smsSettingsSubtitle =>
-      'ការ​ច្រោះ​សារ SMS និង​ការ​ទប់ស្កាត់​ពាក្យ​គន្លឹះ';
-
-  @override
-  String get smsSettingsTitle => 'ការ​កំណត់​សារ SMS';
 
   @override
   String get smsSubscription => 'ការ​ជាវ​សារ SMS';
@@ -4272,26 +3131,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get statBlocked => 'បាន​ទប់ស្កាត់';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'វិធី​សាស្ត្រ​ថេរ​ដើម្បី​បង្ហាញ​ប្រអប់​ព័ត៌មាន​អត្តសញ្ញាណ​អ្នក​ហៅ';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'វិធី​សាស្ត្រ​ថេរ​ដើម្បី​បង្ហាញ​ប្រអប់​ជ្រើសរើស​ប្រទេស';
-
-  @override
-  String get staticMethodToDisplayDialog =>
-      'វិធី​សាស្ត្រ​ថេរ​ដើម្បី​បង្ហាញ​ប្រអប់';
-
-  @override
   String get statistics => 'ស្ថិតិ';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'មុខងារ​នាំចេញ​ស្ថិតិ​នឹង​មក​ដល់​ឆាប់ៗ​នេះ';
-
-  @override
-  String get statisticsGrid => 'តារាង​ស្ថិតិ';
 
   @override
   String get statisticsPageTitle => 'ការ​វិភាគ​ទិន្នន័យ';
@@ -4331,9 +3171,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get subscriptionDeleted => 'បាន​លុប​ការ​ជាវ';
 
   @override
-  String get subscriptionDeletedSuccessfully => 'បាន​លុប​ការ​ជាវ​ជោគជ័យ';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'បរាជ័យ​ក្នុង​ការ​លុប​ការ​ជាវ៖ $error';
   }
@@ -4342,23 +3179,9 @@ class AppLocalizationsKm extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'បាន​លុប​ការ​ជាវ';
 
   @override
-  String get subscriptionEmptyState => 'មិន​មាន​ការ​ជាវ​ទេ';
-
-  @override
-  String get subscriptionEmptyText => 'មិន​ទាន់​មាន​ការ​ជាវ​ទេ';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'បរាជ័យ​ក្នុង​ការ​ផ្ទុក​ការ​ជាវ៖ $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'បរាជ័យ​ក្នុង​ការ​ផ្ទុក​ការ​ជាវ៖ $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'ការ​គ្រប់គ្រង​ការ​ជាវ';
 
   @override
   String get subscriptionName => 'ឈ្មោះ​ការ​ជាវ';
@@ -4371,16 +3194,8 @@ class AppLocalizationsKm extends AppLocalizations {
   String get subscriptionNameHint => 'បញ្ចូល​ឈ្មោះ​ការ​ជាវ';
 
   @override
-  String get subscriptionPageTitle => 'ការ​គ្រប់គ្រង​ការ​ជាវ';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
     return 'បរាជ័យ​ក្នុង​ការ​ផ្លាស់ប្ដូរ​ស្ថានភាព​ការ​ជាវ៖ $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
-    return 'បរាជ័យ​ក្នុង​ការ​ប្ដូរ​ស្ថានភាព​ការ​ជាវ៖ $error';
   }
 
   @override
@@ -4419,10 +3234,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get syncFailedMessage => 'បរាជ័យ​ក្នុង​ការ​ធ្វើ​សមកាលកម្ម';
 
   @override
-  String get syncFolderNameHint =>
-      'សូម​បញ្ចូល​ឈ្មោះ​ថត​ធ្វើ​សមកាលកម្ម (លំនាំដើម៖ NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'ឈ្មោះ​ថត​ធ្វើ​សមកាលកម្ម';
 
   @override
@@ -4444,16 +3255,10 @@ class AppLocalizationsKm extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'ស្ថានភាពធ្វើសមកាលកម្មត្រូវបានអាប់ដេត';
 
   @override
-  String get syncSuccessful => 'ធ្វើសមកាលកម្មបានជោគជ័យ';
-
-  @override
   String get syncSuccessMessage => 'ធ្វើសមកាលកម្មបានជោគជ័យ';
 
   @override
   String get syncWithCloudStorage => 'ធ្វើសមកាលកម្មជាមួយ Cloud Storage';
-
-  @override
-  String get syncWithCloudStorageSubtitle => 'ធ្វើសមកាលកម្មជាមួយ Cloud Storage';
 
   @override
   String get systemFeatures => 'លក្ខណៈពិសេសប្រព័ន្ធ៖';
@@ -4482,9 +3287,6 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'ស្លាកត្រូវបានអាប់ដេត';
-
-  @override
   String get takeaway => 'ចំណុចសំខាន់';
 
   @override
@@ -4498,9 +3300,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get testButton => 'សាកល្បង';
-
-  @override
-  String get testButtonLabel => 'សាកល្បង';
 
   @override
   String get testConnectionButton => 'សាកល្បងការតភ្ជាប់';
@@ -4539,13 +3338,6 @@ class AppLocalizationsKm extends AppLocalizations {
       'ការកំណត់ការស្ទាក់ចាប់ភាពញឹកញាប់នៃការហៅទូរសព្ទ';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'ស្ទាក់ចាប់ការហៅទូរសព្ទសារឥតបានការដែលមានសក្តានុពលដោយស្វ័យប្រវត្តិដោយផ្អែកលើភាពញឹកញាប់នៃការហៅទូរសព្ទ';
-
-  @override
-  String get timeInterceptorTitle => 'បើកការស្ទាក់ចាប់ភាពញឹកញាប់នៃការហៅទូរសព្ទ';
-
-  @override
   String get timeWindowDescription =>
       'កំណត់ទំហំបង្អួចពេលវេលាសម្រាប់ការអនុញ្ញាតការហៅទូរសព្ទដដែលៗ។ ការហៅទូរសព្ទពីលេខដដែលៗក្នុងបង្អួចនេះនឹងត្រូវបានអនុញ្ញាត';
 
@@ -4553,10 +3345,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'បង្អួចពេលវេលាស្ទាក់ចាប់ (នាទី)៖ $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'កំណត់ទំហំបង្អួចពេលវេលាសម្រាប់ការអនុញ្ញាតការហៅទូរសព្ទដដែលៗ។ ការហៅទូរសព្ទពីលេខដដែលៗក្នុងបង្អួចនេះនឹងត្រូវបានអនុញ្ញាត';
 
   @override
   String get today => 'ថ្ងៃនេះ';
@@ -4568,24 +3356,11 @@ class AppLocalizationsKm extends AppLocalizations {
   String get totalBlocked => 'សរុបដែលបានទប់ស្កាត់';
 
   @override
-  String get totalFiltered => 'សរុបដែលបានត្រង';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'ផ្ទេរទិន្នន័យរវាងឧបករណ៍ ឬវេទិកា';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'ផ្ទេរទិន្នន័យរវាងឧបករណ៍ ឬវេទិកា';
-
-  @override
   String get travelTicketing => 'សំបុត្រធ្វើដំណើរ';
-
-  @override
-  String get trend => 'និន្នាការ';
-
-  @override
-  String get trendChart => 'គំនូសតាងនិន្នាការ';
 
   @override
   String get tutorial => 'ការបង្រៀន';
@@ -4598,9 +3373,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get unknown => 'មិនស្គាល់';
-
-  @override
-  String get unknownLabel => 'ស្លាកមិនស្គាល់';
 
   @override
   String get unknownTag => 'ស្លាក៖ មិនស្គាល់';
@@ -4626,10 +3398,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get updateAllNow => 'អាប់ដេតទាំងអស់ឥឡូវនេះ';
 
   @override
-  String get updateCallFilterConfig =>
-      'អាប់ដេតការកំណត់រចនាសម្ព័ន្ធតម្រងការហៅទូរសព្ទ';
-
-  @override
   String updateContactFailed(Object error) {
     return 'មិនអាចអាប់ដេតទំនាក់ទំនងបានទេ៖ $error';
   }
@@ -4638,15 +3406,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get updateFavoriteStatus => 'អាប់ដេតស្ថានភាពដែលពេញចិត្ត';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'មិនអាចអាប់ដេតស្ថានភាពដែលពេញចិត្តបានទេ៖ $error';
-  }
-
-  @override
   String get updateInterval => 'ចន្លោះពេលអាប់ដេត';
-
-  @override
-  String get updateLabelFailed => 'មិនអាចអាប់ដេតស្លាកបានទេ';
 
   @override
   String get updateNow => 'អាប់ដេតឥឡូវនេះ';
@@ -4675,9 +3435,6 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'អាប់ដេតស្លាក';
-
-  @override
   String get useCasesPoint1 =>
       '• កំណត់អត្តសញ្ញាណការហៅទូរសព្ទសារឥតបានការដែលហៅត្រឡប់ដោយស្វ័យប្រវត្តិ';
 
@@ -4696,17 +3453,11 @@ class AppLocalizationsKm extends AppLocalizations {
   String get useGlobalSettings => 'ប្រើការកំណត់សកល';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => 'ឈ្មោះអ្នកប្រើប្រាស់';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'ប្រើវាក្យសម្ព័ន្ធ regex ស្តង់ដារដើម្បីកំណត់លំនាំ។ ឧទាហរណ៍៖';
-
-  @override
-  String get validateRegex => 'ផ្ទៀងផ្ទាត់ Regex';
 
   @override
   String get verificationFailedText => 'បរាជ័យ';
@@ -4743,45 +3494,13 @@ class AppLocalizationsKm extends AppLocalizations {
   String get webDAVConfigTitle => 'ការកំណត់រចនាសម្ព័ន្ធ WebDAV';
 
   @override
-  String get webdavConfigurationTitle => 'ការកំណត់រចនាសម្ព័ន្ធ WebDAV';
-
-  @override
-  String get webdavPasswordHint => 'សូមបញ្ចូលពាក្យសម្ងាត់ WebDAV';
-
-  @override
-  String get webdavServerAddressHint => 'សូមបញ្ចូលអាសយដ្ឋានម៉ាស៊ីនមេ WebDAV';
-
-  @override
-  String get webdavUsernameHint => 'សូមបញ្ចូលឈ្មោះអ្នកប្រើប្រាស់ WebDAV';
-
-  @override
   String get week => 'សប្តាហ៍';
-
-  @override
-  String get weekly => 'ប្រចាំសប្តាហ៍';
-
-  @override
-  String get weeklyBlockedCallsSummary =>
-      'សេចក្តីសង្ខេបការហៅទូរសព្ទដែលបានទប់ស្កាត់ប្រចាំសប្តាហ៍';
-
-  @override
-  String get weeklyChartTitle => 'ការហៅទូរសព្ទដែលបានទប់ស្កាត់ប្រចាំសប្តាហ៍';
-
-  @override
-  String get weeklyReport => 'របាយការណ៍ប្រចាំសប្តាហ៍';
-
-  @override
-  String get weeklyReportDesc =>
-      'ទទួលរបាយការណ៍សង្ខេបប្រចាំសប្តាហ៍អំពីសកម្មភាពទប់ស្កាត់ការហៅទូរសព្ទ';
 
   @override
   String get welcome => 'សូមស្វាគមន៍';
 
   @override
   String get whitelist => 'បញ្ជីអនុញ្ញាត';
-
-  @override
-  String get whitelistLabel => 'បញ្ជីអនុញ្ញាត';
 
   @override
   String get width => 'ទទឹង';
@@ -4802,12 +3521,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get year => 'ឆ្នាំ';
-
-  @override
-  String get yearly => 'ប្រចាំឆ្នាំ';
-
-  @override
-  String get yearlyChartTitle => 'ការហៅទូរសព្ទដែលបានបិទប្រចាំឆ្នាំ';
 
   @override
   String get noSimCardsDetected => 'មិនបានរកឃើញស៊ីមកាតទេ';
@@ -4856,10 +3569,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get useStirNotification => 'ប្រើការជូនដំណឹងពី STIR';
 
   @override
-  String get useStirNotificationDescription =>
-      'បើកការជូនដំណឹង STIR សម្រាប់ការហៅចូល';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'បិទការជូនដំណឹងក្នុងមូលដ្ឋានដោយស្វ័យប្រវត្តិ';
 
@@ -4878,11 +3587,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'ព័ត៌មានការហៅចូល';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'លេខទូរសព្ទ: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'ការហៅដែលបានបិទ';
@@ -4935,21 +3639,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'ការជូនដំណឹងក្លែងក្លាយ';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return 'ការហៅក្លែងក្លាយដែលសង្ស័យពី $phoneNumber';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'បរាជ័យក្នុងការផ្ទុកច្បាប់: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'បរាជ័យក្នុងការផ្ទុកកំណត់ហេតុការហៅ: $error';
-  }
 
   @override
   String get noBlockedTypeData => 'គ្មានទិន្នន័យប្រភេទដែលបានបិទទេ';
@@ -5026,9 +3715,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get removeAds => 'លុបពាណិជ្ជកម្ម';
-
-  @override
-  String get unknownAction => 'សកម្មភាពមិនស្គាល់';
 
   @override
   String get settingsBackup => 'ការបម្រុងទុកការកំណត់';
@@ -5288,16 +3974,8 @@ class AppLocalizationsKm extends AppLocalizations {
   String get blockNumberSuccess => 'ការទប់ស្កាត់លេខបានជោគជ័យ';
 
   @override
-  String get blockNumberFailed => 'ការទប់ស្កាត់លេខបរាជ័យ';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return 'តើអ្នកប្រាកដថាចង់ដោះប្លុក $phoneNumber មែនទេ?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return 'កំពុងហៅទូរស័ព្ទ $phoneNumber...';
   }
 
   @override
@@ -5314,9 +3992,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => 'ការដោះប្លុកលេខបរាជ័យ';
-
-  @override
-  String get serviceNotAvailable => 'សេវាកម្មមិនមានទេ';
 
   @override
   String get callingNumberFailed => 'ការហៅទូរស័ព្ទបរាជ័យ';
@@ -5347,9 +4022,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'ទម្រង់លេខមិនត្រឹមត្រូវ';
-
-  @override
-  String get membershipFeature => 'មុខងារសមាជិកភាព';
 
   @override
   String get medium => 'មធ្យម';
@@ -5446,9 +4118,6 @@ class AppLocalizationsKm extends AppLocalizations {
       'បញ្ជាក់ដើម្បីសម្អាតការជូនដំណឹងទាំងអស់';
 
   @override
-  String get allNotificationsCleared => 'ការជូនដំណឹងទាំងអស់ត្រូវបានជម្រះ';
-
-  @override
   String get clearButton => 'ជម្រះ';
 
   @override
@@ -5518,9 +4187,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get reasonInaccurateInfo => 'ព័ត៌មានមិនត្រឹមត្រូវ';
 
   @override
-  String get reasonWrongMarked => 'សម្គាល់ខុស';
-
-  @override
   String get reasonOther => 'ផ្សេងៗ';
 
   @override
@@ -5530,25 +4196,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get cancel => 'បោះបង់';
 
   @override
-  String get proposalStatus => 'ស្ថានភាព';
-
-  @override
-  String get statusPending => 'កំពុងរង់ចាំ';
-
-  @override
-  String get statusActive => 'សកម្ម';
-
-  @override
-  String get statusCompleted => 'បានបញ្ចប់';
-
-  @override
-  String get statusExpired => 'ផុតកំណត់';
-
-  @override
   String get riskLevel => 'កម្រិតហានិភ័យ';
-
-  @override
-  String get riskLevelVerified => 'បានផ្ទៀងផ្ទាត់';
 
   @override
   String get riskLevelLow => 'ទាប';
@@ -5557,19 +4205,8 @@ class AppLocalizationsKm extends AppLocalizations {
   String get riskLevelHigh => 'ខ្ពស់';
 
   @override
-  String get riskLevelUnknown => 'មិនស្គាល់';
-
-  @override
-  String get votingProgress => 'វឌ្ឍនភាពនៃការបោះឆ្នោត';
-
-  @override
   String agreeVotes(int count) {
     return 'យល់ព្រម: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'មិនយល់ព្រម: $count';
   }
 
   @override
@@ -5592,12 +4229,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get verificationReport => 'របាយការណ៍ផ្ទៀងផ្ទាត់';
 
   @override
-  String get showReport => 'បង្ហាញរបាយការណ៍';
-
-  @override
-  String get hideReport => 'លាក់របាយការណ៍';
-
-  @override
   String get proposalStatistics => 'ស្ថិតិសំណើ';
 
   @override
@@ -5607,28 +4238,13 @@ class AppLocalizationsKm extends AppLocalizations {
   String get activeProposals => 'សំណើសកម្ម';
 
   @override
-  String get completedProposals => 'សំណើបានបញ្ចប់';
-
-  @override
-  String get myVotes => 'ការបោះឆ្នោតរបស់ខ្ញុំ';
-
-  @override
   String get proposalCreated => 'សំណើត្រូវបានបង្កើតដោយជោគជ័យ';
-
-  @override
-  String get proposalCreateFailed => 'បរាជ័យក្នុងការបង្កើតសំណើ';
 
   @override
   String get voteSubmitted => 'ការបោះឆ្នោតត្រូវបានដាក់ស្នើដោយជោគជ័យ';
 
   @override
-  String get voteSubmitFailed => 'បរាជ័យក្នុងការដាក់ស្នើការបោះឆ្នោត';
-
-  @override
   String get noProposalsFound => 'មិនមានសំណើទេ';
-
-  @override
-  String get loadingProposals => 'កំពុងផ្ទុកសំណើ...';
 
   @override
   String get refreshProposals => 'ធ្វើបច្ចុប្បន្នភាពសំណើ';
@@ -5780,23 +4396,11 @@ class AppLocalizationsKm extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'បរាជ័យក្នុងការផ្ទុកចំនួនសន្លឹកឆ្នោត';
-
-  @override
   String get voteCount => 'ចំនួនសន្លឹកឆ្នោត';
-
-  @override
-  String get deletionProposalInfo => 'ព័ត៌មានសំណើលុប';
 
   @override
   String get deletionProposalDescription =>
       'ស្នើសុំលេខសម្រាប់លុបដែលបំពានគោលការណ៍ណែនាំសហគមន៍។ ការចូលរួមរបស់អ្នកជួយរក្សាវេទិកាឱ្យមានសុវត្ថិភាព។';
-
-  @override
-  String get voteToEarnVip => 'បោះឆ្នោតលើសំណើដើម្បីទទួលបានសិទ្ធិ VIP!';
-
-  @override
-  String get voteFailed => 'ការបោះឆ្នោតបរាជ័យ';
 
   @override
   String get searchProposals => 'ស្វែងរកសំណើ';
@@ -5830,50 +4434,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'បង្ហាញការព្រមានសម្រាប់ការហៅទូរសព្ទដែលអាចបោកប្រាស់បាន។';
 
   @override
-  String get notificationFrequencyDescription =>
-      'ជ្រើសរើសភាពញឹកញាប់នៃការទទួលការជូនដំណឹងអំពីសំណើលុបថ្មី។ អ្នកអាចទទួលវាភ្លាមៗ ជាបាច់ ឬតាមចន្លោះពេលផ្ទាល់ខ្លួន។';
-
-  @override
   String get notificationMode => 'របៀប​ជូន​ដំណឹង';
-
-  @override
-  String get immediateNotifications => 'ភ្លាមៗ';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'ទទួលការជូនដំណឹងភ្លាមៗនៅពេលសំណើត្រូវបានបង្កើតឡើង។';
-
-  @override
-  String get batchNotifications => 'ជាបាច់';
-
-  @override
-  String get batchNotificationsDescription =>
-      'ទទួលសេចក្តីសង្ខេបនៃការជូនដំណឹងតាមកាលកំណត់។';
-
-  @override
-  String get customNotifications => 'ផ្ទាល់ខ្លួន';
-
-  @override
-  String get customNotificationsDescription =>
-      'កំណត់ចន្លោះពេលផ្ទាល់ខ្លួនរបស់អ្នកសម្រាប់ការទទួលការជូនដំណឹង។';
-
-  @override
-  String get customFrequency => 'ភាពញឹកញាប់ផ្ទាល់ខ្លួន';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes នាទី';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours ម៉ោង';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours ម៉ោង $minutes នាទី';
-  }
 
   @override
   String get pendingProposals => 'សំណើដែលកំពុងរង់ចាំ';
@@ -5895,9 +4456,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get riskLevelLabel => 'កម្រិតហានិភ័យ';
-
-  @override
-  String get riskLevelDescription => 'កម្រិតហានិភ័យនៃលេខ';
 
   @override
   String get phoneNumberMinDigits => 'លេខទូរសព្ទត្រូវតែមានយ៉ាងហោចណាស់ ៧ ខ្ទង់';
@@ -5922,33 +4480,13 @@ class AppLocalizationsKm extends AppLocalizations {
   String get countryCodeRequired => 'លេខកូដប្រទេសត្រូវបានទាមទារ';
 
   @override
-  String get countryCodeLengthError => 'លេខកូដប្រទេសត្រូវតែមាន ២ តួអក្សរ';
-
-  @override
   String get phoneNumberHint => 'បញ្ចូលលេខទូរស័ព្ទ';
 
   @override
   String get phoneNumberRequired => 'លេខទូរស័ព្ទត្រូវបានទាមទារ';
 
   @override
-  String get phoneNumberLengthError =>
-      'លេខទូរសព្ទត្រូវតែមានយ៉ាងហោចណាស់ ៧ ខ្ទង់';
-
-  @override
-  String get reasonHint => 'ផ្ដល់ការពន្យល់លម្អិត (យ៉ាងហោចណាស់ ១០ តួអក្សរ)';
-
-  @override
   String get reasonRequired => 'ហេតុផលត្រូវបានទាមទារ';
-
-  @override
-  String get reasonLengthError => 'ហេតុផលត្រូវតែមានយ៉ាងហោចណាស់ ១០ តួអក្សរ';
-
-  @override
-  String get guidelinesTitle => 'គោលការណ៍ណែនាំ';
-
-  @override
-  String get guidelinesText =>
-      '• រាយការណ៍តែលេខដែលពិតជាមានបញ្ហា\n• ផ្ដល់ហេតុផលត្រឹមត្រូវ និងលម្អិត\n• ជ្រើសរើសកម្រិតហានិភ័យសមស្របដោយផ្អែកលើភាពធ្ងន់ធ្ងរ\n• ការរាយការណ៍មិនពិតអាចបណ្ដាលឱ្យមានការរឹតបន្តឹងគណនី';
 
   @override
   String get riskLevelCritical => 'ធ្ងន់ធ្ងរ';
@@ -5960,56 +4498,11 @@ class AppLocalizationsKm extends AppLocalizations {
   String get riskLevelVeryLow => 'ទាបបំផុត';
 
   @override
-  String get riskDescriptionVeryLow =>
-      'ទាបបំផុត - ការរំខានបន្តិចបន្តួច ការហៅទូរសព្ទមិនញឹកញាប់';
-
-  @override
-  String get riskDescriptionLow => 'ទាប - ការហៅទូរសព្ទដែលមិនចង់បានម្តងម្កាល';
-
-  @override
-  String get riskDescriptionMedium =>
-      'មធ្យម - សារឥតបានការទៀងទាត់ ឬការលក់តាមទូរសព្ទ';
-
-  @override
-  String get riskDescriptionHigh =>
-      'ខ្ពស់ - ការយាយីជាប់លាប់ ឬការប៉ុនប៉ងបោកប្រាស់';
-
-  @override
-  String get riskDescriptionCritical =>
-      'ធ្ងន់ធ្ងរ - ការបោកប្រាស់គ្រោះថ្នាក់ ឬការគំរាមកំហែង';
-
-  @override
   String get notificationFrequencyTitle => 'ភាពញឹកញាប់នៃការជូនដំណឹង';
-
-  @override
-  String get notificationFrequencyLabel => 'ភាពញឹកញាប់នៃការជូនដំណឹង (ម៉ោង)';
 
   @override
   String errorMessage(String error) {
     return 'កំហុស៖ $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'ការបោះឆ្នោត៖ $totalVotes ($supportPercentage% គាំទ្រ)';
-  }
-
-  @override
-  String get timeJustNow => 'ទើបតែឥឡូវនេះ';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return '$minutes នាទីមុន';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return '$hours ម៉ោងមុន';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return '$days ថ្ងៃមុន';
   }
 
   @override
@@ -6094,10 +4587,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get liveActivitiesTestTitle => 'ការសាកល្បងសកម្មភាពបន្តផ្ទាល់';
 
   @override
-  String get liveActivitiesTestSubtitle =>
-      'សាកល្បងការជូនដំណឹងសកម្មភាពបន្តផ្ទាល់។';
-
-  @override
   String get liveNotificationCustomizationTitle =>
       'ការប្ដូរតាមបំណងការជូនដំណឹងបន្តផ្ទាល់';
 
@@ -6123,16 +4612,10 @@ class AppLocalizationsKm extends AppLocalizations {
   String get proposalDetails => 'ព័ត៌មានលម្អិតសំណើ';
 
   @override
-  String get filterByStatus => 'ចម្រោះតាមស្ថានភាព';
-
-  @override
   String get proposalNotFound => 'រកមិនឃើញសំណើ';
 
   @override
   String get processed => 'បានដំណើរការ';
-
-  @override
-  String get showAll => 'បង្ហាញទាំងអស់';
 
   @override
   String get filterAndSortTitle => 'ចម្រោះ និងតម្រៀប';
@@ -6171,9 +4654,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get invalidSimData => 'ទិន្នន័យ SIM មិនត្រឹមត្រូវ';
 
   @override
-  String get simCardData => 'ទិន្នន័យកាត SIM';
-
-  @override
   String get simSlot => 'រន្ធ SIM';
 
   @override
@@ -6192,12 +4672,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String get callTypeSilenced => 'បិទសំឡេង';
 
   @override
-  String get callTypeVoicemail => 'សារសំឡេង';
-
-  @override
-  String get callTypeUnknownIntercept => 'ការស្ទាក់ចាប់ដែលមិនស្គាល់';
-
-  @override
   String andMoreItems(int count) {
     return 'និង $count ធាតុផ្សេងទៀត';
   }
@@ -6210,10 +4684,6 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6297,9 +4767,6 @@ class AppLocalizationsKm extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

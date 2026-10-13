@@ -18,13 +18,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get aboutPhoneSubscriptionRules => 'אודות כללי מנוי טלפון';
 
   @override
-  String get aboutPhoneSubscriptions => 'אודות מנויי טלפון';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'הירשם לרשימות כללים לטלפון באמצעות URL, עדכן כללים באופן אוטומטי. תומך בקבצי כללים בפורמט JSON, CSV.';
-
-  @override
   String get aboutSmsFilter => 'אודות סינון SMS';
 
   @override
@@ -47,9 +40,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get actionBlock => 'חסום';
-
-  @override
-  String get actionFilterAll => 'כל המסננים';
 
   @override
   String get actionFilterTitle => 'סנן לפי סוג פעולה';
@@ -95,28 +85,7 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'נוסף לכללי האישור';
-
-  @override
-  String get addedToBlacklist => 'נוסף לרשימה השחורה';
-
-  @override
-  String get addedToBlockedRules => 'נוסף לכללי החסימה';
-
-  @override
-  String get addedToFavoriteContacts => 'נוסף לאנשי קשר מועדפים';
-
-  @override
   String get addedToFavorites => 'נוסף למועדפים';
-
-  @override
-  String get addedToWhitelist => 'נוסף לרשימה הלבנה';
-
-  @override
-  String get addFavorite => 'הוסף למועדפים';
-
-  @override
-  String get addFilter => 'הוסף מסנן';
 
   @override
   String get addLabel => 'הוסף תווית';
@@ -130,16 +99,10 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'הוסף תווית להקלטת שיחה';
-
-  @override
   String get addName => 'הוסף שם';
 
   @override
   String get addNoneSubscription => 'הוסף מנוי ללא פעולה';
-
-  @override
-  String get addOrEditContactInfo => 'משמש להוספה או עריכה של פרטי איש קשר';
 
   @override
   String get addPhoneMark => 'הוסף סימן טלפון';
@@ -171,9 +134,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get addRule => 'הוסף כלל';
 
   @override
-  String get addRuleButton => 'הוסף כלל';
-
-  @override
   String addRuleFailed(Object error) {
     return 'נכשל הוספת כלל: $error';
   }
@@ -183,9 +143,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'הוסף מנוי השתקה';
-
-  @override
-  String get addSimRuleButton => 'הוסף כלל SIM';
 
   @override
   String get addSmsFilterRule => 'הוסף כלל סינון SMS';
@@ -211,16 +168,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get addSubscriptionTooltip => 'הוסף מנוי';
 
   @override
-  String get addToAllowedRules => 'הוסף לכללי האישור';
-
-  @override
   String get addToBlacklist => 'הוסף לרשימה השחורה';
-
-  @override
-  String get addToBlockedRules => 'הוסף לכללי החסימה';
-
-  @override
-  String get addToFavoriteContacts => 'הוסף לאנשי קשר מועדפים';
 
   @override
   String get addToFavorites => 'הוסף למועדפים';
@@ -232,9 +180,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get addToWhitelist => 'הוסף לרשימה הלבנה';
 
   @override
-  String get adPlaceholder => 'פרסומת';
-
-  @override
   String get agent => 'סוכן';
 
   @override
@@ -242,9 +187,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get allCallsTab => 'הכל';
-
-  @override
-  String get allDataClearedSuccessfully => 'כל הנתונים נוקו בהצלחה';
 
   @override
   String get allow => 'אפשר';
@@ -257,9 +199,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get allowAllBlacklistedNumbers => 'אפשר את כל המספרים החסומים';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc => 'אפשר שיחות מרשימת החסימה';
 
   @override
   String get allowAllBlockRules => 'אפשר את כל כללי החסימה';
@@ -323,13 +262,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get allowRules => 'כללי אישור';
 
   @override
-  String get allowWhitelistedNumbers => 'אפשר מספרים ברשימה הלבנה';
-
-  @override
-  String get allowWhitelistedNumbersDescription =>
-      'אפשר את כל המספרים ברשימה הלבנה';
-
-  @override
   String get allPermissionsGranted => 'כל ההרשאות הוענקו';
 
   @override
@@ -342,9 +274,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'ענה ואז נתק';
-
-  @override
-  String get appLegalese => '© 2023 Your Call Your Rule. כל הזכויות שמורות.';
 
   @override
   String get applicationSoftware => 'תוכנת יישום';
@@ -383,13 +312,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'הגדרות עדכון אוטומטי';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'נהל עדכונים אוטומטיים עבור כללים ותוספים';
-
-  @override
-  String get autoUpdateSettingsTitle => 'הגדרות עדכון אוטומטי';
 
   @override
   String get autoUpdateSubtitle => 'נהל עדכונים אוטומטיים עבור כללים ותוספים';
@@ -436,44 +358,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get backupFailed => 'גיבוי נכשל';
 
   @override
-  String get backupFailedMessage => 'גיבוי נכשל';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'גיבוי נכשל: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle => 'גבה או שחזר נתוני יישום';
-
-  @override
-  String get backupRestoreTitle => 'גיבוי ושחזור';
-
-  @override
-  String get backupSectionTitle => 'גיבוי';
-
-  @override
   String get backupSettings => 'הגדרות גיבוי';
 
   @override
-  String get backupSettingsDialogTitle => 'הגדרות גיבוי';
-
-  @override
-  String get backupSettingsTitle => 'הגדרות גיבוי';
-
-  @override
-  String get backupSuccessMessage => 'הועלה בהצלחה לענן';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'הגיבוי הוצלח ל: $path';
-  }
-
-  @override
   String get backupToCloud => 'גיבוי לענן';
-
-  @override
-  String get backupToCloudDescription => 'גבה הגדרות וכללים לאחסון ענן';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -481,16 +369,7 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'גיבוי לענן';
-
-  @override
   String get backupToCloudSuccess => 'הועלה בהצלחה לענן';
-
-  @override
-  String get backupToCloudTitle => 'גיבוי לענן';
-
-  @override
-  String get backupToLocalLabel => 'גיבוי למקומי';
 
   @override
   String get bank => 'בנק';
@@ -509,22 +388,13 @@ class AppLocalizationsHe extends AppLocalizations {
       '• סינון כללים בסיסי: סינון כללים על בסיס רשימה שחורה, רשימה לבנה וביטויים רגולריים';
 
   @override
-  String get basicRuleFilterSettings => 'הגדרות מסנן כללים בסיסי';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'סנן שיחות באמצעות רשימה שחורה/לבנה וביטויים רגולריים';
-
-  @override
-  String get batchDeleteContacts => 'מחיקת אנשי קשר באצווה';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'האם אתה בטוח שברצונך למחוק $count אנשי קשר נבחרים?';
   }
-
-  @override
-  String get batchDeleteFailed => 'מחיקה באצווה נכשלה';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -536,9 +406,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get blacklistingAndWhitelisting => 'רישום שחור ולבן';
-
-  @override
-  String get blacklistLabel => 'רשימה שחורה';
 
   @override
   String get blackWhiteList => 'רשימה שחורה/לבנה';
@@ -553,19 +420,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get blocked => 'חסום';
 
   @override
-  String get blockedCallAction => 'פעולת שיחה חסומה';
-
-  @override
   String get blockedCalls => 'שיחות חסומות';
 
   @override
   String get blockedCallsTitle => 'שיחות חסומות';
-
-  @override
-  String get blockedCommunications => 'תקשורות חסומות';
-
-  @override
-  String get blockedPhoneLabel => 'שיחות חסומות';
 
   @override
   String get blockedSpamCalls => 'שיחות ספאם חסומות';
@@ -579,9 +437,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get blockInternationalCallsTitle => 'חסום שיחות בינלאומיות';
-
-  @override
-  String get blockLandlineNumbersTitle => 'חסום מספרי קווי קרקע';
 
   @override
   String get blockMobileNumbers => 'מתאים למספרים שאינם מתחילים ב- 13-19';
@@ -631,11 +486,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get callback => 'התקשר בחזרה';
 
   @override
-  String callbackTo(String number) {
-    return 'התקשר בחזרה אל $number';
-  }
-
-  @override
   String get callBlocking => 'חסימת שיחות';
 
   @override
@@ -643,9 +493,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'התאם אישית את מזהה המתקשר';
-
-  @override
-  String get callerIdDialogTitle => 'מידע על מזהה מתקשר';
 
   @override
   String get callerIdDisplayMode => 'מצב תצוגת מזהה המתקשר';
@@ -657,13 +504,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'תצוגה מקדימה של מזהה המתקשר';
-
-  @override
-  String get callFilter => 'סינון שיחות';
-
-  @override
-  String get callFilterDescription =>
-      'כאשר מופעל, שיחות נכנסות נבדקות מול רשימת הכללים שלהלן. כללי סינון שיחות אינם מסונכרנים בין מכשירים כברירת מחדל.';
 
   @override
   String get callFilterRules => 'כללי סינון שיחות';
@@ -692,26 +532,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get callHistoryInfoTitle => 'היסטוריית שיחות';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'נכשל באתחול היסטוריית שיחות: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'נכשל ברענון היסטוריית שיחות: $error';
-  }
-
-  @override
   String get callHistoryTab => 'היסטוריית שיחות';
-
-  @override
-  String get callHistoryTimelineEarlier => 'מוקדם יותר';
-
-  @override
-  String get callHistoryTimelineToday => 'היום';
-
-  @override
-  String get callHistoryTimelineYesterday => 'אתמול';
 
   @override
   String get callScreeningPermission => 'הרשאת סינון שיחות';
@@ -723,12 +544,6 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'הרשאת סינון שיחות לא הוענקה, עשויה להשפיע על פונקציונליות האפליקציה.';
-
-  @override
-  String get callSettingsSubtitle => 'הגדרות מזהה מתקשר, סינון וחסימה';
-
-  @override
-  String get callSettingsTitle => 'הגדרות שיחות';
 
   @override
   String get callStatistics => 'סטטיסטיקות שיחות';
@@ -786,27 +601,10 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'שנה תג';
-
-  @override
   String get charity => 'צדקה';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'חודש $month';
-  }
-
-  @override
-  String get chartOneDayAgo => 'לפני יום אחד';
-
-  @override
-  String get chartOneMonthAgo => 'לפני חודש אחד';
-
-  @override
   String get chartOneWeekAgo => 'לפני שבוע אחד';
-
-  @override
-  String get chartTenDaysAgo => 'לפני 10 ימים';
 
   @override
   String get chartThreeDaysAgo => 'לפני 3 ימים';
@@ -827,23 +625,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'בחר את פעולת היירוט המוגדרת כברירת מחדל';
 
   @override
-  String get clearAllData => 'מחק את כל הנתונים';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'האם אתה בטוח שברצונך למחוק את כל נתוני האפליקציה? לא ניתן לבטל פעולה זו.';
-
-  @override
-  String get clearAllDataDescription => 'מחק את כל נתוני האפליקציה';
-
-  @override
-  String get clearAllDataLabel => 'מחק את כל הנתונים';
-
-  @override
   String get clearFilter => 'נקה מסנן';
-
-  @override
-  String get clearLabelFilter => 'נקה מסנן תווית';
 
   @override
   String get clearLabelFilterButton => 'נקה מסנן תווית';
@@ -868,9 +650,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get cloudSyncTitle => 'סנכרון ענן';
 
   @override
-  String get collapseLabelSelector => 'כווץ בוחר תווית';
-
-  @override
   String get collection => 'גביית חובות';
 
   @override
@@ -890,14 +669,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get configureBackupOptions => 'הגדר אפשרויות גיבוי';
 
   @override
-  String get configureBackupOptionsSubtitle => 'הגדר אפשרויות גיבוי';
-
-  @override
   String get configureCloudSyncService => 'הגדר שירות סנכרון ענן';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'אנא הגדר שירות סנכרון ענן כדי לאפשר סנכרון בין מספר מכשירים.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -907,30 +679,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get configureSimCardFilterRules => 'הגדר כללי סינון כרטיס SIM';
 
   @override
-  String get configureSyncServiceHint =>
-      'אנא הגדר שירות סנכרון בהגדרות סנכרון הענן תחילה';
-
-  @override
   String get confirm => 'אישור';
-
-  @override
-  String get confirmBatchDeleteContacts =>
-      'האם אתה בטוח שברצונך למחוק את הנבחרים';
 
   @override
   String get confirmButton => 'אישור';
 
   @override
   String get confirmDelete => 'אישור מחיקה';
-
-  @override
-  String get confirmDeleteContact => 'האם אתה בטוח שברצונך למחוק';
-
-  @override
-  String get confirmDeleteContactName => 'אישור מחיקה?';
-
-  @override
-  String get confirmDeleteFilter => 'האם אתה בטוח שברצונך למחוק מסנן זה?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -952,18 +707,11 @@ class AppLocalizationsHe extends AppLocalizations {
       'האם אתה בטוח שברצונך למחוק כלל זה? לא ניתן לבטל פעולה זו.';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'האם אתה בטוח שברצונך למחוק אנשי קשר נבחרים?';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'האם אתה בטוח שברצונך למחוק כלל מסנן SMS זה?';
 
   @override
   String get confirmDeleteSmsRule => 'האם אתה בטוח שברצונך למחוק כלל SMS זה?';
-
-  @override
-  String get confirmDeleteSubscription => 'האם אתה בטוח שברצונך למחוק מנוי זה?';
 
   @override
   String confirmDeleteSubscriptions(String name) {
@@ -972,9 +720,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get confirmPassword => 'אישור סיסמה';
-
-  @override
-  String get confirmPasswordLabel => 'אישור סיסמה';
 
   @override
   String get connectedStatus => 'מחובר';
@@ -999,16 +744,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get contactDeleted => 'איש קשר נמחק';
 
   @override
-  String get contactEditDialog => 'דיאלוג עריכת איש קשר';
-
-  @override
-  String get contactNameHint => 'הזן שם איש קשר (אופציונלי)';
-
-  @override
   String get contactNameLabel => 'שם';
-
-  @override
-  String get contactNameOptional => 'שם איש קשר (אופציונלי)';
 
   @override
   String get contactNotFound => 'איש קשר לא נמצא';
@@ -1022,24 +758,7 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle => 'ניהול אנשי קשר והגדרות תווית';
-
-  @override
-  String get contactSettingsTitle => 'הגדרות אנשי קשר';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'טעינת אנשי קשר נכשלה: $error';
-  }
-
-  @override
   String get contactsManagement => 'ניהול אנשי קשר';
-
-  @override
-  String get contactsManagementPageTitle => 'דף ניהול אנשי קשר';
-
-  @override
-  String get contactsPageTitle => 'ניהול אנשי קשר';
 
   @override
   String get contactsPermission => 'הרשאת אנשי קשר';
@@ -1053,14 +772,6 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'הירשם לרשימות אנשי קשר באמצעות URL, עדכן אוטומטית פרטי אנשי קשר ותוויות. תומך בנתוני פורמט JSON.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'טעינת מנויי אנשי קשר נכשלה: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'מנויי אנשי קשר';
 
   @override
   String get contactUpdateSuccess => 'איש קשר עודכן בהצלחה';
@@ -1096,26 +807,11 @@ class AppLocalizationsHe extends AppLocalizations {
   String get countryRegionNamePosition => 'מיקום שם מדינה/אזור';
 
   @override
-  String get countrySelectionDialog => 'דיאלוג בחירת מדינה';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'משמש לבחירת מדינה לשליפת פרטי מזהה מתקשר';
-
-  @override
   String get countThresholdDescription =>
       'הגדר את סף הספירה המינימלי הנדרש להפעלת פעולות סינון';
 
   @override
   String get countThresholdLabel => 'סף ספירה';
-
-  @override
-  String get countThresholdSettings => 'הגדרות סף ספירה';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'סף ספירה: $count';
-  }
 
   @override
   String get createdRules => 'כללים שנוצרו';
@@ -1124,47 +820,22 @@ class AppLocalizationsHe extends AppLocalizations {
   String get csvFormat => 'פורמט CSV';
 
   @override
-  String get currentDeviceChip => 'נוכחי';
-
-  @override
   String get currentDeviceLabel => 'תווית התקן נוכחי';
 
   @override
   String get currentDeviceTitle => 'התקן נוכחי';
 
   @override
-  String get currentLabels => 'תוויות נוכחיות:';
-
-  @override
   String get currentLanguage => 'שפה נוכחית';
 
   @override
-  String get currentPasswordLabel => 'סיסמה נוכחית';
-
-  @override
   String get customerService => 'שירות לקוחות';
-
-  @override
-  String get customRange => 'טווח מותאם אישית';
-
-  @override
-  String get dailyStatistics => 'סטטיסטיקה יומית';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'קבל סטטיסטיקה יומית על שיחות והודעות חסומות';
 
   @override
   String get dashboardTab => 'לוח מחוונים';
 
   @override
   String get dataAnalysis => 'ניתוח נתונים';
-
-  @override
-  String get dataAnalysisDashboardPage => 'דף לוח מחוונים לניתוח נתונים';
-
-  @override
-  String get dataExport => 'ייצוא נתונים';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1182,16 +853,6 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'תכונה זו מאפשרת לך להעביר את כל הנתונים שלך בין מכשירים. כרגע, תוכל להשתמש בתכונות הגיבוי והשחזור כדי להעביר את הנתונים שלך באופן ידני.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'תכונה זו מאפשרת לך להעביר את כל הנתונים שלך בין מכשירים. כרגע, תוכל להשתמש בתכונות הגיבוי והשחזור כדי להעביר את הנתונים שלך באופן ידני.';
-
-  @override
-  String get dataMigrationDialogTitle => 'העברת נתונים';
-
-  @override
-  String get dataMigrationSectionTitle => 'העברת נתונים';
 
   @override
   String get dataSourceReminder => 'תזכורת מקור נתונים';
@@ -1216,9 +877,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get debtCollection => 'גביית חובות';
 
   @override
-  String get defaultPeriod => 'שבוע';
-
-  @override
   String get delete => 'מחק';
 
   @override
@@ -1233,23 +891,9 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation => 'האם אתה בטוח שברצונך למחוק איש קשר';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return 'האם אתה בטוח שברצונך למחוק את $deviceName?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'מחק התקן';
-
-  @override
   String deleteFailed(Object error) {
     return 'מחיקה נכשלה: $error';
   }
-
-  @override
-  String get deleteFilter => 'מחק מסנן';
 
   @override
   String get deleteLabel => 'מחק תווית';
@@ -1287,9 +931,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get deleteSelected => 'מחק נבחרים';
 
   @override
-  String get deleteSmsRule => 'מחק כלל SMS';
-
-  @override
   String get deleteSubscription => 'מחק מנוי';
 
   @override
@@ -1309,15 +950,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get delivery => 'משלוח';
 
   @override
-  String get deviceDeletedSuccessfully => 'ההתקן נמחק בהצלחה';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage => 'ההתקן נמחק בהצלחה';
-
-  @override
-  String get deviceIdLabel => 'מזהה התקן';
-
-  @override
   String get deviceIDLabel => 'מזהה התקן';
 
   @override
@@ -1333,25 +965,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get deviceName => 'שם התקן';
 
   @override
-  String get deviceNameCannotBeEmpty => 'שם המכשיר לא יכול להיות ריק';
-
-  @override
-  String get deviceNameHint => 'הכנס שם מכשיר';
-
-  @override
   String get deviceNameLabel => 'שם מכשיר';
 
   @override
-  String get deviceRenamedSuccessfully => 'המכשיר שונה בהצלחה';
-
-  @override
   String get deviceRenamedSuccessfullyMessage => 'המכשיר שונה בהצלחה';
-
-  @override
-  String get devicesSyncedSuccessfully => 'מכשירים סונכרנו בהצלחה';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage => 'מכשירים סונכרנו בהצלחה';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage => 'מכשירים סונכרנו בהצלחה';
@@ -1374,9 +991,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'בטל פלאגינים גלובליים';
-
-  @override
-  String get disableSubscriptionSuccessfully => 'השבתה מנוי בהצלחה';
 
   @override
   String get disconnectButton => 'נתק';
@@ -1410,25 +1024,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get editContact => 'ערוך איש קשר';
 
   @override
-  String get editFilter => 'ערוך מסנן';
-
-  @override
   String get editLabel => 'ערוך תווית';
 
   @override
   String get editPhoneRule => 'ערוך כלל טלפון';
 
   @override
-  String get editPhoneRules => 'משמש לעריכת כללי טלפון';
-
-  @override
-  String get editPhoneRuleTitle => 'ערוך כלל טלפון';
-
-  @override
   String get editRule => 'ערוך כלל';
-
-  @override
-  String get editSmsRule => 'ערוך כלל SMS';
 
   @override
   String get education => 'חינוך';
@@ -1438,9 +1040,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get email => 'דוא\"ל';
-
-  @override
-  String get emailOptional => 'דוא\"ל (אופציונלי)';
 
   @override
   String get enableCallFilter => 'אפשר סינון שיחות';
@@ -1460,15 +1059,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => 'הצפן קבצי גיבוי';
-
-  @override
-  String get enableEncryptionLabel => 'אפשר הצפנה';
-
-  @override
-  String get enableEncryptionSubtitle => 'קבצי גיבוי יוצפנו';
-
-  @override
-  String get enableEncryptionTitle => 'אפשר הצפנה';
 
   @override
   String get enableGlobalPlugins => 'אפשר פלאגינים גלובליים';
@@ -1503,9 +1093,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get enableNoneActionRulesDesc => 'אפשר הגדרות כללים ללא פעולות חסימה';
 
   @override
-  String get enableNotifications => 'אפשר התראות';
-
-  @override
   String get enableRemoteNumberFilter => 'אפשר מסנן מספרים מרוחקים';
 
   @override
@@ -1521,12 +1108,6 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'כאשר מופעל, הודעות יסוננו אוטומטית לפי הכללים';
-
-  @override
-  String get enableStatisticsNotifications => 'אפשר התראות סטטיסטיקה';
-
-  @override
-  String get enableSubscriptionSuccessfully => 'אפשר מנוי בהצלחה';
 
   @override
   String get enableTimeInterception => 'אפשר חסימת זמן';
@@ -1561,10 +1142,6 @@ class AppLocalizationsHe extends AppLocalizations {
       'מערכת הסינון המשופרת תומכת בכללים גלובליים ובהגדרות סינון לכל כרטיס SIM.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'אנא הכנס גם מספר טלפון וגם דפוס Regex';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'אנא הכנס גם מספר טלפון וגם דפוס Regex.';
 
@@ -1572,31 +1149,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get enterContactName => 'אנא הכנס שם איש קשר';
 
   @override
-  String get enterCurrentPasswordHint => 'אנא הכנס סיסמה נוכחית';
-
-  @override
   String get enterDeviceName => 'הכנס שם מכשיר';
-
-  @override
-  String get enterDeviceNameHint => 'הכנס שם מכשיר';
-
-  @override
-  String get enterEmail => 'אנא הכנס דוא\"ל';
 
   @override
   String get enterEmailOptional => 'אנא הכנס דוא\"ל (אופציונלי)';
 
   @override
   String get enterEncryptionPasswordHint => 'הכנס סיסמת הצפנה';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'הכנס סיסמת הצפנה';
-
-  @override
-  String get enterFilterName => 'אנא הכנס שם מסנן';
-
-  @override
-  String get enterFilterPattern => 'אנא הכנס דפוס מסנן';
 
   @override
   String get enterIconCode => 'הכנס קוד אייקון';
@@ -1608,13 +1167,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get enterNewDeviceNameHint => 'הכנס שם חדש למכשיר זה';
 
   @override
-  String get enterNewPasswordHint => 'אנא הכנס סיסמה חדשה';
-
-  @override
   String get enterPasswordAgain => 'הכנס סיסמה שוב';
-
-  @override
-  String get enterPasswordHint => 'אנא הכנס סיסמה';
 
   @override
   String get enterPhoneNumber => 'הכנס מספר טלפון';
@@ -1640,9 +1193,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'הכנס דפוס Regex';
-
-  @override
-  String get enterRuleNameAndPattern => 'אנא הכנס שם כלל ודפוס';
 
   @override
   String get enterRuleNameAndPatternMessage => 'נא להזין שם כלל ותבנית Regex.';
@@ -1685,14 +1235,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get enterWebDAVUsernameHint => 'נא להזין שם משתמש WebDAV';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'שגיאה במחיקת מכשיר: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'שגיאה בטעינת פלאגין';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'אירעה שגיאה: $error';
   }
@@ -1708,14 +1250,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'שגיאה בסנכרון מכשירים: $error';
-  }
-
-  @override
-  String get errorText => 'שגיאה';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'שגיאה בהסרת רישום מכשיר: $error';
   }
@@ -1725,9 +1259,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'לדוגמה, חסימת SMS שיווקיים';
-
-  @override
-  String get exampleContentRegex => 'לדוגמה, .*offer.*';
 
   @override
   String get exampleContentRegexHint => 'דוגמה ל-Regex של תוכן';
@@ -1746,9 +1277,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get exampleRegex400Prefix => 'דוגמה ל-Regex עבור קידומת 400';
 
   @override
-  String get exampleRegexFormat => 'דוגמה: פורמט ^10086\$';
-
-  @override
   String get exampleSenderRegexHint => 'דוגמה';
 
   @override
@@ -1759,9 +1287,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get exchangeVip => 'החלף VIP';
-
-  @override
-  String get expandLabelSelector => 'הרחב בוחר תוויות';
 
   @override
   String expiryTime(Object time) {
@@ -1775,17 +1300,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get exportAllApplicationSettings => 'ייצא את כל הגדרות האפליקציה';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'ייצא את כל הגדרות האפליקציה';
-
-  @override
   String get exportAllRuleConfigurations => 'ייצא את כל תצורות הכללים';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle => 'ייצא את כל תצורות הכללים';
-
-  @override
-  String get exportComplete => 'ייצוא הושלם';
 
   @override
   String get exportConfig => 'ייצוא תצורה';
@@ -1797,9 +1312,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get exportData => 'ייצוא נתונים';
 
   @override
-  String get exportError => 'שגיאת ייצוא';
-
-  @override
   String get exportFailed => 'הייצוא נכשל';
 
   @override
@@ -1807,9 +1319,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'תכונת הייצוא תגיע בקרוב';
-
-  @override
-  String get exporting => 'מייצא...';
 
   @override
   String get exportLabels => 'ייצוא תוויות';
@@ -1831,34 +1340,17 @@ class AppLocalizationsHe extends AppLocalizations {
   String get exportRules => 'ייצוא כללים';
 
   @override
-  String get exportRulesDialogTitle => 'ייצוא כללים';
-
-  @override
-  String get exportRulesTitle => 'ייצוא כללים';
-
-  @override
   String get exportSmsRules => 'ייצוא כללי SMS';
 
   @override
   String get exportStatisticsData => 'ייצוא נתוני סטטיסטיקה';
 
   @override
-  String get exportSuccess => 'ייצוא הצליח';
-
-  @override
   String get exportSuccesslly => 'התצורה יצאה בהצלחה';
-
-  @override
-  String get failedToAddContact => 'נכשל בהוספת איש קשר';
 
   @override
   String failedToAddRule(Object error) {
     return 'נכשל בהוספת כלל: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'נכשל בהוספת כלל SMS: $error';
   }
 
   @override
@@ -1875,9 +1367,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get failedToDecryptBackupFile => 'נכשל בפיצוח קובץ גיבוי';
 
   @override
-  String get failedToDeleteDevice => 'נכשל במחיקת מכשיר';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'נכשל במחיקת כלל SMS: $error';
   }
@@ -1885,11 +1374,6 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'נכשל בייצוא כללים: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'נכשל בייצוא כללי SMS: $error';
   }
 
   @override
@@ -1903,20 +1387,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'נכשל בייבוא כללי SMS: $error';
-  }
-
-  @override
-  String get failedToLoadContacts => 'נכשל בטעינת אנשי קשר';
-
-  @override
-  String get failedToLoadPlugin => 'נכשל בטעינת פלאגין';
-
-  @override
-  String get failedToRenameDevice => 'נכשל בשינוי שם מכשיר';
-
-  @override
   String get failedToRestoreSettings => 'נכשל בשחזור הגדרות';
 
   @override
@@ -1925,31 +1395,9 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'נכשל בהגדרת סיסמה: $error';
-  }
-
-  @override
-  String get failedToSyncDevices => 'נכשל בסנכרון מכשירים';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'נכשל בהחלפת סטטוס כלל: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus => 'נכשל בהחלפת סטטוס מנוי';
-
-  @override
-  String get failedToUpdateContact => 'נכשל בעדכון איש קשר';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'נכשל בעדכון כלל SMS: $error';
-  }
-
-  @override
-  String get failure => 'כישלון';
 
   @override
   String get favoriteContacts => 'אנשי קשר מועדפים';
@@ -1987,9 +1435,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get filterByLabel => 'סנן לפי תווית';
 
   @override
-  String get filterClear => 'נקה סינון';
-
-  @override
   String get filterControlPanelTitle => 'פאנל בקרת סינון';
 
   @override
@@ -1999,22 +1444,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get filterControlTitle => 'בקרת סינון';
 
   @override
-  String get filterDeleteFailed => 'מחיקת סינון נכשלה';
-
-  @override
-  String get filterDeleteSuccess => 'הסינון נמחק בהצלחה';
-
-  @override
-  String get filterDetails => 'פרטי סינון';
-
-  @override
   String get filtered => 'מסונן';
-
-  @override
-  String get filteredSms => 'SMS מסוננים';
-
-  @override
-  String get filteredSmsLabel => 'SMS מסוננים';
 
   @override
   String get filterExplanation => 'הסבר סינון';
@@ -2026,17 +1456,8 @@ class AppLocalizationsHe extends AppLocalizations {
   String get filterName => 'שם סינון';
 
   @override
-  String get filterPattern => 'תבנית סינון';
-
-  @override
   String get filterPriorityNote =>
       'הערה: קיימים יחסי עדיפות בין מסננים, אנא עיין בתיעוד העזרה לקבלת פרטים';
-
-  @override
-  String get filterSaveFailed => 'שמירת סינון נכשלה';
-
-  @override
-  String get filterSaveSuccess => 'הסינון נשמר בהצלחה';
 
   @override
   String get filterSettings => 'הגדרות סינון';
@@ -2075,16 +1496,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return 'נמצאו $count כללים. האם ברצונך לייבא אותם?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return 'נמצאו $count כללים. האם ברצונך לייבא אותם?';
-  }
-
-  @override
   String get fraudAlert => 'התראת הונאה - נתק את השיחה';
 
   @override
@@ -2119,38 +1530,14 @@ class AppLocalizationsHe extends AppLocalizations {
   String get globalFilterSettings => 'הגדרות מסנן גלובלי';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'הגדר הגדרות מסנן גלובליות החלות על כל חריצי ה-SIM:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'חפש אנשי קשר, תוויות, רשימות שחורות, רשימות לבנות וכו\'.';
-
-  @override
-  String get globalSearchTitle => 'חיפוש גלובלי';
-
-  @override
   String get globalSettings => 'הגדרות גלובליות';
-
-  @override
-  String get googleAdDisplayPosition => 'מיקום תצוגת פרסומת של Google';
-
-  @override
-  String get googleAdMobIntegrationText => 'ניתן לשלב פרסומות Google AdMob כאן';
 
   @override
   String get googleDriveAuthDescription =>
       'אשר באמצעות מזהה הלקוח ומפתח Google Drive שהוגדרו במערכת';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'אשר באמצעות מזהה הלקוח ומפתח Google Drive שהוגדרו במערכת';
-
-  @override
   String get googleDriveConfigTitle => 'תצורת Google Drive';
-
-  @override
-  String get googleDriveConfigurationTitle => 'תצורת Google Drive';
 
   @override
   String get government => 'ממשלה';
@@ -2169,9 +1556,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get height => 'גובה';
-
-  @override
-  String get homePageTitle => 'דף הבית';
 
   @override
   String get homeTab => 'בית';
@@ -2202,9 +1586,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get important => 'חשוב';
-
-  @override
-  String get importButton => 'יבוא';
 
   @override
   String get importConfig => 'ייבוא תצורה';
@@ -2257,40 +1638,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get importRuleConfigurationsFromFile => 'ייבוא תצורות כללים מקובץ';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'ייבוא תצורות כללים מקובץ';
-
-  @override
   String get importRules => 'ייבוא כללים';
-
-  @override
-  String get importRulesButton => 'יבוא כללים';
-
-  @override
-  String get importRulesDialogTitle => 'יבוא כללים';
-
-  @override
-  String importRulesError(Object error) {
-    return 'כשל בייבוא כללים: $error';
-  }
-
-  @override
-  String get importRulesInstructions => 'ייבוא כללים מקובץ CSV';
-
-  @override
-  String get importRulesSuccess => 'הכללים יובאו בהצלחה';
-
-  @override
-  String get importRulesTitle => 'ייבוא כללים';
 
   @override
   String get importSuccess => 'הייבוא הצליח';
 
   @override
   String get incomingCallInterceptAction => 'פעולת יירוט שיחה נכנסת';
-
-  @override
-  String get incomingCallNotification => 'התראת שיחה נכנסת';
 
   @override
   String get incorrectPassword => 'סיסמה שגויה';
@@ -2345,9 +1699,6 @@ class AppLocalizationsHe extends AppLocalizations {
       'הצטרף לערוץ ול קבוצת הטלגרם למידע נוסף';
 
   @override
-  String get jsLogsTitle => 'יומני JavaScript';
-
-  @override
   String get jsonFormat => 'פורמט JSON';
 
   @override
@@ -2356,15 +1707,6 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'שמור את כל הגרסאות ההיסטוריות של כל גיבוי';
-
-  @override
-  String get keepAllVersionsLabel => 'שמור את כל הגרסאות';
-
-  @override
-  String get keepAllVersionsSubtitle => 'שמור גרסאות היסטוריות של כל גיבוי';
-
-  @override
-  String get keepAllVersionsTitle => 'שמור את כל הגרסאות';
 
   @override
   String get label => 'תווית';
@@ -2385,9 +1727,6 @@ class AppLocalizationsHe extends AppLocalizations {
       'תוויות עוזרות לך לנהל אנשי קשר טוב יותר, הוסף תוויות מותאמות אישית למספרי טלפון לצורך זיהוי קל של שיחות והודעות.';
 
   @override
-  String get labelFilter => 'סינון תווית';
-
-  @override
   String get labelFilterTooltip => 'סינון תווית';
 
   @override
@@ -2398,14 +1737,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get labelNotFound => 'התווית לא נמצאה';
-
-  @override
-  String get labelRemoved => 'התווית הוסרה';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'הסרת תווית נכשלה: $error';
-  }
 
   @override
   String get labels => 'תוויות';
@@ -2438,9 +1769,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'התווית עודכנה';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'עדכון תווית נכשל: $error';
   }
@@ -2456,12 +1784,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'הגדרות שפה';
-
-  @override
-  String get last30Days => '30 הימים האחרונים';
-
-  @override
-  String get last7Days => '7 הימים האחרונים';
 
   @override
   String get lastSyncLabel => 'סנכרון אחרון';
@@ -2487,13 +1809,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get loadDataFailed => 'טעינת נתונים נכשלה';
 
   @override
-  String get loadFailed => 'טעינה נכשלה';
-
-  @override
   String get loading => 'טוען...';
-
-  @override
-  String get loadingData => 'טוען נתונים...';
 
   @override
   String get loadingTags => 'טוען תגיות...';
@@ -2517,12 +1833,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'טעינת טלפונים מסומנים נכשלה: $error';
   }
-
-  @override
-  String get loadMore => 'טען עוד';
-
-  @override
-  String get loadPluginButton => 'טען פלאגין';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2549,9 +1859,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get loan => 'הלוואה';
-
-  @override
-  String get localBackupTitle => 'גיבוי מקומי';
 
   @override
   String get localCounterFilter => 'סינון מונה מקומי';
@@ -2646,9 +1953,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get manage => 'נהל אנשי קשר';
 
   @override
-  String get manageContacts => 'ניהול';
-
-  @override
   String get manageFavoriteContacts => 'נהל אנשי קשר מועדפים';
 
   @override
@@ -2656,9 +1960,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get manageFilterRulesDescription => 'הוסף, ערוך או מחק כללי סינון SMS';
-
-  @override
-  String get manageFrequentContacts => 'נהל אנשי קשר תכופים';
 
   @override
   String get markCounts => 'ספירות סימון';
@@ -2686,16 +1987,10 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle => 'לסימון מספרי טלפון';
-
-  @override
   String get markPhoneManagementTitle => 'ניהול סימון טלפונים';
 
   @override
   String get markPhoneSuccess => 'מספר הטלפון סומן בהצלחה';
-
-  @override
-  String get matchFailed => 'התאמה נכשלה!';
 
   @override
   String get matchFailedMessage => 'התאמה נכשלה.';
@@ -2714,9 +2009,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get matchSpecificDigitPatternsTitle => 'התאם תבניות ספרות ספציפיות:';
 
   @override
-  String get matchSuccessful => 'התאמה הצליחה!';
-
-  @override
   String get matchSuccessfulMessage => 'התאמה הצליחה!';
 
   @override
@@ -2727,9 +2019,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get migrationTool => 'כלי הגירה';
-
-  @override
-  String get migrationToolTitle => 'כלי הגירה';
 
   @override
   String get minutes => 'דקות';
@@ -2744,9 +2033,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get monthlyCallCount => 'שיחות חודשיות';
 
   @override
-  String get monthlyChartTitle => 'שיחות חסומות חודשיות';
-
-  @override
   String get monthlyMembership => 'חברות חודשית';
 
   @override
@@ -2755,9 +2041,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'סך הכל חודשי';
-
-  @override
-  String get monthlyTotalLabel => 'סך הכל חודשי';
 
   @override
   String get moreOptions => 'עוד אפשרויות';
@@ -2773,32 +2056,16 @@ class AppLocalizationsHe extends AppLocalizations {
       'שם ומספר טלפון אינם יכולים להיות ריקים';
 
   @override
-  String get nameAndPhoneNumberRequired => 'שם ומספר טלפון נדרשים';
-
-  @override
   String get nameColor => 'צבע שם';
 
   @override
   String get nameFontSize => 'גודל גופן שם';
 
   @override
-  String nameLabel(Object name) {
-    return 'שם: $name';
-  }
-
-  @override
   String get namePosition => 'מיקום שם';
 
   @override
   String get nameUnknown => 'שם: לא ידוע';
-
-  @override
-  String nameWithValue(String name) {
-    return 'שם: $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'סיסמה חדשה';
 
   @override
   String get nextStep => 'הבא';
@@ -2813,13 +2080,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get noActiveCloudSyncServiceMessage => 'אין שירות סנכרון ענן פעיל';
 
   @override
-  String get noCallLogs => 'אין יומני שיחות';
-
-  @override
   String get noCallRecords => 'אין רישומי שיחות';
-
-  @override
-  String get noContacts => 'עדיין אין אנשי קשר';
 
   @override
   String get noContactsYet => 'עדיין אין אנשי קשר';
@@ -2831,28 +2092,16 @@ class AppLocalizationsHe extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'אין מכשירים רשומים';
 
   @override
-  String get noDevicesRegisteredYet => 'עדיין אין מכשירים רשומים.';
-
-  @override
-  String get noFilters => 'עדיין אין מסננים';
-
-  @override
   String get noLabels => 'עדיין אין תוויות';
 
   @override
   String get noMarkedPhones => 'אין מספרי טלפון מסומנים';
 
   @override
-  String get noMatchingContacts => 'אין אנשי קשר תואמים';
-
-  @override
   String get noMatchingContactsFound => 'לא נמצאו אנשי קשר תואמים';
 
   @override
   String get noMatchingNumbersFound => 'לא נמצאו מספרים תואמים';
-
-  @override
-  String get noMatchingRecords => 'אין רישומי שיחות תואמים';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2867,15 +2116,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get noPlugins => 'עדיין אין פלאגינים';
-
-  @override
-  String get noRecords => 'אין רישומי שיחות';
-
-  @override
-  String get noResultReturned => 'לא הוחזר תוצאה';
-
-  @override
-  String get noResultReturnedLog => 'לא הוחזרה תוצאה מהפלאגין';
 
   @override
   String noRules(Object ruleType) {
@@ -2898,9 +2138,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get noSubscriptions => 'אין מנויים';
 
   @override
-  String get noSubscriptionsYet => 'עדיין אין מנויים';
-
-  @override
   String get notGranted => 'לא הוענק';
 
   @override
@@ -2918,12 +2155,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get notificationSettings => 'הגדרות התראות';
-
-  @override
-  String get notificationSettingsSaved => 'הגדרות ההתראות נשמרו בהצלחה';
-
-  @override
-  String get notSet => 'לא הוגדר';
 
   @override
   String get notVerifiedText => 'לא מאומת';
@@ -2954,9 +2185,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get numberTypePosition => 'מיקום סוג מספר';
-
-  @override
-  String get ok => 'אישור';
 
   @override
   String get okButton => 'אישור';
@@ -2990,14 +2218,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'אשר באמצעות מזהה לקוח OneDrive ואישור המוגדרים במערכת';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'אשר באמצעות מזהה לקוח OneDrive ואישור המוגדרים במערכת';
-
-  @override
   String get oneDriveConfigTitle => 'תצורת OneDrive';
-
-  @override
-  String get oneDriveConfigurationTitle => 'תצורת OneDrive';
 
   @override
   String get onlineCallerIdSubscription => 'מנוי לזיהוי מתקשר אונליין';
@@ -3056,9 +2277,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get passwordsDoNotMatch => 'סיסמאות אינן תואמות';
 
   @override
-  String get passwordSetSuccessfully => 'הסיסמה הוגדרה בהצלחה';
-
-  @override
   String get pattern => 'תבנית';
 
   @override
@@ -3092,13 +2310,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'מספר טלפון אינו יכול להיות ריק';
 
   @override
-  String get phoneNumberHintText => 'הזן מספר טלפון להוספת כלל';
-
-  @override
   String get phoneNumberLabel => 'מספר טלפון';
-
-  @override
-  String get phoneNumberRegexRequired => 'אנא הזן מספר טלפון וגם תבנית regex';
 
   @override
   String get phoneNumberTypeFixedLine => 'קו קבוע';
@@ -3146,9 +2358,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get phoneRule => 'כלל טלפון';
 
   @override
-  String get phoneRuleEditDialog => 'דו-שיח עריכת כלל טלפון';
-
-  @override
   String get phoneRuleManagement => 'ניהול כללי טלפון';
 
   @override
@@ -3160,9 +2369,6 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'הירשם לרשימות כללי טלפון באמצעות URL כדי לעדכן אוטומטית כללי רשימה לבנה ושחורה. תומך בקובצי כללים בפורמט JSON.';
-
-  @override
-  String get phoneSubscriptionTitle => 'מנויי כללי טלפון';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3183,22 +2389,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get pluginListExportSuccess => 'רשימת התוספים יצואנה בהצלחה';
 
   @override
-  String get pluginLoadedSuccessfully => 'התוסף נטען בהצלחה';
-
-  @override
   String get pluginManagement => 'ניהול תוספים';
 
   @override
   String get pluginManagementSubtitle => 'נהל והגדר תוספים של צד שלישי';
 
   @override
-  String get pluginManagementTitle => 'ניהול תוספים';
-
-  @override
   String get pluginName => 'שם תוסף';
-
-  @override
-  String get pluginNotLoaded => 'התוסף עדיין לא נטען. אנא טען את התוסף תחילה.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3216,16 +2413,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get pluginUrl => 'כתובת URL של תוסף';
-
-  @override
-  String get pluginUrlCannotBeEmpty =>
-      'כתובת URL של תוסף אינה יכולה להיות ריקה';
-
-  @override
-  String get pluginUrlHint => 'הזן כתובת URL של תוסף';
-
-  @override
-  String get pluginUrlLabel => 'כתובת URL של תוסף';
 
   @override
   String get pluginVersion => 'גרסת תוסף';
@@ -3263,34 +2450,10 @@ class AppLocalizationsHe extends AppLocalizations {
       'פתח את כל התכונות הפרימיום, חידוש אוטומטי כל רבעון';
 
   @override
-  String get queryButton => 'בירור';
-
-  @override
-  String get queryFailed => 'הבירור נכשל';
-
-  @override
-  String get queryFailedLog => 'הבירור נכשל';
-
-  @override
-  String get querying => 'מברר...';
-
-  @override
-  String get queryingPhoneNumber => 'בירור מספר טלפון';
-
-  @override
-  String get queryResultTitle => 'תוצאת בירור';
-
-  @override
   String get ready => 'מוכן!';
 
   @override
-  String get receiveWeeklyStatistics => 'קבל סטטיסטיקות שבועיות';
-
-  @override
   String get recruiter => 'מגייס';
-
-  @override
-  String get reEnterPasswordHint => 'אנא הכנס סיסמה מחדש';
 
   @override
   String get refresh => 'רענן';
@@ -3300,11 +2463,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'רענן';
-
-  @override
-  String regexError(Object error) {
-    return 'שגיאת Regex: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3322,10 +2480,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'דפוס ביטוי רגולרי';
-
-  @override
-  String get regexPatternsExamples =>
-      'השתמש בתחביר ביטוי רגולרי סטנדרטי להגדרת דפוסים. דוגמאות:';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3354,14 +2508,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'בוחן ביטויים רגולריים';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'אימות ביטוי רגולרי נכשל: $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'אימות ביטוי רגולרי הצליח';
 
   @override
   String get region => 'אזור';
@@ -3399,34 +2545,8 @@ class AppLocalizationsHe extends AppLocalizations {
   String get remoteNumberFilter => 'מסנן מספרים מרחוק';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'מסנן זה משתמש במסד נתונים מרחוק עצמאי כדי לקבל את מידע המספרים העדכני ביותר.';
-
-  @override
   String get remoteNumberFilterDescription =>
       'יירט שיחות מטרידות על בסיס מידע ממסד נתונים מרחוק';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'מסנן המספרים מרחוק מזהה ומונע שיחות ספאם על ידי שאילתה למסד נתונים מרחוק על סמך ספירת מספרים.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle => 'הסבר למסנן מספרים מרחוק';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• סף ספירה: קבע על בסיס תדירות הופעת המספר';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• פעולות סינון: הגדר כיצד לטפל במספרים החורגים מהסף';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• הגדרות עדיפות: קבע עדיפות לפעולות מרחוק';
-
-  @override
-  String get remoteNumberFilterFeatures => 'תכונות:';
 
   @override
   String get remoteNumberFiltering => 'סינון מספרים מרחוק';
@@ -3447,29 +2567,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get removeAdsTitle => 'הסר פרסומות';
 
   @override
-  String get removedFromFavoriteContacts => 'הוסר מרשימת אנשי הקשר המועדפים';
-
-  @override
   String get removedFromFavorites => 'הוסר מרשימת המועדפים';
-
-  @override
-  String get removeFavorite => 'הסר מועדף';
 
   @override
   String get removeFromFavorites => 'הסר מרשימת המועדפים';
 
   @override
-  String get renameButton => 'שנה שם';
-
-  @override
-  String get renameDeviceDialogTitle => 'שנה שם למכשיר';
-
-  @override
   String get renameDeviceTitle => 'שנה שם למכשיר';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'פעולה זו תחליף את כל ההגדרות הנוכחיות שלך. האם אתה בטוח שברצונך להמשיך?';
 
   @override
   String get requestAllPermissions => 'בקש את כל ההרשאות';
@@ -3498,22 +2602,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'שחזר הגדרות אפליקציה מגיבוי';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'שחזר הגדרות אפליקציה מגיבוי';
-
-  @override
-  String get restoreButton => 'שחזר';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'שחזור מהענן נכשל: $error';
-  }
-
-  @override
   String get restoreFromCloud => 'שחזר מהענן';
-
-  @override
-  String get restoreFromCloudDescription => 'שחזר הגדרות וכללים מאחסון בענן';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3521,22 +2610,10 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'שחזר מהענן';
-
-  @override
   String get restoreFromCloudSuccess => 'שוחזר בהצלחה מהענן';
 
   @override
-  String get restoreFromCloudTitle => 'שחזר מהענן';
-
-  @override
-  String get restoreFromLocal => 'שחזר מהמקומי';
-
-  @override
   String get restorePurchases => 'שחזר רכישות';
-
-  @override
-  String get restoreSectionTitle => 'שחזור';
 
   @override
   String get restoreSettings => 'שחזר הגדרות';
@@ -3544,18 +2621,6 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'פעולה זו תחליף את כל ההגדרות הנוכחיות שלך. האם אתה בטוח שברצונך להמשיך?';
-
-  @override
-  String get restoreSettingsDialogTitle => 'שחזר הגדרות';
-
-  @override
-  String get restoreSettingsTitle => 'שחזר הגדרות';
-
-  @override
-  String get restoreSuccessFromLocal => 'שוחזר בהצלחה מהמקומי';
-
-  @override
-  String get restoreSuccessMessage => 'שוחזר בהצלחה מהענן';
 
   @override
   String get retry => 'נסה שוב';
@@ -3573,15 +2638,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get ruleAction => 'פעולת כלל';
 
   @override
-  String get ruleAddButton => 'הוסף כלל';
-
-  @override
   String get ruleAddedSuccess => 'כלל נוסף בהצלחה';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'הוספת כלל נכשלה: $error';
-  }
 
   @override
   String get ruleAddSuccess => 'כלל נוסף בהצלחה';
@@ -3595,18 +2652,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'מחק כלל';
 
   @override
-  String get ruleDeletedSuccess => 'כלל נמחק בהצלחה';
-
-  @override
   String get ruleDeletedSuccessfully => 'כלל נמחק בהצלחה';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'מחיקת כלל נכשלה: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'מחיקת כלל נכשלה: $error';
   }
 
@@ -3628,9 +2677,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get ruleManagement => 'ניהול כללים';
 
   @override
-  String get ruleManagementTitle => 'ניהול כללים';
-
-  @override
   String get ruleName => 'שם הכלל';
 
   @override
@@ -3648,9 +2694,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get ruleNameLabel => 'שם הכלל';
 
   @override
-  String get ruleNamePatternRequired => 'אנא הזן שם כלל ודפוס';
-
-  @override
   String get ruleNameRequired => 'שם הכלל ומספר הטלפון לא יכולים להיות ריקים';
 
   @override
@@ -3662,23 +2705,7 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'הכלל נשמר בהצלחה!';
-
-  @override
   String get ruleSavedSuccessMessage => 'הכלל נשמר בהצלחה!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'שמירה נכשלה: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'שמירה נכשלה: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'הכלל נשמר בהצלחה!';
 
   @override
   String get rulesExportedSuccessfully => 'כללים יצאו בהצלחה';
@@ -3695,14 +2722,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return '$count כללים יובאו בהצלחה';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'נכשל ביבוא כללים: $error';
-  }
-
-  @override
-  String get ruleStatistics => 'סטטיסטיקות כללים';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3737,9 +2756,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get saveButton => 'שמור';
 
   @override
-  String get saveButtonLabel => 'שמור';
-
-  @override
   String get saveButtonText => 'שמור';
 
   @override
@@ -3748,15 +2764,7 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'שמור סינון';
-
-  @override
   String get saveSettings => 'שמור הגדרות';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'נכשל שמירת הגדרות: $error';
-  }
 
   @override
   String get scamsLikely => 'סביר להניח שמדובר בהונאות';
@@ -3773,27 +2781,11 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'סנני חיפוש';
-
-  @override
-  String get searchForContacts => 'חפש אנשי קשר';
-
-  @override
   String get searchHint => 'חפש...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'חפש אנשי קשר, תוויות, רשימות שחורות, רשימות לבנות וכו\'.';
-
-  @override
-  String get searchSettingsTitle => 'הגדרות חיפוש';
 
   @override
   String get securityMessage =>
       'אל תסמוך על שיחות טלפון כלשהן. תמיד אמת מספרי שירות לקוחות באופן עצמאי. לעולם אל תשתף סיסמאות, קודי אימות, מספרי כרטיסים או מידע אישי.';
-
-  @override
-  String get selectActionToPerform => 'בחר את הפעולה שיש לבצע כאשר הכלל תואם';
 
   @override
   String get selectActionWhenBlockingCalls => 'בחר פעולה בעת חסימת שיחות';
@@ -3806,12 +2798,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get selectCountry => 'בחר מדינה';
-
-  @override
-  String get selectDateRange => 'בחר טווח תאריכים';
-
-  @override
-  String get selectedDateRange => 'טווח תאריכים שנבחר';
 
   @override
   String selectedItems(Object count) {
@@ -3838,20 +2824,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get selectMultiple => 'בחר מרובה';
 
   @override
-  String get selectPeriod => 'בחר תקופה';
-
-  @override
   String get selectSimCard => 'בחר כרטיס SIM';
-
-  @override
-  String get selectSimSlot => 'בחר חריץ SIM';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'בחר את הפעולה הספציפית לביצוע בעת חסימת שיחות';
-
-  @override
-  String get selectTag => 'בחר תגית';
 
   @override
   String get selectTags => 'בחר תגיות';
@@ -3892,23 +2865,7 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'הגדר';
-
-  @override
   String get setEncryptionPassword => 'הגדר סיסמת הצפנה';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'הגדר סיסמת הצפנה לגיבוי ושחזור';
-
-  @override
-  String get setEncryptionPasswordLabel => 'הגדר סיסמת הצפנה';
-
-  @override
-  String get setEncryptionPasswordTitle => 'הגדר סיסמת הצפנה';
-
-  @override
-  String get setPasswordButton => 'הגדר';
 
   @override
   String get settings => 'הגדרות';
@@ -3916,14 +2873,6 @@ class AppLocalizationsHe extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'הגדרות גובו ל: $path';
-  }
-
-  @override
-  String get settingsLoaded => 'הגדרות נטענו';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'נכשל טעינת הגדרות: $error';
   }
 
   @override
@@ -3946,13 +2895,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get setup => 'הגדרה';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'שיטה סטטית להצגת דיאלוג עריכת איש קשר';
-
-  @override
-  String get showExplanation => 'הצג הסבר';
 
   @override
   String get silence => 'השתק';
@@ -4000,19 +2942,11 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'נכשל טעינת מידע על כרטיס SIM: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'כללי כרטיס ה-SIM מאפשרים לך להגדיר כללי סינון עצמאיים עבור כל חריץ SIM.';
 
   @override
   String get simRuleInstructionsTitle => 'כללי חריץ SIM';
-
-  @override
-  String get simRuleManagement => 'ניהול כללי חריץ SIM';
 
   @override
   String simSlot1(String countryIso) {
@@ -4025,18 +2959,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'טעינת נתוני SIM נכשלה: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration => 'תצורת מסנן חריץ SIM';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'מאפשר הגדרת כללי סינון לפי חריץ SIM';
-
-  @override
   String get simSlotFilterDescription =>
       'הגדר כללי סינון עצמאיים עבור כל כרטיס SIM:';
 
@@ -4046,17 +2968,7 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'טעינת חריצי SIM נכשלה: $error';
-  }
-
-  @override
   String get simSlotManagement => 'ניהול חריץ SIM';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'פעולת חריץ SIM נכשלה: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4077,12 +2989,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'כללי חריץ SIM';
-
-  @override
-  String get simSlotRuleManagementTitle => 'ניהול כללים';
-
-  @override
-  String get simSlotSettings => 'הגדרות חריץ SIM';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4118,9 +3024,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get smsFilterSettings => 'הגדרות סינון SMS';
 
   @override
-  String get smsHistory => 'היסטוריית SMS';
-
-  @override
   String get smsManagement => 'ניהול SMS';
 
   @override
@@ -4144,24 +3047,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get smsRuleManagement => 'ניהול כללי SMS';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'כללי SMS יצאו בהצלחה אל $filePath';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully => 'כללי SMS יובאו בהצלחה';
-
-  @override
   String get smsRuleSubscription => 'מנוי כללי SMS';
-
-  @override
-  String get smsRuleUpdatedSuccessfully => 'כלל SMS עודכן בהצלחה';
-
-  @override
-  String get smsSettingsSubtitle => 'סינון SMS וחסימת מילות מפתח';
-
-  @override
-  String get smsSettingsTitle => 'הגדרות SMS';
 
   @override
   String get smsSubscription => 'מנוי SMS';
@@ -4198,25 +3084,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get statBlocked => 'נחסם';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'שיטה סטטית להצגת דיאלוג מידע למתקשר';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'שיטה סטטית להצגת דיאלוג בחירת מדינה';
-
-  @override
-  String get staticMethodToDisplayDialog => 'שיטה סטטית להצגת דיאלוג';
-
-  @override
   String get statistics => 'סטטיסטיקה';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'תכונת ייצוא סטטיסטיקה תגיע בקרוב';
-
-  @override
-  String get statisticsGrid => 'טבלת סטטיסטיקה';
 
   @override
   String get statisticsPageTitle => 'ניתוח נתונים';
@@ -4255,9 +3123,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get subscriptionDeleted => 'המנוי נמחק';
 
   @override
-  String get subscriptionDeletedSuccessfully => 'המנוי נמחק בהצלחה';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'מחיקת המנוי נכשלה: $error';
   }
@@ -4266,23 +3131,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'המנוי נמחק';
 
   @override
-  String get subscriptionEmptyState => 'אין מנויים זמינים';
-
-  @override
-  String get subscriptionEmptyText => 'עדיין אין מנויים';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'טעינת מנויים נכשלה: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'טעינת מנויים נכשלה: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'ניהול מנויים';
 
   @override
   String get subscriptionName => 'שם המנוי';
@@ -4295,15 +3146,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get subscriptionNameHint => 'הזן שם מנוי';
 
   @override
-  String get subscriptionPageTitle => 'ניהול מנויים';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
-    return 'שינוי סטטוס המנוי נכשל: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
     return 'שינוי סטטוס המנוי נכשל: $error';
   }
 
@@ -4342,10 +3185,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get syncFailedMessage => 'הסנכרון נכשל';
 
   @override
-  String get syncFolderNameHint =>
-      'אנא הזן שם תיקיית סנכרון (ברירת מחדל: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'שם תיקיית סנכרון';
 
   @override
@@ -4367,16 +3206,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'סטטוס הסינכרון עודכן';
 
   @override
-  String get syncSuccessful => 'סינכרון הושלם בהצלחה';
-
-  @override
   String get syncSuccessMessage => 'סינכרון הושלם בהצלחה';
 
   @override
   String get syncWithCloudStorage => 'סנכרן עם אחסון ענן';
-
-  @override
-  String get syncWithCloudStorageSubtitle => 'סנכרן עם אחסון ענן';
 
   @override
   String get systemFeatures => 'תכונות מערכת:';
@@ -4405,9 +3238,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'תגיות עודכנו';
-
-  @override
   String get takeaway => 'טייק אווי';
 
   @override
@@ -4421,9 +3251,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get testButton => 'בדיקה';
-
-  @override
-  String get testButtonLabel => 'בדיקה';
 
   @override
   String get testConnectionButton => 'בדוק חיבור';
@@ -4460,13 +3287,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get timeInterceptorSettingsTitle => 'הגדרות יירוט תדירות שיחות';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'יירוט אוטומטי של שיחות זבל פוטנציאליות בהתבסס על תדירות שיחות';
-
-  @override
-  String get timeInterceptorTitle => 'אפשר יירוט תדירות שיחות';
-
-  @override
   String get timeWindowDescription =>
       'קבע את גודל חלון הזמן להתרת שיחות חוזרות. שיחות מאותו מספר בתוך חלון זה יותרו';
 
@@ -4474,10 +3294,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'חלון זמן יירוט (דקות): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'קבע את גודל חלון הזמן להתרת שיחות חוזרות. שיחות מאותו מספר בתוך חלון זה יותרו';
 
   @override
   String get today => 'היום';
@@ -4489,24 +3305,11 @@ class AppLocalizationsHe extends AppLocalizations {
   String get totalBlocked => 'סה\"כ נחסמו';
 
   @override
-  String get totalFiltered => 'סה\"כ סוננו';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'העבר נתונים בין מכשירים או פלטפורמות';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'העבר נתונים בין מכשירים או פלטפורמות';
-
-  @override
   String get travelTicketing => 'כרטיסי נסיעה';
-
-  @override
-  String get trend => 'מגמה';
-
-  @override
-  String get trendChart => 'תרשים מגמה';
 
   @override
   String get tutorial => 'מדריך';
@@ -4519,9 +3322,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get unknown => 'לא ידוע';
-
-  @override
-  String get unknownLabel => 'תווית לא ידועה';
 
   @override
   String get unknownTag => 'תגית: לא ידוע';
@@ -4547,9 +3347,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get updateAllNow => 'עדכן הכל עכשיו';
 
   @override
-  String get updateCallFilterConfig => 'עדכן תצורת מסנן שיחות';
-
-  @override
   String updateContactFailed(Object error) {
     return 'שגיאה בעדכון איש קשר: $error';
   }
@@ -4558,15 +3355,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get updateFavoriteStatus => 'עדכן סטטוס מועדף';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'שגיאה בעדכון סטטוס מועדף: $error';
-  }
-
-  @override
   String get updateInterval => 'מרווח עדכון';
-
-  @override
-  String get updateLabelFailed => 'שגיאה בעדכון תווית';
 
   @override
   String get updateNow => 'עדכן עכשיו';
@@ -4595,9 +3384,6 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'עדכן תגיות';
-
-  @override
   String get useCasesPoint1 => '• זיהוי שיחות זבל של חייגן אוטומטי';
 
   @override
@@ -4614,17 +3400,11 @@ class AppLocalizationsHe extends AppLocalizations {
   String get useGlobalSettings => 'השתמש בהגדרות גלובליות';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => 'שם משתמש';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'השתמש בתחביר Regex סטנדרטי להגדרת תבניות. דוגמאות:';
-
-  @override
-  String get validateRegex => 'אמת Regex';
 
   @override
   String get verificationFailedText => 'נכשל';
@@ -4660,43 +3440,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get webDAVConfigTitle => 'תצורת WebDAV';
 
   @override
-  String get webdavConfigurationTitle => 'תצורת WebDAV';
-
-  @override
-  String get webdavPasswordHint => 'אנא הזן סיסמת WebDAV';
-
-  @override
-  String get webdavServerAddressHint => 'אנא הזן כתובת שרת WebDAV';
-
-  @override
-  String get webdavUsernameHint => 'אנא הזן שם משתמש WebDAV';
-
-  @override
   String get week => 'שבוע';
-
-  @override
-  String get weekly => 'שבועי';
-
-  @override
-  String get weeklyBlockedCallsSummary => 'סיכום שיחות חסומות שבועיות';
-
-  @override
-  String get weeklyChartTitle => 'שיחות חסומות שבועיות';
-
-  @override
-  String get weeklyReport => 'דוח שבועי';
-
-  @override
-  String get weeklyReportDesc => 'קבל דוח סיכום שבועי של פעילות חסימת שיחות';
 
   @override
   String get welcome => 'ברוכים הבאים';
 
   @override
   String get whitelist => 'רשימה לבנה';
-
-  @override
-  String get whitelistLabel => 'רשימה לבנה';
 
   @override
   String get width => 'רוחב';
@@ -4717,12 +3467,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get year => 'שנה';
-
-  @override
-  String get yearly => 'שנתי';
-
-  @override
-  String get yearlyChartTitle => 'שיחות חסומות שנתיות';
 
   @override
   String get noSimCardsDetected => 'לא זוהו כרטיסי SIM';
@@ -4768,9 +3512,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get useStirNotification => 'השתמש בהתראה מ-STIR';
 
   @override
-  String get useStirNotificationDescription => 'הפעל התראות STIR לשיחות נכנסות';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'סגור התראות מקומיות באופן אוטומטי';
 
@@ -4788,11 +3529,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'מידע על שיחה נכנסת';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'מספר: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'שיחה חסומה';
@@ -4845,21 +3581,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'התראת הונאה';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return 'שיחת הונאה פוטנציאלית מ- $phoneNumber';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'נכשל טעינת כללים: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'נכשל טעינת יומן שיחות: $error';
-  }
 
   @override
   String get noBlockedTypeData => 'אין נתוני סוג חסימה זמינים';
@@ -4935,9 +3656,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get removeAds => 'הסרת פרסומות';
-
-  @override
-  String get unknownAction => 'פעולה לא ידועה';
 
   @override
   String get settingsBackup => 'גיבוי הגדרות ';
@@ -5185,16 +3903,8 @@ class AppLocalizationsHe extends AppLocalizations {
   String get blockNumberSuccess => 'חסימת מספר הצליחה';
 
   @override
-  String get blockNumberFailed => 'חסימת מספר נכשלה';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return 'האם אתה בטוח שברצונך לבטל חסימה של $phoneNumber?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return 'מתקשר אל $phoneNumber...';
   }
 
   @override
@@ -5211,9 +3921,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => 'ביטול חסימת מספר נכשל';
-
-  @override
-  String get serviceNotAvailable => 'השירות אינו זמין';
 
   @override
   String get callingNumberFailed => 'שיחת מספר נכשלה';
@@ -5244,9 +3951,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'פורמט מספר לא תקין';
-
-  @override
-  String get membershipFeature => 'תכונת חברות';
 
   @override
   String get medium => 'בינוני';
@@ -5340,9 +4044,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get clearAllNotificationsConfirmation => 'אשר לנקות את כל ההתראות';
 
   @override
-  String get allNotificationsCleared => 'כל ההתראות נוקו';
-
-  @override
   String get clearButton => 'נקה';
 
   @override
@@ -5412,9 +4113,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get reasonInaccurateInfo => 'מידע שגוי';
 
   @override
-  String get reasonWrongMarked => 'סומן בטעות';
-
-  @override
   String get reasonOther => 'אחר';
 
   @override
@@ -5424,25 +4122,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get cancel => 'בטל';
 
   @override
-  String get proposalStatus => 'סטטוס';
-
-  @override
-  String get statusPending => 'ממתין';
-
-  @override
-  String get statusActive => 'פעיל';
-
-  @override
-  String get statusCompleted => 'הושלם';
-
-  @override
-  String get statusExpired => 'פג תוקף';
-
-  @override
   String get riskLevel => 'רמת סיכון';
-
-  @override
-  String get riskLevelVerified => 'מאומת';
 
   @override
   String get riskLevelLow => 'נמוך';
@@ -5451,19 +4131,8 @@ class AppLocalizationsHe extends AppLocalizations {
   String get riskLevelHigh => 'גבוה';
 
   @override
-  String get riskLevelUnknown => 'לא ידוע';
-
-  @override
-  String get votingProgress => 'התקדמות הצבעה';
-
-  @override
   String agreeVotes(int count) {
     return 'הסכמה: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'אי-הסכמה: $count';
   }
 
   @override
@@ -5486,12 +4155,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get verificationReport => 'דוח אימות';
 
   @override
-  String get showReport => 'הצג דוח';
-
-  @override
-  String get hideReport => 'הסתר דוח';
-
-  @override
   String get proposalStatistics => 'סטטיסטיקות הצעה';
 
   @override
@@ -5501,28 +4164,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get activeProposals => 'הצעות פעילות';
 
   @override
-  String get completedProposals => 'הצעות שהושלמו';
-
-  @override
-  String get myVotes => 'הצבעות שלי';
-
-  @override
   String get proposalCreated => 'הצעת מחיקה נוצרה בהצלחה';
-
-  @override
-  String get proposalCreateFailed => 'יצירת הצעת מחיקה נכשלה';
 
   @override
   String get voteSubmitted => 'הצבעה הוגשה בהצלחה';
 
   @override
-  String get voteSubmitFailed => 'הגשת הצבעה נכשלה';
-
-  @override
   String get noProposalsFound => 'לא נמצאו הצעות';
-
-  @override
-  String get loadingProposals => 'טוען הצעות...';
 
   @override
   String get refreshProposals => 'רענן הצעות';
@@ -5674,23 +4322,11 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'טעינת מספר ההצבעות נכשלה';
-
-  @override
   String get voteCount => 'מספר הצבעות';
-
-  @override
-  String get deletionProposalInfo => 'מידע על הצעת מחיקה';
 
   @override
   String get deletionProposalDescription =>
       'הצע למספרים למחיקה המפרים את כללי הקהילה. השתתפותך עוזרת לשמור על הפלטפורמה בטוחה.';
-
-  @override
-  String get voteToEarnVip => 'הצבע על הצעות כדי להרוויח הרשאות VIP!';
-
-  @override
-  String get voteFailed => 'הצבעה נכשלה';
 
   @override
   String get searchProposals => 'חפש הצעות';
@@ -5724,49 +4360,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'מציג אזהרות עבור שיחות פוטנציאליות של הונאה.';
 
   @override
-  String get notificationFrequencyDescription =>
-      'בחר באיזו תדירות תקבל הודעות על הצעות מחיקה חדשות. תוכל לקבל אותן באופן מיידי, באצוות, או במרווח מותאם אישית.';
-
-  @override
   String get notificationMode => 'מצב התראה';
-
-  @override
-  String get immediateNotifications => 'מיידי';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'קבל הודעה מיד עם יצירת הצעה.';
-
-  @override
-  String get batchNotifications => 'באצוות';
-
-  @override
-  String get batchNotificationsDescription =>
-      'קבל סיכום של התראות באופן תקופתי.';
-
-  @override
-  String get customNotifications => 'מותאם אישית';
-
-  @override
-  String get customNotificationsDescription => 'הגדר מרווח משלך לקבלת התראות.';
-
-  @override
-  String get customFrequency => 'תדירות מותאמת אישית';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes דקות';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours שעות';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours שעות $minutes דקות';
-  }
 
   @override
   String get pendingProposals => 'הצעות ממתינות';
@@ -5790,9 +4384,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get riskLevelLabel => 'רמת סיכון';
 
   @override
-  String get riskLevelDescription => 'רמת הסיכון של המספר';
-
-  @override
   String get phoneNumberMinDigits => 'מספר הטלפון חייב להיות לפחות 7 ספרות';
 
   @override
@@ -5814,32 +4405,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get countryCodeRequired => 'קידומת מדינה נדרשת';
 
   @override
-  String get countryCodeLengthError => 'קידומת מדינה חייבת להיות 2 אותיות';
-
-  @override
   String get phoneNumberHint => 'הזן מספר טלפון';
 
   @override
   String get phoneNumberRequired => 'מספר טלפון נדרש';
 
   @override
-  String get phoneNumberLengthError => 'מספר הטלפון חייב להיות לפחות 7 ספרות';
-
-  @override
-  String get reasonHint => 'ספק הסבר מפורט (מינימום 10 תווים)';
-
-  @override
   String get reasonRequired => 'סיבה נדרשת';
-
-  @override
-  String get reasonLengthError => 'הסיבה חייבת להיות לפחות 10 תווים';
-
-  @override
-  String get guidelinesTitle => 'הנחיות';
-
-  @override
-  String get guidelinesText =>
-      '• דווח רק על מספרים שהם באמת בעייתיים\n• ספק סיבות מדויקות ומפורטות\n• בחר רמת סיכון מתאימה בהתאם לחומרה\n• דיווחים שקריים עלולים לגרום להגבלות על החשבון';
 
   @override
   String get riskLevelCritical => 'קריטי';
@@ -5851,52 +4423,11 @@ class AppLocalizationsHe extends AppLocalizations {
   String get riskLevelVeryLow => 'נמוך מאוד';
 
   @override
-  String get riskDescriptionVeryLow => 'נמוך מאוד - מטרד קל, שיחות נדירות';
-
-  @override
-  String get riskDescriptionLow => 'נמוך - שיחות לא רצויות מדי פעם';
-
-  @override
-  String get riskDescriptionMedium => 'בינוני - ספאם קבוע או טלמרקטינג';
-
-  @override
-  String get riskDescriptionHigh => 'גבוה - הטרדה מתמדת או ניסיונות הונאה';
-
-  @override
-  String get riskDescriptionCritical => 'קריטי - הונאות או איומים מסוכנים';
-
-  @override
   String get notificationFrequencyTitle => 'תדירות התראות';
-
-  @override
-  String get notificationFrequencyLabel => 'תדירות התראות (שעות)';
 
   @override
   String errorMessage(String error) {
     return 'שגיאה: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'הצבעות: $totalVotes ($supportPercentage% תמיכה)';
-  }
-
-  @override
-  String get timeJustNow => 'זה עתה';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return '$minutes דקות לפני';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return '$hours שעות לפני';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return '$days ימים לפני';
   }
 
   @override
@@ -5981,9 +4512,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get liveActivitiesTestTitle => 'מבחן פעילויות חיות';
 
   @override
-  String get liveActivitiesTestSubtitle => 'בדוק את התראת הפעילות החיה.';
-
-  @override
   String get liveNotificationCustomizationTitle => 'התאמה אישית של התראות חיות';
 
   @override
@@ -6008,16 +4536,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get proposalDetails => 'פרטי הצעה';
 
   @override
-  String get filterByStatus => 'סנן לפי סטטוס';
-
-  @override
   String get proposalNotFound => 'הצעה לא נמצאה';
 
   @override
   String get processed => 'עובד';
-
-  @override
-  String get showAll => 'הצג הכל';
 
   @override
   String get filterAndSortTitle => 'סנן ומיון';
@@ -6056,9 +4578,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get invalidSimData => 'נתוני SIM לא חוקיים';
 
   @override
-  String get simCardData => 'נתוני כרטיס SIM';
-
-  @override
   String get simSlot => 'חריץ SIM';
 
   @override
@@ -6077,12 +4596,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get callTypeSilenced => 'הושתק';
 
   @override
-  String get callTypeVoicemail => 'השארת הודעה';
-
-  @override
-  String get callTypeUnknownIntercept => 'יירוט לא ידוע';
-
-  @override
   String andMoreItems(int count) {
     return 'ועוד $count פריטים';
   }
@@ -6095,10 +4608,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6182,9 +4691,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

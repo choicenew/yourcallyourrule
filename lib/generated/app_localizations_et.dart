@@ -19,13 +19,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Teave telefoni tellimuse reeglite kohta';
 
   @override
-  String get aboutPhoneSubscriptions => 'Teave telefoni tellimuste kohta';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'Telli URL-i kaudu telefonireeglite loendeid, värskenda reegleid automaatselt. Toetab JSON, CSV vormingus reeglifaile.';
-
-  @override
   String get aboutSmsFilter => 'Teave SMS-i filtreerimise kohta';
 
   @override
@@ -49,9 +42,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get actionBlock => 'Blokeeri';
-
-  @override
-  String get actionFilterAll => 'Kõik filtrid';
 
   @override
   String get actionFilterTitle => 'Filtreeri toimingu tüübi järgi';
@@ -97,28 +87,7 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'Lisatud lubatud reeglitesse';
-
-  @override
-  String get addedToBlacklist => 'Lisatud musta nimekirja';
-
-  @override
-  String get addedToBlockedRules => 'Lisatud blokeeritud reeglitesse';
-
-  @override
-  String get addedToFavoriteContacts => 'Lisatud lemmikkontaktidesse';
-
-  @override
   String get addedToFavorites => 'Lisatud lemmikutesse';
-
-  @override
-  String get addedToWhitelist => 'Lisatud valgesse nimekirja';
-
-  @override
-  String get addFavorite => 'Lisa lemmik';
-
-  @override
-  String get addFilter => 'Lisa filter';
 
   @override
   String get addLabel => 'Lisa silt';
@@ -132,17 +101,10 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'Lisa silt kõnekirjeldusse';
-
-  @override
   String get addName => 'Lisa nimi';
 
   @override
   String get addNoneSubscription => 'Lisa ükski tellimus';
-
-  @override
-  String get addOrEditContactInfo =>
-      'Kasutatakse kontaktteabe lisamiseks või muutmiseks';
 
   @override
   String get addPhoneMark => 'Lisa telefoni märge';
@@ -174,9 +136,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get addRule => 'Lisa reegel';
 
   @override
-  String get addRuleButton => 'Lisa reegel';
-
-  @override
   String addRuleFailed(Object error) {
     return 'Reegli lisamine ebaõnnestus: $error';
   }
@@ -186,9 +145,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'Lisa vaikimisi tellimus';
-
-  @override
-  String get addSimRuleButton => 'Lisa SIM-reegel';
 
   @override
   String get addSmsFilterRule => 'Lisa SMS-i filterreegel';
@@ -214,16 +170,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get addSubscriptionTooltip => 'Lisa tellimus';
 
   @override
-  String get addToAllowedRules => 'Lisa lubatud reeglitesse';
-
-  @override
   String get addToBlacklist => 'Lisa musta nimekirja';
-
-  @override
-  String get addToBlockedRules => 'Lisa blokeeritud reeglitesse';
-
-  @override
-  String get addToFavoriteContacts => 'Lisa lemmikkontaktidesse';
 
   @override
   String get addToFavorites => 'Lisa lemmikutesse';
@@ -235,9 +182,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get addToWhitelist => 'Lisa valgesse nimekirja';
 
   @override
-  String get adPlaceholder => 'Reklaami koht';
-
-  @override
   String get agent => 'Agent';
 
   @override
@@ -245,9 +189,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get allCallsTab => 'Kõik';
-
-  @override
-  String get allDataClearedSuccessfully => 'Kõik andmed kustutati edukalt';
 
   @override
   String get allow => 'Luba';
@@ -260,10 +201,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get allowAllBlacklistedNumbers => 'Luba kõik blokeeritud numbrid';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc =>
-      'Luba kõnesid mustast nimekirjast';
 
   @override
   String get allowAllBlockRules => 'Luba kõik blokeerimisreeglid';
@@ -334,12 +271,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get allowRules => 'Lubamisreeglid';
 
   @override
-  String get allowWhitelistedNumbers => 'Luba valitud numbrid';
-
-  @override
-  String get allowWhitelistedNumbersDescription => 'Luba kõik valitud numbrid';
-
-  @override
   String get allPermissionsGranted => 'Kõik load on antud';
 
   @override
@@ -352,10 +283,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'Vasta ja siis riputa';
-
-  @override
-  String get appLegalese =>
-      '© 2023 Sinu kõne Sinu reegel. Kõik õigused kaitstud.';
 
   @override
   String get applicationSoftware => 'Rakenduse tarkvara';
@@ -394,13 +321,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'Automaatse värskenduse seaded';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'Hallake reeglite ja pistikprogrammide automaatseid värskendusi';
-
-  @override
-  String get autoUpdateSettingsTitle => 'Automaatse värskenduse seaded';
 
   @override
   String get autoUpdateSubtitle =>
@@ -449,45 +369,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get backupFailed => 'Varundus nurjus';
 
   @override
-  String get backupFailedMessage => 'Varundus nurjus';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'Varundus nurjus: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle => 'Varundage või taastage rakenduse andmed';
-
-  @override
-  String get backupRestoreTitle => 'Varundus ja taastamine';
-
-  @override
-  String get backupSectionTitle => 'Varundus';
-
-  @override
   String get backupSettings => 'Varundusseaded';
 
   @override
-  String get backupSettingsDialogTitle => 'Varundusseaded';
-
-  @override
-  String get backupSettingsTitle => 'Varundusseaded';
-
-  @override
-  String get backupSuccessMessage => 'Edualt varundatud pilve';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'Varundus õnnestus: $path';
-  }
-
-  @override
   String get backupToCloud => 'Varundus pilve';
-
-  @override
-  String get backupToCloudDescription =>
-      'Varundage seaded ja reeglid pilvesalvestusse';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -495,16 +380,7 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'Varundus pilve';
-
-  @override
   String get backupToCloudSuccess => 'Edualt varundatud pilve';
-
-  @override
-  String get backupToCloudTitle => 'Varundus pilve';
-
-  @override
-  String get backupToLocalLabel => 'Varundus kohalikku';
 
   @override
   String get bank => 'Pank';
@@ -523,22 +399,13 @@ class AppLocalizationsEt extends AppLocalizations {
       '• Põhiline reeglifiltratsioon: Filtreerib reegleid musta nimekirja, valge nimekirja ja regexi põhjal';
 
   @override
-  String get basicRuleFilterSettings => 'Põhilise reeglifiltri seaded';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'Filtreerige kõnesid musta/valge nimekirja ja regulaaravaldiste abil';
-
-  @override
-  String get batchDeleteContacts => 'Massiline kontaktide kustutamine';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'Kas olete kindel, et soovite kustutada $count valitud kontakti?';
   }
-
-  @override
-  String get batchDeleteFailed => 'Massiline kustutamine nurjus';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -553,9 +420,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Musta ja valge nimekirja koostamine';
 
   @override
-  String get blacklistLabel => 'Must nimekiri';
-
-  @override
   String get blackWhiteList => 'Must/valge nimekiri';
 
   @override
@@ -568,19 +432,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get blocked => 'Blokeeritud';
 
   @override
-  String get blockedCallAction => 'Blokeeritud kõne tegevus';
-
-  @override
   String get blockedCalls => 'Blokeeritud kõned';
 
   @override
   String get blockedCallsTitle => 'Blokeeritud kõned';
-
-  @override
-  String get blockedCommunications => 'Blokeeritud sides';
-
-  @override
-  String get blockedPhoneLabel => 'Blokeeritud kõned';
 
   @override
   String get blockedSpamCalls => 'Blokeeritud rämpskõned';
@@ -594,9 +449,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get blockInternationalCallsTitle => 'Blokeeri rahvusvahelised kõned';
-
-  @override
-  String get blockLandlineNumbersTitle => 'Blokeeri lauatelefoni numbrid';
 
   @override
   String get blockMobileNumbers => 'vastab numbritele, mis ei alga 13-19-ga';
@@ -647,11 +499,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get callback => 'Tagasihelistamine';
 
   @override
-  String callbackTo(String number) {
-    return 'Tagasihelistamine $number-le';
-  }
-
-  @override
   String get callBlocking => 'Kõnede blokeerimine';
 
   @override
@@ -659,9 +506,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'Helistaja ID kohandamine';
-
-  @override
-  String get callerIdDialogTitle => 'Helistaja ID teave';
 
   @override
   String get callerIdDisplayMode => 'Kõneaja näidikurežiim';
@@ -673,13 +517,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'Kõneaja eelvaade';
-
-  @override
-  String get callFilter => 'Kõnefilter';
-
-  @override
-  String get callFilterDescription =>
-      'Kui see on lubatud, kontrollitakse sissetulevaid kõnesid allpool olevate reeglite loendi alusel. Kõne filtreerimise reeglid ei sünkroonita vaikimisi seadmete vahel.';
 
   @override
   String get callFilterRules => 'Kõnefiltri reeglid';
@@ -709,26 +546,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get callHistoryInfoTitle => 'Kõneajalugu';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'Kõneajaloo lähtestamine ebaõnnestus: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'Kõneajaloo värskendamine ebaõnnestus: $error';
-  }
-
-  @override
   String get callHistoryTab => 'Kõneajalugu';
-
-  @override
-  String get callHistoryTimelineEarlier => 'Varasemad';
-
-  @override
-  String get callHistoryTimelineToday => 'Täna';
-
-  @override
-  String get callHistoryTimelineYesterday => 'Eile';
 
   @override
   String get callScreeningPermission => 'Kõne läbivaatuse luba';
@@ -740,13 +558,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'Kõne läbivaatuse luba pole antud, võib mõjutada rakenduse funktsionaalsust.';
-
-  @override
-  String get callSettingsSubtitle =>
-      'Kõneaja näidik, filtreerimine ja blokeerimise sätted';
-
-  @override
-  String get callSettingsTitle => 'Kõne sätted';
 
   @override
   String get callStatistics => 'Kõne statistika';
@@ -804,27 +615,10 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'Muuda märgendit';
-
-  @override
   String get charity => 'Heategevus';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'Kuu $month';
-  }
-
-  @override
-  String get chartOneDayAgo => '1 päev tagasi';
-
-  @override
-  String get chartOneMonthAgo => '1 kuu tagasi';
-
-  @override
   String get chartOneWeekAgo => '1 nädal tagasi';
-
-  @override
-  String get chartTenDaysAgo => '10 päeva tagasi';
 
   @override
   String get chartThreeDaysAgo => '3 päeva tagasi';
@@ -845,23 +639,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Valige vaikimisi pealtkuulamise toiming';
 
   @override
-  String get clearAllData => 'Kustuta kõik andmed';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'Kas olete kindel, et soovite kustutada kõik rakenduse andmed? Seda toimingut ei saa tühistada.';
-
-  @override
-  String get clearAllDataDescription => 'Kustuta kõik rakenduse andmed';
-
-  @override
-  String get clearAllDataLabel => 'Kustuta kõik andmed';
-
-  @override
   String get clearFilter => 'Tühjenda filter';
-
-  @override
-  String get clearLabelFilter => 'Tühjenda sildifilter';
 
   @override
   String get clearLabelFilterButton => 'Tühjenda sildifilter';
@@ -886,9 +664,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get cloudSyncTitle => 'Pilvsünkroniseerimine';
 
   @override
-  String get collapseLabelSelector => 'Sildivalija kokkuklapimine';
-
-  @override
   String get collection => 'Võlanõue';
 
   @override
@@ -908,15 +683,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get configureBackupOptions => 'Konfigureerige varuvõimalused';
 
   @override
-  String get configureBackupOptionsSubtitle => 'Konfigureerige varuvõimalused';
-
-  @override
   String get configureCloudSyncService =>
       'Konfigureerige pilvsünkroniseerimise teenus';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'Palun konfigureerige pilvsünkroniseerimise teenus mitme seadme sünkroonimise lubamiseks.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -927,31 +695,13 @@ class AppLocalizationsEt extends AppLocalizations {
       'Konfigureerige SIM-kaardi filtri reeglid';
 
   @override
-  String get configureSyncServiceHint =>
-      'Palun konfigureerige sünkroonimisteenus pilvsünkroniseerimise sätetes esmalt';
-
-  @override
   String get confirm => 'Kinnita';
-
-  @override
-  String get confirmBatchDeleteContacts =>
-      'Kas olete kindel, et soovite kustutada valitud';
 
   @override
   String get confirmButton => 'Kinnita';
 
   @override
   String get confirmDelete => 'Kinnita kustutamine';
-
-  @override
-  String get confirmDeleteContact => 'Kas olete kindel, et soovite kustutada';
-
-  @override
-  String get confirmDeleteContactName => 'Kustutamise kinnitus?';
-
-  @override
-  String get confirmDeleteFilter =>
-      'Kas olete kindel, et soovite selle filtri kustutada?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -973,10 +723,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Kas olete kindel, et soovite selle reegli kustutada? Seda toimingut ei saa tühistada.';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'Kas olete kindel, et soovite kustutada valitud kontaktid?';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'Kas olete kindel, et soovite selle SMS-filtri reegli kustutada?';
 
@@ -985,19 +731,12 @@ class AppLocalizationsEt extends AppLocalizations {
       'Kas olete kindel, et soovite selle SMS-reegli kustutada?';
 
   @override
-  String get confirmDeleteSubscription =>
-      'Kas olete kindel, et soovite selle tellimuse kustutada?';
-
-  @override
   String confirmDeleteSubscriptions(String name) {
     return 'Kas olete kindel, et soovite kustutada $name?';
   }
 
   @override
   String get confirmPassword => 'Kinnitage salasõna';
-
-  @override
-  String get confirmPasswordLabel => 'Kinnitage salasõna';
 
   @override
   String get connectedStatus => 'Ühendatud';
@@ -1022,16 +761,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get contactDeleted => 'Kontakt kustutatud';
 
   @override
-  String get contactEditDialog => 'Kontakti redigeerimise dialoog';
-
-  @override
-  String get contactNameHint => 'Sisesta kontakti nimi (valikuline)';
-
-  @override
   String get contactNameLabel => 'Nimi';
-
-  @override
-  String get contactNameOptional => 'Kontakti nimi (valikuline)';
 
   @override
   String get contactNotFound => 'Kontakti ei leitud';
@@ -1045,24 +775,7 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle => 'Kontakti haldamine ja siltide seaded';
-
-  @override
-  String get contactSettingsTitle => 'Kontakti sätted';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'Kontaktide laadimine ebaõnnestus: $error';
-  }
-
-  @override
   String get contactsManagement => 'Kontaktide haldus';
-
-  @override
-  String get contactsManagementPageTitle => 'Kontaktide halduse leht';
-
-  @override
-  String get contactsPageTitle => 'Kontaktide haldus';
 
   @override
   String get contactsPermission => 'Kontaktide luba';
@@ -1077,14 +790,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'Telli kontaktiloendeid URL-i kaudu, uuendage automaatselt kontaktteavet ja silte. Toetab JSON-vormingus andmeid.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'Kontaktitellimuste laadimine ebaõnnestus: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'Kontaktitellimused';
 
   @override
   String get contactUpdateSuccess => 'Kontakt värskendati edukalt';
@@ -1120,26 +825,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get countryRegionNamePosition => 'Riigi/regiooni nime asukoht';
 
   @override
-  String get countrySelectionDialog => 'Riigi valimise dialoog';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'Kasutatakse riigi valimiseks helistaja ID teabe päringuks';
-
-  @override
   String get countThresholdDescription =>
       'Määrake filtreerimis toimingute käivitamiseks vajalik minimaalne loendamise lävend';
 
   @override
   String get countThresholdLabel => 'Loendamise lävend';
-
-  @override
-  String get countThresholdSettings => 'Loendamise läve seaded';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'Loendamise lävend: $count';
-  }
 
   @override
   String get createdRules => 'Loodud reeglid';
@@ -1148,47 +838,22 @@ class AppLocalizationsEt extends AppLocalizations {
   String get csvFormat => 'CSV-vorming';
 
   @override
-  String get currentDeviceChip => 'Praegune';
-
-  @override
   String get currentDeviceLabel => 'Praegase seadme silt';
 
   @override
   String get currentDeviceTitle => 'Praegune seade';
 
   @override
-  String get currentLabels => 'Praegused sildid:';
-
-  @override
   String get currentLanguage => 'Praegune keel';
 
   @override
-  String get currentPasswordLabel => 'Praegune parool';
-
-  @override
   String get customerService => 'Klienditeenindus';
-
-  @override
-  String get customRange => 'Kohandatud vahemik';
-
-  @override
-  String get dailyStatistics => 'Päevastatistika';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'Saate igapäevast statistikat blokeeritud kõnede ja sõnumite kohta';
 
   @override
   String get dashboardTab => 'Armatuurlaud';
 
   @override
   String get dataAnalysis => 'Andmeanalüüs';
-
-  @override
-  String get dataAnalysisDashboardPage => 'Andmeanalüüsi armatuurlaua leht';
-
-  @override
-  String get dataExport => 'Andmete eksport';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1206,16 +871,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'See funktsioon võimaldab teil edastada kogu oma andmeid seadmete vahel. Praegu saate oma andmete käsitsi migreerimiseks kasutada varundamis- ja taastamisfunktsioone.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'See funktsioon võimaldab teil edastada kogu oma andmeid seadmete vahel. Praegu saate oma andmete käsitsi migreerimiseks kasutada varundamis- ja taastamisfunktsioone.';
-
-  @override
-  String get dataMigrationDialogTitle => 'Andmete migreerimine';
-
-  @override
-  String get dataMigrationSectionTitle => 'Andmete migreerimine';
 
   @override
   String get dataSourceReminder => 'Andmeallika meeldetuletus';
@@ -1240,9 +895,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get debtCollection => 'Võlgade sissenõudmine';
 
   @override
-  String get defaultPeriod => 'Nädal';
-
-  @override
   String get delete => 'Kustuta';
 
   @override
@@ -1257,24 +909,9 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation =>
-      'Kas olete kindel, et soovite kontakti kustutada';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return 'Kas olete kindel, et soovite seadet $deviceName kustutada?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'Seadme kustutamine';
-
-  @override
   String deleteFailed(Object error) {
     return 'Kustutamine ebaõnnestus: $error';
   }
-
-  @override
-  String get deleteFilter => 'Kustuta filter';
 
   @override
   String get deleteLabel => 'Kustuta silt';
@@ -1312,9 +949,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get deleteSelected => 'Kustuta valitud';
 
   @override
-  String get deleteSmsRule => 'Kustuta SMS reegel';
-
-  @override
   String get deleteSubscription => 'Kustuta tellimus';
 
   @override
@@ -1334,15 +968,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get delivery => 'Kohaletoimetamine';
 
   @override
-  String get deviceDeletedSuccessfully => 'Seade kustutati edukalt';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage => 'Seade kustutati edukalt';
-
-  @override
-  String get deviceIdLabel => 'Seadme ID';
-
-  @override
   String get deviceIDLabel => 'Seadme ID';
 
   @override
@@ -1358,26 +983,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get deviceName => 'Seadme nimi';
 
   @override
-  String get deviceNameCannotBeEmpty => 'Seadme nimi ei saa olla tühi';
-
-  @override
-  String get deviceNameHint => 'Sisestage seadme nimi';
-
-  @override
   String get deviceNameLabel => 'Seadme nimi';
-
-  @override
-  String get deviceRenamedSuccessfully => 'Seade edukalt ümber nimetatud';
 
   @override
   String get deviceRenamedSuccessfullyMessage =>
       'Seade edukalt ümber nimetatud';
-
-  @override
-  String get devicesSyncedSuccessfully => 'Seadmed edukalt sünkroonitud';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage => 'Seadmed edukalt sünkroonitud';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1402,9 +1012,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'Globaalsete pistikprogrammide keelamine';
-
-  @override
-  String get disableSubscriptionSuccessfully => 'Tellimus edukalt keelatud';
 
   @override
   String get disconnectButton => 'Katkesta ühendus';
@@ -1438,25 +1045,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get editContact => 'Muuda kontakti';
 
   @override
-  String get editFilter => 'Muuda filtrit';
-
-  @override
   String get editLabel => 'Muuda silti';
 
   @override
   String get editPhoneRule => 'Muuda kõne reeglit';
 
   @override
-  String get editPhoneRules => 'Kasutatakse kõnede reeglite muutmiseks';
-
-  @override
-  String get editPhoneRuleTitle => 'Muuda kõne reeglit';
-
-  @override
   String get editRule => 'Muuda reeglit';
-
-  @override
-  String get editSmsRule => 'Muuda SMS-i reeglit';
 
   @override
   String get education => 'Haridus';
@@ -1466,9 +1061,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get email => 'E-post';
-
-  @override
-  String get emailOptional => 'E-post (valikuline)';
 
   @override
   String get enableCallFilter => 'Luba kõne filter';
@@ -1488,15 +1080,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => 'Krüpti varukoopia failid';
-
-  @override
-  String get enableEncryptionLabel => 'Luba krüptimine';
-
-  @override
-  String get enableEncryptionSubtitle => 'Varukoopia failid krüpteeritakse';
-
-  @override
-  String get enableEncryptionTitle => 'Luba krüptimine';
 
   @override
   String get enableGlobalPlugins => 'Globaalsete pistikprogrammide lubamine';
@@ -1533,9 +1116,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Luba reeglite konfiguratsioonid ilma pealtkuulamise toiminguteta';
 
   @override
-  String get enableNotifications => 'Luba teated';
-
-  @override
   String get enableRemoteNumberFilter => 'Luba kaug numbri filter';
 
   @override
@@ -1551,12 +1131,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'Kui see on lubatud, filtreeritakse sõnumid automaatselt reeglite järgi';
-
-  @override
-  String get enableStatisticsNotifications => 'Luba statistika teated';
-
-  @override
-  String get enableSubscriptionSuccessfully => 'Tellimus edukalt lubatud';
 
   @override
   String get enableTimeInterception => 'Luba aja pealtkuulamine';
@@ -1592,10 +1166,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Täiustatud filtrisüsteem toetab nii globaalseid reegleid kui ka SIM-kaardi kohta käivaid filtreerimiskonfiguratsioone.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'Palun sisestage nii telefoninumber kui ka regulaaravaldise muster';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'Palun sisestage nii telefoninumber kui ka regulaaravaldise muster.';
 
@@ -1603,31 +1173,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get enterContactName => 'Palun sisestage kontakti nimi';
 
   @override
-  String get enterCurrentPasswordHint => 'Palun sisestage praegune parool';
-
-  @override
   String get enterDeviceName => 'Sisesta seadme nimi';
-
-  @override
-  String get enterDeviceNameHint => 'Sisestage seadme nimi';
-
-  @override
-  String get enterEmail => 'Sisesta e-post';
 
   @override
   String get enterEmailOptional => 'Sisesta e-post (valikuline)';
 
   @override
   String get enterEncryptionPasswordHint => 'Sisesta krüpteerimisparool';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'Sisesta krüpteerimisparool';
-
-  @override
-  String get enterFilterName => 'Palun sisestage filtri nimi';
-
-  @override
-  String get enterFilterPattern => 'Palun sisestage filtri muster';
 
   @override
   String get enterIconCode => 'Sisesta ikooni kood';
@@ -1639,13 +1191,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get enterNewDeviceNameHint => 'Sisestage sellele seadmele uus nimi';
 
   @override
-  String get enterNewPasswordHint => 'Palun sisestage uus parool';
-
-  @override
   String get enterPasswordAgain => 'Sisesta parool uuesti';
-
-  @override
-  String get enterPasswordHint => 'Palun sisestage parool';
 
   @override
   String get enterPhoneNumber => 'Sisesta telefoninumber';
@@ -1673,9 +1219,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'Sisesta regulaaravaldise muster';
-
-  @override
-  String get enterRuleNameAndPattern => 'Palun sisestage reegli nimi ja muster';
 
   @override
   String get enterRuleNameAndPatternMessage =>
@@ -1720,14 +1263,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get enterWebDAVUsernameHint => 'Palun sisesta WebDAV kasutajanimi';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'Seadme kustutamisel tekkis viga: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'Plugina laadimisel tekkis viga';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'Tekkis viga: $error';
   }
@@ -1743,14 +1278,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'Seadmete sünkroniseerimisel tekkis viga: $error';
-  }
-
-  @override
-  String get errorText => 'Viga';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'Seadme tühistamisel tekkis viga: $error';
   }
@@ -1760,9 +1287,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'nt. Blokeeri turundus-SMSid';
-
-  @override
-  String get exampleContentRegex => 'nt., .*pakkumine.*';
 
   @override
   String get exampleContentRegexHint => 'Näide sisu regex';
@@ -1781,9 +1305,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get exampleRegex400Prefix => 'Näide regex 400 prefiksile';
 
   @override
-  String get exampleRegexFormat => 'Näide: ^10086\$ formaat';
-
-  @override
   String get exampleSenderRegexHint => 'Example';
 
   @override
@@ -1794,9 +1315,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get exchangeVip => 'Vaheta VIP';
-
-  @override
-  String get expandLabelSelector => 'Laienda sildivalikut';
 
   @override
   String expiryTime(Object time) {
@@ -1810,19 +1328,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get exportAllApplicationSettings => 'Ekspordi kõik rakenduse sätted';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'Ekspordi kõik rakenduse sätted';
-
-  @override
   String get exportAllRuleConfigurations =>
       'Ekspordi kõik reeglite konfiguratsioonid';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle =>
-      'Ekspordi kõik reeglite konfiguratsioonid';
-
-  @override
-  String get exportComplete => 'Eksportimine lõpetatud';
 
   @override
   String get exportConfig => 'Ekspordi konfiguratsioon';
@@ -1834,9 +1341,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get exportData => 'Ekspordi andmed';
 
   @override
-  String get exportError => 'Ekspordi viga';
-
-  @override
   String get exportFailed => 'Eksport ebaõnnestus';
 
   @override
@@ -1845,9 +1349,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get exportFeatureComingSoon =>
       'Eksportimise funktsioon peagi saadaval';
-
-  @override
-  String get exporting => 'Ekspordin...';
 
   @override
   String get exportLabels => 'Ekspordi sildid';
@@ -1869,34 +1370,17 @@ class AppLocalizationsEt extends AppLocalizations {
   String get exportRules => 'Ekspordi reeglid';
 
   @override
-  String get exportRulesDialogTitle => 'Ekspordi reeglid';
-
-  @override
-  String get exportRulesTitle => 'Ekspordi reeglid';
-
-  @override
   String get exportSmsRules => 'Ekspordi SMS-reeglid';
 
   @override
   String get exportStatisticsData => 'Ekspordi statistikaandmed';
 
   @override
-  String get exportSuccess => 'Eksporditud edukalt';
-
-  @override
   String get exportSuccesslly => 'Konfiguratsioon eksporditud edukalt';
-
-  @override
-  String get failedToAddContact => 'Kontakti lisamine ebaõnnestus';
 
   @override
   String failedToAddRule(Object error) {
     return 'Reegli lisamine ebaõnnestus: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'SMS-reegli lisamine ebaõnnestus: $error';
   }
 
   @override
@@ -1914,9 +1398,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Varukoopiafaili dekrüpteerimine ebaõnnestus';
 
   @override
-  String get failedToDeleteDevice => 'Seadme kustutamine ebaõnnestus';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'SMS-reegli kustutamine ebaõnnestus: $error';
   }
@@ -1924,11 +1405,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'Reeglite eksportimine ebaõnnestus: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'SMS-reeglite eksportimine ebaõnnestus: $error';
   }
 
   @override
@@ -1942,20 +1418,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'SMS-reeglite importimine ebaõnnestus: $error';
-  }
-
-  @override
-  String get failedToLoadContacts => 'Kontaktide laadimine ebaõnnestus';
-
-  @override
-  String get failedToLoadPlugin => 'Plugina laadimine ebaõnnestus';
-
-  @override
-  String get failedToRenameDevice => 'Seadme ümbernimetamine ebaõnnestus';
-
-  @override
   String get failedToRestoreSettings => 'Sätete taastamine ebaõnnestus';
 
   @override
@@ -1964,32 +1426,9 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'Parooli määramine ebaõnnestus: $error';
-  }
-
-  @override
-  String get failedToSyncDevices => 'Seadmete sünkroonimine ebaõnnestus';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'Reegli oleku lülitamine ebaõnnestus: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus =>
-      'Tellimuse oleku lülitamine ebaõnnestus';
-
-  @override
-  String get failedToUpdateContact => 'Kontakti värskendamine ebaõnnestus';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'SMS-reegli värskendamine ebaõnnestus: $error';
-  }
-
-  @override
-  String get failure => 'Ebaõnnestumine';
 
   @override
   String get favoriteContacts => 'Lemmik kontaktid';
@@ -2029,9 +1468,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get filterByLabel => 'Filtreeri sildi järgi';
 
   @override
-  String get filterClear => 'Tühista filter';
-
-  @override
   String get filterControlPanelTitle => 'Filtri juhtpaneel';
 
   @override
@@ -2042,22 +1478,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get filterControlTitle => 'Filtri juhtimine';
 
   @override
-  String get filterDeleteFailed => 'Filtri kustutamine ebaõnnestus';
-
-  @override
-  String get filterDeleteSuccess => 'Filter kustutati edukalt';
-
-  @override
-  String get filterDetails => 'Filtri üksikasjad';
-
-  @override
   String get filtered => 'Filtreeritud';
-
-  @override
-  String get filteredSms => 'Filtreeritud SMS';
-
-  @override
-  String get filteredSmsLabel => 'Filtreeritud SMS';
 
   @override
   String get filterExplanation => 'Filtri selgitus';
@@ -2069,17 +1490,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get filterName => 'Filtri nimi';
 
   @override
-  String get filterPattern => 'Filtri muster';
-
-  @override
   String get filterPriorityNote =>
       'Märkus: Filtrite vahel on prioriteedisuhted, üksikasjade saamiseks tutvuge abidokumentatsiooniga';
-
-  @override
-  String get filterSaveFailed => 'Filtri salvestamine ebaõnnestus';
-
-  @override
-  String get filterSaveSuccess => 'Filter salvestati edukalt';
 
   @override
   String get filterSettings => 'Filtri sätted';
@@ -2118,16 +1530,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return 'Leiti $count reeglit. Kas soovite need importida?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return 'Leiti $count reeglit. Kas soovite need importida?';
-  }
-
-  @override
   String get fraudAlert => 'PETISHOIATUS - Lõpetage kõne';
 
   @override
@@ -2162,39 +1564,14 @@ class AppLocalizationsEt extends AppLocalizations {
   String get globalFilterSettings => 'Globaalsed filtri sätted';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'Konfigureerige globaalsed filtri sätted, mis kehtivad kõigile SIM-pesadele:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'Otsige kontakte, silte, mustnimekirju, valgenimekirju jne.';
-
-  @override
-  String get globalSearchTitle => 'Globaalne otsing';
-
-  @override
   String get globalSettings => 'Globaalsed sätted';
-
-  @override
-  String get googleAdDisplayPosition => 'Google Ad Display Position';
-
-  @override
-  String get googleAdMobIntegrationText =>
-      'Siia saab integreerida Google AdMob reklaame';
 
   @override
   String get googleDriveAuthDescription =>
       'Volitage, kasutades süsteemis konfigureeritud Google Drive\'i kliendi ID-d ja võtit';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'Volitage, kasutades süsteemis konfigureeritud Google Drive\'i kliendi ID-d ja võtit';
-
-  @override
   String get googleDriveConfigTitle => 'Google Drive\'i konfiguratsioon';
-
-  @override
-  String get googleDriveConfigurationTitle => 'Google Drive\'i konfiguratsioon';
 
   @override
   String get government => 'Valitsus';
@@ -2213,9 +1590,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get height => 'Kõrgus';
-
-  @override
-  String get homePageTitle => 'Avakuva';
 
   @override
   String get homeTab => 'Avaleht';
@@ -2246,9 +1620,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get important => 'Tähtis';
-
-  @override
-  String get importButton => 'Import';
 
   @override
   String get importConfig => 'Impordi konfiguratsioon';
@@ -2302,31 +1673,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Impordi reeglite konfiguratsioonid failist';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'Impordi reeglite konfiguratsioonid failist';
-
-  @override
   String get importRules => 'Impordi reeglid';
-
-  @override
-  String get importRulesButton => 'Impordi reeglid';
-
-  @override
-  String get importRulesDialogTitle => 'Impordi reeglid';
-
-  @override
-  String importRulesError(Object error) {
-    return 'Reeglite importimine ebaõnnestus: $error';
-  }
-
-  @override
-  String get importRulesInstructions => 'Impordi reeglid CSV-failist';
-
-  @override
-  String get importRulesSuccess => 'Reeglid imporditi edukalt';
-
-  @override
-  String get importRulesTitle => 'Impordi reeglid';
 
   @override
   String get importSuccess => 'Importimine õnnestus';
@@ -2334,9 +1681,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get incomingCallInterceptAction =>
       'Sissetuleva kõne tõkestamise toiming';
-
-  @override
-  String get incomingCallNotification => 'Sissetuleva kõne teavitus';
 
   @override
   String get incorrectPassword => 'Vale parool';
@@ -2391,9 +1735,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Liituge Telegrami kanaliga ja grupiga lisateabe saamiseks';
 
   @override
-  String get jsLogsTitle => 'JS logid';
-
-  @override
   String get jsonFormat => 'JSON-vorming';
 
   @override
@@ -2402,16 +1743,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'Säilita iga varukoopia ajaloolised versioonid';
-
-  @override
-  String get keepAllVersionsLabel => 'Säilita kõik versioonid';
-
-  @override
-  String get keepAllVersionsSubtitle =>
-      'Säilita iga varukoopia ajaloolised versioonid';
-
-  @override
-  String get keepAllVersionsTitle => 'Säilita kõik versioonid';
 
   @override
   String get label => 'Silt';
@@ -2432,9 +1763,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Sildid aitavad teil paremini hallata kontakte, lisada telefoninumbritele kohandatud silte kõnede ja sõnumite hõlpsaks tuvastamiseks.';
 
   @override
-  String get labelFilter => 'Siltide filter';
-
-  @override
   String get labelFilterTooltip => 'Siltide filter';
 
   @override
@@ -2445,14 +1773,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get labelNotFound => 'Silt ei leidnud';
-
-  @override
-  String get labelRemoved => 'Silt eemaldati';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'Sildi eemaldamine ebaõnnestus: $error';
-  }
 
   @override
   String get labels => 'Sildid';
@@ -2485,9 +1805,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'Silti värskendati';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'Sildi värskendamine ebaõnnestus: $error';
   }
@@ -2503,12 +1820,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'Keele sätted';
-
-  @override
-  String get last30Days => 'Viimased 30 päeva';
-
-  @override
-  String get last7Days => 'Viimased 7 päeva';
 
   @override
   String get lastSyncLabel => 'Viimane sünkroniseerimine';
@@ -2534,13 +1845,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get loadDataFailed => 'Andmete laadimine ebaõnnestus';
 
   @override
-  String get loadFailed => 'Laadimine ebaõnnestus';
-
-  @override
   String get loading => 'Laadin...';
-
-  @override
-  String get loadingData => 'Laadin andmeid...';
 
   @override
   String get loadingTags => 'Laadin silte...';
@@ -2564,12 +1869,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'Märgitud telefonide laadimine ebaõnnestus: $error';
   }
-
-  @override
-  String get loadMore => 'Laadi rohkem';
-
-  @override
-  String get loadPluginButton => 'Laadi pistikprogramm';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2596,9 +1895,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get loan => 'Laen';
-
-  @override
-  String get localBackupTitle => 'Kohalik varundus';
 
   @override
   String get localCounterFilter => 'Kohaliku loenduri filter';
@@ -2694,9 +1990,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get manage => 'Hallake kontakte';
 
   @override
-  String get manageContacts => 'Halda';
-
-  @override
   String get manageFavoriteContacts => 'Hallake lemmikkontakte';
 
   @override
@@ -2705,9 +1998,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'Lisage, muutke või kustutage SMS-filtri reegleid';
-
-  @override
-  String get manageFrequentContacts => 'Hallake sagedasi kontakte';
 
   @override
   String get markCounts => 'Märgistamise loendurid';
@@ -2735,16 +2025,10 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle => 'Telefoninumbrite märkimiseks';
-
-  @override
   String get markPhoneManagementTitle => 'Telefoni numbri märkimise haldus';
 
   @override
   String get markPhoneSuccess => 'Telefoni number märgiti edukalt';
-
-  @override
-  String get matchFailed => 'Sobitus ebaõnnestus!';
 
   @override
   String get matchFailedMessage => 'Sobitus ebaõnnestus.';
@@ -2764,9 +2048,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get matchSpecificDigitPatternsTitle => 'Sobita kindlad numbrimustrid:';
 
   @override
-  String get matchSuccessful => 'Sobitus õnnestus!';
-
-  @override
   String get matchSuccessfulMessage => 'Sobitus õnnestus!';
 
   @override
@@ -2777,9 +2058,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get migrationTool => 'Migratsioonitööriist';
-
-  @override
-  String get migrationToolTitle => 'Migratsioonitööriist';
 
   @override
   String get minutes => 'minutit';
@@ -2794,9 +2072,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get monthlyCallCount => 'Kuuväljakutsed';
 
   @override
-  String get monthlyChartTitle => 'Kuuväljakutsed blokeeritud';
-
-  @override
   String get monthlyMembership => 'Kuuliikmelisus';
 
   @override
@@ -2805,9 +2080,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'Kuukokku';
-
-  @override
-  String get monthlyTotalLabel => 'Kuukokku';
 
   @override
   String get moreOptions => 'Rohkem valikuid';
@@ -2823,33 +2095,16 @@ class AppLocalizationsEt extends AppLocalizations {
       'Nimi ja telefoninumber ei saa olla tühjad';
 
   @override
-  String get nameAndPhoneNumberRequired =>
-      'Nimi ja telefoninumber peavad olema täidetud';
-
-  @override
   String get nameColor => 'Nime värv';
 
   @override
   String get nameFontSize => 'Nime fondisuurus';
 
   @override
-  String nameLabel(Object name) {
-    return 'Nimi: $name';
-  }
-
-  @override
   String get namePosition => 'Nime asukoht';
 
   @override
   String get nameUnknown => 'Nimi: Tundmatu';
-
-  @override
-  String nameWithValue(String name) {
-    return 'Nimi: $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'Uus parool';
 
   @override
   String get nextStep => 'Järgmine';
@@ -2865,13 +2120,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Ühtegi aktiivset pilvesünkroniseerimisteenust pole';
 
   @override
-  String get noCallLogs => 'Kõnelogisid pole';
-
-  @override
   String get noCallRecords => 'Kõnekirjeid pole';
-
-  @override
-  String get noContacts => 'Kontaktid puuduvad veel';
 
   @override
   String get noContactsYet => 'Kontakte pole veel';
@@ -2883,28 +2132,16 @@ class AppLocalizationsEt extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'Seadmeid pole registreeritud';
 
   @override
-  String get noDevicesRegisteredYet => 'Registreeritud seadmeid pole veel';
-
-  @override
-  String get noFilters => 'Filtreid pole veel';
-
-  @override
   String get noLabels => 'Silte pole veel';
 
   @override
   String get noMarkedPhones => 'Märgitud telefone pole';
 
   @override
-  String get noMatchingContacts => 'Sobivaid kontakte pole';
-
-  @override
   String get noMatchingContactsFound => 'Sobivaid kontakte ei leitud';
 
   @override
   String get noMatchingNumbersFound => 'Sobivaid numbreid ei leitud';
-
-  @override
-  String get noMatchingRecords => 'Sobivaid kõnekirjeid pole';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2919,15 +2156,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get noPlugins => 'Pistikprogramme pole veel';
-
-  @override
-  String get noRecords => 'Kõnekirjeid pole';
-
-  @override
-  String get noResultReturned => 'Tulemust ei tagastatud';
-
-  @override
-  String get noResultReturnedLog => 'Pistikprogrammist tulemust ei tagastatud';
 
   @override
   String noRules(Object ruleType) {
@@ -2950,9 +2178,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get noSubscriptions => 'Tellimusi pole';
 
   @override
-  String get noSubscriptionsYet => 'Tellimusi pole veel';
-
-  @override
   String get notGranted => 'Pole antud';
 
   @override
@@ -2971,13 +2196,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get notificationSettings => 'Teavituste seaded';
-
-  @override
-  String get notificationSettingsSaved =>
-      'Teavituste seaded salvestati edukalt';
-
-  @override
-  String get notSet => 'Pole määratud';
 
   @override
   String get notVerifiedText => 'Pole kinnitatud';
@@ -3011,9 +2229,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get numberTypePosition => 'Numbritüübi asukoht';
 
   @override
-  String get ok => 'OK';
-
-  @override
   String get okButton => 'OK';
 
   @override
@@ -3045,14 +2260,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Volitage süsteemi konfigureeritud OneDrive\'i kliendi ID ja võtme abil';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'Volitage süsteemi konfigureeritud OneDrive\'i kliendi ID ja võtme abil';
-
-  @override
   String get oneDriveConfigTitle => 'OneDrive konfiguratsioon';
-
-  @override
-  String get oneDriveConfigurationTitle => 'OneDrive konfiguratsioon';
 
   @override
   String get onlineCallerIdSubscription => 'Online helistaja ID tellimus';
@@ -3111,9 +2319,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get passwordsDoNotMatch => 'Paroolid ei vasta';
 
   @override
-  String get passwordSetSuccessfully => 'Parool on edukalt seatud';
-
-  @override
   String get pattern => 'Muster';
 
   @override
@@ -3147,14 +2352,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Telefoninumber ei saa olla tühi';
 
   @override
-  String get phoneNumberHintText => 'Sisesta telefoninumber reegli lisamiseks';
-
-  @override
   String get phoneNumberLabel => 'Telefoninumber';
-
-  @override
-  String get phoneNumberRegexRequired =>
-      'Palun sisesta nii telefoninumber kui ka regex-muster';
 
   @override
   String get phoneNumberTypeFixedLine => 'Lauatelefon';
@@ -3203,9 +2401,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get phoneRule => 'Telefonireegel';
 
   @override
-  String get phoneRuleEditDialog => 'Telefonireegli redigeerimise dialoog';
-
-  @override
   String get phoneRuleManagement => 'Telefonireeglite haldus';
 
   @override
@@ -3217,9 +2412,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'Telli telefonireeglite loendeid URL-i kaudu, et automaatselt värskendada valge ja musta nimekirja reegleid. Toetab JSON-vormingus reeglifaile.';
-
-  @override
-  String get phoneSubscriptionTitle => 'Telefonireeglite tellimused';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3241,9 +2433,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Pistikprogrammide loend eksporditi edukalt';
 
   @override
-  String get pluginLoadedSuccessfully => 'Pistikprogramm laaditi edukalt';
-
-  @override
   String get pluginManagement => 'Pistikprogrammide haldus';
 
   @override
@@ -3251,14 +2440,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Hallake ja konfigureerige kolmanda osapoole pistikprogramme';
 
   @override
-  String get pluginManagementTitle => 'Pistikprogrammide haldus';
-
-  @override
   String get pluginName => 'Pistikprogrammi nimi';
-
-  @override
-  String get pluginNotLoaded =>
-      'Pistikprogrammi pole veel laaditud. Palun laadi pistikprogramm kõigepealt.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3276,15 +2458,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get pluginUrl => 'Pistikprogrammi URL';
-
-  @override
-  String get pluginUrlCannotBeEmpty => 'Pistikprogrammi URL ei saa olla tühi';
-
-  @override
-  String get pluginUrlHint => 'Sisesta pistikprogrammi URL';
-
-  @override
-  String get pluginUrlLabel => 'Pistikprogrammi URL';
 
   @override
   String get pluginVersion => 'Pistikprogrammi versioon';
@@ -3322,35 +2495,10 @@ class AppLocalizationsEt extends AppLocalizations {
       'Ava kõik esmaklassilised funktsioonid, automaatne uuendamine kvartaalselt';
 
   @override
-  String get queryButton => 'Päring';
-
-  @override
-  String get queryFailed => 'Päring nurjus';
-
-  @override
-  String get queryFailedLog => 'Päring nurjus';
-
-  @override
-  String get querying => 'Päring...';
-
-  @override
-  String get queryingPhoneNumber => 'Telefoninumbri päring';
-
-  @override
-  String get queryResultTitle => 'Päringu tulemus';
-
-  @override
   String get ready => 'Valmis!';
 
   @override
-  String get receiveWeeklyStatistics =>
-      'Vastuvõtmiseks iganädalased statistika';
-
-  @override
   String get recruiter => 'Värbaja';
-
-  @override
-  String get reEnterPasswordHint => 'Palun sisesta parool uuesti';
 
   @override
   String get refresh => 'Värskenda';
@@ -3360,11 +2508,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'Värskenda';
-
-  @override
-  String regexError(Object error) {
-    return 'Regex viga: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3382,10 +2525,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'RegEx-muster';
-
-  @override
-  String get regexPatternsExamples =>
-      'Kasutage mustrite määramiseks standardset RegEx-süntaksit. Näited:';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3414,14 +2553,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'RegEx-testija';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'RegEx-i valideerimine ebaõnnestus: $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'RegEx-i valideerimine õnnestus';
 
   @override
   String get region => 'Regioon';
@@ -3461,35 +2592,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get remoteNumberFilter => 'Eemaldatav numbrifilter';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'See filter kasutab sõltumatut eemaldatavat andmebaasi, et saada uusimat numbriinformatsiooni.';
-
-  @override
   String get remoteNumberFilterDescription =>
       'Häirivate kõnede pealtkuulamine eemaldatava andmebaasi info põhjal';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'Eemaldatav numbrifilter tuvastab ja blokeerib rämpskõned, päringutega eemaldatava andmebaasi poole numbri loenduse põhjal.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle =>
-      'Eemaldatava numbrifiltri selgitus';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• Loenduse lävepiir: Määrake numbri esinemissageduse põhjal';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• Filtri toimingud: Konfigureerige, kuidas ületanud numbreid käsitleda';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• Prioriteedi sätted: Määrake eemaldatavate toimingute prioriteet';
-
-  @override
-  String get remoteNumberFilterFeatures => 'Funktsioonid:';
 
   @override
   String get remoteNumberFiltering => 'Eemaldatav numbri filtreerimine';
@@ -3510,29 +2614,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get removeAdsTitle => 'Eemalda reklaamid';
 
   @override
-  String get removedFromFavoriteContacts => 'Eemaldatud lemmikkontaktidest';
-
-  @override
   String get removedFromFavorites => 'Eemaldatud lemmikutest';
-
-  @override
-  String get removeFavorite => 'Eemalda lemmik';
 
   @override
   String get removeFromFavorites => 'Eemalda lemmikutest';
 
   @override
-  String get renameButton => 'Nimeta ümber';
-
-  @override
-  String get renameDeviceDialogTitle => 'Nimeta seade ümber';
-
-  @override
   String get renameDeviceTitle => 'Nimeta seade ümber';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'See asendab kõik teie praegused sätted. Kas olete kindel, et soovite jätkata?';
 
   @override
   String get requestAllPermissions => 'Taotlege kõiki õigusi';
@@ -3561,23 +2649,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Taasta rakenduse sätted varukoopiast';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'Taasta rakenduse sätted varukoopiast';
-
-  @override
-  String get restoreButton => 'Taasta';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'Taastamine pilvest ebaõnnestus: $error';
-  }
-
-  @override
   String get restoreFromCloud => 'Taasta pilvest';
-
-  @override
-  String get restoreFromCloudDescription =>
-      'Taasta sätted ja reeglid pilvesalvestusest';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3585,22 +2657,10 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'Taasta pilvest';
-
-  @override
   String get restoreFromCloudSuccess => 'Taastati edukalt pilvest';
 
   @override
-  String get restoreFromCloudTitle => 'Taasta pilvest';
-
-  @override
-  String get restoreFromLocal => 'Taasta lokaalselt';
-
-  @override
   String get restorePurchases => 'Taasta ostud';
-
-  @override
-  String get restoreSectionTitle => 'Taasta';
 
   @override
   String get restoreSettings => 'Taasta sätted';
@@ -3608,18 +2668,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'See asendab kõik teie praegused sätted. Kas olete kindel, et soovite jätkata?';
-
-  @override
-  String get restoreSettingsDialogTitle => 'Taasta sätted';
-
-  @override
-  String get restoreSettingsTitle => 'Taasta sätted';
-
-  @override
-  String get restoreSuccessFromLocal => 'Taastati edukalt lokaalselt';
-
-  @override
-  String get restoreSuccessMessage => 'Taastati edukalt pilvest';
 
   @override
   String get retry => 'Proovi uuesti';
@@ -3637,15 +2685,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get ruleAction => 'Reegli toiming';
 
   @override
-  String get ruleAddButton => 'Lisa reegel';
-
-  @override
   String get ruleAddedSuccess => 'Reegel lisati edukalt';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'Reegli lisamine ebaõnnestus: $error';
-  }
 
   @override
   String get ruleAddSuccess => 'Reegel lisati edukalt';
@@ -3659,18 +2699,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'Kustuta reegel';
 
   @override
-  String get ruleDeletedSuccess => 'Reegel kustutati edukalt';
-
-  @override
   String get ruleDeletedSuccessfully => 'Reegel kustutati edukalt';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'Reegli kustutamine ebaõnnestus: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'Reegli kustutamine ebaõnnestus: $error';
   }
 
@@ -3692,9 +2724,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get ruleManagement => 'Reeglite haldus';
 
   @override
-  String get ruleManagementTitle => 'Reeglite haldus';
-
-  @override
   String get ruleName => 'Reegli nimi';
 
   @override
@@ -3712,9 +2741,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get ruleNameLabel => 'Reegli nimi';
 
   @override
-  String get ruleNamePatternRequired => 'Palun sisestage reegli nimi ja muster';
-
-  @override
   String get ruleNameRequired =>
       'Reegli nimi ja telefoninumber ei saa olla tühjad';
 
@@ -3727,23 +2753,7 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'Reegel salvestatud edukalt!';
-
-  @override
   String get ruleSavedSuccessMessage => 'Reegel salvestatud edukalt!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'Salvestamine ebaõnnestus: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'Salvestamine ebaõnnestus: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'Reegel salvestatud edukalt!';
 
   @override
   String get rulesExportedSuccessfully => 'Reeglid eksporditud edukalt';
@@ -3760,14 +2770,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return '$count reeglit imporditud edukalt';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'Reeglite importimine ebaõnnestus: $error';
-  }
-
-  @override
-  String get ruleStatistics => 'Reeglite statistika';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3802,9 +2804,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get saveButton => 'Salvesta';
 
   @override
-  String get saveButtonLabel => 'SALVESTA';
-
-  @override
   String get saveButtonText => 'Salvesta';
 
   @override
@@ -3813,15 +2812,7 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'Salvesta filter';
-
-  @override
   String get saveSettings => 'Salvesta seaded';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'Seadete salvestamine ebaõnnestus: $error';
-  }
 
   @override
   String get scamsLikely => 'Tõenäoliselt pettus';
@@ -3838,28 +2829,11 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'Otsingufiltrid';
-
-  @override
-  String get searchForContacts => 'Otsi kontakte';
-
-  @override
   String get searchHint => 'Otsi...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'Otsi kontakte, silte, musti nimekirju, valgeid nimekirju jne.';
-
-  @override
-  String get searchSettingsTitle => 'Otsinguseaded';
 
   @override
   String get securityMessage =>
       'Ära usalda ühtegi telefonikõnet. Kontrolli klienditeeninduse numbreid alati iseseisvalt. Ära kunagi jaga paroole, kinnituskoodi, kaardi numbreid ega isiklikku teavet.';
-
-  @override
-  String get selectActionToPerform =>
-      'Valige toiming, mida teha reegli sobimisel';
 
   @override
   String get selectActionWhenBlockingCalls =>
@@ -3873,12 +2847,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get selectCountry => 'Vali riik';
-
-  @override
-  String get selectDateRange => 'Vali kuupäeva vahemik';
-
-  @override
-  String get selectedDateRange => 'Valitud kuupäeva vahemik';
 
   @override
   String selectedItems(Object count) {
@@ -3905,20 +2873,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get selectMultiple => 'Vali mitu';
 
   @override
-  String get selectPeriod => 'Vali periood';
-
-  @override
   String get selectSimCard => 'Vali SIM-kaart';
-
-  @override
-  String get selectSimSlot => 'Vali SIM-pesa';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'Valige konkreetne toiming blokeeritud kõnede korral';
-
-  @override
-  String get selectTag => 'Vali silt';
 
   @override
   String get selectTags => 'Vali sildid';
@@ -3960,23 +2915,7 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'Määra';
-
-  @override
   String get setEncryptionPassword => 'Määra krüptimisparool';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'Määrake krüptimisparool varundamiseks ja taastamiseks';
-
-  @override
-  String get setEncryptionPasswordLabel => 'Määra krüptimisparool';
-
-  @override
-  String get setEncryptionPasswordTitle => 'Määra krüptimisparool';
-
-  @override
-  String get setPasswordButton => 'Määra';
 
   @override
   String get settings => 'Seaded';
@@ -3984,14 +2923,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'Seaded varundatud: $path';
-  }
-
-  @override
-  String get settingsLoaded => 'Seaded laaditud';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'Seadete laadimine ebaõnnestus: $error';
   }
 
   @override
@@ -4014,13 +2945,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get setup => 'Seadistamine';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'Staatiline meetod kontakti redigeerimise dialoogi kuvamiseks';
-
-  @override
-  String get showExplanation => 'Näita selgitust';
 
   @override
   String get silence => 'Vaikus';
@@ -4068,19 +2992,11 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'SIM-kaardi teabe laadimine ebaõnnestus: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'SIM-kaardi reeglid võimaldavad teil konfigureerida sõltumatud filtreerimisreeglid iga SIM-kaardi pesa kohta.';
 
   @override
   String get simRuleInstructionsTitle => 'SIM-kaardi pesa reeglid';
-
-  @override
-  String get simRuleManagement => 'SIM-kaardi pesa reeglite haldus';
 
   @override
   String simSlot1(String countryIso) {
@@ -4093,19 +3009,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'SIM-andmete laadimine ebaõnnestus: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration =>
-      'SIM-kaardi pesa filtri konfiguratsioon';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'Võimaldab seadistada filtreerimisreegleid SIM-kaardi pesa järgi';
-
-  @override
   String get simSlotFilterDescription =>
       'Konfigureerige sõltumatud filtreerimisreeglid iga SIM-kaardi jaoks:';
 
@@ -4115,17 +3018,7 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'SIM-kaartide laadimine ebaõnnestus: $error';
-  }
-
-  @override
   String get simSlotManagement => 'SIM-kaardi pesa haldus';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'SIM-kaardi pesa toiming ebaõnnestus: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4146,12 +3039,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'SIM-kaardi pesa reeglid';
-
-  @override
-  String get simSlotRuleManagementTitle => 'Reeglite haldus';
-
-  @override
-  String get simSlotSettings => 'SIM-kaardi pesa sätted';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4188,9 +3075,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get smsFilterSettings => 'SMS-filtri sätted';
 
   @override
-  String get smsHistory => 'SMS-i ajalugu';
-
-  @override
   String get smsManagement => 'SMS-halduse';
 
   @override
@@ -4215,25 +3099,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get smsRuleManagement => 'SMS-reeglite haldus';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'SMS-reeglid eksporditi edukalt faili $filePath';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully => 'SMS-reeglid imporditi edukalt';
-
-  @override
   String get smsRuleSubscription => 'SMS-reegli tellimus';
-
-  @override
-  String get smsRuleUpdatedSuccessfully => 'SMS-reegel värskendati edukalt';
-
-  @override
-  String get smsSettingsSubtitle =>
-      'SMS-filtratsioon ja märksõnade blokeerimine';
-
-  @override
-  String get smsSettingsTitle => 'SMS-i sätted';
 
   @override
   String get smsSubscription => 'SMS-i tellimus';
@@ -4270,26 +3136,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get statBlocked => 'Blokeeritud';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'Staatiline meetod helistaja ID teabedialoogi kuvamiseks';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'Staatiline meetod riigi valiku dialoogi kuvamiseks';
-
-  @override
-  String get staticMethodToDisplayDialog =>
-      'Staatiline meetod dialoogi kuvamiseks';
-
-  @override
   String get statistics => 'Statistika';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'Statistika eksportimine peatselt saadaval';
-
-  @override
-  String get statisticsGrid => 'Statistikavõrk';
 
   @override
   String get statisticsPageTitle => 'Andmeanalüüs';
@@ -4329,9 +3176,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get subscriptionDeleted => 'Tellimus kustutatud';
 
   @override
-  String get subscriptionDeletedSuccessfully => 'Tellimus kustutati edukalt';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'Tellimuse kustutamine ebaõnnestus: $error';
   }
@@ -4340,23 +3184,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'Tellimus kustutatud';
 
   @override
-  String get subscriptionEmptyState => 'Tellimusi pole saadaval';
-
-  @override
-  String get subscriptionEmptyText => 'Tellimusi veel pole';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'Tellimuste laadimine ebaõnnestus: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'Tellimuste laadimine ebaõnnestus: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'Tellimuste haldus';
 
   @override
   String get subscriptionName => 'Tellimuse nimi';
@@ -4369,16 +3199,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get subscriptionNameHint => 'Sisestage tellimuse nimi';
 
   @override
-  String get subscriptionPageTitle => 'Tellimuste haldus';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
     return 'Tellimuse oleku muutmine ebaõnnestus: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
-    return 'Tellimuse oleku lülitamine ebaõnnestus: $error';
   }
 
   @override
@@ -4416,10 +3238,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get syncFailedMessage => 'Sünkroonimine ebaõnnestus';
 
   @override
-  String get syncFolderNameHint =>
-      'Sisestage sünkroonimiskausta nimi (vaikimisi: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'Sünkroonimiskausta nimi';
 
   @override
@@ -4441,16 +3259,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'Sünkroonimise olek värskendatud';
 
   @override
-  String get syncSuccessful => 'Sünkroonimine õnnestus';
-
-  @override
   String get syncSuccessMessage => 'Sünkroonimine õnnestus';
 
   @override
   String get syncWithCloudStorage => 'Sünkroniseeri pilveserveriga';
-
-  @override
-  String get syncWithCloudStorageSubtitle => 'Sünkroniseeri pilveserveriga';
 
   @override
   String get systemFeatures => 'Süsteemi funktsioonid:';
@@ -4479,9 +3291,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'Sildid värskendatud';
-
-  @override
   String get takeaway => 'Kaasavõetav';
 
   @override
@@ -4495,9 +3304,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get testButton => 'TEST';
-
-  @override
-  String get testButtonLabel => 'TEST';
 
   @override
   String get testConnectionButton => 'Testi ühendust';
@@ -4535,13 +3341,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get timeInterceptorSettingsTitle => 'Kõnesageduse blokeerimise seaded';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'Hoiatage rämpskõnesid automaatselt kõnesageduse põhjal';
-
-  @override
-  String get timeInterceptorTitle => 'Luba kõnesageduse blokeerimine';
-
-  @override
   String get timeWindowDescription =>
       'Määrake korduvate kõnede lubamise ajavahemik. Kõned samalt numbrilt selle akna jooksul lubatakse.';
 
@@ -4549,10 +3348,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'Blokeerimise ajavahemik (minutites): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'Määrake korduvate kõnede lubamise ajavahemik. Kõned samalt numbrilt selle akna jooksul lubatakse.';
 
   @override
   String get today => 'Täna';
@@ -4564,24 +3359,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get totalBlocked => 'Kokku blokeeritud';
 
   @override
-  String get totalFiltered => 'Kokku filtreeritud';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'Edastage andmeid seadmete või platvormide vahel';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'Edastage andmeid seadmete või platvormide vahel';
-
-  @override
   String get travelTicketing => 'Reisipiletid';
-
-  @override
-  String get trend => 'Trend';
-
-  @override
-  String get trendChart => 'Trendigraafik';
 
   @override
   String get tutorial => 'Õpetus';
@@ -4594,9 +3376,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get unknown => 'Tundmatu';
-
-  @override
-  String get unknownLabel => 'Tundmatu silt';
 
   @override
   String get unknownTag => 'Silt: Tundmatu';
@@ -4622,9 +3401,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get updateAllNow => 'Värskenda kõike kohe';
 
   @override
-  String get updateCallFilterConfig => 'Värskenda kõnefiltri konfiguratsiooni';
-
-  @override
   String updateContactFailed(Object error) {
     return 'Kontakti värskendamine ebaõnnestus: $error';
   }
@@ -4633,15 +3409,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get updateFavoriteStatus => 'Värskenda lemmikstaatust';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'Lemmikstaatuse värskendamine ebaõnnestus: $error';
-  }
-
-  @override
   String get updateInterval => 'Värskendusintervall';
-
-  @override
-  String get updateLabelFailed => 'Sildi värskendamine ebaõnnestus';
 
   @override
   String get updateNow => 'Värskenda kohe';
@@ -4670,9 +3438,6 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'Värskenda silte';
-
-  @override
   String get useCasesPoint1 =>
       '• Tuvastage automaatselt uuesti valivad rämpskõned';
 
@@ -4690,17 +3455,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get useGlobalSettings => 'Kasuta globaalseid sätteid';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => 'Kasutajanimi';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'Kasutage mustrite määratlemiseks standardset regex-süntaksit. Näited:';
-
-  @override
-  String get validateRegex => 'Valideeri Regex';
 
   @override
   String get verificationFailedText => 'Ebaõnnestunud';
@@ -4737,46 +3496,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get webDAVConfigTitle => 'WebDAVi konfiguratsioon';
 
   @override
-  String get webdavConfigurationTitle => 'WebDAVi konfiguratsioon';
-
-  @override
-  String get webdavPasswordHint => 'Palun sisestage WebDAVi parool';
-
-  @override
-  String get webdavServerAddressHint =>
-      'Palun sisestage WebDAVi serveri aadress';
-
-  @override
-  String get webdavUsernameHint => 'Palun sisestage WebDAVi kasutajanimi';
-
-  @override
   String get week => 'Nädal';
-
-  @override
-  String get weekly => 'Iganädalane';
-
-  @override
-  String get weeklyBlockedCallsSummary =>
-      'Iganädalane blokeeritud kõnede kokkuvõte';
-
-  @override
-  String get weeklyChartTitle => 'Iganädalased blokeeritud kõned';
-
-  @override
-  String get weeklyReport => 'Iganädalane aruanne';
-
-  @override
-  String get weeklyReportDesc =>
-      'Saate iganädalase kokkuvõtliku aruande kõnede blokeerimise tegevusest';
 
   @override
   String get welcome => 'Tere tulemast';
 
   @override
   String get whitelist => 'Valge nimekiri';
-
-  @override
-  String get whitelistLabel => 'Valge nimekiri';
 
   @override
   String get width => 'Laius';
@@ -4797,12 +3523,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get year => 'Aasta';
-
-  @override
-  String get yearly => 'Aastane';
-
-  @override
-  String get yearlyChartTitle => 'Aastased blokeeritud kõned';
 
   @override
   String get noSimCardsDetected => 'SIM-kaarte ei leitud';
@@ -4851,10 +3571,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get useStirNotification => 'Kasutage STIRilt teavitust';
 
   @override
-  String get useStirNotificationDescription =>
-      'Luba STIR-teavitusi sissetulevate kõnede jaoks';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'Sulge kohalikud teavitused automaatselt';
 
@@ -4873,11 +3589,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'Sissetuleva kõne teave';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'Number: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'Blokeeritud kõne';
@@ -4930,21 +3641,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'Pettusehojatus';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return 'Potentsiaalne pettusekõne $phoneNumber';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'Reeglite laadimine ebaõnnestus: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'Kõnelogi laadimine ebaõnnestus: $error';
-  }
 
   @override
   String get noBlockedTypeData => 'Blokeeritud tüüpi andmed pole saadaval';
@@ -5021,9 +3717,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get removeAds => 'Eemalda reklaamid';
-
-  @override
-  String get unknownAction => 'Tundmatu toiming';
 
   @override
   String get settingsBackup => 'Sätete varundus ';
@@ -5280,16 +3973,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get blockNumberSuccess => 'Numbri blokeerimine õnnestus';
 
   @override
-  String get blockNumberFailed => 'Numbri blokeerimine ebaõnnestus';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return 'Kas olete kindel, et soovite tühistada $phoneNumber blokeeringu?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return 'Helistatakse $phoneNumber...';
   }
 
   @override
@@ -5307,9 +3992,6 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get unblockNumberFailed =>
       'Numbri blokeeringu tühistamine ebaõnnestus';
-
-  @override
-  String get serviceNotAvailable => 'Teenus pole saadaval';
 
   @override
   String get callingNumberFailed => 'Helistatava numbri tõrge';
@@ -5340,9 +4022,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'Number vales vormingus';
-
-  @override
-  String get membershipFeature => 'Liikmelisuse funktsioon';
 
   @override
   String get medium => 'Keskmine';
@@ -5439,9 +4118,6 @@ class AppLocalizationsEt extends AppLocalizations {
       'Kinnita kõigi teadete tühjendamine';
 
   @override
-  String get allNotificationsCleared => 'Kõik teatised on tühjendatud';
-
-  @override
   String get clearButton => 'Tühjenda';
 
   @override
@@ -5511,9 +4187,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get reasonInaccurateInfo => 'Ebatäpne teave';
 
   @override
-  String get reasonWrongMarked => 'Valesti märgitud';
-
-  @override
   String get reasonOther => 'Muu';
 
   @override
@@ -5523,25 +4196,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get cancel => 'Tühista';
 
   @override
-  String get proposalStatus => 'Olek';
-
-  @override
-  String get statusPending => 'Ootel';
-
-  @override
-  String get statusActive => 'Aktiivne';
-
-  @override
-  String get statusCompleted => 'Lõpetatud';
-
-  @override
-  String get statusExpired => 'Aegunud';
-
-  @override
   String get riskLevel => 'Riskitase';
-
-  @override
-  String get riskLevelVerified => 'Tuvastatud';
 
   @override
   String get riskLevelLow => 'Madal';
@@ -5550,19 +4205,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get riskLevelHigh => 'Kõrge';
 
   @override
-  String get riskLevelUnknown => 'Teadmata';
-
-  @override
-  String get votingProgress => 'Hääletuse käik';
-
-  @override
   String agreeVotes(int count) {
     return 'Poolt: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'Vastu: $count';
   }
 
   @override
@@ -5585,12 +4229,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get verificationReport => 'Kontrolliaruanne';
 
   @override
-  String get showReport => 'Näita aruannet';
-
-  @override
-  String get hideReport => 'Peida aruanne';
-
-  @override
   String get proposalStatistics => 'Ettepanekute statistika';
 
   @override
@@ -5600,28 +4238,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get activeProposals => 'Aktiivsed ettepanekud';
 
   @override
-  String get completedProposals => 'Lõpetatud ettepanekud';
-
-  @override
-  String get myVotes => 'Minu hääled';
-
-  @override
   String get proposalCreated => 'Ettepanek loodi edukalt';
-
-  @override
-  String get proposalCreateFailed => 'Ettepaneku loomine nurjus';
 
   @override
   String get voteSubmitted => 'Hääl esitati edukalt';
 
   @override
-  String get voteSubmitFailed => 'Hääle esitamine nurjus';
-
-  @override
   String get noProposalsFound => 'Ettepanekuid ei leitud';
-
-  @override
-  String get loadingProposals => 'Ettepanekuid laetakse...';
 
   @override
   String get refreshProposals => 'Värskenda ettepanekud';
@@ -5773,24 +4396,11 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'Häälte arvu laadimine nurjus';
-
-  @override
   String get voteCount => 'Häälte arv';
-
-  @override
-  String get deletionProposalInfo => 'Kustutamisettepaneku teave';
 
   @override
   String get deletionProposalDescription =>
       'Esitage kustutamiseks numbrid, mis rikuvad kogukonna juhiseid. Teie osalus aitab platvormi turvalisena hoida.';
-
-  @override
-  String get voteToEarnVip =>
-      'Hääletage ettepanekute poolt, et teenida VIP-õigusi!';
-
-  @override
-  String get voteFailed => 'Hääletamine nurjus';
 
   @override
   String get searchProposals => 'Otsi ettepanekuid';
@@ -5823,50 +4433,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Kuvab hoiatusi potentsiaalsete pettuslike kõnede kohta.';
 
   @override
-  String get notificationFrequencyDescription =>
-      'Valige, kui tihti teile uute kustutamisettepanekute kohta teateid saadetakse. Saate neid saada kohe, partiidena või kohandatud ajavahemiku järel.';
-
-  @override
   String get notificationMode => 'Teavituste režiim';
-
-  @override
-  String get immediateNotifications => 'Kohe';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'Saate teate niipea, kui ettepanek luuakse.';
-
-  @override
-  String get batchNotifications => 'Partiina';
-
-  @override
-  String get batchNotificationsDescription =>
-      'Saate perioodiliselt teadete kokkuvõtte.';
-
-  @override
-  String get customNotifications => 'Kohandatud';
-
-  @override
-  String get customNotificationsDescription =>
-      'Määrake oma ajavahemik teadete saamiseks.';
-
-  @override
-  String get customFrequency => 'Kohandatud sagedus';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes min';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours t';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours t $minutes min';
-  }
 
   @override
   String get pendingProposals => 'Ootel ettepanekud';
@@ -5888,9 +4455,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get riskLevelLabel => 'Riskitase';
-
-  @override
-  String get riskLevelDescription => 'Numbrite riskitase';
 
   @override
   String get phoneNumberMinDigits =>
@@ -5917,35 +4481,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get countryCodeRequired => 'Riigikood on kohustuslik';
 
   @override
-  String get countryCodeLengthError => 'Riigikood peab olema 2 tähte pikk';
-
-  @override
   String get phoneNumberHint => 'Sisesta telefoninumber';
 
   @override
   String get phoneNumberRequired => 'Telefoninumber on nõutav';
 
   @override
-  String get phoneNumberLengthError =>
-      'Telefoninumber peab olema vähemalt 7 numbrit pikk';
-
-  @override
-  String get reasonHint =>
-      'Esitage üksikasjalik selgitus (miinimunm 10 tähemärki)';
-
-  @override
   String get reasonRequired => 'Põhjendus on kohustuslik';
-
-  @override
-  String get reasonLengthError =>
-      'Põhjendus peab olema vähemalt 10 tähemärki pikk';
-
-  @override
-  String get guidelinesTitle => 'Juhised';
-
-  @override
-  String get guidelinesText =>
-      '• Raporteerige ainult numbreid, mis on tõeliselt problemaatilised\n• Esitage täpsed ja üksikasjalikud põhjendused\n• Valige sobiv riskitase sõltuvalt tõsidusest\n• Valeraportid võivad põhjustada konto piiramist';
 
   @override
   String get riskLevelCritical => 'Kriitiline';
@@ -5957,55 +4499,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get riskLevelVeryLow => 'Väga madal';
 
   @override
-  String get riskDescriptionVeryLow => 'Väga madal - väike tüli, harvad kõned';
-
-  @override
-  String get riskDescriptionLow => 'Madal - aeg-ajalt soovimatud kõned';
-
-  @override
-  String get riskDescriptionMedium =>
-      'Keskmine - tavaline rämpspost või telemarketing';
-
-  @override
-  String get riskDescriptionHigh =>
-      'Kõrge - pidev ahistamine või pettusekatsed';
-
-  @override
-  String get riskDescriptionCritical =>
-      'Kriitiline - ohtlikud pettused või ähvardused';
-
-  @override
   String get notificationFrequencyTitle => 'Teavitussagedus';
-
-  @override
-  String get notificationFrequencyLabel => 'Teavitussagedus (tunnid)';
 
   @override
   String errorMessage(String error) {
     return 'Viga: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'Hääled: $totalVotes ($supportPercentage%) toetust';
-  }
-
-  @override
-  String get timeJustNow => 'Äsja';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return '${minutes}m tagasi';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return '${hours}t tagasi';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return '${days}p tagasi';
   }
 
   @override
@@ -6090,10 +4588,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get liveActivitiesTestTitle => 'Reaalajas tegevuste test';
 
   @override
-  String get liveActivitiesTestSubtitle =>
-      'Testige reaalajas tegevuse teatist.';
-
-  @override
   String get liveNotificationCustomizationTitle =>
       'Reaalajas teate kohandamine';
 
@@ -6119,16 +4613,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get proposalDetails => 'Ettepaneku üksikasjad';
 
   @override
-  String get filterByStatus => 'Filtreeri oleku järgi';
-
-  @override
   String get proposalNotFound => 'Ettepanekut ei leitud';
 
   @override
   String get processed => 'Töödeldud';
-
-  @override
-  String get showAll => 'Näita kõiki';
 
   @override
   String get filterAndSortTitle => 'Filtreeri ja sorteeri';
@@ -6167,9 +4655,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get invalidSimData => 'Kehtetud SIM-andmed';
 
   @override
-  String get simCardData => 'SIM-kaardi andmed';
-
-  @override
   String get simSlot => 'SIM-pesa';
 
   @override
@@ -6188,12 +4673,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get callTypeSilenced => 'Vaigistatud';
 
   @override
-  String get callTypeVoicemail => 'Kõnepost';
-
-  @override
-  String get callTypeUnknownIntercept => 'Tundmatu vahelesekkumine';
-
-  @override
   String andMoreItems(int count) {
     return 'ja veel $count üksust';
   }
@@ -6206,10 +4685,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6293,9 +4768,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

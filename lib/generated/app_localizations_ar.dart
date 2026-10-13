@@ -18,13 +18,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get aboutPhoneSubscriptionRules => 'حول قواعد اشتراك الهاتف';
 
   @override
-  String get aboutPhoneSubscriptions => 'حول اشتراكات الهاتف';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'اشترك في قوائم قواعد الهاتف عبر عنوان URL، قم بتحديث القواعد تلقائيًا. يدعم ملفات قواعد بتنسيق JSON و CSV.';
-
-  @override
   String get aboutSmsFilter => 'حول تصفية الرسائل القصيرة';
 
   @override
@@ -47,9 +40,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get actionBlock => 'الحظر';
-
-  @override
-  String get actionFilterAll => 'كل المرشحات';
 
   @override
   String get actionFilterTitle => 'التصفية حسب نوع الإجراء';
@@ -95,28 +85,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'تمت الإضافة إلى قواعد السماح';
-
-  @override
-  String get addedToBlacklist => 'تمت الإضافة إلى القائمة السوداء';
-
-  @override
-  String get addedToBlockedRules => 'تمت الإضافة إلى قواعد الحظر';
-
-  @override
-  String get addedToFavoriteContacts => 'تمت الإضافة إلى جهات الاتصال المفضلة';
-
-  @override
   String get addedToFavorites => 'تمت الإضافة إلى المفضلة';
-
-  @override
-  String get addedToWhitelist => 'تمت الإضافة إلى القائمة البيضاء';
-
-  @override
-  String get addFavorite => 'إضافة مفضلة';
-
-  @override
-  String get addFilter => 'إضافة مرشح';
 
   @override
   String get addLabel => 'إضافة علامة';
@@ -130,17 +99,10 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'إضافة علامة لسجل المكالمات';
-
-  @override
   String get addName => 'إضافة اسم';
 
   @override
   String get addNoneSubscription => 'إضافة اشتراك لا شيء';
-
-  @override
-  String get addOrEditContactInfo =>
-      'يُستخدم لإضافة أو تعديل معلومات جهة الاتصال';
 
   @override
   String get addPhoneMark => 'إضافة علامة هاتف';
@@ -172,9 +134,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get addRule => 'إضافة قاعدة';
 
   @override
-  String get addRuleButton => 'إضافة قاعدة';
-
-  @override
   String addRuleFailed(Object error) {
     return 'فشل في إضافة قاعدة: $error';
   }
@@ -184,9 +143,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'إضافة اشتراك صامت';
-
-  @override
-  String get addSimRuleButton => 'إضافة قاعدة SIM';
 
   @override
   String get addSmsFilterRule => 'إضافة قاعدة تصفية رسائل قصيرة';
@@ -212,16 +168,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get addSubscriptionTooltip => 'إضافة اشتراك';
 
   @override
-  String get addToAllowedRules => 'إضافة إلى قواعد السماح';
-
-  @override
   String get addToBlacklist => 'إضافة إلى القائمة السوداء';
-
-  @override
-  String get addToBlockedRules => 'إضافة إلى قواعد الحظر';
-
-  @override
-  String get addToFavoriteContacts => 'إضافة إلى جهات الاتصال المفضلة';
 
   @override
   String get addToFavorites => 'إضافة إلى المفضلة';
@@ -233,9 +180,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get addToWhitelist => 'إضافة إلى القائمة البيضاء';
 
   @override
-  String get adPlaceholder => 'موضع إعلان';
-
-  @override
   String get agent => 'وكيل';
 
   @override
@@ -243,9 +187,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get allCallsTab => 'الكل';
-
-  @override
-  String get allDataClearedSuccessfully => 'تم مسح جميع البيانات بنجاح';
 
   @override
   String get allow => 'السماح';
@@ -258,10 +199,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get allowAllBlacklistedNumbers => 'السماح لجميع الأرقام المحظورة';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc =>
-      'السماح بالمكالمات من القائمة السوداء';
 
   @override
   String get allowAllBlockRules => 'السماح لجميع قواعد الحظر';
@@ -329,14 +266,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get allowRules => 'قواعد السماح';
 
   @override
-  String get allowWhitelistedNumbers =>
-      'السماح للأرقام المدرجة في القائمة البيضاء';
-
-  @override
-  String get allowWhitelistedNumbersDescription =>
-      'السماح لجميع الأرقام في القائمة البيضاء';
-
-  @override
   String get allPermissionsGranted => 'تم منح جميع الأذونات';
 
   @override
@@ -349,9 +278,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'الرد ثم إنهاء المكالمة';
-
-  @override
-  String get appLegalese => '© 2023 Your Call Your Rule. جميع الحقوق محفوظة.';
 
   @override
   String get applicationSoftware => 'برنامج التطبيق';
@@ -390,13 +316,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'إعدادات التحديث التلقائي';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'إدارة التحديثات التلقائية للقواعد والإضافات';
-
-  @override
-  String get autoUpdateSettingsTitle => 'إعدادات التحديث التلقائي';
 
   @override
   String get autoUpdateSubtitle =>
@@ -445,46 +364,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backupFailed => 'فشل النسخ الاحتياطي';
 
   @override
-  String get backupFailedMessage => 'فشل النسخ الاحتياطي';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'فشل النسخ الاحتياطي: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle =>
-      'نسخ بيانات التطبيق احتياطيًا أو استعادتها';
-
-  @override
-  String get backupRestoreTitle => 'النسخ الاحتياطي والاستعادة';
-
-  @override
-  String get backupSectionTitle => 'نسخ احتياطي';
-
-  @override
   String get backupSettings => 'إعدادات النسخ الاحتياطي';
 
   @override
-  String get backupSettingsDialogTitle => 'إعدادات النسخ الاحتياطي';
-
-  @override
-  String get backupSettingsTitle => 'إعدادات النسخ الاحتياطي';
-
-  @override
-  String get backupSuccessMessage => 'تم النسخ الاحتياطي بنجاح إلى السحابة';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'تم النسخ الاحتياطي بنجاح إلى: $path';
-  }
-
-  @override
   String get backupToCloud => 'النسخ الاحتياطي إلى السحابة';
-
-  @override
-  String get backupToCloudDescription =>
-      'نسخ الإعدادات والقواعد احتياطيًا إلى مساحة التخزين السحابية';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -492,16 +375,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'النسخ الاحتياطي إلى السحابة';
-
-  @override
   String get backupToCloudSuccess => 'تم النسخ الاحتياطي بنجاح إلى السحابة';
-
-  @override
-  String get backupToCloudTitle => 'النسخ الاحتياطي إلى السحابة';
-
-  @override
-  String get backupToLocalLabel => 'النسخ الاحتياطي محليًا';
 
   @override
   String get bank => 'بنك';
@@ -520,22 +394,13 @@ class AppLocalizationsAr extends AppLocalizations {
       '• تصفية القواعد الأساسية: تصفية القواعد بناءً على القائمة السوداء والقائمة البيضاء والتعبيرات العادية';
 
   @override
-  String get basicRuleFilterSettings => 'إعدادات مرشح القاعدة الأساسي';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'تصفية المكالمات باستخدام القائمة السوداء/البيضاء والتعبيرات العادية';
-
-  @override
-  String get batchDeleteContacts => 'حذف جهات الاتصال دفعة واحدة';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'هل أنت متأكد من رغبتك في حذف جهات الاتصال المحددة $count؟';
   }
-
-  @override
-  String get batchDeleteFailed => 'فشل الحذف دفعة واحدة';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -547,9 +412,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get blacklistingAndWhitelisting => 'القائمة السوداء والقائمة البيضاء';
-
-  @override
-  String get blacklistLabel => 'القائمة السوداء';
 
   @override
   String get blackWhiteList => 'القائمة السوداء/البيضاء';
@@ -564,19 +426,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get blocked => 'محظور';
 
   @override
-  String get blockedCallAction => 'إجراء المكالمة المحظورة';
-
-  @override
   String get blockedCalls => 'المكالمات المحظورة';
 
   @override
   String get blockedCallsTitle => 'المكالمات المحظورة';
-
-  @override
-  String get blockedCommunications => 'الاتصالات المحظورة';
-
-  @override
-  String get blockedPhoneLabel => 'المكالمات المحظورة';
 
   @override
   String get blockedSpamCalls => 'مكالمات البريد العشوائي المحظورة';
@@ -589,9 +442,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get blockInternationalCallsTitle => 'حظر المكالمات الدولية';
-
-  @override
-  String get blockLandlineNumbersTitle => 'حظر أرقام الهواتف الثابتة';
 
   @override
   String get blockMobileNumbers => 'يطابق الأرقام التي لا تبدأ بـ 13-19';
@@ -641,11 +491,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get callback => 'إعادة الاتصال';
 
   @override
-  String callbackTo(String number) {
-    return 'إعادة الاتصال بالرقم $number';
-  }
-
-  @override
   String get callBlocking => 'حظر المكالمات';
 
   @override
@@ -653,9 +498,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'تخصيص هوية المتصل';
-
-  @override
-  String get callerIdDialogTitle => 'معلومات هوية المتصل';
 
   @override
   String get callerIdDisplayMode => 'وضع عرض معرف المتصل';
@@ -667,13 +509,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'معاينة معرف المتصل';
-
-  @override
-  String get callFilter => 'فلتر المكالمات';
-
-  @override
-  String get callFilterDescription =>
-      'عند التمكين، يتم فحص المكالمات الواردة مقابل قائمة القواعد أدناه. لا تتم مزامنة قواعد تصفية المكالمات بين الأجهزة افتراضيًا.';
 
   @override
   String get callFilterRules => 'قواعد تصفية المكالمات';
@@ -703,26 +538,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get callHistoryInfoTitle => 'سجل المكالمات';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'فشل تهيئة سجل المكالمات: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'فشل تحديث سجل المكالمات: $error';
-  }
-
-  @override
   String get callHistoryTab => 'سجل المكالمات';
-
-  @override
-  String get callHistoryTimelineEarlier => 'سابقًا';
-
-  @override
-  String get callHistoryTimelineToday => 'اليوم';
-
-  @override
-  String get callHistoryTimelineYesterday => 'أمس';
 
   @override
   String get callScreeningPermission => 'إذن فحص المكالمات';
@@ -734,12 +550,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'لم يتم منح إذن فحص المكالمات، قد يؤثر على وظائف التطبيق.';
-
-  @override
-  String get callSettingsSubtitle => 'إعدادات معرف المتصل والتصفية والحظر';
-
-  @override
-  String get callSettingsTitle => 'إعدادات المكالمات';
 
   @override
   String get callStatistics => 'إحصائيات المكالمات';
@@ -797,27 +607,10 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'تغيير الوسم';
-
-  @override
   String get charity => 'جمعيات خيرية';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'الشهر $month';
-  }
-
-  @override
-  String get chartOneDayAgo => 'قبل يوم واحد';
-
-  @override
-  String get chartOneMonthAgo => 'قبل شهر واحد';
-
-  @override
   String get chartOneWeekAgo => 'قبل أسبوع واحد';
-
-  @override
-  String get chartTenDaysAgo => 'قبل 10 أيام';
 
   @override
   String get chartThreeDaysAgo => 'قبل 3 أيام';
@@ -837,23 +630,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get chooseDefaultInterceptAction => 'اختر إجراء الاعتراض الافتراضي';
 
   @override
-  String get clearAllData => 'مسح جميع البيانات';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'هل أنت متأكد أنك تريد مسح جميع بيانات التطبيق؟ لا يمكن التراجع عن هذا الإجراء.';
-
-  @override
-  String get clearAllDataDescription => 'مسح جميع بيانات التطبيق';
-
-  @override
-  String get clearAllDataLabel => 'مسح جميع البيانات';
-
-  @override
   String get clearFilter => 'مسح الفلتر';
-
-  @override
-  String get clearLabelFilter => 'مسح فلتر التسميات';
 
   @override
   String get clearLabelFilterButton => 'مسح فلتر التسميات';
@@ -878,9 +655,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cloudSyncTitle => 'المزامنة السحابية';
 
   @override
-  String get collapseLabelSelector => 'طي محدد التسميات';
-
-  @override
   String get collection => 'تحصيل الديون';
 
   @override
@@ -900,14 +674,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get configureBackupOptions => 'تكوين خيارات النسخ الاحتياطي';
 
   @override
-  String get configureBackupOptionsSubtitle => 'تكوين خيارات النسخ الاحتياطي';
-
-  @override
   String get configureCloudSyncService => 'تكوين خدمة المزامنة السحابية';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'الرجاء تكوين خدمة مزامنة سحابية لتمكين المزامنة بين الأجهزة المتعددة.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -917,29 +684,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get configureSimCardFilterRules => 'تكوين قواعد فلتر بطاقة SIM';
 
   @override
-  String get configureSyncServiceHint =>
-      'الرجاء تكوين خدمة المزامنة في إعدادات المزامنة السحابية أولاً';
-
-  @override
   String get confirm => 'تأكيد';
-
-  @override
-  String get confirmBatchDeleteContacts => 'هل أنت متأكد أنك تريد حذف المحدد';
 
   @override
   String get confirmButton => 'تأكيد';
 
   @override
   String get confirmDelete => 'تأكيد الحذف';
-
-  @override
-  String get confirmDeleteContact => 'هل أنت متأكد أنك تريد حذف';
-
-  @override
-  String get confirmDeleteContactName => 'تأكيد الحذف؟';
-
-  @override
-  String get confirmDeleteFilter => 'هل أنت متأكد أنك تريد حذف هذا الفلتر؟';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -961,10 +712,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'هل أنت متأكد أنك تريد حذف هذه القاعدة؟ لا يمكن التراجع عن هذا الإجراء.';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'هل أنت متأكد من حذف جهات الاتصال المحددة؟';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'هل أنت متأكد أنك تريد حذف قاعدة فلتر الرسائل القصيرة هذه؟';
 
@@ -973,19 +720,12 @@ class AppLocalizationsAr extends AppLocalizations {
       'هل أنت متأكد أنك تريد حذف قاعدة الرسائل القصيرة هذه؟';
 
   @override
-  String get confirmDeleteSubscription =>
-      'هل أنت متأكد أنك تريد حذف هذا الاشتراك؟';
-
-  @override
   String confirmDeleteSubscriptions(String name) {
     return 'هل أنت متأكد أنك تريد حذف $name؟';
   }
 
   @override
   String get confirmPassword => 'تأكيد كلمة المرور';
-
-  @override
-  String get confirmPasswordLabel => 'تأكيد كلمة المرور';
 
   @override
   String get connectedStatus => 'متصل';
@@ -1010,16 +750,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get contactDeleted => 'تم حذف جهة الاتصال';
 
   @override
-  String get contactEditDialog => 'مربع حوار تعديل جهة الاتصال';
-
-  @override
-  String get contactNameHint => 'أدخل اسم جهة الاتصال (اختياري)';
-
-  @override
   String get contactNameLabel => 'الاسم';
-
-  @override
-  String get contactNameOptional => 'اسم جهة الاتصال (اختياري)';
 
   @override
   String get contactNotFound => 'لم يتم العثور على جهة الاتصال';
@@ -1033,24 +764,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle => 'إدارة جهات الاتصال وإعدادات الملصقات';
-
-  @override
-  String get contactSettingsTitle => 'إعدادات جهات الاتصال';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'فشل تحميل جهات الاتصال: $error';
-  }
-
-  @override
   String get contactsManagement => 'إدارة جهات الاتصال';
-
-  @override
-  String get contactsManagementPageTitle => 'صفحة إدارة جهات الاتصال';
-
-  @override
-  String get contactsPageTitle => 'إدارة جهات الاتصال';
 
   @override
   String get contactsPermission => 'إذن جهات الاتصال';
@@ -1065,14 +779,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'الاشتراك في قوائم جهات الاتصال عبر رابط URL، وتحديث معلومات جهات الاتصال والملصقات تلقائيًا. يدعم بيانات بتنسيق JSON.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'فشل تحميل اشتراكات جهات الاتصال: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'اشتراكات جهات الاتصال';
 
   @override
   String get contactUpdateSuccess => 'تم تحديث جهة الاتصال بنجاح';
@@ -1108,26 +814,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get countryRegionNamePosition => 'موضع اسم الدولة/المنطقة';
 
   @override
-  String get countrySelectionDialog => 'مربع حوار اختيار الدولة';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'يُستخدم لاختيار دولة للاستعلام عن معلومات معرف المتصل';
-
-  @override
   String get countThresholdDescription =>
       'تعيين الحد الأدنى للعد المطلوب لتشغيل إجراءات التصفية';
 
   @override
   String get countThresholdLabel => 'حد العد';
-
-  @override
-  String get countThresholdSettings => 'إعدادات حد العد';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'حد العد: $count';
-  }
 
   @override
   String get createdRules => 'القواعد التي تم إنشاؤها';
@@ -1136,47 +827,22 @@ class AppLocalizationsAr extends AppLocalizations {
   String get csvFormat => 'تنسيق CSV';
 
   @override
-  String get currentDeviceChip => 'الحالي';
-
-  @override
   String get currentDeviceLabel => 'ملصق الجهاز الحالي';
 
   @override
   String get currentDeviceTitle => 'الجهاز الحالي';
 
   @override
-  String get currentLabels => 'الملصقات الحالية:';
-
-  @override
   String get currentLanguage => 'اللغة الحالية';
 
   @override
-  String get currentPasswordLabel => 'كلمة المرور الحالية';
-
-  @override
   String get customerService => 'خدمة العملاء';
-
-  @override
-  String get customRange => 'نطاق مخصص';
-
-  @override
-  String get dailyStatistics => 'إحصائيات يومية';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'استلم إحصائيات يومية حول المكالمات والرسائل المحظورة';
 
   @override
   String get dashboardTab => 'لوحة التحكم';
 
   @override
   String get dataAnalysis => 'تحليل البيانات';
-
-  @override
-  String get dataAnalysisDashboardPage => 'صفحة لوحة تحكم تحليل البيانات';
-
-  @override
-  String get dataExport => 'تصدير البيانات';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1194,16 +860,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'تسمح لك هذه الميزة بنقل جميع بياناتك بين الأجهزة. حاليًا، يمكنك استخدام ميزات النسخ الاحتياطي والاستعادة لترحيل بياناتك يدويًا.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'تسمح لك هذه الميزة بنقل جميع بياناتك بين الأجهزة. حاليًا، يمكنك استخدام ميزات النسخ الاحتياطي والاستعادة لترحيل بياناتك يدويًا.';
-
-  @override
-  String get dataMigrationDialogTitle => 'ترحيل البيانات';
-
-  @override
-  String get dataMigrationSectionTitle => 'ترحيل البيانات';
 
   @override
   String get dataSourceReminder => 'تذكير بمصدر البيانات';
@@ -1228,9 +884,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get debtCollection => 'تحصيل الديون';
 
   @override
-  String get defaultPeriod => 'الأسبوع';
-
-  @override
   String get delete => 'حذف';
 
   @override
@@ -1245,24 +898,9 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation =>
-      'هل أنت متأكد من أنك تريد حذف جهة الاتصال';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return 'هل أنت متأكد من أنك تريد حذف $deviceName؟';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'حذف الجهاز';
-
-  @override
   String deleteFailed(Object error) {
     return 'فشل الحذف: $error';
   }
-
-  @override
-  String get deleteFilter => 'حذف المرشح';
 
   @override
   String get deleteLabel => 'حذف الملصق';
@@ -1300,9 +938,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteSelected => 'حذف المحدد';
 
   @override
-  String get deleteSmsRule => 'حذف قاعدة الرسائل القصيرة';
-
-  @override
   String get deleteSubscription => 'حذف الاشتراك';
 
   @override
@@ -1322,15 +957,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get delivery => 'التسليم';
 
   @override
-  String get deviceDeletedSuccessfully => 'تم حذف الجهاز بنجاح';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage => 'تم حذف الجهاز بنجاح';
-
-  @override
-  String get deviceIdLabel => 'معرف الجهاز';
-
-  @override
   String get deviceIDLabel => 'معرف الجهاز';
 
   @override
@@ -1346,25 +972,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deviceName => 'اسم الجهاز';
 
   @override
-  String get deviceNameCannotBeEmpty => 'لا يمكن أن يكون اسم الجهاز فارغًا';
-
-  @override
-  String get deviceNameHint => 'الرجاء إدخال اسم الجهاز';
-
-  @override
   String get deviceNameLabel => 'اسم الجهاز';
 
   @override
-  String get deviceRenamedSuccessfully => 'تمت إعادة تسمية الجهاز بنجاح';
-
-  @override
   String get deviceRenamedSuccessfullyMessage => 'تمت إعادة تسمية الجهاز بنجاح';
-
-  @override
-  String get devicesSyncedSuccessfully => 'تمت مزامنة الأجهزة بنجاح';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage => 'تمت مزامنة الأجهزة بنجاح';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1389,9 +1000,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'تعطيل المكونات الإضافية العامة';
-
-  @override
-  String get disableSubscriptionSuccessfully => 'تم تعطيل الاشتراك بنجاح';
 
   @override
   String get disconnectButton => 'قطع الاتصال';
@@ -1425,25 +1033,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get editContact => 'تعديل جهة الاتصال';
 
   @override
-  String get editFilter => 'تعديل المرشح';
-
-  @override
   String get editLabel => 'تعديل التسمية';
 
   @override
   String get editPhoneRule => 'تعديل قاعدة الهاتف';
 
   @override
-  String get editPhoneRules => 'تستخدم لتعديل قواعد الهاتف';
-
-  @override
-  String get editPhoneRuleTitle => 'تعديل قاعدة الهاتف';
-
-  @override
   String get editRule => 'تعديل القاعدة';
-
-  @override
-  String get editSmsRule => 'تعديل قاعدة الرسائل القصيرة';
 
   @override
   String get education => 'التعليم';
@@ -1453,9 +1049,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get email => 'البريد الإلكتروني';
-
-  @override
-  String get emailOptional => 'البريد الإلكتروني (اختياري)';
 
   @override
   String get enableCallFilter => 'تمكين مرشح المكالمات';
@@ -1475,15 +1068,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => 'تشفير ملفات النسخ الاحتياطي';
-
-  @override
-  String get enableEncryptionLabel => 'تمكين التشفير';
-
-  @override
-  String get enableEncryptionSubtitle => 'سيتم تشفير ملفات النسخ الاحتياطي';
-
-  @override
-  String get enableEncryptionTitle => 'تمكين التشفير';
 
   @override
   String get enableGlobalPlugins => 'تمكين المكونات الإضافية العامة';
@@ -1519,9 +1103,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'السماح بتكوينات القواعد التي لا تحتوي على إجراءات اعتراض';
 
   @override
-  String get enableNotifications => 'تمكين الإشعارات';
-
-  @override
   String get enableRemoteNumberFilter => 'تمكين مرشح الأرقام البعيد';
 
   @override
@@ -1537,12 +1118,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'عند التمكين، سيتم تصفية الرسائل تلقائيًا وفقًا للقواعد';
-
-  @override
-  String get enableStatisticsNotifications => 'تمكين إشعارات الإحصائيات';
-
-  @override
-  String get enableSubscriptionSuccessfully => 'تم تمكين الاشتراك بنجاح';
 
   @override
   String get enableTimeInterception => 'تمكين اعتراض الوقت';
@@ -1577,10 +1152,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'يدعم نظام التصفية المحسن كلاً من القواعد العامة وتكوينات التصفية لكل بطاقة SIM.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'الرجاء إدخال كل من رقم الهاتف ونمط Regex';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'الرجاء إدخال كل من رقم الهاتف ونمط Regex.';
 
@@ -1588,31 +1159,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enterContactName => 'الرجاء إدخال اسم جهة الاتصال';
 
   @override
-  String get enterCurrentPasswordHint => 'الرجاء إدخال كلمة المرور الحالية';
-
-  @override
   String get enterDeviceName => 'إدخال اسم الجهاز';
-
-  @override
-  String get enterDeviceNameHint => 'الرجاء إدخال اسم الجهاز';
-
-  @override
-  String get enterEmail => 'الرجاء إدخال البريد الإلكتروني';
 
   @override
   String get enterEmailOptional => 'الرجاء إدخال البريد الإلكتروني (اختياري)';
 
   @override
   String get enterEncryptionPasswordHint => 'إدخال كلمة مرور التشفير';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'إدخال كلمة مرور التشفير';
-
-  @override
-  String get enterFilterName => 'الرجاء إدخال اسم المرشح';
-
-  @override
-  String get enterFilterPattern => 'الرجاء إدخال نمط المرشح';
 
   @override
   String get enterIconCode => 'إدخال رمز الأيقونة';
@@ -1624,13 +1177,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enterNewDeviceNameHint => 'إدخال اسم جديد لهذا الجهاز';
 
   @override
-  String get enterNewPasswordHint => 'الرجاء إدخال كلمة مرور جديدة';
-
-  @override
   String get enterPasswordAgain => 'إدخال كلمة المرور مرة أخرى';
-
-  @override
-  String get enterPasswordHint => 'الرجاء إدخال كلمة المرور';
 
   @override
   String get enterPhoneNumber => 'إدخال رقم الهاتف';
@@ -1656,9 +1203,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'إدخال نمط Regex';
-
-  @override
-  String get enterRuleNameAndPattern => 'الرجاء إدخال اسم القاعدة والنمط';
 
   @override
   String get enterRuleNameAndPatternMessage =>
@@ -1702,14 +1246,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enterWebDAVUsernameHint => 'الرجاء إدخال اسم مستخدم WebDAV';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'خطأ في حذف الجهاز: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'خطأ في تحميل المكون الإضافي';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'حدث خطأ: $error';
   }
@@ -1725,14 +1261,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'خطأ في مزامنة الأجهزة: $error';
-  }
-
-  @override
-  String get errorText => 'خطأ';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'خطأ في إلغاء تسجيل الجهاز: $error';
   }
@@ -1742,9 +1270,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'مثال: حظر رسائل SMS التسويقية';
-
-  @override
-  String get exampleContentRegex => 'مثال: .*offer.*';
 
   @override
   String get exampleContentRegexHint => 'مثال على التعبير النمطي للمحتوى';
@@ -1763,9 +1288,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get exampleRegex400Prefix => 'مثال على التعبير النمطي لبادئة 400';
 
   @override
-  String get exampleRegexFormat => 'مثال: تنسيق ^10086\$';
-
-  @override
   String get exampleSenderRegexHint => 'مثال';
 
   @override
@@ -1776,9 +1298,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get exchangeVip => 'تبادل VIP';
-
-  @override
-  String get expandLabelSelector => 'توسيع محدد التسميات';
 
   @override
   String expiryTime(Object time) {
@@ -1792,18 +1311,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get exportAllApplicationSettings => 'تصدير جميع إعدادات التطبيق';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'تصدير جميع إعدادات التطبيق';
-
-  @override
   String get exportAllRuleConfigurations => 'تصدير جميع تكوينات القواعد';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle =>
-      'تصدير جميع تكوينات القواعد';
-
-  @override
-  String get exportComplete => 'اكتمل التصدير';
 
   @override
   String get exportConfig => 'تصدير التكوين';
@@ -1815,9 +1323,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get exportData => 'تصدير البيانات';
 
   @override
-  String get exportError => 'خطأ في التصدير';
-
-  @override
   String get exportFailed => 'فشل التصدير';
 
   @override
@@ -1825,9 +1330,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'ميزة التصدير قادمة قريبًا';
-
-  @override
-  String get exporting => 'جاري التصدير...';
 
   @override
   String get exportLabels => 'تصدير التسميات';
@@ -1849,34 +1351,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get exportRules => 'تصدير القواعد';
 
   @override
-  String get exportRulesDialogTitle => 'تصدير القواعد';
-
-  @override
-  String get exportRulesTitle => 'تصدير القواعد';
-
-  @override
   String get exportSmsRules => 'تصدير قواعد SMS';
 
   @override
   String get exportStatisticsData => 'تصدير بيانات الإحصائيات';
 
   @override
-  String get exportSuccess => 'تم التصدير بنجاح';
-
-  @override
   String get exportSuccesslly => 'تم تصدير التكوين بنجاح';
-
-  @override
-  String get failedToAddContact => 'فشل في إضافة جهة اتصال';
 
   @override
   String failedToAddRule(Object error) {
     return 'فشل في إضافة قاعدة: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'فشل في إضافة قاعدة SMS: $error';
   }
 
   @override
@@ -1893,9 +1378,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get failedToDecryptBackupFile => 'فشل في فك تشفير ملف النسخ الاحتياطي';
 
   @override
-  String get failedToDeleteDevice => 'فشل في حذف الجهاز';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'فشل في حذف قاعدة SMS: $error';
   }
@@ -1903,11 +1385,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'فشل في تصدير القواعد: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'فشل في تصدير قواعد SMS: $error';
   }
 
   @override
@@ -1921,20 +1398,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'فشل في استيراد قواعد SMS: $error';
-  }
-
-  @override
-  String get failedToLoadContacts => 'فشل في تحميل جهات الاتصال';
-
-  @override
-  String get failedToLoadPlugin => 'فشل في تحميل المكون الإضافي';
-
-  @override
-  String get failedToRenameDevice => 'فشل في إعادة تسمية الجهاز';
-
-  @override
   String get failedToRestoreSettings => 'فشل في استعادة الإعدادات';
 
   @override
@@ -1943,31 +1406,9 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'فشل في تعيين كلمة المرور: $error';
-  }
-
-  @override
-  String get failedToSyncDevices => 'فشل في مزامنة الأجهزة';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'فشل في تبديل حالة القاعدة: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus => 'فشل في تبديل حالة الاشتراك';
-
-  @override
-  String get failedToUpdateContact => 'فشل في تحديث جهة اتصال';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'فشل في تحديث قاعدة SMS: $error';
-  }
-
-  @override
-  String get failure => 'فشل';
 
   @override
   String get favoriteContacts => 'جهات الاتصال المفضلة';
@@ -2006,9 +1447,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get filterByLabel => 'التصفية حسب التسمية';
 
   @override
-  String get filterClear => 'مسح التصفية';
-
-  @override
   String get filterControlPanelTitle => 'لوحة تحكم التصفية';
 
   @override
@@ -2019,22 +1457,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get filterControlTitle => 'التحكم في الفلاتر';
 
   @override
-  String get filterDeleteFailed => 'فشل حذف الفلتر';
-
-  @override
-  String get filterDeleteSuccess => 'تم حذف الفلتر بنجاح';
-
-  @override
-  String get filterDetails => 'تفاصيل الفلتر';
-
-  @override
   String get filtered => 'مفلتر';
-
-  @override
-  String get filteredSms => 'رسائل SMS مفلترة';
-
-  @override
-  String get filteredSmsLabel => 'رسائل SMS مفلترة';
 
   @override
   String get filterExplanation => 'شرح الفلتر';
@@ -2046,17 +1469,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get filterName => 'اسم الفلتر';
 
   @override
-  String get filterPattern => 'نمط الفلتر';
-
-  @override
   String get filterPriorityNote =>
       'ملاحظة: توجد علاقات أولوية بين الفلاتر، يرجى الرجوع إلى وثائق المساعدة للحصول على التفاصيل';
-
-  @override
-  String get filterSaveFailed => 'فشل حفظ الفلتر';
-
-  @override
-  String get filterSaveSuccess => 'تم حفظ الفلتر بنجاح';
 
   @override
   String get filterSettings => 'إعدادات الفلتر';
@@ -2095,16 +1509,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return 'تم العثور على $count قاعدة. هل تريد استيرادها؟';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return 'تم العثور على $count قاعدة. هل تريد استيرادها؟';
-  }
-
-  @override
   String get fraudAlert => 'تنبيه احتيال - قم بإنهاء المكالمة';
 
   @override
@@ -2139,38 +1543,14 @@ class AppLocalizationsAr extends AppLocalizations {
   String get globalFilterSettings => 'إعدادات الفلتر العام';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'تكوين إعدادات الفلتر العامة التي تنطبق على جميع فتحات SIM:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'البحث عن جهات الاتصال، الملصقات، القوائم السوداء، القوائم البيضاء، إلخ.';
-
-  @override
-  String get globalSearchTitle => 'بحث عام';
-
-  @override
   String get globalSettings => 'الإعدادات العامة';
-
-  @override
-  String get googleAdDisplayPosition => 'موضع عرض إعلانات Google';
-
-  @override
-  String get googleAdMobIntegrationText => 'يمكن دمج إعلانات Google AdMob هنا';
 
   @override
   String get googleDriveAuthDescription =>
       'مصادقة باستخدام معرّف عميل ومفتاح Google Drive المُكوّنين في النظام';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'مصادقة باستخدام معرّف عميل ومفتاح Google Drive المُكوّنين في النظام';
-
-  @override
   String get googleDriveConfigTitle => 'تكوين Google Drive';
-
-  @override
-  String get googleDriveConfigurationTitle => 'تكوين Google Drive';
 
   @override
   String get government => 'حكومي';
@@ -2189,9 +1569,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get height => 'ارتفاع';
-
-  @override
-  String get homePageTitle => 'الصفحة الرئيسية';
 
   @override
   String get homeTab => 'الصفحة الرئيسية';
@@ -2222,9 +1599,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get important => 'هام';
-
-  @override
-  String get importButton => 'استيراد';
 
   @override
   String get importConfig => 'استيراد التكوين';
@@ -2278,40 +1652,13 @@ class AppLocalizationsAr extends AppLocalizations {
       'استيراد تكوينات القواعد من ملف';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'استيراد تكوينات القواعد من ملف';
-
-  @override
   String get importRules => 'استيراد القواعد';
-
-  @override
-  String get importRulesButton => 'استيراد القواعد';
-
-  @override
-  String get importRulesDialogTitle => 'استيراد القواعد';
-
-  @override
-  String importRulesError(Object error) {
-    return 'فشل استيراد القواعد: $error';
-  }
-
-  @override
-  String get importRulesInstructions => 'استيراد القواعد من ملف CSV';
-
-  @override
-  String get importRulesSuccess => 'تم استيراد القواعد بنجاح';
-
-  @override
-  String get importRulesTitle => 'استيراد القواعد';
 
   @override
   String get importSuccess => 'تم الاستيراد بنجاح';
 
   @override
   String get incomingCallInterceptAction => 'إجراء اعتراض المكالمات الواردة';
-
-  @override
-  String get incomingCallNotification => 'إشعار المكالمات الواردة';
 
   @override
   String get incorrectPassword => 'كلمة مرور غير صحيحة';
@@ -2366,9 +1713,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'انضم إلى قناة ومجموعة تيليجرام لمزيد من المعلومات';
 
   @override
-  String get jsLogsTitle => 'سجلات JavaScript';
-
-  @override
   String get jsonFormat => 'تنسيق JSON';
 
   @override
@@ -2377,16 +1721,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'الاحتفاظ بجميع الإصدارات التاريخية لكل نسخة احتياطية';
-
-  @override
-  String get keepAllVersionsLabel => 'الاحتفاظ بجميع الإصدارات';
-
-  @override
-  String get keepAllVersionsSubtitle =>
-      'الاحتفاظ بالإصدارات التاريخية لكل نسخة احتياطية';
-
-  @override
-  String get keepAllVersionsTitle => 'الاحتفاظ بجميع الإصدارات';
 
   @override
   String get label => 'تسمية';
@@ -2407,9 +1741,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'تساعدك التسميات على إدارة جهات الاتصال بشكل أفضل، وإضافة تسميات مخصصة لأرقام الهواتف لتحديد المكالمات والرسائل بسهولة.';
 
   @override
-  String get labelFilter => 'مرشح التسمية';
-
-  @override
   String get labelFilterTooltip => 'مرشح التسمية';
 
   @override
@@ -2420,14 +1751,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get labelNotFound => 'لم يتم العثور على التسمية';
-
-  @override
-  String get labelRemoved => 'تمت إزالة التسمية';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'فشل إزالة التسمية: $error';
-  }
 
   @override
   String get labels => 'تسميات';
@@ -2460,9 +1783,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'تم تحديث التسمية';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'فشل تحديث التسمية: $error';
   }
@@ -2478,12 +1798,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'إعدادات اللغة';
-
-  @override
-  String get last30Days => 'آخر 30 يومًا';
-
-  @override
-  String get last7Days => 'آخر 7 أيام';
 
   @override
   String get lastSyncLabel => 'آخر مزامنة';
@@ -2509,13 +1823,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get loadDataFailed => 'فشل تحميل البيانات';
 
   @override
-  String get loadFailed => 'فشل التحميل';
-
-  @override
   String get loading => 'جارٍ التحميل...';
-
-  @override
-  String get loadingData => 'جارٍ تحميل البيانات...';
 
   @override
   String get loadingTags => 'جارٍ تحميل العلامات...';
@@ -2539,12 +1847,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'فشل تحميل الهواتف المميزة: $error';
   }
-
-  @override
-  String get loadMore => 'تحميل المزيد';
-
-  @override
-  String get loadPluginButton => 'تحميل المكون الإضافي';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2571,9 +1873,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get loan => 'قرض';
-
-  @override
-  String get localBackupTitle => 'نسخ احتياطي محلي';
 
   @override
   String get localCounterFilter => 'مرشح العداد المحلي';
@@ -2668,9 +1967,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get manage => 'إدارة جهات الاتصال';
 
   @override
-  String get manageContacts => 'إدارة';
-
-  @override
   String get manageFavoriteContacts => 'إدارة جهات الاتصال المفضلة';
 
   @override
@@ -2679,9 +1975,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'إضافة، تحرير، أو حذف قواعد تصفية الرسائل القصيرة';
-
-  @override
-  String get manageFrequentContacts => 'إدارة جهات الاتصال المتكررة';
 
   @override
   String get markCounts => 'عدد العلامات';
@@ -2709,16 +2002,10 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle => 'لوضع علامات على أرقام الهواتف';
-
-  @override
   String get markPhoneManagementTitle => 'إدارة علامات أرقام الهواتف';
 
   @override
   String get markPhoneSuccess => 'تم وضع علامة على رقم الهاتف بنجاح';
-
-  @override
-  String get matchFailed => 'فشل المطابقة!';
 
   @override
   String get matchFailedMessage => 'فشل المطابقة.';
@@ -2737,9 +2024,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get matchSpecificDigitPatternsTitle => 'مطابقة أنماط الأرقام المحددة:';
 
   @override
-  String get matchSuccessful => 'تمت المطابقة بنجاح!';
-
-  @override
   String get matchSuccessfulMessage => 'تمت المطابقة بنجاح!';
 
   @override
@@ -2750,9 +2034,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get migrationTool => 'أداة الترحيل';
-
-  @override
-  String get migrationToolTitle => 'أداة الترحيل';
 
   @override
   String get minutes => 'دقائق';
@@ -2767,9 +2048,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get monthlyCallCount => 'مكالمات شهرية';
 
   @override
-  String get monthlyChartTitle => 'المكالمات المحظورة الشهرية';
-
-  @override
   String get monthlyMembership => 'عضوية شهرية';
 
   @override
@@ -2778,9 +2056,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'الإجمالي الشهري';
-
-  @override
-  String get monthlyTotalLabel => 'الإجمالي الشهري';
 
   @override
   String get moreOptions => 'المزيد من الخيارات';
@@ -2796,32 +2071,16 @@ class AppLocalizationsAr extends AppLocalizations {
       'لا يمكن أن يكون الاسم ورقم الهاتف فارغين';
 
   @override
-  String get nameAndPhoneNumberRequired => 'الاسم ورقم الهاتف مطلوبان';
-
-  @override
   String get nameColor => 'لون الاسم';
 
   @override
   String get nameFontSize => 'حجم خط الاسم';
 
   @override
-  String nameLabel(Object name) {
-    return 'الاسم: $name';
-  }
-
-  @override
   String get namePosition => 'موضع الاسم';
 
   @override
   String get nameUnknown => 'الاسم: غير معروف';
-
-  @override
-  String nameWithValue(String name) {
-    return 'الاسم: $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'كلمة المرور الجديدة';
 
   @override
   String get nextStep => 'التالي';
@@ -2837,13 +2096,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'لا توجد خدمة مزامنة سحابية نشطة';
 
   @override
-  String get noCallLogs => 'لا توجد سجلات مكالمات';
-
-  @override
   String get noCallRecords => 'لا توجد سجلات مكالمات';
-
-  @override
-  String get noContacts => 'لا توجد جهات اتصال بعد';
 
   @override
   String get noContactsYet => 'لا توجد جهات اتصال بعد';
@@ -2855,28 +2108,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'لم يتم تسجيل أي أجهزة';
 
   @override
-  String get noDevicesRegisteredYet => 'لم يتم تسجيل أي أجهزة بعد.';
-
-  @override
-  String get noFilters => 'لا توجد عوامل تصفية بعد';
-
-  @override
   String get noLabels => 'لا توجد علامات بعد';
 
   @override
   String get noMarkedPhones => 'لا توجد أرقام هواتف مميزة';
 
   @override
-  String get noMatchingContacts => 'لا توجد جهات اتصال مطابقة';
-
-  @override
   String get noMatchingContactsFound => 'لم يتم العثور على جهات اتصال مطابقة';
 
   @override
   String get noMatchingNumbersFound => 'لم يتم العثور على أرقام مطابقة';
-
-  @override
-  String get noMatchingRecords => 'لا توجد سجلات مكالمات مطابقة';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2891,15 +2132,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noPlugins => 'لا توجد إضافات بعد';
-
-  @override
-  String get noRecords => 'لا توجد سجلات مكالمات';
-
-  @override
-  String get noResultReturned => 'لم يتم إرجاع أي نتيجة';
-
-  @override
-  String get noResultReturnedLog => 'لم يتم إرجاع أي نتيجة من المكون الإضافي';
 
   @override
   String noRules(Object ruleType) {
@@ -2922,9 +2154,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noSubscriptions => 'لا توجد اشتراكات';
 
   @override
-  String get noSubscriptionsYet => 'لا توجد اشتراكات بعد';
-
-  @override
   String get notGranted => 'لم يتم منح';
 
   @override
@@ -2943,12 +2172,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get notificationSettings => 'إعدادات الإشعارات';
-
-  @override
-  String get notificationSettingsSaved => 'تم حفظ إعدادات الإشعارات بنجاح';
-
-  @override
-  String get notSet => 'لم يتم التعيين';
 
   @override
   String get notVerifiedText => 'لم يتم التحقق';
@@ -2982,9 +2205,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get numberTypePosition => 'موضع نوع الرقم';
 
   @override
-  String get ok => 'موافق';
-
-  @override
   String get okButton => 'موافق';
 
   @override
@@ -3016,14 +2236,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'مصادقة باستخدام معرف ومفتاح عميل OneDrive المهيأ في النظام';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'مصادقة باستخدام معرف ومفتاح عميل OneDrive المهيأ في النظام';
-
-  @override
   String get oneDriveConfigTitle => 'تكوين OneDrive';
-
-  @override
-  String get oneDriveConfigurationTitle => 'تكوين OneDrive';
 
   @override
   String get onlineCallerIdSubscription => 'اشتراك معرف المتصل عبر الإنترنت';
@@ -3082,9 +2295,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get passwordsDoNotMatch => 'كلمتا المرور غير متطابقتين';
 
   @override
-  String get passwordSetSuccessfully => 'تم تعيين كلمة المرور بنجاح';
-
-  @override
   String get pattern => 'نمط';
 
   @override
@@ -3118,14 +2328,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'لا يمكن أن يكون رقم الهاتف فارغًا';
 
   @override
-  String get phoneNumberHintText => 'أدخل رقم الهاتف لإضافة قاعدة';
-
-  @override
   String get phoneNumberLabel => 'رقم الهاتف';
-
-  @override
-  String get phoneNumberRegexRequired =>
-      'يرجى إدخال كل من رقم الهاتف ونمط التعبير العادي';
 
   @override
   String get phoneNumberTypeFixedLine => 'خط أرضي';
@@ -3174,9 +2377,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get phoneRule => 'قاعدة الهاتف';
 
   @override
-  String get phoneRuleEditDialog => 'مربع حوار تحرير قاعدة الهاتف';
-
-  @override
   String get phoneRuleManagement => 'إدارة قواعد الهاتف';
 
   @override
@@ -3188,9 +2388,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'اشترك في قوائم قواعد الهاتف عبر عنوان URL لتحديث قوائم الأرقام المسموح بها والمحظورة تلقائيًا. يدعم ملفات قواعد بتنسيق JSON.';
-
-  @override
-  String get phoneSubscriptionTitle => 'اشتراكات قواعد الهاتف';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3212,9 +2409,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'تم تصدير قائمة المكونات الإضافية بنجاح';
 
   @override
-  String get pluginLoadedSuccessfully => 'تم تحميل المكون الإضافي بنجاح';
-
-  @override
   String get pluginManagement => 'إدارة المكونات الإضافية';
 
   @override
@@ -3222,14 +2416,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'إدارة وتكوين المكونات الإضافية لجهات خارجية';
 
   @override
-  String get pluginManagementTitle => 'إدارة المكونات الإضافية';
-
-  @override
   String get pluginName => 'اسم المكون الإضافي';
-
-  @override
-  String get pluginNotLoaded =>
-      'لم يتم تحميل المكون الإضافي بعد. يرجى تحميل المكون الإضافي أولاً.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3247,16 +2434,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get pluginUrl => 'عنوان URL للمكون الإضافي';
-
-  @override
-  String get pluginUrlCannotBeEmpty =>
-      'لا يمكن أن يكون عنوان URL للمكون الإضافي فارغًا';
-
-  @override
-  String get pluginUrlHint => 'أدخل عنوان URL للمكون الإضافي';
-
-  @override
-  String get pluginUrlLabel => 'عنوان URL للمكون الإضافي';
 
   @override
   String get pluginVersion => 'إصدار المكون الإضافي';
@@ -3295,34 +2472,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'افتح جميع الميزات المتميزة، تجديد تلقائي كل ثلاثة أشهر';
 
   @override
-  String get queryButton => 'استعلام';
-
-  @override
-  String get queryFailed => 'فشل الاستعلام';
-
-  @override
-  String get queryFailedLog => 'فشل الاستعلام';
-
-  @override
-  String get querying => 'جارٍ الاستعلام...';
-
-  @override
-  String get queryingPhoneNumber => 'جارٍ الاستعلام عن رقم الهاتف';
-
-  @override
-  String get queryResultTitle => 'نتيجة الاستعلام';
-
-  @override
   String get ready => 'جاهز!';
 
   @override
-  String get receiveWeeklyStatistics => 'استلام إحصائيات أسبوعية';
-
-  @override
   String get recruiter => 'مسؤول التوظيف';
-
-  @override
-  String get reEnterPasswordHint => 'يرجى إعادة إدخال كلمة المرور';
 
   @override
   String get refresh => 'تحديث';
@@ -3332,11 +2485,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'تحديث';
-
-  @override
-  String regexError(Object error) {
-    return 'خطأ في التعبير العادي: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3354,10 +2502,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'نمط Regex';
-
-  @override
-  String get regexPatternsExamples =>
-      'استخدم صيغة regex قياسية لتعريف الأنماط. أمثلة:';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3386,14 +2530,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'مختبر Regex';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'فشل التحقق من صحة Regex: $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'نجح التحقق من صحة Regex';
 
   @override
   String get region => 'المنطقة';
@@ -3431,34 +2567,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get remoteNumberFilter => 'فلتر الأرقام عن بعد';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'يستخدم هذا الفلتر قاعدة بيانات خارجية مستقلة للحصول على أحدث معلومات الأرقام.';
-
-  @override
   String get remoteNumberFilterDescription =>
       'اعتراض المكالمات المزعجة بناءً على معلومات قاعدة البيانات الخارجية';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'يقوم فلتر الأرقام الخارجي بتحديد وحظر المكالمات العشوائية عن طريق الاستعلام عن قاعدة بيانات خارجية بناءً على عدد الأرقام.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle => 'شرح فلتر الأرقام عن بعد';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• حد العد: تحديده بناءً على تكرار حدوث الرقم';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• إجراءات الفلتر: تكوين كيفية التعامل مع الأرقام التي تتجاوز الحد';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• إعدادات الأولوية: تعيين الأولوية للإجراءات الخارجية';
-
-  @override
-  String get remoteNumberFilterFeatures => 'الميزات:';
 
   @override
   String get remoteNumberFiltering => 'فلترة الأرقام عن بعد';
@@ -3479,30 +2589,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get removeAdsTitle => 'إزالة الإعلانات';
 
   @override
-  String get removedFromFavoriteContacts =>
-      'تمت الإزالة من جهات الاتصال المفضلة';
-
-  @override
   String get removedFromFavorites => 'تمت الإزالة من المفضلة';
-
-  @override
-  String get removeFavorite => 'إزالة مفضل';
 
   @override
   String get removeFromFavorites => 'إزالة من المفضلة';
 
   @override
-  String get renameButton => 'إعادة تسمية';
-
-  @override
-  String get renameDeviceDialogTitle => 'إعادة تسمية الجهاز';
-
-  @override
   String get renameDeviceTitle => 'إعادة تسمية الجهاز';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'سيؤدي هذا إلى استبدال جميع إعداداتك الحالية. هل أنت متأكد من رغبتك في المتابعة؟';
 
   @override
   String get requestAllPermissions => 'طلب جميع الأذونات';
@@ -3531,23 +2624,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'استعادة إعدادات التطبيق من النسخة الاحتياطية';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'استعادة إعدادات التطبيق من النسخة الاحتياطية';
-
-  @override
-  String get restoreButton => 'استعادة';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'فشل الاستعادة من السحابة: $error';
-  }
-
-  @override
   String get restoreFromCloud => 'استعادة من السحابة';
-
-  @override
-  String get restoreFromCloudDescription =>
-      'استعادة الإعدادات والقواعد من التخزين السحابي';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3555,22 +2632,10 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'استعادة من السحابة';
-
-  @override
   String get restoreFromCloudSuccess => 'تمت الاستعادة بنجاح من السحابة';
 
   @override
-  String get restoreFromCloudTitle => 'استعادة من السحابة';
-
-  @override
-  String get restoreFromLocal => 'استعادة من المحلية';
-
-  @override
   String get restorePurchases => 'استعادة المشتريات';
-
-  @override
-  String get restoreSectionTitle => 'استعادة';
 
   @override
   String get restoreSettings => 'استعادة الإعدادات';
@@ -3578,18 +2643,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'سيؤدي هذا إلى استبدال جميع إعداداتك الحالية. هل أنت متأكد من رغبتك في المتابعة؟';
-
-  @override
-  String get restoreSettingsDialogTitle => 'استعادة الإعدادات';
-
-  @override
-  String get restoreSettingsTitle => 'استعادة الإعدادات';
-
-  @override
-  String get restoreSuccessFromLocal => 'تمت الاستعادة بنجاح من المحلية';
-
-  @override
-  String get restoreSuccessMessage => 'تمت الاستعادة بنجاح من السحابة';
 
   @override
   String get retry => 'إعادة المحاولة';
@@ -3607,15 +2660,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get ruleAction => 'إجراء القاعدة';
 
   @override
-  String get ruleAddButton => 'إضافة قاعدة';
-
-  @override
   String get ruleAddedSuccess => 'تمت إضافة القاعدة بنجاح';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'فشل في إضافة القاعدة: $error';
-  }
 
   @override
   String get ruleAddSuccess => 'تمت إضافة القاعدة بنجاح';
@@ -3629,18 +2674,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'حذف القاعدة';
 
   @override
-  String get ruleDeletedSuccess => 'تم حذف القاعدة بنجاح';
-
-  @override
   String get ruleDeletedSuccessfully => 'تم حذف القاعدة بنجاح';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'فشل في حذف القاعدة: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'فشل في حذف القاعدة: $error';
   }
 
@@ -3662,9 +2699,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get ruleManagement => 'إدارة القواعد';
 
   @override
-  String get ruleManagementTitle => 'إدارة القواعد';
-
-  @override
   String get ruleName => 'اسم القاعدة';
 
   @override
@@ -3682,9 +2716,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get ruleNameLabel => 'اسم القاعدة';
 
   @override
-  String get ruleNamePatternRequired => 'الرجاء إدخال اسم القاعدة والنمط';
-
-  @override
   String get ruleNameRequired =>
       'لا يمكن أن يكون اسم القاعدة ورقم الهاتف فارغين';
 
@@ -3697,23 +2728,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'تم حفظ القاعدة بنجاح!';
-
-  @override
   String get ruleSavedSuccessMessage => 'تم حفظ القاعدة بنجاح!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'فشل الحفظ: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'فشل الحفظ: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'تم حفظ القاعدة بنجاح!';
 
   @override
   String get rulesExportedSuccessfully => 'تم تصدير القواعد بنجاح';
@@ -3730,14 +2745,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return 'تم استيراد $count قاعدة بنجاح';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'فشل استيراد القواعد: $error';
-  }
-
-  @override
-  String get ruleStatistics => 'إحصائيات القاعدة';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3772,9 +2779,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get saveButton => 'حفظ';
 
   @override
-  String get saveButtonLabel => 'حفظ';
-
-  @override
   String get saveButtonText => 'حفظ';
 
   @override
@@ -3783,15 +2787,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'حفظ الفلتر';
-
-  @override
   String get saveSettings => 'حفظ الإعدادات';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'فشل حفظ الإعدادات: $error';
-  }
 
   @override
   String get scamsLikely => 'عمليات احتيال محتملة';
@@ -3808,28 +2804,11 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'فلاتر البحث';
-
-  @override
-  String get searchForContacts => 'ابحث عن جهات الاتصال';
-
-  @override
   String get searchHint => 'بحث...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'البحث عن جهات الاتصال، الملصقات، القوائم السوداء، القوائم البيضاء، إلخ.';
-
-  @override
-  String get searchSettingsTitle => 'إعدادات البحث';
 
   @override
   String get securityMessage =>
       'لا تثق بأي مكالمات هاتفية. تحقق دائمًا من أرقام خدمة العملاء بشكل مستقل. لا تشارك أبدًا كلمات المرور، رموز التحقق، أرقام البطاقات، أو المعلومات الشخصية.';
-
-  @override
-  String get selectActionToPerform =>
-      'حدد الإجراء المراد تنفيذه عند مطابقة القاعدة';
 
   @override
   String get selectActionWhenBlockingCalls => 'حدد الإجراء عند حظر المكالمات';
@@ -3842,12 +2821,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get selectCountry => 'تحديد الدولة';
-
-  @override
-  String get selectDateRange => 'تحديد نطاق التاريخ';
-
-  @override
-  String get selectedDateRange => 'نطاق التاريخ المحدد';
 
   @override
   String selectedItems(Object count) {
@@ -3874,20 +2847,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get selectMultiple => 'تحديد متعدد';
 
   @override
-  String get selectPeriod => 'تحديد الفترة';
-
-  @override
   String get selectSimCard => 'تحديد بطاقة SIM';
-
-  @override
-  String get selectSimSlot => 'تحديد فتحة SIM';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'حدد الإجراء المحدد الذي سيتم تنفيذه عند حظر المكالمات';
-
-  @override
-  String get selectTag => 'تحديد الوسم';
 
   @override
   String get selectTags => 'تحديد الوسوم';
@@ -3928,23 +2888,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'تعيين';
-
-  @override
   String get setEncryptionPassword => 'تعيين كلمة مرور التشفير';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'تعيين كلمة مرور التشفير للنسخ الاحتياطي والاستعادة';
-
-  @override
-  String get setEncryptionPasswordLabel => 'تعيين كلمة مرور التشفير';
-
-  @override
-  String get setEncryptionPasswordTitle => 'تعيين كلمة مرور التشفير';
-
-  @override
-  String get setPasswordButton => 'تعيين';
 
   @override
   String get settings => 'الإعدادات';
@@ -3952,14 +2896,6 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'تم النسخ الاحتياطي للإعدادات إلى: $path';
-  }
-
-  @override
-  String get settingsLoaded => 'تم تحميل الإعدادات';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'فشل تحميل الإعدادات: $error';
   }
 
   @override
@@ -3982,13 +2918,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get setup => 'إعداد';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'طريقة ثابتة لعرض مربع حوار تحرير جهة الاتصال';
-
-  @override
-  String get showExplanation => 'عرض الشرح';
 
   @override
   String get silence => 'صمت';
@@ -4036,19 +2965,11 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'فشل تحميل معلومات بطاقة SIM: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'تسمح لك قواعد فتحة SIM بتكوين قواعد تصفية مستقلة لكل فتحة SIM.';
 
   @override
   String get simRuleInstructionsTitle => 'قواعد فتحة SIM';
-
-  @override
-  String get simRuleManagement => 'إدارة قواعد فتحة SIM';
 
   @override
   String simSlot1(String countryIso) {
@@ -4061,18 +2982,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'فشل تحميل بيانات SIM: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration => 'تهيئة مرشح فتحة SIM';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'السماح بتعيين قواعد التصفية حسب فتحة SIM';
-
-  @override
   String get simSlotFilterDescription =>
       'قم بتكوين قواعد تصفية مستقلة لكل بطاقة SIM:';
 
@@ -4082,17 +2991,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'فشل تحميل فتحات SIM: $error';
-  }
-
-  @override
   String get simSlotManagement => 'إدارة فتحات SIM';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'فشل عملية فتحة SIM: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4113,12 +3012,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'قواعد فتحة SIM';
-
-  @override
-  String get simSlotRuleManagementTitle => 'إدارة القواعد';
-
-  @override
-  String get simSlotSettings => 'إعدادات فتحة SIM';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4155,9 +3048,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get smsFilterSettings => 'إعدادات تصفية الرسائل القصيرة';
 
   @override
-  String get smsHistory => 'سجل الرسائل القصيرة';
-
-  @override
   String get smsManagement => 'إدارة الرسائل القصيرة';
 
   @override
@@ -4182,27 +3072,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get smsRuleManagement => 'إدارة قواعد الرسائل القصيرة';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'تم تصدير قواعد الرسائل القصيرة بنجاح إلى $filePath';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully =>
-      'تم استيراد قواعد الرسائل القصيرة بنجاح';
-
-  @override
   String get smsRuleSubscription => 'اشتراك قاعدة الرسائل القصيرة';
-
-  @override
-  String get smsRuleUpdatedSuccessfully =>
-      'تم تحديث قاعدة الرسائل القصيرة بنجاح';
-
-  @override
-  String get smsSettingsSubtitle =>
-      'تصفية الرسائل القصيرة وحظر الكلمات الرئيسية';
-
-  @override
-  String get smsSettingsTitle => 'إعدادات الرسائل القصيرة';
 
   @override
   String get smsSubscription => 'اشتراك الرسائل القصيرة';
@@ -4240,25 +3110,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get statBlocked => 'تم الحظر';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'طريقة ثابتة لعرض مربع حوار معلومات هوية المتصل';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'طريقة ثابتة لعرض مربع حوار اختيار البلد';
-
-  @override
-  String get staticMethodToDisplayDialog => 'طريقة ثابتة لعرض مربع حوار';
-
-  @override
   String get statistics => 'إحصائيات';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'ميزة تصدير الإحصائيات قادمة قريبًا';
-
-  @override
-  String get statisticsGrid => 'شبكة الإحصائيات';
 
   @override
   String get statisticsPageTitle => 'تحليل البيانات';
@@ -4297,9 +3149,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get subscriptionDeleted => 'تم حذف الاشتراك';
 
   @override
-  String get subscriptionDeletedSuccessfully => 'تم حذف الاشتراك بنجاح';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'فشل حذف الاشتراك: $error';
   }
@@ -4308,23 +3157,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'تم حذف الاشتراك';
 
   @override
-  String get subscriptionEmptyState => 'لا توجد اشتراكات متاحة';
-
-  @override
-  String get subscriptionEmptyText => 'لا توجد اشتراكات حتى الآن';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'فشل تحميل الاشتراكات: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'فشل تحميل الاشتراكات: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'إدارة الاشتراكات';
 
   @override
   String get subscriptionName => 'اسم الاشتراك';
@@ -4337,16 +3172,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get subscriptionNameHint => 'أدخل اسم الاشتراك';
 
   @override
-  String get subscriptionPageTitle => 'إدارة الاشتراكات';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
     return 'فشل تغيير حالة الاشتراك: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
-    return 'فشل تبديل حالة الاشتراك: $error';
   }
 
   @override
@@ -4384,10 +3211,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get syncFailedMessage => 'فشلت المزامنة';
 
   @override
-  String get syncFolderNameHint =>
-      'يرجى إدخال اسم مجلد المزامنة (افتراضي: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'اسم مجلد المزامنة';
 
   @override
@@ -4409,16 +3232,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'تم تحديث حالة المزامنة';
 
   @override
-  String get syncSuccessful => 'تمت المزامنة بنجاح';
-
-  @override
   String get syncSuccessMessage => 'تمت المزامنة بنجاح';
 
   @override
   String get syncWithCloudStorage => 'المزامنة مع التخزين السحابي';
-
-  @override
-  String get syncWithCloudStorageSubtitle => 'المزامنة مع التخزين السحابي';
 
   @override
   String get systemFeatures => 'ميزات النظام:';
@@ -4447,9 +3264,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'تم تحديث العلامات';
-
-  @override
   String get takeaway => 'الوجبات الجاهزة';
 
   @override
@@ -4463,9 +3277,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get testButton => 'اختبار';
-
-  @override
-  String get testButtonLabel => 'اختبار';
 
   @override
   String get testConnectionButton => 'اختبار الاتصال';
@@ -4502,13 +3313,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get timeInterceptorSettingsTitle => 'إعدادات اعتراض تكرار المكالمات';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'اعتراض المكالمات المحتملة العشوائية تلقائيًا بناءً على تكرار المكالمات';
-
-  @override
-  String get timeInterceptorTitle => 'تمكين اعتراض تكرار المكالمات';
-
-  @override
   String get timeWindowDescription =>
       'قم بتعيين حجم نافذة الوقت للسماح بالمكالمات المتكررة. سيتم السماح بالمكالمات من نفس الرقم ضمن هذه النافذة';
 
@@ -4516,10 +3320,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'نافذة وقت الاعتراض (دقائق): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'قم بتعيين حجم نافذة الوقت للسماح بالمكالمات المتكررة. سيتم السماح بالمكالمات من نفس الرقم ضمن هذه النافذة';
 
   @override
   String get today => 'اليوم';
@@ -4531,24 +3331,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get totalBlocked => 'إجمالي المحظور';
 
   @override
-  String get totalFiltered => 'إجمالي المفلتر';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'نقل البيانات بين الأجهزة أو المنصات';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'نقل البيانات بين الأجهزة أو المنصات';
-
-  @override
   String get travelTicketing => 'تذاكر السفر';
-
-  @override
-  String get trend => 'الاتجاه';
-
-  @override
-  String get trendChart => 'مخطط الاتجاه';
 
   @override
   String get tutorial => 'برنامج تعليمي';
@@ -4561,9 +3348,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get unknown => 'غير معروف';
-
-  @override
-  String get unknownLabel => 'تسمية غير معروفة';
 
   @override
   String get unknownTag => 'علامة: غير معروف';
@@ -4589,9 +3373,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get updateAllNow => 'تحديث الكل الآن';
 
   @override
-  String get updateCallFilterConfig => 'تحديث تكوين مرشح المكالمات';
-
-  @override
   String updateContactFailed(Object error) {
     return 'فشل تحديث جهة الاتصال: $error';
   }
@@ -4600,15 +3381,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get updateFavoriteStatus => 'تحديث حالة المفضلة';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'فشل تحديث حالة المفضلة: $error';
-  }
-
-  @override
   String get updateInterval => 'فاصل التحديث';
-
-  @override
-  String get updateLabelFailed => 'فشل تحديث التسمية';
 
   @override
   String get updateNow => 'تحديث الآن';
@@ -4637,9 +3410,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'تحديث العلامات';
-
-  @override
   String get useCasesPoint1 =>
       '• تحديد مكالمات البريد العشوائي التي تعيد الاتصال تلقائيًا';
 
@@ -4657,17 +3427,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get useGlobalSettings => 'استخدام الإعدادات العامة';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => 'اسم المستخدم';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'استخدم صيغة regex القياسية لتحديد الأنماط. أمثلة:';
-
-  @override
-  String get validateRegex => 'التحقق من صحة Regex';
 
   @override
   String get verificationFailedText => 'فشل';
@@ -4704,43 +3468,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get webDAVConfigTitle => 'إعدادات WebDAV';
 
   @override
-  String get webdavConfigurationTitle => 'إعدادات WebDAV';
-
-  @override
-  String get webdavPasswordHint => 'يرجى إدخال كلمة مرور WebDAV';
-
-  @override
-  String get webdavServerAddressHint => 'يرجى إدخال عنوان خادم WebDAV';
-
-  @override
-  String get webdavUsernameHint => 'يرجى إدخال اسم مستخدم WebDAV';
-
-  @override
   String get week => 'الأسبوع';
-
-  @override
-  String get weekly => 'أسبوعي';
-
-  @override
-  String get weeklyBlockedCallsSummary => 'ملخص المكالمات المحظورة الأسبوعي';
-
-  @override
-  String get weeklyChartTitle => 'المكالمات المحظورة الأسبوعية';
-
-  @override
-  String get weeklyReport => 'تقرير أسبوعي';
-
-  @override
-  String get weeklyReportDesc => 'تلقي تقرير ملخص أسبوعي لنشاط حظر المكالمات';
 
   @override
   String get welcome => 'أهلاً وسهلاً';
 
   @override
   String get whitelist => 'القائمة البيضاء';
-
-  @override
-  String get whitelistLabel => 'القائمة البيضاء';
 
   @override
   String get width => 'العرض';
@@ -4761,12 +3495,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get year => 'سنة';
-
-  @override
-  String get yearly => 'سنوي';
-
-  @override
-  String get yearlyChartTitle => 'المكالمات المحظورة السنوية';
 
   @override
   String get noSimCardsDetected => 'لم يتم اكتشاف بطاقات SIM';
@@ -4814,10 +3542,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get useStirNotification => 'استخدام الإشعارات من STIR';
 
   @override
-  String get useStirNotificationDescription =>
-      'تمكين إشعارات STIR للمكالمات الواردة';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'إغلاق الإشعارات المحلية تلقائيًا';
 
@@ -4835,11 +3559,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'معلومات المكالمة الواردة';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'الرقم: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'مكالمة محظورة';
@@ -4893,21 +3612,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'تنبيه الاحتيال';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return 'مكالمة احتيال محتملة من $phoneNumber';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'فشل تحميل القواعد: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'فشل تحميل سجل المكالمات: $error';
-  }
 
   @override
   String get noBlockedTypeData => 'لا توجد بيانات نوع محظور متاحة';
@@ -4984,9 +3688,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get removeAds => 'إزالة الإعلانات';
-
-  @override
-  String get unknownAction => 'إجراء غير معروف';
 
   @override
   String get settingsBackup => 'نسخ احتياطي للإعدادات ';
@@ -5240,16 +3941,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get blockNumberSuccess => 'تم حظر الرقم بنجاح';
 
   @override
-  String get blockNumberFailed => 'فشل حظر الرقم';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return 'هل أنت متأكد أنك تريد إلغاء حظر $phoneNumber؟';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return 'الاتصال بـ $phoneNumber...';
   }
 
   @override
@@ -5266,9 +3959,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => 'فشل إلغاء حظر الرقم';
-
-  @override
-  String get serviceNotAvailable => 'الخدمة غير متوفرة';
 
   @override
   String get callingNumberFailed => 'فشل الاتصال بالرقم';
@@ -5299,9 +3989,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'تنسيق الرقم غير صالح';
-
-  @override
-  String get membershipFeature => 'ميزة العضوية';
 
   @override
   String get medium => 'متوسط';
@@ -5396,9 +4083,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get clearAllNotificationsConfirmation => 'تأكيد مسح جميع الإشعارات';
 
   @override
-  String get allNotificationsCleared => 'تم مسح جميع الإشعارات';
-
-  @override
   String get clearButton => 'مسح';
 
   @override
@@ -5468,9 +4152,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reasonInaccurateInfo => 'معلومات غير دقيقة';
 
   @override
-  String get reasonWrongMarked => 'تم وضع علامة خاطئة';
-
-  @override
   String get reasonOther => 'آخر';
 
   @override
@@ -5480,25 +4161,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cancel => 'إلغاء';
 
   @override
-  String get proposalStatus => 'الحالة';
-
-  @override
-  String get statusPending => 'معلق';
-
-  @override
-  String get statusActive => 'نشط';
-
-  @override
-  String get statusCompleted => 'مكتمل';
-
-  @override
-  String get statusExpired => 'منتهي الصلاحية';
-
-  @override
   String get riskLevel => 'مستوى المخاطرة';
-
-  @override
-  String get riskLevelVerified => 'تم التحقق';
 
   @override
   String get riskLevelLow => 'منخفض';
@@ -5507,19 +4170,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get riskLevelHigh => 'مرتفع';
 
   @override
-  String get riskLevelUnknown => 'غير معروف';
-
-  @override
-  String get votingProgress => 'تقدم التصويت';
-
-  @override
   String agreeVotes(int count) {
     return 'موافق: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'غير موافق: $count';
   }
 
   @override
@@ -5542,12 +4194,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get verificationReport => 'تقرير التحقق';
 
   @override
-  String get showReport => 'إظهار التقرير';
-
-  @override
-  String get hideReport => 'إخفاء التقرير';
-
-  @override
   String get proposalStatistics => 'إحصائيات الاقتراح';
 
   @override
@@ -5557,28 +4203,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get activeProposals => 'الاقتراحات النشطة';
 
   @override
-  String get completedProposals => 'الاقتراحات المكتملة';
-
-  @override
-  String get myVotes => 'أصواتي';
-
-  @override
   String get proposalCreated => 'تم إنشاء الاقتراح بنجاح';
-
-  @override
-  String get proposalCreateFailed => 'فشل إنشاء الاقتراح';
 
   @override
   String get voteSubmitted => 'تم تقديم التصويت بنجاح';
 
   @override
-  String get voteSubmitFailed => 'فشل تقديم التصويت';
-
-  @override
   String get noProposalsFound => 'لم يتم العثور على اقتراحات';
-
-  @override
-  String get loadingProposals => 'جارٍ تحميل الاقتراحات...';
 
   @override
   String get refreshProposals => 'تحديث الاقتراحات';
@@ -5730,23 +4361,11 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'فشل تحميل عدد الأصوات';
-
-  @override
   String get voteCount => 'عدد الأصوات';
-
-  @override
-  String get deletionProposalInfo => 'معلومات اقتراح الحذف';
 
   @override
   String get deletionProposalDescription =>
       'اقترح أرقامًا للحذف تنتهك إرشادات المجتمع. مشاركتك تساعد في الحفاظ على أمان المنصة.';
-
-  @override
-  String get voteToEarnVip => 'صوّت على الاقتراحات لكسب امتيازات VIP!';
-
-  @override
-  String get voteFailed => 'فشل التصويت';
 
   @override
   String get searchProposals => 'البحث عن اقتراحات';
@@ -5780,49 +4399,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'يعرض تحذيرات للمكالمات الاحتيالية المحتملة.';
 
   @override
-  String get notificationFrequencyDescription =>
-      'اختر عدد المرات التي تتلقى فيها إشعارات حول مقترحات الحذف الجديدة. يمكنك تلقيها فورًا، أو في دفعات، أو بفاصل زمني مخصص.';
-
-  @override
   String get notificationMode => 'وضع الإشعارات';
-
-  @override
-  String get immediateNotifications => 'فوري';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'تلقي إشعار فور إنشاء اقتراح.';
-
-  @override
-  String get batchNotifications => 'مجمعة';
-
-  @override
-  String get batchNotificationsDescription => 'تلقي ملخص للإشعارات بشكل دوري.';
-
-  @override
-  String get customNotifications => 'مخصص';
-
-  @override
-  String get customNotificationsDescription =>
-      'حدد الفاصل الزمني الخاص بك لتلقي الإشعارات.';
-
-  @override
-  String get customFrequency => 'التردد المخصص';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes دقيقة';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours ساعة';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours ساعة $minutes دقيقة';
-  }
 
   @override
   String get pendingProposals => 'المقترحات المعلقة';
@@ -5844,9 +4421,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get riskLevelLabel => 'مستوى المخاطرة';
-
-  @override
-  String get riskLevelDescription => 'مستوى مخاطرة الرقم';
 
   @override
   String get phoneNumberMinDigits =>
@@ -5872,33 +4446,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get countryCodeRequired => 'رمز البلد مطلوب';
 
   @override
-  String get countryCodeLengthError => 'يجب أن يتكون رمز البلد من حرفين';
-
-  @override
   String get phoneNumberHint => 'أدخل رقم الهاتف';
 
   @override
   String get phoneNumberRequired => 'رقم الهاتف مطلوب';
 
   @override
-  String get phoneNumberLengthError =>
-      'يجب أن يتكون رقم الهاتف من 7 أرقام على الأقل';
-
-  @override
-  String get reasonHint => 'قدم شرحًا مفصلاً (10 أحرف على الأقل)';
-
-  @override
   String get reasonRequired => 'السبب مطلوب';
-
-  @override
-  String get reasonLengthError => 'يجب أن يكون السبب 10 أحرف على الأقل';
-
-  @override
-  String get guidelinesTitle => 'إرشادات';
-
-  @override
-  String get guidelinesText =>
-      '• قم بالإبلاغ عن الأرقام التي تمثل مشكلة حقيقية فقط\n• قدم أسبابًا دقيقة ومفصلة\n• اختر مستوى المخاطرة المناسب بناءً على الخطورة\n• قد يؤدي الإبلاغ الكاذب إلى تقييد الحساب';
 
   @override
   String get riskLevelCritical => 'حرج';
@@ -5910,54 +4464,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get riskLevelVeryLow => 'منخفض جدًا';
 
   @override
-  String get riskDescriptionVeryLow =>
-      'منخفض جدًا - إزعاج طفيف، مكالمات غير متكررة';
-
-  @override
-  String get riskDescriptionLow => 'منخفض - مكالمات غير مرغوب فيها عرضية';
-
-  @override
-  String get riskDescriptionMedium =>
-      'متوسط - برامج غير مرغوب فيها منتظمة أو تسويق عبر الهاتف';
-
-  @override
-  String get riskDescriptionHigh => 'مرتفع - مضايقات مستمرة أو محاولات احتيال';
-
-  @override
-  String get riskDescriptionCritical => 'حرج - عمليات احتيال خطيرة أو تهديدات';
-
-  @override
   String get notificationFrequencyTitle => 'تكرار الإشعارات';
-
-  @override
-  String get notificationFrequencyLabel => 'تكرار الإشعارات (ساعات)';
 
   @override
   String errorMessage(String error) {
     return 'خطأ: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'الأصوات: $totalVotes ($supportPercentage% دعم)';
-  }
-
-  @override
-  String get timeJustNow => 'الآن';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return 'قبل $minutes دقيقة';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return 'قبل $hours ساعة';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return 'قبل $days يوم';
   }
 
   @override
@@ -6042,9 +4553,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get liveActivitiesTestTitle => 'اختبار الأنشطة المباشرة';
 
   @override
-  String get liveActivitiesTestSubtitle => 'اختبر إشعار النشاط المباشر.';
-
-  @override
   String get liveNotificationCustomizationTitle => 'تخصيص الإشعارات المباشرة';
 
   @override
@@ -6069,16 +4577,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get proposalDetails => 'تفاصيل الاقتراح';
 
   @override
-  String get filterByStatus => 'تصفية حسب الحالة';
-
-  @override
   String get proposalNotFound => 'الاقتراح غير موجود';
 
   @override
   String get processed => 'معالج';
-
-  @override
-  String get showAll => 'عرض الكل';
 
   @override
   String get filterAndSortTitle => 'التصفية والفرز';
@@ -6117,9 +4619,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get invalidSimData => 'بيانات SIM غير صالحة';
 
   @override
-  String get simCardData => 'بيانات بطاقة SIM';
-
-  @override
   String get simSlot => 'فتحة SIM';
 
   @override
@@ -6138,12 +4637,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get callTypeSilenced => 'تم إسكاته';
 
   @override
-  String get callTypeVoicemail => 'بريد صوتي';
-
-  @override
-  String get callTypeUnknownIntercept => 'اعتراض غير معروف';
-
-  @override
   String andMoreItems(int count) {
     return 'و $count عناصر أخرى';
   }
@@ -6156,10 +4649,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6243,9 +4732,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

@@ -18,13 +18,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get aboutPhoneSubscriptionRules => 'Tietoja puhelintilaussäännöistä';
 
   @override
-  String get aboutPhoneSubscriptions => 'Tietoja puhelintilauksista';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'Tilaa puhelinsääntöluetteloita URL-osoitteen kautta, päivitä sääntöjä automaattisesti. Tukee JSON-, CSV-muotoisia sääntötiedostoja.';
-
-  @override
   String get aboutSmsFilter => 'Tietoja tekstiviestisuodatuksesta';
 
   @override
@@ -48,9 +41,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get actionBlock => 'Estä';
-
-  @override
-  String get actionFilterAll => 'Kaikki suodattimet';
 
   @override
   String get actionFilterTitle => 'Suodata toimintatyypin mukaan';
@@ -96,28 +86,7 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'Lisätty sallittuihin sääntöihin';
-
-  @override
-  String get addedToBlacklist => 'Lisätty estolistalle';
-
-  @override
-  String get addedToBlockedRules => 'Lisätty estettyihin sääntöihin';
-
-  @override
-  String get addedToFavoriteContacts => 'Lisätty suosikk yhteystietoihin';
-
-  @override
   String get addedToFavorites => 'Lisätty suosikkeihin';
-
-  @override
-  String get addedToWhitelist => 'Lisätty sallittujen luetteloon';
-
-  @override
-  String get addFavorite => 'Lisää suosikki';
-
-  @override
-  String get addFilter => 'Lisää suodatin';
 
   @override
   String get addLabel => 'Lisää tunniste';
@@ -131,17 +100,10 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'Lisää tunniste puhelutietoihin';
-
-  @override
   String get addName => 'Lisää nimi';
 
   @override
   String get addNoneSubscription => 'Lisää ei mitään tilausta';
-
-  @override
-  String get addOrEditContactInfo =>
-      'Käytetään yhteystietojen lisäämiseen tai muokkaamiseen';
 
   @override
   String get addPhoneMark => 'Lisää puhelinmerkki';
@@ -174,9 +136,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get addRule => 'Lisää sääntö';
 
   @override
-  String get addRuleButton => 'Lisää sääntö';
-
-  @override
   String addRuleFailed(Object error) {
     return 'Säännön lisäys epäonnistui: $error';
   }
@@ -186,9 +145,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'Lisää hiljentävä tilaus';
-
-  @override
-  String get addSimRuleButton => 'Lisää SIM-sääntö';
 
   @override
   String get addSmsFilterRule => 'Lisää tekstiviestisuodatus sääntö';
@@ -214,16 +170,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get addSubscriptionTooltip => 'Lisää tilaus';
 
   @override
-  String get addToAllowedRules => 'Lisää sallittuihin sääntöihin';
-
-  @override
   String get addToBlacklist => 'Lisää estolistalle';
-
-  @override
-  String get addToBlockedRules => 'Lisää estettyihin sääntöihin';
-
-  @override
-  String get addToFavoriteContacts => 'Lisää suosikki yhteystietoihin';
 
   @override
   String get addToFavorites => 'Lisää suosikkeihin';
@@ -235,9 +182,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get addToWhitelist => 'Lisää sallittujen luetteloon';
 
   @override
-  String get adPlaceholder => 'Mainos paikkamerkki';
-
-  @override
   String get agent => 'Agentti';
 
   @override
@@ -245,10 +189,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get allCallsTab => 'Kaikki';
-
-  @override
-  String get allDataClearedSuccessfully =>
-      'Kaikki tiedot tyhjennetty onnistuneesti';
 
   @override
   String get allow => 'Salli';
@@ -262,9 +202,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get allowAllBlacklistedNumbers =>
       'Salli kaikki estolistalla olevat numerot';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc => 'Salli puhelut estolistalta';
 
   @override
   String get allowAllBlockRules => 'Salli kaikki estetyt säännöt';
@@ -336,14 +273,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get allowRules => 'Salli säännöt';
 
   @override
-  String get allowWhitelistedNumbers =>
-      'Salli valkoisten numeroiden salliminen';
-
-  @override
-  String get allowWhitelistedNumbersDescription =>
-      'Salli kaikki valkoisella listalla olevat numerot';
-
-  @override
   String get allPermissionsGranted => 'Kaikki käyttöoikeudet myönnetty';
 
   @override
@@ -356,10 +285,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'Vastaa ja katkaise puhelu';
-
-  @override
-  String get appLegalese =>
-      '© 2023 Sinun Puhelusi Sinun Sääntösi. Kaikki oikeudet pidätetään.';
 
   @override
   String get applicationSoftware => 'Sovellusohjelmisto';
@@ -398,13 +323,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'Automaattisen päivityksen asetukset';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'Hallitse sääntöjen ja lisäosien automaattisia päivityksiä';
-
-  @override
-  String get autoUpdateSettingsTitle => 'Automaattisen päivityksen asetukset';
 
   @override
   String get autoUpdateSubtitle =>
@@ -453,47 +371,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get backupFailed => 'Varmuuskopiointi epäonnistui';
 
   @override
-  String get backupFailedMessage => 'Varmuuskopiointi epäonnistui';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'Varmuuskopiointi epäonnistui: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle =>
-      'Varmuuskopioi tai palauta sovelluksen tiedot';
-
-  @override
-  String get backupRestoreTitle => 'Varmuuskopiointi ja palautus';
-
-  @override
-  String get backupSectionTitle => 'Varmuuskopiointi';
-
-  @override
   String get backupSettings => 'Varmuuskopiointiasetukset';
 
   @override
-  String get backupSettingsDialogTitle => 'Varmuuskopiointiasetukset';
-
-  @override
-  String get backupSettingsTitle => 'Varmuuskopiointiasetukset';
-
-  @override
-  String get backupSuccessMessage =>
-      'Varmuuskopiointi pilveen onnistui onnistuneesti';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'Varmuuskopiointi onnistui sijaintiin: $path';
-  }
-
-  @override
   String get backupToCloud => 'Varmuuskopiointi pilveen';
-
-  @override
-  String get backupToCloudDescription =>
-      'Varmuuskopioi asetukset ja säännöt pilvitallennustilaan';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -501,17 +382,8 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'Varmuuskopiointi pilveen';
-
-  @override
   String get backupToCloudSuccess =>
       'Varmuuskopiointi pilveen onnistui onnistuneesti';
-
-  @override
-  String get backupToCloudTitle => 'Varmuuskopiointi pilveen';
-
-  @override
-  String get backupToLocalLabel => 'Varmuuskopiointi paikallisesti';
 
   @override
   String get bank => 'Pankki';
@@ -530,22 +402,13 @@ class AppLocalizationsFi extends AppLocalizations {
       '• Perussääntöjen suodatus: Sääntöjen suodatus mustan listan, valkoisen listan ja säännöllisten lausekkeiden perusteella';
 
   @override
-  String get basicRuleFilterSettings => 'Perussääntösuodattimen asetukset';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'Suodata puheluita mustan/valkoisen listan ja säännöllisten lausekkeiden avulla';
-
-  @override
-  String get batchDeleteContacts => 'Useamman kontaktin poisto';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'Haluatko varmasti poistaa $count valittua kontaktia?';
   }
-
-  @override
-  String get batchDeleteFailed => 'Useamman poisto epäonnistui';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -560,9 +423,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Mustalle listalle lisääminen ja valkoiselle listalle lisääminen';
 
   @override
-  String get blacklistLabel => 'Musta lista';
-
-  @override
   String get blackWhiteList => 'Musta/valkoinen lista';
 
   @override
@@ -575,19 +435,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get blocked => 'Estetty';
 
   @override
-  String get blockedCallAction => 'Estetty puhelun toiminto';
-
-  @override
   String get blockedCalls => 'Estetyt puhelut';
 
   @override
   String get blockedCallsTitle => 'Estetyt puhelut';
-
-  @override
-  String get blockedCommunications => 'Estetyt yhteydenotot';
-
-  @override
-  String get blockedPhoneLabel => 'Estetyt puhelut';
 
   @override
   String get blockedSpamCalls => 'Estetyt roskapuhelut';
@@ -601,9 +452,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get blockInternationalCallsTitle => 'Estä kansainväliset puhelut';
-
-  @override
-  String get blockLandlineNumbersTitle => 'Estä lankapuhelinnumerot';
 
   @override
   String get blockMobileNumbers => 'vastaa numeroita, jotka eivät ala 13-19';
@@ -654,11 +502,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get callback => 'Takaisinsoitto';
 
   @override
-  String callbackTo(String number) {
-    return 'Soita takaisin numeroon $number';
-  }
-
-  @override
   String get callBlocking => 'Puheluiden esto';
 
   @override
@@ -666,9 +509,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'Soittajan tunnuksen mukauttaminen';
-
-  @override
-  String get callerIdDialogTitle => 'Soittajan tunnuksen tiedot';
 
   @override
   String get callerIdDisplayMode => 'Puhelun tunnuksen näyttötila';
@@ -680,13 +520,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'Puhelun tunnuksen esikatselu';
-
-  @override
-  String get callFilter => 'Puhelusuodatus';
-
-  @override
-  String get callFilterDescription =>
-      'Kun tämä on käytössä, saapuvat puhelut tarkistetaan alla olevan sääntölistan perusteella. Puhelusuodatussääntöjä ei oletusarvoisesti synkronoida laitteiden välillä.';
 
   @override
   String get callFilterRules => 'Puhelusuodatussäännöt';
@@ -716,26 +549,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get callHistoryInfoTitle => 'Puheluhistoria';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'Puheluhistorian alustus epäonnistui: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'Puheluhistorian päivitys epäonnistui: $error';
-  }
-
-  @override
   String get callHistoryTab => 'Puheluhistoria';
-
-  @override
-  String get callHistoryTimelineEarlier => 'Aikaisemmin';
-
-  @override
-  String get callHistoryTimelineToday => 'Tänään';
-
-  @override
-  String get callHistoryTimelineYesterday => 'Eilen';
 
   @override
   String get callScreeningPermission => 'Puhelun seulontaoikeus';
@@ -747,13 +561,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'Puhelun seulontaoikeutta ei ole myönnetty, mikä voi vaikuttaa sovelluksen toimintaan.';
-
-  @override
-  String get callSettingsSubtitle =>
-      'Puhelun tunnuksen, suodatuksen ja eston asetukset';
-
-  @override
-  String get callSettingsTitle => 'Puhelun asetukset';
 
   @override
   String get callStatistics => 'Puhelutilastot';
@@ -811,27 +618,10 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'Vaihda merkintä';
-
-  @override
   String get charity => 'Hyväntekeväisyys';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'Kuukausi $month';
-  }
-
-  @override
-  String get chartOneDayAgo => '1 päivä sitten';
-
-  @override
-  String get chartOneMonthAgo => '1 kuukausi sitten';
-
-  @override
   String get chartOneWeekAgo => '1 viikko sitten';
-
-  @override
-  String get chartTenDaysAgo => '10 päivää sitten';
 
   @override
   String get chartThreeDaysAgo => '3 päivää sitten';
@@ -851,23 +641,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get chooseDefaultInterceptAction => 'Valitse oletus sieppaustoiminto';
 
   @override
-  String get clearAllData => 'Tyhjennä kaikki tiedot';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'Oletko varma, että haluat tyhjentää kaikki sovelluksen tiedot? Tätä toimenpidettä ei voi peruuttaa.';
-
-  @override
-  String get clearAllDataDescription => 'Tyhjennä kaikki sovelluksen tiedot';
-
-  @override
-  String get clearAllDataLabel => 'Tyhjennä kaikki tiedot';
-
-  @override
   String get clearFilter => 'Tyhjennä suodatin';
-
-  @override
-  String get clearLabelFilter => 'Tyhjennä tunnistesuodatin';
 
   @override
   String get clearLabelFilterButton => 'Tyhjennä tunnistesuodatin';
@@ -892,9 +666,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get cloudSyncTitle => 'Pilvisynkronointi';
 
   @override
-  String get collapseLabelSelector => 'Kokoa tunnisteen valitsin';
-
-  @override
   String get collection => 'Velanperintä';
 
   @override
@@ -914,15 +685,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get configureBackupOptions => 'Määritä varmuuskopiointivaihtoehdot';
 
   @override
-  String get configureBackupOptionsSubtitle =>
-      'Määritä varmuuskopiointivaihtoehdot';
-
-  @override
   String get configureCloudSyncService => 'Määritä pilvisynkronointipalvelu';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'Määritä pilvisynkronointipalvelu monilaitteisen synkronoinnin mahdollistamiseksi.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -933,31 +696,13 @@ class AppLocalizationsFi extends AppLocalizations {
       'Määritä SIM-kortin suodatussäännöt';
 
   @override
-  String get configureSyncServiceHint =>
-      'Määritä ensin synkronointipalvelu pilvisynkronoinnin asetuksissa';
-
-  @override
   String get confirm => 'Vahvista';
-
-  @override
-  String get confirmBatchDeleteContacts =>
-      'Oletko varma, että haluat poistaa valitut';
 
   @override
   String get confirmButton => 'Vahvista';
 
   @override
   String get confirmDelete => 'Vahvista poisto';
-
-  @override
-  String get confirmDeleteContact => 'Oletko varma, että haluat poistaa';
-
-  @override
-  String get confirmDeleteContactName => 'Vahvista poisto?';
-
-  @override
-  String get confirmDeleteFilter =>
-      'Oletko varma, että haluat poistaa tämän suodattimen?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -979,10 +724,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Oletko varma, että haluat poistaa tämän säännön? Tätä toimenpidettä ei voi peruuttaa.';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'Oletko varma, että haluat poistaa valitut yhteystiedot?';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'Oletko varma, että haluat poistaa tämän tekstiviestisuodatussäännön?';
 
@@ -991,19 +732,12 @@ class AppLocalizationsFi extends AppLocalizations {
       'Oletko varma, että haluat poistaa tämän tekstiviestin säännön?';
 
   @override
-  String get confirmDeleteSubscription =>
-      'Oletko varma, että haluat poistaa tämän tilauksen?';
-
-  @override
   String confirmDeleteSubscriptions(String name) {
     return 'Oletko varma, että haluat poistaa $name?';
   }
 
   @override
   String get confirmPassword => 'Vahvista salasana';
-
-  @override
-  String get confirmPasswordLabel => 'Vahvista salasana';
 
   @override
   String get connectedStatus => 'Yhdistetty';
@@ -1028,16 +762,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get contactDeleted => 'Yhteyshenkilö poistettu';
 
   @override
-  String get contactEditDialog => 'Yhteyshenkilön muokkausikkuna';
-
-  @override
-  String get contactNameHint => 'Syötä yhteyshenkilön nimi (valinnainen)';
-
-  @override
   String get contactNameLabel => 'Nimi';
-
-  @override
-  String get contactNameOptional => 'Yhteyshenkilön nimi (valinnainen)';
 
   @override
   String get contactNotFound => 'Yhteyshenkilöä ei löydy';
@@ -1051,24 +776,7 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle => 'Yhteystietojen ja tarrojen hallinta';
-
-  @override
-  String get contactSettingsTitle => 'Yhteystietojen asetukset';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'Yhteystietojen lataus epäonnistui: $error';
-  }
-
-  @override
   String get contactsManagement => 'Yhteystietojen hallinta';
-
-  @override
-  String get contactsManagementPageTitle => 'Yhteystietojen hallintasivu';
-
-  @override
-  String get contactsPageTitle => 'Yhteystietojen hallinta';
 
   @override
   String get contactsPermission => 'Yhteystietojen käyttöoikeus';
@@ -1083,14 +791,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'Tilaa yhteystietoluetteloita URL-osoitteen kautta, päivitä yhteystietoja ja tarroja automaattisesti. Tukee JSON-muotoista dataa.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'Yhteystietotilausten lataus epäonnistui: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'Yhteystietotilaukset';
 
   @override
   String get contactUpdateSuccess => 'Yhteystieto päivitetty onnistuneesti';
@@ -1126,26 +826,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get countryRegionNamePosition => 'Maan/alueen nimen sijainti';
 
   @override
-  String get countrySelectionDialog => 'Maavalintaikkuna';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'Käytetään maan valintaan puhelinnumerotietojen hakemiseksi';
-
-  @override
   String get countThresholdDescription =>
       'Aseta vähimmäismääräraja, joka vaaditaan suodatustoimintojen käynnistämiseksi';
 
   @override
   String get countThresholdLabel => 'Määräraja';
-
-  @override
-  String get countThresholdSettings => 'Määrärajan asetukset';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'Määräraja: $count';
-  }
 
   @override
   String get createdRules => 'Luodut säännöt';
@@ -1154,47 +839,22 @@ class AppLocalizationsFi extends AppLocalizations {
   String get csvFormat => 'CSV-muoto';
 
   @override
-  String get currentDeviceChip => 'Nykyinen';
-
-  @override
   String get currentDeviceLabel => 'Nykyisen laitteen tarra';
 
   @override
   String get currentDeviceTitle => 'Nykyinen laite';
 
   @override
-  String get currentLabels => 'Nykyiset tarrat:';
-
-  @override
   String get currentLanguage => 'Nykyinen kieli';
 
   @override
-  String get currentPasswordLabel => 'Nykyinen salasana';
-
-  @override
   String get customerService => 'Asiakaspalvelu';
-
-  @override
-  String get customRange => 'Mukautettu alue';
-
-  @override
-  String get dailyStatistics => 'Päivittäiset tilastot';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'Vastaanota päivittäisiä tilastoja estetyistä puheluista ja viesteistä';
 
   @override
   String get dashboardTab => 'Kojelauta';
 
   @override
   String get dataAnalysis => 'Data-analyysi';
-
-  @override
-  String get dataAnalysisDashboardPage => 'Data-analyysin kojelautasivu';
-
-  @override
-  String get dataExport => 'Datan vienti';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1212,16 +872,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'Tämän ominaisuuden avulla voit siirtää kaiken datasi laitteiden välillä. Tällä hetkellä voit käyttää varmuuskopiointi- ja palautustoimintoja datan manuaaliseen siirtämiseen.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'Tämän ominaisuuden avulla voit siirtää kaiken datasi laitteiden välillä. Tällä hetkellä voit käyttää varmuuskopiointi- ja palautustoimintoja datan manuaaliseen siirtämiseen.';
-
-  @override
-  String get dataMigrationDialogTitle => 'Datan siirto';
-
-  @override
-  String get dataMigrationSectionTitle => 'Datan siirto';
 
   @override
   String get dataSourceReminder => 'Datalähteen muistutus';
@@ -1246,9 +896,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get debtCollection => 'Velkojen perintä';
 
   @override
-  String get defaultPeriod => 'Viikko';
-
-  @override
   String get delete => 'Poista';
 
   @override
@@ -1263,24 +910,9 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation =>
-      'Haluatko varmasti poistaa yhteyshenkilön';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return 'Haluatko varmasti poistaa laitteen $deviceName?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'Laitteen poisto';
-
-  @override
   String deleteFailed(Object error) {
     return 'Poisto epäonnistui: $error';
   }
-
-  @override
-  String get deleteFilter => 'Poista suodatin';
 
   @override
   String get deleteLabel => 'Poista tarra';
@@ -1318,9 +950,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get deleteSelected => 'Poista valitut';
 
   @override
-  String get deleteSmsRule => 'Poista tekstiviestiasetus';
-
-  @override
   String get deleteSubscription => 'Poista tilaus';
 
   @override
@@ -1340,16 +969,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get delivery => 'Toimitus';
 
   @override
-  String get deviceDeletedSuccessfully => 'Laite poistettu onnistuneesti';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage =>
-      'Laite poistettu onnistuneesti';
-
-  @override
-  String get deviceIdLabel => 'Laitetunnus';
-
-  @override
   String get deviceIDLabel => 'Laitetunnus';
 
   @override
@@ -1366,29 +985,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get deviceName => 'Laitteen nimi';
 
   @override
-  String get deviceNameCannotBeEmpty => 'Laite nimeä ei voi jättää tyhjäksi';
-
-  @override
-  String get deviceNameHint => 'Syötä laitteen nimi';
-
-  @override
   String get deviceNameLabel => 'Laitteen nimi';
-
-  @override
-  String get deviceRenamedSuccessfully =>
-      'Laite nimettiin uudelleen onnistuneesti';
 
   @override
   String get deviceRenamedSuccessfullyMessage =>
       'Laite nimettiin uudelleen onnistuneesti';
-
-  @override
-  String get devicesSyncedSuccessfully =>
-      'Laitteet synkronoitiin onnistuneesti';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage =>
-      'Laitteet synkronoitiin onnistuneesti';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1413,10 +1014,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'Poista globaalit laajennukset käytöstä';
-
-  @override
-  String get disableSubscriptionSuccessfully =>
-      'Tilaus poistettiin käytöstä onnistuneesti';
 
   @override
   String get disconnectButton => 'Katkaise yhteys';
@@ -1450,25 +1047,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get editContact => 'Muokkaa yhteystietoa';
 
   @override
-  String get editFilter => 'Muokkaa suodatinta';
-
-  @override
   String get editLabel => 'Muokkaa etikettiä';
 
   @override
   String get editPhoneRule => 'Muokkaa puhelusääntöä';
 
   @override
-  String get editPhoneRules => 'Käytetään puhelusääntöjen muokkaamiseen';
-
-  @override
-  String get editPhoneRuleTitle => 'Muokkaa puhelusääntöä';
-
-  @override
   String get editRule => 'Muokkaa sääntöä';
-
-  @override
-  String get editSmsRule => 'Muokkaa tekstiviestin sääntöä';
 
   @override
   String get education => 'Koulutus';
@@ -1478,9 +1063,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get email => 'Sähköposti';
-
-  @override
-  String get emailOptional => 'Sähköposti (valinnainen)';
 
   @override
   String get enableCallFilter => 'Ota puhelusuodatus käyttöön';
@@ -1500,15 +1082,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => 'Salaa varmuuskopiotiedostot';
-
-  @override
-  String get enableEncryptionLabel => 'Ota salaus käyttöön';
-
-  @override
-  String get enableEncryptionSubtitle => 'Varmuuskopiotiedostot salataan';
-
-  @override
-  String get enableEncryptionTitle => 'Ota salaus käyttöön';
 
   @override
   String get enableGlobalPlugins => 'Ota globaalit laajennukset käyttöön';
@@ -1546,9 +1119,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Salli sääntökonfiguraatiot ilman sieppaustoimintoja';
 
   @override
-  String get enableNotifications => 'Ota ilmoitukset käyttöön';
-
-  @override
   String get enableRemoteNumberFilter => 'Ota etänumero suodatus käyttöön';
 
   @override
@@ -1564,14 +1134,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'Kun tämä on käytössä, viestit suodatetaan automaattisesti sääntöjen mukaisesti';
-
-  @override
-  String get enableStatisticsNotifications =>
-      'Ota tilasto ilmoitukset käyttöön';
-
-  @override
-  String get enableSubscriptionSuccessfully =>
-      'Tilaus otettiin käyttöön onnistuneesti';
 
   @override
   String get enableTimeInterception => 'Ota aikapoiminta käyttöön';
@@ -1607,10 +1169,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Tehostettu suodatusjärjestelmä tukee sekä globaaleja sääntöjä että SIM-korttikohtaisia suodatuskonfiguraatioita.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'Syötä sekä puhelinnumero että säännöllisen lausekkeen kuvio';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'Syötä sekä puhelinnumero että säännöllisen lausekkeen kuvio.';
 
@@ -1618,31 +1176,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get enterContactName => 'Syötä yhteystiedon nimi';
 
   @override
-  String get enterCurrentPasswordHint => 'Syötä nykyinen salasana';
-
-  @override
   String get enterDeviceName => 'Syötä laitteen nimi';
-
-  @override
-  String get enterDeviceNameHint => 'Syötä laitteen nimi';
-
-  @override
-  String get enterEmail => 'Syötä sähköposti';
 
   @override
   String get enterEmailOptional => 'Syötä sähköposti (valinnainen)';
 
   @override
   String get enterEncryptionPasswordHint => 'Syötä salaus salasana';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'Syötä salaus salasana';
-
-  @override
-  String get enterFilterName => 'Syötä suodattimen nimi';
-
-  @override
-  String get enterFilterPattern => 'Syötä suodattimen kuvio';
 
   @override
   String get enterIconCode => 'Syötä kuvakekoodi';
@@ -1654,13 +1194,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get enterNewDeviceNameHint => 'Syötä uusi nimi tälle laitteelle';
 
   @override
-  String get enterNewPasswordHint => 'Syötä uusi salasana';
-
-  @override
   String get enterPasswordAgain => 'Syötä salasana uudelleen';
-
-  @override
-  String get enterPasswordHint => 'Syötä salasana';
 
   @override
   String get enterPhoneNumber => 'Syötä puhelinnumero';
@@ -1687,9 +1221,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'Syötä säännöllisen lausekkeen kuvio';
-
-  @override
-  String get enterRuleNameAndPattern => 'Syötä säännön nimi ja kuvio';
 
   @override
   String get enterRuleNameAndPatternMessage =>
@@ -1733,14 +1264,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get enterWebDAVUsernameHint => 'Anna WebDAV-käyttäjänimi';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'Virhe poistettaessa laitetta: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'Virhe ladattaessa lisäosaa';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'Tapahtui virhe: $error';
   }
@@ -1756,14 +1279,6 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'Virhe synkronoidessa laitteita: $error';
-  }
-
-  @override
-  String get errorText => 'Virhe';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'Virhe poistettaessa laitteen rekisteröintiä: $error';
   }
@@ -1773,9 +1288,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'esim. Markkinointi-SMS:ien esto';
-
-  @override
-  String get exampleContentRegex => 'esim. .*tarjous.*';
 
   @override
   String get exampleContentRegexHint => 'Esimerkkisisällön malli';
@@ -1795,9 +1307,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Esimerkkimalli 400-alkuisille numeroille';
 
   @override
-  String get exampleRegexFormat => 'Esimerkki: ^10086\$ muoto';
-
-  @override
   String get exampleSenderRegexHint => 'Esimerkki';
 
   @override
@@ -1808,9 +1317,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get exchangeVip => 'Vaihda VIP';
-
-  @override
-  String get expandLabelSelector => 'Laajenna tunnistevalitsin';
 
   @override
   String expiryTime(Object time) {
@@ -1824,18 +1330,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get exportAllApplicationSettings => 'Vie kaikki sovellusasetukset';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'Vie kaikki sovellusasetukset';
-
-  @override
   String get exportAllRuleConfigurations => 'Vie kaikki sääntömääritykset';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle =>
-      'Vie kaikki sääntömääritykset';
-
-  @override
-  String get exportComplete => 'Vienti valmis';
 
   @override
   String get exportConfig => 'Vie määritykset';
@@ -1847,9 +1342,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get exportData => 'Vie tiedot';
 
   @override
-  String get exportError => 'Vientivirhe';
-
-  @override
   String get exportFailed => 'Vienti epäonnistui';
 
   @override
@@ -1857,9 +1349,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'Vientitoiminto tulossa pian';
-
-  @override
-  String get exporting => 'Viedään...';
 
   @override
   String get exportLabels => 'Vie tunnisteet';
@@ -1881,34 +1370,17 @@ class AppLocalizationsFi extends AppLocalizations {
   String get exportRules => 'Vie säännöt';
 
   @override
-  String get exportRulesDialogTitle => 'Vie säännöt';
-
-  @override
-  String get exportRulesTitle => 'Vie säännöt';
-
-  @override
   String get exportSmsRules => 'Vie SMS-säännöt';
 
   @override
   String get exportStatisticsData => 'Vie tilastotiedot';
 
   @override
-  String get exportSuccess => 'Vienti onnistui';
-
-  @override
   String get exportSuccesslly => 'Määritykset viety onnistuneesti';
-
-  @override
-  String get failedToAddContact => 'Yhteystiedon lisääminen epäonnistui';
 
   @override
   String failedToAddRule(Object error) {
     return 'Säännön lisääminen epäonnistui: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'SMS-säännön lisääminen epäonnistui: $error';
   }
 
   @override
@@ -1926,9 +1398,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Varmuuskopiotiedoston purkaminen epäonnistui';
 
   @override
-  String get failedToDeleteDevice => 'Laitteen poistaminen epäonnistui';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'SMS-säännön poistaminen epäonnistui: $error';
   }
@@ -1936,11 +1405,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'Sääntöjen vienti epäonnistui: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'SMS-sääntöjen vienti epäonnistui: $error';
   }
 
   @override
@@ -1954,20 +1418,6 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'SMS-sääntöjen tuonti epäonnistui: $error';
-  }
-
-  @override
-  String get failedToLoadContacts => 'Yhteystietojen lataaminen epäonnistui';
-
-  @override
-  String get failedToLoadPlugin => 'Lisäosan lataaminen epäonnistui';
-
-  @override
-  String get failedToRenameDevice => 'Laitteen uudelleennimeäminen epäonnistui';
-
-  @override
   String get failedToRestoreSettings => 'Asetusten palauttaminen epäonnistui';
 
   @override
@@ -1976,32 +1426,9 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'Salasanan asettaminen epäonnistui: $error';
-  }
-
-  @override
-  String get failedToSyncDevices => 'Laitteiden synkronointi epäonnistui';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'Säännön tilan vaihtaminen epäonnistui: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus =>
-      'Tilauksen tilan vaihtaminen epäonnistui';
-
-  @override
-  String get failedToUpdateContact => 'Yhteystiedon päivittäminen epäonnistui';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'SMS-säännön päivittäminen epäonnistui: $error';
-  }
-
-  @override
-  String get failure => 'Epäonnistuminen';
 
   @override
   String get favoriteContacts => 'Suosikkiyhteystiedot';
@@ -2041,9 +1468,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get filterByLabel => 'Suodata tunnisteen mukaan';
 
   @override
-  String get filterClear => 'Tyhjennä suodatin';
-
-  @override
   String get filterControlPanelTitle => 'Suodattimen ohjauspaneeli';
 
   @override
@@ -2054,22 +1478,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get filterControlTitle => 'Suodatusohjaus';
 
   @override
-  String get filterDeleteFailed => 'Suodatuksen poisto epäonnistui';
-
-  @override
-  String get filterDeleteSuccess => 'Suodatus poistettu onnistuneesti';
-
-  @override
-  String get filterDetails => 'Suodatuksen tiedot';
-
-  @override
   String get filtered => 'Suodatettu';
-
-  @override
-  String get filteredSms => 'Suodatettu tekstiviesti';
-
-  @override
-  String get filteredSmsLabel => 'Suodatettu tekstiviesti';
 
   @override
   String get filterExplanation => 'Suodatusselitys';
@@ -2081,17 +1490,8 @@ class AppLocalizationsFi extends AppLocalizations {
   String get filterName => 'Suodattimen nimi';
 
   @override
-  String get filterPattern => 'Suodatusmallinnus';
-
-  @override
   String get filterPriorityNote =>
       'Huom: Suodattimilla on prioriteettisuhteita, katso lisätietoja ohjedokumentaatiosta';
-
-  @override
-  String get filterSaveFailed => 'Suodatuksen tallennus epäonnistui';
-
-  @override
-  String get filterSaveSuccess => 'Suodatus tallennettu onnistuneesti';
 
   @override
   String get filterSettings => 'Suodatusasetukset';
@@ -2130,16 +1530,6 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return 'Löytyi $count sääntöä. Haluatko tuoda ne?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return 'Löytyi $count sääntöä. Haluatko tuoda ne?';
-  }
-
-  @override
   String get fraudAlert => 'PETOSVAROITUS - Katkaise puhelu';
 
   @override
@@ -2174,39 +1564,14 @@ class AppLocalizationsFi extends AppLocalizations {
   String get globalFilterSettings => 'Globaalit suodatusasetukset';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'Määritä globaalit suodatusasetukset, jotka koskevat kaikkia SIM-paikkoja:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'Etsi yhteystietoja, tunnisteita, mustia listoja, valkoisia listoja jne.';
-
-  @override
-  String get globalSearchTitle => 'Globaali haku';
-
-  @override
   String get globalSettings => 'Globaalit asetukset';
-
-  @override
-  String get googleAdDisplayPosition => 'Google-mainoksen näyttöpaikka';
-
-  @override
-  String get googleAdMobIntegrationText =>
-      'Google AdMob -mainokset voidaan integroida tähän';
 
   @override
   String get googleDriveAuthDescription =>
       'Valtuuta käyttämällä järjestelmään määritettyä Google Drive -asiakastunnusta ja avainta';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'Valtuuta käyttämällä järjestelmään määritettyä Google Drive -asiakastunnusta ja avainta';
-
-  @override
   String get googleDriveConfigTitle => 'Google Drive -määritys';
-
-  @override
-  String get googleDriveConfigurationTitle => 'Google Drive -määritys';
 
   @override
   String get government => 'Hallitus';
@@ -2225,9 +1590,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get height => 'Korkeus';
-
-  @override
-  String get homePageTitle => 'Aloitusnäyttö';
 
   @override
   String get homeTab => 'Aloitus';
@@ -2258,9 +1620,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get important => 'Tärkeää';
-
-  @override
-  String get importButton => 'Tuo';
 
   @override
   String get importConfig => 'Tuo määritys';
@@ -2314,40 +1673,13 @@ class AppLocalizationsFi extends AppLocalizations {
       'Tuo sääntömääritykset tiedostosta';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'Tuo sääntömääritykset tiedostosta';
-
-  @override
   String get importRules => 'Tuo säännöt';
-
-  @override
-  String get importRulesButton => 'Tuo säännöt';
-
-  @override
-  String get importRulesDialogTitle => 'Tuo säännöt';
-
-  @override
-  String importRulesError(Object error) {
-    return 'Sääntöjen tuonti epäonnistui: $error';
-  }
-
-  @override
-  String get importRulesInstructions => 'Tuo säännöt CSV-tiedostosta';
-
-  @override
-  String get importRulesSuccess => 'Säännöt tuotu onnistuneesti';
-
-  @override
-  String get importRulesTitle => 'Tuo säännöt';
 
   @override
   String get importSuccess => 'Tuonti onnistui';
 
   @override
   String get incomingCallInterceptAction => 'Saapuvan puhelun esto-toiminto';
-
-  @override
-  String get incomingCallNotification => 'Saapuvan puhelun ilmoitus';
 
   @override
   String get incorrectPassword => 'Väärä salasana';
@@ -2403,9 +1735,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Liity Telegram-kanavalle ja ryhmään saadaksesi lisätietoja';
 
   @override
-  String get jsLogsTitle => 'JS-lokit';
-
-  @override
   String get jsonFormat => 'JSON-muoto';
 
   @override
@@ -2414,16 +1743,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'Säilytä jokaisen varmuuskopion kaikki historialliset versiot';
-
-  @override
-  String get keepAllVersionsLabel => 'Säilytä kaikki versiot';
-
-  @override
-  String get keepAllVersionsSubtitle =>
-      'Säilytä jokaisen varmuuskopion historialliset versiot';
-
-  @override
-  String get keepAllVersionsTitle => 'Säilytä kaikki versiot';
 
   @override
   String get label => 'Merkintä';
@@ -2444,9 +1763,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Merkinnät auttavat sinua hallitsemaan yhteystietojasi paremmin. Lisää mukautettuja merkintöjä puhelinnumeroihin puheluiden ja viestien helppoa tunnistamista varten.';
 
   @override
-  String get labelFilter => 'Merkintäsuodatin';
-
-  @override
   String get labelFilterTooltip => 'Merkintäsuodatin';
 
   @override
@@ -2457,14 +1773,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get labelNotFound => 'Merkintää ei löytynyt';
-
-  @override
-  String get labelRemoved => 'Merkintä poistettu';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'Merkinnän poistaminen epäonnistui: $error';
-  }
 
   @override
   String get labels => 'Merkinnät';
@@ -2497,9 +1805,6 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'Merkintä päivitetty';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'Merkinnän päivittäminen epäonnistui: $error';
   }
@@ -2516,12 +1821,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'Kieliasetukset';
-
-  @override
-  String get last30Days => 'Viimeiset 30 päivää';
-
-  @override
-  String get last7Days => 'Viimeiset 7 päivää';
 
   @override
   String get lastSyncLabel => 'Viimeisin synkronointi';
@@ -2547,13 +1846,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get loadDataFailed => 'Tietojen lataaminen epäonnistui';
 
   @override
-  String get loadFailed => 'Lataaminen epäonnistui';
-
-  @override
   String get loading => 'Ladataan...';
-
-  @override
-  String get loadingData => 'Ladataan tietoja...';
 
   @override
   String get loadingTags => 'Ladataan tunnisteita...';
@@ -2577,12 +1870,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'Merkittyjen puhelimien lataaminen epäonnistui: $error';
   }
-
-  @override
-  String get loadMore => 'Lataa lisää';
-
-  @override
-  String get loadPluginButton => 'Lataa lisäosa';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2609,9 +1896,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get loan => 'Laina';
-
-  @override
-  String get localBackupTitle => 'Paikallinen varmuuskopiointi';
 
   @override
   String get localCounterFilter => 'Paikallinen laskurisuodatin';
@@ -2709,9 +1993,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get manage => 'Hallitse yhteystietoja';
 
   @override
-  String get manageContacts => 'Hallitse';
-
-  @override
   String get manageFavoriteContacts => 'Hallitse suosikkikontakteja';
 
   @override
@@ -2720,9 +2001,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'Lisää, muokkaa tai poista SMS-suodatussääntöjä';
-
-  @override
-  String get manageFrequentContacts => 'Hallitse usein käytettyjä kontakteja';
 
   @override
   String get markCounts => 'Merkittyjen lukumäärät';
@@ -2750,16 +2028,10 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle => 'Puhelinnumeroiden merkitseminen';
-
-  @override
   String get markPhoneManagementTitle => 'Puhelinnumeroiden hallinta';
 
   @override
   String get markPhoneSuccess => 'Puhelinnumero merkitty onnistuneesti';
-
-  @override
-  String get matchFailed => 'Täsmäytys epäonnistui!';
 
   @override
   String get matchFailedMessage => 'Täsmäytys epäonnistui.';
@@ -2779,9 +2051,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Täsmäytä tiettyjä numerokuvioita:';
 
   @override
-  String get matchSuccessful => 'Täsmäytys onnistui!';
-
-  @override
   String get matchSuccessfulMessage => 'Täsmäytys onnistui!';
 
   @override
@@ -2792,9 +2061,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get migrationTool => 'Siirtotyökalu';
-
-  @override
-  String get migrationToolTitle => 'Siirtotyökalu';
 
   @override
   String get minutes => 'minuuttia';
@@ -2809,9 +2075,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get monthlyCallCount => 'Kuukausittaiset puhelut';
 
   @override
-  String get monthlyChartTitle => 'Kuukausittaiset estetyt puhelut';
-
-  @override
   String get monthlyMembership => 'Kuukausijäsenyys';
 
   @override
@@ -2820,9 +2083,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'Kuukausisumma';
-
-  @override
-  String get monthlyTotalLabel => 'Kuukausisumma';
 
   @override
   String get moreOptions => 'Lisää asetuksia';
@@ -2838,32 +2098,16 @@ class AppLocalizationsFi extends AppLocalizations {
       'Nimi ja puhelinnumero eivät voi olla tyhjiä';
 
   @override
-  String get nameAndPhoneNumberRequired => 'Nimi ja puhelinnumero vaaditaan';
-
-  @override
   String get nameColor => 'Nimen väri';
 
   @override
   String get nameFontSize => 'Nimen fonttikoko';
 
   @override
-  String nameLabel(Object name) {
-    return 'Nimi: $name';
-  }
-
-  @override
   String get namePosition => 'Nimen sijainti';
 
   @override
   String get nameUnknown => 'Nimi: Tuntematon';
-
-  @override
-  String nameWithValue(String name) {
-    return 'Nimi: $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'Uusi salasana';
 
   @override
   String get nextStep => 'Seuraava';
@@ -2879,13 +2123,7 @@ class AppLocalizationsFi extends AppLocalizations {
       'Ei aktiivista pilvisynkronointipalvelua';
 
   @override
-  String get noCallLogs => 'Ei puhelulokeja';
-
-  @override
   String get noCallRecords => 'Ei puhelutietueita';
-
-  @override
-  String get noContacts => 'Ei yhteystietoja';
 
   @override
   String get noContactsYet => 'Ei yhteystietoja vielä';
@@ -2897,28 +2135,16 @@ class AppLocalizationsFi extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'Ei rekisteröityjä laitteita';
 
   @override
-  String get noDevicesRegisteredYet => 'Ei rekisteröityjä laitteita vielä.';
-
-  @override
-  String get noFilters => 'Ei suodattimia vielä';
-
-  @override
   String get noLabels => 'Ei tunnisteita vielä';
 
   @override
   String get noMarkedPhones => 'Ei merkittyjä puhelinnumeroita';
 
   @override
-  String get noMatchingContacts => 'Ei vastaavia yhteystietoja';
-
-  @override
   String get noMatchingContactsFound => 'Ei vastaavia yhteystietoja löytynyt';
 
   @override
   String get noMatchingNumbersFound => 'Ei vastaavia numeroita löytynyt';
-
-  @override
-  String get noMatchingRecords => 'Ei vastaavia puhelutietueita';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2933,15 +2159,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get noPlugins => 'Ei laajennuksia vielä';
-
-  @override
-  String get noRecords => 'Ei puhelutietueita';
-
-  @override
-  String get noResultReturned => 'Ei tulosta palautettu';
-
-  @override
-  String get noResultReturnedLog => 'Ei tulosta palautettu laajennuksesta';
 
   @override
   String noRules(Object ruleType) {
@@ -2964,9 +2181,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get noSubscriptions => 'Ei tilauksia';
 
   @override
-  String get noSubscriptionsYet => 'Ei tilauksia vielä';
-
-  @override
   String get notGranted => 'Ei myönnetty';
 
   @override
@@ -2985,13 +2199,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get notificationSettings => 'Ilmoitusasetukset';
-
-  @override
-  String get notificationSettingsSaved =>
-      'Ilmoitusasetukset tallennettu onnistuneesti';
-
-  @override
-  String get notSet => 'Ei asetettu';
 
   @override
   String get notVerifiedText => 'Ei varmistettu';
@@ -3025,9 +2232,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get numberTypePosition => 'Numerotyypin sijainti';
 
   @override
-  String get ok => 'OK';
-
-  @override
   String get okButton => 'OK';
 
   @override
@@ -3059,14 +2263,7 @@ class AppLocalizationsFi extends AppLocalizations {
       'Valtuuta järjestelmän määrittämää OneDrive-asiakasohjelman tunnusta ja avainta käyttäen';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'Valtuuta järjestelmän määrittämää OneDrive-asiakasohjelman tunnusta ja avainta käyttäen';
-
-  @override
   String get oneDriveConfigTitle => 'OneDrive-asetukset';
-
-  @override
-  String get oneDriveConfigurationTitle => 'OneDrive-asetukset';
 
   @override
   String get onlineCallerIdSubscription => 'Online Caller ID -tilaus';
@@ -3126,9 +2323,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get passwordsDoNotMatch => 'Salasanat eivät täsmää';
 
   @override
-  String get passwordSetSuccessfully => 'Salasana asetettu onnistuneesti';
-
-  @override
   String get pattern => 'Kuvio';
 
   @override
@@ -3162,14 +2356,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Puhelinnumero ei voi olla tyhjä';
 
   @override
-  String get phoneNumberHintText => 'Syötä puhelinnumero säännön lisäämiseksi';
-
-  @override
   String get phoneNumberLabel => 'Puhelinnumero';
-
-  @override
-  String get phoneNumberRegexRequired =>
-      'Syötä sekä puhelinnumero että säännöllinen lauseke';
 
   @override
   String get phoneNumberTypeFixedLine => 'Lankapuhelin';
@@ -3219,9 +2406,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get phoneRule => 'Puhelusääntö';
 
   @override
-  String get phoneRuleEditDialog => 'Puhelusäännön muokkausikkuna';
-
-  @override
   String get phoneRuleManagement => 'Puhelusääntöjen hallinta';
 
   @override
@@ -3233,9 +2417,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'Tilaa puhelusääntölistoja URL-osoitteesta päivittääksesi automaattisesti sallittujen ja estettyjen listojen säännöt. Tukee JSON-muotoisia sääntötiedostoja.';
-
-  @override
-  String get phoneSubscriptionTitle => 'Puhelusääntötilaukset';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3256,9 +2437,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get pluginListExportSuccess => 'Lisäosaluettelo viety onnistuneesti';
 
   @override
-  String get pluginLoadedSuccessfully => 'Lisäosa ladattu onnistuneesti';
-
-  @override
   String get pluginManagement => 'Lisäosien hallinta';
 
   @override
@@ -3266,14 +2444,7 @@ class AppLocalizationsFi extends AppLocalizations {
       'Hallitse ja konfiguroi kolmannen osapuolen lisäosia';
 
   @override
-  String get pluginManagementTitle => 'Lisäosien hallinta';
-
-  @override
   String get pluginName => 'Lisäosan nimi';
-
-  @override
-  String get pluginNotLoaded =>
-      'Lisäosaa ei ole vielä ladattu. Lataa lisäosa ensin.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3291,15 +2462,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get pluginUrl => 'Lisäosan URL';
-
-  @override
-  String get pluginUrlCannotBeEmpty => 'Lisäosan URL ei voi olla tyhjä';
-
-  @override
-  String get pluginUrlHint => 'Syötä lisäosan URL';
-
-  @override
-  String get pluginUrlLabel => 'Lisäosan URL';
 
   @override
   String get pluginVersion => 'Lisäosan versio';
@@ -3337,34 +2499,10 @@ class AppLocalizationsFi extends AppLocalizations {
       'Avaa kaikki premium-ominaisuudet, automaattinen uusinta neljännesvuosittain';
 
   @override
-  String get queryButton => 'Kysely';
-
-  @override
-  String get queryFailed => 'Kysely epäonnistui';
-
-  @override
-  String get queryFailedLog => 'Kysely epäonnistui';
-
-  @override
-  String get querying => 'Kysellään...';
-
-  @override
-  String get queryingPhoneNumber => 'Kysellään puhelinnumeroa';
-
-  @override
-  String get queryResultTitle => 'Kyselyn tulos';
-
-  @override
   String get ready => 'Valmis!';
 
   @override
-  String get receiveWeeklyStatistics => 'Vastaanota viikoittaisia tilastoja';
-
-  @override
   String get recruiter => 'Rekrytoija';
-
-  @override
-  String get reEnterPasswordHint => 'Syötä salasana uudelleen';
 
   @override
   String get refresh => 'Päivitä';
@@ -3374,11 +2512,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'Päivitä';
-
-  @override
-  String regexError(Object error) {
-    return 'Säännöllisen lausekkeen virhe: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3396,10 +2529,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'Säännön kuvio';
-
-  @override
-  String get regexPatternsExamples =>
-      'Käytä tavallista regex-syntaksia kuvioiden määrittämiseen. Esimerkkejä:';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3428,14 +2557,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'Regex-testausohjelma';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'Regex-validointi epäonnistui: $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'Regex-validointi onnistui';
 
   @override
   String get region => 'Alue';
@@ -3474,35 +2595,8 @@ class AppLocalizationsFi extends AppLocalizations {
   String get remoteNumberFilter => 'Etänumerosuodatin';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'Tämä suodatin käyttää itsenäistä etä-tietokantaa saadakseen uusimmat numerotiedot.';
-
-  @override
   String get remoteNumberFilterDescription =>
       'Estä häiritsevät puhelut etä-tietokannan tietojen perusteella';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'Etänumerosuodatin tunnistaa ja estää roskapostipuhelut kysymällä etä-tietokantaa numeroiden määrän perusteella.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle =>
-      'Etänumerosuodattimen selitys';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• Määräraja: Määritä numeron esiintymistiheyden perusteella';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• Suodatus toiminnot: Määritä, miten käsitellään raja-arvon ylittäviä numeroita';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• Prioriteettiasetukset: Määritä etätoimintojen prioriteetti';
-
-  @override
-  String get remoteNumberFilterFeatures => 'Ominaisuudet:';
 
   @override
   String get remoteNumberFiltering => 'Etäpuhelusuodatus';
@@ -3523,29 +2617,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get removeAdsTitle => 'Poista mainokset';
 
   @override
-  String get removedFromFavoriteContacts => 'Poistettu suosikkikontakteista';
-
-  @override
   String get removedFromFavorites => 'Poistettu suosikeista';
-
-  @override
-  String get removeFavorite => 'Poista suosikki';
 
   @override
   String get removeFromFavorites => 'Poista suosikeista';
 
   @override
-  String get renameButton => 'Nimeä uudelleen';
-
-  @override
-  String get renameDeviceDialogTitle => 'Nimeä laite uudelleen';
-
-  @override
   String get renameDeviceTitle => 'Nimeä laite uudelleen';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'Tämä korvaa kaikki nykyiset asetuksesi. Haluatko varmasti jatkaa?';
 
   @override
   String get requestAllPermissions => 'Pyydä kaikki käyttöoikeudet';
@@ -3574,23 +2652,7 @@ class AppLocalizationsFi extends AppLocalizations {
       'Palauta sovelluksen asetukset varmuuskopiosta';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'Palauta sovelluksen asetukset varmuuskopiosta';
-
-  @override
-  String get restoreButton => 'Palauta';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'Palauttaminen pilvestä epäonnistui: $error';
-  }
-
-  @override
   String get restoreFromCloud => 'Palauta pilvestä';
-
-  @override
-  String get restoreFromCloudDescription =>
-      'Palauta asetukset ja säännöt pilvitallennustilasta';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3598,22 +2660,10 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'Palauta pilvestä';
-
-  @override
   String get restoreFromCloudSuccess => 'Onnistuneesti palautettu pilvestä';
 
   @override
-  String get restoreFromCloudTitle => 'Palauta pilvestä';
-
-  @override
-  String get restoreFromLocal => 'Palauta paikallisesti';
-
-  @override
   String get restorePurchases => 'Palauta ostokset';
-
-  @override
-  String get restoreSectionTitle => 'Palauta';
 
   @override
   String get restoreSettings => 'Palauta asetukset';
@@ -3621,19 +2671,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'Tämä korvaa kaikki nykyiset asetuksesi. Haluatko varmasti jatkaa?';
-
-  @override
-  String get restoreSettingsDialogTitle => 'Palauta asetukset';
-
-  @override
-  String get restoreSettingsTitle => 'Palauta asetukset';
-
-  @override
-  String get restoreSuccessFromLocal =>
-      'Onnistuneesti palautettu paikallisesti';
-
-  @override
-  String get restoreSuccessMessage => 'Onnistuneesti palautettu pilvestä';
 
   @override
   String get retry => 'Yritä uudelleen';
@@ -3651,15 +2688,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get ruleAction => 'Säännön toiminto';
 
   @override
-  String get ruleAddButton => 'Lisää sääntö';
-
-  @override
   String get ruleAddedSuccess => 'Sääntö lisätty onnistuneesti';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'Säännön lisääminen epäonnistui: $error';
-  }
 
   @override
   String get ruleAddSuccess => 'Sääntö lisätty onnistuneesti';
@@ -3673,18 +2702,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'Poista sääntö';
 
   @override
-  String get ruleDeletedSuccess => 'Sääntö poistettu onnistuneesti';
-
-  @override
   String get ruleDeletedSuccessfully => 'Sääntö poistettu onnistuneesti';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'Säännön poistaminen epäonnistui: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'Säännön poistaminen epäonnistui: $error';
   }
 
@@ -3707,9 +2728,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get ruleManagement => 'Sääntöjen hallinta';
 
   @override
-  String get ruleManagementTitle => 'Sääntöjen hallinta';
-
-  @override
   String get ruleName => 'Säännön nimi';
 
   @override
@@ -3727,9 +2745,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get ruleNameLabel => 'Säännön nimi';
 
   @override
-  String get ruleNamePatternRequired => 'Syötä säännön nimi ja kuvio';
-
-  @override
   String get ruleNameRequired =>
       'Säännön nimi ja puhelinnumero eivät saa olla tyhjiä';
 
@@ -3742,23 +2757,7 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'Sääntö tallennettu onnistuneesti!';
-
-  @override
   String get ruleSavedSuccessMessage => 'Sääntö tallennettu onnistuneesti!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'Tallennus epäonnistui: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'Tallennus epäonnistui: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'Sääntö tallennettu onnistuneesti!';
 
   @override
   String get rulesExportedSuccessfully => 'Säännöt viety onnistuneesti';
@@ -3775,14 +2774,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return '$count sääntöä tuotu onnistuneesti';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'Sääntöjen tuonti epäonnistui: $error';
-  }
-
-  @override
-  String get ruleStatistics => 'Sääntötilastot';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3817,9 +2808,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get saveButton => 'Tallenna';
 
   @override
-  String get saveButtonLabel => 'TALLENNA';
-
-  @override
   String get saveButtonText => 'Tallenna';
 
   @override
@@ -3828,15 +2816,7 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'Tallenna suodatin';
-
-  @override
   String get saveSettings => 'Tallenna asetukset';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'Asetusten tallennus epäonnistui: $error';
-  }
 
   @override
   String get scamsLikely => 'Todennäköisesti huijaus';
@@ -3853,28 +2833,11 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'Hakusuodattimet';
-
-  @override
-  String get searchForContacts => 'Etsi yhteystietoja';
-
-  @override
   String get searchHint => 'Hae...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'Etsi yhteystietoja, luokkia, mustia listoja, valkoisia listoja jne.';
-
-  @override
-  String get searchSettingsTitle => 'Hakuaikasetukset';
 
   @override
   String get securityMessage =>
       'Älä luota puheluihin. Varmista asiakaspalvelun numerot aina itsenäisesti. Älä koskaan jaa salasanoja, vahvistuskoodeja, korttinumeroita tai henkilökohtaisia tietoja.';
-
-  @override
-  String get selectActionToPerform =>
-      'Valitse suoritettava toiminto, kun sääntö täsmää';
 
   @override
   String get selectActionWhenBlockingCalls =>
@@ -3889,12 +2852,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get selectCountry => 'Valitse maa';
-
-  @override
-  String get selectDateRange => 'Valitse päivämääräalue';
-
-  @override
-  String get selectedDateRange => 'Valittu päivämääräalue';
 
   @override
   String selectedItems(Object count) {
@@ -3921,20 +2878,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get selectMultiple => 'Valitse useita';
 
   @override
-  String get selectPeriod => 'Valitse ajanjakso';
-
-  @override
   String get selectSimCard => 'Valitse SIM-kortti';
-
-  @override
-  String get selectSimSlot => 'Valitse SIM-paikka';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'Valitse tietty toiminto estetyille puheluille';
-
-  @override
-  String get selectTag => 'Valitse tunniste';
 
   @override
   String get selectTags => 'Valitse tunnisteet';
@@ -3976,23 +2920,7 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'Aseta';
-
-  @override
   String get setEncryptionPassword => 'Aseta salaus salasana';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'Aseta salaus salasana varmuuskopiointia ja palautusta varten';
-
-  @override
-  String get setEncryptionPasswordLabel => 'Aseta salaus salasana';
-
-  @override
-  String get setEncryptionPasswordTitle => 'Aseta salaus salasana';
-
-  @override
-  String get setPasswordButton => 'Aseta';
 
   @override
   String get settings => 'Asetukset';
@@ -4000,14 +2928,6 @@ class AppLocalizationsFi extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'Asetukset varmuuskopioitu kohteeseen: $path';
-  }
-
-  @override
-  String get settingsLoaded => 'Asetukset ladattu';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'Asetusten lataus epäonnistui: $error';
   }
 
   @override
@@ -4030,13 +2950,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get setup => 'Asennus';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'Staattinen metodi yhteystietojen muokkausikkunan näyttämiseen';
-
-  @override
-  String get showExplanation => 'Näytä selitys';
 
   @override
   String get silence => 'Hiljennä';
@@ -4084,19 +2997,11 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'SIM-korttitietojen lataus epäonnistui: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'SIM-paikkasäännöt antavat sinulle mahdollisuuden määrittää itsenäiset suodatussäännöt kullekin SIM-paikalle.';
 
   @override
   String get simRuleInstructionsTitle => 'SIM-paikkasäännöt';
-
-  @override
-  String get simRuleManagement => 'SIM-paikkasääntöjen hallinta';
 
   @override
   String simSlot1(String countryIso) {
@@ -4109,18 +3014,6 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'SIM-tietojen lataaminen epäonnistui: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration => 'SIM-paikan suodatuksen määritys';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'Mahdollistaa suodatussääntöjen asettamisen SIM-paikan mukaan';
-
-  @override
   String get simSlotFilterDescription =>
       'Määritä itsenäiset suodatussäännöt kullekin SIM-kortille:';
 
@@ -4130,17 +3023,7 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'SIM-paikkojen lataaminen epäonnistui: $error';
-  }
-
-  @override
   String get simSlotManagement => 'SIM-paikkojen hallinta';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'SIM-paikan toiminto epäonnistui: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4161,12 +3044,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'SIM-paikkasäännöt';
-
-  @override
-  String get simSlotRuleManagementTitle => 'Sääntöjen hallinta';
-
-  @override
-  String get simSlotSettings => 'SIM-paikan asetukset';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4203,9 +3080,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get smsFilterSettings => 'Tekstiviestien suodatusasetukset';
 
   @override
-  String get smsHistory => 'Tekstiviestihistoria';
-
-  @override
   String get smsManagement => 'Tekstiviestien hallinta';
 
   @override
@@ -4232,27 +3106,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get smsRuleManagement => 'Tekstiviestisääntöjen hallinta';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'Tekstiviestisäännöt viety onnistuneesti kohteeseen $filePath';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully =>
-      'Tekstiviestisäännöt tuotu onnistuneesti';
-
-  @override
   String get smsRuleSubscription => 'Tekstiviestisääntöjen tilaus';
-
-  @override
-  String get smsRuleUpdatedSuccessfully =>
-      'Tekstiviestisääntö päivitetty onnistuneesti';
-
-  @override
-  String get smsSettingsSubtitle =>
-      'Tekstiviestien suodatus ja avainsanojen esto';
-
-  @override
-  String get smsSettingsTitle => 'Tekstiviestiasetukset';
 
   @override
   String get smsSubscription => 'Tekstiviestitilaus';
@@ -4290,26 +3144,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get statBlocked => 'Estetty';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'Staattinen menetelmä puhelun tunnuksen tietojen näyttämiseksi';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'Staattinen menetelmä maanvalintavalintaikkunan näyttämiseksi';
-
-  @override
-  String get staticMethodToDisplayDialog =>
-      'Staattinen menetelmä valintaikkunan näyttämiseksi';
-
-  @override
   String get statistics => 'Tilastot';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'Tilastojen vientiominaisuus tulossa pian';
-
-  @override
-  String get statisticsGrid => 'Tilastotaulukko';
 
   @override
   String get statisticsPageTitle => 'Data-analyysi';
@@ -4349,10 +3184,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get subscriptionDeleted => 'Tilaus poistettu';
 
   @override
-  String get subscriptionDeletedSuccessfully =>
-      'Tilaus poistettu onnistuneesti';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'Tilauksen poistaminen epäonnistui: $error';
   }
@@ -4361,23 +3192,9 @@ class AppLocalizationsFi extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'Tilaus poistettu';
 
   @override
-  String get subscriptionEmptyState => 'Ei tilauksia saatavilla';
-
-  @override
-  String get subscriptionEmptyText => 'Ei vielä tilauksia';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'Tilausten lataaminen epäonnistui: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'Tilausten lataaminen epäonnistui: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'Tilausten hallinta';
 
   @override
   String get subscriptionName => 'Tilauksen nimi';
@@ -4390,16 +3207,8 @@ class AppLocalizationsFi extends AppLocalizations {
   String get subscriptionNameHint => 'Syötä tilauksen nimi';
 
   @override
-  String get subscriptionPageTitle => 'Tilausten hallinta';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
     return 'Tilauksen tilan muuttaminen epäonnistui: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
-    return 'Tilauksen tilan vaihtaminen epäonnistui: $error';
   }
 
   @override
@@ -4437,10 +3246,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get syncFailedMessage => 'Synkronointi epäonnistui';
 
   @override
-  String get syncFolderNameHint =>
-      'Syötä synkronointikansion nimi (oletus: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'Synkronointikansion nimi';
 
   @override
@@ -4462,17 +3267,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'Synkronointitila päivitetty';
 
   @override
-  String get syncSuccessful => 'Synkronointi onnistui';
-
-  @override
   String get syncSuccessMessage => 'Synkronointi onnistui';
 
   @override
   String get syncWithCloudStorage => 'Synkronoi pilvitallennustilan kanssa';
-
-  @override
-  String get syncWithCloudStorageSubtitle =>
-      'Synkronoi pilvitallennustilan kanssa';
 
   @override
   String get systemFeatures => 'Järjestelmän ominaisuudet:';
@@ -4501,9 +3299,6 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'Tunnisteet päivitetty';
-
-  @override
   String get takeaway => 'Noutoruoka';
 
   @override
@@ -4517,9 +3312,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get testButton => 'TESTAA';
-
-  @override
-  String get testButtonLabel => 'TESTAA';
 
   @override
   String get testConnectionButton => 'Testaa yhteys';
@@ -4558,13 +3350,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Puhelutiheyden sieppausten asetukset';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'Sieppaa automaattisesti potentiaaliset roskapuhelut puhelutiheyden perusteella';
-
-  @override
-  String get timeInterceptorTitle => 'Ota käyttöön puhelutiheyden sieppaus';
-
-  @override
   String get timeWindowDescription =>
       'Aseta sallittujen toistuvien puheluiden aikavälivalinta. Puhelut samasta numerosta tämän ikkunan sisällä sallitaan.';
 
@@ -4572,10 +3357,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'Sieppausaikaväli (minuuttia): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'Aseta sallittujen toistuvien puheluiden aikavälivalinta. Puhelut samasta numerosta tämän ikkunan sisällä sallitaan';
 
   @override
   String get today => 'Tänään';
@@ -4587,24 +3368,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get totalBlocked => 'Yhteensä estetty';
 
   @override
-  String get totalFiltered => 'Yhteensä suodatettu';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'Siirrä dataa laitteiden tai alustojen välillä';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'Siirrä dataa laitteiden tai alustojen välillä';
-
-  @override
   String get travelTicketing => 'Matkalippujen myynti';
-
-  @override
-  String get trend => 'Trendi';
-
-  @override
-  String get trendChart => 'Trendikaavio';
 
   @override
   String get tutorial => 'Tutoriaali';
@@ -4617,9 +3385,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get unknown => 'Tuntematon';
-
-  @override
-  String get unknownLabel => 'Tuntematon tunniste';
 
   @override
   String get unknownTag => 'Tunniste: Tuntematon';
@@ -4645,9 +3410,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get updateAllNow => 'Päivitä kaikki nyt';
 
   @override
-  String get updateCallFilterConfig => 'Päivitä puhelusuodattimen määritykset';
-
-  @override
   String updateContactFailed(Object error) {
     return 'Yhteystiedon päivitys epäonnistui: $error';
   }
@@ -4656,15 +3418,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get updateFavoriteStatus => 'Päivitä suosikkitila';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'Suosikkitilan päivitys epäonnistui: $error';
-  }
-
-  @override
   String get updateInterval => 'Päivitysväli';
-
-  @override
-  String get updateLabelFailed => 'Tunnisteen päivitys epäonnistui';
 
   @override
   String get updateNow => 'Päivitä nyt';
@@ -4693,9 +3447,6 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'Päivitä tunnisteet';
-
-  @override
   String get useCasesPoint1 =>
       '• Tunnista automaattisesti uudelleenvalitsevat roskapuhelut';
 
@@ -4713,17 +3464,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get useGlobalSettings => 'Käytä globaaleja asetuksia';
 
   @override
-  String get userEmail => 'kayttaja@esimerkki.com';
-
-  @override
   String get usernameLabel => 'Käyttäjänimi';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'Käytä tavallista regex-syntaksia kuvioiden määrittelyyn. Esimerkkejä:';
-
-  @override
-  String get validateRegex => 'Validoi Regex';
 
   @override
   String get verificationFailedText => 'Epäonnistui';
@@ -4760,45 +3505,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get webDAVConfigTitle => 'WebDAV-määritykset';
 
   @override
-  String get webdavConfigurationTitle => 'WebDAV-määritykset';
-
-  @override
-  String get webdavPasswordHint => 'Syötä WebDAV-salasana';
-
-  @override
-  String get webdavServerAddressHint => 'Syötä WebDAV-palvelimen osoite';
-
-  @override
-  String get webdavUsernameHint => 'Syötä WebDAV-käyttäjänimi';
-
-  @override
   String get week => 'Viikko';
-
-  @override
-  String get weekly => 'Viikoittain';
-
-  @override
-  String get weeklyBlockedCallsSummary =>
-      'Viikoittainen estettyjen puheluiden yhteenveto';
-
-  @override
-  String get weeklyChartTitle => 'Viikoittainen estettyjen puheluiden kaavio';
-
-  @override
-  String get weeklyReport => 'Viikoittainen raportti';
-
-  @override
-  String get weeklyReportDesc =>
-      'Vastaanota viikoittainen yhteenvetoraportti puhelujen estotoiminnasta';
 
   @override
   String get welcome => 'Tervetuloa';
 
   @override
   String get whitelist => 'Valkoinen lista';
-
-  @override
-  String get whitelistLabel => 'Valkoinen lista';
 
   @override
   String get width => 'Leveys';
@@ -4819,12 +3532,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get year => 'Vuosi';
-
-  @override
-  String get yearly => 'Vuosittain';
-
-  @override
-  String get yearlyChartTitle => 'Vuosittaiset estetyt puhelut';
 
   @override
   String get noSimCardsDetected => 'SIM-kortteja ei löydy';
@@ -4873,10 +3580,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get useStirNotification => 'Käytä STIR-ilmoitusta';
 
   @override
-  String get useStirNotificationDescription =>
-      'Ota STIR-ilmoitukset saapuville puheluille käyttöön';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'Sulje paikalliset ilmoitukset automaattisesti';
 
@@ -4895,11 +3598,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'Saapuvan puhelun tiedot';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'Numero: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'Estetty puhelu';
@@ -4953,21 +3651,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'Petosvaroitus';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return 'Mahdollinen huijauspuhelu numerosta $phoneNumber';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'Sääntöjen lataus epäonnistui: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'Puhelulokin lataus epäonnistui: $error';
-  }
 
   @override
   String get noBlockedTypeData => 'Estettyjä tyyppitietoja ei saatavilla';
@@ -5044,9 +3727,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get removeAds => 'Poista mainokset';
-
-  @override
-  String get unknownAction => 'Tuntematon toiminto';
 
   @override
   String get settingsBackup => 'Asetusten varmuuskopiointi ';
@@ -5305,16 +3985,8 @@ class AppLocalizationsFi extends AppLocalizations {
   String get blockNumberSuccess => 'Numeron esto onnistui';
 
   @override
-  String get blockNumberFailed => 'Numeron esto epäonnistui';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return 'Haluatko varmasti poistaa numeron $phoneNumber eston?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return 'Soitetaan numeroon $phoneNumber...';
   }
 
   @override
@@ -5331,9 +4003,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => 'Numeron esto epäonnistui';
-
-  @override
-  String get serviceNotAvailable => 'Palvelua ei saatavilla';
 
   @override
   String get callingNumberFailed => 'Soitto numeroon epäonnistui';
@@ -5364,9 +4033,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'Virheellinen numeromuoto';
-
-  @override
-  String get membershipFeature => 'Jäsenyysominaisuus';
 
   @override
   String get medium => 'Media';
@@ -5462,9 +4128,6 @@ class AppLocalizationsFi extends AppLocalizations {
       'Vahvista tyhjentää kaikki ilmoitukset';
 
   @override
-  String get allNotificationsCleared => 'Kaikki ilmoitukset tyhjennetty';
-
-  @override
   String get clearButton => 'Tyhjennä';
 
   @override
@@ -5534,9 +4197,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get reasonInaccurateInfo => 'Virheellistä tietoa';
 
   @override
-  String get reasonWrongMarked => 'Väärin merkitty';
-
-  @override
   String get reasonOther => 'Muu';
 
   @override
@@ -5546,25 +4206,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get cancel => 'Peruuta';
 
   @override
-  String get proposalStatus => 'Tila';
-
-  @override
-  String get statusPending => 'Odottaa';
-
-  @override
-  String get statusActive => 'Aktiivinen';
-
-  @override
-  String get statusCompleted => 'Valmis';
-
-  @override
-  String get statusExpired => 'Vanhentunut';
-
-  @override
   String get riskLevel => 'Riskitaso';
-
-  @override
-  String get riskLevelVerified => 'Vahvistettu';
 
   @override
   String get riskLevelLow => 'Matala';
@@ -5573,19 +4215,8 @@ class AppLocalizationsFi extends AppLocalizations {
   String get riskLevelHigh => 'Korkea';
 
   @override
-  String get riskLevelUnknown => 'Tuntematon';
-
-  @override
-  String get votingProgress => 'Äänestyksen eteneminen';
-
-  @override
   String agreeVotes(int count) {
     return 'Kyllä: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'Ei: $count';
   }
 
   @override
@@ -5608,12 +4239,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get verificationReport => 'Vahvinnusraportti';
 
   @override
-  String get showReport => 'Näytä raportti';
-
-  @override
-  String get hideReport => 'Piilota raportti';
-
-  @override
   String get proposalStatistics => 'Esitystilastot';
 
   @override
@@ -5623,28 +4248,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get activeProposals => 'Aktiivisia esityksiä';
 
   @override
-  String get completedProposals => 'Valmiita esityksiä';
-
-  @override
-  String get myVotes => 'Omat ääneni';
-
-  @override
   String get proposalCreated => 'Esitys luotu onnistuneesti';
-
-  @override
-  String get proposalCreateFailed => 'Esityksen luominen epäonnistui';
 
   @override
   String get voteSubmitted => 'Ääni annettu onnistuneesti';
 
   @override
-  String get voteSubmitFailed => 'Äänen antaminen epäonnistui';
-
-  @override
   String get noProposalsFound => 'Esityksiä ei löytynyt';
-
-  @override
-  String get loadingProposals => 'Ladataan esityksiä...';
 
   @override
   String get refreshProposals => 'Päivitä esitykset';
@@ -5796,23 +4406,11 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'Äänten määrän lataaminen epäonnistui';
-
-  @override
   String get voteCount => 'Äänten määrä';
-
-  @override
-  String get deletionProposalInfo => 'Poistoesityksen tiedot';
 
   @override
   String get deletionProposalDescription =>
       'Ehdottele numeroita poistettavaksi, jotka rikkovat yhteisön sääntöjä. Osallistumisesi auttaa pitämään alustan turvallisena.';
-
-  @override
-  String get voteToEarnVip => 'Äänestä esityksiä ansaitaksesi VIP-oikeuksia!';
-
-  @override
-  String get voteFailed => 'Äänestäminen epäonnistui';
 
   @override
   String get searchProposals => 'Etsi esityksiä';
@@ -5846,50 +4444,7 @@ class AppLocalizationsFi extends AppLocalizations {
       'Näyttää varoituksia mahdollisista petollisista puheluista.';
 
   @override
-  String get notificationFrequencyDescription =>
-      'Valitse, kuinka usein saat ilmoituksia uusista poistoehdotuksista. Voit saada ne välittömästi, erissä tai mukautetulla aikavälillä.';
-
-  @override
   String get notificationMode => 'Ilmoitustila';
-
-  @override
-  String get immediateNotifications => 'Välitön';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'Saat ilmoituksen heti, kun ehdotus luodaan.';
-
-  @override
-  String get batchNotifications => 'Erissä';
-
-  @override
-  String get batchNotificationsDescription =>
-      'Saat yhteenvedon ilmoituksista ajoittain.';
-
-  @override
-  String get customNotifications => 'Mukautettu';
-
-  @override
-  String get customNotificationsDescription =>
-      'Määritä oma aikavälisi ilmoitusten vastaanottamiselle.';
-
-  @override
-  String get customFrequency => 'Mukautettu tiheys';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes min';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours h';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours h $minutes min';
-  }
 
   @override
   String get pendingProposals => 'Odottaa ehdotuksia';
@@ -5911,9 +4466,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get riskLevelLabel => 'Riskitaso';
-
-  @override
-  String get riskLevelDescription => 'Numeron riskitaso';
 
   @override
   String get phoneNumberMinDigits =>
@@ -5939,34 +4491,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get countryCodeRequired => 'Maakoodi on pakollinen';
 
   @override
-  String get countryCodeLengthError => 'Maakoodin on oltava 2 kirjainta pitkä';
-
-  @override
   String get phoneNumberHint => 'Syötä puhelinnumero';
 
   @override
   String get phoneNumberRequired => 'Puhelinnumero vaaditaan';
 
   @override
-  String get phoneNumberLengthError =>
-      'Puhelinnumerossa on oltava vähintään 7 numeroa';
-
-  @override
-  String get reasonHint =>
-      'Anna yksityiskohtainen selitys (vähintään 10 merkkiä)';
-
-  @override
   String get reasonRequired => 'Syy on pakollinen';
-
-  @override
-  String get reasonLengthError => 'Syy on oltava vähintään 10 merkkiä pitkä';
-
-  @override
-  String get guidelinesTitle => 'Ohjeet';
-
-  @override
-  String get guidelinesText =>
-      '• Raportoi vain todella ongelmallisia numeroita\n• Anna tarkat ja yksityiskohtaiset syyt\n• Valitse asianmukainen riskitaso vakavuuden perusteella\n• Vääristä raportoinnista voi seurata tilin rajoituksia';
 
   @override
   String get riskLevelCritical => 'Kriittinen';
@@ -5978,56 +4509,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get riskLevelVeryLow => 'Erittäin matala';
 
   @override
-  String get riskDescriptionVeryLow =>
-      'Erittäin matala - Vähäinen häiriö, harvinaiset puhelut';
-
-  @override
-  String get riskDescriptionLow => 'Matala - Satunnaiset ei-toivotut puhelut';
-
-  @override
-  String get riskDescriptionMedium =>
-      'Keskisuuri - Säännöllinen roskaposti tai puhelinmyynti';
-
-  @override
-  String get riskDescriptionHigh =>
-      'Korkea - Jatkuva häirintä tai huijausyritykset';
-
-  @override
-  String get riskDescriptionCritical =>
-      'Kriittinen - Vaaralliset huijaukset tai uhkaukset';
-
-  @override
   String get notificationFrequencyTitle => 'Ilmoitustiheys';
-
-  @override
-  String get notificationFrequencyLabel => 'Ilmoitustiheys (tuntia)';
 
   @override
   String errorMessage(String error) {
     return 'Virhe: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'Äänet: $totalVotes ($supportPercentage% tukee)';
-  }
-
-  @override
-  String get timeJustNow => 'Juuri nyt';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return '${minutes}m sitten';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return '${hours}h sitten';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return '${days}d sitten';
   }
 
   @override
@@ -6112,10 +4598,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get liveActivitiesTestTitle => 'Live-aktiviteettien testi';
 
   @override
-  String get liveActivitiesTestSubtitle =>
-      'Testaa live-aktiviteetti-ilmoitusta.';
-
-  @override
   String get liveNotificationCustomizationTitle =>
       'Live-ilmoituksen mukauttaminen';
 
@@ -6141,16 +4623,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get proposalDetails => 'Ehdotuksen tiedot';
 
   @override
-  String get filterByStatus => 'Suodata tilan mukaan';
-
-  @override
   String get proposalNotFound => 'Ehdotusta ei löytynyt';
 
   @override
   String get processed => 'Käsitelty';
-
-  @override
-  String get showAll => 'Näytä kaikki';
 
   @override
   String get filterAndSortTitle => 'Suodata ja järjestä';
@@ -6189,9 +4665,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get invalidSimData => 'Virheelliset SIM-tiedot';
 
   @override
-  String get simCardData => 'SIM-kortin tiedot';
-
-  @override
   String get simSlot => 'SIM-paikka';
 
   @override
@@ -6210,12 +4683,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String get callTypeSilenced => 'Mykistetty';
 
   @override
-  String get callTypeVoicemail => 'Äänipuhelin';
-
-  @override
-  String get callTypeUnknownIntercept => 'Tuntematon katkaisu';
-
-  @override
   String andMoreItems(int count) {
     return 'ja $count muuta kohdetta';
   }
@@ -6228,10 +4695,6 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6315,9 +4778,6 @@ class AppLocalizationsFi extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

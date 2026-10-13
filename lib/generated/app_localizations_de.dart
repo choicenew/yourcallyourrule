@@ -18,13 +18,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get aboutPhoneSubscriptionRules => 'Über Telefon-Abonnementregeln';
 
   @override
-  String get aboutPhoneSubscriptions => 'Über Telefon-Abonnements';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'Abonnieren Sie Listen mit Telefonregeln per URL und aktualisieren Sie Regeln automatisch. Unterstützt Regeldateien im JSON- und CSV-Format.';
-
-  @override
   String get aboutSmsFilter => 'Über SMS-Filterung';
 
   @override
@@ -47,9 +40,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get actionBlock => 'Blockieren';
-
-  @override
-  String get actionFilterAll => 'Alle Filter';
 
   @override
   String get actionFilterTitle => 'Filtern nach Aktionstyp';
@@ -96,28 +86,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'Zu den erlaubten Regeln hinzugefügt';
-
-  @override
-  String get addedToBlacklist => 'Zur Blacklist hinzugefügt';
-
-  @override
-  String get addedToBlockedRules => 'Zu den blockierten Regeln hinzugefügt';
-
-  @override
-  String get addedToFavoriteContacts => 'Zu den Lieblingskontakten hinzugefügt';
-
-  @override
   String get addedToFavorites => 'Zu den Lieblingskontakten hinzugefügt';
-
-  @override
-  String get addedToWhitelist => 'Zur Whitelist hinzugefügt';
-
-  @override
-  String get addFavorite => 'Favorit hinzufügen';
-
-  @override
-  String get addFilter => 'Filter hinzufügen';
 
   @override
   String get addLabel => 'Label hinzufügen';
@@ -131,17 +100,10 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'Label zum Anrufdatensatz hinzufügen';
-
-  @override
   String get addName => 'Namen hinzufügen';
 
   @override
   String get addNoneSubscription => 'Kein Abonnement hinzufügen';
-
-  @override
-  String get addOrEditContactInfo =>
-      'Wird verwendet, um Kontaktinformationen hinzuzufügen oder zu bearbeiten';
 
   @override
   String get addPhoneMark => 'Telefonmarkierung hinzufügen';
@@ -173,9 +135,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get addRule => 'Regel hinzufügen';
 
   @override
-  String get addRuleButton => 'Regel hinzufügen';
-
-  @override
   String addRuleFailed(Object error) {
     return 'Regel konnte nicht hinzugefügt werden: $error';
   }
@@ -185,9 +144,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'Stummschaltungs-Abonnement hinzufügen';
-
-  @override
-  String get addSimRuleButton => 'SIM-Regel hinzufügen';
 
   @override
   String get addSmsFilterRule => 'SMS-Filterregel hinzufügen';
@@ -213,16 +169,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get addSubscriptionTooltip => 'Abonnement hinzufügen';
 
   @override
-  String get addToAllowedRules => 'Zu erlaubten Regeln hinzufügen';
-
-  @override
   String get addToBlacklist => 'Zur Sperrliste hinzufügen';
-
-  @override
-  String get addToBlockedRules => 'Zu blockierten Regeln hinzufügen';
-
-  @override
-  String get addToFavoriteContacts => 'Zu Lieblingskontakten hinzufügen';
 
   @override
   String get addToFavorites => 'Zu Favoriten hinzufügen';
@@ -234,9 +181,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get addToWhitelist => 'Zur Whitelist hinzufügen';
 
   @override
-  String get adPlaceholder => 'Platzhalter für Werbung';
-
-  @override
   String get agent => 'Agent';
 
   @override
@@ -244,9 +188,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get allCallsTab => 'Alle';
-
-  @override
-  String get allDataClearedSuccessfully => 'Alle Daten erfolgreich gelöscht';
 
   @override
   String get allow => 'Erlauben';
@@ -259,10 +200,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get allowAllBlacklistedNumbers => 'Alle gesperrten Nummern zulassen';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc =>
-      'Anrufe von der Sperrliste zulassen';
 
   @override
   String get allowAllBlockRules => 'Alle Blockregeln zulassen';
@@ -332,13 +269,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get allowRules => 'Erlaubnisregeln';
 
   @override
-  String get allowWhitelistedNumbers => 'Erlaube Nummern auf der Whitelist';
-
-  @override
-  String get allowWhitelistedNumbersDescription =>
-      'Erlaube alle Nummern auf der Whitelist';
-
-  @override
   String get allPermissionsGranted => 'Alle Berechtigungen erteilt';
 
   @override
@@ -351,10 +281,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'Annehmen und dann auflegen';
-
-  @override
-  String get appLegalese =>
-      '© 2023 Your Call Your Rule. Alle Rechte vorbehalten.';
 
   @override
   String get applicationSoftware => 'Anwendungssoftware';
@@ -393,13 +319,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'Auto-Update-Einstellungen';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'Automatische Updates für Regeln und Plugins verwalten';
-
-  @override
-  String get autoUpdateSettingsTitle => 'Auto-Update-Einstellungen';
 
   @override
   String get autoUpdateSubtitle =>
@@ -448,46 +367,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get backupFailed => 'Sicherung fehlgeschlagen';
 
   @override
-  String get backupFailedMessage => 'Sicherung fehlgeschlagen';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'Sicherung fehlgeschlagen: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle =>
-      'Anwendungsdaten sichern oder wiederherstellen';
-
-  @override
-  String get backupRestoreTitle => 'Sichern & Wiederherstellen';
-
-  @override
-  String get backupSectionTitle => 'Sicherung';
-
-  @override
   String get backupSettings => 'Sicherungseinstellungen';
 
   @override
-  String get backupSettingsDialogTitle => 'Sicherungseinstellungen';
-
-  @override
-  String get backupSettingsTitle => 'Sicherungseinstellungen';
-
-  @override
-  String get backupSuccessMessage => 'Erfolgreich in der Cloud gesichert';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'Sicherung erfolgreich nach: $path';
-  }
-
-  @override
   String get backupToCloud => 'In Cloud sichern';
-
-  @override
-  String get backupToCloudDescription =>
-      'Einstellungen und Regeln im Cloud-Speicher sichern';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -495,16 +378,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'In Cloud sichern';
-
-  @override
   String get backupToCloudSuccess => 'Erfolgreich in der Cloud gesichert';
-
-  @override
-  String get backupToCloudTitle => 'Backup in die Cloud';
-
-  @override
-  String get backupToLocalLabel => 'Backup lokal';
 
   @override
   String get bank => 'Bank';
@@ -523,23 +397,13 @@ class AppLocalizationsDe extends AppLocalizations {
       '• Grundlegende Regel-Filterung: Filterregeln basierend auf Blacklist, Whitelist und Regex';
 
   @override
-  String get basicRuleFilterSettings =>
-      'Einstellungen für den grundlegenden Regel-Filter';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'Anrufe mit Blacklist/Whitelist und regulären Ausdrücken filtern';
-
-  @override
-  String get batchDeleteContacts => 'Kontakte stapelweise löschen';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'Sind Sie sicher, dass Sie $count ausgewählte Kontakte löschen möchten?';
   }
-
-  @override
-  String get batchDeleteFailed => 'Stapelweises Löschen fehlgeschlagen';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -551,9 +415,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get blacklistingAndWhitelisting => 'Blacklisting und Whitelisting';
-
-  @override
-  String get blacklistLabel => 'Blacklist';
 
   @override
   String get blackWhiteList => 'Schwarz-/Weiße Liste';
@@ -568,19 +429,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get blocked => 'Blockiert';
 
   @override
-  String get blockedCallAction => 'Aktion für blockierte Anrufe';
-
-  @override
   String get blockedCalls => 'Blockierte Anrufe';
 
   @override
   String get blockedCallsTitle => 'Blockierte Anrufe';
-
-  @override
-  String get blockedCommunications => 'Blockierte Kommunikation';
-
-  @override
-  String get blockedPhoneLabel => 'Blockierte Anrufe';
 
   @override
   String get blockedSpamCalls => 'Blockierte Spam-Anrufe';
@@ -594,9 +446,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get blockInternationalCallsTitle => 'Internationale Anrufe blockieren';
-
-  @override
-  String get blockLandlineNumbersTitle => 'Festnetznummern blockieren';
 
   @override
   String get blockMobileNumbers =>
@@ -648,11 +497,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get callback => 'Zurückrufen';
 
   @override
-  String callbackTo(String number) {
-    return 'Rückruf an $number';
-  }
-
-  @override
   String get callBlocking => 'Anrufblockierung';
 
   @override
@@ -660,9 +504,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'Anrufer-ID anpassen';
-
-  @override
-  String get callerIdDialogTitle => 'Anrufer-ID-Informationen';
 
   @override
   String get callerIdDisplayMode => 'Anrufer-ID-Anzeigemodus';
@@ -674,13 +515,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'Anrufer-ID-Vorschau';
-
-  @override
-  String get callFilter => 'Anruffilter';
-
-  @override
-  String get callFilterDescription =>
-      'Wenn aktiviert, werden eingehende Anrufe anhand der untenstehenden Regelliste überprüft. Anruffilterregeln werden standardmäßig nicht zwischen Geräten synchronisiert.';
 
   @override
   String get callFilterRules => 'Anruffilterregeln';
@@ -710,26 +544,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get callHistoryInfoTitle => 'Anrufliste';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'Initialisierung der Anrufliste fehlgeschlagen: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'Aktualisierung der Anrufliste fehlgeschlagen: $error';
-  }
-
-  @override
   String get callHistoryTab => 'Anrufliste';
-
-  @override
-  String get callHistoryTimelineEarlier => 'Früher';
-
-  @override
-  String get callHistoryTimelineToday => 'Heute';
-
-  @override
-  String get callHistoryTimelineYesterday => 'Gestern';
 
   @override
   String get callScreeningPermission => 'Anruferkennungsberechtigung';
@@ -741,13 +556,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'Anruferkennungsberechtigung nicht erteilt, was die App-Funktionalität beeinträchtigen kann.';
-
-  @override
-  String get callSettingsSubtitle =>
-      'Anrufer-ID-, Filter- und Blockierungseinstellungen';
-
-  @override
-  String get callSettingsTitle => 'Anrufeinstellungen';
 
   @override
   String get callStatistics => 'Anrufstatistik';
@@ -805,27 +613,10 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'Tag ändern';
-
-  @override
   String get charity => 'Wohltätigkeit';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'Monat $month';
-  }
-
-  @override
-  String get chartOneDayAgo => 'Vor 1 Tag';
-
-  @override
-  String get chartOneMonthAgo => 'Vor 1 Monat';
-
-  @override
   String get chartOneWeekAgo => 'Vor 1 Woche';
-
-  @override
-  String get chartTenDaysAgo => 'Vor 10 Tagen';
 
   @override
   String get chartThreeDaysAgo => 'Vor 3 Tagen';
@@ -847,23 +638,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Wählen Sie die Standard-Abfangaktion';
 
   @override
-  String get clearAllData => 'Alle Daten löschen';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'Sind Sie sicher, dass Sie alle Anwendungsdaten löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.';
-
-  @override
-  String get clearAllDataDescription => 'Alle Anwendungsdaten löschen';
-
-  @override
-  String get clearAllDataLabel => 'Alle Daten löschen';
-
-  @override
   String get clearFilter => 'Filter löschen';
-
-  @override
-  String get clearLabelFilter => 'Label-Filter löschen';
 
   @override
   String get clearLabelFilterButton => 'Label-Filter löschen';
@@ -888,9 +663,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get cloudSyncTitle => 'Cloud-Synchronisierung';
 
   @override
-  String get collapseLabelSelector => 'Label-Auswahl einklappen';
-
-  @override
   String get collection => 'Inkasso';
 
   @override
@@ -910,15 +682,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get configureBackupOptions => 'Backup-Optionen konfigurieren';
 
   @override
-  String get configureBackupOptionsSubtitle => 'Backup-Optionen konfigurieren';
-
-  @override
   String get configureCloudSyncService =>
       'Cloud-Synchronisierungsdienst konfigurieren';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'Bitte konfigurieren Sie einen Cloud-Synchronisierungsdienst, um die Synchronisierung über mehrere Geräte zu ermöglichen.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -929,32 +694,13 @@ class AppLocalizationsDe extends AppLocalizations {
       'SIM-Karten-Filterregeln konfigurieren';
 
   @override
-  String get configureSyncServiceHint =>
-      'Bitte konfigurieren Sie zuerst den Synchronisierungsdienst in den Cloud-Synchronisierungseinstellungen';
-
-  @override
   String get confirm => 'Bestätigen';
-
-  @override
-  String get confirmBatchDeleteContacts =>
-      'Sind Sie sicher, dass Sie die ausgewählten löschen möchten';
 
   @override
   String get confirmButton => 'Bestätigen';
 
   @override
   String get confirmDelete => 'Löschen bestätigen';
-
-  @override
-  String get confirmDeleteContact =>
-      'Sind Sie sicher, dass Sie löschen möchten';
-
-  @override
-  String get confirmDeleteContactName => 'Löschen bestätigen?';
-
-  @override
-  String get confirmDeleteFilter =>
-      'Sind Sie sicher, dass Sie diesen Filter löschen möchten?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -976,10 +722,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Sind Sie sicher, dass Sie diese Regel löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'Sind Sie sicher, dass Sie die ausgewählten Kontakte löschen möchten?';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'Sind Sie sicher, dass Sie diese SMS-Filterregel löschen möchten?';
 
@@ -988,19 +730,12 @@ class AppLocalizationsDe extends AppLocalizations {
       'Sind Sie sicher, dass Sie diese SMS-Regel löschen möchten?';
 
   @override
-  String get confirmDeleteSubscription =>
-      'Sind Sie sicher, dass Sie dieses Abonnement löschen möchten?';
-
-  @override
   String confirmDeleteSubscriptions(String name) {
     return 'Sind Sie sicher, dass Sie $name löschen möchten?';
   }
 
   @override
   String get confirmPassword => 'Passwort bestätigen';
-
-  @override
-  String get confirmPasswordLabel => 'Passwort bestätigen';
 
   @override
   String get connectedStatus => 'Verbunden';
@@ -1025,16 +760,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get contactDeleted => 'Kontakt gelöscht';
 
   @override
-  String get contactEditDialog => 'Kontaktbearbeitungsdialog';
-
-  @override
-  String get contactNameHint => 'Kontaktname eingeben (optional)';
-
-  @override
   String get contactNameLabel => 'Name';
-
-  @override
-  String get contactNameOptional => 'Kontaktname (optional)';
 
   @override
   String get contactNotFound => 'Kontakt nicht gefunden';
@@ -1048,25 +774,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle =>
-      'Kontaktverwaltung und Etiketteinstellungen';
-
-  @override
-  String get contactSettingsTitle => 'Kontakteinstellungen';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'Fehler beim Laden der Kontakte: $error';
-  }
-
-  @override
   String get contactsManagement => 'Kontaktverwaltung';
-
-  @override
-  String get contactsManagementPageTitle => 'Kontaktverwaltungsseite';
-
-  @override
-  String get contactsPageTitle => 'Kontaktverwaltung';
 
   @override
   String get contactsPermission => 'Kontaktberechtigung';
@@ -1081,14 +789,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'Abonnieren Sie Kontaktlisten über URL, aktualisieren Sie automatisch Kontaktinformationen und Etiketten. Unterstützt Daten im JSON-Format.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'Fehler beim Laden der Kontakt-Abonnements: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'Kontakt-Abonnements';
 
   @override
   String get contactUpdateSuccess => 'Kontakt erfolgreich aktualisiert';
@@ -1124,27 +824,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get countryRegionNamePosition => 'Positionsname Land/Region';
 
   @override
-  String get countrySelectionDialog => 'Länderauswahldialog';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'Wird verwendet, um ein Land auszuwählen, um Anrufer-ID-Informationen abzufragen';
-
-  @override
   String get countThresholdDescription =>
       'Legen Sie den Mindestzählschwellenwert fest, der erforderlich ist, um Filteraktionen auszulösen';
 
   @override
   String get countThresholdLabel => 'Zählschwellenwert';
-
-  @override
-  String get countThresholdSettings =>
-      'Einstellungen für den Zählschwellenwert';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'Zählschwellenwert: $count';
-  }
 
   @override
   String get createdRules => 'Erstellte Regeln';
@@ -1153,47 +837,22 @@ class AppLocalizationsDe extends AppLocalizations {
   String get csvFormat => 'CSV-Format';
 
   @override
-  String get currentDeviceChip => 'Aktuell';
-
-  @override
   String get currentDeviceLabel => 'Aktuelles Gerätelabel';
 
   @override
   String get currentDeviceTitle => 'Aktuelles Gerät';
 
   @override
-  String get currentLabels => 'Aktuelle Etiketten:';
-
-  @override
   String get currentLanguage => 'Aktuelle Sprache';
 
   @override
-  String get currentPasswordLabel => 'Aktuelles Passwort';
-
-  @override
   String get customerService => 'Kundenservice';
-
-  @override
-  String get customRange => 'Benutzerdefinierter Bereich';
-
-  @override
-  String get dailyStatistics => 'Tägliche Statistiken';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'Erhalten Sie tägliche Statistiken über blockierte Anrufe und Nachrichten';
 
   @override
   String get dashboardTab => 'Dashboard';
 
   @override
   String get dataAnalysis => 'Datenanalyse';
-
-  @override
-  String get dataAnalysisDashboardPage => 'Datenanalyse-Dashboard-Seite';
-
-  @override
-  String get dataExport => 'Datenexport';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1211,16 +870,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'Diese Funktion ermöglicht es Ihnen, alle Ihre Daten zwischen Geräten zu übertragen. Derzeit können Sie die Backup- und Wiederherstellungsfunktionen verwenden, um Ihre Daten manuell zu migrieren.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'Diese Funktion ermöglicht es Ihnen, alle Ihre Daten zwischen Geräten zu übertragen. Derzeit können Sie die Backup- und Wiederherstellungsfunktionen verwenden, um Ihre Daten manuell zu migrieren.';
-
-  @override
-  String get dataMigrationDialogTitle => 'Datenmigration';
-
-  @override
-  String get dataMigrationSectionTitle => 'Datenmigration';
 
   @override
   String get dataSourceReminder => 'Datenquellen-Erinnerung';
@@ -1245,9 +894,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get debtCollection => 'Inkasso';
 
   @override
-  String get defaultPeriod => 'Woche';
-
-  @override
   String get delete => 'Löschen';
 
   @override
@@ -1262,24 +908,9 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation =>
-      'Sind Sie sicher, dass Sie den Kontakt löschen möchten';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return 'Sind Sie sicher, dass Sie $deviceName löschen möchten?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'Gerät löschen';
-
-  @override
   String deleteFailed(Object error) {
     return 'Löschen fehlgeschlagen: $error';
   }
-
-  @override
-  String get deleteFilter => 'Filter löschen';
 
   @override
   String get deleteLabel => 'Label löschen';
@@ -1317,9 +948,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get deleteSelected => 'Ausgewählte löschen';
 
   @override
-  String get deleteSmsRule => 'SMS-Regel löschen';
-
-  @override
   String get deleteSubscription => 'Abonnement löschen';
 
   @override
@@ -1339,15 +967,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get delivery => 'Zustellung';
 
   @override
-  String get deviceDeletedSuccessfully => 'Gerät erfolgreich gelöscht';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage => 'Gerät erfolgreich gelöscht';
-
-  @override
-  String get deviceIdLabel => 'Geräte-ID';
-
-  @override
   String get deviceIDLabel => 'Geräte-ID';
 
   @override
@@ -1364,26 +983,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get deviceName => 'Gerätename';
 
   @override
-  String get deviceNameCannotBeEmpty => 'Der Gerätename darf nicht leer sein';
-
-  @override
-  String get deviceNameHint => 'Bitte Gerätenamen eingeben';
-
-  @override
   String get deviceNameLabel => 'Gerätename';
 
   @override
-  String get deviceRenamedSuccessfully => 'Gerät erfolgreich umbenannt';
-
-  @override
   String get deviceRenamedSuccessfullyMessage => 'Gerät erfolgreich umbenannt';
-
-  @override
-  String get devicesSyncedSuccessfully => 'Geräte erfolgreich synchronisiert';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage =>
-      'Geräte erfolgreich synchronisiert';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1408,10 +1011,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'Globale Plugins deaktivieren';
-
-  @override
-  String get disableSubscriptionSuccessfully =>
-      'Abonnement erfolgreich deaktiviert';
 
   @override
   String get disconnectButton => 'Trennen';
@@ -1445,25 +1044,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get editContact => 'Kontakt bearbeiten';
 
   @override
-  String get editFilter => 'Filter bearbeiten';
-
-  @override
   String get editLabel => 'Label bearbeiten';
 
   @override
   String get editPhoneRule => 'Telefonregel bearbeiten';
 
   @override
-  String get editPhoneRules => 'Wird verwendet, um Telefonregeln zu bearbeiten';
-
-  @override
-  String get editPhoneRuleTitle => 'Telefonregel bearbeiten';
-
-  @override
   String get editRule => 'Regel bearbeiten';
-
-  @override
-  String get editSmsRule => 'SMS-Regel bearbeiten';
 
   @override
   String get education => 'Bildung';
@@ -1473,9 +1060,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get email => 'E-Mail';
-
-  @override
-  String get emailOptional => 'E-Mail (Optional)';
 
   @override
   String get enableCallFilter => 'Anruffilter aktivieren';
@@ -1495,15 +1079,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => 'Backup-Dateien verschlüsseln';
-
-  @override
-  String get enableEncryptionLabel => 'Verschlüsselung aktivieren';
-
-  @override
-  String get enableEncryptionSubtitle => 'Backup-Dateien werden verschlüsselt';
-
-  @override
-  String get enableEncryptionTitle => 'Verschlüsselung aktivieren';
 
   @override
   String get enableGlobalPlugins => 'Globale Plugins aktivieren';
@@ -1539,9 +1114,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Regelkonfigurationen ohne Abfangaktionen erlauben';
 
   @override
-  String get enableNotifications => 'Benachrichtigungen aktivieren';
-
-  @override
   String get enableRemoteNumberFilter => 'Remote-Nummernfilter aktivieren';
 
   @override
@@ -1557,14 +1129,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'Wenn aktiviert, werden Nachrichten automatisch gemäß den Regeln gefiltert';
-
-  @override
-  String get enableStatisticsNotifications =>
-      'Statistikbenachrichtigungen aktivieren';
-
-  @override
-  String get enableSubscriptionSuccessfully =>
-      'Abonnement erfolgreich aktiviert';
 
   @override
   String get enableTimeInterception => 'Zeitliche Abfangung aktivieren';
@@ -1599,10 +1163,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Das erweiterte Filtersystem unterstützt sowohl globale Regeln als auch Filterkonfigurationen pro SIM-Karte.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'Bitte geben Sie sowohl Telefonnummer als auch Regex-Muster ein';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'Bitte geben Sie sowohl Telefonnummer als auch Regex-Muster ein.';
 
@@ -1610,33 +1170,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get enterContactName => 'Bitte geben Sie den Kontaktnamen ein';
 
   @override
-  String get enterCurrentPasswordHint =>
-      'Bitte geben Sie das aktuelle Passwort ein';
-
-  @override
   String get enterDeviceName => 'Gerätenamen eingeben';
-
-  @override
-  String get enterDeviceNameHint => 'Bitte geben Sie den Gerätenamen ein';
-
-  @override
-  String get enterEmail => 'E-Mail-Adresse eingeben';
 
   @override
   String get enterEmailOptional => 'E-Mail-Adresse eingeben (optional)';
 
   @override
   String get enterEncryptionPasswordHint => 'Verschlüsselungspasswort eingeben';
-
-  @override
-  String get enterEncryptionPasswordTitle =>
-      'Verschlüsselungspasswort eingeben';
-
-  @override
-  String get enterFilterName => 'Bitte geben Sie den Filternamen ein';
-
-  @override
-  String get enterFilterPattern => 'Bitte geben Sie das Filtermuster ein';
 
   @override
   String get enterIconCode => 'Icon-Code eingeben';
@@ -1649,13 +1189,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Geben Sie einen neuen Namen für dieses Gerät ein';
 
   @override
-  String get enterNewPasswordHint => 'Bitte geben Sie ein neues Passwort ein';
-
-  @override
   String get enterPasswordAgain => 'Passwort erneut eingeben';
-
-  @override
-  String get enterPasswordHint => 'Bitte geben Sie das Passwort ein';
 
   @override
   String get enterPhoneNumber => 'Telefonnummer eingeben';
@@ -1684,10 +1218,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'Regex-Muster eingeben';
-
-  @override
-  String get enterRuleNameAndPattern =>
-      'Bitte geben Sie Regelname und -muster ein';
 
   @override
   String get enterRuleNameAndPatternMessage =>
@@ -1733,14 +1263,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get enterWebDAVUsernameHint => 'Bitte WebDAV-Benutzernamen eingeben';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'Fehler beim Löschen des Geräts: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'Fehler beim Laden des Plugins';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'Ein Fehler ist aufgetreten: $error';
   }
@@ -1756,14 +1278,6 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'Fehler beim Synchronisieren der Geräte: $error';
-  }
-
-  @override
-  String get errorText => 'Fehler';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'Fehler beim Abmelden des Geräts: $error';
   }
@@ -1773,9 +1287,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'z.B. Block Marketing SMS';
-
-  @override
-  String get exampleContentRegex => 'z.B. .*Angebot.*';
 
   @override
   String get exampleContentRegexHint => 'Beispiel Regex für Inhalte';
@@ -1794,9 +1305,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get exampleRegex400Prefix => 'Beispiel-Regex für 400-Präfix';
 
   @override
-  String get exampleRegexFormat => 'Beispiel: ^10086\$ Format';
-
-  @override
   String get exampleSenderRegexHint => 'Beispiel';
 
   @override
@@ -1807,9 +1315,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get exchangeVip => 'VIP austauschen';
-
-  @override
-  String get expandLabelSelector => 'Label-Selektor erweitern';
 
   @override
   String expiryTime(Object time) {
@@ -1824,19 +1329,8 @@ class AppLocalizationsDe extends AppLocalizations {
       'Alle Anwendungseinstellungen exportieren';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'Alle Anwendungseinstellungen exportieren';
-
-  @override
   String get exportAllRuleConfigurations =>
       'Alle Regelkonfigurationen exportieren';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle =>
-      'Alle Regelkonfigurationen exportieren';
-
-  @override
-  String get exportComplete => 'Export abgeschlossen';
 
   @override
   String get exportConfig => 'Konfiguration exportieren';
@@ -1848,9 +1342,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get exportData => 'Daten exportieren';
 
   @override
-  String get exportError => 'Fehler beim Exportieren';
-
-  @override
   String get exportFailed => 'Export fehlgeschlagen';
 
   @override
@@ -1858,9 +1349,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'Export-Funktion folgt in Kürze';
-
-  @override
-  String get exporting => 'Exportiere...';
 
   @override
   String get exportLabels => 'Etiketten exportieren';
@@ -1882,34 +1370,17 @@ class AppLocalizationsDe extends AppLocalizations {
   String get exportRules => 'Regeln exportieren';
 
   @override
-  String get exportRulesDialogTitle => 'Regeln exportieren';
-
-  @override
-  String get exportRulesTitle => 'Regeln exportieren';
-
-  @override
   String get exportSmsRules => 'SMS-Regeln exportieren';
 
   @override
   String get exportStatisticsData => 'Statistikdaten exportieren';
 
   @override
-  String get exportSuccess => 'Export erfolgreich';
-
-  @override
   String get exportSuccesslly => 'Konfiguration erfolgreich exportiert';
-
-  @override
-  String get failedToAddContact => 'Kontakt konnte nicht hinzugefügt werden';
 
   @override
   String failedToAddRule(Object error) {
     return 'Regel konnte nicht hinzugefügt werden: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'SMS-Regel konnte nicht hinzugefügt werden: $error';
   }
 
   @override
@@ -1927,9 +1398,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Entschlüsselung der Sicherungsdatei fehlgeschlagen';
 
   @override
-  String get failedToDeleteDevice => 'Gerät konnte nicht gelöscht werden';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'SMS-Regel konnte nicht gelöscht werden: $error';
   }
@@ -1937,11 +1405,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'Exportieren der Regeln fehlgeschlagen: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'Exportieren der SMS-Regeln fehlgeschlagen: $error';
   }
 
   @override
@@ -1955,20 +1418,6 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'Importieren der SMS-Regeln fehlgeschlagen: $error';
-  }
-
-  @override
-  String get failedToLoadContacts => 'Laden der Kontakte fehlgeschlagen';
-
-  @override
-  String get failedToLoadPlugin => 'Laden des Plugins fehlgeschlagen';
-
-  @override
-  String get failedToRenameDevice => 'Umbenennen des Geräts fehlgeschlagen';
-
-  @override
   String get failedToRestoreSettings =>
       'Wiederherstellung der Einstellungen fehlgeschlagen';
 
@@ -1978,34 +1427,9 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'Festlegen des Passworts fehlgeschlagen: $error';
-  }
-
-  @override
-  String get failedToSyncDevices =>
-      'Synchronisierung der Geräte fehlgeschlagen';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'Ändern des Regelstatus fehlgeschlagen: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus =>
-      'Ändern des Abonnementstatus fehlgeschlagen';
-
-  @override
-  String get failedToUpdateContact =>
-      'Aktualisieren des Kontakts fehlgeschlagen';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'Aktualisieren der SMS-Regel fehlgeschlagen: $error';
-  }
-
-  @override
-  String get failure => 'Fehler';
 
   @override
   String get favoriteContacts => 'Favoritenkontakte';
@@ -2045,9 +1469,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get filterByLabel => 'Nach Etikett filtern';
 
   @override
-  String get filterClear => 'Filter löschen';
-
-  @override
   String get filterControlPanelTitle => 'Filter-Bedienfeld';
 
   @override
@@ -2057,22 +1478,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get filterControlTitle => 'Filtersteuerung';
 
   @override
-  String get filterDeleteFailed => 'Filterlöschung fehlgeschlagen';
-
-  @override
-  String get filterDeleteSuccess => 'Filter erfolgreich gelöscht';
-
-  @override
-  String get filterDetails => 'Filterdetails';
-
-  @override
   String get filtered => 'Gefiltert';
-
-  @override
-  String get filteredSms => 'Gefilterte SMS';
-
-  @override
-  String get filteredSmsLabel => 'Gefilterte SMS';
 
   @override
   String get filterExplanation => 'Filtererklärung';
@@ -2084,17 +1490,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get filterName => 'Filtername';
 
   @override
-  String get filterPattern => 'Filtermuster';
-
-  @override
   String get filterPriorityNote =>
       'Hinweis: Es gibt Prioritätsbeziehungen zwischen Filtern. Bitte beachten Sie die Hilfedokumentation für Details';
-
-  @override
-  String get filterSaveFailed => 'Filterspeicherung fehlgeschlagen';
-
-  @override
-  String get filterSaveSuccess => 'Filter erfolgreich gespeichert';
 
   @override
   String get filterSettings => 'Filtereinstellungen';
@@ -2133,16 +1530,6 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return '$count Regeln gefunden. Möchten Sie diese importieren?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return '$count Regeln gefunden. Möchten Sie diese importieren?';
-  }
-
-  @override
   String get fraudAlert => 'BETRUGSVERSUCH - Legen Sie auf';
 
   @override
@@ -2177,39 +1564,14 @@ class AppLocalizationsDe extends AppLocalizations {
   String get globalFilterSettings => 'Globale Filtereinstellungen';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'Konfigurieren Sie globale Filtereinstellungen, die für alle SIM-Slots gelten:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'Suche Kontakte, Labels, Blacklists, Whitelists, usw.';
-
-  @override
-  String get globalSearchTitle => 'Globale Suche';
-
-  @override
   String get globalSettings => 'Globale Einstellungen';
-
-  @override
-  String get googleAdDisplayPosition => 'Google Ad-Anzeigeposition';
-
-  @override
-  String get googleAdMobIntegrationText =>
-      'Google AdMob-Anzeigen können hier integriert werden';
 
   @override
   String get googleDriveAuthDescription =>
       'Autorisieren Sie die Verwendung der systemkonfigurierten Google Drive-Client-ID und des Schlüssels';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'Autorisieren Sie die Verwendung der systemkonfigurierten Google Drive-Client-ID und des Schlüssels';
-
-  @override
   String get googleDriveConfigTitle => 'Google Drive-Konfiguration';
-
-  @override
-  String get googleDriveConfigurationTitle => 'Google Drive-Konfiguration';
 
   @override
   String get government => 'Regierung';
@@ -2229,9 +1591,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get height => 'Größe';
-
-  @override
-  String get homePageTitle => 'Startseite';
 
   @override
   String get homeTab => 'Start';
@@ -2262,9 +1621,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get important => 'Wichtig';
-
-  @override
-  String get importButton => 'Importieren';
 
   @override
   String get importConfig => 'Konfiguration importieren';
@@ -2318,32 +1674,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Regelkonfigurationen aus Datei importieren';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'Regelkonfigurationen aus Datei importieren';
-
-  @override
   String get importRules => 'Regeln importieren';
-
-  @override
-  String get importRulesButton => 'Regeln importieren';
-
-  @override
-  String get importRulesDialogTitle => 'Regeln importieren';
-
-  @override
-  String importRulesError(Object error) {
-    return 'Regeln konnten nicht importiert werden: $error';
-  }
-
-  @override
-  String get importRulesInstructions =>
-      'Regeln aus einer CSV-Datei importieren';
-
-  @override
-  String get importRulesSuccess => 'Regeln erfolgreich importiert';
-
-  @override
-  String get importRulesTitle => 'Regeln importieren';
 
   @override
   String get importSuccess => 'Import erfolgreich';
@@ -2351,10 +1682,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get incomingCallInterceptAction =>
       'Aktion zur Abfangung eingehender Anrufe';
-
-  @override
-  String get incomingCallNotification =>
-      'Benachrichtigung über eingehenden Anruf';
 
   @override
   String get incorrectPassword => 'Falsches Passwort';
@@ -2410,9 +1737,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Treten Sie dem Telegram-Kanal und der Gruppe bei, um weitere Informationen zu erhalten';
 
   @override
-  String get jsLogsTitle => 'JS-Protokolle';
-
-  @override
   String get jsonFormat => 'JSON-Format';
 
   @override
@@ -2421,16 +1745,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'Alle historischen Versionen jedes Backups beibehalten';
-
-  @override
-  String get keepAllVersionsLabel => 'Alle Versionen beibehalten';
-
-  @override
-  String get keepAllVersionsSubtitle =>
-      'Historische Versionen jedes Backups beibehalten';
-
-  @override
-  String get keepAllVersionsTitle => 'Alle Versionen beibehalten';
 
   @override
   String get label => 'Bezeichnung';
@@ -2451,9 +1765,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Bezeichnungen helfen Ihnen, Kontakte besser zu verwalten. Fügen Sie Telefonnummern benutzerdefinierte Bezeichnungen hinzu, um Anrufe und Nachrichten einfach zu identifizieren.';
 
   @override
-  String get labelFilter => 'Bezeichnungsfilter';
-
-  @override
   String get labelFilterTooltip => 'Bezeichnungsfilter';
 
   @override
@@ -2464,14 +1775,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get labelNotFound => 'Bezeichnung nicht gefunden';
-
-  @override
-  String get labelRemoved => 'Bezeichnung entfernt';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'Fehler beim Entfernen der Bezeichnung: $error';
-  }
 
   @override
   String get labels => 'Bezeichnungen';
@@ -2505,9 +1808,6 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'Bezeichnung aktualisiert';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'Fehler beim Aktualisieren der Bezeichnung: $error';
   }
@@ -2524,12 +1824,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'Spracheinstellungen';
-
-  @override
-  String get last30Days => 'Letzte 30 Tage';
-
-  @override
-  String get last7Days => 'Letzte 7 Tage';
 
   @override
   String get lastSyncLabel => 'Letzte Synchronisierung';
@@ -2555,13 +1849,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get loadDataFailed => 'Fehler beim Laden der Daten';
 
   @override
-  String get loadFailed => 'Laden fehlgeschlagen';
-
-  @override
   String get loading => 'Laden...';
-
-  @override
-  String get loadingData => 'Daten werden geladen...';
 
   @override
   String get loadingTags => 'Schlagwörter werden geladen...';
@@ -2585,12 +1873,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'Das Laden der markierten Telefone ist fehlgeschlagen: $error';
   }
-
-  @override
-  String get loadMore => 'Mehr laden';
-
-  @override
-  String get loadPluginButton => 'Plugin laden';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2618,9 +1900,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get loan => 'Kredit';
-
-  @override
-  String get localBackupTitle => 'Lokale Sicherung';
 
   @override
   String get localCounterFilter => 'Lokaler Zählerfilter';
@@ -2717,9 +1996,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get manage => 'Kontakte verwalten';
 
   @override
-  String get manageContacts => 'Verwalten';
-
-  @override
   String get manageFavoriteContacts => 'Favoriten-Kontakte verwalten';
 
   @override
@@ -2728,9 +2004,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'SMS-Filterregeln hinzufügen, bearbeiten oder löschen';
-
-  @override
-  String get manageFrequentContacts => 'Häufige Kontakte verwalten';
 
   @override
   String get markCounts => 'Markierungsanzahlen';
@@ -2758,16 +2031,10 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle => 'Zum Markieren von Telefonnummern';
-
-  @override
   String get markPhoneManagementTitle => 'Telefonnummern-Verwaltung markieren';
 
   @override
   String get markPhoneSuccess => 'Telefonnummer erfolgreich markiert';
-
-  @override
-  String get matchFailed => 'Übereinstimmung fehlgeschlagen!';
 
   @override
   String get matchFailedMessage => 'Übereinstimmung fehlgeschlagen.';
@@ -2789,9 +2056,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Übereinstimmende spezifische Ziffernmuster:';
 
   @override
-  String get matchSuccessful => 'Übereinstimmung erfolgreich!';
-
-  @override
   String get matchSuccessfulMessage => 'Übereinstimmung erfolgreich!';
 
   @override
@@ -2802,9 +2066,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get migrationTool => 'Migrationstool';
-
-  @override
-  String get migrationToolTitle => 'Migrationstool';
 
   @override
   String get minutes => 'Minuten';
@@ -2819,9 +2080,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get monthlyCallCount => 'Monatliche Anrufe';
 
   @override
-  String get monthlyChartTitle => 'Monatliche blockierte Anrufe';
-
-  @override
   String get monthlyMembership => 'Monatliche Mitgliedschaft';
 
   @override
@@ -2830,9 +2088,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'Monatlicher Gesamtbetrag';
-
-  @override
-  String get monthlyTotalLabel => 'Monatlicher Gesamtbetrag';
 
   @override
   String get moreOptions => 'Mehr Optionen';
@@ -2848,33 +2103,16 @@ class AppLocalizationsDe extends AppLocalizations {
       'Name und Telefonnummer dürfen nicht leer sein';
 
   @override
-  String get nameAndPhoneNumberRequired =>
-      'Name und Telefonnummer dürfen nicht leer sein';
-
-  @override
   String get nameColor => 'Namensfarbe';
 
   @override
   String get nameFontSize => 'Namens-Schriftgröße';
 
   @override
-  String nameLabel(Object name) {
-    return 'Name: $name';
-  }
-
-  @override
   String get namePosition => 'Position des Namens';
 
   @override
   String get nameUnknown => 'Name: Unbekannt';
-
-  @override
-  String nameWithValue(String name) {
-    return 'Name: $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'Neues Passwort';
 
   @override
   String get nextStep => 'Weiter';
@@ -2890,13 +2128,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Kein aktiver Cloud-Sync-Dienst';
 
   @override
-  String get noCallLogs => 'Keine Anrufprotokolle';
-
-  @override
   String get noCallRecords => 'Keine Anrufaufzeichnungen';
-
-  @override
-  String get noContacts => 'Noch keine Kontakte';
 
   @override
   String get noContactsYet => 'Noch keine Kontakte';
@@ -2908,19 +2140,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'Keine Geräte registriert';
 
   @override
-  String get noDevicesRegisteredYet => 'Noch keine Geräte registriert.';
-
-  @override
-  String get noFilters => 'Noch keine Filter';
-
-  @override
   String get noLabels => 'Noch keine Labels';
 
   @override
   String get noMarkedPhones => 'Keine markierten Telefonnummern';
-
-  @override
-  String get noMatchingContacts => 'Keine übereinstimmenden Kontakte';
 
   @override
   String get noMatchingContactsFound =>
@@ -2929,9 +2152,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get noMatchingNumbersFound =>
       'Keine übereinstimmenden Nummern gefunden';
-
-  @override
-  String get noMatchingRecords => 'Keine übereinstimmenden Anrufaufzeichnungen';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2946,15 +2166,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get noPlugins => 'Noch keine Plugins';
-
-  @override
-  String get noRecords => 'Keine Anrufaufzeichnungen';
-
-  @override
-  String get noResultReturned => 'Kein Ergebnis zurückgegeben';
-
-  @override
-  String get noResultReturnedLog => 'Kein Ergebnis vom Plugin zurückgegeben';
 
   @override
   String noRules(Object ruleType) {
@@ -2978,9 +2189,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get noSubscriptions => 'Keine Abonnements';
 
   @override
-  String get noSubscriptionsYet => 'Noch keine Abonnements';
-
-  @override
   String get notGranted => 'Nicht gewährt';
 
   @override
@@ -2999,13 +2207,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get notificationSettings => 'Benachrichtigungseinstellungen';
-
-  @override
-  String get notificationSettingsSaved =>
-      'Benachrichtigungseinstellungen erfolgreich gespeichert';
-
-  @override
-  String get notSet => 'Nicht festgelegt';
 
   @override
   String get notVerifiedText => 'Nicht verifiziert';
@@ -3039,9 +2240,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get numberTypePosition => 'Nummerntyp Position';
 
   @override
-  String get ok => 'OK';
-
-  @override
   String get okButton => 'OK';
 
   @override
@@ -3073,14 +2271,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Autorisierung mit systemkonfigurierter OneDrive-Client-ID und -Schlüssel';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'Autorisierung mit systemkonfigurierter OneDrive-Client-ID und -Schlüssel';
-
-  @override
   String get oneDriveConfigTitle => 'OneDrive-Konfiguration';
-
-  @override
-  String get oneDriveConfigurationTitle => 'OneDrive-Konfiguration';
 
   @override
   String get onlineCallerIdSubscription => 'Online Anrufer-ID-Abonnement';
@@ -3140,9 +2331,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get passwordsDoNotMatch => 'Passwörter stimmen nicht überein';
 
   @override
-  String get passwordSetSuccessfully => 'Passwort erfolgreich gesetzt';
-
-  @override
   String get pattern => 'Muster';
 
   @override
@@ -3177,14 +2365,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Die Telefonnummer darf nicht leer sein';
 
   @override
-  String get phoneNumberHintText => 'Telefonnummer zur Regel hinzufügen';
-
-  @override
   String get phoneNumberLabel => 'Telefonnummer';
-
-  @override
-  String get phoneNumberRegexRequired =>
-      'Bitte geben Sie sowohl Telefonnummer als auch Regex-Muster ein';
 
   @override
   String get phoneNumberTypeFixedLine => 'Festnetz';
@@ -3233,9 +2414,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get phoneRule => 'Telefonregel';
 
   @override
-  String get phoneRuleEditDialog => 'Dialog zur Bearbeitung von Telefonregeln';
-
-  @override
   String get phoneRuleManagement => 'Telefonregelverwaltung';
 
   @override
@@ -3247,9 +2425,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'Abonnieren Sie Telefonregellisten über eine URL, um Whitelist- und Blacklist-Regeln automatisch zu aktualisieren. Unterstützt Regeldateien im JSON-Format.';
-
-  @override
-  String get phoneSubscriptionTitle => 'Telefonregel-Abonnements';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3270,9 +2445,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get pluginListExportSuccess => 'Plugin-Liste erfolgreich exportiert';
 
   @override
-  String get pluginLoadedSuccessfully => 'Plugin erfolgreich geladen';
-
-  @override
   String get pluginManagement => 'Plugin-Verwaltung';
 
   @override
@@ -3280,14 +2452,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Plugins von Drittanbietern verwalten und konfigurieren';
 
   @override
-  String get pluginManagementTitle => 'Plugin-Verwaltung';
-
-  @override
   String get pluginName => 'Plugin-Name';
-
-  @override
-  String get pluginNotLoaded =>
-      'Plugin ist noch nicht geladen. Bitte laden Sie das Plugin zuerst.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3305,15 +2470,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get pluginUrl => 'Plugin-URL';
-
-  @override
-  String get pluginUrlCannotBeEmpty => 'Plugin-URL darf nicht leer sein';
-
-  @override
-  String get pluginUrlHint => 'Plugin-URL eingeben';
-
-  @override
-  String get pluginUrlLabel => 'Plugin-URL';
 
   @override
   String get pluginVersion => 'Plugin-Version';
@@ -3352,34 +2508,10 @@ class AppLocalizationsDe extends AppLocalizations {
       'Schalten Sie alle Premium-Funktionen frei, automatische Verlängerung vierteljährlich';
 
   @override
-  String get queryButton => 'Abfrage';
-
-  @override
-  String get queryFailed => 'Abfrage fehlgeschlagen';
-
-  @override
-  String get queryFailedLog => 'Abfrage fehlgeschlagen';
-
-  @override
-  String get querying => 'Abfrage...';
-
-  @override
-  String get queryingPhoneNumber => 'Telefonnummer wird abgefragt';
-
-  @override
-  String get queryResultTitle => 'Abfrageergebnis';
-
-  @override
   String get ready => 'Fertig!';
 
   @override
-  String get receiveWeeklyStatistics => 'Wöchentliche Statistiken erhalten';
-
-  @override
   String get recruiter => 'Personalvermittler';
-
-  @override
-  String get reEnterPasswordHint => 'Bitte geben Sie das Passwort erneut ein';
 
   @override
   String get refresh => 'Aktualisieren';
@@ -3389,11 +2521,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'Aktualisieren';
-
-  @override
-  String regexError(Object error) {
-    return 'Regex-Fehler: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3411,10 +2538,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'Regex-Muster';
-
-  @override
-  String get regexPatternsExamples =>
-      'Verwenden Sie die Standard-Regex-Syntax, um Muster zu definieren. Beispiele:';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3443,14 +2566,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'Regex-Tester';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'Regex-Validierung fehlgeschlagen: $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'Regex-Validierung erfolgreich';
 
   @override
   String get region => 'Region';
@@ -3490,35 +2605,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get remoteNumberFilter => 'Remote-Nummernfilter';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'Dieser Filter verwendet eine unabhängige Remote-Datenbank, um die neuesten Nummerinformationen zu erhalten.';
-
-  @override
   String get remoteNumberFilterDescription =>
       'Abfangen von belästigenden Anrufen basierend auf Informationen aus der Remote-Datenbank';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'Der Remote-Nummernfilter identifiziert und blockiert Spam-Anrufe, indem er eine Remote-Datenbank basierend auf der Anzahl der Nummern abfragt.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle =>
-      'Erklärung zum Remote-Nummernfilter';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• Anzahl Schwellenwert: Bestimmen Sie basierend auf der Häufigkeit des Auftretens von Nummern';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• Filteraktionen: Konfigurieren Sie, wie mit Nummern umgegangen werden soll, die den Schwellenwert überschreiten';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• Prioritätseinstellungen: Legen Sie die Priorität für Remote-Aktionen fest';
-
-  @override
-  String get remoteNumberFilterFeatures => 'Funktionen:';
 
   @override
   String get remoteNumberFiltering => 'Remote-Nummernfilterung';
@@ -3539,30 +2627,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get removeAdsTitle => 'Anzeigen entfernen';
 
   @override
-  String get removedFromFavoriteContacts =>
-      'Aus den Favoritenkontakten entfernt';
-
-  @override
   String get removedFromFavorites => 'Aus den Favoritenkontakten entfernt';
-
-  @override
-  String get removeFavorite => 'Favorit entfernen';
 
   @override
   String get removeFromFavorites => 'Aus Favoriten entfernen';
 
   @override
-  String get renameButton => 'Umbenennen';
-
-  @override
-  String get renameDeviceDialogTitle => 'Gerät umbenennen';
-
-  @override
   String get renameDeviceTitle => 'Gerät umbenennen';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'Dadurch werden alle aktuellen Einstellungen ersetzt. Möchten Sie wirklich fortfahren?';
 
   @override
   String get requestAllPermissions => 'Alle Berechtigungen anfordern';
@@ -3591,23 +2662,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Anwendungseinstellungen aus Backup wiederherstellen';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'Anwendungseinstellungen aus Backup wiederherstellen';
-
-  @override
-  String get restoreButton => 'Wiederherstellen';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'Wiederherstellung aus der Cloud fehlgeschlagen: $error';
-  }
-
-  @override
   String get restoreFromCloud => 'Aus der Cloud wiederherstellen';
-
-  @override
-  String get restoreFromCloudDescription =>
-      'Einstellungen und Regeln aus Cloud-Speicher wiederherstellen';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3615,23 +2670,11 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'Aus der Cloud wiederherstellen';
-
-  @override
   String get restoreFromCloudSuccess =>
       'Erfolgreich aus der Cloud wiederhergestellt';
 
   @override
-  String get restoreFromCloudTitle => 'Aus der Cloud wiederherstellen';
-
-  @override
-  String get restoreFromLocal => 'Lokal wiederherstellen';
-
-  @override
   String get restorePurchases => 'Käufe wiederherstellen';
-
-  @override
-  String get restoreSectionTitle => 'Wiederherstellen';
 
   @override
   String get restoreSettings => 'Einstellungen wiederherstellen';
@@ -3639,19 +2682,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'Dies ersetzt alle Ihre aktuellen Einstellungen. Möchten Sie wirklich fortfahren?';
-
-  @override
-  String get restoreSettingsDialogTitle => 'Einstellungen wiederherstellen';
-
-  @override
-  String get restoreSettingsTitle => 'Einstellungen wiederherstellen';
-
-  @override
-  String get restoreSuccessFromLocal => 'Erfolgreich lokal wiederhergestellt';
-
-  @override
-  String get restoreSuccessMessage =>
-      'Erfolgreich aus der Cloud wiederhergestellt';
 
   @override
   String get retry => 'Wiederholen';
@@ -3669,15 +2699,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get ruleAction => 'Regelaktion';
 
   @override
-  String get ruleAddButton => 'Regel hinzufügen';
-
-  @override
   String get ruleAddedSuccess => 'Regel erfolgreich hinzugefügt';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'Regel konnte nicht hinzugefügt werden: $error';
-  }
 
   @override
   String get ruleAddSuccess => 'Regel erfolgreich hinzugefügt';
@@ -3691,18 +2713,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'Regel löschen';
 
   @override
-  String get ruleDeletedSuccess => 'Regel erfolgreich gelöscht';
-
-  @override
   String get ruleDeletedSuccessfully => 'Regel erfolgreich gelöscht';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'Regel konnte nicht gelöscht werden: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'Regel konnte nicht gelöscht werden: $error';
   }
 
@@ -3724,9 +2738,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get ruleManagement => 'Regelverwaltung';
 
   @override
-  String get ruleManagementTitle => 'Regelverwaltung';
-
-  @override
   String get ruleName => 'Regelname';
 
   @override
@@ -3744,10 +2755,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get ruleNameLabel => 'Regelname';
 
   @override
-  String get ruleNamePatternRequired =>
-      'Bitte geben Sie einen Regelnamen und ein Muster ein';
-
-  @override
   String get ruleNameRequired =>
       'Regelname und Telefonnummer dürfen nicht leer sein';
 
@@ -3760,23 +2767,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'Regel erfolgreich gespeichert!';
-
-  @override
   String get ruleSavedSuccessMessage => 'Regel erfolgreich gespeichert!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'Speichern fehlgeschlagen: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'Speichern fehlgeschlagen: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'Regel erfolgreich gespeichert!';
 
   @override
   String get rulesExportedSuccessfully => 'Regeln erfolgreich exportiert';
@@ -3793,14 +2784,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return '$count Regeln erfolgreich importiert';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'Fehler beim Importieren von Regeln: $error';
-  }
-
-  @override
-  String get ruleStatistics => 'Regelstatistik';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3835,9 +2818,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get saveButton => 'Speichern';
 
   @override
-  String get saveButtonLabel => 'SPEICHERN';
-
-  @override
   String get saveButtonText => 'Speichern';
 
   @override
@@ -3846,15 +2826,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'Filter speichern';
-
-  @override
   String get saveSettings => 'Einstellungen speichern';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'Fehler beim Speichern der Einstellungen: $error';
-  }
 
   @override
   String get scamsLikely => 'Betrug wahrscheinlich';
@@ -3871,28 +2843,11 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'Suchfilter';
-
-  @override
-  String get searchForContacts => 'Nach Kontakten suchen';
-
-  @override
   String get searchHint => 'Suchen...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'Kontakte, Labels, Blacklists, Whitelists usw. suchen.';
-
-  @override
-  String get searchSettingsTitle => 'Sucheinstellungen';
 
   @override
   String get securityMessage =>
       'Vertrauen Sie keinen Anrufen. Überprüfen Sie Kundendienstnummern immer unabhängig voneinander. Geben Sie niemals Passwörter, Bestätigungscodes, Kartennummern oder persönliche Informationen weiter.';
-
-  @override
-  String get selectActionToPerform =>
-      'Wählen Sie die Aktion aus, die ausgeführt werden soll, wenn die Regel übereinstimmt';
 
   @override
   String get selectActionWhenBlockingCalls =>
@@ -3907,12 +2862,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get selectCountry => 'Land auswählen';
-
-  @override
-  String get selectDateRange => 'Zeitraum auswählen';
-
-  @override
-  String get selectedDateRange => 'Ausgewählter Zeitraum';
 
   @override
   String selectedItems(Object count) {
@@ -3939,20 +2888,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get selectMultiple => 'Mehrere auswählen';
 
   @override
-  String get selectPeriod => 'Zeitraum auswählen';
-
-  @override
   String get selectSimCard => 'SIM-Karte auswählen';
-
-  @override
-  String get selectSimSlot => 'SIM-Slot auswählen';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'Wählen Sie die spezifische Aktion aus, die beim Blockieren von Anrufen ausgeführt werden soll';
-
-  @override
-  String get selectTag => 'Tag auswählen';
 
   @override
   String get selectTags => 'Tags auswählen';
@@ -3994,23 +2930,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'Festlegen';
-
-  @override
   String get setEncryptionPassword => 'Verschlüsselungspasswort festlegen';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'Verschlüsselungspasswort für Sicherung und Wiederherstellung festlegen';
-
-  @override
-  String get setEncryptionPasswordLabel => 'Verschlüsselungspasswort festlegen';
-
-  @override
-  String get setEncryptionPasswordTitle => 'Verschlüsselungspasswort festlegen';
-
-  @override
-  String get setPasswordButton => 'Festlegen';
 
   @override
   String get settings => 'Einstellungen';
@@ -4018,14 +2938,6 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'Einstellungen gesichert in: $path';
-  }
-
-  @override
-  String get settingsLoaded => 'Einstellungen geladen';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'Fehler beim Laden der Einstellungen: $error';
   }
 
   @override
@@ -4048,13 +2960,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get setup => 'Einrichtung';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'Statische Methode zur Anzeige des Kontaktbearbeitungsdialogs';
-
-  @override
-  String get showExplanation => 'Erklärung anzeigen';
 
   @override
   String get silence => 'Stummschalten';
@@ -4102,19 +3007,11 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'Fehler beim Laden der SIM-Karteninformationen: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'Mit SIM-Slot-Regeln können Sie unabhängige Filterregeln für jeden SIM-Slot konfigurieren.';
 
   @override
   String get simRuleInstructionsTitle => 'SIM-Slot-Regeln';
-
-  @override
-  String get simRuleManagement => 'SIM-Slot-Regelverwaltung';
 
   @override
   String simSlot1(String countryIso) {
@@ -4127,18 +3024,6 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'Fehler beim Laden der SIM-Daten: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration => 'SIM-Slot-Filterkonfiguration';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'Ermöglicht das Festlegen von Filterregeln nach SIM-Slot';
-
-  @override
   String get simSlotFilterDescription =>
       'Konfigurieren Sie unabhängige Filterregeln für jede SIM-Karte:';
 
@@ -4148,17 +3033,7 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'Fehler beim Laden der SIM-Slots: $error';
-  }
-
-  @override
   String get simSlotManagement => 'SIM-Slot-Verwaltung';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'SIM-Slot-Operation fehlgeschlagen: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4179,12 +3054,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'SIM-Slot-Regeln';
-
-  @override
-  String get simSlotRuleManagementTitle => 'Regelverwaltung';
-
-  @override
-  String get simSlotSettings => 'SIM-Slot-Einstellungen';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4221,9 +3090,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get smsFilterSettings => 'SMS-Filtereinstellungen';
 
   @override
-  String get smsHistory => 'SMS-Verlauf';
-
-  @override
   String get smsManagement => 'SMS-Verwaltung';
 
   @override
@@ -4248,25 +3114,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get smsRuleManagement => 'SMS-Regelverwaltung';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'SMS-Regeln erfolgreich nach $filePath exportiert';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully =>
-      'SMS-Regeln erfolgreich importiert';
-
-  @override
   String get smsRuleSubscription => 'SMS-Regel-Abonnement';
-
-  @override
-  String get smsRuleUpdatedSuccessfully => 'SMS-Regel erfolgreich aktualisiert';
-
-  @override
-  String get smsSettingsSubtitle => 'SMS-Filterung und Keyword-Blockierung';
-
-  @override
-  String get smsSettingsTitle => 'SMS-Einstellungen';
 
   @override
   String get smsSubscription => 'SMS-Abonnement';
@@ -4305,26 +3153,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get statBlocked => 'Blockiert';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'Statische Methode, um das Anrufer-ID-Informationsdialogfeld anzuzeigen';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'Statische Methode, um den Länderauswahldialog anzuzeigen';
-
-  @override
-  String get staticMethodToDisplayDialog =>
-      'Statische Methode, um ein Dialogfeld anzuzeigen';
-
-  @override
   String get statistics => 'Statistiken';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'Funktion zum Exportieren von Statistiken in Kürze verfügbar';
-
-  @override
-  String get statisticsGrid => 'Statistikraster';
 
   @override
   String get statisticsPageTitle => 'Datenanalyse';
@@ -4364,10 +3193,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get subscriptionDeleted => 'Abonnement gelöscht';
 
   @override
-  String get subscriptionDeletedSuccessfully =>
-      'Abonnement erfolgreich gelöscht';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'Fehler beim Löschen des Abonnements: $error';
   }
@@ -4376,23 +3201,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'Abonnement gelöscht';
 
   @override
-  String get subscriptionEmptyState => 'Keine Abonnements verfügbar';
-
-  @override
-  String get subscriptionEmptyText => 'Noch keine Abonnements';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'Fehler beim Laden von Abonnements: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'Fehler beim Laden von Abonnements: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'Abonnementverwaltung';
 
   @override
   String get subscriptionName => 'Abonnementname';
@@ -4405,16 +3216,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get subscriptionNameHint => 'Abonnementname eingeben';
 
   @override
-  String get subscriptionPageTitle => 'Abonnementverwaltung';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
     return 'Fehler beim Ändern des Abonnementstatus: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
-    return 'Fehler beim Umschalten des Abonnementstatus: $error';
   }
 
   @override
@@ -4452,10 +3255,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get syncFailedMessage => 'Synchronisierung fehlgeschlagen';
 
   @override
-  String get syncFolderNameHint =>
-      'Bitte geben Sie den Namen des Synchronisationsordners ein (Standard: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'Name des Synchronisationsordners';
 
   @override
@@ -4477,17 +3276,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'Synchronisationsstatus aktualisiert';
 
   @override
-  String get syncSuccessful => 'Synchronisierung erfolgreich';
-
-  @override
   String get syncSuccessMessage => 'Synchronisierung erfolgreich';
 
   @override
   String get syncWithCloudStorage => 'Mit Cloud-Speicher synchronisieren';
-
-  @override
-  String get syncWithCloudStorageSubtitle =>
-      'Mit Cloud-Speicher synchronisieren';
 
   @override
   String get systemFeatures => 'Systemfunktionen:';
@@ -4516,9 +3308,6 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'Tags aktualisiert';
-
-  @override
   String get takeaway => 'Essen zum Mitnehmen';
 
   @override
@@ -4532,9 +3321,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get testButton => 'TEST';
-
-  @override
-  String get testButtonLabel => 'TEST';
 
   @override
   String get testConnectionButton => 'Verbindung testen';
@@ -4573,13 +3359,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Einstellungen für die Anruf-Frequenzunterdrückung';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'Potenzielle Spam-Anrufe basierend auf der Anruffrequenz automatisch abfangen';
-
-  @override
-  String get timeInterceptorTitle => 'Anruf-Frequenzunterdrückung aktivieren';
-
-  @override
   String get timeWindowDescription =>
       'Legen Sie die Fenstergröße für die Zulassung wiederholter Anrufe fest. Anrufe von derselben Nummer innerhalb dieses Fensters werden zugelassen';
 
@@ -4587,10 +3366,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'Unterdrückungszeitfenster (Minuten): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'Legen Sie die Fenstergröße für die Zulassung wiederholter Anrufe fest. Anrufe von derselben Nummer innerhalb dieses Fensters werden zugelassen';
 
   @override
   String get today => 'Heute';
@@ -4602,24 +3377,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get totalBlocked => 'Gesamt blockiert';
 
   @override
-  String get totalFiltered => 'Gesamt gefiltert';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'Daten zwischen Geräten oder Plattformen übertragen';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'Daten zwischen Geräten oder Plattformen übertragen';
-
-  @override
   String get travelTicketing => 'Reisetickets';
-
-  @override
-  String get trend => 'Trend';
-
-  @override
-  String get trendChart => 'Trenddiagramm';
 
   @override
   String get tutorial => 'Tutorial';
@@ -4632,9 +3394,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get unknown => 'Unbekannt';
-
-  @override
-  String get unknownLabel => 'Unbekannte Bezeichnung';
 
   @override
   String get unknownTag => 'Tag: Unbekannt';
@@ -4660,9 +3419,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get updateAllNow => 'Alle jetzt aktualisieren';
 
   @override
-  String get updateCallFilterConfig => 'Anruffilterkonfiguration aktualisieren';
-
-  @override
   String updateContactFailed(Object error) {
     return 'Fehler beim Aktualisieren des Kontakts: $error';
   }
@@ -4671,15 +3427,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get updateFavoriteStatus => 'Favoritenstatus aktualisieren';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'Fehler beim Aktualisieren des Favoritenstatus: $error';
-  }
-
-  @override
   String get updateInterval => 'Aktualisierungsintervall';
-
-  @override
-  String get updateLabelFailed => 'Fehler beim Aktualisieren der Bezeichnung';
 
   @override
   String get updateNow => 'Jetzt aktualisieren';
@@ -4708,9 +3456,6 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'Tags aktualisieren';
-
-  @override
   String get useCasesPoint1 =>
       '• Automatische Spam-Wählversuche identifizieren';
 
@@ -4729,17 +3474,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get useGlobalSettings => 'Globale Einstellungen verwenden';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => 'Benutzername';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'Verwenden Sie die standardmäßige Regex-Syntax, um Muster zu definieren. Beispiele:';
-
-  @override
-  String get validateRegex => 'Regex validieren';
 
   @override
   String get verificationFailedText => 'Fehlgeschlagen';
@@ -4776,47 +3515,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get webDAVConfigTitle => 'WebDAV-Konfiguration';
 
   @override
-  String get webdavConfigurationTitle => 'WebDAV-Konfiguration';
-
-  @override
-  String get webdavPasswordHint => 'Bitte geben Sie das WebDAV-Passwort ein';
-
-  @override
-  String get webdavServerAddressHint =>
-      'Bitte geben Sie die WebDAV-Serveradresse ein';
-
-  @override
-  String get webdavUsernameHint =>
-      'Bitte geben Sie den WebDAV-Benutzernamen ein';
-
-  @override
   String get week => 'Woche';
-
-  @override
-  String get weekly => 'Wöchentlich';
-
-  @override
-  String get weeklyBlockedCallsSummary =>
-      'Wöchentliche Zusammenfassung blockierter Anrufe';
-
-  @override
-  String get weeklyChartTitle => 'Wöchentliche Grafik der blockierten Anrufe';
-
-  @override
-  String get weeklyReport => 'Wöchentlicher Bericht';
-
-  @override
-  String get weeklyReportDesc =>
-      'Wöchentlichen zusammenfassenden Bericht über die Anrufblockierungsaktivität erhalten';
 
   @override
   String get welcome => 'Willkommen';
 
   @override
   String get whitelist => 'Whitelist';
-
-  @override
-  String get whitelistLabel => 'Whitelist';
 
   @override
   String get width => 'Breite';
@@ -4837,12 +3542,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get year => 'Jahr';
-
-  @override
-  String get yearly => 'Jährlich';
-
-  @override
-  String get yearlyChartTitle => 'Jährliche blockierte Anrufe';
 
   @override
   String get noSimCardsDetected => 'Keine SIM-Karten erkannt';
@@ -4890,10 +3589,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get useStirNotification => 'Benachrichtigung von STIR verwenden';
 
   @override
-  String get useStirNotificationDescription =>
-      'STIR-Benachrichtigungen für eingehende Anrufe aktivieren';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'Lokale Benachrichtigungen automatisch schließen';
 
@@ -4912,11 +3607,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'Eingehende Anrufinformationen';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'Nummer: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'Blockierter Anruf';
@@ -4970,21 +3660,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'Betrugswarnung';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return 'Potenzieller Betrugsanruf von $phoneNumber';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'Regeln konnten nicht geladen werden: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'Anrufliste konnte nicht geladen werden: $error';
-  }
 
   @override
   String get noBlockedTypeData =>
@@ -5061,9 +3736,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get removeAds => 'Werbung entfernen';
-
-  @override
-  String get unknownAction => 'Unbekannte Aktion';
 
   @override
   String get settingsBackup => 'Einstellungen-Backup';
@@ -5327,16 +3999,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get blockNumberSuccess => 'Blocknummer erfolgreich';
 
   @override
-  String get blockNumberFailed => 'Blocknummer fehlgeschlagen';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return 'Möchten Sie $phoneNumber wirklich entsperren?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return 'Anrufen von $phoneNumber...';
   }
 
   @override
@@ -5353,9 +4017,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => 'Nummer entsperren fehlgeschlagen';
-
-  @override
-  String get serviceNotAvailable => 'Dienst nicht verfügbar';
 
   @override
   String get callingNumberFailed => 'Anruf fehlgeschlagen';
@@ -5386,9 +4047,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'Ungültiges Zahlenformat';
-
-  @override
-  String get membershipFeature => 'Mitgliedschaftsfunktion';
 
   @override
   String get medium => 'Medium';
@@ -5485,9 +4143,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Bestätigen, um alle Benachrichtigungen zu löschen';
 
   @override
-  String get allNotificationsCleared => 'Alle Benachrichtigungen gelöscht';
-
-  @override
   String get clearButton => 'Leeren';
 
   @override
@@ -5557,9 +4212,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get reasonInaccurateInfo => 'Ungenau Informationen';
 
   @override
-  String get reasonWrongMarked => 'Falsch markiert';
-
-  @override
   String get reasonOther => 'Andere';
 
   @override
@@ -5569,25 +4221,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get cancel => 'Abbrechen';
 
   @override
-  String get proposalStatus => 'Status';
-
-  @override
-  String get statusPending => 'Ausstehend';
-
-  @override
-  String get statusActive => 'Aktiv';
-
-  @override
-  String get statusCompleted => 'Abgeschlossen';
-
-  @override
-  String get statusExpired => 'Abgelaufen';
-
-  @override
   String get riskLevel => 'Risikostufe';
-
-  @override
-  String get riskLevelVerified => 'Verifiziert';
 
   @override
   String get riskLevelLow => 'Niedrig';
@@ -5596,19 +4230,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get riskLevelHigh => 'Hoch';
 
   @override
-  String get riskLevelUnknown => 'Unbekannt';
-
-  @override
-  String get votingProgress => 'Fortschritt der Abstimmung';
-
-  @override
   String agreeVotes(int count) {
     return 'Zustimmen: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'Ablehnen: $count';
   }
 
   @override
@@ -5631,12 +4254,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get verificationReport => 'Verifizierungsbericht';
 
   @override
-  String get showReport => 'Bericht anzeigen';
-
-  @override
-  String get hideReport => 'Bericht ausblenden';
-
-  @override
   String get proposalStatistics => 'Vorschlagsstatistik';
 
   @override
@@ -5646,28 +4263,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get activeProposals => 'Aktive Vorschläge';
 
   @override
-  String get completedProposals => 'Abgeschlossene Vorschläge';
-
-  @override
-  String get myVotes => 'Meine Stimmen';
-
-  @override
   String get proposalCreated => 'Vorschlag erfolgreich erstellt';
-
-  @override
-  String get proposalCreateFailed => 'Fehler beim Erstellen des Vorschlags';
 
   @override
   String get voteSubmitted => 'Stimme erfolgreich abgegeben';
 
   @override
-  String get voteSubmitFailed => 'Fehler beim Abgeben der Stimme';
-
-  @override
   String get noProposalsFound => 'Keine Vorschläge gefunden';
-
-  @override
-  String get loadingProposals => 'Vorschläge werden geladen...';
 
   @override
   String get refreshProposals => 'Vorschläge aktualisieren';
@@ -5819,24 +4421,11 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'Fehler beim Laden der Stimmenanzahl';
-
-  @override
   String get voteCount => 'Stimmenanzahl';
-
-  @override
-  String get deletionProposalInfo => 'Informationen zum Löschungsvorschlag';
 
   @override
   String get deletionProposalDescription =>
       'Schlagen Sie Nummern zur Löschung vor, die gegen die Community-Richtlinien verstoßen. Ihre Teilnahme trägt zur Sicherheit der Plattform bei.';
-
-  @override
-  String get voteToEarnVip =>
-      'Stimmen Sie über Vorschläge ab, um VIP-Privilegien zu verdienen!';
-
-  @override
-  String get voteFailed => 'Abstimmung fehlgeschlagen';
 
   @override
   String get searchProposals => 'Vorschläge suchen';
@@ -5871,50 +4460,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Zeigt Warnungen für potenziell betrügerische Anrufe an.';
 
   @override
-  String get notificationFrequencyDescription =>
-      'Wählen Sie aus, wie oft Sie Benachrichtigungen über neue Löschvorschläge erhalten möchten. Sie können sie sofort, in Batches oder in einem benutzerdefinierten Intervall erhalten.';
-
-  @override
   String get notificationMode => 'Benachrichtigungsmodus';
-
-  @override
-  String get immediateNotifications => 'Sofort';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'Erhalten Sie eine Benachrichtigung, sobald ein Vorschlag erstellt wurde.';
-
-  @override
-  String get batchNotifications => 'Gebündelt';
-
-  @override
-  String get batchNotificationsDescription =>
-      'Erhalten Sie regelmäßig eine Zusammenfassung der Benachrichtigungen.';
-
-  @override
-  String get customNotifications => 'Benutzerdefiniert';
-
-  @override
-  String get customNotificationsDescription =>
-      'Definieren Sie Ihr eigenes Intervall für den Empfang von Benachrichtigungen.';
-
-  @override
-  String get customFrequency => 'Benutzerdefinierte Frequenz';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes Min.';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours Std.';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours Std. $minutes Min.';
-  }
 
   @override
   String get pendingProposals => 'Ausstehende Vorschläge';
@@ -5936,9 +4482,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get riskLevelLabel => 'Risikoniveau';
-
-  @override
-  String get riskLevelDescription => 'Risikoniveau der Nummer';
 
   @override
   String get phoneNumberMinDigits =>
@@ -5965,36 +4508,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get countryCodeRequired => 'Ländercode ist erforderlich';
 
   @override
-  String get countryCodeLengthError =>
-      'Der Ländercode muss 2 Buchstaben lang sein';
-
-  @override
   String get phoneNumberHint => 'Telefonnummer eingeben';
 
   @override
   String get phoneNumberRequired => 'Telefonnummer ist erforderlich';
 
   @override
-  String get phoneNumberLengthError =>
-      'Die Telefonnummer muss mindestens 7 Ziffern lang sein';
-
-  @override
-  String get reasonHint =>
-      'Geben Sie eine detaillierte Erklärung an (mindestens 10 Zeichen)';
-
-  @override
   String get reasonRequired => 'Grund ist erforderlich';
-
-  @override
-  String get reasonLengthError =>
-      'Der Grund muss mindestens 10 Zeichen lang sein';
-
-  @override
-  String get guidelinesTitle => 'Richtlinien';
-
-  @override
-  String get guidelinesText =>
-      '• Melden Sie nur Nummern, die wirklich problematisch sind\n• Geben Sie genaue und detaillierte Gründe an\n• Wählen Sie das geeignete Risikoniveau basierend auf der Schwere des Problems\n• Falsche Berichte können zu Kontobeschränkungen führen';
 
   @override
   String get riskLevelCritical => 'Kritisch';
@@ -6006,58 +4526,11 @@ class AppLocalizationsDe extends AppLocalizations {
   String get riskLevelVeryLow => 'Sehr niedrig';
 
   @override
-  String get riskDescriptionVeryLow =>
-      'Sehr niedrig - Geringfügige Belästigung, seltene Anrufe';
-
-  @override
-  String get riskDescriptionLow =>
-      'Niedrig - Gelegentliche unerwünschte Anrufe';
-
-  @override
-  String get riskDescriptionMedium =>
-      'Mittel - Regelmäßiger Spam oder Telemarketing';
-
-  @override
-  String get riskDescriptionHigh =>
-      'Hoch - Anhaltende Belästigung oder Betrugsversuche';
-
-  @override
-  String get riskDescriptionCritical =>
-      'Kritisch - Gefährliche Betrügereien oder Drohungen';
-
-  @override
   String get notificationFrequencyTitle => 'Benachrichtigungshäufigkeit';
-
-  @override
-  String get notificationFrequencyLabel =>
-      'Benachrichtigungshäufigkeit (Stunden)';
 
   @override
   String errorMessage(String error) {
     return 'Fehler: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'Stimmen: $totalVotes ($supportPercentage% Unterstützung)';
-  }
-
-  @override
-  String get timeJustNow => 'Gerade eben';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return 'Vor $minutes Min.';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return 'Vor $hours Std.';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return 'Vor $days T.';
   }
 
   @override
@@ -6143,10 +4616,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get liveActivitiesTestTitle => 'Live-Aktivitäten Test';
 
   @override
-  String get liveActivitiesTestSubtitle =>
-      'Testen Sie die Live-Aktivitätsbenachrichtigung.';
-
-  @override
   String get liveNotificationCustomizationTitle =>
       'Live-Benachrichtigungsanpassung';
 
@@ -6173,16 +4642,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get proposalDetails => 'Details zum Vorschlag';
 
   @override
-  String get filterByStatus => 'Nach Status filtern';
-
-  @override
   String get proposalNotFound => 'Vorschlag nicht gefunden';
 
   @override
   String get processed => 'Verarbeitet';
-
-  @override
-  String get showAll => 'Alle anzeigen';
 
   @override
   String get filterAndSortTitle => 'Filtern und Sortieren';
@@ -6221,9 +4684,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get invalidSimData => 'Ungültige SIM-Daten';
 
   @override
-  String get simCardData => 'SIM-Kartendaten';
-
-  @override
   String get simSlot => 'SIM-Slot';
 
   @override
@@ -6242,12 +4702,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get callTypeSilenced => 'Stummgeschaltet';
 
   @override
-  String get callTypeVoicemail => 'Mailbox';
-
-  @override
-  String get callTypeUnknownIntercept => 'Unbekannt abgefangen';
-
-  @override
   String andMoreItems(int count) {
     return 'und $count weitere Elemente';
   }
@@ -6260,10 +4714,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6347,9 +4797,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

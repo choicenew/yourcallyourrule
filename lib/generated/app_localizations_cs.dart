@@ -19,13 +19,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'O pravidlech pro předplatná telefonů';
 
   @override
-  String get aboutPhoneSubscriptions => 'O předplatných telefonů';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'Přihlaste se k odběru seznamů pravidel pro telefony přes URL, automaticky aktualizujte pravidla. Podporuje soubory pravidel ve formátu JSON, CSV.';
-
-  @override
   String get aboutSmsFilter => 'O filtrování SMS';
 
   @override
@@ -48,9 +41,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get actionBlock => 'Blokovat';
-
-  @override
-  String get actionFilterAll => 'Všechny filtry';
 
   @override
   String get actionFilterTitle => 'Filtrovat podle typu akce';
@@ -96,28 +86,7 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'Přidáno do povolených pravidel';
-
-  @override
-  String get addedToBlacklist => 'Přidáno na černou listinu';
-
-  @override
-  String get addedToBlockedRules => 'Přidáno do blokovaných pravidel';
-
-  @override
-  String get addedToFavoriteContacts => 'Přidáno mezi oblíbené kontakty';
-
-  @override
   String get addedToFavorites => 'Přidáno mezi oblíbené';
-
-  @override
-  String get addedToWhitelist => 'Přidáno na bílou listinu';
-
-  @override
-  String get addFavorite => 'Přidat oblíbený';
-
-  @override
-  String get addFilter => 'Přidat filtr';
 
   @override
   String get addLabel => 'Přidat štítek';
@@ -131,17 +100,10 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'Přidat štítek k záznamu hovoru';
-
-  @override
   String get addName => 'Přidat jméno';
 
   @override
   String get addNoneSubscription => 'Přidat předplatné Žádné';
-
-  @override
-  String get addOrEditContactInfo =>
-      'Slouží k přidání nebo úpravě informací o kontaktu';
 
   @override
   String get addPhoneMark => 'Přidat značku telefonu';
@@ -173,9 +135,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get addRule => 'Přidat pravidlo';
 
   @override
-  String get addRuleButton => 'Přidat pravidlo';
-
-  @override
   String addRuleFailed(Object error) {
     return 'Nepodařilo se přidat pravidlo: $error';
   }
@@ -185,9 +144,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'Přidat předplatné Ticho';
-
-  @override
-  String get addSimRuleButton => 'Přidat pravidlo SIM';
 
   @override
   String get addSmsFilterRule => 'Přidat pravidlo filtru SMS';
@@ -213,16 +169,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get addSubscriptionTooltip => 'Přidat předplatné';
 
   @override
-  String get addToAllowedRules => 'Přidat do povolených pravidel';
-
-  @override
   String get addToBlacklist => 'Přidat na černou listinu';
-
-  @override
-  String get addToBlockedRules => 'Přidat do blokovaných pravidel';
-
-  @override
-  String get addToFavoriteContacts => 'Přidat mezi oblíbené kontakty';
 
   @override
   String get addToFavorites => 'Přidat mezi oblíbené';
@@ -234,9 +181,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get addToWhitelist => 'Přidat na bílou listinu';
 
   @override
-  String get adPlaceholder => 'Zástupný text reklamy';
-
-  @override
   String get agent => 'Agent';
 
   @override
@@ -244,9 +188,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get allCallsTab => 'Všechny';
-
-  @override
-  String get allDataClearedSuccessfully => 'Všechna data byla úspěšně vymazána';
 
   @override
   String get allow => 'Povolit';
@@ -260,9 +201,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get allowAllBlacklistedNumbers =>
       'Povolit všechna čísla na černé listině';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc => 'Povolit hovory z černé listiny';
 
   @override
   String get allowAllBlockRules => 'Povolit všechna blokovací pravidla';
@@ -333,13 +271,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get allowRules => 'Povolovací pravidla';
 
   @override
-  String get allowWhitelistedNumbers => 'Povolit povolená čísla';
-
-  @override
-  String get allowWhitelistedNumbersDescription =>
-      'Povolit všechna čísla na povoleném seznamu';
-
-  @override
   String get allPermissionsGranted => 'Všechna oprávnění udělena';
 
   @override
@@ -352,10 +283,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'Odpovědět a poté zavěsit';
-
-  @override
-  String get appLegalese =>
-      '© 2023 Vaše volání Vaše pravidla. Všechna práva vyhrazena.';
 
   @override
   String get applicationSoftware => 'Aplikační software';
@@ -394,13 +321,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'Nastavení automatické aktualizace';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'Spravovat automatické aktualizace pravidel a pluginů';
-
-  @override
-  String get autoUpdateSettingsTitle => 'Nastavení automatické aktualizace';
 
   @override
   String get autoUpdateSubtitle =>
@@ -448,45 +368,10 @@ class AppLocalizationsCs extends AppLocalizations {
   String get backupFailed => 'Zálohování selhalo';
 
   @override
-  String get backupFailedMessage => 'Zálohování selhalo';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'Zálohování selhalo: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle => 'Zálohovat nebo obnovit data aplikace';
-
-  @override
-  String get backupRestoreTitle => 'Zálohování a obnovení';
-
-  @override
-  String get backupSectionTitle => 'Zálohování';
-
-  @override
   String get backupSettings => 'Nastavení zálohování';
 
   @override
-  String get backupSettingsDialogTitle => 'Nastavení zálohování';
-
-  @override
-  String get backupSettingsTitle => 'Nastavení zálohování';
-
-  @override
-  String get backupSuccessMessage => 'Úspěšně zálohováno do cloudu';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'Zálohování úspěšné do: $path';
-  }
-
-  @override
   String get backupToCloud => 'Zálohovat do cloudu';
-
-  @override
-  String get backupToCloudDescription =>
-      'Zálohovat nastavení a pravidla do cloudového úložiště';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -494,16 +379,7 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'Zálohovat do cloudu';
-
-  @override
   String get backupToCloudSuccess => 'Úspěšně zálohováno do cloudu';
-
-  @override
-  String get backupToCloudTitle => 'Zálohování do cloudu';
-
-  @override
-  String get backupToLocalLabel => 'Zálohovat lokálně';
 
   @override
   String get bank => 'Banka';
@@ -522,22 +398,13 @@ class AppLocalizationsCs extends AppLocalizations {
       '• Základní filtrování pravidel: filtrování pravidel na základě černé listiny, bílé listiny a regulárních výrazů';
 
   @override
-  String get basicRuleFilterSettings => 'Nastavení základního filtru pravidel';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'Filtrovat hovory pomocí černé/bílé listiny a regulárních výrazů';
-
-  @override
-  String get batchDeleteContacts => 'Hromadné smazání kontaktů';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'Opravdu chcete smazat $count vybraných kontaktů?';
   }
-
-  @override
-  String get batchDeleteFailed => 'Hromadné smazání selhalo';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -549,9 +416,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get blacklistingAndWhitelisting => 'Blokování a povolování';
-
-  @override
-  String get blacklistLabel => 'Černá listina';
 
   @override
   String get blackWhiteList => 'Černá/Bílá listina';
@@ -566,19 +430,10 @@ class AppLocalizationsCs extends AppLocalizations {
   String get blocked => 'Blokováno';
 
   @override
-  String get blockedCallAction => 'Akce blokovaného hovoru';
-
-  @override
   String get blockedCalls => 'Blokované hovory';
 
   @override
   String get blockedCallsTitle => 'Blokované hovory';
-
-  @override
-  String get blockedCommunications => 'Blokovaná komunikace';
-
-  @override
-  String get blockedPhoneLabel => 'Blokované hovory';
 
   @override
   String get blockedSpamCalls => 'Blokované spamové hovory';
@@ -592,9 +447,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get blockInternationalCallsTitle => 'Blokovat mezinárodní hovory';
-
-  @override
-  String get blockLandlineNumbersTitle => 'Blokovat pevné linky';
 
   @override
   String get blockMobileNumbers => 'odpovídá číslům, která nezačínají na 13-19';
@@ -645,11 +497,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get callback => 'Zavolat zpět';
 
   @override
-  String callbackTo(String number) {
-    return 'Zavolat zpět na $number';
-  }
-
-  @override
   String get callBlocking => 'Blokování hovorů';
 
   @override
@@ -657,9 +504,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'Přizpůsobit ID volajícího';
-
-  @override
-  String get callerIdDialogTitle => 'Informace o ID volajícího';
 
   @override
   String get callerIdDisplayMode => 'Režim zobrazení ID volajícího';
@@ -671,13 +515,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'Náhled ID volajícího';
-
-  @override
-  String get callFilter => 'Filtr hovorů';
-
-  @override
-  String get callFilterDescription =>
-      'Když je povoleno, příchozí hovory jsou kontrolovány proti níže uvedenému seznamu pravidel. Pravidla filtrování hovorů se standardně nesynchronizují mezi zařízeními.';
 
   @override
   String get callFilterRules => 'Pravidla filtru hovorů';
@@ -707,26 +544,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get callHistoryInfoTitle => 'Historie hovorů';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'Inicializace historie hovorů selhala: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'Obnovení historie hovorů selhalo: $error';
-  }
-
-  @override
   String get callHistoryTab => 'Historie hovorů';
-
-  @override
-  String get callHistoryTimelineEarlier => 'Dříve';
-
-  @override
-  String get callHistoryTimelineToday => 'Dnes';
-
-  @override
-  String get callHistoryTimelineYesterday => 'Včera';
 
   @override
   String get callScreeningPermission => 'Oprávnění pro filtrování hovorů';
@@ -738,13 +556,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'Oprávnění pro filtrování hovorů není uděleno, což může ovlivnit funkčnost aplikace.';
-
-  @override
-  String get callSettingsSubtitle =>
-      'Nastavení ID volajícího, filtrování a blokování';
-
-  @override
-  String get callSettingsTitle => 'Nastavení hovorů';
 
   @override
   String get callStatistics => 'Statistiky hovorů';
@@ -802,27 +613,10 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'Změnit značku';
-
-  @override
   String get charity => 'Charita';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'Měsíc $month';
-  }
-
-  @override
-  String get chartOneDayAgo => '1 den zpět';
-
-  @override
-  String get chartOneMonthAgo => '1 měsíc zpět';
-
-  @override
   String get chartOneWeekAgo => '1 týden zpět';
-
-  @override
-  String get chartTenDaysAgo => '10 dní zpět';
 
   @override
   String get chartThreeDaysAgo => '3 dny zpět';
@@ -843,23 +637,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get chooseDefaultInterceptAction => 'Vyberte výchozí akci zachycení';
 
   @override
-  String get clearAllData => 'Vymazat všechna data';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'Opravdu chcete vymazat všechna data aplikace? Tuto akci nelze vrátit zpět.';
-
-  @override
-  String get clearAllDataDescription => 'Vymazat všechna data aplikace';
-
-  @override
-  String get clearAllDataLabel => 'Vymazat všechna data';
-
-  @override
   String get clearFilter => 'Vymazat filtr';
-
-  @override
-  String get clearLabelFilter => 'Vymazat filtr popisků';
 
   @override
   String get clearLabelFilterButton => 'Vymazat filtr popisků';
@@ -884,9 +662,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get cloudSyncTitle => 'Synchronizace v cloudu';
 
   @override
-  String get collapseLabelSelector => 'Sbalit výběr popisků';
-
-  @override
   String get collection => 'Vymáhání dluhu';
 
   @override
@@ -906,16 +681,8 @@ class AppLocalizationsCs extends AppLocalizations {
   String get configureBackupOptions => 'Konfigurovat možnosti zálohování';
 
   @override
-  String get configureBackupOptionsSubtitle =>
-      'Konfigurujte možnosti zálohování';
-
-  @override
   String get configureCloudSyncService =>
       'Konfigurujte službu synchronizace v cloudu';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'Nakonfigurujte prosím službu synchronizace v cloudu, abyste povolili synchronizaci mezi více zařízeními.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -926,29 +693,13 @@ class AppLocalizationsCs extends AppLocalizations {
       'Konfigurovat pravidla filtru SIM karty';
 
   @override
-  String get configureSyncServiceHint =>
-      'Nejprve prosím nakonfigurujte synchronizační službu v nastavení synchronizace v cloudu';
-
-  @override
   String get confirm => 'Potvrdit';
-
-  @override
-  String get confirmBatchDeleteContacts => 'Opravdu chcete odstranit vybrané';
 
   @override
   String get confirmButton => 'Potvrdit';
 
   @override
   String get confirmDelete => 'Potvrdit smazání';
-
-  @override
-  String get confirmDeleteContact => 'Opravdu chcete odstranit';
-
-  @override
-  String get confirmDeleteContactName => 'Potvrdit smazání?';
-
-  @override
-  String get confirmDeleteFilter => 'Opravdu chcete smazat tento filtr?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -970,19 +721,11 @@ class AppLocalizationsCs extends AppLocalizations {
       'Opravdu chcete smazat toto pravidlo? Tuto akci nelze vrátit zpět.';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'Opravdu chcete smazat vybrané kontakty?';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'Opravdu chcete smazat toto pravidlo SMS filtru?';
 
   @override
   String get confirmDeleteSmsRule => 'Opravdu chcete smazat toto SMS pravidlo?';
-
-  @override
-  String get confirmDeleteSubscription =>
-      'Opravdu chcete smazat toto předplatné?';
 
   @override
   String confirmDeleteSubscriptions(String name) {
@@ -991,9 +734,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get confirmPassword => 'Potvrdit heslo';
-
-  @override
-  String get confirmPasswordLabel => 'Potvrdit heslo';
 
   @override
   String get connectedStatus => 'Připojeno';
@@ -1018,16 +758,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get contactDeleted => 'Kontakt odstraněn';
 
   @override
-  String get contactEditDialog => 'Dialog pro úpravu kontaktu';
-
-  @override
-  String get contactNameHint => 'Zadejte jméno kontaktu (nepovinné)';
-
-  @override
   String get contactNameLabel => 'Jméno';
-
-  @override
-  String get contactNameOptional => 'Jméno kontaktu (nepovinné)';
 
   @override
   String get contactNotFound => 'Kontakt nenalezen';
@@ -1041,24 +772,7 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle => 'Správa kontaktů a nastavení popisků';
-
-  @override
-  String get contactSettingsTitle => 'Nastavení kontaktů';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'Načítání kontaktů selhalo: $error';
-  }
-
-  @override
   String get contactsManagement => 'Správa kontaktů';
-
-  @override
-  String get contactsManagementPageTitle => 'Stránka správy kontaktů';
-
-  @override
-  String get contactsPageTitle => 'Správa kontaktů';
 
   @override
   String get contactsPermission => 'Povolení kontaktů';
@@ -1073,14 +787,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'Přihlaste se k odběru seznamů kontaktů prostřednictvím URL, automaticky aktualizujte informace o kontaktech a popisky. Podporuje data ve formátu JSON.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'Načítání odběrů kontaktů selhalo: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'Odběry kontaktů';
 
   @override
   String get contactUpdateSuccess => 'Kontakt úspěšně aktualizován';
@@ -1116,26 +822,11 @@ class AppLocalizationsCs extends AppLocalizations {
   String get countryRegionNamePosition => 'Pozice názvu země/regionu';
 
   @override
-  String get countrySelectionDialog => 'Dialog pro výběr země';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'Používá se k výběru země pro dotaz na informace o ID volajícího';
-
-  @override
   String get countThresholdDescription =>
       'Nastavte minimální prahovou hodnotu počtu požadovanou pro spuštění akcí filtrování';
 
   @override
   String get countThresholdLabel => 'Prahová hodnota počtu';
-
-  @override
-  String get countThresholdSettings => 'Nastavení prahové hodnoty počtu';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'Prahová hodnota počtu: $count';
-  }
 
   @override
   String get createdRules => 'Vytvořená pravidla';
@@ -1144,47 +835,22 @@ class AppLocalizationsCs extends AppLocalizations {
   String get csvFormat => 'Formát CSV';
 
   @override
-  String get currentDeviceChip => 'Aktuální';
-
-  @override
   String get currentDeviceLabel => 'Popisek aktuálního zařízení';
 
   @override
   String get currentDeviceTitle => 'Aktuální zařízení';
 
   @override
-  String get currentLabels => 'Aktuální popisky:';
-
-  @override
   String get currentLanguage => 'Aktuální jazyk';
 
   @override
-  String get currentPasswordLabel => 'Aktuální heslo';
-
-  @override
   String get customerService => 'Zákaznický servis';
-
-  @override
-  String get customRange => 'Vlastní rozsah';
-
-  @override
-  String get dailyStatistics => 'Denní statistiky';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'Přijímat denní statistiky o blokovaných hovorech a zprávách';
 
   @override
   String get dashboardTab => 'Přehled';
 
   @override
   String get dataAnalysis => 'Analýza dat';
-
-  @override
-  String get dataAnalysisDashboardPage => 'Stránka přehledu analýzy dat';
-
-  @override
-  String get dataExport => 'Export dat';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1202,16 +868,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'Tato funkce vám umožňuje přenášet všechna vaše data mezi zařízeními. V současné době můžete k ruční migraci dat použít funkce zálohování a obnovení.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'Tato funkce vám umožňuje přenášet všechna vaše data mezi zařízeními. V současné době můžete k ruční migraci dat použít funkce zálohování a obnovení.';
-
-  @override
-  String get dataMigrationDialogTitle => 'Migrace dat';
-
-  @override
-  String get dataMigrationSectionTitle => 'Migrace dat';
 
   @override
   String get dataSourceReminder => 'Připomenutí zdroje dat';
@@ -1236,9 +892,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get debtCollection => 'Vymáhání dluhu';
 
   @override
-  String get defaultPeriod => 'Týden';
-
-  @override
   String get delete => 'Smazat';
 
   @override
@@ -1253,24 +906,9 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation =>
-      'Jste si jisti, že chcete smazat kontakt';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return 'Jste si jisti, že chcete smazat $deviceName?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'Smazat zařízení';
-
-  @override
   String deleteFailed(Object error) {
     return 'Smazání selhalo: $error';
   }
-
-  @override
-  String get deleteFilter => 'Smazat filtr';
 
   @override
   String get deleteLabel => 'Smazat popisek';
@@ -1308,9 +946,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get deleteSelected => 'Smazat vybrané';
 
   @override
-  String get deleteSmsRule => 'Smazat pravidlo SMS';
-
-  @override
   String get deleteSubscription => 'Smazat odběr';
 
   @override
@@ -1330,16 +965,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get delivery => 'Doručení';
 
   @override
-  String get deviceDeletedSuccessfully => 'Zařízení bylo úspěšně smazáno';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage =>
-      'Zařízení bylo úspěšně smazáno';
-
-  @override
-  String get deviceIdLabel => 'ID zařízení';
-
-  @override
   String get deviceIDLabel => 'ID zařízení';
 
   @override
@@ -1356,28 +981,11 @@ class AppLocalizationsCs extends AppLocalizations {
   String get deviceName => 'Název zařízení';
 
   @override
-  String get deviceNameCannotBeEmpty => 'Název zařízení nesmí být prázdný';
-
-  @override
-  String get deviceNameHint => 'Zadejte prosím název zařízení';
-
-  @override
   String get deviceNameLabel => 'Název zařízení';
-
-  @override
-  String get deviceRenamedSuccessfully => 'Zařízení bylo úspěšně přejmenováno';
 
   @override
   String get deviceRenamedSuccessfullyMessage =>
       'Zařízení bylo úspěšně přejmenováno';
-
-  @override
-  String get devicesSyncedSuccessfully =>
-      'Zařízení byla úspěšně synchronizována';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage =>
-      'Zařízení byla úspěšně synchronizována';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1402,10 +1010,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'Zakázat globální pluginy';
-
-  @override
-  String get disableSubscriptionSuccessfully =>
-      'Předplatné bylo úspěšně zakázáno';
 
   @override
   String get disconnectButton => 'Odpojit';
@@ -1439,26 +1043,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get editContact => 'Upravit kontakt';
 
   @override
-  String get editFilter => 'Upravit filtr';
-
-  @override
   String get editLabel => 'Upravit štítek';
 
   @override
   String get editPhoneRule => 'Upravit pravidlo pro telefonní čísla';
 
   @override
-  String get editPhoneRules =>
-      'Používá se k úpravě pravidel pro telefonní čísla';
-
-  @override
-  String get editPhoneRuleTitle => 'Upravit pravidlo pro telefonní čísla';
-
-  @override
   String get editRule => 'Upravit pravidlo';
-
-  @override
-  String get editSmsRule => 'Upravit pravidlo pro SMS';
 
   @override
   String get education => 'Vzdělání';
@@ -1468,9 +1059,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get email => 'E-mail';
-
-  @override
-  String get emailOptional => 'E-mail (volitelné)';
 
   @override
   String get enableCallFilter => 'Povolit filtr volání';
@@ -1490,15 +1078,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => 'Šifrovat záložní soubory';
-
-  @override
-  String get enableEncryptionLabel => 'Povolit šifrování';
-
-  @override
-  String get enableEncryptionSubtitle => 'Záložní soubory budou zašifrovány';
-
-  @override
-  String get enableEncryptionTitle => 'Povolit šifrování';
 
   @override
   String get enableGlobalPlugins => 'Povolit globální pluginy';
@@ -1535,9 +1114,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'Umožnit konfigurace pravidel bez akcí přerušení';
 
   @override
-  String get enableNotifications => 'Povolit oznámení';
-
-  @override
   String get enableRemoteNumberFilter => 'Povolit vzdálený filtr čísel';
 
   @override
@@ -1553,13 +1129,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'Když je povoleno, zprávy budou automaticky filtrovány podle pravidel';
-
-  @override
-  String get enableStatisticsNotifications => 'Povolit oznámení o statistikách';
-
-  @override
-  String get enableSubscriptionSuccessfully =>
-      'Předplatné bylo úspěšně povoleno';
 
   @override
   String get enableTimeInterception => 'Povolit časové přerušení';
@@ -1594,10 +1163,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'Systém rozšířeného filtrování podporuje globální pravidla i konfiguraci filtrování pro jednotlivé SIM karty.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'Zadejte prosím telefonní číslo i regex vzor';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'Zadejte prosím telefonní číslo i regex vzor.';
 
@@ -1605,31 +1170,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get enterContactName => 'Zadejte prosím název kontaktu';
 
   @override
-  String get enterCurrentPasswordHint => 'Zadejte prosím aktuální heslo';
-
-  @override
   String get enterDeviceName => 'Zadejte název zařízení';
-
-  @override
-  String get enterDeviceNameHint => 'Zadejte prosím název zařízení';
-
-  @override
-  String get enterEmail => 'Zadejte e-mail';
 
   @override
   String get enterEmailOptional => 'Zadejte e-mail (volitelné)';
 
   @override
   String get enterEncryptionPasswordHint => 'Zadejte šifrovací heslo';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'Zadejte šifrovací heslo';
-
-  @override
-  String get enterFilterName => 'Zadejte název filtru';
-
-  @override
-  String get enterFilterPattern => 'Zadejte vzor filtru';
 
   @override
   String get enterIconCode => 'Zadejte kód ikony';
@@ -1641,13 +1188,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get enterNewDeviceNameHint => 'Zadejte nový název pro toto zařízení';
 
   @override
-  String get enterNewPasswordHint => 'Zadejte prosím nové heslo';
-
-  @override
   String get enterPasswordAgain => 'Zadejte heslo znovu';
-
-  @override
-  String get enterPasswordHint => 'Zadejte prosím heslo';
 
   @override
   String get enterPhoneNumber => 'Zadejte telefonní číslo';
@@ -1674,9 +1215,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'Zadejte regex vzor';
-
-  @override
-  String get enterRuleNameAndPattern => 'Zadejte prosím název pravidla a vzor';
 
   @override
   String get enterRuleNameAndPatternMessage =>
@@ -1722,14 +1260,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'Prosím zadejte uživatelské jméno WebDAV';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'Chyba při mazání zařízení: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'Chyba při načítání pluginu';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'Došlo k chybě: $error';
   }
@@ -1745,14 +1275,6 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'Chyba při synchronizaci zařízení: $error';
-  }
-
-  @override
-  String get errorText => 'Chyba';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'Chyba při odhlášení zařízení: $error';
   }
@@ -1762,9 +1284,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'např. Blokovat marketingové SMS';
-
-  @override
-  String get exampleContentRegex => 'např. .*nabídka.*';
 
   @override
   String get exampleContentRegexHint => 'Příklad regulárního výrazu pro obsah';
@@ -1783,9 +1302,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'Příklad regulárního výrazu pro předčíslí 400';
 
   @override
-  String get exampleRegexFormat => 'Příklad: formát ^10086\$';
-
-  @override
   String get exampleSenderRegexHint => 'Příklad';
 
   @override
@@ -1796,9 +1312,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get exchangeVip => 'Vyměnit VIP';
-
-  @override
-  String get expandLabelSelector => 'Rozbalit výběr štítků';
 
   @override
   String expiryTime(Object time) {
@@ -1813,19 +1326,8 @@ class AppLocalizationsCs extends AppLocalizations {
       'Exportovat všechna nastavení aplikace';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'Exportovat všechna nastavení aplikace';
-
-  @override
   String get exportAllRuleConfigurations =>
       'Exportovat všechny konfigurace pravidel';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle =>
-      'Exportovat všechny konfigurace pravidel';
-
-  @override
-  String get exportComplete => 'Export dokončen';
 
   @override
   String get exportConfig => 'Exportovat konfiguraci';
@@ -1837,9 +1339,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get exportData => 'Exportovat data';
 
   @override
-  String get exportError => 'Chyba exportu';
-
-  @override
   String get exportFailed => 'Export selhal';
 
   @override
@@ -1847,9 +1346,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'Funkce exportu bude brzy přidána';
-
-  @override
-  String get exporting => 'Exportuje se...';
 
   @override
   String get exportLabels => 'Exportovat štítky';
@@ -1871,34 +1367,17 @@ class AppLocalizationsCs extends AppLocalizations {
   String get exportRules => 'Exportovat pravidla';
 
   @override
-  String get exportRulesDialogTitle => 'Exportovat pravidla';
-
-  @override
-  String get exportRulesTitle => 'Exportovat pravidla';
-
-  @override
   String get exportSmsRules => 'Exportovat pravidla SMS';
 
   @override
   String get exportStatisticsData => 'Exportovat statistická data';
 
   @override
-  String get exportSuccess => 'Export úspěšný';
-
-  @override
   String get exportSuccesslly => 'Konfigurace úspěšně exportována';
-
-  @override
-  String get failedToAddContact => 'Nepodařilo se přidat kontakt';
 
   @override
   String failedToAddRule(Object error) {
     return 'Nepodařilo se přidat pravidlo: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'Nepodařilo se přidat pravidlo SMS: $error';
   }
 
   @override
@@ -1916,9 +1395,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'Nepodařilo se dešifrovat záložní soubor';
 
   @override
-  String get failedToDeleteDevice => 'Nepodařilo se smazat zařízení';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'Nepodařilo se smazat pravidlo SMS: $error';
   }
@@ -1926,11 +1402,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'Nepodařilo se exportovat pravidla: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'Nepodařilo se exportovat pravidla SMS: $error';
   }
 
   @override
@@ -1944,20 +1415,6 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'Nepodařilo se importovat pravidla SMS: $error';
-  }
-
-  @override
-  String get failedToLoadContacts => 'Nepodařilo se načíst kontakty';
-
-  @override
-  String get failedToLoadPlugin => 'Nepodařilo se načíst plugin';
-
-  @override
-  String get failedToRenameDevice => 'Nepodařilo se přejmenovat zařízení';
-
-  @override
   String get failedToRestoreSettings => 'Nepodařilo se obnovit nastavení';
 
   @override
@@ -1966,32 +1423,9 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'Nepodařilo se nastavit heslo: $error';
-  }
-
-  @override
-  String get failedToSyncDevices => 'Nepodařilo se synchronizovat zařízení';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'Nepodařilo se přepnout stav pravidla: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus =>
-      'Nepodařilo se přepnout stav odběru';
-
-  @override
-  String get failedToUpdateContact => 'Nepodařilo se aktualizovat kontakt';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'Nepodařilo se aktualizovat pravidlo SMS: $error';
-  }
-
-  @override
-  String get failure => 'Chyba';
 
   @override
   String get favoriteContacts => 'Oblíbené kontakty';
@@ -2031,9 +1465,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get filterByLabel => 'Filtrovat podle štítku';
 
   @override
-  String get filterClear => 'Vymazat filtr';
-
-  @override
   String get filterControlPanelTitle => 'Ovládací panel filtrů';
 
   @override
@@ -2044,22 +1475,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get filterControlTitle => 'Ovládací panel filtrů';
 
   @override
-  String get filterDeleteFailed => 'Odstranění filtru selhalo';
-
-  @override
-  String get filterDeleteSuccess => 'Filtr úspěšně odstraněn';
-
-  @override
-  String get filterDetails => 'Podrobnosti filtru';
-
-  @override
   String get filtered => 'Filtrováno';
-
-  @override
-  String get filteredSms => 'Filtrované SMS';
-
-  @override
-  String get filteredSmsLabel => 'Filtrované SMS';
 
   @override
   String get filterExplanation => 'Vysvětlení filtru';
@@ -2071,17 +1487,8 @@ class AppLocalizationsCs extends AppLocalizations {
   String get filterName => 'Název filtru';
 
   @override
-  String get filterPattern => 'Vzor filtru';
-
-  @override
   String get filterPriorityNote =>
       'Poznámka: Mezi filtry existují prioritní vztahy, podrobnosti naleznete v dokumentaci nápovědy';
-
-  @override
-  String get filterSaveFailed => 'Uložení filtru selhalo';
-
-  @override
-  String get filterSaveSuccess => 'Filtr úspěšně uložen';
 
   @override
   String get filterSettings => 'Nastavení filtrů';
@@ -2120,16 +1527,6 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return 'Nalezeno $count pravidel. Chcete je importovat?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return 'Nalezeno $count pravidel. Chcete je importovat?';
-  }
-
-  @override
   String get fraudAlert => 'POZOR NA PODVOD – Ukončete hovor';
 
   @override
@@ -2164,39 +1561,14 @@ class AppLocalizationsCs extends AppLocalizations {
   String get globalFilterSettings => 'Nastavení globálního filtru';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'Konfigurujte nastavení globálního filtru, které platí pro všechny sloty SIM karty:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'Vyhledávejte kontakty, štítky, blokované seznamy, povolené seznamy atd.';
-
-  @override
-  String get globalSearchTitle => 'Globální vyhledávání';
-
-  @override
   String get globalSettings => 'Globální nastavení';
-
-  @override
-  String get googleAdDisplayPosition => 'Pozice zobrazení reklamy Google';
-
-  @override
-  String get googleAdMobIntegrationText =>
-      'Zde lze integrovat reklamy Google AdMob';
 
   @override
   String get googleDriveAuthDescription =>
       'Autorizujte pomocí systémově nakonfigurovaného ID klienta a klíče služby Google Drive';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'Autorizujte pomocí systémově nakonfigurovaného ID klienta a klíče služby Google Drive';
-
-  @override
   String get googleDriveConfigTitle => 'Konfigurace Google Drive';
-
-  @override
-  String get googleDriveConfigurationTitle => 'Konfigurace Google Drive';
 
   @override
   String get government => 'Vládní';
@@ -2215,9 +1587,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get height => 'Výška';
-
-  @override
-  String get homePageTitle => 'Domovská stránka';
 
   @override
   String get homeTab => 'Domů';
@@ -2248,9 +1617,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get important => 'Důležité';
-
-  @override
-  String get importButton => 'Importovat';
 
   @override
   String get importConfig => 'Importovat konfiguraci';
@@ -2304,40 +1670,13 @@ class AppLocalizationsCs extends AppLocalizations {
       'Importovat konfigurace pravidel ze souboru';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'Importovat konfigurace pravidel ze souboru';
-
-  @override
   String get importRules => 'Importovat pravidla';
-
-  @override
-  String get importRulesButton => 'Importovat pravidla';
-
-  @override
-  String get importRulesDialogTitle => 'Importovat pravidla';
-
-  @override
-  String importRulesError(Object error) {
-    return 'Nepodařilo se importovat pravidla: $error';
-  }
-
-  @override
-  String get importRulesInstructions => 'Importovat pravidla ze souboru CSV';
-
-  @override
-  String get importRulesSuccess => 'Pravidla úspěšně importována';
-
-  @override
-  String get importRulesTitle => 'Importovat pravidla';
 
   @override
   String get importSuccess => 'Import úspěšný';
 
   @override
   String get incomingCallInterceptAction => 'Akce zachycení příchozího hovoru';
-
-  @override
-  String get incomingCallNotification => 'Oznámení o příchozím hovoru';
 
   @override
   String get incorrectPassword => 'Nesprávné heslo';
@@ -2392,9 +1731,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'Připojte se k Telegram kanálu a skupině pro více informací';
 
   @override
-  String get jsLogsTitle => 'JS protokoly';
-
-  @override
   String get jsonFormat => 'Formát JSON';
 
   @override
@@ -2403,16 +1739,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'Ponechat všechny historické verze každého zálohování';
-
-  @override
-  String get keepAllVersionsLabel => 'Ponechat všechny verze';
-
-  @override
-  String get keepAllVersionsSubtitle =>
-      'Ponechat historické verze každého zálohování';
-
-  @override
-  String get keepAllVersionsTitle => 'Ponechat všechny verze';
 
   @override
   String get label => 'Popisek';
@@ -2433,9 +1759,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'Popisky vám pomohou lépe spravovat kontakty, přidávejte vlastní popisky k telefonním číslům pro snadnou identifikaci hovorů a zpráv.';
 
   @override
-  String get labelFilter => 'Filtr popisků';
-
-  @override
   String get labelFilterTooltip => 'Filtr popisků';
 
   @override
@@ -2446,14 +1769,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get labelNotFound => 'Popisek nebyl nalezen';
-
-  @override
-  String get labelRemoved => 'Popisek byl odstraněn';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'Nepodařilo se odstranit popisek: $error';
-  }
 
   @override
   String get labels => 'Popisky';
@@ -2486,9 +1801,6 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'Popisek byl aktualizován';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'Nepodařilo se aktualizovat popisek: $error';
   }
@@ -2505,12 +1817,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'Nastavení jazyka';
-
-  @override
-  String get last30Days => 'Posledních 30 dní';
-
-  @override
-  String get last7Days => 'Posledních 7 dní';
 
   @override
   String get lastSyncLabel => 'Poslední synchronizace';
@@ -2536,13 +1842,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get loadDataFailed => 'Nepodařilo se načíst data';
 
   @override
-  String get loadFailed => 'Načtení selhalo';
-
-  @override
   String get loading => 'Načítání...';
-
-  @override
-  String get loadingData => 'Načítání dat...';
 
   @override
   String get loadingTags => 'Načítání značek...';
@@ -2566,12 +1866,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'Nepodařilo se načíst označená čísla: $error';
   }
-
-  @override
-  String get loadMore => 'Načíst více';
-
-  @override
-  String get loadPluginButton => 'Načíst plugin';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2598,9 +1892,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get loan => 'Půjčka';
-
-  @override
-  String get localBackupTitle => 'Lokální záloha';
 
   @override
   String get localCounterFilter => 'Filtr lokálního počtu';
@@ -2696,9 +1987,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get manage => 'Spravovat kontakty';
 
   @override
-  String get manageContacts => 'Správa';
-
-  @override
   String get manageFavoriteContacts => 'Správa oblíbených kontaktů';
 
   @override
@@ -2707,9 +1995,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'Přidat, upravit nebo smazat pravidla filtru SMS';
-
-  @override
-  String get manageFrequentContacts => 'Správa častých kontaktů';
 
   @override
   String get markCounts => 'Počty označení';
@@ -2737,16 +2022,10 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle => 'Označit telefonní čísla';
-
-  @override
   String get markPhoneManagementTitle => 'Správa označování telefonů';
 
   @override
   String get markPhoneSuccess => 'Telefonní číslo úspěšně označeno';
-
-  @override
-  String get matchFailed => 'Shoda selhala!';
 
   @override
   String get matchFailedMessage => 'Shoda selhala.';
@@ -2767,9 +2046,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'Shoda specifických vzorů číslic:';
 
   @override
-  String get matchSuccessful => 'Shoda úspěšná!';
-
-  @override
   String get matchSuccessfulMessage => 'Shoda úspěšná!';
 
   @override
@@ -2780,9 +2056,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get migrationTool => 'Nástroj pro migraci';
-
-  @override
-  String get migrationToolTitle => 'Nástroj pro migraci';
 
   @override
   String get minutes => 'minuty';
@@ -2797,9 +2070,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get monthlyCallCount => 'Měsíční hovory';
 
   @override
-  String get monthlyChartTitle => 'Měsíční zablokované hovory';
-
-  @override
   String get monthlyMembership => 'Měsíční členství';
 
   @override
@@ -2808,9 +2078,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'Měsíční celkem';
-
-  @override
-  String get monthlyTotalLabel => 'Měsíční celkem';
 
   @override
   String get moreOptions => 'Další možnosti';
@@ -2826,33 +2093,16 @@ class AppLocalizationsCs extends AppLocalizations {
       'Jméno a telefonní číslo nemohou být prázdné';
 
   @override
-  String get nameAndPhoneNumberRequired =>
-      'Jméno a telefonní číslo nemohou být prázdné';
-
-  @override
   String get nameColor => 'Barva jména';
 
   @override
   String get nameFontSize => 'Velikost písma jména';
 
   @override
-  String nameLabel(Object name) {
-    return 'Jméno: $name';
-  }
-
-  @override
   String get namePosition => 'Pozice jména';
 
   @override
   String get nameUnknown => 'Jméno: Neznámé';
-
-  @override
-  String nameWithValue(String name) {
-    return 'Jméno: $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'Nové heslo';
 
   @override
   String get nextStep => 'Další';
@@ -2868,13 +2118,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Žádná aktivní služba synchronizace cloudu';
 
   @override
-  String get noCallLogs => 'Žádné protokoly hovorů';
-
-  @override
   String get noCallRecords => 'Žádné záznamy o hovorech';
-
-  @override
-  String get noContacts => 'Zatím žádné kontakty';
 
   @override
   String get noContactsYet => 'Zatím žádné kontakty';
@@ -2886,28 +2130,16 @@ class AppLocalizationsCs extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'Žádná registrovaná zařízení';
 
   @override
-  String get noDevicesRegisteredYet => 'Zatím žádná registrovaná zařízení.';
-
-  @override
-  String get noFilters => 'Zatím žádné filtry';
-
-  @override
   String get noLabels => 'Zatím žádné štítky';
 
   @override
   String get noMarkedPhones => 'Žádná označená telefonní čísla';
 
   @override
-  String get noMatchingContacts => 'Žádné shodné kontakty';
-
-  @override
   String get noMatchingContactsFound => 'Nebyly nalezeny žádné shodné kontakty';
 
   @override
   String get noMatchingNumbersFound => 'Nebyly nalezeny žádná shodná čísla';
-
-  @override
-  String get noMatchingRecords => 'Žádné shodné záznamy o hovorech';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2922,15 +2154,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get noPlugins => 'Zatím žádné pluginy';
-
-  @override
-  String get noRecords => 'Žádné záznamy o hovorech';
-
-  @override
-  String get noResultReturned => 'Nebyl vrácen žádný výsledek';
-
-  @override
-  String get noResultReturnedLog => 'Nebyl vrácen žádný výsledek z pluginu';
 
   @override
   String noRules(Object ruleType) {
@@ -2954,9 +2177,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get noSubscriptions => 'Žádná předplatná';
 
   @override
-  String get noSubscriptionsYet => 'Zatím žádná předplatná';
-
-  @override
   String get notGranted => 'Není uděleno';
 
   @override
@@ -2975,13 +2195,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get notificationSettings => 'Nastavení oznámení';
-
-  @override
-  String get notificationSettingsSaved =>
-      'Nastavení oznámení bylo úspěšně uloženo';
-
-  @override
-  String get notSet => 'Není nastaveno';
 
   @override
   String get notVerifiedText => 'Není ověřeno';
@@ -3015,9 +2228,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get numberTypePosition => 'Pozice typu čísla';
 
   @override
-  String get ok => 'OK';
-
-  @override
   String get okButton => 'OK';
 
   @override
@@ -3049,14 +2259,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Autorizujte pomocí klientského ID a klíče OneDrive nakonfigurovaného systémem';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'Autorizujte pomocí klientského ID a klíče OneDrive nakonfigurovaného systémem';
-
-  @override
   String get oneDriveConfigTitle => 'Konfigurace OneDrive';
-
-  @override
-  String get oneDriveConfigurationTitle => 'Konfigurace OneDrive';
 
   @override
   String get onlineCallerIdSubscription =>
@@ -3117,9 +2320,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get passwordsDoNotMatch => 'Hesla se neshodují';
 
   @override
-  String get passwordSetSuccessfully => 'Heslo bylo úspěšně nastaveno';
-
-  @override
   String get pattern => 'Vzor';
 
   @override
@@ -3153,15 +2353,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Telefonní číslo nemůže být prázdné';
 
   @override
-  String get phoneNumberHintText =>
-      'Zadejte telefonní číslo pro přidání pravidla';
-
-  @override
   String get phoneNumberLabel => 'Telefonní číslo';
-
-  @override
-  String get phoneNumberRegexRequired =>
-      'Zadejte prosím telefonní číslo i vzor regex';
 
   @override
   String get phoneNumberTypeFixedLine => 'Pevná linka';
@@ -3210,9 +2402,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get phoneRule => 'Pravidlo pro telefon';
 
   @override
-  String get phoneRuleEditDialog => 'Dialog pro úpravu pravidla pro telefon';
-
-  @override
   String get phoneRuleManagement => 'Správa pravidel pro telefon';
 
   @override
@@ -3224,9 +2413,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'Přihlaste se k odběru seznamů pravidel pro telefony přes URL a automaticky aktualizujte seznamy povolených a zakázaných pravidel. Podporuje soubory pravidel ve formátu JSON.';
-
-  @override
-  String get phoneSubscriptionTitle => 'Předplatná pravidel pro telefon';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3248,9 +2434,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'Seznam zásuvných modulů byl úspěšně exportován';
 
   @override
-  String get pluginLoadedSuccessfully => 'Zásuvný modul byl úspěšně načten';
-
-  @override
   String get pluginManagement => 'Správa zásuvných modulů';
 
   @override
@@ -3258,14 +2441,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Spravujte a konfigurujte zásuvné moduly třetích stran';
 
   @override
-  String get pluginManagementTitle => 'Správa zásuvných modulů';
-
-  @override
   String get pluginName => 'Název zásuvného modulu';
-
-  @override
-  String get pluginNotLoaded =>
-      'Zásuvný modul ještě není načten. Nejprve jej prosím načtěte.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3283,16 +2459,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get pluginUrl => 'URL zásuvného modulu';
-
-  @override
-  String get pluginUrlCannotBeEmpty =>
-      'URL zásuvného modulu nemůže být prázdné';
-
-  @override
-  String get pluginUrlHint => 'Zadejte URL zásuvného modulu';
-
-  @override
-  String get pluginUrlLabel => 'URL zásuvného modulu';
 
   @override
   String get pluginVersion => 'Verze zásuvného modulu';
@@ -3330,34 +2496,10 @@ class AppLocalizationsCs extends AppLocalizations {
       'Odemkněte všechny prémiové funkce, automatické obnovení čtvrtletně';
 
   @override
-  String get queryButton => 'Dotaz';
-
-  @override
-  String get queryFailed => 'Dotaz selhal';
-
-  @override
-  String get queryFailedLog => 'Dotaz selhal';
-
-  @override
-  String get querying => 'Dotazuje se...';
-
-  @override
-  String get queryingPhoneNumber => 'Dotazuje se telefonní číslo';
-
-  @override
-  String get queryResultTitle => 'Výsledek dotazu';
-
-  @override
   String get ready => 'Připraveno!';
 
   @override
-  String get receiveWeeklyStatistics => 'Přijímat týdenní statistiky';
-
-  @override
   String get recruiter => 'Náborář';
-
-  @override
-  String get reEnterPasswordHint => 'Znovu zadejte heslo';
 
   @override
   String get refresh => 'Obnovit';
@@ -3367,11 +2509,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'Obnovit';
-
-  @override
-  String regexError(Object error) {
-    return 'Chyba regulárního výrazu: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3389,10 +2526,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'Vzor regulárního výrazu';
-
-  @override
-  String get regexPatternsExamples =>
-      'Použijte standardní syntaxi regulárních výrazů k definování vzorů. Příklady:';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3422,15 +2555,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'Tester regulárních výrazů';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'Validace regulárního výrazu selhala: $error';
-  }
-
-  @override
-  String get regexValidationSuccess =>
-      'Validace regulárního výrazu proběhla úspěšně';
 
   @override
   String get region => 'Region';
@@ -3470,35 +2594,8 @@ class AppLocalizationsCs extends AppLocalizations {
   String get remoteNumberFilter => 'Vzdálený filtr čísel';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'Tento filtr používá nezávislou vzdálenou databázi k získání nejnovějších informací o číslech.';
-
-  @override
   String get remoteNumberFilterDescription =>
       'Zachytávat obtěžující hovory na základě informací ze vzdálené databáze';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'Vzdálený filtr čísel identifikuje a blokuje spamové hovory dotazováním vzdálené databáze na základě počtu čísel.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle =>
-      'Vysvětlení vzdáleného filtru čísel';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• Prahová hodnota počtu: Určete na základě frekvence výskytu čísla';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• Akce filtru: Nakonfigurujte, jak nakládat s čísly přesahujícími prahovou hodnotu';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• Nastavení priority: Nastavte prioritu pro vzdálené akce';
-
-  @override
-  String get remoteNumberFilterFeatures => 'Funkce:';
 
   @override
   String get remoteNumberFiltering => 'Vzdálené filtrování čísel';
@@ -3519,29 +2616,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get removeAdsTitle => 'Odstranit reklamy';
 
   @override
-  String get removedFromFavoriteContacts => 'Odstraněno z oblíbených kontaktů';
-
-  @override
   String get removedFromFavorites => 'Odstraněno z oblíbených';
-
-  @override
-  String get removeFavorite => 'Odstranit oblíbený';
 
   @override
   String get removeFromFavorites => 'Odstranit z oblíbených';
 
   @override
-  String get renameButton => 'Přejmenovat';
-
-  @override
-  String get renameDeviceDialogTitle => 'Přejmenovat zařízení';
-
-  @override
   String get renameDeviceTitle => 'Přejmenovat zařízení';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'Toto nahradí všechna vaše aktuální nastavení. Jste si jisti, že chcete pokračovat?';
 
   @override
   String get requestAllPermissions => 'Požádat o všechna oprávnění';
@@ -3570,23 +2651,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Obnovit nastavení aplikace ze zálohy';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'Obnovit nastavení aplikace ze zálohy';
-
-  @override
-  String get restoreButton => 'Obnovit';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'Obnovení z cloudu selhalo: $error';
-  }
-
-  @override
   String get restoreFromCloud => 'Obnovit z cloudu';
-
-  @override
-  String get restoreFromCloudDescription =>
-      'Obnovit nastavení a pravidla z cloudového úložiště';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3594,22 +2659,10 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'Obnovit z cloudu';
-
-  @override
   String get restoreFromCloudSuccess => 'Úspěšně obnoveno z cloudu';
 
   @override
-  String get restoreFromCloudTitle => 'Obnovit z cloudu';
-
-  @override
-  String get restoreFromLocal => 'Obnovit z místního zdroje';
-
-  @override
   String get restorePurchases => 'Obnovit nákupy';
-
-  @override
-  String get restoreSectionTitle => 'Obnovit';
 
   @override
   String get restoreSettings => 'Obnovit nastavení';
@@ -3617,18 +2670,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'Toto nahradí všechna vaše aktuální nastavení. Jste si jisti, že chcete pokračovat?';
-
-  @override
-  String get restoreSettingsDialogTitle => 'Obnovit nastavení';
-
-  @override
-  String get restoreSettingsTitle => 'Obnovit nastavení';
-
-  @override
-  String get restoreSuccessFromLocal => 'Úspěšně obnoveno z místního zdroje';
-
-  @override
-  String get restoreSuccessMessage => 'Úspěšně obnoveno z cloudu';
 
   @override
   String get retry => 'Zkusit znovu';
@@ -3646,15 +2687,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get ruleAction => 'Akce pravidla';
 
   @override
-  String get ruleAddButton => 'Přidat pravidlo';
-
-  @override
   String get ruleAddedSuccess => 'Pravidlo bylo přidáno úspěšně';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'Nepodařilo se přidat pravidlo: $error';
-  }
 
   @override
   String get ruleAddSuccess => 'Pravidlo bylo přidáno úspěšně';
@@ -3668,18 +2701,10 @@ class AppLocalizationsCs extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'Smazat pravidlo';
 
   @override
-  String get ruleDeletedSuccess => 'Pravidlo bylo úspěšně smazáno';
-
-  @override
   String get ruleDeletedSuccessfully => 'Pravidlo bylo úspěšně smazáno';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'Nepodařilo se smazat pravidlo: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'Nepodařilo se smazat pravidlo: $error';
   }
 
@@ -3701,9 +2726,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get ruleManagement => 'Správa pravidel';
 
   @override
-  String get ruleManagementTitle => 'Správa pravidel';
-
-  @override
   String get ruleName => 'Název pravidla';
 
   @override
@@ -3721,9 +2743,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get ruleNameLabel => 'Název pravidla';
 
   @override
-  String get ruleNamePatternRequired => 'Zadejte název pravidla a vzor';
-
-  @override
   String get ruleNameRequired =>
       'Název pravidla a telefonní číslo nemohou být prázdné';
 
@@ -3736,23 +2755,7 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'Pravidlo bylo úspěšně uloženo!';
-
-  @override
   String get ruleSavedSuccessMessage => 'Pravidlo bylo úspěšně uloženo!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'Uložení selhalo: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'Uložení selhalo: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'Pravidlo bylo úspěšně uloženo!';
 
   @override
   String get rulesExportedSuccessfully => 'Pravidla byla úspěšně exportována';
@@ -3769,14 +2772,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return '$count pravidel bylo úspěšně importováno';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'Nepodařilo se importovat pravidla: $error';
-  }
-
-  @override
-  String get ruleStatistics => 'Statistiky pravidel';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3811,9 +2806,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get saveButton => 'Uložit';
 
   @override
-  String get saveButtonLabel => 'ULOŽIT';
-
-  @override
   String get saveButtonText => 'Uložit';
 
   @override
@@ -3822,15 +2814,7 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'Uložit filtr';
-
-  @override
   String get saveSettings => 'Uložit nastavení';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'Nepodařilo se uložit nastavení: $error';
-  }
 
   @override
   String get scamsLikely => 'Pravděpodobně podvod';
@@ -3847,28 +2831,11 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'Filtry vyhledávání';
-
-  @override
-  String get searchForContacts => 'Hledat kontakty';
-
-  @override
   String get searchHint => 'Hledat...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'Vyhledávat kontakty, štítky, blokované seznamy, povolené seznamy atd.';
-
-  @override
-  String get searchSettingsTitle => 'Nastavení vyhledávání';
 
   @override
   String get securityMessage =>
       'Nevěřte žádným telefonním hovorům. Čísla zákaznických služeb si vždy ověřujte nezávisle. Nikdy nesdílejte hesla, ověřovací kódy, čísla karet ani osobní údaje.';
-
-  @override
-  String get selectActionToPerform =>
-      'Vyberte akci, kterou chcete provést, když pravidlo odpovídá';
 
   @override
   String get selectActionWhenBlockingCalls =>
@@ -3883,12 +2850,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get selectCountry => 'Vybrat zemi';
-
-  @override
-  String get selectDateRange => 'Vybrat časové období';
-
-  @override
-  String get selectedDateRange => 'Vybrané časové období';
 
   @override
   String selectedItems(Object count) {
@@ -3915,20 +2876,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get selectMultiple => 'Vybrat více';
 
   @override
-  String get selectPeriod => 'Vybrat období';
-
-  @override
   String get selectSimCard => 'Vybrat SIM kartu';
-
-  @override
-  String get selectSimSlot => 'Vybrat slot SIM';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'Vyberte konkrétní akci pro blokované hovory';
-
-  @override
-  String get selectTag => 'Vybrat značku';
 
   @override
   String get selectTags => 'Vybrat značky';
@@ -3969,23 +2917,7 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'Nastavit';
-
-  @override
   String get setEncryptionPassword => 'Nastavit heslo pro šifrování';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'Nastavte heslo pro šifrování pro zálohování a obnovení';
-
-  @override
-  String get setEncryptionPasswordLabel => 'Nastavit heslo pro šifrování';
-
-  @override
-  String get setEncryptionPasswordTitle => 'Nastavit heslo pro šifrování';
-
-  @override
-  String get setPasswordButton => 'Nastavit';
 
   @override
   String get settings => 'Nastavení';
@@ -3993,14 +2925,6 @@ class AppLocalizationsCs extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'Nastavení zálohováno do: $path';
-  }
-
-  @override
-  String get settingsLoaded => 'Nastavení načteno';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'Nepodařilo se načíst nastavení: $error';
   }
 
   @override
@@ -4023,13 +2947,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get setup => 'Nastavení';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'Statická metoda pro zobrazení dialogového okna pro úpravu kontaktu';
-
-  @override
-  String get showExplanation => 'Zobrazit vysvětlení';
 
   @override
   String get silence => 'Ticho';
@@ -4077,19 +2994,11 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'Nepodařilo se načíst informace o SIM kartě: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'Pravidla pro sloty SIM vám umožňují konfigurovat nezávislá pravidla filtrování pro každý slot SIM.';
 
   @override
   String get simRuleInstructionsTitle => 'Pravidla slotů SIM';
-
-  @override
-  String get simRuleManagement => 'Správa pravidel slotů SIM';
 
   @override
   String simSlot1(String countryIso) {
@@ -4102,18 +3011,6 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'Nepodařilo se načíst data SIM: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration => 'Konfigurace filtru slotu SIM';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'Umožňuje nastavit pravidla filtrování podle slotu SIM';
-
-  @override
   String get simSlotFilterDescription =>
       'Konfigurujte nezávislá pravidla filtrování pro každou SIM kartu:';
 
@@ -4123,17 +3020,7 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'Nepodařilo se načíst sloty SIM: $error';
-  }
-
-  @override
   String get simSlotManagement => 'Správa slotů SIM';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'Operace se slotem SIM se nezdařila: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4154,12 +3041,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'Pravidla slotů SIM';
-
-  @override
-  String get simSlotRuleManagementTitle => 'Správa pravidel';
-
-  @override
-  String get simSlotSettings => 'Nastavení slotu SIM';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4196,9 +3077,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get smsFilterSettings => 'Nastavení filtru SMS';
 
   @override
-  String get smsHistory => 'Historie SMS';
-
-  @override
   String get smsManagement => 'Správa SMS';
 
   @override
@@ -4223,26 +3101,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get smsRuleManagement => 'Správa pravidel SMS';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'Pravidla SMS byla úspěšně exportována do $filePath';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully =>
-      'Pravidla SMS byla úspěšně importována';
-
-  @override
   String get smsRuleSubscription => 'Předplatné pravidel SMS';
-
-  @override
-  String get smsRuleUpdatedSuccessfully =>
-      'Pravidlo SMS bylo úspěšně aktualizováno';
-
-  @override
-  String get smsSettingsSubtitle => 'Filtrování SMS a blokování klíčových slov';
-
-  @override
-  String get smsSettingsTitle => 'Nastavení SMS';
 
   @override
   String get smsSubscription => 'Předplatné SMS';
@@ -4281,26 +3140,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get statBlocked => 'Blokováno';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'Statická metoda pro zobrazení dialogu s informacemi o volajícím';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'Statická metoda pro zobrazení dialogu pro výběr země';
-
-  @override
-  String get staticMethodToDisplayDialog =>
-      'Statická metoda pro zobrazení dialogu';
-
-  @override
   String get statistics => 'Statistiky';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'Funkce exportu statistik bude brzy k dispozici';
-
-  @override
-  String get statisticsGrid => 'Mřížka statistik';
 
   @override
   String get statisticsPageTitle => 'Analýza dat';
@@ -4340,10 +3180,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get subscriptionDeleted => 'Předplatné smazáno';
 
   @override
-  String get subscriptionDeletedSuccessfully =>
-      'Předplatné bylo úspěšně smazáno';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'Nepodařilo se smazat předplatné: $error';
   }
@@ -4352,23 +3188,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'Předplatné smazáno';
 
   @override
-  String get subscriptionEmptyState => 'Žádná předplatná nejsou k dispozici';
-
-  @override
-  String get subscriptionEmptyText => 'Zatím žádná předplatná';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'Nepodařilo se načíst předplatná: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'Nepodařilo se načíst předplatná: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'Správa předplatného';
 
   @override
   String get subscriptionName => 'Název předplatného';
@@ -4381,16 +3203,8 @@ class AppLocalizationsCs extends AppLocalizations {
   String get subscriptionNameHint => 'Zadejte název předplatného';
 
   @override
-  String get subscriptionPageTitle => 'Správa předplatného';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
     return 'Nepodařilo se změnit stav předplatného: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
-    return 'Nepodařilo se přepnout stav předplatného: $error';
   }
 
   @override
@@ -4429,10 +3243,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get syncFailedMessage => 'Synchronizace selhala';
 
   @override
-  String get syncFolderNameHint =>
-      'Zadejte název složky pro synchronizaci (výchozí: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'Název složky pro synchronizaci';
 
   @override
@@ -4454,17 +3264,10 @@ class AppLocalizationsCs extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'Stav synchronizace byl aktualizován';
 
   @override
-  String get syncSuccessful => 'Synchronizace úspěšná';
-
-  @override
   String get syncSuccessMessage => 'Synchronizace úspěšná';
 
   @override
   String get syncWithCloudStorage => 'Synchronizovat s cloudovým úložištěm';
-
-  @override
-  String get syncWithCloudStorageSubtitle =>
-      'Synchronizovat s cloudovým úložištěm';
 
   @override
   String get systemFeatures => 'Systémové funkce:';
@@ -4493,9 +3296,6 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'Štítky aktualizovány';
-
-  @override
   String get takeaway => 'S sebou';
 
   @override
@@ -4509,9 +3309,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get testButton => 'TEST';
-
-  @override
-  String get testButtonLabel => 'TEST';
 
   @override
   String get testConnectionButton => 'Otestovat připojení';
@@ -4550,13 +3347,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'Nastavení zachycování frekvence volání';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'Automaticky zachytávat potenciální spamová volání na základě frekvence volání';
-
-  @override
-  String get timeInterceptorTitle => 'Povolit zachycování frekvence volání';
-
-  @override
   String get timeWindowDescription =>
       'Nastavte velikost časového okna pro povolování opakovaných volání. Volání ze stejného čísla v tomto okně budou povolena';
 
@@ -4564,10 +3354,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'Časové okno pro zachycení (minuty): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'Nastavte velikost časového okna pro povolování opakovaných volání. Volání ze stejného čísla v tomto okně budou povolena';
 
   @override
   String get today => 'Dnes';
@@ -4579,24 +3365,11 @@ class AppLocalizationsCs extends AppLocalizations {
   String get totalBlocked => 'Celkem zablokováno';
 
   @override
-  String get totalFiltered => 'Celkem filtrováno';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'Přenos dat mezi zařízeními nebo platformami';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'Přenos dat mezi zařízeními nebo platformami';
-
-  @override
   String get travelTicketing => 'Cestovní jízdenky';
-
-  @override
-  String get trend => 'Trend';
-
-  @override
-  String get trendChart => 'Graf trendu';
 
   @override
   String get tutorial => 'Návod';
@@ -4609,9 +3382,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get unknown => 'Neznámé';
-
-  @override
-  String get unknownLabel => 'Neznámý štítek';
 
   @override
   String get unknownTag => 'Štítek: Neznámý';
@@ -4637,9 +3407,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get updateAllNow => 'Aktualizovat vše nyní';
 
   @override
-  String get updateCallFilterConfig => 'Aktualizovat konfiguraci filtru hovorů';
-
-  @override
   String updateContactFailed(Object error) {
     return 'Nepodařilo se aktualizovat kontakt: $error';
   }
@@ -4648,15 +3415,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get updateFavoriteStatus => 'Aktualizovat stav oblíbených položek';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'Nepodařilo se aktualizovat stav oblíbených položek: $error';
-  }
-
-  @override
   String get updateInterval => 'Interval aktualizace';
-
-  @override
-  String get updateLabelFailed => 'Nepodařilo se aktualizovat štítek';
 
   @override
   String get updateNow => 'Aktualizovat nyní';
@@ -4685,9 +3444,6 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'Aktualizovat štítky';
-
-  @override
   String get useCasesPoint1 =>
       '• Identifikovat spamová volání s automatickým opakovaným vytáčením';
 
@@ -4705,17 +3461,11 @@ class AppLocalizationsCs extends AppLocalizations {
   String get useGlobalSettings => 'Použít globální nastavení';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => 'Uživatelské jméno';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'Použijte standardní syntaxi regulárních výrazů k definování vzorů. Příklady:';
-
-  @override
-  String get validateRegex => 'Ověřit regulární výraz';
 
   @override
   String get verificationFailedText => 'Selhalo';
@@ -4752,44 +3502,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get webDAVConfigTitle => 'Konfigurace WebDAV';
 
   @override
-  String get webdavConfigurationTitle => 'Konfigurace WebDAV';
-
-  @override
-  String get webdavPasswordHint => 'Zadejte prosím heslo WebDAV';
-
-  @override
-  String get webdavServerAddressHint => 'Zadejte prosím adresu serveru WebDAV';
-
-  @override
-  String get webdavUsernameHint => 'Zadejte prosím uživatelské jméno WebDAV';
-
-  @override
   String get week => 'Týden';
-
-  @override
-  String get weekly => 'Týdenní';
-
-  @override
-  String get weeklyBlockedCallsSummary => 'Souhrn týdenních blokovaných hovorů';
-
-  @override
-  String get weeklyChartTitle => 'Týdenní blokované hovory';
-
-  @override
-  String get weeklyReport => 'Týdenní zpráva';
-
-  @override
-  String get weeklyReportDesc =>
-      'Obdržíte týdenní souhrnnou zprávu o aktivitě blokování hovorů';
 
   @override
   String get welcome => 'Vítejte';
 
   @override
   String get whitelist => 'Seznam povolených';
-
-  @override
-  String get whitelistLabel => 'Seznam povolených';
 
   @override
   String get width => 'Šířka';
@@ -4810,12 +3529,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get year => 'Rok';
-
-  @override
-  String get yearly => 'Ročně';
-
-  @override
-  String get yearlyChartTitle => 'Roční zablokovaná volání';
 
   @override
   String get noSimCardsDetected => 'Nebyly detekovány žádné SIM karty';
@@ -4864,10 +3577,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get useStirNotification => 'Použít upozornění z STIR';
 
   @override
-  String get useStirNotificationDescription =>
-      'Povolit upozornění STIR pro příchozí hovory';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'Automaticky zavřít místní upozornění';
 
@@ -4886,11 +3595,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'Informace o příchozím hovoru';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'Číslo: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'Zablokované volání';
@@ -4944,21 +3648,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'Upozornění na podvod';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return 'Potenciální podvodný hovor z $phoneNumber';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'Nepodařilo se načíst pravidla: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'Nepodařilo se načíst historii volání: $error';
-  }
 
   @override
   String get noBlockedTypeData =>
@@ -5036,9 +3725,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get removeAds => 'Odstranit reklamy';
-
-  @override
-  String get unknownAction => 'Neznámá akce';
 
   @override
   String get settingsBackup => 'Záloha nastavení ';
@@ -5299,16 +3985,8 @@ class AppLocalizationsCs extends AppLocalizations {
   String get blockNumberSuccess => 'Číslo úspěšně zablokováno';
 
   @override
-  String get blockNumberFailed => 'Blokování čísla selhalo';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return 'Opravdu chcete odblokovat číslo $phoneNumber?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return 'Volám na číslo $phoneNumber...';
   }
 
   @override
@@ -5325,9 +4003,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => 'Odblokování čísla selhalo';
-
-  @override
-  String get serviceNotAvailable => 'Služba není dostupná';
 
   @override
   String get callingNumberFailed => 'Volání čísla selhalo';
@@ -5358,9 +4033,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'Neplatný formát čísla';
-
-  @override
-  String get membershipFeature => 'Funkce členství';
 
   @override
   String get medium => 'Médium';
@@ -5456,9 +4128,6 @@ class AppLocalizationsCs extends AppLocalizations {
       'Potvrdit vymazání všech oznámení';
 
   @override
-  String get allNotificationsCleared => 'Všechna oznámení byla vymazána';
-
-  @override
   String get clearButton => 'Vymazat';
 
   @override
@@ -5528,9 +4197,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get reasonInaccurateInfo => 'Nepřesné informace';
 
   @override
-  String get reasonWrongMarked => 'Nesprávně označeno';
-
-  @override
   String get reasonOther => 'Jiné';
 
   @override
@@ -5540,25 +4206,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get cancel => 'Zrušit';
 
   @override
-  String get proposalStatus => 'Stav';
-
-  @override
-  String get statusPending => 'Čeká se';
-
-  @override
-  String get statusActive => 'Aktivní';
-
-  @override
-  String get statusCompleted => 'Dokončeno';
-
-  @override
-  String get statusExpired => 'Expirováno';
-
-  @override
   String get riskLevel => 'Úroveň rizika';
-
-  @override
-  String get riskLevelVerified => 'Ověřeno';
 
   @override
   String get riskLevelLow => 'Nízká';
@@ -5567,19 +4215,8 @@ class AppLocalizationsCs extends AppLocalizations {
   String get riskLevelHigh => 'Vysoká';
 
   @override
-  String get riskLevelUnknown => 'Neznámá';
-
-  @override
-  String get votingProgress => 'Průběh hlasování';
-
-  @override
   String agreeVotes(int count) {
     return 'Souhlas: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'Nesouhlas: $count';
   }
 
   @override
@@ -5602,12 +4239,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get verificationReport => 'Zpráva o ověření';
 
   @override
-  String get showReport => 'Zobrazit zprávu';
-
-  @override
-  String get hideReport => 'Skrýt zprávu';
-
-  @override
   String get proposalStatistics => 'Statistiky návrhů';
 
   @override
@@ -5617,28 +4248,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get activeProposals => 'Aktivní návrhy';
 
   @override
-  String get completedProposals => 'Dokončené návrhy';
-
-  @override
-  String get myVotes => 'Moje hlasy';
-
-  @override
   String get proposalCreated => 'Návrh byl úspěšně vytvořen';
-
-  @override
-  String get proposalCreateFailed => 'Nepodařilo se vytvořit návrh';
 
   @override
   String get voteSubmitted => 'Hlas byl úspěšně odeslán';
 
   @override
-  String get voteSubmitFailed => 'Nepodařilo se odeslat hlas';
-
-  @override
   String get noProposalsFound => 'Nebyly nalezeny žádné návrhy';
-
-  @override
-  String get loadingProposals => 'Načítání návrhů...';
 
   @override
   String get refreshProposals => 'Obnovit návrhy';
@@ -5790,23 +4406,11 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'Nepodařilo se načíst počet hlasů';
-
-  @override
   String get voteCount => 'Počet hlasů';
-
-  @override
-  String get deletionProposalInfo => 'Informace o návrhu na smazání';
 
   @override
   String get deletionProposalDescription =>
       'Navrhujte čísla ke smazání, která porušují komunitní pravidla. Vaše účast pomáhá udržovat platformu bezpečnou.';
-
-  @override
-  String get voteToEarnVip => 'Hlasujte o návrzích a získejte VIP privilegia!';
-
-  @override
-  String get voteFailed => 'Hlasování selhalo';
 
   @override
   String get searchProposals => 'Vyhledat návrhy';
@@ -5840,50 +4444,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Zobrazuje varování před potenciálně podvodnými hovory.';
 
   @override
-  String get notificationFrequencyDescription =>
-      'Vyberte, jak často chcete dostávat oznámení o nových návrzích na smazání. Můžete je dostávat okamžitě, v dávkách nebo v intervalu na míru.';
-
-  @override
   String get notificationMode => 'Režim oznámení';
-
-  @override
-  String get immediateNotifications => 'Okamžitě';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'Obdržíte oznámení ihned po vytvoření návrhu.';
-
-  @override
-  String get batchNotifications => 'V dávkách';
-
-  @override
-  String get batchNotificationsDescription =>
-      'Periodicky obdržíte souhrn oznámení.';
-
-  @override
-  String get customNotifications => 'Vlastní';
-
-  @override
-  String get customNotificationsDescription =>
-      'Definujte si vlastní interval pro příjem oznámení.';
-
-  @override
-  String get customFrequency => 'Vlastní frekvence';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes min';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours h';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours h $minutes min';
-  }
 
   @override
   String get pendingProposals => 'Čekající návrhy';
@@ -5905,9 +4466,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get riskLevelLabel => 'Úroveň rizika';
-
-  @override
-  String get riskLevelDescription => 'Úroveň rizika čísla';
 
   @override
   String get phoneNumberMinDigits =>
@@ -5933,33 +4491,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get countryCodeRequired => 'Kód země je vyžadován';
 
   @override
-  String get countryCodeLengthError => 'Kód země musí mít 2 písmena';
-
-  @override
   String get phoneNumberHint => 'Zadejte telefonní číslo';
 
   @override
   String get phoneNumberRequired => 'Telefonní číslo je vyžadováno';
 
   @override
-  String get phoneNumberLengthError =>
-      'Telefonní číslo musí mít minimálně 7 číslic';
-
-  @override
-  String get reasonHint => 'Uveďte podrobné vysvětlení (minimálně 10 znaků)';
-
-  @override
   String get reasonRequired => 'Důvod je vyžadován';
-
-  @override
-  String get reasonLengthError => 'Důvod musí mít minimálně 10 znaků';
-
-  @override
-  String get guidelinesTitle => 'Pokyny';
-
-  @override
-  String get guidelinesText =>
-      '• Hlasujte pouze pro čísla, která jsou skutečně problematická\n• Uvádějte přesné a podrobné důvody\n• Zvolte odpovídající úroveň rizika na základě závažnosti\n• Falešná hlášení mohou vést k omezení účtu';
 
   @override
   String get riskLevelCritical => 'Kritické';
@@ -5971,56 +4509,11 @@ class AppLocalizationsCs extends AppLocalizations {
   String get riskLevelVeryLow => 'Velmi nízké';
 
   @override
-  String get riskDescriptionVeryLow =>
-      'Velmi nízké - Menší obtěžování, občasné hovory';
-
-  @override
-  String get riskDescriptionLow => 'Nízké - Občasné nevyžádané hovory';
-
-  @override
-  String get riskDescriptionMedium =>
-      'Střední - Pravidelný spam nebo telemarketing';
-
-  @override
-  String get riskDescriptionHigh =>
-      'Vysoké - Vytrvalé obtěžování nebo pokusy o podvod';
-
-  @override
-  String get riskDescriptionCritical =>
-      'Kritické - Nebezpečné podvody nebo hrozby';
-
-  @override
   String get notificationFrequencyTitle => 'Frekvence oznámení';
-
-  @override
-  String get notificationFrequencyLabel => 'Frekvence oznámení (hodiny)';
 
   @override
   String errorMessage(String error) {
     return 'Chyba: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'Hlasy: $totalVotes ($supportPercentage% podpora)';
-  }
-
-  @override
-  String get timeJustNow => 'Právě teď';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return '${minutes}m zpět';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return '${hours}h zpět';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return '${days}d zpět';
   }
 
   @override
@@ -6105,9 +4598,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get liveActivitiesTestTitle => 'Test živých aktivit';
 
   @override
-  String get liveActivitiesTestSubtitle => 'Otestujte oznámení živé aktivity.';
-
-  @override
   String get liveNotificationCustomizationTitle =>
       'Přizpůsobení živých oznámení';
 
@@ -6133,16 +4623,10 @@ class AppLocalizationsCs extends AppLocalizations {
   String get proposalDetails => 'Podrobnosti návrhu';
 
   @override
-  String get filterByStatus => 'Filtrovat podle stavu';
-
-  @override
   String get proposalNotFound => 'Návrh nebyl nalezen';
 
   @override
   String get processed => 'Zpracováno';
-
-  @override
-  String get showAll => 'Zobrazit vše';
 
   @override
   String get filterAndSortTitle => 'Filtrovat a řadit';
@@ -6181,9 +4665,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get invalidSimData => 'Neplatná data SIM karty';
 
   @override
-  String get simCardData => 'Data SIM karty';
-
-  @override
   String get simSlot => 'Slot pro SIM kartu';
 
   @override
@@ -6202,12 +4683,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get callTypeSilenced => 'Ztišeno';
 
   @override
-  String get callTypeVoicemail => 'Hlasová schránka';
-
-  @override
-  String get callTypeUnknownIntercept => 'Neznámé zachycení';
-
-  @override
   String andMoreItems(int count) {
     return 'a dalších $count položek';
   }
@@ -6220,10 +4695,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6307,9 +4778,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

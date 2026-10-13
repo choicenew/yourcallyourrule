@@ -19,13 +19,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Σχετικά με τους Κανόνες Συνδρομής Τηλεφώνου';
 
   @override
-  String get aboutPhoneSubscriptions => 'Σχετικά με τις Συνδρομές Τηλεφώνου';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'Εγγραφείτε σε λίστες κανόνων τηλεφώνου μέσω URL, ενημερώστε αυτόματα τους κανόνες. Υποστηρίζει αρχεία κανόνων σε μορφή JSON, CSV.';
-
-  @override
   String get aboutSmsFilter => 'Σχετικά με το Φιλτράρισμα SMS';
 
   @override
@@ -49,9 +42,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get actionBlock => 'Απόρριψη';
-
-  @override
-  String get actionFilterAll => 'Όλα τα Φίλτρα';
 
   @override
   String get actionFilterTitle => 'Φιλτράρισμα ανά Τύπο Ενέργειας';
@@ -97,28 +87,7 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'Προστέθηκε στους κανόνες αποδοχής';
-
-  @override
-  String get addedToBlacklist => 'Προστέθηκε στη Μαύρη Λίστα';
-
-  @override
-  String get addedToBlockedRules => 'Προστέθηκε στους κανόνες απόρριψης';
-
-  @override
-  String get addedToFavoriteContacts => 'Προστέθηκε στις αγαπημένες επαφές';
-
-  @override
   String get addedToFavorites => 'Προστέθηκε στα αγαπημένα';
-
-  @override
-  String get addedToWhitelist => 'Προστέθηκε στη Λευκή Λίστα';
-
-  @override
-  String get addFavorite => 'Προσθήκη Αγαπημένου';
-
-  @override
-  String get addFilter => 'Προσθήκη Φίλτρου';
 
   @override
   String get addLabel => 'Προσθήκη Ετικέτας';
@@ -132,17 +101,10 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'Προσθήκη Ετικέτας στην Κλήση';
-
-  @override
   String get addName => 'Προσθήκη Ονόματος';
 
   @override
   String get addNoneSubscription => 'Προσθήκη Συνδρομής Καμίας Ενέργειας';
-
-  @override
-  String get addOrEditContactInfo =>
-      'Χρησιμοποιείται για την προσθήκη ή επεξεργασία πληροφοριών επαφής';
 
   @override
   String get addPhoneMark => 'Προσθήκη Σήμανσης Τηλεφώνου';
@@ -174,9 +136,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get addRule => 'Προσθήκη Κανόνα';
 
   @override
-  String get addRuleButton => 'Προσθήκη Κανόνα';
-
-  @override
   String addRuleFailed(Object error) {
     return 'Αποτυχία προσθήκης κανόνα: $error';
   }
@@ -186,9 +145,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'Προσθήκη Συνδρομής Σίγασης';
-
-  @override
-  String get addSimRuleButton => 'Προσθήκη Κανόνα SIM';
 
   @override
   String get addSmsFilterRule => 'Προσθήκη Κανόνα Φίλτρου SMS';
@@ -214,16 +170,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get addSubscriptionTooltip => 'Προσθήκη Συνδρομής';
 
   @override
-  String get addToAllowedRules => 'Προσθήκη στους κανόνες αποδοχής';
-
-  @override
   String get addToBlacklist => 'Προσθήκη στη Μαύρη Λίστα';
-
-  @override
-  String get addToBlockedRules => 'Προσθήκη στους κανόνες απόρριψης';
-
-  @override
-  String get addToFavoriteContacts => 'Προσθήκη στις Αγαπημένες Επαφές';
 
   @override
   String get addToFavorites => 'Προσθήκη στα Αγαπημένα';
@@ -235,9 +182,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get addToWhitelist => 'Προσθήκη στη Λευκή Λίστα';
 
   @override
-  String get adPlaceholder => 'Θέση Διαφήμισης';
-
-  @override
   String get agent => 'Πράκτορας';
 
   @override
@@ -245,10 +189,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get allCallsTab => 'Όλες';
-
-  @override
-  String get allDataClearedSuccessfully =>
-      'Όλα τα δεδομένα διαγράφηκαν με επιτυχία';
 
   @override
   String get allow => 'Αποδοχή';
@@ -262,10 +202,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get allowAllBlacklistedNumbers =>
       'Αποδοχή Όλων των Αριθμών της Μαύρης Λίστας';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc =>
-      'Αποδοχή κλήσεων από τη λίστα απόρριψης';
 
   @override
   String get allowAllBlockRules => 'Αποδοχή Όλων των Κανόνων Απόρριψης';
@@ -338,14 +274,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get allowRules => 'Κανόνες Αποδοχής';
 
   @override
-  String get allowWhitelistedNumbers =>
-      'Να επιτρέπονται αριθμοί από τη λίστα επιτρεπόμενων';
-
-  @override
-  String get allowWhitelistedNumbersDescription =>
-      'Να επιτρέπονται όλοι οι αριθμοί από τη λίστα επιτρεπόμενων';
-
-  @override
   String get allPermissionsGranted => 'Όλες οι άδειες έχουν παραχωρηθεί';
 
   @override
@@ -358,10 +286,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'Απάντηση και μετά αποσύνδεση';
-
-  @override
-  String get appLegalese =>
-      '© 2023 Your Call Your Rule. Με την επιφύλαξη όλων των δικαιωμάτων.';
 
   @override
   String get applicationSoftware => 'Λογισμικό Εφαρμογής';
@@ -400,13 +324,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'Ρυθμίσεις Αυτόματης Ενημέρωσης';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'Διαχείριση αυτόματων ενημερώσεων για κανόνες και πρόσθετα';
-
-  @override
-  String get autoUpdateSettingsTitle => 'Ρυθμίσεις Αυτόματης Ενημέρωσης';
 
   @override
   String get autoUpdateSubtitle =>
@@ -455,47 +372,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get backupFailed => 'Το αντίγραφο ασφαλείας απέτυχε';
 
   @override
-  String get backupFailedMessage => 'Το αντίγραφο ασφαλείας απέτυχε';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'Το αντίγραφο ασφαλείας απέτυχε: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle =>
-      'Αντίγραφο ασφαλείας ή επαναφορά δεδομένων εφαρμογής';
-
-  @override
-  String get backupRestoreTitle => 'Αντίγραφο Ασφαλείας & Επαναφορά';
-
-  @override
-  String get backupSectionTitle => 'Αντίγραφο Ασφαλείας';
-
-  @override
   String get backupSettings => 'Ρυθμίσεις Αντιγράφου Ασφαλείας';
 
   @override
-  String get backupSettingsDialogTitle => 'Ρυθμίσεις Αντιγράφου Ασφαλείας';
-
-  @override
-  String get backupSettingsTitle => 'Ρυθμίσεις Αντιγράφου Ασφαλείας';
-
-  @override
-  String get backupSuccessMessage =>
-      'Επιτυχής δημιουργία αντιγράφου ασφαλείας στο cloud';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'Επιτυχές αντίγραφο ασφαλείας στη θέση: $path';
-  }
-
-  @override
   String get backupToCloud => 'Αντίγραφο Ασφαλείας στο Cloud';
-
-  @override
-  String get backupToCloudDescription =>
-      'Δημιουργία αντιγράφου ασφαλείας ρυθμίσεων και κανόνων σε αποθηκευτικό χώρο cloud';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -503,17 +383,8 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'Αντίγραφο Ασφαλείας στο Cloud';
-
-  @override
   String get backupToCloudSuccess =>
       'Επιτυχής δημιουργία αντιγράφου ασφαλείας στο cloud';
-
-  @override
-  String get backupToCloudTitle => 'Αντίγραφο Ασφαλείας στο Cloud';
-
-  @override
-  String get backupToLocalLabel => 'Αντίγραφο Ασφαλείας Τοπικά';
 
   @override
   String get bank => 'Τράπεζα';
@@ -532,22 +403,13 @@ class AppLocalizationsEl extends AppLocalizations {
       '• Βασική Φιλτράριση Κανόνων: Φιλτράρισμα κανόνων βάσει μαύρης λίστας, λίστας επιτρεπόμενων και regex';
 
   @override
-  String get basicRuleFilterSettings => 'Ρυθμίσεις Βασικού Φίλτρου Κανόνων';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'Φιλτράρισμα κλήσεων χρησιμοποιώντας μαύρη λίστα/λίστα επιτρεπόμενων και κανονικές εκφράσεις';
-
-  @override
-  String get batchDeleteContacts => 'Μαζική Διαγραφή Επαφών';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'Είστε σίγουροι ότι θέλετε να διαγράψετε $count επιλεγμένες επαφές;';
   }
-
-  @override
-  String get batchDeleteFailed => 'Η μαζική διαγραφή απέτυχε';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -562,9 +424,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Μαύρη Λίστα και Λίστα Επιτρεπόμενων';
 
   @override
-  String get blacklistLabel => 'Μαύρη Λίστα';
-
-  @override
   String get blackWhiteList => 'Μαύρη/Λευκή Λίστα';
 
   @override
@@ -577,19 +436,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get blocked => 'Αποκλεισμένο';
 
   @override
-  String get blockedCallAction => 'Ενέργεια Αποκλεισμένης Κλήσης';
-
-  @override
   String get blockedCalls => 'Αποκλεισμένες Κλήσεις';
 
   @override
   String get blockedCallsTitle => 'Αποκλεισμένες Κλήσεις';
-
-  @override
-  String get blockedCommunications => 'Αποκλεισμένες Επικοινωνίες';
-
-  @override
-  String get blockedPhoneLabel => 'Αποκλεισμένες Κλήσεις';
 
   @override
   String get blockedSpamCalls => 'Αποκλεισμένες Κλήσεις Spam';
@@ -603,10 +453,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get blockInternationalCallsTitle => 'Αποκλεισμός Διεθνών Κλήσεων';
-
-  @override
-  String get blockLandlineNumbersTitle =>
-      'Αποκλεισμός Αριθμών Σταθερής Τηλεφωνίας';
 
   @override
   String get blockMobileNumbers =>
@@ -660,11 +506,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get callback => 'Επιστροφή Κλήσης';
 
   @override
-  String callbackTo(String number) {
-    return 'Επιστροφή κλήσης στο $number';
-  }
-
-  @override
   String get callBlocking => 'Αποκλεισμός Κλήσεων';
 
   @override
@@ -672,9 +513,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'Προσαρμογή Αναγνώρισης Κλήσης';
-
-  @override
-  String get callerIdDialogTitle => 'Πληροφορίες Αναγνώρισης Κλήσης';
 
   @override
   String get callerIdDisplayMode => 'Λειτουργία Εμφάνισης Αναγνώρισης Κλήσης';
@@ -686,13 +524,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'Προεπισκόπηση Αναγνώρισης Κλήσης';
-
-  @override
-  String get callFilter => 'Φίλτρο Κλήσεων';
-
-  @override
-  String get callFilterDescription =>
-      'Όταν είναι ενεργοποιημένο, οι εισερχόμενες κλήσεις ελέγχονται έναντι της παρακάτω λίστας κανόνων. Οι κανόνες φιλτραρίσματος κλήσεων δεν συγχρονίζονται μεταξύ συσκευών από προεπιλογή.';
 
   @override
   String get callFilterRules => 'Κανόνες Φίλτρου Κλήσεων';
@@ -722,26 +553,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get callHistoryInfoTitle => 'Ιστορικό Κλήσεων';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'Απέτυχε η αρχικοποίηση του ιστορικού κλήσεων: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'Απέτυχε η ανανέωση του ιστορικού κλήσεων: $error';
-  }
-
-  @override
   String get callHistoryTab => 'Ιστορικό Κλήσεων';
-
-  @override
-  String get callHistoryTimelineEarlier => 'Παλαιότερα';
-
-  @override
-  String get callHistoryTimelineToday => 'Σήμερα';
-
-  @override
-  String get callHistoryTimelineYesterday => 'Χθες';
 
   @override
   String get callScreeningPermission => 'Άδεια Ελέγχου Κλήσεων';
@@ -753,13 +565,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'Η άδεια ελέγχου κλήσεων δεν έχει χορηγηθεί, ενδέχεται να επηρεάσει τη λειτουργικότητα της εφαρμογής.';
-
-  @override
-  String get callSettingsSubtitle =>
-      'Ρυθμίσεις αναγνώρισης κλήσης, φιλτραρίσματος και αποκλεισμού';
-
-  @override
-  String get callSettingsTitle => 'Ρυθμίσεις Κλήσεων';
 
   @override
   String get callStatistics => 'Στατιστικά Κλήσεων';
@@ -817,27 +622,10 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'Αλλαγή Ετικέτας';
-
-  @override
   String get charity => 'Φιλανθρωπία';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'Μήνας $month';
-  }
-
-  @override
-  String get chartOneDayAgo => '1 ημέρα πριν';
-
-  @override
-  String get chartOneMonthAgo => '1 μήνας πριν';
-
-  @override
   String get chartOneWeekAgo => '1 εβδομάδα πριν';
-
-  @override
-  String get chartTenDaysAgo => '10 ημέρες πριν';
 
   @override
   String get chartThreeDaysAgo => '3 ημέρες πριν';
@@ -858,24 +646,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Επιλέξτε την προεπιλεγμένη ενέργεια παρεμπόδισης';
 
   @override
-  String get clearAllData => 'Εκκαθάριση Όλων των Δεδομένων';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'Είστε σίγουροι ότι θέλετε να διαγράψετε όλα τα δεδομένα της εφαρμογής; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.';
-
-  @override
-  String get clearAllDataDescription =>
-      'Διαγραφή όλων των δεδομένων της εφαρμογής';
-
-  @override
-  String get clearAllDataLabel => 'Εκκαθάριση Όλων των Δεδομένων';
-
-  @override
   String get clearFilter => 'Εκκαθάριση Φίλτρου';
-
-  @override
-  String get clearLabelFilter => 'Εκκαθάριση Φίλτρου Ετικετών';
 
   @override
   String get clearLabelFilterButton => 'Εκκαθάριση Φίλτρου Ετικετών';
@@ -900,9 +671,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get cloudSyncTitle => 'Cloud Sync';
 
   @override
-  String get collapseLabelSelector => 'Σύμπτυξη Επιλογέα Ετικετών';
-
-  @override
   String get collection => 'Συλλογή Χρεών';
 
   @override
@@ -923,15 +691,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Ρύθμιση Επιλογών Δημιουργίας Αντιγράφων Ασφαλείας';
 
   @override
-  String get configureBackupOptionsSubtitle =>
-      'Ρύθμιση επιλογών δημιουργίας αντιγράφων ασφαλείας';
-
-  @override
   String get configureCloudSyncService => 'Ρύθμιση Υπηρεσίας Cloud Sync';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'Παρακαλώ ρυθμίστε μια υπηρεσία cloud sync για να ενεργοποιήσετε τον συγχρονισμό πολλαπλών συσκευών.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -942,31 +702,13 @@ class AppLocalizationsEl extends AppLocalizations {
       'Ρύθμιση Κανόνων Φίλτρου Κάρτας SIM';
 
   @override
-  String get configureSyncServiceHint =>
-      'Παρακαλώ ρυθμίστε πρώτα την υπηρεσία συγχρονισμού στις ρυθμίσεις cloud sync';
-
-  @override
   String get confirm => 'Επιβεβαίωση';
-
-  @override
-  String get confirmBatchDeleteContacts =>
-      'Είστε σίγουροι ότι θέλετε να διαγράψετε τις επιλεγμένες';
 
   @override
   String get confirmButton => 'Επιβεβαίωση';
 
   @override
   String get confirmDelete => 'Επιβεβαίωση Διαγραφής';
-
-  @override
-  String get confirmDeleteContact => 'Είστε σίγουροι ότι θέλετε να διαγράψετε';
-
-  @override
-  String get confirmDeleteContactName => 'Επιβεβαίωση διαγραφής;';
-
-  @override
-  String get confirmDeleteFilter =>
-      'Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το φίλτρο;';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -988,10 +730,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Είστε σίγουροι ότι θέλετε να διαγράψετε αυτόν τον κανόνα; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'Είστε σίγουροι ότι θέλετε να διαγράψετε τις επιλεγμένες επαφές;';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'Είστε σίγουροι ότι θέλετε να διαγράψετε αυτόν τον κανόνα φίλτρου SMS;';
 
@@ -1000,19 +738,12 @@ class AppLocalizationsEl extends AppLocalizations {
       'Είστε σίγουροι ότι θέλετε να διαγράψετε αυτόν τον κανόνα SMS;';
 
   @override
-  String get confirmDeleteSubscription =>
-      'Είστε σίγουροι ότι θέλετε να διαγράψετε αυτήν τη συνδρομή;';
-
-  @override
   String confirmDeleteSubscriptions(String name) {
     return 'Είστε σίγουροι ότι θέλετε να διαγράψετε $name;';
   }
 
   @override
   String get confirmPassword => 'Επιβεβαίωση Κωδικού';
-
-  @override
-  String get confirmPasswordLabel => 'Επιβεβαίωση Κωδικού';
 
   @override
   String get connectedStatus => 'Συνδεδεμένο';
@@ -1037,16 +768,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get contactDeleted => 'Η επαφή διαγράφηκε';
 
   @override
-  String get contactEditDialog => 'Παράθυρο Επεξεργασίας Επαφής';
-
-  @override
-  String get contactNameHint => 'Εισάγετε όνομα επαφής (προαιρετικό)';
-
-  @override
   String get contactNameLabel => 'Όνομα';
-
-  @override
-  String get contactNameOptional => 'Όνομα επαφής (προαιρετικό)';
 
   @override
   String get contactNotFound => 'Η επαφή δεν βρέθηκε';
@@ -1060,25 +782,7 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle =>
-      'Διαχείριση επαφών και ρυθμίσεις ετικετών';
-
-  @override
-  String get contactSettingsTitle => 'Ρυθμίσεις Επαφών';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'Απέτυχε η φόρτωση των επαφών: $error';
-  }
-
-  @override
   String get contactsManagement => 'Διαχείριση Επαφών';
-
-  @override
-  String get contactsManagementPageTitle => 'Σελίδα Διαχείρισης Επαφών';
-
-  @override
-  String get contactsPageTitle => 'Διαχείριση Επαφών';
 
   @override
   String get contactsPermission => 'Άδεια Επαφών';
@@ -1093,14 +797,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'Εγγραφείτε σε λίστες επαφών μέσω URL, ενημερώστε αυτόματα τα στοιχεία και τις ετικέτες των επαφών. Υποστηρίζει δεδομένα σε μορφή JSON.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'Απέτυχε η φόρτωση των συνδρομών επαφών: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'Συνδρομές Επαφών';
 
   @override
   String get contactUpdateSuccess => 'Η επαφή ενημερώθηκε με επιτυχία';
@@ -1136,26 +832,11 @@ class AppLocalizationsEl extends AppLocalizations {
   String get countryRegionNamePosition => 'Θέση Ονόματος Χώρας/Περιοχής';
 
   @override
-  String get countrySelectionDialog => 'Παράθυρο Επιλογής Χώρας';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'Χρησιμοποιείται για την επιλογή χώρας για αναζήτηση πληροφοριών αναγνώρισης κλήσης';
-
-  @override
   String get countThresholdDescription =>
       'Ορίστε το ελάχιστο όριο μετρητή που απαιτείται για την ενεργοποίηση ενεργειών φιλτραρίσματος';
 
   @override
   String get countThresholdLabel => 'Όριο Μετρητή';
-
-  @override
-  String get countThresholdSettings => 'Ρυθμίσεις Ορίου Μετρητή';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'Όριο Μετρητή: $count';
-  }
 
   @override
   String get createdRules => 'Δημιουργημένοι Κανόνες';
@@ -1164,48 +845,22 @@ class AppLocalizationsEl extends AppLocalizations {
   String get csvFormat => 'Μορφή CSV';
 
   @override
-  String get currentDeviceChip => 'Τρέχον';
-
-  @override
   String get currentDeviceLabel => 'Ετικέτα Τρέχουσας Συσκευής';
 
   @override
   String get currentDeviceTitle => 'Τρέχουσα Συσκευή';
 
   @override
-  String get currentLabels => 'Τρέχουσες Ετικέτες:';
-
-  @override
   String get currentLanguage => 'Τρέχουσα Γλώσσα';
 
   @override
-  String get currentPasswordLabel => 'Τρέχων Κωδικός Πρόσβασης';
-
-  @override
   String get customerService => 'Εξυπηρέτηση Πελατών';
-
-  @override
-  String get customRange => 'Προσαρμοσμένο Εύρος';
-
-  @override
-  String get dailyStatistics => 'Ημερήσια Στατιστικά';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'Λάβετε ημερήσια στατιστικά στοιχεία για αποκλεισμένες κλήσεις και μηνύματα';
 
   @override
   String get dashboardTab => 'Πίνακας Ελέγχου';
 
   @override
   String get dataAnalysis => 'Ανάλυση Δεδομένων';
-
-  @override
-  String get dataAnalysisDashboardPage =>
-      'Σελίδα Πίνακα Ελέγχου Ανάλυσης Δεδομένων';
-
-  @override
-  String get dataExport => 'Εξαγωγή Δεδομένων';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1223,16 +878,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'Αυτή η λειτουργία σας επιτρέπει να μεταφέρετε όλα τα δεδομένα σας μεταξύ συσκευών. Επί του παρόντος, μπορείτε να χρησιμοποιήσετε τις λειτουργίες δημιουργίας αντιγράφων ασφαλείας και επαναφοράς για να μεταφέρετε χειροκίνητα τα δεδομένα σας.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'Αυτή η λειτουργία σας επιτρέπει να μεταφέρετε όλα τα δεδομένα σας μεταξύ συσκευών. Επί του παρόντος, μπορείτε να χρησιμοποιήσετε τις λειτουργίες δημιουργίας αντιγράφων ασφαλείας και επαναφοράς για να μεταφέρετε χειροκίνητα τα δεδομένα σας.';
-
-  @override
-  String get dataMigrationDialogTitle => 'Μεταφορά Δεδομένων';
-
-  @override
-  String get dataMigrationSectionTitle => 'Μεταφορά Δεδομένων';
 
   @override
   String get dataSourceReminder => 'Υπενθύμιση Πηγής Δεδομένων';
@@ -1257,9 +902,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get debtCollection => 'Είσπραξη Χρεών';
 
   @override
-  String get defaultPeriod => 'Εβδομάδα';
-
-  @override
   String get delete => 'Διαγραφή';
 
   @override
@@ -1274,24 +916,9 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation =>
-      'Είστε σίγουροι ότι θέλετε να διαγράψετε την επαφή';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return 'Είστε σίγουροι ότι θέλετε να διαγράψετε την $deviceName;';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'Διαγραφή Συσκευής';
-
-  @override
   String deleteFailed(Object error) {
     return 'Η διαγραφή απέτυχε: $error';
   }
-
-  @override
-  String get deleteFilter => 'Διαγραφή Φίλτρου';
 
   @override
   String get deleteLabel => 'Διαγραφή Ετικέτας';
@@ -1329,9 +956,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get deleteSelected => 'Διαγραφή Επιλεγμένων';
 
   @override
-  String get deleteSmsRule => 'Διαγραφή Κανόνα SMS';
-
-  @override
   String get deleteSubscription => 'Διαγραφή Συνδρομής';
 
   @override
@@ -1351,16 +975,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get delivery => 'Παράδοση';
 
   @override
-  String get deviceDeletedSuccessfully => 'Η συσκευή διαγράφηκε επιτυχώς';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage =>
-      'Η συσκευή διαγράφηκε επιτυχώς';
-
-  @override
-  String get deviceIdLabel => 'Αναγνωριστικό Συσκευής';
-
-  @override
   String get deviceIDLabel => 'Αναγνωριστικό Συσκευής';
 
   @override
@@ -1377,29 +991,11 @@ class AppLocalizationsEl extends AppLocalizations {
   String get deviceName => 'Όνομα Συσκευής';
 
   @override
-  String get deviceNameCannotBeEmpty =>
-      'Το όνομα της συσκευής δεν μπορεί να είναι κενό';
-
-  @override
-  String get deviceNameHint => 'Εισαγάγετε το όνομα της συσκευής';
-
-  @override
   String get deviceNameLabel => 'Όνομα Συσκευής';
-
-  @override
-  String get deviceRenamedSuccessfully => 'Η συσκευή μετονομάστηκε με επιτυχία';
 
   @override
   String get deviceRenamedSuccessfullyMessage =>
       'Η συσκευή μετονομάστηκε με επιτυχία';
-
-  @override
-  String get devicesSyncedSuccessfully =>
-      'Οι συσκευές συγχρονίστηκαν με επιτυχία';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage =>
-      'Οι συσκευές συγχρονίστηκαν με επιτυχία';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1424,10 +1020,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'Απενεργοποίηση καθολικών πρόσθετων';
-
-  @override
-  String get disableSubscriptionSuccessfully =>
-      'Η συνδρομή απενεργοποιήθηκε με επιτυχία';
 
   @override
   String get disconnectButton => 'Αποσύνδεση';
@@ -1461,26 +1053,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get editContact => 'Επεξεργασία Επαφής';
 
   @override
-  String get editFilter => 'Επεξεργασία Φίλτρου';
-
-  @override
   String get editLabel => 'Επεξεργασία Ετικέτας';
 
   @override
   String get editPhoneRule => 'Επεξεργασία Κανόνα Τηλεφώνου';
 
   @override
-  String get editPhoneRules =>
-      'Χρησιμοποιείται για την επεξεργασία κανόνων τηλεφώνου';
-
-  @override
-  String get editPhoneRuleTitle => 'Επεξεργασία Κανόνα Τηλεφώνου';
-
-  @override
   String get editRule => 'Επεξεργασία Κανόνα';
-
-  @override
-  String get editSmsRule => 'Επεξεργασία Κανόνα SMS';
 
   @override
   String get education => 'Εκπαίδευση';
@@ -1490,9 +1069,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get email => 'Email';
-
-  @override
-  String get emailOptional => 'Email (Προαιρετικό)';
 
   @override
   String get enableCallFilter => 'Ενεργοποίηση Φίλτρου Κλήσεων';
@@ -1513,16 +1089,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get enableEncryptionDescription =>
       'Κρυπτογράφηση αρχείων αντιγράφων ασφαλείας';
-
-  @override
-  String get enableEncryptionLabel => 'Ενεργοποίηση Κρυπτογράφησης';
-
-  @override
-  String get enableEncryptionSubtitle =>
-      'Τα αρχεία αντιγράφων ασφαλείας θα κρυπτογραφηθούν';
-
-  @override
-  String get enableEncryptionTitle => 'Ενεργοποίηση Κρυπτογράφησης';
 
   @override
   String get enableGlobalPlugins => 'Ενεργοποίηση καθολικών πρόσθετων';
@@ -1559,9 +1125,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Επιτρέψτε ρυθμίσεις κανόνων χωρίς ενέργειες παρεμβολής';
 
   @override
-  String get enableNotifications => 'Ενεργοποίηση Ειδοποιήσεων';
-
-  @override
   String get enableRemoteNumberFilter =>
       'Ενεργοποίηση Απομακρυσμένου Φίλτρου Αριθμών';
 
@@ -1578,14 +1141,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'Όταν είναι ενεργοποιημένα, τα μηνύματα θα φιλτράρονται αυτόματα σύμφωνα με τους κανόνες';
-
-  @override
-  String get enableStatisticsNotifications =>
-      'Ενεργοποίηση Ειδοποιήσεων Στατιστικών';
-
-  @override
-  String get enableSubscriptionSuccessfully =>
-      'Η συνδρομή ενεργοποιήθηκε με επιτυχία';
 
   @override
   String get enableTimeInterception => 'Ενεργοποίηση Παρεμβολής Χρόνου';
@@ -1620,10 +1175,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Το ενισχυμένο σύστημα φίλτρων υποστηρίζει τόσο καθολικούς κανόνες όσο και ρυθμίσεις φιλτραρίσματος ανά κάρτα SIM.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'Εισαγάγετε και τον αριθμό τηλεφώνου και το μοτίβο regex';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'Εισαγάγετε και τον αριθμό τηλεφώνου και το μοτίβο regex.';
 
@@ -1631,32 +1182,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get enterContactName => 'Εισαγάγετε όνομα επαφής';
 
   @override
-  String get enterCurrentPasswordHint =>
-      'Εισαγάγετε τον τρέχοντα κωδικό πρόσβασης';
-
-  @override
   String get enterDeviceName => 'Εισαγωγή Ονόματος Συσκευής';
-
-  @override
-  String get enterDeviceNameHint => 'Εισαγάγετε το όνομα της συσκευής';
-
-  @override
-  String get enterEmail => 'Εισαγάγετε email';
 
   @override
   String get enterEmailOptional => 'Εισαγάγετε email (προαιρετικό)';
 
   @override
   String get enterEncryptionPasswordHint => 'Εισαγάγετε κωδικό κρυπτογράφησης';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'Εισαγωγή Κωδικού Κρυπτογράφησης';
-
-  @override
-  String get enterFilterName => 'Εισαγωγή ονόματος φίλτρου';
-
-  @override
-  String get enterFilterPattern => 'Εισαγωγή μοτίβου φίλτρου';
 
   @override
   String get enterIconCode => 'Εισαγωγή κωδικού εικονιδίου';
@@ -1669,13 +1201,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Εισαγάγετε ένα νέο όνομα για αυτήν τη συσκευή';
 
   @override
-  String get enterNewPasswordHint => 'Εισαγάγετε νέο κωδικό πρόσβασης';
-
-  @override
   String get enterPasswordAgain => 'Εισαγωγή Κωδικού Ξανά';
-
-  @override
-  String get enterPasswordHint => 'Εισαγάγετε κωδικό πρόσβασης';
 
   @override
   String get enterPhoneNumber => 'Εισαγωγή αριθμού τηλεφώνου';
@@ -1703,9 +1229,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'Εισαγωγή μοτίβου regex';
-
-  @override
-  String get enterRuleNameAndPattern => 'Εισαγάγετε όνομα κανόνα και μοτίβο';
 
   @override
   String get enterRuleNameAndPatternMessage =>
@@ -1751,14 +1274,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get enterWebDAVUsernameHint => 'Παρακαλώ εισάγετε όνομα χρήστη WebDAV';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'Σφάλμα κατά τη διαγραφή συσκευής: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'Σφάλμα κατά τη φόρτωση plugin';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'Παρουσιάστηκε σφάλμα: $error';
   }
@@ -1774,14 +1289,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'Σφάλμα κατά το συγχρονισμό συσκευών: $error';
-  }
-
-  @override
-  String get errorText => 'Σφάλμα';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'Σφάλμα κατά την αποεγγραφή συσκευής: $error';
   }
@@ -1791,9 +1298,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'π.χ. Αποκλεισμός SMS μάρκετινγκ';
-
-  @override
-  String get exampleContentRegex => 'π.χ., .*προσφορά.*';
 
   @override
   String get exampleContentRegexHint => 'Παράδειγμα Regex Περιεχομένου';
@@ -1812,9 +1316,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get exampleRegex400Prefix => 'Παράδειγμα regex για πρόθεμα 400';
 
   @override
-  String get exampleRegexFormat => 'Παράδειγμα: Μορφή ^10086\$';
-
-  @override
   String get exampleSenderRegexHint => 'Παράδειγμα';
 
   @override
@@ -1825,9 +1326,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get exchangeVip => 'Ανταλλαγή VIP';
-
-  @override
-  String get expandLabelSelector => 'Επέκταση Επιλογέα Ετικετών';
 
   @override
   String expiryTime(Object time) {
@@ -1842,19 +1340,8 @@ class AppLocalizationsEl extends AppLocalizations {
       'Εξαγωγή όλων των ρυθμίσεων εφαρμογής';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'Εξαγωγή όλων των ρυθμίσεων εφαρμογής';
-
-  @override
   String get exportAllRuleConfigurations =>
       'Εξαγωγή όλων των ρυθμίσεων κανόνων';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle =>
-      'Εξαγωγή όλων των ρυθμίσεων κανόνων';
-
-  @override
-  String get exportComplete => 'Η εξαγωγή ολοκληρώθηκε';
 
   @override
   String get exportConfig => 'Εξαγωγή Ρύθμισης';
@@ -1866,9 +1353,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get exportData => 'Εξαγωγή Δεδομένων';
 
   @override
-  String get exportError => 'Σφάλμα Εξαγωγής';
-
-  @override
   String get exportFailed => 'Η εξαγωγή απέτυχε';
 
   @override
@@ -1876,9 +1360,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'Η λειτουργία εξαγωγής έρχεται σύντομα';
-
-  @override
-  String get exporting => 'Γίνεται εξαγωγή...';
 
   @override
   String get exportLabels => 'Εξαγωγή Ετικετών';
@@ -1900,34 +1381,17 @@ class AppLocalizationsEl extends AppLocalizations {
   String get exportRules => 'Εξαγωγή Κανόνων';
 
   @override
-  String get exportRulesDialogTitle => 'Εξαγωγή Κανόνων';
-
-  @override
-  String get exportRulesTitle => 'Εξαγωγή Κανόνων';
-
-  @override
   String get exportSmsRules => 'Εξαγωγή Κανόνων SMS';
 
   @override
   String get exportStatisticsData => 'Εξαγωγή Δεδομένων Στατιστικών';
 
   @override
-  String get exportSuccess => 'Η εξαγωγή ήταν επιτυχής';
-
-  @override
   String get exportSuccesslly => 'Η ρύθμιση εξήχθη επιτυχώς';
-
-  @override
-  String get failedToAddContact => 'Αποτυχία προσθήκης επαφής';
 
   @override
   String failedToAddRule(Object error) {
     return 'Αποτυχία προσθήκης κανόνα: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'Αποτυχία προσθήκης κανόνα SMS: $error';
   }
 
   @override
@@ -1945,9 +1409,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Αποτυχία αποκρυπτογράφησης αρχείου αντιγράφων ασφαλείας';
 
   @override
-  String get failedToDeleteDevice => 'Αποτυχία διαγραφής συσκευής';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'Αποτυχία διαγραφής κανόνα SMS: $error';
   }
@@ -1955,11 +1416,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'Αποτυχία εξαγωγής κανόνων: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'Αποτυχία εξαγωγής κανόνων SMS: $error';
   }
 
   @override
@@ -1973,20 +1429,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'Αποτυχία εισαγωγής κανόνων SMS: $error';
-  }
-
-  @override
-  String get failedToLoadContacts => 'Αποτυχία φόρτωσης επαφών';
-
-  @override
-  String get failedToLoadPlugin => 'Αποτυχία φόρτωσης plugin';
-
-  @override
-  String get failedToRenameDevice => 'Αποτυχία αλλαγής ονόματος συσκευής';
-
-  @override
   String get failedToRestoreSettings => 'Αποτυχία επαναφοράς ρυθμίσεων';
 
   @override
@@ -1995,32 +1437,9 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'Αποτυχία ορισμού κωδικού πρόσβασης: $error';
-  }
-
-  @override
-  String get failedToSyncDevices => 'Αποτυχία συγχρονισμού συσκευών';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'Αποτυχία εναλλαγής κατάστασης κανόνα: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus =>
-      'Αποτυχία εναλλαγής κατάστασης συνδρομής';
-
-  @override
-  String get failedToUpdateContact => 'Αποτυχία ενημέρωσης επαφής';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'Αποτυχία ενημέρωσης κανόνα SMS: $error';
-  }
-
-  @override
-  String get failure => 'Αποτυχία';
 
   @override
   String get favoriteContacts => 'Αγαπημένες Επαφές';
@@ -2061,9 +1480,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get filterByLabel => 'Φιλτράρισμα κατά Ετικέτα';
 
   @override
-  String get filterClear => 'Εκκαθάριση Φίλτρου';
-
-  @override
   String get filterControlPanelTitle => 'Πίνακας Ελέγχου Φίλτρου';
 
   @override
@@ -2074,22 +1490,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get filterControlTitle => 'Έλεγχος Φίλτρων';
 
   @override
-  String get filterDeleteFailed => 'Αποτυχία διαγραφής φίλτρου';
-
-  @override
-  String get filterDeleteSuccess => 'Το φίλτρο διαγράφηκε με επιτυχία';
-
-  @override
-  String get filterDetails => 'Λεπτομέρειες Φίλτρου';
-
-  @override
   String get filtered => 'Φιλτραρισμένα';
-
-  @override
-  String get filteredSms => 'Φιλτραρισμένα SMS';
-
-  @override
-  String get filteredSmsLabel => 'Φιλτραρισμένα SMS';
 
   @override
   String get filterExplanation => 'Επεξήγηση Φίλτρου';
@@ -2101,17 +1502,8 @@ class AppLocalizationsEl extends AppLocalizations {
   String get filterName => 'Όνομα Φίλτρου';
 
   @override
-  String get filterPattern => 'Μοτίβο Φίλτρου';
-
-  @override
   String get filterPriorityNote =>
       'Σημείωση: Υπάρχουν σχέσεις προτεραιότητας μεταξύ των φίλτρων, ανατρέξτε στην τεκμηρίωση βοήθειας για λεπτομέρειες';
-
-  @override
-  String get filterSaveFailed => 'Αποτυχία αποθήκευσης φίλτρου';
-
-  @override
-  String get filterSaveSuccess => 'Το φίλτρο αποθηκεύτηκε με επιτυχία';
 
   @override
   String get filterSettings => 'Ρυθμίσεις Φίλτρου';
@@ -2150,16 +1542,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return 'Βρέθηκαν $count κανόνες. Θέλετε να τους εισαγάγετε;';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return 'Βρέθηκαν $count κανόνες. Θέλετε να τους εισαγάγετε;';
-  }
-
-  @override
   String get fraudAlert => 'ΕΙΔΟΠΟΙΗΣΗ ΑΠΑΤΗΣ - Κλείστε την κλήση';
 
   @override
@@ -2194,39 +1576,14 @@ class AppLocalizationsEl extends AppLocalizations {
   String get globalFilterSettings => 'Ρυθμίσεις Καθολικού Φίλτρου';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'Ρυθμίστε τις ρυθμίσεις καθολικού φίλτρου που ισχύουν για όλες τις υποδοχές SIM:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'Αναζήτηση επαφών, ετικετών, μαύρων λιστών, λευκών λιστών, κ.λπ.';
-
-  @override
-  String get globalSearchTitle => 'Καθολική Αναζήτηση';
-
-  @override
   String get globalSettings => 'Καθολικές Ρυθμίσεις';
-
-  @override
-  String get googleAdDisplayPosition => 'Θέση Εμφάνισης Διαφήμισης Google';
-
-  @override
-  String get googleAdMobIntegrationText =>
-      'Διαφημίσεις Google AdMob μπορούν να ενσωματωθούν εδώ';
 
   @override
   String get googleDriveAuthDescription =>
       'Εξουσιοδοτήστε χρησιμοποιώντας το αναγνωριστικό πελάτη και το κλειδί Google Drive που έχουν ρυθμιστεί στο σύστημα';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'Εξουσιοδοτήστε χρησιμοποιώντας το αναγνωριστικό πελάτη και το κλειδί Google Drive που έχουν ρυθμιστεί στο σύστημα';
-
-  @override
   String get googleDriveConfigTitle => 'Ρύθμιση Google Drive';
-
-  @override
-  String get googleDriveConfigurationTitle => 'Ρύθμιση Google Drive';
 
   @override
   String get government => 'Κυβέρνηση';
@@ -2245,9 +1602,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get height => 'Ύψος';
-
-  @override
-  String get homePageTitle => 'Αρχική Σελίδα';
 
   @override
   String get homeTab => 'Αρχική';
@@ -2278,9 +1632,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get important => 'Σημαντικό';
-
-  @override
-  String get importButton => 'Εισαγωγή';
 
   @override
   String get importConfig => 'Εισαγωγή Ρύθμισης';
@@ -2334,31 +1685,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Εισαγωγή Ρυθμίσεων Κανόνων από Αρχείο';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'Εισαγωγή ρυθμίσεων κανόνων από αρχείο';
-
-  @override
   String get importRules => 'Εισαγωγή Κανόνων';
-
-  @override
-  String get importRulesButton => 'Εισαγωγή Κανόνων';
-
-  @override
-  String get importRulesDialogTitle => 'Εισαγωγή Κανόνων';
-
-  @override
-  String importRulesError(Object error) {
-    return 'Αδυναμία εισαγωγής κανόνων: $error';
-  }
-
-  @override
-  String get importRulesInstructions => 'Εισαγωγή κανόνων από αρχείο CSV';
-
-  @override
-  String get importRulesSuccess => 'Οι κανόνες εισήχθησαν με επιτυχία';
-
-  @override
-  String get importRulesTitle => 'Εισαγωγή Κανόνων';
 
   @override
   String get importSuccess => 'Η εισαγωγή ολοκληρώθηκε';
@@ -2366,9 +1693,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get incomingCallInterceptAction =>
       'Ενέργεια Παρεμβολής Εισερχόμενης Κλήσης';
-
-  @override
-  String get incomingCallNotification => 'Ειδοποίηση Εισερχόμενης Κλήσης';
 
   @override
   String get incorrectPassword => 'Λανθασμένος κωδικός πρόσβασης';
@@ -2424,9 +1748,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Συμμετοχή στο Κανάλι και την Ομάδα Telegram για Περισσότερες Πληροφορίες';
 
   @override
-  String get jsLogsTitle => 'Αρχεία καταγραφής JS';
-
-  @override
   String get jsonFormat => 'Μορφή JSON';
 
   @override
@@ -2435,16 +1756,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'Διατηρήστε όλες τις ιστορικές εκδόσεις κάθε αντιγράφου ασφαλείας';
-
-  @override
-  String get keepAllVersionsLabel => 'Διατήρηση όλων των εκδόσεων';
-
-  @override
-  String get keepAllVersionsSubtitle =>
-      'Διατηρήστε ιστορικές εκδόσεις κάθε αντιγράφου ασφαλείας';
-
-  @override
-  String get keepAllVersionsTitle => 'Διατήρηση όλων των εκδόσεων';
 
   @override
   String get label => 'Ετικέτα';
@@ -2465,9 +1776,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Οι ετικέτες σας βοηθούν να διαχειρίζεστε καλύτερα τις επαφές, προσθέστε προσαρμοσμένες ετικέτες σε αριθμούς τηλεφώνου για εύκολη αναγνώριση κλήσεων και μηνυμάτων.';
 
   @override
-  String get labelFilter => 'Φίλτρο ετικέτας';
-
-  @override
   String get labelFilterTooltip => 'Φίλτρο ετικέτας';
 
   @override
@@ -2478,14 +1786,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get labelNotFound => 'Η ετικέτα δεν βρέθηκε';
-
-  @override
-  String get labelRemoved => 'Η ετικέτα αφαιρέθηκε';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'Αποτυχία αφαίρεσης ετικέτας: $error';
-  }
 
   @override
   String get labels => 'Ετικέτες';
@@ -2518,9 +1818,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'Η ετικέτα ενημερώθηκε';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'Αποτυχία ενημέρωσης ετικέτας: $error';
   }
@@ -2538,12 +1835,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'Ρυθμίσεις γλώσσας';
-
-  @override
-  String get last30Days => 'Τελευταίες 30 ημέρες';
-
-  @override
-  String get last7Days => 'Τελευταίες 7 ημέρες';
 
   @override
   String get lastSyncLabel => 'Τελευταία Συγχρονισμός';
@@ -2569,13 +1860,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get loadDataFailed => 'Αποτυχία φόρτωσης δεδομένων';
 
   @override
-  String get loadFailed => 'Αποτυχία φόρτωσης';
-
-  @override
   String get loading => 'Φόρτωση...';
-
-  @override
-  String get loadingData => 'Φόρτωση δεδομένων...';
 
   @override
   String get loadingTags => 'Φόρτωση ετικετών...';
@@ -2599,12 +1884,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'Αποτυχία φόρτωσης αριθμών με σήμανση: $error';
   }
-
-  @override
-  String get loadMore => 'Φόρτωση Περισσότερων';
-
-  @override
-  String get loadPluginButton => 'Φόρτωση Πρόσθετου';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2631,9 +1910,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get loan => 'Δάνειο';
-
-  @override
-  String get localBackupTitle => 'Τοπικό αντίγραφο ασφαλείας';
 
   @override
   String get localCounterFilter => 'Φίλτρο τοπικού μετρητή';
@@ -2731,9 +2007,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get manage => 'Διαχείριση Επαφών';
 
   @override
-  String get manageContacts => 'Διαχείριση';
-
-  @override
   String get manageFavoriteContacts => 'Διαχείριση αγαπημένων επαφών';
 
   @override
@@ -2742,9 +2015,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'Προσθήκη, επεξεργασία ή διαγραφή κανόνων φίλτρου SMS';
-
-  @override
-  String get manageFrequentContacts => 'Διαχείριση συχνών επαφών';
 
   @override
   String get markCounts => 'Μετρήσεις σήμανσης';
@@ -2772,16 +2042,10 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle => 'Για Σήμανση Αριθμών Τηλεφώνου';
-
-  @override
   String get markPhoneManagementTitle => 'Διαχείριση Σήμανσης Αριθμών';
 
   @override
   String get markPhoneSuccess => 'Ο αριθμός τηλεφώνου σημάνθηκε επιτυχώς';
-
-  @override
-  String get matchFailed => 'Η αντιστοίχιση απέτυχε!';
 
   @override
   String get matchFailedMessage => 'Η αντιστοίχιση απέτυχε.';
@@ -2802,9 +2066,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Αντιστοίχιση συγκεκριμένων μοτίβων ψηφίων:';
 
   @override
-  String get matchSuccessful => 'Η αντιστοίχιση ήταν επιτυχής!';
-
-  @override
   String get matchSuccessfulMessage => 'Η αντιστοίχιση ήταν επιτυχής!';
 
   @override
@@ -2815,9 +2076,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get migrationTool => 'Εργαλείο Μετανάστευσης';
-
-  @override
-  String get migrationToolTitle => 'Εργαλείο Μετανάστευσης';
 
   @override
   String get minutes => 'λεπτά';
@@ -2832,9 +2090,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get monthlyCallCount => 'Μηνιαίες Κλήσεις';
 
   @override
-  String get monthlyChartTitle => 'Μηνιαίες Μπλοκαρισμένες Κλήσεις';
-
-  @override
   String get monthlyMembership => 'Μηνιαία Συνδρομή';
 
   @override
@@ -2843,9 +2098,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'Μηνιαίο Σύνολο';
-
-  @override
-  String get monthlyTotalLabel => 'Μηνιαίο Σύνολο';
 
   @override
   String get moreOptions => 'Περισσότερες Επιλογές';
@@ -2861,33 +2113,16 @@ class AppLocalizationsEl extends AppLocalizations {
       'Το όνομα και ο αριθμός τηλεφώνου δεν μπορούν να είναι κενά';
 
   @override
-  String get nameAndPhoneNumberRequired =>
-      'Το όνομα και ο αριθμός τηλεφώνου δεν μπορούν να είναι κενά';
-
-  @override
   String get nameColor => 'Χρώμα Ονόματος';
 
   @override
   String get nameFontSize => 'Μέγεθος Γραμματοσειράς Ονόματος';
 
   @override
-  String nameLabel(Object name) {
-    return 'Όνομα: $name';
-  }
-
-  @override
   String get namePosition => 'Θέση Ονόματος';
 
   @override
   String get nameUnknown => 'Όνομα: Άγνωστο';
-
-  @override
-  String nameWithValue(String name) {
-    return 'Όνομα: $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'Νέος Κωδικός Πρόσβασης';
 
   @override
   String get nextStep => 'Επόμενο';
@@ -2903,13 +2138,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Δεν υπάρχει ενεργή υπηρεσία συγχρονισμού cloud';
 
   @override
-  String get noCallLogs => 'Δεν υπάρχουν Αρχεία Κλήσεων';
-
-  @override
   String get noCallRecords => 'Δεν υπάρχουν αρχεία κλήσεων';
-
-  @override
-  String get noContacts => 'Δεν υπάρχουν επαφές ακόμα';
 
   @override
   String get noContactsYet => 'Δεν υπάρχουν επαφές ακόμα';
@@ -2921,28 +2150,16 @@ class AppLocalizationsEl extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'Δεν έχουν καταχωρηθεί συσκευές';
 
   @override
-  String get noDevicesRegisteredYet => 'Δεν έχουν καταχωρηθεί συσκευές ακόμα.';
-
-  @override
-  String get noFilters => 'Δεν υπάρχουν φίλτρα ακόμα';
-
-  @override
   String get noLabels => 'Δεν υπάρχουν ετικέτες ακόμα';
 
   @override
   String get noMarkedPhones => 'Δεν υπάρχουν σημειωμένοι αριθμοί τηλεφώνου';
 
   @override
-  String get noMatchingContacts => 'Δεν υπάρχουν αντίστοιχες επαφές';
-
-  @override
   String get noMatchingContactsFound => 'Δεν βρέθηκαν αντίστοιχες επαφές';
 
   @override
   String get noMatchingNumbersFound => 'Δεν βρέθηκαν αντίστοιχοι αριθμοί';
-
-  @override
-  String get noMatchingRecords => 'Δεν βρέθηκαν αντίστοιχα αρχεία κλήσεων';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2957,15 +2174,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get noPlugins => 'Δεν υπάρχουν plugins ακόμα';
-
-  @override
-  String get noRecords => 'Δεν υπάρχουν αρχεία κλήσεων';
-
-  @override
-  String get noResultReturned => 'Δεν επιστράφηκε αποτέλεσμα';
-
-  @override
-  String get noResultReturnedLog => 'Δεν επιστράφηκε αποτέλεσμα από το plugin';
 
   @override
   String noRules(Object ruleType) {
@@ -2988,9 +2196,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get noSubscriptions => 'Δεν υπάρχουν συνδρομές';
 
   @override
-  String get noSubscriptionsYet => 'Δεν υπάρχουν συνδρομές ακόμα';
-
-  @override
   String get notGranted => 'Δεν Παραχωρήθηκε';
 
   @override
@@ -3009,13 +2214,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get notificationSettings => 'Ρυθμίσεις Ειδοποιήσεων';
-
-  @override
-  String get notificationSettingsSaved =>
-      'Οι ρυθμίσεις ειδοποιήσεων αποθηκεύτηκαν επιτυχώς';
-
-  @override
-  String get notSet => 'Δεν έχει οριστεί';
 
   @override
   String get notVerifiedText => 'Δεν έχει Επαληθευτεί';
@@ -3049,9 +2247,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get numberTypePosition => 'Θέση Τύπου Αριθμού';
 
   @override
-  String get ok => 'Εντάξει';
-
-  @override
   String get okButton => 'Εντάξει';
 
   @override
@@ -3083,14 +2278,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Εξουσιοδοτήστε χρησιμοποιώντας το αναγνωριστικό και το κλειδί του πελάτη OneDrive που έχει ρυθμιστεί από το σύστημα';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'Εξουσιοδοτήστε χρησιμοποιώντας το αναγνωριστικό και το κλειδί του πελάτη OneDrive που έχει ρυθμιστεί από το σύστημα';
-
-  @override
   String get oneDriveConfigTitle => 'Ρύθμιση OneDrive';
-
-  @override
-  String get oneDriveConfigurationTitle => 'Ρύθμιση OneDrive';
 
   @override
   String get onlineCallerIdSubscription =>
@@ -3152,9 +2340,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get passwordsDoNotMatch => 'Οι κωδικοί πρόσβασης δεν ταιριάζουν';
 
   @override
-  String get passwordSetSuccessfully => 'Ο κωδικός πρόσβασης ορίστηκε επιτυχώς';
-
-  @override
   String get pattern => 'Μοτίβο';
 
   @override
@@ -3189,15 +2374,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Ο αριθμός τηλεφώνου δεν μπορεί να είναι κενός';
 
   @override
-  String get phoneNumberHintText =>
-      'Εισαγάγετε αριθμό τηλεφώνου για προσθήκη κανόνα';
-
-  @override
   String get phoneNumberLabel => 'Αριθμός τηλεφώνου';
-
-  @override
-  String get phoneNumberRegexRequired =>
-      'Παρακαλώ εισαγάγετε τόσο τον αριθμό τηλεφώνου όσο και το μοτίβο regex';
 
   @override
   String get phoneNumberTypeFixedLine => 'Σταθερή γραμμή';
@@ -3246,9 +2423,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get phoneRule => 'Κανόνας Τηλεφώνου';
 
   @override
-  String get phoneRuleEditDialog => 'Διάλογος Επεξεργασίας Κανόνα Τηλεφώνου';
-
-  @override
   String get phoneRuleManagement => 'Διαχείριση Κανόνων Τηλεφώνου';
 
   @override
@@ -3260,9 +2434,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'Εγγραφείτε σε λίστες κανόνων τηλεφώνου μέσω URL για αυτόματη ενημέρωση λευκών και μαύρων λιστών. Υποστηρίζει αρχεία κανόνων σε μορφή JSON.';
-
-  @override
-  String get phoneSubscriptionTitle => 'Συνδρομές Κανόνων Τηλεφώνου';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3284,9 +2455,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get pluginListExportSuccess => 'Η λίστα πρόσθετων εξαγάχθηκε επιτυχώς';
 
   @override
-  String get pluginLoadedSuccessfully => 'Το πρόσθετο φορτώθηκε επιτυχώς';
-
-  @override
   String get pluginManagement => 'Διαχείριση Πρόσθετων';
 
   @override
@@ -3294,14 +2462,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Διαχειριστείτε και διαμορφώστε πρόσθετα τρίτων';
 
   @override
-  String get pluginManagementTitle => 'Διαχείριση Πρόσθετων';
-
-  @override
   String get pluginName => 'Όνομα Πρόσθετου';
-
-  @override
-  String get pluginNotLoaded =>
-      'Το πρόσθετο δεν έχει φορτωθεί ακόμα. Παρακαλώ φορτώστε πρώτα το πρόσθετο.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3319,16 +2480,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get pluginUrl => 'URL Πρόσθετου';
-
-  @override
-  String get pluginUrlCannotBeEmpty =>
-      'Το URL του πρόσθετου δεν μπορεί να είναι κενό';
-
-  @override
-  String get pluginUrlHint => 'Εισαγάγετε URL πρόσθετου';
-
-  @override
-  String get pluginUrlLabel => 'URL Πρόσθετου';
 
   @override
   String get pluginVersion => 'Έκδοση Πρόσθετου';
@@ -3367,35 +2518,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Ξεκλειδώστε όλες τις premium λειτουργίες, αυτόματη ανανέωση ανά τρίμηνο';
 
   @override
-  String get queryButton => 'Ερώτημα';
-
-  @override
-  String get queryFailed => 'Η ερώτηση απέτυχε';
-
-  @override
-  String get queryFailedLog => 'Η ερώτηση απέτυχε';
-
-  @override
-  String get querying => 'Αναζήτηση...';
-
-  @override
-  String get queryingPhoneNumber => 'Αναζήτηση αριθμού τηλεφώνου';
-
-  @override
-  String get queryResultTitle => 'Αποτέλεσμα Ερώτησης';
-
-  @override
   String get ready => 'Έτοιμο!';
 
   @override
-  String get receiveWeeklyStatistics => 'Λήψη εβδομαδιαίων στατιστικών';
-
-  @override
   String get recruiter => 'Προσλήψεις';
-
-  @override
-  String get reEnterPasswordHint =>
-      'Παρακαλώ εισάγετε ξανά τον κωδικό πρόσβασης';
 
   @override
   String get refresh => 'Ανανέωση';
@@ -3405,11 +2531,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'Ανανέωση';
-
-  @override
-  String regexError(Object error) {
-    return 'Σφάλμα Regex: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3427,10 +2548,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'Μοτίβο Regex';
-
-  @override
-  String get regexPatternsExamples =>
-      'Χρησιμοποιήστε τυπική σύνταξη regex για να ορίσετε μοτίβα. Παραδείγματα:';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3459,14 +2576,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'Ελεγκτής Regex';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'Η επικύρωση Regex απέτυχε: $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'Η επικύρωση Regex ήταν επιτυχής';
 
   @override
   String get region => 'Περιοχή';
@@ -3506,35 +2615,8 @@ class AppLocalizationsEl extends AppLocalizations {
   String get remoteNumberFilter => 'Απομακρυσμένο Φίλτρο Αριθμών';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'Αυτό το φίλτρο χρησιμοποιεί μια ανεξάρτητη απομακρυσμένη βάση δεδομένων για να λάβει τις πιο πρόσφατες πληροφορίες αριθμών.';
-
-  @override
   String get remoteNumberFilterDescription =>
       'Αναχαίτιση ενοχλητικών κλήσεων βάσει πληροφοριών απομακρυσμένης βάσης δεδομένων';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'Το απομακρυσμένο φίλτρο αριθμών αναγνωρίζει και αποκλείει κλήσεις spam κάνοντας ερωτήσεις σε μια απομακρυσμένη βάση δεδομένων με βάση τον αριθμό των εμφανίσεων.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle =>
-      'Επεξήγηση Απομακρυσμένου Φίλτρου Αριθμών';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• Όριο Πλήθους: Προσδιορίστε με βάση τη συχνότητα εμφάνισης αριθμών';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• Ενέργειες Φιλτραρίσματος: Ρυθμίστε πώς θα χειριστείτε τους αριθμούς που υπερβαίνουν το όριο';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• Ρυθμίσεις Προτεραιότητας: Ορίστε προτεραιότητα για απομακρυσμένες ενέργειες';
-
-  @override
-  String get remoteNumberFilterFeatures => 'Χαρακτηριστικά:';
 
   @override
   String get remoteNumberFiltering => 'Απομακρυσμένο Φιλτράρισμα Αριθμών';
@@ -3555,30 +2637,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get removeAdsTitle => 'Αφαίρεση Διαφημίσεων';
 
   @override
-  String get removedFromFavoriteContacts =>
-      'Αφαιρέθηκε από τις αγαπημένες επαφές';
-
-  @override
   String get removedFromFavorites => 'Αφαιρέθηκε από τις αγαπημένες επαφές';
-
-  @override
-  String get removeFavorite => 'Αφαίρεση Αγαπημένου';
 
   @override
   String get removeFromFavorites => 'Αφαίρεση από Αγαπημένα';
 
   @override
-  String get renameButton => 'Μετονομασία';
-
-  @override
-  String get renameDeviceDialogTitle => 'Μετονομασία Συσκευής';
-
-  @override
   String get renameDeviceTitle => 'Μετονομασία Συσκευής';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'Αυτό θα αντικαταστήσει όλες τις τρέχουσες ρυθμίσεις σας. Είστε σίγουροι ότι θέλετε να συνεχίσετε;';
 
   @override
   String get requestAllPermissions => 'Αίτηση Όλων των Δικαιωμάτων';
@@ -3607,23 +2672,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Επαναφορά Ρυθμίσεων Εφαρμογής από Αντίγραφο Ασφαλείας';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'Επαναφορά ρυθμίσεων εφαρμογής από αντίγραφο ασφαλείας';
-
-  @override
-  String get restoreButton => 'Επαναφορά';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'Η επαναφορά από το cloud απέτυχε: $error';
-  }
-
-  @override
   String get restoreFromCloud => 'Επαναφορά από το Cloud';
-
-  @override
-  String get restoreFromCloudDescription =>
-      'Επαναφορά ρυθμίσεων και κανόνων από αποθήκευση cloud';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3631,22 +2680,10 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'Επαναφορά από το Cloud';
-
-  @override
   String get restoreFromCloudSuccess => 'Επιτυχής επαναφορά από το cloud';
 
   @override
-  String get restoreFromCloudTitle => 'Επαναφορά από το Cloud';
-
-  @override
-  String get restoreFromLocal => 'Επαναφορά από Τοπικό';
-
-  @override
   String get restorePurchases => 'Επαναφορά Αγορών';
-
-  @override
-  String get restoreSectionTitle => 'Επαναφορά';
 
   @override
   String get restoreSettings => 'Επαναφορά Ρυθμίσεων';
@@ -3654,18 +2691,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'Αυτό θα αντικαταστήσει όλες τις τρέχουσες ρυθμίσεις σας. Είστε σίγουροι ότι θέλετε να συνεχίσετε;';
-
-  @override
-  String get restoreSettingsDialogTitle => 'Επαναφορά Ρυθμίσεων';
-
-  @override
-  String get restoreSettingsTitle => 'Επαναφορά Ρυθμίσεων';
-
-  @override
-  String get restoreSuccessFromLocal => 'Επιτυχής επαναφορά από τοπικό';
-
-  @override
-  String get restoreSuccessMessage => 'Επιτυχής επαναφορά από το cloud';
 
   @override
   String get retry => 'Επανάληψη';
@@ -3683,15 +2708,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get ruleAction => 'Ενέργεια Κανόνα';
 
   @override
-  String get ruleAddButton => 'Προσθήκη Κανόνα';
-
-  @override
   String get ruleAddedSuccess => 'Ο κανόνας προστέθηκε επιτυχώς';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'Αποτυχία προσθήκης κανόνα: $error';
-  }
 
   @override
   String get ruleAddSuccess => 'Ο κανόνας προστέθηκε επιτυχώς';
@@ -3705,18 +2722,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'Διαγραφή Κανόνα';
 
   @override
-  String get ruleDeletedSuccess => 'Ο κανόνας διαγράφηκε επιτυχώς';
-
-  @override
   String get ruleDeletedSuccessfully => 'Ο κανόνας διαγράφηκε επιτυχώς';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'Αποτυχία διαγραφής κανόνα: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'Αποτυχία διαγραφής κανόνα: $error';
   }
 
@@ -3738,9 +2747,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get ruleManagement => 'Διαχείριση Κανόνων';
 
   @override
-  String get ruleManagementTitle => 'Διαχείριση Κανόνων';
-
-  @override
   String get ruleName => 'Όνομα Κανόνα';
 
   @override
@@ -3758,9 +2764,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get ruleNameLabel => 'Όνομα Κανόνα';
 
   @override
-  String get ruleNamePatternRequired => 'Εισαγάγετε όνομα κανόνα και μοτίβο';
-
-  @override
   String get ruleNameRequired =>
       'Το όνομα του κανόνα και ο αριθμός τηλεφώνου δεν μπορούν να είναι κενά';
 
@@ -3773,23 +2776,7 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'Ο κανόνας αποθηκεύτηκε με επιτυχία!';
-
-  @override
   String get ruleSavedSuccessMessage => 'Ο κανόνας αποθηκεύτηκε με επιτυχία!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'Η αποθήκευση απέτυχε: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'Η αποθήκευση απέτυχε: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'Ο κανόνας αποθηκεύτηκε με επιτυχία!';
 
   @override
   String get rulesExportedSuccessfully => 'Οι κανόνες εξήχθησαν με επιτυχία';
@@ -3806,14 +2793,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return '$count κανόνες εισήχθησαν με επιτυχία';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'Αποτυχία εισαγωγής κανόνων: $error';
-  }
-
-  @override
-  String get ruleStatistics => 'Στατιστικά κανόνων';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3848,9 +2827,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get saveButton => 'Αποθήκευση';
 
   @override
-  String get saveButtonLabel => 'ΑΠΟΘΗΚΕΥΣΗ';
-
-  @override
   String get saveButtonText => 'Αποθήκευση';
 
   @override
@@ -3859,15 +2835,7 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'Αποθήκευση φίλτρου';
-
-  @override
   String get saveSettings => 'Αποθήκευση ρυθμίσεων';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'Αποτυχία αποθήκευσης ρυθμίσεων: $error';
-  }
 
   @override
   String get scamsLikely => 'Πιθανές Απάτες';
@@ -3884,28 +2852,11 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'Φίλτρα αναζήτησης';
-
-  @override
-  String get searchForContacts => 'Αναζήτηση επαφών';
-
-  @override
   String get searchHint => 'Αναζήτηση...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'Αναζήτηση επαφών, ετικετών, μαύρων λιστών, λευκών λιστών κ.λπ.';
-
-  @override
-  String get searchSettingsTitle => 'Ρυθμίσεις αναζήτησης';
 
   @override
   String get securityMessage =>
       'Μην εμπιστεύεστε καμία τηλεφωνική κλήση. Επαληθεύετε πάντα τους αριθμούς εξυπηρέτησης πελατών ανεξάρτητα. Ποτέ μην μοιράζεστε κωδικούς πρόσβασης, κωδικούς επαλήθευσης, αριθμούς καρτών ή προσωπικά στοιχεία.';
-
-  @override
-  String get selectActionToPerform =>
-      'Επιλέξτε την ενέργεια που θα πραγματοποιηθεί όταν ο κανόνας ταιριάζει';
 
   @override
   String get selectActionWhenBlockingCalls =>
@@ -3920,12 +2871,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get selectCountry => 'Επιλογή χώρας';
-
-  @override
-  String get selectDateRange => 'Επιλογή εύρους ημερομηνιών';
-
-  @override
-  String get selectedDateRange => 'Επιλεγμένο εύρος ημερομηνιών';
 
   @override
   String selectedItems(Object count) {
@@ -3952,20 +2897,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get selectMultiple => 'Επιλογή πολλαπλών';
 
   @override
-  String get selectPeriod => 'Επιλογή περιόδου';
-
-  @override
   String get selectSimCard => 'Επιλογή κάρτας SIM';
-
-  @override
-  String get selectSimSlot => 'Επιλογή υποδοχής SIM';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'Επιλέξτε τη συγκεκριμένη ενέργεια που θα πραγματοποιηθεί κατά τον αποκλεισμό κλήσεων';
-
-  @override
-  String get selectTag => 'Επιλογή ετικέτας';
 
   @override
   String get selectTags => 'Επιλογή ετικετών';
@@ -4007,23 +2939,7 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'Ορισμός';
-
-  @override
   String get setEncryptionPassword => 'Ορισμός κωδικού κρυπτογράφησης';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'Ορίστε κωδικό κρυπτογράφησης για δημιουργία αντιγράφων ασφαλείας και επαναφορά';
-
-  @override
-  String get setEncryptionPasswordLabel => 'Ορισμός κωδικού κρυπτογράφησης';
-
-  @override
-  String get setEncryptionPasswordTitle => 'Ορισμός κωδικού κρυπτογράφησης';
-
-  @override
-  String get setPasswordButton => 'Ορισμός';
 
   @override
   String get settings => 'Ρυθμίσεις';
@@ -4031,14 +2947,6 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'Οι ρυθμίσεις δημιουργήθηκαν αντίγραφο ασφαλείας σε: $path';
-  }
-
-  @override
-  String get settingsLoaded => 'Οι ρυθμίσεις φορτώθηκαν';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'Αποτυχία φόρτωσης ρυθμίσεων: $error';
   }
 
   @override
@@ -4061,13 +2969,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get setup => 'Εγκατάσταση';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'Στατική μέθοδος εμφάνισης παραθύρου επεξεργασίας επαφής';
-
-  @override
-  String get showExplanation => 'Εμφάνιση εξήγησης';
 
   @override
   String get silence => 'Σίγαση';
@@ -4115,19 +3016,11 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'Αποτυχία φόρτωσης πληροφοριών κάρτας SIM: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'Οι κανόνες καρτών SIM σάς επιτρέπουν να διαμορφώσετε ανεξάρτητους κανόνες φιλτραρίσματος για κάθε υποδοχή κάρτας SIM.';
 
   @override
   String get simRuleInstructionsTitle => 'Κανόνες Υποδοχής Κάρτας SIM';
-
-  @override
-  String get simRuleManagement => 'Διαχείριση Κανόνων Υποδοχής Κάρτας SIM';
 
   @override
   String simSlot1(String countryIso) {
@@ -4140,19 +3033,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'Αποτυχία φόρτωσης δεδομένων SIM: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration =>
-      'Διαμόρφωση Φίλτρου Υποδοχής Κάρτας SIM';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'Επιτρέπει τη ρύθμιση κανόνων φιλτραρίσματος ανά υποδοχή κάρτας SIM';
-
-  @override
   String get simSlotFilterDescription =>
       'Διαμορφώστε ανεξάρτητους κανόνες φιλτραρίσματος για κάθε κάρτα SIM:';
 
@@ -4162,17 +3042,7 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'Αποτυχία φόρτωσης υποδοχών SIM: $error';
-  }
-
-  @override
   String get simSlotManagement => 'Διαχείριση Υποδοχής Κάρτας SIM';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'Η λειτουργία υποδοχής κάρτας SIM απέτυχε: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4193,12 +3063,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'Κανόνες Υποδοχής Κάρτας SIM';
-
-  @override
-  String get simSlotRuleManagementTitle => 'Διαχείριση Κανόνων';
-
-  @override
-  String get simSlotSettings => 'Ρυθμίσεις Υποδοχής Κάρτας SIM';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4235,9 +3099,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get smsFilterSettings => 'Ρυθμίσεις Φίλτρου SMS';
 
   @override
-  String get smsHistory => 'Ιστορικό SMS';
-
-  @override
   String get smsManagement => 'Διαχείριση SMS';
 
   @override
@@ -4262,26 +3123,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get smsRuleManagement => 'Διαχείριση Κανόνων SMS';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'Οι κανόνες SMS εξήχθησαν επιτυχώς στο $filePath';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully =>
-      'Οι κανόνες SMS εισήχθησαν επιτυχώς';
-
-  @override
   String get smsRuleSubscription => 'Συνδρομή Κανόνων SMS';
-
-  @override
-  String get smsRuleUpdatedSuccessfully => 'Ο κανόνας SMS ενημερώθηκε επιτυχώς';
-
-  @override
-  String get smsSettingsSubtitle =>
-      'Φιλτράρισμα SMS και αποκλεισμός λέξεων-κλειδιών';
-
-  @override
-  String get smsSettingsTitle => 'Ρυθμίσεις SMS';
 
   @override
   String get smsSubscription => 'Συνδρομή SMS';
@@ -4319,26 +3161,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get statBlocked => 'Αποκλείστηκαν';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'Στατική μέθοδος για εμφάνιση του διαλόγου πληροφοριών αναγνώρισης κλήσης';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'Στατική μέθοδος για εμφάνιση διαλόγου επιλογής χώρας';
-
-  @override
-  String get staticMethodToDisplayDialog =>
-      'Στατική μέθοδος για εμφάνιση διαλόγου';
-
-  @override
   String get statistics => 'Στατιστικά';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'Η λειτουργία εξαγωγής στατιστικών σύντομα';
-
-  @override
-  String get statisticsGrid => 'Πλέγμα Στατιστικών';
 
   @override
   String get statisticsPageTitle => 'Ανάλυση Δεδομένων';
@@ -4378,10 +3201,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get subscriptionDeleted => 'Η συνδρομή διαγράφηκε';
 
   @override
-  String get subscriptionDeletedSuccessfully =>
-      'Η συνδρομή διαγράφηκε επιτυχώς';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'Αποτυχία διαγραφής συνδρομής: $error';
   }
@@ -4390,23 +3209,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'Η συνδρομή διαγράφηκε';
 
   @override
-  String get subscriptionEmptyState => 'Δεν υπάρχουν διαθέσιμες συνδρομές';
-
-  @override
-  String get subscriptionEmptyText => 'Δεν υπάρχουν ακόμα συνδρομές';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'Αποτυχία φόρτωσης συνδρομών: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'Αποτυχία φόρτωσης συνδρομών: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'Διαχείριση Συνδρομών';
 
   @override
   String get subscriptionName => 'Όνομα Συνδρομής';
@@ -4419,16 +3224,8 @@ class AppLocalizationsEl extends AppLocalizations {
   String get subscriptionNameHint => 'Εισάγετε όνομα συνδρομής';
 
   @override
-  String get subscriptionPageTitle => 'Διαχείριση Συνδρομών';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
     return 'Αποτυχία αλλαγής κατάστασης συνδρομής: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
-    return 'Αποτυχία εναλλαγής κατάστασης συνδρομής: $error';
   }
 
   @override
@@ -4466,10 +3263,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get syncFailedMessage => 'Ο συγχρονισμός απέτυχε';
 
   @override
-  String get syncFolderNameHint =>
-      'Εισάγετε όνομα φακέλου συγχρονισμού (προεπιλογή: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'Όνομα Φακέλου Συγχρονισμού';
 
   @override
@@ -4491,17 +3284,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'Η κατάσταση συγχρονισμού ενημερώθηκε';
 
   @override
-  String get syncSuccessful => 'Ο συγχρονισμός ήταν επιτυχής';
-
-  @override
   String get syncSuccessMessage => 'Ο συγχρονισμός ήταν επιτυχής';
 
   @override
   String get syncWithCloudStorage => 'Συγχρονισμός με Αποθηκευτικό Χώρο Cloud';
-
-  @override
-  String get syncWithCloudStorageSubtitle =>
-      'Συγχρονισμός με αποθηκευτικό χώρο cloud';
 
   @override
   String get systemFeatures => 'Λειτουργίες Συστήματος:';
@@ -4530,9 +3316,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'Οι ετικέτες ενημερώθηκαν';
-
-  @override
   String get takeaway => 'Takeaway';
 
   @override
@@ -4546,9 +3329,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get testButton => 'TEST';
-
-  @override
-  String get testButtonLabel => 'TEST';
 
   @override
   String get testConnectionButton => 'Έλεγχος Σύνδεσης';
@@ -4587,14 +3367,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Ρυθμίσεις Παρεμβολής Συχνότητας Κλήσεων';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'Αυτόματη παρεμβολή πιθανών κλήσεων spam βάσει συχνότητας κλήσεων';
-
-  @override
-  String get timeInterceptorTitle =>
-      'Ενεργοποίηση Παρεμβολής Συχνότητας Κλήσεων';
-
-  @override
   String get timeWindowDescription =>
       'Ορίστε το μέγεθος του χρονικού παραθύρου για την αποδοχή επαναλαμβανόμενων κλήσεων. Κλήσεις από τον ίδιο αριθμό εντός αυτού του παραθύρου θα γίνονται αποδεκτές';
 
@@ -4602,10 +3374,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'Χρονικό Παράθυρο Παρεμβολής (λεπτά): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'Ορίστε το μέγεθος του χρονικού παραθύρου για την αποδοχή επαναλαμβανόμενων κλήσεων. Κλήσεις από τον ίδιο αριθμό εντός αυτού του παραθύρου θα γίνονται αποδεκτές';
 
   @override
   String get today => 'Σήμερα';
@@ -4617,24 +3385,11 @@ class AppLocalizationsEl extends AppLocalizations {
   String get totalBlocked => 'Σύνολο Αποκλεισμένων';
 
   @override
-  String get totalFiltered => 'Σύνολο Φιλτραρισμένων';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'Μεταφορά δεδομένων μεταξύ συσκευών ή πλατφορμών';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'Μεταφορά δεδομένων μεταξύ συσκευών ή πλατφορμών';
-
-  @override
   String get travelTicketing => 'Εισιτήρια Ταξιδίων';
-
-  @override
-  String get trend => 'Τάση';
-
-  @override
-  String get trendChart => 'Γράφημα Τάσης';
 
   @override
   String get tutorial => 'Οδηγός';
@@ -4647,9 +3402,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get unknown => 'Άγνωστο';
-
-  @override
-  String get unknownLabel => 'Άγνωστη Ετικέτα';
 
   @override
   String get unknownTag => 'Ετικέτα: Άγνωστο';
@@ -4675,9 +3427,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get updateAllNow => 'Ενημέρωση Όλων Τώρα';
 
   @override
-  String get updateCallFilterConfig => 'Ενημέρωση Ρυθμίσεων Φίλτρου Κλήσεων';
-
-  @override
   String updateContactFailed(Object error) {
     return 'Αποτυχία ενημέρωσης επαφής: $error';
   }
@@ -4686,15 +3435,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get updateFavoriteStatus => 'Ενημέρωση Κατάστασης Αγαπημένου';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'Αποτυχία ενημέρωσης κατάστασης αγαπημένου: $error';
-  }
-
-  @override
   String get updateInterval => 'Διάστημα Ενημέρωσης';
-
-  @override
-  String get updateLabelFailed => 'Αποτυχία ενημέρωσης ετικέτας';
 
   @override
   String get updateNow => 'Ενημέρωση Τώρα';
@@ -4723,9 +3464,6 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'Ενημέρωση Ετικετών';
-
-  @override
   String get useCasesPoint1 => '• Αναγνώριση αυτόματων επανακλήσεων spam';
 
   @override
@@ -4743,17 +3481,11 @@ class AppLocalizationsEl extends AppLocalizations {
   String get useGlobalSettings => 'Χρήση Γενικών Ρυθμίσεων';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => 'Όνομα χρήστη';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'Χρησιμοποιήστε τυπική σύνταξη regex για τον ορισμό προτύπων. Παραδείγματα:';
-
-  @override
-  String get validateRegex => 'Επικύρωση Regex';
 
   @override
   String get verificationFailedText => 'Απέτυχε';
@@ -4791,47 +3523,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get webDAVConfigTitle => 'Ρυθμίσεις WebDAV';
 
   @override
-  String get webdavConfigurationTitle => 'Ρυθμίσεις WebDAV';
-
-  @override
-  String get webdavPasswordHint =>
-      'Παρακαλώ εισαγάγετε τον κωδικό πρόσβασης WebDAV';
-
-  @override
-  String get webdavServerAddressHint =>
-      'Παρακαλώ εισαγάγετε τη διεύθυνση του διακομιστή WebDAV';
-
-  @override
-  String get webdavUsernameHint => 'Παρακαλώ εισαγάγετε το όνομα χρήστη WebDAV';
-
-  @override
   String get week => 'Εβδομάδα';
-
-  @override
-  String get weekly => 'Εβδομαδιαία';
-
-  @override
-  String get weeklyBlockedCallsSummary =>
-      'Εβδομαδιαία Σύνοψη Αποκλεισμένων Κλήσεων';
-
-  @override
-  String get weeklyChartTitle => 'Εβδομαδιαίες Αποκλεισμένες Κλήσεις';
-
-  @override
-  String get weeklyReport => 'Εβδομαδιαία Αναφορά';
-
-  @override
-  String get weeklyReportDesc =>
-      'Λάβετε εβδομαδιαία αναφορά σύνοψης δραστηριότητας αποκλεισμού κλήσεων';
 
   @override
   String get welcome => 'Καλώς ορίσατε';
 
   @override
   String get whitelist => 'Λευκή λίστα';
-
-  @override
-  String get whitelistLabel => 'Λευκή λίστα';
 
   @override
   String get width => 'Πλάτος';
@@ -4852,12 +3550,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get year => 'Έτος';
-
-  @override
-  String get yearly => 'Ετήσιο';
-
-  @override
-  String get yearlyChartTitle => 'Ετήσιες αποκλεισμένες κλήσεις';
 
   @override
   String get noSimCardsDetected => 'Δεν εντοπίστηκαν κάρτες SIM';
@@ -4906,10 +3598,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get useStirNotification => 'Χρήση ειδοποίησης από STIR';
 
   @override
-  String get useStirNotificationDescription =>
-      'Ενεργοποίηση ειδοποιήσεων STIR για εισερχόμενες κλήσεις';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'Αυτόματο κλείσιμο τοπικών ειδοποιήσεων';
 
@@ -4928,11 +3616,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'Πληροφορίες εισερχόμενης κλήσης';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'Αριθμός: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'Αποκλεισμένη κλήση';
@@ -4986,21 +3669,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'Ειδοποίηση απάτης';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return 'Πιθανή κλήση απάτης από $phoneNumber';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'Αποτυχία φόρτωσης κανόνων: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'Αποτυχία φόρτωσης αρχείου καταγραφής κλήσεων: $error';
-  }
 
   @override
   String get noBlockedTypeData =>
@@ -5078,9 +3746,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get removeAds => 'Κατάργηση διαφημίσεων';
-
-  @override
-  String get unknownAction => 'Άγνωστη ενέργεια';
 
   @override
   String get settingsBackup => 'Αντίγραφο ασφαλείας ρυθμίσεων ';
@@ -5342,16 +4007,8 @@ class AppLocalizationsEl extends AppLocalizations {
   String get blockNumberSuccess => 'Επιτυχία μπλοκαρίσματος αριθμού';
 
   @override
-  String get blockNumberFailed => 'Αποτυχία μπλοκαρίσματος αριθμού';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return 'Είστε σίγουροι ότι θέλετε να ξεμπλοκάρετε τον αριθμό $phoneNumber;';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return 'Κλήση $phoneNumber...';
   }
 
   @override
@@ -5368,9 +4025,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => 'Αποτυχία ξεμπλοκαρίσματος αριθμού';
-
-  @override
-  String get serviceNotAvailable => 'Η υπηρεσία δεν είναι διαθέσιμη';
 
   @override
   String get callingNumberFailed => 'Η κλήση αριθμού απέτυχε';
@@ -5401,9 +4055,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'Μη έγκυρη μορφή αριθμού';
-
-  @override
-  String get membershipFeature => 'Λειτουργία Συνδρομής';
 
   @override
   String get medium => 'Μέσο';
@@ -5499,9 +4150,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'Επιβεβαίωση εκκαθάρισης όλων των ειδοποιήσεων';
 
   @override
-  String get allNotificationsCleared => 'Όλες οι ειδοποιήσεις εκκαθαρίστηκαν';
-
-  @override
   String get clearButton => 'Εκκαθάριση';
 
   @override
@@ -5571,9 +4219,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get reasonInaccurateInfo => 'Ανακριβείς Πληροφορίες';
 
   @override
-  String get reasonWrongMarked => 'Λάθος Σήμανση';
-
-  @override
   String get reasonOther => 'Άλλο';
 
   @override
@@ -5583,25 +4228,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get cancel => 'Ακύρωση';
 
   @override
-  String get proposalStatus => 'Κατάσταση';
-
-  @override
-  String get statusPending => 'Σε Εκκρεμότητα';
-
-  @override
-  String get statusActive => 'Ενεργό';
-
-  @override
-  String get statusCompleted => 'Ολοκληρώθηκε';
-
-  @override
-  String get statusExpired => 'Έληξε';
-
-  @override
   String get riskLevel => 'Επίπεδο Κινδύνου';
-
-  @override
-  String get riskLevelVerified => 'Επαληθευμένο';
 
   @override
   String get riskLevelLow => 'Χαμηλό';
@@ -5610,19 +4237,8 @@ class AppLocalizationsEl extends AppLocalizations {
   String get riskLevelHigh => 'Υψηλό';
 
   @override
-  String get riskLevelUnknown => 'Άγνωστο';
-
-  @override
-  String get votingProgress => 'Πρόοδος Ψηφοφορίας';
-
-  @override
   String agreeVotes(int count) {
     return 'Σύμφωνοι: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'Διαφωνούντες: $count';
   }
 
   @override
@@ -5645,12 +4261,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get verificationReport => 'Έκθεση Επαλήθευσης';
 
   @override
-  String get showReport => 'Εμφάνιση Αναφοράς';
-
-  @override
-  String get hideReport => 'Απόκρυψη Αναφοράς';
-
-  @override
   String get proposalStatistics => 'Στατιστικά Πρότασης';
 
   @override
@@ -5660,28 +4270,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get activeProposals => 'Ενεργές Προτάσεις';
 
   @override
-  String get completedProposals => 'Ολοκληρωμένες Προτάσεις';
-
-  @override
-  String get myVotes => 'Οι Ψήφοι μου';
-
-  @override
   String get proposalCreated => 'Η πρόταση δημιουργήθηκε επιτυχώς';
-
-  @override
-  String get proposalCreateFailed => 'Απέτυχε η δημιουργία πρότασης';
 
   @override
   String get voteSubmitted => 'Η ψήφος υποβλήθηκε επιτυχώς';
 
   @override
-  String get voteSubmitFailed => 'Απέτυχε η υποβολή ψήφου';
-
-  @override
   String get noProposalsFound => 'Δεν βρέθηκαν προτάσεις';
-
-  @override
-  String get loadingProposals => 'Φόρτωση προτάσεων...';
 
   @override
   String get refreshProposals => 'Ανανέωση Προτάσεων';
@@ -5834,24 +4429,11 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'Απέτυχε η φόρτωση του αριθμού ψήφων';
-
-  @override
   String get voteCount => 'Αριθμός Ψήφων';
-
-  @override
-  String get deletionProposalInfo => 'Πληροφορίες Πρότασης Διαγραφής';
 
   @override
   String get deletionProposalDescription =>
       'Προτείνετε αριθμούς για διαγραφή που παραβιάζουν τις οδηγίες της κοινότητας. Η συμμετοχή σας βοηθά να διατηρηθεί η πλατφόρμα ασφαλής.';
-
-  @override
-  String get voteToEarnVip =>
-      'Ψηφίστε σε προτάσεις για να κερδίσετε VIP προνόμια!';
-
-  @override
-  String get voteFailed => 'Η ψήφος απέτυχε';
 
   @override
   String get searchProposals => 'Αναζήτηση Προτάσεων';
@@ -5885,50 +4467,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Εμφανίζει προειδοποιήσεις για πιθανές δόλιες κλήσεις.';
 
   @override
-  String get notificationFrequencyDescription =>
-      'Επιλέξτε πόσο συχνά λαμβάνετε ειδοποιήσεις για νέες προτάσεις διαγραφής. Μπορείτε να τις λαμβάνετε άμεσα, σε παρτίδες ή σε προσαρμοσμένο διάστημα.';
-
-  @override
   String get notificationMode => 'Λειτουργία Ειδοποίησης';
-
-  @override
-  String get immediateNotifications => 'Άμεσες';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'Λάβετε μια ειδοποίηση μόλις δημιουργηθεί μια πρόταση.';
-
-  @override
-  String get batchNotifications => 'Σε παρτίδες';
-
-  @override
-  String get batchNotificationsDescription =>
-      'Λάβετε μια περίληψη ειδοποιήσεων περιοδικά.';
-
-  @override
-  String get customNotifications => 'Προσαρμοσμένες';
-
-  @override
-  String get customNotificationsDescription =>
-      'Ορίστε το δικό σας διάστημα για τη λήψη ειδοποιήσεων.';
-
-  @override
-  String get customFrequency => 'Προσαρμοσμένη Συχνότητα';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes λεπ';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours ω';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours ω $minutes λεπ';
-  }
 
   @override
   String get pendingProposals => 'Εκκρεμείς Προτάσεις';
@@ -5950,9 +4489,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get riskLevelLabel => 'Επίπεδο Κινδύνου';
-
-  @override
-  String get riskLevelDescription => 'Επίπεδο κινδύνου του αριθμού';
 
   @override
   String get phoneNumberMinDigits =>
@@ -5979,36 +4515,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get countryCodeRequired => 'Απαιτείται κωδικός χώρας';
 
   @override
-  String get countryCodeLengthError =>
-      'Ο κωδικός χώρας πρέπει να είναι 2 γράμματα';
-
-  @override
   String get phoneNumberHint => 'Εισαγάγετε αριθμό τηλεφώνου';
 
   @override
   String get phoneNumberRequired => 'Απαιτείται αριθμός τηλεφώνου';
 
   @override
-  String get phoneNumberLengthError =>
-      'Ο αριθμός τηλεφώνου πρέπει να έχει τουλάχιστον 7 ψηφία';
-
-  @override
-  String get reasonHint =>
-      'Παρέχετε λεπτομερή εξήγηση (τουλάχιστον 10 χαρακτήρες)';
-
-  @override
   String get reasonRequired => 'Απαιτείται λόγος';
-
-  @override
-  String get reasonLengthError =>
-      'Ο λόγος πρέπει να είναι τουλάχιστον 10 χαρακτήρες';
-
-  @override
-  String get guidelinesTitle => 'Οδηγίες';
-
-  @override
-  String get guidelinesText =>
-      '• Αναφέρετε μόνο αριθμούς που είναι πραγματικά προβληματικοί\n• Παρέχετε ακριβείς και λεπτομερείς λόγους\n• Επιλέξτε το κατάλληλο επίπεδο κινδύνου ανάλογα με τη σοβαρότητα\n• Ψευδείς αναφορές μπορεί να οδηγήσουν σε περιορισμούς λογαριασμού';
 
   @override
   String get riskLevelCritical => 'Κρίσιμο';
@@ -6020,57 +4533,11 @@ class AppLocalizationsEl extends AppLocalizations {
   String get riskLevelVeryLow => 'Πολύ Χαμηλό';
 
   @override
-  String get riskDescriptionVeryLow =>
-      'Πολύ Χαμηλό - Μικρή ενόχληση, σπάνιες κλήσεις';
-
-  @override
-  String get riskDescriptionLow =>
-      'Χαμηλό - Περιστασιακές ανεπιθύμητες κλήσεις';
-
-  @override
-  String get riskDescriptionMedium =>
-      'Μεσαίο - Τακτικά spam ή τηλεφωνικές πωλήσεις';
-
-  @override
-  String get riskDescriptionHigh =>
-      'Υψηλό - Επίμονη παρενόχληση ή απόπειρες απάτης';
-
-  @override
-  String get riskDescriptionCritical =>
-      'Κρίσιμο - Επικίνδυνες απάτες ή απειλές';
-
-  @override
   String get notificationFrequencyTitle => 'Συχνότητα Ειδοποιήσεων';
-
-  @override
-  String get notificationFrequencyLabel => 'Συχνότητα Ειδοποιήσεων (ώρες)';
 
   @override
   String errorMessage(String error) {
     return 'Σφάλμα: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'Ψήφοι: $totalVotes ($supportPercentage%) υποστήριξη)';
-  }
-
-  @override
-  String get timeJustNow => 'Τώρα';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return '$minutesλ πριν';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return '$hoursω πριν';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return '$daysη πριν';
   }
 
   @override
@@ -6156,10 +4623,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get liveActivitiesTestTitle => 'Δοκιμή Ζωντανών Δραστηριοτήτων';
 
   @override
-  String get liveActivitiesTestSubtitle =>
-      'Δοκιμάστε την ειδοποίηση ζωντανής δραστηριότητας.';
-
-  @override
   String get liveNotificationCustomizationTitle =>
       'Προσαρμογή Ζωντανών Ειδοποιήσεων';
 
@@ -6185,16 +4648,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get proposalDetails => 'Λεπτομέρειες Πρότασης';
 
   @override
-  String get filterByStatus => 'Φιλτράρισμα κατά Κατάσταση';
-
-  @override
   String get proposalNotFound => 'Η πρόταση δεν βρέθηκε';
 
   @override
   String get processed => 'Επεξεργασμένο';
-
-  @override
-  String get showAll => 'Εμφάνιση Όλων';
 
   @override
   String get filterAndSortTitle => 'Φιλτράρισμα και Ταξινόμηση';
@@ -6233,9 +4690,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get invalidSimData => 'Μη έγκυρα δεδομένα SIM';
 
   @override
-  String get simCardData => 'Δεδομένα Κάρτας SIM';
-
-  @override
   String get simSlot => 'Υποδοχή SIM';
 
   @override
@@ -6254,12 +4708,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String get callTypeSilenced => 'Σίγαση';
 
   @override
-  String get callTypeVoicemail => 'Φωνοκινητό';
-
-  @override
-  String get callTypeUnknownIntercept => 'Άγνωστη Παρεμβολή';
-
-  @override
   String andMoreItems(int count) {
     return 'και άλλα $count στοιχεία';
   }
@@ -6272,10 +4720,6 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6359,9 +4803,6 @@ class AppLocalizationsEl extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

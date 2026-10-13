@@ -19,14 +19,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Tungkol sa Mga Panuntunan sa Subscription ng Telepono';
 
   @override
-  String get aboutPhoneSubscriptions =>
-      'Tungkol sa Mga Subscription ng Telepono';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'Mag-subscribe sa mga listahan ng panuntunan sa telepono sa pamamagitan ng URL, awtomatikong i-update ang mga panuntunan. Sinusuportahan ang mga file ng panuntunan sa format na JSON, CSV.';
-
-  @override
   String get aboutSmsFilter => 'Tungkol sa Pag-filter ng SMS';
 
   @override
@@ -50,9 +42,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get actionBlock => 'I-block';
-
-  @override
-  String get actionFilterAll => 'Lahat ng Filter';
 
   @override
   String get actionFilterTitle => 'Salain ayon sa Uri ng Aksyon';
@@ -99,28 +88,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'Idinagdag sa Mga Pinayagang Panuntunan';
-
-  @override
-  String get addedToBlacklist => 'Idinagdag sa Blacklist';
-
-  @override
-  String get addedToBlockedRules => 'Idinagdag sa Mga Naka-block na Panuntunan';
-
-  @override
-  String get addedToFavoriteContacts => 'Idinagdag sa mga paboritong contact';
-
-  @override
   String get addedToFavorites => 'Idinagdag sa mga paborito';
-
-  @override
-  String get addedToWhitelist => 'Idinagdag sa Whitelist';
-
-  @override
-  String get addFavorite => 'Magdagdag ng Paborito';
-
-  @override
-  String get addFilter => 'Magdagdag ng Filter';
 
   @override
   String get addLabel => 'Magdagdag ng Label';
@@ -134,17 +102,10 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'Magdagdag ng Label sa Tala ng Tawag';
-
-  @override
   String get addName => 'Magdagdag ng Pangalan';
 
   @override
   String get addNoneSubscription => 'Magdagdag ng Subscription na Wala';
-
-  @override
-  String get addOrEditContactInfo =>
-      'Ginagamit upang magdagdag o mag-edit ng impormasyon ng contact';
 
   @override
   String get addPhoneMark => 'Magdagdag ng Marka ng Telepono';
@@ -178,9 +139,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get addRule => 'Magdagdag ng Panuntunan';
 
   @override
-  String get addRuleButton => 'Magdagdag ng Panuntunan';
-
-  @override
   String addRuleFailed(Object error) {
     return 'Hindi maidagdag ang panuntunan: $error';
   }
@@ -191,9 +149,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get addSilenceSubscription =>
       'Magdagdag ng Subscription sa Katahimikan';
-
-  @override
-  String get addSimRuleButton => 'Magdagdag ng Panuntunan sa SIM';
 
   @override
   String get addSmsFilterRule => 'Magdagdag ng Panuntunan sa Filter ng SMS';
@@ -219,16 +174,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get addSubscriptionTooltip => 'Magdagdag ng Subscription';
 
   @override
-  String get addToAllowedRules => 'Idagdag sa Mga Pinayagang Panuntunan';
-
-  @override
   String get addToBlacklist => 'Idagdag sa Blacklist';
-
-  @override
-  String get addToBlockedRules => 'Idagdag sa Mga Naka-block na Panuntunan';
-
-  @override
-  String get addToFavoriteContacts => 'Idagdag sa Mga Paboritong Contact';
 
   @override
   String get addToFavorites => 'Idagdag sa Mga Paborito';
@@ -240,9 +186,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get addToWhitelist => 'Idagdag sa Whitelist';
 
   @override
-  String get adPlaceholder => 'Placeholder ng Ad';
-
-  @override
   String get agent => 'Ahente';
 
   @override
@@ -250,10 +193,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get allCallsTab => 'Lahat';
-
-  @override
-  String get allDataClearedSuccessfully =>
-      'Matagumpay na nabura ang lahat ng data';
 
   @override
   String get allow => 'Payagan';
@@ -268,10 +207,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get allowAllBlacklistedNumbers =>
       'Payagan Lahat ng Naka-blacklist na Numero';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc =>
-      'Payagan ang mga tawag mula sa listahan ng pag-block';
 
   @override
   String get allowAllBlockRules => 'Payagan Lahat ng Panuntunan sa Pag-block';
@@ -347,14 +282,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get allowRules => 'Mga Panuntunan sa Pagpayag';
 
   @override
-  String get allowWhitelistedNumbers =>
-      'Pahintulutan ang mga Naka-Whitelist na Numero';
-
-  @override
-  String get allowWhitelistedNumbersDescription =>
-      'Payagan ang lahat ng numero sa whitelist';
-
-  @override
   String get allPermissionsGranted => 'Lahat ng Pahintulot ay Ibinigay';
 
   @override
@@ -367,10 +294,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'Sumagot pagkatapos saka ibaba ang telepono';
-
-  @override
-  String get appLegalese =>
-      '© 2023 Your Call Your Rule. Lahat ng karapatan ay nakalaan.';
 
   @override
   String get applicationSoftware => 'Software ng Aplikasyon';
@@ -410,14 +333,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'Mga Setting ng Awtomatikong Pag-update';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'Pamahalaan ang mga awtomatikong pag-update para sa mga panuntunan at plugin';
-
-  @override
-  String get autoUpdateSettingsTitle =>
-      'Mga Setting ng Awtomatikong Pag-update';
 
   @override
   String get autoUpdateSubtitle =>
@@ -466,47 +381,10 @@ class AppLocalizationsFil extends AppLocalizations {
   String get backupFailed => 'Nabigo ang backup';
 
   @override
-  String get backupFailedMessage => 'Nabigo ang backup';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'Nabigo ang backup: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle =>
-      'Mag-backup o mag-restore ng data ng aplikasyon';
-
-  @override
-  String get backupRestoreTitle => 'Backup & Pag-restore';
-
-  @override
-  String get backupSectionTitle => 'Backup';
-
-  @override
   String get backupSettings => 'Mga Setting ng Backup';
 
   @override
-  String get backupSettingsDialogTitle => 'Mga Setting ng Backup';
-
-  @override
-  String get backupSettingsTitle => 'Mga Setting ng Backup';
-
-  @override
-  String get backupSuccessMessage =>
-      'Naging matagumpay ang pag-backup sa cloud';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'Naging matagumpay ang backup sa: $path';
-  }
-
-  @override
   String get backupToCloud => 'Mag-backup sa Cloud';
-
-  @override
-  String get backupToCloudDescription =>
-      'Mag-backup ng mga setting at panuntunan sa cloud storage';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -514,17 +392,8 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'Mag-backup sa Cloud';
-
-  @override
   String get backupToCloudSuccess =>
       'Naging matagumpay ang pag-backup sa cloud';
-
-  @override
-  String get backupToCloudTitle => 'Mag-backup sa Cloud';
-
-  @override
-  String get backupToLocalLabel => 'Mag-backup sa Lokal';
 
   @override
   String get bank => 'Bangko';
@@ -543,23 +412,13 @@ class AppLocalizationsFil extends AppLocalizations {
       '• Pangunahing Pag-filter ng Panuntunan: Pag-filter ng mga panuntunan batay sa blacklist, whitelist, at regex';
 
   @override
-  String get basicRuleFilterSettings =>
-      'Mga Setting ng Pangunahing Filter ng Panuntunan';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'Salain ang mga tawag gamit ang blacklist/whitelist at mga regular na expression';
-
-  @override
-  String get batchDeleteContacts => 'Maramihang Pagbura ng mga Contact';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'Sigurado ka bang gusto mong burahin ang $count napiling mga contact?';
   }
-
-  @override
-  String get batchDeleteFailed => 'Nabigo ang maramihang pagbura';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -571,9 +430,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get blacklistingAndWhitelisting => 'Pag-blacklist at Pag-whitelist';
-
-  @override
-  String get blacklistLabel => 'Blacklist';
 
   @override
   String get blackWhiteList => 'Listahan ng Black/White';
@@ -588,19 +444,10 @@ class AppLocalizationsFil extends AppLocalizations {
   String get blocked => 'Naka-block';
 
   @override
-  String get blockedCallAction => 'Aksyon sa Naka-block na Tawag';
-
-  @override
   String get blockedCalls => 'Mga Naka-block na Tawag';
 
   @override
   String get blockedCallsTitle => 'Mga Naka-block na Tawag';
-
-  @override
-  String get blockedCommunications => 'Mga Naka-block na Komunikasyon';
-
-  @override
-  String get blockedPhoneLabel => 'Mga Naka-block na Tawag';
 
   @override
   String get blockedSpamCalls => 'Mga Naka-block na Spam na Tawag';
@@ -615,9 +462,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get blockInternationalCallsTitle =>
       'I-block ang mga Internasyonal na Tawag';
-
-  @override
-  String get blockLandlineNumbersTitle => 'I-block ang mga Numero ng Landline';
 
   @override
   String get blockMobileNumbers =>
@@ -670,11 +514,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get callback => 'Tumawag Pabalik';
 
   @override
-  String callbackTo(String number) {
-    return 'Tumawag pabalik sa $number';
-  }
-
-  @override
   String get callBlocking => 'Pag-block ng Tawag';
 
   @override
@@ -682,9 +521,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'I-customize ang Caller ID';
-
-  @override
-  String get callerIdDialogTitle => 'Impormasyon ng Caller ID';
 
   @override
   String get callerIdDisplayMode => 'Paraan ng Pagpapakita ng Caller ID';
@@ -696,13 +532,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'Preview ng Caller ID';
-
-  @override
-  String get callFilter => 'Filter ng Tawag';
-
-  @override
-  String get callFilterDescription =>
-      'Kapag pinagana, ang mga papasok na tawag ay susuriin laban sa listahan ng panuntunan sa ibaba. Ang mga panuntunan sa pag-filter ng tawag ay hindi awtomatikong nagsi-sync sa pagitan ng mga device.';
 
   @override
   String get callFilterRules => 'Mga Panuntunan sa Filter ng Tawag';
@@ -732,26 +561,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get callHistoryInfoTitle => 'Kasaysayan ng Tawag';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'Nabigo ang pag-initialize ng kasaysayan ng tawag: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'Nabigo ang pag-refresh ng kasaysayan ng tawag: $error';
-  }
-
-  @override
   String get callHistoryTab => 'Kasaysayan ng Tawag';
-
-  @override
-  String get callHistoryTimelineEarlier => 'Mas Maaga';
-
-  @override
-  String get callHistoryTimelineToday => 'Ngayon';
-
-  @override
-  String get callHistoryTimelineYesterday => 'Kahapon';
 
   @override
   String get callScreeningPermission => 'Pahintulot sa Pagsala ng Tawag';
@@ -763,13 +573,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'Hindi naibigay ang pahintulot sa pagsala ng tawag, maaaring makaapekto sa paggana ng app.';
-
-  @override
-  String get callSettingsSubtitle =>
-      'Mga setting ng Caller ID, pag-filter, at pag-block';
-
-  @override
-  String get callSettingsTitle => 'Mga Setting ng Tawag';
 
   @override
   String get callStatistics => 'Mga Estadistika ng Tawag';
@@ -827,27 +630,10 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'Baguhin ang Tag';
-
-  @override
   String get charity => 'Kawanggawa';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'Buwan $month';
-  }
-
-  @override
-  String get chartOneDayAgo => '1 araw ang nakalipas';
-
-  @override
-  String get chartOneMonthAgo => '1 buwan ang nakalipas';
-
-  @override
   String get chartOneWeekAgo => '1 linggo ang nakalipas';
-
-  @override
-  String get chartTenDaysAgo => '10 araw ang nakalipas';
 
   @override
   String get chartThreeDaysAgo => '3 araw ang nakalipas';
@@ -868,24 +654,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Pumili ng default na aksyon sa pagharang';
 
   @override
-  String get clearAllData => 'Burahin Lahat ng Data';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'Sigurado ka bang gusto mong burahin ang lahat ng data ng application? Ang aksyong ito ay hindi maaaring bawiin.';
-
-  @override
-  String get clearAllDataDescription =>
-      'Burahin ang lahat ng data ng application';
-
-  @override
-  String get clearAllDataLabel => 'Burahin Lahat ng Data';
-
-  @override
   String get clearFilter => 'Burahin ang Filter';
-
-  @override
-  String get clearLabelFilter => 'Burahin ang Filter ng Label';
 
   @override
   String get clearLabelFilterButton => 'Burahin ang Filter ng Label';
@@ -910,9 +679,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get cloudSyncTitle => 'Pag-sync sa Cloud';
 
   @override
-  String get collapseLabelSelector => 'Isara ang Tagapili ng Label';
-
-  @override
   String get collection => 'Pangongolekta ng Utang';
 
   @override
@@ -933,16 +699,8 @@ class AppLocalizationsFil extends AppLocalizations {
       'I-configure ang mga Opsyon sa Pag-backup';
 
   @override
-  String get configureBackupOptionsSubtitle =>
-      'I-configure ang mga opsyon sa pag-backup';
-
-  @override
   String get configureCloudSyncService =>
       'I-configure ang Serbisyo ng Pag-sync sa Cloud';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'Pakisuyong i-configure ang isang serbisyo ng pag-sync sa cloud upang paganahin ang multi-device synchronization.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -953,31 +711,13 @@ class AppLocalizationsFil extends AppLocalizations {
       'I-configure ang mga Panuntunan sa Filter ng SIM Card';
 
   @override
-  String get configureSyncServiceHint =>
-      'Pakisuyong i-configure muna ang sync service sa mga setting ng cloud sync';
-
-  @override
   String get confirm => 'Kumpirmahin';
-
-  @override
-  String get confirmBatchDeleteContacts =>
-      'Sigurado ka bang gusto mong burahin ang mga napiling';
 
   @override
   String get confirmButton => 'Kumpirmahin';
 
   @override
   String get confirmDelete => 'Kumpirmahin ang Pagbubura';
-
-  @override
-  String get confirmDeleteContact => 'Sigurado ka bang gusto mong burahin ang';
-
-  @override
-  String get confirmDeleteContactName => 'Kumpirmahin ang pagbubura?';
-
-  @override
-  String get confirmDeleteFilter =>
-      'Sigurado ka bang gusto mong burahin ang filter na ito?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -999,10 +739,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Sigurado ka bang gusto mong burahin ang panuntunang ito? Ang aksyong ito ay hindi maaaring bawiin.';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'Sigurado ka bang burahin ang mga napiling contact?';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'Sigurado ka bang gusto mong burahin ang SMS filter rule na ito?';
 
@@ -1011,19 +747,12 @@ class AppLocalizationsFil extends AppLocalizations {
       'Sigurado ka bang gusto mong burahin ang SMS rule na ito?';
 
   @override
-  String get confirmDeleteSubscription =>
-      'Sigurado ka bang gusto mong burahin ang subscription na ito?';
-
-  @override
   String confirmDeleteSubscriptions(String name) {
     return 'Sigurado ka bang gusto mong burahin ang $name?';
   }
 
   @override
   String get confirmPassword => 'Kumpirmahin ang Password';
-
-  @override
-  String get confirmPasswordLabel => 'Kumpirmahin ang Password';
 
   @override
   String get connectedStatus => 'Konektado';
@@ -1048,16 +777,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get contactDeleted => 'Nabura ang contact';
 
   @override
-  String get contactEditDialog => 'Dialog para sa Pag-edit ng Contact';
-
-  @override
-  String get contactNameHint => 'Ilagay ang pangalan ng contact (opsyonal)';
-
-  @override
   String get contactNameLabel => 'Pangalan';
-
-  @override
-  String get contactNameOptional => 'Pangalan ng contact (opsyonal)';
 
   @override
   String get contactNotFound => 'Hindi natagpuan ang contact';
@@ -1071,26 +791,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle =>
-      'Pamamahala ng contact at mga setting ng label';
-
-  @override
-  String get contactSettingsTitle => 'Mga Setting ng Contact';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'Nabigong i-load ang mga contact: $error';
-  }
-
-  @override
   String get contactsManagement => 'Pamamahala ng mga Contact';
-
-  @override
-  String get contactsManagementPageTitle =>
-      'Pahina ng Pamamahala ng mga Contact';
-
-  @override
-  String get contactsPageTitle => 'Pamamahala ng mga Contact';
 
   @override
   String get contactsPermission => 'Pahintulot sa Mga Contact';
@@ -1105,14 +806,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'Mag-subscribe sa mga listahan ng contact sa pamamagitan ng URL, awtomatikong i-update ang impormasyon at mga label ng contact. Sinusuportahan ang data sa format na JSON.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'Nabigong i-load ang mga subscription ng contact: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'Mga Subscription ng Contact';
 
   @override
   String get contactUpdateSuccess => 'Matagumpay na na-update ang contact';
@@ -1149,26 +842,11 @@ class AppLocalizationsFil extends AppLocalizations {
       'Posisyon ng Pangalan ng Bansa/Rehiyon';
 
   @override
-  String get countrySelectionDialog => 'Dialog sa Pagpili ng Bansa';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'Ginagamit upang pumili ng bansa para sa pagkuha ng impormasyon ng caller ID';
-
-  @override
   String get countThresholdDescription =>
       'Itakda ang pinakamababang threshold ng bilang na kinakailangan upang ma-trigger ang mga aksyon sa pag-filter';
 
   @override
   String get countThresholdLabel => 'Threshold ng Bilang';
-
-  @override
-  String get countThresholdSettings => 'Mga Setting ng Threshold ng Bilang';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'Threshold ng Bilang: $count';
-  }
 
   @override
   String get createdRules => 'Mga Nalikhang Panuntunan';
@@ -1177,48 +855,22 @@ class AppLocalizationsFil extends AppLocalizations {
   String get csvFormat => 'Format na CSV';
 
   @override
-  String get currentDeviceChip => 'Kasalukuyan';
-
-  @override
   String get currentDeviceLabel => 'Label ng Kasalukuyang Device';
 
   @override
   String get currentDeviceTitle => 'Kasalukuyang Device';
 
   @override
-  String get currentLabels => 'Mga Kasalukuyang Label:';
-
-  @override
   String get currentLanguage => 'Kasalukuyang Wika';
 
   @override
-  String get currentPasswordLabel => 'Kasalukuyang Password';
-
-  @override
   String get customerService => 'Serbisyo sa Kostumer';
-
-  @override
-  String get customRange => 'Pasadyang Saklaw';
-
-  @override
-  String get dailyStatistics => 'Pang-araw-araw na Estadistika';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'Tumanggap ng pang-araw-araw na istatistika tungkol sa mga blocked na tawag at mensahe';
 
   @override
   String get dashboardTab => 'Dashboard';
 
   @override
   String get dataAnalysis => 'Pagsusuri ng Datos';
-
-  @override
-  String get dataAnalysisDashboardPage =>
-      'Pahina ng Dashboard ng Pagsusuri ng Datos';
-
-  @override
-  String get dataExport => 'Pag-export ng Datos';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1236,16 +888,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'Ang tampok na ito ay nagpapahintulot sa iyo na ilipat ang lahat ng iyong data sa pagitan ng mga device. Sa kasalukuyan, maaari mong gamitin ang mga tampok ng backup at restore upang manu-manong ilipat ang iyong data.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'Ang tampok na ito ay nagpapahintulot sa iyo na ilipat ang lahat ng iyong data sa pagitan ng mga device. Sa kasalukuyan, maaari mong gamitin ang mga tampok ng backup at restore upang manu-manong ilipat ang iyong data.';
-
-  @override
-  String get dataMigrationDialogTitle => 'Migrasyon ng Datos';
-
-  @override
-  String get dataMigrationSectionTitle => 'Migrasyon ng Datos';
 
   @override
   String get dataSourceReminder => 'Paalala sa Pinagmulan ng Datos';
@@ -1270,9 +912,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get debtCollection => 'Pagkolekta ng Utang';
 
   @override
-  String get defaultPeriod => 'Linggo';
-
-  @override
   String get delete => 'Burahin';
 
   @override
@@ -1287,24 +926,9 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation =>
-      'Sigurado ka bang gusto mong burahin ang contact';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return 'Sigurado ka bang gusto mong burahin ang $deviceName?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'Burahin ang Device';
-
-  @override
   String deleteFailed(Object error) {
     return 'Nabigong burahin: $error';
   }
-
-  @override
-  String get deleteFilter => 'Burahin ang Filter';
 
   @override
   String get deleteLabel => 'Burahin ang Label';
@@ -1342,9 +966,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get deleteSelected => 'Burahin ang Pinili';
 
   @override
-  String get deleteSmsRule => 'Burahin ang Panuntunan sa SMS';
-
-  @override
   String get deleteSubscription => 'Burahin ang Subscription';
 
   @override
@@ -1364,16 +985,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get delivery => 'Pagpapadala';
 
   @override
-  String get deviceDeletedSuccessfully => 'Matagumpay na nabura ang device';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage =>
-      'Matagumpay na nabura ang device';
-
-  @override
-  String get deviceIdLabel => 'Device ID';
-
-  @override
   String get deviceIDLabel => 'Device ID';
 
   @override
@@ -1390,30 +1001,11 @@ class AppLocalizationsFil extends AppLocalizations {
   String get deviceName => 'Pangalan ng Device';
 
   @override
-  String get deviceNameCannotBeEmpty =>
-      'Hindi maaaring walang laman ang pangalan ng device';
-
-  @override
-  String get deviceNameHint => 'Mangyaring ilagay ang pangalan ng device';
-
-  @override
   String get deviceNameLabel => 'Pangalan ng Device';
-
-  @override
-  String get deviceRenamedSuccessfully =>
-      'Matagumpay na napalitan ang pangalan ng device';
 
   @override
   String get deviceRenamedSuccessfullyMessage =>
       'Matagumpay na napalitan ang pangalan ng device';
-
-  @override
-  String get devicesSyncedSuccessfully =>
-      'Matagumpay na na-synchronize ang mga device';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage =>
-      'Matagumpay na na-synchronize ang mga device';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1438,10 +1030,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'I-disable ang mga global plugin';
-
-  @override
-  String get disableSubscriptionSuccessfully =>
-      'Matagumpay na na-disable ang subscription';
 
   @override
   String get disconnectButton => 'Idiskonekta';
@@ -1475,26 +1063,13 @@ class AppLocalizationsFil extends AppLocalizations {
   String get editContact => 'I-edit ang Contact';
 
   @override
-  String get editFilter => 'I-edit ang Filter';
-
-  @override
   String get editLabel => 'I-edit ang Label';
 
   @override
   String get editPhoneRule => 'I-edit ang Panuntunan ng Telepono';
 
   @override
-  String get editPhoneRules =>
-      'Ginamit para sa pag-edit ng mga panuntunan sa telepono';
-
-  @override
-  String get editPhoneRuleTitle => 'I-edit ang Panuntunan ng Telepono';
-
-  @override
   String get editRule => 'I-edit ang Panuntunan';
-
-  @override
-  String get editSmsRule => 'I-edit ang Panuntunan ng SMS';
 
   @override
   String get education => 'Edukasyon';
@@ -1504,9 +1079,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get email => 'Email';
-
-  @override
-  String get emailOptional => 'Email (Opsyonal)';
 
   @override
   String get enableCallFilter => 'Paganahin ang Call Filter';
@@ -1526,16 +1098,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => 'I-encrypt ang mga backup na file';
-
-  @override
-  String get enableEncryptionLabel => 'Paganahin ang Encryption';
-
-  @override
-  String get enableEncryptionSubtitle =>
-      'Ang mga backup na file ay mai-encrypt';
-
-  @override
-  String get enableEncryptionTitle => 'Paganahin ang Encryption';
 
   @override
   String get enableGlobalPlugins => 'Paganahin ang mga global plugin';
@@ -1573,9 +1135,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Payagan ang mga pagsasaayos ng panuntunan na walang mga aksyon ng intercept';
 
   @override
-  String get enableNotifications => 'Paganahin ang mga Notipikasyon';
-
-  @override
   String get enableRemoteNumberFilter => 'Paganahin ang Remote Number Filter';
 
   @override
@@ -1591,14 +1150,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'Kapag pinagana, ang mga mensahe ay awtomatikong ifi-filter ayon sa mga panuntunan';
-
-  @override
-  String get enableStatisticsNotifications =>
-      'Paganahin ang Mga Notipikasyon sa Estadistika';
-
-  @override
-  String get enableSubscriptionSuccessfully =>
-      'Matagumpay na na-enable ang subscription';
 
   @override
   String get enableTimeInterception => 'Paganahin ang Time Interception';
@@ -1635,10 +1186,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Sinusuportahan ng pinahusay na sistema ng filter ang parehong mga global na panuntunan at mga pagsasaayos ng pag-filter bawat SIM card.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'Mangyaring ilagay ang parehong numero ng telepono at regex pattern';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'Mangyaring ilagay ang parehong numero ng telepono at regex pattern.';
 
@@ -1646,32 +1193,13 @@ class AppLocalizationsFil extends AppLocalizations {
   String get enterContactName => 'Mangyaring ilagay ang pangalan ng contact';
 
   @override
-  String get enterCurrentPasswordHint =>
-      'Mangyaring ilagay ang kasalukuyang password';
-
-  @override
   String get enterDeviceName => 'Ilagay ang Pangalan ng Device';
-
-  @override
-  String get enterDeviceNameHint => 'Mangyaring ilagay ang pangalan ng device';
-
-  @override
-  String get enterEmail => 'Mangyaring ilagay ang email';
 
   @override
   String get enterEmailOptional => 'Mangyaring ilagay ang email (opsyonal)';
 
   @override
   String get enterEncryptionPasswordHint => 'Ilagay ang encryption password';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'Ilagay ang Encryption Password';
-
-  @override
-  String get enterFilterName => 'Mangyaring ilagay ang pangalan ng filter';
-
-  @override
-  String get enterFilterPattern => 'Mangyaring ilagay ang pattern ng filter';
 
   @override
   String get enterIconCode => 'Ilagay ang code ng icon';
@@ -1684,13 +1212,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Maglagay ng bagong pangalan para sa device na ito';
 
   @override
-  String get enterNewPasswordHint => 'Mangyaring ilagay ang bagong password';
-
-  @override
   String get enterPasswordAgain => 'Ilagay muli ang Password';
-
-  @override
-  String get enterPasswordHint => 'Mangyaring ilagay ang password';
 
   @override
   String get enterPhoneNumber => 'Ilagay ang numero ng telepono';
@@ -1719,10 +1241,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'Ilagay ang regex pattern';
-
-  @override
-  String get enterRuleNameAndPattern =>
-      'Mangyaring ilagay ang pangalan ng panuntunan at pattern';
 
   @override
   String get enterRuleNameAndPatternMessage =>
@@ -1767,14 +1285,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get enterWebDAVUsernameHint => 'Pakilagay ang WebDAV username';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'Nagkaroon ng error sa pagtanggal ng device: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'Nagkaroon ng error sa pag-load ng plugin';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'Nagkaroon ng error: $error';
   }
@@ -1790,14 +1300,6 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'Nagkaroon ng error sa pag-sync ng mga device: $error';
-  }
-
-  @override
-  String get errorText => 'Error';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'Nagkaroon ng error sa pag-unregister ng device: $error';
   }
@@ -1807,9 +1309,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'hal. Block marketing SMS';
-
-  @override
-  String get exampleContentRegex => 'hal., .*offer.*';
 
   @override
   String get exampleContentRegexHint => 'Halimbawang Content Regex';
@@ -1828,9 +1327,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get exampleRegex400Prefix => 'Halimbawang regex para sa 400 prefix';
 
   @override
-  String get exampleRegexFormat => 'Halimbawa: ^10086\$ format';
-
-  @override
   String get exampleSenderRegexHint => 'Halimbawa';
 
   @override
@@ -1841,9 +1337,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get exchangeVip => 'Palitan ang VIP';
-
-  @override
-  String get expandLabelSelector => 'Palawakin ang Label Selector';
 
   @override
   String expiryTime(Object time) {
@@ -1858,19 +1351,8 @@ class AppLocalizationsFil extends AppLocalizations {
       'I-export ang lahat ng setting ng application';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'I-export ang lahat ng setting ng application';
-
-  @override
   String get exportAllRuleConfigurations =>
       'I-export ang Lahat ng Konpigurasyon ng Tuntunin';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle =>
-      'I-export ang lahat ng konpigurasyon ng tuntunin';
-
-  @override
-  String get exportComplete => 'Kumpleto ang Pag-export';
 
   @override
   String get exportConfig => 'I-export ang Konpigurasyon';
@@ -1882,9 +1364,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get exportData => 'I-export ang Datos';
 
   @override
-  String get exportError => 'Pag-export ng Error';
-
-  @override
   String get exportFailed => 'Nabigong i-export';
 
   @override
@@ -1892,9 +1371,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'Malapit na ang tampok na pag-export';
-
-  @override
-  String get exporting => 'Nag-e-export...';
 
   @override
   String get exportLabels => 'I-export ang mga Label';
@@ -1916,34 +1392,17 @@ class AppLocalizationsFil extends AppLocalizations {
   String get exportRules => 'I-export ang mga Tuntunin';
 
   @override
-  String get exportRulesDialogTitle => 'I-export ang mga Tuntunin';
-
-  @override
-  String get exportRulesTitle => 'I-export ang mga Tuntunin';
-
-  @override
   String get exportSmsRules => 'I-export ang mga Tuntunin sa SMS';
 
   @override
   String get exportStatisticsData => 'I-export ang Datos ng Estadistika';
 
   @override
-  String get exportSuccess => 'Matagumpay ang Pag-export';
-
-  @override
   String get exportSuccesslly => 'Matagumpay na na-export ang konpigurasyon';
-
-  @override
-  String get failedToAddContact => 'Nabigong magdagdag ng kontak';
 
   @override
   String failedToAddRule(Object error) {
     return 'Nabigong magdagdag ng tuntunin: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'Nabigong magdagdag ng SMS na tuntunin: $error';
   }
 
   @override
@@ -1960,9 +1419,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get failedToDecryptBackupFile => 'Nabigong i-decrypt ang backup file';
 
   @override
-  String get failedToDeleteDevice => 'Nabigong tanggalin ang device';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'Nabigong tanggalin ang SMS na tuntunin: $error';
   }
@@ -1970,11 +1426,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'Nabigong i-export ang mga tuntunin: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'Nabigong i-export ang mga SMS na tuntunin: $error';
   }
 
   @override
@@ -1988,20 +1439,6 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'Nabigong i-import ang mga SMS na tuntunin: $error';
-  }
-
-  @override
-  String get failedToLoadContacts => 'Nabigong i-load ang mga kontak';
-
-  @override
-  String get failedToLoadPlugin => 'Nabigong i-load ang plugin';
-
-  @override
-  String get failedToRenameDevice => 'Nabigong palitan ang pangalan ng device';
-
-  @override
   String get failedToRestoreSettings => 'Nabigong i-restore ang mga setting';
 
   @override
@@ -2010,32 +1447,9 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'Nabigong itakda ang password: $error';
-  }
-
-  @override
-  String get failedToSyncDevices => 'Nabigong i-sync ang mga device';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'Nabigong baguhin ang status ng tuntunin: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus =>
-      'Nabigong baguhin ang status ng subscription';
-
-  @override
-  String get failedToUpdateContact => 'Nabigong i-update ang kontak';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'Nabigong i-update ang SMS na tuntunin: $error';
-  }
-
-  @override
-  String get failure => 'Pagkabigo';
 
   @override
   String get favoriteContacts => 'Mga Paboritong Kontak';
@@ -2076,9 +1490,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get filterByLabel => 'Salain ayon sa Label';
 
   @override
-  String get filterClear => 'Burahin ang Filter';
-
-  @override
   String get filterControlPanelTitle => 'Panel ng Kontrol ng Filter';
 
   @override
@@ -2089,22 +1500,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get filterControlTitle => 'Kontrol sa Pag-filter';
 
   @override
-  String get filterDeleteFailed => 'Nabigo ang pagtanggal ng filter';
-
-  @override
-  String get filterDeleteSuccess => 'Matagumpay na natanggal ang filter';
-
-  @override
-  String get filterDetails => 'Mga Detalye ng Filter';
-
-  @override
   String get filtered => 'Na-filter';
-
-  @override
-  String get filteredSms => 'Na-filter na SMS';
-
-  @override
-  String get filteredSmsLabel => 'Na-filter na SMS';
 
   @override
   String get filterExplanation => 'Paliwanag ng Filter';
@@ -2116,17 +1512,8 @@ class AppLocalizationsFil extends AppLocalizations {
   String get filterName => 'Pangalan ng Filter';
 
   @override
-  String get filterPattern => 'Pattern ng Filter';
-
-  @override
   String get filterPriorityNote =>
       'Tandaan: May mga relasyon sa priyoridad sa pagitan ng mga filter, mangyaring sumangguni sa dokumentasyon ng tulong para sa mga detalye';
-
-  @override
-  String get filterSaveFailed => 'Nabigo ang pag-save ng filter';
-
-  @override
-  String get filterSaveSuccess => 'Matagumpay na na-save ang filter';
 
   @override
   String get filterSettings => 'Mga Setting ng Filter';
@@ -2165,16 +1552,6 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return 'Nakita ang $count na panuntunan. Nais mo bang i-import ang mga ito?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return 'Nakita ang $count na panuntunan. Nais mo bang i-import ang mga ito?';
-  }
-
-  @override
   String get fraudAlert => 'BABALA sa PANDARAYA - Ibaba ang tawag';
 
   @override
@@ -2209,39 +1586,14 @@ class AppLocalizationsFil extends AppLocalizations {
   String get globalFilterSettings => 'Mga Setting ng Pandaigdigang Filter';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'I-configure ang mga setting ng pandaigdigang filter na nalalapat sa lahat ng SIM slot:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'Maghanap ng mga contact, label, blacklist, whitelist, atbp.';
-
-  @override
-  String get globalSearchTitle => 'Pandaigdigang Paghahanap';
-
-  @override
   String get globalSettings => 'Mga Pandaigdigang Setting';
-
-  @override
-  String get googleAdDisplayPosition => 'Posisyon ng Pagpapakita ng Google Ad';
-
-  @override
-  String get googleAdMobIntegrationText =>
-      'Maaaring isama dito ang mga Google AdMob ad';
 
   @override
   String get googleDriveAuthDescription =>
       'Pahintulutan gamit ang system-configured na Google Drive client ID at key';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'Pahintulutan gamit ang system-configured na Google Drive client ID at key';
-
-  @override
   String get googleDriveConfigTitle => 'Konfigurasyon ng Google Drive';
-
-  @override
-  String get googleDriveConfigurationTitle => 'Konfigurasyon ng Google Drive';
 
   @override
   String get government => 'Gobyerno';
@@ -2261,9 +1613,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get height => 'Taas';
-
-  @override
-  String get homePageTitle => 'Pangunahing Pahina';
 
   @override
   String get homeTab => 'Bahay';
@@ -2294,9 +1643,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get important => 'Mahalaga';
-
-  @override
-  String get importButton => 'Mag-import';
 
   @override
   String get importConfig => 'Mag-import ng Konfigurasyon';
@@ -2351,32 +1697,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Mag-import ng mga Konfigurasyon ng Panuntunan mula sa File';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'Mag-import ng mga konfigurasyon ng panuntunan mula sa file';
-
-  @override
   String get importRules => 'Mag-import ng mga Panuntunan';
-
-  @override
-  String get importRulesButton => 'Mag-import ng mga Panuntunan';
-
-  @override
-  String get importRulesDialogTitle => 'Mag-import ng mga Panuntunan';
-
-  @override
-  String importRulesError(Object error) {
-    return 'Nabigong mag-import ng mga panuntunan: $error';
-  }
-
-  @override
-  String get importRulesInstructions =>
-      'Mag-import ng mga panuntunan mula sa isang CSV file';
-
-  @override
-  String get importRulesSuccess => 'Matagumpay na na-import ang mga panuntunan';
-
-  @override
-  String get importRulesTitle => 'Mag-import ng mga Panuntunan';
 
   @override
   String get importSuccess => 'Matagumpay ang pag-import';
@@ -2384,9 +1705,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get incomingCallInterceptAction =>
       'Aksyon sa Pagharang ng Papasok na Tawag';
-
-  @override
-  String get incomingCallNotification => 'Abiso sa Papasok na Tawag';
 
   @override
   String get incorrectPassword => 'Maling password';
@@ -2442,9 +1760,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Sumali sa Telegram Channel at Group para sa Karagdagang Impormasyon';
 
   @override
-  String get jsLogsTitle => 'JS Logs';
-
-  @override
   String get jsonFormat => 'JSON Format';
 
   @override
@@ -2453,16 +1768,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'Panatilihin ang lahat ng makasaysayang bersyon ng bawat backup';
-
-  @override
-  String get keepAllVersionsLabel => 'Panatilihin Lahat ng Bersyon';
-
-  @override
-  String get keepAllVersionsSubtitle =>
-      'Panatilihin ang mga makasaysayang bersyon ng bawat backup';
-
-  @override
-  String get keepAllVersionsTitle => 'Panatilihin Lahat ng Bersyon';
 
   @override
   String get label => 'Label';
@@ -2483,9 +1788,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Tinutulungan ka ng mga label na mas mahusay na pamahalaan ang mga contact, magdagdag ng mga custom na label sa mga numero ng telepono para sa madaling pagkilala ng mga tawag at mensahe.';
 
   @override
-  String get labelFilter => 'Salain ng Label';
-
-  @override
   String get labelFilterTooltip => 'Salain ng Label';
 
   @override
@@ -2496,14 +1798,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get labelNotFound => 'Hindi nahanap ang label';
-
-  @override
-  String get labelRemoved => 'Natanggal ang label';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'Nabigong tanggalin ang label: $error';
-  }
 
   @override
   String get labels => 'Mga Label';
@@ -2537,9 +1831,6 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'Na-update ang label';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'Nabigong i-update ang label: $error';
   }
@@ -2557,12 +1848,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'Mga Setting ng Wika';
-
-  @override
-  String get last30Days => 'Huling 30 Araw';
-
-  @override
-  String get last7Days => 'Huling 7 Araw';
 
   @override
   String get lastSyncLabel => 'Huling Sync';
@@ -2588,13 +1873,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get loadDataFailed => 'Nabigong i-load ang data';
 
   @override
-  String get loadFailed => 'Nabigong i-load';
-
-  @override
   String get loading => 'Naglo-load...';
-
-  @override
-  String get loadingData => 'Naglo-load ng Data...';
 
   @override
   String get loadingTags => 'Naglo-load ng mga tag...';
@@ -2618,12 +1897,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'Nabigong i-load ang mga minarkahang numero: $error';
   }
-
-  @override
-  String get loadMore => 'I-load Pa';
-
-  @override
-  String get loadPluginButton => 'I-load ang Plugin';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2650,9 +1923,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get loan => 'Pautang';
-
-  @override
-  String get localBackupTitle => 'Lokal na Backup';
 
   @override
   String get localCounterFilter => 'Lokal na Salain ng Bilang';
@@ -2750,9 +2020,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get manage => 'Pamahalaan';
 
   @override
-  String get manageContacts => 'Pamahalaan ang mga Contact';
-
-  @override
   String get manageFavoriteContacts => 'Pamahalaan ang mga Paboritong Contact';
 
   @override
@@ -2761,9 +2028,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'Magdagdag, mag-edit, o magtanggal ng mga SMS filter rule';
-
-  @override
-  String get manageFrequentContacts => 'Pamahalaan ang mga Madalas na Contact';
 
   @override
   String get markCounts => 'Mga Bilang ng Marka';
@@ -2791,18 +2055,11 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle =>
-      'Para sa Pag-marka ng Mga Numero ng Telepono';
-
-  @override
   String get markPhoneManagementTitle => 'Pamamahala sa Pag-marka ng Telepono';
 
   @override
   String get markPhoneSuccess =>
       'Matagumpay na namarkahan ang numero ng telepono';
-
-  @override
-  String get matchFailed => 'Nabigo ang tugma!';
 
   @override
   String get matchFailedMessage => 'Nabigo ang tugma.';
@@ -2824,9 +2081,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Itugma ang mga tiyak na pattern ng digit:';
 
   @override
-  String get matchSuccessful => 'Matagumpay ang tugma!';
-
-  @override
   String get matchSuccessfulMessage => 'Matagumpay ang tugma!';
 
   @override
@@ -2837,9 +2091,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get migrationTool => 'Tool sa Paglipat';
-
-  @override
-  String get migrationToolTitle => 'Tool sa Paglipat';
 
   @override
   String get minutes => 'minuto';
@@ -2854,9 +2105,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get monthlyCallCount => 'Mga Tawag sa Buwanan';
 
   @override
-  String get monthlyChartTitle => 'Mga Blocked na Tawag sa Buwanan';
-
-  @override
   String get monthlyMembership => 'Buwanang Membership';
 
   @override
@@ -2865,9 +2113,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'Kabuuang Buwanan';
-
-  @override
-  String get monthlyTotalLabel => 'Kabuuang Buwanan';
 
   @override
   String get moreOptions => 'Higit pang mga Opsyon';
@@ -2883,33 +2128,16 @@ class AppLocalizationsFil extends AppLocalizations {
       'Hindi maaaring walang laman ang pangalan at numero ng telepono';
 
   @override
-  String get nameAndPhoneNumberRequired =>
-      'Hindi maaaring walang laman ang pangalan at numero ng telepono';
-
-  @override
   String get nameColor => 'Kulay ng Pangalan';
 
   @override
   String get nameFontSize => 'Laki ng Font ng Pangalan';
 
   @override
-  String nameLabel(Object name) {
-    return 'Pangalan: $name';
-  }
-
-  @override
   String get namePosition => 'Posisyon ng Pangalan';
 
   @override
   String get nameUnknown => 'Pangalan: Hindi Alam';
-
-  @override
-  String nameWithValue(String name) {
-    return 'Pangalan: $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'Bagong Password';
 
   @override
   String get nextStep => 'Susunod';
@@ -2925,13 +2153,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Walang aktibong cloud sync service';
 
   @override
-  String get noCallLogs => 'Walang Mga Tala ng Tawag';
-
-  @override
   String get noCallRecords => 'Walang mga tala ng tawag';
-
-  @override
-  String get noContacts => 'Wala pang mga contact';
 
   @override
   String get noContactsYet => 'Wala pang mga contact';
@@ -2943,28 +2165,16 @@ class AppLocalizationsFil extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'Walang mga rehistradong device';
 
   @override
-  String get noDevicesRegisteredYet => 'Wala pang mga rehistradong device.';
-
-  @override
-  String get noFilters => 'Wala pang mga filter';
-
-  @override
   String get noLabels => 'Wala pang mga label';
 
   @override
   String get noMarkedPhones => 'Walang mga namarkahang numero ng telepono';
 
   @override
-  String get noMatchingContacts => 'Walang mga tugmang contact';
-
-  @override
   String get noMatchingContactsFound => 'Walang natagpuang mga tugmang contact';
 
   @override
   String get noMatchingNumbersFound => 'Walang natagpuang mga tugmang numero';
-
-  @override
-  String get noMatchingRecords => 'Walang mga tugmang tala ng tawag';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2979,15 +2189,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get noPlugins => 'Wala pang mga plugin';
-
-  @override
-  String get noRecords => 'Walang mga tala ng tawag';
-
-  @override
-  String get noResultReturned => 'Walang resulta na ibinalik';
-
-  @override
-  String get noResultReturnedLog => 'Walang resulta na ibinalik mula sa plugin';
 
   @override
   String noRules(Object ruleType) {
@@ -3012,9 +2213,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get noSubscriptions => 'Walang mga subscription';
 
   @override
-  String get noSubscriptionsYet => 'Wala pang mga Subscription';
-
-  @override
   String get notGranted => 'Hindi Ibinigay';
 
   @override
@@ -3033,13 +2231,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get notificationSettings => 'Mga Setting ng Notipikasyon';
-
-  @override
-  String get notificationSettingsSaved =>
-      'Matagumpay na na-save ang mga setting ng notipikasyon';
-
-  @override
-  String get notSet => 'Hindi Naitakda';
 
   @override
   String get notVerifiedText => 'Hindi Beripikado';
@@ -3073,9 +2264,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get numberTypePosition => 'Posisyon ng Uri ng Numero';
 
   @override
-  String get ok => 'OK';
-
-  @override
   String get okButton => 'OK';
 
   @override
@@ -3107,14 +2295,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Mag-authorize gamit ang system-configured OneDrive client ID at key';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'Mag-authorize gamit ang system-configured OneDrive client ID at key';
-
-  @override
   String get oneDriveConfigTitle => 'Konfigurasyon ng OneDrive';
-
-  @override
-  String get oneDriveConfigurationTitle => 'Konfigurasyon ng OneDrive';
 
   @override
   String get onlineCallerIdSubscription => 'Online Caller ID Subscription';
@@ -3175,9 +2356,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get passwordsDoNotMatch => 'Hindi magkatugma ang mga password';
 
   @override
-  String get passwordSetSuccessfully => 'Matagumpay na na-set ang password';
-
-  @override
   String get pattern => 'Pattern';
 
   @override
@@ -3213,15 +2391,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Hindi maaaring walang laman ang numero ng telepono';
 
   @override
-  String get phoneNumberHintText =>
-      'Ilagay ang numero ng telepono para magdagdag ng rule';
-
-  @override
   String get phoneNumberLabel => 'Numero ng Telepono';
-
-  @override
-  String get phoneNumberRegexRequired =>
-      'Mangyaring ilagay parehong numero ng telepono at regex pattern';
 
   @override
   String get phoneNumberTypeFixedLine => 'Fixed line';
@@ -3270,9 +2440,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get phoneRule => 'Phone Rule';
 
   @override
-  String get phoneRuleEditDialog => 'Phone Rule Edit Dialog';
-
-  @override
   String get phoneRuleManagement => 'Pamamahala ng Phone Rule';
 
   @override
@@ -3284,9 +2451,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'Mag-subscribe sa mga listahan ng phone rule sa pamamagitan ng URL upang awtomatikong i-update ang mga rule ng whitelist at blacklist. Sinusuportahan ang mga rule file na nasa format na JSON.';
-
-  @override
-  String get phoneSubscriptionTitle => 'Mga Subscription ng Phone Rule';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3308,9 +2472,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Matagumpay na na-export ang listahan ng mga plugin';
 
   @override
-  String get pluginLoadedSuccessfully => 'Matagumpay na na-load ang plugin';
-
-  @override
   String get pluginManagement => 'Pamamahala ng Plugin';
 
   @override
@@ -3318,14 +2479,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Pamahalaan at i-configure ang mga third-party plugin';
 
   @override
-  String get pluginManagementTitle => 'Pamamahala ng Plugin';
-
-  @override
   String get pluginName => 'Pangalan ng Plugin';
-
-  @override
-  String get pluginNotLoaded =>
-      'Hindi pa naka-load ang plugin. Mangyaring i-load muna ang plugin.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3343,16 +2497,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get pluginUrl => 'URL ng Plugin';
-
-  @override
-  String get pluginUrlCannotBeEmpty =>
-      'Hindi maaaring walang laman ang URL ng plugin';
-
-  @override
-  String get pluginUrlHint => 'Ilagay ang URL ng plugin';
-
-  @override
-  String get pluginUrlLabel => 'URL ng Plugin';
 
   @override
   String get pluginVersion => 'Bersyon ng Plugin';
@@ -3391,34 +2535,10 @@ class AppLocalizationsFil extends AppLocalizations {
       'I-unlock ang lahat ng premium na feature, auto-renew kada quarter';
 
   @override
-  String get queryButton => 'Query';
-
-  @override
-  String get queryFailed => 'Nabigo ang query';
-
-  @override
-  String get queryFailedLog => 'Nabigo ang query';
-
-  @override
-  String get querying => 'Nangunguhin...';
-
-  @override
-  String get queryingPhoneNumber => 'Nangunguhin ang numero ng telepono';
-
-  @override
-  String get queryResultTitle => 'Resulta ng Query';
-
-  @override
   String get ready => 'Handa na!';
 
   @override
-  String get receiveWeeklyStatistics => 'Makatanggap ng lingguhang statistics';
-
-  @override
   String get recruiter => 'Recruiter';
-
-  @override
-  String get reEnterPasswordHint => 'Mangyaring muling ilagay ang password';
 
   @override
   String get refresh => 'I-refresh';
@@ -3428,11 +2548,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'I-refresh';
-
-  @override
-  String regexError(Object error) {
-    return 'Regex error: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3450,10 +2565,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'Regex Pattern';
-
-  @override
-  String get regexPatternsExamples =>
-      'Gumamit ng karaniwang syntax ng regex upang tukuyin ang mga pattern. Halimbawa:';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3482,14 +2593,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'Regex Tester';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'Nabigo ang pagpapatunay ng regex: $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'Matagumpay ang pagpapatunay ng regex';
 
   @override
   String get region => 'Rehiyon';
@@ -3529,35 +2632,8 @@ class AppLocalizationsFil extends AppLocalizations {
   String get remoteNumberFilter => 'Remote Number Filter';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'Ang filter na ito ay gumagamit ng isang independiyenteng remote database upang makuha ang pinakabagong impormasyon ng numero.';
-
-  @override
   String get remoteNumberFilterDescription =>
       'Salain ang mga nakakainis na tawag batay sa impormasyon ng remote database';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'Tinutukoy at hinaharangan ng remote number filter ang mga spam call sa pamamagitan ng pagtatanong sa isang remote database batay sa bilang ng mga numero.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle =>
-      'Paliwanag ng Remote Number Filter';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• Threshold ng Bilang: Tukuyin batay sa dalas ng paglitaw ng numero';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• Mga Aksyon sa Pag-filter: I-configure kung paano haharapin ang mga numero na lumalagpas sa threshold';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• Mga Setting ng Priyoridad: Itakda ang priyoridad para sa mga aksyon sa remote';
-
-  @override
-  String get remoteNumberFilterFeatures => 'Mga Tampok:';
 
   @override
   String get remoteNumberFiltering => 'Remote Number Filtering';
@@ -3578,30 +2654,13 @@ class AppLocalizationsFil extends AppLocalizations {
   String get removeAdsTitle => 'Alisin ang mga Ad';
 
   @override
-  String get removedFromFavoriteContacts =>
-      'Tinanggal mula sa mga paboritong contact';
-
-  @override
   String get removedFromFavorites => 'Tinanggal mula sa mga paborito';
-
-  @override
-  String get removeFavorite => 'Alisin ang Paborito';
 
   @override
   String get removeFromFavorites => 'Alisin sa Mga Paborito';
 
   @override
-  String get renameButton => 'Palitan ang Pangalan';
-
-  @override
-  String get renameDeviceDialogTitle => 'Palitan ang Pangalan ng Device';
-
-  @override
   String get renameDeviceTitle => 'Palitan ang Pangalan ng Device';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'Ito ay papalitan ang lahat ng iyong kasalukuyang mga setting. Sigurado ka bang gusto mong magpatuloy?';
 
   @override
   String get requestAllPermissions => 'Hilingin Lahat ng Pahintulot';
@@ -3630,23 +2689,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Ibalik ang Mga Setting ng Application mula sa Backup';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'Ibalik ang mga setting ng application mula sa backup';
-
-  @override
-  String get restoreButton => 'Ibalik';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'Nabigo ang pag-restore mula sa cloud: $error';
-  }
-
-  @override
   String get restoreFromCloud => 'Ibalik mula sa Cloud';
-
-  @override
-  String get restoreFromCloudDescription =>
-      'Ibalik ang mga setting at tuntunin mula sa imbakan ng cloud';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3654,23 +2697,11 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'Ibalik mula sa Cloud';
-
-  @override
   String get restoreFromCloudSuccess =>
       'Matagumpay na na-restore mula sa cloud';
 
   @override
-  String get restoreFromCloudTitle => 'Ibalik mula sa Cloud';
-
-  @override
-  String get restoreFromLocal => 'Ibalik mula sa Lokal';
-
-  @override
   String get restorePurchases => 'Ibalik ang mga Pagbili';
-
-  @override
-  String get restoreSectionTitle => 'Ibalik';
 
   @override
   String get restoreSettings => 'Ibalik ang mga Setting';
@@ -3678,19 +2709,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'Ito ay papalitan ang lahat ng iyong kasalukuyang mga setting. Sigurado ka bang gusto mong magpatuloy?';
-
-  @override
-  String get restoreSettingsDialogTitle => 'Ibalik ang mga Setting';
-
-  @override
-  String get restoreSettingsTitle => 'Ibalik ang mga Setting';
-
-  @override
-  String get restoreSuccessFromLocal =>
-      'Matagumpay na na-restore mula sa lokal';
-
-  @override
-  String get restoreSuccessMessage => 'Matagumpay na na-restore mula sa cloud';
 
   @override
   String get retry => 'Subukang muli';
@@ -3708,15 +2726,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get ruleAction => 'Aksyon ng Tuntunin';
 
   @override
-  String get ruleAddButton => 'Idagdag ang Tuntunin';
-
-  @override
   String get ruleAddedSuccess => 'Matagumpay na naidagdag ang tuntunin';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'Nabigong idagdag ang tuntunin: $error';
-  }
 
   @override
   String get ruleAddSuccess => 'Matagumpay na naidagdag ang tuntunin';
@@ -3730,18 +2740,10 @@ class AppLocalizationsFil extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'Tanggalin ang Tuntunin';
 
   @override
-  String get ruleDeletedSuccess => 'Matagumpay na natanggal ang tuntunin';
-
-  @override
   String get ruleDeletedSuccessfully => 'Matagumpay na natanggal ang tuntunin';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'Nabigong tanggalin ang tuntunin: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'Nabigong tanggalin ang tuntunin: $error';
   }
 
@@ -3764,9 +2766,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get ruleManagement => 'Pamamahala ng Tuntunin';
 
   @override
-  String get ruleManagementTitle => 'Pamamahala ng Tuntunin';
-
-  @override
   String get ruleName => 'Pangalan ng Tuntunin';
 
   @override
@@ -3784,10 +2783,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get ruleNameLabel => 'Pangalan ng Tuntunin';
 
   @override
-  String get ruleNamePatternRequired =>
-      'Mangyaring ilagay ang pangalan at pattern ng tuntunin';
-
-  @override
   String get ruleNameRequired =>
       'Hindi maaaring walang laman ang pangalan ng tuntunin at numero ng telepono';
 
@@ -3800,23 +2795,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'Matagumpay na na-save ang panuntunan!';
-
-  @override
   String get ruleSavedSuccessMessage => 'Matagumpay na na-save ang panuntunan!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'Nabigo ang pag-save: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'Nabigo ang pag-save: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'Matagumpay na na-save ang panuntunan!';
 
   @override
   String get rulesExportedSuccessfully =>
@@ -3834,14 +2813,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return '$count na panuntunan ang matagumpay na na-import';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'Nabigong i-import ang mga panuntunan: $error';
-  }
-
-  @override
-  String get ruleStatistics => 'Mga Istatistika ng Panuntunan';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3876,9 +2847,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get saveButton => 'Save';
 
   @override
-  String get saveButtonLabel => 'SAVE';
-
-  @override
   String get saveButtonText => 'Save';
 
   @override
@@ -3887,15 +2855,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'Save Filter';
-
-  @override
   String get saveSettings => 'Save Settings';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'Nabigong i-save ang mga setting: $error';
-  }
 
   @override
   String get scamsLikely => 'Malamang na Scams';
@@ -3912,28 +2872,11 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'Search Filters';
-
-  @override
-  String get searchForContacts => 'Search for contacts';
-
-  @override
   String get searchHint => 'Search...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'Maghanap ng mga contact, label, blacklist, whitelist, atbp.';
-
-  @override
-  String get searchSettingsTitle => 'Search Settings';
 
   @override
   String get securityMessage =>
       'Huwag magtiwala sa anumang tawag sa telepono. Laging i-verify ang mga numero ng customer service nang independiyente. Huwag kailanman ibahagi ang mga password, code ng pagpapatunay, numero ng card, o personal na impormasyon.';
-
-  @override
-  String get selectActionToPerform =>
-      'Piliin ang aksyon na gagawin kapag tumugma ang panuntunan';
 
   @override
   String get selectActionWhenBlockingCalls =>
@@ -3948,12 +2891,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get selectCountry => 'Select Country';
-
-  @override
-  String get selectDateRange => 'Select Date Range';
-
-  @override
-  String get selectedDateRange => 'Napiling date range';
 
   @override
   String selectedItems(Object count) {
@@ -3980,20 +2917,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get selectMultiple => 'Select Multiple';
 
   @override
-  String get selectPeriod => 'Select Period';
-
-  @override
   String get selectSimCard => 'Select SIM Card';
-
-  @override
-  String get selectSimSlot => 'Select SIM Slot';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'Piliin ang tiyak na aksyon na gagawin kapag nagba-block ng mga tawag';
-
-  @override
-  String get selectTag => 'Select Tag';
 
   @override
   String get selectTags => 'Select Tags';
@@ -4035,23 +2959,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'Set';
-
-  @override
   String get setEncryptionPassword => 'Set Encryption Password';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'Magtakda ng password ng encryption para sa backup at restore';
-
-  @override
-  String get setEncryptionPasswordLabel => 'Set Encryption Password';
-
-  @override
-  String get setEncryptionPasswordTitle => 'Set Encryption Password';
-
-  @override
-  String get setPasswordButton => 'Set';
 
   @override
   String get settings => 'Settings';
@@ -4059,14 +2967,6 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'Na-backup ang mga setting sa: $path';
-  }
-
-  @override
-  String get settingsLoaded => 'Na-load ang mga setting';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'Nabigong i-load ang mga setting: $error';
   }
 
   @override
@@ -4089,13 +2989,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get setup => 'Setup';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'Static method para ipakita ang contact edit dialog';
-
-  @override
-  String get showExplanation => 'Show Explanation';
 
   @override
   String get silence => 'Silence';
@@ -4143,19 +3036,11 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'Nabigong i-load ang impormasyon ng SIM card: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'Ang mga tuntunin sa SIM slot ay nagbibigay-daan sa iyo na i-configure ang mga independiyenteng tuntunin sa pag-filter para sa bawat SIM slot.';
 
   @override
   String get simRuleInstructionsTitle => 'Mga Tuntunin sa SIM Slot';
-
-  @override
-  String get simRuleManagement => 'Pamamahala ng Tuntunin sa SIM Slot';
 
   @override
   String simSlot1(String countryIso) {
@@ -4168,19 +3053,6 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'Nabigong i-load ang data ng SIM: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration =>
-      'Konfigurasyon ng Filter ng SIM Slot';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'Pinapayagan ang pagtatakda ng mga tuntunin sa pag-filter ayon sa SIM slot';
-
-  @override
   String get simSlotFilterDescription =>
       'Mag-configure ng mga independiyenteng tuntunin sa pag-filter para sa bawat SIM card:';
 
@@ -4190,17 +3062,7 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'Nabigong i-load ang mga SIM slot: $error';
-  }
-
-  @override
   String get simSlotManagement => 'Pamamahala ng SIM Slot';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'Nabigong isagawa ang operasyon sa SIM slot: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4221,12 +3083,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'Mga Tuntunin sa SIM Slot';
-
-  @override
-  String get simSlotRuleManagementTitle => 'Pamamahala ng Tuntunin';
-
-  @override
-  String get simSlotSettings => 'Mga Setting ng SIM Slot';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4263,9 +3119,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get smsFilterSettings => 'Mga Setting ng Filter ng SMS';
 
   @override
-  String get smsHistory => 'Kasaysayan ng SMS';
-
-  @override
   String get smsManagement => 'Pamamahala ng SMS';
 
   @override
@@ -4292,26 +3145,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get smsRuleManagement => 'Pamamahala ng Tuntunin sa SMS';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'Matagumpay na na-export ang mga tuntunin sa SMS sa $filePath';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully =>
-      'Matagumpay na na-import ang mga tuntunin sa SMS';
-
-  @override
   String get smsRuleSubscription => 'Subscription ng Tuntunin sa SMS';
-
-  @override
-  String get smsRuleUpdatedSuccessfully =>
-      'Matagumpay na na-update ang tuntunin sa SMS';
-
-  @override
-  String get smsSettingsSubtitle => 'Pag-filter ng SMS at pag-block ng keyword';
-
-  @override
-  String get smsSettingsTitle => 'Mga Setting ng SMS';
 
   @override
   String get smsSubscription => 'Subscription sa SMS';
@@ -4350,26 +3184,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get statBlocked => 'Naka-block';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'Static na paraan upang ipakita ang Dialog ng Impormasyon ng Caller ID';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'Static na paraan upang ipakita ang dialog ng pagpili ng bansa';
-
-  @override
-  String get staticMethodToDisplayDialog =>
-      'Static na paraan upang ipakita ang dialog';
-
-  @override
   String get statistics => 'Istatistika';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'Ang feature na pag-export ng istatistika ay paparating na';
-
-  @override
-  String get statisticsGrid => 'Grid ng Istatistika';
 
   @override
   String get statisticsPageTitle => 'Pagsusuri ng Data';
@@ -4409,10 +3224,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get subscriptionDeleted => 'Nabura ang Subscription';
 
   @override
-  String get subscriptionDeletedSuccessfully =>
-      'Matagumpay na nabura ang subscription';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'Nabigong burahin ang subscription: $error';
   }
@@ -4421,23 +3232,9 @@ class AppLocalizationsFil extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'Nabura ang subscription';
 
   @override
-  String get subscriptionEmptyState => 'Walang subscription na magagamit';
-
-  @override
-  String get subscriptionEmptyText => 'Wala pang subscription';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'Nabigong i-load ang mga subscription: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'Nabigong i-load ang mga subscription: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'Pamamahala ng Subscription';
 
   @override
   String get subscriptionName => 'Pangalan ng Subscription';
@@ -4450,16 +3247,8 @@ class AppLocalizationsFil extends AppLocalizations {
   String get subscriptionNameHint => 'Ilagay ang pangalan ng subscription';
 
   @override
-  String get subscriptionPageTitle => 'Pamamahala ng Subscription';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
     return 'Nabigong baguhin ang status ng subscription: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
-    return 'Nabigong i-toggle ang status ng subscription: $error';
   }
 
   @override
@@ -4498,10 +3287,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get syncFailedMessage => 'Nabigo ang sync';
 
   @override
-  String get syncFolderNameHint =>
-      'Mangyaring ilagay ang pangalan ng folder ng sync (default: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'Pangalan ng Folder ng Sync';
 
   @override
@@ -4523,16 +3308,10 @@ class AppLocalizationsFil extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'Na-update ang katayuan ng sync';
 
   @override
-  String get syncSuccessful => 'Matagumpay ang Sync';
-
-  @override
   String get syncSuccessMessage => 'Matagumpay ang Sync';
 
   @override
   String get syncWithCloudStorage => 'Mag-sync sa Cloud Storage';
-
-  @override
-  String get syncWithCloudStorageSubtitle => 'Mag-sync sa cloud storage';
 
   @override
   String get systemFeatures => 'Mga Tampok ng Sistema:';
@@ -4561,9 +3340,6 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'Na-update ang mga lagay';
-
-  @override
   String get takeaway => 'Takeaway';
 
   @override
@@ -4577,9 +3353,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get testButton => 'TEST';
-
-  @override
-  String get testButtonLabel => 'TEST';
 
   @override
   String get testConnectionButton => 'Subukan ang Koneksyon';
@@ -4618,13 +3391,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Mga Setting ng Pagsagap ng Dalas ng Tawag';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'Awtomatikong harangan ang mga potensyal na spam na tawag batay sa dalas ng pagtawag';
-
-  @override
-  String get timeInterceptorTitle => 'Paganahin ang Pagsagap ng Dalas ng Tawag';
-
-  @override
   String get timeWindowDescription =>
       'Itakda ang laki ng time window para sa pagpapahintulot sa mga paulit-ulit na tawag. Ang mga tawag mula sa parehong numero sa loob ng window na ito ay papayagan';
 
@@ -4632,10 +3398,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'Oras ng Pagsagap (minuto): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'Itakda ang laki ng time window para sa pagpapahintulot sa mga paulit-ulit na tawag. Ang mga tawag mula sa parehong numero sa loob ng window na ito ay papayagan';
 
   @override
   String get today => 'Ngayon';
@@ -4647,24 +3409,11 @@ class AppLocalizationsFil extends AppLocalizations {
   String get totalBlocked => 'Kabuuang Naharangan';
 
   @override
-  String get totalFiltered => 'Kabuuang Nafilter';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'Ilipat ang data sa pagitan ng mga device o platform';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'Ilipat ang data sa pagitan ng mga device o platform';
-
-  @override
   String get travelTicketing => 'Pag-book ng Biyahe';
-
-  @override
-  String get trend => 'Trend';
-
-  @override
-  String get trendChart => 'Tsart ng Trend';
 
   @override
   String get tutorial => 'Tutorial';
@@ -4677,9 +3426,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get unknown => 'Hindi Alam';
-
-  @override
-  String get unknownLabel => 'Hindi Alam na Label';
 
   @override
   String get unknownTag => 'Lagay: Hindi Alam';
@@ -4705,10 +3451,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get updateAllNow => 'I-update Lahat Ngayon';
 
   @override
-  String get updateCallFilterConfig =>
-      'I-update ang Konpigurasyon ng Call Filter';
-
-  @override
   String updateContactFailed(Object error) {
     return 'Nabigong i-update ang contact: $error';
   }
@@ -4717,15 +3459,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get updateFavoriteStatus => 'I-update ang Katayuan sa Paborito';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'Nabigong i-update ang katayuan sa paborito: $error';
-  }
-
-  @override
   String get updateInterval => 'Pagitan ng Update';
-
-  @override
-  String get updateLabelFailed => 'Nabigong i-update ang label';
 
   @override
   String get updateNow => 'I-update Ngayon';
@@ -4754,9 +3488,6 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'I-update ang mga Lagay';
-
-  @override
   String get useCasesPoint1 =>
       '• Kilalanin ang mga spam na tawag na auto-redial';
 
@@ -4774,17 +3505,11 @@ class AppLocalizationsFil extends AppLocalizations {
   String get useGlobalSettings => 'Gamitin ang Pandaigdigang Mga Setting';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => 'Username';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'Gumamit ng karaniwang regex syntax upang tukuyin ang mga pattern. Mga Halimbawa:';
-
-  @override
-  String get validateRegex => 'I-validate ang Regex';
 
   @override
   String get verificationFailedText => 'Nabigo';
@@ -4822,46 +3547,13 @@ class AppLocalizationsFil extends AppLocalizations {
   String get webDAVConfigTitle => 'Konpigurasyon ng WebDAV';
 
   @override
-  String get webdavConfigurationTitle => 'Konpigurasyon ng WebDAV';
-
-  @override
-  String get webdavPasswordHint => 'Mangyaring ilagay ang WebDAV password';
-
-  @override
-  String get webdavServerAddressHint =>
-      'Mangyaring ilagay ang WebDAV server address';
-
-  @override
-  String get webdavUsernameHint => 'Mangyaring ilagay ang WebDAV username';
-
-  @override
   String get week => 'Linggo';
-
-  @override
-  String get weekly => 'Lingguhan';
-
-  @override
-  String get weeklyBlockedCallsSummary =>
-      'Buod ng Lingguhang Naharang na Tawag';
-
-  @override
-  String get weeklyChartTitle => 'Lingguhang Naharang na Tawag';
-
-  @override
-  String get weeklyReport => 'Lingguhang Ulat';
-
-  @override
-  String get weeklyReportDesc =>
-      'Makatanggap ng lingguhang buod ng ulat ng aktibidad sa pagharang ng tawag';
 
   @override
   String get welcome => 'Maligayang pagdating';
 
   @override
   String get whitelist => 'Whitelist';
-
-  @override
-  String get whitelistLabel => 'Whitelist';
 
   @override
   String get width => 'Lapad';
@@ -4882,12 +3574,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get year => 'Taon';
-
-  @override
-  String get yearly => 'Taun-taon';
-
-  @override
-  String get yearlyChartTitle => 'Taunang mga Tawag na Naharang';
 
   @override
   String get noSimCardsDetected => 'Walang SIM card na natukoy';
@@ -4937,10 +3623,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get useStirNotification => 'Gumamit ng Notification mula sa STIR';
 
   @override
-  String get useStirNotificationDescription =>
-      'Paganahin ang STIR notification para sa mga papasok na tawag';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'Isara ang Lokal na Notification Nang Awtomatiko';
 
@@ -4959,11 +3641,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'Impormasyon ng Papasok na Tawag';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'Numero: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'Naharang na Tawag';
@@ -5017,21 +3694,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'Alerto sa Pandaraya';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return 'Posibleng pandaraya na tawag mula sa $phoneNumber';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'Nabigong i-load ang mga patakaran: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'Nabigong i-load ang call log: $error';
-  }
 
   @override
   String get noBlockedTypeData => 'Walang available na data ng uri ng naharang';
@@ -5108,9 +3770,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get removeAds => 'Alisin ang Ads';
-
-  @override
-  String get unknownAction => 'Hindi Alam na Aksyon';
 
   @override
   String get settingsBackup => 'Pag-backup ng mga Setting ';
@@ -5375,16 +4034,8 @@ class AppLocalizationsFil extends AppLocalizations {
   String get blockNumberSuccess => 'Matagumpay na na-block ang numero';
 
   @override
-  String get blockNumberFailed => 'Nabigo ang pag-block ng numero';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return 'Sigurado ka bang gusto mong i-unblock si $phoneNumber?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return 'Tumatawag kay $phoneNumber...';
   }
 
   @override
@@ -5401,9 +4052,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => 'Nabigo ang pag-unblock ng numero';
-
-  @override
-  String get serviceNotAvailable => 'Hindi magagamit ang serbisyo';
 
   @override
   String get callingNumberFailed => 'Nabigo ang pagtawag sa numero';
@@ -5434,9 +4082,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'Hindi wastong format ng numero';
-
-  @override
-  String get membershipFeature => 'Feature ng Miyembro';
 
   @override
   String get medium => 'Medium';
@@ -5533,9 +4178,6 @@ class AppLocalizationsFil extends AppLocalizations {
       'Kumpirmahin upang tanggalin ang lahat ng abiso';
 
   @override
-  String get allNotificationsCleared => 'Naubos na ang lahat ng notipikasyon';
-
-  @override
   String get clearButton => 'Linisin';
 
   @override
@@ -5605,9 +4247,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get reasonInaccurateInfo => 'Maling Impormasyon';
 
   @override
-  String get reasonWrongMarked => 'Maling Marka';
-
-  @override
   String get reasonOther => 'Iba Pa';
 
   @override
@@ -5617,25 +4256,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get cancel => 'Kanselahin';
 
   @override
-  String get proposalStatus => 'Katayuan';
-
-  @override
-  String get statusPending => 'Nakabinbin';
-
-  @override
-  String get statusActive => 'Aktibo';
-
-  @override
-  String get statusCompleted => 'Nakumpleto';
-
-  @override
-  String get statusExpired => 'Nag-expire';
-
-  @override
   String get riskLevel => 'Antas ng Panganib';
-
-  @override
-  String get riskLevelVerified => 'Napatunayan';
 
   @override
   String get riskLevelLow => 'Mababa';
@@ -5644,19 +4265,8 @@ class AppLocalizationsFil extends AppLocalizations {
   String get riskLevelHigh => 'Mataas';
 
   @override
-  String get riskLevelUnknown => 'Hindi Alam';
-
-  @override
-  String get votingProgress => 'Pag-usad ng Boto';
-
-  @override
   String agreeVotes(int count) {
     return 'Sumasang-ayon: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'Hindi Sumasang-ayon: $count';
   }
 
   @override
@@ -5679,12 +4289,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get verificationReport => 'Ulat sa Pag-verify';
 
   @override
-  String get showReport => 'Ipakita ang Ulat';
-
-  @override
-  String get hideReport => 'Itago ang Ulat';
-
-  @override
   String get proposalStatistics => 'Mga Estadistika ng Panukala';
 
   @override
@@ -5694,28 +4298,13 @@ class AppLocalizationsFil extends AppLocalizations {
   String get activeProposals => 'Mga Aktibong Panukala';
 
   @override
-  String get completedProposals => 'Mga Nakumpletong Panukala';
-
-  @override
-  String get myVotes => 'Mga Boto Ko';
-
-  @override
   String get proposalCreated => 'Matagumpay na nagawa ang panukala';
-
-  @override
-  String get proposalCreateFailed => 'Nabigong gumawa ng panukala';
 
   @override
   String get voteSubmitted => 'Matagumpay na naipasa ang boto';
 
   @override
-  String get voteSubmitFailed => 'Nabigong ipasa ang boto';
-
-  @override
   String get noProposalsFound => 'Walang nakitang mga panukala';
-
-  @override
-  String get loadingProposals => 'Naglo-load ng mga panukala...';
 
   @override
   String get refreshProposals => 'I-refresh ang mga Panukala';
@@ -5868,24 +4457,11 @@ class AppLocalizationsFil extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'Nabigong i-load ang bilang ng boto';
-
-  @override
   String get voteCount => 'Bilang ng Boto';
-
-  @override
-  String get deletionProposalInfo => 'Impormasyon sa Panukala sa Pagbura';
 
   @override
   String get deletionProposalDescription =>
       'Magpanukala ng mga numero para sa pagbura na lumalabag sa mga alituntunin ng komunidad. Ang iyong pakikilahok ay nakakatulong upang mapanatiling ligtas ang platform.';
-
-  @override
-  String get voteToEarnVip =>
-      'Bumoto sa mga panukala upang kumita ng VIP pribilehiyo!';
-
-  @override
-  String get voteFailed => 'Nabigo ang boto';
 
   @override
   String get searchProposals => 'Hanapin ang mga Panukala';
@@ -5919,50 +4495,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Nagpapakita ng mga babala para sa mga posibleng fraudulent na tawag.';
 
   @override
-  String get notificationFrequencyDescription =>
-      'Pumili kung gaano kadalas ka tumatanggap ng mga notipikasyon tungkol sa mga bagong panukala sa pagtanggal. Maaari mong matanggap ang mga ito kaagad, sa mga batch, o sa isang custom na pagitan.';
-
-  @override
   String get notificationMode => 'Mode ng Notipikasyon';
-
-  @override
-  String get immediateNotifications => 'Kaagad';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'Tumanggap ng notipikasyon sa sandaling malikha ang isang panukala.';
-
-  @override
-  String get batchNotifications => 'Naka-batch';
-
-  @override
-  String get batchNotificationsDescription =>
-      'Tumanggap ng buod ng mga notipikasyon paminsan-minsan.';
-
-  @override
-  String get customNotifications => 'Pasadya';
-
-  @override
-  String get customNotificationsDescription =>
-      'Tukuyin ang iyong sariling pagitan para sa pagtanggap ng mga notipikasyon.';
-
-  @override
-  String get customFrequency => 'Pasadya na Pagitan';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes min';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours h';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours h $minutes min';
-  }
 
   @override
   String get pendingProposals => 'Mga Nakabinbing Panukala';
@@ -5984,9 +4517,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get riskLevelLabel => 'Antas ng Panganib';
-
-  @override
-  String get riskLevelDescription => 'Antas ng panganib ng numero';
 
   @override
   String get phoneNumberMinDigits =>
@@ -6013,35 +4543,13 @@ class AppLocalizationsFil extends AppLocalizations {
   String get countryCodeRequired => 'Kinakailangan ang country code';
 
   @override
-  String get countryCodeLengthError => 'Ang country code ay dapat 2 letra';
-
-  @override
   String get phoneNumberHint => 'Ilagay ang numero ng telepono';
 
   @override
   String get phoneNumberRequired => 'Kailangan ang numero ng telepono';
 
   @override
-  String get phoneNumberLengthError =>
-      'Ang numero ng telepono ay dapat hindi bababa sa 7 digit';
-
-  @override
-  String get reasonHint =>
-      'Magbigay ng detalyadong paliwanag (minimum 10 character)';
-
-  @override
   String get reasonRequired => 'Kinakailangan ang dahilan';
-
-  @override
-  String get reasonLengthError =>
-      'Ang dahilan ay dapat hindi bababa sa 10 character';
-
-  @override
-  String get guidelinesTitle => 'Mga Alituntunin';
-
-  @override
-  String get guidelinesText =>
-      '• I-report lamang ang mga numero na tunay na may problema\n• Magbigay ng tumpak at detalyadong mga dahilan\n• Pumili ng naaangkop na antas ng panganib batay sa kalubhaan\n• Ang mga maling ulat ay maaaring magresulta sa mga restriksyon sa account';
 
   @override
   String get riskLevelCritical => 'Kritikal';
@@ -6053,57 +4561,11 @@ class AppLocalizationsFil extends AppLocalizations {
   String get riskLevelVeryLow => 'Napaka-mababa';
 
   @override
-  String get riskDescriptionVeryLow =>
-      'Napaka-mababa - Maliit na abala, paminsan-minsang mga tawag';
-
-  @override
-  String get riskDescriptionLow =>
-      'Mababa - Paminsan-minsang hindi kanais-nais na mga tawag';
-
-  @override
-  String get riskDescriptionMedium =>
-      'Katamtaman - Regular na spam o telemarketing';
-
-  @override
-  String get riskDescriptionHigh =>
-      'Mataas - Paulit-ulit na panliligalig o mga pagtatangka sa scam';
-
-  @override
-  String get riskDescriptionCritical =>
-      'Kritikal - Mapanganib na mga scam o banta';
-
-  @override
   String get notificationFrequencyTitle => 'Pagitan ng Notipikasyon';
-
-  @override
-  String get notificationFrequencyLabel => 'Pagitan ng Notipikasyon (oras)';
 
   @override
   String errorMessage(String error) {
     return 'Error: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'Mga Boto: $totalVotes ($supportPercentage% suporta)';
-  }
-
-  @override
-  String get timeJustNow => 'Kagabi lang';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return '${minutes}m ang nakalipas';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return '${hours}h ang nakalipas';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return '${days}d ang nakalipas';
   }
 
   @override
@@ -6189,10 +4651,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get liveActivitiesTestTitle => 'Live Activities Test';
 
   @override
-  String get liveActivitiesTestSubtitle =>
-      'Subukan ang live activity Notification.';
-
-  @override
   String get liveNotificationCustomizationTitle =>
       'Pag-customize ng Live Notification';
 
@@ -6219,16 +4677,10 @@ class AppLocalizationsFil extends AppLocalizations {
   String get proposalDetails => 'Mga Detalye ng Panukala';
 
   @override
-  String get filterByStatus => 'Salain Ayon sa Katayuan';
-
-  @override
   String get proposalNotFound => 'Hindi natagpuan ang panukala';
 
   @override
   String get processed => 'Naproseso';
-
-  @override
-  String get showAll => 'Ipakita Lahat';
 
   @override
   String get filterAndSortTitle => 'Salain at Ayusin';
@@ -6267,9 +4719,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get invalidSimData => 'Hindi balido ang SIM data';
 
   @override
-  String get simCardData => 'SIM Card Data';
-
-  @override
   String get simSlot => 'SIM Slot';
 
   @override
@@ -6288,12 +4737,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String get callTypeSilenced => 'Pinatahimik';
 
   @override
-  String get callTypeVoicemail => 'Voicemail';
-
-  @override
-  String get callTypeUnknownIntercept => 'Hindi Kilalang Intercept';
-
-  @override
   String andMoreItems(int count) {
     return 'at $count pang mga item';
   }
@@ -6306,10 +4749,6 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6393,9 +4832,6 @@ class AppLocalizationsFil extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

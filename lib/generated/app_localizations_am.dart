@@ -18,13 +18,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get aboutPhoneSubscriptionRules => 'ስለ የስልክ የደንበኝነት ምዝገባ ህጎች';
 
   @override
-  String get aboutPhoneSubscriptions => 'ስለ የስልክ ምዝገባዎች';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'የስልክ ህግ ዝርዝሮችን በዩአርኤል ይመዝገቡ፣ ህጎችን በራስ-ሰር ያዘምኑ። የJSON፣CSV ቅርጸት ህግ ፋይሎችን ይደግፋል።';
-
-  @override
   String get aboutSmsFilter => 'ስለ ኤስኤምኤስ ማጣሪያ';
 
   @override
@@ -47,9 +40,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get actionBlock => 'አግድ';
-
-  @override
-  String get actionFilterAll => 'ሁሉም ማጣሪያ';
 
   @override
   String get actionFilterTitle => 'በድርጊት አይነት ማጣሪያ';
@@ -95,28 +85,7 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'ወደ ፍቀድ ህጎች ተጨምሯል';
-
-  @override
-  String get addedToBlacklist => 'ወደ ጥቁር መዝገብ ተጨምሯል';
-
-  @override
-  String get addedToBlockedRules => 'ወደ አግድ ህጎች ተጨምሯል';
-
-  @override
-  String get addedToFavoriteContacts => 'ወደ ተወዳጅ እውቂያዎች ተጨምሯል';
-
-  @override
   String get addedToFavorites => 'ወደ ተወዳጆች ተጨምሯል';
-
-  @override
-  String get addedToWhitelist => 'ወደ ነጭ ዝርዝር ተጨምሯል';
-
-  @override
-  String get addFavorite => 'ተወዳጅ አክል';
-
-  @override
-  String get addFilter => 'ማጣሪያ አክል';
 
   @override
   String get addLabel => 'መለያ አክል';
@@ -130,16 +99,10 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'የጥሪ መዝገብ ላይ መለያ አክል';
-
-  @override
   String get addName => 'ስም አክል';
 
   @override
   String get addNoneSubscription => 'ምንም ምዝገባ የለም';
-
-  @override
-  String get addOrEditContactInfo => 'የእውቂያ መረጃን ለማከል ወይም ለማርትዕ ጥቅም ላይ ይውላል';
 
   @override
   String get addPhoneMark => 'የስልክ ምልክት አክል';
@@ -171,9 +134,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get addRule => 'ህግ አክል';
 
   @override
-  String get addRuleButton => 'ህግ አክል';
-
-  @override
   String addRuleFailed(Object error) {
     return 'ህግ ማከል አልተሳካም: $error';
   }
@@ -183,9 +143,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'የዝምታ ምዝገባን አክል';
-
-  @override
-  String get addSimRuleButton => 'የሲም ህግን አክል';
 
   @override
   String get addSmsFilterRule => 'የኤስኤምኤስ ማጣሪያ ህግን አክል';
@@ -211,16 +168,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get addSubscriptionTooltip => 'ምዝገባ አክል';
 
   @override
-  String get addToAllowedRules => 'ወደ ፍቀድ ህጎች አክል';
-
-  @override
   String get addToBlacklist => 'ወደ ጥቁር መዝገብ አክል';
-
-  @override
-  String get addToBlockedRules => 'ወደ አግድ ህጎች አክል';
-
-  @override
-  String get addToFavoriteContacts => 'ወደ ተወዳጅ እውቂያዎች አክል';
 
   @override
   String get addToFavorites => 'ወደ ተወዳጆች አክል';
@@ -232,9 +180,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get addToWhitelist => 'ወደ ነጭ ዝርዝር አክል';
 
   @override
-  String get adPlaceholder => 'የማስታወቂያ መሙያ';
-
-  @override
   String get agent => 'ወኪል';
 
   @override
@@ -242,9 +187,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get allCallsTab => 'ሁሉም';
-
-  @override
-  String get allDataClearedSuccessfully => 'ሁሉም ውሂብ በተሳካ ሁኔታ ተጠርጓል';
 
   @override
   String get allow => 'ፍቀድ';
@@ -257,9 +199,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get allowAllBlacklistedNumbers => 'ሁሉንም በጥቁር መዝገብ የተመዘገቡ ቁጥሮችን ፍቀድ';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc => 'ከጥቁር መዝገብ ጥሪዎችን ፍቀድ';
 
   @override
   String get allowAllBlockRules => 'ሁሉንም የአግድ ህጎች ፍቀድ';
@@ -323,12 +262,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get allowRules => 'የፍቀድ ህጎች';
 
   @override
-  String get allowWhitelistedNumbers => 'ነጭ መዝገብ ቁጥሮች ይፍቀዱ';
-
-  @override
-  String get allowWhitelistedNumbersDescription => 'ነጭ መዝገብ ያሉትን ሁሉንም ቁጥሮች ፍቀድ';
-
-  @override
   String get allPermissionsGranted => 'ሁሉም ፈቃዶች ተሰጥተዋል';
 
   @override
@@ -341,9 +274,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'መልስ ከዚያም አንጠልጥል';
-
-  @override
-  String get appLegalese => '© 2023 የእርስዎ ጥሪ የእርስዎ ህግ። ሁሉም መብቶች የተጠበቁ ናቸው።';
 
   @override
   String get applicationSoftware => 'የመተግበሪያ ሶፍትዌር';
@@ -382,13 +312,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'ራስ-ዝማኔ ቅንብሮች';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'ለህጎች እና ተሰኪዎች ራስ-አውቶማቲክ ዝማኔዎችን ያስተዳድሩ';
-
-  @override
-  String get autoUpdateSettingsTitle => 'ራስ-ዝማኔ ቅንብሮች';
 
   @override
   String get autoUpdateSubtitle => 'ለህጎች እና ተሰኪዎች ራስ-አውቶማቲክ ዝማኔዎችን ያስተዳድሩ';
@@ -435,44 +358,10 @@ class AppLocalizationsAm extends AppLocalizations {
   String get backupFailed => 'ምትኬ አልተሳካም';
 
   @override
-  String get backupFailedMessage => 'ምትኬ አልተሳካም';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'ምትኬ አልተሳካም: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle => 'የመተግበሪያ ውሂብ ምትኬ ያስቀምጡ ወይም ይመልሱ';
-
-  @override
-  String get backupRestoreTitle => 'ምትኬ & መልሶ ማግኛ';
-
-  @override
-  String get backupSectionTitle => 'ምትኬ';
-
-  @override
   String get backupSettings => 'ምትኬ ቅንብሮች';
 
   @override
-  String get backupSettingsDialogTitle => 'ምትኬ ቅንብሮች';
-
-  @override
-  String get backupSettingsTitle => 'ምትኬ ቅንብሮች';
-
-  @override
-  String get backupSuccessMessage => 'በደመና ላይ በስኬት ምትኬ ተቀምጧል';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'ምትኬ ወደ: $path በተሳካ ሁኔታ ተቀምጧል';
-  }
-
-  @override
   String get backupToCloud => 'ወደ ደመና ምትኬ';
-
-  @override
-  String get backupToCloudDescription => 'ቅንብሮች እና ህጎች ወደ ደመና ማከማቻ ምትኬ ያስቀምጡ';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -480,16 +369,7 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'ወደ ደመና ምትኬ';
-
-  @override
   String get backupToCloudSuccess => 'በደመና ላይ በስኬት ምትኬ ተቀምጧል';
-
-  @override
-  String get backupToCloudTitle => 'ወደ ደመና ምትኬ';
-
-  @override
-  String get backupToLocalLabel => 'ወደ አካባቢያዊ ምትኬ';
 
   @override
   String get bank => 'ባንክ';
@@ -508,22 +388,13 @@ class AppLocalizationsAm extends AppLocalizations {
       '• መሰረታዊ ህግ ማጣሪያ፡ ከጥቁር መዝገብ፣ ነጭ መዝገብ እና ሬጌክስ ላይ ተመስርተው ህጎችን ማጣራት';
 
   @override
-  String get basicRuleFilterSettings => 'መሰረታዊ ህግ ማጣሪያ ቅንብሮች';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'ጥሪዎችን በጥቁር/በነጭ መዝገብ እና መደበኛ አገላለጾችን በመጠቀም ያጣሩ';
-
-  @override
-  String get batchDeleteContacts => 'የጅምላ እውቂያዎች ሰርዝ';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return '$count የተመረጡ እውቂያዎችን መሰረዝዎን እርግጠኛ ነዎት?';
   }
-
-  @override
-  String get batchDeleteFailed => 'የጅምላ መሰረዝ አልተሳካም';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -535,9 +406,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get blacklistingAndWhitelisting => 'ጥቁር መዝገብ እና ነጭ መዝገብ';
-
-  @override
-  String get blacklistLabel => 'ጥቁር መዝገብ';
 
   @override
   String get blackWhiteList => 'ጥቁር/ነጭ ዝርዝር';
@@ -552,19 +420,10 @@ class AppLocalizationsAm extends AppLocalizations {
   String get blocked => 'ታገደ';
 
   @override
-  String get blockedCallAction => 'የታገደ ጥሪ እርምጃ';
-
-  @override
   String get blockedCalls => 'የታገዱ ጥሪዎች';
 
   @override
   String get blockedCallsTitle => 'የታገዱ ጥሪዎች';
-
-  @override
-  String get blockedCommunications => 'የታገዱ ግንኙነቶች';
-
-  @override
-  String get blockedPhoneLabel => 'የታገዱ ጥሪዎች';
 
   @override
   String get blockedSpamCalls => 'የታገዱ የስፓም ጥሪዎች';
@@ -577,9 +436,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get blockInternationalCallsTitle => 'አለምአቀፍ ጥሪዎችን አግድ';
-
-  @override
-  String get blockLandlineNumbersTitle => 'የመሬት መስመር ቁጥሮችን አግድ';
 
   @override
   String get blockMobileNumbers => '13-19 የማይጀምሩ ቁጥሮችን ይዛመዳል';
@@ -627,11 +483,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get callback => 'ጥሪ ተመለስ';
 
   @override
-  String callbackTo(String number) {
-    return 'ወደ $number ጥሪ ተመለስ';
-  }
-
-  @override
   String get callBlocking => 'የጥሪ ማገድ';
 
   @override
@@ -639,9 +490,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'የደዋይ መታወቂያ ያብጁ';
-
-  @override
-  String get callerIdDialogTitle => 'የደዋይ መታወቂያ መረጃ';
 
   @override
   String get callerIdDisplayMode => 'የደዋይ መታወቂያ ማሳያ ሁኔታ';
@@ -653,13 +501,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'የደዋይ መታወቂያ ቅድመ እይታ';
-
-  @override
-  String get callFilter => 'የጥሪ ማጣሪያ';
-
-  @override
-  String get callFilterDescription =>
-      'ሲነቃ ገቢ ጥሪዎች ከታች ባለው የደንብ ዝርዝር ጋር ይነጻጸራሉ። የጥሪ ማጣሪያ ህጎች በመሣሪያዎች መካከል በነባሪነት አልተመሳሰሉም።';
 
   @override
   String get callFilterRules => 'የጥሪ ማጣሪያ ህጎች';
@@ -688,26 +529,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get callHistoryInfoTitle => 'የጥሪ ታሪክ';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'የጥሪ ታሪክን ለማስጀመር አልተሳካም: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'የጥሪ ታሪክን ለማደስ አልተሳካም: $error';
-  }
-
-  @override
   String get callHistoryTab => 'የጥሪ ታሪክ';
-
-  @override
-  String get callHistoryTimelineEarlier => 'ቀደም ብሎ';
-
-  @override
-  String get callHistoryTimelineToday => 'ዛሬ';
-
-  @override
-  String get callHistoryTimelineYesterday => 'ትናንት';
 
   @override
   String get callScreeningPermission => 'የጥሪ ማጣሪያ ፈቃድ';
@@ -719,12 +541,6 @@ class AppLocalizationsAm extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'የጥሪ ማጣሪያ ፈቃድ አልተሰጠም፣ የኛን መተግበሪያ ተግባራዊነት ሊጎዳ ይችላል።';
-
-  @override
-  String get callSettingsSubtitle => 'የደዋይ መታወቂያ፣ ማጣሪያ እና የማገድ ቅንብሮች';
-
-  @override
-  String get callSettingsTitle => 'የጥሪ ቅንብሮች';
 
   @override
   String get callStatistics => 'የጥሪ ስታትስቲክስ';
@@ -782,27 +598,10 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'መለያ ቀይር';
-
-  @override
   String get charity => 'በጎ አድራጎት';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'ወር $month';
-  }
-
-  @override
-  String get chartOneDayAgo => '1 ቀን በፊት';
-
-  @override
-  String get chartOneMonthAgo => '1 ወር በፊት';
-
-  @override
   String get chartOneWeekAgo => '1 ሳምንት በፊት';
-
-  @override
-  String get chartTenDaysAgo => '10 ቀናት በፊት';
 
   @override
   String get chartThreeDaysAgo => '3 ቀናት በፊት';
@@ -822,23 +621,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get chooseDefaultInterceptAction => 'ነባሪ የመጥለፍያ እርምጃ ይምረጡ';
 
   @override
-  String get clearAllData => 'ሁሉንም ውሂብ ሰርዝ';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'ሁሉንም የመተግበሪያ ውሂብ ማጽዳት ይፈልጋሉ? ይህ እርምጃ ሊቀለበስ አይችልም።';
-
-  @override
-  String get clearAllDataDescription => 'ሁሉንም የመተግበሪያ ውሂብ ሰርዝ';
-
-  @override
-  String get clearAllDataLabel => 'ሁሉንም ውሂብ ሰርዝ';
-
-  @override
   String get clearFilter => 'ማጣሪያ ሰርዝ';
-
-  @override
-  String get clearLabelFilter => 'የመለያ ማጣሪያ ሰርዝ';
 
   @override
   String get clearLabelFilterButton => 'የመለያ ማጣሪያ ሰርዝ';
@@ -863,9 +646,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get cloudSyncTitle => 'የደመና ማመሳሰል';
 
   @override
-  String get collapseLabelSelector => 'የመለያ መራጭን ዝጋ';
-
-  @override
   String get collection => 'ዕዳ መሰብሰብ';
 
   @override
@@ -885,14 +665,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get configureBackupOptions => 'የመጠባቂያ አማራጮችን ያዋቅሩ';
 
   @override
-  String get configureBackupOptionsSubtitle => 'የመጠባቂያ አማራጮችን ያዋቅሩ';
-
-  @override
   String get configureCloudSyncService => 'የደመና ማመሳሰል አገልግሎት ያዋቅሩ';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'እባክዎ የብዙ-መሣሪያ ማመሳሰልን ለማንቃት የደመና ማመሳሰል አገልግሎት ያዋቅሩ።';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -902,29 +675,13 @@ class AppLocalizationsAm extends AppLocalizations {
   String get configureSimCardFilterRules => 'የሲም ካርድ ማጣሪያ ህጎችን ያዋቅሩ';
 
   @override
-  String get configureSyncServiceHint =>
-      'እባክዎ በመጀመሪያ የደመና ማመሳሰል ቅንብሮች ውስጥ የማመሳሰል አገልግሎት ያዋቅሩ';
-
-  @override
   String get confirm => 'አረጋግጥ';
-
-  @override
-  String get confirmBatchDeleteContacts => 'የተመረጡትን መሰረዝ ይፈልጋሉ?';
 
   @override
   String get confirmButton => 'አረጋግጥ';
 
   @override
   String get confirmDelete => 'አረጋግጥ ሰርዝ';
-
-  @override
-  String get confirmDeleteContact => 'እርግጠኛ ነዎት መሰረዝ ይፈልጋሉ';
-
-  @override
-  String get confirmDeleteContactName => 'መሰረዙን ያረጋግጡ?';
-
-  @override
-  String get confirmDeleteFilter => 'ይህን ማጣሪያ መሰረዝ ይፈልጋሉ?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -946,16 +703,10 @@ class AppLocalizationsAm extends AppLocalizations {
       'ይህን ህግ መሰረዝ ይፈልጋሉ? ይህ እርምጃ ሊቀለበስ አይችልም።';
 
   @override
-  String get confirmDeleteSelectedContacts => 'የተመረጡ እውቂያዎችን መሰረዙን ያረጋግጡ?';
-
-  @override
   String get confirmDeleteSmsFilterRule => 'ይህን የኤስኤምኤስ ማጣሪያ ህግ መሰረዝ ይፈልጋሉ?';
 
   @override
   String get confirmDeleteSmsRule => 'ይህን የኤስኤምኤስ ህግ መሰረዝ ይፈልጋሉ?';
-
-  @override
-  String get confirmDeleteSubscription => 'ይህን የደንበኝነት ምዝገባ መሰረዝ ይፈልጋሉ?';
 
   @override
   String confirmDeleteSubscriptions(String name) {
@@ -964,9 +715,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get confirmPassword => 'የይለፍ ቃል ያረጋግጡ';
-
-  @override
-  String get confirmPasswordLabel => 'የይለፍ ቃል ያረጋግጡ';
 
   @override
   String get connectedStatus => 'ተገናኝቷል';
@@ -991,16 +739,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get contactDeleted => 'ዕውቂያ ተሰርዟል';
 
   @override
-  String get contactEditDialog => 'የዕውቂያ ማረምያ መስኮት';
-
-  @override
-  String get contactNameHint => 'የዕውቂያ ስም ያስገቡ (አማራጭ)';
-
-  @override
   String get contactNameLabel => 'ስም';
-
-  @override
-  String get contactNameOptional => 'የዕውቂያ ስም (አማራጭ)';
 
   @override
   String get contactNotFound => 'ዕውቂያ አልተገኘም';
@@ -1014,24 +753,7 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle => 'የዕውቂያ አስተዳደር እና መለያ ቅንብሮች';
-
-  @override
-  String get contactSettingsTitle => 'የዕውቂያ ቅንብሮች';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'ዕውቂያዎችን በመጫን ላይ አልተሳካም: $error';
-  }
-
-  @override
   String get contactsManagement => 'የዕውቂያዎች አስተዳደር';
-
-  @override
-  String get contactsManagementPageTitle => 'የዕውቂያዎች አስተዳደር ገጽ';
-
-  @override
-  String get contactsPageTitle => 'የዕውቂያዎች አስተዳደር';
 
   @override
   String get contactsPermission => 'የዕውቂያዎች ፈቃድ';
@@ -1046,14 +768,6 @@ class AppLocalizationsAm extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'የዕውቂያ ዝርዝሮችን በዩአርኤል ይመዝገቡ፤ የዕውቂያ መረጃዎችን እና መለያዎችን በራስ-ሰር ያዘምኑ። የJSON ቅርጸት መረጃ ይደግፋል።';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'የዕውቂያ ምዝገባዎችን በመጫን ላይ አልተሳካም: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'የዕውቂያ ምዝገባዎች';
 
   @override
   String get contactUpdateSuccess => 'ዕውቂያ በተሳካ ሁኔታ ተዘምኗል';
@@ -1089,26 +803,11 @@ class AppLocalizationsAm extends AppLocalizations {
   String get countryRegionNamePosition => 'የሀገር/ክልል ስም ቦታ';
 
   @override
-  String get countrySelectionDialog => 'የሀገር ምርጫ መስኮት';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'የደዋይ መረጃዎችን ለመጠየቅ ሀገር ለመምረጥ ጥቅም ላይ ይውላል';
-
-  @override
   String get countThresholdDescription =>
       'ማጣሪያዎችን ለማንቀሳቀስ የሚያስፈልገውን ዝቅተኛ የመቆጠር ገደብ ያዘጋጁ';
 
   @override
   String get countThresholdLabel => 'የመቆጠር ገደብ';
-
-  @override
-  String get countThresholdSettings => 'የመቆጠር ገደብ ቅንብሮች';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'የመቆጠር ገደብ: $count';
-  }
 
   @override
   String get createdRules => 'የተፈጠሩ ህጎች';
@@ -1117,46 +816,22 @@ class AppLocalizationsAm extends AppLocalizations {
   String get csvFormat => 'CSV ቅርጸት';
 
   @override
-  String get currentDeviceChip => 'አሁን ያለው';
-
-  @override
   String get currentDeviceLabel => 'አሁን ያለው የመሣሪያ መለያ';
 
   @override
   String get currentDeviceTitle => 'አሁን ያለው መሣሪያ';
 
   @override
-  String get currentLabels => 'አሁን ያሉ መለያዎች:';
-
-  @override
   String get currentLanguage => 'አሁን ያለው ቋንቋ';
 
   @override
-  String get currentPasswordLabel => 'አሁን ያለው የይለፍ ቃል';
-
-  @override
   String get customerService => 'የደንበኞች አገልግሎት';
-
-  @override
-  String get customRange => 'የተስተካከለ ክልል';
-
-  @override
-  String get dailyStatistics => 'ዕለታዊ ስታትስቲክስ';
-
-  @override
-  String get dailyStatisticsDesc => 'ስለታገዱ ጥሪዎች እና መልእክቶች ዕለታዊ ስታትስቲክስ ይቀበሉ';
 
   @override
   String get dashboardTab => 'ዳሽቦርድ';
 
   @override
   String get dataAnalysis => 'የውሂብ ትንተና';
-
-  @override
-  String get dataAnalysisDashboardPage => 'የውሂብ ትንተና ዳሽቦርድ ገጽ';
-
-  @override
-  String get dataExport => 'የውሂብ ኤክስፖርት';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1174,16 +849,6 @@ class AppLocalizationsAm extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'ይህ ባህሪ ሁሉንም ውሂቦችዎን በመሣሪያዎች መካከል እንዲያስተላልፉ ያስችልዎታል። በአሁኑ ጊዜ ውሂቦችዎን በእጅ ለማስተላለፍ ምትኬ እና እነበረበት መልስ ባህሪያትን መጠቀም ይችላሉ።';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'ይህ ባህሪ ሁሉንም ውሂቦችዎን በመሣሪያዎች መካከል እንዲያስተላልፉ ያስችልዎታል። በአሁኑ ጊዜ ውሂቦችዎን በእጅ ለማስተላለፍ ምትኬ እና እነበረበት መልስ ባህሪያትን መጠቀም ይችላሉ።';
-
-  @override
-  String get dataMigrationDialogTitle => 'የውሂብ ማስተላለፍ';
-
-  @override
-  String get dataMigrationSectionTitle => 'የውሂብ ማስተላለፍ';
 
   @override
   String get dataSourceReminder => 'የውሂብ ምንጭ አስታዋሽ';
@@ -1208,9 +873,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get debtCollection => 'ዕዳ መሰብሰብ';
 
   @override
-  String get defaultPeriod => 'ሳምንት';
-
-  @override
   String get delete => 'ሰርዝ';
 
   @override
@@ -1225,23 +887,9 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation => 'ዕውቂያ መሰረዝ ይፈልጋሉ';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return '$deviceNameን መሰረዝ ይፈልጋሉ?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'መሣሪያ ሰርዝ';
-
-  @override
   String deleteFailed(Object error) {
     return 'መሰረዝ አልተሳካም: $error';
   }
-
-  @override
-  String get deleteFilter => 'ማጣሪያ ሰርዝ';
 
   @override
   String get deleteLabel => 'መለያ ሰርዝ';
@@ -1279,9 +927,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get deleteSelected => 'የተመረጡትን ሰርዝ';
 
   @override
-  String get deleteSmsRule => 'የኤስኤምኤስ ህግ ሰርዝ';
-
-  @override
   String get deleteSubscription => 'ምዝገባ ሰርዝ';
 
   @override
@@ -1301,15 +946,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get delivery => 'ማድረስ';
 
   @override
-  String get deviceDeletedSuccessfully => 'መሣሪያ በተሳካ ሁኔታ ተሰርዟል';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage => 'መሣሪያ በተሳካ ሁኔታ ተሰርዟል';
-
-  @override
-  String get deviceIdLabel => 'የመሣሪያ መታወቂያ';
-
-  @override
   String get deviceIDLabel => 'የመሣሪያ መታወቂያ';
 
   @override
@@ -1325,25 +961,10 @@ class AppLocalizationsAm extends AppLocalizations {
   String get deviceName => 'የመሣሪያ ስም';
 
   @override
-  String get deviceNameCannotBeEmpty => 'የመሳሪያ ስም ባዶ ሊሆን አይችልም';
-
-  @override
-  String get deviceNameHint => 'እባክዎ የመሳሪያውን ስም ያስገቡ';
-
-  @override
   String get deviceNameLabel => 'የመሳሪያ ስም';
 
   @override
-  String get deviceRenamedSuccessfully => 'መሳሪያው በተሳካ ሁኔታ ተሰይሟል';
-
-  @override
   String get deviceRenamedSuccessfullyMessage => 'መሳሪያው በተሳካ ሁኔታ ተሰይሟል';
-
-  @override
-  String get devicesSyncedSuccessfully => 'መሳሪያዎች በተሳካ ሁኔታ ተመሳስለዋል';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage => 'መሳሪያዎች በተሳካ ሁኔታ ተመሳስለዋል';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1367,9 +988,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'አለም አቀፍ ተሰኪዎችን ያሰናክሉ';
-
-  @override
-  String get disableSubscriptionSuccessfully => 'ምዝገባ በተሳካ ሁኔታ ተሰናክሏል';
 
   @override
   String get disconnectButton => 'አቋረጥ';
@@ -1403,25 +1021,13 @@ class AppLocalizationsAm extends AppLocalizations {
   String get editContact => 'እውቂያ አርትዕ';
 
   @override
-  String get editFilter => 'ማጣሪያ አርትዕ';
-
-  @override
   String get editLabel => 'መለያ አርትዕ';
 
   @override
   String get editPhoneRule => 'የስልክ ደንብ አርትዕ';
 
   @override
-  String get editPhoneRules => 'ለስልክ ደንቦች አርትዕ ለማድረግ ጥቅም ላይ ይውላል';
-
-  @override
-  String get editPhoneRuleTitle => 'የስልክ ደንብ አርትዕ';
-
-  @override
   String get editRule => 'ደንብ አርትዕ';
-
-  @override
-  String get editSmsRule => 'የኤስኤምኤስ ደንብ አርትዕ';
 
   @override
   String get education => 'ትምህርት';
@@ -1431,9 +1037,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get email => 'ኢሜል';
-
-  @override
-  String get emailOptional => 'ኢሜል (አማራጭ)';
 
   @override
   String get enableCallFilter => 'የጥሪ ማጣሪያን አንቃ';
@@ -1453,15 +1056,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => 'የመጠባበቂያ ፋይሎችን ኢንክሪፕት አድርግ';
-
-  @override
-  String get enableEncryptionLabel => 'ምስጠራን አንቃ';
-
-  @override
-  String get enableEncryptionSubtitle => 'የመጠባበቂያ ፋይሎች ይመሰጠራሉ';
-
-  @override
-  String get enableEncryptionTitle => 'ምስጠራን አንቃ';
 
   @override
   String get enableGlobalPlugins => 'አለም አቀፍ ተሰኪዎችን አንቃ';
@@ -1497,9 +1091,6 @@ class AppLocalizationsAm extends AppLocalizations {
       'የጣልቃገብነት እርምጃዎች የሌላቸውን ደንቦች ውቅረት ይፍቀዱ';
 
   @override
-  String get enableNotifications => 'ማሳወቂያዎችን አንቃ';
-
-  @override
   String get enableRemoteNumberFilter => 'የርቀት ቁጥር ማጣሪያን አንቃ';
 
   @override
@@ -1514,12 +1105,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get enableSmsFilterDescription => 'ሲነቃ መልእክቶች እንደ ደንቦቹ በራስ-ሰር ይጣራሉ';
-
-  @override
-  String get enableStatisticsNotifications => 'የስታቲስቲክስ ማሳወቂያዎችን አንቃ';
-
-  @override
-  String get enableSubscriptionSuccessfully => 'ምዝገባ በተሳካ ሁኔታ ተንቀሳቅሷል';
 
   @override
   String get enableTimeInterception => 'የጊዜ ጣልቃገብነትን አንቃ';
@@ -1554,10 +1139,6 @@ class AppLocalizationsAm extends AppLocalizations {
       'የተሻሻለ የማጣሪያ ስርዓቱ ዓለም አቀፍ ደንቦችን እና ለእያንዳንዱ ሲም ካርድ የማጣሪያ ውቅረቶችን ይደግፋል።';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'እባክዎ የስልክ ቁጥር እና የregex pattern ሁለቱንም ያስገቡ';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'እባክዎ የስልክ ቁጥር እና የregex pattern ሁለቱንም ያስገቡ።';
 
@@ -1565,31 +1146,13 @@ class AppLocalizationsAm extends AppLocalizations {
   String get enterContactName => 'እባክዎ የእውቂያ ስም ያስገቡ';
 
   @override
-  String get enterCurrentPasswordHint => 'እባክዎ የአሁኑን የይለፍ ቃል ያስገቡ';
-
-  @override
   String get enterDeviceName => 'የመሳሪያ ስም አስገባ';
-
-  @override
-  String get enterDeviceNameHint => 'እባክዎ የመሳሪያውን ስም ያስገቡ';
-
-  @override
-  String get enterEmail => 'እባክዎ ኢሜል ያስገቡ';
 
   @override
   String get enterEmailOptional => 'እባክዎ ኢሜል (አማራጭ) ያስገቡ';
 
   @override
   String get enterEncryptionPasswordHint => 'የምስጠራ ይለፍ ቃል አስገባ';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'የምስጠራ ይለፍ ቃል አስገባ';
-
-  @override
-  String get enterFilterName => 'እባክዎ የማጣሪያ ስም ያስገቡ';
-
-  @override
-  String get enterFilterPattern => 'እባክዎ የማጣሪያ pattern ያስገቡ';
 
   @override
   String get enterIconCode => 'የአዶ ኮድ አስገባ';
@@ -1601,13 +1164,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get enterNewDeviceNameHint => 'ለዚህ መሣሪያ አዲስ ስም ያስገቡ';
 
   @override
-  String get enterNewPasswordHint => 'እባክዎ አዲስ የይለፍ ቃል ያስገቡ';
-
-  @override
   String get enterPasswordAgain => 'የይለፍ ቃል እንደገና አስገባ';
-
-  @override
-  String get enterPasswordHint => 'እባክዎ የይለፍ ቃል ያስገቡ';
 
   @override
   String get enterPhoneNumber => 'የስልክ ቁጥር አስገባ';
@@ -1633,9 +1190,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'የ regex pattern አስገባ';
-
-  @override
-  String get enterRuleNameAndPattern => 'እባክዎ የደንብ ስም እና pattern ያስገቡ';
 
   @override
   String get enterRuleNameAndPatternMessage => 'እባክዎ የህግ ስም እና የቁጥር ንድፍ ያስገቡ።';
@@ -1678,14 +1232,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get enterWebDAVUsernameHint => 'እባክዎ የWebDAV የተጠቃሚ ስም ያስገቡ';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'መሳሪያን በመሰረዝ ላይ ስህተት፡ $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'ተሰኪ በመጫን ላይ ስህተት';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'ስህተት ተከስቷል፡ $error';
   }
@@ -1701,14 +1247,6 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'መሳሪያዎችን በማመሳሰል ላይ ስህተት፡ $error';
-  }
-
-  @override
-  String get errorText => 'ስህተት';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'መሳሪያን በማስመዝገብ ላይ ስህተት፡ $error';
   }
@@ -1718,9 +1256,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'ለምሳሌ የማስታወቂያ ኤስኤምኤስ አግድ';
-
-  @override
-  String get exampleContentRegex => 'ለምሳሌ፣ .*offer.*';
 
   @override
   String get exampleContentRegexHint => 'የይዘት ምሳሌ ንድፍ';
@@ -1739,9 +1274,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get exampleRegex400Prefix => 'የ400 ቅድመ-ቁጥር ምሳሌ ንድፍ';
 
   @override
-  String get exampleRegexFormat => 'ለምሳሌ፡ ^10086\$ ቅርጸት';
-
-  @override
   String get exampleSenderRegexHint => 'ምሳሌ';
 
   @override
@@ -1752,9 +1284,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get exchangeVip => 'VIP ይለውጡ';
-
-  @override
-  String get expandLabelSelector => 'መለያ መራጭን አስፋ';
 
   @override
   String expiryTime(Object time) {
@@ -1768,16 +1297,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get exportAllApplicationSettings => 'ሁሉንም የመተግበሪያ ቅንብሮች ላክ';
 
   @override
-  String get exportAllApplicationSettingsSubtitle => 'ሁሉንም የመተግበሪያ ቅንብሮች ላክ';
-
-  @override
   String get exportAllRuleConfigurations => 'ሁሉንም የህግ ውቅሮች ላክ';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle => 'ሁሉንም የህግ ውቅሮች ላክ';
-
-  @override
-  String get exportComplete => 'ላክ ተጠናቀቀ';
 
   @override
   String get exportConfig => 'ውቅሮስ ላክ';
@@ -1789,9 +1309,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get exportData => 'ውሂብ ላክ';
 
   @override
-  String get exportError => 'ላክ ስህተት';
-
-  @override
   String get exportFailed => 'ላክ አልተሳካም';
 
   @override
@@ -1799,9 +1316,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'የላክ ባህሪ በቅርቡ ይመጣል';
-
-  @override
-  String get exporting => 'እየላከ ነው...';
 
   @override
   String get exportLabels => 'መለያዎችን ላክ';
@@ -1823,34 +1337,17 @@ class AppLocalizationsAm extends AppLocalizations {
   String get exportRules => 'ህጎችን ላክ';
 
   @override
-  String get exportRulesDialogTitle => 'ህጎችን ላክ';
-
-  @override
-  String get exportRulesTitle => 'ህጎችን ላክ';
-
-  @override
   String get exportSmsRules => 'የኤስኤምኤስ ህጎችን ላክ';
 
   @override
   String get exportStatisticsData => 'የስታቲስቲክስ ውሂብ ላክ';
 
   @override
-  String get exportSuccess => 'ላክ የተሳካ';
-
-  @override
   String get exportSuccesslly => 'ውቅሮስ በተሳካ ሁኔታ ተልኳል';
-
-  @override
-  String get failedToAddContact => 'ዕውቂያ ማከል አልተሳካም';
 
   @override
   String failedToAddRule(Object error) {
     return 'ህግ ማከል አልተሳካም፡ $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'የኤስኤምኤስ ህግ ማከል አልተሳካም፡ $error';
   }
 
   @override
@@ -1867,9 +1364,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get failedToDecryptBackupFile => 'ምትኬ ፋይል መፍታት አልተሳካም';
 
   @override
-  String get failedToDeleteDevice => 'መሳሪያ መሰረዝ አልተሳካም';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'የኤስኤምኤስ ህግ መሰረዝ አልተሳካም፡ $error';
   }
@@ -1877,11 +1371,6 @@ class AppLocalizationsAm extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'ህጎችን መላክ አልተሳካም፡ $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'የኤስኤምኤስ ህጎችን መላክ አልተሳካም፡ $error';
   }
 
   @override
@@ -1895,20 +1384,6 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'የኤስኤምኤስ ህጎችን ማስመጣት አልተሳካም፡ $error';
-  }
-
-  @override
-  String get failedToLoadContacts => 'ዕውቂያዎችን መጫን አልተሳካም';
-
-  @override
-  String get failedToLoadPlugin => 'ተሰኪ መጫን አልተሳካም';
-
-  @override
-  String get failedToRenameDevice => 'መሳሪያ መሰየም አልተሳካም';
-
-  @override
   String get failedToRestoreSettings => 'ቅንብሮችን መልሰው ማግኘት አልተሳካም';
 
   @override
@@ -1917,31 +1392,9 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'የይለፍ ቃል ማዘጋጀት አልተሳካም፡ $error';
-  }
-
-  @override
-  String get failedToSyncDevices => 'መሳሪያዎችን ማመሳሰል አልተሳካም';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'የህግን ሁኔታ መቀየር አልተሳካም፡ $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus => 'የምዝገባን ሁኔታ መቀየር አልተሳካም';
-
-  @override
-  String get failedToUpdateContact => 'ዕውቂያ ማዘመን አልተሳካም';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'የኤስኤምኤስ ህግ ማዘመን አልተሳካም፡ $error';
-  }
-
-  @override
-  String get failure => 'ውድቀት';
 
   @override
   String get favoriteContacts => 'ተወዳጅ ዕውቂያዎች';
@@ -1979,9 +1432,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get filterByLabel => 'በመለያ አጣራ';
 
   @override
-  String get filterClear => 'አጣራ ሰርዝ';
-
-  @override
   String get filterControlPanelTitle => 'የማጣሪያ መቆጣጠሪያ ፓነል';
 
   @override
@@ -1991,22 +1441,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get filterControlTitle => 'የማጣሪያ መቆጣጠሪያ';
 
   @override
-  String get filterDeleteFailed => 'ማጣሪያ መሰረዝ አልተሳካም';
-
-  @override
-  String get filterDeleteSuccess => 'ማጣሪያው በተሳካ ሁኔታ ተሰርዟል';
-
-  @override
-  String get filterDetails => 'የማጣሪያ ዝርዝሮች';
-
-  @override
   String get filtered => 'ተጣርቶ';
-
-  @override
-  String get filteredSms => 'የተጣራ ኤስኤምኤስ';
-
-  @override
-  String get filteredSmsLabel => 'የተጣራ ኤስኤምኤስ';
 
   @override
   String get filterExplanation => 'የማጣሪያ ማብራሪያ';
@@ -2018,17 +1453,8 @@ class AppLocalizationsAm extends AppLocalizations {
   String get filterName => 'የማጣሪያ ስም';
 
   @override
-  String get filterPattern => 'የማጣሪያ ንድፍ';
-
-  @override
   String get filterPriorityNote =>
       'ማሳሰቢያ፡ በማጣሪያዎች መካከል የቅድሚያ ግንኙነቶች አሉ፣ ለዝርዝሮች የእርዳታ ሰነዱን ይመልከቱ';
-
-  @override
-  String get filterSaveFailed => 'ማጣሪያ ማስቀመጥ አልተሳካም';
-
-  @override
-  String get filterSaveSuccess => 'ማጣሪያው በተሳካ ሁኔታ ተቀምጧል';
 
   @override
   String get filterSettings => 'የማጣሪያ ቅንብሮች';
@@ -2066,16 +1492,6 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return '$count ህግ ተገኝቷል። እነሱን ማስመጣት ይፈልጋሉ?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return '$count ህግ ተገኝቷል። እነሱን ማስመጣት ይፈልጋሉ?';
-  }
-
-  @override
   String get fraudAlert => 'የማጭበርበር ማስጠንቀቂያ - ጥሪውን ያቋርጡ';
 
   @override
@@ -2108,38 +1524,14 @@ class AppLocalizationsAm extends AppLocalizations {
   String get globalFilterSettings => 'የአለምአቀፍ ማጣሪያ ቅንብሮች';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'ለሁሉም ሲም ማስገቢያዎች የሚተገበሩትን የአለምአቀፍ ማጣሪያ ቅንብሮችን ያዋቅሩ፡';
-
-  @override
-  String get globalSearchSubtitle =>
-      'እውቂያዎችን፣ መለያዎችን፣ ጥቁር ዝርዝሮችን፣ ነጭ ዝርዝሮችን፣ ወዘተ ይፈልጉ።';
-
-  @override
-  String get globalSearchTitle => 'አለምአቀፍ ፍለጋ';
-
-  @override
   String get globalSettings => 'አለምአቀፍ ቅንብሮች';
-
-  @override
-  String get googleAdDisplayPosition => 'የጉግል ማስታወቂያ ማሳያ ቦታ';
-
-  @override
-  String get googleAdMobIntegrationText => 'የጉግል AdMob ማስታወቂያዎች እዚህ ሊዋሃዱ ይችላሉ';
 
   @override
   String get googleDriveAuthDescription =>
       'በስርዓት የተዋቀረ የGoogle Drive ደንበኛ መታወቂያ እና ቁልፍ በመጠቀም ፈቃድ ይስጡ';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'በስርዓት የተዋቀረ የGoogle Drive ደንበኛ መታወቂያ እና ቁልፍ በመጠቀም ፈቃድ ይስጡ';
-
-  @override
   String get googleDriveConfigTitle => 'የGoogle Drive ውቅር';
-
-  @override
-  String get googleDriveConfigurationTitle => 'የGoogle Drive ውቅር';
 
   @override
   String get government => 'መንግስት';
@@ -2158,9 +1550,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get height => 'ቁመት';
-
-  @override
-  String get homePageTitle => 'የመነሻ ገጽ';
 
   @override
   String get homeTab => 'መነሻ';
@@ -2190,9 +1579,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get important => 'አስፈላጊ';
-
-  @override
-  String get importButton => 'አስመጣ';
 
   @override
   String get importConfig => 'ውቅር አስመጣ';
@@ -2245,39 +1631,13 @@ class AppLocalizationsAm extends AppLocalizations {
   String get importRuleConfigurationsFromFile => 'የህግ ውቅረቶችን ከፋይል አስመጣ';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle => 'የህግ ውቅረቶችን ከፋይል አስመጣ';
-
-  @override
   String get importRules => 'ህጎችን አስመጣ';
-
-  @override
-  String get importRulesButton => 'ህጎችን አስመጣ';
-
-  @override
-  String get importRulesDialogTitle => 'ህጎችን አስመጣ';
-
-  @override
-  String importRulesError(Object error) {
-    return 'ህጎችን ማስመጣት አልተሳካም፡ $error';
-  }
-
-  @override
-  String get importRulesInstructions => 'ህጎችን ከCSV ፋይል አስመጣ';
-
-  @override
-  String get importRulesSuccess => 'ህጎች በተሳካ ሁኔታ ተመትተዋል';
-
-  @override
-  String get importRulesTitle => 'ህጎችን አስመጣ';
 
   @override
   String get importSuccess => 'አስመጣ በተሳካ ሁኔታ ተከናውኗል';
 
   @override
   String get incomingCallInterceptAction => 'ገቢ ጥሪ ጣልቃገብነት እርምጃ';
-
-  @override
-  String get incomingCallNotification => 'የገቢ ጥሪ ማሳወቂያ';
 
   @override
   String get incorrectPassword => 'የይለፍ ቃል የተሳሳተ ነው';
@@ -2331,9 +1691,6 @@ class AppLocalizationsAm extends AppLocalizations {
       'ለተጨማሪ መረጃ የቴሌግራም ቻናል እና ቡድን ይቀላቀሉ';
 
   @override
-  String get jsLogsTitle => 'JS ምዝግብ ማስታወሻዎች';
-
-  @override
   String get jsonFormat => 'JSON ቅርጸት';
 
   @override
@@ -2341,15 +1698,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get keepAllVersionsDescription => 'የእያንዳንዱ ምትኬ ታሪካዊ ስሪቶች ሁሉንም ያስቀምጡ';
-
-  @override
-  String get keepAllVersionsLabel => 'ሁሉንም ስሪቶች አስቀምጥ';
-
-  @override
-  String get keepAllVersionsSubtitle => 'የእያንዳንዱ ምትኬ ታሪካዊ ስሪቶች ያስቀምጡ';
-
-  @override
-  String get keepAllVersionsTitle => 'ሁሉንም ስሪቶች አስቀምጥ';
 
   @override
   String get label => 'መለያ';
@@ -2370,9 +1718,6 @@ class AppLocalizationsAm extends AppLocalizations {
       'መለያዎች እውቂያዎችን በተሻለ ሁኔታ እንዲያስተዳድሩ ያግዙዎታል፣ ጥሪዎችን እና መልዕክቶችን በቀላሉ ለመለየት ለስልክ ቁጥሮች ብጁ መለያዎችን ያክሉ።';
 
   @override
-  String get labelFilter => 'የመለያ ማጣሪያ';
-
-  @override
   String get labelFilterTooltip => 'የመለያ ማጣሪያ';
 
   @override
@@ -2383,14 +1728,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get labelNotFound => 'መለያ አልተገኘም';
-
-  @override
-  String get labelRemoved => 'መለያ ተወግዷል';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'መለያውን ማስወገድ አልተቻለም፦ $error';
-  }
 
   @override
   String get labels => 'መለያዎች';
@@ -2423,9 +1760,6 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'መለያ ተዘምኗል';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'መለያውን ማዘመን አልተቻለም፦ $error';
   }
@@ -2441,12 +1775,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'የቋንቋ ቅንብሮች';
-
-  @override
-  String get last30Days => 'ባለፉት 30 ቀናት';
-
-  @override
-  String get last7Days => 'ባለፉት 7 ቀናት';
 
   @override
   String get lastSyncLabel => 'የመጨረሻ ማመሳሰል';
@@ -2472,13 +1800,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get loadDataFailed => 'ውሂብ መጫን አልተቻለም';
 
   @override
-  String get loadFailed => 'መጫን አልተቻለም';
-
-  @override
   String get loading => 'በመጫን ላይ...';
-
-  @override
-  String get loadingData => 'ውሂብ በመጫን ላይ...';
 
   @override
   String get loadingTags => 'መለያዎች በመጫን ላይ...';
@@ -2502,12 +1824,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'ምልክት የተደረገባቸውን የስልክ ቁጥሮች መጫን አልተቻለም፦ $error';
   }
-
-  @override
-  String get loadMore => 'ተጨማሪ ይጫኑ';
-
-  @override
-  String get loadPluginButton => 'ተሰኪን ይጫኑ';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2534,9 +1850,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get loan => 'ብድር';
-
-  @override
-  String get localBackupTitle => 'አካባቢያዊ ምትኬ';
 
   @override
   String get localCounterFilter => 'የአካባቢያዊ ቆጣሪ ማጣሪያ';
@@ -2630,9 +1943,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get manage => 'እውቂያዎችን ያቀናብሩ';
 
   @override
-  String get manageContacts => 'ያቀናብሩ';
-
-  @override
   String get manageFavoriteContacts => 'ተወዳጅ እውቂያዎችን ያቀናብሩ';
 
   @override
@@ -2641,9 +1951,6 @@ class AppLocalizationsAm extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'የኤስኤምኤስ ማጣሪያ ህጎችን ያክሉ፣ ያርትዑ ወይም ይሰርዙ';
-
-  @override
-  String get manageFrequentContacts => 'ተደጋጋሚ እውቂያዎችን ያቀናብሩ';
 
   @override
   String get markCounts => 'የምልክት ቆጠራዎች';
@@ -2671,16 +1978,10 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle => 'ስልክ ቁጥሮችን ለመሰየም';
-
-  @override
   String get markPhoneManagementTitle => 'የስልክ ቁጥር አስተዳደር ምልክት';
 
   @override
   String get markPhoneSuccess => 'ስልክ ቁጥር በተሳካ ሁኔታ ምልክት ተደርጓል';
-
-  @override
-  String get matchFailed => 'ግጥሚያ አልተሳካም!';
 
   @override
   String get matchFailedMessage => 'ግጥሚያ አልተሳካም።';
@@ -2699,9 +2000,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get matchSpecificDigitPatternsTitle => 'የተወሰኑ የቁጥር ቅጦችን ያዛምዱ፡';
 
   @override
-  String get matchSuccessful => 'ግጥሚያ ተሳክቷል!';
-
-  @override
   String get matchSuccessfulMessage => 'ግጥሚያ ተሳክቷል።';
 
   @override
@@ -2712,9 +2010,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get migrationTool => 'የፍልሰት መሣሪያ';
-
-  @override
-  String get migrationToolTitle => 'የፍልሰት መሣሪያ';
 
   @override
   String get minutes => 'ደቂቃዎች';
@@ -2729,9 +2024,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get monthlyCallCount => 'የወርሃዊ ጥሪዎች';
 
   @override
-  String get monthlyChartTitle => 'የወርሃዊ የታገዱ ጥሪዎች';
-
-  @override
   String get monthlyMembership => 'ወርሃዊ አባልነት';
 
   @override
@@ -2740,9 +2032,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'የወርሃዊ ጠቅላላ';
-
-  @override
-  String get monthlyTotalLabel => 'የወርሃዊ ጠቅላላ';
 
   @override
   String get moreOptions => 'ተጨማሪ አማራጮች';
@@ -2757,32 +2046,16 @@ class AppLocalizationsAm extends AppLocalizations {
   String get nameAndPhoneNumberCannotBeEmpty => 'ስም እና የስልክ ቁጥር ባዶ ሊሆኑ አይችሉም';
 
   @override
-  String get nameAndPhoneNumberRequired => 'ስም እና የስልክ ቁጥር ባዶ ሊሆኑ አይችሉም';
-
-  @override
   String get nameColor => 'የስም ቀለም';
 
   @override
   String get nameFontSize => 'የስም ቅርጸ-ቁምፊ መጠን';
 
   @override
-  String nameLabel(Object name) {
-    return 'ስም፡ $name';
-  }
-
-  @override
   String get namePosition => 'የስም አቀማመጥ';
 
   @override
   String get nameUnknown => 'ስም፡ непознат';
-
-  @override
-  String nameWithValue(String name) {
-    return 'ስም፡ $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'አዲስ የይለፍ ቃል';
 
   @override
   String get nextStep => 'ቀጣይ';
@@ -2797,13 +2070,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get noActiveCloudSyncServiceMessage => 'ምንም ንቁ የደመና ማመሳሰል አገልግሎት የለም';
 
   @override
-  String get noCallLogs => 'የጥሪ ምዝግብ ማስታወሻዎች የሉም';
-
-  @override
   String get noCallRecords => 'የጥሪ መዝገቦች የሉም';
-
-  @override
-  String get noContacts => 'ገና እውቂያዎች የሉም';
 
   @override
   String get noContactsYet => 'ገና እውቂያዎች የሉም';
@@ -2815,28 +2082,16 @@ class AppLocalizationsAm extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'ምንም መሣሪያዎች አልተመዘገቡም';
 
   @override
-  String get noDevicesRegisteredYet => 'ምንም መሣሪያዎች ገና አልተመዘገቡም።';
-
-  @override
-  String get noFilters => 'ማጣሪያዎች ገና የሉም';
-
-  @override
   String get noLabels => 'መለያዎች ገና የሉም';
 
   @override
   String get noMarkedPhones => 'ምልክት የተደረገባቸው የስልክ ቁጥሮች የሉም';
 
   @override
-  String get noMatchingContacts => 'የሚዛመዱ እውቂያዎች የሉም';
-
-  @override
   String get noMatchingContactsFound => 'የሚዛመዱ እውቂያዎች አልተገኙም።';
 
   @override
   String get noMatchingNumbersFound => 'የሚዛመዱ ቁጥሮች አልተገኙም።';
-
-  @override
-  String get noMatchingRecords => 'የሚዛመዱ የጥሪ መዝገቦች የሉም';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2851,15 +2106,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get noPlugins => 'ተሰኪዎች ገና የሉም';
-
-  @override
-  String get noRecords => 'የጥሪ መዝገቦች የሉም';
-
-  @override
-  String get noResultReturned => 'ምንም ውጤት አልተመለሰም';
-
-  @override
-  String get noResultReturnedLog => 'ከፕለጊን ምንም ውጤት አልተመለሰም';
 
   @override
   String noRules(Object ruleType) {
@@ -2882,9 +2128,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get noSubscriptions => 'ምዝገባዎች የሉም';
 
   @override
-  String get noSubscriptionsYet => 'ምዝገባዎች ገና የሉም';
-
-  @override
   String get notGranted => 'አልተሰጠም';
 
   @override
@@ -2902,12 +2145,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get notificationSettings => 'የማሳወቂያ ቅንብሮች';
-
-  @override
-  String get notificationSettingsSaved => 'የማሳወቂያ ቅንብሮች በተሳካ ሁኔታ ተቀምጠዋል';
-
-  @override
-  String get notSet => 'አልተዘጋጀም';
 
   @override
   String get notVerifiedText => 'አልተረጋገጠ';
@@ -2941,9 +2178,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get numberTypePosition => 'የቁጥር አይነት አቀማመጥ';
 
   @override
-  String get ok => 'እሺ';
-
-  @override
   String get okButton => 'እሺ';
 
   @override
@@ -2974,14 +2208,7 @@ class AppLocalizationsAm extends AppLocalizations {
       'በስርዓት የተዋቀረ የOneDrive ደንበኛ መታወቂያ እና ቁልፍ በመጠቀም ፍቃድ ይስጡ';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'በስርዓት የተዋቀረ የOneDrive ደንበኛ መታወቂያ እና ቁልፍ በመጠቀም ፍቃድ ይስጡ';
-
-  @override
   String get oneDriveConfigTitle => 'OneDrive ውቅር';
-
-  @override
-  String get oneDriveConfigurationTitle => 'OneDrive ውቅር';
 
   @override
   String get onlineCallerIdSubscription => 'የመስመር ላይ ጥሪ መታወቂያ ምዝገባ';
@@ -3039,9 +2266,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get passwordsDoNotMatch => 'የይለፍ ቃላት አይዛመዱም';
 
   @override
-  String get passwordSetSuccessfully => 'የይለፍ ቃሉ በተሳካ ሁኔታ ተቀናብሯል';
-
-  @override
   String get pattern => 'አብነት';
 
   @override
@@ -3075,13 +2299,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'የስልክ ቁጥር ባዶ ሊሆን አይችልም';
 
   @override
-  String get phoneNumberHintText => 'ህግ ለመጨመር የስልክ ቁጥር ያስገቡ';
-
-  @override
   String get phoneNumberLabel => 'የስልክ ቁጥር';
-
-  @override
-  String get phoneNumberRegexRequired => 'እባክዎ የስልክ ቁጥር እና የሬጅክስ ንድፍ ያስገቡ';
 
   @override
   String get phoneNumberTypeFixedLine => 'የተስተካከለ መስመር';
@@ -3129,9 +2347,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get phoneRule => 'የስልክ ህግ';
 
   @override
-  String get phoneRuleEditDialog => 'የስልክ ህግ ማረሚያ ንግግር';
-
-  @override
   String get phoneRuleManagement => 'የስልክ ህግ አስተዳደር';
 
   @override
@@ -3143,9 +2358,6 @@ class AppLocalizationsAm extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'የነጭ እና ጥቁር መዝገብ ህጎችን በራስ-ሰር ለማዘመን ከዩአርኤል የህግ ህግ ዝርዝሮችን ይመዝገቡ። የJSONException ቅርጸት ህግ ፋይሎችን ይደግፋል።';
-
-  @override
-  String get phoneSubscriptionTitle => 'የስልክ ህግ ምዝገባዎች';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3166,22 +2378,13 @@ class AppLocalizationsAm extends AppLocalizations {
   String get pluginListExportSuccess => 'የተሰኪ ዝርዝር በተሳካ ሁኔታ ተልኳል።';
 
   @override
-  String get pluginLoadedSuccessfully => 'ተሰኪው በተሳካ ሁኔታ ተጭኗል';
-
-  @override
   String get pluginManagement => 'የተሰኪ አስተዳደር';
 
   @override
   String get pluginManagementSubtitle => 'የሶስተኛ ወገን ተሰኪዎችን ያስተዳድሩ እና ያዋቅሩ';
 
   @override
-  String get pluginManagementTitle => 'የተሰኪ አስተዳደር';
-
-  @override
   String get pluginName => 'የተሰኪ ስም';
-
-  @override
-  String get pluginNotLoaded => 'ተሰኪው ገና አልተጫነም። እባክዎ ተሰኪውን በመጀመሪያ ይጫኑ።';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3199,15 +2402,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get pluginUrl => 'የተሰኪ ዩአርኤል';
-
-  @override
-  String get pluginUrlCannotBeEmpty => 'የተሰኪ ዩአርኤል ባዶ ሊሆን አይችልም';
-
-  @override
-  String get pluginUrlHint => 'የተሰኪ ዩአርኤል ያስገቡ';
-
-  @override
-  String get pluginUrlLabel => 'የተሰኪ ዩአርኤል';
 
   @override
   String get pluginVersion => 'የተሰኪ ስሪት';
@@ -3245,34 +2439,10 @@ class AppLocalizationsAm extends AppLocalizations {
       'ሁሉንም የፕሪሚየም ባህሪያት ይክፈቱ፣ በሩብ ዓመት በራስ-ሰር ያድሱ';
 
   @override
-  String get queryButton => 'ጠይቅ';
-
-  @override
-  String get queryFailed => 'ጥያቄው አልተሳካም';
-
-  @override
-  String get queryFailedLog => 'ጥያቄው አልተሳካም';
-
-  @override
-  String get querying => 'በመጠየቅ ላይ...';
-
-  @override
-  String get queryingPhoneNumber => 'የስልክ ቁጥር በመጠየቅ ላይ';
-
-  @override
-  String get queryResultTitle => 'የጥያቄ ውጤት';
-
-  @override
   String get ready => 'ዝግጁ!';
 
   @override
-  String get receiveWeeklyStatistics => 'ሳምንታዊ ስታቲስቲክስ ይቀበሉ';
-
-  @override
   String get recruiter => 'ቀጣሪ';
-
-  @override
-  String get reEnterPasswordHint => 'እባክዎ የይለፍ ቃሉን እንደገና ያስገቡ';
 
   @override
   String get refresh => 'አድስ';
@@ -3282,11 +2452,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'አድስ';
-
-  @override
-  String regexError(Object error) {
-    return 'የሬጅክስ ስህተት፡ $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3304,10 +2469,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'የመግለጫ ንድፍ';
-
-  @override
-  String get regexPatternsExamples =>
-      'ደረጃውን የጠበቀ የመግለጫ ውህዶችን በመጠቀም ንድፎችን ይግለጹ። ምሳሌዎች፦';
 
   @override
   String get regexPatternsForPhoneNumberMatching => 'ለስልክ ቁጥር ተዛማጅ የመግለጫ ንድፎች';
@@ -3335,14 +2496,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'የመግለጫ ሞካሪ';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'የመግለጫ ማረጋገጫ አልተሳካም፦ $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'የመግለጫ ማረጋገጫ በተሳካ ሁኔታ ተጠናቋል';
 
   @override
   String get region => 'ክልል';
@@ -3379,34 +2532,8 @@ class AppLocalizationsAm extends AppLocalizations {
   String get remoteNumberFilter => 'የርቀት ቁጥር ማጣሪያ';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'ይህ ማጣሪያ የቅርብ ጊዜውን የቁጥር መረጃ ለማግኘት ገለልተኛ የርቀት የውሂብ ጎታ ይጠቀማል።';
-
-  @override
   String get remoteNumberFilterDescription =>
       'በርቀት የውሂብ ጎታ መረጃ ላይ ተመስርተው የሚያበሳጩ ጥሪዎችን ያቁሙ';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'የርቀት ቁጥር ማጣሪያው በቁጥር ብዛት ላይ በመመስረት የርቀት የውሂብ ጎታውን በመጠየቅ የጽሁፍ ጥሪዎችን ይለያል እና ያግዳል።';
-
-  @override
-  String get remoteNumberFilterExplanationTitle => 'የርቀት ቁጥር ማጣሪያ ማብራሪያ';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• የቁጥር ገደብ፦ በቁጥር የመከሰት ድግግሞሽ ላይ በመመስረት ይወስኑ';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• የማጣሪያ እርምጃዎች፦ የገደቡን የሚያልፉ ቁጥሮችን እንዴት እንደሚይዙ ያዘጋጁ';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• የቅድሚያ ቅንብሮች፦ ለርቀት እርምጃዎች ቅድሚያ ያዘጋጁ';
-
-  @override
-  String get remoteNumberFilterFeatures => 'ባህሪዎች፦';
 
   @override
   String get remoteNumberFiltering => 'የርቀት ቁጥር ማጣሪያ';
@@ -3427,29 +2554,13 @@ class AppLocalizationsAm extends AppLocalizations {
   String get removeAdsTitle => 'ማስታወቂያዎችን አስወግድ';
 
   @override
-  String get removedFromFavoriteContacts => 'ከተወዳጅ እውቂያዎች ተወግዷል';
-
-  @override
   String get removedFromFavorites => 'ከተወዳጆች ተወግዷል';
-
-  @override
-  String get removeFavorite => 'ተወዳጅን አስወግድ';
 
   @override
   String get removeFromFavorites => 'ከተወዳጆች አስወግድ';
 
   @override
-  String get renameButton => 'ስም ቀይር';
-
-  @override
-  String get renameDeviceDialogTitle => 'መሣሪያን ስም ቀይር';
-
-  @override
   String get renameDeviceTitle => 'መሣሪያን ስም ቀይር';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'ይህ ሁሉንም አሁን ያሉትን ቅንብሮችዎን ይተካል። ለመቀጠል እርግጠኛ ነዎት?';
 
   @override
   String get requestAllPermissions => 'ሁሉንም ፈቃዶች ጠይቅ';
@@ -3478,22 +2589,7 @@ class AppLocalizationsAm extends AppLocalizations {
       'የመተግበሪያ ቅንብሮችን ከመጠባቂያ መልስ';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'የመተግበሪያ ቅንብሮችን ከመጠባቂያ መልስ';
-
-  @override
-  String get restoreButton => 'መልስ';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'ከደመና መልሶ ማቋቋም አልተሳካም፦ $error';
-  }
-
-  @override
   String get restoreFromCloud => 'ከደመና መልስ';
-
-  @override
-  String get restoreFromCloudDescription => 'ቅንብሮችን እና ህጎችን ከደመና ማከማቻ መልስ';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3501,22 +2597,10 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'ከደመና መልስ';
-
-  @override
   String get restoreFromCloudSuccess => 'ከደመና በተሳካ ሁኔታ መልሶ ተቋቋመ';
 
   @override
-  String get restoreFromCloudTitle => 'ከደመና መልስ';
-
-  @override
-  String get restoreFromLocal => 'ከአካባቢያዊ መልስ';
-
-  @override
   String get restorePurchases => 'ግዢዎችን መልስ';
-
-  @override
-  String get restoreSectionTitle => 'መልስ';
 
   @override
   String get restoreSettings => 'ቅንብሮችን መልስ';
@@ -3524,18 +2608,6 @@ class AppLocalizationsAm extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'ይህ ሁሉንም አሁን ያሉትን ቅንብሮችዎን ይተካ። ለመቀጠል እርግጠኛ ነዎት?';
-
-  @override
-  String get restoreSettingsDialogTitle => 'ቅንብሮችን መልስ';
-
-  @override
-  String get restoreSettingsTitle => 'ቅንብሮችን መልስ';
-
-  @override
-  String get restoreSuccessFromLocal => 'ከአካባቢያዊ በተሳካ ሁኔታ መልሶ ተቋቋመ';
-
-  @override
-  String get restoreSuccessMessage => 'ከደመና በተሳካ ሁኔታ መልሶ ተቋቋመ';
 
   @override
   String get retry => 'እንደገና ሞክር';
@@ -3553,15 +2625,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get ruleAction => 'የደንብ እርምጃ';
 
   @override
-  String get ruleAddButton => 'ደንብ ጨምር';
-
-  @override
   String get ruleAddedSuccess => 'ደንብ በተሳካ ሁኔታ ተጨምሯል';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'ደንብ ለመጨመር አልተሳካም፦ $error';
-  }
 
   @override
   String get ruleAddSuccess => 'ደንብ በተሳካ ሁኔታ ተጨምሯል';
@@ -3575,18 +2639,10 @@ class AppLocalizationsAm extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'ደንብ ሰርዝ';
 
   @override
-  String get ruleDeletedSuccess => 'ደንብ በተሳካ ሁኔታ ተሰርዟል';
-
-  @override
   String get ruleDeletedSuccessfully => 'ደንብ በተሳካ ሁኔታ ተሰርዟል';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'ደንብ ለመሰረዝ አልተሳካም፦ $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'ደንብ ለመሰረዝ አልተሳካም፦ $error';
   }
 
@@ -3608,9 +2664,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get ruleManagement => 'የደንብ አስተዳደር';
 
   @override
-  String get ruleManagementTitle => 'የደንብ አስተዳደር';
-
-  @override
   String get ruleName => 'የደንብ ስም';
 
   @override
@@ -3628,9 +2681,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get ruleNameLabel => 'የደንብ ስም';
 
   @override
-  String get ruleNamePatternRequired => 'እባክዎ የደንቡን ስም እና ንድፍ ያስገቡ';
-
-  @override
   String get ruleNameRequired => 'የደንቡ ስም እና የስልክ ቁጥር ባዶ ሊሆኑ አይችሉም';
 
   @override
@@ -3642,23 +2692,7 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'ደንቡ በተሳካ ሁኔታ ተቀምጧል!';
-
-  @override
   String get ruleSavedSuccessMessage => 'ደንቡ በተሳካ ሁኔታ ተቀምጧል!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'ማስቀመጥ አልተሳካም፡ $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'ማስቀመጥ አልተሳካም፡ $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'ደንቡ በተሳካ ሁኔታ ተቀምጧል!';
 
   @override
   String get rulesExportedSuccessfully => 'ህጎች በተሳካ ሁኔታ ተልከዋል';
@@ -3675,14 +2709,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return '$count ህጎች በተሳካ ሁኔታ ገብተዋል';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'ህጎችን ማስገባት አልተቻለም፡ $error';
-  }
-
-  @override
-  String get ruleStatistics => 'የህግ ስታቲስቲክስ';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3717,9 +2743,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get saveButton => 'አስቀምጥ';
 
   @override
-  String get saveButtonLabel => 'አስቀምጥ';
-
-  @override
   String get saveButtonText => 'አስቀምጥ';
 
   @override
@@ -3728,15 +2751,7 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'ማጣሪያን አስቀምጥ';
-
-  @override
   String get saveSettings => 'ቅንብሮችን አስቀምጥ';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'ቅንብሮችን ማስቀመጥ አልተቻለም፡ $error';
-  }
 
   @override
   String get scamsLikely => 'ማጭበርበሮች ሊኖሩ ይችላሉ';
@@ -3753,27 +2768,11 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'የፍለጋ ማጣሪያዎች';
-
-  @override
-  String get searchForContacts => 'እውቂያዎችን ፈልግ';
-
-  @override
   String get searchHint => 'ፈልግ...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'እውቂያዎችን፣ መለያዎችን፣ ጥቁር ዝርዝሮችን፣ ነጭ ዝርዝሮችን እና የመሳሰሉትን ይፈልጉ።';
-
-  @override
-  String get searchSettingsTitle => 'የፍለጋ ቅንብሮች';
 
   @override
   String get securityMessage =>
       'በስልክ ጥሪዎች አትመኑ። የአገልግሎት ማዕከል ቁጥሮችን ሁልጊዜ በራስዎ ያረጋግጡ። የይለፍ ቃሎችን፣ የማረጋገጫ ኮዶችን፣ የካርድ ቁጥሮችን ወይም የግል መረጃን በጭራሽ አያጋሩ።';
-
-  @override
-  String get selectActionToPerform => 'ህጉ በሚዛመድበት ጊዜ የሚከናወነውን እርምጃ ይምረጡ';
 
   @override
   String get selectActionWhenBlockingCalls => 'ጥሪዎችን በሚያግዱበት ጊዜ እርምጃ ይምረጡ';
@@ -3786,12 +2785,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get selectCountry => 'ሀገር ምረጥ';
-
-  @override
-  String get selectDateRange => 'የቀን ወሰን ምረጥ';
-
-  @override
-  String get selectedDateRange => 'የተመረጠው የቀን ወሰን';
 
   @override
   String selectedItems(Object count) {
@@ -3818,20 +2811,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get selectMultiple => 'ብዙ ምረጥ';
 
   @override
-  String get selectPeriod => 'ጊዜ ይምረጡ';
-
-  @override
   String get selectSimCard => 'የሲም ካርድ ምረጥ';
-
-  @override
-  String get selectSimSlot => 'የሲም ማስገቢያ ምረጥ';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'በታገዱ ጥሪዎች ጊዜ የሚከናወነውን የተለየ እርምጃ ይምረጡ';
-
-  @override
-  String get selectTag => 'መለያ ምረጥ';
 
   @override
   String get selectTags => 'መለያዎች ምረጥ';
@@ -3872,23 +2852,7 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'አዘጋጅ';
-
-  @override
   String get setEncryptionPassword => 'የምስጠራ የይለፍ ቃል አዘጋጅ';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'ለማስቀመጥ እና መልሶ ለማግኘት የምስጠራ የይለፍ ቃል ያዘጋጁ';
-
-  @override
-  String get setEncryptionPasswordLabel => 'የምስጠራ የይለፍ ቃል አዘጋጅ';
-
-  @override
-  String get setEncryptionPasswordTitle => 'የምስጠራ የይለፍ ቃል አዘጋጅ';
-
-  @override
-  String get setPasswordButton => 'አዘጋጅ';
 
   @override
   String get settings => 'ቅንብሮች';
@@ -3896,14 +2860,6 @@ class AppLocalizationsAm extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'ቅንብሮች እዚህ ተቀምጠዋል፡ $path';
-  }
-
-  @override
-  String get settingsLoaded => 'ቅንብሮች ተጭነዋል';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'ቅንብሮችን መጫን አልተቻለም፡ $error';
   }
 
   @override
@@ -3926,13 +2882,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get setup => 'ማዋቀር';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'የእውቂያ አርትዕ የንግግር ሳጥን ለማሳየት የማይንቀሳቀስ ዘዴ';
-
-  @override
-  String get showExplanation => 'ማብራሪያ አሳይ';
 
   @override
   String get silence => 'ዝምታ';
@@ -3980,19 +2929,11 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'የሲም ካርድ መረጃ መጫን አልተቻለም፡ $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'የSIM ማስገቢያ ደንቦች ለእያንዳንዱ የSIM ማስገቢያ የነጻ ማጣሪያ ደንቦችን እንዲያዘጋጁ ያስችሉዎታል።';
 
   @override
   String get simRuleInstructionsTitle => 'የSIM ማስገቢያ ደንቦች';
-
-  @override
-  String get simRuleManagement => 'የSIM ማስገቢያ የደንብ አስተዳደር';
 
   @override
   String simSlot1(String countryIso) {
@@ -4005,18 +2946,6 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'የSIM መረጃ መጫን አልተሳካም፡ $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration => 'የSIM ማስገቢያ ማጣሪያ ውቅር';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'በSIM ማስገቢያ ማጣሪያ ደንቦችን እንዲያዘጋጁ ያስችላል';
-
-  @override
   String get simSlotFilterDescription => 'ለእያንዳንዱ SIM ካርድ ነጻ ማጣሪያ ደንቦችን ያዘጋጁ፡';
 
   @override
@@ -4025,17 +2954,7 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'የSIM ማስገቢያዎች መጫን አልተሳካም፡ $error';
-  }
-
-  @override
   String get simSlotManagement => 'የSIM ማስገቢያ አስተዳደር';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'የSIM ማስገቢያ ክወና አልተሳካም፡ $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4056,12 +2975,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'የSIM ማስገቢያ ደንቦች';
-
-  @override
-  String get simSlotRuleManagementTitle => 'የደንብ አስተዳደር';
-
-  @override
-  String get simSlotSettings => 'የSIM ማስገቢያ ቅንብሮች';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4097,9 +3010,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get smsFilterSettings => 'የኤስኤምኤስ ማጣሪያ ቅንብሮች';
 
   @override
-  String get smsHistory => 'የኤስኤምኤስ ታሪክ';
-
-  @override
   String get smsManagement => 'የኤስኤምኤስ አስተዳደር';
 
   @override
@@ -4123,24 +3033,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get smsRuleManagement => 'የኤስኤምኤስ የደንብ አስተዳደር';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'የኤስኤምኤስ ደንቦች በተሳካ ሁኔታ ወደ $filePath ተልከዋል';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully => 'የኤስኤምኤስ ደንቦች በተሳካ ሁኔታ ገብተዋል';
-
-  @override
   String get smsRuleSubscription => 'የኤስኤምኤስ የደንብ ምዝገባ';
-
-  @override
-  String get smsRuleUpdatedSuccessfully => 'የኤስኤምኤስ ደንብ በተሳካ ሁኔታ ተዘምኗል';
-
-  @override
-  String get smsSettingsSubtitle => 'የኤስኤምኤስ ማጣሪያ እና የቁልፍ ቃል እገዳ';
-
-  @override
-  String get smsSettingsTitle => 'የኤስኤምኤስ ቅንብሮች';
 
   @override
   String get smsSubscription => 'የኤስኤምኤስ ምዝገባ';
@@ -4177,24 +3070,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get statBlocked => 'የታገዱ';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'የደዋይ መታወቂያ መረጃ ማሳያ መገናኛን ለማሳየት የማይንቀሳቀስ ዘዴ';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'የሀገር ምርጫ መገናኛን ለማሳየት የማይንቀሳቀስ ዘዴ';
-
-  @override
-  String get staticMethodToDisplayDialog => 'መገናኛን ለማሳየት የማይንቀሳቀስ ዘዴ';
-
-  @override
   String get statistics => 'ስታቲስቲክስ';
-
-  @override
-  String get statisticsExportFeatureComingSoon => 'የስታቲስቲክስ መላክ ባህሪ በቅርቡ ይመጣል';
-
-  @override
-  String get statisticsGrid => 'የስታቲስቲክስ ፍርግርግ';
 
   @override
   String get statisticsPageTitle => 'የውሂብ ትንታኔ';
@@ -4233,9 +3109,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get subscriptionDeleted => 'ምዝገባ ተሰርዟል';
 
   @override
-  String get subscriptionDeletedSuccessfully => 'ምዝገባ በተሳካ ሁኔታ ተሰርዟል';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'ምዝገባን መሰረዝ አልተሳካም፡ $error';
   }
@@ -4244,23 +3117,9 @@ class AppLocalizationsAm extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'ምዝገባ ተሰርዟል';
 
   @override
-  String get subscriptionEmptyState => 'ምዝገባዎች የሉም';
-
-  @override
-  String get subscriptionEmptyText => 'ምዝገባዎች ገና የሉም';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'ምዝገባዎች መጫን አልተሳካም፡ $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'ምዝገባዎች መጫን አልተሳካም፡ $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'የምዝገባ አስተዳደር';
 
   @override
   String get subscriptionName => 'የምዝገባ ስም';
@@ -4273,15 +3132,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get subscriptionNameHint => 'የምዝገባ ስም ያስገቡ';
 
   @override
-  String get subscriptionPageTitle => 'የምዝገባ አስተዳደር';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
-    return 'የምዝገባ ሁኔታን መቀየር አልተሳካም፡ $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
     return 'የምዝገባ ሁኔታን መቀየር አልተሳካም፡ $error';
   }
 
@@ -4320,10 +3171,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get syncFailedMessage => 'ማመሳሰል አልተሳካም';
 
   @override
-  String get syncFolderNameHint =>
-      'እባክዎ የማመሳሰል አቃፊ ስም ያስገቡ (ነባሪ፡ NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'የማመሳሰል አቃፊ ስም';
 
   @override
@@ -4345,16 +3192,10 @@ class AppLocalizationsAm extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'የማመሳሰል ሁኔታ ተዘምኗል';
 
   @override
-  String get syncSuccessful => 'ማመሳሰል ተሳክቷል';
-
-  @override
   String get syncSuccessMessage => 'ማመሳሰል ተሳክቷል';
 
   @override
   String get syncWithCloudStorage => 'ከደመና ማከማቻ ጋር አመሳስል';
-
-  @override
-  String get syncWithCloudStorageSubtitle => 'ከደመና ማከማቻ ጋር አመሳስል';
 
   @override
   String get systemFeatures => 'የስርዓት ባህሪዎች:';
@@ -4383,9 +3224,6 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'መለያዎች ተዘምነዋል';
-
-  @override
   String get takeaway => 'ማጠቃለያ';
 
   @override
@@ -4399,9 +3237,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get testButton => 'ሙከራ';
-
-  @override
-  String get testButtonLabel => 'ሙከራ';
 
   @override
   String get testConnectionButton => 'ግንኙነትን ፈትሽ';
@@ -4438,13 +3273,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get timeInterceptorSettingsTitle => 'የጥሪ ድግግሞሽ ጣልቃ ገብ ቅንብሮች';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'በጥሪ ድግግሞሽ ላይ በመመስረት እምብዛም አይፈለጌ ጥሪዎችን በራስ-ሰር ይጥለፍ';
-
-  @override
-  String get timeInterceptorTitle => 'የጥሪ ድግግሞሽ ጣልቃ ገብን አንቃ';
-
-  @override
   String get timeWindowDescription =>
       'ለተደጋጋሚ ጥሪዎች የሚፈቀደውን የጊዜ መስኮት መጠን ያዘጋጁ። በዚህ መስኮት ውስጥ ካሉ ተመሳሳይ ቁጥር የተደረጉ ጥሪዎች ይፈቀዳሉ።';
 
@@ -4452,10 +3280,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'የጣልቃ ገብ ጊዜ መስኮት (ደቂቃዎች): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'ለተደጋጋሚ ጥሪዎች የሚፈቀደውን የጊዜ መስኮት መጠን ያዘጋጁ። በዚህ መስኮት ውስጥ ካሉ ተመሳሳይ ቁጥር የተደረጉ ጥሪዎች ይፈቀዳሉ።';
 
   @override
   String get today => 'ዛሬ';
@@ -4467,24 +3291,11 @@ class AppLocalizationsAm extends AppLocalizations {
   String get totalBlocked => 'ጠቅላላ የተከለከሉ';
 
   @override
-  String get totalFiltered => 'ጠቅላላ የተጣሩ';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'በመሣሪያዎች ወይም መድረኮች መካከል ውሂብ ያስተላልፉ';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'በመሣሪያዎች ወይም መድረኮች መካከል ውሂብ ያስተላልፉ';
-
-  @override
   String get travelTicketing => 'የጉዞ ትኬት';
-
-  @override
-  String get trend => 'አዝማሚያ';
-
-  @override
-  String get trendChart => 'የአዝማሚያ ገበታ';
 
   @override
   String get tutorial => 'አጋዥ ስልጠና';
@@ -4497,9 +3308,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get unknown => 'ያልታወቀ';
-
-  @override
-  String get unknownLabel => 'ያልታወቀ መለያ';
 
   @override
   String get unknownTag => 'መለያ: ያልታወቀ';
@@ -4525,9 +3333,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get updateAllNow => 'ሁሉንም አሁን አዘምን';
 
   @override
-  String get updateCallFilterConfig => 'የጥሪ ማጣሪያ ውቅር አዘምን';
-
-  @override
   String updateContactFailed(Object error) {
     return 'ዕውቂያን ማዘመን አልተሳካም: $error';
   }
@@ -4536,15 +3341,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get updateFavoriteStatus => 'ተወዳጅ ሁኔታን አዘምን';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'ተወዳጅ ሁኔታን ማዘመን አልተሳካም: $error';
-  }
-
-  @override
   String get updateInterval => 'የማዘመኛ ክፍተት';
-
-  @override
-  String get updateLabelFailed => 'መለያን ማዘመን አልተሳካም';
 
   @override
   String get updateNow => 'አሁን አዘምን';
@@ -4573,9 +3370,6 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'መለያዎችን አዘምን';
-
-  @override
   String get useCasesPoint1 => '• ራስ-ሰርድ የውሸት ጥሪዎችን ይለዩ';
 
   @override
@@ -4591,17 +3385,11 @@ class AppLocalizationsAm extends AppLocalizations {
   String get useGlobalSettings => 'አለምአቀፍ ቅንብሮችን ይጠቀሙ';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => 'የተጠቃሚ ስም';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'ቅጦችን ለመግለጽ መደበኛ የ regex ሰዋስውን ይጠቀሙ። ምሳሌዎች:';
-
-  @override
-  String get validateRegex => 'Regex ን አረጋግጥ';
 
   @override
   String get verificationFailedText => 'አልተሳካም';
@@ -4638,43 +3426,13 @@ class AppLocalizationsAm extends AppLocalizations {
   String get webDAVConfigTitle => 'WebDAV ውቅር';
 
   @override
-  String get webdavConfigurationTitle => 'WebDAV ውቅር';
-
-  @override
-  String get webdavPasswordHint => 'እባክዎ WebDAV የይለፍ ቃል ያስገቡ';
-
-  @override
-  String get webdavServerAddressHint => 'እባክዎ WebDAV አገልጋይ አድራሻ ያስገቡ';
-
-  @override
-  String get webdavUsernameHint => 'እባክዎ WebDAV የተጠቃሚ ስም ያስገቡ';
-
-  @override
   String get week => 'ሳምንት';
-
-  @override
-  String get weekly => 'በየሳምንቱ';
-
-  @override
-  String get weeklyBlockedCallsSummary => 'በየሳምንቱ የተከለከሉ ጥሪዎች ማጠቃለያ';
-
-  @override
-  String get weeklyChartTitle => 'በየሳምንቱ የተከለከሉ ጥሪዎች';
-
-  @override
-  String get weeklyReport => 'በየሳምንቱ ሪፖርት';
-
-  @override
-  String get weeklyReportDesc => 'የጥሪ መከልከል እንቅስቃሴ የሳምንታዊ ማጠቃለያ ሪፖርት ይቀበሉ';
 
   @override
   String get welcome => 'እንኳን ደህና መጡ';
 
   @override
   String get whitelist => 'ነጭ ዝርዝር';
-
-  @override
-  String get whitelistLabel => 'ነጭ ዝርዝር';
 
   @override
   String get width => 'ስፋት';
@@ -4694,12 +3452,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get year => 'ዓመት';
-
-  @override
-  String get yearly => 'በየዓመቱ';
-
-  @override
-  String get yearlyChartTitle => 'በየዓመቱ የታገዱ ጥሪዎች';
 
   @override
   String get noSimCardsDetected => 'የሲም ካርዶች አልተገኙም';
@@ -4744,9 +3496,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get useStirNotification => 'ከSTIR ማሳወቂያ ተጠቀም';
 
   @override
-  String get useStirNotificationDescription => 'ለገቢ ጥሪዎች የSTIR ማሳወቂያዎችን ያንቁ';
-
-  @override
   String get cancelLocalNotificationDescription => 'የአካባቢ ማሳወቂያዎችን በራስ-ሰር ዝጋ';
 
   @override
@@ -4763,11 +3512,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'ገቢ የጥሪ መረጃ';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'ቁጥር: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'የታገደ ጥሪ';
@@ -4820,21 +3564,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'የማጭበርበር ማስጠንቀቂያ';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return 'ከ $phoneNumber ሊሆን የሚችል የማጭበርበር ጥሪ';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'ደንቦችን መጫን አልተሳካም: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'የጥሪ ምዝግብ ማስታወሻ መጫን አልተሳካም: $error';
-  }
 
   @override
   String get noBlockedTypeData => 'የታገዱ የውሂብ አይነቶች የሉም';
@@ -4910,9 +3639,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get removeAds => 'ማስታወቂያዎችን አስወግድ';
-
-  @override
-  String get unknownAction => 'ያልታወቀ ድርጊት';
 
   @override
   String get settingsBackup => 'ቅንብሮች ምትኬ ';
@@ -5161,16 +3887,8 @@ class AppLocalizationsAm extends AppLocalizations {
   String get blockNumberSuccess => 'ቁጥርን ማገድ ስኬታማ ሆነ';
 
   @override
-  String get blockNumberFailed => 'ቁጥርን ማገድ አልተሳካም';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return '$phoneNumber ን ማገድ ይፈልጋሉ?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return '$phoneNumber እየደወለ ነው...';
   }
 
   @override
@@ -5187,9 +3905,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => 'ቁጥርን ማገድ አልተሳካም';
-
-  @override
-  String get serviceNotAvailable => 'አገልግሎት የለም';
 
   @override
   String get callingNumberFailed => 'የመደወል ቁጥር አልተሳካም';
@@ -5220,9 +3935,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'ቁጥር ባልተለመደ ቅርጸት';
-
-  @override
-  String get membershipFeature => 'የአባልነት ባህሪ';
 
   @override
   String get medium => 'መካከለኛ';
@@ -5317,9 +4029,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get clearAllNotificationsConfirmation => 'ሁሉንም ማሳወቂያዎች ለማጽዳት ያረጋግጡ';
 
   @override
-  String get allNotificationsCleared => 'ሁሉም ማሳወቂያዎች ተጠርገዋል';
-
-  @override
   String get clearButton => 'አጥራ';
 
   @override
@@ -5389,9 +4098,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get reasonInaccurateInfo => 'የተሳሳተ መረጃ';
 
   @override
-  String get reasonWrongMarked => 'በስህተት ምልክት ተደርጎበታል';
-
-  @override
   String get reasonOther => 'ሌላ';
 
   @override
@@ -5401,25 +4107,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get cancel => 'ሰርዝ';
 
   @override
-  String get proposalStatus => 'ሁኔታ';
-
-  @override
-  String get statusPending => 'በመጠባበቅ ላይ';
-
-  @override
-  String get statusActive => 'ንቁ';
-
-  @override
-  String get statusCompleted => 'ተጠናቀቀ';
-
-  @override
-  String get statusExpired => 'አብቅቷል';
-
-  @override
   String get riskLevel => 'የአደጋ ደረጃ';
-
-  @override
-  String get riskLevelVerified => 'ተረጋግጧል';
 
   @override
   String get riskLevelLow => 'ዝቅተኛ';
@@ -5428,19 +4116,8 @@ class AppLocalizationsAm extends AppLocalizations {
   String get riskLevelHigh => 'ከፍተኛ';
 
   @override
-  String get riskLevelUnknown => 'ያልታወቀ';
-
-  @override
-  String get votingProgress => 'የድምጽ መስጫ እድገት';
-
-  @override
   String agreeVotes(int count) {
     return 'ይስማሙ: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'አይስማሙ: $count';
   }
 
   @override
@@ -5463,12 +4140,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get verificationReport => 'የማረጋገጫ ሪፖርት';
 
   @override
-  String get showReport => 'ሪፖርት አሳይ';
-
-  @override
-  String get hideReport => 'ሪፖርት ደብቅ';
-
-  @override
   String get proposalStatistics => 'የጥያቄ ስታቲስቲክስ';
 
   @override
@@ -5478,28 +4149,13 @@ class AppLocalizationsAm extends AppLocalizations {
   String get activeProposals => 'ንቁ ጥያቄዎች';
 
   @override
-  String get completedProposals => 'የተጠናቀቁ ጥያቄዎች';
-
-  @override
-  String get myVotes => 'የእኔ ድምጾች';
-
-  @override
   String get proposalCreated => 'ጥያቄው በተሳካ ሁኔታ ተፈጥሯል';
-
-  @override
-  String get proposalCreateFailed => 'ጥያቄ መፍጠር አልተቻለም';
 
   @override
   String get voteSubmitted => 'ድምጽዎ በተሳካ ሁኔታ ገብቷል';
 
   @override
-  String get voteSubmitFailed => 'ድምጽ ማስገባት አልተቻለም';
-
-  @override
   String get noProposalsFound => 'ምንም ጥያቄዎች አልተገኙም';
-
-  @override
-  String get loadingProposals => 'ጥያቄዎች በመጫን ላይ...';
 
   @override
   String get refreshProposals => 'ጥያቄዎችን አድስ';
@@ -5651,23 +4307,11 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'የድምጽ ብዛት መጫን አልተቻለም';
-
-  @override
   String get voteCount => 'የድምጽ ብዛት';
-
-  @override
-  String get deletionProposalInfo => 'የመሰረዝ ጥያቄ መረጃ';
 
   @override
   String get deletionProposalDescription =>
       'የማህበረሰብ መመሪያዎችን የሚጥሱ ቁጥሮችን ለመሰረዝ ጥያቄ ያቅርቡ። ተሳትፎዎ መድረኩን ደህንነቱ የተጠበቀ ለማድረግ ይረዳል።';
-
-  @override
-  String get voteToEarnVip => 'የቪአይፒ መብቶችን ለማግኘት በቀረቡ ጥያቄዎች ላይ ድምጽ ይስጡ!';
-
-  @override
-  String get voteFailed => 'ድምጽ መስጠት አልተሳካም';
 
   @override
   String get searchProposals => 'ጥያቄዎችን ፈልግ';
@@ -5700,48 +4344,7 @@ class AppLocalizationsAm extends AppLocalizations {
       'ሊመጡ ስለሚችሉ የማጭበርበር ጥሪዎች ማስጠንቀቂያዎችን ያሳያል።';
 
   @override
-  String get notificationFrequencyDescription =>
-      'ስለ አዲስ የሰርዝ ጥያቄዎች ምን ያህል ጊዜ ማሳወቂያ እንደሚያገኙ ይምረጡ። ወዲያውኑ፣ በቡድን፣ ወይም በተወሰነ የጊዜ ክፍተት ማሳወቂያዎችን መቀበል ይችላሉ።';
-
-  @override
   String get notificationMode => 'የማሳወቂያ ሁነታ';
-
-  @override
-  String get immediateNotifications => 'ወዲያውኑ';
-
-  @override
-  String get immediateNotificationsDescription => 'ጥያቄ እንደተፈጠረ ማሳወቂያ ይቀበሉ።';
-
-  @override
-  String get batchNotifications => 'በቡድን';
-
-  @override
-  String get batchNotificationsDescription => 'በየጊዜው የማሳወቂያዎችን ማጠቃለያ ይቀበሉ።';
-
-  @override
-  String get customNotifications => 'ብጁ';
-
-  @override
-  String get customNotificationsDescription =>
-      'ማሳወቂያዎችን ለመቀበል የራስዎን የጊዜ ክፍተት ይግለጹ።';
-
-  @override
-  String get customFrequency => 'ብጁ ድግግሞሽ';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes ደቂቃ';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours ሰ';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours ሰ $minutes ደቂቃ';
-  }
 
   @override
   String get pendingProposals => 'የሚጠባበቁ ጥያቄዎች';
@@ -5765,9 +4368,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get riskLevelLabel => 'የአደጋ ደረጃ';
 
   @override
-  String get riskLevelDescription => 'የቁጥሩ የአደጋ ደረጃ';
-
-  @override
   String get phoneNumberMinDigits => 'የስልክ ቁጥር ቢያንስ 7 አሃዞች ሊኖረው ይገባል';
 
   @override
@@ -5789,32 +4389,13 @@ class AppLocalizationsAm extends AppLocalizations {
   String get countryCodeRequired => 'የሀገር ኮድ ያስፈልጋል';
 
   @override
-  String get countryCodeLengthError => 'የሀገር ኮድ 2 ፊደሎች መሆን አለበት';
-
-  @override
   String get phoneNumberHint => 'የስልክ ቁጥር ያስገቡ';
 
   @override
   String get phoneNumberRequired => 'የስልክ ቁጥር ያስፈልጋል';
 
   @override
-  String get phoneNumberLengthError => 'የስልክ ቁጥር ቢያንስ 7 አሃዞች ሊኖረው ይገባል';
-
-  @override
-  String get reasonHint => 'ዝርዝር ማብራሪያ ይስጡ (ቢያንስ 10 ቁምፊዎች)';
-
-  @override
   String get reasonRequired => 'ምክንያት ያስፈልጋል';
-
-  @override
-  String get reasonLengthError => 'ምክንያት ቢያንስ 10 ቁምፊዎች መሆን አለበት';
-
-  @override
-  String get guidelinesTitle => 'መመሪያዎች';
-
-  @override
-  String get guidelinesText =>
-      '• በእርግጥ ችግር ያለባቸውን ቁጥሮች ብቻ ሪፖርት ያድርጉ\n• ትክክለኛ እና ዝርዝር ምክንያቶችን ያቅርቡ\n• እንደ አስከፊነቱ ተገቢውን የአደጋ ደረጃ ይምረጡ\n• የውሸት ሪፖርቶች የመለያ እገዳ ሊያስከትሉ ይችላሉ';
 
   @override
   String get riskLevelCritical => 'ወሳኝ';
@@ -5826,53 +4407,11 @@ class AppLocalizationsAm extends AppLocalizations {
   String get riskLevelVeryLow => 'በጣም ዝቅተኛ';
 
   @override
-  String get riskDescriptionVeryLow =>
-      'በጣም ዝቅተኛ - ትንሽ ብስጭት፣ አልፎ አልፎ የሚደረጉ ጥሪዎች';
-
-  @override
-  String get riskDescriptionLow => 'ዝቅተኛ - አልፎ አልፎ የማይፈለጉ ጥሪዎች';
-
-  @override
-  String get riskDescriptionMedium => 'መካከለኛ - መደበኛ ስፓም ወይም የቴሌማርኬቲንግ';
-
-  @override
-  String get riskDescriptionHigh => 'ከፍተኛ - የማያቋርጥ ጥቃት ወይም የማጭበርበር ሙከራዎች';
-
-  @override
-  String get riskDescriptionCritical => 'ወሳኝ - አደገኛ ማጭበርበሮች ወይም ስጋቶች';
-
-  @override
   String get notificationFrequencyTitle => 'የማሳወቂያ ድግግሞሽ';
-
-  @override
-  String get notificationFrequencyLabel => 'የማሳወቂያ ድግግሞሽ (ሰዓቶች)';
 
   @override
   String errorMessage(String error) {
     return 'ስህተት: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'ድምጾች: $totalVotes ($supportPercentage% ድጋፍ)';
-  }
-
-  @override
-  String get timeJustNow => 'አሁን';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return '${minutes}m በፊት';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return '${hours}h በፊት';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return '${days}d በፊት';
   }
 
   @override
@@ -5957,9 +4496,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get liveActivitiesTestTitle => 'የቀጥታ እንቅስቃሴ ሙከራ';
 
   @override
-  String get liveActivitiesTestSubtitle => 'የቀጥታ እንቅስቃሴ ማሳወቂያውን ይሞክሩ።';
-
-  @override
   String get liveNotificationCustomizationTitle => 'የቀጥታ ማሳወቂያ ማበጀት';
 
   @override
@@ -5983,16 +4519,10 @@ class AppLocalizationsAm extends AppLocalizations {
   String get proposalDetails => 'የጥያቄ ዝርዝሮች';
 
   @override
-  String get filterByStatus => 'በሁኔታ ያጣሩ';
-
-  @override
   String get proposalNotFound => 'ጥያቄ አልተገኘም';
 
   @override
   String get processed => 'ተከናውኗል';
-
-  @override
-  String get showAll => 'ሁሉንም አሳይ';
 
   @override
   String get filterAndSortTitle => 'አጣራ እና ደርድር';
@@ -6031,9 +4561,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get invalidSimData => 'የሲም ውሂብ ትክክል አይደለም';
 
   @override
-  String get simCardData => 'የሲም ካርድ ውሂብ';
-
-  @override
   String get simSlot => 'የሲም ማስገቢያ';
 
   @override
@@ -6052,12 +4579,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String get callTypeSilenced => 'ጸጥ አለ';
 
   @override
-  String get callTypeVoicemail => 'የድምፅ መልዕክት';
-
-  @override
-  String get callTypeUnknownIntercept => 'ያልታወቀ መቅረት';
-
-  @override
   String andMoreItems(int count) {
     return 'እና $count ተጨማሪ እቃዎች';
   }
@@ -6070,10 +4591,6 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6157,9 +4674,6 @@ class AppLocalizationsAm extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';

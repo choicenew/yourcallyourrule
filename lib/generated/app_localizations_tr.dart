@@ -19,13 +19,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Telefon Abonelik Kuralları Hakkında';
 
   @override
-  String get aboutPhoneSubscriptions => 'Telefon Abonelikleri Hakkında';
-
-  @override
-  String get aboutPhoneSubscriptionsDesc =>
-      'URL aracılığıyla telefon kural listelerine abone olun, kuralları otomatik olarak güncelleyin. JSON, CSV formatında kural dosyalarını destekler.';
-
-  @override
   String get aboutSmsFilter => 'SMS Filtreleme Hakkında';
 
   @override
@@ -48,9 +41,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get actionBlock => 'Engelle';
-
-  @override
-  String get actionFilterAll => 'Tüm Filtre';
 
   @override
   String get actionFilterTitle => 'Eylem Türüne Göre Filtrele';
@@ -96,28 +86,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get addedToAllowedRules => 'İzin Verilen Kurallara Eklendi';
-
-  @override
-  String get addedToBlacklist => 'Engellenenler Listesine Eklendi';
-
-  @override
-  String get addedToBlockedRules => 'Engellenen Kurallara Eklendi';
-
-  @override
-  String get addedToFavoriteContacts => 'Favori kişilere eklendi';
-
-  @override
   String get addedToFavorites => 'Favorilere eklendi';
-
-  @override
-  String get addedToWhitelist => 'Beyaz Listeye Eklendi';
-
-  @override
-  String get addFavorite => 'Favori Ekle';
-
-  @override
-  String get addFilter => 'Filtre Ekle';
 
   @override
   String get addLabel => 'Etiket Ekle';
@@ -131,17 +100,10 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get addLabelToCall => 'Çağrı Kaydına Etiket Ekle';
-
-  @override
   String get addName => 'Ad Ekle';
 
   @override
   String get addNoneSubscription => 'Yok Aboneliği Ekle';
-
-  @override
-  String get addOrEditContactInfo =>
-      'Kişi bilgilerini eklemek veya düzenlemek için kullanılır';
 
   @override
   String get addPhoneMark => 'Telefon İşareti Ekle';
@@ -173,9 +135,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get addRule => 'Kural Ekle';
 
   @override
-  String get addRuleButton => 'Kural Ekle';
-
-  @override
   String addRuleFailed(Object error) {
     return 'Kural eklenemedi: $error';
   }
@@ -185,9 +144,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get addSilenceSubscription => 'Sessize Alma Aboneliği Ekle';
-
-  @override
-  String get addSimRuleButton => 'SIM Kuralı Ekle';
 
   @override
   String get addSmsFilterRule => 'SMS Filtre Kuralı Ekle';
@@ -213,16 +169,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get addSubscriptionTooltip => 'Abonelik Ekle';
 
   @override
-  String get addToAllowedRules => 'İzin Verilen Kurallara Ekle';
-
-  @override
   String get addToBlacklist => 'Engellenenler Listesine Ekle';
-
-  @override
-  String get addToBlockedRules => 'Engellenen Kurallara Ekle';
-
-  @override
-  String get addToFavoriteContacts => 'Favori Kişilere Ekle';
 
   @override
   String get addToFavorites => 'Favorilere Ekle';
@@ -234,9 +181,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get addToWhitelist => 'Beyaz Listeye Ekle';
 
   @override
-  String get adPlaceholder => 'Reklam Yer Tutucusu';
-
-  @override
   String get agent => 'Aracı';
 
   @override
@@ -244,9 +188,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get allCallsTab => 'Tümü';
-
-  @override
-  String get allDataClearedSuccessfully => 'Tüm veriler başarıyla temizlendi';
 
   @override
   String get allow => 'İzin Ver';
@@ -260,10 +201,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get allowAllBlacklistedNumbers => 'Tüm Engellenen Numaralara İzin Ver';
-
-  @override
-  String get allowAllBlacklistedNumbersDesc =>
-      'Engellenenler listesinden gelen çağrılara izin ver';
 
   @override
   String get allowAllBlockRules => 'Tüm Engelleme Kurallarını İzin Ver';
@@ -336,13 +273,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get allowRules => 'İzin Ver Kuralları';
 
   @override
-  String get allowWhitelistedNumbers => 'İzin Verilen Numaralara İzin Ver';
-
-  @override
-  String get allowWhitelistedNumbersDescription =>
-      'İzin verilen listedeki tüm numaralara izin ver';
-
-  @override
   String get allPermissionsGranted => 'Tüm izinler verildi';
 
   @override
@@ -355,10 +285,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get answerThenHangup => 'Yanıtla sonra kapat';
-
-  @override
-  String get appLegalese =>
-      '© 2023 Senin Çağrın Senin Kuralın. Tüm hakları saklıdır.';
 
   @override
   String get applicationSoftware => 'Uygulama Yazılımı';
@@ -397,13 +323,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get autoUpdateSettings => 'Otomatik Güncelleme Ayarları';
-
-  @override
-  String get autoUpdateSettingsSubtitle =>
-      'Kuralların ve eklentilerin otomatik güncellemelerini yönetin';
-
-  @override
-  String get autoUpdateSettingsTitle => 'Otomatik Güncelleme Ayarları';
 
   @override
   String get autoUpdateSubtitle =>
@@ -452,46 +371,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get backupFailed => 'Yedekleme başarısız';
 
   @override
-  String get backupFailedMessage => 'Yedekleme başarısız';
-
-  @override
-  String backupFailedWithError(Object error) {
-    return 'Yedekleme başarısız: $error';
-  }
-
-  @override
-  String get backupRestoreSubtitle =>
-      'Uygulama verilerini yedekle veya geri yükle';
-
-  @override
-  String get backupRestoreTitle => 'Yedekle ve Geri Yükle';
-
-  @override
-  String get backupSectionTitle => 'Yedekle';
-
-  @override
   String get backupSettings => 'Yedekleme Ayarları';
 
   @override
-  String get backupSettingsDialogTitle => 'Yedekleme Ayarları';
-
-  @override
-  String get backupSettingsTitle => 'Yedekleme Ayarları';
-
-  @override
-  String get backupSuccessMessage => 'Buluta başarıyla yedeklendi';
-
-  @override
-  String backupSuccessToLocal(Object path) {
-    return 'Yerel olarak başarıyla yedeklendi: $path';
-  }
-
-  @override
   String get backupToCloud => 'Buluta Yedekle';
-
-  @override
-  String get backupToCloudDescription =>
-      'Ayarları ve kuralları bulut depolama alanına yedekleyin';
 
   @override
   String backupToCloudFailed(Object error) {
@@ -499,16 +382,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get backupToCloudLabel => 'Buluta Yedekle';
-
-  @override
   String get backupToCloudSuccess => 'Buluta başarıyla yedeklendi';
-
-  @override
-  String get backupToCloudTitle => 'Buluta Yedekle';
-
-  @override
-  String get backupToLocalLabel => 'Yerel Olarak Yedekle';
 
   @override
   String get bank => 'Banka';
@@ -527,22 +401,13 @@ class AppLocalizationsTr extends AppLocalizations {
       '• Temel Kural Filtreleme: Kara liste, izin verilenler listesi ve regex\'e göre kuralları filtreleme';
 
   @override
-  String get basicRuleFilterSettings => 'Temel Kural Filtre Ayarları';
-
-  @override
   String get basicRuleFilterSubtitle =>
       'Kara listeyi/izin verilenleri ve düzenli ifadeleri kullanarak çağrıları filtreleyin';
-
-  @override
-  String get batchDeleteContacts => 'Toplu İletişim Sil';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
     return 'Seçilen $count kişiyi silmek istediğinizden emin misiniz?';
   }
-
-  @override
-  String get batchDeleteFailed => 'Toplu silme başarısız';
 
   @override
   String batchDeleteLabelsConfirm(Object count) {
@@ -557,9 +422,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Kara Listeye Alma ve İzin Verilenlere Ekleme';
 
   @override
-  String get blacklistLabel => 'Kara Liste';
-
-  @override
   String get blackWhiteList => 'Kara/İzin Listesi';
 
   @override
@@ -572,19 +434,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get blocked => 'Engellendi';
 
   @override
-  String get blockedCallAction => 'Engellenen Çağrı Eylemi';
-
-  @override
   String get blockedCalls => 'Engellenen Çağrılar';
 
   @override
   String get blockedCallsTitle => 'Engellenen Çağrılar';
-
-  @override
-  String get blockedCommunications => 'Engellenen İletişimler';
-
-  @override
-  String get blockedPhoneLabel => 'Engellenen Çağrılar';
 
   @override
   String get blockedSpamCalls => 'Engellenen Spam Çağrıları';
@@ -598,9 +451,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get blockInternationalCallsTitle => 'Uluslararası Çağrıları Engelle';
-
-  @override
-  String get blockLandlineNumbersTitle => 'Sabit Hat Numaralarını Engelle';
 
   @override
   String get blockMobileNumbers => '13-19 ile başlamayan numaralarla eşleşir';
@@ -651,11 +501,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get callback => 'Geri Çağır';
 
   @override
-  String callbackTo(String number) {
-    return '$number numarasına geri çağır';
-  }
-
-  @override
   String get callBlocking => 'Çağrı Engelleme';
 
   @override
@@ -663,9 +508,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get callerIdCustomizationTitle => 'Arayan Kimliğini Özelleştir';
-
-  @override
-  String get callerIdDialogTitle => 'Arayan Kimliği Bilgisi';
 
   @override
   String get callerIdDisplayMode => 'Arayan Kimliği Görüntüleme Modu';
@@ -677,13 +519,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get callerIdPreview => 'Arayan Kimliği Önizlemesi';
-
-  @override
-  String get callFilter => 'Çağrı Filtresi';
-
-  @override
-  String get callFilterDescription =>
-      'Etkinleştirildiğinde, gelen aramalar aşağıdaki kural listesine karşı kontrol edilir. Çağrı filtreleme kuralları varsayılan olarak cihazlar arasında eşitlenmez.';
 
   @override
   String get callFilterRules => 'Çağrı Filtresi Kuralları';
@@ -713,26 +548,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get callHistoryInfoTitle => 'Çağrı Geçmişi';
 
   @override
-  String callHistoryInitFailed(Object error) {
-    return 'Çağrı geçmişi başlatılamadı: $error';
-  }
-
-  @override
-  String callHistoryRefreshFailed(Object error) {
-    return 'Çağrı geçmişi yenilenemedi: $error';
-  }
-
-  @override
   String get callHistoryTab => 'Çağrı Geçmişi';
-
-  @override
-  String get callHistoryTimelineEarlier => 'Daha Önce';
-
-  @override
-  String get callHistoryTimelineToday => 'Bugün';
-
-  @override
-  String get callHistoryTimelineYesterday => 'Dün';
 
   @override
   String get callScreeningPermission => 'Çağrı Tarama İzni';
@@ -744,13 +560,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get callScreeningPermissionNotGranted =>
       'Çağrı tarama izni verilmedi, uygulama işlevselliğini etkileyebilir.';
-
-  @override
-  String get callSettingsSubtitle =>
-      'Arayan Kimliği, filtreleme ve engelleme ayarları';
-
-  @override
-  String get callSettingsTitle => 'Çağrı Ayarları';
 
   @override
   String get callStatistics => 'Çağrı İstatistikleri';
@@ -808,27 +617,10 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get changeTag => 'Etiketi Değiştir';
-
-  @override
   String get charity => 'Bağış';
 
   @override
-  String chartMonthFormat(int month) {
-    return 'Ay $month';
-  }
-
-  @override
-  String get chartOneDayAgo => '1 gün önce';
-
-  @override
-  String get chartOneMonthAgo => '1 ay önce';
-
-  @override
   String get chartOneWeekAgo => '1 hafta önce';
-
-  @override
-  String get chartTenDaysAgo => '10 gün önce';
 
   @override
   String get chartThreeDaysAgo => '3 gün önce';
@@ -850,23 +642,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Varsayılan engelleme eylemini seçin';
 
   @override
-  String get clearAllData => 'Tüm Verileri Temizle';
-
-  @override
-  String get clearAllDataConfirmation =>
-      'Tüm uygulama verilerini temizlemek istediğinizden emin misiniz? Bu işlem geri alınamaz.';
-
-  @override
-  String get clearAllDataDescription => 'Tüm uygulama verilerini temizle';
-
-  @override
-  String get clearAllDataLabel => 'Tüm Verileri Temizle';
-
-  @override
   String get clearFilter => 'Filtreyi Temizle';
-
-  @override
-  String get clearLabelFilter => 'Etiket Filtresini Temizle';
 
   @override
   String get clearLabelFilterButton => 'Etiket Filtresini Temizle';
@@ -891,9 +667,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get cloudSyncTitle => 'Bulut Senkronizasyonu';
 
   @override
-  String get collapseLabelSelector => 'Etiket Seçiciyi Daralt';
-
-  @override
   String get collection => 'Borç Tahsilatı';
 
   @override
@@ -913,16 +686,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get configureBackupOptions => 'Yedekleme Seçeneklerini Yapılandır';
 
   @override
-  String get configureBackupOptionsSubtitle =>
-      'Yedekleme seçeneklerini yapılandırın';
-
-  @override
   String get configureCloudSyncService =>
       'Bulut Senkronizasyon Hizmetini Yapılandır';
-
-  @override
-  String get configureCloudSyncServiceHint =>
-      'Çoklu cihaz senkronizasyonunu etkinleştirmek için lütfen bir bulut senkronizasyon hizmeti yapılandırın.';
 
   @override
   String get configureCloudSyncServiceMessage =>
@@ -933,31 +698,13 @@ class AppLocalizationsTr extends AppLocalizations {
       'SIM Kart Filtre Kurallarını Yapılandırın';
 
   @override
-  String get configureSyncServiceHint =>
-      'Lütfen önce bulut senkronizasyonu ayarlarında senkronizasyon hizmetini yapılandırın';
-
-  @override
   String get confirm => 'Onayla';
-
-  @override
-  String get confirmBatchDeleteContacts =>
-      'Seçilenleri silmek istediğinizden emin misiniz';
 
   @override
   String get confirmButton => 'Onayla';
 
   @override
   String get confirmDelete => 'Silmeyi Onayla';
-
-  @override
-  String get confirmDeleteContact => 'Silmek istediğinizden emin misiniz';
-
-  @override
-  String get confirmDeleteContactName => 'Silmeyi onayla?';
-
-  @override
-  String get confirmDeleteFilter =>
-      'Bu filtreyi silmek istediğinizden emin misiniz?';
 
   @override
   String confirmDeleteLabel(Object name) {
@@ -979,10 +726,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bu kuralı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.';
 
   @override
-  String get confirmDeleteSelectedContacts =>
-      'Seçilen kişileri silmek istediğinizden emin misiniz?';
-
-  @override
   String get confirmDeleteSmsFilterRule =>
       'Bu SMS filtre kuralını silmek istediğinizden emin misiniz?';
 
@@ -991,19 +734,12 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bu SMS kuralını silmek istediğinizden emin misiniz?';
 
   @override
-  String get confirmDeleteSubscription =>
-      'Bu aboneliği silmek istediğinizden emin misiniz?';
-
-  @override
   String confirmDeleteSubscriptions(String name) {
     return '\"$name\" silmek istediğinizden emin misiniz?';
   }
 
   @override
   String get confirmPassword => 'Şifreyi Onayla';
-
-  @override
-  String get confirmPasswordLabel => 'Şifreyi Onayla';
 
   @override
   String get connectedStatus => 'Bağlandı';
@@ -1028,16 +764,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get contactDeleted => 'Kişi silindi';
 
   @override
-  String get contactEditDialog => 'Kişi Düzenleme Diyaloğu';
-
-  @override
-  String get contactNameHint => 'Kişi adı girin (isteğe bağlı)';
-
-  @override
   String get contactNameLabel => 'Ad';
-
-  @override
-  String get contactNameOptional => 'Kişi adı (isteğe bağlı)';
 
   @override
   String get contactNotFound => 'Kişi bulunamadı';
@@ -1051,24 +778,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get contactSettingsSubtitle => 'Kişi yönetimi ve etiket ayarları';
-
-  @override
-  String get contactSettingsTitle => 'Kişi Ayarları';
-
-  @override
-  String contactsLoadingFailed(Object error) {
-    return 'Kişiler yüklenemedi: $error';
-  }
-
-  @override
   String get contactsManagement => 'Kişiler Yönetimi';
-
-  @override
-  String get contactsManagementPageTitle => 'Kişiler Yönetimi Sayfası';
-
-  @override
-  String get contactsPageTitle => 'Kişiler Yönetimi';
 
   @override
   String get contactsPermission => 'Kişi İzni';
@@ -1083,14 +793,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get contactSubscriptionDescription =>
       'URL aracılığıyla kişi listelerine abone olun, kişi bilgilerini ve etiketlerini otomatik olarak güncelleyin. JSON formatındaki verileri destekler.';
-
-  @override
-  String contactSubscriptionLoadingFailed(Object error) {
-    return 'Kişi abonelikleri yüklenemedi: $error';
-  }
-
-  @override
-  String get contactSubscriptionPageTitle => 'Kişi Abonelikleri';
 
   @override
   String get contactUpdateSuccess => 'Kişi başarıyla güncellendi';
@@ -1126,26 +828,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get countryRegionNamePosition => 'Ülke/Bölge Adı Konumu';
 
   @override
-  String get countrySelectionDialog => 'Ülke Seçim Diyaloğu';
-
-  @override
-  String get countrySelectionDialogDescription =>
-      'Arayan kimliği bilgilerini sorgulamak için bir ülke seçmek için kullanılır';
-
-  @override
   String get countThresholdDescription =>
       'Filtreleme eylemlerini tetiklemek için gereken minimum sayım eşiğini ayarlayın';
 
   @override
   String get countThresholdLabel => 'Sayım Eşiği';
-
-  @override
-  String get countThresholdSettings => 'Sayım Eşiği Ayarları';
-
-  @override
-  String countThresholdValue(Object count) {
-    return 'Sayım Eşiği: $count';
-  }
 
   @override
   String get createdRules => 'Oluşturulan Kurallar';
@@ -1154,47 +841,22 @@ class AppLocalizationsTr extends AppLocalizations {
   String get csvFormat => 'CSV Formatı';
 
   @override
-  String get currentDeviceChip => 'Mevcut';
-
-  @override
   String get currentDeviceLabel => 'Mevcut Cihaz Etiketi';
 
   @override
   String get currentDeviceTitle => 'Mevcut Cihaz';
 
   @override
-  String get currentLabels => 'Mevcut Etiketler:';
-
-  @override
   String get currentLanguage => 'Mevcut Dil';
 
   @override
-  String get currentPasswordLabel => 'Mevcut Parola';
-
-  @override
   String get customerService => 'Müşteri Hizmetleri';
-
-  @override
-  String get customRange => 'Özel Aralık';
-
-  @override
-  String get dailyStatistics => 'Günlük İstatistikler';
-
-  @override
-  String get dailyStatisticsDesc =>
-      'Engellenen aramalar ve mesajlar hakkında günlük istatistikler alın';
 
   @override
   String get dashboardTab => 'Kontrol Paneli';
 
   @override
   String get dataAnalysis => 'Veri Analizi';
-
-  @override
-  String get dataAnalysisDashboardPage => 'Veri Analizi Kontrol Paneli Sayfası';
-
-  @override
-  String get dataExport => 'Veri Dışa Aktarma';
 
   @override
   String dataLoadFailure(Object error) {
@@ -1212,16 +874,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get dataMigrationDescription =>
       'Bu özellik, tüm verilerinizi cihazlar arasında aktarmanıza olanak tanır. Şu anda, verilerinizi manuel olarak taşımak için yedekleme ve geri yükleme özelliklerini kullanabilirsiniz.';
-
-  @override
-  String get dataMigrationDialogContent =>
-      'Bu özellik, tüm verilerinizi cihazlar arasında aktarmanıza olanak tanır. Şu anda, verilerinizi manuel olarak taşımak için yedekleme ve geri yükleme özelliklerini kullanabilirsiniz.';
-
-  @override
-  String get dataMigrationDialogTitle => 'Veri Taşıma';
-
-  @override
-  String get dataMigrationSectionTitle => 'Veri Taşıma';
 
   @override
   String get dataSourceReminder => 'Veri Kaynağı Hatırlatıcısı';
@@ -1246,9 +898,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get debtCollection => 'Borç Tahsilatı';
 
   @override
-  String get defaultPeriod => 'Hafta';
-
-  @override
   String get delete => 'Sil';
 
   @override
@@ -1263,24 +912,9 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get deleteContactConfirmation =>
-      'Kişiyi silmek istediğinizden emin misiniz';
-
-  @override
-  String deleteDeviceConfirmation(Object deviceName) {
-    return '$deviceName cihazını silmek istediğinizden emin misiniz?';
-  }
-
-  @override
-  String get deleteDeviceDialogTitle => 'Cihazı Sil';
-
-  @override
   String deleteFailed(Object error) {
     return 'Silme başarısız oldu: $error';
   }
-
-  @override
-  String get deleteFilter => 'Filtreyi Sil';
 
   @override
   String get deleteLabel => 'Etiketi Sil';
@@ -1318,9 +952,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get deleteSelected => 'Seçilenleri Sil';
 
   @override
-  String get deleteSmsRule => 'SMS Kuralını Sil';
-
-  @override
   String get deleteSubscription => 'Aboneliği Sil';
 
   @override
@@ -1340,15 +971,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get delivery => 'Teslimat';
 
   @override
-  String get deviceDeletedSuccessfully => 'Cihaz başarıyla silindi';
-
-  @override
-  String get deviceDeletedSuccessfullyMessage => 'Cihaz başarıyla silindi';
-
-  @override
-  String get deviceIdLabel => 'Cihaz Kimliği';
-
-  @override
   String get deviceIDLabel => 'Cihaz Kimliği';
 
   @override
@@ -1365,29 +987,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get deviceName => 'Cihaz Adı';
 
   @override
-  String get deviceNameCannotBeEmpty => 'Cihaz adı boş olamaz';
-
-  @override
-  String get deviceNameHint => 'Lütfen cihaz adını girin';
-
-  @override
   String get deviceNameLabel => 'Cihaz Adı';
-
-  @override
-  String get deviceRenamedSuccessfully =>
-      'Cihaz başarıyla yeniden adlandırıldı';
 
   @override
   String get deviceRenamedSuccessfullyMessage =>
       'Cihaz başarıyla yeniden adlandırıldı';
-
-  @override
-  String get devicesSyncedSuccessfully =>
-      'Cihazlar başarıyla senkronize edildi';
-
-  @override
-  String get devicesSyncedSuccessfullyMessage =>
-      'Cihazlar başarıyla senkronize edildi';
 
   @override
   String get devicesSynchronizedSuccessfullyMessage =>
@@ -1412,10 +1016,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get disableGlobalPlugins => 'Genel eklentileri devre dışı bırak';
-
-  @override
-  String get disableSubscriptionSuccessfully =>
-      'Abonelik başarıyla devre dışı bırakıldı';
 
   @override
   String get disconnectButton => 'Bağlantıyı Kes';
@@ -1449,25 +1049,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get editContact => 'Kişiyi Düzenle';
 
   @override
-  String get editFilter => 'Filtreyi Düzenle';
-
-  @override
   String get editLabel => 'Etiketi Düzenle';
 
   @override
   String get editPhoneRule => 'Telefon Kuralını Düzenle';
 
   @override
-  String get editPhoneRules => 'Telefon kurallarını düzenlemek için kullanılır';
-
-  @override
-  String get editPhoneRuleTitle => 'Telefon Kuralını Düzenle';
-
-  @override
   String get editRule => 'Kuralı Düzenle';
-
-  @override
-  String get editSmsRule => 'SMS Kuralını Düzenle';
 
   @override
   String get education => 'Eğitim';
@@ -1477,9 +1065,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get email => 'E-posta';
-
-  @override
-  String get emailOptional => 'E-posta (İsteğe Bağlı)';
 
   @override
   String get enableCallFilter => 'Arama Filtresini Etkinleştir';
@@ -1499,15 +1084,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get enableEncryptionDescription => 'Yedekleme dosyalarını şifrele';
-
-  @override
-  String get enableEncryptionLabel => 'Şifrelemeyi Etkinleştir';
-
-  @override
-  String get enableEncryptionSubtitle => 'Yedekleme dosyaları şifrelenecektir';
-
-  @override
-  String get enableEncryptionTitle => 'Şifrelemeyi Etkinleştir';
 
   @override
   String get enableGlobalPlugins => 'Genel eklentileri etkinleştir';
@@ -1544,9 +1120,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Hiçbir engelleme eylemi olmayan kural yapılandırmalarına izin ver';
 
   @override
-  String get enableNotifications => 'Bildirimleri Etkinleştir';
-
-  @override
   String get enableRemoteNumberFilter => 'Uzak Numara Filtresini Etkinleştir';
 
   @override
@@ -1562,14 +1135,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get enableSmsFilterDescription =>
       'Etkinleştirildiğinde, mesajlar kurallara göre otomatik olarak filtrelenecektir';
-
-  @override
-  String get enableStatisticsNotifications =>
-      'İstatistik Bildirimlerini Etkinleştir';
-
-  @override
-  String get enableSubscriptionSuccessfully =>
-      'Abonelik başarıyla etkinleştirildi';
 
   @override
   String get enableTimeInterception => 'Zaman Engellemeyi Etkinleştir';
@@ -1605,10 +1170,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Gelişmiş filtre sistemi, hem genel kuralları hem de SIM kart başına filtreleme yapılandırmalarını destekler.';
 
   @override
-  String get enterBothPhoneNumberAndRegexPattern =>
-      'Lütfen hem telefon numarasını hem de regex desenini girin';
-
-  @override
   String get enterBothPhoneNumberAndRegexPatternMessage =>
       'Lütfen hem telefon numarasını hem de regex desenini girin.';
 
@@ -1616,31 +1177,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get enterContactName => 'Lütfen kişi adını girin';
 
   @override
-  String get enterCurrentPasswordHint => 'Lütfen mevcut şifreyi girin';
-
-  @override
   String get enterDeviceName => 'Cihaz Adını Girin';
-
-  @override
-  String get enterDeviceNameHint => 'Lütfen cihaz adını girin';
-
-  @override
-  String get enterEmail => 'Lütfen e-postayı girin';
 
   @override
   String get enterEmailOptional => 'Lütfen e-postayı girin (isteğe bağlı)';
 
   @override
   String get enterEncryptionPasswordHint => 'Şifreleme şifresini girin';
-
-  @override
-  String get enterEncryptionPasswordTitle => 'Şifreleme Şifresini Girin';
-
-  @override
-  String get enterFilterName => 'Lütfen filtre adını girin';
-
-  @override
-  String get enterFilterPattern => 'Lütfen filtre desenini girin';
 
   @override
   String get enterIconCode => 'Simge kodunu girin';
@@ -1652,13 +1195,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get enterNewDeviceNameHint => 'Bu cihaza yeni bir ad girin';
 
   @override
-  String get enterNewPasswordHint => 'Lütfen yeni şifreyi girin';
-
-  @override
   String get enterPasswordAgain => 'Şifreyi Tekrar Girin';
-
-  @override
-  String get enterPasswordHint => 'Lütfen şifreyi girin';
 
   @override
   String get enterPhoneNumber => 'Telefon Numarasını Girin';
@@ -1686,9 +1223,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get enterRegexHint => 'Regex desenini girin';
-
-  @override
-  String get enterRuleNameAndPattern => 'Lütfen kural adını ve desenini girin';
 
   @override
   String get enterRuleNameAndPatternMessage =>
@@ -1733,14 +1267,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get enterWebDAVUsernameHint => 'Lütfen WebDAV kullanıcı adını girin';
 
   @override
-  String errorDeletingDeviceMessage(Object error) {
-    return 'Cihaz silinirken hata oluştu: $error';
-  }
-
-  @override
-  String get errorLoadingPlugin => 'Eklenti yüklenirken hata oluştu';
-
-  @override
   String errorOccurredMessage(Object error) {
     return 'Bir hata oluştu: $error';
   }
@@ -1756,14 +1282,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String errorSyncingDevicesMessage(Object error) {
-    return 'Cihazların senkronizasyonunda hata oluştu: $error';
-  }
-
-  @override
-  String get errorText => 'Hata';
-
-  @override
   String errorUnregisteringDeviceMessage(Object error) {
     return 'Cihaz kaydı kaldırılırken hata oluştu: $error';
   }
@@ -1773,9 +1291,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get exampleBlockMarketingSms => 'Örn. Pazarlama SMS\'lerini engelle';
-
-  @override
-  String get exampleContentRegex => 'Örn., .*teklif.*';
 
   @override
   String get exampleContentRegexHint => 'Örnek İçerik Regex';
@@ -1794,9 +1309,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get exampleRegex400Prefix => '400 öneki için örnek regex';
 
   @override
-  String get exampleRegexFormat => 'Örnek: ^10086\$ formatı';
-
-  @override
   String get exampleSenderRegexHint => 'Örnek';
 
   @override
@@ -1807,9 +1319,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get exchangeVip => 'VIP Takas';
-
-  @override
-  String get expandLabelSelector => 'Etiket Seçiciyi Genişlet';
 
   @override
   String expiryTime(Object time) {
@@ -1824,19 +1333,8 @@ class AppLocalizationsTr extends AppLocalizations {
       'Tüm uygulama ayarlarını dışa aktar';
 
   @override
-  String get exportAllApplicationSettingsSubtitle =>
-      'Tüm uygulama ayarlarını dışa aktar';
-
-  @override
   String get exportAllRuleConfigurations =>
       'Tüm kural yapılandırmalarını dışa aktar';
-
-  @override
-  String get exportAllRuleConfigurationsSubtitle =>
-      'Tüm kural yapılandırmalarını dışa aktar';
-
-  @override
-  String get exportComplete => 'Dışa Aktarma Tamamlandı';
 
   @override
   String get exportConfig => 'Yapılandırmayı Dışa Aktar';
@@ -1848,9 +1346,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get exportData => 'Verileri Dışa Aktar';
 
   @override
-  String get exportError => 'Dışa Aktarma Hatası';
-
-  @override
   String get exportFailed => 'Dışa Aktarma Başarısız';
 
   @override
@@ -1858,9 +1353,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get exportFeatureComingSoon => 'Dışa aktarma özelliği yakında gelecek';
-
-  @override
-  String get exporting => 'Dışa Aktarılıyor...';
 
   @override
   String get exportLabels => 'Etiketleri Dışa Aktar';
@@ -1882,34 +1374,17 @@ class AppLocalizationsTr extends AppLocalizations {
   String get exportRules => 'Kuralları Dışa Aktar';
 
   @override
-  String get exportRulesDialogTitle => 'Kuralları Dışa Aktar';
-
-  @override
-  String get exportRulesTitle => 'Kuralları Dışa Aktar';
-
-  @override
   String get exportSmsRules => 'SMS Kurallarını Dışa Aktar';
 
   @override
   String get exportStatisticsData => 'İstatistik Verilerini Dışa Aktar';
 
   @override
-  String get exportSuccess => 'Dışa Aktarma Başarılı';
-
-  @override
   String get exportSuccesslly => 'Yapılandırma başarıyla dışa aktarıldı';
-
-  @override
-  String get failedToAddContact => 'Kişi eklenemedi';
 
   @override
   String failedToAddRule(Object error) {
     return 'Kural eklenemedi: $error';
-  }
-
-  @override
-  String failedToAddSmsRule(Object error) {
-    return 'SMS kuralı eklenemedi: $error';
   }
 
   @override
@@ -1927,9 +1402,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Yedekleme dosyası şifresi çözülemedi';
 
   @override
-  String get failedToDeleteDevice => 'Cihaz silinemedi';
-
-  @override
   String failedToDeleteSmsRule(Object error) {
     return 'SMS kuralı silinemedi: $error';
   }
@@ -1937,11 +1409,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String failedToExportRules(Object error) {
     return 'Kurallar dışa aktarılamadı: $error';
-  }
-
-  @override
-  String failedToExportSmsRules(Object error) {
-    return 'SMS kuralları dışa aktarılamadı: $error';
   }
 
   @override
@@ -1955,20 +1422,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String failedToImportSmsRules(Object error) {
-    return 'SMS kuralları içe aktarılamadı: $error';
-  }
-
-  @override
-  String get failedToLoadContacts => 'Kişiler yüklenemedi';
-
-  @override
-  String get failedToLoadPlugin => 'Eklenti yüklenemedi';
-
-  @override
-  String get failedToRenameDevice => 'Cihaz yeniden adlandırılamadı';
-
-  @override
   String get failedToRestoreSettings => 'Ayarlar geri yüklenemedi';
 
   @override
@@ -1977,32 +1430,9 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String failedToSetPassword(Object error) {
-    return 'Parola ayarlanamadı: $error';
-  }
-
-  @override
-  String get failedToSyncDevices => 'Cihazlar senkronize edilemedi';
-
-  @override
   String failedToToggleRuleStatus(Object error) {
     return 'Kural durumu değiştirilemedi: $error';
   }
-
-  @override
-  String get failedToToggleSubscriptionStatus =>
-      'Abonelik durumu değiştirilemedi';
-
-  @override
-  String get failedToUpdateContact => 'Kişi güncellenemedi';
-
-  @override
-  String failedToUpdateSmsRule(Object error) {
-    return 'SMS kuralı güncellenemedi: $error';
-  }
-
-  @override
-  String get failure => 'Başarısızlık';
 
   @override
   String get favoriteContacts => 'Favori Kişiler';
@@ -2041,9 +1471,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get filterByLabel => 'Etikete Göre Filtrele';
 
   @override
-  String get filterClear => 'Filtreyi Temizle';
-
-  @override
   String get filterControlPanelTitle => 'Filtre Kontrol Paneli';
 
   @override
@@ -2054,22 +1481,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get filterControlTitle => 'Filtre Kontrolü';
 
   @override
-  String get filterDeleteFailed => 'Filtre silme başarısız';
-
-  @override
-  String get filterDeleteSuccess => 'Filtre başarıyla silindi';
-
-  @override
-  String get filterDetails => 'Filtre Detayları';
-
-  @override
   String get filtered => 'Filtrelenmiş';
-
-  @override
-  String get filteredSms => 'Filtrelenmiş SMS';
-
-  @override
-  String get filteredSmsLabel => 'Filtrelenmiş SMS';
 
   @override
   String get filterExplanation => 'Filtre Açıklaması';
@@ -2081,17 +1493,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get filterName => 'Filtre Adı';
 
   @override
-  String get filterPattern => 'Filtre Deseni';
-
-  @override
   String get filterPriorityNote =>
       'Not: Filtreler arasında öncelik ilişkileri vardır, detaylar için yardım belgelerine bakınız.';
-
-  @override
-  String get filterSaveFailed => 'Filtre kaydetme başarısız';
-
-  @override
-  String get filterSaveSuccess => 'Filtre başarıyla kaydedildi';
 
   @override
   String get filterSettings => 'Filtre Ayarları';
@@ -2130,16 +1533,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String foundRulesDoYouWantToImport(Object count) {
-    return '$count kural bulundu. İçe aktarmak ister misiniz?';
-  }
-
-  @override
-  String foundRulesToImport(Object count) {
-    return '$count kural bulundu. İçe aktarmak ister misiniz?';
-  }
-
-  @override
   String get fraudAlert => 'DOLANDIRICILIK UYARISI - Aramayı kapatın';
 
   @override
@@ -2174,39 +1567,14 @@ class AppLocalizationsTr extends AppLocalizations {
   String get globalFilterSettings => 'Global Filtre Ayarları';
 
   @override
-  String get globalFilterToggleInstructions =>
-      'Tüm SIM yuvalarına uygulanan global filtre ayarlarını yapılandırın:';
-
-  @override
-  String get globalSearchSubtitle =>
-      'Kişileri, etiketleri, kara listeleri, beyaz listeleri vb. arayın.';
-
-  @override
-  String get globalSearchTitle => 'Global Arama';
-
-  @override
   String get globalSettings => 'Global Ayarlar';
-
-  @override
-  String get googleAdDisplayPosition => 'Google Reklam Görüntülenme Konumu';
-
-  @override
-  String get googleAdMobIntegrationText =>
-      'Google AdMob reklamları buraya entegre edilebilir';
 
   @override
   String get googleDriveAuthDescription =>
       'Sistemde yapılandırılmış Google Drive istemci kimliği ve anahtarı kullanarak yetkilendirin';
 
   @override
-  String get googleDriveAuthorizationHint =>
-      'Sistemde yapılandırılmış Google Drive istemci kimliği ve anahtarı kullanarak yetkilendirin';
-
-  @override
   String get googleDriveConfigTitle => 'Google Drive Yapılandırması';
-
-  @override
-  String get googleDriveConfigurationTitle => 'Google Drive Yapılandırması';
 
   @override
   String get government => 'Devlet';
@@ -2225,9 +1593,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get height => 'Yükseklik';
-
-  @override
-  String get homePageTitle => 'Ana Sayfa';
 
   @override
   String get homeTab => 'Ana Sayfa';
@@ -2258,9 +1623,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get important => 'Önemli';
-
-  @override
-  String get importButton => 'İçe Aktar';
 
   @override
   String get importConfig => 'Yapılandırmayı İçe Aktar';
@@ -2314,41 +1676,13 @@ class AppLocalizationsTr extends AppLocalizations {
       'Kural Yapılandırmalarını Dosyadan İçe Aktar';
 
   @override
-  String get importRuleConfigurationsFromFileSubtitle =>
-      'Kural yapılandırmalarını dosyadan içe aktarın';
-
-  @override
   String get importRules => 'Kuralları İçe Aktar';
-
-  @override
-  String get importRulesButton => 'Kuralları İçe Aktar';
-
-  @override
-  String get importRulesDialogTitle => 'Kuralları İçe Aktar';
-
-  @override
-  String importRulesError(Object error) {
-    return 'Kuralları içe aktarma başarısız: $error';
-  }
-
-  @override
-  String get importRulesInstructions =>
-      'Kuralları bir CSV dosyasından içe aktarın';
-
-  @override
-  String get importRulesSuccess => 'Kurallar başarıyla içe aktarıldı';
-
-  @override
-  String get importRulesTitle => 'Kuralları İçe Aktar';
 
   @override
   String get importSuccess => 'İçe aktarma başarılı';
 
   @override
   String get incomingCallInterceptAction => 'Gelen Çağrı Engelleme Eylemi';
-
-  @override
-  String get incomingCallNotification => 'Gelen Çağrı Bildirimi';
 
   @override
   String get incorrectPassword => 'Yanlış şifre';
@@ -2403,9 +1737,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Daha Fazla Bilgi İçin Telegram Kanalı ve Grubuna Katılın';
 
   @override
-  String get jsLogsTitle => 'JS Kayıtları';
-
-  @override
   String get jsonFormat => 'JSON Biçimi';
 
   @override
@@ -2414,16 +1745,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get keepAllVersionsDescription =>
       'Her yedeğin tüm geçmiş sürümlerini saklayın';
-
-  @override
-  String get keepAllVersionsLabel => 'Tüm Sürümleri Sakla';
-
-  @override
-  String get keepAllVersionsSubtitle =>
-      'Her yedeğin geçmiş sürümlerini saklayın';
-
-  @override
-  String get keepAllVersionsTitle => 'Tüm Sürümleri Sakla';
 
   @override
   String get label => 'Etiket';
@@ -2444,9 +1765,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Etiketler, kişileri daha iyi yönetmenize yardımcı olur, aramaları ve mesajları kolayca tanımlamak için telefon numaralarına özel etiketler ekleyin.';
 
   @override
-  String get labelFilter => 'Etiket Filtresi';
-
-  @override
   String get labelFilterTooltip => 'Etiket Filtresi';
 
   @override
@@ -2457,14 +1775,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get labelNotFound => 'Etiket bulunamadı';
-
-  @override
-  String get labelRemoved => 'Etiket kaldırıldı';
-
-  @override
-  String labelRemoveFailed(Object error) {
-    return 'Etiket kaldırılamadı: $error';
-  }
 
   @override
   String get labels => 'Etiketler';
@@ -2497,9 +1807,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get labelUpdated => 'Etiket güncellendi';
-
-  @override
   String labelUpdateFailed(Object error) {
     return 'Etiket güncellenemedi: $error';
   }
@@ -2517,12 +1824,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get languageSettingsTitle => 'Dil Ayarları';
-
-  @override
-  String get last30Days => 'Son 30 Gün';
-
-  @override
-  String get last7Days => 'Son 7 Gün';
 
   @override
   String get lastSyncLabel => 'Son Senkronizasyon';
@@ -2548,13 +1849,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get loadDataFailed => 'Veri yüklenemedi';
 
   @override
-  String get loadFailed => 'Yükleme Başarısız';
-
-  @override
   String get loading => 'Yükleniyor...';
-
-  @override
-  String get loadingData => 'Veriler Yükleniyor...';
 
   @override
   String get loadingTags => 'Etiketler yükleniyor...';
@@ -2578,12 +1873,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String loadMarkedPhonesFailed(Object error) {
     return 'İşaretli telefonlar yüklenemedi: $error';
   }
-
-  @override
-  String get loadMore => 'Daha Fazla Yükle';
-
-  @override
-  String get loadPluginButton => 'Eklentiyi Yükle';
 
   @override
   String loadPluginsFailed(Object error) {
@@ -2610,9 +1899,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get loan => 'Kredi';
-
-  @override
-  String get localBackupTitle => 'Yerel Yedekleme';
 
   @override
   String get localCounterFilter => 'Yerel Sayaç Filtresi';
@@ -2708,9 +1994,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get manage => 'Kişileri Yönet';
 
   @override
-  String get manageContacts => 'Yönet';
-
-  @override
   String get manageFavoriteContacts => 'Favori Kişileri Yönet';
 
   @override
@@ -2719,9 +2002,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get manageFilterRulesDescription =>
       'SMS filtre kurallarını ekle, düzenle veya sil';
-
-  @override
-  String get manageFrequentContacts => 'Sık Kişileri Yönet';
 
   @override
   String get markCounts => 'İşaret Sayımları';
@@ -2749,17 +2029,10 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get markPhoneManagementSubtitle =>
-      'Telefon Numaralarını İşaretlemek İçin';
-
-  @override
   String get markPhoneManagementTitle => 'Telefon İşaretleme Yönetimi';
 
   @override
   String get markPhoneSuccess => 'Telefon numarası başarıyla işaretlendi';
-
-  @override
-  String get matchFailed => 'Eşleşme başarısız oldu!';
 
   @override
   String get matchFailedMessage => 'Eşleşme başarısız oldu.';
@@ -2780,9 +2053,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Belirli basamak kalıplarını eşleştir:';
 
   @override
-  String get matchSuccessful => 'Eşleşme başarılı!';
-
-  @override
   String get matchSuccessfulMessage => 'Eşleşme başarılı!';
 
   @override
@@ -2793,9 +2063,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get migrationTool => 'Geçiş Aracı';
-
-  @override
-  String get migrationToolTitle => 'Geçiş Aracı';
 
   @override
   String get minutes => 'dakika';
@@ -2810,9 +2077,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get monthlyCallCount => 'Aylık Aramalar';
 
   @override
-  String get monthlyChartTitle => 'Aylık Engellenen Aramalar';
-
-  @override
   String get monthlyMembership => 'Aylık Üyelik';
 
   @override
@@ -2821,9 +2085,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get monthlyTotal => 'Aylık Toplam';
-
-  @override
-  String get monthlyTotalLabel => 'Aylık Toplam';
 
   @override
   String get moreOptions => 'Daha Fazla Seçenek';
@@ -2839,33 +2100,16 @@ class AppLocalizationsTr extends AppLocalizations {
       'Ad ve telefon numarası boş bırakılamaz';
 
   @override
-  String get nameAndPhoneNumberRequired =>
-      'Ad ve telefon numarası boş bırakılamaz';
-
-  @override
   String get nameColor => 'Ad Rengi';
 
   @override
   String get nameFontSize => 'Ad Yazı Boyutu';
 
   @override
-  String nameLabel(Object name) {
-    return 'Ad: $name';
-  }
-
-  @override
   String get namePosition => 'Ad Konumu';
 
   @override
   String get nameUnknown => 'Ad: Bilinmiyor';
-
-  @override
-  String nameWithValue(String name) {
-    return 'Ad: $name';
-  }
-
-  @override
-  String get newPasswordLabel => 'Yeni Şifre';
 
   @override
   String get nextStep => 'İleri';
@@ -2881,13 +2125,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Aktif bulut senkronizasyon servisi yok';
 
   @override
-  String get noCallLogs => 'Arama Kaydı Yok';
-
-  @override
   String get noCallRecords => 'Arama kaydı yok';
-
-  @override
-  String get noContacts => 'Henüz kişi yok';
 
   @override
   String get noContactsYet => 'Henüz kişi yok';
@@ -2899,28 +2137,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get noDevicesRegisteredMessage => 'Kayıtlı cihaz yok';
 
   @override
-  String get noDevicesRegisteredYet => 'Henüz kayıtlı cihaz yok.';
-
-  @override
-  String get noFilters => 'Henüz filtre yok';
-
-  @override
   String get noLabels => 'Henüz etiket yok';
 
   @override
   String get noMarkedPhones => 'İşaretli telefon numarası yok';
 
   @override
-  String get noMatchingContacts => 'Eşleşen kişi yok';
-
-  @override
   String get noMatchingContactsFound => 'Eşleşen kişi bulunamadı';
 
   @override
   String get noMatchingNumbersFound => 'Eşleşen numara bulunamadı';
-
-  @override
-  String get noMatchingRecords => 'Eşleşen arama kaydı yok';
 
   @override
   String noMatchingRules(Object ruleType) {
@@ -2935,15 +2161,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get noPlugins => 'Henüz eklenti yok';
-
-  @override
-  String get noRecords => 'Arama kaydı yok';
-
-  @override
-  String get noResultReturned => 'Sonuç döndürülmedi';
-
-  @override
-  String get noResultReturnedLog => 'Eklentiden sonuç döndürülmedi';
 
   @override
   String noRules(Object ruleType) {
@@ -2966,9 +2183,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get noSubscriptions => 'Abonelik yok';
 
   @override
-  String get noSubscriptionsYet => 'Henüz Abonelik Yok';
-
-  @override
   String get notGranted => 'Verilmedi';
 
   @override
@@ -2987,13 +2201,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get notificationSettings => 'Bildirim Ayarları';
-
-  @override
-  String get notificationSettingsSaved =>
-      'Bildirim ayarları başarıyla kaydedildi';
-
-  @override
-  String get notSet => 'Ayarlanmadı';
 
   @override
   String get notVerifiedText => 'Doğrulanmadı';
@@ -3027,9 +2234,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get numberTypePosition => 'Numara Türü Konumu';
 
   @override
-  String get ok => 'Tamam';
-
-  @override
   String get okButton => 'Tamam';
 
   @override
@@ -3061,14 +2265,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Sistem tarafından yapılandırılmış OneDrive istemci kimliği ve anahtarı kullanarak yetkilendirin';
 
   @override
-  String get oneDriveAuthorizationHint =>
-      'Sistem tarafından yapılandırılmış OneDrive istemci kimliği ve anahtarı kullanarak yetkilendirin';
-
-  @override
   String get oneDriveConfigTitle => 'OneDrive Yapılandırması';
-
-  @override
-  String get oneDriveConfigurationTitle => 'OneDrive Yapılandırması';
 
   @override
   String get onlineCallerIdSubscription => 'Çevrimiçi Arayan Kimliği Aboneliği';
@@ -3128,9 +2325,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get passwordsDoNotMatch => 'Şifreler eşleşmiyor';
 
   @override
-  String get passwordSetSuccessfully => 'Şifre başarıyla ayarlandı';
-
-  @override
   String get pattern => 'Desen';
 
   @override
@@ -3164,15 +2358,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get phoneNumberCannotBeEmpty => 'Telefon numarası boş olamaz';
 
   @override
-  String get phoneNumberHintText =>
-      'Kural eklemek için telefon numarasını girin';
-
-  @override
   String get phoneNumberLabel => 'Telefon Numarası';
-
-  @override
-  String get phoneNumberRegexRequired =>
-      'Lütfen hem telefon numarasını hem de regex desenini girin';
 
   @override
   String get phoneNumberTypeFixedLine => 'Sabit hat';
@@ -3221,9 +2407,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get phoneRule => 'Telefon Kuralı';
 
   @override
-  String get phoneRuleEditDialog => 'Telefon Kuralı Düzenleme Penceresi';
-
-  @override
   String get phoneRuleManagement => 'Telefon Kuralı Yönetimi';
 
   @override
@@ -3235,9 +2418,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get phoneSubscriptionRulesDescription =>
       'Beyaz liste ve kara liste kurallarını otomatik olarak güncellemek için URL üzerinden telefon kuralı listelerine abone olun. JSON formatındaki kural dosyalarını destekler.';
-
-  @override
-  String get phoneSubscriptionTitle => 'Telefon Kuralı Abonelikleri';
 
   @override
   String get pleaseSelectLabelAndEnterValidPhone =>
@@ -3259,9 +2439,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Eklenti listesi başarıyla dışa aktarıldı';
 
   @override
-  String get pluginLoadedSuccessfully => 'Eklenti başarıyla yüklendi';
-
-  @override
   String get pluginManagement => 'Eklenti Yönetimi';
 
   @override
@@ -3269,14 +2446,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Üçüncü taraf eklentileri yönetin ve yapılandırın';
 
   @override
-  String get pluginManagementTitle => 'Eklenti Yönetimi';
-
-  @override
   String get pluginName => 'Eklenti Adı';
-
-  @override
-  String get pluginNotLoaded =>
-      'Eklenti henüz yüklenmedi. Lütfen önce eklentiyi yükleyin.';
 
   @override
   String pluginsDeleted(Object count) {
@@ -3294,15 +2464,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get pluginUrl => 'Eklenti URL\'si';
-
-  @override
-  String get pluginUrlCannotBeEmpty => 'Eklenti URL\'si boş olamaz';
-
-  @override
-  String get pluginUrlHint => 'Eklenti URL\'sini girin';
-
-  @override
-  String get pluginUrlLabel => 'Eklenti URL\'si';
 
   @override
   String get pluginVersion => 'Eklenti Sürümü';
@@ -3340,34 +2501,10 @@ class AppLocalizationsTr extends AppLocalizations {
       'Tüm premium özellikleri açın, üç ayda bir otomatik yenilenir';
 
   @override
-  String get queryButton => 'Sorgula';
-
-  @override
-  String get queryFailed => 'Sorgu başarısız oldu';
-
-  @override
-  String get queryFailedLog => 'Sorgu başarısız oldu';
-
-  @override
-  String get querying => 'Sorgulanıyor...';
-
-  @override
-  String get queryingPhoneNumber => 'Telefon numarası sorgulanıyor';
-
-  @override
-  String get queryResultTitle => 'Sorgu Sonucu';
-
-  @override
   String get ready => 'Hazır!';
 
   @override
-  String get receiveWeeklyStatistics => 'Haftalık istatistik al';
-
-  @override
   String get recruiter => 'İşe Alımcı';
-
-  @override
-  String get reEnterPasswordHint => 'Lütfen şifreyi tekrar girin';
 
   @override
   String get refresh => 'Yenile';
@@ -3377,11 +2514,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get refreshTooltip => 'Yenile';
-
-  @override
-  String regexError(Object error) {
-    return 'Regex hatası: $error';
-  }
 
   @override
   String regexErrorMessage(Object error) {
@@ -3399,10 +2531,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get regexPatternLabel => 'Regex Kalıbı';
-
-  @override
-  String get regexPatternsExamples =>
-      'Kalıpları tanımlamak için standart regex sözdizimini kullanın. Örnekler:';
 
   @override
   String get regexPatternsForPhoneNumberMatching =>
@@ -3431,14 +2559,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get regexTesterTitle => 'Regex Test Cihazı';
-
-  @override
-  String regexValidationFailed(Object error) {
-    return 'Regex doğrulama başarısız oldu: $error';
-  }
-
-  @override
-  String get regexValidationSuccess => 'Regex doğrulama başarılı';
 
   @override
   String get region => 'Bölge';
@@ -3477,35 +2597,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get remoteNumberFilter => 'Uzak Numara Filtresi';
 
   @override
-  String get remoteNumberFilterDatabaseInfo =>
-      'Bu filtre, en güncel numara bilgisini almak için bağımsız bir uzak veritabanı kullanır.';
-
-  @override
   String get remoteNumberFilterDescription =>
       'Uzak veritabanı bilgilerine dayanarak rahatsız edici çağrıları engelle';
-
-  @override
-  String get remoteNumberFilterExplanationContent =>
-      'Uzak numara filtresi, numara sayısına dayalı olarak uzak bir veritabanını sorgulayarak spam çağrılarını tanımlar ve engeller.';
-
-  @override
-  String get remoteNumberFilterExplanationTitle =>
-      'Uzak Numara Filtresi Açıklaması';
-
-  @override
-  String get remoteNumberFilterFeatureCountThreshold =>
-      '• Sayı Eşiği: Numara oluş sıklığına göre belirleme';
-
-  @override
-  String get remoteNumberFilterFeatureFilterAction =>
-      '• Filtre Eylemleri: Eşiği aşan numaraların nasıl ele alınacağını yapılandırma';
-
-  @override
-  String get remoteNumberFilterFeaturePriority =>
-      '• Öncelik Ayarları: Uzak eylemler için öncelik belirleme';
-
-  @override
-  String get remoteNumberFilterFeatures => 'Özellikler:';
 
   @override
   String get remoteNumberFiltering => 'Uzak Numara Filtreleme';
@@ -3526,29 +2619,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get removeAdsTitle => 'Reklamları Kaldır';
 
   @override
-  String get removedFromFavoriteContacts => 'Favori kişilerden kaldırıldı';
-
-  @override
   String get removedFromFavorites => 'Favori kişilerden kaldırıldı';
-
-  @override
-  String get removeFavorite => 'Favorilerden Kaldır';
 
   @override
   String get removeFromFavorites => 'Favorilerden Kaldır';
 
   @override
-  String get renameButton => 'Yeniden Adlandır';
-
-  @override
-  String get renameDeviceDialogTitle => 'Cihazı Yeniden Adlandır';
-
-  @override
   String get renameDeviceTitle => 'Cihazı Yeniden Adlandır';
-
-  @override
-  String get replaceCurrentSettingsConfirmation =>
-      'Bu, mevcut tüm ayarlarınızın yerine geçecektir. Devam etmek istediğinizden emin misiniz?';
 
   @override
   String get requestAllPermissions => 'Tüm İzinleri İste';
@@ -3577,23 +2654,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Uygulama Ayarlarını Yedekten Geri Yükle';
 
   @override
-  String get restoreApplicationSettingsFromBackupSubtitle =>
-      'Uygulama ayarlarını yedekten geri yükle';
-
-  @override
-  String get restoreButton => 'Geri Yükle';
-
-  @override
-  String restoreFailedWithError(Object error) {
-    return 'Buluttan geri yükleme başarısız oldu: $error';
-  }
-
-  @override
   String get restoreFromCloud => 'Buluttan Geri Yükle';
-
-  @override
-  String get restoreFromCloudDescription =>
-      'Ayarları ve kuralları bulut depolamadan geri yükle';
 
   @override
   String restoreFromCloudFailed(Object error) {
@@ -3601,22 +2662,10 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get restoreFromCloudLabel => 'Buluttan Geri Yükle';
-
-  @override
   String get restoreFromCloudSuccess => 'Buluttan başarıyla geri yüklendi';
 
   @override
-  String get restoreFromCloudTitle => 'Buluttan Geri Yükle';
-
-  @override
-  String get restoreFromLocal => 'Yerelden Geri Yükle';
-
-  @override
   String get restorePurchases => 'Satın Almaları Geri Yükle';
-
-  @override
-  String get restoreSectionTitle => 'Geri Yükleme';
 
   @override
   String get restoreSettings => 'Ayarları Geri Yükle';
@@ -3624,18 +2673,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get restoreSettingsConfirmation =>
       'Bu, mevcut tüm ayarlarınızın yerine geçecektir. Devam etmek istediğinizden emin misiniz?';
-
-  @override
-  String get restoreSettingsDialogTitle => 'Ayarları Geri Yükle';
-
-  @override
-  String get restoreSettingsTitle => 'Ayarları Geri Yükle';
-
-  @override
-  String get restoreSuccessFromLocal => 'Yerelden başarıyla geri yüklendi';
-
-  @override
-  String get restoreSuccessMessage => 'Buluttan başarıyla geri yüklendi';
 
   @override
   String get retry => 'Tekrar Dene';
@@ -3653,15 +2690,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get ruleAction => 'Kural Eylemi';
 
   @override
-  String get ruleAddButton => 'Kural Ekle';
-
-  @override
   String get ruleAddedSuccess => 'Kural başarıyla eklendi';
-
-  @override
-  String ruleAddFailure(Object error) {
-    return 'Kural eklenemedi: $error';
-  }
 
   @override
   String get ruleAddSuccess => 'Kural başarıyla eklendi';
@@ -3675,18 +2704,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get ruleDeleteConfirmTitle => 'Kuralı Sil';
 
   @override
-  String get ruleDeletedSuccess => 'Kural başarıyla silindi';
-
-  @override
   String get ruleDeletedSuccessfully => 'Kural başarıyla silindi';
 
   @override
   String ruleDeleteFailed(Object error) {
-    return 'Kural silinemedi: $error';
-  }
-
-  @override
-  String ruleDeleteFailure(Object error) {
     return 'Kural silinemedi: $error';
   }
 
@@ -3708,9 +2729,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get ruleManagement => 'Kural Yönetimi';
 
   @override
-  String get ruleManagementTitle => 'Kural Yönetimi';
-
-  @override
   String get ruleName => 'Kural Adı';
 
   @override
@@ -3728,9 +2746,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get ruleNameLabel => 'Kural Adı';
 
   @override
-  String get ruleNamePatternRequired => 'Lütfen kural adı ve kalıbı girin';
-
-  @override
   String get ruleNameRequired => 'Kural adı ve telefon numarası boş olamaz';
 
   @override
@@ -3742,23 +2757,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get ruleSavedSuccessfully => 'Kural başarıyla kaydedildi!';
-
-  @override
   String get ruleSavedSuccessMessage => 'Kural başarıyla kaydedildi!';
-
-  @override
-  String ruleSaveFailed(Object error) {
-    return 'Kaydetme başarısız oldu: $error';
-  }
-
-  @override
-  String ruleSaveFailedMessage(Object error) {
-    return 'Kaydetme başarısız oldu: $error';
-  }
-
-  @override
-  String get ruleSaveSuccess => 'Kural başarıyla kaydedildi!';
 
   @override
   String get rulesExportedSuccessfully => 'Kurallar başarıyla dışa aktarıldı';
@@ -3775,14 +2774,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String rulesImportedSuccessfully(Object count) {
     return '$count kural başarıyla içe aktarıldı';
   }
-
-  @override
-  String rulesImportFailed(Object error) {
-    return 'Kurallar içe aktarılamadı: $error';
-  }
-
-  @override
-  String get ruleStatistics => 'Kural İstatistikleri';
 
   @override
   String ruleStatusChanged(Object status) {
@@ -3817,9 +2808,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get saveButton => 'Kaydet';
 
   @override
-  String get saveButtonLabel => 'KAYDET';
-
-  @override
   String get saveButtonText => 'Kaydet';
 
   @override
@@ -3828,15 +2816,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get saveFilter => 'Filtreyi Kaydet';
-
-  @override
   String get saveSettings => 'Ayarları Kaydet';
-
-  @override
-  String saveSettingsFailed(Object error) {
-    return 'Ayarlar kaydedilemedi: $error';
-  }
 
   @override
   String get scamsLikely => 'Dolandırıcılık Olası';
@@ -3853,28 +2833,11 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get searchFilters => 'Arama Filtreleri';
-
-  @override
-  String get searchForContacts => 'Kişi Ara';
-
-  @override
   String get searchHint => 'Ara...';
-
-  @override
-  String get searchSettingsSubtitle =>
-      'Kişileri, etiketleri, kara listeleri, beyaz listeleri vb. ara.';
-
-  @override
-  String get searchSettingsTitle => 'Arama Ayarları';
 
   @override
   String get securityMessage =>
       'Hiçbir telefon görüşmesine güvenmeyin. Müşteri hizmetleri numaralarını her zaman bağımsız olarak doğrulayın. Asla şifreleri, doğrulama kodlarını, kart numaralarını veya kişisel bilgileri paylaşmayın.';
-
-  @override
-  String get selectActionToPerform =>
-      'Kural eşleştiğinde gerçekleştirilecek eylemi seçin';
 
   @override
   String get selectActionWhenBlockingCalls =>
@@ -3888,12 +2851,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get selectCountry => 'Ülke Seç';
-
-  @override
-  String get selectDateRange => 'Tarih Aralığı Seç';
-
-  @override
-  String get selectedDateRange => 'Seçilen tarih aralığı';
 
   @override
   String selectedItems(Object count) {
@@ -3920,20 +2877,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get selectMultiple => 'Birden Fazla Seç';
 
   @override
-  String get selectPeriod => 'Dönem Seç';
-
-  @override
   String get selectSimCard => 'SIM Kart Seç';
-
-  @override
-  String get selectSimSlot => 'SIM Yuvası Seç';
-
-  @override
-  String get selectSpecificActionForBlockedCalls =>
-      'Çağrıları engellerken gerçekleştirilecek belirli eylemi seçin';
-
-  @override
-  String get selectTag => 'Etiket Seç';
 
   @override
   String get selectTags => 'Etiketleri Seç';
@@ -3975,23 +2919,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get setButton => 'Ayarla';
-
-  @override
   String get setEncryptionPassword => 'Şifreleme Parolası Belirle';
-
-  @override
-  String get setEncryptionPasswordDescription =>
-      'Yedekleme ve geri yükleme için şifreleme parolası belirleyin';
-
-  @override
-  String get setEncryptionPasswordLabel => 'Şifreleme Parolası Belirle';
-
-  @override
-  String get setEncryptionPasswordTitle => 'Şifreleme Parolası Belirle';
-
-  @override
-  String get setPasswordButton => 'Ayarla';
 
   @override
   String get settings => 'Ayarlar';
@@ -3999,14 +2927,6 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String settingsBackedUpTo(Object path) {
     return 'Ayarlar şuraya yedeklendi: $path';
-  }
-
-  @override
-  String get settingsLoaded => 'Ayarlar yüklendi';
-
-  @override
-  String settingsLoadFailed(Object error) {
-    return 'Ayarlar yüklenemedi: $error';
   }
 
   @override
@@ -4029,13 +2949,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get setup => 'Kurulum';
-
-  @override
-  String get showContactEditDialogStaticMethod =>
-      'Kişi düzenleme iletişim kutusunu görüntülemek için statik yöntem';
-
-  @override
-  String get showExplanation => 'Açıklamayı Göster';
 
   @override
   String get silence => 'Sessize Al';
@@ -4083,19 +2996,11 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String simInfoLoadFailure(Object error) {
-    return 'SIM kart bilgileri yüklenemedi: $error';
-  }
-
-  @override
   String get simRuleInstructions =>
       'SIM yuvası kuralları, her bir SIM yuvası için bağımsız filtreleme kuralları yapılandırmanıza olanak tanır.';
 
   @override
   String get simRuleInstructionsTitle => 'SIM Yuvası Kuralları';
-
-  @override
-  String get simRuleManagement => 'SIM Yuvası Kural Yönetimi';
 
   @override
   String simSlot1(String countryIso) {
@@ -4108,18 +3013,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String simSlotDataLoadFailed(Object error) {
-    return 'SIM verileri yüklenemedi: $error';
-  }
-
-  @override
-  String get simSlotFilterConfiguration => 'SIM Yuvası Filtre Yapılandırması';
-
-  @override
-  String get simSlotFilterConfigurationDescription =>
-      'SIM yuvasına göre filtre kuralları ayarlamaya izin verir';
-
-  @override
   String get simSlotFilterDescription =>
       'Her bir SIM kart için bağımsız filtreleme kuralları yapılandırın:';
 
@@ -4129,17 +3022,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String simSlotLoadFailed(Object error) {
-    return 'SIM yuvaları yüklenemedi: $error';
-  }
-
-  @override
   String get simSlotManagement => 'SIM Yuvası Yönetimi';
-
-  @override
-  String simSlotOperationFailed(Object error) {
-    return 'SIM yuvası işlemi başarısız oldu: $error';
-  }
 
   @override
   String simSlotPosition(int slotNumber) {
@@ -4160,12 +3043,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get simSlotRuleManagement => 'SIM Yuvası Kuralları';
-
-  @override
-  String get simSlotRuleManagementTitle => 'Kural Yönetimi';
-
-  @override
-  String get simSlotSettings => 'SIM Yuvası Ayarları';
 
   @override
   String simSlotTitle(Object slotNumber) {
@@ -4202,9 +3079,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get smsFilterSettings => 'SMS Filtre Ayarları';
 
   @override
-  String get smsHistory => 'SMS Geçmişi';
-
-  @override
   String get smsManagement => 'SMS Yönetimi';
 
   @override
@@ -4229,26 +3103,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get smsRuleManagement => 'SMS Kural Yönetimi';
 
   @override
-  String smsRulesExportedSuccessfully(Object filePath) {
-    return 'SMS kuralları başarıyla $filePath konumuna dışa aktarıldı';
-  }
-
-  @override
-  String get smsRulesImportedSuccessfully =>
-      'SMS kuralları başarıyla içe aktarıldı';
-
-  @override
   String get smsRuleSubscription => 'SMS Kuralı Aboneliği';
-
-  @override
-  String get smsRuleUpdatedSuccessfully => 'SMS kuralı başarıyla güncellendi';
-
-  @override
-  String get smsSettingsSubtitle =>
-      'SMS filtreleme ve anahtar kelime engelleme';
-
-  @override
-  String get smsSettingsTitle => 'SMS Ayarları';
 
   @override
   String get smsSubscription => 'SMS Aboneliği';
@@ -4286,26 +3141,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get statBlocked => 'Engellendi';
 
   @override
-  String get staticMethodShowCallerIdDialog =>
-      'Arayan Kimliği Bilgi İletişim Kutusunu göstermek için statik yöntem';
-
-  @override
-  String get staticMethodToDisplayCountrySelectionDialog =>
-      'Ülke seçimi iletişim kutusunu göstermek için statik yöntem';
-
-  @override
-  String get staticMethodToDisplayDialog =>
-      'İletişim kutusunu göstermek için statik yöntem';
-
-  @override
   String get statistics => 'İstatistikler';
-
-  @override
-  String get statisticsExportFeatureComingSoon =>
-      'İstatistik dışa aktarma özelliği yakında geliyor';
-
-  @override
-  String get statisticsGrid => 'İstatistikler Tablosu';
 
   @override
   String get statisticsPageTitle => 'Veri Analizi';
@@ -4345,9 +3181,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get subscriptionDeleted => 'Abonelik silindi';
 
   @override
-  String get subscriptionDeletedSuccessfully => 'Abonelik başarıyla silindi';
-
-  @override
   String subscriptionDeleteFailed(Object error) {
     return 'Abonelik silinemedi: $error';
   }
@@ -4356,23 +3189,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get subscriptionDeleteSuccess => 'Abonelik silindi';
 
   @override
-  String get subscriptionEmptyState => 'Abonelik mevcut değil';
-
-  @override
-  String get subscriptionEmptyText => 'Henüz abonelik yok';
-
-  @override
   String subscriptionLoadFailed(Object error) {
     return 'Abonelikler yüklenemedi: $error';
   }
-
-  @override
-  String subscriptionLoadingFailed(Object error) {
-    return 'Abonelikler yüklenemedi: $error';
-  }
-
-  @override
-  String get subscriptionManagementTitle => 'Abonelik Yönetimi';
 
   @override
   String get subscriptionName => 'Abonelik Adı';
@@ -4385,15 +3204,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get subscriptionNameHint => 'Abonelik adı girin';
 
   @override
-  String get subscriptionPageTitle => 'Abonelik Yönetimi';
-
-  @override
   String subscriptionStatusChangeFailed(Object error) {
-    return 'Abonelik durumu değiştirilemedi: $error';
-  }
-
-  @override
-  String subscriptionToggleFailed(Object error) {
     return 'Abonelik durumu değiştirilemedi: $error';
   }
 
@@ -4432,10 +3243,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get syncFailedMessage => 'Senkronizasyon başarısız oldu';
 
   @override
-  String get syncFolderNameHint =>
-      'Lütfen senkronizasyon klasör adını girin (varsayılan: NotificationManager)';
-
-  @override
   String get syncFolderNameLabel => 'Senkronizasyon Klasör Adı';
 
   @override
@@ -4457,16 +3264,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get syncStatusUpdatedMessage => 'Senkronizasyon durumu güncellendi';
 
   @override
-  String get syncSuccessful => 'Senkronizasyon başarılı';
-
-  @override
   String get syncSuccessMessage => 'Senkronizasyon başarılı';
 
   @override
   String get syncWithCloudStorage => 'Bulut Depolama ile Senkronize Et';
-
-  @override
-  String get syncWithCloudStorageSubtitle => 'Bulut depolama ile senkronize et';
 
   @override
   String get systemFeatures => 'Sistem Özellikleri:';
@@ -4495,9 +3296,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get tagsUpdated => 'Etiketler güncellendi';
-
-  @override
   String get takeaway => 'Çıkarım';
 
   @override
@@ -4511,9 +3309,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get testButton => 'TEST';
-
-  @override
-  String get testButtonLabel => 'TEST';
 
   @override
   String get testConnectionButton => 'Bağlantıyı Test Et';
@@ -4551,13 +3346,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get timeInterceptorSettingsTitle => 'Arama Sıklığı Engelleme Ayarları';
 
   @override
-  String get timeInterceptorSubtitle =>
-      'Arama sıklığına göre potansiyel spam aramaları otomatik olarak engelle';
-
-  @override
-  String get timeInterceptorTitle => 'Arama Sıklığı Engellemeyi Etkinleştir';
-
-  @override
   String get timeWindowDescription =>
       'Tekrarlanan aramalara izin vermek için zaman penceresi boyutunu ayarlayın. Bu pencere içindeki aynı numaradan gelen aramalara izin verilecektir';
 
@@ -4565,10 +3353,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String timeWindowLabel(int minutes) {
     return 'Engelleme Zaman Penceresi (dakika): $minutes';
   }
-
-  @override
-  String get timeWindowSetting =>
-      'Tekrarlanan aramalara izin vermek için zaman penceresi boyutunu ayarlayın. Bu pencere içindeki aynı numaradan gelen aramalara izin verilecektir';
 
   @override
   String get today => 'Bugün';
@@ -4580,24 +3364,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get totalBlocked => 'Toplam Engellenen';
 
   @override
-  String get totalFiltered => 'Toplam Filtrelenen';
-
-  @override
   String get transferDataBetweenDevicesOrPlatforms =>
       'Verileri cihazlar veya platformlar arasında aktar';
 
   @override
-  String get transferDataBetweenDevicesOrPlatformsSubtitle =>
-      'Verileri cihazlar veya platformlar arasında aktar';
-
-  @override
   String get travelTicketing => 'Seyahat Biletleme';
-
-  @override
-  String get trend => 'Trend';
-
-  @override
-  String get trendChart => 'Trend Grafiği';
 
   @override
   String get tutorial => 'Eğitim';
@@ -4610,9 +3381,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get unknown => 'Bilinmeyen';
-
-  @override
-  String get unknownLabel => 'Bilinmeyen Etiket';
 
   @override
   String get unknownTag => 'Etiket: Bilinmeyen';
@@ -4638,10 +3406,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get updateAllNow => 'Hepsini Şimdi Güncelle';
 
   @override
-  String get updateCallFilterConfig =>
-      'Arama Filtresi Yapılandırmasını Güncelle';
-
-  @override
   String updateContactFailed(Object error) {
     return 'Kişi güncellenemedi: $error';
   }
@@ -4650,15 +3414,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get updateFavoriteStatus => 'Favori Durumunu Güncelle';
 
   @override
-  String updateFavoriteStatusFailed(Object error) {
-    return 'Favori durumu güncellenemedi: $error';
-  }
-
-  @override
   String get updateInterval => 'Güncelleme Aralığı';
-
-  @override
-  String get updateLabelFailed => 'Etiket güncellenemedi';
 
   @override
   String get updateNow => 'Şimdi Güncelle';
@@ -4687,9 +3443,6 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get updateTags => 'Etiketleri Güncelle';
-
-  @override
   String get useCasesPoint1 =>
       '• Otomatik yeniden arama spam aramalarını belirle';
 
@@ -4707,17 +3460,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get useGlobalSettings => 'Genel Ayarları Kullan';
 
   @override
-  String get userEmail => 'user@example.com';
-
-  @override
   String get usernameLabel => 'Kullanıcı Adı';
 
   @override
   String get useStandardRegexSyntaxToDefinePatternsExamples =>
       'Desenleri tanımlamak için standart regex sözdizimini kullanın. Örnekler:';
-
-  @override
-  String get validateRegex => 'Regex Doğrula';
 
   @override
   String get verificationFailedText => 'Başarısız';
@@ -4754,44 +3501,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get webDAVConfigTitle => 'WebDAV Yapılandırması';
 
   @override
-  String get webdavConfigurationTitle => 'WebDAV Yapılandırması';
-
-  @override
-  String get webdavPasswordHint => 'Lütfen WebDAV şifresini girin';
-
-  @override
-  String get webdavServerAddressHint => 'Lütfen WebDAV sunucu adresini girin';
-
-  @override
-  String get webdavUsernameHint => 'Lütfen WebDAV kullanıcı adını girin';
-
-  @override
   String get week => 'Hafta';
-
-  @override
-  String get weekly => 'Haftalık';
-
-  @override
-  String get weeklyBlockedCallsSummary => 'Haftalık Engellenen Aramalar Özeti';
-
-  @override
-  String get weeklyChartTitle => 'Haftalık Engellenen Aramalar';
-
-  @override
-  String get weeklyReport => 'Haftalık Rapor';
-
-  @override
-  String get weeklyReportDesc =>
-      'Arama engelleme etkinliğinin haftalık özet raporunu al';
 
   @override
   String get welcome => 'Hoş Geldiniz';
 
   @override
   String get whitelist => 'Beyaz Liste';
-
-  @override
-  String get whitelistLabel => 'Beyaz Liste';
 
   @override
   String get width => 'Genişlik';
@@ -4812,12 +3528,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get year => 'Yıl';
-
-  @override
-  String get yearly => 'Yıllık';
-
-  @override
-  String get yearlyChartTitle => 'Yıllık Engellenen Aramalar';
 
   @override
   String get noSimCardsDetected => 'SIM kart algılanmadı';
@@ -4867,10 +3577,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get useStirNotification => 'STIR Bildirimini Kullan';
 
   @override
-  String get useStirNotificationDescription =>
-      'Gelen aramalar için STIR bildirimlerini etkinleştir';
-
-  @override
   String get cancelLocalNotificationDescription =>
       'Yerel Bildirimleri Otomatik Kapat';
 
@@ -4889,11 +3595,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get callerIdNotificationTitle => 'Gelen Arama Bilgisi';
-
-  @override
-  String callerIdBody(String phoneNumber) {
-    return 'Numara: $phoneNumber';
-  }
 
   @override
   String get blockedCallTitle => 'Engellenen Arama';
@@ -4947,21 +3648,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get fraudAlertTitle => 'Dolandırıcılık Uyarısı';
-
-  @override
-  String fraudAlertBody(String phoneNumber) {
-    return '$phoneNumber numarasından potansiyel dolandırıcılık araması';
-  }
-
-  @override
-  String loadRulesFailed(Object error) {
-    return 'Kurallar yüklenemedi: $error';
-  }
-
-  @override
-  String loadCallLogFailed(Object error) {
-    return 'Arama kaydı yüklenemedi: $error';
-  }
 
   @override
   String get noBlockedTypeData => 'Engellenen tür verisi mevcut değil';
@@ -5038,9 +3724,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get removeAds => 'Reklamları Kaldır';
-
-  @override
-  String get unknownAction => 'Bilinmeyen Eylem';
 
   @override
   String get settingsBackup => 'Ayarlar Yedekleme';
@@ -5302,16 +3985,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get blockNumberSuccess => 'Numara engelleme başarılı';
 
   @override
-  String get blockNumberFailed => 'Numara engelleme başarısız';
-
-  @override
   String unblockNumberConfirmation(String phoneNumber) {
     return '$phoneNumber engelini kaldırmak istediğinizden emin misiniz?';
-  }
-
-  @override
-  String callingNumber(String phoneNumber) {
-    return '$phoneNumber aranıyor...';
   }
 
   @override
@@ -5328,9 +4003,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get unblockNumberFailed => 'Numaranın engeli kaldırılamadı';
-
-  @override
-  String get serviceNotAvailable => 'Hizmet mevcut değil';
 
   @override
   String get callingNumberFailed => 'Numara arama başarısız oldu';
@@ -5361,9 +4033,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get numberInvalidFormat => 'Numara geçersiz biçimde';
-
-  @override
-  String get membershipFeature => 'Üyelik Özelliği';
 
   @override
   String get medium => 'Orta';
@@ -5460,9 +4129,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Tüm bildirimleri temizlemeyi onayla';
 
   @override
-  String get allNotificationsCleared => 'Tüm bildirimler temizlendi';
-
-  @override
   String get clearButton => 'Temizle';
 
   @override
@@ -5532,9 +4198,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get reasonInaccurateInfo => 'Hatalı Bilgi';
 
   @override
-  String get reasonWrongMarked => 'Yanlış İşaretlenmiş';
-
-  @override
   String get reasonOther => 'Diğer';
 
   @override
@@ -5544,25 +4207,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get cancel => 'İptal';
 
   @override
-  String get proposalStatus => 'Durum';
-
-  @override
-  String get statusPending => 'Beklemede';
-
-  @override
-  String get statusActive => 'Aktif';
-
-  @override
-  String get statusCompleted => 'Tamamlandı';
-
-  @override
-  String get statusExpired => 'Süresi Dolmuş';
-
-  @override
   String get riskLevel => 'Risk Seviyesi';
-
-  @override
-  String get riskLevelVerified => 'Doğrulanmış';
 
   @override
   String get riskLevelLow => 'Düşük';
@@ -5571,19 +4216,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get riskLevelHigh => 'Yüksek';
 
   @override
-  String get riskLevelUnknown => 'Bilinmiyor';
-
-  @override
-  String get votingProgress => 'Oylama İlerlemesi';
-
-  @override
   String agreeVotes(int count) {
     return 'Katılıyor: $count';
-  }
-
-  @override
-  String disagreeVotes(int count) {
-    return 'Katılmıyor: $count';
   }
 
   @override
@@ -5606,12 +4240,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get verificationReport => 'Doğrulama Raporu';
 
   @override
-  String get showReport => 'Raporu Göster';
-
-  @override
-  String get hideReport => 'Raporu Gizle';
-
-  @override
   String get proposalStatistics => 'Teklif İstatistikleri';
 
   @override
@@ -5621,28 +4249,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get activeProposals => 'Aktif Teklifler';
 
   @override
-  String get completedProposals => 'Tamamlanmış Teklifler';
-
-  @override
-  String get myVotes => 'Oylarım';
-
-  @override
   String get proposalCreated => 'Teklif başarıyla oluşturuldu';
-
-  @override
-  String get proposalCreateFailed => 'Teklif oluşturulamadı';
 
   @override
   String get voteSubmitted => 'Oy başarıyla gönderildi';
 
   @override
-  String get voteSubmitFailed => 'Oy gönderme başarısız oldu';
-
-  @override
   String get noProposalsFound => 'Teklif bulunamadı';
-
-  @override
-  String get loadingProposals => 'Teklifler yükleniyor...';
 
   @override
   String get refreshProposals => 'Teklifleri Yenile';
@@ -5794,24 +4407,11 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get loadVoteCountFailed => 'Oy sayısı yüklenemedi';
-
-  @override
   String get voteCount => 'Oy Sayısı';
-
-  @override
-  String get deletionProposalInfo => 'Silme Teklifi Bilgileri';
 
   @override
   String get deletionProposalDescription =>
       'Topluluk kurallarını ihlal eden numaralar için silme teklifi oluşturun. Katılımınız platformun güvenli kalmasına yardımcı olur.';
-
-  @override
-  String get voteToEarnVip =>
-      'VIP ayrıcalıkları kazanmak için teklifleri oylayın!';
-
-  @override
-  String get voteFailed => 'Oy verme başarısız oldu';
 
   @override
   String get searchProposals => 'Teklif Ara';
@@ -5845,50 +4445,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Olası dolandırıcılık aramaları için uyarıları görüntüler.';
 
   @override
-  String get notificationFrequencyDescription =>
-      'Yeni silme önerileri hakkında ne sıklıkta bildirim alacağınızı seçin. Bildirimleri anında, toplu olarak veya özel bir aralıkta alabilirsiniz.';
-
-  @override
   String get notificationMode => 'Bildirim Modu';
-
-  @override
-  String get immediateNotifications => 'Anında';
-
-  @override
-  String get immediateNotificationsDescription =>
-      'Bir öneri oluşturulur oluşturulmaz bildirim alın.';
-
-  @override
-  String get batchNotifications => 'Toplu';
-
-  @override
-  String get batchNotificationsDescription =>
-      'Bildirimlerin özetini periyodik olarak alın.';
-
-  @override
-  String get customNotifications => 'Özel';
-
-  @override
-  String get customNotificationsDescription =>
-      'Bildirim almak için kendi aralığınızı tanımlayın.';
-
-  @override
-  String get customFrequency => 'Özel Sıklık';
-
-  @override
-  String notificationFrequencyDurationMinutes(int minutes) {
-    return '$minutes dk';
-  }
-
-  @override
-  String notificationFrequencyDurationHours(int hours) {
-    return '$hours s';
-  }
-
-  @override
-  String notificationFrequencyDurationHoursAndMinutes(int hours, int minutes) {
-    return '$hours s $minutes dk';
-  }
 
   @override
   String get pendingProposals => 'Bekleyen Öneriler';
@@ -5910,9 +4467,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get riskLevelLabel => 'Risk Seviyesi';
-
-  @override
-  String get riskLevelDescription => 'Numaranın risk seviyesi';
 
   @override
   String get phoneNumberMinDigits =>
@@ -5938,33 +4492,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get countryCodeRequired => 'Ülke kodu zorunludur';
 
   @override
-  String get countryCodeLengthError => 'Ülke kodu 2 harf olmalıdır';
-
-  @override
   String get phoneNumberHint => 'Telefon numarasını girin';
 
   @override
   String get phoneNumberRequired => 'Telefon numarası gerekli';
 
   @override
-  String get phoneNumberLengthError =>
-      'Telefon numarası en az 7 haneli olmalıdır';
-
-  @override
-  String get reasonHint => 'Ayrıntılı açıklama sağlayın (minimum 10 karakter)';
-
-  @override
   String get reasonRequired => 'Neden zorunludur';
-
-  @override
-  String get reasonLengthError => 'Neden en az 10 karakter olmalıdır';
-
-  @override
-  String get guidelinesTitle => 'Yönergeler';
-
-  @override
-  String get guidelinesText =>
-      '• Yalnızca gerçekten sorunlu numaraları bildirin\n• Doğru ve ayrıntılı nedenler belirtin\n• Ciddiyete göre uygun risk seviyesini seçin\n• Yanlış bildirimler hesap kısıtlamalarına yol açabilir';
 
   @override
   String get riskLevelCritical => 'Kritik';
@@ -5976,55 +4510,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get riskLevelVeryLow => 'Çok Düşük';
 
   @override
-  String get riskDescriptionVeryLow =>
-      'Çok Düşük - Hafif rahatsızlık, seyrek aramalar';
-
-  @override
-  String get riskDescriptionLow => 'Düşük - Ara sıra istenmeyen aramalar';
-
-  @override
-  String get riskDescriptionMedium => 'Orta - Düzenli spam veya tele pazarlama';
-
-  @override
-  String get riskDescriptionHigh =>
-      'Yüksek - Sürekli taciz veya dolandırıcılık girişimleri';
-
-  @override
-  String get riskDescriptionCritical =>
-      'Kritik - Tehlikeli dolandırıcılık veya tehditler';
-
-  @override
   String get notificationFrequencyTitle => 'Bildirim Sıklığı';
-
-  @override
-  String get notificationFrequencyLabel => 'Bildirim Sıklığı (saat)';
 
   @override
   String errorMessage(String error) {
     return 'Hata: $error';
-  }
-
-  @override
-  String votesStatistics(int totalVotes, int supportPercentage) {
-    return 'Oylar: $totalVotes (%$supportPercentage destek)';
-  }
-
-  @override
-  String get timeJustNow => 'Şimdi';
-
-  @override
-  String timeMinutesAgo(int minutes) {
-    return '$minutes dakika önce';
-  }
-
-  @override
-  String timeHoursAgo(int hours) {
-    return '$hours saat önce';
-  }
-
-  @override
-  String timeDaysAgo(int days) {
-    return '$days gün önce';
   }
 
   @override
@@ -6109,10 +4599,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get liveActivitiesTestTitle => 'Canlı Etkinlikler Testi';
 
   @override
-  String get liveActivitiesTestSubtitle =>
-      'Canlı etkinlik bildirimini test edin.';
-
-  @override
   String get liveNotificationCustomizationTitle =>
       'Canlı Bildirim Özelleştirmesi';
 
@@ -6138,16 +4624,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get proposalDetails => 'Öneri Detayları';
 
   @override
-  String get filterByStatus => 'Duruma Göre Filtrele';
-
-  @override
   String get proposalNotFound => 'Öneri bulunamadı';
 
   @override
   String get processed => 'İşlendi';
-
-  @override
-  String get showAll => 'Tümünü Göster';
 
   @override
   String get filterAndSortTitle => 'Filtrele ve Sırala';
@@ -6186,9 +4666,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get invalidSimData => 'Geçersiz SIM verisi';
 
   @override
-  String get simCardData => 'SIM Kart Verileri';
-
-  @override
   String get simSlot => 'SIM Yuvası';
 
   @override
@@ -6207,12 +4684,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get callTypeSilenced => 'Sessize Alındı';
 
   @override
-  String get callTypeVoicemail => 'Sesli Mesaj';
-
-  @override
-  String get callTypeUnknownIntercept => 'Bilinmeyen Kesme';
-
-  @override
   String andMoreItems(int count) {
     return 've $count öğe daha';
   }
@@ -6225,10 +4696,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get localDatabaseSyncSubtitle => 'Sync data across devices';
-
-  @override
-  String get localDatabaseSyncDescription =>
-      'Connect your personal Supabase database to sync data across devices.';
 
   @override
   String get supabaseProjectUrl => 'Supabase Project URL';
@@ -6312,9 +4779,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String failedToLoadSettingsSchema(String error) {
     return 'Failed to load settings schema: $error';
   }
-
-  @override
-  String get noSettingsAvailable => 'No settings available for this plugin.';
 
   @override
   String get fieldIsRequired => 'This field is required';
