@@ -2317,6 +2317,13 @@
     }
   },
   "initialSetupGetFailed": "获取配置失败",
+  "initialSetupSourceTitle": "数据源选择",
+  "initialSetupSourceGithub": "GitHub 原源",
+  "initialSetupSourceCdn": "CDN 加速镜像",
+  "initialSetupSourceCustom": "自定义链接",
+  "initialSetupCustomUrlHint": "输入自定义配置清单链接 (JSON)",
+  "initialSetupCustomUrlLoad": "加载配置",
+  "initialSetupDetectedLocation": "推荐当前所在地区",
   "deepLinkImportTitle": "导入{type}",
   "@deepLinkImportTitle": {
     "placeholders": {

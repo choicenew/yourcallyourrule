@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-10-13T00:00:00Z",
+  "countries_data": [
+    {
+      "id": "CN",
+      "name": "中国 (China)",
+      "icon_url": "",
+      "description": "中国大陆高频推销、诈骗、催收及号段正则拦截库",
+      "manifest_url": "https://raw.githubusercontent.com/your-org/your-repo/main/rules/CN/rules.json",
+      "cdn_manifest_url": "https://cdn.jsdelivr.net/gh/your-org/your-repo@main/rules/CN/rules.json"
+    },
+    {
+      "id": "US",
+      "name": "United States / 美国",
+      "icon_url": "",
+      "description": "美国 FCC 登记与高频骚扰诈骗拦截规则库",
+      "manifest_url": "https://raw.githubusercontent.com/your-org/your-repo/main/rules/US/rules.json",
+      "cdn_manifest_url": "https://cdn.jsdelivr.net/gh/your-org/your-repo@main/rules/US/rules.json"
+    },
+    {
+      "id": "FR",
+      "name": "France / 法国",
+      "icon_url": "",
+      "description": "法国商业推广与高频骚扰号码拦截库",
+      "manifest_url": "https://raw.githubusercontent.com/your-org/your-repo/main/rules/FR/rules.json",
+      "cdn_manifest_url": "https://cdn.jsdelivr.net/gh/your-org/your-repo@main/rules/FR/rules.json"
+    }
+  ],
+  "plugins_recommendation": {
+    "title": "探索防骚扰扩展插件",
+    "description": "发现开源社区维护的来电与短信在线云查识别插件",
+    "web_portal_url": "https://github.com/your-org/your-repo/tree/main/plugins"
+  }
+}

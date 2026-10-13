@@ -4615,6 +4615,27 @@ class AppLocalizationsZh extends AppLocalizations {
   String get initialSetupGetFailed => '获取配置失败';
 
   @override
+  String get initialSetupSourceTitle => '数据源选择';
+
+  @override
+  String get initialSetupSourceGithub => 'GitHub 原源';
+
+  @override
+  String get initialSetupSourceCdn => 'CDN 加速镜像';
+
+  @override
+  String get initialSetupSourceCustom => '自定义链接';
+
+  @override
+  String get initialSetupCustomUrlHint => '输入自定义配置清单链接 (JSON)';
+
+  @override
+  String get initialSetupCustomUrlLoad => '加载配置';
+
+  @override
+  String get initialSetupDetectedLocation => '推荐当前所在地区';
+
+  @override
   String deepLinkImportTitle(String type) {
     return '导入$type';
   }
@@ -4665,6 +4686,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String deepLinkImportFailed(String error) {
     return '导入失败: $error';
   }
+
+  @override
+  String get initialSetupSettingsHint =>
+      'Tip: You can re-open this setup page anytime in Settings.';
+
+  @override
+  String get initialSetupGoToSettings => 'Go to Settings';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -9178,6 +9206,12 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get initialSetupGetFailed => '获取配置失败';
+
+  @override
+  String get initialSetupSettingsHint => '提示：后续您可以在“设置”中随时重新打开此配置页面。';
+
+  @override
+  String get initialSetupGoToSettings => '前往设置';
 }
 
 /// The translations for Chinese, as used in Hong Kong (`zh_HK`).

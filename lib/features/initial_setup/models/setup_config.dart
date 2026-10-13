@@ -4,6 +4,7 @@ class CountryData {
   final String iconUrl;
   final String description;
   final String manifestUrl;
+  final String cdnManifestUrl;
 
   CountryData({
     required this.id,
@@ -11,7 +12,15 @@ class CountryData {
     required this.iconUrl,
     required this.description,
     required this.manifestUrl,
+    this.cdnManifestUrl = '',
   });
+
+  String getEffectiveUrl({bool useCdn = false}) {
+    if (useCdn && cdnManifestUrl.isNotEmpty) {
+      return cdnManifestUrl;
+    }
+    return manifestUrl;
+  }
 
   factory CountryData.fromMap(Map<String, dynamic> map) {
     return CountryData(
@@ -20,6 +29,7 @@ class CountryData {
       iconUrl: map['icon_url']?.toString() ?? '',
       description: map['description']?.toString() ?? '',
       manifestUrl: map['manifest_url']?.toString() ?? '',
+      cdnManifestUrl: map['cdn_manifest_url']?.toString() ?? '',
     );
   }
 }

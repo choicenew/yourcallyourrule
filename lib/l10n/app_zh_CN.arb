@@ -2314,5 +2314,7 @@
       }
     }
   },
-  "initialSetupGetFailed": "获取配置失败"
+  "initialSetupGetFailed": "获取配置失败",
+  "initialSetupSettingsHint": "提示：后续您可以在“设置”中随时重新打开此配置页面。",
+  "initialSetupGoToSettings": "前往设置"
 }

@@ -4853,6 +4853,27 @@ class AppLocalizationsRu extends AppLocalizations {
   String get initialSetupGetFailed => 'Не удалось получить конфигурацию';
 
   @override
+  String get initialSetupSourceTitle => 'Data Source';
+
+  @override
+  String get initialSetupSourceGithub => 'GitHub (Raw)';
+
+  @override
+  String get initialSetupSourceCdn => 'CDN Mirror';
+
+  @override
+  String get initialSetupSourceCustom => 'Custom URL';
+
+  @override
+  String get initialSetupCustomUrlHint => 'Enter custom config JSON URL';
+
+  @override
+  String get initialSetupCustomUrlLoad => 'Load Config';
+
+  @override
+  String get initialSetupDetectedLocation => 'Recommended for your location';
+
+  @override
   String deepLinkImportTitle(String type) {
     return 'Import $type';
   }
@@ -4904,4 +4925,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String deepLinkImportFailed(String error) {
     return 'Import failed: $error';
   }
+
+  @override
+  String get initialSetupSettingsHint =>
+      'Tip: You can re-open this setup page anytime in Settings.';
+
+  @override
+  String get initialSetupGoToSettings => 'Go to Settings';
 }

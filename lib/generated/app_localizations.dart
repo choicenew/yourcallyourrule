@@ -8600,6 +8600,48 @@ abstract class AppLocalizations {
   /// **'Failed to get configuration'**
   String get initialSetupGetFailed;
 
+  /// No description provided for @initialSetupSourceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Data Source'**
+  String get initialSetupSourceTitle;
+
+  /// No description provided for @initialSetupSourceGithub.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub (Raw)'**
+  String get initialSetupSourceGithub;
+
+  /// No description provided for @initialSetupSourceCdn.
+  ///
+  /// In en, this message translates to:
+  /// **'CDN Mirror'**
+  String get initialSetupSourceCdn;
+
+  /// No description provided for @initialSetupSourceCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom URL'**
+  String get initialSetupSourceCustom;
+
+  /// No description provided for @initialSetupCustomUrlHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter custom config JSON URL'**
+  String get initialSetupCustomUrlHint;
+
+  /// No description provided for @initialSetupCustomUrlLoad.
+  ///
+  /// In en, this message translates to:
+  /// **'Load Config'**
+  String get initialSetupCustomUrlLoad;
+
+  /// No description provided for @initialSetupDetectedLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended for your location'**
+  String get initialSetupDetectedLocation;
+
   /// No description provided for @deepLinkImportTitle.
   ///
   /// In en, this message translates to:
@@ -8683,6 +8725,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Import failed: {error}'**
   String deepLinkImportFailed(String error);
+
+  /// No description provided for @initialSetupSettingsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tip: You can re-open this setup page anytime in Settings.'**
+  String get initialSetupSettingsHint;
+
+  /// No description provided for @initialSetupGoToSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to Settings'**
+  String get initialSetupGoToSettings;
 }
 
 class _AppLocalizationsDelegate
