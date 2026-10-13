@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "Не удалось получить конфигурацию"
+  "initialSetupGetFailed": "Не удалось получить конфигурацию",
+  "separateSims": "Раздельные SIM-карты",
+  "separateSimsDesc": "Включить отдельные правила фильтрации для каждой SIM-карты",
+  "masterAndOverrides": "Главные элементы управления",
+  "masterAndOverridesDesc": "Глобальные настройки правил"
 }

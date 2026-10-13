@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "Asetusten haku epäonnistui"
+  "initialSetupGetFailed": "Asetusten haku epäonnistui",
+  "separateSims": "Erilliset SIM-kortit",
+  "separateSimsDesc": "Ota käyttöön erilliset suodatussäännöt kullekin SIM-kortille",
+  "masterAndOverrides": "Pääohjaimet",
+  "masterAndOverridesDesc": "Globaalit sääntöasetukset"
 }

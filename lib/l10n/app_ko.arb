@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "설정 가져오기 실패"
+  "initialSetupGetFailed": "설정 가져오기 실패",
+  "separateSims": "개별 SIM 규칙",
+  "separateSimsDesc": "각 SIM 카드에 대한 별도의 필터링 규칙 활성화",
+  "masterAndOverrides": "마스터 제어",
+  "masterAndOverridesDesc": "전역 규칙 설정"
 }

@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "設定の取得に失敗しました"
+  "initialSetupGetFailed": "設定の取得に失敗しました",
+  "separateSims": "個別SIMルール",
+  "separateSimsDesc": "SIMカードごとに個別のフィルタリングルールを有効にする",
+  "masterAndOverrides": "マスターコントロール",
+  "masterAndOverridesDesc": "グローバルルール設定"
 }

@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "فشل في الحصول على التكوين"
+  "initialSetupGetFailed": "فشل في الحصول على التكوين",
+  "separateSims": "شرائح SIM منفصلة",
+  "separateSimsDesc": "تمكين قواعد تصفية منفصلة لكل بطاقة SIM",
+  "masterAndOverrides": "التحكم الرئيسي",
+  "masterAndOverridesDesc": "إعدادات القواعد العامة"
 }

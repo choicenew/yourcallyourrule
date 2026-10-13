@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "Error al obtener la configuración"
+  "initialSetupGetFailed": "Error al obtener la configuración",
+  "separateSims": "SIMs Separadas",
+  "separateSimsDesc": "Habilitar reglas de filtrado independientes para cada tarjeta SIM",
+  "masterAndOverrides": "Controles Maestros",
+  "masterAndOverridesDesc": "Configuración de reglas globales"
 }

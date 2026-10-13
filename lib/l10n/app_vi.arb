@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "Không thể lấy cấu hình"
+  "initialSetupGetFailed": "Không thể lấy cấu hình",
+  "separateSims": "SIM Riêng biệt",
+  "separateSimsDesc": "Bật quy tắc lọc riêng cho từng thẻ SIM",
+  "masterAndOverrides": "Điều khiển Chính",
+  "masterAndOverridesDesc": "Cài đặt Quy tắc Chung"
 }

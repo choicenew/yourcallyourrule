@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "取得設定失敗"
+  "initialSetupGetFailed": "取得設定失敗",
+  "separateSims": "獨立 SIM 卡規則",
+  "separateSimsDesc": "為每張 SIM 卡啟用獨立的過濾規則",
+  "masterAndOverrides": "主控開關",
+  "masterAndOverridesDesc": "全域規則設定"
 }

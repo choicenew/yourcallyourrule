@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "कॉन्फ़िगरेशन प्राप्त करने में विफल"
+  "initialSetupGetFailed": "कॉन्फ़िगरेशन प्राप्त करने में विफल",
+  "separateSims": "अलग सिम",
+  "separateSimsDesc": "प्रत्येक सिम कार्ड के लिए अलग फ़िल्टरिंग नियम सक्षम करें",
+  "masterAndOverrides": "मास्टर नियंत्रण",
+  "masterAndOverridesDesc": "वैश्विक नियम सेटिंग्स"
 }

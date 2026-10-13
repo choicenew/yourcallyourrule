@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "Kunne ikke hente konfigurasjon"
+  "initialSetupGetFailed": "Kunne ikke hente konfigurasjon",
+  "separateSims": "Separat SIM",
+  "separateSimsDesc": "Aktiver separate filtreringsregler for hvert SIM-kort",
+  "masterAndOverrides": "Hovedkontroller",
+  "masterAndOverridesDesc": "Globale regelinnstillinger"
 }

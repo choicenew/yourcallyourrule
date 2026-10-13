@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "Kunde inte hämta konfiguration"
+  "initialSetupGetFailed": "Kunde inte hämta konfiguration",
+  "separateSims": "Separat SIM",
+  "separateSimsDesc": "Aktivera separata filtreringsregler för varje SIM-kort",
+  "masterAndOverrides": "Huvudkontroller",
+  "masterAndOverridesDesc": "Globala regelinställningar"
 }

@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "Nie udało się pobrać konfiguracji"
+  "initialSetupGetFailed": "Nie udało się pobrać konfiguracji",
+  "separateSims": "Oddzielne karty SIM",
+  "separateSimsDesc": "Włącz oddzielne reguły filtrowania dla każdej karty SIM",
+  "masterAndOverrides": "Główna kontrola",
+  "masterAndOverridesDesc": "Globalne ustawienia reguł"
 }

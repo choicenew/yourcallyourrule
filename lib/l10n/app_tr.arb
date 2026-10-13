@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "Yapılandırma alınamadı"
+  "initialSetupGetFailed": "Yapılandırma alınamadı",
+  "separateSims": "Ayrı SIM'ler",
+  "separateSimsDesc": "Her SIM kart için ayrı filtreleme kurallarını etkinleştir",
+  "masterAndOverrides": "Ana Kontroller",
+  "masterAndOverridesDesc": "Genel Kural Ayarları"
 }

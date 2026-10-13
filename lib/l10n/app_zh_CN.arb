@@ -2316,5 +2316,9 @@
   },
   "initialSetupGetFailed": "获取配置失败",
   "initialSetupSettingsHint": "提示：后续您可以在“设置”中随时重新打开此配置页面。",
-  "initialSetupGoToSettings": "前往设置"
+  "initialSetupGoToSettings": "前往设置",
+  "separateSims": "独立 SIM 卡规则",
+  "separateSimsDesc": "为每张 SIM 卡启用独立的过滤规则",
+  "masterAndOverrides": "主控开关",
+  "masterAndOverridesDesc": "全局规则设置"
 }

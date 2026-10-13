@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "Ophalen van configuratie mislukt"
+  "initialSetupGetFailed": "Ophalen van configuratie mislukt",
+  "separateSims": "Afzonderlijke SIM-kaarten",
+  "separateSimsDesc": "Schakel aparte filterregels in voor elke SIM-kaart",
+  "masterAndOverrides": "Hoofdbediening",
+  "masterAndOverridesDesc": "Globale regelinstellingen"
 }

@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "Fehler beim Abrufen der Konfiguration"
+  "initialSetupGetFailed": "Fehler beim Abrufen der Konfiguration",
+  "separateSims": "Getrennte SIMs",
+  "separateSimsDesc": "Separate Filterregeln für jede SIM-Karte aktivieren",
+  "masterAndOverrides": "Master-Steuerung",
+  "masterAndOverridesDesc": "Globale Regel-Einstellungen"
 }

@@ -2314,5 +2314,9 @@
       }
     }
   },
-  "initialSetupGetFailed": "Gagal mendapatkan konfigurasi"
+  "initialSetupGetFailed": "Gagal mendapatkan konfigurasi",
+  "separateSims": "SIM Terpisah",
+  "separateSimsDesc": "Aktifkan aturan pemfilteran terpisah untuk setiap kartu SIM",
+  "masterAndOverrides": "Kontrol Utama",
+  "masterAndOverridesDesc": "Pengaturan Aturan Global"
 }
