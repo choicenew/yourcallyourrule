@@ -1,6 +1,8 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 import 'package:yourcallyourrule/features/remote_filter/config/remote_number_filter_config.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
@@ -30,9 +32,12 @@ class RemoteNumberFilterService implements CallFilterInterface {
   })  : _remoteNumberService = remoteNumberService,
         _getConfig = getConfig;
 
+  @override
+  CallFilterType get filterType => CallFilterType.remoteNumber;
+
   // 判断是否应该接受来电
   @override
-  Future<bool> shouldAcceptCall(String phoneNumberStr) async {
+  Future<bool> shouldAcceptCall(String phoneNumberStr, {SimInfo? simInfo}) async {
     try {
       // 如果未启用远程号码过滤，则默认接受
       final config = await _getConfig();

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart'; // 仍然需要 Consume
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 
@@ -10,9 +11,9 @@ import 'package:yourcallyourrule/core/provider/providers/predefined_label_servic
 // [修正]: 移除构造函数中的 simSlotRuleService 和 enhancedCompositeFilterService。
 class SimSlotRuleFilterWidget extends StatelessWidget {
   final int simSlotIndex;
-  final Map<String, bool> filterEnabledMap;
+  final Map<CallFilterType, bool> filterEnabledMap;
   final List<Map<String, dynamic>> simSlotRules;
-  final Function(String, bool) onToggleFilterEnabled;
+  final Function(CallFilterType, bool) onToggleFilterEnabled;
 
   const SimSlotRuleFilterWidget({
     super.key,
@@ -57,22 +58,28 @@ class SimSlotRuleFilterWidget extends StatelessWidget {
             Text(AppLocalizations.of(context)!.filterToggleInstructions),
             const SizedBox(height: 8),
             SwitchListTile(
-              title: Text(AppLocalizations.of(context)!.localCounterFilter),
-              subtitle: Text(AppLocalizations.of(context)!.localCounterFilterSubtitle),
-              value: filterEnabledMap['LocalCountFilterService'] ?? true,
-              onChanged: (value) => onToggleFilterEnabled('LocalCountFilterService', value),
-            ),
-            SwitchListTile(
-              title: Text(AppLocalizations.of(context)!.remoteNumberFilter),
-              subtitle: Text(AppLocalizations.of(context)!.remoteNumberFilterSubtitle),
-              value: filterEnabledMap['RemoteNumberFilterService'] ?? true,
-              onChanged: (value) => onToggleFilterEnabled('RemoteNumberFilterService', value),
+              title: Text(AppLocalizations.of(context)!.simSlotRuleManagement),
+              subtitle: Text(AppLocalizations.of(context)!.simSlotFilterDescription),
+              value: filterEnabledMap[CallFilterType.simSlotRule] ?? true,
+              onChanged: (value) => onToggleFilterEnabled(CallFilterType.simSlotRule, value),
             ),
             SwitchListTile(
               title: Text(AppLocalizations.of(context)!.basicRuleFilter),
               subtitle: Text(AppLocalizations.of(context)!.basicRuleFilterSubtitle),
-              value: filterEnabledMap['CallFilterService'] ?? true,
-              onChanged: (value) => onToggleFilterEnabled('CallFilterService', value),
+              value: filterEnabledMap[CallFilterType.basicRule] ?? true,
+              onChanged: (value) => onToggleFilterEnabled(CallFilterType.basicRule, value),
+            ),
+            SwitchListTile(
+              title: Text(AppLocalizations.of(context)!.localCounterFilter),
+              subtitle: Text(AppLocalizations.of(context)!.localCounterFilterSubtitle),
+              value: filterEnabledMap[CallFilterType.localCount] ?? true,
+              onChanged: (value) => onToggleFilterEnabled(CallFilterType.localCount, value),
+            ),
+            SwitchListTile(
+              title: Text(AppLocalizations.of(context)!.remoteNumberFilter),
+              subtitle: Text(AppLocalizations.of(context)!.remoteNumberFilterSubtitle),
+              value: filterEnabledMap[CallFilterType.remoteNumber] ?? true,
+              onChanged: (value) => onToggleFilterEnabled(CallFilterType.remoteNumber, value),
             ),
           ],
         ),

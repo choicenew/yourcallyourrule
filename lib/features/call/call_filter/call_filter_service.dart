@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/features/rules/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/regex_service_provider.dart';
@@ -8,6 +8,8 @@ import 'package:yourcallyourrule/core/provider/providers/rule_management_service
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
+import 'package:yourcallyourrule/features/call/call_filter/config/call_filter_config.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
 import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
@@ -24,7 +26,7 @@ CallFilterService callFilterService(Ref ref) {
     regexService: ref.watch(regexServiceProvider),
     allowedBlockedService: ref.watch(allowedBlockedServiceProvider),
     ruleManagementService: ref.watch(ruleManagementServiceProvider),
-    ref: ref,
+    getConfig: () async => await ref.read(callFilterConfigProvider.future),
   );
 }
 
@@ -33,22 +35,25 @@ class CallFilterService implements CallFilterInterface {
   final RegexService _regexService;
   final AllowedBlockedService _allowedBlockedService;
   final RuleManagementService _ruleManagementService;
-  final Ref _ref; // 持有 Ref 以在需要时读取最新的配置
+  final Future<CallFilterConfig> Function() _getConfig;
 
   CallFilterService({
     required RegexService regexService,
     required AllowedBlockedService allowedBlockedService,
     required RuleManagementService ruleManagementService,
-    required Ref ref,
+    required Future<CallFilterConfig> Function() getConfig,
   })  : _regexService = regexService,
         _allowedBlockedService = allowedBlockedService,
         _ruleManagementService = ruleManagementService,
-        _ref = ref;
+        _getConfig = getConfig;
 
   @override
-  Future<bool> shouldAcceptCall(String phoneNumberStr) async {
+  CallFilterType get filterType => CallFilterType.basicRule;
+
+  @override
+  Future<bool> shouldAcceptCall(String phoneNumberStr, {SimInfo? simInfo}) async {
     // 从 Notifier 异步读取最新的配置
-    final config = await _ref.read(callFilterConfigProvider.future);
+    final config = await _getConfig();
     final phoneNumber = PhoneNumber(phoneNumberStr);
     InterceptAction? interceptAction;
  // 全局拒绝设置优先级最高如果配置为拒绝所有号码，直接返回false

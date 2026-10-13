@@ -148,6 +148,54 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
           }
         },
       ),
+      _DefenseStrategyItem(
+        index: 6,
+        title: l10n.allowBlockedNumbers,
+        subtitle: l10n.allowBlockedNumbersDesc,
+        detailedDesc: l10n.allowBlockedNumbersDesc,
+        icon: Icons.no_accounts_rounded,
+        activeColor: const Color(0xFFD97706),
+        isEnabled: callConfig?.allowBlockedNumbers ?? false,
+        onToggle: (val) {
+          if (callConfig != null) {
+            callNotifier.updateConfig(
+              callConfig.copyWith(allowBlockedNumbers: val),
+            );
+          }
+        },
+      ),
+      _DefenseStrategyItem(
+        index: 7,
+        title: l10n.allowAllAllowRules,
+        subtitle: l10n.allowAllAllowRulesDesc,
+        detailedDesc: l10n.allowAllAllowRulesDesc,
+        icon: Icons.checklist_rtl_rounded,
+        activeColor: const Color(0xFF10B981),
+        isEnabled: callConfig?.allowAllAllowRules ?? true,
+        onToggle: (val) {
+          if (callConfig != null) {
+            callNotifier.updateConfig(
+              callConfig.copyWith(allowAllAllowRules: val),
+            );
+          }
+        },
+      ),
+      _DefenseStrategyItem(
+        index: 8,
+        title: l10n.allowAllBlockRules,
+        subtitle: l10n.allowAllBlockRulesDesc,
+        detailedDesc: l10n.allowAllBlockRulesDesc,
+        icon: Icons.block_flipped,
+        activeColor: const Color(0xFFC2410C),
+        isEnabled: callConfig?.allowAllBlockRules ?? true,
+        onToggle: (val) {
+          if (callConfig != null) {
+            callNotifier.updateConfig(
+              callConfig.copyWith(allowAllBlockRules: val),
+            );
+          }
+        },
+      ),
     ];
 
     final currentOption = defenseOptions.firstWhere(

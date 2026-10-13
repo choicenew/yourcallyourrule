@@ -1,28 +1,67 @@
+import 'dart:collection';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
-
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 
 part 'enhanced_filter_config_provider.g.dart';
 
-/// 状态模型，封装 Enhanced Filter 的所有配置
+/// 兼容 Map 包装器：支持 CallFilterType 和历史 String 键无缝读取
+class FilterEnabledCompatMap with MapMixin<dynamic, bool> {
+  final Map<CallFilterType, bool> _inner;
+  FilterEnabledCompatMap(this._inner);
+
+  @override
+  bool? operator [](Object? key) {
+    if (key is CallFilterType) {
+      return _inner[key];
+    }
+    if (key is String) {
+      final type = EnhancedFilterConfigNotifier.parseFilterType(key);
+      if (type != null) return _inner[type];
+    }
+    return null;
+  }
+
+  @override
+  void operator []=(dynamic key, bool value) {
+    throw UnsupportedError('Read-only map');
+  }
+
+  @override
+  void clear() => throw UnsupportedError('Read-only map');
+
+  @override
+  Iterable<dynamic> get keys => _inner.keys;
+
+  @override
+  bool? remove(Object? key) => throw UnsupportedError('Read-only map');
+}
+
+/// 状态模型，封装 Enhanced Filter 的所有配置（完全强类型驱动）
 class EnhancedFilterConfigState {
   // 全局过滤器启用状态
-  final Map<String, bool> filterEnabledMap;
+  final Map<CallFilterType, bool> _filterEnabledMap;
   // SIM卡槽位特定过滤器配置
-  final Map<int, Map<String, bool>> simSlotFilterConfigMap;
+  final Map<int, Map<CallFilterType, bool>> simSlotFilterConfigMap;
 
   const EnhancedFilterConfigState({
-    this.filterEnabledMap = const {},
+    Map<CallFilterType, bool> filterEnabledMap = const {},
     this.simSlotFilterConfigMap = const {},
-  });
+  }) : _filterEnabledMap = filterEnabledMap;
+
+  /// 强类型 Map 获取
+  Map<CallFilterType, bool> get typedFilterEnabledMap => _filterEnabledMap;
+
+  /// 兼容 Map 获取（支持 CallFilterType 和 String）
+  FilterEnabledCompatMap get filterEnabledMap => FilterEnabledCompatMap(_filterEnabledMap);
 
   EnhancedFilterConfigState copyWith({
-    Map<String, bool>? filterEnabledMap,
-    Map<int, Map<String, bool>>? simSlotFilterConfigMap,
+    Map<CallFilterType, bool>? filterEnabledMap,
+    Map<int, Map<CallFilterType, bool>>? simSlotFilterConfigMap,
   }) {
     return EnhancedFilterConfigState(
-      filterEnabledMap: filterEnabledMap ?? this.filterEnabledMap,
+      filterEnabledMap: filterEnabledMap ?? _filterEnabledMap,
       simSlotFilterConfigMap: simSlotFilterConfigMap ?? this.simSlotFilterConfigMap,
     );
   }
@@ -35,6 +74,21 @@ class EnhancedFilterConfigNotifier extends _$EnhancedFilterConfigNotifier {
 
   ConfigRepository get _configRepo => ref.read(configRepositoryProvider);
 
+  static CallFilterType? parseFilterType(String key) {
+    for (final type in CallFilterType.values) {
+      if (type.name == key) return type;
+    }
+    // 兼容历史类名字符串持久化数据
+    switch (key) {
+      case 'CallFilterService': return CallFilterType.basicRule;
+      case 'LocalCountFilterService': return CallFilterType.localCount;
+      case 'RemoteNumberFilterService': return CallFilterType.remoteNumber;
+      case 'SimSlotRuleService':
+      case 'SimSlotRuleFilterService': return CallFilterType.simSlotRule;
+    }
+    return null;
+  }
+
   @override
   Future<EnhancedFilterConfigState> build() async {
     // 并行加载两个配置
@@ -46,15 +100,30 @@ class EnhancedFilterConfigNotifier extends _$EnhancedFilterConfigNotifier {
     final filterEnabledMapRaw = results[0];
     final simSlotConfigMapRaw = results[1];
 
-    final filterEnabledMap = filterEnabledMapRaw != null
-        ? Map<String, bool>.from(filterEnabledMapRaw)
-        : <String, bool>{};
-    
-    final simSlotFilterConfigMap = <int, Map<String, bool>>{};
+    final filterEnabledMap = <CallFilterType, bool>{};
+    if (filterEnabledMapRaw != null) {
+      filterEnabledMapRaw.forEach((key, value) {
+        final type = parseFilterType(key);
+        if (type != null && value is bool) {
+          filterEnabledMap[type] = value;
+        }
+      });
+    }
+
+    final simSlotFilterConfigMap = <int, Map<CallFilterType, bool>>{};
     if (simSlotConfigMapRaw != null) {
-      simSlotConfigMapRaw.forEach((key, value) {
-        final simSlotIndex = int.parse(key);
-        simSlotFilterConfigMap[simSlotIndex] = Map<String, bool>.from(value);
+      simSlotConfigMapRaw.forEach((slotKey, slotVal) {
+        final simSlotIndex = int.tryParse(slotKey);
+        if (simSlotIndex != null && slotVal is Map) {
+          final slotMap = <CallFilterType, bool>{};
+          slotVal.forEach((key, value) {
+            final type = parseFilterType(key.toString());
+            if (type != null && value is bool) {
+              slotMap[type] = value;
+            }
+          });
+          simSlotFilterConfigMap[simSlotIndex] = slotMap;
+        }
       });
     }
 
@@ -67,44 +136,56 @@ class EnhancedFilterConfigNotifier extends _$EnhancedFilterConfigNotifier {
   Future<void> _updateAndSave(EnhancedFilterConfigState newState) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      // 序列化 simSlotFilterConfigMap 的 key
-      final serializableSimConfig = newState.simSlotFilterConfigMap.map(
-        (key, value) => MapEntry(key.toString(), value),
+      final serializableGlobalMap = newState.typedFilterEnabledMap.map(
+        (type, value) => MapEntry(type.name, value),
       );
-      // 并行保存两个配置
+      final serializableSimConfig = newState.simSlotFilterConfigMap.map(
+        (slotIndex, typeMap) => MapEntry(
+          slotIndex.toString(),
+          typeMap.map((type, val) => MapEntry(type.name, val)),
+        ),
+      );
       await Future.wait([
-        _configRepo.saveConfig(_filterEnabledMapKey, newState.filterEnabledMap),
+        _configRepo.saveConfig(_filterEnabledMapKey, serializableGlobalMap),
         _configRepo.saveConfig(_simSlotFilterConfigKey, serializableSimConfig),
       ]);
       return newState;
     });
   }
-  
-  // --- 更新方法 ---
 
-  Future<void> enableFilter(String filterName) async {
+  // --- 强类型与向后兼容的更新方法 ---
+
+  Future<void> enableFilter(dynamic filter) async {
+    final type = filter is CallFilterType ? filter : parseFilterType(filter.toString());
+    if (type == null) return;
     final currentState = await future;
-    final newMap = Map<String, bool>.from(currentState.filterEnabledMap)..[filterName] = true;
+    final newMap = Map<CallFilterType, bool>.from(currentState.typedFilterEnabledMap)..[type] = true;
     await _updateAndSave(currentState.copyWith(filterEnabledMap: newMap));
   }
 
-  Future<void> disableFilter(String filterName) async {
+  Future<void> disableFilter(dynamic filter) async {
+    final type = filter is CallFilterType ? filter : parseFilterType(filter.toString());
+    if (type == null) return;
     final currentState = await future;
-    final newMap = Map<String, bool>.from(currentState.filterEnabledMap)..[filterName] = false;
+    final newMap = Map<CallFilterType, bool>.from(currentState.typedFilterEnabledMap)..[type] = false;
     await _updateAndSave(currentState.copyWith(filterEnabledMap: newMap));
   }
 
-  Future<void> enableFilterForSimSlot(int simSlotIndex, String filterName) async {
+  Future<void> enableFilterForSimSlot(int simSlotIndex, dynamic filter) async {
+    final type = filter is CallFilterType ? filter : parseFilterType(filter.toString());
+    if (type == null) return;
     final currentState = await future;
-    final newMap = Map<int, Map<String, bool>>.from(currentState.simSlotFilterConfigMap);
-    newMap.putIfAbsent(simSlotIndex, () => {})[filterName] = true;
+    final newMap = Map<int, Map<CallFilterType, bool>>.from(currentState.simSlotFilterConfigMap);
+    newMap.putIfAbsent(simSlotIndex, () => {})[type] = true;
     await _updateAndSave(currentState.copyWith(simSlotFilterConfigMap: newMap));
   }
 
-  Future<void> disableFilterForSimSlot(int simSlotIndex, String filterName) async {
+  Future<void> disableFilterForSimSlot(int simSlotIndex, dynamic filter) async {
+    final type = filter is CallFilterType ? filter : parseFilterType(filter.toString());
+    if (type == null) return;
     final currentState = await future;
-    final newMap = Map<int, Map<String, bool>>.from(currentState.simSlotFilterConfigMap);
-    newMap.putIfAbsent(simSlotIndex, () => {})[filterName] = false;
+    final newMap = Map<int, Map<CallFilterType, bool>>.from(currentState.simSlotFilterConfigMap);
+    newMap.putIfAbsent(simSlotIndex, () => {})[type] = false;
     await _updateAndSave(currentState.copyWith(simSlotFilterConfigMap: newMap));
   }
 }

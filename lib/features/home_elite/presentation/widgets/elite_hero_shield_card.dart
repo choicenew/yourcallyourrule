@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // 文件: elite_hero_shield_card.dart
-// 描述: Elite 能量脉冲防护盾牌卡片，集成安全指示、今日拦截指标与极速查号验证。
+// 描述: Elite 极简通透防护盾牌卡片，移除多余装饰光晕，采用现代高级 UI 层级与纯净纯白/冷灰调排版。
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
@@ -8,6 +8,7 @@ import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/auto_update/di/auto_update_service_provider.dart';
 import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart';
 import 'package:yourcallyourrule/features/caller_id/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
@@ -28,6 +29,9 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
   late final AnimationController _pulseController;
   late final Animation<double> _pulseAnimation;
   final TextEditingController _searchController = TextEditingController();
+  
+  bool _isRefreshing = false;
+  DateTime? _lastUpdatedTime;
 
   @override
   void initState() {
@@ -55,6 +59,47 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
       AppRouter.verificationPage,
       extra: trimmed.isNotEmpty ? trimmed : null,
     );
+  }
+
+  Future<void> _handleRefresh() async {
+    if (_isRefreshing) return;
+    setState(() {
+      _isRefreshing = true;
+    });
+
+    try {
+      final autoUpdateService = ref.read(autoUpdateServiceProvider);
+      await autoUpdateService.updateAll();
+      ref.invalidate(homeStatsProvider);
+      if (mounted) {
+        setState(() {
+          _lastUpdatedTime = DateTime.now();
+        });
+      }
+    } catch (e) {
+      debugPrint('Error updating all subscriptions: $e');
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isRefreshing = false;
+        });
+      }
+    }
+  }
+
+  String _formatNumber(int number) {
+    if (number <= 0) return '0';
+    return number.toString().replaceAllMapped(
+      RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+      (Match m) => '${m[1]},',
+    );
+  }
+
+  String _formatTime(DateTime? dateTime) {
+    final time = dateTime ?? DateTime.now();
+    final hour = time.hour.toString().padLeft(2, '0');
+    final minute = time.minute.toString().padLeft(2, '0');
+    return '$hour:$minute';
   }
 
   String _getActionTitle(BuildContext context, InterceptAction action) {
@@ -118,277 +163,233 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
         color: Colors.white,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
-          width: 1.2,
+          color: const Color(0xFFE2E8F0),
+          width: 1.0,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
+            color: Colors.black.withValues(alpha: 0.03),
             blurRadius: 16,
             offset: const Offset(0, 4),
-          ),
-          BoxShadow(
-            color: EliteDopamineTheme.freshMint.withValues(alpha: 0.08),
-            blurRadius: 24,
-            spreadRadius: 2,
-            offset: const Offset(0, 8),
           ),
         ],
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(24),
-        child: Stack(
-          children: [
-            // 柔和多巴胺光晕装饰
-            Positioned(
-              top: -40,
-              right: -40,
-              child: Container(
-                width: 140,
-                height: 140,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: EliteDopamineTheme.skyAzure.withValues(alpha: 0.10),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: -40,
-              left: -40,
-              child: Container(
-                width: 130,
-                height: 130,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: EliteDopamineTheme.freshMint.withValues(alpha: 0.12),
-                ),
-              ),
-            ),
-
-            // 主体内容
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Column(
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // 顶部：能量盾 + 国际化标题 + 真实数据库规则统计与全量更新按钮
+              Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // 上部：能量盾 + 防护引擎状态（去除与 App Bar 重复的标题）
-                  Row(
-                    children: [
-                      AnimatedBuilder(
-                        animation: _pulseAnimation,
-                        builder: (context, child) {
-                          return Transform.scale(
-                            scale: _pulseAnimation.value,
-                            child: Container(
-                              width: 60,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                gradient: const LinearGradient(
-                                  colors: [Color(0xFF2DD4BF), Color(0xFF10B981)],
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: EliteDopamineTheme.freshMint.withValues(alpha: 0.35),
-                                    blurRadius: 16,
-                                    spreadRadius: 2,
-                                  ),
-                                ],
-                              ),
-                              child: const Center(
-                                child: Icon(
-                                  Icons.verified_user_rounded,
-                                  color: Colors.white,
-                                  size: 30,
-                                ),
-                              ),
+                  // 动态脉冲盾牌（左侧）
+                  AnimatedBuilder(
+                    animation: _pulseAnimation,
+                    builder: (context, child) {
+                      return Transform.scale(
+                        scale: _pulseAnimation.value,
+                        child: Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: const LinearGradient(
+                              colors: [Color(0xFF2DD4BF), Color(0xFF10B981)],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
                             ),
-                          );
-                        },
-                      ),
-                      const SizedBox(width: 14),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                              decoration: BoxDecoration(
-                                color: EliteDopamineTheme.freshMint.withValues(alpha: 0.15),
-                                borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: EliteDopamineTheme.freshMint.withValues(alpha: 0.30),
+                                blurRadius: 16,
+                                spreadRadius: 2,
                               ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  const Icon(
-                                    Icons.bolt_rounded,
-                                    size: 13,
-                                    color: EliteDopamineTheme.freshMint,
-                                  ),
-                                  const SizedBox(width: 3),
-                                  Text(
-                                    l10n.enabledStatus,
-                                    style: const TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w900,
-                                      color: EliteDopamineTheme.freshMint,
-                                      letterSpacing: 0.5,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                            ],
+                          ),
+                          child: const Center(
+                            child: Icon(
+                              Icons.verified_user_rounded,
+                              color: Colors.white,
+                              size: 30,
                             ),
-                            const SizedBox(height: 5),
-                            Text(
-                              l10n.smartCallerId,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w900,
-                                color: Colors.black87,
-                              ),
-                            ),
-                            const SizedBox(height: 2),
-                            Text(
-                              l10n.callFilterRulesDescription,
-                              style: TextStyle(
-                                fontSize: 11,
-                                color: Colors.grey[600],
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
-                    ],
+                      );
+                    },
                   ),
-
-                  // 拦截动作快捷控制台：3 块并排选择 + 底部联动解释条
-                  Container(
-                    margin: const EdgeInsets.only(top: 14),
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFFBF9F5),
-                      borderRadius: BorderRadius.circular(18),
-                      border: Border.all(
-                        color: const Color(0xFFEDE8DF),
-                        width: 1.1,
-                      ),
-                    ),
+                  const SizedBox(width: 14),
+                  // 右侧动态信息栏
+                  Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Text(
+                          l10n.smartCallerId,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w900,
+                            color: Color(0xFF0F172A),
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          l10n.callFilterRulesDescription,
+                          style: const TextStyle(
+                            fontSize: 11,
+                            color: Color(0xFF64748B),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        // 动态数据指标与全量更新按钮 (真实数据库变量 totalRules & blockedToday)
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              l10n.interceptionActionSettingsTitle,
-                              style: const TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w800,
-                                color: Colors.black87,
+                            // 今日拦截数
+                            Container(
+                              padding: const EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFFEF2F2),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: const Icon(
+                                Icons.block_rounded,
+                                size: 14,
+                                color: Color(0xFFEF4444),
                               ),
                             ),
-                            Text(
-                              _getActionTitle(context, currentAction),
-                              style: TextStyle(
-                                fontSize: 11,
-                                fontWeight: FontWeight.w900,
-                                color: _getActionColor(currentAction),
+                            const SizedBox(width: 6),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  _formatNumber(blockedToday),
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w900,
+                                    color: Color(0xFF0F172A),
+                                    height: 1.0,
+                                  ),
+                                ),
+                                Text(
+                                  l10n.blockedCalls,
+                                  style: const TextStyle(
+                                    fontSize: 9.5,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF64748B),
+                                    height: 1.1,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(width: 12),
+                            // 真实规则总数 (来自数据库 totalRules)
+                            Container(
+                              padding: const EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFFFFBEB),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: const Icon(
+                                Icons.inventory_2_rounded,
+                                size: 14,
+                                color: Color(0xFFD97706),
+                              ),
+                            ),
+                            const SizedBox(width: 6),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    _formatNumber(totalRules),
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w900,
+                                      color: Color(0xFF0F172A),
+                                      height: 1.0,
+                                    ),
+                                  ),
+                                  Text(
+                                    l10n.phoneRuleManagement,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      fontSize: 9.5,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF64748B),
+                                      height: 1.1,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 4),
+                            // 全量更新按钮
+                            Tooltip(
+                              message: l10n.updateAllNow,
+                              child: InkWell(
+                                onTap: _handleRefresh,
+                                borderRadius: BorderRadius.circular(20),
+                                child: Container(
+                                  padding: const EdgeInsets.all(6),
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFF1F5F9),
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: const Color(0xFFE2E8F0),
+                                      width: 1,
+                                    ),
+                                  ),
+                                  child: _isRefreshing
+                                      ? const SizedBox(
+                                          width: 14,
+                                          height: 14,
+                                          child: CircularProgressIndicator(
+                                            strokeWidth: 2,
+                                            valueColor: AlwaysStoppedAnimation<Color>(
+                                              EliteDopamineTheme.sunsetTangerine,
+                                            ),
+                                          ),
+                                        )
+                                      : const Icon(
+                                          Icons.refresh_rounded,
+                                          size: 14,
+                                          color: Color(0xFF64748B),
+                                        ),
+                                ),
                               ),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 10),
-                        // 3 块并排等分选择器
-                        Row(
-                          children: InterceptAction.values.map((action) {
-                            final isSelected = action == currentAction;
-                            final color = _getActionColor(action);
-                            return Expanded(
-                              child: GestureDetector(
-                                onTap: () => ref
-                                    .read(interceptActionConfigProvider.notifier)
-                                    .setInterceptAction(action),
-                                child: AnimatedContainer(
-                                  duration: const Duration(milliseconds: 200),
-                                  margin: const EdgeInsets.symmetric(horizontal: 3),
-                                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
-                                  decoration: BoxDecoration(
-                                    color: isSelected ? Colors.white : Colors.transparent,
-                                    borderRadius: BorderRadius.circular(12),
-                                    border: Border.all(
-                                      color: isSelected ? color : const Color(0xFFE2DDD5),
-                                      width: isSelected ? 1.5 : 1,
-                                    ),
-                                    boxShadow: isSelected
-                                        ? [
-                                            BoxShadow(
-                                              color: color.withValues(alpha: 0.15),
-                                              blurRadius: 8,
-                                              offset: const Offset(0, 2),
-                                            ),
-                                          ]
-                                        : null,
-                                  ),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Icon(
-                                        _getActionIcon(action),
-                                        size: 18,
-                                        color: isSelected ? color : Colors.grey[600],
-                                      ),
-                                      const SizedBox(height: 4),
-                                      Text(
-                                        _getActionTitle(context, action),
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontSize: 11,
-                                          fontWeight: isSelected ? FontWeight.w900 : FontWeight.w600,
-                                          color: isSelected ? color : Colors.grey[700],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            );
-                          }).toList(),
-                        ),
                         const SizedBox(height: 8),
-                        // 底部联动解释条
+                        // 国际化最后更新时间标记
                         Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                           decoration: BoxDecoration(
-                            color: _getActionColor(currentAction).withValues(alpha: 0.08),
+                            color: const Color(0xFFF1F5F9),
                             borderRadius: BorderRadius.circular(10),
                             border: Border.all(
-                              color: _getActionColor(currentAction).withValues(alpha: 0.18),
+                              color: const Color(0xFFE2E8F0),
                               width: 1,
                             ),
                           ),
                           child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
                             children: [
-                              Icon(
-                                Icons.info_outline_rounded,
-                                size: 14,
-                                color: _getActionColor(currentAction),
+                              const Icon(
+                                Icons.schedule_rounded,
+                                size: 11,
+                                color: Color(0xFF64748B),
                               ),
-                              const SizedBox(width: 6),
-                              Expanded(
-                                child: Text(
-                                  _getActionDescription(context, currentAction),
-                                  style: TextStyle(
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.grey[800],
-                                    height: 1.3,
-                                  ),
+                              const SizedBox(width: 4),
+                              Text(
+                                l10n.lastUpdated(_formatTime(_lastUpdatedTime)),
+                                style: const TextStyle(
+                                  fontSize: 9.5,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF334155),
                                 ),
                               ),
                             ],
@@ -397,134 +398,245 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                       ],
                     ),
                   ),
-
-                  const SizedBox(height: 16),
-
-                  // 中部：今日拦截与规则总数指标
-                  Row(
-                    children: [
-                      Expanded(
-                        child: _buildMetricTile(
-                          label: l10n.blockedCalls,
-                          value: '$blockedToday',
-                          icon: Icons.shield_outlined,
-                          accentColor: EliteDopamineTheme.vibrantCoral,
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: _buildMetricTile(
-                          label: l10n.phoneRuleManagement,
-                          value: '$totalRules',
-                          icon: Icons.rule_folder_outlined,
-                          accentColor: EliteDopamineTheme.sunsetTangerine,
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  const SizedBox(height: 14),
-
-                  // 底部：极速查号搜索框
-                  Container(
-                    height: 46,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFF7F5F0),
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(
-                        color: Colors.grey[300]!,
-                      ),
-                    ),
-                    child: TextField(
-                      controller: _searchController,
-                      keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
-                        hintText: l10n.enterPhoneNumberToStartSearch,
-                        hintStyle: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey[500],
-                        ),
-                        prefixIcon: const Icon(
-                          Icons.search_rounded,
-                          size: 18,
-                          color: EliteDopamineTheme.warmSunAmber,
-                        ),
-                        suffixIcon: IconButton(
-                          icon: const Icon(
-                            Icons.arrow_forward_rounded,
-                            size: 18,
-                            color: EliteDopamineTheme.sunsetTangerine,
-                          ),
-                          onPressed: () => _handleSearchSubmit(_searchController.text),
-                        ),
-                        border: InputBorder.none,
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                      ),
-                      onSubmitted: _handleSearchSubmit,
-                    ),
-                  ),
                 ],
               ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
-  Widget _buildMetricTile({
-    required String label,
-    required String value,
-    required IconData icon,
-    required Color accentColor,
-  }) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-      decoration: BoxDecoration(
-        color: const Color(0xFFFBF9F5),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: accentColor.withValues(alpha: 0.2),
-          width: 1,
+              // 拦截动作快捷控制台：纯冷灰色调容器 (#F8FAFC)，去除浑浊暗黄感
+              Container(
+                margin: const EdgeInsets.only(top: 14),
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF8FAFC),
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(
+                    color: const Color(0xFFE2E8F0),
+                    width: 1.0,
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          l10n.interceptionActionSettingsTitle,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w800,
+                            color: Color(0xFF0F172A),
+                          ),
+                        ),
+                        Text(
+                          _getActionTitle(context, currentAction),
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w900,
+                            color: _getActionColor(currentAction),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    // 3 块并排选择器
+                    Row(
+                      children: InterceptAction.values.map((action) {
+                        final isSelected = action == currentAction;
+                        final color = _getActionColor(action);
+                        return Expanded(
+                          child: GestureDetector(
+                            onTap: () => ref
+                                .read(interceptActionConfigProvider.notifier)
+                                .setInterceptAction(action),
+                            child: AnimatedContainer(
+                              duration: const Duration(milliseconds: 200),
+                              margin: const EdgeInsets.symmetric(horizontal: 3),
+                              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
+                              decoration: BoxDecoration(
+                                color: isSelected ? Colors.white : const Color(0xFFF1F5F9),
+                                borderRadius: BorderRadius.circular(14),
+                                border: Border.all(
+                                  color: isSelected ? color : const Color(0xFFCBD5E1),
+                                  width: isSelected ? 1.5 : 1,
+                                ),
+                                boxShadow: isSelected
+                                    ? [
+                                        BoxShadow(
+                                          color: color.withValues(alpha: 0.15),
+                                          blurRadius: 8,
+                                          offset: const Offset(0, 2),
+                                        ),
+                                      ]
+                                    : null,
+                              ),
+                              child: Stack(
+                                clipBehavior: Clip.none,
+                                children: [
+                                  if (isSelected)
+                                    Positioned(
+                                      top: -4,
+                                      right: -2,
+                                      child: Container(
+                                        width: 14,
+                                        height: 14,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: color,
+                                        ),
+                                        child: const Icon(
+                                          Icons.check_rounded,
+                                          size: 10,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 2),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Icon(
+                                          _getActionIcon(action),
+                                          size: 20,
+                                          color: isSelected ? color : const Color(0xFF64748B),
+                                        ),
+                                        const SizedBox(height: 6),
+                                        Text(
+                                          _getActionTitle(context, action),
+                                          maxLines: 2,
+                                          softWrap: true,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            fontSize: 11,
+                                            height: 1.15,
+                                            fontWeight: isSelected ? FontWeight.w900 : FontWeight.w600,
+                                            color: isSelected ? color : const Color(0xFF334155),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                    const SizedBox(height: 8),
+                    // 底部联动解释条
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+                      decoration: BoxDecoration(
+                        color: _getActionColor(currentAction).withValues(alpha: 0.08),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: _getActionColor(currentAction).withValues(alpha: 0.18),
+                          width: 1,
+                        ),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Icon(
+                            Icons.info_outline_rounded,
+                            size: 14,
+                            color: _getActionColor(currentAction),
+                          ),
+                          const SizedBox(width: 6),
+                          Expanded(
+                            child: Text(
+                              _getActionDescription(context, currentAction),
+                              style: const TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w600,
+                                color: Color(0xFF1E293B),
+                                height: 1.3,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 14),
+
+              // 底部：极速查号搜索框（高质感通透纯白底色 + 金精细边框）
+              Container(
+                height: 46,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(24),
+                  border: Border.all(
+                    color: const Color(0xFFF59E0B),
+                    width: 1.2,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFFF59E0B).withValues(alpha: 0.06),
+                      blurRadius: 8,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    const SizedBox(width: 12),
+                    const Icon(
+                      Icons.search_rounded,
+                      size: 20,
+                      color: Color(0xFFD97706),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: TextField(
+                        controller: _searchController,
+                        keyboardType: TextInputType.phone,
+                        style: const TextStyle(fontSize: 12, color: Color(0xFF0F172A)),
+                        decoration: InputDecoration(
+                          hintText: l10n.enterPhoneNumberToStartSearch,
+                          hintStyle: const TextStyle(
+                            fontSize: 12,
+                            color: Color(0xFF94A3B8),
+                          ),
+                          border: InputBorder.none,
+                          isDense: true,
+                          contentPadding: EdgeInsets.zero,
+                        ),
+                        onSubmitted: _handleSearchSubmit,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () => _handleSearchSubmit(_searchController.text),
+                      child: Container(
+                        width: 32,
+                        height: 32,
+                        margin: const EdgeInsets.only(right: 6),
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          gradient: LinearGradient(
+                            colors: [Color(0xFFF97316), Color(0xFFEA580C)],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                        ),
+                        child: const Icon(
+                          Icons.arrow_forward_rounded,
+                          size: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(7),
-            decoration: BoxDecoration(
-              color: accentColor.withValues(alpha: 0.14),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Icon(icon, color: accentColor, size: 16),
-          ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  value,
-                  style: const TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w900,
-                    color: Colors.black87,
-                  ),
-                ),
-                Text(
-                  label,
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.grey[600],
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }

@@ -58,4 +58,4 @@ final class EnhancedCompositeFilterServiceProvider
 }
 
 String _$enhancedCompositeFilterServiceHash() =>
-    r'aba4d3dfbbbf0e6432d8ffb68f68cd9cd12351cf';
+    r'28e4d332b976f60081d6605d2d737ea3294cb1ae';

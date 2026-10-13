@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
 // 导入依赖的 Provider
 import 'package:yourcallyourrule/features/caller_id/providers/caller_id_service_provider.dart';
@@ -39,9 +41,13 @@ class LocalCountFilterService implements CallFilterInterface {
     required Future<LocalCountFilterConfig> Function() getConfig,
   })  : _callerIdService = callerIdService,
         _getConfig = getConfig;
+
+  @override
+  CallFilterType get filterType => CallFilterType.localCount;
+
  // 判断是否应该接受来电
   @override
-  Future<bool> shouldAcceptCall(String phoneNumberStr) async {
+  Future<bool> shouldAcceptCall(String phoneNumberStr, {SimInfo? simInfo}) async {
     try {
       if (_isDisposed) {
         return true;

@@ -38,7 +38,7 @@ final class EnhancedFilterConfigNotifierProvider
 }
 
 String _$enhancedFilterConfigNotifierHash() =>
-    r'd6c5cc49d68ca7be72f7854726ede3cab7b19003';
+    r'b9b7a2c4e9200a5d1b2193f5344cbba5b4229266';
 
 abstract class _$EnhancedFilterConfigNotifier
     extends $AsyncNotifier<EnhancedFilterConfigState> {
