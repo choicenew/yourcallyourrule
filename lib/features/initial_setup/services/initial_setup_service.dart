@@ -10,9 +10,9 @@ class InitialSetupService {
   final String localAssetPath;
 
   InitialSetupService({
-    this.rawConfigUrl = 'https://raw.githubusercontent.com/your-org/your-repo/main/app_setup_config.json',
-    this.cdnConfigUrl = 'https://cdn.jsdelivr.net/gh/your-org/your-repo@main/app_setup_config.json',
-    this.localAssetPath = 'assets/app_setup_config.json',
+    this.rawConfigUrl = 'https://raw.githubusercontent.com/your-org/your-repo/main/app_delta_setup_config.json',
+    this.cdnConfigUrl = 'https://cdn.jsdelivr.net/gh/your-org/your-repo@main/app_delta_setup_config.json',
+    this.localAssetPath = 'assets/app_delta_setup_config.json',
   });
 
   /// 从应用内置的 JSON 文件中加载兜底配置，避免网络不佳时白屏
@@ -43,7 +43,7 @@ class InitialSetupService {
     return null;
   }
 
-  /// 获取初始配置。若网络故障则自动从本地 assets/app_setup_config.json 加载兜底，绝不白屏
+  /// 获取初始配置。若网络故障则自动从本地 assets/app_delta_setup_config.json 加载兜底，绝不白屏
   Future<SetupConfig> fetchConfig({bool useCdn = false, String? customUrl}) async {
     final String targetUrl;
     if (customUrl != null && customUrl.trim().isNotEmpty) {
