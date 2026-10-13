@@ -3,7 +3,7 @@ import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primar
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 第二层级：4 个总控与特例胶囊网格组件
+/// 第二层级：4 个总控与特例胶囊网格组件 (标题软折行防截断排版)
 class PrimaryFilterMasterOverridesSection extends StatelessWidget {
   final List<DefenseStrategyItem> masterOptions;
   final int selectedIndex;
@@ -21,7 +21,7 @@ class PrimaryFilterMasterOverridesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: EliteDopamineTheme.slateSurface,
         borderRadius: BorderRadius.circular(18),
@@ -49,19 +49,19 @@ class PrimaryFilterMasterOverridesSection extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              Expanded(child: _buildPillItem(masterOptions[0])),
-              const SizedBox(width: 8),
-              Expanded(child: _buildPillItem(masterOptions[1])),
-            ],
-          ),
           const SizedBox(height: 8),
           Row(
             children: [
+              Expanded(child: _buildPillItem(masterOptions[0])),
+              const SizedBox(width: 6),
+              Expanded(child: _buildPillItem(masterOptions[1])),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Row(
+            children: [
               Expanded(child: _buildPillItem(masterOptions[2])),
-              const SizedBox(width: 8),
+              const SizedBox(width: 6),
               Expanded(child: _buildPillItem(masterOptions[3])),
             ],
           ),
@@ -77,7 +77,7 @@ class PrimaryFilterMasterOverridesSection extends StatelessWidget {
       onTap: () => onCardSelected(item.index),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 7),
         decoration: BoxDecoration(
           color: isSelected
               ? item.activeColor.withValues(alpha: 0.15)
@@ -91,34 +91,36 @@ class PrimaryFilterMasterOverridesSection extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.all(4),
               decoration: BoxDecoration(
                 color: item.activeColor.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(item.icon, color: item.activeColor, size: 14),
             ),
-            const SizedBox(width: 8),
+            const SizedBox(width: 6),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     item.title,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    softWrap: true,
                     style: const TextStyle(
-                      fontSize: 10.5,
+                      fontSize: 10,
+                      height: 1.12,
                       fontWeight: FontWeight.w800,
                       color: EliteDopamineTheme.textPrimary,
                     ),
                   ),
                   Text(
                     item.subtitle,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    softWrap: true,
                     style: const TextStyle(
                       fontSize: 8.5,
+                      height: 1.15,
                       color: EliteDopamineTheme.textSecondary,
                       fontWeight: FontWeight.w500,
                     ),
@@ -127,7 +129,7 @@ class PrimaryFilterMasterOverridesSection extends StatelessWidget {
               ),
             ),
             Transform.scale(
-              scale: 0.7,
+              scale: 0.65,
               child: Switch.adaptive(
                 value: item.isEnabled,
                 activeColor: item.activeColor,

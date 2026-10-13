@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primary_filter/defense_strategy_item.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 
-/// 第一层级：5 个常用策略大卡片网格
+/// 第一层级：5 个常用策略大卡片网格 (精细化字号与内外边距，确保长文案完整展示)
 class PrimaryFilterDailyGrid extends StatelessWidget {
   final List<DefenseStrategyItem> dailyOptions;
   final int selectedIndex;
@@ -23,17 +23,17 @@ class PrimaryFilterDailyGrid extends StatelessWidget {
         Row(
           children: [
             Expanded(child: _buildCardItem(dailyOptions[0])),
-            const SizedBox(width: 8),
+            const SizedBox(width: 6),
             Expanded(child: _buildCardItem(dailyOptions[1])),
-            const SizedBox(width: 8),
+            const SizedBox(width: 6),
             Expanded(child: _buildCardItem(dailyOptions[2])),
           ],
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 6),
         Row(
           children: [
             Expanded(child: _buildCardItem(dailyOptions[3])),
-            const SizedBox(width: 8),
+            const SizedBox(width: 6),
             Expanded(child: _buildCardItem(dailyOptions[4])),
           ],
         ),
@@ -48,15 +48,15 @@ class PrimaryFilterDailyGrid extends StatelessWidget {
       onTap: () => onCardSelected(item.index),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         decoration: BoxDecoration(
           color: isSelected
               ? item.activeColor.withValues(alpha: 0.12)
               : EliteDopamineTheme.slateSurface,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(14),
           border: Border.all(
             color: isSelected ? item.activeColor : EliteDopamineTheme.slateBorder,
-            width: isSelected ? 1.8 : 1,
+            width: isSelected ? 1.6 : 1,
           ),
           boxShadow: isSelected
               ? [
@@ -75,21 +75,21 @@ class PrimaryFilterDailyGrid extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     color: isSelected
                         ? item.activeColor
                         : item.activeColor.withValues(alpha: 0.15),
-                    borderRadius: BorderRadius.circular(9),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   child: Icon(
                     item.icon,
                     color: isSelected ? Colors.white : item.activeColor,
-                    size: 15,
+                    size: 14,
                   ),
                 ),
                 Transform.scale(
-                  scale: 0.75,
+                  scale: 0.65,
                   child: Switch.adaptive(
                     value: item.isEnabled,
                     activeColor: item.activeColor,
@@ -99,16 +99,15 @@ class PrimaryFilterDailyGrid extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 6),
+            const SizedBox(height: 4),
             Text(
               item.title,
               maxLines: 2,
               softWrap: true,
-              overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                fontSize: 11,
-                height: 1.1,
-                fontWeight: FontWeight.w900,
+                fontSize: 10,
+                height: 1.12,
+                fontWeight: FontWeight.w800,
                 color: isSelected ? EliteDopamineTheme.textPrimary : EliteDopamineTheme.textBody,
               ),
             ),
@@ -116,10 +115,10 @@ class PrimaryFilterDailyGrid extends StatelessWidget {
             Text(
               item.subtitle,
               maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+              softWrap: true,
               style: const TextStyle(
-                fontSize: 9,
-                height: 1.2,
+                fontSize: 8.5,
+                height: 1.15,
                 fontWeight: FontWeight.w500,
                 color: EliteDopamineTheme.textSecondary,
               ),

@@ -4,7 +4,7 @@ import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provi
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// SIM 卡槽 Tab 切换栏组件
+/// SIM 卡槽 Tab 切换栏组件 (自动识别单卡/双卡在卡状态，采用简短地道的 SIM Slot 1 / 2 排版)
 class PrimaryFilterSimSlotBar extends ConsumerWidget {
   final AppLocalizations l10n;
   final int selectedSimSlot;
@@ -23,6 +23,10 @@ class PrimaryFilterSimSlotBar extends ConsumerWidget {
 
     return simCardsAsync.when(
       data: (simCards) {
+        // 判断 SIM 1 与 SIM 2 是否真正存在并激活
+        final isSim1Active = simCards.any((sim) => (sim.simSlotIndex ?? 0) == 0) || simCards.isNotEmpty;
+        final isSim2Active = simCards.any((sim) => (sim.simSlotIndex ?? 0) == 1) || simCards.length >= 2;
+
         return Container(
           decoration: BoxDecoration(
             color: EliteDopamineTheme.slateSubtle,
@@ -34,8 +38,10 @@ class PrimaryFilterSimSlotBar extends ConsumerWidget {
               Expanded(
                 child: _buildSimTabButton(
                   slotIndex: 0,
-                  label: '${l10n.simSlotPosition(1)} (${l10n.enabledStatus})',
-                  color: EliteDopamineTheme.freshMint,
+                  slotName: 'SIM Slot 1',
+                  statusText: isSim1Active ? l10n.enabledStatus : l10n.disabledStatus,
+                  color: isSim1Active ? EliteDopamineTheme.freshMint : EliteDopamineTheme.textMuted,
+                  isActive: isSim1Active,
                   isSelected: selectedSimSlot == 0,
                 ),
               ),
@@ -43,8 +49,10 @@ class PrimaryFilterSimSlotBar extends ConsumerWidget {
               Expanded(
                 child: _buildSimTabButton(
                   slotIndex: 1,
-                  label: '${l10n.simSlotPosition(2)} (${l10n.enabledStatus})',
-                  color: EliteDopamineTheme.sunsetTangerine,
+                  slotName: 'SIM Slot 2',
+                  statusText: isSim2Active ? l10n.enabledStatus : l10n.disabledStatus,
+                  color: isSim2Active ? EliteDopamineTheme.sunsetTangerine : EliteDopamineTheme.textMuted,
+                  isActive: isSim2Active,
                   isSelected: selectedSimSlot == 1,
                 ),
               ),
@@ -59,8 +67,10 @@ class PrimaryFilterSimSlotBar extends ConsumerWidget {
 
   Widget _buildSimTabButton({
     required int slotIndex,
-    required String label,
+    required String slotName,
+    required String statusText,
     required Color color,
+    required bool isActive,
     required bool isSelected,
   }) {
     return InkWell(
@@ -68,7 +78,7 @@ class PrimaryFilterSimSlotBar extends ConsumerWidget {
       borderRadius: BorderRadius.circular(13),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.symmetric(vertical: 8),
+        padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 4),
         decoration: BoxDecoration(
           color: isSelected ? Colors.white : Colors.transparent,
           borderRadius: BorderRadius.circular(13),
@@ -85,22 +95,26 @@ class PrimaryFilterSimSlotBar extends ConsumerWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.signal_cellular_alt_rounded, size: 14, color: color),
-            const SizedBox(width: 5),
+            Icon(
+              Icons.signal_cellular_alt_rounded,
+              size: 14,
+              color: isActive ? color : EliteDopamineTheme.textMuted,
+            ),
+            const SizedBox(width: 4),
             Text(
-              label,
+              '$slotName ($statusText)',
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: isSelected ? FontWeight.w900 : FontWeight.w600,
-                color: isSelected ? EliteDopamineTheme.textPrimary : EliteDopamineTheme.textBody,
+                color: isSelected ? EliteDopamineTheme.textPrimary : EliteDopamineTheme.textSecondary,
               ),
             ),
-            const SizedBox(width: 5),
+            const SizedBox(width: 4),
             Container(
-              width: 7,
-              height: 7,
+              width: 6,
+              height: 6,
               decoration: BoxDecoration(
-                color: color,
+                color: isActive ? color : EliteDopamineTheme.textMuted,
                 shape: BoxShape.circle,
               ),
             ),

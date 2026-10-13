@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // 文件: elite_hero_shield_card.dart
-// 描述: Elite 极简通透防护盾牌卡片。使用官方 intl 库处理数值与时间格式化，保持 UI 纯净。
+// 描述: Elite 极简通透防护盾牌卡片。刷新按钮融入 Updated 时间条后侧，不挤压顶部统计文本。
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
@@ -13,8 +13,8 @@ import 'package:yourcallyourrule/features/auto_update/di/auto_update_service_pro
 import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart';
 import 'package:yourcallyourrule/features/caller_id/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/professional_shield_radar.dart';
+import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ------------------- Widget 定义 -------------------
@@ -38,7 +38,6 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
   @override
   void initState() {
     super.initState();
-    // 设置 3 秒周期的柔和呼吸缩放动画
     _pulseController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
@@ -155,7 +154,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // 顶部：能量盾 + 国际化标题 + 真实数据库规则统计与全量更新按钮
+              // 顶部：能量盾 + 国际化标题 + 真实数据库规则统计
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -187,7 +186,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                           ),
                         ),
                         const SizedBox(height: 10),
-                        // 动态数据指标与全量更新按钮 (使用标准 intl 库处理数值格式化)
+                        // 动态数据指标 (Blocked与Rules并排展开，拥有100%横向空间)
                         Row(
                           children: [
                             // 今日拦截数
@@ -227,8 +226,8 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                 ),
                               ],
                             ),
-                            const SizedBox(width: 12),
-                            // 真实规则总数 (来自数据库 totalRules)
+                            const SizedBox(width: 14),
+                            // 真实规则总数
                             Container(
                               padding: const EdgeInsets.all(5),
                               decoration: BoxDecoration(
@@ -269,15 +268,51 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                 ],
                               ),
                             ),
-                            const SizedBox(width: 4),
-                            // 全量更新按钮
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        // 国际化最后更新时间标记 + 右侧紧跟融入刷新按钮
+                        Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                              decoration: BoxDecoration(
+                                color: EliteDopamineTheme.slateSubtle,
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: EliteDopamineTheme.slateBorder,
+                                  width: 1,
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Icon(
+                                    Icons.schedule_rounded,
+                                    size: 11,
+                                    color: EliteDopamineTheme.textSecondary,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    l10n.lastUpdated(DateFormat.Hm().format(_lastUpdatedTime ?? DateTime.now())),
+                                    style: const TextStyle(
+                                      fontSize: 9.5,
+                                      fontWeight: FontWeight.w600,
+                                      color: EliteDopamineTheme.textBody,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 6),
+                            // 刷新按钮下移并融入该行
                             Tooltip(
                               message: l10n.updateAllNow,
                               child: InkWell(
                                 onTap: _handleRefresh,
                                 borderRadius: BorderRadius.circular(20),
                                 child: Container(
-                                  padding: const EdgeInsets.all(6),
+                                  padding: const EdgeInsets.all(5),
                                   decoration: BoxDecoration(
                                     color: EliteDopamineTheme.slateSubtle,
                                     shape: BoxShape.circle,
@@ -288,8 +323,8 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                   ),
                                   child: _isRefreshing
                                       ? const SizedBox(
-                                          width: 14,
-                                          height: 14,
+                                          width: 13,
+                                          height: 13,
                                           child: CircularProgressIndicator(
                                             strokeWidth: 2,
                                             valueColor: AlwaysStoppedAnimation<Color>(
@@ -299,45 +334,13 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                         )
                                       : const Icon(
                                           Icons.refresh_rounded,
-                                          size: 14,
+                                          size: 13,
                                           color: EliteDopamineTheme.textSecondary,
                                         ),
                                 ),
                               ),
                             ),
                           ],
-                        ),
-                        const SizedBox(height: 8),
-                        // 国际化最后更新时间标记
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                          decoration: BoxDecoration(
-                            color: EliteDopamineTheme.slateSubtle,
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(
-                              color: EliteDopamineTheme.slateBorder,
-                              width: 1,
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Icon(
-                                Icons.schedule_rounded,
-                                size: 11,
-                                color: EliteDopamineTheme.textSecondary,
-                              ),
-                              const SizedBox(width: 4),
-                              Text(
-                                l10n.lastUpdated(DateFormat.Hm().format(_lastUpdatedTime ?? DateTime.now())),
-                                style: const TextStyle(
-                                  fontSize: 9.5,
-                                  fontWeight: FontWeight.w600,
-                                  color: EliteDopamineTheme.textBody,
-                                ),
-                              ),
-                            ],
-                          ),
                         ),
                       ],
                     ),
