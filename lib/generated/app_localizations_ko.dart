@@ -4749,4 +4749,16 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get initialSetupGoToSettings => 'Go to Settings';
+
+  @override
+  String get separateSims => '개별 SIM 규칙';
+
+  @override
+  String get separateSimsDesc => '각 SIM 카드에 대한 별도의 필터링 규칙 활성화';
+
+  @override
+  String get masterAndOverrides => '마스터 제어';
+
+  @override
+  String get masterAndOverridesDesc => '전역 규칙 설정';
 }

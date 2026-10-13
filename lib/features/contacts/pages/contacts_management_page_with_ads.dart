@@ -8,6 +8,7 @@ import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/contacts/provider/contact_service_provider.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/contact_edit_dialog.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -663,7 +664,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
     return Scaffold(
       bottomNavigationBar: BottomNavigation(
         currentIndex: 2, // 联系人页面标签索引
-        onTap: (index) => BottomNavigationHandler.handleNavigation(context, index),
+        onTap: (index) => AppRouter.navigateToTab(context, index),
       ),
       body: GenericListWithAdsPage<Contact>(
       title: _isMultiSelectMode 

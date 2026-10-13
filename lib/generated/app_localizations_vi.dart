@@ -4876,4 +4876,16 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get initialSetupGoToSettings => 'Go to Settings';
+
+  @override
+  String get separateSims => 'SIM Riêng biệt';
+
+  @override
+  String get separateSimsDesc => 'Bật quy tắc lọc riêng cho từng thẻ SIM';
+
+  @override
+  String get masterAndOverrides => 'Điều khiển Chính';
+
+  @override
+  String get masterAndOverridesDesc => 'Cài đặt Quy tắc Chung';
 }

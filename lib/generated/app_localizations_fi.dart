@@ -4901,4 +4901,17 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get initialSetupGoToSettings => 'Go to Settings';
+
+  @override
+  String get separateSims => 'Erilliset SIM-kortit';
+
+  @override
+  String get separateSimsDesc =>
+      'Ota käyttöön erilliset suodatussäännöt kullekin SIM-kortille';
+
+  @override
+  String get masterAndOverrides => 'Pääohjaimet';
+
+  @override
+  String get masterAndOverridesDesc => 'Globaalit sääntöasetukset';
 }

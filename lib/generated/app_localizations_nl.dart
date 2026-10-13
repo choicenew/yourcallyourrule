@@ -4904,4 +4904,17 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get initialSetupGoToSettings => 'Go to Settings';
+
+  @override
+  String get separateSims => 'Afzonderlijke SIM-kaarten';
+
+  @override
+  String get separateSimsDesc =>
+      'Schakel aparte filterregels in voor elke SIM-kaart';
+
+  @override
+  String get masterAndOverrides => 'Hoofdbediening';
+
+  @override
+  String get masterAndOverridesDesc => 'Globale regelinstellingen';
 }

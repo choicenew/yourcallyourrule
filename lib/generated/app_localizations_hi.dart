@@ -4893,4 +4893,17 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get initialSetupGoToSettings => 'Go to Settings';
+
+  @override
+  String get separateSims => 'अलग सिम';
+
+  @override
+  String get separateSimsDesc =>
+      'प्रत्येक सिम कार्ड के लिए अलग फ़िल्टरिंग नियम सक्षम करें';
+
+  @override
+  String get masterAndOverrides => 'मास्टर नियंत्रण';
+
+  @override
+  String get masterAndOverridesDesc => 'वैश्विक नियम सेटिंग्स';
 }

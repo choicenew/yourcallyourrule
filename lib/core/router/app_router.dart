@@ -71,6 +71,21 @@ import 'package:yourcallyourrule/features/initial_setup/pages/deep_link_import_p
 /// 使用GoRouter管理全局路由表
 class AppRouter {
   static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
+  /// 统一处理底部 Tab 导航跳转
+  static void navigateToTab(BuildContext context, int index) {
+    final route = switch (index) {
+      0 => '/',
+      1 => '/$callHistory',
+      2 => '/$contactsManagement',
+      3 => '/$dashboard',
+      4 => '/$settings',
+      _ => null,
+    };
+    if (route != null) {
+      context.go(route);
+    }
+  }
   
   // [重构]: 构造函数为空，不再接收任何依赖。
   AppRouter();

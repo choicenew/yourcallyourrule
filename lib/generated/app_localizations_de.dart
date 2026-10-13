@@ -4925,4 +4925,17 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get initialSetupGoToSettings => 'Go to Settings';
+
+  @override
+  String get separateSims => 'Getrennte SIMs';
+
+  @override
+  String get separateSimsDesc =>
+      'Separate Filterregeln für jede SIM-Karte aktivieren';
+
+  @override
+  String get masterAndOverrides => 'Master-Steuerung';
+
+  @override
+  String get masterAndOverridesDesc => 'Globale Regel-Einstellungen';
 }

@@ -4887,4 +4887,17 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get initialSetupGoToSettings => 'Go to Settings';
+
+  @override
+  String get separateSims => 'Separate SIMs';
+
+  @override
+  String get separateSimsDesc =>
+      'Enable separate filtering rules for each SIM card';
+
+  @override
+  String get masterAndOverrides => 'Master Controls';
+
+  @override
+  String get masterAndOverridesDesc => 'Global Rule Settings';
 }

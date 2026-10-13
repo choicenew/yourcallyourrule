@@ -4895,4 +4895,17 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get initialSetupGoToSettings => 'Go to Settings';
+
+  @override
+  String get separateSims => 'SIM Terpisah';
+
+  @override
+  String get separateSimsDesc =>
+      'Aktifkan aturan pemfilteran terpisah untuk setiap kartu SIM';
+
+  @override
+  String get masterAndOverrides => 'Kontrol Utama';
+
+  @override
+  String get masterAndOverridesDesc => 'Pengaturan Aturan Global';
 }

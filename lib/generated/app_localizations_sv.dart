@@ -4907,4 +4907,17 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get initialSetupGoToSettings => 'Go to Settings';
+
+  @override
+  String get separateSims => 'Separat SIM';
+
+  @override
+  String get separateSimsDesc =>
+      'Aktivera separata filtreringsregler för varje SIM-kort';
+
+  @override
+  String get masterAndOverrides => 'Huvudkontroller';
+
+  @override
+  String get masterAndOverridesDesc => 'Globala regelinställningar';
 }

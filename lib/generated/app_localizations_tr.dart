@@ -4901,4 +4901,17 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get initialSetupGoToSettings => 'Go to Settings';
+
+  @override
+  String get separateSims => 'Ayrı SIM\'ler';
+
+  @override
+  String get separateSimsDesc =>
+      'Her SIM kart için ayrı filtreleme kurallarını etkinleştir';
+
+  @override
+  String get masterAndOverrides => 'Ana Kontroller';
+
+  @override
+  String get masterAndOverridesDesc => 'Genel Kural Ayarları';
 }

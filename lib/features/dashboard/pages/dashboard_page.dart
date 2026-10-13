@@ -104,7 +104,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> with SingleTicker
       ),
       bottomNavigationBar: BottomNavigation(
         currentIndex: 3,
-        onTap: (index) => BottomNavigationHandler.handleNavigation(context, index),
+        onTap: (index) => AppRouter.navigateToTab(context, index),
       ),
     );
   }

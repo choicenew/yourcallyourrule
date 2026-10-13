@@ -4856,4 +4856,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get initialSetupGoToSettings => 'Go to Settings';
+
+  @override
+  String get separateSims => 'شرائح SIM منفصلة';
+
+  @override
+  String get separateSimsDesc => 'تمكين قواعد تصفية منفصلة لكل بطاقة SIM';
+
+  @override
+  String get masterAndOverrides => 'التحكم الرئيسي';
+
+  @override
+  String get masterAndOverridesDesc => 'إعدادات القواعد العامة';
 }

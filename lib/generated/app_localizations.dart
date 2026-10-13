@@ -8737,6 +8737,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Go to Settings'**
   String get initialSetupGoToSettings;
+
+  /// No description provided for @separateSims.
+  ///
+  /// In en, this message translates to:
+  /// **'Separate SIMs'**
+  String get separateSims;
+
+  /// No description provided for @separateSimsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable separate filtering rules for each SIM card'**
+  String get separateSimsDesc;
+
+  /// No description provided for @masterAndOverrides.
+  ///
+  /// In en, this message translates to:
+  /// **'Master Controls'**
+  String get masterAndOverrides;
+
+  /// No description provided for @masterAndOverridesDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Global Rule Settings'**
+  String get masterAndOverridesDesc;
 }
 
 class _AppLocalizationsDelegate

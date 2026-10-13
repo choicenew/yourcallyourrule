@@ -1,75 +1,121 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart' as app_router;
 
 class BottomNavigation extends StatelessWidget {
+  static const String tabHome = 'home';
+  static const String tabCallHistory = 'call_history';
+  static const String tabContacts = 'contacts';
+  static const String tabDashboard = 'dashboard';
+  static const String tabSettings = 'settings';
+
+  static const List<String> defaultTabIds = [
+    tabHome,
+    tabCallHistory,
+    tabContacts,
+    tabDashboard,
+    tabSettings,
+  ];
+
   final int currentIndex;
   final ValueChanged<int>? onTap;
+  final List<String> activeTabIds;
 
   const BottomNavigation({
     super.key,
     required this.currentIndex,
     this.onTap,
+    this.activeTabIds = defaultTabIds,
   });
+
+  NavigationDestination _buildDestination(
+    String id,
+    AppLocalizations l10n,
+    Color unselectedColor,
+    ColorScheme colorScheme,
+  ) {
+    switch (id) {
+      case tabHome:
+        return NavigationDestination(
+          icon: Icon(Icons.shield_outlined, color: unselectedColor),
+          selectedIcon: Icon(Icons.shield_rounded, color: colorScheme.primary),
+          label: l10n.homeTab,
+        );
+      case tabCallHistory:
+        return NavigationDestination(
+          icon: Icon(Icons.call_outlined, color: unselectedColor),
+          selectedIcon: Icon(Icons.call_rounded, color: colorScheme.primary),
+          label: l10n.callHistoryTab,
+        );
+      case tabContacts:
+        return NavigationDestination(
+          icon: Icon(Icons.contacts_outlined, color: unselectedColor),
+          selectedIcon: Icon(Icons.contacts_rounded, color: colorScheme.primary),
+          label: l10n.contactsTab,
+        );
+      case tabDashboard:
+        return NavigationDestination(
+          icon: Icon(Icons.dashboard_outlined, color: unselectedColor),
+          selectedIcon: Icon(Icons.dashboard_rounded, color: colorScheme.primary),
+          label: l10n.dashboardTab,
+        );
+      case tabSettings:
+      default:
+        return NavigationDestination(
+          icon: Icon(Icons.settings_outlined, color: unselectedColor),
+          selectedIcon: Icon(Icons.settings_rounded, color: colorScheme.primary),
+          label: l10n.settingsTab,
+        );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final colorScheme = Theme.of(context).colorScheme;
+    final unselectedColor = colorScheme.onSurfaceVariant;
 
-    return NavigationBar(
-      selectedIndex: currentIndex,
-      onDestinationSelected: (index) {
-        if (index == currentIndex) return;
-        if (onTap != null) {
-          onTap!(index);
-        } else {
-          BottomNavigationHandler.handleNavigation(context, index);
-        }
-      },
-      destinations: [
-        NavigationDestination(
-          icon: const Icon(Icons.shield_outlined),
-          selectedIcon: const Icon(Icons.shield_rounded),
-          label: l10n.homeTab,
+    final destinations = activeTabIds
+        .map((id) => _buildDestination(id, l10n, unselectedColor, colorScheme))
+        .toList();
+
+    return Container(
+      decoration: BoxDecoration(
+        color: colorScheme.surface,
+        border: Border(
+          top: BorderSide(
+            color: colorScheme.outlineVariant.withValues(alpha: 0.6),
+            width: 1,
+          ),
         ),
-        NavigationDestination(
-          icon: const Icon(Icons.call_outlined),
-          selectedIcon: const Icon(Icons.call_rounded),
-          label: l10n.callHistoryTab,
+      ),
+      child: NavigationBarTheme(
+        data: NavigationBarThemeData(
+          labelTextStyle: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.selected)) {
+              return TextStyle(
+                color: colorScheme.primary,
+                fontWeight: FontWeight.bold,
+                fontSize: 11.0,
+              );
+            }
+            return TextStyle(
+              color: colorScheme.onSurfaceVariant,
+              fontSize: 11.0,
+            );
+          }),
         ),
-        NavigationDestination(
-          icon: const Icon(Icons.contacts_outlined),
-          selectedIcon: const Icon(Icons.contacts_rounded),
-          label: l10n.contactsTab,
+        child: NavigationBar(
+          selectedIndex: currentIndex.clamp(0, activeTabIds.length - 1),
+          backgroundColor: Colors.transparent,
+          indicatorColor: colorScheme.primaryContainer,
+          elevation: 0,
+          onDestinationSelected: (index) {
+            if (index == currentIndex) return;
+            onTap?.call(index);
+          },
+          destinations: destinations,
         ),
-        NavigationDestination(
-          icon: const Icon(Icons.dashboard_outlined),
-          selectedIcon: const Icon(Icons.dashboard_rounded),
-          label: l10n.dashboardTab,
-        ),
-        NavigationDestination(
-          icon: const Icon(Icons.settings_outlined),
-          selectedIcon: const Icon(Icons.settings_rounded),
-          label: l10n.settingsTab,
-        ),
-      ],
+      ),
     );
-  }
-}
-
-class BottomNavigationHandler {
-  static void handleNavigation(BuildContext context, int index) {
-    final route = switch (index) {
-      0 => '/',
-      1 => '/${app_router.AppRouter.callHistory}',
-      2 => '/${app_router.AppRouter.contactsManagement}',
-      3 => '/${app_router.AppRouter.dashboard}',
-      4 => '/${app_router.AppRouter.settings}',
-      _ => null,
-    };
-    if (route != null) {
-      context.go(route);
-    }
   }
 }

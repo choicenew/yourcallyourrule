@@ -405,7 +405,7 @@ class _CallHistoryPageWithTimelineWithAdsState
       bottomNavigationBar: BottomNavigation(
         currentIndex: 1,
         onTap: (index) =>
-            BottomNavigationHandler.handleNavigation(context, index),
+            AppRouter.navigateToTab(context, index),
       ),
       body: GenericTimelineListWithAdsPage<CallLog>(
         title: AppLocalizations.of(context)!.callHistory,

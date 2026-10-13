@@ -8,6 +8,7 @@ import 'package:yourcallyourrule/features/home/pages/carousel_cards.dart';
 import 'package:yourcallyourrule/features/home/pages/feature_center.dart';
 import 'package:yourcallyourrule/features/home/pages/home_app_bar.dart';
 import 'package:yourcallyourrule/features/home/pages/rule_verification_card.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/features/home/widgets/vip_promotion_card.dart';
 
@@ -64,7 +65,7 @@ class _HomePageState extends ConsumerState<HomePage> {
           setState(() {
             _currentIndex = index;
           });
-          BottomNavigationHandler.handleNavigation(context, index);
+          AppRouter.navigateToTab(context, index);
         },
       ),
     );

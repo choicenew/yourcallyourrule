@@ -4693,6 +4693,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get initialSetupGoToSettings => 'Go to Settings';
+
+  @override
+  String get separateSims => 'Separate SIMs';
+
+  @override
+  String get separateSimsDesc =>
+      'Enable separate filtering rules for each SIM card';
+
+  @override
+  String get masterAndOverrides => 'Master Controls';
+
+  @override
+  String get masterAndOverridesDesc => 'Global Rule Settings';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -9212,6 +9225,18 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get initialSetupGoToSettings => '前往设置';
+
+  @override
+  String get separateSims => '独立 SIM 卡规则';
+
+  @override
+  String get separateSimsDesc => '为每张 SIM 卡启用独立的过滤规则';
+
+  @override
+  String get masterAndOverrides => '主控开关';
+
+  @override
+  String get masterAndOverridesDesc => '全局规则设置';
 }
 
 /// The translations for Chinese, as used in Hong Kong (`zh_HK`).
@@ -13726,6 +13751,18 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
 
   @override
   String get initialSetupGetFailed => '取得設定失敗';
+
+  @override
+  String get separateSims => '獨立 SIM 卡規則';
+
+  @override
+  String get separateSimsDesc => '為每張 SIM 卡啟用獨立的過濾規則';
+
+  @override
+  String get masterAndOverrides => '主控開關';
+
+  @override
+  String get masterAndOverridesDesc => '全域規則設定';
 }
 
 /// The translations for Chinese, as used in Macao (`zh_MO`).
@@ -18240,6 +18277,18 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
 
   @override
   String get initialSetupGetFailed => '取得設定失敗';
+
+  @override
+  String get separateSims => '獨立 SIM 卡規則';
+
+  @override
+  String get separateSimsDesc => '為每張 SIM 卡啟用獨立的過濾規則';
+
+  @override
+  String get masterAndOverrides => '主控開關';
+
+  @override
+  String get masterAndOverridesDesc => '全域規則設定';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -22755,4 +22804,16 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get initialSetupGetFailed => '取得設定失敗';
+
+  @override
+  String get separateSims => '獨立 SIM 卡規則';
+
+  @override
+  String get separateSimsDesc => '為每張 SIM 卡啟用獨立的過濾規則';
+
+  @override
+  String get masterAndOverrides => '主控開關';
+
+  @override
+  String get masterAndOverridesDesc => '全域規則設定';
 }

@@ -4743,4 +4743,16 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get initialSetupGoToSettings => 'Go to Settings';
+
+  @override
+  String get separateSims => '個別SIMルール';
+
+  @override
+  String get separateSimsDesc => 'SIMカードごとに個別のフィルタリングルールを有効にする';
+
+  @override
+  String get masterAndOverrides => 'マスターコントロール';
+
+  @override
+  String get masterAndOverridesDesc => 'グローバルルール設定';
 }

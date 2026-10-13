@@ -4932,4 +4932,17 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get initialSetupGoToSettings => 'Go to Settings';
+
+  @override
+  String get separateSims => 'Раздельные SIM-карты';
+
+  @override
+  String get separateSimsDesc =>
+      'Включить отдельные правила фильтрации для каждой SIM-карты';
+
+  @override
+  String get masterAndOverrides => 'Главные элементы управления';
+
+  @override
+  String get masterAndOverridesDesc => 'Глобальные настройки правил';
 }

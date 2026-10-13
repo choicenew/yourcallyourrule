@@ -9,7 +9,7 @@ import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/ca
 // import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_chart.dart';
 // import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/block_type_analysis.dart';
 
-// [重构]: 只导入页面需要的核心组件
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 // [重构]: 导入我们已经重构好的自包含容器 Widget
@@ -29,7 +29,7 @@ class CallStatisticsPage extends ConsumerWidget {
     return Scaffold(
       bottomNavigationBar: BottomNavigation(
         currentIndex: 3,
-        onTap: (index) => BottomNavigationHandler.handleNavigation(context, index),
+        onTap: (index) => AppRouter.navigateToTab(context, index),
       ),
       appBar: AppBar(title: Text(localizations.statisticsPageTitle)),
       // [重构]: body 现在非常简单，直接渲染自包含的 CallStatisticsContainerWidget。
