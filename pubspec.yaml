@@ -109,6 +109,7 @@ flutter:
   assets:
     - assets/avatars/
     - assets/icons/
+    - assets/app_delta_setup_config.json
     - assets/
   uses-material-design: true
   generate: true
