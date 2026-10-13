@@ -3,7 +3,6 @@ import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
-import 'package:yourcallyourrule/features/call/call_filter/config/call_filter_config.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/enhanced_filter_config_provider.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/provider/time_interceptor_provider.dart';
@@ -14,7 +13,7 @@ import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_f
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-// ------------------- ElitePrimaryFilterCard 定义 -------------------
+// ------------------- ElitePrimaryFilterCard (纯 UI 展示主视图) -------------------
 
 class ElitePrimaryFilterCard extends ConsumerStatefulWidget {
   const ElitePrimaryFilterCard({super.key});
@@ -23,9 +22,8 @@ class ElitePrimaryFilterCard extends ConsumerStatefulWidget {
   ConsumerState<ElitePrimaryFilterCard> createState() => _ElitePrimaryFilterCardState();
 }
 
-class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
-    with SingleTickerProviderStateMixin {
-  int _selectedDefenseIndex = 0; // 当前选中的策略卡片（用于下方 info banner 实时展示）
+class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard> {
+  int _selectedDefenseIndex = 0; // 当前选中的策略卡片索引
   bool _separateSims = false; // 右上角分卡槽控制开关 (Separate SIMs)
   int _selectedSimSlot = 0; // 当前选中的 SIM 卡槽（0 为 SIM 1，1 为 SIM 2）
   bool _showAdvancedSettings = false; // 底部 Filter Management 展开状态
@@ -216,48 +214,112 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 头部：标题与 Separate SIMs 独立开关
-          _buildHeaderRow(l10n),
+          // 头部：标题与 100% 国际化 Separate SIMs 开关
+          _EliteHeaderTile(
+            l10n: l10n,
+            separateSims: _separateSims,
+            onSeparateSimsChanged: (val) {
+              setState(() {
+                _separateSims = val;
+              });
+            },
+            onNavigateSettings: _navigateToFilterSettings,
+          ),
 
           const SizedBox(height: 12),
 
           // 分卡槽切换卡（受 Separate SIMs 开关控制）
           if (_separateSims) ...[
-            _buildSimSlotTabBar(),
+            _EliteSimSlotBar(
+              l10n: l10n,
+              selectedSimSlot: _selectedSimSlot,
+              onSimSlotSelected: (slot) {
+                setState(() {
+                  _selectedSimSlot = slot;
+                });
+              },
+            ),
             const SizedBox(height: 14),
           ],
 
           // 第一层级：5 个常用策略大卡片 (Daily Defense Grid)
-          _buildDailyDefenseSection(dailyDefenseOptions),
+          _EliteDailyDefenseGrid(
+            dailyOptions: dailyDefenseOptions,
+            selectedIndex: _selectedDefenseIndex,
+            onCardSelected: (idx) {
+              setState(() {
+                _selectedDefenseIndex = idx;
+              });
+            },
+          ),
 
           const SizedBox(height: 12),
 
           // 选中的策略详情提示条 ((i) Info Banner)
-          _buildInfoBanner(currentOption, l10n),
+          _EliteInfoBanner(
+            currentOption: currentOption,
+            l10n: l10n,
+            onNavigateSimRules: _navigateToSimSlotRules,
+          ),
 
           const SizedBox(height: 16),
 
           // 第二层级：4 个总控与特例胶囊网格 (Master & Overrides)
-          _buildMasterOverridesSection(masterOverrideOptions),
+          _EliteMasterOverridesSection(
+            masterOptions: masterOverrideOptions,
+            selectedIndex: _selectedDefenseIndex,
+            l10n: l10n,
+            onCardSelected: (idx) {
+              setState(() {
+                _selectedDefenseIndex = idx;
+              });
+            },
+          ),
 
           const SizedBox(height: 12),
 
           // 底部折叠：Filter Management 入口
-          _buildAdvancedExpandToggle(l10n),
+          _EliteExpandToggleTile(
+            l10n: l10n,
+            isExpanded: _showAdvancedSettings,
+            onToggleExpand: () {
+              setState(() {
+                _showAdvancedSettings = !_showAdvancedSettings;
+              });
+            },
+          ),
 
-          // 高级原生多巴胺拦截管理控件
+          // 独立导出的高级拦截管理组件
           if (_showAdvancedSettings) ...[
             const SizedBox(height: 12),
-            _buildAdvancedFilterSettingsSection(l10n),
+            EliteAdvancedFilterSection(
+              selectedSimSlot: _selectedSimSlot,
+              l10n: l10n,
+            ),
           ],
         ],
       ),
     );
   }
+}
 
-  // --- 子组件拆分 (Clean Modular Sub-Components) ---
+// ------------------- 解耦组件 1: 头部组件 -------------------
 
-  Widget _buildHeaderRow(AppLocalizations l10n) {
+class _EliteHeaderTile extends StatelessWidget {
+  final AppLocalizations l10n;
+  final bool separateSims;
+  final ValueChanged<bool> onSeparateSimsChanged;
+  final VoidCallback onNavigateSettings;
+
+  const _EliteHeaderTile({
+    required this.l10n,
+    required this.separateSims,
+    required this.onSeparateSimsChanged,
+    required this.onNavigateSettings,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -302,7 +364,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
               ],
             ),
             InkWell(
-              onTap: _navigateToFilterSettings,
+              onTap: onNavigateSettings,
               borderRadius: BorderRadius.circular(8),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
@@ -334,9 +396,9 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
           children: [
             const Icon(Icons.signal_cellular_alt_rounded, size: 14, color: Color(0xFFD97706)),
             const SizedBox(width: 4),
-            const Text(
-              'Separate SIMs',
-              style: TextStyle(
+            Text(
+              l10n.separateSims,
+              style: const TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
                 color: Colors.black87,
@@ -346,14 +408,10 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
             Transform.scale(
               scale: 0.85,
               child: Switch.adaptive(
-                value: _separateSims,
+                value: separateSims,
                 activeColor: const Color(0xFFD97706),
                 materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                onChanged: (val) {
-                  setState(() {
-                    _separateSims = val;
-                  });
-                },
+                onChanged: onSeparateSimsChanged,
               ),
             ),
           ],
@@ -361,8 +419,23 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
       ],
     );
   }
+}
 
-  Widget _buildSimSlotTabBar() {
+// ------------------- 解耦组件 2: SIM 卡槽 Tab 栏 -------------------
+
+class _EliteSimSlotBar extends ConsumerWidget {
+  final AppLocalizations l10n;
+  final int selectedSimSlot;
+  final ValueChanged<int> onSimSlotSelected;
+
+  const _EliteSimSlotBar({
+    required this.l10n,
+    required this.selectedSimSlot,
+    required this.onSimSlotSelected,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
     final simCardsAsync = ref.watch(simCardsProvider);
 
     return simCardsAsync.when(
@@ -378,18 +451,18 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
               Expanded(
                 child: _buildSimTabButton(
                   slotIndex: 0,
-                  label: 'SIM 1 (Active)',
+                  label: '${l10n.simSlotPosition(1)} (${l10n.enabledStatus})',
                   color: EliteDopamineTheme.freshMint,
-                  isSelected: _selectedSimSlot == 0,
+                  isSelected: selectedSimSlot == 0,
                 ),
               ),
               const SizedBox(width: 4),
               Expanded(
                 child: _buildSimTabButton(
                   slotIndex: 1,
-                  label: 'SIM 2 (Active)',
+                  label: '${l10n.simSlotPosition(2)} (${l10n.enabledStatus})',
                   color: EliteDopamineTheme.sunsetTangerine,
-                  isSelected: _selectedSimSlot == 1,
+                  isSelected: selectedSimSlot == 1,
                 ),
               ),
             ],
@@ -408,11 +481,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
     required bool isSelected,
   }) {
     return InkWell(
-      onTap: () {
-        setState(() {
-          _selectedSimSlot = slotIndex;
-        });
-      },
+      onTap: () => onSimSlotSelected(slotIndex),
       borderRadius: BorderRadius.circular(13),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
@@ -457,43 +526,52 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
       ),
     );
   }
+}
 
-  Widget _buildDailyDefenseSection(List<_DefenseStrategyItem> dailyOptions) {
+// ------------------- 解耦组件 3: 第一层级 5 个常用大卡片网格 -------------------
+
+class _EliteDailyDefenseGrid extends StatelessWidget {
+  final List<_DefenseStrategyItem> dailyOptions;
+  final int selectedIndex;
+  final ValueChanged<int> onCardSelected;
+
+  const _EliteDailyDefenseGrid({
+    required this.dailyOptions,
+    required this.selectedIndex,
+    required this.onCardSelected,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // 第一行 3 个大卡片
         Row(
           children: [
-            Expanded(child: _buildDailyCardItem(dailyOptions[0])),
+            Expanded(child: _buildCardItem(dailyOptions[0])),
             const SizedBox(width: 8),
-            Expanded(child: _buildDailyCardItem(dailyOptions[1])),
+            Expanded(child: _buildCardItem(dailyOptions[1])),
             const SizedBox(width: 8),
-            Expanded(child: _buildDailyCardItem(dailyOptions[2])),
+            Expanded(child: _buildCardItem(dailyOptions[2])),
           ],
         ),
         const SizedBox(height: 8),
-        // 第二行 2 个大卡片
         Row(
           children: [
-            Expanded(child: _buildDailyCardItem(dailyOptions[3])),
+            Expanded(child: _buildCardItem(dailyOptions[3])),
             const SizedBox(width: 8),
-            Expanded(child: _buildDailyCardItem(dailyOptions[4])),
+            Expanded(child: _buildCardItem(dailyOptions[4])),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildDailyCardItem(_DefenseStrategyItem item) {
-    final isSelected = _selectedDefenseIndex == item.index;
+  Widget _buildCardItem(_DefenseStrategyItem item) {
+    final isSelected = selectedIndex == item.index;
 
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          _selectedDefenseIndex = item.index;
-        });
-      },
+      onTap: () => onCardSelected(item.index),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.all(10),
@@ -577,8 +655,23 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
       ),
     );
   }
+}
 
-  Widget _buildInfoBanner(_DefenseStrategyItem currentOption, AppLocalizations l10n) {
+// ------------------- 解耦组件 4: 选中的策略详情看板 -------------------
+
+class _EliteInfoBanner extends StatelessWidget {
+  final _DefenseStrategyItem currentOption;
+  final AppLocalizations l10n;
+  final VoidCallback onNavigateSimRules;
+
+  const _EliteInfoBanner({
+    required this.currentOption,
+    required this.l10n,
+    required this.onNavigateSimRules,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
@@ -625,7 +718,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
           ),
           const SizedBox(width: 8),
           InkWell(
-            onTap: _navigateToSimSlotRules,
+            onTap: onNavigateSimRules,
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
@@ -660,8 +753,25 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
       ),
     );
   }
+}
 
-  Widget _buildMasterOverridesSection(List<_DefenseStrategyItem> masterOptions) {
+// ------------------- 解耦组件 5: 第二层级 4 个总控与特例胶囊网格 -------------------
+
+class _EliteMasterOverridesSection extends StatelessWidget {
+  final List<_DefenseStrategyItem> masterOptions;
+  final int selectedIndex;
+  final AppLocalizations l10n;
+  final ValueChanged<int> onCardSelected;
+
+  const _EliteMasterOverridesSection({
+    required this.masterOptions,
+    required this.selectedIndex,
+    required this.l10n,
+    required this.onCardSelected,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -674,21 +784,17 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Text(
-                '4 总控特例 (Master & Overrides)',
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.black87,
-                ),
-              ),
-            ],
+          Text(
+            l10n.masterAndOverrides,
+            style: const TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w900,
+              color: Colors.black87,
+            ),
           ),
           const SizedBox(height: 2),
           Text(
-            'Advanced & Master Controls',
+            l10n.masterAndOverridesDesc,
             style: TextStyle(
               fontSize: 9.5,
               color: Colors.grey[600],
@@ -698,17 +804,17 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
           const SizedBox(height: 10),
           Row(
             children: [
-              Expanded(child: _buildMasterPillItem(masterOptions[0])),
+              Expanded(child: _buildPillItem(masterOptions[0])),
               const SizedBox(width: 8),
-              Expanded(child: _buildMasterPillItem(masterOptions[1])),
+              Expanded(child: _buildPillItem(masterOptions[1])),
             ],
           ),
           const SizedBox(height: 8),
           Row(
             children: [
-              Expanded(child: _buildMasterPillItem(masterOptions[2])),
+              Expanded(child: _buildPillItem(masterOptions[2])),
               const SizedBox(width: 8),
-              Expanded(child: _buildMasterPillItem(masterOptions[3])),
+              Expanded(child: _buildPillItem(masterOptions[3])),
             ],
           ),
         ],
@@ -716,15 +822,11 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
     );
   }
 
-  Widget _buildMasterPillItem(_DefenseStrategyItem item) {
-    final isSelected = _selectedDefenseIndex == item.index;
+  Widget _buildPillItem(_DefenseStrategyItem item) {
+    final isSelected = selectedIndex == item.index;
 
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          _selectedDefenseIndex = item.index;
-        });
-      },
+      onTap: () => onCardSelected(item.index),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
@@ -790,19 +892,30 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
       ),
     );
   }
+}
 
-  Widget _buildAdvancedExpandToggle(AppLocalizations l10n) {
+// ------------------- 解耦组件 6: 展开折叠链接按钮 -------------------
+
+class _EliteExpandToggleTile extends StatelessWidget {
+  final AppLocalizations l10n;
+  final bool isExpanded;
+  final VoidCallback onToggleExpand;
+
+  const _EliteExpandToggleTile({
+    required this.l10n,
+    required this.isExpanded,
+    required this.onToggleExpand,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        setState(() {
-          _showAdvancedSettings = !_showAdvancedSettings;
-        });
-      },
+      onTap: onToggleExpand,
       borderRadius: BorderRadius.circular(12),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
         decoration: BoxDecoration(
-          color: _showAdvancedSettings
+          color: isExpanded
               ? EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.1)
               : const Color(0xFFF7F5F0),
           borderRadius: BorderRadius.circular(12),
@@ -811,41 +924,55 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              _showAdvancedSettings ? Icons.tune_rounded : Icons.tune_outlined,
+              isExpanded ? Icons.tune_rounded : Icons.tune_outlined,
               size: 14,
-              color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : Colors.grey[700],
+              color: isExpanded ? EliteDopamineTheme.sunsetTangerine : Colors.grey[700],
             ),
             const SizedBox(width: 5),
             Text(
-              _showAdvancedSettings ? l10n.closeButton : l10n.filterManagement,
+              isExpanded ? l10n.closeButton : l10n.filterManagement,
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.w800,
-                color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : Colors.grey[800],
+                color: isExpanded ? EliteDopamineTheme.sunsetTangerine : Colors.grey[800],
               ),
             ),
             const SizedBox(width: 4),
             Icon(
-              _showAdvancedSettings ? Icons.keyboard_arrow_up_rounded : Icons.keyboard_arrow_down_rounded,
+              isExpanded ? Icons.keyboard_arrow_up_rounded : Icons.keyboard_arrow_down_rounded,
               size: 16,
-              color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : Colors.grey[700],
+              color: isExpanded ? EliteDopamineTheme.sunsetTangerine : Colors.grey[700],
             ),
           ],
         ),
       ),
     );
   }
+}
 
-  Widget _buildAdvancedFilterSettingsSection(AppLocalizations l10n) {
+// ------------------- 解耦组件 7: 独立导出的高级过滤器组件 -------------------
+
+class EliteAdvancedFilterSection extends ConsumerWidget {
+  final int selectedSimSlot;
+  final AppLocalizations l10n;
+
+  const EliteAdvancedFilterSection({
+    super.key,
+    required this.selectedSimSlot,
+    required this.l10n,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
     final enhancedConfigAsync = ref.watch(enhancedFilterConfigProvider);
 
     return enhancedConfigAsync.when(
       data: (enhancedConfig) {
         final isSimSlotRuleEnabled = enhancedConfig.filterEnabledMap['SimSlotRuleService'] ?? false;
         if (isSimSlotRuleEnabled) {
-          return _buildDopamineSimSlotContent(l10n);
+          return _buildSimSlotContent(context, ref);
         } else {
-          return _buildDopamineGlobalFilterList(l10n, enhancedConfig);
+          return _buildGlobalFilterList(context, ref, enhancedConfig);
         }
       },
       loading: () => const Center(
@@ -863,10 +990,9 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
     );
   }
 
-  Widget _buildDopamineGlobalFilterList(AppLocalizations l10n, dynamic enhancedConfig) {
+  Widget _buildGlobalFilterList(BuildContext context, WidgetRef ref, dynamic enhancedConfig) {
     final isSimSlotEnabled = enhancedConfig.filterEnabledMap['SimSlotRuleService'] ?? false;
 
-    // SIM 卡槽规则总开关
     final allRulesCountProvider = FutureProvider<int>((ref) async {
       final service = ref.watch(simSlotRuleServiceProvider);
       final rules = await service.getAllSimSlotRules();
@@ -874,21 +1000,18 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
     });
     final rulesCount = ref.watch(allRulesCountProvider).value ?? 0;
 
-    // 本地计数过滤
     final localConfig = ref.watch(localCountFilterConfigProvider.select((v) => v.value));
     final isLocalCountEnabled = localConfig?.enableLocalCountFilter ?? false;
 
-    // 云端远程库过滤
     final remoteConfig = ref.watch(remoteNumberFilterConfigProvider.select((v) => v.value));
     final isRemoteEnabled = remoteConfig?.enableRemoteNumberFilter ?? false;
 
-    // 时间拦截器
     final timeConfig = ref.watch(timeInterceptorConfigProvider.select((v) => v.value));
     final isTimeEnabled = timeConfig?.shouldIntercept ?? false;
 
     return Column(
       children: [
-        _buildDopamineSwitchTile(
+        _buildSwitchTile(
           icon: Icons.sim_card_outlined,
           iconColor: EliteDopamineTheme.skyAzure,
           title: l10n.simCardFilterRules,
@@ -901,7 +1024,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
           },
         ),
         const SizedBox(height: 8),
-        _buildDopamineSwitchTile(
+        _buildSwitchTile(
           icon: Icons.filter_alt_outlined,
           iconColor: EliteDopamineTheme.sunsetTangerine,
           title: l10n.localCountFilter,
@@ -917,7 +1040,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
           },
         ),
         const SizedBox(height: 8),
-        _buildDopamineSwitchTile(
+        _buildSwitchTile(
           icon: Icons.cloud_outlined,
           iconColor: EliteDopamineTheme.softLilac,
           title: l10n.remoteNumberFilter,
@@ -933,7 +1056,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
           },
         ),
         const SizedBox(height: 8),
-        _buildDopamineSwitchTile(
+        _buildSwitchTile(
           icon: Icons.timer_outlined,
           iconColor: EliteDopamineTheme.freshMint,
           title: l10n.timeInterceptor,
@@ -950,7 +1073,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
     );
   }
 
-  Widget _buildDopamineSimSlotContent(AppLocalizations l10n) {
+  Widget _buildSimSlotContent(BuildContext context, WidgetRef ref) {
     final simCardsAsync = ref.watch(simCardsProvider);
 
     return simCardsAsync.when(
@@ -964,9 +1087,36 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
           );
         }
 
+        final simSlotIndex = simCards[selectedSimSlot < simCards.length ? selectedSimSlot : 0].simSlotIndex ?? 0;
+
         return Column(
           children: [
-            _buildSimSlotRulesList(l10n, simCards[_selectedSimSlot < simCards.length ? _selectedSimSlot : 0].simSlotIndex ?? 0),
+            _buildSwitchTile(
+              icon: Icons.filter_alt_outlined,
+              iconColor: EliteDopamineTheme.sunsetTangerine,
+              title: l10n.localCountFilter,
+              subtitle: l10n.localCountFilterDescription,
+              value: true,
+              onChanged: (_) {},
+            ),
+            const SizedBox(height: 8),
+            _buildSwitchTile(
+              icon: Icons.cloud_outlined,
+              iconColor: EliteDopamineTheme.softLilac,
+              title: l10n.remoteNumberFilter,
+              subtitle: l10n.remoteNumberFilterDescription,
+              value: true,
+              onChanged: (_) {},
+            ),
+            const SizedBox(height: 8),
+            _buildSwitchTile(
+              icon: Icons.timer_outlined,
+              iconColor: EliteDopamineTheme.freshMint,
+              title: l10n.timeInterceptor,
+              subtitle: l10n.timeInterceptorDescription,
+              value: true,
+              onChanged: (_) {},
+            ),
           ],
         );
       },
@@ -980,40 +1130,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
     );
   }
 
-  Widget _buildSimSlotRulesList(AppLocalizations l10n, int simSlot) {
-    return Column(
-      children: [
-        _buildDopamineSwitchTile(
-          icon: Icons.filter_alt_outlined,
-          iconColor: EliteDopamineTheme.sunsetTangerine,
-          title: l10n.localCountFilter,
-          subtitle: l10n.localCountFilterDescription,
-          value: true,
-          onChanged: (_) {},
-        ),
-        const SizedBox(height: 8),
-        _buildDopamineSwitchTile(
-          icon: Icons.cloud_outlined,
-          iconColor: EliteDopamineTheme.softLilac,
-          title: l10n.remoteNumberFilter,
-          subtitle: l10n.remoteNumberFilterDescription,
-          value: true,
-          onChanged: (_) {},
-        ),
-        const SizedBox(height: 8),
-        _buildDopamineSwitchTile(
-          icon: Icons.timer_outlined,
-          iconColor: EliteDopamineTheme.freshMint,
-          title: l10n.timeInterceptor,
-          subtitle: l10n.timeInterceptorDescription,
-          value: true,
-          onChanged: (_) {},
-        ),
-      ],
-    );
-  }
-
-  Widget _buildDopamineSwitchTile({
+  Widget _buildSwitchTile({
     required IconData icon,
     required Color iconColor,
     required String title,
@@ -1100,6 +1217,8 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
     );
   }
 }
+
+// ------------------- 数据结构定义 -------------------
 
 class _DefenseStrategyItem {
   final int index;
