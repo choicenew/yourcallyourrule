@@ -9,7 +9,6 @@ import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
 import 'package:yourcallyourrule/features/call/call_history/utils/call_history_action_handler.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/phone_meta_edit_dialog.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/rule_action_dialog.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -23,51 +22,50 @@ class _CallTypeInfo {
 class CallLogCard extends ConsumerWidget {
   final CallLog log;
   final Map<String, String> labelIdToTextMap;
-  final String? avatarPath;
-  final String? region;
+  final Map<String, String>? labelIdToIconMap;
+  final VoidCallback onRequiresRefresh;
+  final bool isMultiSelectMode;
   final bool isSelected;
   final VoidCallback? onMultiSelectTap;
-  final CallHistoryActionHandler actionHandler;
-  final VoidCallback onRequiresRefresh;
 
   const CallLogCard({
     super.key,
     required this.log,
     required this.labelIdToTextMap,
-    this.avatarPath,
-    this.region,
-    required this.actionHandler,
+    this.labelIdToIconMap,
     required this.onRequiresRefresh,
+    this.isMultiSelectMode = false,
     this.isSelected = false,
     this.onMultiSelectTap,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final actionHandler = CallHistoryActionHandler(
+      context: context,
+      ref: ref,
+      log: log,
+      onRequiresRefresh: onRequiresRefresh,
+    );
+
     final callTypeInfo = _getCallTypeInfo(context, log.callType);
-    final timeFormat = DateFormat('HH:mm');
-    final timeString = timeFormat.format(log.timestamp);
-    final primaryLabelId = log.labelIds?.firstOrNull;
-    final rawLabelText = primaryLabelId != null ? labelIdToTextMap[primaryLabelId] : null;
-    final translatedLabelText = rawLabelText != null ? LabelTranslationUtils.translateLabelText(context, rawLabelText) : null;
-    final hasLabels = translatedLabelText != null && translatedLabelText.isNotEmpty;
-    final hasLocation = region != null && region!.isNotEmpty;
+    final theme = Theme.of(context);
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 5.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: isSelected
-              ? EliteDopamineTheme.sunsetTangerine
-              : const Color(0xFFEDE8DF),
+              ? theme.colorScheme.primary
+              : theme.colorScheme.outlineVariant,
           width: isSelected ? 1.8 : 1.1,
         ),
         boxShadow: [
           BoxShadow(
             color: isSelected
-                ? EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.16)
+                ? theme.colorScheme.primary.withValues(alpha: 0.16)
                 : Colors.black.withValues(alpha: 0.04),
             blurRadius: isSelected ? 14 : 10,
             offset: const Offset(0, 4),
@@ -81,49 +79,46 @@ class CallLogCard extends ConsumerWidget {
           borderRadius: BorderRadius.circular(20),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 12.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildCardHeader(
-                  context,
-                  ref,
-                  callTypeInfo,
-                  avatarPath,
-                  translatedLabelText,
-                  hasLabels,
-                  region,
-                  hasLocation,
-                  timeString,
-                ),
-                const SizedBox(height: 10),
-                _buildFooterAndActions(context, callTypeInfo),
-              ],
-            ),
+            child: isMultiSelectMode
+                ? Row(
+                    children: [
+                      Checkbox(
+                        value: isSelected,
+                        onChanged: (_) => onMultiSelectTap?.call(),
+                        activeColor: theme.colorScheme.primary,
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: _buildCardContent(context, ref, actionHandler, callTypeInfo),
+                      ),
+                    ],
+                  )
+                : _buildCardContent(context, ref, actionHandler, callTypeInfo),
           ),
         ),
       ),
     );
   }
 
-  /// 构建卡片头部（右侧展示时间，中间展示姓名、号码、标签、归属地与运营商）
-  Widget _buildCardHeader(
+  Widget _buildCardContent(
     BuildContext context,
     WidgetRef ref,
+    CallHistoryActionHandler actionHandler,
     _CallTypeInfo callTypeInfo,
-    String? primaryAvatar,
-    String? translatedLabelText,
-    bool hasLabels,
-    String? locationText,
-    bool hasLocation,
-    String timeString,
   ) {
+    final theme = Theme.of(context);
+    final rawLabelText = labelIdToTextMap[log.labelId];
+    final translatedLabelText = rawLabelText != null
+        ? LabelTranslationUtils.translateLabelText(context, rawLabelText)
+        : null;
+
+    final primaryAvatar = log.matchedContactAvatarPath ?? log.avatarPath;
     final simInfo = '${log.simDisplayName} ${log.carrierName}'.trim();
     final hasSimInfo = simInfo.isNotEmpty;
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // 头像与来电类型微型角标
         SizedBox(
           width: 44,
           height: 44,
@@ -133,9 +128,9 @@ class CallLogCard extends ConsumerWidget {
               CircleAvatar(
                 radius: 22,
                 backgroundImage: AvatarUtils.getAvatarImage(primaryAvatar, translatedLabelText),
-                backgroundColor: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.12),
+                backgroundColor: theme.colorScheme.primary.withValues(alpha: 0.12),
                 child: primaryAvatar == null && (translatedLabelText == null || translatedLabelText.isEmpty)
-                    ? const Icon(Icons.person, size: 24, color: EliteDopamineTheme.warmSunAmber)
+                    ? Icon(Icons.person, size: 24, color: theme.colorScheme.primary)
                     : null,
               ),
               Positioned(
@@ -146,150 +141,128 @@ class CallLogCard extends ConsumerWidget {
                   decoration: BoxDecoration(
                     color: callTypeInfo.color,
                     shape: BoxShape.circle,
-                    border: Border.all(color: Colors.white, width: 2),
+                    border: Border.all(color: theme.colorScheme.surface, width: 2),
                     boxShadow: [
                       BoxShadow(
-                        color: callTypeInfo.color.withValues(alpha: 0.4),
+                        color: Colors.black.withValues(alpha: 0.12),
                         blurRadius: 4,
+                        offset: const Offset(0, 2),
                       ),
                     ],
                   ),
-                  child: Icon(callTypeInfo.icon, size: 10, color: Colors.white),
+                  child: Icon(
+                    callTypeInfo.icon,
+                    size: 11,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ],
           ),
         ),
         const SizedBox(width: 12),
-
-        // 中间：姓名、号码、标签、归属地、运营商
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
                 children: [
-                  Flexible(
+                  Expanded(
                     child: Text(
-                      (log.name != null && log.name!.isNotEmpty)
-                          ? log.name!
-                          : AppLocalizations.of(context)!.unknown,
-                      style: const TextStyle(
+                      log.callerDisplayName.isNotEmpty
+                          ? log.callerDisplayName
+                          : log.phoneNumber.toString(),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
                         fontWeight: FontWeight.w900,
                         fontSize: 15,
-                        color: Colors.black87,
                         letterSpacing: -0.2,
+                        color: theme.colorScheme.onSurface,
                       ),
-                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  if (hasLabels) ...[
-                    const SizedBox(width: 6),
-                    _buildLabelChip(context, ref, translatedLabelText!),
-                  ],
-                  Padding(
-                    padding: const EdgeInsets.only(left: 4.0),
-                    child: InkWell(
-                      onTap: () async {
-                        final updated = await PhoneMetaEditDialog.show(context, log: log);
-                        if (updated && context.mounted) onRequiresRefresh();
-                      },
-                      borderRadius: BorderRadius.circular(8),
-                      child: Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Icon(Icons.edit_note_rounded, size: 16, color: Colors.grey[400]),
-                      ),
+                  const SizedBox(width: 6),
+                  Text(
+                    DateFormat.Hm().format(log.timestamp),
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      color: theme.colorScheme.onSurfaceVariant,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 3),
-              Text(
-                log.phoneNumber,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.grey[600],
-                ),
-              ),
-              if (hasLocation || hasSimInfo) ...[
-                const SizedBox(height: 4),
-                Wrap(
-                  spacing: 6,
-                  runSpacing: 4,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    if (hasLocation)
-                      _buildRegionChip(context, locationText!),
-                    if (hasSimInfo)
-                      _buildSimInfoChip(simInfo),
-                  ],
+              if (log.callerDisplayName.isNotEmpty) ...[
+                const SizedBox(height: 2),
+                Text(
+                  log.phoneNumber.toString(),
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ],
+              const SizedBox(height: 6),
+              Wrap(
+                spacing: 6,
+                runSpacing: 4,
+                cross: WrapCrossAlignment.center,
+                children: [
+                  if (translatedLabelText != null && translatedLabelText.isNotEmpty)
+                    _buildLabelChip(context, ref, translatedLabelText),
+                  if (log.location.isNotEmpty)
+                    _buildRegionChip(context, log.location),
+                  if (hasSimInfo)
+                    _buildSimChip(context, simInfo),
+                ],
+              ),
+              const SizedBox(height: 10),
+              _buildBottomActionRow(context, ref, actionHandler),
             ],
-          ),
-        ),
-
-        const SizedBox(width: 8),
-
-        // 右侧：时间
-        Text(
-          timeString,
-          style: TextStyle(
-            fontSize: 12.5,
-            fontWeight: FontWeight.w800,
-            color: Colors.grey[800],
           ),
         ),
       ],
     );
   }
 
-  /// 构建底部信息与操作按钮组合栏
-  Widget _buildFooterAndActions(
+  Widget _buildBottomActionRow(
     BuildContext context,
-    _CallTypeInfo callTypeInfo,
+    WidgetRef ref,
+    CallHistoryActionHandler actionHandler,
   ) {
+    final theme = Theme.of(context);
+
     return Row(
       children: [
-        // 状态胶囊标签
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-          decoration: BoxDecoration(
-            color: callTypeInfo.color.withValues(alpha: 0.12),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(callTypeInfo.icon, size: 12, color: callTypeInfo.color),
-              const SizedBox(width: 4),
-              Text(
-                callTypeInfo.text,
-                style: TextStyle(
-                  fontSize: 10.5,
-                  color: callTypeInfo.color,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-            ],
+        Icon(
+          Icons.access_time_rounded,
+          size: 12,
+          color: theme.colorScheme.onSurfaceVariant,
+        ),
+        const SizedBox(width: 4),
+        Text(
+          DateFormat('MM-dd').format(log.timestamp),
+          style: TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.w600,
+            color: theme.colorScheme.onSurfaceVariant,
           ),
         ),
-
         const Spacer(),
-
-        // 快速操作图标按钮组（独立温润容器，宽松间距）
         _buildActionButton(
+          context: context,
           icon: Icons.info_outline_rounded,
-          color: EliteDopamineTheme.skyAzure,
+          color: theme.colorScheme.secondary,
           tooltip: AppLocalizations.of(context)!.viewDetails,
           onTap: () => _showCallDetailsDialog(context),
         ),
         const SizedBox(width: 6),
         _buildActionButton(
+          context: context,
           icon: Icons.label_outline_rounded,
-          color: EliteDopamineTheme.softLilac,
+          color: theme.colorScheme.tertiary,
           tooltip: AppLocalizations.of(context)!.addLabel,
           onTap: () async {
             final updated = await PhoneMetaEditDialog.show(context, log: log);
@@ -298,8 +271,9 @@ class CallLogCard extends ConsumerWidget {
         ),
         const SizedBox(width: 6),
         _buildActionButton(
+          context: context,
           icon: log.callType == LocalCallType.blocked ? Icons.lock_open_rounded : Icons.phone_outlined,
-          color: log.callType == LocalCallType.blocked ? EliteDopamineTheme.freshMint : EliteDopamineTheme.sunsetTangerine,
+          color: log.callType == LocalCallType.blocked ? theme.colorScheme.secondary : theme.colorScheme.primary,
           tooltip: log.callType == LocalCallType.blocked
               ? AppLocalizations.of(context)!.unblock
               : AppLocalizations.of(context)!.call,
@@ -307,8 +281,9 @@ class CallLogCard extends ConsumerWidget {
         ),
         const SizedBox(width: 6),
         _buildActionButton(
+          context: context,
           icon: Icons.rule_folder_outlined,
-          color: EliteDopamineTheme.warmSunAmber,
+          color: theme.colorScheme.primary,
           tooltip: AppLocalizations.of(context)!.addRule,
           onTap: () => _showRuleActionDialog(context),
         ),
@@ -317,12 +292,13 @@ class CallLogCard extends ConsumerWidget {
   }
 
   Widget _buildActionButton({
+    required BuildContext context,
     required IconData icon,
     required String tooltip,
     required VoidCallback onTap,
     Color? color,
   }) {
-    final activeColor = color ?? Colors.grey[700]!;
+    final activeColor = color ?? Theme.of(context).colorScheme.onSurfaceVariant;
 
     return InkWell(
       onTap: onTap,
@@ -339,70 +315,95 @@ class CallLogCard extends ConsumerWidget {
   }
 
   Widget _buildLabelChip(BuildContext context, WidgetRef ref, String labelText) {
+    final theme = Theme.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
       decoration: BoxDecoration(
-        color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.12),
+        color: theme.colorScheme.error.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.25),
+          color: theme.colorScheme.error.withValues(alpha: 0.25),
         ),
       ),
       child: Text(
         labelText,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 10,
           fontWeight: FontWeight.w700,
-          color: EliteDopamineTheme.vibrantCoral,
+          color: theme.colorScheme.error,
         ),
       ),
     );
   }
 
   Widget _buildRegionChip(BuildContext context, String regionText) {
+    final theme = Theme.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1.5),
       decoration: BoxDecoration(
-        color: const Color(0xFFF0EDE6),
+        color: theme.colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(6),
       ),
       child: Text(
         regionText,
         style: TextStyle(
           fontSize: 9.5,
-          fontWeight: FontWeight.w500,
-          color: Colors.grey[700],
+          fontWeight: FontWeight.w700,
+          color: theme.colorScheme.onSurfaceVariant,
         ),
       ),
     );
   }
 
-  Widget _buildSimInfoChip(String simInfo) {
+  Widget _buildSimChip(BuildContext context, String simText) {
+    final theme = Theme.of(context);
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1.5),
       decoration: BoxDecoration(
-        color: const Color(0xFFF7F5F0),
+        color: theme.colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(
-          color: const Color(0xFFEDE8DF),
-        ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(
+          Icon(
             Icons.sim_card_outlined,
             size: 10,
-            color: EliteDopamineTheme.sunsetTangerine,
+            color: theme.colorScheme.onSurfaceVariant,
           ),
-          const SizedBox(width: 2),
+          const SizedBox(width: 3),
           Text(
-            simInfo,
+            simText,
             style: TextStyle(
-              fontSize: 9,
-              fontWeight: FontWeight.w800,
-              color: Colors.grey[700],
+              fontSize: 9.5,
+              fontWeight: FontWeight.w700,
+              color: theme.colorScheme.onSurfaceVariant,
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showCallDetailsDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(AppLocalizations.of(context)!.callDetails),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('${AppLocalizations.of(context)!.phoneNumber}: ${log.phoneNumber}'),
+            Text('${AppLocalizations.of(context)!.time}: ${DateFormat('yyyy-MM-dd HH:mm:ss').format(log.timestamp)}'),
+            Text('${AppLocalizations.of(context)!.callType}: ${_getCallTypeInfo(context, log.callType).text}'),
+            if (log.location.isNotEmpty) Text('${AppLocalizations.of(context)!.location}: ${log.location}'),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(AppLocalizations.of(context)!.closeButton),
           ),
         ],
       ),
@@ -410,113 +411,30 @@ class CallLogCard extends ConsumerWidget {
   }
 
   void _showRuleActionDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => RuleActionDialog(log: log),
-    );
-  }
-
-  void _showCallDetailsDialog(BuildContext context) {
-    final dateFormat = DateFormat('yyyy-MM-dd HH:mm:ss');
-    final formattedTime = dateFormat.format(log.timestamp);
-    final primaryLabelId = log.labelIds?.firstOrNull;
-    final rawLabelText = primaryLabelId != null ? labelIdToTextMap[primaryLabelId] : null;
-    final translatedLabelText = rawLabelText != null ? LabelTranslationUtils.translateLabelText(context, rawLabelText) : '-';
-    final callTypeInfo = _getCallTypeInfo(context, log.callType);
-
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        title: Row(
-          children: [
-            Icon(Icons.info_outline_rounded, color: EliteDopamineTheme.sunsetTangerine, size: 22),
-            const SizedBox(width: 8),
-            Text(
-              AppLocalizations.of(context)!.callDetails,
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-            ),
-          ],
-        ),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildDetailRow(AppLocalizations.of(context)!.phoneNumber, log.phoneNumber),
-            if (log.name != null) _buildDetailRow(AppLocalizations.of(context)!.name, log.name!),
-            _buildDetailRow(AppLocalizations.of(context)!.callType, callTypeInfo.text),
-            _buildDetailRow(AppLocalizations.of(context)!.callTime, formattedTime),
-            _buildDetailRow(AppLocalizations.of(context)!.label, translatedLabelText),
-            if (region != null && region!.isNotEmpty)
-              _buildDetailRow(AppLocalizations.of(context)!.region, region!),
-            if (log.carrierName.isNotEmpty)
-              _buildDetailRow(AppLocalizations.of(context)!.carrier, log.carrierName),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Text(
-              AppLocalizations.of(context)!.confirm,
-              style: const TextStyle(fontWeight: FontWeight.bold, color: EliteDopamineTheme.sunsetTangerine),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildDetailRow(String label, String value) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 80,
-            child: Text(
-              '$label:',
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 12,
-                color: Colors.grey[600],
-              ),
-            ),
-          ),
-          Expanded(
-            child: Text(
-              value,
-              style: const TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 12.5,
-                color: Colors.black87,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+    RuleActionDialog.show(context, log: log);
   }
 
   _CallTypeInfo _getCallTypeInfo(BuildContext context, LocalCallType type) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+
     switch (type) {
       case LocalCallType.blocked:
-        return _CallTypeInfo(icon: Icons.block_rounded, color: EliteDopamineTheme.vibrantCoral, text: l10n.callTypeBlocked);
+        return _CallTypeInfo(icon: Icons.block_rounded, color: theme.colorScheme.error, text: l10n.callTypeBlocked);
       case LocalCallType.incoming:
-        return _CallTypeInfo(icon: Icons.call_received_rounded, color: EliteDopamineTheme.freshMint, text: l10n.callTypeAnswered);
+        return _CallTypeInfo(icon: Icons.call_received_rounded, color: theme.colorScheme.secondary, text: l10n.callTypeAnswered);
       case LocalCallType.outgoing:
-        return _CallTypeInfo(icon: Icons.call_made_rounded, color: EliteDopamineTheme.skyAzure, text: l10n.callTypeOutgoing);
+        return _CallTypeInfo(icon: Icons.call_made_rounded, color: theme.colorScheme.tertiary, text: l10n.callTypeOutgoing);
       case LocalCallType.missed:
-        return _CallTypeInfo(icon: Icons.call_missed_rounded, color: EliteDopamineTheme.sunsetTangerine, text: l10n.callTypeMissed);
+        return _CallTypeInfo(icon: Icons.call_missed_rounded, color: theme.colorScheme.primary, text: l10n.callTypeMissed);
       case LocalCallType.rejected:
-        return _CallTypeInfo(icon: Icons.call_end_rounded, color: Colors.grey, text: l10n.callTypeRejected);
+        return _CallTypeInfo(icon: Icons.call_end_rounded, color: theme.colorScheme.onSurfaceVariant, text: l10n.callTypeRejected);
       case LocalCallType.silenced:
-        return _CallTypeInfo(icon: Icons.notifications_off_rounded, color: EliteDopamineTheme.warmSunAmber, text: l10n.callTypeSilenced);
+        return _CallTypeInfo(icon: Icons.notifications_off_rounded, color: theme.colorScheme.primary, text: l10n.callTypeSilenced);
       case LocalCallType.voicemail:
-        return _CallTypeInfo(icon: Icons.voicemail, color: Colors.purple, text: 'Voicemail');
+        return _CallTypeInfo(icon: Icons.voicemail, color: theme.colorScheme.tertiary, text: 'Voicemail');
       default:
-        return _CallTypeInfo(icon: Icons.phone_rounded, color: Colors.grey, text: l10n.callTypeUnknown);
+        return _CallTypeInfo(icon: Icons.phone_rounded, color: theme.colorScheme.onSurfaceVariant, text: l10n.callTypeUnknown);
     }
   }
 }

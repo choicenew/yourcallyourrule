@@ -16,7 +16,6 @@ import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primar
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primary_filter/primary_filter_info_banner.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primary_filter/primary_filter_master_section.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primary_filter/primary_filter_sim_bar.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ------------------- ElitePrimaryFilterCard 模块协调主卡片 -------------------
@@ -29,10 +28,10 @@ class ElitePrimaryFilterCard extends ConsumerStatefulWidget {
 }
 
 class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard> {
-  int _selectedDefenseIndex = 0; // 当前选中的策略卡片索引
-  bool _separateSims = false; // 右上角分卡槽控制开关 (Separate SIMs)
-  int _selectedSimSlot = 0; // 当前选中的 SIM 卡槽（0 为 SIM 1，1 为 SIM 2）
-  bool _showAdvancedSettings = false; // 底部 Filter Management 展开状态
+  int _selectedDefenseIndex = 0;
+  bool _separateSims = false;
+  int _selectedSimSlot = 0;
+  bool _showAdvancedSettings = false;
 
   void _navigateToFilterSettings() {
     context.pushNamed(AppRouter.filterSettings);
@@ -48,10 +47,10 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
     final callConfig = ref.watch(callFilterConfigProvider.select((v) => v.value));
     final callNotifier = ref.read(callFilterConfigProvider.notifier);
 
-    // 5 个常用防御策略项 (Daily Defense Options)
     final dailyDefenseOptions = [
       DefenseStrategyItem(
         index: 0,
@@ -59,7 +58,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         subtitle: l10n.allowAllowedNumbersDesc,
         detailedDesc: l10n.allowAllowedNumbersDesc,
         icon: Icons.shield_rounded,
-        activeColor: EliteDopamineTheme.freshMint,
+        activeColor: theme.colorScheme.secondary,
         isEnabled: callConfig?.allowAllAllowedNumbers ?? true,
         onToggle: (val) {
           if (callConfig != null) {
@@ -73,7 +72,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         subtitle: l10n.allowRegexBlockRulesDesc,
         detailedDesc: l10n.allowRegexBlockRulesDesc,
         icon: Icons.gpp_bad_rounded,
-        activeColor: EliteDopamineTheme.vibrantCoral,
+        activeColor: theme.colorScheme.error,
         isEnabled: callConfig?.allowRegexBlockRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
@@ -87,7 +86,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         subtitle: l10n.enableMuteRulesDesc,
         detailedDesc: l10n.enableMuteRulesDesc,
         icon: Icons.notifications_paused_rounded,
-        activeColor: const Color(0xFF8B5CF6),
+        activeColor: theme.colorScheme.tertiary,
         isEnabled: callConfig?.allowSilenceRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
@@ -101,7 +100,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         subtitle: l10n.enableNoneActionRulesDesc,
         detailedDesc: l10n.enableNoneActionRulesDesc,
         icon: Icons.visibility_rounded,
-        activeColor: EliteDopamineTheme.sunsetTangerine,
+        activeColor: theme.colorScheme.primary,
         isEnabled: callConfig?.allowNoneRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
@@ -115,7 +114,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         subtitle: l10n.rejectAllNumbersDesc,
         detailedDesc: l10n.rejectAllNumbersDesc,
         icon: Icons.remove_circle_rounded,
-        activeColor: const Color(0xFFE11D48),
+        activeColor: theme.colorScheme.error,
         isEnabled: callConfig?.rejectAllNumbers ?? false,
         onToggle: (val) {
           if (callConfig != null) {
@@ -125,7 +124,6 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
       ),
     ];
 
-    // 4 个总控特例项 (Master & Overrides Options)
     final masterOverrideOptions = [
       DefenseStrategyItem(
         index: 5,
@@ -133,7 +131,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         subtitle: l10n.allowAllAllowRulesDesc,
         detailedDesc: l10n.allowAllAllowRulesDesc,
         icon: Icons.settings_rounded,
-        activeColor: EliteDopamineTheme.amberIcon,
+        activeColor: theme.colorScheme.primary,
         isEnabled: callConfig?.allowAllAllowRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
@@ -147,7 +145,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         subtitle: l10n.allowAllBlockRulesDesc,
         detailedDesc: l10n.allowAllBlockRulesDesc,
         icon: Icons.settings_suggest_rounded,
-        activeColor: EliteDopamineTheme.redIcon,
+        activeColor: theme.colorScheme.error,
         isEnabled: callConfig?.allowAllBlockRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
@@ -161,7 +159,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         subtitle: l10n.allowBlockedNumbersDesc,
         detailedDesc: l10n.allowBlockedNumbersDesc,
         icon: Icons.warning_amber_rounded,
-        activeColor: const Color(0xFFEAB308),
+        activeColor: theme.colorScheme.primary,
         isEnabled: callConfig?.allowBlockedNumbers ?? false,
         onToggle: (val) {
           if (callConfig != null) {
@@ -175,7 +173,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         subtitle: l10n.allowRegexAllowRulesDesc,
         detailedDesc: l10n.allowRegexAllowRulesDesc,
         icon: Icons.code_rounded,
-        activeColor: EliteDopamineTheme.skyAzure,
+        activeColor: theme.colorScheme.secondary,
         isEnabled: callConfig?.allowRegexAllowRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
@@ -193,12 +191,25 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
-      decoration: EliteDopamineTheme.cleanCardDecoration(),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surface,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(
+          color: theme.colorScheme.outlineVariant,
+          width: 1.0,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 16,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 头部：标题与 Separate SIMs 开关
           PrimaryFilterHeaderTile(
             l10n: l10n,
             separateSims: _separateSims,
@@ -212,7 +223,6 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
 
           const SizedBox(height: 12),
 
-          // 分卡槽切换卡（受 Separate SIMs 开关控制）
           if (_separateSims) ...[
             PrimaryFilterSimSlotBar(
               l10n: l10n,
@@ -226,7 +236,6 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
             const SizedBox(height: 14),
           ],
 
-          // 第一层级：5 个常用策略大卡片 (Daily Defense Grid)
           PrimaryFilterDailyGrid(
             dailyOptions: dailyDefenseOptions,
             selectedIndex: _selectedDefenseIndex,
@@ -239,7 +248,6 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
 
           const SizedBox(height: 12),
 
-          // 选中的策略详情提示条 ((i) Info Banner)
           PrimaryFilterInfoBanner(
             currentOption: currentOption,
             l10n: l10n,
@@ -248,7 +256,6 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
 
           const SizedBox(height: 16),
 
-          // 第二层级：4 个总控与特例胶囊网格 (Master & Overrides)
           PrimaryFilterMasterOverridesSection(
             masterOptions: masterOverrideOptions,
             selectedIndex: _selectedDefenseIndex,
@@ -262,7 +269,6 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
 
           const SizedBox(height: 12),
 
-          // 底部折叠：Filter Management 展开入口按钮
           InkWell(
             onTap: () {
               setState(() {
@@ -274,8 +280,8 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
               padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
               decoration: BoxDecoration(
                 color: _showAdvancedSettings
-                    ? EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.1)
-                    : EliteDopamineTheme.slateSubtle,
+                    ? theme.colorScheme.primary.withValues(alpha: 0.1)
+                    : theme.colorScheme.surfaceContainerHighest,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
@@ -284,7 +290,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                   Icon(
                     _showAdvancedSettings ? Icons.tune_rounded : Icons.tune_outlined,
                     size: 14,
-                    color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : EliteDopamineTheme.textBody,
+                    color: _showAdvancedSettings ? theme.colorScheme.primary : theme.colorScheme.onSurfaceVariant,
                   ),
                   const SizedBox(width: 5),
                   Text(
@@ -292,21 +298,20 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
                     style: TextStyle(
                       fontSize: 11,
                       fontWeight: FontWeight.w800,
-                      color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : EliteDopamineTheme.textPrimary,
+                      color: _showAdvancedSettings ? theme.colorScheme.primary : theme.colorScheme.onSurface,
                     ),
                   ),
                   const SizedBox(width: 4),
                   Icon(
                     _showAdvancedSettings ? Icons.keyboard_arrow_up_rounded : Icons.keyboard_arrow_down_rounded,
                     size: 16,
-                    color: _showAdvancedSettings ? EliteDopamineTheme.sunsetTangerine : EliteDopamineTheme.textBody,
+                    color: _showAdvancedSettings ? theme.colorScheme.primary : theme.colorScheme.onSurfaceVariant,
                   ),
                 ],
               ),
             ),
           ),
 
-          // 独立导出的高级拦截管理组件
           if (_showAdvancedSettings) ...[
             const SizedBox(height: 12),
             PrimaryFilterAdvancedSection(
@@ -329,7 +334,6 @@ Widget previewElitePrimaryFilterCard() {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: Scaffold(
-        backgroundColor: EliteDopamineTheme.warmCanvasBackground,
         body: SafeArea(
           child: SingleChildScrollView(
             child: ElitePrimaryFilterCard(),

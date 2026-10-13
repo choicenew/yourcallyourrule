@@ -141,43 +141,24 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(appRouterProvider);
 
-    // 2. Watch the new provider to get the current theme mode
+    // 监听全局主题模式与种子色彩
     final themeMode = ref.watch(themeModeProvider);
+    final themeColor = ref.watch(themeColorProvider);
 
-    // 1. 监听 localeProvider 的状态
-    // 直接 watch provider 并获取其 .value
-    // .value 在有数据时返回 Locale，在加载或错误时返回 null
-    // 这正是 MaterialApp 的 locale 属性所期望的 (Locale?)
     final locale = ref.watch(localeProvider).value;
 
     return MaterialApp.router(
       title: 'Your Call Your Rule',
-      /*
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-        primaryColor: const Color(0xFFFF9800),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      */
 
-      // 2. 设置亮色主题
-      theme: AppTheme.lightTheme,
+      // 1. 全局亮色与暗色主题接管
+      theme: AppTheme.buildLightTheme(seedColor: themeColor),
+      darkTheme: AppTheme.buildDarkTheme(seedColor: themeColor),
 
-      // 3. 设置暗色主题
-      darkTheme: AppTheme.darkTheme,
-
-      // 4. 设置主题模式为“跟随系统”，实现自适应
-      // ThemeMode.system: 跟随操作系统设置（亮/暗）
-      // ThemeMode.light: 始终使用亮色主题
-      // ThemeMode.dark:  始终使用暗色主题
-      //Set the themeMode from our provider!
-      // This will now automatically rebuild the app with the new theme
-      // whenever the user makes a change.
+      // 2. 绑定全局主题模式 (Light / Dark / Follow System)
       themeMode: themeMode,
 
       routerConfig: appRouter.router,
 
-      // 直接将获取到的 locale 或 null 赋值
       locale: locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

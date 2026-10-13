@@ -15,9 +15,6 @@ class GenericRulePage<T extends BaseEntity, S> extends ConsumerStatefulWidget {
   /// 页面标题
   final String title;
   
-  /// 主题颜色
-  final Color themeColor;
-  
   /// 空状态文本
   final String emptyText;
   
@@ -67,7 +64,6 @@ class GenericRulePage<T extends BaseEntity, S> extends ConsumerStatefulWidget {
     super.key,
     required this.serviceProvider,
     required this.title,
-    this.themeColor = const Color(0xFFF5A623),
     required this.emptyText,
     required this.emptyIcon,
     required this.addButtonText,
@@ -319,7 +315,6 @@ class _GenericRulePageState<T extends BaseEntity, S> extends ConsumerState<Gener
       emptyIcon: widget.emptyIcon,
       emptyText: widget.emptyText,
       addButtonText: widget.addButtonText,
-      themeColor: widget.themeColor,
       useLabelFilter: widget.useLabelFilter,
       selectedLabelId: _selectedLabelId,
       onShowLabelFilter: widget.useLabelFilter ? _showLabelFilterDialog : null,

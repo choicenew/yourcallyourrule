@@ -13,26 +13,26 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 class AllowedBlockedRuleEditDialog extends ConsumerStatefulWidget {
   final AllowedBlockedRule rule;
   final Function? onRuleUpdated;
-  final Color themeColor;
 
   const AllowedBlockedRuleEditDialog({
     super.key,
     required this.rule,
     this.onRuleUpdated,
-    this.themeColor = const Color(0xFFF5A623),
   });
 
   @override
   ConsumerState<AllowedBlockedRuleEditDialog> createState() => _AllowedBlockedRuleEditDialogState();
   /// 显示允许/阻止规则编辑对话框的静态方法
   /// Static method to show the Allowed/Blocked Rule Edit Dialog
-  static void show(BuildContext context, AllowedBlockedRule rule, {Function? onRuleUpdated, Color themeColor = const Color(0xFFF5A623)}) {
+  static void show(BuildContext context, AllowedBlockedRule rule, {Function? onRuleUpdated}) {
     showDialog(
       context: context,
       builder: (context) => AllowedBlockedRuleEditDialog(
         rule: rule,
         onRuleUpdated: onRuleUpdated,
-        themeColor: themeColor,
+      ),
+    );
+  }
       ),
     );
   }
@@ -158,7 +158,6 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
                 _selectedLabelId = labelId;
               });
             },
-            themeColor: widget.themeColor,
           ),
           const SizedBox(height: 16),
           RuleActionSelector(

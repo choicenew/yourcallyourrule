@@ -1,5 +1,6 @@
 // VIP兑换服务类，用于处理VIP兑换的业务逻辑
 
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -23,6 +24,23 @@ class VipExchangeService {
   final PurchaseState _purchaseState;
   final LabelMarkStatisticsRepository _statisticsRepository;
 
+  // 生成规则描述助手方法
+  String _ruleDescription(BuildContext context, int days, bool hasAds) {
+    final l10n = AppLocalizations.of(context)!;
+    if (hasAds) {
+      if (days == 3) return l10n.vip3DaysWithAds;
+      return '${l10n.daysVip(days)}（${l10n.supportSync}）';
+    } else {
+      if (days == 5) return l10n.vip5DaysNoAds;
+      if (days == 7) return l10n.vip7DaysNoAds;
+      final locale = Localizations.localeOf(context).languageCode;
+      if (locale == 'zh') {
+        return '$days 天全功能无广告 VIP';
+      }
+      return '$days-day full-featured ad-free VIP';
+    }
+  }
+
   // 兑换规则
   // 为了在静态列表中使用国际化，我们将其改为一个getter，这样可以在调用时获取上下文。
   // 这完全遵循了您在`MembershipFeatureService`中展示的模式。
@@ -30,25 +48,39 @@ class VipExchangeService {
     final context = AppRouter.navigatorKey.currentContext!;
     return [
       VipExchangeRule(
-        requiredMarks: 10,
+        requiredMarks: 1,
         days: 3,
         hasAds: true,
         hasSync: true,
         description: AppLocalizations.of(context)!.vip3DaysWithAds,
       ),
       VipExchangeRule(
-        requiredMarks: 30,
-        days: 5,
+        requiredMarks: 2,
+        days: 3,
         hasAds: false,
         hasSync: true,
-        description: AppLocalizations.of(context)!.vip5DaysNoAds,
+        description: _ruleDescription(context, 3, false),
       ),
       VipExchangeRule(
-        requiredMarks: 40,
+        requiredMarks: 5,
         days: 7,
         hasAds: false,
         hasSync: true,
         description: AppLocalizations.of(context)!.vip7DaysNoAds,
+      ),
+      VipExchangeRule(
+        requiredMarks: 10,
+        days: 15,
+        hasAds: false,
+        hasSync: true,
+        description: _ruleDescription(context, 15, false),
+      ),
+      VipExchangeRule(
+        requiredMarks: 20,
+        days: 30,
+        hasAds: false,
+        hasSync: true,
+        description: _ruleDescription(context, 30, false),
       ),
     ];
   }

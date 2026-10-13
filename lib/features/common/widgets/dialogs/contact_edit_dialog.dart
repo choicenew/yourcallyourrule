@@ -18,13 +18,11 @@ import 'package:yourcallyourrule/features/common/widgets/partials/avatar_crop_vi
 class ContactEditDialog extends ConsumerStatefulWidget {
   final Contact? contact; // 可为null，表示添加新联系人
   final Function? onContactUpdated;
-  final Color themeColor;
 
   const ContactEditDialog({
     super.key,
     this.contact,
     this.onContactUpdated,
-    this.themeColor = Colors.blue,
   });
 
   @override
@@ -35,7 +33,6 @@ class ContactEditDialog extends ConsumerStatefulWidget {
     BuildContext context, {
     Contact? contact,
     Function? onContactUpdated,
-    Color themeColor = Colors.blue,
   }) {
     showDialog(
       context: context,
@@ -43,7 +40,6 @@ class ContactEditDialog extends ConsumerStatefulWidget {
           (context) => ContactEditDialog(
             contact: contact,
             onContactUpdated: onContactUpdated,
-            themeColor: themeColor,
           ),
     );
   }
@@ -435,7 +431,6 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                           });
                         }
                       },
-                      themeColor: widget.themeColor,
                     ),
                   ],
           ),
@@ -454,7 +449,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
               ElevatedButton(
                 onPressed: _isProcessing ? null : _saveContact,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: widget.themeColor,
+                  backgroundColor: Theme.of(context).colorScheme.primary,
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),

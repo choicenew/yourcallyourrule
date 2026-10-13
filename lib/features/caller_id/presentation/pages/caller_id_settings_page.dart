@@ -6,30 +6,30 @@ import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/features/caller_id/presentation/widgets/caller_id_display_mode_selector.dart';
 import 'package:yourcallyourrule/features/caller_id/presentation/widgets/notification_settings_widget.dart';
-
 import 'package:yourcallyourrule/features/permissions/widgets/overlay_permission_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 来电显示设置页面
-/// 整合来电显示相关的所有设置
 class CallerIdSettingsPage extends ConsumerWidget {
   const CallerIdSettingsPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
+
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFBF5),
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           AppLocalizations.of(context)!.callerIdSettingsTitle,
-          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: theme.colorScheme.onSurface),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         scrolledUnderElevation: 0,
-        foregroundColor: Colors.black87,
+        foregroundColor: theme.colorScheme.onSurface,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          icon: Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: theme.colorScheme.onSurface),
           onPressed: () => context.pop(),
         ),
       ),

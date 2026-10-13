@@ -14,7 +14,6 @@ import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart
 import 'package:yourcallyourrule/features/caller_id/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/professional_shield_radar.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ------------------- Widget 定义 -------------------
@@ -28,22 +27,22 @@ class EliteHeroShieldCard extends ConsumerStatefulWidget {
 
 class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _pulseController;
-  late final Animation<double> _pulseAnimation;
-  final TextEditingController _searchController = TextEditingController();
-  
-  bool _isRefreshing = false;
+  late AnimationController _pulseController;
+  late Animation<double> _pulseAnimation;
   DateTime? _lastUpdatedTime;
+  bool _isRefreshing = false;
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
+    _lastUpdatedTime = DateTime.now();
     _pulseController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
     )..repeat(reverse: true);
 
-    _pulseAnimation = Tween<double>(begin: 0.96, end: 1.04).animate(
+    _pulseAnimation = Tween<double>(begin: 0.98, end: 1.02).animate(
       CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut),
     );
   }
@@ -55,14 +54,6 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     super.dispose();
   }
 
-  void _handleSearchSubmit(String query) {
-    final trimmed = query.trim();
-    context.pushNamed(
-      AppRouter.verificationPage,
-      extra: trimmed.isNotEmpty ? trimmed : null,
-    );
-  }
-
   Future<void> _handleRefresh() async {
     if (_isRefreshing) return;
     setState(() {
@@ -71,21 +62,26 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
 
     try {
       final autoUpdateService = ref.read(autoUpdateServiceProvider);
-      await autoUpdateService.updateAll();
-      ref.invalidate(homeStatsProvider);
-      if (mounted) {
-        setState(() {
-          _lastUpdatedTime = DateTime.now();
-        });
-      }
+      await autoUpdateService.checkAndUpdateAll(context);
     } catch (e) {
-      debugPrint('Error updating all subscriptions: $e');
+      debugPrint('一键更新规则失败: $e');
     } finally {
       if (mounted) {
         setState(() {
           _isRefreshing = false;
+          _lastUpdatedTime = DateTime.now();
         });
       }
+    }
+  }
+
+  void _handleSearchSubmit(String value) {
+    final query = value.trim();
+    if (query.isNotEmpty) {
+      context.pushNamed(
+        AppRouter.callHistory,
+        queryParameters: {'query': query},
+      );
     }
   }
 
@@ -93,11 +89,11 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     final l10n = AppLocalizations.of(context)!;
     switch (action) {
       case InterceptAction.endCall:
-        return l10n.endCallImmediately;
+        return l10n.endCallAction;
       case InterceptAction.answerThenHangup:
-        return l10n.answerThenHangup;
+        return l10n.answerThenHangupAction;
       case InterceptAction.silenceNoAnswer:
-        return l10n.silenceAndNoAnswer;
+        return l10n.silenceAction;
     }
   }
 
@@ -105,7 +101,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     final l10n = AppLocalizations.of(context)!;
     switch (action) {
       case InterceptAction.endCall:
-        return l10n.blockActionDescription;
+        return l10n.endCallDescription;
       case InterceptAction.answerThenHangup:
         return l10n.answerThenHangupDescription;
       case InterceptAction.silenceNoAnswer:
@@ -113,14 +109,15 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     }
   }
 
-  Color _getActionColor(InterceptAction action) {
+  Color _getActionColor(BuildContext context, InterceptAction action) {
+    final theme = Theme.of(context);
     switch (action) {
       case InterceptAction.endCall:
-        return EliteDopamineTheme.vibrantCoral;
+        return theme.colorScheme.error;
       case InterceptAction.answerThenHangup:
-        return EliteDopamineTheme.sunsetTangerine;
+        return theme.colorScheme.primary;
       case InterceptAction.silenceNoAnswer:
-        return EliteDopamineTheme.skyAzure;
+        return theme.colorScheme.secondary;
     }
   }
 
@@ -140,13 +137,28 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     final asyncStats = ref.watch(homeStatsProvider);
     final currentAction = ref.watch(interceptActionConfigProvider);
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
 
     final blockedToday = asyncStats.value?.todayBlocked ?? 0;
     final totalRules = asyncStats.value?.totalRules ?? 0;
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
-      decoration: EliteDopamineTheme.cleanCardDecoration(),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surface,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(
+          color: theme.colorScheme.outlineVariant,
+          width: 1.0,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 16,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(24),
         child: Padding(
@@ -154,52 +166,47 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // 顶部：能量盾 + 国际化标题 + 真实数据库规则统计
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // 动态脉冲雷达盾牌（独立小组件）包裹 ScaleTransition 实现微弱呼吸感
                   ScaleTransition(
                     scale: _pulseAnimation,
                     child: const ProfessionalShieldRadar(),
                   ),
                   const SizedBox(width: 14),
-                  // 右侧动态信息栏
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           l10n.smartCallerId,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w900,
-                            color: EliteDopamineTheme.textPrimary,
+                            color: theme.colorScheme.onSurface,
                           ),
                         ),
                         const SizedBox(height: 2),
                         Text(
                           l10n.callFilterRulesDescription,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 11,
-                            color: EliteDopamineTheme.textSecondary,
+                            color: theme.colorScheme.onSurfaceVariant,
                           ),
                         ),
                         const SizedBox(height: 10),
-                        // 动态数据指标 (Blocked与Rules并排展开，拥有100%横向空间)
                         Row(
                           children: [
-                            // 今日拦截数
                             Container(
                               padding: const EdgeInsets.all(5),
                               decoration: BoxDecoration(
-                                color: EliteDopamineTheme.redBadgeBg,
+                                color: theme.colorScheme.errorContainer.withValues(alpha: 0.3),
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.block_rounded,
                                 size: 14,
-                                color: EliteDopamineTheme.redIcon,
+                                color: theme.colorScheme.error,
                               ),
                             ),
                             const SizedBox(width: 6),
@@ -208,36 +215,35 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                               children: [
                                 Text(
                                   NumberFormat.decimalPattern().format(blockedToday),
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w900,
-                                    color: EliteDopamineTheme.textPrimary,
+                                    color: theme.colorScheme.onSurface,
                                     height: 1.0,
                                   ),
                                 ),
                                 Text(
                                   l10n.blockedCalls,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 9.5,
                                     fontWeight: FontWeight.w600,
-                                    color: EliteDopamineTheme.textSecondary,
+                                    color: theme.colorScheme.onSurfaceVariant,
                                     height: 1.1,
                                   ),
                                 ),
                               ],
                             ),
                             const SizedBox(width: 14),
-                            // 真实规则总数
                             Container(
                               padding: const EdgeInsets.all(5),
                               decoration: BoxDecoration(
-                                color: EliteDopamineTheme.amberBadgeBg,
+                                color: theme.colorScheme.primaryContainer.withValues(alpha: 0.3),
                                 borderRadius: BorderRadius.circular(8),
                               ),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.inventory_2_rounded,
                                 size: 14,
-                                color: EliteDopamineTheme.amberIcon,
+                                color: theme.colorScheme.primary,
                               ),
                             ),
                             const SizedBox(width: 6),
@@ -247,10 +253,10 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                 children: [
                                   Text(
                                     NumberFormat.decimalPattern().format(totalRules),
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w900,
-                                      color: EliteDopamineTheme.textPrimary,
+                                      color: theme.colorScheme.onSurface,
                                       height: 1.0,
                                     ),
                                   ),
@@ -258,10 +264,10 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                     l10n.phoneRuleManagement,
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 9.5,
                                       fontWeight: FontWeight.w600,
-                                      color: EliteDopamineTheme.textSecondary,
+                                      color: theme.colorScheme.onSurfaceVariant,
                                       height: 1.1,
                                     ),
                                   ),
@@ -271,41 +277,39 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                           ],
                         ),
                         const SizedBox(height: 8),
-                        // 国际化最后更新时间标记 + 右侧紧跟融入刷新按钮
                         Row(
                           children: [
                             Container(
                               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                               decoration: BoxDecoration(
-                                color: EliteDopamineTheme.slateSubtle,
+                                color: theme.colorScheme.surfaceContainerHighest,
                                 borderRadius: BorderRadius.circular(10),
                                 border: Border.all(
-                                  color: EliteDopamineTheme.slateBorder,
+                                  color: theme.colorScheme.outlineVariant,
                                   width: 1,
                                 ),
                               ),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  const Icon(
+                                  Icon(
                                     Icons.schedule_rounded,
                                     size: 11,
-                                    color: EliteDopamineTheme.textSecondary,
+                                    color: theme.colorScheme.onSurfaceVariant,
                                   ),
                                   const SizedBox(width: 4),
                                   Text(
                                     l10n.lastUpdated(DateFormat.Hm().format(_lastUpdatedTime ?? DateTime.now())),
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 9.5,
                                       fontWeight: FontWeight.w600,
-                                      color: EliteDopamineTheme.textBody,
+                                      color: theme.colorScheme.onSurface,
                                     ),
                                   ),
                                 ],
                               ),
                             ),
                             const SizedBox(width: 6),
-                            // 刷新按钮下移并融入该行
                             Tooltip(
                               message: l10n.updateAllNow,
                               child: InkWell(
@@ -314,28 +318,28 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                 child: Container(
                                   padding: const EdgeInsets.all(5),
                                   decoration: BoxDecoration(
-                                    color: EliteDopamineTheme.slateSubtle,
+                                    color: theme.colorScheme.surfaceContainerHighest,
                                     shape: BoxShape.circle,
                                     border: Border.all(
-                                      color: EliteDopamineTheme.slateBorder,
+                                      color: theme.colorScheme.outlineVariant,
                                       width: 1,
                                     ),
                                   ),
                                   child: _isRefreshing
-                                      ? const SizedBox(
+                                      ? SizedBox(
                                           width: 13,
                                           height: 13,
                                           child: CircularProgressIndicator(
                                             strokeWidth: 2,
                                             valueColor: AlwaysStoppedAnimation<Color>(
-                                              EliteDopamineTheme.sunsetTangerine,
+                                              theme.colorScheme.primary,
                                             ),
                                           ),
                                         )
-                                      : const Icon(
+                                      : Icon(
                                           Icons.refresh_rounded,
                                           size: 13,
-                                          color: EliteDopamineTheme.textSecondary,
+                                          color: theme.colorScheme.onSurfaceVariant,
                                         ),
                                 ),
                               ),
@@ -348,11 +352,17 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                 ],
               ),
 
-              // 拦截动作快捷控制台：使用规范主题与 Slate 面板 Token
               Container(
                 margin: const EdgeInsets.only(top: 14),
                 padding: const EdgeInsets.all(12),
-                decoration: EliteDopamineTheme.insetConsoleDecoration(),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.surfaceContainerHighest,
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(
+                    color: theme.colorScheme.outlineVariant,
+                    width: 1.0,
+                  ),
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -361,10 +371,10 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                       children: [
                         Text(
                           l10n.interceptionActionSettingsTitle,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w800,
-                            color: EliteDopamineTheme.textPrimary,
+                            color: theme.colorScheme.onSurface,
                           ),
                         ),
                         Text(
@@ -372,17 +382,16 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                           style: TextStyle(
                             fontSize: 11,
                             fontWeight: FontWeight.w900,
-                            color: _getActionColor(currentAction),
+                            color: _getActionColor(context, currentAction),
                           ),
                         ),
                       ],
                     ),
                     const SizedBox(height: 10),
-                    // 3 块并排选择器
                     Row(
                       children: InterceptAction.values.map((action) {
                         final isSelected = action == currentAction;
-                        final color = _getActionColor(action);
+                        final color = _getActionColor(context, action);
                         return Expanded(
                           child: GestureDetector(
                             onTap: () => ref
@@ -393,10 +402,10 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                               margin: const EdgeInsets.symmetric(horizontal: 3),
                               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
                               decoration: BoxDecoration(
-                                color: isSelected ? EliteDopamineTheme.cardSurface : EliteDopamineTheme.slateSubtle,
+                                color: isSelected ? theme.colorScheme.surface : theme.colorScheme.surfaceContainerHighest,
                                 borderRadius: BorderRadius.circular(14),
                                 border: Border.all(
-                                  color: isSelected ? color : EliteDopamineTheme.slateMediumBorder,
+                                  color: isSelected ? color : theme.colorScheme.outlineVariant,
                                   width: isSelected ? 1.5 : 1,
                                 ),
                                 boxShadow: isSelected
@@ -438,7 +447,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                         Icon(
                                           _getActionIcon(action),
                                           size: 20,
-                                          color: isSelected ? color : EliteDopamineTheme.textSecondary,
+                                          color: isSelected ? color : theme.colorScheme.onSurfaceVariant,
                                         ),
                                         const SizedBox(height: 6),
                                         Text(
@@ -450,7 +459,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                                             fontSize: 11,
                                             height: 1.15,
                                             fontWeight: isSelected ? FontWeight.w900 : FontWeight.w600,
-                                            color: isSelected ? color : EliteDopamineTheme.textBody,
+                                            color: isSelected ? color : theme.colorScheme.onSurface,
                                           ),
                                         ),
                                       ],
@@ -464,15 +473,14 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                       }).toList(),
                     ),
                     const SizedBox(height: 8),
-                    // 底部联动解释条
                     Container(
                       width: double.infinity,
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
                       decoration: BoxDecoration(
-                        color: _getActionColor(currentAction).withValues(alpha: 0.08),
+                        color: _getActionColor(context, currentAction).withValues(alpha: 0.08),
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
-                          color: _getActionColor(currentAction).withValues(alpha: 0.18),
+                          color: _getActionColor(context, currentAction).withValues(alpha: 0.18),
                           width: 1,
                         ),
                       ),
@@ -482,16 +490,16 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                           Icon(
                             Icons.info_outline_rounded,
                             size: 14,
-                            color: _getActionColor(currentAction),
+                            color: _getActionColor(context, currentAction),
                           ),
                           const SizedBox(width: 6),
                           Expanded(
                             child: Text(
                               _getActionDescription(context, currentAction),
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 11,
                                 fontWeight: FontWeight.w600,
-                                color: EliteDopamineTheme.textBody,
+                                color: theme.colorScheme.onSurface,
                                 height: 1.3,
                               ),
                             ),
@@ -505,29 +513,42 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
 
               const SizedBox(height: 14),
 
-              // 底部：极速查号搜索框 (使用 EliteDopamineTheme 主题装饰)
               Container(
                 height: 46,
-                decoration: EliteDopamineTheme.amberSearchBoxDecoration(),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.surface,
+                  borderRadius: BorderRadius.circular(24),
+                  border: Border.all(
+                    color: theme.colorScheme.primary,
+                    width: 1.2,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: theme.colorScheme.primary.withValues(alpha: 0.08),
+                      blurRadius: 8,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
                 child: Row(
                   children: [
                     const SizedBox(width: 12),
-                    const Icon(
+                    Icon(
                       Icons.search_rounded,
                       size: 20,
-                      color: EliteDopamineTheme.amberIcon,
+                      color: theme.colorScheme.primary,
                     ),
                     const SizedBox(width: 8),
                     Expanded(
                       child: TextField(
                         controller: _searchController,
                         keyboardType: TextInputType.phone,
-                        style: const TextStyle(fontSize: 12, color: EliteDopamineTheme.textPrimary),
+                        style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurface),
                         decoration: InputDecoration(
                           hintText: l10n.enterPhoneNumberToStartSearch,
-                          hintStyle: const TextStyle(
+                          hintStyle: TextStyle(
                             fontSize: 12,
-                            color: EliteDopamineTheme.textMuted,
+                            color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6),
                           ),
                           border: InputBorder.none,
                           isDense: true,
@@ -542,9 +563,9 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                         width: 32,
                         height: 32,
                         margin: const EdgeInsets.only(right: 6),
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          gradient: EliteDopamineTheme.orangeActionGradient,
+                          color: theme.colorScheme.primary,
                         ),
                         child: const Icon(
                           Icons.arrow_forward_rounded,
@@ -573,7 +594,6 @@ Widget previewEliteHeroShieldCard() {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: Scaffold(
-        backgroundColor: EliteDopamineTheme.warmCanvasBackground,
         body: SafeArea(
           child: SingleChildScrollView(
             child: EliteHeroShieldCard(),

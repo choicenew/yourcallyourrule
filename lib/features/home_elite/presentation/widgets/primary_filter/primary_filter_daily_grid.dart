@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primary_filter/defense_strategy_item.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 
 /// 第一层级：5 个常用策略大卡片网格 (精细化字号与内外边距，确保长文案完整展示)
 class PrimaryFilterDailyGrid extends StatelessWidget {
@@ -22,27 +21,28 @@ class PrimaryFilterDailyGrid extends StatelessWidget {
       children: [
         Row(
           children: [
-            Expanded(child: _buildCardItem(dailyOptions[0])),
+            Expanded(child: _buildCardItem(context, dailyOptions[0])),
             const SizedBox(width: 6),
-            Expanded(child: _buildCardItem(dailyOptions[1])),
+            Expanded(child: _buildCardItem(context, dailyOptions[1])),
             const SizedBox(width: 6),
-            Expanded(child: _buildCardItem(dailyOptions[2])),
+            Expanded(child: _buildCardItem(context, dailyOptions[2])),
           ],
         ),
         const SizedBox(height: 6),
         Row(
           children: [
-            Expanded(child: _buildCardItem(dailyOptions[3])),
+            Expanded(child: _buildCardItem(context, dailyOptions[3])),
             const SizedBox(width: 6),
-            Expanded(child: _buildCardItem(dailyOptions[4])),
+            Expanded(child: _buildCardItem(context, dailyOptions[4])),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildCardItem(DefenseStrategyItem item) {
+  Widget _buildCardItem(BuildContext context, DefenseStrategyItem item) {
     final isSelected = selectedIndex == item.index;
+    final theme = Theme.of(context);
 
     return GestureDetector(
       onTap: () => onCardSelected(item.index),
@@ -52,10 +52,10 @@ class PrimaryFilterDailyGrid extends StatelessWidget {
         decoration: BoxDecoration(
           color: isSelected
               ? item.activeColor.withValues(alpha: 0.12)
-              : EliteDopamineTheme.slateSurface,
+              : theme.colorScheme.surfaceContainerHighest,
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
-            color: isSelected ? item.activeColor : EliteDopamineTheme.slateBorder,
+            color: isSelected ? item.activeColor : theme.colorScheme.outlineVariant,
             width: isSelected ? 1.6 : 1,
           ),
           boxShadow: isSelected
@@ -108,7 +108,7 @@ class PrimaryFilterDailyGrid extends StatelessWidget {
                 fontSize: 10,
                 height: 1.12,
                 fontWeight: FontWeight.w800,
-                color: isSelected ? EliteDopamineTheme.textPrimary : EliteDopamineTheme.textBody,
+                color: isSelected ? theme.colorScheme.onSurface : theme.colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 2),
@@ -116,11 +116,11 @@ class PrimaryFilterDailyGrid extends StatelessWidget {
               item.subtitle,
               maxLines: 2,
               softWrap: true,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 8.5,
                 height: 1.15,
                 fontWeight: FontWeight.w500,
-                color: EliteDopamineTheme.textSecondary,
+                color: theme.colorScheme.onSurfaceVariant,
               ),
             ),
           ],

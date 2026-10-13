@@ -4,11 +4,9 @@ import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_provider.dart';
 import 'package:yourcallyourrule/features/caller_id/config/display_mode.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 来电显示模式选择器小部件
-/// 允许用户直观选择来电信息的显示方式：悬浮窗、传统通知或实时活动 (Live Activity)
 class CallerIdDisplayModeSelector extends ConsumerWidget {
   const CallerIdDisplayModeSelector({super.key});
 
@@ -17,12 +15,24 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
     final config = ref.watch(callerIdConfigProvider);
     final notifier = ref.read(callerIdConfigProvider.notifier);
     final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
 
     return Container(
       padding: const EdgeInsets.all(18),
-      decoration: EliteDopamineTheme.warmCardDecoration(
-        context: context,
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: theme.colorScheme.outlineVariant,
+          width: 1.2,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 10,
+            offset: const Offset(0, 3),
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,15 +42,15 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                  color: theme.colorScheme.primary.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const Icon(Icons.display_settings_rounded, color: Color(0xFFFF9500), size: 20),
+                child: Icon(Icons.display_settings_rounded, color: theme.colorScheme.primary, size: 20),
               ),
               const SizedBox(width: 10),
               Text(
                 l10n.callerIdDisplayMode,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: theme.colorScheme.onSurface),
               ),
             ],
           ),
@@ -84,7 +94,6 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
     );
   }
 
-  /// 构建现代化卡片选项
   Widget _buildModeCard({
     required BuildContext context,
     required IconData icon,
@@ -96,7 +105,8 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
     required void Function(DisplayMode) onSelected,
   }) {
     final isSelected = value == groupValue;
-    const activeColor = Color(0xFFFF9500);
+    final theme = Theme.of(context);
+    final activeColor = theme.colorScheme.primary;
 
     return InkWell(
       onTap: () => onSelected(value),
@@ -106,12 +116,12 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: isSelected ? activeColor : const Color(0xFFEDE8DF),
+            color: isSelected ? activeColor : theme.colorScheme.outlineVariant,
             width: isSelected ? 1.5 : 1.1,
           ),
           color: isSelected
               ? activeColor.withValues(alpha: 0.08)
-              : const Color(0xFFF7F5F0),
+              : theme.colorScheme.surfaceContainerHighest,
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -122,12 +132,12 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
               decoration: BoxDecoration(
                 color: isSelected
                     ? activeColor.withValues(alpha: 0.15)
-                    : Colors.white,
+                    : theme.colorScheme.surface,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
                 isSelected ? selectedIcon : icon,
-                color: isSelected ? activeColor : Colors.grey[700],
+                color: isSelected ? activeColor : theme.colorScheme.onSurfaceVariant,
                 size: 22,
               ),
             ),
@@ -141,7 +151,7 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
                     style: TextStyle(
                       fontWeight: isSelected ? FontWeight.w900 : FontWeight.w700,
                       fontSize: 14.5,
-                      color: isSelected ? activeColor : Colors.black87,
+                      color: isSelected ? activeColor : theme.colorScheme.onSurface,
                     ),
                   ),
                   const SizedBox(height: 3),
@@ -149,7 +159,7 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
                     subtitle,
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.grey[600],
+                      color: theme.colorScheme.onSurfaceVariant,
                     ),
                   ),
                 ],

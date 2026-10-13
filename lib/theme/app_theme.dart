@@ -1,46 +1,89 @@
 import 'package:flutter/material.dart';
 
-// 使用一个类来组织主题相关的静态数据，使其更清晰
+/// App 全局主题控制配置（封闭于 lib/theme/ 内部，使用纯粹原生 ThemeData）
 class AppTheme {
-  // 私有构造函数，防止外部实例化
   AppTheme._();
 
-  // 定义亮色主题
-  static final ThemeData lightTheme = ThemeData(
-    // 推荐在新的 Flutter 项目中使用 Material 3
-    useMaterial3: true,
-    // 主题亮度
-    brightness: Brightness.light,
-    // 使用 ColorScheme.fromSeed 可以自动生成一套和谐的颜色方案
-    // 它比旧的 primarySwatch 更强大和推荐
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: Colors.orange,
-      brightness: Brightness.light,
-    ),
-    // App Bar 的主题
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.orange,
-      foregroundColor: Colors.white, // AppBar 上的标题和图标颜色
-    ),
-    // 视觉密度，以适应不同平台的密度
-    visualDensity: VisualDensity.adaptivePlatformDensity,
-  );
+  static const Color _lightCanvasBackground = Color(0xFFFBF9F5);
+  static const Color _darkCanvasBackground = Color(0xFF0F172A);
 
-  // 定义暗色（黑色）主题
-  static final ThemeData darkTheme = ThemeData(
-    useMaterial3: true,
-    // 主题亮度
-    brightness: Brightness.dark,
-    // 基于同一个种子颜色生成暗色方案
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: Colors.orange,
-      brightness: Brightness.dark, // 关键！指定为暗色模式
-    ),
-    // 在暗色模式下，你可能希望 AppBar 有不同的外观
-    // 如果不指定，它会根据 ColorScheme 自动调整
-    // appBarTheme: AppBarTheme(
-    //   backgroundColor: Colors.grey[900], // 举例：深灰色
-    // ),
-    visualDensity: VisualDensity.adaptivePlatformDensity,
-  );
+  static const Color _lightCardSurface = Colors.white;
+  static const Color _darkCardSurface = Color(0xFF1E293B);
+
+  static const Color _lightPrimaryText = Color(0xFF0F172A);
+  static const Color _darkPrimaryText = Color(0xFFF8FAFC);
+
+  /// 构建亮色主题
+  static ThemeData buildLightTheme({Color? seedColor}) {
+    final primarySeed = seedColor ?? const Color(0xFFFF9100);
+
+    return ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.light,
+      scaffoldBackgroundColor: _lightCanvasBackground,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: primarySeed,
+        brightness: Brightness.light,
+        surface: _lightCardSurface,
+        onSurface: _lightPrimaryText,
+        surfaceContainerHighest: const Color(0xFFF1F5F9),
+      ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: _lightCanvasBackground,
+        foregroundColor: _lightPrimaryText,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        centerTitle: false,
+      ),
+      dialogTheme: DialogThemeData(
+        backgroundColor: _lightCardSurface,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+      ),
+      cardTheme: CardThemeData(
+        color: _lightCardSurface,
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      ),
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+    );
+  }
+
+  /// 构建暗色主题
+  static ThemeData buildDarkTheme({Color? seedColor}) {
+    final primarySeed = seedColor ?? const Color(0xFFFF9100);
+
+    return ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.dark,
+      scaffoldBackgroundColor: _darkCanvasBackground,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: primarySeed,
+        brightness: Brightness.dark,
+        surface: _darkCardSurface,
+        onSurface: _darkPrimaryText,
+        surfaceContainerHighest: const Color(0xFF334155),
+      ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: _darkCanvasBackground,
+        foregroundColor: _darkPrimaryText,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        centerTitle: false,
+      ),
+      dialogTheme: DialogThemeData(
+        backgroundColor: _darkCardSurface,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+      ),
+      cardTheme: CardThemeData(
+        color: _darkCardSurface,
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      ),
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+    );
+  }
+
+  /// 向后兼容静态属性
+  static final ThemeData lightTheme = buildLightTheme();
+  static final ThemeData darkTheme = buildDarkTheme();
 }

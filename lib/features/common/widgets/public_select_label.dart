@@ -66,9 +66,6 @@ class PublicSelectLabel extends ConsumerStatefulWidget {
   /// 标签服务
   final SelectLabelService? selectLabelService;
   
-  /// 主题色
-  final Color themeColor;
-  
   /// 构造函数
   const PublicSelectLabel({
     super.key,
@@ -77,7 +74,6 @@ class PublicSelectLabel extends ConsumerStatefulWidget {
     this.phoneNumber,
     required this.onLabelIdChanged,
     this.selectLabelService,
-    this.themeColor = const Color(0xFFF5A623),
   });
 
   @override
@@ -152,6 +148,8 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
   @override
   @override
   Widget build(BuildContext context) {
+    final activeThemeColor = Theme.of(context).colorScheme.primary;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -165,27 +163,27 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
         const SizedBox(height: 12),
         _isLoading
             ? const Center(child: CircularProgressIndicator())
-            : _buildLabelChips(),
+            : _buildLabelChips(activeThemeColor),
         if (_selectedLabelText != null)
           Padding(
             padding: const EdgeInsets.only(top: 16),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
-                color: widget.themeColor.withValues(alpha:0.1),
+                color: activeThemeColor.withValues(alpha:0.1),
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: widget.themeColor.withValues(alpha:0.3)),
+                border: Border.all(color: activeThemeColor.withValues(alpha:0.3)),
               ),
               child: Row(
                 children: [
-                  Icon(Icons.label, color: widget.themeColor, size: 18),
+                  Icon(Icons.label, color: activeThemeColor, size: 18),
                   const SizedBox(width: 8),
                   Text(
                     '${AppLocalizations.of(context)!.selectedLabel}: ${_selectedLabelText != null ? LabelTranslationUtils.translateLabelText(context, _selectedLabelText!) : ''}',
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      color: widget.themeColor,
+                      color: activeThemeColor,
                     ),
                   ),
                 ],
@@ -196,7 +194,7 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
     );
   }
 
-  Widget _buildLabelChips() {
+  Widget _buildLabelChips(Color activeThemeColor) {
     if (_labels.isEmpty) {
       return Center(
         child: Column(
@@ -212,7 +210,7 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
               icon: const Icon(Icons.add),
               label: Text(AppLocalizations.of(context)!.addLabelButton),
               style: ElevatedButton.styleFrom(
-                backgroundColor: widget.themeColor,
+                backgroundColor: activeThemeColor,
                 foregroundColor: Colors.white,
               ),
             ),
@@ -238,6 +236,29 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
               onSelected: (selected) {
                 if (selected) {
                   final labelId = _labelTextToIdMap[labelText] ?? '';
+                  setState(() {
+                    _selectedLabelText = labelText;
+                    _selectedLabelId = labelId;
+                  });
+                  widget.onLabelIdChanged(labelId);
+                }
+              },
+              selectedColor: activeThemeColor,
+              backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+              labelStyle: TextStyle(
+                color: isSelected ? Colors.white : Theme.of(context).colorScheme.onSurface,
+                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+              ),
+              avatar: isSelected
+                  ? const Icon(Icons.check, size: 12, color: Colors.orange)
+                  : null,
+              padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 7),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
                   setState(() {
                     _selectedLabelText = labelText;
                     _selectedLabelId = labelId;

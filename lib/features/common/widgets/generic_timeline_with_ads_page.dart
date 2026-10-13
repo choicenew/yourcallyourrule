@@ -48,9 +48,6 @@ class GenericTimelineListWithAdsPage<T> extends ConsumerStatefulWidget {
   /// 空状态操作按钮
   final Widget? emptyActionButton;
   
-  /// 主题颜色
-  final Color themeColor;
-  
   /// 是否正在加载
   final bool isLoading;
   
@@ -119,7 +116,6 @@ class GenericTimelineListWithAdsPage<T> extends ConsumerStatefulWidget {
     required this.emptyText,
     this.emptyIcon = Icons.info_outline,
     this.emptyActionButton,
-    this.themeColor = Colors.blue,
     this.isLoading = false,
     this.onRefresh,
     this.onAdd,
@@ -177,25 +173,27 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
-      backgroundColor: const Color(0xFFFBF9F5),
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         elevation: 0,
         scrolledUnderElevation: 0,
-        backgroundColor: const Color(0xFFFBF9F5),
-        foregroundColor: Colors.black87,
+        backgroundColor: theme.scaffoldBackgroundColor,
+        foregroundColor: theme.colorScheme.onSurface,
         title: widget.isMultiSelectMode 
           ? Text(
               AppLocalizations.of(context)!.selectedItems(widget.selectedItemIds.length),
-              style: const TextStyle(color: Colors.black87, fontWeight: FontWeight.w900, fontSize: 18),
+              style: TextStyle(color: theme.colorScheme.onSurface, fontWeight: FontWeight.w900, fontSize: 18),
             ) 
           : Text(
               widget.title,
-              style: const TextStyle(color: Colors.black87, fontWeight: FontWeight.w900, fontSize: 20, letterSpacing: -0.3),
+              style: TextStyle(color: theme.colorScheme.onSurface, fontWeight: FontWeight.w900, fontSize: 20, letterSpacing: -0.3),
             ),
         leading: widget.isMultiSelectMode 
           ? IconButton(
-              icon: const Icon(Icons.close_rounded, color: Colors.black87),
+              icon: Icon(Icons.close_rounded, color: theme.colorScheme.onSurface),
               onPressed: widget.onToggleMultiSelectMode,
             )
           : null,
@@ -247,14 +245,15 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
     required VoidCallback onPressed,
     required String tooltip,
   }) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 3),
       child: IconButton(
-        icon: Icon(icon, color: Colors.grey[800], size: 20),
+        icon: Icon(icon, color: theme.colorScheme.onSurfaceVariant, size: 20),
         onPressed: onPressed,
         tooltip: tooltip,
         style: IconButton.styleFrom(
-          backgroundColor: const Color(0xFFF7F5F0),
+          backgroundColor: theme.colorScheme.surfaceContainerHighest,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           padding: const EdgeInsets.all(8),
         ),
@@ -295,7 +294,7 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
                   decoration: InputDecoration(
                     hintText: widget.searchHintText ?? AppLocalizations.of(context)!.search,
                     hintStyle: TextStyle(color: Colors.grey[400], fontSize: 13, fontWeight: FontWeight.w500),
-                    prefixIcon: Icon(Icons.search_rounded, color: widget.themeColor, size: 20),
+                    prefixIcon: Icon(Icons.search_rounded, color: Theme.of(context).colorScheme.primary, size: 20),
                     suffixIcon: _searchController.text.isNotEmpty
                         ? IconButton(
                             icon: const Icon(Icons.clear_rounded, size: 16, color: Colors.grey),
@@ -332,7 +331,7 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
             Checkbox(
               value: isSelected,
               onChanged: (_) => widget.onToggleItemSelection?.call(itemId),
-              activeColor: widget.themeColor,
+              activeColor: Theme.of(context).colorScheme.primary,
             ),
             Expanded(child: widget.itemBuilder(context, item)),
           ],

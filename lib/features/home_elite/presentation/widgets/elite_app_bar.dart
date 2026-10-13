@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // 文件: elite_app_bar.dart
-// 描述: Elite 顶部应用栏，动态读取系统默认来电拦截角色权限状态（Protection Active/Inactive），支持点击直接调起原生授权。
+// 描述: Elite 顶部应用栏（去除硬编码主题依赖，100% 切换为原生 Theme.of(context)）。
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
@@ -8,10 +8,8 @@ import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_protection_service.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
+import 'package:yourcallyourrule/features/permissions/providers/permission_providers.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ------------------- Widget 定义 -------------------
@@ -24,44 +22,45 @@ class EliteAppBar extends ConsumerWidget {
     this.onSwitchToPro,
   });
 
-  void _handleSettingsTap(BuildContext context) {
-    context.pushNamed(AppRouter.settings);
-  }
-
-  void _handleNotificationsTap(BuildContext context) {
-    context.pushNamed(AppRouter.notifications);
-  }
-
-  void _handleProSwitch(BuildContext context) {
-    if (onSwitchToPro != null) {
-      onSwitchToPro!();
-    } else {
-      context.goNamed(AppRouter.proHome);
-    }
-  }
-
   Future<void> _handleStatusTap(BuildContext context, WidgetRef ref, bool isProtectionActive) async {
     final l10n = AppLocalizations.of(context)!;
     if (isProtectionActive) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(l10n.callScreeningPermission),
-          backgroundColor: Colors.green,
+          content: Text(l10n.enabledStatus),
           duration: const Duration(seconds: 2),
+          behavior: SnackBarBehavior.floating,
         ),
       );
-    } else {
-      // 调起 Android 原生“设为默认来电拦截与识别应用”对话框
-      CallProtectionService().clearCachedStatus();
-      final granted = await CallScreeningPlugin.requestCallScreeningRole();
+      return;
+    }
+
+    try {
+      final permissionService = ref.read(permissionServiceProvider);
+      final isDefaultRole = await permissionService.isDefaultCallScreeningApp();
+
+      if (!isDefaultRole) {
+        final granted = await permissionService.requestDefaultCallScreeningApp();
+        if (granted && context.mounted) {
+          ref.invalidate(homeStatsProvider);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(l10n.enabledStatus),
+              duration: const Duration(seconds: 2),
+              behavior: SnackBarBehavior.floating,
+            ),
+          );
+          return;
+        }
+      }
+
       if (context.mounted) {
-        ref.invalidate(homeStatsProvider);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(granted ? l10n.permissionGranted : l10n.callScreeningPermissionNotGranted),
-            backgroundColor: granted ? Colors.green : Colors.orange,
-          ),
-        );
+        context.pushNamed(AppRouter.permissionManagement);
+      }
+    } catch (e) {
+      debugPrint('检查或请求默认拨号/拦截权限失败: $e');
+      if (context.mounted) {
+        context.pushNamed(AppRouter.permissionManagement);
       }
     }
   }
@@ -69,6 +68,7 @@ class EliteAppBar extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
     final asyncStats = ref.watch(homeStatsProvider);
     final isProtectionActive = asyncStats.value?.isProtectionActive ?? false;
 
@@ -78,7 +78,6 @@ class EliteAppBar extends ConsumerWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // 品牌 Logo 与暖色多巴胺标题（使用 Expanded 防止小屏幕溢出）
           Expanded(
             child: Row(
               children: [
@@ -86,11 +85,11 @@ class EliteAppBar extends ConsumerWidget {
                   width: 38,
                   height: 38,
                   decoration: BoxDecoration(
-                    gradient: EliteDopamineTheme.heroWarmGradient,
+                    color: theme.colorScheme.primary,
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.35),
+                        color: theme.colorScheme.primary.withValues(alpha: 0.35),
                         blurRadius: 8,
                         offset: const Offset(0, 3),
                       ),
@@ -108,21 +107,17 @@ class EliteAppBar extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      ShaderMask(
-                        shaderCallback: (bounds) => EliteDopamineTheme.heroWarmGradient.createShader(bounds),
-                        child: Text(
-                          l10n.appName,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w900,
-                            letterSpacing: -0.3,
-                            color: Colors.white,
-                          ),
+                      Text(
+                        l10n.appName,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w900,
+                          letterSpacing: -0.3,
+                          color: theme.colorScheme.onSurface,
                         ),
                       ),
-                      // 动态系统默认来电防护激活状态条
                       GestureDetector(
                         onTap: () => _handleStatusTap(context, ref, isProtectionActive),
                         child: Row(
@@ -134,8 +129,8 @@ class EliteAppBar extends ConsumerWidget {
                               height: 6,
                               decoration: BoxDecoration(
                                 color: isProtectionActive
-                                    ? EliteDopamineTheme.freshMint
-                                    : EliteDopamineTheme.warmSunAmber,
+                                    ? theme.colorScheme.secondary
+                                    : theme.colorScheme.primary,
                                 shape: BoxShape.circle,
                               ),
                             ),
@@ -147,9 +142,17 @@ class EliteAppBar extends ConsumerWidget {
                                 fontWeight: FontWeight.w800,
                                 letterSpacing: 0.5,
                                 color: isProtectionActive
-                                    ? EliteDopamineTheme.freshMint
-                                    : EliteDopamineTheme.sunsetTangerine,
+                                    ? theme.colorScheme.secondary
+                                    : theme.colorScheme.primary,
                               ),
+                            ),
+                            const SizedBox(width: 2),
+                            Icon(
+                              Icons.chevron_right_rounded,
+                              size: 11,
+                              color: isProtectionActive
+                                  ? theme.colorScheme.secondary
+                                  : theme.colorScheme.primary,
                             ),
                           ],
                         ),
@@ -160,63 +163,47 @@ class EliteAppBar extends ConsumerWidget {
               ],
             ),
           ),
-          const SizedBox(width: 8),
-
-          // 右侧：Pro 模式切换胶囊 + 设置按钮
           Row(
             children: [
               IconButton(
                 icon: Container(
                   padding: const EdgeInsets.all(7),
                   decoration: BoxDecoration(
-                    color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.14),
+                    color: theme.colorScheme.surfaceContainerHighest,
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.35),
+                      color: theme.colorScheme.outlineVariant,
                       width: 1,
                     ),
                   ),
-                  child: const Icon(
-                    Icons.dashboard_customize_outlined,
+                  child: Icon(
+                    Icons.notifications_none_rounded,
                     size: 18,
-                    color: EliteDopamineTheme.sunsetTangerine,
+                    color: theme.colorScheme.onSurface,
                   ),
                 ),
-                onPressed: () => _handleProSwitch(context),
-                tooltip: l10n.phoneRuleManagement,
-              ),
-              const SizedBox(width: 4),
-              IconButton(
-                icon: Container(
-                  padding: const EdgeInsets.all(7),
-                  decoration: BoxDecoration(
-                    color: Colors.black.withValues(alpha: 0.04),
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Icon(
-                    Icons.notifications_outlined,
-                    size: 18,
-                    color: Colors.black87,
-                  ),
-                ),
-                onPressed: () => _handleNotificationsTap(context),
+                onPressed: () => context.pushNamed(AppRouter.notifications),
                 tooltip: l10n.notifications,
               ),
               IconButton(
                 icon: Container(
                   padding: const EdgeInsets.all(7),
                   decoration: BoxDecoration(
-                    color: Colors.black.withValues(alpha: 0.04),
+                    color: theme.colorScheme.surfaceContainerHighest,
                     shape: BoxShape.circle,
+                    border: Border.all(
+                      color: theme.colorScheme.outlineVariant,
+                      width: 1,
+                    ),
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.settings_outlined,
                     size: 18,
-                    color: Colors.black87,
+                    color: theme.colorScheme.onSurface,
                   ),
                 ),
-                onPressed: () => _handleSettingsTap(context),
-                tooltip: l10n.settingsTab,
+                onPressed: () => context.pushNamed(AppRouter.settings),
+                tooltip: l10n.settingsTitle,
               ),
             ],
           ),
@@ -235,7 +222,6 @@ Widget previewEliteAppBar() {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: Scaffold(
-        backgroundColor: EliteDopamineTheme.warmCanvasBackground,
         body: SafeArea(
           child: EliteAppBar(),
         ),

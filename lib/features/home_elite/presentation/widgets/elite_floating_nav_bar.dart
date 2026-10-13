@@ -1,20 +1,17 @@
 // -----------------------------------------------------------------------------
 // 文件: elite_floating_nav_bar.dart
-// 描述: Elite 底部悬浮多巴胺胶囊导航栏，承载 5 大核心一级导航并带有琥珀流光指示。
+// 描述: Elite 悬浮式底栏导航（切换为原生 Theme.of(context)）。
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-
-// ------------------- Widget 定义 -------------------
 
 class EliteFloatingNavBar extends StatelessWidget {
   final int currentIndex;
-  final Function(int) onTap;
+  final ValueChanged<int> onTap;
 
   const EliteFloatingNavBar({
     super.key,
@@ -25,6 +22,7 @@ class EliteFloatingNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
 
     final navItems = [
       _NavItemData(icon: Icons.shield_rounded, label: l10n.homeTab),
@@ -38,15 +36,15 @@ class EliteFloatingNavBar extends StatelessWidget {
       margin: const EdgeInsets.fromLTRB(16, 0, 16, 12),
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.94),
+        color: theme.colorScheme.surface.withValues(alpha: 0.94),
         borderRadius: BorderRadius.circular(28),
         border: Border.all(
-          color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.35),
+          color: theme.colorScheme.primary.withValues(alpha: 0.35),
           width: 1.5,
         ),
         boxShadow: [
           BoxShadow(
-            color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.18),
+            color: theme.colorScheme.primary.withValues(alpha: 0.18),
             blurRadius: 20,
             spreadRadius: 2,
             offset: const Offset(0, 6),
@@ -76,7 +74,7 @@ class EliteFloatingNavBar extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                 color: isSelected
-                    ? EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.18)
+                    ? theme.colorScheme.primary.withValues(alpha: 0.18)
                     : Colors.transparent,
                 borderRadius: BorderRadius.circular(20),
               ),
@@ -87,17 +85,17 @@ class EliteFloatingNavBar extends StatelessWidget {
                     item.icon,
                     size: 22,
                     color: isSelected
-                        ? EliteDopamineTheme.sunsetTangerine
-                        : Colors.grey[500],
+                        ? theme.colorScheme.primary
+                        : theme.colorScheme.onSurfaceVariant,
                   ),
                   if (isSelected) ...[
                     const SizedBox(width: 6),
                     Text(
                       item.label,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w800,
-                        color: EliteDopamineTheme.sunsetTangerine,
+                        color: theme.colorScheme.primary,
                       ),
                     ),
                   ],
@@ -113,19 +111,19 @@ class EliteFloatingNavBar extends StatelessWidget {
   static Future<void> handleEliteNavigation(BuildContext context, int index) async {
     switch (index) {
       case 0:
-        context.goNamed(AppRouter.eliteHome);
+        context.goNamed(AppRouter.home);
         break;
       case 1:
-        await context.pushNamed(AppRouter.callHistory);
+        context.goNamed(AppRouter.callHistory);
         break;
       case 2:
-        await context.pushNamed(AppRouter.contactsManagement);
+        context.goNamed(AppRouter.contactsManagement);
         break;
       case 3:
-        await context.pushNamed(AppRouter.dashboard);
+        context.goNamed(AppRouter.dashboard);
         break;
       case 4:
-        await context.pushNamed(AppRouter.settings);
+        context.goNamed(AppRouter.settings);
         break;
     }
   }
@@ -146,7 +144,6 @@ Widget previewEliteFloatingNavBar() {
     localizationsDelegates: AppLocalizations.localizationsDelegates,
     supportedLocales: AppLocalizations.supportedLocales,
     home: Scaffold(
-      backgroundColor: EliteDopamineTheme.warmCanvasBackground,
       body: const Center(
         child: SizedBox.shrink(),
       ),

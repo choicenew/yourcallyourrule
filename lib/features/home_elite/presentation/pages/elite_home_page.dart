@@ -57,7 +57,7 @@ class _EliteHomePageState extends ConsumerState<EliteHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: EliteDopamineTheme.warmCanvasBackground,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: Column(
           children: [

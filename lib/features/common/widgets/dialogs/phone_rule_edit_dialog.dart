@@ -12,26 +12,22 @@ import 'package:yourcallyourrule/core/provider/providers/rule_management_service
 class PhoneRuleEditDialog extends ConsumerStatefulWidget {
   final PhoneRule rule;
   final Function? onRuleUpdated;
-  final Color themeColor;
-
   const PhoneRuleEditDialog({
     super.key,
     required this.rule,
     this.onRuleUpdated,
-    this.themeColor = const Color(0xFFF5A623),
   });
 
   @override
   ConsumerState<PhoneRuleEditDialog> createState() => _PhoneRuleEditDialogState();
 
   /// 显示电话规则编辑对话框的静态方法
-  static void show(BuildContext context, PhoneRule rule, {Function? onRuleUpdated, Color themeColor = const Color(0xFFF5A623)}) {
+  static void show(BuildContext context, PhoneRule rule, {Function? onRuleUpdated}) {
     showDialog(
       context: context,
       builder: (context) => PhoneRuleEditDialog(
         rule: rule,
         onRuleUpdated: onRuleUpdated,
-        themeColor: themeColor,
       ),
     );
   }
@@ -158,7 +154,6 @@ class _PhoneRuleEditDialogState extends ConsumerState<PhoneRuleEditDialog> {
                 _selectedLabelId = labelId;
               });
             },
-            themeColor: widget.themeColor,
           ),
           
           const SizedBox(height: 16),

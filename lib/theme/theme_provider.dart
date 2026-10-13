@@ -1,21 +1,75 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'theme_provider.g.dart';
 
-// 1. 定义一个 Notifier
-// 这个类持有我们的状态 (ThemeMode)，并提供一个方法来改变它。
+const String _kThemeModeKey = 'app_theme_mode_setting';
+const String _kThemeColorKey = 'app_theme_color_setting';
+
 @riverpod
 class ThemeModeNotifier extends _$ThemeModeNotifier {
-  // 构建初始状态：默认使用系统主题模式。
   @override
   ThemeMode build() {
+    _loadFromPrefs();
     return ThemeMode.system;
   }
 
-  // 公共方法：UI 可以调用这个方法来更新主题模式。
-  void setThemeMode(ThemeMode mode) {
-    // 当我们给 `state` 赋一个新值时，Riverpod 会自动通知所有监听者。
+  Future<void> _loadFromPrefs() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final modeString = prefs.getString(_kThemeModeKey);
+      if (modeString != null) {
+        switch (modeString) {
+          case 'light':
+            state = ThemeMode.light;
+            break;
+          case 'dark':
+            state = ThemeMode.dark;
+            break;
+          case 'system':
+          default:
+            state = ThemeMode.system;
+            break;
+        }
+      }
+    } catch (_) {}
+  }
+
+  Future<void> setThemeMode(ThemeMode mode) async {
     state = mode;
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString(_kThemeModeKey, mode.name);
+    } catch (_) {}
+  }
+}
+
+@riverpod
+class ThemeColorNotifier extends _$ThemeColorNotifier {
+  static const Color defaultColor = Color(0xFFFF9100);
+
+  @override
+  Color build() {
+    _loadFromPrefs();
+    return defaultColor;
+  }
+
+  Future<void> _loadFromPrefs() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final colorVal = prefs.getInt(_kThemeColorKey);
+      if (colorVal != null) {
+        state = Color(colorVal);
+      }
+    } catch (_) {}
+  }
+
+  Future<void> setThemeColor(Color color) async {
+    state = color;
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setInt(_kThemeColorKey, color.toARGB32());
+    } catch (_) {}
   }
 }

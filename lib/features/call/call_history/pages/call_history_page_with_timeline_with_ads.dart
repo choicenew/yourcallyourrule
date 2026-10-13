@@ -401,7 +401,7 @@ class _CallHistoryPageWithTimelineWithAdsState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: EliteDopamineTheme.warmCanvasBackground,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       bottomNavigationBar: BottomNavigation(
         currentIndex: 1,
         onTap: (index) =>

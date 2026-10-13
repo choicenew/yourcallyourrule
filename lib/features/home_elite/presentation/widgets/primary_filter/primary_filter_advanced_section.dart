@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/enhanced_filter_config_provider.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/provider/time_interceptor_provider.dart';
 import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provider.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
@@ -23,6 +22,7 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final enhancedConfigAsync = ref.watch(enhancedFilterConfigProvider);
+    final theme = Theme.of(context);
 
     return enhancedConfigAsync.when(
       data: (enhancedConfig) {
@@ -42,13 +42,14 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
       error: (err, _) => Center(
         child: Text(
           l10n.dataLoadFailure(err.toString()),
-          style: const TextStyle(fontSize: 11, color: EliteDopamineTheme.textSecondary),
+          style: TextStyle(fontSize: 11, color: theme.colorScheme.onSurfaceVariant),
         ),
       ),
     );
   }
 
   Widget _buildGlobalFilterList(BuildContext context, WidgetRef ref, dynamic enhancedConfig) {
+    final theme = Theme.of(context);
     final isSimSlotEnabled = enhancedConfig.filterEnabledMap['SimSlotRuleService'] ?? false;
 
     final allRulesCountProvider = FutureProvider<int>((ref) async {
@@ -70,8 +71,9 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
     return Column(
       children: [
         _buildSwitchTile(
+          context: context,
           icon: Icons.sim_card_outlined,
-          iconColor: EliteDopamineTheme.skyAzure,
+          iconColor: theme.colorScheme.secondary,
           title: l10n.simCardFilterRules,
           subtitle: l10n.simCardFilterRulesDescription,
           badgeText: '$rulesCount',
@@ -83,8 +85,9 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
         ),
         const SizedBox(height: 8),
         _buildSwitchTile(
+          context: context,
           icon: Icons.filter_alt_outlined,
-          iconColor: EliteDopamineTheme.sunsetTangerine,
+          iconColor: theme.colorScheme.primary,
           title: l10n.localCountFilter,
           subtitle: l10n.localCountFilterDescription,
           badgeText: localConfig != null ? '${localConfig.countThreshold}' : null,
@@ -99,8 +102,9 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
         ),
         const SizedBox(height: 8),
         _buildSwitchTile(
+          context: context,
           icon: Icons.cloud_outlined,
-          iconColor: EliteDopamineTheme.softLilac,
+          iconColor: theme.colorScheme.tertiary,
           title: l10n.remoteNumberFilter,
           subtitle: l10n.remoteNumberFilterDescription,
           badgeText: remoteConfig != null ? '${remoteConfig.countThreshold}' : null,
@@ -115,8 +119,9 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
         ),
         const SizedBox(height: 8),
         _buildSwitchTile(
+          context: context,
           icon: Icons.timer_outlined,
-          iconColor: EliteDopamineTheme.freshMint,
+          iconColor: theme.colorScheme.secondary,
           title: l10n.timeInterceptor,
           subtitle: l10n.timeInterceptorDescription,
           badgeText: timeConfig != null ? '${timeConfig.duration.inMinutes}m' : null,
@@ -133,6 +138,7 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
 
   Widget _buildSimSlotContent(BuildContext context, WidgetRef ref) {
     final simCardsAsync = ref.watch(simCardsProvider);
+    final theme = Theme.of(context);
 
     return simCardsAsync.when(
       data: (simCards) {
@@ -140,7 +146,7 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
           return Center(
             child: Text(
               l10n.noSimCardsDetected,
-              style: const TextStyle(fontSize: 12, color: EliteDopamineTheme.textSecondary),
+              style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant),
             ),
           );
         }
@@ -148,8 +154,9 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
         return Column(
           children: [
             _buildSwitchTile(
+              context: context,
               icon: Icons.filter_alt_outlined,
-              iconColor: EliteDopamineTheme.sunsetTangerine,
+              iconColor: theme.colorScheme.primary,
               title: l10n.localCountFilter,
               subtitle: l10n.localCountFilterDescription,
               value: true,
@@ -157,8 +164,9 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
             ),
             const SizedBox(height: 8),
             _buildSwitchTile(
+              context: context,
               icon: Icons.cloud_outlined,
-              iconColor: EliteDopamineTheme.softLilac,
+              iconColor: theme.colorScheme.tertiary,
               title: l10n.remoteNumberFilter,
               subtitle: l10n.remoteNumberFilterDescription,
               value: true,
@@ -166,8 +174,9 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
             ),
             const SizedBox(height: 8),
             _buildSwitchTile(
+              context: context,
               icon: Icons.timer_outlined,
-              iconColor: EliteDopamineTheme.freshMint,
+              iconColor: theme.colorScheme.secondary,
               title: l10n.timeInterceptor,
               subtitle: l10n.timeInterceptorDescription,
               value: true,
@@ -187,6 +196,7 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
   }
 
   Widget _buildSwitchTile({
+    required BuildContext context,
     required IconData icon,
     required Color iconColor,
     required String title,
@@ -195,13 +205,15 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
     required bool value,
     required ValueChanged<bool> onChanged,
   }) {
+    final theme = Theme.of(context);
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
-        color: EliteDopamineTheme.slateSurface,
+        color: theme.colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: value ? iconColor.withValues(alpha: 0.35) : EliteDopamineTheme.slateBorder,
+          color: value ? iconColor.withValues(alpha: 0.35) : theme.colorScheme.outlineVariant,
           width: 1.1,
         ),
       ),
@@ -224,10 +236,10 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w800,
-                        color: EliteDopamineTheme.textPrimary,
+                        color: theme.colorScheme.onSurface,
                       ),
                     ),
                     if (badgeText != null) ...[
@@ -253,9 +265,9 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
                 const SizedBox(height: 2),
                 Text(
                   subtitle,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 9.5,
-                    color: EliteDopamineTheme.textSecondary,
+                    color: theme.colorScheme.onSurfaceVariant,
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,

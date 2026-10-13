@@ -129,7 +129,7 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: EliteDopamineTheme.warmCanvasBackground,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.autoUpdateSettings, style: const TextStyle(fontWeight: FontWeight.w900)),
         backgroundColor: Colors.transparent,
@@ -305,4 +305,4 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
       ),
     );
   }
-}
+}

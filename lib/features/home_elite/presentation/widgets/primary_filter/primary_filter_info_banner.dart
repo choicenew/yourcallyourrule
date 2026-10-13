@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primary_filter/defense_strategy_item.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 选中的策略详情看板条组件
@@ -18,6 +17,8 @@ class PrimaryFilterInfoBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
@@ -42,19 +43,19 @@ class PrimaryFilterInfoBanner extends StatelessWidget {
               children: [
                 Text(
                   currentOption.title,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.w800,
-                    color: EliteDopamineTheme.textPrimary,
+                    color: theme.colorScheme.onSurface,
                   ),
                 ),
                 Text(
                   currentOption.detailedDesc,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 9.5,
                     height: 1.2,
                     fontWeight: FontWeight.w500,
-                    color: EliteDopamineTheme.textBody,
+                    color: theme.colorScheme.onSurfaceVariant,
                   ),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -68,27 +69,27 @@ class PrimaryFilterInfoBanner extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: theme.colorScheme.surface,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
-                  color: EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.3),
+                  color: theme.colorScheme.primary.withValues(alpha: 0.3),
                 ),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.sim_card_outlined,
                     size: 12,
-                    color: EliteDopamineTheme.sunsetTangerine,
+                    color: theme.colorScheme.primary,
                   ),
                   const SizedBox(width: 3),
                   Text(
                     l10n.simSlotRules,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 9.5,
                       fontWeight: FontWeight.w800,
-                      color: EliteDopamineTheme.sunsetTangerine,
+                      color: theme.colorScheme.primary,
                     ),
                   ),
                 ],

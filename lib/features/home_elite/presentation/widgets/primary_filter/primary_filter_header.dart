@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 过滤器头部组件 (包含标题与 Separate SIMs 联动开关)
@@ -19,6 +18,8 @@ class PrimaryFilterHeaderTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -30,7 +31,7 @@ class PrimaryFilterHeaderTile extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(7),
                   decoration: BoxDecoration(
-                    gradient: EliteDopamineTheme.coralSunsetGradient,
+                    color: theme.colorScheme.primary,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Icon(
@@ -45,17 +46,17 @@ class PrimaryFilterHeaderTile extends StatelessWidget {
                   children: [
                     Text(
                       l10n.callFilterRules,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w800,
-                        color: EliteDopamineTheme.textPrimary,
+                        color: theme.colorScheme.onSurface,
                       ),
                     ),
                     Text(
                       l10n.callFilterRulesDescription,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 10,
-                        color: EliteDopamineTheme.textSecondary,
+                        color: theme.colorScheme.onSurfaceVariant,
                       ),
                     ),
                   ],
@@ -69,18 +70,18 @@ class PrimaryFilterHeaderTile extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
                 child: Row(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.settings_suggest_rounded,
                       size: 14,
-                      color: EliteDopamineTheme.sunsetTangerine,
+                      color: theme.colorScheme.primary,
                     ),
                     const SizedBox(width: 3),
                     Text(
                       l10n.filterSettingsTitle,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
-                        color: EliteDopamineTheme.sunsetTangerine,
+                        color: theme.colorScheme.primary,
                       ),
                     ),
                   ],
@@ -93,14 +94,14 @@ class PrimaryFilterHeaderTile extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            const Icon(Icons.signal_cellular_alt_rounded, size: 14, color: EliteDopamineTheme.amberIcon),
+            Icon(Icons.signal_cellular_alt_rounded, size: 14, color: theme.colorScheme.primary),
             const SizedBox(width: 4),
             Text(
               l10n.separateSims,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
-                color: EliteDopamineTheme.textPrimary,
+                color: theme.colorScheme.onSurface,
               ),
             ),
             const SizedBox(width: 6),
@@ -108,7 +109,7 @@ class PrimaryFilterHeaderTile extends StatelessWidget {
               scale: 0.85,
               child: Switch.adaptive(
                 value: separateSims,
-                activeColor: EliteDopamineTheme.amberIcon,
+                activeColor: theme.colorScheme.primary,
                 materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 onChanged: onSeparateSimsChanged,
               ),
