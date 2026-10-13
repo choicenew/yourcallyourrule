@@ -181,6 +181,14 @@ class SettingsPage extends ConsumerWidget {
               ),
               _buildDivider(),
               _buildTile(
+                icon: Icons.auto_awesome_rounded,
+                iconColor: EliteDopamineTheme.warmSunAmber,
+                title: l10n.initialSetupTitle,
+                subtitle: l10n.initialSetupDesc,
+                onTap: () => context.pushNamed(AppRouter.initialSetup),
+              ),
+              _buildDivider(),
+              _buildTile(
                 icon: Icons.cloud_sync_rounded,
                 iconColor: EliteDopamineTheme.freshMint,
                 title: l10n.localDatabaseSyncTitle,

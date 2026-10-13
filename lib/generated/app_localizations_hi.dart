@@ -192,35 +192,39 @@ class AppLocalizationsHi extends AppLocalizations {
   String get allow => 'अनुमति दें';
 
   @override
-  String get allowAllAllowRules => 'सभी अनुमति नियमों को अनुमति दें';
+  String get allowAllAllowRules => 'सभी अनुमति नियमों को सक्षम करें';
 
   @override
-  String get allowAllAllowRulesDesc => 'अनुमति नियमों से कॉल की अनुमति दें';
+  String get allowAllAllowRulesDesc =>
+      'सभी कॉन्फ़िगर किए गए अनुमति नियमों को लागू करने के लिए मास्टर स्विच';
 
   @override
   String get allowAllBlacklistedNumbers =>
       'सभी ब्लैकलिस्टेड नंबरों को अनुमति दें';
 
   @override
-  String get allowAllBlockRules => 'सभी ब्लॉक नियमों को ब्लॉक करें';
+  String get allowAllBlockRules => 'सभी ब्लॉक नियमों को सक्षम करें';
 
   @override
-  String get allowAllBlockRulesDesc => 'ब्लॉक नियमों से कॉल की अनुमति दें';
+  String get allowAllBlockRulesDesc =>
+      'सभी कॉन्फ़िगर किए गए ब्लॉक नियमों को लागू करने के लिए मास्टर स्विच';
 
   @override
-  String get allowAllowedNumbers => 'अनुमत संख्याओं को अनुमति दें';
+  String get allowAllowedNumbers => 'सभी स्वीकृत नंबरों को अनुमति दें';
 
   @override
-  String get allowAllowedNumbersDesc => 'व्हाइटलिस्ट से कॉल की अनुमति दें';
+  String get allowAllowedNumbersDesc =>
+      'आपकी अनुमति सूची में मौजूद नंबरों से सभी इनकमिंग कॉल की अनुमति दें';
 
   @override
   String get allowBlock => 'अनुमति/ब्लॉक';
 
   @override
-  String get allowBlockedNumbers => 'ब्लॉक की गई संख्याओं को अनुमति दें';
+  String get allowBlockedNumbers => 'ब्लॉकलिस्ट रोकें';
 
   @override
-  String get allowBlockedNumbersDesc => 'ब्लॉकलिस्ट से कॉल की अनुमति दें';
+  String get allowBlockedNumbersDesc =>
+      'अपनी ब्लॉकलिस्ट के नंबरों से आने वाली कॉल को अस्थायी रूप से अनुमति दें';
 
   @override
   String get allowedBlockedRule => 'अनुमति/ब्लॉक नियम';
@@ -241,7 +245,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'गणना सीमा से अधिक नहीं होने वाली संख्याओं को स्वचालित रूप से अनुमति दें';
 
   @override
-  String get allowRegexAllowRules => 'रेगेक्स अनुमति नियमों को अनुमति दें';
+  String get allowRegexAllowRules => 'रेगेक्स अनुमति नियमों को सक्षम करें';
 
   @override
   String get allowRegexAllowRulesDesc =>
@@ -252,7 +256,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'रेगेक्स-आधारित अनुमति नियमों को सक्षम करें';
 
   @override
-  String get allowRegexBlockRules => 'रेगेक्स ब्लॉक नियमों को ब्लॉक करें';
+  String get allowRegexBlockRules => 'रेगेक्स ब्लॉक नियमों को सक्षम करें';
 
   @override
   String get allowRegexBlockRulesDesc =>
@@ -1081,11 +1085,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String get enableGlobalPlugins => 'ग्लोबल प्लगइन्स सक्षम करें';
 
   @override
-  String get enableLocalCountFilter => 'स्थानीय काउंट फ़िल्टर सक्षम करें';
+  String get enableLocalCountFilter => 'स्थानीय चिह्न सीमा सुरक्षा सक्षम करें';
 
   @override
   String get enableLocalCountFilterDescription =>
-      'कॉल मार्किंग काउंट के आधार पर स्वचालित रूप से स्पैम कॉल फ़िल्टर करें';
+      'स्थानीय रिपोर्ट संख्या सीमा से अधिक होने पर इनकमिंग कॉल को ब्लॉक करें';
 
   @override
   String get enableLocalNotification => 'स्थानीय सूचना का प्रयोग करें';
@@ -1098,25 +1102,27 @@ class AppLocalizationsHi extends AppLocalizations {
   String get enableLocationSummary => 'स्थान';
 
   @override
-  String get enableMuteRules => 'म्यूट नियम सक्षम करें';
+  String get enableMuteRules => 'इंटरसेप्टेड कॉल को म्यूट करें';
 
   @override
   String get enableMuteRulesDesc =>
-      'म्यूट इंटरसेप्शन नियमों के कॉन्फ़िगरेशन लागू करें';
+      'अस्वीकार करने के बजाय इंटरसेप्ट की गई कॉल के लिए रिंगटोन को म्यूट करें';
 
   @override
-  String get enableNoneActionRules => 'कोई एक्शन नियम नहीं सक्षम करें';
+  String get enableNoneActionRules =>
+      'केवल लॉग और मार्क करें (कोई इंटरसेप्शन नहीं)';
 
   @override
   String get enableNoneActionRulesDesc =>
-      'बिना इंटरसेप्शन एक्शन वाले नियम कॉन्फ़िगरेशन की अनुमति दें';
+      'बिना किसी इंटरसेप्शन कार्रवाई के कॉल मैचों को लॉग और मार्क करें';
 
   @override
-  String get enableRemoteNumberFilter => 'रिमोट नंबर फ़िल्टर सक्षम करें';
+  String get enableRemoteNumberFilter =>
+      'क्लाउड क्वेरी सीमा सुरक्षा सक्षम करें';
 
   @override
   String get enableRemoteNumberFilterDescription =>
-      'नंबरों को फ़िल्टर करने के लिए रिमोट डेटाबेस का उपयोग करें';
+      'क्लाउड क्वेरी रिपोर्ट संख्या सीमा से अधिक होने पर इनकमिंग कॉल को ब्लॉक करें';
 
   @override
   String get enableRule => 'नियम सक्षम करें';
@@ -1133,13 +1139,13 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get enableTimeInterceptionDescription =>
-      'थोड़े समय में दोहराए गए कॉलों को इंटरसेप्ट करें';
+      'थोड़े समय के भीतर एक ही नंबर से बार-बार आने वाली कॉल को ब्लॉक करें';
 
   @override
   String get enableTimeInterceptor => 'समय इंटरसेप्टर सक्षम करें';
 
   @override
-  String get endCallImmediately => 'कॉल तुरंत समाप्त करें';
+  String get endCallImmediately => 'तुरंत ब्लॉक करें';
 
   @override
   String get endColor => 'अंतिम रंग';
@@ -1900,11 +1906,11 @@ class AppLocalizationsHi extends AppLocalizations {
       'कॉल आवृत्ति के आधार पर स्वचालित रूप से स्पैम कॉल फ़िल्टर करें';
 
   @override
-  String get localCountFilter => 'स्थानीय गणना फ़िल्टर';
+  String get localCountFilter => 'स्थानीय चिह्न सीमा सुरक्षा';
 
   @override
   String get localCountFilterDescription =>
-      'स्थानीय नंबर गणनाओं के आधार पर लगातार कॉल को इंटरसेप्ट करें';
+      'स्थानीय रिपोर्ट सीमा से अधिक होने वाली कॉल को स्वचालित रूप से ब्लॉक करें';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -2566,11 +2572,11 @@ class AppLocalizationsHi extends AppLocalizations {
       'सक्षम होने पर, उच्चतम प्राथमिकता के साथ सभी कॉल अस्वीकार कर दिए जाएंगे';
 
   @override
-  String get rejectAllNumbers => 'सभी नंबर अस्वीकार करें';
+  String get rejectAllNumbers => 'सभी आने वाली कॉल अस्वीकार करें';
 
   @override
   String get rejectAllNumbersDesc =>
-      'सक्षम होने पर सभी इनकमिंग कॉल अस्वीकार करें';
+      'उच्चतम प्राथमिकता के साथ सभी आने वाली कॉल अस्वीकार करें';
 
   @override
   String get rejectExceededNumbers => 'सीमा से अधिक नंबर अस्वीकार करें';
@@ -2586,11 +2592,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String get remoteFilterSettingsPageTitle => 'रिमोट नंबर फ़िल्टर सेटिंग्स';
 
   @override
-  String get remoteNumberFilter => 'रिमोट नंबर फ़िल्टर';
+  String get remoteNumberFilter => 'क्लाउड क्वेरी सीमा सुरक्षा';
 
   @override
   String get remoteNumberFilterDescription =>
-      'रिमोट डेटाबेस जानकारी के आधार पर परेशान करने वाली कॉलों को रोकें';
+      'क्लाउड रिपोर्ट सीमा से अधिक होने वाली कॉल को स्वचालित रूप से ब्लॉक करें';
 
   @override
   String get remoteNumberFiltering => 'रिमोट नंबर फ़िल्टरिंग';
@@ -2946,7 +2952,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get silence => 'शांत करें';
 
   @override
-  String get silenceAndNoAnswer => 'शांत करें और कोई उत्तर नहीं';
+  String get silenceAndNoAnswer => 'रिंगटोन म्यूट करें';
 
   @override
   String get silenceNoAnswer => 'शांत करें कोई उत्तर नहीं';
@@ -3317,11 +3323,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String get thisWeek => 'इस सप्ताह';
 
   @override
-  String get timeInterceptor => 'टाइम इंटरसेप्टर';
+  String get timeInterceptor => 'लगातार कॉल सुरक्षा';
 
   @override
   String get timeInterceptorDescription =>
-      'कॉल फ़्रीक्वेंसी के आधार पर संभावित कॉल को स्वचालित रूप से इंटरसेप्ट/अनुमति दें';
+      'थोड़े समय के भीतर एक ही नंबर से बार-बार आने वाली कॉल को ब्लॉक करें';
 
   @override
   String get timeInterceptorExplanation =>
@@ -4775,4 +4781,88 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get answerThenHangupDescription =>
       'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
+  String get initialSetupTitle => 'नियम लाइब्रेरी सेटअप';
+
+  @override
+  String get initialSetupDesc =>
+      'कृपया क्षेत्रीय नियम लाइब्रेरी चुनें जिन्हें आप ब्लॉक करना चाहते हैं। ये नियम आपके क्षेत्र में आम बिक्री और स्कैम कॉल को स्वचालित रूप से ब्लॉक करने में मदद कर सकते हैं।';
+
+  @override
+  String get initialSetupRetry => 'पुनः प्रयास करें';
+
+  @override
+  String get initialSetupSkip => 'छोड़ें';
+
+  @override
+  String get initialSetupSave => 'चयनित वन-क्लिक सेटअप';
+
+  @override
+  String get initialSetupSaving => 'सहेजा जा रहा है...';
+
+  @override
+  String get initialSetupSaveSuccess =>
+      '✅ कॉन्फ़िगरेशन सफलतापूर्वक सहेजा गया, नियम जल्द ही स्वचालित रूप से प्राप्त किए जाएंगे';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return 'कॉन्फ़िगरेशन सहेजने में विफल: $error';
+  }
+
+  @override
+  String get initialSetupGetFailed => 'कॉन्फ़िगरेशन प्राप्त करने में विफल';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return 'Import $type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => 'Plugin';
+
+  @override
+  String get deepLinkTypeSubscription => 'Rule Subscription';
+
+  @override
+  String get deepLinkDefaultPluginName => 'External Plugin';
+
+  @override
+  String get deepLinkDefaultSubName => 'External Rule Subscription';
+
+  @override
+  String get deepLinkDetectedTitle => 'External Import Request Detected';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return 'URL: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => 'Confirm Import';
+
+  @override
+  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+
+  @override
+  String get deepLinkPluginDownloadFailed =>
+      'Failed to download or parse plugin script';
+
+  @override
+  String get deepLinkImportSuccess => '✅ Imported successfully';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return 'Import failed: $error';
+  }
 }

@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "Pengaturan Pustaka Aturan",
+  "initialSetupDesc": "Silakan pilih pustaka aturan regional yang ingin Anda blokir. Aturan ini dapat membantu Anda secara otomatis memblokir panggilan penjualan dan penipuan umum di wilayah Anda.",
+  "initialSetupRetry": "Coba Lagi",
+  "initialSetupSkip": "Lewati",
+  "initialSetupSave": "Pengaturan terpilih sekali klik",
+  "initialSetupSaving": "Menyimpan...",
+  "initialSetupSaveSuccess": "✅ Konfigurasi berhasil disimpan, aturan akan segera diambil secara otomatis",
+  "initialSetupSaveFailed": "Gagal menyimpan konfigurasi: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Gagal mendapatkan konfigurasi"
 }

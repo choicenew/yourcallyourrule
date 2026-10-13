@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "إعداد مكتبة القواعد",
+  "initialSetupDesc": "يرجى تحديد مكتبات القواعد الإقليمية التي تريد حظرها. يمكن أن تساعدك هذه القواعد في حظر مكالمات المبيعات والاحتيال الشائعة تلقائيًا في منطقتك.",
+  "initialSetupRetry": "إعادة المحاولة",
+  "initialSetupSkip": "تخطي",
+  "initialSetupSave": "الإعداد بنقرة واحدة للمحدد",
+  "initialSetupSaving": "جارٍ الحفظ...",
+  "initialSetupSaveSuccess": "✅ تم حفظ التكوين بنجاح، سيتم جلب القواعد تلقائيًا قريبًا",
+  "initialSetupSaveFailed": "فشل حفظ التكوين: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "فشل في الحصول على التكوين"
 }

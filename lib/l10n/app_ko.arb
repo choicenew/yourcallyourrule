@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "규칙 라이브러리 설정",
+  "initialSetupDesc": "차단할 지역 규칙 라이브러리를 선택하세요. 이 규칙들은 해당 지역의 일반적인 판매 및 사기 전화를 자동으로 차단하는 데 도움이 됩니다.",
+  "initialSetupRetry": "다시 시도",
+  "initialSetupSkip": "건너뛰기",
+  "initialSetupSave": "선택 항목 원클릭 설정",
+  "initialSetupSaving": "저장 중...",
+  "initialSetupSaveSuccess": "✅ 설정이 성공적으로 저장되었으며, 곧 규칙이 자동으로 가져와집니다.",
+  "initialSetupSaveFailed": "설정 저장 실패: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "설정 가져오기 실패"
 }

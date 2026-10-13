@@ -64,6 +64,8 @@ import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_pag
 import 'package:yourcallyourrule/purchase/pages/vip_exchange_page.dart';
 import 'package:yourcallyourrule/features/caller_id/presentation/pages/caller_id_settings_page.dart';
 import 'package:yourcallyourrule/supabase_sync/supabase_settings_page.dart';
+import 'package:yourcallyourrule/features/initial_setup/pages/initial_setup_page.dart';
+import 'package:yourcallyourrule/features/initial_setup/pages/deep_link_import_page.dart';
 
 /// 应用路由配置
 /// 使用GoRouter管理全局路由表
@@ -138,6 +140,8 @@ class AppRouter {
   static const String eliteHome = 'elite-home';
   static const String proHome = 'pro-home';
   static const String specialPermissions = 'special-permissions';
+  static const String initialSetup = 'initial-setup';
+  static const String externalImport = 'import';
 
 
   // 创建路由器
@@ -578,6 +582,22 @@ class AppRouter {
         name: kitLiveNotificationCustomization,
         builder: (context, state) => const KitLiveNotificationCustomizationScreen(),
       ),
+      // 初始规则库引导设置页面
+      GoRoute(
+        path: '/$initialSetup',
+        name: initialSetup,
+        builder: (context, state) => const InitialSetupPage(),
+      ),
+      // 外部链接一键导入页面（支持 yourcallrule://import）
+      GoRoute(
+        path: '/$externalImport',
+        name: externalImport,
+        builder: (context, state) => DeepLinkImportPage(
+          type: state.uri.queryParameters['type'],
+          url: state.uri.queryParameters['url'],
+          name: state.uri.queryParameters['name'],
+        ),
+      ),
     ],
   );
   
@@ -625,5 +645,10 @@ class AppRouter {
   // 导航到带广告的号码标记管理页面
   void navigateToMarkPhoneManagementWithAds(BuildContext context) {
     context.goNamed(markPhoneManagementWithAds);
+  }
+
+  // 导航到初始规则库引导设置页面
+  void navigateToInitialSetup(BuildContext context) {
+    context.goNamed(initialSetup);
   }
 }

@@ -192,34 +192,38 @@ class AppLocalizationsEn extends AppLocalizations {
   String get allow => 'Allow';
 
   @override
-  String get allowAllAllowRules => 'Allow All Allow Rules';
+  String get allowAllAllowRules => 'Enable All Allow Rules';
 
   @override
-  String get allowAllAllowRulesDesc => 'Allow calls from allow rules';
+  String get allowAllAllowRulesDesc =>
+      'Master switch to apply all configured allow rules';
 
   @override
   String get allowAllBlacklistedNumbers => 'Allow All Blacklisted Numbers';
 
   @override
-  String get allowAllBlockRules => 'Allow All Block Rules';
+  String get allowAllBlockRules => 'Enable All Block Rules';
 
   @override
-  String get allowAllBlockRulesDesc => 'Allow calls from block rules';
+  String get allowAllBlockRulesDesc =>
+      'Master switch to apply all configured block rules';
 
   @override
-  String get allowAllowedNumbers => 'Allow Allowed Numbers';
+  String get allowAllowedNumbers => 'Allow All Approved Numbers';
 
   @override
-  String get allowAllowedNumbersDesc => 'Allow calls from allowlist';
+  String get allowAllowedNumbersDesc =>
+      'Allow all incoming calls from numbers on your allowlist';
 
   @override
   String get allowBlock => 'Allow/Block';
 
   @override
-  String get allowBlockedNumbers => 'Allow Blocked Numbers';
+  String get allowBlockedNumbers => 'Bypass Blocklist';
 
   @override
-  String get allowBlockedNumbersDesc => 'Allow calls from blocklist';
+  String get allowBlockedNumbersDesc =>
+      'Temporarily allow calls from numbers on your blocklist';
 
   @override
   String get allowedBlockedRule => 'Allow/Block Rule';
@@ -238,22 +242,22 @@ class AppLocalizationsEn extends AppLocalizations {
       'Automatically allow numbers not exceeding the count threshold';
 
   @override
-  String get allowRegexAllowRules => 'Allow Regex Allow Rules';
+  String get allowRegexAllowRules => 'Enable Regex Allow Rules';
 
   @override
   String get allowRegexAllowRulesDesc =>
-      'Enable regex pattern matching for allow rules';
+      'Enable regular expression pattern matching for allow rules';
 
   @override
   String get allowRegexAllowRulesDescription =>
       'Enable regex-based allow rules';
 
   @override
-  String get allowRegexBlockRules => 'Allow Regex Block Rules';
+  String get allowRegexBlockRules => 'Enable Regex Block Rules';
 
   @override
   String get allowRegexBlockRulesDesc =>
-      'Enable regex pattern matching for block rules';
+      'Enable regular expression pattern matching for block rules';
 
   @override
   String get allowRegexBlockRulesDescription =>
@@ -394,7 +398,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get basicRuleFilterSubtitle =>
-      'Filter calls using blacklist/whitelist and regular expressions';
+      'Filter calls using allowlists, blocklists, and regular expressions';
 
   @override
   String batchDeleteContactsConfirm(Object count) {
@@ -1073,11 +1077,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enableGlobalPlugins => 'Enable global plugins';
 
   @override
-  String get enableLocalCountFilter => 'Enable Local Count Filter';
+  String get enableLocalCountFilter => 'Enable Local Mark Threshold Protection';
 
   @override
   String get enableLocalCountFilterDescription =>
-      'Automatically filter spam calls based on call marking count';
+      'Block incoming calls when local report count exceeds threshold';
 
   @override
   String get enableLocalNotification => 'Use Local Notification';
@@ -1090,25 +1094,26 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enableLocationSummary => 'Location';
 
   @override
-  String get enableMuteRules => 'Enable Mute Rules';
+  String get enableMuteRules => 'Silence Intercepted Calls';
 
   @override
   String get enableMuteRulesDesc =>
-      'Apply mute interception rules configuration';
+      'Silence the ringtone for intercepted calls instead of rejecting';
 
   @override
-  String get enableNoneActionRules => 'Enable None Action Rules';
+  String get enableNoneActionRules => 'Log & Mark Only (No Interception)';
 
   @override
   String get enableNoneActionRulesDesc =>
-      'Allow rule configurations with no interception actions';
+      'Log and mark call matches without taking any interception action';
 
   @override
-  String get enableRemoteNumberFilter => 'Enable Remote Number Filter';
+  String get enableRemoteNumberFilter =>
+      'Enable Cloud Query Threshold Protection';
 
   @override
   String get enableRemoteNumberFilterDescription =>
-      'Use remote database to filter numbers';
+      'Block incoming calls when cloud query report count exceeds threshold';
 
   @override
   String get enableRule => 'Enable Rule';
@@ -1121,17 +1126,17 @@ class AppLocalizationsEn extends AppLocalizations {
       'When enabled, messages will be automatically filtered according to the rules';
 
   @override
-  String get enableTimeInterception => 'Enable Time Interception';
+  String get enableTimeInterception => 'Enable Frequent Call Protection';
 
   @override
   String get enableTimeInterceptionDescription =>
-      'Intercept repeated calls within a short time';
+      'Block repeated calls from the same number within a short time';
 
   @override
-  String get enableTimeInterceptor => 'Enable Time Interceptor';
+  String get enableTimeInterceptor => 'Enable Frequent Call Protection';
 
   @override
-  String get endCallImmediately => 'End call immediately';
+  String get endCallImmediately => 'Block Immediately';
 
   @override
   String get endColor => 'End Color';
@@ -1884,11 +1889,11 @@ class AppLocalizationsEn extends AppLocalizations {
       'Automatically filter spam calls based on call frequency';
 
   @override
-  String get localCountFilter => 'Local Count Filter';
+  String get localCountFilter => 'Local Mark Threshold Protection';
 
   @override
   String get localCountFilterDescription =>
-      'Intercept frequent calls based on local number counts';
+      'Automatically block calls exceeding local report threshold';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -2547,10 +2552,11 @@ class AppLocalizationsEn extends AppLocalizations {
       'When enabled, all calls will be rejected with highest priority';
 
   @override
-  String get rejectAllNumbers => 'Reject All Numbers';
+  String get rejectAllNumbers => 'Reject All Incoming Calls';
 
   @override
-  String get rejectAllNumbersDesc => 'Reject all incoming calls when enabled';
+  String get rejectAllNumbersDesc =>
+      'Reject all incoming calls with highest priority';
 
   @override
   String get rejectExceededNumbers => 'Reject Exceeded Numbers';
@@ -2566,11 +2572,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get remoteFilterSettingsPageTitle => 'Remote Number Filter Settings';
 
   @override
-  String get remoteNumberFilter => 'Remote Number Filter';
+  String get remoteNumberFilter => 'Cloud Query Threshold Protection';
 
   @override
   String get remoteNumberFilterDescription =>
-      'Intercept harassing calls based on remote database information';
+      'Automatically block calls exceeding cloud report threshold';
 
   @override
   String get remoteNumberFiltering => 'Remote Number Filtering';
@@ -2925,7 +2931,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get silence => 'Silence';
 
   @override
-  String get silenceAndNoAnswer => 'Silence and No Answer';
+  String get silenceAndNoAnswer => 'Silence Ringtone';
 
   @override
   String get silenceNoAnswer => 'Silence No Answer';
@@ -3293,11 +3299,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get thisWeek => 'This Week';
 
   @override
-  String get timeInterceptor => 'Time Interceptor';
+  String get timeInterceptor => 'Frequent Call Protection';
 
   @override
   String get timeInterceptorDescription =>
-      'Automatically intercept/allow potential calls based on call frequency';
+      'Block repeated calls from the same number within a short time';
 
   @override
   String get timeInterceptorExplanation =>
@@ -4745,4 +4751,88 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get answerThenHangupDescription =>
       'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
+  String get initialSetupTitle => 'Rule Library Setup';
+
+  @override
+  String get initialSetupDesc =>
+      'Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.';
+
+  @override
+  String get initialSetupRetry => 'Retry';
+
+  @override
+  String get initialSetupSkip => 'Skip';
+
+  @override
+  String get initialSetupSave => 'One-click setup selected';
+
+  @override
+  String get initialSetupSaving => 'Saving...';
+
+  @override
+  String get initialSetupSaveSuccess =>
+      '✅ Configuration saved successfully, rules will be fetched automatically soon';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return 'Failed to save configuration: $error';
+  }
+
+  @override
+  String get initialSetupGetFailed => 'Failed to get configuration';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return 'Import $type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => 'Plugin';
+
+  @override
+  String get deepLinkTypeSubscription => 'Rule Subscription';
+
+  @override
+  String get deepLinkDefaultPluginName => 'External Plugin';
+
+  @override
+  String get deepLinkDefaultSubName => 'External Rule Subscription';
+
+  @override
+  String get deepLinkDetectedTitle => 'External Import Request Detected';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return 'URL: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => 'Confirm Import';
+
+  @override
+  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+
+  @override
+  String get deepLinkPluginDownloadFailed =>
+      'Failed to download or parse plugin script';
+
+  @override
+  String get deepLinkImportSuccess => '✅ Imported successfully';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return 'Import failed: $error';
+  }
 }

@@ -194,39 +194,39 @@ class AppLocalizationsEs extends AppLocalizations {
   String get allow => 'Permitir';
 
   @override
-  String get allowAllAllowRules => 'Permitir todas las reglas de permiso';
+  String get allowAllAllowRules => 'Habilitar todas las reglas de permiso';
 
   @override
   String get allowAllAllowRulesDesc =>
-      'Permitir llamadas desde reglas de permiso';
+      'Interruptor principal para aplicar todas las reglas de permiso configuradas';
 
   @override
   String get allowAllBlacklistedNumbers =>
       'Permitir todos los números en la lista negra';
 
   @override
-  String get allowAllBlockRules => 'Permitir todas las reglas de bloqueo';
+  String get allowAllBlockRules => 'Habilitar todas las reglas de bloqueo';
 
   @override
   String get allowAllBlockRulesDesc =>
-      'Permitir llamadas desde reglas de bloqueo';
+      'Interruptor principal para aplicar todas las reglas de bloqueo configuradas';
 
   @override
-  String get allowAllowedNumbers => 'Permitir números permitidos';
+  String get allowAllowedNumbers => 'Permitir todos los números aprobados';
 
   @override
   String get allowAllowedNumbersDesc =>
-      'Permitir llamadas desde la lista de permitidos';
+      'Permitir todas las llamadas entrantes de números en su lista de permitidos';
 
   @override
   String get allowBlock => 'Permitir/Bloquear';
 
   @override
-  String get allowBlockedNumbers => 'Permitir números bloqueados';
+  String get allowBlockedNumbers => 'Pausar bloqueo de lista negra';
 
   @override
   String get allowBlockedNumbersDesc =>
-      'Permitir llamadas desde la lista de bloqueados';
+      'Permitir temporalmente llamadas de números en su lista de bloqueados';
 
   @override
   String get allowedBlockedRule => 'Regla de Permitir/Bloquear';
@@ -247,22 +247,24 @@ class AppLocalizationsEs extends AppLocalizations {
       'Permitir automáticamente números que no excedan el umbral de conteo';
 
   @override
-  String get allowRegexAllowRules => 'Permitir reglas de permiso Regex';
+  String get allowRegexAllowRules =>
+      'Habilitar reglas de permiso con expresiones regulares';
 
   @override
   String get allowRegexAllowRulesDesc =>
-      'Habilitar la coincidencia de patrones regex para reglas de permiso';
+      'Habilitar la coincidencia de patrones con expresiones regulares para las reglas de permiso';
 
   @override
   String get allowRegexAllowRulesDescription =>
       'Habilitar reglas de permiso basadas en regex';
 
   @override
-  String get allowRegexBlockRules => 'Permitir reglas de bloqueo Regex';
+  String get allowRegexBlockRules =>
+      'Habilitar reglas de bloqueo con expresiones regulares';
 
   @override
   String get allowRegexBlockRulesDesc =>
-      'Habilitar la coincidencia de patrones regex para reglas de bloqueo';
+      'Habilitar la coincidencia de patrones con expresiones regulares para las reglas de bloqueo';
 
   @override
   String get allowRegexBlockRulesDescription =>
@@ -1100,11 +1102,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get enableGlobalPlugins => 'Habilitar plugins globales';
 
   @override
-  String get enableLocalCountFilter => 'Habilitar filtro de conteo local';
+  String get enableLocalCountFilter =>
+      'Habilitar protección por umbral de marcas locales';
 
   @override
   String get enableLocalCountFilterDescription =>
-      'Filtrar automáticamente las llamadas de spam según el recuento de marcas de llamadas';
+      'Bloquear llamadas entrantes cuando el recuento de reportes locales supere el umbral';
 
   @override
   String get enableLocalNotification => 'Usar notificación local';
@@ -1117,25 +1120,27 @@ class AppLocalizationsEs extends AppLocalizations {
   String get enableLocationSummary => 'Ubicación';
 
   @override
-  String get enableMuteRules => 'Habilitar Reglas de Silencio';
+  String get enableMuteRules => 'Silenciar llamadas interceptadas';
 
   @override
   String get enableMuteRulesDesc =>
-      'Aplicar la configuración de reglas de intercepción de silencio';
+      'Silenciar el tono de llamada para las llamadas interceptadas en lugar de rechazarlas';
 
   @override
-  String get enableNoneActionRules => 'Habilitar Reglas Sin Acción';
+  String get enableNoneActionRules =>
+      'Solo registrar y marcar (Sin interrupción)';
 
   @override
   String get enableNoneActionRulesDesc =>
-      'Permitir configuraciones de reglas sin acciones de intercepción';
+      'Registrar y marcar las coincidencias de llamadas sin tomar ninguna acción de interrupción';
 
   @override
-  String get enableRemoteNumberFilter => 'Habilitar Filtro de Número Remoto';
+  String get enableRemoteNumberFilter =>
+      'Habilitar protección por umbral de consulta en la nube';
 
   @override
   String get enableRemoteNumberFilterDescription =>
-      'Usar la base de datos remota para filtrar números';
+      'Bloquear llamadas entrantes cuando el recuento de reportes en la nube supere el umbral';
 
   @override
   String get enableRule => 'Habilitar Regla';
@@ -1152,13 +1157,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get enableTimeInterceptionDescription =>
-      'Interceptar llamadas repetidas en un corto período de tiempo';
+      'Bloquear llamadas repetidas del mismo número en poco tiempo';
 
   @override
   String get enableTimeInterceptor => 'Habilitar Interceptor de Tiempo';
 
   @override
-  String get endCallImmediately => 'Finalizar llamada inmediatamente';
+  String get endCallImmediately => 'Bloquear inmediatamente';
 
   @override
   String get endColor => 'Color de Finalización';
@@ -1931,11 +1936,11 @@ class AppLocalizationsEs extends AppLocalizations {
       'Filtrar automáticamente las llamadas spam según la frecuencia de las llamadas';
 
   @override
-  String get localCountFilter => 'Filtro de conteo local';
+  String get localCountFilter => 'Protección por umbral de marcas locales';
 
   @override
   String get localCountFilterDescription =>
-      'Interceptar llamadas frecuentes basadas en el conteo de números locales';
+      'Bloquear automáticamente las llamadas que superen el umbral de reportes locales';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -2604,11 +2609,11 @@ class AppLocalizationsEs extends AppLocalizations {
       'Cuando está habilitado, todas las llamadas se rechazarán con la máxima prioridad';
 
   @override
-  String get rejectAllNumbers => 'Rechazar todos los números';
+  String get rejectAllNumbers => 'Rechazar todas las llamadas entrantes';
 
   @override
   String get rejectAllNumbersDesc =>
-      'Rechazar todas las llamadas entrantes cuando esté habilitado';
+      'Rechazar todas las llamadas entrantes con la máxima prioridad';
 
   @override
   String get rejectExceededNumbers => 'Rechazar números excedidos';
@@ -2625,11 +2630,12 @@ class AppLocalizationsEs extends AppLocalizations {
       'Ajustes del filtro de números remotos';
 
   @override
-  String get remoteNumberFilter => 'Filtro de números remotos';
+  String get remoteNumberFilter =>
+      'Protección por umbral de consulta en la nube';
 
   @override
   String get remoteNumberFilterDescription =>
-      'Intercepta las llamadas de acoso basadas en la información de la base de datos remota';
+      'Bloquear automáticamente las llamadas que superen el umbral de reportes en la nube';
 
   @override
   String get remoteNumberFiltering => 'Filtrado de números remotos';
@@ -2988,7 +2994,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get silence => 'Silencio';
 
   @override
-  String get silenceAndNoAnswer => 'Silencio y sin respuesta';
+  String get silenceAndNoAnswer => 'Silenciar tono';
 
   @override
   String get silenceNoAnswer => 'Silenciar sin contestar';
@@ -3362,11 +3368,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get thisWeek => 'Esta semana';
 
   @override
-  String get timeInterceptor => 'Interceptor de tiempo';
+  String get timeInterceptor => 'Protección contra llamadas frecuentes';
 
   @override
   String get timeInterceptorDescription =>
-      'Intercepta/permite automáticamente llamadas potenciales basadas en la frecuencia de las llamadas';
+      'Bloquear llamadas repetidas del mismo número en poco tiempo';
 
   @override
   String get timeInterceptorExplanation =>
@@ -4831,4 +4837,88 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get answerThenHangupDescription =>
       'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
+  String get initialSetupTitle => 'Configuración de Biblioteca de Reglas';
+
+  @override
+  String get initialSetupDesc =>
+      'Seleccione las bibliotecas de reglas regionales que desea bloquear. Estas reglas le ayudan a bloquear automáticamente llamadas comunes de ventas y estafas en su región.';
+
+  @override
+  String get initialSetupRetry => 'Reintentar';
+
+  @override
+  String get initialSetupSkip => 'Omitir';
+
+  @override
+  String get initialSetupSave => 'Configuración seleccionada en un clic';
+
+  @override
+  String get initialSetupSaving => 'Guardando...';
+
+  @override
+  String get initialSetupSaveSuccess =>
+      '✅ Configuración guardada con éxito, las reglas se obtendrán automáticamente pronto';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return 'Error al guardar la configuración: $error';
+  }
+
+  @override
+  String get initialSetupGetFailed => 'Error al obtener la configuración';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return 'Import $type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => 'Plugin';
+
+  @override
+  String get deepLinkTypeSubscription => 'Rule Subscription';
+
+  @override
+  String get deepLinkDefaultPluginName => 'External Plugin';
+
+  @override
+  String get deepLinkDefaultSubName => 'External Rule Subscription';
+
+  @override
+  String get deepLinkDetectedTitle => 'External Import Request Detected';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return 'URL: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => 'Confirm Import';
+
+  @override
+  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+
+  @override
+  String get deepLinkPluginDownloadFailed =>
+      'Failed to download or parse plugin script';
+
+  @override
+  String get deepLinkImportSuccess => '✅ Imported successfully';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return 'Import failed: $error';
+  }
 }

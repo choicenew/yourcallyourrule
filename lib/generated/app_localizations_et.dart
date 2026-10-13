@@ -4775,4 +4775,88 @@ class AppLocalizationsEt extends AppLocalizations {
   @override
   String get answerThenHangupDescription =>
       'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
+  String get initialSetupTitle => 'Rule Library Setup';
+
+  @override
+  String get initialSetupDesc =>
+      'Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.';
+
+  @override
+  String get initialSetupRetry => 'Retry';
+
+  @override
+  String get initialSetupSkip => 'Skip';
+
+  @override
+  String get initialSetupSave => 'One-click setup selected';
+
+  @override
+  String get initialSetupSaving => 'Saving...';
+
+  @override
+  String get initialSetupSaveSuccess =>
+      '✅ Configuration saved successfully, rules will be fetched automatically soon';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return 'Failed to save configuration: $error';
+  }
+
+  @override
+  String get initialSetupGetFailed => 'Failed to get configuration';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return 'Import $type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => 'Plugin';
+
+  @override
+  String get deepLinkTypeSubscription => 'Rule Subscription';
+
+  @override
+  String get deepLinkDefaultPluginName => 'External Plugin';
+
+  @override
+  String get deepLinkDefaultSubName => 'External Rule Subscription';
+
+  @override
+  String get deepLinkDetectedTitle => 'External Import Request Detected';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return 'URL: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => 'Confirm Import';
+
+  @override
+  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+
+  @override
+  String get deepLinkPluginDownloadFailed =>
+      'Failed to download or parse plugin script';
+
+  @override
+  String get deepLinkImportSuccess => '✅ Imported successfully';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return 'Import failed: $error';
+  }
 }

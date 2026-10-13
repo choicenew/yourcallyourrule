@@ -192,35 +192,39 @@ class AppLocalizationsRu extends AppLocalizations {
   String get allow => 'Разрешить';
 
   @override
-  String get allowAllAllowRules => 'Разрешить все разрешающие правила';
+  String get allowAllAllowRules => 'Включить все правила разрешения';
 
   @override
-  String get allowAllAllowRulesDesc => 'Разрешить звонки из разрешающих правил';
+  String get allowAllAllowRulesDesc =>
+      'Главный переключатель для применения всех настроенных правил разрешения';
 
   @override
   String get allowAllBlacklistedNumbers =>
       'Разрешить все номера из черного списка';
 
   @override
-  String get allowAllBlockRules => 'Разрешить все блокирующие правила';
+  String get allowAllBlockRules => 'Включить все правила блокировки';
 
   @override
-  String get allowAllBlockRulesDesc => 'Разрешить звонки из блокирующих правил';
+  String get allowAllBlockRulesDesc =>
+      'Главный переключатель для применения всех настроенных правил блокировки';
 
   @override
-  String get allowAllowedNumbers => 'Разрешить разрешенные номера';
+  String get allowAllowedNumbers => 'Разрешить все одобренные номера';
 
   @override
-  String get allowAllowedNumbersDesc => 'Разрешить звонки из белого списка';
+  String get allowAllowedNumbersDesc =>
+      'Разрешить все входящие вызовы с номеров из вашего белого списка';
 
   @override
   String get allowBlock => 'Разрешить/Заблокировать';
 
   @override
-  String get allowBlockedNumbers => 'Разрешить заблокированные номера';
+  String get allowBlockedNumbers => 'Приостановить черный список';
 
   @override
-  String get allowBlockedNumbersDesc => 'Разрешить звонки из черного списка';
+  String get allowBlockedNumbersDesc =>
+      'Временно разрешить вызовы с номеров из черного списка';
 
   @override
   String get allowedBlockedRule => 'Правило разрешения/блокировки';
@@ -242,22 +246,22 @@ class AppLocalizationsRu extends AppLocalizations {
       'Автоматически разрешать номера, не превышающие пороговое значение количества';
 
   @override
-  String get allowRegexAllowRules => 'Разрешить правила regex для разрешения';
+  String get allowRegexAllowRules => 'Включить правила разрешения Regex';
 
   @override
   String get allowRegexAllowRulesDesc =>
-      'Включить сопоставление шаблонов regex для разрешающих правил';
+      'Включить сопоставление шаблонов регулярных выражений для правил разрешения';
 
   @override
   String get allowRegexAllowRulesDescription =>
       'Включить разрешающие правила на основе regex';
 
   @override
-  String get allowRegexBlockRules => 'Разрешить правила regex для блокировки';
+  String get allowRegexBlockRules => 'Включить правила блокировки Regex';
 
   @override
   String get allowRegexBlockRulesDesc =>
-      'Включить сопоставление шаблонов regex для блокирующих правил';
+      'Включить сопоставление шаблонов регулярных выражений для правил блокировки';
 
   @override
   String get allowRegexBlockRulesDescription =>
@@ -1092,11 +1096,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get enableGlobalPlugins => 'Включить глобальные плагины';
 
   @override
-  String get enableLocalCountFilter => 'Включить фильтр локального счетчика';
+  String get enableLocalCountFilter =>
+      'Включить защиту по порогу локальных меток';
 
   @override
   String get enableLocalCountFilterDescription =>
-      'Автоматически фильтровать спам-вызовы на основе количества отметок вызовов';
+      'Блокировать входящие вызовы, если количество локальных жалоб превышает порог';
 
   @override
   String get enableLocalNotification => 'Использовать локальное уведомление';
@@ -1109,25 +1114,26 @@ class AppLocalizationsRu extends AppLocalizations {
   String get enableLocationSummary => 'Местоположение';
 
   @override
-  String get enableMuteRules => 'Включить правила отключения звука';
+  String get enableMuteRules => 'Глушить звонок при перехвате';
 
   @override
   String get enableMuteRulesDesc =>
-      'Применить конфигурацию правил перехвата отключения звука';
+      'Отключать звук звонка для перехваченных вызовов вместо сброса';
 
   @override
-  String get enableNoneActionRules => 'Включить правила без действий';
+  String get enableNoneActionRules => 'Только запись и метка (без блокировки)';
 
   @override
   String get enableNoneActionRulesDesc =>
-      'Разрешить конфигурации правил без действий перехвата';
+      'Записывать и помечать совпадения вызовов без выполнения каких-либо действий по блокировке';
 
   @override
-  String get enableRemoteNumberFilter => 'Включить фильтр удаленных номеров';
+  String get enableRemoteNumberFilter =>
+      'Включить защиту по порогу облачных запросов';
 
   @override
   String get enableRemoteNumberFilterDescription =>
-      'Использовать удаленную базу данных для фильтрации номеров';
+      'Блокировать входящие вызовы, если количество жалоб в облачной базе превышает порог';
 
   @override
   String get enableRule => 'Включить правило';
@@ -1144,13 +1150,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get enableTimeInterceptionDescription =>
-      'Перехватывать повторяющиеся звонки за короткий промежуток времени';
+      'Блокировать повторные вызовы с одного и того же номера за короткое время';
 
   @override
   String get enableTimeInterceptor => 'Включить временной перехватчик';
 
   @override
-  String get endCallImmediately => 'Завершить вызов немедленно';
+  String get endCallImmediately => 'Сбросить немедленно';
 
   @override
   String get endColor => 'Конечный цвет';
@@ -1918,11 +1924,11 @@ class AppLocalizationsRu extends AppLocalizations {
       'Автоматически фильтровать спам-звонки на основе частоты звонков';
 
   @override
-  String get localCountFilter => 'Локальный счетчик фильтрации';
+  String get localCountFilter => 'Защита по порогу локальных меток';
 
   @override
   String get localCountFilterDescription =>
-      'Перехватывать частые звонки на основе количества локальных номеров';
+      'Автоматически блокировать вызовы, превышающие порог локальных жалоб';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -2591,11 +2597,11 @@ class AppLocalizationsRu extends AppLocalizations {
       'При включении все вызовы будут отклонены с наивысшим приоритетом';
 
   @override
-  String get rejectAllNumbers => 'Отклонить все номера';
+  String get rejectAllNumbers => 'Отклонять все входящие вызовы';
 
   @override
   String get rejectAllNumbersDesc =>
-      'Отклонять все входящие вызовы при включении';
+      'Отклонять все входящие вызовы с наивысшим приоритетом';
 
   @override
   String get rejectExceededNumbers => 'Отклонить превышающие номера';
@@ -2612,11 +2618,11 @@ class AppLocalizationsRu extends AppLocalizations {
       'Настройки удаленного фильтра номеров';
 
   @override
-  String get remoteNumberFilter => 'Удаленный фильтр номеров';
+  String get remoteNumberFilter => 'Защита по порогу облачных запросов';
 
   @override
   String get remoteNumberFilterDescription =>
-      'Перехватывайте надоедливые вызовы на основе информации из удаленной базы данных';
+      'Автоматически блокировать вызовы, превышающие порог облачных жалоб';
 
   @override
   String get remoteNumberFiltering => 'Удаленная фильтрация номеров';
@@ -2975,7 +2981,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get silence => 'Тишина';
 
   @override
-  String get silenceAndNoAnswer => 'Тишина и нет ответа';
+  String get silenceAndNoAnswer => 'Заглушить звонок';
 
   @override
   String get silenceNoAnswer => 'Тишина без ответа';
@@ -3345,11 +3351,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get thisWeek => 'На этой неделе';
 
   @override
-  String get timeInterceptor => 'Временной перехватчик';
+  String get timeInterceptor => 'Защита от частых звонков';
 
   @override
   String get timeInterceptorDescription =>
-      'Автоматически перехватывать/разрешать потенциальные вызовы в зависимости от частоты вызовов';
+      'Блокировать повторные вызовы с одного и того же номера за короткое время';
 
   @override
   String get timeInterceptorExplanation =>
@@ -4814,4 +4820,88 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get answerThenHangupDescription =>
       'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
+  String get initialSetupTitle => 'Настройка библиотеки правил';
+
+  @override
+  String get initialSetupDesc =>
+      'Пожалуйста, выберите региональные библиотеки правил для блокировки. Эти правила помогут вам автоматически блокировать распространенные рекламные и мошеннические вызовы в вашем регионе.';
+
+  @override
+  String get initialSetupRetry => 'Повторить';
+
+  @override
+  String get initialSetupSkip => 'Пропустить';
+
+  @override
+  String get initialSetupSave => 'Настроить выбранное в один клик';
+
+  @override
+  String get initialSetupSaving => 'Сохранение...';
+
+  @override
+  String get initialSetupSaveSuccess =>
+      '✅ Конфигурация успешно сохранена, правила скоро будут загружены автоматически';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return 'Не удалось сохранить конфигурацию: $error';
+  }
+
+  @override
+  String get initialSetupGetFailed => 'Не удалось получить конфигурацию';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return 'Import $type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => 'Plugin';
+
+  @override
+  String get deepLinkTypeSubscription => 'Rule Subscription';
+
+  @override
+  String get deepLinkDefaultPluginName => 'External Plugin';
+
+  @override
+  String get deepLinkDefaultSubName => 'External Rule Subscription';
+
+  @override
+  String get deepLinkDetectedTitle => 'External Import Request Detected';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return 'URL: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => 'Confirm Import';
+
+  @override
+  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+
+  @override
+  String get deepLinkPluginDownloadFailed =>
+      'Failed to download or parse plugin script';
+
+  @override
+  String get deepLinkImportSuccess => '✅ Imported successfully';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return 'Import failed: $error';
+  }
 }

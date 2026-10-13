@@ -192,34 +192,34 @@ class AppLocalizationsKo extends AppLocalizations {
   String get allow => '허용';
 
   @override
-  String get allowAllAllowRules => '모든 허용 규칙 허용';
+  String get allowAllAllowRules => '모든 허용 규칙 활성화';
 
   @override
-  String get allowAllAllowRulesDesc => '허용 규칙에서 통화 허용';
+  String get allowAllAllowRulesDesc => '설정된 모든 허용 규칙을 적용하는 마스터 스위치';
 
   @override
   String get allowAllBlacklistedNumbers => '모든 블랙리스트 번호 허용';
 
   @override
-  String get allowAllBlockRules => '모든 차단 규칙 허용';
+  String get allowAllBlockRules => '모든 차단 규칙 활성화';
 
   @override
-  String get allowAllBlockRulesDesc => '차단 규칙에서 통화 허용';
+  String get allowAllBlockRulesDesc => '설정된 모든 차단 규칙을 적용하는 마스터 스위치';
 
   @override
-  String get allowAllowedNumbers => '허용된 번호 허용';
+  String get allowAllowedNumbers => '모든 승인된 번호 허용';
 
   @override
-  String get allowAllowedNumbersDesc => '화이트리스트에서 통화 허용';
+  String get allowAllowedNumbersDesc => '허용 목록에 있는 번호의 모든 걸려오는 전화 허용';
 
   @override
   String get allowBlock => '허용/차단';
 
   @override
-  String get allowBlockedNumbers => '차단된 번호 허용';
+  String get allowBlockedNumbers => '차단 목록 일시 중지';
 
   @override
-  String get allowBlockedNumbersDesc => '블랙리스트에서 통화 허용';
+  String get allowBlockedNumbersDesc => '차단 목록에 있는 번호의 전화를 임시로 허용';
 
   @override
   String get allowedBlockedRule => '허용/차단 규칙';
@@ -238,19 +238,19 @@ class AppLocalizationsKo extends AppLocalizations {
       '수량 임계값을 초과하지 않는 번호를 자동으로 허용';
 
   @override
-  String get allowRegexAllowRules => '정규식 허용 규칙 허용';
+  String get allowRegexAllowRules => '정규식 허용 규칙 활성화';
 
   @override
-  String get allowRegexAllowRulesDesc => '허용 규칙에 대한 정규식 패턴 일치 활성화';
+  String get allowRegexAllowRulesDesc => '허용 규칙에 대한 정규식 패턴 매칭 활성화';
 
   @override
   String get allowRegexAllowRulesDescription => '정규식 기반 허용 규칙 활성화';
 
   @override
-  String get allowRegexBlockRules => '정규식 차단 규칙 허용';
+  String get allowRegexBlockRules => '정규식 차단 규칙 활성화';
 
   @override
-  String get allowRegexBlockRulesDesc => '차단 규칙에 대한 정규식 패턴 일치 활성화';
+  String get allowRegexBlockRulesDesc => '차단 규칙에 대한 정규식 패턴 매칭 활성화';
 
   @override
   String get allowRegexBlockRulesDescription => '정규식 기반 차단 규칙 활성화';
@@ -1053,11 +1053,11 @@ class AppLocalizationsKo extends AppLocalizations {
   String get enableGlobalPlugins => '글로벌 플러그인 활성화';
 
   @override
-  String get enableLocalCountFilter => '로컬 수 카운트 필터 활성화';
+  String get enableLocalCountFilter => '로컬 마크 임계값 보호 활성화';
 
   @override
   String get enableLocalCountFilterDescription =>
-      '통화 마킹 횟수를 기준으로 스팸 통화를 자동으로 필터링합니다.';
+      '로컬 신고 건수가 임계값을 초과할 때 걸려오는 전화 차단';
 
   @override
   String get enableLocalNotification => '로컬 알림 사용';
@@ -1070,23 +1070,23 @@ class AppLocalizationsKo extends AppLocalizations {
   String get enableLocationSummary => '위치';
 
   @override
-  String get enableMuteRules => '음소거 규칙 사용';
+  String get enableMuteRules => '차단 시 벨소리 무음';
 
   @override
-  String get enableMuteRulesDesc => '음소거 차단 규칙 설정을 적용합니다.';
+  String get enableMuteRulesDesc => '걸려오는 전화를 거절하는 대신 벨소리를 무음으로 처리';
 
   @override
-  String get enableNoneActionRules => '작업 없음 규칙 사용';
+  String get enableNoneActionRules => '기록 및 표시만 (차단 안 함)';
 
   @override
-  String get enableNoneActionRulesDesc => '차단 작업이 없는 규칙 설정을 허용합니다.';
+  String get enableNoneActionRulesDesc => '차단 조치를 취하지 않고 일치하는 전화를 기록 및 표시만 수행';
 
   @override
-  String get enableRemoteNumberFilter => '원격 번호 필터 사용';
+  String get enableRemoteNumberFilter => '클라우드 조회 임계값 보호 활성화';
 
   @override
   String get enableRemoteNumberFilterDescription =>
-      '원격 데이터베이스를 사용하여 번호를 필터링합니다.';
+      '클라우드 조회 신고 건수가 임계값을 초과할 때 걸려오는 전화 차단';
 
   @override
   String get enableRule => '규칙 사용';
@@ -1101,13 +1101,14 @@ class AppLocalizationsKo extends AppLocalizations {
   String get enableTimeInterception => '시간 차단 사용';
 
   @override
-  String get enableTimeInterceptionDescription => '짧은 시간 내에 반복되는 통화를 차단합니다.';
+  String get enableTimeInterceptionDescription =>
+      '짧은 시간 내에 동일한 번호로부터 걸려오는 반복 전화 차단';
 
   @override
   String get enableTimeInterceptor => '시간 차단기 사용';
 
   @override
-  String get endCallImmediately => '즉시 통화 종료';
+  String get endCallImmediately => '즉시 거절';
 
   @override
   String get endColor => '종료 색상';
@@ -1844,10 +1845,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get localCounterFilterSubtitle => '통화 빈도에 따라 스팸 통화를 자동으로 필터링합니다.';
 
   @override
-  String get localCountFilter => '로컬 카운트 필터';
+  String get localCountFilter => '로컬 마크 임계값 보호';
 
   @override
-  String get localCountFilterDescription => '로컬 번호 수를 기반으로 빈번한 통화를 가로챕니다.';
+  String get localCountFilterDescription => '로컬 신고 임계값을 초과하는 전화를 자동으로 차단';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -2486,10 +2487,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get rejectAllCallsDescription => '활성화하면 모든 통화가 최고 우선 순위로 거부됩니다.';
 
   @override
-  String get rejectAllNumbers => '모든 번호 거부';
+  String get rejectAllNumbers => '모든 걸려오는 전화 거절';
 
   @override
-  String get rejectAllNumbersDesc => '활성화되면 모든 수신 전화를 거부합니다.';
+  String get rejectAllNumbersDesc => '최고 우선순위로 모든 걸려오는 전화 거절';
 
   @override
   String get rejectExceededNumbers => '초과된 번호 거부';
@@ -2504,11 +2505,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get remoteFilterSettingsPageTitle => '원격 번호 필터 설정';
 
   @override
-  String get remoteNumberFilter => '원격 번호 필터';
+  String get remoteNumberFilter => '클라우드 조회 임계값 보호';
 
   @override
-  String get remoteNumberFilterDescription =>
-      '원격 데이터베이스 정보를 기반으로 괴롭힘 전화를 차단합니다.';
+  String get remoteNumberFilterDescription => '클라우드 신고 임계값을 초과하는 전화를 자동으로 차단';
 
   @override
   String get remoteNumberFiltering => '원격 번호 필터링';
@@ -2857,7 +2857,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get silence => '무음';
 
   @override
-  String get silenceAndNoAnswer => '무음 및 응답 없음';
+  String get silenceAndNoAnswer => '벨소리 무음';
 
   @override
   String get silenceNoAnswer => '무음 응답 없음';
@@ -3218,10 +3218,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get thisWeek => '이번 주';
 
   @override
-  String get timeInterceptor => '시간 인터셉터';
+  String get timeInterceptor => '고빈도 연속 전화 보호';
 
   @override
-  String get timeInterceptorDescription => '통화 빈도에 따라 잠재적인 통화를 자동으로 차단/허용합니다.';
+  String get timeInterceptorDescription => '짧은 시간 내에 동일한 번호로부터 걸려오는 반복 전화 차단';
 
   @override
   String get timeInterceptorExplanation =>
@@ -4637,4 +4637,88 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get answerThenHangupDescription =>
       'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
+  String get initialSetupTitle => '규칙 라이브러리 설정';
+
+  @override
+  String get initialSetupDesc =>
+      '차단할 지역 규칙 라이브러리를 선택하세요. 이 규칙들은 해당 지역의 일반적인 판매 및 사기 전화를 자동으로 차단하는 데 도움이 됩니다.';
+
+  @override
+  String get initialSetupRetry => '다시 시도';
+
+  @override
+  String get initialSetupSkip => '건너뛰기';
+
+  @override
+  String get initialSetupSave => '선택 항목 원클릭 설정';
+
+  @override
+  String get initialSetupSaving => '저장 중...';
+
+  @override
+  String get initialSetupSaveSuccess =>
+      '✅ 설정이 성공적으로 저장되었으며, 곧 규칙이 자동으로 가져와집니다.';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return '설정 저장 실패: $error';
+  }
+
+  @override
+  String get initialSetupGetFailed => '설정 가져오기 실패';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return 'Import $type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => 'Plugin';
+
+  @override
+  String get deepLinkTypeSubscription => 'Rule Subscription';
+
+  @override
+  String get deepLinkDefaultPluginName => 'External Plugin';
+
+  @override
+  String get deepLinkDefaultSubName => 'External Rule Subscription';
+
+  @override
+  String get deepLinkDetectedTitle => 'External Import Request Detected';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return 'URL: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => 'Confirm Import';
+
+  @override
+  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+
+  @override
+  String get deepLinkPluginDownloadFailed =>
+      'Failed to download or parse plugin script';
+
+  @override
+  String get deepLinkImportSuccess => '✅ Imported successfully';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return 'Import failed: $error';
+  }
 }

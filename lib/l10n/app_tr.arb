@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "Kural Kitaplığı Kurulumu",
+  "initialSetupDesc": "Lütfen engellemek istediğiniz bölgesel kural kitaplıklarını seçin. Bu kurallar, bölgenizdeki yaygın satış ve dolandırıcılık aramalarını otomatik olarak engellemenize yardımcı olur.",
+  "initialSetupRetry": "Yeniden Dene",
+  "initialSetupSkip": "Atla",
+  "initialSetupSave": "Seçilenleri tek tıkla kur",
+  "initialSetupSaving": "Kaydediliyor...",
+  "initialSetupSaveSuccess": "✅ Yapılandırma başarıyla kaydedildi, kurallar yakında otomatik olarak alınacak",
+  "initialSetupSaveFailed": "Yapılandırma kaydedilemedi: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Yapılandırma alınamadı"
 }

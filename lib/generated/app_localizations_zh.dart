@@ -192,34 +192,34 @@ class AppLocalizationsZh extends AppLocalizations {
   String get allow => '允许';
 
   @override
-  String get allowAllAllowRules => '允许所有允许规则';
+  String get allowAllAllowRules => '启用所有放行规则';
 
   @override
-  String get allowAllAllowRulesDesc => '允许来自允许规则的呼叫';
+  String get allowAllAllowRulesDesc => '应用所有配置的放行规则总开关';
 
   @override
   String get allowAllBlacklistedNumbers => '允许所有黑名单号码';
 
   @override
-  String get allowAllBlockRules => '允许所有阻止规则';
+  String get allowAllBlockRules => '启用所有拦截规则';
 
   @override
-  String get allowAllBlockRulesDesc => '允许来自阻止规则的呼叫';
+  String get allowAllBlockRulesDesc => '应用所有配置的拦截规则总开关';
 
   @override
-  String get allowAllowedNumbers => '允许允许的号码';
+  String get allowAllowedNumbers => '放行所有允许名单中的号码';
 
   @override
-  String get allowAllowedNumbersDesc => '允许来自白名单的呼叫';
+  String get allowAllowedNumbersDesc => '允许允许名单中的所有来电';
 
   @override
   String get allowBlock => '允许/阻止';
 
   @override
-  String get allowBlockedNumbers => '允许阻止的号码';
+  String get allowBlockedNumbers => '暂停黑名单拦截';
 
   @override
-  String get allowBlockedNumbersDesc => '允许来自黑名单的呼叫';
+  String get allowBlockedNumbersDesc => '临时放行黑名单中的号码（绕过黑名单）';
 
   @override
   String get allowedBlockedRule => '允许/阻止规则';
@@ -237,19 +237,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get allowNonExceededNumbersDescription => '自动允许未超过计数阈值的号码';
 
   @override
-  String get allowRegexAllowRules => '允许正则表达式允许规则';
+  String get allowRegexAllowRules => '启用正则放行规则';
 
   @override
-  String get allowRegexAllowRulesDesc => '为允许规则启用正则表达式模式匹配';
+  String get allowRegexAllowRulesDesc => '启用正则放行规则模式匹配';
 
   @override
   String get allowRegexAllowRulesDescription => '启用基于正则表达式的允许规则';
 
   @override
-  String get allowRegexBlockRules => '允许正则表达式阻止规则';
+  String get allowRegexBlockRules => '启用正则拦截规则';
 
   @override
-  String get allowRegexBlockRulesDesc => '为阻止规则启用正则表达式模式匹配';
+  String get allowRegexBlockRulesDesc => '启用正则拦截规则模式匹配';
 
   @override
   String get allowRegexBlockRulesDescription => '启用基于正则表达式的阻止规则';
@@ -1043,10 +1043,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get enableGlobalPlugins => '启用全局插件';
 
   @override
-  String get enableLocalCountFilter => '启用本地计数过滤器';
+  String get enableLocalCountFilter => '启用本地标记阈值防护';
 
   @override
-  String get enableLocalCountFilterDescription => '根据呼叫标记计数自动过滤垃圾呼叫';
+  String get enableLocalCountFilterDescription => '当本地标记次数超过阈值时进行拦截';
 
   @override
   String get enableLocalNotification => '使用本地通知';
@@ -1058,22 +1058,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get enableLocationSummary => '位置';
 
   @override
-  String get enableMuteRules => '启用静音规则';
+  String get enableMuteRules => '拦截时静音响铃';
 
   @override
-  String get enableMuteRulesDesc => '应用静音拦截规则配置';
+  String get enableMuteRulesDesc => '拦截时静音响铃而非挂断';
 
   @override
-  String get enableNoneActionRules => '启用无操作规则';
+  String get enableNoneActionRules => '仅记录与标记（不打断）';
 
   @override
-  String get enableNoneActionRulesDesc => '允许没有拦截操作的规则配置';
+  String get enableNoneActionRulesDesc => '仅记录和标记来电，不执行拦截动作';
 
   @override
-  String get enableRemoteNumberFilter => '启用远程号码过滤';
+  String get enableRemoteNumberFilter => '启用云端数据库阈值防护';
 
   @override
-  String get enableRemoteNumberFilterDescription => '使用远程数据库过滤号码';
+  String get enableRemoteNumberFilterDescription => '当云端标记次数超过阈值时进行拦截';
 
   @override
   String get enableRule => '启用规则';
@@ -1088,13 +1088,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get enableTimeInterception => '启用时间拦截';
 
   @override
-  String get enableTimeInterceptionDescription => '在短时间内拦截重复呼叫';
+  String get enableTimeInterceptionDescription => '短时间内拦截同一号码的频繁连拨';
 
   @override
   String get enableTimeInterceptor => '启用时间拦截器';
 
   @override
-  String get endCallImmediately => '立即结束通话';
+  String get endCallImmediately => '立即挂断';
 
   @override
   String get endColor => '结束颜色';
@@ -1824,10 +1824,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get localCounterFilterSubtitle => '根据通话频率自动过滤垃圾电话';
 
   @override
-  String get localCountFilter => '本地计数过滤器';
+  String get localCountFilter => '本地标记阈值防护';
 
   @override
-  String get localCountFilterDescription => '根据本地号码计数拦截频繁的呼叫';
+  String get localCountFilterDescription => '自动拦截超过本地标记阈值的来电';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -2453,10 +2453,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get rejectAllCallsDescription => '启用后，所有来电都将被以最高优先级拒绝';
 
   @override
-  String get rejectAllNumbers => '拒绝所有号码';
+  String get rejectAllNumbers => '拒接所有来电';
 
   @override
-  String get rejectAllNumbersDesc => '启用后，拒绝所有来电';
+  String get rejectAllNumbersDesc => '优先拒接所有来电';
 
   @override
   String get rejectExceededNumbers => '拒绝超出数量的号码';
@@ -2471,10 +2471,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get remoteFilterSettingsPageTitle => '远程号码过滤设置';
 
   @override
-  String get remoteNumberFilter => '远程号码过滤';
+  String get remoteNumberFilter => '云端数据库阈值防护';
 
   @override
-  String get remoteNumberFilterDescription => '根据远程数据库信息拦截骚扰电话';
+  String get remoteNumberFilterDescription => '自动拦截超过云端标记阈值的来电';
 
   @override
   String get remoteNumberFiltering => '远程号码过滤';
@@ -2818,7 +2818,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get silence => '静音';
 
   @override
-  String get silenceAndNoAnswer => '静音且不接听';
+  String get silenceAndNoAnswer => '静音响铃';
 
   @override
   String get silenceNoAnswer => '静音不接听';
@@ -3177,10 +3177,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get thisWeek => '本周';
 
   @override
-  String get timeInterceptor => '时间拦截器';
+  String get timeInterceptor => '高频连拨防护';
 
   @override
-  String get timeInterceptorDescription => '根据呼叫频率自动拦截/允许潜在的呼叫';
+  String get timeInterceptorDescription => '短时间内拦截同一号码的频繁连拨';
 
   @override
   String get timeInterceptorExplanation => '• 时间拦截器：在短时间内拦截/允许重复呼叫';
@@ -4584,6 +4584,87 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get answerThenHangupDescription => '自动接听来电并立即挂断以终止通话';
+
+  @override
+  String get initialSetupTitle => '规则库初始化设置';
+
+  @override
+  String get initialSetupDesc => '请选择您需要拦截的地区规则库。这些规则可以帮助您自动屏蔽当地的常见推销和诈骗电话。';
+
+  @override
+  String get initialSetupRetry => '重试';
+
+  @override
+  String get initialSetupSkip => '跳过';
+
+  @override
+  String get initialSetupSave => '一键配置所选';
+
+  @override
+  String get initialSetupSaving => '正在保存...';
+
+  @override
+  String get initialSetupSaveSuccess => '✅ 配置已保存成功，规则已获取生效';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return '保存配置失败: $error';
+  }
+
+  @override
+  String get initialSetupGetFailed => '获取配置失败';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return '导入$type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => '插件';
+
+  @override
+  String get deepLinkTypeSubscription => '规则订阅';
+
+  @override
+  String get deepLinkDefaultPluginName => '外部插件';
+
+  @override
+  String get deepLinkDefaultSubName => '外部规则订阅';
+
+  @override
+  String get deepLinkDetectedTitle => '检测到外部导入请求';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return '名称: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return '类型: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return '链接: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => '确认导入';
+
+  @override
+  String get deepLinkEmptyUrlError => '链接地址为空，无法导入';
+
+  @override
+  String get deepLinkPluginDownloadFailed => '下载或解析插件脚本失败';
+
+  @override
+  String get deepLinkImportSuccess => '✅ 导入成功';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return '导入失败: $error';
+  }
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -4774,34 +4855,34 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get allow => '允许';
 
   @override
-  String get allowAllAllowRules => '允许所有允许规则';
+  String get allowAllAllowRules => '启用所有放行规则';
 
   @override
-  String get allowAllAllowRulesDesc => '允许来自允许规则的呼叫';
+  String get allowAllAllowRulesDesc => '应用所有配置的放行规则总开关';
 
   @override
   String get allowAllBlacklistedNumbers => '允许所有黑名单号码';
 
   @override
-  String get allowAllBlockRules => '允许所有阻止规则';
+  String get allowAllBlockRules => '启用所有拦截规则';
 
   @override
-  String get allowAllBlockRulesDesc => '允许来自阻止规则的呼叫';
+  String get allowAllBlockRulesDesc => '应用所有配置的拦截规则总开关';
 
   @override
-  String get allowAllowedNumbers => '允许允许的号码';
+  String get allowAllowedNumbers => '放行所有允许名单中的号码';
 
   @override
-  String get allowAllowedNumbersDesc => '允许来自白名单的呼叫';
+  String get allowAllowedNumbersDesc => '允许允许名单中的所有来电';
 
   @override
   String get allowBlock => '允许/阻止';
 
   @override
-  String get allowBlockedNumbers => '允许阻止的号码';
+  String get allowBlockedNumbers => '暂停黑名单拦截';
 
   @override
-  String get allowBlockedNumbersDesc => '允许来自黑名单的呼叫';
+  String get allowBlockedNumbersDesc => '临时放行黑名单中的号码（绕过黑名单）';
 
   @override
   String get allowedBlockedRule => '允许/阻止规则';
@@ -4819,19 +4900,19 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get allowNonExceededNumbersDescription => '自动允许未超过计数阈值的号码';
 
   @override
-  String get allowRegexAllowRules => '允许正则表达式允许规则';
+  String get allowRegexAllowRules => '启用正则放行规则';
 
   @override
-  String get allowRegexAllowRulesDesc => '为允许规则启用正则表达式模式匹配';
+  String get allowRegexAllowRulesDesc => '启用正则放行规则模式匹配';
 
   @override
   String get allowRegexAllowRulesDescription => '启用基于正则表达式的允许规则';
 
   @override
-  String get allowRegexBlockRules => '允许正则表达式阻止规则';
+  String get allowRegexBlockRules => '启用正则拦截规则';
 
   @override
-  String get allowRegexBlockRulesDesc => '为阻止规则启用正则表达式模式匹配';
+  String get allowRegexBlockRulesDesc => '启用正则拦截规则模式匹配';
 
   @override
   String get allowRegexBlockRulesDescription => '启用基于正则表达式的阻止规则';
@@ -5625,10 +5706,10 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get enableGlobalPlugins => '启用全局插件';
 
   @override
-  String get enableLocalCountFilter => '启用本地计数过滤器';
+  String get enableLocalCountFilter => '启用本地标记阈值防护';
 
   @override
-  String get enableLocalCountFilterDescription => '根据呼叫标记计数自动过滤垃圾呼叫';
+  String get enableLocalCountFilterDescription => '当本地标记次数超过阈值时进行拦截';
 
   @override
   String get enableLocalNotification => '使用本地通知';
@@ -5640,22 +5721,22 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get enableLocationSummary => '位置';
 
   @override
-  String get enableMuteRules => '启用静音规则';
+  String get enableMuteRules => '拦截时静音响铃';
 
   @override
-  String get enableMuteRulesDesc => '应用静音拦截规则配置';
+  String get enableMuteRulesDesc => '拦截时静音响铃而非挂断';
 
   @override
-  String get enableNoneActionRules => '启用无操作规则';
+  String get enableNoneActionRules => '仅记录与标记（不打断）';
 
   @override
-  String get enableNoneActionRulesDesc => '允许没有拦截操作的规则配置';
+  String get enableNoneActionRulesDesc => '仅记录和标记来电，不执行拦截动作';
 
   @override
-  String get enableRemoteNumberFilter => '启用远程号码过滤';
+  String get enableRemoteNumberFilter => '启用云端数据库阈值防护';
 
   @override
-  String get enableRemoteNumberFilterDescription => '使用远程数据库过滤号码';
+  String get enableRemoteNumberFilterDescription => '当云端标记次数超过阈值时进行拦截';
 
   @override
   String get enableRule => '启用规则';
@@ -5670,13 +5751,13 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get enableTimeInterception => '启用时间拦截';
 
   @override
-  String get enableTimeInterceptionDescription => '在短时间内拦截重复呼叫';
+  String get enableTimeInterceptionDescription => '短时间内拦截同一号码的频繁连拨';
 
   @override
   String get enableTimeInterceptor => '启用时间拦截器';
 
   @override
-  String get endCallImmediately => '立即结束通话';
+  String get endCallImmediately => '立即挂断';
 
   @override
   String get endColor => '结束颜色';
@@ -6406,10 +6487,10 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get localCounterFilterSubtitle => '根据通话频率自动过滤垃圾电话';
 
   @override
-  String get localCountFilter => '本地计数过滤器';
+  String get localCountFilter => '本地标记阈值防护';
 
   @override
-  String get localCountFilterDescription => '根据本地号码计数拦截频繁的呼叫';
+  String get localCountFilterDescription => '自动拦截超过本地标记阈值的来电';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -7035,10 +7116,10 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get rejectAllCallsDescription => '启用后，所有来电都将被以最高优先级拒绝';
 
   @override
-  String get rejectAllNumbers => '拒绝所有号码';
+  String get rejectAllNumbers => '拒接所有来电';
 
   @override
-  String get rejectAllNumbersDesc => '启用后，拒绝所有来电';
+  String get rejectAllNumbersDesc => '优先拒接所有来电';
 
   @override
   String get rejectExceededNumbers => '拒绝超出数量的号码';
@@ -7053,10 +7134,10 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get remoteFilterSettingsPageTitle => '远程号码过滤设置';
 
   @override
-  String get remoteNumberFilter => '远程号码过滤';
+  String get remoteNumberFilter => '云端数据库阈值防护';
 
   @override
-  String get remoteNumberFilterDescription => '根据远程数据库信息拦截骚扰电话';
+  String get remoteNumberFilterDescription => '自动拦截超过云端标记阈值的来电';
 
   @override
   String get remoteNumberFiltering => '远程号码过滤';
@@ -7400,7 +7481,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get silence => '静音';
 
   @override
-  String get silenceAndNoAnswer => '静音且不接听';
+  String get silenceAndNoAnswer => '静音响铃';
 
   @override
   String get silenceNoAnswer => '静音不接听';
@@ -7759,10 +7840,10 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get thisWeek => '本周';
 
   @override
-  String get timeInterceptor => '时间拦截器';
+  String get timeInterceptor => '高频连拨防护';
 
   @override
-  String get timeInterceptorDescription => '根据呼叫频率自动拦截/允许潜在的呼叫';
+  String get timeInterceptorDescription => '短时间内拦截同一号码的频繁连拨';
 
   @override
   String get timeInterceptorExplanation => '• 时间拦截器：在短时间内拦截/允许重复呼叫';
@@ -9068,6 +9149,35 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String andMoreItems(int count) {
     return '以及更多 $count 个项目';
   }
+
+  @override
+  String get initialSetupTitle => '规则库设置';
+
+  @override
+  String get initialSetupDesc => '请选择您要拦截的地区规则库。这些规则可以帮助您自动拦截您所在地区的常见销售和诈骗电话。';
+
+  @override
+  String get initialSetupRetry => '重试';
+
+  @override
+  String get initialSetupSkip => '跳过';
+
+  @override
+  String get initialSetupSave => '一键设置所选';
+
+  @override
+  String get initialSetupSaving => '保存中...';
+
+  @override
+  String get initialSetupSaveSuccess => '✅ 配置保存成功，规则将很快自动获取';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return '保存配置失败：$error';
+  }
+
+  @override
+  String get initialSetupGetFailed => '获取配置失败';
 }
 
 /// The translations for Chinese, as used in Hong Kong (`zh_HK`).
@@ -9258,34 +9368,34 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get allow => '允許';
 
   @override
-  String get allowAllAllowRules => '允許所有允許規則';
+  String get allowAllAllowRules => '啟用所有放行規則';
 
   @override
-  String get allowAllAllowRulesDesc => '允許來自允許規則的通話';
+  String get allowAllAllowRulesDesc => '應用所有配置的放行規則總開關';
 
   @override
   String get allowAllBlacklistedNumbers => '允許所有黑名單號碼';
 
   @override
-  String get allowAllBlockRules => '允許所有封鎖規則';
+  String get allowAllBlockRules => '啟用所有攔截規則';
 
   @override
-  String get allowAllBlockRulesDesc => '允許來自封鎖規則的通話';
+  String get allowAllBlockRulesDesc => '應用所有配置的攔截規則總開關';
 
   @override
-  String get allowAllowedNumbers => '允許允許的號碼';
+  String get allowAllowedNumbers => '放行所有允許名單中的號碼';
 
   @override
-  String get allowAllowedNumbersDesc => '允許來自白名單的通話';
+  String get allowAllowedNumbersDesc => '允許允許名單中的所有來電';
 
   @override
   String get allowBlock => '允許/封鎖';
 
   @override
-  String get allowBlockedNumbers => '允許封鎖的號碼';
+  String get allowBlockedNumbers => '暫停黑名單攔截';
 
   @override
-  String get allowBlockedNumbersDesc => '允許來自黑名單的通話';
+  String get allowBlockedNumbersDesc => '臨時放行黑名單中的號碼（繞過黑名單）';
 
   @override
   String get allowedBlockedRule => '允許/封鎖規則';
@@ -9303,19 +9413,19 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get allowNonExceededNumbersDescription => '自動允許未超出計數閾值的號碼';
 
   @override
-  String get allowRegexAllowRules => '允許Regex允許規則';
+  String get allowRegexAllowRules => '啟用正則放行規則';
 
   @override
-  String get allowRegexAllowRulesDesc => '啟用允許規則的Regex模式匹配';
+  String get allowRegexAllowRulesDesc => '啟用正則放行規則模式匹配';
 
   @override
   String get allowRegexAllowRulesDescription => '啟用基於Regex的允許規則';
 
   @override
-  String get allowRegexBlockRules => '允許Regex封鎖規則';
+  String get allowRegexBlockRules => '啟用正則攔截規則';
 
   @override
-  String get allowRegexBlockRulesDesc => '啟用封鎖規則的Regex模式匹配';
+  String get allowRegexBlockRulesDesc => '啟用正則攔截規則模式匹配';
 
   @override
   String get allowRegexBlockRulesDescription => '啟用基於Regex的封鎖規則';
@@ -10109,10 +10219,10 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get enableGlobalPlugins => '啟用全域外掛程式';
 
   @override
-  String get enableLocalCountFilter => '啟用本地計數過濾器';
+  String get enableLocalCountFilter => '啟用本地標記閾值防護';
 
   @override
-  String get enableLocalCountFilterDescription => '根據通話標記計數自動過濾垃圾電話';
+  String get enableLocalCountFilterDescription => '當本地標記次數超過閾值時進行攔截';
 
   @override
   String get enableLocalNotification => '使用本地通知';
@@ -10124,22 +10234,22 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get enableLocationSummary => '位置';
 
   @override
-  String get enableMuteRules => '啟用靜音規則';
+  String get enableMuteRules => '攔截時靜音響鈴';
 
   @override
-  String get enableMuteRulesDesc => '應用靜音攔截規則配置';
+  String get enableMuteRulesDesc => '攔截時靜音響鈴而非掛斷';
 
   @override
-  String get enableNoneActionRules => '啟用無操作規則';
+  String get enableNoneActionRules => '僅記錄與標記（不打斷）';
 
   @override
-  String get enableNoneActionRulesDesc => '允許無攔截操作的規則配置';
+  String get enableNoneActionRulesDesc => '僅記錄和標記來電，不執行攔截動作';
 
   @override
-  String get enableRemoteNumberFilter => '啟用遠端號碼過濾';
+  String get enableRemoteNumberFilter => '啟用雲端數據庫閾值防護';
 
   @override
-  String get enableRemoteNumberFilterDescription => '使用遠端資料庫過濾號碼';
+  String get enableRemoteNumberFilterDescription => '當雲端標記次數超過閾值時進行攔截';
 
   @override
   String get enableRule => '啟用規則';
@@ -10154,13 +10264,13 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get enableTimeInterception => '啟用時間攔截';
 
   @override
-  String get enableTimeInterceptionDescription => '短時間內攔截重複來電';
+  String get enableTimeInterceptionDescription => '短時間內攔截同一號碼的頻繁連撥';
 
   @override
   String get enableTimeInterceptor => '啟用時間攔截器';
 
   @override
-  String get endCallImmediately => '立即結束通話';
+  String get endCallImmediately => '立即掛斷';
 
   @override
   String get endColor => '結束顏色';
@@ -10891,10 +11001,10 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get localCounterFilterSubtitle => '根據通話頻率自動過濾垃圾電話';
 
   @override
-  String get localCountFilter => '本地計數過濾';
+  String get localCountFilter => '本地標記閾值防護';
 
   @override
-  String get localCountFilterDescription => '根據本地號碼計數攔截頻繁通話';
+  String get localCountFilterDescription => '自動攔截超過本地標記閾值的來電';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -11520,10 +11630,10 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get rejectAllCallsDescription => '啟用後，所有來電將以最高優先級被拒絕';
 
   @override
-  String get rejectAllNumbers => '拒絕所有號碼';
+  String get rejectAllNumbers => '拒接所有來電';
 
   @override
-  String get rejectAllNumbersDesc => '啟用後，拒絕所有來電';
+  String get rejectAllNumbersDesc => '優先拒接所有來電';
 
   @override
   String get rejectExceededNumbers => '拒絕超出次數的號碼';
@@ -11538,10 +11648,10 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get remoteFilterSettingsPageTitle => '遠程號碼過濾器設定';
 
   @override
-  String get remoteNumberFilter => '遠程號碼過濾器';
+  String get remoteNumberFilter => '雲端數據庫閾值防護';
 
   @override
-  String get remoteNumberFilterDescription => '基於遠程數據庫信息攔截騷擾電話';
+  String get remoteNumberFilterDescription => '自動攔截超過雲端標記閾值的來電';
 
   @override
   String get remoteNumberFiltering => '遠程號碼過濾';
@@ -11885,7 +11995,7 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get silence => '靜音';
 
   @override
-  String get silenceAndNoAnswer => '靜音且不接聽';
+  String get silenceAndNoAnswer => '靜音響鈴';
 
   @override
   String get silenceNoAnswer => '靜音不接聽';
@@ -12244,10 +12354,10 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get thisWeek => '本週';
 
   @override
-  String get timeInterceptor => '時間攔截器';
+  String get timeInterceptor => '高頻連撥防護';
 
   @override
-  String get timeInterceptorDescription => '根據通話頻率自動攔截/允許潛在通話';
+  String get timeInterceptorDescription => '短時間內攔截同一號碼的頻繁連撥';
 
   @override
   String get timeInterceptorExplanation => '• 時間攔截器：在短時間內攔截/允許重複通話';
@@ -13553,6 +13663,35 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String andMoreItems(int count) {
     return '以及 $count 個更多項目';
   }
+
+  @override
+  String get initialSetupTitle => '規則庫設定';
+
+  @override
+  String get initialSetupDesc => '請選擇您要攔截的地區規則庫。這些規則可以幫助您自動攔截您所在地區的常見推銷和詐騙電話。';
+
+  @override
+  String get initialSetupRetry => '重試';
+
+  @override
+  String get initialSetupSkip => '略過';
+
+  @override
+  String get initialSetupSave => '一鍵設定所選';
+
+  @override
+  String get initialSetupSaving => '儲存中...';
+
+  @override
+  String get initialSetupSaveSuccess => '✅ 設定儲存成功，規則將很快自動取得';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return '儲存設定失敗：$error';
+  }
+
+  @override
+  String get initialSetupGetFailed => '取得設定失敗';
 }
 
 /// The translations for Chinese, as used in Macao (`zh_MO`).
@@ -13743,34 +13882,34 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get allow => '允許';
 
   @override
-  String get allowAllAllowRules => '允許所有允許規則';
+  String get allowAllAllowRules => '啟用所有放行規則';
 
   @override
-  String get allowAllAllowRulesDesc => '允許來自允許規則的通話';
+  String get allowAllAllowRulesDesc => '應用所有配置的放行規則總開關';
 
   @override
   String get allowAllBlacklistedNumbers => '允許所有黑名單號碼';
 
   @override
-  String get allowAllBlockRules => '允許所有封鎖規則';
+  String get allowAllBlockRules => '啟用所有攔截規則';
 
   @override
-  String get allowAllBlockRulesDesc => '允許來自封鎖規則的通話';
+  String get allowAllBlockRulesDesc => '應用所有配置的攔截規則總開關';
 
   @override
-  String get allowAllowedNumbers => '允許允許的號碼';
+  String get allowAllowedNumbers => '放行所有允許名單中的號碼';
 
   @override
-  String get allowAllowedNumbersDesc => '允許來自白名單的通話';
+  String get allowAllowedNumbersDesc => '允許允許名單中的所有來電';
 
   @override
   String get allowBlock => '允許/封鎖';
 
   @override
-  String get allowBlockedNumbers => '允許封鎖的號碼';
+  String get allowBlockedNumbers => '暫停黑名單攔截';
 
   @override
-  String get allowBlockedNumbersDesc => '允許來自黑名單的通話';
+  String get allowBlockedNumbersDesc => '臨時放行黑名單中的號碼（繞過黑名單）';
 
   @override
   String get allowedBlockedRule => '允許/封鎖規則';
@@ -13788,19 +13927,19 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get allowNonExceededNumbersDescription => '自動允許未超出計數閾值的號碼';
 
   @override
-  String get allowRegexAllowRules => '允許Regex允許規則';
+  String get allowRegexAllowRules => '啟用正則放行規則';
 
   @override
-  String get allowRegexAllowRulesDesc => '啟用允許規則的Regex模式匹配';
+  String get allowRegexAllowRulesDesc => '啟用正則放行規則模式匹配';
 
   @override
   String get allowRegexAllowRulesDescription => '啟用基於Regex的允許規則';
 
   @override
-  String get allowRegexBlockRules => '允許Regex封鎖規則';
+  String get allowRegexBlockRules => '啟用正則攔截規則';
 
   @override
-  String get allowRegexBlockRulesDesc => '啟用封鎖規則的Regex模式匹配';
+  String get allowRegexBlockRulesDesc => '啟用正則攔截規則模式匹配';
 
   @override
   String get allowRegexBlockRulesDescription => '啟用基於Regex的封鎖規則';
@@ -14594,10 +14733,10 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get enableGlobalPlugins => '啟用全域外掛程式';
 
   @override
-  String get enableLocalCountFilter => '啟用本地計數過濾器';
+  String get enableLocalCountFilter => '啟用本地標記閾值防護';
 
   @override
-  String get enableLocalCountFilterDescription => '根據通話標記計數自動過濾垃圾電話';
+  String get enableLocalCountFilterDescription => '當本地標記次數超過閾值時進行攔截';
 
   @override
   String get enableLocalNotification => '使用本地通知';
@@ -14609,22 +14748,22 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get enableLocationSummary => '位置';
 
   @override
-  String get enableMuteRules => '啟用靜音規則';
+  String get enableMuteRules => '攔截時靜音響鈴';
 
   @override
-  String get enableMuteRulesDesc => '應用靜音攔截規則配置';
+  String get enableMuteRulesDesc => '攔截時靜音響鈴而非掛斷';
 
   @override
-  String get enableNoneActionRules => '啟用無操作規則';
+  String get enableNoneActionRules => '僅記錄與標記（不打斷）';
 
   @override
-  String get enableNoneActionRulesDesc => '允許無攔截操作的規則配置';
+  String get enableNoneActionRulesDesc => '僅記錄和標記來電，不執行攔截動作';
 
   @override
-  String get enableRemoteNumberFilter => '啟用遠端號碼過濾';
+  String get enableRemoteNumberFilter => '啟用雲端數據庫閾值防護';
 
   @override
-  String get enableRemoteNumberFilterDescription => '使用遠端資料庫過濾號碼';
+  String get enableRemoteNumberFilterDescription => '當雲端標記次數超過閾值時進行攔截';
 
   @override
   String get enableRule => '啟用規則';
@@ -14639,13 +14778,13 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get enableTimeInterception => '啟用時間攔截';
 
   @override
-  String get enableTimeInterceptionDescription => '短時間內攔截重複來電';
+  String get enableTimeInterceptionDescription => '短時間內攔截同一號碼的頻繁連撥';
 
   @override
   String get enableTimeInterceptor => '啟用時間攔截器';
 
   @override
-  String get endCallImmediately => '立即結束通話';
+  String get endCallImmediately => '立即掛斷';
 
   @override
   String get endColor => '結束顏色';
@@ -15376,10 +15515,10 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get localCounterFilterSubtitle => '根據通話頻率自動過濾垃圾電話';
 
   @override
-  String get localCountFilter => '本地計數過濾';
+  String get localCountFilter => '本地標記閾值防護';
 
   @override
-  String get localCountFilterDescription => '根據本地號碼計數攔截頻繁通話';
+  String get localCountFilterDescription => '自動攔截超過本地標記閾值的來電';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -16005,10 +16144,10 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get rejectAllCallsDescription => '啟用後，所有來電將以最高優先級被拒絕';
 
   @override
-  String get rejectAllNumbers => '拒絕所有號碼';
+  String get rejectAllNumbers => '拒接所有來電';
 
   @override
-  String get rejectAllNumbersDesc => '啟用後，拒絕所有來電';
+  String get rejectAllNumbersDesc => '優先拒接所有來電';
 
   @override
   String get rejectExceededNumbers => '拒絕超出次數的號碼';
@@ -16023,10 +16162,10 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get remoteFilterSettingsPageTitle => '遠程號碼過濾器設定';
 
   @override
-  String get remoteNumberFilter => '遠程號碼過濾器';
+  String get remoteNumberFilter => '雲端數據庫閾值防護';
 
   @override
-  String get remoteNumberFilterDescription => '基於遠程數據庫信息攔截騷擾電話';
+  String get remoteNumberFilterDescription => '自動攔截超過雲端標記閾值的來電';
 
   @override
   String get remoteNumberFiltering => '遠程號碼過濾';
@@ -18038,6 +18177,35 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String andMoreItems(int count) {
     return '以及 $count 個更多項目';
   }
+
+  @override
+  String get initialSetupTitle => '規則庫設定';
+
+  @override
+  String get initialSetupDesc => '請選擇您要攔截的地區規則庫。這些規則可以幫助您自動攔截您所在地區的常見推銷和詐騙電話。';
+
+  @override
+  String get initialSetupRetry => '重試';
+
+  @override
+  String get initialSetupSkip => '略過';
+
+  @override
+  String get initialSetupSave => '一鍵設定所選';
+
+  @override
+  String get initialSetupSaving => '儲存中...';
+
+  @override
+  String get initialSetupSaveSuccess => '✅ 設定儲存成功，規則將很快自動取得';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return '儲存設定失敗：$error';
+  }
+
+  @override
+  String get initialSetupGetFailed => '取得設定失敗';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -18228,34 +18396,34 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get allow => '允許';
 
   @override
-  String get allowAllAllowRules => '允許所有允許規則';
+  String get allowAllAllowRules => '啟用所有放行規則';
 
   @override
-  String get allowAllAllowRulesDesc => '允許來自允許規則的通話';
+  String get allowAllAllowRulesDesc => '應用所有配置的放行規則總開關';
 
   @override
   String get allowAllBlacklistedNumbers => '允許所有黑名單號碼';
 
   @override
-  String get allowAllBlockRules => '允許所有封鎖規則';
+  String get allowAllBlockRules => '啟用所有攔截規則';
 
   @override
-  String get allowAllBlockRulesDesc => '允許來自封鎖規則的通話';
+  String get allowAllBlockRulesDesc => '應用所有配置的攔截規則總開關';
 
   @override
-  String get allowAllowedNumbers => '允許允許的號碼';
+  String get allowAllowedNumbers => '放行所有允許名單中的號碼';
 
   @override
-  String get allowAllowedNumbersDesc => '允許來自白名單的通話';
+  String get allowAllowedNumbersDesc => '允許允許名單中的所有來電';
 
   @override
   String get allowBlock => '允許/封鎖';
 
   @override
-  String get allowBlockedNumbers => '允許封鎖的號碼';
+  String get allowBlockedNumbers => '暫停黑名單攔截';
 
   @override
-  String get allowBlockedNumbersDesc => '允許來自黑名單的通話';
+  String get allowBlockedNumbersDesc => '臨時放行黑名單中的號碼（繞過黑名單）';
 
   @override
   String get allowedBlockedRule => '允許/封鎖規則';
@@ -18273,19 +18441,19 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get allowNonExceededNumbersDescription => '自動允許未超過次數限制的號碼';
 
   @override
-  String get allowRegexAllowRules => '允許Regex允許規則';
+  String get allowRegexAllowRules => '啟用正則放行規則';
 
   @override
-  String get allowRegexAllowRulesDesc => '啟用允許規則的Regex模式匹配';
+  String get allowRegexAllowRulesDesc => '啟用正則放行規則模式匹配';
 
   @override
   String get allowRegexAllowRulesDescription => '啟用基於Regex的允許規則';
 
   @override
-  String get allowRegexBlockRules => '允許Regex封鎖規則';
+  String get allowRegexBlockRules => '啟用正則攔截規則';
 
   @override
-  String get allowRegexBlockRulesDesc => '啟用封鎖規則的Regex模式匹配';
+  String get allowRegexBlockRulesDesc => '啟用正則攔截規則模式匹配';
 
   @override
   String get allowRegexBlockRulesDescription => '啟用基於Regex的封鎖規則';
@@ -19080,10 +19248,10 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get enableGlobalPlugins => '啟用全局插件';
 
   @override
-  String get enableLocalCountFilter => '啟用本機計數過濾器';
+  String get enableLocalCountFilter => '啟用本地標記閾值防護';
 
   @override
-  String get enableLocalCountFilterDescription => '根據呼叫標記計數自動過濾垃圾電話';
+  String get enableLocalCountFilterDescription => '當本地標記次數超過閾值時進行攔截';
 
   @override
   String get enableLocalNotification => '使用本機通知';
@@ -19095,22 +19263,22 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get enableLocationSummary => '位置';
 
   @override
-  String get enableMuteRules => '啟用靜音規則';
+  String get enableMuteRules => '攔截時靜音響鈴';
 
   @override
-  String get enableMuteRulesDesc => '套用靜音攔截規則配置';
+  String get enableMuteRulesDesc => '攔截時靜音響鈴而非掛斷';
 
   @override
-  String get enableNoneActionRules => '啟用無動作規則';
+  String get enableNoneActionRules => '僅記錄與標記（不打斷）';
 
   @override
-  String get enableNoneActionRulesDesc => '允許無攔截動作的規則配置';
+  String get enableNoneActionRulesDesc => '僅記錄和標記來電，不執行攔截動作';
 
   @override
-  String get enableRemoteNumberFilter => '啟用遠端號碼過濾器';
+  String get enableRemoteNumberFilter => '啟用雲端數據庫閾值防護';
 
   @override
-  String get enableRemoteNumberFilterDescription => '使用遠端資料庫來過濾號碼';
+  String get enableRemoteNumberFilterDescription => '當雲端標記次數超過閾值時進行攔截';
 
   @override
   String get enableRule => '啟用規則';
@@ -19125,13 +19293,13 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get enableTimeInterception => '啟用時間攔截';
 
   @override
-  String get enableTimeInterceptionDescription => '攔截短時間內的重複通話';
+  String get enableTimeInterceptionDescription => '短時間內攔截同一號碼的頻繁連撥';
 
   @override
   String get enableTimeInterceptor => '啟用時間攔截器';
 
   @override
-  String get endCallImmediately => '立即結束通話';
+  String get endCallImmediately => '立即掛斷';
 
   @override
   String get endColor => '結束顏色';
@@ -19861,10 +20029,10 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get localCounterFilterSubtitle => '根據通話頻率自動過濾垃圾電話';
 
   @override
-  String get localCountFilter => '本地計數過濾器';
+  String get localCountFilter => '本地標記閾值防護';
 
   @override
-  String get localCountFilterDescription => '根據本地號碼計數攔截頻繁的電話';
+  String get localCountFilterDescription => '自動攔截超過本地標記閾值的來電';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -20490,10 +20658,10 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get rejectAllCallsDescription => '啟用後，所有來電都將以最高優先級拒絕';
 
   @override
-  String get rejectAllNumbers => '拒絕所有號碼';
+  String get rejectAllNumbers => '拒接所有來電';
 
   @override
-  String get rejectAllNumbersDesc => '啟用後拒絕所有來電';
+  String get rejectAllNumbersDesc => '優先拒接所有來電';
 
   @override
   String get rejectExceededNumbers => '拒絕超出次數的號碼';
@@ -20508,10 +20676,10 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get remoteFilterSettingsPageTitle => '遠端號碼過濾設定';
 
   @override
-  String get remoteNumberFilter => '遠端號碼過濾器';
+  String get remoteNumberFilter => '雲端數據庫閾值防護';
 
   @override
-  String get remoteNumberFilterDescription => '根據遠端資料庫資訊攔截騷擾電話';
+  String get remoteNumberFilterDescription => '自動攔截超過雲端標記閾值的來電';
 
   @override
   String get remoteNumberFiltering => '遠端號碼過濾';
@@ -20855,7 +21023,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get silence => '靜音';
 
   @override
-  String get silenceAndNoAnswer => '靜音且不接聽';
+  String get silenceAndNoAnswer => '靜音響鈴';
 
   @override
   String get silenceNoAnswer => '靜音不接聽';
@@ -21214,10 +21382,10 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get thisWeek => '本週';
 
   @override
-  String get timeInterceptor => '時間攔截器';
+  String get timeInterceptor => '高頻連撥防護';
 
   @override
-  String get timeInterceptorDescription => '根據通話頻率自動攔截/允許潛在通話';
+  String get timeInterceptorDescription => '短時間內攔截同一號碼的頻繁連撥';
 
   @override
   String get timeInterceptorExplanation => '• 時間攔截器：在短時間內攔截/允許重複來電';
@@ -22524,4 +22692,33 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String andMoreItems(int count) {
     return '以及其他 $count 個項目';
   }
+
+  @override
+  String get initialSetupTitle => '規則庫設定';
+
+  @override
+  String get initialSetupDesc => '請選擇您要攔截的地區規則庫。這些規則可以幫助您自動攔截您所在地區的常見推銷和詐騙電話。';
+
+  @override
+  String get initialSetupRetry => '重試';
+
+  @override
+  String get initialSetupSkip => '略過';
+
+  @override
+  String get initialSetupSave => '一鍵設定所選';
+
+  @override
+  String get initialSetupSaving => '儲存中...';
+
+  @override
+  String get initialSetupSaveSuccess => '✅ 設定儲存成功，規則將很快自動取得';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return '儲存設定失敗：$error';
+  }
+
+  @override
+  String get initialSetupGetFailed => '取得設定失敗';
 }

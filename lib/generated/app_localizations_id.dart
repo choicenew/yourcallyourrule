@@ -192,35 +192,39 @@ class AppLocalizationsId extends AppLocalizations {
   String get allow => 'Izinkan';
 
   @override
-  String get allowAllAllowRules => 'Izinkan Semua Aturan Izinkan';
+  String get allowAllAllowRules => 'Aktifkan Semua Aturan Izinkan';
 
   @override
-  String get allowAllAllowRulesDesc => 'Izinkan panggilan dari aturan izinkan';
+  String get allowAllAllowRulesDesc =>
+      'Sakelar utama untuk menerapkan semua aturan izinkan yang dikonfigurasi';
 
   @override
   String get allowAllBlacklistedNumbers =>
       'Izinkan Semua Nomor yang Masuk Daftar Hitam';
 
   @override
-  String get allowAllBlockRules => 'Izinkan Semua Aturan Blokir';
+  String get allowAllBlockRules => 'Aktifkan Semua Aturan Blokir';
 
   @override
-  String get allowAllBlockRulesDesc => 'Izinkan panggilan dari aturan blokir';
+  String get allowAllBlockRulesDesc =>
+      'Sakelar utama untuk menerapkan semua aturan blokir yang dikonfigurasi';
 
   @override
-  String get allowAllowedNumbers => 'Izinkan Nomor yang Diizinkan';
+  String get allowAllowedNumbers => 'Izinkan Semua Nomor yang Disetujui';
 
   @override
-  String get allowAllowedNumbersDesc => 'Izinkan panggilan dari daftar putih';
+  String get allowAllowedNumbersDesc =>
+      'Izinkan semua panggilan masuk dari nomor di daftar izinkan Anda';
 
   @override
   String get allowBlock => 'Izinkan/Blokir';
 
   @override
-  String get allowBlockedNumbers => 'Izinkan Nomor yang Diblokir';
+  String get allowBlockedNumbers => 'Jeda Pemblokiran Daftar Hitam';
 
   @override
-  String get allowBlockedNumbersDesc => 'Izinkan panggilan dari daftar blokir';
+  String get allowBlockedNumbersDesc =>
+      'Izinkan sementara panggilan dari nomor di daftar blokir Anda';
 
   @override
   String get allowedBlockedRule => 'Aturan Izinkan/Blokir';
@@ -240,22 +244,22 @@ class AppLocalizationsId extends AppLocalizations {
       'Otomatis izinkan nomor yang tidak melebihi ambang batas jumlah';
 
   @override
-  String get allowRegexAllowRules => 'Izinkan Aturan Izinkan Regex';
+  String get allowRegexAllowRules => 'Aktifkan Aturan Izinkan Regex';
 
   @override
   String get allowRegexAllowRulesDesc =>
-      'Aktifkan pencocokan pola regex untuk aturan izinkan';
+      'Aktifkan pencocokan pola ekspresi reguler untuk aturan izinkan';
 
   @override
   String get allowRegexAllowRulesDescription =>
       'Aktifkan aturan berbasis regex untuk diizinkan';
 
   @override
-  String get allowRegexBlockRules => 'Izinkan Aturan Blokir Regex';
+  String get allowRegexBlockRules => 'Aktifkan Aturan Blokir Regex';
 
   @override
   String get allowRegexBlockRulesDesc =>
-      'Aktifkan pencocokan pola regex untuk aturan blokir';
+      'Aktifkan pencocokan pola ekspresi reguler untuk aturan blokir';
 
   @override
   String get allowRegexBlockRulesDescription =>
@@ -1081,11 +1085,12 @@ class AppLocalizationsId extends AppLocalizations {
   String get enableGlobalPlugins => 'Aktifkan plugin global';
 
   @override
-  String get enableLocalCountFilter => 'Aktifkan Filter Penghitung Lokal';
+  String get enableLocalCountFilter =>
+      'Aktifkan Perlindungan Ambang Batas Tanda Lokal';
 
   @override
   String get enableLocalCountFilterDescription =>
-      'Filter panggilan spam secara otomatis berdasarkan jumlah penandaan panggilan';
+      'Blokir panggilan masuk saat jumlah laporan lokal melebihi ambang batas';
 
   @override
   String get enableLocalNotification => 'Gunakan Notifikasi Lokal';
@@ -1098,25 +1103,26 @@ class AppLocalizationsId extends AppLocalizations {
   String get enableLocationSummary => 'Lokasi';
 
   @override
-  String get enableMuteRules => 'Aktifkan Aturan Senyap';
+  String get enableMuteRules => 'Heningkan Panggilan Tersekat';
 
   @override
   String get enableMuteRulesDesc =>
-      'Terapkan konfigurasi aturan intersepsi senyap';
+      'Heningkan nada dering untuk panggilan tersekat alih-alih menolaknya';
 
   @override
-  String get enableNoneActionRules => 'Aktifkan Aturan Tanpa Tindakan';
+  String get enableNoneActionRules => 'Hanya Catat & Tandai (Tanpa Intersepsi)';
 
   @override
   String get enableNoneActionRulesDesc =>
-      'Izinkan konfigurasi aturan tanpa tindakan intersepsi';
+      'Catat dan tandai panggilan yang cocok tanpa mengambil tindakan intersepsi apa pun';
 
   @override
-  String get enableRemoteNumberFilter => 'Aktifkan Filter Nomor Jarak Jauh';
+  String get enableRemoteNumberFilter =>
+      'Aktifkan Perlindungan Ambang Batas Kueri Cloud';
 
   @override
   String get enableRemoteNumberFilterDescription =>
-      'Gunakan database jarak jauh untuk memfilter nomor';
+      'Blokir panggilan masuk saat jumlah laporan kueri cloud melebihi ambang batas';
 
   @override
   String get enableRule => 'Aktifkan Aturan';
@@ -1133,13 +1139,13 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get enableTimeInterceptionDescription =>
-      'Intersepsi panggilan berulang dalam waktu singkat';
+      'Blokir panggilan berulang dari nomor yang sama dalam waktu singkat';
 
   @override
   String get enableTimeInterceptor => 'Aktifkan Interseptor Waktu';
 
   @override
-  String get endCallImmediately => 'Akhiri panggilan segera';
+  String get endCallImmediately => 'Blokir Segera';
 
   @override
   String get endColor => 'Warna Akhir';
@@ -1898,11 +1904,11 @@ class AppLocalizationsId extends AppLocalizations {
       'Secara otomatis memfilter panggilan spam berdasarkan frekuensi panggilan';
 
   @override
-  String get localCountFilter => 'Filter Jumlah Lokal';
+  String get localCountFilter => 'Perlindungan Ambang Batas Tanda Lokal';
 
   @override
   String get localCountFilterDescription =>
-      'Mencegat panggilan yang sering berdasarkan jumlah nomor lokal';
+      'Secara otomatis memblokir panggilan yang melebihi ambang batas laporan lokal';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -2564,11 +2570,11 @@ class AppLocalizationsId extends AppLocalizations {
       'Saat diaktifkan, semua panggilan akan ditolak dengan prioritas tertinggi';
 
   @override
-  String get rejectAllNumbers => 'Tolak Semua Nomor';
+  String get rejectAllNumbers => 'Tolak Semua Panggilan Masuk';
 
   @override
   String get rejectAllNumbersDesc =>
-      'Tolak semua panggilan masuk saat diaktifkan';
+      'Tolak semua panggilan masuk dengan prioritas tertinggi';
 
   @override
   String get rejectExceededNumbers => 'Tolak Nomor yang Melebihi Batas';
@@ -2585,11 +2591,11 @@ class AppLocalizationsId extends AppLocalizations {
       'Pengaturan Filter Nomor Jarak Jauh';
 
   @override
-  String get remoteNumberFilter => 'Filter Nomor Jarak Jauh';
+  String get remoteNumberFilter => 'Perlindungan Ambang Batas Kueri Cloud';
 
   @override
   String get remoteNumberFilterDescription =>
-      'Intersep panggilan yang mengganggu berdasarkan informasi database jarak jauh';
+      'Secara otomatis memblokir panggilan yang melebihi ambang batas laporan cloud';
 
   @override
   String get remoteNumberFiltering => 'Penyaringan Nomor Jarak Jauh';
@@ -2945,7 +2951,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get silence => 'Diam';
 
   @override
-  String get silenceAndNoAnswer => 'Diam dan Tanpa Jawaban';
+  String get silenceAndNoAnswer => 'Heningkan Nada Dering';
 
   @override
   String get silenceNoAnswer => 'Diam Tanpa Jawaban';
@@ -3315,11 +3321,11 @@ class AppLocalizationsId extends AppLocalizations {
   String get thisWeek => 'Minggu Ini';
 
   @override
-  String get timeInterceptor => 'Pencegat Waktu';
+  String get timeInterceptor => 'Perlindungan Panggilan Sering';
 
   @override
   String get timeInterceptorDescription =>
-      'Secara otomatis mencegat/mengizinkan potensi panggilan berdasarkan frekuensi panggilan';
+      'Blokir panggilan berulang dari nomor yang sama dalam waktu singkat';
 
   @override
   String get timeInterceptorExplanation =>
@@ -4777,4 +4783,88 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get answerThenHangupDescription =>
       'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
+  String get initialSetupTitle => 'Pengaturan Pustaka Aturan';
+
+  @override
+  String get initialSetupDesc =>
+      'Silakan pilih pustaka aturan regional yang ingin Anda blokir. Aturan ini dapat membantu Anda secara otomatis memblokir panggilan penjualan dan penipuan umum di wilayah Anda.';
+
+  @override
+  String get initialSetupRetry => 'Coba Lagi';
+
+  @override
+  String get initialSetupSkip => 'Lewati';
+
+  @override
+  String get initialSetupSave => 'Pengaturan terpilih sekali klik';
+
+  @override
+  String get initialSetupSaving => 'Menyimpan...';
+
+  @override
+  String get initialSetupSaveSuccess =>
+      '✅ Konfigurasi berhasil disimpan, aturan akan segera diambil secara otomatis';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return 'Gagal menyimpan konfigurasi: $error';
+  }
+
+  @override
+  String get initialSetupGetFailed => 'Gagal mendapatkan konfigurasi';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return 'Import $type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => 'Plugin';
+
+  @override
+  String get deepLinkTypeSubscription => 'Rule Subscription';
+
+  @override
+  String get deepLinkDefaultPluginName => 'External Plugin';
+
+  @override
+  String get deepLinkDefaultSubName => 'External Rule Subscription';
+
+  @override
+  String get deepLinkDetectedTitle => 'External Import Request Detected';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return 'URL: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => 'Confirm Import';
+
+  @override
+  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+
+  @override
+  String get deepLinkPluginDownloadFailed =>
+      'Failed to download or parse plugin script';
+
+  @override
+  String get deepLinkImportSuccess => '✅ Imported successfully';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return 'Import failed: $error';
+  }
 }

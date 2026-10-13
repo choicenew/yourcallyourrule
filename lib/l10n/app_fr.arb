@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "Configuration de la bibliothèque de règles",
+  "initialSetupDesc": "Veuillez sélectionner les bibliothèques de règles régionales que vous souhaitez bloquer. Ces règles peuvent vous aider à bloquer automatiquement les appels commerciaux et frauduleux courants dans votre région.",
+  "initialSetupRetry": "Réessayer",
+  "initialSetupSkip": "Ignorer",
+  "initialSetupSave": "Configuration en un clic sélectionnée",
+  "initialSetupSaving": "Enregistrement...",
+  "initialSetupSaveSuccess": "✅ Configuration enregistrée avec succès, les règles seront récupérées automatiquement bientôt",
+  "initialSetupSaveFailed": "Échec de l'enregistrement de la configuration : {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Échec de l'obtention de la configuration"
 }

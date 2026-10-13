@@ -192,34 +192,38 @@ class AppLocalizationsNo extends AppLocalizations {
   String get allow => 'Tillat';
 
   @override
-  String get allowAllAllowRules => 'Tillat alle tillat-regler';
+  String get allowAllAllowRules => 'Aktiver alle tillat-regler';
 
   @override
-  String get allowAllAllowRulesDesc => 'Tillat samtaler fra tillat-regler';
+  String get allowAllAllowRulesDesc =>
+      'Hovedbryter for å bruke alle konfigurerte tillat-regler';
 
   @override
   String get allowAllBlacklistedNumbers => 'Tillat alle svartelistede numre';
 
   @override
-  String get allowAllBlockRules => 'Tillat alle blokker-regler';
+  String get allowAllBlockRules => 'Aktiver alle blokker-regler';
 
   @override
-  String get allowAllBlockRulesDesc => 'Tillat samtaler fra blokkeringsregler';
+  String get allowAllBlockRulesDesc =>
+      'Hovedbryter for å bruke alle konfigurerte blokkeringsregler';
 
   @override
-  String get allowAllowedNumbers => 'Tillat tillatte numre';
+  String get allowAllowedNumbers => 'Tillat alle godkjente numre';
 
   @override
-  String get allowAllowedNumbersDesc => 'Tillat samtaler fra tillat-listen';
+  String get allowAllowedNumbersDesc =>
+      'Tillat alle innkommende anrop fra numre på tillat-listen din';
 
   @override
   String get allowBlock => 'Tillat/blokker';
 
   @override
-  String get allowBlockedNumbers => 'Tillat blokkerte numre';
+  String get allowBlockedNumbers => 'Omgå blokkeringsliste';
 
   @override
-  String get allowBlockedNumbersDesc => 'Tillat samtaler fra blokkeringslisten';
+  String get allowBlockedNumbersDesc =>
+      'Tillat midlertidig anrop fra numre på blokkeringslisten din';
 
   @override
   String get allowedBlockedRule => 'Tillat/blokker-regel';
@@ -241,22 +245,22 @@ class AppLocalizationsNo extends AppLocalizations {
       'Tillat automatisk numre som ikke overskrider antallgrensen';
 
   @override
-  String get allowRegexAllowRules => 'Tillat Regex-tillat-regler';
+  String get allowRegexAllowRules => 'Aktiver Regex-tillat-regler';
 
   @override
   String get allowRegexAllowRulesDesc =>
-      'Aktiver regulære uttrykk for tillat-regler';
+      'Aktiver mønstermatching med regulære uttrykk for tillat-regler';
 
   @override
   String get allowRegexAllowRulesDescription =>
       'Aktiver regulære uttrykk-baserte tillat-regler';
 
   @override
-  String get allowRegexBlockRules => 'Tillat Regex-blokker-regler';
+  String get allowRegexBlockRules => 'Aktiver Regex-blokker-regler';
 
   @override
   String get allowRegexBlockRulesDesc =>
-      'Aktiver regulære uttrykk for blokker-regler';
+      'Aktiver mønstermatching med regulære uttrykk for blokker-regler';
 
   @override
   String get allowRegexBlockRulesDescription =>
@@ -1082,11 +1086,12 @@ class AppLocalizationsNo extends AppLocalizations {
   String get enableGlobalPlugins => 'Aktiver globale plugins';
 
   @override
-  String get enableLocalCountFilter => 'Aktiver lokalt tellerverktøy';
+  String get enableLocalCountFilter =>
+      'Aktiver beskyttelse for lokal merkingsterskel';
 
   @override
   String get enableLocalCountFilterDescription =>
-      'Filtrer spam-anrop automatisk basert på antall markeringer av anrop';
+      'Blokker innkommende anrop når antall lokale rapporter overskrider terskelen';
 
   @override
   String get enableLocalNotification => 'Bruk lokal varsling';
@@ -1099,25 +1104,26 @@ class AppLocalizationsNo extends AppLocalizations {
   String get enableLocationSummary => 'Sted';
 
   @override
-  String get enableMuteRules => 'Aktiver dempingsregler';
+  String get enableMuteRules => 'Demp avskjærte anrop';
 
   @override
   String get enableMuteRulesDesc =>
-      'Bruk konfigurasjon for dempingsavskjæringsregler';
+      'Demp ringetonen for avskjærte anrop i stedet for å avvise';
 
   @override
-  String get enableNoneActionRules => 'Aktiver ingen handlingsregler';
+  String get enableNoneActionRules => 'Kun logg og merk (Ingen avskjæring)';
 
   @override
   String get enableNoneActionRulesDesc =>
-      'Tillat regelkonfigurasjoner uten avskjæringsaksjoner';
+      'Logg og merk anropstreff uten å utføre noen avskjæringsaksjon';
 
   @override
-  String get enableRemoteNumberFilter => 'Aktiver fjernnummerfilter';
+  String get enableRemoteNumberFilter =>
+      'Aktiver beskyttelse for sky-spørringsterskel';
 
   @override
   String get enableRemoteNumberFilterDescription =>
-      'Bruk fjern database for å filtrere numre';
+      'Blokker innkommende anrop når antall sky-spørringsrapporter overskrider terskelen';
 
   @override
   String get enableRule => 'Aktiver regel';
@@ -1134,13 +1140,13 @@ class AppLocalizationsNo extends AppLocalizations {
 
   @override
   String get enableTimeInterceptionDescription =>
-      'Avskjær gjentatte anrop innen kort tid';
+      'Blokker gjentatte anrop fra samme nummer innen kort tid';
 
   @override
   String get enableTimeInterceptor => 'Aktiver tidsavskjærer';
 
   @override
-  String get endCallImmediately => 'Avslutt anrop umiddelbart';
+  String get endCallImmediately => 'Blokker umiddelbart';
 
   @override
   String get endColor => 'Sluttfarge';
@@ -1904,11 +1910,11 @@ class AppLocalizationsNo extends AppLocalizations {
       'Filtrer automatisk spam-anrop basert på anropsfrekvens';
 
   @override
-  String get localCountFilter => 'Lokal antallsfilter';
+  String get localCountFilter => 'Beskyttelse for lokal merkingsterskel';
 
   @override
   String get localCountFilterDescription =>
-      'Avskjær hyppige anrop basert på lokale nummertall';
+      'Blokker automatisk anrop som overskrider den lokale rapportterskelen';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -2571,11 +2577,11 @@ class AppLocalizationsNo extends AppLocalizations {
       'Når aktivert, vil alle anrop bli avvist med høyeste prioritet';
 
   @override
-  String get rejectAllNumbers => 'Avvis alle numre';
+  String get rejectAllNumbers => 'Avvis alle innkommende anrop';
 
   @override
   String get rejectAllNumbersDesc =>
-      'Avvis alle innkommende anrop når aktivert';
+      'Avvis alle innkommende anrop med høyeste prioritet';
 
   @override
   String get rejectExceededNumbers => 'Avvis overskredne numre';
@@ -2592,11 +2598,11 @@ class AppLocalizationsNo extends AppLocalizations {
       'Innstillinger for ekstern nummerfilter';
 
   @override
-  String get remoteNumberFilter => 'Ekstern nummerfilter';
+  String get remoteNumberFilter => 'Beskyttelse for sky-spørringsterskel';
 
   @override
   String get remoteNumberFilterDescription =>
-      'Avskjær plagsomme anrop basert på ekstern databasinformasjon';
+      'Blokker automatisk anrop som overskrider sky-rapportterskelen';
 
   @override
   String get remoteNumberFiltering => 'Ekstern nummerfiltrering';
@@ -2952,7 +2958,7 @@ class AppLocalizationsNo extends AppLocalizations {
   String get silence => 'Stillhet';
 
   @override
-  String get silenceAndNoAnswer => 'Stillhet og ingen svar';
+  String get silenceAndNoAnswer => 'Demp ringetone';
 
   @override
   String get silenceNoAnswer => 'Stillhet ingen svar';
@@ -3322,11 +3328,11 @@ class AppLocalizationsNo extends AppLocalizations {
   String get thisWeek => 'Denne Uken';
 
   @override
-  String get timeInterceptor => 'Tidsavskjæring';
+  String get timeInterceptor => 'Beskyttelse mot hyppige anrop';
 
   @override
   String get timeInterceptorDescription =>
-      'Avskjær/tillat automatisk potensielle anrop basert på anropsfrekvens';
+      'Blokker gjentatte anrop fra samme nummer innen kort tid';
 
   @override
   String get timeInterceptorExplanation =>
@@ -4780,4 +4786,88 @@ class AppLocalizationsNo extends AppLocalizations {
   @override
   String get answerThenHangupDescription =>
       'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
+  String get initialSetupTitle => 'Oppsett av regelbibliotek';
+
+  @override
+  String get initialSetupDesc =>
+      'Velg de regionale regelbibliotekene du vil blokkere. Disse reglene hjelper deg med å automatisk blokkere vanlige salgs- og svindelanrop i din region.';
+
+  @override
+  String get initialSetupRetry => 'Prøv igjen';
+
+  @override
+  String get initialSetupSkip => 'Hopp over';
+
+  @override
+  String get initialSetupSave => 'Hurtigoppsett valgt';
+
+  @override
+  String get initialSetupSaving => 'Lagrer...';
+
+  @override
+  String get initialSetupSaveSuccess =>
+      '✅ Konfigurasjon lagret vellykket, regler vil bli hentet automatisk snart';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return 'Kunne ikke lagre konfigurasjon: $error';
+  }
+
+  @override
+  String get initialSetupGetFailed => 'Kunne ikke hente konfigurasjon';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return 'Import $type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => 'Plugin';
+
+  @override
+  String get deepLinkTypeSubscription => 'Rule Subscription';
+
+  @override
+  String get deepLinkDefaultPluginName => 'External Plugin';
+
+  @override
+  String get deepLinkDefaultSubName => 'External Rule Subscription';
+
+  @override
+  String get deepLinkDetectedTitle => 'External Import Request Detected';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return 'URL: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => 'Confirm Import';
+
+  @override
+  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+
+  @override
+  String get deepLinkPluginDownloadFailed =>
+      'Failed to download or parse plugin script';
+
+  @override
+  String get deepLinkImportSuccess => '✅ Imported successfully';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return 'Import failed: $error';
+  }
 }

@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "規則庫設定",
+  "initialSetupDesc": "請選擇您要攔截的地區規則庫。這些規則可以幫助您自動攔截您所在地區的常見推銷和詐騙電話。",
+  "initialSetupRetry": "重試",
+  "initialSetupSkip": "略過",
+  "initialSetupSave": "一鍵設定所選",
+  "initialSetupSaving": "儲存中...",
+  "initialSetupSaveSuccess": "✅ 設定儲存成功，規則將很快自動取得",
+  "initialSetupSaveFailed": "儲存設定失敗：{error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "取得設定失敗"
 }

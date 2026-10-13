@@ -192,34 +192,38 @@ class AppLocalizationsNl extends AppLocalizations {
   String get allow => 'Toestaan';
 
   @override
-  String get allowAllAllowRules => 'Alle Toestaan Regels Toestaan';
+  String get allowAllAllowRules => 'Alle Toestaan Regels Inschakelen';
 
   @override
-  String get allowAllAllowRulesDesc => 'Sta oproepen toe van toestaan regels';
+  String get allowAllAllowRulesDesc =>
+      'Hoofdschakelaar om alle geconfigureerde toestaan-regels toe te passen';
 
   @override
   String get allowAllBlacklistedNumbers => 'Alle Geblokkeerde Nummers Toestaan';
 
   @override
-  String get allowAllBlockRules => 'Alle Blokkeren Regels Toestaan';
+  String get allowAllBlockRules => 'Alle Blokkeren Regels Inschakelen';
 
   @override
-  String get allowAllBlockRulesDesc => 'Sta oproepen toe van blokkeer regels';
+  String get allowAllBlockRulesDesc =>
+      'Hoofdschakelaar om alle geconfigureerde blokkeer-regels toe te passen';
 
   @override
-  String get allowAllowedNumbers => 'Toegestane Nummers Toestaan';
+  String get allowAllowedNumbers => 'Alle Goedgekeurde Nummers Toestaan';
 
   @override
-  String get allowAllowedNumbersDesc => 'Sta oproepen toe van de toestaanlijst';
+  String get allowAllowedNumbersDesc =>
+      'Sta alle inkomende oproepen toe van nummers op uw toestaanlijst';
 
   @override
   String get allowBlock => 'Toestaan/Blokkeren';
 
   @override
-  String get allowBlockedNumbers => 'Geblokkeerde Nummers Toestaan';
+  String get allowBlockedNumbers => 'Blokkeerlijst Omzeilen';
 
   @override
-  String get allowBlockedNumbersDesc => 'Sta oproepen toe van de blokkeerlijst';
+  String get allowBlockedNumbersDesc =>
+      'Tijdelijk oproepen toestaan van nummers op uw blokkeerlijst';
 
   @override
   String get allowedBlockedRule => 'Toestaan/Blokkeren Regel';
@@ -239,7 +243,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Sta nummers automatisch toe die de drempelwaarde niet overschrijden';
 
   @override
-  String get allowRegexAllowRules => 'Regex Toestaan Regels Toestaan';
+  String get allowRegexAllowRules => 'Regex Toestaan Regels Inschakelen';
 
   @override
   String get allowRegexAllowRulesDesc =>
@@ -250,7 +254,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Schakel regex-gebaseerde toestaan regels in';
 
   @override
-  String get allowRegexBlockRules => 'Regex Blokkeren Regels Toestaan';
+  String get allowRegexBlockRules => 'Regex Blokkeren Regels Inschakelen';
 
   @override
   String get allowRegexBlockRulesDesc =>
@@ -1082,11 +1086,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get enableGlobalPlugins => 'Globale plugins inschakelen';
 
   @override
-  String get enableLocalCountFilter => 'Lokaal tellerfilter inschakelen';
+  String get enableLocalCountFilter =>
+      'Bescherming Lokale Markeringsdrempel Inschakelen';
 
   @override
   String get enableLocalCountFilterDescription =>
-      'Automatisch spamoproepen filteren op basis van het aantal markeringen van oproepen';
+      'Blokkeer inkomende oproepen wanneer het aantal lokale meldingen de drempel overschrijdt';
 
   @override
   String get enableLocalNotification => 'Lokale melding gebruiken';
@@ -1099,25 +1104,27 @@ class AppLocalizationsNl extends AppLocalizations {
   String get enableLocationSummary => 'Locatie';
 
   @override
-  String get enableMuteRules => 'Mute-regels inschakelen';
+  String get enableMuteRules => 'Onderschept Oproepen Dempen';
 
   @override
   String get enableMuteRulesDesc =>
-      'Mute onderscheppingsregels configuratie toepassen';
+      'Demp de beltoon voor onderschept oproepen in plaats van te weigeren';
 
   @override
-  String get enableNoneActionRules => 'Geen actie-regels inschakelen';
+  String get enableNoneActionRules =>
+      'Alleen Loggen & Markeren (Geen Onderschepping)';
 
   @override
   String get enableNoneActionRulesDesc =>
-      'Sta regelconfiguraties toe zonder onderscheppingsacties';
+      'Oproepmatches loggen en markeren zonder onderscheppingsactie uit te voeren';
 
   @override
-  String get enableRemoteNumberFilter => 'Extern nummerfilter inschakelen';
+  String get enableRemoteNumberFilter =>
+      'Bescherming Cloud Query Drempel Inschakelen';
 
   @override
   String get enableRemoteNumberFilterDescription =>
-      'Gebruik externe database om nummers te filteren';
+      'Blokkeer inkomende oproepen wanneer het aantal cloud query meldingen de drempel overschrijdt';
 
   @override
   String get enableRule => 'Regel inschakelen';
@@ -1134,13 +1141,13 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get enableTimeInterceptionDescription =>
-      'Herhaalde oproepen binnen korte tijd onderscheppen';
+      'Blokkeer herhaalde oproepen van hetzelfde nummer binnen korte tijd';
 
   @override
   String get enableTimeInterceptor => 'Tijdonderschepper inschakelen';
 
   @override
-  String get endCallImmediately => 'Oproep onmiddellijk beëindigen';
+  String get endCallImmediately => 'Onmiddellijk Blokkeren';
 
   @override
   String get endColor => 'Eindkleur';
@@ -1902,11 +1909,11 @@ class AppLocalizationsNl extends AppLocalizations {
       'Automatisch spamoproepen filteren op basis van oproepfrequentie';
 
   @override
-  String get localCountFilter => 'Lokale Aantal Filter';
+  String get localCountFilter => 'Bescherming Lokale Markeringsdrempel';
 
   @override
   String get localCountFilterDescription =>
-      'Onderschep frequente oproepen op basis van lokale nummeraantallen';
+      'Blokkeer automatisch oproepen die de lokale meldingsdrempel overschrijden';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -2569,11 +2576,11 @@ class AppLocalizationsNl extends AppLocalizations {
       'Wanneer ingeschakeld, worden alle oproepen met de hoogste prioriteit geweigerd';
 
   @override
-  String get rejectAllNumbers => 'Alle Nummers Weigeren';
+  String get rejectAllNumbers => 'Alle Inkomende Oproepen Weigeren';
 
   @override
   String get rejectAllNumbersDesc =>
-      'Weiger alle inkomende oproepen wanneer ingeschakeld';
+      'Weiger alle inkomende oproepen met de hoogste prioriteit';
 
   @override
   String get rejectExceededNumbers => 'Overschreden Nummers Weigeren';
@@ -2590,11 +2597,11 @@ class AppLocalizationsNl extends AppLocalizations {
       'Instellingen voor Externe Nummerfilter';
 
   @override
-  String get remoteNumberFilter => 'Extern Nummerfilter';
+  String get remoteNumberFilter => 'Bescherming Cloud Query Drempel';
 
   @override
   String get remoteNumberFilterDescription =>
-      'Onderschep hinderlijke oproepen op basis van externe database-informatie';
+      'Blokkeer automatisch oproepen die de cloud meldingsdrempel overschrijden';
 
   @override
   String get remoteNumberFiltering => 'Extern Nummerfilteren';
@@ -2951,7 +2958,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get silence => 'Stilte';
 
   @override
-  String get silenceAndNoAnswer => 'Stilte en geen antwoord';
+  String get silenceAndNoAnswer => 'Beltoon Dempen';
 
   @override
   String get silenceNoAnswer => 'Stilte geen antwoord';
@@ -3321,11 +3328,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get thisWeek => 'Deze week';
 
   @override
-  String get timeInterceptor => 'Tijd Onderschepper';
+  String get timeInterceptor => 'Bescherming Frequente Oproepen';
 
   @override
   String get timeInterceptorDescription =>
-      'Onderschep/sta potentiële oproepen automatisch toe op basis van oproepfrequentie';
+      'Blokkeer herhaalde oproepen van hetzelfde nummer binnen korte tijd';
 
   @override
   String get timeInterceptorExplanation =>
@@ -4785,4 +4792,88 @@ class AppLocalizationsNl extends AppLocalizations {
   @override
   String get answerThenHangupDescription =>
       'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
+  String get initialSetupTitle => 'Regelbibliotheek instellen';
+
+  @override
+  String get initialSetupDesc =>
+      'Selecteer de regionale regelbibliotheken die u wilt blokkeren. Deze regels helpen u om veel voorkomende verkoop- en oplichtingsgesprekken in uw regio automatisch te blokkeren.';
+
+  @override
+  String get initialSetupRetry => 'Opnieuw proberen';
+
+  @override
+  String get initialSetupSkip => 'Overslaan';
+
+  @override
+  String get initialSetupSave => 'Geselecteerde met één klik instellen';
+
+  @override
+  String get initialSetupSaving => 'Opslaan...';
+
+  @override
+  String get initialSetupSaveSuccess =>
+      '✅ Configuratie succesvol opgeslagen, regels worden binnenkort automatisch opgehaald';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return 'Opslaan van configuratie mislukt: $error';
+  }
+
+  @override
+  String get initialSetupGetFailed => 'Ophalen van configuratie mislukt';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return 'Import $type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => 'Plugin';
+
+  @override
+  String get deepLinkTypeSubscription => 'Rule Subscription';
+
+  @override
+  String get deepLinkDefaultPluginName => 'External Plugin';
+
+  @override
+  String get deepLinkDefaultSubName => 'External Rule Subscription';
+
+  @override
+  String get deepLinkDetectedTitle => 'External Import Request Detected';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return 'URL: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => 'Confirm Import';
+
+  @override
+  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+
+  @override
+  String get deepLinkPluginDownloadFailed =>
+      'Failed to download or parse plugin script';
+
+  @override
+  String get deepLinkImportSuccess => '✅ Imported successfully';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return 'Import failed: $error';
+  }
 }

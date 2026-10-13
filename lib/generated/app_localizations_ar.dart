@@ -192,34 +192,38 @@ class AppLocalizationsAr extends AppLocalizations {
   String get allow => 'السماح';
 
   @override
-  String get allowAllAllowRules => 'السماح لجميع قواعد السماح';
+  String get allowAllAllowRules => 'تمكين جميع قواعد السماح';
 
   @override
-  String get allowAllAllowRulesDesc => 'السماح بالمكالمات من قواعد السماح';
+  String get allowAllAllowRulesDesc =>
+      'المفتاح الرئيسي لتطبيق جميع قواعد السماح المكوّنة';
 
   @override
   String get allowAllBlacklistedNumbers => 'السماح لجميع الأرقام المحظورة';
 
   @override
-  String get allowAllBlockRules => 'السماح لجميع قواعد الحظر';
+  String get allowAllBlockRules => 'تمكين جميع قواعد الحظر';
 
   @override
-  String get allowAllBlockRulesDesc => 'السماح بالمكالمات من قواعد الحظر';
+  String get allowAllBlockRulesDesc =>
+      'المفتاح الرئيسي لتطبيق جميع قواعد الحظر المكوّنة';
 
   @override
-  String get allowAllowedNumbers => 'السماح للأرقام المسموح بها';
+  String get allowAllowedNumbers => 'السماح لجميع الأرقام المعتمدة';
 
   @override
-  String get allowAllowedNumbersDesc => 'السماح بالمكالمات من القائمة البيضاء';
+  String get allowAllowedNumbersDesc =>
+      'السماح بجميع المكالمات الواردة من الأرقام الموجودة في قائمة السماح الخاصة بك';
 
   @override
   String get allowBlock => 'السماح/الحظر';
 
   @override
-  String get allowBlockedNumbers => 'السماح للأرقام المحظورة';
+  String get allowBlockedNumbers => 'تعليق حظر القائمة السوداء';
 
   @override
-  String get allowBlockedNumbersDesc => 'السماح بالمكالمات من القائمة السوداء';
+  String get allowBlockedNumbersDesc =>
+      'السماح مؤقتًا بالمكالمات من الأرقام الموجودة في قائمة الحظر الخاصة بك';
 
   @override
   String get allowedBlockedRule => 'قاعدة السماح/الحظر';
@@ -238,7 +242,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'السماح تلقائيًا بالأرقام التي لا تتجاوز حد العد';
 
   @override
-  String get allowRegexAllowRules => 'السماح لقواعد التعبير العادي';
+  String get allowRegexAllowRules => 'تمكين قواعد السماح بالتعبير العادي';
 
   @override
   String get allowRegexAllowRulesDesc =>
@@ -249,7 +253,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'تمكين قواعد السماح المستندة إلى التعبير العادي';
 
   @override
-  String get allowRegexBlockRules => 'السماح لقواعد حظر التعبير العادي';
+  String get allowRegexBlockRules => 'تمكين قواعد الحظر بالتعبير العادي';
 
   @override
   String get allowRegexBlockRulesDesc =>
@@ -1073,11 +1077,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enableGlobalPlugins => 'تمكين المكونات الإضافية العامة';
 
   @override
-  String get enableLocalCountFilter => 'تمكين مرشح العداد المحلي';
+  String get enableLocalCountFilter => 'تمكين الحماية بحد العلامات المحلية';
 
   @override
   String get enableLocalCountFilterDescription =>
-      'تصفية المكالمات العشوائية تلقائيًا بناءً على عدد علامات المكالمات';
+      'حظر المكالمات الواردة عندما يتجاوز عدد البلاغات المحلية الحد المطلوب';
 
   @override
   String get enableLocalNotification => 'استخدام الإشعار المحلي';
@@ -1090,24 +1094,25 @@ class AppLocalizationsAr extends AppLocalizations {
   String get enableLocationSummary => 'الموقع';
 
   @override
-  String get enableMuteRules => 'تمكين قواعد كتم الصوت';
+  String get enableMuteRules => 'كتم صوت المكالمات الاعتراضية';
 
   @override
-  String get enableMuteRulesDesc => 'تطبيق تكوين قواعد اعتراض كتم الصوت';
+  String get enableMuteRulesDesc =>
+      'كتم صوت رنين المكالمات الاعتراضية بدلاً من رفضها';
 
   @override
-  String get enableNoneActionRules => 'تمكين قواعد عدم اتخاذ إجراء';
+  String get enableNoneActionRules => 'تسجيل وتعليم فقط (بدون اعتراض)';
 
   @override
   String get enableNoneActionRulesDesc =>
-      'السماح بتكوينات القواعد التي لا تحتوي على إجراءات اعتراض';
+      'تسجيل وتعليم المكالمات المطابقة دون اتخاذ أي إجراء اعتراض';
 
   @override
-  String get enableRemoteNumberFilter => 'تمكين مرشح الأرقام البعيد';
+  String get enableRemoteNumberFilter => 'تمكين الحماية بحد استعلامات السحابة';
 
   @override
   String get enableRemoteNumberFilterDescription =>
-      'استخدام قاعدة بيانات بعيدة لتصفية الأرقام';
+      'حظر المكالمات الواردة عندما يتجاوز عدد بلاغات الاستعلام السحابي الحد المطلوب';
 
   @override
   String get enableRule => 'تمكين القاعدة';
@@ -1124,13 +1129,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get enableTimeInterceptionDescription =>
-      'اعتراض المكالمات المتكررة خلال فترة زمنية قصيرة';
+      'حظر المكالمات المتكررة من نفس الرقم خلال فترة زمنية قصيرة';
 
   @override
   String get enableTimeInterceptor => 'تمكين اعتراض الوقت';
 
   @override
-  String get endCallImmediately => 'إنهاء المكالمة فورًا';
+  String get endCallImmediately => 'حظر فوراً';
 
   @override
   String get endColor => 'لون النهاية';
@@ -1882,11 +1887,11 @@ class AppLocalizationsAr extends AppLocalizations {
       'تصفية المكالمات المزعجة تلقائيًا بناءً على تكرار المكالمات';
 
   @override
-  String get localCountFilter => 'مرشح العدد المحلي';
+  String get localCountFilter => 'الحماية بحد العلامات المحلية';
 
   @override
   String get localCountFilterDescription =>
-      'اعترض المكالمات المتكررة بناءً على أعداد الأرقام المحلية';
+      'حظر المكالمات التي تتجاوز حد البلاغات المحلية تلقائيًا';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -2545,10 +2550,10 @@ class AppLocalizationsAr extends AppLocalizations {
       'عند التمكين، سيتم رفض جميع المكالمات بأعلى أولوية';
 
   @override
-  String get rejectAllNumbers => 'رفض جميع الأرقام';
+  String get rejectAllNumbers => 'رفض جميع المكالمات الواردة';
 
   @override
-  String get rejectAllNumbersDesc => 'رفض جميع المكالمات الواردة عند التمكين';
+  String get rejectAllNumbersDesc => 'رفض جميع المكالمات الواردة بأعلى أولوية';
 
   @override
   String get rejectExceededNumbers => 'رفض الأرقام المتجاوزة';
@@ -2564,11 +2569,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get remoteFilterSettingsPageTitle => 'إعدادات فلتر الأرقام عن بعد';
 
   @override
-  String get remoteNumberFilter => 'فلتر الأرقام عن بعد';
+  String get remoteNumberFilter => 'الحماية بحد استعلامات السحابة';
 
   @override
   String get remoteNumberFilterDescription =>
-      'اعتراض المكالمات المزعجة بناءً على معلومات قاعدة البيانات الخارجية';
+      'حظر المكالمات التي تتجاوز حد البلاغات السحابية تلقائيًا';
 
   @override
   String get remoteNumberFiltering => 'فلترة الأرقام عن بعد';
@@ -2923,7 +2928,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get silence => 'صمت';
 
   @override
-  String get silenceAndNoAnswer => 'صمت وعدم الرد';
+  String get silenceAndNoAnswer => 'كتم الرنين';
 
   @override
   String get silenceNoAnswer => 'صمت وعدم الرد';
@@ -3292,11 +3297,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get thisWeek => 'هذا الأسبوع';
 
   @override
-  String get timeInterceptor => ' اعتراض الوقت';
+  String get timeInterceptor => 'الحماية من المكالمات المتكررة';
 
   @override
   String get timeInterceptorDescription =>
-      'اعتراض/السماح تلقائيًا بالمكالمات المحتملة بناءً على تكرار المكالمات';
+      'حظر المكالمات المتكررة من نفس الرقم خلال فترة زمنية قصيرة';
 
   @override
   String get timeInterceptorExplanation =>
@@ -4739,4 +4744,88 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get answerThenHangupDescription =>
       'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
+  String get initialSetupTitle => 'إعداد مكتبة القواعد';
+
+  @override
+  String get initialSetupDesc =>
+      'يرجى تحديد مكتبات القواعد الإقليمية التي تريد حظرها. يمكن أن تساعدك هذه القواعد في حظر مكالمات المبيعات والاحتيال الشائعة تلقائيًا في منطقتك.';
+
+  @override
+  String get initialSetupRetry => 'إعادة المحاولة';
+
+  @override
+  String get initialSetupSkip => 'تخطي';
+
+  @override
+  String get initialSetupSave => 'الإعداد بنقرة واحدة للمحدد';
+
+  @override
+  String get initialSetupSaving => 'جارٍ الحفظ...';
+
+  @override
+  String get initialSetupSaveSuccess =>
+      '✅ تم حفظ التكوين بنجاح، سيتم جلب القواعد تلقائيًا قريبًا';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return 'فشل حفظ التكوين: $error';
+  }
+
+  @override
+  String get initialSetupGetFailed => 'فشل في الحصول على التكوين';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return 'Import $type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => 'Plugin';
+
+  @override
+  String get deepLinkTypeSubscription => 'Rule Subscription';
+
+  @override
+  String get deepLinkDefaultPluginName => 'External Plugin';
+
+  @override
+  String get deepLinkDefaultSubName => 'External Rule Subscription';
+
+  @override
+  String get deepLinkDetectedTitle => 'External Import Request Detected';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return 'URL: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => 'Confirm Import';
+
+  @override
+  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+
+  @override
+  String get deepLinkPluginDownloadFailed =>
+      'Failed to download or parse plugin script';
+
+  @override
+  String get deepLinkImportSuccess => '✅ Imported successfully';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return 'Import failed: $error';
+  }
 }

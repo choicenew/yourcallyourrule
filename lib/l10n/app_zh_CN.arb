@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "规则库设置",
+  "initialSetupDesc": "请选择您要拦截的地区规则库。这些规则可以帮助您自动拦截您所在地区的常见销售和诈骗电话。",
+  "initialSetupRetry": "重试",
+  "initialSetupSkip": "跳过",
+  "initialSetupSave": "一键设置所选",
+  "initialSetupSaving": "保存中...",
+  "initialSetupSaveSuccess": "✅ 配置保存成功，规则将很快自动获取",
+  "initialSetupSaveFailed": "保存配置失败：{error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "获取配置失败"
 }

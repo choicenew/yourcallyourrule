@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "Настройка библиотеки правил",
+  "initialSetupDesc": "Пожалуйста, выберите региональные библиотеки правил для блокировки. Эти правила помогут вам автоматически блокировать распространенные рекламные и мошеннические вызовы в вашем регионе.",
+  "initialSetupRetry": "Повторить",
+  "initialSetupSkip": "Пропустить",
+  "initialSetupSave": "Настроить выбранное в один клик",
+  "initialSetupSaving": "Сохранение...",
+  "initialSetupSaveSuccess": "✅ Конфигурация успешно сохранена, правила скоро будут загружены автоматически",
+  "initialSetupSaveFailed": "Не удалось сохранить конфигурацию: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Не удалось получить конфигурацию"
 }

@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "Configuração da Biblioteca de Regras",
+  "initialSetupDesc": "Selecione as bibliotecas de regras regionais que deseja bloquear. Essas regras ajudam a bloquear automaticamente chamadas comuns de vendas e fraudes em sua região.",
+  "initialSetupRetry": "Tentar novamente",
+  "initialSetupSkip": "Pular",
+  "initialSetupSave": "Configuração selecionada em um clique",
+  "initialSetupSaving": "Salvando...",
+  "initialSetupSaveSuccess": "✅ Configuração salva com sucesso, as regras serão obtidas automaticamente em breve",
+  "initialSetupSaveFailed": "Falha ao salvar a configuração: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Falha ao obter a configuração"
 }

@@ -192,34 +192,34 @@ class AppLocalizationsJa extends AppLocalizations {
   String get allow => '許可';
 
   @override
-  String get allowAllAllowRules => 'すべての許可ルールを許可する';
+  String get allowAllAllowRules => 'すべての許可ルールを有効化';
 
   @override
-  String get allowAllAllowRulesDesc => '許可ルールからの通話を許可する';
+  String get allowAllAllowRulesDesc => '設定されたすべての許可ルールを適用するメインスイッチ';
 
   @override
   String get allowAllBlacklistedNumbers => 'すべてのブラックリストに登録された番号を許可する';
 
   @override
-  String get allowAllBlockRules => 'すべてのブロックルールを許可する';
+  String get allowAllBlockRules => 'すべてのブロックルールを有効化';
 
   @override
-  String get allowAllBlockRulesDesc => 'ブロックルールからの通話を許可する';
+  String get allowAllBlockRulesDesc => '設定されたすべてのブロックルールを適用するメインスイッチ';
 
   @override
-  String get allowAllowedNumbers => '許可された番号を許可する';
+  String get allowAllowedNumbers => '承認済みリストの番号をすべて許可';
 
   @override
-  String get allowAllowedNumbersDesc => '許可リストからの通話を許可する';
+  String get allowAllowedNumbersDesc => '許可リストにある番号からの着信をすべて許可';
 
   @override
   String get allowBlock => '許可/ブロック';
 
   @override
-  String get allowBlockedNumbers => 'ブロックされた番号を許可する';
+  String get allowBlockedNumbers => 'ブラックリストを一時解除';
 
   @override
-  String get allowBlockedNumbersDesc => 'ブロックリストからの通話を許可する';
+  String get allowBlockedNumbersDesc => 'ブロックリスト内の番号からの着信を一時的に許可';
 
   @override
   String get allowedBlockedRule => '許可/ブロックルール';
@@ -237,19 +237,19 @@ class AppLocalizationsJa extends AppLocalizations {
   String get allowNonExceededNumbersDescription => 'カウントのしきい値を超えない番号を自動的に許可する';
 
   @override
-  String get allowRegexAllowRules => 'Regex許可ルールを許可する';
+  String get allowRegexAllowRules => '正規表現許可ルールを有効化';
 
   @override
-  String get allowRegexAllowRulesDesc => '許可ルールの正規表現パターンマッチングを有効にする';
+  String get allowRegexAllowRulesDesc => '許可ルールの正規表現パターンマッチングを有効化';
 
   @override
   String get allowRegexAllowRulesDescription => '正規表現ベースの許可ルールを有効にする';
 
   @override
-  String get allowRegexBlockRules => 'Regexブロックルールを許可する';
+  String get allowRegexBlockRules => '正規表現ブロックルールを有効化';
 
   @override
-  String get allowRegexBlockRulesDesc => 'ブロックルールの正規表現パターンマッチングを有効にする';
+  String get allowRegexBlockRulesDesc => 'ブロックルールの正規表現パターンマッチングを有効化';
 
   @override
   String get allowRegexBlockRulesDescription => '正規表現ベースのブロックルールを有効にする';
@@ -1052,11 +1052,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get enableGlobalPlugins => 'グローバルプラグインを有効にする';
 
   @override
-  String get enableLocalCountFilter => 'ローカルカウントフィルターを有効にする';
+  String get enableLocalCountFilter => 'ローカルマーク閾値保護を有効化';
 
   @override
-  String get enableLocalCountFilterDescription =>
-      'コールマークカウントに基づいてスパム通話を自動的にフィルタリングします';
+  String get enableLocalCountFilterDescription => 'ローカル報告数が閾値を超えた場合に着信をブロック';
 
   @override
   String get enableLocalNotification => 'ローカル通知を使用する';
@@ -1069,23 +1068,22 @@ class AppLocalizationsJa extends AppLocalizations {
   String get enableLocationSummary => '場所';
 
   @override
-  String get enableMuteRules => 'ミュートルールを有効にする';
+  String get enableMuteRules => '遮断時に着信音を消音';
 
   @override
-  String get enableMuteRulesDesc => 'ミュートインターセプションルールの設定を適用する';
+  String get enableMuteRulesDesc => '遮断された着信を拒否する代わりに着信音を消音';
 
   @override
-  String get enableNoneActionRules => 'アクションなしルールを有効にする';
+  String get enableNoneActionRules => '記録とマークのみ（遮断なし）';
 
   @override
-  String get enableNoneActionRulesDesc => 'インターセプションアクションなしでルール設定を許可する';
+  String get enableNoneActionRulesDesc => '遮断アクションを実行せずに着信を記録およびマーク';
 
   @override
-  String get enableRemoteNumberFilter => 'リモート番号フィルターを有効にする';
+  String get enableRemoteNumberFilter => 'クラウド検索閾値保護を有効化';
 
   @override
-  String get enableRemoteNumberFilterDescription =>
-      'リモートデータベースを使用して番号をフィルタリングする';
+  String get enableRemoteNumberFilterDescription => 'クラウド報告数が閾値を超えた場合に着信をブロック';
 
   @override
   String get enableRule => 'ルールを有効にする';
@@ -1101,13 +1099,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get enableTimeInterception => '時間インターセプションを有効にする';
 
   @override
-  String get enableTimeInterceptionDescription => '短時間内での繰り返し呼び出しをインターセプトする';
+  String get enableTimeInterceptionDescription => '短時間内の同一番号からの連続着信をブロック';
 
   @override
   String get enableTimeInterceptor => '時間インターセプターを有効にする';
 
   @override
-  String get endCallImmediately => 'すぐに通話を終了する';
+  String get endCallImmediately => '即座に切断';
 
   @override
   String get endColor => '終了色';
@@ -1846,10 +1844,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get localCounterFilterSubtitle => '通話頻度に基づいて迷惑電話を自動的にフィルタリングします';
 
   @override
-  String get localCountFilter => 'ローカルカウントフィルター';
+  String get localCountFilter => 'ローカルマーク閾値保護';
 
   @override
-  String get localCountFilterDescription => 'ローカル番号のカウントに基づいて、頻繁な通話を遮断します';
+  String get localCountFilterDescription => 'ローカル報告の閾値を超える着信を自動的にブロック';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -2484,10 +2482,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get rejectAllCallsDescription => '有効にすると、すべての通話が最高の優先度で拒否されます';
 
   @override
-  String get rejectAllNumbers => 'すべての番号を拒否';
+  String get rejectAllNumbers => '着信をすべて拒否';
 
   @override
-  String get rejectAllNumbersDesc => '有効にすると、すべての着信通話を拒否します';
+  String get rejectAllNumbersDesc => '最高優先度ですべての着信を拒否';
 
   @override
   String get rejectExceededNumbers => '超過した番号を拒否';
@@ -2502,10 +2500,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get remoteFilterSettingsPageTitle => 'リモート番号フィルター設定';
 
   @override
-  String get remoteNumberFilter => 'リモート番号フィルター';
+  String get remoteNumberFilter => 'クラウド検索閾値保護';
 
   @override
-  String get remoteNumberFilterDescription => 'リモートデータベース情報に基づいて、嫌がらせ電話を阻止します';
+  String get remoteNumberFilterDescription => 'クラウド報告の閾値を超える着信を自動的にブロック';
 
   @override
   String get remoteNumberFiltering => 'リモート番号フィルタリング';
@@ -2854,7 +2852,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get silence => 'サイレンス';
 
   @override
-  String get silenceAndNoAnswer => 'サイレンスと応答なし';
+  String get silenceAndNoAnswer => '着信音を消音';
 
   @override
   String get silenceNoAnswer => 'サイレンス、応答なし';
@@ -3216,10 +3214,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get thisWeek => '今週';
 
   @override
-  String get timeInterceptor => '時間インターセプター';
+  String get timeInterceptor => '高頻度着信保護';
 
   @override
-  String get timeInterceptorDescription => '通話頻度に基づいて、潜在的な通話を自動的に傍受/許可します';
+  String get timeInterceptorDescription => '短時間内の同一番号からの連続着信をブロック';
 
   @override
   String get timeInterceptorExplanation => '• 時間インターセプター：短時間内での繰り返し通話を傍受/許可します';
@@ -4634,4 +4632,87 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get answerThenHangupDescription =>
       'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
+  String get initialSetupTitle => 'ルールライブラリ設定';
+
+  @override
+  String get initialSetupDesc =>
+      'ブロックする地域のルールライブラリを選択してください。これらのルールは、お住まいの地域における一般的な営業電話や詐欺電話を自動的にブロックするのに役立ちます。';
+
+  @override
+  String get initialSetupRetry => '再試行';
+
+  @override
+  String get initialSetupSkip => 'スキップ';
+
+  @override
+  String get initialSetupSave => '選択した項目をワンクリックで設定';
+
+  @override
+  String get initialSetupSaving => '保存中...';
+
+  @override
+  String get initialSetupSaveSuccess => '✅ 設定が正常に保存されました。まもなくルールが自動的に取得されます';
+
+  @override
+  String initialSetupSaveFailed(String error) {
+    return '設定の保存に失敗しました: $error';
+  }
+
+  @override
+  String get initialSetupGetFailed => '設定の取得に失敗しました';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return 'Import $type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => 'Plugin';
+
+  @override
+  String get deepLinkTypeSubscription => 'Rule Subscription';
+
+  @override
+  String get deepLinkDefaultPluginName => 'External Plugin';
+
+  @override
+  String get deepLinkDefaultSubName => 'External Rule Subscription';
+
+  @override
+  String get deepLinkDetectedTitle => 'External Import Request Detected';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return 'URL: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => 'Confirm Import';
+
+  @override
+  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+
+  @override
+  String get deepLinkPluginDownloadFailed =>
+      'Failed to download or parse plugin script';
+
+  @override
+  String get deepLinkImportSuccess => '✅ Imported successfully';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return 'Import failed: $error';
+  }
 }

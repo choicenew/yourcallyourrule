@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "Cài đặt Thư viện Quy tắc",
+  "initialSetupDesc": "Vui lòng chọn thư viện quy tắc theo khu vực bạn muốn chặn. Các quy tắc này có thể giúp bạn tự động chặn các cuộc gọi bán hàng và lừa đảo phổ biến trong khu vực của bạn.",
+  "initialSetupRetry": "Thử lại",
+  "initialSetupSkip": "Bỏ qua",
+  "initialSetupSave": "Cài đặt nhanh mục đã chọn",
+  "initialSetupSaving": "Đang lưu...",
+  "initialSetupSaveSuccess": "✅ Đã lưu cấu hình thành công, các quy tắc sẽ sớm được tự động tải về",
+  "initialSetupSaveFailed": "Lưu cấu hình thất bại: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Không thể lấy cấu hình"
 }

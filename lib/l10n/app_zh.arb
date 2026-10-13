@@ -2300,5 +2300,70 @@
     }
   },
   "fieldIsRequired": "此字段为必填项",
-  "answerThenHangupDescription": "自动接听来电并立即挂断以终止通话"
+  "answerThenHangupDescription": "自动接听来电并立即挂断以终止通话",
+  "initialSetupTitle": "规则库初始化设置",
+  "initialSetupDesc": "请选择您需要拦截的地区规则库。这些规则可以帮助您自动屏蔽当地的常见推销和诈骗电话。",
+  "initialSetupRetry": "重试",
+  "initialSetupSkip": "跳过",
+  "initialSetupSave": "一键配置所选",
+  "initialSetupSaving": "正在保存...",
+  "initialSetupSaveSuccess": "✅ 配置已保存成功，规则已获取生效",
+  "initialSetupSaveFailed": "保存配置失败: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "获取配置失败",
+  "deepLinkImportTitle": "导入{type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "插件",
+  "deepLinkTypeSubscription": "规则订阅",
+  "deepLinkDefaultPluginName": "外部插件",
+  "deepLinkDefaultSubName": "外部规则订阅",
+  "deepLinkDetectedTitle": "检测到外部导入请求",
+  "deepLinkNameLabel": "名称: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "类型: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "链接: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "确认导入",
+  "deepLinkEmptyUrlError": "链接地址为空，无法导入",
+  "deepLinkPluginDownloadFailed": "下载或解析插件脚本失败",
+  "deepLinkImportSuccess": "✅ 导入成功",
+  "deepLinkImportFailed": "导入失败: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

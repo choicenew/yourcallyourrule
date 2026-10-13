@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "Configurazione della libreria di regole",
+  "initialSetupDesc": "Seleziona le librerie di regole regionali che desideri bloccare. Queste regole ti aiutano a bloccare automaticamente le chiamate di vendita e truffa comuni nella tua regione.",
+  "initialSetupRetry": "Riprova",
+  "initialSetupSkip": "Salta",
+  "initialSetupSave": "Configurazione selezionata con un clic",
+  "initialSetupSaving": "Salvataggio in corso...",
+  "initialSetupSaveSuccess": "✅ Configurazione salvata con successo, le regole verranno recuperate automaticamente a breve",
+  "initialSetupSaveFailed": "Impossibile salvare la configurazione: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Impossibile ottenere la configurazione"
 }

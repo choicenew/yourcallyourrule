@@ -2369,5 +2369,70 @@
   "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
   "@answerThenHangupDescription": {
     "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Retry",
+  "initialSetupSkip": "Skip",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
   }
 }

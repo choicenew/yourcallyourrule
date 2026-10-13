@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "नियम लाइब्रेरी सेटअप",
+  "initialSetupDesc": "कृपया क्षेत्रीय नियम लाइब्रेरी चुनें जिन्हें आप ब्लॉक करना चाहते हैं। ये नियम आपके क्षेत्र में आम बिक्री और स्कैम कॉल को स्वचालित रूप से ब्लॉक करने में मदद कर सकते हैं।",
+  "initialSetupRetry": "पुनः प्रयास करें",
+  "initialSetupSkip": "छोड़ें",
+  "initialSetupSave": "चयनित वन-क्लिक सेटअप",
+  "initialSetupSaving": "सहेजा जा रहा है...",
+  "initialSetupSaveSuccess": "✅ कॉन्फ़िगरेशन सफलतापूर्वक सहेजा गया, नियम जल्द ही स्वचालित रूप से प्राप्त किए जाएंगे",
+  "initialSetupSaveFailed": "कॉन्फ़िगरेशन सहेजने में विफल: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "कॉन्फ़िगरेशन प्राप्त करने में विफल"
 }

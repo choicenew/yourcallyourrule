@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "Configuración de Biblioteca de Reglas",
+  "initialSetupDesc": "Seleccione las bibliotecas de reglas regionales que desea bloquear. Estas reglas le ayudan a bloquear automáticamente llamadas comunes de ventas y estafas en su región.",
+  "initialSetupRetry": "Reintentar",
+  "initialSetupSkip": "Omitir",
+  "initialSetupSave": "Configuración seleccionada en un clic",
+  "initialSetupSaving": "Guardando...",
+  "initialSetupSaveSuccess": "✅ Configuración guardada con éxito, las reglas se obtendrán automáticamente pronto",
+  "initialSetupSaveFailed": "Error al guardar la configuración: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Error al obtener la configuración"
 }

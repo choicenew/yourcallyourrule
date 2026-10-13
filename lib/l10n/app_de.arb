@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "Regelbibliotheks-Einrichtung",
+  "initialSetupDesc": "Bitte wählen Sie die regionalen Regelbibliotheken aus, die Sie blockieren möchten. Diese Regeln helfen Ihnen, häufige Verkaufs- und Betrugsanrufe in Ihrer Region automatisch zu blockieren.",
+  "initialSetupRetry": "Wiederholen",
+  "initialSetupSkip": "Überspringen",
+  "initialSetupSave": "Ausgewählte mit einem Klick einrichten",
+  "initialSetupSaving": "Wird gespeichert...",
+  "initialSetupSaveSuccess": "✅ Konfiguration erfolgreich gespeichert, Regeln werden in Kürze automatisch abgerufen",
+  "initialSetupSaveFailed": "Fehler beim Speichern der Konfiguration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Fehler beim Abrufen der Konfiguration"
 }

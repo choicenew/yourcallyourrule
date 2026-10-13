@@ -2298,5 +2298,21 @@
         "example": "5"
       }
     }
-  }
+  },
+  "initialSetupTitle": "ルールライブラリ設定",
+  "initialSetupDesc": "ブロックする地域のルールライブラリを選択してください。これらのルールは、お住まいの地域における一般的な営業電話や詐欺電話を自動的にブロックするのに役立ちます。",
+  "initialSetupRetry": "再試行",
+  "initialSetupSkip": "スキップ",
+  "initialSetupSave": "選択した項目をワンクリックで設定",
+  "initialSetupSaving": "保存中...",
+  "initialSetupSaveSuccess": "✅ 設定が正常に保存されました。まもなくルールが自動的に取得されます",
+  "initialSetupSaveFailed": "設定の保存に失敗しました: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "設定の取得に失敗しました"
 }
