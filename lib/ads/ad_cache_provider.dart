@@ -57,15 +57,17 @@ class AdCacheState {
 class AdCache extends _$AdCache {
   // 【修改】: 继承 _$AdCache (由生成器创建)
   late final AdInfo _adInfo;
+  BannerAd? _bannerAd;
 
   /// `build` 方法现在是 family 的入口，它接收 `adInfo` 参数。
   /// 它只在 Provider 第一次被创建时运行一次。
   @override
   AdCacheState build(AdInfo adInfo) {
     _adInfo = adInfo;
-    // 自动管理资源的销毁
+    // 自动管理资源的销毁，使用私有引用进行 dispose，避免访问 state 抛出异常
     ref.onDispose(() {
-      state.bannerAd?.dispose();
+      _bannerAd?.dispose();
+      _bannerAd = null;
     });
     return const AdCacheState(); // 返回初始状态
   }
@@ -118,7 +120,13 @@ class AdCache extends _$AdCache {
       listener: BannerAdListener(
         onAdLoaded: (ad) async {
           final bannerAd = ad as BannerAd;
+          _bannerAd = bannerAd;
           final platformAdSize = await bannerAd.getPlatformAdSize();
+          if (!ref.mounted) {
+            bannerAd.dispose();
+            _bannerAd = null;
+            return;
+          }
           state = state.copyWith(
             bannerAd: bannerAd,
             isLoaded: true,
@@ -127,7 +135,9 @@ class AdCache extends _$AdCache {
         },
         onAdFailedToLoad: (ad, error) {
           ad.dispose();
+          _bannerAd = null;
           debugPrint('Ad failed to load: $error');
+          if (!ref.mounted) return;
           state = state.copyWith(
             bannerAd: null,
             isStarted: true,
