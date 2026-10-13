@@ -2446,6 +2446,6 @@
   "initialSetupGoToSettings": "Go to Settings",
   "separateSims": "Separate SIMs",
   "separateSimsDesc": "Enable separate filtering rules for each SIM card",
-  "masterAndOverrides": "Master Conts",
-  "masterAndOverridesDesc": "Advanced & Master Controls"
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }
