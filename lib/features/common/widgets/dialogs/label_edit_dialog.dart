@@ -69,7 +69,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(AppLocalizations.of(context)!.pleaseSelectLabelAndEnterValidPhone),
-          backgroundColor: Colors.red,
+          backgroundColor: Theme.of(context).colorScheme.error,
         ),
       );
       return;
@@ -109,7 +109,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('${AppLocalizations.of(context)!.labelUpdateSuccess}: $labelText?.text ?? _selectedLabelId}'),
-            backgroundColor: Colors.green,
+            backgroundColor: Theme.of(context).colorScheme.primary,
           ),
         );
       }
@@ -119,7 +119,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(AppLocalizations.of(context)!.labelUpdateFailed(e.toString())),
-            backgroundColor: Colors.red,
+            backgroundColor: Theme.of(context).colorScheme.error,
           ),
         );
       }

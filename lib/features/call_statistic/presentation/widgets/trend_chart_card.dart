@@ -23,10 +23,10 @@ class _TrendChartCardState extends ConsumerState<TrendChartCard> {
       margin: const EdgeInsets.only(bottom: 16),
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
@@ -45,12 +45,12 @@ class _TrendChartCardState extends ConsumerState<TrendChartCard> {
             children: [
               Text(
                 AppLocalizations.of(context)!.blockingTrend,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
               ),
               Container(
                 padding: const EdgeInsets.all(3),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF7F5F0),
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(

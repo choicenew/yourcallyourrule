@@ -123,7 +123,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
           content: Text(
             AppLocalizations.of(context)!.nameAndPhoneNumberCannotBeEmpty,
           ),
-          backgroundColor: Colors.orange,
+          backgroundColor: Theme.of(context).colorScheme.secondary,
         ),
       );
       return;
@@ -207,7 +207,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                   ? AppLocalizations.of(context)!.contactUpdateSuccess
                   : AppLocalizations.of(context)!.contactAddSuccess,
             ),
-            backgroundColor: Colors.green,
+            backgroundColor: Theme.of(context).colorScheme.primary,
           ),
         );
       }
@@ -225,7 +225,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                     context,
                   )!.addContactFailed(e.toString()),
             ),
-            backgroundColor: Colors.red,
+            backgroundColor: Theme.of(context).colorScheme.error,
           ),
         );
       }
@@ -302,7 +302,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w900,
-                color: widget.themeColor,
+                color: widget.themeColor ?? Theme.of(context).colorScheme.primary,
               ),
             ),
       content: SizedBox(
@@ -328,7 +328,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                           children: [
                             CircleAvatar(
                               radius: 36,
-                              backgroundColor: widget.themeColor?.withValues(
+                              backgroundColor: (widget.themeColor ?? Theme.of(context).colorScheme.primary).withValues(
                                 alpha: 0.1,
                               ),
                               backgroundImage: _newAvatarBytes != null
@@ -342,7 +342,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                                   ? Icon(
                                       Icons.person_rounded,
                                       size: 36,
-                                      color: widget.themeColor,
+                                      color: widget.themeColor ?? Theme.of(context).colorScheme.primary,
                                     )
                                   : null,
                             ),
@@ -358,7 +358,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                                 child: Icon(
                                   Icons.camera_alt_rounded,
                                   size: 14,
-                                  color: widget.themeColor,
+                                  color: widget.themeColor ?? Theme.of(context).colorScheme.primary,
                                 ),
                               ),
                             ),

@@ -132,9 +132,10 @@ class EliteDopamineTheme {
   }) {
     final defaultRadius = borderRadius ?? BorderRadius.circular(24);
     final accentGlow = glowColor ?? warmSunAmber;
+    final surfaceColor = baseColor ?? Theme.of(context).colorScheme.surface;
 
     return BoxDecoration(
-      color: gradient == null ? (baseColor ?? cardSurface) : null,
+      color: gradient == null ? surfaceColor : null,
       gradient: gradient,
       borderRadius: defaultRadius,
       border: Border.all(

@@ -66,7 +66,7 @@ class _PhoneRuleEditDialogState extends ConsumerState<PhoneRuleEditDialog> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(AppLocalizations.of(context)!.ruleNameAndPhoneNumberCannotBeEmpty),
-          backgroundColor: Colors.red,
+          backgroundColor: Theme.of(context).colorScheme.error,
         ),
       );
       return;
@@ -103,7 +103,7 @@ class _PhoneRuleEditDialogState extends ConsumerState<PhoneRuleEditDialog> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(AppLocalizations.of(context)!.ruleUpdateSuccess),
-            backgroundColor: Colors.green,
+            backgroundColor: Theme.of(context).colorScheme.primary,
           ),
         );
       }
@@ -113,7 +113,7 @@ class _PhoneRuleEditDialogState extends ConsumerState<PhoneRuleEditDialog> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(AppLocalizations.of(context)!.updateRuleFailed(e.toString())),
-            backgroundColor: Colors.red,
+            backgroundColor: Theme.of(context).colorScheme.error,
           ),
         );
       }

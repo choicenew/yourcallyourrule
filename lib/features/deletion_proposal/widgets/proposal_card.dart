@@ -78,10 +78,10 @@ class _ProposalCardState extends State<ProposalCard> {
               Expanded(
                 child: Text(
                   phoneNumber,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w900,
-                    color: Colors.black87,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
               ),
@@ -99,7 +99,7 @@ class _ProposalCardState extends State<ProposalCard> {
                 _formatDateTime(createdAt),
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.grey[500],
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                   fontWeight: FontWeight.w500,
                 ),
               ),
