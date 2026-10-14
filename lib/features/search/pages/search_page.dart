@@ -246,18 +246,18 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                     controller: _searchController,
                     decoration: InputDecoration(
                       hintText: AppLocalizations.of(context)!.enterPhoneNumber,
-                      hintStyle: const TextStyle(fontSize: 13, color: Colors.black26),
-                      prefixIcon: const Icon(Icons.search_rounded, color: Color(0xFFFF9500), size: 20),
+                      hintStyle: TextStyle(fontSize: 13, color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5)),
+                      prefixIcon: Icon(Icons.search_rounded, color: theme.colorScheme.primary, size: 20),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16),
-                        borderSide: const BorderSide(color: Color(0xFFEDE8DF), width: 1.1),
+                        borderSide: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.1),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16),
-                        borderSide: const BorderSide(color: Color(0xFFFF9500), width: 1.5),
+                        borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
                       ),
                       filled: true,
-                      fillColor: Colors.white,
+                      fillColor: theme.colorScheme.surface,
                       contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
                     ),
                     keyboardType: TextInputType.phone,
@@ -268,7 +268,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                 ElevatedButton(
                   onPressed: searchState.isLoading ? null : _triggerSearch,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFF9500),
+                    backgroundColor: theme.colorScheme.primary,
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),

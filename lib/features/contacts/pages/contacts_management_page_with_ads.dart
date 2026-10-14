@@ -453,12 +453,12 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 14, vertical: 4.5),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(18),
         border: Border.all(
           color: isSelected
               ? const Color(0xFFFF9500)
-              : const Color(0xFFEDE8DF),
+              : Theme.of(context).colorScheme.outlineVariant,
           width: isSelected ? 1.8 : 1.1,
         ),
         boxShadow: [
@@ -479,7 +479,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
             Flexible(
               child: Text(
                 contact.name,
-                style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 15, color: Colors.black87),
+                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 15, color: Theme.of(context).colorScheme.onSurface),
                 overflow: TextOverflow.ellipsis,
               ),
             ),
@@ -493,7 +493,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
           padding: const EdgeInsets.only(top: 3.0),
           child: Text(
             contact.phoneNumbers.join(', '),
-            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.grey[600]),
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Theme.of(context).colorScheme.onSurfaceVariant),
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -508,7 +508,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                 IconButton(
                   icon: Icon(
                     contact.isFavorite ? Icons.star_rounded : Icons.star_outline_rounded,
-                    color: contact.isFavorite ? const Color(0xFFF5A623) : Colors.grey[400],
+                    color: contact.isFavorite ? const Color(0xFFF5A623) : Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
                     size: 22,
                   ),
                   onPressed: () => _toggleFavorite(contact),
@@ -517,7 +517,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                       : AppLocalizations.of(context)!.addToFavorites,
                 ),
                 PopupMenuButton<String>(
-                  icon: Icon(Icons.more_vert_rounded, color: Colors.grey[600], size: 20),
+                  icon: Icon(Icons.more_vert_rounded, color: Theme.of(context).colorScheme.onSurfaceVariant, size: 20),
                   onSelected: (value) => _handleContactMenuAction(value, contact),
                   itemBuilder: (context) => _buildContactMenuItems(contact),
                 ),

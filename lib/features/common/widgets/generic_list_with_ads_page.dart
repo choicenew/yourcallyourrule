@@ -468,11 +468,11 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(widget.emptyIcon, size: 64, color: Colors.grey[400]),
+          Icon(widget.emptyIcon, size: 64, color: Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.5)),
           const SizedBox(height: 16),
           Text(
             widget.emptyText,
-            style: TextStyle(fontSize: 18, color: Colors.grey[600]),
+            style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.onSurfaceVariant),
             textAlign: TextAlign.center,
           ),
           if (widget.emptyActionButton != null) ...[const SizedBox(height: 24), widget.emptyActionButton!],

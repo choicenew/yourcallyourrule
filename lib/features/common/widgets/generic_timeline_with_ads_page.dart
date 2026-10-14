@@ -350,9 +350,9 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(widget.emptyIcon, size: 64, color: Colors.grey[400]),
+          Icon(widget.emptyIcon, size: 64, color: Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.5)),
           const SizedBox(height: 16),
-          Text(widget.emptyText, style: TextStyle(fontSize: 18, color: Colors.grey[600]), textAlign: TextAlign.center),
+          Text(widget.emptyText, style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.onSurfaceVariant), textAlign: TextAlign.center),
           if (widget.emptyActionButton != null) ...[const SizedBox(height: 24), widget.emptyActionButton!],
         ],
       ),
@@ -425,7 +425,7 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
       timelineWidgets.add(
         Padding(
           padding: const EdgeInsets.only(top: 16.0, bottom: 8.0, left: 18.0),
-          child: Text(groupKey, style: TextStyle(fontSize: 14, color: Colors.grey[600])),
+          child: Text(groupKey, style: TextStyle(fontSize: 14, color: Theme.of(context).colorScheme.onSurfaceVariant)),
         ),
       );
       
@@ -473,7 +473,7 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
           top: 0,
           bottom: 0,
           width: 2,
-          child: Container(color: Colors.grey[300]),
+          child: Container(color: Theme.of(context).colorScheme.outlineVariant),
         ),
         ListView(
           padding: const EdgeInsets.only(top: 8, bottom: 8),

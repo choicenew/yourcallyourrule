@@ -10,12 +10,11 @@ import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_app_bar.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_community_judge_card.dart';
-import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_floating_nav_bar.dart';
+import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_hero_shield_card.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_primary_filter_card.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_quick_capsules.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_stats_insight_card.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ------------------- Widget 定义 -------------------
@@ -28,30 +27,15 @@ class EliteHomePage extends ConsumerStatefulWidget {
 }
 
 class _EliteHomePageState extends ConsumerState<EliteHomePage> {
-  int _currentNavIndex = 0;
+  final int _currentNavIndex = 0;
 
   void _navigateToProHome() {
     context.goNamed(AppRouter.proHome);
   }
 
-  Future<void> _handleNavTap(int index) async {
-    if (index == 0) {
-      if (_currentNavIndex != 0) {
-        setState(() {
-          _currentNavIndex = 0;
-        });
-      }
-      return;
-    }
-    setState(() {
-      _currentNavIndex = index;
-    });
-    await EliteFloatingNavBar.handleEliteNavigation(context, index);
-    if (mounted) {
-      setState(() {
-        _currentNavIndex = 0;
-      });
-    }
+  void _handleNavTap(int index) {
+    if (index == 0) return;
+    AppRouter.navigateToTab(context, index);
   }
 
   @override
@@ -82,7 +66,7 @@ class _EliteHomePageState extends ConsumerState<EliteHomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: EliteFloatingNavBar(
+      bottomNavigationBar: BottomNavigation(
         currentIndex: _currentNavIndex,
         onTap: _handleNavTap,
       ),

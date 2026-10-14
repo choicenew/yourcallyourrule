@@ -40,18 +40,18 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
     final activeService = ref.watch(activeSyncServiceProvider);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFBF5),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           AppLocalizations.of(context)!.deviceManagementTitle,
-          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Theme.of(context).colorScheme.onSurface),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         scrolledUnderElevation: 0,
-        foregroundColor: Colors.black87,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          icon: Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Theme.of(context).colorScheme.onSurface),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),
@@ -81,10 +81,10 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
     return Container(
       padding: const EdgeInsets.all(18.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
@@ -103,15 +103,15 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                  color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const Icon(Icons.smartphone_rounded, color: Color(0xFFFF9500), size: 20),
+                child: Icon(Icons.smartphone_rounded, color: Theme.of(context).colorScheme.primary, size: 20),
               ),
               const SizedBox(width: 10),
               Text(
                 AppLocalizations.of(context)!.currentDeviceTitle,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
               ),
             ],
           ),
@@ -122,30 +122,30 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
               children: [
                 ListTile(
                   contentPadding: EdgeInsets.zero,
-                  title: Text(AppLocalizations.of(context)!.deviceNameLabel, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: Colors.grey)),
-                  subtitle: Text(device.name, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 15, color: Colors.black87)),
+                  title: Text(AppLocalizations.of(context)!.deviceNameLabel, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                  subtitle: Text(device.name, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15, color: Theme.of(context).colorScheme.onSurface)),
                   trailing: IconButton(
-                    icon: const Icon(Icons.edit_note_rounded, size: 20),
+                    icon: Icon(Icons.edit_note_rounded, size: 20, color: Theme.of(context).colorScheme.onSurfaceVariant),
                     onPressed: () => _showRenameDeviceDialog(device),
                   ),
                 ),
                 ListTile(
                   contentPadding: EdgeInsets.zero,
-                  title: Text(AppLocalizations.of(context)!.deviceModelLabel, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: Colors.grey)),
-                  subtitle: Text(device.model, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14, color: Colors.black87)),
+                  title: Text(AppLocalizations.of(context)!.deviceModelLabel, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                  subtitle: Text(device.model, style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14, color: Theme.of(context).colorScheme.onSurface)),
                 ),
                 ListTile(
                   contentPadding: EdgeInsets.zero,
-                  title: Text(AppLocalizations.of(context)!.deviceIDLabel, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: Colors.grey)),
-                  subtitle: Text(device.id, style: TextStyle(fontSize: 12, color: Colors.grey[700])),
+                  title: Text(AppLocalizations.of(context)!.deviceIDLabel, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                  subtitle: Text(device.id, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                 ),
                 ListTile(
                   contentPadding: EdgeInsets.zero,
-                  title: Text(AppLocalizations.of(context)!.lastSyncLabel, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: Colors.grey)),
+                  title: Text(AppLocalizations.of(context)!.lastSyncLabel, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                   subtitle: Text(
                     DateFormat('yyyy-MM-dd HH:mm:ss')
                         .format(device.lastSyncTime),
-                    style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13, color: Colors.black87),
+                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13, color: Theme.of(context).colorScheme.onSurface),
                   ),
                 ),
               ],
@@ -164,10 +164,10 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
     return Container(
       padding: const EdgeInsets.all(18.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
@@ -189,15 +189,15 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF6C5CE7).withValues(alpha: 0.12),
+                      color: Theme.of(context).colorScheme.secondary.withValues(alpha: 0.12),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: const Icon(Icons.devices_rounded, color: Color(0xFF6C5CE7), size: 20),
+                    child: Icon(Icons.devices_rounded, color: Theme.of(context).colorScheme.secondary, size: 20),
                   ),
                   const SizedBox(width: 10),
                   Text(
                     AppLocalizations.of(context)!.registeredDevicesTitle,
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
                   ),
                 ],
               ),
@@ -206,7 +206,7 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
                   icon: const Icon(Icons.sync_rounded, size: 16),
                   label: Text(AppLocalizations.of(context)!.syncDevicesButton),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFF9500),
+                    backgroundColor: Theme.of(context).colorScheme.primary,
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   ),

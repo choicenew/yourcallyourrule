@@ -99,7 +99,7 @@ class EliteQuickCapsules extends StatelessWidget {
             style: TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.w800,
-              color: Colors.grey[700],
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
               letterSpacing: 0.8,
             ),
           ),
@@ -179,7 +179,7 @@ class EliteQuickCapsules extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(18),
             border: Border.all(
               color: color.withValues(alpha: 0.18),
@@ -218,10 +218,10 @@ class EliteQuickCapsules extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w800,
-                        color: Colors.black87,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -231,7 +231,7 @@ class EliteQuickCapsules extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.w500,
-                        color: Colors.grey[600],
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,

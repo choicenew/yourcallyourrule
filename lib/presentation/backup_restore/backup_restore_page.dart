@@ -239,18 +239,18 @@ class BackupRestorePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final backupService = ref.watch(backupRestoreServiceProvider);
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFBF5),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           AppLocalizations.of(context)!.backupAndRestore,
-          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Theme.of(context).colorScheme.onSurface),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         scrolledUnderElevation: 0,
-        foregroundColor: Colors.black87,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          icon: Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Theme.of(context).colorScheme.onSurface),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),
@@ -283,10 +283,10 @@ class BackupRestorePage extends ConsumerWidget {
   ) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
@@ -307,15 +307,15 @@ class BackupRestorePage extends ConsumerWidget {
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                    color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: const Icon(Icons.backup_rounded, color: Color(0xFFFF9500), size: 20),
+                  child: Icon(Icons.backup_rounded, color: Theme.of(context).colorScheme.primary, size: 20),
                 ),
                 const SizedBox(width: 10),
                 Text(
                   AppLocalizations.of(context)!.backup,
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
                 ),
               ],
             ),
@@ -325,17 +325,17 @@ class BackupRestorePage extends ConsumerWidget {
               leading: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF7F5F0),
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Icon(Icons.settings_rounded, size: 18, color: Colors.black87),
+                child: Icon(Icons.settings_rounded, size: 18, color: Theme.of(context).colorScheme.onSurface),
               ),
-              title: Text(AppLocalizations.of(context)!.backupSettings, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
+              title: Text(AppLocalizations.of(context)!.backupSettings, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
               subtitle: Text(
                 AppLocalizations.of(context)!.configureBackupOptions,
-                style: const TextStyle(fontSize: 12, color: Colors.grey),
+                style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
               ),
-              trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
+              trailing: Icon(Icons.chevron_right_rounded, color: Theme.of(context).colorScheme.onSurfaceVariant),
               onTap: () => _showBackupConfigDialog(context, ref),
             ),
             ListTile(
@@ -343,17 +343,17 @@ class BackupRestorePage extends ConsumerWidget {
               leading: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF7F5F0),
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Icon(Icons.rule_rounded, size: 18, color: Colors.black87),
+                child: Icon(Icons.rule_rounded, size: 18, color: Theme.of(context).colorScheme.onSurface),
               ),
-              title: Text(AppLocalizations.of(context)!.exportRules, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
+              title: Text(AppLocalizations.of(context)!.exportRules, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
               subtitle: Text(
                 AppLocalizations.of(context)!.exportAllRuleConfigurations,
-                style: const TextStyle(fontSize: 12, color: Colors.grey),
+                style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
               ),
-              trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
+              trailing: Icon(Icons.chevron_right_rounded, color: Theme.of(context).colorScheme.onSurfaceVariant),
               onTap: () => _exportRules(context, ref, backupService),
             ),
             ListTile(
@@ -361,17 +361,17 @@ class BackupRestorePage extends ConsumerWidget {
               leading: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF7F5F0),
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Icon(Icons.settings_backup_restore_rounded, size: 18, color: Colors.black87),
+                child: Icon(Icons.settings_backup_restore_rounded, size: 18, color: Theme.of(context).colorScheme.onSurface),
               ),
-              title: Text(AppLocalizations.of(context)!.settingsBackup, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
+              title: Text(AppLocalizations.of(context)!.settingsBackup, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
               subtitle: Text(
                 AppLocalizations.of(context)!.exportAllApplicationSettings,
-                style: const TextStyle(fontSize: 12, color: Colors.grey),
+                style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
               ),
-              trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
+              trailing: Icon(Icons.chevron_right_rounded, color: Theme.of(context).colorScheme.onSurfaceVariant),
               onTap: () => _backupSettings(context, ref, backupService),
             ),
             ListTile(
@@ -379,17 +379,17 @@ class BackupRestorePage extends ConsumerWidget {
               leading: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF7F5F0),
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Icon(Icons.cloud_upload_rounded, size: 18, color: Colors.black87),
+                child: Icon(Icons.cloud_upload_rounded, size: 18, color: Theme.of(context).colorScheme.onSurface),
               ),
-              title: Text(AppLocalizations.of(context)!.cloudSync, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
+              title: Text(AppLocalizations.of(context)!.cloudSync, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
               subtitle: Text(
                 AppLocalizations.of(context)!.syncWithCloudStorage,
-                style: const TextStyle(fontSize: 12, color: Colors.grey),
+                style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
               ),
-              trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
+              trailing: Icon(Icons.chevron_right_rounded, color: Theme.of(context).colorScheme.onSurfaceVariant),
               onTap: () => _showCloudSyncDialog(context, ref),
             ),
           ],
@@ -405,10 +405,10 @@ class BackupRestorePage extends ConsumerWidget {
   ) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
@@ -429,15 +429,15 @@ class BackupRestorePage extends ConsumerWidget {
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF34C759).withValues(alpha: 0.12),
+                    color: Theme.of(context).colorScheme.secondary.withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: const Icon(Icons.restore_rounded, color: Color(0xFF34C759), size: 20),
+                  child: Icon(Icons.restore_rounded, color: Theme.of(context).colorScheme.secondary, size: 20),
                 ),
                 const SizedBox(width: 10),
                 Text(
                   AppLocalizations.of(context)!.restore,
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
                 ),
               ],
             ),
@@ -447,17 +447,17 @@ class BackupRestorePage extends ConsumerWidget {
               leading: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF7F5F0),
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Icon(Icons.upload_file_rounded, size: 18, color: Colors.black87),
+                child: Icon(Icons.upload_file_rounded, size: 18, color: Theme.of(context).colorScheme.onSurface),
               ),
-              title: Text(AppLocalizations.of(context)!.importRules, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
+              title: Text(AppLocalizations.of(context)!.importRules, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
               subtitle: Text(
                 AppLocalizations.of(context)!.importRuleConfigurationsFromFile,
-                style: const TextStyle(fontSize: 12, color: Colors.grey),
+                style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
               ),
-              trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
+              trailing: Icon(Icons.chevron_right_rounded, color: Theme.of(context).colorScheme.onSurfaceVariant),
               onTap: () => _importRules(context, ref, backupService),
             ),
             ListTile(
@@ -465,19 +465,19 @@ class BackupRestorePage extends ConsumerWidget {
               leading: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF7F5F0),
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Icon(Icons.restore_rounded, size: 18, color: Colors.black87),
+                child: Icon(Icons.restore_rounded, size: 18, color: Theme.of(context).colorScheme.onSurface),
               ),
-              title: Text(AppLocalizations.of(context)!.restoreSettings, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
+              title: Text(AppLocalizations.of(context)!.restoreSettings, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
               subtitle: Text(
                 AppLocalizations.of(
                   context,
                 )!.restoreApplicationSettingsFromBackup,
-                style: const TextStyle(fontSize: 12, color: Colors.grey),
+                style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
               ),
-              trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
+              trailing: Icon(Icons.chevron_right_rounded, color: Theme.of(context).colorScheme.onSurfaceVariant),
               onTap: () => _restoreSettings(context, ref, backupService),
             ),
           ],
@@ -493,10 +493,10 @@ class BackupRestorePage extends ConsumerWidget {
   ) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
@@ -517,15 +517,15 @@ class BackupRestorePage extends ConsumerWidget {
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF6C5CE7).withValues(alpha: 0.12),
+                    color: Theme.of(context).colorScheme.tertiary.withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: const Icon(Icons.compare_arrows_rounded, color: Color(0xFF6C5CE7), size: 20),
+                  child: Icon(Icons.compare_arrows_rounded, color: Theme.of(context).colorScheme.tertiary, size: 20),
                 ),
                 const SizedBox(width: 10),
                 Text(
                   AppLocalizations.of(context)!.dataMigration,
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
                 ),
               ],
             ),
@@ -535,19 +535,19 @@ class BackupRestorePage extends ConsumerWidget {
               leading: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF7F5F0),
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Icon(Icons.move_up_rounded, size: 18, color: Colors.black87),
+                child: Icon(Icons.move_up_rounded, size: 18, color: Theme.of(context).colorScheme.onSurface),
               ),
-              title: Text(AppLocalizations.of(context)!.migrationTool, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
+              title: Text(AppLocalizations.of(context)!.migrationTool, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
               subtitle: Text(
                 AppLocalizations.of(
                   context,
                 )!.transferDataBetweenDevicesOrPlatforms,
-                style: const TextStyle(fontSize: 12, color: Colors.grey),
+                style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
               ),
-              trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
+              trailing: Icon(Icons.chevron_right_rounded, color: Theme.of(context).colorScheme.onSurfaceVariant),
               onTap: () => _showDataMigrationDialog(context),
             ),
           ],

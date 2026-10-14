@@ -45,10 +45,10 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.2,
         ),
         boxShadow: [

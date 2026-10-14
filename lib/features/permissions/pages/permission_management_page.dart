@@ -170,9 +170,10 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.permissionManagement),
-        backgroundColor: const Color(0xFFF5A623),
+        title: Text(AppLocalizations.of(context)!.permissionManagement, style: TextStyle(color: Theme.of(context).colorScheme.onSurface)),
+        backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
           IconButton(
@@ -188,13 +189,7 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
         ],
       ),
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.white, Color(0xFFFFF3E0)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
+        color: Theme.of(context).scaffoldBackgroundColor,
         child: _isLoading
             ? const Center(child: CircularProgressIndicator())
             : _buildPermissionsList(),
@@ -204,7 +199,7 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
         child: ElevatedButton(
           onPressed: _requestAllPermissions,
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFFF5A623),
+            backgroundColor: Theme.of(context).colorScheme.primary,
             foregroundColor: Colors.white,
             padding: const EdgeInsets.symmetric(vertical: 16),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),

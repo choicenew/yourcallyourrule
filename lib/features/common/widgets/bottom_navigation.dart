@@ -27,42 +27,37 @@ class BottomNavigation extends StatelessWidget {
     this.activeTabIds = defaultTabIds,
   });
 
-  NavigationDestination _buildDestination(
-    String id,
-    AppLocalizations l10n,
-    Color unselectedColor,
-    ColorScheme colorScheme,
-  ) {
+  _NavItemData _buildNavItemData(String id, AppLocalizations l10n) {
     switch (id) {
       case tabHome:
-        return NavigationDestination(
-          icon: Icon(Icons.shield_outlined, color: unselectedColor),
-          selectedIcon: Icon(Icons.shield_rounded, color: colorScheme.primary),
+        return _NavItemData(
+          icon: Icons.shield_outlined,
+          selectedIcon: Icons.shield_rounded,
           label: l10n.homeTab,
         );
       case tabCallHistory:
-        return NavigationDestination(
-          icon: Icon(Icons.call_outlined, color: unselectedColor),
-          selectedIcon: Icon(Icons.call_rounded, color: colorScheme.primary),
+        return _NavItemData(
+          icon: Icons.call_outlined,
+          selectedIcon: Icons.call_rounded,
           label: l10n.callHistoryTab,
         );
       case tabContacts:
-        return NavigationDestination(
-          icon: Icon(Icons.contacts_outlined, color: unselectedColor),
-          selectedIcon: Icon(Icons.contacts_rounded, color: colorScheme.primary),
+        return _NavItemData(
+          icon: Icons.contacts_outlined,
+          selectedIcon: Icons.contacts_rounded,
           label: l10n.contactsTab,
         );
       case tabDashboard:
-        return NavigationDestination(
-          icon: Icon(Icons.dashboard_outlined, color: unselectedColor),
-          selectedIcon: Icon(Icons.dashboard_rounded, color: colorScheme.primary),
+        return _NavItemData(
+          icon: Icons.dashboard_outlined,
+          selectedIcon: Icons.dashboard_rounded,
           label: l10n.dashboardTab,
         );
       case tabSettings:
       default:
-        return NavigationDestination(
-          icon: Icon(Icons.settings_outlined, color: unselectedColor),
-          selectedIcon: Icon(Icons.settings_rounded, color: colorScheme.primary),
+        return _NavItemData(
+          icon: Icons.settings_outlined,
+          selectedIcon: Icons.settings_rounded,
           label: l10n.settingsTab,
         );
     }
@@ -71,51 +66,101 @@ class BottomNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final colorScheme = Theme.of(context).colorScheme;
-    final unselectedColor = colorScheme.onSurfaceVariant;
+    final theme = Theme.of(context);
 
-    final destinations = activeTabIds
-        .map((id) => _buildDestination(id, l10n, unselectedColor, colorScheme))
-        .toList();
+    final navItems = activeTabIds.map((id) => _buildNavItemData(id, l10n)).toList();
 
-    return Container(
-      decoration: BoxDecoration(
-        color: colorScheme.surface,
-        border: Border(
-          top: BorderSide(
-            color: colorScheme.outlineVariant.withValues(alpha: 0.6),
-            width: 1,
+    return SafeArea(
+      top: false,
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surface.withValues(alpha: 0.94),
+          borderRadius: BorderRadius.circular(28),
+          border: Border.all(
+            color: theme.colorScheme.primary.withValues(alpha: 0.35),
+            width: 1.5,
           ),
+          boxShadow: [
+            BoxShadow(
+              color: theme.colorScheme.primary.withValues(alpha: 0.18),
+              blurRadius: 20,
+              spreadRadius: 2,
+              offset: const Offset(0, 6),
+            ),
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.05),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
-      ),
-      child: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          labelTextStyle: WidgetStateProperty.resolveWith((states) {
-            if (states.contains(WidgetState.selected)) {
-              return TextStyle(
-                color: colorScheme.primary,
-                fontWeight: FontWeight.bold,
-                fontSize: 11.0,
-              );
-            }
-            return TextStyle(
-              color: colorScheme.onSurfaceVariant,
-              fontSize: 11.0,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: List.generate(navItems.length, (index) {
+            final item = navItems[index];
+            final isSelected = currentIndex.clamp(0, navItems.length - 1) == index;
+
+            return GestureDetector(
+              onTap: () {
+                if (index == currentIndex) return;
+                onTap?.call(index);
+              },
+              behavior: HitTestBehavior.opaque,
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 240),
+                curve: Curves.easeInOut,
+                padding: EdgeInsets.symmetric(
+                  horizontal: isSelected ? 12 : 8,
+                  vertical: 6,
+                ),
+                decoration: BoxDecoration(
+                  color: isSelected
+                      ? theme.colorScheme.primary.withValues(alpha: 0.18)
+                      : Colors.transparent,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      isSelected ? item.selectedIcon : item.icon,
+                      size: 22,
+                      color: isSelected
+                          ? theme.colorScheme.primary
+                          : theme.colorScheme.onSurfaceVariant,
+                    ),
+                    if (isSelected) ...[
+                      const SizedBox(width: 6),
+                      Text(
+                        item.label,
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w800,
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
             );
           }),
-        ),
-        child: NavigationBar(
-          selectedIndex: currentIndex.clamp(0, activeTabIds.length - 1),
-          backgroundColor: Colors.transparent,
-          indicatorColor: colorScheme.primaryContainer,
-          elevation: 0,
-          onDestinationSelected: (index) {
-            if (index == currentIndex) return;
-            onTap?.call(index);
-          },
-          destinations: destinations,
         ),
       ),
     );
   }
+}
+
+class _NavItemData {
+  final IconData icon;
+  final IconData selectedIcon;
+  final String label;
+
+  const _NavItemData({
+    required this.icon,
+    required this.selectedIcon,
+    required this.label,
+  });
 }

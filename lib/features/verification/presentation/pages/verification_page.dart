@@ -110,12 +110,12 @@ class _VerificationPageState extends ConsumerState<VerificationPage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         scrolledUnderElevation: 0,
-        foregroundColor: Colors.black87,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         leading: IconButton(
-          icon: const Icon(
+          icon: Icon(
             Icons.arrow_back_ios_new_rounded,
             size: 20,
-            color: Colors.black87,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
           onPressed: () => Navigator.of(context).maybePop(),
         ),

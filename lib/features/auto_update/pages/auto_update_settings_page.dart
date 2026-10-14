@@ -131,7 +131,7 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.autoUpdateSettings, style: const TextStyle(fontWeight: FontWeight.w900)),
+        title: Text(AppLocalizations.of(context)!.autoUpdateSettings, style: TextStyle(fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface)),
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
@@ -165,10 +165,10 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: const Color(0xFF2D9CDB).withValues(alpha: 0.05),
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(16.0),
         border: Border.all(
-          color: const Color(0xFF2D9CDB).withValues(alpha: 0.15),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
       ),
@@ -178,12 +178,12 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
           Container(
             padding: const EdgeInsets.all(6.0),
             decoration: BoxDecoration(
-              color: const Color(0xFF2D9CDB).withValues(alpha: 0.12),
+              color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
               borderRadius: BorderRadius.circular(10.0),
             ),
-            child: const Icon(
+            child: Icon(
               Icons.info_outline_rounded,
-              color: Color(0xFF2D9CDB),
+              color: Theme.of(context).colorScheme.primary,
               size: 20,
             ),
           ),
@@ -194,18 +194,18 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
               children: [
                 Text(
                   AppLocalizations.of(context)!.autoUpdateSettings,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w800,
-                    color: Color(0xFF2D9CDB),
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   AppLocalizations.of(context)!.autoUpdateDescription,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 12.5,
-                    color: Colors.black87,
+                    color: Theme.of(context).colorScheme.onSurface,
                     height: 1.35,
                   ),
                 ),
@@ -237,15 +237,15 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                  color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Icon(icon, color: const Color(0xFFFF9500), size: 20),
+                child: Icon(icon, color: Theme.of(context).colorScheme.primary, size: 20),
               ),
               const SizedBox(width: 12),
               Text(
                 name,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
               ),
             ],
           ),
@@ -255,22 +255,23 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
             children: [
               Text(
                 AppLocalizations.of(context)!.updateInterval,
-                style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.black87),
+                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Theme.of(context).colorScheme.onSurface),
               ),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF7F5F0),
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: const Color(0xFFEDE8DF)),
+                  border: Border.all(color: Theme.of(context).colorScheme.outlineVariant),
                 ),
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton<int>(
                     value: days,
+                    dropdownColor: Theme.of(context).colorScheme.surface,
                     items: [1, 3, 7, 14, 30].map((int value) {
                       return DropdownMenuItem<int>(
                         value: value,
-                        child: Text(AppLocalizations.of(context)!.days(value), style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+                        child: Text(AppLocalizations.of(context)!.days(value), style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Theme.of(context).colorScheme.onSurface)),
                       );
                     }).toList(),
                     onChanged: (int? newValue) {
@@ -290,7 +291,7 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
               icon: const Icon(Icons.sync_rounded, size: 16),
               label: Text(AppLocalizations.of(context)!.updateNow, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800)),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF2D9CDB),
+                backgroundColor: Theme.of(context).colorScheme.primary,
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 11),
                 shape: RoundedRectangleBorder(

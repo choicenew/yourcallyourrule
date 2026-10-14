@@ -182,7 +182,7 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
         );
       },
     );
-  }
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -194,7 +194,10 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
         title: _isMultiSelectMode 
           ? Text(AppLocalizations.of(context)!.selectedItems(_selectedProposalIds.length)) 
           : Text(AppLocalizations.of(context)!.deletionProposals),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         leading: _isMultiSelectMode 
           ? IconButton(
               icon: const Icon(Icons.close),

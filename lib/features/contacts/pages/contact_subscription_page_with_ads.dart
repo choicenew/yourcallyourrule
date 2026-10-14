@@ -278,9 +278,9 @@ class _ContactSubscriptionPageWithAdsState extends ConsumerState<ContactSubscrip
                 const SizedBox(height: 4),
                 Text(
                   AppLocalizations.of(context)!.contactSubscriptionDescription,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 12.5,
-                    color: Colors.black87,
+                    color: Theme.of(context).colorScheme.onSurface,
                     height: 1.35,
                   ),
                 ),
@@ -315,13 +315,13 @@ class _ContactSubscriptionPageWithAdsState extends ConsumerState<ContactSubscrip
                   children: [
                     Text(
                       subscription.name,
-                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
                       overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 4),
                     Text(
                       subscription.url.toString(),
-                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                      style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
                       overflow: TextOverflow.ellipsis,
                     ),
                     const SizedBox(height: 8),
@@ -341,7 +341,7 @@ class _ContactSubscriptionPageWithAdsState extends ConsumerState<ContactSubscrip
                         const SizedBox(width: 8),
                         Text(
                           '${AppLocalizations.of(context)!.lastUpdated}: $formattedDate',
-                          style: TextStyle(fontSize: 11, color: Colors.grey[500]),
+                          style: TextStyle(fontSize: 11, color: Theme.of(context).colorScheme.onSurfaceVariant),
                         ),
                       ],
                     ),

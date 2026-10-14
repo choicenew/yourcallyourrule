@@ -17,7 +17,7 @@ class CountrySelectionWidget extends ConsumerWidget {
     final selectedCountries = ref.watch(selectedCountriesProvider);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFAF8F5),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           l10n.databaseSyncTitle,

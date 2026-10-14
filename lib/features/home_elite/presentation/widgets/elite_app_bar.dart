@@ -180,26 +180,27 @@ class EliteAppBar extends ConsumerWidget {
                 onPressed: () => context.pushNamed(AppRouter.notifications),
                 tooltip: l10n.notifications,
               ),
-              IconButton(
-                icon: Container(
-                  padding: const EdgeInsets.all(7),
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.surfaceContainerHighest,
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: theme.colorScheme.outlineVariant,
-                      width: 1,
+              if (onSwitchToPro != null)
+                IconButton(
+                  icon: Container(
+                    padding: const EdgeInsets.all(7),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surfaceContainerHighest,
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: theme.colorScheme.outlineVariant,
+                        width: 1,
+                      ),
+                    ),
+                    child: Icon(
+                      Icons.tune_rounded,
+                      size: 18,
+                      color: theme.colorScheme.onSurface,
                     ),
                   ),
-                  child: Icon(
-                    Icons.settings_outlined,
-                    size: 18,
-                    color: theme.colorScheme.onSurface,
-                  ),
+                  onPressed: onSwitchToPro,
+                  tooltip: 'Pro',
                 ),
-                onPressed: () => context.pushNamed(AppRouter.settings),
-                tooltip: l10n.settingsTitle,
-              ),
             ],
           ),
         ],

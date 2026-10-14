@@ -16,10 +16,10 @@ class BlockTypeAnalysis extends ConsumerWidget {
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
@@ -35,7 +35,7 @@ class BlockTypeAnalysis extends ConsumerWidget {
         children: [
           Text(
             AppLocalizations.of(context)!.blockTypeAnalysisTitle,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
           ),
           const SizedBox(height: 16),
           // 加载和错误状态由父 Widget (CallStatisticsPage) 处理

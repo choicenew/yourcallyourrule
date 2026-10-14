@@ -19,7 +19,7 @@ class NotificationsPage extends ConsumerWidget {
     final notificationHistoryAsync = ref.watch(notificationHistoryProvider);
     
     return Scaffold(
-      backgroundColor: const Color(0xFFFAF8F5),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,

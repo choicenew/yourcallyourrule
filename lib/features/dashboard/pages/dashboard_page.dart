@@ -50,7 +50,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> with SingleTicker
           ),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          icon: Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Theme.of(context).colorScheme.onSurface),
           onPressed: () {
             if (GoRouter.of(context).canPop()) {
               context.pop();
@@ -65,7 +65,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> with SingleTicker
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
-              color: const Color(0xFFF0EDE6),
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
               borderRadius: BorderRadius.circular(16),
             ),
             child: TabBar(
@@ -84,7 +84,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> with SingleTicker
               indicatorSize: TabBarIndicatorSize.tab,
               dividerColor: Colors.transparent,
               labelColor: Colors.white,
-              unselectedLabelColor: Colors.grey[700],
+              unselectedLabelColor: Theme.of(context).colorScheme.onSurfaceVariant,
               labelStyle: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
               unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
               tabs: [

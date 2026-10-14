@@ -17,7 +17,17 @@ class SettingsPage extends ConsumerWidget {
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
 
-    return Scaffold(
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (GoRouter.of(context).canPop()) {
+          context.pop();
+        } else {
+          GoRouter.of(context).goNamed(AppRouter.home);
+        }
+      },
+      child: Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -47,28 +57,31 @@ class SettingsPage extends ConsumerWidget {
         physics: const BouncingScrollPhysics(),
         children: [
           // 1. 账户与基础偏好组
-          _buildSectionHeader(l10n.systemSettingsTitle, Icons.person_pin_circle_rounded, EliteDopamineTheme.warmSunAmber),
+          _buildSectionHeader(context, l10n.systemSettingsTitle, Icons.person_pin_circle_rounded, EliteDopamineTheme.warmSunAmber),
           _buildGroupedCard(
             context: context,
             glowColor: EliteDopamineTheme.warmSunAmber,
             children: [
               _buildTile(
+                context: context,
                 icon: Icons.workspace_premium_rounded,
                 iconColor: EliteDopamineTheme.warmSunAmber,
                 title: l10n.purchaseTitle,
                 subtitle: l10n.purchaseSubtitle,
                 onTap: () => context.pushNamed(AppRouter.purchase),
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.translate_rounded,
                 iconColor: EliteDopamineTheme.sunsetTangerine,
                 title: l10n.languageSettingsTitle,
                 subtitle: l10n.languageSettingsSubtitle,
                 onTap: () => context.pushNamed(AppRouter.languageSettings),
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.palette_rounded,
                 iconColor: EliteDopamineTheme.softLilac,
                 title: l10n.themeSettingsTitle,
@@ -80,8 +93,9 @@ class SettingsPage extends ConsumerWidget {
                   );
                 },
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.sync_rounded,
                 iconColor: EliteDopamineTheme.freshMint,
                 title: l10n.autoUpdateTitle,
@@ -94,68 +108,76 @@ class SettingsPage extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // 2. 防护与来电显示总控组
-          _buildSectionHeader(l10n.functionSettingsTitle, Icons.security_rounded, EliteDopamineTheme.vibrantCoral),
+          _buildSectionHeader(context, l10n.functionSettingsTitle, Icons.security_rounded, EliteDopamineTheme.vibrantCoral),
           _buildGroupedCard(
             context: context,
             glowColor: EliteDopamineTheme.vibrantCoral,
             children: [
               _buildTile(
+                context: context,
                 icon: Icons.phone_disabled_rounded,
                 iconColor: EliteDopamineTheme.vibrantCoral,
                 title: l10n.interceptionActionSettingsTitle,
                 subtitle: l10n.interceptionActionSettingsSubtitle,
                 onTap: () => context.pushNamed(AppRouter.endCallSettings),
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.filter_alt_rounded,
                 iconColor: EliteDopamineTheme.softLilac,
                 title: l10n.filterControlTitle,
                 subtitle: l10n.filterControlSubtitle,
                 onTap: () => context.pushNamed(AppRouter.filterSettings),
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.timelapse_rounded,
                 iconColor: EliteDopamineTheme.sunsetTangerine,
                 title: l10n.callFrequencyInterceptionTitle,
                 subtitle: l10n.callFrequencyInterceptionSubtitle,
                 onTap: () => _showTimeInterceptorSheet(context),
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.notifications_active_rounded,
                 iconColor: EliteDopamineTheme.skyAzure,
                 title: l10n.callerIdSettingsTitle,
                 subtitle: l10n.callerIdSettingsSubtitle,
                 onTap: () => context.pushNamed(AppRouter.callerIdSettings),
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.picture_in_picture_alt_rounded,
                 iconColor: EliteDopamineTheme.warmSunAmber,
                 title: l10n.callerIdCustomizationTitle,
                 subtitle: l10n.callerIdCustomizationSubtitle,
                 onTap: () => context.pushNamed(AppRouter.callerIdCustomization),
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.flash_on_rounded,
                 iconColor: EliteDopamineTheme.freshMint,
                 title: l10n.liveNotificationCustomizationTitle,
                 subtitle: l10n.liveNotificationCustomizationSubtitle,
                 onTap: () => context.pushNamed(AppRouter.kitLiveNotificationCustomization),
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.warning_amber_rounded,
                 iconColor: const Color(0xFFE11D48),
                 title: l10n.fraudAlerSettingTitle,
                 subtitle: l10n.fraudAlerSettingSubtitle,
                 onTap: () => context.pushNamed(AppRouter.fraudAlertSettings),
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.shield_outlined,
                 iconColor: EliteDopamineTheme.skyAzure,
                 title: l10n.permissionTitle,
@@ -168,52 +190,58 @@ class SettingsPage extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // 3. 云端同步与数据备份组
-          _buildSectionHeader(l10n.cloudSyncAndBackupTitle, Icons.cloud_done_rounded, EliteDopamineTheme.skyAzure),
+          _buildSectionHeader(context, l10n.cloudSyncAndBackupTitle, Icons.cloud_done_rounded, EliteDopamineTheme.skyAzure),
           _buildGroupedCard(
             context: context,
             glowColor: EliteDopamineTheme.skyAzure,
             children: [
               _buildTile(
+                context: context,
                 icon: Icons.public_rounded,
                 iconColor: EliteDopamineTheme.skyAzure,
                 title: l10n.countrySyncSettingsTitle,
                 subtitle: l10n.countrySyncSettingsSubtitle,
                 onTap: () => context.pushNamed(AppRouter.countrySyncSettings),
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.auto_awesome_rounded,
                 iconColor: EliteDopamineTheme.warmSunAmber,
                 title: l10n.initialSetupTitle,
                 subtitle: l10n.initialSetupDesc,
                 onTap: () => context.pushNamed(AppRouter.initialSetup),
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.cloud_sync_rounded,
                 iconColor: EliteDopamineTheme.freshMint,
                 title: l10n.localDatabaseSyncTitle,
                 subtitle: l10n.localDatabaseSyncSubtitle,
                 onTap: () => context.pushNamed(AppRouter.supabaseSettings),
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.cloud_queue_rounded,
                 iconColor: EliteDopamineTheme.skyAzure,
                 title: l10n.cloudSyncSettingsTitle,
                 subtitle: l10n.cloudSyncSettingsSubtitle,
                 onTap: () => context.pushNamed(AppRouter.cloudSettings),
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.settings_backup_restore_rounded,
                 iconColor: EliteDopamineTheme.warmSunAmber,
                 title: l10n.backupAndRestoreTitle,
                 subtitle: l10n.backupAndRestoreSubtitle,
                 onTap: () => context.pushNamed(AppRouter.backupRestore),
               ),
-              _buildDivider(),
+              _buildDivider(context),
               _buildTile(
+                context: context,
                 icon: Icons.devices_rounded,
                 iconColor: EliteDopamineTheme.softLilac,
                 title: l10n.deviceManagementTitle,
@@ -226,12 +254,13 @@ class SettingsPage extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // 4. 关于应用
-          _buildSectionHeader(l10n.aboutTitle, Icons.info_outline_rounded, EliteDopamineTheme.softLilac),
+          _buildSectionHeader(context, l10n.aboutTitle, Icons.info_outline_rounded, EliteDopamineTheme.softLilac),
           _buildGroupedCard(
             context: context,
             glowColor: EliteDopamineTheme.softLilac,
             children: [
               _buildTile(
+                context: context,
                 icon: Icons.info_rounded,
                 iconColor: EliteDopamineTheme.softLilac,
                 title: l10n.aboutTitle,
@@ -249,10 +278,10 @@ class SettingsPage extends ConsumerWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 
-  Widget _buildSectionHeader(String title, IconData icon, Color color) {
+  Widget _buildSectionHeader(BuildContext context, String title, IconData icon, Color color) {
     return Padding(
       padding: const EdgeInsets.only(left: 4.0, bottom: 10.0),
       child: Row(
@@ -268,10 +297,10 @@ class SettingsPage extends ConsumerWidget {
           const SizedBox(width: 8),
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w800,
-              color: Colors.black87,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
         ],
@@ -299,6 +328,7 @@ class SettingsPage extends ConsumerWidget {
   }
 
   Widget _buildTile({
+    required BuildContext context,
     required IconData icon,
     required Color iconColor,
     required String title,
@@ -328,10 +358,10 @@ class SettingsPage extends ConsumerWidget {
                   children: [
                     Text(
                       title,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w800,
-                        color: Colors.black87,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
                     const SizedBox(height: 2),
@@ -339,7 +369,7 @@ class SettingsPage extends ConsumerWidget {
                       subtitle,
                       style: TextStyle(
                         fontSize: 11,
-                        color: Colors.grey[600],
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -350,7 +380,7 @@ class SettingsPage extends ConsumerWidget {
               Icon(
                 Icons.arrow_forward_ios_rounded,
                 size: 14,
-                color: Colors.grey[400],
+                color: Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
               ),
             ],
           ),
@@ -359,13 +389,13 @@ class SettingsPage extends ConsumerWidget {
     );
   }
 
-  Widget _buildDivider() {
+  Widget _buildDivider(BuildContext context) {
     return Divider(
       height: 1,
       thickness: 1,
       indent: 56,
       endIndent: 16,
-      color: Colors.grey[200]!,
+      color: Theme.of(context).colorScheme.outlineVariant,
     );
   }
 
@@ -373,7 +403,7 @@ class SettingsPage extends ConsumerWidget {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),

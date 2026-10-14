@@ -22,18 +22,18 @@ class CloudSettingsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFBF5),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           AppLocalizations.of(context)!.cloudSyncTitle,
-          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Theme.of(context).colorScheme.onSurface),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         scrolledUnderElevation: 0,
-        foregroundColor: Colors.black87,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          icon: Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Theme.of(context).colorScheme.onSurface),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),
@@ -75,10 +75,10 @@ class CloudSettingsPage extends ConsumerWidget {
             const SizedBox(height: 12),
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: const Color(0xFFEDE8DF),
+                  color: Theme.of(context).colorScheme.outlineVariant,
                   width: 1.1,
                 ),
                 boxShadow: [
@@ -93,10 +93,10 @@ class CloudSettingsPage extends ConsumerWidget {
                 leading: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                    color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: const Icon(Icons.bug_report_rounded, color: Color(0xFFFF9500), size: 20),
+                  child: Icon(Icons.bug_report_rounded, color: Theme.of(context).colorScheme.primary, size: 20),
                 ),
                 title: const Text(
                   'Google Sign-In Test',
@@ -125,10 +125,10 @@ class CloudSettingsPage extends ConsumerWidget {
   ) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
@@ -145,10 +145,10 @@ class CloudSettingsPage extends ConsumerWidget {
           leading: Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: const Color(0xFF2D9CDB).withValues(alpha: 0.12),
+              color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: const Icon(Icons.cloud_queue_rounded, color: Color(0xFF2D9CDB), size: 20),
+            child: Icon(Icons.cloud_queue_rounded, color: Theme.of(context).colorScheme.primary, size: 20),
           ),
         title: Text(
           AppLocalizations.of(context)!.webDAVConfigTitle,
@@ -238,10 +238,10 @@ class CloudSettingsPage extends ConsumerWidget {
   ) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
@@ -258,10 +258,10 @@ class CloudSettingsPage extends ConsumerWidget {
           leading: Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: const Color(0xFF0078D4).withValues(alpha: 0.12),
+              color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: const Icon(Icons.cloud_rounded, color: Color(0xFF0078D4), size: 20),
+            child: Icon(Icons.cloud_rounded, color: Theme.of(context).colorScheme.primary, size: 20),
           ),
           title: Text(
             AppLocalizations.of(context)!.oneDriveConfigTitle,
@@ -318,10 +318,10 @@ class CloudSettingsPage extends ConsumerWidget {
   ) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
@@ -338,10 +338,10 @@ class CloudSettingsPage extends ConsumerWidget {
           leading: Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: const Color(0xFF34C759).withValues(alpha: 0.12),
+              color: Theme.of(context).colorScheme.secondary.withValues(alpha: 0.12),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: const Icon(Icons.add_to_drive_rounded, color: Color(0xFF34C759), size: 20),
+            child: Icon(Icons.add_to_drive_rounded, color: Theme.of(context).colorScheme.secondary, size: 20),
           ),
           title: Text(
             AppLocalizations.of(context)!.googleDriveConfigTitle,
@@ -641,20 +641,20 @@ class CloudSettingsPage extends ConsumerWidget {
       obscureText: obscureText,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: TextStyle(fontSize: 13, color: Colors.grey[700], fontWeight: FontWeight.w600),
+        labelStyle: TextStyle(fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant, fontWeight: FontWeight.w600),
         hintText: hint,
-        hintStyle: const TextStyle(fontSize: 13, color: Colors.black26),
-        prefixIcon: Icon(icon, color: const Color(0xFFFF9500), size: 20),
+        hintStyle: TextStyle(fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.5)),
+        prefixIcon: Icon(icon, color: Theme.of(context).colorScheme.primary, size: 20),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: Color(0xFFEDE8DF), width: 1.1),
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant, width: 1.1),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: Color(0xFFFF9500), width: 1.5),
+          borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 1.5),
         ),
         filled: true,
-        fillColor: const Color(0xFFF7F5F0),
+        fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
         contentPadding: const EdgeInsets.symmetric(
           vertical: 14,
           horizontal: 16,
@@ -686,10 +686,10 @@ class CloudSettingsPage extends ConsumerWidget {
   Widget _buildSectionTitle(BuildContext context, String title) {
     return Text(
       title,
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.bold,
-        color: Colors.black87,
+        color: Theme.of(context).colorScheme.onSurface,
       ),
     );
   }

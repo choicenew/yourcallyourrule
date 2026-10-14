@@ -47,10 +47,10 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.2,
         ),
         boxShadow: [
@@ -95,10 +95,10 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                     children: [
                       Text(
                         l10n.statistics,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
-                          color: Colors.black87,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                       Text(
@@ -118,7 +118,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
               Container(
                 padding: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF0EDE6),
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(

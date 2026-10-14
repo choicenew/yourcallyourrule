@@ -56,10 +56,10 @@ class LanguageSelectionWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(18.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
@@ -86,7 +86,7 @@ class LanguageSelectionWidget extends StatelessWidget {
               const SizedBox(width: 10),
               Text(
                 AppLocalizations.of(context)!.currentLanguage,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
               ),
             ],
           ),
@@ -94,9 +94,9 @@ class LanguageSelectionWidget extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
             decoration: BoxDecoration(
-              color: const Color(0xFFF7F5F0),
+              color: Theme.of(context).colorScheme.surfaceContainerHighest,
               borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: const Color(0xFFEDE8DF)),
+              border: Border.all(color: Theme.of(context).colorScheme.outlineVariant),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -107,7 +107,7 @@ class LanguageSelectionWidget extends StatelessWidget {
                     const SizedBox(width: 12),
                     Text(
                       currentLanguage['name'],
-                      style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
+                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800, color: Theme.of(context).colorScheme.onSurface),
                     ),
                   ],
                 ),
@@ -124,10 +124,10 @@ class LanguageSelectionWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(18.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
@@ -154,7 +154,7 @@ class LanguageSelectionWidget extends StatelessWidget {
               const SizedBox(width: 10),
               Text(
                 AppLocalizations.of(context)!.selectLanguage,
-                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
               ),
             ],
           ),
@@ -216,7 +216,7 @@ class LanguageSelectionWidget extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 14.5,
                     fontWeight: isSelected ? FontWeight.w900 : FontWeight.w600,
-                    color: isSelected ? const Color(0xFFFF9500) : Colors.black87,
+                    color: isSelected ? const Color(0xFFFF9500) : Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
               ],

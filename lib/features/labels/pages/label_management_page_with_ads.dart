@@ -344,7 +344,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
               children: [
                 Text(
                   label.name.isNotEmpty ? label.name : label.phoneNumber.value,
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black87),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 4),
@@ -368,7 +368,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
                     const SizedBox(width: 6),
                     Text(
                       label.phoneNumber.toString(),
-                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                      style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ],
@@ -396,7 +396,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
       margin: const EdgeInsets.only(bottom: 12.0),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: const Color(0xFFEDE8DF),

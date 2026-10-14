@@ -38,18 +38,18 @@ class _AboutPageState extends State<AboutPage> {
     final textTheme = Theme.of(context).textTheme;
     
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFBF5),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           AppLocalizations.of(context)!.aboutTitle,
-          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Theme.of(context).colorScheme.onSurface),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         scrolledUnderElevation: 0,
-        foregroundColor: Colors.black87,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          icon: Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Theme.of(context).colorScheme.onSurface),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),
@@ -153,10 +153,10 @@ class _AboutPageState extends State<AboutPage> {
                 children: [
                   Text(
                     AppLocalizations.of(context)!.features,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w900,
-                      color: Colors.black87,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -189,9 +189,9 @@ class _AboutPageState extends State<AboutPage> {
                   // 教程链接
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.circular(18),
-                      border: Border.all(color: const Color(0xFFEDE8DF), width: 1.1),
+                      border: Border.all(color: Theme.of(context).colorScheme.outlineVariant, width: 1.1),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withValues(alpha: 0.03),
@@ -205,10 +205,10 @@ class _AboutPageState extends State<AboutPage> {
                       leading: Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: const Color(0xFF6C5CE7).withValues(alpha: 0.12),
+                          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        child: const Icon(Icons.school_rounded, color: Color(0xFF6C5CE7), size: 20),
+                        child: Icon(Icons.school_rounded, color: Theme.of(context).colorScheme.primary, size: 20),
                       ),
                       title: Text(
                         AppLocalizations.of(context)!.tutorial,
@@ -227,10 +227,10 @@ class _AboutPageState extends State<AboutPage> {
                       children: [
                         Text(
                           AppLocalizations.of(context)!.contactUs,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w900,
-                            color: Colors.black87,
+                            color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
                         const SizedBox(height: 14),
@@ -277,10 +277,10 @@ class _AboutPageState extends State<AboutPage> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
@@ -296,16 +296,16 @@ class _AboutPageState extends State<AboutPage> {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+              color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
               shape: BoxShape.circle,
             ),
-            child: Icon(icon, color: const Color(0xFFFF9500), size: 18),
+            child: Icon(icon, color: Theme.of(context).colorScheme.primary, size: 18),
           ),
           const SizedBox(width: 14),
           Expanded(
             child: Text(
               title,
-              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13.5, color: Colors.black87),
+              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13.5, color: Theme.of(context).colorScheme.onSurface),
             ),
           ),
         ],
@@ -323,9 +323,9 @@ class _AboutPageState extends State<AboutPage> {
           child: Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.surface,
               shape: BoxShape.circle,
-              border: Border.all(color: const Color(0xFFEDE8DF)),
+              border: Border.all(color: Theme.of(context).colorScheme.outlineVariant),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withValues(alpha: 0.04),
@@ -336,7 +336,7 @@ class _AboutPageState extends State<AboutPage> {
             ),
             child: Icon(
               icon,
-              color: const Color(0xFFFF9500),
+              color: Theme.of(context).colorScheme.primary,
               size: 22,
             ),
           ),
@@ -344,7 +344,7 @@ class _AboutPageState extends State<AboutPage> {
         const SizedBox(height: 6),
         Text(
           label,
-          style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: Colors.grey[700]),
+          style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: Theme.of(context).colorScheme.onSurfaceVariant),
         ),
       ],
     );
