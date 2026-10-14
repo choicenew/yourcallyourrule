@@ -135,10 +135,10 @@ class CountrySelectionWidget extends ConsumerWidget {
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.surface,
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
-                      color: const Color(0xFFEDE8DF),
+                      color: Theme.of(context).colorScheme.outlineVariant,
                       width: 1.1,
                     ),
                   ),

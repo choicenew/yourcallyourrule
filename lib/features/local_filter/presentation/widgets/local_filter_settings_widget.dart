@@ -98,10 +98,10 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
         const SizedBox(height: 14),
         Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
-              color: const Color(0xFFEDE8DF),
+              color: Theme.of(context).colorScheme.outlineVariant,
               width: 1.1,
             ),
             boxShadow: [
@@ -115,24 +115,24 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
           child: Column(
             children: [
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.rejectExceededNumbers, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
-                subtitle: Text(AppLocalizations.of(context)!.rejectExceededNumbersDescription, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+                title: Text(AppLocalizations.of(context)!.rejectExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context)!.rejectExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                 activeColor: const Color(0xFFFF9500),
                 value: config.rejectExceededNumbers,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(rejectExceededNumbers: value)),
               ),
-              const Divider(height: 1, indent: 16, endIndent: 16, color: Color(0xFFF0ECE3)),
+              Divider(height: 1, indent: 16, endIndent: 16, color: Theme.of(context).colorScheme.outlineVariant),
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.allowNonExceededNumbers, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
-                subtitle: Text(AppLocalizations.of(context)!.allowNonExceededNumbersDescription, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+                title: Text(AppLocalizations.of(context)!.allowNonExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context)!.allowNonExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                 activeColor: const Color(0xFFFF9500),
                 value: config.allowNonExceededNumbers,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(allowNonExceededNumbers: value)),
               ),
-              const Divider(height: 1, indent: 16, endIndent: 16, color: Color(0xFFF0ECE3)),
+              Divider(height: 1, indent: 16, endIndent: 16, color: Theme.of(context).colorScheme.outlineVariant),
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.logAllLocalQueries, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
-                subtitle: Text(AppLocalizations.of(context)!.logAllLocalQueriesDescription, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+                title: Text(AppLocalizations.of(context)!.logAllLocalQueries, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context)!.logAllLocalQueriesDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                 activeColor: const Color(0xFFFF9500),
                 value: config.logAllLocalQueries,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(logAllLocalQueries: value)),
@@ -154,10 +154,10 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
     return Container(
       padding: const EdgeInsets.all(18.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
@@ -184,29 +184,29 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
               const SizedBox(width: 10),
               Text(
                 AppLocalizations.of(context)!.localCountFilterExplanationTitle, 
-                style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 15.5, color: Colors.black87),
+                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 15.5, color: Theme.of(context).colorScheme.onSurface),
               ),
             ],
           ),
           const SizedBox(height: 12),
           Text(
             AppLocalizations.of(context)!.localCountFilterExplanationContent,
-            style: const TextStyle(fontSize: 13, color: Colors.black54, height: 1.4),
+            style: TextStyle(fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.4),
           ),
           const SizedBox(height: 10),
           Text(
             AppLocalizations.of(context)!.howItWorksTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13.5, color: Colors.black87),
+            style: TextStyle(fontWeight: FontWeight.w800, fontSize: 13.5, color: Theme.of(context).colorScheme.onSurface),
           ),
           const SizedBox(height: 4),
-          Text("• ${AppLocalizations.of(context)!.localCountFilterHowItWorksPoint1}", style: const TextStyle(fontSize: 12.5, color: Colors.black54)),
-          Text("• ${AppLocalizations.of(context)!.localCountFilterHowItWorksPoint2}", style: const TextStyle(fontSize: 12.5, color: Colors.black54)),
-          Text("• ${AppLocalizations.of(context)!.localCountFilterHowItWorksPoint3}", style: const TextStyle(fontSize: 12.5, color: Colors.black54)),
-          Text("• ${AppLocalizations.of(context)!.localCountFilterHowItWorksPoint4}", style: const TextStyle(fontSize: 12.5, color: Colors.black54)),
+          Text("• ${AppLocalizations.of(context)!.localCountFilterHowItWorksPoint1}", style: TextStyle(fontSize: 12.5, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+          Text("• ${AppLocalizations.of(context)!.localCountFilterHowItWorksPoint2}", style: TextStyle(fontSize: 12.5, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+          Text("• ${AppLocalizations.of(context)!.localCountFilterHowItWorksPoint3}", style: TextStyle(fontSize: 12.5, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+          Text("• ${AppLocalizations.of(context)!.localCountFilterHowItWorksPoint4}", style: TextStyle(fontSize: 12.5, color: Theme.of(context).colorScheme.onSurfaceVariant)),
           const SizedBox(height: 10),
           Text(
             AppLocalizations.of(context)!.localCountFilterUseCases,
-            style: const TextStyle(fontSize: 12.5, color: Colors.black54, height: 1.4),
+            style: TextStyle(fontSize: 12.5, color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.4),
           ),
         ],
       ),

@@ -567,7 +567,7 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader>
         const SizedBox(height: 14),
         Container(
           decoration: BoxDecoration(
-            color: const Color(0xFFF7F5F0),
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(14),
           ),
           padding: const EdgeInsets.all(3),
@@ -591,7 +591,7 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader>
             indicatorSize: TabBarIndicatorSize.tab,
             dividerColor: Colors.transparent,
             labelColor: Colors.white,
-            unselectedLabelColor: Colors.grey[700],
+            unselectedLabelColor: Theme.of(context).colorScheme.onSurfaceVariant,
             labelStyle: const TextStyle(
               fontWeight: FontWeight.w800,
               fontSize: 12,
@@ -624,9 +624,9 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader>
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: const Color(0xFFEDE8DF), width: 1.1),
+        border: Border.all(color: Theme.of(context).colorScheme.outlineVariant, width: 1.1),
         boxShadow: [
           BoxShadow(
             color: color.withValues(alpha: 0.08),

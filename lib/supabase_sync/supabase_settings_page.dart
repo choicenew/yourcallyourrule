@@ -151,18 +151,18 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
     });
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFBF5),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           AppLocalizations.of(context)!.localDatabaseSyncTitle,
-          style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Colors.black87),
+          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Theme.of(context).colorScheme.onSurface),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         scrolledUnderElevation: 0,
-        foregroundColor: Colors.black87,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          icon: Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Theme.of(context).colorScheme.onSurface),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),
@@ -184,9 +184,9 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
               // Master Device Switch 卡片
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: const Color(0xFFEDE8DF), width: 1.2),
+                  border: Border.all(color: Theme.of(context).colorScheme.outlineVariant, width: 1.2),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withValues(alpha: 0.03),
@@ -207,11 +207,11 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                   ),
                   title: Text(
                     AppLocalizations.of(context)!.masterDeviceLabel,
-                    style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 15, color: Colors.black87),
+                    style: TextStyle(fontWeight: FontWeight.w900, fontSize: 15, color: Theme.of(context).colorScheme.onSurface),
                   ),
                   subtitle: Text(
                     AppLocalizations.of(context)!.masterDeviceHelp,
-                    style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                    style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
                   ),
                   value: config.isMasterDevice,
                   activeColor: const Color(0xFF3B82F6),
@@ -226,9 +226,9 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
               Container(
                 padding: const EdgeInsets.all(18),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: const Color(0xFFEDE8DF), width: 1.2),
+                  border: Border.all(color: Theme.of(context).colorScheme.outlineVariant, width: 1.2),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withValues(alpha: 0.03),
@@ -242,9 +242,9 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         "Supabase Configuration",
-                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900, color: Colors.black87),
+                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
                       ),
                       const SizedBox(height: 14),
                       TextFormField(
@@ -298,9 +298,9 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
               // 同步选项卡片
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.surface,
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: const Color(0xFFEDE8DF), width: 1.2),
+                  border: Border.all(color: Theme.of(context).colorScheme.outlineVariant, width: 1.2),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withValues(alpha: 0.03),

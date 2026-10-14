@@ -30,13 +30,16 @@ class ModernPurchasePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFBF5),
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           title,
-          style: const TextStyle(
-            color: Colors.black87,
+          style: TextStyle(
+            color: theme.colorScheme.onSurface,
             fontWeight: FontWeight.w900,
             fontSize: 20,
           ),
@@ -44,19 +47,22 @@ class ModernPurchasePage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         scrolledUnderElevation: 0,
-        foregroundColor: Colors.black87,
+        foregroundColor: theme.colorScheme.onSurface,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Colors.black87),
+          icon: Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: theme.colorScheme.onSurface),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: backgroundGradient,
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
+          color: isDark ? theme.scaffoldBackgroundColor : null,
+          gradient: isDark
+              ? null
+              : LinearGradient(
+                  colors: backgroundGradient,
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
         ),
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
