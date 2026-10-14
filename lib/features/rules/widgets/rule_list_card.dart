@@ -75,10 +75,10 @@ class RuleListCard extends ConsumerWidget {
                   children: [
                     Text(
                       name,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w900,
-                        color: Colors.black87,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
                     const SizedBox(height: 3),
@@ -86,7 +86,7 @@ class RuleListCard extends ConsumerWidget {
                       phoneNumber.value,
                       style: TextStyle(
                         fontSize: 13,
-                        color: Colors.grey[600],
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                         fontWeight: FontWeight.w500,
                       ),
                     ),

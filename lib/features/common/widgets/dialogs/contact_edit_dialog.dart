@@ -351,8 +351,8 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                               bottom: 0,
                               child: Container(
                                 padding: const EdgeInsets.all(4),
-                                decoration: const BoxDecoration(
-                                  color: Colors.white,
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context).colorScheme.surface,
                                   shape: BoxShape.circle,
                                 ),
                                 child: Icon(
@@ -373,14 +373,14 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                         labelText: AppLocalizations.of(context)!.name,
                         hintText: AppLocalizations.of(context)!.enterContactName,
                         filled: true,
-                        fillColor: const Color(0xFFF7F5F0),
+                        fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(14),
-                          borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
+                          borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(14),
-                          borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
+                          borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
                         ),
                         contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                       ),
@@ -392,14 +392,14 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                         labelText: AppLocalizations.of(context)!.phoneNumber,
                         hintText: AppLocalizations.of(context)!.enterPhoneNumberMultiple,
                         filled: true,
-                        fillColor: const Color(0xFFF7F5F0),
+                        fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(14),
-                          borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
+                          borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(14),
-                          borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
+                          borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
                         ),
                         contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                       ),
@@ -412,14 +412,14 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                         labelText: AppLocalizations.of(context)!.email,
                         hintText: AppLocalizations.of(context)!.enterEmailOptional,
                         filled: true,
-                        fillColor: const Color(0xFFF7F5F0),
+                        fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(14),
-                          borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
+                          borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(14),
-                          borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
+                          borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant),
                         ),
                         contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                       ),
@@ -450,7 +450,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                 onPressed: _isProcessing ? null : () => Navigator.pop(context),
                 child: Text(
                   AppLocalizations.of(context)!.cancelButton,
-                  style: TextStyle(color: Colors.grey[600], fontWeight: FontWeight.w700),
+                  style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant, fontWeight: FontWeight.w700),
                 ),
               ),
               ElevatedButton(
