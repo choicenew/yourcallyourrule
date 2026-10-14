@@ -3758,6 +3758,15 @@ class AppLocalizationsHe extends AppLocalizations {
   String get themeSettingsSubtitle => 'בחר את ערכת הנושא המועדפת עליך';
 
   @override
+  String get themeLight => 'בהיר';
+
+  @override
+  String get themeDark => 'כהה';
+
+  @override
+  String get themeSystem => 'ברירת מחדל של המערכת';
+
+  @override
   String get databaseSyncTitle => 'סנכרון מסד נתונים';
 
   @override
@@ -4793,8 +4802,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Failed to download or parse plugin script';
+  }
 
   @override
   String get deepLinkImportSuccess => '✅ Imported successfully';

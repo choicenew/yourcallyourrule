@@ -3841,6 +3841,15 @@ class AppLocalizationsFi extends AppLocalizations {
   String get themeSettingsSubtitle => 'Valitse suosikkiteemasi';
 
   @override
+  String get themeLight => 'Vaalea';
+
+  @override
+  String get themeDark => 'Tumma';
+
+  @override
+  String get themeSystem => 'Järjestelmän oletus';
+
+  @override
   String get databaseSyncTitle => 'Tietokannan synkronointi';
 
   @override
@@ -4692,103 +4701,104 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => 'Sääntötyyppi';
 
   @override
-  String get localDatabaseSyncTitle => 'Local Database Sync';
+  String get localDatabaseSyncTitle => 'Paikallisen tietokannan synkronointi';
 
   @override
-  String get localDatabaseSyncSubtitle => 'Sync data across devices';
+  String get localDatabaseSyncSubtitle => 'Synkronoi tiedot laitteiden välillä';
 
   @override
-  String get supabaseProjectUrl => 'Supabase Project URL';
+  String get supabaseProjectUrl => 'Supabase-projektin URL';
 
   @override
-  String get supabaseAnonKey => 'Anon Key';
+  String get supabaseAnonKey => 'Anonyymi avain';
 
   @override
-  String get supabaseAnonKeyHint => 'API Key, anon public key';
+  String get supabaseAnonKeyHint => 'API Key, julkinen anonyymi avain';
 
   @override
-  String get connectionString => 'Connection String (URI)';
+  String get connectionString => 'Yhteysmerkkijono (URI)';
 
   @override
   String get connectionStringHelper =>
-      'Only needed for \'Initialize Database\'';
+      'Tarvitaan vain \'Alusta tietokanta\' -toiminnossa';
 
   @override
-  String get syncCallHistory => 'Sync Call History';
+  String get syncCallHistory => 'Synkronoi puheluhistoria';
 
   @override
-  String get syncCallHistorySubtitle => 'Include private call logs in sync';
+  String get syncCallHistorySubtitle =>
+      'Sisällytä yksityiset puhelulokit synkronointiin';
 
   @override
-  String get requiredField => 'Required';
+  String get requiredField => 'Pakollinen';
 
   @override
-  String get requiredInitField => 'Required for initialization';
+  String get requiredInitField => 'Pakollinen alustukselle';
 
   @override
-  String get initDbButton => 'Initialize Database';
+  String get initDbButton => 'Alusta tietokanta';
 
   @override
-  String get dbInitSuccess => 'Database Initialized Successfully!';
+  String get dbInitSuccess => 'Tietokanta alustettu onnistuneesti!';
 
   @override
   String syncSuccess(int pushed, int pulled) {
-    return 'Sync Complete. Sent: $pushed, Received: $pulled';
+    return 'Synkronointi valmis. Lähetetty: $pushed, Vastaanotettu: $pulled';
   }
 
   @override
-  String get errorPrefix => 'Error';
+  String get errorPrefix => 'Virhe';
 
   @override
-  String get errorLoadingSettings => 'Error loading settings';
+  String get errorLoadingSettings => 'Virhe ladattaessa asetuksia';
 
   @override
-  String get statusLabel => 'Status';
+  String get statusLabel => 'Tila';
 
   @override
-  String get statusConnected => 'Connected / Configured';
+  String get statusConnected => 'Yhdistetty / Määritetty';
 
   @override
-  String get statusNotConfigured => 'Not Configured';
+  String get statusNotConfigured => 'Ei määritetty';
 
   @override
-  String get configSaved => 'Configuration Saved!';
+  String get configSaved => 'Asetukset tallennettu!';
 
   @override
-  String get masterDeviceLabel => 'Is Master Device (Admin)';
+  String get masterDeviceLabel => 'Päälaite (Ylläpitäjä)';
 
   @override
   String get masterDeviceHelp =>
-      'Only the master device can initialize the database structure.';
+      'Vain päälaite voi alustaa tietokantararakenteen.';
 
   @override
-  String get syncIntervalLabel => 'Auto-sync Interval';
+  String get syncIntervalLabel => 'Automaattisen synkronoinnin aikaväli';
 
   @override
   String syncIntervalValue(int hours) {
-    return 'Every $hours hours';
+    return 'Joka $hours. tunti';
   }
 
   @override
-  String get leaveEmptyToUseDefault => 'Leave empty to use default';
+  String get leaveEmptyToUseDefault => 'Jätä tyhjäksi käyttääksesi oletusarvoa';
 
   @override
-  String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+  String get vipAccessSubtitle => 'Katso mainoksia ilmaiseksi tai osta VIP';
 
   @override
   String failedToLoadSettingsSchema(String error) {
-    return 'Failed to load settings schema: $error';
+    return 'Asetusskeeman lataaminen epäonnistui: $error';
   }
 
   @override
-  String get fieldIsRequired => 'This field is required';
+  String get fieldIsRequired => 'Kenttä on pakollinen';
 
   @override
   String get answerThenHangupDescription =>
-      'Automatically answer the incoming call and then immediately hang up to terminate it';
+      'Vastaa puheluun ensin ja katkaise sitten heti.';
 
   @override
   String get initialSetupTitle => 'Sääntökirjaston asetukset';
@@ -4822,85 +4832,87 @@ class AppLocalizationsFi extends AppLocalizations {
   String get initialSetupGetFailed => 'Asetusten haku epäonnistui';
 
   @override
-  String get initialSetupSourceTitle => 'Data Source';
+  String get initialSetupSourceTitle => 'Sääntötietokannan lähde';
 
   @override
-  String get initialSetupSourceGithub => 'GitHub (Raw)';
+  String get initialSetupSourceGithub => 'Virallinen GitHub-lähde';
 
   @override
-  String get initialSetupSourceCdn => 'CDN Mirror';
+  String get initialSetupSourceCdn => 'Peilattu CDN-kiihdytyslähde';
 
   @override
-  String get initialSetupSourceCustom => 'Custom URL';
+  String get initialSetupSourceCustom => 'Oma peilipalvelinlähde';
 
   @override
-  String get initialSetupCustomUrlHint => 'Enter custom config JSON URL';
+  String get initialSetupCustomUrlHint =>
+      'Syötä oman peilipalvelimen JSON-määrityksen URL';
 
   @override
-  String get initialSetupCustomUrlLoad => 'Load Config';
+  String get initialSetupCustomUrlLoad => 'Lataa määritys';
 
   @override
-  String get initialSetupDetectedLocation => 'Recommended for your location';
+  String get initialSetupDetectedLocation => 'Tunnistettu sijainti';
 
   @override
   String deepLinkImportTitle(String type) {
-    return 'Import $type';
+    return 'Tuo määritys';
   }
 
   @override
-  String get deepLinkTypePlugin => 'Plugin';
+  String get deepLinkTypePlugin => 'Laajennus';
 
   @override
-  String get deepLinkTypeSubscription => 'Rule Subscription';
+  String get deepLinkTypeSubscription => 'Tilaus';
 
   @override
-  String get deepLinkDefaultPluginName => 'External Plugin';
+  String get deepLinkDefaultPluginName => 'Tuotu laajennus';
 
   @override
-  String get deepLinkDefaultSubName => 'External Rule Subscription';
+  String get deepLinkDefaultSubName => 'Tuotu tilaus';
 
   @override
-  String get deepLinkDetectedTitle => 'External Import Request Detected';
+  String get deepLinkDetectedTitle => 'Syvälinkki tunnistettu';
 
   @override
   String deepLinkNameLabel(String name) {
-    return 'Name: $name';
+    return 'Nimi';
   }
 
   @override
   String deepLinkTypeLabel(String type) {
-    return 'Type: $type';
+    return 'Tyyppi';
   }
 
   @override
   String deepLinkUrlLabel(String url) {
-    return 'URL: $url';
+    return 'URL';
   }
 
   @override
-  String get deepLinkConfirmButton => 'Confirm Import';
+  String get deepLinkConfirmButton => 'Vahvista tuonti';
 
   @override
-  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+  String get deepLinkEmptyUrlError => 'URL ei voi olla tyhjä';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Laajennuksen lataaminen epäonnistui: $error';
+  }
 
   @override
-  String get deepLinkImportSuccess => '✅ Imported successfully';
+  String get deepLinkImportSuccess => 'Tuotu onnistuneesti';
 
   @override
   String deepLinkImportFailed(String error) {
-    return 'Import failed: $error';
+    return 'Tuonti epäonnistui: $error';
   }
 
   @override
   String get initialSetupSettingsHint =>
-      'Tip: You can re-open this setup page anytime in Settings.';
+      'Vinkki: Voit avata tämän määrityssivun uudelleen Asetuksista.';
 
   @override
-  String get initialSetupGoToSettings => 'Go to Settings';
+  String get initialSetupGoToSettings => 'Siirry Asetuksiin';
 
   @override
   String get separateSims => 'Erilliset SIM-kortit';

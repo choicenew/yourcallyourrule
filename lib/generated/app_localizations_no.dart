@@ -3838,6 +3838,15 @@ class AppLocalizationsNo extends AppLocalizations {
   String get themeSettingsSubtitle => 'Velg ditt favorittema';
 
   @override
+  String get themeLight => 'Lyst';
+
+  @override
+  String get themeDark => 'Mørkt';
+
+  @override
+  String get themeSystem => 'Systemstandard';
+
+  @override
   String get databaseSyncTitle => 'Databasesynkronisering';
 
   @override
@@ -4689,7 +4698,7 @@ class AppLocalizationsNo extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => 'Regeltype';
 
   @override
   String get localDatabaseSyncTitle => 'Local Database Sync';
@@ -4881,8 +4890,9 @@ class AppLocalizationsNo extends AppLocalizations {
   String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Failed to download or parse plugin script';
+  }
 
   @override
   String get deepLinkImportSuccess => '✅ Imported successfully';

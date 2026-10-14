@@ -3816,6 +3816,15 @@ class AppLocalizationsVi extends AppLocalizations {
   String get themeSettingsSubtitle => 'Chọn chủ đề yêu thích của bạn';
 
   @override
+  String get themeLight => 'Sáng';
+
+  @override
+  String get themeDark => 'Tối';
+
+  @override
+  String get themeSystem => 'Mặc định hệ thống';
+
+  @override
   String get databaseSyncTitle => 'Đồng bộ hóa Cơ sở dữ liệu';
 
   @override
@@ -4667,103 +4676,104 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => 'Loại quy tắc';
 
   @override
-  String get localDatabaseSyncTitle => 'Local Database Sync';
+  String get localDatabaseSyncTitle => 'Đồng bộ cơ sở dữ liệu cục bộ';
 
   @override
-  String get localDatabaseSyncSubtitle => 'Sync data across devices';
+  String get localDatabaseSyncSubtitle => 'Đồng bộ dữ liệu giữa các thiết bị';
 
   @override
-  String get supabaseProjectUrl => 'Supabase Project URL';
+  String get supabaseProjectUrl => 'URL dự án Supabase';
 
   @override
-  String get supabaseAnonKey => 'Anon Key';
+  String get supabaseAnonKey => 'Khóa ẩn danh';
 
   @override
-  String get supabaseAnonKeyHint => 'API Key, anon public key';
+  String get supabaseAnonKeyHint => 'API Key, khóa công khai ẩn danh';
 
   @override
-  String get connectionString => 'Connection String (URI)';
+  String get connectionString => 'Chuỗi kết nối (URI)';
 
   @override
   String get connectionStringHelper =>
-      'Only needed for \'Initialize Database\'';
+      'Chỉ cần thiết khi \'Khởi tạo cơ sở dữ liệu\'';
 
   @override
-  String get syncCallHistory => 'Sync Call History';
+  String get syncCallHistory => 'Đồng bộ lịch sử cuộc gọi';
 
   @override
-  String get syncCallHistorySubtitle => 'Include private call logs in sync';
+  String get syncCallHistorySubtitle =>
+      'Bao gồm nhật ký cuộc gọi riêng tư trong đồng bộ';
 
   @override
-  String get requiredField => 'Required';
+  String get requiredField => 'Bắt buộc';
 
   @override
-  String get requiredInitField => 'Required for initialization';
+  String get requiredInitField => 'Bắt buộc khi khởi tạo';
 
   @override
-  String get initDbButton => 'Initialize Database';
+  String get initDbButton => 'Khởi tạo cơ sở dữ liệu';
 
   @override
-  String get dbInitSuccess => 'Database Initialized Successfully!';
+  String get dbInitSuccess => 'Khởi tạo cơ sở dữ liệu thành công!';
 
   @override
   String syncSuccess(int pushed, int pulled) {
-    return 'Sync Complete. Sent: $pushed, Received: $pulled';
+    return 'Đồng bộ hoàn tất. Đã gửi: $pushed, Đã nhận: $pulled';
   }
 
   @override
-  String get errorPrefix => 'Error';
+  String get errorPrefix => 'Lỗi';
 
   @override
-  String get errorLoadingSettings => 'Error loading settings';
+  String get errorLoadingSettings => 'Lỗi khi tải cài đặt';
 
   @override
-  String get statusLabel => 'Status';
+  String get statusLabel => 'Trạng thái';
 
   @override
-  String get statusConnected => 'Connected / Configured';
+  String get statusConnected => 'Đã kết nối / Đã cấu hình';
 
   @override
-  String get statusNotConfigured => 'Not Configured';
+  String get statusNotConfigured => 'Chưa cấu hình';
 
   @override
-  String get configSaved => 'Configuration Saved!';
+  String get configSaved => 'Đã lưu cấu hình!';
 
   @override
-  String get masterDeviceLabel => 'Is Master Device (Admin)';
+  String get masterDeviceLabel => 'Thiết bị chính (Admin)';
 
   @override
   String get masterDeviceHelp =>
-      'Only the master device can initialize the database structure.';
+      'Chỉ thiết bị chính mới có thể khởi tạo cấu trúc cơ sở dữ liệu.';
 
   @override
-  String get syncIntervalLabel => 'Auto-sync Interval';
+  String get syncIntervalLabel => 'Khoảng thời gian tự động đồng bộ';
 
   @override
   String syncIntervalValue(int hours) {
-    return 'Every $hours hours';
+    return 'Mỗi $hours giờ';
   }
 
   @override
-  String get leaveEmptyToUseDefault => 'Leave empty to use default';
+  String get leaveEmptyToUseDefault => 'Để trống để sử dụng mặc định';
 
   @override
-  String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+  String get vipAccessSubtitle => 'Xem quảng cáo miễn phí hoặc mua VIP';
 
   @override
   String failedToLoadSettingsSchema(String error) {
-    return 'Failed to load settings schema: $error';
+    return 'Không thể tải sơ đồ cài đặt: $error';
   }
 
   @override
-  String get fieldIsRequired => 'This field is required';
+  String get fieldIsRequired => 'Trường này là bắt buộc';
 
   @override
   String get answerThenHangupDescription =>
-      'Automatically answer the incoming call and then immediately hang up to terminate it';
+      'Trả lời cuộc gọi trước, sau đó cúp máy ngay lập tức.';
 
   @override
   String get initialSetupTitle => 'Cài đặt Thư viện Quy tắc';
@@ -4797,85 +4807,87 @@ class AppLocalizationsVi extends AppLocalizations {
   String get initialSetupGetFailed => 'Không thể lấy cấu hình';
 
   @override
-  String get initialSetupSourceTitle => 'Data Source';
+  String get initialSetupSourceTitle => 'Nguồn cơ sở dữ liệu quy tắc';
 
   @override
-  String get initialSetupSourceGithub => 'GitHub (Raw)';
+  String get initialSetupSourceGithub => 'Nguồn chính thức GitHub';
 
   @override
-  String get initialSetupSourceCdn => 'CDN Mirror';
+  String get initialSetupSourceCdn => 'Nguồn tăng tốc CDN gương';
 
   @override
-  String get initialSetupSourceCustom => 'Custom URL';
+  String get initialSetupSourceCustom => 'Nguồn gương tự lưu trữ';
 
   @override
-  String get initialSetupCustomUrlHint => 'Enter custom config JSON URL';
+  String get initialSetupCustomUrlHint =>
+      'Nhập URL cấu hình JSON gương tự lưu trữ';
 
   @override
-  String get initialSetupCustomUrlLoad => 'Load Config';
+  String get initialSetupCustomUrlLoad => 'Tải cấu hình';
 
   @override
-  String get initialSetupDetectedLocation => 'Recommended for your location';
+  String get initialSetupDetectedLocation => 'Vị trí đã phát hiện';
 
   @override
   String deepLinkImportTitle(String type) {
-    return 'Import $type';
+    return 'Nhập cấu hình';
   }
 
   @override
   String get deepLinkTypePlugin => 'Plugin';
 
   @override
-  String get deepLinkTypeSubscription => 'Rule Subscription';
+  String get deepLinkTypeSubscription => 'Gói đăng ký';
 
   @override
-  String get deepLinkDefaultPluginName => 'External Plugin';
+  String get deepLinkDefaultPluginName => 'Plugin đã nhập';
 
   @override
-  String get deepLinkDefaultSubName => 'External Rule Subscription';
+  String get deepLinkDefaultSubName => 'Gói đăng ký đã nhập';
 
   @override
-  String get deepLinkDetectedTitle => 'External Import Request Detected';
+  String get deepLinkDetectedTitle => 'Đã phát hiện liên kết sâu';
 
   @override
   String deepLinkNameLabel(String name) {
-    return 'Name: $name';
+    return 'Tên';
   }
 
   @override
   String deepLinkTypeLabel(String type) {
-    return 'Type: $type';
+    return 'Loại';
   }
 
   @override
   String deepLinkUrlLabel(String url) {
-    return 'URL: $url';
+    return 'URL';
   }
 
   @override
-  String get deepLinkConfirmButton => 'Confirm Import';
+  String get deepLinkConfirmButton => 'Xác nhận nhập';
 
   @override
-  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+  String get deepLinkEmptyUrlError => 'URL không được để trống';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Không thể tải xuống plugin: $error';
+  }
 
   @override
-  String get deepLinkImportSuccess => '✅ Imported successfully';
+  String get deepLinkImportSuccess => 'Nhập thành công';
 
   @override
   String deepLinkImportFailed(String error) {
-    return 'Import failed: $error';
+    return 'Nhập thất bại: $error';
   }
 
   @override
   String get initialSetupSettingsHint =>
-      'Tip: You can re-open this setup page anytime in Settings.';
+      'Mẹo: Bạn có thể mở lại trang cài đặt này bất kỳ lúc nào trong Cài đặt.';
 
   @override
-  String get initialSetupGoToSettings => 'Go to Settings';
+  String get initialSetupGoToSettings => 'Đi đến Cài đặt';
 
   @override
   String get separateSims => 'SIM Riêng biệt';

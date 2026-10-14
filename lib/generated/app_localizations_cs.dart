@@ -3835,6 +3835,15 @@ class AppLocalizationsCs extends AppLocalizations {
   String get themeSettingsSubtitle => 'Vyberte si svůj oblíbený motiv';
 
   @override
+  String get themeLight => 'Světlý';
+
+  @override
+  String get themeDark => 'Tmavý';
+
+  @override
+  String get themeSystem => 'Výchozí systémové';
+
+  @override
   String get databaseSyncTitle => 'Synchronizace databáze';
 
   @override
@@ -4688,226 +4697,229 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => 'Typ pravidla';
 
   @override
-  String get localDatabaseSyncTitle => 'Local Database Sync';
+  String get localDatabaseSyncTitle => 'Synchronizace lokální databáze';
 
   @override
-  String get localDatabaseSyncSubtitle => 'Sync data across devices';
+  String get localDatabaseSyncSubtitle => 'Synchronizovat data mezi zařízeními';
 
   @override
-  String get supabaseProjectUrl => 'Supabase Project URL';
+  String get supabaseProjectUrl => 'URL projektu Supabase';
 
   @override
-  String get supabaseAnonKey => 'Anon Key';
+  String get supabaseAnonKey => 'Klíč Anon';
 
   @override
-  String get supabaseAnonKeyHint => 'API Key, anon public key';
+  String get supabaseAnonKeyHint => 'API Key, veřejný anonymní klíč';
 
   @override
-  String get connectionString => 'Connection String (URI)';
+  String get connectionString => 'Připojovací řetězec (URI)';
 
   @override
   String get connectionStringHelper =>
-      'Only needed for \'Initialize Database\'';
+      'Vyžadováno pouze pro \'Inicializovat databázi\'';
 
   @override
-  String get syncCallHistory => 'Sync Call History';
+  String get syncCallHistory => 'Synchronizovat historii hovorů';
 
   @override
-  String get syncCallHistorySubtitle => 'Include private call logs in sync';
+  String get syncCallHistorySubtitle =>
+      'Zahrnout soukromé protokoly hovorů do synchronizace';
 
   @override
-  String get requiredField => 'Required';
+  String get requiredField => 'Povinné';
 
   @override
-  String get requiredInitField => 'Required for initialization';
+  String get requiredInitField => 'Vyžadováno pro inicializaci';
 
   @override
-  String get initDbButton => 'Initialize Database';
+  String get initDbButton => 'Inicializovat databázi';
 
   @override
-  String get dbInitSuccess => 'Database Initialized Successfully!';
+  String get dbInitSuccess => 'Databáze úspěšně inicializována!';
 
   @override
   String syncSuccess(int pushed, int pulled) {
-    return 'Sync Complete. Sent: $pushed, Received: $pulled';
+    return 'Synchronizace dokončena. Odesláno: $pushed, Přijato: $pulled';
   }
 
   @override
-  String get errorPrefix => 'Error';
+  String get errorPrefix => 'Chyba';
 
   @override
-  String get errorLoadingSettings => 'Error loading settings';
+  String get errorLoadingSettings => 'Chyba při načítání nastavení';
 
   @override
-  String get statusLabel => 'Status';
+  String get statusLabel => 'Stav';
 
   @override
-  String get statusConnected => 'Connected / Configured';
+  String get statusConnected => 'Připojeno / Konfigurováno';
 
   @override
-  String get statusNotConfigured => 'Not Configured';
+  String get statusNotConfigured => 'Není konfigurováno';
 
   @override
-  String get configSaved => 'Configuration Saved!';
+  String get configSaved => 'Konfigurace uložena!';
 
   @override
-  String get masterDeviceLabel => 'Is Master Device (Admin)';
+  String get masterDeviceLabel => 'Hlavní zařízení (Admin)';
 
   @override
   String get masterDeviceHelp =>
-      'Only the master device can initialize the database structure.';
+      'Pouze hlavní zařízení může inicializovat strukturu databáze.';
 
   @override
-  String get syncIntervalLabel => 'Auto-sync Interval';
+  String get syncIntervalLabel => 'Interval automatické synchronizace';
 
   @override
   String syncIntervalValue(int hours) {
-    return 'Every $hours hours';
+    return 'Každé $hours hodiny';
   }
 
   @override
-  String get leaveEmptyToUseDefault => 'Leave empty to use default';
+  String get leaveEmptyToUseDefault =>
+      'Ponechte prázdné pro použití výchozí hodnoty';
 
   @override
-  String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+  String get vipAccessSubtitle => 'Sledujte reklamy zdarma nebo zakupte VIP';
 
   @override
   String failedToLoadSettingsSchema(String error) {
-    return 'Failed to load settings schema: $error';
+    return 'Nepodařilo se načíst schéma nastavení: $error';
   }
 
   @override
-  String get fieldIsRequired => 'This field is required';
+  String get fieldIsRequired => 'Pole je povinné';
 
   @override
   String get answerThenHangupDescription =>
-      'Automatically answer the incoming call and then immediately hang up to terminate it';
+      'Nejprve přijměte hovor a pak jej ihned zavěste.';
 
   @override
-  String get initialSetupTitle => 'Rule Library Setup';
+  String get initialSetupTitle => 'Nastavení databáze правил';
 
   @override
   String get initialSetupDesc =>
-      'Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.';
+      'Vyberte regionální databázi pravidel, kterou chcete blokovat.';
 
   @override
-  String get initialSetupRetry => 'Retry';
+  String get initialSetupRetry => 'Opakovat';
 
   @override
-  String get initialSetupSkip => 'Skip';
+  String get initialSetupSkip => 'Přeskočit';
 
   @override
-  String get initialSetupSave => 'One-click setup selected';
+  String get initialSetupSave => 'Uložit vybraná pravidla';
 
   @override
-  String get initialSetupSaving => 'Saving...';
+  String get initialSetupSaving => 'Ukládání...';
 
   @override
-  String get initialSetupSaveSuccess =>
-      '✅ Configuration saved successfully, rules will be fetched automatically soon';
+  String get initialSetupSaveSuccess => '✅ Konfigurace úspěšně uložena.';
 
   @override
   String initialSetupSaveFailed(String error) {
-    return 'Failed to save configuration: $error';
+    return 'Uložení konfigurace selhalo: $error';
   }
 
   @override
-  String get initialSetupGetFailed => 'Failed to get configuration';
+  String get initialSetupGetFailed => 'Získání konfigurace selhalo';
 
   @override
-  String get initialSetupSourceTitle => 'Data Source';
+  String get initialSetupSourceTitle => 'Zdroj databáze правил';
 
   @override
-  String get initialSetupSourceGithub => 'GitHub (Raw)';
+  String get initialSetupSourceGithub => 'Oficiální zdroj GitHub';
 
   @override
-  String get initialSetupSourceCdn => 'CDN Mirror';
+  String get initialSetupSourceCdn => 'Zrychlený zrcadlový zdroj CDN';
 
   @override
-  String get initialSetupSourceCustom => 'Custom URL';
+  String get initialSetupSourceCustom => 'Vlastní zrcadlový zdroj';
 
   @override
-  String get initialSetupCustomUrlHint => 'Enter custom config JSON URL';
+  String get initialSetupCustomUrlHint =>
+      'Zadejte URL konfigurace JSON vlastního zrcadla';
 
   @override
-  String get initialSetupCustomUrlLoad => 'Load Config';
+  String get initialSetupCustomUrlLoad => 'Načíst konfiguraci';
 
   @override
-  String get initialSetupDetectedLocation => 'Recommended for your location';
+  String get initialSetupDetectedLocation => 'Zjištěná poloha';
 
   @override
   String deepLinkImportTitle(String type) {
-    return 'Import $type';
+    return 'Importovat konfiguraci';
   }
 
   @override
-  String get deepLinkTypePlugin => 'Plugin';
+  String get deepLinkTypePlugin => 'Doplněk';
 
   @override
-  String get deepLinkTypeSubscription => 'Rule Subscription';
+  String get deepLinkTypeSubscription => 'Předplatné';
 
   @override
-  String get deepLinkDefaultPluginName => 'External Plugin';
+  String get deepLinkDefaultPluginName => 'Importovaný doplněk';
 
   @override
-  String get deepLinkDefaultSubName => 'External Rule Subscription';
+  String get deepLinkDefaultSubName => 'Importované předplatné';
 
   @override
-  String get deepLinkDetectedTitle => 'External Import Request Detected';
+  String get deepLinkDetectedTitle => 'Zjištěn hluboký odkaz';
 
   @override
   String deepLinkNameLabel(String name) {
-    return 'Name: $name';
+    return 'Název';
   }
 
   @override
   String deepLinkTypeLabel(String type) {
-    return 'Type: $type';
+    return 'Typ';
   }
 
   @override
   String deepLinkUrlLabel(String url) {
-    return 'URL: $url';
+    return 'URL';
   }
 
   @override
-  String get deepLinkConfirmButton => 'Confirm Import';
+  String get deepLinkConfirmButton => 'Potvrdit import';
 
   @override
-  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+  String get deepLinkEmptyUrlError => 'URL nesmí být prázdné';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Stažení doplňku selhalo: $error';
+  }
 
   @override
-  String get deepLinkImportSuccess => '✅ Imported successfully';
+  String get deepLinkImportSuccess => 'Úspěšně importováno';
 
   @override
   String deepLinkImportFailed(String error) {
-    return 'Import failed: $error';
+    return 'Import selhal: $error';
   }
 
   @override
   String get initialSetupSettingsHint =>
-      'Tip: You can re-open this setup page anytime in Settings.';
+      'Tip: Tuto stránku můžete kdykoli znovu otevřít v Nastavení.';
 
   @override
-  String get initialSetupGoToSettings => 'Go to Settings';
+  String get initialSetupGoToSettings => 'Přejít do Nastavení';
 
   @override
-  String get separateSims => 'Separate SIMs';
+  String get separateSims => 'Samostatné SIM karty';
 
   @override
   String get separateSimsDesc =>
-      'Enable separate filtering rules for each SIM card';
+      'Povolit samostatná pravidla filtrování pro každou SIM kartu';
 
   @override
-  String get masterAndOverrides => 'Master Controls';
+  String get masterAndOverrides => 'Hlavní ovládací prvky';
 
   @override
-  String get masterAndOverridesDesc => 'Global Rule Settings';
+  String get masterAndOverridesDesc => 'Globální nastavení правил';
 }

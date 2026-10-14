@@ -3850,6 +3850,15 @@ class AppLocalizationsSk extends AppLocalizations {
   String get themeSettingsSubtitle => 'Vyberte si svoj obľúbený vzhľad';
 
   @override
+  String get themeLight => 'Svetlý';
+
+  @override
+  String get themeDark => 'Tmavý';
+
+  @override
+  String get themeSystem => 'Systémové';
+
+  @override
   String get databaseSyncTitle => 'Synchronizácia databázy';
 
   @override
@@ -4702,7 +4711,7 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => 'Typ pravidla';
 
   @override
   String get localDatabaseSyncTitle => 'Local Database Sync';
@@ -4808,10 +4817,10 @@ class AppLocalizationsSk extends AppLocalizations {
       'Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.';
 
   @override
-  String get initialSetupRetry => 'Retry';
+  String get initialSetupRetry => 'Skúsiť znova';
 
   @override
-  String get initialSetupSkip => 'Skip';
+  String get initialSetupSkip => 'Preskočiť';
 
   @override
   String get initialSetupSave => 'One-click setup selected';
@@ -4894,8 +4903,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Failed to download or parse plugin script';
+  }
 
   @override
   String get deepLinkImportSuccess => '✅ Imported successfully';

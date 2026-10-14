@@ -3834,6 +3834,15 @@ class AppLocalizationsHi extends AppLocalizations {
   String get themeSettingsSubtitle => 'अपनी पसंदीदा थीम चुनें';
 
   @override
+  String get themeLight => 'लाइट';
+
+  @override
+  String get themeDark => 'डार्क';
+
+  @override
+  String get themeSystem => 'सिस्टम डिफ़ॉल्ट';
+
+  @override
   String get databaseSyncTitle => 'डेटाबेस सिंक';
 
   @override
@@ -4684,103 +4693,104 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => 'नियम प्रकार';
 
   @override
-  String get localDatabaseSyncTitle => 'Local Database Sync';
+  String get localDatabaseSyncTitle => 'स्थानीय डेटाबेस सिंक';
 
   @override
-  String get localDatabaseSyncSubtitle => 'Sync data across devices';
+  String get localDatabaseSyncSubtitle => 'उपकरणों के बीच डेटा सिंक करें';
 
   @override
-  String get supabaseProjectUrl => 'Supabase Project URL';
+  String get supabaseProjectUrl => 'Supabase प्रोजेक्ट URL';
 
   @override
-  String get supabaseAnonKey => 'Anon Key';
+  String get supabaseAnonKey => 'Anon कुंजी';
 
   @override
-  String get supabaseAnonKeyHint => 'API Key, anon public key';
+  String get supabaseAnonKeyHint => 'API Key, सार्वजनिक अनाम कुंजी';
 
   @override
-  String get connectionString => 'Connection String (URI)';
+  String get connectionString => 'कनेक्शन स्ट्रिंग (URI)';
 
   @override
   String get connectionStringHelper =>
-      'Only needed for \'Initialize Database\'';
+      'केवल \'डेटाबेस प्रारंभ करें\' के लिए आवश्यक';
 
   @override
-  String get syncCallHistory => 'Sync Call History';
+  String get syncCallHistory => 'कॉल इतिहास सिंक करें';
 
   @override
-  String get syncCallHistorySubtitle => 'Include private call logs in sync';
+  String get syncCallHistorySubtitle => 'सिंक में निजी कॉल लॉग शामिल करें';
 
   @override
-  String get requiredField => 'Required';
+  String get requiredField => 'आवश्यक';
 
   @override
-  String get requiredInitField => 'Required for initialization';
+  String get requiredInitField => 'प्रारंभ करने के लिए आवश्यक';
 
   @override
-  String get initDbButton => 'Initialize Database';
+  String get initDbButton => 'डेटाबेस प्रारंभ करें';
 
   @override
-  String get dbInitSuccess => 'Database Initialized Successfully!';
+  String get dbInitSuccess => 'डेटाबेस सफलतापूर्वक प्रारंभ हुआ!';
 
   @override
   String syncSuccess(int pushed, int pulled) {
-    return 'Sync Complete. Sent: $pushed, Received: $pulled';
+    return 'सिंक पूरा हुआ। भेजा गया: $pushed, प्राप्त: $pulled';
   }
 
   @override
-  String get errorPrefix => 'Error';
+  String get errorPrefix => 'त्रुटि';
 
   @override
-  String get errorLoadingSettings => 'Error loading settings';
+  String get errorLoadingSettings => 'सेटिंग्स लोड करने में त्रुटि';
 
   @override
-  String get statusLabel => 'Status';
+  String get statusLabel => 'स्थिति';
 
   @override
-  String get statusConnected => 'Connected / Configured';
+  String get statusConnected => 'कनेक्टेड / कॉन्फ़िगर किया गया';
 
   @override
-  String get statusNotConfigured => 'Not Configured';
+  String get statusNotConfigured => 'कॉन्फ़िगर नहीं किया गया';
 
   @override
-  String get configSaved => 'Configuration Saved!';
+  String get configSaved => 'कॉन्फ़िगरेशन सहेजा गया!';
 
   @override
-  String get masterDeviceLabel => 'Is Master Device (Admin)';
+  String get masterDeviceLabel => 'मास्टर डिवाइस (एडमिन)';
 
   @override
   String get masterDeviceHelp =>
-      'Only the master device can initialize the database structure.';
+      'केवल मास्टर डिवाइस डेटाबेस संरचना को प्रारंभ कर सकता है।';
 
   @override
-  String get syncIntervalLabel => 'Auto-sync Interval';
+  String get syncIntervalLabel => 'ऑटो-सिंक अंतराल';
 
   @override
   String syncIntervalValue(int hours) {
-    return 'Every $hours hours';
+    return 'हर $hours घंटे';
   }
 
   @override
-  String get leaveEmptyToUseDefault => 'Leave empty to use default';
+  String get leaveEmptyToUseDefault =>
+      'डिफ़ॉल्ट का उपयोग करने के लिए खाली छोड़ें';
 
   @override
-  String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+  String get vipAccessSubtitle => 'मुफ्त के लिए विज्ञापन देखें या VIP खरीदें';
 
   @override
   String failedToLoadSettingsSchema(String error) {
-    return 'Failed to load settings schema: $error';
+    return 'सेटिंग्स स्कीमा लोड करने में विफल: $error';
   }
 
   @override
-  String get fieldIsRequired => 'This field is required';
+  String get fieldIsRequired => 'क्षेत्र आवश्यक है';
 
   @override
   String get answerThenHangupDescription =>
-      'Automatically answer the incoming call and then immediately hang up to terminate it';
+      'पहले कॉल का उत्तर दें, फिर तुरंत काट दें।';
 
   @override
   String get initialSetupTitle => 'नियम लाइब्रेरी सेटअप';
@@ -4814,85 +4824,87 @@ class AppLocalizationsHi extends AppLocalizations {
   String get initialSetupGetFailed => 'कॉन्फ़िगरेशन प्राप्त करने में विफल';
 
   @override
-  String get initialSetupSourceTitle => 'Data Source';
+  String get initialSetupSourceTitle => 'नियम डेटाबेस स्रोत';
 
   @override
-  String get initialSetupSourceGithub => 'GitHub (Raw)';
+  String get initialSetupSourceGithub => 'GitHub आधिकारिक स्रोत';
 
   @override
-  String get initialSetupSourceCdn => 'CDN Mirror';
+  String get initialSetupSourceCdn => 'मिरर CDN त्वरण स्रोत';
 
   @override
-  String get initialSetupSourceCustom => 'Custom URL';
+  String get initialSetupSourceCustom => 'स्व-होस्टेड मिरर स्रोत';
 
   @override
-  String get initialSetupCustomUrlHint => 'Enter custom config JSON URL';
+  String get initialSetupCustomUrlHint =>
+      'स्व-होस्टेड मिरर JSON कॉन्फ़िगरेशन URL दर्ज करें';
 
   @override
-  String get initialSetupCustomUrlLoad => 'Load Config';
+  String get initialSetupCustomUrlLoad => 'कॉन्फ़िगरेशन लोड करें';
 
   @override
-  String get initialSetupDetectedLocation => 'Recommended for your location';
+  String get initialSetupDetectedLocation => 'पहचाना गया स्थान';
 
   @override
   String deepLinkImportTitle(String type) {
-    return 'Import $type';
+    return 'कॉन्फ़िगरेशन आयात करें';
   }
 
   @override
-  String get deepLinkTypePlugin => 'Plugin';
+  String get deepLinkTypePlugin => 'प्लगइन';
 
   @override
-  String get deepLinkTypeSubscription => 'Rule Subscription';
+  String get deepLinkTypeSubscription => 'सदस्यता';
 
   @override
-  String get deepLinkDefaultPluginName => 'External Plugin';
+  String get deepLinkDefaultPluginName => 'आयातित प्लगइन';
 
   @override
-  String get deepLinkDefaultSubName => 'External Rule Subscription';
+  String get deepLinkDefaultSubName => 'आयातित सदस्यता';
 
   @override
-  String get deepLinkDetectedTitle => 'External Import Request Detected';
+  String get deepLinkDetectedTitle => 'डीप लिंक पहचाना गया';
 
   @override
   String deepLinkNameLabel(String name) {
-    return 'Name: $name';
+    return 'नाम';
   }
 
   @override
   String deepLinkTypeLabel(String type) {
-    return 'Type: $type';
+    return 'प्रकार';
   }
 
   @override
   String deepLinkUrlLabel(String url) {
-    return 'URL: $url';
+    return 'URL';
   }
 
   @override
-  String get deepLinkConfirmButton => 'Confirm Import';
+  String get deepLinkConfirmButton => 'आयात की पुष्टि करें';
 
   @override
-  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+  String get deepLinkEmptyUrlError => 'URL खाली नहीं हो सकता';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'प्लगइन डाउनलोड करने में विफल: $error';
+  }
 
   @override
-  String get deepLinkImportSuccess => '✅ Imported successfully';
+  String get deepLinkImportSuccess => 'सफलतापूर्वक आयात किया गया';
 
   @override
   String deepLinkImportFailed(String error) {
-    return 'Import failed: $error';
+    return 'आयात विफल: $error';
   }
 
   @override
   String get initialSetupSettingsHint =>
-      'Tip: You can re-open this setup page anytime in Settings.';
+      'सुझाव: आप सेटिंग्स में किसी भी समय इस सेटअप पृष्ठ को पुनः खोल सकते हैं।';
 
   @override
-  String get initialSetupGoToSettings => 'Go to Settings';
+  String get initialSetupGoToSettings => 'सेटिंग्स पर जाएं';
 
   @override
   String get separateSims => 'अलग सिम';

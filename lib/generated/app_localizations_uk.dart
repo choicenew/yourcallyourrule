@@ -3853,6 +3853,15 @@ class AppLocalizationsUk extends AppLocalizations {
   String get themeSettingsSubtitle => 'Виберіть улюблену тему';
 
   @override
+  String get themeLight => 'Світла';
+
+  @override
+  String get themeDark => 'Темна';
+
+  @override
+  String get themeSystem => 'Системна';
+
+  @override
   String get databaseSyncTitle => 'Синхронізація бази даних';
 
   @override
@@ -4711,226 +4720,229 @@ class AppLocalizationsUk extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => 'Тип правила';
 
   @override
-  String get localDatabaseSyncTitle => 'Local Database Sync';
+  String get localDatabaseSyncTitle => 'Локальна синхронізація бази даних';
 
   @override
-  String get localDatabaseSyncSubtitle => 'Sync data across devices';
+  String get localDatabaseSyncSubtitle => 'Синхронізація даних між пристроями';
 
   @override
-  String get supabaseProjectUrl => 'Supabase Project URL';
+  String get supabaseProjectUrl => 'URL проекту Supabase';
 
   @override
-  String get supabaseAnonKey => 'Anon Key';
+  String get supabaseAnonKey => 'Анонімний ключ';
 
   @override
-  String get supabaseAnonKeyHint => 'API Key, anon public key';
+  String get supabaseAnonKeyHint => 'API Key, публічний анонімний ключ';
 
   @override
-  String get connectionString => 'Connection String (URI)';
+  String get connectionString => 'Рядок підключення (URI)';
 
   @override
   String get connectionStringHelper =>
-      'Only needed for \'Initialize Database\'';
+      'Потрібно лише для \'Ініціалізації бази даних\'';
 
   @override
-  String get syncCallHistory => 'Sync Call History';
+  String get syncCallHistory => 'Синхронізувати історію дзвінків';
 
   @override
-  String get syncCallHistorySubtitle => 'Include private call logs in sync';
+  String get syncCallHistorySubtitle =>
+      'Включати приватні журнали дзвінків у синхронізацію';
 
   @override
-  String get requiredField => 'Required';
+  String get requiredField => 'Обов\'язково';
 
   @override
-  String get requiredInitField => 'Required for initialization';
+  String get requiredInitField => 'Обов\'язково для ініціалізації';
 
   @override
-  String get initDbButton => 'Initialize Database';
+  String get initDbButton => 'Ініціалізувати базу даних';
 
   @override
-  String get dbInitSuccess => 'Database Initialized Successfully!';
+  String get dbInitSuccess => 'Базу даних успішно ініціалізовано!';
 
   @override
   String syncSuccess(int pushed, int pulled) {
-    return 'Sync Complete. Sent: $pushed, Received: $pulled';
+    return 'Синхронізацію завершено. Відправлено: $pushed, Отримано: $pulled';
   }
 
   @override
-  String get errorPrefix => 'Error';
+  String get errorPrefix => 'Помилка';
 
   @override
-  String get errorLoadingSettings => 'Error loading settings';
+  String get errorLoadingSettings => 'Помилка завантаження налаштувань';
 
   @override
-  String get statusLabel => 'Status';
+  String get statusLabel => 'Статус';
 
   @override
-  String get statusConnected => 'Connected / Configured';
+  String get statusConnected => 'Підключено / Налаштовано';
 
   @override
-  String get statusNotConfigured => 'Not Configured';
+  String get statusNotConfigured => 'Не налаштовано';
 
   @override
-  String get configSaved => 'Configuration Saved!';
+  String get configSaved => 'Конфігурацію збережено!';
 
   @override
-  String get masterDeviceLabel => 'Is Master Device (Admin)';
+  String get masterDeviceLabel => 'Головний пристрій (Адмін)';
 
   @override
   String get masterDeviceHelp =>
-      'Only the master device can initialize the database structure.';
+      'Лише головний пристрій може ініціалізувати структуру бази даних.';
 
   @override
-  String get syncIntervalLabel => 'Auto-sync Interval';
+  String get syncIntervalLabel => 'Інтервал автосинхронізації';
 
   @override
   String syncIntervalValue(int hours) {
-    return 'Every $hours hours';
+    return 'Кожні $hours год.';
   }
 
   @override
-  String get leaveEmptyToUseDefault => 'Leave empty to use default';
+  String get leaveEmptyToUseDefault =>
+      'Залиште порожнім для використання за замовчуванням';
 
   @override
-  String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+  String get vipAccessSubtitle => 'Дивіться рекламу безкоштовно або купіть VIP';
 
   @override
   String failedToLoadSettingsSchema(String error) {
-    return 'Failed to load settings schema: $error';
+    return 'Не вдалося завантажити схему налаштувань: $error';
   }
 
   @override
-  String get fieldIsRequired => 'This field is required';
+  String get fieldIsRequired => 'Поле обов\'язкове';
 
   @override
   String get answerThenHangupDescription =>
-      'Automatically answer the incoming call and then immediately hang up to terminate it';
+      'Спочатку відповісти на виклик, потім одразу скинути.';
 
   @override
-  String get initialSetupTitle => 'Rule Library Setup';
+  String get initialSetupTitle => 'Налаштування бази правил';
 
   @override
   String get initialSetupDesc =>
-      'Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.';
+      'Виберіть регіональну базу правил для блокування спаму та шахрайських дзвінків у вашому регіоні.';
 
   @override
-  String get initialSetupRetry => 'Retry';
+  String get initialSetupRetry => 'Повторити';
 
   @override
-  String get initialSetupSkip => 'Skip';
+  String get initialSetupSkip => 'Пропустити';
 
   @override
-  String get initialSetupSave => 'One-click setup selected';
+  String get initialSetupSave => 'Зберегти вибрані правила';
 
   @override
-  String get initialSetupSaving => 'Saving...';
+  String get initialSetupSaving => 'Збереження...';
 
   @override
-  String get initialSetupSaveSuccess =>
-      '✅ Configuration saved successfully, rules will be fetched automatically soon';
+  String get initialSetupSaveSuccess => '✅ Конфігурацію успішно збережено.';
 
   @override
   String initialSetupSaveFailed(String error) {
-    return 'Failed to save configuration: $error';
+    return 'Помилка збереження конфігурації: $error';
   }
 
   @override
-  String get initialSetupGetFailed => 'Failed to get configuration';
+  String get initialSetupGetFailed => 'Не вдалося отримати конфігурацію';
 
   @override
-  String get initialSetupSourceTitle => 'Data Source';
+  String get initialSetupSourceTitle => 'Джерело бази правил';
 
   @override
-  String get initialSetupSourceGithub => 'GitHub (Raw)';
+  String get initialSetupSourceGithub => 'Офіційне джерело GitHub';
 
   @override
-  String get initialSetupSourceCdn => 'CDN Mirror';
+  String get initialSetupSourceCdn => 'Прискорене дзеркальне джерело CDN';
 
   @override
-  String get initialSetupSourceCustom => 'Custom URL';
+  String get initialSetupSourceCustom => 'Власне дзеркальне джерело';
 
   @override
-  String get initialSetupCustomUrlHint => 'Enter custom config JSON URL';
+  String get initialSetupCustomUrlHint =>
+      'Введіть URL JSON-конфігурації власного дзеркала';
 
   @override
-  String get initialSetupCustomUrlLoad => 'Load Config';
+  String get initialSetupCustomUrlLoad => 'Завантажити конфігурацію';
 
   @override
-  String get initialSetupDetectedLocation => 'Recommended for your location';
+  String get initialSetupDetectedLocation => 'Визначене місцезнаходження';
 
   @override
   String deepLinkImportTitle(String type) {
-    return 'Import $type';
+    return 'Імпорт конфігурації';
   }
 
   @override
-  String get deepLinkTypePlugin => 'Plugin';
+  String get deepLinkTypePlugin => 'Плагін';
 
   @override
-  String get deepLinkTypeSubscription => 'Rule Subscription';
+  String get deepLinkTypeSubscription => 'Підписка';
 
   @override
-  String get deepLinkDefaultPluginName => 'External Plugin';
+  String get deepLinkDefaultPluginName => 'Імпортований плагін';
 
   @override
-  String get deepLinkDefaultSubName => 'External Rule Subscription';
+  String get deepLinkDefaultSubName => 'Імпортована підписка';
 
   @override
-  String get deepLinkDetectedTitle => 'External Import Request Detected';
+  String get deepLinkDetectedTitle => 'Виявлено глибоке посилання';
 
   @override
   String deepLinkNameLabel(String name) {
-    return 'Name: $name';
+    return 'Назва';
   }
 
   @override
   String deepLinkTypeLabel(String type) {
-    return 'Type: $type';
+    return 'Тип';
   }
 
   @override
   String deepLinkUrlLabel(String url) {
-    return 'URL: $url';
+    return 'URL';
   }
 
   @override
-  String get deepLinkConfirmButton => 'Confirm Import';
+  String get deepLinkConfirmButton => 'Підтвердити імпорт';
 
   @override
-  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+  String get deepLinkEmptyUrlError => 'URL не може бути порожнім';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Не вдалося завантажити плагін: $error';
+  }
 
   @override
-  String get deepLinkImportSuccess => '✅ Imported successfully';
+  String get deepLinkImportSuccess => 'Успішно імпортовано';
 
   @override
   String deepLinkImportFailed(String error) {
-    return 'Import failed: $error';
+    return 'Помилка імпорту: $error';
   }
 
   @override
   String get initialSetupSettingsHint =>
-      'Tip: You can re-open this setup page anytime in Settings.';
+      'Порада: Ви можете повторно відкрити цю сторінку налаштування у будь-який час у Налаштуваннях.';
 
   @override
-  String get initialSetupGoToSettings => 'Go to Settings';
+  String get initialSetupGoToSettings => 'Перейти до Налаштувань';
 
   @override
-  String get separateSims => 'Separate SIMs';
+  String get separateSims => 'Окремі SIM-карти';
 
   @override
   String get separateSimsDesc =>
-      'Enable separate filtering rules for each SIM card';
+      'Увімкнути окремі правила фільтрації для кожної SIM-карти';
 
   @override
-  String get masterAndOverrides => 'Master Controls';
+  String get masterAndOverrides => 'Головне керування';
 
   @override
-  String get masterAndOverridesDesc => 'Global Rule Settings';
+  String get masterAndOverridesDesc => 'Глобальні налаштування правил';
 }

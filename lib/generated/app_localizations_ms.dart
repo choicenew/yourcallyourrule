@@ -3829,6 +3829,15 @@ class AppLocalizationsMs extends AppLocalizations {
   String get themeSettingsSubtitle => 'Pilih tema kegemaran anda';
 
   @override
+  String get themeLight => 'Cerah';
+
+  @override
+  String get themeDark => 'Gelap';
+
+  @override
+  String get themeSystem => 'Lalai Sistem';
+
+  @override
   String get databaseSyncTitle => 'Sandaran Pangkalan Data';
 
   @override
@@ -4684,7 +4693,7 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => 'Jenis Peraturan';
 
   @override
   String get localDatabaseSyncTitle => 'Local Database Sync';
@@ -4790,10 +4799,10 @@ class AppLocalizationsMs extends AppLocalizations {
       'Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.';
 
   @override
-  String get initialSetupRetry => 'Retry';
+  String get initialSetupRetry => 'Cuba semula';
 
   @override
-  String get initialSetupSkip => 'Skip';
+  String get initialSetupSkip => 'Langkau';
 
   @override
   String get initialSetupSave => 'One-click setup selected';
@@ -4876,8 +4885,9 @@ class AppLocalizationsMs extends AppLocalizations {
   String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Failed to download or parse plugin script';
+  }
 
   @override
   String get deepLinkImportSuccess => '✅ Imported successfully';

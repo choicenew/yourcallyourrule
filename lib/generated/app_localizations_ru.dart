@@ -3867,6 +3867,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get themeSettingsSubtitle => 'Выберите свою любимую тему';
 
   @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get themeSystem => 'System';
+
+  @override
   String get databaseSyncTitle => 'Синхронизация базы данных';
 
   @override
@@ -4915,8 +4924,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Failed to download or parse plugin script';
+  }
 
   @override
   String get deepLinkImportSuccess => '✅ Imported successfully';

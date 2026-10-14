@@ -3839,6 +3839,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get themeSettingsSubtitle => 'Favori temanızı seçin';
 
   @override
+  String get themeLight => 'Açık';
+
+  @override
+  String get themeDark => 'Koyu';
+
+  @override
+  String get themeSystem => 'Sistem Varsayılanı';
+
+  @override
   String get databaseSyncTitle => 'Veritabanı Senkronizasyonu';
 
   @override
@@ -4692,103 +4701,106 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => 'Kural Türü';
 
   @override
-  String get localDatabaseSyncTitle => 'Local Database Sync';
+  String get localDatabaseSyncTitle => 'Yerel Veritabanı Senkronizasyonu';
 
   @override
-  String get localDatabaseSyncSubtitle => 'Sync data across devices';
+  String get localDatabaseSyncSubtitle =>
+      'Verileri cihazlar arasında senkronize edin';
 
   @override
-  String get supabaseProjectUrl => 'Supabase Project URL';
+  String get supabaseProjectUrl => 'Supabase Proje URL\'si';
 
   @override
-  String get supabaseAnonKey => 'Anon Key';
+  String get supabaseAnonKey => 'Anon Anahtarı';
 
   @override
-  String get supabaseAnonKeyHint => 'API Key, anon public key';
+  String get supabaseAnonKeyHint => 'API Key, anonim genel anahtar';
 
   @override
-  String get connectionString => 'Connection String (URI)';
+  String get connectionString => 'Bağlantı Dizesi (URI)';
 
   @override
   String get connectionStringHelper =>
-      'Only needed for \'Initialize Database\'';
+      'Yalnızca \'Veritabanını Başlat\' için gereklidir';
 
   @override
-  String get syncCallHistory => 'Sync Call History';
+  String get syncCallHistory => 'Arama Geçmişini Senkronize Et';
 
   @override
-  String get syncCallHistorySubtitle => 'Include private call logs in sync';
+  String get syncCallHistorySubtitle =>
+      'Senkronizasyona özel arama kaydını dahil et';
 
   @override
-  String get requiredField => 'Required';
+  String get requiredField => 'Gerekli';
 
   @override
-  String get requiredInitField => 'Required for initialization';
+  String get requiredInitField => 'Başlatma için gerekli';
 
   @override
-  String get initDbButton => 'Initialize Database';
+  String get initDbButton => 'Veritabanını Başlat';
 
   @override
-  String get dbInitSuccess => 'Database Initialized Successfully!';
+  String get dbInitSuccess => 'Veritabanı Başarıyla Başlatıldı!';
 
   @override
   String syncSuccess(int pushed, int pulled) {
-    return 'Sync Complete. Sent: $pushed, Received: $pulled';
+    return 'Senkronizasyon Tamamlandı. Gönderilen: $pushed, Alınan: $pulled';
   }
 
   @override
-  String get errorPrefix => 'Error';
+  String get errorPrefix => 'Hata';
 
   @override
-  String get errorLoadingSettings => 'Error loading settings';
+  String get errorLoadingSettings => 'Ayarlar yüklenirken hata oluştu';
 
   @override
-  String get statusLabel => 'Status';
+  String get statusLabel => 'Durum';
 
   @override
-  String get statusConnected => 'Connected / Configured';
+  String get statusConnected => 'Bağlandı / Yapılandırıldı';
 
   @override
-  String get statusNotConfigured => 'Not Configured';
+  String get statusNotConfigured => 'Yapılandırılmadı';
 
   @override
-  String get configSaved => 'Configuration Saved!';
+  String get configSaved => 'Yapılandırma Kaydedildi!';
 
   @override
-  String get masterDeviceLabel => 'Is Master Device (Admin)';
+  String get masterDeviceLabel => 'Ana Cihaz (Yönetici)';
 
   @override
   String get masterDeviceHelp =>
-      'Only the master device can initialize the database structure.';
+      'Yalnızca ana cihaz veritabanı yapısını başlatabilir.';
 
   @override
-  String get syncIntervalLabel => 'Auto-sync Interval';
+  String get syncIntervalLabel => 'Otomatik Senkronizasyon Aralığı';
 
   @override
   String syncIntervalValue(int hours) {
-    return 'Every $hours hours';
+    return 'Her $hours saatte bir';
   }
 
   @override
-  String get leaveEmptyToUseDefault => 'Leave empty to use default';
+  String get leaveEmptyToUseDefault => 'Varsayılanı kullanmak için boş bırakın';
 
   @override
-  String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+  String get vipAccessSubtitle =>
+      'Ücretsiz deneyim için reklam izleyin veya VIP satın alın';
 
   @override
   String failedToLoadSettingsSchema(String error) {
-    return 'Failed to load settings schema: $error';
+    return 'Ayar şeması yüklenemedi: $error';
   }
 
   @override
-  String get fieldIsRequired => 'This field is required';
+  String get fieldIsRequired => 'Alan gereklidir';
 
   @override
   String get answerThenHangupDescription =>
-      'Automatically answer the incoming call and then immediately hang up to terminate it';
+      'Önce aramayı yanıtlayın, ardından hemen kapatın.';
 
   @override
   String get initialSetupTitle => 'Kural Kitaplığı Kurulumu';
@@ -4822,85 +4834,87 @@ class AppLocalizationsTr extends AppLocalizations {
   String get initialSetupGetFailed => 'Yapılandırma alınamadı';
 
   @override
-  String get initialSetupSourceTitle => 'Data Source';
+  String get initialSetupSourceTitle => 'Kural Veritabanı Kaynağı';
 
   @override
-  String get initialSetupSourceGithub => 'GitHub (Raw)';
+  String get initialSetupSourceGithub => 'GitHub Resmi Kaynağı';
 
   @override
-  String get initialSetupSourceCdn => 'CDN Mirror';
+  String get initialSetupSourceCdn => 'Ayna CDN Hızlandırma Kaynağı';
 
   @override
-  String get initialSetupSourceCustom => 'Custom URL';
+  String get initialSetupSourceCustom => 'Özel Ayna Kaynağı';
 
   @override
-  String get initialSetupCustomUrlHint => 'Enter custom config JSON URL';
+  String get initialSetupCustomUrlHint =>
+      'Özel ayna JSON yapılandırma URL\'sini girin';
 
   @override
-  String get initialSetupCustomUrlLoad => 'Load Config';
+  String get initialSetupCustomUrlLoad => 'Yapılandırmayı Yükle';
 
   @override
-  String get initialSetupDetectedLocation => 'Recommended for your location';
+  String get initialSetupDetectedLocation => 'Algılanan Konum';
 
   @override
   String deepLinkImportTitle(String type) {
-    return 'Import $type';
+    return 'Yapılandırmayı İçe Aktar';
   }
 
   @override
-  String get deepLinkTypePlugin => 'Plugin';
+  String get deepLinkTypePlugin => 'Eklenti';
 
   @override
-  String get deepLinkTypeSubscription => 'Rule Subscription';
+  String get deepLinkTypeSubscription => 'Abonelik';
 
   @override
-  String get deepLinkDefaultPluginName => 'External Plugin';
+  String get deepLinkDefaultPluginName => 'İçe Aktarılan Eklenti';
 
   @override
-  String get deepLinkDefaultSubName => 'External Rule Subscription';
+  String get deepLinkDefaultSubName => 'İçe Aktarılan Abonelik';
 
   @override
-  String get deepLinkDetectedTitle => 'External Import Request Detected';
+  String get deepLinkDetectedTitle => 'Derin Bağlantı Algılandı';
 
   @override
   String deepLinkNameLabel(String name) {
-    return 'Name: $name';
+    return 'Ad';
   }
 
   @override
   String deepLinkTypeLabel(String type) {
-    return 'Type: $type';
+    return 'Tür';
   }
 
   @override
   String deepLinkUrlLabel(String url) {
-    return 'URL: $url';
+    return 'URL';
   }
 
   @override
-  String get deepLinkConfirmButton => 'Confirm Import';
+  String get deepLinkConfirmButton => 'İçe Aktarmayı Onayla';
 
   @override
-  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+  String get deepLinkEmptyUrlError => 'URL boş olamaz';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Eklenti indirilemedi: $error';
+  }
 
   @override
-  String get deepLinkImportSuccess => '✅ Imported successfully';
+  String get deepLinkImportSuccess => 'Başarıyla İçe Aktarıldı';
 
   @override
   String deepLinkImportFailed(String error) {
-    return 'Import failed: $error';
+    return 'İçe Aktarma Başarısız: $error';
   }
 
   @override
   String get initialSetupSettingsHint =>
-      'Tip: You can re-open this setup page anytime in Settings.';
+      'İpucu: Bu kurulum sayfasını Ayarlar\'dan istediğiniz zaman tekrar açabilirsiniz.';
 
   @override
-  String get initialSetupGoToSettings => 'Go to Settings';
+  String get initialSetupGoToSettings => 'Ayarlar\'a Git';
 
   @override
   String get separateSims => 'Ayrı SIM\'ler';

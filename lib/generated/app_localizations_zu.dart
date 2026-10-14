@@ -3873,6 +3873,15 @@ class AppLocalizationsZu extends AppLocalizations {
   String get themeSettingsSubtitle => 'Khetha itimu yakho oyithandayo';
 
   @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get themeSystem => 'System';
+
+  @override
   String get databaseSyncTitle => 'Ukuhambisana Kwesizindalwazi';
 
   @override
@@ -4924,8 +4933,9 @@ class AppLocalizationsZu extends AppLocalizations {
   String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Failed to download or parse plugin script';
+  }
 
   @override
   String get deepLinkImportSuccess => '✅ Imported successfully';

@@ -3858,6 +3858,15 @@ class AppLocalizationsEl extends AppLocalizations {
   String get themeSettingsSubtitle => 'Επιλέξτε το αγαπημένο σας θέμα';
 
   @override
+  String get themeLight => 'Фωτεινό';
+
+  @override
+  String get themeDark => 'Σκούρο';
+
+  @override
+  String get themeSystem => 'Προεπιλογή συστήματος';
+
+  @override
   String get databaseSyncTitle => 'Συγχρονισμός Βάσης Δεδομένων';
 
   @override
@@ -4905,8 +4914,9 @@ class AppLocalizationsEl extends AppLocalizations {
   String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Failed to download or parse plugin script';
+  }
 
   @override
   String get deepLinkImportSuccess => '✅ Imported successfully';

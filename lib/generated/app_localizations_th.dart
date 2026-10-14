@@ -3793,6 +3793,15 @@ class AppLocalizationsTh extends AppLocalizations {
   String get themeSettingsSubtitle => 'เลือกธีมที่คุณชื่นชอบ';
 
   @override
+  String get themeLight => 'สว่าง';
+
+  @override
+  String get themeDark => 'มืด';
+
+  @override
+  String get themeSystem => 'ตามระบบ';
+
+  @override
   String get databaseSyncTitle => 'การซิงค์ฐานข้อมูล';
 
   @override
@@ -4640,226 +4649,226 @@ class AppLocalizationsTh extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => 'ประเภทกฎ';
 
   @override
-  String get localDatabaseSyncTitle => 'Local Database Sync';
+  String get localDatabaseSyncTitle => 'ซิงค์ฐานข้อมูลท้องถิ่น';
 
   @override
-  String get localDatabaseSyncSubtitle => 'Sync data across devices';
+  String get localDatabaseSyncSubtitle => 'ซิงค์ข้อมูลระหว่างอุปกรณ์';
 
   @override
-  String get supabaseProjectUrl => 'Supabase Project URL';
+  String get supabaseProjectUrl => 'URL โครงการ Supabase';
 
   @override
-  String get supabaseAnonKey => 'Anon Key';
+  String get supabaseAnonKey => 'คีย์ Anon';
 
   @override
-  String get supabaseAnonKeyHint => 'API Key, anon public key';
+  String get supabaseAnonKeyHint => 'API Key, คีย์สาธารณะไม่ระบุชื่อ';
 
   @override
-  String get connectionString => 'Connection String (URI)';
+  String get connectionString => 'สตริงการเชื่อมต่อ (URI)';
 
   @override
   String get connectionStringHelper =>
-      'Only needed for \'Initialize Database\'';
+      'จำเป็นเฉพาะเมื่อ \'เริ่มใช้งานฐานข้อมูล\'';
 
   @override
-  String get syncCallHistory => 'Sync Call History';
+  String get syncCallHistory => 'ซิงค์ประวัติการโทร';
 
   @override
-  String get syncCallHistorySubtitle => 'Include private call logs in sync';
+  String get syncCallHistorySubtitle => 'รวมบันทึกการโทรส่วนตัวในการซิงค์';
 
   @override
-  String get requiredField => 'Required';
+  String get requiredField => 'จำเป็น';
 
   @override
-  String get requiredInitField => 'Required for initialization';
+  String get requiredInitField => 'จำเป็นสำหรับการเริ่มต้น';
 
   @override
-  String get initDbButton => 'Initialize Database';
+  String get initDbButton => 'เริ่มใช้งานฐานข้อมูล';
 
   @override
-  String get dbInitSuccess => 'Database Initialized Successfully!';
+  String get dbInitSuccess => 'เริ่มต้นฐานข้อมูลสำเร็จ!';
 
   @override
   String syncSuccess(int pushed, int pulled) {
-    return 'Sync Complete. Sent: $pushed, Received: $pulled';
+    return 'ซิงค์เสร็จสมบูรณ์ ส่ง: $pushed, รับ: $pulled';
   }
 
   @override
-  String get errorPrefix => 'Error';
+  String get errorPrefix => 'ข้อผิดพลาด';
 
   @override
-  String get errorLoadingSettings => 'Error loading settings';
+  String get errorLoadingSettings => 'ข้อผิดพลาดในการโหลดการตั้งค่า';
 
   @override
-  String get statusLabel => 'Status';
+  String get statusLabel => 'สถานะ';
 
   @override
-  String get statusConnected => 'Connected / Configured';
+  String get statusConnected => 'เชื่อมต่อแล้ว / กำหนดค่าแล้ว';
 
   @override
-  String get statusNotConfigured => 'Not Configured';
+  String get statusNotConfigured => 'ยังไม่ได้กำหนดค่า';
 
   @override
-  String get configSaved => 'Configuration Saved!';
+  String get configSaved => 'บันทึกการกำหนดค่าแล้ว!';
 
   @override
-  String get masterDeviceLabel => 'Is Master Device (Admin)';
+  String get masterDeviceLabel => 'อุปกรณ์หลัก (ผู้ดูแลระบบ)';
 
   @override
   String get masterDeviceHelp =>
-      'Only the master device can initialize the database structure.';
+      'เฉพาะอุปกรณ์หลักเท่านั้นที่สามารถเริ่มต้นโครงสร้างฐานข้อมูลได้';
 
   @override
-  String get syncIntervalLabel => 'Auto-sync Interval';
+  String get syncIntervalLabel => 'ช่วงเวลาซิงค์อัตโนมัติ';
 
   @override
   String syncIntervalValue(int hours) {
-    return 'Every $hours hours';
+    return 'ทุกๆ $hours ชั่วโมง';
   }
 
   @override
-  String get leaveEmptyToUseDefault => 'Leave empty to use default';
+  String get leaveEmptyToUseDefault => 'เว้นว่างไว้เพื่อใช้ค่าเริ่มต้น';
 
   @override
-  String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+  String get vipAccessSubtitle => 'ชมโฆษณาฟรีหรือซื้อ VIP';
 
   @override
   String failedToLoadSettingsSchema(String error) {
-    return 'Failed to load settings schema: $error';
+    return 'การโหลดเค้าโครง การตั้งค่าล้มเหลว: $error';
   }
 
   @override
-  String get fieldIsRequired => 'This field is required';
+  String get fieldIsRequired => 'จำเป็นต้องกรอกฟิลด์นี้';
 
   @override
-  String get answerThenHangupDescription =>
-      'Automatically answer the incoming call and then immediately hang up to terminate it';
+  String get answerThenHangupDescription => 'รับสายก่อน จากนั้นวางสายทันที';
 
   @override
-  String get initialSetupTitle => 'Rule Library Setup';
+  String get initialSetupTitle => 'ตั้งค่าฐานข้อมูลกฎ';
 
   @override
   String get initialSetupDesc =>
-      'Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.';
+      'โปรดเลือกฐานข้อมูลกฎระดับภูมิภาคที่คุณต้องการบล็อก กฎเหล่านี้จะช่วยบล็อกสายขายของและสายฉ้อโกงโดยอัตโนมัติ';
 
   @override
-  String get initialSetupRetry => 'Retry';
+  String get initialSetupRetry => 'ลองใหม่';
 
   @override
-  String get initialSetupSkip => 'Skip';
+  String get initialSetupSkip => 'ข้าม';
 
   @override
-  String get initialSetupSave => 'One-click setup selected';
+  String get initialSetupSave => 'บันทึกกฎที่เลือก';
 
   @override
-  String get initialSetupSaving => 'Saving...';
+  String get initialSetupSaving => 'กำลังบันทึก...';
 
   @override
-  String get initialSetupSaveSuccess =>
-      '✅ Configuration saved successfully, rules will be fetched automatically soon';
+  String get initialSetupSaveSuccess => '✅ บันทึกการกำหนดค่าสำเร็จ';
 
   @override
   String initialSetupSaveFailed(String error) {
-    return 'Failed to save configuration: $error';
+    return 'บันทึกการกำหนดค่าล้มเหลว: $error';
   }
 
   @override
-  String get initialSetupGetFailed => 'Failed to get configuration';
+  String get initialSetupGetFailed => 'รับการกำหนดค่าล้มเหลว';
 
   @override
-  String get initialSetupSourceTitle => 'Data Source';
+  String get initialSetupSourceTitle => 'แหล่งฐานข้อมูลกฎ';
 
   @override
-  String get initialSetupSourceGithub => 'GitHub (Raw)';
+  String get initialSetupSourceGithub => 'แหล่งทางการของ GitHub';
 
   @override
-  String get initialSetupSourceCdn => 'CDN Mirror';
+  String get initialSetupSourceCdn => 'แหล่งเร่งความเร็ว CDN มิเรอร์';
 
   @override
-  String get initialSetupSourceCustom => 'Custom URL';
+  String get initialSetupSourceCustom => 'แหล่งมิเรอร์ที่โฮสต์เอง';
 
   @override
-  String get initialSetupCustomUrlHint => 'Enter custom config JSON URL';
+  String get initialSetupCustomUrlHint =>
+      'ป้อน URL กำหนดค่า JSON มิเรอร์ที่โฮสต์เอง';
 
   @override
-  String get initialSetupCustomUrlLoad => 'Load Config';
+  String get initialSetupCustomUrlLoad => 'โหลดการกำหนดค่า';
 
   @override
-  String get initialSetupDetectedLocation => 'Recommended for your location';
+  String get initialSetupDetectedLocation => 'ตำแหน่งที่ตรวจพบ';
 
   @override
   String deepLinkImportTitle(String type) {
-    return 'Import $type';
+    return 'นำเข้าการกำหนดค่า';
   }
 
   @override
-  String get deepLinkTypePlugin => 'Plugin';
+  String get deepLinkTypePlugin => 'ปลั๊กอิน';
 
   @override
-  String get deepLinkTypeSubscription => 'Rule Subscription';
+  String get deepLinkTypeSubscription => 'การสมัครรับ';
 
   @override
-  String get deepLinkDefaultPluginName => 'External Plugin';
+  String get deepLinkDefaultPluginName => 'ปลั๊กอินที่นำเข้า';
 
   @override
-  String get deepLinkDefaultSubName => 'External Rule Subscription';
+  String get deepLinkDefaultSubName => 'การสมัครรับที่นำเข้า';
 
   @override
-  String get deepLinkDetectedTitle => 'External Import Request Detected';
+  String get deepLinkDetectedTitle => 'ตรวจพบดิปลิงก์';
 
   @override
   String deepLinkNameLabel(String name) {
-    return 'Name: $name';
+    return 'ชื่อ';
   }
 
   @override
   String deepLinkTypeLabel(String type) {
-    return 'Type: $type';
+    return 'ประเภท';
   }
 
   @override
   String deepLinkUrlLabel(String url) {
-    return 'URL: $url';
+    return 'URL';
   }
 
   @override
-  String get deepLinkConfirmButton => 'Confirm Import';
+  String get deepLinkConfirmButton => 'ยืนยันการนำเข้า';
 
   @override
-  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+  String get deepLinkEmptyUrlError => 'URL ต้องไม่ว่างเปล่า';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'ดาวน์โหลดปลั๊กอินล้มเหลว: $error';
+  }
 
   @override
-  String get deepLinkImportSuccess => '✅ Imported successfully';
+  String get deepLinkImportSuccess => 'นำเข้าสำเร็จ';
 
   @override
   String deepLinkImportFailed(String error) {
-    return 'Import failed: $error';
+    return 'นำเข้าล้มเหลว: $error';
   }
 
   @override
   String get initialSetupSettingsHint =>
-      'Tip: You can re-open this setup page anytime in Settings.';
+      'คำแนะนำ: คุณสามารถเปิดหน้าการตั้งค่านี้อีกครั้งได้ตลอดเวลาในการตั้งค่า';
 
   @override
-  String get initialSetupGoToSettings => 'Go to Settings';
+  String get initialSetupGoToSettings => 'ไปที่การตั้งค่า';
 
   @override
-  String get separateSims => 'Separate SIMs';
+  String get separateSims => 'ซิมการ์ดแยกกัน';
 
   @override
   String get separateSimsDesc =>
-      'Enable separate filtering rules for each SIM card';
+      'เปิดใช้งานกฎการกรองแยกกันสำหรับซิมการ์ดแต่ละใบ';
 
   @override
-  String get masterAndOverrides => 'Master Controls';
+  String get masterAndOverrides => 'การควบคุมหลัก';
 
   @override
-  String get masterAndOverridesDesc => 'Global Rule Settings';
+  String get masterAndOverridesDesc => 'การตั้งค่ากฎส่วนกลาง';
 }

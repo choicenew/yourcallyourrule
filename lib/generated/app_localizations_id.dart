@@ -3833,6 +3833,15 @@ class AppLocalizationsId extends AppLocalizations {
   String get themeSettingsSubtitle => 'Pilih tema favorit Anda';
 
   @override
+  String get themeLight => 'Terang';
+
+  @override
+  String get themeDark => 'Gelap';
+
+  @override
+  String get themeSystem => 'Default Sistem';
+
+  @override
   String get databaseSyncTitle => 'Sinkronisasi Database';
 
   @override
@@ -4686,103 +4695,105 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => 'Jenis Aturan';
 
   @override
-  String get localDatabaseSyncTitle => 'Local Database Sync';
+  String get localDatabaseSyncTitle => 'Sinkronisasi Database Lokal';
 
   @override
-  String get localDatabaseSyncSubtitle => 'Sync data across devices';
+  String get localDatabaseSyncSubtitle => 'Sinkronkan data antar perangkat';
 
   @override
-  String get supabaseProjectUrl => 'Supabase Project URL';
+  String get supabaseProjectUrl => 'URL Proyek Supabase';
 
   @override
-  String get supabaseAnonKey => 'Anon Key';
+  String get supabaseAnonKey => 'Kunci Anon';
 
   @override
-  String get supabaseAnonKeyHint => 'API Key, anon public key';
+  String get supabaseAnonKeyHint => 'API Key, kunci publik anonim';
 
   @override
-  String get connectionString => 'Connection String (URI)';
+  String get connectionString => 'String Koneksi (URI)';
 
   @override
   String get connectionStringHelper =>
-      'Only needed for \'Initialize Database\'';
+      'Hanya diperlukan untuk \'Inisialisasi Database\'';
 
   @override
-  String get syncCallHistory => 'Sync Call History';
+  String get syncCallHistory => 'Sinkronkan Riwayat Panggilan';
 
   @override
-  String get syncCallHistorySubtitle => 'Include private call logs in sync';
+  String get syncCallHistorySubtitle =>
+      'Sertakan log panggilan pribadi dalam sinkronisasi';
 
   @override
-  String get requiredField => 'Required';
+  String get requiredField => 'Wajib';
 
   @override
-  String get requiredInitField => 'Required for initialization';
+  String get requiredInitField => 'Wajib untuk inisialisasi';
 
   @override
-  String get initDbButton => 'Initialize Database';
+  String get initDbButton => 'Inisialisasi Database';
 
   @override
-  String get dbInitSuccess => 'Database Initialized Successfully!';
+  String get dbInitSuccess => 'Database Berhasil Diinisialisasi!';
 
   @override
   String syncSuccess(int pushed, int pulled) {
-    return 'Sync Complete. Sent: $pushed, Received: $pulled';
+    return 'Sinkronisasi Selesai. Terkirim: $pushed, Diterima: $pulled';
   }
 
   @override
-  String get errorPrefix => 'Error';
+  String get errorPrefix => 'Kesalahan';
 
   @override
-  String get errorLoadingSettings => 'Error loading settings';
+  String get errorLoadingSettings => 'Gagal memuat pengaturan';
 
   @override
   String get statusLabel => 'Status';
 
   @override
-  String get statusConnected => 'Connected / Configured';
+  String get statusConnected => 'Tersambung / Dikonfigurasi';
 
   @override
-  String get statusNotConfigured => 'Not Configured';
+  String get statusNotConfigured => 'Belum Dikonfigurasi';
 
   @override
-  String get configSaved => 'Configuration Saved!';
+  String get configSaved => 'Konfigurasi Disimpan!';
 
   @override
-  String get masterDeviceLabel => 'Is Master Device (Admin)';
+  String get masterDeviceLabel => 'Perangkat Utama (Admin)';
 
   @override
   String get masterDeviceHelp =>
-      'Only the master device can initialize the database structure.';
+      'Hanya perangkat utama yang dapat menginisialisasi struktur database.';
 
   @override
-  String get syncIntervalLabel => 'Auto-sync Interval';
+  String get syncIntervalLabel => 'Interval Sinkronisasi Otomatis';
 
   @override
   String syncIntervalValue(int hours) {
-    return 'Every $hours hours';
+    return 'Setiap $hours jam';
   }
 
   @override
-  String get leaveEmptyToUseDefault => 'Leave empty to use default';
+  String get leaveEmptyToUseDefault =>
+      'Biarkan kosong untuk menggunakan nilai default';
 
   @override
-  String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+  String get vipAccessSubtitle => 'Tonton iklan gratis atau beli VIP';
 
   @override
   String failedToLoadSettingsSchema(String error) {
-    return 'Failed to load settings schema: $error';
+    return 'Gagal memuat skema pengaturan: $error';
   }
 
   @override
-  String get fieldIsRequired => 'This field is required';
+  String get fieldIsRequired => 'Bidang ini wajib diisi';
 
   @override
   String get answerThenHangupDescription =>
-      'Automatically answer the incoming call and then immediately hang up to terminate it';
+      'Jawab panggilan terlebih dahulu, lalu segera tutup.';
 
   @override
   String get initialSetupTitle => 'Pengaturan Pustaka Aturan';
@@ -4816,85 +4827,87 @@ class AppLocalizationsId extends AppLocalizations {
   String get initialSetupGetFailed => 'Gagal mendapatkan konfigurasi';
 
   @override
-  String get initialSetupSourceTitle => 'Data Source';
+  String get initialSetupSourceTitle => 'Sumber Database Aturan';
 
   @override
-  String get initialSetupSourceGithub => 'GitHub (Raw)';
+  String get initialSetupSourceGithub => 'Sumber Resmi GitHub';
 
   @override
-  String get initialSetupSourceCdn => 'CDN Mirror';
+  String get initialSetupSourceCdn => 'Sumber Akselerasi CDN Cermin';
 
   @override
-  String get initialSetupSourceCustom => 'Custom URL';
+  String get initialSetupSourceCustom => 'Sumber Cermin Mandiri';
 
   @override
-  String get initialSetupCustomUrlHint => 'Enter custom config JSON URL';
+  String get initialSetupCustomUrlHint =>
+      'Masukkan URL konfigurasi JSON cermin mandiri';
 
   @override
-  String get initialSetupCustomUrlLoad => 'Load Config';
+  String get initialSetupCustomUrlLoad => 'Muat Konfigurasi';
 
   @override
-  String get initialSetupDetectedLocation => 'Recommended for your location';
+  String get initialSetupDetectedLocation => 'Lokasi Terdeteksi';
 
   @override
   String deepLinkImportTitle(String type) {
-    return 'Import $type';
+    return 'Impor Konfigurasi';
   }
 
   @override
   String get deepLinkTypePlugin => 'Plugin';
 
   @override
-  String get deepLinkTypeSubscription => 'Rule Subscription';
+  String get deepLinkTypeSubscription => 'Langganan';
 
   @override
-  String get deepLinkDefaultPluginName => 'External Plugin';
+  String get deepLinkDefaultPluginName => 'Plugin Diimpor';
 
   @override
-  String get deepLinkDefaultSubName => 'External Rule Subscription';
+  String get deepLinkDefaultSubName => 'Langganan Diimpor';
 
   @override
-  String get deepLinkDetectedTitle => 'External Import Request Detected';
+  String get deepLinkDetectedTitle => 'Tautan Dalam Terdeteksi';
 
   @override
   String deepLinkNameLabel(String name) {
-    return 'Name: $name';
+    return 'Nama';
   }
 
   @override
   String deepLinkTypeLabel(String type) {
-    return 'Type: $type';
+    return 'Tipe';
   }
 
   @override
   String deepLinkUrlLabel(String url) {
-    return 'URL: $url';
+    return 'URL';
   }
 
   @override
-  String get deepLinkConfirmButton => 'Confirm Import';
+  String get deepLinkConfirmButton => 'Konfirmasi Impor';
 
   @override
-  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+  String get deepLinkEmptyUrlError => 'URL tidak boleh kosong';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Gagal mengunduh plugin: $error';
+  }
 
   @override
-  String get deepLinkImportSuccess => '✅ Imported successfully';
+  String get deepLinkImportSuccess => 'Berhasil Diimpor';
 
   @override
   String deepLinkImportFailed(String error) {
-    return 'Import failed: $error';
+    return 'Gagal Mengimpor: $error';
   }
 
   @override
   String get initialSetupSettingsHint =>
-      'Tip: You can re-open this setup page anytime in Settings.';
+      'Petunjuk: Anda dapat membuka kembali halaman pengaturan ini kapan saja di Pengaturan.';
 
   @override
-  String get initialSetupGoToSettings => 'Go to Settings';
+  String get initialSetupGoToSettings => 'Buka Pengaturan';
 
   @override
   String get separateSims => 'SIM Terpisah';

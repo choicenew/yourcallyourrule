@@ -3828,6 +3828,15 @@ class AppLocalizationsBn extends AppLocalizations {
   String get themeSettingsSubtitle => 'আপনার প্রিয় থিম চয়ন করুন';
 
   @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get themeSystem => 'System';
+
+  @override
   String get databaseSyncTitle => 'ডাটাবেস সিঙ্ক';
 
   @override
@@ -4872,8 +4881,9 @@ class AppLocalizationsBn extends AppLocalizations {
   String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Failed to download or parse plugin script';
+  }
 
   @override
   String get deepLinkImportSuccess => '✅ Imported successfully';

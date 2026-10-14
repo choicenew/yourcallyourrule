@@ -3863,6 +3863,15 @@ class AppLocalizationsPl extends AppLocalizations {
   String get themeSettingsSubtitle => 'Wybierz swój ulubiony motyw';
 
   @override
+  String get themeLight => 'Jasny';
+
+  @override
+  String get themeDark => 'Ciemny';
+
+  @override
+  String get themeSystem => 'Domyślny systemu';
+
+  @override
   String get databaseSyncTitle => 'Synchronizacja bazy danych';
 
   @override
@@ -4720,103 +4729,105 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => 'Typ reguły';
 
   @override
-  String get localDatabaseSyncTitle => 'Local Database Sync';
+  String get localDatabaseSyncTitle => 'Lokalna synchronizacja bazy danych';
 
   @override
-  String get localDatabaseSyncSubtitle => 'Sync data across devices';
+  String get localDatabaseSyncSubtitle =>
+      'Synchronizuj dane między urządzeniami';
 
   @override
-  String get supabaseProjectUrl => 'Supabase Project URL';
+  String get supabaseProjectUrl => 'URL projektu Supabase';
 
   @override
-  String get supabaseAnonKey => 'Anon Key';
+  String get supabaseAnonKey => 'Klucz anonimowy';
 
   @override
-  String get supabaseAnonKeyHint => 'API Key, anon public key';
+  String get supabaseAnonKeyHint => 'API Key, publiczny klucz anonimowy';
 
   @override
-  String get connectionString => 'Connection String (URI)';
+  String get connectionString => 'Ciąg połączenia (URI)';
 
   @override
   String get connectionStringHelper =>
-      'Only needed for \'Initialize Database\'';
+      'Wymagane tylko dla \'Inicjalizuj bazę danych\'';
 
   @override
-  String get syncCallHistory => 'Sync Call History';
+  String get syncCallHistory => 'Synchronizuj historię połączeń';
 
   @override
-  String get syncCallHistorySubtitle => 'Include private call logs in sync';
+  String get syncCallHistorySubtitle =>
+      'Dołącz prywatne dzienniki połączeń do synchronizacji';
 
   @override
-  String get requiredField => 'Required';
+  String get requiredField => 'Wymagane';
 
   @override
-  String get requiredInitField => 'Required for initialization';
+  String get requiredInitField => 'Wymagane do inicjalizacji';
 
   @override
-  String get initDbButton => 'Initialize Database';
+  String get initDbButton => 'Inicjalizuj bazę danych';
 
   @override
-  String get dbInitSuccess => 'Database Initialized Successfully!';
+  String get dbInitSuccess => 'Baza danych pomyślnie zainicjalizowana!';
 
   @override
   String syncSuccess(int pushed, int pulled) {
-    return 'Sync Complete. Sent: $pushed, Received: $pulled';
+    return 'Synchronizacja zakończona. Wysyłane: $pushed, Odebrane: $pulled';
   }
 
   @override
-  String get errorPrefix => 'Error';
+  String get errorPrefix => 'Błąd';
 
   @override
-  String get errorLoadingSettings => 'Error loading settings';
+  String get errorLoadingSettings => 'Błąd ładowania ustawień';
 
   @override
   String get statusLabel => 'Status';
 
   @override
-  String get statusConnected => 'Connected / Configured';
+  String get statusConnected => 'Połączono / Skonfigurowano';
 
   @override
-  String get statusNotConfigured => 'Not Configured';
+  String get statusNotConfigured => 'Nieskonfigurowano';
 
   @override
-  String get configSaved => 'Configuration Saved!';
+  String get configSaved => 'Konfiguracja zapisana!';
 
   @override
-  String get masterDeviceLabel => 'Is Master Device (Admin)';
+  String get masterDeviceLabel => 'Urządzenie główne (Admin)';
 
   @override
   String get masterDeviceHelp =>
-      'Only the master device can initialize the database structure.';
+      'Tylko urządzenie główne może zainicjalizować strukturę bazy danych.';
 
   @override
-  String get syncIntervalLabel => 'Auto-sync Interval';
+  String get syncIntervalLabel => 'Interwał automatycznej synchronizacji';
 
   @override
   String syncIntervalValue(int hours) {
-    return 'Every $hours hours';
+    return 'Co $hours godz.';
   }
 
   @override
-  String get leaveEmptyToUseDefault => 'Leave empty to use default';
+  String get leaveEmptyToUseDefault => 'Pozostaw puste, aby użyć domyślnego';
 
   @override
-  String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+  String get vipAccessSubtitle => 'Oglądaj reklamy za darmo lub kup VIP';
 
   @override
   String failedToLoadSettingsSchema(String error) {
-    return 'Failed to load settings schema: $error';
+    return 'Nie udało się załadować schematu ustawień: $error';
   }
 
   @override
-  String get fieldIsRequired => 'This field is required';
+  String get fieldIsRequired => 'Pole jest wymagane';
 
   @override
   String get answerThenHangupDescription =>
-      'Automatically answer the incoming call and then immediately hang up to terminate it';
+      'Najpierw odbierz połączenie, a następnie natychmiast się rozłącz.';
 
   @override
   String get initialSetupTitle => 'Konfiguracja biblioteki reguł';
@@ -4850,85 +4861,87 @@ class AppLocalizationsPl extends AppLocalizations {
   String get initialSetupGetFailed => 'Nie udało się pobrać konfiguracji';
 
   @override
-  String get initialSetupSourceTitle => 'Data Source';
+  String get initialSetupSourceTitle => 'Źródło bazy reguł';
 
   @override
-  String get initialSetupSourceGithub => 'GitHub (Raw)';
+  String get initialSetupSourceGithub => 'Oficjalne źródło GitHub';
 
   @override
-  String get initialSetupSourceCdn => 'CDN Mirror';
+  String get initialSetupSourceCdn => 'Źródło przyspieszenia CDN lustrzanego';
 
   @override
-  String get initialSetupSourceCustom => 'Custom URL';
+  String get initialSetupSourceCustom => 'Własne źródło lustrzane';
 
   @override
-  String get initialSetupCustomUrlHint => 'Enter custom config JSON URL';
+  String get initialSetupCustomUrlHint =>
+      'Wprowadź URL konfiguracji JSON własnego lustra';
 
   @override
-  String get initialSetupCustomUrlLoad => 'Load Config';
+  String get initialSetupCustomUrlLoad => 'Załaduj konfigurację';
 
   @override
-  String get initialSetupDetectedLocation => 'Recommended for your location';
+  String get initialSetupDetectedLocation => 'Wykryta lokalizacja';
 
   @override
   String deepLinkImportTitle(String type) {
-    return 'Import $type';
+    return 'Importuj konfigurację';
   }
 
   @override
-  String get deepLinkTypePlugin => 'Plugin';
+  String get deepLinkTypePlugin => 'Wtyczka';
 
   @override
-  String get deepLinkTypeSubscription => 'Rule Subscription';
+  String get deepLinkTypeSubscription => 'Subskrypcja';
 
   @override
-  String get deepLinkDefaultPluginName => 'External Plugin';
+  String get deepLinkDefaultPluginName => 'Zaimportowana wtyczka';
 
   @override
-  String get deepLinkDefaultSubName => 'External Rule Subscription';
+  String get deepLinkDefaultSubName => 'Zaimportowana subskrypcja';
 
   @override
-  String get deepLinkDetectedTitle => 'External Import Request Detected';
+  String get deepLinkDetectedTitle => 'Wykryto głęboki link';
 
   @override
   String deepLinkNameLabel(String name) {
-    return 'Name: $name';
+    return 'Nazwa';
   }
 
   @override
   String deepLinkTypeLabel(String type) {
-    return 'Type: $type';
+    return 'Typ';
   }
 
   @override
   String deepLinkUrlLabel(String url) {
-    return 'URL: $url';
+    return 'URL';
   }
 
   @override
-  String get deepLinkConfirmButton => 'Confirm Import';
+  String get deepLinkConfirmButton => 'Potwierdź import';
 
   @override
-  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+  String get deepLinkEmptyUrlError => 'URL nie może być pusty';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Nie udało się pobrać wtyczki: $error';
+  }
 
   @override
-  String get deepLinkImportSuccess => '✅ Imported successfully';
+  String get deepLinkImportSuccess => 'Zaimportowano pomyślnie';
 
   @override
   String deepLinkImportFailed(String error) {
-    return 'Import failed: $error';
+    return 'Import nie powiódł się: $error';
   }
 
   @override
   String get initialSetupSettingsHint =>
-      'Tip: You can re-open this setup page anytime in Settings.';
+      'Wskazówka: Możesz otworzyć tę stronę konfiguracji w dowolnym momencie w Ustawieniach.';
 
   @override
-  String get initialSetupGoToSettings => 'Go to Settings';
+  String get initialSetupGoToSettings => 'Przejdź do Ustawień';
 
   @override
   String get separateSims => 'Oddzielne karty SIM';

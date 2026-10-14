@@ -3659,6 +3659,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get themeSettingsSubtitle => '选择你喜欢的主题';
 
   @override
+  String get themeLight => '淺色';
+
+  @override
+  String get themeDark => '深色';
+
+  @override
+  String get themeSystem => '跟隨系統';
+
+  @override
   String get databaseSyncTitle => '数据库同步';
 
   @override
@@ -4488,95 +4497,93 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get ruleType => 'Rule Type';
+  String get ruleType => '規則類型';
 
   @override
-  String get localDatabaseSyncTitle => 'Local Database Sync';
+  String get localDatabaseSyncTitle => '本地資料庫同步';
 
   @override
-  String get localDatabaseSyncSubtitle => 'Sync data across devices';
+  String get localDatabaseSyncSubtitle => '跨裝置同步資料';
 
   @override
-  String get supabaseProjectUrl => 'Supabase Project URL';
+  String get supabaseProjectUrl => 'Supabase 專案 URL';
 
   @override
-  String get supabaseAnonKey => 'Anon Key';
+  String get supabaseAnonKey => 'Anon 金鑰';
 
   @override
-  String get supabaseAnonKeyHint => 'API Key, anon public key';
+  String get supabaseAnonKeyHint => 'API Key，匿名金鑰';
 
   @override
-  String get connectionString => 'Connection String (URI)';
+  String get connectionString => '連線字串 (URI)';
 
   @override
-  String get connectionStringHelper =>
-      'Only needed for \'Initialize Database\'';
+  String get connectionStringHelper => '僅在「初始化資料庫」時需要';
 
   @override
-  String get syncCallHistory => 'Sync Call History';
+  String get syncCallHistory => '同步通話記錄';
 
   @override
-  String get syncCallHistorySubtitle => 'Include private call logs in sync';
+  String get syncCallHistorySubtitle => '同步時包含私人通話日誌';
 
   @override
-  String get requiredField => 'Required';
+  String get requiredField => '必填';
 
   @override
-  String get requiredInitField => 'Required for initialization';
+  String get requiredInitField => '初始化必填';
 
   @override
-  String get initDbButton => 'Initialize Database';
+  String get initDbButton => '初始化資料庫';
 
   @override
-  String get dbInitSuccess => 'Database Initialized Successfully!';
+  String get dbInitSuccess => '資料庫初始化成功！';
 
   @override
   String syncSuccess(int pushed, int pulled) {
-    return 'Sync Complete. Sent: $pushed, Received: $pulled';
+    return '同步完成。傳送: $pushed，接收: $pulled';
   }
 
   @override
-  String get errorPrefix => 'Error';
+  String get errorPrefix => '錯誤';
 
   @override
-  String get errorLoadingSettings => 'Error loading settings';
+  String get errorLoadingSettings => '載入設定錯誤';
 
   @override
-  String get statusLabel => 'Status';
+  String get statusLabel => '狀態';
 
   @override
-  String get statusConnected => 'Connected / Configured';
+  String get statusConnected => '已連線 / 已設定';
 
   @override
-  String get statusNotConfigured => 'Not Configured';
+  String get statusNotConfigured => '未設定';
 
   @override
-  String get configSaved => 'Configuration Saved!';
+  String get configSaved => '設定已儲存！';
 
   @override
-  String get masterDeviceLabel => 'Is Master Device (Admin)';
+  String get masterDeviceLabel => '主裝置 (管理員)';
 
   @override
-  String get masterDeviceHelp =>
-      'Only the master device can initialize the database structure.';
+  String get masterDeviceHelp => '只有主裝置可以初始化資料庫結構。';
 
   @override
-  String get syncIntervalLabel => 'Auto-sync Interval';
+  String get syncIntervalLabel => '自動同步間隔';
 
   @override
   String syncIntervalValue(int hours) {
-    return 'Every $hours hours';
+    return '每 $hours 小時';
   }
 
   @override
-  String get leaveEmptyToUseDefault => 'Leave empty to use default';
+  String get leaveEmptyToUseDefault => '留空使用預設值';
 
   @override
-  String get vipAccessSubtitle => 'Watch ads for free or purchase VIP';
+  String get vipAccessSubtitle => '觀看廣告免費體驗或購買 VIP';
 
   @override
   String failedToLoadSettingsSchema(String error) {
-    return 'Failed to load settings schema: $error';
+    return '載入設定架構失敗: $error';
   }
 
   @override
@@ -4677,7 +4684,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get deepLinkEmptyUrlError => '链接地址为空，无法导入';
 
   @override
-  String get deepLinkPluginDownloadFailed => '下载或解析插件脚本失败';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return '下载或解析插件脚本失败';
+  }
 
   @override
   String get deepLinkImportSuccess => '✅ 导入成功';
@@ -4688,24 +4697,22 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get initialSetupSettingsHint =>
-      'Tip: You can re-open this setup page anytime in Settings.';
+  String get initialSetupSettingsHint => '提示：後續您可以隨時在「設定」中重新開啟此設定頁面。';
 
   @override
-  String get initialSetupGoToSettings => 'Go to Settings';
+  String get initialSetupGoToSettings => '前往設定';
 
   @override
-  String get separateSims => 'Separate SIMs';
+  String get separateSims => '獨立 SIM 卡規則';
 
   @override
-  String get separateSimsDesc =>
-      'Enable separate filtering rules for each SIM card';
+  String get separateSimsDesc => '為每張 SIM 卡啟用獨立的過濾規則';
 
   @override
-  String get masterAndOverrides => 'Master Controls';
+  String get masterAndOverrides => '總控開關';
 
   @override
-  String get masterAndOverridesDesc => 'Global Rule Settings';
+  String get masterAndOverridesDesc => '全域規則設定';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -8363,6 +8370,15 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get themeSettingsSubtitle => '选择你喜欢的主题';
 
   @override
+  String get themeLight => '浅色';
+
+  @override
+  String get themeDark => '深色';
+
+  @override
+  String get themeSystem => '跟随系统';
+
+  @override
   String get databaseSyncTitle => '数据库同步';
 
   @override
@@ -9189,6 +9205,96 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   @override
   String andMoreItems(int count) {
     return '以及更多 $count 个项目';
+  }
+
+  @override
+  String get ruleType => '规则类型';
+
+  @override
+  String get localDatabaseSyncTitle => '本地数据库同步';
+
+  @override
+  String get localDatabaseSyncSubtitle => '跨设备同步数据';
+
+  @override
+  String get supabaseProjectUrl => 'Supabase 项目 URL';
+
+  @override
+  String get supabaseAnonKey => 'Anon 密钥';
+
+  @override
+  String get supabaseAnonKeyHint => 'API Key，匿名公钥';
+
+  @override
+  String get connectionString => '连接字符串 (URI)';
+
+  @override
+  String get connectionStringHelper => '仅在“初始化数据库”时需要';
+
+  @override
+  String get syncCallHistory => '同步通话记录';
+
+  @override
+  String get syncCallHistorySubtitle => '同步时包含私密通话日志';
+
+  @override
+  String get requiredField => '必填';
+
+  @override
+  String get requiredInitField => '初始化必填';
+
+  @override
+  String get initDbButton => '初始化数据库';
+
+  @override
+  String get dbInitSuccess => '数据库初始化成功！';
+
+  @override
+  String syncSuccess(int pushed, int pulled) {
+    return '同步完成。发送: $pushed，接收: $pulled';
+  }
+
+  @override
+  String get errorPrefix => '错误';
+
+  @override
+  String get errorLoadingSettings => '加载设置错误';
+
+  @override
+  String get statusLabel => '状态';
+
+  @override
+  String get statusConnected => '已连接 / 已配置';
+
+  @override
+  String get statusNotConfigured => '未配置';
+
+  @override
+  String get configSaved => '配置已保存！';
+
+  @override
+  String get masterDeviceLabel => '主设备 (管理员)';
+
+  @override
+  String get masterDeviceHelp => '只有主设备可以初始化数据库结构。';
+
+  @override
+  String get syncIntervalLabel => '自动同步间隔';
+
+  @override
+  String syncIntervalValue(int hours) {
+    return '每 $hours 小时';
+  }
+
+  @override
+  String get leaveEmptyToUseDefault => '留空使用默认值';
+
+  @override
+  String get vipAccessSubtitle => '看广告免费体验或购买 VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return '加载设置架构失败: $error';
   }
 
   @override
@@ -12895,6 +13001,15 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get themeSettingsSubtitle => '選擇您喜歡的主題';
 
   @override
+  String get themeLight => '淺色';
+
+  @override
+  String get themeDark => '深色';
+
+  @override
+  String get themeSystem => '跟隨系統';
+
+  @override
   String get databaseSyncTitle => '資料庫同步';
 
   @override
@@ -13724,6 +13839,103 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   }
 
   @override
+  String get ruleType => '規則類型';
+
+  @override
+  String get localDatabaseSyncTitle => '本地資料庫同步';
+
+  @override
+  String get localDatabaseSyncSubtitle => '跨裝置同步資料';
+
+  @override
+  String get supabaseProjectUrl => 'Supabase 專案 URL';
+
+  @override
+  String get supabaseAnonKey => 'Anon 金鑰';
+
+  @override
+  String get supabaseAnonKeyHint => 'API Key，匿名金鑰';
+
+  @override
+  String get connectionString => '連線字串 (URI)';
+
+  @override
+  String get connectionStringHelper => '僅在「初始化資料庫」時需要';
+
+  @override
+  String get syncCallHistory => '同步通話記錄';
+
+  @override
+  String get syncCallHistorySubtitle => '同步時包含私人通話日誌';
+
+  @override
+  String get requiredField => '必填';
+
+  @override
+  String get requiredInitField => '初始化必填';
+
+  @override
+  String get initDbButton => '初始化資料庫';
+
+  @override
+  String get dbInitSuccess => '資料庫初始化成功！';
+
+  @override
+  String syncSuccess(int pushed, int pulled) {
+    return '同步完成。傳送: $pushed，接收: $pulled';
+  }
+
+  @override
+  String get errorPrefix => '錯誤';
+
+  @override
+  String get errorLoadingSettings => '載入設定錯誤';
+
+  @override
+  String get statusLabel => '狀態';
+
+  @override
+  String get statusConnected => '已連線 / 已設定';
+
+  @override
+  String get statusNotConfigured => '未設定';
+
+  @override
+  String get configSaved => '設定已儲存！';
+
+  @override
+  String get masterDeviceLabel => '主裝置 (管理員)';
+
+  @override
+  String get masterDeviceHelp => '只有主裝置可以初始化資料庫結構。';
+
+  @override
+  String get syncIntervalLabel => '自動同步間隔';
+
+  @override
+  String syncIntervalValue(int hours) {
+    return '每 $hours 小時';
+  }
+
+  @override
+  String get leaveEmptyToUseDefault => '留空使用預設值';
+
+  @override
+  String get vipAccessSubtitle => '觀看廣告免費體驗或購買 VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return '載入設定架構失敗: $error';
+  }
+
+  @override
+  String get fieldIsRequired => 'This field is required';
+
+  @override
+  String get answerThenHangupDescription =>
+      'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
   String get initialSetupTitle => '規則庫設定';
 
   @override
@@ -13751,6 +13963,87 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
 
   @override
   String get initialSetupGetFailed => '取得設定失敗';
+
+  @override
+  String get initialSetupSourceTitle => 'Data Source';
+
+  @override
+  String get initialSetupSourceGithub => 'GitHub (Raw)';
+
+  @override
+  String get initialSetupSourceCdn => 'CDN Mirror';
+
+  @override
+  String get initialSetupSourceCustom => 'Custom URL';
+
+  @override
+  String get initialSetupCustomUrlHint => 'Enter custom config JSON URL';
+
+  @override
+  String get initialSetupCustomUrlLoad => 'Load Config';
+
+  @override
+  String get initialSetupDetectedLocation => 'Recommended for your location';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return 'Import $type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => 'Plugin';
+
+  @override
+  String get deepLinkTypeSubscription => 'Rule Subscription';
+
+  @override
+  String get deepLinkDefaultPluginName => 'External Plugin';
+
+  @override
+  String get deepLinkDefaultSubName => 'External Rule Subscription';
+
+  @override
+  String get deepLinkDetectedTitle => 'External Import Request Detected';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return 'URL: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => 'Confirm Import';
+
+  @override
+  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+
+  @override
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Failed to download or parse plugin script';
+  }
+
+  @override
+  String get deepLinkImportSuccess => '✅ Imported successfully';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return 'Import failed: $error';
+  }
+
+  @override
+  String get initialSetupSettingsHint => '提示：後續您可以隨時在「設定」中重新開啟此設定頁面。';
+
+  @override
+  String get initialSetupGoToSettings => '前往設定';
 
   @override
   String get separateSims => '獨立 SIM 卡規則';
@@ -17421,6 +17714,15 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get themeSettingsSubtitle => '選擇您喜歡的主題';
 
   @override
+  String get themeLight => '淺色';
+
+  @override
+  String get themeDark => '深色';
+
+  @override
+  String get themeSystem => '跟隨系統';
+
+  @override
   String get databaseSyncTitle => '資料庫同步';
 
   @override
@@ -18250,6 +18552,103 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   }
 
   @override
+  String get ruleType => '規則類型';
+
+  @override
+  String get localDatabaseSyncTitle => '本地資料庫同步';
+
+  @override
+  String get localDatabaseSyncSubtitle => '跨裝置同步資料';
+
+  @override
+  String get supabaseProjectUrl => 'Supabase 專案 URL';
+
+  @override
+  String get supabaseAnonKey => 'Anon 金鑰';
+
+  @override
+  String get supabaseAnonKeyHint => 'API Key，匿名金鑰';
+
+  @override
+  String get connectionString => '連線字串 (URI)';
+
+  @override
+  String get connectionStringHelper => '僅在「初始化資料庫」時需要';
+
+  @override
+  String get syncCallHistory => '同步通話記錄';
+
+  @override
+  String get syncCallHistorySubtitle => '同步時包含私人通話日誌';
+
+  @override
+  String get requiredField => '必填';
+
+  @override
+  String get requiredInitField => '初始化必填';
+
+  @override
+  String get initDbButton => '初始化資料庫';
+
+  @override
+  String get dbInitSuccess => '資料庫初始化成功！';
+
+  @override
+  String syncSuccess(int pushed, int pulled) {
+    return '同步完成。傳送: $pushed，接收: $pulled';
+  }
+
+  @override
+  String get errorPrefix => '錯誤';
+
+  @override
+  String get errorLoadingSettings => '載入設定錯誤';
+
+  @override
+  String get statusLabel => '狀態';
+
+  @override
+  String get statusConnected => '已連線 / 已設定';
+
+  @override
+  String get statusNotConfigured => '未設定';
+
+  @override
+  String get configSaved => '設定已儲存！';
+
+  @override
+  String get masterDeviceLabel => '主裝置 (管理員)';
+
+  @override
+  String get masterDeviceHelp => '只有主裝置可以初始化資料庫結構。';
+
+  @override
+  String get syncIntervalLabel => '自動同步間隔';
+
+  @override
+  String syncIntervalValue(int hours) {
+    return '每 $hours 小時';
+  }
+
+  @override
+  String get leaveEmptyToUseDefault => '留空使用預設值';
+
+  @override
+  String get vipAccessSubtitle => '觀看廣告免費體驗或購買 VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return '載入設定架構失敗: $error';
+  }
+
+  @override
+  String get fieldIsRequired => 'This field is required';
+
+  @override
+  String get answerThenHangupDescription =>
+      'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
   String get initialSetupTitle => '規則庫設定';
 
   @override
@@ -18277,6 +18676,87 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
 
   @override
   String get initialSetupGetFailed => '取得設定失敗';
+
+  @override
+  String get initialSetupSourceTitle => 'Data Source';
+
+  @override
+  String get initialSetupSourceGithub => 'GitHub (Raw)';
+
+  @override
+  String get initialSetupSourceCdn => 'CDN Mirror';
+
+  @override
+  String get initialSetupSourceCustom => 'Custom URL';
+
+  @override
+  String get initialSetupCustomUrlHint => 'Enter custom config JSON URL';
+
+  @override
+  String get initialSetupCustomUrlLoad => 'Load Config';
+
+  @override
+  String get initialSetupDetectedLocation => 'Recommended for your location';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return 'Import $type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => 'Plugin';
+
+  @override
+  String get deepLinkTypeSubscription => 'Rule Subscription';
+
+  @override
+  String get deepLinkDefaultPluginName => 'External Plugin';
+
+  @override
+  String get deepLinkDefaultSubName => 'External Rule Subscription';
+
+  @override
+  String get deepLinkDetectedTitle => 'External Import Request Detected';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return 'URL: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => 'Confirm Import';
+
+  @override
+  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+
+  @override
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Failed to download or parse plugin script';
+  }
+
+  @override
+  String get deepLinkImportSuccess => '✅ Imported successfully';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return 'Import failed: $error';
+  }
+
+  @override
+  String get initialSetupSettingsHint => '提示：後續您可以隨時在「設定」中重新開啟此設定頁面。';
+
+  @override
+  String get initialSetupGoToSettings => '前往設定';
 
   @override
   String get separateSims => '獨立 SIM 卡規則';
@@ -21947,6 +22427,15 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get themeSettingsSubtitle => '選擇您喜歡的主題';
 
   @override
+  String get themeLight => '淺色';
+
+  @override
+  String get themeDark => '深色';
+
+  @override
+  String get themeSystem => '跟隨系統';
+
+  @override
   String get databaseSyncTitle => '資料庫同步';
 
   @override
@@ -22777,6 +23266,103 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   }
 
   @override
+  String get ruleType => '規則類型';
+
+  @override
+  String get localDatabaseSyncTitle => '本地資料庫同步';
+
+  @override
+  String get localDatabaseSyncSubtitle => '跨裝置同步資料';
+
+  @override
+  String get supabaseProjectUrl => 'Supabase 專案 URL';
+
+  @override
+  String get supabaseAnonKey => 'Anon 金鑰';
+
+  @override
+  String get supabaseAnonKeyHint => 'API Key，匿名金鑰';
+
+  @override
+  String get connectionString => '連線字串 (URI)';
+
+  @override
+  String get connectionStringHelper => '僅在「初始化資料庫」時需要';
+
+  @override
+  String get syncCallHistory => '同步通話記錄';
+
+  @override
+  String get syncCallHistorySubtitle => '同步時包含私人通話日誌';
+
+  @override
+  String get requiredField => '必填';
+
+  @override
+  String get requiredInitField => '初始化必填';
+
+  @override
+  String get initDbButton => '初始化資料庫';
+
+  @override
+  String get dbInitSuccess => '資料庫初始化成功！';
+
+  @override
+  String syncSuccess(int pushed, int pulled) {
+    return '同步完成。傳送: $pushed，接收: $pulled';
+  }
+
+  @override
+  String get errorPrefix => '錯誤';
+
+  @override
+  String get errorLoadingSettings => '載入設定錯誤';
+
+  @override
+  String get statusLabel => '狀態';
+
+  @override
+  String get statusConnected => '已連線 / 已設定';
+
+  @override
+  String get statusNotConfigured => '未設定';
+
+  @override
+  String get configSaved => '設定已儲存！';
+
+  @override
+  String get masterDeviceLabel => '主裝置 (管理員)';
+
+  @override
+  String get masterDeviceHelp => '只有主裝置可以初始化資料庫結構。';
+
+  @override
+  String get syncIntervalLabel => '自動同步間隔';
+
+  @override
+  String syncIntervalValue(int hours) {
+    return '每 $hours 小時';
+  }
+
+  @override
+  String get leaveEmptyToUseDefault => '留空使用預設值';
+
+  @override
+  String get vipAccessSubtitle => '觀看廣告免費體驗或購買 VIP';
+
+  @override
+  String failedToLoadSettingsSchema(String error) {
+    return '載入設定架構失敗: $error';
+  }
+
+  @override
+  String get fieldIsRequired => 'This field is required';
+
+  @override
+  String get answerThenHangupDescription =>
+      'Automatically answer the incoming call and then immediately hang up to terminate it';
+
+  @override
   String get initialSetupTitle => '規則庫設定';
 
   @override
@@ -22804,6 +23390,87 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get initialSetupGetFailed => '取得設定失敗';
+
+  @override
+  String get initialSetupSourceTitle => 'Data Source';
+
+  @override
+  String get initialSetupSourceGithub => 'GitHub (Raw)';
+
+  @override
+  String get initialSetupSourceCdn => 'CDN Mirror';
+
+  @override
+  String get initialSetupSourceCustom => 'Custom URL';
+
+  @override
+  String get initialSetupCustomUrlHint => 'Enter custom config JSON URL';
+
+  @override
+  String get initialSetupCustomUrlLoad => 'Load Config';
+
+  @override
+  String get initialSetupDetectedLocation => 'Recommended for your location';
+
+  @override
+  String deepLinkImportTitle(String type) {
+    return 'Import $type';
+  }
+
+  @override
+  String get deepLinkTypePlugin => 'Plugin';
+
+  @override
+  String get deepLinkTypeSubscription => 'Rule Subscription';
+
+  @override
+  String get deepLinkDefaultPluginName => 'External Plugin';
+
+  @override
+  String get deepLinkDefaultSubName => 'External Rule Subscription';
+
+  @override
+  String get deepLinkDetectedTitle => 'External Import Request Detected';
+
+  @override
+  String deepLinkNameLabel(String name) {
+    return 'Name: $name';
+  }
+
+  @override
+  String deepLinkTypeLabel(String type) {
+    return 'Type: $type';
+  }
+
+  @override
+  String deepLinkUrlLabel(String url) {
+    return 'URL: $url';
+  }
+
+  @override
+  String get deepLinkConfirmButton => 'Confirm Import';
+
+  @override
+  String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
+
+  @override
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Failed to download or parse plugin script';
+  }
+
+  @override
+  String get deepLinkImportSuccess => '✅ Imported successfully';
+
+  @override
+  String deepLinkImportFailed(String error) {
+    return 'Import failed: $error';
+  }
+
+  @override
+  String get initialSetupSettingsHint => '提示：後續您可以隨時在「設定」中重新開啟此設定頁面。';
+
+  @override
+  String get initialSetupGoToSettings => '前往設定';
 
   @override
   String get separateSims => '獨立 SIM 卡規則';

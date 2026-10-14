@@ -3880,6 +3880,15 @@ class AppLocalizationsUz extends AppLocalizations {
   String get themeSettingsSubtitle => 'Sevimli mavzuingizni tanlang';
 
   @override
+  String get themeLight => 'Yorug‘';
+
+  @override
+  String get themeDark => 'To‘q';
+
+  @override
+  String get themeSystem => 'System';
+
+  @override
   String get databaseSyncTitle => 'Ma\'lumotlar bazasini sinxronlash';
 
   @override
@@ -4933,8 +4942,9 @@ class AppLocalizationsUz extends AppLocalizations {
   String get deepLinkEmptyUrlError => 'URL is empty, cannot import';
 
   @override
-  String get deepLinkPluginDownloadFailed =>
-      'Failed to download or parse plugin script';
+  String deepLinkPluginDownloadFailed(Object error) {
+    return 'Failed to download or parse plugin script';
+  }
 
   @override
   String get deepLinkImportSuccess => '✅ Imported successfully';
