@@ -120,7 +120,6 @@
   "answerThenHangup": "ענה ואז נתק",
   "applicationSoftware": "תוכנת יישום",
   "apply": "החל",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "אימות נכשל: אנא בדוק את מזהה הלקוח והמפתח",
   "authorizationFailedMessage": "אימות נכשל",
   "authorizationSuccessMessage": "אימות הצליח",
@@ -602,7 +601,6 @@
     }
   },
   "getFree": "קבל חינם",
-  "github": "GitHub",
   "globalFilterDescription": "הגדר מסננים גלובליים עבור כל כרטיסי ה-SIM:",
   "globalFilterFeature": "• מסננים גלובליים: כללים בסיסיים לכל השיחות הנכנסות",
   "globalFilterSettings": "הגדרות מסנן גלובלי",
@@ -619,7 +617,6 @@
   "granted": "הוענק",
   "grantNecessaryPermissions": "הענק הרשאות נחוצות",
   "grantPermissions": "הענק הרשאות",
-  "headhunter": "Headhunter",
   "height": "גובה",
   "homeTab": "בית",
   "howItWorksPoint1": "• המערכת תאפשר אוטומטית שיחות מאותו מספר בתוך חלון הזמן שנקבע",
@@ -908,10 +905,8 @@
   "phoneNumberTypePremiumRate": "שיעור פרמיום",
   "phoneNumberTypeSharedCost": "עלות משותפת",
   "phoneNumberTypeTollFree": "ללא תשלום",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "לא ידוע",
   "phoneNumberTypeVoicemail": "דואר קולי",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "הרשאת טלפון",
   "phonePermissionDescription": "משמש לזיהוי וחסימת שיחות נכנסות.",
   "phoneRule": "כלל טלפון",
@@ -1069,15 +1064,6 @@
   "serviceTypePhone": "מנוי טלפון",
   "serviceTypePlugin": "עדכון תוסף",
   "serviceTypeSms": "מנוי SMS",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "הגדר סיסמת הצפנה",
   "settings": "הגדרות",
   "settingsBackedUpTo": "הגדרות גובו ל: {path}",
@@ -1102,42 +1088,10 @@
   "simCardFilterRulesDescription": "הגדר כללי סינון שונים בהתבסס על חריצי כרטיס SIM",
   "simCardFontSize": "גודל גופן כרטיס SIM",
   "simCardPosition": "מיקום כרטיס SIM",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "כללי כרטיס ה-SIM מאפשרים לך להגדיר כללי סינון עצמאיים עבור כל חריץ SIM.",
   "simRuleInstructionsTitle": "כללי חריץ SIM",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "הגדר כללי סינון עצמאיים עבור כל כרטיס SIM:",
   "simSlotFilterSettingsTitle": "הגדרות מסנן חריץ SIM {slotNumber}",
@@ -1166,7 +1120,6 @@
   "simSlotTitle": "חריץ SIM {slotNumber}",
   "skip": "דלג",
   "smartCallerId": "זיהוי מתקשר חכם",
-  "sms": "SMS",
   "smsFilterDescription": "סינון SMS עוזר לך לסנן הודעות ספאם באופן אוטומטי ולשמור על רשימת ההודעות שלך נקייה. ניתן להגדיר כללי סינון ושיטות הודעה.",
   "smsFilterDisabled": "סינון SMS מושבת",
   "smsFilterEnabled": "סינון SMS מופעל",
@@ -1184,7 +1137,6 @@
   "smsSubscription": "מנוי SMS",
   "smsSubscriptionAddedSuccessfully": "מנוי SMS נוסף בהצלחה",
   "smsSubscriptionRulesDescription": "הירשם לרשימות כללי SMS באמצעות URL, תומך בהתאמת ביטוי רגולרי. ניתן להגדיר פעולות חסימה או הרשאה.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "חלק מבקשות ההרשאה נדחו",
   "spamLikely": "ספאם סביר",
   "startColor": "צבע התחלה",
@@ -2297,5 +2249,203 @@
         "example": "5"
       }
     }
-  }
+  },
+  "appName": "Your Call Your Rule",
+  "github": "GitHub",
+  "headhunter": "Headhunter",
+  "markedPhonesList": "Marked Phone Numbers",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "themeLight": "בהיר",
+  "themeDark": "כהה",
+  "themeSystem": "ברירת מחדל של המערכת",
+  "ruleType": "Rule Type",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Retry",
+  "initialSetupSkip": "Skip",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings",
+  "separateSims": "Separate SIMs",
+  "separateSimsDesc": "Enable separate filtering rules for each SIM card",
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }

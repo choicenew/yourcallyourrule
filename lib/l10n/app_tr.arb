@@ -602,7 +602,6 @@
     }
   },
   "getFree": "Ücretsiz Al",
-  "github": "GitHub",
   "globalFilterDescription": "Tüm SIM kartlar için global filtreleri yapılandırın:",
   "globalFilterFeature": "• Global Filtreler: Tüm gelen aramalar için temel kurallar",
   "globalFilterSettings": "Global Filtre Ayarları",
@@ -909,10 +908,8 @@
   "phoneNumberTypePremiumRate": "Premium ücretli",
   "phoneNumberTypeSharedCost": "Paylaşılan maliyet",
   "phoneNumberTypeTollFree": "Ücretsiz",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Bilinmeyen",
   "phoneNumberTypeVoicemail": "Sesli posta",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Telefon İzni",
   "phonePermissionDescription": "Gelen çağrıları tanımlamak ve engellemek için kullanılır.",
   "phoneRule": "Telefon Kuralı",
@@ -1000,7 +997,6 @@
   "restoreSettingsConfirmation": "Bu, mevcut tüm ayarlarınızın yerine geçecektir. Devam etmek istediğinizden emin misiniz?",
   "retry": "Tekrar Dene",
   "ridesharing": "Araç Paylaşımı",
-  "risk": "Risk",
   "robocall": "Robot Çağrı",
   "ruleAction": "Kural Eylemi",
   "ruleAddedSuccess": "Kural başarıyla eklendi",
@@ -1070,15 +1066,6 @@
   "serviceTypePhone": "Telefon Aboneliği",
   "serviceTypePlugin": "Eklenti Güncellemesi",
   "serviceTypeSms": "SMS Aboneliği",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Şifreleme Parolası Belirle",
   "settings": "Ayarlar",
   "settingsBackedUpTo": "Ayarlar şuraya yedeklendi: {path}",
@@ -1103,42 +1090,10 @@
   "simCardFilterRulesDescription": "SIM kart yuvalarına göre farklı filtreleme kuralları ayarlayın",
   "simCardFontSize": "SIM Kart Yazı Tipi Boyutu",
   "simCardPosition": "SIM Kart Konumu",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "SIM yuvası kuralları, her bir SIM yuvası için bağımsız filtreleme kuralları yapılandırmanıza olanak tanır.",
   "simRuleInstructionsTitle": "SIM Yuvası Kuralları",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Her bir SIM kart için bağımsız filtreleme kuralları yapılandırın:",
   "simSlotFilterSettingsTitle": "SIM Yuvası {slotNumber} Filtre Ayarları",
@@ -1167,7 +1122,6 @@
   "simSlotTitle": "SIM Yuvası {slotNumber}",
   "skip": "Atla",
   "smartCallerId": "Akıllı Arama Tanımlama",
-  "sms": "SMS",
   "smsFilterDescription": "SMS filtreleme, spam mesajlarını otomatik olarak filtrelemenize ve mesaj listenizi temiz tutmanıza yardımcı olur. Filtre kurallarını ve bildirim yöntemlerini ayarlayabilirsiniz.",
   "smsFilterDisabled": "SMS filtreleme devre dışı",
   "smsFilterEnabled": "SMS filtreleme etkin",
@@ -1185,7 +1139,6 @@
   "smsSubscription": "SMS Aboneliği",
   "smsSubscriptionAddedSuccessfully": "SMS aboneliği başarıyla eklendi",
   "smsSubscriptionRulesDescription": "URL üzerinden SMS kural listelerine abone olun, normal ifade eşleştirmesini destekler. Engelleme veya izin verme eylemleri ayarlayabilirsiniz.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Bazı izin istekleri reddedildi",
   "spamLikely": "Spam Olasılığı Yüksek",
   "startColor": "Başlangıç Rengi",
@@ -1278,9 +1231,7 @@
   },
   "takeaway": "Çıkarım",
   "telecommunication": "Telekomünikasyon",
-  "telegram": "Telegram",
   "telemarketing": "Telepazarlama",
-  "testButton": "TEST",
   "testConnectionButton": "Bağlantıyı Test Et",
   "textColorsSetting": "Metin ve Etiket Renkleri",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Bu uygulama, istenmeyen aramaları tanımlamanıza ve engellemenize olanak tanıyan güçlü bir arayan kimliği aracıdır.",
@@ -1617,7 +1568,6 @@
   "openInWebView": "WebView'da Aç",
   "pluginLabel": "Eklenti Etiketi",
   "pluginID": "Kimlik",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Mesaj Arka Plan Rengi",
   "clearAllCallLogs": "Tüm Çağrı Kayıtlarını Temizle",
   "clearAllCallLogsConfirmation": "Tüm çağrı kayıtlarını temizlemeyi onayla",
@@ -2192,10 +2142,6 @@
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
   },
-  "avatar": "Avatar",
-  "@avatar": {
-    "description": "The avatar of the user."
-  },
   "location": "Konum",
   "@location": {
     "description": "The location of the user."
@@ -2318,5 +2264,188 @@
   "separateSims": "Ayrı SIM'ler",
   "separateSimsDesc": "Her SIM kart için ayrı filtreleme kurallarını etkinleştir",
   "masterAndOverrides": "Ana Kontroller",
-  "masterAndOverridesDesc": "Genel Kural Ayarları"
+  "masterAndOverridesDesc": "Genel Kural Ayarları",
+  "themeLight": "Açık",
+  "themeDark": "Koyu",
+  "themeSystem": "Sistem Varsayılanı",
+  "ruleType": "Kural Türü",
+  "localDatabaseSyncTitle": "Yerel Veritabanı Senkronizasyonu",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Verileri cihazlar arasında senkronize edin",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Proje URL'si",
+  "supabaseAnonKey": "Anon Anahtarı",
+  "supabaseAnonKeyHint": "API Key, anonim genel anahtar",
+  "connectionString": "Bağlantı Dizesi (URI)",
+  "connectionStringHelper": "Yalnızca 'Veritabanını Başlat' için gereklidir",
+  "syncCallHistory": "Arama Geçmişini Senkronize Et",
+  "syncCallHistorySubtitle": "Senkronizasyona özel arama kaydını dahil et",
+  "requiredField": "Gerekli",
+  "requiredInitField": "Başlatma için gerekli",
+  "initDbButton": "Veritabanını Başlat",
+  "dbInitSuccess": "Veritabanı Başarıyla Başlatıldı!",
+  "syncSuccess": "Senkronizasyon Tamamlandı. Gönderilen: {pushed}, Alınan: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Hata",
+  "errorLoadingSettings": "Ayarlar yüklenirken hata oluştu",
+  "statusLabel": "Durum",
+  "statusConnected": "Bağlandı / Yapılandırıldı",
+  "statusNotConfigured": "Yapılandırılmadı",
+  "configSaved": "Yapılandırma Kaydedildi!",
+  "masterDeviceLabel": "Ana Cihaz (Yönetici)",
+  "masterDeviceHelp": "Yalnızca ana cihaz veritabanı yapısını başlatabilir.",
+  "syncIntervalLabel": "Otomatik Senkronizasyon Aralığı",
+  "syncIntervalValue": "Her {hours} saatte bir",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Varsayılanı kullanmak için boş bırakın",
+  "vipAccessSubtitle": "Ücretsiz deneyim için reklam izleyin veya VIP satın alın",
+  "failedToLoadSettingsSchema": "Ayar şeması yüklenemedi: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "Alan gereklidir",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Önce aramayı yanıtlayın, ardından hemen kapatın.",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupSourceTitle": "Kural Veritabanı Kaynağı",
+  "initialSetupSourceGithub": "GitHub Resmi Kaynağı",
+  "initialSetupSourceCdn": "Ayna CDN Hızlandırma Kaynağı",
+  "initialSetupSourceCustom": "Özel Ayna Kaynağı",
+  "initialSetupCustomUrlHint": "Özel ayna JSON yapılandırma URL'sini girin",
+  "initialSetupCustomUrlLoad": "Yapılandırmayı Yükle",
+  "initialSetupDetectedLocation": "Algılanan Konum",
+  "deepLinkImportTitle": "Yapılandırmayı İçe Aktar",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Eklenti",
+  "deepLinkTypeSubscription": "Abonelik",
+  "deepLinkDefaultPluginName": "İçe Aktarılan Eklenti",
+  "deepLinkDefaultSubName": "İçe Aktarılan Abonelik",
+  "deepLinkDetectedTitle": "Derin Bağlantı Algılandı",
+  "deepLinkNameLabel": "Ad",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Tür",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "İçe Aktarmayı Onayla",
+  "deepLinkEmptyUrlError": "URL boş olamaz",
+  "deepLinkPluginDownloadFailed": "Eklenti indirilemedi: {error}",
+  "deepLinkImportSuccess": "Başarıyla İçe Aktarıldı",
+  "deepLinkImportFailed": "İçe Aktarma Başarısız: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "İpucu: Bu kurulum sayfasını Ayarlar'dan istediğiniz zaman tekrar açabilirsiniz.",
+  "initialSetupGoToSettings": "Ayarlar'a Git",
+  "github": "GitHub",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "risk": "Risk",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "telegram": "Telegram",
+  "testButton": "TEST",
+  "pluginURL": "URL",
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  }
 }

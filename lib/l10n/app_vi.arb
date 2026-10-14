@@ -120,7 +120,6 @@
   "answerThenHangup": "Trả lời rồi cúp máy",
   "applicationSoftware": "Phần mềm ứng dụng",
   "apply": "Áp dụng",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "Ủy quyền thất bại: Vui lòng kiểm tra ID khách hàng và khóa",
   "authorizationFailedMessage": "Ủy quyền thất bại",
   "authorizationSuccessMessage": "Ủy quyền thành công",
@@ -424,7 +423,6 @@
   "editRule": "Chỉnh sửa quy tắc",
   "education": "Giáo dục",
   "elementPositionsSetting": "Vị trí phần tử",
-  "email": "Email",
   "enableCallFilter": "Bật Bộ lọc cuộc gọi",
   "enableCallFilterDescription": "Khi được bật, các cuộc gọi đến sẽ được kiểm tra dựa trên danh sách quy tắc bên dưới. Các quy tắc lọc cuộc gọi không được đồng bộ hóa giữa các thiết bị theo mặc định.",
   "enabled": "Đã bật",
@@ -602,7 +600,6 @@
     }
   },
   "getFree": "Nhận miễn phí",
-  "github": "GitHub",
   "globalFilterDescription": "Cấu hình bộ lọc toàn cầu cho tất cả các thẻ SIM:",
   "globalFilterFeature": "• Bộ lọc toàn cầu: Các quy tắc cơ bản cho tất cả các cuộc gọi đến",
   "globalFilterSettings": "Cài đặt bộ lọc toàn cầu",
@@ -656,7 +653,6 @@
   "interceptionActionSettingsSubtitle": "Đặt cách xử lý các cuộc gọi bị chặn",
   "interceptionActionSettingsTitle": "Cài đặt hành động chặn",
   "interceptionTimeInterval": "Khoảng thời gian chặn",
-  "internet": "Internet",
   "intervalSetSuccess": "Khoảng thời gian cập nhật {service} đã được đặt thành {days} ngày",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -861,7 +857,6 @@
   "numberTypeColor": "Màu Loại Số",
   "numberTypeFontSize": "Cỡ chữ Loại Số",
   "numberTypePosition": "Vị trí Loại Số",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Trình quản lý bảo mật cuộc gọi của bạn đã sẵn sàng, hãy bắt đầu tận hưởng trải nghiệm cuộc gọi an toàn!",
   "onboardingLanguageDescription": "Chọn ngôn ngữ ưu tiên của bạn để có trải nghiệm tốt nhất.",
   "onboardingPermissionsDescription": "Để cung cấp đầy đủ dịch vụ, chúng tôi cần các quyền sau:",
@@ -909,10 +904,8 @@
   "phoneNumberTypePremiumRate": "Cước phí cao",
   "phoneNumberTypeSharedCost": "Chia sẻ chi phí",
   "phoneNumberTypeTollFree": "Miễn phí",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Không xác định",
   "phoneNumberTypeVoicemail": "Thư thoại",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Quyền điện thoại",
   "phonePermissionDescription": "Được sử dụng để nhận dạng và chặn các cuộc gọi đến.",
   "phoneRule": "Quy tắc điện thoại",
@@ -1070,15 +1063,6 @@
   "serviceTypePhone": "Đăng ký điện thoại",
   "serviceTypePlugin": "Cập nhật plugin",
   "serviceTypeSms": "Đăng ký SMS",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Đặt mật khẩu mã hóa",
   "settings": "Cài đặt",
   "settingsBackedUpTo": "Cài đặt đã sao lưu tới: {path}",
@@ -1103,42 +1087,10 @@
   "simCardFilterRulesDescription": "Đặt các quy tắc lọc khác nhau dựa trên khe cắm SIM",
   "simCardFontSize": "Cỡ chữ thẻ SIM",
   "simCardPosition": "Vị trí thẻ SIM",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "Quy tắc khe cắm SIM cho phép bạn định cấu hình quy tắc lọc độc lập cho từng khe cắm SIM.",
   "simRuleInstructionsTitle": "Quy tắc Khe cắm SIM",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Cấu hình quy tắc lọc độc lập cho từng thẻ SIM:",
   "simSlotFilterSettingsTitle": "Cài đặt Lọc Khe cắm SIM {slotNumber}",
@@ -1167,7 +1119,6 @@
   "simSlotTitle": "Khe cắm SIM {slotNumber}",
   "skip": "Bỏ qua",
   "smartCallerId": "Nhận dạng Cuộc gọi Thông minh",
-  "sms": "SMS",
   "smsFilterDescription": "Lọc SMS giúp bạn tự động lọc các tin nhắn rác và giữ cho danh sách tin nhắn của bạn sạch sẽ. Bạn có thể đặt quy tắc lọc và phương thức thông báo.",
   "smsFilterDisabled": "Đã tắt lọc SMS",
   "smsFilterEnabled": "Đã bật lọc SMS",
@@ -1185,14 +1136,12 @@
   "smsSubscription": "Đăng ký SMS",
   "smsSubscriptionAddedSuccessfully": "Đã thêm đăng ký SMS thành công",
   "smsSubscriptionRulesDescription": "Đăng ký danh sách quy tắc SMS qua URL, hỗ trợ khớp biểu thức chính quy. Bạn có thể đặt hành động chặn hoặc cho phép.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Một số yêu cầu quyền bị từ chối",
   "spamLikely": "Có thể là thư rác",
   "startColor": "Màu Bắt đầu",
   "startDate": "Ngày Bắt đầu",
   "startUsing": "Bắt đầu sử dụng",
   "statAnswered": "Đã trả lời",
-  "statBlocked": "Blocked",
   "statistics": "Thống kê",
   "statisticsPageTitle": "Phân tích Dữ liệu",
   "stirColor": "Màu STIR",
@@ -1278,7 +1227,6 @@
   },
   "takeaway": "Điểm rút gọn",
   "telecommunication": "Viễn thông",
-  "telegram": "Telegram",
   "telemarketing": "Tiếp thị qua điện thoại",
   "testButton": "KIỂM TRA",
   "testConnectionButton": "Kiểm tra kết nối",
@@ -1616,8 +1564,6 @@
   "pleaseEnterAtLeastOneNumber": "Vui lòng nhập ít nhất một số.",
   "openInWebView": "Mở trong WebView",
   "pluginLabel": "Nhãn Plugin",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Màu nền Tin nhắn",
   "clearAllCallLogs": "Xóa Tất cả Nhật ký Cuộc gọi",
   "clearAllCallLogsConfirmation": "Xác nhận xóa tất cả nhật ký cuộc gọi",
@@ -2318,5 +2264,188 @@
   "separateSims": "SIM Riêng biệt",
   "separateSimsDesc": "Bật quy tắc lọc riêng cho từng thẻ SIM",
   "masterAndOverrides": "Điều khiển Chính",
-  "masterAndOverridesDesc": "Cài đặt Quy tắc Chung"
+  "masterAndOverridesDesc": "Cài đặt Quy tắc Chung",
+  "themeLight": "Sáng",
+  "themeDark": "Tối",
+  "themeSystem": "Mặc định hệ thống",
+  "ruleType": "Loại quy tắc",
+  "localDatabaseSyncTitle": "Đồng bộ cơ sở dữ liệu cục bộ",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Đồng bộ dữ liệu giữa các thiết bị",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "URL dự án Supabase",
+  "supabaseAnonKey": "Khóa ẩn danh",
+  "supabaseAnonKeyHint": "API Key, khóa công khai ẩn danh",
+  "connectionString": "Chuỗi kết nối (URI)",
+  "connectionStringHelper": "Chỉ cần thiết khi 'Khởi tạo cơ sở dữ liệu'",
+  "syncCallHistory": "Đồng bộ lịch sử cuộc gọi",
+  "syncCallHistorySubtitle": "Bao gồm nhật ký cuộc gọi riêng tư trong đồng bộ",
+  "requiredField": "Bắt buộc",
+  "requiredInitField": "Bắt buộc khi khởi tạo",
+  "initDbButton": "Khởi tạo cơ sở dữ liệu",
+  "dbInitSuccess": "Khởi tạo cơ sở dữ liệu thành công!",
+  "syncSuccess": "Đồng bộ hoàn tất. Đã gửi: {pushed}, Đã nhận: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Lỗi",
+  "errorLoadingSettings": "Lỗi khi tải cài đặt",
+  "statusLabel": "Trạng thái",
+  "statusConnected": "Đã kết nối / Đã cấu hình",
+  "statusNotConfigured": "Chưa cấu hình",
+  "configSaved": "Đã lưu cấu hình!",
+  "masterDeviceLabel": "Thiết bị chính (Admin)",
+  "masterDeviceHelp": "Chỉ thiết bị chính mới có thể khởi tạo cấu trúc cơ sở dữ liệu.",
+  "syncIntervalLabel": "Khoảng thời gian tự động đồng bộ",
+  "syncIntervalValue": "Mỗi {hours} giờ",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Để trống để sử dụng mặc định",
+  "vipAccessSubtitle": "Xem quảng cáo miễn phí hoặc mua VIP",
+  "failedToLoadSettingsSchema": "Không thể tải sơ đồ cài đặt: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "Trường này là bắt buộc",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Trả lời cuộc gọi trước, sau đó cúp máy ngay lập tức.",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupSourceTitle": "Nguồn cơ sở dữ liệu quy tắc",
+  "initialSetupSourceGithub": "Nguồn chính thức GitHub",
+  "initialSetupSourceCdn": "Nguồn tăng tốc CDN gương",
+  "initialSetupSourceCustom": "Nguồn gương tự lưu trữ",
+  "initialSetupCustomUrlHint": "Nhập URL cấu hình JSON gương tự lưu trữ",
+  "initialSetupCustomUrlLoad": "Tải cấu hình",
+  "initialSetupDetectedLocation": "Vị trí đã phát hiện",
+  "deepLinkImportTitle": "Nhập cấu hình",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Gói đăng ký",
+  "deepLinkDefaultPluginName": "Plugin đã nhập",
+  "deepLinkDefaultSubName": "Gói đăng ký đã nhập",
+  "deepLinkDetectedTitle": "Đã phát hiện liên kết sâu",
+  "deepLinkNameLabel": "Tên",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Loại",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Xác nhận nhập",
+  "deepLinkEmptyUrlError": "URL không được để trống",
+  "deepLinkPluginDownloadFailed": "Không thể tải xuống plugin: {error}",
+  "deepLinkImportSuccess": "Nhập thành công",
+  "deepLinkImportFailed": "Nhập thất bại: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Mẹo: Bạn có thể mở lại trang cài đặt này bất kỳ lúc nào trong Cài đặt.",
+  "initialSetupGoToSettings": "Đi đến Cài đặt",
+  "appName": "Your Call Your Rule",
+  "email": "Email",
+  "github": "GitHub",
+  "internet": "Internet",
+  "okButton": "OK",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "statBlocked": "Blocked",
+  "telegram": "Telegram",
+  "pluginID": "ID",
+  "pluginURL": "URL"
 }

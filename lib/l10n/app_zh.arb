@@ -2372,5 +2372,74 @@
         "type": "String"
       }
     }
-  }
+  },
+  "themeLight": "淺色",
+  "themeDark": "深色",
+  "themeSystem": "跟隨系統",
+  "ruleType": "規則類型",
+  "localDatabaseSyncTitle": "本地資料庫同步",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "跨裝置同步資料",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase 專案 URL",
+  "supabaseAnonKey": "Anon 金鑰",
+  "supabaseAnonKeyHint": "API Key，匿名金鑰",
+  "connectionString": "連線字串 (URI)",
+  "connectionStringHelper": "僅在「初始化資料庫」時需要",
+  "syncCallHistory": "同步通話記錄",
+  "syncCallHistorySubtitle": "同步時包含私人通話日誌",
+  "requiredField": "必填",
+  "requiredInitField": "初始化必填",
+  "initDbButton": "初始化資料庫",
+  "dbInitSuccess": "資料庫初始化成功！",
+  "syncSuccess": "同步完成。傳送: {pushed}，接收: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "錯誤",
+  "errorLoadingSettings": "載入設定錯誤",
+  "statusLabel": "狀態",
+  "statusConnected": "已連線 / 已設定",
+  "statusNotConfigured": "未設定",
+  "configSaved": "設定已儲存！",
+  "masterDeviceLabel": "主裝置 (管理員)",
+  "masterDeviceHelp": "只有主裝置可以初始化資料庫結構。",
+  "syncIntervalLabel": "自動同步間隔",
+  "syncIntervalValue": "每 {hours} 小時",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "留空使用預設值",
+  "vipAccessSubtitle": "觀看廣告免費體驗或購買 VIP",
+  "failedToLoadSettingsSchema": "載入設定架構失敗: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "提示：後續您可以隨時在「設定」中重新開啟此設定頁面。",
+  "initialSetupGoToSettings": "前往設定",
+  "separateSims": "獨立 SIM 卡規則",
+  "separateSimsDesc": "為每張 SIM 卡啟用獨立的過濾規則",
+  "masterAndOverrides": "總控開關",
+  "masterAndOverridesDesc": "全域規則設定"
 }

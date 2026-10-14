@@ -909,10 +909,8 @@
   "phoneNumberTypePremiumRate": "प्रीमियम दर",
   "phoneNumberTypeSharedCost": "साझा लागत",
   "phoneNumberTypeTollFree": "टोल फ्री",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "अज्ञात",
   "phoneNumberTypeVoicemail": "वॉइसमेल",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "फ़ोन अनुमति",
   "phonePermissionDescription": "इनकमिंग कॉल की पहचान और ब्लॉक करने के लिए उपयोग किया जाता है।",
   "phoneRule": "फ़ोन नियम",
@@ -1070,15 +1068,6 @@
   "serviceTypePhone": "फ़ोन सदस्यता",
   "serviceTypePlugin": "प्लगइन अपडेट",
   "serviceTypeSms": "एसएमएस सदस्यता",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "एन्क्रिप्शन पासवर्ड सेट करें",
   "settings": "सेटिंग्स",
   "settingsBackedUpTo": "सेटिंग्स यहाँ बैकअप की गई हैं: {path}",
@@ -1120,26 +1109,6 @@
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
   },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
-  },
   "simSlotFilterDescription": "प्रत्येक सिम कार्ड के लिए स्वतंत्र फ़िल्टरिंग नियम कॉन्फ़िगर करें:",
   "simSlotFilterSettingsTitle": "SIM स्लॉट {slotNumber} फ़िल्टर सेटिंग्स",
   "@simSlotFilterSettingsTitle": {
@@ -1167,7 +1136,6 @@
   "simSlotTitle": "SIM स्लॉट {slotNumber}",
   "skip": "छोड़ें",
   "smartCallerId": "स्मार्ट कॉलर आईडी पहचान",
-  "sms": "SMS",
   "smsFilterDescription": "SMS फ़िल्टरिंग आपको स्पैम संदेशों को स्वचालित रूप से फ़िल्टर करने और आपकी संदेश सूची को साफ़ रखने में मदद करती है। आप फ़िल्टर नियम और सूचना विधियाँ सेट कर सकते हैं।",
   "smsFilterDisabled": "SMS फ़िल्टरिंग अक्षम",
   "smsFilterEnabled": "SMS फ़िल्टरिंग सक्षम",
@@ -1185,7 +1153,6 @@
   "smsSubscription": "SMS सदस्यता",
   "smsSubscriptionAddedSuccessfully": "SMS सदस्यता सफलतापूर्वक जोड़ी गई",
   "smsSubscriptionRulesDescription": "URL के माध्यम से SMS नियम सूचियों की सदस्यता लें, जो रेगुलर एक्सप्रेशन मिलान का समर्थन करती हैं। आप ब्लॉक या अनुमति क्रियाएँ सेट कर सकते हैं।",
-  "smsTab": "SMS",
   "somePermissionsDenied": "कुछ अनुमतियों के अनुरोध अस्वीकार कर दिए गए",
   "spamLikely": "संभावित स्पैम",
   "startColor": "प्रारंभ रंग",
@@ -2318,5 +2285,167 @@
   "separateSims": "अलग सिम",
   "separateSimsDesc": "प्रत्येक सिम कार्ड के लिए अलग फ़िल्टरिंग नियम सक्षम करें",
   "masterAndOverrides": "मास्टर नियंत्रण",
-  "masterAndOverridesDesc": "वैश्विक नियम सेटिंग्स"
+  "masterAndOverridesDesc": "वैश्विक नियम सेटिंग्स",
+  "themeLight": "लाइट",
+  "themeDark": "डार्क",
+  "themeSystem": "सिस्टम डिफ़ॉल्ट",
+  "ruleType": "नियम प्रकार",
+  "localDatabaseSyncTitle": "स्थानीय डेटाबेस सिंक",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "उपकरणों के बीच डेटा सिंक करें",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase प्रोजेक्ट URL",
+  "supabaseAnonKey": "Anon कुंजी",
+  "supabaseAnonKeyHint": "API Key, सार्वजनिक अनाम कुंजी",
+  "connectionString": "कनेक्शन स्ट्रिंग (URI)",
+  "connectionStringHelper": "केवल 'डेटाबेस प्रारंभ करें' के लिए आवश्यक",
+  "syncCallHistory": "कॉल इतिहास सिंक करें",
+  "syncCallHistorySubtitle": "सिंक में निजी कॉल लॉग शामिल करें",
+  "requiredField": "आवश्यक",
+  "requiredInitField": "प्रारंभ करने के लिए आवश्यक",
+  "initDbButton": "डेटाबेस प्रारंभ करें",
+  "dbInitSuccess": "डेटाबेस सफलतापूर्वक प्रारंभ हुआ!",
+  "syncSuccess": "सिंक पूरा हुआ। भेजा गया: {pushed}, प्राप्त: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "त्रुटि",
+  "errorLoadingSettings": "सेटिंग्स लोड करने में त्रुटि",
+  "statusLabel": "स्थिति",
+  "statusConnected": "कनेक्टेड / कॉन्फ़िगर किया गया",
+  "statusNotConfigured": "कॉन्फ़िगर नहीं किया गया",
+  "configSaved": "कॉन्फ़िगरेशन सहेजा गया!",
+  "masterDeviceLabel": "मास्टर डिवाइस (एडमिन)",
+  "masterDeviceHelp": "केवल मास्टर डिवाइस डेटाबेस संरचना को प्रारंभ कर सकता है।",
+  "syncIntervalLabel": "ऑटो-सिंक अंतराल",
+  "syncIntervalValue": "हर {hours} घंटे",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "डिफ़ॉल्ट का उपयोग करने के लिए खाली छोड़ें",
+  "vipAccessSubtitle": "मुफ्त के लिए विज्ञापन देखें या VIP खरीदें",
+  "failedToLoadSettingsSchema": "सेटिंग्स स्कीमा लोड करने में विफल: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "क्षेत्र आवश्यक है",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "पहले कॉल का उत्तर दें, फिर तुरंत काट दें।",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupSourceTitle": "नियम डेटाबेस स्रोत",
+  "initialSetupSourceGithub": "GitHub आधिकारिक स्रोत",
+  "initialSetupSourceCdn": "मिरर CDN त्वरण स्रोत",
+  "initialSetupSourceCustom": "स्व-होस्टेड मिरर स्रोत",
+  "initialSetupCustomUrlHint": "स्व-होस्टेड मिरर JSON कॉन्फ़िगरेशन URL दर्ज करें",
+  "initialSetupCustomUrlLoad": "कॉन्फ़िगरेशन लोड करें",
+  "initialSetupDetectedLocation": "पहचाना गया स्थान",
+  "deepLinkImportTitle": "कॉन्फ़िगरेशन आयात करें",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "प्लगइन",
+  "deepLinkTypeSubscription": "सदस्यता",
+  "deepLinkDefaultPluginName": "आयातित प्लगइन",
+  "deepLinkDefaultSubName": "आयातित सदस्यता",
+  "deepLinkDetectedTitle": "डीप लिंक पहचाना गया",
+  "deepLinkNameLabel": "नाम",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "प्रकार",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "आयात की पुष्टि करें",
+  "deepLinkEmptyUrlError": "URL खाली नहीं हो सकता",
+  "deepLinkPluginDownloadFailed": "प्लगइन डाउनलोड करने में विफल: {error}",
+  "deepLinkImportSuccess": "सफलतापूर्वक आयात किया गया",
+  "deepLinkImportFailed": "आयात विफल: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "सुझाव: आप सेटिंग्स में किसी भी समय इस सेटअप पृष्ठ को पुनः खोल सकते हैं।",
+  "initialSetupGoToSettings": "सेटिंग्स पर जाएं",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS"
 }

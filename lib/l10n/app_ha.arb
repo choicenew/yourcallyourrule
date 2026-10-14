@@ -328,7 +328,6 @@
   "currentDeviceTitle": "Na'ura ta Yanzu",
   "currentLanguage": "Harshen Yanzu",
   "customerService": "Sabis na Abokin Ciniki",
-  "dashboardTab": "Dashboard",
   "dataAnalysis": "Binciken Bayanai",
   "dataLoadFailure": "An kasa loda bayanan: {error}",
   "@dataLoadFailure": {
@@ -416,7 +415,6 @@
   "done": "An gama",
   "dualSimAdvice": "Wannan fasalin yana da amfani musamman ga wayoyin dual-SIM don saita daban-daban dabarun tacewa don SIM katin aiki da na sirri.",
   "earlier": "A baya",
-  "ecommerce": "Ecommerce",
   "edit": "Gyara",
   "editContact": "Gyara Lara",
   "editLabel": "Gyara Lakabi",
@@ -602,7 +600,6 @@
     }
   },
   "getFree": "Samu Kyauta",
-  "github": "GitHub",
   "globalFilterDescription": "Saita tace na duniya don duk katunan SIM:",
   "globalFilterFeature": "• Tace Duniya: Shirye-shiryen asali don duk kiran da ke shigowa",
   "globalFilterSettings": "Saitunan Tace Duniya",
@@ -790,18 +787,12 @@
   "markExchange": "Tushen Alama",
   "markPhone": "Yiwa Lambar Wayar Alama",
   "markPhoneFailed": "An yi kasa mark phone number: {error}",
-  "markPhoneManagementTitle": "Mark Phone Management",
   "markPhoneSuccess": "An yi nasarar marking phone number",
   "matchFailedMessage": "Match ya gaza.",
-  "matchNumbersWithSpecialCharacters": "matches specific number format",
   "matchNumbersWithSpecialCharactersTitle": "Match lambobi tare da haruffa na musamman:",
-  "matchSpecificDigitPatterns": "matches XXX-XXXX-XXXX format",
   "matchSpecificDigitPatternsTitle": "Match lambobi na musamman:",
   "matchSuccessfulMessage": "Match ya yi nasara!",
-  "medical": "Medical",
   "membershipPrivileges": "Memba Privileges",
-  "migrationTool": "Migration Tool",
-  "minutes": "minutes",
   "month": "Wata",
   "monthly": "Wata-wata",
   "monthlyCallCount": "Wata-wata Kira",
@@ -809,7 +800,6 @@
   "monthlyMembershipDescription": "Bude duk premium fasali, sabunta ta atomatik duk wata",
   "monthlyTotal": "Wata-wata Jimlar",
   "moreOptions": " Karin Zaɓuɓɓuka",
-  "mute": "Mute",
   "name": "Suna",
   "nameAndPhoneNumberCannotBeEmpty": "Suna da lambar waya ba za su iya zama fanko ba",
   "nameColor": "Suna Launi",
@@ -861,7 +851,6 @@
   "numberTypeColor": "Lamba Nau'in Launi",
   "numberTypeFontSize": "Lamba Nau'in Girman Font",
   "numberTypePosition": "Lamba Nau'in Matsayi",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Manajan tsaron kiranku ya shirya, fara jin daɗin kwarewar kira mai tsaro!",
   "onboardingLanguageDescription": "Zaɓi yaren da kuka fi so don kwarewa mafi kyau.",
   "onboardingPermissionsDescription": "Don samar da cikakken sabis, muna buƙatar izini masu zuƙan:",
@@ -909,10 +898,8 @@
   "phoneNumberTypePremiumRate": "Farashi na Musamman",
   "phoneNumberTypeSharedCost": "Farashi na Tarewa",
   "phoneNumberTypeTollFree": "Ba Ladi",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Babu Tabbata",
   "phoneNumberTypeVoicemail": "Muryar Saƙo",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Amincin Wayar",
   "phonePermissionDescription": "Ana amfani dashi don gano da toshe kira masu shigowa.",
   "phoneRule": "Doka ta Wayar",
@@ -988,7 +975,6 @@
   "requestAllPermissions": "Nemi Duk Izinai",
   "requestPermission": "Nemi Izin",
   "requestPermissionFailed": "Gaza neman izini: {error}",
-  "requiredMarks": "{count} Marks",
   "reset": "Sake saiti",
   "restore": "Maido",
   "restoreApplicationSettingsFromBackup": "Maido da Saitunan Aikace-aikacen daga Madara",
@@ -1001,7 +987,6 @@
   "retry": "Sublim",
   "ridesharing": "Tafiya da Wurin Dauka",
   "risk": "Hatsari",
-  "robocall": "Robocall",
   "ruleAction": "Aikin Dokar",
   "ruleAddedSuccess": "An ƙara dokar yadda ya kamata",
   "@ruleAddedSuccess": {
@@ -1070,15 +1055,6 @@
   "serviceTypePhone": "Biyan Kuɗin Waya",
   "serviceTypePlugin": "Sabunta Plugin",
   "serviceTypeSms": "Biyan Kuɗin SMS",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Saita Kalmar Sirri ta Ƙididdigewa",
   "settings": "Saituna",
   "settingsBackedUpTo": "An adana saitunan zuwa: {path}",
@@ -1103,42 +1079,10 @@
   "simCardFilterRulesDescription": "Saita daban-daban dokokin tacewa dangane da ramummuka na SIM ɗin Waya",
   "simCardFontSize": "Girman Font ɗin SIM ɗin Waya",
   "simCardPosition": "Matsayin SIM ɗin Waya",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "Dokokin ramin SIM suna ba ka damar saita dokokin tacewa masu zaman kansu don kowane ramin SIM.",
   "simRuleInstructionsTitle": "Dokokin Ramuka na SIM",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Saita dokokin tacewa masu zaman kansu don kowace katin SIM:",
   "simSlotFilterSettingsTitle": "Saitunan Tacewa na Ramin SIM {slotNumber}",
@@ -1167,7 +1111,6 @@
   "simSlotTitle": "Ramin SIM {slotNumber}",
   "skip": "Tsallake",
   "smartCallerId": "Gano Kira Mai Kyau",
-  "sms": "SMS",
   "smsFilterDescription": "Tacewar SMS tana taimaka maka tattara saƙonnin spam ta atomatik kuma ka tsare lissafin saƙonninka. Zaka iya saita dokokin tacewa da hanyoyin sanarwa.",
   "smsFilterDisabled": "Tacewar SMS ta kashe",
   "smsFilterEnabled": "Tacewar SMS ta kunna",
@@ -1185,7 +1128,6 @@
   "smsSubscription": "Biyan Kuɗin SMS",
   "smsSubscriptionAddedSuccessfully": "An ƙara biyan kuɗin SMS yadda ya kamata",
   "smsSubscriptionRulesDescription": "Biyan kuɗi zuwa jerin dokokin SMS ta hanyar URL, yana goyan bayan dacewa da dabarun regex. Zaka iya saita ayyukan toshewa ko yarda.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "An ƙi wasu buƙatun izini",
   "spamLikely": "Wataƙila Spam",
   "startColor": "Launin Farko",
@@ -1268,17 +1210,8 @@
   "tabBlocked": "An Hana",
   "tabMissed": "An Rasa",
   "tabOutgoing": "Fita",
-  "tagLabel": "Tag: {tag}",
-  "@tagLabel": {
-    "placeholders": {
-      "tag": {
-        "type": "String"
-      }
-    }
-  },
   "takeaway": "Ɗauka",
   "telecommunication": "Sadarwa ta Waya",
-  "telegram": "Telegram",
   "telemarketing": "Sarrafa ta Waya",
   "testButton": "GWADA",
   "testConnectionButton": "Gwada Haɗin Kai",
@@ -1616,8 +1549,6 @@
   "pleaseEnterAtLeastOneNumber": "Don Allah shigar da akalla lamba ɗaya.",
   "openInWebView": "Buɗe a cikin WebView",
   "pluginLabel": "Alamar Plugin",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Launin Bango na Saƙo",
   "clearAllCallLogs": "Share Duk Tarihin Kira",
   "clearAllCallLogsConfirmation": "Tabbatar don share duk tarihin kira",
@@ -2298,5 +2229,223 @@
         "example": "5"
       }
     }
-  }
+  },
+  "dashboardTab": "Dashboard",
+  "ecommerce": "Ecommerce",
+  "github": "GitHub",
+  "markPhoneManagementTitle": "Mark Phone Management",
+  "matchNumbersWithSpecialCharacters": "matches specific number format",
+  "matchSpecificDigitPatterns": "matches XXX-XXXX-XXXX format",
+  "medical": "Medical",
+  "migrationTool": "Migration Tool",
+  "minutes": "minutes",
+  "mute": "Mute",
+  "okButton": "OK",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "requiredMarks": "{count} Marks",
+  "robocall": "Robocall",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "tagLabel": "Tag: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "telegram": "Telegram",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "themeSystem": "System",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "ruleType": "Rule Type",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Retry",
+  "initialSetupSkip": "Skip",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings",
+  "separateSims": "Separate SIMs",
+  "separateSimsDesc": "Enable separate filtering rules for each SIM card",
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }

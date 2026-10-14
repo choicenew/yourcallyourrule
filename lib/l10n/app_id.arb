@@ -120,7 +120,6 @@
   "answerThenHangup": "Jawab lalu tutup telepon",
   "applicationSoftware": "Perangkat Lunak Aplikasi",
   "apply": "Terapkan",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "Otorisasi gagal: Harap periksa ID klien dan kunci",
   "authorizationFailedMessage": "Otorisasi gagal",
   "authorizationSuccessMessage": "Otorisasi berhasil",
@@ -148,7 +147,6 @@
   "backupToCloud": "Cadangkan ke Cloud",
   "backupToCloudFailed": "Gagal mencadangkan ke cloud: {error}",
   "backupToCloudSuccess": "Berhasil dicadangkan ke cloud",
-  "bank": "Bank",
   "basicInfo": "Informasi Dasar",
   "basicRuleFilter": "Filter Aturan Dasar",
   "basicRuleFiltering": "Pemfilteran Aturan Dasar",
@@ -417,14 +415,11 @@
   "dualSimAdvice": "Fitur ini sangat berguna untuk ponsel dual-SIM untuk mengatur strategi pemfilteran yang berbeda untuk kartu SIM kerja dan pribadi.",
   "earlier": "Lebih Awal",
   "ecommerce": "E-commerce",
-  "edit": "Edit",
   "editContact": "Edit Kontak",
-  "editLabel": "Edit Label",
   "editPhoneRule": "Edit Aturan Telepon",
   "editRule": "Edit Aturan",
   "education": "Pendidikan",
   "elementPositionsSetting": "Posisi Elemen",
-  "email": "Email",
   "enableCallFilter": "Aktifkan Filter Panggilan",
   "enableCallFilterDescription": "Saat diaktifkan, panggilan masuk diperiksa terhadap daftar aturan di bawah ini. Aturan pemfilteran panggilan tidak disinkronkan antar perangkat secara default.",
   "enabled": "Diaktifkan",
@@ -557,7 +552,6 @@
   "features": "Fitur",
   "fetchingCallerIdInfo": "Mengambil informasi ID penelepon...",
   "fileSavedTo": "File disimpan ke: {path}",
-  "filter": "Filter",
   "filterByLabel": "Filter berdasarkan Label",
   "filterControlPanelTitle": "Panel Kontrol Filter",
   "filterControlSubtitle": "Kelola status aktif/nonaktif semua filter",
@@ -569,7 +563,6 @@
   "filterPriorityNote": "Catatan: Ada hubungan prioritas antar filter, silakan merujuk ke dokumentasi bantuan untuk detailnya",
   "filterSettings": "Pengaturan Filter",
   "filterSettingsTitle": "Pengaturan Filter",
-  "filterSMS": "Filter SMS",
   "filterToggleInstructions": "Aktifkan atau nonaktifkan filter untuk slot SIM ini:",
   "filterToggleStatus": "Filter {status}: {filterName}",
   "@filterToggleStatus": {
@@ -602,7 +595,6 @@
     }
   },
   "getFree": "Dapatkan Gratis",
-  "github": "GitHub",
   "globalFilterDescription": "Konfigurasikan filter global untuk semua kartu SIM:",
   "globalFilterFeature": "• Filter Global: Aturan dasar untuk semua panggilan masuk",
   "globalFilterSettings": "Pengaturan Filter Global",
@@ -656,7 +648,6 @@
   "interceptionActionSettingsSubtitle": "Atur cara panggilan yang diblokir ditangani",
   "interceptionActionSettingsTitle": "Pengaturan Tindakan Intersepsi",
   "interceptionTimeInterval": "Interval Waktu Intersepsi",
-  "internet": "Internet",
   "intervalSetSuccess": "Interval pembaruan {service} diatur ke {days} hari",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -677,7 +668,6 @@
   "jsonFormat": "Format JSON",
   "keepAllVersions": "Simpan Semua Versi",
   "keepAllVersionsDescription": "Simpan semua versi historis dari setiap cadangan",
-  "label": "Label",
   "labelAddedSuccessfully": "Label \"{name}\" berhasil ditambahkan",
   "labelCategories": "Kategori Label",
   "labelDeleted": "Label dihapus",
@@ -693,7 +683,6 @@
   "labelsFontSize": "Ukuran Font Label",
   "labelsImportedSuccessfully": "Berhasil mengimpor {count} label",
   "labelsPosition": "Posisi Label",
-  "labelTag": "Label: {labelId}",
   "labelUpdateFailed": "Gagal memperbarui label: {error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -861,7 +850,6 @@
   "numberTypeColor": "Warna Tipe Nomor",
   "numberTypeFontSize": "Ukuran Font Tipe Nomor",
   "numberTypePosition": "Posisi Tipe Nomor",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Manajer keamanan panggilan Anda siap, mulailah menikmati pengalaman panggilan yang aman!",
   "onboardingLanguageDescription": "Pilih bahasa pilihan Anda untuk pengalaman terbaik.",
   "onboardingPermissionsDescription": "Untuk memberikan layanan penuh, kami memerlukan izin berikut:",
@@ -904,15 +892,12 @@
   "phoneNumberTypeFixedLine": "Jalur tetap",
   "phoneNumberTypeFixedLineOrMobile": "Jalur tetap atau seluler",
   "phoneNumberTypeMobile": "Seluler",
-  "phoneNumberTypePager": "Pager",
   "phoneNumberTypePersonalNumber": "Nomor pribadi",
   "phoneNumberTypePremiumRate": "Tarif premium",
   "phoneNumberTypeSharedCost": "Biaya bersama",
   "phoneNumberTypeTollFree": "Bebas pulsa",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Tidak dikenal",
   "phoneNumberTypeVoicemail": "Pesan suara",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Izin Telepon",
   "phonePermissionDescription": "Digunakan untuk mengidentifikasi dan memblokir panggilan masuk.",
   "phoneRule": "Aturan Telepon",
@@ -1001,7 +986,6 @@
   "retry": "Coba Lagi",
   "ridesharing": "Berbagi Tumpangan",
   "risk": "Risiko",
-  "robocall": "Robocall",
   "ruleAction": "Tindakan Aturan",
   "ruleAddedSuccess": "Aturan berhasil ditambahkan",
   "@ruleAddedSuccess": {
@@ -1070,15 +1054,6 @@
   "serviceTypePhone": "Langganan Telepon",
   "serviceTypePlugin": "Pembaruan Plugin",
   "serviceTypeSms": "Langganan SMS",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Atur Kata Sandi Enkripsi",
   "settings": "Pengaturan",
   "settingsBackedUpTo": "Pengaturan dicadangkan ke: {path}",
@@ -1103,42 +1078,10 @@
   "simCardFilterRulesDescription": "Atur aturan pemfilteran yang berbeda berdasarkan slot kartu SIM",
   "simCardFontSize": "Ukuran Font Kartu SIM",
   "simCardPosition": "Posisi Kartu SIM",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "Aturan slot SIM memungkinkan Anda mengonfigurasi aturan pemfilteran independen untuk setiap slot SIM.",
   "simRuleInstructionsTitle": "Aturan Slot SIM",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Konfigurasikan aturan pemfilteran independen untuk setiap kartu SIM:",
   "simSlotFilterSettingsTitle": "Pengaturan Filter Slot SIM {slotNumber}",
@@ -1167,7 +1110,6 @@
   "simSlotTitle": "Slot SIM {slotNumber}",
   "skip": "Lewati",
   "smartCallerId": "Identifikasi Pemanggil Cerdas",
-  "sms": "SMS",
   "smsFilterDescription": "Pemfilteran SMS membantu Anda secara otomatis memfilter pesan spam dan menjaga daftar pesan Anda tetap bersih. Anda dapat mengatur aturan filter dan metode notifikasi.",
   "smsFilterDisabled": "Pemfilteran SMS dinonaktifkan",
   "smsFilterEnabled": "Pemfilteran SMS diaktifkan",
@@ -1185,7 +1127,6 @@
   "smsSubscription": "Langganan SMS",
   "smsSubscriptionAddedSuccessfully": "Langganan SMS berhasil ditambahkan",
   "smsSubscriptionRulesDescription": "Berlangganan daftar aturan SMS melalui URL, mendukung pencocokan ekspresi reguler. Anda dapat mengatur tindakan blokir atau izinkan.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Beberapa permintaan izin ditolak",
   "spamLikely": "Kemungkinan Spam",
   "startColor": "Warna Mulai",
@@ -1268,18 +1209,8 @@
   "tabBlocked": "Diblokir",
   "tabMissed": "Tidak Terjawab",
   "tabOutgoing": "Keluar",
-  "tagLabel": "Tag: {tag}",
-  "@tagLabel": {
-    "placeholders": {
-      "tag": {
-        "type": "String"
-      }
-    }
-  },
   "takeaway": "Ringkasan",
   "telecommunication": "Telekomunikasi",
-  "telegram": "Telegram",
-  "telemarketing": "Telemarketing",
   "testButton": "UJI",
   "testConnectionButton": "Uji Koneksi",
   "textColorsSetting": "Warna Teks & Label",
@@ -1302,11 +1233,9 @@
     }
   },
   "today": "Hari Ini",
-  "total": "Total",
   "totalBlocked": "Total Diblokir",
   "transferDataBetweenDevicesOrPlatforms": "Transfer data antar perangkat atau platform",
   "travelTicketing": "Tiket Perjalanan",
-  "tutorial": "Tutorial",
   "type": "Tipe",
   "unassignedSIMCard": "Kartu SIM Tidak Ditugaskan",
   "unknown": "Tidak Diketahui",
@@ -1543,7 +1472,6 @@
   "allServicesStatusSubtitle": "Status Saat Ini dari Setiap Layanan Cloud",
   "redirect": "Alihkan",
   "notify": "Beri tahu",
-  "log": "Log",
   "custom": "Kustom",
   "allowActionDescription": "Panggilan akan diizinkan, bahkan jika nomor ada di daftar blokir.",
   "blockActionDescription": "Panggilan akan diblokir dan ditampilkan di log panggilan.",
@@ -1616,8 +1544,6 @@
   "pleaseEnterAtLeastOneNumber": "Mohon masukkan setidaknya satu nomor.",
   "openInWebView": "Buka di WebView",
   "pluginLabel": "Label Plugin",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Warna Latar Belakang Pesan",
   "clearAllCallLogs": "Hapus Semua Riwayat Panggilan",
   "clearAllCallLogsConfirmation": "Konfirmasi untuk menghapus semua riwayat panggilan",
@@ -1657,7 +1583,6 @@
   "simState": "Status SIM",
   "ipCountry": "Negara IP",
   "simCountry": "Negara SIM",
-  "isRoaming": "Roaming",
   "isNumberMatch": "Cocok Nomor",
   "support": "Dukungan",
   "rewardedAdService": "Layanan Iklan Berhadiah",
@@ -1782,15 +1707,6 @@
   "agreeVotes": "Setuju: {count}",
   "@agreeVotes": {
     "description": "Agree votes count",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "totalVotes": "Total: {count}",
-  "@totalVotes": {
-    "description": "Total votes count",
     "placeholders": {
       "count": {
         "type": "int"
@@ -2192,10 +2108,6 @@
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
   },
-  "avatar": "Avatar",
-  "@avatar": {
-    "description": "The avatar of the user."
-  },
   "location": "Lokasi",
   "@location": {
     "description": "The location of the user."
@@ -2318,5 +2230,222 @@
   "separateSims": "SIM Terpisah",
   "separateSimsDesc": "Aktifkan aturan pemfilteran terpisah untuk setiap kartu SIM",
   "masterAndOverrides": "Kontrol Utama",
-  "masterAndOverridesDesc": "Pengaturan Aturan Global"
+  "masterAndOverridesDesc": "Pengaturan Aturan Global",
+  "themeLight": "Terang",
+  "themeDark": "Gelap",
+  "themeSystem": "Default Sistem",
+  "ruleType": "Jenis Aturan",
+  "localDatabaseSyncTitle": "Sinkronisasi Database Lokal",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sinkronkan data antar perangkat",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "URL Proyek Supabase",
+  "supabaseAnonKey": "Kunci Anon",
+  "supabaseAnonKeyHint": "API Key, kunci publik anonim",
+  "connectionString": "String Koneksi (URI)",
+  "connectionStringHelper": "Hanya diperlukan untuk 'Inisialisasi Database'",
+  "syncCallHistory": "Sinkronkan Riwayat Panggilan",
+  "syncCallHistorySubtitle": "Sertakan log panggilan pribadi dalam sinkronisasi",
+  "requiredField": "Wajib",
+  "requiredInitField": "Wajib untuk inisialisasi",
+  "initDbButton": "Inisialisasi Database",
+  "dbInitSuccess": "Database Berhasil Diinisialisasi!",
+  "syncSuccess": "Sinkronisasi Selesai. Terkirim: {pushed}, Diterima: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Kesalahan",
+  "errorLoadingSettings": "Gagal memuat pengaturan",
+  "statusLabel": "Status",
+  "statusConnected": "Tersambung / Dikonfigurasi",
+  "statusNotConfigured": "Belum Dikonfigurasi",
+  "configSaved": "Konfigurasi Disimpan!",
+  "masterDeviceLabel": "Perangkat Utama (Admin)",
+  "masterDeviceHelp": "Hanya perangkat utama yang dapat menginisialisasi struktur database.",
+  "syncIntervalLabel": "Interval Sinkronisasi Otomatis",
+  "syncIntervalValue": "Setiap {hours} jam",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Biarkan kosong untuk menggunakan nilai default",
+  "vipAccessSubtitle": "Tonton iklan gratis atau beli VIP",
+  "failedToLoadSettingsSchema": "Gagal memuat skema pengaturan: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "Bidang ini wajib diisi",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Jawab panggilan terlebih dahulu, lalu segera tutup.",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupSourceTitle": "Sumber Database Aturan",
+  "initialSetupSourceGithub": "Sumber Resmi GitHub",
+  "initialSetupSourceCdn": "Sumber Akselerasi CDN Cermin",
+  "initialSetupSourceCustom": "Sumber Cermin Mandiri",
+  "initialSetupCustomUrlHint": "Masukkan URL konfigurasi JSON cermin mandiri",
+  "initialSetupCustomUrlLoad": "Muat Konfigurasi",
+  "initialSetupDetectedLocation": "Lokasi Terdeteksi",
+  "deepLinkImportTitle": "Impor Konfigurasi",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Langganan",
+  "deepLinkDefaultPluginName": "Plugin Diimpor",
+  "deepLinkDefaultSubName": "Langganan Diimpor",
+  "deepLinkDetectedTitle": "Tautan Dalam Terdeteksi",
+  "deepLinkNameLabel": "Nama",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Tipe",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Konfirmasi Impor",
+  "deepLinkEmptyUrlError": "URL tidak boleh kosong",
+  "deepLinkPluginDownloadFailed": "Gagal mengunduh plugin: {error}",
+  "deepLinkImportSuccess": "Berhasil Diimpor",
+  "deepLinkImportFailed": "Gagal Mengimpor: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Petunjuk: Anda dapat membuka kembali halaman pengaturan ini kapan saja di Pengaturan.",
+  "initialSetupGoToSettings": "Buka Pengaturan",
+  "appName": "Your Call Your Rule",
+  "bank": "Bank",
+  "edit": "Edit",
+  "editLabel": "Edit Label",
+  "email": "Email",
+  "filter": "Filter",
+  "filterSMS": "Filter SMS",
+  "github": "GitHub",
+  "internet": "Internet",
+  "label": "Label",
+  "labelTag": "Label: {labelId}",
+  "okButton": "OK",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "robocall": "Robocall",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "tagLabel": "Tag: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "total": "Total",
+  "tutorial": "Tutorial",
+  "log": "Log",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "isRoaming": "Roaming",
+  "totalVotes": "Total: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  }
 }

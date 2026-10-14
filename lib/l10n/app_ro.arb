@@ -79,7 +79,6 @@
   "addToFavorites": "Adaugă la favorite",
   "addToRules": "Adaugă la reguli",
   "addToWhitelist": "Adaugă în lista albă",
-  "agent": "Agent",
   "all": "Toate",
   "allCallsTab": "Toate",
   "allow": "Permite",
@@ -120,7 +119,6 @@
   "answerThenHangup": "Răspunde apoi închide",
   "applicationSoftware": "Software aplicație",
   "apply": "Aplică",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "Autorizare eșuată: Verificați ID-ul și cheia clientului",
   "authorizationFailedMessage": "Autorizare eșuată",
   "authorizationSuccessMessage": "Autorizare reușită",
@@ -424,7 +422,6 @@
   "editRule": "Editează regula",
   "education": "Educație",
   "elementPositionsSetting": "Poziții elemente",
-  "email": "Email",
   "enableCallFilter": "Activează filtrul de apeluri",
   "enableCallFilterDescription": "Când este activat, apelurile primite sunt verificate în raport cu lista de reguli de mai jos. Regulile de filtrare a apelurilor nu sunt sincronizate între dispozitive în mod implicit.",
   "enabled": "Activat",
@@ -602,7 +599,6 @@
     }
   },
   "getFree": "Obține gratuit",
-  "github": "GitHub",
   "globalFilterDescription": "Configurați filtre globale pentru toate cartelele SIM:",
   "globalFilterFeature": "• Filtre globale: Reguli de bază pentru toate apelurile primite",
   "globalFilterSettings": "Setări filtru global",
@@ -629,7 +625,6 @@
   "iconCodeOptional": "Cod pictogramă (opțional)",
   "iconSize": "Dimensiune pictogramă",
   "import": "Importă",
-  "important": "Important",
   "importConfig": "Importă configurația",
   "importContacts": "Importă contacte",
   "importExportContacts": "Importă/Exportă contacte",
@@ -656,7 +651,6 @@
   "interceptionActionSettingsSubtitle": "Setați modul în care sunt gestionate apelurile blocate",
   "interceptionActionSettingsTitle": "Setări acțiune de interceptare",
   "interceptionTimeInterval": "Interval de timp de interceptare",
-  "internet": "Internet",
   "intervalSetSuccess": "Intervalul de actualizare {service} setat la {days} zile",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -798,7 +792,6 @@
   "matchSpecificDigitPatterns": "se potrivește cu formatul XXX-XXXX-XXXX",
   "matchSpecificDigitPatternsTitle": "Potriviți tiparele specifice de cifre:",
   "matchSuccessfulMessage": "Potrivire reușită!",
-  "medical": "Medical",
   "membershipPrivileges": "Privilegii de membru",
   "migrationTool": "Instrument de migrare",
   "minutes": "minute",
@@ -861,7 +854,6 @@
   "numberTypeColor": "Culoarea tipului de număr",
   "numberTypeFontSize": "Dimensiunea fontului tipului de număr",
   "numberTypePosition": "Poziția tipului de număr",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Managerul dvs. de securitate a apelurilor este gata, începeți să vă bucurați de o experiență de apelare sigură!",
   "onboardingLanguageDescription": "Alegeți limba preferată pentru cea mai bună experiență.",
   "onboardingPermissionsDescription": "Pentru a oferi servicii complete, avem nevoie de următoarele permisiuni:",
@@ -904,15 +896,12 @@
   "phoneNumberTypeFixedLine": "Linie fixă",
   "phoneNumberTypeFixedLineOrMobile": "Linie fixă sau mobil",
   "phoneNumberTypeMobile": "Mobil",
-  "phoneNumberTypePager": "Pager",
   "phoneNumberTypePersonalNumber": "Număr personal",
   "phoneNumberTypePremiumRate": "Tarif premium",
   "phoneNumberTypeSharedCost": "Cost partajat",
   "phoneNumberTypeTollFree": "Gratuit",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Necunoscut",
   "phoneNumberTypeVoicemail": "Mesagerie vocală",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Permisiune telefon",
   "phonePermissionDescription": "Utilizat pentru identificarea și blocarea apelurilor primite.",
   "phoneRule": "Regulă telefon",
@@ -1070,15 +1059,6 @@
   "serviceTypePhone": "Abonament Telefon",
   "serviceTypePlugin": "Actualizare Plugin",
   "serviceTypeSms": "Abonament SMS",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Setați Parola de Criptare",
   "settings": "Setări",
   "settingsBackedUpTo": "Setări salvate în: {path}",
@@ -1096,49 +1076,16 @@
   "silenceNoAnswer": "Reduceți la tăcere fără răspuns",
   "silentCallVoiceClone": "Clonare Vocală Apel Silențios",
   "silentRules": "Reguli Silențioase",
-  "simCard": "SIM Card {simNumber}",
   "simCardColor": "Culoare SIM Card",
   "simCardConfigurationExplanation": "• Configurare SIM Card: Setați reguli de filtrare independente pentru fiecare SIM card",
   "simCardFilterRules": "Reguli de Filtrare SIM Card",
   "simCardFilterRulesDescription": "Setați reguli de filtrare diferite în funcție de sloturile SIM card",
   "simCardFontSize": "Dimensiune Font SIM Card",
   "simCardPosition": "Poziție SIM Card",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "Regulile pentru sloturile SIM vă permit să configurați reguli de filtrare independente pentru fiecare slot SIM.",
   "simRuleInstructionsTitle": "Reguli pentru slotul SIM",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Configurați reguli de filtrare independente pentru fiecare cartelă SIM:",
   "simSlotFilterSettingsTitle": "Setări filtru slot SIM {slotNumber}",
@@ -1167,7 +1114,6 @@
   "simSlotTitle": "Slot SIM {slotNumber}",
   "skip": "Omite",
   "smartCallerId": "Identificare inteligentă apeluri",
-  "sms": "SMS",
   "smsFilterDescription": "Filtrarea SMS vă ajută să filtrați automat mesajele spam și să vă mențineți lista de mesaje curată. Puteți seta reguli de filtrare și metode de notificare.",
   "smsFilterDisabled": "Filtrarea SMS dezactivată",
   "smsFilterEnabled": "Filtrarea SMS activată",
@@ -1185,7 +1131,6 @@
   "smsSubscription": "Abonament SMS",
   "smsSubscriptionAddedSuccessfully": "Abonamentul SMS a fost adăugat cu succes",
   "smsSubscriptionRulesDescription": "Abonați-vă la liste de reguli SMS prin URL, acceptând potrivirea expresiilor regulate. Puteți seta acțiuni de blocare sau permitere.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Unele solicitări de permisiuni au fost refuzate",
   "spamLikely": "Spam probabil",
   "startColor": "Culoare de început",
@@ -1278,9 +1223,6 @@
   },
   "takeaway": "Rezumat",
   "telecommunication": "Telecomunicații",
-  "telegram": "Telegram",
-  "telemarketing": "Telemarketing",
-  "testButton": "TEST",
   "testConnectionButton": "Testează conexiunea",
   "textColorsSetting": "Culori text și etichete",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Această aplicație este un instrument puternic de identificare a apelurilor care vă permite să identificați și să blocați apelurile nedorite.",
@@ -1302,11 +1244,9 @@
     }
   },
   "today": "Astăzi",
-  "total": "Total",
   "totalBlocked": "Total blocat",
   "transferDataBetweenDevicesOrPlatforms": "Transferă date între dispozitive sau platforme",
   "travelTicketing": "Bilete de călătorie",
-  "tutorial": "Tutorial",
   "type": "Tip",
   "unassignedSIMCard": "Card SIM nealocat",
   "unknown": "Necunoscut",
@@ -1557,11 +1497,9 @@
   "synced": "Sincronizat",
   "needVipAccess": "Aveți nevoie de acces VIP pentru a utiliza această funcție",
   "importExportDescription": "Importă sau exportă datele {entityTypeName}",
-  "importExportTitle": "Import/Export",
   "noPhoneRules": "Nu s-au găsit reguli pentru numere de telefon",
   "noRegexRules": "Nu s-au găsit reguli regex",
   "noAllowedBlockedRules": "Nu s-au găsit reguli permise/blocate",
-  "importExport": "Import/Export",
   "filterByAction": "Filtrează după acțiune",
   "upgradeToVip": "Treceți la VIP",
   "batteryOptimizationPermission": "Optimizare baterie",
@@ -1616,8 +1554,6 @@
   "pleaseEnterAtLeastOneNumber": "Vă rugăm să introduceți cel puțin un număr.",
   "openInWebView": "Deschideți în WebView",
   "pluginLabel": "Eticheta pluginului",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Culoarea de fundal a mesajului",
   "clearAllCallLogs": "Ștergeți toate jurnalele de apeluri",
   "clearAllCallLogsConfirmation": "Confirmați ștergerea tuturor jurnalelor de apeluri",
@@ -1657,7 +1593,6 @@
   "simState": "Stare SIM",
   "ipCountry": "Țara IP",
   "simCountry": "Țara SIM",
-  "isRoaming": "Roaming",
   "isNumberMatch": "Potrivire număr",
   "support": "Suport",
   "rewardedAdService": "Serviciu de reclame recompensate",
@@ -1782,15 +1717,6 @@
   "agreeVotes": "De acord: {count}",
   "@agreeVotes": {
     "description": "Agree votes count",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "totalVotes": "Total: {count}",
-  "@totalVotes": {
-    "description": "Total votes count",
     "placeholders": {
       "count": {
         "type": "int"
@@ -2192,10 +2118,6 @@
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
   },
-  "avatar": "Avatar",
-  "@avatar": {
-    "description": "The avatar of the user."
-  },
   "location": "Locație",
   "@location": {
     "description": "The location of the user."
@@ -2298,5 +2220,232 @@
         "example": "5"
       }
     }
-  }
+  },
+  "agent": "Agent",
+  "appName": "Your Call Your Rule",
+  "email": "Email",
+  "github": "GitHub",
+  "important": "Important",
+  "internet": "Internet",
+  "medical": "Medical",
+  "okButton": "OK",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simCard": "SIM Card {simNumber}",
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "testButton": "TEST",
+  "total": "Total",
+  "tutorial": "Tutorial",
+  "importExportTitle": "Import/Export",
+  "importExport": "Import/Export",
+  "themeLight": "Luminos",
+  "themeDark": "Întunecat",
+  "themeSystem": "Inimplicit de sistem",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "isRoaming": "Roaming",
+  "totalVotes": "Total: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "ruleType": "Tip de regulă",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Reîncearcă",
+  "initialSetupSkip": "Omite",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings",
+  "separateSims": "Separate SIMs",
+  "separateSimsDesc": "Enable separate filtering rules for each SIM card",
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }

@@ -120,7 +120,6 @@
   "answerThenHangup": "উত্তর দিয়ে ফোন কেটে দিন",
   "applicationSoftware": "অ্যাপ্লিকেশন সফটওয়্যার",
   "apply": "প্রয়োগ",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "অনুমোদন ব্যর্থ হয়েছে: অনুগ্রহ করে ক্লায়েন্ট আইডি এবং কী পরীক্ষা করুন",
   "authorizationFailedMessage": "অনুমোদন ব্যর্থ হয়েছে",
   "authorizationSuccessMessage": "অনুমোদন সফল হয়েছে",
@@ -909,10 +908,8 @@
   "phoneNumberTypePremiumRate": "প্রিমিয়াম রেট",
   "phoneNumberTypeSharedCost": "শেয়ার্ড কস্ট",
   "phoneNumberTypeTollFree": "টোল ফ্রি",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "অজানা",
   "phoneNumberTypeVoicemail": "ভয়েসমেইল",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "ফোন অনুমতি",
   "phonePermissionDescription": "ইনকামিং কল সনাক্তকরণ এবং ব্লক করার জন্য ব্যবহৃত হয়।",
   "phoneRule": "ফোন রুল",
@@ -1070,15 +1067,6 @@
   "serviceTypePhone": "ফোন সাবস্ক্রিপশন",
   "serviceTypePlugin": "প্লাগইন আপডেট",
   "serviceTypeSms": "এসএমএস সাবস্ক্রিপশন",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "এনক্রিপশন পাসওয়ার্ড সেট করুন",
   "settings": "সেটিংস",
   "settingsBackedUpTo": "সেটিংস এখানে ব্যাকআপ করা হয়েছে: {path}",
@@ -1119,26 +1107,6 @@
   "simRuleInstructionsTitle": "SIM স্লট নিয়মাবলী",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "প্রতিটি সিম কার্ডের জন্য স্বাধীন ফিল্টারিং নিয়ম কনফিগার করুন:",
   "simSlotFilterSettingsTitle": "SIM স্লট {slotNumber} ফিল্টার সেটিংস",
@@ -1617,7 +1585,6 @@
   "openInWebView": "WebView-এ খুলুন",
   "pluginLabel": "প্লাগইন লেবেল",
   "pluginID": "আইডি",
-  "pluginURL": "URL",
   "messageBackgroundColor": "বার্তার পটভূমির রঙ",
   "clearAllCallLogs": "সমস্ত কল লগ মুছুন",
   "clearAllCallLogsConfirmation": "সমস্ত কল লগ মুছতে নিশ্চিত করুন",
@@ -2298,5 +2265,187 @@
         "example": "5"
       }
     }
-  }
+  },
+  "appName": "Your Call Your Rule",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "themeSystem": "System",
+  "pluginURL": "URL",
+  "ruleType": "Rule Type",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Retry",
+  "initialSetupSkip": "Skip",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings",
+  "separateSims": "Separate SIMs",
+  "separateSimsDesc": "Enable separate filtering rules for each SIM card",
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }

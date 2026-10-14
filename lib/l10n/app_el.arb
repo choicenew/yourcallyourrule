@@ -120,7 +120,6 @@
   "answerThenHangup": "Απάντηση και μετά αποσύνδεση",
   "applicationSoftware": "Λογισμικό Εφαρμογής",
   "apply": "Εφαρμογή",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "Η εξουσιοδότηση απέτυχε: Ελέγξτε το αναγνωριστικό πελάτη και το κλειδί",
   "authorizationFailedMessage": "Η εξουσιοδότηση απέτυχε",
   "authorizationSuccessMessage": "Η εξουσιοδότηση ήταν επιτυχής",
@@ -247,11 +246,8 @@
   "clearFilter": "Εκκαθάριση Φίλτρου",
   "clearLabelFilterButton": "Εκκαθάριση Φίλτρου Ετικετών",
   "closeButton": "Κλείσιμο",
-  "cloudSync": "Cloud Sync",
-  "cloudSyncAndBackupTitle": "Cloud Sync & Backup",
   "cloudSyncSettingsSubtitle": "Ρύθμιση WebDAV, OneDrive και Google Drive",
   "cloudSyncSettingsTitle": "Ρυθμίσεις Cloud Sync",
-  "cloudSyncTitle": "Cloud Sync",
   "collection": "Συλλογή Χρεών",
   "colorPickerTitle": "Επιλογή Χρώματος",
   "configManagement": "Διαχείριση Ρυθμίσεων",
@@ -424,7 +420,6 @@
   "editRule": "Επεξεργασία Κανόνα",
   "education": "Εκπαίδευση",
   "elementPositionsSetting": "Θέσεις Στοιχείων",
-  "email": "Email",
   "enableCallFilter": "Ενεργοποίηση Φίλτρου Κλήσεων",
   "enableCallFilterDescription": "Όταν είναι ενεργοποιημένες, οι εισερχόμενες κλήσεις ελέγχονται έναντι της λίστας κανόνων παρακάτω. Οι κανόνες φιλτραρίσματος κλήσεων δεν συγχρονίζονται μεταξύ συσκευών από προεπιλογή.",
   "enabled": "Ενεργοποιημένο",
@@ -602,7 +597,6 @@
     }
   },
   "getFree": "Λάβετε Δωρεάν",
-  "github": "GitHub",
   "globalFilterDescription": "Ρυθμίστε καθολικά φίλτρα για όλες τις κάρτες SIM:",
   "globalFilterFeature": "• Καθολικά Φίλτρα: Βασικοί κανόνες για όλες τις εισερχόμενες κλήσεις",
   "globalFilterSettings": "Ρυθμίσεις Καθολικού Φίλτρου",
@@ -619,7 +613,6 @@
   "granted": "Επιχορηγήθηκε",
   "grantNecessaryPermissions": "Παραχώρηση Απαραίτητων Δικαιωμάτων",
   "grantPermissions": "Παραχώρηση Δικαιωμάτων",
-  "headhunter": "Headhunter",
   "height": "Ύψος",
   "homeTab": "Αρχική",
   "howItWorksPoint1": "• Το σύστημα θα επιτρέπει αυτόματα τις κλήσεις από τον ίδιο αριθμό εντός του καθορισμένου χρονικού παραθύρου",
@@ -904,15 +897,12 @@
   "phoneNumberTypeFixedLine": "Σταθερή γραμμή",
   "phoneNumberTypeFixedLineOrMobile": "Σταθερή γραμμή ή κινητό",
   "phoneNumberTypeMobile": "Κινητό",
-  "phoneNumberTypePager": "Pager",
   "phoneNumberTypePersonalNumber": "Προσωπικός αριθμός",
   "phoneNumberTypePremiumRate": "Premium Rate",
   "phoneNumberTypeSharedCost": "Κοινό κόστος",
   "phoneNumberTypeTollFree": "Χωρίς χρέωση",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Άγνωστο",
   "phoneNumberTypeVoicemail": "Φωνοτηλεφωνία",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Άδεια Τηλεφώνου",
   "phonePermissionDescription": "Χρησιμοποιείται για την αναγνώριση και τον αποκλεισμό εισερχόμενων κλήσεων.",
   "phoneRule": "Κανόνας Τηλεφώνου",
@@ -1001,7 +991,6 @@
   "retry": "Επανάληψη",
   "ridesharing": "Κοινή Χρήση Μετακινήσεων",
   "risk": "Κίνδυνος",
-  "robocall": "Robocall",
   "ruleAction": "Ενέργεια Κανόνα",
   "ruleAddedSuccess": "Ο κανόνας προστέθηκε επιτυχώς",
   "@ruleAddedSuccess": {
@@ -1070,15 +1059,6 @@
   "serviceTypePhone": "Συνδρομή τηλεφώνου",
   "serviceTypePlugin": "Ενημέρωση plugin",
   "serviceTypeSms": "Συνδρομή SMS",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Ορισμός κωδικού κρυπτογράφησης",
   "settings": "Ρυθμίσεις",
   "settingsBackedUpTo": "Οι ρυθμίσεις δημιουργήθηκαν αντίγραφο ασφαλείας σε: {path}",
@@ -1103,42 +1083,10 @@
   "simCardFilterRulesDescription": "Ορισμός διαφορετικών κανόνων φιλτραρίσματος με βάση τις υποδοχές κάρτας SIM",
   "simCardFontSize": "Μέγεθος γραμματοσειράς κάρτας SIM",
   "simCardPosition": "Θέση κάρτας SIM",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "Οι κανόνες καρτών SIM σάς επιτρέπουν να διαμορφώσετε ανεξάρτητους κανόνες φιλτραρίσματος για κάθε υποδοχή κάρτας SIM.",
   "simRuleInstructionsTitle": "Κανόνες Υποδοχής Κάρτας SIM",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Διαμορφώστε ανεξάρτητους κανόνες φιλτραρίσματος για κάθε κάρτα SIM:",
   "simSlotFilterSettingsTitle": "Ρυθμίσεις Φίλτρου Υποδοχής Κάρτας SIM {slotNumber}",
@@ -1167,7 +1115,6 @@
   "simSlotTitle": "Υποδοχή Κάρτας SIM {slotNumber}",
   "skip": "Παράλειψη",
   "smartCallerId": "Έξυπνη Αναγνώριση Κλήσεων",
-  "sms": "SMS",
   "smsFilterDescription": "Το φιλτράρισμα SMS σας βοηθά να φιλτράρετε αυτόματα τα ανεπιθύμητα μηνύματα και να διατηρείτε καθαρή τη λίστα μηνυμάτων σας. Μπορείτε να ορίσετε κανόνες φιλτραρίσματος και μεθόδους ειδοποίησης.",
   "smsFilterDisabled": "Το φιλτράρισμα SMS είναι απενεργοποιημένο",
   "smsFilterEnabled": "Το φιλτράρισμα SMS είναι ενεργοποιημένο",
@@ -1185,7 +1132,6 @@
   "smsSubscription": "Συνδρομή SMS",
   "smsSubscriptionAddedSuccessfully": "Η συνδρομή SMS προστέθηκε επιτυχώς",
   "smsSubscriptionRulesDescription": "Εγγραφείτε σε λίστες κανόνων SMS μέσω URL, υποστηρίζοντας αντιστοίχιση κανονικών εκφράσεων. Μπορείτε να ορίσετε ενέργειες αποκλεισμού ή αποδοχής.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Ορισμένα αιτήματα αδειών απορρίφθηκαν",
   "spamLikely": "Πιθανώς Spam",
   "startColor": "Χρώμα Έναρξης",
@@ -1276,11 +1222,8 @@
       }
     }
   },
-  "takeaway": "Takeaway",
   "telecommunication": "Τηλεπικοινωνίες",
-  "telegram": "Telegram",
   "telemarketing": "Τηλεμάρκετινγκ",
-  "testButton": "TEST",
   "testConnectionButton": "Έλεγχος Σύνδεσης",
   "textColorsSetting": "Χρώματα Κειμένου & Ετικετών",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Αυτή η εφαρμογή είναι ένα ισχυρό εργαλείο αναγνώρισης κλήσεων που σας επιτρέπει να αναγνωρίζετε και να αποκλείετε ανεπιθύμητες κλήσεις.",
@@ -1616,8 +1559,6 @@
   "pleaseEnterAtLeastOneNumber": "Παρακαλώ εισάγετε τουλάχιστον έναν αριθμό.",
   "openInWebView": "Άνοιγμα σε WebView",
   "pluginLabel": "Ετικέτα Plugin",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Χρώμα Υποβάθρου Μηνύματος",
   "clearAllCallLogs": "Εκκαθάριση Όλων των Καταγραφών Κλήσεων",
   "clearAllCallLogsConfirmation": "Επιβεβαίωση εκκαθάρισης όλων των καταγραφών κλήσεων",
@@ -2298,5 +2239,213 @@
         "example": "5"
       }
     }
-  }
+  },
+  "appName": "Your Call Your Rule",
+  "cloudSync": "Cloud Sync",
+  "cloudSyncAndBackupTitle": "Cloud Sync & Backup",
+  "cloudSyncTitle": "Cloud Sync",
+  "email": "Email",
+  "github": "GitHub",
+  "headhunter": "Headhunter",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "robocall": "Robocall",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "takeaway": "Takeaway",
+  "telegram": "Telegram",
+  "testButton": "TEST",
+  "themeLight": "Фωτεινό",
+  "themeDark": "Σκούρο",
+  "themeSystem": "Προεπιλογή συστήματος",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "ruleType": "Rule Type",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Retry",
+  "initialSetupSkip": "Skip",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings",
+  "separateSims": "Separate SIMs",
+  "separateSimsDesc": "Enable separate filtering rules for each SIM card",
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }

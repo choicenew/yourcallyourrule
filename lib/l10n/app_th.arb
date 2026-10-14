@@ -120,7 +120,6 @@
   "answerThenHangup": "รับสายแล้ววางสาย",
   "applicationSoftware": "ซอฟต์แวร์แอปพลิเคชัน",
   "apply": "ใช้",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "การยืนยันตัวตนล้มเหลว: โปรดตรวจสอบรหัสไคลเอ็นต์และคีย์",
   "authorizationFailedMessage": "การยืนยันตัวตนล้มเหลว",
   "authorizationSuccessMessage": "การยืนยันตัวตนสำเร็จ",
@@ -602,7 +601,6 @@
     }
   },
   "getFree": "รับฟรี",
-  "github": "GitHub",
   "globalFilterDescription": "กำหนดค่าตัวกรองทั่วโลกสำหรับซิมการ์ดทั้งหมด:",
   "globalFilterFeature": "• ตัวกรองทั่วโลก: กฎพื้นฐานสำหรับสายเรียกเข้าทั้งหมด",
   "globalFilterSettings": "การตั้งค่าตัวกรองทั่วโลก",
@@ -909,10 +907,8 @@
   "phoneNumberTypePremiumRate": "อัตราพรีเมียม",
   "phoneNumberTypeSharedCost": "ค่าใช้จ่ายร่วมกัน",
   "phoneNumberTypeTollFree": "โทรฟรี",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "ไม่ทราบ",
   "phoneNumberTypeVoicemail": "ข้อความเสียง",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "สิทธิ์โทรศัพท์",
   "phonePermissionDescription": "ใช้เพื่อระบุและบล็อกสายเรียกเข้า",
   "phoneRule": "กฎโทรศัพท์",
@@ -1070,15 +1066,6 @@
   "serviceTypePhone": "การสมัครสมาชิกโทรศัพท์",
   "serviceTypePlugin": "การอัปเดตปลั๊กอิน",
   "serviceTypeSms": "การสมัครสมาชิก SMS",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "ตั้งรหัสผ่านการเข้ารหัส",
   "settings": "การตั้งค่า",
   "settingsBackedUpTo": "สำรองการตั้งค่าไปยัง: {path}",
@@ -1120,26 +1107,6 @@
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
   },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
-  },
   "simSlotFilterDescription": "กำหนดกฎการกรองที่แยกจากกันสำหรับซิมการ์ดแต่ละใบ:",
   "simSlotFilterSettingsTitle": "การตั้งค่าตัวกรองสล็อต SIM {slotNumber}",
   "@simSlotFilterSettingsTitle": {
@@ -1167,7 +1134,6 @@
   "simSlotTitle": "สล็อต SIM {slotNumber}",
   "skip": "ข้าม",
   "smartCallerId": "การระบุผู้โทรอัจฉริยะ",
-  "sms": "SMS",
   "smsFilterDescription": "การกรอง SMS ช่วยให้คุณกรองข้อความสแปมโดยอัตโนมัติและรักษาความสะอาดของรายการข้อความของคุณ คุณสามารถตั้งค่ากฎการกรองและวิธีการแจ้งเตือนได้",
   "smsFilterDisabled": "การกรอง SMS ปิดใช้งาน",
   "smsFilterEnabled": "การกรอง SMS เปิดใช้งาน",
@@ -1185,7 +1151,6 @@
   "smsSubscription": "การสมัครรับข้อมูล SMS",
   "smsSubscriptionAddedSuccessfully": "เพิ่มการสมัครรับข้อมูล SMS สำเร็จแล้ว",
   "smsSubscriptionRulesDescription": "สมัครรับรายการกฎ SMS ผ่าน URL รองรับการจับคู่รูปแบบปกติ คุณสามารถตั้งค่าการบล็อกหรืออนุญาตการดำเนินการได้",
-  "smsTab": "SMS",
   "somePermissionsDenied": "ปฏิเสธคำขอสิทธิ์บางส่วน",
   "spamLikely": "น่าจะเป็นสแปม",
   "startColor": "สีเริ่มต้น",
@@ -1278,7 +1243,6 @@
   },
   "takeaway": "ซื้อกลับบ้าน",
   "telecommunication": "โทรคมนาคม",
-  "telegram": "Telegram",
   "telemarketing": "การตลาดทางโทรศัพท์",
   "testButton": "ทดสอบ",
   "testConnectionButton": "ทดสอบการเชื่อมต่อ",
@@ -1616,8 +1580,6 @@
   "pleaseEnterAtLeastOneNumber": "โปรดป้อนอย่างน้อยหนึ่งหมายเลข",
   "openInWebView": "เปิดใน WebView",
   "pluginLabel": "ป้ายกำกับปลั๊กอิน",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "สีพื้นหลังข้อความ",
   "clearAllCallLogs": "ล้างประวัติการโทรทั้งหมด",
   "clearAllCallLogsConfirmation": "ยืนยันเพื่อล้างประวัติการโทรทั้งหมด",
@@ -2298,5 +2260,192 @@
         "example": "5"
       }
     }
-  }
+  },
+  "themeLight": "สว่าง",
+  "themeDark": "มืด",
+  "themeSystem": "ตามระบบ",
+  "ruleType": "ประเภทกฎ",
+  "localDatabaseSyncTitle": "ซิงค์ฐานข้อมูลท้องถิ่น",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "ซิงค์ข้อมูลระหว่างอุปกรณ์",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "URL โครงการ Supabase",
+  "supabaseAnonKey": "คีย์ Anon",
+  "supabaseAnonKeyHint": "API Key, คีย์สาธารณะไม่ระบุชื่อ",
+  "connectionString": "สตริงการเชื่อมต่อ (URI)",
+  "connectionStringHelper": "จำเป็นเฉพาะเมื่อ 'เริ่มใช้งานฐานข้อมูล'",
+  "syncCallHistory": "ซิงค์ประวัติการโทร",
+  "syncCallHistorySubtitle": "รวมบันทึกการโทรส่วนตัวในการซิงค์",
+  "requiredField": "จำเป็น",
+  "requiredInitField": "จำเป็นสำหรับการเริ่มต้น",
+  "initDbButton": "เริ่มใช้งานฐานข้อมูล",
+  "dbInitSuccess": "เริ่มต้นฐานข้อมูลสำเร็จ!",
+  "syncSuccess": "ซิงค์เสร็จสมบูรณ์ ส่ง: {pushed}, รับ: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "ข้อผิดพลาด",
+  "errorLoadingSettings": "ข้อผิดพลาดในการโหลดการตั้งค่า",
+  "statusLabel": "สถานะ",
+  "statusConnected": "เชื่อมต่อแล้ว / กำหนดค่าแล้ว",
+  "statusNotConfigured": "ยังไม่ได้กำหนดค่า",
+  "configSaved": "บันทึกการกำหนดค่าแล้ว!",
+  "masterDeviceLabel": "อุปกรณ์หลัก (ผู้ดูแลระบบ)",
+  "masterDeviceHelp": "เฉพาะอุปกรณ์หลักเท่านั้นที่สามารถเริ่มต้นโครงสร้างฐานข้อมูลได้",
+  "syncIntervalLabel": "ช่วงเวลาซิงค์อัตโนมัติ",
+  "syncIntervalValue": "ทุกๆ {hours} ชั่วโมง",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "เว้นว่างไว้เพื่อใช้ค่าเริ่มต้น",
+  "vipAccessSubtitle": "ชมโฆษณาฟรีหรือซื้อ VIP",
+  "failedToLoadSettingsSchema": "การโหลดเค้าโครง การตั้งค่าล้มเหลว: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "จำเป็นต้องกรอกฟิลด์นี้",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "รับสายก่อน จากนั้นวางสายทันที",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "ตั้งค่าฐานข้อมูลกฎ",
+  "initialSetupDesc": "โปรดเลือกฐานข้อมูลกฎระดับภูมิภาคที่คุณต้องการบล็อก กฎเหล่านี้จะช่วยบล็อกสายขายของและสายฉ้อโกงโดยอัตโนมัติ",
+  "initialSetupRetry": "ลองใหม่",
+  "initialSetupSkip": "ข้าม",
+  "initialSetupSave": "บันทึกกฎที่เลือก",
+  "initialSetupSaving": "กำลังบันทึก...",
+  "initialSetupSaveSuccess": "✅ บันทึกการกำหนดค่าสำเร็จ",
+  "initialSetupSaveFailed": "บันทึกการกำหนดค่าล้มเหลว: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "รับการกำหนดค่าล้มเหลว",
+  "initialSetupSourceTitle": "แหล่งฐานข้อมูลกฎ",
+  "initialSetupSourceGithub": "แหล่งทางการของ GitHub",
+  "initialSetupSourceCdn": "แหล่งเร่งความเร็ว CDN มิเรอร์",
+  "initialSetupSourceCustom": "แหล่งมิเรอร์ที่โฮสต์เอง",
+  "initialSetupCustomUrlHint": "ป้อน URL กำหนดค่า JSON มิเรอร์ที่โฮสต์เอง",
+  "initialSetupCustomUrlLoad": "โหลดการกำหนดค่า",
+  "initialSetupDetectedLocation": "ตำแหน่งที่ตรวจพบ",
+  "deepLinkImportTitle": "นำเข้าการกำหนดค่า",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "ปลั๊กอิน",
+  "deepLinkTypeSubscription": "การสมัครรับ",
+  "deepLinkDefaultPluginName": "ปลั๊กอินที่นำเข้า",
+  "deepLinkDefaultSubName": "การสมัครรับที่นำเข้า",
+  "deepLinkDetectedTitle": "ตรวจพบดิปลิงก์",
+  "deepLinkNameLabel": "ชื่อ",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "ประเภท",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "ยืนยันการนำเข้า",
+  "deepLinkEmptyUrlError": "URL ต้องไม่ว่างเปล่า",
+  "deepLinkPluginDownloadFailed": "ดาวน์โหลดปลั๊กอินล้มเหลว: {error}",
+  "deepLinkImportSuccess": "นำเข้าสำเร็จ",
+  "deepLinkImportFailed": "นำเข้าล้มเหลว: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "คำแนะนำ: คุณสามารถเปิดหน้าการตั้งค่านี้อีกครั้งได้ตลอดเวลาในการตั้งค่า",
+  "initialSetupGoToSettings": "ไปที่การตั้งค่า",
+  "separateSims": "ซิมการ์ดแยกกัน",
+  "separateSimsDesc": "เปิดใช้งานกฎการกรองแยกกันสำหรับซิมการ์ดแต่ละใบ",
+  "masterAndOverrides": "การควบคุมหลัก",
+  "masterAndOverridesDesc": "การตั้งค่ากฎส่วนกลาง",
+  "appName": "Your Call Your Rule",
+  "github": "GitHub",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "telegram": "Telegram",
+  "pluginID": "ID",
+  "pluginURL": "URL"
 }

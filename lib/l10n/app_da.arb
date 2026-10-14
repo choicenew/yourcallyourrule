@@ -79,7 +79,6 @@
   "addToFavorites": "Tilføj til favoritter",
   "addToRules": "Tilføj til regler",
   "addToWhitelist": "Tilføj til hvidliste",
-  "agent": "Agent",
   "all": "Alle",
   "allCallsTab": "Alle",
   "allow": "Tillad",
@@ -120,7 +119,6 @@
   "answerThenHangup": "Besvar og læg derefter på",
   "applicationSoftware": "Applikationssoftware",
   "apply": "Anvend",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "Autorisation mislykkedes: Kontroller klient-id og nøgle",
   "authorizationFailedMessage": "Autorisation mislykkedes",
   "authorizationSuccessMessage": "Autorisation vellykket",
@@ -135,9 +133,7 @@
   "avatarBorderColor": "Avatar kantfarve",
   "avatarBorderSize": "Avatar kantstørrelse",
   "avatarIconSizesSetting": "Avatar & Ikonstørrelser",
-  "avatarPosition": "Avatar Position",
   "avatarSize": "Avatar størrelse",
-  "axisPosition": "{axis} Position",
   "backgroundGradientSetting": "Baggrundsgradient",
   "backup": "Sikkerhedskopi",
   "backupAndRestore": "Sikkerhedskopi og gendannelse",
@@ -148,7 +144,6 @@
   "backupToCloud": "Sikkerhedskopi til skyen",
   "backupToCloudFailed": "Kunne ikke sikkerhedskopiere til skyen: {error}",
   "backupToCloudSuccess": "Sikkerhedskopieret til skyen med succes",
-  "bank": "Bank",
   "basicInfo": "Grundlæggende oplysninger",
   "basicRuleFilter": "Grundlæggende regel Filter",
   "basicRuleFiltering": "Grundlæggende regel Filtrering",
@@ -247,11 +242,8 @@
   "clearFilter": "Ryd filter",
   "clearLabelFilterButton": "Ryd mærkatfilter",
   "closeButton": "Luk",
-  "cloudSync": "Cloud Sync",
-  "cloudSyncAndBackupTitle": "Cloud Sync & Backup",
   "cloudSyncSettingsSubtitle": "Konfigurer WebDAV, OneDrive og Google Drive",
   "cloudSyncSettingsTitle": "Cloud Sync Indstillinger",
-  "cloudSyncTitle": "Cloud Sync",
   "collection": "Inkasso",
   "colorPickerTitle": "Vælg farve",
   "configManagement": "Konfigurationsstyring",
@@ -328,7 +320,6 @@
   "currentDeviceTitle": "Nuværende enhed",
   "currentLanguage": "Nuværende sprog",
   "customerService": "Kundeservice",
-  "dashboardTab": "Dashboard",
   "dataAnalysis": "Dataanalyse",
   "dataLoadFailure": "Data indlæsning fejlede: {error}",
   "@dataLoadFailure": {
@@ -571,18 +562,6 @@
   "filterSettingsTitle": "Filterindstillinger",
   "filterSMS": "Filtrer SMS",
   "filterToggleInstructions": "Aktiver eller deaktiver filtre for denne SIM-slot:",
-  "filterToggleStatus": "{status} filter: {filterName}",
-  "@filterToggleStatus": {
-    "description": "Filter enable/disable status change notification",
-    "placeholders": {
-      "status": {
-        "type": "Object"
-      },
-      "filterName": {
-        "type": "Object"
-      }
-    }
-  },
   "filterType": "Filtertype",
   "financial": "Finansiel",
   "flexibleCombinationFeature": "• Fleksible kombinationer: Aktiver/deaktiver filtre pr. SIM-slot",
@@ -602,7 +581,6 @@
     }
   },
   "getFree": "Få gratis",
-  "github": "GitHub",
   "globalFilterDescription": "Konfigurer globale filtre for alle SIM-kort:",
   "globalFilterFeature": "• Globale filtre: Grundlæggende regler for alle indgående opkald",
   "globalFilterSettings": "Globale filterindstillinger",
@@ -619,7 +597,6 @@
   "granted": "Bevilliget",
   "grantNecessaryPermissions": "Bevillig nødvendige tilladelser",
   "grantPermissions": "Bevillig tilladelser",
-  "headhunter": "Headhunter",
   "height": "Højde",
   "homeTab": "Hjem",
   "howItWorksPoint1": "• Systemet vil automatisk tillade opkald fra samme nummer inden for det indstillede tidsvindue",
@@ -656,7 +633,6 @@
   "interceptionActionSettingsSubtitle": "Indstil, hvordan blokerede opkald håndteres",
   "interceptionActionSettingsTitle": "Indstillinger for aflytningshandling",
   "interceptionTimeInterval": "Aflytningsinterval",
-  "internet": "Internet",
   "intervalSetSuccess": "{service} opdateringsinterval sat til {days} dage",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -809,7 +785,6 @@
   "monthlyMembershipDescription": "Lås op for alle premium-funktioner, automatisk fornyelse månedligt",
   "monthlyTotal": "Månedligt i alt",
   "moreOptions": "Flere indstillinger",
-  "mute": "Mute",
   "name": "Navn",
   "nameAndPhoneNumberCannotBeEmpty": "Navn og telefonnummer kan ikke være tomme",
   "nameColor": "Navnefarve",
@@ -861,7 +836,6 @@
   "numberTypeColor": "Nummertypefarve",
   "numberTypeFontSize": "Nummertypsstørrelse",
   "numberTypePosition": "Nummertypposition",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Din opkaldssikkerhedschef er klar, start med at nyde en sikker opkaldsoplevelse!",
   "onboardingLanguageDescription": "Vælg dit foretrukne sprog for den bedste oplevelse.",
   "onboardingPermissionsDescription": "For at levere fuld service har vi brug for følgende tilladelser:",
@@ -904,15 +878,12 @@
   "phoneNumberTypeFixedLine": "Fastnet",
   "phoneNumberTypeFixedLineOrMobile": "Fastnet eller mobil",
   "phoneNumberTypeMobile": "Mobil",
-  "phoneNumberTypePager": "Pager",
   "phoneNumberTypePersonalNumber": "Personligt nummer",
   "phoneNumberTypePremiumRate": "Premium sats",
   "phoneNumberTypeSharedCost": "Fælles omkostning",
   "phoneNumberTypeTollFree": "Gratis nummer",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Ukendt",
   "phoneNumberTypeVoicemail": "Svarer",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Telefontilladelse",
   "phonePermissionDescription": "Bruges til at identificere og blokere indgående opkald.",
   "phoneRule": "Telefonregel",
@@ -929,11 +900,7 @@
   "pluginManagementSubtitle": "Administrer og konfigurer tredjeparts plugins",
   "pluginName": "Pluginnavn",
   "pluginsDeleted": "{count} plugins slettet succesfuldt.",
-  "pluginService": "Plugin Service",
-  "pluginTestPageTitle": "Plugin Test",
   "pluginUpdateSuccess": "Plugin opdateret succesfuldt",
-  "pluginUrl": "Plugin URL",
-  "pluginVersion": "Plugin Version",
   "political": "Politisk",
   "powerfulSpamBlocking": "Kraftig spamblokering",
   "previousStep": "Forrige",
@@ -961,8 +928,6 @@
   "regexRuleManagement": "Regex Regel Administration",
   "regexRuleNamePatternRequired": "Regelnavn og regex-mønster kan ikke være tomme",
   "regexRules": "Regex Regler",
-  "regexTesterTitle": "Regex Tester",
-  "region": "Region",
   "registeredDevicesTitle": "Registrerede Enheder",
   "rejectAllCalls": "Afvis Alle Opkald",
   "rejectAllCallsDescription": "Når aktiveret, vil alle opkald blive afvist med højeste prioritet",
@@ -1001,7 +966,6 @@
   "retry": "Prøv Igen",
   "ridesharing": "Samkørsel",
   "risk": "Risiko",
-  "robocall": "Robocall",
   "ruleAction": "Regelhandling",
   "ruleAddedSuccess": "Regel tilføjet succesfuldt",
   "@ruleAddedSuccess": {
@@ -1070,15 +1034,6 @@
   "serviceTypePhone": "Telefonabonnement",
   "serviceTypePlugin": "Plugin-opdatering",
   "serviceTypeSms": "SMS-abonnement",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Indstil krypteringsadgangskode",
   "settings": "Indstillinger",
   "settingsBackedUpTo": "Indstillinger sikkerhedskopieret til: {path}",
@@ -1103,42 +1058,10 @@
   "simCardFilterRulesDescription": "Indstil forskellige filtreringsregler baseret på SIM-kort slots",
   "simCardFontSize": "SIM-kort skriftstørrelse",
   "simCardPosition": "SIM-kort position",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "SIM-slotregler giver dig mulighed for at konfigurere uafhængige filtreringsregler for hvert SIM-slot.",
   "simRuleInstructionsTitle": "SIM-slotregler",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Konfigurer uafhængige filtreringsregler for hvert SIM-kort:",
   "simSlotFilterSettingsTitle": "SIM-slot {slotNumber} filterindstillinger",
@@ -1167,7 +1090,6 @@
   "simSlotTitle": "SIM-slot {slotNumber}",
   "skip": "Spring over",
   "smartCallerId": "Smart opkaldsidentifikation",
-  "sms": "SMS",
   "smsFilterDescription": "SMS-filtrering hjælper dig med automatisk at filtrere spam-beskeder og holde din beskedliste ren. Du kan indstille filterregler og notifikationsmetoder.",
   "smsFilterDisabled": "SMS-filtrering deaktiveret",
   "smsFilterEnabled": "SMS-filtrering aktiveret",
@@ -1185,7 +1107,6 @@
   "smsSubscription": "SMS-abonnements",
   "smsSubscriptionAddedSuccessfully": "SMS-abonnement tilføjet succesfuldt",
   "smsSubscriptionRulesDescription": "Abonner på SMS-regellister via URL, understøtter regulære udtryksmatches. Du kan indstille blokerings- eller tilladelseshandlinger.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Nogle tilladelsesanmodninger nægtet",
   "spamLikely": "Sandsynligvis spam",
   "startColor": "Startfarve",
@@ -1276,11 +1197,7 @@
       }
     }
   },
-  "takeaway": "Takeaway",
   "telecommunication": "Telekommunikation",
-  "telegram": "Telegram",
-  "telemarketing": "Telemarketing",
-  "testButton": "TEST",
   "testConnectionButton": "Test forbindelse",
   "textColorsSetting": "Tekst- og etiketfarver",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Denne app er et kraftfuldt opkalds-id-værktøj, der giver dig mulighed for at identificere og blokere uønskede opkald.",
@@ -1302,12 +1219,9 @@
     }
   },
   "today": "I dag",
-  "total": "Total",
   "totalBlocked": "Totalt blokeret",
   "transferDataBetweenDevicesOrPlatforms": "Overfør data mellem enheder eller platforme",
   "travelTicketing": "Rejsebillettering",
-  "tutorial": "Tutorial",
-  "type": "Type",
   "unassignedSIMCard": "Uassigned SIM-kort",
   "unknown": "Ukendt",
   "@unknown": {
@@ -1358,7 +1272,6 @@
   "verificationFailedText": "Mislykkedes",
   "verifiedText": "Verificeret",
   "verify": "Verificer",
-  "version": "Version: {version}",
   "vipExchangeDescription": "Byt VIP-medlemskab med antal markeringer af telefonnumre",
   "vipExchangeTitle": "Markér udveksling VIP",
   "watchAd": "Se annonce",
@@ -1530,7 +1443,6 @@
   "currentMarkCount": "Nuværende antal mærker",
   "markMoreNumbersForMore": "Marker flere numre for flere mærker",
   "noAds": "Ingen reklamer",
-  "cloudBackup": "Cloud Backup",
   "callerIdEnhancement": "Forbedring af opkalds-ID",
   "voiceRecognition": "Talegenkendelse",
   "feature": "Funktion",
@@ -1543,7 +1455,6 @@
   "allServicesStatusSubtitle": "Aktuel status for hver cloudtjeneste",
   "redirect": "Omdiriger",
   "notify": "Underret",
-  "log": "Log",
   "custom": "Brugerdefineret",
   "allowActionDescription": "Opkald vil blive tilladt, selvom nummeret er på blokeringslisten.",
   "blockActionDescription": "Opkald vil blive blokeret og vist i opkaldsloggen.",
@@ -1616,8 +1527,6 @@
   "pleaseEnterAtLeastOneNumber": "Indtast venligst mindst ét nummer.",
   "openInWebView": "Åbn i WebView",
   "pluginLabel": "Plugin-etiket",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Baggrundsfarve på besked",
   "clearAllCallLogs": "Ryd alle opkaldslogger",
   "clearAllCallLogsConfirmation": "Bekræft for at rydde alle opkaldslogger",
@@ -1651,15 +1560,12 @@
   "callType": "Opkaldstype",
   "callTime": "Opkaldstidspunkt",
   "numberInvalidFormat": "Nummer i ugyldigt format",
-  "medium": "Medium",
   "verificationReport": "Verifikationsrapport",
   "finalRisk": "Endelig risiko",
   "simState": "SIM-status",
   "ipCountry": "IP-land",
   "simCountry": "SIM-land",
-  "isRoaming": "Roaming",
   "isNumberMatch": "Nummermatch",
-  "support": "Support",
   "rewardedAdService": "Belønnede annoncetjenester",
   "hasVipPrivilegeExceptAds": "Du har allerede VIP-privilegier (undtagen annoncer)",
   "hasTempPrivilegeWithExpiry": "Du har allerede midlertidige privilegier, udløbsdato: {expiryDate}",
@@ -1782,15 +1688,6 @@
   "agreeVotes": "Enige: {count}",
   "@agreeVotes": {
     "description": "Agree votes count",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "totalVotes": "Total: {count}",
-  "@totalVotes": {
-    "description": "Total votes count",
     "placeholders": {
       "count": {
         "type": "int"
@@ -2192,10 +2089,6 @@
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
   },
-  "avatar": "Avatar",
-  "@avatar": {
-    "description": "The avatar of the user."
-  },
   "location": "Lokation",
   "@location": {
     "description": "The location of the user."
@@ -2318,5 +2211,241 @@
   "separateSims": "Separate SIM-kort",
   "separateSimsDesc": "Aktivér separate filtreringsregler for hvert SIM-kort",
   "masterAndOverrides": "Overordnede Kontroller",
-  "masterAndOverridesDesc": "Globale regelindstillinger"
+  "masterAndOverridesDesc": "Globale regelindstillinger",
+  "agent": "Agent",
+  "appName": "Your Call Your Rule",
+  "avatarPosition": "Avatar Position",
+  "axisPosition": "{axis} Position",
+  "bank": "Bank",
+  "cloudSync": "Cloud Sync",
+  "cloudSyncAndBackupTitle": "Cloud Sync & Backup",
+  "cloudSyncTitle": "Cloud Sync",
+  "dashboardTab": "Dashboard",
+  "filterToggleStatus": "{status} filter: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "github": "GitHub",
+  "headhunter": "Headhunter",
+  "internet": "Internet",
+  "mute": "Mute",
+  "okButton": "OK",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "pluginService": "Plugin Service",
+  "pluginTestPageTitle": "Plugin Test",
+  "pluginUrl": "Plugin URL",
+  "pluginVersion": "Plugin Version",
+  "regexTesterTitle": "Regex Tester",
+  "region": "Region",
+  "robocall": "Robocall",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "takeaway": "Takeaway",
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "testButton": "TEST",
+  "total": "Total",
+  "tutorial": "Tutorial",
+  "type": "Type",
+  "version": "Version: {version}",
+  "cloudBackup": "Cloud Backup",
+  "log": "Log",
+  "themeLight": "Lyst",
+  "themeDark": "Mørkt",
+  "themeSystem": "Systemstandard",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "medium": "Medium",
+  "isRoaming": "Roaming",
+  "support": "Support",
+  "totalVotes": "Total: {count}",
+  "@totalVotes": {
+    "description": "Total votes count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "ruleType": "Regeltype",
+  "localDatabaseSyncTitle": "Lokal databasesynkronisering",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Synkroniser data på tværs af enheder",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Projekt-URL",
+  "supabaseAnonKey": "Anonym nøgle",
+  "supabaseAnonKeyHint": "API Key, offentlig anonym nøgle",
+  "connectionString": "Forbindelsesstreng (URI)",
+  "connectionStringHelper": "Kun nødvendig for 'Initialiser database'",
+  "syncCallHistory": "Synkroniser opkaldshistorik",
+  "syncCallHistorySubtitle": "Inkluder private opkaldslogge i synkroniseringen",
+  "requiredField": "Påkrævet",
+  "requiredInitField": "Påkrævet for initialisering",
+  "initDbButton": "Initialiser database",
+  "dbInitSuccess": "Database initialiseret med succes!",
+  "syncSuccess": "Synkronisering gennemført. Sendt: {pushed}, Modtaget: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Fejl",
+  "errorLoadingSettings": "Fejl ved indlæsning af indstillinger",
+  "statusLabel": "Status",
+  "statusConnected": "Forbundet / Konfigureret",
+  "statusNotConfigured": "Ikke konfigureret",
+  "configSaved": "Konfiguration gemt!",
+  "masterDeviceLabel": "Hovedenhed (Admin)",
+  "masterDeviceHelp": "Kun hovedenheden kan initialisere databasestrukturen.",
+  "syncIntervalLabel": "Interval for automatisk synkronisering",
+  "syncIntervalValue": "Hver {hours}. time",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Lad være tom for at bruge standardværdi",
+  "vipAccessSubtitle": "Se reklamer gratis eller køb VIP",
+  "failedToLoadSettingsSchema": "Kunne ikke indlæse indstillingsskema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "Feltet er påkrævet",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Besvar opkaldet først, og læg derefter på med det samme.",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupSourceTitle": "Kilde til regeldatabase",
+  "initialSetupSourceGithub": "Officiel GitHub-kilde",
+  "initialSetupSourceCdn": "Spejlet CDN-accelerationskilde",
+  "initialSetupSourceCustom": "Egen spejlkilde",
+  "initialSetupCustomUrlHint": "Indtast URL for egen spejl-JSON-konfiguration",
+  "initialSetupCustomUrlLoad": "Indlæs konfiguration",
+  "initialSetupDetectedLocation": "Registreret placering",
+  "deepLinkImportTitle": "Importer konfiguration",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Abonnement",
+  "deepLinkDefaultPluginName": "Importeret plugin",
+  "deepLinkDefaultSubName": "Importeret abonnement",
+  "deepLinkDetectedTitle": "Dybdelink registreret",
+  "deepLinkNameLabel": "Navn",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Bekræft import",
+  "deepLinkEmptyUrlError": "URL må ikke være tom",
+  "deepLinkPluginDownloadFailed": "Kunne ikke downloade plugin: {error}",
+  "deepLinkImportSuccess": "Importeret med succes",
+  "deepLinkImportFailed": "Import mislykkedes: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: Du kan genåbne denne opsætningsside til enhver tid i Indstillinger.",
+  "initialSetupGoToSettings": "Gå til Indstillinger"
 }

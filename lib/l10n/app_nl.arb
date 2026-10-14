@@ -79,7 +79,6 @@
   "addToFavorites": "Toevoegen aan Favorieten",
   "addToRules": "Toevoegen aan Regels",
   "addToWhitelist": "Toevoegen aan Witte Lijst",
-  "agent": "Agent",
   "all": "Alle",
   "allCallsTab": "Alle",
   "allow": "Toestaan",
@@ -120,7 +119,6 @@
   "answerThenHangup": "Antwoorden en ophangen",
   "applicationSoftware": "Toepassingssoftware",
   "apply": "Toepassen",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "Autorisatie mislukt: Controleer client-ID en sleutel",
   "authorizationFailedMessage": "Autorisatie mislukt",
   "authorizationSuccessMessage": "Autorisatie succesvol",
@@ -148,7 +146,6 @@
   "backupToCloud": "Back-up naar Cloud",
   "backupToCloudFailed": "Back-up naar cloud mislukt: {error}",
   "backupToCloudSuccess": "Succesvol geback-upt naar de cloud",
-  "bank": "Bank",
   "basicInfo": "Basisgegevens",
   "basicRuleFilter": "Basisregel filter",
   "basicRuleFiltering": "Basisregel filtering",
@@ -328,7 +325,6 @@
   "currentDeviceTitle": "Huidig Apparaat",
   "currentLanguage": "Huidige Taal",
   "customerService": "Klantenservice",
-  "dashboardTab": "Dashboard",
   "dataAnalysis": "Gegevensanalyse",
   "dataLoadFailure": "Gegevens laden mislukt: {error}",
   "@dataLoadFailure": {
@@ -491,7 +487,6 @@
     "description": "Subscription URL field hint"
   },
   "enterSyncFolderNameHint": "Voer mapnaam voor synchronisatie in (standaard: NotificationManager)",
-  "entertainment": "Entertainment",
   "enterValidNameAndUrl": "Voer geldige naam en URL in",
   "@enterValidNameAndUrl": {
     "description": "Enter valid name and URL error message"
@@ -557,7 +552,6 @@
   "features": "Functies",
   "fetchingCallerIdInfo": "Beller-ID-informatie ophalen...",
   "fileSavedTo": "Bestand opgeslagen naar: {path}",
-  "filter": "Filter",
   "filterByLabel": "Filteren op label",
   "filterControlPanelTitle": "Filter bedieningspaneel",
   "filterControlSubtitle": "Status van alle filters in-/uitschakelen beheren",
@@ -569,7 +563,6 @@
   "filterPriorityNote": "Opmerking: Er zijn prioriteitsrelaties tussen filters, raadpleeg de helpdocumentatie voor details",
   "filterSettings": "Filter Instellingen",
   "filterSettingsTitle": "Filter Instellingen",
-  "filterSMS": "Filter SMS",
   "filterToggleInstructions": "Schakel filters in of uit voor deze SIM-slot:",
   "filterToggleStatus": "Filter {status}: {filterName}",
   "@filterToggleStatus": {
@@ -583,7 +576,6 @@
       }
     }
   },
-  "filterType": "Filter Type",
   "financial": "Financieel",
   "flexibleCombinationFeature": "• Flexibele Combinaties: Filters in-/uitschakelen per SIM-slot",
   "fontSizesSetting": "Lettergroottes",
@@ -602,7 +594,6 @@
     }
   },
   "getFree": "Gratis Verkrijgen",
-  "github": "GitHub",
   "globalFilterDescription": "Configureer globale filters voor alle SIM-kaarten:",
   "globalFilterFeature": "• Globale Filters: Basisregels voor alle inkomende oproepen",
   "globalFilterSettings": "Globale Filter Instellingen",
@@ -619,7 +610,6 @@
   "granted": "Verleend",
   "grantNecessaryPermissions": "Verleen Noodzakelijke Rechten",
   "grantPermissions": "Verleen Rechten",
-  "headhunter": "Headhunter",
   "height": "Hoogte",
   "homeTab": "Start",
   "howItWorksPoint1": "• Het systeem zal automatisch oproepen van hetzelfde nummer binnen het ingestelde tijmvenster toestaan",
@@ -656,7 +646,6 @@
   "interceptionActionSettingsSubtitle": "Stel in hoe geblokkeerde oproepen worden afgehandeld",
   "interceptionActionSettingsTitle": "Onderscheppingsactie Instellingen",
   "interceptionTimeInterval": "Onderschepping Tijdsinterval",
-  "internet": "Internet",
   "intervalSetSuccess": "{service} update-interval ingesteld op {days} dagen",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -677,23 +666,19 @@
   "jsonFormat": "JSON Formaat",
   "keepAllVersions": "Behoud alle versies",
   "keepAllVersionsDescription": "Behoud alle historische versies van elke back-up",
-  "label": "Label",
   "labelAddedSuccessfully": "Label \"{name}\" succesvol toegevoegd",
   "labelCategories": "Label Categorieën",
   "labelDeleted": "Label verwijderd",
   "labelDescription": "Labels helpen u contacten beter te beheren, aangepaste labels toe te voegen aan telefoonnummers voor eenvoudige identificatie van oproepen en berichten.",
-  "labelFilterTooltip": "Label Filter",
   "labelIconColor": "Label Icoon Kleur",
   "labelManagement": "Label Beheer",
   "labelNotFound": "Label niet gevonden",
-  "labels": "Labels",
   "labelsColor": "Labels Kleur",
   "labelsDeleted": "{count} labels verwijderd",
   "labelsExportedSuccessfully": "Labels succesvol geëxporteerd",
   "labelsFontSize": "Labels Lettergrootte",
   "labelsImportedSuccessfully": "Succesvol {count} labels geïmporteerd",
   "labelsPosition": "Labels Positie",
-  "labelTag": "Label: {labelId}",
   "labelUpdateFailed": "Kon label niet bijwerken: {error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -861,7 +846,6 @@
   "numberTypeColor": "Nummertype kleur",
   "numberTypeFontSize": "Nummertype lettergrootte",
   "numberTypePosition": "Nummertype positie",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Uw oproepbeveiligingsmanager is klaar, geniet van een veilige oproepervaring!",
   "onboardingLanguageDescription": "Kies uw voorkeurstaal voor de beste ervaring.",
   "onboardingPermissionsDescription": "Om volledige service te bieden, hebben we de volgende machtigingen nodig:",
@@ -890,7 +874,6 @@
   "pattern": "Patroon",
   "pendingSync": "Wacht op synchronisatie",
   "periodMonth": "Maand",
-  "periodWeek": "Week",
   "periodYear": "Jaar",
   "permissionDenied": "Toestemmingsverzoek geweigerd",
   "permissionGranted": "Toestemming verleend",
@@ -904,15 +887,11 @@
   "phoneNumberTypeFixedLine": "Vaste lijn",
   "phoneNumberTypeFixedLineOrMobile": "Vaste lijn of mobiel",
   "phoneNumberTypeMobile": "Mobiel",
-  "phoneNumberTypePager": "Pager",
   "phoneNumberTypePersonalNumber": "Persoonlijk nummer",
   "phoneNumberTypePremiumRate": "Premiumtarief",
   "phoneNumberTypeSharedCost": "Gedeelde kosten",
   "phoneNumberTypeTollFree": "Gratis",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Onbekend",
-  "phoneNumberTypeVoicemail": "Voicemail",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Telefoon toestemming",
   "phonePermissionDescription": "Gebruikt om inkomende oproepen te identificeren en te blokkeren.",
   "phoneRule": "Telefoonregel",
@@ -929,10 +908,7 @@
   "pluginManagementSubtitle": "Beheer en configureer plug-ins van derden",
   "pluginName": "Pluginnaam",
   "pluginsDeleted": "{count} plugins succesvol verwijderd.",
-  "pluginService": "Plugin Service",
-  "pluginTestPageTitle": "Plugin Test",
   "pluginUpdateSuccess": "Plugin succesvol bijgewerkt",
-  "pluginUrl": "Plugin URL",
   "pluginVersion": "Pluginversie",
   "political": "Politiek",
   "powerfulSpamBlocking": "Krachtige spamblokkering",
@@ -945,7 +921,6 @@
   "quarterlyMembership": "Kwartierlijks lidmaatschap",
   "quarterlyMembershipDescription": "Ontgrendel alle premiumfuncties, automatisch verlengd per kwartaal",
   "ready": "Klaar!",
-  "recruiter": "Recruiter",
   "refresh": "Vernieuwen",
   "refreshPermissionStatus": "Vernieuw toestemmingsstatus",
   "refreshTooltip": "Vernieuwen",
@@ -961,7 +936,6 @@
   "regexRuleManagement": "Regex Regelbeheer",
   "regexRuleNamePatternRequired": "Regelnaam en regex-patroon mogen niet leeg zijn",
   "regexRules": "Regex Regels",
-  "regexTesterTitle": "Regex Tester",
   "region": "Regio",
   "registeredDevicesTitle": "Geregistreerde Apparaten",
   "rejectAllCalls": "Alle Oproepen Weigeren",
@@ -999,9 +973,7 @@
   "restoreSettings": "Instellingen Herstellen",
   "restoreSettingsConfirmation": "Dit vervangt al uw huidige instellingen. Weet u zeker dat u wilt doorgaan?",
   "retry": "Opnieuw Proberen",
-  "ridesharing": "Ridesharing",
   "risk": "Risico",
-  "robocall": "Robocall",
   "ruleAction": "Regel Actie",
   "ruleAddedSuccess": "Regel succesvol toegevoegd",
   "@ruleAddedSuccess": {
@@ -1068,17 +1040,7 @@
   "serviceTypeContact": "Contact Abonnement",
   "serviceTypeLabel": "Servicetype",
   "serviceTypePhone": "Telefoonabonnement",
-  "serviceTypePlugin": "Plugin Update",
   "serviceTypeSms": "SMS Abonnement",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Encryptiewachtwoord instellen",
   "settings": "Instellingen",
   "settingsBackedUpTo": "Instellingen geback-upt naar: {path}",
@@ -1103,42 +1065,10 @@
   "simCardFilterRulesDescription": "Stel verschillende filterregels in op basis van SIM-kaart slots",
   "simCardFontSize": "SIM-kaart Lettergrootte",
   "simCardPosition": "SIM-kaart Positie",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "SIM-slotregels stellen u in staat om onafhankelijke filterregels te configureren voor elke SIM-sleuf.",
   "simRuleInstructionsTitle": "SIM-sleufregels",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Configureer onafhankelijke filterregels voor elke simkaart:",
   "simSlotFilterSettingsTitle": "SIM-sleuf {slotNumber} Filterinstellingen",
@@ -1167,7 +1097,6 @@
   "simSlotTitle": "SIM-sleuf {slotNumber}",
   "skip": "Overslaan",
   "smartCallerId": "Slimme oproepidentificatie",
-  "sms": "SMS",
   "smsFilterDescription": "SMS-filtering helpt u automatisch spamberichten te filteren en uw berichtlijst schoon te houden. U kunt filterregels en meldingsmethoden instellen.",
   "smsFilterDisabled": "SMS-filtering uitgeschakeld",
   "smsFilterEnabled": "SMS-filtering ingeschakeld",
@@ -1185,7 +1114,6 @@
   "smsSubscription": "SMS-abonnement",
   "smsSubscriptionAddedSuccessfully": "SMS-abonnement succesvol toegevoegd",
   "smsSubscriptionRulesDescription": "Abonneer u op SMS-regellijsten via URL, ondersteuning voor reguliere expressie-matching. U kunt blokkeer- of toestaande acties instellen.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Sommige toestemmingsverzoeken geweigerd",
   "spamLikely": "Waarschijnlijk spam",
   "startColor": "Beginkleur",
@@ -1268,19 +1196,8 @@
   "tabBlocked": "Geblokkeerd",
   "tabMissed": "Gemist",
   "tabOutgoing": "Uitgaand",
-  "tagLabel": "Tag: {tag}",
-  "@tagLabel": {
-    "placeholders": {
-      "tag": {
-        "type": "String"
-      }
-    }
-  },
   "takeaway": "Afhalen",
   "telecommunication": "Telecommunicatie",
-  "telegram": "Telegram",
-  "telemarketing": "Telemarketing",
-  "testButton": "TEST",
   "testConnectionButton": "Verbinding testen",
   "textColorsSetting": "Tekst- en labelkleuren",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Deze app is een krachtige tool voor nummerherkenning waarmee u ongewenste oproepen kunt identificeren en blokkeren.",
@@ -1306,8 +1223,6 @@
   "totalBlocked": "Totaal Geblokkeerd",
   "transferDataBetweenDevicesOrPlatforms": "Gegevens overdragen tussen apparaten of platforms",
   "travelTicketing": "Reisticketverkoop",
-  "tutorial": "Tutorial",
-  "type": "Type",
   "unassignedSIMCard": "Niet-toegewezen SIM-kaart",
   "unknown": "Onbekend",
   "@unknown": {
@@ -1322,7 +1237,6 @@
   "updateAllNow": "Alles nu bijwerken",
   "updateContactFailed": "Contact bijwerken mislukt: {error}",
   "updateFavoriteStatus": "Favoriete status bijwerken",
-  "updateInterval": "Update Interval",
   "updateNow": "Nu bijwerken",
   "updatePlugin": "Plugin bijwerken",
   "updatePluginFailed": "Plugin bijwerken mislukt: {error}",
@@ -1365,15 +1279,9 @@
   "watchAdForTemp": "Bekijk advertentie voor tijdelijke privileges",
   "watchAdForTempDescription": "Bekijk een korte advertentie om tijdelijk enkele premium functies te ontgrendelen",
   "webDAVConfigTitle": "WebDAV Configuratie",
-  "week": "Week",
   "welcome": "Welkom",
-  "whitelist": "Whitelist",
-  "@whitelist": {
-    "description": "Whitelist label"
-  },
   "width": "Breedte",
   "wildcardMatchingDescription": "Gebruik '.' om elk willekeurig teken te matchen (bv. '123.456' matcht 123-456)",
-  "wildcardMatchingTitle": "Wildcard matching:",
   "wildcardSupportForFlexibleFiltering": "Wildcard Ondersteuning voor Flexibele Filtering",
   "windowSizeSetting": "Venstergrootte",
   "year": "Jaar",
@@ -1616,8 +1524,6 @@
   "pleaseEnterAtLeastOneNumber": "Voer alstublieft ten minste één nummer in.",
   "openInWebView": "Openen in WebView",
   "pluginLabel": "Label Plug-in",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Achtergrondkleur Bericht",
   "clearAllCallLogs": "Alle Oproeplogboeken Wissen",
   "clearAllCallLogsConfirmation": "Bevestig om alle oproeplogboeken te wissen",
@@ -1651,13 +1557,11 @@
   "callType": "Oproeptype",
   "callTime": "Oproeptijd",
   "numberInvalidFormat": "Nummer ongeldig formaat",
-  "medium": "Medium",
   "verificationReport": "Verificatierapport",
   "finalRisk": "Eindrisico",
   "simState": "SIM-status",
   "ipCountry": "IP Land",
   "simCountry": "SIM Land",
-  "isRoaming": "Roaming",
   "isNumberMatch": "Nummer Match",
   "support": "Ondersteuning",
   "rewardedAdService": "Beloonde Advertenties Service",
@@ -1863,10 +1767,6 @@
   "lowRisk": "Laag risico",
   "@lowRisk": {
     "description": "Low risk label"
-  },
-  "communityImpact": "Community Impact",
-  "@communityImpact": {
-    "description": "Community impact label"
   },
   "criticalIssues": "Kritieke problemen",
   "@criticalIssues": {
@@ -2117,10 +2017,6 @@
   "@riskLevelCritical": {
     "description": "Label for critical risk level"
   },
-  "riskLevelMedium": "Medium",
-  "@riskLevelMedium": {
-    "description": "Label for medium risk level"
-  },
   "riskLevelVeryLow": "Zeer Laag",
   "@riskLevelVeryLow": {
     "description": "Label for very low risk level"
@@ -2191,10 +2087,6 @@
   "dataSourceDisclaimer": "Nummers zijn afkomstig van internet en door gebruikers ingediende gegevens. We kunnen niet garanderen dat een nummer, eenmaal verwijderd, niet opnieuw wordt ingediend door andere gebruikers of bronnen. Zoek en verifieer informatie actief.",
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
-  },
-  "avatar": "Avatar",
-  "@avatar": {
-    "description": "The avatar of the user."
   },
   "location": "Locatie",
   "@location": {
@@ -2283,10 +2175,6 @@
   "@detailedSettingsTitle": {
     "description": "The title of the detailed settings page."
   },
-  "entryPointViewTitle": "Entry Point View",
-  "@entryPointViewTitle": {
-    "description": "The title of the entry point view."
-  },
   "callTypeRejected": "Geweigerd",
   "callTypeSilenced": "Stilgezet",
   "andMoreItems": "en nog {count} items",
@@ -2318,5 +2206,246 @@
   "separateSims": "Afzonderlijke SIM-kaarten",
   "separateSimsDesc": "Schakel aparte filterregels in voor elke SIM-kaart",
   "masterAndOverrides": "Hoofdbediening",
-  "masterAndOverridesDesc": "Globale regelinstellingen"
+  "masterAndOverridesDesc": "Globale regelinstellingen",
+  "themeLight": "Licht",
+  "themeDark": "Donker",
+  "themeSystem": "Systeemstandaard",
+  "ruleType": "Regeltype",
+  "localDatabaseSyncTitle": "Lokale databasesynchronisatie",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Gegevens synchroniseren tussen apparaten",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project-URL",
+  "supabaseAnonKey": "Anonieme sleutel",
+  "supabaseAnonKeyHint": "API Key, anonieme openbare sleutel",
+  "connectionString": "Verbindingsreeks (URI)",
+  "connectionStringHelper": "Alleen nodig voor 'Database initialiseren'",
+  "syncCallHistory": "Oproepgeschiedenis synchroniseren",
+  "syncCallHistorySubtitle": "Prive-oproepjournalen opnemen in synchronisatie",
+  "requiredField": "Verplicht",
+  "requiredInitField": "Verplicht voor initialisatie",
+  "initDbButton": "Database initialiseren",
+  "dbInitSuccess": "Database succesvol geïnitialiseerd!",
+  "syncSuccess": "Synchronisatie voltooid. Verzonden: {pushed}, Ontvangen: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Fout",
+  "errorLoadingSettings": "Fout bij laden van instellingen",
+  "statusLabel": "Status",
+  "statusConnected": "Verbonden / Geconfigureerd",
+  "statusNotConfigured": "Niet geconfigureerd",
+  "configSaved": "Configuratie opgeslagen!",
+  "masterDeviceLabel": "Hoofdapparaat (Admin)",
+  "masterDeviceHelp": "Alleen het hoofdapparaat kan de databasestructuur initialiseren.",
+  "syncIntervalLabel": "Automatische synchronisatie-interval",
+  "syncIntervalValue": "Om de {hours} uur",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Laat leeg om standaardwaarde te gebruiken",
+  "vipAccessSubtitle": "Bekijk gratis advertenties of koop VIP",
+  "failedToLoadSettingsSchema": "Laden van instellingenschema mislukt: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "Veld is verplicht",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Beantwoord de oproep eerst en hang daarna direct op.",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupSourceTitle": "Bron van regeldatabase",
+  "initialSetupSourceGithub": "Officiële GitHub-bron",
+  "initialSetupSourceCdn": "Spiegel-CDN-versnellingsbron",
+  "initialSetupSourceCustom": "Zelfgehoste spiegelbron",
+  "initialSetupCustomUrlHint": "Voer zelfgehoste spiegel JSON-configuratie-URL in",
+  "initialSetupCustomUrlLoad": "Configuratie laden",
+  "initialSetupDetectedLocation": "Gedetecteerde locatie",
+  "deepLinkImportTitle": "Configuratie importeren",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Abonnement",
+  "deepLinkDefaultPluginName": "Geïmporteerde plugin",
+  "deepLinkDefaultSubName": "Geïmporteerd abonnement",
+  "deepLinkDetectedTitle": "Deep link gedetecteerd",
+  "deepLinkNameLabel": "Naam",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Import bevestigen",
+  "deepLinkEmptyUrlError": "URL mag niet leeg zijn",
+  "deepLinkPluginDownloadFailed": "Downloaden van plugin mislukt: {error}",
+  "deepLinkImportSuccess": "Succesvol geïmporteerd",
+  "deepLinkImportFailed": "Import mislukt: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: U kunt deze instellingspagina op elk moment opnieuw openen via Instellingen.",
+  "initialSetupGoToSettings": "Ga naar Instellingen",
+  "agent": "Agent",
+  "appName": "Your Call Your Rule",
+  "bank": "Bank",
+  "dashboardTab": "Dashboard",
+  "entertainment": "Entertainment",
+  "filter": "Filter",
+  "filterSMS": "Filter SMS",
+  "filterType": "Filter Type",
+  "github": "GitHub",
+  "headhunter": "Headhunter",
+  "internet": "Internet",
+  "label": "Label",
+  "labelFilterTooltip": "Label Filter",
+  "labels": "Labels",
+  "labelTag": "Label: {labelId}",
+  "okButton": "OK",
+  "periodWeek": "Week",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoicemail": "Voicemail",
+  "phoneNumberTypeVoip": "VoIP",
+  "pluginService": "Plugin Service",
+  "pluginTestPageTitle": "Plugin Test",
+  "pluginUrl": "Plugin URL",
+  "recruiter": "Recruiter",
+  "regexTesterTitle": "Regex Tester",
+  "ridesharing": "Ridesharing",
+  "robocall": "Robocall",
+  "serviceTypePlugin": "Plugin Update",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "tagLabel": "Tag: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "testButton": "TEST",
+  "tutorial": "Tutorial",
+  "type": "Type",
+  "updateInterval": "Update Interval",
+  "week": "Week",
+  "whitelist": "Whitelist",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "wildcardMatchingTitle": "Wildcard matching:",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "medium": "Medium",
+  "isRoaming": "Roaming",
+  "communityImpact": "Community Impact",
+  "@communityImpact": {
+    "description": "Community impact label"
+  },
+  "riskLevelMedium": "Medium",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "entryPointViewTitle": "Entry Point View",
+  "@entryPointViewTitle": {
+    "description": "The title of the entry point view."
+  }
 }

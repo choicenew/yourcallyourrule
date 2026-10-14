@@ -602,7 +602,6 @@
     }
   },
   "getFree": "Pata Bure",
-  "github": "GitHub",
   "globalFilterDescription": "Sanidi vichujio vya jumla kwa kadi zote za SIM:",
   "globalFilterFeature": "• Vichujio vya Jumla: Sheria za msingi kwa simu zote zinazoingia",
   "globalFilterSettings": "Mipangilio ya Vichujio vya Jumla",
@@ -904,15 +903,12 @@
   "phoneNumberTypeFixedLine": "Njia ya simu ya mezani",
   "phoneNumberTypeFixedLineOrMobile": "Njia ya simu ya mezani au simu ya mkononi",
   "phoneNumberTypeMobile": "Simu ya mkononi",
-  "phoneNumberTypePager": "Pager",
   "phoneNumberTypePersonalNumber": "Nambari ya binafsi",
   "phoneNumberTypePremiumRate": "Kiwango cha juu",
   "phoneNumberTypeSharedCost": " Gharama ya pamoja",
   "phoneNumberTypeTollFree": "Bila malipo",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Haijulikani",
   "phoneNumberTypeVoicemail": "Ujumbe wa sauti",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Ruhusa ya Simu",
   "phonePermissionDescription": "Inatumiwa kutambua na kuzuia simu zinazoingia.",
   "phoneRule": "Sheria ya Simu",
@@ -1070,15 +1066,6 @@
   "serviceTypePhone": "Usajili wa Simu",
   "serviceTypePlugin": "Sasisho la Plugin",
   "serviceTypeSms": "Usajili wa SMS",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Weka Nenosiri la Usimbaji",
   "settings": "Mipangilio",
   "settingsBackedUpTo": "Mipangilio imehifadhiwa kwa: {path}",
@@ -1103,42 +1090,10 @@
   "simCardFilterRulesDescription": "Weka sheria tofauti za kuchuja kulingana na nafasi za kadi za SIM",
   "simCardFontSize": "Kati ya herufi ya SIM Kadi",
   "simCardPosition": "Nafasi ya SIM Kadi",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "Kanuni za nafasi ya SIM hukuruhusu kusanidi sheria huru za kuchuja kwa kila nafasi ya SIM.",
   "simRuleInstructionsTitle": "Kanuni za Nafasi ya SIM",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Sanidi sheria huru za kuchuja kwa kila kadi ya SIM:",
   "simSlotFilterSettingsTitle": "Mipangilio ya Kichujio cha Nafasi ya SIM {slotNumber}",
@@ -1167,7 +1122,6 @@
   "simSlotTitle": "Nafasi ya SIM {slotNumber}",
   "skip": "Ruka",
   "smartCallerId": "Utambulisho Mahiri wa Mpigaji",
-  "sms": "SMS",
   "smsFilterDescription": "Kichujio cha SMS hukusaidia kuchuja ujumbe wa taka kiotomatiki na kuweka orodha yako ya ujumbe ikiwa safi. Unaweza kuweka sheria za kichujio na mbinu za arifa.",
   "smsFilterDisabled": "Kichujio cha SMS kimezimwa",
   "smsFilterEnabled": "Kichujio cha SMS kimewashwa",
@@ -1185,7 +1139,6 @@
   "smsSubscription": "Usajili wa SMS",
   "smsSubscriptionAddedSuccessfully": "Usajili wa SMS umeongezwa kwa mafanikio",
   "smsSubscriptionRulesDescription": "Jiandikishe kwa orodha za kanuni za SMS kupitia URL, ukisaidia utambuzi wa maneno ya kawaida. Unaweza kuweka vitendo vya kuzuia au kuruhusu.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Baadhi ya maombi ya ruhusa yamekataliwa",
   "spamLikely": "Tukio la Taka",
   "startColor": "Rangi ya Kuanzia",
@@ -1564,7 +1517,6 @@
   "importExport": "Leta/Hamisha",
   "filterByAction": "Chuja kwa Tendo",
   "upgradeToVip": "Boresha hadi VIP",
-  "batteryOptimizationPermission": "Battery Optimization",
   "batteryOptimizationPermissionDescription": "Ruhusu programu ifanye kazi chinichini ili kutoa huduma kama vile kitambulisho cha mpigaji.",
   "permissionTitle": "Ruhusa Maalum",
   "permissionSubtitle": "Dhibiti ruhusa za kuingiliana na uboreshaji wa betri",
@@ -1616,8 +1568,6 @@
   "pleaseEnterAtLeastOneNumber": "Tafadhali weka angalau namba moja.",
   "openInWebView": "Fungua katika WebView",
   "pluginLabel": "Lebo ya Programu-jalizi",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Rangi ya Mandharinyuma ya Ujumbe",
   "clearAllCallLogs": "Futa Magogo Yote ya Simu",
   "clearAllCallLogsConfirmation": "Thibitisha kufuta magogo yote ya simu",
@@ -2192,10 +2142,6 @@
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
   },
-  "avatar": "Avatar",
-  "@avatar": {
-    "description": "The avatar of the user."
-  },
   "location": "Mahali",
   "@location": {
     "description": "The location of the user."
@@ -2298,5 +2244,208 @@
         "example": "5"
       }
     }
-  }
+  },
+  "github": "GitHub",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "batteryOptimizationPermission": "Battery Optimization",
+  "themeLight": "Nyepesi",
+  "themeDark": "Giza",
+  "themeSystem": "System",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "ruleType": "Rule Type",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Retry",
+  "initialSetupSkip": "Skip",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings",
+  "separateSims": "Separate SIMs",
+  "separateSimsDesc": "Enable separate filtering rules for each SIM card",
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }

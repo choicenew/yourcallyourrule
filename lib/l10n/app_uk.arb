@@ -120,7 +120,6 @@
   "answerThenHangup": "Відповісти, потім покласти слухавку",
   "applicationSoftware": "Програмне забезпечення",
   "apply": "Застосувати",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "Помилка авторизації: Будь ласка, перевірте ID клієнта та ключ",
   "authorizationFailedMessage": "Помилка авторизації",
   "authorizationSuccessMessage": "Авторизація успішна",
@@ -602,7 +601,6 @@
     }
   },
   "getFree": "Отримати безкоштовно",
-  "github": "GitHub",
   "globalFilterDescription": "Налаштувати глобальні фільтри для всіх SIM-карт:",
   "globalFilterFeature": "• Глобальні фільтри: Базові правила для всіх вхідних дзвінків",
   "globalFilterSettings": "Налаштування глобального фільтра",
@@ -861,7 +859,6 @@
   "numberTypeColor": "Колір типу номера",
   "numberTypeFontSize": "Розмір шрифту типу номера",
   "numberTypePosition": "Позиція типу номера",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Ваш менеджер безпеки дзвінків готовий, почніть насолоджуватися безпечним спілкуванням!",
   "onboardingLanguageDescription": "Виберіть бажану мову для найкращого досвіду.",
   "onboardingPermissionsDescription": "Щоб забезпечити повний сервіс, нам потрібні такі дозволи:",
@@ -909,10 +906,8 @@
   "phoneNumberTypePremiumRate": "Преміум-тариф",
   "phoneNumberTypeSharedCost": "Спільна вартість",
   "phoneNumberTypeTollFree": "Безкоштовний",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Невідомо",
   "phoneNumberTypeVoicemail": "Голосова пошта",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Дозвіл на телефон",
   "phonePermissionDescription": "Використовується для ідентифікації та блокування вхідних дзвінків.",
   "phoneRule": "Правило телефону",
@@ -1070,15 +1065,6 @@
   "serviceTypePhone": "Телефонна підписка",
   "serviceTypePlugin": "Оновлення плагіна",
   "serviceTypeSms": "SMS-підписка",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Встановити пароль шифрування",
   "settings": "Налаштування",
   "settingsBackedUpTo": "Налаштування збережено до: {path}",
@@ -1103,42 +1089,10 @@
   "simCardFilterRulesDescription": "Встановіть різні правила фільтрації залежно від слотів SIM-карти",
   "simCardFontSize": "Розмір шрифту SIM-карти",
   "simCardPosition": "Позиція SIM-карти",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "Правила слотів SIM-карти дозволяють налаштувати незалежні правила фільтрації для кожного слота SIM-карти.",
   "simRuleInstructionsTitle": "Правила слотів SIM-карти",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Налаштуйте незалежні правила фільтрації для кожної SIM-карти:",
   "simSlotFilterSettingsTitle": "Налаштування фільтра {slotNumber} слота SIM-карти",
@@ -1167,7 +1121,6 @@
   "simSlotTitle": "Слот SIM-карти {slotNumber}",
   "skip": "Пропустити",
   "smartCallerId": "Розумна ідентифікація абонента",
-  "sms": "SMS",
   "smsFilterDescription": "Фільтрація SMS допомагає автоматично відфільтровувати спам-повідомлення та підтримувати список повідомлень чистим. Ви можете налаштувати правила фільтрації та методи сповіщень.",
   "smsFilterDisabled": "Фільтрацію SMS вимкнено",
   "smsFilterEnabled": "Фільтрацію SMS увімкнено",
@@ -1185,7 +1138,6 @@
   "smsSubscription": "Підписка на SMS",
   "smsSubscriptionAddedSuccessfully": "Підписку на SMS успішно додано",
   "smsSubscriptionRulesDescription": "Підпишіться на списки правил SMS за допомогою URL-адреси, підтримується зіставлення з регулярними виразами. Ви можете встановити дії блокування або дозволу.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "У деяких запитах на дозвіл відмовлено",
   "spamLikely": "Ймовірно спам",
   "startColor": "Початковий колір",
@@ -1278,7 +1230,6 @@
   },
   "takeaway": "Ключовий момент",
   "telecommunication": "Телекомунікації",
-  "telegram": "Telegram",
   "telemarketing": "Телемаркетинг",
   "testButton": "ТЕСТ",
   "testConnectionButton": "Перевірити з'єднання",
@@ -2203,7 +2154,6 @@
   "simCardTitle": "SIM-карта",
   "liveActivitiesSettingsTitle": "Налаштування Live Activities",
   "elementsSettingsTitle": "Налаштування елементів",
-  "liveActivityMode": "Live Activity",
   "liveActivityModeDescription": "Відображає інформацію про дзвінок як постійне сповіщення на екрані блокування та в Dynamic Island (iOS).",
   "phoneNumberType": "Тип номера телефону",
   "liveActivitiesTestEndActivity": "Завершити дію",
@@ -2298,5 +2248,204 @@
         "example": "5"
       }
     }
-  }
+  },
+  "themeLight": "Світла",
+  "themeDark": "Темна",
+  "themeSystem": "Системна",
+  "ruleType": "Тип правила",
+  "localDatabaseSyncTitle": "Локальна синхронізація бази даних",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Синхронізація даних між пристроями",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "URL проекту Supabase",
+  "supabaseAnonKey": "Анонімний ключ",
+  "supabaseAnonKeyHint": "API Key, публічний анонімний ключ",
+  "connectionString": "Рядок підключення (URI)",
+  "connectionStringHelper": "Потрібно лише для 'Ініціалізації бази даних'",
+  "syncCallHistory": "Синхронізувати історію дзвінків",
+  "syncCallHistorySubtitle": "Включати приватні журнали дзвінків у синхронізацію",
+  "requiredField": "Обов'язково",
+  "requiredInitField": "Обов'язково для ініціалізації",
+  "initDbButton": "Ініціалізувати базу даних",
+  "dbInitSuccess": "Базу даних успішно ініціалізовано!",
+  "syncSuccess": "Синхронізацію завершено. Відправлено: {pushed}, Отримано: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Помилка",
+  "errorLoadingSettings": "Помилка завантаження налаштувань",
+  "statusLabel": "Статус",
+  "statusConnected": "Підключено / Налаштовано",
+  "statusNotConfigured": "Не налаштовано",
+  "configSaved": "Конфігурацію збережено!",
+  "masterDeviceLabel": "Головний пристрій (Адмін)",
+  "masterDeviceHelp": "Лише головний пристрій може ініціалізувати структуру бази даних.",
+  "syncIntervalLabel": "Інтервал автосинхронізації",
+  "syncIntervalValue": "Кожні {hours} год.",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Залиште порожнім для використання за замовчуванням",
+  "vipAccessSubtitle": "Дивіться рекламу безкоштовно або купіть VIP",
+  "failedToLoadSettingsSchema": "Не вдалося завантажити схему налаштувань: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "Поле обов'язкове",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Спочатку відповісти на виклик, потім одразу скинути.",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Налаштування бази правил",
+  "initialSetupDesc": "Виберіть регіональну базу правил для блокування спаму та шахрайських дзвінків у вашому регіоні.",
+  "initialSetupRetry": "Повторити",
+  "initialSetupSkip": "Пропустити",
+  "initialSetupSave": "Зберегти вибрані правила",
+  "initialSetupSaving": "Збереження...",
+  "initialSetupSaveSuccess": "✅ Конфігурацію успішно збережено.",
+  "initialSetupSaveFailed": "Помилка збереження конфігурації: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Не вдалося отримати конфігурацію",
+  "initialSetupSourceTitle": "Джерело бази правил",
+  "initialSetupSourceGithub": "Офіційне джерело GitHub",
+  "initialSetupSourceCdn": "Прискорене дзеркальне джерело CDN",
+  "initialSetupSourceCustom": "Власне дзеркальне джерело",
+  "initialSetupCustomUrlHint": "Введіть URL JSON-конфігурації власного дзеркала",
+  "initialSetupCustomUrlLoad": "Завантажити конфігурацію",
+  "initialSetupDetectedLocation": "Визначене місцезнаходження",
+  "deepLinkImportTitle": "Імпорт конфігурації",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Плагін",
+  "deepLinkTypeSubscription": "Підписка",
+  "deepLinkDefaultPluginName": "Імпортований плагін",
+  "deepLinkDefaultSubName": "Імпортована підписка",
+  "deepLinkDetectedTitle": "Виявлено глибоке посилання",
+  "deepLinkNameLabel": "Назва",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Тип",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Підтвердити імпорт",
+  "deepLinkEmptyUrlError": "URL не може бути порожнім",
+  "deepLinkPluginDownloadFailed": "Не вдалося завантажити плагін: {error}",
+  "deepLinkImportSuccess": "Успішно імпортовано",
+  "deepLinkImportFailed": "Помилка імпорту: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Порада: Ви можете повторно відкрити цю сторінку налаштування у будь-який час у Налаштуваннях.",
+  "initialSetupGoToSettings": "Перейти до Налаштувань",
+  "separateSims": "Окремі SIM-карти",
+  "separateSimsDesc": "Увімкнути окремі правила фільтрації для кожної SIM-карти",
+  "masterAndOverrides": "Головне керування",
+  "masterAndOverridesDesc": "Глобальні налаштування правил",
+  "appName": "Your Call Your Rule",
+  "github": "GitHub",
+  "okButton": "OK",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "telegram": "Telegram",
+  "liveActivityMode": "Live Activity"
 }

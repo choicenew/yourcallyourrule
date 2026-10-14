@@ -79,7 +79,6 @@
   "addToFavorites": "Sevimli kontaktlarga qo'shish",
   "addToRules": "Qoidalarga qo'shish",
   "addToWhitelist": "Oq ro'yxatga qo'shish",
-  "agent": "Agent",
   "all": "Hammasi",
   "allCallsTab": "Hammasi",
   "allow": "Ruxsat berish",
@@ -120,7 +119,6 @@
   "answerThenHangup": "Javob berish va keyin qo'yib yuborish",
   "applicationSoftware": "Dasturiy ta'minot",
   "apply": "Qo'llash",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "Avtorizatsiya muvaffaqiyatsiz tugadi: Iltimos, mijoz ID va kalitni tekshiring",
   "authorizationFailedMessage": "Avtorizatsiya muvaffaqiyatsiz tugadi",
   "authorizationSuccessMessage": "Avtorizatsiya muvaffaqiyatli",
@@ -148,7 +146,6 @@
   "backupToCloud": "Bulutga zaxira nusxalash",
   "backupToCloudFailed": "Bulutga zaxira nusxalash muvaffaqiyatsiz tugadi: {error}",
   "backupToCloudSuccess": "Bulutga muvaffaqiyatli zaxira nusxa yaratildi",
-  "bank": "Bank",
   "basicInfo": "Asosiy ma'lumotlar",
   "basicRuleFilter": "Asosiy qoida filtri",
   "basicRuleFiltering": "Asosiy qoida filtrlash",
@@ -602,7 +599,6 @@
     }
   },
   "getFree": "Bepul oling",
-  "github": "GitHub",
   "globalFilterDescription": "Barcha SIM kartalar uchun global filtrlarni sozlang:",
   "globalFilterFeature": "• Global filtrlar: Barcha kiruvchi qo'ng'iroqlar uchun asosiy qoidalar",
   "globalFilterSettings": "Global filtr sozlamalari",
@@ -656,7 +652,6 @@
   "interceptionActionSettingsSubtitle": "Bloklangan qo'ng'iroqlar qanday ishlashini sozlash",
   "interceptionActionSettingsTitle": "Ushlab qolish harakati sozlamalari",
   "interceptionTimeInterval": "Ushlab qolish vaqti oralig'i",
-  "internet": "Internet",
   "intervalSetSuccess": "{service} yangilash oralig'i {days} kunga o'rnatildi",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -861,7 +856,6 @@
   "numberTypeColor": "Raqam turi rangi",
   "numberTypeFontSize": "Raqam turi shrift hajmi",
   "numberTypePosition": "Raqam turi joylashuvi",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Sizning qo'ng'iroq xavfsizligi menejeringiz tayyor, xavfsiz qo'ng'iroq tajribasidan bahramand bo'lishni boshlang!",
   "onboardingLanguageDescription": "Eng yaxshi tajriba uchun afzal ko'rgan tilingizni tanlang.",
   "onboardingPermissionsDescription": "To'liq xizmat ko'rsatish uchun bizga quyidagi ruxsatnomalar kerak:",
@@ -909,10 +903,8 @@
   "phoneNumberTypePremiumRate": "Premium tarif",
   "phoneNumberTypeSharedCost": "Umumiy xarajat",
   "phoneNumberTypeTollFree": "Bepul",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Noma'lum",
   "phoneNumberTypeVoicemail": "Ovozli pochta",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Telefon ruxsati",
   "phonePermissionDescription": "Kiruvchi qo'ng'iroqlarni aniqlash va bloklash uchun ishlatiladi.",
   "phoneRule": "Telefon qoidasi",
@@ -1070,15 +1062,6 @@
   "serviceTypePhone": "Telefon obunasi",
   "serviceTypePlugin": "Plugin yangilanishi",
   "serviceTypeSms": "SMS obunasi",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Shifrlash parolini o'rnatish",
   "settings": "Sozlamalar",
   "settingsBackedUpTo": "Sozlamalar zaxira nusxasi olindi: {path}",
@@ -1103,42 +1086,10 @@
   "simCardFilterRulesDescription": "SIM karta slotlariga asoslanib turli filtrlash qoidalarini o'rnating",
   "simCardFontSize": "SIM karta shrift hajmi",
   "simCardPosition": "SIM karta joylashuvi",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "SIM slot qoidalari har bir SIM slot uchun mustaqil filtrlash qoidalarini sozlash imkonini beradi.",
   "simRuleInstructionsTitle": "SIM Slot Qoidalari",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Har bir SIM karta uchun mustaqil filtrlash qoidalarini sozlang:",
   "simSlotFilterSettingsTitle": "SIM Slot {slotNumber} Filtrlash Sozlamalari",
@@ -1164,10 +1115,8 @@
   "simSlotRuleFeature": "• SIM Slot Qoidalari: Har bir SIM uchun mustaqil filtrlash strategiyalari",
   "simSlotRuleListTitle": "SIM Slot Qoidalari Ro'yxati",
   "simSlotRuleManagement": "SIM Slot Qoidalari",
-  "simSlotTitle": "SIM Slot {slotNumber}",
   "skip": "O'tkazish",
   "smartCallerId": "Aqlli Qo'ng'iroqni Aniqlash",
-  "sms": "SMS",
   "smsFilterDescription": "SMS filtrlash spam xabarlarni avtomatik filtrlashga va xabarlar ro'yxatingizni toza saqlashga yordam beradi. Siz filtrlash qoidalari va bildirish usullarini o'rnatishingiz mumkin.",
   "smsFilterDisabled": "SMS filtrlash o'chirilgan",
   "smsFilterEnabled": "SMS filtrlash yoqilgan",
@@ -1185,7 +1134,6 @@
   "smsSubscription": "SMS Obunasi",
   "smsSubscriptionAddedSuccessfully": "SMS obunasi muvaffaqiyatli qo'shildi",
   "smsSubscriptionRulesDescription": "URL orqali SMS qoidalar ro'yxatiga obuna bo'ling, muntazam ifodalarni moslashtirishni qo'llab-quvvatlaydi. Bloklash yoki ruxsat berish harakatlarini o'rnatishingiz mumkin.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Ba'zi ruxsat so'rovlari rad etildi",
   "spamLikely": "Spam bo'lishi ehtimoli bor",
   "startColor": "Boshlang'ich rang",
@@ -1278,9 +1226,6 @@
   },
   "takeaway": "Olib ketish",
   "telecommunication": "Telekommunikatsiya",
-  "telegram": "Telegram",
-  "telemarketing": "Telemarketing",
-  "testButton": "TEST",
   "testConnectionButton": "Ulanishni sinash",
   "textColorsSetting": "Matn va yorliq ranglari",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Bu ilova keraksiz qo‘ng‘iroqlarni aniqlash va bloklash imkonini beruvchi kuchli raqamni aniqlash vositasidir.",
@@ -1616,8 +1561,6 @@
   "pleaseEnterAtLeastOneNumber": "Iltimos, kamida bitta raqam kiriting.",
   "openInWebView": "WebViewda ochish",
   "pluginLabel": "Plagin yorlig'i",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Xabar fon rangi",
   "clearAllCallLogs": "Barcha qo'ng'iroqlar jurnalini tozalash",
   "clearAllCallLogsConfirmation": "Barcha qo'ng'iroqlar jurnalini tozalashni tasdiqlang",
@@ -2192,10 +2135,6 @@
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
   },
-  "avatar": "Avatar",
-  "@avatar": {
-    "description": "The avatar of the user."
-  },
   "location": "Joylashuv",
   "@location": {
     "description": "The location of the user."
@@ -2298,5 +2237,215 @@
         "example": "5"
       }
     }
-  }
+  },
+  "agent": "Agent",
+  "appName": "Your Call Your Rule",
+  "bank": "Bank",
+  "github": "GitHub",
+  "internet": "Internet",
+  "okButton": "OK",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotTitle": "SIM Slot {slotNumber}",
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "testButton": "TEST",
+  "themeLight": "Yorug‘",
+  "themeDark": "To‘q",
+  "themeSystem": "System",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "ruleType": "Rule Type",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Retry",
+  "initialSetupSkip": "Skip",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings",
+  "separateSims": "Separate SIMs",
+  "separateSimsDesc": "Enable separate filtering rules for each SIM card",
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }

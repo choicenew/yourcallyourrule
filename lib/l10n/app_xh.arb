@@ -602,7 +602,6 @@
     }
   },
   "getFree": "Fumana Simahla",
-  "github": "GitHub",
   "globalFilterDescription": "Lungiselela izicoci zehlabathi lonke zazo zonke iikhadi ze-SIM:",
   "globalFilterFeature": "• Izicoci zeHlabathi lonke: Imithetho esisiseko yayo yonke iminxeba engenayo",
   "globalFilterSettings": "Useto Lwezicoci Zehlabathi Lonke",
@@ -909,10 +908,8 @@
   "phoneNumberTypePremiumRate": "Umrhumo ophezulu",
   "phoneNumberTypeSharedCost": "Iindleko ekwabelwana ngazo",
   "phoneNumberTypeTollFree": "Simahla",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Engaziwayo",
   "phoneNumberTypeVoicemail": "I-Voicemail",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Imvume Yefowuni",
   "phonePermissionDescription": "Isetyenziselwa ukuchonga nokubhloka iifowuni ezingenayo.",
   "phoneRule": "Umthetho Wefowuni",
@@ -1070,15 +1067,6 @@
   "serviceTypePhone": "Umbhaliso Wefowuni",
   "serviceTypePlugin": "Uhlaziyo Lwe-plugin",
   "serviceTypeSms": "Umbhaliso We-SMS",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Seta Igama Lokugqitha Lokufihla",
   "settings": "Useto",
   "settingsBackedUpTo": "Useto lugcinwe ku: {path}",
@@ -1167,7 +1155,6 @@
   "simSlotTitle": "I-SIM Slot {slotNumber}",
   "skip": "Yeqa",
   "smartCallerId": "Ukwazisa ngomnxeba oSmart",
-  "sms": "SMS",
   "smsFilterDescription": "Ukucoca kwe-SMS kukunceda ukuba ucoce ngokuzenzekelayo imiyalezo ye-spam kwaye ugcine uluhlu lwakho lomyalezo lucocekile. Ungaseta imithetho yokucoca kunye neendlela zesaziso.",
   "smsFilterDisabled": "Ukucoca kwe-SMS kukhubazekile",
   "smsFilterEnabled": "Ukucoca kwe-SMS kunikwe amandla",
@@ -1185,7 +1172,6 @@
   "smsSubscription": "Ukubhalisela i-SMS",
   "smsSubscriptionAddedSuccessfully": "Ukubhalisela i-SMS kongezwe ngempumelelo",
   "smsSubscriptionRulesDescription": "Bhalisa kwiiluhlu zemigangatho ye-SMS nge-URL, ixhasa ukufana kokubonakaliswa rhoqo. Ungaseta iintshukumo zokuthintela okanye zokuvumela.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Ezinye izicelo zemvume zaliwe",
   "spamLikely": "Isenokuba yi-Spam",
   "startColor": "Umbala Wokuqala",
@@ -1278,7 +1264,6 @@
   },
   "takeaway": "Ukutya okuthathwayo",
   "telecommunication": "Unxibelelwano lweefowuni",
-  "telegram": "Telegram",
   "telemarketing": "Urhwebo ngefowuni",
   "testButton": "VAVANYA",
   "testConnectionButton": "Vavanya Uqhagamshelo",
@@ -1616,8 +1601,6 @@
   "pleaseEnterAtLeastOneNumber": "Nceda ufake ubuncinane inombolo enye.",
   "openInWebView": "Vula kwi-WebView",
   "pluginLabel": "Ileyibhile yeplugin",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Umbala Ongasemva Womlayezo",
   "clearAllCallLogs": "Cima Zonke Iinkcukacha Zomnxeba",
   "clearAllCallLogsConfirmation": "Qinisekisa ukucima zonke iinkcukacha zomnxeba",
@@ -2271,10 +2254,6 @@
   "@invalidSimData": {
     "description": "A message displayed when the SIM data is invalid."
   },
-  "simSlot": "SIM Slot",
-  "@simSlot": {
-    "description": "A label for the SIM slot."
-  },
   "enableFiltering": "Vula Ukuhluzwa",
   "@enableFiltering": {
     "description": "A checkbox to toggle whether to enable filtering."
@@ -2298,5 +2277,175 @@
         "example": "5"
       }
     }
-  }
+  },
+  "github": "GitHub",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "telegram": "Telegram",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "themeSystem": "System",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "simSlot": "SIM Slot",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "ruleType": "Rule Type",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Retry",
+  "initialSetupSkip": "Skip",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings",
+  "separateSims": "Separate SIMs",
+  "separateSimsDesc": "Enable separate filtering rules for each SIM card",
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }

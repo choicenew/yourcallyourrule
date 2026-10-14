@@ -79,7 +79,6 @@
   "addToFavorites": "Přidat mezi oblíbené",
   "addToRules": "Přidat do pravidel",
   "addToWhitelist": "Přidat na bílou listinu",
-  "agent": "Agent",
   "all": "Všechny",
   "allCallsTab": "Všechny",
   "allow": "Povolit",
@@ -602,7 +601,6 @@
     }
   },
   "getFree": "Získat zdarma",
-  "github": "GitHub",
   "globalFilterDescription": "Konfigurujte globální filtry pro všechny SIM karty:",
   "globalFilterFeature": "• Globální filtry: Základní pravidla pro všechny příchozí hovory",
   "globalFilterSettings": "Nastavení globálního filtru",
@@ -656,7 +654,6 @@
   "interceptionActionSettingsSubtitle": "Nastavte, jak se zachází s blokovanými hovory",
   "interceptionActionSettingsTitle": "Nastavení akce zachycení",
   "interceptionTimeInterval": "Časový interval zachycení",
-  "internet": "Internet",
   "intervalSetSuccess": "Interval aktualizací {service} nastaven na {days} dní",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -861,7 +858,6 @@
   "numberTypeColor": "Barva typu čísla",
   "numberTypeFontSize": "Velikost písma typu čísla",
   "numberTypePosition": "Pozice typu čísla",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Váš správce zabezpečení hovorů je připraven, začněte si užívat zabezpečenou telefonickou komunikaci!",
   "onboardingLanguageDescription": "Vyberte si preferovaný jazyk pro nejlepší zážitek.",
   "onboardingPermissionsDescription": "Pro poskytování plných služeb potřebujeme následující oprávnění:",
@@ -904,15 +900,12 @@
   "phoneNumberTypeFixedLine": "Pevná linka",
   "phoneNumberTypeFixedLineOrMobile": "Pevná linka nebo mobil",
   "phoneNumberTypeMobile": "Mobilní",
-  "phoneNumberTypePager": "Pager",
   "phoneNumberTypePersonalNumber": "Osobní číslo",
   "phoneNumberTypePremiumRate": "Prémiová sazba",
   "phoneNumberTypeSharedCost": "Sdílené náklady",
   "phoneNumberTypeTollFree": "Bezplatné",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Neznámé",
   "phoneNumberTypeVoicemail": "Hlasová schránka",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Oprávnění k telefonu",
   "phonePermissionDescription": "Používá se k identifikaci a blokování příchozích hovorů.",
   "phoneRule": "Pravidlo pro telefon",
@@ -962,7 +955,6 @@
   "regexRuleNamePatternRequired": "Název pravidla a vzor regulárního výrazu nemohou být prázdné",
   "regexRules": "Pravidla regulárních výrazů",
   "regexTesterTitle": "Tester regulárních výrazů",
-  "region": "Region",
   "registeredDevicesTitle": "Registrovaná zařízení",
   "rejectAllCalls": "Odmítnout všechny hovory",
   "rejectAllCallsDescription": "Pokud je povoleno, všechny hovory budou odmítnuty s nejvyšší prioritou",
@@ -1070,15 +1062,6 @@
   "serviceTypePhone": "Předplatné telefonu",
   "serviceTypePlugin": "Aktualizace zásuvného modulu",
   "serviceTypeSms": "Předplatné SMS",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Nastavit heslo pro šifrování",
   "settings": "Nastavení",
   "settingsBackedUpTo": "Nastavení zálohováno do: {path}",
@@ -1103,42 +1086,10 @@
   "simCardFilterRulesDescription": "Nastavte různá pravidla filtrování na základě slotů SIM karty",
   "simCardFontSize": "Velikost písma SIM karty",
   "simCardPosition": "Pozice SIM karty",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "Pravidla pro sloty SIM vám umožňují konfigurovat nezávislá pravidla filtrování pro každý slot SIM.",
   "simRuleInstructionsTitle": "Pravidla slotů SIM",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Konfigurujte nezávislá pravidla filtrování pro každou SIM kartu:",
   "simSlotFilterSettingsTitle": "Nastavení filtru slotu SIM {slotNumber}",
@@ -1167,7 +1118,6 @@
   "simSlotTitle": "Slot SIM {slotNumber}",
   "skip": "Přeskočit",
   "smartCallerId": "Chytrá identifikace volajícího",
-  "sms": "SMS",
   "smsFilterDescription": "Filtrování SMS vám pomůže automaticky filtrovat spamové zprávy a udržovat váš seznam zpráv čistý. Můžete nastavit pravidla filtrování a metody upozornění.",
   "smsFilterDisabled": "Filtrování SMS zakázáno",
   "smsFilterEnabled": "Filtrování SMS povoleno",
@@ -1185,7 +1135,6 @@
   "smsSubscription": "Předplatné SMS",
   "smsSubscriptionAddedSuccessfully": "Předplatné SMS bylo úspěšně přidáno",
   "smsSubscriptionRulesDescription": "Přihlaste se k odběru seznamů pravidel SMS prostřednictvím URL, podporuje shodu s regulárními výrazy. Můžete nastavit akce blokování nebo povolení.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Některé žádosti o povolení byly zamítnuty",
   "spamLikely": "Pravděpodobně spam",
   "startColor": "Počáteční barva",
@@ -1278,9 +1227,6 @@
   },
   "takeaway": "S sebou",
   "telecommunication": "Telekomunikace",
-  "telegram": "Telegram",
-  "telemarketing": "Telemarketing",
-  "testButton": "TEST",
   "testConnectionButton": "Otestovat připojení",
   "textColorsSetting": "Barvy textu a štítků",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Tato aplikace je výkonný nástroj pro identifikaci volajícího, který vám umožňuje identifikovat a blokovat nechtěná volání.",
@@ -1557,11 +1503,9 @@
   "synced": "Synchronizováno",
   "needVipAccess": "K použití této funkce potřebujete VIP přístup",
   "importExportDescription": "Importovat nebo exportovat data {entityTypeName}",
-  "importExportTitle": "Import/Export",
   "noPhoneRules": "Nenalezeny žádná telefonní pravidla",
   "noRegexRules": "Nenalezena žádná pravidla regulárních výrazů",
   "noAllowedBlockedRules": "Nenalezena žádná povolená/zablokovaná pravidla",
-  "importExport": "Import/Export",
   "filterByAction": "Filtrovat podle akce",
   "upgradeToVip": "Upgradovat na VIP",
   "batteryOptimizationPermission": "Optimalizace baterie",
@@ -1616,8 +1560,6 @@
   "pleaseEnterAtLeastOneNumber": "Zadejte prosím alespoň jedno číslo.",
   "openInWebView": "Otevřít ve webovém prohlížeči",
   "pluginLabel": "Štítek pluginu",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Barva pozadí zprávy",
   "clearAllCallLogs": "Vymazat všechny protokoly hovorů",
   "clearAllCallLogsConfirmation": "Potvrdit vymazání všech protokolů hovorů",
@@ -1657,7 +1599,6 @@
   "simState": "Stav SIM karty",
   "ipCountry": "Země IP adresy",
   "simCountry": "Země SIM karty",
-  "isRoaming": "Roaming",
   "isNumberMatch": "Shoda čísla",
   "support": "Podpora",
   "rewardedAdService": "Služba reklam s odměnou",
@@ -2192,10 +2133,6 @@
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
   },
-  "avatar": "Avatar",
-  "@avatar": {
-    "description": "The avatar of the user."
-  },
   "location": "Umístění",
   "@location": {
     "description": "The location of the user."
@@ -2298,5 +2235,217 @@
         "example": "5"
       }
     }
-  }
+  },
+  "agent": "Agent",
+  "github": "GitHub",
+  "internet": "Internet",
+  "okButton": "OK",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "region": "Region",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "testButton": "TEST",
+  "importExportTitle": "Import/Export",
+  "importExport": "Import/Export",
+  "themeLight": "Světlý",
+  "themeDark": "Tmavý",
+  "themeSystem": "Výchozí systémové",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "isRoaming": "Roaming",
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "ruleType": "Typ pravidla",
+  "localDatabaseSyncTitle": "Synchronizace lokální databáze",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Synchronizovat data mezi zařízeními",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "URL projektu Supabase",
+  "supabaseAnonKey": "Klíč Anon",
+  "supabaseAnonKeyHint": "API Key, veřejný anonymní klíč",
+  "connectionString": "Připojovací řetězec (URI)",
+  "connectionStringHelper": "Vyžadováno pouze pro 'Inicializovat databázi'",
+  "syncCallHistory": "Synchronizovat historii hovorů",
+  "syncCallHistorySubtitle": "Zahrnout soukromé protokoly hovorů do synchronizace",
+  "requiredField": "Povinné",
+  "requiredInitField": "Vyžadováno pro inicializaci",
+  "initDbButton": "Inicializovat databázi",
+  "dbInitSuccess": "Databáze úspěšně inicializována!",
+  "syncSuccess": "Synchronizace dokončena. Odesláno: {pushed}, Přijato: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Chyba",
+  "errorLoadingSettings": "Chyba při načítání nastavení",
+  "statusLabel": "Stav",
+  "statusConnected": "Připojeno / Konfigurováno",
+  "statusNotConfigured": "Není konfigurováno",
+  "configSaved": "Konfigurace uložena!",
+  "masterDeviceLabel": "Hlavní zařízení (Admin)",
+  "masterDeviceHelp": "Pouze hlavní zařízení může inicializovat strukturu databáze.",
+  "syncIntervalLabel": "Interval automatické synchronizace",
+  "syncIntervalValue": "Každé {hours} hodiny",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Ponechte prázdné pro použití výchozí hodnoty",
+  "vipAccessSubtitle": "Sledujte reklamy zdarma nebo zakupte VIP",
+  "failedToLoadSettingsSchema": "Nepodařilo se načíst schéma nastavení: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "Pole je povinné",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Nejprve přijměte hovor a pak jej ihned zavěste.",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Nastavení databáze правил",
+  "initialSetupDesc": "Vyberte regionální databázi pravidel, kterou chcete blokovat.",
+  "initialSetupRetry": "Opakovat",
+  "initialSetupSkip": "Přeskočit",
+  "initialSetupSave": "Uložit vybraná pravidla",
+  "initialSetupSaving": "Ukládání...",
+  "initialSetupSaveSuccess": "✅ Konfigurace úspěšně uložena.",
+  "initialSetupSaveFailed": "Uložení konfigurace selhalo: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Získání konfigurace selhalo",
+  "initialSetupSourceTitle": "Zdroj databáze правил",
+  "initialSetupSourceGithub": "Oficiální zdroj GitHub",
+  "initialSetupSourceCdn": "Zrychlený zrcadlový zdroj CDN",
+  "initialSetupSourceCustom": "Vlastní zrcadlový zdroj",
+  "initialSetupCustomUrlHint": "Zadejte URL konfigurace JSON vlastního zrcadla",
+  "initialSetupCustomUrlLoad": "Načíst konfiguraci",
+  "initialSetupDetectedLocation": "Zjištěná poloha",
+  "deepLinkImportTitle": "Importovat konfiguraci",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Doplněk",
+  "deepLinkTypeSubscription": "Předplatné",
+  "deepLinkDefaultPluginName": "Importovaný doplněk",
+  "deepLinkDefaultSubName": "Importované předplatné",
+  "deepLinkDetectedTitle": "Zjištěn hluboký odkaz",
+  "deepLinkNameLabel": "Název",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Typ",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Potvrdit import",
+  "deepLinkEmptyUrlError": "URL nesmí být prázdné",
+  "deepLinkPluginDownloadFailed": "Stažení doplňku selhalo: {error}",
+  "deepLinkImportSuccess": "Úspěšně importováno",
+  "deepLinkImportFailed": "Import selhal: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: Tuto stránku můžete kdykoli znovu otevřít v Nastavení.",
+  "initialSetupGoToSettings": "Přejít do Nastavení",
+  "separateSims": "Samostatné SIM karty",
+  "separateSimsDesc": "Povolit samostatná pravidla filtrování pro každou SIM kartu",
+  "masterAndOverrides": "Hlavní ovládací prvky",
+  "masterAndOverridesDesc": "Globální nastavení правил"
 }

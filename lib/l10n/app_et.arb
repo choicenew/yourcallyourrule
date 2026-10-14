@@ -79,7 +79,6 @@
   "addToFavorites": "Lisa lemmikutesse",
   "addToRules": "Lisa reeglitesse",
   "addToWhitelist": "Lisa valgesse nimekirja",
-  "agent": "Agent",
   "all": "Kõik",
   "allCallsTab": "Kõik",
   "allow": "Luba",
@@ -556,7 +555,6 @@
   "features": "Funktsioonid",
   "fetchingCallerIdInfo": "Helistaja ID teabe hankimine...",
   "fileSavedTo": "Fail salvestatud asukohta: {path}",
-  "filter": "Filter",
   "filterByLabel": "Filtreeri sildi järgi",
   "filterControlPanelTitle": "Filtri juhtpaneel",
   "filterControlSubtitle": "Hallake kõigi filtrite sisse/välja olekut",
@@ -601,7 +599,6 @@
     }
   },
   "getFree": "Saada tasuta",
-  "github": "GitHub",
   "globalFilterDescription": "Konfigureerige globaalseid filtreid kõigile SIM-kaartidele:",
   "globalFilterFeature": "• Globaalsed filtrid: põhireeglid kõigile sissetulevatele kõnedele",
   "globalFilterSettings": "Globaalsed filtri sätted",
@@ -627,7 +624,6 @@
   "howItWorksTitle": "Kuidas see töötab:",
   "iconCodeOptional": "Ikooni kood (valikuline)",
   "iconSize": "Ikooni suurus",
-  "import": "Import",
   "important": "Tähtis",
   "importConfig": "Impordi konfiguratsioon",
   "importContacts": "Impordi kontaktid",
@@ -655,7 +651,6 @@
   "interceptionActionSettingsSubtitle": "Määrake, kuidas blokeeritud kõnedega toimida",
   "interceptionActionSettingsTitle": "Tõkestamise toimingute sätted",
   "interceptionTimeInterval": "Tõkestamise ajaintervall",
-  "internet": "Internet",
   "intervalSetSuccess": "{service} värskendusintervalliks määratud {days} päeva",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -852,7 +847,6 @@
   },
   "notVerifiedText": "Pole kinnitatud",
   "noValidSmsRulesFoundInFile": "Failist ei leitud ühtegi kehtivat SMS-reeglit",
-  "number": "Number",
   "numberColor": "Numbri värv",
   "numberFontSize": "Numbri fondisuurus",
   "numberPosition": "Numbri asukoht",
@@ -860,7 +854,6 @@
   "numberTypeColor": "Numbritüübi värv",
   "numberTypeFontSize": "Numbritüübi fondisuurus",
   "numberTypePosition": "Numbritüübi asukoht",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Teie kõneturbehaldur on valmis, alustage turvalise kõnekogemusega!",
   "onboardingLanguageDescription": "Valige oma eelistatud keel parima kogemuse saamiseks.",
   "onboardingPermissionsDescription": "Täieliku teenuse osutamiseks vajame järgmisi lubasid:",
@@ -908,10 +901,8 @@
   "phoneNumberTypePremiumRate": "Eritariifiga number",
   "phoneNumberTypeSharedCost": "Jagatud maksumusega number",
   "phoneNumberTypeTollFree": "Tasuta number",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Teadmata",
   "phoneNumberTypeVoicemail": "Kõnepost",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Telefoni luba",
   "phonePermissionDescription": "Kasutatakse sissetulevate kõnede tuvastamiseks ja blokeerimiseks.",
   "phoneRule": "Telefonireegel",
@@ -999,7 +990,6 @@
   "restoreSettingsConfirmation": "See asendab kõik teie praegused sätted. Kas olete kindel, et soovite jätkata?",
   "retry": "Proovi uuesti",
   "ridesharing": "Sõidujagamine",
-  "risk": "Risk",
   "robocall": "Robokõne",
   "ruleAction": "Reegli toiming",
   "ruleAddedSuccess": "Reegel lisati edukalt",
@@ -1069,15 +1059,6 @@
   "serviceTypePhone": "Telefoni tellimus",
   "serviceTypePlugin": "Pistikprogrammi värskendus",
   "serviceTypeSms": "SMS-tellimus",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Määra krüptimisparool",
   "settings": "Seaded",
   "settingsBackedUpTo": "Seaded varundatud: {path}",
@@ -1102,42 +1083,10 @@
   "simCardFilterRulesDescription": "Määrake erinevad filtreerimisreeglid SIM-kaardi pesade alusel",
   "simCardFontSize": "SIM-kaardi fondi suurus",
   "simCardPosition": "SIM-kaardi asukoht",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "SIM-kaardi reeglid võimaldavad teil konfigureerida sõltumatud filtreerimisreeglid iga SIM-kaardi pesa kohta.",
   "simRuleInstructionsTitle": "SIM-kaardi pesa reeglid",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Konfigureerige sõltumatud filtreerimisreeglid iga SIM-kaardi jaoks:",
   "simSlotFilterSettingsTitle": "SIM-kaardi pesa {slotNumber} filtri sätted",
@@ -1166,7 +1115,6 @@
   "simSlotTitle": "SIM-kaardi pesa {slotNumber}",
   "skip": "Jäta vahele",
   "smartCallerId": "Nutikas helistaja ID tuvastus",
-  "sms": "SMS",
   "smsFilterDescription": "SMS-filtratsioon aitab teil automaatselt rämpspostisõnumeid filtreerida ja hoida oma sõnumiloend puhtana. Saate seadistada filtreerimisreegleid ja teatise meetodeid.",
   "smsFilterDisabled": "SMS-filtratsioon keelatud",
   "smsFilterEnabled": "SMS-filtratsioon lubatud",
@@ -1184,7 +1132,6 @@
   "smsSubscription": "SMS-i tellimus",
   "smsSubscriptionAddedSuccessfully": "SMS-tellimus lisati edukalt",
   "smsSubscriptionRulesDescription": "Telli SMS-reeglite loendeid URL-i kaudu, toetades tavaliste avaldiste sobitamist. Saate seadistada blokeerimise või lubamise toimingud.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Mõned õigustaotlused keelatud",
   "spamLikely": "Tõenäoline rämpspost",
   "startColor": "Algusvärv",
@@ -1278,8 +1225,6 @@
   "takeaway": "Kaasavõetav",
   "telecommunication": "Telekommunikatsioon",
   "telegram": "Telegramm",
-  "telemarketing": "Telemarketing",
-  "testButton": "TEST",
   "testConnectionButton": "Testi ühendust",
   "textColorsSetting": "Teksti ja märgiste värvid",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "See rakendus on võimas helistaja tuvastamise tööriist, mis võimaldab teil tuvastada ja blokeerida soovimatuid kõnesid.",
@@ -1615,8 +1560,6 @@
   "pleaseEnterAtLeastOneNumber": "Palun sisestage vähemalt üks number.",
   "openInWebView": "Ava WebView's",
   "pluginLabel": "Pistikprogrammi silt",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Sõnumi taustavärv",
   "clearAllCallLogs": "Tühjenda kõik kõnelogid",
   "clearAllCallLogsConfirmation": "Kinnita kõigi kõnelogide tühjendamine",
@@ -2297,5 +2240,212 @@
         "example": "5"
       }
     }
-  }
+  },
+  "agent": "Agent",
+  "exampleSenderRegexHint": "Example",
+  "filter": "Filter",
+  "github": "GitHub",
+  "import": "Import",
+  "internet": "Internet",
+  "number": "Number",
+  "okButton": "OK",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "risk": "Risk",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "telemarketing": "Telemarketing",
+  "testButton": "TEST",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "themeSystem": "System",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "ruleType": "Rule Type",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Retry",
+  "initialSetupSkip": "Skip",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings",
+  "separateSims": "Separate SIMs",
+  "separateSimsDesc": "Enable separate filtering rules for each SIM card",
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }

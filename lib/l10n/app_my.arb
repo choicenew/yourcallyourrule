@@ -1,111 +1,17 @@
 {
   "@@locale": "my",
-  "aboutContactSubscription": "About Contact Subscription",
-  "@aboutContactSubscription": {
-    "description": "About contact subscription title"
-  },
-  "aboutLabels": "About Labels",
-  "aboutPhoneSubscriptionRules": "About Phone Subscription Rules",
-  "aboutSmsFilter": "About SMS Filtering",
-  "aboutSmsSubscriptionRules": "About SMS Subscription Rules",
-  "aboutSubtitle": "Application version and legal information",
-  "aboutTitle": "About",
-  "action": "Action",
-  "actionAll": "All",
-  "actionAllow": "Allow",
-  "actionBlock": "Block",
-  "actionFilterTitle": "Filter by Action Type",
-  "actionFilterTooltip": "Action Filter",
-  "actionNone": "No Action",
-  "actionSilence": "Silence",
-  "actionTag": "Action: {actionType}",
-  "actionType": "Action Type",
-  "actionUnknown": "Unknown",
-  "add": "Add",
-  "addAllowedBlockedRule": "Add Allow/Block Rule",
-  "addAllowSubscription": "Add Allow Subscription",
-  "@addAllowSubscription": {
-    "description": "Add allow subscription dialog title"
-  },
-  "addBlockSubscription": "Add Block Subscription",
-  "@addBlockSubscription": {
-    "description": "Add block subscription dialog title"
-  },
-  "addContactButton": "Add Contact",
-  "addContactFailed": "Failed to add contact: {error}",
-  "addedToFavorites": "Added to favorite contacts",
-  "addLabel": "Add Label",
-  "addLabelButton": "Add Label",
-  "addLabelFailed": "Failed to add label: {error}",
-  "addName": "Add Name",
-  "addNoneSubscription": "Add None Subscription",
-  "@addNoneSubscription": {
-    "description": "Add none subscription dialog title"
-  },
-  "addPhoneMark": "Add Phone Mark",
-  "addPhoneNumberRule": "Add Phone Number Rule",
-  "addPlugin": "Add Plugin",
-  "addPluginFailed": "Failed to add plugin",
-  "addPluginFailedWithError": "Failed to add plugin: {error}",
-  "addPluginFromLocalFile": "Add Plugin from Local File",
-  "addPluginFromUrl": "Add Plugin from URL",
-  "addRegexRule": "Add Regex Rule",
-  "addRule": "Add Rule",
-  "addRuleFailed": "Failed to add rule: {error}",
-  "addRuleTooltip": "Add Rule",
-  "addSilenceSubscription": "Add Silence Subscription",
-  "@addSilenceSubscription": {
-    "description": "Add silence subscription dialog title"
-  },
-  "addSmsFilterRule": "Add SMS Filter Rule",
-  "addSmsRule": "Add SMS Rule",
-  "addSmsSubscription": "Add SMS Subscription",
-  "addSubscription": "Add Subscription",
-  "@addSubscription": {
-    "description": "Add subscription button text"
-  },
-  "addSubscriptionButton": "Add Subscription",
-  "addSubscriptionFailed": "Failed to add subscription: {error}",
-  "@addSubscriptionFailed": {
-    "description": "Failed to add subscription error message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
-  "addSubscriptionTooltip": "Add Subscription",
-  "addToBlacklist": "Add to Blacklist",
-  "addToFavorites": "Add to Favorites",
-  "addToRules": "Add to Rules",
-  "addToWhitelist": "Add to Whitelist",
-  "agent": "Agent",
-  "all": "All",
-  "allCallsTab": "All",
-  "allow": "Allow",
   "allowAllAllowRules": "Allow All Allow Rules",
   "allowAllAllowRulesDesc": "Allow calls from allow rules",
-  "allowAllBlacklistedNumbers": "Allow All Blacklisted Numbers",
   "allowAllBlockRules": "Allow All Block Rules",
   "allowAllBlockRulesDesc": "Allow calls from block rules",
   "allowAllowedNumbers": "Allow Allowed Numbers",
   "allowAllowedNumbersDesc": "Allow calls from allowlist",
-  "allowBlock": "Allow/Block",
   "allowBlockedNumbers": "Allow Blocked Numbers",
   "allowBlockedNumbersDesc": "Allow calls from blocklist",
-  "allowedBlockedRule": "Allow/Block Rule",
-  "allowedBlockedRuleEditDialogTitle": "Edit Allow/Block Rule",
-  "allowedBlockedRuleManagement": "Allow/Block Rule Management",
-  "allowNonExceededNumbers": "Allow Non-Exceeded Numbers",
-  "allowNonExceededNumbersDescription": "Automatically allow numbers not exceeding the count threshold",
   "allowRegexAllowRules": "Allow Regex Allow Rules",
   "allowRegexAllowRulesDesc": "Enable regex pattern matching for allow rules",
-  "allowRegexAllowRulesDescription": "Enable regex-based allow rules",
   "allowRegexBlockRules": "Allow Regex Block Rules",
   "allowRegexBlockRulesDesc": "Enable regex pattern matching for block rules",
-  "allowRegexBlockRulesDescription": "Enable regex-based block rules",
-  "allowRule": "Allow Rule",
-  "allowRules": "Allow Rules",
   "allPermissionsGranted": "ခွင့်ပြုချက်အားလုံး ရရှိပါပြီ",
   "allSettingsCompleted": "ဆက်တင်များအားလုံး ပြီးစီးပါပြီ။",
   "allUpdateSuccess": "အပ်ဒိတ်များအားလုံး ပြီးစီးပါပြီ ({count} စည်းကမ်းချက်)",
@@ -189,6 +95,474 @@
   "callBlocking": "ခေါ်ဆိုမှု ပိတ်ဆို့ခြင်း",
   "callerIdApp": "ခေါ်ဆိုသူ ID အက်ပ်",
   "callerIdCustomizationTitle": "ခေါ်ဆိုသူ ID ကို စိတ်ကြိုက်ပြုလုပ်ပါ",
+  "enableLocalCountFilter": "Enable Local Count Filter",
+  "enableLocalCountFilterDescription": "Automatically filter spam calls based on call marking count",
+  "enableMuteRules": "Enable Mute Rules",
+  "enableMuteRulesDesc": "Apply mute interception rules configuration",
+  "enableNoneActionRules": "Enable None Action Rules",
+  "enableNoneActionRulesDesc": "Allow rule configurations with no interception actions",
+  "enableRemoteNumberFilter": "Enable Remote Number Filter",
+  "enableRemoteNumberFilterDescription": "Use remote database to filter numbers",
+  "enableTimeInterception": "Enable Time Interception",
+  "enableTimeInterceptionDescription": "Intercept repeated calls within a short time",
+  "enableTimeInterceptor": "Enable Time Interceptor",
+  "endCallImmediately": "End call immediately",
+  "filterSettingsTitle": "Filter Settings",
+  "localCountFilter": "Local Count Filter",
+  "localCountFilterDescription": "Intercept frequent calls based on local number counts",
+  "markPhoneFailed": "ဖုန်းနံပါတ် မှတ်သားရန် ပျက်ကွက်သည်: {error}",
+  "markPhoneManagementTitle": "ဖုန်းနံပါတ် မှတ်သားမှု စီမံခန့်ခွဲမှု",
+  "markPhoneSuccess": "ဖုန်းနံပါတ် အောင်မြင်စွာ မှတ်သားခဲ့သည်",
+  "matchFailedMessage": "ကိုက်ညီမှု မအောင်မြင်ပါ။",
+  "matchNumbersWithSpecialCharacters": "အထူး အက္ခရာများဖြင့် နံပါတ်ကိုက်ညီခြင်း",
+  "matchNumbersWithSpecialCharactersTitle": "အထူး အက္ခရာများဖြင့် နံပါတ်ကိုက်ညီပါ:",
+  "matchSpecificDigitPatterns": "XXX-XXXX-XXXX ပုံစံကို ကိုက်ညီသည်",
+  "matchSpecificDigitPatternsTitle": "တိကျသော နံပါတ်ပုံစံများကို ကိုက်ညီပါ:",
+  "matchSuccessfulMessage": "ကိုက်ညီမှု အောင်မြင်ပါသည်။",
+  "medical": "ဆေးဘက်ဆိုင်ရာ",
+  "membershipPrivileges": "အသင်းဝင် အခွင့်အရေးများ",
+  "migrationTool": "ပြောင်းရွှေ့ရေး ကိရိယာ",
+  "minutes": "မိနစ်",
+  "month": "လ",
+  "monthly": "လစဉ်",
+  "monthlyCallCount": "လစဉ် ခေါ်ဆိုမှုများ",
+  "monthlyMembership": "လစဉ် အသင်းဝင်",
+  "monthlyMembershipDescription": "ပရီမီယံ အင်္ဂါရပ်အားလုံးကို လော့ခ်ဖွင့်ပါ၊ လစဉ် အလိုအလျောက် ပြန်လည်သက်တမ်းတိုးပါ",
+  "monthlyTotal": "လစဉ် စုစုပေါင်း",
+  "moreOptions": "နောက်ထပ် ရွေးချယ်စရာများ",
+  "mute": "အသံတိတ်",
+  "name": "အမည်",
+  "nameAndPhoneNumberCannotBeEmpty": "အမည်နှင့် ဖုန်းနံပါတ်ကို လုံးဝ မလွတ်ထားရ",
+  "nameColor": "အမည် အရောင်",
+  "nameFontSize": "အမည် ဖောင့်အရွယ်အစား",
+  "namePosition": "အမည် တည်နေရာ",
+  "nameUnknown": "အမည်: မသိပါ",
+  "nextStep": "နောက်တစ်ခု",
+  "noAction": "အရေးယူမှု မရှိပါ",
+  "noActionRules": "အရေးယူမှု မရှိသော စည်းမျဉ်းများ",
+  "noActiveCloudSyncServiceMessage": "တက်ကြွသော Cloud Sync ဝန်ဆောင်မှု မရှိပါ",
+  "noCallRecords": "ခေါ်ဆိုမှု မှတ်တမ်း မရှိပါ",
+  "noContactsYet": "အဆက်အသွယ် မရှိသေးပါ",
+  "noData": "အချက်အလက် မရှိပါ",
+  "noDevicesRegisteredMessage": "မှတ်ပုံတင်ထားသော စက်ပစ္စည်း မရှိပါ",
+  "noLabels": "တံဆိပ်များ မရှိသေးပါ",
+  "noMarkedPhones": "မှတ်သားထားသော ဖုန်းနံပါတ် မရှိပါ",
+  "noMatchingContactsFound": "ကိုက်ညီသော အဆက်အသွယ် မတွေ့ပါ",
+  "noMatchingNumbersFound": "ကိုက်ညီသော နံပါတ် မတွေ့ပါ",
+  "noMatchingRules": "ကိုက်ညီသော {ruleType} မရှိပါ",
+  "none": "မရှိပါ",
+  "noneServiceType": "မရှိပါ",
+  "noPlugins": "Plugin မရှိသေးပါ",
+  "noRules": "{ruleType} မရှိသေးပါ",
+  "noRulesPrompt": "စည်းမျဉ်းများ မတွေ့ပါ၊ ကျေးဇူးပြု၍ စည်းမျဉ်းများ ထည့်ပါ",
+  "noRulesToExport": "တင်ပို့ရန် စည်းမျဉ်းများ မရှိပါ",
+  "noSmsFilterRulesYet": "SMS စစ်ထုတ်မှု စည်းမျဉ်းများ မရှိသေးပါ",
+  "noSmsRulesYet": "SMS စည်းမျဉ်းများ မရှိသေးပါ",
+  "noSubscriptions": "အသင်းဝင် မရှိပါ",
+  "@noSubscriptions": {
+    "description": "No subscriptions message"
+  },
+  "notGranted": "ခွင့်မပြုပါ",
+  "notificationMode": "အကြောင်းကြားချက် စနစ်",
+  "notificationModeDescription": "ဖုန်းခေါ်သူ၏ အချက်အလက်ကို အကြောင်းကြားချက် ဘားတွင် ပြသပါ",
+  "notificationPermission": "အကြောင်းကြားချက် ခွင့်ပြုချက်",
+  "notificationPermissionDescription": "ဝင်လာသော ခေါ်ဆိုမှုနှင့် မက်ဆေ့ခ်ျ အကြောင်းကြားချက်များကို ပြသရန် အသုံးပြုပါသည်",
+  "notifications": "အကြောင်းကြားချက်များ",
+  "notificationSettings": "အကြောင်းကြားချက် ဆက်တင်များ",
+  "@notificationSettings": {
+    "description": "Notification settings title"
+  },
+  "notVerifiedText": "အတည်မပြုရသေးပါ",
+  "noValidSmsRulesFoundInFile": "ဖိုင်တွင် မှန်ကန်သော SMS စည်းမျဉ်းများ မတွေ့ပါ",
+  "number": "နံပါတ်",
+  "numberColor": "နံပါတ် အရောင်",
+  "numberFontSize": "နံပါတ် ဖောင့်အရွယ်အစား",
+  "numberPosition": "နံပါတ် တည်နေရာ",
+  "numberSearch": "နံပါတ် ရှာဖွေရေး",
+  "numberTypeColor": "နံပါတ် အမျိုးအစား အရောင်",
+  "numberTypeFontSize": "နံပါတ် အမျိုးအစား ဖောင့်အရွယ်အစား",
+  "numberTypePosition": "နံပါတ် အမျိုးအစား တည်နေရာ",
+  "okButton": "ကောင်းပါပြီ",
+  "onboardingCompleteDescription": "သင့်ခေါ်ဆိုမှု လုံခြုံရေး မန်နေဂျာ အသင့်ဖြစ်ပါပြီ၊ လုံခြုံသော ခေါ်ဆိုမှု အတွေ့အကြုံကို စတင် ခံစားပါ!",
+  "onboardingLanguageDescription": "အကောင်းဆုံး အတွေ့အကြုံအတွက် သင်နှစ်သက်သော ဘာသာစကားကို ရွေးချယ်ပါ။",
+  "onboardingPermissionsDescription": "ဝန်ဆောင်မှု အပြည့်အဝ ပေးရန်၊ ကျွန်ုပ်တို့တွင် အောက်ပါ ခွင့်ပြုချက်များ လိုအပ်သည်:",
+  "onboardingPowerfulSpamBlockingDescription": "Spam ခေါ်ဆိုမှုများနှင့် မက်ဆေ့ခ်ျများကို တစ်ချက်နှိပ်ရုံဖြင့် ပိတ်ဆို့ပါ၊ ပိတ်ဆို့ရေး စည်းမျဉ်းများကို စိတ်ကြိုက်ပြုလုပ်ပါ၊ သင့်အား တိတ်ဆိတ်သော ပတ်ဝန်းကျင်ကို ပေးပါ။",
+  "onboardingSmartCallerIdDescription": "အမည်မသိ ခေါ်ဆိုမှုများကို အလိုအလျောက် မှတ်မိပါ၊ သံသယဖြစ်ဖွယ် နံပါတ်များကို မှတ်သားပါ၊ သင့်ခေါ်ဆိုမှု လုံခြုံရေးကို ကာကွယ်ပါ။",
+  "onboardingWelcomeDescription": "သင့်ခေါ်ဆိုမှု စီမံခန့်ခွဲမှု ကျွမ်းကျင်သူ၊ ခေါ်ဆိုမှု အချက်အလက်နှင့် ပိတ်ဆို့ရေး ဝန်ဆောင်မှုများကို အပြည့်အဝ ပေးပါသည်။",
+  "oneDriveAuthDescription": "System-configured OneDrive client ID နှင့် key ကို အသုံးပြု၍ ခွင့်ပြုချက်",
+  "oneDriveConfigTitle": "OneDrive ကွန်ဖစ်ဂရေးရှင်း",
+  "rejectAllNumbers": "Reject All Numbers",
+  "rejectAllNumbersDesc": "Reject all incoming calls when enabled",
+  "remoteNumberFilter": "Remote Number Filter",
+  "remoteNumberFilterDescription": "Intercept harassing calls based on remote database information",
+  "ruleNotExist": "စည်းမျဉ်းမရှိတော့ပါ သို့မဟုတ် ဖျက်ပစ်လိုက်ပါပြီ",
+  "ruleNotFound": "စည်းမျဉ်းမတွေ့ပါ - {error}",
+  "ruleSavedSuccessMessage": "စည်းမျဉ်းကို အောင်မြင်စွာ သိမ်းဆည်းပြီးပါပြီ။",
+  "rulesExportedSuccessfully": "စည်းမျဉ်းများကို အောင်မြင်စွာ တင်ပို့ပြီးပါပြီ။",
+  "rulesExportedTo": "စည်းမျဉ်းများကို တင်ပို့ပြီး - {path}",
+  "rulesImported": "စည်းမျဉ်းများကို အောင်မြင်စွာ တင်သွင်းပြီးပါပြီ။",
+  "rulesImportedSuccessfully": "{count} စည်းမျဉ်းကို အောင်မြင်စွာ တင်သွင်းပြီးပါပြီ။",
+  "ruleStatusChanged": "စည်းမျဉ်း {status} အောင်မြင်ပါသည်",
+  "ruleToggleFailed": "လုပ်ဆောင်မှု ပျက်ကွက်ပါသည် - {error}",
+  "ruleToggleSuccess": "စည်းမျဉ်း {status} အောင်မြင်ပါသည်",
+  "ruleUpdateFailed": "စည်းမျဉ်းကို အပ်ဒိတ်လုပ်ရန် ပျက်ကွက်ပါသည် - {error}",
+  "ruleUpdateSuccess": "စည်းမျဉ်းကို အောင်မြင်စွာ အပ်ဒိတ်လုပ်ပြီးပါပြီ။",
+  "ruleVerification": "စည်းမျဉ်း စစ်ဆေးခြင်း",
+  "save": "သိမ်းဆည်း",
+  "saveButton": "သိမ်းဆည်း",
+  "saveButtonText": "သိမ်းဆည်း",
+  "saveFailed": "သိမ်းဆည်းရန် ပျက်ကွက်ပါသည် - {error}",
+  "saveSettings": "ဆက်တင်များကို သိမ်းဆည်း",
+  "scamsLikely": "လှည့်စားမှုများ ဖြစ်နိုင်သည်",
+  "search": "ရှာဖွေ",
+  "searchContacts": "အဆက်အသွယ်များကို ရှာဖွေ",
+  "searchError": "ရှာဖွေမှု အမှား - {error}",
+  "searchHint": "ရှာဖွေ...",
+  "securityMessage": "မည်သည့်ဖုန်းခေါ်ဆိုမှုကိုမှ မယုံကြည်ပါနှင့်။ ဝန်ဆောင်မှုနံပါတ်များကို အမြဲတမ်း လွတ်လပ်စွာ စစ်ဆေးပါ။ စကားဝှက်များ၊ အတည်ပြုကုဒ်များ၊ ကဒ်နံပါတ်များ သို့မဟုတ် ကိုယ်ရေးကိုယ်တာ အချက်အလက်များကို ဘယ်တော့မှ မမျှဝေပါနှင့်။",
+  "selectActionWhenBlockingCalls": "ဖုန်းခေါ်ဆိုမှုများကို ပိတ်ဆို့သည့်အခါ လုပ်ဆောင်ရန် ရွေးချယ်ပါ",
+  "selectActionWhenRuleMatches": "စည်းမျဉ်းနှင့် ကိုက်ညီသည့်အခါ လုပ်ဆောင်ရန် ရွေးချယ်ပါ",
+  "selectAll": "အားလုံးကို ရွေးချယ်ပါ",
+  "selectCountry": "နိုင်ငံကို ရွေးချယ်ပါ",
+  "selectedItems": "{count} ပစ္စည်းများ ရွေးချယ်ပြီးပါပြီ",
+  "selectedLabel": "ရွေးချယ်ပြီး -",
+  "selectExportFormat": "တင်ပို့မည့် ဖော်မတ်ကို ရွေးချယ်ပါ",
+  "selectLabel": "အညွှန်းကို ရွေးချယ်ပါ",
+  "selectLabelAndEnterPhoneNumber": "အညွှန်းတစ်ခုကို ရွေးချယ်ပြီး မှန်ကန်သော ဖုန်းနံပါတ်ကို ထည့်သွင်းပါ",
+  "selectLanguage": "ဘာသာစကားကို ရွေးချယ်ပါ",
+  "selectMultiple": "အများအပြားကို ရွေးချယ်ပါ",
+  "selectSimCard": "SIM ကတ်ကို ရွေးချယ်ပါ",
+  "selectTags": "တဂ်များကို ရွေးချယ်ပါ",
+  "selectTrustedDataSource": "ယုံကြည်စိတ်ချရသော ဒေတာရင်းမြစ်များကို ရွေးချယ်ပါ",
+  "selectYourLanguage": "သင်၏ ဘာသာစကားကို ရွေးချယ်ပါ",
+  "sender": "ပေးပို့သူ",
+  "senderRegexOptional": "ပေးပို့သူ Regex (အလွတ်ထည့်သွင်းနိုင်သည်)",
+  "serverAddressLabel": "ဆာဗာ လိပ်စာ",
+  "serviceTypeContact": "ဆက်သွယ်ရန် စာရင်းသွင်းခြင်း",
+  "serviceTypeLabel": "ဝန်ဆောင်မှု အမျိုးအစား",
+  "serviceTypePhone": "ဖုန်း စာရင်းသွင်းခြင်း",
+  "serviceTypePlugin": "Plugin အပ်ဒိတ်",
+  "serviceTypeSms": "SMS စာရင်းသွင်းခြင်း",
+  "setEncryptionPassword": "စာဝှက်စကားဝှက် သတ်မှတ်",
+  "settings": "ဆက်တင်များ",
+  "settingsBackedUpTo": "ဆက်တင်များကို သိမ်းဆည်းထားသည် - {path}",
+  "settingsRestoredSuccessfully": "ဆက်တင်များကို အောင်မြင်စွာ ပြန်လည်ရယူပြီးပါပြီ။ အပြောင်းအလဲများ အကျိုးသက်ရောက်စေရန် အက်ပ်ကို ပြန်လည်စတင်ပါ။",
+  "settingsSaved": "ဆက်တင်များကို သိမ်းဆည်းပါပြီ",
+  "@settingsSaved": {
+    "description": "Settings saved confirmation message"
+  },
+  "settingsSaveFailed": "ဆက်တင်များ သိမ်းဆည်းရန် ပျက်ကွက်ပါသည် - {error}",
+  "settingsTab": "ဆက်တင်များ",
+  "settingsTitle": "ဆက်တင်များ",
+  "setup": "ပြင်ဆင်ခြင်း",
+  "silence": "တိတ်ဆိတ်",
+  "silenceAndNoAnswer": "တိတ်ဆိတ်ပြီး အဖြေမရှိပါ",
+  "silenceNoAnswer": "တိတ်ဆိတ် အဖြေမရှိပါ",
+  "silentCallVoiceClone": "တိတ်ဆိတ် ခေါ်ဆိုမှု အသံ ကူးယူခြင်း",
+  "silentRules": "တိတ်ဆိတ် စည်းမျဉ်းများ",
+  "simCard": "SIM ကတ် {simNumber}",
+  "simCardColor": "SIM ကတ် အရောင်",
+  "simCardConfigurationExplanation": "• SIM ကတ် ထည့်သွင်းမှု - SIM ကတ်တစ်ခုစီအတွက် သီးခြား စစ်ထုတ်ရေး စည်းမျဉ်းများကို သတ်မှတ်ပါ။",
+  "simCardFilterRules": "SIM ကတ် စစ်ထုတ်ရေး စည်းမျဉ်းများ",
+  "simCardFilterRulesDescription": "SIM ကတ် နေရာများအပေါ် အခြေခံ၍ ကွဲပြားသော စစ်ထုတ်ရေး စည်းမျဉ်းများကို သတ်မှတ်ပါ။",
+  "simCardFontSize": "SIM ကတ် စာလုံးအရွယ်အစား",
+  "simCardPosition": "SIM ကတ် နေရာ",
+  "timeInterceptor": "Time Interceptor",
+  "timeInterceptorDescription": "Automatically intercept/allow potential calls based on call frequency",
+  "timeInterceptorExplanation": "• Time Interceptor: Intercept/allow repeated calls within a short time",
+  "timeInterceptorExplanationContent": "The call frequency interception feature analyzes call frequency to automatically identify and intercept/ allow frequent spam calls.",
+  "timeWindowDescription": "Set the time window size for allowing repeated calls. Calls from the same number within this window will be allowed",
+  "blockedCallNotificationsDescription": "ပိတ်ဆို့ထားသောခေါ်ဆိုမှုများဆိုင်ရာ အချက်အလက်များကို ပြသသည်.",
+  "stirVerification": "STIR/SHAKEN အတည်ပြုချက်",
+  "stirVerificationDescription": "နံပါတ်များအတွက် STIR/SHAKEN အတည်ပြုချက်ရလဒ်များကို ပြသသည်.",
+  "fraudAlerts": "လိမ်လည်မှုသတိပေးချက်များ",
+  "fraudAlertsDescription": "ဖြစ်နိုင်သော လိမ်လည်မှုခေါ်ဆိုမှုများအတွက် သတိပေးချက်များကို ပြသသည်.",
+  "@notificationMode": {
+    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
+  },
+  "pendingProposals": "စောင့်ဆိုင်းနေသော အဆိုပြုချက်များ",
+  "pendingProposalsBody": "သင်တွင် {count, plural, =0 {စောင့်ဆိုင်းနေသော အဆိုပြုချက်မရှိပါ} one {၁ စောင့်ဆိုင်းနေသော အဆိုပြုချက်} other {{count} စောင့်ဆိုင်းနေသော အဆိုပြုချက်များ}} ရှိသည်။",
+  "guidelinesLabel": "လမ်းညွှန်ချက်များ",
+  "reportingGuidelines": "• တကယ်ပြဿနာရှိသော နံပါတ်များကိုသာ အစီရင်ခံပါ\n• တိကျပြီး အသေးစိတ်ကျသော အကြောင်းရင်းများကို ပေးပါ\n• ပြင်းထန်မှုအပေါ် အခြေခံ၍ သင့်လျော်သော အန္တရာယ်အဆင့်ကို ရွေးချယ်ပါ\n• မှားယွင်းသော အစီရင်ခံစာများသည် အကောင့် ကန့်သတ်မှုများ ဖြစ်စေနိုင်သည်။",
+  "riskLevelLabel": "အန္တရာယ် အဆင့်",
+  "phoneNumberMinDigits": "ဖုန်းနံပါတ်သည် အနည်းဆုံး ၇ လုံး ပါဝင်ရမည်",
+  "provideDetailedExplanation": "အသေးစိတ်ရှင်းလင်းချက်တစ်ခုပေးပါ (အနည်းဆုံး ၁၀ အက္ခရာ)",
+  "reasonMinCharacters": "အကြောင်းရင်းသည် အနည်းဆုံး ၁၀ အက္ခရာ ပါဝင်ရမည်",
+  "countryCodeTwoLetters": "နိုင်ငံ ကုဒ် (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "နိုင်ငံ ကုဒ် (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "countryCodeHint": "ဥပမာ- US, CN, GB",
+  "@countryCodeHint": {
+    "description": "Hint text for country code input field"
+  },
+  "countryCodeRequired": "နိုင်ငံ ကုဒ် လိုအပ်သည်",
+  "@countryCodeRequired": {
+    "description": "Validation message for required country code"
+  },
+  "reasonRequired": "အကြောင်းရင်း လိုအပ်သည်",
+  "@reasonRequired": {
+    "description": "Validation message for required reason"
+  },
+  "riskLevelCritical": "အရေးပေါ်",
+  "@riskLevelCritical": {
+    "description": "Label for critical risk level"
+  },
+  "riskLevelMedium": "အလယ်အလတ်",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "riskLevelVeryLow": "အလွန်နည်းသည်",
+  "@riskLevelVeryLow": {
+    "description": "Label for very low risk level"
+  },
+  "notificationFrequencyTitle": "အသိပေးချက် ကြိမ်နှုန်း",
+  "@notificationFrequencyTitle": {
+    "description": "Title for notification frequency settings"
+  },
+  "errorMessage": "အမှား: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "supportCount": "ထောက်ခံ ({supportCount})",
+  "@supportCount": {
+    "description": "Shows the number of support votes.",
+    "placeholders": {
+      "supportCount": {
+        "type": "int"
+      }
+    }
+  },
+  "opposeCount": "ဆန့်ကျင် ({opposeCount})",
+  "@opposeCount": {
+    "description": "Shows the number of oppose votes.",
+    "placeholders": {
+      "opposeCount": {
+        "type": "int"
+      }
+    }
+  },
+  "@reportingGuidelines": {
+    "description": "Guidelines for reporting a number."
+  },
+  "notificationFrequencyHours": "အသိပေးချက် ကြိမ်နှုန်း (နာရီ)",
+  "@notificationFrequencyHours": {
+    "description": "Title for the notification frequency setting."
+  },
+  "votesWithPercentage": "{totalVotes} မဲ ({supportPercentage}% ထောက်ခံမှု)",
+  "@votesWithPercentage": {
+    "description": "Displays the total vote count and the percentage of support votes.",
+    "placeholders": {
+      "totalVotes": {
+        "type": "int"
+      },
+      "supportPercentage": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursDuration": "{count, plural, =0{0 နာရီ} =1{1 နာရီ} other{{count} နာရီ}}",
+  "@hoursDuration": {
+    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importantNoticeTitle": "အရေးကြီးသော သတိပေးချက်",
+  "@importantNoticeTitle": {
+    "description": "The title for the data source disclaimer card."
+  },
+  "dataSourceDisclaimer": "နံပါတ်များသည် အင်တာနက်နှင့် အသုံးပြုသူ တင်သွင်းမှုများမှ ရယူသည်။ နံပါတ်တစ်ခုကို ဖျက်သိမ်းပြီးနောက် အခြားအသုံးပြုသူများ သို့မဟုတ် အရင်းအမြစ်များမှ ပြန်လည်တင်သွင်းနိုင်မည် မဟုတ်ကြောင်း ကျွန်ုပ်တို့ အာမခံနိုင်ပါ။ တက်ကြွစွာ ရှာဖွေပြီး အချက်အလက်များကို စစ်ဆေးပါ။",
+  "@dataSourceDisclaimer": {
+    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
+  },
+  "avatar": "အိုင်ကွန်",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "location": "တည်နေရာ",
+  "@location": {
+    "description": "The location of the user."
+  },
+  "simCardTitle": "SIM ကတ်",
+  "liveActivitiesSettingsTitle": "Live Activities ဆက်တင်များ",
+  "elementsSettingsTitle": "Elements ဆက်တင်များ",
+  "liveActivityModeDescription": "ခေါ်ဆိုမှုအချက်အလက်များကို လော့ခ်မျက်နှာပြင်နှင့် Dynamic Island (iOS) တွင် အမြဲတမ်း အသိပေးချက်အဖြစ် ပြသသည်။",
+  "phoneNumberType": "ဖုန်းနံပါတ် အမျိုးအစား",
+  "liveActivitiesTestEndActivity": "Activity ကို အဆုံးသတ်ပါ",
+  "liveActivitiesTestSendNewActivity": "Activity အသစ် ပို့ပါ",
+  "liveActivitiesTestUpdateActivity": "Activity ကို အပ်ဒိတ်လုပ်ပါ",
+  "liveActivityControlsTitle": "Live Activity ထိန်းချုပ်မှုများ",
+  "liveActivitiesTestTitle": "Live Activities စမ်းသပ်မှု",
+  "liveNotificationCustomizationTitle": "Live Notification စိတ်ကြိုက်ပြုလုပ်ခြင်း",
+  "liveNotificationCustomizationSubtitle": "Live notification များ၏ ပြင်ပအသွင်အပြင်ကို စိတ်ကြိုက်ပြုလုပ်ပါ။",
+  "notification_instructions": "ညွှန်ကြားချက်များ:\n1. အသိပေးချက်တစ်ခုကို ဖန်တီးရန် သို့မဟုတ် အပ်ဒိတ်လုပ်ရန် \"SEND\" ကိုနှိပ်ပါ။\n2. သင့်အိမ်မျက်နှာပြင်သို့ သွားပါ သို့မဟုတ် ရလဒ်ကိုကြည့်ရှုရန် အသိပေးချက်ဘားကို ဆွဲချပါ။\n3. အသိပေးချက်ကို ပယ်ဖျက်ရန် \"END\" ကိုနှိပ်ပါ။",
+  "@notification_instructions": {
+    "description": "A single string containing all instructions for the notification."
+  },
+  "autoCancelNotification": "အလိုအလျောက် အသိပေးချက်ကို ပယ်ဖျက်ပါ",
+  "@autoCancelNotification": {
+    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
+  },
+  "autoCancelNotificationDescription": "အကယ်၍ ရွေးချယ်ထားပါက၊ အသုံးပြုသူမှ ၎င်းကိုနှိပ်သောအခါ အသိပေးချက်သည် အလိုအလျောက် ပယ်ဖျက်ပါမည်။",
+  "@autoCancelNotificationDescription": {
+    "description": "A description of the auto cancel notification checkbox."
+  },
+  "setDelayTime": "နှောင့်နှေးချိန် သတ်မှတ်ပါ",
+  "@setDelayTime": {
+    "description": "A button to set the delay time for the notification."
+  },
+  "proposalDetails": "အဆိုပြုချက် အသေးစိတ်",
+  "@proposalDetails": {
+    "description": "The title of the proposal details page."
+  },
+  "proposalNotFound": "အဆိုပြုချက်ကို ရှာမတွေ့ပါ",
+  "@proposalNotFound": {
+    "description": "A message displayed when a proposal is not found."
+  },
+  "processed": "အပြီးသတ်",
+  "@processed": {
+    "description": "A label for the processed status."
+  },
+  "filterAndSortTitle": "စစ်ထုတ်ပြီး အစီ</span>",
+  "filterVerifiedOwner": "စစ်ဆေးထားသော ပိုင်ရှင်ဖြင့် စစ်ထုတ်ပါ",
+  "@filterVerifiedOwner": {
+    "description": "A checkbox to toggle whether to filter verified owners."
+  },
+  "filterBy": "ဖြင့် စစ်ထုတ်ပါ",
+  "@filterBy": {
+    "description": "A label for the filter by dropdown."
+  },
+  "sortOldest": "အဟောင်းဆုံးကို အစီ</span>",
+  "sortNewest": "အသစ်ဆုံးကို အစီ</span>",
+  "sortMostPopular": "လူကြိုက်အများဆုံးကို အစီ</span>",
+  "sortLeastPopular": "လူကြိုက်အနည်းဆုံးကို အစီ</span>",
+  "sortBy": "ဖြင့် စီ</span>",
+  "simRulesNotFound": "SIM စည်းမျဉ်းများကို ရှာမတွေ့ပါ",
+  "@simRulesNotFound": {
+    "description": "A message displayed when SIM rules are not found."
+  },
+  "simSlotRules": "SIM Slot စည်းမျဉ်းများ",
+  "@simSlotRules": {
+    "description": "A label for the SIM slot rules."
+  },
+  "noSimCardDetected": "SIM ကတ် မတွေ့ရှိပါ",
+  "@noSimCardDetected": {
+    "description": "A message displayed when no SIM card is detected."
+  },
+  "invalidSimData": "SIM ဒေတာ မှားယွင်းနေသည်",
+  "@invalidSimData": {
+    "description": "A message displayed when the SIM data is invalid."
+  },
+  "enableFiltering": "စစ်ထုတ်ခြင်းကို ဖွင့်ပါ",
+  "@enableFiltering": {
+    "description": "A checkbox to toggle whether to enable filtering."
+  },
+  "detailedSettingsTitle": "အသေးစိတ် ဆက်တင်များ",
+  "@detailedSettingsTitle": {
+    "description": "The title of the detailed settings page."
+  },
+  "aboutContactSubscription": "About Contact Subscription",
+  "@aboutContactSubscription": {
+    "description": "About contact subscription title"
+  },
+  "aboutLabels": "About Labels",
+  "aboutPhoneSubscriptionRules": "About Phone Subscription Rules",
+  "aboutSmsFilter": "About SMS Filtering",
+  "aboutSmsSubscriptionRules": "About SMS Subscription Rules",
+  "aboutSubtitle": "Application version and legal information",
+  "aboutTitle": "About",
+  "action": "Action",
+  "actionAll": "All",
+  "actionAllow": "Allow",
+  "actionBlock": "Block",
+  "actionFilterTitle": "Filter by Action Type",
+  "actionFilterTooltip": "Action Filter",
+  "actionNone": "No Action",
+  "actionSilence": "Silence",
+  "actionTag": "Action: {actionType}",
+  "actionType": "Action Type",
+  "actionUnknown": "Unknown",
+  "add": "Add",
+  "addAllowedBlockedRule": "Add Allow/Block Rule",
+  "addAllowSubscription": "Add Allow Subscription",
+  "@addAllowSubscription": {
+    "description": "Add allow subscription dialog title"
+  },
+  "addBlockSubscription": "Add Block Subscription",
+  "@addBlockSubscription": {
+    "description": "Add block subscription dialog title"
+  },
+  "addContactButton": "Add Contact",
+  "addContactFailed": "Failed to add contact: {error}",
+  "addedToFavorites": "Added to favorite contacts",
+  "addLabel": "Add Label",
+  "addLabelButton": "Add Label",
+  "addLabelFailed": "Failed to add label: {error}",
+  "addName": "Add Name",
+  "addNoneSubscription": "Add None Subscription",
+  "@addNoneSubscription": {
+    "description": "Add none subscription dialog title"
+  },
+  "addPhoneMark": "Add Phone Mark",
+  "addPhoneNumberRule": "Add Phone Number Rule",
+  "addPlugin": "Add Plugin",
+  "addPluginFailed": "Failed to add plugin",
+  "addPluginFailedWithError": "Failed to add plugin: {error}",
+  "addPluginFromLocalFile": "Add Plugin from Local File",
+  "addPluginFromUrl": "Add Plugin from URL",
+  "addRegexRule": "Add Regex Rule",
+  "addRule": "Add Rule",
+  "addRuleFailed": "Failed to add rule: {error}",
+  "addRuleTooltip": "Add Rule",
+  "addSilenceSubscription": "Add Silence Subscription",
+  "@addSilenceSubscription": {
+    "description": "Add silence subscription dialog title"
+  },
+  "addSmsFilterRule": "Add SMS Filter Rule",
+  "addSmsRule": "Add SMS Rule",
+  "addSmsSubscription": "Add SMS Subscription",
+  "addSubscription": "Add Subscription",
+  "@addSubscription": {
+    "description": "Add subscription button text"
+  },
+  "addSubscriptionButton": "Add Subscription",
+  "addSubscriptionFailed": "Failed to add subscription: {error}",
+  "@addSubscriptionFailed": {
+    "description": "Failed to add subscription error message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "addSubscriptionTooltip": "Add Subscription",
+  "addToBlacklist": "Add to Blacklist",
+  "addToFavorites": "Add to Favorites",
+  "addToRules": "Add to Rules",
+  "addToWhitelist": "Add to Whitelist",
+  "agent": "Agent",
+  "all": "All",
+  "allCallsTab": "All",
+  "allow": "Allow",
+  "allowAllBlacklistedNumbers": "Allow All Blacklisted Numbers",
+  "allowBlock": "Allow/Block",
+  "allowedBlockedRule": "Allow/Block Rule",
+  "allowedBlockedRuleEditDialogTitle": "Edit Allow/Block Rule",
+  "allowedBlockedRuleManagement": "Allow/Block Rule Management",
+  "allowNonExceededNumbers": "Allow Non-Exceeded Numbers",
+  "allowNonExceededNumbersDescription": "Automatically allow numbers not exceeding the count threshold",
+  "allowRegexAllowRulesDescription": "Enable regex-based allow rules",
+  "allowRegexBlockRulesDescription": "Enable regex-based block rules",
+  "allowRule": "Allow Rule",
+  "allowRules": "Allow Rules",
   "callerIdDisplayMode": "Caller ID Display Mode",
   "callerIdMarkedByCount": "Marked by {count}",
   "@callerIdMarkedByCount": {
@@ -435,24 +809,12 @@
   "enableEncryption": "Enable Encryption",
   "enableEncryptionDescription": "Encrypt backup files",
   "enableGlobalPlugins": "Enable global plugins",
-  "enableLocalCountFilter": "Enable Local Count Filter",
-  "enableLocalCountFilterDescription": "Automatically filter spam calls based on call marking count",
   "enableLocalNotification": "Use Local Notification",
   "enableLocalNotificationDescription": "When enabled, notifications for filtered messages will be displayed on the device",
   "enableLocationSummary": "Location",
-  "enableMuteRules": "Enable Mute Rules",
-  "enableMuteRulesDesc": "Apply mute interception rules configuration",
-  "enableNoneActionRules": "Enable None Action Rules",
-  "enableNoneActionRulesDesc": "Allow rule configurations with no interception actions",
-  "enableRemoteNumberFilter": "Enable Remote Number Filter",
-  "enableRemoteNumberFilterDescription": "Use remote database to filter numbers",
   "enableRule": "Enable Rule",
   "enableSmsFilter": "Enable SMS Filtering",
   "enableSmsFilterDescription": "When enabled, messages will be automatically filtered according to the rules",
-  "enableTimeInterception": "Enable Time Interception",
-  "enableTimeInterceptionDescription": "Intercept repeated calls within a short time",
-  "enableTimeInterceptor": "Enable Time Interceptor",
-  "endCallImmediately": "End call immediately",
   "endColor": "End Color",
   "endDate": "End Date",
   "enhancedFilterInstructionsTitle": "Enhanced Filter System",
@@ -568,7 +930,6 @@
   "filterName": "Filter Name",
   "filterPriorityNote": "Note: There are priority relationships between filters, please refer to the help documentation for details",
   "filterSettings": "Filter Settings",
-  "filterSettingsTitle": "Filter Settings",
   "filterSMS": "Filter SMS",
   "filterToggleInstructions": "Enable or disable filters for this SIM slot:",
   "filterToggleStatus": "{status} filter: {filterName}",
@@ -743,8 +1104,6 @@
   "loan": "Loan",
   "localCounterFilter": "Local Counter Filter",
   "localCounterFilterSubtitle": "Automatically filter spam calls based on call frequency",
-  "localCountFilter": "Local Count Filter",
-  "localCountFilterDescription": "Intercept frequent calls based on local number counts",
   "localCountFilterExplanationContent": "The local count filter analyzes call history records to automatically identify and block frequent spam calls.",
   "localCountFilterExplanationTitle": "Local Count Filter Explanation",
   "localCountFilterHowItWorksPoint1": "• Determine whether to block based on the number's count value",
@@ -789,87 +1148,6 @@
   "markedPhonesList": "Marked Phone Numbers",
   "markExchange": "Mark Exchange",
   "markPhone": "Mark Phone Number",
-  "markPhoneFailed": "ဖုန်းနံပါတ် မှတ်သားရန် ပျက်ကွက်သည်: {error}",
-  "markPhoneManagementTitle": "ဖုန်းနံပါတ် မှတ်သားမှု စီမံခန့်ခွဲမှု",
-  "markPhoneSuccess": "ဖုန်းနံပါတ် အောင်မြင်စွာ မှတ်သားခဲ့သည်",
-  "matchFailedMessage": "ကိုက်ညီမှု မအောင်မြင်ပါ။",
-  "matchNumbersWithSpecialCharacters": "အထူး အက္ခရာများဖြင့် နံပါတ်ကိုက်ညီခြင်း",
-  "matchNumbersWithSpecialCharactersTitle": "အထူး အက္ခရာများဖြင့် နံပါတ်ကိုက်ညီပါ:",
-  "matchSpecificDigitPatterns": "XXX-XXXX-XXXX ပုံစံကို ကိုက်ညီသည်",
-  "matchSpecificDigitPatternsTitle": "တိကျသော နံပါတ်ပုံစံများကို ကိုက်ညီပါ:",
-  "matchSuccessfulMessage": "ကိုက်ညီမှု အောင်မြင်ပါသည်။",
-  "medical": "ဆေးဘက်ဆိုင်ရာ",
-  "membershipPrivileges": "အသင်းဝင် အခွင့်အရေးများ",
-  "migrationTool": "ပြောင်းရွှေ့ရေး ကိရိယာ",
-  "minutes": "မိနစ်",
-  "month": "လ",
-  "monthly": "လစဉ်",
-  "monthlyCallCount": "လစဉ် ခေါ်ဆိုမှုများ",
-  "monthlyMembership": "လစဉ် အသင်းဝင်",
-  "monthlyMembershipDescription": "ပရီမီယံ အင်္ဂါရပ်အားလုံးကို လော့ခ်ဖွင့်ပါ၊ လစဉ် အလိုအလျောက် ပြန်လည်သက်တမ်းတိုးပါ",
-  "monthlyTotal": "လစဉ် စုစုပေါင်း",
-  "moreOptions": "နောက်ထပ် ရွေးချယ်စရာများ",
-  "mute": "အသံတိတ်",
-  "name": "အမည်",
-  "nameAndPhoneNumberCannotBeEmpty": "အမည်နှင့် ဖုန်းနံပါတ်ကို လုံးဝ မလွတ်ထားရ",
-  "nameColor": "အမည် အရောင်",
-  "nameFontSize": "အမည် ဖောင့်အရွယ်အစား",
-  "namePosition": "အမည် တည်နေရာ",
-  "nameUnknown": "အမည်: မသိပါ",
-  "nextStep": "နောက်တစ်ခု",
-  "noAction": "အရေးယူမှု မရှိပါ",
-  "noActionRules": "အရေးယူမှု မရှိသော စည်းမျဉ်းများ",
-  "noActiveCloudSyncServiceMessage": "တက်ကြွသော Cloud Sync ဝန်ဆောင်မှု မရှိပါ",
-  "noCallRecords": "ခေါ်ဆိုမှု မှတ်တမ်း မရှိပါ",
-  "noContactsYet": "အဆက်အသွယ် မရှိသေးပါ",
-  "noData": "အချက်အလက် မရှိပါ",
-  "noDevicesRegisteredMessage": "မှတ်ပုံတင်ထားသော စက်ပစ္စည်း မရှိပါ",
-  "noLabels": "တံဆိပ်များ မရှိသေးပါ",
-  "noMarkedPhones": "မှတ်သားထားသော ဖုန်းနံပါတ် မရှိပါ",
-  "noMatchingContactsFound": "ကိုက်ညီသော အဆက်အသွယ် မတွေ့ပါ",
-  "noMatchingNumbersFound": "ကိုက်ညီသော နံပါတ် မတွေ့ပါ",
-  "noMatchingRules": "ကိုက်ညီသော {ruleType} မရှိပါ",
-  "none": "မရှိပါ",
-  "noneServiceType": "မရှိပါ",
-  "noPlugins": "Plugin မရှိသေးပါ",
-  "noRules": "{ruleType} မရှိသေးပါ",
-  "noRulesPrompt": "စည်းမျဉ်းများ မတွေ့ပါ၊ ကျေးဇူးပြု၍ စည်းမျဉ်းများ ထည့်ပါ",
-  "noRulesToExport": "တင်ပို့ရန် စည်းမျဉ်းများ မရှိပါ",
-  "noSmsFilterRulesYet": "SMS စစ်ထုတ်မှု စည်းမျဉ်းများ မရှိသေးပါ",
-  "noSmsRulesYet": "SMS စည်းမျဉ်းများ မရှိသေးပါ",
-  "noSubscriptions": "အသင်းဝင် မရှိပါ",
-  "@noSubscriptions": {
-    "description": "No subscriptions message"
-  },
-  "notGranted": "ခွင့်မပြုပါ",
-  "notificationMode": "အကြောင်းကြားချက် စနစ်",
-  "notificationModeDescription": "ဖုန်းခေါ်သူ၏ အချက်အလက်ကို အကြောင်းကြားချက် ဘားတွင် ပြသပါ",
-  "notificationPermission": "အကြောင်းကြားချက် ခွင့်ပြုချက်",
-  "notificationPermissionDescription": "ဝင်လာသော ခေါ်ဆိုမှုနှင့် မက်ဆေ့ခ်ျ အကြောင်းကြားချက်များကို ပြသရန် အသုံးပြုပါသည်",
-  "notifications": "အကြောင်းကြားချက်များ",
-  "notificationSettings": "အကြောင်းကြားချက် ဆက်တင်များ",
-  "@notificationSettings": {
-    "description": "Notification settings title"
-  },
-  "notVerifiedText": "အတည်မပြုရသေးပါ",
-  "noValidSmsRulesFoundInFile": "ဖိုင်တွင် မှန်ကန်သော SMS စည်းမျဉ်းများ မတွေ့ပါ",
-  "number": "နံပါတ်",
-  "numberColor": "နံပါတ် အရောင်",
-  "numberFontSize": "နံပါတ် ဖောင့်အရွယ်အစား",
-  "numberPosition": "နံပါတ် တည်နေရာ",
-  "numberSearch": "နံပါတ် ရှာဖွေရေး",
-  "numberTypeColor": "နံပါတ် အမျိုးအစား အရောင်",
-  "numberTypeFontSize": "နံပါတ် အမျိုးအစား ဖောင့်အရွယ်အစား",
-  "numberTypePosition": "နံပါတ် အမျိုးအစား တည်နေရာ",
-  "okButton": "ကောင်းပါပြီ",
-  "onboardingCompleteDescription": "သင့်ခေါ်ဆိုမှု လုံခြုံရေး မန်နေဂျာ အသင့်ဖြစ်ပါပြီ၊ လုံခြုံသော ခေါ်ဆိုမှု အတွေ့အကြုံကို စတင် ခံစားပါ!",
-  "onboardingLanguageDescription": "အကောင်းဆုံး အတွေ့အကြုံအတွက် သင်နှစ်သက်သော ဘာသာစကားကို ရွေးချယ်ပါ။",
-  "onboardingPermissionsDescription": "ဝန်ဆောင်မှု အပြည့်အဝ ပေးရန်၊ ကျွန်ုပ်တို့တွင် အောက်ပါ ခွင့်ပြုချက်များ လိုအပ်သည်:",
-  "onboardingPowerfulSpamBlockingDescription": "Spam ခေါ်ဆိုမှုများနှင့် မက်ဆေ့ခ်ျများကို တစ်ချက်နှိပ်ရုံဖြင့် ပိတ်ဆို့ပါ၊ ပိတ်ဆို့ရေး စည်းမျဉ်းများကို စိတ်ကြိုက်ပြုလုပ်ပါ၊ သင့်အား တိတ်ဆိတ်သော ပတ်ဝန်းကျင်ကို ပေးပါ။",
-  "onboardingSmartCallerIdDescription": "အမည်မသိ ခေါ်ဆိုမှုများကို အလိုအလျောက် မှတ်မိပါ၊ သံသယဖြစ်ဖွယ် နံပါတ်များကို မှတ်သားပါ၊ သင့်ခေါ်ဆိုမှု လုံခြုံရေးကို ကာကွယ်ပါ။",
-  "onboardingWelcomeDescription": "သင့်ခေါ်ဆိုမှု စီမံခန့်ခွဲမှု ကျွမ်းကျင်သူ၊ ခေါ်ဆိုမှု အချက်အလက်နှင့် ပိတ်ဆို့ရေး ဝန်ဆောင်မှုများကို အပြည့်အဝ ပေးပါသည်။",
-  "oneDriveAuthDescription": "System-configured OneDrive client ID နှင့် key ကို အသုံးပြု၍ ခွင့်ပြုချက်",
-  "oneDriveConfigTitle": "OneDrive ကွန်ဖစ်ဂရေးရှင်း",
   "onlineCallerIdSubscription": "Online Caller ID Subscription",
   "openAppSettings": "Open app settings",
   "openAppSettingsFailed": "Failed to open app settings: {error}",
@@ -883,6 +1161,9 @@
   "overlayPermission": "Overlay Permission",
   "overlayPermissionDescription": "Used to display incoming call overlay.",
   "overview": "Overview",
+  "@overview": {
+    "description": "Overview label"
+  },
   "password": "Password",
   "passwordCannotBeEmpty": "Password cannot be empty",
   "passwordLabel": "Password",
@@ -897,10 +1178,11 @@
   "permissionManagement": "Permission Management",
   "phoneCallsTab": "Phone",
   "phoneNumber": "Phone Number",
+  "@phoneNumber": {
+    "description": "Phone number label"
+  },
   "phoneNumberCannotBeEmpty": "Phone number cannot be empty",
-  "phoneNumberHint": "Enter phone number",
   "phoneNumberLabel": "Phone Number",
-  "phoneNumberRequired": "Phone number is required",
   "phoneNumberTypeFixedLine": "Fixed line",
   "phoneNumberTypeFixedLineOrMobile": "Fixed line or mobile",
   "phoneNumberTypeMobile": "Mobile",
@@ -966,8 +1248,6 @@
   "registeredDevicesTitle": "Registered Devices",
   "rejectAllCalls": "Reject All Calls",
   "rejectAllCallsDescription": "When enabled, all calls will be rejected with highest priority",
-  "rejectAllNumbers": "Reject All Numbers",
-  "rejectAllNumbersDesc": "Reject all incoming calls when enabled",
   "rejectExceededNumbers": "Reject Exceeded Numbers",
   "rejectExceededNumbersDescription": "Automatically reject numbers exceeding the count threshold",
   "remoteFilterSettings": "Remote Filter Settings",
@@ -975,8 +1255,6 @@
     "description": "Title for remote filter settings page"
   },
   "remoteFilterSettingsPageTitle": "Remote Number Filter Settings",
-  "remoteNumberFilter": "Remote Number Filter",
-  "remoteNumberFilterDescription": "Intercept harassing calls based on remote database information",
   "remoteNumberFiltering": "Remote Number Filtering",
   "remoteNumberFilteringExplanation": "• Remote Number Filtering: Filtering rules based on remote database information",
   "remoteNumberFilterSubtitle": "Identify spam calls using cloud database and community reports",
@@ -1023,53 +1301,6 @@
   "ruleNameHint": "e.g., Family, Friends, etc.",
   "ruleNameLabel": "Rule Name",
   "ruleNameRequired": "Rule name and phone number cannot be empty",
-  "ruleNotExist": "စည်းမျဉ်းမရှိတော့ပါ သို့မဟုတ် ဖျက်ပစ်လိုက်ပါပြီ",
-  "ruleNotFound": "စည်းမျဉ်းမတွေ့ပါ - {error}",
-  "ruleSavedSuccessMessage": "စည်းမျဉ်းကို အောင်မြင်စွာ သိမ်းဆည်းပြီးပါပြီ။",
-  "rulesExportedSuccessfully": "စည်းမျဉ်းများကို အောင်မြင်စွာ တင်ပို့ပြီးပါပြီ။",
-  "rulesExportedTo": "စည်းမျဉ်းများကို တင်ပို့ပြီး - {path}",
-  "rulesImported": "စည်းမျဉ်းများကို အောင်မြင်စွာ တင်သွင်းပြီးပါပြီ။",
-  "rulesImportedSuccessfully": "{count} စည်းမျဉ်းကို အောင်မြင်စွာ တင်သွင်းပြီးပါပြီ။",
-  "ruleStatusChanged": "စည်းမျဉ်း {status} အောင်မြင်ပါသည်",
-  "ruleToggleFailed": "လုပ်ဆောင်မှု ပျက်ကွက်ပါသည် - {error}",
-  "ruleToggleSuccess": "စည်းမျဉ်း {status} အောင်မြင်ပါသည်",
-  "ruleUpdateFailed": "စည်းမျဉ်းကို အပ်ဒိတ်လုပ်ရန် ပျက်ကွက်ပါသည် - {error}",
-  "ruleUpdateSuccess": "စည်းမျဉ်းကို အောင်မြင်စွာ အပ်ဒိတ်လုပ်ပြီးပါပြီ။",
-  "ruleVerification": "စည်းမျဉ်း စစ်ဆေးခြင်း",
-  "save": "သိမ်းဆည်း",
-  "saveButton": "သိမ်းဆည်း",
-  "saveButtonText": "သိမ်းဆည်း",
-  "saveFailed": "သိမ်းဆည်းရန် ပျက်ကွက်ပါသည် - {error}",
-  "saveSettings": "ဆက်တင်များကို သိမ်းဆည်း",
-  "scamsLikely": "လှည့်စားမှုများ ဖြစ်နိုင်သည်",
-  "search": "ရှာဖွေ",
-  "searchContacts": "အဆက်အသွယ်များကို ရှာဖွေ",
-  "searchError": "ရှာဖွေမှု အမှား - {error}",
-  "searchHint": "ရှာဖွေ...",
-  "securityMessage": "မည်သည့်ဖုန်းခေါ်ဆိုမှုကိုမှ မယုံကြည်ပါနှင့်။ ဝန်ဆောင်မှုနံပါတ်များကို အမြဲတမ်း လွတ်လပ်စွာ စစ်ဆေးပါ။ စကားဝှက်များ၊ အတည်ပြုကုဒ်များ၊ ကဒ်နံပါတ်များ သို့မဟုတ် ကိုယ်ရေးကိုယ်တာ အချက်အလက်များကို ဘယ်တော့မှ မမျှဝေပါနှင့်။",
-  "selectActionWhenBlockingCalls": "ဖုန်းခေါ်ဆိုမှုများကို ပိတ်ဆို့သည့်အခါ လုပ်ဆောင်ရန် ရွေးချယ်ပါ",
-  "selectActionWhenRuleMatches": "စည်းမျဉ်းနှင့် ကိုက်ညီသည့်အခါ လုပ်ဆောင်ရန် ရွေးချယ်ပါ",
-  "selectAll": "အားလုံးကို ရွေးချယ်ပါ",
-  "selectCountry": "နိုင်ငံကို ရွေးချယ်ပါ",
-  "selectedItems": "{count} ပစ္စည်းများ ရွေးချယ်ပြီးပါပြီ",
-  "selectedLabel": "ရွေးချယ်ပြီး -",
-  "selectExportFormat": "တင်ပို့မည့် ဖော်မတ်ကို ရွေးချယ်ပါ",
-  "selectLabel": "အညွှန်းကို ရွေးချယ်ပါ",
-  "selectLabelAndEnterPhoneNumber": "အညွှန်းတစ်ခုကို ရွေးချယ်ပြီး မှန်ကန်သော ဖုန်းနံပါတ်ကို ထည့်သွင်းပါ",
-  "selectLanguage": "ဘာသာစကားကို ရွေးချယ်ပါ",
-  "selectMultiple": "အများအပြားကို ရွေးချယ်ပါ",
-  "selectSimCard": "SIM ကတ်ကို ရွေးချယ်ပါ",
-  "selectTags": "တဂ်များကို ရွေးချယ်ပါ",
-  "selectTrustedDataSource": "ယုံကြည်စိတ်ချရသော ဒေတာရင်းမြစ်များကို ရွေးချယ်ပါ",
-  "selectYourLanguage": "သင်၏ ဘာသာစကားကို ရွေးချယ်ပါ",
-  "sender": "ပေးပို့သူ",
-  "senderRegexOptional": "ပေးပို့သူ Regex (အလွတ်ထည့်သွင်းနိုင်သည်)",
-  "serverAddressLabel": "ဆာဗာ လိပ်စာ",
-  "serviceTypeContact": "ဆက်သွယ်ရန် စာရင်းသွင်းခြင်း",
-  "serviceTypeLabel": "ဝန်ဆောင်မှု အမျိုးအစား",
-  "serviceTypePhone": "ဖုန်း စာရင်းသွင်းခြင်း",
-  "serviceTypePlugin": "Plugin အပ်ဒိတ်",
-  "serviceTypeSms": "SMS စာရင်းသွင်းခြင်း",
   "serviceUpdateFailure": "{error}",
   "@serviceUpdateFailure": {
     "description": "Service update failure message",
@@ -1079,30 +1310,6 @@
       }
     }
   },
-  "setEncryptionPassword": "စာဝှက်စကားဝှက် သတ်မှတ်",
-  "settings": "ဆက်တင်များ",
-  "settingsBackedUpTo": "ဆက်တင်များကို သိမ်းဆည်းထားသည် - {path}",
-  "settingsRestoredSuccessfully": "ဆက်တင်များကို အောင်မြင်စွာ ပြန်လည်ရယူပြီးပါပြီ။ အပြောင်းအလဲများ အကျိုးသက်ရောက်စေရန် အက်ပ်ကို ပြန်လည်စတင်ပါ။",
-  "settingsSaved": "ဆက်တင်များကို သိမ်းဆည်းပါပြီ",
-  "@settingsSaved": {
-    "description": "Settings saved confirmation message"
-  },
-  "settingsSaveFailed": "ဆက်တင်များ သိမ်းဆည်းရန် ပျက်ကွက်ပါသည် - {error}",
-  "settingsTab": "ဆက်တင်များ",
-  "settingsTitle": "ဆက်တင်များ",
-  "setup": "ပြင်ဆင်ခြင်း",
-  "silence": "တိတ်ဆိတ်",
-  "silenceAndNoAnswer": "တိတ်ဆိတ်ပြီး အဖြေမရှိပါ",
-  "silenceNoAnswer": "တိတ်ဆိတ် အဖြေမရှိပါ",
-  "silentCallVoiceClone": "တိတ်ဆိတ် ခေါ်ဆိုမှု အသံ ကူးယူခြင်း",
-  "silentRules": "တိတ်ဆိတ် စည်းမျဉ်းများ",
-  "simCard": "SIM ကတ် {simNumber}",
-  "simCardColor": "SIM ကတ် အရောင်",
-  "simCardConfigurationExplanation": "• SIM ကတ် ထည့်သွင်းမှု - SIM ကတ်တစ်ခုစီအတွက် သီးခြား စစ်ထုတ်ရေး စည်းမျဉ်းများကို သတ်မှတ်ပါ။",
-  "simCardFilterRules": "SIM ကတ် စစ်ထုတ်ရေး စည်းမျဉ်းများ",
-  "simCardFilterRulesDescription": "SIM ကတ် နေရာများအပေါ် အခြေခံ၍ ကွဲပြားသော စစ်ထုတ်ရေး စည်းမျဉ်းများကို သတ်မှတ်ပါ။",
-  "simCardFontSize": "SIM ကတ် စာလုံးအရွယ်အစား",
-  "simCardPosition": "SIM ကတ် နေရာ",
   "simInfo": "SIM {slotNumber} - {countryIso}",
   "@simInfo": {
     "description": "SIM Card information",
@@ -1241,9 +1448,6 @@
   "supportSync": "Support Sync",
   "survey": "Survey",
   "syncDevicesButton": "Sync Devices",
-  "@synced": {
-    "description": "Synced status label"
-  },
   "syncFailed": "Sync failed",
   "syncFailedMessage": "Sync failed",
   "syncFolderNameLabel": "Sync Folder Name",
@@ -1285,13 +1489,8 @@
   "textColorsSetting": "Text & Label Colors",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "This app is a powerful caller ID tool that allows you to identify and block unwanted calls.",
   "thisWeek": "This Week",
-  "timeInterceptor": "Time Interceptor",
-  "timeInterceptorDescription": "Automatically intercept/allow potential calls based on call frequency",
-  "timeInterceptorExplanation": "• Time Interceptor: Intercept/allow repeated calls within a short time",
-  "timeInterceptorExplanationContent": "The call frequency interception feature analyzes call frequency to automatically identify and intercept/ allow frequent spam calls.",
   "timeInterceptorExplanationTitle": "Call Frequency Interception Explanation",
   "timeInterceptorSettingsTitle": "Call Frequency Interception Settings",
-  "timeWindowDescription": "Set the time window size for allowing repeated calls. Calls from the same number within this window will be allowed",
   "timeWindowLabel": "Interception Time Window (minutes): {minutes}",
   "@timeWindowLabel": {
     "description": "Time window label with duration in minutes",
@@ -1555,6 +1754,9 @@
   "logActionDescription": "Log the call information without taking any other action.",
   "customActionDescription": "Perform a custom action.",
   "synced": "Synced",
+  "@synced": {
+    "description": "Synced status label"
+  },
   "needVipAccess": "You need VIP access to use this feature",
   "importExportDescription": "Import or export {entityTypeName} data",
   "importExportTitle": "Import/Export",
@@ -1570,6 +1772,9 @@
   "permissionSubtitle": "Manage overlay and battery optimization permissions",
   "themeSettingsTitle": "Theme Settings",
   "themeSettingsSubtitle": "Choose your favorite theme",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "themeSystem": "System",
   "databaseSyncTitle": "Database Sync",
   "countrySyncSettingsTitle": "Country Based Database Sync Settings",
   "countrySyncSettingsSubtitle": "Select countries for data synchronization",
@@ -1652,7 +1857,6 @@
   "callTime": "Call Time",
   "numberInvalidFormat": "Number invalid format",
   "medium": "Medium",
-  "verificationReport": "Verification Report",
   "finalRisk": "Final Risk",
   "simState": "SIM State",
   "ipCountry": "IP Country",
@@ -1716,10 +1920,6 @@
   "@deletionProposal": {
     "description": "Deletion proposal title"
   },
-  "deletionProposals": "Deletion Proposals",
-  "@deletionProposals": {
-    "description": "Title for deletion proposals notification channel"
-  },
   "createProposal": "Create Proposal",
   "@createProposal": {
     "description": "Create proposal button text"
@@ -1727,9 +1927,6 @@
   "createProposalTitle": "Create Deletion Proposal",
   "@createProposalTitle": {
     "description": "Create proposal dialog title"
-  },
-  "@phoneNumber": {
-    "description": "Phone number label"
   },
   "reason": "Reason",
   "@reason": {
@@ -1773,11 +1970,11 @@
   },
   "riskLevelLow": "Low",
   "@riskLevelLow": {
-    "description": "Label for low risk level"
+    "description": "Low risk level"
   },
   "riskLevelHigh": "High",
   "@riskLevelHigh": {
-    "description": "Label for high risk level"
+    "description": "High risk level"
   },
   "agreeVotes": "Agree: {count}",
   "@agreeVotes": {
@@ -1814,6 +2011,7 @@
       }
     }
   },
+  "verificationReport": "Verification Report",
   "@verificationReport": {
     "description": "Verification report label"
   },
@@ -1844,9 +2042,6 @@
   "refreshProposals": "Refresh Proposals",
   "@refreshProposals": {
     "description": "Refresh proposals button text"
-  },
-  "@overview": {
-    "description": "Overview label"
   },
   "totalPendingProposals": "Total Pending Proposals",
   "@totalPendingProposals": {
@@ -1947,6 +2142,10 @@
   "veryLow": "Very Low",
   "@veryLow": {
     "description": "Very low risk level label"
+  },
+  "deletionProposals": "Deletion Proposals",
+  "@deletionProposals": {
+    "description": "Title for deletion proposals notification channel"
   },
   "deletionProposalNotificationDescription": "Notifications about deletion proposal voting results and updates.",
   "@deletionProposalNotificationDescription": {
@@ -2074,214 +2273,18 @@
   "defaultNotifications": "Default Notifications",
   "defaultNotificationsDescription": "Default notification channel for the app.",
   "blockedCallNotifications": "Blocked Call Notifications",
-  "blockedCallNotificationsDescription": "ပိတ်ဆို့ထားသောခေါ်ဆိုမှုများဆိုင်ရာ အချက်အလက်များကို ပြသသည်.",
-  "stirVerification": "STIR/SHAKEN အတည်ပြုချက်",
-  "stirVerificationDescription": "နံပါတ်များအတွက် STIR/SHAKEN အတည်ပြုချက်ရလဒ်များကို ပြသသည်.",
-  "fraudAlerts": "လိမ်လည်မှုသတိပေးချက်များ",
-  "fraudAlertsDescription": "ဖြစ်နိုင်သော လိမ်လည်မှုခေါ်ဆိုမှုများအတွက် သတိပေးချက်များကို ပြသသည်.",
-  "@notificationMode": {
-    "description": "Title for the mode selection part (Immediate, Batched, Custom)"
-  },
-  "pendingProposals": "စောင့်ဆိုင်းနေသော အဆိုပြုချက်များ",
-  "pendingProposalsBody": "သင်တွင် {count, plural, =0 {စောင့်ဆိုင်းနေသော အဆိုပြုချက်မရှိပါ} one {၁ စောင့်ဆိုင်းနေသော အဆိုပြုချက်} other {{count} စောင့်ဆိုင်းနေသော အဆိုပြုချက်များ}} ရှိသည်။",
-  "guidelinesLabel": "လမ်းညွှန်ချက်များ",
-  "reportingGuidelines": "• တကယ်ပြဿနာရှိသော နံပါတ်များကိုသာ အစီရင်ခံပါ\n• တိကျပြီး အသေးစိတ်ကျသော အကြောင်းရင်းများကို ပေးပါ\n• ပြင်းထန်မှုအပေါ် အခြေခံ၍ သင့်လျော်သော အန္တရာယ်အဆင့်ကို ရွေးချယ်ပါ\n• မှားယွင်းသော အစီရင်ခံစာများသည် အကောင့် ကန့်သတ်မှုများ ဖြစ်စေနိုင်သည်။",
-  "riskLevelLabel": "အန္တရာယ် အဆင့်",
-  "phoneNumberMinDigits": "ဖုန်းနံပါတ်သည် အနည်းဆုံး ၇ လုံး ပါဝင်ရမည်",
-  "provideDetailedExplanation": "အသေးစိတ်ရှင်းလင်းချက်တစ်ခုပေးပါ (အနည်းဆုံး ၁၀ အက္ခရာ)",
-  "reasonMinCharacters": "အကြောင်းရင်းသည် အနည်းဆုံး ၁၀ အက္ခရာ ပါဝင်ရမည်",
-  "countryCodeTwoLetters": "နိုင်ငံ ကုဒ် (ISO 3166-1 alpha-2) *",
-  "countryCodeLabel": "နိုင်ငံ ကုဒ် (ISO 3166-1 alpha-2) *",
-  "@countryCodeLabel": {
-    "description": "Label for country code input field"
-  },
-  "countryCodeHint": "ဥပမာ- US, CN, GB",
-  "@countryCodeHint": {
-    "description": "Hint text for country code input field"
-  },
-  "countryCodeRequired": "နိုင်ငံ ကုဒ် လိုအပ်သည်",
-  "@countryCodeRequired": {
-    "description": "Validation message for required country code"
-  },
+  "phoneNumberHint": "Enter phone number",
   "@phoneNumberHint": {
     "description": "Hint text for phone number input field"
   },
+  "phoneNumberRequired": "Phone number is required",
   "@phoneNumberRequired": {
     "description": "Validation message for required phone number"
   },
-  "reasonRequired": "အကြောင်းရင်း လိုအပ်သည်",
-  "@reasonRequired": {
-    "description": "Validation message for required reason"
-  },
-  "riskLevelCritical": "အရေးပေါ်",
-  "@riskLevelCritical": {
-    "description": "Label for critical risk level"
-  },
-  "riskLevelMedium": "အလယ်အလတ်",
-  "@riskLevelMedium": {
-    "description": "Label for medium risk level"
-  },
-  "riskLevelVeryLow": "အလွန်နည်းသည်",
-  "@riskLevelVeryLow": {
-    "description": "Label for very low risk level"
-  },
-  "notificationFrequencyTitle": "အသိပေးချက် ကြိမ်နှုန်း",
-  "@notificationFrequencyTitle": {
-    "description": "Title for notification frequency settings"
-  },
-  "errorMessage": "အမှား: {error}",
-  "@errorMessage": {
-    "description": "Generic error message template",
-    "placeholders": {
-      "error": {
-        "type": "String"
-      }
-    }
-  },
-  "supportCount": "ထောက်ခံ ({supportCount})",
-  "@supportCount": {
-    "description": "Shows the number of support votes.",
-    "placeholders": {
-      "supportCount": {
-        "type": "int"
-      }
-    }
-  },
-  "opposeCount": "ဆန့်ကျင် ({opposeCount})",
-  "@opposeCount": {
-    "description": "Shows the number of oppose votes.",
-    "placeholders": {
-      "opposeCount": {
-        "type": "int"
-      }
-    }
-  },
-  "@reportingGuidelines": {
-    "description": "Guidelines for reporting a number."
-  },
-  "notificationFrequencyHours": "အသိပေးချက် ကြိမ်နှုန်း (နာရီ)",
-  "@notificationFrequencyHours": {
-    "description": "Title for the notification frequency setting."
-  },
-  "votesWithPercentage": "{totalVotes} မဲ ({supportPercentage}% ထောက်ခံမှု)",
-  "@votesWithPercentage": {
-    "description": "Displays the total vote count and the percentage of support votes.",
-    "placeholders": {
-      "totalVotes": {
-        "type": "int"
-      },
-      "supportPercentage": {
-        "type": "int"
-      }
-    }
-  },
-  "hoursDuration": "{count, plural, =0{0 နာရီ} =1{1 နာရီ} other{{count} နာရီ}}",
-  "@hoursDuration": {
-    "description": "A duration in hours, formatted to be grammatically correct for singular or plural.",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "importantNoticeTitle": "အရေးကြီးသော သတိပေးချက်",
-  "@importantNoticeTitle": {
-    "description": "The title for the data source disclaimer card."
-  },
-  "dataSourceDisclaimer": "နံပါတ်များသည် အင်တာနက်နှင့် အသုံးပြုသူ တင်သွင်းမှုများမှ ရယူသည်။ နံပါတ်တစ်ခုကို ဖျက်သိမ်းပြီးနောက် အခြားအသုံးပြုသူများ သို့မဟုတ် အရင်းအမြစ်များမှ ပြန်လည်တင်သွင်းနိုင်မည် မဟုတ်ကြောင်း ကျွန်ုပ်တို့ အာမခံနိုင်ပါ။ တက်ကြွစွာ ရှာဖွေပြီး အချက်အလက်များကို စစ်ဆေးပါ။",
-  "@dataSourceDisclaimer": {
-    "description": "A disclaimer explaining where the phone number data comes from and its limitations."
-  },
-  "avatar": "အိုင်ကွန်",
-  "@avatar": {
-    "description": "The avatar of the user."
-  },
-  "location": "တည်နေရာ",
-  "@location": {
-    "description": "The location of the user."
-  },
-  "simCardTitle": "SIM ကတ်",
-  "liveActivitiesSettingsTitle": "Live Activities ဆက်တင်များ",
-  "elementsSettingsTitle": "Elements ဆက်တင်များ",
   "liveActivityMode": "Live Activity",
-  "liveActivityModeDescription": "ခေါ်ဆိုမှုအချက်အလက်များကို လော့ခ်မျက်နှာပြင်နှင့် Dynamic Island (iOS) တွင် အမြဲတမ်း အသိပေးချက်အဖြစ် ပြသသည်။",
-  "phoneNumberType": "ဖုန်းနံပါတ် အမျိုးအစား",
-  "liveActivitiesTestEndActivity": "Activity ကို အဆုံးသတ်ပါ",
-  "liveActivitiesTestSendNewActivity": "Activity အသစ် ပို့ပါ",
-  "liveActivitiesTestUpdateActivity": "Activity ကို အပ်ဒိတ်လုပ်ပါ",
-  "liveActivityControlsTitle": "Live Activity ထိန်းချုပ်မှုများ",
-  "liveActivitiesTestTitle": "Live Activities စမ်းသပ်မှု",
-  "liveNotificationCustomizationTitle": "Live Notification စိတ်ကြိုက်ပြုလုပ်ခြင်း",
-  "liveNotificationCustomizationSubtitle": "Live notification များ၏ ပြင်ပအသွင်အပြင်ကို စိတ်ကြိုက်ပြုလုပ်ပါ။",
-  "notification_instructions": "ညွှန်ကြားချက်များ:\n1. အသိပေးချက်တစ်ခုကို ဖန်တီးရန် သို့မဟုတ် အပ်ဒိတ်လုပ်ရန် \"SEND\" ကိုနှိပ်ပါ။\n2. သင့်အိမ်မျက်နှာပြင်သို့ သွားပါ သို့မဟုတ် ရလဒ်ကိုကြည့်ရှုရန် အသိပေးချက်ဘားကို ဆွဲချပါ။\n3. အသိပေးချက်ကို ပယ်ဖျက်ရန် \"END\" ကိုနှိပ်ပါ။",
-  "@notification_instructions": {
-    "description": "A single string containing all instructions for the notification."
-  },
-  "autoCancelNotification": "အလိုအလျောက် အသိပေးချက်ကို ပယ်ဖျက်ပါ",
-  "@autoCancelNotification": {
-    "description": "A checkbox to toggle whether the notification should be automatically dismissed when the user taps it."
-  },
-  "autoCancelNotificationDescription": "အကယ်၍ ရွေးချယ်ထားပါက၊ အသုံးပြုသူမှ ၎င်းကိုနှိပ်သောအခါ အသိပေးချက်သည် အလိုအလျောက် ပယ်ဖျက်ပါမည်။",
-  "@autoCancelNotificationDescription": {
-    "description": "A description of the auto cancel notification checkbox."
-  },
-  "setDelayTime": "နှောင့်နှေးချိန် သတ်မှတ်ပါ",
-  "@setDelayTime": {
-    "description": "A button to set the delay time for the notification."
-  },
-  "proposalDetails": "အဆိုပြုချက် အသေးစိတ်",
-  "@proposalDetails": {
-    "description": "The title of the proposal details page."
-  },
-  "proposalNotFound": "အဆိုပြုချက်ကို ရှာမတွေ့ပါ",
-  "@proposalNotFound": {
-    "description": "A message displayed when a proposal is not found."
-  },
-  "processed": "အပြီးသတ်",
-  "@processed": {
-    "description": "A label for the processed status."
-  },
-  "filterAndSortTitle": "စစ်ထုတ်ပြီး အစီ</span>",
-  "filterVerifiedOwner": "စစ်ဆေးထားသော ပိုင်ရှင်ဖြင့် စစ်ထုတ်ပါ",
-  "@filterVerifiedOwner": {
-    "description": "A checkbox to toggle whether to filter verified owners."
-  },
-  "filterBy": "ဖြင့် စစ်ထုတ်ပါ",
-  "@filterBy": {
-    "description": "A label for the filter by dropdown."
-  },
-  "sortOldest": "အဟောင်းဆုံးကို အစီ</span>",
-  "sortNewest": "အသစ်ဆုံးကို အစီ</span>",
-  "sortMostPopular": "လူကြိုက်အများဆုံးကို အစီ</span>",
-  "sortLeastPopular": "လူကြိုက်အနည်းဆုံးကို အစီ</span>",
-  "sortBy": "ဖြင့် စီ</span>",
-  "simRulesNotFound": "SIM စည်းမျဉ်းများကို ရှာမတွေ့ပါ",
-  "@simRulesNotFound": {
-    "description": "A message displayed when SIM rules are not found."
-  },
-  "simSlotRules": "SIM Slot စည်းမျဉ်းများ",
-  "@simSlotRules": {
-    "description": "A label for the SIM slot rules."
-  },
-  "noSimCardDetected": "SIM ကတ် မတွေ့ရှိပါ",
-  "@noSimCardDetected": {
-    "description": "A message displayed when no SIM card is detected."
-  },
-  "invalidSimData": "SIM ဒေတာ မှားယွင်းနေသည်",
-  "@invalidSimData": {
-    "description": "A message displayed when the SIM data is invalid."
-  },
   "simSlot": "SIM Slot",
   "@simSlot": {
     "description": "A label for the SIM slot."
-  },
-  "enableFiltering": "စစ်ထုတ်ခြင်းကို ဖွင့်ပါ",
-  "@enableFiltering": {
-    "description": "A checkbox to toggle whether to enable filtering."
-  },
-  "detailedSettingsTitle": "အသေးစိတ် ဆက်တင်များ",
-  "@detailedSettingsTitle": {
-    "description": "The title of the detailed settings page."
   },
   "entryPointViewTitle": "Entry Point View",
   "@entryPointViewTitle": {
@@ -2298,5 +2301,151 @@
         "example": "5"
       }
     }
-  }
+  },
+  "ruleType": "Rule Type",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Retry",
+  "initialSetupSkip": "Skip",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings",
+  "separateSims": "Separate SIMs",
+  "separateSimsDesc": "Enable separate filtering rules for each SIM card",
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }

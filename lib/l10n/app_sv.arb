@@ -79,7 +79,6 @@
   "addToFavorites": "Lägg till i favoriter",
   "addToRules": "Lägg till i regler",
   "addToWhitelist": "Lägg till i vitlistan",
-  "agent": "Agent",
   "all": "Alla",
   "allCallsTab": "Alla",
   "allow": "Tillåt",
@@ -120,7 +119,6 @@
   "answerThenHangup": "Svara och lägg sedan på",
   "applicationSoftware": "Applikationsmjukvara",
   "apply": "Verkställ",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "Auktorisering misslyckades: Kontrollera klient-ID och nyckel",
   "authorizationFailedMessage": "Auktorisering misslyckades",
   "authorizationSuccessMessage": "Auktorisering lyckades",
@@ -148,7 +146,6 @@
   "backupToCloud": "Säkerhetskopiera till molnet",
   "backupToCloudFailed": "Kunde inte säkerhetskopiera till molnet: {error}",
   "backupToCloudSuccess": "Säkerhetskopiering till molnet lyckades",
-  "bank": "Bank",
   "basicInfo": "Grundläggande information",
   "basicRuleFilter": "Grundläggande regeldetektering",
   "basicRuleFiltering": "Grundläggande regeldetektering",
@@ -557,7 +554,6 @@
   "features": "Funktioner",
   "fetchingCallerIdInfo": "Hämtar information om nummerupplysning...",
   "fileSavedTo": "Fil sparad till: {path}",
-  "filter": "Filter",
   "filterByLabel": "Filtrera efter etikett",
   "filterControlPanelTitle": "Filterkontrollpanel",
   "filterControlSubtitle": "Hantera på/av-status för alla filter",
@@ -571,18 +567,6 @@
   "filterSettingsTitle": "Filterinställningar",
   "filterSMS": "Filtrera SMS",
   "filterToggleInstructions": "Aktivera eller inaktivera filter för denna SIM-plats:",
-  "filterToggleStatus": "{status} filter: {filterName}",
-  "@filterToggleStatus": {
-    "description": "Filter enable/disable status change notification",
-    "placeholders": {
-      "status": {
-        "type": "Object"
-      },
-      "filterName": {
-        "type": "Object"
-      }
-    }
-  },
   "filterType": "Filtertyp",
   "financial": "Finansiell",
   "flexibleCombinationFeature": "• Flexibla kombinationer: Aktivera/inaktivera filter per SIM-plats",
@@ -602,7 +586,6 @@
     }
   },
   "getFree": "Få gratis",
-  "github": "GitHub",
   "globalFilterDescription": "Konfigurera globala filter för alla SIM-kort:",
   "globalFilterFeature": "• Globala filter: Grundläggande regler för alla inkommande samtal",
   "globalFilterSettings": "Globala filterinställningar",
@@ -619,7 +602,6 @@
   "granted": "Beviljad",
   "grantNecessaryPermissions": "Bevilja nödvändiga behörigheter",
   "grantPermissions": "Bevilja behörigheter",
-  "headhunter": "Headhunter",
   "height": "Höjd",
   "homeTab": "Hem",
   "howItWorksPoint1": "• Systemet kommer automatiskt att tillåta samtal från samma nummer inom den angivna tidsfönstret",
@@ -656,7 +638,6 @@
   "interceptionActionSettingsSubtitle": "Ange hur blockerade samtal hanteras",
   "interceptionActionSettingsTitle": "Inställningar för avlyssningsåtgärder",
   "interceptionTimeInterval": "Avlyssningsintervall",
-  "internet": "Internet",
   "intervalSetSuccess": "{service} uppdateringsintervall satt till {days} dagar",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -861,7 +842,6 @@
   "numberTypeColor": "Nummertypfärg",
   "numberTypeFontSize": "Nummertyp teckensnittsstorlek",
   "numberTypePosition": "Nummertypsposition",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Din samtals säkerhetshanterare är redo, börja njuta av en säker samtalsupplevelse!",
   "onboardingLanguageDescription": "Välj ditt föredragna språk för bästa upplevelse.",
   "onboardingPermissionsDescription": "För att erbjuda full service behöver vi följande behörigheter:",
@@ -909,10 +889,8 @@
   "phoneNumberTypePremiumRate": "Premiumtariff",
   "phoneNumberTypeSharedCost": "Delad kostnad",
   "phoneNumberTypeTollFree": "Avgiftsfritt",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Okänd",
   "phoneNumberTypeVoicemail": "Röstmeddelande",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Telefonbehörighet",
   "phonePermissionDescription": "Används för att identifiera och blockera inkommande samtal.",
   "phoneRule": "Telefonregel",
@@ -962,7 +940,6 @@
   "regexRuleNamePatternRequired": "Regelnamn och reguljärt uttrycksmönster får inte vara tomma",
   "regexRules": "Reguljära uttrycksregler",
   "regexTesterTitle": "Reguljär uttryckstestare",
-  "region": "Region",
   "registeredDevicesTitle": "Registrerade enheter",
   "rejectAllCalls": "Avvisa alla samtal",
   "rejectAllCallsDescription": "När aktiverat kommer alla samtal att avvisas med högsta prioritet",
@@ -1000,7 +977,6 @@
   "restoreSettingsConfirmation": "Detta kommer att ersätta alla dina nuvarande inställningar. Är du säker på att du vill fortsätta?",
   "retry": "Försök igen",
   "ridesharing": "Samåkning",
-  "risk": "Risk",
   "robocall": "Robotsamtal",
   "ruleAction": "Regelåtgärd",
   "ruleAddedSuccess": "Regel tillagd",
@@ -1070,15 +1046,6 @@
   "serviceTypePhone": "Telefonprenumeration",
   "serviceTypePlugin": "Pluginuppdatering",
   "serviceTypeSms": "SMS-prenumeration",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Ställ in krypteringslösenord",
   "settings": "Inställningar",
   "settingsBackedUpTo": "Inställningar säkerhetskopierade till: {path}",
@@ -1103,42 +1070,10 @@
   "simCardFilterRulesDescription": "Ställ in olika filterregler baserat på SIM-kortplatser",
   "simCardFontSize": "SIM-kort teckensnittsstorlek",
   "simCardPosition": "SIM-kortets placering",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "SIM-kortplatsregler låter dig konfigurera oberoende filtreringsregler för varje SIM-kortplats.",
   "simRuleInstructionsTitle": "SIM-kortplatsregler",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Konfigurera oberoende filtreringsregler för varje SIM-kort:",
   "simSlotFilterSettingsTitle": "Filterinställningar för SIM-kortplats {slotNumber}",
@@ -1167,7 +1102,6 @@
   "simSlotTitle": "SIM-kortplats {slotNumber}",
   "skip": "Hoppa över",
   "smartCallerId": "Smart samtalsidentifiering",
-  "sms": "SMS",
   "smsFilterDescription": "SMS-filtrering hjälper dig att automatiskt filtrera bort skräppostmeddelanden och hålla din meddelandelista ren. Du kan ställa in filterregler och aviseringsmetoder.",
   "smsFilterDisabled": "SMS-filtrering inaktiverad",
   "smsFilterEnabled": "SMS-filtrering aktiverad",
@@ -1185,7 +1119,6 @@
   "smsSubscription": "SMS-prenumeration",
   "smsSubscriptionAddedSuccessfully": "SMS-prenumeration lades till framgångsrikt",
   "smsSubscriptionRulesDescription": "Prenumerera på SMS-regel listor via URL, stöder reguljära uttryck. Du kan ställa in blockera eller tillåt åtgärder.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Vissa behörighetsförfrågningar nekades",
   "spamLikely": "Troligt spam",
   "startColor": "Startfärg",
@@ -1276,10 +1209,7 @@
       }
     }
   },
-  "takeaway": "Takeaway",
   "telecommunication": "Telekommunikation",
-  "telegram": "Telegram",
-  "telemarketing": "Telemarketing",
   "testButton": "TESTA",
   "testConnectionButton": "Testa anslutning",
   "textColorsSetting": "Text- och etikettfärger",
@@ -1358,7 +1288,6 @@
   "verificationFailedText": "Misslyckades",
   "verifiedText": "Verifierad",
   "verify": "Verifiera",
-  "version": "Version: {version}",
   "vipExchangeDescription": "Byt VIP-medlemskap mot antal telefonnummer-markeringar",
   "vipExchangeTitle": "Markera VIP-utbyte",
   "watchAd": "Titta på annons",
@@ -1557,11 +1486,9 @@
   "synced": "Synkroniserad",
   "needVipAccess": "Du behöver VIP-åtkomst för att använda den här funktionen",
   "importExportDescription": "Importera eller exportera {entityTypeName} data",
-  "importExportTitle": "Import/Export",
   "noPhoneRules": "Inga telefonregler hittades",
   "noRegexRules": "Inga regex-regler hittades",
   "noAllowedBlockedRules": "Inga tillåtna/blockerade regler hittades",
-  "importExport": "Import/Export",
   "filterByAction": "Filtrera efter åtgärd",
   "upgradeToVip": "Uppgradera till VIP",
   "batteryOptimizationPermission": "Batterioptimering",
@@ -1616,8 +1543,6 @@
   "pleaseEnterAtLeastOneNumber": "Ange minst ett nummer.",
   "openInWebView": "Öppna i WebView",
   "pluginLabel": "Pluginetikett",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Bakgrundsfärg för meddelande",
   "clearAllCallLogs": "Rensa alla samtalsloggar",
   "clearAllCallLogsConfirmation": "Bekräfta att rensa alla samtalsloggar",
@@ -1651,15 +1576,12 @@
   "callType": "Samtalstyp",
   "callTime": "Samtalstid",
   "numberInvalidFormat": "Ogiltigt nummerformat",
-  "medium": "Medium",
   "verificationReport": "Verifieringsrapport",
   "finalRisk": "Slutlig risk",
   "simState": "SIM-status",
   "ipCountry": "IP-land",
   "simCountry": "SIM-land",
-  "isRoaming": "Roaming",
   "isNumberMatch": "Nummermatchning",
-  "support": "Support",
   "rewardedAdService": "Belönad annonstjänst",
   "hasVipPrivilegeExceptAds": "Du har redan VIP-privilegier (förutom annonser)",
   "hasTempPrivilegeWithExpiry": "Du har redan tillfälliga privilegier, utgångsdatum: {expiryDate}",
@@ -2192,10 +2114,6 @@
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
   },
-  "avatar": "Avatar",
-  "@avatar": {
-    "description": "The avatar of the user."
-  },
   "location": "Plats",
   "@location": {
     "description": "The location of the user."
@@ -2318,5 +2236,216 @@
   "separateSims": "Separat SIM",
   "separateSimsDesc": "Aktivera separata filtreringsregler för varje SIM-kort",
   "masterAndOverrides": "Huvudkontroller",
-  "masterAndOverridesDesc": "Globala regelinställningar"
+  "masterAndOverridesDesc": "Globala regelinställningar",
+  "agent": "Agent",
+  "appName": "Your Call Your Rule",
+  "bank": "Bank",
+  "filter": "Filter",
+  "filterToggleStatus": "{status} filter: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "github": "GitHub",
+  "headhunter": "Headhunter",
+  "internet": "Internet",
+  "okButton": "OK",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "region": "Region",
+  "risk": "Risk",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "takeaway": "Takeaway",
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "version": "Version: {version}",
+  "importExportTitle": "Import/Export",
+  "importExport": "Import/Export",
+  "themeLight": "Ljust",
+  "themeDark": "Mörkt",
+  "themeSystem": "Systemstandard",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "medium": "Medium",
+  "isRoaming": "Roaming",
+  "support": "Support",
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "ruleType": "Regeltyp",
+  "localDatabaseSyncTitle": "Lokal databassynkronisering",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Synkronisera data mellan enheter",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Projekt-URL",
+  "supabaseAnonKey": "Anonym nyckel",
+  "supabaseAnonKeyHint": "API Key, publik anonym nyckel",
+  "connectionString": "Anslutningssträng (URI)",
+  "connectionStringHelper": "Behövs endast för 'Initiera databas'",
+  "syncCallHistory": "Synkronisera samtalshistorik",
+  "syncCallHistorySubtitle": "Inkludera privata samtalsloggar i synkroniseringen",
+  "requiredField": "Obligatorisk",
+  "requiredInitField": "Obligatorisk för initiering",
+  "initDbButton": "Initiera databas",
+  "dbInitSuccess": "Databasen har initierats framgångsrikt!",
+  "syncSuccess": "Synkronisering klar. Skickat: {pushed}, Mottaget: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Fel",
+  "errorLoadingSettings": "Fel vid inläsning av inställningar",
+  "statusLabel": "Status",
+  "statusConnected": "Ansluten / Konfigurerad",
+  "statusNotConfigured": "Inte konfigurerad",
+  "configSaved": "Konfigurationen sparades!",
+  "masterDeviceLabel": "Huvudenhet (Admin)",
+  "masterDeviceHelp": "Endast huvudenheten kan initiera databasstrukturen.",
+  "syncIntervalLabel": "Intervall för automatisk synkronisering",
+  "syncIntervalValue": "Var {hours}:e timme",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Lämna tomt för att använda standardvärdet",
+  "vipAccessSubtitle": "Titta på annonser gratis eller köp VIP",
+  "failedToLoadSettingsSchema": "Misslyckades med att läsa in inställningsschemat: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "Fältet är obligatoriskt",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Svara på samtalet först och lägg sedan på direkt.",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupSourceTitle": "Källa för regeldatabas",
+  "initialSetupSourceGithub": "Officiell GitHub-källa",
+  "initialSetupSourceCdn": "Speglad CDN-accelerationskälla",
+  "initialSetupSourceCustom": "Egen spegelkälla",
+  "initialSetupCustomUrlHint": "Ange URL för egen spegel-JSON-konfiguration",
+  "initialSetupCustomUrlLoad": "Läs in konfiguration",
+  "initialSetupDetectedLocation": "Identifierad plats",
+  "deepLinkImportTitle": "Importera konfiguration",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Tillägg",
+  "deepLinkTypeSubscription": "Prenumeration",
+  "deepLinkDefaultPluginName": "Importerat tillägg",
+  "deepLinkDefaultSubName": "Importerad prenumeration",
+  "deepLinkDetectedTitle": "Djuplänk identifierad",
+  "deepLinkNameLabel": "Namn",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Typ",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Bekräfta import",
+  "deepLinkEmptyUrlError": "URL får inte vara tom",
+  "deepLinkPluginDownloadFailed": "Misslyckades med att hämta tillägg: {error}",
+  "deepLinkImportSuccess": "Importerades framgångsrikt",
+  "deepLinkImportFailed": "Importen misslyckades: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tips: Du kan öppna den här inställningssidan igen i Inställningar.",
+  "initialSetupGoToSettings": "Gå till Inställningar"
 }

@@ -120,7 +120,6 @@
   "answerThenHangup": "Sumagot pagkatapos saka ibaba ang telepono",
   "applicationSoftware": "Software ng Aplikasyon",
   "apply": "Ilapat",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "Nabigo ang awtorisasyon: Pakisuri ang client ID at susi",
   "authorizationFailedMessage": "Nabigo ang awtorisasyon",
   "authorizationSuccessMessage": "Naging matagumpay ang awtorisasyon",
@@ -139,7 +138,6 @@
   "avatarSize": "Sukat ng Avatar",
   "axisPosition": "{axis} na Posisyon",
   "backgroundGradientSetting": "Gradient ng Background",
-  "backup": "Backup",
   "backupAndRestore": "Backup at Pag-restore",
   "backupAndRestoreSubtitle": "Mag-backup o mag-restore ng data ng aplikasyon",
   "backupAndRestoreTitle": "Backup & Pag-restore",
@@ -156,10 +154,6 @@
   "basicRuleFilterSubtitle": "Salain ang mga tawag gamit ang blacklist/whitelist at mga regular na expression",
   "batchDeleteContactsConfirm": "Sigurado ka bang gusto mong burahin ang {count} napiling mga contact?",
   "batchDeleteLabelsConfirm": "Sigurado ka bang gusto mong burahin ang {count} mga label?",
-  "blacklist": "Blacklist",
-  "@blacklist": {
-    "description": "Blacklist label"
-  },
   "blacklistingAndWhitelisting": "Pag-blacklist at Pag-whitelist",
   "blackWhiteList": "Listahan ng Black/White",
   "block": "I-block",
@@ -222,7 +216,6 @@
   "callTypeUnknown": "Hindi Alam",
   "cancelButton": "Kanselahin",
   "carRental": "Pag-upa ng Sasakyan",
-  "carrier": "Carrier",
   "carrierColor": "Kulay ng Carrier",
   "carrierFontSize": "Sukat ng Font ng Carrier",
   "carrierPosition": "Posisyon ng Carrier",
@@ -328,7 +321,6 @@
   "currentDeviceTitle": "Kasalukuyang Device",
   "currentLanguage": "Kasalukuyang Wika",
   "customerService": "Serbisyo sa Kostumer",
-  "dashboardTab": "Dashboard",
   "dataAnalysis": "Pagsusuri ng Datos",
   "dataLoadFailure": "Nabigong i-load ang datos: {error}",
   "@dataLoadFailure": {
@@ -392,7 +384,6 @@
   },
   "deleteSuccess": "Matagumpay na nabura",
   "delivery": "Pagpapadala",
-  "deviceIDLabel": "Device ID",
   "deviceManagementSubtitle": "Pamahalaan ang multi-device synchronization",
   "deviceManagementTitle": "Pamamahala ng Device",
   "deviceModelLabel": "Modelo ng Device",
@@ -416,7 +407,6 @@
   "done": "Tapos na",
   "dualSimAdvice": "Partikular na kapaki-pakinabang ang tampok na ito para sa dual-SIM na telepono upang magtakda ng iba't ibang mga estratehiya sa pag-filter para sa trabaho at personal na mga SIM card.",
   "earlier": "Mas maaga",
-  "ecommerce": "Ecommerce",
   "edit": "I-edit",
   "editContact": "I-edit ang Contact",
   "editLabel": "I-edit ang Label",
@@ -424,7 +414,6 @@
   "editRule": "I-edit ang Panuntunan",
   "education": "Edukasyon",
   "elementPositionsSetting": "Mga Posisyon ng Elemento",
-  "email": "Email",
   "enableCallFilter": "Paganahin ang Call Filter",
   "enableCallFilterDescription": "Kapag pinagana, ang mga papasok na tawag ay susuriin laban sa listahan ng panuntunan sa ibaba. Ang mga panuntunan sa pag-filter ng tawag ay hindi naka-synchronize sa pagitan ng mga device bilang default.",
   "enabled": "Pinagana",
@@ -571,18 +560,6 @@
   "filterSettingsTitle": "Mga Setting ng Filter",
   "filterSMS": "I-filter ang SMS",
   "filterToggleInstructions": "Paganahin o huwag paganahin ang mga filter para sa SIM slot na ito:",
-  "filterToggleStatus": "{status} filter: {filterName}",
-  "@filterToggleStatus": {
-    "description": "Filter enable/disable status change notification",
-    "placeholders": {
-      "status": {
-        "type": "Object"
-      },
-      "filterName": {
-        "type": "Object"
-      }
-    }
-  },
   "filterType": "Uri ng Filter",
   "financial": "Pinansyal",
   "flexibleCombinationFeature": "• Flexible na Kombinasyon: Paganahin/huwag paganahin ang mga filter bawat SIM slot",
@@ -602,7 +579,6 @@
     }
   },
   "getFree": "Kumuha ng Libre",
-  "github": "GitHub",
   "globalFilterDescription": "I-configure ang mga pandaigdigang filter para sa lahat ng SIM card:",
   "globalFilterFeature": "• Mga Pandaigdigang Filter: Mga pangunahing panuntunan para sa lahat ng papasok na tawag",
   "globalFilterSettings": "Mga Setting ng Pandaigdigang Filter",
@@ -619,7 +595,6 @@
   "granted": "Ibinigay",
   "grantNecessaryPermissions": "Magbigay ng mga Kinakailangang Pahintulot",
   "grantPermissions": "Magbigay ng mga Pahintulot",
-  "headhunter": "Headhunter",
   "height": "Taas",
   "homeTab": "Bahay",
   "howItWorksPoint1": "• Awtomatikong papayagan ng sistema ang mga tawag mula sa parehong numero sa loob ng itinakdang time window",
@@ -656,7 +631,6 @@
   "interceptionActionSettingsSubtitle": "Itakda kung paano hinahawakan ang mga binablock na tawag",
   "interceptionActionSettingsTitle": "Mga Setting ng Aksyon sa Pagharang",
   "interceptionTimeInterval": "Interval ng Oras ng Pagharang",
-  "internet": "Internet",
   "intervalSetSuccess": "Ang {service} update interval ay itinakda sa {days} araw",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -674,10 +648,8 @@
   "invalidRegexPattern": "Di-balido ang regex pattern",
   "invalidSenderRegex": "Di-balido ang sender regex",
   "joinTheTelegramChannelAndGroupForMoreInfo": "Sumali sa Telegram Channel at Group para sa Karagdagang Impormasyon",
-  "jsonFormat": "JSON Format",
   "keepAllVersions": "Panatilihin Lahat ng Bersyon",
   "keepAllVersionsDescription": "Panatilihin ang lahat ng makasaysayang bersyon ng bawat backup",
-  "label": "Label",
   "labelAddedSuccessfully": "Matagumpay na naidagdag ang label na \"{name}\"",
   "labelCategories": "Mga Kategorya ng Label",
   "labelDeleted": "Nabura ang label",
@@ -693,7 +665,6 @@
   "labelsFontSize": "Laki ng Font ng mga Label",
   "labelsImportedSuccessfully": "Matagumpay na na-import ang {count} mga label",
   "labelsPosition": "Posisyon ng mga Label",
-  "labelTag": "Label: {labelId}",
   "labelUpdateFailed": "Nabigong i-update ang label: {error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -717,7 +688,6 @@
       }
     }
   },
-  "lifetimeMembership": "Lifetime Membership",
   "lifetimeMembershipDescription": "Isang beses na pagbili, permanente na ma-unlock ang lahat ng premium na feature at mga future update",
   "loadContactsFailed": "Nabigong i-load ang mga contact: {error}",
   "loadDataFailed": "Nabigong i-load ang data",
@@ -861,7 +831,6 @@
   "numberTypeColor": "Kulay ng Uri ng Numero",
   "numberTypeFontSize": "Laki ng Font ng Uri ng Numero",
   "numberTypePosition": "Posisyon ng Uri ng Numero",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Handa na ang iyong call security manager, simulan ang pagtangkilik ng isang ligtas na karanasan sa pagtawag!",
   "onboardingLanguageDescription": "Piliin ang iyong gustong wika para sa pinakamahusay na karanasan.",
   "onboardingPermissionsDescription": "Upang maibigay ang buong serbisyo, kailangan namin ang mga sumusunod na pahintulot:",
@@ -870,7 +839,6 @@
   "onboardingWelcomeDescription": "Ang iyong call management expert, nagbibigay ng kumprehensibong pagkakakilanlan ng tawag at serbisyo sa pag-block.",
   "oneDriveAuthDescription": "Mag-authorize gamit ang system-configured OneDrive client ID at key",
   "oneDriveConfigTitle": "Konfigurasyon ng OneDrive",
-  "onlineCallerIdSubscription": "Online Caller ID Subscription",
   "openAppSettings": "Buksan ang mga setting ng app",
   "openAppSettingsFailed": "Nabigong buksan ang mga setting ng app: {error}",
   "operationFailed": "Nabigo ang operasyon: {error}",
@@ -883,11 +851,8 @@
   "overlayPermission": "Pahintulot sa Overlay",
   "overlayPermissionDescription": "Ginagamit upang ipakita ang overlay ng papasok na tawag.",
   "overview": "Pangkalahatang-ideya",
-  "password": "Password",
   "passwordCannotBeEmpty": "Hindi maaaring walang laman ang password",
-  "passwordLabel": "Password",
   "passwordsDoNotMatch": "Hindi magkatugma ang mga password",
-  "pattern": "Pattern",
   "pendingSync": "Naghihintay ng Sync",
   "periodMonth": "Buwan",
   "periodWeek": "Linggo",
@@ -901,21 +866,11 @@
   "phoneNumberHint": "Ilagay ang numero ng telepono",
   "phoneNumberLabel": "Numero ng Telepono",
   "phoneNumberRequired": "Kailangan ang numero ng telepono",
-  "phoneNumberTypeFixedLine": "Fixed line",
   "phoneNumberTypeFixedLineOrMobile": "Fixed line o mobile",
-  "phoneNumberTypeMobile": "Mobile",
-  "phoneNumberTypePager": "Pager",
   "phoneNumberTypePersonalNumber": "Personal na numero",
-  "phoneNumberTypePremiumRate": "Premium rate",
-  "phoneNumberTypeSharedCost": "Shared cost",
-  "phoneNumberTypeTollFree": "Toll free",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Hindi Kilala",
-  "phoneNumberTypeVoicemail": "Voicemail",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Pahintulot sa Telepono",
   "phonePermissionDescription": "Ginagamit upang makilala at harangan ang mga papasok na tawag.",
-  "phoneRule": "Phone Rule",
   "phoneRuleManagement": "Pamamahala ng Phone Rule",
   "phoneRuleSubscription": "Subscription ng Phone Rule",
   "phoneSubscription": "Subscription ng Telepono",
@@ -942,26 +897,19 @@
   "processing": "Nagpoproseso...",
   "processingOperation": "Nagpoproseso...",
   "purchase": "Pagbili",
-  "quarterlyMembership": "Quarterly Membership",
   "quarterlyMembershipDescription": "I-unlock ang lahat ng premium na feature, auto-renew kada quarter",
   "ready": "Handa na!",
-  "recruiter": "Recruiter",
   "refresh": "I-refresh",
   "refreshPermissionStatus": "I-refresh ang status ng pahintulot",
   "refreshTooltip": "I-refresh",
-  "regexErrorMessage": "Regex error: {error}",
-  "regexPattern": "Regex Pattern",
   "regexPatternExplanation": "Paliwanag ng Regex Pattern",
   "regexPatternExplanationButton": "Paliwanag ng Regex Pattern",
-  "regexPatternLabel": "Regex Pattern",
   "regexPatternsForPhoneNumberMatching": "Mga Pattern ng Regex para sa Pagtutugma ng Numero ng Telepono",
-  "regexRule": "Regex Rule",
   "regexRuleAddFailed": "Nabigong idagdag ang regex rule: {error}",
   "regexRuleAddSuccess": "Matagumpay na naidagdag ang regex rule",
   "regexRuleManagement": "Pamamahala ng Regex Rule",
   "regexRuleNamePatternRequired": "Hindi maaaring walang laman ang pangalan ng rule at regex pattern",
   "regexRules": "Mga Regex Rule",
-  "regexTesterTitle": "Regex Tester",
   "region": "Rehiyon",
   "registeredDevicesTitle": "Mga Nakarehistrong Device",
   "rejectAllCalls": "Tanggihan Lahat ng Tawag",
@@ -977,7 +925,6 @@
   "remoteFilterSettingsPageTitle": "Mga Setting ng Remote Number Filter",
   "remoteNumberFilter": "Remote Number Filter",
   "remoteNumberFilterDescription": "Salain ang mga nakakainis na tawag batay sa impormasyon ng remote database",
-  "remoteNumberFiltering": "Remote Number Filtering",
   "remoteNumberFilteringExplanation": "• Remote Number Filtering: Mga panuntunan sa pag-filter batay sa impormasyon ng remote database",
   "remoteNumberFilterSubtitle": "Tukuyin ang mga spam call gamit ang cloud database at mga ulat ng komunidad",
   "removeAdsDescription": "Permanenteng alisin ang lahat ng ad sa app para sa mas maayos na karanasan",
@@ -999,9 +946,7 @@
   "restoreSettings": "Ibalik ang mga Setting",
   "restoreSettingsConfirmation": "Ito ay papalitan ang lahat ng iyong kasalukuyang mga setting. Sigurado ka bang gusto mong magpatuloy?",
   "retry": "Subukang muli",
-  "ridesharing": "Ridesharing",
   "risk": "Panganib",
-  "robocall": "Robocall",
   "ruleAction": "Aksyon ng Tuntunin",
   "ruleAddedSuccess": "Matagumpay na naidagdag ang tuntunin",
   "@ruleAddedSuccess": {
@@ -1036,51 +981,17 @@
   "ruleUpdateFailed": "Nabigong i-update ang panuntunan: {error}",
   "ruleUpdateSuccess": "Matagumpay na na-update ang panuntunan",
   "ruleVerification": "Pag-verify ng Panuntunan",
-  "save": "Save",
-  "saveButton": "Save",
-  "saveButtonText": "Save",
   "saveFailed": "Nabigo ang pag-save: {error}",
-  "saveSettings": "Save Settings",
   "scamsLikely": "Malamang na Scams",
-  "search": "Search",
-  "searchContacts": "Search Contacts",
   "searchError": "Error sa paghahanap: {error}",
-  "searchHint": "Search...",
   "securityMessage": "Huwag magtiwala sa anumang tawag sa telepono. Laging i-verify ang mga numero ng customer service nang independiyente. Huwag kailanman ibahagi ang mga password, code ng pagpapatunay, numero ng card, o personal na impormasyon.",
   "selectActionWhenBlockingCalls": "Piliin ang aksyon kapag nagba-block ng mga tawag",
   "selectActionWhenRuleMatches": "Piliin ang aksyon kapag tumugma ang panuntunan",
-  "selectAll": "Select All",
-  "selectCountry": "Select Country",
   "selectedItems": "{count} na item ang napili",
   "selectedLabel": "Napili:",
-  "selectExportFormat": "Select Export Format",
-  "selectLabel": "Select Label",
   "selectLabelAndEnterPhoneNumber": "Mangyaring pumili ng label at maglagay ng wastong numero ng telepono",
-  "selectLanguage": "Select Language",
-  "selectMultiple": "Select Multiple",
-  "selectSimCard": "Select SIM Card",
-  "selectTags": "Select Tags",
   "selectTrustedDataSource": "Mangyaring pumili ng mga pinagkakatiwalaang data source",
-  "selectYourLanguage": "Select Your Language",
-  "sender": "Sender",
   "senderRegexOptional": "Sender Regex (Opsyonal)",
-  "serverAddressLabel": "Server Address",
-  "serviceTypeContact": "Contact Subscription",
-  "serviceTypeLabel": "Service Type",
-  "serviceTypePhone": "Phone Subscription",
-  "serviceTypePlugin": "Plugin Update",
-  "serviceTypeSms": "SMS Subscription",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
-  "setEncryptionPassword": "Set Encryption Password",
-  "settings": "Settings",
   "settingsBackedUpTo": "Na-backup ang mga setting sa: {path}",
   "settingsRestoredSuccessfully": "Matagumpay na naibalik ang mga setting. Mangyaring i-restart ang app para magkabisa ang mga pagbabago.",
   "settingsSaved": "Na-save ang mga setting",
@@ -1088,57 +999,13 @@
     "description": "Settings saved confirmation message"
   },
   "settingsSaveFailed": "Nabigong i-save ang mga setting: {error}",
-  "settingsTab": "Settings",
-  "settingsTitle": "Settings",
-  "setup": "Setup",
-  "silence": "Silence",
   "silenceAndNoAnswer": "Silence and No Answer",
-  "silenceNoAnswer": "Silence No Answer",
-  "silentCallVoiceClone": "Silent Call Voice Clone",
-  "silentRules": "Silent Rules",
-  "simCard": "SIM Card {simNumber}",
-  "simCardColor": "SIM Card Color",
   "simCardConfigurationExplanation": "• SIM Card Configuration: Magtakda ng mga independenteng panuntunan sa pag-filter para sa bawat SIM card",
-  "simCardFilterRules": "SIM Card Filter Rules",
   "simCardFilterRulesDescription": "Magtakda ng iba't ibang panuntunan sa pag-filter batay sa mga SIM card slot",
-  "simCardFontSize": "SIM Card Font Size",
-  "simCardPosition": "SIM Card Position",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "Ang mga tuntunin sa SIM slot ay nagbibigay-daan sa iyo na i-configure ang mga independiyenteng tuntunin sa pag-filter para sa bawat SIM slot.",
   "simRuleInstructionsTitle": "Mga Tuntunin sa SIM Slot",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Mag-configure ng mga independiyenteng tuntunin sa pag-filter para sa bawat SIM card:",
   "simSlotFilterSettingsTitle": "Mga Setting ng Filter ng SIM Slot {slotNumber}",
@@ -1164,10 +1031,8 @@
   "simSlotRuleFeature": "• Mga Tuntunin sa SIM Slot: Mga independiyenteng estratehiya sa pag-filter bawat SIM",
   "simSlotRuleListTitle": "Listahan ng mga Tuntunin sa SIM Slot",
   "simSlotRuleManagement": "Mga Tuntunin sa SIM Slot",
-  "simSlotTitle": "SIM Slot {slotNumber}",
   "skip": "Laktawan",
   "smartCallerId": "Smart Identification ng Tumatawag",
-  "sms": "SMS",
   "smsFilterDescription": "Ang pag-filter ng SMS ay tumutulong sa iyo na awtomatikong i-filter ang mga spam message at panatilihing malinis ang iyong listahan ng mensahe. Maaari kang magtakda ng mga tuntunin sa pag-filter at mga pamamaraan ng notipikasyon.",
   "smsFilterDisabled": "Naka-disable ang pag-filter ng SMS",
   "smsFilterEnabled": "Naka-enable ang pag-filter ng SMS",
@@ -1185,7 +1050,6 @@
   "smsSubscription": "Subscription sa SMS",
   "smsSubscriptionAddedSuccessfully": "Matagumpay na naidagdag ang subscription sa SMS",
   "smsSubscriptionRulesDescription": "Mag-subscribe sa mga listahan ng tuntunin sa SMS sa pamamagitan ng URL, na sumusuporta sa pagtutugma ng regular na ekspresyon. Maaari kang magtakda ng mga aksyon na i-block o pahintulutan.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Ilan sa mga kahilingan sa pahintulot ay tinanggihan",
   "spamLikely": "Malamang Spam",
   "startColor": "Simulang Kulay",
@@ -1239,7 +1103,6 @@
   "subscriptionUrlHint": "Ilagay ang URL ng subscription",
   "successfullyImportedRules": "Matagumpay na na-import ang {count} na tuntunin",
   "supportSync": "Suportahan ang Sync",
-  "survey": "Survey",
   "syncDevicesButton": "I-sync ang mga Device",
   "@synced": {
     "description": "Synced status label"
@@ -1276,11 +1139,7 @@
       }
     }
   },
-  "takeaway": "Takeaway",
   "telecommunication": "Telekomunikasyon",
-  "telegram": "Telegram",
-  "telemarketing": "Telemarketing",
-  "testButton": "TEST",
   "testConnectionButton": "Subukan ang Koneksyon",
   "textColorsSetting": "Mga Kulay ng Teksto at Label",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Ang app na ito ay isang makapangyarihang tool sa pagkilala ng tumatawag na nagbibigay-daan sa iyong tukuyin at harangan ang mga hindi kanais-nais na tawag.",
@@ -1306,7 +1165,6 @@
   "totalBlocked": "Kabuuang Naharangan",
   "transferDataBetweenDevicesOrPlatforms": "Ilipat ang data sa pagitan ng mga device o platform",
   "travelTicketing": "Pag-book ng Biyahe",
-  "tutorial": "Tutorial",
   "type": "Uri",
   "unassignedSIMCard": "Hindi Nakamalay na SIM Card",
   "unknown": "Hindi Alam",
@@ -1318,7 +1176,6 @@
   "unregisterDeviceConfirmationMessage": "Sigurado ka bang nais mong i-unregister ang {deviceName}?",
   "unregisterDeviceTitle": "I-unregister ang Device",
   "unsupportedFileFormat": "Hindi Suportadong Pormat ng File",
-  "update": "Update",
   "updateAllNow": "I-update Lahat Ngayon",
   "updateContactFailed": "Nabigong i-update ang contact: {error}",
   "updateFavoriteStatus": "I-update ang Katayuan sa Paborito",
@@ -1353,11 +1210,8 @@
   "useCasesPoint3": "• Pigilan ang phone bombing at panliligalig",
   "useCasesTitle": "Mga Paggamit:",
   "useGlobalSettings": "Gamitin ang Pandaigdigang Mga Setting",
-  "usernameLabel": "Username",
   "useStandardRegexSyntaxToDefinePatternsExamples": "Gumamit ng karaniwang regex syntax upang tukuyin ang mga pattern. Mga Halimbawa:",
   "verificationFailedText": "Nabigo",
-  "verifiedText": "Verified",
-  "verify": "Verify",
   "version": "Bersyon: {version}",
   "vipExchangeDescription": "Ipagpalit ang VIP membership sa mga bilang ng pagmamarka ng numero ng telepono",
   "vipExchangeTitle": "Markahan ang Palitan na VIP",
@@ -1367,10 +1221,6 @@
   "webDAVConfigTitle": "Konpigurasyon ng WebDAV",
   "week": "Linggo",
   "welcome": "Maligayang pagdating",
-  "whitelist": "Whitelist",
-  "@whitelist": {
-    "description": "Whitelist label"
-  },
   "width": "Lapad",
   "wildcardMatchingDescription": "Gamitin ang '.' upang itugma ang anumang karakter (hal. '123.456' ay tumutugma sa 123-456)",
   "wildcardMatchingTitle": "Pagtutugma ng wildcard:",
@@ -1530,12 +1380,9 @@
   "currentMarkCount": "Kasalukuyang Bilang ng Marka",
   "markMoreNumbersForMore": "Magmarka ng higit pang mga numero para sa higit pang mga marka",
   "noAds": "Walang Ads",
-  "cloudBackup": "Cloud Backup",
   "callerIdEnhancement": "Pagpapahusay ng Caller ID",
   "voiceRecognition": "Pagkilala sa Boses",
-  "feature": "Feature",
   "normalUser": "Normal na User",
-  "vipUser": "VIP User",
   "temporaryVip": "Pansamantalang VIP",
   "removeAds": "Alisin ang Ads",
   "settingsBackup": "Pag-backup ng mga Setting ",
@@ -1612,12 +1459,9 @@
   "nationalNumber": "Pambansang Numero",
   "e164Number": "E164 na Numero",
   "pluginRulesInfo": "Para sa seguridad, gamitin lamang ang mga plugin mula sa mga mapagkakatiwalaang pinagmulan. Huwag mag-atubiling gamitin ang aming mga template upang lumikha ng iyong sariling mga custom na plugin!",
-  "advancedMode": "Advanced Mode",
   "pleaseEnterAtLeastOneNumber": "Mangyaring maglagay ng hindi bababa sa isang numero.",
   "openInWebView": "Buksan sa WebView",
   "pluginLabel": "Label ng Plugin",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Kulay ng Background ng Mensahe",
   "clearAllCallLogs": "Tanggalin Lahat ng Tala ng Tawag",
   "clearAllCallLogsConfirmation": "Kumpirmahin upang tanggalin ang lahat ng tala ng tawag",
@@ -1642,8 +1486,6 @@
   "unblockNumberSuccess": "Matagumpay na na-unblock ang numero",
   "unblockNumberFailed": "Nabigo ang pag-unblock ng numero",
   "callingNumberFailed": "Nabigo ang pagtawag sa numero",
-  "listView": "List View",
-  "timelineView": "Timeline View",
   "nameCannotBeEmpty": "Hindi maaaring walang laman ang pangalan",
   "selectAction": "Piliin ang aksyon",
   "selectTargetService": "Piliin ang target na serbisyo",
@@ -1651,7 +1493,6 @@
   "callType": "Uri ng Tawag",
   "callTime": "Oras ng Tawag",
   "numberInvalidFormat": "Hindi wastong format ng numero",
-  "medium": "Medium",
   "verificationReport": "Ulat sa Pag-verify",
   "finalRisk": "Pinal na Panganib",
   "simState": "Estado ng SIM",
@@ -2075,7 +1916,6 @@
   "defaultNotificationsDescription": "Karaniwang channel ng notipikasyon para sa app.",
   "blockedCallNotifications": "Mga Notipikasyon ng Tawag na Binlock",
   "blockedCallNotificationsDescription": "Nagpapakita ng impormasyon tungkol sa mga naka-block na tawag.",
-  "stirVerification": "STIR/SHAKEN Verification",
   "stirVerificationDescription": "Nagpapakita ng mga resulta ng STIR/SHAKEN verification para sa mga numero.",
   "fraudAlerts": "Mga Alerto sa Pandaraya",
   "fraudAlertsDescription": "Nagpapakita ng mga babala para sa mga posibleng fraudulent na tawag.",
@@ -2090,11 +1930,6 @@
   "phoneNumberMinDigits": "Ang numero ng telepono ay dapat hindi bababa sa 7 digit",
   "provideDetailedExplanation": "Magbigay ng detalyadong paliwanag (minimum 10 character)",
   "reasonMinCharacters": "Ang dahilan ay dapat hindi bababa sa 10 character",
-  "countryCodeTwoLetters": "Country Code (ISO 3166-1 alpha-2) *",
-  "countryCodeLabel": "Country Code (ISO 3166-1 alpha-2) *",
-  "@countryCodeLabel": {
-    "description": "Label for country code input field"
-  },
   "countryCodeHint": "hal., US, CN, GB",
   "@countryCodeHint": {
     "description": "Hint text for country code input field"
@@ -2128,15 +1963,6 @@
   "notificationFrequencyTitle": "Pagitan ng Notipikasyon",
   "@notificationFrequencyTitle": {
     "description": "Title for notification frequency settings"
-  },
-  "errorMessage": "Error: {error}",
-  "@errorMessage": {
-    "description": "Generic error message template",
-    "placeholders": {
-      "error": {
-        "type": "String"
-      }
-    }
   },
   "supportCount": "Suporta ({supportCount})",
   "@supportCount": {
@@ -2192,25 +2018,18 @@
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
   },
-  "avatar": "Avatar",
-  "@avatar": {
-    "description": "The avatar of the user."
-  },
   "location": "Lokasyon",
   "@location": {
     "description": "The location of the user."
   },
-  "simCardTitle": "SIM Card",
   "liveActivitiesSettingsTitle": "Mga Setting ng Live Activities",
   "elementsSettingsTitle": "Mga Setting ng Elements",
-  "liveActivityMode": "Live Activity",
   "liveActivityModeDescription": "Nagpapakita ng impormasyon ng tawag bilang isang persistent notification sa lock screen at sa Dynamic Island (iOS).",
   "phoneNumberType": "Uri ng Numero ng Telepono",
   "liveActivitiesTestEndActivity": "Tapusin ang Aktibidad",
   "liveActivitiesTestSendNewActivity": "Magpadala ng Bagong Aktibidad",
   "liveActivitiesTestUpdateActivity": "I-update ang Aktibidad",
   "liveActivityControlsTitle": "Mga Kontrol sa Live Activity",
-  "liveActivitiesTestTitle": "Live Activities Test",
   "liveNotificationCustomizationTitle": "Pag-customize ng Live Notification",
   "liveNotificationCustomizationSubtitle": "I-customize ang hitsura ng mga live notification.",
   "notification_instructions": "Mga Tagubilin:\n1. I-tap ang \"IPADALA\" upang lumikha o mag-update ng notipikasyon.\n2. Pumunta sa iyong home screen o hilahin pababa ang notification tray upang makita ang resulta.\n3. I-tap ang \"TAPUSIN\" upang isara ang notipikasyon.",
@@ -2271,10 +2090,6 @@
   "@invalidSimData": {
     "description": "A message displayed when the SIM data is invalid."
   },
-  "simSlot": "SIM Slot",
-  "@simSlot": {
-    "description": "A label for the SIM slot."
-  },
   "enableFiltering": "Paganahin ang Pag-filter",
   "@enableFiltering": {
     "description": "A checkbox to toggle whether to enable filtering."
@@ -2298,5 +2113,339 @@
         "example": "5"
       }
     }
-  }
+  },
+  "appName": "Your Call Your Rule",
+  "backup": "Backup",
+  "blacklist": "Blacklist",
+  "@blacklist": {
+    "description": "Blacklist label"
+  },
+  "carrier": "Carrier",
+  "dashboardTab": "Dashboard",
+  "deviceIDLabel": "Device ID",
+  "ecommerce": "Ecommerce",
+  "email": "Email",
+  "filterToggleStatus": "{status} filter: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "github": "GitHub",
+  "headhunter": "Headhunter",
+  "internet": "Internet",
+  "jsonFormat": "JSON Format",
+  "label": "Label",
+  "labelTag": "Label: {labelId}",
+  "lifetimeMembership": "Lifetime Membership",
+  "okButton": "OK",
+  "onlineCallerIdSubscription": "Online Caller ID Subscription",
+  "password": "Password",
+  "passwordLabel": "Password",
+  "pattern": "Pattern",
+  "phoneNumberTypeFixedLine": "Fixed line",
+  "phoneNumberTypeMobile": "Mobile",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypePremiumRate": "Premium rate",
+  "phoneNumberTypeSharedCost": "Shared cost",
+  "phoneNumberTypeTollFree": "Toll free",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoicemail": "Voicemail",
+  "phoneNumberTypeVoip": "VoIP",
+  "phoneRule": "Phone Rule",
+  "quarterlyMembership": "Quarterly Membership",
+  "recruiter": "Recruiter",
+  "regexErrorMessage": "Regex error: {error}",
+  "regexPattern": "Regex Pattern",
+  "regexPatternLabel": "Regex Pattern",
+  "regexRule": "Regex Rule",
+  "regexTesterTitle": "Regex Tester",
+  "remoteNumberFiltering": "Remote Number Filtering",
+  "ridesharing": "Ridesharing",
+  "robocall": "Robocall",
+  "save": "Save",
+  "saveButton": "Save",
+  "saveButtonText": "Save",
+  "saveSettings": "Save Settings",
+  "search": "Search",
+  "searchContacts": "Search Contacts",
+  "searchHint": "Search...",
+  "selectAll": "Select All",
+  "selectCountry": "Select Country",
+  "selectExportFormat": "Select Export Format",
+  "selectLabel": "Select Label",
+  "selectLanguage": "Select Language",
+  "selectMultiple": "Select Multiple",
+  "selectSimCard": "Select SIM Card",
+  "selectTags": "Select Tags",
+  "selectYourLanguage": "Select Your Language",
+  "sender": "Sender",
+  "serverAddressLabel": "Server Address",
+  "serviceTypeContact": "Contact Subscription",
+  "serviceTypeLabel": "Service Type",
+  "serviceTypePhone": "Phone Subscription",
+  "serviceTypePlugin": "Plugin Update",
+  "serviceTypeSms": "SMS Subscription",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "setEncryptionPassword": "Set Encryption Password",
+  "settings": "Settings",
+  "settingsTab": "Settings",
+  "settingsTitle": "Settings",
+  "setup": "Setup",
+  "silence": "Silence",
+  "silenceNoAnswer": "Silence No Answer",
+  "silentCallVoiceClone": "Silent Call Voice Clone",
+  "silentRules": "Silent Rules",
+  "simCard": "SIM Card {simNumber}",
+  "simCardColor": "SIM Card Color",
+  "simCardFilterRules": "SIM Card Filter Rules",
+  "simCardFontSize": "SIM Card Font Size",
+  "simCardPosition": "SIM Card Position",
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "simSlotTitle": "SIM Slot {slotNumber}",
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "survey": "Survey",
+  "takeaway": "Takeaway",
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "testButton": "TEST",
+  "tutorial": "Tutorial",
+  "update": "Update",
+  "usernameLabel": "Username",
+  "verifiedText": "Verified",
+  "verify": "Verify",
+  "whitelist": "Whitelist",
+  "@whitelist": {
+    "description": "Whitelist label"
+  },
+  "cloudBackup": "Cloud Backup",
+  "feature": "Feature",
+  "vipUser": "VIP User",
+  "themeLight": "Maliwanag",
+  "themeDark": "Madilim",
+  "themeSystem": "Default ng System",
+  "advancedMode": "Advanced Mode",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "listView": "List View",
+  "timelineView": "Timeline View",
+  "medium": "Medium",
+  "stirVerification": "STIR/SHAKEN Verification",
+  "countryCodeTwoLetters": "Country Code (ISO 3166-1 alpha-2) *",
+  "countryCodeLabel": "Country Code (ISO 3166-1 alpha-2) *",
+  "@countryCodeLabel": {
+    "description": "Label for country code input field"
+  },
+  "errorMessage": "Error: {error}",
+  "@errorMessage": {
+    "description": "Generic error message template",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "simCardTitle": "SIM Card",
+  "liveActivityMode": "Live Activity",
+  "liveActivitiesTestTitle": "Live Activities Test",
+  "simSlot": "SIM Slot",
+  "@simSlot": {
+    "description": "A label for the SIM slot."
+  },
+  "ruleType": "Uri ng Tuntunin",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Subukan uli",
+  "initialSetupSkip": "Laktawan",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings",
+  "separateSims": "Separate SIMs",
+  "separateSimsDesc": "Enable separate filtering rules for each SIM card",
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }

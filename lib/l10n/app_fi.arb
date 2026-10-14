@@ -602,7 +602,6 @@
     }
   },
   "getFree": "Hanki ilmainen",
-  "github": "GitHub",
   "globalFilterDescription": "Määritä globaalit suodattimet kaikille SIM-korteille:",
   "globalFilterFeature": "• Globaalit suodattimet: Perussäännöt kaikille saapuville puheluille",
   "globalFilterSettings": "Globaalit suodatusasetukset",
@@ -656,7 +655,6 @@
   "interceptionActionSettingsSubtitle": "Määritä, miten estetyt puhelut käsitellään",
   "interceptionActionSettingsTitle": "Estotoiminnon asetukset",
   "interceptionTimeInterval": "Estoväli",
-  "internet": "Internet",
   "intervalSetSuccess": "{service} päivitysväliksi asetettu {days} päivää",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -861,7 +859,6 @@
   "numberTypeColor": "Numerotyypin väri",
   "numberTypeFontSize": "Numerotyypin fonttikoko",
   "numberTypePosition": "Numerotyypin sijainti",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Puheluturvallisuushallintasi on valmis, nauti turvallisesta puhelukokemuksesta!",
   "onboardingLanguageDescription": "Valitse haluamasi kieli parhaan kokemuksen saavuttamiseksi.",
   "onboardingPermissionsDescription": "Tarjotaksemme täyden palvelun tarvitsemme seuraavat luvat:",
@@ -909,10 +906,8 @@
   "phoneNumberTypePremiumRate": "Pricemail-numero",
   "phoneNumberTypeSharedCost": "Jaettu kustannusnumero",
   "phoneNumberTypeTollFree": "Maksuton numero",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Tuntematon",
   "phoneNumberTypeVoicemail": "Vastaaja",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Puhelimen käyttöoikeus",
   "phonePermissionDescription": "Käytetään saapuvien puheluiden tunnistamiseen ja estämiseen.",
   "phoneRule": "Puhelusääntö",
@@ -1070,15 +1065,6 @@
   "serviceTypePhone": "Puhelintilaus",
   "serviceTypePlugin": "Lisäosapäivitys",
   "serviceTypeSms": "SMS-tilaus",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Aseta salaus salasana",
   "settings": "Asetukset",
   "settingsBackedUpTo": "Asetukset varmuuskopioitu kohteeseen: {path}",
@@ -1103,42 +1089,10 @@
   "simCardFilterRulesDescription": "Aseta erilaiset suodatussäännöt SIM-korttipaikkojen perusteella",
   "simCardFontSize": "SIM-kortin fonttikoko",
   "simCardPosition": "SIM-kortin sijainti",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "SIM-paikkasäännöt antavat sinulle mahdollisuuden määrittää itsenäiset suodatussäännöt kullekin SIM-paikalle.",
   "simRuleInstructionsTitle": "SIM-paikkasäännöt",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Määritä itsenäiset suodatussäännöt kullekin SIM-kortille:",
   "simSlotFilterSettingsTitle": "SIM-paikan {slotNumber} suodatusasetukset",
@@ -1278,7 +1232,6 @@
   },
   "takeaway": "Noutoruoka",
   "telecommunication": "Tietoliikenne",
-  "telegram": "Telegram",
   "telemarketing": "Puhelinmarkkinointi",
   "testButton": "TESTAA",
   "testConnectionButton": "Testaa yhteys",
@@ -1657,7 +1610,6 @@
   "simState": "SIM-tila",
   "ipCountry": "IP-maa",
   "simCountry": "SIM-maa",
-  "isRoaming": "Roaming",
   "isNumberMatch": "Numeron osuma",
   "support": "Tuki",
   "rewardedAdService": "Palkittu mainospalvelu",
@@ -2318,5 +2270,182 @@
   "separateSims": "Erilliset SIM-kortit",
   "separateSimsDesc": "Ota käyttöön erilliset suodatussäännöt kullekin SIM-kortille",
   "masterAndOverrides": "Pääohjaimet",
-  "masterAndOverridesDesc": "Globaalit sääntöasetukset"
+  "masterAndOverridesDesc": "Globaalit sääntöasetukset",
+  "github": "GitHub",
+  "internet": "Internet",
+  "okButton": "OK",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "telegram": "Telegram",
+  "themeLight": "Vaalea",
+  "themeDark": "Tumma",
+  "themeSystem": "Järjestelmän oletus",
+  "isRoaming": "Roaming",
+  "ruleType": "Sääntötyyppi",
+  "localDatabaseSyncTitle": "Paikallisen tietokannan synkronointi",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Synkronoi tiedot laitteiden välillä",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase-projektin URL",
+  "supabaseAnonKey": "Anonyymi avain",
+  "supabaseAnonKeyHint": "API Key, julkinen anonyymi avain",
+  "connectionString": "Yhteysmerkkijono (URI)",
+  "connectionStringHelper": "Tarvitaan vain 'Alusta tietokanta' -toiminnossa",
+  "syncCallHistory": "Synkronoi puheluhistoria",
+  "syncCallHistorySubtitle": "Sisällytä yksityiset puhelulokit synkronointiin",
+  "requiredField": "Pakollinen",
+  "requiredInitField": "Pakollinen alustukselle",
+  "initDbButton": "Alusta tietokanta",
+  "dbInitSuccess": "Tietokanta alustettu onnistuneesti!",
+  "syncSuccess": "Synkronointi valmis. Lähetetty: {pushed}, Vastaanotettu: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Virhe",
+  "errorLoadingSettings": "Virhe ladattaessa asetuksia",
+  "statusLabel": "Tila",
+  "statusConnected": "Yhdistetty / Määritetty",
+  "statusNotConfigured": "Ei määritetty",
+  "configSaved": "Asetukset tallennettu!",
+  "masterDeviceLabel": "Päälaite (Ylläpitäjä)",
+  "masterDeviceHelp": "Vain päälaite voi alustaa tietokantararakenteen.",
+  "syncIntervalLabel": "Automaattisen synkronoinnin aikaväli",
+  "syncIntervalValue": "Joka {hours}. tunti",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Jätä tyhjäksi käyttääksesi oletusarvoa",
+  "vipAccessSubtitle": "Katso mainoksia ilmaiseksi tai osta VIP",
+  "failedToLoadSettingsSchema": "Asetusskeeman lataaminen epäonnistui: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "Kenttä on pakollinen",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Vastaa puheluun ensin ja katkaise sitten heti.",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupSourceTitle": "Sääntötietokannan lähde",
+  "initialSetupSourceGithub": "Virallinen GitHub-lähde",
+  "initialSetupSourceCdn": "Peilattu CDN-kiihdytyslähde",
+  "initialSetupSourceCustom": "Oma peilipalvelinlähde",
+  "initialSetupCustomUrlHint": "Syötä oman peilipalvelimen JSON-määrityksen URL",
+  "initialSetupCustomUrlLoad": "Lataa määritys",
+  "initialSetupDetectedLocation": "Tunnistettu sijainti",
+  "deepLinkImportTitle": "Tuo määritys",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Laajennus",
+  "deepLinkTypeSubscription": "Tilaus",
+  "deepLinkDefaultPluginName": "Tuotu laajennus",
+  "deepLinkDefaultSubName": "Tuotu tilaus",
+  "deepLinkDetectedTitle": "Syvälinkki tunnistettu",
+  "deepLinkNameLabel": "Nimi",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Tyyppi",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Vahvista tuonti",
+  "deepLinkEmptyUrlError": "URL ei voi olla tyhjä",
+  "deepLinkPluginDownloadFailed": "Laajennuksen lataaminen epäonnistui: {error}",
+  "deepLinkImportSuccess": "Tuotu onnistuneesti",
+  "deepLinkImportFailed": "Tuonti epäonnistui: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Vinkki: Voit avata tämän määrityssivun uudelleen Asetuksista.",
+  "initialSetupGoToSettings": "Siirry Asetuksiin"
 }

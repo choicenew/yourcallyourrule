@@ -79,7 +79,6 @@
   "addToFavorites": "Legg til i favoritter",
   "addToRules": "Legg til i regler",
   "addToWhitelist": "Legg til i hvitelisten",
-  "agent": "Agent",
   "all": "Alle",
   "allCallsTab": "Alle",
   "allow": "Tillat",
@@ -120,7 +119,6 @@
   "answerThenHangup": "Svar og legg på",
   "applicationSoftware": "Applikasjonsprogramvare",
   "apply": "Bruk",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "Autorisasjon mislyktes: Vennligst sjekk klient-ID og nøkkel",
   "authorizationFailedMessage": "Autorisasjon mislyktes",
   "authorizationSuccessMessage": "Autorisasjon vellykket",
@@ -148,7 +146,6 @@
   "backupToCloud": "Sikkerhetskopier til skyen",
   "backupToCloudFailed": "Kunne ikke sikkerhetskopiere til skyen: {error}",
   "backupToCloudSuccess": "Vellykket sikkerhetskopiert til skyen",
-  "bank": "Bank",
   "basicInfo": "Grunnleggende informasjon",
   "basicRuleFilter": "Grunnleggende regel-filter",
   "basicRuleFiltering": "Grunnleggende regel-filtrering",
@@ -571,18 +568,6 @@
   "filterSettingsTitle": "Filterinnstillinger",
   "filterSMS": "Filtrer SMS",
   "filterToggleInstructions": "Aktiver eller deaktiver filtre for denne SIM-kortplassen:",
-  "filterToggleStatus": "{status} filter: {filterName}",
-  "@filterToggleStatus": {
-    "description": "Filter enable/disable status change notification",
-    "placeholders": {
-      "status": {
-        "type": "Object"
-      },
-      "filterName": {
-        "type": "Object"
-      }
-    }
-  },
   "filterType": "Filtertype",
   "financial": "Finansiell",
   "flexibleCombinationFeature": "• Fleksible kombinasjoner: Aktiver/deaktiver filtre per SIM-kortplass",
@@ -602,7 +587,6 @@
     }
   },
   "getFree": "Få gratis",
-  "github": "GitHub",
   "globalFilterDescription": "Konfigurer globale filtre for alle SIM-kort:",
   "globalFilterFeature": "• Globale filtre: Grunnleggende regler for alle innkommende anrop",
   "globalFilterSettings": "Globale filterinnstillinger",
@@ -861,7 +845,6 @@
   "numberTypeColor": "Nummertypefarge",
   "numberTypeFontSize": "Nummertype skriftstørrelse",
   "numberTypePosition": "Nummertype posisjon",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Din samtalestyringsverktøy er klar, begynn å nyte en trygg samtaleopplevelse!",
   "onboardingLanguageDescription": "Velg ditt foretrukne språk for best mulig opplevelse.",
   "onboardingPermissionsDescription": "For å gi full service trenger vi følgende tillatelser:",
@@ -904,15 +887,12 @@
   "phoneNumberTypeFixedLine": "Fasttelefon",
   "phoneNumberTypeFixedLineOrMobile": "Fasttelefon eller mobil",
   "phoneNumberTypeMobile": "Mobil",
-  "phoneNumberTypePager": "Pager",
   "phoneNumberTypePersonalNumber": "Personlig nummer",
   "phoneNumberTypePremiumRate": "Premium-sats",
   "phoneNumberTypeSharedCost": "Delt kostnad",
   "phoneNumberTypeTollFree": "Tollfri",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Ukjent",
   "phoneNumberTypeVoicemail": "Talepost",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Telefontillatelse",
   "phonePermissionDescription": "Brukes til å identifisere og blokkere innkommende anrop.",
   "phoneRule": "Telefonregel",
@@ -962,7 +942,6 @@
   "regexRuleNamePatternRequired": "Regelnavn og regex-mønster kan ikke være tomme",
   "regexRules": "Regex-regler",
   "regexTesterTitle": "Regex-tester",
-  "region": "Region",
   "registeredDevicesTitle": "Registrerte enheter",
   "rejectAllCalls": "Avvis alle anrop",
   "rejectAllCallsDescription": "Når aktivert, vil alle anrop bli avvist med høyeste prioritet",
@@ -1001,7 +980,6 @@
   "retry": "Prøv igjen",
   "ridesharing": "Samkjøring",
   "risk": "Risiko",
-  "robocall": "Robocall",
   "ruleAction": "Regelhandling",
   "ruleAddedSuccess": "Regel lagt til vellykket",
   "@ruleAddedSuccess": {
@@ -1070,15 +1048,6 @@
   "serviceTypePhone": "Telefonabonnement",
   "serviceTypePlugin": "Plugin-oppdatering",
   "serviceTypeSms": "SMS-abonnement",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Angi krypteringspassord",
   "settings": "Innstillinger",
   "settingsBackedUpTo": "Innstillinger sikkerhetskopiert til: {path}",
@@ -1103,42 +1072,10 @@
   "simCardFilterRulesDescription": "Angi forskjellige filtreringsregler basert på SIM-kortspor",
   "simCardFontSize": "SIM-kort skriftstørrelse",
   "simCardPosition": "SIM-kort plassering",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "SIM-regelregler lar deg konfigurere uavhengige filtreringsregler for hvert SIM-spor.",
   "simRuleInstructionsTitle": "SIM-sporregler",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Konfigurer uavhengige filtreringsregler for hvert SIM-kort:",
   "simSlotFilterSettingsTitle": "SIM-spor {slotNumber} filterinnstillinger",
@@ -1167,7 +1104,6 @@
   "simSlotTitle": "SIM-spor {slotNumber}",
   "skip": "Hopp over",
   "smartCallerId": "Smart samtaleidentifikasjon",
-  "sms": "SMS",
   "smsFilterDescription": "SMS-filtrering hjelper deg med å automatisk filtrere søppelpostmeldinger og holde meldingslisten din ren. Du kan sette opp filtreringsregler og varslingsmetoder.",
   "smsFilterDisabled": "SMS-filtrering deaktivert",
   "smsFilterEnabled": "SMS-filtrering aktivert",
@@ -1185,7 +1121,6 @@
   "smsSubscription": "SMS-abonnement",
   "smsSubscriptionAddedSuccessfully": "SMS-abonnement lagt til vellykket",
   "smsSubscriptionRulesDescription": "Abonner på SMS-regel-lister via URL, med støtte for regulære uttrykk. Du kan sette blokkerings- eller tillatelseshandlinger.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Noen tillatelsesforespørsler avslått",
   "spamLikely": "Sannsynligvis søppelpost",
   "startColor": "Startfarge",
@@ -1276,11 +1211,7 @@
       }
     }
   },
-  "takeaway": "Takeaway",
   "telecommunication": "Telekommunikasjon",
-  "telegram": "Telegram",
-  "telemarketing": "Telemarketing",
-  "testButton": "TEST",
   "testConnectionButton": "Test Tilkobling",
   "textColorsSetting": "Tekst- og etikettfarger",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Denne appen er et kraftig verktøy for oppringing-ID som lar deg identifisere og blokkere uønskede anrop.",
@@ -1307,7 +1238,6 @@
   "transferDataBetweenDevicesOrPlatforms": "Overfør data mellom enheter eller plattformer",
   "travelTicketing": "Reisebilletter",
   "tutorial": "Veiledning",
-  "type": "Type",
   "unassignedSIMCard": "Utdelt SIM-kort",
   "unknown": "Ukjent",
   "@unknown": {
@@ -1616,8 +1546,6 @@
   "pleaseEnterAtLeastOneNumber": "Vennligst skriv inn minst ett nummer.",
   "openInWebView": "Åpne i WebView",
   "pluginLabel": "Plugin-etikett",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Bakgrunnsfarge for melding",
   "clearAllCallLogs": "Slett alle anropslogger",
   "clearAllCallLogsConfirmation": "Bekreft for å slette alle anropslogger",
@@ -1651,13 +1579,11 @@
   "callType": "Anropstype",
   "callTime": "Anropstid",
   "numberInvalidFormat": "Nummer i ugyldig format",
-  "medium": "Medium",
   "verificationReport": "Verifikasjonsrapport",
   "finalRisk": "Endelig risiko",
   "simState": "SIM-tilstand",
   "ipCountry": "IP-land",
   "simCountry": "SIM-land",
-  "isRoaming": "Roaming",
   "isNumberMatch": "Nummermatch",
   "support": "Støtte",
   "rewardedAdService": "Belønnede annonsertjenester",
@@ -2192,10 +2118,6 @@
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
   },
-  "avatar": "Avatar",
-  "@avatar": {
-    "description": "The avatar of the user."
-  },
   "location": "Sted",
   "@location": {
     "description": "The location of the user."
@@ -2318,5 +2240,212 @@
   "separateSims": "Separat SIM",
   "separateSimsDesc": "Aktiver separate filtreringsregler for hvert SIM-kort",
   "masterAndOverrides": "Hovedkontroller",
-  "masterAndOverridesDesc": "Globale regelinnstillinger"
+  "masterAndOverridesDesc": "Globale regelinnstillinger",
+  "agent": "Agent",
+  "appName": "Your Call Your Rule",
+  "bank": "Bank",
+  "filterToggleStatus": "{status} filter: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "github": "GitHub",
+  "okButton": "OK",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "region": "Region",
+  "robocall": "Robocall",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "takeaway": "Takeaway",
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "testButton": "TEST",
+  "type": "Type",
+  "themeLight": "Lyst",
+  "themeDark": "Mørkt",
+  "themeSystem": "Systemstandard",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "medium": "Medium",
+  "isRoaming": "Roaming",
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "ruleType": "Regeltype",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings"
 }

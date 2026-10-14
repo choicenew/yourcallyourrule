@@ -79,7 +79,6 @@
   "addToFavorites": "Pridať k obľúbeným",
   "addToRules": "Pridať do pravidiel",
   "addToWhitelist": "Pridať do zoznamu povolených",
-  "agent": "Agent",
   "all": "Všetky",
   "allCallsTab": "Všetky",
   "allow": "Povoliť",
@@ -557,7 +556,6 @@
   "features": "Funkcie",
   "fetchingCallerIdInfo": "Načítavajú sa informácie o ID volajúceho...",
   "fileSavedTo": "Súbor uložený do: {path}",
-  "filter": "Filter",
   "filterByLabel": "Filtrovať podľa štítku",
   "filterControlPanelTitle": "Ovládací panel filtra",
   "filterControlSubtitle": "Spravovať stav zapnutia/vypnutia všetkých filtrov",
@@ -602,7 +600,6 @@
     }
   },
   "getFree": "Získať zadarmo",
-  "github": "GitHub",
   "globalFilterDescription": "Nastaviť globálne filtre pre všetky SIM karty:",
   "globalFilterFeature": "• Globálne filtre: Základné pravidlá pre všetky prichádzajúce hovory",
   "globalFilterSettings": "Nastavenia globálneho filtra",
@@ -656,7 +653,6 @@
   "interceptionActionSettingsSubtitle": "Nastaviť, ako sa zaobchádza so zablokovanými hovormi",
   "interceptionActionSettingsTitle": "Nastavenia akcie zachytenia",
   "interceptionTimeInterval": "Časový interval zachytenia",
-  "internet": "Internet",
   "intervalSetSuccess": "Interval aktualizácie {service} nastavený na {days} dní",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -861,7 +857,6 @@
   "numberTypeColor": "Farba typu čísla",
   "numberTypeFontSize": "Veľkosť písma typu čísla",
   "numberTypePosition": "Pozícia typu čísla",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Váš manažér zabezpečenia hovorov je pripravený, začnite si užívať bezpečné hovory!",
   "onboardingLanguageDescription": "Vyberte si preferovaný jazyk pre najlepší zážitok.",
   "onboardingPermissionsDescription": "Na poskytovanie úplných služieb potrebujeme nasledujúce povolenia:",
@@ -904,15 +899,12 @@
   "phoneNumberTypeFixedLine": "Pevná linka",
   "phoneNumberTypeFixedLineOrMobile": "Pevná linka alebo mobil",
   "phoneNumberTypeMobile": "Mobil",
-  "phoneNumberTypePager": "Pager",
   "phoneNumberTypePersonalNumber": "Osobné číslo",
   "phoneNumberTypePremiumRate": "Prémiová sadzba",
   "phoneNumberTypeSharedCost": "Spoločné náklady",
   "phoneNumberTypeTollFree": "Bezplatné",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Neznámy",
   "phoneNumberTypeVoicemail": "Hlasová schránka",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Povolenie telefónu",
   "phonePermissionDescription": "Používa sa na identifikáciu a blokovanie prichádzajúcich hovorov.",
   "phoneRule": "Pravidlo telefónu",
@@ -1070,15 +1062,6 @@
   "serviceTypePhone": "Predplatné telefónu",
   "serviceTypePlugin": "Aktualizácia pluginu",
   "serviceTypeSms": "Predplatné SMS",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Nastaviť heslo šifrovania",
   "settings": "Nastavenia",
   "settingsBackedUpTo": "Nastavenia zálohované do: {path}",
@@ -1103,42 +1086,10 @@
   "simCardFilterRulesDescription": "Nastavte rôzne pravidlá filtrovania na základe slotov SIM kariet",
   "simCardFontSize": "Veľkosť písma SIM karty",
   "simCardPosition": "Pozícia SIM karty",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "Pravidlá slotov SIM vám umožňujú nakonfigurovať nezávislé pravidlá filtrovania pre každý slot SIM.",
   "simRuleInstructionsTitle": "Pravidlá slotov SIM",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Nakonfigurujte nezávislé pravidlá filtrovania pre každú SIM kartu:",
   "simSlotFilterSettingsTitle": "Nastavenia filtra slotu SIM {slotNumber}",
@@ -1167,7 +1118,6 @@
   "simSlotTitle": "Slot SIM {slotNumber}",
   "skip": "Preskočiť",
   "smartCallerId": "Inteligentná identifikácia volajúceho",
-  "sms": "SMS",
   "smsFilterDescription": "Filtrovanie SMS vám pomáha automaticky filtrovať spamové správy a udržiavať váš zoznam správ čistý. Môžete nastaviť pravidlá filtrovania a metódy upozornení.",
   "smsFilterDisabled": "Filtrovanie SMS je vypnuté",
   "smsFilterEnabled": "Filtrovanie SMS je zapnuté",
@@ -1185,7 +1135,6 @@
   "smsSubscription": "Predplatné SMS",
   "smsSubscriptionAddedSuccessfully": "Predplatné SMS bolo úspešne pridané",
   "smsSubscriptionRulesDescription": "Prihláste sa na odber zoznamov pravidiel SMS pomocou URL, podporuje zhodu s regulárnymi výrazmi. Môžete nastaviť akcie blokovania alebo povolenia.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Niektoré žiadosti o povolenie boli odmietnuté",
   "spamLikely": "Pravdepodobne spam",
   "startColor": "Štartovacia farba",
@@ -1278,9 +1227,6 @@
   },
   "takeaway": "So sebou",
   "telecommunication": "Telekomunikácie",
-  "telegram": "Telegram",
-  "telemarketing": "Telemarketing",
-  "testButton": "TEST",
   "testConnectionButton": "Otestovať pripojenie",
   "textColorsSetting": "Farby textu a štítkov",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Táto aplikácia je výkonný nástroj na identifikáciu volajúceho, ktorý vám umožňuje identifikovať a blokovať nechcené hovory.",
@@ -1557,11 +1503,9 @@
   "synced": "Synchronizované",
   "needVipAccess": "Potrebujete prístup VIP, aby ste mohli použiť túto funkciu",
   "importExportDescription": "Importovať alebo exportovať údaje {entityTypeName}",
-  "importExportTitle": "Import/Export",
   "noPhoneRules": "Nenájdené žiadne telefónne pravidlá",
   "noRegexRules": "Nenájdené žiadne regex pravidlá",
   "noAllowedBlockedRules": "Nenájdené žiadne povolené/blokované pravidlá",
-  "importExport": "Import/Export",
   "filterByAction": "Filtrovať podľa akcie",
   "upgradeToVip": "Aktualizovať na VIP",
   "batteryOptimizationPermission": "Optimalizácia batérie",
@@ -1616,8 +1560,6 @@
   "pleaseEnterAtLeastOneNumber": "Zadajte aspoň jedno číslo.",
   "openInWebView": "Otvoriť v prehliadači WebView",
   "pluginLabel": "Štítok pluginu",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Farba pozadia správy",
   "clearAllCallLogs": "Vymazať všetky záznamy hovorov",
   "clearAllCallLogsConfirmation": "Potvrďte vymazanie všetkých záznamov hovorov",
@@ -1657,7 +1599,6 @@
   "simState": "Stav SIM karty",
   "ipCountry": "Krajina IP",
   "simCountry": "Krajina SIM",
-  "isRoaming": "Roaming",
   "isNumberMatch": "Zhoda čísla",
   "support": "Podpora",
   "rewardedAdService": "Služba sponzorovaných reklám",
@@ -2192,10 +2133,6 @@
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
   },
-  "avatar": "Avatar",
-  "@avatar": {
-    "description": "The avatar of the user."
-  },
   "location": "Miesto",
   "@location": {
     "description": "The location of the user."
@@ -2298,5 +2235,217 @@
         "example": "5"
       }
     }
-  }
+  },
+  "agent": "Agent",
+  "filter": "Filter",
+  "github": "GitHub",
+  "internet": "Internet",
+  "okButton": "OK",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "testButton": "TEST",
+  "importExportTitle": "Import/Export",
+  "importExport": "Import/Export",
+  "themeLight": "Svetlý",
+  "themeDark": "Tmavý",
+  "themeSystem": "Systémové",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "isRoaming": "Roaming",
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "ruleType": "Typ pravidla",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Skúsiť znova",
+  "initialSetupSkip": "Preskočiť",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings",
+  "separateSims": "Separate SIMs",
+  "separateSimsDesc": "Enable separate filtering rules for each SIM card",
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }

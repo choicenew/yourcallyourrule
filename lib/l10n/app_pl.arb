@@ -79,7 +79,6 @@
   "addToFavorites": "Dodaj do ulubionych",
   "addToRules": "Dodaj do reguł",
   "addToWhitelist": "Dodaj do białej listy",
-  "agent": "Agent",
   "all": "Wszystkie",
   "allCallsTab": "Wszystkie",
   "allow": "Zezwól",
@@ -148,7 +147,6 @@
   "backupToCloud": "Kopia zapasowa do chmury",
   "backupToCloudFailed": "Nie udało się wykonać kopii zapasowej do chmury: {error}",
   "backupToCloudSuccess": "Pomyślnie wykonano kopię zapasową w chmurze",
-  "bank": "Bank",
   "basicInfo": "Podstawowe informacje",
   "basicRuleFilter": "Filtr reguł podstawowych",
   "basicRuleFiltering": "Filtrowanie reguł podstawowych",
@@ -424,7 +422,6 @@
   "editRule": "Edytuj regułę",
   "education": "Edukacja",
   "elementPositionsSetting": "Pozycje elementów",
-  "email": "Email",
   "enableCallFilter": "Włącz filtrowanie połączeń",
   "enableCallFilterDescription": "Po włączeniu przychodzące połączenia są sprawdzane pod kątem listy reguł poniżej. Reguły filtrowania połączeń nie są domyślnie synchronizowane między urządzeniami.",
   "enabled": "Włączone",
@@ -602,7 +599,6 @@
     }
   },
   "getFree": "Uzyskaj za darmo",
-  "github": "GitHub",
   "globalFilterDescription": "Konfiguruj globalne filtry dla wszystkich kart SIM:",
   "globalFilterFeature": "• Filtry globalne: Podstawowe reguły dla wszystkich połączeń przychodzących",
   "globalFilterSettings": "Ustawienia filtrów globalnych",
@@ -619,7 +615,6 @@
   "granted": "Przyznane",
   "grantNecessaryPermissions": "Przyznaj niezbędne uprawnienia",
   "grantPermissions": "Przyznaj uprawnienia",
-  "headhunter": "Headhunter",
   "height": "Wysokość",
   "homeTab": "Dom",
   "howItWorksPoint1": "• System automatycznie zezwoli na połączenia z tego samego numeru w wyznaczonym przedziale czasowym",
@@ -656,7 +651,6 @@
   "interceptionActionSettingsSubtitle": "Ustaw, jak obsługiwane są zablokowane połączenia",
   "interceptionActionSettingsTitle": "Ustawienia akcji przechwytywania",
   "interceptionTimeInterval": "Przedział czasowy przechwytywania",
-  "internet": "Internet",
   "intervalSetSuccess": "Przedział czasowy aktualizacji {service} ustawiony na {days} dni",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -861,7 +855,6 @@
   "numberTypeColor": "Kolor typu numeru",
   "numberTypeFontSize": "Rozmiar czcionki typu numeru",
   "numberTypePosition": "Pozycja typu numeru",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Twój menedżer bezpieczeństwa połączeń jest gotowy, zacznij cieszyć się bezpiecznymi połączeniami!",
   "onboardingLanguageDescription": "Wybierz preferowany język, aby uzyskać najlepsze wrażenia.",
   "onboardingPermissionsDescription": "Aby zapewnić pełną obsługę, potrzebujemy następujących uprawnień:",
@@ -904,15 +897,12 @@
   "phoneNumberTypeFixedLine": "Linia stacjonarna",
   "phoneNumberTypeFixedLineOrMobile": "Linia stacjonarna lub mobilna",
   "phoneNumberTypeMobile": "Mobilny",
-  "phoneNumberTypePager": "Pager",
   "phoneNumberTypePersonalNumber": "Numer osobisty",
   "phoneNumberTypePremiumRate": "Stawka premium",
   "phoneNumberTypeSharedCost": "Wspólny koszt",
   "phoneNumberTypeTollFree": "Bezpłatny",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Nieznany",
   "phoneNumberTypeVoicemail": "Poczta głosowa",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Zezwolenie na telefon",
   "phonePermissionDescription": "Używane do identyfikacji i blokowania połączeń przychodzących.",
   "phoneRule": "Reguła telefonu",
@@ -962,7 +952,6 @@
   "regexRuleNamePatternRequired": "Nazwa reguły i wzorzec wyrażenia regularnego nie mogą być puste",
   "regexRules": "Reguły wyrażeń regularnych",
   "regexTesterTitle": "Tester wyrażeń regularnych",
-  "region": "Region",
   "registeredDevicesTitle": "Zarejestrowane urządzenia",
   "rejectAllCalls": "Odrzuć wszystkie połączenia",
   "rejectAllCallsDescription": "Po włączeniu wszystkie połączenia zostaną odrzucone z najwyższym priorytetem",
@@ -1001,7 +990,6 @@
   "retry": "Ponów próbę",
   "ridesharing": "Współdzielenie przejazdów",
   "risk": "Ryzyko",
-  "robocall": "Robocall",
   "ruleAction": "Akcja reguły",
   "ruleAddedSuccess": "Reguła została dodana pomyślnie",
   "@ruleAddedSuccess": {
@@ -1070,15 +1058,6 @@
   "serviceTypePhone": "Subskrypcja telefonu",
   "serviceTypePlugin": "Aktualizacja wtyczki",
   "serviceTypeSms": "Subskrypcja SMS",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Ustaw hasło szyfrowania",
   "settings": "Ustawienia",
   "settingsBackedUpTo": "Ustawienia zapisane do: {path}",
@@ -1103,42 +1082,10 @@
   "simCardFilterRulesDescription": "Ustaw różne zasady filtrowania w zależności od gniazd kart SIM",
   "simCardFontSize": "Rozmiar czcionki karty SIM",
   "simCardPosition": "Pozycja karty SIM",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "Reguły SIM slot pozwalają na konfigurowanie niezależnych reguł filtrowania dla każdego gniazda SIM.",
   "simRuleInstructionsTitle": "Reguły gniazd SIM",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Skonfiguruj niezależne reguły filtrowania dla każdej karty SIM:",
   "simSlotFilterSettingsTitle": "Ustawienia filtrów gniazd SIM {slotNumber}",
@@ -1167,7 +1114,6 @@
   "simSlotTitle": "Gniazdo SIM {slotNumber}",
   "skip": "Pomiń",
   "smartCallerId": "Inteligentna identyfikacja dzwoniącego",
-  "sms": "SMS",
   "smsFilterDescription": "Filtrowanie SMS-ów pomaga automatycznie odfiltrować wiadomości spam i utrzymać listę wiadomości w czystości. Można ustawić reguły filtrowania i metody powiadamiania.",
   "smsFilterDisabled": "Filtrowanie SMS-ów wyłączone",
   "smsFilterEnabled": "Filtrowanie SMS-ów włączone",
@@ -1185,7 +1131,6 @@
   "smsSubscription": "Subskrypcja SMS",
   "smsSubscriptionAddedSuccessfully": "Subskrypcja SMS została pomyślnie dodana",
   "smsSubscriptionRulesDescription": "Subskrybuj listy reguł SMS za pomocą adresu URL, obsługując dopasowanie wyrażeń regularnych. Możesz ustawić akcje blokowania lub zezwalania.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Niektóre żądania uprawnień odrzucone",
   "spamLikely": "Prawdopodobnie spam",
   "startColor": "Kolor początkowy",
@@ -1268,19 +1213,8 @@
   "tabBlocked": "Zablokowane",
   "tabMissed": "Nieodebrane",
   "tabOutgoing": "Wychodzące",
-  "tagLabel": "Tag: {tag}",
-  "@tagLabel": {
-    "placeholders": {
-      "tag": {
-        "type": "String"
-      }
-    }
-  },
   "takeaway": "Na wynos",
   "telecommunication": "Telekomunikacja",
-  "telegram": "Telegram",
-  "telemarketing": "Telemarketing",
-  "testButton": "TEST",
   "testConnectionButton": "Testuj połączenie",
   "textColorsSetting": "Kolory tekstu i etykiet",
   "thisAppIsAPowerfulCallerIdToolThatAllows": "Ta aplikacja to potężne narzędzie identyfikujące rozmówcę, które pozwala na identyfikację i blokowanie niechcianych połączeń.",
@@ -1616,8 +1550,6 @@
   "pleaseEnterAtLeastOneNumber": "Proszę wprowadzić co najmniej jeden numer.",
   "openInWebView": "Otwórz w widoku internetowym",
   "pluginLabel": "Etykieta wtyczki",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Kolor tła wiadomości",
   "clearAllCallLogs": "Wyczyść wszystkie logi połączeń",
   "clearAllCallLogsConfirmation": "Potwierdź wyczyszczenie wszystkich logów połączeń",
@@ -1657,7 +1589,6 @@
   "simState": "Stan karty SIM",
   "ipCountry": "Kraj IP",
   "simCountry": "Kraj karty SIM",
-  "isRoaming": "Roaming",
   "isNumberMatch": "Dopasowanie numeru",
   "support": "Wsparcie",
   "rewardedAdService": "Usługa reklam nagradzanych",
@@ -2318,5 +2249,203 @@
   "separateSims": "Oddzielne karty SIM",
   "separateSimsDesc": "Włącz oddzielne reguły filtrowania dla każdej karty SIM",
   "masterAndOverrides": "Główna kontrola",
-  "masterAndOverridesDesc": "Globalne ustawienia reguł"
+  "masterAndOverridesDesc": "Globalne ustawienia reguł",
+  "themeLight": "Jasny",
+  "themeDark": "Ciemny",
+  "themeSystem": "Domyślny systemu",
+  "ruleType": "Typ reguły",
+  "localDatabaseSyncTitle": "Lokalna synchronizacja bazy danych",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Synchronizuj dane między urządzeniami",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "URL projektu Supabase",
+  "supabaseAnonKey": "Klucz anonimowy",
+  "supabaseAnonKeyHint": "API Key, publiczny klucz anonimowy",
+  "connectionString": "Ciąg połączenia (URI)",
+  "connectionStringHelper": "Wymagane tylko dla 'Inicjalizuj bazę danych'",
+  "syncCallHistory": "Synchronizuj historię połączeń",
+  "syncCallHistorySubtitle": "Dołącz prywatne dzienniki połączeń do synchronizacji",
+  "requiredField": "Wymagane",
+  "requiredInitField": "Wymagane do inicjalizacji",
+  "initDbButton": "Inicjalizuj bazę danych",
+  "dbInitSuccess": "Baza danych pomyślnie zainicjalizowana!",
+  "syncSuccess": "Synchronizacja zakończona. Wysyłane: {pushed}, Odebrane: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Błąd",
+  "errorLoadingSettings": "Błąd ładowania ustawień",
+  "statusLabel": "Status",
+  "statusConnected": "Połączono / Skonfigurowano",
+  "statusNotConfigured": "Nieskonfigurowano",
+  "configSaved": "Konfiguracja zapisana!",
+  "masterDeviceLabel": "Urządzenie główne (Admin)",
+  "masterDeviceHelp": "Tylko urządzenie główne może zainicjalizować strukturę bazy danych.",
+  "syncIntervalLabel": "Interwał automatycznej synchronizacji",
+  "syncIntervalValue": "Co {hours} godz.",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Pozostaw puste, aby użyć domyślnego",
+  "vipAccessSubtitle": "Oglądaj reklamy za darmo lub kup VIP",
+  "failedToLoadSettingsSchema": "Nie udało się załadować schematu ustawień: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "Pole jest wymagane",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Najpierw odbierz połączenie, a następnie natychmiast się rozłącz.",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupSourceTitle": "Źródło bazy reguł",
+  "initialSetupSourceGithub": "Oficjalne źródło GitHub",
+  "initialSetupSourceCdn": "Źródło przyspieszenia CDN lustrzanego",
+  "initialSetupSourceCustom": "Własne źródło lustrzane",
+  "initialSetupCustomUrlHint": "Wprowadź URL konfiguracji JSON własnego lustra",
+  "initialSetupCustomUrlLoad": "Załaduj konfigurację",
+  "initialSetupDetectedLocation": "Wykryta lokalizacja",
+  "deepLinkImportTitle": "Importuj konfigurację",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Wtyczka",
+  "deepLinkTypeSubscription": "Subskrypcja",
+  "deepLinkDefaultPluginName": "Zaimportowana wtyczka",
+  "deepLinkDefaultSubName": "Zaimportowana subskrypcja",
+  "deepLinkDetectedTitle": "Wykryto głęboki link",
+  "deepLinkNameLabel": "Nazwa",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Typ",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Potwierdź import",
+  "deepLinkEmptyUrlError": "URL nie może być pusty",
+  "deepLinkPluginDownloadFailed": "Nie udało się pobrać wtyczki: {error}",
+  "deepLinkImportSuccess": "Zaimportowano pomyślnie",
+  "deepLinkImportFailed": "Import nie powiódł się: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Wskazówka: Możesz otworzyć tę stronę konfiguracji w dowolnym momencie w Ustawieniach.",
+  "initialSetupGoToSettings": "Przejdź do Ustawień",
+  "agent": "Agent",
+  "bank": "Bank",
+  "email": "Email",
+  "github": "GitHub",
+  "headhunter": "Headhunter",
+  "internet": "Internet",
+  "okButton": "OK",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "region": "Region",
+  "robocall": "Robocall",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "tagLabel": "Tag: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "testButton": "TEST",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "isRoaming": "Roaming"
 }

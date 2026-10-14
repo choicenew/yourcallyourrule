@@ -120,7 +120,6 @@
   "answerThenHangup": "Jawab kemudian letak telefon",
   "applicationSoftware": "Perisian Aplikasi",
   "apply": "Guna",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "Kebenaran gagal: Sila semak ID dan kunci klien",
   "authorizationFailedMessage": "Kebenaran gagal",
   "authorizationSuccessMessage": "Kebenaran berjaya",
@@ -148,7 +147,6 @@
   "backupToCloud": "Sandar ke Awan",
   "backupToCloudFailed": "Gagal membuat sandaran ke awan: {error}",
   "backupToCloudSuccess": "Berjaya membuat sandaran ke awan",
-  "bank": "Bank",
   "basicInfo": "Maklumat Asas",
   "basicRuleFilter": "Penapis Peraturan Asas",
   "basicRuleFiltering": "Penapisan Peraturan Asas",
@@ -417,9 +415,7 @@
   "dualSimAdvice": "Ciri ini amat berguna untuk telefon SIM dwi untuk menetapkan strategi penapisan yang berbeza untuk kad SIM kerja dan peribadi.",
   "earlier": "Terdahulu",
   "ecommerce": "E-dagang",
-  "edit": "Edit",
   "editContact": "Edit Kenalan",
-  "editLabel": "Edit Label",
   "editPhoneRule": "Edit Peraturan Telefon",
   "editRule": "Edit Peraturan",
   "education": "Pendidikan",
@@ -602,7 +598,6 @@
     }
   },
   "getFree": "Dapatkan Percuma",
-  "github": "GitHub",
   "globalFilterDescription": "Konfigurasikan penapis global untuk semua kad SIM:",
   "globalFilterFeature": "• Penapis Global: Peraturan asas untuk semua panggilan masuk",
   "globalFilterSettings": "Tetapan Penapis Global",
@@ -628,7 +623,6 @@
   "howItWorksTitle": "Cara Ia Berfungsi:",
   "iconCodeOptional": "Kod Ikon (Pilihan)",
   "iconSize": "Saiz Ikon",
-  "import": "Import",
   "important": "Penting",
   "importConfig": "Import Konfigurasi",
   "importContacts": "Import Kenalan",
@@ -656,7 +650,6 @@
   "interceptionActionSettingsSubtitle": "Tetapkan cara panggilan yang disekat dikendalikan",
   "interceptionActionSettingsTitle": "Tetapan Tindakan Pintasan",
   "interceptionTimeInterval": "Selang Masa Pemintasan",
-  "internet": "Internet",
   "intervalSetSuccess": "Selang kemas kini {service} ditetapkan kepada {days} hari",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -677,7 +670,6 @@
   "jsonFormat": "Format JSON",
   "keepAllVersions": "Simpan Semua Versi",
   "keepAllVersionsDescription": "Simpan semua versi sejarah setiap sandaran",
-  "label": "Label",
   "labelAddedSuccessfully": "Label \"{name}\" berjaya ditambah",
   "labelCategories": "Kategori Label",
   "labelDeleted": "Label dipadam",
@@ -693,7 +685,6 @@
   "labelsFontSize": "Saiz Font Label",
   "labelsImportedSuccessfully": "Berjaya mengimport {count} label",
   "labelsPosition": "Kedudukan Label",
-  "labelTag": "Label: {labelId}",
   "labelUpdateFailed": "Gagal mengemas kini label: {error}",
   "@labelUpdateFailed": {
     "description": "Label update failure message",
@@ -861,7 +852,6 @@
   "numberTypeColor": "Warna Jenis Nombor",
   "numberTypeFontSize": "Saiz Fon Jenis Nombor",
   "numberTypePosition": "Kedudukan Jenis Nombor",
-  "okButton": "OK",
   "onboardingCompleteDescription": "Pengurus keselamatan panggilan anda sudah bersedia, mula menikmati pengalaman panggilan yang selamat!",
   "onboardingLanguageDescription": "Pilih bahasa pilihan anda untuk pengalaman terbaik.",
   "onboardingPermissionsDescription": "Untuk menyediakan perkhidmatan penuh, kami memerlukan kebenaran berikut:",
@@ -909,10 +899,8 @@
   "phoneNumberTypePremiumRate": "Kadar Premium",
   "phoneNumberTypeSharedCost": "Kos Dikongsi",
   "phoneNumberTypeTollFree": "Bebas Tol",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Tidak Diketahui",
   "phoneNumberTypeVoicemail": "Mel suara",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Kebenaran Telefon",
   "phonePermissionDescription": "Digunakan untuk mengenal pasti dan menyekat panggilan masuk.",
   "phoneRule": "Peraturan Telefon",
@@ -1070,15 +1058,6 @@
   "serviceTypePhone": "Langganan Telefon",
   "serviceTypePlugin": "Kemas Kini Plugin",
   "serviceTypeSms": "Langganan SMS",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Tetapkan Kata Laluan Penyulitan",
   "settings": "Tetapan",
   "settingsBackedUpTo": "Tetapan telah disandarkan ke: {path}",
@@ -1103,42 +1082,10 @@
   "simCardFilterRulesDescription": "Tetapkan peraturan penapisan berbeza berdasarkan slot kad SIM",
   "simCardFontSize": "Saiz Fon Kad SIM",
   "simCardPosition": "Kedudukan Kad SIM",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "Peraturan slot SIM membolehkan anda mengkonfigurasi peraturan penapisan bebas untuk setiap slot SIM.",
   "simRuleInstructionsTitle": "Peraturan Slot SIM",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Konfigurasi peraturan penapisan bebas untuk setiap kad SIM:",
   "simSlotFilterSettingsTitle": "Tetapan Penapis Slot SIM {slotNumber}",
@@ -1167,7 +1114,6 @@
   "simSlotTitle": "Slot SIM {slotNumber}",
   "skip": "Langkau",
   "smartCallerId": "Identifikasi Panggilan Pintar",
-  "sms": "SMS",
   "smsFilterDescription": "Penapisan SMS membantu anda menapis mesej spam secara automatik dan menjaga senarai mesej anda bersih. Anda boleh menetapkan peraturan penapisan dan kaedah pemberitahuan.",
   "smsFilterDisabled": "Penapisan SMS dilumpuhkan",
   "smsFilterEnabled": "Penapisan SMS didayakan",
@@ -1185,7 +1131,6 @@
   "smsSubscription": "Langganan SMS",
   "smsSubscriptionAddedSuccessfully": "Langganan SMS berjaya ditambah",
   "smsSubscriptionRulesDescription": "Langgan senarai peraturan SMS melalui URL, menyokong padanan ungkapan biasa. Anda boleh menetapkan tindakan sekat atau benarkan.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Beberapa permintaan kebenaran ditolak",
   "spamLikely": "Kemungkinan Spam",
   "startColor": "Warna Mula",
@@ -1268,18 +1213,8 @@
   "tabBlocked": "Disekat",
   "tabMissed": "Terlepas",
   "tabOutgoing": "Keluar",
-  "tagLabel": "Tag: {tag}",
-  "@tagLabel": {
-    "placeholders": {
-      "tag": {
-        "type": "String"
-      }
-    }
-  },
   "takeaway": "Ambil",
   "telecommunication": "Telekomunikasi",
-  "telegram": "Telegram",
-  "telemarketing": "Telemarketing",
   "testButton": "UJIAN",
   "testConnectionButton": "Uji Sambungan",
   "textColorsSetting": "Warna Teks & Label",
@@ -1306,7 +1241,6 @@
   "totalBlocked": "Jumlah Disekat",
   "transferDataBetweenDevicesOrPlatforms": "Pindahkan data antara peranti atau platform",
   "travelTicketing": "Penetapan Tiket Perjalanan",
-  "tutorial": "Tutorial",
   "type": "Jenis",
   "unassignedSIMCard": "Kad SIM Tidak Ditugaskan",
   "unknown": "Tidak Diketahui",
@@ -1460,15 +1394,6 @@
     "description": "Title for the fraud alert notification"
   },
   "noBlockedTypeData": "Tiada data jenis disekat tersedia",
-  "importEntity": "Import {entityTypeName}",
-  "@importEntity": {
-    "description": "Dialog title for importing an entity",
-    "placeholders": {
-      "entityTypeName": {
-        "type": "Object"
-      }
-    }
-  },
   "entityImportSuccess": "{entityTypeName} berjaya diimport, jumlah {count} rekod diimport",
   "@entityImportSuccess": {
     "description": "Success message after importing entities",
@@ -1490,15 +1415,6 @@
         "type": "Object"
       },
       "error": {
-        "type": "Object"
-      }
-    }
-  },
-  "exportEntity": "Export {entityTypeName}",
-  "@exportEntity": {
-    "description": "Dialog title for exporting an entity",
-    "placeholders": {
-      "entityTypeName": {
         "type": "Object"
       }
     }
@@ -1543,7 +1459,6 @@
   "allServicesStatusSubtitle": "Status Semasa Setiap Perkhidmatan Awan",
   "redirect": "Alihkan",
   "notify": "Maklumkan",
-  "log": "Log",
   "custom": "Kustom",
   "allowActionDescription": "Panggilan akan dibenarkan, walaupun nombor tersebut berada dalam senarai sekatan.",
   "blockActionDescription": "Panggilan akan disekat dan ditunjukkan dalam log panggilan.",
@@ -1616,8 +1531,6 @@
   "pleaseEnterAtLeastOneNumber": "Sila masukkan sekurang-kurangnya satu nombor.",
   "openInWebView": "Buka dalam WebView",
   "pluginLabel": "Label Plugin",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Warna Latar Belakang Mesej",
   "clearAllCallLogs": "Padam Semua Log Panggilan",
   "clearAllCallLogsConfirmation": "Sahkan untuk memadam semua log panggilan",
@@ -1651,7 +1564,6 @@
   "callType": "Jenis Panggilan",
   "callTime": "Masa Panggilan",
   "numberInvalidFormat": "Format nombor tidak sah",
-  "medium": "Medium",
   "verificationReport": "Laporan Pengesahan",
   "finalRisk": "Risiko Akhir",
   "simState": "Status SIM",
@@ -2192,10 +2104,6 @@
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
   },
-  "avatar": "Avatar",
-  "@avatar": {
-    "description": "The avatar of the user."
-  },
   "location": "Lokasi",
   "@location": {
     "description": "The location of the user."
@@ -2298,5 +2206,246 @@
         "example": "5"
       }
     }
-  }
+  },
+  "appName": "Your Call Your Rule",
+  "bank": "Bank",
+  "edit": "Edit",
+  "editLabel": "Edit Label",
+  "github": "GitHub",
+  "import": "Import",
+  "internet": "Internet",
+  "label": "Label",
+  "labelTag": "Label: {labelId}",
+  "okButton": "OK",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "tagLabel": "Tag: {tag}",
+  "@tagLabel": {
+    "placeholders": {
+      "tag": {
+        "type": "String"
+      }
+    }
+  },
+  "telegram": "Telegram",
+  "telemarketing": "Telemarketing",
+  "tutorial": "Tutorial",
+  "importEntity": "Import {entityTypeName}",
+  "@importEntity": {
+    "description": "Dialog title for importing an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "exportEntity": "Export {entityTypeName}",
+  "@exportEntity": {
+    "description": "Dialog title for exporting an entity",
+    "placeholders": {
+      "entityTypeName": {
+        "type": "Object"
+      }
+    }
+  },
+  "log": "Log",
+  "themeLight": "Cerah",
+  "themeDark": "Gelap",
+  "themeSystem": "Lalai Sistem",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "medium": "Medium",
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "ruleType": "Jenis Peraturan",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Cuba semula",
+  "initialSetupSkip": "Langkau",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings",
+  "separateSims": "Separate SIMs",
+  "separateSimsDesc": "Enable separate filtering rules for each SIM card",
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }

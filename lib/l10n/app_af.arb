@@ -79,7 +79,6 @@
   "addToFavorites": "Voeg by Gunstelinge",
   "addToRules": "Voeg by Reëls",
   "addToWhitelist": "Voeg by Witlys",
-  "agent": "Agent",
   "all": "Alles",
   "allCallsTab": "Alle",
   "allow": "Toelaat",
@@ -120,7 +119,6 @@
   "answerThenHangup": "Beantwoord dan hang op",
   "applicationSoftware": "Toepassing Sagteware",
   "apply": "Pas Toe",
-  "appName": "Your Call Your Rule",
   "authorizationFailedCheckCredentialsMessage": "Magtiging het misluk: Gaan asseblief kliënt ID en sleutel na",
   "authorizationFailedMessage": "Magtiging het misluk",
   "authorizationSuccessMessage": "Magtiging suksesvol",
@@ -148,7 +146,6 @@
   "backupToCloud": "Rugsteun na Wolk",
   "backupToCloudFailed": "Kon nie na wolk rugsteun nie: {error}",
   "backupToCloudSuccess": "Suksesvol na die wolk gerugsteun",
-  "bank": "Bank",
   "basicInfo": "Basiese Inligting",
   "basicRuleFilter": "Basiese Reëlfilter",
   "basicRuleFiltering": "Basiese Reëlfiltrering",
@@ -328,7 +325,6 @@
   "currentDeviceTitle": "Huidige Toestel",
   "currentLanguage": "Huidige Taal",
   "customerService": "Kliëntediens",
-  "dashboardTab": "Dashboard",
   "dataAnalysis": "Data-analise",
   "dataLoadFailure": "Data laai misluk: {error}",
   "@dataLoadFailure": {
@@ -557,7 +553,6 @@
   "features": "Kenmerke",
   "fetchingCallerIdInfo": "Oproeper-ID-inligting word verkry...",
   "fileSavedTo": "Lêer gestoor by: {path}",
-  "filter": "Filter",
   "filterByLabel": "Filter volgens etiket",
   "filterControlPanelTitle": "Filter Beheerpaneel",
   "filterControlSubtitle": "Bestuur aan/af-status van alle filters",
@@ -569,20 +564,7 @@
   "filterPriorityNote": "Let op: Daar is prioriteitsverhoudinge tussen filters, verwys asseblief na die hulpdokumentasie vir besonderhede",
   "filterSettings": "Filter instellings",
   "filterSettingsTitle": "Filter instellings",
-  "filterSMS": "Filter SMS",
   "filterToggleInstructions": "Aktiveer of deaktiveer filters vir hierdie SIM-gleuf:",
-  "filterToggleStatus": "{status} filter: {filterName}",
-  "@filterToggleStatus": {
-    "description": "Filter enable/disable status change notification",
-    "placeholders": {
-      "status": {
-        "type": "Object"
-      },
-      "filterName": {
-        "type": "Object"
-      }
-    }
-  },
   "filterType": "Filter tipe",
   "financial": "Finansieel",
   "flexibleCombinationFeature": "• Buigsame Kombinasies: Aktiveer/deaktiveer filters per SIM-gleuf",
@@ -602,7 +584,6 @@
     }
   },
   "getFree": "Kry Gratis",
-  "github": "GitHub",
   "globalFilterDescription": "Stel globale filters vir alle SIM-kaarte op:",
   "globalFilterFeature": "• Globale Filters: Basiese reëls vir alle inkomende oproepe",
   "globalFilterSettings": "Globale filterinstellinge",
@@ -656,7 +637,6 @@
   "interceptionActionSettingsSubtitle": "Stel hoe geblokkeerde oproepe hanteer word",
   "interceptionActionSettingsTitle": "Onderskeppingsaksie-instellinge",
   "interceptionTimeInterval": "Onderskeppingstydinterval",
-  "internet": "Internet",
   "intervalSetSuccess": "{service} opdateringsinterval gestel tot {days} dae",
   "@intervalSetSuccess": {
     "description": "Update interval confirmation message",
@@ -861,7 +841,6 @@
   "numberTypeColor": "Nommertipe kleur",
   "numberTypeFontSize": "Nommertipe lettergrootte",
   "numberTypePosition": "Nommertipe posisie",
-  "okButton": "OK",
   "onboardingCompleteDescription": "U oproepbestuurder is gereed, begin met 'n veilige oproep-ervaring!",
   "onboardingLanguageDescription": "Kies u voorkeurtaal vir die beste ervaring.",
   "onboardingPermissionsDescription": "Om volle diens te lewer, benodig ons die volgende toestemmings:",
@@ -890,7 +869,6 @@
   "pattern": "Patroon",
   "pendingSync": "Hangende sinkronisering",
   "periodMonth": "Maand",
-  "periodWeek": "Week",
   "periodYear": "Jaar",
   "permissionDenied": "Toestemming versoek geweier",
   "permissionGranted": "Toestemming toegestaan",
@@ -904,15 +882,12 @@
   "phoneNumberTypeFixedLine": "Vaste lyn",
   "phoneNumberTypeFixedLineOrMobile": "Vaste lyn of mobiel",
   "phoneNumberTypeMobile": "Mobiel",
-  "phoneNumberTypePager": "Pager",
   "phoneNumberTypePersonalNumber": "Persoonlike nommer",
   "phoneNumberTypePremiumRate": "Premium koers",
   "phoneNumberTypeSharedCost": "Gedeelde koste",
   "phoneNumberTypeTollFree": "Gratis",
-  "phoneNumberTypeUan": "UAN",
   "phoneNumberTypeUnknown": "Onbekend",
   "phoneNumberTypeVoicemail": "Gelyktoon",
-  "phoneNumberTypeVoip": "VoIP",
   "phonePermission": "Telefoontoestemming",
   "phonePermissionDescription": "Gebruik om inkomende oproepe te identifiseer en te blokkeer.",
   "phoneRule": "Telefoonreël",
@@ -932,7 +907,6 @@
   "pluginService": "Plugin diens",
   "pluginTestPageTitle": "Plugin toets",
   "pluginUpdateSuccess": "Plugin suksesvol opgedateer",
-  "pluginUrl": "Plugin URL",
   "pluginVersion": "Plugin weergawe",
   "political": "Politiek",
   "powerfulSpamBlocking": "Kragtige strooiposblokkering",
@@ -1062,7 +1036,6 @@
   "selectTags": "Kies Etikette",
   "selectTrustedDataSource": "Kies asseblief betroubare databronne",
   "selectYourLanguage": "Kies Jou Taal",
-  "sender": "Sender",
   "senderRegexOptional": "Sender Regex (Opsioneel)",
   "serverAddressLabel": "Bedienadres",
   "serviceTypeContact": "Kontak Inskrywing",
@@ -1070,15 +1043,6 @@
   "serviceTypePhone": "Telefoon Inskrywing",
   "serviceTypePlugin": "Plugin Opdatering",
   "serviceTypeSms": "SMS Inskrywing",
-  "serviceUpdateFailure": "{error}",
-  "@serviceUpdateFailure": {
-    "description": "Service update failure message",
-    "placeholders": {
-      "error": {
-        "type": "Object"
-      }
-    }
-  },
   "setEncryptionPassword": "Stel Enkripsie Wagwoord",
   "settings": "Instellings",
   "settingsBackedUpTo": "Instellings gerugsteun na: {path}",
@@ -1103,42 +1067,10 @@
   "simCardFilterRulesDescription": "Stel verskillende filterreëls gebaseer op SIM-kaartgleuwe",
   "simCardFontSize": "SIM-kaart Lettergrootte",
   "simCardPosition": "SIM-kaart Positiewe",
-  "simInfo": "SIM {slotNumber} - {countryIso}",
-  "@simInfo": {
-    "description": "SIM Card information",
-    "placeholders": {
-      "slotNumber": {
-        "type": "Object"
-      },
-      "countryIso": {
-        "type": "Object"
-      }
-    }
-  },
   "simRuleInstructions": "SIM-gleufreëls laat jou toe om onafhanklike filterreëls vir elke SIM-gleuf te konfigureer.",
   "simRuleInstructionsTitle": "SIM-gleufreëls",
   "@simRuleInstructionsTitle": {
     "description": "Section title for SIM slot rules instructions"
-  },
-  "simSlot1": "SIM 1,-{countryIso}",
-  "@simSlot1": {
-    "description": "Text showing SIM slot 1 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "US"
-      }
-    }
-  },
-  "simSlot2": "SIM 2,-{countryIso}",
-  "@simSlot2": {
-    "description": "Text showing SIM slot 2 with country ISO code",
-    "placeholders": {
-      "countryIso": {
-        "type": "String",
-        "example": "CN"
-      }
-    }
   },
   "simSlotFilterDescription": "Konfigureer onafhanklike filterreëls vir elke SIM-kaart:",
   "simSlotFilterSettingsTitle": "SIM-gleuf {slotNumber} filterinstellings",
@@ -1167,7 +1099,6 @@
   "simSlotTitle": "SIM-gleuf {slotNumber}",
   "skip": "Wys oor",
   "smartCallerId": "Slim oproeper-ID-identifikasie",
-  "sms": "SMS",
   "smsFilterDescription": "SMS-filtering help jou om strooiposboodskappe outomaties te filter en jou boodskapslys skoon te hou. Jy kan filterreëls en kennisgewingsmetodes stel.",
   "smsFilterDisabled": "SMS-filtering gedeaktiveer",
   "smsFilterEnabled": "SMS-filtering geaktiveer",
@@ -1185,7 +1116,6 @@
   "smsSubscription": "SMS-inskrywing",
   "smsSubscriptionAddedSuccessfully": "SMS-inskrywing suksesvol bygevoeg",
   "smsSubscriptionRulesDescription": "Teken in op SMS-reëllyste via URL, ondersteun gereelde uitdrukkingspassing. Jy kan blokkeer- of toelaat-aksies stel.",
-  "smsTab": "SMS",
   "somePermissionsDenied": "Sommige toestemmingsversoeke geweier",
   "spamLikely": "Waarskynlik strooipos",
   "startColor": "Beginkleur",
@@ -1278,7 +1208,6 @@
   },
   "takeaway": "Uitneem",
   "telecommunication": "Telekommunikasie",
-  "telegram": "Telegram",
   "telemarketing": "Telebemarking",
   "testButton": "TOETS",
   "testConnectionButton": "Toets Verbinding",
@@ -1365,7 +1294,6 @@
   "watchAdForTemp": "Kyk Advertensie vir Tydelike Privilegies",
   "watchAdForTempDescription": "Kyk 'n kort advertensie om tydelik van die premium funksies te ontsluit",
   "webDAVConfigTitle": "WebDAV Konfigurasie",
-  "week": "Week",
   "welcome": "Welkom",
   "whitelist": "Witlys",
   "@whitelist": {
@@ -1564,7 +1492,6 @@
   "importExport": "Invoer/Uitvoer",
   "filterByAction": "Filter volgens Aksie",
   "upgradeToVip": "Gradeer op na VIP",
-  "batteryOptimizationPermission": "Battery Optimization",
   "batteryOptimizationPermissionDescription": "Laat die toepassing in die agtergrond toe om dienste soos oproeper-ID te verskaf.",
   "permissionTitle": "Spesiale Toestemmings",
   "permissionSubtitle": "Bestuur oorleg en battery-optimaliseringstoestemmings",
@@ -1616,8 +1543,6 @@
   "pleaseEnterAtLeastOneNumber": "Voer asseblief ten minste een nommer in.",
   "openInWebView": "Maak oop in WebView",
   "pluginLabel": "Plugin Etiket",
-  "pluginID": "ID",
-  "pluginURL": "URL",
   "messageBackgroundColor": "Boodskap Agtergrond Kleur",
   "clearAllCallLogs": "Vee Alle Oproep Logs Uit",
   "clearAllCallLogsConfirmation": "Bevestig om alle oproep logs uit te vee",
@@ -1651,13 +1576,11 @@
   "callType": "Oproep Tipe",
   "callTime": "Oproep Tyd",
   "numberInvalidFormat": "Nommer ongeldige formaat",
-  "medium": "Medium",
   "verificationReport": "Verifikasie Verslag",
   "finalRisk": "Finale Risiko",
   "simState": "SIM Staat",
   "ipCountry": "IP Land",
   "simCountry": "SIM Land",
-  "isRoaming": "Roaming",
   "isNumberMatch": "Nommer Pas",
   "support": "Ondersteuning",
   "rewardedAdService": "Beloonde Advertensie Diens",
@@ -2117,10 +2040,6 @@
   "@riskLevelCritical": {
     "description": "Label for critical risk level"
   },
-  "riskLevelMedium": "Medium",
-  "@riskLevelMedium": {
-    "description": "Label for medium risk level"
-  },
   "riskLevelVeryLow": "Baie Laag",
   "@riskLevelVeryLow": {
     "description": "Label for very low risk level"
@@ -2191,10 +2110,6 @@
   "dataSourceDisclaimer": "Nommers word verkry uit die internet en gebruikerinskrywings. Ons kan nie waarborg dat 'n nommer, sodra dit geskrap is, nie deur ander gebruikers of bronne weer ingedien sal word nie. Soek asseblief aktief en verifieer inligting.",
   "@dataSourceDisclaimer": {
     "description": "A disclaimer explaining where the phone number data comes from and its limitations."
-  },
-  "avatar": "Avatar",
-  "@avatar": {
-    "description": "The avatar of the user."
   },
   "location": "Ligging",
   "@location": {
@@ -2298,5 +2213,239 @@
         "example": "5"
       }
     }
-  }
+  },
+  "agent": "Agent",
+  "appName": "Your Call Your Rule",
+  "bank": "Bank",
+  "dashboardTab": "Dashboard",
+  "filter": "Filter",
+  "filterSMS": "Filter SMS",
+  "filterToggleStatus": "{status} filter: {filterName}",
+  "@filterToggleStatus": {
+    "description": "Filter enable/disable status change notification",
+    "placeholders": {
+      "status": {
+        "type": "Object"
+      },
+      "filterName": {
+        "type": "Object"
+      }
+    }
+  },
+  "github": "GitHub",
+  "internet": "Internet",
+  "okButton": "OK",
+  "periodWeek": "Week",
+  "phoneNumberTypePager": "Pager",
+  "phoneNumberTypeUan": "UAN",
+  "phoneNumberTypeVoip": "VoIP",
+  "pluginUrl": "Plugin URL",
+  "sender": "Sender",
+  "serviceUpdateFailure": "{error}",
+  "@serviceUpdateFailure": {
+    "description": "Service update failure message",
+    "placeholders": {
+      "error": {
+        "type": "Object"
+      }
+    }
+  },
+  "simInfo": "SIM {slotNumber} - {countryIso}",
+  "@simInfo": {
+    "description": "SIM Card information",
+    "placeholders": {
+      "slotNumber": {
+        "type": "Object"
+      },
+      "countryIso": {
+        "type": "Object"
+      }
+    }
+  },
+  "simSlot1": "SIM 1,-{countryIso}",
+  "@simSlot1": {
+    "description": "Text showing SIM slot 1 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "US"
+      }
+    }
+  },
+  "simSlot2": "SIM 2,-{countryIso}",
+  "@simSlot2": {
+    "description": "Text showing SIM slot 2 with country ISO code",
+    "placeholders": {
+      "countryIso": {
+        "type": "String",
+        "example": "CN"
+      }
+    }
+  },
+  "sms": "SMS",
+  "smsTab": "SMS",
+  "telegram": "Telegram",
+  "week": "Week",
+  "batteryOptimizationPermission": "Battery Optimization",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "themeSystem": "System",
+  "pluginID": "ID",
+  "pluginURL": "URL",
+  "medium": "Medium",
+  "isRoaming": "Roaming",
+  "riskLevelMedium": "Medium",
+  "@riskLevelMedium": {
+    "description": "Label for medium risk level"
+  },
+  "avatar": "Avatar",
+  "@avatar": {
+    "description": "The avatar of the user."
+  },
+  "ruleType": "Rule Type",
+  "localDatabaseSyncTitle": "Local Database Sync",
+  "@localDatabaseSyncTitle": {
+    "description": "The title of the local database sync section."
+  },
+  "localDatabaseSyncSubtitle": "Sync data across devices",
+  "@localDatabaseSyncSubtitle": {
+    "description": "The subtitle of the local database sync section."
+  },
+  "supabaseProjectUrl": "Supabase Project URL",
+  "supabaseAnonKey": "Anon Key",
+  "supabaseAnonKeyHint": "API Key, anon public key",
+  "connectionString": "Connection String (URI)",
+  "connectionStringHelper": "Only needed for 'Initialize Database'",
+  "syncCallHistory": "Sync Call History",
+  "syncCallHistorySubtitle": "Include private call logs in sync",
+  "requiredField": "Required",
+  "requiredInitField": "Required for initialization",
+  "initDbButton": "Initialize Database",
+  "dbInitSuccess": "Database Initialized Successfully!",
+  "syncSuccess": "Sync Complete. Sent: {pushed}, Received: {pulled}",
+  "@syncSuccess": {
+    "description": "Message shown when sync completes successfully",
+    "placeholders": {
+      "pushed": {
+        "type": "int"
+      },
+      "pulled": {
+        "type": "int"
+      }
+    }
+  },
+  "errorPrefix": "Error",
+  "errorLoadingSettings": "Error loading settings",
+  "statusLabel": "Status",
+  "statusConnected": "Connected / Configured",
+  "statusNotConfigured": "Not Configured",
+  "configSaved": "Configuration Saved!",
+  "masterDeviceLabel": "Is Master Device (Admin)",
+  "masterDeviceHelp": "Only the master device can initialize the database structure.",
+  "syncIntervalLabel": "Auto-sync Interval",
+  "syncIntervalValue": "Every {hours} hours",
+  "@syncIntervalValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "leaveEmptyToUseDefault": "Leave empty to use default",
+  "vipAccessSubtitle": "Watch ads for free or purchase VIP",
+  "failedToLoadSettingsSchema": "Failed to load settings schema: {error}",
+  "@failedToLoadSettingsSchema": {
+    "description": "Error message when plugin settings schema fails to load",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "fieldIsRequired": "This field is required",
+  "@fieldIsRequired": {
+    "description": "Validation error message for required fields"
+  },
+  "answerThenHangupDescription": "Automatically answer the incoming call and then immediately hang up to terminate it",
+  "@answerThenHangupDescription": {
+    "description": "Description explaining what answer-then-hangup does"
+  },
+  "initialSetupTitle": "Rule Library Setup",
+  "initialSetupDesc": "Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.",
+  "initialSetupRetry": "Retry",
+  "initialSetupSkip": "Skip",
+  "initialSetupSave": "One-click setup selected",
+  "initialSetupSaving": "Saving...",
+  "initialSetupSaveSuccess": "✅ Configuration saved successfully, rules will be fetched automatically soon",
+  "initialSetupSaveFailed": "Failed to save configuration: {error}",
+  "@initialSetupSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupGetFailed": "Failed to get configuration",
+  "initialSetupSourceTitle": "Data Source",
+  "initialSetupSourceGithub": "GitHub (Raw)",
+  "initialSetupSourceCdn": "CDN Mirror",
+  "initialSetupSourceCustom": "Custom URL",
+  "initialSetupCustomUrlHint": "Enter custom config JSON URL",
+  "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupDetectedLocation": "Recommended for your location",
+  "deepLinkImportTitle": "Import {type}",
+  "@deepLinkImportTitle": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypePlugin": "Plugin",
+  "deepLinkTypeSubscription": "Rule Subscription",
+  "deepLinkDefaultPluginName": "External Plugin",
+  "deepLinkDefaultSubName": "External Rule Subscription",
+  "deepLinkDetectedTitle": "External Import Request Detected",
+  "deepLinkNameLabel": "Name: {name}",
+  "@deepLinkNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkTypeLabel": "Type: {type}",
+  "@deepLinkTypeLabel": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkUrlLabel": "URL: {url}",
+  "@deepLinkUrlLabel": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "deepLinkConfirmButton": "Confirm Import",
+  "deepLinkEmptyUrlError": "URL is empty, cannot import",
+  "deepLinkPluginDownloadFailed": "Failed to download or parse plugin script",
+  "deepLinkImportSuccess": "✅ Imported successfully",
+  "deepLinkImportFailed": "Import failed: {error}",
+  "@deepLinkImportFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
+  "initialSetupGoToSettings": "Go to Settings",
+  "separateSims": "Separate SIMs",
+  "separateSimsDesc": "Enable separate filtering rules for each SIM card",
+  "masterAndOverrides": "Master Controls",
+  "masterAndOverridesDesc": "Global Rule Settings"
 }
