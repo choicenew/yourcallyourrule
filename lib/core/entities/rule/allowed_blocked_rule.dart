@@ -20,7 +20,7 @@ abstract class AllowedBlockedRule with _$AllowedBlockedRule implements RuleBase 
     required PhoneNumber phoneNumber,
     required String labelId,
     @Default(RuleTypeKeys.allowBlock) String ruleType,
-    RulePriority? priority,
+    @Default(RulePriority.high) RulePriority priority,
     @Default(true) bool isEnabled,
     @Default(0) int count,
     String? avatar,
@@ -29,6 +29,9 @@ abstract class AllowedBlockedRule with _$AllowedBlockedRule implements RuleBase 
 
   /// 计算属性：判断是否关联订阅
   bool get isSubscribed => subscriptionId != null;
+
+  @override
+  String toJson() => toMap().toString();
 
   /// 号码过滤匹配逻辑
   @override
@@ -45,7 +48,7 @@ abstract class AllowedBlockedRule with _$AllowedBlockedRule implements RuleBase 
       'action': action.toString(),
       'phoneNumber': phoneNumber.value,
       'labelId': labelId,
-      'priority': priority?.value ?? 0,
+      'priority': priority.value,
       'isEnabled': isEnabled ? 1 : 0,
       'count': count,
       'avatar': avatar,

@@ -16,9 +16,9 @@ abstract class SimSlotRule with _$SimSlotRule implements RuleBase {
   const factory SimSlotRule({
     required String id,
     required String name,
-    required RulePriority priority,
     required PhoneNumber phoneNumber,
     required int simSlotIndex,
+    @Default(RulePriority.medium) RulePriority priority,
     @Default('') String labelId,
     String? avatar,
     @Default(RuleTypeKeys.simSlot) String ruleType,
@@ -31,6 +31,9 @@ abstract class SimSlotRule with _$SimSlotRule implements RuleBase {
   bool matches(String input) {
     return isEnabled && phoneNumber.value == input;
   }
+
+  @override
+  String toJson() => toMap().toString();
 
   /// 格式化转换 Map
   @override

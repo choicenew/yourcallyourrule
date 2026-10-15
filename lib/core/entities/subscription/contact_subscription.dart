@@ -21,6 +21,9 @@ abstract class ContactSubscription with _$ContactSubscription implements BaseEnt
     @Default(SubscriptionTableKeys.contact) String tableType,
   }) = _ContactSubscription;
 
+  @override
+  String toJson() => toMap().toString();
+
   /// 转换为 Map
   @override
   Map<String, dynamic> toMap() {

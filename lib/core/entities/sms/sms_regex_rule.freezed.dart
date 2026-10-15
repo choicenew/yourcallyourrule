@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SmsRegexRule {
 
- String get id; String get name; RuleAction get action; String get contentRegex; String? get senderRegex; RulePriority? get priority; bool get isEnabled; String get labelId; String get ruleType;
+ String get id; String get name; RuleAction get action; String get contentRegex; String? get senderRegex; RulePriority get priority; bool get isEnabled; String get labelId; String get ruleType;
 /// Create a copy of SmsRegexRule
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -51,7 +51,7 @@ abstract mixin class $SmsRegexRuleCopyWith<$Res>  {
   factory $SmsRegexRuleCopyWith(SmsRegexRule value, $Res Function(SmsRegexRule) _then) = _$SmsRegexRuleCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, RuleAction action, String contentRegex, String? senderRegex, RulePriority? priority, bool isEnabled, String labelId, String ruleType
+ String id, String name, RuleAction action, String contentRegex, String? senderRegex, RulePriority priority, bool isEnabled, String labelId, String ruleType
 });
 
 
@@ -68,15 +68,15 @@ class _$SmsRegexRuleCopyWithImpl<$Res>
 
 /// Create a copy of SmsRegexRule
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? action = null,Object? contentRegex = null,Object? senderRegex = freezed,Object? priority = freezed,Object? isEnabled = null,Object? labelId = null,Object? ruleType = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? action = null,Object? contentRegex = null,Object? senderRegex = freezed,Object? priority = null,Object? isEnabled = null,Object? labelId = null,Object? ruleType = null,}) {
   return _then(SmsRegexRule(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
 as RuleAction,contentRegex: null == contentRegex ? _self.contentRegex : contentRegex // ignore: cast_nullable_to_non_nullable
 as String,senderRegex: freezed == senderRegex ? _self.senderRegex : senderRegex // ignore: cast_nullable_to_non_nullable
-as String?,priority: freezed == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
-as RulePriority?,isEnabled: null == isEnabled ? _self.isEnabled : isEnabled // ignore: cast_nullable_to_non_nullable
+as String?,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
+as RulePriority,isEnabled: null == isEnabled ? _self.isEnabled : isEnabled // ignore: cast_nullable_to_non_nullable
 as bool,labelId: null == labelId ? _self.labelId : labelId // ignore: cast_nullable_to_non_nullable
 as String,ruleType: null == ruleType ? _self.ruleType : ruleType // ignore: cast_nullable_to_non_nullable
 as String,
@@ -164,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  RuleAction action,  String contentRegex,  String? senderRegex,  RulePriority? priority,  bool isEnabled,  String labelId,  String ruleType)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  RuleAction action,  String contentRegex,  String? senderRegex,  RulePriority priority,  bool isEnabled,  String labelId,  String ruleType)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SmsRegexRule() when $default != null:
 return $default(_that.id,_that.name,_that.action,_that.contentRegex,_that.senderRegex,_that.priority,_that.isEnabled,_that.labelId,_that.ruleType);case _:
@@ -185,7 +185,7 @@ return $default(_that.id,_that.name,_that.action,_that.contentRegex,_that.sender
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  RuleAction action,  String contentRegex,  String? senderRegex,  RulePriority? priority,  bool isEnabled,  String labelId,  String ruleType)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  RuleAction action,  String contentRegex,  String? senderRegex,  RulePriority priority,  bool isEnabled,  String labelId,  String ruleType)  $default,) {final _that = this;
 switch (_that) {
 case _SmsRegexRule():
 return $default(_that.id,_that.name,_that.action,_that.contentRegex,_that.senderRegex,_that.priority,_that.isEnabled,_that.labelId,_that.ruleType);case _:
@@ -205,7 +205,7 @@ return $default(_that.id,_that.name,_that.action,_that.contentRegex,_that.sender
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  RuleAction action,  String contentRegex,  String? senderRegex,  RulePriority? priority,  bool isEnabled,  String labelId,  String ruleType)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  RuleAction action,  String contentRegex,  String? senderRegex,  RulePriority priority,  bool isEnabled,  String labelId,  String ruleType)?  $default,) {final _that = this;
 switch (_that) {
 case _SmsRegexRule() when $default != null:
 return $default(_that.id,_that.name,_that.action,_that.contentRegex,_that.senderRegex,_that.priority,_that.isEnabled,_that.labelId,_that.ruleType);case _:
@@ -220,7 +220,7 @@ return $default(_that.id,_that.name,_that.action,_that.contentRegex,_that.sender
 
 
 class _SmsRegexRule extends SmsRegexRule implements RuleBase {
-  const _SmsRegexRule({required this.id, required this.name, required this.action, required this.contentRegex, this.senderRegex, this.priority, this.isEnabled = true, this.labelId = '', this.ruleType = RuleTypeKeys.smsRegex}): super._();
+  const _SmsRegexRule({required this.id, required this.name, required this.action, required this.contentRegex, this.senderRegex, this.priority = RulePriority.medium, this.isEnabled = true, this.labelId = '', this.ruleType = RuleTypeKeys.smsRegex}): super._();
   
 
 @override final  String id;
@@ -228,7 +228,7 @@ class _SmsRegexRule extends SmsRegexRule implements RuleBase {
 @override final  RuleAction action;
 @override final  String contentRegex;
 @override final  String? senderRegex;
-@override final  RulePriority? priority;
+@override@JsonKey() final  RulePriority priority;
 @override@JsonKey() final  bool isEnabled;
 @override@JsonKey() final  String labelId;
 @override@JsonKey() final  String ruleType;
@@ -265,7 +265,7 @@ abstract mixin class _$SmsRegexRuleCopyWith<$Res> implements $SmsRegexRuleCopyWi
   factory _$SmsRegexRuleCopyWith(_SmsRegexRule value, $Res Function(_SmsRegexRule) _then) = __$SmsRegexRuleCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, RuleAction action, String contentRegex, String? senderRegex, RulePriority? priority, bool isEnabled, String labelId, String ruleType
+ String id, String name, RuleAction action, String contentRegex, String? senderRegex, RulePriority priority, bool isEnabled, String labelId, String ruleType
 });
 
 
@@ -282,15 +282,15 @@ class __$SmsRegexRuleCopyWithImpl<$Res>
 
 /// Create a copy of SmsRegexRule
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? action = null,Object? contentRegex = null,Object? senderRegex = freezed,Object? priority = freezed,Object? isEnabled = null,Object? labelId = null,Object? ruleType = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? action = null,Object? contentRegex = null,Object? senderRegex = freezed,Object? priority = null,Object? isEnabled = null,Object? labelId = null,Object? ruleType = null,}) {
   return _then(_SmsRegexRule(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,action: null == action ? _self.action : action // ignore: cast_nullable_to_non_nullable
 as RuleAction,contentRegex: null == contentRegex ? _self.contentRegex : contentRegex // ignore: cast_nullable_to_non_nullable
 as String,senderRegex: freezed == senderRegex ? _self.senderRegex : senderRegex // ignore: cast_nullable_to_non_nullable
-as String?,priority: freezed == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
-as RulePriority?,isEnabled: null == isEnabled ? _self.isEnabled : isEnabled // ignore: cast_nullable_to_non_nullable
+as String?,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
+as RulePriority,isEnabled: null == isEnabled ? _self.isEnabled : isEnabled // ignore: cast_nullable_to_non_nullable
 as bool,labelId: null == labelId ? _self.labelId : labelId // ignore: cast_nullable_to_non_nullable
 as String,ruleType: null == ruleType ? _self.ruleType : ruleType // ignore: cast_nullable_to_non_nullable
 as String,

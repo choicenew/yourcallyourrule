@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PhoneRule {
 
- String get id; String get name; RuleAction get action; PhoneNumber get phoneNumber; String get labelId; String get ruleType; RulePriority? get priority; bool get isEnabled; int get count; String? get avatar; String? get subscriptionId;
+ String get id; String get name; RuleAction get action; PhoneNumber get phoneNumber; String get labelId; String get ruleType; RulePriority get priority; bool get isEnabled; int get count; String? get avatar; String? get subscriptionId;
 /// Create a copy of PhoneRule
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -51,7 +51,7 @@ abstract mixin class $PhoneRuleCopyWith<$Res>  {
   factory $PhoneRuleCopyWith(PhoneRule value, $Res Function(PhoneRule) _then) = _$PhoneRuleCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, RuleAction action, PhoneNumber phoneNumber, String labelId, String ruleType, RulePriority? priority, bool isEnabled, int count, String? avatar, String? subscriptionId
+ String id, String name, RuleAction action, PhoneNumber phoneNumber, String labelId, String ruleType, RulePriority priority, bool isEnabled, int count, String? avatar, String? subscriptionId
 });
 
 
@@ -68,7 +68,7 @@ class _$PhoneRuleCopyWithImpl<$Res>
 
 /// Create a copy of PhoneRule
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? action = null,Object? phoneNumber = null,Object? labelId = null,Object? ruleType = null,Object? priority = freezed,Object? isEnabled = null,Object? count = null,Object? avatar = freezed,Object? subscriptionId = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? action = null,Object? phoneNumber = null,Object? labelId = null,Object? ruleType = null,Object? priority = null,Object? isEnabled = null,Object? count = null,Object? avatar = freezed,Object? subscriptionId = freezed,}) {
   return _then(PhoneRule(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -76,8 +76,8 @@ as String,action: null == action ? _self.action : action // ignore: cast_nullabl
 as RuleAction,phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
 as PhoneNumber,labelId: null == labelId ? _self.labelId : labelId // ignore: cast_nullable_to_non_nullable
 as String,ruleType: null == ruleType ? _self.ruleType : ruleType // ignore: cast_nullable_to_non_nullable
-as String,priority: freezed == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
-as RulePriority?,isEnabled: null == isEnabled ? _self.isEnabled : isEnabled // ignore: cast_nullable_to_non_nullable
+as String,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
+as RulePriority,isEnabled: null == isEnabled ? _self.isEnabled : isEnabled // ignore: cast_nullable_to_non_nullable
 as bool,count: null == count ? _self.count : count // ignore: cast_nullable_to_non_nullable
 as int,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
 as String?,subscriptionId: freezed == subscriptionId ? _self.subscriptionId : subscriptionId // ignore: cast_nullable_to_non_nullable
@@ -166,7 +166,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  RuleAction action,  PhoneNumber phoneNumber,  String labelId,  String ruleType,  RulePriority? priority,  bool isEnabled,  int count,  String? avatar,  String? subscriptionId)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  RuleAction action,  PhoneNumber phoneNumber,  String labelId,  String ruleType,  RulePriority priority,  bool isEnabled,  int count,  String? avatar,  String? subscriptionId)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PhoneRule() when $default != null:
 return $default(_that.id,_that.name,_that.action,_that.phoneNumber,_that.labelId,_that.ruleType,_that.priority,_that.isEnabled,_that.count,_that.avatar,_that.subscriptionId);case _:
@@ -187,7 +187,7 @@ return $default(_that.id,_that.name,_that.action,_that.phoneNumber,_that.labelId
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  RuleAction action,  PhoneNumber phoneNumber,  String labelId,  String ruleType,  RulePriority? priority,  bool isEnabled,  int count,  String? avatar,  String? subscriptionId)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  RuleAction action,  PhoneNumber phoneNumber,  String labelId,  String ruleType,  RulePriority priority,  bool isEnabled,  int count,  String? avatar,  String? subscriptionId)  $default,) {final _that = this;
 switch (_that) {
 case _PhoneRule():
 return $default(_that.id,_that.name,_that.action,_that.phoneNumber,_that.labelId,_that.ruleType,_that.priority,_that.isEnabled,_that.count,_that.avatar,_that.subscriptionId);case _:
@@ -207,7 +207,7 @@ return $default(_that.id,_that.name,_that.action,_that.phoneNumber,_that.labelId
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  RuleAction action,  PhoneNumber phoneNumber,  String labelId,  String ruleType,  RulePriority? priority,  bool isEnabled,  int count,  String? avatar,  String? subscriptionId)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  RuleAction action,  PhoneNumber phoneNumber,  String labelId,  String ruleType,  RulePriority priority,  bool isEnabled,  int count,  String? avatar,  String? subscriptionId)?  $default,) {final _that = this;
 switch (_that) {
 case _PhoneRule() when $default != null:
 return $default(_that.id,_that.name,_that.action,_that.phoneNumber,_that.labelId,_that.ruleType,_that.priority,_that.isEnabled,_that.count,_that.avatar,_that.subscriptionId);case _:
@@ -222,7 +222,7 @@ return $default(_that.id,_that.name,_that.action,_that.phoneNumber,_that.labelId
 
 
 class _PhoneRule extends PhoneRule implements RuleBase {
-  const _PhoneRule({required this.id, required this.name, required this.action, required this.phoneNumber, required this.labelId, this.ruleType = RuleTypeKeys.phone, this.priority, this.isEnabled = true, this.count = 0, this.avatar, this.subscriptionId}): super._();
+  const _PhoneRule({required this.id, required this.name, required this.action, required this.phoneNumber, required this.labelId, this.ruleType = RuleTypeKeys.phone, this.priority = RulePriority.medium, this.isEnabled = true, this.count = 0, this.avatar, this.subscriptionId}): super._();
   
 
 @override final  String id;
@@ -231,7 +231,7 @@ class _PhoneRule extends PhoneRule implements RuleBase {
 @override final  PhoneNumber phoneNumber;
 @override final  String labelId;
 @override@JsonKey() final  String ruleType;
-@override final  RulePriority? priority;
+@override@JsonKey() final  RulePriority priority;
 @override@JsonKey() final  bool isEnabled;
 @override@JsonKey() final  int count;
 @override final  String? avatar;
@@ -269,7 +269,7 @@ abstract mixin class _$PhoneRuleCopyWith<$Res> implements $PhoneRuleCopyWith<$Re
   factory _$PhoneRuleCopyWith(_PhoneRule value, $Res Function(_PhoneRule) _then) = __$PhoneRuleCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, RuleAction action, PhoneNumber phoneNumber, String labelId, String ruleType, RulePriority? priority, bool isEnabled, int count, String? avatar, String? subscriptionId
+ String id, String name, RuleAction action, PhoneNumber phoneNumber, String labelId, String ruleType, RulePriority priority, bool isEnabled, int count, String? avatar, String? subscriptionId
 });
 
 
@@ -286,7 +286,7 @@ class __$PhoneRuleCopyWithImpl<$Res>
 
 /// Create a copy of PhoneRule
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? action = null,Object? phoneNumber = null,Object? labelId = null,Object? ruleType = null,Object? priority = freezed,Object? isEnabled = null,Object? count = null,Object? avatar = freezed,Object? subscriptionId = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? action = null,Object? phoneNumber = null,Object? labelId = null,Object? ruleType = null,Object? priority = null,Object? isEnabled = null,Object? count = null,Object? avatar = freezed,Object? subscriptionId = freezed,}) {
   return _then(_PhoneRule(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -294,8 +294,8 @@ as String,action: null == action ? _self.action : action // ignore: cast_nullabl
 as RuleAction,phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
 as PhoneNumber,labelId: null == labelId ? _self.labelId : labelId // ignore: cast_nullable_to_non_nullable
 as String,ruleType: null == ruleType ? _self.ruleType : ruleType // ignore: cast_nullable_to_non_nullable
-as String,priority: freezed == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
-as RulePriority?,isEnabled: null == isEnabled ? _self.isEnabled : isEnabled // ignore: cast_nullable_to_non_nullable
+as String,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
+as RulePriority,isEnabled: null == isEnabled ? _self.isEnabled : isEnabled // ignore: cast_nullable_to_non_nullable
 as bool,count: null == count ? _self.count : count // ignore: cast_nullable_to_non_nullable
 as int,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
 as String?,subscriptionId: freezed == subscriptionId ? _self.subscriptionId : subscriptionId // ignore: cast_nullable_to_non_nullable

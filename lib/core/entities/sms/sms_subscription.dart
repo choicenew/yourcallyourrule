@@ -23,6 +23,9 @@ abstract class SmsSubscription with _$SmsSubscription implements BaseEntity {
     @Default(SubscriptionTableKeys.sms) String tableType,
   }) = _SmsSubscription;
 
+  @override
+  String toJson() => toMap().toString();
+
   /// 转换为 Map
   @override
   Map<String, dynamic> toMap() {

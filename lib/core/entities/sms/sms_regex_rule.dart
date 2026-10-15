@@ -18,7 +18,7 @@ abstract class SmsRegexRule with _$SmsRegexRule implements RuleBase {
     required RuleAction action,
     required String contentRegex,
     String? senderRegex,
-    RulePriority? priority,
+    @Default(RulePriority.medium) RulePriority priority,
     @Default(true) bool isEnabled,
     @Default('') String labelId,
     @Default(RuleTypeKeys.smsRegex) String ruleType,
@@ -29,6 +29,9 @@ abstract class SmsRegexRule with _$SmsRegexRule implements RuleBase {
 
   /// 编译后的发送者正则表达式（可选）
   RegExp? get senderPattern => senderRegex != null ? RegExp(senderRegex!, caseSensitive: false) : null;
+
+  @override
+  String toJson() => toMap().toString();
 
   /// 短信规则匹配逻辑（接收内容与可选发送者）
   @override
@@ -47,7 +50,7 @@ abstract class SmsRegexRule with _$SmsRegexRule implements RuleBase {
       'contentRegex': contentRegex,
       'senderRegex': senderRegex,
       'action': action.toString(),
-      'priority': priority?.value ?? 0,
+      'priority': priority.value,
       'isEnabled': isEnabled ? 1 : 0,
       'ruleType': ruleType,
       'labelId': labelId,
