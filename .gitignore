@@ -71,3 +71,6 @@ i18n_reports/
 _l10n_backups/
 lib/l10n/untranslated.json
 
+# Lock files
+pubspec.lock
+
