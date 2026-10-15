@@ -25,8 +25,8 @@ abstract class BaseEntity {
     };
   }
 
-  // 将实体转换为JSON字符串
-  String toJson() {
-    return toMap().toString();
+  // 将实体转换为JSON Map
+  Map<String, dynamic> toJson() {
+    return toMap();
   }
 }

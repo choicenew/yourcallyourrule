@@ -1,5 +1,6 @@
-// 规则优先级值对象，用于表示规则的优先级
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 规则优先级值对象，用于表示规则的优先级
 class RulePriority {
   // 优先级数值，数值越大优先级越高
   final int value;
@@ -43,6 +44,24 @@ class RulePriority {
   @override
   String toString() => 'Priority($value)';
   
-  // 从整数创建优先级
-  factory RulePriority.fromInt(int value) => RulePriority(value);
+  // 从整数或动态类型创建优先级
+  factory RulePriority.fromInt(dynamic raw) {
+    if (raw == null) return RulePriority.medium;
+    if (raw is num) return RulePriority(raw.toInt());
+    final parsed = int.tryParse(raw.toString());
+    return RulePriority(parsed ?? RulePriority.medium.value);
+  }
+}
+
+/// RulePriority <-> dynamic 自动序列化转换器
+class RulePriorityConverter implements JsonConverter<RulePriority, dynamic> {
+  const RulePriorityConverter();
+
+  @override
+  RulePriority fromJson(dynamic json) {
+    return RulePriority.fromInt(json);
+  }
+
+  @override
+  dynamic toJson(RulePriority object) => object.value;
 }

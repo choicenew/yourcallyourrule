@@ -22,7 +22,7 @@ abstract class ContactSubscription with _$ContactSubscription implements BaseEnt
   }) = _ContactSubscription;
 
   @override
-  String toJson() => toMap().toString();
+  Map<String, dynamic> toJson() => toMap();
 
   /// 转换为 Map
   @override

@@ -6,8 +6,9 @@ import 'rule_base.dart';
 import 'rule_type.dart';
 
 part 'sim_slot_rule.freezed.dart';
+part 'sim_slot_rule.g.dart';
 
-/// SIM卡槽位规则实体 (@freezed 自动生成不可变数据类)
+/// SIM卡槽位规则实体 (@freezed + @JsonSerializable 100% 自动生成序列化)
 @freezed
 abstract class SimSlotRule with _$SimSlotRule implements RuleBase {
   const SimSlotRule._();
@@ -16,13 +17,13 @@ abstract class SimSlotRule with _$SimSlotRule implements RuleBase {
   const factory SimSlotRule({
     required String id,
     required String name,
-    required PhoneNumber phoneNumber,
+    @PhoneNumberConverter() required PhoneNumber phoneNumber,
     required int simSlotIndex,
-    @Default(RulePriority.medium) RulePriority priority,
+    @RulePriorityConverter() @Default(RulePriority.medium) RulePriority priority,
     @Default('') String labelId,
     String? avatar,
     @Default(RuleTypeKeys.simSlot) String ruleType,
-    @Default(RuleAction.block) RuleAction action,
+    @RuleActionConverter() @Default(RuleAction.block) RuleAction action,
     @Default(true) bool isEnabled,
   }) = _SimSlotRule;
 
@@ -32,39 +33,14 @@ abstract class SimSlotRule with _$SimSlotRule implements RuleBase {
     return isEnabled && phoneNumber.value == input;
   }
 
-  @override
-  String toJson() => toMap().toString();
+  /// 100% 自动生成 JSON 反序列化
+  factory SimSlotRule.fromJson(Map<String, dynamic> json) =>
+      _$SimSlotRuleFromJson(json);
 
-  /// 格式化转换 Map
+  /// 转换 Map (委托给自动生成的 toJson)
   @override
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'priority': priority.value,
-      'phoneNumber': phoneNumber.value,
-      'simSlotIndex': simSlotIndex,
-      'labelId': labelId,
-      'avatar': avatar,
-      'isEnabled': isEnabled ? 1 : 0,
-      'ruleType': ruleType,
-      'action': action.toString(),
-    };
-  }
+  Map<String, dynamic> toMap() => toJson();
 
-  /// 从 Map 反序列化生成实体
-  factory SimSlotRule.fromMap(Map<String, dynamic> map) {
-    return SimSlotRule(
-      id: map['id']?.toString() ?? '',
-      name: map['name']?.toString() ?? '',
-      priority: RulePriority.fromInt(map['priority']),
-      phoneNumber: PhoneNumber.fromString(map['phoneNumber']?.toString() ?? ''),
-      simSlotIndex: (map['simSlotIndex'] as num?)?.toInt() ?? 0,
-      labelId: map['labelId']?.toString() ?? '',
-      avatar: map['avatar']?.toString(),
-      ruleType: map['ruleType']?.toString() ?? RuleTypeKeys.simSlot,
-      action: RuleAction.fromString(map['action']),
-      isEnabled: (map['isEnabled'] ?? 1) == 1 || map['isEnabled'] == true,
-    );
-  }
+  /// 从 Map 反序列化
+  factory SimSlotRule.fromMap(Map<String, dynamic> map) => SimSlotRule.fromJson(map);
 }

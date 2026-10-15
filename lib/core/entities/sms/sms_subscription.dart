@@ -24,7 +24,7 @@ abstract class SmsSubscription with _$SmsSubscription implements BaseEntity {
   }) = _SmsSubscription;
 
   @override
-  String toJson() => toMap().toString();
+  Map<String, dynamic> toJson() => toMap();
 
   /// 转换为 Map
   @override

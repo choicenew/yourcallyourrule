@@ -5,8 +5,9 @@ import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 
 part 'sms_regex_rule.freezed.dart';
+part 'sms_regex_rule.g.dart';
 
-/// 短信正则规则领域实体 (@freezed 自动生成不可变数据类)
+/// 短信正则规则领域实体 (@freezed + @JsonSerializable 100% 自动生成序列化)
 @freezed
 abstract class SmsRegexRule with _$SmsRegexRule implements RuleBase {
   const SmsRegexRule._();
@@ -15,10 +16,10 @@ abstract class SmsRegexRule with _$SmsRegexRule implements RuleBase {
   const factory SmsRegexRule({
     required String id,
     required String name,
-    required RuleAction action,
+    @RuleActionConverter() required RuleAction action,
     required String contentRegex,
     String? senderRegex,
-    @Default(RulePriority.medium) RulePriority priority,
+    @RulePriorityConverter() @Default(RulePriority.medium) RulePriority priority,
     @Default(true) bool isEnabled,
     @Default('') String labelId,
     @Default(RuleTypeKeys.smsRegex) String ruleType,
@@ -30,9 +31,6 @@ abstract class SmsRegexRule with _$SmsRegexRule implements RuleBase {
   /// 编译后的发送者正则表达式（可选）
   RegExp? get senderPattern => senderRegex != null ? RegExp(senderRegex!, caseSensitive: false) : null;
 
-  @override
-  String toJson() => toMap().toString();
-
   /// 短信规则匹配逻辑（接收内容与可选发送者）
   @override
   bool matches(String content, [String? sender]) {
@@ -41,34 +39,14 @@ abstract class SmsRegexRule with _$SmsRegexRule implements RuleBase {
             (sender != null && senderPattern?.hasMatch(sender) == true));
   }
 
-  /// 格式化转换 Map
-  @override
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'contentRegex': contentRegex,
-      'senderRegex': senderRegex,
-      'action': action.toString(),
-      'priority': priority.value,
-      'isEnabled': isEnabled ? 1 : 0,
-      'ruleType': ruleType,
-      'labelId': labelId,
-    };
-  }
+  /// 100% 自动生成 JSON 反序列化
+  factory SmsRegexRule.fromJson(Map<String, dynamic> json) =>
+      _$SmsRegexRuleFromJson(json);
 
-  /// 从 Map 反序列化生成实体
-  factory SmsRegexRule.fromMap(Map<String, dynamic> map) {
-    return SmsRegexRule(
-      id: map['id']?.toString() ?? '',
-      name: map['name']?.toString() ?? '',
-      contentRegex: map['contentRegex']?.toString() ?? '',
-      senderRegex: map['senderRegex']?.toString(),
-      action: RuleAction.fromString(map['action']),
-      priority: RulePriority.fromInt(map['priority']),
-      isEnabled: (map['isEnabled'] ?? 1) == 1 || map['isEnabled'] == true,
-      labelId: map['labelId']?.toString() ?? '',
-      ruleType: map['ruleType']?.toString() ?? RuleTypeKeys.smsRegex,
-    );
-  }
+  /// 转换 Map (委托给自动生成的 toJson)
+  @override
+  Map<String, dynamic> toMap() => toJson();
+
+  /// 从 Map 反序列化
+  factory SmsRegexRule.fromMap(Map<String, dynamic> map) => SmsRegexRule.fromJson(map);
 }

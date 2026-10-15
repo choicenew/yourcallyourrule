@@ -6,8 +6,9 @@ import 'rule_base.dart';
 import 'rule_type.dart';
 
 part 'phone_rule.freezed.dart';
+part 'phone_rule.g.dart';
 
-/// 电话号码过滤规则领域实体 (@freezed 自动生成不可变数据类)
+/// 电话号码过滤规则领域实体 (@freezed + @JsonSerializable 100% 自动生成序列化)
 @freezed
 abstract class PhoneRule with _$PhoneRule implements RuleBase {
   const PhoneRule._();
@@ -16,11 +17,11 @@ abstract class PhoneRule with _$PhoneRule implements RuleBase {
   const factory PhoneRule({
     required String id,
     required String name,
-    required RuleAction action,
-    required PhoneNumber phoneNumber,
+    @RuleActionConverter() required RuleAction action,
+    @PhoneNumberConverter() required PhoneNumber phoneNumber,
     required String labelId,
     @Default(RuleTypeKeys.phone) String ruleType,
-    @Default(RulePriority.medium) RulePriority priority,
+    @RulePriorityConverter() @Default(RulePriority.medium) RulePriority priority,
     @Default(true) bool isEnabled,
     @Default(0) int count,
     String? avatar,
@@ -30,47 +31,20 @@ abstract class PhoneRule with _$PhoneRule implements RuleBase {
   /// 计算属性：判断是否关联订阅
   bool get isSubscribed => subscriptionId != null;
 
-  @override
-  String toJson() => toMap().toString();
-
   /// 号码过滤匹配逻辑
   @override
   bool matches(String input) {
     return isEnabled && phoneNumber.value == input;
   }
 
-  /// 格式化转换 Map
-  @override
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'action': action.toString(),
-      'phoneNumber': phoneNumber.value,
-      'labelId': labelId,
-      'priority': priority.value,
-      'isEnabled': isEnabled ? 1 : 0,
-      'count': count,
-      'avatar': avatar,
-      'ruleType': ruleType,
-      'subscriptionId': subscriptionId,
-    };
-  }
+  /// 100% 自动生成 JSON 反序列化
+  factory PhoneRule.fromJson(Map<String, dynamic> json) =>
+      _$PhoneRuleFromJson(json);
 
-  /// 从 Map 反序列化生成实体
-  factory PhoneRule.fromMap(Map<String, dynamic> map) {
-    return PhoneRule(
-      id: map['id']?.toString() ?? '',
-      name: map['name']?.toString() ?? '',
-      priority: RulePriority.fromInt(map['priority']),
-      action: RuleAction.fromString(map['action']),
-      phoneNumber: PhoneNumber.fromString(map['phoneNumber']?.toString() ?? ''),
-      labelId: map['labelId']?.toString() ?? '',
-      isEnabled: (map['isEnabled'] ?? 1) == 1 || map['isEnabled'] == true,
-      count: (map['count'] as num?)?.toInt() ?? 0,
-      avatar: map['avatar']?.toString(),
-      ruleType: map['ruleType']?.toString() ?? RuleTypeKeys.phone,
-      subscriptionId: map['subscriptionId']?.toString(),
-    );
-  }
+  /// 转换 Map (委托给自动生成的 toJson)
+  @override
+  Map<String, dynamic> toMap() => toJson();
+
+  /// 从 Map 反序列化
+  factory PhoneRule.fromMap(Map<String, dynamic> map) => PhoneRule.fromJson(map);
 }

@@ -6,8 +6,9 @@ import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 
 part 'allowed_blocked_rule.freezed.dart';
+part 'allowed_blocked_rule.g.dart';
 
-/// 允许/阻止规则领域实体 (@freezed 自动生成不可变数据类)
+/// 允许/阻止规则领域实体 (@freezed + @JsonSerializable 100% 自动生成序列化)
 @freezed
 abstract class AllowedBlockedRule with _$AllowedBlockedRule implements RuleBase {
   const AllowedBlockedRule._();
@@ -16,11 +17,11 @@ abstract class AllowedBlockedRule with _$AllowedBlockedRule implements RuleBase 
   const factory AllowedBlockedRule({
     required String id,
     required String name,
-    required RuleAction action,
-    required PhoneNumber phoneNumber,
+    @RuleActionConverter() required RuleAction action,
+    @PhoneNumberConverter() required PhoneNumber phoneNumber,
     required String labelId,
     @Default(RuleTypeKeys.allowBlock) String ruleType,
-    @Default(RulePriority.high) RulePriority priority,
+    @RulePriorityConverter() @Default(RulePriority.high) RulePriority priority,
     @Default(true) bool isEnabled,
     @Default(0) int count,
     String? avatar,
@@ -30,47 +31,29 @@ abstract class AllowedBlockedRule with _$AllowedBlockedRule implements RuleBase 
   /// 计算属性：判断是否关联订阅
   bool get isSubscribed => subscriptionId != null;
 
-  @override
-  String toJson() => toMap().toString();
-
   /// 号码过滤匹配逻辑
   @override
   bool matches(String input) {
     return isEnabled && phoneNumber.value == input;
   }
 
-  /// 格式化转换 Map
-  @override
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'name': name,
-      'action': action.toString(),
-      'phoneNumber': phoneNumber.value,
-      'labelId': labelId,
-      'priority': priority.value,
-      'isEnabled': isEnabled ? 1 : 0,
-      'count': count,
-      'avatar': avatar,
-      'ruleType': ruleType,
-      'subscriptionId': subscriptionId,
-    };
-  }
+  /// 100% 自动生成 JSON 反序列化
+  factory AllowedBlockedRule.fromJson(Map<String, dynamic> json) =>
+      _$AllowedBlockedRuleFromJson(json);
 
-  /// 从 Map 反序列化生成实体
+  /// 转换 Map (委托给自动生成的 toJson)
+  @override
+  Map<String, dynamic> toMap() => toJson();
+
+  /// 从 Map 反序列化 (注入动态默认优先级：ALLOW = 100 > BLOCK = 50)
   factory AllowedBlockedRule.fromMap(Map<String, dynamic> map) {
-    return AllowedBlockedRule(
-      id: map['id']?.toString() ?? '',
-      name: map['name']?.toString() ?? '',
-      priority: RulePriority.fromInt(map['priority']),
-      action: RuleAction.fromString(map['action']),
-      phoneNumber: PhoneNumber.fromString(map['phoneNumber']?.toString() ?? ''),
-      labelId: map['labelId']?.toString() ?? '',
-      isEnabled: (map['isEnabled'] ?? 1) == 1 || map['isEnabled'] == true,
-      count: (map['count'] as num?)?.toInt() ?? 0,
-      avatar: map['avatar']?.toString(),
-      ruleType: map['ruleType']?.toString() ?? RuleTypeKeys.allowBlock,
-      subscriptionId: map['subscriptionId']?.toString(),
-    );
+    final jsonMap = Map<String, dynamic>.from(map);
+    if (jsonMap['priority'] == null) {
+      final action = RuleAction.fromString(jsonMap['action']?.toString() ?? '');
+      jsonMap['priority'] = action.type == RuleActionType.allow
+          ? RulePriority.highest.value
+          : RulePriority.veryHigh.value;
+    }
+    return AllowedBlockedRule.fromJson(jsonMap);
   }
 }

@@ -12,16 +12,19 @@ part of 'sim_slot_rule.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
+
 /// @nodoc
 mixin _$SimSlotRule {
 
- String get id; String get name; PhoneNumber get phoneNumber; int get simSlotIndex; RulePriority get priority; String get labelId; String? get avatar; String get ruleType; RuleAction get action; bool get isEnabled;
+ String get id; String get name;@PhoneNumberConverter() PhoneNumber get phoneNumber; int get simSlotIndex;@RulePriorityConverter() RulePriority get priority; String get labelId; String? get avatar; String get ruleType;@RuleActionConverter() RuleAction get action; bool get isEnabled;
 /// Create a copy of SimSlotRule
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 $SimSlotRuleCopyWith<SimSlotRule> get copyWith => _$SimSlotRuleCopyWithImpl<SimSlotRule>(this as SimSlotRule, _$identity);
 
+  /// Serializes this SimSlotRule to a JSON map.
+  Map<String, dynamic> toJson();
 
 
 @override
@@ -30,7 +33,7 @@ bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is SimSlotRule&&super == other&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.phoneNumber, _this.phoneNumber) || other.phoneNumber == _this.phoneNumber)&&(identical(other.simSlotIndex, _this.simSlotIndex) || other.simSlotIndex == _this.simSlotIndex)&&(identical(other.priority, _this.priority) || other.priority == _this.priority)&&(identical(other.labelId, _this.labelId) || other.labelId == _this.labelId)&&(identical(other.avatar, _this.avatar) || other.avatar == _this.avatar)&&(identical(other.ruleType, _this.ruleType) || other.ruleType == _this.ruleType)&&(identical(other.action, _this.action) || other.action == _this.action)&&(identical(other.isEnabled, _this.isEnabled) || other.isEnabled == _this.isEnabled));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as SimSlotRule;
@@ -51,7 +54,7 @@ abstract mixin class $SimSlotRuleCopyWith<$Res>  {
   factory $SimSlotRuleCopyWith(SimSlotRule value, $Res Function(SimSlotRule) _then) = _$SimSlotRuleCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, PhoneNumber phoneNumber, int simSlotIndex, RulePriority priority, String labelId, String? avatar, String ruleType, RuleAction action, bool isEnabled
+ String id, String name,@PhoneNumberConverter() PhoneNumber phoneNumber, int simSlotIndex,@RulePriorityConverter() RulePriority priority, String labelId, String? avatar, String ruleType,@RuleActionConverter() RuleAction action, bool isEnabled
 });
 
 
@@ -165,7 +168,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  PhoneNumber phoneNumber,  int simSlotIndex,  RulePriority priority,  String labelId,  String? avatar,  String ruleType,  RuleAction action,  bool isEnabled)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name, @PhoneNumberConverter()  PhoneNumber phoneNumber,  int simSlotIndex, @RulePriorityConverter()  RulePriority priority,  String labelId,  String? avatar,  String ruleType, @RuleActionConverter()  RuleAction action,  bool isEnabled)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SimSlotRule() when $default != null:
 return $default(_that.id,_that.name,_that.phoneNumber,_that.simSlotIndex,_that.priority,_that.labelId,_that.avatar,_that.ruleType,_that.action,_that.isEnabled);case _:
@@ -186,7 +189,7 @@ return $default(_that.id,_that.name,_that.phoneNumber,_that.simSlotIndex,_that.p
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  PhoneNumber phoneNumber,  int simSlotIndex,  RulePriority priority,  String labelId,  String? avatar,  String ruleType,  RuleAction action,  bool isEnabled)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name, @PhoneNumberConverter()  PhoneNumber phoneNumber,  int simSlotIndex, @RulePriorityConverter()  RulePriority priority,  String labelId,  String? avatar,  String ruleType, @RuleActionConverter()  RuleAction action,  bool isEnabled)  $default,) {final _that = this;
 switch (_that) {
 case _SimSlotRule():
 return $default(_that.id,_that.name,_that.phoneNumber,_that.simSlotIndex,_that.priority,_that.labelId,_that.avatar,_that.ruleType,_that.action,_that.isEnabled);case _:
@@ -206,7 +209,7 @@ return $default(_that.id,_that.name,_that.phoneNumber,_that.simSlotIndex,_that.p
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  PhoneNumber phoneNumber,  int simSlotIndex,  RulePriority priority,  String labelId,  String? avatar,  String ruleType,  RuleAction action,  bool isEnabled)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name, @PhoneNumberConverter()  PhoneNumber phoneNumber,  int simSlotIndex, @RulePriorityConverter()  RulePriority priority,  String labelId,  String? avatar,  String ruleType, @RuleActionConverter()  RuleAction action,  bool isEnabled)?  $default,) {final _that = this;
 switch (_that) {
 case _SimSlotRule() when $default != null:
 return $default(_that.id,_that.name,_that.phoneNumber,_that.simSlotIndex,_that.priority,_that.labelId,_that.avatar,_that.ruleType,_that.action,_that.isEnabled);case _:
@@ -218,21 +221,21 @@ return $default(_that.id,_that.name,_that.phoneNumber,_that.simSlotIndex,_that.p
 }
 
 /// @nodoc
-
+@JsonSerializable()
 
 class _SimSlotRule extends SimSlotRule implements RuleBase {
-  const _SimSlotRule({required this.id, required this.name, required this.phoneNumber, required this.simSlotIndex, this.priority = RulePriority.medium, this.labelId = '', this.avatar, this.ruleType = RuleTypeKeys.simSlot, this.action = RuleAction.block, this.isEnabled = true}): super._();
-  
+  const _SimSlotRule({required this.id, required this.name, @PhoneNumberConverter() required this.phoneNumber, required this.simSlotIndex, @RulePriorityConverter() this.priority = RulePriority.medium, this.labelId = '', this.avatar, this.ruleType = RuleTypeKeys.simSlot, @RuleActionConverter() this.action = RuleAction.block, this.isEnabled = true}): super._();
+  factory _SimSlotRule.fromJson(Map<String, dynamic> json) => _$SimSlotRuleFromJson(json);
 
 @override final  String id;
 @override final  String name;
-@override final  PhoneNumber phoneNumber;
+@override@PhoneNumberConverter() final  PhoneNumber phoneNumber;
 @override final  int simSlotIndex;
-@override@JsonKey() final  RulePriority priority;
+@override@JsonKey()@RulePriorityConverter() final  RulePriority priority;
 @override@JsonKey() final  String labelId;
 @override final  String? avatar;
 @override@JsonKey() final  String ruleType;
-@override@JsonKey() final  RuleAction action;
+@override@JsonKey()@RuleActionConverter() final  RuleAction action;
 @override@JsonKey() final  bool isEnabled;
 
 /// Create a copy of SimSlotRule
@@ -241,14 +244,17 @@ class _SimSlotRule extends SimSlotRule implements RuleBase {
 @pragma('vm:prefer-inline')
 _$SimSlotRuleCopyWith<_SimSlotRule> get copyWith => __$SimSlotRuleCopyWithImpl<_SimSlotRule>(this, _$identity);
 
-
+@override
+Map<String, dynamic> toJson() {
+  return _$SimSlotRuleToJson(this, );
+}
 
 @override
 bool operator ==(Object other) {
     return identical(this, other) || (other.runtimeType == runtimeType&&other is _SimSlotRule&&super == other&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.simSlotIndex, simSlotIndex) || other.simSlotIndex == simSlotIndex)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.labelId, labelId) || other.labelId == labelId)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.ruleType, ruleType) || other.ruleType == ruleType)&&(identical(other.action, action) || other.action == action)&&(identical(other.isEnabled, isEnabled) || other.isEnabled == isEnabled));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
     return Object.hash(runtimeType,super.hashCode,id,name,phoneNumber,simSlotIndex,priority,labelId,avatar,ruleType,action,isEnabled);
@@ -267,7 +273,7 @@ abstract mixin class _$SimSlotRuleCopyWith<$Res> implements $SimSlotRuleCopyWith
   factory _$SimSlotRuleCopyWith(_SimSlotRule value, $Res Function(_SimSlotRule) _then) = __$SimSlotRuleCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, PhoneNumber phoneNumber, int simSlotIndex, RulePriority priority, String labelId, String? avatar, String ruleType, RuleAction action, bool isEnabled
+ String id, String name,@PhoneNumberConverter() PhoneNumber phoneNumber, int simSlotIndex,@RulePriorityConverter() RulePriority priority, String labelId, String? avatar, String ruleType,@RuleActionConverter() RuleAction action, bool isEnabled
 });
 
 

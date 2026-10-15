@@ -35,7 +35,7 @@ abstract class Subscription with _$Subscription implements BaseEntity {
   }
 
   @override
-  String toJson() => toMap().toString();
+  Map<String, dynamic> toJson() => toMap();
 
   /// 转换为 Map
   @override

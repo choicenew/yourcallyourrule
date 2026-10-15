@@ -1,3 +1,5 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 // 仅保留核心电话号码存储功能
 class PhoneNumber {
   final String value;
@@ -24,4 +26,18 @@ class PhoneNumber {
 
   @override
   String toString() => value;
+}
+
+/// PhoneNumber <-> String 自动序列化转换器
+class PhoneNumberConverter implements JsonConverter<PhoneNumber, String> {
+  const PhoneNumberConverter();
+
+  @override
+  PhoneNumber fromJson(dynamic json) {
+    if (json == null) return const PhoneNumber('');
+    return PhoneNumber.fromString(json.toString());
+  }
+
+  @override
+  String toJson(PhoneNumber object) => object.value;
 }

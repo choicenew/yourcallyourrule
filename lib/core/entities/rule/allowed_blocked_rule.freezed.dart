@@ -12,16 +12,19 @@ part of 'allowed_blocked_rule.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
+
 /// @nodoc
 mixin _$AllowedBlockedRule {
 
- String get id; String get name; RuleAction get action; PhoneNumber get phoneNumber; String get labelId; String get ruleType; RulePriority get priority; bool get isEnabled; int get count; String? get avatar; String? get subscriptionId;
+ String get id; String get name;@RuleActionConverter() RuleAction get action;@PhoneNumberConverter() PhoneNumber get phoneNumber; String get labelId; String get ruleType;@RulePriorityConverter() RulePriority get priority; bool get isEnabled; int get count; String? get avatar; String? get subscriptionId;
 /// Create a copy of AllowedBlockedRule
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 $AllowedBlockedRuleCopyWith<AllowedBlockedRule> get copyWith => _$AllowedBlockedRuleCopyWithImpl<AllowedBlockedRule>(this as AllowedBlockedRule, _$identity);
 
+  /// Serializes this AllowedBlockedRule to a JSON map.
+  Map<String, dynamic> toJson();
 
 
 @override
@@ -30,7 +33,7 @@ bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is AllowedBlockedRule&&super == other&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.action, _this.action) || other.action == _this.action)&&(identical(other.phoneNumber, _this.phoneNumber) || other.phoneNumber == _this.phoneNumber)&&(identical(other.labelId, _this.labelId) || other.labelId == _this.labelId)&&(identical(other.ruleType, _this.ruleType) || other.ruleType == _this.ruleType)&&(identical(other.priority, _this.priority) || other.priority == _this.priority)&&(identical(other.isEnabled, _this.isEnabled) || other.isEnabled == _this.isEnabled)&&(identical(other.count, _this.count) || other.count == _this.count)&&(identical(other.avatar, _this.avatar) || other.avatar == _this.avatar)&&(identical(other.subscriptionId, _this.subscriptionId) || other.subscriptionId == _this.subscriptionId));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as AllowedBlockedRule;
@@ -51,7 +54,7 @@ abstract mixin class $AllowedBlockedRuleCopyWith<$Res>  {
   factory $AllowedBlockedRuleCopyWith(AllowedBlockedRule value, $Res Function(AllowedBlockedRule) _then) = _$AllowedBlockedRuleCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, RuleAction action, PhoneNumber phoneNumber, String labelId, String ruleType, RulePriority priority, bool isEnabled, int count, String? avatar, String? subscriptionId
+ String id, String name,@RuleActionConverter() RuleAction action,@PhoneNumberConverter() PhoneNumber phoneNumber, String labelId, String ruleType,@RulePriorityConverter() RulePriority priority, bool isEnabled, int count, String? avatar, String? subscriptionId
 });
 
 
@@ -166,7 +169,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  RuleAction action,  PhoneNumber phoneNumber,  String labelId,  String ruleType,  RulePriority priority,  bool isEnabled,  int count,  String? avatar,  String? subscriptionId)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name, @RuleActionConverter()  RuleAction action, @PhoneNumberConverter()  PhoneNumber phoneNumber,  String labelId,  String ruleType, @RulePriorityConverter()  RulePriority priority,  bool isEnabled,  int count,  String? avatar,  String? subscriptionId)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AllowedBlockedRule() when $default != null:
 return $default(_that.id,_that.name,_that.action,_that.phoneNumber,_that.labelId,_that.ruleType,_that.priority,_that.isEnabled,_that.count,_that.avatar,_that.subscriptionId);case _:
@@ -187,7 +190,7 @@ return $default(_that.id,_that.name,_that.action,_that.phoneNumber,_that.labelId
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  RuleAction action,  PhoneNumber phoneNumber,  String labelId,  String ruleType,  RulePriority priority,  bool isEnabled,  int count,  String? avatar,  String? subscriptionId)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name, @RuleActionConverter()  RuleAction action, @PhoneNumberConverter()  PhoneNumber phoneNumber,  String labelId,  String ruleType, @RulePriorityConverter()  RulePriority priority,  bool isEnabled,  int count,  String? avatar,  String? subscriptionId)  $default,) {final _that = this;
 switch (_that) {
 case _AllowedBlockedRule():
 return $default(_that.id,_that.name,_that.action,_that.phoneNumber,_that.labelId,_that.ruleType,_that.priority,_that.isEnabled,_that.count,_that.avatar,_that.subscriptionId);case _:
@@ -207,7 +210,7 @@ return $default(_that.id,_that.name,_that.action,_that.phoneNumber,_that.labelId
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  RuleAction action,  PhoneNumber phoneNumber,  String labelId,  String ruleType,  RulePriority priority,  bool isEnabled,  int count,  String? avatar,  String? subscriptionId)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name, @RuleActionConverter()  RuleAction action, @PhoneNumberConverter()  PhoneNumber phoneNumber,  String labelId,  String ruleType, @RulePriorityConverter()  RulePriority priority,  bool isEnabled,  int count,  String? avatar,  String? subscriptionId)?  $default,) {final _that = this;
 switch (_that) {
 case _AllowedBlockedRule() when $default != null:
 return $default(_that.id,_that.name,_that.action,_that.phoneNumber,_that.labelId,_that.ruleType,_that.priority,_that.isEnabled,_that.count,_that.avatar,_that.subscriptionId);case _:
@@ -219,19 +222,19 @@ return $default(_that.id,_that.name,_that.action,_that.phoneNumber,_that.labelId
 }
 
 /// @nodoc
-
+@JsonSerializable()
 
 class _AllowedBlockedRule extends AllowedBlockedRule implements RuleBase {
-  const _AllowedBlockedRule({required this.id, required this.name, required this.action, required this.phoneNumber, required this.labelId, this.ruleType = RuleTypeKeys.allowBlock, this.priority = RulePriority.high, this.isEnabled = true, this.count = 0, this.avatar, this.subscriptionId}): super._();
-  
+  const _AllowedBlockedRule({required this.id, required this.name, @RuleActionConverter() required this.action, @PhoneNumberConverter() required this.phoneNumber, required this.labelId, this.ruleType = RuleTypeKeys.allowBlock, @RulePriorityConverter() this.priority = RulePriority.high, this.isEnabled = true, this.count = 0, this.avatar, this.subscriptionId}): super._();
+  factory _AllowedBlockedRule.fromJson(Map<String, dynamic> json) => _$AllowedBlockedRuleFromJson(json);
 
 @override final  String id;
 @override final  String name;
-@override final  RuleAction action;
-@override final  PhoneNumber phoneNumber;
+@override@RuleActionConverter() final  RuleAction action;
+@override@PhoneNumberConverter() final  PhoneNumber phoneNumber;
 @override final  String labelId;
 @override@JsonKey() final  String ruleType;
-@override@JsonKey() final  RulePriority priority;
+@override@JsonKey()@RulePriorityConverter() final  RulePriority priority;
 @override@JsonKey() final  bool isEnabled;
 @override@JsonKey() final  int count;
 @override final  String? avatar;
@@ -243,14 +246,17 @@ class _AllowedBlockedRule extends AllowedBlockedRule implements RuleBase {
 @pragma('vm:prefer-inline')
 _$AllowedBlockedRuleCopyWith<_AllowedBlockedRule> get copyWith => __$AllowedBlockedRuleCopyWithImpl<_AllowedBlockedRule>(this, _$identity);
 
-
+@override
+Map<String, dynamic> toJson() {
+  return _$AllowedBlockedRuleToJson(this, );
+}
 
 @override
 bool operator ==(Object other) {
     return identical(this, other) || (other.runtimeType == runtimeType&&other is _AllowedBlockedRule&&super == other&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.action, action) || other.action == action)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.labelId, labelId) || other.labelId == labelId)&&(identical(other.ruleType, ruleType) || other.ruleType == ruleType)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.isEnabled, isEnabled) || other.isEnabled == isEnabled)&&(identical(other.count, count) || other.count == count)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.subscriptionId, subscriptionId) || other.subscriptionId == subscriptionId));
 }
 
-
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
     return Object.hash(runtimeType,super.hashCode,id,name,action,phoneNumber,labelId,ruleType,priority,isEnabled,count,avatar,subscriptionId);
@@ -269,7 +275,7 @@ abstract mixin class _$AllowedBlockedRuleCopyWith<$Res> implements $AllowedBlock
   factory _$AllowedBlockedRuleCopyWith(_AllowedBlockedRule value, $Res Function(_AllowedBlockedRule) _then) = __$AllowedBlockedRuleCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, RuleAction action, PhoneNumber phoneNumber, String labelId, String ruleType, RulePriority priority, bool isEnabled, int count, String? avatar, String? subscriptionId
+ String id, String name,@RuleActionConverter() RuleAction action,@PhoneNumberConverter() PhoneNumber phoneNumber, String labelId, String ruleType,@RulePriorityConverter() RulePriority priority, bool isEnabled, int count, String? avatar, String? subscriptionId
 });
 
 
