@@ -1,4 +1,5 @@
 import 'package:yourcallyourrule/core/entities/rule/sim_slot_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
@@ -33,7 +34,7 @@ class SimSlotRuleModel extends RuleModel {
       name: entity.name,
       priority: entity.priority.value,
       action: entity.action.toString(),
-      ruleType: 'sim_slot', // 明确指定 ruleType
+      ruleType: RuleTypeKeys.simSlot, // 明确指定 ruleType
       phoneNumber: entity.phoneNumber.value,
       simSlotIndex: entity.simSlotIndex,
       labelId: entity.labelId,

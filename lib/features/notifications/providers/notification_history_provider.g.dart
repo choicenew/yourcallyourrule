@@ -12,7 +12,7 @@ part of 'notification_history_provider.dart';
 /// 职责：提供一个只读的、可被UI监听的通知历史列表。
 
 @ProviderFor(notificationHistory)
-const notificationHistoryProvider = NotificationHistoryProvider._();
+final notificationHistoryProvider = NotificationHistoryProvider._();
 
 /// 通知历史状态 Provider
 /// 职责：提供一个只读的、可被UI监听的通知历史列表。
@@ -29,7 +29,7 @@ final class NotificationHistoryProvider
         $FutureProvider<List<NotificationItem>> {
   /// 通知历史状态 Provider
   /// 职责：提供一个只读的、可被UI监听的通知历史列表。
-  const NotificationHistoryProvider._()
+  NotificationHistoryProvider._()
     : super(
         from: null,
         argument: null,

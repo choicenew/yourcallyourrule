@@ -10,11 +10,11 @@ part of 'blocked_calls_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(BlockedCalls)
-const blockedCallsProvider = BlockedCallsProvider._();
+final blockedCallsProvider = BlockedCallsProvider._();
 
 final class BlockedCallsProvider
     extends $AsyncNotifierProvider<BlockedCalls, BlockedCallsState> {
-  const BlockedCallsProvider._()
+  BlockedCallsProvider._()
     : super(
         from: null,
         argument: null,
@@ -39,8 +39,7 @@ abstract class _$BlockedCalls extends $AsyncNotifier<BlockedCallsState> {
   FutureOr<BlockedCallsState> build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref =
         this.ref as $Ref<AsyncValue<BlockedCallsState>, BlockedCallsState>;
     final element =
@@ -51,6 +50,6 @@ abstract class _$BlockedCalls extends $AsyncNotifier<BlockedCallsState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

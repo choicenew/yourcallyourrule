@@ -10,11 +10,11 @@ part of 'sim_slot_rule_page_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(SimSlotRulePage)
-const simSlotRulePageProvider = SimSlotRulePageFamily._();
+final simSlotRulePageProvider = SimSlotRulePageFamily._();
 
 final class SimSlotRulePageProvider
     extends $AsyncNotifierProvider<SimSlotRulePage, SimSlotRulePageState> {
-  const SimSlotRulePageProvider._({
+  SimSlotRulePageProvider._({
     required SimSlotRulePageFamily super.from,
     required int super.argument,
   }) : super(
@@ -61,7 +61,7 @@ final class SimSlotRulePageFamily extends $Family
           FutureOr<SimSlotRulePageState>,
           int
         > {
-  const SimSlotRulePageFamily._()
+  SimSlotRulePageFamily._()
     : super(
         retry: null,
         name: r'simSlotRulePageProvider',
@@ -84,8 +84,7 @@ abstract class _$SimSlotRulePage extends $AsyncNotifier<SimSlotRulePageState> {
   FutureOr<SimSlotRulePageState> build(int simSlotIndex);
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build(_$args);
+  WhenComplete runBuild() {
     final ref =
         this.ref
             as $Ref<AsyncValue<SimSlotRulePageState>, SimSlotRulePageState>;
@@ -100,6 +99,6 @@ abstract class _$SimSlotRulePage extends $AsyncNotifier<SimSlotRulePageState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, () => build(_$args));
   }
 }

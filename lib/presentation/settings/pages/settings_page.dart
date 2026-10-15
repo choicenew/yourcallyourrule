@@ -265,14 +265,7 @@ class SettingsPage extends ConsumerWidget {
                 iconColor: EliteDopamineTheme.softLilac,
                 title: l10n.aboutTitle,
                 subtitle: l10n.aboutSubtitle,
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const AboutPage(),
-                    ),
-                  );
-                },
+                onTap: () => context.pushNamed(AppRouter.about),
               ),
             ],
           ),

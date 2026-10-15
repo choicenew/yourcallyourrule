@@ -10,12 +10,12 @@ part of 'supabase_sync_providers.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(syncLogService)
-const syncLogServiceProvider = SyncLogServiceProvider._();
+final syncLogServiceProvider = SyncLogServiceProvider._();
 
 final class SyncLogServiceProvider
     extends $FunctionalProvider<SyncLogService, SyncLogService, SyncLogService>
     with $Provider<SyncLogService> {
-  const SyncLogServiceProvider._()
+  SyncLogServiceProvider._()
     : super(
         from: null,
         argument: null,
@@ -51,11 +51,11 @@ final class SyncLogServiceProvider
 String _$syncLogServiceHash() => r'9c3a35473d82e12de66adecd149fcdd5a25db309';
 
 @ProviderFor(SupabaseConfigNotifier)
-const supabaseConfigProvider = SupabaseConfigNotifierProvider._();
+final supabaseConfigProvider = SupabaseConfigNotifierProvider._();
 
 final class SupabaseConfigNotifierProvider
     extends $AsyncNotifierProvider<SupabaseConfigNotifier, SupabaseConfig> {
-  const SupabaseConfigNotifierProvider._()
+  SupabaseConfigNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -81,8 +81,7 @@ abstract class _$SupabaseConfigNotifier extends $AsyncNotifier<SupabaseConfig> {
   FutureOr<SupabaseConfig> build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<AsyncValue<SupabaseConfig>, SupabaseConfig>;
     final element =
         ref.element
@@ -92,16 +91,16 @@ abstract class _$SupabaseConfigNotifier extends $AsyncNotifier<SupabaseConfig> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }
 
 @ProviderFor(SupabaseSyncController)
-const supabaseSyncControllerProvider = SupabaseSyncControllerProvider._();
+final supabaseSyncControllerProvider = SupabaseSyncControllerProvider._();
 
 final class SupabaseSyncControllerProvider
     extends $AsyncNotifierProvider<SupabaseSyncController, SyncResult?> {
-  const SupabaseSyncControllerProvider._()
+  SupabaseSyncControllerProvider._()
     : super(
         from: null,
         argument: null,
@@ -127,8 +126,7 @@ abstract class _$SupabaseSyncController extends $AsyncNotifier<SyncResult?> {
   FutureOr<SyncResult?> build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<AsyncValue<SyncResult?>, SyncResult?>;
     final element =
         ref.element
@@ -138,6 +136,6 @@ abstract class _$SupabaseSyncController extends $AsyncNotifier<SyncResult?> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

@@ -1,43 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
-import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/theme/dopamine_theme_extension.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
 
+/// 删除提议风险等级 Chip 组件（100% 强类型 RiskLevel 枚举）
 class ProposalRiskChip extends StatelessWidget {
-  final int riskLevel;
+  final RiskLevel riskLevel;
 
   const ProposalRiskChip({super.key, required this.riskLevel});
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
-    Color color;
-    String label;
-
-    switch (riskLevel) {
-      case 5:
-        color = Colors.redAccent;
-        label = l10n.riskLevelCritical;
-        break;
-      case 4:
-        color = Colors.orangeAccent;
-        label = l10n.riskLevelHigh;
-        break;
-      case 3:
-        color = Colors.amber;
-        label = l10n.riskLevelMedium;
-        break;
-      case 2:
-        color = Colors.lightGreen;
-        label = l10n.riskLevelLow;
-        break;
-      case 1:
-        color = EliteDopamineTheme.freshMint;
-        label = l10n.riskLevelVeryLow;
-        break;
-      default:
-        color = Colors.grey;
-        label = l10n.unknown;
-    }
+    final color = riskLevel.getColor(context);
+    final label = riskLevel.getLocalizedLabel(context);
 
     return Material(
       type: MaterialType.transparency,

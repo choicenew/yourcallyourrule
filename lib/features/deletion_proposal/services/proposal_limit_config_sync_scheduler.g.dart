@@ -10,7 +10,7 @@ part of 'proposal_limit_config_sync_scheduler.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(proposalLimitConfigSyncScheduler)
-const proposalLimitConfigSyncSchedulerProvider =
+final proposalLimitConfigSyncSchedulerProvider =
     ProposalLimitConfigSyncSchedulerProvider._();
 
 final class ProposalLimitConfigSyncSchedulerProvider
@@ -21,7 +21,7 @@ final class ProposalLimitConfigSyncSchedulerProvider
           ProposalLimitConfigSyncScheduler
         >
     with $Provider<ProposalLimitConfigSyncScheduler> {
-  const ProposalLimitConfigSyncSchedulerProvider._()
+  ProposalLimitConfigSyncSchedulerProvider._()
     : super(
         from: null,
         argument: null,

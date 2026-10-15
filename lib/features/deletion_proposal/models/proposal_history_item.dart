@@ -1,3 +1,4 @@
+import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
 
 /// 定义“我的提议”的具体状态
 enum MyProposalStatus {
@@ -11,9 +12,9 @@ class MyProposalHistoryItem {
   final String phoneNumber;
   final DateTime submissionTime;
   final MyProposalStatus status;
-  
+
   // 来自服务器的反馈信息 (仅在 underReview 时有效)
-  final String? highestRiskLevel;
+  final RiskLevel? highestRiskLevel;
   final int currentVotes;
   final int verifiedOwnerCount;
 

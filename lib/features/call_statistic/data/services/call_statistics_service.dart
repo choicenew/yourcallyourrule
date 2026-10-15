@@ -3,6 +3,7 @@ import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/call_statistic/domain/statistic_period.dart';
 
 class CallStatisticsService {
   bool _isIntercepted(CallLog log) => log.callType == LocalCallType.blocked || log.callType == LocalCallType.rejected || log.callType == LocalCallType.silenced;
@@ -47,22 +48,31 @@ class CallStatisticsService {
     }
     return typeCounts.map((type, count) => MapEntry(type.name, (count / totalBlocked) * 100));
   }
-  
-  Map<DateTime, int> getBlockedCallsByDate(List<CallLog> callLogs, String period) {
+
+  Map<DateTime, int> getBlockedCallsByDate(List<CallLog> callLogs, StatisticPeriod period) {
     final result = <DateTime, int>{};
     final now = DateTime.now();
-    
+
     int days;
-    if (period.toLowerCase() == 'month') days = 30;
-    else if (period.toLowerCase() == 'year') days = 365;
-    else days = 7; // 'week'
-    
+    switch (period) {
+      case StatisticPeriod.month:
+        days = 30;
+        break;
+      case StatisticPeriod.year:
+        days = 365;
+        break;
+      case StatisticPeriod.week:
+      default:
+        days = 7;
+        break;
+    }
+
     final startDate = now.subtract(Duration(days: days));
     final relevantLogs = callLogs.where((log) => _isIntercepted(log) && log.timestamp.isAfter(startDate));
 
     for (final log in relevantLogs) {
       DateTime key;
-      if (period.toLowerCase() == 'year') {
+      if (period == StatisticPeriod.year) {
         key = DateTime(log.timestamp.year, log.timestamp.month, 1);
       } else {
         key = DateTime(log.timestamp.year, log.timestamp.month, log.timestamp.day);

@@ -10,7 +10,7 @@ part of 'my_proposal_history_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(myProposalHistory)
-const myProposalHistoryProvider = MyProposalHistoryProvider._();
+final myProposalHistoryProvider = MyProposalHistoryProvider._();
 
 final class MyProposalHistoryProvider
     extends
@@ -22,7 +22,7 @@ final class MyProposalHistoryProvider
     with
         $FutureModifier<List<MyProposalHistoryItem>>,
         $FutureProvider<List<MyProposalHistoryItem>> {
-  const MyProposalHistoryProvider._()
+  MyProposalHistoryProvider._()
     : super(
         from: null,
         argument: null,

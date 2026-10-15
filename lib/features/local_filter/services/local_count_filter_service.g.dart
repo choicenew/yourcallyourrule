@@ -10,7 +10,7 @@ part of 'local_count_filter_service.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(localCountFilterService)
-const localCountFilterServiceProvider = LocalCountFilterServiceProvider._();
+final localCountFilterServiceProvider = LocalCountFilterServiceProvider._();
 
 final class LocalCountFilterServiceProvider
     extends
@@ -20,7 +20,7 @@ final class LocalCountFilterServiceProvider
           LocalCountFilterService
         >
     with $Provider<LocalCountFilterService> {
-  const LocalCountFilterServiceProvider._()
+  LocalCountFilterServiceProvider._()
     : super(
         from: null,
         argument: null,

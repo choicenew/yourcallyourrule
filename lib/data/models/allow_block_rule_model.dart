@@ -1,6 +1,7 @@
 // 规则数据模型，用于数据层与领域层之间的转换
 
 import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/data/models/rule_model.dart';
 
@@ -34,8 +35,7 @@ class AllowedBlockedRuleModel extends RuleModel {
     super.isEnabled,
     String? ruleType, // Make ruleType optional
   }) : super(
-            ruleType: ruleType ??
-                'allow_block'); // ruleType will be 'allow' or 'block' based on action
+            ruleType: ruleType ?? RuleTypeKeys.allowBlock); // ruleType will be 'allow' or 'block' based on action
 
   factory AllowedBlockedRuleModel.fromMap(Map<String, dynamic> map) {
     return AllowedBlockedRuleModel(

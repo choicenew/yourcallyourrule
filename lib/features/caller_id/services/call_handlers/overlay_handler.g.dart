@@ -15,7 +15,7 @@ part of 'overlay_handler.dart';
 /// 这避免了在类内部手动创建 ProviderContainer 的反模式。
 
 @ProviderFor(overlayHandler)
-const overlayHandlerProvider = OverlayHandlerProvider._();
+final overlayHandlerProvider = OverlayHandlerProvider._();
 
 /// 浮窗处理器 Provider
 ///
@@ -31,7 +31,7 @@ final class OverlayHandlerProvider
   /// 这是一个简单的服务型 Provider。它的职责是创建并提供一个 OverlayHandler 的单例，
   /// 并通过 `ref` 将其所需要的依赖（如配置 Provider）注入进去。
   /// 这避免了在类内部手动创建 ProviderContainer 的反模式。
-  const OverlayHandlerProvider._()
+  OverlayHandlerProvider._()
     : super(
         from: null,
         argument: null,

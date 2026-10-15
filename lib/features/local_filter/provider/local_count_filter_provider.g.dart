@@ -10,7 +10,7 @@ part of 'local_count_filter_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(LocalCountFilterConfigNotifier)
-const localCountFilterConfigProvider =
+final localCountFilterConfigProvider =
     LocalCountFilterConfigNotifierProvider._();
 
 final class LocalCountFilterConfigNotifierProvider
@@ -19,7 +19,7 @@ final class LocalCountFilterConfigNotifierProvider
           LocalCountFilterConfigNotifier,
           LocalCountFilterConfig
         > {
-  const LocalCountFilterConfigNotifierProvider._()
+  LocalCountFilterConfigNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -46,8 +46,7 @@ abstract class _$LocalCountFilterConfigNotifier
   FutureOr<LocalCountFilterConfig> build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref =
         this.ref
             as $Ref<AsyncValue<LocalCountFilterConfig>, LocalCountFilterConfig>;
@@ -62,6 +61,6 @@ abstract class _$LocalCountFilterConfigNotifier
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

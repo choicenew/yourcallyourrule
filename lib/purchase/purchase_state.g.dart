@@ -15,7 +15,7 @@ part of 'purchase_state.dart';
 /// 不会因为用户导航离开相关页面而被重置。
 
 @ProviderFor(PurchaseState)
-const purchaseStateProvider = PurchaseStateProvider._();
+final purchaseStateProvider = PurchaseStateProvider._();
 
 /// 使用 @riverpod 注解，将旧的 StateNotifier 迁移为现代的 Notifier。
 /// 这个 Notifier 负责管理和持久化应用的所有购买相关状态。
@@ -29,7 +29,7 @@ final class PurchaseStateProvider
   ///
   /// keepAlive: true 确保状态在整个应用生命周期内保持活动，
   /// 不会因为用户导航离开相关页面而被重置。
-  const PurchaseStateProvider._()
+  PurchaseStateProvider._()
     : super(
         from: null,
         argument: null,
@@ -68,8 +68,7 @@ abstract class _$PurchaseState extends $Notifier<PurchaseStateModel> {
   PurchaseStateModel build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<PurchaseStateModel, PurchaseStateModel>;
     final element =
         ref.element
@@ -79,6 +78,6 @@ abstract class _$PurchaseState extends $Notifier<PurchaseStateModel> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

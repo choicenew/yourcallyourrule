@@ -11,7 +11,7 @@ part of 'remote_number_service.dart';
 /// RemoteNumberService 的 @riverpod Provider
 
 @ProviderFor(remoteNumberService)
-const remoteNumberServiceProvider = RemoteNumberServiceProvider._();
+final remoteNumberServiceProvider = RemoteNumberServiceProvider._();
 
 /// RemoteNumberService 的 @riverpod Provider
 
@@ -24,7 +24,7 @@ final class RemoteNumberServiceProvider
         >
     with $Provider<RemoteNumberService> {
   /// RemoteNumberService 的 @riverpod Provider
-  const RemoteNumberServiceProvider._()
+  RemoteNumberServiceProvider._()
     : super(
         from: null,
         argument: null,

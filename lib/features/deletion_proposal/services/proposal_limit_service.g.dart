@@ -10,7 +10,7 @@ part of 'proposal_limit_service.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(proposalLimitService)
-const proposalLimitServiceProvider = ProposalLimitServiceProvider._();
+final proposalLimitServiceProvider = ProposalLimitServiceProvider._();
 
 final class ProposalLimitServiceProvider
     extends
@@ -20,7 +20,7 @@ final class ProposalLimitServiceProvider
           ProposalLimitService
         >
     with $Provider<ProposalLimitService> {
-  const ProposalLimitServiceProvider._()
+  ProposalLimitServiceProvider._()
     : super(
         from: null,
         argument: null,

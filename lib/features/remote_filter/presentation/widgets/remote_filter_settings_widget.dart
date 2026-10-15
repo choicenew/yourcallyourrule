@@ -24,40 +24,44 @@ class RemoteFilterSettingsWidget extends ConsumerWidget {
     return Column(
       children: [
         Container(
-          decoration: EliteDopamineTheme.warmCardDecoration(
-            context: context,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: Theme.of(context).colorScheme.outlineVariant,
+              width: 1.1,
+            ),
           ),
           child: Column(
             children: [
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.enableRemoteNumberFilter, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
-                subtitle: Text(AppLocalizations.of(context)!.enableRemoteNumberFilterDescription, style: const TextStyle(fontSize: 12, color: Colors.grey)),
-                activeColor: const Color(0xFFFF9500),
+                title: Text(AppLocalizations.of(context)!.enableRemoteNumberFilter, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context)!.enableRemoteNumberFilterDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                activeColor: Theme.of(context).colorScheme.primary,
                 value: config.enableRemoteNumberFilter,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(enableRemoteNumberFilter: value)),
               ),
-              const Divider(height: 1, indent: 16, endIndent: 16, color: Color(0xFFF0ECE3)),
+              Divider(height: 1, indent: 16, endIndent: 16, color: Theme.of(context).colorScheme.outlineVariant),
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.rejectExceededNumbers, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
-                subtitle: Text(AppLocalizations.of(context)!.rejectExceededNumbersDescription, style: const TextStyle(fontSize: 12, color: Colors.grey)),
-                activeColor: const Color(0xFFFF9500),
+                title: Text(AppLocalizations.of(context)!.rejectExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context)!.rejectExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                activeColor: Theme.of(context).colorScheme.primary,
                 value: config.rejectExceededNumbers,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(rejectExceededNumbers: value)),
               ),
-              const Divider(height: 1, indent: 16, endIndent: 16, color: Color(0xFFF0ECE3)),
+              Divider(height: 1, indent: 16, endIndent: 16, color: Theme.of(context).colorScheme.outlineVariant),
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.prioritizeRemoteAction, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
-                subtitle: Text(AppLocalizations.of(context)!.prioritizeRemoteActionDescription, style: const TextStyle(fontSize: 12, color: Colors.grey)),
-                activeColor: const Color(0xFFFF9500),
+                title: Text(AppLocalizations.of(context)!.prioritizeRemoteAction, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context)!.prioritizeRemoteActionDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                activeColor: Theme.of(context).colorScheme.primary,
                 value: config.prioritizeRemoteAction,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(prioritizeRemoteAction: value)),
               ),
-              const Divider(height: 1, indent: 16, endIndent: 16, color: Color(0xFFF0ECE3)),
+              Divider(height: 1, indent: 16, endIndent: 16, color: Theme.of(context).colorScheme.outlineVariant),
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.logAllRemoteQueries, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5)),
-                subtitle: Text(AppLocalizations.of(context)!.logAllRemoteQueriesDescription, style: const TextStyle(fontSize: 12, color: Colors.grey)),
-                activeColor: const Color(0xFFFF9500),
+                title: Text(AppLocalizations.of(context)!.logAllRemoteQueries, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context)!.logAllRemoteQueriesDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                activeColor: Theme.of(context).colorScheme.primary,
                 value: config.logAllRemoteQueries,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(logAllRemoteQueries: value)),
               ),
@@ -67,9 +71,13 @@ class RemoteFilterSettingsWidget extends ConsumerWidget {
         const SizedBox(height: 14),
         Container(
           padding: const EdgeInsets.all(18),
-          decoration: EliteDopamineTheme.warmCardDecoration(
-            context: context,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+              color: Theme.of(context).colorScheme.outlineVariant,
+              width: 1.1,
+            ),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,8 +108,8 @@ class RemoteFilterSettingsWidget extends ConsumerWidget {
                 min: 1,
                 max: 10,
                 divisions: 9,
-                activeColor: const Color(0xFFFF9500),
-                inactiveColor: const Color(0xFFEDE8DF),
+                activeColor: Theme.of(context).colorScheme.primary,
+                inactiveColor: Theme.of(context).colorScheme.outlineVariant,
                 label: config.countThreshold.toString(),
                 onChanged: (value) => notifier.updateConfig(config.copyWith(countThreshold: value.round())),
               ),

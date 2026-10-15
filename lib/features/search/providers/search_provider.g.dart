@@ -12,7 +12,7 @@ part of 'search_provider.dart';
 /// 它封装了执行搜索、管理加载状态和持有搜索结果的全部逻辑。
 
 @ProviderFor(Search)
-const searchProvider = SearchProvider._();
+final searchProvider = SearchProvider._();
 
 /// 一个 AsyncNotifier，用于管理搜索页面的状态。
 /// 它封装了执行搜索、管理加载状态和持有搜索结果的全部逻辑。
@@ -20,7 +20,7 @@ final class SearchProvider
     extends $AsyncNotifierProvider<Search, List<SearchResult>> {
   /// 一个 AsyncNotifier，用于管理搜索页面的状态。
   /// 它封装了执行搜索、管理加载状态和持有搜索结果的全部逻辑。
-  const SearchProvider._()
+  SearchProvider._()
     : super(
         from: null,
         argument: null,
@@ -48,8 +48,7 @@ abstract class _$Search extends $AsyncNotifier<List<SearchResult>> {
   FutureOr<List<SearchResult>> build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref =
         this.ref as $Ref<AsyncValue<List<SearchResult>>, List<SearchResult>>;
     final element =
@@ -60,6 +59,6 @@ abstract class _$Search extends $AsyncNotifier<List<SearchResult>> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

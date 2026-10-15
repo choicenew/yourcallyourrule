@@ -1,85 +1,103 @@
 import 'package:flutter/material.dart';
+import 'package:yourcallyourrule/theme/dopamine_theme_extension.dart';
 
-/// App 全局主题控制配置（封闭于 lib/theme/ 内部，使用纯粹原生 ThemeData）
+/// App 全局主题控制配置（主题包内部闭环整合，单一事实源：DopamineThemeExtension）
 class AppTheme {
   AppTheme._();
 
-  static const Color _lightCanvasBackground = Color(0xFFFBF9F5);
-  static const Color _darkCanvasBackground = Color(0xFF0F172A);
-
-  static const Color _lightCardSurface = Colors.white;
-  static const Color _darkCardSurface = Color(0xFF1E293B);
-
-  static const Color _lightPrimaryText = Color(0xFF0F172A);
-  static const Color _darkPrimaryText = Color(0xFFF8FAFC);
-
   /// 构建亮色主题
   static ThemeData buildLightTheme({Color? seedColor}) {
-    final primarySeed = seedColor ?? const Color(0xFFFF9100);
+    const dopamine = DopamineThemeExtension.light;
+    final primarySeed = seedColor ?? dopamine.sunsetTangerineColor;
 
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      scaffoldBackgroundColor: _lightCanvasBackground,
+      scaffoldBackgroundColor: dopamine.warmCanvasBackgroundColor,
       colorScheme: ColorScheme.fromSeed(
         seedColor: primarySeed,
         brightness: Brightness.light,
-        surface: _lightCardSurface,
-        onSurface: _lightPrimaryText,
-        surfaceContainerHighest: const Color(0xFFF1F5F9),
+        primary: primarySeed,
+        secondary: dopamine.softLilacColor,
+        tertiary: dopamine.freshMintColor,
+        error: dopamine.redIconColor,
+        surface: dopamine.cardSurfaceColor,
+        onSurface: dopamine.textPrimaryColor,
+        onSurfaceVariant: dopamine.textSecondaryColor,
+        outline: dopamine.slateBorderColor,
+        outlineVariant: dopamine.slateMediumBorderColor,
+        surfaceContainerHighest: dopamine.slateSubtleColor,
       ),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: _lightCanvasBackground,
-        foregroundColor: _lightPrimaryText,
+      appBarTheme: AppBarTheme(
+        backgroundColor: dopamine.warmCanvasBackgroundColor,
+        foregroundColor: dopamine.textPrimaryColor,
         elevation: 0,
         scrolledUnderElevation: 0,
         centerTitle: false,
       ),
       dialogTheme: DialogThemeData(
-        backgroundColor: _lightCardSurface,
+        backgroundColor: dopamine.cardSurfaceColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       ),
       cardTheme: CardThemeData(
-        color: _lightCardSurface,
+        color: dopamine.cardSurfaceColor,
         elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        margin: const EdgeInsets.only(bottom: 12),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: dopamine.slateBorderColor, width: 1.0),
+        ),
       ),
       visualDensity: VisualDensity.adaptivePlatformDensity,
+      extensions: const [dopamine],
     );
   }
 
   /// 构建暗色主题
   static ThemeData buildDarkTheme({Color? seedColor}) {
-    final primarySeed = seedColor ?? const Color(0xFFFF9100);
+    const dopamine = DopamineThemeExtension.dark;
+    final primarySeed = seedColor ?? dopamine.sunsetTangerineColor;
 
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      scaffoldBackgroundColor: _darkCanvasBackground,
+      scaffoldBackgroundColor: dopamine.warmCanvasBackgroundColor,
       colorScheme: ColorScheme.fromSeed(
         seedColor: primarySeed,
         brightness: Brightness.dark,
-        surface: _darkCardSurface,
-        onSurface: _darkPrimaryText,
-        surfaceContainerHighest: const Color(0xFF334155),
+        primary: primarySeed,
+        secondary: dopamine.softLilacColor,
+        tertiary: dopamine.freshMintColor,
+        error: dopamine.redIconColor,
+        surface: dopamine.cardSurfaceColor,
+        onSurface: dopamine.textPrimaryColor,
+        onSurfaceVariant: dopamine.textSecondaryColor,
+        outline: dopamine.slateBorderColor,
+        outlineVariant: dopamine.slateMediumBorderColor,
+        surfaceContainerHighest: dopamine.slateSubtleColor,
       ),
-      appBarTheme: const AppBarTheme(
-        backgroundColor: _darkCanvasBackground,
-        foregroundColor: _darkPrimaryText,
+      appBarTheme: AppBarTheme(
+        backgroundColor: dopamine.warmCanvasBackgroundColor,
+        foregroundColor: dopamine.textPrimaryColor,
         elevation: 0,
         scrolledUnderElevation: 0,
         centerTitle: false,
       ),
       dialogTheme: DialogThemeData(
-        backgroundColor: _darkCardSurface,
+        backgroundColor: dopamine.cardSurfaceColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       ),
       cardTheme: CardThemeData(
-        color: _darkCardSurface,
+        color: dopamine.cardSurfaceColor,
         elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        margin: const EdgeInsets.only(bottom: 12),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: dopamine.slateBorderColor, width: 1.0),
+        ),
       ),
       visualDensity: VisualDensity.adaptivePlatformDensity,
+      extensions: const [dopamine],
     );
   }
 

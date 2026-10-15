@@ -7,6 +7,7 @@ import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import '../../../core/entities/rule/rule_base.dart';
 import '../../../core/entities/rule/phone_rule.dart';
 import '../../../core/entities/rule/allowed_blocked_rule.dart';
+import '../../../core/entities/rule/rule_type.dart';
 import '../../../core/entities/subscription/subscription.dart';
 import '../../../core/repositories/rule_repository.dart';
 import '../../../core/repositories/subscription_repository.dart';
@@ -140,8 +141,8 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
     final mapped = <RuleBase>[];
     for (final rule in rules) {
       if (rule is PhoneRule) {
-        final phoneRule = rule;
-        if (ruleTypeOverride == 'allow_block') {
+        final PhoneRule phoneRule = rule;
+        if (ruleTypeOverride == RuleTypeKeys.allowBlock) {
           // 转换为允许/阻止规则
           mapped.add(
             AllowedBlockedRule(
@@ -154,7 +155,7 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
               count: phoneRule.count,
               avatar: phoneRule.avatar,
               subscriptionId: subscription.id,
-              ruleType: 'allow_block',
+              ruleType: RuleTypeKeys.allowBlock,
             ),
           );
         } else {
@@ -162,7 +163,7 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
           final updated = phoneRule.copyWith(
             action: subscription.action,
             subscriptionId: subscription.id,
-            ruleType: 'phone_rule',
+            ruleType: RuleTypeKeys.phone,
           );
           mapped.add(updated);
         }

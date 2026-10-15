@@ -10,7 +10,7 @@ part of 'live_activity_handler.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(liveActivityHandler)
-const liveActivityHandlerProvider = LiveActivityHandlerProvider._();
+final liveActivityHandlerProvider = LiveActivityHandlerProvider._();
 
 final class LiveActivityHandlerProvider
     extends
@@ -22,7 +22,7 @@ final class LiveActivityHandlerProvider
     with
         $FutureModifier<LiveActivityHandler>,
         $FutureProvider<LiveActivityHandler> {
-  const LiveActivityHandlerProvider._()
+  LiveActivityHandlerProvider._()
     : super(
         from: null,
         argument: null,

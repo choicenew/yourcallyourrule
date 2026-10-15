@@ -10,7 +10,7 @@ part of 'remote_number_filter_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(RemoteNumberFilterConfigNotifier)
-const remoteNumberFilterConfigProvider =
+final remoteNumberFilterConfigProvider =
     RemoteNumberFilterConfigNotifierProvider._();
 
 final class RemoteNumberFilterConfigNotifierProvider
@@ -19,7 +19,7 @@ final class RemoteNumberFilterConfigNotifierProvider
           RemoteNumberFilterConfigNotifier,
           RemoteNumberFilterConfig
         > {
-  const RemoteNumberFilterConfigNotifierProvider._()
+  RemoteNumberFilterConfigNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -47,8 +47,7 @@ abstract class _$RemoteNumberFilterConfigNotifier
   FutureOr<RemoteNumberFilterConfig> build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref =
         this.ref
             as $Ref<
@@ -66,6 +65,6 @@ abstract class _$RemoteNumberFilterConfigNotifier
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

@@ -10,11 +10,11 @@ part of 'call_filter_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(CallFilterConfigNotifier)
-const callFilterConfigProvider = CallFilterConfigNotifierProvider._();
+final callFilterConfigProvider = CallFilterConfigNotifierProvider._();
 
 final class CallFilterConfigNotifierProvider
     extends $AsyncNotifierProvider<CallFilterConfigNotifier, CallFilterConfig> {
-  const CallFilterConfigNotifierProvider._()
+  CallFilterConfigNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -41,8 +41,7 @@ abstract class _$CallFilterConfigNotifier
   FutureOr<CallFilterConfig> build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref =
         this.ref as $Ref<AsyncValue<CallFilterConfig>, CallFilterConfig>;
     final element =
@@ -53,6 +52,6 @@ abstract class _$CallFilterConfigNotifier
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

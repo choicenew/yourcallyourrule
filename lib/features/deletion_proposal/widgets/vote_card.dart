@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
+import 'package:yourcallyourrule/theme/dopamine_theme_extension.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_status_chip.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_risk_chip.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/vote_progress_bar.dart';
 
-/// 投票卡片组件 (基于统一 EliteDopamineTheme 主题系统规范)
+/// 投票卡片组件 (基于领域实体枚举与 Theme 主题规范)
 class VoteCard extends StatelessWidget {
   final Map<String, dynamic> vote;
   final VoidCallback onUpdate;
@@ -20,24 +22,28 @@ class VoteCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final phoneNumber = vote['phone_number'] as String? ?? '';
     final reason = vote['reason'] as String? ?? '';
-    final riskLevel = vote['risk_level'] as int? ?? 1;
+    final rawRisk = vote['risk_level'];
+    final riskLevel = rawRisk is RiskLevel
+        ? rawRisk
+        : RiskLevel.fromString(rawRisk?.toString() ?? 'high');
+
     final support = vote['support'] as bool? ?? false;
     final votedAt = vote['voted_at'] as String?;
-    final status = vote['status'] as String? ?? 'pending';
+    final rawStatus = vote['status'];
+    final status = rawStatus is ProposalStatus
+        ? rawStatus
+        : ProposalStatus.fromString(rawStatus?.toString() ?? 'pending');
+
     final supportCount = vote['support_count'] as int? ?? 0;
     final opposeCount = vote['oppose_count'] as int? ?? 0;
 
     final totalVotes = supportCount + opposeCount;
     final supportPercentage = totalVotes > 0 ? (supportCount / totalVotes * 100).round() : 0;
 
-    return Container(
-      margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.all(16),
-      decoration: EliteDopamineTheme.warmCardDecoration(
-        context: context,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // 头部：电话号码与投票标识
@@ -138,27 +144,27 @@ class VoteCard extends StatelessWidget {
             ),
           ],
 
-          if (status == 'completed') ...[
+          if (status == ProposalStatus.approved || status == ProposalStatus.expired) ...[
             const SizedBox(height: 12),
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: EliteDopamineTheme.freshMint.withValues(alpha: 0.1),
+                color: Theme.of(context).colorScheme.tertiary.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: EliteDopamineTheme.freshMint.withValues(alpha: 0.3)),
+                border: Border.all(color: Theme.of(context).colorScheme.tertiary.withValues(alpha: 0.3)),
               ),
               child: Row(
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.check_circle,
                     size: 16,
-                    color: EliteDopamineTheme.freshMint,
+                    color: Theme.of(context).colorScheme.tertiary,
                   ),
                   const SizedBox(width: 8),
                   Text(
                     AppLocalizations.of(context)!.proposalProcessed,
                     style: TextStyle(
-                      color: Colors.green.shade700,
+                      color: Theme.of(context).colorScheme.tertiary,
                       fontWeight: FontWeight.w500,
                       fontSize: 12,
                     ),
@@ -169,11 +175,12 @@ class VoteCard extends StatelessWidget {
           ],
         ],
       ),
+    ),
     );
   }
 
   Widget _buildVoteChip(BuildContext context, bool support) {
-    final color = support ? EliteDopamineTheme.freshMint : Colors.red;
+    final color = support ? Theme.of(context).colorScheme.tertiary : Theme.of(context).colorScheme.error;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
@@ -207,7 +214,7 @@ class VoteCard extends StatelessWidget {
       final dateTime = DateTime.parse(dateTimeString);
       final now = DateTime.now();
       final difference = now.difference(dateTime);
-      
+
       if (difference.inDays > 0) {
         return '${difference.inDays}d ago';
       } else if (difference.inHours > 0) {

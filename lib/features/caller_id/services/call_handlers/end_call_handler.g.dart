@@ -14,7 +14,7 @@ part of 'end_call_handler.dart';
 /// 【最终方案】: 它只注入通用的 `ref` 对象，让 Handler 可以在需要时访问任何 Provider。
 
 @ProviderFor(endCallHandler)
-const endCallHandlerProvider = EndCallHandlerProvider._();
+final endCallHandlerProvider = EndCallHandlerProvider._();
 
 /// 结束通话处理器 Provider
 ///
@@ -28,7 +28,7 @@ final class EndCallHandlerProvider
   ///
   /// 这是一个简单的服务型 Provider，负责创建 EndCallHandler 的单例。
   /// 【最终方案】: 它只注入通用的 `ref` 对象，让 Handler 可以在需要时访问任何 Provider。
-  const EndCallHandlerProvider._()
+  EndCallHandlerProvider._()
     : super(
         from: null,
         argument: null,

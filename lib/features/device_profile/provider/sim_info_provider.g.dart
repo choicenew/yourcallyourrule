@@ -13,7 +13,7 @@ part of 'sim_info_provider.dart';
 /// Riverpod 会自动处理 keepAlive，确保信息只被获取一次。
 
 @ProviderFor(simCards)
-const simCardsProvider = SimCardsProvider._();
+final simCardsProvider = SimCardsProvider._();
 
 /// 一个异步 Provider，负责请求权限并获取设备上所有 SIM 卡的信息。
 /// 它会自动处理加载、错误和成功状态，并缓存结果。
@@ -30,7 +30,7 @@ final class SimCardsProvider
   /// 一个异步 Provider，负责请求权限并获取设备上所有 SIM 卡的信息。
   /// 它会自动处理加载、错误和成功状态，并缓存结果。
   /// Riverpod 会自动处理 keepAlive，确保信息只被获取一次。
-  const SimCardsProvider._()
+  SimCardsProvider._()
     : super(
         from: null,
         argument: null,

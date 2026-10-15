@@ -11,7 +11,7 @@ part of 'intercept_event_provider.dart';
 /// 全局的拦截事件流控制器 Provider
 
 @ProviderFor(interceptEventStreamController)
-const interceptEventStreamControllerProvider =
+final interceptEventStreamControllerProvider =
     InterceptEventStreamControllerProvider._();
 
 /// 全局的拦截事件流控制器 Provider
@@ -25,7 +25,7 @@ final class InterceptEventStreamControllerProvider
         >
     with $Provider<StreamController<InterceptEvent>> {
   /// 全局的拦截事件流控制器 Provider
-  const InterceptEventStreamControllerProvider._()
+  InterceptEventStreamControllerProvider._()
     : super(
         from: null,
         argument: null,

@@ -15,7 +15,7 @@ part of 'statistics_provider.dart';
 /// 再次被监听时，它会自动重新获取数据。
 
 @ProviderFor(proposalStatistics)
-const proposalStatisticsProvider = ProposalStatisticsProvider._();
+final proposalStatisticsProvider = ProposalStatisticsProvider._();
 
 /// 一个【专属】的 FutureProvider，只负责异步获取“提议统计”数据。
 ///
@@ -36,7 +36,7 @@ final class ProposalStatisticsProvider
   /// 它与 `deletionProposalProvider` 完全解耦。
   /// `autoDispose` 意味着当没有任何 Widget 监听它时，它会自动销毁，节省资源。
   /// 再次被监听时，它会自动重新获取数据。
-  const ProposalStatisticsProvider._()
+  ProposalStatisticsProvider._()
     : super(
         from: null,
         argument: null,
@@ -70,7 +70,7 @@ String _$proposalStatisticsHash() =>
 /// 它与 `deletionProposalProvider` 完全解耦。
 
 @ProviderFor(userVoteCountStream)
-const userVoteCountStreamProvider = UserVoteCountStreamProvider._();
+final userVoteCountStreamProvider = UserVoteCountStreamProvider._();
 
 /// 一个【专属】的 StreamProvider，只负责提供“用户投票总数”的流。
 ///
@@ -82,7 +82,7 @@ final class UserVoteCountStreamProvider
   /// 一个【专属】的 StreamProvider，只负责提供“用户投票总数”的流。
   ///
   /// 它与 `deletionProposalProvider` 完全解耦。
-  const UserVoteCountStreamProvider._()
+  UserVoteCountStreamProvider._()
     : super(
         from: null,
         argument: null,

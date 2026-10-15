@@ -182,19 +182,19 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
 
   Future<void> _addPluginFromLocal() async {
     try {
-      FilePickerResult? result = await FilePicker.pickFiles(
+      final result = await FilePicker.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['js'],
       );
 
-      if (result != null && result.files.single.path != null) {
+      if (result.isNotEmpty && result.single.path != null) {
         setState(() {
           _isLoading = true;
         });
 
         final pluginService = ref.read(pluginManagerServiceProvider);
         final plugin =
-            await pluginService.addPluginFromLocal(result.files.single.path!);
+            await pluginService.addPluginFromLocal(result.single.path!);
 
         if (plugin != null) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -372,16 +372,16 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
               onTap: () async {
                 Navigator.of(context).pop();
                 // 导入插件列表的逻辑
-                FilePickerResult? result = await FilePicker.pickFiles(
+                final result = await FilePicker.pickFiles(
                   type: FileType.custom,
                   allowedExtensions: ['json'],
                 );
 
-                if (result != null && result.files.single.path != null) {
+                if (result.isNotEmpty && result.single.path != null) {
                   final pluginService = ref.read(pluginManagerServiceProvider);
                   try {
                     final plugins = await pluginService
-                        .importFromFile(result.files.single.path!);
+                        .importFromFile(result.single.path!);
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                           content: Text(AppLocalizations.of(context)!

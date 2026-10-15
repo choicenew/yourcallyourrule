@@ -10,11 +10,11 @@ part of 'sim_slot_config_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(SimSlotConfigNotifier)
-const simSlotConfigProvider = SimSlotConfigNotifierProvider._();
+final simSlotConfigProvider = SimSlotConfigNotifierProvider._();
 
 final class SimSlotConfigNotifierProvider
     extends $AsyncNotifierProvider<SimSlotConfigNotifier, SimSlotConfigState> {
-  const SimSlotConfigNotifierProvider._()
+  SimSlotConfigNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -41,8 +41,7 @@ abstract class _$SimSlotConfigNotifier
   FutureOr<SimSlotConfigState> build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref =
         this.ref as $Ref<AsyncValue<SimSlotConfigState>, SimSlotConfigState>;
     final element =
@@ -53,6 +52,6 @@ abstract class _$SimSlotConfigNotifier
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

@@ -7,6 +7,9 @@ class CountrySelectionService {
   /// The key used to store the list of selected country ISO codes in the config.
   static const String configKey = 'config_selected_country_iso_codes';
 
+  /// The key used inside the stored map for the codes list.
+  static const String codesMapKey = 'codes';
+
   CountrySelectionService(this._configRepository);
 
   /// Retrieves the list of selected country ISO codes.
@@ -14,9 +17,9 @@ class CountrySelectionService {
   /// Returns a list of strings, where each string is an ISO code (e.g., "US").
   Future<List<String>> getSelectedCountryCodes() async {
     final config = await _configRepository.getConfig(configKey);
-    if (config != null && config['codes'] is List) {
+    if (config != null && config[codesMapKey] is List) {
       // Ensure all items from the stored list are treated as strings.
-      return List<String>.from(config['codes'].map((item) => item.toString()));
+      return List<String>.from(config[codesMapKey].map((item) => item.toString()));
     }
     // Return an empty list if no configuration is found.
     return [];
@@ -26,7 +29,7 @@ class CountrySelectionService {
   ///
   /// Takes a list of strings, where each string is an ISO code.
   Future<void> _saveSelectedCountryCodes(List<String> isoCodes) async {
-    await _configRepository.saveConfig(configKey, {'codes': isoCodes});
+    await _configRepository.saveConfig(configKey, {codesMapKey: isoCodes});
   }
 
   /// Adds a country to the selection.

@@ -17,7 +17,7 @@ part of 'sim_call_handler.dart';
 /// 我们使用 `keepAlive: true` 来确保这个处理器在应用后台运行时不会被自动销毁。
 
 @ProviderFor(SimCallHandler)
-const simCallHandlerProvider = SimCallHandlerProvider._();
+final simCallHandlerProvider = SimCallHandlerProvider._();
 
 /// SIM卡信息处理器 Provider
 ///
@@ -35,7 +35,7 @@ final class SimCallHandlerProvider
   ///
   /// 通过 @Riverpod 注解，代码生成器会自动创建一个名为 `simCallHandlerProvider` 的 Provider。
   /// 我们使用 `keepAlive: true` 来确保这个处理器在应用后台运行时不会被自动销毁。
-  const SimCallHandlerProvider._()
+  SimCallHandlerProvider._()
     : super(
         from: null,
         argument: null,
@@ -76,8 +76,7 @@ abstract class _$SimCallHandler extends $Notifier<SimInfo?> {
   SimInfo? build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<SimInfo?, SimInfo?>;
     final element =
         ref.element
@@ -87,6 +86,6 @@ abstract class _$SimCallHandler extends $Notifier<SimInfo?> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

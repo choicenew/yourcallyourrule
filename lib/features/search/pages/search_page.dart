@@ -129,7 +129,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
       final ruleService = ref.read(ruleManagementServiceProvider);
       final allowedBlockedService = ref.read(allowedBlockedServiceProvider);
 
-      if (result.ruleType == 'phone') {
+      if (result.ruleType == 'phone_rule') {
         ruleService
             .getAllRulesByActionType(null)
             .then((rules) {
@@ -153,7 +153,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                 return null;
               },
             );
-      } else if (result.ruleType == 'allowedBlocked') {
+      } else if (result.ruleType == 'allow_block') {
         allowedBlockedService
             .getAllRulesByActionType(null)
             .then((rules) {

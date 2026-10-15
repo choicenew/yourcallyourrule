@@ -8,6 +8,7 @@ import 'package:yourcallyourrule/features/language/provider/language_provider.da
 import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
 
 /// 应用引导页面
 class OnboardingPage extends ConsumerStatefulWidget {
@@ -57,7 +58,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   Future<void> _proceedToNextFlow() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final hasCompletedSetup = prefs.getBool('has_completed_initial_setup') ?? false;
+      final hasCompletedSetup = prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false;
       if (!mounted) return;
       if (!hasCompletedSetup) {
         GoRouter.of(context).goNamed(AppRouter.initialSetup);

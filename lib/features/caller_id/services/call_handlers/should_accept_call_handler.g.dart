@@ -18,7 +18,7 @@ part of 'should_accept_call_handler.dart';
 /// keepAlive: true 确保这个单例在整个应用生命周期中都存在。
 
 @ProviderFor(shouldAcceptCallHandler)
-const shouldAcceptCallHandlerProvider = ShouldAcceptCallHandlerProvider._();
+final shouldAcceptCallHandlerProvider = ShouldAcceptCallHandlerProvider._();
 
 /// 是否接受来电处理器 Provider
 ///
@@ -45,7 +45,7 @@ final class ShouldAcceptCallHandlerProvider
   /// 我们不使用 Notifier，因为这个 Handler 不管理需要被全局监听的持久状态。
   /// 它的状态（StreamController）是临时的，仅用于协调单次调用。
   /// keepAlive: true 确保这个单例在整个应用生命周期中都存在。
-  const ShouldAcceptCallHandlerProvider._()
+  ShouldAcceptCallHandlerProvider._()
     : super(
         from: null,
         argument: null,

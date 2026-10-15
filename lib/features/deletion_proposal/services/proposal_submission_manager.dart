@@ -2,6 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // 引入所有必要的 Provider
 import 'package:yourcallyourrule/core/router/app_router_provider.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/deletion_proposal_service_provider.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/services/proposal_limit_service.dart';
 
@@ -30,7 +31,7 @@ class ProposalSubmissionManager {
     String country, // 注意: country 参数当前未被使用
     String userId,
     String reason,
-    int riskLevel,
+    RiskLevel riskLevel,
     String deviceId,
   ) async {
     // 【MODIFIED】: 从自动生成的 `proposalLimitServiceProvider` 读取服务实例。

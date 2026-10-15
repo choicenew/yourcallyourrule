@@ -16,6 +16,7 @@ import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/pages/elite_home_page.dart';
 import 'package:yourcallyourrule/presentation/settings/pages/settings_page.dart';
+import 'package:yourcallyourrule/presentation/about.dart';
 import 'package:yourcallyourrule/features/permissions/pages/special_permission_page.dart';
 import 'package:yourcallyourrule/features/language/pages/language_settings_page.dart';
 import 'package:yourcallyourrule/features/sync_country/widget/country_selection_widget.dart';
@@ -143,6 +144,7 @@ class AppRouter {
   static const String vipExchange = 'vip-exchange';
   static const String purchase = 'purchase';
   static const String settings = 'settings';
+  static const String about = 'about';
   static const String languageSettings = 'language-settings';
   static const String countrySyncSettings = 'country-sync-settings';
   static const String notifications = 'notifications';
@@ -213,6 +215,11 @@ class AppRouter {
         path: '/$purchase',
         name: purchase,
         builder: (context, state) => const PurchasePage(),
+      ),
+      GoRoute(
+        path: '/$about',
+        name: about,
+        builder: (context, state) => const AboutPage(),
       ),
       GoRoute(
         path: '/$filterSettings',

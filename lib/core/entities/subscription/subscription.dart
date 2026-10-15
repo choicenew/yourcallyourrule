@@ -1,33 +1,40 @@
-// 订阅实体类，表示用户的订阅信息
-
-import '../../base/base_entity.dart';
-
-// 订阅实体类，用于管理远程黑白名单订阅
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:yourcallyourrule/core/base/base_entity.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/core/entities/subscription/subscription_table_type.dart';
 
-// 补充实体方法
-class Subscription extends BaseEntity {
-  final String name;
-  final Url url;
-  final bool isEnabled;
-  final RuleAction action; // 使用 action 属性表示规则类型
-  final DateTime lastUpdated;
-  final bool autoUpdate;
-  final String tableType; // 添加表类型字段
+part 'subscription.freezed.dart';
 
-  const Subscription({
-    required super.id,
-    required this.name,
-    required this.url,
-    required this.isEnabled,
-    required this.action,
-    required this.lastUpdated,
-    required this.autoUpdate,
-    this.tableType = 'phone', // 默认为phone类型
-  });
+/// 订阅实体类 (@freezed 自动生成不可变数据类)
+@freezed
+abstract class Subscription with _$Subscription implements BaseEntity {
+  const Subscription._();
 
-  // 转换为Map
+  @Implements<BaseEntity>()
+  const factory Subscription({
+    required String id,
+    required String name,
+    required Url url,
+    @Default(true) bool isEnabled,
+    @Default(RuleAction.block) RuleAction action,
+    required DateTime lastUpdated,
+    @Default(false) bool autoUpdate,
+    @Default(SubscriptionTableKeys.phone) String tableType,
+  }) = _Subscription;
+
+  /// 合并更新方法
+  Subscription mergeUpdate(Subscription newSubscription) {
+    return copyWith(
+      isEnabled: newSubscription.isEnabled,
+      action: newSubscription.action,
+      lastUpdated: DateTime.now(),
+      autoUpdate: newSubscription.autoUpdate,
+      tableType: newSubscription.tableType,
+    );
+  }
+
+  /// 转换为 Map
   @override
   Map<String, dynamic> toMap() {
     return {
@@ -38,62 +45,23 @@ class Subscription extends BaseEntity {
       'action': action.toString(),
       'lastUpdated': lastUpdated.toIso8601String(),
       'autoUpdate': autoUpdate ? 1 : 0,
-      'tableType': tableType, // 添加表类型字段
+      'tableType': tableType,
     };
   }
 
-  // 从Map创建实体
+  /// 从 Map 反序列化生成实体
   factory Subscription.fromMap(Map<String, dynamic> map) {
-    // 处理 action 字段
-    RuleAction action = RuleAction.fromString(map['action']);
-    
     return Subscription(
-      id: map['id'],
-      name: map['name'],
-      url: Url.fromString(map['url']),
-      isEnabled: (map['isEnabled'] ?? 1) == 1,
-      action: action,
-      lastUpdated: DateTime.parse(map['lastUpdated']),
-      autoUpdate: (map['autoUpdate'] ?? 0) == 1,
-      tableType: map['tableType'] ?? 'phone', // 从map中获取表类型
+      id: map['id']?.toString() ?? '',
+      name: map['name']?.toString() ?? '',
+      url: Url.fromString(map['url']?.toString() ?? ''),
+      isEnabled: (map['isEnabled'] ?? 1) == 1 || map['isEnabled'] == true,
+      action: RuleAction.fromString(map['action']),
+      lastUpdated: map['lastUpdated'] != null
+          ? DateTime.tryParse(map['lastUpdated'].toString()) ?? DateTime.now()
+          : DateTime.now(),
+      autoUpdate: (map['autoUpdate'] ?? 0) == 1 || map['autoUpdate'] == true,
+      tableType: map['tableType']?.toString() ?? SubscriptionTableKeys.phone,
     );
   }
-
-  // 添加合并更新方法
-  Subscription mergeUpdate(Subscription newSubscription) {
-    return copyWith(
-      isEnabled: newSubscription.isEnabled,
-      action: newSubscription.action,
-      lastUpdated: DateTime.now(),
-      autoUpdate: newSubscription.autoUpdate,
-      tableType: newSubscription.tableType, // 更新表类型
-    );
-  }
-
-  Subscription copyWith({
-    String? name,
-    Url? url,
-    bool? isEnabled,
-    RuleAction? action,
-    bool? autoUpdate,
-    DateTime? lastUpdated,
-    String? tableType, // 添加表类型参数
-  }) {
-    return Subscription(
-      id: id,
-      name: name ?? this.name,
-      url: url ?? this.url,
-      isEnabled: isEnabled ?? this.isEnabled,
-      action: action ?? this.action,
-      lastUpdated: lastUpdated ?? this.lastUpdated,
-      autoUpdate: autoUpdate ?? this.autoUpdate,
-      tableType: tableType ?? this.tableType, // 使用新的表类型或保留原有的
-    );
-  }
-  
-  // 便捷方法，判断是否为白名单订阅
- // bool get isWhitelistSubscription => action == RuleAction.allow;
-  
-  // 便捷方法，判断是否为黑名单订阅
- // bool get isBlacklistSubscription => action == RuleAction.block;
 }

@@ -10,11 +10,11 @@ part of 'theme_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(ThemeModeNotifier)
-const themeModeProvider = ThemeModeNotifierProvider._();
+final themeModeProvider = ThemeModeNotifierProvider._();
 
 final class ThemeModeNotifierProvider
     extends $NotifierProvider<ThemeModeNotifier, ThemeMode> {
-  const ThemeModeNotifierProvider._()
+  ThemeModeNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -41,14 +41,13 @@ final class ThemeModeNotifierProvider
   }
 }
 
-String _$themeModeNotifierHash() => r'7867e81626a70452c0c22fc575f32d49a64bf572';
+String _$themeModeNotifierHash() => r'ff5aff71b9a86a27a9dc810f4cb2c3f209bdb94e';
 
 abstract class _$ThemeModeNotifier extends $Notifier<ThemeMode> {
   ThemeMode build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<ThemeMode, ThemeMode>;
     final element =
         ref.element
@@ -58,16 +57,16 @@ abstract class _$ThemeModeNotifier extends $Notifier<ThemeMode> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }
 
 @ProviderFor(ThemeColorNotifier)
-const themeColorProvider = ThemeColorNotifierProvider._();
+final themeColorProvider = ThemeColorNotifierProvider._();
 
 final class ThemeColorNotifierProvider
     extends $NotifierProvider<ThemeColorNotifier, Color> {
-  const ThemeColorNotifierProvider._()
+  ThemeColorNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -94,14 +93,14 @@ final class ThemeColorNotifierProvider
   }
 }
 
-String _$themeColorNotifierHash() => r'a1b2c3d4e5f67890a1b2c3d4e5f67890a1b2c3d4';
+String _$themeColorNotifierHash() =>
+    r'f8db43b99a42a47dcfab178278b570a8760edb25';
 
 abstract class _$ThemeColorNotifier extends $Notifier<Color> {
   Color build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<Color, Color>;
     final element =
         ref.element
@@ -111,6 +110,6 @@ abstract class _$ThemeColorNotifier extends $Notifier<Color> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

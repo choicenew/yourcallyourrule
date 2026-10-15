@@ -14,11 +14,10 @@ enum ProposalStatus {
   /// 提议因超时或其他原因而关闭。
   expired;
 
-  /// 从数据库存储的字符串安全地创建枚举。
-  /// 
-  /// 如果输入字符串无法识别，会抛出异常，以暴露潜在的数据问题。
-  factory ProposalStatus.fromString(String status) {
-    switch (status.toLowerCase()) {
+  /// 从数据库存储的字符串或动态类型安全地创建枚举（带脏数据容错防倾覆降级）
+  factory ProposalStatus.fromString(dynamic status) {
+    if (status == null) return ProposalStatus.pending;
+    switch (status.toString().trim().toLowerCase()) {
       case 'pending':
         return ProposalStatus.pending;
       case 'approved':
@@ -28,8 +27,7 @@ enum ProposalStatus {
       case 'expired':
         return ProposalStatus.expired;
       default:
-        // 在生产环境中，我们不希望有未知状态。如果出现，应立即报错。
-        throw ArgumentError('Unknown proposal status: $status');
+        return ProposalStatus.pending;
     }
   }
 }

@@ -16,6 +16,9 @@ import 'package:yourcallyourrule/features/contacts/services/contact_service.dart
 
 class ContactSubscriptionService
     extends SubscriptionServiceBase<ContactSubscription, String> {
+  /// 联系人订阅表类型标识
+  static const String tableType = 'contact';
+
   final ContactSubscriptionRepository _repository;
   final RuleRepository _ruleRepository;
   final ContactRepository _contactRepository; // Add missing repository

@@ -1,24 +1,13 @@
 import 'package:flutter/foundation.dart';
-
-import 'dart:async';
-
-
-// 【MODIFIED】: 引入了新的、统一的 Repository 抽象和强类型领域模型。
-// REASON: 这是重构的核心，确保 Service 层与具体的数据实现解耦，并使用类型安全的对象。
-import 'package:yourcallyourrule/features/deletion_proposal/domain/repositories/proposal_repository.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/repositories/proposal_repository.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
 
-
-/// 删除提议服务
-///
-/// 处理所有与众包删除审核系统相关的核心业务逻辑。
-/// 它是 UI 层和数据层（Repository）之间的主要协调者。
+/// 负责处理与“删除提议”相关的更复杂业务逻辑的高级服务。
+/// 它扮演 ViewModel 和 ProposalRepository 之间的中介角色。
 class DeletionProposalService {
-  // 【MODIFIED】: 依赖关系被简化和统一。
-  // REASON: Service 现在只依赖于 ProposalRepository 的抽象，符合整洁架构原则。
-  //         它不再需要关心底层的具体数据源是哪个。
   final ProposalRepository _proposalRepository;
-  
+
   DeletionProposalService({
     required ProposalRepository proposalRepository,
   }) : _proposalRepository = proposalRepository;
@@ -29,7 +18,7 @@ class DeletionProposalService {
   ///
   /// [phoneNumber] 要提议删除的电话号码。
   /// [reason] 提议删除的原因。
-  /// [riskLevel] 用户评估的风险等级 (1-5)。
+  /// [riskLevel] 用户评估的风险等级强类型枚举。
   /// [deviceId] 用户的设备ID。
   /// [userId] 用户的可选ID。
   ///
@@ -37,17 +26,20 @@ class DeletionProposalService {
   Future<String?> proposeDeletion({
     required String phoneNumber,
     required String reason,
-    required int riskLevel,
+    required dynamic riskLevel,
     required String deviceId,
     String? userId,
   }) async {
+    final parsedRisk = riskLevel is RiskLevel
+        ? riskLevel
+        : RiskLevel.fromString(riskLevel.toString());
     try {
       // 1. 验证输入参数
-      if (!_validateProposalInput(phoneNumber: phoneNumber, reason: reason, riskLevel: riskLevel)) {
+      if (!_validateProposalInput(phoneNumber: phoneNumber, reason: reason)) {
         debugPrint('DeletionProposalService: Invalid input parameters.');
         return null;
       }
-      
+
       // 2. 检查此号码是否已有一个待同步的提议操作
       // 【MODIFIED】: 调用了 Repository 中查询 pending_operations 的正确方法。
       final hasPendingOp = await _proposalRepository.hasPendingDeletionProposal(phoneNumber);
@@ -62,12 +54,12 @@ class DeletionProposalService {
         phoneNumber: phoneNumber,
         report: {
           'reason': reason,
-          'riskLevel': riskLevel,
+          'riskLevel': parsedRisk.toRawString(),
           'deviceId': deviceId,
           'userId': userId,
         },
       );
-      
+
       // 4. 同时，为了快速反馈给提议限制服务，也在本地日志表中记录一次提交
       await _proposalRepository.recordProposalSubmission(proposerId: deviceId, phoneNumber: phoneNumber);
 
@@ -161,37 +153,18 @@ class DeletionProposalService {
   /// 获取删除提议的统计信息。
   ///
   /// 返回一个包含各种统计数据的Map。
-  // 【MODIFIED】: 统计逻辑现在基于强类型的 `Proposal` 对象，并且风险等级逻辑已修正。
+  // 【MODIFIED】: 统计逻辑现在基于强类型的 `Proposal` 对象，并且基于强类型 `RiskLevel` 枚举。
   Future<Map<String, int>> getProposalStatistics() async {
     try {
       final pendingProposals = await getPendingProposals();
-      
-      // =======================================================================
-      // 【核心逻辑修正】: 彻底纠正了 risk level 的映射关系。
-      // REASON: 'Verified' 代表已验证所有者，是【最低风险】。
-      // =======================================================================
-      int riskLevelToInt(String riskString) {
-        switch (riskString.toLowerCase()) {
-          case 'high':
-            return 5;
-          case 'medium':
-            return 3;
-          case 'low':
-            return 2;
-          case 'verified': // 已验证，最低风险
-            return 1;
-          default:
-            return 3; // 未知情况默认为中等风险
-        }
-      }
 
       final statistics = <String, int>{
         'totalPending': pendingProposals.length,
-        'highRisk': pendingProposals.where((p) => riskLevelToInt(p.highestRiskLevel) >= 4).length,
-        'mediumRisk': pendingProposals.where((p) => riskLevelToInt(p.highestRiskLevel) == 3).length,
-        'lowRisk': pendingProposals.where((p) => riskLevelToInt(p.highestRiskLevel) <= 2).length,
+        'highRisk': pendingProposals.where((p) => p.highestRiskLevel == RiskLevel.high).length,
+        'mediumRisk': pendingProposals.where((p) => p.highestRiskLevel == RiskLevel.medium).length,
+        'lowRisk': pendingProposals.where((p) => p.highestRiskLevel == RiskLevel.low || p.highestRiskLevel == RiskLevel.verified).length,
       };
-      
+
       debugPrint('DeletionProposalService: Statistics - $statistics');
       return statistics;
     } catch (e) {
@@ -204,7 +177,6 @@ class DeletionProposalService {
   bool _validateProposalInput({
     required String phoneNumber,
     required String reason,
-    required int riskLevel,
   }) {
     if (phoneNumber.isEmpty || phoneNumber.length < 7) {
       return false;
@@ -212,35 +184,6 @@ class DeletionProposalService {
     if (reason.isEmpty || reason.length < 10) {
       return false;
     }
-    if (riskLevel < 1 || riskLevel > 5) {
-      return false;
-    }
     return true;
-  }
-
-  /// 获取风险等级的文字描述。
-  // 【核心逻辑修正】: 这里的描述现在与 `riskLevelToInt` 的逻辑完全匹配。
-  String getRiskLevelDescription(int riskLevel) {
-    switch (riskLevel) {
-      case 1:
-        return 'Very Low Risk'; // 1 代表已验证所有者
-      case 2:
-        return 'Low Risk';
-      case 3:
-        return 'Medium Risk';
-      case 4:
-        return 'High Risk';
-      case 5:
-        return 'Very High Risk';
-      default:
-        return 'Unknown Risk';
-    }
-  }
-
-  /// 释放资源。
-  void dispose() {
-    // 在这个新的架构中，Service是无状态的，通常不需要 dispose。
-    // 这个方法可以保留为空，或在未来用于清理可能添加的 StreamSubscription 等。
-    debugPrint('DeletionProposalService: Service disposed.');
   }
 }

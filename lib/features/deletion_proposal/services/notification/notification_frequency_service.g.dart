@@ -10,7 +10,7 @@ part of 'notification_frequency_service.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(notificationFrequencyService)
-const notificationFrequencyServiceProvider =
+final notificationFrequencyServiceProvider =
     NotificationFrequencyServiceProvider._();
 
 final class NotificationFrequencyServiceProvider
@@ -21,7 +21,7 @@ final class NotificationFrequencyServiceProvider
           NotificationFrequencyService
         >
     with $Provider<NotificationFrequencyService> {
-  const NotificationFrequencyServiceProvider._()
+  NotificationFrequencyServiceProvider._()
     : super(
         from: null,
         argument: null,

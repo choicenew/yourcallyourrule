@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/core/provider/datasource/local_phone_rule_datasource_provider.dart';
@@ -43,17 +44,17 @@ class RuleRepositoryImpl implements RuleRepository {
   RuleBase createRuleFromMap(Map<String, dynamic> map) {
     final ruleType = map['ruleType'] as String;
     
-    switch (ruleType) {
-      case 'phone_rule':
-      case 'white_black': // 兼容旧数据
+    final type = RuleType.fromString(map['ruleType']);
+    
+    switch (type) {
+      case RuleType.phone:
         return PhoneRule.fromMap(map);
-      case 'regex':
+      case RuleType.regex:
         return RegexRule.fromMap(map);
-      case 'alloworblock':
-      case 'allow_block':
+      case RuleType.allowBlock:
+      case RuleType.simSlot:
         return AllowedBlockedRule.fromMap(map);
-      default:
-        throw Exception('Unknown rule type: $ruleType');
+    }
     }
   }
 

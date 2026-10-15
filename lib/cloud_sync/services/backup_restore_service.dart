@@ -35,7 +35,7 @@ class BackupRestoreService {
     if (_rulesImportExportService == null) {
       throw Exception('RuleImportExportService not provided');
     }
-    return _rulesImportExportService!;
+    return _rulesImportExportService;
   }
 
   BackupRestoreService(
@@ -745,11 +745,11 @@ class BackupRestoreService {
       dialogTitle: 'Select backup file',
     );
 
-    if (result == null || result.files.isEmpty) {
+    if (result.isEmpty) {
       throw Exception('No file selected');
     }
 
-    return result.files.first.path!;
+    return result.first.path!;
   }
 
   Future<String> selectBackupDestination(Uint8List bytes) async {
@@ -767,7 +767,7 @@ class BackupRestoreService {
       throw Exception('No destination selected');
     }
 
-    return result;
+    return result.toFilePath();
   }
 
   void _ensureInitialized() {
@@ -1131,7 +1131,7 @@ class BackupRestoreService {
           }
 
           final Map<String, Object?> filtered = {};
-          (row as Map).forEach((k, v) {
+          row.forEach((k, v) {
             final key = k.toString();
             if (columnSet.contains(key)) {
               filtered[key] = v;

@@ -1,4 +1,5 @@
 import 'package:yourcallyourrule/core/entities/subscription/subscription.dart';
+import 'package:yourcallyourrule/core/entities/subscription/subscription_table_type.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
 
@@ -12,7 +13,7 @@ class SmsSubscription extends Subscription {
     super.action = RuleAction.block,
     required super.lastUpdated,
     super.autoUpdate = false,
-  }) : super(tableType: 'sms');
+  }) : super(tableType: SubscriptionTableKeys.sms);
 
   factory SmsSubscription.fromMap(Map<String, dynamic> map) {
     return SmsSubscription(

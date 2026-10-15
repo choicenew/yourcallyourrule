@@ -93,16 +93,13 @@ class CallerIdConfigRepository {
   /// 获取来电显示模式
   Future<DisplayMode> getDisplayMode() async {
     final config = await getConfig();
-    final modeString = config[displayModeKey] as String? ?? DisplayMode.live_activity.name;
-    // 使用 .name 属性进行比较，这是更健壮的方式
-    return DisplayMode.values.firstWhere((e) => e.name == modeString, orElse: () => DisplayMode.live_activity);
+    return DisplayMode.fromString(config[displayModeKey]);
   }
 
   /// 设置来电显示模式
   Future<void> setDisplayMode(DisplayMode value) async {
     final config = await getConfig();
-    // 使用 .name 属性进行存储
-    config[displayModeKey] = value.name;
+    config[displayModeKey] = value.toRawString();
     await saveConfig(config);
   }
 
@@ -130,7 +127,7 @@ class CallerIdConfigRepository {
       useLocalNotificationKey: false,
       cancelLocalNotificationKey: false,
       useStirNotificationKey: false,
-      displayModeKey: DisplayMode.live_activity.name,
+      displayModeKey: DisplayMode.liveActivity.toRawString(),
             // 【新增】: 提供默认的延迟时间（5秒）
       notificationAutoCancelDelayKey: defaultNotificationAutoCancelDelayInSeconds,
     };

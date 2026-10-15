@@ -11,7 +11,7 @@ part of 'callerid_style_security_provider.dart';
 /// Provider for the configuration repository implementation.
 
 @ProviderFor(configRepository)
-const configRepositoryProvider = ConfigRepositoryProvider._();
+final configRepositoryProvider = ConfigRepositoryProvider._();
 
 /// Provider for the configuration repository implementation.
 
@@ -24,7 +24,7 @@ final class ConfigRepositoryProvider
         >
     with $Provider<ConfigRepository> {
   /// Provider for the configuration repository implementation.
-  const ConfigRepositoryProvider._()
+  ConfigRepositoryProvider._()
     : super(
         from: null,
         argument: null,
@@ -62,7 +62,7 @@ String _$configRepositoryHash() => r'602db6ffdf10f94eb4f605596851265b751b5c8a';
 /// Provider for the CallerIdConfigService.
 
 @ProviderFor(callerIdConfigService)
-const callerIdConfigServiceProvider = CallerIdConfigServiceProvider._();
+final callerIdConfigServiceProvider = CallerIdConfigServiceProvider._();
 
 /// Provider for the CallerIdConfigService.
 
@@ -75,7 +75,7 @@ final class CallerIdConfigServiceProvider
         >
     with $Provider<CallerIdConfigService> {
   /// Provider for the CallerIdConfigService.
-  const CallerIdConfigServiceProvider._()
+  CallerIdConfigServiceProvider._()
     : super(
         from: null,
         argument: null,
@@ -116,7 +116,7 @@ String _$callerIdConfigServiceHash() =>
 /// 这使得我们的业务逻辑层可以在整个应用中被轻松访问。
 
 @ProviderFor(configurationManager)
-const configurationManagerProvider = ConfigurationManagerProvider._();
+final configurationManagerProvider = ConfigurationManagerProvider._();
 
 /// Provider for the ConfigurationManager.
 /// 这使得我们的业务逻辑层可以在整个应用中被轻松访问。
@@ -131,7 +131,7 @@ final class ConfigurationManagerProvider
     with $Provider<ConfigurationManager> {
   /// Provider for the ConfigurationManager.
   /// 这使得我们的业务逻辑层可以在整个应用中被轻松访问。
-  const ConfigurationManagerProvider._()
+  ConfigurationManagerProvider._()
     : super(
         from: null,
         argument: null,
@@ -173,7 +173,7 @@ String _$configurationManagerHash() =>
 /// 它不包含任何保存、加载等业务逻辑。
 
 @ProviderFor(CallerIdStyleSecurityNotifier)
-const callerIdStyleSecurityProvider = CallerIdStyleSecurityNotifierProvider._();
+final callerIdStyleSecurityProvider = CallerIdStyleSecurityNotifierProvider._();
 
 /// The UI State Notifier.
 /// 它的唯一职责是持有当前的UI状态(CallerIdConfig)，并响应UI的实时调整。
@@ -184,7 +184,7 @@ final class CallerIdStyleSecurityNotifierProvider
   /// The UI State Notifier.
   /// 它的唯一职责是持有当前的UI状态(CallerIdConfig)，并响应UI的实时调整。
   /// 它不包含任何保存、加载等业务逻辑。
-  const CallerIdStyleSecurityNotifierProvider._()
+  CallerIdStyleSecurityNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -215,8 +215,7 @@ abstract class _$CallerIdStyleSecurityNotifier
   FutureOr<CallerIdConfig> build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<AsyncValue<CallerIdConfig>, CallerIdConfig>;
     final element =
         ref.element
@@ -226,6 +225,6 @@ abstract class _$CallerIdStyleSecurityNotifier
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

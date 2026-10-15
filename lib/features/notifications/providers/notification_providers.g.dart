@@ -11,7 +11,7 @@ part of 'notification_providers.dart';
 /// 这个 Provider 将 NotificationService 的实例绑定到 NotificationServiceContract 接口上。
 
 @ProviderFor(notificationService)
-const notificationServiceProvider = NotificationServiceProvider._();
+final notificationServiceProvider = NotificationServiceProvider._();
 
 /// 这个 Provider 将 NotificationService 的实例绑定到 NotificationServiceContract 接口上。
 
@@ -24,7 +24,7 @@ final class NotificationServiceProvider
         >
     with $Provider<NotificationServiceContract> {
   /// 这个 Provider 将 NotificationService 的实例绑定到 NotificationServiceContract 接口上。
-  const NotificationServiceProvider._()
+  NotificationServiceProvider._()
     : super(
         from: null,
         argument: null,

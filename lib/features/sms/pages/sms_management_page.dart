@@ -286,10 +286,10 @@ class _SmsManagementPageState extends ConsumerState<SmsManagementPage> {
         allowedExtensions: ['json', 'txt'],
       );
 
-      if (result != null && result.files.single.path != null) {
+      if (result.isNotEmpty && result.single.path != null) {
         final service = ref.read(smsServiceProvider);
         final importExportService = service.importExportService;
-        final rules = await importExportService.importFromFile(result.files.single.path!);
+        final rules = await importExportService.importFromFile(result.single.path!);
         
         // 过滤出短信规则
         final smsRules = rules.whereType<SmsRegexRule>().toList();

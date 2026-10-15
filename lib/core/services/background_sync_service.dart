@@ -14,14 +14,11 @@ import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_pro
 import 'package:yourcallyourrule/common/error/logger.dart';
 import 'package:yourcallyourrule/core/services/firebase_service.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
+import 'package:yourcallyourrule/core/constants/background_task_keys.dart';
 
-
-
-
-
-const syncCallLogTask = "syncCallLogTask";
-const autoUpdateTask = "autoUpdateTask";
-const dataSyncTask = "dataSyncTask";
+const syncCallLogTask = BackgroundTaskKeys.syncCallLogTask;
+const autoUpdateTask = BackgroundTaskKeys.autoUpdateTask;
+const dataSyncTask = BackgroundTaskKeys.dataSyncTask;
 
 // 这是一个顶层函数，用作后台任务的入口点
 @pragma('vm:entry-point')
@@ -97,7 +94,7 @@ void callbackDispatcher() {
 
 /// 后台同步服务，负责管理应用的后台同步任务
 class BackgroundSyncService {
-  static const String syncTaskName = 'com.yourcallyourrule.sync';
+  static const String syncTaskName = BackgroundTaskKeys.syncTaskTag;
   final IncrementalSyncManager _syncManager;
 
   BackgroundSyncService(this._syncManager);
@@ -110,7 +107,7 @@ class BackgroundSyncService {
     
     // 注册通话记录同步任务
     await Workmanager().registerPeriodicTask(
-      "1",
+      BackgroundTaskKeys.callLogTaskId,
       syncCallLogTask,
       frequency: const Duration(hours: 1), // 每小时同步一次
       constraints: Constraints(
@@ -121,7 +118,7 @@ class BackgroundSyncService {
     
     // 注册自动更新任务
     await Workmanager().registerPeriodicTask(
-      "2",
+      BackgroundTaskKeys.autoUpdateTaskId,
       autoUpdateTask,
       frequency: const Duration(days: 1), // 每天更新一次
       constraints: Constraints(

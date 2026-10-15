@@ -13,7 +13,7 @@ part of 'country_selection_provider.dart';
 /// This notifier handles loading, adding, and removing selected countries.
 
 @ProviderFor(SelectedCountries)
-const selectedCountriesProvider = SelectedCountriesProvider._();
+final selectedCountriesProvider = SelectedCountriesProvider._();
 
 /// Notifier for managing the list of selected country iso codes.
 ///
@@ -23,7 +23,7 @@ final class SelectedCountriesProvider
   /// Notifier for managing the list of selected country iso codes.
   ///
   /// This notifier handles loading, adding, and removing selected countries.
-  const SelectedCountriesProvider._()
+  SelectedCountriesProvider._()
     : super(
         from: null,
         argument: null,
@@ -52,8 +52,7 @@ abstract class _$SelectedCountries extends $AsyncNotifier<List<String>> {
   FutureOr<List<String>> build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<AsyncValue<List<String>>, List<String>>;
     final element =
         ref.element
@@ -63,6 +62,6 @@ abstract class _$SelectedCountries extends $AsyncNotifier<List<String>> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 // 确认路径正确
 import 'package:yourcallyourrule/ads/adwidgets/app_open_ad.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
+import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -66,7 +67,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     Timer(_minSplashDuration, () {
       debugPrint('✅ 门锁1: 最小显示时间到达');
       _minTimeElapsed = true;
-      _adLoadAttempted = true;
       _tryNavigate(); // 尝试开锁
     });
 
@@ -143,7 +143,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   Future<void> _checkFirstLaunch() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      if (mounted) _isFirstLaunch = prefs.getBool('first_launch') ?? true;
+      if (mounted) _isFirstLaunch = prefs.getBool(AppPrefsKeys.firstLaunch) ?? true;
     } catch (e) {
       if (mounted) _isFirstLaunch = true;
     }
@@ -165,7 +165,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   Future<void> _setFirstLaunchComplete() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setBool('first_launch', false);
+      await prefs.setBool(AppPrefsKeys.firstLaunch, false);
     } catch (e) {
       //
     }

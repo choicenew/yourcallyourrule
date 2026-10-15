@@ -15,7 +15,7 @@ part of 'notification_handler.dart';
 /// 这是您原始的、正确的设计。
 
 @ProviderFor(notificationHandler)
-const notificationHandlerProvider = NotificationHandlerProvider._();
+final notificationHandlerProvider = NotificationHandlerProvider._();
 
 /// 通知处理器 Provider
 ///
@@ -38,7 +38,7 @@ final class NotificationHandlerProvider
   /// 【恢复并修正】: 这是一个 FutureProvider，因为它所创建的 NotificationHandler
   /// 需要执行异步的 `initialize()` 方法来加载配置。
   /// 这是您原始的、正确的设计。
-  const NotificationHandlerProvider._()
+  NotificationHandlerProvider._()
     : super(
         from: null,
         argument: null,

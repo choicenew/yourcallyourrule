@@ -1,106 +1,67 @@
-// SIM卡槽位规则实体，用于表示特定SIM卡槽位的规则
-
+import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../value_objects/phone_number.dart';
 import '../../value_objects/rule_action.dart';
 import '../../value_objects/rule_priority.dart';
 import 'rule_base.dart';
+import 'rule_type.dart';
 
-/// SIM卡槽位规则实体
-/// 用于表示特定SIM卡槽位的规则，继承自RuleBase
-class SimSlotRule extends RuleBase {
-  // 电话号码
-  final PhoneNumber phoneNumber;
-  
-  // SIM卡槽位索引
-  final int simSlotIndex;
-  
-  // 标签ID
-  final String labelId;
-  
-  // 头像（可选）
-  final String? avatar;
+part 'sim_slot_rule.freezed.dart';
 
-  // [新增]: 添加 ruleType 字段以供仓库层识别
-  final String ruleType;
+/// SIM卡槽位规则实体 (@freezed 自动生成不可变数据类)
+@freezed
+abstract class SimSlotRule with _$SimSlotRule implements RuleBase {
+  const SimSlotRule._();
 
-  // 构造函数
-  const SimSlotRule({
-    required super.id,
-    required super.name,
-    required super.priority,
-    required this.phoneNumber,
-    required this.simSlotIndex,
-    this.labelId = '',
-    this.avatar,
-        // [新增]: 为 ruleType 提供默认值
-    this.ruleType = 'sim_slot', 
-    super.action = RuleAction.block,
-    super.isEnabled = true,
-  });
+  @Implements<RuleBase>()
+  const factory SimSlotRule({
+    required String id,
+    required String name,
+    required RulePriority priority,
+    required PhoneNumber phoneNumber,
+    required int simSlotIndex,
+    @Default('') String labelId,
+    String? avatar,
+    @Default(RuleTypeKeys.simSlot) String ruleType,
+    @Default(RuleAction.block) RuleAction action,
+    @Default(true) bool isEnabled,
+  }) = _SimSlotRule;
 
-  // 实现规则匹配方法
+  /// 号码过滤匹配逻辑
   @override
   bool matches(String input) {
-    // 检查输入是否与电话号码匹配
     return isEnabled && phoneNumber.value == input;
   }
 
-  // 重写toMap方法，添加SIM卡槽位规则特有的字段
+  /// 格式化转换 Map
   @override
   Map<String, dynamic> toMap() {
-    final map = super.toMap();
-    map.addAll({
+    return {
+      'id': id,
+      'name': name,
+      'priority': priority.value,
       'phoneNumber': phoneNumber.value,
       'simSlotIndex': simSlotIndex,
       'labelId': labelId,
       'avatar': avatar,
       'isEnabled': isEnabled ? 1 : 0,
       'ruleType': ruleType,
-    });
-    return map;
+      'action': action.toString(),
+    };
   }
 
-  // 实现copyWith方法
-  @override
-  SimSlotRule copyWith({
-    String? id,
-    String? name,
-    RulePriority? priority,
-    RuleAction? action,
-    bool? isEnabled,
-    PhoneNumber? phoneNumber,
-    int? simSlotIndex,
-    String? labelId,
-    String? avatar,
-    String? ruleType,
-  }) {
-    return SimSlotRule(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      priority: priority ?? this.priority,
-      action: action ?? this.action,
-      isEnabled: isEnabled ?? this.isEnabled,
-      phoneNumber: phoneNumber ?? this.phoneNumber,
-      simSlotIndex: simSlotIndex ?? this.simSlotIndex,
-      labelId: labelId ?? this.labelId,
-      avatar: avatar ?? this.avatar,
-      ruleType: ruleType ?? this.ruleType,
-    );
-  }
-  
-  // 从Map创建SimSlotRule实例
+  /// 从 Map 反序列化生成实体
   factory SimSlotRule.fromMap(Map<String, dynamic> map) {
     return SimSlotRule(
-      id: map['id'],
-      name: map['name'],
+      id: map['id']?.toString() ?? '',
+      name: map['name']?.toString() ?? '',
       priority: RulePriority.fromInt(map['priority']),
+      phoneNumber: PhoneNumber.fromString(map['phoneNumber']?.toString() ?? ''),
+      simSlotIndex: (map['simSlotIndex'] as num?)?.toInt() ?? 0,
+      labelId: map['labelId']?.toString() ?? '',
+      avatar: map['avatar']?.toString(),
+      ruleType: map['ruleType']?.toString() ?? RuleTypeKeys.simSlot,
       action: RuleAction.fromString(map['action']),
-      phoneNumber: PhoneNumber.fromString(map['phoneNumber']),
-      simSlotIndex: map['simSlotIndex'],
-      labelId: map['labelId'] ?? '',
-      avatar: map['avatar'],
-      isEnabled: (map['isEnabled'] ?? 1) == 1,
-      ruleType: map['ruleType'] ?? 'sim_slot',
+      isEnabled: (map['isEnabled'] ?? 1) == 1 || map['isEnabled'] == true,
     );
   }
 }

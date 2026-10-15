@@ -11,12 +11,12 @@ part of 'ad_cache_provider.dart';
 /// 【优化】: 移除 keepAlive: true，允许广告页面离开时自动销毁和清理 Native 贴图与内存
 
 @ProviderFor(AdCache)
-const adCacheProvider = AdCacheFamily._();
+final adCacheProvider = AdCacheFamily._();
 
 /// 【优化】: 移除 keepAlive: true，允许广告页面离开时自动销毁和清理 Native 贴图与内存
 final class AdCacheProvider extends $NotifierProvider<AdCache, AdCacheState> {
   /// 【优化】: 移除 keepAlive: true，允许广告页面离开时自动销毁和清理 Native 贴图与内存
-  const AdCacheProvider._({
+  AdCacheProvider._({
     required AdCacheFamily super.from,
     required AdInfo super.argument,
   }) : super(
@@ -60,7 +60,7 @@ final class AdCacheProvider extends $NotifierProvider<AdCache, AdCacheState> {
   }
 }
 
-String _$adCacheHash() => r'f51f0f815fb5191bc1cd9f3146ba35206ed3eee4';
+String _$adCacheHash() => r'7bd62bd1ca9bd9327724c92f8bf0efa2aab869b7';
 
 /// 【优化】: 移除 keepAlive: true，允许广告页面离开时自动销毁和清理 Native 贴图与内存
 
@@ -73,7 +73,7 @@ final class AdCacheFamily extends $Family
           AdCacheState,
           AdInfo
         > {
-  const AdCacheFamily._()
+  AdCacheFamily._()
     : super(
         retry: null,
         name: r'adCacheProvider',
@@ -100,8 +100,7 @@ abstract class _$AdCache extends $Notifier<AdCacheState> {
   AdCacheState build(AdInfo adInfo);
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build(_$args);
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<AdCacheState, AdCacheState>;
     final element =
         ref.element
@@ -111,6 +110,6 @@ abstract class _$AdCache extends $Notifier<AdCacheState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, () => build(_$args));
   }
 }

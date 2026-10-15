@@ -44,7 +44,7 @@ class AppOpenAdManager {
             if (!completer.isCompleted) completer.complete();
           },
         ),
-      ).timeout(const Duration(milliseconds: 2000), onTimeout: () {
+      ).timeout(const Duration(milliseconds: 4000), onTimeout: () {
         debugPrint('⏱️ 开屏广告加载超时');
         if (!completer.isCompleted) completer.complete();
       });

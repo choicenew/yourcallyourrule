@@ -490,7 +490,7 @@ class _RegexRulePageWithAdsState extends ConsumerState<RegexRulePageWithAds> {
                 Switch(
                   value: rule.isEnabled,
                   onChanged: (value) => _toggleRuleStatus(rule.id, value),
-                  activeColor: const Color(0xFFF5A623),
+                  activeColor: Theme.of(context).colorScheme.primary,
                 ),
                 if (!_isMultiSelectMode)
                   IconButton(

@@ -16,7 +16,7 @@ part of 'overlay_control_handler.dart';
 /// - `@Riverpod(keepAlive: true)`: 确保这个服务在整个应用生命周期内持续运行。
 
 @ProviderFor(overlayControlHandler)
-const overlayControlHandlerProvider = OverlayControlHandlerProvider._();
+final overlayControlHandlerProvider = OverlayControlHandlerProvider._();
 
 /// OverlayControlHandler 的 Riverpod Provider
 ///
@@ -39,7 +39,7 @@ final class OverlayControlHandlerProvider
   /// 它是一个独立的、自启动的服务，负责响应通话状态变化来控制浮窗的关闭。
   ///
   /// - `@Riverpod(keepAlive: true)`: 确保这个服务在整个应用生命周期内持续运行。
-  const OverlayControlHandlerProvider._()
+  OverlayControlHandlerProvider._()
     : super(
         from: null,
         argument: null,

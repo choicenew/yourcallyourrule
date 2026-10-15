@@ -13,7 +13,7 @@ part of 'notification_asset_service.dart';
 /// 这是一个简单的服务型 Provider，提供一个 NotificationAssetService 的单例。
 
 @ProviderFor(notificationAssetService)
-const notificationAssetServiceProvider = NotificationAssetServiceProvider._();
+final notificationAssetServiceProvider = NotificationAssetServiceProvider._();
 
 /// 通知资源服务 Provider
 ///
@@ -30,7 +30,7 @@ final class NotificationAssetServiceProvider
   /// 通知资源服务 Provider
   ///
   /// 这是一个简单的服务型 Provider，提供一个 NotificationAssetService 的单例。
-  const NotificationAssetServiceProvider._()
+  NotificationAssetServiceProvider._()
     : super(
         from: null,
         argument: null,

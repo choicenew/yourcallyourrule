@@ -10,11 +10,11 @@ part of 'call_statistics_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(CallStatisticsNotifier)
-const callStatisticsProvider = CallStatisticsNotifierProvider._();
+final callStatisticsProvider = CallStatisticsNotifierProvider._();
 
 final class CallStatisticsNotifierProvider
     extends $NotifierProvider<CallStatisticsNotifier, CallStatisticsState> {
-  const CallStatisticsNotifierProvider._()
+  CallStatisticsNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -42,14 +42,13 @@ final class CallStatisticsNotifierProvider
 }
 
 String _$callStatisticsNotifierHash() =>
-    r'cd6b6149b543931bf49a61e241ad14025705bb2b';
+    r'd290e9321d646f056c8d91451cdbbb34034f6ec7';
 
 abstract class _$CallStatisticsNotifier extends $Notifier<CallStatisticsState> {
   CallStatisticsState build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<CallStatisticsState, CallStatisticsState>;
     final element =
         ref.element
@@ -59,6 +58,6 @@ abstract class _$CallStatisticsNotifier extends $Notifier<CallStatisticsState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

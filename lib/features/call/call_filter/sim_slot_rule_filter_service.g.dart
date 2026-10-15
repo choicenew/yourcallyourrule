@@ -10,7 +10,7 @@ part of 'sim_slot_rule_filter_service.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(simSlotRuleFilterService)
-const simSlotRuleFilterServiceProvider = SimSlotRuleFilterServiceProvider._();
+final simSlotRuleFilterServiceProvider = SimSlotRuleFilterServiceProvider._();
 
 final class SimSlotRuleFilterServiceProvider
     extends
@@ -20,7 +20,7 @@ final class SimSlotRuleFilterServiceProvider
           SimSlotRuleFilterService
         >
     with $Provider<SimSlotRuleFilterService> {
-  const SimSlotRuleFilterServiceProvider._()
+  SimSlotRuleFilterServiceProvider._()
     : super(
         from: null,
         argument: null,

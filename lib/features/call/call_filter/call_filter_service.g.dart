@@ -12,7 +12,7 @@ part of 'call_filter_service.dart';
 /// 它会自动处理依赖注入
 
 @ProviderFor(callFilterService)
-const callFilterServiceProvider = CallFilterServiceProvider._();
+final callFilterServiceProvider = CallFilterServiceProvider._();
 
 /// CallFilterService 的 @riverpod Provider
 /// 它会自动处理依赖注入
@@ -27,7 +27,7 @@ final class CallFilterServiceProvider
     with $Provider<CallFilterService> {
   /// CallFilterService 的 @riverpod Provider
   /// 它会自动处理依赖注入
-  const CallFilterServiceProvider._()
+  CallFilterServiceProvider._()
     : super(
         from: null,
         argument: null,

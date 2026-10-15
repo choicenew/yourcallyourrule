@@ -5,6 +5,7 @@ import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/data/proposal_datasource.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/models/proposal_history_item.dart';
 
 class ProposalDataSourceImpl implements ProposalDataSource {
@@ -475,7 +476,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
         phoneNumber: phone,
         submissionTime: DateTime.parse(sub.submissionTime),
         status: status,
-        highestRiskLevel: riskLevel,
+        highestRiskLevel: riskLevel != null ? RiskLevel.fromString(riskLevel) : null,
         currentVotes: votes,
         verifiedOwnerCount: owners,
       ));

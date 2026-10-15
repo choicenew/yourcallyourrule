@@ -6,6 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 // 引入所有必要的 Provider 和模型
 import 'package:yourcallyourrule/core/provider/providers/device_id_service_provider.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/deletion_proposal_service_provider.dart';
 
 part 'deletion_proposal_provider.g.dart';
@@ -136,14 +137,17 @@ class DeletionProposalNotifier extends _$DeletionProposalNotifier {
   }
   
   /// 创建一个新的删除提议。
-  Future<bool> createProposal(String phoneNumber, String reason, int riskLevel) async {
+  Future<bool> createProposal(String phoneNumber, String reason, dynamic riskLevel) async {
+    final parsedRisk = riskLevel is RiskLevel
+        ? riskLevel
+        : RiskLevel.fromString(riskLevel.toString());
     if (state.isSubmitting) return false;
     state = state.copyWith(isSubmitting: true, error: null);
     try {
       final proposalId = await ref.read(deletionProposalServiceProvider).proposeDeletion(
         phoneNumber: phoneNumber,
         reason: reason,
-        riskLevel: riskLevel,
+        riskLevel: parsedRisk,
         deviceId: _deviceId,
       );
       if (proposalId != null) {

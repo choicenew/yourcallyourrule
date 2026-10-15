@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/theme/theme_provider.dart';
 
 class ThemeSelector extends ConsumerWidget {
@@ -9,6 +10,7 @@ class ThemeSelector extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final currentThemeMode = ref.watch(themeModeProvider);
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return AlertDialog(
       backgroundColor: theme.dialogBackgroundColor,
@@ -25,7 +27,7 @@ class ThemeSelector extends ConsumerWidget {
           ),
           const SizedBox(width: 10),
           Text(
-            'Theme',
+            l10n.themeSettingsTitle,
             style: TextStyle(
               fontWeight: FontWeight.w900,
               fontSize: 18,
@@ -41,21 +43,21 @@ class ThemeSelector extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SegmentedButton<ThemeMode>(
-              segments: const <ButtonSegment<ThemeMode>>[
+              segments: <ButtonSegment<ThemeMode>>[
                 ButtonSegment(
                   value: ThemeMode.light,
-                  label: Text('Light'),
-                  icon: Icon(Icons.wb_sunny_rounded),
+                  label: Text(l10n.themeLight),
+                  icon: const Icon(Icons.wb_sunny_rounded),
                 ),
                 ButtonSegment(
                   value: ThemeMode.dark,
-                  label: Text('Dark'),
-                  icon: Icon(Icons.nightlight_rounded),
+                  label: Text(l10n.themeDark),
+                  icon: const Icon(Icons.nightlight_rounded),
                 ),
                 ButtonSegment(
                   value: ThemeMode.system,
-                  label: Text('System'),
-                  icon: Icon(Icons.settings_suggest_rounded),
+                  label: Text(l10n.themeSystem),
+                  icon: const Icon(Icons.settings_suggest_rounded),
                 ),
               ],
               selected: <ThemeMode>{currentThemeMode},

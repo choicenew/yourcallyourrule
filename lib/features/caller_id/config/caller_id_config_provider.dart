@@ -85,10 +85,7 @@ class CallerIdConfig {
       useLocalNotification: map[CallerIdConfigRepository.useLocalNotificationKey] as bool? ?? false,
       cancelLocalNotification: map[CallerIdConfigRepository.cancelLocalNotificationKey] as bool? ?? false,
       useStirNotification: map[CallerIdConfigRepository.useStirNotificationKey] as bool? ?? false,
-      displayMode: DisplayMode.values.firstWhere(
-        (e) => e.name == (map[CallerIdConfigRepository.displayModeKey] as String?),
-        orElse: () => DisplayMode.live_activity
-      ),
+      displayMode: DisplayMode.fromString(map[CallerIdConfigRepository.displayModeKey]),
      notificationAutoCancelDelay: Duration(seconds: map[CallerIdConfigRepository.notificationAutoCancelDelayKey] as int? ?? CallerIdConfigRepository.defaultNotificationAutoCancelDelayInSeconds),
     );
   }

@@ -10,7 +10,7 @@ part of 'time_interceptor_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(TimeInterceptorConfigNotifier)
-const timeInterceptorConfigProvider = TimeInterceptorConfigNotifierProvider._();
+final timeInterceptorConfigProvider = TimeInterceptorConfigNotifierProvider._();
 
 final class TimeInterceptorConfigNotifierProvider
     extends
@@ -18,7 +18,7 @@ final class TimeInterceptorConfigNotifierProvider
           TimeInterceptorConfigNotifier,
           TimeInterceptorConfig
         > {
-  const TimeInterceptorConfigNotifierProvider._()
+  TimeInterceptorConfigNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -45,8 +45,7 @@ abstract class _$TimeInterceptorConfigNotifier
   FutureOr<TimeInterceptorConfig> build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref =
         this.ref
             as $Ref<AsyncValue<TimeInterceptorConfig>, TimeInterceptorConfig>;
@@ -61,6 +60,6 @@ abstract class _$TimeInterceptorConfigNotifier
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

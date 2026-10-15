@@ -14,7 +14,7 @@ part of 'display_mode_handler.dart';
 /// 它负责创建并提供一个 DisplayModeHandler 的单例。
 
 @ProviderFor(displayModeHandler)
-const displayModeHandlerProvider = DisplayModeHandlerProvider._();
+final displayModeHandlerProvider = DisplayModeHandlerProvider._();
 
 /// 显示模式处理器 Provider
 ///
@@ -35,7 +35,7 @@ final class DisplayModeHandlerProvider
   ///
   /// 【最终方案】: 这是一个异步 Provider，因为它需要在初始化时执行异步操作（管理引擎）。
   /// 它负责创建并提供一个 DisplayModeHandler 的单例。
-  const DisplayModeHandlerProvider._()
+  DisplayModeHandlerProvider._()
     : super(
         from: null,
         argument: null,

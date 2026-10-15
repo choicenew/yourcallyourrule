@@ -11,6 +11,9 @@ import 'package:yourcallyourrule/core/value_objects/url.dart';
 
 class SmsSubscriptionService
     extends SubscriptionServiceBase<SmsSubscription, String> {
+  /// 短信规则订阅表类型标识
+  static const String tableType = 'sms';
+
   final SmsSubscriptionRepository _repository; // 修正_repository声明
   final RuleImportExportService _importExportService;
   final RuleRepository _ruleRepository;

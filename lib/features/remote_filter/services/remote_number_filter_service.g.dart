@@ -10,7 +10,7 @@ part of 'remote_number_filter_service.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(remoteNumberFilterService)
-const remoteNumberFilterServiceProvider = RemoteNumberFilterServiceProvider._();
+final remoteNumberFilterServiceProvider = RemoteNumberFilterServiceProvider._();
 
 final class RemoteNumberFilterServiceProvider
     extends
@@ -20,7 +20,7 @@ final class RemoteNumberFilterServiceProvider
           RemoteNumberFilterService
         >
     with $Provider<RemoteNumberFilterService> {
-  const RemoteNumberFilterServiceProvider._()
+  RemoteNumberFilterServiceProvider._()
     : super(
         from: null,
         argument: null,

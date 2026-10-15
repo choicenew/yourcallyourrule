@@ -10,7 +10,7 @@ part of 'live_activity_notification_manager.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(liveActivityNotificationManager)
-const liveActivityNotificationManagerProvider =
+final liveActivityNotificationManagerProvider =
     LiveActivityNotificationManagerProvider._();
 
 final class LiveActivityNotificationManagerProvider
@@ -21,7 +21,7 @@ final class LiveActivityNotificationManagerProvider
           LiveActivityNotificationManager
         >
     with $Provider<LiveActivityNotificationManager> {
-  const LiveActivityNotificationManagerProvider._()
+  LiveActivityNotificationManagerProvider._()
     : super(
         from: null,
         argument: null,

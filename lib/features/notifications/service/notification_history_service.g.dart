@@ -10,7 +10,7 @@ part of 'notification_history_service.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(sharedPreferences)
-const sharedPreferencesProvider = SharedPreferencesProvider._();
+final sharedPreferencesProvider = SharedPreferencesProvider._();
 
 final class SharedPreferencesProvider
     extends
@@ -22,7 +22,7 @@ final class SharedPreferencesProvider
     with
         $FutureModifier<SharedPreferences>,
         $FutureProvider<SharedPreferences> {
-  const SharedPreferencesProvider._()
+  SharedPreferencesProvider._()
     : super(
         from: null,
         argument: null,
@@ -51,7 +51,7 @@ final class SharedPreferencesProvider
 String _$sharedPreferencesHash() => r'48e60558ea6530114ea20ea03e69b9fb339ab129';
 
 @ProviderFor(notificationHistoryService)
-const notificationHistoryServiceProvider =
+final notificationHistoryServiceProvider =
     NotificationHistoryServiceProvider._();
 
 final class NotificationHistoryServiceProvider
@@ -62,7 +62,7 @@ final class NotificationHistoryServiceProvider
           NotificationHistoryService
         >
     with $Provider<NotificationHistoryService> {
-  const NotificationHistoryServiceProvider._()
+  NotificationHistoryServiceProvider._()
     : super(
         from: null,
         argument: null,

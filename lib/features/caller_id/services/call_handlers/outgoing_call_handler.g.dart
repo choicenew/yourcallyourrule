@@ -17,7 +17,7 @@ part of 'outgoing_call_handler.dart';
 /// 以便能够随时处理去电事件。
 
 @ProviderFor(outgoingCallHandler)
-const outgoingCallHandlerProvider = OutgoingCallHandlerProvider._();
+final outgoingCallHandlerProvider = OutgoingCallHandlerProvider._();
 
 /// 去电处理器 Provider
 ///
@@ -42,7 +42,7 @@ final class OutgoingCallHandlerProvider
   ///
   /// 使用 `keepAlive: true` 确保这个单例在整个应用生命周期中都存在，
   /// 以便能够随时处理去电事件。
-  const OutgoingCallHandlerProvider._()
+  OutgoingCallHandlerProvider._()
     : super(
         from: null,
         argument: null,

@@ -2,6 +2,7 @@ import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_service.dart';
+import 'package:yourcallyourrule/features/call_statistic/domain/statistic_period.dart';
 
 class CallStatisticsRepositoryImpl {
   final CallStatisticsService _statisticsService;
@@ -22,5 +23,5 @@ class CallStatisticsRepositoryImpl {
   int getBlacklistRulesCount() => _statisticsService.getBlacklistRulesCount(_rules);
   Future<int> getTimeRulesCount(ConfigRepository configRepo) => _statisticsService.getTimeRulesCount(configRepo);
   Map<String, double> getBlockTypeAnalysis() => _statisticsService.getBlockTypeAnalysis(_callLogs);
-  Map<DateTime, int> getBlockedCallsByDate(String period) => _statisticsService.getBlockedCallsByDate(_callLogs, period);
+  Map<DateTime, int> getBlockedCallsByDate(StatisticPeriod period) => _statisticsService.getBlockedCallsByDate(_callLogs, period);
 }

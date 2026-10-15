@@ -11,13 +11,13 @@ part of 'deletion_proposal_provider.dart';
 /// 删除提议状态的 Notifier。
 
 @ProviderFor(DeletionProposalNotifier)
-const deletionProposalProvider = DeletionProposalNotifierProvider._();
+final deletionProposalProvider = DeletionProposalNotifierProvider._();
 
 /// 删除提议状态的 Notifier。
 final class DeletionProposalNotifierProvider
     extends $NotifierProvider<DeletionProposalNotifier, DeletionProposalState> {
   /// 删除提议状态的 Notifier。
-  const DeletionProposalNotifierProvider._()
+  DeletionProposalNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -45,7 +45,7 @@ final class DeletionProposalNotifierProvider
 }
 
 String _$deletionProposalNotifierHash() =>
-    r'0ef7810af03576dd14725972910c628dc9548879';
+    r'4722539504ad04d94c8d283bd483bc075700d23c';
 
 /// 删除提议状态的 Notifier。
 
@@ -54,8 +54,7 @@ abstract class _$DeletionProposalNotifier
   DeletionProposalState build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<DeletionProposalState, DeletionProposalState>;
     final element =
         ref.element
@@ -65,12 +64,12 @@ abstract class _$DeletionProposalNotifier
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }
 
 @ProviderFor(proposalDetails)
-const proposalDetailsProvider = ProposalDetailsFamily._();
+final proposalDetailsProvider = ProposalDetailsFamily._();
 
 final class ProposalDetailsProvider
     extends
@@ -80,7 +79,7 @@ final class ProposalDetailsProvider
           FutureOr<Proposal?>
         >
     with $FutureModifier<Proposal?>, $FutureProvider<Proposal?> {
-  const ProposalDetailsProvider._({
+  ProposalDetailsProvider._({
     required ProposalDetailsFamily super.from,
     required String super.argument,
   }) : super(
@@ -127,7 +126,7 @@ String _$proposalDetailsHash() => r'c89c293f08476dbe70f142b08dc721f2cd3ffc38';
 
 final class ProposalDetailsFamily extends $Family
     with $FunctionalFamilyOverride<FutureOr<Proposal?>, String> {
-  const ProposalDetailsFamily._()
+  ProposalDetailsFamily._()
     : super(
         retry: null,
         name: r'proposalDetailsProvider',

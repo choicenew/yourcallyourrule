@@ -14,7 +14,7 @@ part of 'deletion_proposal_service_provider.dart';
 /// 这使得依赖关系更加清晰和可测试。
 
 @ProviderFor(deletionProposalService)
-const deletionProposalServiceProvider = DeletionProposalServiceProvider._();
+final deletionProposalServiceProvider = DeletionProposalServiceProvider._();
 
 /// DeletionProposalService 的 Provider。
 ///
@@ -33,7 +33,7 @@ final class DeletionProposalServiceProvider
   ///
   /// 【MODIFIED】: 使用 @riverpod 注解，并从 `proposalRepositoryProvider` 获取依赖。
   /// 这使得依赖关系更加清晰和可测试。
-  const DeletionProposalServiceProvider._()
+  DeletionProposalServiceProvider._()
     : super(
         from: null,
         argument: null,

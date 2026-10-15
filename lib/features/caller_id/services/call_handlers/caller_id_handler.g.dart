@@ -13,7 +13,7 @@ part of 'caller_id_handler.dart';
 /// 使用 Riverpod 3.0 的 Notifier API 进行状态管理。
 
 @ProviderFor(CallHandler)
-const callHandlerProvider = CallHandlerProvider._();
+final callHandlerProvider = CallHandlerProvider._();
 
 /// 通话处理器 Provider
 ///
@@ -23,7 +23,7 @@ final class CallHandlerProvider
   /// 通话处理器 Provider
   ///
   /// 使用 Riverpod 3.0 的 Notifier API 进行状态管理。
-  const CallHandlerProvider._()
+  CallHandlerProvider._()
     : super(
         from: null,
         argument: null,
@@ -60,8 +60,7 @@ abstract class _$CallHandler extends $Notifier<CallData?> {
   CallData? build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<CallData?, CallData?>;
     final element =
         ref.element
@@ -71,6 +70,6 @@ abstract class _$CallHandler extends $Notifier<CallData?> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

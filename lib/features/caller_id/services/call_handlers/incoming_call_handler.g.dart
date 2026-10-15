@@ -18,7 +18,7 @@ part of 'incoming_call_handler.dart';
 /// 它的创建过程是异步的，使用它的地方需要 `await` 它的 `.future`。
 
 @ProviderFor(incomingCallHandler)
-const incomingCallHandlerProvider = IncomingCallHandlerProvider._();
+final incomingCallHandlerProvider = IncomingCallHandlerProvider._();
 
 /// 来电处理器 Provider
 ///
@@ -47,7 +47,7 @@ final class IncomingCallHandlerProvider
   ///
   /// 【修正】这是一个异步 Provider，因为它依赖于一个或多个 FutureProvider (如 NotificationHandler)。
   /// 它的创建过程是异步的，使用它的地方需要 `await` 它的 `.future`。
-  const IncomingCallHandlerProvider._()
+  IncomingCallHandlerProvider._()
     : super(
         from: null,
         argument: null,

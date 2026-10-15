@@ -10,7 +10,7 @@ part of 'initial_setup_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(initialSetupService)
-const initialSetupServiceProvider = InitialSetupServiceProvider._();
+final initialSetupServiceProvider = InitialSetupServiceProvider._();
 
 final class InitialSetupServiceProvider
     extends
@@ -20,7 +20,7 @@ final class InitialSetupServiceProvider
           InitialSetupService
         >
     with $Provider<InitialSetupService> {
-  const InitialSetupServiceProvider._()
+  InitialSetupServiceProvider._()
     : super(
         from: null,
         argument: null,
@@ -45,6 +45,7 @@ final class InitialSetupServiceProvider
     return initialSetupService(ref);
   }
 
+  /// {@macro riverpod.override_with_value}
   Override overrideWithValue(InitialSetupService value) {
     return $ProviderOverride(
       origin: this,
@@ -54,10 +55,10 @@ final class InitialSetupServiceProvider
 }
 
 String _$initialSetupServiceHash() =>
-    r'a1b2c3d4e5f60718293a4b5c6d7e8f9012345678';
+    r'610a929454c72a3bec602a55c1affd6de1a2e502';
 
 @ProviderFor(setupConfig)
-const setupConfigProvider = SetupConfigProvider._();
+final setupConfigProvider = SetupConfigProvider._();
 
 final class SetupConfigProvider
     extends
@@ -67,7 +68,7 @@ final class SetupConfigProvider
           FutureOr<SetupConfig>
         >
     with $FutureModifier<SetupConfig>, $FutureProvider<SetupConfig> {
-  const SetupConfigProvider._()
+  SetupConfigProvider._()
     : super(
         from: null,
         argument: null,
@@ -93,21 +94,15 @@ final class SetupConfigProvider
   }
 }
 
-String _$setupConfigHash() =>
-    r'b2c3d4e5f60718293a4b5c6d7e8f90123456789a';
+String _$setupConfigHash() => r'1c21799d73766aab2d62b30057b8bfb8bd1c3bb0';
 
 @ProviderFor(detectedCountryCode)
-const detectedCountryCodeProvider = DetectedCountryCodeProvider._();
+final detectedCountryCodeProvider = DetectedCountryCodeProvider._();
 
 final class DetectedCountryCodeProvider
-    extends
-        $FunctionalProvider<
-          AsyncValue<String?>,
-          String?,
-          FutureOr<String?>
-        >
+    extends $FunctionalProvider<AsyncValue<String?>, String?, FutureOr<String?>>
     with $FutureModifier<String?>, $FutureProvider<String?> {
-  const DetectedCountryCodeProvider._()
+  DetectedCountryCodeProvider._()
     : super(
         from: null,
         argument: null,
@@ -123,9 +118,8 @@ final class DetectedCountryCodeProvider
 
   @$internal
   @override
-  $FutureProviderElement<String?> $createElement(
-    $ProviderPointer pointer,
-  ) => $FutureProviderElement(pointer);
+  $FutureProviderElement<String?> $createElement($ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
 
   @override
   FutureOr<String?> create(Ref ref) {
@@ -134,4 +128,4 @@ final class DetectedCountryCodeProvider
 }
 
 String _$detectedCountryCodeHash() =>
-    r'c3d4e5f60718293a4b5c6d7e8f90123456789ab1';
+    r'ea54911a283ceb9e8614752a4014c4f788b88701';

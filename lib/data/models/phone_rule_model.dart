@@ -1,4 +1,5 @@
 import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
@@ -25,7 +26,7 @@ class PhoneRuleModel extends RuleModel {
     this.subscriptionId,
     super.isEnabled,
     String? ruleType, // Make ruleType optional
-  }) : super(ruleType: ruleType ?? 'phone_rule');
+  }) : super(ruleType: ruleType ?? RuleTypeKeys.phone);
 
   factory PhoneRuleModel.fromMap(Map<String, dynamic> map) {
     return PhoneRuleModel(

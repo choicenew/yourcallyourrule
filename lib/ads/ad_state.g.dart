@@ -10,10 +10,10 @@ part of 'ad_state.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(AdState)
-const adStateProvider = AdStateProvider._();
+final adStateProvider = AdStateProvider._();
 
 final class AdStateProvider extends $NotifierProvider<AdState, bool> {
-  const AdStateProvider._()
+  AdStateProvider._()
     : super(
         from: null,
         argument: null,
@@ -46,8 +46,7 @@ abstract class _$AdState extends $Notifier<bool> {
   bool build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<bool, bool>;
     final element =
         ref.element
@@ -57,6 +56,6 @@ abstract class _$AdState extends $Notifier<bool> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

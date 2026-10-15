@@ -12,6 +12,9 @@ import 'package:uuid/uuid.dart';
 /// 规则管理服务类，继承自ListService，提供各种动作类型规则的管理功能
 /// 包括添加、删除、查询不同动作类型（允许、阻止、静音、无动作等）的规则操作
 class RuleManagementService extends ListService {
+  /// 统一日志标识 Tag
+  static const String tag = '[RuleManagementService]';
+
   final RuleRepository _ruleRepository;
   final RuleImportExportService _importExportService;
   
@@ -321,7 +324,7 @@ class RuleManagementService extends ListService {
           successCount++;
         } catch (e) {
           // 处理导入单个规则时的错误，继续处理下一个规则
-          debugPrint('导入规则失败: ${rule.name}, 错误: $e');
+          debugPrint('$tag 导入规则失败: ${rule.name}, 错误: $e');
         }
       }
     }

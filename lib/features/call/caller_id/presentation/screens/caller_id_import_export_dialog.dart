@@ -19,7 +19,7 @@ Future<String?> showImportExportDialog(BuildContext context) async {
                 type: FileType.custom,
                 allowedExtensions: ['json'],
               );
-              Navigator.pop(context, result?.files.single.path);
+              Navigator.pop(context, result.firstOrNull?.path);
             },
           ),
           ListTile(

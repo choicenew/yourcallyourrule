@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/subscription/subscription.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/provider/providers/phone_subscription_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
@@ -95,7 +96,7 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
     try {
       final phoneSubscriptionService = ref.read(phoneSubscriptionServiceProvider);
       // 后台同步更新并更新时间戳
-      final selectedRuleType = _subscriptionRuleTypeOverrides[subscription.id] ?? 'phone_rule';
+      final selectedRuleType = _subscriptionRuleTypeOverrides[subscription.id] ?? RuleTypeKeys.phone;
       await phoneSubscriptionService.updateRulesFromSubscription(
         subscription,
         ruleTypeOverride: selectedRuleType,
@@ -164,7 +165,7 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
     String selectedRuleType =
         (subscription != null && _subscriptionRuleTypeOverrides.containsKey(subscription.id))
             ? _subscriptionRuleTypeOverrides[subscription.id]!
-            : 'phone_rule';
+            : RuleTypeKeys.phone;
 
     String dialogTitle = isEditing
         ? AppLocalizations.of(context)!.editSubscription
@@ -226,15 +227,15 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
                       ),
                       items: [
                         DropdownMenuItem<String>(
-                          value: 'phone_rule',
+                          value: RuleTypeKeys.phone,
                           child: Text(AppLocalizations.of(context)!.phoneRule),
                         ),
                         DropdownMenuItem<String>(
-                          value: 'allow_block',
+                          value: RuleTypeKeys.allowBlock,
                           child: Text(AppLocalizations.of(context)!.allowedBlockedRule),
                         ),
                         DropdownMenuItem<String>(
-                          value: 'regex',
+                          value: RuleTypeKeys.regex,
                           child: Text(AppLocalizations.of(context)!.regexRule),
                         ),
                       ],
@@ -463,9 +464,13 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16.0),
-      decoration: EliteDopamineTheme.warmCardDecoration(
-        context: context,
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: Theme.of(context).colorScheme.outlineVariant,
+          width: 1.1,
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -31,8 +31,8 @@ class ImportExportServiceComponent<T extends BaseEntity, ID> {
         allowedExtensions: ['json'],
       );
       
-      if (result != null && result.files.single.path != null) {
-        final entities = await importExportService.importFromFile(result.files.single.path!);
+      if (result.isNotEmpty && result.single.path != null) {
+        final entities = await importExportService.importFromFile(result.single.path!);
         
         // 调用回调函数处理导入的实体
         await onEntitiesImported(entities);

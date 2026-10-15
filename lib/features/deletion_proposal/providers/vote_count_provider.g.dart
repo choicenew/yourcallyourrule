@@ -15,7 +15,7 @@ part of 'vote_count_provider.dart';
 ///         封装在一个独立的、可复用的 Provider 中。
 
 @ProviderFor(voteCountStream)
-const voteCountStreamProvider = VoteCountStreamProvider._();
+final voteCountStreamProvider = VoteCountStreamProvider._();
 
 /// 一个专门用于提供用户总投票数流的 StreamProvider。
 ///
@@ -31,7 +31,7 @@ final class VoteCountStreamProvider
   /// 【MODIFIED】: 这是一个全新的、之前被遗漏的 Provider。
   /// REASON: 这是 Riverpod 中处理流数据的最佳实践，它将流的监听和状态管理
   ///         封装在一个独立的、可复用的 Provider 中。
-  const VoteCountStreamProvider._()
+  VoteCountStreamProvider._()
     : super(
         from: null,
         argument: null,

@@ -6,6 +6,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/features/notifications/domain/notification_category.dart';
 import '../config/notification_config.dart';
 import 'notification_service_contract.dart';
 import 'package:go_router/go_router.dart';
@@ -116,13 +117,22 @@ class NotificationService implements NotificationServiceContract {
   }
 
   void _handleGlobalNavigation(Map<String, dynamic> data) {
-    final type = data['type'];
+    final rawType = data['type']?.toString() ?? '';
+    final category = NotificationCategory.fromString(rawType);
     final context = AppRouter.navigatorKey.currentContext;
-    if (context != null) {
-      if (type == 'call_history' || type == 'fraud_alert' || type == 'blocked_call' || type == 'stir_result') {
-        GoRouter.of(context).go(AppRouter.callHistory);
-      } else if (type == 'deletion_proposal') {
-        GoRouter.of(context).go(AppRouter.deletionProposal);
+    if (context != null && context.mounted) {
+      switch (category) {
+        case NotificationCategory.callHistory:
+        case NotificationCategory.fraudAlert:
+        case NotificationCategory.blockedCall:
+        case NotificationCategory.stirResult:
+          context.goNamed(AppRouter.callHistory);
+          break;
+        case NotificationCategory.deletionProposal:
+          context.goNamed(AppRouter.deletionProposal);
+          break;
+        case NotificationCategory.unknown:
+          break;
       }
     }
   }

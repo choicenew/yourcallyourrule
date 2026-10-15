@@ -11,7 +11,7 @@ part of 'time_interceptor_service.dart';
 /// 使用生成器创建 Service 的 Provider
 
 @ProviderFor(timeInterceptorService)
-const timeInterceptorServiceProvider = TimeInterceptorServiceProvider._();
+final timeInterceptorServiceProvider = TimeInterceptorServiceProvider._();
 
 /// 使用生成器创建 Service 的 Provider
 
@@ -24,7 +24,7 @@ final class TimeInterceptorServiceProvider
         >
     with $Provider<TimeInterceptorService> {
   /// 使用生成器创建 Service 的 Provider
-  const TimeInterceptorServiceProvider._()
+  TimeInterceptorServiceProvider._()
     : super(
         from: null,
         argument: null,

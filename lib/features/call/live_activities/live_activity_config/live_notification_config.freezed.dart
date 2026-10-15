@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'live_notification_config.dart';
@@ -9,17 +9,14 @@ part of 'live_notification_config.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$LiveNotificationConfig {
 
-// --- 全局 ---
- LiveGlobalSettings get globalSettings;// --- 元素配置 (100% 参照你的 CallerIdConfig) ---
- LiveAvatarConfig get avatar; LiveTextConfig get name; LiveTextConfig get number; LiveTextConfig get location;// 对应你的 region
- LiveTextConfig get carrier; LiveTextConfig get countryName;// 独立的国家名
- LiveTextConfig get labels; LiveTextConfig get count; LiveTextConfig get numberType; LiveTextConfig get stir; LiveTextConfig get simCard; LiveIconConfig get callType; LiveSecurityMessageConfig get securityMessage;
+ LiveGlobalSettings get globalSettings; LiveAvatarConfig get avatar; LiveTextConfig get name; LiveTextConfig get number; LiveTextConfig get location; LiveTextConfig get carrier; LiveTextConfig get countryName; LiveTextConfig get labels; LiveTextConfig get count; LiveTextConfig get numberType; LiveTextConfig get stir; LiveTextConfig get simCard; LiveIconConfig get callType; LiveSecurityMessageConfig get securityMessage;
 /// Create a copy of LiveNotificationConfig
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -32,16 +29,21 @@ $LiveNotificationConfigCopyWith<LiveNotificationConfig> get copyWith => _$LiveNo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LiveNotificationConfig&&(identical(other.globalSettings, globalSettings) || other.globalSettings == globalSettings)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.name, name) || other.name == name)&&(identical(other.number, number) || other.number == number)&&(identical(other.location, location) || other.location == location)&&(identical(other.carrier, carrier) || other.carrier == carrier)&&(identical(other.countryName, countryName) || other.countryName == countryName)&&(identical(other.labels, labels) || other.labels == labels)&&(identical(other.count, count) || other.count == count)&&(identical(other.numberType, numberType) || other.numberType == numberType)&&(identical(other.stir, stir) || other.stir == stir)&&(identical(other.simCard, simCard) || other.simCard == simCard)&&(identical(other.callType, callType) || other.callType == callType)&&(identical(other.securityMessage, securityMessage) || other.securityMessage == securityMessage));
+  final _this = this as LiveNotificationConfig;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LiveNotificationConfig&&(identical(other.globalSettings, _this.globalSettings) || other.globalSettings == _this.globalSettings)&&(identical(other.avatar, _this.avatar) || other.avatar == _this.avatar)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.number, _this.number) || other.number == _this.number)&&(identical(other.location, _this.location) || other.location == _this.location)&&(identical(other.carrier, _this.carrier) || other.carrier == _this.carrier)&&(identical(other.countryName, _this.countryName) || other.countryName == _this.countryName)&&(identical(other.labels, _this.labels) || other.labels == _this.labels)&&(identical(other.count, _this.count) || other.count == _this.count)&&(identical(other.numberType, _this.numberType) || other.numberType == _this.numberType)&&(identical(other.stir, _this.stir) || other.stir == _this.stir)&&(identical(other.simCard, _this.simCard) || other.simCard == _this.simCard)&&(identical(other.callType, _this.callType) || other.callType == _this.callType)&&(identical(other.securityMessage, _this.securityMessage) || other.securityMessage == _this.securityMessage));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,globalSettings,avatar,name,number,location,carrier,countryName,labels,count,numberType,stir,simCard,callType,securityMessage);
+int get hashCode {
+  final _this = this as LiveNotificationConfig;
+  return Object.hash(runtimeType,_this.globalSettings,_this.avatar,_this.name,_this.number,_this.location,_this.carrier,_this.countryName,_this.labels,_this.count,_this.numberType,_this.stir,_this.simCard,_this.callType,_this.securityMessage);
+}
 
 @override
 String toString() {
-  return 'LiveNotificationConfig(globalSettings: $globalSettings, avatar: $avatar, name: $name, number: $number, location: $location, carrier: $carrier, countryName: $countryName, labels: $labels, count: $count, numberType: $numberType, stir: $stir, simCard: $simCard, callType: $callType, securityMessage: $securityMessage)';
+  final _this = this as LiveNotificationConfig;
+  return 'LiveNotificationConfig(globalSettings: ${_this.globalSettings}, avatar: ${_this.avatar}, name: ${_this.name}, number: ${_this.number}, location: ${_this.location}, carrier: ${_this.carrier}, countryName: ${_this.countryName}, labels: ${_this.labels}, count: ${_this.count}, numberType: ${_this.numberType}, stir: ${_this.stir}, simCard: ${_this.simCard}, callType: ${_this.callType}, securityMessage: ${_this.securityMessage})';
 }
 
 
@@ -70,7 +72,7 @@ class _$LiveNotificationConfigCopyWithImpl<$Res>
 /// Create a copy of LiveNotificationConfig
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? globalSettings = null,Object? avatar = null,Object? name = null,Object? number = null,Object? location = null,Object? carrier = null,Object? countryName = null,Object? labels = null,Object? count = null,Object? numberType = null,Object? stir = null,Object? simCard = null,Object? callType = null,Object? securityMessage = null,}) {
-  return _then(_self.copyWith(
+  return _then(LiveNotificationConfig(
 globalSettings: null == globalSettings ? _self.globalSettings : globalSettings // ignore: cast_nullable_to_non_nullable
 as LiveGlobalSettings,avatar: null == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
 as LiveAvatarConfig,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -355,17 +357,13 @@ class _LiveNotificationConfig implements LiveNotificationConfig {
   const _LiveNotificationConfig({this.globalSettings = const LiveGlobalSettings(), this.avatar = const LiveAvatarConfig(), this.name = const LiveTextConfig(fontSize: 18.0, position: LivePositionConfig(x: 52, y: 8)), this.number = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 30)), this.location = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 50)), this.carrier = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 70)), this.countryName = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 90)), this.labels = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 104)), this.count = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 104)), this.numberType = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 30)), this.stir = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 8)), this.simCard = const LiveTextConfig(position: LivePositionConfig(x: 52, y: 8)), this.callType = const LiveIconConfig(position: LivePositionConfig(x: 0, y: 84)), this.securityMessage = const LiveSecurityMessageConfig(position: LivePositionConfig(x: 0, y: 96))});
   factory _LiveNotificationConfig.fromJson(Map<String, dynamic> json) => _$LiveNotificationConfigFromJson(json);
 
-// --- 全局 ---
 @override@JsonKey() final  LiveGlobalSettings globalSettings;
-// --- 元素配置 (100% 参照你的 CallerIdConfig) ---
 @override@JsonKey() final  LiveAvatarConfig avatar;
 @override@JsonKey() final  LiveTextConfig name;
 @override@JsonKey() final  LiveTextConfig number;
 @override@JsonKey() final  LiveTextConfig location;
-// 对应你的 region
 @override@JsonKey() final  LiveTextConfig carrier;
 @override@JsonKey() final  LiveTextConfig countryName;
-// 独立的国家名
 @override@JsonKey() final  LiveTextConfig labels;
 @override@JsonKey() final  LiveTextConfig count;
 @override@JsonKey() final  LiveTextConfig numberType;
@@ -387,16 +385,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LiveNotificationConfig&&(identical(other.globalSettings, globalSettings) || other.globalSettings == globalSettings)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.name, name) || other.name == name)&&(identical(other.number, number) || other.number == number)&&(identical(other.location, location) || other.location == location)&&(identical(other.carrier, carrier) || other.carrier == carrier)&&(identical(other.countryName, countryName) || other.countryName == countryName)&&(identical(other.labels, labels) || other.labels == labels)&&(identical(other.count, count) || other.count == count)&&(identical(other.numberType, numberType) || other.numberType == numberType)&&(identical(other.stir, stir) || other.stir == stir)&&(identical(other.simCard, simCard) || other.simCard == simCard)&&(identical(other.callType, callType) || other.callType == callType)&&(identical(other.securityMessage, securityMessage) || other.securityMessage == securityMessage));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LiveNotificationConfig&&(identical(other.globalSettings, globalSettings) || other.globalSettings == globalSettings)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.name, name) || other.name == name)&&(identical(other.number, number) || other.number == number)&&(identical(other.location, location) || other.location == location)&&(identical(other.carrier, carrier) || other.carrier == carrier)&&(identical(other.countryName, countryName) || other.countryName == countryName)&&(identical(other.labels, labels) || other.labels == labels)&&(identical(other.count, count) || other.count == count)&&(identical(other.numberType, numberType) || other.numberType == numberType)&&(identical(other.stir, stir) || other.stir == stir)&&(identical(other.simCard, simCard) || other.simCard == simCard)&&(identical(other.callType, callType) || other.callType == callType)&&(identical(other.securityMessage, securityMessage) || other.securityMessage == securityMessage));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,globalSettings,avatar,name,number,location,carrier,countryName,labels,count,numberType,stir,simCard,callType,securityMessage);
+int get hashCode {
+    return Object.hash(runtimeType,globalSettings,avatar,name,number,location,carrier,countryName,labels,count,numberType,stir,simCard,callType,securityMessage);
+}
 
 @override
 String toString() {
-  return 'LiveNotificationConfig(globalSettings: $globalSettings, avatar: $avatar, name: $name, number: $number, location: $location, carrier: $carrier, countryName: $countryName, labels: $labels, count: $count, numberType: $numberType, stir: $stir, simCard: $simCard, callType: $callType, securityMessage: $securityMessage)';
+    return 'LiveNotificationConfig(globalSettings: $globalSettings, avatar: $avatar, name: $name, number: $number, location: $location, carrier: $carrier, countryName: $countryName, labels: $labels, count: $count, numberType: $numberType, stir: $stir, simCard: $simCard, callType: $callType, securityMessage: $securityMessage)';
 }
 
 
@@ -577,8 +577,7 @@ $LiveSecurityMessageConfigCopyWith<$Res> get securityMessage {
 /// @nodoc
 mixin _$LiveGlobalSettings {
 
- String get backgroundColor;// 浅灰色背景，符合标准通知UI
- LiveBorderConfig get border;
+ String get backgroundColor; LiveBorderConfig get border;
 /// Create a copy of LiveGlobalSettings
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -591,16 +590,21 @@ $LiveGlobalSettingsCopyWith<LiveGlobalSettings> get copyWith => _$LiveGlobalSett
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LiveGlobalSettings&&(identical(other.backgroundColor, backgroundColor) || other.backgroundColor == backgroundColor)&&(identical(other.border, border) || other.border == border));
+  final _this = this as LiveGlobalSettings;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LiveGlobalSettings&&(identical(other.backgroundColor, _this.backgroundColor) || other.backgroundColor == _this.backgroundColor)&&(identical(other.border, _this.border) || other.border == _this.border));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,backgroundColor,border);
+int get hashCode {
+  final _this = this as LiveGlobalSettings;
+  return Object.hash(runtimeType,_this.backgroundColor,_this.border);
+}
 
 @override
 String toString() {
-  return 'LiveGlobalSettings(backgroundColor: $backgroundColor, border: $border)';
+  final _this = this as LiveGlobalSettings;
+  return 'LiveGlobalSettings(backgroundColor: ${_this.backgroundColor}, border: ${_this.border})';
 }
 
 
@@ -629,7 +633,7 @@ class _$LiveGlobalSettingsCopyWithImpl<$Res>
 /// Create a copy of LiveGlobalSettings
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? backgroundColor = null,Object? border = null,}) {
-  return _then(_self.copyWith(
+  return _then(LiveGlobalSettings(
 backgroundColor: null == backgroundColor ? _self.backgroundColor : backgroundColor // ignore: cast_nullable_to_non_nullable
 as String,border: null == border ? _self.border : border // ignore: cast_nullable_to_non_nullable
 as LiveBorderConfig,
@@ -786,7 +790,6 @@ class _LiveGlobalSettings implements LiveGlobalSettings {
   factory _LiveGlobalSettings.fromJson(Map<String, dynamic> json) => _$LiveGlobalSettingsFromJson(json);
 
 @override@JsonKey() final  String backgroundColor;
-// 浅灰色背景，符合标准通知UI
 @override@JsonKey() final  LiveBorderConfig border;
 
 /// Create a copy of LiveGlobalSettings
@@ -802,16 +805,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LiveGlobalSettings&&(identical(other.backgroundColor, backgroundColor) || other.backgroundColor == backgroundColor)&&(identical(other.border, border) || other.border == border));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LiveGlobalSettings&&(identical(other.backgroundColor, backgroundColor) || other.backgroundColor == backgroundColor)&&(identical(other.border, border) || other.border == border));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,backgroundColor,border);
+int get hashCode {
+    return Object.hash(runtimeType,backgroundColor,border);
+}
 
 @override
 String toString() {
-  return 'LiveGlobalSettings(backgroundColor: $backgroundColor, border: $border)';
+    return 'LiveGlobalSettings(backgroundColor: $backgroundColor, border: $border)';
 }
 
 
@@ -876,16 +881,21 @@ $LiveBorderConfigCopyWith<LiveBorderConfig> get copyWith => _$LiveBorderConfigCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LiveBorderConfig&&(identical(other.width, width) || other.width == width)&&(identical(other.color, color) || other.color == color)&&(identical(other.radius, radius) || other.radius == radius));
+  final _this = this as LiveBorderConfig;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LiveBorderConfig&&(identical(other.width, _this.width) || other.width == _this.width)&&(identical(other.color, _this.color) || other.color == _this.color)&&(identical(other.radius, _this.radius) || other.radius == _this.radius));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,width,color,radius);
+int get hashCode {
+  final _this = this as LiveBorderConfig;
+  return Object.hash(runtimeType,_this.width,_this.color,_this.radius);
+}
 
 @override
 String toString() {
-  return 'LiveBorderConfig(width: $width, color: $color, radius: $radius)';
+  final _this = this as LiveBorderConfig;
+  return 'LiveBorderConfig(width: ${_this.width}, color: ${_this.color}, radius: ${_this.radius})';
 }
 
 
@@ -914,7 +924,7 @@ class _$LiveBorderConfigCopyWithImpl<$Res>
 /// Create a copy of LiveBorderConfig
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? width = null,Object? color = null,Object? radius = null,}) {
-  return _then(_self.copyWith(
+  return _then(LiveBorderConfig(
 width: null == width ? _self.width : width // ignore: cast_nullable_to_non_nullable
 as double,color: null == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
 as String,radius: null == radius ? _self.radius : radius // ignore: cast_nullable_to_non_nullable
@@ -1079,16 +1089,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LiveBorderConfig&&(identical(other.width, width) || other.width == width)&&(identical(other.color, color) || other.color == color)&&(identical(other.radius, radius) || other.radius == radius));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LiveBorderConfig&&(identical(other.width, width) || other.width == width)&&(identical(other.color, color) || other.color == color)&&(identical(other.radius, radius) || other.radius == radius));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,width,color,radius);
+int get hashCode {
+    return Object.hash(runtimeType,width,color,radius);
+}
 
 @override
 String toString() {
-  return 'LiveBorderConfig(width: $width, color: $color, radius: $radius)';
+    return 'LiveBorderConfig(width: $width, color: $color, radius: $radius)';
 }
 
 
@@ -1145,16 +1157,21 @@ $LiveAvatarConfigCopyWith<LiveAvatarConfig> get copyWith => _$LiveAvatarConfigCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LiveAvatarConfig&&(identical(other.visible, visible) || other.visible == visible)&&(identical(other.size, size) || other.size == size)&&(identical(other.borderWidth, borderWidth) || other.borderWidth == borderWidth)&&(identical(other.borderColor, borderColor) || other.borderColor == borderColor)&&(identical(other.position, position) || other.position == position));
+  final _this = this as LiveAvatarConfig;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LiveAvatarConfig&&(identical(other.visible, _this.visible) || other.visible == _this.visible)&&(identical(other.size, _this.size) || other.size == _this.size)&&(identical(other.borderWidth, _this.borderWidth) || other.borderWidth == _this.borderWidth)&&(identical(other.borderColor, _this.borderColor) || other.borderColor == _this.borderColor)&&(identical(other.position, _this.position) || other.position == _this.position));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,visible,size,borderWidth,borderColor,position);
+int get hashCode {
+  final _this = this as LiveAvatarConfig;
+  return Object.hash(runtimeType,_this.visible,_this.size,_this.borderWidth,_this.borderColor,_this.position);
+}
 
 @override
 String toString() {
-  return 'LiveAvatarConfig(visible: $visible, size: $size, borderWidth: $borderWidth, borderColor: $borderColor, position: $position)';
+  final _this = this as LiveAvatarConfig;
+  return 'LiveAvatarConfig(visible: ${_this.visible}, size: ${_this.size}, borderWidth: ${_this.borderWidth}, borderColor: ${_this.borderColor}, position: ${_this.position})';
 }
 
 
@@ -1183,7 +1200,7 @@ class _$LiveAvatarConfigCopyWithImpl<$Res>
 /// Create a copy of LiveAvatarConfig
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? visible = null,Object? size = null,Object? borderWidth = null,Object? borderColor = null,Object? position = null,}) {
-  return _then(_self.copyWith(
+  return _then(LiveAvatarConfig(
 visible: null == visible ? _self.visible : visible // ignore: cast_nullable_to_non_nullable
 as bool,size: null == size ? _self.size : size // ignore: cast_nullable_to_non_nullable
 as double,borderWidth: null == borderWidth ? _self.borderWidth : borderWidth // ignore: cast_nullable_to_non_nullable
@@ -1361,16 +1378,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LiveAvatarConfig&&(identical(other.visible, visible) || other.visible == visible)&&(identical(other.size, size) || other.size == size)&&(identical(other.borderWidth, borderWidth) || other.borderWidth == borderWidth)&&(identical(other.borderColor, borderColor) || other.borderColor == borderColor)&&(identical(other.position, position) || other.position == position));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LiveAvatarConfig&&(identical(other.visible, visible) || other.visible == visible)&&(identical(other.size, size) || other.size == size)&&(identical(other.borderWidth, borderWidth) || other.borderWidth == borderWidth)&&(identical(other.borderColor, borderColor) || other.borderColor == borderColor)&&(identical(other.position, position) || other.position == position));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,visible,size,borderWidth,borderColor,position);
+int get hashCode {
+    return Object.hash(runtimeType,visible,size,borderWidth,borderColor,position);
+}
 
 @override
 String toString() {
-  return 'LiveAvatarConfig(visible: $visible, size: $size, borderWidth: $borderWidth, borderColor: $borderColor, position: $position)';
+    return 'LiveAvatarConfig(visible: $visible, size: $size, borderWidth: $borderWidth, borderColor: $borderColor, position: $position)';
 }
 
 
@@ -1438,16 +1457,21 @@ $LiveIconConfigCopyWith<LiveIconConfig> get copyWith => _$LiveIconConfigCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LiveIconConfig&&(identical(other.visible, visible) || other.visible == visible)&&(identical(other.size, size) || other.size == size)&&(identical(other.color, color) || other.color == color)&&(identical(other.position, position) || other.position == position));
+  final _this = this as LiveIconConfig;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LiveIconConfig&&(identical(other.visible, _this.visible) || other.visible == _this.visible)&&(identical(other.size, _this.size) || other.size == _this.size)&&(identical(other.color, _this.color) || other.color == _this.color)&&(identical(other.position, _this.position) || other.position == _this.position));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,visible,size,color,position);
+int get hashCode {
+  final _this = this as LiveIconConfig;
+  return Object.hash(runtimeType,_this.visible,_this.size,_this.color,_this.position);
+}
 
 @override
 String toString() {
-  return 'LiveIconConfig(visible: $visible, size: $size, color: $color, position: $position)';
+  final _this = this as LiveIconConfig;
+  return 'LiveIconConfig(visible: ${_this.visible}, size: ${_this.size}, color: ${_this.color}, position: ${_this.position})';
 }
 
 
@@ -1476,7 +1500,7 @@ class _$LiveIconConfigCopyWithImpl<$Res>
 /// Create a copy of LiveIconConfig
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? visible = null,Object? size = null,Object? color = null,Object? position = null,}) {
-  return _then(_self.copyWith(
+  return _then(LiveIconConfig(
 visible: null == visible ? _self.visible : visible // ignore: cast_nullable_to_non_nullable
 as bool,size: null == size ? _self.size : size // ignore: cast_nullable_to_non_nullable
 as double,color: null == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
@@ -1652,16 +1676,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LiveIconConfig&&(identical(other.visible, visible) || other.visible == visible)&&(identical(other.size, size) || other.size == size)&&(identical(other.color, color) || other.color == color)&&(identical(other.position, position) || other.position == position));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LiveIconConfig&&(identical(other.visible, visible) || other.visible == visible)&&(identical(other.size, size) || other.size == size)&&(identical(other.color, color) || other.color == color)&&(identical(other.position, position) || other.position == position));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,visible,size,color,position);
+int get hashCode {
+    return Object.hash(runtimeType,visible,size,color,position);
+}
 
 @override
 String toString() {
-  return 'LiveIconConfig(visible: $visible, size: $size, color: $color, position: $position)';
+    return 'LiveIconConfig(visible: $visible, size: $size, color: $color, position: $position)';
 }
 
 
@@ -1715,8 +1741,7 @@ $LivePositionConfigCopyWith<$Res> get position {
 /// @nodoc
 mixin _$LiveTextConfig {
 
- bool get visible; String get color;// 默认深色文本，符合标准通知UI
- double get fontSize; LivePositionConfig get position;
+ bool get visible; String get color; double get fontSize; LivePositionConfig get position;
 /// Create a copy of LiveTextConfig
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1729,16 +1754,21 @@ $LiveTextConfigCopyWith<LiveTextConfig> get copyWith => _$LiveTextConfigCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LiveTextConfig&&(identical(other.visible, visible) || other.visible == visible)&&(identical(other.color, color) || other.color == color)&&(identical(other.fontSize, fontSize) || other.fontSize == fontSize)&&(identical(other.position, position) || other.position == position));
+  final _this = this as LiveTextConfig;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LiveTextConfig&&(identical(other.visible, _this.visible) || other.visible == _this.visible)&&(identical(other.color, _this.color) || other.color == _this.color)&&(identical(other.fontSize, _this.fontSize) || other.fontSize == _this.fontSize)&&(identical(other.position, _this.position) || other.position == _this.position));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,visible,color,fontSize,position);
+int get hashCode {
+  final _this = this as LiveTextConfig;
+  return Object.hash(runtimeType,_this.visible,_this.color,_this.fontSize,_this.position);
+}
 
 @override
 String toString() {
-  return 'LiveTextConfig(visible: $visible, color: $color, fontSize: $fontSize, position: $position)';
+  final _this = this as LiveTextConfig;
+  return 'LiveTextConfig(visible: ${_this.visible}, color: ${_this.color}, fontSize: ${_this.fontSize}, position: ${_this.position})';
 }
 
 
@@ -1767,7 +1797,7 @@ class _$LiveTextConfigCopyWithImpl<$Res>
 /// Create a copy of LiveTextConfig
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? visible = null,Object? color = null,Object? fontSize = null,Object? position = null,}) {
-  return _then(_self.copyWith(
+  return _then(LiveTextConfig(
 visible: null == visible ? _self.visible : visible // ignore: cast_nullable_to_non_nullable
 as bool,color: null == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
 as String,fontSize: null == fontSize ? _self.fontSize : fontSize // ignore: cast_nullable_to_non_nullable
@@ -1927,7 +1957,6 @@ class _LiveTextConfig implements LiveTextConfig {
 
 @override@JsonKey() final  bool visible;
 @override@JsonKey() final  String color;
-// 默认深色文本，符合标准通知UI
 @override@JsonKey() final  double fontSize;
 @override@JsonKey() final  LivePositionConfig position;
 
@@ -1944,16 +1973,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LiveTextConfig&&(identical(other.visible, visible) || other.visible == visible)&&(identical(other.color, color) || other.color == color)&&(identical(other.fontSize, fontSize) || other.fontSize == fontSize)&&(identical(other.position, position) || other.position == position));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LiveTextConfig&&(identical(other.visible, visible) || other.visible == visible)&&(identical(other.color, color) || other.color == color)&&(identical(other.fontSize, fontSize) || other.fontSize == fontSize)&&(identical(other.position, position) || other.position == position));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,visible,color,fontSize,position);
+int get hashCode {
+    return Object.hash(runtimeType,visible,color,fontSize,position);
+}
 
 @override
 String toString() {
-  return 'LiveTextConfig(visible: $visible, color: $color, fontSize: $fontSize, position: $position)';
+    return 'LiveTextConfig(visible: $visible, color: $color, fontSize: $fontSize, position: $position)';
 }
 
 
@@ -2007,9 +2038,7 @@ $LivePositionConfigCopyWith<$Res> get position {
 /// @nodoc
 mixin _$LiveSecurityMessageConfig {
 
- bool get visible; String get color;// 默认红色，符合 Android XML 设置
- double get fontSize; String get backgroundColor;// 浅灰背景，展开区域更符合标准UI
- double get height; double get containerWidth; LivePositionConfig get position;
+ bool get visible; String get color; double get fontSize; String get backgroundColor; double get height; double get containerWidth; LivePositionConfig get position;
 /// Create a copy of LiveSecurityMessageConfig
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2022,16 +2051,21 @@ $LiveSecurityMessageConfigCopyWith<LiveSecurityMessageConfig> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LiveSecurityMessageConfig&&(identical(other.visible, visible) || other.visible == visible)&&(identical(other.color, color) || other.color == color)&&(identical(other.fontSize, fontSize) || other.fontSize == fontSize)&&(identical(other.backgroundColor, backgroundColor) || other.backgroundColor == backgroundColor)&&(identical(other.height, height) || other.height == height)&&(identical(other.containerWidth, containerWidth) || other.containerWidth == containerWidth)&&(identical(other.position, position) || other.position == position));
+  final _this = this as LiveSecurityMessageConfig;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LiveSecurityMessageConfig&&(identical(other.visible, _this.visible) || other.visible == _this.visible)&&(identical(other.color, _this.color) || other.color == _this.color)&&(identical(other.fontSize, _this.fontSize) || other.fontSize == _this.fontSize)&&(identical(other.backgroundColor, _this.backgroundColor) || other.backgroundColor == _this.backgroundColor)&&(identical(other.height, _this.height) || other.height == _this.height)&&(identical(other.containerWidth, _this.containerWidth) || other.containerWidth == _this.containerWidth)&&(identical(other.position, _this.position) || other.position == _this.position));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,visible,color,fontSize,backgroundColor,height,containerWidth,position);
+int get hashCode {
+  final _this = this as LiveSecurityMessageConfig;
+  return Object.hash(runtimeType,_this.visible,_this.color,_this.fontSize,_this.backgroundColor,_this.height,_this.containerWidth,_this.position);
+}
 
 @override
 String toString() {
-  return 'LiveSecurityMessageConfig(visible: $visible, color: $color, fontSize: $fontSize, backgroundColor: $backgroundColor, height: $height, containerWidth: $containerWidth, position: $position)';
+  final _this = this as LiveSecurityMessageConfig;
+  return 'LiveSecurityMessageConfig(visible: ${_this.visible}, color: ${_this.color}, fontSize: ${_this.fontSize}, backgroundColor: ${_this.backgroundColor}, height: ${_this.height}, containerWidth: ${_this.containerWidth}, position: ${_this.position})';
 }
 
 
@@ -2060,7 +2094,7 @@ class _$LiveSecurityMessageConfigCopyWithImpl<$Res>
 /// Create a copy of LiveSecurityMessageConfig
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? visible = null,Object? color = null,Object? fontSize = null,Object? backgroundColor = null,Object? height = null,Object? containerWidth = null,Object? position = null,}) {
-  return _then(_self.copyWith(
+  return _then(LiveSecurityMessageConfig(
 visible: null == visible ? _self.visible : visible // ignore: cast_nullable_to_non_nullable
 as bool,color: null == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
 as String,fontSize: null == fontSize ? _self.fontSize : fontSize // ignore: cast_nullable_to_non_nullable
@@ -2223,10 +2257,8 @@ class _LiveSecurityMessageConfig implements LiveSecurityMessageConfig {
 
 @override@JsonKey() final  bool visible;
 @override@JsonKey() final  String color;
-// 默认红色，符合 Android XML 设置
 @override@JsonKey() final  double fontSize;
 @override@JsonKey() final  String backgroundColor;
-// 浅灰背景，展开区域更符合标准UI
 @override@JsonKey() final  double height;
 @override@JsonKey() final  double containerWidth;
 @override@JsonKey() final  LivePositionConfig position;
@@ -2244,16 +2276,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LiveSecurityMessageConfig&&(identical(other.visible, visible) || other.visible == visible)&&(identical(other.color, color) || other.color == color)&&(identical(other.fontSize, fontSize) || other.fontSize == fontSize)&&(identical(other.backgroundColor, backgroundColor) || other.backgroundColor == backgroundColor)&&(identical(other.height, height) || other.height == height)&&(identical(other.containerWidth, containerWidth) || other.containerWidth == containerWidth)&&(identical(other.position, position) || other.position == position));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LiveSecurityMessageConfig&&(identical(other.visible, visible) || other.visible == visible)&&(identical(other.color, color) || other.color == color)&&(identical(other.fontSize, fontSize) || other.fontSize == fontSize)&&(identical(other.backgroundColor, backgroundColor) || other.backgroundColor == backgroundColor)&&(identical(other.height, height) || other.height == height)&&(identical(other.containerWidth, containerWidth) || other.containerWidth == containerWidth)&&(identical(other.position, position) || other.position == position));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,visible,color,fontSize,backgroundColor,height,containerWidth,position);
+int get hashCode {
+    return Object.hash(runtimeType,visible,color,fontSize,backgroundColor,height,containerWidth,position);
+}
 
 @override
 String toString() {
-  return 'LiveSecurityMessageConfig(visible: $visible, color: $color, fontSize: $fontSize, backgroundColor: $backgroundColor, height: $height, containerWidth: $containerWidth, position: $position)';
+    return 'LiveSecurityMessageConfig(visible: $visible, color: $color, fontSize: $fontSize, backgroundColor: $backgroundColor, height: $height, containerWidth: $containerWidth, position: $position)';
 }
 
 
@@ -2323,16 +2357,21 @@ $LivePositionConfigCopyWith<LivePositionConfig> get copyWith => _$LivePositionCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LivePositionConfig&&(identical(other.x, x) || other.x == x)&&(identical(other.y, y) || other.y == y));
+  final _this = this as LivePositionConfig;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LivePositionConfig&&(identical(other.x, _this.x) || other.x == _this.x)&&(identical(other.y, _this.y) || other.y == _this.y));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,x,y);
+int get hashCode {
+  final _this = this as LivePositionConfig;
+  return Object.hash(runtimeType,_this.x,_this.y);
+}
 
 @override
 String toString() {
-  return 'LivePositionConfig(x: $x, y: $y)';
+  final _this = this as LivePositionConfig;
+  return 'LivePositionConfig(x: ${_this.x}, y: ${_this.y})';
 }
 
 
@@ -2361,7 +2400,7 @@ class _$LivePositionConfigCopyWithImpl<$Res>
 /// Create a copy of LivePositionConfig
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? x = null,Object? y = null,}) {
-  return _then(_self.copyWith(
+  return _then(LivePositionConfig(
 x: null == x ? _self.x : x // ignore: cast_nullable_to_non_nullable
 as double,y: null == y ? _self.y : y // ignore: cast_nullable_to_non_nullable
 as double,
@@ -2524,16 +2563,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LivePositionConfig&&(identical(other.x, x) || other.x == x)&&(identical(other.y, y) || other.y == y));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LivePositionConfig&&(identical(other.x, x) || other.x == x)&&(identical(other.y, y) || other.y == y));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,x,y);
+int get hashCode {
+    return Object.hash(runtimeType,x,y);
+}
 
 @override
 String toString() {
-  return 'LivePositionConfig(x: $x, y: $y)';
+    return 'LivePositionConfig(x: $x, y: $y)';
 }
 
 

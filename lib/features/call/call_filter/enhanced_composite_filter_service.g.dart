@@ -10,7 +10,7 @@ part of 'enhanced_composite_filter_service.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(enhancedCompositeFilterService)
-const enhancedCompositeFilterServiceProvider =
+final enhancedCompositeFilterServiceProvider =
     EnhancedCompositeFilterServiceProvider._();
 
 final class EnhancedCompositeFilterServiceProvider
@@ -21,7 +21,7 @@ final class EnhancedCompositeFilterServiceProvider
           EnhancedCompositeFilterService
         >
     with $Provider<EnhancedCompositeFilterService> {
-  const EnhancedCompositeFilterServiceProvider._()
+  EnhancedCompositeFilterServiceProvider._()
     : super(
         from: null,
         argument: null,

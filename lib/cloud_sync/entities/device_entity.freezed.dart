@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'device_entity.dart';
@@ -9,6 +9,7 @@ part of 'device_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -34,16 +35,21 @@ $DeviceEntityCopyWith<DeviceEntity> get copyWith => _$DeviceEntityCopyWithImpl<D
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.model, model) || other.model == model)&&(identical(other.lastSyncTime, lastSyncTime) || other.lastSyncTime == lastSyncTime)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&const DeepCollectionEquality().equals(other.deviceInfo, deviceInfo));
+  final _this = this as DeviceEntity;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.model, _this.model) || other.model == _this.model)&&(identical(other.lastSyncTime, _this.lastSyncTime) || other.lastSyncTime == _this.lastSyncTime)&&(identical(other.isActive, _this.isActive) || other.isActive == _this.isActive)&&const DeepCollectionEquality().equals(other.deviceInfo, _this.deviceInfo));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,model,lastSyncTime,isActive,const DeepCollectionEquality().hash(deviceInfo));
+int get hashCode {
+  final _this = this as DeviceEntity;
+  return Object.hash(runtimeType,_this.id,_this.name,_this.model,_this.lastSyncTime,_this.isActive,const DeepCollectionEquality().hash(_this.deviceInfo));
+}
 
 @override
 String toString() {
-  return 'DeviceEntity(id: $id, name: $name, model: $model, lastSyncTime: $lastSyncTime, isActive: $isActive, deviceInfo: $deviceInfo)';
+  final _this = this as DeviceEntity;
+  return 'DeviceEntity(id: ${_this.id}, name: ${_this.name}, model: ${_this.model}, lastSyncTime: ${_this.lastSyncTime}, isActive: ${_this.isActive}, deviceInfo: ${_this.deviceInfo})';
 }
 
 
@@ -72,7 +78,7 @@ class _$DeviceEntityCopyWithImpl<$Res>
 /// Create a copy of DeviceEntity
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? model = null,Object? lastSyncTime = null,Object? isActive = null,Object? deviceInfo = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(DeviceEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,model: null == model ? _self.model : model // ignore: cast_nullable_to_non_nullable
@@ -220,7 +226,7 @@ return $default(_that.id,_that.name,_that.model,_that.lastSyncTime,_that.isActiv
 @JsonSerializable()
 
 class _DeviceEntity implements DeviceEntity {
-  const _DeviceEntity({required this.id, required this.name, required this.model, required this.lastSyncTime, this.isActive = true, final  Map<String, dynamic>? deviceInfo}): _deviceInfo = deviceInfo;
+  const _DeviceEntity({required this.id, required this.name, required this.model, required this.lastSyncTime, this.isActive = true,  Map<String, dynamic>? deviceInfo}): _deviceInfo = deviceInfo;
   factory _DeviceEntity.fromJson(Map<String, dynamic> json) => _$DeviceEntityFromJson(json);
 
 /// Unique device identifier
@@ -258,16 +264,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DeviceEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.model, model) || other.model == model)&&(identical(other.lastSyncTime, lastSyncTime) || other.lastSyncTime == lastSyncTime)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&const DeepCollectionEquality().equals(other._deviceInfo, _deviceInfo));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _DeviceEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.model, model) || other.model == model)&&(identical(other.lastSyncTime, lastSyncTime) || other.lastSyncTime == lastSyncTime)&&(identical(other.isActive, isActive) || other.isActive == isActive)&&const DeepCollectionEquality().equals(other.deviceInfo, _deviceInfo));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,model,lastSyncTime,isActive,const DeepCollectionEquality().hash(_deviceInfo));
+int get hashCode {
+    return Object.hash(runtimeType,id,name,model,lastSyncTime,isActive,const DeepCollectionEquality().hash(_deviceInfo));
+}
 
 @override
 String toString() {
-  return 'DeviceEntity(id: $id, name: $name, model: $model, lastSyncTime: $lastSyncTime, isActive: $isActive, deviceInfo: $deviceInfo)';
+    return 'DeviceEntity(id: $id, name: $name, model: $model, lastSyncTime: $lastSyncTime, isActive: $isActive, deviceInfo: $deviceInfo)';
 }
 
 

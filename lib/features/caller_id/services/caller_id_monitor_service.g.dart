@@ -13,7 +13,7 @@ part of 'caller_id_monitor_service.dart';
 /// 不会被意外销毁，可以被后台服务安全地、持续地监听。
 
 @ProviderFor(callerIdDataSubject)
-const callerIdDataSubjectProvider = CallerIdDataSubjectProvider._();
+final callerIdDataSubjectProvider = CallerIdDataSubjectProvider._();
 
 /// 全局的、唯一的 CallerIdData 数据流控制器 Provider
 /// 使用 `@Riverpod(keepAlive: true)` 确保它是一个真正的全局单例，
@@ -30,7 +30,7 @@ final class CallerIdDataSubjectProvider
   /// 全局的、唯一的 CallerIdData 数据流控制器 Provider
   /// 使用 `@Riverpod(keepAlive: true)` 确保它是一个真正的全局单例，
   /// 不会被意外销毁，可以被后台服务安全地、持续地监听。
-  const CallerIdDataSubjectProvider._()
+  CallerIdDataSubjectProvider._()
     : super(
         from: null,
         argument: null,
@@ -73,7 +73,7 @@ String _$callerIdDataSubjectHash() =>
 /// 使用 `keepAlive: true` 确保它的生命周期独立于任何 Notifier，不会被热重载影响。
 
 @ProviderFor(rawCallEventStreamController)
-const rawCallEventStreamControllerProvider =
+final rawCallEventStreamControllerProvider =
     RawCallEventStreamControllerProvider._();
 
 /// 全局的、唯一的原始事件流控制器 Provider
@@ -89,7 +89,7 @@ final class RawCallEventStreamControllerProvider
     with $Provider<StreamController<MethodCall>> {
   /// 全局的、唯一的原始事件流控制器 Provider
   /// 使用 `keepAlive: true` 确保它的生命周期独立于任何 Notifier，不会被热重载影响。
-  const RawCallEventStreamControllerProvider._()
+  RawCallEventStreamControllerProvider._()
     : super(
         from: null,
         argument: null,
@@ -133,7 +133,7 @@ String _$rawCallEventStreamControllerHash() =>
 /// 它的 `build` 方法只在服务第一次启动时执行一次，负责设置好与原生代码的通信桥梁。
 
 @ProviderFor(CallerIdMonitorService)
-const callerIdMonitorServiceProvider = CallerIdMonitorServiceProvider._();
+final callerIdMonitorServiceProvider = CallerIdMonitorServiceProvider._();
 
 /// 来电显示监控服务 Provider
 ///
@@ -147,7 +147,7 @@ final class CallerIdMonitorServiceProvider
   /// 使用 Riverpod 3.0 的 AsyncNotifier API。
   /// 这是整个来电处理流程的“大脑”和“总指挥”。
   /// 它的 `build` 方法只在服务第一次启动时执行一次，负责设置好与原生代码的通信桥梁。
-  const CallerIdMonitorServiceProvider._()
+  CallerIdMonitorServiceProvider._()
     : super(
         from: null,
         argument: null,
@@ -179,8 +179,7 @@ abstract class _$CallerIdMonitorService extends $AsyncNotifier<void> {
   FutureOr<void> build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<AsyncValue<void>, void>;
     final element =
         ref.element
@@ -190,6 +189,6 @@ abstract class _$CallerIdMonitorService extends $AsyncNotifier<void> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, null);
+    return element.handleCreate(ref, build);
   }
 }

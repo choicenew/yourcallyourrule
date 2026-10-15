@@ -10,7 +10,7 @@ part of 'deletion_proposal_notification_service.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(deletionProposalNotificationService)
-const deletionProposalNotificationServiceProvider =
+final deletionProposalNotificationServiceProvider =
     DeletionProposalNotificationServiceProvider._();
 
 final class DeletionProposalNotificationServiceProvider
@@ -21,7 +21,7 @@ final class DeletionProposalNotificationServiceProvider
           DeletionProposalNotificationService
         >
     with $Provider<DeletionProposalNotificationService> {
-  const DeletionProposalNotificationServiceProvider._()
+  DeletionProposalNotificationServiceProvider._()
     : super(
         from: null,
         argument: null,

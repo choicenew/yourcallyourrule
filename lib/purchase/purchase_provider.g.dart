@@ -10,11 +10,11 @@ part of 'purchase_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(Purchase)
-const purchaseProvider = PurchaseProvider._();
+final purchaseProvider = PurchaseProvider._();
 
 final class PurchaseProvider
     extends $NotifierProvider<Purchase, PurchaseProviderState> {
-  const PurchaseProvider._()
+  PurchaseProvider._()
     : super(
         from: null,
         argument: null,
@@ -47,8 +47,7 @@ abstract class _$Purchase extends $Notifier<PurchaseProviderState> {
   PurchaseProviderState build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<PurchaseProviderState, PurchaseProviderState>;
     final element =
         ref.element
@@ -58,6 +57,6 @@ abstract class _$Purchase extends $Notifier<PurchaseProviderState> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

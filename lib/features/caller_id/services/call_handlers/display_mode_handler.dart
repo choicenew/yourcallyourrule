@@ -118,7 +118,7 @@ class DisplayModeHandler {
         );
         break;
 
-      case DisplayMode.live_activity:
+      case DisplayMode.liveActivity:
         final kitHandler = await _ref.read(
           kitLiveActivityHandlerProvider.future,
         );

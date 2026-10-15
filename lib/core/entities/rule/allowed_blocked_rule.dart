@@ -1,111 +1,73 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 
-class AllowedBlockedRule extends RuleBase {
-  final PhoneNumber phoneNumber;
-  final String labelId; // 使用labelId引用PredefinedLabel
-  final int count;
-  final String? avatar; // 头像字段
-  final String? subscriptionId;
-  
-  // 将 isSubscribed 改为计算属性
+part 'allowed_blocked_rule.freezed.dart';
+
+/// 允许/阻止规则领域实体 (@freezed 自动生成不可变数据类)
+@freezed
+abstract class AllowedBlockedRule with _$AllowedBlockedRule implements RuleBase {
+  const AllowedBlockedRule._();
+
+  @Implements<RuleBase>()
+  const factory AllowedBlockedRule({
+    required String id,
+    required String name,
+    required RuleAction action,
+    required PhoneNumber phoneNumber,
+    required String labelId,
+    @Default(RuleTypeKeys.allowBlock) String ruleType,
+    RulePriority? priority,
+    @Default(true) bool isEnabled,
+    @Default(0) int count,
+    String? avatar,
+    String? subscriptionId,
+  }) = _AllowedBlockedRule;
+
+  /// 计算属性：判断是否关联订阅
   bool get isSubscribed => subscriptionId != null;
 
-  final String ruleType;
-
-  AllowedBlockedRule({
-    required super.id,
-    required super.name,
-    required super.action, // action 现在是必须的，并且由构造函数直接接收
-    required this.phoneNumber,
-    required this.labelId,
-    this.ruleType = 'allow_block',
-    RulePriority? priority, // 优先级变为可选
-    super.isEnabled = true,
-    this.count = 0,
-    this.avatar,
-    this.subscriptionId,
-  }) : super(
-          priority: priority ?? _defaultPriority(action),
-        );
-
-  static RulePriority _defaultPriority(RuleAction action) {
-    switch (action.type) {
-      case RuleActionType.allow:
-        return RulePriority.highest;  // 使用预定义常量，优先级100
-      case RuleActionType.block:
-        return RulePriority.veryHigh;  // 使用预定义常量，优先级50
-      case RuleActionType.silence:
-        return RulePriority.silenceAction;  // 使用预定义常量，优先级1
-      case RuleActionType.none:
-      default:
-        return RulePriority.noneAction;  // 使用预定义常量，优先级0
-    }
-  }
-
+  /// 号码过滤匹配逻辑
   @override
   bool matches(String input) {
     return isEnabled && phoneNumber.value == input;
   }
 
+  /// 格式化转换 Map
   @override
   Map<String, dynamic> toMap() {
-    return super.toMap()
-      ..addAll({
-        'phoneNumber': phoneNumber.value,
-        'labelId': labelId,
-        'count': count,
-        'avatar': avatar,
-        'ruleType': ruleType,
-        'subscriptionId': subscriptionId,
-      });
+    return {
+      'id': id,
+      'name': name,
+      'action': action.toString(),
+      'phoneNumber': phoneNumber.value,
+      'labelId': labelId,
+      'priority': priority?.value ?? 0,
+      'isEnabled': isEnabled ? 1 : 0,
+      'count': count,
+      'avatar': avatar,
+      'ruleType': ruleType,
+      'subscriptionId': subscriptionId,
+    };
   }
 
+  /// 从 Map 反序列化生成实体
   factory AllowedBlockedRule.fromMap(Map<String, dynamic> map) {
-    RuleAction action = RuleAction.fromString(map['action']);
     return AllowedBlockedRule(
-      id: map['id'],
-      name: map['name'],
+      id: map['id']?.toString() ?? '',
+      name: map['name']?.toString() ?? '',
       priority: RulePriority.fromInt(map['priority']),
-      action: action, // action 从 map 中获取
-      phoneNumber: PhoneNumber.fromString(map['phoneNumber']),
-      labelId: map['labelId'],
-      isEnabled: (map['isEnabled'] ?? 1) == 1,
-      count: map['count'] ?? 0,
-      avatar: map['avatar'],
-      ruleType: map['ruleType'] ?? 'allow_block',
-      subscriptionId: map['subscriptionId'],
-    );
-  }
-
-  @override
-  AllowedBlockedRule copyWith({
-    String? id,
-    String? name,
-    RulePriority? priority,
-    RuleAction? action,
-    bool? isEnabled,
-    PhoneNumber? phoneNumber,
-    String? labelId,
-    int? count,
-    String? avatar,
-    String? ruleType,
-    String? subscriptionId,
-  }) {
-    return AllowedBlockedRule(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      action: action ?? this.action,
-      phoneNumber: phoneNumber ?? this.phoneNumber,
-      labelId: labelId ?? this.labelId,
-      priority: priority ?? this.priority,
-      isEnabled: isEnabled ?? this.isEnabled,
-      count: count ?? this.count,
-      avatar: avatar ?? this.avatar,
-      ruleType: ruleType ?? this.ruleType,
-      subscriptionId: subscriptionId ?? this.subscriptionId,
+      action: RuleAction.fromString(map['action']),
+      phoneNumber: PhoneNumber.fromString(map['phoneNumber']?.toString() ?? ''),
+      labelId: map['labelId']?.toString() ?? '',
+      isEnabled: (map['isEnabled'] ?? 1) == 1 || map['isEnabled'] == true,
+      count: (map['count'] as num?)?.toInt() ?? 0,
+      avatar: map['avatar']?.toString(),
+      ruleType: map['ruleType']?.toString() ?? RuleTypeKeys.allowBlock,
+      subscriptionId: map['subscriptionId']?.toString(),
     );
   }
 }

@@ -13,7 +13,7 @@ part of 'proposal_notification_manager.dart';
 /// 【MODIFIED】: 修正了 Provider 的函数签名，使其与 @riverpod 规范一致。
 
 @ProviderFor(proposalNotificationManager)
-const proposalNotificationManagerProvider =
+final proposalNotificationManagerProvider =
     ProposalNotificationManagerProvider._();
 
 /// ProposalNotificationManager 的 Provider。
@@ -31,7 +31,7 @@ final class ProposalNotificationManagerProvider
   /// ProposalNotificationManager 的 Provider。
   ///
   /// 【MODIFIED】: 修正了 Provider 的函数签名，使其与 @riverpod 规范一致。
-  const ProposalNotificationManagerProvider._()
+  ProposalNotificationManagerProvider._()
     : super(
         from: null,
         argument: null,

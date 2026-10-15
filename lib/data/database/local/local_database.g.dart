@@ -8466,7 +8466,16 @@ class $$ContactsTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$ContactsTable, ContactData>(table),
+                  BaseReferences<_$LocalDatabase, $ContactsTable, ContactData>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -8830,7 +8839,16 @@ class $$CallHistoryTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$CallHistoryTable, CallHistoryData>(table),
+                  BaseReferences<
+                    _$LocalDatabase,
+                    $CallHistoryTable,
+                    CallHistoryData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -9164,7 +9182,16 @@ class $$RulesTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$RulesTable, RuleData>(table),
+                  BaseReferences<_$LocalDatabase, $RulesTable, RuleData>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -9479,7 +9506,16 @@ class $$PhoneRulesTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$PhoneRulesTable, PhoneRuleData>(table),
+                  BaseReferences<
+                    _$LocalDatabase,
+                    $PhoneRulesTable,
+                    PhoneRuleData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -9738,7 +9774,16 @@ class $$RegexRulesTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$RegexRulesTable, RegexRuleData>(table),
+                  BaseReferences<
+                    _$LocalDatabase,
+                    $RegexRulesTable,
+                    RegexRuleData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -10047,7 +10092,16 @@ class $$SubscriptionsTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$SubscriptionsTable, SubscriptionData>(table),
+                  BaseReferences<
+                    _$LocalDatabase,
+                    $SubscriptionsTable,
+                    SubscriptionData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -10346,7 +10400,16 @@ class $$SmsTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$SmsTable, SmsMessageData>(table),
+                  BaseReferences<_$LocalDatabase, $SmsTable, SmsMessageData>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -10607,7 +10670,16 @@ class $$SmsRulesTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$SmsRulesTable, SmsRuleData>(table),
+                  BaseReferences<_$LocalDatabase, $SmsRulesTable, SmsRuleData>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -10891,7 +10963,16 @@ class $$PluginsTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$PluginsTable, PluginData>(table),
+                  BaseReferences<_$LocalDatabase, $PluginsTable, PluginData>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -11113,7 +11194,16 @@ class $$LocationsTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$LocationsTable, LocationData>(table),
+                  BaseReferences<
+                    _$LocalDatabase,
+                    $LocationsTable,
+                    LocationData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -11300,7 +11390,18 @@ class $$PredefinedLabelsTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$PredefinedLabelsTable, PredefinedLabelData>(
+                    table,
+                  ),
+                  BaseReferences<
+                    _$LocalDatabase,
+                    $PredefinedLabelsTable,
+                    PredefinedLabelData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -11601,7 +11702,16 @@ class $$LabelPhonesTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$LabelPhonesTable, LabelPhoneData>(table),
+                  BaseReferences<
+                    _$LocalDatabase,
+                    $LabelPhonesTable,
+                    LabelPhoneData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -11904,7 +12014,16 @@ class $$SimSlotRulesTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$SimSlotRulesTable, SimSlotRuleData>(table),
+                  BaseReferences<
+                    _$LocalDatabase,
+                    $SimSlotRulesTable,
+                    SimSlotRuleData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -12118,7 +12237,19 @@ class $$LabelMarkStatisticsTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<
+                    $LabelMarkStatisticsTable,
+                    LabelMarkStatisticData
+                  >(table),
+                  BaseReferences<
+                    _$LocalDatabase,
+                    $LabelMarkStatisticsTable,
+                    LabelMarkStatisticData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -12294,7 +12425,16 @@ class $$UserMarkCountTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$UserMarkCountTable, UserMarkCountData>(table),
+                  BaseReferences<
+                    _$LocalDatabase,
+                    $UserMarkCountTable,
+                    UserMarkCountData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),

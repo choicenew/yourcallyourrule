@@ -10,7 +10,7 @@ part of 'live_notification_config_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(liveNotificationConfigManager)
-const liveNotificationConfigManagerProvider =
+final liveNotificationConfigManagerProvider =
     LiveNotificationConfigManagerProvider._();
 
 final class LiveNotificationConfigManagerProvider
@@ -21,7 +21,7 @@ final class LiveNotificationConfigManagerProvider
           LiveNotificationConfigManager
         >
     with $Provider<LiveNotificationConfigManager> {
-  const LiveNotificationConfigManagerProvider._()
+  LiveNotificationConfigManagerProvider._()
     : super(
         from: null,
         argument: null,
@@ -61,7 +61,7 @@ String _$liveNotificationConfigManagerHash() =>
     r'2a2c01c549fae3a16877a705e5fb077fe2f4c2f7';
 
 @ProviderFor(LiveNotificationConfigNotifier)
-const liveNotificationConfigProvider =
+final liveNotificationConfigProvider =
     LiveNotificationConfigNotifierProvider._();
 
 final class LiveNotificationConfigNotifierProvider
@@ -70,7 +70,7 @@ final class LiveNotificationConfigNotifierProvider
           LiveNotificationConfigNotifier,
           LiveNotificationConfig
         > {
-  const LiveNotificationConfigNotifierProvider._()
+  LiveNotificationConfigNotifierProvider._()
     : super(
         from: null,
         argument: null,
@@ -97,8 +97,7 @@ abstract class _$LiveNotificationConfigNotifier
   FutureOr<LiveNotificationConfig> build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    final created = build();
+  WhenComplete runBuild() {
     final ref =
         this.ref
             as $Ref<AsyncValue<LiveNotificationConfig>, LiveNotificationConfig>;
@@ -113,6 +112,6 @@ abstract class _$LiveNotificationConfigNotifier
               Object?,
               Object?
             >;
-    element.handleValue(ref, created);
+    return element.handleCreate(ref, build);
   }
 }

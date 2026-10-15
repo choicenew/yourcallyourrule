@@ -45,6 +45,19 @@ class _DriftMigrationHelper {
   }
 
   // =============================================================
+  // 升级到版本 5：彻底自动迁移纠正 SQLite 旧表中残留的 'white_black' / 'alloworblock'
+  // 自动矫正升级为现代标准的 'allow_block'，彻底消除历史废弃字面量技术债
+  // =============================================================
+  static Future<void> upgradeFrom4To5(Migrator m, LocalDatabase db) async {
+    await db.customStatement(
+      "UPDATE rules SET ruleType = 'allow_block' WHERE ruleType = 'white_black' OR ruleType = 'alloworblock'",
+    );
+    await db.customStatement(
+      "UPDATE phone_rules SET ruleType = 'allow_block' WHERE ruleType = 'white_black' OR ruleType = 'alloworblock'",
+    );
+  }
+
+  // =============================================================
   // ✅ 【所有数据迁移方法已完全修正】
   // =============================================================
   static Future<void> _migratePhoneBlacklist(Migrator m, LocalDatabase db) async {

@@ -10,7 +10,7 @@ part of 'proposal_repository_provider.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(proposalDataSource)
-const proposalDataSourceProvider = ProposalDataSourceProvider._();
+final proposalDataSourceProvider = ProposalDataSourceProvider._();
 
 final class ProposalDataSourceProvider
     extends
@@ -20,7 +20,7 @@ final class ProposalDataSourceProvider
           ProposalDataSource
         >
     with $Provider<ProposalDataSource> {
-  const ProposalDataSourceProvider._()
+  ProposalDataSourceProvider._()
     : super(
         from: null,
         argument: null,
@@ -58,7 +58,7 @@ String _$proposalDataSourceHash() =>
     r'b85a3d4cfb7204cf9fff31038852ea8d262746a1';
 
 @ProviderFor(proposalRepository)
-const proposalRepositoryProvider = ProposalRepositoryProvider._();
+final proposalRepositoryProvider = ProposalRepositoryProvider._();
 
 final class ProposalRepositoryProvider
     extends
@@ -68,7 +68,7 @@ final class ProposalRepositoryProvider
           ProposalRepository
         >
     with $Provider<ProposalRepository> {
-  const ProposalRepositoryProvider._()
+  ProposalRepositoryProvider._()
     : super(
         from: null,
         argument: null,

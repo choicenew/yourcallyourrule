@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
 
 // 【零耦合原则】：仅依赖 core 层的基础实体和仓库，绝不引用 features/phone 或 features/plugin 下的任何类
 import '../../../core/entities/subscription/subscription.dart';
@@ -349,7 +350,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
   Future<void> _exit(BuildContext context) async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setBool('has_completed_initial_setup', true);
+      await prefs.setBool(AppPrefsKeys.hasCompletedInitialSetup, true);
     } catch (_) {}
     if (context.mounted) {
       if (context.canPop()) {

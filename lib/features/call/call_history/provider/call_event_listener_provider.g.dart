@@ -17,7 +17,7 @@ part of 'call_event_listener_provider.dart';
 /// 使用 `@Riverpod` 注解和 `keepAlive: true` 来确保服务在应用启动后持续运行。
 
 @ProviderFor(callEventListener)
-const callEventListenerProvider = CallEventListenerProvider._();
+final callEventListenerProvider = CallEventListenerProvider._();
 
 /// CallEventListenerService 的 Riverpod Provider
 ///
@@ -44,7 +44,7 @@ final class CallEventListenerProvider
   /// 和响应通话事件（如记录通话日志）的顶层服务。
   ///
   /// 使用 `@Riverpod` 注解和 `keepAlive: true` 来确保服务在应用启动后持续运行。
-  const CallEventListenerProvider._()
+  CallEventListenerProvider._()
     : super(
         from: null,
         argument: null,

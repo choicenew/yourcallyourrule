@@ -225,9 +225,13 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16.0),
-      decoration: EliteDopamineTheme.warmCardDecoration(
-        context: context,
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: Theme.of(context).colorScheme.outlineVariant,
+          width: 1.1,
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

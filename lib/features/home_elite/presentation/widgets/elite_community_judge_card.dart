@@ -195,7 +195,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                   borderRadius: BorderRadius.circular(6),
                                 ),
                                 child: Text(
-                                  firstProposal.highestRiskLevel.isNotEmpty ? firstProposal.highestRiskLevel : l10n.actionBlock,
+                                  firstProposal.highestRiskLevel.getLocalizedLabel(context),
                                   style: const TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.bold,

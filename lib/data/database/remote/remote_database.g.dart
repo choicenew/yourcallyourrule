@@ -3325,10 +3325,8 @@ final class $$RemoteNumbersTableReferences
   _numberCountriesRefsTable(_$RemoteDatabase db) =>
       MultiTypedResultKey.fromTable(
         db.numberCountries,
-        aliasName: $_aliasNameGenerator(
-          db.remoteNumbers.phoneNumber,
-          db.numberCountries.phoneNumber,
-        ),
+        aliasName:
+            'remote_numbers__phone_number__number_countries__phone_number',
       );
 
   $$NumberCountriesTableProcessedTableManager get numberCountriesRefs {
@@ -3351,14 +3349,13 @@ final class $$RemoteNumbersTableReferences
     $ActiveDeletionProposalsTable,
     List<ActiveDeletionProposalData>
   >
-  _activeDeletionProposalsRefsTable(_$RemoteDatabase db) =>
-      MultiTypedResultKey.fromTable(
-        db.activeDeletionProposals,
-        aliasName: $_aliasNameGenerator(
-          db.remoteNumbers.phoneNumber,
-          db.activeDeletionProposals.phoneNumber,
-        ),
-      );
+  _activeDeletionProposalsRefsTable(
+    _$RemoteDatabase db,
+  ) => MultiTypedResultKey.fromTable(
+    db.activeDeletionProposals,
+    aliasName:
+        'remote_numbers__phone_number__active_deletion_proposals__phone_number',
+  );
 
   $$ActiveDeletionProposalsTableProcessedTableManager
   get activeDeletionProposalsRefs {
@@ -3700,7 +3697,7 @@ class $$RemoteNumbersTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable(table),
+                  e.readTable<$RemoteNumbersTable, RemoteNumberData>(table),
                   $$RemoteNumbersTableReferences(db, table, e),
                 ),
               )
@@ -3814,10 +3811,7 @@ final class $$NumberCountriesTableReferences
 
   static $RemoteNumbersTable _phoneNumberTable(_$RemoteDatabase db) =>
       db.remoteNumbers.createAlias(
-        $_aliasNameGenerator(
-          db.numberCountries.phoneNumber,
-          db.remoteNumbers.phoneNumber,
-        ),
+        'number_countries__phone_number__remote_numbers__phone_number',
       );
 
   $$RemoteNumbersTableProcessedTableManager get phoneNumber {
@@ -4000,7 +3994,7 @@ class $$NumberCountriesTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable(table),
+                  e.readTable<$NumberCountriesTable, NumberCountryData>(table),
                   $$NumberCountriesTableReferences(db, table, e),
                 ),
               )
@@ -4251,7 +4245,18 @@ class $$PendingOperationsTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$PendingOperationsTable, PendingOperationData>(
+                    table,
+                  ),
+                  BaseReferences<
+                    _$RemoteDatabase,
+                    $PendingOperationsTable,
+                    PendingOperationData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -4518,7 +4523,16 @@ class $$SyncRecordsTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$SyncRecordsTable, SyncRecordData>(table),
+                  BaseReferences<
+                    _$RemoteDatabase,
+                    $SyncRecordsTable,
+                    SyncRecordData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -4705,7 +4719,16 @@ class $$SyncConfigTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$SyncConfigTable, SyncConfigData>(table),
+                  BaseReferences<
+                    _$RemoteDatabase,
+                    $SyncConfigTable,
+                    SyncConfigData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -4769,10 +4792,7 @@ final class $$ActiveDeletionProposalsTableReferences
 
   static $RemoteNumbersTable _phoneNumberTable(_$RemoteDatabase db) =>
       db.remoteNumbers.createAlias(
-        $_aliasNameGenerator(
-          db.activeDeletionProposals.phoneNumber,
-          db.remoteNumbers.phoneNumber,
-        ),
+        'active_deletion_proposals__phone_number__remote_numbers__phone_number',
       );
 
   $$RemoteNumbersTableProcessedTableManager get phoneNumber {
@@ -5079,7 +5099,10 @@ class $$ActiveDeletionProposalsTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable(table),
+                  e.readTable<
+                    $ActiveDeletionProposalsTable,
+                    ActiveDeletionProposalData
+                  >(table),
                   $$ActiveDeletionProposalsTableReferences(db, table, e),
                 ),
               )
@@ -5320,7 +5343,19 @@ class $$ProposalSubmissionsTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<
+                    $ProposalSubmissionsTable,
+                    ProposalSubmissionData
+                  >(table),
+                  BaseReferences<
+                    _$RemoteDatabase,
+                    $ProposalSubmissionsTable,
+                    ProposalSubmissionData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),
@@ -5534,7 +5569,16 @@ class $$ProposalVotesTableTableManager
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0
-              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .map(
+                (e) => (
+                  e.readTable<$ProposalVotesTable, ProposalVoteData>(table),
+                  BaseReferences<
+                    _$RemoteDatabase,
+                    $ProposalVotesTable,
+                    ProposalVoteData
+                  >(db, table, e),
+                ),
+              )
               .toList(),
           prefetchHooksCallback: null,
         ),

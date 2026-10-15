@@ -1,13 +1,17 @@
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
 
 /// 定义排序的类型
 enum ProposalSortType {
   /// 按创建时间（从新到旧）
   newest,
+
   /// 按创建时间（从旧到新）
   oldest,
+
   /// 按提议热度（从高到低）
   mostPopular,
+
   /// 按提议热度（从低到高）
   leastPopular,
 }
@@ -16,10 +20,13 @@ enum ProposalSortType {
 class ProposalListOptions {
   /// 筛选：提议状态 (e.g., pending, approved)
   final ProposalStatus? status;
-  /// 筛选：风险等级 (e.g., 'Verified', 'High')
-  final String? riskLevel;
+
+  /// 筛选：风险等级强类型枚举
+  final RiskLevel? riskLevel;
+
   /// 筛选：只显示由所有者验证的提议
   final bool? onlyVerifiedOwner;
+
   /// 排序：列表的排序方式
   final ProposalSortType sortType;
 
@@ -40,7 +47,7 @@ class ProposalListOptions {
   /// 创建一个带有更新状态的副本
   ProposalListOptions copyWith({
     ProposalStatus? status,
-    String? riskLevel,
+    RiskLevel? riskLevel,
     bool? onlyVerifiedOwner,
     ProposalSortType? sortType,
   }) {
@@ -51,7 +58,7 @@ class ProposalListOptions {
       sortType: sortType ?? this.sortType,
     );
   }
-  
+
   /// 检查当前是否有任何筛选条件被激活
   bool get hasActiveFilters => status != null || riskLevel != null || onlyVerifiedOwner != null;
 }

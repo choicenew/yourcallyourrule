@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class VoteProgressBar extends StatelessWidget {
@@ -15,6 +14,7 @@ class VoteProgressBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final colorScheme = Theme.of(context).colorScheme;
     final total = supportCount + opposeCount;
     if (total == 0) return const SizedBox.shrink();
 
@@ -26,12 +26,12 @@ class VoteProgressBar extends StatelessWidget {
           borderRadius: BorderRadius.circular(6),
           child: Container(
             height: 6,
-            color: Colors.redAccent.withValues(alpha: 0.25),
+            color: colorScheme.error.withValues(alpha: 0.25),
             child: FractionallySizedBox(
               alignment: Alignment.centerLeft,
               widthFactor: supportRatio,
               child: Container(
-                color: EliteDopamineTheme.freshMint,
+                color: colorScheme.tertiary,
               ),
             ),
           ),
@@ -42,16 +42,16 @@ class VoteProgressBar extends StatelessWidget {
           children: [
             Text(
               l10n.supportCount(supportCount),
-              style: const TextStyle(
-                color: EliteDopamineTheme.freshMint,
+              style: TextStyle(
+                color: colorScheme.tertiary,
                 fontSize: 11,
                 fontWeight: FontWeight.w600,
               ),
             ),
             Text(
               l10n.opposeCount(opposeCount),
-              style: const TextStyle(
-                color: Colors.redAccent,
+              style: TextStyle(
+                color: colorScheme.error,
                 fontSize: 11,
                 fontWeight: FontWeight.w600,
               ),

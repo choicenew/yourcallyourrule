@@ -214,7 +214,7 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                     style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
                   ),
                   value: config.isMasterDevice,
-                  activeColor: const Color(0xFF3B82F6),
+                  activeColor: Theme.of(context).colorScheme.primary,
                   onChanged: canInteract ? (val) {
                     ref.read(supabaseConfigProvider.notifier).toggleMasterDevice(val);
                   } : null,
@@ -330,7 +330,7 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                         style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                       ),
                       value: config.syncCallLogs,
-                      activeColor: const Color(0xFF10B981),
+                      activeColor: Theme.of(context).colorScheme.primary,
                       onChanged: canInteract ? (val) {
                         ref.read(supabaseConfigProvider.notifier).toggleCallLogs(val);
                       } : null,
@@ -366,7 +366,7 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                             min: 1,
                             max: 24,
                             divisions: 23,
-                            activeColor: const Color(0xFFFF9500),
+                            activeColor: Theme.of(context).colorScheme.primary,
                             label: "${config.syncIntervalHours} h",
                             onChanged: canInteract ? (val) {
                               ref.read(supabaseConfigProvider.notifier).setSyncInterval(val.toInt());

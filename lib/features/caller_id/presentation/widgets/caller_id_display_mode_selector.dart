@@ -83,7 +83,7 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
             selectedIcon: Icons.bolt_rounded,
             title: l10n.liveActivityMode,
             subtitle: l10n.liveActivityModeDescription,
-            value: DisplayMode.live_activity,
+            value: DisplayMode.liveActivity,
             groupValue: config.displayMode,
             onSelected: (mode) => notifier.setDisplayMode(mode),
           ),

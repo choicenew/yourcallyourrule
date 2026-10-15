@@ -3,6 +3,7 @@ import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/entities/rule/sim_slot_rule.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
@@ -79,23 +80,17 @@ class RuleRepositoryImpl implements RuleRepository {
 
   @override
   RuleBase createRuleFromMap(Map<String, dynamic> map) {
-    final ruleType = map['ruleType'] as String;
+    final type = RuleType.fromString(map['ruleType']);
     
-    switch (ruleType) {
-      case 'phone_rule':
-      case 'white_black': // 兼容旧数据
+    switch (type) {
+      case RuleType.phone:
         return PhoneRule.fromMap(map);
-      case 'regex':
+      case RuleType.regex:
         return RegexRule.fromMap(map);
-      case 'alloworblock':
-      case 'allow_block':
+      case RuleType.allowBlock:
         return AllowedBlockedRule.fromMap(map);
-      case 'label':
-        return LabelPhoneEntry.fromMap(map);
-      case 'sim_slot':
+      case RuleType.simSlot:
         return SimSlotRule.fromMap(map);
-      default:
-        throw Exception('Unknown rule type: $ruleType');
     }
   }
 

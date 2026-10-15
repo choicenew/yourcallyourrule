@@ -294,19 +294,19 @@ class _PluginManagementPageWithAdsState
 
   Future<void> _addPluginFromLocal() async {
     try {
-      FilePickerResult? result = await FilePicker.pickFiles(
+      final result = await FilePicker.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['js'],
       );
 
-      if (result != null && result.files.single.path != null) {
+      if (result.isNotEmpty && result.single.path != null) {
         setState(() {
           _isLoading = true;
         });
 
         final pluginService = ref.read(pluginManagerServiceProvider);
         final plugin = await pluginService.addPluginFromLocal(
-          result.files.single.path!,
+          result.single.path!,
         );
 
         if (plugin != null) {
@@ -563,16 +563,16 @@ class _PluginManagementPageWithAdsState
               onTap: () async {
                 Navigator.of(context).pop();
                 // 导入插件列表的逻辑
-                FilePickerResult? result = await FilePicker.pickFiles(
+                final result = await FilePicker.pickFiles(
                   type: FileType.custom,
                   allowedExtensions: ['json'],
                 );
 
-                if (result != null && result.files.single.path != null) {
+                if (result.isNotEmpty && result.single.path != null) {
                   final pluginService = ref.read(pluginManagerServiceProvider);
                   try {
                     final plugins = await pluginService.importFromFile(
-                      result.files.single.path!,
+                      result.single.path!,
                     );
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
@@ -644,9 +644,13 @@ class _PluginManagementPageWithAdsState
     return Container(
       margin: const EdgeInsets.only(bottom: 12.0),
       padding: const EdgeInsets.all(16.0),
-      decoration: EliteDopamineTheme.warmCardDecoration(
-        context: context,
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: Theme.of(context).colorScheme.outlineVariant,
+          width: 1.1,
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

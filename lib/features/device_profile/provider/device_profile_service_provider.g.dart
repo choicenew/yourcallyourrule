@@ -14,7 +14,7 @@ part of 'device_profile_service_provider.dart';
 /// 由于 DeviceProfileService 没有任何构造函数依赖，所以它的 Provider 非常简单。
 
 @ProviderFor(deviceProfileService)
-const deviceProfileServiceProvider = DeviceProfileServiceProvider._();
+final deviceProfileServiceProvider = DeviceProfileServiceProvider._();
 
 /// DeviceProfileService 的 Provider。
 ///
@@ -33,7 +33,7 @@ final class DeviceProfileServiceProvider
   ///
   /// 使用 @riverpod 注解，使其可以在整个应用中被依赖注入。
   /// 由于 DeviceProfileService 没有任何构造函数依赖，所以它的 Provider 非常简单。
-  const DeviceProfileServiceProvider._()
+  DeviceProfileServiceProvider._()
     : super(
         from: null,
         argument: null,

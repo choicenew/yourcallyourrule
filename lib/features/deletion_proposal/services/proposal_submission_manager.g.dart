@@ -13,7 +13,7 @@ part of 'proposal_submission_manager.dart';
 /// 【MODIFIED】: 使用 @riverpod 注解声明，替代了旧的手动 `Provider` 定义。
 
 @ProviderFor(proposalSubmissionManager)
-const proposalSubmissionManagerProvider = ProposalSubmissionManagerProvider._();
+final proposalSubmissionManagerProvider = ProposalSubmissionManagerProvider._();
 
 /// ProposalSubmissionManager 的 Provider。
 ///
@@ -30,7 +30,7 @@ final class ProposalSubmissionManagerProvider
   /// ProposalSubmissionManager 的 Provider。
   ///
   /// 【MODIFIED】: 使用 @riverpod 注解声明，替代了旧的手动 `Provider` 定义。
-  const ProposalSubmissionManagerProvider._()
+  ProposalSubmissionManagerProvider._()
     : super(
         from: null,
         argument: null,

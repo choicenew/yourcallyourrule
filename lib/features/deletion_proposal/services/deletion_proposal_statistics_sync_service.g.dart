@@ -18,7 +18,7 @@ part of 'deletion_proposal_statistics_sync_service.dart';
 ///   也能持续在后台运行，直到被手动销毁或应用关闭。对于这类后台服务来说通常是必要的。
 
 @ProviderFor(DeletionProposalStatisticsSyncService)
-const deletionProposalStatisticsSyncServiceProvider =
+final deletionProposalStatisticsSyncServiceProvider =
     DeletionProposalStatisticsSyncServiceProvider._();
 
 /// 使用 Notifier 模式的删除提议统计同步服务。
@@ -39,7 +39,7 @@ final class DeletionProposalStatisticsSyncServiceProvider
   /// - `@Riverpod(keepAlive: true)`:
   ///   使用 `keepAlive: true` 可以确保这个服务在被监听后，即使没有 UI 在 `watch` 它，
   ///   也能持续在后台运行，直到被手动销毁或应用关闭。对于这类后台服务来说通常是必要的。
-  const DeletionProposalStatisticsSyncServiceProvider._()
+  DeletionProposalStatisticsSyncServiceProvider._()
     : super(
         from: null,
         argument: null,
@@ -84,8 +84,7 @@ abstract class _$DeletionProposalStatisticsSyncService extends $Notifier<void> {
   void build();
   @$mustCallSuper
   @override
-  void runBuild() {
-    build();
+  WhenComplete runBuild() {
     final ref = this.ref as $Ref<void, void>;
     final element =
         ref.element
@@ -95,6 +94,6 @@ abstract class _$DeletionProposalStatisticsSyncService extends $Notifier<void> {
               Object?,
               Object?
             >;
-    element.handleValue(ref, null);
+    return element.handleCreate(ref, build);
   }
 }

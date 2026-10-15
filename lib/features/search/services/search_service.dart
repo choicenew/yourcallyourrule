@@ -133,7 +133,7 @@ class SearchService {
             phoneNumber: rule.phoneNumber.toString(),
             name: rule.name,
             type: _mapActionToResultType(rule.action.type),
-            ruleType: 'phone',
+            ruleType: rule.ruleType,
             data: rule,
           ));
         }
@@ -148,7 +148,7 @@ class SearchService {
             phoneNumber: rule.phoneNumber.toString(),
             name: rule.name,
             type: _mapActionToResultType(rule.action.type),
-            ruleType: 'allowedBlocked',
+            ruleType: rule.ruleType,
             data: rule,
           ));
         }

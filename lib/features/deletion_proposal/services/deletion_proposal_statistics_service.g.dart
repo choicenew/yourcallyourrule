@@ -13,7 +13,7 @@ part of 'deletion_proposal_statistics_service.dart';
 /// 【MODIFIED】: 使用 @riverpod 注解声明 Provider，自动处理依赖注入和实例生命周期。
 
 @ProviderFor(deletionProposalStatisticsService)
-const deletionProposalStatisticsServiceProvider =
+final deletionProposalStatisticsServiceProvider =
     DeletionProposalStatisticsServiceProvider._();
 
 /// DeletionProposalStatisticsService 的 Provider。
@@ -31,7 +31,7 @@ final class DeletionProposalStatisticsServiceProvider
   /// DeletionProposalStatisticsService 的 Provider。
   ///
   /// 【MODIFIED】: 使用 @riverpod 注解声明 Provider，自动处理依赖注入和实例生命周期。
-  const DeletionProposalStatisticsServiceProvider._()
+  DeletionProposalStatisticsServiceProvider._()
     : super(
         from: null,
         argument: null,
