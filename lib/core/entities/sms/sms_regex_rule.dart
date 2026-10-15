@@ -30,12 +30,12 @@ abstract class SmsRegexRule with _$SmsRegexRule implements RuleBase {
   /// 编译后的发送者正则表达式（可选）
   RegExp? get senderPattern => senderRegex != null ? RegExp(senderRegex!, caseSensitive: false) : null;
 
-  /// 短信规则匹配逻辑
+  /// 短信规则匹配逻辑（接收内容与可选发送者）
   @override
-  bool matches(String input) {
+  bool matches(String content, [String? sender]) {
     return isEnabled &&
-        (contentPattern.hasMatch(input) ||
-            (senderPattern != null && senderPattern!.hasMatch(input)));
+        (contentPattern.hasMatch(content) ||
+            (sender != null && senderPattern?.hasMatch(sender) == true));
   }
 
   /// 格式化转换 Map

@@ -164,8 +164,10 @@ class ContactSubscriptionModel extends BaseSubscriptionModel<ContactSubscription
   }
 }
 
-// 短信订阅模型（继承标准订阅模型，包含action字段）
-class SmsSubscriptionModel extends SubscriptionModel {
+// 短信订阅模型（继承基础模型，包含action字段）
+class SmsSubscriptionModel extends BaseSubscriptionModel<SmsSubscription> {
+  final RuleAction action;
+
   const SmsSubscriptionModel({
     required super.id,
     required super.name,
@@ -173,7 +175,7 @@ class SmsSubscriptionModel extends SubscriptionModel {
     super.isEnabled,
     required super.lastUpdated,
     super.autoUpdate,
-    required super.action,
+    required this.action,
   });
 
   factory SmsSubscriptionModel.fromMap(Map<String, dynamic> map) {
@@ -204,6 +206,7 @@ class SmsSubscriptionModel extends SubscriptionModel {
   Map<String, dynamic> toMap() {
     return super.toMap()
       ..addAll({
+        'action': action.toString(),
         'tableType': 'sms',
       });
   }

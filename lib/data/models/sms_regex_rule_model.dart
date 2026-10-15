@@ -1,3 +1,4 @@
+import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
@@ -15,7 +16,7 @@ class SmsRegexRuleModel extends RuleModel {
     required this.contentRegex,
     this.senderRegex,
     super.isEnabled = true,
-  }) : super(ruleType: 'sms_regex');
+  }) : super(ruleType: RuleTypeKeys.smsRegex);
 
   factory SmsRegexRuleModel.fromEntity(SmsRegexRule entity) {
     return SmsRegexRuleModel(

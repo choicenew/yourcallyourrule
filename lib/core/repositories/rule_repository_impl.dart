@@ -1,4 +1,6 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
@@ -6,6 +8,10 @@ import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/entities/rule/sim_slot_rule.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
+import 'package:yourcallyourrule/core/provider/datasource/local_label_datasource_provider.dart';
+import 'package:yourcallyourrule/core/provider/datasource/local_phone_rule_datasource_provider.dart';
+import 'package:yourcallyourrule/core/provider/datasource/local_regex_rule_datasource_provider.dart';
+import 'package:yourcallyourrule/core/provider/datasource/local_sim_slot_rule_datasource_provider.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_phone_rule_datasource.dart';
@@ -18,6 +24,19 @@ import 'package:yourcallyourrule/data/models/regex_rule_model.dart';
 import 'package:yourcallyourrule/data/models/label_phone_model.dart';
 import 'package:yourcallyourrule/data/models/sim_slot_rule_model.dart';
 import 'package:yourcallyourrule/data/models/rule_model.dart';
+
+part 'rule_repository_impl.g.dart';
+
+/// 自动生成的 RuleRepositoryImpl Provider
+@riverpod
+RuleRepositoryImpl ruleRepositoryImpl(Ref ref) {
+  return RuleRepositoryImpl(
+    ref.watch(localPhoneRuleDataSourceProvider),
+    ref.watch(localRegexRuleDataSourceProvider),
+    ref.watch(localLabelDataSourceProvider),
+    ref.watch(localSimSlotRuleDataSourceProvider),
+  );
+}
 
 /// 规则仓库实现类
 class RuleRepositoryImpl implements RuleRepository {
@@ -91,6 +110,8 @@ class RuleRepositoryImpl implements RuleRepository {
         return AllowedBlockedRule.fromMap(map);
       case RuleType.simSlot:
         return SimSlotRule.fromMap(map);
+      case RuleType.smsRegex:
+        throw UnsupportedError('SMS regex rules are managed by SmsRegexRuleRepository');
     }
   }
 
@@ -99,24 +120,21 @@ class RuleRepositoryImpl implements RuleRepository {
     await deleteById(ruleId);
   }
 
-  Future<List<RuleBase>> getAllByType(String type) async {
-    // 获取所有规则
+  Future<List<RuleBase>> getAllByType(String typeStr) async {
     final allRules = await getAll();
+    final type = RuleType.fromString(typeStr);
     
-    // 根据类型过滤规则
-    if (type == 'phone_rule') {
-      // 只过滤PhoneRule类型，不需要排除AllowedBlockedRule
-      // 因为AllowedBlockedRule和PhoneRule是平行的类型，没有继承关系
-      return allRules.whereType<PhoneRule>().toList();
-    } else if (type == 'regex') {
-      return allRules.whereType<RegexRule>().toList();
-    } else if (type == 'allow_block') {
-      return allRules.whereType<AllowedBlockedRule>().toList();
-    } else if (type == 'sim_slot') {
-      // 添加对SIM卡槽位规则类型的支持
-      return allRules.whereType<SimSlotRule>().toList();
-    } else {
-      throw Exception('Unknown rule type: $type');
+    switch (type) {
+      case RuleType.phone:
+        return allRules.whereType<PhoneRule>().toList();
+      case RuleType.regex:
+        return allRules.whereType<RegexRule>().toList();
+      case RuleType.allowBlock:
+        return allRules.whereType<AllowedBlockedRule>().toList();
+      case RuleType.simSlot:
+        return allRules.whereType<SimSlotRule>().toList();
+      case RuleType.smsRegex:
+        return []; // 短信规则由专用的 SmsRegexRuleRepository 管理
     }
   }
 
@@ -167,10 +185,20 @@ class RuleRepositoryImpl implements RuleRepository {
     if (rule == null) {
       throw Exception('Rule not found: $id');
     }
-    // 使用copyWith方法创建新的规则实例，而不是直接修改final属性
-    final updatedRule = rule.copyWith(isEnabled: isEnabled);
-    await update(updatedRule);
-    return updatedRule;
+    if (rule is PhoneRule) {
+      final updated = rule.copyWith(isEnabled: isEnabled);
+      await update(updated);
+      return updated;
+    } else if (rule is AllowedBlockedRule) {
+      final updated = rule.copyWith(isEnabled: isEnabled);
+      await update(updated);
+      return updated;
+    } else if (rule is SimSlotRule) {
+      final updated = rule.copyWith(isEnabled: isEnabled);
+      await update(updated);
+      return updated;
+    }
+    return rule;
   }
 
   @override
@@ -179,10 +207,21 @@ class RuleRepositoryImpl implements RuleRepository {
     if (rule == null) {
       throw Exception('Rule not found: $id');
     }
-    // 使用copyWith方法创建新的规则实例，并使用正确的fromInt方法
-    final updatedRule = rule.copyWith(priority: RulePriority.fromInt(priority));
-    await update(updatedRule);
-    return updatedRule;
+    final rulePriority = RulePriority.fromInt(priority);
+    if (rule is PhoneRule) {
+      final updated = rule.copyWith(priority: rulePriority);
+      await update(updated);
+      return updated;
+    } else if (rule is AllowedBlockedRule) {
+      final updated = rule.copyWith(priority: rulePriority);
+      await update(updated);
+      return updated;
+    } else if (rule is SimSlotRule) {
+      final updated = rule.copyWith(priority: rulePriority);
+      await update(updated);
+      return updated;
+    }
+    return rule;
   }
 
   @override
