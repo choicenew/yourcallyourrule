@@ -10,8 +10,8 @@ class InitialSetupService {
   final String localAssetPath;
 
   InitialSetupService({
-    this.rawConfigUrl = 'https://raw.githubusercontent.com/your-org/your-repo/main/app_delta_setup_config.json',
-    this.cdnConfigUrl = 'https://cdn.jsdelivr.net/gh/your-org/your-repo@main/app_delta_setup_config.json',
+    this.rawConfigUrl = 'https://raw.githubusercontent.com/choicenew/yourcallrule/main/app_delta_setup_config.json',
+    this.cdnConfigUrl = 'https://cdn.jsdelivr.net/gh/choicenew/yourcallrule@main/app_delta_setup_config.json',
     this.localAssetPath = 'assets/app_delta_setup_config.json',
   });
 

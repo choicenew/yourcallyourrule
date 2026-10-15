@@ -135,6 +135,10 @@ jobs:
           echo "CF_WORKER_URL=${{ secrets.CF_WORKER_URL }}" >> .env
           echo "WORKER_API_SECRET=${{ secrets.WORKER_API_SECRET }}" >> .env
         
+      - name: Download latest app_delta_setup_config.json
+        run: |
+          curl -sSL https://raw.githubusercontent.com/choicenew/yourcallrule/main/app_delta_setup_config.json -o assets/app_delta_setup_config.json
+
      # - name: Generate Envied variables
      #   run: flutter pub run build_runner build --delete-conflicting-outputs
       
