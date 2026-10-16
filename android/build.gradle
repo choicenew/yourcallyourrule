@@ -3,13 +3,6 @@ allprojects {
         google()
         mavenCentral()
     }
-    configurations.all {
-        resolutionStrategy.eachDependency { details ->
-            if (details.requested.group == 'org.chromium.net' && details.requested.name == 'cronet-api') {
-                details.useTarget "org.chromium.net:cronet-shared:${details.requested.version}"
-            }
-        }
-    }
 }
 def newBuildDir = rootProject.layout.buildDirectory.dir("../../build").get()
 rootProject.layout.buildDirectory.value(newBuildDir)
@@ -17,14 +10,6 @@ rootProject.layout.buildDirectory.value(newBuildDir)
 subprojects {
     def newSubprojectBuildDir = newBuildDir.dir(project.name)
     project.layout.buildDirectory.value(newSubprojectBuildDir)
-
-    project.configurations.all {
-        resolutionStrategy.eachDependency { details ->
-            if (details.requested.group == 'org.chromium.net' && details.requested.name == 'cronet-api') {
-                details.useTarget "org.chromium.net:cronet-shared:${details.requested.version}"
-            }
-        }
-    }
 
     plugins.withId('com.android.library') {
         androidComponents {
