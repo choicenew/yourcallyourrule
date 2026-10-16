@@ -8,8 +8,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
+import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 
-// 【零耦合原则】：仅依赖 core 层的基础实体和仓库，绝不引用 features/phone 或 features/plugin 下的任何类
 import '../../../core/entities/subscription/subscription.dart';
 import '../../../core/value_objects/url.dart';
 import '../../../core/value_objects/rule_action.dart';
@@ -47,37 +47,60 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final configAsync = ref.watch(setupConfigProvider);
-    final theme = Theme.of(context);
 
     return Scaffold(
+      backgroundColor: EliteDopamineTheme.warmCanvasBackground,
       appBar: AppBar(
-        title: Text(l10n.initialSetupTitle),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          l10n.initialSetupTitle,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w900,
+            color: EliteDopamineTheme.textPrimary,
+          ),
+        ),
         automaticallyImplyLeading: false,
       ),
       body: configAsync.when(
-        data: (config) => _buildBody(context, config, l10n, theme),
-        loading: () => const Center(child: CircularProgressIndicator()),
+        data: (config) => _buildBody(context, config, l10n),
+        loading: () => const Center(
+          child: CircularProgressIndicator(color: EliteDopamineTheme.warmSunAmber),
+        ),
         error: (err, stack) => Center(
           child: Padding(
             padding: const EdgeInsets.all(24.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.error_outline_rounded,
-                  size: 48,
-                  color: theme.colorScheme.error,
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.1),
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(
+                    Icons.error_outline_rounded,
+                    size: 48,
+                    color: EliteDopamineTheme.vibrantCoral,
+                  ),
                 ),
                 const SizedBox(height: 16),
                 Text(
                   l10n.initialSetupGetFailed,
-                  style: theme.textTheme.titleMedium,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: EliteDopamineTheme.textPrimary,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   err.toString(),
                   textAlign: TextAlign.center,
-                  style: theme.textTheme.bodySmall,
+                  style: const TextStyle(fontSize: 12, color: EliteDopamineTheme.textSecondary),
                 ),
                 const SizedBox(height: 24),
                 Row(
@@ -89,6 +112,11 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
                     ),
                     const SizedBox(width: 16),
                     ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: EliteDopamineTheme.warmSunAmber,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      ),
                       onPressed: () => ref.invalidate(setupConfigProvider),
                       icon: const Icon(Icons.refresh_rounded, size: 18),
                       label: Text(l10n.initialSetupRetry),
@@ -103,9 +131,10 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
     );
   }
 
-  Widget _buildBody(BuildContext context, SetupConfig config, AppLocalizations l10n, ThemeData theme) {
+  Widget _buildBody(BuildContext context, SetupConfig config, AppLocalizations l10n) {
     final detectedCode = ref.watch(detectedCountryCodeProvider).value?.toUpperCase();
 
+    // 优先展示用户所在地区（置顶排序）
     final sortedCountries = List<CountryData>.from(config.countriesData);
     if (detectedCode != null && detectedCode.isNotEmpty) {
       sortedCountries.sort((a, b) {
@@ -139,142 +168,187 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
       return c.name.toLowerCase().contains(query) ||
           c.description.toLowerCase().contains(query) ||
           c.countryCode.toLowerCase().contains(query) ||
+          c.ruleType.toLowerCase().contains(query) ||
           c.id.toLowerCase().contains(query);
     }).toList();
 
+    // 插件推荐区：若远程配置未提供，默认降级展示 GitHub 官方插件库引导卡片
+    final pluginRec = config.pluginsRecommendation ??
+        PluginRecommendation(
+          title: l10n.pluginManagement,
+          description: l10n.pluginRulesInfo,
+          webPortalUrl: 'https://github.com/choicenew/yourcallrule/tree/main/plugins',
+        );
+
     return Column(
       children: [
-        // 顶部控制卡片：采用标准 Material 3 Card
-        Card(
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          elevation: 1,
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  l10n.initialSetupDesc,
-                  style: theme.textTheme.bodyMedium,
+        // 精致的 Dopamine 卡片头部
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          decoration: EliteDopamineTheme.warmCardDecoration(
+            context: context,
+            glowColor: EliteDopamineTheme.warmSunAmber,
+          ),
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                l10n.initialSetupDesc,
+                style: const TextStyle(
+                  fontSize: 13,
+                  color: EliteDopamineTheme.textBody,
+                  height: 1.4,
                 ),
-                const SizedBox(height: 12),
-                Row(
-                  children: [
-                    Text(
-                      l10n.initialSetupSourceTitle,
-                      style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 12),
+              // 数据源选择 & 切换器
+              Row(
+                children: [
+                  Text(
+                    l10n.initialSetupSourceTitle,
+                    style: const TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                      color: EliteDopamineTheme.textPrimary,
                     ),
-                    const Spacer(),
-                    SegmentedButton<bool>(
-                      showSelectedIcon: false,
-                      segments: [
-                        ButtonSegment<bool>(
-                          value: false,
-                          label: Text(l10n.initialSetupSourceGithub),
-                        ),
-                        ButtonSegment<bool>(
-                          value: true,
-                          label: Text(l10n.initialSetupSourceCdn),
-                        ),
-                      ],
-                      selected: {_useCdn},
-                      onSelectionChanged: (Set<bool> newSelection) {
-                        final useCdn = newSelection.first;
+                  ),
+                  const Spacer(),
+                  SegmentedButton<bool>(
+                    showSelectedIcon: false,
+                    segments: [
+                      ButtonSegment<bool>(
+                        value: false,
+                        label: Text(l10n.initialSetupSourceGithub, style: const TextStyle(fontSize: 12)),
+                      ),
+                      ButtonSegment<bool>(
+                        value: true,
+                        label: Text(l10n.initialSetupSourceCdn, style: const TextStyle(fontSize: 12)),
+                      ),
+                    ],
+                    selected: {_useCdn},
+                    onSelectionChanged: (Set<bool> newSelection) {
+                      final useCdn = newSelection.first;
+                      setState(() {
+                        _useCdn = useCdn;
+                      });
+                      ref.read(setupUseCdnProvider.notifier).setUseCdn(useCdn);
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Checkbox(
+                    value: _useCustomUrl,
+                    activeColor: EliteDopamineTheme.sunsetTangerine,
+                    onChanged: (bool? val) {
+                      setState(() {
+                        _useCustomUrl = val ?? false;
+                      });
+                    },
+                  ),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
                         setState(() {
-                          _useCdn = useCdn;
-                        });
-                        ref.read(setupUseCdnProvider.notifier).setUseCdn(useCdn);
-                      },
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    Checkbox(
-                      value: _useCustomUrl,
-                      onChanged: (bool? val) {
-                        setState(() {
-                          _useCustomUrl = val ?? false;
+                          _useCustomUrl = !_useCustomUrl;
                         });
                       },
-                    ),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _useCustomUrl = !_useCustomUrl;
-                          });
-                        },
-                        child: Text(
-                          l10n.initialSetupSourceCustom,
-                          style: theme.textTheme.bodyMedium,
+                      child: Text(
+                        l10n.initialSetupSourceCustom,
+                        style: const TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          color: EliteDopamineTheme.textPrimary,
                         ),
                       ),
                     ),
-                  ],
-                ),
-                if (_useCustomUrl)
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: TextField(
-                            controller: _customUrlController,
-                            decoration: InputDecoration(
-                              hintText: l10n.initialSetupCustomUrlHint,
-                              border: const OutlineInputBorder(),
-                              isDense: true,
-                              contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                            ),
-                            onSubmitted: (_) => _fetchCustomUrl(),
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        ElevatedButton.icon(
-                          onPressed: _fetchCustomUrl,
-                          icon: const Icon(Icons.download_rounded, size: 16),
-                          label: Text(l10n.initialSetupCustomUrlLoad),
-                        ),
-                      ],
-                    ),
                   ),
-              ],
-            ),
+                ],
+              ),
+              if (_useCustomUrl)
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                          controller: _customUrlController,
+                          decoration: InputDecoration(
+                            hintText: l10n.initialSetupCustomUrlHint,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: const BorderSide(color: EliteDopamineTheme.slateBorder),
+                            ),
+                            isDense: true,
+                            contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                          ),
+                          onSubmitted: (_) => _fetchCustomUrl(),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: EliteDopamineTheme.sunsetTangerine,
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                        ),
+                        onPressed: _fetchCustomUrl,
+                        icon: const Icon(Icons.download_rounded, size: 16),
+                        label: Text(l10n.initialSetupCustomUrlLoad, style: const TextStyle(fontSize: 12)),
+                      ),
+                    ],
+                  ),
+                ),
+            ],
           ),
         ),
 
-        // 搜索与批量选择控制条
+        const SizedBox(height: 8),
+
+        // 搜索与控制工具栏
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Row(
             children: [
               Expanded(
-                child: TextField(
-                  controller: _searchController,
-                  onChanged: (val) {
-                    setState(() {
-                      _searchQuery = val;
-                    });
-                  },
-                  decoration: InputDecoration(
-                    hintText: l10n.initialSetupSearchHint,
-                    prefixIcon: const Icon(Icons.search_rounded, size: 18),
-                    suffixIcon: _searchQuery.isNotEmpty
-                        ? IconButton(
-                            icon: const Icon(Icons.clear_rounded, size: 16),
-                            onPressed: () {
-                              _searchController.clear();
-                              setState(() {
-                                _searchQuery = '';
-                              });
-                            },
-                          )
-                        : null,
-                    border: const OutlineInputBorder(),
-                    isDense: true,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                child: Container(
+                  height: 42,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(14),
+                    border: Border.all(color: EliteDopamineTheme.slateBorder),
+                  ),
+                  child: TextField(
+                    controller: _searchController,
+                    onChanged: (val) {
+                      setState(() {
+                        _searchQuery = val;
+                      });
+                    },
+                    decoration: InputDecoration(
+                      hintText: l10n.initialSetupSearchHint,
+                      hintStyle: const TextStyle(fontSize: 12, color: EliteDopamineTheme.textMuted),
+                      prefixIcon: const Icon(Icons.search_rounded, size: 18, color: EliteDopamineTheme.textSecondary),
+                      suffixIcon: _searchQuery.isNotEmpty
+                          ? IconButton(
+                              icon: const Icon(Icons.clear_rounded, size: 16),
+                              onPressed: () {
+                                _searchController.clear();
+                                setState(() {
+                                  _searchQuery = '';
+                                });
+                              },
+                            )
+                          : null,
+                      border: InputBorder.none,
+                      contentPadding: const EdgeInsets.symmetric(vertical: 10),
+                    ),
                   ),
                 ),
               ),
@@ -284,6 +358,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
                   _selectedCountryIds.length == sortedCountries.length
                       ? l10n.initialSetupDeselectAll
                       : l10n.initialSetupSelectAll,
+                  style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
                 ),
                 selected: _selectedCountryIds.isNotEmpty,
                 onSelected: (_) {
@@ -303,16 +378,19 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
 
         const SizedBox(height: 8),
 
-        // 规则列表，支持上滑下滑顺畅体验
+        // 规则列表
         Expanded(
           child: filteredCountries.isEmpty
               ? Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.search_off_rounded, size: 40, color: Colors.grey),
+                      const Icon(Icons.search_off_rounded, size: 40, color: EliteDopamineTheme.textMuted),
                       const SizedBox(height: 8),
-                      Text(l10n.noData, style: theme.textTheme.bodyMedium),
+                      Text(
+                        l10n.noData,
+                        style: const TextStyle(color: EliteDopamineTheme.textSecondary, fontSize: 13),
+                      ),
                     ],
                   ),
                 )
@@ -327,41 +405,85 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
                         (country.countryCode.toUpperCase() == detectedCode ||
                          country.id.toUpperCase() == detectedCode);
 
-                    return Card(
+                    final descriptionText = country.description.isNotEmpty
+                        ? country.description
+                        : (country.ruleType.isNotEmpty ? '${l10n.ruleType}: ${country.ruleType}' : '');
+
+                    return Container(
                       margin: const EdgeInsets.only(bottom: 8),
-                      elevation: isSelected ? 2 : 1,
+                      decoration: EliteDopamineTheme.warmCardDecoration(
+                        context: context,
+                        glowColor: isSelected
+                            ? EliteDopamineTheme.sunsetTangerine
+                            : Colors.transparent,
+                      ),
                       child: CheckboxListTile(
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        activeColor: EliteDopamineTheme.sunsetTangerine,
                         title: Row(
                           children: [
-                            Text(country.name),
+                            Expanded(
+                              child: Text(
+                                country.name,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                  color: EliteDopamineTheme.textPrimary,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
                             if (country.countryCode.isNotEmpty) ...[
                               const SizedBox(width: 6),
-                              Chip(
-                                labelPadding: EdgeInsets.zero,
-                                padding: const EdgeInsets.symmetric(horizontal: 4),
-                                label: Text(
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                decoration: BoxDecoration(
+                                  color: EliteDopamineTheme.softLilac.withValues(alpha: 0.15),
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                child: Text(
                                   country.countryCode.toUpperCase(),
-                                  style: const TextStyle(fontSize: 10),
+                                  style: const TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold,
+                                    color: EliteDopamineTheme.softLilac,
+                                  ),
                                 ),
                               ),
                             ],
                             if (isCurrentLocation) ...[
                               const SizedBox(width: 6),
-                              Chip(
-                                avatar: const Icon(Icons.location_on, size: 12),
-                                label: Text(
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                decoration: BoxDecoration(
+                                  color: EliteDopamineTheme.freshMint.withValues(alpha: 0.15),
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                child: Text(
                                   l10n.initialSetupDetectedLocation,
-                                  style: const TextStyle(fontSize: 10),
+                                  style: const TextStyle(
+                                    fontSize: 10,
+                                    color: EliteDopamineTheme.freshMint,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ],
                           ],
                         ),
-                        subtitle: country.description.isNotEmpty
-                            ? Text(
-                                country.description,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
+                        subtitle: descriptionText.isNotEmpty
+                            ? Padding(
+                                padding: const EdgeInsets.only(top: 4.0),
+                                child: Text(
+                                  descriptionText,
+                                  style: const TextStyle(fontSize: 11, color: EliteDopamineTheme.textSecondary),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               )
                             : null,
                         value: isSelected,
@@ -380,84 +502,126 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
                 ),
         ),
 
-        // 扩展插件推荐区（若配置有）
-        if (config.pluginsRecommendation != null)
-          Card(
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-            child: ListTile(
-              leading: const Icon(Icons.extension_rounded),
-              title: Text(config.pluginsRecommendation!.title),
-              subtitle: Text(
-                config.pluginsRecommendation!.description,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+        // 扩展插件推荐区（常驻引导卡片，即使远端未配置也能默认展示 GitHub 引导）
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          decoration: EliteDopamineTheme.cleanCardDecoration(),
+          child: ListTile(
+            leading: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: EliteDopamineTheme.skyAzure.withValues(alpha: 0.12),
+                borderRadius: BorderRadius.circular(10),
               ),
-              trailing: const Icon(Icons.open_in_new_rounded, size: 16),
-              onTap: () async {
-                final url = Uri.parse(config.pluginsRecommendation!.webPortalUrl);
-                if (await canLaunchUrl(url)) {
-                  await launchUrl(url, mode: LaunchMode.externalApplication);
-                }
-              },
+              child: const Icon(Icons.extension_rounded, color: EliteDopamineTheme.skyAzure, size: 20),
             ),
+            title: Text(
+              pluginRec.title,
+              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: EliteDopamineTheme.textPrimary),
+            ),
+            subtitle: Text(
+              pluginRec.description,
+              style: const TextStyle(fontSize: 11, color: EliteDopamineTheme.textSecondary),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            trailing: const Icon(Icons.open_in_new_rounded, size: 16, color: EliteDopamineTheme.textMuted),
+            onTap: () async {
+              final url = Uri.parse(pluginRec.webPortalUrl);
+              if (await canLaunchUrl(url)) {
+                await launchUrl(url, mode: LaunchMode.externalApplication);
+              }
+            },
           ),
+        ),
 
         // 设置提示卡片
-        Card(
+        Container(
           margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+          decoration: EliteDopamineTheme.cleanCardDecoration(),
+          child: Row(
+            children: [
+              const Icon(
+                Icons.info_outline_rounded,
+                size: 18,
+                color: EliteDopamineTheme.warmSunAmber,
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  l10n.initialSetupSettingsHint,
+                  style: const TextStyle(fontSize: 11, color: EliteDopamineTheme.textSecondary),
+                ),
+              ),
+              TextButton(
+                onPressed: () => context.pushNamed(AppRouter.settings),
+                child: Text(
+                  l10n.initialSetupGoToSettings,
+                  style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        // 底部晶莹悬浮 Action 控制面板
+        SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
             child: Row(
               children: [
-                const Icon(Icons.info_outline_rounded, size: 18),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Text(
-                    l10n.initialSetupSettingsHint,
-                    style: theme.textTheme.bodySmall,
-                  ),
-                ),
                 TextButton(
-                  onPressed: () => context.pushNamed(AppRouter.settings),
-                  child: Text(l10n.initialSetupGoToSettings),
+                  onPressed: _isDownloading ? null : () => _exit(context),
+                  child: Text(l10n.initialSetupSkip, style: const TextStyle(color: EliteDopamineTheme.textMuted)),
+                ),
+                const Spacer(),
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: _selectedCountryIds.isNotEmpty
+                        ? EliteDopamineTheme.heroWarmGradient
+                        : null,
+                    color: _selectedCountryIds.isEmpty ? EliteDopamineTheme.slateSubtle : null,
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: _selectedCountryIds.isNotEmpty
+                        ? [
+                            BoxShadow(
+                              color: EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.3),
+                              blurRadius: 8,
+                              offset: const Offset(0, 3),
+                            ),
+                          ]
+                        : null,
+                  ),
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      shadowColor: Colors.transparent,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    ),
+                    onPressed: (_selectedCountryIds.isEmpty || _isDownloading)
+                        ? null
+                        : () => _downloadSelected(config, l10n),
+                    icon: _isDownloading
+                        ? const SizedBox(
+                            width: 16,
+                            height: 16,
+                            child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
+                          )
+                        : const Icon(Icons.download_rounded, size: 18),
+                    label: Text(
+                      _isDownloading
+                          ? l10n.initialSetupSaving
+                          : l10n.initialSetupSelectedCount(_selectedCountryIds.length),
+                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
         ),
-
-        // 底部标准 Action 栏
-        SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Row(
-              children: [
-                TextButton(
-                  onPressed: _isDownloading ? null : () => _exit(context),
-                  child: Text(l10n.initialSetupSkip),
-                ),
-                const Spacer(),
-                ElevatedButton.icon(
-                  onPressed: (_selectedCountryIds.isEmpty || _isDownloading)
-                      ? null
-                      : () => _downloadSelected(config, l10n),
-                  icon: _isDownloading
-                      ? const SizedBox(
-                          width: 16,
-                          height: 16,
-                          child: CircularProgressIndicator(strokeWidth: 2),
-                        )
-                      : const Icon(Icons.download_rounded, size: 18),
-                  label: Text(
-                    _isDownloading
-                        ? l10n.initialSetupSaving
-                        : l10n.initialSetupSelectedCount(_selectedCountryIds.length),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        )
       ],
     );
   }

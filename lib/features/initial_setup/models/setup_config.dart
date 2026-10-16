@@ -4,6 +4,7 @@ class CountryData {
   final String name;
   final String iconUrl;
   final String description;
+  final String ruleType;
   final String manifestUrl;
   final String cdnManifestUrl;
 
@@ -13,6 +14,7 @@ class CountryData {
     required this.name,
     required this.iconUrl,
     required this.description,
+    this.ruleType = '',
     required this.manifestUrl,
     this.cdnManifestUrl = '',
   });
@@ -25,7 +27,6 @@ class CountryData {
   }
 
   factory CountryData.fromMap(Map<String, dynamic> map) {
-    // 兼容真实 GitHub 发布的 JSON (rulesets 列表中的 source_id / country_code / full_download_url)
     final effectiveId = map['source_id']?.toString() ??
         map['country_code']?.toString() ??
         map['id']?.toString() ??
@@ -38,14 +39,15 @@ class CountryData {
         '';
 
     final cdnUrl = map['cdn_manifest_url']?.toString() ?? '';
+    final ruleType = map['rule_type']?.toString() ?? '';
 
     return CountryData(
       id: effectiveId,
       countryCode: countryCode,
       name: map['name']?.toString() ?? '',
       iconUrl: map['icon_url']?.toString() ?? '',
-      description: map['description']?.toString() ??
-          (map['rule_type'] != null ? '规则类型: ${map['rule_type']}' : ''),
+      description: map['description']?.toString() ?? '',
+      ruleType: ruleType,
       manifestUrl: effectiveUrl,
       cdnManifestUrl: cdnUrl,
     );
@@ -84,7 +86,6 @@ class SetupConfig {
   });
 
   factory SetupConfig.fromMap(Map<String, dynamic> map) {
-    // 兼容真实 GitHub 发布的 JSON 中的 rulesets 根数组与 config_version
     final rawList = map['rulesets'] as List? ??
         map['countries_data'] as List? ??
         [];
