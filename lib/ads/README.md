@@ -1,320 +1,121 @@
-# App Open Example App
+#  Flutter AdMob 广告模块（Ads）高收益与高性能重构指南
 
-An example project for app open ads.
-App open ads are a special full screen ad format that are designed to be shown
-when your users bring your app to the foreground.
+> **文档目的**：本 README 总结了在 Flutter 中集成 Google AdMob 广告时，关于 **“提升有效展示率 (Show Rate)”**、**“最大化广告收益 (eCPM)”**、**“消除页面滑动延迟”** 以及 **“解决 UI 布局塌陷”** 的完整经验与最佳工程实践。
+> 
+> **用途**：可直接复制本文档内容提供给其他 AI（如 ChatGPT、Claude、DeepSeek 等）或团队开发者，作为 Flutter 广告模块重构与优化的标准参考。
 
-## Always test with test ads
+---
 
-When building and testing your apps, make sure you use test ads rather than
-live, production ads. Failure to do so can lead to suspension of your account.
+## 一、 核心设计理念
 
-## Implementation
+1. **利益最大化 (Maximize Impression Revenue)**：
+   * 广告收益公式为 `收益 = (展示数 / 1000) × eCPM`。
+   * 广告 **“被请求”** 或 **“被匹配”** 并不产生收益，只有 **“真实被用户看到 (Impression)”** 才会产生收益。
+   * **核心法则**：绝不盲目塞大量广告，但凡在一个位置放了广告，就必须保证该广告 **“0 延迟秒出”**、**“布局不弹跳”**、**“滑回来不销毁”**，将有效展示率（Show Rate）拉到 90%+。
 
-The main steps to integrate app open ads are:
+2. **流畅体验 (Zero-Jank & Zero-Lag)**：
+   * 严禁广告在加载过程中破坏 UI 布局稳定性；
+   * 严禁滑动列表时反复销毁和重新拉取广告；
+   * 严禁无网/拦截环境下在主线程死循环重试导致 ANR。
 
-1. Create a utility class that loads an ad before you need to display it.
-2. Load an ad.
-3. Register for callbacks and show the ad.
-4. Use `AppStateEventNotifier` to listen for foregrounding events.
+---
 
-### Create a utility class
+## 二、 四大核心痛点与底层原理剖析
 
-Create a new class called `AppOpenAdManager` to load the ad. This class manages
-an instance variable to keep track of a loaded ad and the ad unit ID for each
-platform.
+### 1. 痛点一：0 高度塌陷（Layout Shift）导致广告滑过去后才出现
+* **现象**：用户在列表或页面中滑动，划过广告位时什么也没看到；几秒后网络请求返回，广告突然变高（如 250px），把页面剧烈推开。但此时用户早就划走了。
+* **原因**：广告 Widget 在加载中（`isLoaded == false`）时直接返回了 `const SizedBox.shrink()`（高度为 0），导致广告位在布局中“不存在”。
+* **经验解决方案**：
+  * **预留固定空间（Skeleton Placeholder）**：在广告加载过程中，提前预留固定规格的高度（如横幅 60px、原生广告 200px），并渲染极简优雅的 `AD` 标识与微 Loading。
+  * 用户滑到该位置时，空间已被锁死，广告加载成功瞬间无缝渲染，**有效展示率拉满**；若彻底失败，再静默折叠为 0。
 
-```dart
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'dart:io' show Platform;
+---
 
-class AppOpenAdManager {
+### 2. 痛点二：列表滑动销毁循环（Dispose on Scroll）
+* **现象**：列表上下滑动时，滑上去广告没了，划下来又要重新等 3~5 秒网络请求；用户感觉“滑了百八十遍都没广告”。
+* **原因**：Flutter 的 `ListView` 或 `CustomScrollView` 默认会将划出屏幕外（Off-screen）的 Widget 进行 `dispose()` 销毁。再次划入时触发 `initState()` 重新建立网络连接拉广告。
+* **经验解决方案**：
+  * **内存保活 (`AutomaticKeepAliveClientMixin`)**：所有广告 Widget 必须混入 `AutomaticKeepAliveClientMixin` 并将 `wantKeepAlive` 设为 `true`。
+  * 广告一旦加载成功，整个页面生命周期内**在内存中持续保活**，用户上下滑动多少次，划回来都是 **0 毫秒秒级呈现**。
 
-  String adUnitId = '<your-ad-unit>';
+---
 
-  AppOpenAd? _appOpenAd;
-  bool _isShowingAd = false;
+### 3. 痛点三：同页面多个广告位引发 `AdUnit` 挂载冲突
+* **现象**：同一页面放置多个广告位时，控制台报错 `Ad already attached to widget tree`，后面的广告位永远空白。
+* **原因**：AdMob 原生 SDK 不允许同一个广告对象实例（`BannerAd` / `NativeAd`）同时挂载到 Widget 树的多个节点上。
+* **经验解决方案**：
+  * **独立作用域隔离 (`_scopedAdInfo`)**：在 Widget 的 `initState` 中克隆 `AdInfo`，生成唯一的 Provider Key，让 Riverpod/状态管理为每个卡片生成完全独立的广告对象，彻底隔离冲突。
 
-  /// Load an [AppOpenAd].
-  void loadAd() {
-    // We will implement this below.
-  }
+---
 
-  /// Whether an ad is available to be shown.
-  bool get isAdAvailable {
-    return _appOpenAd != null;
-  }
-}
+### 4. 痛点四：死循环重试风暴与 ANR 卡死
+* **现象**：在无 JS 引擎、断网或开启广告拦截 (AdBlock) 的环境下，控制台无限刷屏报错，应用弹出 “App isn't responding”。
+* **原因**：广告加载失败回调（`onAdFailedToLoad`）中误将状态重置为了未开始状态，触发 UI 重构，重新调用 `loadAd()`，形成每秒数十次的死循环请求。
+* **经验解决方案**：
+  * **锁定失败状态 (`isFailed = true`)**：失败后保持 `isStarted = true` 并标记 `isFailed = true`，周期内绝对不自动发起二次重试；
+  * **全局熔断机制 (Circuit Breaker)**：捕获到环境硬拦截（code 0 或缺乏 JS 引擎）时，直接触发全局 `adStateProvider` 禁用，全 App 秒切无广告模式，不消耗任何主线程算力。
+
+---
+
+## 三、 代码结构与组件规范
+
+目录 `lib/ads/` 的核心架构说明：
+
+```text
+lib/ads/
+├── ad_manager.dart              # 全局 AdUnit ID 统一配置中心
+├── ad_state.dart                # 全局广告开关 (StateNotifier)
+├── ad_control_service.dart      # 广告逻辑控制服务 (关联会员VIP购买状态)
+├── ad_cache_provider.dart       # 基于 Riverpod 的独立广告缓存中心
+├── google_ad.dart               # 多类型底层 Google 广告封装组件 (带保活与骨架屏)
+├── adwidgets/
+│   ├── inline_adaptive_ad.dart  # 行内自适应 Banner 广告组件 (生产级防塌陷首选)
+│   ├── anchored_adaptive_ad.dart# 底部固定的锚定 Banner 广告组件
+│   ├── app_open_ad.dart         # 开屏广告管理器 (带超时熔断与放行机制)
+│   └── native_ads.dart          # 原生高级广告构建函数
+└── README.md                    # 本文档
 ```
 
-### Load an ad
+---
 
-Your app open ad needs to be ready before users enter your app. Implement a
-utility class to make ad requests ahead of when you need to show the ad.
+## 四、 标准使用范例
 
-Loading an ad is accomplished using the `loadAd()` method on the
-`AppOpenAd` class. The load method requires an ad unit ID, an orientation mode,
-an `AdRequest` object, and a completion handler which gets called when ad
-loading succeeds or fails. The loaded `AppOpenAd` object is provided as a
-parameter in the completion handler. The example below shows how to load an
-`AppOpenAd`.
+### 1. 列表/页面中推荐使用的自适应 Banner：
 
 ```dart
-public class AppOpenAdManager {
-  ...
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 
-  /// Load an [AppOpenAd].
-  void loadAd() {
-    AppOpenAd.load(
-      adUnitId: adUnitId,
-      orientation: AppOpenAd.orientationPortrait,
-      request: AdRequest(),
-      adLoadCallback: AppOpenAdLoadCallback(
-        onAdLoaded: (ad) {
-          _appOpenAd = ad;
-        },
-        onAdFailedToLoad: (error) {
-          debugPrint('AppOpenAd failed to load: $error');
-          // Handle the error.
-        },
-      ),
-    );
-  }
-}
+// 直接在 Column 或 ListView 内部插入，无需手动外加 Height 包裹
+const InlineAdaptiveBannerAdWidget(
+  adInfo: AdManager.adaptiveBannerAd,
+  height: 60, // 可选：指定占位高度，防止加载期间布局塌陷
+)
 ```
 
-### Show the ad and handle fullscreen callbacks
-
-Before showing the ad, register a `FullScreenContentCallback` for each ad event
-you want to listen to.
+### 2. 原生/通用广告 Widget：
 
 ```dart
-public class AppOpenAdManager {
-  ...
+import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/google_ad.dart';
 
-  public void showAdIfAvailable() {
-    if (!isAdAvailable) {
-      debugPrint('Tried to show ad before available.');
-      loadAd();
-      return;
-    }
-    if (_isShowingAd) {
-      debugPrint('Tried to show ad while already showing an ad.');
-      return;
-    }
-    // Set the fullScreenContentCallback and show the ad.
-    _appOpenAd!.fullScreenContentCallback = FullScreenContentCallback(
-      onAdShowedFullScreenContent: (ad) {
-        _isShowingAd = true;
-        debugPrint('$ad onAdShowedFullScreenContent');
-      },
-      onAdFailedToShowFullScreenContent: (ad, error) {
-        debugPrint('$ad onAdFailedToShowFullScreenContent: $error');
-        _isShowingAd = false;
-        ad.dispose();
-        _appOpenAd = null;
-      },
-      onAdDismissedFullScreenContent: (ad) {
-        debugPrint('$ad onAdDismissedFullScreenContent');
-        _isShowingAd = false;
-        ad.dispose();
-        _appOpenAd = null;
-        loadAd();
-      },
-    );
-  }
-}
+const GoogleAdWidget(
+  adInfo: AdManager.bannerAd,
+  height: 60,
+)
 ```
 
-If a user returns to your app after having left it by clicking on an app open
-ad, make sure they're not presented with another app open ad.
+---
 
-### Listen for app foregrounding events
+## 五、 AI 助手参考提示词（Prompt Template）
 
-Subscribe to `AppStateEventNotifier.appStateStream` in order to be notified of
-app foregrounding events. Note we recommend using this instead of `WidgetsBindingObserver`
-because the latter does not distinguish between the Flutter activity/view controller
-losing focus and the app losing focus.
+你可以直接复制以下框内文本，粘贴给其他 AI 助手：
 
-```dart
-import 'package:app_open_example/app_open_ad_manager.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+```text
+在 Flutter 项目中处理 AdMob 广告模块时，请严格遵守以下工业级高收益与防卡顿法则：
 
-/// Listens for app foreground events and shows app open ads.
-class AppLifecycleReactor {
-  final AppOpenAdManager appOpenAdManager;
-
-  AppLifecycleReactor({required this.appOpenAdManager});
-
-  void listenToAppStateChanges() {
-    AppStateEventNotifier.startListening();
-    AppStateEventNotifier.appStateStream
-        .forEach((state) => _onAppStateChanged(state));
-  }
-
-  void _onAppStateChanged(AppState appState) {
-    if (appState == AppState.foreground) {
-      appOpenAdManager.showAdIfAvailable();
-    }
-  }
-}
+1. [防止高度塌陷] 广告在加载过程中（isLoaded == false 且 !isFailed）绝对不能返回 SizedBox.shrink()。必须使用预留固定高度的骨架屏/占位 Container（例如 height: 60 或 height: 200），防止布局在广告加载成功后剧烈弹跳或因用户滑走而丢失展示量（Impression）。
+2. [滑动保活] 所有列表中的广告 Widget 必须混入 AutomaticKeepAliveClientMixin 并开启 wantKeepAlive = true。确保用户上下滑动列表时，已加载的广告保存在内存中，滑回来能 0 毫秒秒出，严禁销毁重新拉取。
+3. [单例隔离] 确保同一页面中的多个广告组件使用独立的 Provider/State 作用域实例，防止 AdMob SDK 抛出 "Ad already attached to widget tree" 错误。
+4. [禁止无脑重试] 广告加载失败（onAdFailedToLoad）后必须标记 isFailed = true 且不能将请求状态重置为未开始，严禁在回调中递归调用 load()，防止触发死循环请求导致主线程 ANR 卡死。
 ```
-
-Now you can add your `AppLifecycleReactor` as an observer. For example, from
-your homepage:
-
-```dart
-import 'package:app_open_example/app_open_ad_manager.dart';
-import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
-
-import 'app_lifecycle_reactor.dart';
-
-void main() {
-  {{'<strong>'}}WidgetsFlutterBinding.ensureInitialized();{{'</strong>'}}
-  MobileAds.instance.initialize();
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'App Open Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'App Open Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-/// Example home page for an app open ad.
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  late AppLifecycleReactor _appLifecycleReactor;
-
-  @override
-  void initState() {
-    super.initState();
-    AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
-    _appLifecycleReactor =
-        AppLifecycleReactor(appOpenAdManager: appOpenAdManager);
-    _appLifecycleReactor.listenToAppStateChanges();;
-  }
-}
-```
-
-## Consider ad expiration
-
-Key Point: Ad references in the app open beta will time out after four hours.
-Ads rendered more than four hours after request time will no longer be valid and
-may not earn revenue. This time limit is being carefully considered and may
-change in future beta versions of the app open format.
-
-To ensure you don't show an expired ad, add a timestamp to the
-`AppOpenAdManager` so you can check how long it has been since your ad loaded.
-Then, use that timestamp to check if the ad is still valid.
-
-```dart
-/// Utility class that manages loading and showing app open ads.
-class AppOpenAdManager {
-  ...
-  {{'<strong>'}}
-  /// Maximum duration allowed between loading and showing the ad.
-  final Duration maxCacheDuration = Duration(hours: 4);
-
-  /// Keep track of load time so we don't show an expired ad.
-  DateTime? _appOpenLoadTime;
-  {{'</strong>'}}
-  ...
-
-  /// Load an [AppOpenAd].
-  void loadAd() {
-    AppOpenAd.load(
-      adUnitId: adUnitId,
-      orientation: AppOpenAd.orientationPortrait,
-      request: AdRequest(),
-      adLoadCallback: AppOpenAdLoadCallback(
-        onAdLoaded: (ad) {
-          debugPrint('$ad loaded');
-          {{'<strong>'}}_appOpenLoadTime = DateTime.now();{{'</strong>'}}
-          _appOpenAd = ad;
-        },
-        onAdFailedToLoad: (error) {
-          debugPrint('AppOpenAd failed to load: $error');
-        },
-      ),
-    );
-  }
-
-  /// Shows the ad, if one exists and is not already being shown.
-  ///
-  /// If the previously cached ad has expired, this just loads and caches a
-  /// new ad.
-  void showAdIfAvailable() {
-    if (!isAdAvailable) {
-      debugPrint('Tried to show ad before available.');
-      loadAd();
-      return;
-    }
-    if (_isShowingAd) {
-      debugPrint('Tried to show ad while already showing an ad.');
-      return;
-    }
-    {{'<strong>'}}if (DateTime.now().subtract(maxCacheDuration).isAfter(_appOpenLoadTime!)) {
-      debugPrint('Maximum cache duration exceeded. Loading another ad.');
-      _appOpenAd!.dispose();
-      _appOpenAd = null;
-      loadAd();
-      return;
-    }{{'</strong>'}}
-    // Set the fullScreenContentCallback and show the ad.
-    _appOpenAd!.fullScreenContentCallback = FullScreenContentCallback(...);
-    _appOpenAd!.show();
-  }
-}
-```
-
-## Cold starts and loading screens
-
-The documentation thus far assumes that you only show app open ads when users
-foreground your app when it is suspended in memory. "Cold starts" occur when
-your app is launched but was not previously suspended in memory.
-
-An example of a cold start is when a user opens your app for the first time.
-With cold starts, you won't have a previously loaded app open ad that's ready to
-be shown right away. The delay between when you request an ad and receive an ad
-back can create a situation where users are able to briefly use your app before
-being surprised by an out of context ad. This should be avoided because it is a
-bad user experience.
-
-The preferred way to use app open ads on cold starts is to use a loading screen
-to load your game or app assets, and to only show the ad from the loading
-screen. If your app has completed loading and has sent the user to the main
-content of your app, do not show the ad.
-
-Key Point: In order to continue loading app assets while the app open ad is
-being displayed, always load assets in a background thread.
-
-## Best practices
-
-App open ads help you monetize your app's loading screen, when the app first
-launches and during app switches, but it's important to keep best practices in
-mind so that your users enjoy using your app. It's best to:
-
-*  Show your first app open ad after your users have used your app a few times.
-*  Show app open ads during times when your users would otherwise be waiting for
-   your app to load.
-*  If you have a loading screen under the app open ad and your loading screen
-   completes loading before the ad is dismissed, you may want to dismiss your
-   loading screen in the `onAdDismissedFullScreenContent` event handler.

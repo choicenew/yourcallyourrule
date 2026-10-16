@@ -26,15 +26,10 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
   dynamic _ad; // 存储不同类型的广告
   bool _isAdLoaded = false; // 广告是否加载完成
   bool _loadAttempted = false;
+  bool _isFailed = false;
 
   @override
-  bool get wantKeepAlive {
-    if (widget.adInfo.type == AdType.banner ||
-        widget.adInfo.type == AdType.nativeAdvanced) {
-      return true;
-    }
-    return false;
-  }
+  bool get wantKeepAlive => true; // 保活：滑动时不释放广告，滑回来立刻呈现
 
   @override
   void initState() {
@@ -51,6 +46,7 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
     if (oldWidget.adInfo.adUnitId != widget.adInfo.adUnitId) {
       _disposeAd();
       _loadAttempted = false;
+      _isFailed = false;
       _createAd();
     }
   }
@@ -59,6 +55,7 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
   void _createAd() {
     if (_loadAttempted) return;
     _loadAttempted = true;
+    _isFailed = false;
 
     final adState = ref.read(adStateProvider);
 
@@ -97,6 +94,7 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
           if (mounted) {
             setState(() {
               _isAdLoaded = true;
+              _isFailed = false;
             });
             updateKeepAlive();
           }
@@ -105,7 +103,9 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
           ad.dispose();
           _ad = null;
           _isAdLoaded = false;
+          _isFailed = true;
           if (mounted) setState(() {});
+          debugPrint('BannerAd failed to load: $error');
         },
       ),
     );
@@ -121,56 +121,60 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
         onAdLoaded: (InterstitialAd ad) {
           _ad = ad;
           _isAdLoaded = true;
+          _isFailed = false;
           if (mounted) setState(() {});
         },
         onAdFailedToLoad: (LoadAdError error) {
           debugPrint('InterstitialAd failed to load: $error');
           _ad = null;
           _isAdLoaded = false;
+          _isFailed = true;
           if (mounted) setState(() {});
         },
       ),
     );
   }
 
-// 在 GoogleAdWidgetState 中修改 _createRewardedInterstitialAd() 方法
-void _createRewardedInterstitialAd() {
-  RewardedInterstitialAd.load(
-    adUnitId: widget.adInfo.adUnitId,
-    request: const AdRequest(),
-    rewardedInterstitialAdLoadCallback: RewardedInterstitialAdLoadCallback(
-      onAdLoaded: (RewardedInterstitialAd ad) {
-        debugPrint('$ad loaded.');
-        ad.fullScreenContentCallback = FullScreenContentCallback(
-          onAdShowedFullScreenContent: (ad) {},
-          onAdImpression: (ad) {},
-          onAdFailedToShowFullScreenContent: (ad, err) {
-            ad.dispose();
-            _ad = null;
-            _isAdLoaded = false;
-            if (mounted) setState(() {});
-          },
-          onAdDismissedFullScreenContent: (ad) {
-            ad.dispose();
-            _ad = null; // 清空广告
-            _isAdLoaded = false;
-            if (mounted) setState(() {});
-          },
-          onAdClicked: (ad) {},
-        );
-        _ad = ad;
-        _isAdLoaded = true;
-        if (mounted) setState(() {});
-      },
-      onAdFailedToLoad: (LoadAdError error) {
-        debugPrint('RewardedInterstitialAd failed to load: $error');
-        _ad = null;
-        _isAdLoaded = false;
-        if (mounted) setState(() {});
-      },
-    ),
-  );
-}
+  void _createRewardedInterstitialAd() {
+    RewardedInterstitialAd.load(
+      adUnitId: widget.adInfo.adUnitId,
+      request: const AdRequest(),
+      rewardedInterstitialAdLoadCallback: RewardedInterstitialAdLoadCallback(
+        onAdLoaded: (RewardedInterstitialAd ad) {
+          debugPrint('$ad loaded.');
+          ad.fullScreenContentCallback = FullScreenContentCallback(
+            onAdShowedFullScreenContent: (ad) {},
+            onAdImpression: (ad) {},
+            onAdFailedToShowFullScreenContent: (ad, err) {
+              ad.dispose();
+              _ad = null;
+              _isAdLoaded = false;
+              _isFailed = true;
+              if (mounted) setState(() {});
+            },
+            onAdDismissedFullScreenContent: (ad) {
+              ad.dispose();
+              _ad = null;
+              _isAdLoaded = false;
+              if (mounted) setState(() {});
+            },
+            onAdClicked: (ad) {},
+          );
+          _ad = ad;
+          _isAdLoaded = true;
+          _isFailed = false;
+          if (mounted) setState(() {});
+        },
+        onAdFailedToLoad: (LoadAdError error) {
+          debugPrint('RewardedInterstitialAd failed to load: $error');
+          _ad = null;
+          _isAdLoaded = false;
+          _isFailed = true;
+          if (mounted) setState(() {});
+        },
+      ),
+    );
+  }
 
   // 创建奖励广告
   void _createRewardedAd() {
@@ -181,12 +185,14 @@ void _createRewardedInterstitialAd() {
         onAdLoaded: (RewardedAd ad) {
           _ad = ad;
           _isAdLoaded = true;
+          _isFailed = false;
           if (mounted) setState(() {});
         },
         onAdFailedToLoad: (LoadAdError error) {
           debugPrint('RewardedAd failed to load: $error');
           _ad = null;
           _isAdLoaded = false;
+          _isFailed = true;
           if (mounted) setState(() {});
         },
       ),
@@ -197,13 +203,13 @@ void _createRewardedInterstitialAd() {
   void _createNativeAdvancedAd() {
     _ad = NativeAd(
       adUnitId: widget.adInfo.adUnitId,
-      //factoryId: 'adFactoryExample',
       request: const AdRequest(),
       listener: NativeAdListener(
         onAdLoaded: (ad) {
           if (mounted) {
             setState(() {
               _isAdLoaded = true;
+              _isFailed = false;
             });
             updateKeepAlive(); // 通知保活
           }
@@ -212,11 +218,12 @@ void _createRewardedInterstitialAd() {
           ad.dispose();
           _ad = null;
           _isAdLoaded = false;
+          _isFailed = true;
           if (mounted) setState(() {});
           debugPrint('NativeAd failed to load: $error');
         },
       ),
-            nativeTemplateStyle: widget.nativeAdConfig!.style,
+      nativeTemplateStyle: widget.nativeAdConfig?.style,
     );
     _ad.load();
   }
@@ -230,12 +237,14 @@ void _createRewardedInterstitialAd() {
         onAdLoaded: (AppOpenAd ad) {
           _ad = ad;
           _isAdLoaded = true;
+          _isFailed = false;
           if (mounted) setState(() {});
         },
         onAdFailedToLoad: (LoadAdError error) {
           debugPrint('AppOpenAd failed to load: $error');
           _ad = null;
           _isAdLoaded = false;
+          _isFailed = true;
           if (mounted) setState(() {});
         },
       ),
@@ -246,18 +255,14 @@ void _createRewardedInterstitialAd() {
   void _showAd() {
     final adState = ref.read(adStateProvider);
 
-    if (!adState) return; // 如果广告被禁用，不显示广告
+    if (!adState) return;
 
     if (_ad is InterstitialAd) {
       _ad.show();
     } else if (_ad is RewardedInterstitialAd) {
-      _ad.show(onUserEarnedReward: (ad, reward) {
-        // 处理奖励
-      });
+      _ad.show(onUserEarnedReward: (ad, reward) {});
     } else if (_ad is RewardedAd) {
-      _ad.show(onUserEarnedReward: (ad, reward) {
-        // 处理奖励
-      });
+      _ad.show(onUserEarnedReward: (ad, reward) {});
     } else if (_ad is AppOpenAd) {
       _ad.show();
     }
@@ -274,19 +279,61 @@ void _createRewardedInterstitialAd() {
           _disposeAd();
         });
       }
-      return const SizedBox();
+      return const SizedBox.shrink();
     }
 
     if (adState && !_isAdLoaded && _ad == null && !_loadAttempted) {
       WidgetsBinding.instance.addPostFrameCallback((_) => _createAd());
     }
 
-    // 根据广告状态决定是否显示广告
+    // A. 广告加载成功，呈现广告
     if (_isAdLoaded && _ad != null) {
       return _buildAdWidget(width: widget.width, height: widget.height);
     }
 
-    return const SizedBox(); // 不显示广告时返回一个空的 SizedBox
+    // B. 广告加载失败，收缩占位
+    if (_isFailed) {
+      return const SizedBox.shrink();
+    }
+
+    // C. 正在加载中：提供优雅的固定高度骨架屏，消除 0 高度塌陷
+    final isNative = widget.adInfo.type == AdType.nativeAdvanced;
+    final targetHeight = widget.height ?? (isNative ? 200.0 : 60.0);
+    return Container(
+      width: widget.width ?? double.infinity,
+      height: targetHeight,
+      margin: const EdgeInsets.symmetric(vertical: 4.0),
+      decoration: BoxDecoration(
+        color: Colors.grey.withAlpha(20),
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 14,
+              height: 14,
+              child: CircularProgressIndicator(
+                strokeWidth: 2.0,
+                valueColor: AlwaysStoppedAnimation<Color>(
+                  Colors.grey.withAlpha(120),
+                ),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Text(
+              "AD",
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.bold,
+                color: Colors.grey.withAlpha(120),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   // 根据广告类型构建相应的广告 Widget
@@ -300,10 +347,10 @@ void _createRewardedInterstitialAd() {
           child: AdWidget(ad: _ad),
         );
       case AdType.nativeAdvanced:
-        return SizedBox( // 使用 SizedBox 限制 AdWidget 的高度
+        return SizedBox(
           width: width,
-          height: height,
-            child: AdWidget(ad: _ad),
+          height: height ?? 200,
+          child: AdWidget(ad: _ad),
         );
       case AdType.interstitial:
       case AdType.rewardedInterstitial:

@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
-
 import 'package:yourcallyourrule/features/search/widgets/search_result_item.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/purchase/purchase_state.dart';
 
 class HomeAppBar extends ConsumerStatefulWidget {
   const HomeAppBar({super.key});
@@ -48,6 +49,9 @@ class _HomeAppBarState extends ConsumerState<HomeAppBar> {
 
   @override
   Widget build(BuildContext context) {
+    final purchaseState = ref.watch(purchaseStateProvider);
+    final isVip = purchaseState.isPurchasedOrHasTempAccess();
+
     return Column(
       children: [
         Container(
@@ -97,10 +101,53 @@ class _HomeAppBarState extends ConsumerState<HomeAppBar> {
                       )
                     : Row(
                         children: [
-                          Image.asset(
-                            'assets/app_logo.png',
-                            width: 32,
-                            height: 32,
+                          GestureDetector(
+                            onTap: () => context.pushNamed(AppRouter.purchase),
+                            child: Stack(
+                              clipBehavior: Clip.none,
+                              children: [
+                                Image.asset(
+                                  'assets/app_logo.png',
+                                  width: 32,
+                                  height: 32,
+                                ),
+                                Positioned(
+                                  top: -4,
+                                  right: -4,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(2),
+                                    decoration: BoxDecoration(
+                                      color: isVip
+                                          ? const Color(0xFFFFD700)
+                                          : Theme.of(context).colorScheme.surfaceContainerHighest,
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                        color: isVip
+                                            ? const Color(0xFFB8860B)
+                                            : Theme.of(context).colorScheme.outlineVariant,
+                                        width: 1,
+                                      ),
+                                      boxShadow: [
+                                        if (isVip)
+                                          const BoxShadow(
+                                            color: Colors.black26,
+                                            blurRadius: 4,
+                                            offset: Offset(0, 1),
+                                          ),
+                                      ],
+                                    ),
+                                    child: Icon(
+                                      Icons.workspace_premium_rounded,
+                                      size: 11,
+                                      color: isVip
+                                          ? const Color(0xFF7A4300)
+                                          : Theme.of(context).colorScheme.onSurfaceVariant
+                                              .withValues(alpha: 0.5),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                           const SizedBox(width: 8),
                           const Text(

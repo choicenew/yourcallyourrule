@@ -76,7 +76,7 @@ class RuleImportExportService extends ImportExportService<RuleBase, String> {
       
       return rules;
     } catch (e) {
-      throw FormatException('JSON解析错误: $e');
+      throw FormatException('$e');
     }
   }
 
@@ -238,11 +238,11 @@ class RuleImportExportService extends ImportExportService<RuleBase, String> {
         return rules;
       } else {
         debugPrint('[RuleImportExportService] !!! ERROR: Failed to fetch data from URL. Status code: ${response.statusCode}');
-        throw Exception('获取URL数据失败: ${response.statusCode}');
+        throw Exception('HTTP ${response.statusCode}');
       }
     } catch (e) {
       debugPrint('[RuleImportExportService] !!! ERROR: Error during import from URL: $e');
-      throw Exception('从URL导入失败: $e');
+      rethrow;
     }
   }
 

@@ -28,12 +28,14 @@ class AdCacheState {
   final BannerAd? bannerAd;
   final bool isStarted;
   final bool isLoaded;
+  final bool isFailed;
   final AdSize? adSize;
 
   const AdCacheState({
     this.bannerAd,
     this.isStarted = false,
     this.isLoaded = false,
+    this.isFailed = false,
     this.adSize,
   });
 
@@ -41,12 +43,14 @@ class AdCacheState {
     BannerAd? bannerAd,
     bool? isStarted,
     bool? isLoaded,
+    bool? isFailed,
     AdSize? adSize,
   }) {
     return AdCacheState(
       bannerAd: bannerAd ?? this.bannerAd,
       isStarted: isStarted ?? this.isStarted,
       isLoaded: isLoaded ?? this.isLoaded,
+      isFailed: isFailed ?? this.isFailed,
       adSize: adSize ?? this.adSize,
     );
   }
@@ -130,6 +134,7 @@ class AdCache extends _$AdCache {
           state = state.copyWith(
             bannerAd: bannerAd,
             isLoaded: true,
+            isFailed: false,
             adSize: platformAdSize,
           );
         },
@@ -142,6 +147,7 @@ class AdCache extends _$AdCache {
             bannerAd: null,
             isStarted: true,
             isLoaded: false,
+            isFailed: true,
           );
         },
       ),

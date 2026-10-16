@@ -32,6 +32,7 @@ class CallFilterSettingsPage extends ConsumerWidget {
       // [重构]: body 现在非常简单，直接渲染自包含的 CallFilterSettingsWidget。
       // 它不再需要任何参数，也不需要 .when 来处理状态，因为子 Widget 会自己处理。
       body: const SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         child: CallFilterSettingsWidget(),
       ),
     );

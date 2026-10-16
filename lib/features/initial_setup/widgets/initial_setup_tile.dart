@@ -21,10 +21,7 @@ class InitialSetupTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-
-    final descriptionText = country.description.isNotEmpty
-        ? country.description
-        : (country.ruleType.isNotEmpty ? '${l10n.ruleType}: ${country.ruleType}' : '');
+    final descriptionText = country.description;
 
     return Container(
       margin: const EdgeInsets.only(bottom: 8),

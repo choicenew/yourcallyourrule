@@ -11,6 +11,7 @@ import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/purchase/purchase_state.dart';
 
 // ------------------- Widget 定义 -------------------
 
@@ -66,6 +67,8 @@ class EliteAppBar extends ConsumerWidget {
     final theme = Theme.of(context);
     final asyncStats = ref.watch(homeStatsProvider);
     final isProtectionActive = asyncStats.value?.isProtectionActive ?? false;
+    final purchaseState = ref.watch(purchaseStateProvider);
+    final isVip = purchaseState.isPurchasedOrHasTempAccess();
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -76,24 +79,72 @@ class EliteAppBar extends ConsumerWidget {
           Expanded(
             child: Row(
               children: [
-                Container(
-                  width: 38,
-                  height: 38,
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.primary,
-                    borderRadius: BorderRadius.circular(12),
-                    boxShadow: [
-                      BoxShadow(
-                        color: theme.colorScheme.primary.withValues(alpha: 0.35),
-                        blurRadius: 8,
-                        offset: const Offset(0, 3),
+                GestureDetector(
+                  onTap: () => context.pushNamed(AppRouter.purchase),
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Container(
+                        width: 38,
+                        height: 38,
+                        decoration: BoxDecoration(
+                          color: isVip
+                              ? const Color(0xFFFFB800)
+                              : theme.colorScheme.primary,
+                          borderRadius: BorderRadius.circular(12),
+                          boxShadow: [
+                            BoxShadow(
+                              color: (isVip
+                                      ? const Color(0xFFFFB800)
+                                      : theme.colorScheme.primary)
+                                  .withValues(alpha: 0.35),
+                              blurRadius: 8,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: const Icon(
+                          Icons.shield_rounded,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                      ),
+                      Positioned(
+                        top: -4,
+                        right: -4,
+                        child: Container(
+                          padding: const EdgeInsets.all(2),
+                          decoration: BoxDecoration(
+                            color: isVip
+                                ? const Color(0xFFFFD700)
+                                : theme.colorScheme.surfaceContainerHighest,
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: isVip
+                                  ? const Color(0xFFB8860B)
+                                  : theme.colorScheme.outlineVariant,
+                              width: 1,
+                            ),
+                            boxShadow: [
+                              if (isVip)
+                                const BoxShadow(
+                                  color: Colors.black26,
+                                  blurRadius: 4,
+                                  offset: Offset(0, 1),
+                                ),
+                            ],
+                          ),
+                          child: Icon(
+                            Icons.workspace_premium_rounded,
+                            size: 11,
+                            color: isVip
+                                ? const Color(0xFF7A4300)
+                                : theme.colorScheme.onSurfaceVariant
+                                    .withValues(alpha: 0.5),
+                          ),
+                        ),
                       ),
                     ],
-                  ),
-                  child: const Icon(
-                    Icons.shield_rounded,
-                    color: Colors.white,
-                    size: 20,
                   ),
                 ),
                 const SizedBox(width: 8),

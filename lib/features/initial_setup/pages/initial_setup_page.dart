@@ -125,7 +125,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
         PluginRecommendation(
           title: l10n.pluginManagement,
           description: l10n.pluginRulesInfo,
-          webPortalUrl: 'https://github.com/choicenew/yourcallrule/tree/main/plugins',
+          webPortalUrl: 'https://github.com/choicenew/yourcallrule/',
         );
 
     return Column(

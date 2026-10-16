@@ -26,10 +26,8 @@ class CallFilterSettingsWidget extends ConsumerWidget {
       notifier.updateConfig(CallFilterConfig.fromMap(updatedMap));
     }
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-      child: Column(
-        children: [
+    return Column(
+      children: [
           const GoogleAdWidget(adInfo: AdManager.bannerAd),
           const SizedBox(height: 12),
           Container(
@@ -147,8 +145,7 @@ class CallFilterSettingsWidget extends ConsumerWidget {
           const SizedBox(height: 14),
           const InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
         ],
-      ),
-    );
+      );
   }
 
   Widget _buildSwitchListTile(
