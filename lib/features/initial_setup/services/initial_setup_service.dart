@@ -1,6 +1,6 @@
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:http/http.dart' as http;
 import '../models/setup_config.dart';
 
 /// 负责从云端拉取 Initial Setup 页面所需的动态配置，并提供内置 JSON 资产文件兜底和 IP 地区探测
@@ -8,12 +8,20 @@ class InitialSetupService {
   final String rawConfigUrl;
   final String cdnConfigUrl;
   final String localAssetPath;
+  final Dio _dio;
 
   InitialSetupService({
     this.rawConfigUrl = 'https://raw.githubusercontent.com/choicenew/yourcallrule/main/app_delta_setup_config.json',
     this.cdnConfigUrl = 'https://cdn.jsdelivr.net/gh/choicenew/yourcallrule@main/app_delta_setup_config.json',
     this.localAssetPath = 'assets/app_delta_setup_config.json',
-  });
+    Dio? dio,
+  }) : _dio = dio ??
+            Dio(
+              BaseOptions(
+                connectTimeout: const Duration(seconds: 5),
+                receiveTimeout: const Duration(seconds: 5),
+              ),
+            );
 
   /// 从应用内置的 JSON 文件中加载兜底配置，避免网络不佳时白屏
   Future<SetupConfig> loadBuiltInConfig() async {
@@ -30,11 +38,9 @@ class InitialSetupService {
   /// 基于 IP API 自动探测用户当前网络所在国家/地区代码（例如 "CN", "US", "FR"）
   Future<String?> detectUserCountry() async {
     try {
-      final response = await http
-          .get(Uri.parse('http://ip-api.com/json'))
-          .timeout(const Duration(seconds: 4));
+      final response = await _dio.get('http://ip-api.com/json');
       if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
+        final data = response.data is String ? jsonDecode(response.data as String) : response.data;
         if (data is Map<String, dynamic> && data['countryCode'] != null) {
           return data['countryCode'].toString().toUpperCase();
         }
@@ -53,11 +59,9 @@ class InitialSetupService {
     }
 
     try {
-      final response = await http
-          .get(Uri.parse(targetUrl))
-          .timeout(const Duration(seconds: 5));
+      final response = await _dio.get(targetUrl);
       if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
+        final data = response.data is String ? jsonDecode(response.data as String) : response.data;
         if (data is Map<String, dynamic>) {
           return SetupConfig.fromMap(data);
         }
