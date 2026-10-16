@@ -295,14 +295,39 @@ class RuleRepositoryImpl implements RuleRepository {
   
   @override
   Future<bool> deleteAll(List<RuleBase> entities) async {
-    bool allSuccess = true;
+    if (entities.isEmpty) return true;
+
+    final phoneIds = <String>[];
+    final regexIds = <String>[];
+    final simSlotIds = <String>[];
+    final labelIds = <String>[];
+
     for (final entity in entities) {
-      final success = await delete(entity);
-      if (!success) {
-        allSuccess = false;
+      if (entity is PhoneRule || entity is AllowedBlockedRule) {
+        phoneIds.add(entity.id);
+      } else if (entity is RegexRule) {
+        regexIds.add(entity.id);
+      } else if (entity is SimSlotRule) {
+        simSlotIds.add(entity.id);
+      } else if (entity is LabelPhoneEntry) {
+        labelIds.add(entity.id);
       }
     }
-    return allSuccess;
+
+    if (phoneIds.isNotEmpty) {
+      await _localPhoneRuleDataSource.deleteAll(phoneIds);
+    }
+    if (regexIds.isNotEmpty) {
+      await _localRegexRuleDataSource.deleteAll(regexIds);
+    }
+    if (simSlotIds.isNotEmpty) {
+      await _localSimSlotRuleDataSource.deleteAll(simSlotIds);
+    }
+    if (labelIds.isNotEmpty) {
+      await _localLabelDataSource.deleteAll(labelIds);
+    }
+
+    return true;
   }
   
   @override
@@ -328,18 +353,8 @@ class RuleRepositoryImpl implements RuleRepository {
     final List<RuleBase> allRules = [];
     
     // 转换PhoneRule
-       // 遍历从 phone_rules 表获取的所有模型
     for (final model in phoneRules) {
-      final map = model.toMap();
-      final ruleType = map['ruleType'] as String?;
-      
-      // 根据 ruleType 的值，决定实例化哪种实体
-      if (ruleType == 'allow_block' || ruleType == 'alloworblock') {
-        allRules.add(AllowedBlockedRule.fromMap(map));
-      } else {
-        // 默认情况下（包括'phone_rule', 'white_black'或null）都创建PhoneRule
-        allRules.add(PhoneRule.fromMap(map));
-      }
+      allRules.add(_convertPhoneRuleModelToEntity(model));
     }
     
     // 转换RegexRule
@@ -354,18 +369,22 @@ class RuleRepositoryImpl implements RuleRepository {
     return allRules;
   }
 
+  /// 辅助转换：统一基于 RuleType 强类型枚举判定 PhoneRuleModel 的实体类型
+  RuleBase _convertPhoneRuleModelToEntity(PhoneRuleModel model) {
+    final map = model.toMap();
+    final type = RuleType.fromString(map['ruleType']);
+    if (type == RuleType.allowBlock) {
+      return AllowedBlockedRule.fromMap(map);
+    }
+    return PhoneRule.fromMap(map);
+  }
+
   @override
   Future<RuleBase?> getById(String id) async {
     // 尝试从PhoneRule数据源获取
     PhoneRuleModel? phoneModel = await _localPhoneRuleDataSource.getById(id);
     if (phoneModel != null) {
-      // 根据ruleType字段判断具体类型
-      final ruleType = phoneModel.ruleType;
-      if (ruleType == 'phone_rule' || ruleType == 'white_black') {
-        return PhoneRule.fromMap(phoneModel.toMap());
-      } else if (ruleType == 'allow_block' || ruleType == 'alloworblock') {
-        return AllowedBlockedRule.fromMap(phoneModel.toMap());
-      }
+      return _convertPhoneRuleModelToEntity(phoneModel);
     }
     
     // 尝试从LabelDataSource获取
@@ -378,6 +397,12 @@ class RuleRepositoryImpl implements RuleRepository {
     RegexRuleModel? regexModel = await _localRegexRuleDataSource.getById(id);
     if (regexModel != null) {
       return RegexRule.fromMap(regexModel.toMap());
+    }
+
+    // 尝试从SimSlotRule数据源获取
+    SimSlotRuleModel? simSlotModel = await _localSimSlotRuleDataSource.getById(id);
+    if (simSlotModel != null) {
+      return SimSlotRule.fromMap(simSlotModel.toMap());
     }
     
     // 未找到规则
@@ -404,9 +429,41 @@ class RuleRepositoryImpl implements RuleRepository {
 
   @override
   Future<List<RuleBase>> saveAll(List<RuleBase> entities) async {
-    for (var entity in entities) {
-      await save(entity);
+    if (entities.isEmpty) return [];
+
+    final phoneModels = <PhoneRuleModel>[];
+    final regexModels = <RegexRuleModel>[];
+    final simSlotModels = <SimSlotRuleModel>[];
+    final labelModels = <LabelModel>[];
+
+    for (final entity in entities) {
+      final model = _createModelFromEntity(entity);
+      if (model is PhoneRuleModel) {
+        phoneModels.add(model);
+      } else if (model is AllowedBlockedRuleModel) {
+        phoneModels.add(PhoneRuleModel.fromMap(model.toMap()));
+      } else if (model is RegexRuleModel) {
+        regexModels.add(model);
+      } else if (model is SimSlotRuleModel) {
+        simSlotModels.add(model);
+      } else if (model is LabelModel) {
+        labelModels.add(model);
+      }
     }
+
+    if (phoneModels.isNotEmpty) {
+      await _localPhoneRuleDataSource.insertAll(phoneModels);
+    }
+    if (regexModels.isNotEmpty) {
+      await _localRegexRuleDataSource.insertAll(regexModels);
+    }
+    if (simSlotModels.isNotEmpty) {
+      await _localSimSlotRuleDataSource.insertAll(simSlotModels);
+    }
+    if (labelModels.isNotEmpty) {
+      await _localLabelDataSource.insertAll(labelModels);
+    }
+
     return entities;
   }
 

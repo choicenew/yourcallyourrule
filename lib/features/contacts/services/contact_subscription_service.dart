@@ -86,20 +86,58 @@ class ContactSubscriptionService
     return _repository.save(subscription);
   }
 
-  /// 核心规则更新方法（修正后的联系人专用逻辑） （修正类型转换）
+  String _getContactRuleUniqueKey(ContactRule rule) {
+    return 'contact_${rule.contactId}_${rule.name}_${rule.action.toString()}';
+  }
+
+  /// 核心规则更新方法（带增量对比 Diff Sync）
   Future<List<ContactRule>> _updateRulesCore(
       ContactSubscription subscription) async {
     final data = await downloadFromUrl(subscription.url.toString());
     final rules = await _ruleImportExportService.parseImportData(data);
 
-    final processedRules = rules
+    final remoteRules = rules
         .whereType<ContactRule>()
         .map((rule) =>
             rule.copyWith(isSubscribed: true, contactId: rule.contactId))
         .toList();
 
-    await _ruleRepository.saveAll(processedRules);
-    return processedRules;
+    // 读取本地已有的联系人规则，进行内存 Diff 对比
+    final allLocalRules = await _ruleRepository.getAll();
+    final localRules = allLocalRules.whereType<ContactRule>().toList();
+
+    final localMap = <String, ContactRule>{};
+    for (final rule in localRules) {
+      localMap[_getContactRuleUniqueKey(rule)] = rule;
+    }
+
+    final remoteMap = <String, ContactRule>{};
+    for (final rule in remoteRules) {
+      remoteMap[_getContactRuleUniqueKey(rule)] = rule;
+    }
+
+    final rulesToAdd = <ContactRule>[];
+    for (final entry in remoteMap.entries) {
+      if (!localMap.containsKey(entry.key)) {
+        rulesToAdd.add(entry.value);
+      }
+    }
+
+    final rulesToDelete = <ContactRule>[];
+    for (final entry in localMap.entries) {
+      if (!remoteMap.containsKey(entry.key)) {
+        rulesToDelete.add(entry.value);
+      }
+    }
+
+    if (rulesToDelete.isNotEmpty) {
+      await _ruleRepository.deleteAll(rulesToDelete);
+    }
+    if (rulesToAdd.isNotEmpty) {
+      await _ruleRepository.saveAll(rulesToAdd);
+    }
+
+    return remoteRules;
   }
 
   /// 自动更新（带时间戳更新）

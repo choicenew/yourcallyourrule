@@ -24,11 +24,20 @@ class SmsSubscriptionService
   ) : _importExportService = RuleImportExportService(_ruleRepository),
        super(_repository);
 
+  String _getSmsRuleUniqueKey(RuleBase rule) {
+    if (rule is SmsRegexRule) {
+      final content = rule.contentPattern.pattern;
+      final sender = rule.senderPattern?.pattern ?? '';
+      return 'sms_regex_${content}_${sender}_${rule.action.toString()}';
+    }
+    return rule.id;
+  }
+
   Future<List<RuleBase>> _updateRulesCore(SmsSubscription subscription) async {
     final data = await downloadFromUrl(subscription.url.toString());
     final rules = await _importExportService.parseImportData(data);
 
-    final processedRules = rules
+    final remoteRules = rules
         .map((rule) => rule is SmsRegexRule 
             ? rule.copyWith(
                 action: subscription.action,
@@ -38,8 +47,42 @@ class SmsSubscriptionService
             : rule)
         .toList();
 
-    await _ruleRepository.saveAll(processedRules);
-    return processedRules;
+    // 读取本地关联规则，进行内存 Diff 对比
+    final allLocalRules = await _ruleRepository.getAll();
+    final localRules = allLocalRules.whereType<SmsRegexRule>().toList();
+
+    final localMap = <String, RuleBase>{};
+    for (final rule in localRules) {
+      localMap[_getSmsRuleUniqueKey(rule)] = rule;
+    }
+
+    final remoteMap = <String, RuleBase>{};
+    for (final rule in remoteRules) {
+      remoteMap[_getSmsRuleUniqueKey(rule)] = rule;
+    }
+
+    final rulesToAdd = <RuleBase>[];
+    for (final entry in remoteMap.entries) {
+      if (!localMap.containsKey(entry.key)) {
+        rulesToAdd.add(entry.value);
+      }
+    }
+
+    final rulesToDelete = <RuleBase>[];
+    for (final entry in localMap.entries) {
+      if (!remoteMap.containsKey(entry.key)) {
+        rulesToDelete.add(entry.value);
+      }
+    }
+
+    if (rulesToDelete.isNotEmpty) {
+      await _ruleRepository.deleteAll(rulesToDelete);
+    }
+    if (rulesToAdd.isNotEmpty) {
+      await _ruleRepository.saveAll(rulesToAdd);
+    }
+
+    return remoteRules;
   }
 
   @override
