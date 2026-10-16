@@ -80,6 +80,7 @@
 #====================================================================================
 -dontwarn org.bouncycastle.**
 -dontwarn edu.umd.cs.findbugs.annotations.**
+-dontwarn org.chromium.**
 
 #====================================================================================
 #== Android Default Optimize Rules (Merged to bypass AGP getDefaultProguardFile bug)
