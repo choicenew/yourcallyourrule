@@ -29,17 +29,52 @@ class RuleImportExportService extends ImportExportService<RuleBase, String> {
   Future<List<RuleBase>> parseJsonData(String data) async {
     try {
       final jsonData = jsonDecode(data);
-      List<Map<String, dynamic>> maps;
+      List<Map<String, dynamic>> rawMaps;
       
       if (jsonData is List) {
-        maps = List<Map<String, dynamic>>.from(jsonData);
+        rawMaps = List<Map<String, dynamic>>.from(jsonData);
       } else if (jsonData is Map) {
-        maps = [Map<String, dynamic>.from(jsonData)];
+        rawMaps = [Map<String, dynamic>.from(jsonData)];
       } else {
         throw const FormatException('JSON格式错误: 预期列表或映射');
       }
       
-      return maps.map((map) => fromMap(map)).toList();
+      final rules = <RuleBase>[];
+      for (final rawMap in rawMaps) {
+        final map = Map<String, dynamic>.from(rawMap);
+        
+        // --- 1. 规范化 isEnabled 字段 (解决 int 无法强转 bool 的错误) ---
+        final rawEnabled = map['isEnabled'] ?? map['is_enabled'];
+        if (rawEnabled is int) {
+          map['isEnabled'] = rawEnabled == 1;
+        } else if (rawEnabled is String) {
+          map['isEnabled'] = rawEnabled.toLowerCase() == 'true' || rawEnabled == '1';
+        } else if (rawEnabled is bool) {
+          map['isEnabled'] = rawEnabled;
+        } else {
+          map['isEnabled'] = true;
+        }
+        
+        // --- 2. 规范化 ruleType 字段 ---
+        map['ruleType'] = map['ruleType'] ?? map['rule_type'] ?? 'phone_rule';
+        
+        // --- 3. 规范化 phoneNumber 字段 ---
+        map['phoneNumber'] = map['phoneNumber'] ?? map['phone_number'] ?? map['pattern'] ?? '';
+        
+        // --- 4. 规范化 id, name, labelId, action 字段为 String ---
+        map['id'] = map['id']?.toString() ?? const Uuid().v4();
+        map['name'] = map['name']?.toString() ?? 'Imported Rule';
+        map['labelId'] = map['labelId']?.toString() ?? map['label_id']?.toString() ?? 'default';
+        map['action'] = map['action']?.toString() ?? 'block';
+        
+        try {
+          rules.add(fromMap(map));
+        } catch (e) {
+          debugPrint('[RuleImportExportService] Skipping invalid rule item: $e, map: $map');
+        }
+      }
+      
+      return rules;
     } catch (e) {
       throw FormatException('JSON解析错误: $e');
     }
