@@ -7,11 +7,25 @@ final initialSetupServiceProvider = Provider<InitialSetupService>((ref) {
   return InitialSetupService();
 });
 
-/// CDN 切换状态
-final setupUseCdnProvider = StateProvider<bool>((ref) => false);
+/// CDN 切换状态 Notifier
+class SetupUseCdnNotifier extends Notifier<bool> {
+  @override
+  bool build() => false;
 
-/// 自定义 URL 状态
-final setupCustomUrlProvider = StateProvider<String?>((ref) => null);
+  void setUseCdn(bool value) => state = value;
+}
+
+final setupUseCdnProvider = NotifierProvider<SetupUseCdnNotifier, bool>(SetupUseCdnNotifier.new);
+
+/// 自定义 URL 状态 Notifier
+class SetupCustomUrlNotifier extends Notifier<String?> {
+  @override
+  String? build() => null;
+
+  void setCustomUrl(String? url) => state = url;
+}
+
+final setupCustomUrlProvider = NotifierProvider<SetupCustomUrlNotifier, String?>(SetupCustomUrlNotifier.new);
 
 /// 核心配置 AsyncNotifier/FutureProvider，当 CDN 或 CustomURL 改变时自动响应式重新请求并刷新
 final setupConfigProvider = FutureProvider.autoDispose<SetupConfig>((ref) async {

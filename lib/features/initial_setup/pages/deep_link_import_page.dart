@@ -28,7 +28,7 @@ class _DeepLinkImportPageState extends ConsumerState<DeepLinkImportPage> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final typeName = widget.type == 'plugin' ? l10n.deepLinkTypePlugin : l10n.deepLinkTypeSubscription;
     final targetUrl = widget.url ?? '';
     final displayName = widget.name ?? (widget.type == 'plugin' ? l10n.deepLinkDefaultPluginName : l10n.deepLinkDefaultSubName);
