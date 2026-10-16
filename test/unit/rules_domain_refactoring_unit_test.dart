@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/entities/rule/sim_slot_rule.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
@@ -89,6 +90,73 @@ void main() {
       expect(rule.matches('您的验证码是 1234'), isTrue);
       expect(rule.matches('普通的短信内容'), isFalse);
       expect(rule.matches('测试', '106900000'), isTrue);
+    });
+
+    test('5. RegexRule 正则表达式规则匹配、序列化与动态优先级推导', () {
+      final rule = RegexRule(
+        id: '5',
+        name: 'Regex Intercept Test',
+        pattern: r'^\+86138.*',
+        action: RuleAction.block,
+      );
+
+      // 属性与类型常量校验
+      expect(rule.ruleType, equals(RuleTypeKeys.regex));
+      expect(rule.priority, equals(RulePriority.medium));
+      expect(rule.isSubscribed, isFalse);
+
+      // 正则匹配校验
+      expect(rule.matches('+8613800138000'), isTrue);
+      expect(rule.matches('+8613900000000'), isFalse);
+
+      // 禁用时匹配测试
+      final disabledRule = rule.copyWith(isEnabled: false);
+      expect(disabledRule.matches('+8613800138000'), isFalse);
+
+      // 订阅状态校验
+      final subscribedRule = rule.copyWith(subscriptionId: 'sub_123');
+      expect(subscribedRule.isSubscribed, isTrue);
+
+      // 序列化与反序列化（toMap / fromMap / json）
+      final map = rule.toMap();
+      expect(map['pattern'], equals(r'^\+86138.*'));
+      expect(map['ruleType'], equals(RuleTypeKeys.regex));
+
+      final restoredFromMap = RegexRule.fromMap(map);
+      expect(restoredFromMap.id, equals(rule.id));
+      expect(restoredFromMap.pattern, equals(rule.pattern));
+      expect(restoredFromMap.action, equals(rule.action));
+
+      // 动态优先级注入测试：fromMap 缺失 priority 时依据 action 自动推导
+      final allowMap = {
+        'id': '6',
+        'name': 'Allow Regex',
+        'pattern': r'^\+8610086$',
+        'action': 'allow',
+        'isEnabled': 1,
+      };
+      final allowRule = RegexRule.fromMap(allowMap);
+      expect(allowRule.priority, equals(RulePriority.high)); // Allow 动作 => high (10)
+
+      final silenceMap = {
+        'id': '7',
+        'name': 'Silence Regex',
+        'pattern': r'^\+8610010$',
+        'action': 'silence',
+        'isEnabled': 'true',
+      };
+      final silenceRule = RegexRule.fromMap(silenceMap);
+      expect(silenceRule.priority, equals(RulePriority.silenceAction)); // Silence 动作 => silenceAction (1)
+
+      final noneMap = {
+        'id': '8',
+        'name': 'None Regex',
+        'pattern': r'^\+8610000$',
+        'action': 'none',
+        'isEnabled': true,
+      };
+      final noneRule = RegexRule.fromMap(noneMap);
+      expect(noneRule.priority, equals(RulePriority.noneAction)); // None 动作 => noneAction (0)
     });
   });
 }

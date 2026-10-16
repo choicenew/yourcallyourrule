@@ -66,7 +66,7 @@ class RegexService extends ListService {
 
   /// 获取所有正则规则
   Future<List<RegexRule>> getAllRegexRules() async {
-    final rules = await _ruleRepository.getRulesByType(RegexRule.ruleType);
+    final rules = await _ruleRepository.getRulesByType(RuleTypeKeys.regex);
     return rules.whereType<RegexRule>().toList();
   }
 
