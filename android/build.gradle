@@ -4,7 +4,9 @@ allprojects {
         mavenCentral()
     }
     configurations.all {
-        exclude group: 'org.chromium.net', module: 'cronet-shared'
+        resolutionStrategy.dependencySubstitution {
+            substitute module('org.chromium.net:cronet-api') using module('org.chromium.net:cronet-shared:141.7340.3')
+        }
     }
 }
 def newBuildDir = rootProject.layout.buildDirectory.dir("../../build").get()
@@ -15,7 +17,9 @@ subprojects {
     project.layout.buildDirectory.value(newSubprojectBuildDir)
 
     project.configurations.all {
-        exclude group: 'org.chromium.net', module: 'cronet-shared'
+        resolutionStrategy.dependencySubstitution {
+            substitute module('org.chromium.net:cronet-api') using module('org.chromium.net:cronet-shared:141.7340.3')
+        }
     }
 
     plugins.withId('com.android.library') {
