@@ -14,9 +14,14 @@ import '../../../core/entities/subscription/subscription.dart';
 import '../../../core/value_objects/url.dart';
 import '../../../core/value_objects/rule_action.dart';
 import '../../../core/provider/providers/phone_subscription_service_provider.dart';
+import '../../../core/provider/providers/plugin_manager_service_provider.dart';
 
 import '../models/setup_config.dart';
 import '../providers/initial_setup_provider.dart';
+import '../widgets/initial_setup_header_card.dart';
+import '../widgets/initial_setup_search_bar.dart';
+import '../widgets/initial_setup_tile.dart';
+import '../widgets/initial_setup_bottom_bar.dart';
 
 class InitialSetupPage extends ConsumerStatefulWidget {
   const InitialSetupPage({super.key});
@@ -69,64 +74,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
         loading: () => const Center(
           child: CircularProgressIndicator(color: EliteDopamineTheme.warmSunAmber),
         ),
-        error: (err, stack) => Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.1),
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Icon(
-                    Icons.error_outline_rounded,
-                    size: 48,
-                    color: EliteDopamineTheme.vibrantCoral,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  l10n.initialSetupGetFailed,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: EliteDopamineTheme.textPrimary,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  err.toString(),
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 12, color: EliteDopamineTheme.textSecondary),
-                ),
-                const SizedBox(height: 24),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    OutlinedButton(
-                      onPressed: () => _exit(context),
-                      child: Text(l10n.initialSetupSkip),
-                    ),
-                    const SizedBox(width: 16),
-                    ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: EliteDopamineTheme.warmSunAmber,
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                      ),
-                      onPressed: () => ref.invalidate(setupConfigProvider),
-                      icon: const Icon(Icons.refresh_rounded, size: 18),
-                      label: Text(l10n.initialSetupRetry),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
+        error: (err, stack) => _buildErrorView(context, err, l10n),
       ),
     );
   }
@@ -182,203 +130,44 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
 
     return Column(
       children: [
-        // 精致的 Dopamine 卡片头部
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-          decoration: EliteDopamineTheme.warmCardDecoration(
-            context: context,
-            glowColor: EliteDopamineTheme.warmSunAmber,
-          ),
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                l10n.initialSetupDesc,
-                style: const TextStyle(
-                  fontSize: 13,
-                  color: EliteDopamineTheme.textBody,
-                  height: 1.4,
-                ),
-              ),
-              const SizedBox(height: 12),
-              // 数据源选择 & 切换器
-              Row(
-                children: [
-                  Text(
-                    l10n.initialSetupSourceTitle,
-                    style: const TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.bold,
-                      color: EliteDopamineTheme.textPrimary,
-                    ),
-                  ),
-                  const Spacer(),
-                  SegmentedButton<bool>(
-                    showSelectedIcon: false,
-                    segments: [
-                      ButtonSegment<bool>(
-                        value: false,
-                        label: Text(l10n.initialSetupSourceGithub, style: const TextStyle(fontSize: 12)),
-                      ),
-                      ButtonSegment<bool>(
-                        value: true,
-                        label: Text(l10n.initialSetupSourceCdn, style: const TextStyle(fontSize: 12)),
-                      ),
-                    ],
-                    selected: {_useCdn},
-                    onSelectionChanged: (Set<bool> newSelection) {
-                      final useCdn = newSelection.first;
-                      setState(() {
-                        _useCdn = useCdn;
-                      });
-                      ref.read(setupUseCdnProvider.notifier).setUseCdn(useCdn);
-                    },
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              Row(
-                children: [
-                  Checkbox(
-                    value: _useCustomUrl,
-                    activeColor: EliteDopamineTheme.sunsetTangerine,
-                    onChanged: (bool? val) {
-                      setState(() {
-                        _useCustomUrl = val ?? false;
-                      });
-                    },
-                  ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _useCustomUrl = !_useCustomUrl;
-                        });
-                      },
-                      child: Text(
-                        l10n.initialSetupSourceCustom,
-                        style: const TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                          color: EliteDopamineTheme.textPrimary,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              if (_useCustomUrl)
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: TextField(
-                          controller: _customUrlController,
-                          decoration: InputDecoration(
-                            hintText: l10n.initialSetupCustomUrlHint,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: const BorderSide(color: EliteDopamineTheme.slateBorder),
-                            ),
-                            isDense: true,
-                            contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                          ),
-                          onSubmitted: (_) => _fetchCustomUrl(),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      ElevatedButton.icon(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: EliteDopamineTheme.sunsetTangerine,
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-                        ),
-                        onPressed: _fetchCustomUrl,
-                        icon: const Icon(Icons.download_rounded, size: 16),
-                        label: Text(l10n.initialSetupCustomUrlLoad, style: const TextStyle(fontSize: 12)),
-                      ),
-                    ],
-                  ),
-                ),
-            ],
-          ),
+        // 1. 顶部控制卡片
+        InitialSetupHeaderCard(
+          useCdn: _useCdn,
+          useCustomUrl: _useCustomUrl,
+          customUrlController: _customUrlController,
+          onUseCdnChanged: (val) => setState(() => _useCdn = val),
+          onUseCustomUrlChanged: (val) => setState(() => _useCustomUrl = val),
+          onFetchCustomUrl: _fetchCustomUrl,
         ),
 
         const SizedBox(height: 8),
 
-        // 搜索与控制工具栏
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Row(
-            children: [
-              Expanded(
-                child: Container(
-                  height: 42,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(14),
-                    border: Border.all(color: EliteDopamineTheme.slateBorder),
-                  ),
-                  child: TextField(
-                    controller: _searchController,
-                    onChanged: (val) {
-                      setState(() {
-                        _searchQuery = val;
-                      });
-                    },
-                    decoration: InputDecoration(
-                      hintText: l10n.initialSetupSearchHint,
-                      hintStyle: const TextStyle(fontSize: 12, color: EliteDopamineTheme.textMuted),
-                      prefixIcon: const Icon(Icons.search_rounded, size: 18, color: EliteDopamineTheme.textSecondary),
-                      suffixIcon: _searchQuery.isNotEmpty
-                          ? IconButton(
-                              icon: const Icon(Icons.clear_rounded, size: 16),
-                              onPressed: () {
-                                _searchController.clear();
-                                setState(() {
-                                  _searchQuery = '';
-                                });
-                              },
-                            )
-                          : null,
-                      border: InputBorder.none,
-                      contentPadding: const EdgeInsets.symmetric(vertical: 10),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 8),
-              FilterChip(
-                label: Text(
-                  _selectedCountryIds.length == sortedCountries.length
-                      ? l10n.initialSetupDeselectAll
-                      : l10n.initialSetupSelectAll,
-                  style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
-                ),
-                selected: _selectedCountryIds.isNotEmpty,
-                onSelected: (_) {
-                  setState(() {
-                    if (_selectedCountryIds.length == sortedCountries.length) {
-                      _selectedCountryIds.clear();
-                    } else {
-                      _selectedCountryIds.clear();
-                      _selectedCountryIds.addAll(sortedCountries.map((c) => c.id));
-                    }
-                  });
-                },
-              ),
-            ],
-          ),
+        // 2. 搜索与控制工具栏
+        InitialSetupSearchBar(
+          searchController: _searchController,
+          searchQuery: _searchQuery,
+          isAllSelected: _selectedCountryIds.length == sortedCountries.length,
+          isAnySelected: _selectedCountryIds.isNotEmpty,
+          onSearchChanged: (val) => setState(() => _searchQuery = val),
+          onClearSearch: () {
+            _searchController.clear();
+            setState(() => _searchQuery = '');
+          },
+          onToggleSelectAll: () {
+            setState(() {
+              if (_selectedCountryIds.length == sortedCountries.length) {
+                _selectedCountryIds.clear();
+              } else {
+                _selectedCountryIds.clear();
+                _selectedCountryIds.addAll(sortedCountries.map((c) => c.id));
+              }
+            });
+          },
         ),
 
         const SizedBox(height: 8),
 
-        // 规则列表
+        // 3. 规则/插件列表，采用通用 InitialSetupTile
         Expanded(
           child: filteredCountries.isEmpty
               ? Center(
@@ -405,104 +194,25 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
                         (country.countryCode.toUpperCase() == detectedCode ||
                          country.id.toUpperCase() == detectedCode);
 
-                    final descriptionText = country.description.isNotEmpty
-                        ? country.description
-                        : (country.ruleType.isNotEmpty ? '${l10n.ruleType}: ${country.ruleType}' : '');
-
-                    return Container(
-                      margin: const EdgeInsets.only(bottom: 8),
-                      decoration: EliteDopamineTheme.warmCardDecoration(
-                        context: context,
-                        glowColor: isSelected
-                            ? EliteDopamineTheme.sunsetTangerine
-                            : Colors.transparent,
-                      ),
-                      child: CheckboxListTile(
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        activeColor: EliteDopamineTheme.sunsetTangerine,
-                        title: Row(
-                          children: [
-                            Expanded(
-                              child: Text(
-                                country.name,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                  color: EliteDopamineTheme.textPrimary,
-                                ),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                            if (country.countryCode.isNotEmpty) ...[
-                              const SizedBox(width: 6),
-                              Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                                decoration: BoxDecoration(
-                                  color: EliteDopamineTheme.softLilac.withValues(alpha: 0.15),
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                                child: Text(
-                                  country.countryCode.toUpperCase(),
-                                  style: const TextStyle(
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.bold,
-                                    color: EliteDopamineTheme.softLilac,
-                                  ),
-                                ),
-                              ),
-                            ],
-                            if (isCurrentLocation) ...[
-                              const SizedBox(width: 6),
-                              Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                                decoration: BoxDecoration(
-                                  color: EliteDopamineTheme.freshMint.withValues(alpha: 0.15),
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                                child: Text(
-                                  l10n.initialSetupDetectedLocation,
-                                  style: const TextStyle(
-                                    fontSize: 10,
-                                    color: EliteDopamineTheme.freshMint,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ],
-                        ),
-                        subtitle: descriptionText.isNotEmpty
-                            ? Padding(
-                                padding: const EdgeInsets.only(top: 4.0),
-                                child: Text(
-                                  descriptionText,
-                                  style: const TextStyle(fontSize: 11, color: EliteDopamineTheme.textSecondary),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              )
-                            : null,
-                        value: isSelected,
-                        onChanged: (bool? val) {
-                          setState(() {
-                            if (val == true) {
-                              _selectedCountryIds.add(country.id);
-                            } else {
-                              _selectedCountryIds.remove(country.id);
-                            }
-                          });
-                        },
-                      ),
+                    return InitialSetupTile(
+                      country: country,
+                      isSelected: isSelected,
+                      isCurrentLocation: isCurrentLocation,
+                      onChanged: (bool? val) {
+                        setState(() {
+                          if (val == true) {
+                            _selectedCountryIds.add(country.id);
+                          } else {
+                            _selectedCountryIds.remove(country.id);
+                          }
+                        });
+                      },
                     );
                   },
                 ),
         ),
 
-        // 扩展插件推荐区（常驻引导卡片，即使远端未配置也能默认展示 GitHub 引导）
+        // 4. 扩展插件推荐区 (常驻引导)
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           decoration: EliteDopamineTheme.cleanCardDecoration(),
@@ -535,7 +245,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
           ),
         ),
 
-        // 设置提示卡片
+        // 5. 设置提示卡片
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
           padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
@@ -565,64 +275,71 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
           ),
         ),
 
-        // 底部晶莹悬浮 Action 控制面板
-        SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
-            child: Row(
+        // 6. 底部晶莹悬浮 Action 控制面板
+        InitialSetupBottomBar(
+          selectedCount: _selectedCountryIds.length,
+          isDownloading: _isDownloading,
+          onSkip: () => _exit(context),
+          onDownloadSelected: () => _downloadSelected(config, l10n),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildErrorView(BuildContext context, Object err, AppLocalizations l10n) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.1),
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(
+                Icons.error_outline_rounded,
+                size: 48,
+                color: EliteDopamineTheme.vibrantCoral,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              l10n.initialSetupGetFailed,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: EliteDopamineTheme.textPrimary),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              err.toString(),
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 12, color: EliteDopamineTheme.textSecondary),
+            ),
+            const SizedBox(height: 24),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextButton(
-                  onPressed: _isDownloading ? null : () => _exit(context),
-                  child: Text(l10n.initialSetupSkip, style: const TextStyle(color: EliteDopamineTheme.textMuted)),
+                OutlinedButton(
+                  onPressed: () => _exit(context),
+                  child: Text(l10n.initialSetupSkip),
                 ),
-                const Spacer(),
-                Container(
-                  decoration: BoxDecoration(
-                    gradient: _selectedCountryIds.isNotEmpty
-                        ? EliteDopamineTheme.heroWarmGradient
-                        : null,
-                    color: _selectedCountryIds.isEmpty ? EliteDopamineTheme.slateSubtle : null,
-                    borderRadius: BorderRadius.circular(16),
-                    boxShadow: _selectedCountryIds.isNotEmpty
-                        ? [
-                            BoxShadow(
-                              color: EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.3),
-                              blurRadius: 8,
-                              offset: const Offset(0, 3),
-                            ),
-                          ]
-                        : null,
+                const SizedBox(width: 16),
+                ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: EliteDopamineTheme.warmSunAmber,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   ),
-                  child: ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      shadowColor: Colors.transparent,
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                    ),
-                    onPressed: (_selectedCountryIds.isEmpty || _isDownloading)
-                        ? null
-                        : () => _downloadSelected(config, l10n),
-                    icon: _isDownloading
-                        ? const SizedBox(
-                            width: 16,
-                            height: 16,
-                            child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
-                          )
-                        : const Icon(Icons.download_rounded, size: 18),
-                    label: Text(
-                      _isDownloading
-                          ? l10n.initialSetupSaving
-                          : l10n.initialSetupSelectedCount(_selectedCountryIds.length),
-                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-                    ),
-                  ),
+                  onPressed: () => ref.invalidate(setupConfigProvider),
+                  icon: const Icon(Icons.refresh_rounded, size: 18),
+                  label: Text(l10n.initialSetupRetry),
                 ),
               ],
             ),
-          ),
+          ],
         ),
-      ],
+      ),
     );
   }
 
@@ -654,6 +371,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
 
     try {
       final phoneService = ref.read(phoneSubscriptionServiceProvider);
+      final pluginService = ref.read(pluginManagerServiceProvider);
       
       for (final countryId in _selectedCountryIds) {
         final country = config.countriesData.firstWhere((c) => c.id == countryId);
@@ -662,19 +380,25 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
             ? _customUrlController.text.trim()
             : country.getEffectiveUrl(useCdn: _useCdn);
         
-        final subscription = Subscription(
-          id: const Uuid().v4(),
-          name: country.name,
-          url: Url.fromString(effectiveUrl),
-          isEnabled: true,
-          action: RuleAction.block,
-          lastUpdated: DateTime.now(),
-          autoUpdate: true,
-          tableType: 'phone', 
-        );
-        
-        await phoneService.save(subscription);
-        await phoneService.importAndSaveRulesFromSubscription(subscription);
+        // 如果数据节点规则类型为 'plugin'，调用插件管理器将 JS 脚本直接安装到插件数据库
+        if (country.ruleType.toLowerCase() == 'plugin') {
+          await pluginService.addPluginFromUrl(effectiveUrl);
+        } else {
+          // 普通电话/正则规则订阅：创建订阅实体并拉取规则入库
+          final subscription = Subscription(
+            id: const Uuid().v4(),
+            name: country.name,
+            url: Url.fromString(effectiveUrl),
+            isEnabled: true,
+            action: RuleAction.block,
+            lastUpdated: DateTime.now(),
+            autoUpdate: true,
+            tableType: 'phone', 
+          );
+          
+          await phoneService.save(subscription);
+          await phoneService.importAndSaveRulesFromSubscription(subscription);
+        }
       }
       
       if (mounted) {
