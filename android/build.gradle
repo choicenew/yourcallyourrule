@@ -3,6 +3,9 @@ allprojects {
         google()
         mavenCentral()
     }
+    configurations.all {
+        exclude group: 'org.chromium.net', module: 'cronet-shared'
+    }
 }
 def newBuildDir = rootProject.layout.buildDirectory.dir("../../build").get()
 rootProject.layout.buildDirectory.value(newBuildDir)
