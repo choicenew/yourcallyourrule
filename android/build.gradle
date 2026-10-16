@@ -5,7 +5,7 @@ allprojects {
     }
     configurations.all {
         resolutionStrategy.dependencySubstitution {
-            substitute module('org.chromium.net:cronet-api') using module('org.chromium.net:cronet-shared:141.7340.3')
+            substitute module('org.chromium.net:cronet-api') using module('org.chromium.net:cronet-shared')
         }
     }
 }
@@ -18,7 +18,7 @@ subprojects {
 
     project.configurations.all {
         resolutionStrategy.dependencySubstitution {
-            substitute module('org.chromium.net:cronet-api') using module('org.chromium.net:cronet-shared:141.7340.3')
+            substitute module('org.chromium.net:cronet-api') using module('org.chromium.net:cronet-shared')
         }
     }
 
