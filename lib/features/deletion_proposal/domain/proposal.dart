@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/vote_type.dart';
 
 part 'proposal.freezed.dart';
 part 'proposal.g.dart';
@@ -132,12 +133,12 @@ abstract class Proposal with _$Proposal {
 
   /// 获取支持删除的票数。
   int get supportVotes {
-    return _votes['proposal_agree_delete'] ?? 0;
+    return _votes[VoteType.agreeDelete.toRawString()] ?? 0;
   }
 
   /// 获取反对删除的票数。
   int get opposeVotes {
-    return _votes['proposal_disagree_delete'] ?? 0;
+    return _votes[VoteType.disagreeDelete.toRawString()] ?? 0;
   }
 
   /// 获取总的投票数（支持+反对+其他）。

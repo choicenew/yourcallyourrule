@@ -32,12 +32,12 @@ class ProposalLimitConfigService {
 
   Future<int> getStandardUserLimit() async {
     final config = await _getConfig();
-    return int.tryParse(config['standard_user_limit']?.toString() ?? '1') ?? 1;
+    return int.tryParse(config['standard_user_limit']?.toString() ?? '5') ?? 5;
   }
 
   Future<int> getVipUserLimit() async {
     final config = await _getConfig();
-    return int.tryParse(config['vip_user_limit']?.toString() ?? '3') ?? 3;
+    return int.tryParse(config['vip_user_limit']?.toString() ?? '20') ?? 20;
   }
 
   Future<int> getLimitDays() async {
@@ -47,6 +47,6 @@ class ProposalLimitConfigService {
 
   Future<int> getVotesPerProposal() async {
     final config = await _getConfig();
-    return int.tryParse(config['votes_per_proposal']?.toString() ?? '10') ?? 10;
+    return int.tryParse(config['votes_per_proposal']?.toString() ?? '3') ?? 3;
   }
 }

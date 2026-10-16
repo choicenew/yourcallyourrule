@@ -3,6 +3,7 @@ import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/regex/regex_pattern.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 
 
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';

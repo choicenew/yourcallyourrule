@@ -2,11 +2,44 @@ import 'dart:convert';
 import 'package:uuid/uuid.dart';
 import 'package:drift/drift.dart' hide Column; // hide Column to avoid name clash
 import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
+import 'package:yourcallyourrule/data/models/sync/sync_operation_type.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/data/proposal_datasource.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/models/proposal_history_item.dart';
+import 'package:yourcallyourrule/features/deletion_proposer/models/server_verification_report.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/models/sync_payload.dart';
+
+/// 扩展：将 Drift 自动生成的 ActiveDeletionProposalData 转换为领域模型 Proposal，避免手写 Map。
+extension ActiveDeletionProposalDataX on ActiveDeletionProposalData {
+  Proposal toDomainProposal() {
+    return Proposal(
+      phoneNumber: phoneNumber,
+      proposalStartTime: DateTime.parse(proposalStartTime),
+      status: ProposalStatus.fromString(status),
+      highestRiskLevel: RiskLevel.fromString(highestRiskLevel),
+      proposalCount: proposalCount,
+      verifiedOwnerCount: verifiedOwnerCount,
+      lastUpdated: DateTime.parse(lastUpdated),
+      verificationReportJson: verificationReportJson,
+      labelsJson: null,
+    );
+  }
+}
+
+/// 扩展：将 Drift 自动生成的 PendingOperationData 转换为 Map 结构，避免数据源内手写 Map 字面量。
+extension PendingOperationDataX on PendingOperationData {
+  Map<String, dynamic> toOperationMap() {
+    return {
+      'id': id,
+      'entityId': entityId,
+      'operation': operation,
+      'payload': payload != null ? jsonDecode(payload!) : null,
+      'timestamp': timestamp,
+    };
+  }
+}
 
 class ProposalDataSourceImpl implements ProposalDataSource {
   final RemoteDatabase _db;
@@ -23,6 +56,9 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     String? verificationReportJson,
   }) async {
     final now = DateTime.now().toIso8601String();
+    final verifiedStr = RiskLevel.verified.toRawString();
+    final lowStr = RiskLevel.low.toRawString();
+
     await _db.transaction(() async {
       final existing = await (_db.select(_db.activeDeletionProposals)
             ..where((t) => t.phoneNumber.equals(phoneNumber)))
@@ -47,10 +83,10 @@ class ProposalDataSourceImpl implements ProposalDataSource {
         final currentOwnerCount = existing.verifiedOwnerCount;
 
         String newRiskLevel = currentRiskLevel;
-        if (riskLevel == 'Verified' || currentRiskLevel == 'Verified') {
-          newRiskLevel = 'Verified';
-        } else if (riskLevel == 'Low' && currentRiskLevel != 'Verified') {
-          newRiskLevel = 'Low';
+        if (riskLevel == verifiedStr || currentRiskLevel == verifiedStr) {
+          newRiskLevel = verifiedStr;
+        } else if (riskLevel == lowStr && currentRiskLevel != verifiedStr) {
+          newRiskLevel = lowStr;
         }
 
         await (_db.update(_db.activeDeletionProposals)
@@ -76,17 +112,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
           ..where((t) => t.status.equals(ProposalStatus.pending.name))
           ..orderBy([(t) => OrderingTerm.asc(t.proposalStartTime)]))
         .get();
-    return rows.map((r) => Proposal.fromMap({
-          'phoneNumber': r.phoneNumber,
-          'proposalStartTime': r.proposalStartTime,
-          'status': r.status,
-          'highestRiskLevel': r.highestRiskLevel,
-          'proposalCount': r.proposalCount,
-          'verifiedOwnerCount': r.verifiedOwnerCount,
-          'lastUpdated': r.lastUpdated,
-          'verificationReportJson': r.verificationReportJson,
-          'labelsJson': null,
-        })).toList();
+    return rows.map((r) => r.toDomainProposal()).toList();
   }
 
   @override
@@ -96,17 +122,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
           ..where((t) => t.status.equals(ProposalStatus.pending.name))
           ..where((t) => t.proposalStartTime.isSmallerThanValue(cutoffTime)))
         .get();
-    return rows.map((r) => Proposal.fromMap({
-          'phoneNumber': r.phoneNumber,
-          'proposalStartTime': r.proposalStartTime,
-          'status': r.status,
-          'highestRiskLevel': r.highestRiskLevel,
-          'proposalCount': r.proposalCount,
-          'verifiedOwnerCount': r.verifiedOwnerCount,
-          'lastUpdated': r.lastUpdated,
-          'verificationReportJson': r.verificationReportJson,
-          'labelsJson': null,
-        })).toList();
+    return rows.map((r) => r.toDomainProposal()).toList();
   }
 
   @override
@@ -176,16 +192,14 @@ class ProposalDataSourceImpl implements ProposalDataSource {
 
   @override
   Future<int> countRecentProposals(String proposerId, DateTime since) async {
-    final query = await _db.customSelect(
-      'SELECT COUNT(*) AS cnt FROM proposal_submissions WHERE proposer_id = ? AND submission_time >= ?',
-      variables: [
-        Variable<String>(proposerId),
-        Variable<String>(since.toIso8601String()),
-      ],
-      readsFrom: {_db.proposalSubmissions},
-    ).getSingle();
-    final cnt = query.data['cnt'] as int?;
-    return cnt ?? 0;
+    final countExpr = _db.proposalSubmissions.id.count();
+    final query = _db.selectOnly(_db.proposalSubmissions)
+      ..addColumns([countExpr])
+      ..where(_db.proposalSubmissions.proposerId.equals(proposerId) &
+              _db.proposalSubmissions.submissionTime.isBiggerOrEqualValue(since.toIso8601String()));
+
+    final row = await query.getSingle();
+    return row.read(countExpr) ?? 0;
   }
 
   @override
@@ -206,13 +220,14 @@ class ProposalDataSourceImpl implements ProposalDataSource {
 
   @override
   Future<int> countUnconsumedVotes(String voterId) async {
-    final query = await _db.customSelect(
-      'SELECT COUNT(*) AS cnt FROM proposal_votes WHERE voter_id = ? AND is_consumed = 0',
-      variables: [Variable<String>(voterId)],
-      readsFrom: {_db.proposalVotes},
-    ).getSingle();
-    final cnt = query.data['cnt'] as int?;
-    return cnt ?? 0;
+    final countExpr = _db.proposalVotes.id.count();
+    final query = _db.selectOnly(_db.proposalVotes)
+      ..addColumns([countExpr])
+      ..where(_db.proposalVotes.voterId.equals(voterId) &
+              _db.proposalVotes.isConsumed.equals(0));
+
+    final row = await query.getSingle();
+    return row.read(countExpr) ?? 0;
   }
 
   @override
@@ -269,15 +284,23 @@ class ProposalDataSourceImpl implements ProposalDataSource {
   @override
   Future<void> proposeDeletion({
     required String phoneNumber,
-    required Map<String, dynamic> report,
+    required dynamic report,
   }) async {
+    final ServerVerificationReport reportEntity = report is ServerVerificationReport
+        ? report
+        : ServerVerificationReport.fromJson(
+            report is Map<String, dynamic> ? report : Map<String, dynamic>.from(report as Map),
+          );
+
+    final syncPayload = SyncPayload.proposeDeletion(
+      report: reportEntity,
+      timestamp: DateTime.now().toIso8601String(),
+    );
+
     await logCustomOperation(
-      operation: 'PROPOSE_DELETION',
+      operation: SyncOperationType.proposeDeletion.toRawString(),
       phoneNumber: phoneNumber,
-      payload: {
-        'report': report,
-        'timestamp': DateTime.now().toIso8601String(),
-      },
+      payload: syncPayload.toJson(),
     );
   }
 
@@ -287,14 +310,16 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     required String voteType,
     Map<String, dynamic>? additionalData,
   }) async {
+    final syncPayload = SyncPayload.voteDeletion(
+      voteType: voteType,
+      additionalData: additionalData,
+      timestamp: DateTime.now().toIso8601String(),
+    );
+
     await logCustomOperation(
-      operation: 'VOTE_DELETION',
+      operation: SyncOperationType.voteDeletion.toRawString(),
       phoneNumber: phoneNumber,
-      payload: {
-        'voteType': voteType,
-        'additionalData': additionalData,
-        'timestamp': DateTime.now().toIso8601String(),
-      },
+      payload: syncPayload.toJson(),
     );
   }
 
@@ -305,41 +330,25 @@ class ProposalDataSourceImpl implements ProposalDataSource {
   Future<List<Map<String, dynamic>>>
   getPendingDeletionProposalOperations() async {
     final rows = await (_db.select(_db.pendingOperations)
-          ..where((t) => t.operation.equals('PROPOSE_DELETION'))
+          ..where((t) => t.operation.equals(SyncOperationType.proposeDeletion.toRawString()))
           ..orderBy([(t) => OrderingTerm.asc(t.timestamp)]))
         .get();
-    return rows
-        .map((r) => {
-              'id': r.id,
-              'entityId': r.entityId,
-              'operation': r.operation,
-              'payload': r.payload != null ? jsonDecode(r.payload!) : null,
-              'timestamp': r.timestamp,
-            })
-        .toList();
+    return rows.map((r) => r.toOperationMap()).toList();
   }
 
   @override
   Future<List<Map<String, dynamic>>> getPendingDeletionVotes() async {
     final rows = await (_db.select(_db.pendingOperations)
-          ..where((t) => t.operation.equals('VOTE_DELETION'))
+          ..where((t) => t.operation.equals(SyncOperationType.voteDeletion.toRawString()))
           ..orderBy([(t) => OrderingTerm.asc(t.timestamp)]))
         .get();
-    return rows
-        .map((r) => {
-              'id': r.id,
-              'entityId': r.entityId,
-              'operation': r.operation,
-              'payload': r.payload != null ? jsonDecode(r.payload!) : null,
-              'timestamp': r.timestamp,
-            })
-        .toList();
+    return rows.map((r) => r.toOperationMap()).toList();
   }
 
   @override
   Future<bool> hasPendingDeletionProposal(String phoneNumber) async {
     final row = await (_db.select(_db.pendingOperations)
-          ..where((t) => t.operation.equals('PROPOSE_DELETION'))
+          ..where((t) => t.operation.equals(SyncOperationType.proposeDeletion.toRawString()))
           ..where((t) => t.entityId.equals(phoneNumber)))
         .getSingleOrNull();
     return row != null;
@@ -349,10 +358,12 @@ class ProposalDataSourceImpl implements ProposalDataSource {
   Future<void> clearDeletionOperations(String phoneNumber) async {
     await (_db.delete(_db.pendingOperations)
           ..where((t) => t.entityId.equals(phoneNumber))
-          ..where((t) => t.operation.isIn(['PROPOSE_DELETION', 'VOTE_DELETION'])))
+          ..where((t) => t.operation.isIn([
+                SyncOperationType.proposeDeletion.toRawString(),
+                SyncOperationType.voteDeletion.toRawString(),
+              ])))
         .go();
   }
-
 
   // =======================================================================
   // 【核心修正】: `getProposalInfo` 的实现现在正确地查询 `active_deletion_proposals` 并返回 `Proposal` 对象。
@@ -363,17 +374,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
           ..where((t) => t.phoneNumber.equals(phoneNumber)))
         .getSingleOrNull();
     if (r == null) return null;
-    return Proposal.fromMap({
-      'phoneNumber': r.phoneNumber,
-      'proposalStartTime': r.proposalStartTime,
-      'status': r.status,
-      'highestRiskLevel': r.highestRiskLevel,
-      'proposalCount': r.proposalCount,
-      'verifiedOwnerCount': r.verifiedOwnerCount,
-      'lastUpdated': r.lastUpdated,
-      'verificationReportJson': r.verificationReportJson,
-      'labelsJson': null,
-    });
+    return r.toDomainProposal();
   }
 
   // =======================================================================
@@ -385,7 +386,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     try {
       final row = await (_db.select(_db.pendingOperations)
             ..where((t) => t.entityId.equals(phoneNumber))
-            ..where((t) => t.operation.equals('PROPOSE_DELETION')))
+            ..where((t) => t.operation.equals(SyncOperationType.proposeDeletion.toRawString())))
           .getSingleOrNull();
 
       if (row != null) {
@@ -401,14 +402,13 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     }
   }
 
-
-
-
   // =======================================================================
   // 【新增实现】: 聚合查询逻辑
   // =======================================================================
   @override
   Future<List<MyProposalHistoryItem>> getMyProposalHistory(String deviceId) async {
+    final proposeDeletionOpStr = SyncOperationType.proposeDeletion.toRawString();
+
     // 1. 获取我所有的提交记录 (按时间倒序)
     final submissions = await (_db.select(_db.proposalSubmissions)
           ..where((t) => t.proposerId.equals(deviceId))
@@ -423,7 +423,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     // 3. 批量查询：待同步队列 (Pending)
     final pendingRows = await (_db.select(_db.pendingOperations)
           ..where((t) => t.entityId.isIn(phoneNumbers))
-          ..where((t) => t.operation.equals('PROPOSE_DELETION')))
+          ..where((t) => t.operation.equals(proposeDeletionOpStr)))
         .get();
     final pendingSet = pendingRows.map((r) => r.entityId).toSet();
 
@@ -484,6 +484,4 @@ class ProposalDataSourceImpl implements ProposalDataSource {
 
     return historyList;
   }
-
-
 }
