@@ -4,8 +4,10 @@ allprojects {
         mavenCentral()
     }
     configurations.all {
-        resolutionStrategy.dependencySubstitution {
-            substitute module('org.chromium.net:cronet-api') using module('org.chromium.net:cronet-shared')
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'org.chromium.net' && details.requested.name == 'cronet-api') {
+                details.useTarget "org.chromium.net:cronet-shared:${details.requested.version}"
+            }
         }
     }
 }
@@ -17,8 +19,10 @@ subprojects {
     project.layout.buildDirectory.value(newSubprojectBuildDir)
 
     project.configurations.all {
-        resolutionStrategy.dependencySubstitution {
-            substitute module('org.chromium.net:cronet-api') using module('org.chromium.net:cronet-shared')
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'org.chromium.net' && details.requested.name == 'cronet-api') {
+                details.useTarget "org.chromium.net:cronet-shared:${details.requested.version}"
+            }
         }
     }
 
