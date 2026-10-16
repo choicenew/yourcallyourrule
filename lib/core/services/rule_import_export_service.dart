@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:isolate';
 
 import 'package:csv/csv.dart';
 import 'package:flutter/foundation.dart';
@@ -28,16 +29,19 @@ class RuleImportExportService extends ImportExportService<RuleBase, String> {
   @override
   Future<List<RuleBase>> parseJsonData(String data) async {
     try {
-      final jsonData = jsonDecode(data);
-      List<Map<String, dynamic>> rawMaps;
-      
-      if (jsonData is List) {
-        rawMaps = List<Map<String, dynamic>>.from(jsonData);
-      } else if (jsonData is Map) {
-        rawMaps = [Map<String, dynamic>.from(jsonData)];
-      } else {
-        throw const FormatException('JSON格式错误: 预期列表或映射');
-      }
+      // 1. 在后台 Isolate（副线程）中去解码大容量 JSON 文本与粗加工 Map 列表，绝不占用 UI 渲染主线程
+      final rawMaps = await Isolate.run(() {
+        final jsonData = jsonDecode(data);
+        if (jsonData is List) {
+          return List<Map<String, dynamic>>.from(
+            jsonData.map((e) => Map<String, dynamic>.from(e as Map)),
+          );
+        } else if (jsonData is Map) {
+          return [Map<String, dynamic>.from(jsonData)];
+        } else {
+          throw const FormatException('JSON格式错误: 预期列表或映射');
+        }
+      });
       
       final rules = <RuleBase>[];
       for (final rawMap in rawMaps) {
@@ -83,13 +87,13 @@ class RuleImportExportService extends ImportExportService<RuleBase, String> {
   @override
   Future<List<RuleBase>> parseCsvData(String data) async {
     try {
-      // 检测是否为制表符分隔的CSV
-      bool isTabSeparated = data.contains('\t');
-      
-      // 根据分隔符类型选择转换器
-      final rows = isTabSeparated 
-          ? const CsvDecoder(fieldDelimiter: '\t').convert(data)
-          : const CsvDecoder().convert(data);
+      // 1. 在后台 Isolate（副线程）中进行 CSV 文本转义解码
+      final rows = await Isolate.run(() {
+        bool isTabSeparated = data.contains('\t');
+        return isTabSeparated 
+            ? const CsvDecoder(fieldDelimiter: '\t').convert(data)
+            : const CsvDecoder().convert(data);
+      });
           
       if (rows.isEmpty) {
         debugPrint('[RuleImportExportService] CSV parsing: No rows found in data');
@@ -221,7 +225,7 @@ class RuleImportExportService extends ImportExportService<RuleBase, String> {
     }
   }
 
-  /// 从URL导入规则
+  /// 从URL导入规则（在后台 Isolate 中进行耗时的数据解析，彻底解除对主 UI 线程的占用）
   Future<List<RuleBase>> importFromUrl(String url) async {
     try {
       debugPrint('[RuleImportExportService] >>> Importing from URL: $url');
@@ -230,10 +234,15 @@ class RuleImportExportService extends ImportExportService<RuleBase, String> {
       if (response.statusCode == 200) {
         final data = response.body;
         debugPrint('[RuleImportExportService] ... Data downloaded (${data.length} bytes)');
-        // 自动检测格式并解析
+        // 自动检测格式
         final format = detectFileFormat('', data);
         debugPrint('[RuleImportExportService] ... Detected format: $format');
-        final rules = await parseImportData(data, format: format);
+        
+        // 关键性能优化：在独立的后台 Isolate 中执行复杂的字符串与 JSON 解析，绝不占用/卡顿主 UI 线程！
+        final rules = await Isolate.run(() async {
+          return await parseImportData(data, format: format);
+        });
+        
         debugPrint('[RuleImportExportService] <<< Parsed ${rules.length} rules from URL data.');
         return rules;
       } else {

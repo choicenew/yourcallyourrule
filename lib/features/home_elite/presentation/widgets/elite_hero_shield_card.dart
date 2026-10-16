@@ -54,26 +54,38 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     super.dispose();
   }
 
-  Future<void> _handleRefresh() async {
+  void _handleRefresh() {
     if (_isRefreshing) return;
     setState(() {
       _isRefreshing = true;
     });
 
-    try {
-      final autoUpdateService = ref.read(autoUpdateServiceProvider);
-      await autoUpdateService.updateAll();
-      ref.invalidate(homeStatsProvider);
-    } catch (e) {
-      debugPrint('一键更新规则失败: $e');
-    } finally {
-      if (mounted) {
-        setState(() {
-          _isRefreshing = false;
-          _lastUpdatedTime = DateTime.now();
-        });
+    final l10n = AppLocalizations.of(context)!;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(l10n.syncNowButton),
+        duration: const Duration(seconds: 2),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+
+    // 在后台非阻塞执行刷新，不卡死 UI 渲染线程
+    Future(() async {
+      try {
+        final autoUpdateService = ref.read(autoUpdateServiceProvider);
+        await autoUpdateService.updateAll();
+      } catch (e) {
+        debugPrint('后台一键更新规则失败: $e');
+      } finally {
+        if (mounted) {
+          ref.invalidate(homeStatsProvider);
+          setState(() {
+            _isRefreshing = false;
+            _lastUpdatedTime = DateTime.now();
+          });
+        }
       }
-    }
+    });
   }
 
   void _handleSearchSubmit(String value) {
