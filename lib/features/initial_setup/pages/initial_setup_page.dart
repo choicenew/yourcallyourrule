@@ -373,6 +373,9 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
       final phoneService = ref.read(phoneSubscriptionServiceProvider);
       final pluginService = ref.read(pluginManagerServiceProvider);
       
+      final List<Subscription> subscriptionsToSave = [];
+      final List<String> pluginUrlsToInstall = [];
+
       for (final countryId in _selectedCountryIds) {
         final country = config.countriesData.firstWhere((c) => c.id == countryId);
         final effectiveUrl =
@@ -380,11 +383,9 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
             ? _customUrlController.text.trim()
             : country.getEffectiveUrl(useCdn: _useCdn);
         
-        // 如果数据节点规则类型为 'plugin'，调用插件管理器将 JS 脚本直接安装到插件数据库
         if (country.ruleType.toLowerCase() == 'plugin') {
-          await pluginService.addPluginFromUrl(effectiveUrl);
+          pluginUrlsToInstall.add(effectiveUrl);
         } else {
-          // 普通电话/正则规则订阅：创建订阅实体并拉取规则入库
           final subscription = Subscription(
             id: const Uuid().v4(),
             name: country.name,
@@ -395,18 +396,41 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
             autoUpdate: true,
             tableType: 'phone', 
           );
-          
-          await phoneService.save(subscription);
-          await phoneService.importAndSaveRulesFromSubscription(subscription);
+          subscriptionsToSave.add(subscription);
         }
       }
-      
+
+      // 1. 毫秒级将订阅配置写入本地 SQLite 数据库
+      for (final sub in subscriptionsToSave) {
+        await phoneService.save(sub);
+      }
+
+      // 2. 给出成功提示并【立刻关闭向导进入主界面】，绝对不卡顿等待网络下载
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(l10n.initialSetupSaveSuccess)),
         );
         _exit(context);
       }
+
+      // 3. 在后台静默异步拉取并解析规则/插件（完全非阻塞 UI）
+      Future.microtask(() async {
+        for (final sub in subscriptionsToSave) {
+          try {
+            await phoneService.importAndSaveRulesFromSubscription(sub);
+          } catch (e) {
+            debugPrint('[InitialSetupPage] Background import rules failed for ${sub.name}: $e');
+          }
+        }
+
+        for (final pluginUrl in pluginUrlsToInstall) {
+          try {
+            await pluginService.addPluginFromUrl(pluginUrl);
+          } catch (e) {
+            debugPrint('[InitialSetupPage] Background install plugin failed for $pluginUrl: $e');
+          }
+        }
+      });
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
