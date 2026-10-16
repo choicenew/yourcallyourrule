@@ -1,5 +1,7 @@
 // 正则表达式规则实体，用于表示基于正则表达式的规则
 
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
+
 import '../../value_objects/rule_action.dart';
 import '../../value_objects/rule_priority.dart';
 import 'rule_base.dart';
@@ -89,7 +91,7 @@ class RegexRule extends RuleBase {
       pattern: map['pattern'],
       priority: RulePriority.fromInt(map['priority']),
       action: RuleAction.fromString(map['action']),
-      isEnabled: (map['isEnabled'] ?? 1) == 1,
+      isEnabled: parseBool(map['isEnabled']),
       subscriptionId: map['subscriptionId'],
     );
   }

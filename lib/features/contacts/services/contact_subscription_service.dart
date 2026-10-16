@@ -1,7 +1,6 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'dart:isolate';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/base/base_service.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
@@ -147,11 +146,13 @@ class ContactSubscriptionService
     }
   }
 
-  // 添加联系人数据解析方法
+  // 添加联系人数据解析方法 (在后台 Isolate 中高效解析，不占用主 UI 线程)
   Future<List<Contact>> _parseContactData(String data) async {
     try {
-      final jsonList = jsonDecode(data) as List<dynamic>;
-      return jsonList.map((item) => Contact.fromMap(item)).toList();
+      return await Isolate.run(() {
+        final jsonList = jsonDecode(data) as List<dynamic>;
+        return jsonList.map((item) => Contact.fromMap(item)).toList();
+      });
     } catch (e) {
       throw FormatException('联系人数据解析失败: $e');
     }

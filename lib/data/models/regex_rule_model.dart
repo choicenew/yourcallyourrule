@@ -1,5 +1,6 @@
 // 规则数据模型，用于数据层与领域层之间的转换
 
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
 import 'package:yourcallyourrule/data/models/rule_model.dart';
 
 
@@ -39,7 +40,7 @@ class RegexRuleModel extends RuleModel {
       priority: map['priority'],
       action: map['action'],
       pattern: map['pattern'],
-      isEnabled: (map['isEnabled'] ?? 1) == 1,
+      isEnabled: parseBool(map['isEnabled']),
       subscriptionId: map['subscriptionId'],
       ruleType: map['ruleType'], // Read ruleType from map
     );

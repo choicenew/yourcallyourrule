@@ -5,6 +5,8 @@ import '../../value_objects/rule_priority.dart';
 import 'rule_base.dart';
 import 'rule_type.dart';
 
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
+
 part 'sim_slot_rule.freezed.dart';
 part 'sim_slot_rule.g.dart';
 
@@ -42,5 +44,11 @@ abstract class SimSlotRule with _$SimSlotRule implements RuleBase {
   Map<String, dynamic> toMap() => toJson();
 
   /// 从 Map 反序列化
-  factory SimSlotRule.fromMap(Map<String, dynamic> map) => SimSlotRule.fromJson(map);
+  factory SimSlotRule.fromMap(Map<String, dynamic> map) {
+    final jsonMap = Map<String, dynamic>.from(map);
+    if (jsonMap.containsKey('isEnabled')) {
+      jsonMap['isEnabled'] = parseBool(jsonMap['isEnabled']);
+    }
+    return SimSlotRule.fromJson(jsonMap);
+  }
 }

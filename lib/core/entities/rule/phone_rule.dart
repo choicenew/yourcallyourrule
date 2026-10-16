@@ -5,6 +5,8 @@ import '../../value_objects/rule_priority.dart';
 import 'rule_base.dart';
 import 'rule_type.dart';
 
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
+
 part 'phone_rule.freezed.dart';
 part 'phone_rule.g.dart';
 
@@ -46,5 +48,11 @@ abstract class PhoneRule with _$PhoneRule implements RuleBase {
   Map<String, dynamic> toMap() => toJson();
 
   /// 从 Map 反序列化
-  factory PhoneRule.fromMap(Map<String, dynamic> map) => PhoneRule.fromJson(map);
+  factory PhoneRule.fromMap(Map<String, dynamic> map) {
+    final jsonMap = Map<String, dynamic>.from(map);
+    if (jsonMap.containsKey('isEnabled')) {
+      jsonMap['isEnabled'] = parseBool(jsonMap['isEnabled']);
+    }
+    return PhoneRule.fromJson(jsonMap);
+  }
 }

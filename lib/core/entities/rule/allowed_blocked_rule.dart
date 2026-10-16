@@ -5,6 +5,8 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
+
 part 'allowed_blocked_rule.freezed.dart';
 part 'allowed_blocked_rule.g.dart';
 
@@ -48,6 +50,9 @@ abstract class AllowedBlockedRule with _$AllowedBlockedRule implements RuleBase 
   /// 从 Map 反序列化 (注入动态默认优先级：ALLOW = 100 > BLOCK = 50)
   factory AllowedBlockedRule.fromMap(Map<String, dynamic> map) {
     final jsonMap = Map<String, dynamic>.from(map);
+    if (jsonMap.containsKey('isEnabled')) {
+      jsonMap['isEnabled'] = parseBool(jsonMap['isEnabled']);
+    }
     if (jsonMap['priority'] == null) {
       final action = RuleAction.fromString(jsonMap['action']?.toString() ?? '');
       jsonMap['priority'] = action.type == RuleActionType.allow

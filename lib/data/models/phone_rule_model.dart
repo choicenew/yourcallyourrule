@@ -1,3 +1,4 @@
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
 import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
@@ -39,7 +40,7 @@ class PhoneRuleModel extends RuleModel {
       count: map['count'] ?? 0,
       avatar: map['avatar'],
       subscriptionId: map['subscriptionId'],
-      isEnabled: (map['isEnabled'] ?? 1) == 1,
+      isEnabled: parseBool(map['isEnabled']),
       ruleType: map['ruleType'], // Read ruleType from map
     );
   }

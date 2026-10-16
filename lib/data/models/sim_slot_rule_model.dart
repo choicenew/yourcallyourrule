@@ -1,3 +1,4 @@
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
 import 'package:yourcallyourrule/core/entities/rule/sim_slot_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
@@ -72,7 +73,7 @@ class SimSlotRuleModel extends RuleModel {
       simSlotIndex: map['simSlotIndex'],
       labelId: map['labelId'] ?? '',
       avatar: map['avatar'],
-      isEnabled: (map['isEnabled'] ?? 1) == 1,
+      isEnabled: parseBool(map['isEnabled']),
     );
   }
 

@@ -1,3 +1,4 @@
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
@@ -61,7 +62,7 @@ class SmsRegexRuleModel extends RuleModel {
       action: map['action'],
       contentRegex: map['contentRegex'],
       senderRegex: map['senderRegex'],
-      isEnabled: (map['isEnabled'] ?? 1) == 1,
+      isEnabled: parseBool(map['isEnabled']),
     );
   }
 

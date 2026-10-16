@@ -4,6 +4,8 @@ import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
+
 part 'sms_regex_rule.freezed.dart';
 part 'sms_regex_rule.g.dart';
 
@@ -48,5 +50,11 @@ abstract class SmsRegexRule with _$SmsRegexRule implements RuleBase {
   Map<String, dynamic> toMap() => toJson();
 
   /// 从 Map 反序列化
-  factory SmsRegexRule.fromMap(Map<String, dynamic> map) => SmsRegexRule.fromJson(map);
+  factory SmsRegexRule.fromMap(Map<String, dynamic> map) {
+    final jsonMap = Map<String, dynamic>.from(map);
+    if (jsonMap.containsKey('isEnabled')) {
+      jsonMap['isEnabled'] = parseBool(jsonMap['isEnabled']);
+    }
+    return SmsRegexRule.fromJson(jsonMap);
+  }
 }

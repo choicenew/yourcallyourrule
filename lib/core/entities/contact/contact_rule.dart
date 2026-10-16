@@ -1,3 +1,4 @@
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
@@ -38,8 +39,8 @@ class ContactRule extends RuleBase {
       priority: RulePriority.fromInt(map['priority']),
       action: RuleAction.fromString(map['action']),
       contactId: map['contactId'],
-      isSubscribed: map['isSubscribed'] ?? false,
-      isEnabled: map['isEnabled'] ?? true,
+      isSubscribed: parseBool(map['isSubscribed'], defaultValue: false),
+      isEnabled: parseBool(map['isEnabled']),
     );
   }
 

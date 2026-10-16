@@ -1,5 +1,6 @@
 // 规则数据模型，用于数据层与领域层之间的转换
 
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
 import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
@@ -45,11 +46,11 @@ class AllowedBlockedRuleModel extends RuleModel {
       action: map['action'], // action is already a string here
       phoneNumber: map['phoneNumber'],
       labelId: map['labelId'],
-      isSubscribed: (map['isSubscribed'] ?? 0) == 1,
+      isSubscribed: parseBool(map['isSubscribed'], defaultValue: false),
       count: map['count'] ?? 0,
       avatar: map['avatar'],
       subscriptionId: map['subscriptionId'],
-      isEnabled: (map['isEnabled'] ?? 1) == 1,
+      isEnabled: parseBool(map['isEnabled']),
       ruleType: map['ruleType'], // Read ruleType from map
     );
   }
