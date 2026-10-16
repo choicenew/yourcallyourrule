@@ -4889,6 +4889,20 @@ class AppLocalizationsZu extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'Sheshe isethi yemithetho noma izwe...';
+
+  @override
+  String get initialSetupSelectAll => 'Khetha Konke';
+
+  @override
+  String get initialSetupDeselectAll => 'Susa Ukukhetha';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count Okukhethiwe';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

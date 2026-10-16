@@ -4838,6 +4838,20 @@ class AppLocalizationsDa extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Indlæs konfiguration';
 
   @override
+  String get initialSetupSearchHint => 'Søg i regelsæt eller land...';
+
+  @override
+  String get initialSetupSelectAll => 'Vælg alle';
+
+  @override
+  String get initialSetupDeselectAll => 'Ryd markering';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count valgt';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Registreret placering';
 
   @override

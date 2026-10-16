@@ -4847,6 +4847,20 @@ class AppLocalizationsCs extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Načíst konfiguraci';
 
   @override
+  String get initialSetupSearchHint => 'Hledat sadu pravidel nebo zemi...';
+
+  @override
+  String get initialSetupSelectAll => 'Vybrat vše';
+
+  @override
+  String get initialSetupDeselectAll => 'Zrušit výběr';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return 'Vybráno $count';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Zjištěná poloha';
 
   @override

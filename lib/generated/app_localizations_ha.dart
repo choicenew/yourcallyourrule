@@ -4848,6 +4848,20 @@ class AppLocalizationsHa extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'Nemi tsari ko ƙasa...';
+
+  @override
+  String get initialSetupSelectAll => 'Zaɓi Duk';
+
+  @override
+  String get initialSetupDeselectAll => 'Cire Zaɓi';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return 'An Zaɓi $count';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

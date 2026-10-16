@@ -4881,6 +4881,21 @@ class AppLocalizationsPt extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Carregar configuração';
 
   @override
+  String get initialSetupSearchHint =>
+      'Pesquisar conjunto de regras ou país...';
+
+  @override
+  String get initialSetupSelectAll => 'Selecionar tudo';
+
+  @override
+  String get initialSetupDeselectAll => 'Limpar seleção';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count selecionado(s)';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Localização detectada';
 
   @override

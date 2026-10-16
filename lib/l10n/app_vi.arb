@@ -2342,6 +2342,17 @@
   "initialSetupSourceCustom": "Nguồn gương tự lưu trữ",
   "initialSetupCustomUrlHint": "Nhập URL cấu hình JSON gương tự lưu trữ",
   "initialSetupCustomUrlLoad": "Tải cấu hình",
+  "initialSetupSearchHint": "Tìm kiếm bộ quy tắc hoặc quốc gia...",
+  "initialSetupSelectAll": "Chọn tất cả",
+  "initialSetupDeselectAll": "Bỏ chọn",
+  "initialSetupSelectedCount": "Đã chọn {count}",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Vị trí đã phát hiện",
   "deepLinkImportTitle": "Nhập cấu hình",
   "@deepLinkImportTitle": {

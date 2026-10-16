@@ -2396,6 +2396,17 @@
   "initialSetupSourceCustom": "Oma peilipalvelinlähde",
   "initialSetupCustomUrlHint": "Syötä oman peilipalvelimen JSON-määrityksen URL",
   "initialSetupCustomUrlLoad": "Lataa määritys",
+  "initialSetupSearchHint": "Etsi sääntöjoukkoa tai maata...",
+  "initialSetupSelectAll": "Valitse kaikki",
+  "initialSetupDeselectAll": "Tyhjennä valinta",
+  "initialSetupSelectedCount": "{count} valittu",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Tunnistettu sijainti",
   "deepLinkImportTitle": "Tuo määritys",
   "@deepLinkImportTitle": {

@@ -4856,6 +4856,20 @@ class AppLocalizationsNl extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Configuratie laden';
 
   @override
+  String get initialSetupSearchHint => 'Zoek regelset of land...';
+
+  @override
+  String get initialSetupSelectAll => 'Alles selecteren';
+
+  @override
+  String get initialSetupDeselectAll => 'Selectie wissen';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count geselecteerd';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Gedetecteerde locatie';
 
   @override

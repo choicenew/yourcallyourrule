@@ -4870,6 +4870,20 @@ class AppLocalizationsUk extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Завантажити конфігурацію';
 
   @override
+  String get initialSetupSearchHint => 'Пошук набору правил або країни...';
+
+  @override
+  String get initialSetupSelectAll => 'Вибрати все';
+
+  @override
+  String get initialSetupDeselectAll => 'Очистити вибір';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return 'Вибрано: $count';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Визначене місцезнаходження';
 
   @override

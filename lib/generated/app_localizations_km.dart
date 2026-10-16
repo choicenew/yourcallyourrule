@@ -4834,6 +4834,20 @@ class AppLocalizationsKm extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'ស្វែងរកសំណុំច្បាប់ ឬប្រទេស...';
+
+  @override
+  String get initialSetupSelectAll => 'ជ្រើសរើសទាំងអស់';
+
+  @override
+  String get initialSetupDeselectAll => 'សម្អាតការជ្រើសរើស';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return 'បានជ្រើសរើស $count';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

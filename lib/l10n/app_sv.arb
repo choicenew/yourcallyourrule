@@ -2396,6 +2396,17 @@
   "initialSetupSourceCustom": "Egen spegelkälla",
   "initialSetupCustomUrlHint": "Ange URL för egen spegel-JSON-konfiguration",
   "initialSetupCustomUrlLoad": "Läs in konfiguration",
+  "initialSetupSearchHint": "Sök regeluppsättning eller land...",
+  "initialSetupSelectAll": "Markera alla",
+  "initialSetupDeselectAll": "Rensa markering",
+  "initialSetupSelectedCount": "{count} valda",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Identifierad plats",
   "deepLinkImportTitle": "Importera konfiguration",
   "@deepLinkImportTitle": {

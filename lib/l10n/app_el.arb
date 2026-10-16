@@ -2392,6 +2392,17 @@
   "initialSetupSourceCustom": "Custom URL",
   "initialSetupCustomUrlHint": "Enter custom config JSON URL",
   "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupSearchHint": "Αναζήτηση συνόλου κανόνων ή χώρας...",
+  "initialSetupSelectAll": "Επιλογή όλων",
+  "initialSetupDeselectAll": "Καθαρισμός επιλογής",
+  "initialSetupSelectedCount": "Επιλέχθηκαν {count}",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Recommended for your location",
   "deepLinkImportTitle": "Import {type}",
   "@deepLinkImportTitle": {

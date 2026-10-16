@@ -4837,6 +4837,20 @@ class AppLocalizationsBn extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'রুলসেট বা দেশ খুঁজুন...';
+
+  @override
+  String get initialSetupSelectAll => 'সব নির্বাচন করুন';
+
+  @override
+  String get initialSetupDeselectAll => 'নির্বাচন মুছুন';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$countটি নির্বাচিত';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

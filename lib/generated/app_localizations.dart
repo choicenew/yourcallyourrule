@@ -8654,6 +8654,30 @@ abstract class AppLocalizations {
   /// **'Load Config'**
   String get initialSetupCustomUrlLoad;
 
+  /// No description provided for @initialSetupSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search ruleset or country...'**
+  String get initialSetupSearchHint;
+
+  /// No description provided for @initialSetupSelectAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Select All'**
+  String get initialSetupSelectAll;
+
+  /// No description provided for @initialSetupDeselectAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Selection'**
+  String get initialSetupDeselectAll;
+
+  /// No description provided for @initialSetupSelectedCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Selected'**
+  String initialSetupSelectedCount(int count);
+
   /// No description provided for @initialSetupDetectedLocation.
   ///
   /// In en, this message translates to:

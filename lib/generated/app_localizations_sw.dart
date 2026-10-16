@@ -4862,6 +4862,20 @@ class AppLocalizationsSw extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'Tafuta seti ya sheria au nchi...';
+
+  @override
+  String get initialSetupSelectAll => 'Chagua Zote';
+
+  @override
+  String get initialSetupDeselectAll => 'Futa Uteuzi';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count Zimechaguliwa';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

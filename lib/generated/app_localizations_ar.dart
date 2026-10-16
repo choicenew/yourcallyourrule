@@ -4804,6 +4804,20 @@ class AppLocalizationsAr extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'البحث عن مجموعة القواعد أو الدولة...';
+
+  @override
+  String get initialSetupSelectAll => 'تحديد الكل';
+
+  @override
+  String get initialSetupDeselectAll => 'إلغاء التحديد';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return 'تم تحديد $count';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

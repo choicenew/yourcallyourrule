@@ -4871,6 +4871,20 @@ class AppLocalizationsRo extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'Căutați set de reguli sau țară...';
+
+  @override
+  String get initialSetupSelectAll => 'Selectează tot';
+
+  @override
+  String get initialSetupDeselectAll => 'Anulează selecția';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count selectate';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

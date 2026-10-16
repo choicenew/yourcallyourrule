@@ -2392,6 +2392,17 @@
   "initialSetupSourceCustom": "Custom URL",
   "initialSetupCustomUrlHint": "Enter custom config JSON URL",
   "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupSearchHint": "Hľadať sadu pravidiel alebo krajinu...",
+  "initialSetupSelectAll": "Vybrať všetko",
+  "initialSetupDeselectAll": "Zrušiť výber",
+  "initialSetupSelectedCount": "Vybrané: {count}",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Recommended for your location",
   "deepLinkImportTitle": "Import {type}",
   "@deepLinkImportTitle": {

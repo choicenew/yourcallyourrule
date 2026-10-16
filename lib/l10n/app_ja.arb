@@ -2396,6 +2396,17 @@
   "initialSetupSourceCustom": "Custom URL",
   "initialSetupCustomUrlHint": "Enter custom config JSON URL",
   "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupSearchHint": "ルールセットまたは国を検索...",
+  "initialSetupSelectAll": "すべて選択",
+  "initialSetupDeselectAll": "選択を解除",
+  "initialSetupSelectedCount": "{count}件選択中",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Recommended for your location",
   "deepLinkImportTitle": "Import {type}",
   "@deepLinkImportTitle": {

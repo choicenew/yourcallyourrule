@@ -2363,6 +2363,17 @@
   "initialSetupSourceCustom": "स्व-होस्टेड मिरर स्रोत",
   "initialSetupCustomUrlHint": "स्व-होस्टेड मिरर JSON कॉन्फ़िगरेशन URL दर्ज करें",
   "initialSetupCustomUrlLoad": "कॉन्फ़िगरेशन लोड करें",
+  "initialSetupSearchHint": "नियम सेट या देश खोजें...",
+  "initialSetupSelectAll": "सभी चुनें",
+  "initialSetupDeselectAll": "चयन हटाएं",
+  "initialSetupSelectedCount": "{count} चुने गए",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "पहचाना गया स्थान",
   "deepLinkImportTitle": "कॉन्फ़िगरेशन आयात करें",
   "@deepLinkImportTitle": {

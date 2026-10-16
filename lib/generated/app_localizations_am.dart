@@ -4741,6 +4741,20 @@ class AppLocalizationsAm extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'የደንብ ስብስብ ወይም ሀገር ይፈልጉ...';
+
+  @override
+  String get initialSetupSelectAll => 'ሁሉንም ምረጥ';
+
+  @override
+  String get initialSetupDeselectAll => 'ምርጫን አጽዳ';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count ተመርጧል';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

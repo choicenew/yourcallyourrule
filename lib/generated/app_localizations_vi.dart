@@ -4826,6 +4826,20 @@ class AppLocalizationsVi extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Tải cấu hình';
 
   @override
+  String get initialSetupSearchHint => 'Tìm kiếm bộ quy tắc hoặc quốc gia...';
+
+  @override
+  String get initialSetupSelectAll => 'Chọn tất cả';
+
+  @override
+  String get initialSetupDeselectAll => 'Bỏ chọn';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return 'Đã chọn $count';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Vị trí đã phát hiện';
 
   @override

@@ -2392,6 +2392,17 @@
   "initialSetupSourceCustom": "Custom URL",
   "initialSetupCustomUrlHint": "Enter custom config JSON URL",
   "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupSearchHint": "Tafuta seti ya sheria au nchi...",
+  "initialSetupSelectAll": "Chagua Zote",
+  "initialSetupDeselectAll": "Futa Uteuzi",
+  "initialSetupSelectedCount": "{count} Zimechaguliwa",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Recommended for your location",
   "deepLinkImportTitle": "Import {type}",
   "@deepLinkImportTitle": {

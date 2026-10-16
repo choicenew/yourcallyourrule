@@ -2392,6 +2392,17 @@
   "initialSetupSourceCustom": "Custom URL",
   "initialSetupCustomUrlHint": "Enter custom config JSON URL",
   "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupSearchHint": "Nemi tsari ko ƙasa...",
+  "initialSetupSelectAll": "Zaɓi Duk",
+  "initialSetupDeselectAll": "Cire Zaɓi",
+  "initialSetupSelectedCount": "An Zaɓi {count}",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Recommended for your location",
   "deepLinkImportTitle": "Import {type}",
   "@deepLinkImportTitle": {

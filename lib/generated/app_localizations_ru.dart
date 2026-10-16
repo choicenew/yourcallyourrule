@@ -4880,6 +4880,20 @@ class AppLocalizationsRu extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'Поиск набора правил или страны...';
+
+  @override
+  String get initialSetupSelectAll => 'Выбрать все';
+
+  @override
+  String get initialSetupDeselectAll => 'Снять выделение';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return 'Выбрано: $count';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

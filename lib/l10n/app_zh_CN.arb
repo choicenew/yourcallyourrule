@@ -2318,6 +2318,18 @@
     }
   },
   "initialSetupGetFailed": "获取配置失败",
+  "initialSetupCustomUrlLoad": "加载配置",
+  "initialSetupSearchHint": "搜索规则库或国家...",
+  "initialSetupSelectAll": "全选",
+  "initialSetupDeselectAll": "取消全选",
+  "initialSetupSelectedCount": "已选择 {count} 项",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupSettingsHint": "提示：后续您可以在“设置”中随时重新打开此配置页面。",
   "initialSetupGoToSettings": "前往设置",
   "separateSims": "独立 SIM 卡规则",

@@ -2396,6 +2396,17 @@
   "initialSetupSourceCustom": "Egen spejlkilde",
   "initialSetupCustomUrlHint": "Indtast URL for egen spejl-JSON-konfiguration",
   "initialSetupCustomUrlLoad": "Indlæs konfiguration",
+  "initialSetupSearchHint": "Søg i regelsæt eller land...",
+  "initialSetupSelectAll": "Vælg alle",
+  "initialSetupDeselectAll": "Ryd markering",
+  "initialSetupSelectedCount": "{count} valgt",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Registreret placering",
   "deepLinkImportTitle": "Importer konfiguration",
   "@deepLinkImportTitle": {

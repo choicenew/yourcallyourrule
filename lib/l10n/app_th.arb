@@ -2354,6 +2354,17 @@
   "initialSetupSourceCustom": "แหล่งมิเรอร์ที่โฮสต์เอง",
   "initialSetupCustomUrlHint": "ป้อน URL กำหนดค่า JSON มิเรอร์ที่โฮสต์เอง",
   "initialSetupCustomUrlLoad": "โหลดการกำหนดค่า",
+  "initialSetupSearchHint": "ค้นหาชุดกฎหรือประเทศ...",
+  "initialSetupSelectAll": "เลือกทั้งหมด",
+  "initialSetupDeselectAll": "ล้างการเลือก",
+  "initialSetupSelectedCount": "เลือกแล้ว {count} รายการ",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "ตำแหน่งที่ตรวจพบ",
   "deepLinkImportTitle": "นำเข้าการกำหนดค่า",
   "@deepLinkImportTitle": {

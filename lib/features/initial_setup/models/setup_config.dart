@@ -1,5 +1,6 @@
 class CountryData {
   final String id;
+  final String countryCode;
   final String name;
   final String iconUrl;
   final String description;
@@ -8,6 +9,7 @@ class CountryData {
 
   CountryData({
     required this.id,
+    this.countryCode = '',
     required this.name,
     required this.iconUrl,
     required this.description,
@@ -23,13 +25,29 @@ class CountryData {
   }
 
   factory CountryData.fromMap(Map<String, dynamic> map) {
+    // 兼容真实 GitHub 发布的 JSON (rulesets 列表中的 source_id / country_code / full_download_url)
+    final effectiveId = map['source_id']?.toString() ??
+        map['country_code']?.toString() ??
+        map['id']?.toString() ??
+        '';
+
+    final countryCode = map['country_code']?.toString() ?? map['id']?.toString() ?? '';
+
+    final effectiveUrl = map['full_download_url']?.toString() ??
+        map['manifest_url']?.toString() ??
+        '';
+
+    final cdnUrl = map['cdn_manifest_url']?.toString() ?? '';
+
     return CountryData(
-      id: map['id']?.toString() ?? '',
+      id: effectiveId,
+      countryCode: countryCode,
       name: map['name']?.toString() ?? '',
       iconUrl: map['icon_url']?.toString() ?? '',
-      description: map['description']?.toString() ?? '',
-      manifestUrl: map['manifest_url']?.toString() ?? '',
-      cdnManifestUrl: map['cdn_manifest_url']?.toString() ?? '',
+      description: map['description']?.toString() ??
+          (map['rule_type'] != null ? '规则类型: ${map['rule_type']}' : ''),
+      manifestUrl: effectiveUrl,
+      cdnManifestUrl: cdnUrl,
     );
   }
 }
@@ -66,13 +84,22 @@ class SetupConfig {
   });
 
   factory SetupConfig.fromMap(Map<String, dynamic> map) {
+    // 兼容真实 GitHub 发布的 JSON 中的 rulesets 根数组与 config_version
+    final rawList = map['rulesets'] as List? ??
+        map['countries_data'] as List? ??
+        [];
+
     return SetupConfig(
-      version: map['version']?.toString() ?? '1.0',
+      version: map['config_version']?.toString() ??
+          map['version']?.toString() ??
+          '1.0',
       countriesData: List<CountryData>.from(
-        (map['countries_data'] as List? ?? []).map((x) => CountryData.fromMap(x as Map<String, dynamic>)),
+        rawList.map((x) => CountryData.fromMap(x as Map<String, dynamic>)),
       ),
       pluginsRecommendation: map['plugins_recommendation'] != null
-          ? PluginRecommendation.fromMap(map['plugins_recommendation'] as Map<String, dynamic>)
+          ? PluginRecommendation.fromMap(
+              map['plugins_recommendation'] as Map<String, dynamic>,
+            )
           : null,
     );
   }

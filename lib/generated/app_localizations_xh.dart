@@ -4878,6 +4878,21 @@ class AppLocalizationsXh extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint =>
+      'Khangela isethi yemithetho okanye ilizwe...';
+
+  @override
+  String get initialSetupSelectAll => 'Khetha Zonke';
+
+  @override
+  String get initialSetupDeselectAll => 'Susa Ukhetho';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count Ekhethiweyo';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

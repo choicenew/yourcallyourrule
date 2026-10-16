@@ -2392,6 +2392,17 @@
   "initialSetupSourceCustom": "Custom URL",
   "initialSetupCustomUrlHint": "Enter custom config JSON URL",
   "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupSearchHint": "စည်းမျဉ်းအစုံ သို့မဟုတ် နိုင်ငံကို ရှာဖွေပါ...",
+  "initialSetupSelectAll": "အားလုံးကို ရွေးပါ",
+  "initialSetupDeselectAll": "ရွေးချယ်မှုကို ရှင်းလင်းပါ",
+  "initialSetupSelectedCount": "{count} ခု ရွေးချယ်ထားသည်",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Recommended for your location",
   "deepLinkImportTitle": "Import {type}",
   "@deepLinkImportTitle": {

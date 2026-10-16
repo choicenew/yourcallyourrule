@@ -2396,6 +2396,17 @@
   "initialSetupSourceCustom": "Custom URL",
   "initialSetupCustomUrlHint": "Enter custom config JSON URL",
   "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupSearchHint": "Søk etter regelsett eller land...",
+  "initialSetupSelectAll": "Velg alle",
+  "initialSetupDeselectAll": "Fjern merking",
+  "initialSetupSelectedCount": "{count} valgt",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Recommended for your location",
   "deepLinkImportTitle": "Import {type}",
   "@deepLinkImportTitle": {

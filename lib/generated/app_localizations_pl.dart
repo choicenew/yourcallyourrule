@@ -4880,6 +4880,20 @@ class AppLocalizationsPl extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Załaduj konfigurację';
 
   @override
+  String get initialSetupSearchHint => 'Szukaj zestawu reguł lub kraju...';
+
+  @override
+  String get initialSetupSelectAll => 'Zaznacz wszystko';
+
+  @override
+  String get initialSetupDeselectAll => 'Wyczyść wybór';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return 'Wybrano: $count';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Wykryta lokalizacja';
 
   @override

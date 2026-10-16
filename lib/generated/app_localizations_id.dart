@@ -4846,6 +4846,20 @@ class AppLocalizationsId extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Muat Konfigurasi';
 
   @override
+  String get initialSetupSearchHint => 'Cari aturan atau negara...';
+
+  @override
+  String get initialSetupSelectAll => 'Pilih Semua';
+
+  @override
+  String get initialSetupDeselectAll => 'Hapus Pilihan';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count Dipilih';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Lokasi Terdeteksi';
 
   @override

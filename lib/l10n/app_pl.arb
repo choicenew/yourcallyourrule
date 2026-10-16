@@ -2327,6 +2327,17 @@
   "initialSetupSourceCustom": "Własne źródło lustrzane",
   "initialSetupCustomUrlHint": "Wprowadź URL konfiguracji JSON własnego lustra",
   "initialSetupCustomUrlLoad": "Załaduj konfigurację",
+  "initialSetupSearchHint": "Szukaj zestawu reguł lub kraju...",
+  "initialSetupSelectAll": "Zaznacz wszystko",
+  "initialSetupDeselectAll": "Wyczyść wybór",
+  "initialSetupSelectedCount": "Wybrano: {count}",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Wykryta lokalizacja",
   "deepLinkImportTitle": "Importuj konfigurację",
   "@deepLinkImportTitle": {

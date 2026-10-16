@@ -2392,6 +2392,17 @@
   "initialSetupSourceCustom": "Custom URL",
   "initialSetupCustomUrlHint": "Enter custom config JSON URL",
   "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupSearchHint": "قوانین یا ملک تلاش کریں...",
+  "initialSetupSelectAll": "سبھی منتخب کریں",
+  "initialSetupDeselectAll": "انتخاب ختم کریں",
+  "initialSetupSelectedCount": "{count} منتخب کردہ",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Recommended for your location",
   "deepLinkImportTitle": "Import {type}",
   "@deepLinkImportTitle": {

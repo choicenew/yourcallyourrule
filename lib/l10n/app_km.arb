@@ -2392,6 +2392,17 @@
   "initialSetupSourceCustom": "Custom URL",
   "initialSetupCustomUrlHint": "Enter custom config JSON URL",
   "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupSearchHint": "ស្វែងរកសំណុំច្បាប់ ឬប្រទេស...",
+  "initialSetupSelectAll": "ជ្រើសរើសទាំងអស់",
+  "initialSetupDeselectAll": "សម្អាតការជ្រើសរើស",
+  "initialSetupSelectedCount": "បានជ្រើសរើស {count}",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Recommended for your location",
   "deepLinkImportTitle": "Import {type}",
   "@deepLinkImportTitle": {

@@ -2327,6 +2327,17 @@
   "initialSetupSourceCustom": "Fonte espelho personalizada",
   "initialSetupCustomUrlHint": "Insira a URL de configuração JSON espelho",
   "initialSetupCustomUrlLoad": "Carregar configuração",
+  "initialSetupSearchHint": "Pesquisar conjunto de regras ou país...",
+  "initialSetupSelectAll": "Selecionar tudo",
+  "initialSetupDeselectAll": "Limpar seleção",
+  "initialSetupSelectedCount": "{count} selecionado(s)",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Localização detectada",
   "deepLinkImportTitle": "Importar configuração",
   "@deepLinkImportTitle": {

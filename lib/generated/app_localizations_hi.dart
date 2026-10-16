@@ -4843,6 +4843,20 @@ class AppLocalizationsHi extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'कॉन्फ़िगरेशन लोड करें';
 
   @override
+  String get initialSetupSearchHint => 'नियम सेट या देश खोजें...';
+
+  @override
+  String get initialSetupSelectAll => 'सभी चुनें';
+
+  @override
+  String get initialSetupDeselectAll => 'चयन हटाएं';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count चुने गए';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'पहचाना गया स्थान';
 
   @override

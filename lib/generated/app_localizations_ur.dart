@@ -4830,6 +4830,20 @@ class AppLocalizationsUr extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'قوانین یا ملک تلاش کریں...';
+
+  @override
+  String get initialSetupSelectAll => 'سبھی منتخب کریں';
+
+  @override
+  String get initialSetupDeselectAll => 'انتخاب ختم کریں';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count منتخب کردہ';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

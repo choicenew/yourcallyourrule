@@ -4758,6 +4758,20 @@ class AppLocalizationsHe extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'חפש ערכת כללים או מדינה...';
+
+  @override
+  String get initialSetupSelectAll => 'בחר הכל';
+
+  @override
+  String get initialSetupDeselectAll => 'נקה בחירה';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count נבחרו';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

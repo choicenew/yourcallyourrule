@@ -2392,6 +2392,17 @@
   "initialSetupSourceCustom": "Custom URL",
   "initialSetupCustomUrlHint": "Enter custom config JSON URL",
   "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupSearchHint": "Qoidalar to'plami yoki mamlakatni qidirish...",
+  "initialSetupSelectAll": "Barchasini tanlash",
+  "initialSetupDeselectAll": "Tanlovni tozalash",
+  "initialSetupSelectedCount": "{count} ta tanlandi",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Recommended for your location",
   "deepLinkImportTitle": "Import {type}",
   "@deepLinkImportTitle": {

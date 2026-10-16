@@ -4905,6 +4905,21 @@ class AppLocalizationsFr extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint =>
+      'Rechercher un ensemble de règles ou un pays...';
+
+  @override
+  String get initialSetupSelectAll => 'Tout sélectionner';
+
+  @override
+  String get initialSetupDeselectAll => 'Effacer la sélection';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count sélectionné(s)';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

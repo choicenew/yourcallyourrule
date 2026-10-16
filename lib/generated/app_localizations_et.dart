@@ -4835,6 +4835,20 @@ class AppLocalizationsEt extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'Otsi reeglistikku või riiki...';
+
+  @override
+  String get initialSetupSelectAll => 'Vali kaikki';
+
+  @override
+  String get initialSetupDeselectAll => 'Tühjenda valik';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count valitud';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

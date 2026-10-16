@@ -4898,6 +4898,21 @@ class AppLocalizationsUz extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint =>
+      'Qoidalar to\'plami yoki mamlakatni qidirish...';
+
+  @override
+  String get initialSetupSelectAll => 'Barchasini tanlash';
+
+  @override
+  String get initialSetupDeselectAll => 'Tanlovni tozalash';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count ta tanlandi';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

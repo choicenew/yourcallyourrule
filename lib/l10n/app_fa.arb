@@ -2392,6 +2392,17 @@
   "initialSetupSourceCustom": "Custom URL",
   "initialSetupCustomUrlHint": "Enter custom config JSON URL",
   "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupSearchHint": "جستجوی مجموعه قوانین یا کشور...",
+  "initialSetupSelectAll": "انتخاب همه",
+  "initialSetupDeselectAll": "پاک کردن انتخاب",
+  "initialSetupSelectedCount": "{count} انتخاب شد",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Recommended for your location",
   "deepLinkImportTitle": "Import {type}",
   "@deepLinkImportTitle": {

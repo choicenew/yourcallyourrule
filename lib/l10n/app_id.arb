@@ -2308,6 +2308,17 @@
   "initialSetupSourceCustom": "Sumber Cermin Mandiri",
   "initialSetupCustomUrlHint": "Masukkan URL konfigurasi JSON cermin mandiri",
   "initialSetupCustomUrlLoad": "Muat Konfigurasi",
+  "initialSetupSearchHint": "Cari aturan atau negara...",
+  "initialSetupSelectAll": "Pilih Semua",
+  "initialSetupDeselectAll": "Hapus Pilihan",
+  "initialSetupSelectedCount": "{count} Dipilih",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Lokasi Terdeteksi",
   "deepLinkImportTitle": "Impor Konfigurasi",
   "@deepLinkImportTitle": {

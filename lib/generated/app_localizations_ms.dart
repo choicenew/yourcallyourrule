@@ -4841,6 +4841,20 @@ class AppLocalizationsMs extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'Cari set peraturan atau negara...';
+
+  @override
+  String get initialSetupSelectAll => 'Pilih Semua';
+
+  @override
+  String get initialSetupDeselectAll => 'Kosongkan Pilihan';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count Dipilih';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

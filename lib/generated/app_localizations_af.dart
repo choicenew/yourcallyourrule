@@ -4832,6 +4832,20 @@ class AppLocalizationsAf extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'Soek reëlstel of land...';
+
+  @override
+  String get initialSetupSelectAll => 'Kies Alles';
+
+  @override
+  String get initialSetupDeselectAll => 'Maksenseksie Skoon';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count Gekies';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

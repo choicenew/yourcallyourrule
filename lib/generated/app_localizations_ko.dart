@@ -4697,6 +4697,20 @@ class AppLocalizationsKo extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => '규칙 세트 또는 국가 검색...';
+
+  @override
+  String get initialSetupSelectAll => '전체 선택';
+
+  @override
+  String get initialSetupDeselectAll => '선택 해제';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count개 선택됨';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

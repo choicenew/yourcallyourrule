@@ -4817,6 +4817,20 @@ class AppLocalizationsFa extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'جستجوی مجموعه قوانین یا کشور...';
+
+  @override
+  String get initialSetupSelectAll => 'انتخاب همه';
+
+  @override
+  String get initialSetupDeselectAll => 'پاک کردن انتخاب';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count انتخاب شد';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

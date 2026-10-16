@@ -2396,6 +2396,17 @@
   "initialSetupSourceCustom": "Custom URL",
   "initialSetupCustomUrlHint": "Enter custom config JSON URL",
   "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupSearchHint": "Buscar conjunto de reglas o país...",
+  "initialSetupSelectAll": "Seleccionar todo",
+  "initialSetupDeselectAll": "Borrar selección",
+  "initialSetupSelectedCount": "{count} seleccionado(s)",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Recommended for your location",
   "deepLinkImportTitle": "Import {type}",
   "@deepLinkImportTitle": {

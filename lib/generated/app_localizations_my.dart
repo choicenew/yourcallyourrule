@@ -4823,6 +4823,21 @@ class AppLocalizationsMy extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint =>
+      'စည်းမျဉ်းအစုံ သို့မဟုတ် နိုင်ငံကို ရှာဖွေပါ...';
+
+  @override
+  String get initialSetupSelectAll => 'အားလုံးကို ရွေးပါ';
+
+  @override
+  String get initialSetupDeselectAll => 'ရွေးချယ်မှုကို ရှင်းလင်းပါ';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count ခု ရွေးချယ်ထားသည်';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

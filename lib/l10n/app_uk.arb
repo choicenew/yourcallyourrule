@@ -2342,6 +2342,17 @@
   "initialSetupSourceCustom": "Власне дзеркальне джерело",
   "initialSetupCustomUrlHint": "Введіть URL JSON-конфігурації власного дзеркала",
   "initialSetupCustomUrlLoad": "Завантажити конфігурацію",
+  "initialSetupSearchHint": "Пошук набору правил або країни...",
+  "initialSetupSelectAll": "Вибрати все",
+  "initialSetupDeselectAll": "Очистити вибір",
+  "initialSetupSelectedCount": "Вибрано: {count}",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Визначене місцезнаходження",
   "deepLinkImportTitle": "Імпорт конфігурації",
   "@deepLinkImportTitle": {

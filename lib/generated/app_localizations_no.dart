@@ -4846,6 +4846,20 @@ class AppLocalizationsNo extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'Søk etter regelsett eller land...';
+
+  @override
+  String get initialSetupSelectAll => 'Velg alle';
+
+  @override
+  String get initialSetupDeselectAll => 'Fjern merking';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count valgt';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

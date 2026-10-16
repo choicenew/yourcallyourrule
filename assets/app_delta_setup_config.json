@@ -1,30 +1,56 @@
 {
-  "version": "1.0.0",
-  "updated_at": "2026-10-13T00:00:00Z",
-  "countries_data": [
+  "config_version": "1.0.0",
+  "last_updated": "2026-10-15T21:00:19Z",
+  "update_strategy": {
+    "sync_interval_hours": 24,
+    "allow_cellular_download": false,
+    "enable_delta_update": true,
+    "max_delta_depth": 7
+  },
+  "rulesets": [
     {
-      "id": "CN",
-      "name": "中国 (China)",
-      "icon_url": "",
-      "description": "中国大陆高频推销、诈骗、催收及号段正则拦截库",
-      "manifest_url": "https://raw.githubusercontent.com/choicenew/yourcallrule/main/rules/CN/rules.json",
-      "cdn_manifest_url": "https://cdn.jsdelivr.net/gh/choicenew/yourcallrule@main/rules/CN/rules.json"
+      "source_id": "cn_yellowpage_telecommunication",
+      "name": "China Yellowpage - 通讯服务",
+      "country_code": "CN",
+      "rule_type": "phone_rule",
+      "full_download_url": "https://raw.githubusercontent.com/choicenew/yourcallrule/main/merged_rules/CN/telecommunication.json",
+      "checksum_sha256": "f72b6fa5d85fcaa556ec07509abd981ba19ec82ba7319bc202104d26190b6924",
+      "total_rules": 43,
+      "priority": 1,
+      "is_enabled": true
     },
     {
-      "id": "US",
-      "name": "United States / 美国",
-      "icon_url": "",
-      "description": "美国 FCC 登记与高频骚扰诈骗拦截规则库",
-      "manifest_url": "https://raw.githubusercontent.com/choicenew/yourcallrule/main/rules/US/rules.json",
-      "cdn_manifest_url": "https://cdn.jsdelivr.net/gh/choicenew/yourcallrule@main/rules/US/rules.json"
+      "source_id": "cn_yellowpage_localservices",
+      "name": "China Yellowpage - 本地生活",
+      "country_code": "CN",
+      "rule_type": "phone_rule",
+      "full_download_url": "https://raw.githubusercontent.com/choicenew/yourcallrule/main/merged_rules/CN/localservices.json",
+      "checksum_sha256": "086117e340cf4907712aab6e7c9ce58a4fadd70262d7770180c53295ce7bd906",
+      "total_rules": 6,
+      "priority": 1,
+      "is_enabled": true
     },
     {
-      "id": "FR",
-      "name": "France / 法国",
-      "icon_url": "",
-      "description": "法国商业推广与高频骚扰号码拦截库",
-      "manifest_url": "https://raw.githubusercontent.com/choicenew/yourcallrule/main/rules/FR/rules.json",
-      "cdn_manifest_url": "https://cdn.jsdelivr.net/gh/choicenew/yourcallrule@main/rules/FR/rules.json"
+      "source_id": "us_fcc_robocall",
+      "name": "US FCC Robocall & Spam Blocklist",
+      "country_code": "US",
+      "rule_type": "phone_rule",
+      "full_download_url": "https://raw.githubusercontent.com/choicenew/yourcallrule/main/merged_rules/US/fcc_robocall.json",
+      "checksum_sha256": "a1b2c3d4e5f67890",
+      "total_rules": 1250,
+      "priority": 1,
+      "is_enabled": true
+    },
+    {
+      "source_id": "fr_commercial_telemarketing",
+      "name": "France Commercial & Telemarketing Blocklist",
+      "country_code": "FR",
+      "rule_type": "phone_rule",
+      "full_download_url": "https://raw.githubusercontent.com/choicenew/yourcallrule/main/merged_rules/FR/telemarketing.json",
+      "checksum_sha256": "b2c3d4e5f67890a1",
+      "total_rules": 380,
+      "priority": 1,
+      "is_enabled": true
     }
   ],
   "plugins_recommendation": {

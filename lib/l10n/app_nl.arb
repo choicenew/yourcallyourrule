@@ -2284,6 +2284,17 @@
   "initialSetupSourceCustom": "Zelfgehoste spiegelbron",
   "initialSetupCustomUrlHint": "Voer zelfgehoste spiegel JSON-configuratie-URL in",
   "initialSetupCustomUrlLoad": "Configuratie laden",
+  "initialSetupSearchHint": "Zoek regelset of land...",
+  "initialSetupSelectAll": "Alles selecteren",
+  "initialSetupDeselectAll": "Selectie wissen",
+  "initialSetupSelectedCount": "{count} geselecteerd",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Gedetecteerde locatie",
   "deepLinkImportTitle": "Configuratie importeren",
   "@deepLinkImportTitle": {

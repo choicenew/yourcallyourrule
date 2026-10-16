@@ -2392,6 +2392,17 @@
   "initialSetupSourceCustom": "Vlastní zrcadlový zdroj",
   "initialSetupCustomUrlHint": "Zadejte URL konfigurace JSON vlastního zrcadla",
   "initialSetupCustomUrlLoad": "Načíst konfiguraci",
+  "initialSetupSearchHint": "Hledat sadu pravidel nebo zemi...",
+  "initialSetupSelectAll": "Vybrat vše",
+  "initialSetupDeselectAll": "Zrušit výběr",
+  "initialSetupSelectedCount": "Vybráno {count}",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Zjištěná poloha",
   "deepLinkImportTitle": "Importovat konfiguraci",
   "@deepLinkImportTitle": {

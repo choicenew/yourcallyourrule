@@ -4857,6 +4857,20 @@ class AppLocalizationsSv extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Läs in konfiguration';
 
   @override
+  String get initialSetupSearchHint => 'Sök regeluppsättning eller land...';
+
+  @override
+  String get initialSetupSelectAll => 'Markera alla';
+
+  @override
+  String get initialSetupDeselectAll => 'Rensa markering';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count valda';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Identifierad plats';
 
   @override

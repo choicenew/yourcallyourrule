@@ -4899,6 +4899,21 @@ class AppLocalizationsFil extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint =>
+      'Maghanap ng hanay ng panuntunan o bansa...';
+
+  @override
+  String get initialSetupSelectAll => 'Piliin Lahat';
+
+  @override
+  String get initialSetupDeselectAll => 'I-clear ang Pagpili';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count Ang Napili';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

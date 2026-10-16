@@ -4853,6 +4853,20 @@ class AppLocalizationsTr extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Yapılandırmayı Yükle';
 
   @override
+  String get initialSetupSearchHint => 'Kural kümesi veya ülke ara...';
+
+  @override
+  String get initialSetupSelectAll => 'Tümünü Seç';
+
+  @override
+  String get initialSetupDeselectAll => 'Seçimi Temizle';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count Seçildi';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Algılanan Konum';
 
   @override

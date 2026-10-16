@@ -4691,6 +4691,20 @@ class AppLocalizationsJa extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'ルールセットまたは国を検索...';
+
+  @override
+  String get initialSetupSelectAll => 'すべて選択';
+
+  @override
+  String get initialSetupDeselectAll => '選択を解除';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count件選択中';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

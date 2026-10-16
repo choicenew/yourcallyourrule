@@ -2310,6 +2310,17 @@
   "initialSetupSourceCustom": "Fonte mirror personalizzata",
   "initialSetupCustomUrlHint": "Inserisci l'URL di configurazione JSON mirror",
   "initialSetupCustomUrlLoad": "Carica configurazione",
+  "initialSetupSearchHint": "Cerca set di regole o paese...",
+  "initialSetupSelectAll": "Seleziona tutto",
+  "initialSetupDeselectAll": "Deseleziona tutto",
+  "initialSetupSelectedCount": "{count} selezionati",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Posizione rilevata",
   "deepLinkImportTitle": "Importa configurazione",
   "@deepLinkImportTitle": {

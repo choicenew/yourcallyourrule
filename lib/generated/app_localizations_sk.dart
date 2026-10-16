@@ -4859,6 +4859,20 @@ class AppLocalizationsSk extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'Hľadať sadu pravidiel alebo krajinu...';
+
+  @override
+  String get initialSetupSelectAll => 'Vybrať všetko';
+
+  @override
+  String get initialSetupDeselectAll => 'Zrušiť výber';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return 'Vybrané: $count';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

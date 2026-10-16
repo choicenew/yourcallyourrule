@@ -2392,6 +2392,17 @@
   "initialSetupSourceCustom": "Custom URL",
   "initialSetupCustomUrlHint": "Enter custom config JSON URL",
   "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupSearchHint": "রুলসেট বা দেশ খুঁজুন...",
+  "initialSetupSelectAll": "সব নির্বাচন করুন",
+  "initialSetupDeselectAll": "নির্বাচন মুছুন",
+  "initialSetupSelectedCount": "{count}টি নির্বাচিত",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Recommended for your location",
   "deepLinkImportTitle": "Import {type}",
   "@deepLinkImportTitle": {

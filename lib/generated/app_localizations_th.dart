@@ -4796,6 +4796,20 @@ class AppLocalizationsTh extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'โหลดการกำหนดค่า';
 
   @override
+  String get initialSetupSearchHint => 'ค้นหาชุดกฎหรือประเทศ...';
+
+  @override
+  String get initialSetupSelectAll => 'เลือกทั้งหมด';
+
+  @override
+  String get initialSetupDeselectAll => 'ล้างการเลือก';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return 'เลือกแล้ว $count รายการ';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'ตำแหน่งที่ตรวจพบ';
 
   @override

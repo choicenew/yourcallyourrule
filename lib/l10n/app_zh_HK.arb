@@ -2398,6 +2398,17 @@
   "initialSetupSourceCustom": "Custom URL",
   "initialSetupCustomUrlHint": "Enter custom config JSON URL",
   "initialSetupCustomUrlLoad": "Load Config",
+  "initialSetupSearchHint": "搜尋規則庫或國家...",
+  "initialSetupSelectAll": "全選",
+  "initialSetupDeselectAll": "取消全選",
+  "initialSetupSelectedCount": "已選擇 {count} 項",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Recommended for your location",
   "deepLinkImportTitle": "Import {type}",
   "@deepLinkImportTitle": {

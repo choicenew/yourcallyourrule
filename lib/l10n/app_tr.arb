@@ -2342,6 +2342,17 @@
   "initialSetupSourceCustom": "Özel Ayna Kaynağı",
   "initialSetupCustomUrlHint": "Özel ayna JSON yapılandırma URL'sini girin",
   "initialSetupCustomUrlLoad": "Yapılandırmayı Yükle",
+  "initialSetupSearchHint": "Kural kümesi veya ülke ara...",
+  "initialSetupSelectAll": "Tümünü Seç",
+  "initialSetupDeselectAll": "Seçimi Temizle",
+  "initialSetupSelectedCount": "{count} Seçildi",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "Algılanan Konum",
   "deepLinkImportTitle": "Yapılandırmayı İçe Aktar",
   "@deepLinkImportTitle": {

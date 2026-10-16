@@ -4870,6 +4870,20 @@ class AppLocalizationsEl extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => 'Αναζήτηση συνόλου κανόνων ή χώρας...';
+
+  @override
+  String get initialSetupSelectAll => 'Επιλογή όλων';
+
+  @override
+  String get initialSetupDeselectAll => 'Καθαρισμός επιλογής';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return 'Επιλέχθηκαν $count';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override

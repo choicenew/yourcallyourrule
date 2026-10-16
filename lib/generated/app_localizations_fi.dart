@@ -4851,6 +4851,20 @@ class AppLocalizationsFi extends AppLocalizations {
   String get initialSetupCustomUrlLoad => 'Lataa määritys';
 
   @override
+  String get initialSetupSearchHint => 'Etsi sääntöjoukkoa tai maata...';
+
+  @override
+  String get initialSetupSelectAll => 'Valitse kaikki';
+
+  @override
+  String get initialSetupDeselectAll => 'Tyhjennä valinta';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '$count valittu';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Tunnistettu sijainti';
 
   @override

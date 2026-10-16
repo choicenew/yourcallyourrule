@@ -3659,13 +3659,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get themeSettingsSubtitle => '选择你喜欢的主题';
 
   @override
-  String get themeLight => '淺色';
+  String get themeLight => '浅色';
 
   @override
   String get themeDark => '深色';
 
   @override
-  String get themeSystem => '跟隨系統';
+  String get themeSystem => '跟随系统';
 
   @override
   String get databaseSyncTitle => '数据库同步';
@@ -4497,34 +4497,34 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get ruleType => '規則類型';
+  String get ruleType => '规则类型';
 
   @override
-  String get localDatabaseSyncTitle => '本地資料庫同步';
+  String get localDatabaseSyncTitle => '本地数据库同步';
 
   @override
-  String get localDatabaseSyncSubtitle => '跨裝置同步資料';
+  String get localDatabaseSyncSubtitle => '跨设备同步数据';
 
   @override
-  String get supabaseProjectUrl => 'Supabase 專案 URL';
+  String get supabaseProjectUrl => 'Supabase 项目 URL';
 
   @override
-  String get supabaseAnonKey => 'Anon 金鑰';
+  String get supabaseAnonKey => 'Anon 密钥';
 
   @override
-  String get supabaseAnonKeyHint => 'API Key，匿名金鑰';
+  String get supabaseAnonKeyHint => 'API Key，匿名公钥';
 
   @override
-  String get connectionString => '連線字串 (URI)';
+  String get connectionString => '连接字符串 (URI)';
 
   @override
-  String get connectionStringHelper => '僅在「初始化資料庫」時需要';
+  String get connectionStringHelper => '仅在“初始化数据库”时需要';
 
   @override
-  String get syncCallHistory => '同步通話記錄';
+  String get syncCallHistory => '同步通话记录';
 
   @override
-  String get syncCallHistorySubtitle => '同步時包含私人通話日誌';
+  String get syncCallHistorySubtitle => '同步时包含私密通话日志';
 
   @override
   String get requiredField => '必填';
@@ -4533,57 +4533,57 @@ class AppLocalizationsZh extends AppLocalizations {
   String get requiredInitField => '初始化必填';
 
   @override
-  String get initDbButton => '初始化資料庫';
+  String get initDbButton => '初始化数据库';
 
   @override
-  String get dbInitSuccess => '資料庫初始化成功！';
+  String get dbInitSuccess => '数据库初始化成功！';
 
   @override
   String syncSuccess(int pushed, int pulled) {
-    return '同步完成。傳送: $pushed，接收: $pulled';
+    return '同步完成。发送: $pushed，接收: $pulled';
   }
 
   @override
-  String get errorPrefix => '錯誤';
+  String get errorPrefix => '错误';
 
   @override
-  String get errorLoadingSettings => '載入設定錯誤';
+  String get errorLoadingSettings => '加载设置错误';
 
   @override
-  String get statusLabel => '狀態';
+  String get statusLabel => '状态';
 
   @override
-  String get statusConnected => '已連線 / 已設定';
+  String get statusConnected => '已连接 / 已配置';
 
   @override
-  String get statusNotConfigured => '未設定';
+  String get statusNotConfigured => '未配置';
 
   @override
-  String get configSaved => '設定已儲存！';
+  String get configSaved => '配置已保存！';
 
   @override
-  String get masterDeviceLabel => '主裝置 (管理員)';
+  String get masterDeviceLabel => '主设备 (管理员)';
 
   @override
-  String get masterDeviceHelp => '只有主裝置可以初始化資料庫結構。';
+  String get masterDeviceHelp => '只有主设备可以初始化数据库结构。';
 
   @override
-  String get syncIntervalLabel => '自動同步間隔';
+  String get syncIntervalLabel => '自动同步间隔';
 
   @override
   String syncIntervalValue(int hours) {
-    return '每 $hours 小時';
+    return '每 $hours 小时';
   }
 
   @override
-  String get leaveEmptyToUseDefault => '留空使用預設值';
+  String get leaveEmptyToUseDefault => '留空使用默认值';
 
   @override
-  String get vipAccessSubtitle => '觀看廣告免費體驗或購買 VIP';
+  String get vipAccessSubtitle => '看广告免费体验或购买 VIP';
 
   @override
   String failedToLoadSettingsSchema(String error) {
-    return '載入設定架構失敗: $error';
+    return '加载设置架构失败: $error';
   }
 
   @override
@@ -4638,6 +4638,20 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get initialSetupCustomUrlLoad => '加载配置';
+
+  @override
+  String get initialSetupSearchHint => '搜索规则库或国家...';
+
+  @override
+  String get initialSetupSelectAll => '全选';
+
+  @override
+  String get initialSetupDeselectAll => '取消全选';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '已选择 $count 项';
+  }
 
   @override
   String get initialSetupDetectedLocation => '推荐当前所在地区';
@@ -4697,22 +4711,22 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get initialSetupSettingsHint => '提示：後續您可以隨時在「設定」中重新開啟此設定頁面。';
+  String get initialSetupSettingsHint => '提示：后续您可以随时在“设置”中重新打开此配置页面。';
 
   @override
-  String get initialSetupGoToSettings => '前往設定';
+  String get initialSetupGoToSettings => '前往设置';
 
   @override
-  String get separateSims => '獨立 SIM 卡規則';
+  String get separateSims => '独立 SIM 卡规则';
 
   @override
-  String get separateSimsDesc => '為每張 SIM 卡啟用獨立的過濾規則';
+  String get separateSimsDesc => '为每张 SIM 卡启用独立的过滤规则';
 
   @override
-  String get masterAndOverrides => '總控開關';
+  String get masterAndOverrides => '主控开关';
 
   @override
-  String get masterAndOverridesDesc => '全域規則設定';
+  String get masterAndOverridesDesc => '全局规则设置';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -9325,6 +9339,23 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get initialSetupGetFailed => '获取配置失败';
+
+  @override
+  String get initialSetupCustomUrlLoad => '加载配置';
+
+  @override
+  String get initialSetupSearchHint => '搜索规则库或国家...';
+
+  @override
+  String get initialSetupSelectAll => '全选';
+
+  @override
+  String get initialSetupDeselectAll => '取消全选';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '已选择 $count 项';
+  }
 
   @override
   String get initialSetupSettingsHint => '提示：后续您可以在“设置”中随时重新打开此配置页面。';
@@ -13981,6 +14012,20 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
 
   @override
   String get initialSetupCustomUrlLoad => 'Load Config';
+
+  @override
+  String get initialSetupSearchHint => '搜尋規則庫或國家...';
+
+  @override
+  String get initialSetupSelectAll => '全選';
+
+  @override
+  String get initialSetupDeselectAll => '取消全選';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '已選擇 $count 項';
+  }
 
   @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
@@ -18696,6 +18741,20 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get initialSetupCustomUrlLoad => 'Load Config';
 
   @override
+  String get initialSetupSearchHint => '搜尋規則庫或國家...';
+
+  @override
+  String get initialSetupSelectAll => '全選';
+
+  @override
+  String get initialSetupDeselectAll => '取消全選';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '已選擇 $count 項';
+  }
+
+  @override
   String get initialSetupDetectedLocation => 'Recommended for your location';
 
   @override
@@ -23408,6 +23467,20 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get initialSetupCustomUrlLoad => 'Load Config';
+
+  @override
+  String get initialSetupSearchHint => '搜尋規則庫或國家...';
+
+  @override
+  String get initialSetupSelectAll => '全選';
+
+  @override
+  String get initialSetupDeselectAll => '取消全選';
+
+  @override
+  String initialSetupSelectedCount(int count) {
+    return '已選擇 $count 項';
+  }
 
   @override
   String get initialSetupDetectedLocation => 'Recommended for your location';

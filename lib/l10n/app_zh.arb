@@ -2323,6 +2323,17 @@
   "initialSetupSourceCustom": "自定义链接",
   "initialSetupCustomUrlHint": "输入自定义配置清单链接 (JSON)",
   "initialSetupCustomUrlLoad": "加载配置",
+  "initialSetupSearchHint": "搜索规则库或国家...",
+  "initialSetupSelectAll": "全选",
+  "initialSetupDeselectAll": "取消全选",
+  "initialSetupSelectedCount": "已选择 {count} 项",
+  "@initialSetupSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "initialSetupDetectedLocation": "推荐当前所在地区",
   "deepLinkImportTitle": "导入{type}",
   "@deepLinkImportTitle": {
@@ -2373,30 +2384,30 @@
       }
     }
   },
-  "themeLight": "淺色",
+  "themeLight": "浅色",
   "themeDark": "深色",
-  "themeSystem": "跟隨系統",
-  "ruleType": "規則類型",
-  "localDatabaseSyncTitle": "本地資料庫同步",
+  "themeSystem": "跟随系统",
+  "ruleType": "规则类型",
+  "localDatabaseSyncTitle": "本地数据库同步",
   "@localDatabaseSyncTitle": {
     "description": "The title of the local database sync section."
   },
-  "localDatabaseSyncSubtitle": "跨裝置同步資料",
+  "localDatabaseSyncSubtitle": "跨设备同步数据",
   "@localDatabaseSyncSubtitle": {
     "description": "The subtitle of the local database sync section."
   },
-  "supabaseProjectUrl": "Supabase 專案 URL",
-  "supabaseAnonKey": "Anon 金鑰",
-  "supabaseAnonKeyHint": "API Key，匿名金鑰",
-  "connectionString": "連線字串 (URI)",
-  "connectionStringHelper": "僅在「初始化資料庫」時需要",
-  "syncCallHistory": "同步通話記錄",
-  "syncCallHistorySubtitle": "同步時包含私人通話日誌",
+  "supabaseProjectUrl": "Supabase 项目 URL",
+  "supabaseAnonKey": "Anon 密钥",
+  "supabaseAnonKeyHint": "API Key，匿名公钥",
+  "connectionString": "连接字符串 (URI)",
+  "connectionStringHelper": "仅在“初始化数据库”时需要",
+  "syncCallHistory": "同步通话记录",
+  "syncCallHistorySubtitle": "同步时包含私密通话日志",
   "requiredField": "必填",
   "requiredInitField": "初始化必填",
-  "initDbButton": "初始化資料庫",
-  "dbInitSuccess": "資料庫初始化成功！",
-  "syncSuccess": "同步完成。傳送: {pushed}，接收: {pulled}",
+  "initDbButton": "初始化数据库",
+  "dbInitSuccess": "数据库初始化成功！",
+  "syncSuccess": "同步完成。发送: {pushed}，接收: {pulled}",
   "@syncSuccess": {
     "description": "Message shown when sync completes successfully",
     "placeholders": {
@@ -2408,16 +2419,16 @@
       }
     }
   },
-  "errorPrefix": "錯誤",
-  "errorLoadingSettings": "載入設定錯誤",
-  "statusLabel": "狀態",
-  "statusConnected": "已連線 / 已設定",
-  "statusNotConfigured": "未設定",
-  "configSaved": "設定已儲存！",
-  "masterDeviceLabel": "主裝置 (管理員)",
-  "masterDeviceHelp": "只有主裝置可以初始化資料庫結構。",
-  "syncIntervalLabel": "自動同步間隔",
-  "syncIntervalValue": "每 {hours} 小時",
+  "errorPrefix": "错误",
+  "errorLoadingSettings": "加载设置错误",
+  "statusLabel": "状态",
+  "statusConnected": "已连接 / 已配置",
+  "statusNotConfigured": "未配置",
+  "configSaved": "配置已保存！",
+  "masterDeviceLabel": "主设备 (管理员)",
+  "masterDeviceHelp": "只有主设备可以初始化数据库结构。",
+  "syncIntervalLabel": "自动同步间隔",
+  "syncIntervalValue": "每 {hours} 小时",
   "@syncIntervalValue": {
     "placeholders": {
       "hours": {
@@ -2425,9 +2436,9 @@
       }
     }
   },
-  "leaveEmptyToUseDefault": "留空使用預設值",
-  "vipAccessSubtitle": "觀看廣告免費體驗或購買 VIP",
-  "failedToLoadSettingsSchema": "載入設定架構失敗: {error}",
+  "leaveEmptyToUseDefault": "留空使用默认值",
+  "vipAccessSubtitle": "看广告免费体验或购买 VIP",
+  "failedToLoadSettingsSchema": "加载设置架构失败: {error}",
   "@failedToLoadSettingsSchema": {
     "description": "Error message when plugin settings schema fails to load",
     "placeholders": {
@@ -2436,10 +2447,10 @@
       }
     }
   },
-  "initialSetupSettingsHint": "提示：後續您可以隨時在「設定」中重新開啟此設定頁面。",
-  "initialSetupGoToSettings": "前往設定",
-  "separateSims": "獨立 SIM 卡規則",
-  "separateSimsDesc": "為每張 SIM 卡啟用獨立的過濾規則",
-  "masterAndOverrides": "總控開關",
-  "masterAndOverridesDesc": "全域規則設定"
+  "initialSetupSettingsHint": "提示：后续您可以随时在“设置”中重新打开此配置页面。",
+  "initialSetupGoToSettings": "前往设置",
+  "separateSims": "独立 SIM 卡规则",
+  "separateSimsDesc": "为每张 SIM 卡启用独立的过滤规则",
+  "masterAndOverrides": "主控开关",
+  "masterAndOverridesDesc": "全局规则设置"
 }
