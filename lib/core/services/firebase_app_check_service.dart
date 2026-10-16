@@ -22,20 +22,20 @@ class FirebaseAppCheckService {
       if (kIsWeb) {
         // Web平台使用reCAPTCHA v3
         await _appCheck.activate(
-          webProvider: ReCaptchaV3Provider('your-recaptcha-v3-site-key'),
+          providerWeb: ReCaptchaV3Provider('your-recaptcha-v3-site-key'),
         );
       } else {
         // 移动平台使用设备检查或Play完整性
         // 在调试模式下使用调试提供程序
         if (kDebugMode) {
           await _appCheck.activate(
-            androidProvider: AndroidProvider.debug,
-            appleProvider: AppleProvider.debug,
+            providerAndroid: const AndroidDebugProvider(),
+            providerApple: const AppleDebugProvider(),
           );
         } else {
           await _appCheck.activate(
-            androidProvider: AndroidProvider.playIntegrity,
-            appleProvider: AppleProvider.deviceCheck,
+            providerAndroid: const AndroidPlayIntegrityProvider(),
+            providerApple: const AppleDeviceCheckProvider(),
           );
         }
       }

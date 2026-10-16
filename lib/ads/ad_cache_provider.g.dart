@@ -60,7 +60,7 @@ final class AdCacheProvider extends $NotifierProvider<AdCache, AdCacheState> {
   }
 }
 
-String _$adCacheHash() => r'7bd62bd1ca9bd9327724c92f8bf0efa2aab869b7';
+String _$adCacheHash() => r'cbc9d3212738129ef159f60a7f014a963ffdf255';
 
 /// 【优化】: 移除 keepAlive: true，允许广告页面离开时自动销毁和清理 Native 贴图与内存
 
