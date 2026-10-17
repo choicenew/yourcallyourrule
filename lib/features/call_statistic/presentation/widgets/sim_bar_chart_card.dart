@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 双卡 (SIM 1 vs SIM 2) 拦截分布柱状图组件 (BarChart - 100% 数据驱动 & 系统主题)
+/// 双卡 (SIM 1 vs SIM 2) 拦截分布柱状图组件 (BarChart - 100% 数据驱动 & 常驻渲染)
 class SimBarChartCard extends ConsumerWidget {
   const SimBarChartCard({super.key});
 
@@ -19,12 +19,8 @@ class SimBarChartCard extends ConsumerWidget {
     final sim1Count = simDist[1] ?? 0;
     final total = sim0Count + sim1Count;
 
-    if (total == 0) {
-      return const SizedBox.shrink();
-    }
-
-    final sim0Pct = ((sim0Count / total) * 100).round();
-    final sim1Pct = 100 - sim0Pct;
+    final sim0Pct = total > 0 ? ((sim0Count / total) * 100).round() : 0;
+    final sim1Pct = total > 0 ? 100 - sim0Pct : 0;
 
     return Container(
       padding: const EdgeInsets.all(16),

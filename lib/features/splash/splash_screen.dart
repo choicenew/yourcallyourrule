@@ -10,6 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/ads/adwidgets/app_open_ad.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -21,6 +22,7 @@ class SplashScreen extends ConsumerStatefulWidget {
 class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerProviderStateMixin {
   // --- 状态变量 ---
   bool _isFirstLaunch = true;
+  bool _hasCompletedSetup = false;
   bool _isVipUser = false;
   bool _hasNavigated = false;
   bool _shouldLoadAd = false;
@@ -60,9 +62,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
       _checkVipStatus(),
     ]);
     
-    // 【核心约束】：如果是 VIP 用户，或者未完成 Onboarding 引导阶段，绝对不触发广告！
-    _shouldLoadAd = !_isVipUser && !_isFirstLaunch;
-    debugPrint('初始化完成 - VIP用户: $_isVipUser, 引导未完成/首次启动: $_isFirstLaunch, 是否触发广告: $_shouldLoadAd');
+    // 【核心约束】：如果是 VIP 用户，或者未完成 Onboarding 引导阶段/初始设置阶段，绝对不触发广告！
+    _shouldLoadAd = !_isVipUser && !_isFirstLaunch && _hasCompletedSetup;
+    debugPrint('初始化完成 - VIP用户: $_isVipUser, 首次启动(Onboarding未完成): $_isFirstLaunch, 初始设置已完成: $_hasCompletedSetup, 是否触发广告: $_shouldLoadAd');
     
     // 启动最小时间门锁
     Timer(_minSplashDuration, () {
@@ -114,13 +116,15 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     if (!mounted || _hasNavigated) return;
     
     _hasNavigated = true;
-    debugPrint('导航到下一页面 - 首次启动/引导未完成: $_isFirstLaunch');
+    debugPrint('导航到下一页面 - 首次启动: $_isFirstLaunch, 初始设置已完成: $_hasCompletedSetup');
     
     try {
       if (_isFirstLaunch) {
-        GoRouter.of(context).goNamed('onboarding');
+        GoRouter.of(context).goNamed(AppRouter.onboarding);
+      } else if (!_hasCompletedSetup) {
+        GoRouter.of(context).goNamed(AppRouter.initialSetup);
       } else {
-        GoRouter.of(context).goNamed('home');
+        GoRouter.of(context).goNamed(AppRouter.home);
       }
     } catch (e) {
       debugPrint('导航失败: $e');
@@ -144,13 +148,14 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     try {
       final prefs = await SharedPreferences.getInstance();
       if (mounted) {
-        final isFirstLaunch = prefs.getBool(AppPrefsKeys.firstLaunch) ?? true;
-        final hasCompletedSetup = prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false;
-        // 只要未完成 Onboarding 引导或初始设置，都属于首次引导阶段！
-        _isFirstLaunch = isFirstLaunch || !hasCompletedSetup;
+        _isFirstLaunch = prefs.getBool(AppPrefsKeys.firstLaunch) ?? true;
+        _hasCompletedSetup = prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false;
       }
     } catch (e) {
-      if (mounted) _isFirstLaunch = true;
+      if (mounted) {
+        _isFirstLaunch = true;
+        _hasCompletedSetup = false;
+      }
     }
   }
   

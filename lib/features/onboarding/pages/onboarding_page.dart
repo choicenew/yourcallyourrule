@@ -58,6 +58,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   Future<void> _proceedToNextFlow() async {
     try {
       final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool(AppPrefsKeys.firstLaunch, false);
       final hasCompletedSetup = prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false;
       if (!mounted) return;
       if (!hasCompletedSetup) {

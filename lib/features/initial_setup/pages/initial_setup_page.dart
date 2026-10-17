@@ -365,6 +365,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setBool(AppPrefsKeys.hasCompletedInitialSetup, true);
+      await prefs.setBool(AppPrefsKeys.firstLaunch, false);
     } catch (_) {}
     if (context.mounted) {
       if (context.canPop()) {

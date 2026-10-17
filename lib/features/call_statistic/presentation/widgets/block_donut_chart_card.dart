@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 动态规则动作分布环形饼图组件 (PieChart / Donut Chart - 100% 数据驱动 & 系统主题)
+/// 动态规则动作分布环形饼图组件 (PieChart / Donut Chart - 100% 数据驱动 & 常驻渲染)
 class BlockDonutChartCard extends ConsumerWidget {
   const BlockDonutChartCard({super.key});
 
@@ -20,44 +20,49 @@ class BlockDonutChartCard extends ConsumerWidget {
     final timeRules = state.timeRulesCount;
     final noneRules = state.noneRulesCount;
 
-    final int totalSum = blockRules + allowRules + silenceRules + timeRules + noneRules;
+    final int rawTotalSum = blockRules + allowRules + silenceRules + timeRules + noneRules;
+    final int totalSum = rawTotalSum > 0 ? rawTotalSum : 1;
 
-    final List<_DonutSectionData> sections = [
-      if (blockRules > 0)
-        _DonutSectionData(
-          label: l10n.blockRules,
-          value: blockRules,
-          color: theme.colorScheme.error,
-        ),
-      if (allowRules > 0)
-        _DonutSectionData(
-          label: l10n.allowRules,
-          value: allowRules,
-          color: theme.colorScheme.primary,
-        ),
-      if (silenceRules > 0)
-        _DonutSectionData(
-          label: l10n.silentRules,
-          value: silenceRules,
-          color: theme.colorScheme.tertiary,
-        ),
-      if (timeRules > 0)
-        _DonutSectionData(
-          label: l10n.timeInterceptor,
-          value: timeRules,
-          color: theme.colorScheme.secondary,
-        ),
-      if (noneRules > 0)
-        _DonutSectionData(
-          label: l10n.actionNone,
-          value: noneRules,
-          color: theme.colorScheme.outline,
-        ),
-    ];
-
-    if (totalSum == 0 || sections.isEmpty) {
-      return const SizedBox.shrink();
-    }
+    final List<_DonutSectionData> sections = rawTotalSum > 0
+        ? [
+            if (blockRules > 0)
+              _DonutSectionData(
+                label: l10n.blockRules,
+                value: blockRules,
+                color: theme.colorScheme.error,
+              ),
+            if (allowRules > 0)
+              _DonutSectionData(
+                label: l10n.allowRules,
+                value: allowRules,
+                color: theme.colorScheme.primary,
+              ),
+            if (silenceRules > 0)
+              _DonutSectionData(
+                label: l10n.silentRules,
+                value: silenceRules,
+                color: theme.colorScheme.tertiary,
+              ),
+            if (timeRules > 0)
+              _DonutSectionData(
+                label: l10n.timeInterceptor,
+                value: timeRules,
+                color: theme.colorScheme.secondary,
+              ),
+            if (noneRules > 0)
+              _DonutSectionData(
+                label: l10n.actionNone,
+                value: noneRules,
+                color: theme.colorScheme.outline,
+              ),
+          ]
+        : [
+            _DonutSectionData(
+              label: l10n.blockRules,
+              value: 1,
+              color: theme.colorScheme.primary,
+            ),
+          ];
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -109,7 +114,6 @@ class BlockDonutChartCard extends ConsumerWidget {
                     sectionsSpace: 2,
                     centerSpaceRadius: 32,
                     sections: sections.map((sec) {
-                      final pct = ((sec.value / totalSum) * 100).round();
                       return PieChartSectionData(
                         color: sec.color,
                         value: sec.value.toDouble(),
@@ -126,7 +130,7 @@ class BlockDonutChartCard extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: sections.map((sec) {
-                    final pct = ((sec.value / totalSum) * 100).round();
+                    final pct = rawTotalSum > 0 ? ((sec.value / totalSum) * 100).round() : 100;
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4.0),
                       child: Row(

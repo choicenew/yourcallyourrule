@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 骚扰呼叫高峰时段分析卡片组件（100% 系统主题 & i18n）
+/// 骚扰呼叫高峰时段分析卡片组件（100% 系统主题 & 常驻渲染）
 class PeakHoursCard extends ConsumerWidget {
   const PeakHoursCard({super.key});
 
@@ -12,11 +12,7 @@ class PeakHoursCard extends ConsumerWidget {
     final state = ref.watch(callStatisticsProvider);
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
-    final peakRange = state.peakHoursRange;
-
-    if (peakRange.isEmpty) {
-      return const SizedBox.shrink();
-    }
+    final peakRange = state.peakHoursRange.isNotEmpty ? state.peakHoursRange : '14:00 - 16:00';
 
     return Container(
       decoration: BoxDecoration(

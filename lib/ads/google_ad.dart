@@ -58,7 +58,6 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
     debugPrint('$adType failed to load: $error');
     _isAdLoaded = false;
 
-    // 【生产环境优化】：如果首次请求失败（如偶发 No-Fill 或网络抖动），延迟 4 秒自动重试 1 次
     if (!_hasRetried && mounted) {
       _hasRetried = true;
       debugPrint('$adType 首次加载失败，4秒后自动重试...');
@@ -74,7 +73,6 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
     }
   }
 
-  // 根据广告类型创建相应的广告
   void _createAd() {
     if (_loadAttempted) return;
     _loadAttempted = true;
@@ -104,9 +102,7 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
     }
   }
 
-  // 创建横幅广告
   Future<void> _createBannerAd() async {
-    // 1. 优先尝试从全局预加载池中获取已加载好的 Banner 广告 (实现 0 毫秒秒出)
     final preloaded = AdPreloadManager.instance.consumeBannerAd(widget.adInfo.adUnitId);
     if (preloaded != null && preloaded.ad is BannerAd) {
       _ad = preloaded.ad as BannerAd;
@@ -114,12 +110,10 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
       _isFailed = false;
       if (mounted) setState(() {});
       updateKeepAlive();
-      // 在后台补货补充预加载池
       AdPreloadManager.instance.preloadBannerAd(widget.adInfo);
       return;
     }
 
-    // 2. 预加载池未命中，进行标准网络加载
     AdSize? size = widget.adInfo.size;
     if (size == null) {
       final double width = widget.width ?? (mounted ? MediaQuery.of(context).size.width : 320.0);
@@ -153,7 +147,6 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
     _ad.load();
   }
 
-  // 创建原生高级广告
   void _createNativeAdvancedAd() {
     final preloaded = AdPreloadManager.instance.consumeNativeAd(widget.adInfo.adUnitId);
     if (preloaded != null && preloaded.ad is NativeAd) {
@@ -190,7 +183,6 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
     _ad.load();
   }
 
-  // 创建插页式广告
   void _createInterstitialAd() {
     final preloaded = AdPreloadManager.instance.consumeInterstitialAd(widget.adInfo.adUnitId);
     if (preloaded != null && preloaded.ad is InterstitialAd) {
@@ -264,7 +256,6 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
     );
   }
 
-  // 创建奖励广告
   void _createRewardedAd() {
     final preloaded = AdPreloadManager.instance.consumeRewardedAd(widget.adInfo.adUnitId);
     if (preloaded != null && preloaded.ad is RewardedAd) {
@@ -294,7 +285,6 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
     );
   }
 
-  // 创建应用打开广告
   void _createAppOpenAd() {
     AppOpenAd.load(
       adUnitId: widget.adInfo.adUnitId, 
@@ -314,7 +304,6 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
     );
   }
 
-  // 显示广告
   void _showAd() {
     final adState = ref.read(adStateProvider);
     if (!adState) return;
@@ -328,6 +317,62 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
     } else if (_ad is AppOpenAd) {
       _ad.show();
     }
+  }
+
+  /// 构建统一精美赞助卡片包覆外框
+  Widget _buildSponsoredCard(BuildContext context, Widget child, {double? width}) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final cardBg = theme.colorScheme.surfaceContainerHighest.withOpacity(isDark ? 0.45 : 0.65);
+    final borderColor = theme.colorScheme.outlineVariant.withOpacity(0.35);
+
+    return Container(
+      width: width ?? double.infinity,
+      margin: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 2.0),
+      decoration: BoxDecoration(
+        color: cardBg,
+        borderRadius: BorderRadius.circular(16.0),
+        border: Border.all(color: borderColor, width: 1.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(isDark ? 0.25 : 0.04),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 6.0, left: 2.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.primary.withOpacity(0.12),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    "广告",
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                      color: theme.colorScheme.primary,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Center(child: child),
+        ],
+      ),
+    );
   }
 
   @override
@@ -348,8 +393,16 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
       WidgetsBinding.instance.addPostFrameCallback((_) => _createAd());
     }
 
-    // A. 广告加载成功，呈现广告
+    // A. 广告加载成功，呈现卡片包裹广告
     if (_isAdLoaded && _ad != null) {
+      final isInlineType = widget.adInfo.type == AdType.banner || widget.adInfo.type == AdType.nativeAdvanced;
+      if (isInlineType) {
+        return _buildSponsoredCard(
+          context,
+          _buildAdWidget(width: widget.width, height: widget.height),
+          width: widget.width,
+        );
+      }
       return _buildAdWidget(width: widget.width, height: widget.height);
     }
 
@@ -358,43 +411,41 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
       return const SizedBox.shrink();
     }
 
-    // C. 正在加载或正在等待自动重试：提供优雅的固定高度骨架屏，消除 0 高度塌陷
+    // C. 正在加载中：优雅骨架屏卡片，保持卡片容器外观一致，消除 0 高度塌陷
     final isNative = widget.adInfo.type == AdType.nativeAdvanced;
-    final targetHeight = widget.height ?? (isNative ? 200.0 : 60.0);
-    return Container(
-      width: widget.width ?? double.infinity,
-      height: targetHeight,
-      margin: const EdgeInsets.symmetric(vertical: 4.0),
-      decoration: BoxDecoration(
-        color: Colors.grey.withAlpha(20),
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 14,
-              height: 14,
-              child: CircularProgressIndicator(
-                strokeWidth: 2.0,
-                valueColor: AlwaysStoppedAnimation<Color>(
-                  Colors.grey.withAlpha(120),
+    final targetHeight = widget.height ?? (isNative ? 180.0 : 50.0);
+    return _buildSponsoredCard(
+      context,
+      SizedBox(
+        height: targetHeight,
+        child: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 14,
+                height: 14,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2.0,
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    Theme.of(context).colorScheme.primary.withOpacity(0.6),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(width: 8),
-            Text(
-              "AD",
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey.withAlpha(120),
+              const SizedBox(width: 8),
+              Text(
+                "AD",
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant.withOpacity(0.6),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
+      width: widget.width,
     );
   }
 
