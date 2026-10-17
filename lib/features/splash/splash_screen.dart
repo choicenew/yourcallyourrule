@@ -60,8 +60,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
       _checkVipStatus(),
     ]);
     
-    _shouldLoadAd = !_isVipUser;
-    debugPrint('初始化完成 - VIP用户: $_isVipUser, 首次启动: $_isFirstLaunch');
+    // 【核心约束】：如果是 VIP 用户，或者未完成 Onboarding 引导阶段，绝对不触发广告！
+    _shouldLoadAd = !_isVipUser && !_isFirstLaunch;
+    debugPrint('初始化完成 - VIP用户: $_isVipUser, 引导未完成/首次启动: $_isFirstLaunch, 是否触发广告: $_shouldLoadAd');
     
     // 启动最小时间门锁
     Timer(_minSplashDuration, () {
@@ -113,12 +114,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     if (!mounted || _hasNavigated) return;
     
     _hasNavigated = true;
-    debugPrint('导航到下一页面 - 首次启动: $_isFirstLaunch');
+    debugPrint('导航到下一页面 - 首次启动/引导未完成: $_isFirstLaunch');
     
     try {
       if (_isFirstLaunch) {
         GoRouter.of(context).goNamed('onboarding');
-        _setFirstLaunchComplete();
       } else {
         GoRouter.of(context).goNamed('home');
       }
@@ -143,7 +143,12 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   Future<void> _checkFirstLaunch() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      if (mounted) _isFirstLaunch = prefs.getBool(AppPrefsKeys.firstLaunch) ?? true;
+      if (mounted) {
+        final isFirstLaunch = prefs.getBool(AppPrefsKeys.firstLaunch) ?? true;
+        final hasCompletedSetup = prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false;
+        // 只要未完成 Onboarding 引导或初始设置，都属于首次引导阶段！
+        _isFirstLaunch = isFirstLaunch || !hasCompletedSetup;
+      }
     } catch (e) {
       if (mounted) _isFirstLaunch = true;
     }
