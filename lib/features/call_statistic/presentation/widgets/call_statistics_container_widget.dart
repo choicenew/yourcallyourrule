@@ -11,6 +11,8 @@ import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/tr
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_chart.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/top_rules_card.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/peak_hours_card.dart';
+import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/block_donut_chart_card.dart';
+import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/sim_bar_chart_card.dart';
 
 /// 智能高密度通话拦截统计容器 Widget（100% 采用系统 Theme.of(context) 主题与 i18n）
 class CallStatisticsContainerWidget extends ConsumerStatefulWidget {
@@ -71,23 +73,31 @@ class _CallStatisticsContainerWidgetState
           const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd),
           const SizedBox(height: 14),
 
-          // 5. 趋势分析曲线
+          // 5. 拦截趋势曲线图 (FlChart LineChart - 折线图)
           const TrendChartCard(),
           const SizedBox(height: 14),
 
-          // 6. 热门触发规则排行 (数据驱动 TOP 3)
+          // 6. 规则动作分布环形饼图 (FlChart PieChart - 饼图)
+          const BlockDonutChartCard(),
+          const SizedBox(height: 14),
+
+          // 7. 双卡拦截分布对比柱状图 (FlChart BarChart - 柱状图)
+          const SimBarChartCard(),
+          const SizedBox(height: 14),
+
+          // 8. 热门触发规则排行 (数据驱动 TOP 3)
           const TopRulesCard(),
           const SizedBox(height: 14),
 
-          // 7. 高峰骚扰时间段分析
+          // 9. 高峰骚扰时间段分析
           const PeakHoursCard(),
           const SizedBox(height: 14),
 
-          // 8. 拦截类型分析
+          // 10. 拦截类型分析
           const BlockTypeAnalysis(),
           const SizedBox(height: 14),
 
-          // 9. 导出数据按钮
+          // 11. 导出数据按钮
           _buildExportButton(context),
         ],
       ),
