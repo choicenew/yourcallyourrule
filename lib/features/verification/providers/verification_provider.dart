@@ -26,14 +26,12 @@ import 'package:yourcallyourrule/features/verification/models/verification_state
 
 /// Verification 业务逻辑管理 Notifier
 class VerificationNotifier extends Notifier<VerificationState> {
-  StreamSubscription? _legacyPluginSub;
   StreamSubscription? _pluginSub;
 
   @override
   VerificationState build() {
     _initSubscriptions();
     ref.onDispose(() {
-      _legacyPluginSub?.cancel();
       _pluginSub?.cancel();
     });
     return const VerificationState();
@@ -41,9 +39,6 @@ class VerificationNotifier extends Notifier<VerificationState> {
 
   void _initSubscriptions() {
     final callerIdService = ref.read(callerIdServiceProvider);
-    _legacyPluginSub = callerIdService.legacyPluginDataStream.listen((data) {
-      state = state.copyWith(legacyPluginData: data);
-    });
     _pluginSub = callerIdService.pluginDataStream.listen((data) {
       state = state.copyWith(pluginSourceData: data);
     });
@@ -174,7 +169,14 @@ class VerificationNotifier extends Notifier<VerificationState> {
         country: countryCode,
       );
 
-      final callerIdData = await callerIdService.getCallerId(number.value, dlibLocale);
+      CallerIdData? callerIdData;
+      try {
+        callerIdData = await callerIdService.getCallerId(number.value, dlibLocale);
+      } catch (e) {
+        debugPrint('[VerificationNotifier] getCallerId failed, fallback: $e');
+        callerIdData = null;
+      }
+
       final rules = await callFilterService.verifyAllRules(number);
 
       dynamic matchedContact;
@@ -231,6 +233,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
     } catch (e) {
       state = state.copyWith(
         isLoading: false,
+        hasVerified: true, // 降级容错：即便中间链路抛错，依然保证 hasVerified 为 true 渲染卡片！
         errorMessage: e.toString(),
       );
     }

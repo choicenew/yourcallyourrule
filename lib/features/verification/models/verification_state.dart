@@ -15,7 +15,6 @@ class VerificationState {
   final Contact? matchedContact;
   final LabelPhoneEntry? matchedLabel;
   final PluginSourceData? pluginSourceData;
-  final Map<String, dynamic> legacyPluginData;
   final Map<String, bool> rulesResults;
   final String? errorMessage;
 
@@ -30,7 +29,6 @@ class VerificationState {
     this.matchedContact,
     this.matchedLabel,
     this.pluginSourceData,
-    this.legacyPluginData = const {},
     this.rulesResults = const {},
     this.errorMessage,
   });
@@ -46,7 +44,6 @@ class VerificationState {
     Contact? matchedContact,
     LabelPhoneEntry? matchedLabel,
     PluginSourceData? pluginSourceData,
-    Map<String, dynamic>? legacyPluginData,
     Map<String, bool>? rulesResults,
     String? errorMessage,
   }) {
@@ -61,7 +58,6 @@ class VerificationState {
       matchedContact: matchedContact ?? this.matchedContact,
       matchedLabel: matchedLabel ?? this.matchedLabel,
       pluginSourceData: pluginSourceData ?? this.pluginSourceData,
-      legacyPluginData: legacyPluginData ?? this.legacyPluginData,
       rulesResults: rulesResults ?? this.rulesResults,
       errorMessage: errorMessage,
     );

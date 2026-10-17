@@ -173,11 +173,9 @@ class _VerificationPageState extends ConsumerState<VerificationPage> {
                 verificationResults: verificationState.rulesResults,
               ),
               const SizedBox(height: 16),
-              if (verificationState.pluginSourceData != null ||
-                  verificationState.legacyPluginData.isNotEmpty) ...[
+              if (verificationState.pluginSourceData != null) ...[
                 VerificationPluginCard(
                   pluginSourceData: verificationState.pluginSourceData,
-                  legacyPluginData: verificationState.legacyPluginData,
                 ),
                 const SizedBox(height: 16),
               ],

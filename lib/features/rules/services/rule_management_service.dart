@@ -161,6 +161,15 @@ class RuleManagementService extends ListService {
     }
   }
 
+  /// 根据电话号码精准定位匹配的 PhoneRule 规则
+  Future<List<PhoneRule>> getRulesByPhoneNumber(PhoneNumber phoneNumber) async {
+    final rules = await _ruleRepository.getAll();
+    return rules
+        .whereType<PhoneRule>()
+        .where((rule) => rule.phoneNumber.value == phoneNumber.value && rule.isEnabled)
+        .toList();
+  }
+
 
   // 更新电话规则
   Future<void> updatePhoneNumberRule(PhoneRule rule) async {

@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 插件扩展数据卡片（全量国际化，消除硬编码文本）
+/// 插件扩展数据卡片（完全基于 PluginSourceData 强实体，消除旧数据接口）
 class VerificationPluginCard extends StatelessWidget {
   final PluginSourceData? pluginSourceData;
-  final Map<String, dynamic> legacyPluginData;
 
   const VerificationPluginCard({
     super.key,
     this.pluginSourceData,
-    required this.legacyPluginData,
   });
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
+
+    if (pluginSourceData == null) return const SizedBox.shrink();
 
     return Container(
       padding: const EdgeInsets.all(18),
@@ -38,69 +38,44 @@ class VerificationPluginCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (pluginSourceData != null) ...[
-            Row(
-              children: [
-                Icon(
-                  Icons.extension_rounded,
-                  size: 18,
-                  color: theme.colorScheme.secondary,
+          Row(
+            children: [
+              Icon(
+                Icons.extension_rounded,
+                size: 18,
+                color: theme.colorScheme.secondary,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                l10n.pluginLabel,
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w900,
+                  color: theme.colorScheme.onSurface,
                 ),
-                const SizedBox(width: 8),
-                Text(
-                  l10n.pluginLabel,
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w900,
-                    color: theme.colorScheme.onSurface,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            _buildInfoText(context, l10n.contactNameLabel, pluginSourceData?.name ?? l10n.unknown),
-            _buildInfoText(context, l10n.pluginLabel, pluginSourceData?.sourceLabel ?? l10n.unknown),
-            _buildInfoText(
-              context,
-              l10n.tagLabel(pluginSourceData?.predefinedLabel ?? pluginSourceData?.sourceLabel ?? l10n.unknown),
-              pluginSourceData?.predefinedLabel ??
-                  pluginSourceData?.sourceLabel ??
-                  l10n.unknown,
-            ),
-            _buildInfoText(
-              context,
-              l10n.enableLocationSummary,
-              [pluginSourceData?.province, pluginSourceData?.city]
-                  .where((e) => e != null && e.isNotEmpty)
-                  .join(', '),
-            ),
-            _buildInfoText(context, l10n.carrier, pluginSourceData?.carrier ?? l10n.unknown),
-            _buildInfoText(context, l10n.callerIdMarkedByCount(pluginSourceData?.count ?? 0), '${pluginSourceData?.count ?? 0}'),
-            _buildInfoText(context, l10n.action, pluginSourceData?.action.toString() ?? l10n.actionNone),
-          ],
-          if (legacyPluginData.isNotEmpty) ...[
-            if (pluginSourceData != null) const Divider(height: 24),
-            Row(
-              children: [
-                Icon(
-                  Icons.history_rounded,
-                  size: 18,
-                  color: theme.colorScheme.primary,
-                ),
-                const SizedBox(width: 8),
-                Text(
-                  '${l10n.pluginLabel} (Legacy)',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w900,
-                    color: theme.colorScheme.onSurface,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            ...legacyPluginData.entries.map((e) => _buildInfoText(context, e.key, '${e.value}')),
-          ],
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          _buildInfoText(context, l10n.contactNameLabel, pluginSourceData?.name ?? l10n.unknown),
+          _buildInfoText(context, l10n.pluginLabel, pluginSourceData?.sourceLabel ?? l10n.unknown),
+          _buildInfoText(
+            context,
+            l10n.tagLabel(pluginSourceData?.predefinedLabel ?? pluginSourceData?.sourceLabel ?? l10n.unknown),
+            pluginSourceData?.predefinedLabel ??
+                pluginSourceData?.sourceLabel ??
+                l10n.unknown,
+          ),
+          _buildInfoText(
+            context,
+            l10n.enableLocationSummary,
+            [pluginSourceData?.province, pluginSourceData?.city]
+                .where((e) => e != null && e.isNotEmpty)
+                .join(', '),
+          ),
+          _buildInfoText(context, l10n.carrier, pluginSourceData?.carrier ?? l10n.unknown),
+          _buildInfoText(context, l10n.callerIdMarkedByCount(pluginSourceData?.count ?? 0), '${pluginSourceData?.count ?? 0}'),
+          _buildInfoText(context, l10n.action, pluginSourceData?.action.toString() ?? l10n.actionNone),
         ],
       ),
     );

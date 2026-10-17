@@ -7,9 +7,22 @@ import 'package:yourcallyourrule/core/services/firebase_crashlytics_service.dart
 /// 增强版日志服务，支持多级别日志和文件输出
 /// 集成Firebase Crashlytics进行错误报告
 class AppLogger {
-  static late final Logger _logger;
+  static Logger? _logger;
   static File? _logFile;
   static final _crashlyticsService = FirebaseCrashlyticsService();
+
+  static Logger get _safeLogger {
+    _logger ??= Logger(
+      filter: ProductionFilter(),
+      printer: PrettyPrinter(
+        methodCount: 0,
+        errorMethodCount: 5,
+        colors: false,
+      ),
+      output: ConsoleOutput(),
+    );
+    return _logger!;
+  }
 
   static void initialize() {
     final List<LogOutput> outputs = [ConsoleOutput()];
@@ -35,26 +48,26 @@ class AppLogger {
   }
 
   /// 记录详细调试信息 
-  static void verbose(String message) => _logger.t(message);
+  static void verbose(String message) => _safeLogger.t(message);
 
   /// 记录调试信息
-  static void debug(String message) => _logger.d(message);
+  static void debug(String message) => _safeLogger.d(message);
 
   /// 记录普通信息
-  static void info(String message) => _logger.i(message);
+  static void info(String message) => _safeLogger.i(message);
 
   /// 记录警告信息
-  static void warning(String message) => _logger.w(message);
+  static void warning(String message) => _safeLogger.w(message);
 
   /// 记录错误信息（含堆栈跟踪）
   static void error(String message, [dynamic error, StackTrace? stackTrace]) {
-    _logger.e(message, error: error, stackTrace: stackTrace);
+    _safeLogger.e(message, error: error, stackTrace: stackTrace);
     _reportCrash(message, error, stackTrace);
   }
 
   /// 记录致命错误信息（含堆栈跟踪），并强制崩溃
   static void fatal(String message, [dynamic error, StackTrace? stackTrace]) {
-    _logger.f(message, error: error, stackTrace: stackTrace);
+    _safeLogger.f(message, error: error, stackTrace: stackTrace);
     _reportCrash(message, error, stackTrace, fatal: true);
   }
 

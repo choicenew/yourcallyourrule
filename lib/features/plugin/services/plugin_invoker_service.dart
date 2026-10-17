@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
+import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_execution_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 
@@ -294,6 +295,50 @@ class PluginInvokerService {
       return (null, allResultsCompleter.future);
     }
   }
+
+  // region 强类型实体输出扩展 (Entity Boundary Extensions)
+
+  /// 调用单个插件并直接输出强类型实体 PluginSourceData
+  Future<PluginSourceData?> callPluginSourceData(
+    String pluginId,
+    String phoneNumber,
+    String nationalNumber,
+    String e164Number,
+  ) async {
+    final rawMap = await callPlugin(pluginId, phoneNumber, nationalNumber, e164Number);
+    if (rawMap == null) return null;
+    return PluginSourceData.fromMap(rawMap);
+  }
+
+  /// 调用所有启用的插件，返回第一个有效强类型实体 PluginSourceData
+  Future<PluginSourceData?> callPluginsSourceData(
+    String phoneNumber,
+    String nationalNumber,
+    String e164Number,
+  ) async {
+    final rawMap = await callPlugins(phoneNumber, nationalNumber, e164Number);
+    if (rawMap == null) return null;
+    return PluginSourceData.fromMap(rawMap);
+  }
+
+  /// 在插件服务的【输出出口】防线直接完成实体转换：
+  /// 返回第一个有效 PluginSourceData 强类型实体，以及包含所有插件结果实体的 Future<List<PluginSourceData>>
+  Future<(PluginSourceData?, Future<List<PluginSourceData>>)> callPluginsAllEntities(
+    String phoneNumber,
+    String nationalNumber,
+    String e164Number,
+  ) async {
+    final (firstRaw, allRawFuture) = await callPluginsAll(phoneNumber, nationalNumber, e164Number);
+    final firstEntity = firstRaw != null ? PluginSourceData.fromMap(firstRaw) : null;
+    
+    final allEntitiesFuture = allRawFuture.then((rawList) {
+      return rawList.map((map) => PluginSourceData.fromMap(map)).toList();
+    });
+
+    return (firstEntity, allEntitiesFuture);
+  }
+
+  // endregion
 
   // 用于同步访问共享资源的简单锁
   final _lock = Object();

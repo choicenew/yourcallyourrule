@@ -28,6 +28,87 @@ class PluginSourceData {
     Map<String, dynamic>? extra,
   }) : extra = extra ?? {};
 
+  // 自动整合多个 PluginSourceData 实例的自动化融合领域方法
+  static PluginSourceData merge(List<PluginSourceData> list) {
+    if (list.isEmpty) return PluginSourceData();
+    if (list.length == 1) return list.first;
+
+    String? name;
+    String? predefinedLabel;
+    String? sourceLabel;
+    String? avatar;
+    String? province;
+    String? city;
+    String? carrier;
+    String? phoneNumber;
+    int maxCount = 0;
+
+    int blockCount = 0;
+    int allowCount = 0;
+    RuleAction action = RuleAction.none;
+
+    for (final item in list) {
+      if (item.action.type == RuleActionType.block) {
+        blockCount++;
+        action = RuleAction.block;
+      } else if (item.action.type == RuleActionType.allow) {
+        allowCount++;
+      }
+
+      if (name == null || name.isEmpty || name == 'Unknown') {
+        if (item.name != null && item.name!.isNotEmpty && item.name != 'Unknown') {
+          name = item.name;
+        }
+      }
+
+      if (predefinedLabel == null || predefinedLabel.isEmpty) {
+        if (item.predefinedLabel != null && item.predefinedLabel!.isNotEmpty) {
+          predefinedLabel = item.predefinedLabel;
+        }
+      }
+
+      if (sourceLabel == null || sourceLabel.isEmpty) {
+        if (item.sourceLabel != null && item.sourceLabel!.isNotEmpty) {
+          sourceLabel = item.sourceLabel;
+        }
+      }
+
+      if (avatar == null || avatar.isEmpty) {
+        if (item.avatar != null && item.avatar!.isNotEmpty) {
+          avatar = item.avatar;
+        }
+      }
+
+      if (item.count != null && item.count! > maxCount) {
+        maxCount = item.count!;
+      }
+
+      phoneNumber ??= item.phoneNumber;
+      province ??= item.province;
+      city ??= item.city;
+      carrier ??= item.carrier;
+    }
+
+    if (allowCount > blockCount) {
+      action = RuleAction.allow;
+    } else if (blockCount > 0) {
+      action = RuleAction.block;
+    }
+
+    return PluginSourceData(
+      name: name,
+      predefinedLabel: predefinedLabel,
+      sourceLabel: sourceLabel,
+      avatar: avatar,
+      count: maxCount > 0 ? maxCount : null,
+      province: province,
+      city: city,
+      carrier: carrier,
+      phoneNumber: phoneNumber,
+      action: action,
+    );
+  }
+
   // 新增fromMap工厂方法
   factory PluginSourceData.fromMap(Map<String, dynamic> map) {
     final extra = Map<String, dynamic>.from(map);

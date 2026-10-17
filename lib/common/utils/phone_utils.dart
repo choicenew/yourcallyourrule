@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:isolate';
 
+import 'package:flutter/foundation.dart';
 import 'package:dlibphonenumber/dlibphonenumber.dart';
 // import 'package:sim_card_info/sim_card_info.dart';
 // import 'package:sim_card_info/sim_info.dart' as flutter;
@@ -9,8 +10,55 @@ import 'package:sim_reader/sim_reader.dart';
 
 import 'package:yourcallyourrule/common/error/logger.dart';
 
+/// 解析后的电话号码强结构实体
+class ParsedPhoneNumber {
+  final String countryCode;
+  final String e164Number;
+  final String nationalNumber;
+
+  const ParsedPhoneNumber({
+    required this.countryCode,
+    required this.e164Number,
+    required this.nationalNumber,
+  });
+
+  static const ParsedPhoneNumber empty = ParsedPhoneNumber(
+    countryCode: '',
+    e164Number: '',
+    nationalNumber: '',
+  );
+
+  bool get isValid => e164Number.isNotEmpty;
+
+  Map<String, String> toMap() => {
+        'countryCode': countryCode,
+        'e164Number': e164Number,
+        'nationalNumber': nationalNumber,
+      };
+
+  factory ParsedPhoneNumber.fromMap(Map<String, String> map) => ParsedPhoneNumber(
+        countryCode: map['countryCode'] ?? '',
+        e164Number: map['e164Number'] ?? '',
+        nationalNumber: map['nationalNumber'] ?? '',
+      );
+}
+
 /// 电话号码工具类，提供电话号码解析和格式化功能
 class PhoneUtils {
+  /// 解析电话号码强类型实体（使用ISO国家代码）
+  static Future<ParsedPhoneNumber> parsePhoneNumberWithIsoEntity(
+      String phoneNumber, String simCountryCode) async {
+    final map = await parsePhoneNumberWithIso(phoneNumber, simCountryCode);
+    return ParsedPhoneNumber.fromMap(map);
+  }
+
+  /// 解析电话号码强类型实体
+  static Future<ParsedPhoneNumber> parsePhoneNumberEntity(
+      String phoneNumber) async {
+    final map = await parsePhoneNumber(phoneNumber);
+    return ParsedPhoneNumber.fromMap(map);
+  }
+
   /// 解析电话号码，返回国家代码、E164格式和国内格式
   static Future<Map<String, String>> parsePhoneNumber(
       String phoneNumber) async {
@@ -126,17 +174,14 @@ class PhoneUtils {
                 break;
               }
             } catch (e) {
-              AppLogger.error('invalid_country_code', e);
+              // 注意：子 Isolate 中 AppLogger 未初始化，必须用 debugPrint 避免 LateInitializationError 炸崩 Isolate！
+              debugPrint('invalid_country_code: $e');
             }
           }
         }
       }
     } catch (e) {
-      AppLogger.error('电话号码解析失败', e);
-     
-     
-     
-     
+      debugPrint('电话号码解析失败: $e');
     }
 
     return {

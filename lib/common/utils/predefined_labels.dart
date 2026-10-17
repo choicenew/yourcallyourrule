@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/common/utils/label_annotations.dart';
+import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 part 'predefined_labels.g.dart';
+
+/// 预定义强类型实体标签列表
+final List<PredefinedLabel> predefinedLabelEntities = predefinedLabels
+    .map((m) => PredefinedLabel.create(
+          m['text'] as String,
+          icon: m['icon'] as String?,
+          avatar: m['avatar'] as String?,
+        ))
+    .toList();
 
 /// 预定义标签列表
 /// 用于初始化系统中的标准标签

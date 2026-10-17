@@ -1,5 +1,6 @@
 // 电话标签条目实体，用于表示电话号码的标签信息
 
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
 import '../../value_objects/phone_number.dart';
 import '../../value_objects/rule_action.dart';
 import '../../value_objects/rule_priority.dart';
@@ -72,7 +73,7 @@ class LabelPhoneEntry extends RuleBase {
       phoneNumber: PhoneNumber.fromString(map['phoneNumber']),
       labelId: map['labelId'], // 使用labelId
       action: RuleAction.fromString(map['action'] ?? defaultAction.toString().split('.').last), // 使用默认值
-      isEnabled: map['isEnabled'] ?? true,
+      isEnabled: parseBool(map['isEnabled'], defaultValue: true),
       avatar: map['avatar'],
       icon: map['icon'],
     );

@@ -1,12 +1,12 @@
 import 'dart:async';
+import 'package:dlibphonenumber/dlibphonenumber.dart' hide PhoneNumber;
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
-import 'package:yourcallyourrule/core/entities/caller_id/caller_id_data.dart';
+import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number_type.dart';
+import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 
 /// 模拟来电识别全链路与容错模拟测试
@@ -39,7 +39,7 @@ void main() {
     });
 
     test('2. 权限隔离模拟：模拟没有系统通讯录权限 (READ_CONTACTS Permission Denied)', () async {
-      // 模拟模拟方法：受保护的通讯录拉取器
+      // 模拟方法：受保护的通讯录拉取器
       Future<List<Map<String, String>>> mockFetchContacts({required bool hasPermission}) async {
         if (!hasPermission) {
           // 模拟原生 PlatformChannel 抛出权限拒绝异常
@@ -75,10 +75,10 @@ void main() {
         Map<String, dynamic>? pluginResult;
         if (activePlugins.isNotEmpty) {
           // 模拟插件执行耗时
-          await Future.delayed(const Duration(milliseconds: 50));
+          await Future.delayed(const Duration(milliseconds: 10));
           pluginResult = {'name': 'Spam Reporter', 'count': 12};
         } else {
-          // 无插件直接瞬间返回 null
+          // 无插件直接瞬间返回 null，0 毫秒等待！
           pluginResult = null;
         }
 
@@ -92,7 +92,7 @@ void main() {
 
         return CallerIdData(
           id: rawNumber,
-          phoneNumber: PhoneNumber.fromString(rawNumber),
+          phoneNumber: vo.PhoneNumber.fromString(rawNumber),
           numberType: PhoneNumberType.unknown,
           name: name,
           count: count,
@@ -124,30 +124,32 @@ void main() {
       final stopwatch = Stopwatch()..start();
 
       // 模拟无插件场景
-      final noPlugins = <PluginEntry>[];
+      final List<PluginEntry> noPlugins = [];
       expect(noPlugins.isEmpty, isTrue);
 
       // 验证无插件状态下毫秒级响应
-      await Future.delayed(Duration.zero); // 模拟 0 延迟
+      await Future.delayed(Duration.zero);
       final elapsedNoPlugins = stopwatch.elapsedMilliseconds;
 
-      // 模拟有 3 个启用插件场景
-      final activePlugins = [
-        PluginEntry(
+      // 模拟有 2 个启用插件场景
+      final List<PluginEntry> activePlugins = [
+        const PluginEntry(
           id: 'p1',
           name: 'Plugin 1',
           url: 'http://p1.js',
-          author: 'dev',
           version: '1.0',
+          description: 'test',
           isEnabled: true,
+          pluginOrder: 1,
         ),
-        PluginEntry(
+        const PluginEntry(
           id: 'p2',
           name: 'Plugin 2',
           url: 'http://p2.js',
-          author: 'dev',
           version: '1.0',
+          description: 'test',
           isEnabled: true,
+          pluginOrder: 2,
         ),
       ];
 

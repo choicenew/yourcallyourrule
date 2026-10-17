@@ -1,10 +1,16 @@
-// 来电显示数据实体类，用于表示来电显示所需的所有信息
-
 import 'package:dlibphonenumber/enums/phone_number_type.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_contacts/flutter_contacts.dart' as fluttercontact;
 import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 
 import '../base/base_entity.dart';
+import 'contact/contact_entry.dart';
+import 'label/label_phone_entry.dart';
+import 'label/predefined_label_entry.dart';
+import 'location/location_entry.dart';
+import 'plugin/plugin_source_data.dart';
+import 'remote/remote_number_entry.dart';
+import 'rule/phone_rule.dart';
 import '../value_objects/phone_number.dart';
 import '../value_objects/rule_action.dart';
 
@@ -131,6 +137,119 @@ class CallerIdData extends BaseEntity {
       avatar: avatar,
       count: count + 1,
       action: action,
+    );
+  }
+
+  /// 全自动化多源数据融合工厂（自动处理名称优先级、分类标签与安全头像）
+  factory CallerIdData.resolve({
+    required String rawNumber,
+    fluttercontact.Contact? localContact,
+    Contact? finalContact,
+    PhoneRule? phoneRule,
+    LabelPhoneEntry? labelEntry,
+    PredefinedLabel? labelFromId,
+    RemoteNumberEntry? remoteNumberEntry,
+    PluginSourceData? pluginSourceData,
+    LocationEntry? locationData,
+  }) {
+    // 1. 自动化计算名字 (系统通讯录 > App本地联系人 > 本地规则 > 云端库 > 插件 > 'Unknown'标准Key)
+    final name = localContact?.displayName ??
+        finalContact?.name ??
+        phoneRule?.name ??
+        remoteNumberEntry?.name ??
+        pluginSourceData?.name ??
+        'Unknown';
+
+    // 2. 自动化计算分类标签文本 (本地绑定的标签 > 远程库标签 > 插件标签 > 'Unknown')
+    final labelText = labelFromId?.text ??
+        remoteNumberEntry?.label ??
+        pluginSourceData?.predefinedLabel ??
+        'Unknown';
+
+    // 3. 自动化解析头像 (联系人头像 > 规则头像 > 插件头像 > 根据标签自动匹配图标)
+    final avatar = finalContact?.avatar ??
+        phoneRule?.avatar ??
+        pluginSourceData?.avatar ??
+        AvatarUtils.getSafeAvatarPath(labelText);
+
+    // 4. 自动化计算标记次数
+    final count = phoneRule?.count ??
+        remoteNumberEntry?.count ??
+        pluginSourceData?.count ??
+        0;
+
+    // 5. 自动化计算拦截动作 (规则 > 远程库 > 插件 > 标签 > RuleAction.none)
+    final action = phoneRule?.action ??
+        remoteNumberEntry?.action ??
+        pluginSourceData?.action ??
+        labelEntry?.action ??
+        RuleAction.none;
+
+    return CallerIdData(
+      id: rawNumber,
+      phoneNumber: PhoneNumber.fromString(rawNumber),
+      numberType: locationData?.numberType ?? PhoneNumberType.unknown,
+      name: name,
+      countryName: locationData?.countryName,
+      region: locationData?.region,
+      carrier: locationData?.carrier,
+      labels: [Label(label: labelText)],
+      avatar: avatar,
+      count: count,
+      action: action,
+    );
+  }
+
+  /// 异步插件数据返回后的全自动化融合富集方法
+  CallerIdData enrichWith(
+    PluginSourceData completePluginData, {
+    bool hasHighPriorityName = false,
+    bool hasHighPriorityAction = false,
+    bool hasHighPriorityAvatar = false,
+  }) {
+    final newName = hasHighPriorityName
+        ? name
+        : (completePluginData.name ?? name);
+
+    final newAction = hasHighPriorityAction
+        ? action
+        : (completePluginData.action != RuleAction.none ? completePluginData.action : action);
+
+    final newAvatar = hasHighPriorityAvatar
+        ? avatar
+        : (completePluginData.avatar ?? avatar);
+
+    final newCount = completePluginData.count ?? count;
+
+    String labelText = 'Unknown';
+    if (labels?.isNotEmpty == true) {
+      labelText = labels!.first.label;
+    }
+
+    if ((labelText == 'Unknown' || labelText.isEmpty) &&
+        completePluginData.predefinedLabel != null) {
+      labelText = completePluginData.predefinedLabel!;
+    }
+
+    String? effectiveAvatar = newAvatar;
+    if (!hasHighPriorityAvatar &&
+        (effectiveAvatar == null || effectiveAvatar == 'assets/avatars/Unknown.png') &&
+        labelText != 'Unknown' && labelText.isNotEmpty) {
+      effectiveAvatar = AvatarUtils.getSafeAvatarPath(labelText);
+    }
+
+    return CallerIdData(
+      id: id,
+      phoneNumber: phoneNumber,
+      numberType: numberType,
+      name: newName,
+      countryName: countryName,
+      region: region,
+      carrier: carrier,
+      labels: [Label(label: labelText)],
+      avatar: effectiveAvatar,
+      count: newCount,
+      action: newAction,
     );
   }
 }
