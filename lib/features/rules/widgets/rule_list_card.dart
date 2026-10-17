@@ -47,6 +47,8 @@ class RuleListCard extends ConsumerWidget {
         RuleActionDisplayUtils.getActionTypeName(context, action.type);
     final actionColor = RuleActionDisplayUtils.getActionTypeColor(action.type);
     final theme = Theme.of(context);
+    final labelText = labelIdToTextMap[labelId];
+    final hasAvatar = (avatar != null && avatar!.isNotEmpty) || (labelText != null && labelText.isNotEmpty);
 
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
@@ -75,8 +77,17 @@ class RuleListCard extends ConsumerWidget {
                 key: ValueKey(avatar ?? labelId),
                 backgroundColor: AvatarUtils.getColorFromName(labelId),
                 radius: 24,
-                backgroundImage: AvatarUtils.getAvatarImage(avatar, labelIdToTextMap[labelId]),
-                child: const Icon(Icons.person, color: Colors.white),
+                backgroundImage: AvatarUtils.getAvatarImage(avatar, labelText),
+                child: !hasAvatar
+                    ? Text(
+                        AvatarUtils.getAvatarInitial(name.isNotEmpty ? name : labelText),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    : null,
               ),
               const SizedBox(width: 14),
               Expanded(
