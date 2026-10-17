@@ -7,35 +7,31 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/data/models/notification_item.dart';
 
-
 part 'notification_history_service.g.dart';
 
 @Riverpod(keepAlive: true)
-Future<SharedPreferences> sharedPreferences(Ref ref) {
-  return SharedPreferences.getInstance();
-}
-
-@Riverpod(keepAlive: true)
 NotificationHistoryService notificationHistoryService(Ref ref) {
-  final sharedPreferences = ref.watch(sharedPreferencesProvider).value;
-  if (sharedPreferences == null) {
-    throw Exception('SharedPreferences not yet available');
-  }
-  return NotificationHistoryService(sharedPreferences);
+  return NotificationHistoryService();
 }
 
 /// 通知历史服务类
 /// 职责：封装所有与通知历史相关的持久化和业务逻辑。
 class NotificationHistoryService {
-  NotificationHistoryService(this._prefs);
+  NotificationHistoryService([this._prefs]);
 
-  final SharedPreferences _prefs;
+  SharedPreferences? _prefs;
   static const _storageKey = 'notification_history';
   static const _maxNotifications = 50;
 
+  Future<SharedPreferences> get _effectivePrefs async {
+    _prefs ??= await SharedPreferences.getInstance();
+    return _prefs!;
+  }
+
   Future<List<NotificationItem>> _load() async {
     try {
-      final jsonString = _prefs.getString(_storageKey);
+      final prefs = await _effectivePrefs;
+      final jsonString = prefs.getString(_storageKey);
       if (jsonString != null) {
         final jsonList = jsonDecode(jsonString) as List;
         return jsonList.map((item) => NotificationItem.fromJson(item)).toList();
@@ -53,8 +49,9 @@ class NotificationHistoryService {
 
   Future<void> _save(List<NotificationItem> notifications) async {
     try {
+      final prefs = await _effectivePrefs;
       final jsonList = notifications.map((item) => item.toJson()).toList();
-      await _prefs.setString(_storageKey, jsonEncode(jsonList));
+      await prefs.setString(_storageKey, jsonEncode(jsonList));
     } catch (e) {
       debugPrint('Error saving notification history: $e');
     }
