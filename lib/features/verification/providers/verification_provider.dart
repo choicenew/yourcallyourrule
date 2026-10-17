@@ -5,6 +5,7 @@ import 'package:dlibphonenumber/locale.dart' as dlibphone;
 import 'package:sim_reader/sim_reader.dart';
 
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
+import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
