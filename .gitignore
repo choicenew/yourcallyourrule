@@ -75,3 +75,5 @@ lib/l10n/untranslated.json
 # Lock files
 pubspec.lock
 
+test_worker/
+

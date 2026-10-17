@@ -112,6 +112,13 @@ class EliteQuickCapsules extends StatelessWidget {
             children: [
               _buildCompactCapsule(
                 context: context,
+                icon: Icons.phone_android_rounded,
+                title: l10n.phoneRule,
+                color: EliteDopamineTheme.warmSunAmber,
+                onTap: () => context.pushNamed(AppRouter.ruleManagementSettingsWithAds),
+              ),
+              _buildCompactCapsule(
+                context: context,
                 icon: Icons.shield_outlined,
                 title: l10n.allowBlock,
                 color: EliteDopamineTheme.freshMint,

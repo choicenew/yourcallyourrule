@@ -307,66 +307,7 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
     );
   }
 
-  Future<void> _importRulesToRuleSystem(Subscription subscription) async {
-    try {
-      // 显示加载对话框
-      showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) => AlertDialog(
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const CircularProgressIndicator(),
-              const SizedBox(height: 16),
-              Text(AppLocalizations.of(context)!.importRules),
-            ],
-          ),
-        ),
-      );
 
-      // 调用新的导入服务
-      final phoneSubscriptionService = ref.read(phoneSubscriptionServiceProvider);
-      final selectedRuleType = _subscriptionRuleTypeOverrides[subscription.id] ?? 'phone_rule';
-      final rules = await phoneSubscriptionService.importAndSaveRulesFromSubscription(
-        subscription,
-        ruleTypeOverride: selectedRuleType,
-      );
-      final count = rules.length;
-
-      // 关闭加载对话框
-      Navigator.of(context).pop();
-
-      // 显示结果
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-            content: Text(
-                '${AppLocalizations.of(context)!.importSuccess}: $count ${AppLocalizations.of(context)!.rulesImported}')),
-      );
-      
-      // 导入后后台更新当前订阅的最后更新时间，避免整页刷新
-      try {
-        final updated = await phoneSubscriptionService.getById(subscription.id);
-        if (updated != null) {
-          setState(() {
-            final index = _subscriptions.indexWhere((s) => s.id == subscription.id);
-            if (index != -1) {
-              _subscriptions[index] = updated;
-            }
-          });
-        }
-      } catch (_) {}
-
-    } catch (e) {
-      // 关闭加载对话框
-      Navigator.of(context).pop();
-
-      // 显示错误
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${AppLocalizations.of(context)!.importFailure}: $e')),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -554,41 +495,22 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
             ],
           ),
           const SizedBox(height: 14),
-          Row(
-            children: [
-              Expanded(
-                child: ElevatedButton.icon(
-                  icon: const Icon(Icons.sync_rounded, size: 16),
-                  label: Text(AppLocalizations.of(context)!.syncNow, style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w800)),
-                  onPressed: () => _updateSubscription(subscription),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF2D9CDB),
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    elevation: 0,
-                  ),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              icon: const Icon(Icons.sync_rounded, size: 16),
+              label: Text(AppLocalizations.of(context)!.syncNow, style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w800)),
+              onPressed: () => _updateSubscription(subscription),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF2D9CDB),
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
                 ),
+                elevation: 0,
               ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: OutlinedButton.icon(
-                  icon: const Icon(Icons.file_download_outlined, size: 16),
-                  label: Text(AppLocalizations.of(context)!.import, style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w800)),
-                  onPressed: () => _importRulesToRuleSystem(subscription),
-                  style: OutlinedButton.styleFrom(
-                    foregroundColor: const Color(0xFF2D9CDB),
-                    side: const BorderSide(color: Color(0xFF2D9CDB), width: 1.1),
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
         ],
       ),
