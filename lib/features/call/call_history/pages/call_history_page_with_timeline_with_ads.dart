@@ -407,7 +407,7 @@ class _CallHistoryPageWithTimelineWithAdsState
       ),
       body: GenericTimelineListWithAdsPage<CallLog>(
         title: AppLocalizations.of(context)!.callHistory,
-        themeColor: EliteDopamineTheme.sunsetTangerine,
+        themeColor: Theme.of(context).colorScheme.primary,
         items: _getFilteredLogs(),
         isLoading: _isLoading,
         onRefresh: _loadData,
@@ -538,6 +538,7 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader>
         .where((log) => log.callType == LocalCallType.incoming)
         .length;
 
+    final theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -548,7 +549,7 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader>
                 title: AppLocalizations.of(context)!.statBlocked,
                 value: blockedCount.toString(),
                 icon: Icons.shield_rounded,
-                color: EliteDopamineTheme.vibrantCoral,
+                color: theme.colorScheme.error,
               ),
             ),
             const SizedBox(width: 12),
@@ -557,7 +558,7 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader>
                 title: AppLocalizations.of(context)!.statAnswered,
                 value: answeredCount.toString(),
                 icon: Icons.phone_callback_rounded,
-                color: EliteDopamineTheme.freshMint,
+                color: theme.colorScheme.tertiary,
               ),
             ),
           ],
@@ -565,7 +566,7 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader>
         const SizedBox(height: 14),
         Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surfaceContainerHighest,
+            color: theme.colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(14),
           ),
           padding: const EdgeInsets.all(3),
@@ -574,11 +575,11 @@ class _CallHistoryHeaderState extends State<_CallHistoryHeader>
             isScrollable: true,
             tabAlignment: TabAlignment.start,
             indicator: BoxDecoration(
-              gradient: EliteDopamineTheme.heroWarmGradient,
+              gradient: LinearGradient(colors: [theme.colorScheme.primary, theme.colorScheme.secondary]),
               borderRadius: BorderRadius.circular(11),
               boxShadow: [
                 BoxShadow(
-                  color: EliteDopamineTheme.sunsetTangerine.withValues(
+                  color: theme.colorScheme.primary.withValues(
                     alpha: 0.25,
                   ),
                   blurRadius: 6,

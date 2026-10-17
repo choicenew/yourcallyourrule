@@ -1,6 +1,8 @@
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/statistic_period.dart';

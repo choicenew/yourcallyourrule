@@ -52,21 +52,22 @@ class CallLogCard extends ConsumerWidget {
     final hasLabels = translatedLabelText != null && translatedLabelText.isNotEmpty;
     final hasLocation = region != null && region!.isNotEmpty;
 
+    final theme = Theme.of(context);
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 5.0),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(18),
         border: Border.all(
           color: isSelected
-              ? EliteDopamineTheme.sunsetTangerine
-              : EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.22),
+              ? theme.colorScheme.primary
+              : theme.colorScheme.primary.withValues(alpha: 0.22),
           width: isSelected ? 2 : 1,
         ),
         boxShadow: [
           BoxShadow(
             color: isSelected
-                ? EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.18)
+                ? theme.colorScheme.primary.withValues(alpha: 0.18)
                 : Colors.black.withValues(alpha: 0.03),
             blurRadius: isSelected ? 12 : 6,
             offset: const Offset(0, 3),
@@ -105,6 +106,7 @@ class CallLogCard extends ConsumerWidget {
     String? locationText,
     bool hasLocation,
   ) {
+    final theme = Theme.of(context);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -117,9 +119,9 @@ class CallLogCard extends ConsumerWidget {
               CircleAvatar(
                 radius: 22,
                 backgroundImage: AvatarUtils.getAvatarImage(primaryAvatar, translatedLabelText),
-                backgroundColor: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.12),
+                backgroundColor: theme.colorScheme.primary.withValues(alpha: 0.12),
                 child: primaryAvatar == null && (translatedLabelText == null || translatedLabelText.isEmpty)
-                    ? const Icon(Icons.person, size: 24, color: EliteDopamineTheme.warmSunAmber)
+                    ? Icon(Icons.person, size: 24, color: theme.colorScheme.primary)
                     : null,
               ),
               Positioned(
@@ -281,7 +283,7 @@ class CallLogCard extends ConsumerWidget {
         const SizedBox(width: 2),
         _buildActionButton(
           icon: log.callType == LocalCallType.blocked ? Icons.lock_open_rounded : Icons.phone_outlined,
-          color: log.callType == LocalCallType.blocked ? EliteDopamineTheme.freshMint : EliteDopamineTheme.sunsetTangerine,
+          color: log.callType == LocalCallType.blocked ? Theme.of(context).colorScheme.tertiary : Theme.of(context).colorScheme.primary,
           tooltip: log.callType == LocalCallType.blocked
               ? AppLocalizations.of(context)!.unblock
               : AppLocalizations.of(context)!.call,
@@ -314,21 +316,22 @@ class CallLogCard extends ConsumerWidget {
   }
 
   Widget _buildLabelChip(BuildContext context, WidgetRef ref, String labelText) {
+    final theme = Theme.of(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
       decoration: BoxDecoration(
-        color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.12),
+        color: theme.colorScheme.error.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.25),
+          color: theme.colorScheme.error.withValues(alpha: 0.25),
         ),
       ),
       child: Text(
         labelText,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 10,
           fontWeight: FontWeight.w700,
-          color: EliteDopamineTheme.vibrantCoral,
+          color: theme.colorScheme.error,
         ),
       ),
     );
@@ -366,6 +369,7 @@ class CallLogCard extends ConsumerWidget {
     final rawLabelText = primaryLabelId != null ? labelIdToTextMap[primaryLabelId] : null;
     final translatedLabelText = rawLabelText != null ? LabelTranslationUtils.translateLabelText(context, rawLabelText) : '-';
     final callTypeInfo = _getCallTypeInfo(context, log.callType);
+    final theme = Theme.of(context);
 
     showDialog(
       context: context,
@@ -373,7 +377,7 @@ class CallLogCard extends ConsumerWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Row(
           children: [
-            Icon(Icons.info_outline_rounded, color: EliteDopamineTheme.sunsetTangerine, size: 22),
+            Icon(Icons.info_outline_rounded, color: theme.colorScheme.primary, size: 22),
             const SizedBox(width: 8),
             Text(
               AppLocalizations.of(context)!.callDetails,
@@ -401,7 +405,7 @@ class CallLogCard extends ConsumerWidget {
             onPressed: () => Navigator.of(context).pop(),
             child: Text(
               AppLocalizations.of(context)!.confirm,
-              style: const TextStyle(fontWeight: FontWeight.bold, color: EliteDopamineTheme.sunsetTangerine),
+              style: TextStyle(fontWeight: FontWeight.bold, color: theme.colorScheme.primary),
             ),
           ),
         ],
@@ -443,19 +447,20 @@ class CallLogCard extends ConsumerWidget {
 
   _CallTypeInfo _getCallTypeInfo(BuildContext context, LocalCallType type) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
     switch (type) {
       case LocalCallType.blocked:
-        return _CallTypeInfo(icon: Icons.block_rounded, color: EliteDopamineTheme.vibrantCoral, text: l10n.callTypeBlocked);
+        return _CallTypeInfo(icon: Icons.block_rounded, color: theme.colorScheme.error, text: l10n.callTypeBlocked);
       case LocalCallType.incoming:
-        return _CallTypeInfo(icon: Icons.call_received_rounded, color: EliteDopamineTheme.freshMint, text: l10n.callTypeAnswered);
+        return _CallTypeInfo(icon: Icons.call_received_rounded, color: theme.colorScheme.tertiary, text: l10n.callTypeAnswered);
       case LocalCallType.outgoing:
-        return _CallTypeInfo(icon: Icons.call_made_rounded, color: EliteDopamineTheme.skyAzure, text: l10n.callTypeOutgoing);
+        return _CallTypeInfo(icon: Icons.call_made_rounded, color: theme.colorScheme.primary, text: l10n.callTypeOutgoing);
       case LocalCallType.missed:
-        return _CallTypeInfo(icon: Icons.call_missed_rounded, color: EliteDopamineTheme.sunsetTangerine, text: l10n.callTypeMissed);
+        return _CallTypeInfo(icon: Icons.call_missed_rounded, color: theme.colorScheme.primary, text: l10n.callTypeMissed);
       case LocalCallType.rejected:
         return _CallTypeInfo(icon: Icons.call_end_rounded, color: Colors.grey, text: l10n.callTypeRejected);
       case LocalCallType.silenced:
-        return _CallTypeInfo(icon: Icons.notifications_off_rounded, color: EliteDopamineTheme.warmSunAmber, text: l10n.callTypeSilenced);
+        return _CallTypeInfo(icon: Icons.notifications_off_rounded, color: theme.colorScheme.secondary, text: l10n.callTypeSilenced);
       case LocalCallType.voicemail:
         return _CallTypeInfo(icon: Icons.voicemail, color: Colors.purple, text: 'Voicemail');
       default:
