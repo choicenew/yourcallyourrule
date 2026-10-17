@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -67,6 +70,7 @@ class TopRulesCard extends ConsumerWidget {
             ),
             itemBuilder: (context, index) {
               final rule = topRules[index];
+              final ruleCount = _getRuleCount(rule);
               return Row(
                 children: [
                   Container(
@@ -106,7 +110,7 @@ class TopRulesCard extends ConsumerWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                         Text(
-                          '${l10n.enabledStatus}: ${rule.count}',
+                          '${l10n.enabledStatus}: $ruleCount',
                           style: TextStyle(
                             fontSize: 10,
                             color: theme.colorScheme.onSurfaceVariant,
@@ -122,7 +126,7 @@ class TopRulesCard extends ConsumerWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text(
-                      '${rule.count}',
+                      '$ruleCount',
                       style: TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
@@ -137,5 +141,11 @@ class TopRulesCard extends ConsumerWidget {
         ],
       ),
     );
+  }
+
+  int _getRuleCount(RuleBase rule) {
+    if (rule is PhoneRule) return rule.count;
+    if (rule is AllowedBlockedRule) return rule.count;
+    return 0;
   }
 }

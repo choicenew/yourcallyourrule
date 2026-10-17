@@ -84,10 +84,16 @@ class CallStatisticsService {
     return result;
   }
 
+  int _getRuleCount(RuleBase rule) {
+    if (rule is PhoneRule) return rule.count;
+    if (rule is AllowedBlockedRule) return rule.count;
+    return 0;
+  }
+
   /// 获取触发拦截频次最高的前 N 条规则
   List<RuleBase> getTopTriggeredRules(List<RuleBase> rules, {int limit = 3}) {
     final active = rules.where((r) => r.isEnabled).toList();
-    active.sort((a, b) => b.count.compareTo(a.count));
+    active.sort((a, b) => _getRuleCount(b).compareTo(_getRuleCount(a)));
     return active.take(limit).toList();
   }
 
@@ -95,7 +101,7 @@ class CallStatisticsService {
   Map<int, int> getSimSlotDistribution(List<CallLog> callLogs) {
     final distribution = <int, int>{};
     for (final log in callLogs.where(_isIntercepted)) {
-      final slot = log.simSlot ?? 0;
+      final slot = log.simSlotIndex;
       distribution[slot] = (distribution[slot] ?? 0) + 1;
     }
     return distribution;
