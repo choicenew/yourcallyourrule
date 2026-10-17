@@ -90,12 +90,10 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
 
   void _handleSearchSubmit(String value) {
     final query = value.trim();
-    if (query.isNotEmpty) {
-      context.pushNamed(
-        AppRouter.callHistory,
-        queryParameters: {'query': query},
-      );
-    }
+    context.pushNamed(
+      AppRouter.verificationPage,
+      extra: query.isNotEmpty ? query : null,
+    );
   }
 
   String _getActionTitle(BuildContext context, InterceptAction action) {

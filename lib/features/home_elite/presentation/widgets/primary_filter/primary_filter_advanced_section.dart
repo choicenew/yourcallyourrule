@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/enhanced_filter_config_provider.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/provider/time_interceptor_provider.dart';
 import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provider.dart';
@@ -26,7 +27,7 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
 
     return enhancedConfigAsync.when(
       data: (enhancedConfig) {
-        final isSimSlotRuleEnabled = enhancedConfig.filterEnabledMap['SimSlotRuleService'] ?? false;
+        final isSimSlotRuleEnabled = enhancedConfig.typedFilterEnabledMap[CallFilterType.simSlotRule] ?? false;
         if (isSimSlotRuleEnabled) {
           return _buildSimSlotContent(context, ref);
         } else {
@@ -50,7 +51,7 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
 
   Widget _buildGlobalFilterList(BuildContext context, WidgetRef ref, dynamic enhancedConfig) {
     final theme = Theme.of(context);
-    final isSimSlotEnabled = enhancedConfig.filterEnabledMap['SimSlotRuleService'] ?? false;
+    final isSimSlotEnabled = enhancedConfig.typedFilterEnabledMap[CallFilterType.simSlotRule] ?? false;
 
     final allRulesCountProvider = FutureProvider<int>((ref) async {
       final service = ref.watch(simSlotRuleServiceProvider);
@@ -80,7 +81,7 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
           value: isSimSlotEnabled,
           onChanged: (val) {
             final notifier = ref.read(enhancedFilterConfigProvider.notifier);
-            val ? notifier.enableFilter('SimSlotRuleService') : notifier.disableFilter('SimSlotRuleService');
+            val ? notifier.enableFilter(CallFilterType.simSlotRule) : notifier.disableFilter(CallFilterType.simSlotRule);
           },
         ),
         const SizedBox(height: 8),
