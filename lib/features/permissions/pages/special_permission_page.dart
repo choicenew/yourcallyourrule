@@ -24,7 +24,7 @@ class SpecialPermissionPage extends StatelessWidget {
           SizedBox(height: 16),
           BatteryOptimizationPermissionWidget(),
           SizedBox(height: 16),
-          InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
+          InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd, width: 400),
         ],
       ),
     );

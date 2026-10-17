@@ -23,21 +23,20 @@ class EliteStatsInsightCard extends ConsumerStatefulWidget {
 }
 
 class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
-  String _selectedRange = 'Week';
+  // 100% 强类型领域枚举，拒绝硬编码字符串
+  StatisticPeriod _selectedPeriod = StatisticPeriod.week;
 
   void _navigateToStatistics() {
     context.pushNamed(AppRouter.callStatistics);
   }
 
-  void _onRangeChanged(String key) {
-    if (_selectedRange == key) return;
+  void _onPeriodChanged(StatisticPeriod period) {
+    if (_selectedPeriod == period) return;
     setState(() {
-      _selectedRange = key;
+      _selectedPeriod = period;
     });
-    // 联动底层 CallStatisticsNotifier 更新跨周/月数据维度
-    ref.read(callStatisticsProvider.notifier).updateTimeRange(
-          key == 'Week' ? StatisticPeriod.week : StatisticPeriod.month,
-        );
+    // 强类型枚举直接传递给 CallStatisticsNotifier 重新计算统计数据
+    ref.read(callStatisticsProvider.notifier).updateTimeRange(period);
   }
 
   @override
@@ -83,7 +82,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 标题与时间切换
+          // 标题与时间切换 (采用强类型 StatisticPeriod 枚举)
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -135,8 +134,8 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 ),
                 child: Row(
                   children: [
-                    _buildRangePill(l10n.thisWeek, 'Week'),
-                    _buildRangePill(l10n.month, 'Month'),
+                    _buildRangePill(l10n.thisWeek, StatisticPeriod.week),
+                    _buildRangePill(l10n.month, StatisticPeriod.month),
                   ],
                 ),
               ),
@@ -282,10 +281,10 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
     );
   }
 
-  Widget _buildRangePill(String label, String key) {
-    final isSelected = _selectedRange == key;
+  Widget _buildRangePill(String label, StatisticPeriod period) {
+    final isSelected = _selectedPeriod == period;
     return GestureDetector(
-      onTap: () => _onRangeChanged(key),
+      onTap: () => _onPeriodChanged(period),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
         decoration: BoxDecoration(
