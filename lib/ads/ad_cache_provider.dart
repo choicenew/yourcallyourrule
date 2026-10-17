@@ -98,18 +98,24 @@ class AdCache extends _$AdCache {
         explicitWidth ?? MediaQuery.of(context).size.width;
     AdSize? size;
 
-    // 根据传入的、无冲突的 bannerType 来获取广告尺寸。
-    switch (bannerType) {
-      case AdaptiveBannerType.inline:
-        size = await AdSize.getCurrentOrientationInlineAdaptiveBannerAdSize(
-          calculationWidth.truncate(),
-        );
-        break;
-      case AdaptiveBannerType.anchored:
-        size = await AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
-          calculationWidth.truncate(),
-        );
-        break;
+    // 【核心修复】：优先检查 adInfo 是否自带尺寸 (例如 AdSize.banner 320x50)。
+    // 如果已有显式尺寸，直接尊重并使用，不强行改为自适应尺寸，从而完美兼容全 App 所有 UI 页面的调用！
+    if (adInfo.size != null) {
+      size = adInfo.size;
+    } else {
+      // 否则根据传入的 bannerType 动态计算自适应广告尺寸
+      switch (bannerType) {
+        case AdaptiveBannerType.inline:
+          size = await AdSize.getCurrentOrientationInlineAdaptiveBannerAdSize(
+            calculationWidth.truncate(),
+          );
+          break;
+        case AdaptiveBannerType.anchored:
+          size = await AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
+            calculationWidth.truncate(),
+          );
+          break;
+      }
     }
 
     if (size == null) {

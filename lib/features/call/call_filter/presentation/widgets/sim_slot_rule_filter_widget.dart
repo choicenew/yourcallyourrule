@@ -37,7 +37,7 @@ class SimSlotRuleFilterWidget extends StatelessWidget {
         const SizedBox(height: 32),
         _buildExplanationCard(context),
         const SizedBox(height: 32),
-        InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd, width: 400),
+        InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
       ],
     );
   }

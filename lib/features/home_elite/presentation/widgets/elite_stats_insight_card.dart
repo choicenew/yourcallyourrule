@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // 文件: elite_stats_insight_card.dart
-// 描述: Elite 拦截成就与数据战报卡片，展示已防护通话统计与多类型规则滑动分布。
+// 描述: Elite 拦截成就与数据战报卡片，展示已防护通话统计与全类型规则分布。
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
@@ -49,11 +49,20 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
     final allowRules = stats.allowRulesCount;
     final silenceRules = stats.silenceRulesCount;
     final timeRules = stats.timeRulesCount;
+    final noneRules = stats.noneRulesCount;
 
-    final int sum = blockRules + allowRules + silenceRules;
-    final int blockedPct = sum > 0 ? ((blockRules / sum) * 100).round() : (totalBlocked > 0 ? 100 : 0);
-    final int allowPct = sum > 0 ? ((allowRules / sum) * 100).round() : 0;
-    final int silencePct = sum > 0 ? (100 - blockedPct - allowPct).clamp(0, 100) : 0;
+    final int sum = blockRules + allowRules + silenceRules + timeRules + noneRules;
+
+    // 动态规则类型分布数据建模，支持任意数量的规则类型展示
+    final List<_RuleTypeShare> categories = [
+      _RuleTypeShare(label: l10n.blockRules, count: blockRules, color: EliteDopamineTheme.vibrantCoral),
+      _RuleTypeShare(label: l10n.allowRules, count: allowRules, color: EliteDopamineTheme.sunsetTangerine),
+      _RuleTypeShare(label: l10n.silentRules, count: silenceRules, color: EliteDopamineTheme.freshMint),
+      if (timeRules > 0)
+        _RuleTypeShare(label: l10n.timeInterceptor, count: timeRules, color: EliteDopamineTheme.softLilac),
+      if (noneRules > 0)
+        _RuleTypeShare(label: l10n.actionNone, count: noneRules, color: EliteDopamineTheme.skyAzure),
+    ];
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
@@ -190,7 +199,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
 
           const SizedBox(height: 14),
 
-          // 拦截类型分布多巴胺进度条（根据真实数据计算）
+          // 动态多类型拦截比例分布进度条（根据真实数据计算）
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -222,25 +231,14 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                   height: 8,
                   child: sum > 0
                       ? Row(
-                          children: [
-                            if (blockedPct > 0)
-                              Expanded(
-                                flex: blockedPct,
-                                child: Container(color: EliteDopamineTheme.vibrantCoral),
-                              ),
-                            if (blockedPct > 0 && (allowPct > 0 || silencePct > 0)) const SizedBox(width: 2),
-                            if (allowPct > 0)
-                              Expanded(
-                                flex: allowPct,
-                                child: Container(color: EliteDopamineTheme.sunsetTangerine),
-                              ),
-                            if (allowPct > 0 && silencePct > 0) const SizedBox(width: 2),
-                            if (silencePct > 0)
-                              Expanded(
-                                flex: silencePct,
-                                child: Container(color: EliteDopamineTheme.freshMint),
-                              ),
-                          ],
+                          children: categories.map((cat) {
+                            final pct = ((cat.count / sum) * 100).round();
+                            if (pct <= 0) return const SizedBox.shrink();
+                            return Expanded(
+                              flex: pct,
+                              child: Container(color: cat.color),
+                            );
+                          }).toList(),
                         )
                       : Container(
                           color: const Color(0xFFE8E5DF),
@@ -248,13 +246,14 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 ),
               ),
               const SizedBox(height: 6),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _buildLegendDot('${l10n.blockRules} $blockedPct%', EliteDopamineTheme.vibrantCoral),
-                  _buildLegendDot('${l10n.allowRules} $allowPct%', EliteDopamineTheme.sunsetTangerine),
-                  _buildLegendDot('${l10n.silentRules} $silencePct%', EliteDopamineTheme.freshMint),
-                ],
+              // 动态图例展示
+              Wrap(
+                spacing: 12,
+                runSpacing: 4,
+                children: categories.map((cat) {
+                  final pct = sum > 0 ? ((cat.count / sum) * 100).round() : 0;
+                  return _buildLegendDot('${cat.label} $pct%', cat.color);
+                }).toList(),
               ),
             ],
           ),
@@ -392,6 +391,18 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
       ],
     );
   }
+}
+
+class _RuleTypeShare {
+  final String label;
+  final int count;
+  final Color color;
+
+  const _RuleTypeShare({
+    required this.label,
+    required this.count,
+    required this.color,
+  });
 }
 
 // ------------------- Widget Previewer 支持 -------------------

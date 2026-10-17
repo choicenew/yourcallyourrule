@@ -153,7 +153,7 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
         const SizedBox(height: 14),
         _buildExplanationCard(context),
         const SizedBox(height: 14),
-        InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd, width: 400),
+        InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
       ],
     );
   }

@@ -122,7 +122,7 @@ class EndCallSettingsPage extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 14),
-            InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd, width: 400),
+            InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
           ],
         ),
       ),

@@ -221,7 +221,7 @@ class _KitLiveNotificationCustomizationScreenState
               ),
 
               const SizedBox(height: 20),
-              InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd, width: 400),
+              InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
             ],
           );
         },

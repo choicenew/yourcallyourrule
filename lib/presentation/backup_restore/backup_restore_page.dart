@@ -269,7 +269,7 @@ class BackupRestorePage extends ConsumerWidget {
             const SizedBox(height: 14),
             _buildDataMigrationSection(context, ref, backupService),
             const SizedBox(height: 14),
-            InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd, width: 400),
+            InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
           ],
         ),
       ),
