@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // 确保导入了正确的 state provider
 import 'package:yourcallyourrule/ads/ad_state.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
+import 'package:yourcallyourrule/ads/ad_preload_service.dart';
 
 /// 广告控制服务 - 最终的 Riverpod 版本
 ///
@@ -47,6 +48,8 @@ class AdControlService {
     } else {
       // 否则，调用 adStateNotifier 的方法来启用广告。
       adStateNotifier.enableAds();
+      // 【预加载引擎】：当确定要展示广告时，自动在后台提前触发广告预加载池！
+      AdPreloadManager.instance.preloadDefaultAds();
     }
   }
 

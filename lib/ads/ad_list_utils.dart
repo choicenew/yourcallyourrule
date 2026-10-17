@@ -37,6 +37,11 @@ class AdListUtils {
     // 计算包含广告的总项目数
     final totalItemsWithAds = items.length + (items.length / adInterval).floor();
     
+    // 【核心修复】：为列表中的每个广告位置创建持久化的 Widget 缓存 map。
+    // 在 ListView 上下滑动时，重用同一个 KeyedSubtree 实例，
+    // 配合 AutomaticKeepAliveClientMixin，彻底防止滑动时广告被 dispose 销毁和重复请求！
+    final Map<int, Widget> adWidgetCache = {};
+
     // 返回包含广告的列表构建器
     return (context, index) {
       // 如果索引超出范围，返回空组件
@@ -47,7 +52,13 @@ class AdListUtils {
       
       // 如果当前位置应该显示广告
       if (index > 0 && (index + 1) % adPosition == 0) {
-        return adBuilder();
+        return adWidgetCache.putIfAbsent(
+          index,
+          () => KeyedSubtree(
+            key: ValueKey('ad_list_item_$index'),
+            child: adBuilder(),
+          ),
+        );
       }
       
       // 计算原始列表中的实际索引

@@ -32,7 +32,8 @@ class _VerificationPageState extends ConsumerState<VerificationPage> {
   @override
   void initState() {
     super.initState();
-    _phoneNumberController = TextEditingController();
+    final initialNumber = widget.initialPhoneNumber?.trim() ?? '';
+    _phoneNumberController = TextEditingController(text: initialNumber);
     _countryCodeController = TextEditingController();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -47,9 +48,12 @@ class _VerificationPageState extends ConsumerState<VerificationPage> {
 
       if (extra != null && extra is String && extra.trim().isNotEmpty) {
         targetNumber = extra.trim();
-      } else if (widget.initialPhoneNumber != null &&
-          widget.initialPhoneNumber!.trim().isNotEmpty) {
-        targetNumber = widget.initialPhoneNumber!.trim();
+      } else if (initialNumber.isNotEmpty) {
+        targetNumber = initialNumber;
+      }
+
+      if (targetNumber != null && targetNumber.isNotEmpty) {
+        _phoneNumberController.text = targetNumber;
       }
 
       ref

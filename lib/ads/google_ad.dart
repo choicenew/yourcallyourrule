@@ -4,6 +4,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/ad_state.dart';
+import 'package:yourcallyourrule/ads/ad_preload_service.dart';
 
 class GoogleAdWidget extends ConsumerStatefulWidget {
   final AdInfo adInfo;
@@ -105,6 +106,20 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
 
   // 创建横幅广告
   Future<void> _createBannerAd() async {
+    // 1. 优先尝试从全局预加载池中获取已加载好的 Banner 广告 (实现 0 毫秒秒出)
+    final preloaded = AdPreloadManager.instance.consumeBannerAd(widget.adInfo.adUnitId);
+    if (preloaded != null && preloaded.ad is BannerAd) {
+      _ad = preloaded.ad as BannerAd;
+      _isAdLoaded = true;
+      _isFailed = false;
+      if (mounted) setState(() {});
+      updateKeepAlive();
+      // 在后台补货补充预加载池
+      AdPreloadManager.instance.preloadBannerAd(widget.adInfo);
+      return;
+    }
+
+    // 2. 预加载池未命中，进行标准网络加载
     AdSize? size = widget.adInfo.size;
     if (size == null) {
       final double width = widget.width ?? (mounted ? MediaQuery.of(context).size.width : 320.0);
@@ -140,6 +155,17 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
 
   // 创建原生高级广告
   void _createNativeAdvancedAd() {
+    final preloaded = AdPreloadManager.instance.consumeNativeAd(widget.adInfo.adUnitId);
+    if (preloaded != null && preloaded.ad is NativeAd) {
+      _ad = preloaded.ad as NativeAd;
+      _isAdLoaded = true;
+      _isFailed = false;
+      if (mounted) setState(() {});
+      updateKeepAlive();
+      AdPreloadManager.instance.preloadNativeAd(widget.adInfo, config: widget.nativeAdConfig);
+      return;
+    }
+
     _ad = NativeAd(
       adUnitId: widget.adInfo.adUnitId,
       request: const AdRequest(),
@@ -166,6 +192,16 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
 
   // 创建插页式广告
   void _createInterstitialAd() {
+    final preloaded = AdPreloadManager.instance.consumeInterstitialAd(widget.adInfo.adUnitId);
+    if (preloaded != null && preloaded.ad is InterstitialAd) {
+      _ad = preloaded.ad as InterstitialAd;
+      _isAdLoaded = true;
+      _isFailed = false;
+      if (mounted) setState(() {});
+      AdPreloadManager.instance.preloadInterstitialAd(widget.adInfo);
+      return;
+    }
+
     InterstitialAd.load(
       adUnitId: widget.adInfo.adUnitId,
       request: const AdRequest(),
@@ -185,6 +221,16 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
   }
 
   void _createRewardedInterstitialAd() {
+    final preloaded = AdPreloadManager.instance.consumeRewardedAd(widget.adInfo.adUnitId);
+    if (preloaded != null && preloaded.ad is RewardedInterstitialAd) {
+      _ad = preloaded.ad as RewardedInterstitialAd;
+      _isAdLoaded = true;
+      _isFailed = false;
+      if (mounted) setState(() {});
+      AdPreloadManager.instance.preloadRewardedAd(widget.adInfo);
+      return;
+    }
+
     RewardedInterstitialAd.load(
       adUnitId: widget.adInfo.adUnitId,
       request: const AdRequest(),
@@ -220,6 +266,16 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
 
   // 创建奖励广告
   void _createRewardedAd() {
+    final preloaded = AdPreloadManager.instance.consumeRewardedAd(widget.adInfo.adUnitId);
+    if (preloaded != null && preloaded.ad is RewardedAd) {
+      _ad = preloaded.ad as RewardedAd;
+      _isAdLoaded = true;
+      _isFailed = false;
+      if (mounted) setState(() {});
+      AdPreloadManager.instance.preloadRewardedAd(widget.adInfo);
+      return;
+    }
+
     RewardedAd.load(
       adUnitId: widget.adInfo.adUnitId,
       request: const AdRequest(),

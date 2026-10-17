@@ -14,6 +14,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 // 【新增】: 导入代码生成所需的注解库
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
+import 'package:yourcallyourrule/ads/ad_preload_service.dart';
 
 // 【新增】: `part` 指令，链接到代码生成器将要创建的文件。
 // 如果这里有红线，是正常的，运行生成命令后就会消失。
@@ -94,6 +95,24 @@ class AdCache extends _$AdCache {
     // `arg` 是由代码生成器提供的，它就是 build 方法接收的 `adInfo` 参数。
     final AdInfo adInfo = _adInfo;
     // 【核心逻辑】: 优先使用传入的宽度，否则使用屏幕宽度。
+    // 1. 优先尝试从全局预加载池 (AdPreloadManager) 中获取已加载好的广告 (实现 0 毫秒秒出)
+    final preloaded = AdPreloadManager.instance.consumeBannerAd(adInfo.adUnitId);
+    if (preloaded != null && preloaded.ad is BannerAd) {
+      final bannerAd = preloaded.ad as BannerAd;
+      _bannerAd = bannerAd;
+      state = state.copyWith(
+        bannerAd: bannerAd,
+        isStarted: true,
+        isLoaded: true,
+        isFailed: false,
+        adSize: preloaded.adSize,
+      );
+      // 在后台异步补充预加载池，为下一次广告请求做准备
+      AdPreloadManager.instance.preloadBannerAd(adInfo, customSize: preloaded.adSize);
+      return;
+    }
+
+    // 2. 如果预加载池未命中，则进行标准加载流程
     final double calculationWidth =
         explicitWidth ?? MediaQuery.of(context).size.width;
     AdSize? size;
