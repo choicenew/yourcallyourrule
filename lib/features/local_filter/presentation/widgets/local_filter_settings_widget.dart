@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 // [重构]: 导入对应的 Notifier Provider。

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 验证页面的号码与国家代码输入卡片
@@ -131,12 +130,12 @@ class _VerificationInputCardState extends State<VerificationInputCard> {
                           ),
                         ),
                         selected: isSelected,
-                        selectedColor: EliteDopamineTheme.sunsetTangerine,
-                        backgroundColor: const Color(0xFFF7F5F0),
+                        selectedColor: Theme.of(context).colorScheme.primary,
+                        backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
                         side: BorderSide(
                           color: isSelected
-                              ? EliteDopamineTheme.sunsetTangerine
-                              : const Color(0xFFEDE8DF),
+                              ? Theme.of(context).colorScheme.primary
+                              : Theme.of(context).colorScheme.outlineVariant,
                           width: 1.1,
                         ),
                         shape: RoundedRectangleBorder(
@@ -163,26 +162,26 @@ class _VerificationInputCardState extends State<VerificationInputCard> {
                   labelText: '${l10n.country} (ISO 3166-1 alpha-2)',
                   labelStyle: TextStyle(
                     fontSize: 12,
-                    color: Colors.grey[700],
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                     fontWeight: FontWeight.w700,
                   ),
                   hintText: 'US, CN, HK, JP...',
-                  hintStyle: const TextStyle(fontSize: 12, color: Colors.black26),
-                  prefixIcon: const Icon(
+                  hintStyle: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.5)),
+                  prefixIcon: Icon(
                     Icons.language_rounded,
-                    color: Color(0xFF2D9CDB),
+                    color: Theme.of(context).colorScheme.secondary,
                     size: 18,
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(14),
-                    borderSide: const BorderSide(color: Color(0xFFEDE8DF), width: 1.1),
+                    borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant, width: 1.1),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(14),
-                    borderSide: const BorderSide(color: Color(0xFF2D9CDB), width: 1.5),
+                    borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 1.5),
                   ),
                   filled: true,
-                  fillColor: const Color(0xFFF7F5F0),
+                  fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
                   contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
                 ),
                 onSubmitted: (val) {
@@ -203,14 +202,14 @@ class _VerificationInputCardState extends State<VerificationInputCard> {
               labelText: l10n.enterPhoneNumber,
               labelStyle: TextStyle(
                 fontSize: 13,
-                color: Colors.grey[700],
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
                 fontWeight: FontWeight.w700,
               ),
               hintText: l10n.enterPhoneNumberHint,
-              hintStyle: const TextStyle(fontSize: 13, color: Colors.black26),
-              prefixIcon: const Icon(
+              hintStyle: TextStyle(fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.5)),
+              prefixIcon: Icon(
                 Icons.phone_rounded,
-                color: EliteDopamineTheme.warmSunAmber,
+                color: Theme.of(context).colorScheme.primary,
                 size: 20,
               ),
               suffixIcon: widget.isInternational
@@ -218,24 +217,24 @@ class _VerificationInputCardState extends State<VerificationInputCard> {
                       margin: const EdgeInsets.all(8),
                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                       decoration: BoxDecoration(
-                        color: EliteDopamineTheme.freshMint.withValues(alpha: 0.15),
+                        color: Theme.of(context).colorScheme.tertiary.withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.public_rounded,
                             size: 12,
-                            color: EliteDopamineTheme.freshMint,
+                            color: Theme.of(context).colorScheme.tertiary,
                           ),
                           const SizedBox(width: 4),
                           Text(
                             widget.selectedCountry.isNotEmpty ? widget.selectedCountry : 'INTL',
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 11,
                               fontWeight: FontWeight.w900,
-                              color: EliteDopamineTheme.freshMint,
+                              color: Theme.of(context).colorScheme.tertiary,
                             ),
                           ),
                         ],
@@ -244,14 +243,14 @@ class _VerificationInputCardState extends State<VerificationInputCard> {
                   : null,
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: const BorderSide(color: Color(0xFFEDE8DF), width: 1.1),
+                borderSide: BorderSide(color: Theme.of(context).colorScheme.outlineVariant, width: 1.1),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: const BorderSide(color: EliteDopamineTheme.sunsetTangerine, width: 1.5),
+                borderSide: BorderSide(color: Theme.of(context).colorScheme.primary, width: 1.5),
               ),
               filled: true,
-              fillColor: const Color(0xFFF7F5F0),
+              fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
               contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
             ),
             onSubmitted: (_) => widget.onVerify(),
@@ -282,7 +281,7 @@ class _VerificationInputCardState extends State<VerificationInputCard> {
                 ),
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: EliteDopamineTheme.sunsetTangerine,
+                backgroundColor: Theme.of(context).colorScheme.primary,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),

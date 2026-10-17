@@ -9,7 +9,6 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 
 /// 联系人订阅页面 - 集成广告功能
 /// 使用GenericListWithAdsPage组件减少重复代码并集成广告

@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/notifications/providers/notification_history_provider.dart';
 import 'package:yourcallyourrule/features/notifications/service/notification_manager.dart';
 import 'package:yourcallyourrule/data/models/notification_item.dart';
@@ -205,7 +204,7 @@ class NotificationCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildNotificationIcon(),
+            _buildNotificationIcon(context),
             const SizedBox(width: 14),
             Expanded(
               child: Column(
@@ -247,7 +246,7 @@ class NotificationCard extends StatelessWidget {
   }
 
   /// 构建通知图标
-  Widget _buildNotificationIcon() {
+  Widget _buildNotificationIcon(BuildContext context) {
     IconData iconData;
     Color iconColor;
 
@@ -262,7 +261,7 @@ class NotificationCard extends StatelessWidget {
         break;
       case 'stir_result':
         iconData = Icons.verified_user_rounded;
-        iconColor = EliteDopamineTheme.freshMint;
+        iconColor = Theme.of(context).colorScheme.tertiary;
         break;
       case 'sms':
         iconData = Icons.sms_rounded;
@@ -274,7 +273,7 @@ class NotificationCard extends StatelessWidget {
         break;
       default:
         iconData = Icons.notifications_rounded;
-        iconColor = EliteDopamineTheme.sunsetTangerine;
+        iconColor = Theme.of(context).colorScheme.primary;
     }
 
     return Container(

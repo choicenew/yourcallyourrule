@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 
 /// 底部晶莹悬浮 Action 控制面板组件：包含跳过按钮与根据选中状态变色的多巴胺渐变主按钮
 class InitialSetupBottomBar extends StatelessWidget {
@@ -20,6 +19,7 @@ class InitialSetupBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
 
     return SafeArea(
       child: Padding(
@@ -28,18 +28,23 @@ class InitialSetupBottomBar extends StatelessWidget {
           children: [
             TextButton(
               onPressed: isDownloading ? null : onSkip,
-              child: Text(l10n.initialSetupSkip, style: const TextStyle(color: EliteDopamineTheme.textMuted)),
+              child: Text(
+                l10n.initialSetupSkip,
+                style: TextStyle(color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6)),
+              ),
             ),
             const Spacer(),
             Container(
               decoration: BoxDecoration(
-                gradient: selectedCount > 0 ? EliteDopamineTheme.heroWarmGradient : null,
-                color: selectedCount == 0 ? EliteDopamineTheme.slateSubtle : null,
+                gradient: selectedCount > 0
+                    ? LinearGradient(colors: [theme.colorScheme.primary, theme.colorScheme.secondary])
+                    : null,
+                color: selectedCount == 0 ? theme.colorScheme.surfaceContainerHighest : null,
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: selectedCount > 0
                     ? [
                         BoxShadow(
-                          color: EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.3),
+                          color: theme.colorScheme.primary.withValues(alpha: 0.3),
                           blurRadius: 8,
                           offset: const Offset(0, 3),
                         ),

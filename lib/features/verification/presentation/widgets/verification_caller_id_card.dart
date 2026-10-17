@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 来电显示身份信息卡片（全量国际化，支持悬浮窗/灵动岛/通知多模式实机测试）
@@ -58,7 +57,7 @@ class VerificationCallerIdCard extends StatelessWidget {
               CircleAvatar(
                 backgroundImage: callerIdData.avatarImage,
                 radius: 26,
-                backgroundColor: EliteDopamineTheme.sunsetTangerine,
+                backgroundColor: Theme.of(context).colorScheme.primary,
                 child: callerIdData.avatarImage == null
                     ? Text(
                         callerIdData.labels?.isNotEmpty == true
@@ -79,10 +78,10 @@ class VerificationCallerIdCard extends StatelessWidget {
                   children: [
                     Text(
                       displayName,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.w900,
-                        color: Colors.black87,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
                     const SizedBox(height: 4),
@@ -95,7 +94,7 @@ class VerificationCallerIdCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
-                        color: Colors.grey[600],
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
                     ),
                   ],
@@ -128,15 +127,15 @@ class VerificationCallerIdCard extends StatelessWidget {
                 return Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
-                    color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.15),
+                    color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(
                     l.label,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w800,
-                      color: EliteDopamineTheme.warmSunAmber,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                 );
@@ -159,10 +158,10 @@ class VerificationCallerIdCard extends StatelessWidget {
               const SizedBox(width: 6),
               Text(
                 '${l10n.testButton} (${l10n.callerIdDisplayMode})',
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w900,
-                  color: Colors.black87,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
             ],
@@ -192,8 +191,8 @@ class VerificationCallerIdCard extends StatelessWidget {
                   icon: const Icon(Icons.close_fullscreen_rounded, size: 14),
                   label: Text(l10n.cancel, style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w800)),
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: Colors.redAccent,
-                    side: const BorderSide(color: Colors.redAccent, width: 1.1),
+                    foregroundColor: Theme.of(context).colorScheme.error,
+                    side: BorderSide(color: Theme.of(context).colorScheme.error, width: 1.1),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                   ),
@@ -210,8 +209,8 @@ class VerificationCallerIdCard extends StatelessWidget {
                   icon: const Icon(Icons.bolt_rounded, size: 14),
                   label: const Text('Live Island', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w800)),
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: EliteDopamineTheme.sunsetTangerine,
-                    side: const BorderSide(color: EliteDopamineTheme.sunsetTangerine, width: 1.1),
+                    foregroundColor: Theme.of(context).colorScheme.primary,
+                    side: BorderSide(color: Theme.of(context).colorScheme.primary, width: 1.1),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                   ),
@@ -224,8 +223,8 @@ class VerificationCallerIdCard extends StatelessWidget {
                   icon: const Icon(Icons.notifications_active_rounded, size: 14),
                   label: Text(l10n.notifications, style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w800)),
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: EliteDopamineTheme.freshMint,
-                    side: const BorderSide(color: EliteDopamineTheme.freshMint, width: 1.1),
+                    foregroundColor: Theme.of(context).colorScheme.tertiary,
+                    side: BorderSide(color: Theme.of(context).colorScheme.tertiary, width: 1.1),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                   ),

@@ -11,7 +11,6 @@ import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_p
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 
 /// 重构后的电话订阅页面 - 集成广告功能

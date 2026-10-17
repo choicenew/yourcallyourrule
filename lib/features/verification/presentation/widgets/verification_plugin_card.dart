@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 插件扩展数据卡片（全量国际化，消除硬编码文本）
@@ -17,14 +16,15 @@ class VerificationPluginCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
 
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: theme.colorScheme.outlineVariant,
           width: 1.2,
         ),
         boxShadow: [
@@ -41,71 +41,74 @@ class VerificationPluginCard extends StatelessWidget {
           if (pluginSourceData != null) ...[
             Row(
               children: [
-                const Icon(
+                Icon(
                   Icons.extension_rounded,
                   size: 18,
-                  color: EliteDopamineTheme.skyAzure,
+                  color: theme.colorScheme.secondary,
                 ),
                 const SizedBox(width: 8),
                 Text(
                   l10n.pluginLabel,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w900,
-                    color: Colors.black87,
+                    color: theme.colorScheme.onSurface,
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 10),
-            _buildInfoText(l10n.contactNameLabel, pluginSourceData?.name ?? l10n.unknown),
-            _buildInfoText(l10n.pluginLabel, pluginSourceData?.sourceLabel ?? l10n.unknown),
+            _buildInfoText(context, l10n.contactNameLabel, pluginSourceData?.name ?? l10n.unknown),
+            _buildInfoText(context, l10n.pluginLabel, pluginSourceData?.sourceLabel ?? l10n.unknown),
             _buildInfoText(
+              context,
               l10n.tagLabel(pluginSourceData?.predefinedLabel ?? pluginSourceData?.sourceLabel ?? l10n.unknown),
               pluginSourceData?.predefinedLabel ??
                   pluginSourceData?.sourceLabel ??
                   l10n.unknown,
             ),
             _buildInfoText(
+              context,
               l10n.enableLocationSummary,
               [pluginSourceData?.province, pluginSourceData?.city]
                   .where((e) => e != null && e.isNotEmpty)
                   .join(', '),
             ),
-            _buildInfoText(l10n.carrier, pluginSourceData?.carrier ?? l10n.unknown),
-            _buildInfoText(l10n.callerIdMarkedByCount(pluginSourceData?.count ?? 0), '${pluginSourceData?.count ?? 0}'),
-            _buildInfoText(l10n.action, pluginSourceData?.action.toString() ?? l10n.actionNone),
+            _buildInfoText(context, l10n.carrier, pluginSourceData?.carrier ?? l10n.unknown),
+            _buildInfoText(context, l10n.callerIdMarkedByCount(pluginSourceData?.count ?? 0), '${pluginSourceData?.count ?? 0}'),
+            _buildInfoText(context, l10n.action, pluginSourceData?.action.toString() ?? l10n.actionNone),
           ],
           if (legacyPluginData.isNotEmpty) ...[
             if (pluginSourceData != null) const Divider(height: 24),
             Row(
               children: [
-                const Icon(
+                Icon(
                   Icons.history_rounded,
                   size: 18,
-                  color: EliteDopamineTheme.warmSunAmber,
+                  color: theme.colorScheme.primary,
                 ),
                 const SizedBox(width: 8),
                 Text(
                   '${l10n.pluginLabel} (Legacy)',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w900,
-                    color: Colors.black87,
+                    color: theme.colorScheme.onSurface,
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 10),
-            ...legacyPluginData.entries.map((e) => _buildInfoText(e.key, '${e.value}')),
+            ...legacyPluginData.entries.map((e) => _buildInfoText(context, e.key, '${e.value}')),
           ],
         ],
       ),
     );
   }
 
-  Widget _buildInfoText(String label, String value) {
+  Widget _buildInfoText(BuildContext context, String label, String value) {
     if (value.isEmpty) return const SizedBox.shrink();
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 2.5),
       child: Row(
@@ -118,17 +121,17 @@ class VerificationPluginCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
-                color: Colors.grey[600],
+                color: theme.colorScheme.onSurfaceVariant,
               ),
             ),
           ),
           Expanded(
             child: Text(
               value,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w800,
-                color: Colors.black87,
+                color: theme.colorScheme.onSurface,
               ),
             ),
           ),

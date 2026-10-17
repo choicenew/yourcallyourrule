@@ -11,7 +11,6 @@ import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/deletion_proposal_provider.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/statistics_provider.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ------------------- Widget 定义 -------------------
@@ -33,6 +32,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final asyncProposalStats = ref.watch(proposalStatisticsProvider);
     final proposalState = ref.watch(deletionProposalProvider);
     final l10n = AppLocalizations.of(context)!;
@@ -58,7 +58,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
             offset: const Offset(0, 4),
           ),
           BoxShadow(
-            color: EliteDopamineTheme.softLilac.withValues(alpha: 0.12),
+            color: theme.colorScheme.secondary.withValues(alpha: 0.12),
             blurRadius: 24,
             spreadRadius: 1,
             offset: const Offset(0, 8),
@@ -69,16 +69,16 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
         borderRadius: BorderRadius.circular(24),
         child: Stack(
           children: [
-            // 顶部丁香多巴胺极光条
+            // 顶部极光条
             Positioned(
               top: 0,
               right: 0,
               left: 0,
               height: 4,
               child: Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Color(0xFFC084FC), Color(0xFFA855F7), Color(0xFFEC4899)],
+                    colors: [theme.colorScheme.secondary, theme.colorScheme.primary, theme.colorScheme.tertiary],
                   ),
                 ),
               ),
@@ -98,8 +98,8 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                           Container(
                             padding: const EdgeInsets.all(7),
                             decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                colors: [Color(0xFFC084FC), Color(0xFFA855F7)],
+                              gradient: LinearGradient(
+                                colors: [theme.colorScheme.secondary, theme.colorScheme.primary],
                               ),
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -117,10 +117,10 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                 children: [
                                   Text(
                                     l10n.deletionProposals,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w800,
-                                      color: Colors.black87,
+                                      color: theme.colorScheme.onSurface,
                                     ),
                                   ),
                                   if (pendingProposals > 0) ...[
@@ -128,15 +128,15 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                     Container(
                                       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1.5),
                                       decoration: BoxDecoration(
-                                        color: EliteDopamineTheme.softLilac.withValues(alpha: 0.15),
+                                        color: theme.colorScheme.secondary.withValues(alpha: 0.15),
                                         borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: Text(
                                         '$pendingProposals',
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           fontSize: 9,
                                           fontWeight: FontWeight.w800,
-                                          color: EliteDopamineTheme.softLilac,
+                                          color: theme.colorScheme.secondary,
                                         ),
                                       ),
                                     ),
@@ -147,7 +147,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                 '${l10n.pendingProposals}: $pendingProposals',
                                 style: TextStyle(
                                   fontSize: 11,
-                                  color: Colors.grey[600],
+                                  color: theme.colorScheme.onSurfaceVariant,
                                 ),
                               ),
                             ],
@@ -162,7 +162,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                           style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
                         ),
                         style: TextButton.styleFrom(
-                          foregroundColor: const Color(0xFFA855F7),
+                          foregroundColor: theme.colorScheme.secondary,
                           padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
                           visualDensity: VisualDensity.compact,
                         ),
@@ -177,10 +177,10 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: const Color(0xFFFBF9F5),
+                        color: theme.colorScheme.surfaceContainerHighest,
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(
-                          color: const Color(0xFFEDE8DF),
+                          color: theme.colorScheme.outlineVariant,
                         ),
                       ),
                       child: Column(
@@ -191,15 +191,15 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                               Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
                                 decoration: BoxDecoration(
-                                  color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.12),
+                                  color: theme.colorScheme.error.withValues(alpha: 0.12),
                                   borderRadius: BorderRadius.circular(6),
                                 ),
                                 child: Text(
                                   firstProposal.highestRiskLevel.getLocalizedLabel(context),
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.bold,
-                                    color: EliteDopamineTheme.vibrantCoral,
+                                    color: theme.colorScheme.error,
                                   ),
                                 ),
                               ),
@@ -209,7 +209,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                 style: TextStyle(
                                   fontSize: 11,
                                   fontWeight: FontWeight.w800,
-                                  color: Colors.grey[800],
+                                  color: theme.colorScheme.onSurface,
                                 ),
                               ),
                             ],
@@ -217,11 +217,11 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                           const SizedBox(height: 6),
                           Text(
                             firstProposal.phoneNumber,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w900,
                               letterSpacing: 0.5,
-                              color: Colors.black87,
+                              color: theme.colorScheme.onSurface,
                             ),
                           ),
                           const SizedBox(height: 3),
@@ -231,7 +231,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize: 11,
-                              color: Colors.grey[600],
+                              color: theme.colorScheme.onSurfaceVariant,
                             ),
                           ),
                           const SizedBox(height: 10),
@@ -258,7 +258,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                       style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
                                     ),
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: EliteDopamineTheme.freshMint,
+                                      backgroundColor: theme.colorScheme.tertiary,
                                       foregroundColor: Colors.white,
                                       elevation: 0,
                                       padding: const EdgeInsets.symmetric(vertical: 8),
@@ -287,9 +287,9 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                                       style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
                                     ),
                                     style: OutlinedButton.styleFrom(
-                                      foregroundColor: Colors.grey[700],
-                                      side: const BorderSide(
-                                        color: Color(0xFFEDE8DF),
+                                      foregroundColor: theme.colorScheme.onSurfaceVariant,
+                                      side: BorderSide(
+                                        color: theme.colorScheme.outlineVariant,
                                       ),
                                       padding: const EdgeInsets.symmetric(vertical: 8),
                                       shape: RoundedRectangleBorder(
@@ -304,20 +304,20 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                             Container(
                               padding: const EdgeInsets.symmetric(vertical: 6),
                               decoration: BoxDecoration(
-                                color: EliteDopamineTheme.freshMint.withValues(alpha: 0.12),
+                                color: theme.colorScheme.tertiary.withValues(alpha: 0.12),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const Icon(Icons.check_circle_rounded, color: EliteDopamineTheme.freshMint, size: 15),
+                                  Icon(Icons.check_circle_rounded, color: theme.colorScheme.tertiary, size: 15),
                                   const SizedBox(width: 5),
                                   Text(
                                     '${l10n.voteSubmitted}: $_votedAction',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 11,
                                       fontWeight: FontWeight.bold,
-                                      color: EliteDopamineTheme.freshMint,
+                                      color: theme.colorScheme.tertiary,
                                     ),
                                   ),
                                 ],
@@ -332,10 +332,10 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                       width: double.infinity,
                       padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
                       decoration: BoxDecoration(
-                        color: const Color(0xFFFBF9F5),
+                        color: theme.colorScheme.surfaceContainerHighest,
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(
-                          color: const Color(0xFFEDE8DF),
+                          color: theme.colorScheme.outlineVariant,
                         ),
                       ),
                       child: Column(
@@ -343,12 +343,12 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                           Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
-                              color: const Color(0xFFA855F7).withValues(alpha: 0.1),
+                              color: theme.colorScheme.secondary.withValues(alpha: 0.1),
                               shape: BoxShape.circle,
                             ),
-                            child: const Icon(
+                            child: Icon(
                               Icons.how_to_vote_outlined,
-                              color: Color(0xFFA855F7),
+                              color: theme.colorScheme.secondary,
                               size: 24,
                             ),
                           ),
@@ -359,7 +359,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                             style: TextStyle(
                               fontSize: 11,
                               fontWeight: FontWeight.w600,
-                              color: Colors.grey[700],
+                              color: theme.colorScheme.onSurfaceVariant,
                             ),
                           ),
                         ],
@@ -377,7 +377,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                         style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.w600,
-                          color: Colors.grey[600],
+                          color: theme.colorScheme.onSurfaceVariant,
                         ),
                       ),
                       InkWell(
@@ -418,7 +418,6 @@ Widget previewEliteCommunityJudgeCard() {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: Scaffold(
-        backgroundColor: EliteDopamineTheme.warmCanvasBackground,
         body: SafeArea(
           child: SingleChildScrollView(
             child: EliteCommunityJudgeCard(),

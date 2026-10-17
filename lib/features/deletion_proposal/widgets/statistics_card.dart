@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
-
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 统计信息卡片组件
+/// 高信息密度社区治理统计分析卡片组件（100% 系统 Theme.of(context) 主题 & i18n）
 class StatisticsCard extends StatelessWidget {
   final Map<String, int>? statistics;
   final int? voteCount;
@@ -19,113 +18,112 @@ class StatisticsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final totalPending = statistics?['totalPending'] ?? 0;
     final highRisk = statistics?['highRisk'] ?? 0;
     final mediumRisk = statistics?['mediumRisk'] ?? 0;
     final lowRisk = statistics?['lowRisk'] ?? 0;
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // 1. 社区参与与投票概览卡片
         if (voteCount != null) ...[
-          _buildVoteStatsCard(context),
+          _buildVoteStatsCard(context, l10n),
           const SizedBox(height: 14),
         ],
-        GoogleAdWidget(adInfo: AdManager.bannerAd),
+
+        // 2. 广告集成
+        const GoogleAdWidget(adInfo: AdManager.bannerAd),
         const SizedBox(height: 14),
-        _buildOverviewCard(context, totalPending),
+
+        // 3. 待处理提议概览
+        _buildOverviewCard(context, l10n, totalPending),
         const SizedBox(height: 14),
-        GoogleAdWidget(adInfo: AdManager.bannerAd),
+
+        // 4. 广告集成
+        const GoogleAdWidget(adInfo: AdManager.bannerAd),
         const SizedBox(height: 14),
-        _buildRiskBreakdownRow(context, highRisk, mediumRisk, lowRisk),
+
+        // 5. 风险等级三宫格分布
+        _buildRiskBreakdownRow(context, l10n, highRisk, mediumRisk, lowRisk),
         const SizedBox(height: 14),
-        GoogleAdWidget(adInfo: AdManager.bannerAd),  
+
+        // 6. 广告集成
+        const GoogleAdWidget(adInfo: AdManager.bannerAd),
         const SizedBox(height: 14),
-        _buildImpactCard(context, totalPending, highRisk),
+
+        // 7. 社区防护影响力统计卡片
+        _buildImpactCard(context, l10n, totalPending, highRisk),
       ],
     );
   }
 
-  Widget _buildVoteStatsCard(BuildContext context) {
+  Widget _buildVoteStatsCard(BuildContext context, AppLocalizations l10n) {
+    final theme = Theme.of(context);
+
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: Theme.of(context).colorScheme.outlineVariant,
+          color: theme.colorScheme.outlineVariant,
           width: 1.1,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
-            blurRadius: 10,
-            offset: const Offset(0, 3),
-          ),
-        ],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(7),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFFF9500).withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(12),
+                  color: theme.colorScheme.primary.withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Icon(
+                child: Icon(
                   Icons.how_to_vote_rounded,
-                  color: Color(0xFFFF9500),
-                  size: 20,
+                  color: theme.colorScheme.primary,
+                  size: 18,
                 ),
               ),
               const SizedBox(width: 10),
               Text(
-                AppLocalizations.of(context)!.statistics,
+                l10n.statistics,
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 15,
                   fontWeight: FontWeight.w900,
-                  color: Theme.of(context).colorScheme.onSurface,
+                  color: theme.colorScheme.onSurface,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 12),
           _buildStatisticItem(
             context,
-            AppLocalizations.of(context)!.totalVotes(voteCount!),
-            voteCount.toString(),
+            l10n.totalVotes(voteCount!),
+            '$voteCount',
             Icons.how_to_vote_rounded,
-            const Color(0xFFFF9500),
+            theme.colorScheme.primary,
           ),
           if (onExchangeVip != null) ...[
-            const SizedBox(height: 16),
-            Container(
+            const SizedBox(height: 12),
+            SizedBox(
               width: double.infinity,
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [Color(0xFFFF9500), Color(0xFFFF5E3A)],
-                ),
-                borderRadius: BorderRadius.circular(14),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0xFFFF9500).withValues(alpha: 0.35),
-                    blurRadius: 8,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
               child: ElevatedButton.icon(
                 onPressed: onExchangeVip,
-                icon: const Icon(Icons.workspace_premium_rounded, color: Colors.white, size: 18),
+                icon: const Icon(Icons.workspace_premium_rounded, size: 18),
                 label: Text(
-                  AppLocalizations.of(context)!.exchangeVip,
-                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800),
+                  l10n.exchangeVip,
+                  style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
                 ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  backgroundColor: theme.colorScheme.primary,
+                  foregroundColor: theme.colorScheme.onPrimary,
+                  padding: const EdgeInsets.symmetric(vertical: 11),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
                 ),
               ),
             ),
@@ -135,147 +133,140 @@ class StatisticsCard extends StatelessWidget {
     );
   }
 
-  Widget _buildOverviewCard(BuildContext context, int totalPending) {
+  Widget _buildOverviewCard(BuildContext context, AppLocalizations l10n, int totalPending) {
+    final theme = Theme.of(context);
+
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: Theme.of(context).colorScheme.outlineVariant,
+          color: theme.colorScheme.outlineVariant,
           width: 1.1,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
-            blurRadius: 10,
-            offset: const Offset(0, 3),
-          ),
-        ],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(7),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF6C5CE7).withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(12),
+                  color: theme.colorScheme.secondary.withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Icon(
+                child: Icon(
                   Icons.analytics_rounded,
-                  color: Color(0xFF6C5CE7),
-                  size: 20,
+                  color: theme.colorScheme.secondary,
+                  size: 18,
                 ),
               ),
               const SizedBox(width: 10),
               Text(
-                AppLocalizations.of(context)!.overview,
+                l10n.overview,
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 15,
                   fontWeight: FontWeight.w900,
-                  color: Theme.of(context).colorScheme.onSurface,
+                  color: theme.colorScheme.onSurface,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 12),
           _buildStatisticItem(
             context,
-            AppLocalizations.of(context)!.totalPendingProposals,
-            totalPending.toString(),
+            l10n.totalPendingProposals,
+            '$totalPending',
             Icons.pending_actions_rounded,
-            const Color(0xFF6C5CE7),
+            theme.colorScheme.secondary,
           ),
         ],
       ),
     );
   }
 
-  Widget _buildRiskBreakdownRow(BuildContext context, int highRisk, int mediumRisk, int lowRisk) {
+  Widget _buildRiskBreakdownRow(BuildContext context, AppLocalizations l10n, int highRisk, int mediumRisk, int lowRisk) {
+    final theme = Theme.of(context);
+
     return Row(
       children: [
         Expanded(
           child: _buildRiskLevelCard(
             context,
-            AppLocalizations.of(context)!.highRisk,
+            l10n.highRisk,
             highRisk,
             Icons.warning_amber_rounded,
-            const Color(0xFFFF4B4B),
+            theme.colorScheme.error,
           ),
         ),
         const SizedBox(width: 8),
         Expanded(
           child: _buildRiskLevelCard(
             context,
-            AppLocalizations.of(context)!.mediumRisk,
+            l10n.mediumRisk,
             mediumRisk,
             Icons.info_outline_rounded,
-            const Color(0xFFFF9500),
+            theme.colorScheme.tertiary,
           ),
         ),
         const SizedBox(width: 8),
         Expanded(
           child: _buildRiskLevelCard(
             context,
-            AppLocalizations.of(context)!.lowRisk,
+            l10n.lowRisk,
             lowRisk,
             Icons.check_circle_outline_rounded,
-            const Color(0xFF34C759),
+            theme.colorScheme.primary,
           ),
         ),
       ],
     );
   }
 
-  Widget _buildImpactCard(BuildContext context, int totalPending, int highRisk) {
+  Widget _buildImpactCard(BuildContext context, AppLocalizations l10n, int totalPending, int highRisk) {
+    final theme = Theme.of(context);
+
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: Theme.of(context).colorScheme.outlineVariant,
+          color: theme.colorScheme.outlineVariant,
           width: 1.1,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
-            blurRadius: 10,
-            offset: const Offset(0, 3),
-          ),
-        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppLocalizations.of(context)!.communityImpact,
+            l10n.communityImpact,
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 15,
               fontWeight: FontWeight.w900,
-              color: Theme.of(context).colorScheme.onSurface,
+              color: theme.colorScheme.onSurface,
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 12),
           _buildMetricRow(
             context,
-            AppLocalizations.of(context)!.activeProposals,
-            totalPending.toString(),
+            l10n.activeProposals,
+            '$totalPending',
             Icons.assignment_outlined,
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 10),
           _buildMetricRow(
             context,
-            AppLocalizations.of(context)!.criticalIssues,
-            highRisk.toString(),
+            l10n.criticalIssues,
+            '$highRisk',
             Icons.priority_high_rounded,
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 10),
           _buildMetricRow(
             context,
-            AppLocalizations.of(context)!.communityParticipation,
+            l10n.communityParticipation,
             _calculateParticipationLevel(context, totalPending),
             Icons.people_alt_outlined,
           ),
@@ -291,21 +282,23 @@ class StatisticsCard extends StatelessWidget {
     IconData icon,
     Color color,
   ) {
+    final theme = Theme.of(context);
+
     return Row(
       children: [
         Container(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: color.withValues(alpha: 0.12),
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
           ),
           child: Icon(
             icon,
             color: color,
-            size: 24,
+            size: 22,
           ),
         ),
-        const SizedBox(width: 16),
+        const SizedBox(width: 14),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -313,7 +306,7 @@ class StatisticsCard extends StatelessWidget {
               Text(
                 value,
                 style: TextStyle(
-                  fontSize: 26,
+                  fontSize: 24,
                   fontWeight: FontWeight.w900,
                   color: color,
                 ),
@@ -321,9 +314,9 @@ class StatisticsCard extends StatelessWidget {
               Text(
                 label,
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 11,
                   fontWeight: FontWeight.w600,
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  color: theme.colorScheme.onSurfaceVariant,
                 ),
               ),
             ],
@@ -340,42 +333,37 @@ class StatisticsCard extends StatelessWidget {
     IconData icon,
     Color color,
   ) {
+    final theme = Theme.of(context);
+
     return Container(
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
-        borderRadius: BorderRadius.circular(18),
+        color: theme.colorScheme.surface,
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: Theme.of(context).colorScheme.outlineVariant,
+          color: theme.colorScheme.outlineVariant,
           width: 1.1,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: color.withValues(alpha: 0.08),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
       ),
       child: Column(
         children: [
           Container(
-            padding: const EdgeInsets.all(7),
+            padding: const EdgeInsets.all(6),
             decoration: BoxDecoration(
               color: color.withValues(alpha: 0.12),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(
               icon,
               color: color,
-              size: 18,
+              size: 16,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 6),
           Text(
             count.toString(),
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: FontWeight.w900,
               color: color,
             ),
@@ -384,11 +372,13 @@ class StatisticsCard extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              fontSize: 11,
+              fontSize: 10,
               fontWeight: FontWeight.w600,
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
+              color: theme.colorScheme.onSurfaceVariant,
             ),
             textAlign: TextAlign.center,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),
@@ -401,24 +391,31 @@ class StatisticsCard extends StatelessWidget {
     String value,
     IconData icon,
   ) {
+    final theme = Theme.of(context);
+
     return Row(
       children: [
         Icon(
           icon,
-          size: 20,
-          color: Theme.of(context).colorScheme.outline,
+          size: 18,
+          color: theme.colorScheme.outline,
         ),
-        const SizedBox(width: 12),
+        const SizedBox(width: 10),
         Expanded(
           child: Text(
             label,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: TextStyle(
+              fontSize: 12,
+              color: theme.colorScheme.onSurface,
+            ),
           ),
         ),
         Text(
           value,
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-            fontWeight: FontWeight.w600,
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.bold,
+            color: theme.colorScheme.onSurface,
           ),
         ),
       ],

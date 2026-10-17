@@ -10,7 +10,6 @@ import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/statistic_period.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ------------------- Widget 定义 -------------------
@@ -43,6 +42,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
   Widget build(BuildContext context) {
     final stats = ref.watch(callStatisticsProvider);
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
 
     final totalBlocked = stats.blockedCallsCount;
     final blockRules = stats.blockRulesCount;
@@ -55,22 +55,22 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
 
     // 动态规则类型分布数据建模，支持任意数量的规则类型展示
     final List<_RuleTypeShare> categories = [
-      _RuleTypeShare(label: l10n.blockRules, count: blockRules, color: EliteDopamineTheme.vibrantCoral),
-      _RuleTypeShare(label: l10n.allowRules, count: allowRules, color: EliteDopamineTheme.sunsetTangerine),
-      _RuleTypeShare(label: l10n.silentRules, count: silenceRules, color: EliteDopamineTheme.freshMint),
+      _RuleTypeShare(label: l10n.blockRules, count: blockRules, color: theme.colorScheme.error),
+      _RuleTypeShare(label: l10n.allowRules, count: allowRules, color: theme.colorScheme.primary),
+      _RuleTypeShare(label: l10n.silentRules, count: silenceRules, color: theme.colorScheme.tertiary),
       if (timeRules > 0)
-        _RuleTypeShare(label: l10n.timeInterceptor, count: timeRules, color: EliteDopamineTheme.softLilac),
+        _RuleTypeShare(label: l10n.timeInterceptor, count: timeRules, color: theme.colorScheme.secondary),
       if (noneRules > 0)
-        _RuleTypeShare(label: l10n.actionNone, count: noneRules, color: EliteDopamineTheme.skyAzure),
+        _RuleTypeShare(label: l10n.actionNone, count: noneRules, color: theme.colorScheme.primaryContainer),
     ];
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: Theme.of(context).colorScheme.outlineVariant,
+          color: theme.colorScheme.outlineVariant,
           width: 1.2,
         ),
         boxShadow: [
@@ -80,7 +80,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
             offset: const Offset(0, 4),
           ),
           BoxShadow(
-            color: EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.08),
+            color: theme.colorScheme.primary.withValues(alpha: 0.08),
             blurRadius: 24,
             spreadRadius: 1,
             offset: const Offset(0, 8),
@@ -100,7 +100,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                   Container(
                     padding: const EdgeInsets.all(7),
                     decoration: BoxDecoration(
-                      gradient: EliteDopamineTheme.coralSunsetGradient,
+                      gradient: LinearGradient(colors: [theme.colorScheme.error, theme.colorScheme.primary]),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Icon(
@@ -123,10 +123,10 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                       ),
                       Text(
                         '${l10n.blockedCalls}: $totalBlocked',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.w700,
-                          color: EliteDopamineTheme.sunsetTangerine,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                     ],
@@ -150,7 +150,6 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
               ),
             ],
           ),
-
           const SizedBox(height: 14),
 
           // 多巴胺全类型规则与统计成就横向滑块列表 (使各种 Rule 类型清晰可见)
@@ -162,35 +161,35 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 _buildInsightMetric(
                   label: l10n.blockedCalls,
                   count: '$totalBlocked',
-                  color: EliteDopamineTheme.sunsetTangerine,
+                  color: theme.colorScheme.primary,
                   icon: Icons.phone_disabled_rounded,
                 ),
                 const SizedBox(width: 8),
                 _buildInsightMetric(
                   label: l10n.blockRules,
                   count: '$blockRules',
-                  color: EliteDopamineTheme.vibrantCoral,
+                  color: theme.colorScheme.error,
                   icon: Icons.shield_rounded,
                 ),
                 const SizedBox(width: 8),
                 _buildInsightMetric(
                   label: l10n.allowRules,
                   count: '$allowRules',
-                  color: EliteDopamineTheme.freshMint,
+                  color: theme.colorScheme.tertiary,
                   icon: Icons.check_circle_rounded,
                 ),
                 const SizedBox(width: 8),
                 _buildInsightMetric(
                   label: l10n.silentRules,
                   count: '$silenceRules',
-                  color: EliteDopamineTheme.skyAzure,
+                  color: theme.colorScheme.secondary,
                   icon: Icons.notifications_off_rounded,
                 ),
                 const SizedBox(width: 8),
                 _buildInsightMetric(
                   label: l10n.timeInterceptor,
                   count: '$timeRules',
-                  color: EliteDopamineTheme.softLilac,
+                  color: theme.colorScheme.primaryContainer,
                   icon: Icons.timer_rounded,
                 ),
               ],
@@ -270,7 +269,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w800),
               ),
               style: TextButton.styleFrom(
-                foregroundColor: EliteDopamineTheme.sunsetTangerine,
+                foregroundColor: theme.colorScheme.primary,
                 visualDensity: VisualDensity.compact,
               ),
             ),
@@ -409,12 +408,11 @@ class _RuleTypeShare {
 
 @Preview(name: 'Stats Insight Card', group: 'Elite Showcase')
 Widget previewEliteStatsInsightCard() {
-  return const ProviderScope(
+  return ProviderScope(
     child: MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: Scaffold(
-        backgroundColor: EliteDopamineTheme.warmCanvasBackground,
         body: SafeArea(
           child: SingleChildScrollView(
             child: EliteStatsInsightCard(),

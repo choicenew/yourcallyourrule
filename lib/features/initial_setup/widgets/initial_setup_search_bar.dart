@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 
 /// 搜索与批量选择控制条组件：支持海量规则实时模糊匹配与一键全选/取消全选
 class InitialSetupSearchBar extends StatelessWidget {
@@ -26,6 +25,7 @@ class InitialSetupSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -35,17 +35,17 @@ class InitialSetupSearchBar extends StatelessWidget {
             child: Container(
               height: 42,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: theme.colorScheme.surface,
                 borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: EliteDopamineTheme.slateBorder),
+                border: Border.all(color: theme.colorScheme.outlineVariant),
               ),
               child: TextField(
                 controller: searchController,
                 onChanged: onSearchChanged,
                 decoration: InputDecoration(
                   hintText: l10n.initialSetupSearchHint,
-                  hintStyle: const TextStyle(fontSize: 12, color: EliteDopamineTheme.textMuted),
-                  prefixIcon: const Icon(Icons.search_rounded, size: 18, color: EliteDopamineTheme.textSecondary),
+                  hintStyle: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6)),
+                  prefixIcon: Icon(Icons.search_rounded, size: 18, color: theme.colorScheme.onSurfaceVariant),
                   suffixIcon: searchQuery.isNotEmpty
                       ? IconButton(
                           icon: const Icon(Icons.clear_rounded, size: 16),

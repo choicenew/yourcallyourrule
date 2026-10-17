@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:world_countries/world_countries.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/sync_country/provider/country_selection_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -15,9 +14,10 @@ class CountrySelectionWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
     final selectedCountries = ref.watch(selectedCountriesProvider);
+    final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           l10n.databaseSyncTitle,
@@ -38,9 +38,20 @@ class CountrySelectionWidget extends ConsumerWidget {
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                 padding: const EdgeInsets.all(16.0),
-                decoration: EliteDopamineTheme.warmCardDecoration(
-                  context: context,
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.surface,
                   borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: theme.colorScheme.outlineVariant,
+                    width: 1.0,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.03),
+                      blurRadius: 12,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,12 +61,12 @@ class CountrySelectionWidget extends ConsumerWidget {
                         Container(
                           padding: const EdgeInsets.all(6),
                           decoration: BoxDecoration(
-                            color: EliteDopamineTheme.sunsetTangerine.withValues(alpha: 0.12),
+                            color: theme.colorScheme.primary.withValues(alpha: 0.12),
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: const Icon(
+                          child: Icon(
                             Icons.public_rounded,
-                            color: EliteDopamineTheme.sunsetTangerine,
+                            color: theme.colorScheme.primary,
                             size: 18,
                           ),
                         ),
@@ -63,10 +74,10 @@ class CountrySelectionWidget extends ConsumerWidget {
                         Expanded(
                           child: Text(
                             l10n.countrySyncSettingsSubtitle,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontWeight: FontWeight.w800,
                               fontSize: 14,
-                              color: Colors.black87,
+                              color: theme.colorScheme.onSurface,
                             ),
                           ),
                         ),
@@ -77,7 +88,7 @@ class CountrySelectionWidget extends ConsumerWidget {
                       l10n.countryDataDisclaimer,
                       style: TextStyle(
                         fontSize: 12,
-                        color: Colors.grey[600],
+                        color: theme.colorScheme.onSurfaceVariant,
                         height: 1.3,
                       ),
                     ),
@@ -91,7 +102,7 @@ class CountrySelectionWidget extends ConsumerWidget {
                               (country) => Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                                 decoration: BoxDecoration(
-                                  color: EliteDopamineTheme.sunsetTangerine,
+                                  color: theme.colorScheme.primary,
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: Row(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 本地通讯录与标签匹配卡片（合并 SearchPage 的本地能力）
@@ -18,14 +17,15 @@ class VerificationLocalMatchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
 
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: theme.colorScheme.outlineVariant,
           width: 1.2,
         ),
         boxShadow: [
@@ -41,18 +41,18 @@ class VerificationLocalMatchCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(
+              Icon(
                 Icons.contacts_rounded,
                 size: 18,
-                color: EliteDopamineTheme.freshMint,
+                color: theme.colorScheme.tertiary,
               ),
               const SizedBox(width: 8),
               Text(
                 l10n.contacts,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w900,
-                  color: Colors.black87,
+                  color: theme.colorScheme.onSurface,
                 ),
               ),
             ],

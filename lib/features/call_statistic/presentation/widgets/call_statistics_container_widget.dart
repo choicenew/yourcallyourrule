@@ -7,12 +7,10 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
-// [注释]: 导入我们新创建的独立卡片
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/trend_chart_card.dart';
-// [注释]: 导入改造后的纯UI图表
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_chart.dart';
 
-/// [重构]: 这是一个 "智能容器" Widget，负责组装所有统计相关的卡片。
+/// 智能高密度通话拦截统计容器 Widget（100% 采用系统 Theme.of(context) 主题与 i18n）
 class CallStatisticsContainerWidget extends ConsumerStatefulWidget {
   const CallStatisticsContainerWidget({super.key});
 
@@ -26,7 +24,6 @@ class _CallStatisticsContainerWidgetState
   @override
   void initState() {
     super.initState();
-    // 切入数据分析页面时，毫秒级静默请求最新数据，保证数据随时最新
     Future.microtask(() {
       if (mounted) {
         ref.invalidate(callStatisticsProvider);
@@ -36,16 +33,12 @@ class _CallStatisticsContainerWidgetState
 
   @override
   Widget build(BuildContext context) {
-    // [注释]: 监听 callStatisticsProvider 的状态。
     final state = ref.watch(callStatisticsProvider);
 
-    // [注释]: 只在初始加载时（即 chartData 为空）显示骨架屏。
-    // 这是为了避免在切换时间范围等操作时整个页面闪烁。
     if (state.isLoading && state.chartData.isEmpty) {
       return _buildLoadingSkeleton();
     }
     
-    // [注释]: 如果发生错误，则显示错误信息。
     if (state.error != null) {
       return Center(
         child: Padding(
@@ -55,48 +48,56 @@ class _CallStatisticsContainerWidgetState
       );
     }
 
-    // [注释]: 当数据加载成功后，构建完整的 UI。
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // [注释]: 将 state 对象传递给各个构建方法。
+          // 1. 顶部战报卡片
           _buildOverviewCard(context, state),
-          const SizedBox(height: 16),
-          _buildAdPlaceholder(),
-          const SizedBox(height: 16),
-          _buildStatsGrid(context, state),
-          const SizedBox(height: 16),
-          _buildAdPlaceholder(),
-          const SizedBox(height: 16),
-          // [修正]: 直接使用独立的、自包含的 TrendChartCard。
-          // 它自己会处理时间范围选择和局部加载状态。
-          const TrendChartCard(),
-          const SizedBox(height: 16),
-          // [注释]: BlockTypeAnalysis 也是一个自包含的 ConsumerWidget。
-          const BlockTypeAnalysis(),
-            const SizedBox(height: 16),
-              const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd),
-          const SizedBox(height: 16),
-          _buildExportButton(context),
+          const SizedBox(height: 14),
 
+          // 2. 广告组件
+          _buildAdPlaceholder(),
+          const SizedBox(height: 14),
+
+          // 3. 统计网格
+          _buildStatsGrid(context, state),
+          const SizedBox(height: 14),
+
+          // 4. 广告组件
+          const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd),
+          const SizedBox(height: 14),
+
+          // 5. 趋势分析曲线
+          const TrendChartCard(),
+          const SizedBox(height: 14),
+
+          // 6. 拦截类型分析
+          const BlockTypeAnalysis(),
+          const SizedBox(height: 14),
+
+          // 7. 导出数据按钮
+          _buildExportButton(context),
         ],
       ),
     );
   }
   
-  /// [注释]: 构建总览卡片的辅助方法。
+  /// 系统主题 Hero 战报卡片
   Widget _buildOverviewCard(BuildContext context, CallStatisticsState state) {
+    final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
+    final totalRules = state.blockRulesCount + state.allowRulesCount + state.silenceRulesCount + state.timeRulesCount;
+
     return Container(
-      margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Color(0xFFFFB74D), Color(0xFFFF7043)],
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
+        color: theme.colorScheme.primaryContainer,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: theme.colorScheme.primary.withValues(alpha: 0.2),
+          width: 1.1,
         ),
-        borderRadius: BorderRadius.circular(16),
       ),
       padding: const EdgeInsets.all(20),
       child: Column(
@@ -109,22 +110,52 @@ class _CallStatisticsContainerWidgetState
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.totalBlocked,
-                    style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 14),
+                    l10n.totalBlocked,
+                    style: TextStyle(
+                      color: theme.colorScheme.onPrimaryContainer.withValues(alpha: 0.8),
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                  const SizedBox(height: 4),
+                  const SizedBox(height: 2),
                   Text(
                     '${state.blockedCallsCount}',
-                    style: const TextStyle(color: Colors.white, fontSize: 32, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      color: theme.colorScheme.onPrimaryContainer,
+                      fontSize: 34,
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: -0.5,
+                    ),
                   ),
                 ],
               ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.primary.withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.shield_rounded, color: theme.colorScheme.primary, size: 14),
+                    const SizedBox(width: 4),
+                    Text(
+                      '${l10n.enabledStatus}: $totalRules',
+                      style: TextStyle(
+                        color: theme.colorScheme.primary,
+                        fontSize: 11,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
-          const SizedBox(height: 20),
-          // [修正]: 使用改造后的 StatisticChart 作为迷你图表，只传递需要的数据。
+          const SizedBox(height: 16),
           SizedBox(
-            height: 60,
+            height: 50,
             child: StatisticChart(chartData: state.chartData),
           ),
         ],
@@ -132,60 +163,71 @@ class _CallStatisticsContainerWidgetState
     );
   }
 
-  /// [注释]: 构建统计数据网格的辅助方法。
+  /// 统计网格（全原生 Theme 调色）
   Widget _buildStatsGrid(BuildContext context, CallStatisticsState state) {
-     return GridView.count(
+    final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
+
+    return GridView.count(
       crossAxisCount: 2,
-      crossAxisSpacing: 12,
-      mainAxisSpacing: 12,
+      crossAxisSpacing: 10,
+      mainAxisSpacing: 10,
+      childAspectRatio: 1.6,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       children: [
         StatisticCard(
           icon: Icons.phone_disabled_rounded,
-          iconColor: const Color(0xFFFF9500),
-          backgroundColor: const Color(0xFFFF9500).withValues(alpha: 0.12),
+          iconColor: theme.colorScheme.error,
+          backgroundColor: theme.colorScheme.error.withValues(alpha: 0.12),
           title: '${state.blockedCallsCount}',
-          subtitle: AppLocalizations.of(context)!.blockCalls,
-          period: AppLocalizations.of(context)!.thisWeek,
+          subtitle: l10n.blockCalls,
+          period: l10n.thisWeek,
         ),
         StatisticCard(
           icon: Icons.check_circle_outline_rounded,
-          iconColor: const Color(0xFF34C759),
-          backgroundColor: const Color(0xFF34C759).withValues(alpha: 0.12),
+          iconColor: theme.colorScheme.primary,
+          backgroundColor: theme.colorScheme.primary.withValues(alpha: 0.12),
           title: '${state.allowRulesCount}',
-          subtitle: AppLocalizations.of(context)!.allowRules,
-          period: AppLocalizations.of(context)!.total,
+          subtitle: l10n.allowRules,
+          period: l10n.total,
         ),
         StatisticCard(
           icon: Icons.block_rounded,
-          iconColor: const Color(0xFFFF4B4B),
-          backgroundColor: const Color(0xFFFF4B4B).withValues(alpha: 0.12),
+          iconColor: theme.colorScheme.error,
+          backgroundColor: theme.colorScheme.error.withValues(alpha: 0.12),
           title: '${state.blockRulesCount}',
-          subtitle: AppLocalizations.of(context)!.blockRules,
-          period: AppLocalizations.of(context)!.total,
+          subtitle: l10n.blockRules,
+          period: l10n.total,
         ),
         StatisticCard(
           icon: Icons.notifications_off_rounded,
-          iconColor: const Color(0xFFFFB300),
-          backgroundColor: const Color(0xFFFFB300).withValues(alpha: 0.12),
+          iconColor: theme.colorScheme.secondary,
+          backgroundColor: theme.colorScheme.secondary.withValues(alpha: 0.12),
           title: '${state.silenceRulesCount}',
-          subtitle: AppLocalizations.of(context)!.silentRules,
-          period: AppLocalizations.of(context)!.total,
+          subtitle: l10n.silentRules,
+          period: l10n.total,
+        ),
+        StatisticCard(
+          icon: Icons.timer_rounded,
+          iconColor: theme.colorScheme.tertiary,
+          backgroundColor: theme.colorScheme.tertiary.withValues(alpha: 0.12),
+          title: '${state.timeRulesCount}',
+          subtitle: l10n.timeInterceptor,
+          period: l10n.total,
         ),
         StatisticCard(
           icon: Icons.remove_circle_outline_rounded,
-          iconColor: const Color(0xFF8E8E93),
-          backgroundColor: const Color(0xFF8E8E93).withValues(alpha: 0.12),
+          iconColor: theme.colorScheme.onSurfaceVariant,
+          backgroundColor: theme.colorScheme.surfaceContainerHighest,
           title: '${state.noneRulesCount}',
-          subtitle: AppLocalizations.of(context)!.noActionRules,
-          period: AppLocalizations.of(context)!.total,
+          subtitle: l10n.noActionRules,
+          period: l10n.total,
         ),
       ],
     );
   }
 
-  /// [注释]: 构建广告占位的辅助方法。
   Widget _buildAdPlaceholder() {
     return const SizedBox(
       width: double.infinity,
@@ -193,20 +235,25 @@ class _CallStatisticsContainerWidgetState
     );
   }
 
-  /// [注释]: 构建导出按钮的辅助方法。
   Widget _buildExportButton(BuildContext context) {
     return Center(
-      child: ElevatedButton.icon(
+      child: OutlinedButton.icon(
         onPressed: () {
-          // [注释]: 导出逻辑将在这里实现。
+          // 导出逻辑占位
         },
-        icon: const Icon(Icons.file_download),
-        label: Text(AppLocalizations.of(context)!.exportStatisticsData),
+        style: OutlinedButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        ),
+        icon: const Icon(Icons.file_download_outlined, size: 18),
+        label: Text(
+          AppLocalizations.of(context)!.exportStatisticsData,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+        ),
       ),
     );
   }
 
-  /// [注释]: 构建初始加载时显示的骨架屏。
   Widget _buildLoadingSkeleton() {
     return const SingleChildScrollView(
       padding: EdgeInsets.all(16.0),

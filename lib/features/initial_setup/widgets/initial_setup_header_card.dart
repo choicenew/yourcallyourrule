@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import '../providers/initial_setup_provider.dart';
 
 /// 顶部控制卡片组件：包含说明文案、数据源（GitHub/CDN）切换与自定义 URL 输入框
@@ -26,12 +25,24 @@ class InitialSetupHeaderCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      decoration: EliteDopamineTheme.warmCardDecoration(
-        context: context,
-        glowColor: EliteDopamineTheme.warmSunAmber,
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surface,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(
+          color: theme.colorScheme.primary.withValues(alpha: 0.2),
+          width: 1.2,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: theme.colorScheme.primary.withValues(alpha: 0.06),
+            blurRadius: 16,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -39,9 +50,9 @@ class InitialSetupHeaderCard extends ConsumerWidget {
         children: [
           Text(
             l10n.initialSetupDesc,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 13,
-              color: EliteDopamineTheme.textBody,
+              color: theme.colorScheme.onSurface,
               height: 1.4,
             ),
           ),
@@ -51,10 +62,10 @@ class InitialSetupHeaderCard extends ConsumerWidget {
             children: [
               Text(
                 l10n.initialSetupSourceTitle,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.bold,
-                  color: EliteDopamineTheme.textPrimary,
+                  color: theme.colorScheme.onSurface,
                 ),
               ),
               const Spacer(),
@@ -85,7 +96,7 @@ class InitialSetupHeaderCard extends ConsumerWidget {
             children: [
               Checkbox(
                 value: useCustomUrl,
-                activeColor: EliteDopamineTheme.sunsetTangerine,
+                activeColor: theme.colorScheme.primary,
                 onChanged: (bool? val) {
                   onUseCustomUrlChanged(val ?? false);
                 },
@@ -95,10 +106,10 @@ class InitialSetupHeaderCard extends ConsumerWidget {
                   onTap: () => onUseCustomUrlChanged(!useCustomUrl),
                   child: Text(
                     l10n.initialSetupSourceCustom,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
-                      color: EliteDopamineTheme.textPrimary,
+                      color: theme.colorScheme.onSurface,
                     ),
                   ),
                 ),
@@ -117,7 +128,7 @@ class InitialSetupHeaderCard extends ConsumerWidget {
                         hintText: l10n.initialSetupCustomUrlHint,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: EliteDopamineTheme.slateBorder),
+                          borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
                         ),
                         isDense: true,
                         contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
@@ -128,7 +139,7 @@ class InitialSetupHeaderCard extends ConsumerWidget {
                   const SizedBox(width: 8),
                   ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: EliteDopamineTheme.sunsetTangerine,
+                      backgroundColor: theme.colorScheme.primary,
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),

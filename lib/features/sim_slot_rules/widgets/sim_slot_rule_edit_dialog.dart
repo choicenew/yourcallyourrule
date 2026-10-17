@@ -6,7 +6,6 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provider.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -143,7 +142,7 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
             content: Text(widget.rule == null
                 ? l10n.ruleAddedSuccess
                 : l10n.ruleUpdateSuccess),
-            backgroundColor: EliteDopamineTheme.freshMint,
+            backgroundColor: Theme.of(context).colorScheme.tertiary,
           ),
         );
       }

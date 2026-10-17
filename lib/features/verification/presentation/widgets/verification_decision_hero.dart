@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 总体拦截判决 Hero 卡片
@@ -14,6 +13,7 @@ class VerificationDecisionHero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
 
     final isBlocked = verificationResults['Blocked'] == true ||
         verificationResults['Blacklist'] == true ||
@@ -28,22 +28,22 @@ class VerificationDecisionHero extends StatelessWidget {
     final String decisionSub;
 
     if (isBlocked) {
-      badgeColor = EliteDopamineTheme.vibrantCoral;
+      badgeColor = theme.colorScheme.error;
       badgeIcon = Icons.shield_rounded;
       decisionTitle = l10n.actionBlock;
       decisionSub = l10n.blockActionDescription;
     } else if (isSilenced) {
-      badgeColor = EliteDopamineTheme.warmSunAmber;
+      badgeColor = theme.colorScheme.primary;
       badgeIcon = Icons.notifications_off_rounded;
       decisionTitle = l10n.actionSilence;
       decisionSub = l10n.silenceActionDescription;
     } else if (isAllowed) {
-      badgeColor = EliteDopamineTheme.freshMint;
+      badgeColor = theme.colorScheme.tertiary;
       badgeIcon = Icons.verified_rounded;
       decisionTitle = l10n.actionAllow;
       decisionSub = l10n.allowActionDescription;
     } else {
-      badgeColor = EliteDopamineTheme.skyAzure;
+      badgeColor = theme.colorScheme.secondary;
       badgeIcon = Icons.info_outline_rounded;
       decisionTitle = l10n.actionNone;
       decisionSub = l10n.noneActionDescription;
@@ -103,7 +103,7 @@ class VerificationDecisionHero extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
-                    color: Colors.grey[700],
+                    color: theme.colorScheme.onSurfaceVariant,
                   ),
                 ),
               ],

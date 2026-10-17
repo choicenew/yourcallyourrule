@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 11 项规则拦截诊断卡片（全量国际化，消除硬编码文本）
@@ -44,14 +43,15 @@ class VerificationRulesDiagnosticsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
 
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: theme.colorScheme.outlineVariant,
           width: 1.2,
         ),
         boxShadow: [
@@ -67,18 +67,18 @@ class VerificationRulesDiagnosticsCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(
+              Icon(
                 Icons.rule_folder_rounded,
                 size: 18,
-                color: EliteDopamineTheme.sunsetTangerine,
+                color: theme.colorScheme.primary,
               ),
               const SizedBox(width: 8),
               Text(
                 l10n.verificationReport,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w900,
-                  color: Colors.black87,
+                  color: theme.colorScheme.onSurface,
                 ),
               ),
             ],
@@ -96,8 +96,8 @@ class VerificationRulesDiagnosticsCard extends StatelessWidget {
                     entry.key.contains('Filter'));
 
             final Color statusColor = isHit
-                ? (isBlockedAction ? Colors.red : Colors.green)
-                : Colors.grey;
+                ? (isBlockedAction ? theme.colorScheme.error : theme.colorScheme.tertiary)
+                : theme.colorScheme.onSurfaceVariant;
 
             final localizedName = _getLocalizedRuleName(context, entry.key);
             final statusText = isHit
@@ -119,10 +119,10 @@ class VerificationRulesDiagnosticsCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       localizedName,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w700,
-                        color: Colors.black87,
+                        color: theme.colorScheme.onSurface,
                       ),
                     ),
                   ),

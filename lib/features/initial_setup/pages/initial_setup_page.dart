@@ -8,7 +8,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 
 import '../../../core/entities/subscription/subscription.dart';
 import '../../../core/value_objects/url.dart';
@@ -53,27 +52,28 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final configAsync = ref.watch(setupConfigProvider);
+    final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: EliteDopamineTheme.warmCanvasBackground,
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
         title: Text(
           l10n.initialSetupTitle,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w900,
-            color: EliteDopamineTheme.textPrimary,
+            color: theme.colorScheme.onSurface,
           ),
         ),
         automaticallyImplyLeading: false,
       ),
       body: configAsync.when(
         data: (config) => _buildBody(context, config, l10n),
-        loading: () => const Center(
-          child: CircularProgressIndicator(color: EliteDopamineTheme.warmSunAmber),
+        loading: () => Center(
+          child: CircularProgressIndicator(color: theme.colorScheme.primary),
         ),
         error: (err, stack) => _buildErrorView(context, err, l10n),
       ),
@@ -82,6 +82,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
 
   Widget _buildBody(BuildContext context, SetupConfig config, AppLocalizations l10n) {
     final detectedCode = ref.watch(detectedCountryCodeProvider).value?.toUpperCase();
+    final theme = Theme.of(context);
 
     // 优先展示用户所在地区（置顶排序）
     final sortedCountries = List<CountryData>.from(config.countriesData);
@@ -175,11 +176,11 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.search_off_rounded, size: 40, color: EliteDopamineTheme.textMuted),
+                      Icon(Icons.search_off_rounded, size: 40, color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6)),
                       const SizedBox(height: 8),
                       Text(
                         l10n.noData,
-                        style: const TextStyle(color: EliteDopamineTheme.textSecondary, fontSize: 13),
+                        style: TextStyle(color: theme.colorScheme.onSurfaceVariant, fontSize: 13),
                       ),
                     ],
                   ),
@@ -216,27 +217,31 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
         // 4. 扩展插件推荐区 (常驻引导)
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-          decoration: EliteDopamineTheme.cleanCardDecoration(),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.surface,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: theme.colorScheme.outlineVariant, width: 1.0),
+          ),
           child: ListTile(
             leading: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: EliteDopamineTheme.skyAzure.withValues(alpha: 0.12),
+                color: theme.colorScheme.secondary.withValues(alpha: 0.12),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: const Icon(Icons.extension_rounded, color: EliteDopamineTheme.skyAzure, size: 20),
+              child: Icon(Icons.extension_rounded, color: theme.colorScheme.secondary, size: 20),
             ),
             title: Text(
               pluginRec.title,
-              style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: EliteDopamineTheme.textPrimary),
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface),
             ),
             subtitle: Text(
               pluginRec.description,
-              style: const TextStyle(fontSize: 11, color: EliteDopamineTheme.textSecondary),
+              style: TextStyle(fontSize: 11, color: theme.colorScheme.onSurfaceVariant),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
-            trailing: const Icon(Icons.open_in_new_rounded, size: 16, color: EliteDopamineTheme.textMuted),
+            trailing: Icon(Icons.open_in_new_rounded, size: 16, color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6)),
             onTap: () async {
               final url = Uri.parse(pluginRec.webPortalUrl);
               if (await canLaunchUrl(url)) {
@@ -250,19 +255,23 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
           padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-          decoration: EliteDopamineTheme.cleanCardDecoration(),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.surface,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: theme.colorScheme.outlineVariant, width: 1.0),
+          ),
           child: Row(
             children: [
-              const Icon(
+              Icon(
                 Icons.info_outline_rounded,
                 size: 18,
-                color: EliteDopamineTheme.warmSunAmber,
+                color: theme.colorScheme.primary,
               ),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
                   l10n.initialSetupSettingsHint,
-                  style: const TextStyle(fontSize: 11, color: EliteDopamineTheme.textSecondary),
+                  style: TextStyle(fontSize: 11, color: theme.colorScheme.onSurfaceVariant),
                 ),
               ),
               TextButton(
@@ -288,6 +297,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
   }
 
   Widget _buildErrorView(BuildContext context, Object err, AppLocalizations l10n) {
+    final theme = Theme.of(context);
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -297,25 +307,25 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: EliteDopamineTheme.vibrantCoral.withValues(alpha: 0.1),
+                color: theme.colorScheme.error.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
-              child: const Icon(
+              child: Icon(
                 Icons.error_outline_rounded,
                 size: 48,
-                color: EliteDopamineTheme.vibrantCoral,
+                color: theme.colorScheme.error,
               ),
             ),
             const SizedBox(height: 16),
             Text(
               l10n.initialSetupGetFailed,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: EliteDopamineTheme.textPrimary),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface),
             ),
             const SizedBox(height: 8),
             Text(
               err.toString(),
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 12, color: EliteDopamineTheme.textSecondary),
+              style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant),
             ),
             const SizedBox(height: 24),
             Row(
@@ -328,7 +338,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
                 const SizedBox(width: 16),
                 ElevatedButton.icon(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: EliteDopamineTheme.warmSunAmber,
+                    backgroundColor: theme.colorScheme.primary,
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   ),

@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:yourcallyourrule/features/auto_update/di/auto_update_service_provider.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class AutoUpdateSettingsPage extends ConsumerStatefulWidget {

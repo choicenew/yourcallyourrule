@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

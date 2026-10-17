@@ -116,7 +116,7 @@ class _TrendChartCardState extends ConsumerState<TrendChartCard> {
           text,
           style: TextStyle(
             fontSize: 11,
-            color: isSelected ? Colors.white : Colors.grey[700],
+            color: isSelected ? Colors.white : Theme.of(context).colorScheme.onSurfaceVariant,
             fontWeight: isSelected ? FontWeight.w800 : FontWeight.w600,
           ),
         ),

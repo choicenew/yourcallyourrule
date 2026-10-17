@@ -5,7 +5,6 @@ import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/call_statistics_container_widget.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/statistics_container_widget.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 数据分析仪表盘页面
@@ -34,11 +33,12 @@ class _DashboardPageState extends ConsumerState<DashboardPage> with SingleTicker
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
 
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: theme.scaffoldBackgroundColor,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
         title: Text(
@@ -46,11 +46,11 @@ class _DashboardPageState extends ConsumerState<DashboardPage> with SingleTicker
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w900,
-            color: Theme.of(context).colorScheme.onSurface,
+            color: theme.colorScheme.onSurface,
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Theme.of(context).colorScheme.onSurface),
+          icon: Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: theme.colorScheme.onSurface),
           onPressed: () {
             if (GoRouter.of(context).canPop()) {
               context.pop();
@@ -65,17 +65,17 @@ class _DashboardPageState extends ConsumerState<DashboardPage> with SingleTicker
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surfaceContainerHighest,
+              color: theme.colorScheme.surfaceContainerHighest,
               borderRadius: BorderRadius.circular(16),
             ),
             child: TabBar(
               controller: _tabController,
               indicator: BoxDecoration(
-                gradient: EliteDopamineTheme.heroWarmGradient,
+                gradient: LinearGradient(colors: [theme.colorScheme.primary, theme.colorScheme.secondary]),
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
-                    color: EliteDopamineTheme.warmSunAmber.withValues(alpha: 0.3),
+                    color: theme.colorScheme.primary.withValues(alpha: 0.3),
                     blurRadius: 8,
                     offset: const Offset(0, 2),
                   ),
@@ -84,7 +84,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> with SingleTicker
               indicatorSize: TabBarIndicatorSize.tab,
               dividerColor: Colors.transparent,
               labelColor: Colors.white,
-              unselectedLabelColor: Theme.of(context).colorScheme.onSurfaceVariant,
+              unselectedLabelColor: theme.colorScheme.onSurfaceVariant,
               labelStyle: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
               unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
               tabs: [

@@ -22,8 +22,6 @@ import 'package:yourcallyourrule/features/common/widgets/generic_timeline_with_a
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-import '../../../home_elite/theme/elite_dopamine_theme.dart';
-
 // 用于承载 CallLogCard 所需的元数据
 class CallLogMeta {
   final Map<String, String> labelIdToTextMap;

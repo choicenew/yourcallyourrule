@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ------------------- Widget 定义 -------------------
@@ -18,6 +17,7 @@ class EliteQuickCapsules extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
@@ -33,8 +33,8 @@ class EliteQuickCapsules extends StatelessWidget {
                   title: l10n.markPhoneManagementTitle,
                   subtitle: l10n.labels,
                   icon: Icons.label_important_rounded,
-                  color: EliteDopamineTheme.warmSunAmber,
-                  gradient: EliteDopamineTheme.heroWarmGradient,
+                  color: theme.colorScheme.primary,
+                  gradient: LinearGradient(colors: [theme.colorScheme.primary, theme.colorScheme.secondary]),
                   onTap: () => context.pushNamed(AppRouter.markPhoneManagementWithAds),
                 ),
               ),
@@ -45,8 +45,8 @@ class EliteQuickCapsules extends StatelessWidget {
                   title: l10n.contactsTab,
                   subtitle: l10n.contactsManagement,
                   icon: Icons.contacts_rounded,
-                  color: EliteDopamineTheme.sunsetTangerine,
-                  gradient: EliteDopamineTheme.coralSunsetGradient,
+                  color: theme.colorScheme.primary,
+                  gradient: LinearGradient(colors: [theme.colorScheme.primary, theme.colorScheme.tertiary]),
                   onTap: () => context.pushNamed(AppRouter.contactsManagement),
                 ),
               ),
@@ -63,12 +63,8 @@ class EliteQuickCapsules extends StatelessWidget {
                   title: l10n.callHistoryTab,
                   subtitle: l10n.callHistory,
                   icon: Icons.call_rounded,
-                  color: EliteDopamineTheme.skyAzure,
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF007AFF), Color(0xFF5AC8FA)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
+                  color: theme.colorScheme.secondary,
+                  gradient: LinearGradient(colors: [theme.colorScheme.secondary, theme.colorScheme.primaryContainer]),
                   onTap: () => context.pushNamed(AppRouter.callHistory),
                 ),
               ),
@@ -79,12 +75,8 @@ class EliteQuickCapsules extends StatelessWidget {
                   title: l10n.pluginManagement,
                   subtitle: l10n.pluginManagement,
                   icon: Icons.extension_rounded,
-                  color: EliteDopamineTheme.freshMint,
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF34C759), Color(0xFF30D158)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
+                  color: theme.colorScheme.tertiary,
+                  gradient: LinearGradient(colors: [theme.colorScheme.tertiary, theme.colorScheme.secondary]),
                   onTap: () => context.pushNamed(AppRouter.pluginManagement),
                 ),
               ),
@@ -99,7 +91,7 @@ class EliteQuickCapsules extends StatelessWidget {
             style: TextStyle(
               fontSize: 11,
               fontWeight: FontWeight.w800,
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
+              color: theme.colorScheme.onSurfaceVariant,
               letterSpacing: 0.8,
             ),
           ),
@@ -114,21 +106,21 @@ class EliteQuickCapsules extends StatelessWidget {
                 context: context,
                 icon: Icons.phone_android_rounded,
                 title: l10n.phoneRule,
-                color: EliteDopamineTheme.warmSunAmber,
+                color: theme.colorScheme.primary,
                 onTap: () => context.pushNamed(AppRouter.ruleManagementSettingsWithAds),
               ),
               _buildCompactCapsule(
                 context: context,
                 icon: Icons.shield_outlined,
                 title: l10n.allowBlock,
-                color: EliteDopamineTheme.freshMint,
+                color: theme.colorScheme.tertiary,
                 onTap: () => context.pushNamed(AppRouter.allowedBlockedSettingsWithAds),
               ),
               _buildCompactCapsule(
                 context: context,
                 icon: Icons.sim_card_outlined,
                 title: l10n.simSlotRules,
-                color: EliteDopamineTheme.sunsetTangerine,
+                color: theme.colorScheme.primary,
                 onTap: () => context.pushNamed(
                   AppRouter.simSlotRuleWithAds,
                   pathParameters: {'simSlotIndex': '0'},
@@ -138,28 +130,28 @@ class EliteQuickCapsules extends StatelessWidget {
                 context: context,
                 icon: Icons.code_rounded,
                 title: l10n.regexRules,
-                color: EliteDopamineTheme.warmSunAmber,
+                color: theme.colorScheme.primary,
                 onTap: () => context.pushNamed(AppRouter.regexRuleWithAds),
               ),
               _buildCompactCapsule(
                 context: context,
                 icon: Icons.cloud_download_outlined,
                 title: l10n.phoneSubscription,
-                color: EliteDopamineTheme.softLilac,
+                color: theme.colorScheme.secondary,
                 onTap: () => context.pushNamed(AppRouter.phoneSubscription),
               ),
               _buildCompactCapsule(
                 context: context,
                 icon: Icons.timer_outlined,
                 title: l10n.timeInterceptor,
-                color: EliteDopamineTheme.skyAzure,
+                color: theme.colorScheme.secondary,
                 onTap: () => context.pushNamed(AppRouter.timeInterceptorSettings),
               ),
               _buildCompactCapsule(
                 context: context,
                 icon: Icons.cloud_sync_outlined,
                 title: l10n.cloudSyncTitle,
-                color: EliteDopamineTheme.warmSunAmber,
+                color: theme.colorScheme.primary,
                 onTap: () => context.pushNamed(AppRouter.cloudSettings),
               ),
             ],
@@ -260,6 +252,7 @@ class EliteQuickCapsules extends StatelessWidget {
     required Color color,
     required VoidCallback onTap,
   }) {
+    final theme = Theme.of(context);
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -268,7 +261,7 @@ class EliteQuickCapsules extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: theme.colorScheme.surface,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
               color: color.withValues(alpha: 0.25),
@@ -289,10 +282,10 @@ class EliteQuickCapsules extends StatelessWidget {
               const SizedBox(width: 5),
               Text(
                 title,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 11,
                   fontWeight: FontWeight.w700,
-                  color: Colors.black87,
+                  color: theme.colorScheme.onSurface,
                 ),
               ),
             ],
@@ -307,14 +300,16 @@ class EliteQuickCapsules extends StatelessWidget {
 
 @Preview(name: 'Quick Capsules', group: 'Elite Showcase')
 Widget previewEliteQuickCapsules() {
-  return const MaterialApp(
+  return MaterialApp(
     localizationsDelegates: AppLocalizations.localizationsDelegates,
     supportedLocales: AppLocalizations.supportedLocales,
-    home: Scaffold(
-      backgroundColor: EliteDopamineTheme.warmCanvasBackground,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: EliteQuickCapsules(),
+    home: Builder(
+      builder: (context) => Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        body: const SafeArea(
+          child: SingleChildScrollView(
+            child: EliteQuickCapsules(),
+          ),
         ),
       ),
     ),

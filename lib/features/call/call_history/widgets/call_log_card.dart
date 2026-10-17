@@ -9,7 +9,6 @@ import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
 import 'package:yourcallyourrule/features/call/call_history/utils/call_history_action_handler.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/phone_meta_edit_dialog.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/rule_action_dialog.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

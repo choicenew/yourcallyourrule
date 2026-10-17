@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/verification/presentation/widgets/verification_caller_id_card.dart';
 import 'package:yourcallyourrule/features/verification/presentation/widgets/verification_decision_hero.dart';
 import 'package:yourcallyourrule/features/verification/presentation/widgets/verification_input_card.dart';

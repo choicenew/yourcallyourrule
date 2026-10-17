@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -47,14 +46,25 @@ class RuleListCard extends ConsumerWidget {
     final actionText =
         RuleActionDisplayUtils.getActionTypeName(context, action.type);
     final actionColor = RuleActionDisplayUtils.getActionTypeColor(action.type);
+    final theme = Theme.of(context);
 
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
-      decoration: EliteDopamineTheme.warmCardDecoration(
-        context: context,
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
-        glowColor: isSelected ? themeColor : null,
+        border: Border.all(
+          color: isSelected ? themeColor : theme.colorScheme.outlineVariant,
+          width: isSelected ? 1.5 : 1.0,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 12,
+            offset: const Offset(0, 3),
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

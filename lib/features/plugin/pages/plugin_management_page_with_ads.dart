@@ -11,7 +11,6 @@ import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/core/provider/providers/plugin_manager_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/plugin_service_provider.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
-import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/features/plugin/presentation/pages/plugin_script_editor_page.dart';
 import 'package:yourcallyourrule/features/plugin/presentation/pages/plugin_settings_dialog.dart';
 import 'package:yourcallyourrule/features/plugin/presentation/pages/plugin_test_page.dart';
