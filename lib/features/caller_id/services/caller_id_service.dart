@@ -10,7 +10,10 @@ import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 
 import 'package:flutter_contacts/flutter_contacts.dart' as fluttercontact;
+import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
+import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
+import 'package:yourcallyourrule/core/entities/remote/remote_number_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
 
 import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
@@ -311,11 +314,6 @@ class CallerIdService {
         _callerIdSubject.add(updatedCallerIdData);
       }
 
-        debugPrint('[CallerIdService] Emitting UPDATED CallerIdData with label: $labelText, avatar: $effectiveAvatar');
-        _callerIdSubject.add(updatedCallerIdData);
-      }
-      // ----------------------------------------
-
       // 检查是否已经发布过相同的数据，避免重复发布
       if (_pluginDataSubject.hasValue &&
           _pluginDataSubject.value.phoneNumber ==
@@ -347,16 +345,11 @@ class CallerIdService {
             vo.PhoneNumber.fromString(e164Number),
           );
 
-          // 查询是否存在规则
-          final allRules = await _ruleManagementService.getAllRules();
-          final matchingRule =
-              allRules
-                  .where(
-                    (rule) =>
-                        rule.phoneNumber ==
-                        vo.PhoneNumber.fromString(e164Number),
-                  )
-                  .firstOrNull;
+          // 查询是否存在规则 (精准索引查询，不扫描全表)
+          final matchingRules = await _ruleManagementService.getRulesByPhoneNumber(
+            vo.PhoneNumber.fromString(e164Number),
+          );
+          final matchingRule = matchingRules.firstOrNull;
 
           // 如果没有现有标签和规则，则创建新标签
           if (existingLabel == null && matchingRule?.labelId == null) {
