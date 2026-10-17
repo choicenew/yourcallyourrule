@@ -53,11 +53,14 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
 
     final int sum = blockRules + allowRules + silenceRules + timeRules + noneRules;
 
-    // 动态规则类型分布数据建模，支持任意数量的规则类型展示
+    // 动态规则类型分布数据建模，只保留数量大于 0 的有效分类（100% 真实数据驱动）
     final List<_RuleTypeShare> categories = [
-      _RuleTypeShare(label: l10n.blockRules, count: blockRules, color: theme.colorScheme.error),
-      _RuleTypeShare(label: l10n.allowRules, count: allowRules, color: theme.colorScheme.primary),
-      _RuleTypeShare(label: l10n.silentRules, count: silenceRules, color: theme.colorScheme.tertiary),
+      if (blockRules > 0)
+        _RuleTypeShare(label: l10n.blockRules, count: blockRules, color: theme.colorScheme.error),
+      if (allowRules > 0)
+        _RuleTypeShare(label: l10n.allowRules, count: allowRules, color: theme.colorScheme.primary),
+      if (silenceRules > 0)
+        _RuleTypeShare(label: l10n.silentRules, count: silenceRules, color: theme.colorScheme.tertiary),
       if (timeRules > 0)
         _RuleTypeShare(label: l10n.timeInterceptor, count: timeRules, color: theme.colorScheme.secondary),
       if (noneRules > 0)
