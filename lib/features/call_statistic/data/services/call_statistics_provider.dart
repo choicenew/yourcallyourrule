@@ -1,15 +1,16 @@
 import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/repositories/call_statistics_repository_impl.dart';
+import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_service.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/statistic_period.dart';
 
 part 'call_statistics_provider.g.dart';
 
-// [注释]: 状态类保持不变。
 class CallStatisticsState {
   final bool isLoading;
   final String? error;
@@ -22,25 +23,58 @@ class CallStatisticsState {
   final int timeRulesCount;
   final Map<String, double> blockTypeAnalysis;
   final Map<DateTime, int> chartData;
+  final List<RuleBase> topTriggeredRules;
+  final Map<int, int> simSlotDistribution;
+  final String peakHoursRange;
 
   const CallStatisticsState({
-    this.isLoading = true, this.error, this.blockedCallsCount = 0, this.filteredSmsCount = 0,
-    this.allowRulesCount = 0, this.blockRulesCount = 0, this.silenceRulesCount = 0,
-    this.noneRulesCount = 0, this.timeRulesCount = 0,
-    this.blockTypeAnalysis = const {}, this.chartData = const {},
+    this.isLoading = true,
+    this.error,
+    this.blockedCallsCount = 0,
+    this.filteredSmsCount = 0,
+    this.allowRulesCount = 0,
+    this.blockRulesCount = 0,
+    this.silenceRulesCount = 0,
+    this.noneRulesCount = 0,
+    this.timeRulesCount = 0,
+    this.blockTypeAnalysis = const {},
+    this.chartData = const {},
+    this.topTriggeredRules = const [],
+    this.simSlotDistribution = const {},
+    this.peakHoursRange = '',
   });
 
   CallStatisticsState copyWith({
-    bool? isLoading, String? error, int? blockedCallsCount, int? filteredSmsCount,
-    int? allowRulesCount, int? blockRulesCount, int? silenceRulesCount, int? noneRulesCount,
-    int? timeRulesCount, Map<String, double>? blockTypeAnalysis, Map<DateTime, int>? chartData,
+    bool? isLoading,
+    String? error,
+    int? blockedCallsCount,
+    int? filteredSmsCount,
+    int? allowRulesCount,
+    int? blockRulesCount,
+    int? silenceRulesCount,
+    int? noneRulesCount,
+    int? timeRulesCount,
+    Map<String, double>? blockTypeAnalysis,
+    Map<DateTime, int>? chartData,
+    List<RuleBase>? topTriggeredRules,
+    Map<int, int>? simSlotDistribution,
+    String? peakHoursRange,
   }) {
     return CallStatisticsState(
-      isLoading: isLoading ?? this.isLoading, error: error, blockedCallsCount: blockedCallsCount ?? this.blockedCallsCount,
-      filteredSmsCount: filteredSmsCount ?? this.filteredSmsCount, allowRulesCount: allowRulesCount ?? this.allowRulesCount,
-      blockRulesCount: blockRulesCount ?? this.blockRulesCount, silenceRulesCount: silenceRulesCount ?? this.silenceRulesCount,
-      noneRulesCount: noneRulesCount ?? this.noneRulesCount, timeRulesCount: timeRulesCount ?? this.timeRulesCount,
-      blockTypeAnalysis: blockTypeAnalysis ?? this.blockTypeAnalysis, chartData: chartData ?? this.chartData,
+      isLoading: isLoading ?? this.isLoading,
+      error: error,
+      blockedCallsCount: blockedCallsCount ?? this.blockedCallsCount,
+      filteredSmsCount: filteredSmsCount ?? this.filteredSmsCount,
+      allowRulesCount: allowRulesCount ?? this.allowRulesCount,
+      blockRulesCount: blockRulesCount ?? this.blockRulesCount,
+      silenceRulesCount: silenceRulesCount ?? this.silenceRulesCount,
+      noneRulesCount: noneRulesCount ?? this.noneRulesCount,
+      timeRulesCount: timeRulesCount ?? this.timeRulesCount,
+      blockTypeAnalysis: blockTypeAnalysis ?? this.blockTypeAnalysis,
+      chartData: chartData ?? this.chartData,
+      topTriggeredRules: topTriggeredRules ?? this.topTriggeredRules,
+      simSlotDistribution: simSlotDistribution ?? this.simSlotDistribution,
+      peakHoursRange: peakHoursRange ?? this.peakHoursRange,
     );
   }
 }
@@ -81,11 +115,14 @@ class CallStatisticsNotifier extends _$CallStatisticsNotifier {
       final allRules = await ref.read(ruleManagementServiceProvider).getAllRules();
       final configRepo = ref.read(configRepositoryProvider);
       final repo = CallStatisticsRepositoryImpl(callLogs, allRules);
+      final statService = CallStatisticsService();
 
       final timeRulesCount = await repo.getTimeRulesCount(configRepo);
-
-      // [修正]: 调用新的辅助方法来获取填充了0的、完整的时间序列数据。
       final completeChartData = _generateCompleteChartData(repo, timeRange);
+
+      final topRules = statService.getTopTriggeredRules(allRules, limit: 3);
+      final simDist = statService.getSimSlotDistribution(callLogs);
+      final peakHours = statService.getPeakHoursRange(callLogs);
 
       state = state.copyWith(
         isLoading: false,
@@ -98,7 +135,10 @@ class CallStatisticsNotifier extends _$CallStatisticsNotifier {
         noneRulesCount: repo.getNoneRulesCount(),
         timeRulesCount: timeRulesCount,
         blockTypeAnalysis: repo.getBlockTypeAnalysis(),
-        chartData: completeChartData, // [修正]: 使用填充后的数据
+        chartData: completeChartData,
+        topTriggeredRules: topRules,
+        simSlotDistribution: simDist,
+        peakHoursRange: peakHours,
       );
     } catch (e) {
       state = state.copyWith(isLoading: false, error: 'Failed to calculate statistics: $e');

@@ -81,4 +81,42 @@ class CallStatisticsService {
     }
     return result;
   }
+
+  /// 获取触发拦截频次最高的前 N 条规则
+  List<RuleBase> getTopTriggeredRules(List<RuleBase> rules, {int limit = 3}) {
+    final active = rules.where((r) => r.isEnabled).toList();
+    active.sort((a, b) => b.count.compareTo(a.count));
+    return active.take(limit).toList();
+  }
+
+  /// 获取卡槽（SIM 1 / SIM 2）拦截比例分布
+  Map<int, int> getSimSlotDistribution(List<CallLog> callLogs) {
+    final distribution = <int, int>{};
+    for (final log in callLogs.where(_isIntercepted)) {
+      final slot = log.simSlot ?? 0;
+      distribution[slot] = (distribution[slot] ?? 0) + 1;
+    }
+    return distribution;
+  }
+
+  /// 分析拦截频次最高的 2 小时时间段
+  String getPeakHoursRange(List<CallLog> callLogs) {
+    final intercepted = callLogs.where(_isIntercepted).toList();
+    if (intercepted.isEmpty) return '14:00 - 16:00';
+    final hourCounts = <int, int>{};
+    for (final log in intercepted) {
+      final hour = log.timestamp.hour;
+      hourCounts[hour] = (hourCounts[hour] ?? 0) + 1;
+    }
+    var peakHour = 14;
+    var maxCount = 0;
+    hourCounts.forEach((hour, count) {
+      if (count > maxCount) {
+        maxCount = count;
+        peakHour = hour;
+      }
+    });
+    final endHour = (peakHour + 2) % 24;
+    return '${peakHour.toString().padLeft(2, '0')}:00 - ${endHour.toString().padLeft(2, '0')}:00';
+  }
 }

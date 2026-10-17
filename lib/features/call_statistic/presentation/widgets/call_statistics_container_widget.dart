@@ -9,6 +9,8 @@ import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/trend_chart_card.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_chart.dart';
+import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/top_rules_card.dart';
+import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/peak_hours_card.dart';
 
 /// 智能高密度通话拦截统计容器 Widget（100% 采用系统 Theme.of(context) 主题与 i18n）
 class CallStatisticsContainerWidget extends ConsumerStatefulWidget {
@@ -73,11 +75,19 @@ class _CallStatisticsContainerWidgetState
           const TrendChartCard(),
           const SizedBox(height: 14),
 
-          // 6. 拦截类型分析
+          // 6. 热门触发规则排行 (数据驱动 TOP 3)
+          const TopRulesCard(),
+          const SizedBox(height: 14),
+
+          // 7. 高峰骚扰时间段分析
+          const PeakHoursCard(),
+          const SizedBox(height: 14),
+
+          // 8. 拦截类型分析
           const BlockTypeAnalysis(),
           const SizedBox(height: 14),
 
-          // 7. 导出数据按钮
+          // 9. 导出数据按钮
           _buildExportButton(context),
         ],
       ),
