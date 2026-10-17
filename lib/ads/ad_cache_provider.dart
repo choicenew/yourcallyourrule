@@ -62,6 +62,7 @@ class AdCache extends _$AdCache {
   // 【修改】: 继承 _$AdCache (由生成器创建)
   late final AdInfo _adInfo;
   BannerAd? _bannerAd;
+  bool _hasRetried = false;
 
   /// `build` 方法现在是 family 的入口，它接收 `adInfo` 参数。
   /// 它只在 Provider 第一次被创建时运行一次。
@@ -143,12 +144,23 @@ class AdCache extends _$AdCache {
           _bannerAd = null;
           debugPrint('Ad failed to load: $error');
           if (!ref.mounted) return;
-          state = state.copyWith(
-            bannerAd: null,
-            isStarted: true,
-            isLoaded: false,
-            isFailed: true,
-          );
+          if (!_hasRetried) {
+            _hasRetried = true;
+            debugPrint('AdCache 首次加载失败，4秒后自动重试...');
+            Future.delayed(const Duration(seconds: 4), () {
+              if (ref.mounted) {
+                state = state.copyWith(isStarted: false);
+                loadAd(context, bannerType, explicitWidth: explicitWidth);
+              }
+            });
+          } else {
+            state = state.copyWith(
+              bannerAd: null,
+              isStarted: true,
+              isLoaded: false,
+              isFailed: true,
+            );
+          }
         },
       ),
     );

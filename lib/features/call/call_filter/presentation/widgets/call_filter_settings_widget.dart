@@ -143,7 +143,7 @@ class CallFilterSettingsWidget extends ConsumerWidget {
             ),
           ),
           const SizedBox(height: 14),
-          const InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
+          const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd, width: 400),
         ],
       );
   }

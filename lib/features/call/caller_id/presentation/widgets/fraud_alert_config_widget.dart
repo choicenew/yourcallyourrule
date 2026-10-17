@@ -126,7 +126,7 @@ class FraudAlertConfigWidget extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 16),
-            const InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
+            const InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd, width: 400),
           ],
         );
       },

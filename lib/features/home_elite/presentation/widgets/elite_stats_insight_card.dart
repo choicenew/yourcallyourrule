@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // 文件: elite_stats_insight_card.dart
-// 描述: Elite 拦截成就与数据战报卡片，展示已防护通话统计与类型分布。
+// 描述: Elite 拦截成就与数据战报卡片，展示已防护通话统计与多类型规则滑动分布。
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
+import 'package:yourcallyourrule/features/call_statistic/domain/statistic_period.dart';
 import 'package:yourcallyourrule/features/home_elite/theme/elite_dopamine_theme.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -28,16 +29,27 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
     context.pushNamed(AppRouter.callStatistics);
   }
 
+  void _onRangeChanged(String key) {
+    if (_selectedRange == key) return;
+    setState(() {
+      _selectedRange = key;
+    });
+    // 联动底层 CallStatisticsNotifier 更新跨周/月数据维度
+    ref.read(callStatisticsProvider.notifier).updateTimeRange(
+          key == 'Week' ? StatisticPeriod.week : StatisticPeriod.month,
+        );
+  }
+
   @override
   Widget build(BuildContext context) {
     final stats = ref.watch(callStatisticsProvider);
     final l10n = AppLocalizations.of(context)!;
 
     final totalBlocked = stats.blockedCallsCount;
-    final totalRules = stats.blockRulesCount + stats.allowRulesCount + stats.silenceRulesCount;
     final blockRules = stats.blockRulesCount;
     final allowRules = stats.allowRulesCount;
     final silenceRules = stats.silenceRulesCount;
+    final timeRules = stats.timeRulesCount;
 
     final int sum = blockRules + allowRules + silenceRules;
     final int blockedPct = sum > 0 ? ((blockRules / sum) * 100).round() : (totalBlocked > 0 ? 100 : 0);
@@ -114,7 +126,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 ],
               ),
 
-              // Week / Month 切换胶囊
+              // Week / Month 切换胶囊，与 CallStatisticsNotifier 同步联动
               Container(
                 padding: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
@@ -133,30 +145,51 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
 
           const SizedBox(height: 14),
 
-          // 多巴胺真实统计成就指标
-          Row(
-            children: [
-              Expanded(
-                child: _buildInsightMetric(
+          // 多巴胺全类型规则与统计成就横向滑块列表 (使各种 Rule 类型清晰可见)
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            physics: const BouncingScrollPhysics(),
+            child: Row(
+              children: [
+                _buildInsightMetric(
                   label: l10n.blockedCalls,
                   count: '$totalBlocked',
                   color: EliteDopamineTheme.sunsetTangerine,
                   icon: Icons.phone_disabled_rounded,
                 ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: _buildInsightMetric(
-                  label: l10n.phoneRuleManagement,
-                  count: '$totalRules',
-                  color: EliteDopamineTheme.freshMint,
-                  icon: Icons.rule_folder_rounded,
+                const SizedBox(width: 8),
+                _buildInsightMetric(
+                  label: l10n.blockRules,
+                  count: '$blockRules',
+                  color: EliteDopamineTheme.vibrantCoral,
+                  icon: Icons.shield_rounded,
                 ),
-              ),
-            ],
+                const SizedBox(width: 8),
+                _buildInsightMetric(
+                  label: l10n.allowRules,
+                  count: '$allowRules',
+                  color: EliteDopamineTheme.freshMint,
+                  icon: Icons.check_circle_rounded,
+                ),
+                const SizedBox(width: 8),
+                _buildInsightMetric(
+                  label: l10n.silentRules,
+                  count: '$silenceRules',
+                  color: EliteDopamineTheme.skyAzure,
+                  icon: Icons.notifications_off_rounded,
+                ),
+                const SizedBox(width: 8),
+                _buildInsightMetric(
+                  label: l10n.timeInterceptor,
+                  count: '$timeRules',
+                  color: EliteDopamineTheme.softLilac,
+                  icon: Icons.timer_rounded,
+                ),
+              ],
+            ),
           ),
 
-          const SizedBox(height: 12),
+          const SizedBox(height: 14),
 
           // 拦截类型分布多巴胺进度条（根据真实数据计算）
           Column(
@@ -252,11 +285,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
   Widget _buildRangePill(String label, String key) {
     final isSelected = _selectedRange == key;
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          _selectedRange = key;
-        });
-      },
+      onTap: () => _onRangeChanged(key),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
         decoration: BoxDecoration(
@@ -290,6 +319,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
     required IconData icon,
   }) {
     return Container(
+      width: 125,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: const Color(0xFFFBF9F5),
@@ -316,7 +346,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 Text(
                   count,
                   style: const TextStyle(
-                    fontSize: 16,
+                    fontSize: 15,
                     fontWeight: FontWeight.w900,
                     color: Colors.black87,
                   ),

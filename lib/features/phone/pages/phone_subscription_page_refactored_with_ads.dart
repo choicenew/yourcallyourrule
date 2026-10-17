@@ -332,14 +332,15 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
   }
 
   Widget _buildInfoCard() {
+    final primaryColor = Theme.of(context).colorScheme.primary;
     return Container(
       margin: const EdgeInsets.only(bottom: 12.0),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: const Color(0xFF2D9CDB).withValues(alpha: 0.05),
+        color: primaryColor.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(16.0),
         border: Border.all(
-          color: const Color(0xFF2D9CDB).withValues(alpha: 0.15),
+          color: primaryColor.withValues(alpha: 0.15),
           width: 1.1,
         ),
       ),
@@ -349,12 +350,12 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
           Container(
             padding: const EdgeInsets.all(6.0),
             decoration: BoxDecoration(
-              color: const Color(0xFF2D9CDB).withValues(alpha: 0.12),
+              color: primaryColor.withValues(alpha: 0.12),
               borderRadius: BorderRadius.circular(10.0),
             ),
-            child: const Icon(
+            child: Icon(
               Icons.info_outline_rounded,
-              color: Color(0xFF2D9CDB),
+              color: primaryColor,
               size: 20,
             ),
           ),
@@ -365,10 +366,10 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
               children: [
                 Text(
                   AppLocalizations.of(context)!.aboutPhoneSubscriptionRules,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w800,
-                    color: Color(0xFF2D9CDB),
+                    color: primaryColor,
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -468,7 +469,7 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
                   Switch(
                     value: subscription.isEnabled,
                     onChanged: (value) => _toggleSubscriptionStatus(subscription, value),
-                    activeThumbColor: const Color(0xFF2D9CDB),
+                    activeThumbColor: Theme.of(context).colorScheme.primary,
                   ),
                   PopupMenuButton<String>(
                     icon: const Icon(Icons.more_vert_rounded, color: Colors.grey, size: 20),
@@ -502,8 +503,8 @@ class _PhoneSubscriptionPageRefactoredWithAdsState extends ConsumerState<PhoneSu
               label: Text(AppLocalizations.of(context)!.syncNow, style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w800)),
               onPressed: () => _updateSubscription(subscription),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF2D9CDB),
-                foregroundColor: Colors.white,
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),

@@ -173,7 +173,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
                 style: TextStyle(color: Color.fromARGB(255, 117, 117, 117)),
               ),
               const SizedBox(height: 12),
-                   InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd,width: 400),
+                   InlineAdaptiveBannerAdWidget(adInfo: AdManager.adaptiveBannerAd, width: 400),
             ],
           ),
         ),

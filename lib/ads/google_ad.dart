@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -27,6 +28,7 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
   bool _isAdLoaded = false; // 广告是否加载完成
   bool _loadAttempted = false;
   bool _isFailed = false;
+  bool _hasRetried = false; // 是否已经自动重试过1次
 
   @override
   bool get wantKeepAlive => true; // 保活：滑动时不释放广告，滑回来立刻呈现
@@ -42,12 +44,32 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
   @override
   void didUpdateWidget(covariant GoogleAdWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
-    // 如果广告单元ID发生变化，重新创建广告
     if (oldWidget.adInfo.adUnitId != widget.adInfo.adUnitId) {
       _disposeAd();
       _loadAttempted = false;
       _isFailed = false;
+      _hasRetried = false;
       _createAd();
+    }
+  }
+
+  void _handleAdFailure(String adType, dynamic error) {
+    debugPrint('$adType failed to load: $error');
+    _isAdLoaded = false;
+
+    // 【生产环境优化】：如果首次请求失败（如偶发 No-Fill 或网络抖动），延迟 4 秒自动重试 1 次
+    if (!_hasRetried && mounted) {
+      _hasRetried = true;
+      debugPrint('$adType 首次加载失败，4秒后自动重试...');
+      Future.delayed(const Duration(seconds: 4), () {
+        if (mounted) {
+          _loadAttempted = false;
+          _createAd();
+        }
+      });
+    } else {
+      _isFailed = true;
+      if (mounted) setState(() {});
     }
   }
 
@@ -55,11 +77,9 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
   void _createAd() {
     if (_loadAttempted) return;
     _loadAttempted = true;
-    _isFailed = false;
 
     final adState = ref.read(adStateProvider);
-
-    if (!adState) return; // 如果广告被禁用，不创建广告
+    if (!adState) return;
 
     switch (widget.adInfo.type) {
       case AdType.banner:
@@ -84,10 +104,19 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
   }
 
   // 创建横幅广告
-  void _createBannerAd() {
+  Future<void> _createBannerAd() async {
+    AdSize? size = widget.adInfo.size;
+    if (size == null) {
+      final double width = widget.width ?? (mounted ? MediaQuery.of(context).size.width : 320.0);
+      size = await AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
+        width > 0 ? width.truncate() : 320,
+      ) ?? AdSize.banner;
+    }
+    if (!mounted) return;
+
     _ad = BannerAd(
       adUnitId: widget.adInfo.adUnitId,
-      size: widget.adInfo.size ?? AdSize.banner,
+      size: size,
       request: const AdRequest(),
       listener: BannerAdListener(
         onAdLoaded: (ad) {
@@ -102,12 +131,35 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
         onAdFailedToLoad: (ad, error) {
           ad.dispose();
           _ad = null;
-          _isAdLoaded = false;
-          _isFailed = true;
-          if (mounted) setState(() {});
-          debugPrint('BannerAd failed to load: $error');
+          _handleAdFailure('BannerAd', error);
         },
       ),
+    );
+    _ad.load();
+  }
+
+  // 创建原生高级广告
+  void _createNativeAdvancedAd() {
+    _ad = NativeAd(
+      adUnitId: widget.adInfo.adUnitId,
+      request: const AdRequest(),
+      listener: NativeAdListener(
+        onAdLoaded: (ad) {
+          if (mounted) {
+            setState(() {
+              _isAdLoaded = true;
+              _isFailed = false;
+            });
+            updateKeepAlive();
+          }
+        },
+        onAdFailedToLoad: (ad, error) {
+          ad.dispose();
+          _ad = null;
+          _handleAdFailure('NativeAd', error);
+        },
+      ),
+      nativeTemplateStyle: widget.nativeAdConfig?.style,
     );
     _ad.load();
   }
@@ -125,11 +177,8 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
           if (mounted) setState(() {});
         },
         onAdFailedToLoad: (LoadAdError error) {
-          debugPrint('InterstitialAd failed to load: $error');
           _ad = null;
-          _isAdLoaded = false;
-          _isFailed = true;
-          if (mounted) setState(() {});
+          _handleAdFailure('InterstitialAd', error);
         },
       ),
     );
@@ -141,10 +190,7 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
       request: const AdRequest(),
       rewardedInterstitialAdLoadCallback: RewardedInterstitialAdLoadCallback(
         onAdLoaded: (RewardedInterstitialAd ad) {
-          debugPrint('$ad loaded.');
           ad.fullScreenContentCallback = FullScreenContentCallback(
-            onAdShowedFullScreenContent: (ad) {},
-            onAdImpression: (ad) {},
             onAdFailedToShowFullScreenContent: (ad, err) {
               ad.dispose();
               _ad = null;
@@ -158,7 +204,6 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
               _isAdLoaded = false;
               if (mounted) setState(() {});
             },
-            onAdClicked: (ad) {},
           );
           _ad = ad;
           _isAdLoaded = true;
@@ -166,11 +211,8 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
           if (mounted) setState(() {});
         },
         onAdFailedToLoad: (LoadAdError error) {
-          debugPrint('RewardedInterstitialAd failed to load: $error');
           _ad = null;
-          _isAdLoaded = false;
-          _isFailed = true;
-          if (mounted) setState(() {});
+          _handleAdFailure('RewardedInterstitialAd', error);
         },
       ),
     );
@@ -189,43 +231,11 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
           if (mounted) setState(() {});
         },
         onAdFailedToLoad: (LoadAdError error) {
-          debugPrint('RewardedAd failed to load: $error');
           _ad = null;
-          _isAdLoaded = false;
-          _isFailed = true;
-          if (mounted) setState(() {});
+          _handleAdFailure('RewardedAd', error);
         },
       ),
     );
-  }
-
-  // 创建原生高级广告
-  void _createNativeAdvancedAd() {
-    _ad = NativeAd(
-      adUnitId: widget.adInfo.adUnitId,
-      request: const AdRequest(),
-      listener: NativeAdListener(
-        onAdLoaded: (ad) {
-          if (mounted) {
-            setState(() {
-              _isAdLoaded = true;
-              _isFailed = false;
-            });
-            updateKeepAlive(); // 通知保活
-          }
-        },
-        onAdFailedToLoad: (ad, error) {
-          ad.dispose();
-          _ad = null;
-          _isAdLoaded = false;
-          _isFailed = true;
-          if (mounted) setState(() {});
-          debugPrint('NativeAd failed to load: $error');
-        },
-      ),
-      nativeTemplateStyle: widget.nativeAdConfig?.style,
-    );
-    _ad.load();
   }
 
   // 创建应用打开广告
@@ -241,11 +251,8 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
           if (mounted) setState(() {});
         },
         onAdFailedToLoad: (LoadAdError error) {
-          debugPrint('AppOpenAd failed to load: $error');
           _ad = null;
-          _isAdLoaded = false;
-          _isFailed = true;
-          if (mounted) setState(() {});
+          _handleAdFailure('AppOpenAd', error);
         },
       ),
     );
@@ -254,7 +261,6 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
   // 显示广告
   void _showAd() {
     final adState = ref.read(adStateProvider);
-
     if (!adState) return;
 
     if (_ad is InterstitialAd) {
@@ -291,12 +297,12 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
       return _buildAdWidget(width: widget.width, height: widget.height);
     }
 
-    // B. 广告加载失败，收缩占位
+    // B. 广告彻底加载失败（重试后依然失败），收缩占位
     if (_isFailed) {
       return const SizedBox.shrink();
     }
 
-    // C. 正在加载中：提供优雅的固定高度骨架屏，消除 0 高度塌陷
+    // C. 正在加载或正在等待自动重试：提供优雅的固定高度骨架屏，消除 0 高度塌陷
     final isNative = widget.adInfo.type == AdType.nativeAdvanced;
     final targetHeight = widget.height ?? (isNative ? 200.0 : 60.0);
     return Container(
@@ -336,7 +342,6 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
     );
   }
 
-  // 根据广告类型构建相应的广告 Widget
   Widget _buildAdWidget({double? width, double? height}) {
     switch (widget.adInfo.type) {
       case AdType.banner:
@@ -363,7 +368,6 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
     }
   }
 
-  // 销毁广告
   void _disposeAd() {
     _ad?.dispose();
     _isAdLoaded = false;
