@@ -13,14 +13,30 @@ import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/tr
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_chart.dart';
 
 /// [重构]: 这是一个 "智能容器" Widget，负责组装所有统计相关的卡片。
-/// 它现在是一个 ConsumerWidget，因为它不再需要管理任何本地状态（如 _selectedTimeRange）。
-class CallStatisticsContainerWidget extends ConsumerWidget {
+class CallStatisticsContainerWidget extends ConsumerStatefulWidget {
   const CallStatisticsContainerWidget({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<CallStatisticsContainerWidget> createState() =>
+      _CallStatisticsContainerWidgetState();
+}
+
+class _CallStatisticsContainerWidgetState
+    extends ConsumerState<CallStatisticsContainerWidget> {
+  @override
+  void initState() {
+    super.initState();
+    // 切入数据分析页面时，毫秒级静默请求最新数据，保证数据随时最新
+    Future.microtask(() {
+      if (mounted) {
+        ref.invalidate(callStatisticsProvider);
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     // [注释]: 监听 callStatisticsProvider 的状态。
-    // 因为 Provider 是同步的 Notifier，所以 ref.watch 直接返回 CallStatisticsState 对象。
     final state = ref.watch(callStatisticsProvider);
 
     // [注释]: 只在初始加载时（即 chartData 为空）显示骨架屏。

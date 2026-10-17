@@ -15,6 +15,7 @@ import '../../../core/value_objects/url.dart';
 import '../../../core/value_objects/rule_action.dart';
 import '../../../core/provider/providers/phone_subscription_service_provider.dart';
 import '../../../core/provider/providers/plugin_manager_service_provider.dart';
+import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 
 import '../models/setup_config.dart';
 import '../providers/initial_setup_provider.dart';
@@ -430,6 +431,9 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
             debugPrint('[InitialSetupPage] Background install plugin failed for $pluginUrl: $e');
           }
         }
+
+        // 后台规则/插件全量导入完成后，主动通知统计状态提供者重新加载最新统计数据
+        ref.invalidate(callStatisticsProvider);
       });
     } catch (e) {
       if (mounted) {
