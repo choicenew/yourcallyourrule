@@ -56,4 +56,4 @@ final class NotificationHistoryServiceProvider
 }
 
 String _$notificationHistoryServiceHash() =>
-    r'80ec23f526eeae9369824753f9746a881c8366c1';
+    r'ffc9b1e2db6609c719929996dafdfd937e5a4206';

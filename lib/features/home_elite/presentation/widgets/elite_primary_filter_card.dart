@@ -48,8 +48,20 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
-    final callConfig = ref.watch(callFilterConfigProvider.select((v) => v.value));
-    final callNotifier = ref.read(callFilterConfigProvider.notifier);
+    final separateSims = ref.watch(separateSimsNotifierProvider).value ?? false;
+
+    // 当开启分卡槽控制时，根据当前选中的卡槽读取对应卡槽的 CallFilterConfig；否则读取全局配置
+    final callConfig = separateSims
+        ? ref.watch(simSlotCallFilterConfigNotifierProvider(_selectedSimSlot).select((v) => v.value))
+        : ref.watch(callFilterConfigProvider.select((v) => v.value));
+
+    void updateCurrentConfig(CallFilterConfig newConfig) {
+      if (separateSims) {
+        ref.read(simSlotCallFilterConfigNotifierProvider(_selectedSimSlot).notifier).updateConfig(newConfig);
+      } else {
+        ref.read(callFilterConfigProvider.notifier).updateConfig(newConfig);
+      }
+    }
 
     final dailyDefenseOptions = [
       DefenseStrategyItem(
@@ -62,7 +74,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.allowAllAllowedNumbers ?? true,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(callConfig.copyWith(allowAllAllowedNumbers: val));
+            updateCurrentConfig(callConfig.copyWith(allowAllAllowedNumbers: val));
           }
         },
       ),
@@ -76,7 +88,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.allowRegexBlockRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(callConfig.copyWith(allowRegexBlockRules: val));
+            updateCurrentConfig(callConfig.copyWith(allowRegexBlockRules: val));
           }
         },
       ),
@@ -90,7 +102,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.allowSilenceRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(callConfig.copyWith(allowSilenceRules: val));
+            updateCurrentConfig(callConfig.copyWith(allowSilenceRules: val));
           }
         },
       ),
@@ -104,7 +116,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.allowNoneRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(callConfig.copyWith(allowNoneRules: val));
+            updateCurrentConfig(callConfig.copyWith(allowNoneRules: val));
           }
         },
       ),
@@ -118,7 +130,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.rejectAllNumbers ?? false,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(callConfig.copyWith(rejectAllNumbers: val));
+            updateCurrentConfig(callConfig.copyWith(rejectAllNumbers: val));
           }
         },
       ),
@@ -135,7 +147,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.allowAllAllowRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(callConfig.copyWith(allowAllAllowRules: val));
+            updateCurrentConfig(callConfig.copyWith(allowAllAllowRules: val));
           }
         },
       ),
@@ -149,7 +161,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.allowAllBlockRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(callConfig.copyWith(allowAllBlockRules: val));
+            updateCurrentConfig(callConfig.copyWith(allowAllBlockRules: val));
           }
         },
       ),
@@ -163,7 +175,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.allowBlockedNumbers ?? false,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(callConfig.copyWith(allowBlockedNumbers: val));
+            updateCurrentConfig(callConfig.copyWith(allowBlockedNumbers: val));
           }
         },
       ),
@@ -177,7 +189,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         isEnabled: callConfig?.allowRegexAllowRules ?? true,
         onToggle: (val) {
           if (callConfig != null) {
-            callNotifier.updateConfig(callConfig.copyWith(allowRegexAllowRules: val));
+            updateCurrentConfig(callConfig.copyWith(allowRegexAllowRules: val));
           }
         },
       ),
@@ -212,18 +224,16 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
         children: [
           PrimaryFilterHeaderTile(
             l10n: l10n,
-            separateSims: _separateSims,
+            separateSims: separateSims,
             onSeparateSimsChanged: (val) {
-              setState(() {
-                _separateSims = val;
-              });
+              ref.read(separateSimsNotifierProvider.notifier).setSeparateSims(val);
             },
             onNavigateSettings: _navigateToFilterSettings,
           ),
 
           const SizedBox(height: 12),
 
-          if (_separateSims) ...[
+          if (separateSims) ...[
             PrimaryFilterSimSlotBar(
               l10n: l10n,
               selectedSimSlot: _selectedSimSlot,

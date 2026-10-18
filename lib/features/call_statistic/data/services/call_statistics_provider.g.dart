@@ -42,7 +42,7 @@ final class CallStatisticsNotifierProvider
 }
 
 String _$callStatisticsNotifierHash() =>
-    r'd290e9321d646f056c8d91451cdbbb34034f6ec7';
+    r'ac80da792422a3cabdd25b231704a1f828283a67';
 
 abstract class _$CallStatisticsNotifier extends $Notifier<CallStatisticsState> {
   CallStatisticsState build();

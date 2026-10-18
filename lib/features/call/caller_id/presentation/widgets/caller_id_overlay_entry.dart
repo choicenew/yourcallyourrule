@@ -121,9 +121,9 @@ class _CallerIdOverlayEntryState extends ConsumerState<CallerIdOverlayEntry> {
                     child: InkWell(
             key: Key(_callerIdData!.id),
            
-             onTap: () {
+             onTap: () async {
               debugPrint("Content tapped, closing overlay...");
-              FloatingWindowAndroid.closeOverlay();
+              await FloatingWindowAndroid.closeOverlayFromOverlay();
             },
 
             child: CallerIdContentBuilder.buildOverlayContainer(

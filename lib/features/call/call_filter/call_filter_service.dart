@@ -16,17 +16,25 @@ import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 
+import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
+
 part 'call_filter_service.g.dart';
 
 /// CallFilterService 的 @riverpod Provider
-/// 它会自动处理依赖注入
+/// 它会自动处理依赖注入，并根据卡槽编号获取专属过滤配置
 @riverpod
 CallFilterService callFilterService(Ref ref) {
   return CallFilterService(
     regexService: ref.watch(regexServiceProvider),
     allowedBlockedService: ref.watch(allowedBlockedServiceProvider),
     ruleManagementService: ref.watch(ruleManagementServiceProvider),
-    getConfig: () async => await ref.read(callFilterConfigProvider.future),
+    getConfigForSim: (simSlotIndex) async {
+      final separateSims = await ref.read(separateSimsNotifierProvider.future);
+      if (separateSims && simSlotIndex != null) {
+        return await ref.read(simSlotCallFilterConfigNotifierProvider(simSlotIndex).future);
+      }
+      return await ref.read(callFilterConfigProvider.future);
+    },
   );
 }
 
@@ -35,25 +43,25 @@ class CallFilterService implements CallFilterInterface {
   final RegexService _regexService;
   final AllowedBlockedService _allowedBlockedService;
   final RuleManagementService _ruleManagementService;
-  final Future<CallFilterConfig> Function() _getConfig;
+  final Future<CallFilterConfig> Function(int? simSlotIndex) _getConfigForSim;
 
   CallFilterService({
     required RegexService regexService,
     required AllowedBlockedService allowedBlockedService,
     required RuleManagementService ruleManagementService,
-    required Future<CallFilterConfig> Function() getConfig,
+    required Future<CallFilterConfig> Function(int? simSlotIndex) getConfigForSim,
   })  : _regexService = regexService,
         _allowedBlockedService = allowedBlockedService,
         _ruleManagementService = ruleManagementService,
-        _getConfig = getConfig;
+        _getConfigForSim = getConfigForSim;
 
   @override
   CallFilterType get filterType => CallFilterType.basicRule;
 
   @override
   Future<bool> shouldAcceptCall(String phoneNumberStr, {SimInfo? simInfo}) async {
-    // 从 Notifier 异步读取最新的配置
-    final config = await _getConfig();
+    // 根据来电 SIM 卡槽编号异步读取最新的配置
+    final config = await _getConfigForSim(simInfo?.simSlotIndex);
     final phoneNumber = PhoneNumber(phoneNumberStr);
     InterceptAction? interceptAction;
  // 全局拒绝设置优先级最高如果配置为拒绝所有号码，直接返回false
