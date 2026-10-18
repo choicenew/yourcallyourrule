@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yourcallyourrule/features/language/language_data.dart';
-import 'package:yourcallyourrule/features/language/widgets/language_selection_widget.dart';
-import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.dart';
-import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.dart';
+import 'package:yourcallyourrule/features/language/language_data.dart';
+import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
+import 'package:yourcallyourrule/features/language/widgets/language_selection_widget.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 应用引导页面
+/// 应用引导页面（原生系统主题适配版）
 class OnboardingPage extends ConsumerStatefulWidget {
   const OnboardingPage({super.key});
 
@@ -29,6 +29,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     super.dispose();
   }
 
+  /// 翻页处理
   void _nextPage() {
     if (_currentPage < _totalPages - 1) {
       _pageController.nextPage(
@@ -36,7 +37,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         curve: Curves.easeInOut,
       );
     } else {
-      _proceedToNextFlow();
+      _completeOnboardingFlow();
     }
   }
 
@@ -49,19 +50,20 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     }
   }
 
-  void _skipOnboarding() {
-    _proceedToNextFlow();
-  }
-
-  Future<void> _proceedToNextFlow() async {
+  /// 统一的引导流程完成/跳过入口 (唯一终点逻辑，收拢全部完成状态)
+  Future<void> _completeOnboardingFlow() async {
     try {
       final prefs = await SharedPreferences.getInstance();
+      // 1. 明确且仅标记 Onboarding 自身完成
       await prefs.setBool(AppPrefsKeys.firstLaunch, false);
       try {
         await prefs.reload();
       } catch (_) {}
+
+      // 2. 检查初始设置状态按需跳转
       final hasCompletedSetup = prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false;
       if (!mounted) return;
+
       if (!hasCompletedSetup) {
         GoRouter.of(context).goNamed(AppRouter.initialSetup);
       } else {
@@ -76,52 +78,42 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
-        // --- 核心修改在这里 ---
-    // 1. 在 build 方法的顶部 watch provider。
-    //    我们不需要使用它的返回值，目的仅仅是为了让这个页面
-    //    订阅 localeProvider 的变化。当语言切换时，
-    //    这个 watch 会触发整个 OnboardingPage 的重建。
     ref.watch(localeProvider);
+    final theme = Theme.of(context);
+
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFFFFB74D), Color(0xFFFF7043)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
-        child: SafeArea(
-          child: Column(
-            children: [
-              _buildTopBar(),
-              Expanded(
-                child: PageView(
-                  controller: _pageController,
-                  onPageChanged: (index) {
-                    setState(() {
-                      _currentPage = index;
-                    });
-                  },
-                  children: [
-                    _buildWelcomePage(),
-                    _buildLanguagePage(),
-                    _buildFeaturePage1(),
-                    _buildFeaturePage2(),
-                    _buildPermissionsPage(),
-                    _buildCompletePage(),
-                  ],
-                ),
+      backgroundColor: theme.scaffoldBackgroundColor,
+      body: SafeArea(
+        child: Column(
+          children: [
+            _buildTopBar(theme),
+            Expanded(
+              child: PageView(
+                controller: _pageController,
+                onPageChanged: (index) {
+                  setState(() {
+                    _currentPage = index;
+                  });
+                },
+                children: [
+                  _buildWelcomePage(theme),
+                  _buildLanguagePage(theme),
+                  _buildFeaturePage1(theme),
+                  _buildFeaturePage2(theme),
+                  _buildPermissionsPage(theme),
+                  _buildCompletePage(theme),
+                ],
               ),
-              _buildBottomBar(),
-            ],
-          ),
+            ),
+            _buildBottomBar(theme),
+          ],
         ),
       ),
     );
   }
 
-  Widget _buildTopBar() {
+  Widget _buildTopBar(ThemeData theme) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Column(
@@ -131,7 +123,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
             height: 4,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.2),
+              color: theme.colorScheme.surfaceContainerHighest,
               borderRadius: BorderRadius.circular(2),
             ),
             child: FractionallySizedBox(
@@ -139,7 +131,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
               widthFactor: (_currentPage + 1) / _totalPages,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: theme.colorScheme.primary,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -149,18 +141,22 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           Align(
             alignment: Alignment.centerRight,
             child: Padding(
-              padding: const EdgeInsets.only(top: 16.0),
+              padding: const EdgeInsets.only(top: 12.0),
               child: TextButton(
-                onPressed: _skipOnboarding,
+                onPressed: _completeOnboardingFlow,
                 style: TextButton.styleFrom(
-                  backgroundColor: Colors.white.withValues(alpha: 0.2),
+                  foregroundColor: theme.colorScheme.primary,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
                 child: Text(
-                  AppLocalizations.of(context)!.skip,
-                  style: const TextStyle(color: Colors.white, fontSize: 14),
+                  l10n.skip,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.primary,
+                  ),
                 ),
               ),
             ),
@@ -170,7 +166,8 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     );
   }
 
-  Widget _buildBottomBar() {
+  Widget _buildBottomBar(ThemeData theme) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.all(24.0),
       child: Row(
@@ -178,38 +175,37 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         children: [
           // 上一步按钮
           _currentPage > 0
-              ? ElevatedButton(
+              ? OutlinedButton(
                   onPressed: _previousPage,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: const Color(0xFFFFB74D),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: theme.colorScheme.onSurface,
+                    side: BorderSide(color: theme.colorScheme.outlineVariant),
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
                   child: Text(
-                    AppLocalizations.of(context)!.previousStep,
-                    style: const TextStyle(fontSize: 16),
+                    l10n.previousStep,
+                    style: const TextStyle(fontSize: 15),
                   ),
                 )
               : const SizedBox(width: 100),
-          // 下一步按钮
+          // 下一步 / 开始使用按钮
           ElevatedButton(
             onPressed: _nextPage,
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.white,
-              foregroundColor: const Color(0xFFFFB74D),
+              backgroundColor: theme.colorScheme.primary,
+              foregroundColor: theme.colorScheme.onPrimary,
+              elevation: 2,
               padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
             child: Text(
-              _currentPage == _totalPages - 1
-                  ? AppLocalizations.of(context)!.startUsing
-                  : AppLocalizations.of(context)!.nextStep,
-              style: const TextStyle(fontSize: 16),
+              _currentPage == _totalPages - 1 ? l10n.startUsing : l10n.nextStep,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
         ],
@@ -217,58 +213,57 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     );
   }
 
-  Widget _buildPageIndicator() {
+  Widget _buildPageIndicator(ThemeData theme) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(_totalPages, (index) {
-        return Container(
-          width: 8,
+        final isActive = index == _currentPage;
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          width: isActive ? 20 : 8,
           height: 8,
           margin: const EdgeInsets.symmetric(horizontal: 4),
           decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: index == _currentPage
-                ? Colors.white
-                : Colors.white.withValues(alpha: 0.3),
+            borderRadius: BorderRadius.circular(4),
+            color: isActive
+                ? theme.colorScheme.primary
+                : theme.colorScheme.primary.withValues(alpha: 0.25),
           ),
         );
       }),
     );
   }
 
-  // 提取通用的图标容器构建方法
   Widget _buildIconContainer({
     required IconData icon,
-    required Color backgroundColor,
-    double size = 120,
-    double iconSize = 60,
+    required ThemeData theme,
+    Color? customColor,
+    double size = 110,
+    double iconSize = 56,
   }) {
+    final bg = customColor?.withValues(alpha: 0.15) ?? theme.colorScheme.primaryContainer;
+    final fg = customColor ?? theme.colorScheme.primary;
+
     return Container(
       width: size,
       height: size,
       decoration: BoxDecoration(
-        color: backgroundColor,
+        color: bg,
         shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
-        ],
+        border: Border.all(color: fg.withValues(alpha: 0.3), width: 1.5),
       ),
       child: Icon(
         icon,
         size: iconSize,
-        color: backgroundColor == Colors.white ? const Color(0xFFFFB74D) : Colors.white,
+        color: fg,
       ),
     );
   }
 
-  // 提取通用的页面构建方法
   Widget _buildPageTemplate({
     required Widget icon,
     required String title,
+    required ThemeData theme,
     Widget? content,
     String? description,
   }) {
@@ -278,303 +273,297 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           icon,
-          const SizedBox(height: 40),
+          const SizedBox(height: 32),
           Text(
             title,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 24,
+            style: TextStyle(
+              color: theme.colorScheme.onSurface,
+              fontSize: 22,
               fontWeight: FontWeight.bold,
             ),
             textAlign: TextAlign.center,
           ),
           if (content != null) ...[
-            const SizedBox(height: 24),
+            const SizedBox(height: 20),
             content,
           ],
           if (description != null) ...[
-            const SizedBox(height: 24),
+            const SizedBox(height: 20),
             Text(
               description,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.white.withValues(alpha: 0.9),
-                fontSize: 16,
+                color: theme.colorScheme.onSurfaceVariant,
+                fontSize: 15,
+                height: 1.4,
               ),
             ),
           ],
-          const SizedBox(height: 40),
-          _buildPageIndicator(),
+          const SizedBox(height: 32),
+          _buildPageIndicator(theme),
         ],
       ),
     );
   }
 
-  Widget _buildWelcomePage() {
+  Widget _buildWelcomePage(ThemeData theme) {
+    final l10n = AppLocalizations.of(context)!;
     return _buildPageTemplate(
+      theme: theme,
       icon: _buildIconContainer(
-        icon: Icons.shield,
-        backgroundColor: Colors.white,
+        icon: Icons.shield_rounded,
+        theme: theme,
       ),
-      title: AppLocalizations.of(context)!.welcome,
-      content: const Column(
+      title: l10n.welcome,
+      content: Column(
         children: [
           Text(
             'Your Call Your Rule',
             style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.w500,
+              color: theme.colorScheme.primary,
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ],
       ),
-      description: AppLocalizations.of(context)!.onboardingWelcomeDescription,
+      description: l10n.onboardingWelcomeDescription,
     );
   }
 
-  // ---【核心修改】只修改这个方法 ---
-  Widget _buildLanguagePage() {
-    // 2. 【修改】ref.watch 现在返回 AsyncValue<Locale>
+  Widget _buildLanguagePage(ThemeData theme) {
+    final l10n = AppLocalizations.of(context)!;
     final asyncLocale = ref.watch(localeProvider);
     final List<Map<String, dynamic>> supportedLocales = languages;
 
     return _buildPageTemplate(
+      theme: theme,
       icon: _buildIconContainer(
-        icon: Icons.language,
-        backgroundColor: const Color(0xFF039BE5),
-        size: 100,
-        iconSize: 50,
+        icon: Icons.language_rounded,
+        theme: theme,
+        customColor: theme.colorScheme.secondary,
       ),
-      title: AppLocalizations.of(context)!.selectYourLanguage,
-      // 3. 【修改】使用 .when 来构建 LanguageSelectionWidget
+      title: l10n.selectYourLanguage,
       content: Container(
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.1),
+          color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: theme.colorScheme.outlineVariant),
         ),
         padding: const EdgeInsets.all(16),
         child: asyncLocale.when(
-          // (A) 数据成功加载时
           data: (currentLocale) => LanguageSelectionWidget(
             supportedLocales: supportedLocales,
             currentLocale: currentLocale,
             localeNotifier: ref.read(localeProvider.notifier),
             showCurrentLanguage: false,
-            showAds: false, // 在引导页不显示广告
+            showAds: false,
           ),
-          // (B) 数据正在加载时
-          loading: () => const Center(
-            child: CircularProgressIndicator(
-              color: Colors.white,
-            ),
+          loading: () => Center(
+            child: CircularProgressIndicator(color: theme.colorScheme.primary),
           ),
-          // (C) 加载失败时
           error: (error, stack) => Center(
             child: Text(
               'Error: $error',
-              style: const TextStyle(color: Colors.white),
+              style: TextStyle(color: theme.colorScheme.error),
             ),
           ),
         ),
       ),
-      description: AppLocalizations.of(context)?.onboardingLanguageDescription ?? '',
-    );
-  }
-  
-  Widget _buildFeaturePage1() {
-    return _buildPageTemplate(
-      icon: _buildIconContainer(
-        icon: Icons.contact_phone,
-        backgroundColor: const Color(0xFFFF7043),
-        size: 100,
-        iconSize: 50,
-      ),
-      title: AppLocalizations.of(context)!.smartCallerId,
-      content: Container(
-        height: 200,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.2),
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: const Center(
-          child: Icon(
-            Icons.phone_callback,
-            size: 80,
-            color: Colors.white,
-          ),
-        ),
-      ),
-      description: AppLocalizations.of(context)!.onboardingSmartCallerIdDescription,
+      description: l10n.onboardingLanguageDescription,
     );
   }
 
-  Widget _buildFeaturePage2() {
+  Widget _buildFeaturePage1(ThemeData theme) {
+    final l10n = AppLocalizations.of(context)!;
     return _buildPageTemplate(
+      theme: theme,
       icon: _buildIconContainer(
-        icon: Icons.block,
-        backgroundColor: const Color(0xFFE53935),
-        size: 100,
-        iconSize: 50,
+        icon: Icons.contact_phone_rounded,
+        theme: theme,
       ),
-      title: AppLocalizations.of(context)!.powerfulSpamBlocking,
+      title: l10n.smartCallerId,
       content: Container(
-        height: 200,
+        height: 180,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: 0.2),
+          color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: theme.colorScheme.outlineVariant),
         ),
-        child: const Center(
+        child: Center(
           child: Icon(
-            Icons.phonelink_erase,
-            size: 80,
-            color: Colors.white,
+            Icons.phone_callback_rounded,
+            size: 72,
+            color: theme.colorScheme.primary,
           ),
         ),
       ),
-      description: AppLocalizations.of(context)!.onboardingPowerfulSpamBlockingDescription,
+      description: l10n.onboardingSmartCallerIdDescription,
     );
   }
 
-  Widget _buildPermissionsPage() {
+  Widget _buildFeaturePage2(ThemeData theme) {
+    final l10n = AppLocalizations.of(context)!;
+    return _buildPageTemplate(
+      theme: theme,
+      icon: _buildIconContainer(
+        icon: Icons.block_rounded,
+        theme: theme,
+        customColor: theme.colorScheme.error,
+      ),
+      title: l10n.powerfulSpamBlocking,
+      content: Container(
+        height: 180,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: theme.colorScheme.outlineVariant),
+        ),
+        child: Center(
+          child: Icon(
+            Icons.phonelink_erase_rounded,
+            size: 72,
+            color: theme.colorScheme.error,
+          ),
+        ),
+      ),
+      description: l10n.onboardingPowerfulSpamBlockingDescription,
+    );
+  }
+
+  Widget _buildPermissionsPage(ThemeData theme) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _buildIconContainer(
-            icon: Icons.verified_user,
-            backgroundColor: const Color(0xFF43A047),
-            size: 100,
-            iconSize: 50,
+            icon: Icons.verified_user_rounded,
+            theme: theme,
+            customColor: Colors.green,
+            size: 90,
+            iconSize: 48,
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 20),
           Text(
-            AppLocalizations.of(context)!.grantNecessaryPermissions,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 24,
+            l10n.grantNecessaryPermissions,
+            style: TextStyle(
+              color: theme.colorScheme.onSurface,
+              fontSize: 22,
               fontWeight: FontWeight.bold,
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 12),
           Text(
-            AppLocalizations.of(context)!.onboardingPermissionsDescription,
+            l10n.onboardingPermissionsDescription,
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white.withValues(alpha: 0.9),
-              fontSize: 16,
+              color: theme.colorScheme.onSurfaceVariant,
+              fontSize: 14,
             ),
           ),
-          const SizedBox(height: 30),
-          // 权限列表
+          const SizedBox(height: 20),
           _buildPermissionItem(
-            icon: Icons.phone,
-            title: AppLocalizations.of(context)!.phonePermission,
-            description: AppLocalizations.of(context)!.phonePermissionDescription,
-            color: const Color(0xFFFFB74D),
+            theme: theme,
+            icon: Icons.phone_rounded,
+            title: l10n.phonePermission,
+            description: l10n.phonePermissionDescription,
+            color: theme.colorScheme.primary,
           ),
-          const SizedBox(height: 16),
- /*      
+          const SizedBox(height: 12),
           _buildPermissionItem(
-            icon: Icons.sms,
-            title: AppLocalizations.of(context)!.smsPermission,
-            description: AppLocalizations.of(context)!.smsPermissionDescription,
-            color: const Color(0xFF039BE5),
+            theme: theme,
+            icon: Icons.contacts_rounded,
+            title: l10n.contactsPermission,
+            description: l10n.contactsPermissionDescription,
+            color: Colors.green,
           ),
-          const SizedBox(height: 16),
-*/
-
+          const SizedBox(height: 12),
           _buildPermissionItem(
-            icon: Icons.contacts,
-            title: AppLocalizations.of(context)!.contactsPermission,
-            description: AppLocalizations.of(context)!.contactsPermissionDescription,
-            color: const Color(0xFF43A047),
+            theme: theme,
+            icon: Icons.screen_lock_portrait_rounded,
+            title: l10n.callScreeningPermission,
+            description: l10n.callScreeningPermissionDescription,
+            color: theme.colorScheme.error,
           ),
-          const SizedBox(height: 16),
-          _buildPermissionItem(
-            icon: Icons.screen_lock_portrait,
-            title: AppLocalizations.of(context)!.callScreeningPermission,
-            description: AppLocalizations.of(context)!.callScreeningPermissionDescription,
-            color: const Color(0xFFE53935),
-          ),
-          const SizedBox(height: 30),
-          // 授权按钮
+          const SizedBox(height: 24),
           ElevatedButton(
             onPressed: () async {
               final result = await CallScreeningPlugin.requestCallScreeningRole();
               if (!result && mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text(
-                      AppLocalizations.of(context)!.callScreeningPermissionNotGranted,
-                    ),
+                    content: Text(l10n.callScreeningPermissionNotGranted),
                   ),
                 );
               }
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.white,
-              foregroundColor: const Color(0xFFFFB74D),
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+              backgroundColor: theme.colorScheme.primary,
+              foregroundColor: theme.colorScheme.onPrimary,
+              padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 10),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
             child: Text(
-              AppLocalizations.of(context)!.grantPermissions,
-              style: const TextStyle(fontSize: 16),
+              l10n.grantPermissions,
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
           ),
-          const SizedBox(height: 30),
-          _buildPageIndicator(),
+          const SizedBox(height: 20),
+          _buildPageIndicator(theme),
         ],
       ),
     );
   }
 
   Widget _buildPermissionItem({
+    required ThemeData theme,
     required IconData icon,
     required String title,
     required String description,
     required Color color,
   }) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.2),
+        color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: theme.colorScheme.outlineVariant),
       ),
       child: Row(
         children: [
           Container(
-            width: 40,
-            height: 40,
+            width: 36,
+            height: 36,
             decoration: BoxDecoration(
-              color: color.withValues(alpha: 0.2),
+              color: color.withValues(alpha: 0.15),
               shape: BoxShape.circle,
             ),
-            child: Icon(icon, color: color),
+            child: Icon(icon, color: color, size: 20),
           ),
-          const SizedBox(width: 16),
+          const SizedBox(width: 14),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: theme.colorScheme.onSurface,
                     fontWeight: FontWeight.bold,
+                    fontSize: 14,
                   ),
                 ),
                 Text(
                   description,
                   style: TextStyle(
-                    color: Colors.white.withValues(alpha: 0.7),
+                    color: theme.colorScheme.onSurfaceVariant,
                     fontSize: 12,
                   ),
                 ),
@@ -586,40 +575,41 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     );
   }
 
-  Widget _buildCompletePage() {
+  Widget _buildCompletePage(ThemeData theme) {
+    final l10n = AppLocalizations.of(context)!;
     return _buildPageTemplate(
+      theme: theme,
       icon: _buildIconContainer(
-        icon: Icons.rocket_launch,
-        backgroundColor: const Color(0xFFFFB74D),
-        size: 100,
-        iconSize: 50,
+        icon: Icons.rocket_launch_rounded,
+        theme: theme,
       ),
-      title: AppLocalizations.of(context)!.ready,
+      title: l10n.ready,
       content: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 253, 206, 0).withValues(alpha: 0.2),
+          color: theme.colorScheme.primaryContainer.withValues(alpha: 0.3),
           borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: theme.colorScheme.primary.withValues(alpha: 0.3)),
         ),
         child: Column(
           children: [
             const Icon(
-              Icons.check_circle,
-              color: Color(0xFF43A047),
+              Icons.check_circle_rounded,
+              color: Colors.green,
               size: 40,
             ),
             const SizedBox(height: 8),
             Text(
-              AppLocalizations.of(context)!.allSettingsCompleted,
+              l10n.allSettingsCompleted,
               style: const TextStyle(
-                color: Color(0xFF43A047),
+                color: Colors.green,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ],
         ),
       ),
-      description: AppLocalizations.of(context)!.onboardingCompleteDescription,
+      description: l10n.onboardingCompleteDescription,
     );
   }
 }
