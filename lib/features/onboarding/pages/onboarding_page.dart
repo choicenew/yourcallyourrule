@@ -17,7 +17,7 @@ class OnboardingPage extends ConsumerStatefulWidget {
   @override
   ConsumerState<OnboardingPage> createState() => _OnboardingPageState();
 }
-our
+
 class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
