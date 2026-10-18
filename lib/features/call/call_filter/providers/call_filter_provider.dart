@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
@@ -45,13 +46,14 @@ class CallFilterConfigNotifier extends _$CallFilterConfigNotifier {
     return CallFilterConfig(); // 返回默认配置
   }
 
-  /// 提供一个统一的更新方法，接收一个新的Config对象
+  /// 提供一个统一的更新方法（同步乐观更新，避免 AsyncValue.loading 造成界面闪烁与状态回弹）
   Future<void> updateConfig(CallFilterConfig newConfig) async {
-    state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() async {
+    state = AsyncValue.data(newConfig);
+    try {
       await _configRepo.saveConfig(CallFilterConfigKeys.globalCallFilter, newConfig.toMap());
-      return newConfig;
-    });
+    } catch (e) {
+      debugPrint('[CallFilterConfigNotifier] 保存配置失败: $e');
+    }
   }
 }
 
@@ -72,15 +74,16 @@ class SimSlotCallFilterConfigNotifier extends _$SimSlotCallFilterConfigNotifier 
   }
 
   Future<void> updateConfig(CallFilterConfig newConfig) async {
-    state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() async {
+    state = AsyncValue.data(newConfig);
+    try {
       await _configRepo.saveConfig(CallFilterConfigKeys.simSlotCallFilter(simSlotIndex), newConfig.toMap());
-      return newConfig;
-    });
+    } catch (e) {
+      debugPrint('[SimSlotCallFilterConfigNotifier] 保存卡槽 $simSlotIndex 配置失败: $e');
+    }
   }
 }
 
-/// 是否开启“多卡槽独立控制”开关的持久化 Notifier (强实体绑定)
+/// 是否开启“多卡槽独立控制”开关的持久化 Notifier (强实体绑定，同步乐观上屏 + 后台持久化)
 @riverpod
 class SeparateSimsNotifier extends _$SeparateSimsNotifier {
   ConfigRepository get _configRepo => ref.read(configRepositoryProvider);
@@ -95,11 +98,14 @@ class SeparateSimsNotifier extends _$SeparateSimsNotifier {
   }
 
   Future<void> setSeparateSims(bool value) async {
-    state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() async {
+    // 1. 同步乐观更新状态，保证 UI 绝不因 AsyncValue.loading 丢失 value 或闪烁回弹
+    state = AsyncValue.data(value);
+    // 2. 后台异步保存至 SharedPreferences 持久化
+    try {
       final simState = SeparateSimsState(isEnabled: value);
       await _configRepo.saveConfig(CallFilterConfigKeys.separateSims, simState.toMap());
-      return value;
-    });
+    } catch (e) {
+      debugPrint('[SeparateSimsNotifier] 持久化保存失败: $e');
+    }
   }
 }

@@ -23,7 +23,19 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   int _currentPage = 0;
   final int _totalPages = 6;
 
+  @override
+  void initState() {
+    super.initState();
+    _markOnboardingVisited();
+  }
 
+  /// 一旦进入 Onboarding 引导页即标记非首次启动，防止中途退出 App 后再次打开反复弹出
+  Future<void> _markOnboardingVisited() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool(AppPrefsKeys.firstLaunch, false);
+    } catch (_) {}
+  }
 
   @override
   void dispose() {

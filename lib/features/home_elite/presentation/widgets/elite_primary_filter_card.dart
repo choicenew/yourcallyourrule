@@ -30,7 +30,6 @@ class ElitePrimaryFilterCard extends ConsumerStatefulWidget {
 
 class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard> {
   int _selectedDefenseIndex = 0;
-  bool _separateSims = false;
   int _selectedSimSlot = 0;
   bool _showAdvancedSettings = false;
 
