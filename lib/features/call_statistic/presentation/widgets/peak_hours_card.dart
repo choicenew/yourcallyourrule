@@ -10,9 +10,12 @@ class PeakHoursCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(callStatisticsProvider);
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
-    final peakRange = state.peakHoursRange.isNotEmpty ? state.peakHoursRange : '14:00 - 16:00';
+    final hasData = state.blockedCallsCount > 0 &&
+        state.peakHoursRange.isNotEmpty &&
+        state.peakHoursRange != '14:00 - 16:00';
+    final peakRange = hasData ? state.peakHoursRange : '--:-- - --:--';
 
     return Container(
       decoration: BoxDecoration(

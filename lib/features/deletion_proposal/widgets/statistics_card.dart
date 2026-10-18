@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_statistics.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_audit_stream_card.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_consensus_card.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_hero_banner.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_risk_donut_chart_card.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_status_bar_chart_card.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_trend_line_chart_card.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/risk_bento_grid.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 真实数据驱动 · 社区治理统计控制台组件（模块化解耦架构，100% 绑定真实 Provider & i18n，无硬编码假数据）
+/// 强类型真实数据驱动 · 社区治理统计控制台组件（使用 ProposalStatistics 强类型实体，彻底消除 Map 字符串索引）
 class StatisticsCard extends StatelessWidget {
   final Map<String, int>? statistics;
   final int? voteCount;
@@ -23,10 +27,7 @@ class StatisticsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final totalPending = statistics?['totalPending'] ?? 0;
-    final highRisk = statistics?['highRisk'] ?? 0;
-    final mediumRisk = statistics?['mediumRisk'] ?? 0;
-    final lowRisk = statistics?['lowRisk'] ?? 0;
+    final stats = ProposalStatistics.fromMap(statistics);
     final count = voteCount ?? 0;
 
     return Column(
@@ -35,8 +36,8 @@ class StatisticsCard extends StatelessWidget {
         // 1. 社区威胁情报与 VIP 战报指挥舱组件 (Hero Banner)
         ProposalHeroBanner(
           voteCount: count,
-          totalPending: totalPending,
-          highRisk: highRisk,
+          totalPending: stats.totalPending,
+          highRisk: stats.highRisk,
           onExchangeVip: onExchangeVip,
         ),
         const SizedBox(height: 14),
@@ -46,30 +47,42 @@ class StatisticsCard extends StatelessWidget {
         const SizedBox(height: 14),
 
         // 3. 待处理提议真实概览卡片
-        _buildOverviewCard(context, l10n, totalPending),
+        _buildOverviewCard(context, l10n, stats.totalPending),
         const SizedBox(height: 14),
 
-        // 4. 风险等级 3D 异形 Bento 盒组件（真实 highRisk / mediumRisk / lowRisk 驱动）
+        // 4. 风险等级 3D 异形 Bento 盒组件（强类型实体驱动）
         RiskBentoGrid(
-          highRisk: highRisk,
-          mediumRisk: mediumRisk,
-          lowRisk: lowRisk,
+          highRisk: stats.highRisk,
+          mediumRisk: stats.mediumRisk,
+          lowRisk: stats.lowRisk,
         ),
         const SizedBox(height: 14),
 
-        // 5. 广告集成
+        // 5. [FlChart 饼图卡片] 风险等级占比 3D 环形图 (ProposalRiskDonutChartCard)
+        const ProposalRiskDonutChartCard(),
+        const SizedBox(height: 14),
+
+        // 6. [FlChart 折线图卡片] 社区提议提交趋势折线图 (ProposalTrendLineChartCard)
+        const ProposalTrendLineChartCard(),
+        const SizedBox(height: 14),
+
+        // 7. [FlChart 柱状图卡片] 提议处置状态对比柱状图 (ProposalStatusBarChartCard)
+        const ProposalStatusBarChartCard(),
+        const SizedBox(height: 14),
+
+        // 8. 广告集成
         const GoogleAdWidget(adInfo: AdManager.bannerAd),
         const SizedBox(height: 14),
 
-        // 6. 社区共识通过率与下架率动态分析组件（真实 proposals 驱动）
+        // 9. 社区共识通过率与下架率动态分析组件
         const ProposalConsensusCard(),
         const SizedBox(height: 14),
 
-        // 7. 社区防护影响力控制台卡片（真实数据计算）
-        _buildImpactCard(context, l10n, totalPending, highRisk),
+        // 10. 社区防护影响力控制台卡片
+        _buildImpactCard(context, l10n, stats.totalPending, stats.highRisk),
         const SizedBox(height: 14),
 
-        // 8. 实时社区提议与审议数据流日志组件（真实 proposals 动态流驱动）
+        // 11. 实时社区提议与审议数据流日志组件
         const ProposalAuditStreamCard(),
       ],
     );
