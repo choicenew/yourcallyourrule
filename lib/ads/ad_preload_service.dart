@@ -57,9 +57,25 @@ class AdPreloadManager {
   }
 
   /// 记录一次消耗事件
-  void _recordConsumption(String adUnitId) {
+  void _recordConsumption(String adUnitId, {DateTime? customTime}) {
     final timestamps = _consumptionTimestamps.putIfAbsent(adUnitId, () => []);
-    timestamps.add(DateTime.now());
+    timestamps.add(customTime ?? DateTime.now());
+  }
+
+  @visibleForTesting
+  int calculateAdaptiveCapacityForTesting(String adUnitId) {
+    return _calculateAdaptiveCapacity(adUnitId);
+  }
+
+  @visibleForTesting
+  void simulateConsumptionForTesting(String adUnitId, {DateTime? customTime}) {
+    _recordConsumption(adUnitId, customTime: customTime);
+  }
+
+  @visibleForTesting
+  void clearConsumptionForTesting(String adUnitId) {
+    _consumptionTimestamps.remove(adUnitId);
+    _preloadQueueMap.remove(adUnitId);
   }
 
   // ===========================================================================
