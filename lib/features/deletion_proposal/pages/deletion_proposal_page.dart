@@ -171,6 +171,7 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
           contentPadding: const EdgeInsets.all(16),
           content: SingleChildScrollView(
             child: StatisticsCard(
+              proposals: ref.watch(deletionProposalProvider).proposals,
               statistics: statistics,
               voteCount: currentVoteCount,
               onExchangeVip: currentVoteCount >= 10 ? () => _showVipExchangeDialog(context) : null,
@@ -551,6 +552,7 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
   Widget _buildStatisticsCard(BuildContext context, int currentVoteCount) {
     final statistics = ref.watch(deletionProposalProvider.select((s) => s.statistics));
     return StatisticsCard(
+      proposals: ref.watch(deletionProposalProvider).proposals,
       statistics: statistics,
       voteCount: currentVoteCount,
       onExchangeVip: currentVoteCount >= 10 ? () => _showVipExchangeDialog(context) : null,
