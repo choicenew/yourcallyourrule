@@ -30,11 +30,11 @@ class StatisticsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     
-    // 100% 采用强类型 Proposal 实体属性与 RiskLevel/ProposalStatus 枚举判断（零 Map 字符串索引）
-    final totalPending = proposals.where((p) => p.status == ProposalStatus.pending).length;
-    final highRisk = proposals.where((p) => p.highestRiskLevel == RiskLevel.high).length;
-    final mediumRisk = proposals.where((p) => p.highestRiskLevel == RiskLevel.medium).length;
-    final lowRisk = proposals.where((p) => p.highestRiskLevel == RiskLevel.low || p.highestRiskLevel == RiskLevel.verified).length;
+    // 100% 采用强类型 Proposal 实体属性与 RiskLevel/ProposalStatus 枚举判断（内存 Dart List 过滤）
+    final totalPending = proposals.where((proposal) => proposal.status == ProposalStatus.pending).length;
+    final highRisk = proposals.where((proposal) => proposal.highestRiskLevel == RiskLevel.high).length;
+    final mediumRisk = proposals.where((proposal) => proposal.highestRiskLevel == RiskLevel.medium).length;
+    final lowRisk = proposals.where((proposal) => proposal.highestRiskLevel == RiskLevel.low || proposal.highestRiskLevel == RiskLevel.verified).length;
     final count = voteCount ?? 0;
 
     return Column(
