@@ -3536,21 +3536,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get notificationSettingsTitle => 'Notification Settings';
 
   @override
-  String get useLocalNotification => 'Use Local Notifications';
+  String get useLocalNotification => 'Show Call Notifications';
 
   @override
   String get useLocalNotificationDescription =>
-      'Enable local notifications for incoming calls';
+      'Display caller info in the notification bar when receiving a call';
 
   @override
-  String get cancelLocalNotification => 'Close Local Notifications';
+  String get cancelLocalNotification => 'Auto-Clear Notification';
 
   @override
   String get useStirNotification => 'Use Notification from STIR';
 
   @override
   String get cancelLocalNotificationDescription =>
-      'Close Local Notifications Automatically';
+      'Automatically remove caller notification when call ends';
 
   @override
   String get callerIdSettingsTitle => 'Caller ID Settings';
@@ -4592,7 +4592,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'If checked, the notification will be automatically dismissed when the user taps it.';
 
   @override
-  String get setDelayTime => 'Set Delay Time';
+  String get setDelayTime => 'Clear Delay Time';
 
   @override
   String get proposalDetails => 'Proposal Details';

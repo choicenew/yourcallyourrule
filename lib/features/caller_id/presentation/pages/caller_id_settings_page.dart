@@ -5,7 +5,6 @@ import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/features/caller_id/presentation/widgets/caller_id_display_mode_selector.dart';
-import 'package:yourcallyourrule/features/caller_id/presentation/widgets/notification_settings_widget.dart';
 import 'package:yourcallyourrule/features/permissions/widgets/overlay_permission_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -21,7 +20,7 @@ class CallerIdSettingsPage extends ConsumerWidget {
       backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
-          AppLocalizations.of(context)!.callerIdSettingsTitle,
+          AppLocalizations.of(context).callerIdSettingsTitle,
           style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: theme.colorScheme.onSurface),
         ),
         backgroundColor: Colors.transparent,
@@ -37,10 +36,6 @@ class CallerIdSettingsPage extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         children: [
           const CallerIdDisplayModeSelector(),
-          const SizedBox(height: 14),
-          const GoogleAdWidget(adInfo: AdManager.bannerAd),
-          const SizedBox(height: 14),
-          const NotificationSettingsWidget(),
           const SizedBox(height: 14),
           const GoogleAdWidget(adInfo: AdManager.bannerAd),
           const SizedBox(height: 14),

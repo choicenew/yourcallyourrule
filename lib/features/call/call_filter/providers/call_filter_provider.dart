@@ -5,15 +5,40 @@ import 'package:yourcallyourrule/features/call/call_filter/config/call_filter_co
 
 part 'call_filter_provider.g.dart';
 
+/// 集中式 Key 常量定义库（消除手写魔术字符串）
+abstract class CallFilterConfigKeys {
+  static const String globalCallFilter = 'config_call_filter';
+  static String simSlotCallFilter(int index) => 'config_call_filter_sim_$index';
+  static const String separateSims = 'config_separate_sims';
+  static const String enabledField = 'enabled';
+}
+
+/// “多卡槽独立控制”开关的强类型配置实体类
+class SeparateSimsState {
+  final bool isEnabled;
+
+  const SeparateSimsState({this.isEnabled = false});
+
+  factory SeparateSimsState.fromMap(Map<String, dynamic> map) {
+    return SeparateSimsState(
+      isEnabled: map[CallFilterConfigKeys.enabledField] as bool? ?? false,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      CallFilterConfigKeys.enabledField: isEnabled,
+    };
+  }
+}
+
 @riverpod
 class CallFilterConfigNotifier extends _$CallFilterConfigNotifier {
-  static const String _configKey = 'config_call_filter';
-
   ConfigRepository get _configRepo => ref.read(configRepositoryProvider);
 
   @override
   Future<CallFilterConfig> build() async {
-    final configMap = await _configRepo.getConfig(_configKey);
+    final configMap = await _configRepo.getConfig(CallFilterConfigKeys.globalCallFilter);
     if (configMap != null) {
       return CallFilterConfig.fromMap(configMap);
     }
@@ -24,7 +49,7 @@ class CallFilterConfigNotifier extends _$CallFilterConfigNotifier {
   Future<void> updateConfig(CallFilterConfig newConfig) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      await _configRepo.saveConfig(_configKey, newConfig.toMap());
+      await _configRepo.saveConfig(CallFilterConfigKeys.globalCallFilter, newConfig.toMap());
       return newConfig;
     });
   }
@@ -33,13 +58,11 @@ class CallFilterConfigNotifier extends _$CallFilterConfigNotifier {
 /// 分卡槽独立通话过滤配置 Notifier（按 simSlotIndex 独立存取与维护配置）
 @riverpod
 class SimSlotCallFilterConfigNotifier extends _$SimSlotCallFilterConfigNotifier {
-  String _getSimKey(int simSlotIndex) => 'config_call_filter_sim_$simSlotIndex';
-
   ConfigRepository get _configRepo => ref.read(configRepositoryProvider);
 
   @override
   Future<CallFilterConfig> build(int simSlotIndex) async {
-    final configMap = await _configRepo.getConfig(_getSimKey(simSlotIndex));
+    final configMap = await _configRepo.getConfig(CallFilterConfigKeys.simSlotCallFilter(simSlotIndex));
     if (configMap != null) {
       return CallFilterConfig.fromMap(configMap);
     }
@@ -51,24 +74,22 @@ class SimSlotCallFilterConfigNotifier extends _$SimSlotCallFilterConfigNotifier 
   Future<void> updateConfig(CallFilterConfig newConfig) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      await _configRepo.saveConfig(_getSimKey(simSlotIndex), newConfig.toMap());
+      await _configRepo.saveConfig(CallFilterConfigKeys.simSlotCallFilter(simSlotIndex), newConfig.toMap());
       return newConfig;
     });
   }
 }
 
-/// 是否开启“多卡槽独立控制”开关的持久化 Notifier
+/// 是否开启“多卡槽独立控制”开关的持久化 Notifier (强实体绑定)
 @riverpod
 class SeparateSimsNotifier extends _$SeparateSimsNotifier {
-  static const String _key = 'config_separate_sims';
-
   ConfigRepository get _configRepo => ref.read(configRepositoryProvider);
 
   @override
   Future<bool> build() async {
-    final map = await _configRepo.getConfig(_key);
-    if (map != null && map['enabled'] is bool) {
-      return map['enabled'] as bool;
+    final map = await _configRepo.getConfig(CallFilterConfigKeys.separateSims);
+    if (map != null) {
+      return SeparateSimsState.fromMap(map).isEnabled;
     }
     return false;
   }
@@ -76,7 +97,8 @@ class SeparateSimsNotifier extends _$SeparateSimsNotifier {
   Future<void> setSeparateSims(bool value) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      await _configRepo.saveConfig(_key, {'enabled': value});
+      final simState = SeparateSimsState(isEnabled: value);
+      await _configRepo.saveConfig(CallFilterConfigKeys.separateSims, simState.toMap());
       return value;
     });
   }

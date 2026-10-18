@@ -6427,19 +6427,19 @@ abstract class AppLocalizations {
   /// No description provided for @useLocalNotification.
   ///
   /// In en, this message translates to:
-  /// **'Use Local Notifications'**
+  /// **'Show Call Notifications'**
   String get useLocalNotification;
 
   /// No description provided for @useLocalNotificationDescription.
   ///
   /// In en, this message translates to:
-  /// **'Enable local notifications for incoming calls'**
+  /// **'Display caller info in the notification bar when receiving a call'**
   String get useLocalNotificationDescription;
 
   /// No description provided for @cancelLocalNotification.
   ///
   /// In en, this message translates to:
-  /// **'Close Local Notifications'**
+  /// **'Auto-Clear Notification'**
   String get cancelLocalNotification;
 
   /// No description provided for @useStirNotification.
@@ -6451,7 +6451,7 @@ abstract class AppLocalizations {
   /// No description provided for @cancelLocalNotificationDescription.
   ///
   /// In en, this message translates to:
-  /// **'Close Local Notifications Automatically'**
+  /// **'Automatically remove caller notification when call ends'**
   String get cancelLocalNotificationDescription;
 
   /// No description provided for @callerIdSettingsTitle.
@@ -8249,7 +8249,7 @@ abstract class AppLocalizations {
   /// A button to set the delay time for the notification.
   ///
   /// In en, this message translates to:
-  /// **'Set Delay Time'**
+  /// **'Clear Delay Time'**
   String get setDelayTime;
 
   /// The title of the proposal details page.

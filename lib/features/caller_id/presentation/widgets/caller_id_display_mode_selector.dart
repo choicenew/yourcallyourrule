@@ -4,6 +4,7 @@ import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/features/caller_id/config/caller_id_config_provider.dart';
 import 'package:yourcallyourrule/features/caller_id/config/display_mode.dart';
+import 'package:yourcallyourrule/features/caller_id/presentation/widgets/notification_settings_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 来电显示模式选择器小部件
@@ -75,6 +76,7 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
             value: DisplayMode.notification,
             groupValue: config.displayMode,
             onSelected: (mode) => notifier.setDisplayMode(mode),
+            expandedChild: const NotificationSettingsWidget(),
           ),
           const SizedBox(height: 10),
           _buildModeCard(
@@ -103,6 +105,7 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
     required DisplayMode value,
     required DisplayMode groupValue,
     required void Function(DisplayMode) onSelected,
+    Widget? expandedChild,
   }) {
     final isSelected = value == groupValue;
     final theme = Theme.of(context);
@@ -111,7 +114,8 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
     return InkWell(
       onTap: () => onSelected(value),
       borderRadius: BorderRadius.circular(16),
-      child: Container(
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
@@ -123,57 +127,69 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
               ? activeColor.withValues(alpha: 0.08)
               : theme.colorScheme.surfaceContainerHighest,
         ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: isSelected
-                    ? activeColor.withValues(alpha: 0.15)
-                    : theme.colorScheme.surface,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Icon(
-                isSelected ? selectedIcon : icon,
-                color: isSelected ? activeColor : theme.colorScheme.onSurfaceVariant,
-                size: 22,
-              ),
-            ),
-            const SizedBox(width: 14),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                      fontWeight: isSelected ? FontWeight.w900 : FontWeight.w700,
-                      fontSize: 14.5,
-                      color: isSelected ? activeColor : theme.colorScheme.onSurface,
-                    ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: isSelected
+                        ? activeColor.withValues(alpha: 0.15)
+                        : theme.colorScheme.surface,
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  const SizedBox(height: 3),
-                  Text(
-                    subtitle,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: theme.colorScheme.onSurfaceVariant,
-                    ),
+                  child: Icon(
+                    isSelected ? selectedIcon : icon,
+                    color: isSelected ? activeColor : theme.colorScheme.onSurfaceVariant,
+                    size: 22,
                   ),
-                ],
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: TextStyle(
+                          fontWeight: isSelected ? FontWeight.w900 : FontWeight.w700,
+                          fontSize: 14.5,
+                          color: isSelected ? activeColor : theme.colorScheme.onSurface,
+                        ),
+                      ),
+                      const SizedBox(height: 3),
+                      Text(
+                        subtitle,
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Radio<DisplayMode>(
+                  value: value,
+                  groupValue: groupValue,
+                  activeColor: activeColor,
+                  onChanged: (val) {
+                    if (val != null) onSelected(val);
+                  },
+                ),
+              ],
+            ),
+            if (isSelected && expandedChild != null) ...[
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Divider(height: 1, color: activeColor.withValues(alpha: 0.25)),
               ),
-            ),
-            const SizedBox(width: 8),
-            Radio<DisplayMode>(
-              value: value,
-              groupValue: groupValue,
-              activeColor: activeColor,
-              onChanged: (val) {
-                if (val != null) onSelected(val);
-              },
-            ),
+              expandedChild,
+            ],
           ],
         ),
       ),

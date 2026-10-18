@@ -1387,11 +1387,11 @@
   "enableVibration": "Enable Vibration",
   "enableVibrationDescription": "Vibrate when call is suspected scam calls",
   "notificationSettingsTitle": "Notification Settings",
-  "useLocalNotification": "Use Local Notifications",
-  "useLocalNotificationDescription": "Enable local notifications for incoming calls",
-  "cancelLocalNotification": "Close Local Notifications",
+  "useLocalNotification": "Show Call Notifications",
+  "useLocalNotificationDescription": "Display caller info in the notification bar when receiving a call",
+  "cancelLocalNotification": "Auto-Clear Notification",
   "useStirNotification": "Use Notification from STIR",
-  "cancelLocalNotificationDescription": "Close Local Notifications Automatically",
+  "cancelLocalNotificationDescription": "Automatically remove caller notification when call ends",
   "callerIdSettingsTitle": "Caller ID Settings",
   "callerIdSettingsSubtitle": "To Set up Incoming Call Notification & Display Mode",
   "purchaseTitle": "Purchase",
@@ -2231,7 +2231,7 @@
   "@autoCancelNotificationDescription": {
     "description": "A description of the auto cancel notification checkbox."
   },
-  "setDelayTime": "Set Delay Time",
+  "setDelayTime": "Clear Delay Time",
   "@setDelayTime": {
     "description": "A button to set the delay time for the notification."
   },

@@ -1387,11 +1387,11 @@
   "enableVibration": "啟用震動",
   "enableVibrationDescription": "當來電疑似詐騙電話時震動",
   "notificationSettingsTitle": "通知設定",
-  "useLocalNotification": "使用本地通知",
-  "useLocalNotificationDescription": "啟用來電的本地通知",
-  "cancelLocalNotification": "關閉本地通知",
+  "useLocalNotification": "來電時顯示通知",
+  "useLocalNotificationDescription": "有來電時，在系統通知欄提示來電資訊",
+  "cancelLocalNotification": "通話後自動清除通知",
   "useStirNotification": "使用來自 STIR 的通知",
-  "cancelLocalNotificationDescription": "自動關閉本地通知",
+  "cancelLocalNotificationDescription": "通話或掛斷結束後，自動移除通知欄提示",
   "callerIdSettingsTitle": "來電顯示設定",
   "callerIdSettingsSubtitle": "設定來電通知與顯示模式",
   "purchaseTitle": "購買",
@@ -2225,7 +2225,7 @@
   "@autoCancelNotificationDescription": {
     "description": "A description of the auto cancel notification checkbox."
   },
-  "setDelayTime": "設定延遲時間",
+  "setDelayTime": "清除延遲時間",
   "@setDelayTime": {
     "description": "A button to set the delay time for the notification."
   },

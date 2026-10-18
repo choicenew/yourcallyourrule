@@ -3403,19 +3403,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get notificationSettingsTitle => '通知设置';
 
   @override
-  String get useLocalNotification => '使用本地通知';
+  String get useLocalNotification => '来电时显示通知';
 
   @override
-  String get useLocalNotificationDescription => '为来电启用本地通知';
+  String get useLocalNotificationDescription => '有来电时，在系统通知栏提示来电信息';
 
   @override
-  String get cancelLocalNotification => '关闭本地通知';
+  String get cancelLocalNotification => '通话后自动清除通知';
 
   @override
   String get useStirNotification => '使用来自 STIR 的通知';
 
   @override
-  String get cancelLocalNotificationDescription => '自动关闭本地通知';
+  String get cancelLocalNotificationDescription => '通话或挂断结束后，自动移除通知栏提示';
 
   @override
   String get callerIdSettingsTitle => '来电显示设置';
@@ -4426,7 +4426,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get autoCancelNotificationDescription => '如果选中，当用户点击通知时，通知将自动关闭。';
 
   @override
-  String get setDelayTime => '设置延迟时间';
+  String get setDelayTime => '清除延迟时间';
 
   @override
   String get proposalDetails => '提案详情';
@@ -8128,19 +8128,19 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get notificationSettingsTitle => '通知设置';
 
   @override
-  String get useLocalNotification => '使用本地通知';
+  String get useLocalNotification => '来电时显示通知';
 
   @override
-  String get useLocalNotificationDescription => '为来电启用本地通知';
+  String get useLocalNotificationDescription => '有来电时，在系统通知栏提示来电信息';
 
   @override
-  String get cancelLocalNotification => '关闭本地通知';
+  String get cancelLocalNotification => '通话后自动清除通知';
 
   @override
   String get useStirNotification => '使用来自 STIR 的通知';
 
   @override
-  String get cancelLocalNotificationDescription => '自动关闭本地通知';
+  String get cancelLocalNotificationDescription => '通话或挂断结束后，自动移除通知栏提示';
 
   @override
   String get callerIdSettingsTitle => '来电显示设置';
@@ -9151,7 +9151,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get autoCancelNotificationDescription => '如果选中，当用户点击通知时，通知将自动关闭。';
 
   @override
-  String get setDelayTime => '设置延迟时间';
+  String get setDelayTime => '清除延迟时间';
 
   @override
   String get proposalDetails => '提案详情';
@@ -12776,19 +12776,19 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get notificationSettingsTitle => '通知設定';
 
   @override
-  String get useLocalNotification => '使用本地通知';
+  String get useLocalNotification => '來電時顯示通知';
 
   @override
-  String get useLocalNotificationDescription => '啟用來電的本地通知';
+  String get useLocalNotificationDescription => '有來電時，在系統通知欄提示來電資訊';
 
   @override
-  String get cancelLocalNotification => '關閉本地通知';
+  String get cancelLocalNotification => '通話後自動清除通知';
 
   @override
   String get useStirNotification => '使用 STIR 通知';
 
   @override
-  String get cancelLocalNotificationDescription => '自動關閉本地通知';
+  String get cancelLocalNotificationDescription => '通話或掛斷結束後，自動移除通知欄提示';
 
   @override
   String get callerIdSettingsTitle => '來電顯示設定';
@@ -13799,7 +13799,7 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get autoCancelNotificationDescription => '如果選中，當用戶點擊通知時，通知將會自動關閉。';
 
   @override
-  String get setDelayTime => '設定延遲時間';
+  String get setDelayTime => '清除延遲時間';
 
   @override
   String get proposalDetails => '提案詳情';
@@ -17503,19 +17503,19 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get notificationSettingsTitle => '通知設定';
 
   @override
-  String get useLocalNotification => '使用本地通知';
+  String get useLocalNotification => '來電時顯示通知';
 
   @override
-  String get useLocalNotificationDescription => '啟用來電的本地通知';
+  String get useLocalNotificationDescription => '有來電時，在系統通知欄提示來電資訊';
 
   @override
-  String get cancelLocalNotification => '關閉本地通知';
+  String get cancelLocalNotification => '通話後自動清除通知';
 
   @override
   String get useStirNotification => '使用 STIR 通知';
 
   @override
-  String get cancelLocalNotificationDescription => '自動關閉本地通知';
+  String get cancelLocalNotificationDescription => '通話或掛斷結束後，自動移除通知欄提示';
 
   @override
   String get callerIdSettingsTitle => '來電顯示設定';
@@ -18526,7 +18526,7 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get autoCancelNotificationDescription => '如果選中，當用戶點擊通知時，通知將會自動關閉。';
 
   @override
-  String get setDelayTime => '設定延遲時間';
+  String get setDelayTime => '清除延遲時間';
 
   @override
   String get proposalDetails => '提案詳情';
@@ -22230,19 +22230,19 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get notificationSettingsTitle => '通知設定';
 
   @override
-  String get useLocalNotification => '使用本地通知';
+  String get useLocalNotification => '來電時顯示通知';
 
   @override
-  String get useLocalNotificationDescription => '啟用來電的本地通知';
+  String get useLocalNotificationDescription => '有來電時，在系統通知欄提示來電資訊';
 
   @override
-  String get cancelLocalNotification => '關閉本地通知';
+  String get cancelLocalNotification => '通話後自動清除通知';
 
   @override
   String get useStirNotification => '使用來自 STIR 的通知';
 
   @override
-  String get cancelLocalNotificationDescription => '自動關閉本地通知';
+  String get cancelLocalNotificationDescription => '通話或掛斷結束後，自動移除通知欄提示';
 
   @override
   String get callerIdSettingsTitle => '來電顯示設定';
@@ -23254,7 +23254,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get autoCancelNotificationDescription => '如果選中，當用戶點擊通知時，通知將自動關閉。';
 
   @override
-  String get setDelayTime => '設定延遲時間';
+  String get setDelayTime => '清除延遲時間';
 
   @override
   String get proposalDetails => '提案詳情';
