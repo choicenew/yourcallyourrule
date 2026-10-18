@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
-import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_statistics.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_audit_stream_card.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_consensus_card.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_hero_banner.dart';
@@ -11,7 +11,7 @@ import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_tre
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/risk_bento_grid.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 强类型真实数据驱动 · 社区治理统计控制台组件（使用 ProposalStatistics 强类型实体，彻底消除 Map 字符串索引）
+/// 真实数据驱动 · 社区治理统计控制台组件（100% 绑定原生 RiskLevel 强类型实体 & i18n）
 class StatisticsCard extends StatelessWidget {
   final Map<String, int>? statistics;
   final int? voteCount;
@@ -27,7 +27,10 @@ class StatisticsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final stats = ProposalStatistics.fromMap(statistics);
+    final totalPending = statistics?['totalPending'] ?? 0;
+    final highRisk = statistics?[RiskLevel.high.toRawString().toLowerCase()] ?? statistics?['highRisk'] ?? 0;
+    final mediumRisk = statistics?[RiskLevel.medium.toRawString().toLowerCase()] ?? statistics?['mediumRisk'] ?? 0;
+    final lowRisk = statistics?[RiskLevel.low.toRawString().toLowerCase()] ?? statistics?['lowRisk'] ?? 0;
     final count = voteCount ?? 0;
 
     return Column(
@@ -36,8 +39,8 @@ class StatisticsCard extends StatelessWidget {
         // 1. 社区威胁情报与 VIP 战报指挥舱组件 (Hero Banner)
         ProposalHeroBanner(
           voteCount: count,
-          totalPending: stats.totalPending,
-          highRisk: stats.highRisk,
+          totalPending: totalPending,
+          highRisk: highRisk,
           onExchangeVip: onExchangeVip,
         ),
         const SizedBox(height: 14),
@@ -47,14 +50,14 @@ class StatisticsCard extends StatelessWidget {
         const SizedBox(height: 14),
 
         // 3. 待处理提议真实概览卡片
-        _buildOverviewCard(context, l10n, stats.totalPending),
+        _buildOverviewCard(context, l10n, totalPending),
         const SizedBox(height: 14),
 
-        // 4. 风险等级 3D 异形 Bento 盒组件（强类型实体驱动）
+        // 4. 风险等级 3D 异形 Bento 盒组件（原生 RiskLevel 驱动）
         RiskBentoGrid(
-          highRisk: stats.highRisk,
-          mediumRisk: stats.mediumRisk,
-          lowRisk: stats.lowRisk,
+          highRisk: highRisk,
+          mediumRisk: mediumRisk,
+          lowRisk: lowRisk,
         ),
         const SizedBox(height: 14),
 
@@ -79,7 +82,7 @@ class StatisticsCard extends StatelessWidget {
         const SizedBox(height: 14),
 
         // 10. 社区防护影响力控制台卡片
-        _buildImpactCard(context, l10n, stats.totalPending, stats.highRisk),
+        _buildImpactCard(context, l10n, totalPending, highRisk),
         const SizedBox(height: 14),
 
         // 11. 实时社区提议与审议数据流日志组件
