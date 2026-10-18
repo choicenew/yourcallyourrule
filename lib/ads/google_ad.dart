@@ -319,7 +319,7 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
     }
   }
 
-  /// 构建统一精美赞助卡片包覆外框
+  /// 构建统一精美赞助卡片包覆外框 (纯外包布局，100% 零遮挡 Google 原生广告)
   Widget _buildSponsoredCard(BuildContext context, Widget child, {double? width}) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
@@ -341,37 +341,8 @@ class GoogleAdWidgetState extends ConsumerState<GoogleAdWidget> with AutomaticKe
           ),
         ],
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 6.0, left: 2.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.primary.withOpacity(0.12),
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: Text(
-                    "广告",
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.primary,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Center(child: child),
-        ],
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+      child: Center(child: child),
     );
   }
 

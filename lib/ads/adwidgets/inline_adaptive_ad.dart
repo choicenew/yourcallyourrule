@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // 文件: inline_adaptive_ad.dart
-// 描述: 高性能、100%系统主题适配、精美多巴胺卡片包覆的自适应广告组件。
+// 描述: 高性能、100%系统主题适配、精美多巴胺卡片包覆的自适应广告组件 (零遮挡合规版)。
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
@@ -59,7 +59,7 @@ class _InlineAdaptiveBannerAdWidgetState
     });
   }
 
-  /// 构建统一精美赞助卡片包覆外框
+  /// 构建统一卡片包覆外框 (纯外包布局，100% 零遮挡 Google 原生广告)
   Widget _buildSponsoredCard(BuildContext context, Widget child, {double? width}) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
@@ -81,38 +81,8 @@ class _InlineAdaptiveBannerAdWidgetState
           ),
         ],
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // 顶部精美“广告”标识徽章
-          Padding(
-            padding: const EdgeInsets.only(bottom: 6.0, left: 2.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.primary.withOpacity(0.12),
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: Text(
-                    "广告",
-                    style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.primary,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Center(child: child),
-        ],
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+      child: Center(child: child),
     );
   }
 
@@ -127,7 +97,7 @@ class _InlineAdaptiveBannerAdWidgetState
 
     final adState = ref.watch(adCacheProvider(_scopedAdInfo));
 
-    // A. 广告加载成功：放置在精美赞助卡片容器中呈现
+    // A. 广告加载成功：放置在卡片容器中呈现
     if (adState.isLoaded &&
         adState.bannerAd != null &&
         adState.adSize != null) {
@@ -145,7 +115,7 @@ class _InlineAdaptiveBannerAdWidgetState
       return const SizedBox.shrink();
     }
 
-    // C. 正在加载中：优雅骨架卡片屏，保持与正式广告相同的卡片外廓，防止高度塌陷
+    // C. 正在加载中：骨架卡片屏，保持与正式广告相同的卡片外廓，防止高度塌陷
     final targetHeight = widget.height ?? 50.0;
     return _buildSponsoredCard(
       context,
