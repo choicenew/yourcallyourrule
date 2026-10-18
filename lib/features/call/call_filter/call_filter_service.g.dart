@@ -9,13 +9,13 @@ part of 'call_filter_service.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 /// CallFilterService 的 @riverpod Provider
-/// 它会自动处理依赖注入
+/// 它会自动处理依赖注入，并根据卡槽编号获取专属过滤配置
 
 @ProviderFor(callFilterService)
 final callFilterServiceProvider = CallFilterServiceProvider._();
 
 /// CallFilterService 的 @riverpod Provider
-/// 它会自动处理依赖注入
+/// 它会自动处理依赖注入，并根据卡槽编号获取专属过滤配置
 
 final class CallFilterServiceProvider
     extends
@@ -26,7 +26,7 @@ final class CallFilterServiceProvider
         >
     with $Provider<CallFilterService> {
   /// CallFilterService 的 @riverpod Provider
-  /// 它会自动处理依赖注入
+  /// 它会自动处理依赖注入，并根据卡槽编号获取专属过滤配置
   CallFilterServiceProvider._()
     : super(
         from: null,
@@ -61,4 +61,4 @@ final class CallFilterServiceProvider
   }
 }
 
-String _$callFilterServiceHash() => r'14ee0569827d3936436ae6cdfa5372640cd36009';
+String _$callFilterServiceHash() => r'1c3ced19e71b378615c22604622ffcbf047eefe5';

@@ -75,7 +75,7 @@ class RuleListCard extends ConsumerWidget {
             children: [
               CircleAvatar(
                 key: ValueKey(avatar ?? labelId),
-                backgroundColor: AvatarUtils.getColorFromName(labelId),
+                backgroundColor: hasAvatar ? Colors.white : AvatarUtils.getColorFromName(labelId),
                 radius: 24,
                 backgroundImage: AvatarUtils.getAvatarImage(avatar, labelText),
                 child: !hasAvatar

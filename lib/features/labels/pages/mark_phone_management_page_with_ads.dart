@@ -404,11 +404,12 @@ class _MarkPhoneManagementPageWithAdsState
              future: _getLabelName(entry.labelId),
              builder: (context, snapshot) {
                final labelName = snapshot.data ?? '';
+               final hasAvatar = (entry.avatar != null && entry.avatar!.isNotEmpty) || labelName.isNotEmpty;
                return CircleAvatar(
-                 backgroundColor: AvatarUtils.getColorFromName(entry.labelId),
+                 backgroundColor: hasAvatar ? Colors.white : AvatarUtils.getColorFromName(entry.labelId),
                  radius: 22,
                  backgroundImage: AvatarUtils.getAvatarImage(entry.avatar, labelName),
-                 child: AvatarUtils.getAvatarImage(entry.avatar, labelName) == null
+                 child: !hasAvatar
                      ? Text(
                          AvatarUtils.getAvatarInitial(entry.name.isNotEmpty ? entry.name : labelName),
                          style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
