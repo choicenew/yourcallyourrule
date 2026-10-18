@@ -115,6 +115,10 @@ void main() {
 
       List<String> buildDetails(StirInfo? stir, BuildContext context) {
         final List<String> details = [];
+        final labelText = mockData.labels?.first.label;
+        if (config.labels.visible && labelText != null && labelText.isNotEmpty) {
+          details.add(labelText);
+        }
         if (config.count.visible && mockData.count > 0) {
           details.add(l10n.callerIdMarkedByCount(mockData.count));
         }
@@ -142,6 +146,7 @@ void main() {
       final element = tester.element(find.byType(SizedBox));
       final verifiedDetails = buildDetails(stirInfoVerified, element);
       expect(verifiedDetails, equals([
+        'Other',
         'Marked by 5',
         'SIM 1',
         'Example Carrier',
@@ -156,6 +161,7 @@ void main() {
       expect(unverifiedDetails.contains('STIR Pass'), isFalse);
       expect(unverifiedDetails.contains('STIR Not Pass'), isFalse);
       expect(unverifiedDetails, equals([
+        'Other',
         'Marked by 5',
         'SIM 1',
         'Example Carrier',

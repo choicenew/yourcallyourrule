@@ -87,30 +87,35 @@ class VerificationNotifier extends Notifier<VerificationState> {
     );
 
     if (initialNumber != null && initialNumber.trim().isNotEmpty) {
-      final trimmed = initialNumber.trim();
-      final isIntl = trimmed.startsWith('+') || trimmed.startsWith('00');
-      state = state.copyWith(
-        phoneNumber: trimmed,
-        isInternational: isIntl,
-      );
-
-      if (isIntl) {
-        await detectCountryCode(trimmed);
-      }
-      await verifyNumber(trimmed);
+      await updatePhoneNumber(initialNumber);
+      await verifyNumber(state.phoneNumber);
     }
   }
 
-  /// 自动从输入的号码中检测国家代码（如果有 + 国际区号）
+  /// 自动从输入的号码中检测国家代码
+  /// 直接调用 PhoneUtils，不拷贝或重写任何格式判断
   Future<void> detectCountryCode(String phoneNumber) async {
+    final trimmed = phoneNumber.trim();
+    if (trimmed.isEmpty) return;
+
     try {
-      final result = await PhoneUtils.parsePhoneNumber(phoneNumber);
-      final code = result['countryCode'];
-      if (code != null && code.isNotEmpty) {
+      // 1. 直接使用 PhoneUtils 自动化解析
+      final parsed = await PhoneUtils.parsePhoneNumberEntity(trimmed);
+      if (parsed.isValid && parsed.countryCode.isNotEmpty) {
         state = state.copyWith(
-          countryCode: code.toUpperCase(),
-          isInternational: true,
+          countryCode: parsed.countryCode.toUpperCase(),
         );
+        return;
+      }
+
+      // 2. 降级：若 PhoneUtils 解析失败，使用选中的 countryCode 进行 ISO 解析
+      if (state.countryCode.isNotEmpty) {
+        final fallbackParsed = await PhoneUtils.parsePhoneNumberWithIsoEntity(trimmed, state.countryCode);
+        if (fallbackParsed.isValid && fallbackParsed.countryCode.isNotEmpty) {
+          state = state.copyWith(
+            countryCode: fallbackParsed.countryCode.toUpperCase(),
+          );
+        }
       }
     } catch (_) {}
   }
@@ -128,13 +133,14 @@ class VerificationNotifier extends Notifier<VerificationState> {
     state = state.copyWith(countryCode: code.trim().toUpperCase());
   }
 
-  void updatePhoneNumber(String number) {
+  /// 统一的号码处理入口：更新文本并触发全自动 Phone Utility 解析
+  Future<void> updatePhoneNumber(String number) async {
     final trimmed = number.trim();
-    final isIntl = trimmed.startsWith('+') || trimmed.startsWith('00');
-    state = state.copyWith(
-      phoneNumber: trimmed,
-      isInternational: isIntl,
-    );
+    state = state.copyWith(phoneNumber: trimmed);
+
+    if (trimmed.isNotEmpty) {
+      await detectCountryCode(trimmed);
+    }
   }
 
   /// 执行综合号码验证业务逻辑
@@ -142,12 +148,8 @@ class VerificationNotifier extends Notifier<VerificationState> {
     final target = phoneNumberStr.trim();
     if (target.isEmpty) return;
 
-    final isIntl = target.startsWith('+') || target.startsWith('00');
-
     state = state.copyWith(
       isLoading: true,
-      phoneNumber: target,
-      isInternational: isIntl,
       errorMessage: null,
     );
 
@@ -161,13 +163,25 @@ class VerificationNotifier extends Notifier<VerificationState> {
       final labelService = ref.read(labelServiceProvider);
 
       final callFilterConfig = await ref.read(callFilterConfigProvider.future);
-      final number = vo.PhoneNumber.fromString(target);
       final currentLocale = await ref.read(localeProvider.future);
-      final countryCode = state.countryCode;
+
+      // 优先通过 Phone Utility 归一化解析 E.164 号码；解析失败时降级采用左上角国家代码补全
+      ParsedPhoneNumber parsedEntity = ParsedPhoneNumber.empty;
+      try {
+        parsedEntity = await PhoneUtils.parsePhoneNumberEntity(target);
+        if (!parsedEntity.isValid && state.countryCode.isNotEmpty) {
+          parsedEntity = await PhoneUtils.parsePhoneNumberWithIsoEntity(target, state.countryCode);
+        }
+      } catch (_) {}
+
+      final effectiveCountryCode = parsedEntity.countryCode.isNotEmpty ? parsedEntity.countryCode : state.countryCode;
+      final queryNumberStr = parsedEntity.e164Number.isNotEmpty ? parsedEntity.e164Number : target;
+      final number = vo.PhoneNumber.fromString(queryNumberStr);
+      final rawNumber = vo.PhoneNumber.fromString(target);
 
       final dlibLocale = dlibphone.Locale(
         language: currentLocale.languageCode,
-        country: countryCode,
+        country: effectiveCountryCode,
       );
 
       CallerIdData? callerIdData;
@@ -178,11 +192,19 @@ class VerificationNotifier extends Notifier<VerificationState> {
         callerIdData = null;
       }
 
-      final rules = await callFilterService.verifyAllRules(number);
+      // 规则与各种过滤校验（优先使用 E.164 归一化号码，无结果时降级使用原始输入保底）
+      var rules = await callFilterService.verifyAllRules(number);
+      if (rules.isEmpty && number.value != rawNumber.value) {
+        final fallbackRules = await callFilterService.verifyAllRules(rawNumber);
+        rules = [...rules, ...fallbackRules];
+      }
 
       dynamic matchedContact;
       try {
         matchedContact = await contactService.findContactByPhoneNumber(number);
+        if (matchedContact == null && number.value != rawNumber.value) {
+          matchedContact = await contactService.findContactByPhoneNumber(rawNumber);
+        }
       } catch (_) {
         matchedContact = null;
       }
@@ -190,6 +212,9 @@ class VerificationNotifier extends Notifier<VerificationState> {
       dynamic matchedLabel;
       try {
         matchedLabel = await labelService.getLabelByPhoneNumberString(number.value);
+        if (matchedLabel == null && number.value != rawNumber.value) {
+          matchedLabel = await labelService.getLabelByPhoneNumberString(rawNumber.value);
+        }
       } catch (_) {
         matchedLabel = null;
       }
@@ -197,16 +222,25 @@ class VerificationNotifier extends Notifier<VerificationState> {
       bool timeRuleHit = false;
       try {
         timeRuleHit = await timeInterceptorService.shouldIntercept(number.value);
+        if (!timeRuleHit && number.value != rawNumber.value) {
+          timeRuleHit = await timeInterceptorService.shouldIntercept(rawNumber.value);
+        }
       } catch (_) {}
 
       bool localCountBlocked = false;
       try {
         localCountBlocked = !await localCountFilterService.shouldAcceptCall(number.value);
+        if (!localCountBlocked && number.value != rawNumber.value) {
+          localCountBlocked = !await localCountFilterService.shouldAcceptCall(rawNumber.value);
+        }
       } catch (_) {}
 
       bool remoteNumberBlocked = false;
       try {
         remoteNumberBlocked = !await remoteNumberFilterService.shouldAcceptCall(number.value);
+        if (!remoteNumberBlocked && number.value != rawNumber.value) {
+          remoteNumberBlocked = !await remoteNumberFilterService.shouldAcceptCall(rawNumber.value);
+        }
       } catch (_) {}
 
       final rulesMap = <String, bool>{

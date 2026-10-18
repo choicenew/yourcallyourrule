@@ -244,6 +244,9 @@ class _KitLiveNotificationCustomizationScreenState
         : null;
 
     final List<String> details = [];
+    if (config.labels.visible && labelText != null && labelText.isNotEmpty) {
+      details.add(labelText);
+    }
     if (config.count.visible && mockData.count > 0) {
       details.add(AppLocalizations.of(context).callerIdMarkedByCount(mockData.count));
     }
@@ -333,20 +336,6 @@ class _KitLiveNotificationCustomizationScreenState
                   detailLine,
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: theme.textTheme.bodySmall?.color?.withAlpha(160),
-                  ),
-                ),
-              ],
-              if (config.labels.visible && labelText != null && labelText.isNotEmpty) ...[
-                const SizedBox(height: 8),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF455A64),
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: Text(
-                    labelText,
-                    style: TextStyle(fontSize: config.labels.fontSize, color: Colors.white),
                   ),
                 ),
               ],

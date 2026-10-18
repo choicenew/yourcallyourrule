@@ -111,9 +111,12 @@ class KitLiveActivityHandler {
         return null;
       }();
 
-      // 提取详情信息 (包含标记计数、SIM卡、运营商、地区、国家、号码类型与 STIR 校验)
-      // 按照绝对优先级排序：标记次数 -> SIM卡 -> 运营商 -> 地区/国家 -> 号码类型 -> STIR校验
+      // 提取详情信息按绝对优先级排序：
+      // 1.类别标签 -> 2.标记次数 -> 3.SIM卡 -> 4.运营商 -> 5.地区/国家 -> 6.号码类型 -> 7.STIR校验
       final List<String> details = [];
+      if (config.labels.visible && labelText != null && labelText.isNotEmpty) {
+        details.add(labelText);
+      }
       if (config.count.visible && callerIdData.count > 0) {
         final String countDisplay = context != null
             ? AppLocalizations.of(context)!.callerIdMarkedByCount(callerIdData.count)
@@ -184,20 +187,6 @@ class KitLiveActivityHandler {
         if (detailLine.isNotEmpty)
           LA.padding(
             LA.text(detailLine, size: 12, color: const Color(0xFF888888)),
-            top: 4,
-          ),
-        if (config.labels.visible && labelText != null && labelText.isNotEmpty)
-          LA.padding(
-            LA.container(
-              padding: const LAInsets(top: 2, bottom: 2, left: 6, right: 6),
-              background: isFraudCall ? const Color(0xFFD32F2F) : const Color(0xFF455A64),
-              cornerRadius: 4,
-              child: LA.text(
-                labelText,
-                size: config.labels.fontSize,
-                color: Colors.white,
-              ),
-            ),
             top: 4,
           ),
         if (config.stir.visible && stirText != null)

@@ -169,6 +169,32 @@ void main() {
       expect(elapsedNoPlugins, lessThan(100)); // 无插件必须 100ms 内极速完成
     });
 
+    test('5. 无 SIM 卡且无国际前缀场景：结合左上角 ISO 国家代码 (US/CN) 的降级解析', () async {
+      // 场景 1：无 SIM 卡状态下，用户输入无 '+' 前缀的美国本地号 6033092055，左上角选择 US
+      const rawUSNumber = '6033092055';
+      const selectedUS = 'US';
+
+      // 1. PhoneUtils.parsePhoneNumberEntity 缺乏 SIM 卡与 '+' 号，返回无法直接确定国家代码的实体
+      final step1US = await PhoneUtils.parsePhoneNumberEntity(rawUSNumber);
+      
+      // 2. 触发降级 Step 2：结合左上角 selectedUS 进一步补全解析
+      final step2US = await PhoneUtils.parsePhoneNumberWithIsoEntity(rawUSNumber, selectedUS);
+
+      expect(step2US.isValid, isTrue);
+      expect(step2US.countryCode, equals('US'));
+      expect(step2US.e164Number, equals('+16033092055'));
+
+      // 场景 2：无 SIM 卡状态下，用户输入无 '+' 前缀的中国本地号 15662327825，左上角选择 CN
+      const rawCNNumber = '15662327825';
+      const selectedCN = 'CN';
+
+      final step2CN = await PhoneUtils.parsePhoneNumberWithIsoEntity(rawCNNumber, selectedCN);
+
+      expect(step2CN.isValid, isTrue);
+      expect(step2CN.countryCode, equals('CN'));
+      expect(step2CN.e164Number, equals('+8615662327825'));
+    });
+
     test('4. 验证 Provider 状态转移与门禁控制 (VerificationState Safety Guarantee)', () {
       // 模拟 VerificationState 在异常情况下的安全降级
       bool hasVerified = false;
