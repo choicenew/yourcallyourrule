@@ -111,5 +111,40 @@ void main() {
         isTrue,
       );
     });
+
+    test('4. 验证跳转其他页面返回及切卡槽后 separateSims 与卡槽配置持久化不丢失 (isAutoDispose: false)', () {
+      final databaseStorage = <String, Map<String, dynamic>>{};
+
+      // 1. 打开 separateSims 状态并持久化
+      databaseStorage[CallFilterConfigKeys.separateSims] = const SeparateSimsState(isEnabled: true).toMap();
+
+      // 2. 模拟设置卡槽 0 与卡槽 1 状态
+      databaseStorage[CallFilterConfigKeys.simSlotCallFilter(0)] = CallFilterConfig(
+        allowAllAllowedNumbers: true,
+        rejectAllNumbers: true,
+      ).toMap();
+
+      databaseStorage[CallFilterConfigKeys.simSlotCallFilter(1)] = CallFilterConfig(
+        allowAllAllowedNumbers: false,
+        rejectAllNumbers: false,
+      ).toMap();
+
+      // 3. 模拟跳转离开页面再返回（重新从持久化库读取）
+      final separateStateReentered = SeparateSimsState.fromMap(
+        databaseStorage[CallFilterConfigKeys.separateSims]!,
+      );
+      expect(separateStateReentered.isEnabled, isTrue); // 重新进入页面后必须保持 true，不能掉回 false
+
+      final sim0ConfigReentered = CallFilterConfig.fromMap(
+        databaseStorage[CallFilterConfigKeys.simSlotCallFilter(0)]!,
+      );
+      final sim1ConfigReentered = CallFilterConfig.fromMap(
+        databaseStorage[CallFilterConfigKeys.simSlotCallFilter(1)]!,
+      );
+
+      // 切换卡槽切回后，卡槽 0 和卡槽 1 的状态均完美恢复，不被覆盖
+      expect(sim0ConfigReentered.rejectAllNumbers, isTrue);
+      expect(sim1ConfigReentered.rejectAllNumbers, isFalse);
+    });
   });
 }

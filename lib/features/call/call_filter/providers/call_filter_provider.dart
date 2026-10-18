@@ -33,7 +33,7 @@ class SeparateSimsState {
   }
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 class CallFilterConfigNotifier extends _$CallFilterConfigNotifier {
   ConfigRepository get _configRepo => ref.read(configRepositoryProvider);
 
@@ -58,7 +58,7 @@ class CallFilterConfigNotifier extends _$CallFilterConfigNotifier {
 }
 
 /// 分卡槽独立通话过滤配置 Notifier（按 simSlotIndex 独立存取与维护配置）
-@riverpod
+@Riverpod(keepAlive: true)
 class SimSlotCallFilterConfigNotifier extends _$SimSlotCallFilterConfigNotifier {
   ConfigRepository get _configRepo => ref.read(configRepositoryProvider);
 
@@ -83,8 +83,8 @@ class SimSlotCallFilterConfigNotifier extends _$SimSlotCallFilterConfigNotifier 
   }
 }
 
-/// 是否开启“多卡槽独立控制”开关的持久化 Notifier (强实体绑定，同步乐观上屏 + 后台持久化)
-@riverpod
+/// 是否开启“多卡槽独立控制”开关的持久化 Notifier (强实体绑定，keepAlive: true 保证切页面不释放状态)
+@Riverpod(keepAlive: true)
 class SeparateSimsNotifier extends _$SeparateSimsNotifier {
   ConfigRepository get _configRepo => ref.read(configRepositoryProvider);
 

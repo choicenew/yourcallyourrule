@@ -42,21 +42,6 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
   String _searchQuery = '';
 
   @override
-  void initState() {
-    super.initState();
-    _markSetupVisited();
-  }
-
-  /// 一旦进入初始设置页面即标记已访问，防止退出再返回时重复强制显示
-  Future<void> _markSetupVisited() async {
-    try {
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setBool(AppPrefsKeys.hasCompletedInitialSetup, true);
-      await prefs.setBool(AppPrefsKeys.firstLaunch, false);
-    } catch (_) {}
-  }
-
-  @override
   void dispose() {
     _customUrlController.dispose();
     _searchController.dispose();
@@ -405,7 +390,6 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setBool(AppPrefsKeys.hasCompletedInitialSetup, true);
-      await prefs.setBool(AppPrefsKeys.firstLaunch, false);
     } catch (_) {}
     if (context.mounted) {
       context.goNamed('home');
