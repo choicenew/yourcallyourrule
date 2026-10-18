@@ -178,7 +178,7 @@ class _MarkPhoneManagementPageWithAdsState
                 onLabelIdChanged: (labelId) {
                   selectedLabelId = labelId;
                 },
-                themeColor: const Color(0xFFF5A623),
+                themeColor: Theme.of(context).colorScheme.primary,
               ),
             ],
           ),
@@ -281,15 +281,15 @@ class _MarkPhoneManagementPageWithAdsState
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: const Color(0xFFEDE8DF),
+          color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFFFF9500).withValues(alpha: 0.08),
+            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.08),
             blurRadius: 12,
             offset: const Offset(0, 4),
           ),
@@ -306,22 +306,22 @@ class _MarkPhoneManagementPageWithAdsState
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFFF9500).withValues(alpha: 0.12),
+                      color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.workspace_premium_rounded,
-                      color: Color(0xFFFF9500),
+                      color: Theme.of(context).colorScheme.primary,
                       size: 20,
                     ),
                   ),
                   const SizedBox(width: 10),
                   Text(
                     AppLocalizations.of(context)!.markCount,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w900,
-                      color: Colors.black87,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                 ],
@@ -497,7 +497,7 @@ class _MarkPhoneManagementPageWithAdsState
           // 重新加载标记号码列表
           _loadMarkedPhones();
         },
-        themeColor: const Color(0xFFF5A623),
+        themeColor: Theme.of(context).colorScheme.primary,
       );
     } catch (e) {
       _showSnackBar('${AppLocalizations.of(context)!.updateRuleFailed}: ${e.toString()}');
@@ -514,7 +514,7 @@ class _MarkPhoneManagementPageWithAdsState
       adInterval: 3,
       emptyText: AppLocalizations.of(context)!.noMarkedPhones,
       emptyIcon: Icons.label_off,
-      themeColor: const Color(0xFFF5A623),
+      themeColor: Theme.of(context).colorScheme.primary,
       isLoading: _isLoadingMarkedPhones,
       onRefresh: _loadMarkedPhones,
       onAdd: () => _showAddMarkDialog(context),

@@ -43,7 +43,7 @@ class RuleDetailPage<T extends BaseEntity, S> extends ConsumerStatefulWidget {
     super.key,
     required this.ruleId,
     required this.title,
-    this.themeColor = const Color(0xFFF5A623),
+    this.themeColor,
     required this.getRule,
     required this.updateRule,
     required this.deleteRule,
@@ -99,7 +99,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(AppLocalizations.of(context)!.ruleLoadFailed(e.toString())),
-          backgroundColor: Colors.red,
+          backgroundColor: Theme.of(context).colorScheme.error,
         ));
       }
       setState(() {
@@ -200,7 +200,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(AppLocalizations.of(context)!.ruleUpdateFailed(e.toString())),
-          backgroundColor: Colors.red,
+          backgroundColor: Theme.of(context).colorScheme.error,
         ));
       }
     }
@@ -219,7 +219,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
-            child: Text(AppLocalizations.of(context)!.deleteButton, style: const TextStyle(color: Colors.red)),
+            child: Text(AppLocalizations.of(context)!.deleteButton, style: TextStyle(color: Theme.of(context).colorScheme.error)),
           ),
         ],
       ),
@@ -235,7 +235,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text(AppLocalizations.of(context)!.ruleDeleteSuccess),
-            backgroundColor: Colors.green,
+            backgroundColor: Theme.of(context).colorScheme.primary,
           ));
           context.pop(); // 返回上一页
         }
@@ -243,7 +243,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text(AppLocalizations.of(context)!.ruleDeleteFailed(e.toString())),
-            backgroundColor: Colors.red,
+            backgroundColor: Theme.of(context).colorScheme.error,
           ));
         }
       }

@@ -85,7 +85,22 @@ class AppTheme {
       ),
       dialogTheme: DialogThemeData(
         backgroundColor: dopamine.cardSurfaceColor,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+        elevation: 3,
+        insetPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 24.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+          side: BorderSide(color: dopamine.slateBorderColor, width: 1.0),
+        ),
+        titleTextStyle: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+          color: dopamine.textPrimaryColor,
+        ),
+        contentTextStyle: TextStyle(
+          fontSize: 14,
+          color: dopamine.textSecondaryColor,
+        ),
+        actionsPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       ),
       cardTheme: CardThemeData(
         color: dopamine.cardSurfaceColor,

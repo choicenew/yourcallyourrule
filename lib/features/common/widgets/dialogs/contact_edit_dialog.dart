@@ -293,7 +293,10 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
             : AppLocalizations.of(context)!.add;
 
     return AlertDialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: Theme.of(context).colorScheme.outlineVariant, width: 1.0),
+      ),
       contentPadding: const EdgeInsets.fromLTRB(20, 20, 20, 12),
       title: _isCropping
           ? null

@@ -47,77 +47,118 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return AlertDialog(
-      // 1. 保持对话框可滚动，这是应对小屏幕的最终保障
-      scrollable: true, 
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.0),
+      ),
       title: Text(AppLocalizations.of(context)!.addToRules),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // 名称编辑
-          TextField(
-            controller: _nameController,
-            decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.name,
-              border: const OutlineInputBorder(),
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // 名称编辑
+            TextField(
+              controller: _nameController,
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.name,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
+                ),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+              ),
             ),
-          ),
-          const SizedBox(height: 8),
-          
-          // 服务选择
-          Text(
-            AppLocalizations.of(context)!.selectTargetService,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          DropdownButtonFormField<bool>(
-            value: _isAllowedBlockedService,
-            items: [
-              DropdownMenuItem(
-                value: true,
-                child: Text(AppLocalizations.of(context)!.allowedBlockedRule),
+            const SizedBox(height: 12),
+
+            // 服务选择
+            Text(
+              AppLocalizations.of(context)!.selectTargetService,
+              style: theme.textTheme.titleSmall?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: theme.colorScheme.onSurface,
               ),
-              DropdownMenuItem(
-                value: false,
-                child: Text(AppLocalizations.of(context)!.phoneRule),
+            ),
+            const SizedBox(height: 6),
+            DropdownButtonFormField<bool>(
+              value: _isAllowedBlockedService,
+              items: [
+                DropdownMenuItem(
+                  value: true,
+                  child: Text(
+                    AppLocalizations.of(context)!.allowedBlockedRule,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.colorScheme.onSurface,
+                    ),
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: false,
+                  child: Text(
+                    AppLocalizations.of(context)!.phoneRule,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.colorScheme.onSurface,
+                    ),
+                  ),
+                ),
+              ],
+              onChanged: (value) {
+                if (value != null) {
+                  setState(() {
+                    _isAllowedBlockedService = value;
+                  });
+                }
+              },
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
+                ),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                filled: true,
+                fillColor: theme.colorScheme.surfaceContainerHighest.withOpacity(0.3),
               ),
-            ],
-            onChanged: (value) {
-              if (value != null) {
+              dropdownColor: theme.colorScheme.surface,
+              icon: Icon(
+                Icons.arrow_drop_down,
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
+            ),
+
+            const SizedBox(height: 12),
+
+            // 动作选择器
+            RuleActionSelector(
+              initialAction: _selectedAction,
+              showAd: false,
+              padding: EdgeInsets.zero,
+              onActionChanged: (action) {
                 setState(() {
-                  _isAllowedBlockedService = value;
+                  _selectedAction = action;
                 });
-              }
-            },
-            decoration: InputDecoration(
-              border: const OutlineInputBorder(),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              },
             ),
-          ),
-          
-          const SizedBox(height: 8),
-          
-          // 动作选择器
-          Text(
-            AppLocalizations.of(context)!.selectAction,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          RuleActionSelector(
-            initialAction: _selectedAction,
-            onActionChanged: (action) {
-              setState(() {
-                _selectedAction = action;
-              });
-            },
-          ),
-          
-          const SizedBox(height: 8),
-          
-          // --- 这是关键修改 ---
-          // 2. 移除固定的 SizedBox(height: 220)
-          // 3. 使用 Flexible 包裹 PublicSelectLabel，让其在可用空间内自由布局
-          Flexible(
-            child: PublicSelectLabel(
+
+            const SizedBox(height: 12),
+
+            PublicSelectLabel(
               initialLabelId: _selectedLabelId,
               phoneNumber: widget.log.phoneNumber,
               onLabelIdChanged: (labelId) {
@@ -125,10 +166,9 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
                   _selectedLabelId = labelId;
                 });
               },
-              themeColor: const Color(0xFFF5A623),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       actions: [
         TextButton(
@@ -137,6 +177,14 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
         ),
         ElevatedButton(
           onPressed: _saveRule,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: theme.colorScheme.primary,
+            foregroundColor: theme.colorScheme.onPrimary,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+          ),
           child: Text(AppLocalizations.of(context)!.save),
         ),
       ],

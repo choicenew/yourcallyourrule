@@ -138,7 +138,7 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
                       _selectedLabel = labelId;
                     });
                   },
-                  themeColor: const Color(0xFFF5A623),
+                  themeColor: Theme.of(context).colorScheme.primary,
                 ),
               ],
             ),
@@ -371,7 +371,8 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.smsFilterRules),
-        backgroundColor: const Color(0xFFF5A623),
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         elevation: 0,
         actions: [
           IconButton(
@@ -396,7 +397,8 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _showAddRuleDialog,
-        backgroundColor: const Color(0xFFF5A623),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
         child: const Icon(Icons.add),
       ),
     );
@@ -424,8 +426,8 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
               icon: const Icon(Icons.add),
               label: Text(AppLocalizations.of(context)!.addSmsFilterRule),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFF5A623),
-                foregroundColor: Colors.white,
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 shape: RoundedRectangleBorder(
@@ -506,10 +508,10 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
                     Switch(
                       value: rule.isEnabled,
                       onChanged: (value) => _toggleRule(rule.id, value),
-                      activeColor: const Color(0xFFF5A623),
+                      activeColor: Theme.of(context).colorScheme.primary,
                     ),
                     IconButton(
-                      icon: const Icon(Icons.delete, color: Colors.red),
+                      icon: Icon(Icons.delete, color: Theme.of(context).colorScheme.error),
                       onPressed: () => _deleteRule(rule.id),
                     ),
                   ],

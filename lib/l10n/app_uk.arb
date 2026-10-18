@@ -1365,11 +1365,11 @@
       }
     }
   },
-  "stirVerified": "Перевірено",
+  "stirVerified": "STIR Pass",
   "@stirVerified": {
     "description": "STIR/SHAKEN verification status: Verified"
   },
-  "stirNotVerified": "Не перевірено",
+  "stirNotVerified": "STIR Not Pass",
   "@stirNotVerified": {
     "description": "STIR/SHAKEN verification status: Not Verified"
   },

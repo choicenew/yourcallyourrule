@@ -134,14 +134,17 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
     final selectLabelService = PredefinedLabelServiceAdapter(predefinedLabelService);
-    
+
     return AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.0),
+      ),
       title: Text(AppLocalizations.of(context)!.editLabel),
-      content: Container(
-        width: MediaQuery.of(context).size.width * 0.8,
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
+      content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -156,21 +159,45 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
               selectLabelService: selectLabelService,
               themeColor: widget.themeColor,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
             TextField(
               controller: _phoneController,
               decoration: InputDecoration(
                 labelText: AppLocalizations.of(context)!.phoneNumber,
                 hintText: AppLocalizations.of(context)!.enterPhoneNumber,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
+                ),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               ),
               keyboardType: TextInputType.phone,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
             TextField(
               controller: _iconController,
               decoration: InputDecoration(
                 labelText: AppLocalizations.of(context)!.iconCodeOptional,
                 hintText: AppLocalizations.of(context)!.enterIconCode,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
+                ),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               ),
             ),
           ],

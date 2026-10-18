@@ -15,14 +15,14 @@ class SimSlotRuleEditDialog extends ConsumerStatefulWidget {
   final SimSlotRule? rule;
   final int? simSlotIndex;
   final Function? onRuleUpdated;
-  final Color themeColor;
+  final Color? themeColor;
 
   const SimSlotRuleEditDialog({
     super.key,
     this.rule,
     this.simSlotIndex,
     this.onRuleUpdated,
-    this.themeColor = const Color(0xFFF5A623),
+    this.themeColor,
   });
 
   @override
@@ -31,7 +31,7 @@ class SimSlotRuleEditDialog extends ConsumerStatefulWidget {
   static void showAdd(
     BuildContext context, {
     Function? onRuleUpdated,
-    Color themeColor = const Color(0xFFF5A623),
+    Color? themeColor,
   }) {
     showDialog(
       context: context,
@@ -47,7 +47,7 @@ class SimSlotRuleEditDialog extends ConsumerStatefulWidget {
     BuildContext context,
     SimSlotRule rule, {
     Function? onRuleUpdated,
-    Color themeColor = const Color(0xFFF5A623),
+    Color? themeColor,
   }) {
     showDialog(
       context: context,
@@ -171,10 +171,17 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
     final simCardsAsync = ref.watch(simCardsProvider);
 
     return AlertDialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: Theme.of(context).colorScheme.outlineVariant, width: 1.0),
+      ),
       title: Text(
         isEditing ? l10n.editRule : l10n.addRule,
-        style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 18),
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 18,
+          color: Theme.of(context).colorScheme.onSurface,
+        ),
       ),
       content: SingleChildScrollView(
         child: Column(
@@ -282,6 +289,8 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
             const SizedBox(height: 14),
             RuleActionSelector(
               initialAction: _selectedAction,
+              showAd: false,
+              padding: EdgeInsets.zero,
               onActionChanged: (action) {
                 setState(() {
                   _selectedAction = action;

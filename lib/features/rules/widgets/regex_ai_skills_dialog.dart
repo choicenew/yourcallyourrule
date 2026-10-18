@@ -50,6 +50,10 @@ Please generate a valid JSON array of regex rules according to my request.
     final colorScheme = theme.colorScheme;
 
     return AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: colorScheme.outlineVariant, width: 1.0),
+      ),
       title: Row(
         children: [
           Icon(Icons.psychology_rounded, color: colorScheme.primary),
@@ -73,7 +77,7 @@ Please generate a valid JSON array of regex rules according to my request.
               'Copy the prompt below and send it to any AI (ChatGPT, DeepSeek, Claude) to generate regex rules, then use "Import JSON" to load them into the app:',
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: colorScheme.onSurfaceVariant,
-              ),
+              )
             ),
             const SizedBox(height: 12),
             Container(
@@ -117,7 +121,6 @@ Please generate a valid JSON array of regex rules according to my request.
           label: const Text('Copy Prompt'),
         ),
       ],
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
     );
   }
 }

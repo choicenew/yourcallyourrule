@@ -64,7 +64,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
           l10n.initialSetupTitle,
           style: TextStyle(
             fontSize: 20,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.bold,
             color: theme.colorScheme.onSurface,
           ),
         ),
@@ -176,7 +176,11 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.search_off_rounded, size: 40, color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6)),
+                      Icon(
+                        Icons.search_off_rounded,
+                        size: 40,
+                        color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6),
+                      ),
                       const SizedBox(height: 8),
                       Text(
                         l10n.noData,
@@ -219,29 +223,34 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           decoration: BoxDecoration(
             color: theme.colorScheme.surface,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(16),
             border: Border.all(color: theme.colorScheme.outlineVariant, width: 1.0),
           ),
           child: ListTile(
+            contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 2),
             leading: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: theme.colorScheme.secondary.withValues(alpha: 0.12),
+                color: theme.colorScheme.secondary.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Icon(Icons.extension_rounded, color: theme.colorScheme.secondary, size: 20),
             ),
             title: Text(
               pluginRec.title,
-              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface),
+              style: TextStyle(fontSize: 13.5, fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface),
             ),
             subtitle: Text(
               pluginRec.description,
-              style: TextStyle(fontSize: 11, color: theme.colorScheme.onSurfaceVariant),
+              style: TextStyle(fontSize: 11.5, color: theme.colorScheme.onSurfaceVariant),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
-            trailing: Icon(Icons.open_in_new_rounded, size: 16, color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6)),
+            trailing: Icon(
+              Icons.open_in_new_rounded,
+              size: 16,
+              color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6),
+            ),
             onTap: () async {
               final url = Uri.parse(pluginRec.webPortalUrl);
               if (await canLaunchUrl(url)) {
@@ -254,31 +263,47 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
         // 5. 设置提示卡片
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
-          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
           decoration: BoxDecoration(
             color: theme.colorScheme.surface,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(16),
             border: Border.all(color: theme.colorScheme.outlineVariant, width: 1.0),
           ),
           child: Row(
             children: [
-              Icon(
-                Icons.info_outline_rounded,
-                size: 18,
-                color: theme.colorScheme.primary,
+              Container(
+                padding: const EdgeInsets.all(6),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.primary.withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(
+                  Icons.info_outline_rounded,
+                  size: 16,
+                  color: theme.colorScheme.primary,
+                ),
               ),
-              const SizedBox(width: 8),
+              const SizedBox(width: 10),
               Expanded(
                 child: Text(
                   l10n.initialSetupSettingsHint,
-                  style: TextStyle(fontSize: 11, color: theme.colorScheme.onSurfaceVariant),
+                  style: TextStyle(fontSize: 11.5, color: theme.colorScheme.onSurfaceVariant),
                 ),
               ),
               TextButton(
                 onPressed: () => context.pushNamed(AppRouter.settings),
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  minimumSize: Size.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
                 child: Text(
                   l10n.initialSetupGoToSettings,
-                  style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.primary,
+                  ),
                 ),
               ),
             ],

@@ -113,7 +113,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
     ContactEditDialog.show(
       context,
       contact: contact,
-      themeColor: const Color(0xFFF5A623),
+      themeColor: Theme.of(context).colorScheme.primary,
       onContactUpdated: () {
         _loadContacts(); // 刷新列表
       },
@@ -150,7 +150,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                 trailing: IconButton(
                   icon: Icon(
                     contact.isFavorite ? Icons.star : Icons.star_border,
-                    color: contact.isFavorite ? const Color(0xFFF5A623) : Colors.grey,
+                    color: contact.isFavorite ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
                   ),
                   onPressed: () => _toggleFavorite(contact),
                 ),
@@ -326,7 +326,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
       return Checkbox(
         value: _selectedContactIds.contains(contact.id),
         onChanged: (_) => _toggleContactSelection(contact.id),
-        activeColor: const Color(0xFFF5A623),
+        activeColor: Theme.of(context).colorScheme.primary,
       );
     }
     
@@ -342,14 +342,14 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
     if (imageProvider != null) {
       return CircleAvatar(
         backgroundImage: imageProvider,
-        backgroundColor: const Color(0xFFF5A623).withValues(alpha: 0.2),
+        backgroundColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
       );
     } else {
       return CircleAvatar(
-        backgroundColor: const Color(0xFFF5A623).withValues(alpha: 0.2),
+        backgroundColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
         child: Text(
           contact.name.isNotEmpty ? contact.name[0].toUpperCase() : '#',
-          style: const TextStyle(color: Color(0xFFF5A623)),
+          style: TextStyle(color: Theme.of(context).colorScheme.primary),
         ),
       );
     }
@@ -378,14 +378,14 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
             margin: const EdgeInsets.only(top: 4),
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
             decoration: BoxDecoration(
-              color: const Color(0xFFF5A623).withValues(alpha: 0.1),
+              color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(
               snapshot.data!,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 12,
-                color: Color(0xFFF5A623),
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
           );
@@ -403,7 +403,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
         child: ListTile(
           leading: Icon(
             contact.isFavorite ? Icons.star : Icons.star_border,
-            color: contact.isFavorite ? const Color(0xFFF5A623) : null,
+            color: contact.isFavorite ? Theme.of(context).colorScheme.primary : null,
           ),
           title: Text(contact.isFavorite ? AppLocalizations.of(context)!.removeFromFavorites : AppLocalizations.of(context)!.addToFavorites),
           contentPadding: EdgeInsets.zero,
@@ -413,7 +413,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
         value: 'edit',
         child: Row(
           children: [
-            const Icon(Icons.edit, color: Color(0xFFF5A623)),
+            Icon(Icons.edit, color: Theme.of(context).colorScheme.primary),
             const SizedBox(width: 8),
             Text(AppLocalizations.of(context)!.edit),
           ],
@@ -423,9 +423,9 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
         value: 'delete',
         child: Row(
           children: [
-            const Icon(Icons.delete, color: Colors.red),
+            Icon(Icons.delete, color: Theme.of(context).colorScheme.error),
             const SizedBox(width: 8),
-            Text(AppLocalizations.of(context)!.deleteButton, style: const TextStyle(color: Colors.red)),
+            Text(AppLocalizations.of(context)!.deleteButton, style: TextStyle(color: Theme.of(context).colorScheme.error)),
           ],
         ),
       ),
@@ -457,15 +457,15 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
         borderRadius: BorderRadius.circular(18),
         border: Border.all(
           color: isSelected
-              ? const Color(0xFFFF9500)
+              ? Theme.of(context).colorScheme.primary
               : Theme.of(context).colorScheme.outlineVariant,
           width: isSelected ? 1.8 : 1.1,
         ),
         boxShadow: [
           BoxShadow(
             color: isSelected
-                ? const Color(0xFFFF9500).withValues(alpha: 0.16)
-                : Colors.black.withValues(alpha: 0.03),
+                ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.16)
+                : Theme.of(context).shadowColor.withValues(alpha: 0.03),
             blurRadius: isSelected ? 12 : 8,
             offset: const Offset(0, 3),
           ),
@@ -508,7 +508,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                 IconButton(
                   icon: Icon(
                     contact.isFavorite ? Icons.star_rounded : Icons.star_outline_rounded,
-                    color: contact.isFavorite ? const Color(0xFFF5A623) : Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
+                    color: contact.isFavorite ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
                     size: 22,
                   ),
                   onPressed: () => _toggleFavorite(contact),
@@ -572,14 +572,14 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                     await _loadContacts(); // 刷新列表
                     if (mounted) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(AppLocalizations.of(context)!.importSuccess), backgroundColor: Colors.green),
+                        SnackBar(content: Text(AppLocalizations.of(context)!.importSuccess), backgroundColor: Theme.of(context).colorScheme.primary),
                       );
                     }
                   }
                 } catch (e) {
                   if (mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('${AppLocalizations.of(context)!.importFailed}: $e'), backgroundColor: Colors.red),
+                      SnackBar(content: Text('${AppLocalizations.of(context)!.importFailed}: $e'), backgroundColor: Theme.of(context).colorScheme.error),
                     );
                   }
                 }
@@ -614,7 +614,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                                 ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text('${AppLocalizations.of(context)!.fileSavedTo}: ${file.path}'),
-                                  backgroundColor: Colors.green,
+                                  backgroundColor: Theme.of(context).colorScheme.primary,
                                 ),
                               );
                               }
@@ -634,7 +634,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                                 ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text('${AppLocalizations.of(context)!.fileSavedTo}: ${file.path}'),
-                                  backgroundColor: Colors.green,
+                                  backgroundColor: Theme.of(context).colorScheme.primary,
                                 ),
                               );
                               }
@@ -647,7 +647,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                 } catch (e) {
                   if (mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('${AppLocalizations.of(context)!.exportFailed}: $e'), backgroundColor: Colors.red),
+                      SnackBar(content: Text('${AppLocalizations.of(context)!.exportFailed}: $e'), backgroundColor: Theme.of(context).colorScheme.error),
                     );
                   }
                 }
@@ -678,7 +678,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
         ? AppLocalizations.of(context)!.noContactsYet 
         : AppLocalizations.of(context)!.noMatchingContactsFound,
       emptyIcon: Icons.contacts,
-      themeColor: const Color(0xFFF5A623),
+      themeColor: Theme.of(context).colorScheme.primary,
       isLoading: _isLoading,
       onRefresh: _loadContacts,
       onAdd: _showAddContactDialog,
@@ -695,7 +695,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
         IconButton(
           icon: Icon(
             _showOnlyFavorites ? Icons.star : Icons.star_border,
-            color: _showOnlyFavorites ? const Color(0xFFF5A623) : null,
+            color: _showOnlyFavorites ? Theme.of(context).colorScheme.primary : null,
           ),
           onPressed: () {
             setState(() {
@@ -757,11 +757,11 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                               children: [
                                 CircleAvatar(
                                   radius: 30,
-                                  backgroundColor: const Color(0xFFF5A623).withValues(alpha: 0.1),
+                                  backgroundColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
                                   child: Text(
                                     contact.name.isNotEmpty ? contact.name[0].toUpperCase() : '?',
-                                    style: const TextStyle(
-                                      color: Color(0xFFF5A623),
+                                    style: TextStyle(
+                                      color: Theme.of(context).colorScheme.primary,
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -772,14 +772,14 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                                   top: -4,
                                   child: Container(
                                     padding: const EdgeInsets.all(4),
-                                    decoration: const BoxDecoration(
-                                      color: Color(0xFFF5A623),
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(context).colorScheme.primary,
                                       shape: BoxShape.circle,
                                     ),
-                                    child: const Icon(
+                                    child: Icon(
                                       Icons.star,
                                       size: 12,
-                                      color: Colors.white,
+                                      color: Theme.of(context).colorScheme.onPrimary,
                                     ),
                                   ),
                                 ),
@@ -809,8 +809,8 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
               children: [
                 Chip(
                   label: Text(_selectedLabelText!),
-                  backgroundColor: const Color(0xFFF5A623).withValues(alpha: 0.1),
-                  labelStyle: const TextStyle(color: Color(0xFFF5A623)),
+                  backgroundColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.1),
+                  labelStyle: TextStyle(color: Theme.of(context).colorScheme.primary),
                   deleteIcon: const Icon(Icons.close, size: 18),
                   onDeleted: () {
                     setState(() {
@@ -837,7 +837,7 @@ class _ContactsManagementPageWithAdsState extends ConsumerState<ContactsManageme
                             });
                             Navigator.pop(context);
                           },
-                          themeColor: const Color(0xFFF5A623),
+                          themeColor: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                     );

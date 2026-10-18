@@ -1414,11 +1414,11 @@
       }
     }
   },
-  "stirVerified": "検証済み",
+  "stirVerified": "STIR Pass",
   "@stirVerified": {
     "description": "STIR/SHAKEN verification status: Verified"
   },
-  "stirNotVerified": "未検証",
+  "stirNotVerified": "STIR Not Pass",
   "@stirNotVerified": {
     "description": "STIR/SHAKEN verification status: Not Verified"
   },

@@ -9,17 +9,18 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 class LabelFilterChip extends ConsumerWidget {
   final String labelId;
   final VoidCallback onDeleted;
-  final Color themeColor;
+  final Color? themeColor;
 
   const LabelFilterChip({
     super.key,
     required this.labelId,
     required this.onDeleted,
-    this.themeColor = const Color(0xFFF5A623),
+    this.themeColor,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final activeColor = themeColor ?? Theme.of(context).colorScheme.primary;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
@@ -31,8 +32,8 @@ class LabelFilterChip extends ConsumerWidget {
               final labelText = snapshot.data ?? labelId;
               return Chip(
                 label: Text('${AppLocalizations.of(context)!.label}: $labelText'),
-                backgroundColor: themeColor..withValues(alpha: 0.1),
-                labelStyle: TextStyle(color: themeColor),
+                backgroundColor: activeColor.withValues(alpha: 0.1),
+                labelStyle: TextStyle(color: activeColor),
                 deleteIcon: const Icon(Icons.close, size: 18),
                 onDeleted: onDeleted,
               );

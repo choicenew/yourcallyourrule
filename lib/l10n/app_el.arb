@@ -1357,11 +1357,11 @@
       }
     }
   },
-  "stirVerified": "Επαληθεύτηκε",
+  "stirVerified": "STIR Pass",
   "@stirVerified": {
     "description": "STIR/SHAKEN verification status: Verified"
   },
-  "stirNotVerified": "Δεν επαληθεύτηκε",
+  "stirNotVerified": "STIR Not Pass",
   "@stirNotVerified": {
     "description": "STIR/SHAKEN verification status: Not Verified"
   },

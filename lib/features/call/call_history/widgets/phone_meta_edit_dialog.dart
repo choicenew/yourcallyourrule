@@ -151,7 +151,13 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.0),
+      ),
       title: Text(AppLocalizations.of(context)!.editRule),
       content: SingleChildScrollView(
         child: Column(
@@ -163,11 +169,21 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
               decoration: InputDecoration(
                 labelText: AppLocalizations.of(context)!.name,
                 hintText: AppLocalizations.of(context)!.enterName,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
+                ),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               ),
             ),
-            const SizedBox(height: 24),
-            Text(AppLocalizations.of(context)!.selectLabel, style: Theme.of(context).textTheme.titleSmall),
-            const SizedBox(height: 8),
+            const SizedBox(height: 16),
             PublicSelectLabel(
               initialLabelId: _selectedLabelId,
               onLabelIdChanged: (newLabelId) {
@@ -176,8 +192,6 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
                 });
               },
             ),
-            const SizedBox(height: 16),
-            GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
           ],
         ),
       ),
@@ -189,8 +203,23 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
           ),
         ElevatedButton(
           onPressed: _isSaving ? null : _saveChanges,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: theme.colorScheme.primary,
+            foregroundColor: theme.colorScheme.onPrimary,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+          ),
           child: _isSaving
-              ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+              ? SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: theme.colorScheme.onPrimary,
+                  ),
+                )
               : Text(AppLocalizations.of(context)!.save),
         ),
       ],

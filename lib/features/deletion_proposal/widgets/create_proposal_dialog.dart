@@ -97,11 +97,16 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Dialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.0),
+      ),
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.95,
-        constraints: const BoxConstraints(maxWidth: 500, maxHeight: 600),
-        padding: const EdgeInsets.all(24),
+        constraints: const BoxConstraints(maxWidth: 440, maxHeight: 600),
+        padding: const EdgeInsets.all(20),
         child: Form(
           key: _formKey,
           child: Column(

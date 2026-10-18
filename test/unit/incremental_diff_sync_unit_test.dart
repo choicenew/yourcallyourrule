@@ -17,7 +17,7 @@ import 'package:yourcallyourrule/data/datasources/local/local_label_datasource.d
 import 'package:yourcallyourrule/data/datasources/local/local_phone_rule_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_regex_rule_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_sim_slot_rule_datasource.dart';
-import 'package:yourcallyourrule/data/models/label_model.dart';
+import 'package:yourcallyourrule/data/models/label_phone_model.dart';
 import 'package:yourcallyourrule/data/models/phone_rule_model.dart';
 import 'package:yourcallyourrule/data/models/regex_rule_model.dart';
 import 'package:yourcallyourrule/data/models/sim_slot_rule_model.dart';
@@ -51,6 +51,7 @@ void main() {
         name: 'Phone 1',
         phoneNumber: PhoneNumber('+8613800138000'),
         action: RuleAction.block,
+        labelId: 'label_1',
       );
       final regexRule = RegexRule(
         id: 'r1',
@@ -74,6 +75,7 @@ void main() {
         name: 'Phone 1',
         phoneNumber: PhoneNumber('+8613800138000'),
         action: RuleAction.block,
+        labelId: 'label_1',
       );
       final regexRule = RegexRule(
         id: 'r1',

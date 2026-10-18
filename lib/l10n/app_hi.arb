@@ -1381,11 +1381,11 @@
       }
     }
   },
-  "stirVerified": "सत्यापित",
+  "stirVerified": "STIR Pass",
   "@stirVerified": {
     "description": "STIR/SHAKEN verification status: Verified"
   },
-  "stirNotVerified": "सत्यापित नहीं",
+  "stirNotVerified": "STIR Not Pass",
   "@stirNotVerified": {
     "description": "STIR/SHAKEN verification status: Not Verified"
   },

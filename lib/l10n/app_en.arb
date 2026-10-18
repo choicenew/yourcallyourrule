@@ -1414,13 +1414,13 @@
       }
     }
   },
-  "stirVerified": "Verified",
+  "stirVerified": "STIR Pass",
   "@stirVerified": {
-    "description": "STIR/SHAKEN verification status: Verified"
+    "description": "STIR status: Pass"
   },
-  "stirNotVerified": "Not Verified",
+  "stirNotVerified": "STIR Not Pass",
   "@stirNotVerified": {
-    "description": "STIR/SHAKEN verification status: Not Verified"
+    "description": "STIR status: Not Pass"
   },
   "stirFailed": "Verification Failed",
   "@stirFailed": {
@@ -2461,5 +2461,20 @@
   "separateSims": "Separate SIMs",
   "separateSimsDesc": "Enable separate filtering rules for each SIM card",
   "masterAndOverrides": "Master Controls",
-  "masterAndOverridesDesc": "Global Rule Settings"
+  "masterAndOverridesDesc": "Global Rule Settings",
+  "realtimeShieldActive": "Realtime Shield Active",
+  "vipPrivilegeProgress": "VIP Privilege Progress",
+  "communityThreatIntelligence": "Community Threat Intelligence",
+  "consensusPassRate": "Consensus Pass Rate",
+  "auditStreamLog": "Audit Stream Log",
+  "responseLatency": "Response Latency",
+  "scamFraud": "Scam & Fraud",
+  "aiMarketing": "AI Marketing",
+  "falsePositiveClean": "False Positive Cleanup",
+  "liveStream": "LIVE STREAM",
+  "blockingTrend": "Blocking Trend",
+  "ruleActionBreakdown": "Rule Action Distribution",
+  "dualSimDistribution": "Dual-SIM Interception Distribution",
+  "topTriggeredRules": "Top Triggered Rules",
+  "peakHarassmentHours": "Peak Harassment Hours"
 }

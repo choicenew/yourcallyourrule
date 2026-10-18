@@ -3608,10 +3608,10 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get stirVerified => 'Doğrulandı';
+  String get stirVerified => 'STIR Pass';
 
   @override
-  String get stirNotVerified => 'Doğrulanmadı';
+  String get stirNotVerified => 'STIR Not Pass';
 
   @override
   String get stirFailed => 'Doğrulama Başarısız';
@@ -4942,4 +4942,46 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get masterAndOverridesDesc => 'Genel Kural Ayarları';
+
+  @override
+  String get realtimeShieldActive => 'Realtime Shield Active';
+
+  @override
+  String get vipPrivilegeProgress => 'VIP Privilege Progress';
+
+  @override
+  String get communityThreatIntelligence => 'Community Threat Intelligence';
+
+  @override
+  String get consensusPassRate => 'Consensus Pass Rate';
+
+  @override
+  String get auditStreamLog => 'Audit Stream Log';
+
+  @override
+  String get responseLatency => 'Response Latency';
+
+  @override
+  String get scamFraud => 'Scam & Fraud';
+
+  @override
+  String get aiMarketing => 'AI Marketing';
+
+  @override
+  String get falsePositiveClean => 'False Positive Cleanup';
+
+  @override
+  String get liveStream => 'LIVE STREAM';
+
+  @override
+  String get ruleActionBreakdown => 'Rule Action Distribution';
+
+  @override
+  String get dualSimDistribution => 'Dual-SIM Interception Distribution';
+
+  @override
+  String get topTriggeredRules => 'Top Triggered Rules';
+
+  @override
+  String get peakHarassmentHours => 'Peak Harassment Hours';
 }

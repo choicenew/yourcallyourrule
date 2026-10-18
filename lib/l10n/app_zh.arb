@@ -1414,13 +1414,13 @@
       }
     }
   },
-  "stirVerified": "已验证",
+  "stirVerified": "STIR 通过",
   "@stirVerified": {
-    "description": "STIR/SHAKEN verification status: Verified"
+    "description": "STIR status: Pass"
   },
-  "stirNotVerified": "未验证",
+  "stirNotVerified": "STIR 未通过",
   "@stirNotVerified": {
-    "description": "STIR/SHAKEN verification status: Not Verified"
+    "description": "STIR status: Not Pass"
   },
   "stirFailed": "验证失败",
   "@stirFailed": {
@@ -2452,5 +2452,20 @@
   "separateSims": "独立 SIM 卡规则",
   "separateSimsDesc": "为每张 SIM 卡启用独立的过滤规则",
   "masterAndOverrides": "主控开关",
-  "masterAndOverridesDesc": "全局规则设置"
+  "masterAndOverridesDesc": "全局规则设置",
+  "realtimeShieldActive": "系统全天候守护中",
+  "vipPrivilegeProgress": "VIP 特权解锁进度",
+  "communityThreatIntelligence": "社区威胁情报网",
+  "consensusPassRate": "社区共识通过率",
+  "auditStreamLog": "社区审议日志",
+  "responseLatency": "拦截响应",
+  "scamFraud": "欺诈与强力骚扰",
+  "aiMarketing": "AI 营销与推销",
+  "falsePositiveClean": "误报号段清洗",
+  "liveStream": "实时数据流",
+  "blockingTrend": "拦截趋势曲线",
+  "ruleActionBreakdown": "规则动作分布",
+  "dualSimDistribution": "双卡拦截分布对比",
+  "topTriggeredRules": "热门触发规则排行榜",
+  "peakHarassmentHours": "24小时骚扰打扰热力图"
 }

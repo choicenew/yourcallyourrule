@@ -11,20 +11,20 @@ import 'package:yourcallyourrule/core/provider/providers/rule_management_service
 class MarkPhoneEditDialog extends ConsumerStatefulWidget {
   final LabelPhoneEntry entry;
   final Function? onEntryUpdated;
-  final Color themeColor;
+  final Color? themeColor;
 
   const MarkPhoneEditDialog({
     super.key,
     required this.entry,
     this.onEntryUpdated,
-    this.themeColor = const Color(0xFFF5A623),
+    this.themeColor,
   });
 
   @override
   ConsumerState<MarkPhoneEditDialog> createState() => _MarkPhoneEditDialogState();
 
   /// 显示标记电话编辑对话框的静态方法
-  static void show(BuildContext context, LabelPhoneEntry entry, {Function? onEntryUpdated, Color themeColor = const Color(0xFFF5A623)}) {
+  static void show(BuildContext context, LabelPhoneEntry entry, {Function? onEntryUpdated, Color? themeColor}) {
     showDialog(
       context: context,
       builder: (context) => MarkPhoneEditDialog(
@@ -125,39 +125,72 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.0),
+      ),
       title: Text(AppLocalizations.of(context)!.edit),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          TextField(
-            controller: _nameController,
-            decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.name,
-              hintText: AppLocalizations.of(context)!.name,
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextField(
+              controller: _nameController,
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.name,
+                hintText: AppLocalizations.of(context)!.name,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
+                ),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+              ),
             ),
-          ),
-          const SizedBox(height: 16),
-          TextField(
-            controller: _phoneController,
-            decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.phoneNumber,
-              hintText: AppLocalizations.of(context)!.examplePhoneNumber,
+            const SizedBox(height: 12),
+            TextField(
+              controller: _phoneController,
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.phoneNumber,
+                hintText: AppLocalizations.of(context)!.examplePhoneNumber,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
+                ),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+              ),
+              keyboardType: TextInputType.phone,
             ),
-            keyboardType: TextInputType.phone,
-          ),
-          const SizedBox(height: 16),
-          // 标签选择器
-          PublicSelectLabel(
-            initialLabelId: _selectedLabelId,
-            onLabelIdChanged: (labelId) {
-              setState(() {
-                _selectedLabelId = labelId;
-              });
-            },
-            themeColor: widget.themeColor,
-          ),
-        ],
+            const SizedBox(height: 12),
+            // 标签选择器
+            PublicSelectLabel(
+              initialLabelId: _selectedLabelId,
+              onLabelIdChanged: (labelId) {
+                setState(() {
+                  _selectedLabelId = labelId;
+                });
+              },
+              themeColor: widget.themeColor,
+            ),
+          ],
+        ),
       ),
       actions: [
         TextButton(

@@ -1362,11 +1362,11 @@
       }
     }
   },
-  "stirVerified": "Đã xác minh",
+  "stirVerified": "STIR Pass",
   "@stirVerified": {
     "description": "STIR/SHAKEN verification status: Verified"
   },
-  "stirNotVerified": "Chưa xác minh",
+  "stirNotVerified": "STIR Not Pass",
   "@stirNotVerified": {
     "description": "STIR/SHAKEN verification status: Not Verified"
   },

@@ -17,6 +17,7 @@ import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/call/caller_id/core/extensions/phone_number_type_extension.dart';
 import 'package:yourcallyourrule/features/call/caller_id/services/fraud_detection_service.dart';
 import 'package:yourcallyourrule/features/call/live_activities/services/live_notification_config_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -100,18 +101,28 @@ class KitLiveActivityHandler {
             )
           : null;
 
-      final String stirText = () {
-        final bool isVerified = stirInfo != null && stirInfo.isVerified;
-        if (context != null) {
-          return isVerified
-              ? AppLocalizations.of(context)!.stirVerified
-              : AppLocalizations.of(context)!.stirNotVerified;
+      final String? stirText = () {
+        if (stirInfo != null && stirInfo.isVerified) {
+          if (context != null) {
+            return AppLocalizations.of(context)!.stirVerified;
+          }
+          return 'STIR Pass';
         }
-        return isVerified ? 'Verified' : 'Not Verified';
+        return null;
       }();
 
-      // 提取详情信息 (包含运营商、地区、国家、SIM卡、号码类型与标记计数)
+      // 提取详情信息 (包含标记计数、SIM卡、运营商、地区、国家、号码类型与 STIR 校验)
+      // 按照绝对优先级排序：标记次数 -> SIM卡 -> 运营商 -> 地区/国家 -> 号码类型 -> STIR校验
       final List<String> details = [];
+      if (config.count.visible && callerIdData.count > 0) {
+        final String countDisplay = context != null
+            ? AppLocalizations.of(context)!.callerIdMarkedByCount(callerIdData.count)
+            : 'Marked: ${callerIdData.count}';
+        details.add(countDisplay);
+      }
+      if (config.simCard.visible && simInfo?.displayName != null && simInfo!.displayName!.isNotEmpty) {
+        details.add(simInfo.displayName!);
+      }
       if (config.carrier.visible && callerIdData.carrier != null && callerIdData.carrier!.isNotEmpty) {
         details.add(callerIdData.carrier!);
       }
@@ -122,21 +133,18 @@ class KitLiveActivityHandler {
         details.add(callerIdData.countryName!);
       }
       if (config.numberType.visible && callerIdData.numberType != PhoneNumberType.unknown) {
-        details.add(callerIdData.numberType.name);
+        final String numberTypeDisplay = context != null
+            ? callerIdData.numberType.translated(context)
+            : callerIdData.numberType.name;
+        details.add(numberTypeDisplay);
       }
-      if (config.count.visible && callerIdData.count > 0) {
-        final String countDisplay = context != null
-            ? AppLocalizations.of(context)!.callerIdMarkedByCount(callerIdData.count)
-            : 'Marked: ${callerIdData.count}';
-        details.add(countDisplay);
-      }
-      if (config.simCard.visible && simInfo?.displayName != null && simInfo!.displayName!.isNotEmpty) {
-        details.add(simInfo.displayName!);
+      if (config.stir.visible && stirText != null) {
+        details.add(stirText);
       }
       final String detailLine = details.join(' · ');
 
       final activityId = _currentActivityId ?? _uuid.v4();
-      final String deepLinkPayload = isFraudCall ? '/fraud-alert-settings' : '/call-history';
+      final String deepLinkPayload = 'call_history';
       final String? base64Avatar = avatarBytes != null ? base64Encode(avatarBytes) : null;
 
       // 构建头像节点
@@ -192,14 +200,12 @@ class KitLiveActivityHandler {
             ),
             top: 4,
           ),
-        if (config.stir.visible)
+        if (config.stir.visible && stirText != null)
           LA.padding(
             LA.text(
               stirText,
               size: config.stir.fontSize,
-              color: (stirInfo != null && stirInfo.isVerified)
-                  ? const Color(0xFF2E7D32)
-                  : const Color(0xFF888888),
+              color: const Color(0xFF2E7D32),
             ),
             top: 4,
           ),

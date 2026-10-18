@@ -424,7 +424,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get blockedSpamCalls => '已阻止的垃圾呼叫';
 
   @override
-  String get blockingTrend => '阻止趋势';
+  String get blockingTrend => '拦截趋势曲线';
 
   @override
   String get blockInternationalCalls => '匹配不以 + 或 00 开头的号码';
@@ -3441,10 +3441,10 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get stirVerified => '已验证';
+  String get stirVerified => 'STIR 通过';
 
   @override
-  String get stirNotVerified => '未验证';
+  String get stirNotVerified => 'STIR 未通过';
 
   @override
   String get stirFailed => '验证失败';
@@ -4727,6 +4727,48 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get masterAndOverridesDesc => '全局规则设置';
+
+  @override
+  String get realtimeShieldActive => '系统全天候守护中';
+
+  @override
+  String get vipPrivilegeProgress => 'VIP 特权解锁进度';
+
+  @override
+  String get communityThreatIntelligence => '社区威胁情报网';
+
+  @override
+  String get consensusPassRate => '社区共识通过率';
+
+  @override
+  String get auditStreamLog => '社区审议日志';
+
+  @override
+  String get responseLatency => '拦截响应';
+
+  @override
+  String get scamFraud => '欺诈与强力骚扰';
+
+  @override
+  String get aiMarketing => 'AI 营销与推销';
+
+  @override
+  String get falsePositiveClean => '误报号段清洗';
+
+  @override
+  String get liveStream => '实时数据流';
+
+  @override
+  String get ruleActionBreakdown => '规则动作分布';
+
+  @override
+  String get dualSimDistribution => '双卡拦截分布对比';
+
+  @override
+  String get topTriggeredRules => '热门触发规则排行榜';
+
+  @override
+  String get peakHarassmentHours => '24小时骚扰打扰热力图';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -8166,10 +8208,10 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   }
 
   @override
-  String get stirVerified => '已验证';
+  String get stirVerified => 'STIR 通过';
 
   @override
-  String get stirNotVerified => '未验证';
+  String get stirNotVerified => 'STIR 未通过';
 
   @override
   String get stirFailed => '验证失败';
@@ -12814,10 +12856,10 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   }
 
   @override
-  String get stirVerified => '已驗證';
+  String get stirVerified => 'STIR 通過';
 
   @override
-  String get stirNotVerified => '未驗證';
+  String get stirNotVerified => 'STIR 未通過';
 
   @override
   String get stirFailed => '驗證失敗';
@@ -17541,10 +17583,10 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   }
 
   @override
-  String get stirVerified => '已驗證';
+  String get stirVerified => 'STIR 通過';
 
   @override
-  String get stirNotVerified => '未驗證';
+  String get stirNotVerified => 'STIR 未通過';
 
   @override
   String get stirFailed => '驗證失敗';
@@ -22268,10 +22310,10 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   }
 
   @override
-  String get stirVerified => '已驗證';
+  String get stirVerified => 'STIR 通過';
 
   @override
-  String get stirNotVerified => '未驗證';
+  String get stirNotVerified => 'STIR 未通過';
 
   @override
   String get stirFailed => '驗證失敗';

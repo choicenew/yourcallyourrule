@@ -52,6 +52,15 @@ class LiveNotificationPayloadBuilder {
     final bool hasAvatar = assetPath != null && assetPath.isNotEmpty;
 
     final List<String> details = [];
+    if (config.labels.visible && labelText != null && labelText.isNotEmpty) {
+      details.add(labelText);
+    }
+    if (config.count.visible && data.count > 0) {
+      details.add('Marked: ${data.count}');
+    }
+    if (config.simCard.visible && simInfo?.displayName != null && simInfo!.displayName!.isNotEmpty) {
+      details.add(simInfo.displayName!);
+    }
     if (config.carrier.visible && data.carrier != null && data.carrier!.isNotEmpty) {
       details.add(data.carrier!);
     }
@@ -61,8 +70,8 @@ class LiveNotificationPayloadBuilder {
     if (config.countryName.visible && data.countryName != null && data.countryName!.isNotEmpty) {
       details.add(data.countryName!);
     }
-    if (config.simCard.visible && simInfo?.displayName != null && simInfo!.displayName!.isNotEmpty) {
-      details.add(simInfo.displayName!);
+    if (config.stir.visible && stirInfo != null && stirInfo.isVerified) {
+      details.add('STIR Pass');
     }
     final String detailLine = details.join(' · ');
 
@@ -97,14 +106,12 @@ class LiveNotificationPayloadBuilder {
           LA.text(detailLine, size: 12, color: const Color(0xFF888888)),
           top: 4,
         ),
-      if (config.stir.visible && stirInfo != null)
+      if (config.stir.visible && stirInfo != null && stirInfo.isVerified)
         LA.padding(
           LA.text(
-            stirInfo.isVerified ? '🛡️ Verified' : 'Not Verified',
+            'STIR Pass',
             size: config.stir.fontSize,
-            color: stirInfo.isVerified
-                ? const Color(0xFF2E7D32)
-                : const Color(0xFF888888),
+            color: const Color(0xFF2E7D32),
           ),
           top: 4,
         ),

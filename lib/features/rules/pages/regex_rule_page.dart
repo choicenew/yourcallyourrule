@@ -41,7 +41,7 @@ class RegexRulePage extends ConsumerWidget {
     return GenericRulePage<RegexRule, RegexService>(
       serviceProvider: regexServiceProvider,
       title: AppLocalizations.of(context)!.regexRuleManagement,
-      themeColor: const Color(0xFFF5A623),
+      themeColor: Theme.of(context).colorScheme.primary,
       emptyText: AppLocalizations.of(context)!.regexRule,
       emptyIcon: Icons.code,
       addButtonText: AppLocalizations.of(context)!.addRegexRule,

@@ -275,7 +275,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
   List<Widget> _buildMultiSelectActions() {
     return [
       IconButton(
-        icon: const Icon(Icons.delete_outline_rounded, color: Colors.red),
+        icon: Icon(Icons.delete_outline_rounded, color: Theme.of(context).colorScheme.error),
         onPressed: widget.selectedItemIds.isNotEmpty ? widget.onDeleteSelected : null,
         tooltip: AppLocalizations.of(context)!.deleteSelected,
       ),
@@ -329,7 +329,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.03),
+                      color: Theme.of(context).shadowColor.withValues(alpha: 0.03),
                       blurRadius: 10,
                       offset: const Offset(0, 3),
                     ),
@@ -344,7 +344,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
                     prefixIcon: Icon(Icons.search_rounded, color: widget.themeColor ?? Theme.of(context).colorScheme.primary, size: 20),
                     suffixIcon: _searchController.text.isNotEmpty
                         ? IconButton(
-                            icon: const Icon(Icons.clear_rounded, size: 16, color: Colors.grey),
+                            icon: Icon(Icons.clear_rounded, size: 16, color: Theme.of(context).colorScheme.onSurfaceVariant),
                             onPressed: () {
                               _searchController.clear();
                               if (widget.onSearchChanged != null) {
@@ -382,10 +382,10 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
           decoration: BoxDecoration(
-            color: primaryColor.withOpacity(0.08),
+            color: primaryColor.withValues(alpha: 0.08),
             borderRadius: BorderRadius.circular(8.0),
             border: Border.all(
-              color: primaryColor.withOpacity(0.2),
+              color: primaryColor.withValues(alpha: 0.2),
             ),
           ),
           child: Row(

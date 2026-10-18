@@ -378,7 +378,8 @@ class _SmsManagementPageState extends ConsumerState<SmsManagementPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.smsRuleManagement),
-        backgroundColor: const Color(0xFFF5A623),
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         elevation: 0,
         actions: [
           PopupMenuButton<String>(
@@ -394,7 +395,7 @@ class _SmsManagementPageState extends ConsumerState<SmsManagementPage> {
                 value: 'import',
                 child: Row(
                   children: [
-                    const Icon(Icons.file_upload, color: Color(0xFFF5A623)),
+                    Icon(Icons.file_upload, color: Theme.of(context).colorScheme.primary),
                     const SizedBox(width: 8),
                     Text(AppLocalizations.of(context)!.importRules),
                   ],
@@ -404,7 +405,7 @@ class _SmsManagementPageState extends ConsumerState<SmsManagementPage> {
                 value: 'export',
                 child: Row(
                   children: [
-                    const Icon(Icons.file_download, color: Color(0xFFF5A623)),
+                    Icon(Icons.file_download, color: Theme.of(context).colorScheme.primary),
                     const SizedBox(width: 8),
                     Text(AppLocalizations.of(context)!.exportRules),
                   ],
@@ -428,7 +429,8 @@ class _SmsManagementPageState extends ConsumerState<SmsManagementPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _showAddRuleDialog,
-        backgroundColor: const Color(0xFFF5A623),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
         child: const Icon(Icons.add),
       ),
     );
@@ -456,8 +458,8 @@ class _SmsManagementPageState extends ConsumerState<SmsManagementPage> {
               icon: const Icon(Icons.add),
               label: Text(AppLocalizations.of(context)!.addSmsRule),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFF5A623),
-                foregroundColor: Colors.white,
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
@@ -525,10 +527,10 @@ class _SmsManagementPageState extends ConsumerState<SmsManagementPage> {
                     Switch(
                       value: rule.isEnabled,
                       onChanged: (value) => _toggleRule(rule.id, value),
-                      activeColor: const Color(0xFFF5A623),
+                      activeColor: Theme.of(context).colorScheme.primary,
                     ),
                     IconButton(
-                      icon: const Icon(Icons.delete, color: Colors.red),
+                      icon: Icon(Icons.delete, color: Theme.of(context).colorScheme.error),
                       onPressed: () => _deleteRule(rule.id),
                     ),
                   ],

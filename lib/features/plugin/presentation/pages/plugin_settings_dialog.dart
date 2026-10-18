@@ -71,12 +71,18 @@ class _PluginSettingsDialogState extends State<PluginSettingsDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.0),
+      ),
       title: Text(
         '${AppLocalizations.of(context).settings}: ${widget.plugin.name}',
       ),
-      content: SizedBox(
-        width: double.maxFinite,
+      content: Container(
+        constraints: const BoxConstraints(maxWidth: 420),
         child:
             _isLoading
                 ? const Center(child: CircularProgressIndicator())

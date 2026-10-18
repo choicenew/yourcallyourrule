@@ -127,63 +127,80 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.autoUpdateSettings, style: TextStyle(fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface)),
+        centerTitle: true,
+        title: Text(
+          l10n.autoUpdateSettings,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: theme.colorScheme.onSurface,
+          ),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded),
+          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
           onPressed: () => Navigator.of(context).pop(),
         ),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh_rounded),
             onPressed: _isLoading ? null : _updateAll,
-            tooltip: AppLocalizations.of(context)!.updateAllNow,
+            tooltip: l10n.updateAllNow,
           ),
         ],
       ),
       body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? Center(
+              child: CircularProgressIndicator(color: theme.colorScheme.primary),
+            )
           : ListView(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+              physics: const BouncingScrollPhysics(),
               children: [
                 _buildInfoCard(),
-                const SizedBox(height: 12),
+                const SizedBox(height: 14),
                 ..._serviceTypeNames.keys.map((type) => _buildServiceCard(type)),
                 const SizedBox(height: 16),
-                nativeAdWidgetMedium(adWidth: 320, adHeight: 320)
+                nativeAdWidgetMedium(adWidth: 320, adHeight: 320),
               ],
             ),
     );
   }
 
   Widget _buildInfoCard() {
+    final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
+
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(16.0),
+        color: theme.colorScheme.surface,
+        borderRadius: BorderRadius.circular(20.0),
         border: Border.all(
-          color: Theme.of(context).colorScheme.outlineVariant,
-          width: 1.1,
+          color: theme.colorScheme.outlineVariant,
+          width: 1.0,
         ),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.all(6.0),
+            padding: const EdgeInsets.all(8.0),
             decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
-              borderRadius: BorderRadius.circular(10.0),
+              color: theme.colorScheme.primary.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(12.0),
             ),
             child: Icon(
               Icons.info_outline_rounded,
-              color: Theme.of(context).colorScheme.primary,
-              size: 20,
+              color: theme.colorScheme.primary,
+              size: 22,
             ),
           ),
           const SizedBox(width: 12),
@@ -192,19 +209,19 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.autoUpdateSettings,
+                  l10n.autoUpdateSettings,
                   style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w800,
-                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.primary,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  AppLocalizations.of(context)!.autoUpdateDescription,
+                  l10n.autoUpdateDescription,
                   style: TextStyle(
                     fontSize: 12.5,
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: theme.colorScheme.onSurfaceVariant,
                     height: 1.35,
                   ),
                 ),
@@ -217,19 +234,22 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
   }
 
   Widget _buildServiceCard(String type) {
+    final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
+
     final days = _userIntervals[type] ?? 1;
     final name = _serviceTypeNames[type] ?? type;
     final icon = _serviceTypeIcons[type] ?? Icons.settings;
 
     return Container(
-      margin: const EdgeInsets.only(bottom: 12),
+      margin: const EdgeInsets.only(bottom: 14),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: Theme.of(context).colorScheme.outlineVariant,
-          width: 1.1,
+          color: theme.colorScheme.outlineVariant,
+          width: 1.0,
         ),
       ),
       child: Column(
@@ -238,43 +258,69 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(12),
+                  color: theme.colorScheme.primary.withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(14),
                 ),
-                child: Icon(icon, color: Theme.of(context).colorScheme.primary, size: 20),
+                child: Icon(
+                  icon,
+                  color: theme.colorScheme.primary,
+                  size: 22,
+                ),
               ),
               const SizedBox(width: 12),
-              Text(
-                name,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
+              Expanded(
+                child: Text(
+                  name,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.onSurface,
+                  ),
+                ),
               ),
             ],
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                AppLocalizations.of(context)!.updateInterval,
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Theme.of(context).colorScheme.onSurface),
+                l10n.updateInterval,
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: theme.colorScheme.onSurface,
+                ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Theme.of(context).colorScheme.outlineVariant),
+                  color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.6),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: theme.colorScheme.outlineVariant),
                 ),
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton<int>(
                     value: days,
-                    dropdownColor: Theme.of(context).colorScheme.surface,
+                    isDense: true,
+                    dropdownColor: theme.colorScheme.surface,
+                    icon: Icon(
+                      Icons.arrow_drop_down_rounded,
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
                     items: [1, 3, 7, 14, 30].map((int value) {
                       return DropdownMenuItem<int>(
                         value: value,
-                        child: Text(AppLocalizations.of(context)!.days(value), style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Theme.of(context).colorScheme.onSurface)),
+                        child: Text(
+                          l10n.days(value),
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: theme.colorScheme.onSurface,
+                          ),
+                        ),
                       );
                     }).toList(),
                     onChanged: (int? newValue) {
@@ -287,18 +333,24 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
               ),
             ],
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 16),
           SizedBox(
             width: double.infinity,
             child: ElevatedButton.icon(
-              icon: const Icon(Icons.sync_rounded, size: 16),
-              label: Text(AppLocalizations.of(context)!.updateNow, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800)),
+              icon: const Icon(Icons.autorenew_rounded, size: 18),
+              label: Text(
+                l10n.updateNow,
+                style: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.primary,
+                backgroundColor: theme.colorScheme.primary,
                 foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(vertical: 11),
+                padding: const EdgeInsets.symmetric(vertical: 13),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(14),
                 ),
                 elevation: 0,
               ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:go_router/go_router.dart';
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/core/provider/providers/plugin_manager_service_provider.dart';
@@ -396,6 +398,14 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
                     );
                   }
                 }
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.tune_rounded),
+              title: Text(AppLocalizations.of(context)!.initialSetupTitle),
+              onTap: () {
+                Navigator.of(context).pop();
+                GoRouter.of(context).pushNamed(AppRouter.initialSetup);
               },
             ),
           ],

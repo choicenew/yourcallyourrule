@@ -6496,16 +6496,16 @@ abstract class AppLocalizations {
   /// **'Blocked call from {phoneNumber}'**
   String blockedCallBody(String phoneNumber);
 
-  /// STIR/SHAKEN verification status: Verified
+  /// STIR status: Pass
   ///
   /// In en, this message translates to:
-  /// **'Verified'**
+  /// **'STIR Pass'**
   String get stirVerified;
 
-  /// STIR/SHAKEN verification status: Not Verified
+  /// STIR status: Not Pass
   ///
   /// In en, this message translates to:
-  /// **'Not Verified'**
+  /// **'STIR Not Pass'**
   String get stirNotVerified;
 
   /// STIR/SHAKEN verification status: Verification Failed
@@ -8803,6 +8803,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Global Rule Settings'**
   String get masterAndOverridesDesc;
+
+  /// No description provided for @realtimeShieldActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Realtime Shield Active'**
+  String get realtimeShieldActive;
+
+  /// No description provided for @vipPrivilegeProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'VIP Privilege Progress'**
+  String get vipPrivilegeProgress;
+
+  /// No description provided for @communityThreatIntelligence.
+  ///
+  /// In en, this message translates to:
+  /// **'Community Threat Intelligence'**
+  String get communityThreatIntelligence;
+
+  /// No description provided for @consensusPassRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Consensus Pass Rate'**
+  String get consensusPassRate;
+
+  /// No description provided for @auditStreamLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Audit Stream Log'**
+  String get auditStreamLog;
+
+  /// No description provided for @responseLatency.
+  ///
+  /// In en, this message translates to:
+  /// **'Response Latency'**
+  String get responseLatency;
+
+  /// No description provided for @scamFraud.
+  ///
+  /// In en, this message translates to:
+  /// **'Scam & Fraud'**
+  String get scamFraud;
+
+  /// No description provided for @aiMarketing.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Marketing'**
+  String get aiMarketing;
+
+  /// No description provided for @falsePositiveClean.
+  ///
+  /// In en, this message translates to:
+  /// **'False Positive Cleanup'**
+  String get falsePositiveClean;
+
+  /// No description provided for @liveStream.
+  ///
+  /// In en, this message translates to:
+  /// **'LIVE STREAM'**
+  String get liveStream;
+
+  /// No description provided for @ruleActionBreakdown.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule Action Distribution'**
+  String get ruleActionBreakdown;
+
+  /// No description provided for @dualSimDistribution.
+  ///
+  /// In en, this message translates to:
+  /// **'Dual-SIM Interception Distribution'**
+  String get dualSimDistribution;
+
+  /// No description provided for @topTriggeredRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Top Triggered Rules'**
+  String get topTriggeredRules;
+
+  /// No description provided for @peakHarassmentHours.
+  ///
+  /// In en, this message translates to:
+  /// **'Peak Harassment Hours'**
+  String get peakHarassmentHours;
 }
 
 class _AppLocalizationsDelegate

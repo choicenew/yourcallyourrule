@@ -178,7 +178,7 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
                   value: 'import',
                   child: Row(
                     children: [
-                      const Icon(Icons.file_upload, color: Color(0xFFF5A623)),
+                      Icon(Icons.file_upload, color: Theme.of(context).colorScheme.primary),
                       const SizedBox(width: 8),
                       Text(AppLocalizations.of(context)!.importRules),
                     ],
@@ -188,7 +188,7 @@ class _RuleManagementWidgetState<T extends BaseEntity> extends State<RuleManagem
                   value: 'export',
                   child: Row(
                     children: [
-                      const Icon(Icons.file_download, color: Color(0xFFF5A623)),
+                      Icon(Icons.file_download, color: Theme.of(context).colorScheme.primary),
                       const SizedBox(width: 8),
                       Text(AppLocalizations.of(context)!.exportRules),
                     ],

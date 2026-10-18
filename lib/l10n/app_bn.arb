@@ -1382,11 +1382,11 @@
       }
     }
   },
-  "stirVerified": "যাচাইকৃত",
+  "stirVerified": "STIR Pass",
   "@stirVerified": {
     "description": "STIR/SHAKEN verification status: Verified"
   },
-  "stirNotVerified": "যাচাই করা হয়নি",
+  "stirNotVerified": "STIR Not Pass",
   "@stirNotVerified": {
     "description": "STIR/SHAKEN verification status: Not Verified"
   },

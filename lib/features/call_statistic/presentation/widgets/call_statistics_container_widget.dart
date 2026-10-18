@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
+import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/call_hero_command_banner.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_card.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/block_type_analysis.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -8,13 +9,12 @@ import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/trend_chart_card.dart';
-import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_chart.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/top_rules_card.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/peak_hours_card.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/block_donut_chart_card.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/sim_bar_chart_card.dart';
 
-/// 智能高密度通话拦截统计容器 Widget（100% 采用系统 Theme.of(context) 主题与 i18n）
+/// 智能高密度通话拦截统计容器 Widget（模块化拆分组件，100% 系统 Theme.of(context) 主题与 i18n）
 class CallStatisticsContainerWidget extends ConsumerStatefulWidget {
   const CallStatisticsContainerWidget({super.key});
 
@@ -57,15 +57,15 @@ class _CallStatisticsContainerWidgetState
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 1. 顶部战报卡片
-          _buildOverviewCard(context, state),
+          // 1. 顶部战报指挥舱 Hero 卡片组件
+          CallHeroCommandBanner(state: state),
           const SizedBox(height: 14),
 
           // 2. 广告组件
           _buildAdPlaceholder(),
           const SizedBox(height: 14),
 
-          // 3. 统计网格
+          // 3. 统计网格 Bento 盒
           _buildStatsGrid(context, state),
           const SizedBox(height: 14),
 
@@ -103,90 +103,11 @@ class _CallStatisticsContainerWidgetState
       ),
     );
   }
-  
-  /// 系统主题 Hero 战报卡片
-  Widget _buildOverviewCard(BuildContext context, CallStatisticsState state) {
-    final theme = Theme.of(context);
-    final l10n = AppLocalizations.of(context)!;
-    final totalRules = state.blockRulesCount + state.allowRulesCount + state.silenceRulesCount + state.timeRulesCount;
 
-    return Container(
-      decoration: BoxDecoration(
-        color: theme.colorScheme.primaryContainer,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: theme.colorScheme.primary.withValues(alpha: 0.2),
-          width: 1.1,
-        ),
-      ),
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    l10n.totalBlocked,
-                    style: TextStyle(
-                      color: theme.colorScheme.onPrimaryContainer.withValues(alpha: 0.8),
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    '${state.blockedCallsCount}',
-                    style: TextStyle(
-                      color: theme.colorScheme.onPrimaryContainer,
-                      fontSize: 34,
-                      fontWeight: FontWeight.w900,
-                      letterSpacing: -0.5,
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.primary.withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(Icons.shield_rounded, color: theme.colorScheme.primary, size: 14),
-                    const SizedBox(width: 4),
-                    Text(
-                      '${l10n.enabledStatus}: $totalRules',
-                      style: TextStyle(
-                        color: theme.colorScheme.primary,
-                        fontSize: 11,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          SizedBox(
-            height: 50,
-            child: StatisticChart(chartData: state.chartData),
-          ),
-        ],
-      ),
-    );
-  }
-
-  /// 统计网格（全原生 Theme 调色）
+  /// 统计网格 Bento 盒
   Widget _buildStatsGrid(BuildContext context, CallStatisticsState state) {
     final theme = Theme.of(context);
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
 
     return GridView.count(
       crossAxisCount: 2,
@@ -267,7 +188,7 @@ class _CallStatisticsContainerWidgetState
         ),
         icon: const Icon(Icons.file_download_outlined, size: 18),
         label: Text(
-          AppLocalizations.of(context)!.exportStatisticsData,
+          AppLocalizations.of(context).exportStatisticsData,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
         ),
       ),

@@ -159,9 +159,9 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
       children: [
         Text(
           AppLocalizations.of(context)!.selectLabel,
-          style: const TextStyle(
-            fontSize: 16,
+          style: Theme.of(context).textTheme.titleSmall?.copyWith(
             fontWeight: FontWeight.bold,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
         const SizedBox(height: 12),
@@ -203,9 +203,12 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
       return Center(
         child: Column(
           children: [
-            const Icon(Icons.label_off, color: Colors.grey, size: 48),
+            Icon(Icons.label_off, color: Theme.of(context).colorScheme.onSurfaceVariant, size: 48),
             const SizedBox(height: 8),
-            Text(AppLocalizations.of(context)!.noLabels, style: const TextStyle(color: Colors.grey)),
+            Text(
+              AppLocalizations.of(context)!.noLabels,
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
+            ),
             const SizedBox(height: 16),
             ElevatedButton.icon(
               onPressed: () {
@@ -215,7 +218,7 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
               label: Text(AppLocalizations.of(context)!.addLabelButton),
               style: ElevatedButton.styleFrom(
                 backgroundColor: activeThemeColor,
-                foregroundColor: Colors.white,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
               ),
             ),
           ],
@@ -247,16 +250,23 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
                   widget.onLabelIdChanged(labelId);
                 }
               },
-              selectedColor: activeThemeColor,
-              backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+              selectedColor: activeThemeColor.withOpacity(0.2),
+              backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest.withOpacity(0.5),
+              side: BorderSide(
+                color: isSelected
+                    ? activeThemeColor
+                    : Theme.of(context).colorScheme.outlineVariant,
+              ),
               labelStyle: TextStyle(
-                color: isSelected ? Colors.white : Theme.of(context).colorScheme.onSurface,
+                color: isSelected
+                    ? activeThemeColor
+                    : Theme.of(context).colorScheme.onSurface,
                 fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
               ),
               avatar: isSelected
-                  ? const Icon(Icons.check, size: 12, color: Colors.orange)
+                  ? Icon(Icons.check, size: 14, color: activeThemeColor)
                   : null,
-              padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 7),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
             );
           }).toList(),
         ),
@@ -281,7 +291,8 @@ class LabelSelectionPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        backgroundColor: const Color(0xFFF5A623),
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

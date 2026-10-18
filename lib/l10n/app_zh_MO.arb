@@ -1414,11 +1414,11 @@
       }
     }
   },
-  "stirVerified": "已驗證",
+  "stirVerified": "STIR 通過",
   "@stirVerified": {
     "description": "STIR/SHAKEN verification status: Verified"
   },
-  "stirNotVerified": "未驗證",
+  "stirNotVerified": "STIR 未通過",
   "@stirNotVerified": {
     "description": "STIR/SHAKEN verification status: Not Verified"
   },

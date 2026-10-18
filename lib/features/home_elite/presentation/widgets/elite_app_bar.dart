@@ -110,38 +110,41 @@ class EliteAppBar extends ConsumerWidget {
                         ),
                       ),
                       Positioned(
-                        top: -4,
-                        right: -4,
+                        top: -5,
+                        right: -5,
                         child: Container(
-                          padding: const EdgeInsets.all(2),
+                          padding: const EdgeInsets.all(3.5),
                           decoration: BoxDecoration(
-                            color: isVip
-                                ? const Color(0xFFFFD700)
-                                : theme.colorScheme.surfaceContainerHighest,
+                            color: Colors.white,
                             shape: BoxShape.circle,
                             border: Border.all(
                               color: isVip
-                                  ? const Color(0xFFB8860B)
+                                  ? const Color(0xFFFFB300)
                                   : theme.colorScheme.outlineVariant,
-                              width: 1,
+                              width: 1.2,
                             ),
                             boxShadow: [
-                              if (isVip)
-                                const BoxShadow(
-                                  color: Colors.black26,
-                                  blurRadius: 4,
-                                  offset: Offset(0, 1),
-                                ),
+                              BoxShadow(
+                                color: (isVip
+                                        ? const Color(0xFFFFB300)
+                                        : Colors.black)
+                                    .withValues(alpha: isVip ? 0.25 : 0.08),
+                                blurRadius: 4,
+                                offset: const Offset(0, 2),
+                              ),
                             ],
                           ),
-                          child: Icon(
-                            Icons.workspace_premium_rounded,
-                            size: 11,
-                            color: isVip
-                                ? const Color(0xFF7A4300)
-                                : theme.colorScheme.onSurfaceVariant
-                                    .withValues(alpha: 0.5),
-                          ),
+                          child: isVip
+                              ? const MinimalistCrownIcon(
+                                  size: 11,
+                                  color: Color(0xFFFFB300),
+                                )
+                              : Icon(
+                                  Icons.shield_outlined,
+                                  size: 10,
+                                  color: theme.colorScheme.onSurfaceVariant
+                                      .withValues(alpha: 0.5),
+                                ),
                         ),
                       ),
                     ],
@@ -275,4 +278,71 @@ Widget previewEliteAppBar() {
       ),
     ),
   );
+}
+
+// ------------------- 极简三尖角香槟金冠图标 -------------------
+
+class MinimalistCrownIcon extends StatelessWidget {
+  final double size;
+  final Color color;
+
+  const MinimalistCrownIcon({
+    super.key,
+    this.size = 12,
+    this.color = const Color(0xFFFFB300),
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: size,
+      height: size * 0.75,
+      child: CustomPaint(
+        painter: _MinimalistCrownPainter(color: color),
+      ),
+    );
+  }
+}
+
+class _MinimalistCrownPainter extends CustomPainter {
+  final Color color;
+
+  _MinimalistCrownPainter({required this.color});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.fill
+      ..isAntiAlias = true;
+
+    // 精致三尖角皇冠 Path
+    final path = Path();
+    path.moveTo(0, h * 0.20);
+    path.lineTo(w * 0.25, h * 0.72);
+    path.lineTo(w * 0.50, 0);
+    path.lineTo(w * 0.75, h * 0.72);
+    path.lineTo(w, h * 0.20);
+    path.lineTo(w * 0.88, h * 0.85);
+    path.lineTo(w * 0.12, h * 0.85);
+    path.close();
+
+    canvas.drawPath(path, paint);
+
+    // 皇冠底部精细底座横条
+    canvas.drawRRect(
+      RRect.fromRectAndRadius(
+        Rect.fromLTWH(w * 0.08, h * 0.82, w * 0.84, h * 0.18),
+        const Radius.circular(1),
+      ),
+      paint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant _MinimalistCrownPainter oldDelegate) =>
+      oldDelegate.color != color;
 }

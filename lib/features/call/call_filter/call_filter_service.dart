@@ -29,9 +29,9 @@ CallFilterService callFilterService(Ref ref) {
     allowedBlockedService: ref.watch(allowedBlockedServiceProvider),
     ruleManagementService: ref.watch(ruleManagementServiceProvider),
     getConfigForSim: (simSlotIndex) async {
-      final separateSims = await ref.read(separateSimsNotifierProvider.future);
+      final separateSims = await ref.read(separateSimsProvider.future);
       if (separateSims && simSlotIndex != null) {
-        return await ref.read(simSlotCallFilterConfigNotifierProvider(simSlotIndex).future);
+        return await ref.read(simSlotCallFilterConfigProvider(simSlotIndex).future);
       }
       return await ref.read(callFilterConfigProvider.future);
     },

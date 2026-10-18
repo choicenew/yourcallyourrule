@@ -2,33 +2,201 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:csv/csv.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-
 import 'package:uuid/uuid.dart';
 import 'package:yaml/yaml.dart';
 
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
 import 'package:yourcallyourrule/core/repositories/contact_repository.dart';
-
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 
+/// Top-level Isolate 任务：网络下载/Base64解码/二进制保存头像到磁盘文件
+Future<String?> saveAvatarIsolateTask(Map<String, dynamic> params) async {
+  try {
+    final imageData = params['imageData'];
+    final dirPath = params['dirPath'] as String;
+    final fileName = 'avatar_${DateTime.now().millisecondsSinceEpoch}.png';
+    final filePath = '$dirPath/$fileName';
+    final File newFile = File(filePath);
+
+    if (imageData is String) {
+      if (imageData.startsWith('http://') || imageData.startsWith('https://')) {
+        final response = await http.get(Uri.parse(imageData));
+        if (response.statusCode == 200) {
+          await newFile.writeAsBytes(response.bodyBytes);
+          return filePath;
+        }
+        return null;
+      } else {
+        // Base64 decode
+        final cleanBase64 = imageData.startsWith('BASE64,')
+            ? imageData.substring(7).trim()
+            : imageData.trim();
+        final bytes = base64.decode(cleanBase64);
+        await newFile.writeAsBytes(bytes);
+        return filePath;
+      }
+    } else if (imageData is List<int>) {
+      await newFile.writeAsBytes(imageData);
+      return filePath;
+    }
+    return null;
+  } catch (e) {
+    return null;
+  }
+}
+
+/// Top-level Isolate 任务：重度 CPU 正则与结构解析 VCF 文本
+List<Map<String, dynamic>> parseVcfIsolateTask(String vcfString) {
+  final lines = vcfString.split('\n');
+  final contactsList = <Map<String, dynamic>>[];
+  Map<String, dynamic>? currentContact;
+
+  for (final line in lines) {
+    final trimmedLine = line.trim();
+    final match = RegExp(r'^([^:]+):(.+)$').firstMatch(trimmedLine);
+
+    if (match != null) {
+      final fullProperty = match.group(1)!;
+      final value = match.group(2)!.trim();
+      final baseProperty = fullProperty.split(';').first;
+
+      switch (baseProperty) {
+        case 'BEGIN':
+          if (value == 'VCARD') {
+            currentContact = {
+              'id': const Uuid().v4(),
+              'name': '',
+              'phoneNumbers': <String>[],
+              'avatarBase64': null,
+            };
+          }
+          break;
+
+        case 'END':
+          if (value == 'VCARD' && currentContact != null) {
+            contactsList.add(currentContact);
+            currentContact = null;
+          }
+          break;
+
+        case 'FN':
+          if (currentContact != null) {
+            currentContact['name'] = value;
+          }
+          break;
+
+        case 'N':
+          if (currentContact != null) {
+            final nameParts = value.split(';');
+            if (nameParts.isNotEmpty && (currentContact['name'] as String).isEmpty) {
+              final lastName = nameParts[0].trim();
+              final firstName = nameParts.length > 1 ? nameParts[1].trim() : '';
+              currentContact['name'] = (firstName + lastName).trim();
+            }
+          }
+          break;
+
+        case 'TEL':
+          if (currentContact != null) {
+            String phoneNumber = value.replaceAll('-', '').trim();
+            if (phoneNumber.isNotEmpty) {
+              (currentContact['phoneNumbers'] as List<String>).add(phoneNumber);
+            }
+          }
+          break;
+
+        case 'EMAIL':
+          if (currentContact != null) {
+            currentContact['email'] = value;
+          }
+          break;
+
+        case 'URL':
+          if (currentContact != null) {
+            currentContact['website'] = value;
+          }
+          break;
+
+        case 'GROUP':
+          if (currentContact != null) {
+            currentContact['group'] = value;
+          }
+          break;
+
+        case 'PHOTO':
+          if (currentContact != null && value.startsWith('BASE64,')) {
+            currentContact['avatarBase64'] = value.substring(7).trim();
+          }
+          break;
+      }
+    }
+  }
+
+  return contactsList;
+}
+
+/// Top-level Isolate 任务：CSV 字符串反序列化解析
+List<Map<String, dynamic>> parseCsvIsolateTask(String csvString) {
+  final csvData = const CsvDecoder().convert(csvString);
+  if (csvData.isEmpty) return [];
+  final headers = (csvData.first).map((e) => e.toString().toLowerCase()).toList();
+  return csvData.skip(1).map((row) {
+    final map = <String, dynamic>{};
+    for (var i = 0; i < headers.length; i++) {
+      final rawKey = headers[i];
+      final value = row[i].toString();
+      if (rawKey == 'phonenumbers' || rawKey == 'phonenumber' || rawKey == 'phone') {
+        map['phoneNumbers'] = value.split(';');
+      } else if (rawKey == 'labelids' || rawKey == 'labelid' || rawKey == 'labels') {
+        map['labelIds'] = value.split(';');
+      } else {
+        map[rawKey] = value.isNotEmpty ? value : null;
+      }
+    }
+    return map;
+  }).toList();
+}
+
+/// Top-level Isolate 任务：YAML 字符串反序列化解析
+List<Map<String, dynamic>> parseYamlIsolateTask(String yamlString) {
+  final yamlData = loadYaml(yamlString) as List;
+  return yamlData
+      .map((item) => Map<String, dynamic>.from(item as Map))
+      .toList();
+}
+
+/// Top-level Isolate 任务：JSON 导出编码
+String exportJsonIsolateTask(List<Map<String, dynamic>> maps) {
+  return jsonEncode(maps);
+}
+
+/// Top-level Isolate 任务：CSV 导出编码
+String exportCsvIsolateTask(List<Map<String, dynamic>> rowsData) {
+  final csvRows = <List<dynamic>>[];
+  for (final map in rowsData) {
+    csvRows.add([map['id'], map['name'], (map['phoneNumbers'] as List).join(';')]);
+  }
+  return const CsvEncoder().convert(csvRows);
+}
+
 /// 联系人服务类，提供联系人的管理功能
-/// 包括添加、删除、查询联系人等操作
+/// 包括添加、删除、查询联系人、头像后台下载保存及 VCF/CSV/YAML/JSON Isolate 多线程导入导出
 class ContactService extends ListService<Contact, String> {
   final ContactRepository _contactRepository;
-  // 移除未使用的 _ruleImportExportService 字段
 
   ContactService(this._contactRepository) : super(_contactRepository);
 
   Future<void> editContact(Contact contact) async {
     if (contact.name.isEmpty) {
-      throw Exception('Contact name cannot be empty'); // L95
+      throw Exception('Contact name cannot be empty');
     }
 
     if (contact.email != null && contact.email!.isNotEmpty) {
       if (!EmailValidator.validate(contact.email!)) {
-        throw Exception('Invalid email address'); // L101
+        throw Exception('Invalid email address');
       }
     }
 
@@ -39,27 +207,20 @@ class ContactService extends ListService<Contact, String> {
       throw Exception('Contact does not exist');
     }
 
-    // 更新联系人
     await _contactRepository.updateContact(contact);
   }
 
-  // 删除联系人
   Future<void> deleteContact(PhoneNumber phoneNumber) async {
     await _contactRepository.deleteContact(phoneNumber);
   }
 
-  // 根据URL删除联系人
   Future<void> deleteContactByUrl(String url) async {
     await _contactRepository.deleteContactByUrl(url);
   }
 
-  // 批量删除联系人
   Future<void> deleteContacts(List<PhoneNumber> phoneNumbers) async {
-    final phoneNumberStrings = phoneNumbers.map((p) => p.value).toList();
-    await _contactRepository.deleteContacts(phoneNumbers); // 修正参数类型
+    await _contactRepository.deleteContacts(phoneNumbers);
   }
-
-  // 批量删除联系人实体
 
   @override
   Future<bool> deleteAll(List<Contact> entities) async {
@@ -70,8 +231,7 @@ class ContactService extends ListService<Contact, String> {
   Future<List<Contact>> checkForDuplicateContacts(
     List<Contact> contacts,
   ) async {
-    final existingContacts =
-        await _contactRepository.getAllContacts(); // 添加repository调用
+    final existingContacts = await _contactRepository.getAllContacts();
     final duplicateContacts = <Contact>[];
 
     for (final contact in contacts) {
@@ -79,7 +239,6 @@ class ContactService extends ListService<Contact, String> {
         if (contact.phoneNumbers.any(
           (phoneNumber) => existingContact.phoneNumbers.contains(phoneNumber),
         )) {
-          // 移除.value
           duplicateContacts.add(contact);
           break;
         }
@@ -89,12 +248,10 @@ class ContactService extends ListService<Contact, String> {
     return duplicateContacts;
   }
 
-  // 更新联系人
   Future<void> updateContact(Contact contact) async {
     await _contactRepository.updateContact(contact);
   }
 
-  // 添加联系人
   Future<void> addContact(Contact contact) async {
     if (contact.name.isEmpty) {
       throw Exception('Contact name cannot be empty');
@@ -115,11 +272,9 @@ class ContactService extends ListService<Contact, String> {
       }
     }
 
-    // 添加联系人
     await _contactRepository.addContact(contact);
   }
 
-  // 添加或更新联系人
   Future<void> addOrUpdateContact(Contact contact) async {
     final exists = await _contactRepository.contactExistsAny(
       contact.phoneNumbers.map((p) => PhoneNumber(p)).toList(),
@@ -132,14 +287,12 @@ class ContactService extends ListService<Contact, String> {
     }
   }
 
-  // 批量添加或更新联系人
   Future<void> addOrUpdateContacts(List<Contact> contacts) async {
     for (final contact in contacts) {
       await addOrUpdateContact(contact);
     }
   }
 
-  // 更新联系人头像
   Future<void> updateContactAvatar(
     PhoneNumber phoneNumber,
     String avatar,
@@ -154,17 +307,14 @@ class ContactService extends ListService<Contact, String> {
     await updateContact(contact);
   }
 
-  // 根据电话号码获取联系人
   Future<Contact?> getContactByPhoneNumber(PhoneNumber phoneNumber) async {
-    return await _contactRepository.getContactByPhone(phoneNumber); // 修正方法名
+    return await _contactRepository.getContactByPhone(phoneNumber);
   }
 
-  // 根据电话号码查找联系人
   Future<Contact?> findContactByPhoneNumber(PhoneNumber phoneNumber) async {
     return await _contactRepository.findContactByPhoneNumber(phoneNumber);
   }
 
-  // 合并联系人
   Future<void> mergeContacts(List<Contact> contacts) async {
     if (contacts.length < 2) return;
 
@@ -177,7 +327,6 @@ class ContactService extends ListService<Contact, String> {
     await updateContact(mergedContact);
   }
 
-  // 合并联系人详情
   Contact _mergeContactDetails(Contact contact1, Contact contact2) {
     return Contact(
       id: contact1.id,
@@ -193,225 +342,124 @@ class ContactService extends ListService<Contact, String> {
     );
   }
 
-  // 获取默认头像的首字母
   String getAvatarInitial(Contact contact) {
-    // 获取姓氏
     final nameParts = contact.name.split(' ');
     String lastName = nameParts.length > 1 ? nameParts.last : '';
     String firstName = nameParts.first;
 
-    // 1. 尝试匹配汉字 (优先级更高)
     RegExp chineseRegExp = RegExp(r'[\u4e00-\u9fa5]');
     Match? chineseMatch = chineseRegExp.firstMatch(firstName);
     if (chineseMatch != null) {
       return chineseMatch.group(0)!;
     }
 
-    // 2. 如果没有匹配到汉字，再判断是否为拉丁字母
     if (isLatin(lastName)) {
       return lastName[0].toUpperCase();
     }
 
-    // 如果没有匹配到汉字或拉丁字母，则返回默认值
     return '?';
   }
 
-  // 判断是否为拉丁文
   bool isLatin(String name) {
     RegExp regExp = RegExp(r'^[a-zA-Z]+$');
     return regExp.hasMatch(name);
   }
 
-  // 保存头像
+  /// 保存头像 - 剥离至 Isolate 后台副线程计算与 I/O 执行
   Future<String?> saveAvatar(dynamic imageData, Directory directory) async {
     try {
-      String fileName = 'avatar_${DateTime.now().millisecondsSinceEpoch}.png';
-      String filePath = '${directory.path}/$fileName';
-
-      if (imageData is String) {
-        if (imageData.startsWith('http')) {
-          // 如果是URL，下载图片
-          final response = await http.get(Uri.parse(imageData));
-          final File newFile = File(filePath);
-          await newFile.writeAsBytes(response.bodyBytes);
-        } else {
-          // 如果是base64字符串，解码并保存
-          final File newFile = File(filePath);
-          await newFile.writeAsBytes(base64.decode(imageData));
-        }
-      } else if (imageData is File) {
+      if (imageData is File) {
+        final fileName = 'avatar_${DateTime.now().millisecondsSinceEpoch}.png';
+        final filePath = '${directory.path}/$fileName';
         await imageData.copy(filePath);
-      } else if (imageData is List<int>) {
-        final File newFile = File(filePath);
-        await newFile.writeAsBytes(imageData);
-      } else {
-        throw Exception('Unsupported image data type');
+        return filePath;
       }
 
-      return filePath;
+      return await compute(saveAvatarIsolateTask, {
+        'imageData': imageData,
+        'dirPath': directory.path,
+      });
     } catch (e) {
       return null;
     }
   }
 
-  // 从VCF文件导入联系人
+  /// 从 VCF 文本导入联系人 - 使用 Isolate 解构计算
   Future<void> importContactsFromVcf(
     String vcfString,
     Directory directory,
   ) async {
-    final lines = vcfString.split('\n');
+    final rawMaps = await compute(parseVcfIsolateTask, vcfString);
     final contacts = <Contact>[];
-    Contact? currentContact;
 
-    for (final line in lines) {
-      final trimmedLine = line.trim();
-
-      // 修改正则表达式以处理属性中的分号和TYPE
-      final match = RegExp(r'^([^:]+):(.+)$').firstMatch(trimmedLine);
-
-      if (match != null) {
-        final fullProperty = match.group(1)!; // 完整的属性部分（包含TYPE等）
-        final value = match.group(2)!.trim();
-
-        // 获取基本属性名（去除TYPE等修饰符）
-        final baseProperty = fullProperty.split(';').first;
-
-        switch (baseProperty) {
-          case 'BEGIN':
-            if (value == 'VCARD') {
-              currentContact = Contact(
-                id: const Uuid().v4(),
-                name: '',
-                phoneNumbers: [],
-              );
-            }
-            break;
-
-          case 'END':
-            if (value == 'VCARD' && currentContact != null) {
-              contacts.add(currentContact);
-            }
-            break;
-
-          case 'FN':
-            if (currentContact != null) {
-              currentContact.name = value;
-            }
-            break;
-
-          case 'N':
-            if (currentContact != null) {
-              // 处理格式如 "N:迟;娇娇;;;"
-              final nameParts = value.split(';');
-              if (nameParts.isNotEmpty) {
-                // 如果 FN 还没有设置，使用 N 中的姓名
-                if (currentContact.name.isEmpty) {
-                  // 组合姓和名
-                  final lastName = nameParts[0].trim();
-                  final firstName =
-                      nameParts.length > 1 ? nameParts[1].trim() : '';
-                  currentContact.name = (firstName + lastName).trim();
-                }
-              }
-            }
-            break;
-
-          case 'TEL':
-            if (currentContact != null) {
-              // 直接获取冒号后面的电话号码部分
-              String phoneNumber = value.replaceAll('-', '').trim();
-              if (phoneNumber.isNotEmpty) {
-                currentContact.phoneNumbers.add(phoneNumber);
-              }
-            }
-            break;
-
-          case 'EMAIL':
-            if (currentContact != null) {
-              currentContact.email = value;
-            }
-            break;
-
-          case 'URL':
-            if (currentContact != null) {
-              currentContact.website = value;
-            }
-            break;
-
-          case 'GROUP':
-            if (currentContact != null) {
-              currentContact.group = value;
-            }
-            break;
-
-          case 'PHOTO':
-            if (currentContact != null && value.startsWith('BASE64,')) {
-              final base64Data = value.substring(7).trim();
-              currentContact.avatar = await saveAvatar(base64Data, directory);
-            }
-            break;
-        }
+    for (final map in rawMaps) {
+      String? avatarPath;
+      final base64Photo = map['avatarBase64'] as String?;
+      if (base64Photo != null && base64Photo.isNotEmpty) {
+        avatarPath = await saveAvatar(base64Photo, directory);
       }
+
+      contacts.add(Contact(
+        id: map['id'] as String,
+        name: map['name'] as String,
+        phoneNumbers: List<String>.from(map['phoneNumbers'] as List),
+        email: map['email'] as String?,
+        website: map['website'] as String?,
+        group: map['group'] as String?,
+        avatar: avatarPath,
+      ));
     }
 
     await addOrUpdateContacts(contacts);
   }
 
-  // 从CSV文件导入联系人
+  /// 从 CSV 文本导入联系人 - 使用 Isolate 解构计算
   Future<void> importContactsFromCsv(String csvString) async {
-    final csvData = const CsvDecoder().convert(csvString);
-    final headers =
-        (csvData.first).map((e) => e.toString().toLowerCase()).toList();
-    final contacts =
-        csvData.skip(1).map((row) {
-          final map = <String, dynamic>{};
-          for (var i = 0; i < headers.length; i++) {
-            final key = headers[i];
-            final value = row[i].toString();
-
-            // 自动处理List类型字段
-            if (Contact.listFields.contains(key)) {
-              map[key] = value.split(';');
-            } else {
-              map[key] = value.isNotEmpty ? value : null;
-            }
-          }
-          return Contact.fromMap(map);
-        }).toList();
-
+    final rawMaps = await compute(parseCsvIsolateTask, csvString);
+    final contacts = rawMaps.map((map) => Contact.fromMap(map)).toList();
     await addOrUpdateContacts(contacts);
   }
 
-  // 修改YAML导入方法
+  /// 从 YAML 文本导入联系人 - 使用 Isolate 解构计算
   Future<void> importContactsFromYaml(String yamlString) async {
-    final yamlData = loadYaml(yamlString) as List;
-    final contacts =
-        yamlData
-            .map((item) => Contact.fromMap(Map<String, dynamic>.from(item)))
-            .toList();
+    final rawMaps = await compute(parseYamlIsolateTask, yamlString);
+    final contacts = rawMaps.map((map) => Contact.fromMap(map)).toList();
     await addOrUpdateContacts(contacts);
   }
 
-  // 修改JSON导入方法
+  /// 从 JSON 数组导入联系人 - 使用 Isolate 解构计算
   Future<void> importContactsFromJson(List<dynamic> jsonData) async {
-    final contacts =
-        jsonData
-            .map((item) => Contact.fromMap(Map<String, dynamic>.from(item)))
-            .toList();
+    final contacts = jsonData
+        .map((item) => Contact.fromMap(Map<String, dynamic>.from(item)))
+        .toList();
     await addOrUpdateContacts(contacts);
   }
 
-  // 修改CSV导出方法
+  /// 从 JSON 字符串导入联系人 - 使用 Isolate 解构计算
+  Future<void> importContactsFromJsonString(String jsonString) async {
+    final rawMaps = await compute((String str) {
+      final List decoded = jsonDecode(str);
+      return decoded.map((e) => Map<String, dynamic>.from(e as Map)).toList();
+    }, jsonString);
+    final contacts = rawMaps.map((map) => Contact.fromMap(map)).toList();
+    await addOrUpdateContacts(contacts);
+  }
+
+  /// CSV 导出联系人 - 使用 Isolate 编码
   Future<String> exportContactsToCsv() async {
     final contacts = await _contactRepository.getAll();
-    return const CsvEncoder().convert(
-      contacts.map((c) => [c.id, c.name, c.phoneNumbers.join(';')]).toList(),
-    );
+    final maps = contacts.map((c) => {
+      'id': c.id,
+      'name': c.name,
+      'phoneNumbers': c.phoneNumbers,
+    }).toList();
+    return await compute(exportCsvIsolateTask, maps);
   }
 
-  // 修改JSON导出方法
+  /// JSON 导出联系人 - 使用 Isolate 编码
   Future<String> exportContactsToJson() async {
     final contacts = await _contactRepository.getAll();
-    return jsonEncode(contacts.map((c) => c.toMap()).toList());
+    final maps = contacts.map((c) => c.toMap()).toList();
+    return await compute(exportJsonIsolateTask, maps);
   }
 }

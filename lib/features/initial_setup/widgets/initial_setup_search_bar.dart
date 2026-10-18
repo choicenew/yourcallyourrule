@@ -42,10 +42,18 @@ class InitialSetupSearchBar extends StatelessWidget {
               child: TextField(
                 controller: searchController,
                 onChanged: onSearchChanged,
+                style: TextStyle(fontSize: 13, color: theme.colorScheme.onSurface),
                 decoration: InputDecoration(
                   hintText: l10n.initialSetupSearchHint,
-                  hintStyle: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6)),
-                  prefixIcon: Icon(Icons.search_rounded, size: 18, color: theme.colorScheme.onSurfaceVariant),
+                  hintStyle: TextStyle(
+                    fontSize: 12.5,
+                    color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6),
+                  ),
+                  prefixIcon: Icon(
+                    Icons.search_rounded,
+                    size: 18,
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
                   suffixIcon: searchQuery.isNotEmpty
                       ? IconButton(
                           icon: const Icon(Icons.clear_rounded, size: 16),
@@ -59,13 +67,49 @@ class InitialSetupSearchBar extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          FilterChip(
-            label: Text(
-              isAllSelected ? l10n.initialSetupDeselectAll : l10n.initialSetupSelectAll,
-              style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold),
+          Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: onToggleSelectAll,
+              borderRadius: BorderRadius.circular(12),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                decoration: BoxDecoration(
+                  color: isAnySelected
+                      ? theme.colorScheme.primary.withValues(alpha: 0.12)
+                      : theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.6),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: isAnySelected
+                        ? theme.colorScheme.primary.withValues(alpha: 0.3)
+                        : theme.colorScheme.outlineVariant,
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      isAllSelected ? Icons.check_box_outlined : Icons.check_rounded,
+                      size: 16,
+                      color: isAnySelected
+                          ? theme.colorScheme.primary
+                          : theme.colorScheme.onSurfaceVariant,
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      isAllSelected ? l10n.initialSetupDeselectAll : l10n.initialSetupSelectAll,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: isAnySelected
+                            ? theme.colorScheme.primary
+                            : theme.colorScheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
-            selected: isAnySelected,
-            onSelected: (_) => onToggleSelectAll(),
           ),
         ],
       ),

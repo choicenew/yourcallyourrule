@@ -1414,13 +1414,13 @@
       }
     }
   },
-  "stirVerified": "已验证",
+  "stirVerified": "STIR 通过",
   "@stirVerified": {
-    "description": "STIR/SHAKEN verification status: Verified"
+    "description": "STIR status: Pass"
   },
-  "stirNotVerified": "未验证",
+  "stirNotVerified": "STIR 未通过",
   "@stirNotVerified": {
-    "description": "STIR/SHAKEN verification status: Not Verified"
+    "description": "STIR status: Not Pass"
   },
   "stirFailed": "验证失败",
   "@stirFailed": {

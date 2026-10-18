@@ -90,7 +90,7 @@ class _RuleStub implements RuleBase {
   @override
   Map<String, dynamic> toMap() => {};
   @override
-  String toJson() => jsonEncode(toMap());
+  Map<String, dynamic> toJson() => toMap();
   @override
   RuleBase copyWith({
     String? id,

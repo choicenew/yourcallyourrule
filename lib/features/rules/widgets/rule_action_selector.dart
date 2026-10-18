@@ -16,10 +16,18 @@ class RuleActionSelector extends StatefulWidget {
   /// 当规则动作改变时的回调
   final ValueChanged<RuleAction> onActionChanged;
 
+  /// 是否显示广告
+  final bool showAd;
+
+  /// 自定义内边距
+  final EdgeInsetsGeometry? padding;
+
   const RuleActionSelector({
     super.key,
     required this.initialAction,
     required this.onActionChanged,
+    this.showAd = true,
+    this.padding,
   });
 
   @override
@@ -43,32 +51,68 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final effectivePadding = widget.padding ?? const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // 规则动作选择
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          padding: effectivePadding,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(AppLocalizations.of(context)!.ruleAction,
-                  style: Theme.of(context).textTheme.titleMedium),
+              Text(
+                AppLocalizations.of(context)!.ruleAction,
+                style: theme.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.onSurface,
+                ),
+              ),
               const SizedBox(height: 4),
-              Text(AppLocalizations.of(context)!.selectActionWhenRuleMatches,
-                  style: Theme.of(context).textTheme.bodySmall),
+              Text(
+                AppLocalizations.of(context)!.selectActionWhenRuleMatches,
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
+              ),
               const SizedBox(height: 8),
-              DropdownButton<RuleActionType>(
-                isExpanded: true,
+              DropdownButtonFormField<RuleActionType>(
                 value: _currentAction.type,
                 onChanged: _onActionTypeChanged,
                 items: RuleActionType.values.map((type) {
                   return DropdownMenuItem(
                     value: type,
                     child: Text(
-                        RuleActionDisplayUtils.getActionTypeName(context, type)),
+                      RuleActionDisplayUtils.getActionTypeName(context, type),
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: theme.colorScheme.onSurface,
+                      ),
+                    ),
                   );
                 }).toList(),
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                    borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                    borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                  filled: true,
+                  fillColor: theme.colorScheme.surfaceContainerHighest.withOpacity(0.3),
+                ),
+                dropdownColor: theme.colorScheme.surface,
+                icon: Icon(
+                  Icons.arrow_drop_down,
+                  color: theme.colorScheme.onSurfaceVariant,
+                ),
               ),
             ],
           ),
@@ -77,42 +121,84 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
         // 如果选择了阻止动作，显示拦截动作选择器
         if (_currentAction.type == RuleActionType.block)
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            padding: effectivePadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(AppLocalizations.of(context)!.interceptAction,
-                    style: Theme.of(context).textTheme.titleMedium),
+                Text(
+                  AppLocalizations.of(context)!.interceptAction,
+                  style: theme.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.onSurface,
+                  ),
+                ),
                 const SizedBox(height: 4),
-                Text(AppLocalizations.of(context)!.selectActionWhenBlockingCalls,
-                    style: Theme.of(context).textTheme.bodySmall),
+                Text(
+                  AppLocalizations.of(context)!.selectActionWhenBlockingCalls,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+                ),
                 const SizedBox(height: 8),
-                DropdownButton<InterceptAction?>(
-                  isExpanded: true,
+                DropdownButtonFormField<InterceptAction?>(
                   value: _selectedInterceptAction,
-                  hint: Text(AppLocalizations.of(context)!.useGlobalSettings),
+                  hint: Text(
+                    AppLocalizations.of(context)!.useGlobalSettings,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ),
                   onChanged: _onInterceptActionChanged,
                   items: [
                     // 添加一个null选项，表示使用全局设置
                     DropdownMenuItem<InterceptAction?>(
                       value: null,
-                      child: Text(AppLocalizations.of(context)!.useGlobalSettings),
+                      child: Text(
+                        AppLocalizations.of(context)!.useGlobalSettings,
+                        style: theme.textTheme.bodyMedium?.copyWith(
+                          color: theme.colorScheme.onSurface,
+                        ),
+                      ),
                     ),
                     // 添加所有可用的拦截动作
-                    ...RuleActionMapper.getAvailableInterceptActions()
-                        .map((action) {
+                    ...RuleActionMapper.getAvailableInterceptActions().map((action) {
                       return DropdownMenuItem<InterceptAction?>(
                         value: action,
-                        child: Text(RuleActionMapper.getInterceptActionDisplayName(
-                            action)),
+                        child: Text(
+                          RuleActionMapper.getInterceptActionDisplayName(action),
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: theme.colorScheme.onSurface,
+                          ),
+                        ),
                       );
                     }),
                   ],
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                      borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                      borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                    filled: true,
+                    fillColor: theme.colorScheme.surfaceContainerHighest.withOpacity(0.3),
+                  ),
+                  dropdownColor: theme.colorScheme.surface,
+                  icon: Icon(
+                    Icons.arrow_drop_down,
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
                 ),
               ],
             ),
           ),
-        GoogleAdWidget(adInfo: AdManager.bannerAd),
+        if (widget.showAd) GoogleAdWidget(adInfo: AdManager.bannerAd),
       ],
     );
   }

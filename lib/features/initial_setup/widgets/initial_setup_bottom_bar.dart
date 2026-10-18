@@ -21,6 +21,8 @@ class InitialSetupBottomBar extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
 
+    final isEnabled = selectedCount > 0 && !isDownloading;
+
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
@@ -30,18 +32,29 @@ class InitialSetupBottomBar extends StatelessWidget {
               onPressed: isDownloading ? null : onSkip,
               child: Text(
                 l10n.initialSetupSkip,
-                style: TextStyle(color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6)),
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.7),
+                ),
               ),
             ),
             const Spacer(),
             Container(
               decoration: BoxDecoration(
-                gradient: selectedCount > 0
-                    ? LinearGradient(colors: [theme.colorScheme.primary, theme.colorScheme.secondary])
+                gradient: isEnabled
+                    ? LinearGradient(
+                        colors: [
+                          theme.colorScheme.primary,
+                          theme.colorScheme.primary.withValues(alpha: 0.85),
+                        ],
+                      )
                     : null,
-                color: selectedCount == 0 ? theme.colorScheme.surfaceContainerHighest : null,
+                color: isEnabled
+                    ? null
+                    : theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.8),
                 borderRadius: BorderRadius.circular(16),
-                boxShadow: selectedCount > 0
+                boxShadow: isEnabled
                     ? [
                         BoxShadow(
                           color: theme.colorScheme.primary.withValues(alpha: 0.3),
@@ -55,20 +68,39 @@ class InitialSetupBottomBar extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
                   shadowColor: Colors.transparent,
-                  foregroundColor: Colors.white,
+                  foregroundColor: isEnabled
+                      ? Colors.white
+                      : theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
                 ),
-                onPressed: (selectedCount == 0 || isDownloading) ? null : onDownloadSelected,
+                onPressed: isEnabled ? onDownloadSelected : null,
                 icon: isDownloading
                     ? const SizedBox(
                         width: 16,
                         height: 16,
                         child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
                       )
-                    : const Icon(Icons.download_rounded, size: 18),
+                    : Icon(
+                        Icons.download_rounded,
+                        size: 18,
+                        color: isEnabled
+                            ? Colors.white
+                            : theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
+                      ),
                 label: Text(
-                  isDownloading ? l10n.initialSetupSaving : l10n.initialSetupSelectedCount(selectedCount),
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                  isDownloading
+                      ? l10n.initialSetupSaving
+                      : l10n.initialSetupSelectedCount(selectedCount),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 13.5,
+                    color: isEnabled
+                        ? Colors.white
+                        : theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5),
+                  ),
                 ),
               ),
             ),

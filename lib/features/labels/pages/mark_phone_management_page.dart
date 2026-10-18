@@ -208,7 +208,8 @@ class _MarkPhoneManagementPageState
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.markPhoneManagementTitle),
-        backgroundColor: const Color(0xFFF5A623),
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         actions: [
           // 添加兑换菜单按钮
           PopupMenuButton<String>(
@@ -222,7 +223,7 @@ class _MarkPhoneManagementPageState
                 value: 'exchange',
                 child: Row(
                   children: [
-                    const Icon(Icons.card_membership, color: Color(0xFFF5A623)),
+                    Icon(Icons.card_membership, color: Theme.of(context).colorScheme.primary),
                     const SizedBox(width: 8),
                     Text(AppLocalizations.of(context)!.exchangeVip),
                   ],
@@ -274,10 +275,10 @@ class _MarkPhoneManagementPageState
                 ),
                 Text(
                   '$_markCount',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFFF5A623),
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
               ],
@@ -288,8 +289,8 @@ class _MarkPhoneManagementPageState
               icon: const Icon(Icons.card_membership),
               label: Text(AppLocalizations.of(context)!.exchangeVip),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFF5A623),
-                foregroundColor: Colors.white,
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
                 minimumSize: const Size(double.infinity, 48),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -341,7 +342,7 @@ class _MarkPhoneManagementPageState
                   _selectedLabelId = labelId;
                 });
               },
-              themeColor: const Color(0xFFF5A623),
+              themeColor: Theme.of(context).colorScheme.primary,
             ),
             const SizedBox(height: 24),
             ElevatedButton.icon(
@@ -349,8 +350,8 @@ class _MarkPhoneManagementPageState
               icon: const Icon(Icons.label),
               label: Text(AppLocalizations.of(context)!.markPhone),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFF5A623),
-                foregroundColor: Colors.white,
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                foregroundColor: Theme.of(context).colorScheme.onPrimary,
                 minimumSize: const Size(double.infinity, 48),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -440,10 +441,10 @@ class _MarkPhoneManagementPageState
       margin: const EdgeInsets.symmetric(vertical: 4),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: const Color(0xFFF5A623),
+          backgroundColor: Theme.of(context).colorScheme.primary,
           child: Text(
             entry.name.isNotEmpty ? entry.name[0] : '?',
-            style: const TextStyle(color: Colors.white),
+            style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
           ),
         ),
         title: Text(entry.phoneNumber.value),

@@ -1273,11 +1273,11 @@
       }
     }
   },
-  "stirVerified": "បានផ្ទៀងផ្ទាត់",
+  "stirVerified": "STIR Pass",
   "@stirVerified": {
     "description": "STIR/SHAKEN verification status: Verified"
   },
-  "stirNotVerified": "មិនបានផ្ទៀងផ្ទាត់",
+  "stirNotVerified": "STIR Not Pass",
   "@stirNotVerified": {
     "description": "STIR/SHAKEN verification status: Not Verified"
   },

@@ -236,12 +236,12 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
                   width: 40,
                   height: 40,
                   decoration: BoxDecoration(
-                    color: const Color(0xFFF5A623).withValues(alpha:0.2),
+                    color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.info_outline,
-                    color: Color(0xFFF5A623),
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
                 const SizedBox(width: 16),
@@ -320,7 +320,7 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
             IconButton(
               icon: Icon(
                 isGranted ? Icons.check_circle : Icons.add_circle,
-                color: isGranted ? Colors.green : const Color(0xFFF5A623),
+                color: isGranted ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.error,
               ),
               onPressed: () => _requestPermission(item.name),
               tooltip: isGranted ? AppLocalizations.of(context)!.granted : AppLocalizations.of(context)!.requestPermission,

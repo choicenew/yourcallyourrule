@@ -416,7 +416,7 @@ class _RegexRulePageWithAdsState extends ConsumerState<RegexRulePageWithAds> {
       adInterval: 3,
       emptyText: AppLocalizations.of(context)!.noRegexRules,
       emptyIcon: Icons.code,
-      themeColor: const Color(0xFFF5A623),
+      themeColor: Theme.of(context).colorScheme.primary,
       isLoading: _isLoading,
       onRefresh: _loadRules,
       onAdd: () => _showAddRuleDialog(context),

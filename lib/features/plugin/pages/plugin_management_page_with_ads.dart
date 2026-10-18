@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
@@ -10,6 +11,7 @@ import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/core/provider/providers/plugin_manager_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/providers/plugin_service_provider.dart';
+import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/features/plugin/presentation/pages/plugin_script_editor_page.dart';
 import 'package:yourcallyourrule/features/plugin/presentation/pages/plugin_settings_dialog.dart';
@@ -624,6 +626,16 @@ class _PluginManagementPageWithAdsState
                 );
               },
             ),
+
+            // 规则库与插件初始化设置
+            ListTile(
+              leading: const Icon(Icons.tune_rounded),
+              title: Text(AppLocalizations.of(context)!.initialSetupTitle),
+              onTap: () {
+                Navigator.of(context).pop();
+                GoRouter.of(context).pushNamed(AppRouter.initialSetup);
+              },
+            ),
           ],
         ),
       ),
@@ -639,15 +651,17 @@ class _PluginManagementPageWithAdsState
   Widget _buildPluginStatusCard() {
     final enabledCount = _plugins.where((p) => p.isEnabled).length;
     final autoUpdateCount = _plugins.where((p) => p.isAutoUpdate).length;
+    final theme = Theme.of(context);
+    final primaryColor = theme.colorScheme.primary;
 
     return Container(
       margin: const EdgeInsets.only(bottom: 12.0),
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: Theme.of(context).colorScheme.outlineVariant,
+          color: theme.colorScheme.outlineVariant,
           width: 1.1,
         ),
       ),
@@ -662,22 +676,22 @@ class _PluginManagementPageWithAdsState
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF6C5CE7).withValues(alpha: 0.12),
+                      color: primaryColor.withValues(alpha: 0.12),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.extension_rounded,
-                      color: Color(0xFF6C5CE7),
+                      color: primaryColor,
                       size: 20,
                     ),
                   ),
                   const SizedBox(width: 10),
                   Text(
                     AppLocalizations.of(context)!.pluginService,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w900,
-                      color: Colors.black87,
+                      color: theme.colorScheme.onSurface,
                     ),
                   ),
                 ],
@@ -708,14 +722,15 @@ class _PluginManagementPageWithAdsState
   }
 
   Widget _buildStatusItem(String label, String value) {
+    final theme = Theme.of(context);
     return Column(
       children: [
         Text(
           value,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w900,
-            color: Colors.black87,
+            color: theme.colorScheme.onSurface,
           ),
         ),
         const SizedBox(height: 2),
@@ -724,7 +739,7 @@ class _PluginManagementPageWithAdsState
           style: TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.w600,
-            color: Colors.grey[600],
+            color: theme.colorScheme.onSurfaceVariant,
           ),
         ),
       ],
@@ -734,20 +749,24 @@ class _PluginManagementPageWithAdsState
   // 构建插件卡片
   Widget _buildPluginCard(PluginEntry plugin) {
     final isSelected = _selectedPluginIds.contains(plugin.id);
+    final theme = Theme.of(context);
+    final primaryColor = theme.colorScheme.primary;
+    final outlineColor = theme.colorScheme.outlineVariant;
+
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 6),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(18),
         border: Border.all(
-          color: isSelected ? const Color(0xFF6C5CE7) : const Color(0xFFEDE8DF),
+          color: isSelected ? primaryColor : outlineColor,
           width: isSelected ? 1.8 : 1.1,
         ),
         boxShadow: [
           BoxShadow(
             color: isSelected
-                ? const Color(0xFF6C5CE7).withValues(alpha: 0.16)
-                : Colors.black.withValues(alpha: 0.03),
+                ? primaryColor.withValues(alpha: 0.16)
+                : theme.shadowColor.withValues(alpha: 0.03),
             blurRadius: isSelected ? 12 : 8,
             offset: const Offset(0, 3),
           ),
@@ -757,7 +776,7 @@ class _PluginManagementPageWithAdsState
       child: Material(
         color: Colors.transparent,
         child: Theme(
-          data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+          data: theme.copyWith(dividerColor: Colors.transparent),
           child: ExpansionTile(
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -769,26 +788,26 @@ class _PluginManagementPageWithAdsState
                         padding: const EdgeInsets.all(7),
                         decoration: BoxDecoration(
                           color: plugin.isEnabled
-                              ? const Color(0xFF6C5CE7).withValues(alpha: 0.12)
-                              : Colors.grey.withValues(alpha: 0.12),
+                              ? primaryColor.withValues(alpha: 0.12)
+                              : theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.12),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Icon(
                           Icons.extension_rounded,
                           size: 18,
                           color: plugin.isEnabled
-                              ? const Color(0xFF6C5CE7)
-                              : Colors.grey,
+                              ? primaryColor
+                              : theme.colorScheme.onSurfaceVariant,
                         ),
                       ),
                       const SizedBox(width: 10),
                       Expanded(
                         child: Text(
                           plugin.name,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 15.5,
                             fontWeight: FontWeight.w900,
-                            color: Colors.black87,
+                            color: theme.colorScheme.onSurface,
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -806,7 +825,7 @@ class _PluginManagementPageWithAdsState
                     ),
                     Switch.adaptive(
                       value: plugin.isEnabled,
-                      activeTrackColor: const Color(0xFF6C5CE7),
+                      activeTrackColor: primaryColor,
                       onChanged: (value) => _togglePluginStatus(plugin, value),
                     ),
                   ],
@@ -825,7 +844,7 @@ class _PluginManagementPageWithAdsState
                         vertical: 3,
                       ),
                       decoration: BoxDecoration(
-                        color: const Color(0xFFF7F5F0),
+                        color: theme.colorScheme.surfaceContainerHighest,
                         borderRadius: BorderRadius.circular(6),
                       ),
                       child: Text(
@@ -833,7 +852,7 @@ class _PluginManagementPageWithAdsState
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
-                          color: Colors.grey[700],
+                          color: theme.colorScheme.onSurfaceVariant,
                         ),
                       ),
                     ),
@@ -841,7 +860,10 @@ class _PluginManagementPageWithAdsState
                       const SizedBox(height: 8),
                       Text(
                         '${AppLocalizations.of(context)!.description}: ${plugin.description}',
-                        style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
                       ),
                     ],
                     if (plugin.url.isNotEmpty) ...[
@@ -850,9 +872,9 @@ class _PluginManagementPageWithAdsState
                         onTap: () => _accessPluginUrl(plugin),
                         child: Text(
                           'Url: ${plugin.url}',
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 12,
-                            color: Color(0xFF007AFF),
+                            color: primaryColor,
                             decoration: TextDecoration.underline,
                           ),
                           overflow: TextOverflow.ellipsis,
@@ -928,10 +950,10 @@ class _PluginManagementPageWithAdsState
                               tooltip: 'Settings',
                             ),
                             IconButton(
-                              icon: const Icon(
+                              icon: Icon(
                                 Icons.delete_outline_rounded,
                                 size: 18,
-                                color: Colors.red,
+                                color: theme.colorScheme.error,
                               ),
                               onPressed: () => _deletePlugin(plugin),
                               tooltip: AppLocalizations.of(
@@ -982,16 +1004,19 @@ class _PluginManagementPageWithAdsState
   }
 
   Widget _buildInfoCard() {
+    final theme = Theme.of(context);
+    final primaryColor = theme.colorScheme.primary;
+
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: const Color(0xFFEDE8DF), width: 1.1),
+        border: Border.all(color: theme.colorScheme.outlineVariant, width: 1.1),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF6C5CE7).withValues(alpha: 0.06),
+            color: primaryColor.withValues(alpha: 0.06),
             blurRadius: 10,
             offset: const Offset(0, 3),
           ),
@@ -1002,16 +1027,61 @@ class _PluginManagementPageWithAdsState
         children: [
           Text(
             AppLocalizations.of(context)!.pluginManagementSubtitle,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w900,
-              color: Colors.black87,
+              color: theme.colorScheme.onSurface,
             ),
           ),
           const SizedBox(height: 6),
           Text(
             AppLocalizations.of(context)!.pluginRulesInfo,
-            style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+            style: TextStyle(
+              fontSize: 12,
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+          const SizedBox(height: 12),
+          InkWell(
+            onTap: () {
+              GoRouter.of(context).pushNamed(AppRouter.initialSetup);
+            },
+            borderRadius: BorderRadius.circular(8),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+              decoration: BoxDecoration(
+                color: primaryColor.withValues(alpha: 0.08),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(
+                  color: primaryColor.withValues(alpha: 0.2),
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.tune_rounded,
+                    size: 16,
+                    color: primaryColor,
+                  ),
+                  const SizedBox(width: 6),
+                  Text(
+                    AppLocalizations.of(context)!.initialSetupTitle,
+                    style: TextStyle(
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w700,
+                      color: primaryColor,
+                    ),
+                  ),
+                  const SizedBox(width: 4),
+                  Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: 12,
+                    color: primaryColor,
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
@@ -1070,7 +1140,7 @@ class _PluginManagementPageWithAdsState
             onPressed: () => Navigator.pop(context, true),
             child: Text(
               AppLocalizations.of(context)!.deleteButton,
-              style: const TextStyle(color: Colors.red),
+              style: TextStyle(color: Theme.of(context).colorScheme.error),
             ),
           ),
         ],
@@ -1125,12 +1195,6 @@ class _PluginManagementPageWithAdsState
         icon: const Icon(Icons.add),
         label: Text(AppLocalizations.of(context)!.addPlugin),
         onPressed: _showAddPluginDialog,
-      ),
-      themeColor: Color.fromRGBO(
-        255,
-        Random().nextInt(180),
-        Random().nextInt(50),
-        0.8,
       ),
       isLoading: _isLoading,
       onRefresh: _loadPlugins,

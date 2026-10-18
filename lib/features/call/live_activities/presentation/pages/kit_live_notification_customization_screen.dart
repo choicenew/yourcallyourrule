@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
+import 'package:yourcallyourrule/features/call/caller_id/core/extensions/phone_number_type_extension.dart';
 import 'package:yourcallyourrule/features/call/caller_id/mock_data/caller_id_mock.dart';
 import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
 import 'package:yourcallyourrule/features/call/live_activities/providers/live_notification_config_provider.dart';
@@ -243,14 +244,27 @@ class _KitLiveNotificationCustomizationScreenState
         : null;
 
     final List<String> details = [];
-    if (config.carrier.visible && mockData.carrier != null) details.add(mockData.carrier!);
-    if (config.location.visible && mockData.region != null) details.add(mockData.region!);
-    if (config.countryName.visible && mockData.countryName != null) details.add(mockData.countryName!);
-    if (config.numberType.visible) details.add(mockData.numberType.name);
     if (config.count.visible && mockData.count > 0) {
       details.add(AppLocalizations.of(context).callerIdMarkedByCount(mockData.count));
     }
-    if (config.simCard.visible && mockSimInfo.displayName != null) details.add(mockSimInfo.displayName!);
+    if (config.simCard.visible && mockSimInfo.displayName != null) {
+      details.add(mockSimInfo.displayName!);
+    }
+    if (config.carrier.visible && mockData.carrier != null) {
+      details.add(mockData.carrier!);
+    }
+    if (config.location.visible && mockData.region != null) {
+      details.add(mockData.region!);
+    }
+    if (config.countryName.visible && mockData.countryName != null) {
+      details.add(mockData.countryName!);
+    }
+    if (config.numberType.visible) {
+      details.add(mockData.numberType.translated(context));
+    }
+    if (config.stir.visible && mockStirInfo.isVerified) {
+      details.add(AppLocalizations.of(context).stirVerified);
+    }
     final String detailLine = details.join(' · ');
 
     final theme = Theme.of(context);
@@ -336,22 +350,20 @@ class _KitLiveNotificationCustomizationScreenState
                   ),
                 ),
               ],
-              if (config.stir.visible) ...[
+              if (config.stir.visible && mockStirInfo.isVerified) ...[
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    Icon(
-                      mockStirInfo.isVerified ? Icons.verified_user : Icons.gpp_maybe,
-                      color: mockStirInfo.isVerified ? Colors.green : Colors.grey,
+                    const Icon(
+                      Icons.verified_user,
+                      color: Colors.green,
                       size: 16,
                     ),
                     const SizedBox(width: 4),
                     Text(
-                      mockStirInfo.isVerified
-                          ? AppLocalizations.of(context).stirVerified
-                          : AppLocalizations.of(context).stirNotVerified,
+                      AppLocalizations.of(context).stirVerified,
                       style: TextStyle(
-                        color: mockStirInfo.isVerified ? Colors.green : Colors.grey[700],
+                        color: Colors.green,
                         fontSize: config.stir.fontSize,
                         fontWeight: FontWeight.bold,
                       ),

@@ -135,47 +135,82 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.0),
+      ),
       title: Text(AppLocalizations.of(context)!.allowedBlockedRuleEditDialogTitle),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          TextField(
-            controller: _nameController,
-            decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.ruleName,
-              hintText: AppLocalizations.of(context)!.exampleFamilyFriends,
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextField(
+              controller: _nameController,
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.ruleName,
+                hintText: AppLocalizations.of(context)!.exampleFamilyFriends,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
+                ),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+              ),
             ),
-          ),
-          const SizedBox(height: 16),
-          TextField(
-            controller: _phoneController,
-            decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.phoneNumber,
-              hintText: AppLocalizations.of(context)!.examplePhoneNumber,
+            const SizedBox(height: 12),
+            TextField(
+              controller: _phoneController,
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.phoneNumber,
+                hintText: AppLocalizations.of(context)!.examplePhoneNumber,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
+                ),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+              ),
+              keyboardType: TextInputType.phone,
             ),
-            keyboardType: TextInputType.phone,
-          ),
-          const SizedBox(height: 16),
-          PublicSelectLabel(
-            initialLabelId: _selectedLabelId,
-            onLabelIdChanged: (labelId) {
-              setState(() {
-                _selectedLabelId = labelId;
-              });
-            },
-            themeColor: widget.themeColor,
-          ),
-          const SizedBox(height: 16),
-          RuleActionSelector(
-            initialAction: _selectedAction,
-            onActionChanged: (action) {
-              setState(() {
-                _selectedAction = action;
-              });
-            },
-          ),
-        ],
+            const SizedBox(height: 12),
+            PublicSelectLabel(
+              initialLabelId: _selectedLabelId,
+              onLabelIdChanged: (labelId) {
+                setState(() {
+                  _selectedLabelId = labelId;
+                });
+              },
+              themeColor: widget.themeColor,
+            ),
+            const SizedBox(height: 12),
+            RuleActionSelector(
+              initialAction: _selectedAction,
+              showAd: false,
+              padding: EdgeInsets.zero,
+              onActionChanged: (action) {
+                setState(() {
+                  _selectedAction = action;
+                });
+              },
+            ),
+          ],
+        ),
       ),
       actions: [
         TextButton(

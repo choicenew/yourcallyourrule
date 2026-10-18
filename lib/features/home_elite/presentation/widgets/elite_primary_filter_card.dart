@@ -8,6 +8,7 @@ import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/call/call_filter/config/call_filter_config.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primary_filter/defense_strategy_item.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primary_filter/primary_filter_advanced_section.dart';
@@ -48,16 +49,16 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
-    final separateSims = ref.watch(separateSimsNotifierProvider).value ?? false;
+    final separateSims = ref.watch(separateSimsProvider).value ?? false;
 
     // 当开启分卡槽控制时，根据当前选中的卡槽读取对应卡槽的 CallFilterConfig；否则读取全局配置
     final callConfig = separateSims
-        ? ref.watch(simSlotCallFilterConfigNotifierProvider(_selectedSimSlot).select((v) => v.value))
+        ? ref.watch(simSlotCallFilterConfigProvider(_selectedSimSlot).select((v) => v.value))
         : ref.watch(callFilterConfigProvider.select((v) => v.value));
 
     void updateCurrentConfig(CallFilterConfig newConfig) {
       if (separateSims) {
-        ref.read(simSlotCallFilterConfigNotifierProvider(_selectedSimSlot).notifier).updateConfig(newConfig);
+        ref.read(simSlotCallFilterConfigProvider(_selectedSimSlot).notifier).updateConfig(newConfig);
       } else {
         ref.read(callFilterConfigProvider.notifier).updateConfig(newConfig);
       }
@@ -226,7 +227,7 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
             l10n: l10n,
             separateSims: separateSims,
             onSeparateSimsChanged: (val) {
-              ref.read(separateSimsNotifierProvider.notifier).setSeparateSims(val);
+              ref.read(separateSimsProvider.notifier).setSeparateSims(val);
             },
             onNavigateSettings: _navigateToFilterSettings,
           ),
