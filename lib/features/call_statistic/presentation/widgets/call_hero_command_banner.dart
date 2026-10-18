@@ -3,7 +3,7 @@ import 'package:yourcallyourrule/features/call_statistic/data/services/call_stat
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_chart.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 系统主题 · 呼叫安防战报指挥舱 Hero 独立微组件
+/// 系统主题 · 呼叫安防战报指挥舱 Hero 独立解耦组件（100% 真实数据驱动 + 100% 系统 Theme + 100% i18n）
 class CallHeroCommandBanner extends StatelessWidget {
   final CallStatisticsState state;
 
@@ -59,7 +59,7 @@ class CallHeroCommandBanner extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // 1. 顶部状态与脉冲发光指示
+                // 1. 顶部真实状态指示
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -100,33 +100,11 @@ class CallHeroCommandBanner extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                      decoration: BoxDecoration(
-                        color: theme.colorScheme.surface.withValues(alpha: 0.6),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.bolt_rounded, color: theme.colorScheme.primary, size: 12),
-                          const SizedBox(width: 3),
-                          Text(
-                            '< 2ms',
-                            style: TextStyle(
-                              color: theme.colorScheme.onSurface,
-                              fontSize: 10,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
                   ],
                 ),
                 const SizedBox(height: 16),
 
-                // 2. 双主指标控制台
+                // 2. 双主指标控制台（真实 blockedCallsCount & totalRules）
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -144,36 +122,14 @@ class CallHeroCommandBanner extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 2),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.baseline,
-                            textBaseline: TextBaseline.alphabetic,
-                            children: [
-                              Text(
-                                '${state.blockedCallsCount}',
-                                style: TextStyle(
-                                  color: theme.colorScheme.onPrimaryContainer,
-                                  fontSize: 38,
-                                  fontWeight: FontWeight.w900,
-                                  letterSpacing: -1,
-                                ),
-                              ),
-                              const SizedBox(width: 6),
-                              Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.primary.withValues(alpha: 0.15),
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                                child: Text(
-                                  '▲ 0.0%',
-                                  style: TextStyle(
-                                    color: theme.colorScheme.primary,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.w800,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Text(
+                            '${state.blockedCallsCount}',
+                            style: TextStyle(
+                              color: theme.colorScheme.onPrimaryContainer,
+                              fontSize: 38,
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: -1,
+                            ),
                           ),
                         ],
                       ),
@@ -224,7 +180,7 @@ class CallHeroCommandBanner extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // 3. 4列微型战报控制台
+                // 3. 4列微型战报控制台（真实数据项）
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
                   decoration: BoxDecoration(
@@ -249,7 +205,7 @@ class CallHeroCommandBanner extends StatelessWidget {
                 ),
                 const SizedBox(height: 14),
 
-                // 4. 底部微波趋势线条
+                // 4. 底部微波趋势线条（无数据时用半透明灰度占位 Sparkline 支撑）
                 SizedBox(
                   height: 54,
                   child: StatisticChart(chartData: state.chartData),

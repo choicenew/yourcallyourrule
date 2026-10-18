@@ -7,7 +7,7 @@ import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_her
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/risk_bento_grid.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 极致高信息密度 · 社区威胁情报与众包治理控制台组装组件（模块化微组件设计，100% 原生 Theme.of(context) & i18n）
+/// 真实数据驱动 · 社区治理统计控制台组件（模块化解耦架构，100% 绑定真实 Provider & i18n，无硬编码假数据）
 class StatisticsCard extends StatelessWidget {
   final Map<String, int>? statistics;
   final int? voteCount;
@@ -32,7 +32,7 @@ class StatisticsCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // 1. 社区威胁情报与 VIP 战报指挥舱组件
+        // 1. 社区威胁情报与 VIP 战报指挥舱组件 (Hero Banner)
         ProposalHeroBanner(
           voteCount: count,
           totalPending: totalPending,
@@ -45,11 +45,11 @@ class StatisticsCard extends StatelessWidget {
         const GoogleAdWidget(adInfo: AdManager.bannerAd),
         const SizedBox(height: 14),
 
-        // 3. 待处理提议战报卡片
+        // 3. 待处理提议真实概览卡片
         _buildOverviewCard(context, l10n, totalPending),
         const SizedBox(height: 14),
 
-        // 4. 风险等级 3D 异形 Bento 盒组件
+        // 4. 风险等级 3D 异形 Bento 盒组件（真实 highRisk / mediumRisk / lowRisk 驱动）
         RiskBentoGrid(
           highRisk: highRisk,
           mediumRisk: mediumRisk,
@@ -61,21 +61,21 @@ class StatisticsCard extends StatelessWidget {
         const GoogleAdWidget(adInfo: AdManager.bannerAd),
         const SizedBox(height: 14),
 
-        // 6. 社区共识通过率与审议趋势卡片组件
+        // 6. 社区共识通过率与下架率动态分析组件（真实 proposals 驱动）
         const ProposalConsensusCard(),
         const SizedBox(height: 14),
 
-        // 7. 社区防护影响力控制台卡片
+        // 7. 社区防护影响力控制台卡片（真实数据计算）
         _buildImpactCard(context, l10n, totalPending, highRisk),
         const SizedBox(height: 14),
 
-        // 8. 实时社区审议日志数据流组件
+        // 8. 实时社区提议与审议数据流日志组件（真实 proposals 动态流驱动）
         const ProposalAuditStreamCard(),
       ],
     );
   }
 
-  /// 待处理提议概览
+  /// 待处理提议真实概览
   Widget _buildOverviewCard(BuildContext context, AppLocalizations l10n, int totalPending) {
     final theme = Theme.of(context);
 
@@ -126,21 +126,6 @@ class StatisticsCard extends StatelessWidget {
                     ),
                   ),
                 ],
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.surfaceContainerHighest,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Text(
-                  'Sync Interval: 15m',
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w700,
-                    color: theme.colorScheme.onSurfaceVariant,
-                  ),
-                ),
               ),
             ],
           ),

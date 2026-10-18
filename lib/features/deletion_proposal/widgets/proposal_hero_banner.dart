@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 系统主题 · 社区威胁情报与 VIP 战报指挥舱 Hero 独立微组件
+/// 系统主题 · 社区威胁情报与 VIP 战报指挥舱 Hero 独立解耦组件 (100% 真实数据 + 100% i18n)
 class ProposalHeroBanner extends StatelessWidget {
   final int voteCount;
   final int totalPending;
@@ -47,7 +47,7 @@ class ProposalHeroBanner extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 1. 状态与级别微标
+          // 1. 状态指示
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -74,33 +74,34 @@ class ProposalHeroBanner extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.surface.withValues(alpha: 0.6),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(Icons.workspace_premium_rounded, color: theme.colorScheme.primary, size: 12),
-                    const SizedBox(width: 3),
-                    Text(
-                      'VIP PRIVILEGE',
-                      style: TextStyle(
-                        color: theme.colorScheme.onSurface,
-                        fontSize: 10,
-                        fontWeight: FontWeight.w800,
+              if (voteCount >= 10)
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.surface.withValues(alpha: 0.6),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.workspace_premium_rounded, color: theme.colorScheme.primary, size: 12),
+                      const SizedBox(width: 3),
+                      Text(
+                        l10n.exchangeVip,
+                        style: TextStyle(
+                          color: theme.colorScheme.onSurface,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w800,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
             ],
           ),
           const SizedBox(height: 16),
 
-          // 2. 主指标区
+          // 2. 真实主指标区
           Row(
             children: [
               Expanded(
@@ -167,7 +168,7 @@ class ProposalHeroBanner extends StatelessWidget {
           ),
           const SizedBox(height: 14),
 
-          // 3. 4列微型社区战报控制台
+          // 3. 微型社区战报控制台（真实数据项）
           Container(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
             decoration: BoxDecoration(
@@ -185,13 +186,11 @@ class ProposalHeroBanner extends StatelessWidget {
                 _buildMicroStatItem(context, l10n.highRisk, '$highRisk'),
                 _buildVerticalDivider(context),
                 _buildMicroStatItem(context, l10n.communityVotes, '$voteCount'),
-                _buildVerticalDivider(context),
-                _buildMicroStatItem(context, l10n.processed, '1,280'),
               ],
             ),
           ),
 
-          // 4. VIP 兑换按钮
+          // 4. VIP 兑换按钮（达标解锁时展示）
           if (onExchangeVip != null) ...[
             const SizedBox(height: 14),
             Container(

@@ -14,7 +14,7 @@ import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/pe
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/block_donut_chart_card.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/sim_bar_chart_card.dart';
 
-/// 智能高密度通话拦截统计容器 Widget（模块化拆分组件，100% 系统 Theme.of(context) 主题与 i18n）
+/// 智能高密度通话拦截统计容器 Widget（100% 系统 Theme.of(context) 主题与 i18n）
 class CallStatisticsContainerWidget extends ConsumerStatefulWidget {
   const CallStatisticsContainerWidget({super.key});
 
@@ -57,7 +57,7 @@ class _CallStatisticsContainerWidgetState
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 1. 顶部战报指挥舱 Hero 卡片组件
+          // 1. 顶部战报指挥舱 Hero 解耦卡片
           CallHeroCommandBanner(state: state),
           const SizedBox(height: 14),
 
@@ -104,7 +104,7 @@ class _CallStatisticsContainerWidgetState
     );
   }
 
-  /// 统计网格 Bento 盒
+  /// 统计网格（全原生 Theme 调色）
   Widget _buildStatsGrid(BuildContext context, CallStatisticsState state) {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);

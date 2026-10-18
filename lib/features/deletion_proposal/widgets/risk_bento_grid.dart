@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 系统主题 · 风险等级 3D 异形 Bento 三宫格独立微组件
+/// 系统主题 · 风险等级 Bento 三宫格独立解耦微组件 (100% 真实数据驱动 + 100% i18n)
 class RiskBentoGrid extends StatelessWidget {
   final int highRisk;
   final int mediumRisk;
@@ -27,8 +27,6 @@ class RiskBentoGrid extends StatelessWidget {
             l10n.highRisk,
             highRisk,
             l10n.scamFraud,
-            '>80%',
-            'P0',
             Icons.warning_amber_rounded,
             theme.colorScheme.error,
           ),
@@ -40,8 +38,6 @@ class RiskBentoGrid extends StatelessWidget {
             l10n.mediumRisk,
             mediumRisk,
             l10n.aiMarketing,
-            '>50%',
-            'P1',
             Icons.info_outline_rounded,
             theme.colorScheme.tertiary,
           ),
@@ -53,8 +49,6 @@ class RiskBentoGrid extends StatelessWidget {
             l10n.lowRisk,
             lowRisk,
             l10n.falsePositiveClean,
-            'OK',
-            'P2',
             Icons.check_circle_outline_rounded,
             theme.colorScheme.primary,
           ),
@@ -68,8 +62,6 @@ class RiskBentoGrid extends StatelessWidget {
     String title,
     int count,
     String typeLabel,
-    String thresholdLabel,
-    String priorityTag,
     IconData icon,
     Color color,
   ) {
@@ -108,21 +100,6 @@ class RiskBentoGrid extends StatelessWidget {
                   icon,
                   color: color,
                   size: 16,
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-                decoration: BoxDecoration(
-                  color: color.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: Text(
-                  priorityTag,
-                  style: TextStyle(
-                    fontSize: 8,
-                    fontWeight: FontWeight.w900,
-                    color: color,
-                  ),
                 ),
               ),
             ],

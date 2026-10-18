@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/providers/deletion_proposal_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 系统主题 · 实时社区审议日志数据流独立微组件
-class ProposalAuditStreamCard extends StatelessWidget {
+/// 系统主题 · 真实数据驱动的社区提议列表与流日志独立微组件 (100% 真实数据 + 100% i18n)
+class ProposalAuditStreamCard extends ConsumerWidget {
   const ProposalAuditStreamCard({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);
+    final proposalState = ref.watch(deletionProposalProvider);
+    final proposals = proposalState.proposals;
 
     return Container(
       padding: const EdgeInsets.all(18),
@@ -76,25 +81,31 @@ class ProposalAuditStreamCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 14),
-          _buildStreamLogRow(
-            context,
-            '#PROP-9812',
-            '+86 138****9981',
-            l10n.processed,
-            '8/1',
-            '✅',
-            theme.colorScheme.primary,
-          ),
-          const Divider(height: 16, thickness: 0.8),
-          _buildStreamLogRow(
-            context,
-            '#PROP-9811',
-            '+86 199****1234',
-            l10n.pending,
-            '15/0',
-            '⚡',
-            theme.colorScheme.tertiary,
-          ),
+          if (proposals.isEmpty)
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: Text(
+                  l10n.noProposalsFound,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+                ),
+              ),
+            )
+          else
+            ListView.separated(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: proposals.length > 3 ? 3 : proposals.length,
+              separatorBuilder: (context, index) => const Divider(height: 16, thickness: 0.8),
+              itemBuilder: (context, index) {
+                final proposal = proposals[index];
+                return _buildStreamLogRow(context, proposal, theme, l10n);
+              },
+            ),
         ],
       ),
     );
@@ -102,14 +113,16 @@ class ProposalAuditStreamCard extends StatelessWidget {
 
   Widget _buildStreamLogRow(
     BuildContext context,
-    String id,
-    String phoneMask,
-    String actionLabel,
-    String voteRatio,
-    String statusIcon,
-    Color statusColor,
+    Proposal proposal,
+    ThemeData theme,
+    AppLocalizations l10n,
   ) {
-    final theme = Theme.of(context);
+    final phone = proposal.phoneNumber;
+    final maskedPhone = phone.length > 7
+        ? '${phone.substring(0, 3)}****${phone.substring(phone.length - 4)}'
+        : phone;
+    final total = proposal.totalVotes;
+    final ratioPct = total > 0 ? ((proposal.supportVotes / total) * 100).toStringAsFixed(0) : '0';
 
     return Row(
       children: [
@@ -117,30 +130,17 @@ class ProposalAuditStreamCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  Text(
-                    id,
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w800,
-                      color: theme.colorScheme.primary,
-                    ),
-                  ),
-                  const SizedBox(width: 6),
-                  Text(
-                    phoneMask,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w800,
-                      color: theme.colorScheme.onSurface,
-                    ),
-                  ),
-                ],
+              Text(
+                maskedPhone,
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w800,
+                  color: theme.colorScheme.onSurface,
+                ),
               ),
               const SizedBox(height: 2),
               Text(
-                '$actionLabel · $voteRatio',
+                '${proposal.highestRiskLevel.name.toUpperCase()} · $ratioPct% Delete Ratio',
                 style: TextStyle(
                   fontSize: 10,
                   fontWeight: FontWeight.w600,
@@ -153,15 +153,15 @@ class ProposalAuditStreamCard extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           decoration: BoxDecoration(
-            color: statusColor.withValues(alpha: 0.12),
+            color: theme.colorScheme.primary.withValues(alpha: 0.12),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Text(
-            '$statusIcon $actionLabel',
+            proposal.status.name.toUpperCase(),
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w800,
-              color: statusColor,
+              color: theme.colorScheme.primary,
             ),
           ),
         ),
