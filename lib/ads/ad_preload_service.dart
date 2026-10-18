@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // 文件: ad_preload_service.dart
 // 描述: 全局广告预加载池管理器 (Ad Preload Engine)。
-// 支持对 Banner、Native、插屏 (Interstitial) 和 激励广告 (Rewarded) 进行全方位预加载！
+// 包含【滑动消耗速度预测算法】：默认保持 1 个官方容量；快速滑动时动态扩容至 2 个；闲置自动归一。
 // -----------------------------------------------------------------------------
 
 import 'dart:async';
@@ -30,9 +30,37 @@ class AdPreloadManager {
   AdPreloadManager._();
   static final AdPreloadManager instance = AdPreloadManager._();
 
-  // 广告池映射：adUnitId -> PreloadedAdWrapper
-  final Map<String, PreloadedAdWrapper> _preloadPool = {};
+  // 广告池映射：adUnitId -> PreloadedAdWrapper 列表队列
+  final Map<String, List<PreloadedAdWrapper>> _preloadQueueMap = {};
   final Set<String> _loadingUnits = {};
+
+  // 消耗速度预测器：adUnitId -> 最近 10 秒内的消耗时间戳记录
+  final Map<String, List<DateTime>> _consumptionTimestamps = {};
+
+  /// 预测当前消费速度，计算自适应预加载容量上限（1 ~ 2）
+  int _calculateAdaptiveCapacity(String adUnitId) {
+    final now = DateTime.now();
+    final timestamps = _consumptionTimestamps[adUnitId] ?? [];
+
+    // 过滤保留 10 秒以内的消费记录
+    timestamps.removeWhere((ts) => now.difference(ts).inSeconds > 10);
+    _consumptionTimestamps[adUnitId] = timestamps;
+
+    // 如果 10 秒内被消费了 >= 2 次（说明用户正在快速滑动卡片或频繁换页），容量扩容至 2
+    if (timestamps.length >= 2) {
+      debugPrint('⚡ [AdPreloadPredictor] 检测到高频滑动消耗 (${timestamps.length}次/10s)，池容量扩容至 2');
+      return 2;
+    }
+
+    // 闲置状态，默认保持 1 个官方标准容量
+    return 1;
+  }
+
+  /// 记录一次消耗事件
+  void _recordConsumption(String adUnitId) {
+    final timestamps = _consumptionTimestamps.putIfAbsent(adUnitId, () => []);
+    timestamps.add(DateTime.now());
+  }
 
   // ===========================================================================
   // 1. 横幅广告 (Banner / Adaptive Banner) 预加载
@@ -41,9 +69,22 @@ class AdPreloadManager {
     final unitId = adInfo.adUnitId;
     if (unitId.isEmpty || unitId.startsWith('<YOUR_')) return;
 
-    final existing = _preloadPool[unitId];
-    if (existing != null && !existing.isExpired) return;
-    if (_loadingUnits.contains(unitId)) return;
+    final targetCapacity = _calculateAdaptiveCapacity(unitId);
+    final queue = _preloadQueueMap.putIfAbsent(unitId, () => []);
+
+    // 清理队列中已过期的广告
+    queue.removeWhere((wrapper) {
+      if (wrapper.isExpired) {
+        wrapper.ad?.dispose();
+        return true;
+      }
+      return false;
+    });
+
+    // 如果队列数量已达目标上限，或正在加载中，跳过
+    if (queue.length >= targetCapacity || _loadingUnits.contains(unitId)) {
+      return;
+    }
 
     _loadingUnits.add(unitId);
     final size = customSize ?? adInfo.size ?? AdSize.banner;
@@ -57,14 +98,18 @@ class AdPreloadManager {
           _loadingUnits.remove(unitId);
           final bannerAd = ad as BannerAd;
           final platformAdSize = await bannerAd.getPlatformAdSize();
-          _preloadPool[unitId]?.ad?.dispose();
 
-          _preloadPool[unitId] = PreloadedAdWrapper(
+          queue.add(PreloadedAdWrapper(
             ad: bannerAd,
             adSize: platformAdSize,
             loadTime: DateTime.now(),
-          );
-          debugPrint('⚡ [AdPreload] BannerAd 预加载成功: $unitId');
+          ));
+          debugPrint('⚡ [AdPreload] BannerAd 预加载成功 (队列长度 ${queue.length}/$targetCapacity): $unitId');
+
+          // 如果还没达到预测容量上限，自动开启下一个补充加载
+          if (queue.length < targetCapacity) {
+            preloadBannerAd(adInfo, customSize: customSize);
+          }
         },
         onAdFailedToLoad: (ad, error) {
           _loadingUnits.remove(unitId);
@@ -76,12 +121,16 @@ class AdPreloadManager {
   }
 
   PreloadedAdWrapper? consumeBannerAd(String adUnitId) {
-    final wrapper = _preloadPool.remove(adUnitId);
-    if (wrapper != null && !wrapper.isExpired) {
-      debugPrint('🚀 [AdPreload] 命中 Banner 预加载池 (0ms 秒出): $adUnitId');
-      return wrapper;
+    _recordConsumption(adUnitId);
+    final queue = _preloadQueueMap[adUnitId];
+    if (queue != null && queue.isNotEmpty) {
+      final wrapper = queue.removeAt(0);
+      if (!wrapper.isExpired) {
+        debugPrint('🚀 [AdPreload] 命中 Banner 预加载池 (0ms 秒出，剩余队列: ${queue.length}): $adUnitId');
+        return wrapper;
+      }
+      wrapper.ad?.dispose();
     }
-    wrapper?.ad?.dispose();
     return null;
   }
 
@@ -92,13 +141,23 @@ class AdPreloadManager {
     final unitId = adInfo.adUnitId;
     if (unitId.isEmpty || unitId.startsWith('<YOUR_')) return;
 
-    final existing = _preloadPool[unitId];
-    if (existing != null && !existing.isExpired) return;
-    if (_loadingUnits.contains(unitId)) return;
+    final targetCapacity = _calculateAdaptiveCapacity(unitId);
+    final queue = _preloadQueueMap.putIfAbsent(unitId, () => []);
+
+    queue.removeWhere((wrapper) {
+      if (wrapper.isExpired) {
+        wrapper.ad?.dispose();
+        return true;
+      }
+      return false;
+    });
+
+    if (queue.length >= targetCapacity || _loadingUnits.contains(unitId)) {
+      return;
+    }
 
     _loadingUnits.add(unitId);
-    final nativeConfig = config ??
-        const NativeAdConfig(template: NativeAdTemplate.small);
+    final nativeConfig = config ?? const NativeAdConfig(template: NativeAdTemplate.small);
 
     NativeAd(
       adUnitId: unitId,
@@ -107,13 +166,15 @@ class AdPreloadManager {
       listener: NativeAdListener(
         onAdLoaded: (ad) {
           _loadingUnits.remove(unitId);
-          _preloadPool[unitId]?.ad?.dispose();
-
-          _preloadPool[unitId] = PreloadedAdWrapper(
+          queue.add(PreloadedAdWrapper(
             ad: ad,
             loadTime: DateTime.now(),
-          );
-          debugPrint('⚡ [AdPreload] NativeAd 预加载成功: $unitId');
+          ));
+          debugPrint('⚡ [AdPreload] NativeAd 预加载成功 (队列长度 ${queue.length}/$targetCapacity): $unitId');
+
+          if (queue.length < targetCapacity) {
+            preloadNativeAd(adInfo, config: config);
+          }
         },
         onAdFailedToLoad: (ad, error) {
           _loadingUnits.remove(unitId);
@@ -125,25 +186,40 @@ class AdPreloadManager {
   }
 
   PreloadedAdWrapper? consumeNativeAd(String adUnitId) {
-    final wrapper = _preloadPool.remove(adUnitId);
-    if (wrapper != null && !wrapper.isExpired) {
-      debugPrint('🚀 [AdPreload] 命中 Native 预加载池 (0ms 秒出): $adUnitId');
-      return wrapper;
+    _recordConsumption(adUnitId);
+    final queue = _preloadQueueMap[adUnitId];
+    if (queue != null && queue.isNotEmpty) {
+      final wrapper = queue.removeAt(0);
+      if (!wrapper.isExpired) {
+        debugPrint('🚀 [AdPreload] 命中 Native 预加载池 (0ms 秒出，剩余队列: ${queue.length}): $adUnitId');
+        return wrapper;
+      }
+      wrapper.ad?.dispose();
     }
-    wrapper?.ad?.dispose();
     return null;
   }
 
   // ===========================================================================
-  // 3. 插屏广告 (Interstitial Ad) 预加载 (谷歌官方推荐提前预加载)
+  // 3. 插屏广告 (Interstitial Ad) 预加载
   // ===========================================================================
   Future<void> preloadInterstitialAd(AdInfo adInfo) async {
     final unitId = adInfo.adUnitId;
     if (unitId.isEmpty || unitId.startsWith('<YOUR_')) return;
 
-    final existing = _preloadPool[unitId];
-    if (existing != null && !existing.isExpired) return;
-    if (_loadingUnits.contains(unitId)) return;
+    final targetCapacity = _calculateAdaptiveCapacity(unitId);
+    final queue = _preloadQueueMap.putIfAbsent(unitId, () => []);
+
+    queue.removeWhere((wrapper) {
+      if (wrapper.isExpired) {
+        wrapper.ad?.dispose();
+        return true;
+      }
+      return false;
+    });
+
+    if (queue.length >= targetCapacity || _loadingUnits.contains(unitId)) {
+      return;
+    }
 
     _loadingUnits.add(unitId);
 
@@ -153,12 +229,10 @@ class AdPreloadManager {
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {
           _loadingUnits.remove(unitId);
-          _preloadPool[unitId]?.ad?.dispose();
-
-          _preloadPool[unitId] = PreloadedAdWrapper(
+          queue.add(PreloadedAdWrapper(
             ad: ad,
             loadTime: DateTime.now(),
-          );
+          ));
           debugPrint('⚡ [AdPreload] InterstitialAd 预加载成功: $unitId');
         },
         onAdFailedToLoad: (error) {
@@ -170,27 +244,40 @@ class AdPreloadManager {
   }
 
   PreloadedAdWrapper? consumeInterstitialAd(String adUnitId) {
-    final wrapper = _preloadPool.remove(adUnitId);
-    if (wrapper != null && !wrapper.isExpired) {
-      debugPrint('🚀 [AdPreload] 命中 Interstitial 预加载池 (0ms 秒出): $adUnitId');
-      return wrapper;
+    _recordConsumption(adUnitId);
+    final queue = _preloadQueueMap[adUnitId];
+    if (queue != null && queue.isNotEmpty) {
+      final wrapper = queue.removeAt(0);
+      if (!wrapper.isExpired) {
+        debugPrint('🚀 [AdPreload] 命中 Interstitial 预加载池 (0ms 秒出): $adUnitId');
+        return wrapper;
+      }
+      wrapper.ad?.dispose();
     }
-    wrapper?.ad?.dispose();
     return null;
   }
 
   // ===========================================================================
   // 4. 激励广告 (Rewarded Ad) 预加载
-  // 核心规则：可以提前预加载视频素材，但【绝对不自动播放】！
-  // 只有当用户主动点击“看视频”按钮时，调用 show() 瞬间播放，避免用户等待5秒圈圈！
   // ===========================================================================
   Future<void> preloadRewardedAd(AdInfo adInfo) async {
     final unitId = adInfo.adUnitId;
     if (unitId.isEmpty || unitId.startsWith('<YOUR_')) return;
 
-    final existing = _preloadPool[unitId];
-    if (existing != null && !existing.isExpired) return;
-    if (_loadingUnits.contains(unitId)) return;
+    final targetCapacity = _calculateAdaptiveCapacity(unitId);
+    final queue = _preloadQueueMap.putIfAbsent(unitId, () => []);
+
+    queue.removeWhere((wrapper) {
+      if (wrapper.isExpired) {
+        wrapper.ad?.dispose();
+        return true;
+      }
+      return false;
+    });
+
+    if (queue.length >= targetCapacity || _loadingUnits.contains(unitId)) {
+      return;
+    }
 
     _loadingUnits.add(unitId);
 
@@ -200,12 +287,10 @@ class AdPreloadManager {
       rewardedAdLoadCallback: RewardedAdLoadCallback(
         onAdLoaded: (ad) {
           _loadingUnits.remove(unitId);
-          _preloadPool[unitId]?.ad?.dispose();
-
-          _preloadPool[unitId] = PreloadedAdWrapper(
+          queue.add(PreloadedAdWrapper(
             ad: ad,
             loadTime: DateTime.now(),
-          );
+          ));
           debugPrint('⚡ [AdPreload] RewardedAd 视频素材预加载成功: $unitId');
         },
         onAdFailedToLoad: (error) {
@@ -217,12 +302,16 @@ class AdPreloadManager {
   }
 
   PreloadedAdWrapper? consumeRewardedAd(String adUnitId) {
-    final wrapper = _preloadPool.remove(adUnitId);
-    if (wrapper != null && !wrapper.isExpired) {
-      debugPrint('🚀 [AdPreload] 命中 Rewarded 预加载池 (点击即刻秒播): $adUnitId');
-      return wrapper;
+    _recordConsumption(adUnitId);
+    final queue = _preloadQueueMap[adUnitId];
+    if (queue != null && queue.isNotEmpty) {
+      final wrapper = queue.removeAt(0);
+      if (!wrapper.isExpired) {
+        debugPrint('🚀 [AdPreload] 命中 Rewarded 预加载池 (点击即刻秒播): $adUnitId');
+        return wrapper;
+      }
+      wrapper.ad?.dispose();
     }
-    wrapper?.ad?.dispose();
     return null;
   }
 
