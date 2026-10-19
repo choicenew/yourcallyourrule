@@ -146,18 +146,21 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
 
   Future<void> _checkFirstLaunch() async {
     try {
-      final prefs = await SharedPreferences.getInstance();
-      try {
-        await prefs.reload();
-      } catch (_) {}
+      final configRepo = ref.read(configRepositoryProvider);
+      final onboardingConfig = await configRepo.getConfig(AppPrefsKeys.firstLaunch);
+      final setupConfig = await configRepo.getConfig(AppPrefsKeys.hasCompletedInitialSetup);
+
+      final bool isOnboardingCompleted = onboardingConfig?['completed'] == true;
+      final bool isInitialSetupCompleted = setupConfig?['completed'] == true;
+
       if (mounted) {
-        _isFirstLaunch = prefs.getBool(AppPrefsKeys.firstLaunch) ?? true;
-        _hasCompletedSetup = prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false;
+        _isFirstLaunch = !isOnboardingCompleted;
+        _hasCompletedSetup = isInitialSetupCompleted;
       }
     } catch (e) {
       if (mounted) {
-        _isFirstLaunch = true;
-        _hasCompletedSetup = false;
+        _isFirstLaunch = false;
+        _hasCompletedSetup = true;
       }
     }
   }
@@ -177,11 +180,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
 
   Future<void> _setFirstLaunchComplete() async {
     try {
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setBool(AppPrefsKeys.firstLaunch, false);
-    } catch (e) {
-      //
-    }
+      final configRepo = ref.read(configRepositoryProvider);
+      await configRepo.saveConfig(AppPrefsKeys.firstLaunch, {'completed': true});
+    } catch (_) {}
   }
   
   @override

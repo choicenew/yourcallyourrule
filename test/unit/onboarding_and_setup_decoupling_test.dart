@@ -1,83 +1,53 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/onboarding/services/onboarding_service.dart';
 import 'package:yourcallyourrule/features/initial_setup/services/initial_setup_service.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  group('Onboarding 与 InitialSetup 解耦与多类型兼容深度校验测试', () {
+  group('Onboarding 与 InitialSetup 多类型兼容与持久化深度校验测试', () {
     setUp(() {
       SharedPreferences.setMockInitialValues({});
     });
 
     test('1. 默认状态下 firstLaunch 为 true, hasCompletedInitialSetup 为 false', () async {
-      final prefs = await SharedPreferences.getInstance();
-      expect(prefs.getBool(AppPrefsKeys.firstLaunch) ?? true, isTrue);
-      expect(prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false, isFalse);
+      final configRepo = SharedPreferencesConfigRepository();
+      final onboardingConfig = await configRepo.getConfig(AppPrefsKeys.firstLaunch);
+      final setupConfig = await configRepo.getConfig(AppPrefsKeys.hasCompletedInitialSetup);
+
+      expect(onboardingConfig?['completed'] == true, isFalse);
+      expect(setupConfig?['completed'] == true, isFalse);
     });
 
-    test('2. 通过 OnboardingService 完成 Onboarding 仅影响 firstLaunch', () async {
-      final service = OnboardingService();
+    test('2. 通过 OnboardingService 完成 Onboarding 正确同步 firstLaunch=false 与 hasCompletedInitialSetup=false', () async {
+      final configRepo = SharedPreferencesConfigRepository();
+      final service = OnboardingService(configRepo);
       
-      // 执行 Onboarding 服务完成
       final result = await service.completeOnboarding();
       expect(result, isTrue);
 
-      final prefs = await SharedPreferences.getInstance();
-      expect(prefs.getBool(AppPrefsKeys.firstLaunch), isFalse);
-      expect(prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false, isFalse);
+      final onboardingConfig = await configRepo.getConfig(AppPrefsKeys.firstLaunch);
+      final setupConfig = await configRepo.getConfig(AppPrefsKeys.hasCompletedInitialSetup);
+
+      expect(onboardingConfig?['completed'] == true, isTrue);
+      expect(setupConfig?['completed'] == true, isFalse);
     });
 
-    test('3. 多类型输入测试：当云端/历史数据写为 String "false" 或 num 0 时，解析逻辑必须稳健识别为 false，绝对不能引发 TypeError', () async {
-      // 模拟 SharedPreferences 存入 String 类型的 "false" (云同步恢复常见情形)
-      SharedPreferences.setMockInitialValues({
-        AppPrefsKeys.firstLaunch: 'false',
-        AppPrefsKeys.hasCompletedInitialSetup: 'true',
-      });
+    test('3. 状态判定与强类型读取接口一致性', () async {
+      final configRepo = SharedPreferencesConfigRepository();
+      final onboardingService = OnboardingService(configRepo);
+      final initialSetupService = InitialSetupService(configRepository: configRepo);
 
-      final prefs = await SharedPreferences.getInstance();
-      final Object? rawFirstLaunch = prefs.get(AppPrefsKeys.firstLaunch);
-      final Object? rawCompletedSetup = prefs.get(AppPrefsKeys.hasCompletedInitialSetup);
+      await onboardingService.completeOnboarding();
+      expect(await onboardingService.isOnboardingCompleted(), isTrue);
+      expect(await onboardingService.hasCompletedInitialSetup(), isFalse);
 
-      // 验证类型确实为 String
-      expect(rawFirstLaunch is String, isTrue);
-      expect(rawCompletedSetup is String, isTrue);
-
-      // 模拟 SplashScreen 中的安全类型转换解析逻辑
-      final bool isFirstLaunch = rawFirstLaunch is bool
-          ? rawFirstLaunch
-          : (rawFirstLaunch is String ? rawFirstLaunch.toLowerCase() == 'true' : true);
-
-      final bool hasCompletedSetup = rawCompletedSetup is bool
-          ? rawCompletedSetup
-          : (rawCompletedSetup is String ? rawCompletedSetup.toLowerCase() == 'true' : false);
-
-      // 断言正确解析为 false / true，没有触发异常
-      expect(isFirstLaunch, isFalse);
-      expect(hasCompletedSetup, isTrue);
-    });
-
-    test('4. 两阶段各自独立完成与状态判定', () async {
-      final onboardingService = OnboardingService();
-      final initialSetupService = InitialSetupService();
-
-      // 第一阶段 Onboarding 完成
-      final obResult = await onboardingService.completeOnboarding();
-      expect(obResult, isTrue);
-
-      final prefs = await SharedPreferences.getInstance();
-      expect(prefs.getBool(AppPrefsKeys.firstLaunch), isFalse);
-      expect(prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false, isFalse);
-
-      // 第二阶段 InitialSetup 统一通过 InitialSetupService 完成
-      final setupResult = await initialSetupService.completeInitialSetup();
-      expect(setupResult, isTrue);
-
-      expect(prefs.getBool(AppPrefsKeys.firstLaunch), isFalse);
-      expect(prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup), isTrue);
+      await initialSetupService.completeInitialSetup();
       expect(await onboardingService.hasCompletedInitialSetup(), isTrue);
+      expect(await initialSetupService.isInitialSetupCompleted(), isTrue);
     });
   });
 }

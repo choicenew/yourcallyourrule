@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
+import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import '../models/setup_config.dart';
 
 /// 负责从云端拉取 Initial Setup 页面所需的动态配置，并提供内置 JSON 资产文件兜底和 IP 地区探测
@@ -11,19 +12,22 @@ class InitialSetupService {
   final String cdnConfigUrl;
   final String localAssetPath;
   final Dio _dio;
+  final ConfigRepository _configRepository;
 
   InitialSetupService({
     this.rawConfigUrl = 'https://raw.githubusercontent.com/choicenew/yourcallrule/main/app_delta_setup_config.json',
     this.cdnConfigUrl = 'https://cdn.jsdelivr.net/gh/choicenew/yourcallrule@main/app_delta_setup_config.json',
     this.localAssetPath = 'assets/app_delta_setup_config.json',
     Dio? dio,
-  }) : _dio = dio ??
+    ConfigRepository? configRepository,
+  })  : _dio = dio ??
             Dio(
               BaseOptions(
                 connectTimeout: const Duration(seconds: 5),
                 receiveTimeout: const Duration(seconds: 5),
               ),
-            );
+            ),
+        _configRepository = configRepository ?? SharedPreferencesConfigRepository();
 
   /// 从应用内置的 JSON 文件中加载兜底配置，避免网络不佳时白屏
   Future<SetupConfig> loadBuiltInConfig() async {
@@ -77,12 +81,18 @@ class InitialSetupService {
   /// 统一标记 Initial Setup 流程完成（保存 config_has_completed_initial_setup 为 true）
   Future<bool> completeInitialSetup() async {
     try {
-      final prefs = await SharedPreferences.getInstance();
-      final success = await prefs.setBool(AppPrefsKeys.hasCompletedInitialSetup, true);
-      try {
-        await prefs.reload();
-      } catch (_) {}
-      return success;
+      await _configRepository.saveConfig(AppPrefsKeys.hasCompletedInitialSetup, {'completed': true});
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /// 检查 Initial Setup 流程是否已完成
+  Future<bool> isInitialSetupCompleted() async {
+    try {
+      final config = await _configRepository.getConfig(AppPrefsKeys.hasCompletedInitialSetup);
+      return config?['completed'] == true;
     } catch (_) {
       return false;
     }

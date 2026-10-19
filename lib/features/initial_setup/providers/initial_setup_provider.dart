@@ -1,10 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
 import '../models/setup_config.dart';
 import '../services/initial_setup_service.dart';
 
 /// 基础服务提供者
 final initialSetupServiceProvider = Provider<InitialSetupService>((ref) {
-  return InitialSetupService();
+  final configRepo = ref.watch(configRepositoryProvider);
+  return InitialSetupService(configRepository: configRepo);
 });
 
 /// CDN 切换状态 Notifier
