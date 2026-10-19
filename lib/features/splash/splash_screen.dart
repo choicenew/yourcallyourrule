@@ -116,13 +116,12 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     if (!mounted || _hasNavigated) return;
     
     _hasNavigated = true;
-    debugPrint('导航到下一页面 - 首次启动: $_isFirstLaunch, 初始设置已完成: $_hasCompletedSetup');
+    debugPrint('导航到下一页面 - 首次启动: $_isFirstLaunch');
     
     try {
       if (_isFirstLaunch) {
         GoRouter.of(context).goNamed(AppRouter.onboarding);
-      } else if (!_hasCompletedSetup) {
-        GoRouter.of(context).goNamed(AppRouter.initialSetup);
+        _setFirstLaunchComplete();
       } else {
         GoRouter.of(context).goNamed(AppRouter.home);
       }
@@ -147,18 +146,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   Future<void> _checkFirstLaunch() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      try {
-        await prefs.reload();
-      } catch (_) {}
-      if (mounted) {
-        _isFirstLaunch = prefs.getBool(AppPrefsKeys.firstLaunch) ?? true;
-        _hasCompletedSetup = prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false;
-      }
+      if (mounted) _isFirstLaunch = prefs.getBool(AppPrefsKeys.firstLaunch) ?? true;
     } catch (e) {
-      if (mounted) {
-        _isFirstLaunch = true;
-        _hasCompletedSetup = false;
-      }
+      if (mounted) _isFirstLaunch = true;
     }
   }
   
@@ -179,10 +169,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setBool(AppPrefsKeys.firstLaunch, false);
-      try {
-        await prefs.reload();
-      } catch (_) {}
-    } catch (_) {}
+    } catch (e) {
+      //
+    }
   }
   
   @override
