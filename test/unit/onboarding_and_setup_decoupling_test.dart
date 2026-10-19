@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
 import 'package:yourcallyourrule/features/onboarding/services/onboarding_service.dart';
+import 'package:yourcallyourrule/features/initial_setup/services/initial_setup_service.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -59,15 +60,24 @@ void main() {
     });
 
     test('4. 两阶段各自独立完成与状态判定', () async {
-      final service = OnboardingService();
+      final onboardingService = OnboardingService();
+      final initialSetupService = InitialSetupService();
 
-      await service.completeOnboarding();
+      // 第一阶段 Onboarding 完成
+      final obResult = await onboardingService.completeOnboarding();
+      expect(obResult, isTrue);
+
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setBool(AppPrefsKeys.hasCompletedInitialSetup, true);
+      expect(prefs.getBool(AppPrefsKeys.firstLaunch), isFalse);
+      expect(prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false, isFalse);
+
+      // 第二阶段 InitialSetup 统一通过 InitialSetupService 完成
+      final setupResult = await initialSetupService.completeInitialSetup();
+      expect(setupResult, isTrue);
 
       expect(prefs.getBool(AppPrefsKeys.firstLaunch), isFalse);
       expect(prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup), isTrue);
-      expect(await service.hasCompletedInitialSetup(), isTrue);
+      expect(await onboardingService.hasCompletedInitialSetup(), isTrue);
     });
   });
 }

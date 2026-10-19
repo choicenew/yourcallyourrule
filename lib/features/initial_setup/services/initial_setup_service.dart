@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
 import '../models/setup_config.dart';
 
 /// 负责从云端拉取 Initial Setup 页面所需的动态配置，并提供内置 JSON 资产文件兜底和 IP 地区探测
@@ -70,5 +72,19 @@ class InitialSetupService {
 
     // 网络不可用或请求失败时，从内置 JSON 资产文件中读取兜底配置
     return await loadBuiltInConfig();
+  }
+
+  /// 统一标记 Initial Setup 流程完成（保存 config_has_completed_initial_setup 为 true）
+  Future<bool> completeInitialSetup() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final success = await prefs.setBool(AppPrefsKeys.hasCompletedInitialSetup, true);
+      try {
+        await prefs.reload();
+      } catch (_) {}
+      return success;
+    } catch (_) {
+      return false;
+    }
   }
 }

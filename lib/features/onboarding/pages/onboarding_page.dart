@@ -109,6 +109,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
               totalPages: _totalPages,
               onPrevious: _previousPage,
               onNext: _nextPage,
+              onFinish: _completeOnboardingFlow,
             ),
           ],
         ),

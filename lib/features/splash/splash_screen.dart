@@ -120,7 +120,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     
     try {
       if (_isFirstLaunch) {
-        _setFirstLaunchComplete();
         GoRouter.of(context).goNamed(AppRouter.onboarding);
       } else if (!_hasCompletedSetup) {
         GoRouter.of(context).goNamed(AppRouter.initialSetup);

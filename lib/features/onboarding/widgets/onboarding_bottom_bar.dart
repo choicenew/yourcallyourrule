@@ -7,6 +7,7 @@ class OnboardingBottomBar extends StatelessWidget {
   final int totalPages;
   final VoidCallback onPrevious;
   final VoidCallback onNext;
+  final VoidCallback onFinish;
 
   const OnboardingBottomBar({
     super.key,
@@ -14,6 +15,7 @@ class OnboardingBottomBar extends StatelessWidget {
     required this.totalPages,
     required this.onPrevious,
     required this.onNext,
+    required this.onFinish,
   });
 
   @override
@@ -67,7 +69,7 @@ class OnboardingBottomBar extends StatelessWidget {
 
           // 下一步 / 开始使用按钮
           ElevatedButton(
-            onPressed: onNext,
+            onPressed: isLastPage ? onFinish : onNext,
             style: ElevatedButton.styleFrom(
               backgroundColor: theme.colorScheme.primary,
               foregroundColor: theme.colorScheme.onPrimary,
