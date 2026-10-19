@@ -10,7 +10,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/ads/adwidgets/app_open_ad.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
-import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -147,21 +146,18 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
 
   Future<void> _checkFirstLaunch() async {
     try {
-      final configRepo = ref.read(configRepositoryProvider);
-      final onboardingConfig = await configRepo.getConfig(AppPrefsKeys.firstLaunch);
-      final setupConfig = await configRepo.getConfig(AppPrefsKeys.hasCompletedInitialSetup);
-
-      final bool isOnboardingCompleted = onboardingConfig?['completed'] == true;
-      final bool isInitialSetupCompleted = setupConfig?['completed'] == true;
-
+      final prefs = await SharedPreferences.getInstance();
+      try {
+        await prefs.reload();
+      } catch (_) {}
       if (mounted) {
-        _isFirstLaunch = !isOnboardingCompleted;
-        _hasCompletedSetup = isInitialSetupCompleted;
+        _isFirstLaunch = prefs.getBool(AppPrefsKeys.firstLaunch) ?? true;
+        _hasCompletedSetup = prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false;
       }
     } catch (e) {
       if (mounted) {
-        _isFirstLaunch = false;
-        _hasCompletedSetup = true;
+        _isFirstLaunch = true;
+        _hasCompletedSetup = false;
       }
     }
   }
@@ -181,8 +177,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
 
   Future<void> _setFirstLaunchComplete() async {
     try {
-      final configRepo = ref.read(configRepositoryProvider);
-      await configRepo.saveConfig(AppPrefsKeys.firstLaunch, {'completed': true});
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool(AppPrefsKeys.firstLaunch, false);
+      try {
+        await prefs.reload();
+      } catch (_) {}
     } catch (_) {}
   }
   

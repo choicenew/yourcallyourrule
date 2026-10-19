@@ -232,37 +232,41 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: theme.colorScheme.outlineVariant, width: 1.0),
           ),
-          child: ListTile(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 2),
-            leading: Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: theme.colorScheme.secondary.withValues(alpha: 0.15),
-                borderRadius: BorderRadius.circular(10),
+          child: Material(
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(16),
+            child: ListTile(
+              contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 2),
+              leading: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.secondary.withValues(alpha: 0.15),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Icon(Icons.extension_rounded, color: theme.colorScheme.secondary, size: 20),
               ),
-              child: Icon(Icons.extension_rounded, color: theme.colorScheme.secondary, size: 20),
+              title: Text(
+                pluginRec.title,
+                style: TextStyle(fontSize: 13.5, fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface),
+              ),
+              subtitle: Text(
+                pluginRec.description,
+                style: TextStyle(fontSize: 11.5, color: theme.colorScheme.onSurfaceVariant),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              trailing: Icon(
+                Icons.open_in_new_rounded,
+                size: 16,
+                color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6),
+              ),
+              onTap: () async {
+                final url = Uri.parse(pluginRec.webPortalUrl);
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url, mode: LaunchMode.externalApplication);
+                }
+              },
             ),
-            title: Text(
-              pluginRec.title,
-              style: TextStyle(fontSize: 13.5, fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface),
-            ),
-            subtitle: Text(
-              pluginRec.description,
-              style: TextStyle(fontSize: 11.5, color: theme.colorScheme.onSurfaceVariant),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-            trailing: Icon(
-              Icons.open_in_new_rounded,
-              size: 16,
-              color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6),
-            ),
-            onTap: () async {
-              final url = Uri.parse(pluginRec.webPortalUrl);
-              if (await canLaunchUrl(url)) {
-                await launchUrl(url, mode: LaunchMode.externalApplication);
-              }
-            },
           ),
         ),
 
