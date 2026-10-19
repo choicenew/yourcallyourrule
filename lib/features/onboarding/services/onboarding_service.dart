@@ -1,5 +1,9 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
+
+part 'onboarding_service.g.dart';
 
 /// 负责 Onboarding 引导状态持久化的核心服务类（独立业务逻辑）
 class OnboardingService {
@@ -29,4 +33,10 @@ class OnboardingService {
       return false;
     }
   }
+}
+
+/// OnboardingService 的 @riverpod 自动生成 Provider
+@riverpod
+OnboardingService onboardingService(Ref ref) {
+  return OnboardingService();
 }
