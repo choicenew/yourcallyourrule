@@ -12,9 +12,9 @@ class OnboardingService {
     try {
       final prefs = await SharedPreferences.getInstance();
       final success = await prefs.setBool(AppPrefsKeys.firstLaunch, false);
-      try {
-        await prefs.reload();
-      } catch (_) {}
+     // try {
+     //   await prefs.reload();
+    //  } catch (_) {}
       return success;
     } catch (_) {
       return false;
