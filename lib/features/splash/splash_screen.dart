@@ -10,6 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/ads/adwidgets/app_open_ad.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
+import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
