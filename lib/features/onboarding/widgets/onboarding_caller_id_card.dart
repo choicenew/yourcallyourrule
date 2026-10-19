@@ -45,7 +45,7 @@ class OnboardingCallerIdCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '+1 (800) 555-0199',
+                            '+1 (800) ***-0***',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,

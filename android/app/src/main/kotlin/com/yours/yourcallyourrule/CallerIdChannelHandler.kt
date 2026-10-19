@@ -108,7 +108,7 @@ fun setupCallerIdChannel() {
                 startCallScreeningService()
             } else {
                       // 应用还不是默认来电显示应用，引导用户设置
-                setDefaultCallerIdApp()
+                // setDefaultCallerIdApp()
             }
         }
          registerPhoneStateListener(activity)

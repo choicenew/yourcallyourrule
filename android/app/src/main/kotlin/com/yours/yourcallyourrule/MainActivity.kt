@@ -175,7 +175,7 @@ private fun requestAppPermissions() {
                 }
             } else {
                 // 用户取消了设置，询问是否跳过
-                showSkipConfirmationDialog()
+                // showSkipConfirmationDialog()
             }
         }
          // ... 处理其他 Activity 结果 ...
