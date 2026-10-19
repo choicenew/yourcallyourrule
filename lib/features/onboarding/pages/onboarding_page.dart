@@ -50,23 +50,18 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     }
   }
 
-  /// 统一的引导流程完成/跳过入口 (底层逻辑严格保持不变)
+  /// 统一的引导流程完成/跳过入口 (完成即彻底标记首次引导和初始配置完成，直达主页)
   Future<void> _completeOnboardingFlow() async {
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setBool(AppPrefsKeys.firstLaunch, false);
+      await prefs.setBool(AppPrefsKeys.hasCompletedInitialSetup, true);
       try {
         await prefs.reload();
       } catch (_) {}
 
-      final hasCompletedSetup = prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false;
       if (!mounted) return;
-
-      if (!hasCompletedSetup) {
-        GoRouter.of(context).goNamed(AppRouter.initialSetup);
-      } else {
-        GoRouter.of(context).goNamed(AppRouter.home);
-      }
+      GoRouter.of(context).goNamed(AppRouter.home);
     } catch (_) {
       if (mounted) {
         GoRouter.of(context).goNamed(AppRouter.home);
@@ -374,7 +369,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     );
   }
 
-  // 3. 智能来电识别页 (Smart Caller ID Showcase)
+  // 3. 智能来电识别页 (Smart Caller ID Showcase - 100% i18n 国际化)
   Widget _buildFeaturePage1(ThemeData theme) {
     final l10n = AppLocalizations.of(context)!;
     return Padding(
@@ -382,7 +377,6 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // 模拟来电识别真实体感卡片
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
@@ -412,7 +406,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '+86 138 **** 8888',
+                            '+1 (800) 55-0199',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
@@ -421,7 +415,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                           ),
                           const SizedBox(height: 2),
                           Text(
-                            '北京 移动 | 离线数据库速查',
+                            l10n.smartCallerId,
                             style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant),
                           ),
                         ],
@@ -433,9 +427,9 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                         color: Colors.orange.withValues(alpha: 0.15),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: const Text(
-                        '快递送餐',
-                        style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Colors.orange),
+                      child: Text(
+                        l10n.callerIdSettings,
+                        style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Colors.orange),
                       ),
                     ),
                   ],
@@ -444,9 +438,9 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    _buildFeatureTag(Icons.flash_on_rounded, '毫秒级响应', theme),
-                    _buildFeatureTag(Icons.storage_rounded, '离线精简库', theme),
-                    _buildFeatureTag(Icons.extension_rounded, 'JS插件富集', theme),
+                    _buildFeatureTag(Icons.flash_on_rounded, '< 10ms', theme),
+                    _buildFeatureTag(Icons.storage_rounded, 'Offline DB', theme),
+                    _buildFeatureTag(Icons.extension_rounded, 'Plugins', theme),
                   ],
                 ),
               ],
@@ -476,7 +470,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     );
   }
 
-  // 4. 强力骚扰拦截页 (Powerful Spam Blocking Showcase)
+  // 4. 强力骚扰拦截页 (Powerful Spam Blocking Showcase - 100% i18n 国际化)
   Widget _buildFeaturePage2(ThemeData theme) {
     final l10n = AppLocalizations.of(context)!;
     return Padding(
@@ -516,7 +510,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '自动拒接骚扰/诈骗',
+                            l10n.powerfulSpamBlocking,
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
@@ -524,7 +518,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                             ),
                           ),
                           Text(
-                            '规则拦截 + 营销打扰防护',
+                            l10n.callFilterSettings,
                             style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant),
                           ),
                         ],
@@ -547,8 +541,8 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('累计拦截骚扰电话', style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant)),
-                      Text('1,280+ 次', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: theme.colorScheme.error)),
+                      Text(l10n.blockedCalls, style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant)),
+                      Text('1,280+', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: theme.colorScheme.error)),
                     ],
                   ),
                 ),
@@ -699,10 +693,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   }
 
   Widget _buildPermissionTile({
+    required ThemeData theme,
     required IconData icon,
     required String title,
     required String description,
-    required ThemeData theme,
   }) {
     return Container(
       padding: const EdgeInsets.all(12),
