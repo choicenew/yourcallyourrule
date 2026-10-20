@@ -149,8 +149,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   Future<void> _checkOnboardingAndSetupStatus() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      await prefs.reload();
-      
+
       final onboardingSvc = ref.read(onboardingServiceProvider);
       final initialSetupSvc = ref.read(initialSetupServiceProvider);
       final rawFirst = prefs.get(AppPrefsKeys.firstLaunch);
