@@ -121,7 +121,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     debugPrint('导航到下一页面 - Splash首次启动: $_isFirstLaunch, Onboarding已完成: $_isOnboardingCompleted, 初始设置已完成: $_isInitialSetupCompleted');
     
     try {
-      if (_isFirstLaunch && !_isOnboardingCompleted) {
+      if (!_isOnboardingCompleted) {
         GoRouter.of(context).goNamed(AppRouter.onboarding);
       } else if (!_isInitialSetupCompleted) {
         GoRouter.of(context).goNamed(AppRouter.initialSetup);
