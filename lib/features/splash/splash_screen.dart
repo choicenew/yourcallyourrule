@@ -11,6 +11,7 @@ import 'package:yourcallyourrule/ads/adwidgets/app_open_ad.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/onboarding/providers/onboarding_provider.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -21,7 +22,7 @@ class SplashScreen extends ConsumerStatefulWidget {
 
 class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerProviderStateMixin {
   // --- 状态变量 ---
-  bool _isFirstLaunch = true;
+  bool _isOnboardingCompleted = false;
   bool _hasCompletedSetup = false;
   bool _isVipUser = false;
   bool _hasNavigated = false;
@@ -56,15 +57,13 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   Future<void> _initializeApp() async {
     _initializeAnimation();
     
-    // 并行检查用户状态
-    await Future.wait([
-      _checkFirstLaunch(),
-      _checkVipStatus(),
-    ]);
+    // 检查引导与初始设置状态，以及 VIP 用户状态
+    await _checkOnboardingAndSetupStatus();
+    await _checkVipStatus();
     
     // 【核心约束】：如果是 VIP 用户，或者未完成 Onboarding 引导阶段/初始设置阶段，绝对不触发广告！
-    _shouldLoadAd = !_isVipUser && !_isFirstLaunch && _hasCompletedSetup;
-    debugPrint('初始化完成 - VIP用户: $_isVipUser, 首次启动(Onboarding未完成): $_isFirstLaunch, 初始设置已完成: $_hasCompletedSetup, 是否触发广告: $_shouldLoadAd');
+    _shouldLoadAd = !_isVipUser && _isOnboardingCompleted && _hasCompletedSetup;
+    debugPrint('初始化完成 - VIP用户: $_isVipUser, Onboarding已完成: $_isOnboardingCompleted, 初始设置已完成: $_hasCompletedSetup, 是否触发广告: $_shouldLoadAd');
     
     // 启动最小时间门锁
     Timer(_minSplashDuration, () {
@@ -116,10 +115,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     if (!mounted || _hasNavigated) return;
     
     _hasNavigated = true;
-    debugPrint('导航到下一页面 - 首次启动: $_isFirstLaunch, 初始设置已完成: $_hasCompletedSetup');
+    debugPrint('导航到下一页面 - Onboarding已完成: $_isOnboardingCompleted, 初始设置已完成: $_hasCompletedSetup');
     
     try {
-      if (_isFirstLaunch) {
+      if (!_isOnboardingCompleted) {
         GoRouter.of(context).goNamed(AppRouter.onboarding);
       } else if (!_hasCompletedSetup) {
         GoRouter.of(context).goNamed(AppRouter.initialSetup);
@@ -144,19 +143,18 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     _animationController.forward();
   }
 
-  Future<void> _checkFirstLaunch() async {
+  Future<void> _checkOnboardingAndSetupStatus() async {
     try {
-      final prefs = await SharedPreferences.getInstance();
-      try {
-        await prefs.reload();
-      } catch (_) {}
+      final onboardingSvc = ref.read(onboardingServiceProvider);
+      final isCompleted = await onboardingSvc.isOnboardingCompleted();
+      final hasSetup = await onboardingSvc.hasCompletedInitialSetup();
       if (mounted) {
-        _isFirstLaunch = prefs.getBool(AppPrefsKeys.firstLaunch) ?? true;
-        _hasCompletedSetup = prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false;
+        _isOnboardingCompleted = isCompleted;
+        _hasCompletedSetup = hasSetup;
       }
     } catch (e) {
       if (mounted) {
-        _isFirstLaunch = true;
+        _isOnboardingCompleted = false;
         _hasCompletedSetup = false;
       }
     }
@@ -173,16 +171,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     } catch (e) {
       if (mounted) _isVipUser = false;
     }
-  }
-
-  Future<void> _setFirstLaunchComplete() async {
-    try {
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setBool(AppPrefsKeys.firstLaunch, false);
-      try {
-        await prefs.reload();
-      } catch (_) {}
-    } catch (_) {}
   }
   
   @override

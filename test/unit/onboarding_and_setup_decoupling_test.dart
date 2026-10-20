@@ -18,14 +18,14 @@ void main() {
       expect(prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false, isFalse);
     });
 
-    test('2. 通过 OnboardingService 完成 Onboarding 正确同步 firstLaunch=false 与 hasCompletedInitialSetup=false', () async {
+    test('2. 通过 OnboardingService 完成 Onboarding 正确记录 hasCompletedOnboarding=true', () async {
       final service = OnboardingService();
       
       final result = await service.completeOnboarding();
       expect(result, isTrue);
 
       final prefs = await SharedPreferences.getInstance();
-      expect(prefs.getBool(AppPrefsKeys.firstLaunch), isFalse);
+      expect(prefs.getBool(AppPrefsKeys.hasCompletedOnboarding), isTrue);
       expect(prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false, isFalse);
     });
 
