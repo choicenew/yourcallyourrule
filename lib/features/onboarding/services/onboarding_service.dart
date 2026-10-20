@@ -15,7 +15,10 @@ class OnboardingService {
   Future<bool> completeOnboarding() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      return await prefs.setBool(AppPrefsKeys.hasCompletedOnboarding, true);
+      final success = await prefs.setBool(AppPrefsKeys.hasCompletedOnboarding, true);
+      if (!success) return false;
+      final check = prefs.get(AppPrefsKeys.hasCompletedOnboarding);
+      return check == true || (check is String && check.toLowerCase().trim() == 'true');
     } catch (_) {
       return false;
     }
@@ -25,9 +28,6 @@ class OnboardingService {
   Future<bool> isOnboardingCompleted() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      try {
-        await prefs.reload();
-      } catch (_) {}
       final val = prefs.get(AppPrefsKeys.hasCompletedOnboarding);
       if (val is bool) return val;
       if (val is String) return val.toLowerCase().trim() == 'true';
