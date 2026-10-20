@@ -8,6 +8,8 @@ import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/initial_setup/pages/initial_setup_page.dart';
 import 'package:yourcallyourrule/features/initial_setup/widgets/initial_setup_bottom_bar.dart';
 import 'package:yourcallyourrule/features/onboarding/pages/onboarding_page.dart';
+import 'package:yourcallyourrule/features/onboarding/services/onboarding_service.dart';
+import 'package:yourcallyourrule/features/initial_setup/services/initial_setup_service.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -75,7 +77,7 @@ void main() {
       // 验证 OnboardingPage 在点击后，路由自动导航到了 InitialSetupPage
       expect(find.byType(InitialSetupPage), findsOneWidget);
       // 验证 OnboardingPage 完成后，hasCompletedOnboarding 已被真实保存为 true
-      expect(prefs.getBool(AppPrefsKeys.hasCompletedOnboarding), isTrue);
+      expect(await OnboardingService().isOnboardingCompleted(), isTrue);
 
       // --- 阶段三：真实模拟用户在 InitialSetup 界面上点击跳过 ---
       final bottomBarTextButtons = find.descendant(
@@ -89,7 +91,7 @@ void main() {
       // 验证 InitialSetup 通关后，路由进入主页 HOME_PAGE_TARGET
       expect(find.text('HOME_PAGE_TARGET'), findsOneWidget);
       // 验证 InitialSetup 完成后，hasCompletedInitialSetup 已被真实保存为 true
-      expect(prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup), isTrue);
+      expect(await InitialSetupService().isInitialSetupCompleted(), isTrue);
 
       // --- 阶段四：重启 App（重新启动 SplashScreen，保持相同的 SharedPreferences mock 数据）---
       await tester.pumpWidget(buildTestApp());
