@@ -92,13 +92,33 @@ class InitialSetupService {
       // 1. 优先读取独立隔离的新 Key
       final val = prefs.get(AppPrefsKeys.hasCompletedInitialSetup);
       if (val is bool) return val;
-      if (val is String) return val.toLowerCase().trim() == 'true';
+      if (val is String) {
+        final normalized = val.toLowerCase().trim();
+        if (normalized == 'true') return true;
+        if (normalized == 'false') return false;
+        try {
+          final decoded = jsonDecode(val);
+          if (decoded is Map && decoded['value'] is bool) {
+            return decoded['value'] as bool;
+          }
+        } catch (_) {}
+      }
       if (val is num) return val != 0;
 
       // 2. 降级读取旧 Key 兼容存量用户
       final oldVal = prefs.get('config_has_completed_initial_setup');
       if (oldVal is bool) return oldVal;
-      if (oldVal is String) return oldVal.toLowerCase().trim() == 'true';
+      if (oldVal is String) {
+        final normalized = oldVal.toLowerCase().trim();
+        if (normalized == 'true') return true;
+        if (normalized == 'false') return false;
+        try {
+          final decoded = jsonDecode(oldVal);
+          if (decoded is Map && decoded['value'] is bool) {
+            return decoded['value'] as bool;
+          }
+        } catch (_) {}
+      }
       if (oldVal is num) return oldVal != 0;
 
       return false;

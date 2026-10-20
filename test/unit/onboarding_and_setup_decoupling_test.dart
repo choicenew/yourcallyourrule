@@ -44,5 +44,14 @@ void main() {
       expect(await onboardingService.isOnboardingCompleted(), isTrue);
       expect(await initialSetupService.isInitialSetupCompleted(), isTrue);
     });
+
+    test('4. 兼容旧版 ConfigRepository 保存的 JSON 完成标记', () async {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('config_has_completed_onboarding', '{"value":true}');
+      await prefs.setString('config_has_completed_initial_setup', '{"value":true}');
+
+      expect(await OnboardingService().isOnboardingCompleted(), isTrue);
+      expect(await InitialSetupService().isInitialSetupCompleted(), isTrue);
+    });
   });
 }
