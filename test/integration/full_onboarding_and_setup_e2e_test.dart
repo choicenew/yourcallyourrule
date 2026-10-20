@@ -72,8 +72,8 @@ void main() {
 
       // 验证 OnboardingPage 在点击后，路由自动导航到了 InitialSetupPage
       expect(find.byType(InitialSetupPage), findsOneWidget);
-      // 验证 OnboardingPage 完成后，firstLaunch 已被真实保存为 false
-      expect(prefs.getBool(AppPrefsKeys.firstLaunch), isFalse);
+      // 验证 OnboardingPage 完成后，hasCompletedOnboarding 已被真实保存为 true
+      expect(prefs.getBool(AppPrefsKeys.hasCompletedOnboarding), isTrue);
 
       // --- 阶段三：真实模拟用户在 InitialSetup 界面上点击跳过 ---
       final bottomBarTextButtons = find.descendant(
@@ -94,7 +94,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 1600));
       await tester.pumpAndSettle();
 
-      // 验证再次启动时，Splash 读取到 firstLaunch=false 且 hasCompletedInitialSetup=true，直达 HOME_PAGE_TARGET
+      // 验证再次启动时，Splash 读取到 hasCompletedOnboarding=true 且 hasCompletedInitialSetup=true，直达 HOME_PAGE_TARGET
       expect(find.text('HOME_PAGE_TARGET'), findsOneWidget);
       // 断言绝不弹出 OnboardingPage 或 InitialSetupPage
       expect(find.byType(OnboardingPage), findsNothing);

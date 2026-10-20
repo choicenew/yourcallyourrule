@@ -5,13 +5,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 // 确认路径正确
 import 'package:yourcallyourrule/ads/adwidgets/app_open_ad.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
-import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/onboarding/providers/onboarding_provider.dart';
+import 'package:yourcallyourrule/features/initial_setup/providers/initial_setup_provider.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -146,13 +145,15 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   Future<void> _checkOnboardingAndSetupStatus() async {
     try {
       final onboardingSvc = ref.read(onboardingServiceProvider);
+      final initialSetupSvc = ref.read(initialSetupServiceProvider);
       final isCompleted = await onboardingSvc.isOnboardingCompleted();
-      final hasSetup = await onboardingSvc.hasCompletedInitialSetup();
+      final hasSetup = await initialSetupSvc.isInitialSetupCompleted();
       if (mounted) {
         _isOnboardingCompleted = isCompleted;
         _hasCompletedSetup = hasSetup;
       }
     } catch (e) {
+      debugPrint('[SplashScreen] 检查引导与初始化状态异常: $e');
       if (mounted) {
         _isOnboardingCompleted = false;
         _hasCompletedSetup = false;

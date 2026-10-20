@@ -29,16 +29,19 @@ void main() {
       expect(prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false, isFalse);
     });
 
-    test('3. 状态判定与强类型读取接口一致性', () async {
+    test('3. 状态判定与强类型读取接口一致性（各自管各自，完全解耦）', () async {
       final onboardingService = OnboardingService();
       final initialSetupService = InitialSetupService();
 
+      expect(await onboardingService.isOnboardingCompleted(), isFalse);
+      expect(await initialSetupService.isInitialSetupCompleted(), isFalse);
+
       await onboardingService.completeOnboarding();
       expect(await onboardingService.isOnboardingCompleted(), isTrue);
-      expect(await onboardingService.hasCompletedInitialSetup(), isFalse);
+      expect(await initialSetupService.isInitialSetupCompleted(), isFalse);
 
       await initialSetupService.completeInitialSetup();
-      expect(await onboardingService.hasCompletedInitialSetup(), isTrue);
+      expect(await onboardingService.isOnboardingCompleted(), isTrue);
       expect(await initialSetupService.isInitialSetupCompleted(), isTrue);
     });
   });

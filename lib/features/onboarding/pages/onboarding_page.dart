@@ -5,6 +5,7 @@ import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 
 import '../providers/onboarding_provider.dart';
+import 'package:yourcallyourrule/features/initial_setup/providers/initial_setup_provider.dart';
 import '../widgets/onboarding_top_bar.dart';
 import '../widgets/onboarding_bottom_bar.dart';
 import '../widgets/onboarding_welcome_card.dart';
@@ -60,8 +61,8 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     // 1. 当且仅当用户手动点完成/跳过时，才标记 Onboarding 自身完成
     await service.completeOnboarding();
 
-    // 2. 检查 InitialSetup 状态按需导航
-    final hasCompletedSetup = await service.hasCompletedInitialSetup();
+    // 2. 检查 InitialSetup 状态按需导航（通过 initialSetupServiceProvider 独立调取）
+    final hasCompletedSetup = await ref.read(initialSetupServiceProvider).isInitialSetupCompleted();
     if (!mounted) return;
 
     if (!hasCompletedSetup) {

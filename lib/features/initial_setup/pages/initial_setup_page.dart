@@ -3,11 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
-import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
 
 import '../../../core/entities/subscription/subscription.dart';
 import '../../../core/value_objects/url.dart';
@@ -44,7 +41,6 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
   @override
   void initState() {
     super.initState();
-    ref.read(initialSetupServiceProvider).completeInitialSetup();
   }
 
   @override
