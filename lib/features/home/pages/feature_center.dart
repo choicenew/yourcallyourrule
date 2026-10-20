@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/common/widgets/vip_access_checker.dart';
-import 'package:yourcallyourrule/features/home/providers/feature_center_providers.dart';
+import 'package:yourcallyourrule/features/home/services/feature_center_config_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // Converted to a ConsumerStatefulWidget to use Riverpod

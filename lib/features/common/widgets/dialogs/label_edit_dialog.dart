@@ -6,8 +6,6 @@ import 'package:yourcallyourrule/features/common/widgets/public_select_label.dar
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
 
 /// 标签编辑对话框
 /// 用于编辑标签信息，通过 PublicSelectLabel 组件来选择标签

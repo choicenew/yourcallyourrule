@@ -4,10 +4,10 @@ import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // 引入所有必要的 Provider 和模型
-import 'package:yourcallyourrule/core/provider/providers/device_id_service_provider.dart';
+import 'package:yourcallyourrule/data/database/sync/device_id_service.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
-import 'package:yourcallyourrule/features/deletion_proposal/providers/deletion_proposal_service_provider.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/services/deletion_proposal_service.dart';
 
 part 'deletion_proposal_provider.g.dart';
 

@@ -1,6 +1,21 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/system_call_log_service.dart';
+
+part 'call_log_sync_service.g.dart';
+
+/// 通话记录同步服务提供者
+@Riverpod(keepAlive: true)
+CallLogSyncService callLogSyncService(Ref ref) {
+  final systemCallLogService = ref.watch(systemCallLogServiceProvider);
+  final syncService = CallLogSyncService(systemCallLogService);
+  ref.onDispose(() {
+    syncService.dispose();
+  });
+  return syncService;
+}
 
 /// 通话记录同步服务
 /// 负责在后台同步系统通话记录到应用内数据库。

@@ -2,11 +2,21 @@
 
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:http/http.dart' as http;
 import 'package:sim_reader/sim_reader.dart';
 import 'package:sim_card_code/sim_card_code.dart' hide NetworkInfo;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:crypto/crypto.dart';
+
+part 'device_profile_service.g.dart';
+
+/// DeviceProfileService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+DeviceProfileService deviceProfileService(Ref ref) {
+  return DeviceProfileService();
+}
 
 class IpInfo {
   final String? query, country, countryCode, regionName, city;

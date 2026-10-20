@@ -8,8 +8,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 // 核心服务与 Providers
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
-import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
+import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/core/provider/rules_provider.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/pages/blocked_calls_page.dart';
 // 4. 通话统计与拦截记录

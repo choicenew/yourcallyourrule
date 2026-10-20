@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/remote/remote_number_entry.dart';
-import 'package:yourcallyourrule/core/provider/providers/remote_number_repository_provider.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
-import 'package:yourcallyourrule/features/plugin/providers/plugin_url_webview_service_provider.dart';
+import 'package:yourcallyourrule/features/plugin/services/plugin_url_execution_service.dart';
 
 enum PageState {
   initial,

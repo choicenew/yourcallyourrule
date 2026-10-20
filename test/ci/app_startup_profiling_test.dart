@@ -9,10 +9,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/core/provider/providers/background_sync_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/foreground_sync_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/label_sync_service_initializer.dart';
-import 'package:yourcallyourrule/core/provider/providers/plugin_sync_service_initializer.dart';
+import 'package:yourcallyourrule/core/services/background_sync_service.dart';
+import 'package:yourcallyourrule/core/services/foreground_sync_service.dart';
+import 'package:yourcallyourrule/features/labels/services/label_stream_sync_service.dart';
+import 'package:yourcallyourrule/features/caller_id/services/plugin_to_remote_sync_service.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/core/router/app_router_provider.dart';
 import 'package:yourcallyourrule/features/call/call_history/provider/call_event_listener_provider.dart';
@@ -20,9 +20,9 @@ import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_s
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_control_handler.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/pages/elite_home_page.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
-import 'package:yourcallyourrule/features/location/services/provider/location_sync_service_provider.dart';
+import 'package:yourcallyourrule/features/location/services/location_sync_service.dart';
 import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
-import 'package:yourcallyourrule/features/plugin/providers/plugin_execution_service_provider.dart';
+import 'package:yourcallyourrule/features/plugin/services/plugin_execution_service.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/theme/theme_provider.dart';
@@ -97,10 +97,10 @@ void main() {
         ),
         ('1.10_notificationServiceProvider', notificationServiceProvider),
         ('1.11_overlayControlHandlerProvider', overlayControlHandlerProvider),
-        ('1.12_backgroundSyncInitProvider.future', backgroundSyncInitProvider),
+        ('1.12_backgroundSyncServiceProvider', backgroundSyncServiceProvider),
         (
-          '1.13_foregroundSyncServiceInitializerProvider.future',
-          foregroundSyncServiceInitializerProvider,
+          '1.13_foregroundSyncServiceProvider',
+          foregroundSyncServiceProvider,
         ),
       ];
 
@@ -266,10 +266,10 @@ void main() {
           'pluginSyncServiceInitializerProvider',
           pluginSyncServiceInitializerProvider,
         ),
-        ('backgroundSyncInitProvider.future', backgroundSyncInitProvider),
+        ('backgroundSyncServiceProvider', backgroundSyncServiceProvider),
         (
-          'foregroundSyncServiceInitializerProvider.future',
-          foregroundSyncServiceInitializerProvider,
+          'foregroundSyncServiceProvider',
+          foregroundSyncServiceProvider,
         ),
       ];
 

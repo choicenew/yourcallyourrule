@@ -1,3 +1,5 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
@@ -7,6 +9,15 @@ import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
+
+part 'label_phone_entry_to_remote.g.dart';
+
+@Riverpod(keepAlive: true)
+LabelPhoneEntryToRemote labelPhoneEntryToRemote(Ref ref) {
+  final remoteNumberService = ref.watch(remoteNumberServiceProvider);
+  final predefinedLabelService = ref.watch(predefinedLabelServiceProvider);
+  return LabelPhoneEntryToRemote(remoteNumberService, predefinedLabelService);
+}
 
 /// 标签电话条目到远程同步服务
 /// 负责将 LabelPhoneEntry 同步到远程号码服务

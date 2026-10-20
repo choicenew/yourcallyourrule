@@ -8,12 +8,12 @@ import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
+import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
+import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
-import 'package:yourcallyourrule/features/labels/providers/label_phone_entry_to_remote_provider.dart';
-import 'package:yourcallyourrule/features/labels/providers/label_mark_statistics_sync_service_provider.dart';
+import 'package:yourcallyourrule/features/labels/services/label_phone_entry_to_remote.dart';
+import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_sync_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 电话元数据编辑对话框

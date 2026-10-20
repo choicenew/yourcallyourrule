@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 // 导入 Riverpod 的代码生成注解包，以便能够使用 @riverpod
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 // 导入依赖的服务及其 Provider
-import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
+import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 // 【修正】: 导入 CallerIdMonitorService 的 Provider，而不是类本身
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_service.dart'; 
 import 'package:yourcallyourrule/features/call/call_history/services/call_event_listener_service.dart';

@@ -1,9 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
 import 'package:yourcallyourrule/core/repositories/predefined_label_repository.dart';
+import 'package:yourcallyourrule/data/repositories/predefined_label/predefined_label_repository_impl.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
-
-import 'basic_provider/predefined_label_repository_provider.dart';
 
 
 /// 预定义标签服务提供者

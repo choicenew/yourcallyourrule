@@ -4,14 +4,25 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart' hide Column;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/common/error/logger.dart';
+import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
 
 import '../../../data/models/remote/remote_number_model.dart';
 import '../../../data/models/sync/sync_record_model.dart';
 
 import 'remote_datasource_interface.dart';
+
+part 'remote_number_datasource.g.dart';
+
+@Riverpod(keepAlive: true)
+RemoteNumberDataSource remoteNumberDataSource(Ref ref) {
+  final databaseService = ref.watch(databaseServiceProvider);
+  return databaseService.remoteNumberDataSource;
+}
 
 // 远程号码数据源实现
 class RemoteNumberDataSource

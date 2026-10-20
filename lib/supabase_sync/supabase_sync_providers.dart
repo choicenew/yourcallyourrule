@@ -1,7 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:yourcallyourrule/core/provider/database_provider/local_database_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/device_id_service_provider.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 
 import '../../data/database/local/local_database.dart';
@@ -10,14 +8,6 @@ import '../../data/repositories/config/config_repository.dart';
 import 'supabase_db_initializer.dart';
 import 'supabase_sync_manager.dart';
 import 'sync_log_service.dart';
-
-
-
-
-
-
-// 引入 configRepositoryProvider
-import '../../core/provider/providers/config_repository_provider.dart';
 
 part 'supabase_sync_providers.g.dart';
 

@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:uuid/uuid.dart';
+
+part 'rule_management_service.g.dart';
+
+/// RuleManagementService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+RuleManagementService ruleManagementService(Ref ref) {
+  final ruleRepository = ref.watch(ruleRepositoryProvider);
+  return RuleManagementService(ruleRepository);
+}
 
 /// 规则管理服务类，继承自ListService，提供各种动作类型规则的管理功能
 /// 包括添加、删除、查询不同动作类型（允许、阻止、静音、无动作等）的规则操作

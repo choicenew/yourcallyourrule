@@ -3,6 +3,8 @@ import 'dart:math' as math;
 
 import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/common/error/logger.dart';
@@ -18,17 +20,39 @@ import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
 
 import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/location/services/location_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_invoker_service.dart';
-
-import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
+
+part 'caller_id_service.g.dart';
+
+/// CallerIdService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+CallerIdService callerIdService(Ref ref) {
+  final pluginService = ref.watch(pluginServiceProvider);
+  final contactService = ref.watch(contactServiceProvider);
+  final ruleManagementService = ref.watch(ruleManagementServiceProvider);
+  final labelService = ref.watch(labelServiceProvider);
+  final locationService = ref.watch(locationServiceProvider);
+  final predefinedLabelService = ref.watch(predefinedLabelServiceProvider);
+  final remoteNumberService = ref.watch(remoteNumberServiceProvider);
+
+  return CallerIdService(
+    pluginService: pluginService,
+    contactService: contactService,
+    ruleManagementService: ruleManagementService,
+    labelService: labelService,
+    locationService: locationService,
+    predefinedLabelService: predefinedLabelService,
+    remoteNumberService: remoteNumberService,
+  );
+}
 
 /// 来电显示服务类，提供来电显示相关功能
 /// 包括获取来电显示信息、处理来电显示数据等

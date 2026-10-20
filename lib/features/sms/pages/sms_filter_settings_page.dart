@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
-import 'package:yourcallyourrule/features/sms/providers/sms_filter_service_provider.dart';
+import 'package:yourcallyourrule/features/sms/services/sms_filter_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 短信过滤设置页面 (Elite Dopamine 现代视觉规范)

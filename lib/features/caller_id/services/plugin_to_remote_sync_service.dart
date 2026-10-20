@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
@@ -9,7 +11,28 @@ import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
+
+part 'plugin_to_remote_sync_service.g.dart';
+
+/// PluginToRemoteSyncService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+PluginToRemoteSyncService pluginToRemoteSyncService(Ref ref) {
+  final remoteNumberService = ref.watch(remoteNumberServiceProvider);
+  return PluginToRemoteSyncService(remoteNumberService);
+}
+
+/// 插件同步服务初始化提供者
+@Riverpod(keepAlive: true)
+void pluginSyncServiceInitializer(Ref ref) {
+  final callerIdService = ref.watch(callerIdServiceProvider);
+  final pluginToRemoteSyncService = ref.watch(pluginToRemoteSyncServiceProvider);
+  pluginToRemoteSyncService.startSync(
+    callerIdService.pluginDataStream,
+    callerIdService.labelPhoneEntryStream,
+  );
+}
 
 /// 插件数据同步服务类，负责将插件数据和标签电话条目同步到远程号码服务
 /// 监听插件数据流和标签电话条目流，并将数据转换为远程号码条目

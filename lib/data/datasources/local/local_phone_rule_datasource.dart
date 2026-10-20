@@ -4,12 +4,22 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart' hide Column;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-// 假设这是 LocalDatabase 的正确导入路径
+import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart'; 
 
 import '../../../data/models/phone_rule_model.dart';
 import '../datasource_interface.dart';
+
+part 'local_phone_rule_datasource.g.dart';
+
+@Riverpod(keepAlive: true)
+LocalPhoneRuleDataSource localPhoneRuleDataSource(Ref ref) {
+  final databaseService = ref.watch(databaseServiceProvider);
+  return databaseService.localPhoneRuleDataSource;
+}
 
 // 本地电话规则数据源实现
 class LocalPhoneRuleDataSource implements LocalDataSource<PhoneRuleModel> {

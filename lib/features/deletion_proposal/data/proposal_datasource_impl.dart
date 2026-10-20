@@ -1,6 +1,9 @@
 import 'dart:convert';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:drift/drift.dart' hide Column; // hide Column to avoid name clash
+import 'package:drift/drift.dart' hide Column;
+import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
 import 'package:yourcallyourrule/data/models/sync/sync_operation_type.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/data/proposal_datasource.dart';
@@ -10,6 +13,14 @@ import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.da
 import 'package:yourcallyourrule/features/deletion_proposal/models/proposal_history_item.dart';
 import 'package:yourcallyourrule/features/deletion_proposer/models/server_verification_report.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/models/sync_payload.dart';
+
+part 'proposal_datasource_impl.g.dart';
+
+@Riverpod(keepAlive: true)
+ProposalDataSource proposalDataSource(Ref ref) {
+  final databaseService = ref.watch(databaseServiceProvider);
+  return ProposalDataSourceImpl(databaseService.remoteDatabase);
+}
 
 /// 扩展：将 Drift 自动生成的 ActiveDeletionProposalData 转换为领域模型 Proposal，避免手写 Map。
 extension ActiveDeletionProposalDataX on ActiveDeletionProposalData {
@@ -47,7 +58,6 @@ class ProposalDataSourceImpl implements ProposalDataSource {
   ProposalDataSourceImpl(this._db);
 
   // --- 核心提议状态管理 (`active_deletion_proposals` 表) ---
-  // (这部分是新的逻辑，用于管理本地状态，保持不变)
   @override
   Future<void> upsertDeletionProposal({
     required String phoneNumber,
@@ -257,11 +267,6 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     });
   }
 
-  // =======================================================================
-  // 【核心修正】: 使用【原始函数名】完整地、无损地迁移了所有同步相关功能。
-  // REASON: 这是对之前错误的彻底纠正，确保100%功能保留和可对照性。
-  // =======================================================================
-
   // --- 操作日志与同步管理 (`pending_operations` 表) ---
 
   @override
@@ -323,9 +328,6 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     );
   }
 
-  // 【注意】: 这个 getActivePendingDeletionProposals 与 核心状态管理中的同名方法有本质区别。
-  // 这个版本查询的是 `pending_operations` 表，返回的是 `Map`，用于同步。
-  // 为了区分，我们将其重命名为 `getPendingDeletionProposalOperations`。
   @override
   Future<List<Map<String, dynamic>>>
   getPendingDeletionProposalOperations() async {
@@ -365,9 +367,6 @@ class ProposalDataSourceImpl implements ProposalDataSource {
         .go();
   }
 
-  // =======================================================================
-  // 【核心修正】: `getProposalInfo` 的实现现在正确地查询 `active_deletion_proposals` 并返回 `Proposal` 对象。
-  // =======================================================================
   @override
   Future<Proposal?> getProposalInfo(String phoneNumber) async {
     final r = await (_db.select(_db.activeDeletionProposals)
@@ -377,10 +376,6 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     return r.toDomainProposal();
   }
 
-  // =======================================================================
-  // 【核心修正】: `getPendingProposalOperationInfo` 实现了原来查询 `pending_operations` 的逻辑。
-  // REASON: 职责清晰，这个方法只为内部同步逻辑服务，不应该暴露给 Service 层。
-  // =======================================================================
   @override
   Future<Map<String, dynamic>?> getPendingProposalOperationInfo(String phoneNumber) async {
     try {
@@ -397,19 +392,14 @@ class ProposalDataSourceImpl implements ProposalDataSource {
       }
       return null;
     } catch (e) {
-      // 保持错误处理，但不抛出以避免上层崩溃
       return null;
     }
   }
 
-  // =======================================================================
-  // 【新增实现】: 聚合查询逻辑
-  // =======================================================================
   @override
   Future<List<MyProposalHistoryItem>> getMyProposalHistory(String deviceId) async {
     final proposeDeletionOpStr = SyncOperationType.proposeDeletion.toRawString();
 
-    // 1. 获取我所有的提交记录 (按时间倒序)
     final submissions = await (_db.select(_db.proposalSubmissions)
           ..where((t) => t.proposerId.equals(deviceId))
           ..orderBy([(t) => OrderingTerm.desc(t.submissionTime)]))
@@ -417,30 +407,24 @@ class ProposalDataSourceImpl implements ProposalDataSource {
 
     if (submissions.isEmpty) return [];
 
-    // 2. 提取所有涉及的电话号码，准备批量查询
     final phoneNumbers = submissions.map((s) => s.phoneNumber).toSet();
 
-    // 3. 批量查询：待同步队列 (Pending)
     final pendingRows = await (_db.select(_db.pendingOperations)
           ..where((t) => t.entityId.isIn(phoneNumbers))
           ..where((t) => t.operation.equals(proposeDeletionOpStr)))
         .get();
     final pendingSet = pendingRows.map((r) => r.entityId).toSet();
 
-    // 4. 批量查询：活跃提议 (Active)
     final activeRows = await (_db.select(_db.activeDeletionProposals)
           ..where((t) => t.phoneNumber.isIn(phoneNumbers)))
         .get();
-    // 转为 Map 方便查找详情
     final activeMap = {for (var row in activeRows) row.phoneNumber: row};
 
-    // 5. 批量查询：远程号码表 (RemoteNumbers) - 用于判断是否被拒绝
     final existingNumbersRows = await (_db.select(_db.remoteNumbers)
           ..where((t) => t.phoneNumber.isIn(phoneNumbers)))
         .get();
     final existingNumbersSet = existingNumbersRows.map((r) => r.phoneNumber).toSet();
 
-    // 6. 组装最终结果
     final List<MyProposalHistoryItem> historyList = [];
 
     for (final sub in submissions) {
@@ -450,24 +434,18 @@ class ProposalDataSourceImpl implements ProposalDataSource {
       int votes = 0;
       int owners = 0;
 
-      // --- 状态判定逻辑 ---
       if (pendingSet.contains(phone)) {
-        // 还在本地 Pending 队列
         status = MyProposalStatus.waitingForSync;
       } else if (activeMap.containsKey(phone)) {
-        // 服务器已接收，正在投票
         status = MyProposalStatus.underReview;
         final activeData = activeMap[phone]!;
         riskLevel = activeData.highestRiskLevel;
         votes = activeData.proposalCount;
         owners = activeData.verifiedOwnerCount;
       } else {
-        // 既不在 Pending 也不在 Active，说明流程结束
         if (existingNumbersSet.contains(phone)) {
-          // 号码还在 -> 提议被驳回
           status = MyProposalStatus.rejected;
         } else {
-          // 号码没了 -> 提议通过 (删除成功)
           status = MyProposalStatus.approved;
         }
       }

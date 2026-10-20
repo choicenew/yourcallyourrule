@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/cloud_sync/services/backup_encryption_service.dart';
 import 'package:yourcallyourrule/cloud_sync/services/backup_restore_service.dart';
-import 'package:yourcallyourrule/core/provider/basic_provider/rule_repository_provider.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_backup_service.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
@@ -11,10 +11,6 @@ import 'package:yourcallyourrule/data/repositories/config/config_repository.dart
 /// This provider combines multiple underlying services (encryption, rule import/export,
 /// and config backup) to create the primary service responsible for handling
 /// backup and restore operations.
-
-final configRepositoryProvider = Provider<ConfigRepository>((ref) {
-  return SharedPreferencesConfigRepository();
-});
 
 final backupRestoreServiceProvider = Provider<BackupRestoreService>((ref) {
   final encryptionService = BackupEncryptionService();

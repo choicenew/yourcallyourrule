@@ -1,7 +1,18 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/data/proposal_datasource.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/data/proposal_datasource_impl.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/repositories/proposal_repository.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/models/proposal_history_item.dart';
+
+part 'proposal_repository_impl.g.dart';
+
+@Riverpod(keepAlive: true)
+ProposalRepository proposalRepository(Ref ref) {
+  final dataSource = ref.watch(proposalDataSourceProvider);
+  return ProposalRepositoryImpl(dataSource);
+}
 
 /// 提议仓库的实现类。
 /// 将所有调用委托给底层的 `ProposalDataSource`。
@@ -39,7 +50,6 @@ class ProposalRepositoryImpl implements ProposalRepository {
   Future<bool> hasActiveDeletionProposal(String phoneNumber) =>
       _dataSource.hasActiveDeletionProposal(phoneNumber);
 
-  // 【MODIFIED】: 实现了新的命名。
   @override
   Future<List<Proposal>> getActivePendingDeletionProposals() =>
       _dataSource.getActivePendingDeletionProposals();
@@ -107,14 +117,11 @@ class ProposalRepositoryImpl implements ProposalRepository {
   Future<void> clearDeletionOperations(String phoneNumber) =>
       _dataSource.clearDeletionOperations(phoneNumber);
   @override
-   Future<Proposal?> getProposalInfo(String phoneNumber) {
+  Future<Proposal?> getProposalInfo(String phoneNumber) {
     return _dataSource.getProposalInfo(phoneNumber);
   }
  
-  // 【新增实现】
   @override
   Future<List<MyProposalHistoryItem>> getMyProposalHistory(String deviceId) =>
       _dataSource.getMyProposalHistory(deviceId);
-
-
 }

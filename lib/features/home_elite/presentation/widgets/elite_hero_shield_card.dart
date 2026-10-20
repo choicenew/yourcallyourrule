@@ -9,7 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
-import 'package:yourcallyourrule/features/auto_update/di/auto_update_service_provider.dart';
+import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart';
 import 'package:yourcallyourrule/features/caller_id/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';

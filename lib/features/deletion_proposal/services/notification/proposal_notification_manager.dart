@@ -2,7 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:flutter/material.dart';
 
 // 引入所有必要的 Provider
-import 'package:yourcallyourrule/features/deletion_proposal/providers/deletion_proposal_service_provider.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/services/deletion_proposal_service.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/services/notification/deletion_proposal_notification_service.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/services/notification/notification_frequency_service.dart';
 

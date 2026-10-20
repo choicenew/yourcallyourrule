@@ -6,7 +6,6 @@ import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/common/utils/regex_hint.dart';
 import 'package:yourcallyourrule/core/entities/regex/regex_pattern.dart';
 
-import 'package:yourcallyourrule/core/provider/providers/regex_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 

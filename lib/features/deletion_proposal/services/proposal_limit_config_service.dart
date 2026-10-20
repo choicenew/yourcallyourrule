@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/provider/providers/api_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
+import 'package:yourcallyourrule/data/database/sync/api_service.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 
 part 'proposal_limit_config_service.g.dart';

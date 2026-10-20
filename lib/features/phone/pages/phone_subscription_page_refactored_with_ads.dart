@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/subscription/subscription.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
-import 'package:yourcallyourrule/core/provider/providers/phone_subscription_service_provider.dart';
+import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';

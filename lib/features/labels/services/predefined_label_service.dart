@@ -1,8 +1,20 @@
 import 'dart:async';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
 import 'package:yourcallyourrule/core/repositories/predefined_label_repository.dart';
+import 'package:yourcallyourrule/data/repositories/predefined_label/predefined_label_repository_impl.dart';
+
+part 'predefined_label_service.g.dart';
+
+/// PredefinedLabelService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+PredefinedLabelService predefinedLabelService(Ref ref) {
+  final predefinedLabelRepository = ref.watch(predefinedLabelRepositoryProvider);
+  return PredefinedLabelService(predefinedLabelRepository);
+}
 
 /// 预定义标签服务类
 /// 负责创建和管理预定义标签

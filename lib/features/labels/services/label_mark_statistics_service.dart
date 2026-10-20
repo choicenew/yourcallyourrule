@@ -1,7 +1,18 @@
 import 'dart:async';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/data/repositories/label_mark_statistics_repository.dart';
+
+part 'label_mark_statistics_service.g.dart';
+
+/// LabelMarkStatisticsService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+LabelMarkStatisticsService labelMarkStatisticsService(Ref ref) {
+  final repository = ref.watch(labelMarkStatisticsRepositoryProvider);
+  return LabelMarkStatisticsService(repository);
+}
 
 
 

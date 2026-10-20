@@ -1,11 +1,21 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+part 'config_repository.g.dart';
 
 abstract class ConfigRepository {
   Future<Map<String, dynamic>?> getConfig(String key);
   Future<void> saveConfig(String key, Map<String, dynamic> config);
   Future<void> removeConfig(String key);
+}
+
+/// ConfigRepository Provider
+@Riverpod(keepAlive: true)
+ConfigRepository configRepository(Ref ref) {
+  return SharedPreferencesConfigRepository();
 }
 
 /// 使用 SharedPreferences 实现的配置仓库（带原生 PlatformException 安全容错）

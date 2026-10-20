@@ -1,4 +1,14 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+
+part 'feature_center_config_service.g.dart';
+
+@Riverpod(keepAlive: true)
+FeatureCenterConfigService featureCenterConfigService(Ref ref) {
+  final configRepository = ref.watch(configRepositoryProvider);
+  return FeatureCenterConfigService(configRepository);
+}
 
 class FeatureCenterConfigService {
   final ConfigRepository _configRepository;

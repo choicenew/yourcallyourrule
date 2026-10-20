@@ -2,7 +2,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:permission_handler/permission_handler.dart';
 import 'package:permission_handler/permission_handler.dart' as permission_handler show openAppSettings;
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/services/permission_service.dart';
+
+part 'permission_service_impl.g.dart';
+
+/// permissionServiceProvider
+@Riverpod(keepAlive: true)
+PermissionService permissionService(Ref ref) {
+  return PermissionServiceImpl();
+}
 
 /// PermissionService的具体实现类
 class PermissionServiceImpl implements PermissionService {

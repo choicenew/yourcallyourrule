@@ -10,7 +10,7 @@ import 'package:yourcallyourrule/features/common/widgets/generic_rule_page.dart'
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
-import 'package:yourcallyourrule/core/provider/providers/regex_service_provider.dart';
+import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 import 'package:yourcallyourrule/features/rules/services/regex_rule_import_export_adapter.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';

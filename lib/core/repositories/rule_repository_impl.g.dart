@@ -8,55 +8,48 @@ part of 'rule_repository_impl.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 自动生成的 RuleRepositoryImpl Provider
+/// 自动生成的 RuleRepository Provider
 
-@ProviderFor(ruleRepositoryImpl)
-final ruleRepositoryImplProvider = RuleRepositoryImplProvider._();
+@ProviderFor(ruleRepository)
+final ruleRepositoryProvider = RuleRepositoryProvider._();
 
-/// 自动生成的 RuleRepositoryImpl Provider
+/// 自动生成的 RuleRepository Provider
 
-final class RuleRepositoryImplProvider
-    extends
-        $FunctionalProvider<
-          RuleRepositoryImpl,
-          RuleRepositoryImpl,
-          RuleRepositoryImpl
-        >
-    with $Provider<RuleRepositoryImpl> {
-  /// 自动生成的 RuleRepositoryImpl Provider
-  RuleRepositoryImplProvider._()
+final class RuleRepositoryProvider
+    extends $FunctionalProvider<RuleRepository, RuleRepository, RuleRepository>
+    with $Provider<RuleRepository> {
+  /// 自动生成的 RuleRepository Provider
+  RuleRepositoryProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'ruleRepositoryImplProvider',
-        isAutoDispose: true,
+        name: r'ruleRepositoryProvider',
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$ruleRepositoryImplHash();
+  String debugGetCreateSourceHash() => _$ruleRepositoryHash();
 
   @$internal
   @override
-  $ProviderElement<RuleRepositoryImpl> $createElement(
-    $ProviderPointer pointer,
-  ) => $ProviderElement(pointer);
+  $ProviderElement<RuleRepository> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
 
   @override
-  RuleRepositoryImpl create(Ref ref) {
-    return ruleRepositoryImpl(ref);
+  RuleRepository create(Ref ref) {
+    return ruleRepository(ref);
   }
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(RuleRepositoryImpl value) {
+  Override overrideWithValue(RuleRepository value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<RuleRepositoryImpl>(value),
+      providerOverride: $SyncValueProvider<RuleRepository>(value),
     );
   }
 }
 
-String _$ruleRepositoryImplHash() =>
-    r'a3a09d646492c0ff906ad2325f26ad75b8c0582b';
+String _$ruleRepositoryHash() => r'67eec2f4f5efbb4a7ebd3ad524dad650ee150bb2';

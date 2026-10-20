@@ -5626,3 +5626,55 @@ class $RemoteDatabaseManager {
   $$ProposalVotesTableTableManager get proposalVotes =>
       $$ProposalVotesTableTableManager(_db, _db.proposalVotes);
 }
+
+// **************************************************************************
+// RiverpodGenerator
+// **************************************************************************
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+/// 远程 Drift 数据库提供者
+
+@ProviderFor(remoteDatabase)
+final remoteDatabaseProvider = RemoteDatabaseProvider._();
+
+/// 远程 Drift 数据库提供者
+
+final class RemoteDatabaseProvider
+    extends $FunctionalProvider<RemoteDatabase, RemoteDatabase, RemoteDatabase>
+    with $Provider<RemoteDatabase> {
+  /// 远程 Drift 数据库提供者
+  RemoteDatabaseProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'remoteDatabaseProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$remoteDatabaseHash();
+
+  @$internal
+  @override
+  $ProviderElement<RemoteDatabase> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  RemoteDatabase create(Ref ref) {
+    return remoteDatabase(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(RemoteDatabase value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<RemoteDatabase>(value),
+    );
+  }
+}
+
+String _$remoteDatabaseHash() => r'88f276c2ceea4679d3effe98718737fa0509db44';

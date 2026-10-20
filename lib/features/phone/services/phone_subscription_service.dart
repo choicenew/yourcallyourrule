@@ -1,6 +1,8 @@
 // 电话规则订阅服务，用于处理电话规则订阅
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 
@@ -12,10 +14,22 @@ import '../../../core/entities/subscription/subscription.dart';
 import '../../../core/entities/subscription/subscription_table_type.dart';
 import '../../../core/repositories/rule_repository.dart';
 import '../../../core/repositories/subscription_repository.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
+import 'package:yourcallyourrule/data/repositories/subscription_repository_impl.dart';
 import '../../../core/services/rule_import_export_service.dart';
 import '../../../core/services/subscription_service_base.dart';
 import '../../../core/value_objects/rule_action.dart';
 import '../../../core/value_objects/url.dart';
+
+part 'phone_subscription_service.g.dart';
+
+/// PhoneSubscriptionService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+PhoneSubscriptionService phoneSubscriptionService(Ref ref) {
+  final subscriptionRepository = ref.watch(subscriptionRepositoryProvider);
+  final ruleRepository = ref.watch(ruleRepositoryProvider);
+  return PhoneSubscriptionService(subscriptionRepository, ruleRepository);
+}
 
 /// 电话规则订阅服务
 /// 处理电话规则的订阅功能

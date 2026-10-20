@@ -9,8 +9,8 @@ import 'package:yourcallyourrule/core/provider/contacts_provider.dart';
 import 'package:yourcallyourrule/core/provider/label_phone_service_provider.dart';
 import 'package:yourcallyourrule/core/provider/plugins_provider.dart';
 import 'package:yourcallyourrule/core/provider/predefined_labels_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
+import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/core/provider/rules_provider.dart';
 import 'package:yourcallyourrule/core/provider/subscriptions_provider.dart';
 

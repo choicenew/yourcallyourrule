@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/provider/providers/device_id_service_provider.dart';
+import 'package:yourcallyourrule/data/database/sync/device_id_service.dart';
 import 'package:yourcallyourrule/data/database/sync/api_service.dart';
 
 /// 一个独立的测试按钮 Widget，用于手动触发一次 PUSH 同步测试。

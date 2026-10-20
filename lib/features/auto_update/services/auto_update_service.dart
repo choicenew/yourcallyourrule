@@ -1,4 +1,6 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
@@ -6,6 +8,26 @@ import 'package:yourcallyourrule/features/contacts/services/contact_subscription
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_config.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+
+part 'auto_update_service.g.dart';
+
+/// AutoUpdateService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+AutoUpdateService autoUpdateService(Ref ref) {
+  final phoneService = ref.watch(phoneSubscriptionServiceProvider);
+  final smsService = ref.watch(smsSubscriptionServiceProvider);
+  final contactService = ref.watch(contactSubscriptionServiceProvider);
+  final pluginService = ref.watch(pluginManagerServiceProvider);
+  final configRepository = ref.watch(configRepositoryProvider);
+
+  return AutoUpdateService(
+    phoneService: phoneService,
+    smsService: smsService,
+    contactService: contactService,
+    pluginService: pluginService,
+    configRepository: configRepository,
+  );
+}
 
 /// 自动更新服务
 /// 负责整合多种订阅服务的自动更新功能

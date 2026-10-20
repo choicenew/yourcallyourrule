@@ -1,13 +1,38 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
+import 'package:yourcallyourrule/data/repositories/sms_regex_rule_repository_impl.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_handlers/sms_filter_handler.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_handlers/sms_notification_handler.dart';
 import 'package:yourcallyourrule/platform/sms_channel_switcher.dart';
 
 import 'sms_handlers/base_sms_handler.dart';
-
 import 'sms_handlers/incoming_sms_handler.dart';
+
+part 'sms_filter_service.g.dart';
+
+/// SmsFilterService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+SmsFilterService smsFilterService(Ref ref) {
+  final smsRuleRepository = ref.watch(smsRegexRuleRepositoryProvider);
+  List<SmsRegexRule> initialRules = [];
+  final smsChannelManager = SmsChannelSwitcher.getPlatformChannelManager();
+
+  final service = SmsFilterService(
+    smsChannelManager: smsChannelManager,
+    initialRules: initialRules,
+  );
+
+  Future.microtask(() async {
+    final rules = await smsRuleRepository.getAll();
+    service.addRules(rules);
+    await service.initialize();
+  });
+
+  return service;
+}
 
 
 class SmsFilterService {

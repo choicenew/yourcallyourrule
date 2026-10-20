@@ -1,8 +1,19 @@
 import 'dart:io' show Platform;
 
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+
+part 'device_id_service.g.dart';
+
+/// DeviceIdService Provider
+@Riverpod(keepAlive: true)
+DeviceIdService deviceIdService(Ref ref) {
+  final configRepository = ref.watch(configRepositoryProvider);
+  return DeviceIdService(configRepository);
+}
 
 /// A dedicated service to manage the persistent unique identifier for this device.
 /// Its sole responsibility is to provide a stable device ID across app sessions and reinstalls.

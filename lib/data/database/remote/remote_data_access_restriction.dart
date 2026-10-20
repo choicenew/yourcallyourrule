@@ -2,9 +2,20 @@
 // (已移除日志功能，并从 sqflite 重构到 drift 的最终版本)
 
 import 'dart:async';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // 导入 Drift 数据库及其生成的数据类
 import '../remote/remote_database.dart';
+
+part 'remote_data_access_restriction.g.dart';
+
+/// RemoteDataAccessRestriction 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+RemoteDataAccessRestriction remoteDataAccessRestriction(Ref ref) {
+  final remoteDb = ref.watch(remoteDatabaseProvider);
+  return RemoteDataAccessRestrictionImpl(remoteDb);
+}
 // import '../remote/remote_database.g.dart'; // Drift 可能会隐式需要，显式导入更安全
 
 // -----------------------------------------------------------

@@ -9,8 +9,8 @@ import 'package:yourcallyourrule/features/common/widgets/public_select_label.dar
 import 'package:yourcallyourrule/features/common/widgets/dialogs/label_edit_dialog.dart'; 
 import 'package:yourcallyourrule/features/common/widgets/vip_access_checker.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
+import 'package:yourcallyourrule/features/labels/services/label_service.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';

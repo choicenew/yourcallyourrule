@@ -4,7 +4,7 @@ import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 
 /// 标记电话编辑对话框
 /// 用于编辑标记电话条目

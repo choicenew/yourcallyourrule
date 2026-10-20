@@ -3,18 +3,11 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/contacts/provider/contact_service_provider.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-
-// [重构]: 导入所有依赖的 Provider
-
-import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
-import 'package:yourcallyourrule/features/rules/providers/allowed_blocked_service_provider.dart';
 
 
 part 'search_service.g.dart';

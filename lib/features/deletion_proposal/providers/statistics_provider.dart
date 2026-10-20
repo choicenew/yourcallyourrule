@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // 引入所有必要的 Provider 和 Service
-import 'package:yourcallyourrule/features/deletion_proposal/providers/deletion_proposal_service_provider.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/services/deletion_proposal_service.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/services/deletion_proposal_statistics_service.dart';
 
 part 'statistics_provider.g.dart';

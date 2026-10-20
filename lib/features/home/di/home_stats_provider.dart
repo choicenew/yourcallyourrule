@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/provider/basic_provider/rule_repository_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/call_log_service_provider.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
+import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/home/models/home_stats_model.dart';
 import 'package:yourcallyourrule/features/home/services/home_stats_service.dart';
 

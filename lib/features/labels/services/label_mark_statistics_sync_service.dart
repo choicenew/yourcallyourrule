@@ -1,8 +1,20 @@
 import 'dart:async';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+
+part 'label_mark_statistics_sync_service.g.dart';
+
+/// LabelMarkStatisticsSyncService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+LabelMarkStatisticsSyncService labelMarkStatisticsSyncService(Ref ref) {
+  final statisticsService = ref.watch(labelMarkStatisticsServiceProvider);
+  final predefinedLabelService = ref.watch(predefinedLabelServiceProvider);
+  return LabelMarkStatisticsSyncService(statisticsService, predefinedLabelService);
+}
 
 /// 标签标记统计同步服务类
 /// 负责监听标签电话条目流并记录标记统计

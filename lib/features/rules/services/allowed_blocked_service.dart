@@ -1,13 +1,25 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+
+part 'allowed_blocked_service.g.dart';
+
+/// AllowedBlockedService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+AllowedBlockedService allowedBlockedService(Ref ref) {
+  final ruleRepository = ref.watch(ruleRepositoryProvider);
+  return AllowedBlockedService(ruleRepository);
+}
 
 // 重构后的允许/阻止规则服务
 class AllowedBlockedService extends ListService {

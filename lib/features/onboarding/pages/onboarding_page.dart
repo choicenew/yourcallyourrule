@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 
-import '../providers/onboarding_provider.dart';
+import '../services/onboarding_service.dart';
 import 'package:yourcallyourrule/features/initial_setup/providers/initial_setup_provider.dart';
 import '../widgets/onboarding_top_bar.dart';
 import '../widgets/onboarding_bottom_bar.dart';

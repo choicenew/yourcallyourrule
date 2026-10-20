@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_subscription.dart';
-import 'package:yourcallyourrule/core/provider/basic_provider/sms_subscription_repository_provider.dart';
 import 'package:yourcallyourrule/core/repositories/sms_subscription_repository.dart';
+import 'package:yourcallyourrule/data/repositories/sms_subscription_repository_impl.dart';
 
 
 /// 短信订阅数据状态的Notifier类

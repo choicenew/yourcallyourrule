@@ -2,20 +2,23 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import '../../data/repositories/label_mark_statistics_repository.dart';
-import 'package:yourcallyourrule/core/provider/basic_provider/label_mark_statistics_repository_provider.dart';
 import '../models/vip_exchange_rule_model.dart';
 import '../purchase_state.dart';
 
+part 'vip_exchange_service.g.dart';
+
 // VIP兑换服务提供者
-final vipExchangeServiceProvider = Provider<VipExchangeService>((ref) {
+@Riverpod(keepAlive: true)
+VipExchangeService vipExchangeService(Ref ref) {
   final purchaseState = ref.watch(purchaseStateProvider.notifier);
   final labelMarkStatisticsRepository = ref.watch(labelMarkStatisticsRepositoryProvider);
   return VipExchangeService(purchaseState, labelMarkStatisticsRepository);
-});
+}
 
 
 

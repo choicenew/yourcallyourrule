@@ -1,12 +1,22 @@
 import 'package:dlibphonenumber/dlibphonenumber.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
 import 'package:yourcallyourrule/core/repositories/location_repository.dart';
-
+import 'package:yourcallyourrule/data/repositories/location_repository_impl.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
-
 import 'package:yourcallyourrule/core/services/universal_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
+
+part 'location_service.g.dart';
+
+/// LocationService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+LocationService locationService(Ref ref) {
+  final locationRepository = ref.watch(locationRepositoryProvider);
+  return LocationService(locationRepository);
+}
 
 class LocationService extends ListService<LocationEntry, String> {
   final LocationRepository _repository;

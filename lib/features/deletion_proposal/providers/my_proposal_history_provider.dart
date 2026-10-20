@@ -1,8 +1,8 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/provider/providers/device_id_service_provider.dart';
+import 'package:yourcallyourrule/data/database/sync/device_id_service.dart';
 
 import 'package:yourcallyourrule/features/deletion_proposal/models/proposal_history_item.dart';
-import 'package:yourcallyourrule/features/deletion_proposal/providers/proposal_repository_provider.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/data/repositories/proposal_repository_impl.dart';
 
 part 'my_proposal_history_provider.g.dart';
 

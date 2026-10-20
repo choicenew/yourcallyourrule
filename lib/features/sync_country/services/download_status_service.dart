@@ -1,6 +1,17 @@
 // 文件: features/sync_country/services/download_status_service.dart
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+
+part 'download_status_service.g.dart';
+
+/// DownloadStatusService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+DownloadStatusService downloadStatusService(Ref ref) {
+  final configRepository = ref.watch(configRepositoryProvider);
+  return DownloadStatusService(configRepository);
+}
 
 /// 一个专门的服务，只负责追踪哪些国家的数据已被完整下载到本地。
 class DownloadStatusService {

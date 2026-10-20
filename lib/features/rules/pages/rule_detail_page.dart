@@ -19,7 +19,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 class RuleDetailPage<T extends BaseEntity, S> extends ConsumerStatefulWidget {
   final String ruleId;
   final String title;
-  final Color themeColor;
+  final Color? themeColor;
   
   /// 获取规则函数
   final Future<T?> Function(S service, String ruleId) getRule;

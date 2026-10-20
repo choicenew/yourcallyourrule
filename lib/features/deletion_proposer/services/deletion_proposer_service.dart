@@ -1,33 +1,27 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart'; // 为了使用 Provider
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/common/utils/phone_utils.dart';
 
-// 【MODIFIED】: 引入了新的、统一的 Repository Provider。
-// REASON: Service 层现在依赖于抽象，而不是具体的数据源实现，实现了依赖倒置。
-import 'package:yourcallyourrule/features/deletion_proposal/providers/proposal_repository_provider.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/data/repositories/proposal_repository_impl.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/repositories/proposal_repository.dart';
-import 'package:yourcallyourrule/features/device_profile/provider/device_profile_service_provider.dart';
 
-// 【MODIFIED】: 引入了 DeviceProfileService 的 Provider。
-// REASON: 遵循 Riverpod 的依赖注入模式，不再通过构造函数传递。
 import 'package:yourcallyourrule/features/device_profile/services/device_profile_service.dart';
+import 'package:yourcallyourrule/features/deletion_proposer/models/server_verification_report.dart';
 
 import '../logic/verification_logic.dart'; // 保持不变
 
-// =======================================================================
-// 【MODIFIED】: 创建一个新的 Provider 来提供 DeletionProposerService 的实例。
-// REASON: 这是 Riverpod 的标准做法，使得该 Service 可以在应用的任何地方被轻松访问和测试。
-// =======================================================================
-final deletionProposerServiceProvider = Provider<DeletionProposerService>((ref) {
-  // 1. 从各自的 Provider 中获取依赖项。
-  final proposalRepository = ref.watch(proposalRepositoryProvider);
-  final deviceProfileService = ref.watch(deviceProfileServiceProvider); // 假设您有一个 `deviceProfileServiceProvider`
+part 'deletion_proposer_service.g.dart';
 
-  // 2. 创建并返回 Service 实例。
+@Riverpod(keepAlive: true)
+DeletionProposerService deletionProposerService(Ref ref) {
+  final proposalRepository = ref.watch(proposalRepositoryProvider);
+  final deviceProfileService = ref.watch(deviceProfileServiceProvider);
+
   return DeletionProposerService(
     proposalRepository: proposalRepository, 
     profileService: deviceProfileService,
   );
-});
+}
 
 
 /// 提议创建服务。
@@ -84,7 +78,7 @@ class DeletionProposerService {
         // REASON: `proposeDeletion` 方法（旧的 logCustomOperation）现在被正确地封装在 `ProposalRepository` 中。
         await _proposalRepository.proposeDeletion(
           phoneNumber: phoneNumberToPropose,
-          report: verificationResult.reportForServer,
+          report: verificationResult.reportForServer.toJson(),
         );
         
         // 返回一个表示成功提交的结果
@@ -105,6 +99,10 @@ class DeletionProposerService {
         riskLevel: RiskLevel.High, 
         summary: "An error occurred: ${e.toString()}",
         flags: ['Error: ${e.toString()}'],
+        reportForServer: const ServerVerificationReport(
+          simState: 'UNKNOWN',
+          finalRisk: 'High',
+        ),
       );
     }
   }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_backup_provider.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_backup_service.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_cloud_converter.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';

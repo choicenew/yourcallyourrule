@@ -1,5 +1,4 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/remote_filter/config/remote_number_filter_config.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart'; // 依赖 remote service

@@ -3,11 +3,22 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:drift/drift.dart' hide Column;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 import '../../../data/models/sms_regex_rule_model.dart';
 import '../datasource_interface.dart';
+
+part 'local_sms_regex_rule_datasource.g.dart';
+
+@Riverpod(keepAlive: true)
+LocalSmsRegexRuleDataSource localSmsRegexRuleDataSource(Ref ref) {
+  final databaseService = ref.watch(databaseServiceProvider);
+  return databaseService.localSmsRegexRuleDataSource;
+}
 
 class LocalSmsRegexRuleDataSource implements LocalDataSource<SmsRegexRuleModel> {
   

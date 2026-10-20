@@ -2,12 +2,24 @@
 
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
 import 'package:yourcallyourrule/features/location/services/location_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo; // 别名
+
+part 'location_sync_service.g.dart';
+
+/// LocationSyncService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+LocationSyncService locationSyncService(Ref ref) {
+  final callerIdService = ref.watch(callerIdServiceProvider);
+  final locationService = ref.watch(locationServiceProvider);
+  return LocationSyncService(callerIdService, locationService);
+}
 
 /// 归属地同步服务
 /// 它的唯一职责是监听 CallerIdService 的数据流，

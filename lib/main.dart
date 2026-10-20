@@ -5,10 +5,11 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:yourcallyourrule/common/error/logger.dart';
-import 'package:yourcallyourrule/core/provider/providers/background_sync_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/foreground_sync_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/label_sync_service_initializer.dart';
-import 'package:yourcallyourrule/core/provider/providers/plugin_sync_service_initializer.dart';
+import 'package:yourcallyourrule/core/services/background_sync_service.dart';
+import 'package:yourcallyourrule/core/services/foreground_sync_service.dart';
+import 'package:yourcallyourrule/features/labels/services/label_stream_sync_service.dart';
+import 'package:yourcallyourrule/features/caller_id/services/plugin_to_remote_sync_service.dart';
+import 'package:yourcallyourrule/features/location/services/location_sync_service.dart';
 import 'package:yourcallyourrule/core/router/app_router_provider.dart';
 import 'package:yourcallyourrule/core/services/firebase_service.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
@@ -17,7 +18,6 @@ import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/ca
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_control_handler.dart';
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_service.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
-import 'package:yourcallyourrule/features/location/services/provider/location_sync_service_provider.dart';
 import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/theme/app_theme.dart';
@@ -83,11 +83,11 @@ Future<void> main() async {
 
       // 后台同步服务将通过Provider系统初始化
       if (!isOverlayMode) {
-        container.read(backgroundSyncInitProvider);
+        container.read(backgroundSyncServiceProvider).initialize();
       }
 
       // 在应用启动时触发一次前台同步检查
-      container.read(foregroundSyncServiceInitializerProvider);
+      container.read(foregroundSyncServiceProvider).syncIfNeeded();
     });
 
     runApp(

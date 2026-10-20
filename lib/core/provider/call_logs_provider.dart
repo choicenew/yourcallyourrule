@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
-import 'package:yourcallyourrule/core/provider/basic_provider/call_log_repository_provider.dart';
 import 'package:yourcallyourrule/core/repositories/call_log_repository.dart';
+import 'package:yourcallyourrule/data/repositories/call_log_repository_impl.dart';
 //import 'providers.dart';
 
 /// 通话记录数据状态的Notifier类

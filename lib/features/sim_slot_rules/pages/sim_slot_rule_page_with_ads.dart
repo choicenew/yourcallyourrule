@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/rule/sim_slot_rule.dart';
-import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/services/import_export_service_component.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';

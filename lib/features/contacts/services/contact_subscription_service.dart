@@ -1,17 +1,38 @@
 import 'dart:convert';
 import 'dart:isolate';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
 import 'package:yourcallyourrule/core/entities/contact/contact_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/repositories/contact_repository.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
+import 'package:yourcallyourrule/data/repositories/contact_repository_impl.dart';
+import 'package:yourcallyourrule/data/repositories/contact_subscription_repository_impl.dart';
 import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/entities/subscription/contact_subscription.dart';
 import 'package:yourcallyourrule/core/repositories/contact_subscription_repository.dart';
 import 'package:yourcallyourrule/core/services/subscription_service_base.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
+
+part 'contact_subscription_service.g.dart';
+
+/// ContactSubscriptionService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+ContactSubscriptionService contactSubscriptionService(Ref ref) {
+  final contactSubscriptionRepository = ref.watch(contactSubscriptionRepositoryProvider);
+  final ruleRepository = ref.watch(ruleRepositoryProvider);
+  final contactRepository = ref.watch(contactRepositoryProvider);
+
+  return ContactSubscriptionService(
+    contactSubscriptionRepository,
+    ruleRepository,
+    contactRepository,
+  );
+}
 
 class ContactSubscriptionService
     extends SubscriptionServiceBase<ContactSubscription, String> {

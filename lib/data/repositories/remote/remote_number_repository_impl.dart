@@ -1,3 +1,5 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/remote/remote_number_entry.dart';
 import 'package:yourcallyourrule/core/repositories/base_repository.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
@@ -6,6 +8,22 @@ import 'package:yourcallyourrule/data/database/remote/remote_data_access_restric
 import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_remote_database.dart';
 import 'package:yourcallyourrule/data/datasources/remote/remote_number_datasource.dart';
 import 'package:yourcallyourrule/data/models/remote/remote_number_model.dart';
+
+part 'remote_number_repository_impl.g.dart';
+
+/// 远程号码仓库提供者
+@Riverpod(keepAlive: true)
+RemoteNumberRepositoryImpl remoteNumberRepository(Ref ref) {
+  final remoteNumberDataSource = ref.watch(remoteNumberDataSourceProvider);
+  final remoteDataAccessRestriction = ref.watch(remoteDataAccessRestrictionProvider);
+  final incrementalSyncManager = ref.watch(incrementalSyncManagerProvider);
+
+  return RemoteNumberRepositoryImpl(
+    remoteNumberDataSource,
+    remoteDataAccessRestriction,
+    incrementalSyncManager,
+  );
+}
 
 class RemoteNumberRepositoryImpl
     implements BaseRepository<RemoteNumberEntry, String> {

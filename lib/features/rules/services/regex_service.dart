@@ -1,17 +1,27 @@
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/regex/regex_pattern.dart';
 import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
-
-
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+
+part 'regex_service.g.dart';
+
+/// RegexService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+RegexService regexService(Ref ref) {
+  final ruleRepository = ref.watch(ruleRepositoryProvider);
+  return RegexService(ruleRepository);
+}
 
 /// 正则规则服务类，继承自ListService，提供正则规则的管理功能
 /// 包括添加、删除、查询正则规则等操作

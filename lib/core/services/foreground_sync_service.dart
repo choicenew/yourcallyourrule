@@ -1,9 +1,47 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:yourcallyourrule/data/database/sync/incremental_sync_manager_remote_database.dart';
 import 'package:yourcallyourrule/data/database/sync/sync_scheduler.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_sync_service.dart';
+import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
+import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
+import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
+import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
+
+part 'foreground_sync_service.g.dart';
+
+/// ForegroundSyncService Provider
+@Riverpod(keepAlive: true)
+ForegroundSyncService foregroundSyncService(Ref ref) {
+  final syncManager = ref.watch(incrementalSyncManagerProvider);
+  final syncScheduler = ref.watch(syncSchedulerProvider);
+  final callLogSyncService = ref.watch(callLogSyncServiceProvider);
+
+  final phoneService = ref.watch(phoneSubscriptionServiceProvider);
+  final smsService = ref.watch(smsSubscriptionServiceProvider);
+  final contactService = ref.watch(contactSubscriptionServiceProvider);
+  final pluginService = ref.watch(pluginManagerServiceProvider);
+  final configRepo = ref.watch(configRepositoryProvider);
+
+  final autoUpdateService = AutoUpdateService(
+    phoneService: phoneService,
+    smsService: smsService,
+    contactService: contactService,
+    pluginService: pluginService,
+    configRepository: configRepo,
+  );
+
+  return ForegroundSyncService(
+    syncManager: syncManager,
+    syncScheduler: syncScheduler,
+    callLogSyncService: callLogSyncService,
+    autoUpdateService: autoUpdateService,
+  );
+}
 
 /// A service dedicated to performing a synchronization check when the app starts.
 ///

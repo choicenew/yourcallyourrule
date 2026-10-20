@@ -3,11 +3,22 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:drift/drift.dart' hide Column; 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 import '../../../data/models/predefined_label_model.dart';
 import '../datasource_interface.dart';
+
+part 'local_predefined_label_datasource.g.dart';
+
+@Riverpod(keepAlive: true)
+LocalPredefinedLabelDataSource localPredefinedLabelDataSource(Ref ref) {
+  final databaseService = ref.watch(databaseServiceProvider);
+  return databaseService.localPredefinedLabelDataSource;
+}
 
 /// 本地预定义标签数据源实现 (使用 Drift)
 class LocalPredefinedLabelDataSource implements LocalDataSource<PredefinedLabelModel> {

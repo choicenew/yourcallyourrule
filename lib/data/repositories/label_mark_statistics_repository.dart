@@ -1,10 +1,20 @@
-// 标记统计仓库类，作为服务层和数据源层之间的桥梁
-
 import 'dart:async';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../datasources/local/local_label_mark_statistics_datasource.dart';
 import '../models/label_mark_statistics_model.dart';
 import '../../core/value_objects/phone_number.dart';
+
+part 'label_mark_statistics_repository.g.dart';
+
+/// 标记统计仓库提供者
+@Riverpod(keepAlive: true)
+LabelMarkStatisticsRepository labelMarkStatisticsRepository(Ref ref) {
+  final localLabelMarkStatisticsDataSource = ref.watch(localLabelMarkStatisticsDataSourceProvider);
+  return LabelMarkStatisticsRepositoryImpl(localLabelMarkStatisticsDataSource);
+}
 
 // 标记统计仓库接口
 abstract class LabelMarkStatisticsRepository {

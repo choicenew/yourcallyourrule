@@ -4,13 +4,25 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
+import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 import 'package:yourcallyourrule/data/models/location_model.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:dlibphonenumber/dlibphonenumber.dart' show PhoneNumberType;
+
 import 'package:yourcallyourrule/data/datasources/datasource_interface.dart';
+
+part 'local_location_datasource.g.dart';
+
+@Riverpod(keepAlive: true)
+LocalLocationDataSource localLocationDataSource(Ref ref) {
+  final databaseService = ref.watch(databaseServiceProvider);
+  return databaseService.localLocationDataSource;
+}
 
 class LocalLocationDataSource implements LocalDataSource<LocationModel> {
   

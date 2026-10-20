@@ -1,4 +1,15 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+
+part 'country_selection_service.g.dart';
+
+/// CountrySelectionService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+CountrySelectionService countrySelectionService(Ref ref) {
+  final configRepository = ref.watch(configRepositoryProvider);
+  return CountrySelectionService(configRepository);
+}
 
 /// A service to manage user-selected countries for data synchronization.
 class CountrySelectionService {

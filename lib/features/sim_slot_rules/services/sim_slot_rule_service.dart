@@ -3,8 +3,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
 import 'package:yourcallyourrule/core/entities/rule/sim_slot_rule.dart';
-import 'package:yourcallyourrule/core/provider/basic_provider/rule_repository_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
+import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';

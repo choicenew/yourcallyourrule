@@ -7,8 +7,8 @@ import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/label_edit_dialog.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
+import 'package:yourcallyourrule/features/labels/services/label_service.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
 class LabelManagementPage extends ConsumerStatefulWidget {
   const LabelManagementPage({super.key});

@@ -1,10 +1,22 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/features/plugin/services/core/js_execution_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/core/native_request_channel.dart';
 import 'package:http/http.dart' as http; // For loading script via URL
+
+part 'plugin_test_service.g.dart';
+
+/// PluginTestService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+PluginTestService pluginTestService(Ref ref) {
+  final service = PluginTestService();
+  ref.onDispose(() => service.dispose());
+  return service;
+}
 
 /// 插件测试服务
 /// [Refactored] 使用 JsExecutionService + NativeRequestChannel (Core)

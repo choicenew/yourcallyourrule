@@ -2,11 +2,22 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/models/label_mark_statistics_model.dart';
 
 import '../../database/local/local_database.dart';
 import '../datasource_interface.dart';
+
+part 'local_label_mark_statistics_datasource.g.dart';
+
+@Riverpod(keepAlive: true)
+LocalLabelMarkStatisticsDataSource localLabelMarkStatisticsDataSource(Ref ref) {
+  final databaseService = ref.watch(databaseServiceProvider);
+  return databaseService.localLabelMarkStatisticsDataSource;
+}
 
 class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRecordModel> {
   final LocalDatabase _db;

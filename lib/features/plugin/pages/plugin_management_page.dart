@@ -6,7 +6,6 @@ import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
-import 'package:yourcallyourrule/core/provider/providers/plugin_manager_service_provider.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

@@ -2,20 +2,46 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
+import 'package:yourcallyourrule/data/database/sync/api_service.dart';
 import 'package:yourcallyourrule/data/database/sync/device_id_service.dart';
 import 'package:yourcallyourrule/data/database/sync/sync_scheduler.dart';
-
+import 'package:yourcallyourrule/data/datasources/remote/remote_number_datasource.dart';
 import 'package:yourcallyourrule/features/sync_country/services/country_data_service.dart';
 import 'package:yourcallyourrule/features/sync_country/services/country_selection_service.dart';
 import 'package:yourcallyourrule/features/sync_country/services/download_status_service.dart';
 
 import 'api_service.dart';
 
-
 import '../../datasources/remote/remote_number_datasource.dart';
 import '../../models/sync/sync_record_model.dart';
+
+part 'incremental_sync_manager_remote_database.g.dart';
+
+/// 提供IncrementalSyncManager的Provider
+@Riverpod(keepAlive: true)
+IncrementalSyncManager incrementalSyncManager(Ref ref) {
+  final remoteNumberDataSource = ref.watch(remoteNumberDataSourceProvider);
+  final apiService = ref.watch(apiServiceProvider);
+  final deviceIdService = ref.watch(deviceIdServiceProvider);
+  final syncScheduler = ref.watch(syncSchedulerProvider);
+  final countryDataService = ref.watch(countryDataServiceProvider);
+  final countrySelectionService = ref.watch(countrySelectionServiceProvider);
+  final downloadStatusService = ref.watch(downloadStatusServiceProvider);
+
+  return IncrementalSyncManager(
+    dataSource: remoteNumberDataSource,
+    apiService: apiService,
+    deviceIdService: deviceIdService,
+    syncScheduler: syncScheduler,
+    countryDataService: countryDataService,
+    countrySelectionService: countrySelectionService,
+    downloadStatusService: downloadStatusService,
+  );
+}
 // 增量同步管理器类
 class IncrementalSyncManager {
   final RemoteNumberDataSource _dataSource;

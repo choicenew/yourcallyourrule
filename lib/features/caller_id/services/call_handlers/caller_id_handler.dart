@@ -17,7 +17,7 @@ import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/caller_id/providers/caller_id_service_provider.dart';
+import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
 
 // 导入依赖的 Provider
 import 'package:yourcallyourrule/features/caller_id/services/call_handlers/display_mode_handler.dart';

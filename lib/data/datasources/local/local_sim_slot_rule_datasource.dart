@@ -4,11 +4,22 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart' hide Column;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 import '../../../data/models/sim_slot_rule_model.dart';
 import '../datasource_interface.dart';
+
+part 'local_sim_slot_rule_datasource.g.dart';
+
+@Riverpod(keepAlive: true)
+LocalSimSlotRuleDataSource localSimSlotRuleDataSource(Ref ref) {
+  final databaseService = ref.watch(databaseServiceProvider);
+  return databaseService.localSimSlotRuleDataSource;
+}
 
 /// SIM卡槽位规则本地数据源 (使用 Drift)
 class LocalSimSlotRuleDataSource implements LocalDataSource<SimSlotRuleModel> {

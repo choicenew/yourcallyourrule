@@ -1,7 +1,19 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/repositories/proposal_repository.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/data/repositories/proposal_repository_impl.dart';
+
+part 'deletion_proposal_service.g.dart';
+
+/// DeletionProposalService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+DeletionProposalService deletionProposalService(Ref ref) {
+  final proposalRepository = ref.watch(proposalRepositoryProvider);
+  return DeletionProposalService(proposalRepository: proposalRepository);
+}
 
 /// 负责处理与“删除提议”相关的更复杂业务逻辑的高级服务。
 /// 它扮演 ViewModel 和 ProposalRepository 之间的中介角色。

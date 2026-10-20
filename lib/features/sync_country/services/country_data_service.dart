@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/data/database/sync/api_service.dart';
 import 'package:yourcallyourrule/data/datasources/remote/remote_number_datasource.dart';
+
+part 'country_data_service.g.dart';
+
+/// CountryDataService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+CountryDataService countryDataService(Ref ref) {
+  final apiService = ref.watch(apiServiceProvider);
+  final remoteNumberDataSource = ref.watch(remoteNumberDataSourceProvider);
+  return CountryDataService(
+    apiService: apiService,
+    remoteNumberDataSource: remoteNumberDataSource,
+  );
+}
 
 /// 这个服务负责一次性下载特定国家的完整数据集。
 class CountryDataService {

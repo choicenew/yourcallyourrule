@@ -9,8 +9,8 @@ import 'package:yourcallyourrule/core/router/app_router.dart';
 import '../../../core/entities/subscription/subscription.dart';
 import '../../../core/value_objects/url.dart';
 import '../../../core/value_objects/rule_action.dart';
-import '../../../core/provider/providers/phone_subscription_service_provider.dart';
-import '../../../core/provider/providers/plugin_manager_service_provider.dart';
+import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
+import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 
 import '../models/setup_config.dart';

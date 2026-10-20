@@ -3,13 +3,24 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:drift/drift.dart' hide Column;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/url.dart';
+import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart'; // 假设这是 LocalDatabase 的路径
 
 import '../../../data/models/subscription_model.dart';
 import '../datasource_interface.dart';
+
+part 'local_subscription_datasource.g.dart';
+
+@Riverpod(keepAlive: true)
+LocalSubscriptionDataSource localSubscriptionDataSource(Ref ref) {
+  final databaseService = ref.watch(databaseServiceProvider);
+  return databaseService.localSubscriptionDataSource;
+}
 
 // 本地订阅数据源实现
 class LocalSubscriptionDataSource implements LocalDataSource<BaseSubscriptionModel> {

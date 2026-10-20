@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/call/call_data.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
@@ -6,6 +8,15 @@ import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+
+part 'call_log_recorder.g.dart';
+
+@Riverpod(keepAlive: true)
+CallLogRecorder callLogRecorder(Ref ref) {
+  final callLogService = ref.watch(callLogServiceProvider);
+  final predefinedLabelService = ref.watch(predefinedLabelServiceProvider);
+  return CallLogRecorder(callLogService, predefinedLabelService);
+}
 
 /// 通话记录记录器
 /// 负责将通话数据转换为通话记录并保存
@@ -17,7 +28,8 @@ class CallLogRecorder {
   
   /// 构造函数
   CallLogRecorder(this._callLogService, this._predefinedLabelService);
-    /// 记录来电
+
+  /// 记录来电
   /// [phoneNumber] 电话号码
   /// [callData] 通话数据
   /// [accepted] 是否接受来电
@@ -26,13 +38,14 @@ class CallLogRecorder {
     debugPrint('recordIncomingCall: $phoneNumber, $callData, $accepted, $startTime, $endTime, $duration, $timestamp');
     await _recordCall(phoneNumber, callData, callType, startTime: startTime, endTime: endTime, duration: duration, timestamp: timestamp);
   }
-    /// 记录去电
+
+  /// 记录去电
   /// [phoneNumber] 电话号码
   /// [callData] 通话数据
  // 【修改点】: 在方法签名中加入了 startTime 和 duration
-Future<void> recordOutgoingCall(String phoneNumber, CallData callData, {DateTime? startTime, Duration? duration}) async {
-     debugPrint('recordOutgoingCall: $phoneNumber, callData received, startTime: $startTime, duration: $duration');
-     await _recordCall(
+  Future<void> recordOutgoingCall(String phoneNumber, CallData callData, {DateTime? startTime, Duration? duration}) async {
+    debugPrint('recordOutgoingCall: $phoneNumber, callData received, startTime: $startTime, duration: $duration');
+    await _recordCall(
       phoneNumber, 
       callData, 
       LocalCallType.outgoing, 
@@ -40,35 +53,38 @@ Future<void> recordOutgoingCall(String phoneNumber, CallData callData, {DateTime
       duration: duration?.inMilliseconds 
     );
   }
-   /// 记录拒接来电
- /// [phoneNumber] 电话号码
- /// [callData] 通话数据
+
+  /// 记录拒接来电
+  /// [phoneNumber] 电话号码
+  /// [callData] 通话数据
   Future<void> recordRejectedCall(String phoneNumber, CallData callData, {int? timestamp}) async {
     debugPrint('recordRejectedCall: $phoneNumber, $callData, $timestamp');
     await _recordCall(phoneNumber, callData, LocalCallType.rejected, timestamp: timestamp);
   }
-   /// 记录拦截来电
- /// [phoneNumber] 电话号码
- /// [callData] 通话数据
+
+  /// 记录拦截来电
+  /// [phoneNumber] 电话号码
+  /// [callData] 通话数据
   Future<void> recordBlockedCall(String phoneNumber, CallData callData, {int? timestamp}) async {
     debugPrint('recordBlockedCall: $phoneNumber, $callData, $timestamp');
     await _recordCall(phoneNumber, callData, LocalCallType.blocked, timestamp: timestamp);
   }
-   /// 记录静音来电
- /// [phoneNumber] 电话号码
- /// [callData] 通话数据
+
+  /// 记录静音来电
+  /// [phoneNumber] 电话号码
+  /// [callData] 通话数据
   Future<void> recordSilencedCall(String phoneNumber, CallData callData, {int? timestamp}) async {
     debugPrint('recordSilencedCall: $phoneNumber, $callData, $timestamp');
     await _recordCall(phoneNumber, callData, LocalCallType.silenced, timestamp: timestamp);
   }
   
-    /// 记录通话的通用方法
+  /// 记录通话的通用方法
   /// [phoneNumber] 电话号码
   /// [callData] 通话数据
   /// [callType] 通话类型
-   Future<void> _recordCall(String phoneNumber, CallData callData, LocalCallType callType, {DateTime? startTime, DateTime? endTime, int? duration, int? timestamp}) async {
+  Future<void> _recordCall(String phoneNumber, CallData callData, LocalCallType callType, {DateTime? startTime, DateTime? endTime, int? duration, int? timestamp}) async {
 // 获取SIM卡信息
-  final SimInfo? simInfo = callData.simInfo;
+    final SimInfo? simInfo = callData.simInfo;
 
     // 从标签中提取标签文本作为标签ID
    
@@ -112,7 +128,7 @@ Future<void> recordOutgoingCall(String phoneNumber, CallData callData, {DateTime
     // CallLog 的 'timestamp' 字段，我们定义它的职责是记录“通话开始时间”。
     timestamp: startTime ?? // 1. 最高优先级：如果 startTime 存在 (意味着这是一个被接听的电话)...
                          //    ...那么就使用这个最精确的“接听时刻”作为通话的开始时间。
-               (timestamp != null ? DateTime.fromMillisecondsSinceEpoch(timestamp) : DateTime.now()),
+                 (timestamp != null ? DateTime.fromMillisecondsSinceEpoch(timestamp) : DateTime.now()),
                          // 2. 次高优先级：如果 startTime 不存在 (这是一个未接、拒接或去电)...
                          //    ...那么就检查是否存在来自原生层的初始事件时间戳 (timestamp)。
                          //    如果存在，就用它。这是记录未接来电等事件时间的唯一精确来源。

@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/dialogs.dart';
-import 'package:yourcallyourrule/features/contacts/provider/contact_service_provider.dart';
+import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
+import 'package:yourcallyourrule/features/labels/services/label_service.dart';
+import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/search/providers/search_provider.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
 import 'package:yourcallyourrule/features/search/widgets/search_result_item.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-
-// [注释]: 导入所有需要的 Service Provider 用于处理点击事件。
-
-import 'package:yourcallyourrule/core/provider/providers/label_service_provider.dart';
-import 'package:yourcallyourrule/core/provider/providers/rule_management_service_provider.dart';
-import 'package:yourcallyourrule/features/rules/providers/allowed_blocked_service_provider.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 
 class SearchPage extends ConsumerStatefulWidget {

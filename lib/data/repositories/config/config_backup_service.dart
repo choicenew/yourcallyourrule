@@ -2,12 +2,25 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:yourcallyourrule/data/repositories/config/config_cloud_converter.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+
+part 'config_backup_service.g.dart';
+
+/// 配置备份还原服务提供者
+@Riverpod(keepAlive: true)
+ConfigBackupService configBackupService(Ref ref) {
+  final configRepository = ref.watch(configRepositoryProvider);
+  final service = ConfigBackupService(configRepository);
+  service.initialize();
+  return service;
+}
 
 /// 配置备份还原服务
 /// 负责将ConfigRepository中的配置数据进行备份和还原

@@ -3,10 +3,20 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_script_service.dart';
 
 import 'core/js_execution_service.dart';
+
+part 'plugin_url_execution_service.g.dart';
+
+/// PluginUrlExecutionService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+PluginUrlExecutionService pluginUrlWebViewService(Ref ref) {
+  return PluginUrlExecutionService();
+}
 
 /// 动态 URL 生成服务
 /// [Refactored] 使用 JsExecutionService + 模拟 RequestChannel 来捕获 URL

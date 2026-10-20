@@ -1,10 +1,14 @@
-// 这里【不需要】任何 riverpod_annotation 的导入和 part 文件！
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // 确保导入了正确的 state provider
 import 'package:yourcallyourrule/ads/ad_state.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 import 'package:yourcallyourrule/ads/ad_preload_service.dart';
+
+part 'ad_control_service.g.dart';
+
+@Riverpod(keepAlive: true)
+AdControlService adControlService(Ref ref) => AdControlService(ref);
 
 /// 广告控制服务 - 最终的 Riverpod 版本
 ///
@@ -102,16 +106,3 @@ class AdControlService {
     }
   }
 }
-
-// ##########################################################################
-// ## 服务提供者 (Provider 定义) - 无需修改
-// ##########################################################################
-
-/// 这个 Provider 的作用是创建并提供一个 `AdControlService` 的单例。
-/// 它是一个简单的 `Provider`，不是 `NotifierProvider`。
-final adControlServiceProvider = Provider.autoDispose<AdControlService>((ref) {
-  // `autoDispose` 在这里是安全的，因为如果服务不再被任何地方需要，
-  // 重新需要时会创建一个新的实例并重新启动监听。
-  // 如果您希望服务永不销毁，可以移除 `.autoDispose`。
-  return AdControlService(ref);
-});

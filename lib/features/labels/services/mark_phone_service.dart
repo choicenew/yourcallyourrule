@@ -1,16 +1,28 @@
 import 'dart:async';
 
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+
+part 'mark_phone_service.g.dart';
+
+/// LabelPhoneService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+LabelPhoneService markPhoneService(Ref ref) {
+  final ruleRepository = ref.watch(ruleRepositoryProvider);
+  final predefinedLabelService = ref.watch(predefinedLabelServiceProvider);
+  return LabelPhoneService(ruleRepository, predefinedLabelService);
+}
 
 /// 电话号码标签服务类
 /// 负责将电话号码与标签ID关联，处理号码标记的业务逻辑

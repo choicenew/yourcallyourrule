@@ -1,7 +1,4 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/provider/providers/config_repository_provider.dart';
-// 关键：导入包含 `configRepositoryProvider` 的文件
-
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
 // 链接到将要生成的代码文件

@@ -1,5 +1,7 @@
 // Remote database schema definition using drift
 import 'package:drift/drift.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:path/path.dart' as p;
 import 'package:drift/native.dart';
 import 'dart:io';
@@ -7,6 +9,12 @@ import 'package:path_provider/path_provider.dart';
 import 'package:yourcallyourrule/main.dart' show isOverlayMode;
 
 part 'remote_database.g.dart';
+
+/// 远程 Drift 数据库提供者
+@Riverpod(keepAlive: true)
+RemoteDatabase remoteDatabase(Ref ref) {
+  return RemoteDatabase();
+}
 
 // Table definitions
 @DataClassName('RemoteNumberData')

@@ -8,10 +8,6 @@ import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
 import 'package:yourcallyourrule/core/entities/rule/sim_slot_rule.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/provider/datasource/local_label_datasource_provider.dart';
-import 'package:yourcallyourrule/core/provider/datasource/local_phone_rule_datasource_provider.dart';
-import 'package:yourcallyourrule/core/provider/datasource/local_regex_rule_datasource_provider.dart';
-import 'package:yourcallyourrule/core/provider/datasource/local_sim_slot_rule_datasource_provider.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_phone_rule_datasource.dart';
@@ -27,9 +23,9 @@ import 'package:yourcallyourrule/data/models/rule_model.dart';
 
 part 'rule_repository_impl.g.dart';
 
-/// 自动生成的 RuleRepositoryImpl Provider
-@riverpod
-RuleRepositoryImpl ruleRepositoryImpl(Ref ref) {
+/// 自动生成的 RuleRepository Provider
+@Riverpod(keepAlive: true)
+RuleRepository ruleRepository(Ref ref) {
   return RuleRepositoryImpl(
     ref.watch(localPhoneRuleDataSourceProvider),
     ref.watch(localRegexRuleDataSourceProvider),

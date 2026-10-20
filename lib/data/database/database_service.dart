@@ -1,14 +1,14 @@
-// 数据库服务类，用于管理数据库的初始化和提供数据源访问
-
 import 'dart:async';
 
-
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_call_log_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_contact_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_label_datasource.dart';
+import 'package:yourcallyourrule/data/datasources/local/local_label_mark_statistics_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_location_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_plugin_datasource.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_predefined_label_datasource.dart';
@@ -26,6 +26,14 @@ import 'package:yourcallyourrule/features/sync_country/services/country_data_ser
 import 'package:yourcallyourrule/features/sync_country/services/country_selection_service.dart';
 import 'package:yourcallyourrule/features/sync_country/services/download_status_service.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+
+part 'database_service.g.dart';
+
+/// 数据库服务提供者
+@Riverpod(keepAlive: true)
+DatabaseService databaseService(Ref ref) {
+  return DatabaseService();
+}
 
 // 数据库服务类
 class DatabaseService {
@@ -48,6 +56,7 @@ class DatabaseService {
   late final RemoteNumberDataSource remoteNumberDataSource;
   late final LocalPredefinedLabelDataSource localPredefinedLabelDataSource;
   late final LocalSimSlotRuleDataSource localSimSlotRuleDataSource;
+  late final LocalLabelMarkStatisticsDataSource localLabelMarkStatisticsDataSource;
   
   late final IncrementalSyncManager incrementalSyncManager;
   
@@ -69,6 +78,7 @@ class DatabaseService {
     remoteNumberDataSource = RemoteNumberDataSource(remoteDatabase);
     localPredefinedLabelDataSource = LocalPredefinedLabelDataSource(localDatabase);
     localSimSlotRuleDataSource = LocalSimSlotRuleDataSource(localDatabase);
+    localLabelMarkStatisticsDataSource = LocalLabelMarkStatisticsDataSource(localDatabase);
 
     final configRepository = SharedPreferencesConfigRepository();
     final apiService = ApiService();

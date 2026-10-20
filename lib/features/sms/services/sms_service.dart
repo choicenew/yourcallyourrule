@@ -1,12 +1,32 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
 import 'package:yourcallyourrule/core/repositories/base_repository.dart';
-import 'package:yourcallyourrule/core/repositories/base_repository.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/core/repositories/sms_subscription_repository.dart';
+import 'package:yourcallyourrule/data/repositories/sms_regex_rule_repository_impl.dart';
+import 'package:yourcallyourrule/data/repositories/sms_subscription_repository_impl.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+
+part 'sms_service.g.dart';
+
+/// SmsService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+SmsService smsService(Ref ref) {
+  final smsRegexRuleRepository = ref.watch(smsRegexRuleRepositoryProvider);
+  final smsSubscriptionRepository = ref.watch(smsSubscriptionRepositoryProvider);
+  final ruleRepository = ref.watch(ruleRepositoryProvider);
+
+  return SmsService(
+    smsRegexRuleRepository,
+    smsSubscriptionRepository,
+    ruleRepository,
+  );
+}
 
 class SmsService extends ListService<SmsRegexRule, String> {
   final BaseRepository<SmsRegexRule, String> _smsRegexRuleRepository;

@@ -4,11 +4,22 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart' hide Column;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 import '../../../data/models/regex_rule_model.dart';
 import '../datasource_interface.dart';
+
+part 'local_regex_rule_datasource.g.dart';
+
+@Riverpod(keepAlive: true)
+LocalRegexRuleDataSource localRegexRuleDataSource(Ref ref) {
+  final databaseService = ref.watch(databaseServiceProvider);
+  return databaseService.localRegexRuleDataSource;
+}
 
 /// 本地正则规则数据源实现 (使用 Drift)
 class LocalRegexRuleDataSource implements LocalDataSource<RegexRuleModel> {

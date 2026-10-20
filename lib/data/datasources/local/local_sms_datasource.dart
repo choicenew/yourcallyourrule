@@ -3,11 +3,22 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:drift/drift.dart' hide Column;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 import '../../../data/models/sms_model.dart';
 import '../datasource_interface.dart';
+
+part 'local_sms_datasource.g.dart';
+
+@Riverpod(keepAlive: true)
+LocalSmsDataSource localSmsDataSource(Ref ref) {
+  final databaseService = ref.watch(databaseServiceProvider);
+  return LocalSmsDataSource(databaseService.localDatabase);
+}
 
 // 本地短信数据源实现 (使用 Drift)
 class LocalSmsDataSource implements LocalDataSource<SmsModel> {

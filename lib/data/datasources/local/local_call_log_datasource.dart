@@ -2,11 +2,22 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 import 'package:yourcallyourrule/data/models/call/call_log_model.dart';
 
 import '../datasource_interface.dart';
+
+part 'local_call_log_datasource.g.dart';
+
+@Riverpod(keepAlive: true)
+LocalCallLogDataSource localCallLogDataSource(Ref ref) {
+  final databaseService = ref.watch(databaseServiceProvider);
+  return databaseService.localCallLogDataSource;
+}
 
 class LocalCallLogDataSource implements LocalDataSource<CallLogModel> {
   final LocalDatabase _db;

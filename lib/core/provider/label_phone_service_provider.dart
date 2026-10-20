@@ -1,13 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/provider/basic_provider/rule_repository_provider.dart';
 import 'package:yourcallyourrule/core/repositories/label_phone_repository.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/data/repositories/label_phone_repository_impl.dart';
 import 'package:yourcallyourrule/features/labels/services/mark_phone_service.dart';
-
-// 引入相关提供者
-import 'basic_provider/label_phone_repository_provider.dart';
-import 'predefined_labels_provider.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
 
 /// 电话标签数据状态的Notifier类

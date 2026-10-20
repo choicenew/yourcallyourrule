@@ -2,10 +2,22 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_execution_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
+
+part 'plugin_invoker_service.g.dart';
+
+/// PluginInvokerService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+PluginInvokerService pluginService(Ref ref) {
+  final pluginManagerService = ref.watch(pluginManagerServiceProvider);
+  final pluginExecutionService = ref.watch(pluginExecutionServiceProvider);
+  return PluginInvokerService(pluginManagerService, pluginExecutionService);
+}
 
 /// 插件调用服务 - 负责协调插件管理服务和插件执行服务
 /// 遵循单向依赖原则，作为连接数据库和执行引擎的桥梁

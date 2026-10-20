@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
-import 'package:yourcallyourrule/ads/ad_state.dart';
 
 /// 广告列表工具类
 /// 提供在列表中插入广告的功能
@@ -20,7 +19,7 @@ class AdListUtils {
     required Widget Function(BuildContext, T) itemBuilder,
     int adInterval = 3,
     required WidgetRef ref,
-    required Provider<AdControlService> adControlServiceProvider,
+    required AdControlServiceProvider adControlServiceProvider,
   }) {
     // 检查广告是否应该显示
     final adControlService = ref.read(adControlServiceProvider);
@@ -90,7 +89,7 @@ class AdListUtils {
     required Widget Function(BuildContext, T) itemBuilder,
     int adInterval = 3,
     required WidgetRef ref,
-    required Provider<AdControlService> adControlServiceProvider,
+    required AdControlServiceProvider adControlServiceProvider,
     Axis scrollDirection = Axis.vertical,
     bool shrinkWrap = false,
     ScrollPhysics? physics,

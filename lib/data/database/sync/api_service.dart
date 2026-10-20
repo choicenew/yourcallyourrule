@@ -1,8 +1,18 @@
 import 'dart:convert';
 import 'dart:isolate';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/env.dart';
+
+part 'api_service.g.dart';
+
+/// ApiService Provider
+@Riverpod(keepAlive: true)
+ApiService apiService(Ref ref) {
+  return const ApiService();
+}
 
 class ApiService {
   static final String _workerUrl = Env.cfWorkerUrl;

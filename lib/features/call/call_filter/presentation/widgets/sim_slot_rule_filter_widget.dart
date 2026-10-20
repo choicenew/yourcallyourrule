@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
 // [重构]: 将 Widget 从 ConsumerWidget 改为 StatelessWidget，因为它现在是纯UI组件。
 // [修正]: 移除构造函数中的 simSlotRuleService 和 enhancedCompositeFilterService。

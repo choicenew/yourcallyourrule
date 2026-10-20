@@ -3,14 +3,26 @@ import 'dart:io';
 import 'package:csv/csv.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yaml/yaml.dart';
 
 import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
 import 'package:yourcallyourrule/core/repositories/contact_repository.dart';
+import 'package:yourcallyourrule/data/repositories/contact_repository_impl.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+
+part 'contact_service.g.dart';
+
+/// ContactService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+ContactService contactService(Ref ref) {
+  final contactRepository = ref.watch(contactRepositoryProvider);
+  return ContactService(contactRepository);
+}
 
 /// Top-level Isolate 任务：网络下载/Base64解码/二进制保存头像到磁盘文件
 Future<String?> saveAvatarIsolateTask(Map<String, dynamic> params) async {

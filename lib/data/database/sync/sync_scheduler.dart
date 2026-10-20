@@ -1,6 +1,18 @@
 import 'dart:async';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 import '../../datasources/remote/remote_number_datasource.dart';
+
+part 'sync_scheduler.g.dart';
+
+/// SyncScheduler Provider
+@Riverpod(keepAlive: true)
+SyncScheduler syncScheduler(Ref ref) {
+  final remoteNumberDataSource = ref.watch(remoteNumberDataSourceProvider);
+  return SyncScheduler(dataSource: remoteNumberDataSource);
+}
 
 /// A class responsible for determining if a data synchronization is needed.
 ///

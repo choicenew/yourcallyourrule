@@ -1,9 +1,19 @@
 import 'package:advanced_call_log/advanced_call_log.dart' as sys;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart' as app_call_log;
 import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
+
+part 'system_call_log_service.g.dart';
+
+/// 系统通话记录服务提供者
+@Riverpod(keepAlive: true)
+SystemCallLogService systemCallLogService(Ref ref) {
+  return SystemCallLogService(ref.watch(callLogServiceProvider));
+}
 
 /// 系统通话记录服务
 /// 使用call_log插件读取系统通话记录（注意：这是新添加的功能）

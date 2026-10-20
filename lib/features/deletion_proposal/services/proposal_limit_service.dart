@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // 【MODIFIED】: 引入了新的、统一的、自动生成的 Repository Provider
-import 'package:yourcallyourrule/features/deletion_proposal/providers/proposal_repository_provider.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/data/repositories/proposal_repository_impl.dart';
 
 // 【MODIFIED】: 引入了现代的、自动生成的 PurchaseState Provider
 import 'package:yourcallyourrule/purchase/purchase_state.dart';

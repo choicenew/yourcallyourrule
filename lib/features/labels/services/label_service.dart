@@ -1,14 +1,27 @@
 import 'dart:async';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
 import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
 import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/labels/services/mark_phone_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+
+part 'label_service.g.dart';
+
+/// LabelService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+LabelService labelService(Ref ref) {
+  final ruleRepository = ref.watch(ruleRepositoryProvider);
+  final predefinedLabelService = ref.watch(predefinedLabelServiceProvider);
+  return LabelService(ruleRepository, predefinedLabelService);
+}
 
 /// 标签服务类，继承自ListService，提供标签的管理功能
 /// 包括添加、删除、查询标签等操作

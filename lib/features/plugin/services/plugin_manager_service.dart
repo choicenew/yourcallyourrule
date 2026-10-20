@@ -3,14 +3,27 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
 import 'package:yourcallyourrule/core/repositories/plugin_repository.dart';
+import 'package:yourcallyourrule/data/repositories/plugin_repository_impl.dart';
 import 'package:yourcallyourrule/core/services/list_service.dart';
 import 'package:yourcallyourrule/core/services/universal_import_export_service.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_config.dart';
+
+part 'plugin_manager_service.g.dart';
+
+/// PluginManagerService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+PluginManagerService pluginManagerService(Ref ref) {
+  final pluginRepository = ref.watch(pluginRepositoryProvider);
+  final configRepository = ref.watch(configRepositoryProvider);
+  return PluginManagerService(pluginRepository, configRepository: configRepository);
+}
 
 /// 插件管理服务 - 负责数据库操作
 /// 遵循单一职责原则，只负责插件的CRUD操作

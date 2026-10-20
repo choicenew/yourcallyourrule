@@ -7,10 +7,9 @@ import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
 import 'package:yourcallyourrule/ads/ad_list_widget.dart'; // 导入新的AdListWidget
 import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/provider/providers/predefined_label_service_provider.dart';
-
-import 'package:yourcallyourrule/features/labels/providers/label_mark_statistics_sync_service_provider.dart';
-import 'package:yourcallyourrule/features/labels/providers/mark_phone_service_provider.dart';
+import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_sync_service.dart';
+import 'package:yourcallyourrule/features/labels/services/mark_phone_service.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';

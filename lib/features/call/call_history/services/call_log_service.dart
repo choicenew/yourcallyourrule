@@ -1,15 +1,37 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/core/entities/call/call_log.dart';
 import 'package:yourcallyourrule/core/repositories/call_log_repository.dart';
+import 'package:yourcallyourrule/data/repositories/call_log_repository_impl.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
+
+part 'call_log_service.g.dart';
+
+/// CallLogService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+CallLogService callLogService(Ref ref) {
+  final callLogRepository = ref.watch(callLogRepositoryProvider);
+  final contactService = ref.watch(contactServiceProvider);
+  final labelService = ref.watch(labelServiceProvider);
+  final allowedBlockedService = ref.watch(allowedBlockedServiceProvider);
+  final ruleManagementService = ref.watch(ruleManagementServiceProvider);
+
+  return CallLogService(
+    callLogRepository,
+    contactService: contactService,
+    labelService: labelService,
+    allowedBlockedService: allowedBlockedService,
+    ruleManagementService: ruleManagementService,
+  );
+}
 
 class CallLogService {
   final CallLogRepository _repository;
