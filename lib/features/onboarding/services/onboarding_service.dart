@@ -9,9 +9,9 @@ OnboardingService onboardingService(Ref ref) {
   return OnboardingService();
 }
 
-/// 负责 Onboarding 引导状态持久化的核心服务类（独立 app_ Key，隔离 config_ 通配符）
+/// 负责 Onboarding 引导状态持久化的核心服务类（独立 app_ Key 存储原语，避开 config_ 通配符）
 class OnboardingService {
-  /// 用户真正点击“完成引导”按钮时调用：直接持久化到 AppPrefsKeys.hasCompletedOnboarding
+  /// 用户真正点击“完成引导”按钮时调用：直接存原生 bool
   Future<bool> completeOnboarding() async {
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -26,13 +26,11 @@ class OnboardingService {
     try {
       final prefs = await SharedPreferences.getInstance();
       
-      // 1. 优先读取独立隔离的新 Key
       final val = prefs.get(AppPrefsKeys.hasCompletedOnboarding);
       if (val is bool) return val;
       if (val is String) return val.toLowerCase().trim() == 'true';
       if (val is num) return val != 0;
 
-      // 2. 降级读取旧 Key 兼容存量用户
       final oldVal = prefs.get('config_has_completed_onboarding');
       if (oldVal is bool) return oldVal;
       if (oldVal is String) return oldVal.toLowerCase().trim() == 'true';

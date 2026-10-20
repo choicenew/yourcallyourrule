@@ -24,9 +24,9 @@ void main() {
       final result = await service.completeOnboarding();
       expect(result, isTrue);
 
-      final prefs = await SharedPreferences.getInstance();
-      expect(prefs.getBool(AppPrefsKeys.hasCompletedOnboarding), isTrue);
-      expect(prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false, isFalse);
+      expect(await service.isOnboardingCompleted(), isTrue);
+      final initialSetupService = InitialSetupService();
+      expect(await initialSetupService.isInitialSetupCompleted(), isFalse);
     });
 
     test('3. 状态判定与强类型读取接口一致性（各自管各自，完全解耦）', () async {

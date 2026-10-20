@@ -17,7 +17,7 @@ class InitialSetupService {
     this.cdnConfigUrl = 'https://cdn.jsdelivr.net/gh/choicenew/yourcallrule@main/app_delta_setup_config.json',
     this.localAssetPath = 'assets/app_delta_setup_config.json',
     Dio? dio,
-  }) : _dio = dio ??
+  })  : _dio = dio ??
             Dio(
               BaseOptions(
                 connectTimeout: const Duration(seconds: 5),
