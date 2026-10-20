@@ -52,6 +52,18 @@ class InitialSetupTile extends StatelessWidget {
                         spacing: 6,
                         runSpacing: 4,
                         children: [
+                          if (country.iconUrl.isNotEmpty)
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(3),
+                              child: Image.network(
+                                country.iconUrl,
+                                width: 22,
+                                height: 16,
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) =>
+                                    const SizedBox.shrink(),
+                              ),
+                            ),
                           Text(
                             country.name,
                             style: TextStyle(
