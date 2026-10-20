@@ -63,6 +63,8 @@ void main() {
 
       // 验证自动由 Splash 导航到了 OnboardingPage
       expect(find.byType(OnboardingPage), findsOneWidget);
+      // 验证 Splash 完成自身导航后将自身的 firstLaunch 设为 false
+      expect(prefs.getBool(AppPrefsKeys.firstLaunch), isFalse);
 
       // --- 阶段二：真实模拟用户在 Onboarding 界面上点击跳过 ---
       final textButtons = find.byType(TextButton);
