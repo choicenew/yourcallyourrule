@@ -1,5 +1,13 @@
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
+
+part 'onboarding_service.g.dart';
+
+@Riverpod(keepAlive: true)
+OnboardingService onboardingService(Ref ref) {
+  return OnboardingService();
+}
 
 /// 负责 Onboarding 引导状态持久化的核心服务类（直接使用原生 SharedPreferences 强类型读写）
 class OnboardingService {
@@ -7,11 +15,7 @@ class OnboardingService {
   Future<bool> completeOnboarding() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final success = await prefs.setBool(AppPrefsKeys.hasCompletedOnboarding, true);
-      try {
-        await prefs.reload();
-      } catch (_) {}
-      return success;
+      return await prefs.setBool(AppPrefsKeys.hasCompletedOnboarding, true);
     } catch (_) {
       return false;
     }
@@ -24,7 +28,11 @@ class OnboardingService {
       try {
         await prefs.reload();
       } catch (_) {}
-      return prefs.getBool(AppPrefsKeys.hasCompletedOnboarding) ?? false;
+      final val = prefs.get(AppPrefsKeys.hasCompletedOnboarding);
+      if (val is bool) return val;
+      if (val is String) return val.toLowerCase().trim() == 'true';
+      if (val is num) return val != 0;
+      return false;
     } catch (_) {
       return false;
     }

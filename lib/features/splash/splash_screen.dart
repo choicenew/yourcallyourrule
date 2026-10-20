@@ -10,7 +10,7 @@ import 'package:yourcallyourrule/ads/adwidgets/app_open_ad.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
-import 'package:yourcallyourrule/features/onboarding/providers/onboarding_provider.dart';
+import 'package:yourcallyourrule/features/onboarding/services/onboarding_service.dart';
 import 'package:yourcallyourrule/features/initial_setup/providers/initial_setup_provider.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -112,11 +112,12 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     }
   }
 
-  void _navigateToNextScreen() {
+  Future<void> _navigateToNextScreen() async {
     if (!mounted || _hasNavigated) return;
     
     _hasNavigated = true;
-    _setFirstLaunchComplete();
+    await _setFirstLaunchComplete();
+    if (!mounted) return;
     debugPrint('导航到下一页面 - Splash首次启动: $_isFirstLaunch, Onboarding已完成: $_isOnboardingCompleted, 初始设置已完成: $_isInitialSetupCompleted');
     
     try {
@@ -154,7 +155,17 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
       
       final onboardingSvc = ref.read(onboardingServiceProvider);
       final initialSetupSvc = ref.read(initialSetupServiceProvider);
-      final isFirst = prefs.getBool(AppPrefsKeys.firstLaunch) ?? true;
+      final rawFirst = prefs.get(AppPrefsKeys.firstLaunch);
+      final bool isFirst;
+      if (rawFirst is bool) {
+        isFirst = rawFirst;
+      } else if (rawFirst is String) {
+        isFirst = rawFirst.toLowerCase().trim() != 'false';
+      } else if (rawFirst is num) {
+        isFirst = rawFirst != 0;
+      } else {
+        isFirst = true;
+      }
       final isCompleted = await onboardingSvc.isOnboardingCompleted();
       final isInitialSetupCompleted = await initialSetupSvc.isInitialSetupCompleted();
       if (mounted) {
@@ -176,9 +187,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setBool(AppPrefsKeys.firstLaunch, false);
-      try {
-        await prefs.reload();
-      } catch (_) {}
     } catch (_) {}
   }
   

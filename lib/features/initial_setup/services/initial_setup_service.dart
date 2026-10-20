@@ -78,11 +78,7 @@ class InitialSetupService {
   Future<bool> completeInitialSetup() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final success = await prefs.setBool(AppPrefsKeys.hasCompletedInitialSetup, true);
-      try {
-        await prefs.reload();
-      } catch (_) {}
-      return success;
+      return await prefs.setBool(AppPrefsKeys.hasCompletedInitialSetup, true);
     } catch (_) {
       return false;
     }
@@ -95,7 +91,11 @@ class InitialSetupService {
       try {
         await prefs.reload();
       } catch (_) {}
-      return prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false;
+      final val = prefs.get(AppPrefsKeys.hasCompletedInitialSetup);
+      if (val is bool) return val;
+      if (val is String) return val.toLowerCase().trim() == 'true';
+      if (val is num) return val != 0;
+      return false;
     } catch (_) {
       return false;
     }
