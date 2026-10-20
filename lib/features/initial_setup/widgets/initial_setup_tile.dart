@@ -60,8 +60,21 @@ class InitialSetupTile extends StatelessWidget {
                                 width: 22,
                                 height: 16,
                                 fit: BoxFit.cover,
-                                errorBuilder: (context, error, stackTrace) =>
-                                    const SizedBox.shrink(),
+                                errorBuilder: (context, error, stackTrace) {
+                                  return Container(
+                                    width: 22,
+                                    height: 16,
+                                    decoration: BoxDecoration(
+                                      color: theme.colorScheme.primary.withValues(alpha: 0.12),
+                                      borderRadius: BorderRadius.circular(3),
+                                    ),
+                                    child: Icon(
+                                      Icons.outlined_flag_rounded,
+                                      size: 12,
+                                      color: theme.colorScheme.primary,
+                                    ),
+                                  );
+                                },
                               ),
                             ),
                           Text(
