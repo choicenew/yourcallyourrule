@@ -24,7 +24,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   // --- 状态变量 ---
   bool _isFirstLaunch = true;
   bool _isOnboardingCompleted = false;
-  bool _hasCompletedSetup = false;
+  bool _isInitialSetupCompleted = false;
   bool _isVipUser = false;
   bool _hasNavigated = false;
   bool _shouldLoadAd = false;
@@ -63,8 +63,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     await _checkVipStatus();
     
     // 【核心约束】：如果是 VIP 用户，或者未完成 Onboarding 引导阶段/初始设置阶段，或者属于首次冷启动，绝对不触发广告！
-    _shouldLoadAd = !_isVipUser && !_isFirstLaunch && _isOnboardingCompleted && _hasCompletedSetup;
-    debugPrint('初始化完成 - VIP用户: $_isVipUser, Splash首次启动: $_isFirstLaunch, Onboarding已完成: $_isOnboardingCompleted, 初始设置已完成: $_hasCompletedSetup, 是否触发广告: $_shouldLoadAd');
+    _shouldLoadAd = !_isVipUser && !_isFirstLaunch && _isOnboardingCompleted && _isInitialSetupCompleted;
+    debugPrint('初始化完成 - VIP用户: $_isVipUser, Splash首次启动: $_isFirstLaunch, Onboarding已完成: $_isOnboardingCompleted, 初始设置已完成: $_isInitialSetupCompleted, 是否触发广告: $_shouldLoadAd');
     
     // 启动最小时间门锁
     Timer(_minSplashDuration, () {
@@ -117,12 +117,12 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     
     _hasNavigated = true;
     _setFirstLaunchComplete();
-    debugPrint('导航到下一页面 - Splash首次启动: $_isFirstLaunch, Onboarding已完成: $_isOnboardingCompleted, 初始设置已完成: $_hasCompletedSetup');
+    debugPrint('导航到下一页面 - Splash首次启动: $_isFirstLaunch, Onboarding已完成: $_isOnboardingCompleted, 初始设置已完成: $_isInitialSetupCompleted');
     
     try {
-      if (!_isOnboardingCompleted) {
+      if (_isFirstLaunch && !_isOnboardingCompleted) {
         GoRouter.of(context).goNamed(AppRouter.onboarding);
-      } else if (!_hasCompletedSetup) {
+      } else if (!_isInitialSetupCompleted) {
         GoRouter.of(context).goNamed(AppRouter.initialSetup);
       } else {
         GoRouter.of(context).goNamed(AppRouter.home);
@@ -156,18 +156,18 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
       final initialSetupSvc = ref.read(initialSetupServiceProvider);
       final isFirst = prefs.getBool(AppPrefsKeys.firstLaunch) ?? true;
       final isCompleted = await onboardingSvc.isOnboardingCompleted();
-      final hasSetup = await initialSetupSvc.isInitialSetupCompleted();
+      final isInitialSetupCompleted = await initialSetupSvc.isInitialSetupCompleted();
       if (mounted) {
         _isFirstLaunch = isFirst;
         _isOnboardingCompleted = isCompleted;
-        _hasCompletedSetup = hasSetup;
+        _isInitialSetupCompleted = isInitialSetupCompleted;
       }
     } catch (e) {
       debugPrint('[SplashScreen] 检查引导与初始化状态异常: $e');
       if (mounted) {
         _isFirstLaunch = true;
         _isOnboardingCompleted = false;
-        _hasCompletedSetup = false;
+        _isInitialSetupCompleted = false;
       }
     }
   }

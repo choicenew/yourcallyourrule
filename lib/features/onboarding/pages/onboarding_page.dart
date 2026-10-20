@@ -62,10 +62,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     await service.completeOnboarding();
 
     // 2. 检查 InitialSetup 状态按需导航（通过 initialSetupServiceProvider 独立调取）
-    final hasCompletedSetup = await ref.read(initialSetupServiceProvider).isInitialSetupCompleted();
+    final isInitialSetupCompleted = await ref.read(initialSetupServiceProvider).isInitialSetupCompleted();
     if (!mounted) return;
 
-    if (!hasCompletedSetup) {
+    if (!isInitialSetupCompleted) {
       GoRouter.of(context).goNamed(AppRouter.initialSetup);
     } else {
       GoRouter.of(context).goNamed(AppRouter.home);
