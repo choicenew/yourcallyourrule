@@ -8,12 +8,12 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('全局配置与后台任务 Key 架构规范测试', () {
-    test('1. AppPrefsKeys 必须 100% 以 config_ 前缀开头 (保证云端备份过滤器能识别)', () {
-      expect(AppPrefsKeys.hasCompletedInitialSetup.startsWith('config_'), isTrue);
-      expect(AppPrefsKeys.firstLaunch.startsWith('config_'), isTrue);
+    test('1. AppPrefsKeys 必须 100% 以 app_ 前缀开头 (独立隔离防原生强转冲突)', () {
+      expect(AppPrefsKeys.hasCompletedInitialSetup.startsWith('app_'), isTrue);
+      expect(AppPrefsKeys.firstLaunch.startsWith('app_'), isTrue);
 
-      expect(AppPrefsKeys.hasCompletedInitialSetup, equals('config_has_completed_initial_setup'));
-      expect(AppPrefsKeys.firstLaunch, equals('config_first_launch'));
+      expect(AppPrefsKeys.hasCompletedInitialSetup, equals('app_has_completed_initial_setup'));
+      expect(AppPrefsKeys.firstLaunch, equals('app_first_launch'));
     });
 
     test('2. BackgroundTaskKeys 任务标识一字不差对等核对', () {
