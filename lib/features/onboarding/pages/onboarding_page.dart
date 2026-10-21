@@ -54,22 +54,13 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     }
   }
 
-  /// 统一处理 Onboarding 完成逻辑，解耦调用 OnboardingService（绝对不在加载时预设）
+  /// 统一处理 Onboarding 完成逻辑
   Future<void> _completeOnboardingFlow() async {
     final service = ref.read(onboardingServiceProvider);
-    
-    // 1. 当且仅当用户手动点完成/跳过时，才标记 Onboarding 自身完成
     await service.completeOnboarding();
 
-    // 2. 检查 InitialSetup 状态按需导航（通过 initialSetupServiceProvider 独立调取）
-    final isInitialSetupCompleted = await ref.read(initialSetupServiceProvider).isInitialSetupCompleted();
     if (!mounted) return;
-
-    if (!isInitialSetupCompleted) {
-      GoRouter.of(context).goNamed(AppRouter.initialSetup);
-    } else {
-      GoRouter.of(context).goNamed(AppRouter.home);
-    }
+    GoRouter.of(context).goNamed(AppRouter.initialSetup);
   }
 
   @override

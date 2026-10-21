@@ -116,16 +116,15 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     if (!mounted || _hasNavigated) return;
     
     _hasNavigated = true;
-    await _setFirstLaunchComplete();
-    if (!mounted) return;
-    debugPrint('导航到下一页面 - Splash首次启动: $_isFirstLaunch, Onboarding已完成: $_isOnboardingCompleted, 初始设置已完成: $_isInitialSetupCompleted');
     
     try {
-      if (!_isOnboardingCompleted) {
+      if (_isFirstLaunch) {
+        await _setFirstLaunchComplete();
+        if (!mounted) return;
+        debugPrint('导航到下一页面 - 首次启动，去 Onboarding 引导页');
         GoRouter.of(context).goNamed(AppRouter.onboarding);
-      } else if (!_isInitialSetupCompleted) {
-        GoRouter.of(context).goNamed(AppRouter.initialSetup);
       } else {
+        debugPrint('导航到下一页面 - 非首次启动，直达 Home 主页');
         GoRouter.of(context).goNamed(AppRouter.home);
       }
     } catch (e) {
