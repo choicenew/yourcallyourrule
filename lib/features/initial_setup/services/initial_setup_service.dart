@@ -78,6 +78,7 @@ class InitialSetupService {
   Future<bool> completeInitialSetup() async {
     try {
       final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('first_launch', false);
       return await prefs.setBool(AppPrefsKeys.hasCompletedInitialSetup, true);
     } catch (_) {
       return false;

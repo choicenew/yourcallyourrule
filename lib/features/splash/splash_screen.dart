@@ -109,7 +109,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     }
   }
 
-  void _navigateToNextScreen() {
+  Future<void> _navigateToNextScreen() async {
     if (!mounted || _hasNavigated) return;
     
     _hasNavigated = true;
@@ -117,8 +117,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     
     try {
       if (_isFirstLaunch) {
+        await _setFirstLaunchComplete();
+        if (!mounted) return;
         GoRouter.of(context).goNamed('onboarding');
-        _setFirstLaunchComplete();
       } else {
         GoRouter.of(context).goNamed('home');
       }
@@ -143,9 +144,20 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   Future<void> _checkFirstLaunch() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      if (mounted) _isFirstLaunch = prefs.getBool('first_launch') ?? true;
+      final val = prefs.get('first_launch');
+      if (mounted) {
+        if (val is bool) {
+          _isFirstLaunch = val;
+        } else if (val is String) {
+          _isFirstLaunch = val.toLowerCase().trim() != 'false';
+        } else if (val is num) {
+          _isFirstLaunch = val != 0;
+        } else {
+          _isFirstLaunch = true;
+        }
+      }
     } catch (e) {
-      if (mounted) _isFirstLaunch = true;
+      if (mounted) _isFirstLaunch = false;
     }
   }
   
