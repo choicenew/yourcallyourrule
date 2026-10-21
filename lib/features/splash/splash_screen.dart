@@ -134,7 +134,18 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   Future<void> _checkFirstLaunch() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      if (mounted) _isFirstLaunch = prefs.getBool('first_launch') ?? true;
+      final raw = prefs.get('first_launch') ?? prefs.get('config_first_launch');
+      final bool isFirst;
+      if (raw is bool) {
+        isFirst = raw;
+      } else if (raw is String) {
+        isFirst = raw.toLowerCase().trim() != 'false';
+      } else if (raw is num) {
+        isFirst = raw != 0;
+      } else {
+        isFirst = true;
+      }
+      if (mounted) _isFirstLaunch = isFirst;
     } catch (e) {
       if (mounted) _isFirstLaunch = true;
     }
@@ -157,6 +168,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setBool('first_launch', false);
+      await prefs.setBool('config_first_launch', false);
     } catch (e) {
       //
     }
