@@ -16,8 +16,13 @@ class OnboardingService {
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setBool('first_launch', false);
-      return await prefs.setBool(AppPrefsKeys.hasCompletedOnboarding, true);
-    } catch (_) {
+      final res = await prefs.setBool(AppPrefsKeys.hasCompletedOnboarding, true);
+      // ignore: avoid_print
+      print('📦 [OnboardingService] completeOnboarding 执行: first_launch 已置为 false, hasCompletedOnboarding=$res');
+      return res;
+    } catch (e) {
+      // ignore: avoid_print
+      print('🚨 [OnboardingService] completeOnboarding 异常: $e');
       return false;
     }
   }

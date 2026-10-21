@@ -113,18 +113,24 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     if (!mounted || _hasNavigated) return;
     
     _hasNavigated = true;
-    debugPrint('导航到下一页面 - 首次启动: $_isFirstLaunch');
+    debugPrint('🛫 [Splash] 进入 _navigateToNextScreen - 状态: _isFirstLaunch=$_isFirstLaunch, _isVipUser=$_isVipUser');
     
     try {
       if (_isFirstLaunch) {
+        debugPrint('⏳ [Splash] 首次启动分支: 开始等待 _setFirstLaunchComplete() 落盘...');
         await _setFirstLaunchComplete();
-        if (!mounted) return;
+        if (!mounted) {
+          debugPrint('⚠️ [Splash] 写入完成时已 unmounted，终止路由跳转');
+          return;
+        }
+        debugPrint('🚀 [Splash] 即将执行路由跳转: -> onboarding');
         GoRouter.of(context).goNamed('onboarding');
       } else {
+        debugPrint('🚀 [Splash] 非首次启动分支: 即将执行路由跳转: -> home');
         GoRouter.of(context).goNamed('home');
       }
-    } catch (e) {
-      debugPrint('导航失败: $e');
+    } catch (e, st) {
+      debugPrint('🚨 [Splash] 导航过程中出现异常: $e\n$st');
     }
   }
 
@@ -143,8 +149,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
 
   Future<void> _checkFirstLaunch() async {
     try {
+      debugPrint('🔍 [Splash] _checkFirstLaunch: 获取 SharedPreferences 实例...');
       final prefs = await SharedPreferences.getInstance();
       final val = prefs.get('first_launch');
+      debugPrint('🔍 [Splash] 读取到 key="first_launch" 原始值: $val (类型: ${val?.runtimeType})');
       if (mounted) {
         if (val is bool) {
           _isFirstLaunch = val;
@@ -155,9 +163,14 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
         } else {
           _isFirstLaunch = true;
         }
+        debugPrint('🎯 [Splash] 最终判定 _isFirstLaunch = $_isFirstLaunch (mounted: $mounted)');
       }
-    } catch (e) {
-      if (mounted) _isFirstLaunch = false;
+    } catch (e, st) {
+      debugPrint('🚨 [Splash] _checkFirstLaunch 出现异常: $e\n$st');
+      if (mounted) {
+        _isFirstLaunch = false;
+        debugPrint('🛡️ [Splash] 异常兜底保护触发: 强制设置 _isFirstLaunch = false 防止死锁');
+      }
     }
   }
   
@@ -176,10 +189,13 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
 
   Future<void> _setFirstLaunchComplete() async {
     try {
+      debugPrint('📝 [Splash] _setFirstLaunchComplete: 准备写入 prefs.setBool("first_launch", false)...');
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setBool('first_launch', false);
-    } catch (e) {
-      //
+      final writeResult = await prefs.setBool('first_launch', false);
+      final verifyVal = prefs.get('first_launch');
+      debugPrint('✅ [Splash] _setFirstLaunchComplete: 写入执行结果=$writeResult, 立即回读验证值: $verifyVal (类型: ${verifyVal?.runtimeType})');
+    } catch (e, st) {
+      debugPrint('🚨 [Splash] _setFirstLaunchComplete 写入异常: $e\n$st');
     }
   }
   
