@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import '../models/setup_config.dart';
@@ -77,9 +78,11 @@ class InitialSetupService {
     return await loadBuiltInConfig();
   }
 
-  /// 统一标记 Initial Setup 流程完成：100% 对齐 PurchaseState 存储 {'value': true} JSON 对象
+  /// 统一标记 Initial Setup 流程完成：双重锁确保 first_launch 刷盘为 false
   Future<bool> completeInitialSetup() async {
     try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('first_launch', false);
       await _configRepository.saveConfig(AppPrefsKeys.hasCompletedInitialSetup, {'value': true});
       return true;
     } catch (_) {

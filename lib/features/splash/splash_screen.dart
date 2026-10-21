@@ -101,7 +101,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     }
   }
 
-  void _navigateToNextScreen() {
+  Future<void> _navigateToNextScreen() async {
     if (!mounted || _hasNavigated) return;
     
     _hasNavigated = true;
@@ -109,8 +109,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     
     try {
       if (_isFirstLaunch) {
+        await _setFirstLaunchComplete();
+        if (!mounted) return;
         GoRouter.of(context).goNamed(AppRouter.onboarding);
-        _setFirstLaunchComplete();
       } else {
         GoRouter.of(context).goNamed(AppRouter.home);
       }

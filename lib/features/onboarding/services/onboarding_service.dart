@@ -1,5 +1,5 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 
@@ -11,16 +11,18 @@ OnboardingService onboardingService(Ref ref) {
   return OnboardingService(configRepository: configRepository);
 }
 
-/// 负责 Onboarding 引导状态持久化的核心服务类（100% 对齐 PurchaseState 架构，零垫底兼容层）
+/// 负责 Onboarding 引导状态持久化的核心服务类（100% 对齐 PurchaseState 架构，双重锁确保 first_launch 刷盘）
 class OnboardingService {
   final ConfigRepository _configRepository;
 
   OnboardingService({ConfigRepository? configRepository})
       : _configRepository = configRepository ?? SharedPreferencesConfigRepository();
 
-  /// 用户真正点击“完成引导”按钮时调用：100% 对齐 PurchaseState 存储 {'value': true} JSON 对象
+  /// 用户真正点击“完成引导”按钮时调用：双重锁确保 first_launch 成功刷盘为 false
   Future<bool> completeOnboarding() async {
     try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('first_launch', false);
       await _configRepository.saveConfig(AppPrefsKeys.hasCompletedOnboarding, {'value': true});
       return true;
     } catch (_) {
