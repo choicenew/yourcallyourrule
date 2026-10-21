@@ -3,7 +3,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import '../models/setup_config.dart';
 
 /// 负责从云端拉取 Initial Setup 页面所需的动态配置，并提供内置 JSON 资产文件兜底和 IP 地区探测
@@ -12,16 +11,13 @@ class InitialSetupService {
   final String cdnConfigUrl;
   final String localAssetPath;
   final Dio _dio;
-  final ConfigRepository _configRepository;
 
   InitialSetupService({
-    ConfigRepository? configRepository,
     this.rawConfigUrl = 'https://raw.githubusercontent.com/choicenew/yourcallrule/main/app_delta_setup_config.json',
     this.cdnConfigUrl = 'https://cdn.jsdelivr.net/gh/choicenew/yourcallrule@main/app_delta_setup_config.json',
     this.localAssetPath = 'assets/app_delta_setup_config.json',
     Dio? dio,
-  })  : _configRepository = configRepository ?? SharedPreferencesConfigRepository(),
-        _dio = dio ??
+  })  : _dio = dio ??
             Dio(
               BaseOptions(
                 connectTimeout: const Duration(seconds: 5),
@@ -44,7 +40,7 @@ class InitialSetupService {
   /// 基于 IP API 自动探测用户当前网络所在国家/地区代码（例如 "CN", "US", "FR"）
   Future<String?> detectUserCountry() async {
     try {
-      final response = await _dio.get('http://ip-api.com/json');
+      final response = await _dio.get('https://ip-api.com/json');
       if (response.statusCode == 200) {
         final data = response.data is String ? jsonDecode(response.data as String) : response.data;
         if (data is Map<String, dynamic> && data['countryCode'] != null) {
@@ -78,23 +74,21 @@ class InitialSetupService {
     return await loadBuiltInConfig();
   }
 
-  /// 统一标记 Initial Setup 流程完成：双重锁确保 first_launch 刷盘为 false
+  /// 统一标记 Initial Setup 流程完成
   Future<bool> completeInitialSetup() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setBool('first_launch', false);
-      await _configRepository.saveConfig(AppPrefsKeys.hasCompletedInitialSetup, {'value': true});
-      return true;
+      return await prefs.setBool(AppPrefsKeys.hasCompletedInitialSetup, true);
     } catch (_) {
       return false;
     }
   }
 
-  /// 检查 Initial Setup 流程是否已完成：100% 对齐 PurchaseState 读取 JSON 对象
+  /// 检查 Initial Setup 流程是否已完成
   Future<bool> isInitialSetupCompleted() async {
     try {
-      final config = await _configRepository.getConfig(AppPrefsKeys.hasCompletedInitialSetup);
-      return config?['value'] as bool? ?? false;
+      final prefs = await SharedPreferences.getInstance();
+      return prefs.getBool(AppPrefsKeys.hasCompletedInitialSetup) ?? false;
     } catch (_) {
       return false;
     }

@@ -6,6 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/ads/adwidgets/app_open_ad.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/onboarding/services/onboarding_service.dart';
+import 'package:yourcallyourrule/features/initial_setup/providers/initial_setup_provider.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -134,7 +136,26 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   Future<void> _checkFirstLaunch() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      if (mounted) _isFirstLaunch = prefs.getBool('first_launch') ?? true;
+      
+      // 1. 读取 first_launch
+      final firstRaw = prefs.get('first_launch');
+      final bool isFirstFlag = (firstRaw is bool && !firstRaw) ||
+          (firstRaw is String && firstRaw.toLowerCase().trim() == 'false');
+
+      // 2. 读取 Onboarding 和 InitialSetup
+      final onboardingSvc = ref.read(onboardingServiceProvider);
+      final initialSetupSvc = ref.read(initialSetupServiceProvider);
+      final isCompleted = await onboardingSvc.isOnboardingCompleted();
+      final isInitialSetupCompleted = await initialSetupSvc.isInitialSetupCompleted();
+
+      if (mounted) {
+        // 三重锁校验：只要任意一个标记为已完成/非首次启动，则 100% 认定非首次启动！
+        if (isFirstFlag || isCompleted || isInitialSetupCompleted) {
+          _isFirstLaunch = false;
+        } else {
+          _isFirstLaunch = true;
+        }
+      }
     } catch (e) {
       if (mounted) _isFirstLaunch = true;
     }

@@ -41,6 +41,8 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
   @override
   void initState() {
     super.initState();
+    // 一进入初始设置页，立即标记 InitialSetup 已进入/完成，绝不容许二次表达
+    ref.read(initialSetupServiceProvider).completeInitialSetup();
   }
 
   @override

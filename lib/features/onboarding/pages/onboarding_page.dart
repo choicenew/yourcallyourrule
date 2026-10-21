@@ -29,6 +29,13 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   final int _totalPages = 6;
 
   @override
+  void initState() {
+    super.initState();
+    // 一进入引导页，立即标记 Onboarding 已进入/完成，绝不容许二次表达
+    ref.read(onboardingServiceProvider).completeOnboarding();
+  }
+
+  @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
