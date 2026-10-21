@@ -1,11 +1,14 @@
+// 文件路径: lib/screens/splash_screen.dart (或您存放的位置)
+// 这个版本修复了时序竞争问题
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+// 确认路径正确
 import 'package:yourcallyourrule/ads/adwidgets/app_open_ad.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -50,17 +53,20 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   Future<void> _initializeApp() async {
     _initializeAnimation();
     
-    // 检查首次启动与 VIP 状态
-    await _checkFirstLaunch();
-    await _checkVipStatus();
+    // 并行检查用户状态
+    await Future.wait([
+      _checkFirstLaunch(),
+      _checkVipStatus(),
+    ]);
     
-    _shouldLoadAd = !_isVipUser && !_isFirstLaunch;
-    debugPrint('初始化完成 - VIP用户: $_isVipUser, 首次启动: $_isFirstLaunch, 是否触发广告: $_shouldLoadAd');
+    _shouldLoadAd = !_isVipUser;
+    debugPrint('初始化完成 - VIP用户: $_isVipUser, 首次启动: $_isFirstLaunch');
     
     // 启动最小时间门锁
     Timer(_minSplashDuration, () {
       debugPrint('✅ 门锁1: 最小显示时间到达');
       _minTimeElapsed = true;
+      _adLoadAttempted = true;
       _tryNavigate(); // 尝试开锁
     });
 
@@ -84,6 +90,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     if (_minTimeElapsed && _adLoadAttempted && mounted && !_hasNavigated) {
       debugPrint('🟢 双重门锁开启，开始最终导航决策');
       
+      // 如果广告已加载，则显示它。showAdIfAvailable 会处理后续的导航。
       if (_shouldLoadAd && _appOpenAdManager.isAdLoaded) {
         debugPrint('广告已就绪，尝试显示');
         _appOpenAdManager.showAdIfAvailable(
@@ -93,6 +100,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
           },
         );
       } else {
+        // 如果广告未加载或无需广告，则直接导航
         debugPrint('广告未就绪或无需广告，直接导航');
         _navigateToNextScreen();
       }
@@ -101,7 +109,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     }
   }
 
-  Future<void> _navigateToNextScreen() async {
+  void _navigateToNextScreen() {
     if (!mounted || _hasNavigated) return;
     
     _hasNavigated = true;
@@ -109,16 +117,17 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     
     try {
       if (_isFirstLaunch) {
-        await _setFirstLaunchComplete();
-        if (!mounted) return;
-        GoRouter.of(context).goNamed(AppRouter.onboarding);
+        GoRouter.of(context).goNamed('onboarding');
+        _setFirstLaunchComplete();
       } else {
-        GoRouter.of(context).goNamed(AppRouter.home);
+        GoRouter.of(context).goNamed('home');
       }
     } catch (e) {
       debugPrint('导航失败: $e');
     }
   }
+
+  // --- 以下是无需修改的辅助方法 ---
 
   void _initializeAnimation() {
     _animationController = AnimationController(
@@ -134,18 +143,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   Future<void> _checkFirstLaunch() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final raw = prefs.get('first_launch') ?? prefs.get('config_first_launch');
-      final bool isFirst;
-      if (raw is bool) {
-        isFirst = raw;
-      } else if (raw is String) {
-        isFirst = raw.toLowerCase().trim() != 'false';
-      } else if (raw is num) {
-        isFirst = raw != 0;
-      } else {
-        isFirst = true;
-      }
-      if (mounted) _isFirstLaunch = isFirst;
+      if (mounted) _isFirstLaunch = prefs.getBool('first_launch') ?? true;
     } catch (e) {
       if (mounted) _isFirstLaunch = true;
     }
@@ -153,11 +151,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   
   Future<void> _checkVipStatus() async {
     try {
-      await Future.delayed(const Duration(milliseconds: 100));
+      await Future.delayed(const Duration(milliseconds: 100)); // 等待 a bit for Riverpod
       if (mounted) {
           final purchaseNotifier = ref.read(purchaseStateProvider.notifier);
           await purchaseNotifier.loadState();
-          if (mounted) _isVipUser = purchaseNotifier.isPurchasedOrHasTempAccess();
+          if (mounted) _isVipUser = purchaseNotifier.isPurchasesEnabled;
       }
     } catch (e) {
       if (mounted) _isVipUser = false;
@@ -168,7 +166,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setBool('first_launch', false);
-      await prefs.setBool('config_first_launch', false);
     } catch (e) {
       //
     }
