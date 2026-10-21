@@ -1,6 +1,3 @@
-// 文件路径: lib/screens/splash_screen.dart (或您存放的位置)
-// 这个版本修复了时序竞争问题
-
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,10 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/ads/adwidgets/app_open_ad.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
-import 'package:yourcallyourrule/core/constants/app_prefs_keys.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
-import 'package:yourcallyourrule/features/onboarding/services/onboarding_service.dart';
-import 'package:yourcallyourrule/features/initial_setup/providers/initial_setup_provider.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -23,8 +17,6 @@ class SplashScreen extends ConsumerStatefulWidget {
 class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerProviderStateMixin {
   // --- 状态变量 ---
   bool _isFirstLaunch = true;
-  bool _isOnboardingCompleted = false;
-  bool _isInitialSetupCompleted = false;
   bool _isVipUser = false;
   bool _hasNavigated = false;
   bool _shouldLoadAd = false;
@@ -58,13 +50,12 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
   Future<void> _initializeApp() async {
     _initializeAnimation();
     
-    // 检查引导与初始设置状态，以及 VIP 用户状态
-    await _checkOnboardingAndSetupStatus();
+    // 检查首次启动与 VIP 状态
+    await _checkFirstLaunch();
     await _checkVipStatus();
     
-    // 【核心约束】：如果是 VIP 用户，或者未完成 Onboarding 引导阶段/初始设置阶段，或者属于首次冷启动，绝对不触发广告！
-    _shouldLoadAd = !_isVipUser && !_isFirstLaunch && _isOnboardingCompleted && _isInitialSetupCompleted;
-    debugPrint('初始化完成 - VIP用户: $_isVipUser, Splash首次启动: $_isFirstLaunch, Onboarding已完成: $_isOnboardingCompleted, 初始设置已完成: $_isInitialSetupCompleted, 是否触发广告: $_shouldLoadAd');
+    _shouldLoadAd = !_isVipUser && !_isFirstLaunch;
+    debugPrint('初始化完成 - VIP用户: $_isVipUser, 首次启动: $_isFirstLaunch, 是否触发广告: $_shouldLoadAd');
     
     // 启动最小时间门锁
     Timer(_minSplashDuration, () {
@@ -93,7 +84,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     if (_minTimeElapsed && _adLoadAttempted && mounted && !_hasNavigated) {
       debugPrint('🟢 双重门锁开启，开始最终导航决策');
       
-      // 如果广告已加载，则显示它。showAdIfAvailable 会处理后续的导航。
       if (_shouldLoadAd && _appOpenAdManager.isAdLoaded) {
         debugPrint('广告已就绪，尝试显示');
         _appOpenAdManager.showAdIfAvailable(
@@ -103,7 +93,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
           },
         );
       } else {
-        // 如果广告未加载或无需广告，则直接导航
         debugPrint('广告未就绪或无需广告，直接导航');
         _navigateToNextScreen();
       }
@@ -112,27 +101,23 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     }
   }
 
-  Future<void> _navigateToNextScreen() async {
+  void _navigateToNextScreen() {
     if (!mounted || _hasNavigated) return;
     
     _hasNavigated = true;
+    debugPrint('导航到下一页面 - 首次启动: $_isFirstLaunch');
     
     try {
       if (_isFirstLaunch) {
-        await _setFirstLaunchComplete();
-        if (!mounted) return;
-        debugPrint('导航到下一页面 - 首次启动，去 Onboarding 引导页');
         GoRouter.of(context).goNamed(AppRouter.onboarding);
+        _setFirstLaunchComplete();
       } else {
-        debugPrint('导航到下一页面 - 非首次启动，直达 Home 主页');
         GoRouter.of(context).goNamed(AppRouter.home);
       }
     } catch (e) {
       debugPrint('导航失败: $e');
     }
   }
-
-  // --- 以下是无需修改的辅助方法 ---
 
   void _initializeAnimation() {
     _animationController = AnimationController(
@@ -145,61 +130,34 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     _animationController.forward();
   }
 
-  Future<void> _checkOnboardingAndSetupStatus() async {
+  Future<void> _checkFirstLaunch() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-
-      final onboardingSvc = ref.read(onboardingServiceProvider);
-      final initialSetupSvc = ref.read(initialSetupServiceProvider);
-      final rawFirst = prefs.get(AppPrefsKeys.firstLaunch);
-      final bool isFirst;
-      if (rawFirst is bool) {
-        isFirst = rawFirst;
-      } else if (rawFirst is String) {
-        isFirst = rawFirst.toLowerCase().trim() != 'false';
-      } else if (rawFirst is num) {
-        isFirst = rawFirst != 0;
-      } else {
-        isFirst = true;
-      }
-      final isCompleted = await onboardingSvc.isOnboardingCompleted();
-      final isInitialSetupCompleted = await initialSetupSvc.isInitialSetupCompleted();
+      if (mounted) _isFirstLaunch = prefs.getBool('first_launch') ?? true;
+    } catch (e) {
+      if (mounted) _isFirstLaunch = true;
+    }
+  }
+  
+  Future<void> _checkVipStatus() async {
+    try {
+      await Future.delayed(const Duration(milliseconds: 100));
       if (mounted) {
-        _isFirstLaunch = isFirst;
-        _isOnboardingCompleted = isCompleted;
-        _isInitialSetupCompleted = isInitialSetupCompleted;
+          final purchaseNotifier = ref.read(purchaseStateProvider.notifier);
+          await purchaseNotifier.loadState();
+          if (mounted) _isVipUser = purchaseNotifier.isPurchasedOrHasTempAccess();
       }
     } catch (e) {
-      debugPrint('[SplashScreen] 检查引导与初始化状态异常: $e');
-      if (mounted) {
-        _isFirstLaunch = true;
-        _isOnboardingCompleted = false;
-        _isInitialSetupCompleted = false;
-      }
+      if (mounted) _isVipUser = false;
     }
   }
 
   Future<void> _setFirstLaunchComplete() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setBool(AppPrefsKeys.firstLaunch, false);
-      final check = prefs.get(AppPrefsKeys.firstLaunch);
-      if (check != false && !(check is String && check.toLowerCase().trim() == 'false')) {
-        await prefs.setBool(AppPrefsKeys.firstLaunch, false);
-      }
-    } catch (_) {}
-  }
-  
-  Future<void> _checkVipStatus() async {
-    try {
-      await Future.delayed(const Duration(milliseconds: 100)); // 等待 a bit for Riverpod
-      if (mounted) {
-          final purchaseNotifier = ref.read(purchaseStateProvider.notifier);
-          await purchaseNotifier.loadState();
-          if (mounted) _isVipUser = purchaseNotifier.isPurchasesEnabled;
-      }
+      await prefs.setBool('first_launch', false);
     } catch (e) {
-      if (mounted) _isVipUser = false;
+      //
     }
   }
   
