@@ -15,7 +15,7 @@ class Environment {
   // Google Drive Configuration
   static const googleServerClientId = String.fromEnvironment(
       'GOOGLE_SERVER_CLIENT_ID',
-      defaultValue: '213507864895-hdmhkq2mbss9mlretgdt6nldil85hdqi.apps.googleusercontent.com');
+      defaultValue: '213507864895-9di0f0gglameak3d6i9lkimi35cmvi5r.apps.googleusercontent.com');
 
   // Add other environment configurations as needed
 }

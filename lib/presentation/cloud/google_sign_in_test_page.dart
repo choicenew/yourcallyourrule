@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:googleapis/drive/v3.dart' as drive;
+import 'package:yourcallyourrule/cloud_sync/environment.dart';
 
 // 定义应用需要的权限范围
 const List<String> _scopes = <String>[
@@ -41,9 +42,9 @@ class _GoogleSignInTestPageState extends State<GoogleSignInTestPage> {
     super.initState();
     _log('initState: Setting up GoogleSignIn...');
     
-    // 初始化并监听事件，但不再尝试自动登录
+    // 初始化并监听事件
     unawaited(_googleSignIn.initialize(
-      //serverClientId: 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com', // 强烈建议填入您的 Web Client ID
+      serverClientId: Environment.googleServerClientId,
     ).then((_) {
       _log('initialize() complete.');
       _googleSignIn.authenticationEvents

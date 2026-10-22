@@ -13,6 +13,8 @@ import 'package:yourcallyourrule/cloud_sync/provider/device_management_provider.
 import 'package:yourcallyourrule/core/entities/cloud_data_converter.dart';
 import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 
+import 'package:yourcallyourrule/cloud_sync/environment.dart';
+
 import 'enhanced_cloud_sync_service.dart';
 
 /// Google Drive implementation of the CloudSyncService with conflict resolution,
@@ -72,7 +74,9 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
     }
     _updateFolderPaths();
 
-    await _googleSignIn.initialize();
+    await _googleSignIn.initialize(
+      serverClientId: Environment.googleServerClientId,
+    );
 
     try {
       final GoogleSignInAccount? result =
