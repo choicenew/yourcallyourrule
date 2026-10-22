@@ -11,6 +11,12 @@
 -keep class io.flutter.embedding.**  { *; }
 -dontwarn io.flutter.embedding.**
 
+# Rules for shared_preferences and Pigeon generated APIs
+-keep class io.flutter.plugins.sharedpreferences.** { *; }
+-keepclassmembers class io.flutter.plugins.sharedpreferences.** { *; }
+-keep class **.SharedPreferencesApi** { *; }
+-keepclassmembers class **.SharedPreferencesApi** { *; }
+
 # Keep all implementations of FlutterPlugin to prevent stripping by R8
 -keep class * implements io.flutter.embedding.engine.plugins.FlutterPlugin { *; }
 

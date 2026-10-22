@@ -50,7 +50,7 @@ class BackupRestoreService {
   static const String _backupVersionsKey = 'config_backup_versions';
 
   Future<BackupConfigEntity> getBackupConfig() async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     final configJson = _preferences.getString(_backupConfigKey);
     if (configJson != null) {
@@ -67,7 +67,7 @@ class BackupRestoreService {
   }
 
   Future<void> updateBackupConfig(BackupConfigEntity config) async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     // Update encryption settings if changed
     if (config.encryptionEnabled != await isEncryptionEnabled()) {
@@ -78,7 +78,7 @@ class BackupRestoreService {
   }
 
   Future<List<BackupVersionEntity>> getBackupVersions() async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     final versionsJson = _preferences.getString(_backupVersionsKey);
     if (versionsJson != null) {
@@ -103,9 +103,15 @@ class BackupRestoreService {
     return 'Unknown Device';
   }
 
+  Future<void>? _initializeFuture;
+
   Future<void> initialize(Map<String, dynamic> config) async {
     if (_isInitialized) return;
+    _initializeFuture ??= _doInitialize(config);
+    await _initializeFuture;
+  }
 
+  Future<void> _doInitialize(Map<String, dynamic> config) async {
     // Get application documents directory
     final appDocDir = await getApplicationDocumentsDirectory();
     _backupDirectory = Directory(path.join(appDocDir.path, 'backups'));
@@ -159,7 +165,7 @@ class BackupRestoreService {
   }
 
   Future<String> backupRules(List<RuleBase> rules, String destination) async {
-    _ensureInitialized();
+    await _ensureInitialized();
     try {
       final db = LocalDatabase();
 
@@ -227,7 +233,7 @@ class BackupRestoreService {
   /// [destination] 备份文件路径，如果为空则使用默认路径
   /// [configKeys] 要备份的配置键列表，如果为空则备份所有配置
   Future<String> backupConfigs(String destination, {List<String>? configKeys}) async {
-    _ensureInitialized();
+    await _ensureInitialized();
     try {
       // 收集配置键
       final keys = (configKeys != null && configKeys.isNotEmpty)
@@ -277,7 +283,7 @@ class BackupRestoreService {
   /// 备份所有数据（数据库表 + 应用设置 + 配置仓库）
   /// 返回生成的备份文件路径（单一文件，支持加密）
   Future<String> backupAll(String destination) async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     try {
       final db = LocalDatabase();
@@ -372,7 +378,7 @@ class BackupRestoreService {
   }
 
   Future<List<RuleBase>> restoreRules(String source) async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     // 读取文件，若为综合备份则仅恢复 tables 部分；否则按纯 tables JSON 处理
     final file = File(source);
@@ -417,13 +423,13 @@ class BackupRestoreService {
   /// [source] 备份文件路径
   /// [configKeys] 要还原的配置键列表，如果为空则还原所有配置
   Future<void> restoreConfigs(String source, {List<String>? configKeys}) async {
-    _ensureInitialized();
+    await _ensureInitialized();
     await _configBackupService.restoreConfigs(source, keys: configKeys);
   }
   
   /// 还原所有数据（规则、标签、位置和配置）
   Future<void> restoreAll(String source) async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     final file = File(source);
     if (!await file.exists()) {
@@ -465,7 +471,7 @@ class BackupRestoreService {
 
   /// 准备设置备份数据，返回临时文件路径
   Future<String> prepareSettingsBackup() async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     // Get all shared preferences
     final allPrefs = _preferences.getKeys();
@@ -532,7 +538,7 @@ class BackupRestoreService {
   /// 注意：在Android和iOS平台上，应该使用prepareSettingsBackup方法获取数据，
   /// 然后使用FilePicker.saveFile方法并提供bytes参数
   Future<String> backupSettings(String destination) async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     // Get all shared preferences
     final allPrefs = _preferences.getKeys();
@@ -605,7 +611,7 @@ class BackupRestoreService {
   }
 
   Future<bool> restoreSettings(String source) async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     final backupFile = File(source);
     if (!await backupFile.exists()) {
@@ -700,7 +706,7 @@ class BackupRestoreService {
 
   Future<bool> scheduleAutomaticBackup(
       Duration interval, String destination) async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     // Store backup schedule in preferences
     await _preferences.setInt('backup_interval_ms', interval.inMilliseconds);
@@ -715,7 +721,7 @@ class BackupRestoreService {
   }
 
   Future<bool> cancelAutomaticBackup() async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     // Remove backup schedule from preferences
     await _preferences.remove('backup_interval_ms');
@@ -726,7 +732,7 @@ class BackupRestoreService {
   }
 
   Future<List<String>> getAvailableBackups() async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     final files = await _backupDirectory.list().toList();
     return files
@@ -737,7 +743,7 @@ class BackupRestoreService {
   }
 
   Future<String> selectBackupFile() async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     final result = await FilePicker.pickFiles(
       type: FileType.custom,
@@ -753,7 +759,7 @@ class BackupRestoreService {
   }
 
   Future<String> selectBackupDestination(Uint8List bytes) async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     final result = await FilePicker.saveFile(
       dialogTitle: 'Save backup file',
@@ -770,17 +776,16 @@ class BackupRestoreService {
     return result.toFilePath();
   }
 
-  void _ensureInitialized() {
+  Future<void> _ensureInitialized() async {
     if (!_isInitialized) {
-      throw Exception(
-          'BackupRestoreService not initialized. Call initialize() first.');
+      await initialize({});
     }
   }
 
 
   /// Add a backup version to the history
   Future<void> _addBackupVersion(String backupType, String filePath) async {
-    _ensureInitialized();
+    await _ensureInitialized();
 
     // Get current backup versions
     final versions = await getBackupVersions();
@@ -810,7 +815,7 @@ class BackupRestoreService {
   /// - 使用 VACUUM INTO 生成一致性快照
   /// - 根据加密配置选择明文或加密输出
   Future<String> backupDatabaseSnapshot(String destination) async {
-    _ensureInitialized();
+    await _ensureInitialized();
     try {
       final db = LocalDatabase();
 
@@ -854,7 +859,7 @@ class BackupRestoreService {
   /// - 解密（如启用）到临时文件
   /// - ATTACH 临时库为 source，将各表 DELETE 后 INSERT INTO SELECT 拷贝
   Future<void> restoreDatabaseSnapshot(String source) async {
-    _ensureInitialized();
+    await _ensureInitialized();
     try {
       final db = LocalDatabase();
 
@@ -939,7 +944,7 @@ class BackupRestoreService {
     List<String>? includeTables,
     List<String>? excludeTables,
   }) async {
-    _ensureInitialized();
+    await _ensureInitialized();
     try {
       final db = LocalDatabase();
 
@@ -1023,7 +1028,7 @@ class BackupRestoreService {
     List<String>? excludeTables,
     bool clearBeforeInsert = true,
   }) async {
-    _ensureInitialized();
+    await _ensureInitialized();
     try {
       final db = LocalDatabase();
 

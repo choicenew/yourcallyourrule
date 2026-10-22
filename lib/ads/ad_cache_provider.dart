@@ -125,7 +125,7 @@ class AdCache extends _$AdCache {
       // 否则根据传入的 bannerType 动态计算自适应广告尺寸
       switch (bannerType) {
         case AdaptiveBannerType.inline:
-          size = await AdSize.getCurrentOrientationInlineAdaptiveBannerAdSize(
+          size = AdSize.getCurrentOrientationInlineAdaptiveBannerAdSize(
             calculationWidth.truncate(),
           );
           break;
@@ -136,6 +136,8 @@ class AdCache extends _$AdCache {
           break;
       }
     }
+
+    if (!ref.mounted) return;
 
     if (size == null) {
       debugPrint('Failed to get ad size for type: $bannerType');

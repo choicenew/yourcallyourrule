@@ -442,6 +442,9 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
         await phoneService.save(sub);
       }
 
+      // 捕获全局 ProviderContainer 实例，避免页面 unmount 后访问 ref 引发 Bad state 异常
+      final container = ref.container;
+
       // 2. 给出成功提示并【立刻关闭向导进入主界面】，绝对不卡顿等待网络下载
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -469,7 +472,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
         }
 
         // 后台规则/插件全量导入完成后，主动通知统计状态提供者重新加载最新统计数据
-        ref.invalidate(callStatisticsProvider);
+        container.invalidate(callStatisticsProvider);
       });
     } catch (e) {
       if (mounted) {
