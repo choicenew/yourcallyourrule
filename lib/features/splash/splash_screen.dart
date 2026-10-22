@@ -66,7 +66,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     Timer(_minSplashDuration, () {
       debugPrint('✅ 门锁1: 最小显示时间到达');
       _minTimeElapsed = true;
-      _adLoadAttempted = true;
       _tryNavigate(); // 尝试开锁
     });
 
