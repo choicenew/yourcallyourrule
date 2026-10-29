@@ -1,3 +1,14 @@
+// 解决 AGP 9.0+ 拦截并替换废弃的 'proguard-android.txt'，兼容所有 Pub.dev 三方插件（如 flutter_inappwebview_android）
+try {
+    def baseClass = Class.forName("com.android.build.gradle.BaseExtension")
+    def originalMethod = baseClass.getMethod("getDefaultProguardFile", java.lang.String.class)
+    baseClass.metaClass.getDefaultProguardFile = { name ->
+        def targetName = (name == 'proguard-android.txt') ? 'proguard-android-optimize.txt' : name
+        return originalMethod.invoke(delegate, targetName)
+    }
+} catch (ignored) {
+}
+
 allprojects {
     repositories {
         google()
