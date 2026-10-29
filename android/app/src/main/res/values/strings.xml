@@ -3,4 +3,26 @@
     <string name="app_name">Your Call Your Rule</string>
     <string name="default_notification_channel_id">default_channel</string>
     <string name="appAuthRedirectScheme">yourcallyourrule</string>
+
+    <!-- Widget Titles & Descriptions -->
+    <string name="widget_rules_sync_title">Rules &amp; Sync Status</string>
+    <string name="widget_rules_sync_description">Displays rule statistics and last cloud synchronization time.</string>
+    <string name="widget_dashboard_overview_title">Call Protection Overview</string>
+    <string name="widget_dashboard_overview_description">Displays today\'s blocked calls, SIM card distribution, and peak hours.</string>
+    <string name="widget_community_judge_title">Community Governance</string>
+    <string name="widget_community_judge_description">Displays community hot proposals, risk bento stats, and vote consensus.</string>
+
+    <!-- Widget Labels -->
+    <string name="widget_sync_now">Sync Now</string>
+    <string name="widget_view_logs">View Call Logs</string>
+    <string name="widget_vote_now">Participate in Vote</string>
+    <string name="widget_last_sync">Last Sync</string>
+    <string name="widget_total_rules">Total Rules</string>
+    <string name="widget_blocked_today">Blocked Today</string>
+    <string name="widget_peak_hours">Peak Hours</string>
+    <string name="widget_sim_distribution">SIM Distribution</string>
+    <string name="widget_risk_high">High</string>
+    <string name="widget_risk_medium">Medium</string>
+    <string name="widget_risk_low">Low</string>
+    <string name="widget_consensus">Consensus</string>
 </resources>

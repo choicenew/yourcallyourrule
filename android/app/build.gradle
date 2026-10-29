@@ -57,6 +57,10 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
 
+    buildFeatures {
+        compose true
+    }
+
     defaultConfig {
         applicationId = "com.yours.yourcallyourrule"
         minSdk 30
@@ -116,6 +120,9 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.16.0'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
     implementation 'com.google.android.gms:play-services-cronet:18.1.1'
+    implementation 'androidx.glance:glance-appwidget:1.1.1'
+    implementation 'androidx.glance:glance-material3:1.1.1'
+    implementation 'androidx.datastore:datastore-preferences:1.1.1'
 }
 
 tasks.matching { it.name.startsWith("minify") }.configureEach { task ->

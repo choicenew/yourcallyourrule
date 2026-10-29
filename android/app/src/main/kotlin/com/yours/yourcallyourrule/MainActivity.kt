@@ -208,4 +208,25 @@ private fun requestAppPermissions() {
        // smsChannelHandler.unregisterSmsListener()
         callerIdChannelHandler.unregisterCallListeners()
     }
+
+    /**
+     * 重写 FlutterActivity 官方钩子，解决 Jetpack Glance 产生的 glance-action:/CALLBACK 伪路由报错问题
+     * 依据 android-widget-pitfalls-hardening-protocol 避坑协议处理：
+     * 将 glance-action 协议捕获并安全重定向为根路由 "/"，路由深层跳转由 Intent Extra 在 Flutter 侧解析
+     */
+    override fun getInitialRoute(): String? {
+        val data = intent?.data
+        if (data != null && data.scheme == "glance-action") {
+            return "/"
+        }
+        return super.getInitialRoute()
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        if (intent.data?.scheme == "glance-action") {
+            intent.data = null
+        }
+        super.onNewIntent(intent)
+        setIntent(intent)
+    }
 }

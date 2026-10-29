@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- 外层静态雷达科技圆环 1 -->
+    <path
+        android:pathData="M24,2 A22,22 0 1,0 24,46 A22,22 0 1,0 24,2 Z"
+        android:strokeColor="#2010B981"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000" />
+    <!-- 外层静态雷达科技圆环 2 -->
+    <path
+        android:pathData="M24,8 A16,16 0 1,0 24,40 A16,16 0 1,0 24,8 Z"
+        android:strokeColor="#4010B981"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000" />
+    <!-- 中心晶透高光盾牌光晕圆底 -->
+    <path
+        android:pathData="M24,12 A12,12 0 1,0 24,36 A12,12 0 1,0 24,12 Z"
+        android:fillColor="#10B981" />
+    <!-- 内部安全验证盾牌 Icon -->
+    <path
+        android:pathData="M24,16 L31,19 V24 C31,28.5 28,32.3 24,33.5 C20,32.3 17,28.5 17,24 V19 L24,16 Z"
+        android:fillColor="#FFFFFF" />
+</vector>

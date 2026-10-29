@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Your Call Your Rule</string>
+    <string name="default_notification_channel_id">default_channel</string>
+    <string name="appAuthRedirectScheme">yourcallyourrule</string>
+
+    <!-- Widget Titles & Descriptions -->
+    <string name="widget_rules_sync_title">Reglas y Sincronización</string>
+    <string name="widget_rules_sync_description">Muestra estadísticas de reglas y última sincronización en la nube.</string>
+    <string name="widget_dashboard_overview_title">Resumen de Protección</string>
+    <string name="widget_dashboard_overview_description">Muestra llamadas bloqueadas hoy, distribución SIM y horas pico.</string>
+    <string name="widget_community_judge_title">Gobernanza de la Comunidad</string>
+    <string name="widget_community_judge_description">Muestra propuestas populares, estadísticas de riesgo y consenso de votos.</string>
+
+    <!-- Widget Labels -->
+    <string name="widget_sync_now">Sincronizar</string>
+    <string name="widget_view_logs">Ver Registro</string>
+    <string name="widget_vote_now">Votar Ahora</string>
+    <string name="widget_last_sync">Última sinc.</string>
+    <string name="widget_total_rules">Reglas totales</string>
+    <string name="widget_blocked_today">Bloqueadas hoy</string>
+    <string name="widget_peak_hours">Horas pico</string>
+    <string name="widget_sim_distribution">Distribución SIM</string>
+    <string name="widget_risk_high">Alto</string>
+    <string name="widget_risk_medium">Medio</string>
+    <string name="widget_risk_low">Bajo</string>
+    <string name="widget_consensus">Consenso</string>
+</resources>

@@ -297,6 +297,40 @@
                     android:name="android.intent.action.QUICKBOOT_POWERON"/>
             </intent-filter>
         </receiver>
+
+        <!--  ===  Jetpack Glance AppWidgets  ===  -->
+        <receiver
+            android:name=".widget.RulesSyncGlanceReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/rules_sync_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.DashboardOverviewGlanceReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/dashboard_overview_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.CommunityJudgeGlanceReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/community_judge_widget_info" />
+        </receiver>
         <meta-data
             android:name="flutterEmbedding"
             android:value="2"/>

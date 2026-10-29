@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Your Call Your Rule</string>
+    <string name="default_notification_channel_id">default_channel</string>
+    <string name="appAuthRedirectScheme">yourcallyourrule</string>
+
+    <!-- Widget Titles & Descriptions -->
+    <string name="widget_rules_sync_title">规则与数据库同步</string>
+    <string name="widget_rules_sync_description">展示本地规则统计与最近云端同步时间状态。</string>
+    <string name="widget_dashboard_overview_title">防护战报与数据看板</string>
+    <string name="widget_dashboard_overview_description">展示今日拦截次数、双卡分布与高峰骚扰时段。</string>
+    <string name="widget_community_judge_title">社区判官与治理</string>
+    <string name="widget_community_judge_description">展示社区热议提议、风险等级 Bento 盒与共识进度。</string>
+
+    <!-- Widget Labels -->
+    <string name="widget_sync_now">立即同步</string>
+    <string name="widget_view_logs">查看通话日志</string>
+    <string name="widget_vote_now">参与判官投票</string>
+    <string name="widget_last_sync">上次同步</string>
+    <string name="widget_total_rules">规则总数</string>
+    <string name="widget_blocked_today">今日拦截</string>
+    <string name="widget_peak_hours">高峰时段</string>
+    <string name="widget_sim_distribution">双卡分布</string>
+    <string name="widget_risk_high">高危</string>
+    <string name="widget_risk_medium">中危</string>
+    <string name="widget_risk_low">低危</string>
+    <string name="widget_consensus">共识完成度</string>
+</resources>

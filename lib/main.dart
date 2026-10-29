@@ -19,6 +19,7 @@ import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overl
 import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_service.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
+import 'package:yourcallyourrule/features/widgets/services/app_widget_sync_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/theme/app_theme.dart';
 import 'package:yourcallyourrule/theme/theme_provider.dart';
@@ -88,6 +89,9 @@ Future<void> main() async {
 
       // 在应用启动时触发一次前台同步检查
       container.read(foregroundSyncServiceProvider).syncIfNeeded();
+
+      // 初始化桌面小组件同步服务
+      container.read(appWidgetSyncServiceProvider);
     });
 
     runApp(
