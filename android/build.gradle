@@ -1,12 +1,15 @@
-// 解决 AGP 9.0+ 拦截并替换废弃的 'proguard-android.txt'，兼容所有 Pub.dev 三方插件（如 flutter_inappwebview_android）
-try {
-    def baseClass = Class.forName("com.android.build.gradle.BaseExtension")
-    def originalMethod = baseClass.getMethod("getDefaultProguardFile", java.lang.String.class)
-    baseClass.metaClass.getDefaultProguardFile = { name ->
-        def targetName = (name == 'proguard-android.txt') ? 'proguard-android-optimize.txt' : name
-        return originalMethod.invoke(delegate, targetName)
+// 解决 AGP 9.0+ 废弃 'proguard-android.txt' 问题，兼容所有 Pub.dev 三方插件（如 flutter_inappwebview_android）
+// 第一重防线：在所有子项目评估之前，通过 Gradle 生命周期钩子自动将 'proguard-android.txt' 修正为 'proguard-android-optimize.txt'
+gradle.beforeProject { p ->
+    if (p != rootProject && p.buildFile.exists()) {
+        try {
+            def text = p.buildFile.text
+            if (text.contains("proguard-android.txt")) {
+                p.buildFile.text = text.replace("proguard-android.txt", "proguard-android-optimize.txt")
+            }
+        } catch (ignored) {
+        }
     }
-} catch (ignored) {
 }
 
 allprojects {
@@ -26,6 +29,20 @@ subprojects {
     project.layout.buildDirectory.value(newSubprojectBuildDir)
 
     plugins.withId('com.android.library') {
+        // 第二重防线：当三方 Android Library 插件加载后，对 android Extension 的 getDefaultProguardFile 进行 MetaClass 拦截
+        try {
+            def androidExt = project.extensions.findByName('android')
+            if (androidExt != null) {
+                def baseClass = androidExt.getClass()
+                def originalMethod = baseClass.getMethod("getDefaultProguardFile", java.lang.String.class)
+                androidExt.metaClass.getDefaultProguardFile = { name ->
+                    def targetName = (name == 'proguard-android.txt') ? 'proguard-android-optimize.txt' : name
+                    return originalMethod.invoke(delegate, targetName)
+                }
+            }
+        } catch (ignored) {
+        }
+
         androidComponents {
             finalizeDsl { extension ->
                 extension.compileSdk = 37
