@@ -125,6 +125,16 @@ dependencies {
     implementation 'androidx.datastore:datastore-preferences:1.1.1'
 }
 
+configurations.all {
+    resolutionStrategy {
+        force 'androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7'
+        force 'androidx.lifecycle:lifecycle-runtime-compose:2.8.7'
+        force 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.7'
+        force 'androidx.lifecycle:lifecycle-runtime:2.8.7'
+        force 'androidx.lifecycle:lifecycle-common:2.8.7'
+    }
+}
+
 tasks.matching { it.name.startsWith("minify") }.configureEach { task ->
     doFirst {
         def globalDir = file("${projectDir}/build/intermediates/default_proguard_files/global")
