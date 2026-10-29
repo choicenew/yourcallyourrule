@@ -2,7 +2,7 @@ plugins {
     id "com.android.application"
     id 'com.google.gms.google-services'
     id "dev.flutter.flutter-gradle-plugin"
-    // 官方依据：在 AGP 9.0 且 builtInKotlin=true 模式下，禁止手动应用 Kotlin 插件，否则会报错冲突
+    id "org.jetbrains.kotlin.plugin.compose"
 }
 
 def localProperties = new Properties()
