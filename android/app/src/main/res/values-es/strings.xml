@@ -25,4 +25,22 @@
     <string name="widget_risk_medium">Medio</string>
     <string name="widget_risk_low">Bajo</string>
     <string name="widget_consensus">Consenso</string>
+    <string name="widget_service_label">Servicio</string>
+    <string name="widget_times_unit">veces</string>
+    <string name="widget_participants">%1$d Participantes</string>
+    <string name="widget_smart_mode">Modo Inteligente</string>
+    <string name="widget_risk_bento">Riesgo Bento</string>
+
+    <!-- Widget Configuration Screen -->
+    <string name="widget_config_title">Preferencias del Widget</string>
+    <string name="widget_config_opacity">Opacidad de Fondo</string>
+    <string name="widget_config_font_scale">Escala de Fuente</string>
+    <string name="widget_config_theme">Modo de Tema</string>
+    <string name="widget_config_theme_system">Seguir Sistema</string>
+    <string name="widget_config_theme_light">Modo Claro</string>
+    <string name="widget_config_theme_dark">Modo Oscuro</string>
+    <string name="widget_config_save">Guardar Ajustes</string>
+    <string name="widget_config_show_breakdown">Mostrar Desglose</string>
+    <string name="widget_config_show_sim">Mostrar Distribución SIM</string>
+    <string name="widget_config_show_risk">Mostrar Riesgo Bento</string>
 </resources>

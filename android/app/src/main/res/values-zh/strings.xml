@@ -25,4 +25,22 @@
     <string name="widget_risk_medium">中危</string>
     <string name="widget_risk_low">低危</string>
     <string name="widget_consensus">共识完成度</string>
+    <string name="widget_service_label">服务</string>
+    <string name="widget_times_unit">次</string>
+    <string name="widget_participants">%1$d 人已参与</string>
+    <string name="widget_smart_mode">智能模式</string>
+    <string name="widget_risk_bento">风险 Bento</string>
+
+    <!-- Widget Configuration Screen -->
+    <string name="widget_config_title">小组件独立偏好设置</string>
+    <string name="widget_config_opacity">背景不透明度</string>
+    <string name="widget_config_font_scale">字号按比例缩放</string>
+    <string name="widget_config_theme">卡片主题模式</string>
+    <string name="widget_config_theme_system">跟随系统主题</string>
+    <string name="widget_config_theme_light">浅色模式 (Light)</string>
+    <string name="widget_config_theme_dark">深色模式 (Dark)</string>
+    <string name="widget_config_save">保存小组件偏好</string>
+    <string name="widget_config_show_breakdown">显示规则明细分布</string>
+    <string name="widget_config_show_sim">显示双卡分布比例</string>
+    <string name="widget_config_show_risk">显示风险等级 Bento 盒</string>
 </resources>

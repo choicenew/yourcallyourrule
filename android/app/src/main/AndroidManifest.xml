@@ -207,6 +207,15 @@
                     android:scheme="msauth"/>
             </intent-filter>
         </activity>
+
+        <!--  ===  Widget Configuration Activity  ===  -->
+        <activity
+            android:name=".widget.WidgetConfigActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
         <!--<activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"

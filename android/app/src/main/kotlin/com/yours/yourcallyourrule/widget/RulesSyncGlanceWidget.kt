@@ -162,7 +162,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                         )
                         Spacer(modifier = GlanceModifier.height(2.dp))
                         Text(
-                            text = "服务: $serviceType",
+                            text = "${context.getString(R.string.widget_service_label)}: $serviceType",
                             style = TextStyle(
                                 fontSize = (11f * fontScale).sp,
                                 color = GlanceTheme.colors.onSurfaceVariant
