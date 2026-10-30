@@ -1,6 +1,5 @@
 package com.yours.yourcallyourrule.widget
 
-import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.res.Configuration
 import androidx.compose.runtime.Composable
@@ -51,7 +50,7 @@ import com.yours.yourcallyourrule.utils.LocaleUtils
 
 /**
  * 社区判官与威胁治理美学 Bento 卡片小组件
- * 集成 ⚙️ 专属独立 Setting 配置向导按钮，多巴胺晶透层级排版
+ * 1:1 像素级复刻 Dashboard 社区治理 UI（截图5）
  */
 class CommunityJudgeGlanceWidget : GlanceAppWidget() {
 
@@ -94,7 +93,6 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
         provideContent {
             GlanceTheme {
                 CommunityJudgeRender(
-                    appWidgetId = appWidgetId,
                     alphaVal = alphaVal,
                     themeMode = themeMode,
                     fontScale = fontScale,
@@ -106,7 +104,6 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
 
     @Composable
     private fun CommunityJudgeRender(
-        appWidgetId: Int,
         alphaVal: Int,
         themeMode: String,
         fontScale: Float,
@@ -127,25 +124,14 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
         val alphaFloat = alphaVal.coerceIn(0, 100) / 100f
         val isDark = if (themeMode == "light") false else (if (themeMode == "dark") true else ((rawContext.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES))
 
-        val cardBgColor = ColorProvider(
-            day = Color(0xF8FAFCFF).copy(alpha = alphaFloat),
-            night = Color(0xEC18181B).copy(alpha = alphaFloat)
-        )
-        val innerBentoBg = ColorProvider(
-            day = Color(0x15F1F5F9),
-            night = Color(0x2527272A)
-        )
-        val textPrimary = ColorProvider(
-            day = Color(0xFF0F172A),
-            night = Color(0xFFFAFAFA)
-        )
-        val textSecondary = ColorProvider(
-            day = Color(0xFF64748B),
-            night = Color(0xFFA1A1AA)
-        )
-        val amberColor = ColorProvider(Color(0xFFF59E0B))
-        val redColor = ColorProvider(Color(0xFFEF4444))
-        val greenColor = ColorProvider(Color(0xFF10B981))
+        val baseColor = if (isDark) Color(0xFF18181B) else Color(0xFFFFFFFF)
+        val cardBgColor = if (alphaFloat <= 0.01f) Color.Transparent else baseColor.copy(alpha = alphaFloat)
+        val primaryTextColor = if (isDark || alphaFloat <= 0.3f) Color(0xFFFAFAFA) else Color(0xFF0F172A)
+        val secondaryTextColor = if (isDark || alphaFloat <= 0.3f) Color(0xFFA1A1AA) else Color(0xFF64748B)
+        val innerBentoBg = if (isDark) Color(0x2527272A) else Color(0x10000000)
+        val amberColor = Color(0xFFF59E0B)
+        val redColor = Color(0xFFEF4444)
+        val greenColor = Color(0xFF10B981)
 
         val isCompact = size.width < 180.dp
 
@@ -156,25 +142,17 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
             )
         )
 
-        val configAction = actionStartActivity(
-            WidgetConfigActivity::class.java,
-            actionParametersOf(
-                ActionParameters.Key<Int>(AppWidgetManager.EXTRA_APPWIDGET_ID) to appWidgetId
-            )
-        )
-
         Column(
             modifier = GlanceModifier
                 .fillMaxSize()
                 .background(cardBgColor)
-                .cornerRadius(16.dp)
-                .padding(12.dp)
+                .cornerRadius(20.dp)
+                .padding(14.dp)
                 .clickable(deepLinkAction),
             verticalAlignment = Alignment.CenterVertically,
             horizontalAlignment = Alignment.Start
         ) {
             if (isCompact) {
-                // 紧凑形态
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Image(
                         provider = ImageProvider(R.drawable.ic_shield_radar),
@@ -187,34 +165,28 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (12f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = textPrimary
+                            color = ColorProvider(primaryTextColor)
                         )
                     )
-                    Spacer(modifier = GlanceModifier.defaultWeight())
-                    Text(
-                        text = "⚙️",
-                        style = TextStyle(fontSize = 12.sp),
-                        modifier = GlanceModifier.clickable(configAction)
-                    )
                 }
-                Spacer(modifier = GlanceModifier.height(4.dp))
+                Spacer(modifier = GlanceModifier.height(6.dp))
                 Box(
                     modifier = GlanceModifier
-                        .background(ColorProvider(Color(0x25F59E0B)))
+                        .background(Color(0x20F59E0B))
                         .cornerRadius(8.dp)
-                        .padding(horizontal = 8.dp, vertical = 3.dp)
+                        .padding(horizontal = 8.dp, vertical = 4.dp)
                 ) {
                     Text(
                         text = "🏷️ $hotTag",
                         style = TextStyle(
                             fontSize = (10f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = amberColor
+                            color = ColorProvider(amberColor)
                         )
                     )
                 }
             } else {
-                // 展开多巴胺美学 Bento 层级看板
+                // 1:1 复刻截图 5 的 Dashboard 社区治理表头
                 Row(
                     modifier = GlanceModifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
@@ -228,109 +200,101 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                     Text(
                         text = localizedContext.getString(R.string.widget_community_judge_title),
                         style = TextStyle(
-                            fontSize = (13f * fontScale).sp,
+                            fontSize = (14f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = textPrimary
+                            color = ColorProvider(primaryTextColor)
                         )
                     )
                     Spacer(modifier = GlanceModifier.defaultWeight())
                     Box(
                         modifier = GlanceModifier
-                            .background(ColorProvider(Color(0x25F59E0B)))
-                            .cornerRadius(8.dp)
-                            .padding(horizontal = 8.dp, vertical = 3.dp)
+                            .background(Color(0x20F59E0B))
+                            .cornerRadius(12.dp)
+                            .padding(horizontal = 10.dp, vertical = 4.dp)
                     ) {
                         Text(
                             text = localizedContext.getString(R.string.widget_participants, voteCount),
                             style = TextStyle(
-                                fontSize = (9.5f * fontScale).sp,
+                                fontSize = (10f * fontScale).sp,
                                 fontWeight = FontWeight.Bold,
-                                color = amberColor
+                                color = ColorProvider(amberColor)
                             )
                         )
                     }
-                    Spacer(modifier = GlanceModifier.width(6.dp))
-                    Text(
-                        text = "⚙️",
-                        style = TextStyle(fontSize = 14.sp),
-                        modifier = GlanceModifier.clickable(configAction)
-                    )
                 }
 
-                Spacer(modifier = GlanceModifier.height(8.dp))
+                Spacer(modifier = GlanceModifier.height(10.dp))
 
-                // 中部双栏 Bento 盒
+                // 中部 Bento 盒（复刻截图 5 的风险 Bento 盒）
                 Row(modifier = GlanceModifier.fillMaxWidth()) {
-                    // 左 Bento：号码与标记
                     Column(
                         modifier = GlanceModifier
                             .defaultWeight()
                             .background(innerBentoBg)
                             .cornerRadius(12.dp)
-                            .padding(8.dp)
+                            .padding(10.dp)
                     ) {
                         Text(
                             text = "📱 $hotNumber",
                             style = TextStyle(
                                 fontSize = (11.5f * fontScale).sp,
                                 fontWeight = FontWeight.Bold,
-                                color = textPrimary
+                                color = ColorProvider(primaryTextColor)
                             )
                         )
                         Spacer(modifier = GlanceModifier.height(3.dp))
                         Text(
                             text = "🏷️ $hotTag",
                             style = TextStyle(
-                                fontSize = (9.5f * fontScale).sp,
-                                color = textSecondary
+                                fontSize = (10f * fontScale).sp,
+                                color = ColorProvider(secondaryTextColor)
                             )
                         )
                     }
 
                     Spacer(modifier = GlanceModifier.width(8.dp))
 
-                    // 右 Bento：红黄绿三色风险 Bento 盒
                     if (showRisk) {
                         Column(
                             modifier = GlanceModifier
                                 .defaultWeight()
                                 .background(innerBentoBg)
                                 .cornerRadius(12.dp)
-                                .padding(8.dp)
+                                .padding(10.dp)
                         ) {
                             Text(
                                 text = "⚠️ ${localizedContext.getString(R.string.widget_risk_bento)}",
                                 style = TextStyle(
-                                    fontSize = (9.5f * fontScale).sp,
-                                    color = textSecondary
+                                    fontSize = (10f * fontScale).sp,
+                                    color = ColorProvider(secondaryTextColor)
                                 )
                             )
-                            Spacer(modifier = GlanceModifier.height(3.dp))
+                            Spacer(modifier = GlanceModifier.height(4.dp))
                             Row {
                                 Text(
                                     text = "🔴$highRisk",
                                     style = TextStyle(
-                                        fontSize = (9.5f * fontScale).sp,
+                                        fontSize = (10f * fontScale).sp,
                                         fontWeight = FontWeight.Bold,
-                                        color = redColor
+                                        color = ColorProvider(redColor)
                                     )
                                 )
                                 Spacer(modifier = GlanceModifier.width(4.dp))
                                 Text(
                                     text = "🟡$mediumRisk",
                                     style = TextStyle(
-                                        fontSize = (9.5f * fontScale).sp,
+                                        fontSize = (10f * fontScale).sp,
                                         fontWeight = FontWeight.Bold,
-                                        color = amberColor
+                                        color = ColorProvider(amberColor)
                                     )
                                 )
                                 Spacer(modifier = GlanceModifier.width(4.dp))
                                 Text(
                                     text = "🟢$lowRisk",
                                     style = TextStyle(
-                                        fontSize = (9.5f * fontScale).sp,
+                                        fontSize = (10f * fontScale).sp,
                                         fontWeight = FontWeight.Bold,
-                                        color = greenColor
+                                        color = ColorProvider(greenColor)
                                     )
                                 )
                             }
@@ -338,32 +302,32 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                     }
                 }
 
-                Spacer(modifier = GlanceModifier.height(8.dp))
+                Spacer(modifier = GlanceModifier.height(10.dp))
 
-                // 底栏：橙色动作胶囊
+                // 底栏：1:1 复刻截图 5 的多巴胺琥珀橙动作胶囊
                 Row(
                     modifier = GlanceModifier
                         .fillMaxWidth()
-                        .background(ColorProvider(Color(0x18F59E0B)))
-                        .cornerRadius(10.dp)
-                        .padding(horizontal = 10.dp, vertical = 6.dp),
+                        .background(Color(0x18F59E0B))
+                        .cornerRadius(12.dp)
+                        .padding(horizontal = 12.dp, vertical = 8.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
                         text = "🗳️ ${localizedContext.getString(R.string.widget_vote_now)}",
                         style = TextStyle(
-                            fontSize = (11f * fontScale).sp,
+                            fontSize = (11.5f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = amberColor
+                            color = ColorProvider(amberColor)
                         )
                     )
                     Spacer(modifier = GlanceModifier.defaultWeight())
                     Text(
                         text = "➔",
                         style = TextStyle(
-                            fontSize = (11f * fontScale).sp,
+                            fontSize = (11.5f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = amberColor
+                            color = ColorProvider(amberColor)
                         )
                     )
                 }

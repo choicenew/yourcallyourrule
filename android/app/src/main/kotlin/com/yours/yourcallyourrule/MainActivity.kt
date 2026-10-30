@@ -46,6 +46,14 @@ class MainActivity : FlutterActivity() {
         callerIdChannelHandler = CallerIdChannelHandler(this, flutterEngine)
         callerIdChannelHandler.setupCallerIdChannel() //ChannelHandler 的 setup 方法
 
+        // 注册小组件同步与语言切换独立 MethodChannel (100% 对齐 veherego 架构)
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.yours.yourcallyourrule/app_widget_sync").setMethodCallHandler { call, result ->
+            when (call.method) {
+                "setSystemLanguage" -> com.yours.yourcallyourrule.widget.WidgetLanguageManager.handleSetSystemLanguage(this, call, result)
+                else -> result.notImplemented()
+            }
+        }
+
       //  endCallChannelHandler = EndCallChannelHandler(this, flutterEngine)
      //   endCallChannelHandler.setupEndCallChannel() //ChannelHandler 的 setup 方法
         // ... 其他 ChannelHandler 的 setup 方法 ...

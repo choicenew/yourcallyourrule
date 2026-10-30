@@ -4,6 +4,7 @@ import android.app.Activity
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -19,8 +20,8 @@ import com.yours.yourcallyourrule.R
 import com.yours.yourcallyourrule.utils.LocaleUtils
 
 /**
- * Elite 桌面小组件独立配置向导 Activity
- * 100% 对齐 Elite Home UI 精致深色卡片质感，解决底部空白与未对齐问题
+ * 桌面小组件独立配置向导 Activity
+ * 100% 照搬 veherego 的 WidgetConfigActivity 布局结构与深浅色模式算色
  */
 class WidgetConfigActivity : Activity() {
 
@@ -35,7 +36,6 @@ class WidgetConfigActivity : Activity() {
         super.onCreate(savedInstanceState)
         setResult(RESULT_CANCELED)
 
-        val intent = intent
         val extras = intent.extras
         if (extras != null) {
             appWidgetId = extras.getInt(
@@ -52,25 +52,42 @@ class WidgetConfigActivity : Activity() {
         val localizedContext = LocaleUtils.getLocalizedContext(this)
         val prefs = getSharedPreferences("yourcallrule_widget_prefs", Context.MODE_PRIVATE)
 
-        // 精致 Material 3 深色全屏容器
+        // 100% 照搬 veherego 的深浅色模式与背景色设置
+        val isNight = (resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK) == android.content.res.Configuration.UI_MODE_NIGHT_YES
+        val bgDark = Color.parseColor("#0F172A")
+        val bgLight = Color.parseColor("#F8FAFC")
+        val cardBgDark = Color.parseColor("#1E293B")
+        val cardBgLight = Color.parseColor("#FFFFFF")
+
+        val txtMainColor = if (isNight) Color.WHITE else Color.parseColor("#0F172A")
+        val txtMutedColor = if (isNight) Color.parseColor("#94A3B8") else Color.parseColor("#64748B")
+        val accentColor = Color.parseColor("#10B981")
+        val bgColor = if (isNight) bgDark else bgLight
+        val cardBg = if (isNight) cardBgDark else cardBgLight
+
+        window.statusBarColor = bgColor
+        window.navigationBarColor = bgColor
+        window.decorView.setBackgroundColor(bgColor)
+
+        fun dp(dpVal: Float): Int = (dpVal * resources.displayMetrics.density).toInt()
+
         val rootLayout = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(48, 48, 48, 48)
-            setBackgroundColor(0xFF121214.toInt())
+            setPadding(dp(20f), dp(20f), dp(20f), dp(48f))
+            setBackgroundColor(bgColor)
         }
 
-        // 顶栏 Header
+        // 标题区
         val headerLayout = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            setPadding(0, 0, 0, 32)
+            setPadding(0, 0, 0, dp(16f))
         }
 
         val titleText = TextView(this).apply {
             text = localizedContext.getString(R.string.widget_config_title)
             textSize = 20f
-            setTextColor(0xFFFFFFFF.toInt())
-            paint.isFakeBoldText = true
+            setTextColor(txtMainColor)
         }
         headerLayout.addView(titleText)
         rootLayout.addView(headerLayout)
@@ -78,8 +95,8 @@ class WidgetConfigActivity : Activity() {
         // 1. 不透明度控制卡片
         val alphaCard = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(32, 28, 32, 28)
-            setBackgroundColor(0xFF1E1E22.toInt())
+            setPadding(dp(16f), dp(14f), dp(16f), dp(14f))
+            setBackgroundColor(cardBg)
         }
 
         val alphaLabelRow = LinearLayout(this).apply {
@@ -90,7 +107,7 @@ class WidgetConfigActivity : Activity() {
         val alphaLabel = TextView(this).apply {
             text = localizedContext.getString(R.string.widget_config_opacity)
             textSize = 14f
-            setTextColor(0xFFA1A1AA.toInt())
+            setTextColor(txtMutedColor)
             layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f)
         }
         alphaLabelRow.addView(alphaLabel)
@@ -99,8 +116,7 @@ class WidgetConfigActivity : Activity() {
         alphaPercentText = TextView(this).apply {
             text = "$currentAlpha%"
             textSize = 15f
-            setTextColor(0xFF10B981.toInt())
-            paint.isFakeBoldText = true
+            setTextColor(accentColor)
         }
         alphaLabelRow.addView(alphaPercentText)
         alphaCard.addView(alphaLabelRow)
@@ -108,7 +124,7 @@ class WidgetConfigActivity : Activity() {
         alphaSeekBar = SeekBar(this).apply {
             max = 100
             progress = currentAlpha
-            setPadding(0, 24, 0, 8)
+            setPadding(0, dp(12f), 0, dp(4f))
             setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(sb: SeekBar?, progress: Int, fromUser: Boolean) {
                     alphaPercentText.text = "$progress%"
@@ -121,15 +137,15 @@ class WidgetConfigActivity : Activity() {
         rootLayout.addView(alphaCard)
 
         val spacer1 = View(this).apply {
-            layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 24)
+            layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dp(12f))
         }
         rootLayout.addView(spacer1)
 
-        // 2. 字号按比例缩放控制卡片
+        // 2. 字号缩放控制卡片
         val fontCard = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(32, 28, 32, 28)
-            setBackgroundColor(0xFF1E1E22.toInt())
+            setPadding(dp(16f), dp(14f), dp(16f), dp(14f))
+            setBackgroundColor(cardBg)
         }
 
         val fontLabelRow = LinearLayout(this).apply {
@@ -140,7 +156,7 @@ class WidgetConfigActivity : Activity() {
         val fontLabel = TextView(this).apply {
             text = localizedContext.getString(R.string.widget_config_font_scale)
             textSize = 14f
-            setTextColor(0xFFA1A1AA.toInt())
+            setTextColor(txtMutedColor)
             layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f)
         }
         fontLabelRow.addView(fontLabel)
@@ -149,8 +165,7 @@ class WidgetConfigActivity : Activity() {
         fontScaleText = TextView(this).apply {
             text = "$currentScaleInt%"
             textSize = 15f
-            setTextColor(0xFF10B981.toInt())
-            paint.isFakeBoldText = true
+            setTextColor(accentColor)
         }
         fontLabelRow.addView(fontScaleText)
         fontCard.addView(fontLabelRow)
@@ -158,7 +173,7 @@ class WidgetConfigActivity : Activity() {
         fontScaleSeekBar = SeekBar(this).apply {
             max = 150
             progress = currentScaleInt.coerceIn(80, 150)
-            setPadding(0, 24, 0, 8)
+            setPadding(0, dp(12f), 0, dp(4f))
             setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(sb: SeekBar?, progress: Int, fromUser: Boolean) {
                     fontScaleText.text = "${progress.coerceAtLeast(80)}%"
@@ -171,7 +186,7 @@ class WidgetConfigActivity : Activity() {
         rootLayout.addView(fontCard)
 
         val spacer2 = View(this).apply {
-            layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 24)
+            layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dp(12f))
         }
         rootLayout.addView(spacer2)
 
@@ -180,23 +195,23 @@ class WidgetConfigActivity : Activity() {
             text = localizedContext.getString(R.string.widget_config_show_breakdown)
             isChecked = prefs.getBoolean("widget_${appWidgetId}_show_detail", true)
             textSize = 14f
-            setTextColor(0xFFFFFFFF.toInt())
-            setPadding(16, 24, 16, 24)
+            setTextColor(txtMainColor)
+            setPadding(dp(8f), dp(12f), dp(8f), dp(12f))
         }
         rootLayout.addView(cbShowDetail)
 
         val spacer3 = View(this).apply {
-            layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 32)
+            layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dp(16f))
         }
         rootLayout.addView(spacer3)
 
-        // 4. 精致保存按钮
+        // 4. 保存按钮
         val saveBtn = Button(this).apply {
             text = localizedContext.getString(R.string.widget_config_save)
             textSize = 15f
-            setTextColor(0xFFFFFFFF.toInt())
-            setBackgroundColor(0xFF10B981.toInt())
-            setPadding(0, 32, 0, 32)
+            setTextColor(Color.WHITE)
+            setBackgroundColor(accentColor)
+            setPadding(0, dp(16f), 0, dp(16f))
             setOnClickListener {
                 savePreferencesAndFinish()
             }
@@ -205,7 +220,7 @@ class WidgetConfigActivity : Activity() {
 
         val scrollView = ScrollView(this).apply {
             isFillViewport = true
-            setBackgroundColor(0xFF121214.toInt())
+            setBackgroundColor(bgColor)
             addView(rootLayout)
         }
 
