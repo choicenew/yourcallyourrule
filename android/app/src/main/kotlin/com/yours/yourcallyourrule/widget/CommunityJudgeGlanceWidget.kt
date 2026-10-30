@@ -50,7 +50,7 @@ import com.yours.yourcallyourrule.utils.LocaleUtils
 
 /**
  * 社区判官与威胁治理美学 Bento 卡片小组件
- * 包含了橙色热议胶囊、红黄绿三色 Bento 盒，ColorProvider 适配 Light/Dark
+ * 100% 照搬 veherego 的 Glance ColorProvider(Color) 调色范式与深浅色模式计算
  */
 class CommunityJudgeGlanceWidget : GlanceAppWidget() {
 
@@ -121,26 +121,18 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
         val hotNumber = state[KEY_HOT_NUMBER] ?: "--"
         val hotTag = state[KEY_HOT_TAG] ?: "--"
 
+        // 100% 照搬 veherego 的深浅色与透明度 ColorProvider 计算规范
         val alphaFloat = alphaVal.coerceIn(0, 100) / 100f
-        val cardBgColor = ColorProvider(
-            day = Color(0xF8FAFCFF).copy(alpha = alphaFloat),
-            night = Color(0xEC18181B).copy(alpha = alphaFloat)
-        )
-        val innerBentoBg = ColorProvider(
-            day = Color(0x15F1F5F9),
-            night = Color(0x2527272A)
-        )
-        val textPrimary = ColorProvider(
-            day = Color(0xFF0F172A),
-            night = Color(0xFFFAFAFA)
-        )
-        val textSecondary = ColorProvider(
-            day = Color(0xFF64748B),
-            night = Color(0xFFA1A1AA)
-        )
-        val amberColor = ColorProvider(Color(0xFFF59E0B))
-        val redColor = ColorProvider(Color(0xFFEF4444))
-        val greenColor = ColorProvider(Color(0xFF10B981))
+        val isDark = if (themeMode == "light") false else (if (themeMode == "dark") true else ((rawContext.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES))
+
+        val baseColor = if (isDark) Color(0xFF18181B) else Color(0xFFF8FAFC)
+        val cardBgColor = if (alphaFloat <= 0.01f) Color.Transparent else baseColor.copy(alpha = alphaFloat)
+        val primaryTextColor = if (isDark || alphaFloat <= 0.3f) Color(0xFFFAFAFA) else Color(0xFF0F172A)
+        val secondaryTextColor = if (isDark || alphaFloat <= 0.3f) Color(0xFFA1A1AA) else Color(0xFF64748B)
+        val innerBentoBg = if (isDark) Color(0x2527272A) else Color(0x15F1F5F9)
+        val amberColor = Color(0xFFF59E0B)
+        val redColor = Color(0xFFEF4444)
+        val greenColor = Color(0xFF10B981)
 
         val isCompact = size.width < 180.dp
 
@@ -175,14 +167,14 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (12f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = textPrimary
+                            color = ColorProvider(primaryTextColor)
                         )
                     )
                 }
                 Spacer(modifier = GlanceModifier.height(4.dp))
                 Box(
                     modifier = GlanceModifier
-                        .background(ColorProvider(Color(0x25F59E0B)))
+                        .background(Color(0x25F59E0B))
                         .cornerRadius(8.dp)
                         .padding(horizontal = 8.dp, vertical = 3.dp)
                 ) {
@@ -191,7 +183,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (10f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = amberColor
+                            color = ColorProvider(amberColor)
                         )
                     )
                 }
@@ -212,13 +204,13 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (13f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = textPrimary
+                            color = ColorProvider(primaryTextColor)
                         )
                     )
                     Spacer(modifier = GlanceModifier.defaultWeight())
                     Box(
                         modifier = GlanceModifier
-                            .background(ColorProvider(Color(0x25F59E0B)))
+                            .background(Color(0x25F59E0B))
                             .cornerRadius(8.dp)
                             .padding(horizontal = 8.dp, vertical = 3.dp)
                     ) {
@@ -227,7 +219,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                             style = TextStyle(
                                 fontSize = (9.5f * fontScale).sp,
                                 fontWeight = FontWeight.Bold,
-                                color = amberColor
+                                color = ColorProvider(amberColor)
                             )
                         )
                     }
@@ -250,7 +242,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                             style = TextStyle(
                                 fontSize = (11.5f * fontScale).sp,
                                 fontWeight = FontWeight.Bold,
-                                color = textPrimary
+                                color = ColorProvider(primaryTextColor)
                             )
                         )
                         Spacer(modifier = GlanceModifier.height(3.dp))
@@ -258,7 +250,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                             text = "🏷️ $hotTag",
                             style = TextStyle(
                                 fontSize = (9.5f * fontScale).sp,
-                                color = textSecondary
+                                color = ColorProvider(secondaryTextColor)
                             )
                         )
                     }
@@ -278,7 +270,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                                 text = "⚠️ ${localizedContext.getString(R.string.widget_risk_bento)}",
                                 style = TextStyle(
                                     fontSize = (9.5f * fontScale).sp,
-                                    color = textSecondary
+                                    color = ColorProvider(secondaryTextColor)
                                 )
                             )
                             Spacer(modifier = GlanceModifier.height(3.dp))
@@ -288,7 +280,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                                     style = TextStyle(
                                         fontSize = (9.5f * fontScale).sp,
                                         fontWeight = FontWeight.Bold,
-                                        color = redColor
+                                        color = ColorProvider(redColor)
                                     )
                                 )
                                 Spacer(modifier = GlanceModifier.width(4.dp))
@@ -297,7 +289,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                                     style = TextStyle(
                                         fontSize = (9.5f * fontScale).sp,
                                         fontWeight = FontWeight.Bold,
-                                        color = amberColor
+                                        color = ColorProvider(amberColor)
                                     )
                                 )
                                 Spacer(modifier = GlanceModifier.width(4.dp))
@@ -306,7 +298,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                                     style = TextStyle(
                                         fontSize = (9.5f * fontScale).sp,
                                         fontWeight = FontWeight.Bold,
-                                        color = greenColor
+                                        color = ColorProvider(greenColor)
                                     )
                                 )
                             }
@@ -320,7 +312,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                 Row(
                     modifier = GlanceModifier
                         .fillMaxWidth()
-                        .background(ColorProvider(Color(0x18F59E0B)))
+                        .background(Color(0x18F59E0B))
                         .cornerRadius(10.dp)
                         .padding(horizontal = 10.dp, vertical = 6.dp),
                     verticalAlignment = Alignment.CenterVertically
@@ -330,7 +322,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (11f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = amberColor
+                            color = ColorProvider(amberColor)
                         )
                     )
                     Spacer(modifier = GlanceModifier.defaultWeight())
@@ -339,7 +331,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (11f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = amberColor
+                            color = ColorProvider(amberColor)
                         )
                     )
                 }
