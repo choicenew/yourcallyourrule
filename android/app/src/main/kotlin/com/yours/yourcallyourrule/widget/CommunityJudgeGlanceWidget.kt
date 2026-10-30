@@ -1,13 +1,13 @@
 package com.yours.yourcallyourrule.widget
 
 import android.content.Context
+import android.content.res.Configuration
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.core.intPreferencesKey
-import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
@@ -20,11 +20,15 @@ import androidx.glance.action.actionParametersOf
 import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.GlanceAppWidget
+import androidx.glance.appwidget.GlanceAppWidgetManager
 import androidx.glance.appwidget.GlanceAppWidgetReceiver
 import androidx.glance.appwidget.SizeMode
+import androidx.glance.appwidget.cornerRadius
 import androidx.glance.appwidget.provideContent
+import androidx.glance.background
 import androidx.glance.currentState
 import androidx.glance.layout.Alignment
+import androidx.glance.layout.Box
 import androidx.glance.layout.Column
 import androidx.glance.layout.Row
 import androidx.glance.layout.Spacer
@@ -41,10 +45,11 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import com.yours.yourcallyourrule.MainActivity
 import com.yours.yourcallyourrule.R
+import com.yours.yourcallyourrule.utils.LocaleUtils
 
 /**
- * 社区判官与威胁治理 Jetpack Glance Compose 桌面小组件
- * 包含来自 Elite Home UI 的静态雷达盾牌图标 (ic_shield_radar)
+ * 社区判官与威胁治理美学 Bento 卡片小组件
+ * 包含了橙色热议胶囊、红黄绿三色 Bento 盒及离线静默排版
  */
 class CommunityJudgeGlanceWidget : GlanceAppWidget() {
 
@@ -58,16 +63,53 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
     )
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
+        val appWidgetId = GlanceAppWidgetManager(context).getAppWidgetId(id)
+        val widgetPrefs = context.getSharedPreferences("yourcallrule_widget_prefs", Context.MODE_PRIVATE)
+
+        val globalAlpha = widgetPrefs.getInt("widget_global_alpha", 100)
+        val alphaVal = if (widgetPrefs.contains("widget_${appWidgetId}_alpha")) {
+            widgetPrefs.getInt("widget_${appWidgetId}_alpha", globalAlpha)
+        } else {
+            globalAlpha
+        }
+
+        val globalTheme = widgetPrefs.getString("widget_global_theme", "auto") ?: "auto"
+        val themeMode = if (widgetPrefs.contains("widget_${appWidgetId}_theme")) {
+            widgetPrefs.getString("widget_${appWidgetId}_theme", globalTheme) ?: globalTheme
+        } else {
+            globalTheme
+        }
+
+        val globalFontScale = widgetPrefs.getFloat("widget_global_font_scale", 1.0f)
+        val fontScale = if (widgetPrefs.contains("widget_${appWidgetId}_font_scale")) {
+            widgetPrefs.getFloat("widget_${appWidgetId}_font_scale", globalFontScale)
+        } else {
+            globalFontScale
+        }
+
+        val showRisk = widgetPrefs.getBoolean("widget_${appWidgetId}_show_risk", true)
+
         provideContent {
             GlanceTheme {
-                CommunityJudgeContent()
+                CommunityJudgeRender(
+                    alphaVal = alphaVal,
+                    themeMode = themeMode,
+                    fontScale = fontScale,
+                    showRisk = showRisk
+                )
             }
         }
     }
 
     @Composable
-    private fun CommunityJudgeContent() {
-        val context = LocalContext.current
+    private fun CommunityJudgeRender(
+        alphaVal: Int,
+        themeMode: String,
+        fontScale: Float,
+        showRisk: Boolean
+    ) {
+        val rawContext = LocalContext.current
+        val localizedContext = LocaleUtils.getLocalizedContext(rawContext)
         val state = currentState<Preferences>()
         val size = LocalSize.current
 
@@ -77,7 +119,14 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
         val lowRisk = state[KEY_LOW_RISK] ?: 0
         val hotNumber = state[KEY_HOT_NUMBER] ?: "--"
         val hotTag = state[KEY_HOT_TAG] ?: "--"
-        val fontScale = state[KEY_FONT_SCALE]?.toFloat() ?: 1.0f
+
+        val alphaFloat = alphaVal.coerceIn(0, 100) / 100f
+        val isDark = if (themeMode == "light") false else (if (themeMode == "dark") true else ((rawContext.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES))
+
+        val cardBgColor = (if (isDark) Color(0xEC18181B) else Color(0xF8FAFCFF)).copy(alpha = alphaFloat)
+        val innerBentoBg = if (isDark) Color(0x2527272A) else Color(0x15F1F5F9)
+        val textPrimary = if (isDark) Color(0xFFFAFAFA) else Color(0xFF0F172A)
+        val textSecondary = if (isDark) Color(0xFFA1A1AA) else Color(0xFF64748B)
 
         val isCompact = size.width < 180.dp
 
@@ -91,39 +140,49 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
         Column(
             modifier = GlanceModifier
                 .fillMaxSize()
+                .background(cardBgColor)
+                .cornerRadius(16.dp)
                 .padding(12.dp)
                 .clickable(deepLinkAction),
             verticalAlignment = Alignment.CenterVertically,
             horizontalAlignment = Alignment.Start
         ) {
             if (isCompact) {
-                // 紧凑形态配静态雷达盾牌
+                // 紧凑形态
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Image(
                         provider = ImageProvider(R.drawable.ic_shield_radar),
                         contentDescription = "Shield Radar",
                         modifier = GlanceModifier.size(20.dp)
                     )
-                    Spacer(modifier = GlanceModifier.width(4.dp))
+                    Spacer(modifier = GlanceModifier.width(6.dp))
                     Text(
                         text = "⚖️ $hotNumber",
                         style = TextStyle(
                             fontSize = (12f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = GlanceTheme.colors.onSurface
+                            color = textPrimary
                         )
                     )
                 }
                 Spacer(modifier = GlanceModifier.height(4.dp))
-                Text(
-                    text = "🏷️ $hotTag",
-                    style = TextStyle(
-                        fontSize = (11f * fontScale).sp,
-                        color = GlanceTheme.colors.onSurfaceVariant
+                Box(
+                    modifier = GlanceModifier
+                        .background(Color(0x25F59E0B))
+                        .cornerRadius(8.dp)
+                        .padding(horizontal = 8.dp, vertical = 3.dp)
+                ) {
+                    Text(
+                        text = "🏷️ $hotTag",
+                        style = TextStyle(
+                            fontSize = (10f * fontScale).sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFFF59E0B)
+                        )
                     )
-                )
+                }
             } else {
-                // 展开全量看板，包含静态雷达盾牌 Icon
+                // 展开多巴胺美学 Bento 层级看板
                 Row(
                     modifier = GlanceModifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
@@ -131,87 +190,156 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                     Image(
                         provider = ImageProvider(R.drawable.ic_shield_radar),
                         contentDescription = "Shield Radar",
-                        modifier = GlanceModifier.size(24.dp)
+                        modifier = GlanceModifier.size(22.dp)
                     )
                     Spacer(modifier = GlanceModifier.width(6.dp))
                     Text(
-                        text = context.getString(R.string.widget_community_judge_title),
+                        text = localizedContext.getString(R.string.widget_community_judge_title),
                         style = TextStyle(
-                            fontSize = (14f * fontScale).sp,
+                            fontSize = (13f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = GlanceTheme.colors.onSurface
+                            color = textPrimary
+                        )
+                    )
+                    Spacer(modifier = GlanceModifier.defaultWeight())
+                    Box(
+                        modifier = GlanceModifier
+                            .background(Color(0x25F59E0B))
+                            .cornerRadius(8.dp)
+                            .padding(horizontal = 8.dp, vertical = 3.dp)
+                    ) {
+                        Text(
+                            text = localizedContext.getString(R.string.widget_participants, voteCount),
+                            style = TextStyle(
+                                fontSize = (9.5f * fontScale).sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFFF59E0B)
+                            )
+                        )
+                    }
+                }
+
+                Spacer(modifier = GlanceModifier.height(8.dp))
+
+                // 中部双栏 Bento 盒
+                Row(modifier = GlanceModifier.fillMaxWidth()) {
+                    // 左 Bento：号码与标记
+                    Column(
+                        modifier = GlanceModifier
+                            .defaultWeight()
+                            .background(innerBentoBg)
+                            .cornerRadius(12.dp)
+                            .padding(8.dp)
+                    ) {
+                        Text(
+                            text = "📱 $hotNumber",
+                            style = TextStyle(
+                                fontSize = (11.5f * fontScale).sp,
+                                fontWeight = FontWeight.Bold,
+                                color = textPrimary
+                            )
+                        )
+                        Spacer(modifier = GlanceModifier.height(3.dp))
+                        Text(
+                            text = "🏷️ $hotTag",
+                            style = TextStyle(
+                                fontSize = (9.5f * fontScale).sp,
+                                color = textSecondary
+                            )
+                        )
+                    }
+
+                    Spacer(modifier = GlanceModifier.width(8.dp))
+
+                    // 右 Bento：红黄绿三色风险 Bento 盒
+                    if (showRisk) {
+                        Column(
+                            modifier = GlanceModifier
+                                .defaultWeight()
+                                .background(innerBentoBg)
+                                .cornerRadius(12.dp)
+                                .padding(8.dp)
+                        ) {
+                            Text(
+                                text = "⚠️ ${localizedContext.getString(R.string.widget_risk_bento)}",
+                                style = TextStyle(
+                                    fontSize = (9.5f * fontScale).sp,
+                                    color = textSecondary
+                                )
+                            )
+                            Spacer(modifier = GlanceModifier.height(3.dp))
+                            Row {
+                                Text(
+                                    text = "🔴$highRisk",
+                                    style = TextStyle(
+                                        fontSize = (9.5f * fontScale).sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color(0xFFEF4444)
+                                    )
+                                )
+                                Spacer(modifier = GlanceModifier.width(4.dp))
+                                Text(
+                                    text = "🟡$mediumRisk",
+                                    style = TextStyle(
+                                        fontSize = (9.5f * fontScale).sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color(0xFFF59E0B)
+                                    )
+                                )
+                                Spacer(modifier = GlanceModifier.width(4.dp))
+                                Text(
+                                    text = "🟢$lowRisk",
+                                    style = TextStyle(
+                                        fontSize = (9.5f * fontScale).sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color(0xFF10B981)
+                                    )
+                                )
+                            }
+                        }
+                    }
+                }
+
+                Spacer(modifier = GlanceModifier.height(8.dp))
+
+                // 底栏：橙色动作胶囊
+                Row(
+                    modifier = GlanceModifier
+                        .fillMaxWidth()
+                        .background(Color(0x18F59E0B))
+                        .cornerRadius(10.dp)
+                        .padding(horizontal = 10.dp, vertical = 6.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "🗳️ ${localizedContext.getString(R.string.widget_vote_now)}",
+                        style = TextStyle(
+                            fontSize = (11f * fontScale).sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFFF59E0B)
                         )
                     )
                     Spacer(modifier = GlanceModifier.defaultWeight())
                     Text(
-                        text = "$voteCount",
+                        text = "➔",
                         style = TextStyle(
-                            fontSize = (10f * fontScale).sp,
-                            fontWeight = FontWeight.Medium,
-                            color = GlanceTheme.colors.primary
+                            fontSize = (11f * fontScale).sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFFF59E0B)
                         )
                     )
                 }
-                Spacer(modifier = GlanceModifier.height(8.dp))
-                Row(modifier = GlanceModifier.fillMaxWidth()) {
-                    Column(modifier = GlanceModifier.defaultWeight()) {
-                        Text(
-                            text = "📱 $hotNumber",
-                            style = TextStyle(
-                                fontSize = (12f * fontScale).sp,
-                                fontWeight = FontWeight.Bold,
-                                color = GlanceTheme.colors.onSurface
-                            )
-                        )
-                        Spacer(modifier = GlanceModifier.height(2.dp))
-                        Text(
-                            text = "🏷️ $hotTag",
-                            style = TextStyle(
-                                fontSize = (11f * fontScale).sp,
-                                color = GlanceTheme.colors.onSurfaceVariant
-                            )
-                        )
-                    }
-                    Column(modifier = GlanceModifier.defaultWeight()) {
-                        Text(
-                            text = "⚠️ Risk Bento:",
-                            style = TextStyle(
-                                fontSize = (11f * fontScale).sp,
-                                color = GlanceTheme.colors.onSurfaceVariant
-                            )
-                        )
-                        Spacer(modifier = GlanceModifier.height(2.dp))
-                        Text(
-                            text = "🔴 $highRisk | 🟡 $mediumRisk | 🟢 $lowRisk",
-                            style = TextStyle(
-                                fontSize = (10f * fontScale).sp,
-                                fontWeight = FontWeight.Medium,
-                                color = GlanceTheme.colors.onSurface
-                            )
-                        )
-                    }
-                }
-                Spacer(modifier = GlanceModifier.height(8.dp))
-                Text(
-                    text = "🗳️ ${context.getString(R.string.widget_vote_now)} ➔",
-                    style = TextStyle(
-                        fontSize = (11f * fontScale).sp,
-                        fontWeight = FontWeight.Bold,
-                        color = GlanceTheme.colors.primary
-                    )
-                )
             }
         }
     }
 
     companion object {
-        val KEY_VOTE_COUNT = intPreferencesKey("widget_vote_count")
-        val KEY_HIGH_RISK = intPreferencesKey("widget_high_risk")
-        val KEY_MEDIUM_RISK = intPreferencesKey("widget_medium_risk")
-        val KEY_LOW_RISK = intPreferencesKey("widget_low_risk")
-        val KEY_HOT_NUMBER = stringPreferencesKey("widget_hot_number")
-        val KEY_HOT_TAG = stringPreferencesKey("widget_hot_tag")
-        val KEY_FONT_SCALE = stringPreferencesKey("widget_font_scale")
+        val KEY_VOTE_COUNT = androidx.datastore.preferences.core.intPreferencesKey("widget_vote_count")
+        val KEY_HIGH_RISK = androidx.datastore.preferences.core.intPreferencesKey("widget_high_risk")
+        val KEY_MEDIUM_RISK = androidx.datastore.preferences.core.intPreferencesKey("widget_medium_risk")
+        val KEY_LOW_RISK = androidx.datastore.preferences.core.intPreferencesKey("widget_low_risk")
+        val KEY_HOT_NUMBER = androidx.datastore.preferences.core.stringPreferencesKey("widget_hot_number")
+        val KEY_HOT_TAG = androidx.datastore.preferences.core.stringPreferencesKey("widget_hot_tag")
     }
 }
 

@@ -8,6 +8,8 @@ import 'package:yourcallyourrule/core/provider/rules_provider.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/statistics_provider.dart';
 
+import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
+
 part 'app_widget_sync_service.g.dart';
 
 /// 桌面小组件数据计算与 1:1 MethodChannel 同步服务
@@ -15,6 +17,7 @@ part 'app_widget_sync_service.g.dart';
 /// 1. 100% 绑定现有真实 Provider 实体数据
 /// 2. 绝对严禁任何硬编码假数据或硬编码汉字/模拟号码
 /// 3. 无数据时合规呈现 "--" 空状态
+/// 4. 监听 localeProvider 实时同步 app_locale 解决切语言不根治问题
 @riverpod
 class AppWidgetSyncService extends _$AppWidgetSyncService {
   static const MethodChannel _channel = MethodChannel('com.yours.yourcallyourrule/app_widget_sync');
@@ -25,6 +28,16 @@ class AppWidgetSyncService extends _$AppWidgetSyncService {
   }
 
   void _listenToProviders() {
+    // 监听语言切换，实时将 app_locale 强落盘并通知 Glance 重绘
+    ref.listen(localeProvider, (previous, next) async {
+      final locale = next.value;
+      if (locale != null) {
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString('app_locale', locale.languageCode);
+        syncWidgetData();
+      }
+    });
+
     // 监听规则与同步状态
     ref.listen(rulesProvider, (previous, next) {
       syncWidgetData();

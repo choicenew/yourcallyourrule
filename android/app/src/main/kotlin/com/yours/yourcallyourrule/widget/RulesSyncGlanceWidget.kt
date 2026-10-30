@@ -1,13 +1,13 @@
 package com.yours.yourcallyourrule.widget
 
 import android.content.Context
+import android.content.res.Configuration
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.core.intPreferencesKey
-import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
@@ -20,11 +20,15 @@ import androidx.glance.action.actionParametersOf
 import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.GlanceAppWidget
+import androidx.glance.appwidget.GlanceAppWidgetManager
 import androidx.glance.appwidget.GlanceAppWidgetReceiver
 import androidx.glance.appwidget.SizeMode
+import androidx.glance.appwidget.cornerRadius
 import androidx.glance.appwidget.provideContent
+import androidx.glance.background
 import androidx.glance.currentState
 import androidx.glance.layout.Alignment
+import androidx.glance.layout.Box
 import androidx.glance.layout.Column
 import androidx.glance.layout.Row
 import androidx.glance.layout.Spacer
@@ -41,10 +45,11 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import com.yours.yourcallyourrule.MainActivity
 import com.yours.yourcallyourrule.R
+import com.yours.yourcallyourrule.utils.LocaleUtils
 
 /**
- * 规则与数据库同步状态 Jetpack Glance Compose 桌面小组件
- * 依 Elite Home UI 设计：包含静态雷达科技盾牌 (ProfessionalShieldRadar 静态拟态)
+ * 规则与数据库同步状态美学 Bento 卡片小组件
+ * 高质感多巴胺晶透玻璃态 UI，层次分明，Bento 盒结构化排版
  */
 class RulesSyncGlanceWidget : GlanceAppWidget() {
 
@@ -58,23 +63,67 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
     )
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
+        val appWidgetId = GlanceAppWidgetManager(context).getAppWidgetId(id)
+        val widgetPrefs = context.getSharedPreferences("yourcallrule_widget_prefs", Context.MODE_PRIVATE)
+
+        val globalAlpha = widgetPrefs.getInt("widget_global_alpha", 100)
+        val alphaVal = if (widgetPrefs.contains("widget_${appWidgetId}_alpha")) {
+            widgetPrefs.getInt("widget_${appWidgetId}_alpha", globalAlpha)
+        } else {
+            globalAlpha
+        }
+
+        val globalTheme = widgetPrefs.getString("widget_global_theme", "auto") ?: "auto"
+        val themeMode = if (widgetPrefs.contains("widget_${appWidgetId}_theme")) {
+            widgetPrefs.getString("widget_${appWidgetId}_theme", globalTheme) ?: globalTheme
+        } else {
+            globalTheme
+        }
+
+        val globalFontScale = widgetPrefs.getFloat("widget_global_font_scale", 1.0f)
+        val fontScale = if (widgetPrefs.contains("widget_${appWidgetId}_font_scale")) {
+            widgetPrefs.getFloat("widget_${appWidgetId}_font_scale", globalFontScale)
+        } else {
+            globalFontScale
+        }
+
+        val showDetail = widgetPrefs.getBoolean("widget_${appWidgetId}_show_detail", true)
+
         provideContent {
             GlanceTheme {
-                RulesSyncWidgetContent()
+                RulesSyncWidgetRender(
+                    alphaVal = alphaVal,
+                    themeMode = themeMode,
+                    fontScale = fontScale,
+                    showDetail = showDetail
+                )
             }
         }
     }
 
     @Composable
-    private fun RulesSyncWidgetContent() {
-        val context = LocalContext.current
+    private fun RulesSyncWidgetRender(
+        alphaVal: Int,
+        themeMode: String,
+        fontScale: Float,
+        showDetail: Boolean
+    ) {
+        val rawContext = LocalContext.current
+        val localizedContext = LocaleUtils.getLocalizedContext(rawContext)
         val state = currentState<Preferences>()
         val size = LocalSize.current
 
         val totalRules = state[KEY_TOTAL_RULES] ?: 0
         val lastSync = state[KEY_LAST_SYNC] ?: "--"
-        val serviceType = state[KEY_SERVICE_TYPE] ?: "WebDAV"
-        val fontScale = state[KEY_FONT_SCALE]?.toFloat() ?: 1.0f
+        val serviceType = state[KEY_SERVICE_TYPE] ?: "--"
+
+        val alphaFloat = alphaVal.coerceIn(0, 100) / 100f
+        val isDark = if (themeMode == "light") false else (if (themeMode == "dark") true else ((rawContext.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES))
+
+        val cardBgColor = (if (isDark) Color(0xEC18181B) else Color(0xF8FAFCFF)).copy(alpha = alphaFloat)
+        val innerBentoBg = if (isDark) Color(0x2527272A) else Color(0x15F1F5F9)
+        val textPrimary = if (isDark) Color(0xFFFAFAFA) else Color(0xFF0F172A)
+        val textSecondary = if (isDark) Color(0xFFA1A1AA) else Color(0xFF64748B)
 
         val isCompact = size.width < 180.dp
 
@@ -88,39 +137,49 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
         Column(
             modifier = GlanceModifier
                 .fillMaxSize()
+                .background(cardBgColor)
+                .cornerRadius(16.dp)
                 .padding(12.dp)
                 .clickable(deepLinkAction),
             verticalAlignment = Alignment.CenterVertically,
             horizontalAlignment = Alignment.Start
         ) {
             if (isCompact) {
-                // 紧凑形态，配静态雷达盾牌图标
+                // 紧凑微型 Bento 胶囊
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Image(
                         provider = ImageProvider(R.drawable.ic_shield_radar),
                         contentDescription = "Shield Radar",
                         modifier = GlanceModifier.size(20.dp)
                     )
-                    Spacer(modifier = GlanceModifier.width(4.dp))
+                    Spacer(modifier = GlanceModifier.width(6.dp))
                     Text(
-                        text = context.getString(R.string.app_name),
+                        text = localizedContext.getString(R.string.app_name),
                         style = TextStyle(
                             fontSize = (12f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = GlanceTheme.colors.onSurface
+                            color = textPrimary
                         )
                     )
                 }
                 Spacer(modifier = GlanceModifier.height(4.dp))
-                Text(
-                    text = "$totalRules ${context.getString(R.string.widget_total_rules)} | 🟢 ONLINE",
-                    style = TextStyle(
-                        fontSize = (11f * fontScale).sp,
-                        color = GlanceTheme.colors.onSurfaceVariant
+                Box(
+                    modifier = GlanceModifier
+                        .background(Color(0x2010B981))
+                        .cornerRadius(8.dp)
+                        .padding(horizontal = 8.dp, vertical = 3.dp)
+                ) {
+                    Text(
+                        text = "$totalRules ${localizedContext.getString(R.string.widget_total_rules)}",
+                        style = TextStyle(
+                            fontSize = (10f * fontScale).sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF10B981)
+                        )
                     )
-                )
+                }
             } else {
-                // 展开全量看板，包含静态雷达盾牌 Icon
+                // 展开美学 Bento 多巴胺双栏层级看板
                 Row(
                     modifier = GlanceModifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
@@ -128,84 +187,133 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                     Image(
                         provider = ImageProvider(R.drawable.ic_shield_radar),
                         contentDescription = "Shield Radar",
-                        modifier = GlanceModifier.size(24.dp)
+                        modifier = GlanceModifier.size(22.dp)
                     )
                     Spacer(modifier = GlanceModifier.width(6.dp))
                     Text(
-                        text = context.getString(R.string.widget_rules_sync_title),
+                        text = localizedContext.getString(R.string.widget_rules_sync_title),
                         style = TextStyle(
-                            fontSize = (14f * fontScale).sp,
+                            fontSize = (13f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = GlanceTheme.colors.onSurface
+                            color = textPrimary
+                        )
+                    )
+                    Spacer(modifier = GlanceModifier.defaultWeight())
+                    Box(
+                        modifier = GlanceModifier
+                            .background(Color(0x2510B981))
+                            .cornerRadius(8.dp)
+                            .padding(horizontal = 8.dp, vertical = 3.dp)
+                    ) {
+                        Text(
+                            text = "🟢 ONLINE",
+                            style = TextStyle(
+                                fontSize = (9.5f * fontScale).sp,
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFF10B981)
+                            )
+                        )
+                    }
+                }
+
+                Spacer(modifier = GlanceModifier.height(8.dp))
+
+                // 中部双栏 Bento 盒
+                Row(modifier = GlanceModifier.fillMaxWidth()) {
+                    // 左侧 Bento 盒：规则总数大字焦点
+                    Column(
+                        modifier = GlanceModifier
+                            .defaultWeight()
+                            .background(innerBentoBg)
+                            .cornerRadius(12.dp)
+                            .padding(8.dp)
+                    ) {
+                        Text(
+                            text = localizedContext.getString(R.string.widget_total_rules),
+                            style = TextStyle(
+                                fontSize = (9.5f * fontScale).sp,
+                                color = textSecondary
+                            )
+                        )
+                        Spacer(modifier = GlanceModifier.height(2.dp))
+                        Text(
+                            text = "$totalRules",
+                            style = TextStyle(
+                                fontSize = (20f * fontScale).sp,
+                                fontWeight = FontWeight.Bold,
+                                color = textPrimary
+                            )
+                        )
+                    }
+
+                    Spacer(modifier = GlanceModifier.width(8.dp))
+
+                    // 右侧 Bento 盒：服务与同步时间
+                    Column(
+                        modifier = GlanceModifier
+                            .defaultWeight()
+                            .background(innerBentoBg)
+                            .cornerRadius(12.dp)
+                            .padding(8.dp)
+                    ) {
+                        if (showDetail) {
+                            Text(
+                                text = "${localizedContext.getString(R.string.widget_service_label)}: $serviceType",
+                                style = TextStyle(
+                                    fontSize = (10.5f * fontScale).sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = textPrimary
+                                )
+                            )
+                            Spacer(modifier = GlanceModifier.height(3.dp))
+                        }
+                        Text(
+                            text = "${localizedContext.getString(R.string.widget_last_sync)}: $lastSync",
+                            style = TextStyle(
+                                fontSize = (9.5f * fontScale).sp,
+                                color = textSecondary
+                            )
+                        )
+                    }
+                }
+
+                Spacer(modifier = GlanceModifier.height(8.dp))
+
+                // 底栏：流线型动作响应按钮
+                Row(
+                    modifier = GlanceModifier
+                        .fillMaxWidth()
+                        .background(Color(0x1810B981))
+                        .cornerRadius(10.dp)
+                        .padding(horizontal = 10.dp, vertical = 6.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "🔄 ${localizedContext.getString(R.string.widget_sync_now)}",
+                        style = TextStyle(
+                            fontSize = (11f * fontScale).sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF10B981)
                         )
                     )
                     Spacer(modifier = GlanceModifier.defaultWeight())
                     Text(
-                        text = "🟢 ONLINE",
+                        text = "➔",
                         style = TextStyle(
-                            fontSize = (10f * fontScale).sp,
-                            fontWeight = FontWeight.Medium,
-                            color = GlanceTheme.colors.primary
+                            fontSize = (11f * fontScale).sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF10B981)
                         )
                     )
                 }
-                Spacer(modifier = GlanceModifier.height(8.dp))
-                Row(modifier = GlanceModifier.fillMaxWidth()) {
-                    Column(modifier = GlanceModifier.defaultWeight()) {
-                        Text(
-                            text = "${context.getString(R.string.widget_total_rules)}: $totalRules",
-                            style = TextStyle(
-                                fontSize = (12f * fontScale).sp,
-                                fontWeight = FontWeight.Bold,
-                                color = GlanceTheme.colors.onSurface
-                            )
-                        )
-                        Spacer(modifier = GlanceModifier.height(2.dp))
-                        Text(
-                            text = "${context.getString(R.string.widget_service_label)}: $serviceType",
-                            style = TextStyle(
-                                fontSize = (11f * fontScale).sp,
-                                color = GlanceTheme.colors.onSurfaceVariant
-                            )
-                        )
-                    }
-                    Column(modifier = GlanceModifier.defaultWeight()) {
-                        Text(
-                            text = "${context.getString(R.string.widget_last_sync)}:",
-                            style = TextStyle(
-                                fontSize = (11f * fontScale).sp,
-                                color = GlanceTheme.colors.onSurfaceVariant
-                            )
-                        )
-                        Spacer(modifier = GlanceModifier.height(2.dp))
-                        Text(
-                            text = lastSync,
-                            style = TextStyle(
-                                fontSize = (11f * fontScale).sp,
-                                fontWeight = FontWeight.Medium,
-                                color = GlanceTheme.colors.onSurface
-                            )
-                        )
-                    }
-                }
-                Spacer(modifier = GlanceModifier.height(8.dp))
-                Text(
-                    text = "🔄 ${context.getString(R.string.widget_sync_now)} ➔",
-                    style = TextStyle(
-                        fontSize = (11f * fontScale).sp,
-                        fontWeight = FontWeight.Bold,
-                        color = GlanceTheme.colors.primary
-                    )
-                )
             }
         }
     }
 
     companion object {
-        val KEY_TOTAL_RULES = intPreferencesKey("widget_total_rules")
-        val KEY_LAST_SYNC = stringPreferencesKey("widget_last_sync")
-        val KEY_SERVICE_TYPE = stringPreferencesKey("widget_service_type")
-        val KEY_FONT_SCALE = stringPreferencesKey("widget_font_scale")
+        val KEY_TOTAL_RULES = androidx.datastore.preferences.core.intPreferencesKey("widget_total_rules")
+        val KEY_LAST_SYNC = androidx.datastore.preferences.core.stringPreferencesKey("widget_last_sync")
+        val KEY_SERVICE_TYPE = androidx.datastore.preferences.core.stringPreferencesKey("widget_service_type")
     }
 }
 
