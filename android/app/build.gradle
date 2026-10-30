@@ -122,7 +122,9 @@ dependencies {
     implementation 'com.google.android.gms:play-services-cronet:18.1.1'
     implementation 'androidx.glance:glance-appwidget:1.1.1'
     implementation 'androidx.glance:glance-material3:1.1.1'
-    implementation 'androidx.datastore:datastore-preferences:1.1.1'
+    // Google Play 官方最新独立拆分扩展库 (Kotlin KTX，完全替换旧版 com.google.android.play:core)
+    implementation 'com.google.android.play:app-update-ktx:2.1.0'
+    implementation 'com.google.android.play:review-ktx:2.0.2'
 }
 
 tasks.matching { it.name.startsWith("minify") }.configureEach { task ->
