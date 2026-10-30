@@ -1,5 +1,6 @@
 package com.yours.yourcallyourrule.widget
 
+import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.res.Configuration
 import androidx.compose.runtime.Composable
@@ -50,7 +51,9 @@ import com.yours.yourcallyourrule.utils.LocaleUtils
 
 /**
  * 规则与数据库同步状态美学 Bento 卡片小组件
- * 100% 照搬 veherego 的 Glance ColorProvider(Color) 调色范式与深浅色模式计算
+ * 1. 深度复刻 Elite Home UI 视觉语言（绿盾雷达 + 多巴胺流线微胶囊）
+ * 2. 右上角集成 ⚙️ 专属独立 Setting 配置向导按钮
+ * 3. 100% LocaleUtils 动态切语言跟治刷新
  */
 class RulesSyncGlanceWidget : GlanceAppWidget() {
 
@@ -93,6 +96,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
         provideContent {
             GlanceTheme {
                 RulesSyncWidgetRender(
+                    appWidgetId = appWidgetId,
                     alphaVal = alphaVal,
                     themeMode = themeMode,
                     fontScale = fontScale,
@@ -104,6 +108,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
 
     @Composable
     private fun RulesSyncWidgetRender(
+        appWidgetId: Int,
         alphaVal: Int,
         themeMode: String,
         fontScale: Float,
@@ -118,16 +123,26 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
         val lastSync = state[KEY_LAST_SYNC] ?: "--"
         val serviceType = state[KEY_SERVICE_TYPE] ?: "--"
 
-        // 100% 照搬 veherego 的深浅色与透明度 ColorProvider 计算规范
         val alphaFloat = alphaVal.coerceIn(0, 100) / 100f
         val isDark = if (themeMode == "light") false else (if (themeMode == "dark") true else ((rawContext.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES))
 
-        val baseColor = if (isDark) Color(0xFF18181B) else Color(0xFFF8FAFC)
-        val cardBgColor = if (alphaFloat <= 0.01f) Color.Transparent else baseColor.copy(alpha = alphaFloat)
-        val primaryTextColor = if (isDark || alphaFloat <= 0.3f) Color(0xFFFAFAFA) else Color(0xFF0F172A)
-        val secondaryTextColor = if (isDark || alphaFloat <= 0.3f) Color(0xFFA1A1AA) else Color(0xFF64748B)
-        val innerBentoBg = if (isDark) Color(0x2527272A) else Color(0x15F1F5F9)
-        val emeraldColor = Color(0xFF10B981)
+        val cardBgColor = ColorProvider(
+            day = Color(0xF8FAFCFF).copy(alpha = alphaFloat),
+            night = Color(0xEC18181B).copy(alpha = alphaFloat)
+        )
+        val innerBentoBg = ColorProvider(
+            day = Color(0x15F1F5F9),
+            night = Color(0x2527272A)
+        )
+        val textPrimary = ColorProvider(
+            day = Color(0xFF0F172A),
+            night = Color(0xFFFAFAFA)
+        )
+        val textSecondary = ColorProvider(
+            day = Color(0xFF64748B),
+            night = Color(0xFFA1A1AA)
+        )
+        val emeraldColor = ColorProvider(Color(0xFF10B981))
 
         val isCompact = size.width < 180.dp
 
@@ -135,6 +150,13 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
             MainActivity::class.java,
             actionParametersOf(
                 ActionParameters.Key<String>("deep_link") to "yourcallrule://cloudSettings"
+            )
+        )
+
+        val configAction = actionStartActivity(
+            WidgetConfigActivity::class.java,
+            actionParametersOf(
+                ActionParameters.Key<Int>(AppWidgetManager.EXTRA_APPWIDGET_ID) to appWidgetId
             )
         )
 
@@ -162,14 +184,20 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (12f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = ColorProvider(primaryTextColor)
+                            color = textPrimary
                         )
+                    )
+                    Spacer(modifier = GlanceModifier.defaultWeight())
+                    Text(
+                        text = "⚙️",
+                        style = TextStyle(fontSize = 12.sp),
+                        modifier = GlanceModifier.clickable(configAction)
                     )
                 }
                 Spacer(modifier = GlanceModifier.height(4.dp))
                 Box(
                     modifier = GlanceModifier
-                        .background(Color(0x2010B981))
+                        .background(ColorProvider(Color(0x2010B981)))
                         .cornerRadius(8.dp)
                         .padding(horizontal = 8.dp, vertical = 3.dp)
                 ) {
@@ -178,12 +206,12 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (10f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = ColorProvider(emeraldColor)
+                            color = emeraldColor
                         )
                     )
                 }
             } else {
-                // 展开美学 Bento 多巴胺双栏层级看板
+                // 展开多巴胺 Bento 美学双栏层级看板
                 Row(
                     modifier = GlanceModifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
@@ -199,13 +227,13 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (13f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = ColorProvider(primaryTextColor)
+                            color = textPrimary
                         )
                     )
                     Spacer(modifier = GlanceModifier.defaultWeight())
                     Box(
                         modifier = GlanceModifier
-                            .background(Color(0x2510B981))
+                            .background(ColorProvider(Color(0x2510B981)))
                             .cornerRadius(8.dp)
                             .padding(horizontal = 8.dp, vertical = 3.dp)
                     ) {
@@ -214,10 +242,16 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                             style = TextStyle(
                                 fontSize = (9.5f * fontScale).sp,
                                 fontWeight = FontWeight.Bold,
-                                color = ColorProvider(emeraldColor)
+                                color = emeraldColor
                             )
                         )
                     }
+                    Spacer(modifier = GlanceModifier.width(6.dp))
+                    Text(
+                        text = "⚙️",
+                        style = TextStyle(fontSize = 14.sp),
+                        modifier = GlanceModifier.clickable(configAction)
+                    )
                 }
 
                 Spacer(modifier = GlanceModifier.height(8.dp))
@@ -236,7 +270,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                             text = localizedContext.getString(R.string.widget_total_rules),
                             style = TextStyle(
                                 fontSize = (9.5f * fontScale).sp,
-                                color = ColorProvider(secondaryTextColor)
+                                color = textSecondary
                             )
                         )
                         Spacer(modifier = GlanceModifier.height(2.dp))
@@ -245,7 +279,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                             style = TextStyle(
                                 fontSize = (20f * fontScale).sp,
                                 fontWeight = FontWeight.Bold,
-                                color = ColorProvider(primaryTextColor)
+                                color = textPrimary
                             )
                         )
                     }
@@ -266,7 +300,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                                 style = TextStyle(
                                     fontSize = (10.5f * fontScale).sp,
                                     fontWeight = FontWeight.Bold,
-                                    color = ColorProvider(primaryTextColor)
+                                    color = textPrimary
                                 )
                             )
                             Spacer(modifier = GlanceModifier.height(3.dp))
@@ -275,7 +309,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                             text = "${localizedContext.getString(R.string.widget_last_sync)}: $lastSync",
                             style = TextStyle(
                                 fontSize = (9.5f * fontScale).sp,
-                                color = ColorProvider(secondaryTextColor)
+                                color = textSecondary
                             )
                         )
                     }
@@ -287,7 +321,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                 Row(
                     modifier = GlanceModifier
                         .fillMaxWidth()
-                        .background(Color(0x1810B981))
+                        .background(ColorProvider(Color(0x1810B981)))
                         .cornerRadius(10.dp)
                         .padding(horizontal = 10.dp, vertical = 6.dp),
                     verticalAlignment = Alignment.CenterVertically
@@ -297,7 +331,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (11f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = ColorProvider(emeraldColor)
+                            color = emeraldColor
                         )
                     )
                     Spacer(modifier = GlanceModifier.defaultWeight())
@@ -306,7 +340,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (11f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = ColorProvider(emeraldColor)
+                            color = emeraldColor
                         )
                     )
                 }
