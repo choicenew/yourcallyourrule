@@ -27,7 +27,7 @@ class AdControlService {
       // 当监听到变化时，调用内部方法来更新广告状态。
       _updateAdStateBasedOnPurchase(newState);
     });
-    
+
     // 【初始化逻辑】
     // 在服务首次创建时，也需要根据当前的购买状态立即执行一次更新，
     // 以确保应用启动时的广告状态是正确的。
