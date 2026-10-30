@@ -43,13 +43,14 @@ import androidx.glance.state.PreferencesGlanceStateDefinition
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
+import androidx.glance.unit.ColorProvider
 import com.yours.yourcallyourrule.MainActivity
 import com.yours.yourcallyourrule.R
 import com.yours.yourcallyourrule.utils.LocaleUtils
 
 /**
  * Dashboard 防护战报与数据看板美学 Bento 卡片小组件
- * 包含双卡比例、高峰时段、拦截大字焦点的结构化多巴胺排版
+ * 包含双卡比例、高峰时段、拦截大字焦点的结构化多巴胺排版，ColorProvider 适配 Light/Dark
  */
 class DashboardOverviewGlanceWidget : GlanceAppWidget() {
 
@@ -119,12 +120,24 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
         val peakHours = state[KEY_PEAK_HOURS] ?: "--"
 
         val alphaFloat = alphaVal.coerceIn(0, 100) / 100f
-        val isDark = if (themeMode == "light") false else (if (themeMode == "dark") true else ((rawContext.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES))
-
-        val cardBgColor = (if (isDark) Color(0xEC18181B) else Color(0xF8FAFCFF)).copy(alpha = alphaFloat)
-        val innerBentoBg = if (isDark) Color(0x2527272A) else Color(0x15F1F5F9)
-        val textPrimary = if (isDark) Color(0xFFFAFAFA) else Color(0xFF0F172A)
-        val textSecondary = if (isDark) Color(0xFFA1A1AA) else Color(0xFF64748B)
+        val cardBgColor = ColorProvider(
+            day = Color(0xF8FAFCFF).copy(alpha = alphaFloat),
+            night = Color(0xEC18181B).copy(alpha = alphaFloat)
+        )
+        val innerBentoBg = ColorProvider(
+            day = Color(0x15F1F5F9),
+            night = Color(0x2527272A)
+        )
+        val textPrimary = ColorProvider(
+            day = Color(0xFF0F172A),
+            night = Color(0xFFFAFAFA)
+        )
+        val textSecondary = ColorProvider(
+            day = Color(0xFF64748B),
+            night = Color(0xFFA1A1AA)
+        )
+        val blueColor = ColorProvider(Color(0xFF3B82F6))
+        val redColor = ColorProvider(Color(0xFFEF4444))
 
         val isCompact = size.width < 180.dp
 
@@ -166,7 +179,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                 Spacer(modifier = GlanceModifier.height(4.dp))
                 Box(
                     modifier = GlanceModifier
-                        .background(Color(0x253B82F6))
+                        .background(ColorProvider(Color(0x253B82F6)))
                         .cornerRadius(8.dp)
                         .padding(horizontal = 8.dp, vertical = 3.dp)
                 ) {
@@ -175,7 +188,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (10f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = Color(0xFF3B82F6)
+                            color = blueColor
                         )
                     )
                 }
@@ -202,7 +215,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                     Spacer(modifier = GlanceModifier.defaultWeight())
                     Box(
                         modifier = GlanceModifier
-                            .background(Color(0x253B82F6))
+                            .background(ColorProvider(Color(0x253B82F6)))
                             .cornerRadius(8.dp)
                             .padding(horizontal = 8.dp, vertical = 3.dp)
                     ) {
@@ -211,7 +224,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                             style = TextStyle(
                                 fontSize = (9.5f * fontScale).sp,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF3B82F6)
+                                color = blueColor
                             )
                         )
                     }
@@ -243,7 +256,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                                 style = TextStyle(
                                     fontSize = (20f * fontScale).sp,
                                     fontWeight = FontWeight.Bold,
-                                    color = Color(0xFFEF4444)
+                                    color = redColor
                                 )
                             )
                             Spacer(modifier = GlanceModifier.width(3.dp))
@@ -294,7 +307,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                 Row(
                     modifier = GlanceModifier
                         .fillMaxWidth()
-                        .background(Color(0x183B82F6))
+                        .background(ColorProvider(Color(0x183B82F6)))
                         .cornerRadius(10.dp)
                         .padding(horizontal = 10.dp, vertical = 6.dp),
                     verticalAlignment = Alignment.CenterVertically
@@ -304,7 +317,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (11f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = Color(0xFF3B82F6)
+                            color = blueColor
                         )
                     )
                     Spacer(modifier = GlanceModifier.defaultWeight())
@@ -313,7 +326,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (11f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = Color(0xFF3B82F6)
+                            color = blueColor
                         )
                     )
                 }

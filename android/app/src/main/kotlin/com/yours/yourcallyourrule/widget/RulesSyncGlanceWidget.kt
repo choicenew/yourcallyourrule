@@ -43,13 +43,14 @@ import androidx.glance.state.PreferencesGlanceStateDefinition
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
+import androidx.glance.unit.ColorProvider
 import com.yours.yourcallyourrule.MainActivity
 import com.yours.yourcallyourrule.R
 import com.yours.yourcallyourrule.utils.LocaleUtils
 
 /**
  * 规则与数据库同步状态美学 Bento 卡片小组件
- * 高质感多巴胺晶透玻璃态 UI，层次分明，Bento 盒结构化排版
+ * 高质感多巴胺晶透玻璃态 UI，层次分明，Bento 盒结构化排版，ColorProvider 原生适应 Light/Dark
  */
 class RulesSyncGlanceWidget : GlanceAppWidget() {
 
@@ -120,10 +121,23 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
         val alphaFloat = alphaVal.coerceIn(0, 100) / 100f
         val isDark = if (themeMode == "light") false else (if (themeMode == "dark") true else ((rawContext.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES))
 
-        val cardBgColor = (if (isDark) Color(0xEC18181B) else Color(0xF8FAFCFF)).copy(alpha = alphaFloat)
-        val innerBentoBg = if (isDark) Color(0x2527272A) else Color(0x15F1F5F9)
-        val textPrimary = if (isDark) Color(0xFFFAFAFA) else Color(0xFF0F172A)
-        val textSecondary = if (isDark) Color(0xFFA1A1AA) else Color(0xFF64748B)
+        val cardBgColor = ColorProvider(
+            day = Color(0xF8FAFCFF).copy(alpha = alphaFloat),
+            night = Color(0xEC18181B).copy(alpha = alphaFloat)
+        )
+        val innerBentoBg = ColorProvider(
+            day = Color(0x15F1F5F9),
+            night = Color(0x2527272A)
+        )
+        val textPrimary = ColorProvider(
+            day = Color(0xFF0F172A),
+            night = Color(0xFFFAFAFA)
+        )
+        val textSecondary = ColorProvider(
+            day = Color(0xFF64748B),
+            night = Color(0xFFA1A1AA)
+        )
+        val emeraldColor = ColorProvider(Color(0xFF10B981))
 
         val isCompact = size.width < 180.dp
 
@@ -165,7 +179,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                 Spacer(modifier = GlanceModifier.height(4.dp))
                 Box(
                     modifier = GlanceModifier
-                        .background(Color(0x2010B981))
+                        .background(ColorProvider(Color(0x2010B981)))
                         .cornerRadius(8.dp)
                         .padding(horizontal = 8.dp, vertical = 3.dp)
                 ) {
@@ -174,7 +188,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (10f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = Color(0xFF10B981)
+                            color = emeraldColor
                         )
                     )
                 }
@@ -201,7 +215,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                     Spacer(modifier = GlanceModifier.defaultWeight())
                     Box(
                         modifier = GlanceModifier
-                            .background(Color(0x2510B981))
+                            .background(ColorProvider(Color(0x2510B981)))
                             .cornerRadius(8.dp)
                             .padding(horizontal = 8.dp, vertical = 3.dp)
                     ) {
@@ -210,7 +224,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                             style = TextStyle(
                                 fontSize = (9.5f * fontScale).sp,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF10B981)
+                                color = emeraldColor
                             )
                         )
                     }
@@ -283,7 +297,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                 Row(
                     modifier = GlanceModifier
                         .fillMaxWidth()
-                        .background(Color(0x1810B981))
+                        .background(ColorProvider(Color(0x1810B981)))
                         .cornerRadius(10.dp)
                         .padding(horizontal = 10.dp, vertical = 6.dp),
                     verticalAlignment = Alignment.CenterVertically
@@ -293,7 +307,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (11f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = Color(0xFF10B981)
+                            color = emeraldColor
                         )
                     )
                     Spacer(modifier = GlanceModifier.defaultWeight())
@@ -302,7 +316,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                         style = TextStyle(
                             fontSize = (11f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
-                            color = Color(0xFF10B981)
+                            color = emeraldColor
                         )
                     )
                 }
