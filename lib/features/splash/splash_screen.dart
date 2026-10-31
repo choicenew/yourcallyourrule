@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // 确认路径正确
 import 'package:yourcallyourrule/ads/adwidgets/app_open_ad.dart';
+import 'package:yourcallyourrule/purchase/purchase_provider.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -177,9 +178,12 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     try {
       await Future.delayed(const Duration(milliseconds: 100)); // 等待 a bit for Riverpod
       if (mounted) {
-          final purchaseNotifier = ref.read(purchaseStateProvider.notifier);
-          await purchaseNotifier.loadState();
-          if (mounted) _isVipUser = purchaseNotifier.isPurchasesEnabled;
+        // 关键改进：启动阶段预先激活后台 IAP 监听与官方账单自动校验恢复
+        ref.read(purchaseProvider);
+
+        final purchaseNotifier = ref.read(purchaseStateProvider.notifier);
+        await purchaseNotifier.loadState();
+        if (mounted) _isVipUser = purchaseNotifier.isPurchasesEnabled;
       }
     } catch (e) {
       if (mounted) _isVipUser = false;
