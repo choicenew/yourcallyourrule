@@ -1,0 +1,22 @@
+name: pyro_sms_driver_openphish
+description: OpenPhish live phishing threat feed & domain intelligence driver for Pyro SMS Package Suite.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_sms_protocol:
+    path: ../pyro_sms_protocol
+  pyro_sms_hub:
+    path: ../pyro_sms_hub
+  pyro_sms_subscription:
+    path: ../pyro_sms_subscription
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

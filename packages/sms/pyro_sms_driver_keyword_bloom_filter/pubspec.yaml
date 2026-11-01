@@ -1,0 +1,20 @@
+name: pyro_sms_driver_keyword_bloom_filter
+description: Pure Dart Bloom Filter bitmap & Aho-Corasick (AC Automaton) Trie tree for O(n) multi-pattern keyword searching across 100,000+ terms.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_sms_protocol:
+    path: ../pyro_sms_protocol
+  pyro_sms_hub:
+    path: ../pyro_sms_hub
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

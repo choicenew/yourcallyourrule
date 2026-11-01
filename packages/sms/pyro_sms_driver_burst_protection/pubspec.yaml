@@ -1,0 +1,18 @@
+name: pyro_sms_driver_burst_protection
+description: Unknown sender short-interval SMS frequency burst rate limiting driver for Pyro SMS Package Suite.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_sms_protocol:
+    path: ../pyro_sms_protocol
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

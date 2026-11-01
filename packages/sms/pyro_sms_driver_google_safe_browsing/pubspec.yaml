@@ -1,0 +1,18 @@
+name: pyro_sms_driver_google_safe_browsing
+description: Google Safe Browsing API v4 real-time link threat detection driver for Pyro SMS Package Suite.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_sms_protocol:
+    path: ../pyro_sms_protocol
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

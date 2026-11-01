@@ -1,0 +1,14 @@
+# Build-time Driver & Capability Toggles for Pyro SMS Package Suite
+app_package_name: "com.yours.yourcallyourrule"
+
+sms_drivers:
+  notification_listener: true   # Enable Android NotificationListener permission-free screening
+  content_analyzer: true        # Enable PhishTank/OpenPhish feeds & ReDoS safety guard
+  ml_scorer: true               # Enable 20-Feature GBT & Complement Naive Bayes ML model
+  burst_protection: true        # Enable short-window SMS burst attack limiter
+
+policy:
+  auto_cancel_critical_phishing: true
+  evidence_max_history: 200
+  burst_threshold_messages: 3
+  burst_threshold_seconds: 60

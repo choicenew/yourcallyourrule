@@ -1,0 +1,20 @@
+name: pyro_sms_ml_scorer
+description: Legacy compatibility wrapper for ML spam classifier driver in Pyro SMS Package Suite.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_sms_protocol:
+    path: ../pyro_sms_protocol
+  pyro_sms_driver_ml_classifier:
+    path: ../pyro_sms_driver_ml_classifier
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
