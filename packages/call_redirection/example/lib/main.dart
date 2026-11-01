@@ -7,14 +7,8 @@ import 'package:pyro_call_redirection_ui/pyro_call_redirection_ui.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Mount Call Redirection suite and register driver
-  CallRedirectionConnectors.ensureMounted(
-    driverRegistrars: [
-      (hub) {
-        hub.registerRedirectionDriver(CallRedirectionDriver());
-      },
-    ],
-  );
+  // 🔥 Automatic Self-Registration: Simply referencing CallRedirectionDriver automatically registers it into CallRedirectionHub.instance
+  CallRedirectionDriver.ensureMounted();
 
   runApp(const CallRedirectionExampleApp());
 }

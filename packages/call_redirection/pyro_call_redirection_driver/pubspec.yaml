@@ -1,5 +1,5 @@
 name: pyro_call_redirection_driver
-description: Concrete driver for Android CallRedirectionService, 3s deadline timeout, emergency floor & car mode guard.
+description: Concrete driver with automatic self-registration into CallRedirectionHub.
 version: 1.0.0
 homepage: https://github.com/yourcallyourrule/pyro_call_redirection_driver
 
@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   pyro_call_redirection_protocol:
     path: ../pyro_call_redirection_protocol
+  pyro_call_redirection_hub:
+    path: ../pyro_call_redirection_hub
 
 dev_dependencies:
   flutter_test:

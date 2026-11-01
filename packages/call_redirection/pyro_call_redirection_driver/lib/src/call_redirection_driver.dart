@@ -1,15 +1,41 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:pyro_call_redirection_protocol/pyro_call_redirection_protocol.dart';
+import 'package:pyro_call_redirection_hub/pyro_call_redirection_hub.dart';
 import 'emergency_number_floor.dart';
 import 'car_mode_guard.dart';
 
-/// Concrete driver bridging Flutter with Android Native CallRedirectionService MethodChannel.
+/// Concrete driver with Automatic Self-Registration logic.
+/// Automatically registers itself into [CallRedirectionHub.instance] upon class loading.
 class CallRedirectionDriver implements ICallRedirectionAdapter {
   static const MethodChannel _channel = MethodChannel('com.yours.yourcallyourrule/call_redirection');
 
   final Map<String, DateTime> _bypassCache = {};
   static const Duration _defaultDeadline = Duration(milliseconds: 3000);
+
+  // 🔥 Automatic Self-Registration Execution Hook
+  static final bool _autoRegistrationTrigger = _performAutoRegistration();
+
+  static bool _performAutoRegistration() {
+    final driver = CallRedirectionDriver._internal();
+    CallRedirectionHub.instance.registerRedirectionDriver(driver);
+    return true;
+  }
+
+  /// Ensures automatic self-registration has executed.
+  static void ensureMounted() {
+    assert(_autoRegistrationTrigger);
+  }
+
+  /// Factory constructor ensuring automatic self-registration.
+  factory CallRedirectionDriver() {
+    ensureMounted();
+    final registered = CallRedirectionHub.instance.redirectionDriver;
+    if (registered is CallRedirectionDriver) return registered;
+    return CallRedirectionDriver._internal();
+  }
+
+  CallRedirectionDriver._internal();
 
   @override
   bool isEmergencyNumber(String rawNumber) {
