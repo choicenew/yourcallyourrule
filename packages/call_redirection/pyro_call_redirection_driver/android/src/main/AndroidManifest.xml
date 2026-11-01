@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pyro.call_redirection">
+
+    <application>
+        <service
+            android:name=".CallRedirectionServiceImpl"
+            android:exported="true"
+            android:permission="android.permission.BIND_CALL_REDIRECTION_SERVICE">
+            <intent-filter>
+                <action android:name="android.telecom.CallRedirectionService"/>
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

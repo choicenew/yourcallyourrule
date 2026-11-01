@@ -1,0 +1,19 @@
+name: pyro_call_redirection_protocol
+description: Pure abstract contracts, zero-dep data models, enums and adapters for Call Redirection package suite.
+version: 1.0.0
+homepage: https://github.com/yourcallyourrule/pyro_call_redirection_protocol
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:

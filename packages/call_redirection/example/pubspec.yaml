@@ -1,0 +1,28 @@
+name: call_redirection_example
+description: Standalone example and runner application for Call Redirection package suite.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_call_redirection_protocol:
+    path: ../pyro_call_redirection_protocol
+  pyro_call_redirection_driver:
+    path: ../pyro_call_redirection_driver
+  pyro_call_redirection_hub:
+    path: ../pyro_call_redirection_hub
+  pyro_call_redirection_ui:
+    path: ../pyro_call_redirection_ui
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
