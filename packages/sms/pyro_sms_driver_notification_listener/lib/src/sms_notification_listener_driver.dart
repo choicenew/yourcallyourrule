@@ -1,7 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 import 'package:pyro_sms_hub/pyro_sms_hub.dart';
-import 'models/protected_app_info.dart';
 
 /// NotificationListenerService-based driver allowing permission-free SMS/messaging notification screening
 class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
