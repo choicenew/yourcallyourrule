@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_call_redirection_driver/pyro_call_redirection_driver.dart';
 import 'package:pyro_call_redirection_hub/pyro_call_redirection_hub.dart';
-import 'package:pyro_call_redirection_protocol/pyro_call_redirection_protocol.dart';
 import 'package:pyro_call_redirection_ui/pyro_call_redirection_ui.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // 🔥 Automatic Self-Registration: Simply referencing CallRedirectionDriver automatically registers it into CallRedirectionHub.instance
+  // Automatic Self-Registration Hook
   CallRedirectionDriver.ensureMounted();
 
-  runApp(const CallRedirectionExampleApp());
+  runApp(const ProviderScope(child: CallRedirectionExampleApp()));
 }
 
 class CallRedirectionExampleApp extends StatelessWidget {
@@ -89,7 +89,7 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
-                crossAlignment: CrossAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Outbound Pre-Dial Simulator',
@@ -134,7 +134,7 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
-                  crossAlignment: CrossAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Evaluation Result:',

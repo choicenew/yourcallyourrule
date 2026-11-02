@@ -9,6 +9,9 @@ class CallRedirectionDriver implements ICallRedirectionAdapter {
     CallRedirectionHub.instance.registerRedirectionDriver(CallRedirectionDriver());
   }
 
+  /// Ensure mounted helper alias
+  static void ensureMounted() => register();
+
   static const MethodChannel _channel =
       MethodChannel('com.yours.pyro_call/call_redirection');
 
