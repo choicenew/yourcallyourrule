@@ -23,27 +23,27 @@ class RedirectionDecision {
 
   Map<String, dynamic> toMap() {
     return {
-      'action': action.name,
-      'reason': reason?.name,
-      'description': description,
-      'evaluationTimeMs': evaluationTimeMs,
+      RedirectionMapKeys.action: action.name,
+      RedirectionMapKeys.reason: reason?.name,
+      RedirectionMapKeys.description: description,
+      RedirectionMapKeys.evaluationTimeMs: evaluationTimeMs,
     };
   }
 
   factory RedirectionDecision.fromMap(Map<String, dynamic> map) {
     return RedirectionDecision(
       action: RedirectionAction.values.firstWhere(
-        (e) => e.name == map['action'],
+        (e) => e.name == map[RedirectionMapKeys.action],
         orElse: () => RedirectionAction.proceed,
       ),
-      reason: map['reason'] != null
+      reason: map[RedirectionMapKeys.reason] != null
           ? RedirectionHoldReason.values.firstWhere(
-              (e) => e.name == map['reason'],
+              (e) => e.name == map[RedirectionMapKeys.reason],
               orElse: () => RedirectionHoldReason.databaseMatch,
             )
           : null,
-      description: map['description'] as String? ?? '',
-      evaluationTimeMs: map['evaluationTimeMs'] as int? ?? 0,
+      description: map[RedirectionMapKeys.description] as String? ?? '',
+      evaluationTimeMs: map[RedirectionMapKeys.evaluationTimeMs] as int? ?? 0,
     );
   }
 }

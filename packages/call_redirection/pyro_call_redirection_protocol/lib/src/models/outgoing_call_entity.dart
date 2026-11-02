@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import '../enums/redirection_enums.dart';
 
 /// Entity representing an outbound call attempt.
 @immutable
@@ -21,23 +22,23 @@ class OutgoingCallEntity {
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
-      'rawPhoneNumber': rawPhoneNumber,
-      'normalizedPhoneNumber': normalizedPhoneNumber,
-      'timestampMs': timestampMs,
-      'isInteractiveAllowed': isInteractiveAllowed,
-      'isCarModeActive': isCarModeActive,
+      RedirectionMapKeys.id: id,
+      RedirectionMapKeys.rawPhoneNumber: rawPhoneNumber,
+      RedirectionMapKeys.normalizedPhoneNumber: normalizedPhoneNumber,
+      RedirectionMapKeys.timestampMs: timestampMs,
+      RedirectionMapKeys.isInteractiveAllowed: isInteractiveAllowed,
+      RedirectionMapKeys.isCarModeActive: isCarModeActive,
     };
   }
 
   factory OutgoingCallEntity.fromMap(Map<String, dynamic> map) {
     return OutgoingCallEntity(
-      id: map['id'] as String? ?? '',
-      rawPhoneNumber: map['rawPhoneNumber'] as String? ?? '',
-      normalizedPhoneNumber: map['normalizedPhoneNumber'] as String? ?? '',
-      timestampMs: map['timestampMs'] as int? ?? DateTime.now().millisecondsSinceEpoch,
-      isInteractiveAllowed: map['isInteractiveAllowed'] as bool? ?? true,
-      isCarModeActive: map['isCarModeActive'] as bool? ?? false,
+      id: map[RedirectionMapKeys.id] as String? ?? '',
+      rawPhoneNumber: map[RedirectionMapKeys.rawPhoneNumber] as String? ?? '',
+      normalizedPhoneNumber: map[RedirectionMapKeys.normalizedPhoneNumber] as String? ?? '',
+      timestampMs: map[RedirectionMapKeys.timestampMs] as int? ?? DateTime.now().millisecondsSinceEpoch,
+      isInteractiveAllowed: map[RedirectionMapKeys.isInteractiveAllowed] as bool? ?? true,
+      isCarModeActive: map[RedirectionMapKeys.isCarModeActive] as bool? ?? false,
     );
   }
 }

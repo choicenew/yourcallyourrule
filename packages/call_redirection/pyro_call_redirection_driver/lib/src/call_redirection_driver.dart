@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
-import 'package:pyro_call_redirection_protocol/pyro_call_redirection_protocol.dart';
 import 'package:pyro_call_redirection_hub/pyro_call_redirection_hub.dart';
 
 /// Driver for CallRedirectionService outbound fraud prevention
@@ -14,7 +13,7 @@ class CallRedirectionDriver implements ICallRedirectionAdapter {
   static void ensureMounted() => register();
 
   static const MethodChannel _channel =
-      MethodChannel('com.yours.yourcallyourrule/call_redirection');
+      MethodChannel(RedirectionChannels.channelName);
 
   final Map<String, DateTime> _bypassTokens = {};
 
@@ -28,18 +27,18 @@ class CallRedirectionDriver implements ICallRedirectionAdapter {
   }
 
   Future<dynamic> _handleMethodCall(MethodCall call) async {
-    if (call.method == 'evaluateCall') {
+    if (call.method == RedirectionChannels.methodEvaluateCall) {
       final Map<dynamic, dynamic> args = call.arguments is Map ? call.arguments as Map : {};
-      final String rawNumber = (args['rawPhoneNumber'] ?? args['phoneNumber'] ?? '').toString();
-      final String normalized = (args['normalizedPhoneNumber'] ?? rawNumber.replaceAll(RegExp(r'\D'), '')).toString();
+      final String rawNumber = (args[RedirectionMapKeys.rawPhoneNumber] ?? args['phoneNumber'] ?? '').toString();
+      final String normalized = (args[RedirectionMapKeys.normalizedPhoneNumber] ?? rawNumber.replaceAll(RegExp(r'\D'), '')).toString();
 
       final entity = OutgoingCallEntity(
-        id: (args['id'] ?? 'call_${DateTime.now().millisecondsSinceEpoch}').toString(),
+        id: (args[RedirectionMapKeys.id] ?? 'call_${DateTime.now().millisecondsSinceEpoch}').toString(),
         rawPhoneNumber: rawNumber,
         normalizedPhoneNumber: normalized,
-        timestampMs: args['timestampMs'] is int ? args['timestampMs'] as int : DateTime.now().millisecondsSinceEpoch,
-        isInteractiveAllowed: args['isInteractiveAllowed'] as bool? ?? true,
-        isCarModeActive: args['isCarModeActive'] as bool? ?? false,
+        timestampMs: args[RedirectionMapKeys.timestampMs] is int ? args[RedirectionMapKeys.timestampMs] as int : DateTime.now().millisecondsSinceEpoch,
+        isInteractiveAllowed: args[RedirectionMapKeys.isInteractiveAllowed] as bool? ?? true,
+        isCarModeActive: args[RedirectionMapKeys.isCarModeActive] as bool? ?? false,
       );
 
       final decision = await evaluateOutboundCall(entity);
@@ -101,7 +100,7 @@ class CallRedirectionDriver implements ICallRedirectionAdapter {
 
   Future<bool> isRoleGranted() async {
     try {
-      final bool? granted = await _channel.invokeMethod<bool>('isRoleGranted');
+      final bool? granted = await _channel.invokeMethod<bool>(RedirectionChannels.methodIsRoleGranted);
       return granted ?? false;
     } on MissingPluginException {
       return false;
@@ -110,7 +109,7 @@ class CallRedirectionDriver implements ICallRedirectionAdapter {
 
   Future<void> requestRole() async {
     try {
-      await _channel.invokeMethod('requestRole');
+      await _channel.invokeMethod(RedirectionChannels.methodRequestRole);
     } on MissingPluginException {
       // Fallback
     }
