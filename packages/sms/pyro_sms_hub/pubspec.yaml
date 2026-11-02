@@ -1,11 +1,11 @@
 name: pyro_sms_hub
-description: Pure IoC service locator and screening pipeline orchestrator hub for Pyro SMS Package Suite.
+description: Service locator singleton and evaluation pipeline for Pyro SMS Protection Suite.
 version: 1.0.0
 publish_to: 'none'
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  flutter: ">=3.10.0"
 
 dependencies:
   flutter:
@@ -16,3 +16,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:

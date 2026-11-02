@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:pyro_call_redirection_protocol/pyro_call_redirection_protocol.dart';
 import 'package:pyro_call_redirection_hub/pyro_call_redirection_hub.dart';
@@ -13,7 +14,7 @@ class CallRedirectionDriver implements ICallRedirectionAdapter {
   static void ensureMounted() => register();
 
   static const MethodChannel _channel =
-      MethodChannel('com.yours.pyro_call/call_redirection');
+      MethodChannel('com.yours.yourcallyourrule/call_redirection');
 
   final Map<String, DateTime> _bypassTokens = {};
 
@@ -28,13 +29,19 @@ class CallRedirectionDriver implements ICallRedirectionAdapter {
 
   Future<dynamic> _handleMethodCall(MethodCall call) async {
     if (call.method == 'evaluateCall') {
-      final String rawNumber = call.arguments['phoneNumber'] as String? ?? '';
+      final Map<dynamic, dynamic> args = call.arguments is Map ? call.arguments as Map : {};
+      final String rawNumber = (args['rawPhoneNumber'] ?? args['phoneNumber'] ?? '').toString();
+      final String normalized = (args['normalizedPhoneNumber'] ?? rawNumber.replaceAll(RegExp(r'\D'), '')).toString();
+
       final entity = OutgoingCallEntity(
-        id: 'call_${DateTime.now().millisecondsSinceEpoch}',
+        id: (args['id'] ?? 'call_${DateTime.now().millisecondsSinceEpoch}').toString(),
         rawPhoneNumber: rawNumber,
-        normalizedPhoneNumber: rawNumber.replaceAll(RegExp(r'\D'), ''),
-        timestampMs: DateTime.now().millisecondsSinceEpoch,
+        normalizedPhoneNumber: normalized,
+        timestampMs: args['timestampMs'] is int ? args['timestampMs'] as int : DateTime.now().millisecondsSinceEpoch,
+        isInteractiveAllowed: args['isInteractiveAllowed'] as bool? ?? true,
+        isCarModeActive: args['isCarModeActive'] as bool? ?? false,
       );
+
       final decision = await evaluateOutboundCall(entity);
       return decision.toMap();
     }
@@ -51,7 +58,7 @@ class CallRedirectionDriver implements ICallRedirectionAdapter {
         description: 'Emergency number floor override',
       );
     }
-    if (isBypassed(number)) {
+    if (isBypassed(number) || isBypassed(call.normalizedPhoneNumber)) {
       return const RedirectionDecision(
         action: RedirectionAction.proceed,
         description: 'Temporary user bypass active',

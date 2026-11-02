@@ -1,11 +1,12 @@
 name: pyro_call_redirection_hub
-description: Pure IoC service locator and pipeline orchestrator for Call Redirection Package Suite.
+description: Service locator singleton and evaluation pipeline for Call Redirection package suite.
 version: 1.0.0
 publish_to: 'none'
+homepage: https://github.com/yourcallyourrule/pyro_call_redirection_hub
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  flutter: ">=3.10.0"
 
 dependencies:
   flutter:
@@ -16,3 +17,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:

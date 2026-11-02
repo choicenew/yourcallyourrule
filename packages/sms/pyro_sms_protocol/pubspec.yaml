@@ -1,11 +1,11 @@
 name: pyro_sms_protocol
-description: Pure Dart/Flutter abstract protocol, data models, enums, and adapter contracts for Pyro SMS Protection Package Suite.
+description: Pure abstract contracts, data models, enums and adapters for Pyro SMS Protection Suite.
 version: 1.0.0
 publish_to: 'none'
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  flutter: ">=3.10.0"
 
 dependencies:
   flutter:
@@ -14,3 +14,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:

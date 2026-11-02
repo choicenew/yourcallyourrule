@@ -1,18 +1,15 @@
 name: pyro_sms_ui
-description: UI screens, settings panels, evidence viewers, L10n localizations, and Riverpod 3.0 state providers for Pyro SMS Package Suite.
+description: UI screens, settings pages, evidence logs, and protected app selector for Pyro SMS Protection Suite.
 version: 1.0.0
 publish_to: 'none'
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  flutter: ">=3.10.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
-  flutter_riverpod: ^3.0.0
   pyro_sms_protocol:
     path: ../pyro_sms_protocol
   pyro_sms_hub:
@@ -21,3 +18,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:

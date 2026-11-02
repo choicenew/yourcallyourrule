@@ -1,20 +1,27 @@
 name: pyro_sms_driver_notification_listener
-description: Android NotificationListenerService permission-free SMS/messaging notification interceptor and evidence logger driver.
+description: Driver for Android NotificationListenerService permission-free SMS/WhatsApp/Telegram spam listener.
 version: 1.0.0
 publish_to: 'none'
+homepage: https://github.com/yourcallyourrule/pyro_sms_driver_notification_listener
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.10.0'
+  flutter: ">=3.10.0"
 
 dependencies:
   flutter:
     sdk: flutter
   pyro_sms_protocol:
     path: ../pyro_sms_protocol
-  pyro_sms_hub:
-    path: ../pyro_sms_hub
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.pyro.sms_notification_listener
+        pluginClass: SmsNotificationListenerPlugin
