@@ -29,4 +29,9 @@ class SmsContentAnalyzerDriver extends LinkResolverDriver implements SmsContentA
   bool isHighRiskTld(String tld) {
     return PhishingTldDatabase.highRiskTlds.contains(tld.toLowerCase());
   }
+
+  @override
+  bool isRegexSafe(String pattern, {int maxBacktrackingPaths = 1000000}) {
+    return super.isRegexSafe(pattern, maxBacktrackingPaths: maxBacktrackingPaths);
+  }
 }

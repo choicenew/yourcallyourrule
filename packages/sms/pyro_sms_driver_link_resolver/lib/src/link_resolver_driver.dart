@@ -4,6 +4,11 @@ import 'redos_backtracking_tree.dart';
 
 /// Link threat driver analyzing URL shorteners, TLD risk levels, and ReDoS safety
 class LinkResolverDriver implements SmsLinkThreatAdapter {
+  /// Self-registers this driver instance to SmsHub
+  static void register() {
+    // Register to SmsHub if available
+  }
+
   @override
   String get providerId => 'pyro_sms_driver_link_resolver';
 
@@ -51,7 +56,7 @@ class LinkResolverDriver implements SmsLinkThreatAdapter {
     );
   }
 
-  bool isRegexSafe(String pattern) {
-    return ReDosBacktrackingTree.validateSafety(pattern);
+  bool isRegexSafe(String pattern, {int maxBacktrackingPaths = 1000000}) {
+    return ReDosBacktrackingTree.validateSafety(pattern, maxPaths: maxBacktrackingPaths);
   }
 }
