@@ -26,9 +26,7 @@ class NativeRequestChannel {
   }) {
     jsService.onRequestChannel = _handleRequest;
     dio.options.responseType = ResponseType.plain;
-    // Allow strict status validation so 403/503 throws DioException and triggers bypass logic
     dio.options.validateStatus = (status) => status != null && status < 400;
-    // Use Native Adapter for Chrome-like TLS fingerprint on Android/iOS
     dio.httpClientAdapter = NativeAdapter();
   }
 
@@ -39,7 +37,6 @@ class NativeRequestChannel {
   }
 
   Future<dynamic> _handleRequest(dynamic message) async {
-    // 1. Parse Message
     Map<String, dynamic> requestData;
     if (message is String) {
       try {
@@ -68,7 +65,6 @@ class NativeRequestChannel {
     );
     onLog?.call("📡 Native: Fetching $url (via $pluginId)");
 
-    // Fire-and-Forget
     Future.microtask(() => _performRequest(url, requestData, 0));
 
     return null;
@@ -79,7 +75,6 @@ class NativeRequestChannel {
     Map<String, dynamic> originalRequest,
     int retryCount,
   ) async {
-    // 1. Determine User-Agent EARLY
     String userAgent = defaultUserAgent;
     if (originalRequest['headers'] is Map) {
       final headers = originalRequest['headers'] as Map;
@@ -93,7 +88,6 @@ class NativeRequestChannel {
     Map<String, dynamic> responseMap;
 
     try {
-      // 2. Prepare Request
       Map<String, dynamic> requestHeaders = {};
 
       if (originalRequest['headers'] is Map) {
@@ -122,7 +116,6 @@ class NativeRequestChannel {
       debugPrint("📡 NativeRequestChannel: Sending Request to $url");
       debugPrint("   🔑 UA: ${requestHeaders['User-Agent']}");
 
-      // Perform Request
       Response response;
       if (options.method == 'POST') {
         response = await dio.post(
@@ -154,7 +147,6 @@ class NativeRequestChannel {
       debugPrint(logMsg);
       onLog?.call(logMsg);
 
-      // Check if response contains expected marker (for JS-rendered pages)
       bool contentValid = true;
       final successMarker = originalRequest['successMarker'];
       final String strategy = originalRequest['strategy'] ?? 'direct';

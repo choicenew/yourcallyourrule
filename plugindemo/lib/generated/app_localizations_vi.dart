@@ -252,11 +252,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get allow => 'Cho phép';
 
   @override
-  String get allowAllAllowRules => 'Cho phép Tất cả Quy tắc Cho phép';
+  String get allowAllAllowRules => 'Bật tất cả quy tắc cho phép';
 
   @override
   String get allowAllAllowRulesDesc =>
-      'Cho phép các cuộc gọi từ quy tắc cho phép';
+      'Công tắc chính để áp dụng tất cả các quy tắc cho phép đã cấu hình';
 
   @override
   String get allowAllBlacklistedNumbers =>
@@ -267,27 +267,28 @@ class AppLocalizationsVi extends AppLocalizations {
       'Cho phép các cuộc gọi từ danh sách chặn';
 
   @override
-  String get allowAllBlockRules => 'Cho phép Tất cả Quy tắc Chặn';
+  String get allowAllBlockRules => 'Bật tất cả quy tắc chặn';
 
   @override
-  String get allowAllBlockRulesDesc => 'Cho phép các cuộc gọi từ quy tắc chặn';
+  String get allowAllBlockRulesDesc =>
+      'Công tắc chính để áp dụng tất cả các quy tắc chặn đã cấu hình';
 
   @override
-  String get allowAllowedNumbers => 'Cho phép các số đã cho phép';
+  String get allowAllowedNumbers => 'Cho phép tất cả số được phê duyệt';
 
   @override
   String get allowAllowedNumbersDesc =>
-      'Cho phép các cuộc gọi từ danh sách cho phép';
+      'Cho phép tất cả cuộc gọi đến từ các số trong danh sách cho phép của bạn';
 
   @override
   String get allowBlock => 'Cho phép/Chặn';
 
   @override
-  String get allowBlockedNumbers => 'Cho phép Số điện thoại đã chặn';
+  String get allowBlockedNumbers => 'Tạm dừng chặn danh sách đen';
 
   @override
   String get allowBlockedNumbersDesc =>
-      'Cho phép các cuộc gọi từ danh sách chặn';
+      'Tạm thời cho phép cuộc gọi từ các số trong danh sách chặn của bạn';
 
   @override
   String get allowedBlockedRule => 'Quy tắc Cho phép/Chặn';
@@ -307,22 +308,22 @@ class AppLocalizationsVi extends AppLocalizations {
       'Tự động cho phép các số không vượt quá ngưỡng số lượng';
 
   @override
-  String get allowRegexAllowRules => 'Cho phép Quy tắc Cho phép Regex';
+  String get allowRegexAllowRules => 'Bật quy tắc cho phép bằng Regex';
 
   @override
   String get allowRegexAllowRulesDesc =>
-      'Bật đối sánh mẫu regex cho quy tắc cho phép';
+      'Bật đối sánh mẫu biểu thức chính quy cho các quy tắc cho phép';
 
   @override
   String get allowRegexAllowRulesDescription =>
       'Bật quy tắc cho phép dựa trên regex';
 
   @override
-  String get allowRegexBlockRules => 'Cho phép Quy tắc Chặn Regex';
+  String get allowRegexBlockRules => 'Bật quy tắc chặn bằng Regex';
 
   @override
   String get allowRegexBlockRulesDesc =>
-      'Bật đối sánh mẫu regex cho quy tắc chặn';
+      'Bật đối sánh mẫu biểu thức chính quy cho các quy tắc chặn';
 
   @override
   String get allowRegexBlockRulesDescription =>
@@ -1498,11 +1499,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get enableGlobalPlugins => 'Bật plugin toàn cầu';
 
   @override
-  String get enableLocalCountFilter => 'Bật Bộ lọc số lần cục bộ';
+  String get enableLocalCountFilter => 'Bật bảo vệ ngưỡng đánh dấu cục bộ';
 
   @override
   String get enableLocalCountFilterDescription =>
-      'Tự động lọc cuộc gọi rác dựa trên số lần đánh dấu cuộc gọi';
+      'Chặn cuộc gọi đến khi số lần báo cáo cục bộ vượt quá ngưỡng';
 
   @override
   String get enableLocalNotification => 'Sử dụng thông báo cục bộ';
@@ -1515,27 +1516,28 @@ class AppLocalizationsVi extends AppLocalizations {
   String get enableLocationSummary => 'Vị trí';
 
   @override
-  String get enableMuteRules => 'Bật Quy tắc im lặng';
+  String get enableMuteRules => 'Tắt tiếng cuộc gọi bị chặn';
 
   @override
-  String get enableMuteRulesDesc => 'Áp dụng cấu hình quy tắc chặn im lặng';
+  String get enableMuteRulesDesc =>
+      'Tắt tiếng chuông cuộc gọi bị chặn thay vì từ chối';
 
   @override
-  String get enableNoneActionRules => 'Bật Quy tắc hành động None';
+  String get enableNoneActionRules => 'Chỉ ghi lại & đánh dấu (Không chặn)';
 
   @override
   String get enableNoneActionRulesDesc =>
-      'Cho phép cấu hình quy tắc không có hành động chặn nào';
+      'Ghi lại và đánh dấu cuộc gọi khớp mà không thực hiện hành động chặn nào';
 
   @override
   String get enableNotifications => 'Bật thông báo';
 
   @override
-  String get enableRemoteNumberFilter => 'Bật Bộ lọc số từ xa';
+  String get enableRemoteNumberFilter => 'Bật bảo vệ ngưỡng truy vấn đám mây';
 
   @override
   String get enableRemoteNumberFilterDescription =>
-      'Sử dụng cơ sở dữ liệu từ xa để lọc số';
+      'Chặn cuộc gọi đến khi số lần báo cáo truy vấn đám mây vượt quá ngưỡng';
 
   @override
   String get enableRule => 'Bật Quy tắc';
@@ -1558,13 +1560,13 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get enableTimeInterceptionDescription =>
-      'Chặn các cuộc gọi lặp lại trong thời gian ngắn';
+      'Chặn các cuộc gọi lặp lại từ cùng một số trong thời gian ngắn';
 
   @override
   String get enableTimeInterceptor => 'Bật Bộ chặn theo thời gian';
 
   @override
-  String get endCallImmediately => 'Kết thúc cuộc gọi ngay lập tức';
+  String get endCallImmediately => 'Chặn ngay lập tức';
 
   @override
   String get endColor => 'Màu kết thúc';
@@ -2596,11 +2598,11 @@ class AppLocalizationsVi extends AppLocalizations {
       'Tự động lọc cuộc gọi rác dựa trên tần suất cuộc gọi';
 
   @override
-  String get localCountFilter => 'Bộ lọc đếm cục bộ';
+  String get localCountFilter => 'Bảo vệ ngưỡng đánh dấu cục bộ';
 
   @override
   String get localCountFilterDescription =>
-      'Chặn các cuộc gọi thường xuyên dựa trên số lần đếm cục bộ của số điện thoại';
+      'Tự động chặn cuộc gọi vượt quá ngưỡng báo cáo cục bộ';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -3426,10 +3428,11 @@ class AppLocalizationsVi extends AppLocalizations {
       'Khi được bật, tất cả cuộc gọi sẽ bị từ chối với ưu tiên cao nhất';
 
   @override
-  String get rejectAllNumbers => 'Từ chối Tất cả các Số';
+  String get rejectAllNumbers => 'Từ chối tất cả cuộc gọi đến';
 
   @override
-  String get rejectAllNumbersDesc => 'Từ chối tất cả cuộc gọi đến khi được bật';
+  String get rejectAllNumbersDesc =>
+      'Từ chối tất cả cuộc gọi đến với ưu tiên cao nhất';
 
   @override
   String get rejectExceededNumbers => 'Từ chối các Số vượt ngưỡng';
@@ -3445,7 +3448,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get remoteFilterSettingsPageTitle => 'Cài đặt Bộ lọc Số từ xa';
 
   @override
-  String get remoteNumberFilter => 'Bộ lọc Số từ xa';
+  String get remoteNumberFilter => 'Bảo vệ ngưỡng truy vấn đám mây';
 
   @override
   String get remoteNumberFilterDatabaseInfo =>
@@ -3453,7 +3456,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get remoteNumberFilterDescription =>
-      'Chặn cuộc gọi quấy rối dựa trên thông tin cơ sở dữ liệu từ xa';
+      'Tự động chặn cuộc gọi vượt quá ngưỡng báo cáo đám mây';
 
   @override
   String get remoteNumberFilterExplanationContent =>
@@ -4012,7 +4015,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get silence => 'Im lặng';
 
   @override
-  String get silenceAndNoAnswer => 'Im lặng và Không trả lời';
+  String get silenceAndNoAnswer => 'Tắt tiếng chuông';
 
   @override
   String get silenceNoAnswer => 'Im lặng Không trả lời';
@@ -4496,11 +4499,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get thisWeek => 'Tuần này';
 
   @override
-  String get timeInterceptor => 'Bộ chặn theo tần suất thời gian';
+  String get timeInterceptor => 'Bảo vệ cuộc gọi liên tục';
 
   @override
   String get timeInterceptorDescription =>
-      'Tự động chặn/cho phép các cuộc gọi tiềm năng dựa trên tần suất cuộc gọi';
+      'Chặn các cuộc gọi lặp lại từ cùng một số trong thời gian ngắn';
 
   @override
   String get timeInterceptorExplanation =>

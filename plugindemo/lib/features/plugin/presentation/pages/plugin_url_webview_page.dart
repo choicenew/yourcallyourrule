@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:plugindemo/core/entities/plugin/plugin_entry.dart';
-import 'package:plugindemo/features/plugin/providers/plugin_url_webview_service_provider.dart';
+import 'package:plugindemo/features/plugin/services/plugin_url_execution_service.dart';
 
 enum PageState {
   initial,
@@ -76,7 +76,7 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
       _errorMessage = null;
     });
 
-    final service = ref.read(pluginUrlExecutionServiceProvider);
+    final service = ref.read(pluginUrlWebViewServiceProvider);
     try {
       final staticResult = await service.extractUrlFromScript(widget.plugin!);
       if (!mounted) return;
@@ -127,7 +127,7 @@ class _PluginUrlWebViewPageState extends ConsumerState<PluginUrlWebViewPage> {
       _errorMessage = null;
     });
 
-    final service = ref.read(pluginUrlExecutionServiceProvider);
+    final service = ref.read(pluginUrlWebViewServiceProvider);
     try {
       final generatedUrl = await service.generateUrlFromPhoneNumber(
         widget.plugin!,

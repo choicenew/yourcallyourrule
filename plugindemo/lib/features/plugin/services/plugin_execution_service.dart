@@ -2,11 +2,21 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:ua_client_hints/ua_client_hints.dart';
 import 'package:plugindemo/core/entities/plugin/plugin_entry.dart';
 import 'package:plugindemo/features/plugin/services/core/js_execution_service.dart';
 import 'package:plugindemo/features/plugin/services/core/native_request_channel.dart';
 import 'package:plugindemo/features/plugin/services/core/transient_plugin_session.dart';
+
+part 'plugin_execution_service.g.dart';
+
+/// PluginExecutionService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+PluginExecutionService pluginExecutionService(Ref ref) {
+  return PluginExecutionService();
+}
 
 /// 插件执行服务 - 负责插件 JS 的加载与执行
 class PluginExecutionService {

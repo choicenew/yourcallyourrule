@@ -252,11 +252,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get allow => 'İzin Ver';
 
   @override
-  String get allowAllAllowRules => 'Tüm İzin Kurallarını İzin Ver';
+  String get allowAllAllowRules => 'Tüm İzin Kurallarını Etkinleştir';
 
   @override
   String get allowAllAllowRulesDesc =>
-      'İzin kurallarından gelen çağrılara izin ver';
+      'Yapılandırılmış tüm izin kurallarını uygulamak için ana anahtar';
 
   @override
   String get allowAllBlacklistedNumbers => 'Tüm Engellenen Numaralara İzin Ver';
@@ -266,28 +266,28 @@ class AppLocalizationsTr extends AppLocalizations {
       'Engellenenler listesinden gelen çağrılara izin ver';
 
   @override
-  String get allowAllBlockRules => 'Tüm Engelleme Kurallarını İzin Ver';
+  String get allowAllBlockRules => 'Tüm Engelleme Kurallarını Etkinleştir';
 
   @override
   String get allowAllBlockRulesDesc =>
-      'Engelleme kurallarından gelen çağrılara izin ver';
+      'Yapılandırılmış tüm engelleme kurallarını uygulamak için ana anahtar';
 
   @override
-  String get allowAllowedNumbers => 'İzin Verilen Numaralara İzin Ver';
+  String get allowAllowedNumbers => 'Tüm Onaylanmış Numaralara İzin Ver';
 
   @override
   String get allowAllowedNumbersDesc =>
-      'Beyaz listeden gelen çağrılara izin ver';
+      'İzin verilenler listenizdeki numaralardan gelen tüm aramalara izin ver';
 
   @override
   String get allowBlock => 'İzin Ver/Engelle';
 
   @override
-  String get allowBlockedNumbers => 'Engellenen Numaralara İzin Ver';
+  String get allowBlockedNumbers => 'Kara Liste Engellemesini Duraklat';
 
   @override
   String get allowBlockedNumbersDesc =>
-      'Engellenenler listesinden gelen çağrılara izin ver';
+      'Engellenenler listenizdeki numaralardan gelen aramalara geçici olarak izin ver';
 
   @override
   String get allowedBlockedRule => 'İzin Ver/Engelle Kuralı';
@@ -308,22 +308,22 @@ class AppLocalizationsTr extends AppLocalizations {
       'Sayı eşiğini aşmayan numaralara otomatik olarak izin ver';
 
   @override
-  String get allowRegexAllowRules => 'Regex İzin Kurallarına İzin Ver';
+  String get allowRegexAllowRules => 'Regex İzin Kurallarını Etkinleştir';
 
   @override
   String get allowRegexAllowRulesDesc =>
-      'İzin kuralları için regex deseni eşleştirmeyi etkinleştir';
+      'İzin kuralları için düzenli ifade deseni eşleştirmesini etkinleştir';
 
   @override
   String get allowRegexAllowRulesDescription =>
       'Regex tabanlı izin kurallarını etkinleştir';
 
   @override
-  String get allowRegexBlockRules => 'Regex Engelleme Kurallarına İzin Ver';
+  String get allowRegexBlockRules => 'Regex Engelleme Kurallarını Etkinleştir';
 
   @override
   String get allowRegexBlockRulesDesc =>
-      'Engelleme kuralları için regex deseni eşleştirmeyi etkinleştir';
+      'Engelleme kuralları için düzenli ifade deseni eşleştirmesini etkinleştir';
 
   @override
   String get allowRegexBlockRulesDescription =>
@@ -1513,11 +1513,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get enableGlobalPlugins => 'Genel eklentileri etkinleştir';
 
   @override
-  String get enableLocalCountFilter => 'Yerel Sayım Filtresini Etkinleştir';
+  String get enableLocalCountFilter =>
+      'Yerel İşaretleme Eşik Korumasını Etkinleştir';
 
   @override
   String get enableLocalCountFilterDescription =>
-      'Arama işaretleme sayısına göre spam aramaları otomatik olarak filtrele';
+      'Yerel bildirim sayısı eşiği aştığında gelen aramaları engelle';
 
   @override
   String get enableLocalNotification => 'Yerel Bildirim Kullan';
@@ -1530,28 +1531,30 @@ class AppLocalizationsTr extends AppLocalizations {
   String get enableLocationSummary => 'Konum';
 
   @override
-  String get enableMuteRules => 'Sessiz Kuralları Etkinleştir';
+  String get enableMuteRules => 'Engellenen Aramaları Sessize Al';
 
   @override
   String get enableMuteRulesDesc =>
-      'Sessiz engelleme kuralları yapılandırmasını uygula';
+      'Engellenen aramaları reddetmek yerine zil sesini sessize al';
 
   @override
-  String get enableNoneActionRules => 'Hiçbir Eylem Kuralı Yok Etkinleştir';
+  String get enableNoneActionRules =>
+      'Yalnızca Kaydet ve İşaretle (Kesinti Yok)';
 
   @override
   String get enableNoneActionRulesDesc =>
-      'Hiçbir engelleme eylemi olmayan kural yapılandırmalarına izin ver';
+      'Arama eşleşmelerini herhangi bir engelleme eylemi yapmadan kaydet ve işaretle';
 
   @override
   String get enableNotifications => 'Bildirimleri Etkinleştir';
 
   @override
-  String get enableRemoteNumberFilter => 'Uzak Numara Filtresini Etkinleştir';
+  String get enableRemoteNumberFilter =>
+      'Bulut Sorgu Eşik Korumasını Etkinleştir';
 
   @override
   String get enableRemoteNumberFilterDescription =>
-      'Numaraları filtrelemek için uzak veritabanını kullan';
+      'Bulut sorgu bildirim sayısı eşiği aştığında gelen aramaları engelle';
 
   @override
   String get enableRule => 'Kuralı Etkinleştir';
@@ -1576,13 +1579,13 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get enableTimeInterceptionDescription =>
-      'Kısa bir süre içinde tekrarlanan aramaları engelle';
+      'Aynı numaradan kısa sürede yapılan tekrarlı aramaları engelle';
 
   @override
   String get enableTimeInterceptor => 'Zaman Engelleyiciyi Etkinleştir';
 
   @override
-  String get endCallImmediately => 'Çağrıyı Hemen Sonlandır';
+  String get endCallImmediately => 'Hemen Engelle';
 
   @override
   String get endColor => 'Bitiş Rengi';
@@ -2622,11 +2625,11 @@ class AppLocalizationsTr extends AppLocalizations {
       'Arama sıklığına göre spam aramaları otomatik olarak filtreleyin';
 
   @override
-  String get localCountFilter => 'Yerel Sayım Filtresi';
+  String get localCountFilter => 'Yerel İşaretleme Eşik Koruması';
 
   @override
   String get localCountFilterDescription =>
-      'Yerel numara sayımlarına göre sık gelen aramaları engelle';
+      'Yerel bildirim eşiğini aşan aramaları otomatik olarak engelle';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -3454,11 +3457,11 @@ class AppLocalizationsTr extends AppLocalizations {
       'Etkinleştirildiğinde, tüm çağrılar en yüksek öncelikle reddedilecektir';
 
   @override
-  String get rejectAllNumbers => 'Tüm Numaraları Reddet';
+  String get rejectAllNumbers => 'Tüm Gelen Aramaları Reddet';
 
   @override
   String get rejectAllNumbersDesc =>
-      'Etkinleştirildiğinde gelen tüm çağrıları reddet';
+      'Tüm gelen aramaları en yüksek öncelikle reddet';
 
   @override
   String get rejectExceededNumbers => 'Aşan Numaraları Reddet';
@@ -3474,7 +3477,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get remoteFilterSettingsPageTitle => 'Uzak Numara Filtresi Ayarları';
 
   @override
-  String get remoteNumberFilter => 'Uzak Numara Filtresi';
+  String get remoteNumberFilter => 'Bulut Sorgu Eşik Koruması';
 
   @override
   String get remoteNumberFilterDatabaseInfo =>
@@ -3482,7 +3485,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get remoteNumberFilterDescription =>
-      'Uzak veritabanı bilgilerine dayanarak rahatsız edici çağrıları engelle';
+      'Bulut bildirim eşiğini aşan aramaları otomatik olarak engelle';
 
   @override
   String get remoteNumberFilterExplanationContent =>
@@ -4041,7 +4044,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get silence => 'Sessize Al';
 
   @override
-  String get silenceAndNoAnswer => 'Sessize Al ve Cevaplama';
+  String get silenceAndNoAnswer => 'Zil Sesini Sessize Al';
 
   @override
   String get silenceNoAnswer => 'Sessize Al Cevaplama';
@@ -4529,11 +4532,11 @@ class AppLocalizationsTr extends AppLocalizations {
   String get thisWeek => 'Bu Hafta';
 
   @override
-  String get timeInterceptor => 'Zaman Engelleyici';
+  String get timeInterceptor => 'Sık Arama Koruması';
 
   @override
   String get timeInterceptorDescription =>
-      'Arama sıklığına göre potansiyel aramaları otomatik olarak engelle/izin ver';
+      'Aynı numaradan kısa sürede yapılan tekrarlı aramaları engelle';
 
   @override
   String get timeInterceptorExplanation =>

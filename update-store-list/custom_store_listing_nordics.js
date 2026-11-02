@@ -1,0 +1,217 @@
+/**
+ * Custom Store Listing 自动化创建 - 北欧大区 (SE, NO, DK, FI)
+ * 用法：在 Google Play Console 控制台中粘贴并运行。
+ */
+(async () => {
+  const CONFIG = {
+    listingName: "Nordics - Private Call Blocker",
+    countries: ["Sweden", "Norway", "Denmark", "Finland"],
+    keywords: `Blockera samtal
+Spamsamtal
+Vem ringde
+Okänt nummer
+Telefontrakasserier
+Blokker anrop
+Hvem ringer
+Telefonsalg
+Blokér opkald
+Uønskede opkald
+Puhelujen esto
+Häirikköpuhelut
+Truecaller
+180.se
+1881 mobilsøk`,
+    contents: {
+      "sv-SE": {
+        name: "Samtalsblockerare & Antispam",
+        short: "Blockera telefonförsäljare och bluffsamtal. 100% privat, utan konto.",
+        full: "Trött på envisa telefonförsäljare, automatiserade robotröster och utländska bluffsamtal?\n\nFå fullständig kontroll över dina inkommande samtal med en samtalsblockerare som körs helt lokalt på din enhet utan molnsynkning.\n\n🛡️ 100% Privat och GDPR-säkert\n- Inget konto eller inloggning krävs.\n- Dina kontakter och samtalshistorik lämnar aldrig din mobiltelefon.\n\n🚫 Effektiv Samtalsfiltrering\n- Avvisa automatiskt oönskade försäljare och misstänkta bedrägerinummer.\n- Blockera specifika nummerserier och landsnummer med enkla regler.\n- Blixtsnabb motor som sparar både batteri och systemresurser.\n\nLadda ner nu och slipp störande samtal i vardagen."
+      },
+      "no-NO": {
+        name: "Blokker Anrop & Telefonsalg",
+        short: "Stopp telefonselgere og svindelforsøk. 100% privat, helt uten registrering.",
+        full: "Lei av plagsomme telefonselgere, spørreundersøkelser og utenlandske svindelnumre?\n\nBeskytt telefonlinjen din med en app som opererer fullstendig lokalt på mobilen din uten eksterne servere.\n\n🛡️ Fullstendig Personvern\n- Ingen registrering eller konto nødvendig.\n- Kontaktlisten din forblir helt privat og lastes aldri opp til nettskyen.\n\n🚫 Nøyaktig Blokkeringsverktøy\n- Blokker automatisk uønskede salgssamtaler og mistenkelige numre.\n- Enkel filtrering på spesifikke retningsnumre og nummerserier.\n- Ekstremt lettkjørt motor som ikke tapper batteriet.\n\nLast ned i dag for en stille og trygg mobilopplevelse."
+      },
+      "da-DK": {
+        name: "Opkaldsblokering mod Spam",
+        short: "Afvis uønskede opkald og fupnumre. Komplet privatliv uden kontooprettelse.",
+        full: "Bliver du ofte forstyrret af aggressive telefonsælgere og automatiske spam-opkald?\n\nFå ro i hverdagen med en effektiv opkaldsblokering, der beskytter dit privatliv og kører udelukkende på din egen enhed.\n\n🛡️ 100% Beskyttelse af Privatlivet\n- Ingen oprettelse af konto eller login nødvendig.\n- Dine kontaktdata deles aldrig med eksterne servere.\n\n🚫 Slut Med Uønsket Telefonsalg\n- Bloker automatisk mistænkelige numre og fupopkald.\n- Tilpas regler efter præfiks for maksimal fleksibilitet.\n- Let og hurtig app, der ikke bruger unødig batteristrøm.\n\nInstaller nu og få en mobil helt fri for uønsket støj."
+      },
+      "fi-FI": {
+        name: "Puhelunesto & Häirintäsuoja",
+        short: "Estä puhelinmyyjät ja huijaussoitot. Täysi yksityisyys ilman tiliä.",
+        full: "Oletko kyllästynyt jatkuvaan puhelinmyyntiin ja epäilyttäviin ulkomaanpuheluihin?\n\nOta puhelimesi hallinta takaisin sovelluksella, joka toimii täysin paikallisesti laitteessasi ilman pilvisynkronointia.\n\n🛡️ Täysi Yksityisyydensuoja\n- Ei rekisteröitymistä tai tilin luomista.\n- Yhteystietojasi tai puhelutietojasi ei koskaan lähetetä laitteesi ulkopuolelle.\n\n🚫 Tehokas Puhelujen Estäjä\n- Estä automaattisesti häirikköpuhelut ja myyntirobotit ennen kuin ne soivat.\n- Mukauta estoja suuntanumeroiden mukaan helposti.\n- Kevyt ja akkuystävällinen toiminta.\n\nAsenna nyt ja nauti rauhallisesta puhelimesta."
+      }
+    }
+  };
+
+  const wait = (ms) => new Promise(r => setTimeout(r, ms));
+  const waitFor = (predicate, timeout = 12000, interval = 100) => {
+    return new Promise((resolve, reject) => {
+      const startTime = Date.now();
+      const timer = setInterval(() => {
+        const el = predicate();
+        if (el) { clearInterval(timer); resolve(el); }
+        else if (Date.now() - startTime > timeout) { clearInterval(timer); reject(new Error(`等待元素超时 (${timeout}ms)`)); }
+      }, interval);
+    });
+  };
+
+  const forceClick = (el) => {
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'instant', block: 'center' });
+    el.focus();
+    ['pointerdown', 'mousedown', 'pointerup', 'mouseup', 'click'].forEach(t => {
+      el.dispatchEvent(new MouseEvent(t, { bubbles: true, cancelable: true, view: window, composed: true }));
+    });
+    el.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', keyCode: 13, bubbles: true }));
+    el.dispatchEvent(new KeyboardEvent('keyup', { key: 'Enter', keyCode: 13, bubbles: true }));
+  };
+
+  const fillInput = (el, val) => {
+    if (!el) return;
+    el.focus();
+    const proto = el instanceof HTMLInputElement ? window.HTMLInputElement.prototype : window.HTMLTextAreaElement.prototype;
+    const setter = Object.getOwnPropertyDescriptor(proto, 'value')?.set;
+    if (setter) setter.call(el, val); else el.value = val;
+    ['input', 'change', 'blur'].forEach(t => el.dispatchEvent(new Event(t, { bubbles: true })));
+  };
+
+  try {
+    console.log("🚀 [1/6] Setup 复刻...");
+    const createBtn = Array.from(document.querySelectorAll('button, material-button')).find(b =>
+      /Create custom store listing|Create custom listing|创建自定义商品详情/i.test(b.innerText) && b.offsetParent !== null
+    );
+    if (createBtn) { forceClick(createBtn); await wait(2000); }
+
+    const radio = document.querySelector('[debug-id="duplicate-listing-radio"]');
+    if (radio) {
+      forceClick(radio); await wait(800);
+      const drpBtn = document.querySelector('console-button-menu[debug-id="duplicate-listing-dropdown"] div[buttondecorator]');
+      if (drpBtn && !drpBtn.textContent.includes('Default store listing')) {
+        forceClick(drpBtn); await wait(1000);
+        const defaultOpt = await waitFor(() => Array.from(document.querySelectorAll('material-select-item, [role="option"], .menu-popup *')).find(el =>
+          el.textContent?.trim() === 'Default store listing' && el.offsetParent !== null
+        ));
+        forceClick(defaultOpt); await wait(1000);
+      }
+      const nextBtn1 = Array.from(document.querySelectorAll('button')).find(b => b.innerText.trim() === 'Next' && !b.disabled && b.offsetParent !== null);
+      if (nextBtn1) { forceClick(nextBtn1); await wait(2500); }
+    }
+
+    console.log("🚀 [2/6] Details 覆写名称与 Search keyword...");
+    const nameInput = await waitFor(() => document.querySelector('material-input[debug-id="name-input"] input') || document.querySelector('input[aria-label*="Name of the custom store listing"]') || document.querySelector('input.mdc-text-field__input'));
+    fillInput(nameInput, CONFIG.listingName); await wait(600);
+
+    const audField = await waitFor(() => document.querySelector('[debug-id="select-audience-field"] div[buttondecorator]') || Array.from(document.querySelectorAll('div[buttondecorator]')).find(el => el.textContent.includes('Select an audience')));
+    if (!audField.textContent.includes('Search keyword')) {
+      forceClick(audField); await wait(1000);
+      const kwOption = await waitFor(() => Array.from(document.querySelectorAll('material-select-item, [role="menuitem"], [role="option"], .item')).find(el => {
+        const t = el.innerText?.trim() || '';
+        return t.startsWith('Search keyword') && !el.querySelector('i.material-icons-extended') && el.offsetParent !== null;
+      }), 8000);
+      kwOption.scrollIntoView({ block: 'center' }); kwOption.click(); await wait(1500);
+    }
+
+    console.log("🚀 [3/6] 关键词录入与国家搜索勾选...");
+    const chooseBtn = Array.from(document.querySelectorAll('button, material-button')).find(b => b.innerText.includes('Choose keywords') && b.offsetParent !== null);
+    if (chooseBtn) { forceClick(chooseBtn); await wait(2000); }
+
+    const kwTextarea = document.querySelector('.popup textarea.mdc-text-field__input, textarea.mdc-text-field__input, textarea');
+    if (kwTextarea && !kwTextarea.value) {
+      fillInput(kwTextarea, CONFIG.keywords); await wait(600);
+      const addKwBtn = Array.from(document.querySelectorAll('material-button, button')).find(b => b.textContent.includes('Add keywords') && b.offsetParent !== null);
+      if (addKwBtn) { forceClick(addKwBtn); await wait(1200); }
+    }
+
+    const countryTrigger = Array.from(document.querySelectorAll('span, div, material-chip')).find(el => el.textContent?.trim() === 'Country / region' && el.offsetParent !== null);
+    if (countryTrigger) { forceClick(countryTrigger); await wait(1500); }
+
+    const dialog = Array.from(document.querySelectorAll('.popup, div[role="dialog"], mat-dialog-container, div')).find(el => el.innerText?.includes('countries / regions selected') && el.offsetParent !== null);
+    if (dialog) {
+      const searchInput = Array.from(dialog.querySelectorAll('input')).find(inp => inp.placeholder?.toLowerCase().includes('search') || inp.getAttribute('aria-label')?.toLowerCase().includes('search') || inp.offsetParent !== null);
+      for (const country of CONFIG.countries) {
+        fillInput(searchInput, country); await wait(1200);
+        const rows = Array.from(dialog.querySelectorAll('material-picker-item'));
+        let targetRow = rows.find(r => r.textContent?.trim()?.toLowerCase().includes(country.toLowerCase()) && !r.textContent?.toLowerCase().includes('select all')) || rows.find(r => !r.textContent?.toLowerCase()?.includes('select all'));
+        if (targetRow) { const checkbox = targetRow.querySelector('material-checkbox') || targetRow; forceClick(checkbox); await wait(800); }
+        fillInput(searchInput, ''); await wait(500);
+      }
+      const applyCountryBtn = Array.from(dialog.querySelectorAll('button, material-button')).find(b => b.innerText.trim() === 'Apply' && b.offsetParent !== null);
+      if (applyCountryBtn) { forceClick(applyCountryBtn); await wait(1500); }
+    }
+
+    const createAudBtn = await waitFor(() => document.querySelector('button.yes-button') || Array.from(document.querySelectorAll('button')).find(b => b.innerText.includes('Create audience') && b.offsetParent !== null));
+    forceClick(createAudBtn); await wait(3000);
+
+    const nextBtn2 = await waitFor(() => Array.from(document.querySelectorAll('button')).find(b => b.innerText.trim() === 'Next' && !b.disabled && b.offsetParent !== null), 8000);
+    forceClick(nextBtn2); await wait(3500);
+
+    console.log("🚀 [4/6] 语言管理与 Apply...");
+    const openLangMenu = () => {
+      const langBtn = Array.from(document.querySelectorAll('button, div[role="button"], div[buttondecorator]')).find(b => b.offsetParent !== null && (b.innerText.includes('–') || b.querySelector('i.material-icons-extended')?.innerText?.includes('arrow_drop_down')));
+      if (langBtn) forceClick(langBtn);
+    };
+
+    const isLangPopupOpen = Array.from(document.querySelectorAll('div, h2, span')).some(el => el.innerText?.trim() === 'Manage languages' && el.offsetParent !== null);
+    if (!isLangPopupOpen) {
+      openLangMenu(); await wait(1000);
+      const manageLangBtn = await waitFor(() => Array.from(document.querySelectorAll('material-select-item, [role="menuitem"]')).find(el => el.textContent?.includes('Manage languages') && el.offsetParent !== null));
+      forceClick(manageLangBtn); await wait(2000);
+      const clearBtn = await waitFor(() => document.querySelector('material-button.clear-button') || Array.from(document.querySelectorAll('material-button, button')).find(b => b.innerText.trim() === 'Clear all' && b.offsetParent !== null));
+      forceClick(clearBtn); await wait(1000);
+
+      for (const code of Object.keys(CONFIG.contents)) {
+        const langRow = Array.from(document.querySelectorAll('material-picker-item, material-select-dropdown-item, .item-group-list *')).find(row => {
+          const text = row.textContent || ''; const aria = row.getAttribute('aria-label') || '';
+          return (text.includes(`– ${code}`) || aria.includes(`– ${code}`)) && row.offsetParent !== null;
+        });
+        if (langRow) {
+          const checkbox = langRow.querySelector('material-checkbox') || langRow;
+          const isChecked = checkbox.getAttribute('aria-checked') === 'true' || checkbox.classList?.contains('material-checkbox-checked');
+          if (!isChecked) { forceClick(checkbox); await wait(500); }
+        }
+      }
+    }
+
+    const applyLangBtn = await waitFor(() => Array.from(document.querySelectorAll('button.mdc-button, button, material-button')).find(b => {
+      const label = b.querySelector('.mdc-button__label')?.innerText?.trim() || b.innerText?.trim();
+      return label === 'Apply' && b.offsetParent !== null;
+    }));
+    forceClick(applyLangBtn); await wait(2500);
+
+    console.log("🚀 [5/6] 逐一切换语言并注入文案...");
+    for (const [langCode, content] of Object.entries(CONFIG.contents)) {
+      openLangMenu(); await wait(1000);
+      const allLangItems = Array.from(document.querySelectorAll('material-select-item[aria-label]'));
+      const targetOption = allLangItems.find(el => {
+        const label = el.getAttribute('aria-label') || '';
+        return label.endsWith(langCode) || label.includes(`– ${langCode}`);
+      });
+
+      if (targetOption) {
+        forceClick(targetOption); await wait(2000);
+        if (content.name) {
+          const titleInput = document.querySelector('input[maxLength="30"]');
+          if (titleInput) fillInput(titleInput, content.name.slice(0, 30));
+        }
+        const shortInput = document.querySelector('input[aria-labelledby*="short-description"], input[maxLength="80"]') || Array.from(document.querySelectorAll('input[type="text"]')).find(el => el.maxLength === 80);
+        if (shortInput) fillInput(shortInput, content.short.slice(0, 80));
+        const fullTextarea = document.querySelector('textarea[aria-labelledby*="full-description"]') || document.querySelector('textarea');
+        if (fullTextarea) fillInput(fullTextarea, content.full.slice(0, 4000));
+        await wait(1000);
+      } else { document.body.click(); await wait(500); }
+    }
+
+    console.log("🚀 [6/6] 点击 Next 并在下一页保存...");
+    const nextBtn3 = await waitFor(() => Array.from(document.querySelectorAll('button')).find(b => b.innerText.trim() === 'Next' && !b.disabled && b.offsetParent !== null), 8000);
+    forceClick(nextBtn3); await wait(3500);
+
+    const moreBtn = await waitFor(() => document.querySelector('button[aria-label="More options"]') || document.querySelector('button[debug-id="icon-button"]') || Array.from(document.querySelectorAll('button')).find(b => b.querySelector('i')?.innerText === 'more_vert' && b.offsetParent !== null));
+    forceClick(moreBtn); await wait(1000);
+
+    const saveOption = await waitFor(() => Array.from(document.querySelectorAll('material-select-item[aria-label]')).find(el => el.getAttribute('aria-label')?.trim() === 'Save' && el.getAttribute('aria-disabled') !== 'true' && !el.classList.contains('disabled') && el.offsetParent !== null));
+    forceClick(saveOption);
+    console.log("🎉 北欧大区创建与保存成功！");
+  } catch (err) { console.error("❌ 执行中断:", err.message); }
+})();

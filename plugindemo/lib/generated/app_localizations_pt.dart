@@ -253,11 +253,11 @@ class AppLocalizationsPt extends AppLocalizations {
   String get allow => 'Permitir';
 
   @override
-  String get allowAllAllowRules => 'Permitir Todas as Regras Permitir';
+  String get allowAllAllowRules => 'Ativar todas as regras de permissão';
 
   @override
   String get allowAllAllowRulesDesc =>
-      'Permitir chamadas de regras de permissão';
+      'Interruptor principal para aplicar todas as regras de permissão configuradas';
 
   @override
   String get allowAllBlacklistedNumbers =>
@@ -268,28 +268,28 @@ class AppLocalizationsPt extends AppLocalizations {
       'Permitir chamadas da lista de bloqueio';
 
   @override
-  String get allowAllBlockRules => 'Permitir Todas as Regras Bloquear';
+  String get allowAllBlockRules => 'Ativar todas as regras de bloqueio';
 
   @override
   String get allowAllBlockRulesDesc =>
-      'Permitir chamadas de regras de bloqueio';
+      'Interruptor principal para aplicar todas as regras de bloqueio configuradas';
 
   @override
-  String get allowAllowedNumbers => 'Permitir Números Permitidos';
+  String get allowAllowedNumbers => 'Permitir todos os números aprovados';
 
   @override
   String get allowAllowedNumbersDesc =>
-      'Permitir chamadas da lista de permissão';
+      'Permitir todas as chamadas recebidas de números da sua lista de permissões';
 
   @override
   String get allowBlock => 'Permitir/Bloquear';
 
   @override
-  String get allowBlockedNumbers => 'Permitir Números Bloqueados';
+  String get allowBlockedNumbers => 'Pausar lista de bloqueio';
 
   @override
   String get allowBlockedNumbersDesc =>
-      'Permitir chamadas da lista de bloqueio';
+      'Permitir temporariamente chamadas de números da sua lista de bloqueio';
 
   @override
   String get allowedBlockedRule => 'Regra Permitir/Bloquear';
@@ -310,22 +310,22 @@ class AppLocalizationsPt extends AppLocalizations {
       'Permitir automaticamente números que não excedem o limite de contagem';
 
   @override
-  String get allowRegexAllowRules => 'Permitir Regras Regex Permitir';
+  String get allowRegexAllowRules => 'Ativar regras de permissão com Regex';
 
   @override
   String get allowRegexAllowRulesDesc =>
-      'Habilitar correspondência de padrão regex para regras de permissão';
+      'Ativar correspondência de padrões de expressão regular para regras de permissão';
 
   @override
   String get allowRegexAllowRulesDescription =>
       'Habilitar regras de permissão baseadas em regex';
 
   @override
-  String get allowRegexBlockRules => 'Permitir Regras Regex Bloquear';
+  String get allowRegexBlockRules => 'Ativar regras de bloqueio com Regex';
 
   @override
   String get allowRegexBlockRulesDesc =>
-      'Habilitar correspondência de padrão regex para regras de bloqueio';
+      'Ativar correspondência de padrões de expressão regular para regras de bloqueio';
 
   @override
   String get allowRegexBlockRulesDescription =>
@@ -1527,11 +1527,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get enableGlobalPlugins => 'Ativar plugins globais';
 
   @override
-  String get enableLocalCountFilter => 'Ativar Filtro de Contagem Local';
+  String get enableLocalCountFilter =>
+      'Ativar proteção por limite de marcações locais';
 
   @override
   String get enableLocalCountFilterDescription =>
-      'Filtra chamadas de spam automaticamente com base na contagem de marcações de chamadas';
+      'Bloquear chamadas recebidas quando a contagem de relatórios locais exceder o limite';
 
   @override
   String get enableLocalNotification => 'Usar Notificação Local';
@@ -1544,28 +1545,30 @@ class AppLocalizationsPt extends AppLocalizations {
   String get enableLocationSummary => 'Localização';
 
   @override
-  String get enableMuteRules => 'Ativar Regras de Silenciamento';
+  String get enableMuteRules => 'Silenciar chamadas intercetadas';
 
   @override
   String get enableMuteRulesDesc =>
-      'Aplicar configuração de regras de intercepção de silenciamento';
+      'Silenciar o toque para chamadas intercetadas em vez de rejeitar';
 
   @override
-  String get enableNoneActionRules => 'Ativar Regras de Nenhuma Ação';
+  String get enableNoneActionRules =>
+      'Apenas registar e marcar (Sem interrupção)';
 
   @override
   String get enableNoneActionRulesDesc =>
-      'Permitir configurações de regras sem ações de intercepção';
+      'Registar e marcar correspondências de chamadas sem tomar nenhuma ação de interceção';
 
   @override
   String get enableNotifications => 'Ativar Notificações';
 
   @override
-  String get enableRemoteNumberFilter => 'Ativar Filtro de Número Remoto';
+  String get enableRemoteNumberFilter =>
+      'Ativar proteção por limite de consultas na nuvem';
 
   @override
   String get enableRemoteNumberFilterDescription =>
-      'Usar banco de dados remoto para filtrar números';
+      'Bloquear chamadas recebidas quando a contagem de relatórios na nuvem exceder o limite';
 
   @override
   String get enableRule => 'Ativar Regra';
@@ -1589,13 +1592,13 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get enableTimeInterceptionDescription =>
-      'Interceptar chamadas repetidas em um curto período de tempo';
+      'Bloquear chamadas repetidas do mesmo número num curto período de tempo';
 
   @override
   String get enableTimeInterceptor => 'Ativar Interceptor de Tempo';
 
   @override
-  String get endCallImmediately => 'Encerrar chamada imediatamente';
+  String get endCallImmediately => 'Bloquear imediatamente';
 
   @override
   String get endColor => 'Cor Final';
@@ -2643,11 +2646,11 @@ class AppLocalizationsPt extends AppLocalizations {
       'Filtre automaticamente chamadas de spam com base na frequência de chamadas';
 
   @override
-  String get localCountFilter => 'Filtro de Contagem Local';
+  String get localCountFilter => 'Proteção por limite de marcações locais';
 
   @override
   String get localCountFilterDescription =>
-      'Intercepte chamadas frequentes com base nas contagens de números locais';
+      'Bloquear automaticamente chamadas que excedam o limite de relatórios locais';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -3482,11 +3485,11 @@ class AppLocalizationsPt extends AppLocalizations {
       'Quando ativado, todas as chamadas serão rejeitadas com a maior prioridade';
 
   @override
-  String get rejectAllNumbers => 'Rejeitar Todos os Números';
+  String get rejectAllNumbers => 'Rejeitar todas as chamadas recebidas';
 
   @override
   String get rejectAllNumbersDesc =>
-      'Rejeitar todas as chamadas recebidas quando ativado';
+      'Rejeitar todas as chamadas recebidas com prioridade máxima';
 
   @override
   String get rejectExceededNumbers => 'Rejeitar Números Excedidos';
@@ -3503,7 +3506,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Configurações de Filtro de Números Remotos';
 
   @override
-  String get remoteNumberFilter => 'Filtro de Número Remoto';
+  String get remoteNumberFilter => 'Proteção por limite de consultas na nuvem';
 
   @override
   String get remoteNumberFilterDatabaseInfo =>
@@ -3511,7 +3514,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get remoteNumberFilterDescription =>
-      'Interceptar chamadas de assédio com base nas informações do banco de dados remoto';
+      'Bloquear automaticamente chamadas que excedam o limite de relatórios na nuvem';
 
   @override
   String get remoteNumberFilterExplanationContent =>
@@ -4073,7 +4076,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get silence => 'Silêncio';
 
   @override
-  String get silenceAndNoAnswer => 'Silêncio e Sem Resposta';
+  String get silenceAndNoAnswer => 'Silenciar toque';
 
   @override
   String get silenceNoAnswer => 'Silêncio Sem Resposta';
@@ -4565,11 +4568,11 @@ class AppLocalizationsPt extends AppLocalizations {
   String get thisWeek => 'Esta Semana';
 
   @override
-  String get timeInterceptor => 'Interceptor de Tempo';
+  String get timeInterceptor => 'Proteção contra chamadas frequentes';
 
   @override
   String get timeInterceptorDescription =>
-      'Interceptar/permitir chamadas potenciais automaticamente com base na frequência de chamadas';
+      'Bloquear chamadas repetidas do mesmo número num curto período de tempo';
 
   @override
   String get timeInterceptorExplanation =>

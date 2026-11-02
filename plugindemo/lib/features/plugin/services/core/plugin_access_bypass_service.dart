@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'plugin_access_bypass_helper.dart';
 
-/// PluginAccessBypassService - Cloudflare Shield Bypass Orchestrator
 class PluginAccessBypassService {
   final _bypassHelper = PluginAccessBypassHelper();
 

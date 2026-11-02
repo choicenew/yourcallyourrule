@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:plugindemo/core/entities/plugin/plugin_entry.dart';
 import 'package:plugindemo/features/plugin/presentation/pages/plugin_url_webview_page.dart';
-import 'package:plugindemo/features/plugin/providers/plugin_test_service_provider.dart';
+import 'package:plugindemo/features/plugin/services/plugin_test_service.dart';
 import 'package:plugindemo/generated/app_localizations.dart';
 
 class PluginTestPage extends ConsumerStatefulWidget {

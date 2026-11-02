@@ -8,14 +8,10 @@ import 'package:plugindemo/features/plugin/services/core/js_execution_service.da
 import 'package:plugindemo/features/plugin/services/core/native_request_channel.dart';
 import 'package:plugindemo/features/plugin/services/plugin_script_service.dart';
 
-/// 瞬时插件执行会话 (Transient Plugin Execution Session)
-/// 架构设计：按需启用 ➔ 并发跑完所有已启用插件 ➔ 彻底销毁释放 QuickJS RAM
-/// 保证在无来电/无查询时，全系统对 JS 引擎的内存占用为 0 MB。
 class TransientPluginSession {
   final PluginScriptService _scriptService = PluginScriptService();
   static String? _cachedSystemUserAgent;
 
-  /// 快速获取系统真实 User-Agent (带内存缓存，避免重复耗时)
   static Future<String> _getSystemUserAgent() async {
     if (_cachedSystemUserAgent != null) return _cachedSystemUserAgent!;
     try {
@@ -28,7 +24,6 @@ class TransientPluginSession {
     return _cachedSystemUserAgent!;
   }
 
-  /// 辅助校验插件返回结果是否包含有效识别数据
   static bool _isValidResult(Map<String, dynamic> result) {
     if (result['success'] != true) return false;
     final sourceLabel = result['sourceLabel']?.toString().trim() ?? '';
@@ -41,10 +36,6 @@ class TransientPluginSession {
         (count is int && count > 0);
   }
 
-  /// 跑一次查询的闭环生命周期会话
-  /// [enabledPlugins]: 当前需执行的插件列表
-  /// [onFirstResult]: 当首个有效结果到达时毫秒级回调（用于 UI 秒开）
-  /// [onResultCompleted]: 当任一插件有结果到达时的流更新回调
   Future<List<Map<String, dynamic>>> executeSession({
     required List<PluginEntry> enabledPlugins,
     required String phoneNumber,
@@ -55,7 +46,6 @@ class TransientPluginSession {
   }) async {
     if (enabledPlugins.isEmpty) return [];
 
-    // 1. 实例化单次任务专用的 QuickJS 引擎沙盒
     final jsService = JsExecutionService(
       onLog: (msg) => debugPrint('[TRANSIENT-JS] $msg'),
     );
@@ -68,10 +58,8 @@ class TransientPluginSession {
         '🚀 [TransientPluginSession] Spin up QuickJS session for ${enabledPlugins.length} plugins...',
       );
 
-      // 2. 初始化 QuickJS 引擎
       await jsService.init();
 
-      // 3. 获取 User-Agent 并注册网络请求通道
       final sysUserAgent = await _getSystemUserAgent();
       final requestChannel = NativeRequestChannel(
         jsService,
@@ -80,10 +68,8 @@ class TransientPluginSession {
       );
       requestChannel.register();
 
-      // 存储每个异步调用的 Completer
       final Map<String, Completer<Map<String, dynamic>?>> queryCompleters = {};
 
-      // 注册就绪通道与结果接收通道
       jsService.registerHandler('TestPageChannel', (args) {});
       jsService.registerHandler('PluginResultChannel', (args) {
         try {
@@ -108,7 +94,6 @@ class TransientPluginSession {
         }
       });
 
-      // 4. 一次性载入所有启用插件的脚本源码并注入 Config
       for (final plugin in enabledPlugins) {
         try {
           final scriptContent = await _scriptService.getScript(plugin);
@@ -130,7 +115,6 @@ class TransientPluginSession {
         }
       }
 
-      // 5. 并发调度所有插件生成输出
       final List<Future<void>> taskFutures = [];
 
       for (final plugin in enabledPlugins) {
@@ -182,7 +166,6 @@ class TransientPluginSession {
         taskFutures.add(task);
       }
 
-      // 6. 最多等待 12 秒让慢速插件归包完毕
       await Future.wait(
         taskFutures,
       ).timeout(const Duration(seconds: 12), onTimeout: () => []);
@@ -192,7 +175,6 @@ class TransientPluginSession {
       debugPrint('⚠️ TransientPluginSession: Session Exception: $e');
       return results;
     } finally {
-      // 7. 【核心关键】无论成功还是异常/超时，彻底注销销毁 QuickJS 引擎！
       jsService.dispose();
       debugPrint(
         '🧹 [TransientPluginSession] Session completed. QuickJS engine DISPOSED & RAM cleared.',

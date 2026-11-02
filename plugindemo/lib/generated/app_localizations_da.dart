@@ -251,10 +251,11 @@ class AppLocalizationsDa extends AppLocalizations {
   String get allow => 'Tillad';
 
   @override
-  String get allowAllAllowRules => 'Tillad alle tilladelsesregler';
+  String get allowAllAllowRules => 'Aktivér alle tilladelsesregler';
 
   @override
-  String get allowAllAllowRulesDesc => 'Tillad opkald fra tilladelsesregler';
+  String get allowAllAllowRulesDesc =>
+      'Hovedkontakt til at anvende alle konfigurerede tilladelsesregler';
 
   @override
   String get allowAllBlacklistedNumbers => 'Tillad alle sortlistede numre';
@@ -263,25 +264,28 @@ class AppLocalizationsDa extends AppLocalizations {
   String get allowAllBlacklistedNumbersDesc => 'Tillad opkald fra sortlisten';
 
   @override
-  String get allowAllBlockRules => 'Tillad alle blokeringsregler';
+  String get allowAllBlockRules => 'Aktivér alle blokeringsregler';
 
   @override
-  String get allowAllBlockRulesDesc => 'Tillad opkald fra blokeringsregler';
+  String get allowAllBlockRulesDesc =>
+      'Hovedkontakt til at anvende alle konfigurerede blokeringsregler';
 
   @override
-  String get allowAllowedNumbers => 'Tillad tilladte numre';
+  String get allowAllowedNumbers => 'Tillad alle godkendte numre';
 
   @override
-  String get allowAllowedNumbersDesc => 'Tillad opkald fra hvidlisten';
+  String get allowAllowedNumbersDesc =>
+      'Tillad alle indgående opkald fra numre på din tilladelsesliste';
 
   @override
   String get allowBlock => 'Tillad/Bloker';
 
   @override
-  String get allowBlockedNumbers => 'Tillad blokerede numre';
+  String get allowBlockedNumbers => 'Pause sortliste-blokering';
 
   @override
-  String get allowBlockedNumbersDesc => 'Tillad opkald fra sortlisten';
+  String get allowBlockedNumbersDesc =>
+      'Midlertidigt tillad opkald fra numre på din blokeringsliste';
 
   @override
   String get allowedBlockedRule => 'Tillad/Bloker regel';
@@ -302,22 +306,22 @@ class AppLocalizationsDa extends AppLocalizations {
       'Tillad automatisk numre, der ikke overskrider tærsklen';
 
   @override
-  String get allowRegexAllowRules => 'Tillad Regex-tilladelsesregler';
+  String get allowRegexAllowRules => 'Aktivér Regex tilladelsesregler';
 
   @override
   String get allowRegexAllowRulesDesc =>
-      'Aktiver regex-mønstermatchning for tilladelsesregler';
+      'Aktiver regulære udtryk mønstermatchning for tilladelsesregler';
 
   @override
   String get allowRegexAllowRulesDescription =>
       'Aktiver regex-baserede tilladelsesregler';
 
   @override
-  String get allowRegexBlockRules => 'Tillad Regex-blokeringsregler';
+  String get allowRegexBlockRules => 'Aktivér Regex blokeringsregler';
 
   @override
   String get allowRegexBlockRulesDesc =>
-      'Aktiver regex-mønstermatchning for blokeringsregler';
+      'Aktiver regulære udtryk mønstermatchning for blokeringsregler';
 
   @override
   String get allowRegexBlockRulesDescription =>
@@ -1502,11 +1506,12 @@ class AppLocalizationsDa extends AppLocalizations {
   String get enableGlobalPlugins => 'Aktivér globale plugins';
 
   @override
-  String get enableLocalCountFilter => 'Aktivér lokal tællerfilter';
+  String get enableLocalCountFilter =>
+      'Aktivér beskyttelse mod lokal markeringstærskel';
 
   @override
   String get enableLocalCountFilterDescription =>
-      'Filtrer automatisk spamopkald baseret på antallet af markeringer';
+      'Blokér indgående opkald, når det lokale antal rapporter overskrider tærsklen';
 
   @override
   String get enableLocalNotification => 'Brug lokal notifikation';
@@ -1519,28 +1524,29 @@ class AppLocalizationsDa extends AppLocalizations {
   String get enableLocationSummary => 'Lokation';
 
   @override
-  String get enableMuteRules => 'Aktivér lydløse regler';
+  String get enableMuteRules => 'Slå lyd fra for afskårne opkald';
 
   @override
   String get enableMuteRulesDesc =>
-      'Anvend konfiguration af lydløse afskæringsregler';
+      'Slå ringetonen fra for afskårne opkald i stedet for at afvise';
 
   @override
-  String get enableNoneActionRules => 'Aktivér ingen handling regler';
+  String get enableNoneActionRules => 'Kun log og marker (Ingen afskæring)';
 
   @override
   String get enableNoneActionRulesDesc =>
-      'Tillad regelkonfigurationer uden afskæringsaktioner';
+      'Log og marker opkaldsmatch uden at udføre nogen afskæringsaktion';
 
   @override
   String get enableNotifications => 'Aktivér notifikationer';
 
   @override
-  String get enableRemoteNumberFilter => 'Aktivér fjernnummerfilter';
+  String get enableRemoteNumberFilter =>
+      'Aktivér beskyttelse mod cloud-forespørgselstærskel';
 
   @override
   String get enableRemoteNumberFilterDescription =>
-      'Brug fjern database til at filtrere numre';
+      'Blokér indgående opkald, når antallet af cloud-forespørgselsrapporter overskrider tærsklen';
 
   @override
   String get enableRule => 'Aktivér regel';
@@ -1564,13 +1570,13 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get enableTimeInterceptionDescription =>
-      'Afskær gentagne opkald inden for kort tid';
+      'Blokér gentagne opkald fra det samme nummer inden for kort tid';
 
   @override
   String get enableTimeInterceptor => 'Aktivér tidsafskærer';
 
   @override
-  String get endCallImmediately => 'Afslut opkald øjeblikkeligt';
+  String get endCallImmediately => 'Blokér øjeblikkeligt';
 
   @override
   String get endColor => 'Slut farve';
@@ -2608,11 +2614,11 @@ class AppLocalizationsDa extends AppLocalizations {
       'Filtrer automatisk spamopkald baseret på opkaldsfrekvens';
 
   @override
-  String get localCountFilter => 'Lokal antal-filter';
+  String get localCountFilter => 'Beskyttelse mod lokal markeringstærskel';
 
   @override
   String get localCountFilterDescription =>
-      'Afskær hyppige opkald baseret på lokale antal af numre';
+      'Blokér automatisk opkald, der overskrider den lokale rapporttærskel';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -3439,11 +3445,11 @@ class AppLocalizationsDa extends AppLocalizations {
       'Når aktiveret, vil alle opkald blive afvist med højeste prioritet';
 
   @override
-  String get rejectAllNumbers => 'Afvis Alle Numre';
+  String get rejectAllNumbers => 'Afvis alle indgående opkald';
 
   @override
   String get rejectAllNumbersDesc =>
-      'Afvis alle indgående opkald, når aktiveret';
+      'Afvis alle indgående opkald med højeste prioritet';
 
   @override
   String get rejectExceededNumbers => 'Afvis Overskredne Numre';
@@ -3460,7 +3466,7 @@ class AppLocalizationsDa extends AppLocalizations {
       'Fjernindstillinger for Nummerfilter';
 
   @override
-  String get remoteNumberFilter => 'Fjern Nummerfilter';
+  String get remoteNumberFilter => 'Beskyttelse mod cloud-forespørgselstærskel';
 
   @override
   String get remoteNumberFilterDatabaseInfo =>
@@ -3468,7 +3474,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get remoteNumberFilterDescription =>
-      'Afskær chikanerende opkald baseret på information fra fjern-database';
+      'Blokér automatisk opkald, der overskrider cloud-rapporttærsklen';
 
   @override
   String get remoteNumberFilterExplanationContent =>
@@ -4027,7 +4033,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get silence => 'Afbryd';
 
   @override
-  String get silenceAndNoAnswer => 'Afbryd og intet svar';
+  String get silenceAndNoAnswer => 'Slå ringetone fra';
 
   @override
   String get silenceNoAnswer => 'Afbryd intet svar';
@@ -4515,11 +4521,11 @@ class AppLocalizationsDa extends AppLocalizations {
   String get thisWeek => 'Denne uge';
 
   @override
-  String get timeInterceptor => 'Tidsafskærer';
+  String get timeInterceptor => 'Beskyttelse mod hyppige opkald';
 
   @override
   String get timeInterceptorDescription =>
-      'Afskær/tillad automatisk potentielle opkald baseret på opkaldsfrekvens';
+      'Blokér gentagne opkald fra det samme nummer inden for kort tid';
 
   @override
   String get timeInterceptorExplanation =>

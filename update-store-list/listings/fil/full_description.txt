@@ -1,0 +1,5 @@
+Bawiin ang kontrol sa iyong mga tawag at SMS nang may ganap na privacy. Pagod na sa mga spam na tawag? Ang app na ito ay isang malakas na blocker ng tawag at SMS para sa mga user na pinapahalagahan ang privacy.
+
+🛡️ 100% Privacy at Walang Account
+- Walang data upload: walang account system, walang online database.
+- Local na pagproseso: lahat ng panuntunan at log ay pinapamahalaan sa iyong device.

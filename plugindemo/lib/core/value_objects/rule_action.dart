@@ -1,3 +1,5 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
 // 规则动作值对象，用于表示规则匹配后要执行的动作
 
 enum RuleActionType {
@@ -112,4 +114,18 @@ class RuleAction {
       return RuleAction(type: type);
     }
   }
+}
+
+/// RuleAction <-> String 自动序列化转换器
+class RuleActionConverter implements JsonConverter<RuleAction, String> {
+  const RuleActionConverter();
+
+  @override
+  RuleAction fromJson(dynamic json) {
+    if (json == null) return RuleAction.none;
+    return RuleAction.fromString(json.toString());
+  }
+
+  @override
+  String toJson(RuleAction object) => object.toString();
 }

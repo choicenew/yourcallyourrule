@@ -2,11 +2,23 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:plugindemo/core/entities/plugin/plugin_entry.dart';
+import 'package:plugindemo/core/entities/plugin/plugin_source_data.dart';
 import 'package:plugindemo/features/plugin/services/plugin_execution_service.dart';
 import 'package:plugindemo/features/plugin/services/plugin_manager_service.dart';
 
-/// 插件调用服务 - 负责协调插件管理服务和插件执行服务
+part 'plugin_invoker_service.g.dart';
+
+/// PluginInvokerService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+PluginInvokerService pluginService(Ref ref) {
+  final pluginManagerService = ref.watch(pluginManagerServiceProvider);
+  final pluginExecutionService = ref.watch(pluginExecutionServiceProvider);
+  return PluginInvokerService(pluginManagerService, pluginExecutionService);
+}
+
 class PluginInvokerService {
   final PluginManagerService _managerService;
   final PluginExecutionService _executionService;
@@ -251,6 +263,42 @@ class PluginInvokerService {
 
       return (null, allResultsCompleter.future);
     }
+  }
+
+  Future<PluginSourceData?> callPluginSourceData(
+    String pluginId,
+    String phoneNumber,
+    String nationalNumber,
+    String e164Number,
+  ) async {
+    final rawMap = await callPlugin(pluginId, phoneNumber, nationalNumber, e164Number);
+    if (rawMap == null) return null;
+    return PluginSourceData.fromMap(rawMap);
+  }
+
+  Future<PluginSourceData?> callPluginsSourceData(
+    String phoneNumber,
+    String nationalNumber,
+    String e164Number,
+  ) async {
+    final rawMap = await callPlugins(phoneNumber, nationalNumber, e164Number);
+    if (rawMap == null) return null;
+    return PluginSourceData.fromMap(rawMap);
+  }
+
+  Future<(PluginSourceData?, Future<List<PluginSourceData>>)> callPluginsAllEntities(
+    String phoneNumber,
+    String nationalNumber,
+    String e164Number,
+  ) async {
+    final (firstRaw, allRawFuture) = await callPluginsAll(phoneNumber, nationalNumber, e164Number);
+    final firstEntity = firstRaw != null ? PluginSourceData.fromMap(firstRaw) : null;
+    
+    final allEntitiesFuture = allRawFuture.then((rawList) {
+      return rawList.map((map) => PluginSourceData.fromMap(map)).toList();
+    });
+
+    return (firstEntity, allEntitiesFuture);
   }
 
   final _lock = Object();

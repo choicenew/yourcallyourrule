@@ -643,13 +643,13 @@ abstract class AppLocalizations {
   /// No description provided for @allowAllAllowRules.
   ///
   /// In en, this message translates to:
-  /// **'Allow All Allow Rules'**
+  /// **'Enable All Allow Rules'**
   String get allowAllAllowRules;
 
   /// No description provided for @allowAllAllowRulesDesc.
   ///
   /// In en, this message translates to:
-  /// **'Allow calls from allow rules'**
+  /// **'Master switch to apply all configured allow rules'**
   String get allowAllAllowRulesDesc;
 
   /// No description provided for @allowAllBlacklistedNumbers.
@@ -667,25 +667,25 @@ abstract class AppLocalizations {
   /// No description provided for @allowAllBlockRules.
   ///
   /// In en, this message translates to:
-  /// **'Allow All Block Rules'**
+  /// **'Enable All Block Rules'**
   String get allowAllBlockRules;
 
   /// No description provided for @allowAllBlockRulesDesc.
   ///
   /// In en, this message translates to:
-  /// **'Allow calls from block rules'**
+  /// **'Master switch to apply all configured block rules'**
   String get allowAllBlockRulesDesc;
 
   /// No description provided for @allowAllowedNumbers.
   ///
   /// In en, this message translates to:
-  /// **'Allow Allowed Numbers'**
+  /// **'Allow All Approved Numbers'**
   String get allowAllowedNumbers;
 
   /// No description provided for @allowAllowedNumbersDesc.
   ///
   /// In en, this message translates to:
-  /// **'Allow calls from allowlist'**
+  /// **'Allow all incoming calls from numbers on your allowlist'**
   String get allowAllowedNumbersDesc;
 
   /// No description provided for @allowBlock.
@@ -697,13 +697,13 @@ abstract class AppLocalizations {
   /// No description provided for @allowBlockedNumbers.
   ///
   /// In en, this message translates to:
-  /// **'Allow Blocked Numbers'**
+  /// **'Bypass Blocklist'**
   String get allowBlockedNumbers;
 
   /// No description provided for @allowBlockedNumbersDesc.
   ///
   /// In en, this message translates to:
-  /// **'Allow calls from blocklist'**
+  /// **'Temporarily allow calls from numbers on your blocklist'**
   String get allowBlockedNumbersDesc;
 
   /// No description provided for @allowedBlockedRule.
@@ -739,13 +739,13 @@ abstract class AppLocalizations {
   /// No description provided for @allowRegexAllowRules.
   ///
   /// In en, this message translates to:
-  /// **'Allow Regex Allow Rules'**
+  /// **'Enable Regex Allow Rules'**
   String get allowRegexAllowRules;
 
   /// No description provided for @allowRegexAllowRulesDesc.
   ///
   /// In en, this message translates to:
-  /// **'Enable regex pattern matching for allow rules'**
+  /// **'Enable regular expression pattern matching for allow rules'**
   String get allowRegexAllowRulesDesc;
 
   /// No description provided for @allowRegexAllowRulesDescription.
@@ -757,13 +757,13 @@ abstract class AppLocalizations {
   /// No description provided for @allowRegexBlockRules.
   ///
   /// In en, this message translates to:
-  /// **'Allow Regex Block Rules'**
+  /// **'Enable Regex Block Rules'**
   String get allowRegexBlockRules;
 
   /// No description provided for @allowRegexBlockRulesDesc.
   ///
   /// In en, this message translates to:
-  /// **'Enable regex pattern matching for block rules'**
+  /// **'Enable regular expression pattern matching for block rules'**
   String get allowRegexBlockRulesDesc;
 
   /// No description provided for @allowRegexBlockRulesDescription.
@@ -2863,13 +2863,13 @@ abstract class AppLocalizations {
   /// No description provided for @enableLocalCountFilter.
   ///
   /// In en, this message translates to:
-  /// **'Enable Local Count Filter'**
+  /// **'Enable Local Mark Threshold Protection'**
   String get enableLocalCountFilter;
 
   /// No description provided for @enableLocalCountFilterDescription.
   ///
   /// In en, this message translates to:
-  /// **'Automatically filter spam calls based on call marking count'**
+  /// **'Block incoming calls when local report count exceeds threshold'**
   String get enableLocalCountFilterDescription;
 
   /// No description provided for @enableLocalNotification.
@@ -2893,25 +2893,25 @@ abstract class AppLocalizations {
   /// No description provided for @enableMuteRules.
   ///
   /// In en, this message translates to:
-  /// **'Enable Mute Rules'**
+  /// **'Silence Intercepted Calls'**
   String get enableMuteRules;
 
   /// No description provided for @enableMuteRulesDesc.
   ///
   /// In en, this message translates to:
-  /// **'Apply mute interception rules configuration'**
+  /// **'Silence the ringtone for intercepted calls instead of rejecting'**
   String get enableMuteRulesDesc;
 
   /// No description provided for @enableNoneActionRules.
   ///
   /// In en, this message translates to:
-  /// **'Enable None Action Rules'**
+  /// **'Log & Mark Only (No Interception)'**
   String get enableNoneActionRules;
 
   /// No description provided for @enableNoneActionRulesDesc.
   ///
   /// In en, this message translates to:
-  /// **'Allow rule configurations with no interception actions'**
+  /// **'Log and mark call matches without taking any interception action'**
   String get enableNoneActionRulesDesc;
 
   /// No description provided for @enableNotifications.
@@ -2923,13 +2923,13 @@ abstract class AppLocalizations {
   /// No description provided for @enableRemoteNumberFilter.
   ///
   /// In en, this message translates to:
-  /// **'Enable Remote Number Filter'**
+  /// **'Enable Cloud Query Threshold Protection'**
   String get enableRemoteNumberFilter;
 
   /// No description provided for @enableRemoteNumberFilterDescription.
   ///
   /// In en, this message translates to:
-  /// **'Use remote database to filter numbers'**
+  /// **'Block incoming calls when cloud query report count exceeds threshold'**
   String get enableRemoteNumberFilterDescription;
 
   /// No description provided for @enableRule.
@@ -2965,13 +2965,13 @@ abstract class AppLocalizations {
   /// No description provided for @enableTimeInterception.
   ///
   /// In en, this message translates to:
-  /// **'Enable Time Interception'**
+  /// **'Enable Frequent Call Protection'**
   String get enableTimeInterception;
 
   /// No description provided for @enableTimeInterceptionDescription.
   ///
   /// In en, this message translates to:
-  /// **'Intercept repeated calls within a short time'**
+  /// **'Block repeated calls from the same number within a short time'**
   String get enableTimeInterceptionDescription;
 
   /// No description provided for @enableTimeInterceptor.
@@ -2983,7 +2983,7 @@ abstract class AppLocalizations {
   /// No description provided for @endCallImmediately.
   ///
   /// In en, this message translates to:
-  /// **'End call immediately'**
+  /// **'Block Immediately'**
   String get endCallImmediately;
 
   /// No description provided for @endColor.
@@ -4771,13 +4771,13 @@ abstract class AppLocalizations {
   /// No description provided for @localCountFilter.
   ///
   /// In en, this message translates to:
-  /// **'Local Count Filter'**
+  /// **'Local Mark Threshold Protection'**
   String get localCountFilter;
 
   /// No description provided for @localCountFilterDescription.
   ///
   /// In en, this message translates to:
-  /// **'Intercept frequent calls based on local number counts'**
+  /// **'Automatically block calls exceeding local report threshold'**
   String get localCountFilterDescription;
 
   /// No description provided for @localCountFilterExplanationContent.
@@ -6283,13 +6283,13 @@ abstract class AppLocalizations {
   /// No description provided for @rejectAllNumbers.
   ///
   /// In en, this message translates to:
-  /// **'Reject All Numbers'**
+  /// **'Reject All Incoming Calls'**
   String get rejectAllNumbers;
 
   /// No description provided for @rejectAllNumbersDesc.
   ///
   /// In en, this message translates to:
-  /// **'Reject all incoming calls when enabled'**
+  /// **'Reject all incoming calls with highest priority'**
   String get rejectAllNumbersDesc;
 
   /// No description provided for @rejectExceededNumbers.
@@ -6319,7 +6319,7 @@ abstract class AppLocalizations {
   /// No description provided for @remoteNumberFilter.
   ///
   /// In en, this message translates to:
-  /// **'Remote Number Filter'**
+  /// **'Cloud Query Threshold Protection'**
   String get remoteNumberFilter;
 
   /// No description provided for @remoteNumberFilterDatabaseInfo.
@@ -6331,7 +6331,7 @@ abstract class AppLocalizations {
   /// No description provided for @remoteNumberFilterDescription.
   ///
   /// In en, this message translates to:
-  /// **'Intercept harassing calls based on remote database information'**
+  /// **'Automatically block calls exceeding cloud report threshold'**
   String get remoteNumberFilterDescription;
 
   /// No description provided for @remoteNumberFilterExplanationContent.
@@ -7291,7 +7291,7 @@ abstract class AppLocalizations {
   /// No description provided for @silenceAndNoAnswer.
   ///
   /// In en, this message translates to:
-  /// **'Silence and No Answer'**
+  /// **'Silence Ringtone'**
   String get silenceAndNoAnswer;
 
   /// No description provided for @silenceNoAnswer.
@@ -8125,13 +8125,13 @@ abstract class AppLocalizations {
   /// No description provided for @timeInterceptor.
   ///
   /// In en, this message translates to:
-  /// **'Time Interceptor'**
+  /// **'Frequent Call Protection'**
   String get timeInterceptor;
 
   /// No description provided for @timeInterceptorDescription.
   ///
   /// In en, this message translates to:
-  /// **'Automatically intercept/allow potential calls based on call frequency'**
+  /// **'Block repeated calls from the same number within a short time'**
   String get timeInterceptorDescription;
 
   /// No description provided for @timeInterceptorExplanation.

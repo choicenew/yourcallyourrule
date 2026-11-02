@@ -254,10 +254,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get allow => 'Salli';
 
   @override
-  String get allowAllAllowRules => 'Salli kaikki sallitut säännöt';
+  String get allowAllAllowRules => 'Ota kaikki sallitut säännöt käyttöön';
 
   @override
-  String get allowAllAllowRulesDesc => 'Salli puhelut sallituista säännöistä';
+  String get allowAllAllowRulesDesc =>
+      'Pääkytkin kaikkien määritettyjen sallittujen sääntöjen soveltamiseksi';
 
   @override
   String get allowAllBlacklistedNumbers =>
@@ -267,26 +268,28 @@ class AppLocalizationsFi extends AppLocalizations {
   String get allowAllBlacklistedNumbersDesc => 'Salli puhelut estolistalta';
 
   @override
-  String get allowAllBlockRules => 'Salli kaikki estetyt säännöt';
+  String get allowAllBlockRules => 'Ota kaikki estösäännöt käyttöön';
 
   @override
-  String get allowAllBlockRulesDesc => 'Salli puhelut estetyistä säännöistä';
+  String get allowAllBlockRulesDesc =>
+      'Pääkytkin kaikkien määritettyjen estösääntöjen soveltamiseksi';
 
   @override
-  String get allowAllowedNumbers => 'Salli sallitut numerot';
+  String get allowAllowedNumbers => 'Salli kaikki hyväksytyt numerot';
 
   @override
   String get allowAllowedNumbersDesc =>
-      'Salli puhelut sallituista luetteloista';
+      'Salli kaikki saapuvat puhelut sallittujen luettelon numeroista';
 
   @override
   String get allowBlock => 'Salli/Estä';
 
   @override
-  String get allowBlockedNumbers => 'Salli estetyt numerot';
+  String get allowBlockedNumbers => 'Keskeytä estolista';
 
   @override
-  String get allowBlockedNumbersDesc => 'Salli puhelut estolistalta';
+  String get allowBlockedNumbersDesc =>
+      'Salli väliaikaisesti puhelut estolistan numeroista';
 
   @override
   String get allowedBlockedRule => 'Salli/Estä sääntö';
@@ -307,7 +310,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get allowRegexAllowRules =>
-      'Salli säännöllisten lausekkeiden sallitut säännöt';
+      'Ota säännöllisten lausekkeiden sallitut säännöt käyttöön';
 
   @override
   String get allowRegexAllowRulesDesc =>
@@ -319,11 +322,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get allowRegexBlockRules =>
-      'Salli säännöllisten lausekkeiden estetyt säännöt';
+      'Ota säännöllisten lausekkeiden estösäännöt käyttöön';
 
   @override
   String get allowRegexBlockRulesDesc =>
-      'Ota käyttöön säännöllisten lausekkeiden vastaavuus estetyissä säännöissä';
+      'Ota käyttöön säännöllisten lausekkeiden vastaavuus estösäännöissä';
 
   @override
   String get allowRegexBlockRulesDescription =>
@@ -1515,11 +1518,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get enableLocalCountFilter =>
-      'Ota paikallinen laskurisuodatin käyttöön';
+      'Ota paikallisen merkinnän kynnyssuojaus käyttöön';
 
   @override
   String get enableLocalCountFilterDescription =>
-      'Suodata roskapuhelut automaattisesti puheluiden merkitsemismäärien perusteella';
+      'Estä saapuvat puhelut, kun paikallinen raporttimäärä ylittää kynnyksen';
 
   @override
   String get enableLocalNotification => 'Käytä paikallista ilmoitusta';
@@ -1532,28 +1535,29 @@ class AppLocalizationsFi extends AppLocalizations {
   String get enableLocationSummary => 'Sijainti';
 
   @override
-  String get enableMuteRules => 'Ota mykistyssäännöt käyttöön';
+  String get enableMuteRules => 'Mykistä siepatut puhelut';
 
   @override
   String get enableMuteRulesDesc =>
-      'Ota käyttöön mykistyksen sieppaussääntöjen määritys';
+      'Mykistä soittoääni siepatuille puheluille hylkäämisen sijaan';
 
   @override
-  String get enableNoneActionRules => 'Ota käyttöön ei-toimintosäännöt';
+  String get enableNoneActionRules => 'Vain lokiin ja merkintä (Ei sieppausta)';
 
   @override
   String get enableNoneActionRulesDesc =>
-      'Salli sääntökonfiguraatiot ilman sieppaustoimintoja';
+      'Kirjaa ja merkitse vastaavat puhelut suorittamatta sieppaustoimintoa';
 
   @override
   String get enableNotifications => 'Ota ilmoitukset käyttöön';
 
   @override
-  String get enableRemoteNumberFilter => 'Ota etänumero suodatus käyttöön';
+  String get enableRemoteNumberFilter =>
+      'Ota pilvikyselyn kynnyssuojaus käyttöön';
 
   @override
   String get enableRemoteNumberFilterDescription =>
-      'Käytä etätietokantaa numeroiden suodattamiseen';
+      'Estä saapuvat puhelut, kun pilvikyselyn raporttimäärä ylittää kynnyksen';
 
   @override
   String get enableRule => 'Ota sääntö käyttöön';
@@ -1578,13 +1582,13 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get enableTimeInterceptionDescription =>
-      'Sieppaa toistuvat puhelut lyhyen ajan sisällä';
+      'Estä saman numeron toistuvat puhelut lyhyessä ajassa';
 
   @override
   String get enableTimeInterceptor => 'Ota aikapoimija käyttöön';
 
   @override
-  String get endCallImmediately => 'Lopeta puhelu välittömästi';
+  String get endCallImmediately => 'Estä välittömästi';
 
   @override
   String get endColor => 'Loppuväri';
@@ -2621,11 +2625,11 @@ class AppLocalizationsFi extends AppLocalizations {
       'Suodata roskapuhelut automaattisesti puhelutiheyden perusteella';
 
   @override
-  String get localCountFilter => 'Paikallinen lukumääräsuodatin';
+  String get localCountFilter => 'Paikallinen merkinnän kynnyssuojaus';
 
   @override
   String get localCountFilterDescription =>
-      'Katkaise usein toistuvat puhelut paikallisten numerolukemien perusteella';
+      'Estä automaattisesti puhelut, jotka ylittävät paikallisen raporttikynnyksen';
 
   @override
   String get localCountFilterExplanationContent =>
@@ -3451,11 +3455,11 @@ class AppLocalizationsFi extends AppLocalizations {
       'Kun tämä on käytössä, kaikki puhelut hylätään korkeimmalla prioriteetilla';
 
   @override
-  String get rejectAllNumbers => 'Hylkää kaikki numerot';
+  String get rejectAllNumbers => 'Hylkää kaikki saapuvat puhelut';
 
   @override
   String get rejectAllNumbersDesc =>
-      'Hylkää kaikki saapuvat puhelut, kun tämä on käytössä';
+      'Hylkää kaikki saapuvat puhelut korkeimmalla prioriteetilla';
 
   @override
   String get rejectExceededNumbers => 'Hylkää ylittyneet numerot';
@@ -3471,7 +3475,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get remoteFilterSettingsPageTitle => 'Etänumerosuodattimen asetukset';
 
   @override
-  String get remoteNumberFilter => 'Etänumerosuodatin';
+  String get remoteNumberFilter => 'Pilvikyselyn kynnyssuojaus';
 
   @override
   String get remoteNumberFilterDatabaseInfo =>
@@ -3479,7 +3483,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get remoteNumberFilterDescription =>
-      'Estä häiritsevät puhelut etä-tietokannan tietojen perusteella';
+      'Estä automaattisesti puhelut, jotka ylittävät pilviraporttikynnyksen';
 
   @override
   String get remoteNumberFilterExplanationContent =>
@@ -4042,7 +4046,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get silence => 'Hiljennä';
 
   @override
-  String get silenceAndNoAnswer => 'Hiljennä ja ei vastausta';
+  String get silenceAndNoAnswer => 'Mykistä soittoääni';
 
   @override
   String get silenceNoAnswer => 'Hiljennä, ei vastausta';
@@ -4535,11 +4539,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get thisWeek => 'Tällä viikolla';
 
   @override
-  String get timeInterceptor => 'Aikapysäytin';
+  String get timeInterceptor => 'Toistuvien puhelujen suojaus';
 
   @override
   String get timeInterceptorDescription =>
-      'Sieppaa/salli automaattisesti potentiaaliset puhelut puhelutiheyden perusteella';
+      'Estä saman numeron toistuvat puhelut lyhyessä ajassa';
 
   @override
   String get timeInterceptorExplanation =>

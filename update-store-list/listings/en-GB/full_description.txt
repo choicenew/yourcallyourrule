@@ -1,0 +1,14 @@
+Tired of daily nuisance calls, automated recorded voices, and aggressive sales cold calls?
+
+This app provides uncompromising, local-first call protection designed specifically for UK users valuing their privacy.
+
+🛡️ 100% Local Privacy
+- Zero cloud logging: your phonebook and call logs never leave your device.
+- No account registration or external sync required.
+
+🚫 Advanced Nuisance Filtering
+- Instantly silence known scam networks and persistent automated robocalls.
+- Flexible prefix and wildcards rules to block entire nuisance call centres.
+- Lightweight, battery-friendly engine running completely offline.
+
+Reclaim your peace of mind and put an end to nuisance rings today.

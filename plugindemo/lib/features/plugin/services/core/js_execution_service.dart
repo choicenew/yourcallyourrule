@@ -16,8 +16,7 @@ class JsExecutionService {
   Future<void> init() async {
     _runtime = getJavascriptRuntime();
 
-    // 2. Initialize JS Runtime & Console Bridge
-    // We need 'console' to see logs in the UI.
+    // Initialize JS Runtime & Console Bridge
     const consoleBridge = """
       if (typeof console === 'undefined' || !console.log) {
           globalThis.console = {
@@ -29,7 +28,6 @@ class JsExecutionService {
     """;
     await _runtime.evaluate(consoleBridge);
 
-    // We only need to listen to channels.
     _runtime.onMessage('httpFetch', (dynamic args) async {
       if (onRequestChannel != null) {
         return await onRequestChannel!(args);
@@ -42,7 +40,6 @@ class JsExecutionService {
       debugPrint(msg);
       onLog?.call(msg);
 
-      // Dispatch to external handler if registered
       if (_handlers.containsKey('PluginResultChannel')) {
         _handlers['PluginResultChannel']?.call(args);
       }
@@ -77,7 +74,6 @@ class JsExecutionService {
   }
 
   /// Sends data back to JS by evaluating a script
-  /// Example: window.plugin['tellows'].handleResponse(...)
   Future<void> sendNativeResponse(String script) async {
     debugPrint("Sending Native Response to JS: $script");
     await _runtime.evaluate(script);
