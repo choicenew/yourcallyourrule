@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pyro_sms_driver_notification_listener/pyro_sms_driver_notification_listener.dart';
+import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 import '../l10n/sms_localizations.dart';
 
 /// Modal bottom sheet allowing users to toggle messaging apps protected by NotificationListener
