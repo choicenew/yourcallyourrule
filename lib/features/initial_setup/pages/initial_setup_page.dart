@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
 
 import '../../../core/entities/subscription/subscription.dart';
 import '../../../core/value_objects/url.dart';
@@ -18,7 +16,10 @@ import '../providers/initial_setup_provider.dart';
 import '../widgets/initial_setup_header_card.dart';
 import '../widgets/initial_setup_search_bar.dart';
 import '../widgets/initial_setup_tile.dart';
+import '../widgets/initial_setup_plugin_card.dart';
+import '../widgets/initial_setup_settings_hint_card.dart';
 import '../widgets/initial_setup_bottom_bar.dart';
+import '../widgets/initial_setup_error_view.dart';
 
 class InitialSetupPage extends ConsumerStatefulWidget {
   const InitialSetupPage({super.key});
@@ -31,7 +32,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
   final Set<String> _selectedCountryIds = {};
   final TextEditingController _customUrlController = TextEditingController();
   final TextEditingController _searchController = TextEditingController();
-  
+
   bool _isDownloading = false;
   bool _useCdn = false;
   bool _useCustomUrl = false;
@@ -41,7 +42,6 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
   @override
   void initState() {
     super.initState();
-    // 一进入初始设置页，立即标记 InitialSetup 已进入/完成，绝不容许二次表达
     ref.read(initialSetupServiceProvider).completeInitialSetup();
   }
 
@@ -79,7 +79,11 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
         loading: () => Center(
           child: CircularProgressIndicator(color: theme.colorScheme.primary),
         ),
-        error: (err, stack) => _buildErrorView(context, err, l10n),
+        error: (err, stack) => InitialSetupErrorView(
+          error: err,
+          onSkip: () => _exit(context),
+          onRetry: () => ref.invalidate(setupConfigProvider),
+        ),
       ),
     );
   }
@@ -88,7 +92,6 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
     final detectedCode = ref.watch(detectedCountryCodeProvider).value?.toUpperCase();
     final theme = Theme.of(context);
 
-    // 优先展示用户所在地区（置顶排序）
     final sortedCountries = List<CountryData>.from(config.countriesData);
     if (detectedCode != null && detectedCode.isNotEmpty) {
       sortedCountries.sort((a, b) {
@@ -126,7 +129,6 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
           c.id.toLowerCase().contains(query);
     }).toList();
 
-    // 插件推荐区：若远程配置未提供，默认降级展示 GitHub 官方插件库引导卡片
     final pluginRec = config.pluginsRecommendation ??
         PluginRecommendation(
           title: l10n.pluginManagement,
@@ -136,7 +138,6 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
 
     return Column(
       children: [
-        // 1. 顶部控制卡片
         InitialSetupHeaderCard(
           useCdn: _useCdn,
           useCustomUrl: _useCustomUrl,
@@ -145,10 +146,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
           onUseCustomUrlChanged: (val) => setState(() => _useCustomUrl = val),
           onFetchCustomUrl: _fetchCustomUrl,
         ),
-
         const SizedBox(height: 8),
-
-        // 2. 搜索与控制工具栏
         InitialSetupSearchBar(
           searchController: _searchController,
           searchQuery: _searchQuery,
@@ -170,10 +168,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
             });
           },
         ),
-
         const SizedBox(height: 8),
-
-        // 3. 规则/插件列表，采用通用 InitialSetupTile
         Expanded(
           child: filteredCountries.isEmpty
               ? Center(
@@ -202,7 +197,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
                     final isSelected = _selectedCountryIds.contains(country.id);
                     final isCurrentLocation = detectedCode != null &&
                         (country.countryCode.toUpperCase() == detectedCode ||
-                         country.id.toUpperCase() == detectedCode);
+                            country.id.toUpperCase() == detectedCode);
 
                     return InitialSetupTile(
                       country: country,
@@ -221,104 +216,8 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
                   },
                 ),
         ),
-
-        // 4. 扩展插件推荐区 (常驻引导)
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-          decoration: BoxDecoration(
-            color: theme.colorScheme.surface,
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: theme.colorScheme.outlineVariant, width: 1.0),
-          ),
-          child: Material(
-            color: Colors.transparent,
-            borderRadius: BorderRadius.circular(16),
-            child: ListTile(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 2),
-              leading: Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.secondary.withValues(alpha: 0.15),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Icon(Icons.extension_rounded, color: theme.colorScheme.secondary, size: 20),
-              ),
-              title: Text(
-                pluginRec.title,
-                style: TextStyle(fontSize: 13.5, fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface),
-              ),
-              subtitle: Text(
-                pluginRec.description,
-                style: TextStyle(fontSize: 11.5, color: theme.colorScheme.onSurfaceVariant),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-              trailing: Icon(
-                Icons.open_in_new_rounded,
-                size: 16,
-                color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6),
-              ),
-              onTap: () async {
-                final url = Uri.parse(pluginRec.webPortalUrl);
-                if (await canLaunchUrl(url)) {
-                  await launchUrl(url, mode: LaunchMode.externalApplication);
-                }
-              },
-            ),
-          ),
-        ),
-
-        // 5. 设置提示卡片
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
-          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6.0),
-          decoration: BoxDecoration(
-            color: theme.colorScheme.surface,
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: theme.colorScheme.outlineVariant, width: 1.0),
-          ),
-          child: Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.primary.withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Icon(
-                  Icons.info_outline_rounded,
-                  size: 16,
-                  color: theme.colorScheme.primary,
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Text(
-                  l10n.initialSetupSettingsHint,
-                  style: TextStyle(fontSize: 11.5, color: theme.colorScheme.onSurfaceVariant),
-                ),
-              ),
-              TextButton(
-                onPressed: () => context.pushNamed(AppRouter.settings),
-                style: TextButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                  minimumSize: Size.zero,
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                ),
-                child: Text(
-                  l10n.initialSetupGoToSettings,
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: theme.colorScheme.primary,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-
-        // 6. 底部晶莹悬浮 Action 控制面板
+        InitialSetupPluginCard(pluginRec: pluginRec),
+        const InitialSetupSettingsHintCard(),
         InitialSetupBottomBar(
           selectedCount: _selectedCountryIds.length,
           isDownloading: _isDownloading,
@@ -329,69 +228,11 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
     );
   }
 
-  Widget _buildErrorView(BuildContext context, Object err, AppLocalizations l10n) {
-    final theme = Theme.of(context);
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: theme.colorScheme.error.withValues(alpha: 0.1),
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.error_outline_rounded,
-                size: 48,
-                color: theme.colorScheme.error,
-              ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              l10n.initialSetupGetFailed,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              err.toString(),
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant),
-            ),
-            const SizedBox(height: 24),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                OutlinedButton(
-                  onPressed: () => _exit(context),
-                  child: Text(l10n.initialSetupSkip),
-                ),
-                const SizedBox(width: 16),
-                ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: theme.colorScheme.primary,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  ),
-                  onPressed: () => ref.invalidate(setupConfigProvider),
-                  icon: const Icon(Icons.refresh_rounded, size: 18),
-                  label: Text(l10n.initialSetupRetry),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   void _fetchCustomUrl() {
     final customUrl = _customUrlController.text.trim();
     ref.read(setupCustomUrlProvider.notifier).setCustomUrl(
-      customUrl.isNotEmpty ? customUrl : null,
-    );
+          customUrl.isNotEmpty ? customUrl : null,
+        );
   }
 
   Future<void> _exit(BuildContext context) async {
@@ -409,17 +250,16 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
     try {
       final phoneService = ref.read(phoneSubscriptionServiceProvider);
       final pluginService = ref.read(pluginManagerServiceProvider);
-      
+
       final List<Subscription> subscriptionsToSave = [];
       final List<String> pluginUrlsToInstall = [];
 
       for (final countryId in _selectedCountryIds) {
         final country = config.countriesData.firstWhere((c) => c.id == countryId);
-        final effectiveUrl =
-            (_useCustomUrl && _customUrlController.text.trim().isNotEmpty)
+        final effectiveUrl = (_useCustomUrl && _customUrlController.text.trim().isNotEmpty)
             ? _customUrlController.text.trim()
             : country.getEffectiveUrl(useCdn: _useCdn);
-        
+
         if (country.ruleType.toLowerCase() == 'plugin') {
           pluginUrlsToInstall.add(effectiveUrl);
         } else {
@@ -431,21 +271,18 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
             action: RuleAction.block,
             lastUpdated: DateTime.now(),
             autoUpdate: true,
-            tableType: 'phone', 
+            tableType: 'phone',
           );
           subscriptionsToSave.add(subscription);
         }
       }
 
-      // 1. 毫秒级将订阅配置写入本地 SQLite 数据库
       for (final sub in subscriptionsToSave) {
         await phoneService.save(sub);
       }
 
-      // 捕获全局 ProviderContainer 实例，避免页面 unmount 后访问 ref 引发 Bad state 异常
       final container = ref.container;
 
-      // 2. 给出成功提示并【立刻关闭向导进入主界面】，绝对不卡顿等待网络下载
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(l10n.initialSetupSaveSuccess)),
@@ -453,7 +290,6 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
         _exit(context);
       }
 
-      // 3. 在后台静默异步拉取并解析规则/插件（完全非阻塞 UI）
       Future.microtask(() async {
         for (final sub in subscriptionsToSave) {
           try {
@@ -471,7 +307,6 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
           }
         }
 
-        // 后台规则/插件全量导入完成后，主动通知统计状态提供者重新加载最新统计数据
         container.invalidate(callStatisticsProvider);
       });
     } catch (e) {

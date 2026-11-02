@@ -27,12 +27,29 @@ class SetupCustomUrlNotifier extends Notifier<String?> {
 
 final setupCustomUrlProvider = NotifierProvider<SetupCustomUrlNotifier, String?>(SetupCustomUrlNotifier.new);
 
-/// 核心配置 AsyncNotifier/FutureProvider，当 CDN 或 CustomURL 改变时自动响应式重新请求并刷新
+/// 切换全量规则配置 (app_delta_setup_config.json) 与 插件配置 (app_plugin_setup_config.json)
+class SetupIsPluginConfigNotifier extends Notifier<bool> {
+  @override
+  bool build() => false;
+
+  void setIsPluginConfig(bool value) => state = value;
+  void toggle() => state = !state;
+}
+
+final setupIsPluginConfigProvider =
+    NotifierProvider<SetupIsPluginConfigNotifier, bool>(SetupIsPluginConfigNotifier.new);
+
+/// 核心配置 AsyncNotifier/FutureProvider，当 CDN、CustomURL 或 配置类型改变时自动响应式重新请求并刷新
 final setupConfigProvider = FutureProvider.autoDispose<SetupConfig>((ref) async {
   final service = ref.watch(initialSetupServiceProvider);
   final useCdn = ref.watch(setupUseCdnProvider);
   final customUrl = ref.watch(setupCustomUrlProvider);
-  return await service.fetchConfig(useCdn: useCdn, customUrl: customUrl);
+  final isPluginConfig = ref.watch(setupIsPluginConfigProvider);
+  return await service.fetchConfig(
+    useCdn: useCdn,
+    customUrl: customUrl,
+    isPluginConfig: isPluginConfig,
+  );
 });
 
 /// 自动检测用户国家/地区代码

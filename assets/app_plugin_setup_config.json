@@ -1,0 +1,54 @@
+{
+  "config_version": "1.0.0",
+  "last_updated": "2026-10-15T21:00:19Z",
+  "config_type": "plugin",
+  "rulesets": [
+    {
+      "source_id": "cn_baidu_caller_id_plugin",
+      "name": "百度黄页在线云查插件 (Baidu CallerID)",
+      "country_code": "CN",
+      "icon_url": "https://flagcdn.com/w80/cn.png",
+      "description": "基于百度搜索与黄页 API 识别中国高频骚扰/推销/机构号码",
+      "rule_type": "plugin",
+      "full_download_url": "https://raw.githubusercontent.com/choicenew/yourcallrule/main/plugins/CN/baidu_caller_id.js",
+      "cdn_manifest_url": "https://cdn.jsdelivr.net/gh/choicenew/yourcallrule@main/plugins/CN/baidu_caller_id.js",
+      "checksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "total_rules": 1,
+      "priority": 1,
+      "is_enabled": true
+    },
+    {
+      "source_id": "cn_callfilter_plugin",
+      "name": "CallFilter 深度网络拦截插件",
+      "country_code": "CN",
+      "icon_url": "https://flagcdn.com/w80/cn.png",
+      "description": "CallFilter 社区驱动的在线诈骗与广告号码识别插件",
+      "rule_type": "plugin",
+      "full_download_url": "https://raw.githubusercontent.com/choicenew/yourcallrule/main/plugins/CN/callfilter.js",
+      "cdn_manifest_url": "https://cdn.jsdelivr.net/gh/choicenew/yourcallrule@main/plugins/CN/callfilter.js",
+      "checksum_sha256": "c72b6fa5d85fcaa556ec07509abd981ba19ec82ba7319bc202104d26190b6924",
+      "total_rules": 1,
+      "priority": 1,
+      "is_enabled": true
+    },
+    {
+      "source_id": "global_cleverdialer_plugin",
+      "name": "CleverDialer Global Caller ID Plugin",
+      "country_code": "US",
+      "icon_url": "https://flagcdn.com/w80/us.png",
+      "description": "CleverDialer 国际在线骚扰号码众包识别插件",
+      "rule_type": "plugin",
+      "full_download_url": "https://raw.githubusercontent.com/choicenew/yourcallrule/main/plugins/US/cleverdialer.js",
+      "cdn_manifest_url": "https://cdn.jsdelivr.net/gh/choicenew/yourcallrule@main/plugins/US/cleverdialer.js",
+      "checksum_sha256": "a1b2c3d4e5f67890",
+      "total_rules": 1,
+      "priority": 1,
+      "is_enabled": true
+    }
+  ],
+  "plugins_recommendation": {
+    "title": "管理已安装插件",
+    "description": "查看、启用、配置或升级已安装的在线 JS 插件",
+    "web_portal_url": "https://github.com/choicenew/yourcallrule/tree/main/plugins"
+  }
+}

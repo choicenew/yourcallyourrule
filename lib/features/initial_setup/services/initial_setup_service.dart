@@ -10,12 +10,20 @@ class InitialSetupService {
   final String rawConfigUrl;
   final String cdnConfigUrl;
   final String localAssetPath;
+
+  final String rawPluginConfigUrl;
+  final String cdnPluginConfigUrl;
+  final String localPluginAssetPath;
+
   final Dio _dio;
 
   InitialSetupService({
     this.rawConfigUrl = 'https://raw.githubusercontent.com/choicenew/yourcallrule/main/app_delta_setup_config.json',
     this.cdnConfigUrl = 'https://cdn.jsdelivr.net/gh/choicenew/yourcallrule@main/app_delta_setup_config.json',
     this.localAssetPath = 'assets/app_delta_setup_config.json',
+    this.rawPluginConfigUrl = 'https://raw.githubusercontent.com/choicenew/yourcallrule/main/app_plugin_setup_config.json',
+    this.cdnPluginConfigUrl = 'https://cdn.jsdelivr.net/gh/choicenew/yourcallrule@main/app_plugin_setup_config.json',
+    this.localPluginAssetPath = 'assets/app_plugin_setup_config.json',
     Dio? dio,
   })  : _dio = dio ??
             Dio(
@@ -26,14 +34,18 @@ class InitialSetupService {
             );
 
   /// 从应用内置的 JSON 文件中加载兜底配置，避免网络不佳时白屏
-  Future<SetupConfig> loadBuiltInConfig() async {
+  Future<SetupConfig> loadBuiltInConfig([String? assetPath]) async {
+    final path = assetPath ?? localAssetPath;
     try {
-      final jsonString = await rootBundle.loadString(localAssetPath);
+      final jsonString = await rootBundle.loadString(path);
       final data = jsonDecode(jsonString);
       if (data is Map<String, dynamic>) {
         return SetupConfig.fromMap(data);
       }
     } catch (_) {}
+    if (path != localAssetPath) {
+      return loadBuiltInConfig(localAssetPath);
+    }
     return SetupConfig(version: '1.0.0', countriesData: []);
   }
 
@@ -51,11 +63,17 @@ class InitialSetupService {
     return null;
   }
 
-  /// 获取初始配置。若网络故障则自动从本地 assets/app_delta_setup_config.json 加载兜底，绝不白屏
-  Future<SetupConfig> fetchConfig({bool useCdn = false, String? customUrl}) async {
+  /// 获取初始配置。可根据 isPluginConfig 自动切换为拉取规则配置 (app_delta_setup_config.json) 或 插件配置 (app_plugin_setup_config.json)
+  Future<SetupConfig> fetchConfig({
+    bool useCdn = false,
+    String? customUrl,
+    bool isPluginConfig = false,
+  }) async {
     final String targetUrl;
     if (customUrl != null && customUrl.trim().isNotEmpty) {
       targetUrl = customUrl.trim();
+    } else if (isPluginConfig) {
+      targetUrl = useCdn && cdnPluginConfigUrl.isNotEmpty ? cdnPluginConfigUrl : rawPluginConfigUrl;
     } else {
       targetUrl = useCdn && cdnConfigUrl.isNotEmpty ? cdnConfigUrl : rawConfigUrl;
     }
@@ -71,7 +89,7 @@ class InitialSetupService {
     } catch (_) {}
 
     // 网络不可用或请求失败时，从内置 JSON 资产文件中读取兜底配置
-    return await loadBuiltInConfig();
+    return await loadBuiltInConfig(isPluginConfig ? localPluginAssetPath : localAssetPath);
   }
 
   /// 统一标记 Initial Setup 流程完成

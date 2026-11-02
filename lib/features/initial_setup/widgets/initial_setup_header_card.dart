@@ -27,6 +27,8 @@ class InitialSetupHeaderCard extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
 
+    final isPluginConfig = ref.watch(setupIsPluginConfigProvider);
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       decoration: BoxDecoration(
@@ -49,14 +51,65 @@ class InitialSetupHeaderCard extends ConsumerWidget {
               height: 1.4,
             ),
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 12),
+          // 0. 一键切换配置库模式 (规则订阅 vs 插件)
+          Row(
+            children: [
+              Icon(
+                isPluginConfig ? Icons.extension_rounded : Icons.shield_rounded,
+                size: 18,
+                color: theme.colorScheme.primary,
+              ),
+              const SizedBox(width: 6),
+              Text(
+                l10n.ruleType,
+                style: TextStyle(
+                  fontSize: 13.5,
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.onSurface,
+                ),
+              ),
+              const Spacer(),
+              // 一键切换药丸选框
+              Container(
+                padding: const EdgeInsets.all(3),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.6),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: theme.colorScheme.outlineVariant),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    _buildModeTab(
+                      context: context,
+                      ref: ref,
+                      label: l10n.deepLinkTypeSubscription,
+                      icon: Icons.grid_view_rounded,
+                      isSelected: !isPluginConfig,
+                      value: false,
+                    ),
+                    _buildModeTab(
+                      context: context,
+                      ref: ref,
+                      label: l10n.deepLinkTypePlugin,
+                      icon: Icons.extension_rounded,
+                      isSelected: isPluginConfig,
+                      value: true,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
           // 数据源选择 & 切换器
           Row(
             children: [
               Text(
                 l10n.initialSetupSourceTitle,
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 13.5,
                   fontWeight: FontWeight.bold,
                   color: theme.colorScheme.onSurface,
                 ),
@@ -199,6 +252,55 @@ class InitialSetupHeaderCard extends ConsumerWidget {
                 ? theme.colorScheme.primary
                 : theme.colorScheme.onSurfaceVariant,
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildModeTab({
+    required BuildContext context,
+    required WidgetRef ref,
+    required String label,
+    required IconData icon,
+    required bool isSelected,
+    required bool value,
+  }) {
+    final theme = Theme.of(context);
+    return GestureDetector(
+      onTap: () {
+        ref.read(setupIsPluginConfigProvider.notifier).setIsPluginConfig(value);
+      },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 150),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        decoration: BoxDecoration(
+          color: isSelected
+              ? theme.colorScheme.primary.withValues(alpha: 0.18)
+              : Colors.transparent,
+          borderRadius: BorderRadius.circular(9),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              size: 14,
+              color: isSelected
+                  ? theme.colorScheme.primary
+                  : theme.colorScheme.onSurfaceVariant,
+            ),
+            const SizedBox(width: 4),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                color: isSelected
+                    ? theme.colorScheme.primary
+                    : theme.colorScheme.onSurfaceVariant,
+              ),
+            ),
+          ],
         ),
       ),
     );
