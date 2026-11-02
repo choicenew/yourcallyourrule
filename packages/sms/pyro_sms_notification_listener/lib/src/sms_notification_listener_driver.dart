@@ -1,9 +1,13 @@
 import 'package:flutter/services.dart';
 import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
-import 'models/protected_app_info.dart';
 
 /// NotificationListenerService-based driver allowing permission-free SMS/messaging notification screening
 class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
+  /// Self-registers this driver instance to SmsHub
+  static void register() {
+    // Registered via SmsConnectors
+  }
+
   static const MethodChannel _channel = MethodChannel('com.yours.pyro_sms/notification_listener');
 
   @override
