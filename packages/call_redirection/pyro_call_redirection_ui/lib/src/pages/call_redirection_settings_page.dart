@@ -1,97 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../providers/call_redirection_settings_provider.dart';
 
-/// Call Redirection Settings & Configuration Screen.
-class CallRedirectionSettingsPage extends StatefulWidget {
+/// Full settings page for Outbound Anti-Scam Call Redirection using Riverpod 3.0
+class CallRedirectionSettingsPage extends ConsumerStatefulWidget {
   const CallRedirectionSettingsPage({super.key});
 
   @override
-  State<CallRedirectionSettingsPage> createState() => _CallRedirectionSettingsPageState();
+  ConsumerState<CallRedirectionSettingsPage> createState() => _CallRedirectionSettingsPageState();
 }
 
-class _CallRedirectionSettingsPageState extends State<CallRedirectionSettingsPage> {
-  bool _enableRedirection = true;
-  bool _enableWangiriProtection = true;
-  bool _enablePremiumRateGuard = true;
-  bool _carModeBypassEnabled = true;
-
+class _CallRedirectionSettingsPageState extends ConsumerState<CallRedirectionSettingsPage> {
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final settings = ref.watch(callRedirectionSettingsProvider);
+    final notifier = ref.read(callRedirectionSettingsProvider.notifier);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Call Redirection Protection'),
+        title: const Text('Outbound Call Anti-Scam Settings'),
       ),
       body: ListView(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         children: [
           Card(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.security_rounded, color: theme.colorScheme.primary),
-                      const SizedBox(width: 8),
-                      Text(
-                        'Outbound Pre-Dial Protection',
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Intercepts high-risk Wangiri callback scams and premium rate numbers before outbound dials reach the network.',
-                    style: theme.textTheme.bodyMedium,
-                  ),
-                  const Divider(height: 24),
-                  SwitchListTile(
-                    value: _enableRedirection,
-                    title: const Text('Enable Call Redirection'),
-                    subtitle: const Text('Requires ROLE_CALL_REDIRECTION role'),
-                    onChanged: (val) {
-                      setState(() => _enableRedirection = val);
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 12),
-          Card(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             child: Column(
               children: [
                 SwitchListTile(
-                  value: _enableWangiriProtection,
-                  title: const Text('Wangiri Callback Scam Defense'),
-                  subtitle: const Text('Warns when calling numbers that trigger one-ring scams'),
-                  onChanged: _enableRedirection
-                      ? (val) => setState(() => _enableWangiriProtection = val)
-                      : null,
+                  title: const Text('Enable Outbound Call Protection'),
+                  subtitle: const Text('Screen high-cost and fraud numbers before dialing out'),
+                  value: settings.enableRedirection,
+                  onChanged: notifier.toggleRedirection,
                 ),
-                const Divider(height: 1),
                 SwitchListTile(
-                  value: _enablePremiumRateGuard,
-                  title: const Text('Premium Rate Number Guard'),
-                  subtitle: const Text('Warns before dialing expensive toll-charge numbers'),
-                  onChanged: _enableRedirection
-                      ? (val) => setState(() => _enablePremiumRateGuard = val)
-                      : null,
+                  title: const Text('Show "Call Anyway" Confirmation'),
+                  subtitle: const Text('Prompt confirmation banner for suspicious outgoing calls'),
+                  value: settings.enableConfirmationDialog,
+                  onChanged: notifier.toggleConfirmationDialog,
                 ),
-                const Divider(height: 1),
                 SwitchListTile(
-                  value: _carModeBypassEnabled,
-                  title: const Text('Car Mode Ghost Call Guard'),
-                  subtitle: const Text('Automatically bypasses holds while driving or in Android Auto'),
-                  onChanged: _enableRedirection
-                      ? (val) => setState(() => _carModeBypassEnabled = val)
-                      : null,
+                  title: const Text('Auto-Block High Risk Fraud Outbound'),
+                  subtitle: const Text('Automatically cancel calls to verified fraud numbers'),
+                  value: settings.enableAutoBlockHighRisk,
+                  onChanged: notifier.toggleAutoBlockHighRisk,
                 ),
               ],
             ),

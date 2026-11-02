@@ -1,0 +1,22 @@
+name: pyro_call_redirection_connector
+description: Assembly and auto-registration facade connector for Call Redirection Package Suite.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_call_redirection_protocol:
+    path: ../pyro_call_redirection_protocol
+  pyro_call_redirection_hub:
+    path: ../pyro_call_redirection_hub
+  pyro_call_redirection_driver:
+    path: ../pyro_call_redirection_driver
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

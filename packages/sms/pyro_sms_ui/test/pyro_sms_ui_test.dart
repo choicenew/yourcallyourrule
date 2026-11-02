@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pyro_sms_ui/pyro_sms_ui.dart';
 
 void main() {
-  testWidgets('SmsScreeningSettingsPage renders with localizations', (WidgetTester tester) async {
+  testWidgets('SmsScreeningSettingsPage renders with Riverpod and localizations', (WidgetTester tester) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        localizationsDelegates: [
-          SmsLocalizations.delegate,
-        ],
-        home: SmsScreeningSettingsPage(),
+      const ProviderScope(
+        child: MaterialApp(
+          localizationsDelegates: [
+            SmsLocalizations.delegate,
+          ],
+          home: SmsScreeningSettingsPage(),
+        ),
       ),
     );
 

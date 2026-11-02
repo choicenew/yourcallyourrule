@@ -1,24 +1,23 @@
+import 'package:flutter/foundation.dart';
 import 'package:pyro_call_redirection_protocol/pyro_call_redirection_protocol.dart';
 import 'call_redirection_pipeline.dart';
 
-/// Central Service Locator singleton for the Call Redirection Package Suite.
+/// Central IoC Service Locator for Call Redirection Package Suite
 class CallRedirectionHub {
-  CallRedirectionHub._();
-  static final CallRedirectionHub instance = CallRedirectionHub._();
+  CallRedirectionHub._internal();
+  static final CallRedirectionHub instance = CallRedirectionHub._internal();
 
-  ICallRedirectionAdapter? _redirectionDriver;
+  ICallRedirectionAdapter? _activeDriver;
   late final CallRedirectionPipeline pipeline = CallRedirectionPipeline(this);
 
-  /// Get registered redirection driver adapter.
-  ICallRedirectionAdapter? get redirectionDriver => _redirectionDriver;
-
-  /// Register concrete redirection driver.
   void registerRedirectionDriver(ICallRedirectionAdapter driver) {
-    _redirectionDriver = driver;
+    _activeDriver = driver;
+    debugPrint('[CallRedirectionHub] Registered redirection driver: ${driver.providerId}');
   }
 
-  /// Unregister driver.
-  void unregisterDriver() {
-    _redirectionDriver = null;
+  ICallRedirectionAdapter? get activeDriver => _activeDriver;
+
+  void clear() {
+    _activeDriver = null;
   }
 }

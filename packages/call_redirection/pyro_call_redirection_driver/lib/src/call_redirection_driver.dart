@@ -1,121 +1,108 @@
-import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:pyro_call_redirection_protocol/pyro_call_redirection_protocol.dart';
 import 'package:pyro_call_redirection_hub/pyro_call_redirection_hub.dart';
-import 'emergency_number_floor.dart';
-import 'car_mode_guard.dart';
 
-/// Concrete driver with Automatic Self-Registration logic.
-/// Automatically registers itself into [CallRedirectionHub.instance] upon class loading.
+/// Driver for CallRedirectionService outbound fraud prevention
 class CallRedirectionDriver implements ICallRedirectionAdapter {
-  static const MethodChannel _channel = MethodChannel('com.yours.yourcallyourrule/call_redirection');
-
-  final Map<String, DateTime> _bypassCache = {};
-  static const Duration _defaultDeadline = Duration(milliseconds: 3000);
-
-  // 🔥 Automatic Self-Registration Execution Hook
-  static final bool _autoRegistrationTrigger = _performAutoRegistration();
-
-  static bool _performAutoRegistration() {
-    final driver = CallRedirectionDriver._internal();
-    CallRedirectionHub.instance.registerRedirectionDriver(driver);
-    return true;
+  /// Static auto-registration hook
+  static void register() {
+    CallRedirectionHub.instance.registerRedirectionDriver(CallRedirectionDriver());
   }
 
-  /// Ensures automatic self-registration has executed.
-  static void ensureMounted() {
-    assert(_autoRegistrationTrigger);
+  static const MethodChannel _channel =
+      MethodChannel('com.yours.pyro_call/call_redirection');
+
+  final Map<String, DateTime> _bypassTokens = {};
+
+  @override
+  String get providerId => 'pyro_call_redirection_driver';
+
+  bool isEnabled;
+
+  CallRedirectionDriver({this.isEnabled = true}) {
+    _channel.setMethodCallHandler(_handleMethodCall);
   }
 
-  /// Factory constructor ensuring automatic self-registration.
-  factory CallRedirectionDriver() {
-    ensureMounted();
-    final registered = CallRedirectionHub.instance.redirectionDriver;
-    if (registered is CallRedirectionDriver) return registered;
-    return CallRedirectionDriver._internal();
+  Future<dynamic> _handleMethodCall(MethodCall call) async {
+    if (call.method == 'evaluateCall') {
+      final String rawNumber = call.arguments['phoneNumber'] as String? ?? '';
+      final entity = OutgoingCallEntity(
+        id: 'call_${DateTime.now().millisecondsSinceEpoch}',
+        rawPhoneNumber: rawNumber,
+        normalizedPhoneNumber: rawNumber.replaceAll(RegExp(r'\D'), ''),
+        timestampMs: DateTime.now().millisecondsSinceEpoch,
+      );
+      final decision = await evaluateOutboundCall(entity);
+      return decision.toMap();
+    }
+    return null;
   }
 
-  CallRedirectionDriver._internal();
+  @override
+  Future<RedirectionDecision> evaluateOutboundCall(OutgoingCallEntity call) async {
+    final number = call.rawPhoneNumber;
+    if (isEmergencyNumber(number)) {
+      return const RedirectionDecision(
+        action: RedirectionAction.proceed,
+        reason: RedirectionHoldReason.emergencyOverride,
+        description: 'Emergency number floor override',
+      );
+    }
+    if (isBypassed(number)) {
+      return const RedirectionDecision(
+        action: RedirectionAction.proceed,
+        description: 'Temporary user bypass active',
+      );
+    }
+
+    if (number.startsWith('+1800') || number.startsWith('+1900') || number.startsWith('400')) {
+      return const RedirectionDecision(
+        action: RedirectionAction.holdAndNotify,
+        reason: RedirectionHoldReason.premiumRateNumber,
+        description: 'High-cost premium rate number prefix detected',
+      );
+    }
+
+    return RedirectionDecision.proceed;
+  }
 
   @override
   bool isEmergencyNumber(String rawNumber) {
-    return EmergencyNumberFloor.isEmergency(rawNumber);
+    const emergencyNumbers = {'911', '112', '999', '110', '120', '119'};
+    return emergencyNumbers.contains(rawNumber.trim());
   }
 
   @override
   bool isBypassed(String phoneNumber) {
-    final expireAt = _bypassCache[phoneNumber];
-    if (expireAt == null) return false;
-    if (DateTime.now().isAfter(expireAt)) {
-      _bypassCache.remove(phoneNumber);
+    final expiry = _bypassTokens[phoneNumber];
+    if (expiry == null) return false;
+    if (DateTime.now().isAfter(expiry)) {
+      _bypassTokens.remove(phoneNumber);
       return false;
     }
     return true;
   }
 
   @override
-  Future<void> addBypassToken(String phoneNumber, {Duration duration = const Duration(minutes: 15)}) async {
-    _bypassCache[phoneNumber] = DateTime.now().add(duration);
+  Future<void> addBypassToken(String phoneNumber,
+      {Duration duration = const Duration(minutes: 15)}) async {
+    _bypassTokens[phoneNumber] = DateTime.now().add(duration);
   }
 
-  @override
-  Future<RedirectionDecision> evaluateOutboundCall(OutgoingCallEntity call) async {
-    final startTime = DateTime.now().millisecondsSinceEpoch;
-
-    // 1. Check Emergency Floor -> Immediate Proceed
-    if (isEmergencyNumber(call.rawPhoneNumber) || isEmergencyNumber(call.normalizedPhoneNumber)) {
-      return const RedirectionDecision(
-        action: RedirectionAction.proceed,
-        reason: RedirectionHoldReason.emergencyOverride,
-        description: 'Emergency number floor override applied.',
-      );
-    }
-
-    // 2. Check Car Mode / Non-Interactive -> Proceed to avoid ghost calls
-    if (!CarModeGuard.canShowInteractiveHold(
-      isCarModeActive: call.isCarModeActive,
-      isInteractiveAllowed: call.isInteractiveAllowed,
-    )) {
-      return const RedirectionDecision(
-        action: RedirectionAction.proceed,
-        description: 'Non-interactive or Car mode active, bypassing hold.',
-      );
-    }
-
-    // 3. Check "Call Anyway" temporary bypass token -> Proceed
-    if (isBypassed(call.normalizedPhoneNumber)) {
-      return const RedirectionDecision(
-        action: RedirectionAction.proceed,
-        description: 'User "Call Anyway" temporary bypass token valid.',
-      );
-    }
-
-    // 4. Wrap Native evaluation with strict 3000ms deadline timeout
+  Future<bool> isRoleGranted() async {
     try {
-      final result = await _channel.invokeMethod<Map<dynamic, dynamic>>(
-        'evaluateCall',
-        call.toMap(),
-      ).timeout(_defaultDeadline, onTimeout: () {
-        return {
-          'action': 'proceed',
-          'description': '3000ms Telecom deadline exceeded, fallback to proceed.',
-        };
-      });
-
-      final elapsed = DateTime.now().millisecondsSinceEpoch - startTime;
-      if (result != null) {
-        final resultMap = Map<String, dynamic>.from(result);
-        resultMap['evaluationTimeMs'] = elapsed;
-        return RedirectionDecision.fromMap(resultMap);
-      }
-    } catch (_) {
-      // Fallback on method channel exception
+      final bool? granted = await _channel.invokeMethod<bool>('isRoleGranted');
+      return granted ?? false;
+    } on MissingPluginException {
+      return false;
     }
+  }
 
-    return RedirectionDecision(
-      action: RedirectionAction.proceed,
-      description: 'Fallback proceed on driver channel exception.',
-      evaluationTimeMs: DateTime.now().millisecondsSinceEpoch - startTime,
-    );
+  Future<void> requestRole() async {
+    try {
+      await _channel.invokeMethod('requestRole');
+    } on MissingPluginException {
+      // Fallback
+    }
   }
 }

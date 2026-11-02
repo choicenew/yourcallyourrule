@@ -1,29 +1,39 @@
+import 'package:flutter/foundation.dart';
 import 'package:pyro_call_redirection_protocol/pyro_call_redirection_protocol.dart';
 import 'call_redirection_hub.dart';
 
-/// Evaluation pipeline orchestrating outbound call pre-dial screening.
+/// Pipeline orchestrator evaluating outgoing calls within strict 3000ms deadline
 class CallRedirectionPipeline {
   final CallRedirectionHub hub;
 
   CallRedirectionPipeline(this.hub);
 
-  /// Evaluate outbound call against registered driver within strict timeout limit.
   Future<RedirectionDecision> evaluate(OutgoingCallEntity call) async {
-    final driver = hub.redirectionDriver;
+    final driver = hub.activeDriver;
     if (driver == null) {
-      return const RedirectionDecision(
-        action: RedirectionAction.proceed,
-        description: 'No redirection driver registered in CallRedirectionHub.',
-      );
+      return RedirectionDecision.proceed;
     }
 
     try {
+      if (driver.isEmergencyNumber(call.rawPhoneNumber)) {
+        return const RedirectionDecision(
+          action: RedirectionAction.proceed,
+          reason: RedirectionHoldReason.emergencyOverride,
+          description: 'Allowed by emergency floor.',
+        );
+      }
+
+      if (driver.isBypassed(call.rawPhoneNumber)) {
+        return const RedirectionDecision(
+          action: RedirectionAction.proceed,
+          description: 'Allowed by active user bypass token.',
+        );
+      }
+
       return await driver.evaluateOutboundCall(call);
-    } catch (_) {
-      return const RedirectionDecision(
-        action: RedirectionAction.proceed,
-        description: 'Pipeline exception, fallback proceed.',
-      );
+    } catch (e) {
+      debugPrint('[CallRedirectionPipeline] Error evaluating call: $e');
+      return RedirectionDecision.proceed;
     }
   }
 }

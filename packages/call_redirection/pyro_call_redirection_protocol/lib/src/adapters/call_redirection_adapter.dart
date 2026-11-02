@@ -3,6 +3,8 @@ import '../models/redirection_decision.dart';
 
 /// Abstract adapter contract for outbound call redirection evaluation.
 abstract class ICallRedirectionAdapter {
+  String get providerId;
+
   /// Evaluate an outbound call attempt within strict 3000ms deadline.
   Future<RedirectionDecision> evaluateOutboundCall(OutgoingCallEntity call);
 

@@ -1,5 +1,5 @@
 name: pyro_sms_hub
-description: Service locator, self-registration connectors, and screening pipeline orchestrator hub for Pyro SMS Package Suite.
+description: Pure IoC service locator and screening pipeline orchestrator hub for Pyro SMS Package Suite.
 version: 1.0.0
 publish_to: 'none'
 
@@ -12,18 +12,6 @@ dependencies:
     sdk: flutter
   pyro_sms_protocol:
     path: ../pyro_sms_protocol
-  pyro_sms_driver_openphish:
-    path: ../pyro_sms_driver_openphish
-  pyro_sms_driver_otp_guard:
-    path: ../pyro_sms_driver_otp_guard
-  pyro_sms_driver_keyword_bloom_filter:
-    path: ../pyro_sms_driver_keyword_bloom_filter
-  pyro_sms_driver_bot_automation:
-    path: ../pyro_sms_driver_bot_automation
-  pyro_sms_driver_telephony_fallback:
-    path: ../pyro_sms_driver_telephony_fallback
-  pyro_sms_driver_notification_listener:
-    path: ../pyro_sms_driver_notification_listener
 
 dev_dependencies:
   flutter_test:

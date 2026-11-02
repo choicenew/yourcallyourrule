@@ -5,12 +5,11 @@ import 'package:pyro_sms_driver_keyword_bloom_filter/pyro_sms_driver_keyword_blo
 import 'package:pyro_sms_driver_telephony_fallback/pyro_sms_driver_telephony_fallback.dart';
 import 'package:pyro_sms_driver_notification_listener/pyro_sms_driver_notification_listener.dart';
 
-/// Central Plug-and-Play Self-Registration Connector for Pyro SMS Package Suite
+/// Central Plug-and-Play Assembly Connector for Pyro SMS Package Suite
 class SmsConnectors {
   static bool _mounted = false;
 
-  /// Single-line plug-and-play entrypoint for host app.
-  /// Auto-registers all enabled SMS drivers onto SmsHub.instance without host code.
+  /// Single-line plug-and-play entrypoint for host app assembly.
   static void ensureMounted({
     bool enableOpenPhish = true,
     bool enableOtpGuard = true,
@@ -23,22 +22,12 @@ class SmsConnectors {
 
     debugPrint('[SmsConnectors] Mounting self-registering SMS drivers...');
 
-    if (enableOpenPhish) {
-      OpenPhishDriver.register();
-    }
-    if (enableOtpGuard) {
-      OtpGuardDriver.register();
-    }
-    if (enableBloomFilter) {
-      KeywordBloomFilterDriver.register();
-    }
-    if (enableTelephonyFallback) {
-      TelephonyFallbackDriver.register();
-    }
-    if (enableNotificationListener) {
-      SmsNotificationListenerDriver.register();
-    }
+    if (enableOpenPhish) OpenPhishDriver.register();
+    if (enableOtpGuard) OtpGuardDriver.register();
+    if (enableBloomFilter) KeywordBloomFilterDriver.register();
+    if (enableTelephonyFallback) TelephonyFallbackDriver.register();
+    if (enableNotificationListener) SmsNotificationListenerDriver.register();
 
-    debugPrint('[SmsConnectors] SMS Package suite self-registration complete.');
+    debugPrint('[SmsConnectors] SMS Package suite assembly complete.');
   }
 }

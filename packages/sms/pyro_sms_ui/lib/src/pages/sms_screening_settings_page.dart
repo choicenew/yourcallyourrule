@@ -1,31 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../l10n/sms_localizations.dart';
+import '../providers/sms_settings_provider.dart';
 import 'protected_apps_selector_sheet.dart';
 import 'sms_evidence_log_sheet.dart';
 
-/// Full settings page for configuring SMS protection options
-class SmsScreeningSettingsPage extends StatefulWidget {
+/// Riverpod 3.0 ConsumerStatefulWidget for configuring SMS protection options
+class SmsScreeningSettingsPage extends ConsumerStatefulWidget {
   const SmsScreeningSettingsPage({super.key});
 
   @override
-  State<SmsScreeningSettingsPage> createState() => _SmsScreeningSettingsPageState();
+  ConsumerState<SmsScreeningSettingsPage> createState() => _SmsScreeningSettingsPageState();
 }
 
-class _SmsScreeningSettingsPageState extends State<SmsScreeningSettingsPage> {
-  bool _notificationListenerEnabled = true;
-  bool _googleSafeBrowsingEnabled = true;
-  bool _openPhishEnabled = true;
-  bool _virusTotalEnabled = true;
-  bool _otpGuardEnabled = true;
-  bool _bloomFilterEnabled = true;
-  bool _botAutomationEnabled = true;
-  bool _telephonyFallbackEnabled = false;
-  bool _mlScorerEnabled = true;
-  bool _burstProtectionEnabled = true;
-
+class _SmsScreeningSettingsPageState extends ConsumerState<SmsScreeningSettingsPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = SmsLocalizations.of(context);
+    final settings = ref.watch(smsSettingsProvider);
+    final notifier = ref.read(smsSettingsProvider.notifier);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.smsProtectionSettingsTitle),
@@ -39,8 +33,8 @@ class _SmsScreeningSettingsPageState extends State<SmsScreeningSettingsPage> {
                 SwitchListTile(
                   title: Text(l10n.permissionFreeScreeningTitle),
                   subtitle: Text(l10n.permissionFreeScreeningSubtitle),
-                  value: _notificationListenerEnabled,
-                  onChanged: (val) => setState(() => _notificationListenerEnabled = val),
+                  value: settings.notificationListenerEnabled,
+                  onChanged: notifier.toggleNotificationListener,
                 ),
                 ListTile(
                   title: Text(l10n.protectedMessagingAppsTitle),
@@ -51,8 +45,8 @@ class _SmsScreeningSettingsPageState extends State<SmsScreeningSettingsPage> {
                 SwitchListTile(
                   title: Text(l10n.telephonyFallbackTitle),
                   subtitle: Text(l10n.telephonyFallbackSubtitle),
-                  value: _telephonyFallbackEnabled,
-                  onChanged: (val) => setState(() => _telephonyFallbackEnabled = val),
+                  value: settings.telephonyFallbackEnabled,
+                  onChanged: notifier.toggleTelephonyFallback,
                 ),
               ],
             ),
@@ -64,50 +58,50 @@ class _SmsScreeningSettingsPageState extends State<SmsScreeningSettingsPage> {
                 SwitchListTile(
                   title: Text(l10n.googleSafeBrowsingTitle),
                   subtitle: Text(l10n.googleSafeBrowsingSubtitle),
-                  value: _googleSafeBrowsingEnabled,
-                  onChanged: (val) => setState(() => _googleSafeBrowsingEnabled = val),
+                  value: settings.googleSafeBrowsingEnabled,
+                  onChanged: notifier.toggleGoogleSafeBrowsing,
                 ),
                 SwitchListTile(
                   title: Text(l10n.phishTankOpenPhishTitle),
                   subtitle: Text(l10n.phishTankOpenPhishSubtitle),
-                  value: _openPhishEnabled,
-                  onChanged: (val) => setState(() => _openPhishEnabled = val),
+                  value: settings.openPhishEnabled,
+                  onChanged: notifier.toggleOpenPhish,
                 ),
                 SwitchListTile(
                   title: Text(l10n.virusTotalTitle),
                   subtitle: Text(l10n.virusTotalSubtitle),
-                  value: _virusTotalEnabled,
-                  onChanged: (val) => setState(() => _virusTotalEnabled = val),
+                  value: settings.virusTotalEnabled,
+                  onChanged: notifier.toggleVirusTotal,
                 ),
                 SwitchListTile(
                   title: Text(l10n.otpGuardTitle),
                   subtitle: Text(l10n.otpGuardSubtitle),
-                  value: _otpGuardEnabled,
-                  onChanged: (val) => setState(() => _otpGuardEnabled = val),
+                  value: settings.otpGuardEnabled,
+                  onChanged: notifier.toggleOtpGuard,
                 ),
                 SwitchListTile(
                   title: Text(l10n.bloomFilterTitle),
                   subtitle: Text(l10n.bloomFilterSubtitle),
-                  value: _bloomFilterEnabled,
-                  onChanged: (val) => setState(() => _bloomFilterEnabled = val),
+                  value: settings.bloomFilterEnabled,
+                  onChanged: notifier.toggleBloomFilter,
                 ),
                 SwitchListTile(
                   title: Text(l10n.botAutomationTitle),
                   subtitle: Text(l10n.botAutomationSubtitle),
-                  value: _botAutomationEnabled,
-                  onChanged: (val) => setState(() => _botAutomationEnabled = val),
+                  value: settings.botAutomationEnabled,
+                  onChanged: notifier.toggleBotAutomation,
                 ),
                 SwitchListTile(
                   title: Text(l10n.mlSpamScorerTitle),
                   subtitle: Text(l10n.mlSpamScorerSubtitle),
-                  value: _mlScorerEnabled,
-                  onChanged: (val) => setState(() => _mlScorerEnabled = val),
+                  value: settings.mlScorerEnabled,
+                  onChanged: notifier.toggleMlScorer,
                 ),
                 SwitchListTile(
                   title: Text(l10n.smsBurstProtectionTitle),
                   subtitle: Text(l10n.smsBurstProtectionSubtitle),
-                  value: _burstProtectionEnabled,
-                  onChanged: (val) => setState(() => _burstProtectionEnabled = val),
+                  value: settings.burstProtectionEnabled,
+                  onChanged: notifier.toggleBurstProtection,
                 ),
               ],
             ),
