@@ -1,0 +1,28 @@
+name: pyro_call_control_driver
+description: Concrete driver with automatic self-registration into CallControlHub and Android Telecom/AudioManager hardware control.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_call_control_protocol:
+    path: ../pyro_call_control_protocol
+  pyro_call_control_hub:
+    path: ../pyro_call_control_hub
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.pyro.call_control
+        pluginClass: CallControlDriverPlugin

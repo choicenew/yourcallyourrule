@@ -1,0 +1,22 @@
+name: pyro_telephony_connector
+description: Assembly and auto-registration facade connector for Telephony Package Suite.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_call_control_connector:
+    path: ../../call_control/pyro_call_control_connector
+  pyro_call_screening_connector:
+    path: ../../call_screening/pyro_call_screening_connector
+  pyro_telephony_hub:
+    path: ../pyro_telephony_hub
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

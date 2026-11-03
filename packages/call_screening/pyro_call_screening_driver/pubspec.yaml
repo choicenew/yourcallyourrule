@@ -1,0 +1,28 @@
+name: pyro_call_screening_driver
+description: Concrete dumb driver for Android CallScreeningService.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_call_screening_protocol:
+    path: ../pyro_call_screening_protocol
+  pyro_call_screening_hub:
+    path: ../pyro_call_screening_hub
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.pyro.call_screening
+        pluginClass: CallScreeningDriverPlugin

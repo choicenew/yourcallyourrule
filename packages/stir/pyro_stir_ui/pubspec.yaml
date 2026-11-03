@@ -1,0 +1,23 @@
+name: pyro_stir_ui
+description: Verification badges and indicators for STIR/SHAKEN Package Suite.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_stir_protocol:
+    path: ../pyro_stir_protocol
+  pyro_stir_hub:
+    path: ../pyro_stir_hub
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:

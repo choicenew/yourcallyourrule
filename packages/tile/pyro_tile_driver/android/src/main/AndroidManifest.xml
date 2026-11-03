@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pyro.tile">
+    <application>
+        <service
+            android:name=".QuickSettingsTileService"
+            android:icon="@android:drawable/ic_dialog_alert"
+            android:label="Call Blocker"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+    </application>
+</manifest>

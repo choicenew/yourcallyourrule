@@ -1,0 +1,22 @@
+name: pyro_call_control_connector
+description: Assembly and auto-registration facade connector for Call Control Package Suite.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_call_control_protocol:
+    path: ../pyro_call_control_protocol
+  pyro_call_control_hub:
+    path: ../pyro_call_control_hub
+  pyro_call_control_driver:
+    path: ../pyro_call_control_driver
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

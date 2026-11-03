@@ -69,4 +69,4 @@ void main() {
 
 ## 📄 License
 
-MIT License - Pyro Magma Workspace
+Proprietary / All Rights Reserved - Pyro Magma Workspace

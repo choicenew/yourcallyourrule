@@ -1,0 +1,21 @@
+name: pyro_sim_hub
+description: IoC Locator and SIM card state manager for SIM Package Suite.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_sim_protocol:
+    path: ../pyro_sim_protocol
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:

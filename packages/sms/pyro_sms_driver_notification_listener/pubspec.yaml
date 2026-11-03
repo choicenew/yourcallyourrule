@@ -2,7 +2,6 @@ name: pyro_sms_driver_notification_listener
 description: Driver for Android NotificationListenerService permission-free SMS/WhatsApp/Telegram spam listener.
 version: 1.0.0
 publish_to: 'none'
-homepage: https://github.com/yourcallyourrule/pyro_sms_driver_notification_listener
 
 environment:
   sdk: '>=3.0.0 <4.0.0'

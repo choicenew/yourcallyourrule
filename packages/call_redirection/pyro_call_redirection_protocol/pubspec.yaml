@@ -2,7 +2,6 @@ name: pyro_call_redirection_protocol
 description: Pure abstract contracts, zero-dep data models, enums and adapters for Call Redirection package suite.
 version: 1.0.0
 publish_to: 'none'
-homepage: https://github.com/yourcallyourrule/pyro_call_redirection_protocol
 
 environment:
   sdk: '>=3.0.0 <4.0.0'

@@ -1,0 +1,22 @@
+name: pyro_tile_connector
+description: Assembly facade connector for Quick Settings Tile Suite.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_tile_protocol:
+    path: ../pyro_tile_protocol
+  pyro_tile_hub:
+    path: ../pyro_tile_hub
+  pyro_tile_driver:
+    path: ../pyro_tile_driver
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

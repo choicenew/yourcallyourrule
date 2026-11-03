@@ -2,7 +2,6 @@ name: pyro_call_redirection_hub
 description: Service locator singleton and evaluation pipeline for Call Redirection package suite.
 version: 1.0.0
 publish_to: 'none'
-homepage: https://github.com/yourcallyourrule/pyro_call_redirection_hub
 
 environment:
   sdk: '>=3.0.0 <4.0.0'

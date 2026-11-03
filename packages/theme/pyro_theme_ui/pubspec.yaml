@@ -1,0 +1,23 @@
+name: pyro_theme_ui
+description: Adaptive MaterialApp ThemeBuilder and Material 3 theme wrapper widgets.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_theme_protocol:
+    path: ../pyro_theme_protocol
+  pyro_theme_hub:
+    path: ../pyro_theme_hub
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
