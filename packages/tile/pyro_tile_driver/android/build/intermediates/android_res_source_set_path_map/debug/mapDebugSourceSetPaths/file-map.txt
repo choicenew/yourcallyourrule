@@ -1,0 +1,8 @@
+com.pyro.tile.pyro_tile_driver-pngs-0 C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\tile\pyro_tile_driver\android\build\generated\res\pngs\debug
+com.pyro.tile.pyro_tile_driver-updated_navigation_xml-1 C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\tile\pyro_tile_driver\android\build\generated\updated_navigation_xml\debug
+com.pyro.tile.pyro_tile_driver-mergeDebugResources-2 C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\tile\pyro_tile_driver\android\build\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.pyro.tile.pyro_tile_driver-mergeDebugResources-3 C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\tile\pyro_tile_driver\android\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.pyro.tile.pyro_tile_driver-debug-4 C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\tile\pyro_tile_driver\android\build\intermediates\merged_res\debug\mergeDebugResources
+com.pyro.tile.pyro_tile_driver-debug-5 C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\tile\pyro_tile_driver\android\build\intermediates\packaged_res\debug\packageDebugResources
+com.pyro.tile.pyro_tile_driver-debug-6 C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\tile\pyro_tile_driver\android\src\debug\res
+com.pyro.tile.pyro_tile_driver-main-7 C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\tile\pyro_tile_driver\android\src\main\res

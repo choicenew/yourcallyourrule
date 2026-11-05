@@ -30,7 +30,7 @@ enum RedirectionHoldReason {
 
 /// Strongly-typed Channel contract constants.
 abstract final class RedirectionChannels {
-  static const String channelName = 'com.yours.yourcallyourrule/call_redirection';
+  static const String channelName = 'net.pyro.telephony/call_redirection';
   static const String methodEvaluateCall = 'evaluateCall';
   static const String methodIsRoleGranted = 'isRoleGranted';
   static const String methodRequestRole = 'requestRole';

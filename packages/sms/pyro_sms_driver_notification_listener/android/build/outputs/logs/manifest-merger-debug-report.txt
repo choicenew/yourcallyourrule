@@ -1,0 +1,35 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml:1:1-16:12
+INJECTED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml:1:1-16:12
+	package
+		ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml:2:5-49
+		INJECTED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml:1:11-69
+application
+ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml:4:5-14:19
+service#com.pyro.sms_notification_listener.SmsNotificationListenerService
+ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml:5:9-13:19
+	android:label
+		ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml:7:13-54
+	android:exported
+		ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml:9:13-36
+	android:permission
+		ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml:8:13-87
+	android:name
+		ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml:6:13-59
+intent-filter#action:name:android.service.notification.NotificationListenerService
+ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml:10:13-12:29
+action#android.service.notification.NotificationListenerService
+ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml:11:17-99
+	android:name
+		ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml:11:25-96
+uses-sdk
+INJECTED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_notification_listener\android\src\main\AndroidManifest.xml

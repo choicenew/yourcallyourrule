@@ -15,9 +15,14 @@ class TelephonyHub {
     debugPrint('[TelephonyHub] Processing incoming call: ${call.phoneNumber}');
 
     // 1. Evaluate via CallPolicy
-    final verdict = CallPolicyEngine.evaluateIncomingCall(
+    final policyContext = CallPolicyContext(
+      callId: call.callId,
       phoneNumber: call.phoneNumber,
+      normalizedNumber: call.normalizedNumber,
+      simSlot: call.simSlot,
+      timestampMs: call.timestampMs,
     );
+    final verdict = await CallPolicyEngine.evaluateCall(policyContext);
 
     debugPrint('[TelephonyHub] Policy verdict: ${verdict.action.toCode()} (${verdict.reason})');
 

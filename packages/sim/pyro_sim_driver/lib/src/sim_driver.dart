@@ -3,11 +3,23 @@ import 'package:pyro_sim_hub/pyro_sim_hub.dart';
 
 /// Native SIM driver bridging to Android SubscriptionManager, SimCheckerImpl, sim_reader, & sim_card_code.
 class SimDriver implements ISimReaderAdapter {
+  static SimDriver? _instance;
+
   static void register() {
-    SimHub.instance.registerAdapter(SimDriver());
+    _instance ??= SimDriver();
+    SimHub.instance.registerAdapter(_instance!);
   }
 
-  static const MethodChannel _channel = MethodChannel('com.yours.yourcallyourrule/sim');
+  static void unregister() {
+    _instance?.dispose();
+    _instance = null;
+  }
+
+  static const MethodChannel _channel = MethodChannel('net.pyro.telephony/sim');
+
+  void dispose() {
+    // Clean up if needed
+  }
 
   @override
   String get providerId => 'pyro_sim_driver';

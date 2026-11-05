@@ -1,5 +1,5 @@
 name: call_redirection_example
-description: Example app demonstrating Call Redirection Package Suite.
+description: Unified example app demonstrating full Telephony & SMS Package Suite.
 publish_to: 'none'
 
 environment:
@@ -18,8 +18,41 @@ dependencies:
     path: ../pyro_call_redirection_driver
   pyro_call_redirection_ui:
     path: ../pyro_call_redirection_ui
+  pyro_call_redirection_connector:
+    path: ../pyro_call_redirection_connector
+  pyro_sms_protocol:
+    path: ../../sms/pyro_sms_protocol
+  pyro_telephony_connector:
+    path: ../../telephony/pyro_telephony_connector
+  pyro_telephony_hub:
+    path: ../../telephony/pyro_telephony_hub
+  pyro_call_screening_driver:
+    path: ../../call_screening/pyro_call_screening_driver
+  pyro_call_control_driver:
+    path: ../../call_control/pyro_call_control_driver
+  pyro_sim_driver:
+    path: ../../sim/pyro_sim_driver
+  pyro_stir_driver:
+    path: ../../stir/pyro_stir_driver
+  pyro_tile_driver:
+    path: ../../tile/pyro_tile_driver
+  pyro_sms_connector:
+    path: ../../sms/pyro_sms_connector
+  pyro_sms_driver_notification_listener:
+    path: ../../sms/pyro_sms_driver_notification_listener
+  pyro_sms_driver_telephony_fallback:
+    path: ../../sms/pyro_sms_driver_telephony_fallback
+  pyro_sms_driver_keyword_bloom_filter:
+    path: ../../sms/pyro_sms_driver_keyword_bloom_filter
+  pyro_sms_driver_otp_guard:
+    path: ../../sms/pyro_sms_driver_otp_guard
+  pyro_sms_driver_openphish:
+    path: ../../sms/pyro_sms_driver_openphish
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true

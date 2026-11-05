@@ -24,9 +24,22 @@ class OtpCodeRecord {
 
 /// Driver for 2FA OTP code extraction, mask sanitization, auto-expire, and clipboard clearing
 class OtpGuardDriver implements SmsFilterAdapter {
+  static OtpGuardDriver? _instance;
+
   /// Self-registers this driver instance to SmsHub
   static void register() {
-    SmsHub.instance.registerFilter(OtpGuardDriver());
+    _instance ??= OtpGuardDriver();
+    SmsHub.instance.registerFilter(_instance!);
+  }
+
+  static void unregister() {
+    _instance?.dispose();
+    _instance = null;
+  }
+
+  void dispose() {
+    _clipboardClearTimer?.cancel();
+    _activeOtpRecords.clear();
   }
 
   @override

@@ -7,7 +7,7 @@ public class PyroSimDriverPlugin: NSObject, FlutterPlugin, FlutterStreamHandler 
   private let changeNetworkInfo = CTTelephonyNetworkInfo()
 
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "com.yours.yourcallyourrule/sim", binaryMessenger: registrar.messenger())
+    let channel = FlutterMethodChannel(name: "net.pyro.telephony/sim", binaryMessenger: registrar.messenger())
     let instance = PyroSimDriverPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }

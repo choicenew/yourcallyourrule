@@ -1,65 +1,193 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:pyro_telephony_connector/pyro_telephony_connector.dart';
+import 'package:pyro_call_redirection_connector/pyro_call_redirection_connector.dart';
+import 'package:pyro_sms_connector/pyro_sms_connector.dart';
+import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
+
+import 'package:pyro_sim_driver/pyro_sim_driver.dart';
+import 'package:pyro_stir_driver/pyro_stir_driver.dart';
+import 'package:pyro_tile_driver/pyro_tile_driver.dart';
+
 import 'package:pyro_call_redirection_driver/pyro_call_redirection_driver.dart';
-import 'package:pyro_call_redirection_hub/pyro_call_redirection_hub.dart';
-import 'package:pyro_call_redirection_ui/pyro_call_redirection_ui.dart';
+import 'package:pyro_call_screening_driver/pyro_call_screening_driver.dart';
+import 'package:pyro_sms_driver_notification_listener/pyro_sms_driver_notification_listener.dart';
+import 'package:pyro_sms_driver_telephony_fallback/pyro_sms_driver_telephony_fallback.dart';
+import 'package:pyro_sms_driver_keyword_bloom_filter/pyro_sms_driver_keyword_bloom_filter.dart';
+import 'package:pyro_sms_driver_otp_guard/pyro_sms_driver_otp_guard.dart';
+import 'package:pyro_call_policy/pyro_call_policy.dart';
+
+class TestCallPolicyEvaluator implements ICallPolicyEvaluator {
+  @override
+  String get providerId => 'test_call_policy_evaluator';
+
+  @override
+  Future<CallPolicyVerdict> evaluateCall(CallPolicyContext context) async {
+    final number = context.phoneNumber;
+    if (number.contains('18005550199')) {
+      return const CallPolicyVerdict(
+        action: CallActionType.reject,
+        reason: 'Blocked by Test Evaluator (Spam Blacklist)',
+      );
+    }
+    if (number.contains('18005550200')) {
+      return const CallPolicyVerdict(
+        action: CallActionType.silence,
+        reason: 'Silenced by Test Evaluator',
+      );
+    }
+    if (number.contains('18005550201')) {
+      return const CallPolicyVerdict(
+        action: CallActionType.answerThenHangup,
+        reason: 'AnswerThenHangup by Test Evaluator',
+      );
+    }
+    return CallPolicyVerdict.allow;
+  }
+}
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Automatic Self-Registration Hook
-  CallRedirectionDriver.ensureMounted();
+  // 1. Mount All Self-Registering Package Suite Connectors
+  TelephonyConnectors.ensureMounted();
+  CallRedirectionConnectors.ensureMounted();
+  SmsConnectors.ensureMounted();
 
-  runApp(const ProviderScope(child: CallRedirectionExampleApp()));
+  SimDriver.register();
+  StirDriver.register();
+  TileDriver.register();
+
+  // Register Test Policy Evaluator
+  CallPolicyEngine.registerEvaluator(TestCallPolicyEvaluator());
+
+  runApp(const ProviderScope(child: UnifiedPackageTestSuiteApp()));
 }
 
-class CallRedirectionExampleApp extends StatelessWidget {
-  const CallRedirectionExampleApp({super.key});
+class UnifiedPackageTestSuiteApp extends StatelessWidget {
+  const UnifiedPackageTestSuiteApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Call Redirection Runner',
+      title: 'Pyro Package Suite Automated E2E Tester',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: const ExampleHomePage(),
+      home: const TestDashboardPage(),
     );
   }
 }
 
-class ExampleHomePage extends StatefulWidget {
-  const ExampleHomePage({super.key});
+class TestDashboardPage extends StatefulWidget {
+  const TestDashboardPage({super.key});
 
   @override
-  State<ExampleHomePage> createState() => _ExampleHomePageState();
+  State<TestDashboardPage> createState() => _TestDashboardPageState();
 }
 
-class _ExampleHomePageState extends State<ExampleHomePage> {
-  final TextEditingController _numberController = TextEditingController(text: '+18885550199');
-  RedirectionDecision? _lastDecision;
-  bool _isEvaluating = false;
+class _TestDashboardPageState extends State<TestDashboardPage> {
+  String _logs = 'App started. Connectors mounted.\n';
 
-  Future<void> _evaluateTestCall() async {
-    setState(() => _isEvaluating = true);
-
-    final rawNumber = _numberController.text.trim();
-    final call = OutgoingCallEntity(
-      id: 'test_${DateTime.now().millisecondsSinceEpoch}',
-      rawPhoneNumber: rawNumber,
-      normalizedPhoneNumber: rawNumber.replaceAll(RegExp(r'\D'), ''),
-      timestampMs: DateTime.now().millisecondsSinceEpoch,
-      isInteractiveAllowed: true,
-      isCarModeActive: false,
-    );
-
-    final decision = await CallRedirectionHub.instance.pipeline.evaluate(call);
-
+  void _addLog(String msg) {
     setState(() {
-      _lastDecision = decision;
-      _isEvaluating = false;
+      _logs = '[${DateTime.now().toString().split('.').first}] $msg\n$_logs';
     });
+  }
+
+  // --- Test 1: SIM Reader ---
+  Future<void> _testSimReader() async {
+    _addLog('Testing SimDriver.getActiveSimCards()...');
+    final driver = SimDriver();
+    final cards = await driver.getActiveSimCards();
+    final hasSim = await driver.hasSimCard();
+    final netInfo = await driver.getNetworkInfo();
+    _addLog('SIM Result: count=${cards.length}, hasSim=$hasSim, net=${netInfo?.networkOperatorName}');
+  }
+
+  // --- Test 2: STIR Verification ---
+  Future<void> _testStir() async {
+    _addLog('Testing StirDriver.checkStirStatus()...');
+    final driver = StirDriver();
+    final result = await driver.checkStirStatus('+18005550199');
+    _addLog('STIR Result: status=${result?.status}, isVerified=${result?.isVerified}');
+  }
+
+  // --- Test 3: Quick Tile ---
+  Future<void> _testTile() async {
+    _addLog('Testing TileDriver...');
+    final driver = TileDriver();
+    final ok1 = await driver.updateTileState(TileStateType.active, subtitle: 'Protection Active');
+    final ok2 = await driver.requestAddTile();
+    _addLog('Tile Result: updateTileState=$ok1, requestAddTile=$ok2');
+  }
+
+  // --- Test 4: Call Redirection Role ---
+  Future<void> _testCallRedirection() async {
+    _addLog('Testing CallRedirectionDriver.isRoleGranted()...');
+    final driver = CallRedirectionDriver();
+    final granted = await driver.isRoleGranted();
+    _addLog('CallRedirection Role Granted=$granted');
+    if (!granted) {
+      _addLog('Requesting CallRedirection role...');
+      await driver.requestRole();
+    }
+  }
+
+  // --- Test 5: Notification Listener Permission ---
+  Future<void> _testNotificationListener() async {
+    _addLog('Testing SmsNotificationListenerDriver.isPermissionGranted()...');
+    final driver = SmsNotificationListenerDriver();
+    final granted = await driver.isPermissionGranted();
+    _addLog('Notification Listener Permission Granted=$granted');
+    if (!granted) {
+      _addLog('Requesting Notification Listener permission...');
+      await driver.requestPermission();
+    }
+  }
+
+  // --- Test 6: SMS Telephony Fallback Permission ---
+  Future<void> _testSmsFallback() async {
+    _addLog('Testing TelephonyFallbackDriver.isSmsPermissionGranted()...');
+    final driver = TelephonyFallbackDriver();
+    final granted = await driver.isSmsPermissionGranted();
+    _addLog('SMS Receive Permission Granted=$granted');
+  }
+
+  // --- Test 7: Keyword Bloom Filter & AC Automaton ---
+  Future<void> _testBloomFilter() async {
+    _addLog('Testing KeywordBloomFilterDriver...');
+    final driver = KeywordBloomFilterDriver(keywords: ['lottery', 'winner', '博彩']);
+    final msg = SmsMessageEntity(
+      id: 'msg_1',
+      sender: 'Spammer',
+      body: 'Congratulations! You won the casino lottery!',
+      timestamp: DateTime.now(),
+    );
+    final result = await driver.screenMessage(msg);
+    _addLog('Bloom Filter Result: riskLevel=${result?.riskLevel.name}, reasoning=${result?.reasoning}');
+  }
+
+  // --- Test 8: OTP Privacy Guard ---
+  Future<void> _testOtpGuard() async {
+    _addLog('Testing OtpGuardDriver...');
+    final driver = OtpGuardDriver();
+    final sanitized = driver.sanitizeSmsBody('Your verification code is 849201. Do not share.');
+    _addLog('OTP Guard Sanitized Body: "$sanitized"');
+  }
+
+  // --- Test 9: Call Screening Role ---
+  Future<void> _testCallScreeningRole() async {
+    _addLog('Testing CallScreeningDriver.isRoleGranted()...');
+    final driver = CallScreeningDriver();
+    final granted = await driver.isRoleGranted();
+    _addLog('Call Screening Role Granted=$granted');
+    if (!granted) {
+      _addLog('Requesting Call Screening role...');
+      await driver.requestRole();
+    }
   }
 
   @override
@@ -68,100 +196,88 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Call Redirection Isolated Tester'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (_) => const CallRedirectionSettingsPage()),
-              );
-            },
-          ),
-        ],
+        title: const Text('Pyro Package Suite E2E Tester'),
+        backgroundColor: theme.colorScheme.primaryContainer,
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(16.0),
+      body: Column(
         children: [
-          Card(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            child: Padding(
+          Expanded(
+            child: ListView(
               padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Outbound Pre-Dial Simulator',
-                    style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 12),
-                  TextField(
-                    controller: _numberController,
-                    decoration: const InputDecoration(
-                      labelText: 'Test Outbound Phone Number',
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.phone),
+              children: [
+                Text('Native Driver Hardware & Channel Verification:', style: theme.textTheme.titleMedium),
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    ElevatedButton.icon(
+                      onPressed: _testSimReader,
+                      icon: const Icon(Icons.sim_card),
+                      label: const Text('Test SIM Reader'),
                     ),
-                    keyboardType: TextInputType.phone,
-                  ),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton.icon(
-                      onPressed: _isEvaluating ? null : _evaluateTestCall,
-                      icon: _isEvaluating
-                          ? const SizedBox(
-                              width: 18,
-                              height: 18,
-                              child: CircularProgressIndicator(strokeWidth: 2),
-                            )
-                          : const Icon(Icons.play_arrow_rounded),
-                      label: const Text('Simulate Pre-Dial Evaluation'),
+                    ElevatedButton.icon(
+                      onPressed: _testStir,
+                      icon: const Icon(Icons.verified_user),
+                      label: const Text('Test STIR Auth'),
                     ),
-                  ),
-                ],
-              ),
+                    ElevatedButton.icon(
+                      onPressed: _testTile,
+                      icon: const Icon(Icons.dashboard_customize),
+                      label: const Text('Test Quick Tile'),
+                    ),
+                    ElevatedButton.icon(
+                      onPressed: _testCallRedirection,
+                      icon: const Icon(Icons.call_made),
+                      label: const Text('Test Redirection Role'),
+                    ),
+                    ElevatedButton.icon(
+                      onPressed: _testCallScreeningRole,
+                      icon: const Icon(Icons.shield),
+                      label: const Text('Test Screening Role'),
+                    ),
+                    ElevatedButton.icon(
+                      onPressed: _testNotificationListener,
+                      icon: const Icon(Icons.notifications_active),
+                      label: const Text('Test Notification Listener'),
+                    ),
+                    ElevatedButton.icon(
+                      onPressed: _testSmsFallback,
+                      icon: const Icon(Icons.sms),
+                      label: const Text('Test SMS Receiver'),
+                    ),
+                    ElevatedButton.icon(
+                      onPressed: _testBloomFilter,
+                      icon: const Icon(Icons.filter_alt),
+                      label: const Text('Test Bloom Filter'),
+                    ),
+                    ElevatedButton.icon(
+                      onPressed: _testOtpGuard,
+                      icon: const Icon(Icons.lock),
+                      label: const Text('Test OTP Guard'),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 16),
-          if (_lastDecision != null) ...[
-            Card(
-              color: _lastDecision!.action == RedirectionAction.proceed
-                  ? theme.colorScheme.primaryContainer
-                  : theme.colorScheme.errorContainer,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Evaluation Result:',
-                      style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 8),
-                    Text('Action: ${_lastDecision!.action.name.toUpperCase()}'),
-                    if (_lastDecision!.reason != null)
-                      Text('Reason: ${_lastDecision!.reason!.name}'),
-                    Text('Description: ${_lastDecision!.description}'),
-                    Text('Evaluation Elapsed: ${_lastDecision!.evaluationTimeMs} ms'),
-                  ],
+          const Divider(height: 1),
+          Container(
+            height: 220,
+            width: double.infinity,
+            color: Colors.black87,
+            padding: const EdgeInsets.all(12.0),
+            child: SingleChildScrollView(
+              child: Text(
+                _logs,
+                style: const TextStyle(
+                  color: Colors.greenAccent,
+                  fontFamily: 'monospace',
+                  fontSize: 12,
                 ),
               ),
             ),
-            const SizedBox(height: 12),
-            ElevatedButton.icon(
-              onPressed: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (_) => const HeldCallLogSheet(),
-                );
-              },
-              icon: const Icon(Icons.list_alt_rounded),
-              label: const Text('View Held Outbound Call Log Sheet'),
-            ),
-          ],
+          ),
         ],
       ),
     );

@@ -10,19 +10,14 @@ class StirDriverPlugin : FlutterPlugin, MethodCallHandler {
     private lateinit var channel: MethodChannel
 
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        channel = MethodChannel(binding.binaryMessenger, "com.yours.yourcallyourrule/stir_check")
+        channel = MethodChannel(binding.binaryMessenger, "net.pyro.telephony/stir_check")
         channel.setMethodCallHandler(this)
     }
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         if (call.method == "checkStirStatus") {
             val phoneNumber = call.argument<String>("phoneNumber") ?: ""
-            val resMap = mapOf(
-                "phoneNumber" to phoneNumber,
-                "status" to "NOT_AVAILABLE",
-                "isVerified" to false,
-                "isFailed" to false
-            )
+            val resMap = StirCheckerImpl.getLatestStirResult(phoneNumber)
             result.success(resMap)
         } else {
             result.notImplemented()

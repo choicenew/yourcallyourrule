@@ -18,7 +18,7 @@ class CallRedirectionServiceImpl : CallRedirectionService() {
 
     companion object {
         private const val TAG = "CallRedirectionService"
-        const val CHANNEL = "com.yours.yourcallyourrule/call_redirection"
+        const val CHANNEL = "net.pyro.telephony/call_redirection"
         private const val DEADLINE_MS = 3000L
         @Volatile var messenger: BinaryMessenger? = null
 
@@ -100,6 +100,8 @@ class CallRedirectionServiceImpl : CallRedirectionService() {
         Log.w(TAG, "Redirection timeout triggered")
     }
 
+    private val mainHandler = android.os.Handler(android.os.Looper.getMainLooper())
+
     private suspend fun evaluateCallViaFlutter(rawNumber: String, allowInteractive: Boolean): Map<*, *>? {
         return kotlin.coroutines.suspendCoroutine { continuation ->
             val msger = messenger
@@ -117,23 +119,25 @@ class CallRedirectionServiceImpl : CallRedirectionService() {
                 "isCarModeActive" to false,
             )
 
-            MethodChannel(msger, CHANNEL).invokeMethod("evaluateCall", callData, object : MethodChannel.Result {
-                override fun success(result: Any?) {
-                    if (result is Map<*, *>) {
-                        continuation.resumeWith(Result.success(result))
-                    } else {
+            mainHandler.post {
+                MethodChannel(msger, CHANNEL).invokeMethod("evaluateCall", callData, object : MethodChannel.Result {
+                    override fun success(result: Any?) {
+                        if (result is Map<*, *>) {
+                            continuation.resumeWith(Result.success(result))
+                        } else {
+                            continuation.resumeWith(Result.success(mapOf("action" to "proceed")))
+                        }
+                    }
+
+                    override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
                         continuation.resumeWith(Result.success(mapOf("action" to "proceed")))
                     }
-                }
 
-                override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
-                    continuation.resumeWith(Result.success(mapOf("action" to "proceed")))
-                }
-
-                override fun notImplemented() {
-                    continuation.resumeWith(Result.success(mapOf("action" to "proceed")))
-                }
-            })
+                    override fun notImplemented() {
+                        continuation.resumeWith(Result.success(mapOf("action" to "proceed")))
+                    }
+                })
+            }
         }
     }
 

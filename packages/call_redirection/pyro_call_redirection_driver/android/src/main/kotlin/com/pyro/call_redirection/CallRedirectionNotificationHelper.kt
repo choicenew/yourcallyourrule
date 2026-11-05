@@ -15,7 +15,7 @@ object CallRedirectionNotificationHelper {
     private const val CHANNEL_ID = "pyro_call_redirection_channel"
     private const val CHANNEL_NAME = "Outbound Call Shield"
 
-    private void ensureChannel(Context context) {
+    private fun ensureChannel(context: Context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             val channel = NotificationChannel(

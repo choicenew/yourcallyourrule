@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pyro.call_screening" >
+
+    <uses-sdk android:minSdkVersion="29" />
+
+    <application>
+        <service
+            android:name="com.pyro.call_screening.CallScreeningServiceImpl"
+            android:exported="true"
+            android:permission="android.permission.BIND_SCREENING_SERVICE" >
+            <intent-filter>
+                <action android:name="android.telecom.CallScreeningService" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

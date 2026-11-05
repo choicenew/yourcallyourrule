@@ -17,6 +17,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    namespace 'com.pyro.call_screening'
     compileSdk 34
 
     defaultConfig {

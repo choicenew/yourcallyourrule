@@ -15,6 +15,13 @@ dependencies:
   pyro_sms_hub:
     path: ../pyro_sms_hub
 
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.pyro.sms_telephony_fallback
+        pluginClass: TelephonyFallbackPlugin
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

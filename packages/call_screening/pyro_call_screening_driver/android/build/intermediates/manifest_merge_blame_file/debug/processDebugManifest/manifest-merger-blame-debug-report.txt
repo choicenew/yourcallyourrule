@@ -1,0 +1,28 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.pyro.call_screening" >
+4
+5    <uses-sdk android:minSdkVersion="29" />
+5-->INJECTED
+5-->INJECTED
+6
+7    <application>
+7-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:3:5-12:19
+8        <service
+8-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:4:9-11:19
+9            android:name="com.pyro.call_screening.CallScreeningServiceImpl"
+9-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:5:13-53
+10            android:exported="true"
+10-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:7:13-36
+11            android:permission="android.permission.BIND_SCREENING_SERVICE" >
+11-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:6:13-75
+12            <intent-filter>
+12-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:8:13-10:29
+13                <action android:name="android.telecom.CallScreeningService" />
+13-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:9:17-79
+13-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:9:25-76
+14            </intent-filter>
+15        </service>
+16    </application>
+17
+18</manifest>

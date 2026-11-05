@@ -1,0 +1,38 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.pyro.sms_telephony_fallback" >
+4
+5    <uses-sdk android:minSdkVersion="21" />
+5-->INJECTED
+5-->INJECTED
+6
+7    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+7-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_telephony_fallback\android\src\main\AndroidManifest.xml:4:5-70
+7-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_telephony_fallback\android\src\main\AndroidManifest.xml:4:22-67
+8    <uses-permission android:name="android.permission.READ_SMS" />
+8-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_telephony_fallback\android\src\main\AndroidManifest.xml:5:5-67
+8-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_telephony_fallback\android\src\main\AndroidManifest.xml:5:22-64
+9
+10    <application>
+10-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_telephony_fallback\android\src\main\AndroidManifest.xml:7:5-17:19
+11        <receiver
+11-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_telephony_fallback\android\src\main\AndroidManifest.xml:8:9-16:20
+12            android:name="com.pyro.sms_telephony_fallback.SmsFallbackReceiver"
+12-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_telephony_fallback\android\src\main\AndroidManifest.xml:9:13-48
+13            android:enabled="true"
+13-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_telephony_fallback\android\src\main\AndroidManifest.xml:10:13-35
+14            android:exported="true"
+14-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_telephony_fallback\android\src\main\AndroidManifest.xml:11:13-36
+15            android:permission="android.permission.BROADCAST_SMS" >
+15-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_telephony_fallback\android\src\main\AndroidManifest.xml:12:13-66
+16            <intent-filter android:priority="999" >
+16-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_telephony_fallback\android\src\main\AndroidManifest.xml:13:13-15:29
+16-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_telephony_fallback\android\src\main\AndroidManifest.xml:13:28-50
+17                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+17-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_telephony_fallback\android\src\main\AndroidManifest.xml:14:17-82
+17-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sms\pyro_sms_driver_telephony_fallback\android\src\main\AndroidManifest.xml:14:25-79
+18            </intent-filter>
+19        </receiver>
+20    </application>
+21
+22</manifest>

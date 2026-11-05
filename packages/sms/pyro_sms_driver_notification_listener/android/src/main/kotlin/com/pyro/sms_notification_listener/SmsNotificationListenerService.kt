@@ -6,23 +6,27 @@ import android.service.notification.StatusBarNotification
 import android.util.Log
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodChannel
+import java.util.concurrent.ConcurrentHashMap
 
 class SmsNotificationListenerService : NotificationListenerService() {
 
     companion object {
         private const val TAG = "SmsNotificationListener"
-        private const val CHANNEL = "com.yours.pyro_sms/notification_listener"
+        const val CHANNEL = "net.pyro.telephony/sms_notification_listener"
         @Volatile var messenger: BinaryMessenger? = null
         @Volatile var instance: SmsNotificationListenerService? = null
 
-        private val PROTECTED_PACKAGES = setOf(
-            "com.google.android.apps.messaging",
-            "com.samsung.android.messaging",
-            "com.android.mms",
-            "com.whatsapp",
-            "org.telegram.messenger",
-            "com.facebook.orca"
-        )
+        private val protectedPackagesSet = ConcurrentHashMap.newKeySet<String>()
+
+        fun updateProtectedPackages(packages: Collection<String>) {
+            protectedPackagesSet.clear()
+            protectedPackagesSet.addAll(packages)
+            Log.d(TAG, "Updated protected packages: $protectedPackagesSet")
+        }
+
+        fun getProtectedPackages(): Set<String> {
+            return protectedPackagesSet.toSet()
+        }
     }
 
     override fun onCreate() {
@@ -40,7 +44,7 @@ class SmsNotificationListenerService : NotificationListenerService() {
         if (sbn == null) return
         val pkg = sbn.packageName.orEmpty()
 
-        if (!PROTECTED_PACKAGES.contains(pkg)) return
+        if (protectedPackagesSet.isNotEmpty() && !protectedPackagesSet.contains(pkg)) return
 
         val extras = sbn.notification?.extras ?: return
         val title = extras.getCharSequence(Notification.EXTRA_TITLE)?.toString().orEmpty()
@@ -59,7 +63,9 @@ class SmsNotificationListenerService : NotificationListenerService() {
             "timestampMs" to sbn.postTime
         )
 
-        MethodChannel(messenger, CHANNEL).invokeMethod("onNotificationReceived", payload)
+        android.os.Handler(android.os.Looper.getMainLooper()).post {
+            MethodChannel(messenger, CHANNEL).invokeMethod("onNotificationReceived", payload)
+        }
     }
 
     fun cancelNotificationByKey(key: String) {
@@ -71,3 +77,4 @@ class SmsNotificationListenerService : NotificationListenerService() {
         }
     }
 }
+

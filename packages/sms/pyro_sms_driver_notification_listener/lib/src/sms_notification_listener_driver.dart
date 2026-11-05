@@ -3,12 +3,20 @@ import 'package:pyro_sms_hub/pyro_sms_hub.dart';
 
 /// NotificationListenerService-based driver allowing permission-free SMS/messaging notification screening
 class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
+  static SmsNotificationListenerDriver? _instance;
+
   /// Self-registers this driver instance to SmsHub
   static void register() {
-    SmsHub.instance.registerNotificationListener(SmsNotificationListenerDriver());
+    _instance ??= SmsNotificationListenerDriver();
+    SmsHub.instance.registerNotificationListener(_instance!);
   }
 
-  static const MethodChannel _channel = MethodChannel('com.yours.pyro_sms/notification_listener');
+  static void unregister() {
+    _instance?.dispose();
+    _instance = null;
+  }
+
+  static const MethodChannel _channel = MethodChannel('net.pyro.telephony/sms_notification_listener');
 
   @override
   String get providerId => 'pyro_sms_driver_notification_listener';
@@ -19,6 +27,11 @@ class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
 
   SmsNotificationListenerDriver() {
     _channel.setMethodCallHandler(_handleMethodCall);
+  }
+
+  void dispose() {
+    _channel.setMethodCallHandler(null);
+    _messageHandler = null;
   }
 
   Future<dynamic> _handleMethodCall(MethodCall call) async {

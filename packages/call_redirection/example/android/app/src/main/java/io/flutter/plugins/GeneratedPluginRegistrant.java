@@ -16,9 +16,44 @@ public final class GeneratedPluginRegistrant {
   private static final String TAG = "GeneratedPluginRegistrant";
   public static void registerWith(@NonNull FlutterEngine flutterEngine) {
     try {
+      flutterEngine.getPlugins().add(new com.pyro.call_control.CallControlDriverPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin pyro_call_control_driver, com.pyro.call_control.CallControlDriverPlugin", e);
+    }
+    try {
       flutterEngine.getPlugins().add(new com.pyro.call_redirection.CallRedirectionDriverPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin pyro_call_redirection_driver, com.pyro.call_redirection.CallRedirectionDriverPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new com.pyro.call_screening.CallScreeningDriverPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin pyro_call_screening_driver, com.pyro.call_screening.CallScreeningDriverPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new com.pyro.sim.SimDriverPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin pyro_sim_driver, com.pyro.sim.SimDriverPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new com.pyro.sms_notification_listener.SmsNotificationListenerPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin pyro_sms_driver_notification_listener, com.pyro.sms_notification_listener.SmsNotificationListenerPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new com.pyro.sms_telephony_fallback.TelephonyFallbackPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin pyro_sms_driver_telephony_fallback, com.pyro.sms_telephony_fallback.TelephonyFallbackPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new com.pyro.stir.StirDriverPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin pyro_stir_driver, com.pyro.stir.StirDriverPlugin", e);
+    }
+    try {
+      flutterEngine.getPlugins().add(new com.pyro.tile.TileDriverPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin pyro_tile_driver, com.pyro.tile.TileDriverPlugin", e);
     }
   }
 }

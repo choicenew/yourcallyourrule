@@ -3,11 +3,23 @@ import 'package:pyro_tile_hub/pyro_tile_hub.dart';
 
 /// Native Tile driver bridging to Android Quick Settings TileService.
 class TileDriver implements ITileServiceAdapter {
+  static TileDriver? _instance;
+
   static void register() {
-    TileHub.instance.registerAdapter(TileDriver());
+    _instance ??= TileDriver();
+    TileHub.instance.registerAdapter(_instance!);
   }
 
-  static const MethodChannel _channel = MethodChannel('com.yours.yourcallyourrule/tile');
+  static void unregister() {
+    _instance?.dispose();
+    _instance = null;
+  }
+
+  static const MethodChannel _channel = MethodChannel('net.pyro.telephony/tile');
+
+  void dispose() {
+    // Clean up if needed
+  }
 
   @override
   String get providerId => 'pyro_tile_driver';

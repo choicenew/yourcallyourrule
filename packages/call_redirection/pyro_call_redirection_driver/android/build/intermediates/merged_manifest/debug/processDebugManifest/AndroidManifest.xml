@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pyro.call_redirection" >
+
+    <uses-sdk android:minSdkVersion="29" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application>
+        <service
+            android:name="com.pyro.call_redirection.CallRedirectionServiceImpl"
+            android:exported="true"
+            android:permission="android.permission.BIND_CALL_REDIRECTION_SERVICE" >
+            <intent-filter>
+                <action android:name="android.telecom.CallRedirectionService" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.pyro.call_redirection.CallAnywayReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.pyro.call_redirection.ACTION_CALL_ANYWAY" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

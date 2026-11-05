@@ -13,7 +13,7 @@ class SimDriverPlugin : FlutterPlugin, MethodCallHandler {
 
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
         applicationContext = binding.applicationContext
-        channel = MethodChannel(binding.binaryMessenger, "com.yours.yourcallyourrule/sim")
+        channel = MethodChannel(binding.binaryMessenger, "net.pyro.telephony/sim")
         channel.setMethodCallHandler(this)
     }
 

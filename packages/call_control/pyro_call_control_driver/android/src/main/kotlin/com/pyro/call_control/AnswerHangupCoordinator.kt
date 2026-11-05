@@ -37,14 +37,16 @@ object AnswerHangupCoordinator {
     /**
      * Execute answer-then-hangup workflow:
      * 1. Microsecond physical microphone closure (mic mute guard) to prevent ambient sound theft
-     * 2. Delay for configured duration (e.g. 1000ms)
-     * 3. Invoke hangup callback
-     * 4. Restore original microphone state
+     * 2. Invoke onAnswerAction() to accept ringing call via Android Telecom API
+     * 3. Delay for configured duration (e.g. 1000ms)
+     * 4. Invoke onHangupAction() to terminate call
+     * 5. Restore original microphone state
      */
     fun scheduleAnswerThenHangup(
         context: Context,
         delayMs: Long,
         enableMicMuteProtection: Boolean,
+        onAnswerAction: () -> Unit,
         onHangupAction: () -> Unit
     ) {
         scope.launch {
@@ -58,8 +60,14 @@ object AnswerHangupCoordinator {
                     Log.i(TAG, "[Privacy Guard] Microsecond mic mute ENABLED before call pickup.")
                 }
 
+                // 1. Accept ringing call
+                Log.i(TAG, "Executing acceptRingingCall action...")
+                onAnswerAction()
+
+                // 2. Hold for configured duration
                 delay(delayMs.coerceAtLeast(100L))
 
+                // 3. Hangup active call
                 Log.i(TAG, "Executing hangup callback after ${delayMs}ms delay.")
                 onHangupAction()
             } catch (e: Exception) {

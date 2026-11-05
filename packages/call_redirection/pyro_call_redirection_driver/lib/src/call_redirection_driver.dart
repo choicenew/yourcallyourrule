@@ -4,9 +4,17 @@ import 'package:pyro_call_redirection_hub/pyro_call_redirection_hub.dart';
 
 /// Driver for CallRedirectionService outbound fraud prevention
 class CallRedirectionDriver implements ICallRedirectionAdapter {
+  static CallRedirectionDriver? _instance;
+
   /// Static auto-registration hook
   static void register() {
-    CallRedirectionHub.instance.registerRedirectionDriver(CallRedirectionDriver());
+    _instance ??= CallRedirectionDriver();
+    CallRedirectionHub.instance.registerRedirectionDriver(_instance!);
+  }
+
+  static void unregister() {
+    _instance?.dispose();
+    _instance = null;
   }
 
   /// Ensure mounted helper alias
@@ -14,6 +22,10 @@ class CallRedirectionDriver implements ICallRedirectionAdapter {
 
   static const MethodChannel _channel =
       MethodChannel(RedirectionChannels.channelName);
+
+  void dispose() {
+    _channel.setMethodCallHandler(null);
+  }
 
   final Map<String, DateTime> _bypassTokens = {};
 

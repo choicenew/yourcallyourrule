@@ -1,0 +1,33 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:1:1-13:12
+INJECTED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:1:1-13:12
+	package
+		ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:2:5-38
+		INJECTED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:1:11-69
+application
+ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:3:5-12:19
+service#com.pyro.call_screening.CallScreeningServiceImpl
+ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:4:9-11:19
+	android:exported
+		ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:7:13-36
+	android:permission
+		ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:6:13-75
+	android:name
+		ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:5:13-53
+intent-filter#action:name:android.telecom.CallScreeningService
+ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:8:13-10:29
+action#android.telecom.CallScreeningService
+ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:9:17-79
+	android:name
+		ADDED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml:9:25-76
+uses-sdk
+INJECTED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\call_screening\pyro_call_screening_driver\android\src\main\AndroidManifest.xml

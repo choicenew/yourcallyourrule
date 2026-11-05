@@ -5,15 +5,27 @@ import 'call_control_channels.dart';
 
 /// Concrete Flutter implementation of ICallActionExecutor bridging to Native Android.
 class CallControlDriver implements ICallActionExecutor {
+  static CallControlDriver? _instance;
+
   /// Static registration helper hook.
   static void register() {
-    CallControlHub.instance.registerExecutor(CallControlDriver());
+    _instance ??= CallControlDriver();
+    CallControlHub.instance.registerExecutor(_instance!);
+  }
+
+  static void unregister() {
+    _instance?.dispose();
+    _instance = null;
   }
 
   /// Alias helper hook.
   static void ensureMounted() => register();
 
   static const MethodChannel _channel = MethodChannel(CallControlChannels.channelName);
+
+  void dispose() {
+    // Clean up resources if needed
+  }
 
   @override
   String get providerId => 'pyro_call_control_driver';

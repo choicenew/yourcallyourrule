@@ -1,0 +1,16 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.pyro.sim" >
+4
+5    <uses-sdk android:minSdkVersion="29" />
+5-->INJECTED
+5-->INJECTED
+6
+7    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+7-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sim\pyro_sim_driver\android\src\main\AndroidManifest.xml:3:5-75
+7-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sim\pyro_sim_driver\android\src\main\AndroidManifest.xml:3:22-72
+8    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+8-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sim\pyro_sim_driver\android\src\main\AndroidManifest.xml:4:5-77
+8-->C:\Users\Ngokel\Desktop\en\test\github\yourcallyourrulemixhistory\packages\sim\pyro_sim_driver\android\src\main\AndroidManifest.xml:4:22-74
+9
+10</manifest>

@@ -21,9 +21,14 @@ class CallScreeningHub {
   Future<CallActionType> evaluateIncomingCall(IncomingCallEntity call) async {
     debugPrint('[CallScreeningHub] Evaluating incoming call from: ${call.phoneNumber}');
     
-    final verdict = CallPolicyEngine.evaluateIncomingCall(
+    final policyContext = CallPolicyContext(
+      callId: call.callId,
       phoneNumber: call.phoneNumber,
+      normalizedNumber: call.normalizedNumber,
+      simSlot: call.simSlot,
+      timestampMs: call.timestampMs,
     );
+    final verdict = await CallPolicyEngine.evaluateCall(policyContext);
 
     return verdict.action;
   }
