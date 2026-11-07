@@ -129,6 +129,8 @@ dependencies:
   pyro_theme_ui:
     path: packages/theme/pyro_theme_ui
 
+  pyro_phone_location_protocol:
+    path: packages/phone_location/pyro_phone_location_protocol
   pyro_phone_location_connector:
     path: packages/phone_location/pyro_phone_location_connector
   pyro_phone_location_hub:
@@ -136,6 +138,8 @@ dependencies:
   pyro_phone_location_ui:
     path: packages/phone_location/pyro_phone_location_ui
 
+  pyro_sim_slot_rules_protocol:
+    path: packages/sim_slot_rules/pyro_sim_slot_rules_protocol
   pyro_sim_slot_rules_connector:
     path: packages/sim_slot_rules/pyro_sim_slot_rules_connector
   pyro_sim_slot_rules_hub:
@@ -143,6 +147,8 @@ dependencies:
   pyro_sim_slot_rules_ui:
     path: packages/sim_slot_rules/pyro_sim_slot_rules_ui
 
+  pyro_call_interception_policy_protocol:
+    path: packages/call_interception_policy/pyro_call_interception_policy_protocol
   pyro_call_interception_policy_connector:
     path: packages/call_interception_policy/pyro_call_interception_policy_connector
   pyro_call_interception_policy_hub:
@@ -150,6 +156,8 @@ dependencies:
   pyro_call_interception_policy_ui:
     path: packages/call_interception_policy/pyro_call_interception_policy_ui
 
+  pyro_deletion_proposal_protocol:
+    path: packages/deletion_proposal/pyro_deletion_proposal_protocol
   pyro_deletion_proposal_connector:
     path: packages/deletion_proposal/pyro_deletion_proposal_connector
   pyro_deletion_proposal_hub:
@@ -157,6 +165,8 @@ dependencies:
   pyro_deletion_proposal_ui:
     path: packages/deletion_proposal/pyro_deletion_proposal_ui
 
+  pyro_time_interceptor_protocol:
+    path: packages/time_interceptor/pyro_time_interceptor_protocol
   pyro_time_interceptor_connector:
     path: packages/time_interceptor/pyro_time_interceptor_connector
   pyro_time_interceptor_hub:
@@ -164,6 +174,8 @@ dependencies:
   pyro_time_interceptor_ui:
     path: packages/time_interceptor/pyro_time_interceptor_ui
 
+  pyro_phone_lookup_plugin_protocol:
+    path: packages/phone_lookup_plugin/pyro_phone_lookup_plugin_protocol
   pyro_phone_lookup_plugin_connector:
     path: packages/phone_lookup_plugin/pyro_phone_lookup_plugin_connector
   pyro_phone_lookup_plugin_hub:
@@ -171,6 +183,8 @@ dependencies:
   pyro_phone_lookup_plugin_ui:
     path: packages/phone_lookup_plugin/pyro_phone_lookup_plugin_ui
 
+  pyro_phone_subscription_protocol:
+    path: packages/phone_subscription/pyro_phone_subscription_protocol
   pyro_phone_subscription_connector:
     path: packages/phone_subscription/pyro_phone_subscription_connector
   pyro_phone_subscription_hub:
@@ -178,6 +192,8 @@ dependencies:
   pyro_phone_subscription_ui:
     path: packages/phone_subscription/pyro_phone_subscription_ui
 
+  pyro_phone_rules_protocol:
+    path: packages/phone_rules/pyro_phone_rules_protocol
   pyro_phone_rules_connector:
     path: packages/phone_rules/pyro_phone_rules_connector
   pyro_phone_rules_hub:
@@ -185,6 +201,8 @@ dependencies:
   pyro_phone_rules_ui:
     path: packages/phone_rules/pyro_phone_rules_ui
 
+  pyro_phone_count_filter_protocol:
+    path: packages/phone_count_filter/pyro_phone_count_filter_protocol
   pyro_phone_count_filter_connector:
     path: packages/phone_count_filter/pyro_phone_count_filter_connector
   pyro_phone_count_filter_hub:
@@ -192,6 +210,8 @@ dependencies:
   pyro_phone_count_filter_ui:
     path: packages/phone_count_filter/pyro_phone_count_filter_ui
 
+  pyro_phone_remote_filter_protocol:
+    path: packages/phone_remote_filter/pyro_phone_remote_filter_protocol
   pyro_phone_remote_filter_connector:
     path: packages/phone_remote_filter/pyro_phone_remote_filter_connector
   pyro_phone_remote_filter_hub:
@@ -199,6 +219,8 @@ dependencies:
   pyro_phone_remote_filter_ui:
     path: packages/phone_remote_filter/pyro_phone_remote_filter_ui
 
+  pyro_phone_call_history_protocol:
+    path: packages/phone_call_history/pyro_phone_call_history_protocol
   pyro_phone_call_history_connector:
     path: packages/phone_call_history/pyro_phone_call_history_connector
   pyro_phone_call_history_hub:
@@ -206,6 +228,8 @@ dependencies:
   pyro_phone_call_history_ui:
     path: packages/phone_call_history/pyro_phone_call_history_ui
 
+  pyro_phone_live_activities_protocol:
+    path: packages/phone_live_activities/pyro_phone_live_activities_protocol
   pyro_phone_live_activities_connector:
     path: packages/phone_live_activities/pyro_phone_live_activities_connector
   pyro_phone_live_activities_hub:
@@ -213,6 +237,8 @@ dependencies:
   pyro_phone_live_activities_ui:
     path: packages/phone_live_activities/pyro_phone_live_activities_ui
 
+  pyro_phone_call_overlay_protocol:
+    path: packages/phone_call_overlay/pyro_phone_call_overlay_protocol
   pyro_phone_call_overlay_connector:
     path: packages/phone_call_overlay/pyro_phone_call_overlay_connector
   pyro_phone_call_overlay_hub:
@@ -220,6 +246,8 @@ dependencies:
   pyro_phone_call_overlay_ui:
     path: packages/phone_call_overlay/pyro_phone_call_overlay_ui
 
+  pyro_phone_call_statistic_protocol:
+    path: packages/phone_call_statistic/pyro_phone_call_statistic_protocol
   pyro_phone_call_statistic_connector:
     path: packages/phone_call_statistic/pyro_phone_call_statistic_connector
   pyro_phone_call_statistic_hub:
@@ -227,6 +255,8 @@ dependencies:
   pyro_phone_call_statistic_ui:
     path: packages/phone_call_statistic/pyro_phone_call_statistic_ui
 
+  pyro_phone_country_sync_protocol:
+    path: packages/phone_country_sync/pyro_phone_country_sync_protocol
   pyro_phone_country_sync_connector:
     path: packages/phone_country_sync/pyro_phone_country_sync_connector
   pyro_phone_country_sync_hub:
@@ -234,6 +264,8 @@ dependencies:
   pyro_phone_country_sync_ui:
     path: packages/phone_country_sync/pyro_phone_country_sync_ui
 
+  pyro_device_profile_protocol:
+    path: packages/device_profile/pyro_device_profile_protocol
   pyro_device_profile_connector:
     path: packages/device_profile/pyro_device_profile_connector
   pyro_device_profile_hub:
@@ -241,6 +273,8 @@ dependencies:
   pyro_device_profile_ui:
     path: packages/device_profile/pyro_device_profile_ui
 
+  pyro_phone_contacts_protocol:
+    path: packages/phone_contacts/pyro_phone_contacts_protocol
   pyro_phone_contacts_connector:
     path: packages/phone_contacts/pyro_phone_contacts_connector
   pyro_phone_contacts_hub:
@@ -248,6 +282,8 @@ dependencies:
   pyro_phone_contacts_ui:
     path: packages/phone_contacts/pyro_phone_contacts_ui
 
+  pyro_app_auto_update_protocol:
+    path: packages/app_auto_update/pyro_app_auto_update_protocol
   pyro_app_auto_update_connector:
     path: packages/app_auto_update/pyro_app_auto_update_connector
   pyro_app_auto_update_hub:
@@ -255,6 +291,8 @@ dependencies:
   pyro_app_auto_update_ui:
     path: packages/app_auto_update/pyro_app_auto_update_ui
 
+  pyro_call_filter_protocol:
+    path: packages/call_filter/pyro_call_filter_protocol
   pyro_call_filter_connector:
     path: packages/call_filter/pyro_call_filter_connector
   pyro_call_filter_hub:
@@ -262,6 +300,8 @@ dependencies:
   pyro_call_filter_ui:
     path: packages/call_filter/pyro_call_filter_ui
 
+  pyro_caller_identity_protocol:
+    path: packages/caller_identity/pyro_caller_identity_protocol
   pyro_caller_identity_connector:
     path: packages/caller_identity/pyro_caller_identity_connector
   pyro_caller_identity_hub:
@@ -269,6 +309,8 @@ dependencies:
   pyro_caller_identity_ui:
     path: packages/caller_identity/pyro_caller_identity_ui
 
+  pyro_call_monitor_protocol:
+    path: packages/call_monitor/pyro_call_monitor_protocol
   pyro_call_monitor_connector:
     path: packages/call_monitor/pyro_call_monitor_connector
   pyro_call_monitor_hub:
@@ -276,6 +318,8 @@ dependencies:
   pyro_call_monitor_ui:
     path: packages/call_monitor/pyro_call_monitor_ui
 
+  pyro_call_coordinator_protocol:
+    path: packages/call_coordinator/pyro_call_coordinator_protocol
   pyro_call_coordinator_connector:
     path: packages/call_coordinator/pyro_call_coordinator_connector
   pyro_call_coordinator_hub:
@@ -283,6 +327,8 @@ dependencies:
   pyro_call_coordinator_ui:
     path: packages/call_coordinator/pyro_call_coordinator_ui
 
+  pyro_phone_marking_protocol:
+    path: packages/phone_marking/pyro_phone_marking_protocol
   pyro_phone_marking_connector:
     path: packages/phone_marking/pyro_phone_marking_connector
   pyro_phone_marking_hub:
