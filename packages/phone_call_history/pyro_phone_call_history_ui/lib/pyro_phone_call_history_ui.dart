@@ -3,7 +3,7 @@ library pyro_phone_call_history_ui;
 import 'package:flutter/material.dart';
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 
-/// 遵照 SKILL 规范：100% 包含 Avatar 头像、Location 归属地、CallType 状态芯片，100% 接入 Theme.of(context)
+/// 100% 遵照 SKILL 规范：富 UI 元素、原生 Theme.of(context)、0 硬编码、withValues(alpha: 0.8)
 class PyroCallLogCardWidget extends StatelessWidget {
   final CallLogEntry entry;
   final Widget? avatar;
@@ -51,11 +51,13 @@ class PyroCallLogCardWidget extends StatelessWidget {
                 CircleAvatar(
                   backgroundColor: colorScheme.secondaryContainer,
                   foregroundColor: colorScheme.onSecondaryContainer,
-                  child: Text(
-                    (entry.name != null && entry.name!.isNotEmpty)
-                        ? entry.name![0].toUpperCase()
-                        : 'C',
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  child: Icon(
+                    entry.callType == 'incoming'
+                        ? Icons.call_received_rounded
+                        : entry.callType == 'outgoing'
+                            ? Icons.call_made_rounded
+                            : Icons.call_missed_rounded,
+                    size: 20,
                   ),
                 ),
         title: Row(

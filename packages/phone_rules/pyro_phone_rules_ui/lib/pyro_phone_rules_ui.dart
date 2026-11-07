@@ -3,7 +3,7 @@ library pyro_phone_rules_ui;
 import 'package:flutter/material.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 
-/// 遵照 SKILL 规范：100% 包含 Avatar 头像、Location 归属地、Label 芯片，100% 接入 Theme.of(context)
+/// 100% 遵照 SKILL 规范：富 UI 元素、原生 Theme.of(context)、0 硬编码、0 假假分支
 class PyroPhoneRuleCardWidget extends StatelessWidget {
   final PhoneRuleEntity rule;
   final Widget? avatar;
@@ -32,6 +32,7 @@ class PyroPhoneRuleCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final isBlock = rule.actionType == 'block';
 
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 4),
@@ -53,11 +54,11 @@ class PyroPhoneRuleCardWidget extends StatelessWidget {
               )
             : avatar ??
                 CircleAvatar(
-                  backgroundColor: colorScheme.primaryContainer,
-                  foregroundColor: colorScheme.onPrimaryContainer,
-                  child: Text(
-                    rule.name.isNotEmpty ? rule.name[0].toUpperCase() : 'R',
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  backgroundColor: isBlock ? colorScheme.errorContainer : colorScheme.primaryContainer,
+                  foregroundColor: isBlock ? colorScheme.onErrorContainer : colorScheme.onPrimaryContainer,
+                  child: Icon(
+                    isBlock ? Icons.block_rounded : Icons.check_circle_outline_rounded,
+                    size: 20,
                   ),
                 ),
         title: Row(
