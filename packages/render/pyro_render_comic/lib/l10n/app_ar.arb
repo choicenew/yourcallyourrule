@@ -1,0 +1,18 @@
+{
+  "@@locale": "ar",
+  "read": "بدء القراءة",
+  "shelf": "إضافة إلى الرف",
+  "shelfIn": "على الرف",
+  "ocr": "جاري الاستخراج...",
+  "ocrExtracting": "جاري الاستخراج...",
+  "translate": "خيارات الترجمة",
+  "comicTranslateAi": "ترجمة الذكاء الاصطناعي",
+  "comicTranslateEngine": "ترجمة المحرك",
+  "page": "الصفحة",
+  "pageOf": "من",
+  "stripMode": "شريط مستمر",
+  "pageMode": "صفحة واحدة",
+  "description": "الوصف",
+  "shareComic": "مشاركة القصص المصورة: ",
+  "@@last_modified": "2026-10-18T07:51:11.755214"
+}

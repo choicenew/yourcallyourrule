@@ -1,0 +1,18 @@
+{
+  "@@locale": "vi",
+  "follow": "Theo dõi",
+  "following": "Đang theo dõi",
+  "unfollow": "Hủy theo dõi",
+  "followedMessage": "Đã theo dõi tác giả",
+  "unfollowedMessage": "Đã hủy theo dõi tác giả",
+  "like": "Đã thích",
+  "liked": "Đã thích",
+  "likeAdded": "Đã thêm vào tác giả yêu thích",
+  "likeRemoved": "Đã xóa khỏi tác giả yêu thích",
+  "share": "Chia sẻ",
+  "homepage": "Trang chủ",
+  "works": "Tác phẩm",
+  "followers": "Người theo dõi",
+  "translate": "Tùy chọn dịch",
+  "@@last_modified": "2026-10-18T07:51:11.749497"
+}

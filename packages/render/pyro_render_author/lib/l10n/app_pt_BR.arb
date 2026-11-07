@@ -1,0 +1,18 @@
+{
+  "@@locale": "pt_BR",
+  "follow": "Seguir",
+  "following": "Seguindo",
+  "unfollow": "Deixar de Seguir",
+  "followedMessage": "Seguindo autor",
+  "unfollowedMessage": "Deixou de seguir autor",
+  "like": "Curtido",
+  "liked": "Curtido",
+  "likeAdded": "Adicionado a autores curtidos",
+  "likeRemoved": "Removido de autores curtidos",
+  "share": "Compartilhar",
+  "homepage": "Página Inicial",
+  "works": "Obras",
+  "followers": "Seguidores",
+  "translate": "Opções de Tradução",
+  "@@last_modified": "2026-10-18T07:51:11.737103"
+}

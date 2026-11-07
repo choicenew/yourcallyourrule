@@ -1,0 +1,19 @@
+name: pyro_config_protocol
+description: Pure Abstract Protocol & Data Contracts for Local and Remote Config Engines.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0

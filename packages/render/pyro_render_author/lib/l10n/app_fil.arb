@@ -1,0 +1,18 @@
+{
+  "@@locale": "fil",
+  "follow": "Sundin",
+  "following": "Sinusundan",
+  "unfollow": "Huwag Sundin",
+  "followedMessage": "Sinundan ang may-akda",
+  "unfollowedMessage": "Hindi na sinundan ang may-akda",
+  "like": "Nagustuhan",
+  "liked": "Nagustuhan",
+  "likeAdded": "Idinagdag sa mga nagustuhang may-akda",
+  "likeRemoved": "Inalis sa mga nagustuhang may-akda",
+  "share": "Ibahagi",
+  "homepage": "Homepage",
+  "works": "Mga Gawa",
+  "followers": "Mga Tagasunod",
+  "translate": "Mga Opsyon sa Pagsasalin",
+  "@@last_modified": "2026-10-18T07:51:11.717276"
+}

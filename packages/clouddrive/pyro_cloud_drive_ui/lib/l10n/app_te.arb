@@ -1,0 +1,23 @@
+{
+  "@@locale": "te",
+  "cloudSettingsTitle": "క్లౌడ్ & సింక్ సెట్టింగ్‌లు",
+  "encryptionTitle": "ఎండ్-టు-ఎండ్ ఎన్‌క్రిప్షన్ (E2EE)",
+  "encryptionSubtitle": "అప్‌లోడ్ చేయడానికి ముందు అన్ని బ్యాకప్‌లను AES-256తో ఎన్‌క్రిప్ట్ చేయండి",
+  "encryptionEnabled": "ప్రారంభించబడింది (AES-256)",
+  "encryptionDisabled": "నిలిపివేయబడింది",
+  "configuredDrives": "కాన్ఫిగర్ చేయబడిన క్లౌడ్ డ్రైవ్‌లు",
+  "noDrivesRegistered": "క్లౌడ్ డ్రైవ్‌లు కనెక్ట్ చేయబడలేదు",
+  "cancel": "రద్దు చేయి",
+  "save": "సేవ్ చేయి",
+  "saveAndEnable": "సేవ్ చేసి ప్రారంభించు",
+  "setPasswordTitle": "E2EE మాస్టర్ పాస్‌వర్డ్‌ని సెట్ చేయి",
+  "setPasswordDescription": "అప్‌లోడ్ చేయడానికి ముందు మీ బ్యాకప్‌లు AES-256తో ఎన్‌క్రిప్ట్ చేయబడతాయి.",
+  "masterPasswordLabel": "మాస్టర్ పాస్‌వర్డ్",
+  "passwordEmptyError": "పాస్‌వర్డ్ ఖాళీగా ఉండకూడదు",
+  "syncNow": "ఇప్పుడే సింక్ చేయండి",
+  "settings": "సెట్టింగ్‌లు",
+  "connected": "కనెక్ట్ చేయబడింది",
+  "disconnected": "డిస్‌కనెక్ట్ చేయబడింది",
+  "lastSynced": "చివరిగా సింక్ చేయబడింది: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.046092"
+}

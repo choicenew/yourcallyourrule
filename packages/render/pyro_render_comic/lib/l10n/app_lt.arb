@@ -1,0 +1,18 @@
+{
+  "@@locale": "lt",
+  "read": "Pradėti skaityti",
+  "shelf": "Pridėti į lentyną",
+  "shelfIn": "Lentynoje",
+  "ocr": "Ištraukiamas tekstas...",
+  "ocrExtracting": "Ištraukiama...",
+  "translate": "Vertimo parinktys",
+  "comicTranslateAi": "AI vertimas",
+  "comicTranslateEngine": "Variklio vertimas",
+  "page": "Puslapis",
+  "pageOf": "iš",
+  "stripMode": "Nepertraukiama juosta",
+  "pageMode": "Vieno puslapio",
+  "description": "Aprašymas",
+  "shareComic": "Bendrinti komiksą: ",
+  "@@last_modified": "2026-10-18T07:51:11.778143"
+}

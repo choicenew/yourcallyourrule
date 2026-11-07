@@ -1,0 +1,30 @@
+name: pyro_api_translate
+description: A unified self-discovering translation mesh supporting 20+ providers with intelligent fallback & auto-cooldown strategies.
+version: 0.1.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.2
+  translator: ^1.0.4+1
+  translate_text: ^1.8.0
+  html: ^0.15.6 # Useful for scraping if needed (Bing/Yandex)
+  crypto: ^3.0.7
+  uuid: ^4.5.1
+  pyro_translation_cache:
+    path: ../pyro_translation_cache
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  assets:
+    - assets/supported_languages.json

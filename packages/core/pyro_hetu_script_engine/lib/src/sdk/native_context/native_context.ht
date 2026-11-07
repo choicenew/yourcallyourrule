@@ -1,0 +1,10 @@
+external class NativeContext {
+  static fun getBatteryLevel()
+  static fun getLocation()
+  static fun getNetworkType()
+  static fun log(message)
+  static fun getWeather(lat, lng)
+  static fun getLocalStorage(key)
+  static fun setLocalStorage(key, value)
+  static fun getTimezone()
+}

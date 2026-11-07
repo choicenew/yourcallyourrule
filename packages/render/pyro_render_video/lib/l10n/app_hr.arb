@@ -1,0 +1,16 @@
+{
+  "@@locale": "hr",
+  "play": "Reproduciraj video",
+  "download": "Preuzimanje",
+  "downloading": "Preuzimanje...",
+  "like": "Sviđa mi se",
+  "liked": "Sviđa mi się",
+  "pause": "Pauza",
+  "replay": "Reproduciraj ponovno",
+  "speed": "Brzina",
+  "quality": "Kvaliteta",
+  "share": "Podijeli",
+  "description": "Opis",
+  "shareVideo": "Podijeli video: ",
+  "@@last_modified": "2026-10-18T07:51:12.165912"
+}

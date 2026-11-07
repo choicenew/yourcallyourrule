@@ -1,0 +1,16 @@
+{
+  "@@locale": "nb",
+  "play": "Spill av video",
+  "download": "Laster ned",
+  "downloading": "Laster ned...",
+  "like": "Likte",
+  "liked": "Likte",
+  "pause": "Pause",
+  "replay": "Spill av på nytt",
+  "speed": "Hastighet",
+  "quality": "Kvalitet",
+  "share": "Del",
+  "description": "Beskrivelse",
+  "shareVideo": "Del video: ",
+  "@@last_modified": "2026-10-18T07:51:12.175910"
+}

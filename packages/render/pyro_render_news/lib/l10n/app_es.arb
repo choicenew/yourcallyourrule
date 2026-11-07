@@ -1,0 +1,16 @@
+{
+  "@@locale": "es",
+  "read": "Empezar a leer",
+  "share": "Compartir",
+  "ocr": "Extrayendo...",
+  "ocrExtracting": "Extrayendo...",
+  "translate": "Opciones de traducción",
+  "newsTranslateAi": "Traducción IA",
+  "newsTranslateEngine": "Traducción de motor",
+  "source": "Fuente",
+  "publishTime": "Publicado",
+  "copiedLink": "Enlace del artículo copiado al portapapeles",
+  "description": "Descripción",
+  "shareNews": "Compartir artículo: ",
+  "@@last_modified": "2026-10-18T07:51:11.865446"
+}

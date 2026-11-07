@@ -1,0 +1,20 @@
+{
+  "@@locale": "it",
+  "setWallpaper": "Imposta come sfondo",
+  "download": "Scaricamento",
+  "downloading": "Downloading...",
+  "downloaded": "Scaricato",
+  "like": "Mi piace",
+  "liked": "Liked",
+  "favorite": "Preferito",
+  "favorited": "Aggiunto ai preferiti",
+  "likeAdded": "Aggiunto agli autori preferiti",
+  "likeRemoved": "Rimosso dagli autori preferiti",
+  "preview": "Anteprima sfondo",
+  "resolution": "Risoluzione originale",
+  "share": "Condividi",
+  "dimensions": "Dimensioni",
+  "description": "Descrizione",
+  "shareWallpaper": "Condividi sfondo: ",
+  "@@last_modified": "2026-10-18T07:51:12.223752"
+}

@@ -1,0 +1,24 @@
+name: pyro_sync_koreader
+description: KOReader kosync protocol sync adapter for Kobo, Kindle, and e-ink device reading progress.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: ">=3.22.0"
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_sync_protocol:
+    path: ../pyro_sync_protocol
+
+  material_ui: any
+  pyro_sync_hub: any
+  pyro_sync_ui: any
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0

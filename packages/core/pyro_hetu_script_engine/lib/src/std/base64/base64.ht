@@ -1,0 +1,4 @@
+external class Base64 {
+  static function encode(bytes)
+  static function decode(base64String)
+}

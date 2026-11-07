@@ -1,0 +1,23 @@
+{
+  "@@locale": "nb",
+  "cloudSettingsTitle": "Sky- og synkroniseringsinnstillinger",
+  "encryptionTitle": "End-to-End-kryptering (E2EE)",
+  "encryptionSubtitle": "Krypter alle sikkerhetskopier med AES-256 før opplasting",
+  "encryptionEnabled": "Aktivert (AES-256)",
+  "encryptionDisabled": "Deaktivert",
+  "configuredDrives": "Konfigurerte skydisker",
+  "noDrivesRegistered": "Ingen skydisker tilkoblet",
+  "cancel": "Avbryt",
+  "save": "Lagre",
+  "saveAndEnable": "Lagre og aktiver",
+  "setPasswordTitle": "Angi E2EE hovedpassord",
+  "setPasswordDescription": "Sikkerhetskopiene dine blir kryptert med AES-256 før opplasting.",
+  "masterPasswordLabel": "Hovedpassord",
+  "passwordEmptyError": "Passordet kan ikke være tomt",
+  "syncNow": "Synkroniser nå",
+  "settings": "Innstillinger",
+  "connected": "Koblet til",
+  "disconnected": "Frakoblet",
+  "lastSynced": "Sist synkronisert: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.036091"
+}

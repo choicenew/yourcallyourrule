@@ -1,0 +1,20 @@
+{
+  "@@locale": "sv",
+  "play": "Spela upp video",
+  "download": "Laddar ner",
+  "downloading": "Laddar ner...",
+  "like": "Gillade",
+  "liked": "Gillade",
+  "pause": "Pausa",
+  "playlist": "Lägg till i spellista",
+  "previousTrack": "Föregående",
+  "nextTrack": "Nästa",
+  "speed": "Hastighet",
+  "share": "Dela",
+  "description": "Beskrivning",
+  "shareAudio": "Dela ljud: ",
+  "exploreMore": "Utforska mer",
+  "trending": "Trendar nu",
+  "switchSource": "Byt källa / Rapportera",
+  "@@last_modified": "2026-10-18T07:51:11.693749"
+}

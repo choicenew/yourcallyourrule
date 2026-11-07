@@ -1,0 +1,28 @@
+name: pyro_sync_database
+description: Generic database sync package for real-time/incremental sync using SyncHub adapters.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  meta: ^1.15.0
+  pyro_sync_protocol:
+    path: ../pyro_sync_protocol
+  pyro_sync_hub:
+    path: ../pyro_sync_hub
+  pyro_sync_syncitron:
+    path: ../pyro_sync_syncitron
+  syncitron: ^0.5.3
+
+
+  isar_community: any
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

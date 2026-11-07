@@ -1,0 +1,14 @@
+external class Crypto {
+  static function sha1(bytes)
+  static function sha256(bytes)
+  static function sha512(bytes)
+  static function md5(bytes)
+
+  static function hmacSha1(key, bytes)
+  static function hmacSha256(key, bytes)
+  static function hmacSha512(key, bytes)
+  static function hmacMd5(key, bytes)
+
+  static function hexEncode(bytes)
+  static function base64Encode(input)
+}

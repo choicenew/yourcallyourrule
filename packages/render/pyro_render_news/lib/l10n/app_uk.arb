@@ -1,0 +1,16 @@
+{
+  "@@locale": "uk",
+  "read": "Почати читання",
+  "share": "Поділитися",
+  "ocr": "Вилучення...",
+  "ocrExtracting": "Вилучення...",
+  "translate": "Параметри перекладу",
+  "newsTranslateAi": "AI переклад",
+  "newsTranslateEngine": "Машинний переклад",
+  "source": "Джерело",
+  "publishTime": "Опубліковано",
+  "copiedLink": "Посилання на статтю скопійовано в буфер обміну",
+  "description": "Опис",
+  "shareNews": "Поділитися статтею: ",
+  "@@last_modified": "2026-10-18T07:51:11.900425"
+}

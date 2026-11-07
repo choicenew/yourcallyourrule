@@ -1,0 +1,18 @@
+{
+  "@@locale": "lv",
+  "read": "Sākt lasīt",
+  "shelf": "Pievienot plauktam",
+  "shelfIn": "Plauktā",
+  "ocr": "Izgūst tekstu...",
+  "ocrExtracting": "Izgūst...",
+  "translate": "Tulkošanas opcijas",
+  "comicTranslateAi": "AI tulkošana",
+  "comicTranslateEngine": "Dzinēja tulkošana",
+  "page": "Lapa",
+  "pageOf": "no",
+  "stripMode": "Nepārtraukta josla",
+  "pageMode": "Viena lapa",
+  "description": "Apraksts",
+  "shareComic": "Kopīgot komiksu: ",
+  "@@last_modified": "2026-10-18T07:51:11.778143"
+}

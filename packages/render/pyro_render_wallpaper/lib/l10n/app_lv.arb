@@ -1,0 +1,20 @@
+{
+  "@@locale": "lv",
+  "setWallpaper": "Iestatīt kā tapeti",
+  "download": "Lejupielādē",
+  "downloading": "Lejupielādē...",
+  "downloaded": "Lejupielādēts",
+  "like": "Patīk",
+  "liked": "Patīk",
+  "favorite": "Izlase",
+  "favorited": "Pievienots izlasei",
+  "likeAdded": "Pievienots iecienītajiem autoriem",
+  "likeRemoved": "Noņemts no iecienītajiem autoriem",
+  "preview": "Tapetes priekšskatījums",
+  "resolution": "Sākotnējā izšķirtspēja",
+  "share": "Kopīgot",
+  "dimensions": "Izmēri",
+  "description": "Apraksts",
+  "shareWallpaper": "Kopīgot tapeti: ",
+  "@@last_modified": "2026-10-18T07:51:12.230274"
+}

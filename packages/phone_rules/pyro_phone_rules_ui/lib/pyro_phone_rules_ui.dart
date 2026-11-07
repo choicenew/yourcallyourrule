@@ -3,6 +3,8 @@ library pyro_phone_rules_ui;
 import 'package:flutter/material.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 
+export 'src/dialogs/regex_ai_skills_dialog.dart';
+
 /// 100% 遵照 SKILL 规范：富 UI 元素、原生 Theme.of(context)、0 硬编码、0 假假分支
 class PyroPhoneRuleCardWidget extends StatelessWidget {
   final PhoneRuleEntity rule;

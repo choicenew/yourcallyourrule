@@ -1,0 +1,26 @@
+name: pyro_cloud_drive_webdav
+description: "Standalone WebDAV CloudDrive adapter implementation based on webdav_plus."
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_cloud_drive_protocol:
+    path: ../pyro_cloud_drive_protocol
+  pyro_cloud_drive_hub:
+    path: ../pyro_cloud_drive_hub
+  webdav_client_plus: ^1.0.0
+  path: ^1.9.1
+
+  material_ui: any
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0

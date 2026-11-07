@@ -1,0 +1,23 @@
+name: pyro_cloud_drive_onedrive
+description: Microsoft OneDrive Cloud Drive driver adapter implementation.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+resolution: workspace
+
+dependencies:
+  pyro_cloud_drive_protocol:
+    path: ../pyro_cloud_drive_protocol
+  pyro_cloud_drive_hub:
+    path: ../pyro_cloud_drive_hub
+  dio: ^5.9.0
+  msal_auth: ^3.5.0
+  path: ^1.9.1
+
+  material_ui: any
+dev_dependencies:
+  test: ^1.25.8
+  lints: ^5.0.0

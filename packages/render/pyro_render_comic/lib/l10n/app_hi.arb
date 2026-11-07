@@ -1,0 +1,18 @@
+{
+  "@@locale": "hi",
+  "read": "पढ़ना शुरू करें",
+  "shelf": "शेल्फ में जोड़ें",
+  "shelfIn": "शेल्फ में",
+  "ocr": "निकाला जा रहा है...",
+  "ocrExtracting": "निकाला जा रहा है...",
+  "translate": "अनुवाद विकल्प",
+  "comicTranslateAi": "एआई अनुवाद",
+  "comicTranslateEngine": "इंजन अनुवाद",
+  "page": "पेज",
+  "pageOf": "/",
+  "stripMode": "निरंतर स्ट्रिप",
+  "pageMode": "एकल पेज",
+  "description": "विवरण",
+  "shareComic": "कॉमिक साझा करें: ",
+  "@@last_modified": "2026-10-18T07:51:11.770371"
+}

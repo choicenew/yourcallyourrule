@@ -1,0 +1,20 @@
+{
+  "@@locale": "de",
+  "play": "Wiedergabe",
+  "download": "Herunterladen",
+  "downloading": "Wird heruntergeladen...",
+  "like": "Favorisiert",
+  "liked": "Gefällt mir",
+  "pause": "Pause",
+  "playlist": "Zur Playlist hinzufügen",
+  "previousTrack": "Vorheriger",
+  "nextTrack": "Nächster",
+  "speed": "Geschwindigkeit",
+  "share": "Teilen",
+  "description": "Beschreibung",
+  "shareAudio": "Audio teilen: ",
+  "exploreMore": "Mehr entdecken",
+  "trending": "Im Trend",
+  "switchSource": "Quelle wechseln / Melden",
+  "@@last_modified": "2026-10-18T07:51:11.668038"
+}

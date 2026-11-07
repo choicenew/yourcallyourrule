@@ -1,0 +1,18 @@
+{
+  "@@locale": "da",
+  "read": "Start læsning",
+  "shelf": "Tilføj til hylde",
+  "shelfIn": "In Shelf",
+  "ocr": "Uddrager...",
+  "ocrExtracting": "Extracting...",
+  "translate": "Oversættelsesmuligheder",
+  "comicTranslateAi": "AI Translate",
+  "comicTranslateEngine": "Engine Translate",
+  "page": "Page",
+  "pageOf": "of",
+  "stripMode": "Continuous Strip",
+  "pageMode": "Single Page",
+  "description": "Description",
+  "shareComic": "Share Comic: ",
+  "@@last_modified": "2026-10-18T07:51:11.759835"
+}

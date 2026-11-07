@@ -1,0 +1,18 @@
+{
+  "@@locale": "hr",
+  "read": "Počni čitati",
+  "shelf": "Dodaj na policu",
+  "shelfIn": "Na polici",
+  "ocr": "Izdvajanje...",
+  "ocrExtracting": "Izdvajanje...",
+  "translate": "Opcije prevoditelja",
+  "comicTranslateAi": "AI prijevod",
+  "comicTranslateEngine": "Prijevod strojem",
+  "page": "Stranica",
+  "pageOf": "od",
+  "stripMode": "Kontinuirana traka",
+  "pageMode": "Jedna stranica",
+  "description": "Opis",
+  "shareComic": "Podijeli strip: ",
+  "@@last_modified": "2026-10-18T07:51:11.771781"
+}

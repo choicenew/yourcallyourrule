@@ -1,0 +1,23 @@
+{
+  "@@locale": "ro",
+  "cloudSettingsTitle": "Setări cloud și sincronizare",
+  "encryptionTitle": "Criptare end-to-end (E2EE)",
+  "encryptionSubtitle": "Criptează toate copiile de rezervă cu AES-256 înainte de încărcare",
+  "encryptionEnabled": "Activat (AES-256)",
+  "encryptionDisabled": "Dezactivat",
+  "configuredDrives": "Discuri cloud configurate",
+  "noDrivesRegistered": "Niciun disc cloud conectat",
+  "cancel": "Anulează",
+  "save": "Salvează",
+  "saveAndEnable": "Salvează și activează",
+  "setPasswordTitle": "Setează parola principală E2EE",
+  "setPasswordDescription": "Copiile de rezervă vor fi criptate cu AES-256 înainte de încărcare.",
+  "masterPasswordLabel": "Parolă principală",
+  "passwordEmptyError": "Parola nu poate fi goală",
+  "syncNow": "Sincronizează acum",
+  "settings": "Setări",
+  "connected": "Conectat",
+  "disconnected": "Deconectat",
+  "lastSynced": "Ultima sincronizare: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.041096"
+}

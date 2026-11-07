@@ -1,0 +1,21 @@
+{
+  "@@locale": "bg",
+  "read": "Започни четене",
+  "shelf": "Добави в рафта",
+  "shelfIn": "В рафта",
+  "translate": "Опции за превод",
+  "novelTranslateAi": "AI превод",
+  "novelTranslateEngine": "Превод от двигател",
+  "chapter": "Глава",
+  "catalog": "Каталог",
+  "previousChapter": "Предишна",
+  "nextChapter": "Следваща",
+  "fontSize": "Размер на шрифта",
+  "description": "Описание",
+  "shareBook": "Споделяне на книга: ",
+  "firstChapterReached": "Вече сте на първия раздел",
+  "lastChapterReached": "Вече сте на последния раздел",
+  "localFileLoaded": "Локалният документ е зареден успешно",
+  "sectionLabel": "Раздел",
+  "@@last_modified": "2026-10-18T07:51:11.913564"
+}

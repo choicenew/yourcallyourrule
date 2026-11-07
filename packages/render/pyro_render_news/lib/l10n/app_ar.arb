@@ -1,0 +1,16 @@
+{
+  "@@locale": "ar",
+  "read": "بدء القراءة",
+  "share": "مشاركة",
+  "ocr": "جاري الاستخراج...",
+  "ocrExtracting": "جاري الاستخراج...",
+  "translate": "خيارات الترجمة",
+  "newsTranslateAi": "ترجمة الذكاء الاصطناعي",
+  "newsTranslateEngine": "ترجمة المحرك",
+  "source": "المصدر",
+  "publishTime": "تاريخ النشر",
+  "copiedLink": "تم نسخ رابط المقالة إلى الحافظة",
+  "description": "الوصف",
+  "shareNews": "مشاركة المقالة: ",
+  "@@last_modified": "2026-10-18T07:51:11.852584"
+}

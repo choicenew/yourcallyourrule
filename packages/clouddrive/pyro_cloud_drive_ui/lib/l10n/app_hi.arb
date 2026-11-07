@@ -1,0 +1,23 @@
+{
+  "@@locale": "hi",
+  "cloudSettingsTitle": "क्लाउड और सिंक सेटिंग",
+  "encryptionTitle": "एंड-टू-एंड एन्क्रिप्शन (E2EE)",
+  "encryptionSubtitle": "अपलोड करने से पहले AES-256 के साथ सभी बैकअप एन्क्रिप्ट करें",
+  "encryptionEnabled": "सक्षम (AES-256)",
+  "encryptionDisabled": "अक्षम",
+  "configuredDrives": "कॉन्फ़िगर किए गए क्लाउड ड्राइव",
+  "noDrivesRegistered": "कोई क्लाउड ड्राइव कनेक्ट नहीं है",
+  "cancel": "रद्द करें",
+  "save": "सहेजें",
+  "saveAndEnable": "सहेजें और सक्षम करें",
+  "setPasswordTitle": "E2EE मास्टर पासवर्ड सेट करें",
+  "setPasswordDescription": "अपलोड करने से पहले आपके बैकअप को AES-256 के साथ एन्क्रिप्ट किया जाएगा।",
+  "masterPasswordLabel": "मास्टर पासवर्ड",
+  "passwordEmptyError": "पासवर्ड खाली नहीं हो सकता",
+  "syncNow": "अभी सिंक करें",
+  "settings": "सेटिंग",
+  "connected": "कनेक्ट किया गया",
+  "disconnected": "डिस्कनेक्ट किया गया",
+  "lastSynced": "अंतिम सिंक: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.025091"
+}

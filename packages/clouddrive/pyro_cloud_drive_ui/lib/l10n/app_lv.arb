@@ -1,0 +1,23 @@
+{
+  "@@locale": "lv",
+  "cloudSettingsTitle": "Mākoņa un sinhronizācijas iestatījumi",
+  "encryptionTitle": "Šifrēšana no gala līdz galam (E2EE)",
+  "encryptionSubtitle": "Šifrēt visas dublējumkopijas ar AES-256 pirms augšupielādes",
+  "encryptionEnabled": "Iespējota (AES-256)",
+  "encryptionDisabled": "Atspējota",
+  "configuredDrives": "Konfigurētie mākoņa diskdziņi",
+  "noDrivesRegistered": "Nav pievienotu mākoņa diskdziņu",
+  "cancel": "Atcelt",
+  "save": "Saglabāt",
+  "saveAndEnable": "Saglabāt un iespējot",
+  "setPasswordTitle": "Iestatīt E2EE galveno paroli",
+  "setPasswordDescription": "Jūsu dublējumkopijas tiks šifrētas ar AES-256 pirms augšupielādes.",
+  "masterPasswordLabel": "Galvenā parole",
+  "passwordEmptyError": "Parole nevar būt tukša",
+  "syncNow": "Sinhronizēt tagad",
+  "settings": "Iestatījumi",
+  "connected": "Savienots",
+  "disconnected": "Nav savienojuma",
+  "lastSynced": "Pēdējo reizi sinhronizēts: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.032092"
+}

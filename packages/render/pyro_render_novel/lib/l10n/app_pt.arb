@@ -1,0 +1,21 @@
+{
+  "@@locale": "pt",
+  "read": "Começar a Ler",
+  "shelf": "Adicionar à Estante",
+  "shelfIn": "Na Estante",
+  "translate": "Opções de Tradução",
+  "novelTranslateAi": "Tradução IA",
+  "novelTranslateEngine": "Tradução por Motor",
+  "chapter": "Capítulo",
+  "catalog": "Catálogo",
+  "previousChapter": "Anterior",
+  "nextChapter": "Seguinte",
+  "fontSize": "Tamanho do Fonte",
+  "description": "Descrição",
+  "shareBook": "Partilhar Livro: ",
+  "firstChapterReached": "Já na primeira secção",
+  "lastChapterReached": "Já na última secção",
+  "localFileLoaded": "Documento local carregado com sucesso",
+  "sectionLabel": "Secção",
+  "@@last_modified": "2026-10-18T07:51:11.950477"
+}

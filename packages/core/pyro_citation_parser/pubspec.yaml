@@ -1,0 +1,15 @@
+name: pyro_citation_parser
+description: BibTeX, RIS, and DOI citation metadata parser and standard formatter for Pyro.
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+resolution: workspace
+
+dependencies:
+  meta: ^1.15.0
+
+dev_dependencies:
+  test: ^1.25.8

@@ -1,0 +1,18 @@
+{
+  "@@locale": "nl",
+  "follow": "Volgen",
+  "following": "Volgend",
+  "unfollow": "Ontvolgen",
+  "followedMessage": "Auteur gevolgd",
+  "unfollowedMessage": "Auteur ontvolgd",
+  "like": "Geliked",
+  "liked": "Geliked",
+  "likeAdded": "Toegevoegd aan geliked auteurs",
+  "likeRemoved": "Verwijderd van geliked auteurs",
+  "share": "Delen",
+  "homepage": "Startpagina",
+  "works": "Werken",
+  "followers": "Volgers",
+  "translate": "Vertalingsopties",
+  "@@last_modified": "2026-10-18T07:51:11.733519"
+}

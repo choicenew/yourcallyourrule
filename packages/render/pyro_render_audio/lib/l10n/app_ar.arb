@@ -1,0 +1,20 @@
+{
+  "@@locale": "ar",
+  "play": "تشغيل الفيديو",
+  "download": "جاري التنزيل",
+  "downloading": "جاري التنزيل...",
+  "like": "معجب",
+  "liked": "معجب",
+  "pause": "إيقاف مؤقت",
+  "playlist": "إضافة إلى قائمة التشغيل",
+  "previousTrack": "السابق",
+  "nextTrack": "التالي",
+  "speed": "السرعة",
+  "share": "مشاركة",
+  "description": "الوصف",
+  "shareAudio": "مشاركة الصوت: ",
+  "exploreMore": "استكشاف المزيد",
+  "trending": "رائج الآن",
+  "switchSource": "تبديل المصدر / إبلاغ",
+  "@@last_modified": "2026-10-18T07:51:11.661784"
+}

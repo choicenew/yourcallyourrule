@@ -1,0 +1,18 @@
+{
+  "@@locale": "sv",
+  "read": "Börja läsa",
+  "shelf": "Lägg till i hylla",
+  "shelfIn": "I hylla",
+  "ocr": "Extraherar...",
+  "ocrExtracting": "Extraherar...",
+  "translate": "Översättningsalternativ",
+  "comicTranslateAi": "AI-översättning",
+  "comicTranslateEngine": "Motoröversättning",
+  "page": "Sida",
+  "pageOf": "av",
+  "stripMode": "Kontinuerlig remsa",
+  "pageMode": "Enkeltsida",
+  "description": "Beskrivning",
+  "shareComic": "Dela serie: ",
+  "@@last_modified": "2026-10-18T07:51:11.792096"
+}

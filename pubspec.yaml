@@ -21,6 +21,7 @@ dependencies:
   file_picker: ^13.1.0
   firebase_analytics: ^13.0.0
   firebase_core: ^5.0.0
+  firebase_remote_config: ^7.0.0
   firebase_app_check: ^0.5.0
   firebase_crashlytics: ^6.0.0
   fl_chart: ^1.2.0
@@ -87,6 +88,24 @@ dependencies:
   postgres: ^3.5.20
   flutter_js: ^0.8.7
   native_dio_adapter: ^1.8.0
+
+  # === Commercial Package Suite ===
+  pyro_commercial_hub:
+    path: packages/commercial/pyro_commercial_hub
+  pyro_ads_hub:
+    path: packages/commercial/pyro_ads_hub
+  pyro_purchase_core:
+    path: packages/commercial/pyro_purchase_core
+  pyro_purchase_ui:
+    path: packages/commercial/pyro_purchase_ui
+
+  # === CloudDrive Package Suite ===
+  pyro_cloud_drive_hub:
+    path: packages/clouddrive/pyro_cloud_drive_hub
+  pyro_cloud_drive_database:
+    path: packages/clouddrive/pyro_cloud_drive_database
+  pyro_cloud_drive_ui:
+    path: packages/clouddrive/pyro_cloud_drive_ui
 
   # === Pyro 33 Package Suites Integration ===
   pyro_telephony_connector:

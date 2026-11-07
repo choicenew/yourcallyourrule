@@ -1,0 +1,16 @@
+{
+  "@@locale": "nl",
+  "read": "Begin met lezen",
+  "share": "Delen",
+  "ocr": "Bezig met extraheren...",
+  "ocrExtracting": "Bezig met extraheren...",
+  "translate": "Vertalingsopties",
+  "newsTranslateAi": "AI-vertaling",
+  "newsTranslateEngine": "Motorvertaling",
+  "source": "Bron",
+  "publishTime": "Gepubliceerd",
+  "copiedLink": "Artikellink gekopieerd naar klembord",
+  "description": "Beschrijving",
+  "shareNews": "Artikel delen: ",
+  "@@last_modified": "2026-10-18T07:51:11.883856"
+}

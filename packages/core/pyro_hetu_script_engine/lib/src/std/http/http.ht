@@ -1,0 +1,98 @@
+enum HttpResponseType {
+  json,
+  text,
+  bytes,
+  plain
+}
+
+external class HttpBaseOptions {
+  final baseUrl: string
+  final connectionTimeout: int
+  final receiveTimeout: int
+  final sendTimeout: int
+  final followRedirects: bool
+  final validateStatus: Function
+  final headers: Map
+  final queryParameters: Map
+  final enableUnsafeSsl: bool
+
+  constructor ({
+    this.baseUrl,
+    this.connectTimeout,
+    this.receiveTimeout,
+    this.sendTimeout,
+    this.followRedirects,
+    this.validateStatus,
+    this.headers,
+    this.queryParameters,
+    this.enableUnsafeSsl,
+  });
+}
+
+external class RequestOptions {
+  final method: string;
+  final headers: Map;
+  final extra: Map;
+  final responseType: HttpResponseType;
+  final followRedirects: bool;
+  final maxRedirects: int;
+  final validateStatus: Function;
+
+  constructor ({
+    this.method,
+    this.headers,
+    this.extra,
+    this.responseType,
+    this.followRedirects,
+    this.maxRedirects,
+    this.validateStatus,
+  });
+}
+
+external class HttpResponse {
+  final statusCode: int;
+  final statusMessage: string;
+  final data: any;
+  final headers: Map;
+  final isRedirect: bool;
+
+  constructor ({
+    this.statusCode,
+    this.statusMessage,
+    this.data,
+    this.headers,
+    this.isRedirect,
+  });
+}
+
+external class HttpClient {
+  constructor (options: HttpBaseOptions);
+
+  function request({
+      path: string, data: any, options: RequestOptions, queryParameters: Map
+  }) -> Future
+
+  function head(path: string, {
+      url: string, options: RequestOptions, queryParameters: Map
+  }) -> Future
+  function get(path: string, {
+      url: string, options: RequestOptions, queryParameters: Map
+  }) -> Future
+  function get_req(path: string, {
+      url: string, options: RequestOptions, queryParameters: Map
+  }) -> Future
+  function post(path: string, {
+      url: string, data: any, options: RequestOptions, queryParameters: Map
+  }) -> Future
+  function put(path: string, {
+      url: string, data: any, options: RequestOptions, queryParameters: Map
+  }) -> Future
+  function patch(path: string, {
+      url: string, data: any, options: RequestOptions, queryParameters: Map
+  }) -> Future
+  function delete_req(path: string, {
+      url: string, data: any, options: RequestOptions, queryParameters: Map
+  }) -> Future
+}
+
+export { HttpBaseOptions, RequestOptions, HttpResponse, HttpClient }

@@ -1,0 +1,18 @@
+{
+  "@@locale": "kn",
+  "read": "ಓದಲು ಪ್ರಾರಂಭಿಸಿ",
+  "shelf": "ಶೆಲ್ಫ್‌ಗೆ ಸೇರಿಸಿ",
+  "shelfIn": "ಶೆಲ್ಫ್‌ನಲ್ಲಿ",
+  "ocr": "ಹೊರತೆಗೆಯಲಾಗುತ್ತಿದೆ...",
+  "ocrExtracting": "ಹೊರತೆಗೆಯಲಾಗುತ್ತಿದೆ...",
+  "translate": "ಅನುವಾದ ಆಯ್ಕೆಗಳು",
+  "comicTranslateAi": "AI ಅನುವಾದ",
+  "comicTranslateEngine": "ಎಂಜಿನ್ ಅನುವಾದ",
+  "page": "ಪುಟ",
+  "pageOf": "ರಷ್ಟು",
+  "stripMode": "ನಿರಂತರ ಸ್ಟ್ರಿಪ್",
+  "pageMode": "ಏಕ ಪುಟ",
+  "description": "ವಿವರಣೆ",
+  "shareComic": "ಕಾಮಿಕ್ ಹಂಚಿಕೊಳ್ಳಿ: ",
+  "@@last_modified": "2026-10-18T07:51:11.775719"
+}

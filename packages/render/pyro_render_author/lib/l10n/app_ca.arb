@@ -1,0 +1,18 @@
+{
+  "@@locale": "ca",
+  "follow": "Seguir",
+  "following": "Seguint",
+  "unfollow": "Deixar de seguir",
+  "followedMessage": "Seguint l'autor",
+  "unfollowedMessage": "S'ha deixat de seguir l'autor",
+  "like": "M'agrada",
+  "liked": "M'agrada",
+  "likeAdded": "Afegit als autors preferits",
+  "likeRemoved": "Eliminat dels autors preferits",
+  "share": "Compartir",
+  "homepage": "Pàgina d'inici",
+  "works": "Obres",
+  "followers": "Seguidors",
+  "translate": "Opcions de traducció",
+  "@@last_modified": "2026-10-18T07:51:11.710425"
+}

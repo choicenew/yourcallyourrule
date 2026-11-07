@@ -1,0 +1,23 @@
+{
+  "@@locale": "ko",
+  "cloudSettingsTitle": "클라우드 및 동기화 설정",
+  "encryptionTitle": "종단간 암호화 (E2EE)",
+  "encryptionSubtitle": "업로드 전 모든 백업을 AES-256으로 암호화",
+  "encryptionEnabled": "사용 함 (AES-256)",
+  "encryptionDisabled": "사용 안 함",
+  "configuredDrives": "설정된 클라우드 드라이브",
+  "noDrivesRegistered": "연결된 클라우드 드라이브 없음",
+  "cancel": "취소",
+  "save": "저장",
+  "saveAndEnable": "저장 및 활성화",
+  "setPasswordTitle": "E2EE 마스터 비밀번호 설정",
+  "setPasswordDescription": "백업은 업로드 전 AES-256으로 암호화됩니다.",
+  "masterPasswordLabel": "마스터 비밀번호",
+  "passwordEmptyError": "비밀번호는 비워둘 수 없습니다",
+  "syncNow": "지금 동기화",
+  "settings": "설정",
+  "connected": "연결됨",
+  "disconnected": "연결 끊김",
+  "lastSynced": "마지막 동기화: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.031093"
+}

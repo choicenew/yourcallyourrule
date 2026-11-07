@@ -1,0 +1,16 @@
+{
+  "@@locale": "ro",
+  "play": "Redă video",
+  "download": "Se descarcă",
+  "downloading": "Se descarcă...",
+  "like": "Apreciat",
+  "liked": "Apreciat",
+  "pause": "Pauză",
+  "replay": "Redă din nou",
+  "speed": "Viteză",
+  "quality": "Calitate",
+  "share": "Partajează",
+  "description": "Descriere",
+  "shareVideo": "Partajează video: ",
+  "@@last_modified": "2026-10-18T07:51:12.182370"
+}

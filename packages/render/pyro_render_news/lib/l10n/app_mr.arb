@@ -1,0 +1,16 @@
+{
+  "@@locale": "mr",
+  "read": "वाचने सुरू करा",
+  "share": "शेअर करा",
+  "ocr": "एक्सट्रॅक्ट करत आहे...",
+  "ocrExtracting": "एक्सट्रॅक्ट करत आहे...",
+  "translate": "भाषांतर पर्याय",
+  "newsTranslateAi": "AI भाषांतर",
+  "newsTranslateEngine": "इंजिन भाषांतर",
+  "source": "स्त्रोत",
+  "publishTime": "प्रकाशित",
+  "copiedLink": "लेखाची लिंक क्लिपबोर्डवर कॉपी केली",
+  "description": "वर्णन",
+  "shareNews": "लेख शेअर करा: ",
+  "@@last_modified": "2026-10-18T07:51:11.880851"
+}

@@ -3,13 +3,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:yourcallyourrule/core/base/base_entity.dart';
 import 'package:yourcallyourrule/core/services/import_export_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通用导入导出服务组件
 /// 提供通用的导入导出功能，可以在不同的规则管理页面中复用
-class ImportExportServiceComponent<T extends BaseEntity, ID> {
+class ImportExportServiceComponent<T, ID> {
   final ImportExportService<T, ID> importExportService;
   final String entityTypeName;
   final Function(List<T>) onEntitiesImported;

@@ -1,0 +1,8 @@
+{
+  "@@locale": "en",
+  "cloudflareSyncTitle": "Cloudflare Worker Edge Sync",
+  "supabaseSyncTitle": "Supabase Cloud Database Sync",
+  "testConnection": "Test Connectivity",
+  "connected": "Connected",
+  "connectionFailed": "Connection Failed"
+}

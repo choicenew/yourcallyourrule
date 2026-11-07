@@ -1,0 +1,20 @@
+{
+  "@@locale": "id",
+  "play": "Putar Video",
+  "download": "Mengunduh",
+  "downloading": "Mengunduh...",
+  "like": "Disukai",
+  "liked": "Disukai",
+  "pause": "Jeda",
+  "playlist": "Tambahkan ke Daftar Putar",
+  "previousTrack": "Sebelumnya",
+  "nextTrack": "Berikutnya",
+  "speed": "Kecepatan",
+  "share": "Bagikan",
+  "description": "Deskripsi",
+  "shareAudio": "Bagikan Audio: ",
+  "exploreMore": "Jelajahi Lagi",
+  "trending": "Tren Sekarang",
+  "switchSource": "Ganti Sumber / Laporkan",
+  "@@last_modified": "2026-10-18T07:51:11.679880"
+}

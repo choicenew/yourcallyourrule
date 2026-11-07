@@ -1,0 +1,20 @@
+{
+  "@@locale": "tr",
+  "setWallpaper": "Duvar Kağıdı Yap",
+  "download": "İndiriliyor",
+  "downloading": "İndiriliyor...",
+  "downloaded": "İndirildi",
+  "like": "Beğenildi",
+  "liked": "Beğenildi",
+  "favorite": "Favori",
+  "favorited": "Favorilere Eklendi",
+  "likeAdded": "Beğenilen yazarlara eklendi",
+  "likeRemoved": "Beğenilen yazarlardan kaldırıldı",
+  "preview": "Duvar Kağıdı Önizlemesi",
+  "resolution": "Orijinal Çözünürlük",
+  "share": "Paylaş",
+  "dimensions": "Boyutlar",
+  "description": "Açıklama",
+  "shareWallpaper": "Duvar Kağıdını Paylaş: ",
+  "@@last_modified": "2026-10-18T07:51:12.250548"
+}

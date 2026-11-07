@@ -1,0 +1,18 @@
+{
+  "@@locale": "hr",
+  "follow": "Prati",
+  "following": "Praćeno",
+  "unfollow": "Prestani pratiti",
+  "followedMessage": "Autor praćen",
+  "unfollowedMessage": "Prestanak praćenja autora",
+  "like": "Sviđa mi se",
+  "liked": "Sviđa mi się",
+  "likeAdded": "Dodano među omiljene autore",
+  "likeRemoved": "Uklonjeno iz omiljenih autora",
+  "share": "Podijeli",
+  "homepage": "Početna stranica",
+  "works": "Radovi",
+  "followers": "Sljedbenici",
+  "translate": "Opcije prevoditelja",
+  "@@last_modified": "2026-10-18T07:51:11.722611"
+}

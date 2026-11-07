@@ -1,0 +1,18 @@
+{
+  "@@locale": "es",
+  "read": "Empezar a leer",
+  "shelf": "Añadir a la estantería",
+  "shelfIn": "En estantería",
+  "ocr": "Extrayendo...",
+  "ocrExtracting": "Extrayendo...",
+  "translate": "Opciones de traducción",
+  "comicTranslateAi": "Traducción IA",
+  "comicTranslateEngine": "Traducción de motor",
+  "page": "Página",
+  "pageOf": "de",
+  "stripMode": "Tira continua",
+  "pageMode": "Página única",
+  "description": "Descripción",
+  "shareComic": "Compartir cómic: ",
+  "@@last_modified": "2026-10-18T07:51:11.763838"
+}

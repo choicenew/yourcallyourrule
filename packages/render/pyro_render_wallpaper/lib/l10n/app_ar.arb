@@ -1,0 +1,20 @@
+{
+  "@@locale": "ar",
+  "setWallpaper": "تعيين كخلفية",
+  "download": "جاري التنزيل",
+  "downloading": "جاري التنزيل...",
+  "downloaded": "تم التنزيل",
+  "like": "معجب",
+  "liked": "معجب",
+  "favorite": "مفضل",
+  "favorited": "مفضل",
+  "likeAdded": "تم الإضافة إلى المؤلفين المعجب بهم",
+  "likeRemoved": "تم الإزالة من المؤلفين المعجب بهم",
+  "preview": "معاينة الخلفية",
+  "resolution": "الدقة الأصلية",
+  "share": "مشاركة",
+  "dimensions": "الأبعاد",
+  "description": "الوصف",
+  "shareWallpaper": "مشاركة الخلفية: ",
+  "@@last_modified": "2026-10-18T07:51:12.200869"
+}

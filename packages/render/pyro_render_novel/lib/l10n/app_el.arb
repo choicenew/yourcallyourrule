@@ -1,0 +1,21 @@
+{
+  "@@locale": "el",
+  "read": "Έναρξη ανάγνωσης",
+  "shelf": "Προσθήκη στη βιβλιοθήκη",
+  "shelfIn": "In Shelf",
+  "translate": "Επιλογές μετάφρασης",
+  "novelTranslateAi": "AI Translate",
+  "novelTranslateEngine": "Engine Translate",
+  "chapter": "Chapter",
+  "catalog": "Catalog",
+  "previousChapter": "Previous",
+  "nextChapter": "Next",
+  "fontSize": "Font Size",
+  "description": "Description",
+  "shareBook": "Share Book: ",
+  "firstChapterReached": "Already at the first section",
+  "lastChapterReached": "Already at the last section",
+  "localFileLoaded": "Local document loaded successfully",
+  "sectionLabel": "Section",
+  "@@last_modified": "2026-10-18T07:51:11.920979"
+}

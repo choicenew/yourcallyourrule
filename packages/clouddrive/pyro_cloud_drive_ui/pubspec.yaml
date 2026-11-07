@@ -1,0 +1,36 @@
+name: pyro_cloud_drive_ui
+description: A UI package for Cloud Drive configuration and status widgets.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  flutter_riverpod: ^3.4.3
+  riverpod_annotation: ^4.0.0
+  pyro_cloud_drive_protocol:
+    path: ../pyro_cloud_drive_protocol
+  pyro_cloud_drive_hub:
+    path: ../pyro_cloud_drive_hub
+  pyro_cloud_drive_crypto:
+    path: ../pyro_cloud_drive_crypto
+
+  material_ui: any
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.14
+  riverpod_generator: ^4.0.0
+
+flutter:
+  generate: true

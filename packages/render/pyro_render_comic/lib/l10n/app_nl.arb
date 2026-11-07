@@ -1,0 +1,18 @@
+{
+  "@@locale": "nl",
+  "read": "Begin met lezen",
+  "shelf": "Toevoegen aan boekenplank",
+  "shelfIn": "In plank",
+  "ocr": "Bezig met extraheren...",
+  "ocrExtracting": "Bezig met extraheren...",
+  "translate": "Vertalingsopties",
+  "comicTranslateAi": "AI-vertaling",
+  "comicTranslateEngine": "Motorvertaling",
+  "page": "Pagina",
+  "pageOf": "van",
+  "stripMode": "Doorlopende strook",
+  "pageMode": "Enkele pagina",
+  "description": "Beschrijving",
+  "shareComic": "Strip delen: ",
+  "@@last_modified": "2026-10-18T07:51:11.782422"
+}

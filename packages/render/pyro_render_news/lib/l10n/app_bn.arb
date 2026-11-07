@@ -1,0 +1,16 @@
+{
+  "@@locale": "bn",
+  "read": "পড়া শুরু করুন",
+  "share": "শেয়ার করুন",
+  "ocr": "এক্সট্রাক্ট করা হচ্ছে...",
+  "ocrExtracting": "Extracting...",
+  "translate": "অনুবাদ বিকল্প",
+  "newsTranslateAi": "AI Translate",
+  "newsTranslateEngine": "Engine Translate",
+  "source": "Source",
+  "publishTime": "Published",
+  "copiedLink": "Article link copied to clipboard",
+  "description": "Description",
+  "shareNews": "Share Article: ",
+  "@@last_modified": "2026-10-18T07:51:11.855647"
+}

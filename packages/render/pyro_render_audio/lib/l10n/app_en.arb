@@ -1,0 +1,20 @@
+{
+  "@@locale": "en",
+  "play": "Play Video",
+  "download": "Downloading",
+  "downloading": "Downloading...",
+  "like": "Liked",
+  "liked": "Liked",
+  "pause": "Pause",
+  "playlist": "Add to Playlist",
+  "previousTrack": "Previous",
+  "nextTrack": "Next",
+  "speed": "Speed",
+  "share": "Share",
+  "description": "Description",
+  "shareAudio": "Share Audio: ",
+  "exploreMore": "Explore More",
+  "trending": "Trending Now",
+  "switchSource": "Switch Source / Report",
+  "@@last_modified": "2026-10-18T07:51:11.670036"
+}

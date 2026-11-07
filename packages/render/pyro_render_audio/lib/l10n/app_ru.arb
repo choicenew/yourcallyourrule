@@ -1,0 +1,20 @@
+{
+  "@@locale": "ru",
+  "play": "Воспроизвести",
+  "download": "Загрузка",
+  "downloading": "Загрузка...",
+  "like": "В избранное",
+  "liked": "Нравится",
+  "pause": "Пауза",
+  "playlist": "В плейлист",
+  "previousTrack": "Назад",
+  "nextTrack": "Вперед",
+  "speed": "Скорость",
+  "share": "Поделиться",
+  "description": "Описание",
+  "shareAudio": "Поделиться аудио: ",
+  "exploreMore": "Узнать больше",
+  "trending": "В тренде",
+  "switchSource": "Сменить источник / Сообщить",
+  "@@last_modified": "2026-10-18T07:51:11.691210"
+}

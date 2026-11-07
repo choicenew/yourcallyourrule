@@ -1,0 +1,33 @@
+name: pyro_cloud_drive_database
+description: "High-performance database JSON sync, versioned backup/restore with E2EE crypto, and multi-device management for CloudDrive."
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_cloud_drive_protocol:
+    path: ../pyro_cloud_drive_protocol
+  pyro_cloud_drive_hub:
+    path: ../pyro_cloud_drive_hub
+  pyro_cloud_drive_crypto:
+    path: ../pyro_cloud_drive_crypto
+  pyro_sync_protocol:
+    path: ../../sync/pyro_sync_protocol
+  pyro_sync_hub:
+    path: ../../sync/pyro_sync_hub
+  archive: ^4.0.9
+  crypto: ^3.0.7
+  path: ^1.9.1
+  intl: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0

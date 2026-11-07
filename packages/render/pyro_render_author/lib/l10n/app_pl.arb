@@ -1,0 +1,18 @@
+{
+  "@@locale": "pl",
+  "follow": "Obserwuj",
+  "following": "Obserwowani",
+  "unfollow": "Przestań obserwować",
+  "followedMessage": "Zaobserwowano autora",
+  "unfollowedMessage": "Przestano obserwować autora",
+  "like": "Polubione",
+  "liked": "Polubione",
+  "likeAdded": "Dodano do polubionych autorów",
+  "likeRemoved": "Usunięto z polubionych autorów",
+  "share": "Udostępnij",
+  "homepage": "Strona główna",
+  "works": "Prace",
+  "followers": "Obserwujący",
+  "translate": "Opcje tłumaczenia",
+  "@@last_modified": "2026-10-18T07:51:11.734848"
+}

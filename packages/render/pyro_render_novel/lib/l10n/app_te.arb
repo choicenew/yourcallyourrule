@@ -1,0 +1,21 @@
+{
+  "@@locale": "te",
+  "read": "చదవడం ప్రారంభించు",
+  "shelf": "షెల్ఫ్‌కి జోడించు",
+  "shelfIn": "షెల్ఫ్‌లో ఉంది",
+  "translate": "అనువాద ఎంపికలు",
+  "novelTranslateAi": "AI అనువాదం",
+  "novelTranslateEngine": "ఇంజిన్ అనువాదం",
+  "chapter": "అధ్యాయం",
+  "catalog": "క్యాటలాగ్",
+  "previousChapter": "మునుపటిది",
+  "nextChapter": "తరువాతిది",
+  "fontSize": "ఫాంట్ పరిమాణం",
+  "description": "వివరణ",
+  "shareBook": "పుస్తకాన్ని షేర్ చేయి: ",
+  "firstChapterReached": "ఇప్పటికే మొదటి విభాగంలో ఉంది",
+  "lastChapterReached": "ఇప్పటికే చివరి విభాగంలో ఉంది",
+  "localFileLoaded": "స్థానిక పత్రం విజయవంతంగా లోడ్ చేయబడింది",
+  "sectionLabel": "విభాగం",
+  "@@last_modified": "2026-10-18T07:51:11.961459"
+}

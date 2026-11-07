@@ -1,0 +1,11 @@
+{
+  "@@locale": "en",
+  "syncSettingsTitle": "Cloud Synchronization Settings",
+  "syncStatusIdle": "All data synchronized",
+  "syncStatusSyncing": "Synchronizing database...",
+  "syncNowLabel": "Sync Now",
+  "mountedProvidersSectionTitle": "Mounted Sync Providers",
+  "testConnectivity": "Test Connectivity",
+  "connectionSuccess": "Network connectivity passed!",
+  "connectionFailed": "Connection failed, please check configuration"
+}

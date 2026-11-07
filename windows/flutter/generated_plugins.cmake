@@ -7,6 +7,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   file_selector_windows
   firebase_app_check
   firebase_core
+  firebase_remote_config
   flutter_inappwebview_windows
   flutter_js
   flutter_secure_storage_windows

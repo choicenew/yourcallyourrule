@@ -1,0 +1,20 @@
+{
+  "@@locale": "vi",
+  "play": "Phát video",
+  "download": "Đang tải xuống",
+  "downloading": "Đang tải xuống...",
+  "like": "Đã thích",
+  "liked": "Đã thích",
+  "pause": "Tạm dừng",
+  "playlist": "Thêm vào danh sách phát",
+  "previousTrack": "Trước",
+  "nextTrack": "Tiếp theo",
+  "speed": "Tốc độ",
+  "share": "Chia sẻ",
+  "description": "Mô tả",
+  "shareAudio": "Chia sẻ âm thanh: ",
+  "exploreMore": "Khám phá thêm",
+  "trending": "Đang thịnh hành",
+  "switchSource": "Đổi nguồn / Báo cáo",
+  "@@last_modified": "2026-10-18T07:51:11.700761"
+}

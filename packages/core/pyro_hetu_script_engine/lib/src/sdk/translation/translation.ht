@@ -1,0 +1,3 @@
+external class Translate {
+  static function translate(text, {target, source})
+}

@@ -1,0 +1,16 @@
+{
+  "@@locale": "ko",
+  "contentType": "콘텐츠 유형",
+  "mediaTypeAcademic": "Paper",
+  "mediaTypeBook": "도서",
+  "mediaTypeNovel": "소설",
+  "mediaTypeComic": "코믹스",
+  "mediaTypeMusic": "Music",
+  "mediaTypeAudio": "오디오",
+  "mediaTypeVideo": "비디오",
+  "mediaTypeNews": "News",
+  "mediaTypeWallpaper": "배경화면",
+  "mediaTypeAlbum": "Album",
+  "mediaTypePlaylist": "Playlist",
+  "@@last_modified": "2026-10-18T07:51:12.109770"
+}

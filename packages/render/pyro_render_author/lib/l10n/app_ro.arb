@@ -1,0 +1,18 @@
+{
+  "@@locale": "ro",
+  "follow": "Urmărește",
+  "following": "Urmărite",
+  "unfollow": "Nu mai urmări",
+  "followedMessage": "Autor urmărit",
+  "unfollowedMessage": "Nu mai urmărești autorul",
+  "like": "Apreciat",
+  "liked": "Apreciat",
+  "likeAdded": "Adăugat la autorii apreciați",
+  "likeRemoved": "Eliminat din autorii apreciați",
+  "share": "Partajează",
+  "homepage": "Pagină principală",
+  "works": "Lucrări",
+  "followers": "Urmăritori",
+  "translate": "Opțiuni traducere",
+  "@@last_modified": "2026-10-18T07:51:11.738102"
+}

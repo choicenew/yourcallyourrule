@@ -1,0 +1,21 @@
+{
+  "@@locale": "ca",
+  "read": "Començar a llegir",
+  "shelf": "Afegir a la prestatgeria",
+  "shelfIn": "A la prestatgeria",
+  "translate": "Opcions de traducció",
+  "novelTranslateAi": "Traducció per IA",
+  "novelTranslateEngine": "Traducció per motor",
+  "chapter": "Capítol",
+  "catalog": "Catàleg",
+  "previousChapter": "Anterior",
+  "nextChapter": "Següent",
+  "fontSize": "Mida de lletra",
+  "description": "Descripció",
+  "shareBook": "Compartir llibre: ",
+  "firstChapterReached": "Ja sou a la primera secció",
+  "lastChapterReached": "Ja sou a l'última secció",
+  "localFileLoaded": "Document local carregat amb èxit",
+  "sectionLabel": "Secció",
+  "@@last_modified": "2026-10-18T07:51:11.915565"
+}

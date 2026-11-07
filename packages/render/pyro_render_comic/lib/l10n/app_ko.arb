@@ -1,0 +1,18 @@
+{
+  "@@locale": "ko",
+  "read": "읽기 시작",
+  "shelf": "책장에 추가",
+  "shelfIn": "책장에 있음",
+  "ocr": "텍스트 추출",
+  "ocrExtracting": "추출 중...",
+  "translate": "번역 옵션",
+  "comicTranslateAi": "AI 번역",
+  "comicTranslateEngine": "엔진 번역",
+  "page": "페이지",
+  "pageOf": "/",
+  "stripMode": "연속 스트립",
+  "pageMode": "단일 페이지",
+  "description": "설명",
+  "shareComic": "만화 공유: ",
+  "@@last_modified": "2026-10-18T07:51:11.777068"
+}

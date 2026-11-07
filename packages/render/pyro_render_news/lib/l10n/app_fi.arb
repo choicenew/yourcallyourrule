@@ -1,0 +1,16 @@
+{
+  "@@locale": "fi",
+  "read": "Aloita lukeminen",
+  "share": "Jaa",
+  "ocr": "Puretaan tekstiä...",
+  "ocrExtracting": "Puretaan tekstiä...",
+  "translate": "Käännösvaihtoehdot",
+  "newsTranslateAi": "Tekoälykäännös",
+  "newsTranslateEngine": "Moottorikäännös",
+  "source": "Lähde",
+  "publishTime": "Julkaistu",
+  "copiedLink": "Artikkelin linkki kopioitu leikepöydälle",
+  "description": "Kuvaus",
+  "shareNews": "Jaa artikkeli: ",
+  "@@last_modified": "2026-10-18T07:51:11.867937"
+}

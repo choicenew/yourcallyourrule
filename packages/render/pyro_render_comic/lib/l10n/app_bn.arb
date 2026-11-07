@@ -1,0 +1,18 @@
+{
+  "@@locale": "bn",
+  "read": "পড়া শুরু করুন",
+  "shelf": "শেলফে যোগ করুন",
+  "shelfIn": "In Shelf",
+  "ocr": "এক্সট্রাক্ট করা হচ্ছে...",
+  "ocrExtracting": "Extracting...",
+  "translate": "অনুবাদ বিকল্প",
+  "comicTranslateAi": "AI Translate",
+  "comicTranslateEngine": "Engine Translate",
+  "page": "Page",
+  "pageOf": "of",
+  "stripMode": "Continuous Strip",
+  "pageMode": "Single Page",
+  "description": "Description",
+  "shareComic": "Share Comic: ",
+  "@@last_modified": "2026-10-18T07:51:11.757210"
+}

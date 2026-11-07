@@ -1,0 +1,20 @@
+{
+  "@@locale": "nl",
+  "play": "Video afspelen",
+  "download": "Downloaden",
+  "downloading": "Downloaden...",
+  "like": "Geliked",
+  "liked": "Geliked",
+  "pause": "Pauze",
+  "playlist": "Toevoegen aan afspeellijst",
+  "previousTrack": "Vorige",
+  "nextTrack": "Volgende",
+  "speed": "Snelheid",
+  "share": "Delen",
+  "description": "Beschrijving",
+  "shareAudio": "Audio delen: ",
+  "exploreMore": "Meer ontdekken",
+  "trending": "Nu trending",
+  "switchSource": "Bron wijzigen / Rapporteren",
+  "@@last_modified": "2026-10-18T07:51:11.687291"
+}

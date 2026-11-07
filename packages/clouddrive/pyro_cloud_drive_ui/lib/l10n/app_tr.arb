@@ -1,0 +1,23 @@
+{
+  "@@locale": "tr",
+  "cloudSettingsTitle": "Bulut ve Senkronizasyon Ayarları",
+  "encryptionTitle": "Uçtan Uca Şifreleme (E2EE)",
+  "encryptionSubtitle": "Yüklemeden önce tüm yedeklemeleri AES-256 ile şifrele",
+  "encryptionEnabled": "Etkin (AES-256)",
+  "encryptionDisabled": "Devre Dışı",
+  "configuredDrives": "Yapılandırılmış Bulut Sürücüleri",
+  "noDrivesRegistered": "Bağlı Bulut Sürücüsü Yok",
+  "cancel": "İptal",
+  "save": "Kaydet",
+  "saveAndEnable": "Kaydet ve Etkinleştir",
+  "setPasswordTitle": "E2EE Ana Şifresini Belirle",
+  "setPasswordDescription": "Yedeklemeleriniz yüklemeden önce AES-256 ile şifrelenecektir.",
+  "masterPasswordLabel": "Ana Şifre",
+  "passwordEmptyError": "Şifre boş olamaz",
+  "syncNow": "Şimdi Senkronize Et",
+  "settings": "Ayarlar",
+  "connected": "Bağlandı",
+  "disconnected": "Bağlantı Kesildi",
+  "lastSynced": "Son senkronizasyon: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.047092"
+}

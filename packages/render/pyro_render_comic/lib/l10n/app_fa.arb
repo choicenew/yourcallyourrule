@@ -1,0 +1,18 @@
+{
+  "@@locale": "fa",
+  "read": "شروع خواندن",
+  "shelf": "افزودن به قفسه",
+  "shelfIn": "در قفسه",
+  "ocr": "در حال استخراج...",
+  "ocrExtracting": "در حال استخراج...",
+  "translate": "گزینه‌های ترجمه",
+  "comicTranslateAi": "ترجمه هوش مصنوعی",
+  "comicTranslateEngine": "ترجمه موتوری",
+  "page": "صفحه",
+  "pageOf": "از",
+  "stripMode": "نوار پیوسته",
+  "pageMode": "تک صفحه",
+  "description": "توضیحات",
+  "shareComic": "اشتراک‌گذاری کمیک: ",
+  "@@last_modified": "2026-10-18T07:51:11.765097"
+}

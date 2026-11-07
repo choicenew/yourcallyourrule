@@ -1,0 +1,21 @@
+{
+  "@@locale": "ta",
+  "read": "படிக்கத் தொடங்கு",
+  "shelf": "அடுக்கி சேர்",
+  "shelfIn": "அலமாரியில் உள்ளது",
+  "translate": "மொழிபெயர்ப்பு விருப்பங்கள்",
+  "novelTranslateAi": "AI மொழிபெயர்ப்பு",
+  "novelTranslateEngine": "இயந்திர மொழிபெயர்ப்பு",
+  "chapter": "அத்தியாயம்",
+  "catalog": "பட்டியல்",
+  "previousChapter": "முந்தையது",
+  "nextChapter": "அடுத்தது",
+  "fontSize": "எழுத்து உரு அளவு",
+  "description": "விளக்கம்",
+  "shareBook": "புத்தகத்தைப் பகிர்: ",
+  "firstChapterReached": "ஏற்கனவே முதல் பகுதியில் உள்ளது",
+  "lastChapterReached": "ஏற்கனவே கடைசி பகுதியில் உள்ளது",
+  "localFileLoaded": "உள்ளூர் ஆவணம் வெற்றிகரமாக ஏற்றப்பட்டது",
+  "sectionLabel": "பிரிவு",
+  "@@last_modified": "2026-10-18T07:51:11.960168"
+}

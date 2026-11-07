@@ -1,0 +1,16 @@
+{
+  "@@locale": "zh",
+  "read": "开始阅读",
+  "share": "分享",
+  "ocr": "提取台词/文字",
+  "ocrExtracting": "正在提取台词/文字...",
+  "translate": "翻译选项",
+  "newsTranslateAi": "AI 深度摘要翻译",
+  "newsTranslateEngine": "标准快速翻译",
+  "source": "来源",
+  "publishTime": "发布时间",
+  "copiedLink": "文章链接已复制到剪贴板",
+  "description": "作品简介",
+  "shareNews": "分享报道: ",
+  "@@last_modified": "2026-10-18T07:51:11.905155"
+}

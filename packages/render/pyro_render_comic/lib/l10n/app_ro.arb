@@ -1,0 +1,18 @@
+{
+  "@@locale": "ro",
+  "read": "Începe citirea",
+  "shelf": "Adaugă pe raft",
+  "shelfIn": "În raft",
+  "ocr": "Se extrage...",
+  "ocrExtracting": "Se extrage...",
+  "translate": "Opțiuni traducere",
+  "comicTranslateAi": "Traducere AI",
+  "comicTranslateEngine": "Traducere motor",
+  "page": "Pagină",
+  "pageOf": "din",
+  "stripMode": "Bandă continuă",
+  "pageMode": "Pagină unică",
+  "description": "Descriere",
+  "shareComic": "Partajează banda desenată: ",
+  "@@last_modified": "2026-10-18T07:51:11.788097"
+}

@@ -1,0 +1,16 @@
+{
+  "@@locale": "sl",
+  "read": "Začni brati",
+  "share": "Deli",
+  "ocr": "Ekstrahiranje...",
+  "ocrExtracting": "Ekstrahiranje...",
+  "translate": "Možnosti prevajanja",
+  "newsTranslateAi": "Prevajanje AI",
+  "newsTranslateEngine": "Prevajanje s pogonom",
+  "source": "Vir",
+  "publishTime": "Objavljeno",
+  "copiedLink": "Povezava do članka kopirana v odložišče",
+  "description": "Opis",
+  "shareNews": "Deli članek: ",
+  "@@last_modified": "2026-10-18T07:51:11.892206"
+}

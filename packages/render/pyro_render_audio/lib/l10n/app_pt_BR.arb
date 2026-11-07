@@ -1,0 +1,20 @@
+{
+  "@@locale": "pt_BR",
+  "play": "Reproduzir Vídeo",
+  "download": "Baixando",
+  "downloading": "Baixando...",
+  "like": "Curtido",
+  "liked": "Curtido",
+  "pause": "Pausa",
+  "playlist": "Adicionar à Playlist",
+  "previousTrack": "Anterior",
+  "nextTrack": "Próximo",
+  "speed": "Velocidade",
+  "share": "Compartilhar",
+  "description": "Descrição",
+  "shareAudio": "Compartilhar Áudio: ",
+  "exploreMore": "Explorar Mais",
+  "trending": "Em Alta Agora",
+  "switchSource": "Trocar Fonte / Denunciar",
+  "@@last_modified": "2026-10-18T07:51:11.688555"
+}

@@ -1,0 +1,18 @@
+{
+  "@@locale": "cs",
+  "read": "Začít číst",
+  "shelf": "Přidat do police",
+  "shelfIn": "V polici",
+  "ocr": "Extrakce...",
+  "ocrExtracting": "Extrakce...",
+  "translate": "Možnosti překladu",
+  "comicTranslateAi": "AI překlad",
+  "comicTranslateEngine": "Překlad enginem",
+  "page": "Stránka",
+  "pageOf": "z",
+  "stripMode": "Plynulý proužek",
+  "pageMode": "Jedna stránka",
+  "description": "Popis",
+  "shareComic": "Sdílet komiks: ",
+  "@@last_modified": "2026-10-18T07:51:11.758362"
+}

@@ -1,0 +1,20 @@
+{
+  "@@locale": "zh_TW",
+  "setWallpaper": "設為桌布",
+  "download": "下載中",
+  "downloading": "下載中...",
+  "downloaded": "已下載",
+  "like": "收藏",
+  "liked": "已按讚",
+  "favorite": "收藏",
+  "favorited": "已收藏",
+  "likeAdded": "已加入按讚作者",
+  "likeRemoved": "已從按讚作者移除",
+  "preview": "桌布預覽",
+  "resolution": "原始解析度",
+  "share": "分享",
+  "dimensions": "尺寸",
+  "description": "描述",
+  "shareWallpaper": "分享桌布：",
+  "@@last_modified": "2026-10-18T07:51:12.256403"
+}

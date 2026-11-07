@@ -13,7 +13,7 @@ import 'package:yourcallyourrule/features/location/services/location_sync_servic
 import 'package:yourcallyourrule/core/router/app_router_provider.dart';
 import 'package:yourcallyourrule/core/services/firebase_service.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
-import 'package:yourcallyourrule/features/call/call_history/provider/call_event_listener_provider.dart';
+import 'package:yourcallyourrule/features/call_history/provider/call_event_listener_provider.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/call_overlay_entry.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/overlay_control_handler.dart';
 import 'package:yourcallyourrule/features/call_monitor/services/caller_id_monitor_service.dart';
@@ -111,7 +111,6 @@ Future<void> main() async {
       }),
     );
 
-    // 主 App 实例化统一 Drift 数据库
     DatabaseService();
 
     final container = ProviderContainer();

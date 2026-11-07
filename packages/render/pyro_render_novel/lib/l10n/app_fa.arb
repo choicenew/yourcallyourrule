@@ -1,0 +1,21 @@
+{
+  "@@locale": "fa",
+  "read": "شروع خواندن",
+  "shelf": "افزودن به قفسه",
+  "shelfIn": "در قفسه",
+  "translate": "گزینه‌های ترجمه",
+  "novelTranslateAi": "ترجمه هوش مصنوعی",
+  "novelTranslateEngine": "ترجمه موتوری",
+  "chapter": "فصل",
+  "catalog": "فهرست",
+  "previousChapter": "قبلی",
+  "nextChapter": "بعدی",
+  "fontSize": "اندازه فونت",
+  "description": "توضیحات",
+  "shareBook": "اشتراک‌گذاری کتاب: ",
+  "firstChapterReached": "هم‌اکنون در اولین بخش هستید",
+  "lastChapterReached": "هم‌اکنون در آخرین بخش هستید",
+  "localFileLoaded": "سند محلی با موفقیت بارگذاری شد",
+  "sectionLabel": "بخش",
+  "@@last_modified": "2026-10-18T07:51:11.926511"
+}

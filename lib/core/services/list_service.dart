@@ -1,12 +1,11 @@
 // 列表服务基类，用于黑白名单等列表功能
 
-import '../base/base_entity.dart';
 import '../base/base_service.dart';
 
 /// 列表服务基类
 /// [T] 是实体类型
 /// [ID] 是实体ID类型，默认为String
-abstract class ListService<T extends BaseEntity, ID> extends BaseService<T, ID> {
+abstract class ListService<T, ID> extends BaseService<T, ID> {
   const ListService(super.repository);
 
   /// 添加条目到列表

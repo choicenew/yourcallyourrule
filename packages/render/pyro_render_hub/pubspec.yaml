@@ -1,0 +1,49 @@
+name: pyro_render_hub
+description: 集中式渲染门面中心，统筹各类媒体微包的基础 UI 组件、浏览器容器以及底层渲染抽象，为上层业务提供纯净渲染骨架。
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^3.0.3
+  riverpod_annotation: ^3.0.0
+  webview_flutter: ^4.10.0
+  share_plus: ^10.1.3
+  url_launcher: ^6.3.1
+  pyro_render_protocol:
+    path: ../pyro_render_protocol
+  pyro_browser_engine:
+    path: ../pyro_browser_engine
+  pyro_action_hub:
+    path: ../../action/pyro_action_hub
+  pyro_action_protocol:
+    path: ../../action/pyro_action_protocol
+  pyro_api_translate:
+    path: ../../core/pyro_api_translate
+  pyro_web_translator:
+    path: ../../core/pyro_web_translator
+  pyro_dictionary:
+    path: ../../tools/pyro_dictionary
+  pyro_media_mapper:
+    path: ../../media/pyro_media_mapper
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
+  material_ui: any
+  pyro_media_models:
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.14
+  riverpod_generator: ^3.0.3
+
+flutter:
+  generate: true

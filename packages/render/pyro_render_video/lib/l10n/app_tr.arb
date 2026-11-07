@@ -1,0 +1,16 @@
+{
+  "@@locale": "tr",
+  "play": "Video Oynat",
+  "download": "İndiriliyor",
+  "downloading": "İndiriliyor...",
+  "like": "Beğenildi",
+  "liked": "Beğenildi",
+  "pause": "Duraklat",
+  "replay": "Tekrar Oynat",
+  "speed": "Hız",
+  "quality": "Kalite",
+  "share": "Paylaş",
+  "description": "Açıklama",
+  "shareVideo": "Videoyu Paylaş: ",
+  "@@last_modified": "2026-10-18T07:51:12.191350"
+}

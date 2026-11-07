@@ -1,0 +1,20 @@
+{
+  "@@locale": "mr",
+  "setWallpaper": "वॉलपेपर म्हणून सेट करा",
+  "download": "डाउनलोड करत आहे",
+  "downloading": "डाउनलोड करत आहे...",
+  "downloaded": "डाउनलोड केले",
+  "like": "आवडले",
+  "liked": "आवडले",
+  "favorite": "आवडते",
+  "favorited": "आवडीत जोडले",
+  "likeAdded": "आवडलेल्या लेखकांमध्ये जोडले",
+  "likeRemoved": "आवडलेल्या लेखकांमधून काढले",
+  "preview": "वॉलपेपर पूर्वावलोकन",
+  "resolution": "मूळ रेझोल्यूशन",
+  "share": "शेअर करा",
+  "dimensions": "परिमाणे",
+  "description": "वर्णन",
+  "shareWallpaper": "वॉलपेपर शेअर करा: ",
+  "@@last_modified": "2026-10-18T07:51:12.232940"
+}

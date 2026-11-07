@@ -1,0 +1,16 @@
+{
+  "@@locale": "zh_TW",
+  "play": "播放",
+  "download": "下載中",
+  "downloading": "下載中...",
+  "like": "收藏",
+  "liked": "已按讚",
+  "pause": "暫停",
+  "replay": "重播",
+  "speed": "速度",
+  "quality": "畫質",
+  "share": "分享",
+  "description": "描述",
+  "shareVideo": "分享影片：",
+  "@@last_modified": "2026-10-18T07:51:12.197686"
+}

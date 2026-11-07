@@ -1,0 +1,21 @@
+{
+  "@@locale": "pl",
+  "read": "Rozpocznij czytanie",
+  "shelf": "Dodaj do półki",
+  "shelfIn": "Na półce",
+  "translate": "Opcje tłumaczenia",
+  "novelTranslateAi": "Tłumaczenie AI",
+  "novelTranslateEngine": "Tłumaczenie maszynowe",
+  "chapter": "Rozdział",
+  "catalog": "Katalog",
+  "previousChapter": "Poprzedni",
+  "nextChapter": "Następny",
+  "fontSize": "Rozmiar czcionki",
+  "description": "Opis",
+  "shareBook": "Udostępnij książkę: ",
+  "firstChapterReached": "To już pierwsza sekcja",
+  "lastChapterReached": "To już ostatnia sekcja",
+  "localFileLoaded": "Dokument lokalny wczytany pomyślnie",
+  "sectionLabel": "Sekcja",
+  "@@last_modified": "2026-10-18T07:51:11.949473"
+}

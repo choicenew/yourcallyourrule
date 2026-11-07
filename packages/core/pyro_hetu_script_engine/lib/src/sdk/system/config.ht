@@ -1,0 +1,5 @@
+external class Config {
+  static function getValue(key)
+  static function setValue(key, value)
+  static function update(config)
+}

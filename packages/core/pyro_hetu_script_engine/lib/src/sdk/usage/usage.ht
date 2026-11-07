@@ -1,0 +1,5 @@
+// 模块：应用使用统计
+external class Usage {
+  // 获取今日应用使用时长 (Map<PackageName, Minutes>)
+  static function getTodayUsage() -> Map
+}

@@ -1,0 +1,5 @@
+external class Time {
+  static function hour()
+  static function isDaytime()
+  static function timezone()
+}

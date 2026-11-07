@@ -1,0 +1,16 @@
+{
+  "@@locale": "pt",
+  "play": "Reproduzir Vídeo",
+  "download": "A transferir",
+  "downloading": "A carregar...",
+  "like": "Gosto",
+  "liked": "Gosto",
+  "pause": "Pausa",
+  "replay": "Reproduzir",
+  "speed": "Velocidade",
+  "quality": "Qualidade",
+  "share": "Partilhar",
+  "description": "Descrição",
+  "shareVideo": "Partilhar Vídeo: ",
+  "@@last_modified": "2026-10-18T07:51:12.178369"
+}

@@ -1,0 +1,23 @@
+{
+  "@@locale": "vi",
+  "cloudSettingsTitle": "Cài đặt Đám mây & Đồng bộ",
+  "encryptionTitle": "Mã hóa đầu cuối (E2EE)",
+  "encryptionSubtitle": "Mã hóa tất cả bản sao lưu bằng AES-256 trước khi tải lên",
+  "encryptionEnabled": "Đã bật (AES-256)",
+  "encryptionDisabled": "Đã tắt",
+  "configuredDrives": "Đĩa đám mây đã cấu hình",
+  "noDrivesRegistered": "Không có đĩa đám mây nào được kết nối",
+  "cancel": "Hủy",
+  "save": "Lưu",
+  "saveAndEnable": "Lưu & Bật",
+  "setPasswordTitle": "Đặt mật khẩu chính E2EE",
+  "setPasswordDescription": "Các bản sao lưu của bạn sẽ được mã hóa bằng AES-256 trước khi tải lên.",
+  "masterPasswordLabel": "Mật khẩu chính",
+  "passwordEmptyError": "Mật khẩu không được để trống",
+  "syncNow": "Đồng bộ ngay",
+  "settings": "Cài đặt",
+  "connected": "Đã kết nối",
+  "disconnected": "Đã ngắt kết nối",
+  "lastSynced": "Đồng bộ lần cuối: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.050093"
+}

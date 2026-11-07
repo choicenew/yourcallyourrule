@@ -1,0 +1,16 @@
+{
+  "@@locale": "ru",
+  "contentType": "Тип контента",
+  "mediaTypeAcademic": "Paper",
+  "mediaTypeBook": "Книга",
+  "mediaTypeNovel": "Роман",
+  "mediaTypeComic": "Комикс",
+  "mediaTypeMusic": "Music",
+  "mediaTypeAudio": "Аудио",
+  "mediaTypeVideo": "Видео",
+  "mediaTypeNews": "News",
+  "mediaTypeWallpaper": "Обои",
+  "mediaTypeAlbum": "Album",
+  "mediaTypePlaylist": "Playlist",
+  "@@last_modified": "2026-10-18T07:51:12.127041"
+}

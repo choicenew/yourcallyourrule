@@ -1,0 +1,20 @@
+{
+  "@@locale": "da",
+  "setWallpaper": "Set as Wallpaper",
+  "download": "Downloader",
+  "downloading": "Downloading...",
+  "downloaded": "Downloaded",
+  "like": "Synes om",
+  "liked": "Liked",
+  "favorite": "Favorit",
+  "favorited": "Favorited",
+  "likeAdded": "Added to liked authors",
+  "likeRemoved": "Removed from liked authors",
+  "preview": "Wallpaper Preview",
+  "resolution": "Original Resolution",
+  "share": "Del",
+  "dimensions": "Dimensions",
+  "description": "Description",
+  "shareWallpaper": "Share Wallpaper: ",
+  "@@last_modified": "2026-10-18T07:51:12.205874"
+}

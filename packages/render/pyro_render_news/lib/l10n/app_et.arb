@@ -1,0 +1,16 @@
+{
+  "@@locale": "et",
+  "read": "Alusta lugemist",
+  "share": "Jaga",
+  "ocr": "Teksti eraldamine...",
+  "ocrExtracting": "Teksti eraldamine...",
+  "translate": "Tõlkevalikud",
+  "newsTranslateAi": "AI tõlge",
+  "newsTranslateEngine": "Mootori tõlge",
+  "source": "Allikas",
+  "publishTime": "Avaldatud",
+  "copiedLink": "Artikli link on kopeeritud lõikelauale",
+  "description": "Kirjeldus",
+  "shareNews": "Jaga artiklit: ",
+  "@@last_modified": "2026-10-18T07:51:11.865446"
+}

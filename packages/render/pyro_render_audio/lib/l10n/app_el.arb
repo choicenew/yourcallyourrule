@@ -1,0 +1,20 @@
+{
+  "@@locale": "el",
+  "play": "Αναπαραγωγή",
+  "download": "Λήψη",
+  "downloading": "Downloading...",
+  "like": "Μου αρέσει",
+  "liked": "Liked",
+  "pause": "Pause",
+  "playlist": "Προσθήκη στη λίστα αναπαραγωγής",
+  "previousTrack": "Previous",
+  "nextTrack": "Next",
+  "speed": "Speed",
+  "share": "Κοινοποίηση",
+  "description": "Description",
+  "shareAudio": "Share Audio: ",
+  "exploreMore": "Explore More",
+  "trending": "Trending Now",
+  "switchSource": "Switch Source / Report",
+  "@@last_modified": "2026-10-18T07:51:11.669037"
+}

@@ -1,0 +1,21 @@
+{
+  "@@locale": "nl",
+  "read": "Begin met lezen",
+  "shelf": "Toevoegen aan boekenplank",
+  "shelfIn": "In plank",
+  "translate": "Vertalingsopties",
+  "novelTranslateAi": "AI-vertaling",
+  "novelTranslateEngine": "Motorvertaling",
+  "chapter": "Hoofdstuk",
+  "catalog": "Catalogus",
+  "previousChapter": "Vorige",
+  "nextChapter": "Volgende",
+  "fontSize": "Lettergrootte",
+  "description": "Beschrijving",
+  "shareBook": "Boek delen: ",
+  "firstChapterReached": "Al bij de eerste sectie",
+  "lastChapterReached": "Al bij de laatste sectie",
+  "localFileLoaded": "Lokaal document succesvol geladen",
+  "sectionLabel": "Sectie",
+  "@@last_modified": "2026-10-18T07:51:11.948475"
+}

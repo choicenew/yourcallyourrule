@@ -1,0 +1,16 @@
+{
+  "@@locale": "et",
+  "play": "Esita video",
+  "download": "Allalaadimine",
+  "downloading": "Allalaadimine...",
+  "like": "Meeldib",
+  "liked": "Meeldib",
+  "pause": "Peata",
+  "replay": "Korda",
+  "speed": "Kiirus",
+  "quality": "Kvaliteet",
+  "share": "Jaga",
+  "description": "Kirjeldus",
+  "shareVideo": "Jaga videot: ",
+  "@@last_modified": "2026-10-18T07:51:12.157698"
+}

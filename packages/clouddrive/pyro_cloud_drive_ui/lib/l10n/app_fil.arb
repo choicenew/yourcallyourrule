@@ -1,0 +1,23 @@
+{
+  "@@locale": "fil",
+  "cloudSettingsTitle": "Mga Setting ng Cloud at Pag-sync",
+  "encryptionTitle": "End-to-End Encryption (E2EE)",
+  "encryptionSubtitle": "I-encrypt ang lahat ng backup gamit ang AES-256 bago i-upload",
+  "encryptionEnabled": "Naka-enable (AES-256)",
+  "encryptionDisabled": "Naka-disable",
+  "configuredDrives": "Mga Naka-configure na Cloud Drive",
+  "noDrivesRegistered": "Walang Nakakonektang Cloud Drive",
+  "cancel": "Kanselahin",
+  "save": "I-save",
+  "saveAndEnable": "I-save at Paganahin",
+  "setPasswordTitle": "Magtakda ng E2EE Master Password",
+  "setPasswordDescription": "Ang iyong mga backup ay ia-encrypt gamit ang AES-256 bago i-upload.",
+  "masterPasswordLabel": "Master Password",
+  "passwordEmptyError": "Hindi maaaring maging blangko ang password",
+  "syncNow": "I-sync Ngayon",
+  "settings": "Mga Setting",
+  "connected": "Nakakonekta",
+  "disconnected": "Hindi Nakakonekta",
+  "lastSynced": "Huling na-sync: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.021582"
+}

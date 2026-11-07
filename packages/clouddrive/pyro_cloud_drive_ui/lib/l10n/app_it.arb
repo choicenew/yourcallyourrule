@@ -1,0 +1,23 @@
+{
+  "@@locale": "it",
+  "cloudSettingsTitle": "Impostazioni cloud e sincronizzazione",
+  "encryptionTitle": "Crittografia end-to-end (E2EE)",
+  "encryptionSubtitle": "Crittografa tutti i backup con AES-256 prima del caricamento",
+  "encryptionEnabled": "Abilitata (AES-256)",
+  "encryptionDisabled": "Disabilitata",
+  "configuredDrives": "Unità cloud configurate",
+  "noDrivesRegistered": "Nessuna unità cloud connessa",
+  "cancel": "Annulla",
+  "save": "Salva",
+  "saveAndEnable": "Salva e abilita",
+  "setPasswordTitle": "Imposta password principale E2EE",
+  "setPasswordDescription": "I tuoi backup saranno crittografati con AES-256 prima del caricamento.",
+  "masterPasswordLabel": "Password principale",
+  "passwordEmptyError": "La password non può essere vuota",
+  "syncNow": "Sincronizza ora",
+  "settings": "Impostazioni",
+  "connected": "Connesso",
+  "disconnected": "Disconnesso",
+  "lastSynced": "Ultima sincronizzazione: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.028091"
+}

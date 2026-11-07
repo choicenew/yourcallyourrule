@@ -1,0 +1,20 @@
+{
+  "@@locale": "ro",
+  "play": "Redă video",
+  "download": "Se descarcă",
+  "downloading": "Se descarcă...",
+  "like": "Apreciat",
+  "liked": "Apreciat",
+  "pause": "Pauză",
+  "playlist": "Adaugă la playlist",
+  "previousTrack": "Anterior",
+  "nextTrack": "Următor",
+  "speed": "Viteză",
+  "share": "Partajează",
+  "description": "Descriere",
+  "shareAudio": "Partajează audio: ",
+  "exploreMore": "Explorează mai mult",
+  "trending": "În tendințe",
+  "switchSource": "Schimbă sursa / Raportează",
+  "@@last_modified": "2026-10-18T07:51:11.689788"
+}

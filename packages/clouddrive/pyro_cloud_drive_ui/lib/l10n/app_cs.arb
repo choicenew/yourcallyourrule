@@ -1,0 +1,23 @@
+{
+  "@@locale": "cs",
+  "cloudSettingsTitle": "Nastavení cloudu a synchronizace",
+  "encryptionTitle": "Šifrování end-to-end (E2EE)",
+  "encryptionSubtitle": "Před odesláním zašifrovat všechny zálohy pomocí AES-256",
+  "encryptionEnabled": "Povoleno (AES-256)",
+  "encryptionDisabled": "Zakázáno",
+  "configuredDrives": "Konfigurované cloudové disky",
+  "noDrivesRegistered": "Žádné připojené cloudové disky",
+  "cancel": "Zrušit",
+  "save": "Uložit",
+  "saveAndEnable": "Uložit a povolit",
+  "setPasswordTitle": "Nastavit hlavní heslo E2EE",
+  "setPasswordDescription": "Vaše zálohy budou před odesláním zašifrovány pomocí AES-256.",
+  "masterPasswordLabel": "Hlavní heslo",
+  "passwordEmptyError": "Heslo nemůže být prázdné",
+  "syncNow": "Synchronizovat nyní",
+  "settings": "Nastavení",
+  "connected": "Připojeno",
+  "disconnected": "Odpojeno",
+  "lastSynced": "Naposledy synchronizováno: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.013581"
+}

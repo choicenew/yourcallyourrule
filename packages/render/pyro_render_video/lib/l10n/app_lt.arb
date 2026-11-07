@@ -1,0 +1,16 @@
+{
+  "@@locale": "lt",
+  "play": "Leisti vaizdo įrašą",
+  "download": "Atsisiunčiama",
+  "downloading": "Atsisiunčiama...",
+  "like": "Patinka",
+  "liked": "Patinka",
+  "pause": "Pristabdyti",
+  "replay": "Pakartoti",
+  "speed": "Greitis",
+  "quality": "Kokybė",
+  "share": "Bendrinti",
+  "description": "Aprašymas",
+  "shareVideo": "Bendrinti vaizdo įrašą: ",
+  "@@last_modified": "2026-10-18T07:51:12.171911"
+}

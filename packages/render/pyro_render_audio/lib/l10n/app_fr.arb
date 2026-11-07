@@ -1,0 +1,20 @@
+{
+  "@@locale": "fr",
+  "play": "Lire",
+  "download": "Téléchargement",
+  "downloading": "Téléchargement...",
+  "like": "Favoris",
+  "liked": "Aimé",
+  "pause": "Pause",
+  "playlist": "Ajouter à la playlist",
+  "previousTrack": "Précédent",
+  "nextTrack": "Suivant",
+  "speed": "Vitesse",
+  "share": "Partager",
+  "description": "Description",
+  "shareAudio": "Partager l'audio : ",
+  "exploreMore": "Explorer plus",
+  "trending": "Tendances",
+  "switchSource": "Changer de source / Signaler",
+  "@@last_modified": "2026-10-18T07:51:11.674708"
+}

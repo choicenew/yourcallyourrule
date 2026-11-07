@@ -2,10 +2,9 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:csv/csv.dart';
 import 'package:yaml/yaml.dart';
-import 'package:yourcallyourrule/core/base/base_entity.dart';
 import 'package:yourcallyourrule/core/repositories/base_repository.dart';
 
-class UniversalImportExportService<T extends BaseEntity> {
+class UniversalImportExportService<T> {
   final BaseRepository<T, String> _repository;
 
   UniversalImportExportService(this._repository);
@@ -80,7 +79,7 @@ class UniversalImportExportService<T extends BaseEntity> {
   List<T> _parseJsonData(String data) {
     final jsonList = jsonDecode(data) as List;
     return jsonList.map((json) {
-      return _repository.fromMap(json as Map<String, dynamic>); // Line 83 corrected
+      return _repository.fromMap(json as Map<String, dynamic>);
     }).toList();
   }
 
@@ -93,14 +92,14 @@ class UniversalImportExportService<T extends BaseEntity> {
       for (var i = 0; i < headers.length; i++) {
         map[headers[i]] = _parseCsvValue(row[i]);
       }
-      return _repository.fromMap(map); // Line 96 corrected
+      return _repository.fromMap(map);
     }).toList();
   }
 
   List<T> _parseYamlData(String data) {
     final docs = loadYamlDocuments(data);
     return docs.map((doc) {
-      return _repository.fromMap(_convertYamlNode(doc.contents)); // Line 103 corrected
+      return _repository.fromMap(_convertYamlNode(doc.contents));
     }).toList();
   }
 
@@ -136,7 +135,7 @@ class UniversalImportExportService<T extends BaseEntity> {
     
     switch (format) {
       case FileFormat.json:
-        return jsonEncode(entities.map((e) => e.toMap()).toList());
+        return jsonEncode(entities.map((e) => (e as dynamic).toMap()).toList());
       case FileFormat.csv:
         return _formatCsv(entities);
       case FileFormat.yaml:
@@ -151,7 +150,7 @@ class UniversalImportExportService<T extends BaseEntity> {
     final rows = [fieldNames];
     
     for (final entity in entities) {
-      final map = entity.toMap();
+      final map = (entity as dynamic).toMap();
       rows.add(fieldNames.map((field) => map[field]?.toString() ?? '').toList());
     }
     
@@ -160,14 +159,14 @@ class UniversalImportExportService<T extends BaseEntity> {
 
   String _formatYaml(List<T> entities) {
     return entities.map((e) {
-      final map = e.toMap();
+      final map = (e as dynamic).toMap();
       return map.entries.map((entry) => '${entry.key}: ${entry.value}').join('\n');
     }).join('\n---\n');
   }
 
   List<String> _getEntityFieldNames(List<T> entities) {
     if (entities.isEmpty) return [];
-    final sample = entities.first.toMap();
+    final sample = (entities.first as dynamic).toMap();
     return sample.keys.toList();
   }
 }

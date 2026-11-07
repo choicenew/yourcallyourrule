@@ -1,0 +1,21 @@
+{
+  "@@locale": "ru",
+  "read": "Читать",
+  "shelf": "На полку",
+  "shelfIn": "На полке",
+  "translate": "Параметры перевода",
+  "novelTranslateAi": "ИИ Перевод",
+  "novelTranslateEngine": "Движок перевода",
+  "chapter": "Глава",
+  "catalog": "Оглавление",
+  "previousChapter": "Назад",
+  "nextChapter": "Вперед",
+  "fontSize": "Размер шрифта",
+  "description": "Описание",
+  "shareBook": "Поделиться книгой: ",
+  "firstChapterReached": "Это первый раздел",
+  "lastChapterReached": "Это последний раздел",
+  "localFileLoaded": "Локальный документ успешно загружен",
+  "sectionLabel": "Раздел",
+  "@@last_modified": "2026-10-18T07:51:11.954564"
+}

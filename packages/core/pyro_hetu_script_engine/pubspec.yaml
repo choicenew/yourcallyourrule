@@ -1,0 +1,64 @@
+name: pyro_hetu_script_engine
+description: A standalone Hetu script engine for execution of Aura plugins with privacy-preserving delegates.
+version: 0.0.1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  hetu_script:
+    git:
+      url: https://github.com/hetu-script/hetu-script.git
+      path: packages/hetu_script
+
+  crypto: ^3.0.7
+  base32: ^2.2.0
+  http: ^1.2.2
+  path: ^1.9.1
+  dio: ^5.9.0
+  html: ^0.15.6
+  battery_plus: ^7.0.0
+  geolocator: ^14.0.2
+  connectivity_plus: ^7.0.0
+  sensors_plus: ^7.0.0
+  app_usage: ^4.0.1
+
+  # Add other std lib dependencies if needed
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  assets:
+    - lib/src/std/base32/
+    - lib/src/std/base64/
+    - lib/src/std/crypto/
+    - lib/src/std/datetime/
+    - lib/src/std/http/
+    - lib/src/std/regex/
+    - lib/src/sdk/webview/
+    - lib/src/sdk/user/
+    - lib/src/sdk/system/
+    - lib/src/sdk/storage/
+    - lib/src/sdk/native_context/
+    - lib/src/sdk/translation/
+    - lib/src/std/timer/
+    - lib/src/std/util/
+    - lib/src/sdk/battery/
+    - lib/src/sdk/network/
+    - lib/src/sdk/location/
+    - lib/src/sdk/motion/
+    - lib/src/sdk/time/
+    - lib/src/sdk/weather/
+    - lib/src/sdk/html/
+    - lib/src/std/future/
+    - lib/src/std/utf8/
+    - lib/src/sdk/usage/

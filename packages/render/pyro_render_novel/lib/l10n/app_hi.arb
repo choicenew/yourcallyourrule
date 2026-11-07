@@ -1,0 +1,21 @@
+{
+  "@@locale": "hi",
+  "read": "पढ़ना शुरू करें",
+  "shelf": "शेल्फ में जोड़ें",
+  "shelfIn": "शेल्फ में",
+  "translate": "अनुवाद विकल्प",
+  "novelTranslateAi": "एआई अनुवाद",
+  "novelTranslateEngine": "इंजन अनुवाद",
+  "chapter": "अध्याय",
+  "catalog": "कैटलॉग",
+  "previousChapter": "पिछला",
+  "nextChapter": "अगला",
+  "fontSize": "फ़ॉन्ट आकार",
+  "description": "विवरण",
+  "shareBook": "किताब साझा करें: ",
+  "firstChapterReached": "पहले से ही पहले अनुभाग पर है",
+  "lastChapterReached": "पहले से ही अंतिम अनुभाग पर है",
+  "localFileLoaded": "स्थानीय दस्तावेज़ सफलतापूर्वक लोड हुआ",
+  "sectionLabel": "अनुभाग",
+  "@@last_modified": "2026-10-18T07:51:11.932294"
+}

@@ -1,0 +1,20 @@
+{
+  "@@locale": "he",
+  "play": "הפעל וידאו",
+  "download": "מוריד",
+  "downloading": "מוריד...",
+  "like": "אהבתי",
+  "liked": "אהבתי",
+  "pause": "השהה",
+  "playlist": "הוסף לרשימת השמעה",
+  "previousTrack": "הקודם",
+  "nextTrack": "הבא",
+  "speed": "מהירות",
+  "share": "שיתוף",
+  "description": "תיאור",
+  "shareAudio": "שיתוף אודיו: ",
+  "exploreMore": "חקור עוד",
+  "trending": "מגמות כעת",
+  "switchSource": "החלף מקור / דווח",
+  "@@last_modified": "2026-10-18T07:51:11.675706"
+}

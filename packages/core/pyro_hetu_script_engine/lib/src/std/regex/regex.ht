@@ -1,0 +1,37 @@
+external class ExpressionMatch {
+  get start
+  get end
+  function group(index)
+  get groupCount
+  get input
+  function namedGroup(name)
+}
+
+external class SimpleMatch {
+  get start
+  get end
+  function group(index)
+  function groups(indices)
+  get input
+}
+
+external class Regex {
+  constructor(pattern, {caseSensitive, multiLine, unicode, dotAll})
+  
+  static function escape(input)
+  static function splitString(input, pattern)
+
+  get isCaseSensitive
+  get isMultiLine
+  get isDotAll
+  get isUnicode
+  get pattern
+  
+  function matchAsPrefix(input, [start])
+  function firstMatch(input)
+  function stringMatch(input)
+  function allMatches(input, [start])
+  function hasMatch(input)
+  
+  function toString()
+}

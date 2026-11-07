@@ -1,0 +1,21 @@
+{
+  "@@locale": "hu",
+  "read": "Olvasás kezdete",
+  "shelf": "Hozzáadás a polchoz",
+  "shelfIn": "Polcon",
+  "translate": "Fordítási opciók",
+  "novelTranslateAi": "AI fordítás",
+  "novelTranslateEngine": "Motor fordítás",
+  "chapter": "Fejezet",
+  "catalog": "Katalógus",
+  "previousChapter": "Előző",
+  "nextChapter": "Következő",
+  "fontSize": "Betűméret",
+  "description": "Leírás",
+  "shareBook": "Könyv megosztása: ",
+  "firstChapterReached": "Már az első szakaszban vagy",
+  "lastChapterReached": "Már az utolsó szakaszban vagy",
+  "localFileLoaded": "Helyi dokumentum sikeresen betöltve",
+  "sectionLabel": "Szakasz",
+  "@@last_modified": "2026-10-18T07:51:11.934741"
+}

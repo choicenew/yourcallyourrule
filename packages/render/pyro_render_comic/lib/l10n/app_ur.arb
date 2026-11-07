@@ -1,0 +1,18 @@
+{
+  "@@locale": "ur",
+  "read": "پڑھنا شروع کریں",
+  "shelf": "شلف میں شامل کریں",
+  "shelfIn": "شلف میں",
+  "ocr": "نکالا جا رہا ہے...",
+  "ocrExtracting": "نکالا جا رہا ہے...",
+  "translate": "ترجمہ کے اختیارات",
+  "comicTranslateAi": "اے آئی ترجمہ",
+  "comicTranslateEngine": "انجن ترجمہ",
+  "page": "صفحہ",
+  "pageOf": "از",
+  "stripMode": "مسلسل اسٹریپ",
+  "pageMode": "واحد صفحہ",
+  "description": "تفصیل",
+  "shareComic": "کامک شیئر کریں: ",
+  "@@last_modified": "2026-10-18T07:51:11.797475"
+}

@@ -1,0 +1,13 @@
+{
+  "@@locale": "en",
+  "supabaseSyncTitle": "Supabase Cloud Database Sync",
+  "projectUrlLabel": "Supabase Project URL",
+  "projectUrlHint": "https://xyz.supabase.co",
+  "anonKeyLabel": "Anon / API Key",
+  "anonKeyHint": "eyJhbGciOiJIUzI1NiIsIn...",
+  "connectionStringLabel": "Postgres Connection String",
+  "saveConfigButton": "Save Configuration",
+  "testConnectionButton": "Test Connectivity",
+  "connectionSuccess": "Supabase connection is healthy",
+  "connectionFailed": "Failed to connect to Supabase database"
+}

@@ -1,0 +1,20 @@
+{
+  "@@locale": "en",
+  "setWallpaper": "Set as Wallpaper",
+  "download": "Downloading",
+  "downloading": "Downloading...",
+  "downloaded": "Downloaded",
+  "like": "Liked",
+  "liked": "Liked",
+  "favorite": "Favorite",
+  "favorited": "Favorited",
+  "likeAdded": "Added to liked authors",
+  "likeRemoved": "Removed from liked authors",
+  "preview": "Wallpaper Preview",
+  "resolution": "Original Resolution",
+  "share": "Share",
+  "dimensions": "Dimensions",
+  "description": "Description",
+  "shareWallpaper": "Share Wallpaper: ",
+  "@@last_modified": "2026-10-18T07:51:12.209892"
+}

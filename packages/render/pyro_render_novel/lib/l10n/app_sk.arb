@@ -1,0 +1,21 @@
+{
+  "@@locale": "sk",
+  "read": "Začať čítať",
+  "shelf": "Pridať na poličku",
+  "shelfIn": "Na poličke",
+  "translate": "Možnosti prekladu",
+  "novelTranslateAi": "AI preklad",
+  "novelTranslateEngine": "Preklad enginom",
+  "chapter": "Kapitola",
+  "catalog": "Katalóg",
+  "previousChapter": "Predchádzajúca",
+  "nextChapter": "Nasledujúca",
+  "fontSize": "Veľkosť písma",
+  "description": "Popis",
+  "shareBook": "Zdieľať knihu: ",
+  "firstChapterReached": "Už ste v prvej časti",
+  "lastChapterReached": "Už ste v poslednej časti",
+  "localFileLoaded": "Lokálny dokument úspešne načítaný",
+  "sectionLabel": "Časť",
+  "@@last_modified": "2026-10-18T07:51:11.956001"
+}

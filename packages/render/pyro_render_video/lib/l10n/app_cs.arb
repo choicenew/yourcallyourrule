@@ -1,0 +1,16 @@
+{
+  "@@locale": "cs",
+  "play": "Přehrát",
+  "download": "Stahování",
+  "downloading": "Stahování...",
+  "like": "Líbí se",
+  "liked": "Líbí se",
+  "pause": "Pozastavit",
+  "replay": "Přehrát znovu",
+  "speed": "Rychlost",
+  "quality": "Kvalita",
+  "share": "Sdílet",
+  "description": "Popis",
+  "shareVideo": "Sdílet video: ",
+  "@@last_modified": "2026-10-18T07:51:12.149249"
+}

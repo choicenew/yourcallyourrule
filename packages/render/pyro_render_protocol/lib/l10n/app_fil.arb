@@ -1,0 +1,16 @@
+{
+  "@@locale": "fil",
+  "contentType": "Content Type",
+  "mediaTypeAcademic": "Paper",
+  "mediaTypeBook": "Book",
+  "mediaTypeNovel": "Novel",
+  "mediaTypeComic": "Comic",
+  "mediaTypeMusic": "Music",
+  "mediaTypeAudio": "Audio",
+  "mediaTypeVideo": "Video",
+  "mediaTypeNews": "News",
+  "mediaTypeWallpaper": "Wallpaper",
+  "mediaTypeAlbum": "Album",
+  "mediaTypePlaylist": "Playlist",
+  "@@last_modified": "2026-10-18T07:51:12.098768"
+}

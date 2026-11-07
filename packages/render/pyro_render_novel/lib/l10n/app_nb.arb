@@ -1,0 +1,21 @@
+{
+  "@@locale": "nb",
+  "read": "Start lesing",
+  "shelf": "Legg til i hylle",
+  "shelfIn": "I hylle",
+  "translate": "Oversettelsesalternativer",
+  "novelTranslateAi": "AI-oversettelse",
+  "novelTranslateEngine": "Motoroversettelse",
+  "chapter": "Kapittel",
+  "catalog": "Katalog",
+  "previousChapter": "Forrige",
+  "nextChapter": "Neste",
+  "fontSize": "Skriftstørrelse",
+  "description": "Beskrivelse",
+  "shareBook": "Del bok: ",
+  "firstChapterReached": "Allerede på første avsnitt",
+  "lastChapterReached": "Allerede på siste avsnitt",
+  "localFileLoaded": "Lokalt dokument ble lastet inn",
+  "sectionLabel": "Seksjon",
+  "@@last_modified": "2026-10-18T07:51:11.947415"
+}

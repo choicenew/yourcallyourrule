@@ -1,0 +1,18 @@
+{
+  "@@locale": "it",
+  "follow": "Segui",
+  "following": "Seguiti",
+  "unfollow": "Smetti di seguire",
+  "followedMessage": "Autore seguito",
+  "unfollowedMessage": "Non segui più l'autore",
+  "like": "Mi piace",
+  "liked": "Liked",
+  "likeAdded": "Aggiunto agli autori preferiti",
+  "likeRemoved": "Rimosso dagli autori preferiti",
+  "share": "Condividi",
+  "homepage": "Pagina iniziale",
+  "works": "Opere",
+  "followers": "Follower",
+  "translate": "Opzioni di traduzione",
+  "@@last_modified": "2026-10-18T07:51:11.725073"
+}

@@ -1,0 +1,23 @@
+{
+  "@@locale": "pt_BR",
+  "cloudSettingsTitle": "Configurações de Nuvem e Sincronização",
+  "encryptionTitle": "Criptografia End-to-End (E2EE)",
+  "encryptionSubtitle": "Criptografar todos os backups com AES-256 antes de enviar",
+  "encryptionEnabled": "Ativado (AES-256)",
+  "encryptionDisabled": "Desativado",
+  "configuredDrives": "Unidades em Nuvem Configuradas",
+  "noDrivesRegistered": "Nenhuma Unidade em Nuvem Conectada",
+  "cancel": "Cancelar",
+  "save": "Salvar",
+  "saveAndEnable": "Salvar & Ativar",
+  "setPasswordTitle": "Definir Senha Mestra E2EE",
+  "setPasswordDescription": "Seus backups serão criptografados com AES-256 antes de enviar.",
+  "masterPasswordLabel": "Senha Mestra",
+  "passwordEmptyError": "A senha não pode estar vazia",
+  "syncNow": "Sincronizar Agora",
+  "settings": "Configurações",
+  "connected": "Conectado",
+  "disconnected": "Desconectado",
+  "lastSynced": "Última sincronização: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.039090"
+}

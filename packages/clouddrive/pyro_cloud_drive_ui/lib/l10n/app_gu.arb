@@ -1,0 +1,23 @@
+{
+  "@@locale": "gu",
+  "cloudSettingsTitle": "ક્લાઉડ અને સિન્ક સેટિંગ્સ",
+  "encryptionTitle": "એન્ડ-ટુ-એન્ડ એન્ક્રિપ્શન (E2EE)",
+  "encryptionSubtitle": "અપલોડ કરતા પહેલા તમામ બેકઅપને AES-256 વડે એન્ક્રિપ્ટ કરો",
+  "encryptionEnabled": "સક્ષમ (AES-256)",
+  "encryptionDisabled": "અક્ષમ",
+  "configuredDrives": "ગોઠવેલ ક્લાઉડ ડ્રાઇવ્સ",
+  "noDrivesRegistered": "કોઈ ક્લાઉડ ડ્રાઇવ કનેક્ટ થયેલ નથી",
+  "cancel": "રદ કરો",
+  "save": "સાચવો",
+  "saveAndEnable": "સાચવો અને સક્ષમ કરો",
+  "setPasswordTitle": "E2EE માસ્ટર પાસવર્ડ સેટ કરો",
+  "setPasswordDescription": "અપલોડ કરતા પહેલા તમારા બેકઅપ AES-256 સાથે એન્ક્રિપ્ટ કરવામાં આવશે.",
+  "masterPasswordLabel": "માસ્ટર પાસવર્ડ",
+  "passwordEmptyError": "પાસવર્ડ ખાલી હોઈ શકે નહીં",
+  "syncNow": "હવે સિન્ક કરો",
+  "settings": "સેટિંગ્સ",
+  "connected": "કનેક્ટ થયેલ છે",
+  "disconnected": "ડિસ્કનેક્ટ થયેલ છે",
+  "lastSynced": "છેલ્લે સિન્ક થયું: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.024086"
+}

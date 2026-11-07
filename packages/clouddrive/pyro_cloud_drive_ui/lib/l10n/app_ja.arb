@@ -1,0 +1,23 @@
+{
+  "@@locale": "ja",
+  "cloudSettingsTitle": "Cloud & Sync Settings",
+  "encryptionTitle": "End-to-End Encryption (E2EE)",
+  "encryptionSubtitle": "Encrypt all backups with AES-256 before upload",
+  "encryptionEnabled": "Enabled (AES-256)",
+  "encryptionDisabled": "Disabled",
+  "configuredDrives": "Configured Cloud Drives",
+  "noDrivesRegistered": "No Cloud Drives Connected",
+  "cancel": "キャンセル",
+  "save": "Save",
+  "saveAndEnable": "Save & Enable",
+  "setPasswordTitle": "Set E2EE Master Password",
+  "setPasswordDescription": "Your backups will be encrypted with AES-256 before uploading.",
+  "masterPasswordLabel": "マスターパスワード",
+  "passwordEmptyError": "Password cannot be empty",
+  "syncNow": "Sync Now",
+  "settings": "Settings",
+  "connected": "Connected",
+  "disconnected": "Disconnected",
+  "lastSynced": "Last synced: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.029092"
+}

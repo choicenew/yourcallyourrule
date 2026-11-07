@@ -1,0 +1,20 @@
+{
+  "@@locale": "et",
+  "play": "Esita video",
+  "download": "Allalaadimine",
+  "downloading": "Allalaadimine...",
+  "like": "Meeldib",
+  "liked": "Meeldib",
+  "pause": "Peata",
+  "playlist": "Lisa esitusloendisse",
+  "previousTrack": "Eelmine",
+  "nextTrack": "Järgmine",
+  "speed": "Kiirus",
+  "share": "Jaga",
+  "description": "Kirjeldus",
+  "shareAudio": "Jaga heli: ",
+  "exploreMore": "Avasta rohkem",
+  "trending": "Hetkel populaarne",
+  "switchSource": "Vaheta allikat / teata",
+  "@@last_modified": "2026-10-18T07:51:11.671040"
+}

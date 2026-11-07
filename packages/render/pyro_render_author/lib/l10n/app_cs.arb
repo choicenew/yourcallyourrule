@@ -1,0 +1,18 @@
+{
+  "@@locale": "cs",
+  "follow": "Sledovat",
+  "following": "Sleduji",
+  "unfollow": "Zrušit sledování",
+  "followedMessage": "Sleduje autora",
+  "unfollowedMessage": "Zrušeno sledování autora",
+  "like": "Líbí se",
+  "liked": "Líbí se",
+  "likeAdded": "Přidáno do oblíbených autorů",
+  "likeRemoved": "Odebráno z oblíbených autorů",
+  "share": "Sdílet",
+  "homepage": "Domovská stránka",
+  "works": "Díla",
+  "followers": "Sledující",
+  "translate": "Možnosti překladu",
+  "@@last_modified": "2026-10-18T07:51:11.710425"
+}

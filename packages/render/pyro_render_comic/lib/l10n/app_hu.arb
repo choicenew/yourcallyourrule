@@ -1,0 +1,18 @@
+{
+  "@@locale": "hu",
+  "read": "Olvasás kezdete",
+  "shelf": "Hozzáadás a polchoz",
+  "shelfIn": "Polcon",
+  "ocr": "Kinyerés...",
+  "ocrExtracting": "Kinyerés...",
+  "translate": "Fordítási opciók",
+  "comicTranslateAi": "AI fordítás",
+  "comicTranslateEngine": "Motor fordítás",
+  "page": "Oldal",
+  "pageOf": "a(z)",
+  "stripMode": "Folyamatos csík",
+  "pageMode": "Egyes oldal",
+  "description": "Leírás",
+  "shareComic": "Képregény megosztása: ",
+  "@@last_modified": "2026-10-18T07:51:11.773173"
+}

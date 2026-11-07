@@ -1,12 +1,11 @@
 // 服务基类，所有服务都应该继承自这个类
 
-import 'base_entity.dart';
 import '../repositories/base_repository.dart';
 
 /// 服务基类
 /// [T] 是实体类型
 /// [ID] 是实体ID类型，默认为String
-abstract class BaseService<T extends BaseEntity, ID> {
+abstract class BaseService<T, ID> {
   final BaseRepository<T, ID> repository;
 
   const BaseService(this.repository);

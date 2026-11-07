@@ -1,0 +1,20 @@
+{
+  "@@locale": "ca",
+  "setWallpaper": "Establir com a fons de pantalla",
+  "download": "Descarregant",
+  "downloading": "Descarregant...",
+  "downloaded": "Descarregat",
+  "like": "M'agrada",
+  "liked": "M'agrada",
+  "favorite": "Preferit",
+  "favorited": "Marcat com a preferit",
+  "likeAdded": "Afegit als autors preferits",
+  "likeRemoved": "Eliminat dels autors preferits",
+  "preview": "Vista prèvia del fons",
+  "resolution": "Resolució original",
+  "share": "Compartir",
+  "dimensions": "Dimensions",
+  "description": "Descripció",
+  "shareWallpaper": "Compartir fons de pantalla: ",
+  "@@last_modified": "2026-10-18T07:51:12.203872"
+}

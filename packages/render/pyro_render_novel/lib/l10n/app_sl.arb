@@ -1,0 +1,21 @@
+{
+  "@@locale": "sl",
+  "read": "Začni brati",
+  "shelf": "Dodaj na polico",
+  "shelfIn": "Na polici",
+  "translate": "Možnosti prevajanja",
+  "novelTranslateAi": "Prevajanje AI",
+  "novelTranslateEngine": "Prevajanje s pogonom",
+  "chapter": "Poglavje",
+  "catalog": "Katalog",
+  "previousChapter": "Prejšnje",
+  "nextChapter": "Naslednje",
+  "fontSize": "Velikost pisave",
+  "description": "Opis",
+  "shareBook": "Deli knjigo: ",
+  "firstChapterReached": "Ste že pri prvem razdelku",
+  "lastChapterReached": "Ste že pri zadnjem razdelku",
+  "localFileLoaded": "Lokalni dokument uspešno naložen",
+  "sectionLabel": "Razdelek",
+  "@@last_modified": "2026-10-18T07:51:11.958002"
+}

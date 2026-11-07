@@ -1,0 +1,21 @@
+{
+  "@@locale": "uk",
+  "read": "Почати читання",
+  "shelf": "Додати на полицю",
+  "shelfIn": "На полиці",
+  "translate": "Параметри перекладу",
+  "novelTranslateAi": "AI переклад",
+  "novelTranslateEngine": "Машинний переклад",
+  "chapter": "Розділ",
+  "catalog": "Каталог",
+  "previousChapter": "Попередній",
+  "nextChapter": "Наступний",
+  "fontSize": "Розмір шрифту",
+  "description": "Опис",
+  "shareBook": "Поділитися книгою: ",
+  "firstChapterReached": "Вже на першому розділі",
+  "lastChapterReached": "Вже на останньому розділі",
+  "localFileLoaded": "Локальний документ успішно завантажено",
+  "sectionLabel": "Розділ",
+  "@@last_modified": "2026-10-18T07:51:11.964732"
+}

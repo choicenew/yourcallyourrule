@@ -1,0 +1,16 @@
+{
+  "@@locale": "de",
+  "contentType": "Inhaltstyp",
+  "mediaTypeAcademic": "Paper",
+  "mediaTypeBook": "Buch",
+  "mediaTypeNovel": "Roman",
+  "mediaTypeComic": "Comic",
+  "mediaTypeMusic": "Music",
+  "mediaTypeAudio": "Audio",
+  "mediaTypeVideo": "Video",
+  "mediaTypeNews": "News",
+  "mediaTypeWallpaper": "Hintergrundbild",
+  "mediaTypeAlbum": "Album",
+  "mediaTypePlaylist": "Playlist",
+  "@@last_modified": "2026-10-18T07:51:12.090689"
+}

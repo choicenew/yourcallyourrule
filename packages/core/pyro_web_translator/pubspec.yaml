@@ -1,0 +1,21 @@
+name: pyro_web_translator
+description: Dedicated, decoupled web browser page DOM text extraction, bilingual injection, and concurrent block translation engine for Pyro.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_api_translate:
+    path: ../pyro_api_translate
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0

@@ -1,0 +1,16 @@
+{
+  "@@locale": "he",
+  "read": "התחל לקרוא",
+  "share": "שיתוף",
+  "ocr": "מחלץ טקסט...",
+  "ocrExtracting": "מחלץ...",
+  "translate": "אפשרויות תרגום",
+  "newsTranslateAi": "תרגום AI",
+  "newsTranslateEngine": "תרגום מנוע",
+  "source": "מקור",
+  "publishTime": "פורסם",
+  "copiedLink": "קישור המאמר הועתק ללוח",
+  "description": "תיאור",
+  "shareNews": "שיתוף מאמר: ",
+  "@@last_modified": "2026-10-18T07:51:11.870160"
+}

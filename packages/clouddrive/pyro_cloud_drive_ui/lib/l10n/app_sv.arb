@@ -1,0 +1,23 @@
+{
+  "@@locale": "sv",
+  "cloudSettingsTitle": "Moln- och synkinställningar",
+  "encryptionTitle": "End-to-End-kryptering (E2EE)",
+  "encryptionSubtitle": "Kryptera alla säkerhetskopior med AES-256 före uppladdning",
+  "encryptionEnabled": "Aktiverad (AES-256)",
+  "encryptionDisabled": "Inaktiverad",
+  "configuredDrives": "Konfigurerade molnenheter",
+  "noDrivesRegistered": "Inga molnenheter anslutna",
+  "cancel": "Avbryt",
+  "save": "Spara",
+  "saveAndEnable": "Spara & Aktivera",
+  "setPasswordTitle": "Ställ in E2EE-huvudlösenord",
+  "setPasswordDescription": "Dina säkerhetskopior krypteras med AES-256 innan uppladdning.",
+  "masterPasswordLabel": "Huvudlösenord",
+  "passwordEmptyError": "Lösenordet får inte vara tomt",
+  "syncNow": "Synka nu",
+  "settings": "Inställningar",
+  "connected": "Ansluten",
+  "disconnected": "Frånkopplad",
+  "lastSynced": "Senast synkad: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.045096"
+}

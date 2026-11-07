@@ -1,0 +1,18 @@
+{
+  "@@locale": "fil",
+  "read": "Simulan ang Pagbasa",
+  "shelf": "Idagdag sa Shelf",
+  "shelfIn": "Nasa Shelf",
+  "ocr": "Kumukuha ng Teksto...",
+  "ocrExtracting": "Kumukuha...",
+  "translate": "Mga Opsyon sa Pagsasalin",
+  "comicTranslateAi": "AI Translate",
+  "comicTranslateEngine": "Engine Translate",
+  "page": "Pahina",
+  "pageOf": "ng",
+  "stripMode": "Tuloy-tuloy na Strip",
+  "pageMode": "Isang Pahina",
+  "description": "Paglalarawan",
+  "shareComic": "Ibahagi ang Komiks: ",
+  "@@last_modified": "2026-10-18T07:51:11.767439"
+}

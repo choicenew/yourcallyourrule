@@ -1,0 +1,18 @@
+{
+  "@@locale": "fi",
+  "read": "Aloita lukeminen",
+  "shelf": "Lisää hyllylle",
+  "shelfIn": "Hyllyssä",
+  "ocr": "Puretaan tekstiä...",
+  "ocrExtracting": "Puretaan tekstiä...",
+  "translate": "Käännösvaihtoehdot",
+  "comicTranslateAi": "Tekoälykäännös",
+  "comicTranslateEngine": "Moottorikäännös",
+  "page": "Sivu",
+  "pageOf": "/",
+  "stripMode": "Jatkuva kaistale",
+  "pageMode": "Yksi sivu",
+  "description": "Kuvaus",
+  "shareComic": "Jaa sarjakuva: ",
+  "@@last_modified": "2026-10-18T07:51:11.766097"
+}

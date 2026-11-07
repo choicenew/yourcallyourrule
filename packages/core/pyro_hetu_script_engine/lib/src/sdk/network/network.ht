@@ -1,0 +1,3 @@
+external class Network {
+  static function type()
+}

@@ -1,0 +1,18 @@
+{
+  "@@locale": "et",
+  "read": "Alusta lugemist",
+  "shelf": "Lisa riiulile",
+  "shelfIn": "Riiulil",
+  "ocr": "Teksti eraldamine...",
+  "ocrExtracting": "Teksti eraldamine...",
+  "translate": "Tõlkevalikud",
+  "comicTranslateAi": "AI tõlge",
+  "comicTranslateEngine": "Mootori tõlge",
+  "page": "Lehekülg",
+  "pageOf": "/",
+  "stripMode": "Pidev riba",
+  "pageMode": "Üks leht",
+  "description": "Kirjeldus",
+  "shareComic": "Jaga koomiksit: ",
+  "@@last_modified": "2026-10-18T07:51:11.763838"
+}

@@ -1,0 +1,23 @@
+{
+  "@@locale": "hu",
+  "cloudSettingsTitle": "Felhő és szinkronizálás beállításai",
+  "encryptionTitle": "Végpontok közötti titkosítás (E2EE)",
+  "encryptionSubtitle": "Minden biztonsági mentés titkosítása AES-256-tal feltöltés előtt",
+  "encryptionEnabled": "Engedélyezve (AES-256)",
+  "encryptionDisabled": "Letiltva",
+  "configuredDrives": "Konfigurált felhőmeghajtók",
+  "noDrivesRegistered": "Nincsenek csatlakoztatott felhőmeghajtók",
+  "cancel": "Mégse",
+  "save": "Mentés",
+  "saveAndEnable": "Mentés és engedélyezés",
+  "setPasswordTitle": "E2EE mester jelszó beállítása",
+  "setPasswordDescription": "A biztonsági mentéseid AES-256-tal lesznek titkosítva feltöltés előtt.",
+  "masterPasswordLabel": "Mester jelszó",
+  "passwordEmptyError": "A jelszó nem lehet üres",
+  "syncNow": "Szinkronizálás most",
+  "settings": "Beállítások",
+  "connected": "Kapcsolódva",
+  "disconnected": "Kapcsolat megszakadva",
+  "lastSynced": "Utolsó szinkronizálás: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.026090"
+}

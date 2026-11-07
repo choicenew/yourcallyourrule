@@ -1,0 +1,23 @@
+{
+  "@@locale": "de",
+  "cloudSettingsTitle": "Cloud- & Synchronisierungseinstellungen",
+  "encryptionTitle": "Ende-zu-Ende-Verschlüsselung (E2EE)",
+  "encryptionSubtitle": "Alle Backups vor dem Hochladen mit AES-256 verschlüsseln",
+  "encryptionEnabled": "Aktiviert (AES-256)",
+  "encryptionDisabled": "Deaktiviert",
+  "configuredDrives": "Konfigurierte Cloud-Laufwerke",
+  "noDrivesRegistered": "Keine Cloud-Laufwerke verbunden",
+  "cancel": "Abbrechen",
+  "save": "Speichern",
+  "saveAndEnable": "Speichern & Aktivieren",
+  "setPasswordTitle": "E2EE-Master-Passwort festlegen",
+  "setPasswordDescription": "Ihre Backups werden vor dem Upload mit AES-256 verschlüsselt.",
+  "masterPasswordLabel": "Master-Passwort",
+  "passwordEmptyError": "Passwort darf nicht leer sein",
+  "syncNow": "Jetzt synchronisieren",
+  "settings": "Einstellungen",
+  "connected": "Verbunden",
+  "disconnected": "Getrennt",
+  "lastSynced": "Zuletzt synchronisiert: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.015581"
+}

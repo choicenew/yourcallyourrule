@@ -1,0 +1,16 @@
+{
+  "@@locale": "cs",
+  "read": "Začít číst",
+  "share": "Sdílet",
+  "ocr": "Extrakce...",
+  "ocrExtracting": "Extrakce...",
+  "translate": "Možnosti překladu",
+  "newsTranslateAi": "AI překlad",
+  "newsTranslateEngine": "Překlad enginem",
+  "source": "Zdroj",
+  "publishTime": "Publikováno",
+  "copiedLink": "Odkaz na článek zkopírován do schránky",
+  "description": "Popis",
+  "shareNews": "Sdílet článek: ",
+  "@@last_modified": "2026-10-18T07:51:11.858078"
+}

@@ -1,0 +1,20 @@
+{
+  "@@locale": "fr",
+  "setWallpaper": "Définir comme fond d'écran",
+  "download": "Téléchargement",
+  "downloading": "Téléchargement...",
+  "downloaded": "Téléchargé",
+  "like": "Favoris",
+  "liked": "Aimé",
+  "favorite": "Favori",
+  "favorited": "Favorisé",
+  "likeAdded": "Ajouté aux auteurs aimés",
+  "likeRemoved": "Retiré des auteurs aimés",
+  "preview": "Aperçu du fond d'écran",
+  "resolution": "Résolution originale",
+  "share": "Partager",
+  "dimensions": "Dimensions",
+  "description": "Description",
+  "shareWallpaper": "Partager le fond d'écran : ",
+  "@@last_modified": "2026-10-18T07:51:12.216218"
+}

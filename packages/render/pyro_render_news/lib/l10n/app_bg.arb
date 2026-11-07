@@ -1,0 +1,16 @@
+{
+  "@@locale": "bg",
+  "read": "Започни четене",
+  "share": "Споделяне",
+  "ocr": "Извличане...",
+  "ocrExtracting": "Извличане...",
+  "translate": "Опции за превод",
+  "newsTranslateAi": "AI превод",
+  "newsTranslateEngine": "Превод от двигател",
+  "source": "Източник",
+  "publishTime": "Публикувано",
+  "copiedLink": "Връзката към статията е копирана в клипборда",
+  "description": "Описание",
+  "shareNews": "Споделяне на статия: ",
+  "@@last_modified": "2026-10-18T07:51:11.854583"
+}

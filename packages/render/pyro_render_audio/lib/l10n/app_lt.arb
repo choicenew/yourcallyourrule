@@ -1,0 +1,20 @@
+{
+  "@@locale": "lt",
+  "play": "Leisti vaizdo įrašą",
+  "download": "Atsisiunčiama",
+  "downloading": "Atsisiunčiama...",
+  "like": "Patinka",
+  "liked": "Patinka",
+  "pause": "Pristabdyti",
+  "playlist": "Pridėti į grojaraštį",
+  "previousTrack": "Ankstesnis",
+  "nextTrack": "Kitas",
+  "speed": "Greitis",
+  "share": "Bendrinti",
+  "description": "Aprašymas",
+  "shareAudio": "Bendrinti garsą: ",
+  "exploreMore": "Tyrinėti daugiau",
+  "trending": "Populiaru dabar",
+  "switchSource": "Pakeisti šaltinį / pranešti",
+  "@@last_modified": "2026-10-18T07:51:11.682777"
+}

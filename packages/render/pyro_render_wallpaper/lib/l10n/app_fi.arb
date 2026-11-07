@@ -1,0 +1,20 @@
+{
+  "@@locale": "fi",
+  "setWallpaper": "Aseta taustakuvaksi",
+  "download": "Ladataan",
+  "downloading": "Ladataan...",
+  "downloaded": "Ladattu",
+  "like": "Tykätty",
+  "liked": "Tykätty",
+  "favorite": "Suosikki",
+  "favorited": "Lisätty suosikkeihin",
+  "likeAdded": "Lisätty tykättyihin tekijöihin",
+  "likeRemoved": "Poistettu tykätyistä tekijöistä",
+  "preview": "Taustakuvan esikatselu",
+  "resolution": "Alkuperäinen tarkkuus",
+  "share": "Jaa",
+  "dimensions": "Mitat",
+  "description": "Kuvaus",
+  "shareWallpaper": "Jaa taustakuva: ",
+  "@@last_modified": "2026-10-18T07:51:12.213885"
+}

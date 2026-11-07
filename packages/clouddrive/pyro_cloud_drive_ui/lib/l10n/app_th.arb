@@ -1,0 +1,23 @@
+{
+  "@@locale": "th",
+  "cloudSettingsTitle": "การตั้งค่าคลาวด์และการซิงค์",
+  "encryptionTitle": "การเข้ารหัสต้นทางถึงปลายทาง (E2EE)",
+  "encryptionSubtitle": "เข้ารหัสข้อมูลสำรองทั้งหมดด้วย AES-256 ก่อนอัปโหลด",
+  "encryptionEnabled": "เปิดใช้งาน (AES-256)",
+  "encryptionDisabled": "ปิดใช้งาน",
+  "configuredDrives": "ไดรฟ์คลาวด์ที่กำหนดค่าไว้",
+  "noDrivesRegistered": "ไม่ได้เชื่อมต่อไดรฟ์คลาวด์",
+  "cancel": "ยกเลิก",
+  "save": "บันทึก",
+  "saveAndEnable": "บันทึกและเปิดใช้งาน",
+  "setPasswordTitle": "ตั้งรหัสผ่านหลัก E2EE",
+  "setPasswordDescription": "ข้อมูลสำรองของคุณจะถูกเข้ารหัสด้วย AES-256 ก่อนอัปโหลด",
+  "masterPasswordLabel": "รหัสผ่านหลัก",
+  "passwordEmptyError": "รหัสผ่านต้องไม่ว่างเปล่า",
+  "syncNow": "ซิงค์ทันที",
+  "settings": "การตั้งค่า",
+  "connected": "เชื่อมต่อแล้ว",
+  "disconnected": "ตัดการเชื่อมต่อ",
+  "lastSynced": "ซิงค์ล่าสุด: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.047092"
+}

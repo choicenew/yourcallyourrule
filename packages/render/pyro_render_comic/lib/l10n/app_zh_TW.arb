@@ -1,0 +1,18 @@
+{
+  "@@locale": "zh_TW",
+  "read": "開始閱讀",
+  "shelf": "加入書架",
+  "shelfIn": "已在書架",
+  "ocr": "擷取文字",
+  "ocrExtracting": "擷取中...",
+  "translate": "翻譯選項",
+  "comicTranslateAi": "AI 翻譯",
+  "comicTranslateEngine": "引擎翻譯",
+  "page": "頁面",
+  "pageOf": "/",
+  "stripMode": "連續條漫",
+  "pageMode": "單頁模式",
+  "description": "描述",
+  "shareComic": "分享漫畫：",
+  "@@last_modified": "2026-10-18T07:51:11.801130"
+}

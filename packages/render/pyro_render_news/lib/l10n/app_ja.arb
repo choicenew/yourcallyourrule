@@ -1,0 +1,16 @@
+{
+  "@@locale": "ja",
+  "read": "Start Reading",
+  "share": "Share",
+  "ocr": "Extracting...",
+  "ocrExtracting": "Extracting...",
+  "translate": "Translate",
+  "newsTranslateAi": "AI Translate",
+  "newsTranslateEngine": "Engine Translate",
+  "source": "ソース",
+  "publishTime": "Published",
+  "copiedLink": "Article link copied to clipboard",
+  "description": "Description",
+  "shareNews": "Share Article: ",
+  "@@last_modified": "2026-10-18T07:51:11.875362"
+}

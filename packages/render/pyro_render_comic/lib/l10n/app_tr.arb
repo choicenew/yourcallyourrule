@@ -1,0 +1,18 @@
+{
+  "@@locale": "tr",
+  "read": "Okumaya Başla",
+  "shelf": "Kitaplığa Ekle",
+  "shelfIn": "Kitaplıkta",
+  "ocr": "Metin Çıkarılıyor...",
+  "ocrExtracting": "Metin Çıkarılıyor...",
+  "translate": "Çeviri Seçenekleri",
+  "comicTranslateAi": "Yapay Zeka Çevirisi",
+  "comicTranslateEngine": "Motor Çevirisi",
+  "page": "Sayfa",
+  "pageOf": "/",
+  "stripMode": "Sürekli Şerit",
+  "pageMode": "Tek Sayfa",
+  "description": "Açıklama",
+  "shareComic": "Çizgi Romanı Paylaş: ",
+  "@@last_modified": "2026-10-18T07:51:11.794946"
+}

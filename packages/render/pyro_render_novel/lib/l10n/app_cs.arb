@@ -1,0 +1,21 @@
+{
+  "@@locale": "cs",
+  "read": "Začít číst",
+  "shelf": "Přidat do police",
+  "shelfIn": "V polici",
+  "translate": "Možnosti překladu",
+  "novelTranslateAi": "AI překlad",
+  "novelTranslateEngine": "Překlad enginem",
+  "chapter": "Kapitola",
+  "catalog": "Katalog",
+  "previousChapter": "Předchozí",
+  "nextChapter": "Následující",
+  "fontSize": "Velikost písma",
+  "description": "Popis",
+  "shareBook": "Sdílet knihu: ",
+  "firstChapterReached": "Jste již na první části",
+  "lastChapterReached": "Jste již na poslední části",
+  "localFileLoaded": "Místní dokument úspěšně načten",
+  "sectionLabel": "Část",
+  "@@last_modified": "2026-10-18T07:51:11.916564"
+}

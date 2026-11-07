@@ -1,0 +1,16 @@
+{
+  "@@locale": "el",
+  "play": "Αναπαραγωγή",
+  "download": "Λήψη",
+  "downloading": "Downloading...",
+  "like": "Μου αρέσει",
+  "liked": "Liked",
+  "pause": "Pause",
+  "replay": "Replay",
+  "speed": "Speed",
+  "quality": "Quality",
+  "share": "Κοινοποίηση",
+  "description": "Description",
+  "shareVideo": "Share Video: ",
+  "@@last_modified": "2026-10-18T07:51:12.152425"
+}

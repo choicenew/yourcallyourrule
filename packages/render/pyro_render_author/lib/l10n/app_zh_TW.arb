@@ -1,0 +1,18 @@
+{
+  "@@locale": "zh_TW",
+  "follow": "追蹤",
+  "following": "追蹤中",
+  "unfollow": "取消追蹤",
+  "followedMessage": "已追蹤作者",
+  "unfollowedMessage": "已取消追蹤作者",
+  "like": "收藏",
+  "liked": "已按讚",
+  "likeAdded": "已加入按讚作者",
+  "likeRemoved": "已從按讚作者移除",
+  "share": "分享",
+  "homepage": "首頁",
+  "works": "作品",
+  "followers": "粉絲",
+  "translate": "翻譯選項",
+  "@@last_modified": "2026-10-18T07:51:11.753214"
+}

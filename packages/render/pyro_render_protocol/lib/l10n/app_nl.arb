@@ -1,0 +1,16 @@
+{
+  "@@locale": "nl",
+  "contentType": "Inhoudstype",
+  "mediaTypeAcademic": "Academisch artikel",
+  "mediaTypeBook": "Boek",
+  "mediaTypeNovel": "Roman",
+  "mediaTypeComic": "Comic",
+  "mediaTypeMusic": "Muziek",
+  "mediaTypeAudio": "Audio",
+  "mediaTypeVideo": "Video",
+  "mediaTypeNews": "Nieuws",
+  "mediaTypeWallpaper": "Achtergrond",
+  "mediaTypeAlbum": "Album",
+  "mediaTypePlaylist": "Afspeellijst",
+  "@@last_modified": "2026-10-18T07:51:12.117575"
+}

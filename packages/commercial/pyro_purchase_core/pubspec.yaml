@@ -1,0 +1,30 @@
+name: pyro_purchase_core
+description: Core In-App Purchase engine and payment channel for PyroMagma Commercial Suite.
+version: 0.0.1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^3.0.3
+  riverpod_annotation: ^3.0.3
+  in_app_purchase: ^3.3.1
+  in_app_purchase_android: ^0.5.3
+  intl: any
+  pyro_purchase_protocol:
+    path: ../pyro_purchase_protocol
+  pyro_config_local:
+    path: ../../config/pyro_config_local
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.14
+  riverpod_generator: ^3.0.3

@@ -1,0 +1,16 @@
+{
+  "@@locale": "hu",
+  "read": "Olvasás kezdete",
+  "share": "Megosztás",
+  "ocr": "Kinyerés...",
+  "ocrExtracting": "Kinyerés...",
+  "translate": "Fordítási opciók",
+  "newsTranslateAi": "AI fordítás",
+  "newsTranslateEngine": "Motor fordítás",
+  "source": "Forrás",
+  "publishTime": "Közzétéve",
+  "copiedLink": "Cikk linkje a vágólapra másolva",
+  "description": "Leírás",
+  "shareNews": "Cikk megosztása: ",
+  "@@last_modified": "2026-10-18T07:51:11.873203"
+}

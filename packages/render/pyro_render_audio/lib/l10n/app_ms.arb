@@ -1,0 +1,20 @@
+{
+  "@@locale": "ms",
+  "play": "Mainkan Video",
+  "download": "Memuat turun",
+  "downloading": "Memuat turun...",
+  "like": "Disukai",
+  "liked": "Disukai",
+  "pause": "Jeda",
+  "playlist": "Tambah ke Senarai Main",
+  "previousTrack": "Sebelumnya",
+  "nextTrack": "Seterusnya",
+  "speed": "Kelajuan",
+  "share": "Kongsi",
+  "description": "Penerangan",
+  "shareAudio": "Kongsi Audio: ",
+  "exploreMore": "Teroka Lagi",
+  "trending": "Trending Sekarang",
+  "switchSource": "Tukar Sumber / Lapor",
+  "@@last_modified": "2026-10-18T07:51:11.686232"
+}

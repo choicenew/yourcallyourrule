@@ -1,0 +1,8 @@
+{
+  "@@locale": "pl",
+  "syncSettingsTitle": "Cloud Synchronization Settings",
+  "syncStatusIdle": "All data synchronized",
+  "syncStatusSyncing": "Synchronizing database...",
+  "syncNowLabel": "Sync Now",
+  "@@last_modified": "2026-10-18T07:51:12.955394"
+}

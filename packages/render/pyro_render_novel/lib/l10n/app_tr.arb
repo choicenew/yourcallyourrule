@@ -1,0 +1,21 @@
+{
+  "@@locale": "tr",
+  "read": "Okumaya Başla",
+  "shelf": "Kitaplığa Ekle",
+  "shelfIn": "Kitaplıkta",
+  "translate": "Çeviri Seçenekleri",
+  "novelTranslateAi": "Yapay Zeka Çevirisi",
+  "novelTranslateEngine": "Motor Çevirisi",
+  "chapter": "Bölüm",
+  "catalog": "Katalog",
+  "previousChapter": "Önceki",
+  "nextChapter": "Sonraki",
+  "fontSize": "Yazı Tipi Boyutu",
+  "description": "Açıklama",
+  "shareBook": "Kitabı Paylaş: ",
+  "firstChapterReached": "Zaten ilk bölümde",
+  "lastChapterReached": "Zaten son bölümde",
+  "localFileLoaded": "Yerel belge başarıyla yüklendi",
+  "sectionLabel": "Bölüm",
+  "@@last_modified": "2026-10-18T07:51:11.963464"
+}

@@ -1,0 +1,18 @@
+{
+  "@@locale": "da",
+  "follow": "Follow",
+  "following": "Following",
+  "unfollow": "Unfollow",
+  "followedMessage": "Followed author",
+  "unfollowedMessage": "Unfollowed author",
+  "like": "Synes om",
+  "liked": "Liked",
+  "likeAdded": "Added to liked authors",
+  "likeRemoved": "Removed from liked authors",
+  "share": "Del",
+  "homepage": "Homepage",
+  "works": "Works",
+  "followers": "Followers",
+  "translate": "Oversættelsesmuligheder",
+  "@@last_modified": "2026-10-18T07:51:11.711424"
+}

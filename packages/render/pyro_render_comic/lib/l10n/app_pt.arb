@@ -1,0 +1,18 @@
+{
+  "@@locale": "pt",
+  "read": "Começar a Ler",
+  "shelf": "Adicionar à Estante",
+  "shelfIn": "Na Estante",
+  "ocr": "A extrair...",
+  "ocrExtracting": "A extrair...",
+  "translate": "Opções de Tradução",
+  "comicTranslateAi": "Tradução IA",
+  "comicTranslateEngine": "Tradução por Motor",
+  "page": "Página",
+  "pageOf": "de",
+  "stripMode": "Faixa Contínua",
+  "pageMode": "Página Única",
+  "description": "Descrição",
+  "shareComic": "Partilhar Banda Desenhada: ",
+  "@@last_modified": "2026-10-18T07:51:11.783835"
+}

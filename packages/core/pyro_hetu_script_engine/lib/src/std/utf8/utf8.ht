@@ -1,0 +1,5 @@
+external class Utf8Codec {
+  constructor({allowMalformed})
+  function encode(string)
+  function decode(bytes, {allowMalformed})
+}

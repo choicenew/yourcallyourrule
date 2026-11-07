@@ -1,0 +1,21 @@
+{
+  "@@locale": "lv",
+  "read": "Sākt lasīt",
+  "shelf": "Pievienot plauktam",
+  "shelfIn": "Plauktā",
+  "translate": "Tulkošanas opcijas",
+  "novelTranslateAi": "AI tulkošana",
+  "novelTranslateEngine": "Dzinēja tulkošana",
+  "chapter": "Nodaļa",
+  "catalog": "Katalogs",
+  "previousChapter": "Iepriekšējais",
+  "nextChapter": "Nākamais",
+  "fontSize": "Fonta lielums",
+  "description": "Apraksts",
+  "shareBook": "Kopīgot grāmatu: ",
+  "firstChapterReached": "Jau pirmajā sadaļā",
+  "lastChapterReached": "Jau pēdējā sadaļā",
+  "localFileLoaded": "Vietējais dokuments veiksmīgi ielādēts",
+  "sectionLabel": "Sadaļa",
+  "@@last_modified": "2026-10-18T07:51:11.941826"
+}

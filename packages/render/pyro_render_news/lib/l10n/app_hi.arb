@@ -1,0 +1,16 @@
+{
+  "@@locale": "hi",
+  "read": "पढ़ना शुरू करें",
+  "share": "साझा करें",
+  "ocr": "निकाला जा रहा है...",
+  "ocrExtracting": "निकाला जा रहा है...",
+  "translate": "अनुवाद विकल्प",
+  "newsTranslateAi": "एआई अनुवाद",
+  "newsTranslateEngine": "इंजन अनुवाद",
+  "source": "स्रोत",
+  "publishTime": "प्रकाशित",
+  "copiedLink": "लेख लिंक क्लिपबोर्ड पर कॉपी किया गया",
+  "description": "विवरण",
+  "shareNews": "लेख साझा करें: ",
+  "@@last_modified": "2026-10-18T07:51:11.871161"
+}

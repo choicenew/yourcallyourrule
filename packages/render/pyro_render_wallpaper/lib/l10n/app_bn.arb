@@ -1,0 +1,20 @@
+{
+  "@@locale": "bn",
+  "setWallpaper": "Set as Wallpaper",
+  "download": "ডাউনলোড হচ্ছে",
+  "downloading": "Downloading...",
+  "downloaded": "Downloaded",
+  "like": "পছন্দ হয়েছে",
+  "liked": "Liked",
+  "favorite": "প্রিয়",
+  "favorited": "Favorited",
+  "likeAdded": "Added to liked authors",
+  "likeRemoved": "Removed from liked authors",
+  "preview": "Wallpaper Preview",
+  "resolution": "Original Resolution",
+  "share": "শেয়ার করুন",
+  "dimensions": "Dimensions",
+  "description": "Description",
+  "shareWallpaper": "Share Wallpaper: ",
+  "@@last_modified": "2026-10-18T07:51:12.201870"
+}

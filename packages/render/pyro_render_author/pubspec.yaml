@@ -1,0 +1,49 @@
+name: pyro_render_author
+description: Content render package for Author page in Pyro.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  pyro_action_protocol:
+    path: ../../action/pyro_action_protocol
+  pyro_action_hub:
+    path: ../../action/pyro_action_hub
+  pyro_source_hub:
+    path: ../../source/pyro_source_hub
+  pyro_fetch_protocol:
+    path: ../../core/pyro_fetch_protocol
+  pyro_render_protocol:
+    path: ../pyro_render_protocol
+  pyro_media_models:
+    path: ../../media/pyro_media_models
+  pyro_media_mapper:
+    path: ../../media/pyro_media_mapper
+  pyro_wallpaper_models:
+    path: ../../wallpaper/pyro_wallpaper_models
+  isar_community: ^3.4.1
+  flutter_riverpod: ^3.0.3
+  url_launcher: ^6.3.1
+  pyro_feed_protocol:
+    path: ../../feed/pyro_feed_protocol
+
+  material_ui: any
+  riverpod_annotation: any
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pyro_render_hub:
+    path: ../pyro_render_hub
+
+flutter:
+  generate: true

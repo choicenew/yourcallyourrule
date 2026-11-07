@@ -1,0 +1,5 @@
+external class Location {
+  static function getCurrentPosition()
+  static function checkPermission()
+  static function requestPermission()
+}

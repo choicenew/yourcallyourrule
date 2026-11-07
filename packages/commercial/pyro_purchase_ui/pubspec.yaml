@@ -1,0 +1,28 @@
+name: pyro_purchase_ui
+description: 商业特权面板与订阅 UI 界面 Package，纯哑 UI 组件，支持自适应多语言与主题配置。
+version: 1.0.0+1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: ">=3.10.0"
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  pyro_purchase_protocol:
+    path: ../pyro_purchase_protocol
+
+  material_ui: any
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  generate: true

@@ -1,0 +1,4 @@
+external class Motion {
+  static function getAccelerometer()
+  static function isMoving()
+}

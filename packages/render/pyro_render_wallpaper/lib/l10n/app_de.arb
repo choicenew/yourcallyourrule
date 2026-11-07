@@ -1,0 +1,20 @@
+{
+  "@@locale": "de",
+  "setWallpaper": "Als Hintergrundbild festlegen",
+  "download": "Herunterladen",
+  "downloading": "Wird heruntergeladen...",
+  "downloaded": "Heruntergeladen",
+  "like": "Favorisiert",
+  "liked": "Gefällt mir",
+  "favorite": "Favorit",
+  "favorited": "Favorisiert",
+  "likeAdded": "Zu Lieblingsautoren hinzugefügt",
+  "likeRemoved": "Aus Lieblingsautoren entfernt",
+  "preview": "Hintergrundbild-Vorschau",
+  "resolution": "Originalauflösung",
+  "share": "Teilen",
+  "dimensions": "Abmessungen",
+  "description": "Beschreibung",
+  "shareWallpaper": "Hintergrundbild teilen: ",
+  "@@last_modified": "2026-10-18T07:51:12.207873"
+}

@@ -1,0 +1,23 @@
+{
+  "@@locale": "fa",
+  "cloudSettingsTitle": "تنظیمات ابری و همگام‌سازی",
+  "encryptionTitle": "رمزگذاری سرتاسری (E2EE)",
+  "encryptionSubtitle": "رمزگذاری تمامی پشتیبان‌ها با AES-256 پیش از آپلود",
+  "encryptionEnabled": "فعال (AES-256)",
+  "encryptionDisabled": "غیرفعال",
+  "configuredDrives": "درایوهای ابری پیکربندی‌شده",
+  "noDrivesRegistered": "هیچ درایو ابری متصل نشده است",
+  "cancel": "لغو",
+  "save": "ذخیره",
+  "saveAndEnable": "ذخیره و فعال‌سازی",
+  "setPasswordTitle": "تنظیم گذرواژه اصلی E2EE",
+  "setPasswordDescription": "پشتیبان‌های شما پیش از آپلود با AES-256 رمزگذاری می‌شوند.",
+  "masterPasswordLabel": "گذرواژه اصلی",
+  "passwordEmptyError": "گذرواژه نمی‌تواند خالی باشد",
+  "syncNow": "همگام‌سازی اکنون",
+  "settings": "تنظیمات",
+  "connected": "متصل",
+  "disconnected": "قطع شده",
+  "lastSynced": "آخرین همگام‌سازی: {time}",
+  "@@last_modified": "2026-10-18T07:51:11.019583"
+}

@@ -1,0 +1,20 @@
+{
+  "@@locale": "zh_TW",
+  "play": "播放",
+  "download": "下載中",
+  "downloading": "下載中...",
+  "like": "收藏",
+  "liked": "已按讚",
+  "pause": "暫停",
+  "playlist": "加入播放清單",
+  "previousTrack": "上一首",
+  "nextTrack": "下一首",
+  "speed": "速度",
+  "share": "分享",
+  "description": "描述",
+  "shareAudio": "分享音訊：",
+  "exploreMore": "探索更多",
+  "trending": "熱門趨勢",
+  "switchSource": "切換來源 / 回報",
+  "@@last_modified": "2026-10-18T07:51:11.703762"
+}

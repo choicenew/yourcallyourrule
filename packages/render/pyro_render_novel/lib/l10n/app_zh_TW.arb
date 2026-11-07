@@ -1,0 +1,21 @@
+{
+  "@@locale": "zh_TW",
+  "read": "開始閱讀",
+  "shelf": "加入書架",
+  "shelfIn": "已在書架",
+  "translate": "翻譯選項",
+  "novelTranslateAi": "AI 翻譯",
+  "novelTranslateEngine": "引擎翻譯",
+  "chapter": "章節",
+  "catalog": "目錄",
+  "previousChapter": "上一章",
+  "nextChapter": "下一章",
+  "fontSize": "字型大小",
+  "description": "描述",
+  "shareBook": "分享書籍：",
+  "firstChapterReached": "已經是第一節",
+  "lastChapterReached": "已經是最後一節",
+  "localFileLoaded": "本地文件載入成功",
+  "sectionLabel": "節",
+  "@@last_modified": "2026-10-18T07:51:11.971508"
+}

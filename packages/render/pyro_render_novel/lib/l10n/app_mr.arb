@@ -1,0 +1,21 @@
+{
+  "@@locale": "mr",
+  "read": "वाचने सुरू करा",
+  "shelf": "शेल्फमध्ये जोडा",
+  "shelfIn": "शेल्फमध्ये",
+  "translate": "भाषांतर पर्याय",
+  "novelTranslateAi": "AI भाषांतर",
+  "novelTranslateEngine": "इंजिन भाषांतर",
+  "chapter": "प्रकरण",
+  "catalog": "कॅटलॉग",
+  "previousChapter": "मागील",
+  "nextChapter": "पुढील",
+  "fontSize": "फॉन्ट आकार",
+  "description": "वर्णन",
+  "shareBook": "पुस्तक शेअर करा: ",
+  "firstChapterReached": "आधीच पहिल्या विभागात आहे",
+  "lastChapterReached": "आधीच शेवटच्या विभागात आहे",
+  "localFileLoaded": "स्थानिक दस्तऐवज यशस्वीरित्या लोड झाला",
+  "sectionLabel": "विभाग",
+  "@@last_modified": "2026-10-18T07:51:11.944413"
+}

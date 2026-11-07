@@ -1,0 +1,16 @@
+{
+  "@@locale": "ko",
+  "read": "읽기 시작",
+  "share": "공유",
+  "ocr": "텍스트 추출",
+  "ocrExtracting": "추출 중...",
+  "translate": "번역 옵션",
+  "newsTranslateAi": "AI 번역",
+  "newsTranslateEngine": "엔진 번역",
+  "source": "소스",
+  "publishTime": "게시됨",
+  "copiedLink": "기사 링크가 클립보드에 복사되었습니다",
+  "description": "설명",
+  "shareNews": "기사 공유: ",
+  "@@last_modified": "2026-10-18T07:51:11.876362"
+}

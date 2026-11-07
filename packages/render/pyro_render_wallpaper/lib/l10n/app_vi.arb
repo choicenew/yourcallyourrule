@@ -1,0 +1,20 @@
+{
+  "@@locale": "vi",
+  "setWallpaper": "Đặt làm hình nền",
+  "download": "Đang tải xuống",
+  "downloading": "Đang tải xuống...",
+  "downloaded": "Đã tải xuống",
+  "like": "Đã thích",
+  "liked": "Đã thích",
+  "favorite": "Yêu thích",
+  "favorited": "Đã yêu thích",
+  "likeAdded": "Đã thêm vào tác giả yêu thích",
+  "likeRemoved": "Đã xóa khỏi tác giả yêu thích",
+  "preview": "Xem trước hình nền",
+  "resolution": "Độ phân giải gốc",
+  "share": "Chia sẻ",
+  "dimensions": "Kích thước",
+  "description": "Mô tả",
+  "shareWallpaper": "Chia sẻ hình nền: ",
+  "@@last_modified": "2026-10-18T07:51:12.253047"
+}
