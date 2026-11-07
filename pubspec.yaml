@@ -77,10 +77,6 @@ dependencies:
     git:
       url: https://github.com/haygcao/floating_window_android.git
       ref: localbase
-  # live_updates:
-  #   git:
-  #     url: https://github.com/choicenew/live_updates.git
-  #     ref: master
   live_activity_kit:
     git:
       url: https://github.com/haygcao/live_activity_kit.git
@@ -91,6 +87,208 @@ dependencies:
   postgres: ^3.5.20
   flutter_js: ^0.8.7
   native_dio_adapter: ^1.8.0
+
+  # === Pyro 33 Package Suites Integration ===
+  pyro_telephony_connector:
+    path: packages/telephony/pyro_telephony_connector
+  pyro_telephony_hub:
+    path: packages/telephony/pyro_telephony_hub
+
+  pyro_call_redirection_connector:
+    path: packages/call_redirection/pyro_call_redirection_connector
+  pyro_call_redirection_hub:
+    path: packages/call_redirection/pyro_call_redirection_hub
+
+  pyro_call_screening_connector:
+    path: packages/call_screening/pyro_call_screening_connector
+  pyro_call_screening_hub:
+    path: packages/call_screening/pyro_call_screening_hub
+
+  pyro_sim_connector:
+    path: packages/sim/pyro_sim_connector
+  pyro_sim_hub:
+    path: packages/sim/pyro_sim_hub
+
+  pyro_sms_connector:
+    path: packages/sms/pyro_sms_connector
+  pyro_sms_hub:
+    path: packages/sms/pyro_sms_hub
+
+  pyro_stir_connector:
+    path: packages/stir/pyro_stir_connector
+  pyro_stir_hub:
+    path: packages/stir/pyro_stir_hub
+
+  pyro_tile_connector:
+    path: packages/tile/pyro_tile_connector
+  pyro_tile_hub:
+    path: packages/tile/pyro_tile_hub
+
+  pyro_theme_hub:
+    path: packages/theme/pyro_theme_hub
+  pyro_theme_ui:
+    path: packages/theme/pyro_theme_ui
+
+  pyro_phone_location_connector:
+    path: packages/phone_location/pyro_phone_location_connector
+  pyro_phone_location_hub:
+    path: packages/phone_location/pyro_phone_location_hub
+  pyro_phone_location_ui:
+    path: packages/phone_location/pyro_phone_location_ui
+
+  pyro_sim_slot_rules_connector:
+    path: packages/sim_slot_rules/pyro_sim_slot_rules_connector
+  pyro_sim_slot_rules_hub:
+    path: packages/sim_slot_rules/pyro_sim_slot_rules_hub
+  pyro_sim_slot_rules_ui:
+    path: packages/sim_slot_rules/pyro_sim_slot_rules_ui
+
+  pyro_call_interception_policy_connector:
+    path: packages/call_interception_policy/pyro_call_interception_policy_connector
+  pyro_call_interception_policy_hub:
+    path: packages/call_interception_policy/pyro_call_interception_policy_hub
+  pyro_call_interception_policy_ui:
+    path: packages/call_interception_policy/pyro_call_interception_policy_ui
+
+  pyro_deletion_proposal_connector:
+    path: packages/deletion_proposal/pyro_deletion_proposal_connector
+  pyro_deletion_proposal_hub:
+    path: packages/deletion_proposal/pyro_deletion_proposal_hub
+  pyro_deletion_proposal_ui:
+    path: packages/deletion_proposal/pyro_deletion_proposal_ui
+
+  pyro_time_interceptor_connector:
+    path: packages/time_interceptor/pyro_time_interceptor_connector
+  pyro_time_interceptor_hub:
+    path: packages/time_interceptor/pyro_time_interceptor_hub
+  pyro_time_interceptor_ui:
+    path: packages/time_interceptor/pyro_time_interceptor_ui
+
+  pyro_phone_lookup_plugin_connector:
+    path: packages/phone_lookup_plugin/pyro_phone_lookup_plugin_connector
+  pyro_phone_lookup_plugin_hub:
+    path: packages/phone_lookup_plugin/pyro_phone_lookup_plugin_hub
+  pyro_phone_lookup_plugin_ui:
+    path: packages/phone_lookup_plugin/pyro_phone_lookup_plugin_ui
+
+  pyro_phone_subscription_connector:
+    path: packages/phone_subscription/pyro_phone_subscription_connector
+  pyro_phone_subscription_hub:
+    path: packages/phone_subscription/pyro_phone_subscription_hub
+  pyro_phone_subscription_ui:
+    path: packages/phone_subscription/pyro_phone_subscription_ui
+
+  pyro_phone_rules_connector:
+    path: packages/phone_rules/pyro_phone_rules_connector
+  pyro_phone_rules_hub:
+    path: packages/phone_rules/pyro_phone_rules_hub
+  pyro_phone_rules_ui:
+    path: packages/phone_rules/pyro_phone_rules_ui
+
+  pyro_phone_count_filter_connector:
+    path: packages/phone_count_filter/pyro_phone_count_filter_connector
+  pyro_phone_count_filter_hub:
+    path: packages/phone_count_filter/pyro_phone_count_filter_hub
+  pyro_phone_count_filter_ui:
+    path: packages/phone_count_filter/pyro_phone_count_filter_ui
+
+  pyro_phone_remote_filter_connector:
+    path: packages/phone_remote_filter/pyro_phone_remote_filter_connector
+  pyro_phone_remote_filter_hub:
+    path: packages/phone_remote_filter/pyro_phone_remote_filter_hub
+  pyro_phone_remote_filter_ui:
+    path: packages/phone_remote_filter/pyro_phone_remote_filter_ui
+
+  pyro_phone_call_history_connector:
+    path: packages/phone_call_history/pyro_phone_call_history_connector
+  pyro_phone_call_history_hub:
+    path: packages/phone_call_history/pyro_phone_call_history_hub
+  pyro_phone_call_history_ui:
+    path: packages/phone_call_history/pyro_phone_call_history_ui
+
+  pyro_phone_live_activities_connector:
+    path: packages/phone_live_activities/pyro_phone_live_activities_connector
+  pyro_phone_live_activities_hub:
+    path: packages/phone_live_activities/pyro_phone_live_activities_hub
+  pyro_phone_live_activities_ui:
+    path: packages/phone_live_activities/pyro_phone_live_activities_ui
+
+  pyro_phone_call_overlay_connector:
+    path: packages/phone_call_overlay/pyro_phone_call_overlay_connector
+  pyro_phone_call_overlay_hub:
+    path: packages/phone_call_overlay/pyro_phone_call_overlay_hub
+  pyro_phone_call_overlay_ui:
+    path: packages/phone_call_overlay/pyro_phone_call_overlay_ui
+
+  pyro_phone_call_statistic_connector:
+    path: packages/phone_call_statistic/pyro_phone_call_statistic_connector
+  pyro_phone_call_statistic_hub:
+    path: packages/phone_call_statistic/pyro_phone_call_statistic_hub
+  pyro_phone_call_statistic_ui:
+    path: packages/phone_call_statistic/pyro_phone_call_statistic_ui
+
+  pyro_phone_country_sync_connector:
+    path: packages/phone_country_sync/pyro_phone_country_sync_connector
+  pyro_phone_country_sync_hub:
+    path: packages/phone_country_sync/pyro_phone_country_sync_hub
+  pyro_phone_country_sync_ui:
+    path: packages/phone_country_sync/pyro_phone_country_sync_ui
+
+  pyro_device_profile_connector:
+    path: packages/device_profile/pyro_device_profile_connector
+  pyro_device_profile_hub:
+    path: packages/device_profile/pyro_device_profile_hub
+  pyro_device_profile_ui:
+    path: packages/device_profile/pyro_device_profile_ui
+
+  pyro_phone_contacts_connector:
+    path: packages/phone_contacts/pyro_phone_contacts_connector
+  pyro_phone_contacts_hub:
+    path: packages/phone_contacts/pyro_phone_contacts_hub
+  pyro_phone_contacts_ui:
+    path: packages/phone_contacts/pyro_phone_contacts_ui
+
+  pyro_app_auto_update_connector:
+    path: packages/app_auto_update/pyro_app_auto_update_connector
+  pyro_app_auto_update_hub:
+    path: packages/app_auto_update/pyro_app_auto_update_hub
+  pyro_app_auto_update_ui:
+    path: packages/app_auto_update/pyro_app_auto_update_ui
+
+  pyro_call_filter_connector:
+    path: packages/call_filter/pyro_call_filter_connector
+  pyro_call_filter_hub:
+    path: packages/call_filter/pyro_call_filter_hub
+  pyro_call_filter_ui:
+    path: packages/call_filter/pyro_call_filter_ui
+
+  pyro_caller_identity_connector:
+    path: packages/caller_identity/pyro_caller_identity_connector
+  pyro_caller_identity_hub:
+    path: packages/caller_identity/pyro_caller_identity_hub
+  pyro_caller_identity_ui:
+    path: packages/caller_identity/pyro_caller_identity_ui
+
+  pyro_call_monitor_connector:
+    path: packages/call_monitor/pyro_call_monitor_connector
+  pyro_call_monitor_hub:
+    path: packages/call_monitor/pyro_call_monitor_hub
+  pyro_call_monitor_ui:
+    path: packages/call_monitor/pyro_call_monitor_ui
+
+  pyro_call_coordinator_connector:
+    path: packages/call_coordinator/pyro_call_coordinator_connector
+  pyro_call_coordinator_hub:
+    path: packages/call_coordinator/pyro_call_coordinator_hub
+  pyro_call_coordinator_ui:
+    path: packages/call_coordinator/pyro_call_coordinator_ui
+
+  pyro_phone_marking_connector:
+    path: packages/phone_marking/pyro_phone_marking_connector
+  pyro_phone_marking_hub:
+    path: packages/phone_marking/pyro_phone_marking_hub
+  pyro_phone_marking_ui:
+    path: packages/phone_marking/pyro_phone_marking_ui
 
 dev_dependencies:
   flutter_test:
