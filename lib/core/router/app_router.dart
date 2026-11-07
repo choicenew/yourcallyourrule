@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-// === All Restored Original Feature Pages ===
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/pages/fraud_alert_settings_page.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/screens/call_overlay_customization_screen.dart';
+
+// [注释]: 这是一个完整的、无删减的导入列表，包含了所有路由目标页面。
 import 'package:yourcallyourrule/features/call/time_interceptor/presentation/pages/time_interceptor_settings_page.dart';
 import 'package:yourcallyourrule/features/local_filter/presentation/pages/local_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remote_filter_settings_page.dart';
@@ -29,6 +29,8 @@ import 'package:yourcallyourrule/features/search/pages/search_page.dart';
 
 import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/live_notification_customization_screen.dart';
 import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/live_activities_test_page.dart';
+import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/kit_live_activities_test_page.dart';
+import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/kit_live_notification_customization_screen.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/pages/deletion_proposal_page.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/pages/proposal_detail_page.dart';
 
@@ -44,6 +46,7 @@ import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_subscription_page_with_ads.dart';
 import 'package:yourcallyourrule/features/contacts/pages/contact_subscription_page_with_ads.dart';
 import 'package:yourcallyourrule/features/contacts/pages/contacts_management_page_with_ads.dart';
+// [注释] BlockedCallsPage 仍然需要这个，除非它也被重构
 import 'package:yourcallyourrule/features/call_statistic/presentation/pages/blocked_calls_page.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/pages/call_statistics_page.dart';
 import 'package:yourcallyourrule/features/call/call_history/pages/call_history_page_with_timeline_with_ads.dart';
@@ -66,9 +69,11 @@ import 'package:yourcallyourrule/features/initial_setup/pages/initial_setup_page
 import 'package:yourcallyourrule/features/initial_setup/pages/deep_link_import_page.dart';
 
 /// 应用路由配置
+/// 使用GoRouter管理全局路由表
 class AppRouter {
   static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
+  /// 统一处理底部 Tab 导航跳转
   static void navigateToTab(BuildContext context, int index) {
     final route = switch (index) {
       0 => '/',
@@ -82,9 +87,11 @@ class AppRouter {
       context.go(route);
     }
   }
-
+  
+  // [重构]: 构造函数为空，不再接收任何依赖。
   AppRouter();
-
+  
+  // [注释]: 这是一个完整的、无删减的路由名称常量列表。
   static const String timeInterceptorSettings = 'time-interceptor-settings';
   static const String localFilterSettings = 'local-filter-settings';
   static const String remoteFilterSettings = 'remote-filter-settings';
@@ -153,10 +160,13 @@ class AppRouter {
   static const String initialSetup = 'initial-setup';
   static const String externalImport = 'import';
 
+
+  // 创建路由器
   late final router = GoRouter(
     navigatorKey: navigatorKey,
     initialLocation: '/$splash',
     routes: [
+      // [注释]: 这是一个完整的、无删减的路由列表。
       GoRoute(
         path: '/$specialPermissions',
         name: specialPermissions,
@@ -167,6 +177,7 @@ class AppRouter {
         name: splash,
         builder: (context, state) => const SplashScreen(),
       ),
+      // 设置页面路由
       GoRoute(
         path: '/$settings',
         name: settings,
@@ -182,16 +193,19 @@ class AppRouter {
         name: countrySyncSettings,
         builder: (context, state) => const CountrySelectionWidget(),
       ),
+      // 主页路由（在 elite-ui 分支默认使用 Elite 多巴胺主页）
       GoRoute(
         path: '/',
         name: home,
         builder: (context, state) => const EliteHomePage(),
       ),
+      // 原始 Pro 模式主页路由（随时切回）
       GoRoute(
         path: '/$proHome',
         name: proHome,
         builder: (context, state) => const HomePage(),
       ),
+      // Elite 多巴胺主页路由别名
       GoRoute(
         path: '/$eliteHome',
         name: eliteHome,
@@ -232,6 +246,8 @@ class AppRouter {
         name: ruleManagementSettingsWithAds,
         builder: (context, state) => const RuleManagementPageWithAds(),
       ),
+
+    // 搜索页面路由
       GoRoute(
         path: '/$search',
         name: search,
@@ -242,26 +258,35 @@ class AppRouter {
         name: timeInterceptorSettings,
         builder: (context, state) => const TimeInterceptorSettingsPage(),
       ),
+      
+      // 来电显示与身份设置页面
       GoRoute(
         path: '/$callerIdSettings',
         name: callerIdSettings,
         builder: (context, state) => const CallerIdentitySettingsPage(),
       ),
+      
+      // 本地过滤器设置页面
       GoRoute(
         path: '/$localFilterSettings',
         name: localFilterSettings,
         builder: (context, state) => const LocalFilterSettingsPage(),
       ),
+      
+      // 远程号码过滤器设置页面
       GoRoute(
         path: '/$remoteFilterSettings',
         name: remoteFilterSettings,
         builder: (context, state) => const RemoteFilterSettingsPage(),
       ),
+      
+      // 增强过滤器设置页面
       GoRoute(
         path: '/$enhancedFilterSettings',
         name: enhancedFilterSettings,
         builder: (context, state) => const EnhancedFilterSettingsPage(),
       ),
+      // SIM卡槽位规则设置页面
       GoRoute(
         path: '/$simSlotRuleSettings/:simSlotIndex',
         name: simSlotRuleSettings,
@@ -278,11 +303,14 @@ class AppRouter {
           return SimSlotRulePageWithAds(simSlotIndex: simSlotIndex);
         },
       ),
+     // 通话过滤设置页面   
       GoRoute(
         path: '/$callFilterSettings',
         name: callFilterSettings,
         builder: (context, state) => const CallFilterSettingsPage(),
       ),
+
+      // 来电显示自定义页面
       GoRoute(
         path: '/$callerIdCustomization',
         name: callerIdCustomization,
@@ -303,54 +331,80 @@ class AppRouter {
         name: deletionProposal,
         builder: (context, state) => const DeletionProposalPage(),
         routes: [
+    // =======================================================================
+    // 【核心修正】: 添加一个用于处理详情页的子路由。
+    // REASON: 这是让 `router.push('/deletion-proposal/:proposalId')` 能够工作的关键。
+    // =======================================================================
           GoRoute(
-            path: ':proposalId',
+      // 路径参数 `:proposalId` 会捕获 URL 中 `/deletion-proposal/` 之后的部分
+            path: ':proposalId', 
             name: 'proposalDetails',
             builder: (context, state) {
+        // 1. 从 `state.pathParameters` 中安全地获取 `proposalId`
               final proposalId = state.pathParameters['proposalId'];
+        
+        // 2. 安全检查：如果 proposalId 不存在，可以导航到一个错误页面或返回列表页
               if (proposalId == null) {
-                return const DeletionProposalPage();
+          // 理论上，如果路由匹配，这里不会是 null，但做个检查更安全
+                return const DeletionProposalPage(); 
               }
-              return ProposalDetailPage(proposalId: proposalId);
+        
+        // 3. 构建并返回我们新创建的 `ProposalDetailPage`
+              return ProposalDetailPage(proposalId: proposalId); 
             },
           ),
         ],
       ),
+
+      // 欺诈警报设置页面
       GoRoute(
         path: '/$fraudAlertSettings',
         name: fraudAlertSettings,
         builder: (context, state) => const FraudAlertSettingsPage(),
       ),
+
+      // 结束通话设置页面
       GoRoute(
         path: '/$endCallSettings',
         name: endCallSettings,
         builder: (context, state) => const EndCallSettingsPage(),
       ),
+
+      // 短信过滤设置页面
       GoRoute(
         path: '/$smsFilterSettings',
         name: smsFilterSettings,
         builder: (context, state) => const SmsFilterSettingsPage(),
       ),
+
+      // 备份还原页面
       GoRoute(
         path: '/$backupRestore',
         name: backupRestore,
         builder: (context, state) => const BackupRestorePage(),
       ),
+
+      // 云端设置页面
       GoRoute(
         path: '/$cloudSettings',
         name: cloudSettings,
         builder: (context, state) => const CloudSettingsPage(),
       ),
+
+      // 设备管理页面
       GoRoute(
         path: '/$deviceManagement',
         name: deviceManagement,
         builder: (context, state) => const DeviceManagementPage(),
       ),
+
+      // 购买设置页面
       GoRoute(
         path: '/$purchaseSettings',
         name: purchaseSettings,
         builder: (context, state) => const PurchasePage(),
       ),
+      // 验证页面
       GoRoute(
         path: '/$verificationPage',
         name: verificationPage,
@@ -358,141 +412,205 @@ class AppRouter {
           initialPhoneNumber: state.extra as String?,
         ),
       ),
+
+      // 插件测试页面
       GoRoute(
         path: '/$pluginTest',
         name: pluginTest,
         builder: (context, state) => const TestPage(title: 'PluginTest'),
       ),
+
+      // 正则测试页面
       GoRoute(
         path: '/$regexTest',
         name: regexTest,
         builder: (context, state) => const RegexTestPage(),
       ),
+
+      // 短信管理页面
       GoRoute(
         path: '/$smsManagement',
         name: smsManagement,
         builder: (context, state) => const SmsManagementPage(),
       ),
+
+      // 短信订阅页面
       GoRoute(
         path: '/$smsSubscription',
         name: smsSubscription,
         builder: (context, state) => const SmsSubscriptionPageWithAds(),
       ),
+
+      // 带广告的短信订阅页面
       GoRoute(
         path: '/$smsSubscriptionWithAds',
         name: smsSubscriptionWithAds,
         builder: (context, state) => const SmsSubscriptionPageWithAds(),
       ),
+
+      // 联系人订阅页面
       GoRoute(
         path: '/$contactSubscription',
         name: contactSubscription,
         builder: (context, state) => const ContactSubscriptionPageWithAds(),
       ),
+
+      // 联系人管理页面
       GoRoute(
         path: '/$contactsManagement',
         name: contactsManagement,
         builder: (context, state) => const ContactsManagementPageWithAds(),
       ),
+
+      // 已拦截通话页面
       GoRoute(
         path: '/$blockedCalls',
         name: blockedCalls,
         builder: (context, state) => const BlockedCallsPage(),
-      ),
+        ),
+     // 通话统计页面
       GoRoute(
         path: '/$callStatistics',
         name: callStatistics,
         builder: (context, state) => const CallStatisticsPage(),
       ),
+
+      // 通话历史页面
       GoRoute(
         path: '/$callHistory',
         name: callHistory,
         builder: (context, state) => const CallHistoryPageWithTimelineWithAds(),
       ),
+
+      // 自动更新设置页面
       GoRoute(
         path: '/$autoUpdate',
         name: autoUpdate,
         builder: (context, state) => const AutoUpdateSettingsPage(),
       ),
+      
+      // 通知页面
       GoRoute(
         path: '/notifications',
         name: notifications,
         builder: (context, state) => const NotificationsPage(),
       ),
+
+      // 权限管理页面
       GoRoute(
         path: '/$permissionManagement',
         name: permissionManagement,
         builder: (context, state) => const PermissionManagementPage(),
       ),
+
+      // 引导页面
       GoRoute(
         path: '/$onboarding',
         name: onboarding,
         builder: (context, state) => const OnboardingPage(),
       ),
+
+      // 仪表盘页面
       GoRoute(
         path: '/$dashboard',
         name: dashboard,
         builder: (context, state) => const DashboardPage(),
       ),
+
+      // 插件管理页面
       GoRoute(
         path: '/$pluginManagement',
         name: pluginManagement,
         builder: (context, state) => const PluginManagementPageWithAds(),
       ),
+
+      // 电话订阅页面
       GoRoute(
         path: '/$phoneSubscription',
         name: phoneSubscription,
         builder: (context, state) => const PhoneSubscriptionPageRefactoredWithAds(),
       ),
+
+      // 正则规则页面
       GoRoute(
         path: '/$regexRule',
         name: regexRule,
         builder: (context, state) => const RegexRulePage(),
       ),
+      
+      // 带广告的正则规则页面
       GoRoute(
         path: '/$regexRuleWithAds',
         name: regexRuleWithAds,
         builder: (context, state) => const RegexRulePageWithAds(),
       ),
+
+      // 短信过滤页面
       GoRoute(
         path: '/$smsFilter',
         name: smsFilter,
         builder: (context, state) => const SmsFilterPage(),
       ),
+
+      // 标签管理页面
       GoRoute(
         path: '/$labelManagement',
         name: labelManagement,
         builder: (context, state) => const LabelManagementPageWithAds(),
       ),
+
+      // 带广告的标签管理页面
       GoRoute(
         path: '/$labelManagementWithAds',
         name: labelManagementWithAds,
         builder: (context, state) => const LabelManagementPageWithAds(),
       ),
+
+      // 号码标记管理页面
       GoRoute(
         path: '/$markPhoneManagement',
         name: markPhoneManagement,
         builder: (context, state) => const MarkPhoneManagementPageWithAds(),
       ),
+      
+      // 带广告的号码标记管理页面
       GoRoute(
         path: '/$markPhoneManagementWithAds',
         name: markPhoneManagementWithAds,
         builder: (context, state) => const MarkPhoneManagementPageWithAds(),
       ),
+
+      // VIP兑换页面
       GoRoute(
         path: '/$vipExchange',
         name: vipExchange,
         builder: (context, state) => const VipExchangePage(),
       ),
+      // supabase云备份设置页面
       GoRoute(
         path: '/supabase-settings',
         name: supabaseSettings,
         builder: (context, state) => const SupabaseSettingsPage(),
       ),
+      // 现代 Live Activity & 灵动岛测试页面
+      GoRoute(
+        path: '/$kitLiveActivitiesTest',
+        name: kitLiveActivitiesTest,
+        builder: (context, state) => const KitLiveActivitiesTestPage(),
+      ),
+      // 现代 Live Activity & 灵动岛自定义配置页面
+      GoRoute(
+        path: '/$kitLiveNotificationCustomization',
+        name: kitLiveNotificationCustomization,
+        builder: (context, state) => const KitLiveNotificationCustomizationScreen(),
+      ),
+      // 初始规则库引导设置页面
       GoRoute(
         path: '/$initialSetup',
         name: initialSetup,
         builder: (context, state) => const InitialSetupPage(),
       ),
+      // 外部链接一键导入页面（支持 yourcallrule://import）
       GoRoute(
         path: '/$externalImport',
         name: externalImport,
@@ -504,4 +622,55 @@ class AppRouter {
       ),
     ],
   );
+  
+  // [注释]: 导航方法保持不变或简化。
+  void navigateToTimeInterceptorSettings(BuildContext context) {
+    context.goNamed(timeInterceptorSettings);
+  }
+  
+  // 导航到本地过滤器设置页面
+  void navigateToLocalFilterSettings(BuildContext context) {
+    context.goNamed(localFilterSettings);
+  }
+  
+  // 导航到远程号码过滤器设置页面
+  void navigateToRemoteFilterSettings(BuildContext context) {
+    context.goNamed(remoteFilterSettings);
+  }
+  // 导航到SIM卡槽位规则设置页面
+  void navigateToSimSlotRuleSettings(BuildContext context, int simSlotIndex) {
+    context.goNamed(
+      simSlotRuleSettings,
+      pathParameters: {'simSlotIndex': simSlotIndex.toString()},
+    );
+  }
+   // 导航到通话过滤设置页面
+  void navigateToCallFilterSettings(BuildContext context) {
+    context.goNamed(callFilterSettings);
+  }
+
+  // 导航到搜索页面
+  void navigateToSearch(BuildContext context) {
+    context.goNamed(search);
+  }
+
+  // 导航到号码标记管理页面
+  void navigateToMarkPhoneManagement(BuildContext context) {
+    context.goNamed(markPhoneManagementWithAds);
+  }
+
+  // 导航到带广告的标签管理页面
+  void navigateToLabelManagementWithAds(BuildContext context) {
+    context.goNamed(labelManagementWithAds);
+  }
+
+  // 导航到带广告的号码标记管理页面
+  void navigateToMarkPhoneManagementWithAds(BuildContext context) {
+    context.goNamed(markPhoneManagementWithAds);
+  }
+
+  // 导航到初始规则库引导设置页面
+  void navigateToInitialSetup(BuildContext context) {
+    context.goNamed(initialSetup);
+  }
 }
