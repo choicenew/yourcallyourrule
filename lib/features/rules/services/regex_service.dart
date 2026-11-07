@@ -1,0 +1,169 @@
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:uuid/uuid.dart';
+import 'package:yourcallyourrule/core/entities/regex/regex_pattern.dart';
+import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
+import 'package:yourcallyourrule/core/services/import_export_service.dart';
+import 'package:yourcallyourrule/core/services/list_service.dart';
+import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
+import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+
+part 'regex_service.g.dart';
+
+/// RegexService 的 @Riverpod Provider
+@Riverpod(keepAlive: true)
+RegexService regexService(Ref ref) {
+  final ruleRepository = ref.watch(ruleRepositoryProvider);
+  return RegexService(ruleRepository);
+}
+
+/// 正则规则服务类，继承自ListService，提供正则规则的管理功能
+/// 包括添加、删除、查询正则规则等操作
+class RegexService extends ListService {
+  final RuleRepository _ruleRepository;
+  final RuleImportExportService _importExportService;
+
+  RegexService(this._ruleRepository)
+      : _importExportService = RuleImportExportService(_ruleRepository),
+        super(_ruleRepository);
+        
+  /// 获取导入导出服务
+  RuleImportExportService get importExportService => _importExportService;
+
+  // 添加模式有效性检查
+  Future<void> addRegexRule(RegExPattern pattern) async {
+    if (!pattern.isValid) {
+      throw FormatException('无效的正则表达式: ${pattern.pattern}');
+    }
+
+    final rule = RegexRule(
+      id: const Uuid().v4(),
+      name: pattern.name,
+      pattern: pattern.pattern,
+      action: pattern.action,
+    );
+    await _ruleRepository.saveRule(rule);
+  }
+
+  // 使用现有的导入导出方法
+  Future<List<RuleBase>> importRegexRulesFromFile(String filePath,
+      {bool overwrite = false}) async {
+    return _importExportService.importFromFile(filePath, mode: overwrite ? ImportMode.overwrite : ImportMode.merge);
+  }
+
+  Future<bool> exportRegexRulesToFile(String filePath) async {
+    final rules = await getAllRegexRules();
+    return await _importExportService.exportToFile(filePath, entities: rules);
+  }
+
+  Future<void> toggleRegexRule(String ruleId, bool isEnabled) async {
+    final rule = await _ruleRepository.getRuleById(ruleId) as RegexRule?;
+    if (rule != null) {
+      final updatedRule = rule.copyWith(isEnabled: isEnabled);
+      await _ruleRepository.updateRule(updatedRule);
+    }
+  }
+
+  /// 删除正则规则
+  Future<void> removeRegexRule(String ruleId) async {
+    await _ruleRepository.deleteRule(ruleId);
+  }
+
+  /// 获取所有正则规则
+  Future<List<RegexRule>> getAllRegexRules() async {
+    final rules = await _ruleRepository.getRulesByType(RuleTypeKeys.regex);
+    return rules.whereType<RegexRule>().toList();
+  }
+
+  /// 根据动作类型获取正则规则
+  Future<List<RegexRule>> getRegexRulesByAction(RuleAction action) async {
+    final rules = await getAllRegexRules();
+    return rules.where((rule) => rule.action == action).toList();
+  }
+  
+  /// 获取匹配指定电话号码的正则规则
+  Future<List<RegexRule>> getMatchingRegexRules(String phoneNumberStr) async {
+    final rules = await getAllRegexRules();
+    return rules
+        .where((rule) => rule.isEnabled && rule.matches(phoneNumberStr))
+        .toList();
+  }
+  
+  /// 获取匹配指定电话号码的特定动作类型的正则规则
+  /// 如果action为null，则返回所有匹配的规则，不考虑动作类型
+  Future<List<RegexRule>> getMatchingRegexRulesByAction(String phoneNumberStr, RuleAction? action) async {
+    if (action == null) {
+      // 直接使用getMatchingRegexRules方法获取所有匹配的规则
+      return getMatchingRegexRules(phoneNumberStr);
+    } else {
+      // 获取特定动作类型的规则
+      final rules = await getRegexRulesByAction(action);
+      return rules
+          .where((rule) => rule.isEnabled && rule.matches(phoneNumberStr))
+          .toList();
+    }
+  }
+  
+  /// 获取匹配指定电话号码的指定动作类型的正则规则（新方法，支持所有动作类型）
+  /// 如果action为null，则返回所有匹配的规则，不考虑动作类型
+  Future<List<RegexRule>> getMatchingRegexRulesByActionType(String phoneNumberStr, RuleAction? action) async {
+    if (action == null) {
+      // 直接使用getMatchingRegexRules方法获取所有匹配的规则
+      return getMatchingRegexRules(phoneNumberStr);
+    } else {
+      // 获取特定动作类型的规则
+      final rules = await getRegexRulesByAction(action);
+      return rules
+          .where((rule) => rule.isEnabled && rule.matches(phoneNumberStr))
+          .toList();
+    }
+  }
+
+  /// 更新正则规则
+  Future<void> updateRegexRule(RegexRule rule) async {
+    await _ruleRepository.updateRule(rule);
+  }
+
+  /// 检查电话号码是否匹配任何正则规则
+  /// 返回匹配的规则和对应的动作
+  Future<Map<RegexRule, RuleAction>?> matchPhoneNumber(
+      PhoneNumber phoneNumber) async {
+    final rules = await getAllRegexRules();
+    final enabledRules = rules.where((rule) => rule.isEnabled).toList();
+
+    for (final rule in enabledRules) {
+      try {
+        final regex = RegExp(rule.pattern);
+        if (regex.hasMatch(phoneNumber.value)) {
+          return {rule: rule.action};
+        }
+      } catch (e) {
+        // 处理无效的正则表达式
+        continue;
+      }
+    }
+
+    return null;
+  }
+
+  /// 验证正则表达式是否有效
+  bool isValidRegex(String pattern) {
+    try {
+      RegExp(pattern);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+}
+
+
+
+
+

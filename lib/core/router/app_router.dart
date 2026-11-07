@@ -1,41 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-// === All Package Protocols & Models ===
-import 'package:pyro_phone_country_sync_protocol/pyro_phone_country_sync_protocol.dart';
-import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:pyro_time_interceptor_protocol/pyro_time_interceptor_protocol.dart';
-import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
-import 'package:pyro_phone_count_filter_protocol/pyro_phone_count_filter_protocol.dart';
-import 'package:pyro_phone_remote_filter_protocol/pyro_phone_remote_filter_protocol.dart';
-import 'package:pyro_sim_slot_rules_protocol/pyro_sim_slot_rules_protocol.dart';
-import 'package:pyro_phone_call_overlay_protocol/pyro_phone_call_overlay_protocol.dart';
-import 'package:pyro_phone_live_activities_protocol/pyro_phone_live_activities_protocol.dart';
-import 'package:pyro_deletion_proposal_protocol/pyro_deletion_proposal_protocol.dart';
-import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
-import 'package:pyro_phone_call_statistic_protocol/pyro_phone_call_statistic_protocol.dart';
-import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
-import 'package:pyro_app_auto_update_protocol/pyro_app_auto_update_protocol.dart';
-import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
-
-// === All Package UI Exports ===
-import 'package:pyro_phone_lookup_plugin_ui/pyro_phone_lookup_plugin_ui.dart';
-import 'package:pyro_phone_rules_ui/pyro_phone_rules_ui.dart';
-import 'package:pyro_phone_count_filter_ui/pyro_phone_count_filter_ui.dart';
-import 'package:pyro_phone_remote_filter_ui/pyro_phone_remote_filter_ui.dart';
-import 'package:pyro_phone_call_history_ui/pyro_phone_call_history_ui.dart';
-import 'package:pyro_phone_live_activities_ui/pyro_phone_live_activities_ui.dart';
-import 'package:pyro_phone_call_overlay_ui/pyro_phone_call_overlay_ui.dart';
-import 'package:pyro_phone_call_statistic_ui/pyro_phone_call_statistic_ui.dart';
-import 'package:pyro_phone_country_sync_ui/pyro_phone_country_sync_ui.dart';
-import 'package:pyro_phone_contacts_ui/pyro_phone_contacts_ui.dart';
-import 'package:pyro_app_auto_update_ui/pyro_app_auto_update_ui.dart';
-import 'package:pyro_caller_identity_ui/pyro_caller_identity_ui.dart';
-import 'package:pyro_deletion_proposal_ui/pyro_deletion_proposal_ui.dart';
-import 'package:pyro_time_interceptor_ui/pyro_time_interceptor_ui.dart';
-import 'package:pyro_sim_slot_rules_ui/pyro_sim_slot_rules_ui.dart';
-
-// === App Core Pages ===
+// === All Restored Original Feature Pages ===
+import 'package:yourcallyourrule/features/call/call_overlay/presentation/pages/fraud_alert_settings_page.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/presentation/screens/call_overlay_customization_screen.dart';
+import 'package:yourcallyourrule/features/call/time_interceptor/presentation/pages/time_interceptor_settings_page.dart';
+import 'package:yourcallyourrule/features/local_filter/presentation/pages/local_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remote_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/enhanced_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/sim_slot_rule_filter_page.dart';
+import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/call_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/sim_slot_rules/pages/sim_slot_rule_page_with_ads.dart';
+import 'package:yourcallyourrule/presentation/settings/pages/filter_settings_page.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/pages/elite_home_page.dart';
@@ -43,8 +19,20 @@ import 'package:yourcallyourrule/presentation/settings/pages/settings_page.dart'
 import 'package:yourcallyourrule/presentation/about.dart';
 import 'package:yourcallyourrule/features/permissions/pages/special_permission_page.dart';
 import 'package:yourcallyourrule/features/language/pages/language_settings_page.dart';
+import 'package:yourcallyourrule/features/sync_country/widget/country_selection_widget.dart';
 import 'package:yourcallyourrule/purchase/purchase_page.dart';
+import 'package:yourcallyourrule/features/rules/pages/allowed_blocked_page.dart';
+import 'package:yourcallyourrule/features/rules/pages/allowed_blocked_page_with_ads.dart';
+import 'package:yourcallyourrule/features/rules/pages/rule_management_page.dart';
+import 'package:yourcallyourrule/features/rules/pages/rule_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/search/pages/search_page.dart';
+
+import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/live_notification_customization_screen.dart';
+import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/live_activities_test_page.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/pages/deletion_proposal_page.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/pages/proposal_detail_page.dart';
+
+import 'package:yourcallyourrule/features/call_policy/presentation/pages/end_call_settings_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_settings_page.dart';
 import 'package:yourcallyourrule/presentation/backup_restore/backup_restore_page.dart';
 import 'package:yourcallyourrule/presentation/cloud/cloud_settings_page.dart';
@@ -54,15 +42,25 @@ import 'package:yourcallyourrule/presentation/plugin_test_page.dart';
 import 'package:yourcallyourrule/presentation/regex_test_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_subscription_page_with_ads.dart';
+import 'package:yourcallyourrule/features/contacts/pages/contact_subscription_page_with_ads.dart';
+import 'package:yourcallyourrule/features/contacts/pages/contacts_management_page_with_ads.dart';
+import 'package:yourcallyourrule/features/call_statistic/presentation/pages/blocked_calls_page.dart';
+import 'package:yourcallyourrule/features/call_statistic/presentation/pages/call_statistics_page.dart';
+import 'package:yourcallyourrule/features/call/call_history/pages/call_history_page_with_timeline_with_ads.dart';
+import 'package:yourcallyourrule/features/auto_update/pages/auto_update_settings_page.dart';
 import 'package:yourcallyourrule/features/notifications/pages/notifications_page.dart';
 import 'package:yourcallyourrule/features/permissions/pages/permission_management_page.dart';
 import 'package:yourcallyourrule/features/onboarding/pages/onboarding_page.dart';
 import 'package:yourcallyourrule/features/dashboard/pages/dashboard_page.dart';
+import 'package:yourcallyourrule/features/plugin/pages/plugin_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/phone/pages/phone_subscription_page_refactored_with_ads.dart';
+import 'package:yourcallyourrule/features/rules/pages/regex_rule_page.dart';
+import 'package:yourcallyourrule/features/rules/pages/regex_rule_page_with_ads.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_page.dart';
 import 'package:yourcallyourrule/features/labels/pages/label_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page_with_ads.dart';
 import 'package:yourcallyourrule/purchase/pages/vip_exchange_page.dart';
+import 'package:yourcallyourrule/features/caller_identity/presentation/caller_identity_settings_page.dart';
 import 'package:yourcallyourrule/supabase_sync/supabase_settings_page.dart';
 import 'package:yourcallyourrule/features/initial_setup/pages/initial_setup_page.dart';
 import 'package:yourcallyourrule/features/initial_setup/pages/deep_link_import_page.dart';
@@ -182,10 +180,7 @@ class AppRouter {
       GoRoute(
         path: '/$countrySyncSettings',
         name: countrySyncSettings,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Country Sync')),
-          body: const CountrySyncTileView(payload: CountrySyncPayload(countryIsoCode: 'CN')),
-        ),
+        builder: (context, state) => const CountrySelectionWidget(),
       ),
       GoRoute(
         path: '/',
@@ -213,36 +208,29 @@ class AppRouter {
         builder: (context, state) => const AboutPage(),
       ),
       GoRoute(
+        path: '/$filterSettings',
+        name: filterSettings,
+        builder: (context, state) => const FilterSettingsPage(),
+      ),
+      GoRoute(
         path: '/$allowedBlockedSettings',
         name: allowedBlockedSettings,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Phone Rules')),
-          body: const PhoneRuleTileView(rule: PhoneRuleEntity(id: '1', name: 'Rule', phoneNumber: '123')),
-        ),
+        builder: (context, state) => const AllowedBlockedPage(),
       ),
       GoRoute(
         path: '/$allowedBlockedSettingsWithAds',
         name: allowedBlockedSettingsWithAds,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Phone Rules')),
-          body: const PhoneRuleTileView(rule: PhoneRuleEntity(id: '1', name: 'Rule', phoneNumber: '123')),
-        ),
+        builder: (context, state) => const AllowedBlockedPageWithAds(),
       ),
       GoRoute(
         path: '/$ruleManagementSettings',
         name: ruleManagementSettings,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Rule Management')),
-          body: const PhoneRuleTileView(rule: PhoneRuleEntity(id: '1', name: 'Rule', phoneNumber: '123')),
-        ),
+        builder: (context, state) => const RuleManagementPage(),
       ),
       GoRoute(
         path: '/$ruleManagementSettingsWithAds',
         name: ruleManagementSettingsWithAds,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Rule Management')),
-          body: const PhoneRuleTileView(rule: PhoneRuleEntity(id: '1', name: 'Rule', phoneNumber: '123')),
-        ),
+        builder: (context, state) => const RuleManagementPageWithAds(),
       ),
       GoRoute(
         path: '/$search',
@@ -252,52 +240,34 @@ class AppRouter {
       GoRoute(
         path: '/$timeInterceptorSettings',
         name: timeInterceptorSettings,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Time Interceptor Settings')),
-          body: const TimeInterceptorTileView(config: TimeInterceptorConfig()),
-        ),
+        builder: (context, state) => const TimeInterceptorSettingsPage(),
       ),
       GoRoute(
         path: '/$callerIdSettings',
         name: callerIdSettings,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Caller Identity Settings')),
-          body: const CallerProfileTileView(profile: CallerProfile(phoneNumber: '123')),
-        ),
+        builder: (context, state) => const CallerIdentitySettingsPage(),
       ),
       GoRoute(
         path: '/$localFilterSettings',
         name: localFilterSettings,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Local Count Filter')),
-          body: const PhoneCountFilterTileView(config: PhoneCountFilterConfig()),
-        ),
+        builder: (context, state) => const LocalFilterSettingsPage(),
       ),
       GoRoute(
         path: '/$remoteFilterSettings',
         name: remoteFilterSettings,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Remote Filter Settings')),
-          body: const PhoneRemoteFilterTileView(entry: RemoteNumberEntry(id: '1', phoneNumber: '123')),
-        ),
+        builder: (context, state) => const RemoteFilterSettingsPage(),
       ),
       GoRoute(
         path: '/$enhancedFilterSettings',
         name: enhancedFilterSettings,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Call Filter Settings')),
-          body: const Center(child: Text('Enhanced Filter Settings')),
-        ),
+        builder: (context, state) => const EnhancedFilterSettingsPage(),
       ),
       GoRoute(
         path: '/$simSlotRuleSettings/:simSlotIndex',
         name: simSlotRuleSettings,
         builder: (context, state) {
           final simSlotIndex = int.tryParse(state.pathParameters['simSlotIndex'] ?? '') ?? 0;
-          return Scaffold(
-            appBar: AppBar(title: Text('SIM Slot $simSlotIndex Rule')),
-            body: SimSlotRuleTileView(rule: SimSlotRuleEntity(id: '1', simSlotIndex: simSlotIndex, name: 'Rule', phoneNumber: '123')),
-          );
+          return SimSlotRuleFilterPage(simSlotIndex: simSlotIndex);
         },
       ),
       GoRoute(
@@ -305,43 +275,56 @@ class AppRouter {
         name: simSlotRuleWithAds,
         builder: (context, state) {
           final simSlotIndex = int.tryParse(state.pathParameters['simSlotIndex'] ?? '') ?? 0;
-          return Scaffold(
-            appBar: AppBar(title: Text('SIM Slot $simSlotIndex Rule')),
-            body: SimSlotRuleTileView(rule: SimSlotRuleEntity(id: '1', simSlotIndex: simSlotIndex, name: 'Rule', phoneNumber: '123')),
-          );
+          return SimSlotRulePageWithAds(simSlotIndex: simSlotIndex);
         },
       ),
       GoRoute(
         path: '/$callFilterSettings',
         name: callFilterSettings,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Call Filter Settings')),
-          body: const Center(child: Text('Call Filter Settings')),
-        ),
+        builder: (context, state) => const CallFilterSettingsPage(),
       ),
       GoRoute(
         path: '/$callerIdCustomization',
         name: callerIdCustomization,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Call Overlay Customization')),
-          body: const PhoneOverlayTileView(config: PhoneCallOverlayConfig()),
-        ),
+        builder: (context, state) => const CallOverlayCustomizationScreen(),
       ),
       GoRoute(
         path: '/$liveNotificationCustomization',
         name: liveNotificationCustomization,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Live Notification Customization')),
-          body: const LiveActivityTileView(record: PhoneLiveActivityRecord(activityId: '1', phoneNumber: '123', title: 'Live Activity')),
-        ),
+        builder: (context, state) => const LiveNotificationCustomizationScreen(),
+      ),
+      GoRoute(
+        path: '/$liveActivitiesTest',
+        name: liveActivitiesTest,
+        builder: (context, state) => const LiveActivitiesTestPage(),
       ),
       GoRoute(
         path: '/$deletionProposal',
         name: deletionProposal,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Deletion Proposals')),
-          body: const ProposalTileView(proposal: ProposalEntity(id: '1', phoneNumber: '123', reason: 'Spam')),
-        ),
+        builder: (context, state) => const DeletionProposalPage(),
+        routes: [
+          GoRoute(
+            path: ':proposalId',
+            name: 'proposalDetails',
+            builder: (context, state) {
+              final proposalId = state.pathParameters['proposalId'];
+              if (proposalId == null) {
+                return const DeletionProposalPage();
+              }
+              return ProposalDetailPage(proposalId: proposalId);
+            },
+          ),
+        ],
+      ),
+      GoRoute(
+        path: '/$fraudAlertSettings',
+        name: fraudAlertSettings,
+        builder: (context, state) => const FraudAlertSettingsPage(),
+      ),
+      GoRoute(
+        path: '/$endCallSettings',
+        name: endCallSettings,
+        builder: (context, state) => const EndCallSettingsPage(),
       ),
       GoRoute(
         path: '/$smsFilterSettings',
@@ -403,50 +386,32 @@ class AppRouter {
       GoRoute(
         path: '/$contactSubscription',
         name: contactSubscription,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Contacts Subscription')),
-          body: const PhoneContactTileView(entry: PhoneContactEntry(id: '1', displayName: 'Contact', phoneNumbers: ['123'])),
-        ),
+        builder: (context, state) => const ContactSubscriptionPageWithAds(),
       ),
       GoRoute(
         path: '/$contactsManagement',
         name: contactsManagement,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Contacts Management')),
-          body: const PhoneContactTileView(entry: PhoneContactEntry(id: '1', displayName: 'Contact', phoneNumbers: ['123'])),
-        ),
+        builder: (context, state) => const ContactsManagementPageWithAds(),
       ),
       GoRoute(
         path: '/$blockedCalls',
         name: blockedCalls,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Blocked Calls')),
-          body: const PhoneCallStatisticCardView(data: PhoneCallStatisticData()),
-        ),
+        builder: (context, state) => const BlockedCallsPage(),
       ),
       GoRoute(
         path: '/$callStatistics',
         name: callStatistics,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Call Statistics')),
-          body: const PhoneCallStatisticCardView(data: PhoneCallStatisticData()),
-        ),
+        builder: (context, state) => const CallStatisticsPage(),
       ),
       GoRoute(
         path: '/$callHistory',
         name: callHistory,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Call History')),
-          body: const CallLogTileView(entry: CallLogEntry(id: '1', phoneNumber: '123', callType: 'incoming')),
-        ),
+        builder: (context, state) => const CallHistoryPageWithTimelineWithAds(),
       ),
       GoRoute(
         path: '/$autoUpdate',
         name: autoUpdate,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Auto Update Settings')),
-          body: const AppVersionInfoTileView(info: AppVersionInfo(latestVersion: '1.0.0', versionCode: 100, downloadUrl: '')),
-        ),
+        builder: (context, state) => const AutoUpdateSettingsPage(),
       ),
       GoRoute(
         path: '/notifications',
@@ -471,10 +436,7 @@ class AppRouter {
       GoRoute(
         path: '/$pluginManagement',
         name: pluginManagement,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Plugin Management')),
-          body: const PhoneLookupPluginTileView(data: PluginSourceData(name: 'Lookup Plugin', phoneNumber: '123')),
-        ),
+        builder: (context, state) => const PluginManagementPageWithAds(),
       ),
       GoRoute(
         path: '/$phoneSubscription',
@@ -484,18 +446,12 @@ class AppRouter {
       GoRoute(
         path: '/$regexRule',
         name: regexRule,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Regex Rules')),
-          body: const PhoneRuleTileView(rule: PhoneRuleEntity(id: '1', name: 'Regex Rule', phoneNumber: '123')),
-        ),
+        builder: (context, state) => const RegexRulePage(),
       ),
       GoRoute(
         path: '/$regexRuleWithAds',
         name: regexRuleWithAds,
-        builder: (context, state) => Scaffold(
-          appBar: AppBar(title: const Text('Regex Rules')),
-          body: const PhoneRuleTileView(rule: PhoneRuleEntity(id: '1', name: 'Regex Rule', phoneNumber: '123')),
-        ),
+        builder: (context, state) => const RegexRulePageWithAds(),
       ),
       GoRoute(
         path: '/$smsFilter',
