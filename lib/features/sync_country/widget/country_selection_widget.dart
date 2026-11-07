@@ -1,185 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:world_countries/world_countries.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/google_ad.dart';
-import 'package:yourcallyourrule/features/sync_country/provider/country_selection_provider.dart';
+import 'package:pyro_phone_country_sync_protocol/pyro_phone_country_sync_protocol.dart';
+import 'package:pyro_phone_country_sync_hub/pyro_phone_country_sync_hub.dart';
+import 'package:pyro_phone_country_sync_ui/pyro_phone_country_sync_ui.dart' as sync_pkg_ui;
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 数据库同步国家选择界面 (Elite Dopamine 现代视觉规范)
 class CountrySelectionWidget extends ConsumerWidget {
   const CountrySelectionWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
-    final selectedCountries = ref.watch(selectedCountriesProvider);
-    final theme = Theme.of(context);
+    final payloads = ref.watch(phoneCountrySyncControlCenterProvider).payloads;
 
     return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
-      appBar: AppBar(
-        title: Text(
-          l10n.databaseSyncTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      body: selectedCountries.when(
-        data: (codes) {
-          final chosenCountries = WorldCountry.list
-              .where((country) => codes.contains(country.codeShort))
-              .toList();
-
-          return Column(
-            children: [
-              // 顶部说明与已选国家卡片
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                padding: const EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.surface,
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(
-                    color: theme.colorScheme.outlineVariant,
-                    width: 1.0,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.03),
-                      blurRadius: 12,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(6),
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.primary.withValues(alpha: 0.12),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Icon(
-                            Icons.public_rounded,
-                            color: theme.colorScheme.primary,
-                            size: 18,
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: Text(
-                            l10n.countrySyncSettingsSubtitle,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w800,
-                              fontSize: 14,
-                              color: theme.colorScheme.onSurface,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 6),
-                    Text(
-                      l10n.countryDataDisclaimer,
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: theme.colorScheme.onSurfaceVariant,
-                        height: 1.3,
-                      ),
-                    ),
-                    if (codes.isNotEmpty) ...[
-                      const SizedBox(height: 12),
-                      Wrap(
-                        spacing: 8.0,
-                        runSpacing: 6.0,
-                        children: chosenCountries
-                            .map(
-                              (country) => Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.primary,
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      country.name.common,
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w800,
-                                      ),
-                                    ),
-                                    const SizedBox(width: 4),
-                                    InkWell(
-                                      onTap: () {
-                                        ref
-                                            .read(selectedCountriesProvider.notifier)
-                                            .removeCountry(country.codeShort);
-                                      },
-                                      child: const Icon(
-                                        Icons.close_rounded,
-                                        size: 14,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            )
-                            .toList(),
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-
-              const GoogleAdWidget(adInfo: AdManager.bannerAd),
-
-              Expanded(
-                child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.surface,
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(
-                      color: Theme.of(context).colorScheme.outlineVariant,
-                      width: 1.1,
-                    ),
-                  ),
-                  clipBehavior: Clip.antiAlias,
-                  child: CountryPicker(
-                    chosen: chosenCountries,
-                    onSelect: (country) {
-                      final isoCode = country.codeShort;
-                      if (codes.contains(isoCode)) {
-                        ref
-                            .read(selectedCountriesProvider.notifier)
-                            .removeCountry(isoCode);
-                      } else {
-                        ref
-                            .read(selectedCountriesProvider.notifier)
-                            .addCountry(isoCode);
-                      }
-                    },
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 8),
-              const GoogleAdWidget(adInfo: AdManager.bannerAd),
-              const SizedBox(height: 8),
-            ],
+      appBar: AppBar(title: Text(l10n.countrySyncTitle)),
+      body: ListView.builder(
+        itemCount: payloads.length,
+        itemBuilder: (context, index) {
+          final payload = payloads[index];
+          return sync_pkg_ui.PyroCountrySyncCardWidget(
+            payload: payload,
+            onTap: () => ref.read(phoneCountrySyncControlCenterProvider).syncCountry(payload),
           );
         },
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (err, stack) => Center(child: Text('Error: $err')),
       ),
     );
   }
