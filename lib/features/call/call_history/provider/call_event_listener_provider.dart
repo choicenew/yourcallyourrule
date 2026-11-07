@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 // 【修正】: 导入 CallerIdMonitorService 的 Provider，而不是类本身
-import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_service.dart'; 
+import 'package:yourcallyourrule/features/call_monitor/services/caller_id_monitor_service.dart'; 
 import 'package:yourcallyourrule/features/call/call_history/services/call_event_listener_service.dart';
 
 // part 指令是代码生成所必需的

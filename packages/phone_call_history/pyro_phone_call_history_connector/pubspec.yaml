@@ -1,0 +1,22 @@
+name: pyro_phone_call_history_connector
+description: 通话历史外观装配包 (Phone Call History Connector Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_phone_call_history_protocol:
+    path: ../pyro_phone_call_history_protocol
+  pyro_phone_call_history_hub:
+    path: ../pyro_phone_call_history_hub
+  pyro_phone_call_history_driver:
+    path: ../pyro_phone_call_history_driver
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dlibphonenumber/dlibphonenumber.dart' as dlibphone;
-import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
+import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
 
 /// 来电显示信息对话框
 /// 用于显示来电显示信息
@@ -47,18 +46,15 @@ class _CallerIdDialogState extends ConsumerState<CallerIdDialog> {
   Future<void> _fetchCallerIdData() async {
     // MODIFICATION: 使用 await ref.read(provider.future) 来获取异步数据
     final locale = await ref.read(localeProvider.future);
-    final callerIdService = ref.read(callerIdServiceProvider);
+    final callerIdentityService = ref.read(callerIdentityServiceProvider);
 
-    // 创建 dlibphone.Locale
     final dlibLocale = dlibphone.Locale(
- // 直接使用 locale.languageCode
       language: locale.languageCode,
       country: widget.countryCode ?? locale.countryCode ?? 'US',
     );
 
     try {
-      // 获取来电显示信息
-      final callerIdData = await callerIdService.getCallerId(widget.phoneNumber, dlibLocale);
+      final callerIdData = await callerIdentityService.getCallerId(widget.phoneNumber, dlibLocale);
 
       setState(() {
         _callerIdData = callerIdData;

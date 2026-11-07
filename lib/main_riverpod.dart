@@ -4,7 +4,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/core/router/app_router_provider.dart';
-import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_overlay_entry.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/call_overlay_entry.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/core/services/firebase_service.dart';
@@ -64,7 +64,7 @@ void overlayMain() {
   runApp(const ProviderScope(
     child: MaterialApp(
       title: 'Caller ID Overlay',
-      home: CallerIdOverlayEntry(), // 展示overlay内容
+      home: CallOverlayEntry(), // 展示overlay内容
     ),
   ));
 }

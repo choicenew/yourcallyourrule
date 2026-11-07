@@ -9,8 +9,8 @@
 .history
 .svn/
 migrate_working_dir/
- /build
- /android/app/build
+/build
+/android/app/build
 # IntelliJ related
 *.iml
 *.ipr
@@ -18,10 +18,6 @@ migrate_working_dir/
 .idea/
 .env
 test_env.json
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -32,6 +28,12 @@ test_env.json
 .pub-cache/
 .pub/
 /build/
+**/build/
+**/android/app/build/
+**/android/.gradle/
+*.apk
+*.so
+*.aar
 
 # Symbolication related
 app.*.symbols
@@ -43,12 +45,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-# 构建文件
-/build/
-/android/app/build/
-/android/app/debug/
-/android/app/profile/
-/android/app/release/
 
 /临时参考/
 /yourcallrule/
@@ -76,4 +72,3 @@ lib/l10n/untranslated.json
 pubspec.lock
 
 test_worker/
-

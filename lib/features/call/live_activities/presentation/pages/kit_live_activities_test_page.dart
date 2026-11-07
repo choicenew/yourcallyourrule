@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
-import 'package:yourcallyourrule/features/call/caller_id/mock_data/caller_id_mock.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_handlers/kit_live_activity_handler.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/mock_data/call_overlay_mock.dart';
+import 'package:yourcallyourrule/features/call_coordinator/handlers/kit_live_activity_handler.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class KitLiveActivitiesTestPage extends ConsumerStatefulWidget {
@@ -30,9 +30,9 @@ class _KitLiveActivitiesTestPageState
 
     try {
       final handler = await ref.read(kitLiveActivityHandlerProvider.future);
-      final mockData = CallerIdMockData.mockCallerIdData();
-      final mockSimInfo = CallerIdMockData.mockSimInfoData();
-      final mockStirInfo = CallerIdMockData.mockStirInfoData();
+      final mockData = CallOverlayMockData.mockCallerIdData();
+      final mockSimInfo = CallOverlayMockData.mockSimInfoData();
+      final mockStirInfo = CallOverlayMockData.mockStirInfoData();
 
       await handler.showCallerIdActivity(
         callerIdData: mockData,

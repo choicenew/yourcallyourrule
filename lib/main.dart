@@ -8,15 +8,15 @@ import 'package:yourcallyourrule/common/error/logger.dart';
 import 'package:yourcallyourrule/core/services/background_sync_service.dart';
 import 'package:yourcallyourrule/core/services/foreground_sync_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_stream_sync_service.dart';
-import 'package:yourcallyourrule/features/caller_id/services/plugin_to_remote_sync_service.dart';
+import 'package:yourcallyourrule/features/caller_identity/services/plugin_to_remote_sync_service.dart';
 import 'package:yourcallyourrule/features/location/services/location_sync_service.dart';
 import 'package:yourcallyourrule/core/router/app_router_provider.dart';
 import 'package:yourcallyourrule/core/services/firebase_service.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/features/call/call_history/provider/call_event_listener_provider.dart';
-import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/caller_id_overlay_entry.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_control_handler.dart';
-import 'package:yourcallyourrule/features/caller_id/services/caller_id_monitor_service.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/call_overlay_entry.dart';
+import 'package:yourcallyourrule/features/call_coordinator/handlers/overlay_control_handler.dart';
+import 'package:yourcallyourrule/features/call_monitor/services/caller_id_monitor_service.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
 import 'package:yourcallyourrule/features/widgets/services/app_widget_sync_service.dart';
@@ -63,7 +63,7 @@ Future<void> main() async {
     final container = ProviderContainer();
 
     // 核心来电监控与事件监听服务在后台激活（不需要在 main 里用 await 阻塞首帧渲染）
-    container.read(callerIdMonitorServiceProvider);
+    container.read(callerIdMonitorServiceProvider.notifier);
     container.read(callEventListenerProvider);
 
     // 初始化通知服务
@@ -130,7 +130,7 @@ void overlayMain() {
     const ProviderScope(
       child: MaterialApp(
         title: 'Caller ID Overlay',
-        home: CallerIdOverlayEntry(), // 展示overlay内容
+        home: CallOverlayEntry(), // 展示overlay内容
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
       ),

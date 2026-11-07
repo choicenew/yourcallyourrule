@@ -1,0 +1,18 @@
+name: pyro_device_profile_driver
+description: 设备环境驱动包 (Device Profile Driver Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_device_profile_protocol:
+    path: ../pyro_device_profile_protocol
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

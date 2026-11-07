@@ -1,0 +1,22 @@
+name: pyro_phone_country_sync_connector
+description: 国家代码与数据镜像同步外观装配包 (Phone Country Sync Connector Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_phone_country_sync_protocol:
+    path: ../pyro_phone_country_sync_protocol
+  pyro_phone_country_sync_hub:
+    path: ../pyro_phone_country_sync_hub
+  pyro_phone_country_sync_driver:
+    path: ../pyro_phone_country_sync_driver
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

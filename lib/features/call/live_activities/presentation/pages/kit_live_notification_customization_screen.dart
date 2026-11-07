@@ -7,11 +7,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
-import 'package:yourcallyourrule/features/call/caller_id/core/extensions/phone_number_type_extension.dart';
-import 'package:yourcallyourrule/features/call/caller_id/mock_data/caller_id_mock.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/core/extensions/phone_number_type_extension.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/mock_data/call_overlay_mock.dart';
 import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
 import 'package:yourcallyourrule/features/call/live_activities/providers/live_notification_config_provider.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_handlers/kit_live_activity_handler.dart';
+import 'package:yourcallyourrule/features/call_coordinator/handlers/kit_live_activity_handler.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class KitLiveNotificationCustomizationScreen extends ConsumerStatefulWidget {
@@ -29,9 +29,9 @@ class _KitLiveNotificationCustomizationScreenState
   Future<void> _sendLiveActivity() async {
     try {
       final handler = await ref.read(kitLiveActivityHandlerProvider.future);
-      final mockData = CallerIdMockData.mockCallerIdData();
-      final mockSimInfo = CallerIdMockData.mockSimInfoData();
-      final mockStirInfo = CallerIdMockData.mockStirInfoData();
+      final mockData = CallOverlayMockData.mockCallerIdData();
+      final mockSimInfo = CallOverlayMockData.mockSimInfoData();
+      final mockStirInfo = CallOverlayMockData.mockStirInfoData();
 
       await handler.showCallerIdActivity(
         callerIdData: mockData,
@@ -232,9 +232,9 @@ class _KitLiveNotificationCustomizationScreenState
 
   /// 构建专属于 Live Activity / 实时通知的预览卡片
   Widget _buildLivePreviewCard(LiveNotificationConfig config) {
-    final mockData = CallerIdMockData.mockCallerIdData();
-    final mockSimInfo = CallerIdMockData.mockSimInfoData();
-    final mockStirInfo = CallerIdMockData.mockStirInfoData();
+    final mockData = CallOverlayMockData.mockCallerIdData();
+    final mockSimInfo = CallOverlayMockData.mockSimInfoData();
+    final mockStirInfo = CallOverlayMockData.mockStirInfoData();
 
     final String? labelText = (mockData.labels != null && mockData.labels!.isNotEmpty)
         ? mockData.labels!.first.label

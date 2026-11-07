@@ -40,7 +40,7 @@ final class AdStateProvider extends $NotifierProvider<AdState, bool> {
   }
 }
 
-String _$adStateHash() => r'9bcb96fa99503c2e1dae79d76fd7c9225cb735cc';
+String _$adStateHash() => r'ade772eca0e82631f0308d5a72e95fcdd2bed0fa';
 
 abstract class _$AdState extends $Notifier<bool> {
   bool build();

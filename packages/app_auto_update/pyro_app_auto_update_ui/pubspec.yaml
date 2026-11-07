@@ -1,0 +1,22 @@
+name: pyro_app_auto_update_ui
+description: 版本检测与自动更新 UI 视图包 (App Auto Update UI Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  pyro_app_auto_update_protocol:
+    path: ../pyro_app_auto_update_protocol
+  pyro_app_auto_update_hub:
+    path: ../pyro_app_auto_update_hub
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

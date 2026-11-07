@@ -1,0 +1,22 @@
+name: pyro_phone_call_overlay_ui
+description: 来电悬浮窗 UI 视图包 (Phone Call Overlay UI Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  pyro_phone_call_overlay_protocol:
+    path: ../pyro_phone_call_overlay_protocol
+  pyro_phone_call_overlay_hub:
+    path: ../pyro_phone_call_overlay_hub
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

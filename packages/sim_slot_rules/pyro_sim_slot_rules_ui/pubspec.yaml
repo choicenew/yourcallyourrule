@@ -1,0 +1,22 @@
+name: pyro_sim_slot_rules_ui
+description: 多卡 SIM 卡槽规则 UI 视图包 (SIM Slot Rules UI Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  pyro_sim_slot_rules_protocol:
+    path: ../pyro_sim_slot_rules_protocol
+  pyro_sim_slot_rules_hub:
+    path: ../pyro_sim_slot_rules_hub
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

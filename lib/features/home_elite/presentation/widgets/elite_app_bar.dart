@@ -8,7 +8,7 @@ import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/core/router/app_router.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.dart';
+import 'package:yourcallyourrule/features/call_monitor/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/purchase/purchase_state.dart';

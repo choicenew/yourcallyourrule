@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_protection_service.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.dart';
+import 'package:yourcallyourrule/features/call_policy/evaluators/call_protection_service.dart';
+import 'package:yourcallyourrule/features/call_monitor/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/core/services/permission_service_impl.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_screen_plugin.dart';
+import 'package:yourcallyourrule/features/call_monitor/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 引导页 5：核心权限授权卡片组件（全面支持实时状态检查与一键/单项授权落地）

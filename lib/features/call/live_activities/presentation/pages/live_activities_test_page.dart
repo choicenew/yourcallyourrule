@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:live_activity_kit/live_activity_kit.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
-import 'package:yourcallyourrule/features/call/caller_id/mock_data/caller_id_mock.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/mock_data/call_overlay_mock.dart';
 import 'package:yourcallyourrule/features/call/live_activities/providers/live_notification_config_provider.dart';
 import 'package:yourcallyourrule/features/call/live_activities/services/notification_payload_builder.dart';
 
@@ -43,9 +43,9 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
       return;
     }
     final config = asyncConfig.value!;
-    final mockData = CallerIdMockData.mockCallerIdData();
-    final mockSimInfo = CallerIdMockData.mockSimInfoData();
-    final mockStirInfo = CallerIdMockData.mockStirInfoData();
+    final mockData = CallOverlayMockData.mockCallerIdData();
+    final mockSimInfo = CallOverlayMockData.mockSimInfoData();
+    final mockStirInfo = CallOverlayMockData.mockStirInfoData();
 
     try {
       final payload = await LiveNotificationPayloadBuilder.build(

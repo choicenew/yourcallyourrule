@@ -1,0 +1,18 @@
+name: pyro_time_interceptor_driver
+description: 时间拦截驱动包 (Time Interceptor Driver Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_time_interceptor_protocol:
+    path: ../pyro_time_interceptor_protocol
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

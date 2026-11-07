@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart';
-import 'package:yourcallyourrule/features/caller_id/services/end_call_rule_action_mapper.dart';
+import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action.dart';
+import 'package:yourcallyourrule/features/call_policy/rules/end_call_rule_action_mapper.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

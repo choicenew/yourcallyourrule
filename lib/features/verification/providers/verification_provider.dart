@@ -13,11 +13,11 @@ import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/service/time_interceptor_service.dart';
-import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_handlers/display_mode_handler.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_handlers/kit_live_activity_handler.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_handlers/notification_handler.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_handlers/overlay_handler.dart';
+import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
+import 'package:yourcallyourrule/features/call_coordinator/handlers/display_mode_handler.dart';
+import 'package:yourcallyourrule/features/call_coordinator/handlers/kit_live_activity_handler.dart';
+import 'package:yourcallyourrule/features/call_coordinator/handlers/notification_handler.dart';
+import 'package:yourcallyourrule/features/call_coordinator/handlers/overlay_handler.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
@@ -39,8 +39,8 @@ class VerificationNotifier extends Notifier<VerificationState> {
   }
 
   void _initSubscriptions() {
-    final callerIdService = ref.read(callerIdServiceProvider);
-    _pluginSub = callerIdService.pluginDataStream.listen((data) {
+    final callerIdentityService = ref.read(callerIdentityServiceProvider);
+    _pluginSub = callerIdentityService.pluginDataStream.listen((data) {
       state = state.copyWith(pluginSourceData: data);
     });
   }
@@ -158,7 +158,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
       final timeInterceptorService = ref.read(timeInterceptorServiceProvider);
       final localCountFilterService = ref.read(localCountFilterServiceProvider);
       final remoteNumberFilterService = ref.read(remoteNumberFilterServiceProvider);
-      final callerIdService = ref.read(callerIdServiceProvider);
+      final callerIdentityService = ref.read(callerIdentityServiceProvider);
       final contactService = ref.read(contactServiceProvider);
       final labelService = ref.read(labelServiceProvider);
 
@@ -186,7 +186,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
 
       CallerIdData? callerIdData;
       try {
-        callerIdData = await callerIdService.getCallerId(number.value, dlibLocale);
+        callerIdData = await callerIdentityService.getCallerId(number.value, dlibLocale);
       } catch (e) {
         debugPrint('[VerificationNotifier] getCallerId failed, fallback: $e');
         callerIdData = null;

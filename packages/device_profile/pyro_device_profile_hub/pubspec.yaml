@@ -1,0 +1,21 @@
+name: pyro_device_profile_hub
+description: 设备环境与 SIM/IP 网络感知中枢包 (Device Profile Hub Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  riverpod_annotation: ^4.0.0
+  pyro_device_profile_protocol:
+    path: ../pyro_device_profile_protocol
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.15.0
+  riverpod_generator: ^4.0.0

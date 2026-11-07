@@ -1,0 +1,18 @@
+name: pyro_app_auto_update_driver
+description: 版本检测驱动包 (App Auto Update Driver Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_app_auto_update_protocol:
+    path: ../pyro_app_auto_update_protocol
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

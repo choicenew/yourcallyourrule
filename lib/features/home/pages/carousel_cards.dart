@@ -24,7 +24,7 @@ import 'package:go_router/go_router.dart';
 // --- 依赖项导入 ---
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
-import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/callerid_overlay_mock.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/call_overlay_mock.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_chart.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -703,7 +703,7 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
                   fit: BoxFit.contain,
                   child: SizedBox(
                     width: 300, // 给一个固定宽度以优化显示
-                    child: CallerIdSample(),
+                    child: CallOverlaySample(),
                   ),
                 ),
               ),

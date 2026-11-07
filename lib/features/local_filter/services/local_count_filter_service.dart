@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
-import 'package:yourcallyourrule/features/caller_id/services/caller_id_service.dart';
+import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
 import 'package:yourcallyourrule/features/local_filter/config/local_count_filter_config.dart';
 import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
 
@@ -14,30 +14,28 @@ part 'local_count_filter_service.g.dart';
 @riverpod
 LocalCountFilterService localCountFilterService(Ref ref) {
   final service = LocalCountFilterService(
-    callerIdService: ref.watch(callerIdServiceProvider),
+    callerIdentityService: ref.watch(callerIdentityServiceProvider),
     getConfig: () async => await ref.read(localCountFilterConfigProvider.future),
   );
-  service.initialize(); // 服务本身需要初始化监听器
-  // 当 provider 销毁时，调用 dispose
+  service.initialize();
   ref.onDispose(() => service.dispose());
   return service;
 }
 
-/// 本地号码计数过滤服务类 (无状态)
+/// 本地号码计数过滤服务类
 class LocalCountFilterService implements CallFilterInterface {
-  final CallerIdService _callerIdService;
+  final CallerIdentityService _callerIdentityService;
   final Future<LocalCountFilterConfig> Function() _getConfig;
 
   PluginSourceData? _latestPluginData;
   bool _isDisposed = false;
   
-  // 订阅处理
   StreamSubscription<PluginSourceData>? _pluginDataSubscription;
-// 构造函数明确依赖关系
+
   LocalCountFilterService({
-    required CallerIdService callerIdService,
+    required CallerIdentityService callerIdentityService,
     required Future<LocalCountFilterConfig> Function() getConfig,
-  })  : _callerIdService = callerIdService,
+  })  : _callerIdentityService = callerIdentityService,
         _getConfig = getConfig;
 
   @override
@@ -85,8 +83,7 @@ class LocalCountFilterService implements CallFilterInterface {
 
   @override
   Future<void> initialize() async {
-    // 订阅插件数据流
-    _pluginDataSubscription ??= _callerIdService.pluginDataStream.listen((pluginSourceData) {
+    _pluginDataSubscription ??= _callerIdentityService.pluginDataStream.listen((pluginSourceData) {
       _latestPluginData = pluginSourceData;
     });
   }

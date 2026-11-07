@@ -1,0 +1,22 @@
+name: pyro_time_interceptor_ui
+description: 时间拦截 UI 视图包 (Time Interceptor UI Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  pyro_time_interceptor_protocol:
+    path: ../pyro_time_interceptor_protocol
+  pyro_time_interceptor_hub:
+    path: ../pyro_time_interceptor_hub
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

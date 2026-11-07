@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/features/call/caller_id/presentation/pages/fraud_alert_settings_page.dart';
-import 'package:yourcallyourrule/features/call/caller_id/presentation/screens/caller_id_customization_screen.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/presentation/pages/fraud_alert_settings_page.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/presentation/screens/call_overlay_customization_screen.dart';
 
 // [注释]: 这是一个完整的、无删减的导入列表，包含了所有路由目标页面。
 import 'package:yourcallyourrule/features/call/time_interceptor/presentation/pages/time_interceptor_settings_page.dart';
@@ -34,7 +34,7 @@ import 'package:yourcallyourrule/features/call/live_activities/presentation/page
 import 'package:yourcallyourrule/features/deletion_proposal/pages/deletion_proposal_page.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/pages/proposal_detail_page.dart';
 
-import 'package:yourcallyourrule/features/caller_id/presentation/pages/end_call_settings_page.dart';
+import 'package:yourcallyourrule/features/call_policy/presentation/pages/end_call_settings_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_settings_page.dart';
 import 'package:yourcallyourrule/presentation/backup_restore/backup_restore_page.dart';
 import 'package:yourcallyourrule/presentation/cloud/cloud_settings_page.dart';
@@ -63,7 +63,7 @@ import 'package:yourcallyourrule/features/sms/pages/sms_filter_page.dart';
 import 'package:yourcallyourrule/features/labels/pages/label_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page_with_ads.dart';
 import 'package:yourcallyourrule/purchase/pages/vip_exchange_page.dart';
-import 'package:yourcallyourrule/features/caller_id/presentation/pages/caller_id_settings_page.dart';
+import 'package:yourcallyourrule/features/caller_identity/presentation/caller_identity_settings_page.dart';
 import 'package:yourcallyourrule/supabase_sync/supabase_settings_page.dart';
 import 'package:yourcallyourrule/features/initial_setup/pages/initial_setup_page.dart';
 import 'package:yourcallyourrule/features/initial_setup/pages/deep_link_import_page.dart';
@@ -259,11 +259,11 @@ class AppRouter {
         builder: (context, state) => const TimeInterceptorSettingsPage(),
       ),
       
-      // 来电显示设置页面
+      // 来电显示与身份设置页面
       GoRoute(
         path: '/$callerIdSettings',
         name: callerIdSettings,
-        builder: (context, state) => const CallerIdSettingsPage(),
+        builder: (context, state) => const CallerIdentitySettingsPage(),
       ),
       
       // 本地过滤器设置页面
@@ -314,7 +314,7 @@ class AppRouter {
       GoRoute(
         path: '/$callerIdCustomization',
         name: callerIdCustomization,
-        builder: (context, state) => const CallerIdCustomizationScreen(),
+        builder: (context, state) => const CallOverlayCustomizationScreen(),
       ),
       GoRoute(
         path: '/$liveNotificationCustomization',

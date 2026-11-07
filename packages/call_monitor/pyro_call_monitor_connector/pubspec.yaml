@@ -1,0 +1,22 @@
+name: pyro_call_monitor_connector
+description: 原生通道传感器外观装配包 (Call Monitor Connector Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_call_monitor_protocol:
+    path: ../pyro_call_monitor_protocol
+  pyro_call_monitor_hub:
+    path: ../pyro_call_monitor_hub
+  pyro_call_monitor_driver:
+    path: ../pyro_call_monitor_driver
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

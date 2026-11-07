@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
 
 import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_service.dart';
-import 'package:yourcallyourrule/features/caller_id/services/call_protection_service.dart';
+import 'package:yourcallyourrule/features/call_policy/evaluators/call_protection_service.dart';
 import '../models/home_stats_model.dart';
 
 class HomeStatsService {

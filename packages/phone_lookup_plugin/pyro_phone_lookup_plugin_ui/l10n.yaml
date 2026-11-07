@@ -1,0 +1,3 @@
+arb-dir: lib/src/l10n
+template-arb-file: phone_lookup_plugin_en.arb
+output-localization-file: phone_lookup_plugin_localizations.dart

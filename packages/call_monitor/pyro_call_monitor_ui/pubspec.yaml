@@ -1,0 +1,22 @@
+name: pyro_call_monitor_ui
+description: 原生通道传感器 UI 视图包 (Call Monitor UI Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  pyro_call_monitor_protocol:
+    path: ../pyro_call_monitor_protocol
+  pyro_call_monitor_hub:
+    path: ../pyro_call_monitor_hub
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

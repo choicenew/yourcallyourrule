@@ -1,0 +1,21 @@
+name: pyro_phone_rules_hub
+description: 电话规则中枢包 (Phone Rules Hub Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  riverpod_annotation: ^4.0.0
+  pyro_phone_rules_protocol:
+    path: ../pyro_phone_rules_protocol
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.15.0
+  riverpod_generator: ^4.0.0

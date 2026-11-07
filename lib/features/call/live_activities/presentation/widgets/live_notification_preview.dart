@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:yourcallyourrule/features/call/caller_id/mock_data/caller_id_mock.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/mock_data/call_overlay_mock.dart';
 import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
 
 import 'package:yourcallyourrule/features/call/live_activities/providers/live_notification_config_provider.dart';
@@ -30,8 +30,8 @@ class LiveNotificationPreview extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final notifier = ref.read(liveNotificationConfigProvider.notifier);
-    final mockData = CallerIdMockData.mockCallerIdData();
-    final mockSimInfo = CallerIdMockData.mockSimInfoData();
+    final mockData = CallOverlayMockData.mockCallerIdData();
+    final mockSimInfo = CallOverlayMockData.mockSimInfoData();
 
     return Container(
       margin: const EdgeInsets.all(16),

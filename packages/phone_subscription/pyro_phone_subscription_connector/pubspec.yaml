@@ -1,0 +1,22 @@
+name: pyro_phone_subscription_connector
+description: 电话订阅外观装配包 (Phone Subscription Connector Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_phone_subscription_protocol:
+    path: ../pyro_phone_subscription_protocol
+  pyro_phone_subscription_hub:
+    path: ../pyro_phone_subscription_hub
+  pyro_phone_subscription_driver:
+    path: ../pyro_phone_subscription_driver
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

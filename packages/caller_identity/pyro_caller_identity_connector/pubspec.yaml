@@ -1,0 +1,22 @@
+name: pyro_caller_identity_connector
+description: 身份画像外观装配包 (Caller Identity Connector Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_caller_identity_protocol:
+    path: ../pyro_caller_identity_protocol
+  pyro_caller_identity_hub:
+    path: ../pyro_caller_identity_hub
+  pyro_caller_identity_driver:
+    path: ../pyro_caller_identity_driver
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
-import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/customization/color_panel.dart';
-import 'package:yourcallyourrule/features/call/caller_id/presentation/widgets/customization/size_panel.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/customization/color_panel.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/customization/size_panel.dart';
 import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
 import 'package:yourcallyourrule/features/call/live_activities/presentation/widgets/live_notification_preview.dart';
 import 'package:yourcallyourrule/features/call/live_activities/providers/live_notification_config_provider.dart';
@@ -14,7 +14,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 // Imports for preview functionality
 import 'package:live_activity_kit/live_activity_kit.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/features/call/caller_id/mock_data/caller_id_mock.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/mock_data/call_overlay_mock.dart';
 import 'package:yourcallyourrule/features/call/live_activities/services/notification_payload_builder.dart';
 
 class LiveNotificationCustomizationScreen extends ConsumerStatefulWidget {
@@ -44,9 +44,9 @@ class _LiveNotificationCustomizationScreenState
       return;
     }
     final config = asyncConfig.value!;
-    final mockData = CallerIdMockData.mockCallerIdData();
-    final mockSimInfo = CallerIdMockData.mockSimInfoData();
-    final mockStirInfo = CallerIdMockData.mockStirInfoData();
+    final mockData = CallOverlayMockData.mockCallerIdData();
+    final mockSimInfo = CallOverlayMockData.mockSimInfoData();
+    final mockStirInfo = CallOverlayMockData.mockStirInfoData();
 
     try {
       // 本地化安全消息文本 (Mock)

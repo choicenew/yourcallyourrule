@@ -1,0 +1,3 @@
+arb-dir: lib/src/l10n
+template-arb-file: phone_call_statistic_en.arb
+output-localization-file: phone_call_statistic_localizations.dart

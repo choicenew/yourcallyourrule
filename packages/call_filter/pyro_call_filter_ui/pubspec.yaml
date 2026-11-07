@@ -1,0 +1,22 @@
+name: pyro_call_filter_ui
+description: 通用通话过滤器 UI 视图包 (Call Filter UI Subsystem)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  pyro_call_filter_protocol:
+    path: ../pyro_call_filter_protocol
+  pyro_call_filter_hub:
+    path: ../pyro_call_filter_hub
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
