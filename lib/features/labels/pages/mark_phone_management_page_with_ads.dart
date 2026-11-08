@@ -22,7 +22,7 @@ import 'package:yourcallyourrule/features/common/router/app_router.dart';
 
 /// 号码标记管理页面 - 集成广告功能
 /// 用于用户添加号码标记，查看标记次数，以及兑换VIP功能
-/// 使用GenericListWithAdsPage组件减少重复代码并集成广�?
+/// 使用GenericListWithAdsPage组件减少重复代码并集成广�?
 class MarkPhoneManagementPageWithAds extends ConsumerStatefulWidget {
   const MarkPhoneManagementPageWithAds({super.key});
 
@@ -59,7 +59,7 @@ class _MarkPhoneManagementPageWithAdsState
     // 加载标记数量
     _loadMarkCount();
     
-    // 加载标记的电话号码列�?
+    // 加载标记的电话号码列�?
     _loadMarkedPhones();
 
     // 监听标记计数变化
@@ -224,7 +224,7 @@ class _MarkPhoneManagementPageWithAdsState
                     labelMarkStatisticsSyncServiceProvider,
                   );
                   await statisticsSyncService.syncSingleLabel(labelPhoneEntry);
-// 使用标签到远程号码同步服务同步标�?
+// 使用标签到远程号码同步服务同步标�?
                   final labelPhoneEntryToRemote = ref.read(
                     labelPhoneEntryToRemoteProvider,
                   );
@@ -251,7 +251,7 @@ class _MarkPhoneManagementPageWithAdsState
     // 导航到VIP兑换页面
     context.pushNamed(AppRouter.vipExchange);
 
-    // 返回后刷新标记次�?
+    // 返回后刷新标记次�?
     await _loadMarkCount();
   }
 
@@ -486,10 +486,10 @@ class _MarkPhoneManagementPageWithAdsState
     return label?.text ?? AppLocalizations.of(context)!.unknown;
   }
 
-  /// 编辑标记的电话号�?
+  /// 编辑标记的电话号�?
   Future<void> _editMarkedPhone(LabelPhoneEntry entry) async {
     try {
-      // 使用MarkPhoneEditDialog显示编辑对话�?
+      // 使用MarkPhoneEditDialog显示编辑对话�?
       MarkPhoneEditDialog.show(
         context, 
         entry,

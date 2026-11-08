@@ -248,7 +248,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
     );
   }
 
-  /// �?关键新增：仿照您的正确示例，创建“更多选项”的弹窗
+  /// �?关键新增：仿照您的正确示例，创建“更多选项”的弹窗
   void _showMoreOptions() {
     showModalBottomSheet(
       context: context,
@@ -535,7 +535,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
     );
   }
   
-  /// �?最终修正：完全遵循GenericListWithAdsPage的设计模�?
+  /// �?最终修正：完全遵循GenericListWithAdsPage的设计模�?
   Widget _buildGenericListPage() {
     return GenericListWithAdsPage<LabelPhoneEntry>(
       title: AppLocalizations.of(context)!.labelManagement,
@@ -553,7 +553,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
       themeColor: Colors.blue,
       isLoading: _isLoading,
       
-      // �?关键修正：使用组件内置的回调来自动生成按�?
+      // �?关键修正：使用组件内置的回调来自动生成按�?
       onRefresh: _loadLabels,
       onAdd: _showAddLabelDialog,
       onMoreOptions: _showMoreOptions, // <-- 菜单按钮
@@ -579,7 +579,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
       onSearchChanged: _onSearchChanged,
       searchHintText: AppLocalizations.of(context)!.searchLabelsHint,
 
-      // �?关键修正：不再需�?customActions
+      // �?关键修正：不再需�?customActions
       customActions: null, 
     );
   }

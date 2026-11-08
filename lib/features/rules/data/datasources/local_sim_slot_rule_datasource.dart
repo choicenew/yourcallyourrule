@@ -1,5 +1,3 @@
-// local_sim_slot_rule_data_source.dart (最终优化版)
-
 import 'dart:async';
 import 'dart:convert';
 
@@ -7,11 +5,9 @@ import 'package:drift/drift.dart' hide Column;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
+import 'package:pyro_sim_slot_rules_protocol/pyro_sim_slot_rules_protocol.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
-
-import '../../../data/models/sim_slot_rule_model.dart';
-import '../datasource_interface.dart';
 
 part 'local_sim_slot_rule_datasource.g.dart';
 
@@ -21,22 +17,10 @@ LocalSimSlotRuleDataSource localSimSlotRuleDataSource(Ref ref) {
   return databaseService.localSimSlotRuleDataSource;
 }
 
-/// SIM卡槽位规则本地数据源 (使用 Drift)
-class LocalSimSlotRuleDataSource implements LocalDataSource<SimSlotRuleModel> {
-  
-  final LocalDatabase _database;
-  final Uuid _uuid = const Uuid();
-  
-  // 构造函数
-  LocalSimSlotRuleDataSource(this._database);
-  
-  // --- 辅助方法: 数据转换 ---
-
-  /// 将 Drift 生成的 SimSlotRuleData (数据库行数据) 转换为 SimSlotRuleModel
-  SimSlotRuleModel _fromData(SimSlotRuleData data) {
-    return SimSlotRuleModel(
-      // 修正：增加防御性检查，确保 ID 非空
-      id: data.id ?? _uuid.v4(),
+abstract class SimSlotRuleModelMapper {
+  static SimSlotRuleEntity fromData(SimSlotRuleData data) {
+    return SimSlotRuleEntity(
+      id: data.id,
       name: data.name,
       priority: data.priority,
       action: data.action,
@@ -49,9 +33,7 @@ class LocalSimSlotRuleDataSource implements LocalDataSource<SimSlotRuleModel> {
     );
   }
 
-  /// 将 SimSlotRuleModel (应用模型) 转换为 Drift Companion (用于写入数据库)
-  SimSlotRulesCompanion _toCompanion(SimSlotRuleModel model) {
-    // 注意：这里只映射字段，ID 的修正留给 insert/insertAll 处理
+  static SimSlotRulesCompanion toCompanion(SimSlotRuleEntity model) {
     return SimSlotRulesCompanion(
       id: Value(model.id),
       name: Value(model.name),
@@ -65,108 +47,82 @@ class LocalSimSlotRuleDataSource implements LocalDataSource<SimSlotRuleModel> {
       isEnabled: Value(model.isEnabled ? 1 : 0),
     );
   }
+}
+
+class LocalSimSlotRuleDataSource {
+  final LocalDatabase _database;
+  final Uuid _uuid = const Uuid();
   
-  // --- 核心 CRUD / 业务逻辑 ---
+  LocalSimSlotRuleDataSource(this._database);
   
-  // 获取所有SIM卡槽位规则
-  @override
-  Future<List<SimSlotRuleModel>> getAll() async {
+  Future<List<SimSlotRuleEntity>> getAll() async {
     final results = await _database.select(_database.simSlotRules).get();
-    return results.map(_fromData).toList();
+    return results.map(SimSlotRuleModelMapper.fromData).toList();
   }
   
-  // 根据ID获取SIM卡槽位规则
-  @override
-  Future<SimSlotRuleModel?> getById(String id) async {
+  Future<SimSlotRuleEntity?> getById(String id) async {
     final result = await (_database.select(_database.simSlotRules)
       ..where((tbl) => tbl.id.equals(id))
       ..limit(1))
       .getSingleOrNull();
-    
-    return result != null ? _fromData(result) : null;
+    return result != null ? SimSlotRuleModelMapper.fromData(result) : null;
   }
   
-  // 插入SIM卡槽位规则 (使用 Companion.copyWith 注入 ID)
-  @override
-  Future<String> insert(SimSlotRuleModel model) async {
+  Future<String> insert(SimSlotRuleEntity model) async {
     final String id = model.id.isEmpty ? _uuid.v4() : model.id;
-    
-    final companion = _toCompanion(model);
+    final companion = SimSlotRuleModelMapper.toCompanion(model);
     final companionWithId = companion.copyWith(id: Value(id));
-    
-    // 使用 insertOnConflictUpdate 实现 ConflictAlgorithm.replace
     await _database.into(_database.simSlotRules).insertOnConflictUpdate(companionWithId);
-    
     return id;
   }
   
-  // 保存SIM卡槽位规则（兼容旧接口）
-  Future<void> save(SimSlotRuleModel model) async {
+  Future<void> save(SimSlotRuleEntity model) async {
     await insert(model);
   }
   
-  // 更新SIM卡槽位规则
-  @override
-  Future<int> update(SimSlotRuleModel model) async {
-    final companion = _toCompanion(model);
-    
+  Future<int> update(SimSlotRuleEntity model) async {
+    final companion = SimSlotRuleModelMapper.toCompanion(model);
     return await (_database.update(_database.simSlotRules)
       ..where((tbl) => tbl.id.equals(model.id)))
       .write(companion);
   }
   
-  // 删除SIM卡槽位规则
-  @override
   Future<int> delete(String id) async {
     return await (_database.delete(_database.simSlotRules)
       ..where((tbl) => tbl.id.equals(id)))
       .go();
   }
   
-  // 根据SIM卡槽位索引获取规则
-  Future<List<SimSlotRuleModel>> getBySimSlotIndex(int simSlotIndex) async {
+  Future<List<SimSlotRuleEntity>> getBySimSlotIndex(int simSlotIndex) async {
     final query = _database.select(_database.simSlotRules)
       ..where((tbl) => tbl.simSlotIndex.equals(simSlotIndex));
-      
     final results = await query.get();
-    
-    return results.map(_fromData).toList();
+    return results.map(SimSlotRuleModelMapper.fromData).toList();
   }
   
-  // 根据电话号码获取规则
-  Future<List<SimSlotRuleModel>> getByPhoneNumber(String phoneNumber) async {
+  Future<List<SimSlotRuleEntity>> getByPhoneNumber(String phoneNumber) async {
     final query = _database.select(_database.simSlotRules)
       ..where((tbl) => tbl.phoneNumber.equals(phoneNumber));
-      
     final results = await query.get();
-    
-    return results.map(_fromData).toList();
+    return results.map(SimSlotRuleModelMapper.fromData).toList();
   }
   
-  // 清空所有SIM卡槽位规则 (clear 和 clearAll 保持一致)
-  @override
   Future<void> clear() async {
     await _database.delete(_database.simSlotRules).go();
   }
   
-  // 兼容旧接口
   Future<void> clearAll() async {
     await clear();
   }
   
-  // 批量插入数据
-  @override
-  Future<List<String>> insertAll(List<SimSlotRuleModel> items) async {
+  Future<List<String>> insertAll(List<SimSlotRuleEntity> items) async {
     final List<String> ids = [];
-    
     await _database.batch((batch) {
       for (var item in items) {
         final String id = item.id.isEmpty ? _uuid.v4() : item.id;
         ids.add(id);
-        
-        final companion = _toCompanion(item);
-        final companionWithId = companion.copyWith(id: Value(id)); // 使用 Companion.copyWith
-
+        final companion = SimSlotRuleModelMapper.toCompanion(item);
+        final companionWithId = companion.copyWith(id: Value(id));
         batch.insert(
           _database.simSlotRules,
           companionWithId,
@@ -177,50 +133,39 @@ class LocalSimSlotRuleDataSource implements LocalDataSource<SimSlotRuleModel> {
     return ids;
   }
   
-  // 批量更新数据
-  @override
-  Future<int> updateAll(List<SimSlotRuleModel> items) async {
+  Future<int> updateAll(List<SimSlotRuleEntity> items) async {
     await _database.batch((batch) {
       for (var item in items) {
         batch.update(
           _database.simSlotRules,
-          _toCompanion(item),
+          SimSlotRuleModelMapper.toCompanion(item),
           where: (tbl) => tbl.id.equals(item.id),
         );
       }
     });
-    
     return items.length;
   }
   
-  // 批量删除数据
-  @override
   Future<int> deleteAll(List<String> ids) async {
     return await (_database.delete(_database.simSlotRules)
       ..where((tbl) => tbl.id.isIn(ids)))
       .go();
   }
   
-  // 导出数据
-  @override
   Future<String> exportData() async {
     final rules = await getAll();
     final List<Map<String, dynamic>> maps = rules.map((rule) => rule.toMap()).toList();
     return jsonEncode(maps);
   }
   
-  // 导入数据
-  @override
   Future<bool> importData(String data) async {
     try {
       final List<dynamic> maps = jsonDecode(data) as List<dynamic>;
-      final List<SimSlotRuleModel> rules = maps.map((map) => SimSlotRuleModel.fromMap(map as Map<String, dynamic>)).toList();
-      
+      final List<SimSlotRuleEntity> rules = maps.map((map) => SimSlotRuleEntity.fromMap(map as Map<String, dynamic>)).toList();
       await clear(); 
       await insertAll(rules);
       return true;
     } catch (e) {
-      // 错误处理，例如日志记录
       return false;
     }
   }

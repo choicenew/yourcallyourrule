@@ -5,11 +5,9 @@ import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
-import 'package:yourcallyourrule/data/models/label_phone_model.dart';
-
-import '../../database/local/local_database.dart';
-import '../datasource_interface.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 part 'local_label_datasource.g.dart';
 
@@ -19,18 +17,14 @@ LocalLabelDataSource localLabelDataSource(Ref ref) {
   return databaseService.localLabelDataSource;
 }
 
-class LocalLabelDataSource implements LocalDataSource<LabelModel> {
-  final LocalDatabase _database;
-
-  LocalLabelDataSource(this._database);
-
-  LabelModel _fromData(LabelPhoneData data) {
-    return LabelModel(
+abstract class LabelModelMapper {
+  static LabelPhoneEntry fromData(LabelPhoneData data) {
+    return LabelPhoneEntry(
       id: data.id,
       name: data.name ?? '',
-      icon: data.icon,
       phoneNumber: data.phoneNumber,
       labelId: data.labelId,
+      icon: data.icon,
       avatar: data.avatar,
       priority: data.priority,
       action: data.action,
@@ -38,67 +32,66 @@ class LocalLabelDataSource implements LocalDataSource<LabelModel> {
     );
   }
 
-  LabelPhonesCompanion _toCompanion(LabelModel label) {
+  static LabelPhonesCompanion toCompanion(LabelPhoneEntry entry) {
     return LabelPhonesCompanion(
-      id: Value(label.id),
-      name: Value(label.name),
-      icon: Value(label.icon),
-      phoneNumber: Value(label.phoneNumber),
-      labelId: Value(label.labelId),
-      avatar: Value(label.avatar),
-      priority: Value(label.priority),
-      action: Value(label.action),
-      isEnabled: Value(label.isEnabled ? 1 : 0),
+      id: Value(entry.id),
+      name: Value(entry.name),
+      icon: Value(entry.icon),
+      phoneNumber: Value(entry.phoneNumber),
+      labelId: Value(entry.labelId),
+      avatar: Value(entry.avatar),
+      priority: Value(entry.priority),
+      action: Value(entry.action),
+      isEnabled: Value(entry.isEnabled ? 1 : 0),
     );
   }
+}
 
-  @override
-  Future<List<LabelModel>> getAll() async {
+class LocalLabelDataSource {
+  final LocalDatabase _database;
+
+  LocalLabelDataSource(this._database);
+
+  Future<List<LabelPhoneEntry>> getAll() async {
     final data = await _database.select(_database.labelPhones).get();
-    return data.map(_fromData).toList();
+    return data.map(LabelModelMapper.fromData).toList();
   }
   
-  // 根据ID获取标签
-  @override
-  Future<LabelModel?> getById(String id) async {
+  Future<LabelPhoneEntry?> getById(String id) async {
     final data = await (_database.select(_database.labelPhones)
           ..where((tbl) => tbl.id.equals(id)))
         .getSingleOrNull();
-    return data != null ? _fromData(data) : null;
+    return data != null ? LabelModelMapper.fromData(data) : null;
   }
 
-  @override
-  Future<String> insert(LabelModel label) async {
+  Future<String> insert(LabelPhoneEntry label) async {
     final id = label.id.isEmpty ? const Uuid().v4() : label.id;
-    final companion = _toCompanion(label).copyWith(id: Value(id));
+    final companion = LabelModelMapper.toCompanion(label).copyWith(id: Value(id));
     await _database
         .into(_database.labelPhones)
         .insert(companion, mode: InsertMode.replace);
     return id;
   }
 
-  @override
-  Future<int> update(LabelModel label) async {
+  Future<int> update(LabelPhoneEntry label) async {
     return await (_database.update(_database.labelPhones)
           ..where((tbl) => tbl.id.equals(label.id)))
-        .write(_toCompanion(label));
+        .write(LabelModelMapper.toCompanion(label));
   }
 
-  @override
   Future<int> delete(String id) async {
     return await (_database.delete(_database.labelPhones)
           ..where((tbl) => tbl.id.equals(id)))
         .go();
   }
 
-  @override
-  Future<List<String>> insertAll(List<LabelModel> labels) async {
+  Future<List<String>> insertAll(List<LabelPhoneEntry> labels) async {
     final ids = <String>[];
     await _database.batch((batch) {
       for (final label in labels) {
         final id = label.id.isEmpty ? const Uuid().v4() : label.id;
         ids.add(id);
-        final companion = _toCompanion(label).copyWith(id: Value(id));
+        final companion = LabelModelMapper.toCompanion(label).copyWith(id: Value(id));
         batch.insert(_database.labelPhones, companion,
             mode: InsertMode.replace);
       }
@@ -106,13 +99,12 @@ class LocalLabelDataSource implements LocalDataSource<LabelModel> {
     return ids;
   }
 
-  @override
-  Future<int> updateAll(List<LabelModel> labels) async {
+  Future<int> updateAll(List<LabelPhoneEntry> labels) async {
     await _database.batch((batch) {
       for (final label in labels) {
         batch.update(
           _database.labelPhones,
-          _toCompanion(label),
+          LabelModelMapper.toCompanion(label),
           where: (tbl) => tbl.id.equals(label.id),
         );
       }
@@ -120,7 +112,6 @@ class LocalLabelDataSource implements LocalDataSource<LabelModel> {
     return labels.length;
   }
 
-  @override
   Future<int> deleteAll(List<String> ids) async {
     if (ids.isEmpty) return 0;
     return await (_database.delete(_database.labelPhones)
@@ -128,52 +119,43 @@ class LocalLabelDataSource implements LocalDataSource<LabelModel> {
         .go();
   }
 
-  @override
   Future<void> clear() async {
     await _database.delete(_database.labelPhones).go();
   }
 
-  @override
   Future<String> exportData() async {
     final labels = await getAll();
     return jsonEncode(labels.map((label) => label.toMap()).toList());
   }
 
-  @override
   Future<bool> importData(String data) async {
     try {
       final List<dynamic> labelMaps = jsonDecode(data) as List<dynamic>;
-      final List<LabelModel> labels = labelMaps
-          .map((map) => LabelModel.fromMap(map as Map<String, dynamic>))
+      final List<LabelPhoneEntry> labels = labelMaps
+          .map((map) => LabelPhoneEntry.fromMap(map as Map<String, dynamic>))
           .toList();
       await insertAll(labels);
       return true;
     } catch (e) {
-      print('Error importing label data: $e');
       return false;
     }
   }
 
-  // =======================================================================
-  // Restored Functions
-  // =======================================================================
-
-  Future<List<LabelModel>> getByPhoneNumber(String phoneNumber) async {
+  Future<List<LabelPhoneEntry>> getByPhoneNumber(String phoneNumber) async {
     final query = _database.select(_database.labelPhones)
       ..where((tbl) => tbl.phoneNumber.equals(phoneNumber));
     final data = await query.get();
-    return data.map(_fromData).toList();
+    return data.map(LabelModelMapper.fromData).toList();
   }
 
-  Future<List<LabelModel>> getByLabelId(String labelId) async {
+  Future<List<LabelPhoneEntry>> getByLabelId(String labelId) async {
     final query = _database.select(_database.labelPhones)
       ..where((tbl) => tbl.labelId.equals(labelId));
     final data = await query.get();
-    return data.map(_fromData).toList();
+    return data.map(LabelModelMapper.fromData).toList();
   }
 
-  Future<List<LabelModel>> getByLabelText(String labelText) async {
-    // This requires a join with PredefinedLabels table
+  Future<List<LabelPhoneEntry>> getByLabelText(String labelText) async {
     final query = _database.select(_database.labelPhones).join([
       innerJoin(
           _database.predefinedLabels,
@@ -184,15 +166,15 @@ class LocalLabelDataSource implements LocalDataSource<LabelModel> {
 
     final results = await query.get();
     return results.map((row) {
-      return _fromData(row.readTable(_database.labelPhones));
+      return LabelModelMapper.fromData(row.readTable(_database.labelPhones));
     }).toList();
   }
 
-  Future<List<LabelModel>> getEnabledLabels() async {
+  Future<List<LabelPhoneEntry>> getEnabledLabels() async {
     final query = _database.select(_database.labelPhones)
       ..where((tbl) => tbl.isEnabled.equals(1));
     final data = await query.get();
-    return data.map(_fromData).toList();
+    return data.map(LabelModelMapper.fromData).toList();
   }
 
   Future<void> deleteByLabelId(String labelId) async {
@@ -200,19 +182,18 @@ class LocalLabelDataSource implements LocalDataSource<LabelModel> {
           ..where((tbl) => tbl.labelId.equals(labelId)))
         .go();
   }
-  // 在 drift 版本中恢复 getByName
-Future<List<LabelModel>> getByName(String name) async {
-  final query = _database.select(_database.labelPhones)
-    ..where((tbl) => tbl.name.equals(name));
-  final data = await query.get();
-  return data.map(_fromData).toList();
-}
 
-Future<List<LabelModel>> getByRuleType(String ruleType) async {
-  final query = _database.select(_database.labelPhones)
-    ..where((tbl) => tbl.ruleType.equals(ruleType));
-  final data = await query.get();
-  return data.map(_fromData).toList();
-}
+  Future<List<LabelPhoneEntry>> getByName(String name) async {
+    final query = _database.select(_database.labelPhones)
+      ..where((tbl) => tbl.name.equals(name));
+    final data = await query.get();
+    return data.map(LabelModelMapper.fromData).toList();
+  }
 
+  Future<List<LabelPhoneEntry>> getByRuleType(String ruleType) async {
+    final query = _database.select(_database.labelPhones)
+      ..where((tbl) => tbl.ruleType.equals(ruleType));
+    final data = await query.get();
+    return data.map(LabelModelMapper.fromData).toList();
+  }
 }

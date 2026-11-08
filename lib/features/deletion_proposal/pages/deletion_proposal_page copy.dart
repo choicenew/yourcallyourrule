@@ -13,7 +13,7 @@ import 'package:yourcallyourrule/features/deletion_proposal/providers/deletion_p
 import 'package:yourcallyourrule/features/deletion_proposal/services/deletion_proposal_statistics_service.dart';
 import 'package:yourcallyourrule/features/labels/data/repositories/label_mark_statistics_repository.dart';
 
-// 【MODIFIED�? 引入了新的状态管理类
+// 【MODIFIED�? 引入了新的状态管理类
 import 'package:yourcallyourrule/features/deletion_proposal/models/proposal_list_options.dart';
 
 class DeletionProposalPage extends ConsumerStatefulWidget {
@@ -27,7 +27,7 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
   bool _isMultiSelectMode = false;
   Set<String> _selectedProposalIds = {};
 
-  // 【MODIFIED�? 使用统一�?`ProposalListOptions` 来管理所有筛选和排序状态�?
+  // 【MODIFIED�? 使用统一�?`ProposalListOptions` 来管理所有筛选和排序状态�?
   ProposalListOptions _options = const ProposalListOptions();
 
   @override
@@ -64,15 +64,15 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
   }
   
   // =======================================================================
-  // 【核心修正�? 提供了功能更丰富的筛�?排序对话框�?
+  // 【核心修正�? 提供了功能更丰富的筛�?排序对话框�?
   // =======================================================================
 
-  /// 显示筛选与排序对话�?
+  /// 显示筛选与排序对话�?
   void _showFilterAndSortDialog() {
     showModalBottomSheet(
       context: context,
       builder: (ctx) {
-        // 使用 StatefulWidget 来让 BottomSheet 内部可以管理临时状�?
+        // 使用 StatefulWidget 来让 BottomSheet 内部可以管理临时状�?
         return StatefulBuilder(
           builder: (context, setSheetState) {
             return SingleChildScrollView(
@@ -109,7 +109,7 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
                       onChanged: (val) => setSheetState(() => setState(() => _options = _options.copyWith(sortType: val))),
                     ),
                     const Divider(),
-                    // 筛选部�?
+                    // 筛选部�?
                     Text(AppLocalizations.of(context)!.filterBy, style: Theme.of(context).textTheme.titleMedium),
                     SwitchListTile(
                       title: Text(AppLocalizations.of(context)!.filterVerifiedOwner),
@@ -146,7 +146,7 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
     );
   }
   
-  /// 显示统计信息的弹�?(保持不变)
+  /// 显示统计信息的弹�?(保持不变)
   void _showStatisticsDialog(int currentVoteCount) {
     showDialog(
       context: context,
@@ -173,13 +173,13 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
   @override
   Widget build(BuildContext context) {
     // =======================================================================
-    // 【核心修正�? 使用了【正确】的 Provider 名称 `deletionProposalProvider`�?
-    // REASON: 这是�?@riverpod �?DeletionProposalNotifier 自动生成的正确名称�?
+    // 【核心修正�? 使用了【正确】的 Provider 名称 `deletionProposalProvider`�?
+    // REASON: 这是�?@riverpod �?DeletionProposalNotifier 自动生成的正确名称�?
     // =======================================================================
     final proposalState = ref.watch(deletionProposalProvider);
     final voteCountStream = ref.watch(deletionProposalStatisticsServiceProvider).voteCountStream;
 
-    // 【MODIFIED�? 筛选和排序逻辑现在都在这里集中处理�?
+    // 【MODIFIED�? 筛选和排序逻辑现在都在这里集中处理�?
     final processedProposals = proposalState.proposals.where((proposal) {
       if (_options.status != null && proposal.status != _options.status) return false;
       if (_options.riskLevel != null && proposal.highestRiskLevel != _options.riskLevel) return false;
@@ -219,7 +219,7 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
           onRefresh: () => ref.read(deletionProposalProvider.notifier).refreshProposals(),
           onAdd: () => _showCreateProposalDialog(context),
           
-          // 【MODIFIED�? 使用 `customActions` 提供快捷操作按钮�?
+          // 【MODIFIED�? 使用 `customActions` 提供快捷操作按钮�?
           customActions: [
             IconButton(
               icon: const Icon(Icons.analytics_outlined),
@@ -307,7 +307,7 @@ class _DeletionProposalPageState extends ConsumerState<DeletionProposalPage> {
   }
   
   Widget _buildProposalCard(BuildContext context, Proposal proposal) {
-    // 【核心修正�? 使用了【正确】的 Provider 名称 `deletionProposalProvider`�?
+    // 【核心修正�? 使用了【正确】的 Provider 名称 `deletionProposalProvider`�?
     final notifier = ref.read(deletionProposalProvider.notifier);
     
     return ProposalCard(

@@ -27,7 +27,7 @@ class SyncConflictResolver {
       ..sort((a, b) => a.id.compareTo(b.id));
     
     final jsonString = jsonEncode(
-      sortedRules.map((rule) => CloudDataConverter.serialize(rule)).toList()
+      sortedRules.map((rule) => rule.toMap()).toList()
     );
     return _generateHash(jsonString);
   }
@@ -83,22 +83,15 @@ class SyncConflictResolver {
       final merged = <RuleBase>[];
       final cloudIds = cloud.map((e) => e.id).toSet();
       
-      // 保留本地独有的规�?
       merged.addAll(local.where((localRule) => !cloudIds.contains(localRule.id)));
-      
-      // 合并云端规则（覆盖本地同名规则）
       merged.addAll(cloud);
-      
-      // 对合并后的规则进行排�?
       return merged..sort((a, b) => a.id.compareTo(b.id));
     }
     
     if (local is Map<String, dynamic> && cloud is Map<String, dynamic>) {
-      // 深度合并map
       return _deepMergeMaps(local, cloud);
     }
     
-    // 非集合类型直接返回本地版�?
     return local;
   }
 

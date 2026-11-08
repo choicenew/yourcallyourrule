@@ -60,6 +60,8 @@ local.properties
 **/local.properties
 key.properties
 **/key.properties
+pubspec_overrides.yaml
+**/pubspec_overrides.yaml
 # Widget Preview related
 .widget_preview/
 

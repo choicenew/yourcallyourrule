@@ -1,6 +1,6 @@
-// 规则数据模型，用于数据层与领域层之间的转�?
+// 规则数据模型，用于数据层与领域层之间的转换
 
-import 'package:yourcallyourrule/features/common/utils/bool_parser.dart';
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
 import 'package:yourcallyourrule/data/models/rule_model.dart';
 
 
@@ -10,15 +10,15 @@ import '../../core/value_objects/rule_action.dart';
 
 // 正则规则模型
 class RegexRuleModel extends RuleModel {
-  // 正则表达�?
+  // 正则表达式
   final String pattern;
   // 订阅ID
   final String? subscriptionId;
 
-  // 是否订阅的计算属�?
+  // 是否订阅的计算属性
   bool get isSubscribed => subscriptionId != null;
 
-  // 构造函�?
+  // 构造函数
   const RegexRuleModel({
     required super.id,
     required super.name,
@@ -71,7 +71,7 @@ class RegexRuleModel extends RuleModel {
     );
   }
 
-  // 从实体创建模�?
+  // 从实体创建模型
   static RegexRuleModel fromEntity(RegexRule entity) {
     return RegexRuleModel(
       id: entity.id,

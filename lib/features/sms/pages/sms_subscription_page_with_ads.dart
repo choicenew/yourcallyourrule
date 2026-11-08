@@ -10,7 +10,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
 
 /// 短信订阅页面 - 集成广告功能
-/// 使用GenericListWithAdsPage组件减少重复代码并集成广�?
+/// 使用GenericListWithAdsPage组件减少重复代码并集成广�?
 class SmsSubscriptionPageWithAds extends ConsumerStatefulWidget {
   const SmsSubscriptionPageWithAds({super.key});
 
@@ -436,7 +436,7 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
         margin: EdgeInsets.symmetric(vertical: 8.0),
         child: Padding(
           padding: EdgeInsets.all(16.0),
-          child: Text('广告�?, textAlign: TextAlign.center),
+          child: Text('广告�?, textAlign: TextAlign.center),
         ),
       ),
       adInterval: 3,

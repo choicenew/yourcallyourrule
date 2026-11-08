@@ -366,6 +366,12 @@ dependencies:
   pyro_phone_marking_ui:
     path: packages/phone_marking/pyro_phone_marking_ui
 
+  # === Telemetry Package Suite ===
+  pyro_analytics_telemetry:
+    path: packages/telemetry/pyro_analytics_telemetry
+  pyro_analytics_firebase:
+    path: packages/telemetry/pyro_analytics_firebase
+
   # === Sync, User DB & Central DB Package Suites ===
   pyro_sync_protocol:
     path: packages/sync/pyro_sync_protocol

@@ -1,9 +1,9 @@
-// 规则数据模型，用于数据层与领域层之间的转�?
+// 规则数据模型，用于数据层与领域层之间的转换
 
-import 'package:yourcallyourrule/features/common/utils/bool_parser.dart';
-import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
+import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
+import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/data/models/rule_model.dart';
 
 

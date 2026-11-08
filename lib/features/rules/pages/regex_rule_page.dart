@@ -1,53 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/rules/utils/regex_hint.dart';
-import 'package:yourcallyourrule/features/rules/entities/regex_pattern.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:yourcallyourrule/features/rules/services/import_export_service.dart';
-import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/common/services/import_export_service_component.dart';
-import 'package:yourcallyourrule/features/common/widgets/generic_rule_page.dart';
-import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
-import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
-import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
-import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
-import 'package:yourcallyourrule/features/rules/services/regex_rule_import_export_adapter.dart';
-
+import 'package:pyro_phone_rules_hub/pyro_phone_rules_hub.dart';
+import 'package:pyro_phone_rules_ui/pyro_phone_rules_ui.dart' as rules_pkg_ui;
+import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
+import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 重构后的正则规则管理页面
-/// 使用通用的GenericRulePage组件减少重复代码
+/// 使用 GenericListWithAdsPage 挂载 Package 视图的正则规则管理页面
 class RegexRulePage extends ConsumerWidget {
   const RegexRulePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final regexService = ref.read(regexServiceProvider);
+    final l10n = AppLocalizations.of(context)!;
+    final rules = ref.watch(phoneRulesControlCenterProvider).regexRules;
 
-    // 创建导入导出组件
-    final importExportComponent =
-        ImportExportServiceComponent<RegexRule, String>(
-      importExportService: RegexRuleImportExportAdapter(regexService.importExportService),
-      entityTypeName: AppLocalizations.of(context)!.regexRule,
-      onEntitiesImported: (rules) async {
-        // 使用服务类的公共方法保存规则
-        for (final rule in rules) {
-          await regexService.updateRegexRule(rule);
-        }
-      },
-      getEntitiesToExport: () => regexService.getAllRegexRules(),
+    return GenericListWithAdsPage<PhoneRuleEntity>(
+      title: l10n.regexRuleManagement,
+      items: rules,
+      emptyText: l10n.noRulesFound ?? 'No Regex Rules',
+      adInterval: 3,
+      adBuilder: () => const InlineAdaptiveAd(),
+      itemBuilder: (context, rule) => rules_pkg_ui.PyroPhoneRuleCardWidget(
+        rule: rule,
+        onTap: () => ref.read(phoneRulesControlCenterProvider).editRule(rule),
+      ),
+      getItemId: (rule) => rule.id,
+      onAdd: () => ref.read(phoneRulesControlCenterProvider).openAddDialog(context, ruleType: 'regex'),
+      onSearchChanged: (query) => ref.read(phoneRulesControlCenterProvider).searchRegexRules(query),
+      onDeleteSelected: () => ref.read(phoneRulesControlCenterProvider).deleteSelected(),
     );
+  }
+}
 
-    return GenericRulePage<RegexRule, RegexService>(
-      serviceProvider: regexServiceProvider,
-      title: AppLocalizations.of(context)!.regexRuleManagement,
-      themeColor: Theme.of(context).colorScheme.primary,
-      emptyText: AppLocalizations.of(context)!.regexRule,
-      emptyIcon: Icons.code,
-      addButtonText: AppLocalizations.of(context)!.addRegexRule,
-      buildRuleCard: (context, rule) => _buildRuleCard(context, rule),
-      showAddDialog: _showAddRuleDialog,
-      getAllRules: (service) => service.getAllRegexRules(),
       toggleRule: (service, ruleId, isEnabled) =>
           service.toggleRegexRule(ruleId, isEnabled),
       deleteRule: (service, ruleId) => service.removeRegexRule(ruleId),
@@ -122,7 +108,7 @@ class RegexRulePage extends ConsumerWidget {
     );
   }
 
-  /// 显示添加规则对话�?
+  /// 显示添加规则对话�?
   void _showAddRuleDialog(
       BuildContext context, RegexService service, Function refreshCallback) {
     final TextEditingController nameController = TextEditingController();
@@ -159,7 +145,7 @@ class RegexRulePage extends ConsumerWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              // 使用RuleActionSelector组件替换简单的下拉选择�?
+              // 使用RuleActionSelector组件替换简单的下拉选择�?
               RuleActionSelector(
                 initialAction: selectedAction,
                 onActionChanged: (action) {
@@ -187,7 +173,7 @@ class RegexRulePage extends ConsumerWidget {
                 }
 
                 try {
-                  // 验证正则表达�?
+                  // 验证正则表达�?
                   if (!service.isValidRegex(patternController.text)) {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text(AppLocalizations.of(context)!.invalidRegexPattern),

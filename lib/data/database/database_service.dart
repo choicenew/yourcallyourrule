@@ -1,26 +1,25 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'local/local_database.dart';
-import 'remote/remote_database.dart';
-import '../../features/call_history/data/datasources/local_call_log_datasource.dart';
-import '../../features/contacts/data/datasources/local_contact_datasource.dart';
-import '../../features/labels/data/datasources/local_label_datasource.dart';
-import '../../features/labels/data/datasources/local_label_mark_statistics_datasource.dart';
-import '../../features/location/data/datasources/local_location_datasource.dart';
-import '../../features/plugin/data/datasources/local_plugin_datasource.dart';
-import '../../features/labels/data/datasources/local_predefined_label_datasource.dart';
-import '../../features/rules/data/datasources/local_phone_rule_datasource.dart';
-import '../../features/rules/data/datasources/local_regex_rule_datasource.dart';
-import '../../features/rules/data/datasources/local_sim_slot_rule_datasource.dart';
-import '../../features/sms/data/datasources/local_sms_regex_rule_datasource.dart';
-import '../../features/phone/data/datasources/local_subscription_datasource.dart';
-import '../../features/remote_filter/data/datasources/remote_number_datasource.dart';
-import '../../features/sync/services/cloud_sync/incremental_sync_manager.dart';
-import '../../features/sync/services/cloud_sync/sync_conflict_resolver.dart';
-import '../../features/config/data/repositories/config_repository.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
+import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
+import 'package:yourcallyourrule/features/call_history/data/datasources/local_call_log_datasource.dart';
+import 'package:yourcallyourrule/features/contacts/data/datasources/local_contact_datasource.dart';
+import 'package:yourcallyourrule/features/labels/data/datasources/local_label_datasource.dart';
+import 'package:yourcallyourrule/features/labels/data/datasources/local_label_mark_statistics_datasource.dart';
+import 'package:yourcallyourrule/features/location/data/datasources/local_location_datasource.dart';
+import 'package:yourcallyourrule/features/plugin/data/datasources/local_plugin_datasource.dart';
+import 'package:yourcallyourrule/features/labels/data/datasources/local_predefined_label_datasource.dart';
+import 'package:yourcallyourrule/features/rules/data/datasources/local_phone_rule_datasource.dart';
+import 'package:yourcallyourrule/features/rules/data/datasources/local_regex_rule_datasource.dart';
+import 'package:yourcallyourrule/features/rules/data/datasources/local_sim_slot_rule_datasource.dart';
+import 'package:yourcallyourrule/features/sms/data/datasources/local_sms_regex_rule_datasource.dart';
+import 'package:yourcallyourrule/features/phone/data/datasources/local_subscription_datasource.dart';
+import 'package:yourcallyourrule/features/remote_filter/data/datasources/remote_number_datasource.dart';
+import 'package:yourcallyourrule/features/sync/services/cloud_sync/incremental_sync_manager.dart';
+import 'package:yourcallyourrule/features/sync/services/cloud_sync/sync_conflict_resolver.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 part 'database_service.g.dart';
 
@@ -72,9 +71,10 @@ class DatabaseService {
     localLabelMarkStatisticsDataSource = LocalLabelMarkStatisticsDataSource(localDatabase);
 
     final configRepository = SharedPreferencesConfigRepository();
+    final conflictResolver = SyncConflictResolver();
 
     incrementalSyncManager = IncrementalSyncManager(
-      DefaultSyncConflictResolver(),
+      conflictResolver,
       configRepository: configRepository,
     );
   }

@@ -1,13 +1,13 @@
-import 'package:yourcallyourrule/features/common/utils/bool_parser.dart';
-import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/common/value_objects/rule_priority.dart';
+import 'package:yourcallyourrule/common/utils/bool_parser.dart';
+import 'package:yourcallyourrule/core/entities/rule/sim_slot_rule.dart';
+import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
+import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
 // [修正]: 导入 RuleModel 以便正确继承
 import 'package:yourcallyourrule/data/models/rule_model.dart';
 
-/// [修正]: SIM卡槽位规则模型，现在正确地继承自 RuleModel�?
+/// [修正]: SIM卡槽位规则模型，现在正确地继承自 RuleModel。
 class SimSlotRuleModel extends RuleModel {
   final String phoneNumber;
   final int simSlotIndex;
@@ -20,7 +20,7 @@ class SimSlotRuleModel extends RuleModel {
     required super.name,
     required super.priority,
     required super.action,
-    required super.ruleType, // 确保从父类接�?
+    required super.ruleType, // 确保从父类接收
     required this.phoneNumber,
     required this.simSlotIndex,
     required this.labelId,
@@ -28,7 +28,7 @@ class SimSlotRuleModel extends RuleModel {
     required this.isEnabled,
   });
 
-  /// 从实体创建模�?
+  /// 从实体创建模型
   factory SimSlotRuleModel.fromEntity(SimSlotRule entity) {
     return SimSlotRuleModel(
       id: entity.id,
@@ -44,7 +44,7 @@ class SimSlotRuleModel extends RuleModel {
     );
   }
 
-  /// 转换为实�?
+  /// 转换为实体
   @override
   SimSlotRule toEntity() {
     return SimSlotRule(
@@ -61,7 +61,7 @@ class SimSlotRuleModel extends RuleModel {
     );
   }
 
-  /// �?Map 创建模型
+  /// 从 Map 创建模型
   factory SimSlotRuleModel.fromMap(Map<String, dynamic> map) {
     return SimSlotRuleModel(
       id: map['id'],
@@ -77,7 +77,7 @@ class SimSlotRuleModel extends RuleModel {
     );
   }
 
-  /// 转换�?Map
+  /// 转换为 Map
   @override
   Map<String, dynamic> toMap() {
     return {

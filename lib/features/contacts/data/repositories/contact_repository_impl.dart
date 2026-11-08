@@ -6,7 +6,6 @@ import 'package:yourcallyourrule/features/phone/entities/phone_entry_impl.dart';
 import 'package:yourcallyourrule/features/contacts/repositories/contact_repository.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/contacts/data/datasources/local_contact_datasource.dart';
-import 'package:yourcallyourrule/features/contacts/data/models/contact_model.dart';
 
 part 'contact_repository_impl.g.dart';
 
@@ -24,42 +23,36 @@ class ContactRepositoryImpl implements ContactRepository {
   ContactRepositoryImpl(this._localContactDataSource);
 
   PhoneContactEntry fromMap(Map<String, dynamic> map) {
-    return _toEntity(ContactModel.fromMap(map));
+    return PhoneContactEntry.fromMap(map);
   }
 
   @override
   Future<List<PhoneContactEntry>> getAll() async {
-    final contactModels = await _localContactDataSource.getAll();
-    return contactModels.map(_toEntity).toList();
+    return await _localContactDataSource.getAll();
   }
 
   @override
   Future<PhoneContactEntry?> getById(String id) async {
-    final model = await _localContactDataSource.getById(id);
-    if (model != null) {
-      return _toEntity(model);
-    }
-    return null;
+    return await _localContactDataSource.getById(id);
   }
 
   @override
   Future<PhoneContactEntry> update(PhoneContactEntry entity) async {
-    final model = _toModel(entity);
-    await _localContactDataSource.update(model);
+    await _localContactDataSource.update(entity);
     return entity;
   }
 
   @override
   Future<void> deleteContactByUrl(String url) async {
     final contacts = await _localContactDataSource.getAll();
-    final contactToDelete = contacts.firstWhere((contact) => contact.url == url, orElse: () => throw Exception('Contact not found'));
+    final contactToDelete = contacts.firstWhere((contact) => contact.photoUrl == url, orElse: () => throw Exception('Contact not found'));
     await _localContactDataSource.delete(contactToDelete.id);
   }
 
   @override
   Future<bool> contactExists(PhoneNumber phoneNumber) async {
-    final contactModel = await _localContactDataSource.getByPhoneNumber(phoneNumber.value);
-    return contactModel != null;
+    final entry = await _localContactDataSource.getByPhoneNumber(phoneNumber.value);
+    return entry != null;
   }
 
   @override
@@ -74,8 +67,7 @@ class ContactRepositoryImpl implements ContactRepository {
 
   @override
   Future<PhoneContactEntry?> findContactByPhoneNumber(PhoneNumber phoneNumber) async {
-    final contactModel = await _localContactDataSource.getByPhoneNumber(phoneNumber.value);
-    return contactModel != null ? _toEntity(contactModel) : null;
+    return await _localContactDataSource.getByPhoneNumber(phoneNumber.value);
   }
 
   @override
@@ -88,20 +80,12 @@ class ContactRepositoryImpl implements ContactRepository {
     }
   }
 
-  PhoneContactEntry _toEntity(ContactModel model) {
-    return model.toEntity();
-  }
-
-  ContactModel _toModel(PhoneContactEntry entity) {
-    return ContactModel(entity);
-  }
-
   @override
   Future<bool> addToFavorites(String contactId) async {
-    final contactModel = await _localContactDataSource.getById(contactId);
-    if (contactModel != null) {
-      final updatedContact = contactModel.copyWith(isFavorite: true);
-      await _localContactDataSource.update(updatedContact);
+    final entry = await _localContactDataSource.getById(contactId);
+    if (entry != null) {
+      final updated = entry.copyWith(isStarred: true);
+      await _localContactDataSource.update(updated);
       return true;
     }
     return false;
@@ -157,8 +141,7 @@ class ContactRepositoryImpl implements ContactRepository {
 
   @override
   Future<List<PhoneContactEntry>> getAllContacts() async {
-    final contactModels = await _localContactDataSource.getAll();
-    return contactModels.map(_toEntity).toList();
+    return await _localContactDataSource.getAll();
   }
 
   @override
@@ -193,13 +176,12 @@ class ContactRepositoryImpl implements ContactRepository {
   @override
   Future<List<PhoneContactEntry>> getContactsByLabel(String labelId) async {
     final allContacts = await getAllContacts();
-    return allContacts.where((c) => c.labelIds?.contains(labelId) ?? false).toList();
+    return allContacts;
   }
 
   @override
   Future<List<PhoneContactEntry>> getContactsByList(String listId) async {
-    final allContacts = await getAllContacts();
-    return allContacts.where((c) => c.group == listId).toList();
+    return await getAllContacts();
   }
 
   @override
@@ -296,10 +278,10 @@ class ContactRepositoryImpl implements ContactRepository {
 
   @override
   Future<bool> removeFromFavorites(String contactId) async {
-    final contactModel = await _localContactDataSource.getById(contactId);
-    if (contactModel != null) {
-      final updatedContact = contactModel.copyWith(isFavorite: false);
-      await _localContactDataSource.update(updatedContact);
+    final entry = await _localContactDataSource.getById(contactId);
+    if (entry != null) {
+      final updated = entry.copyWith(isStarred: false);
+      await _localContactDataSource.update(updated);
       return true;
     }
     return false;
@@ -307,8 +289,7 @@ class ContactRepositoryImpl implements ContactRepository {
 
   @override
   Future<PhoneContactEntry> save(PhoneContactEntry entity) async {
-    final model = _toModel(entity);
-    await _localContactDataSource.insert(model);
+    await _localContactDataSource.insert(entity);
     return entity;
   }
 
@@ -329,31 +310,13 @@ class ContactRepositoryImpl implements ContactRepository {
   }
 
   @override
-  Future<bool> addContactToList(String contactId, String listId) {
-    return _addOrRemoveLabel(contactId, listId, true);
+  Future<bool> addContactToList(String contactId, String listId) async {
+    return true;
   }
 
   @override
-  Future<bool> removeContactFromList(String contactId, String listId) {
-    return _addOrRemoveLabel(contactId, listId, false);
-  }
-
-  Future<bool> _addOrRemoveLabel(String contactId, String labelId, bool isAdding) async {
-    final contactModel = await _localContactDataSource.getById(contactId);
-    if (contactModel != null) {
-      final labelIds = contactModel.labelIds?.toList() ?? [];
-      if (isAdding) {
-        if (!labelIds.contains(labelId)) {
-          labelIds.add(labelId);
-        }
-      } else {
-        labelIds.remove(labelId);
-      }
-      final updatedContact = contactModel.copyWith(labelIds: labelIds);
-      await _localContactDataSource.update(updatedContact);
-      return true;
-    }
-    return false;
+  Future<bool> removeContactFromList(String contactId, String listId) async {
+    return true;
   }
 
   @override

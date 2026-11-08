@@ -3,7 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
 import 'package:yourcallyourrule/features/contacts/repositories/contact_subscription_repository.dart';
 import 'package:yourcallyourrule/data/datasources/local/local_subscription_datasource.dart';
-import 'package:yourcallyourrule/features/phone/data/models/subscription_model.dart';
+import 'package:yourcallyourrule/data/models/subscription_model.dart';
 
 part 'contact_subscription_repository_impl.g.dart';
 
