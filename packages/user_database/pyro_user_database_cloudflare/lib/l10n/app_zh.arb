@@ -1,0 +1,16 @@
+{
+  "@@locale": "zh",
+  "cloudflareConfigTitle": "Cloudflare Worker 边缘同步配置",
+  "workerUrlLabel": "Worker 节点 URL",
+  "workerUrlHint": "https://your-worker.workers.dev",
+  "apiSecretLabel": "API 密钥 / Key",
+  "apiSecretHint": "填入 X-API-SECRET 密钥",
+  "deviceIdLabel": "设备硬件 ID",
+  "deviceIdHint": "如 dev_pixel8_001",
+  "saveConfigButton": "保存配置",
+  "testConnectionButton": "测试物理连通性",
+  "saveSuccessMessage": "设置保存成功！",
+  "testingMessage": "正在测试与 Cloudflare Worker 的物理连通性...",
+  "testSuccessMessage": "物理连通成功！Cloudflare Worker 状态良好。",
+  "testFailedMessage": "网络连接失败，请检查 Worker URL 与 API 密钥。"
+}

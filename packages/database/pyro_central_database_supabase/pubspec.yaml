@@ -1,0 +1,18 @@
+name: pyro_central_database_supabase
+description: 基于 Supabase Postgres 的系统中央数据库物理驱动包
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+resolution: workspace
+
+dependencies:
+  pyro_central_database_protocol:
+    path: ../pyro_central_database_protocol
+  pyro_supabase:
+    path: '../../infra/pyro_supabase'
+
+dev_dependencies:
+  test: ^1.24.0

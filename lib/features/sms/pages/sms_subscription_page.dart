@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/sms/sms_subscription.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/core/value_objects/url.dart';
+import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/value_objects/url.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_subscription_page.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -194,8 +194,7 @@ class SmsSubscriptionPage extends ConsumerWidget {
     );
   }
 
-  /// 显示添加订阅对话框
-  void _showAddSubscriptionDialog(BuildContext context, SmsSubscriptionService service, Function refreshCallback) {
+  /// 显示添加订阅对话�?  void _showAddSubscriptionDialog(BuildContext context, SmsSubscriptionService service, Function refreshCallback) {
     final nameController = TextEditingController();
     final urlController = TextEditingController();
     RuleAction selectedAction = RuleAction.block;

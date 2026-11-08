@@ -5,7 +5,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:http/http.dart' as http;
-import 'package:yourcallyourrule/common/error/logger.dart';
+import 'package:yourcallyourrule/features/common/error/logger.dart';
 
 // 特殊的代理前缀，JS插件会用这个前缀构建iframe的src
 const String PROXY_SCHEME = "https";
@@ -13,7 +13,7 @@ const String PROXY_HOST = "flutter-webview-proxy.internal";
 const String PROXY_PATH_FETCH = "/fetch";
 
 /// 插件WebView服务 - 负责WebView核心管理
-/// 遵循单一职责原则，只负责WebView的初始化和基本操作
+/// 遵循单一职责原则，只负责WebView的初始化和基本操�?
 class PluginWebViewService {
   // --- [修改] Singleton Pattern ---
   static final PluginWebViewService _instance = PluginWebViewService._internal();
@@ -26,10 +26,10 @@ class PluginWebViewService {
   final Completer<void> _initCompleter = Completer<void>();
   // --- [新增结束] ---
 
-  // WebView控制器
+  // WebView控制�?
   InAppWebViewController? _webViewController;
 
-  // 跟踪每个插件的就绪状态
+  // 跟踪每个插件的就绪状�?
   final Map<String, bool> _pluginReadyStatus = {};
 
   // 用于通知插件就绪状态的StreamController
@@ -51,7 +51,7 @@ class PluginWebViewService {
     debugPrint(log);
   }
 
-  // 构造函数
+  // 构造函�?
   // [删除] PluginWebViewService();
 
   // --- [新增] 初始化Headless WebView ---
@@ -118,14 +118,14 @@ class PluginWebViewService {
               _loadedPluginId = jsonData['pluginId'];
               _isPluginLoaded = true;
 
-              // 标记插件为就绪状态
+              // 标记插件为就绪状�?
               _pluginReadyStatus[jsonData['pluginId']] = true;
               // 通过StreamController发送插件就绪通知
               _pluginReadyController.add(jsonData['pluginId']);
             } else if (jsonData['type'] == 'pluginReady') {
               debugPrint('Plugin ready: ${jsonData['pluginId']}');
 
-              // 标记插件为就绪状态
+              // 标记插件为就绪状�?
               _pluginReadyStatus[jsonData['pluginId']] = true;
               // 通过StreamController发送插件就绪通知
               _pluginReadyController.add(jsonData['pluginId']);
@@ -179,7 +179,7 @@ class PluginWebViewService {
             debugPrint('[PluginResultChannel] Error: No completer found for requestId: $requestId');
           }
         } catch (e) {
-          AppLogger.error('处理PluginResultChannel消息时发生异常', e);
+          AppLogger.error('处理PluginResultChannel消息时发生异�?, e);
           debugPrint('[PluginResultChannel] Error processing message: $e');
         }
       },
@@ -205,7 +205,7 @@ class PluginWebViewService {
             // 使用http包发起实际的网络请求
             final response = await _sendHttpRequest(method, url, headers, body);
 
-            // 将响应数据编码为JSON字符串
+            // 将响应数据编码为JSON字符�?
             final responseData = {
               'externalRequestId': externalRequestId,
               'phoneRequestId': phoneRequestId,
@@ -221,14 +221,14 @@ class PluginWebViewService {
               window.plugin.$_loadedPluginId.handleResponse($responseJson);
             ''');
           } catch (e) {
-            AppLogger.error('处理JS请求时发生异常', e);
+            AppLogger.error('处理JS请求时发生异�?, e);
             debugPrint('Error handling request: $e');
           }
         }
       },
     );
 
-    // 控制台日志处理程序
+    // 控制台日志处理程�?
     controller.addJavaScriptHandler(
       handlerName: 'consoleLog',
       callback: (args) {
@@ -273,16 +273,16 @@ class PluginWebViewService {
 
   // 加载脚本
   Future<void> loadScript(String pluginId, String script) async {
-    // --- [修改] 等待初始化完成 ---
+    // --- [修改] 等待初始化完�?---
     await _initCompleter.future;
     // --- [修改结束] ---
     if (_webViewController == null) {
-      throw Exception('WebView控制器未初始化');
+      throw Exception('WebView控制器未初始�?);
     }
 
     debugPrint('Executing script for plugin: $pluginId');
 
-    // 重置插件就绪状态
+    // 重置插件就绪状�?
     _pluginReadyStatus[pluginId] = false;
     _isPluginLoaded = false;
     _loadedPluginId = pluginId;
@@ -295,7 +295,7 @@ class PluginWebViewService {
 
   // 等待插件就绪
   Future<void> waitForPluginReady(String pluginId) async {
-    // --- [修改] 等待初始化完成 ---
+    // --- [修改] 等待初始化完�?---
     await _initCompleter.future;
     // --- [修改结束] ---
     // 如果插件已经就绪，则直接返回
@@ -303,10 +303,10 @@ class PluginWebViewService {
       return;
     }
 
-    // 创建一个Completer，用于等待插件就绪
+    // 创建一个Completer，用于等待插件就�?
     final completer = Completer<void>();
 
-    // 监听_pluginReadyController的流，等待指定pluginId的插件就绪
+    // 监听_pluginReadyController的流，等待指定pluginId的插件就�?
     StreamSubscription? sub;
     sub = _pluginReadyController.stream.listen((readyPluginId) {
       if (readyPluginId == pluginId) {
@@ -322,7 +322,7 @@ class PluginWebViewService {
     // 设置超时时间，如果在指定时间内插件未就绪，则打印提示信息
     await completer.future.timeout(const Duration(seconds: 5), onTimeout: () {
       debugPrint('Timeout: Plugin $pluginId did not send pluginReady message.');
-      // 超时后取消订阅
+      // 超时后取消订�?
       sub?.cancel();
     });
   }
@@ -333,11 +333,11 @@ class PluginWebViewService {
     String methodName,
     Map<String, dynamic> params,
   ) async {
-    // --- [修改] 等待初始化完成 ---
+    // --- [修改] 等待初始化完�?---
     await _initCompleter.future;
     // --- [修改结束] ---
     if (_webViewController == null) {
-      throw Exception('WebView控制器未初始化');
+      throw Exception('WebView控制器未初始�?);
     }
 
     final requestId = '${methodName}_${DateTime.now().millisecondsSinceEpoch}';
@@ -385,7 +385,7 @@ class PluginWebViewService {
     String nationalNumber,
     String e164Number,
   ) async {
-    // --- [修改] 等待初始化完成 ---
+    // --- [修改] 等待初始化完�?---
     await _initCompleter.future;
     // --- [修改结束] ---
     final requestId =
@@ -519,7 +519,7 @@ class PluginWebViewService {
           _addLog('Injection successful by prepending to the document.');
         }
 /*
-     // --- [删除] 以下是您原始代码中处理响应头的部分 ---    
+     // --- [删除] 以下是您原始代码中处理响应头的部�?---    
         final Map<String, String> responseHeaders = {};
         bool cspRemoved = false;
         response.headers.forEach((key, value) {
@@ -536,27 +536,27 @@ class PluginWebViewService {
 */
       // --- [修改] 以下部分替换了您原有的头部处理逻辑 ---
       
-      // 准备要返回给 WebView 的响应头。
-      // 我们需要从原始响应中移除一些可能导致 iframe 加载失败的安全性相关的头信息。
+      // 准备要返回给 WebView 的响应头�?
+      // 我们需要从原始响应中移除一些可能导�?iframe 加载失败的安全性相关的头信息�?
       final Map<String, String> responseHeaders = {};
 
-      // 定义一个“黑名单”，包含所有需要被移除的头信息（统一使用小写以便比较）。
+      // 定义一个“黑名单”，包含所有需要被移除的头信息（统一使用小写以便比较）�?
       final headersToRemove = [
-        'x-frame-options',              // 核心问题：禁止 iframe 嵌入
+        'x-frame-options',              // 核心问题：禁�?iframe 嵌入
         'content-security-policy',      // 可能阻止我们注入的脚本或页面内的资源加载
         'permissions-policy',           // 可能限制 iframe 内的功能
-        'feature-policy',               // permissions-policy 的旧版名称
+        'feature-policy',               // permissions-policy 的旧版名�?
         'cross-origin-embedder-policy', // 启用跨域隔离，会破坏代理内容
         'cross-origin-opener-policy',   // 同上
       ];
 
-      // 遍历从 cleverdialer.com 收到的每一个响应头
+      // 遍历�?cleverdialer.com 收到的每一个响应头
       response.headers.forEach((key, value) {
         final lowerCaseKey = key.toLowerCase();
         
         // 检查当前头是否在我们的“黑名单”中
         if (!headersToRemove.contains(lowerCaseKey)) {
-          // 如果不在黑名单里，就把它加入到最终要返回的响应头中
+          // 如果不在黑名单里，就把它加入到最终要返回的响应头�?
           responseHeaders[key] = value;
         } else {
           // 如果在黑名单里，就记录日志并丢弃它，不返回给 WebView
@@ -595,7 +595,7 @@ class PluginWebViewService {
   }
 
 
-// 添加状态监听扩展
+// 添加状态监听扩�?
 void addPluginStateListener(String pluginId, Function(bool) listener) {
   _pluginReadyController.stream.where((id) => id == pluginId).listen((_) {
     listener(_pluginReadyStatus[pluginId] ?? false);

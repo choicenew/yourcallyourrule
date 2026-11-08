@@ -9,22 +9,23 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yaml/yaml.dart';
 
-import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
-import 'package:yourcallyourrule/core/repositories/contact_repository.dart';
-import 'package:yourcallyourrule/data/repositories/contact_repository_impl.dart';
-import 'package:yourcallyourrule/core/services/list_service.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
+import 'package:yourcallyourrule/features/contacts/repositories/contact_repository.dart';
+import 'package:yourcallyourrule/features/contacts/data/repositories/contact_repository_impl.dart';
+import 'package:yourcallyourrule/features/contacts/data/models/contact_model.dart';
+import 'package:yourcallyourrule/features/common/services/list_service.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 
 part 'contact_service.g.dart';
 
-/// ContactService 的 @Riverpod Provider
+/// ContactService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 ContactService contactService(Ref ref) {
   final contactRepository = ref.watch(contactRepositoryProvider);
   return ContactService(contactRepository);
 }
 
-/// Top-level Isolate 任务：网络下载/Base64解码/二进制保存头像到磁盘文件
+/// Top-level Isolate 任务：网络下�?Base64解码/二进制保存头像到磁盘文件
 Future<String?> saveAvatarIsolateTask(Map<String, dynamic> params) async {
   try {
     final imageData = params['imageData'];
@@ -60,7 +61,7 @@ Future<String?> saveAvatarIsolateTask(Map<String, dynamic> params) async {
   }
 }
 
-/// Top-level Isolate 任务：重度 CPU 正则与结构解析 VCF 文本
+/// Top-level Isolate 任务：重�?CPU 正则与结构解�?VCF 文本
 List<Map<String, dynamic>> parseVcfIsolateTask(String vcfString) {
   final lines = vcfString.split('\n');
   final contactsList = <Map<String, dynamic>>[];
@@ -150,7 +151,7 @@ List<Map<String, dynamic>> parseVcfIsolateTask(String vcfString) {
   return contactsList;
 }
 
-/// Top-level Isolate 任务：CSV 字符串反序列化解析
+/// Top-level Isolate 任务：CSV 字符串反序列化解�?
 List<Map<String, dynamic>> parseCsvIsolateTask(String csvString) {
   final csvData = const CsvDecoder().convert(csvString);
   if (csvData.isEmpty) return [];
@@ -172,7 +173,7 @@ List<Map<String, dynamic>> parseCsvIsolateTask(String csvString) {
   }).toList();
 }
 
-/// Top-level Isolate 任务：YAML 字符串反序列化解析
+/// Top-level Isolate 任务：YAML 字符串反序列化解�?
 List<Map<String, dynamic>> parseYamlIsolateTask(String yamlString) {
   final yamlData = loadYaml(yamlString) as List;
   return yamlData
@@ -194,8 +195,8 @@ String exportCsvIsolateTask(List<Map<String, dynamic>> rowsData) {
   return const CsvEncoder().convert(csvRows);
 }
 
-/// 联系人服务类，提供联系人的管理功能
-/// 包括添加、删除、查询联系人、头像后台下载保存及 VCF/CSV/YAML/JSON Isolate 多线程导入导出
+/// 联系人服务类，提供联系人的管理功�?
+/// 包括添加、删除、查询联系人、头像后台下载保存及 VCF/CSV/YAML/JSON Isolate 多线程导入导�?
 class ContactService extends ListService<Contact, String> {
   final ContactRepository _contactRepository;
 
@@ -377,7 +378,7 @@ class ContactService extends ListService<Contact, String> {
     return regExp.hasMatch(name);
   }
 
-  /// 保存头像 - 剥离至 Isolate 后台副线程计算与 I/O 执行
+  /// 保存头像 - 剥离�?Isolate 后台副线程计算与 I/O 执行
   Future<String?> saveAvatar(dynamic imageData, Directory directory) async {
     try {
       if (imageData is File) {
@@ -396,7 +397,7 @@ class ContactService extends ListService<Contact, String> {
     }
   }
 
-  /// 从 VCF 文本导入联系人 - 使用 Isolate 解构计算
+  /// �?VCF 文本导入联系�?- 使用 Isolate 解构计算
   Future<void> importContactsFromVcf(
     String vcfString,
     Directory directory,
@@ -425,21 +426,21 @@ class ContactService extends ListService<Contact, String> {
     await addOrUpdateContacts(contacts);
   }
 
-  /// 从 CSV 文本导入联系人 - 使用 Isolate 解构计算
+  /// �?CSV 文本导入联系�?- 使用 Isolate 解构计算
   Future<void> importContactsFromCsv(String csvString) async {
     final rawMaps = await compute(parseCsvIsolateTask, csvString);
     final contacts = rawMaps.map((map) => Contact.fromMap(map)).toList();
     await addOrUpdateContacts(contacts);
   }
 
-  /// 从 YAML 文本导入联系人 - 使用 Isolate 解构计算
+  /// �?YAML 文本导入联系�?- 使用 Isolate 解构计算
   Future<void> importContactsFromYaml(String yamlString) async {
     final rawMaps = await compute(parseYamlIsolateTask, yamlString);
     final contacts = rawMaps.map((map) => Contact.fromMap(map)).toList();
     await addOrUpdateContacts(contacts);
   }
 
-  /// 从 JSON 数组导入联系人 - 使用 Isolate 解构计算
+  /// �?JSON 数组导入联系�?- 使用 Isolate 解构计算
   Future<void> importContactsFromJson(List<dynamic> jsonData) async {
     final contacts = jsonData
         .map((item) => Contact.fromMap(Map<String, dynamic>.from(item)))
@@ -447,7 +448,7 @@ class ContactService extends ListService<Contact, String> {
     await addOrUpdateContacts(contacts);
   }
 
-  /// 从 JSON 字符串导入联系人 - 使用 Isolate 解构计算
+  /// �?JSON 字符串导入联系人 - 使用 Isolate 解构计算
   Future<void> importContactsFromJsonString(String jsonString) async {
     final rawMaps = await compute((String str) {
       final List decoded = jsonDecode(str);
@@ -457,7 +458,7 @@ class ContactService extends ListService<Contact, String> {
     await addOrUpdateContacts(contacts);
   }
 
-  /// CSV 导出联系人 - 使用 Isolate 编码
+  /// CSV 导出联系�?- 使用 Isolate 编码
   Future<String> exportContactsToCsv() async {
     final contacts = await _contactRepository.getAll();
     final maps = contacts.map((c) => {
@@ -468,7 +469,7 @@ class ContactService extends ListService<Contact, String> {
     return await compute(exportCsvIsolateTask, maps);
   }
 
-  /// JSON 导出联系人 - 使用 Isolate 编码
+  /// JSON 导出联系�?- 使用 Isolate 编码
   Future<String> exportContactsToJson() async {
     final contacts = await _contactRepository.getAll();
     final maps = contacts.map((c) => c.toMap()).toList();

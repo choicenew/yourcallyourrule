@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-// 导入标签翻译工具类，替代原有的内联实现
-import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
-/// 定义一个通用的标签服务接口
-abstract class SelectLabelService {
+// 导入标签翻译工具类，替代原有的内联实�?import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
+/// 定义一个通用的标签服务接�?abstract class SelectLabelService {
   Future<List<String>> getAllLabelTexts();
   Future<List<PredefinedLabel>> getAllLabels();
   Future<String?> getLabelTextById(String labelId);
@@ -54,8 +52,7 @@ class PublicSelectLabel extends ConsumerStatefulWidget {
   /// 初始选中的标签ID
   final String? initialLabelId;
   
-  /// 初始选中的标签文本（如果没有提供initialLabelId）
-  final String? initialLabelText;
+  /// 初始选中的标签文本（如果没有提供initialLabelId�?  final String? initialLabelText;
   
   /// 电话号码（可选）
   final String? phoneNumber;
@@ -69,8 +66,7 @@ class PublicSelectLabel extends ConsumerStatefulWidget {
   /// 主题色（可选）
   final Color? themeColor;
   
-  /// 构造函数
-  const PublicSelectLabel({
+  /// 构造函�?  const PublicSelectLabel({
     super.key,
     this.initialLabelId,
     this.initialLabelText,
@@ -123,8 +119,7 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
       final labels = await service.getAllLabelTexts();
       final allLabels = await service.getAllLabels();
       
-      // 构建标签文本到ID的映射
-      final Map<String, String> textToIdMap = {};
+      // 构建标签文本到ID的映�?      final Map<String, String> textToIdMap = {};
       for (var label in allLabels) {
         if (label.id.isNotEmpty) {
           textToIdMap[label.text] = label.id;

@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_config.dart';
 
 
 
 part 'time_interceptor_provider.g.dart';
 
-// 2. 移除了 TimeInterceptorConfig 类的重复定义
+// 2. 移除�?TimeInterceptorConfig 类的重复定义
 
 // 状态管理器 (AsyncNotifier)
 @riverpod

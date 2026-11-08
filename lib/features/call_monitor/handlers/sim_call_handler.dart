@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
 import 'base_call_handler.dart';
 
 part 'sim_call_handler.g.dart';

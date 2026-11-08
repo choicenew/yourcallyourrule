@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:floating_window_android/floating_window_android.dart';
 import 'package:rxdart/rxdart.dart';
 
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/platform/call_channel_switcher.dart';
 
 import 'package:yourcallyourrule/features/call_monitor/handlers/call_event_handler.dart';
@@ -58,10 +58,10 @@ class CallerIdMonitorService extends _$CallerIdMonitorService {
       if (await FloatingWindowAndroid.isShowing()) {
         FloatingWindowAndroid.closeOverlay();
       }
-      debugPrint('>>> 【MONITOR】: CallerIdMonitorService FloatingWindowAndroid.closeOverlay.');
+      debugPrint('>>> [MONITOR] CallerIdMonitorService FloatingWindowAndroid.closeOverlay.');
     });
 
-    debugPrint('>>> 【MONITOR】: CallerIdMonitorService build method completed successfully.');
+    debugPrint('>>> [MONITOR] CallerIdMonitorService build method completed successfully.');
   }
 
   Stream<CallerIdData> get callerIdStream => ref.read(callerIdDataSubjectProvider).stream;

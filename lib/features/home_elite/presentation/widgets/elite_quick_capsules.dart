@@ -1,12 +1,12 @@
 // -----------------------------------------------------------------------------
 // 文件: elite_quick_capsules.dart
-// 描述: Elite 功能快捷胶囊入口矩阵，聚合高频通讯工具与核心规则配置。
+// 描述: Elite 功能快捷胶囊入口矩阵，聚合高频通讯工具与核心规则配置�?
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ------------------- Widget 定义 -------------------
@@ -85,7 +85,7 @@ class EliteQuickCapsules extends StatelessWidget {
 
           const SizedBox(height: 14),
 
-          // 核心拦截规则与工具胶囊网格
+          // 核心拦截规则与工具胶囊网�?
           Text(
             l10n.phoneRuleManagement,
             style: TextStyle(

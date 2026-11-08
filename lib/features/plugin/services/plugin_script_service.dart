@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:path/path.dart' as p;
 
 class PluginScriptService {

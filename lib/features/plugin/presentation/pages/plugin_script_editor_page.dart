@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_script_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

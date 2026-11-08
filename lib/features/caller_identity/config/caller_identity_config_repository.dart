@@ -1,4 +1,4 @@
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/display_mode.dart';
 
 /// CallerID / Caller Identity 配置仓库

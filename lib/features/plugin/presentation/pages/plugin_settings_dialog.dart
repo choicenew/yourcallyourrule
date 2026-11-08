@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_invoker_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_url_execution_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';

@@ -1,0 +1,13 @@
+name: pyro_device_master_slave
+description: 纯粹最底层物理设备节点发现、主从角色选举与心跳维持管理包
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+  meta: ^1.11.0
+
+dev_dependencies:
+  test: ^1.24.0

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
-import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
-import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/configuration/call_overlay_config.dart'; // 【关键修改点】导入新的Config
 import 'package:yourcallyourrule/features/call/call_overlay/core/extensions/phone_number_type_extension.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/scrolling_security_message.dart';
@@ -11,11 +11,11 @@ import 'package:yourcallyourrule/features/call/call_overlay/utils/label_translat
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class CallOverlayContentBuilder {
-  // 【关键修改点】: 整个方法签名和实现都已更新
+  // 【关键修改点�? 整个方法签名和实现都已更�?
   static Widget buildCallOverlayContent({
     required BuildContext context,
     required CallerIdData callerIdData,
-    required CallOverlayConfig config, // 接收统一的 config 对象
+    required CallOverlayConfig config, // 接收统一�?config 对象
     SimInfo? simInfo,
     StirInfo? stirInfo,
     bool isDraggable = true,
@@ -36,16 +36,16 @@ class CallOverlayContentBuilder {
   }) {
     final bool isFraudulent = FraudDetectionService.checkForFraudLabels(callerIdData);
 
-    // 【修改点】: 诈骗提醒现在直接修改传入的config，但这在不可变状态下是不好的。
-    // 更好的做法是在Notifier层面处理。这里的逻辑暂时简化，以编译通过为先。
-    // 在实际应用中，应通过Notifier方法来设置安全消息。
+    // 【修改点�? 诈骗提醒现在直接修改传入的config，但这在不可变状态下是不好的�?
+    // 更好的做法是在Notifier层面处理。这里的逻辑暂时简化，以编译通过为先�?
+    // 在实际应用中，应通过Notifier方法来设置安全消息�?
     if (isFraudulent) {
       FraudDetectionService.triggerFraudAlert(callerIdData.phoneNumber.value);
     }
     
     return Stack(
       children: <Widget>[
-        // 安全消息现在直接从 config 获取数据
+        // 安全消息现在直接�?config 获取数据
         ScrollingSecurityMessage(
           config: config,
           isDraggable: isDraggable,
@@ -55,7 +55,7 @@ class CallOverlayContentBuilder {
           overrideColor: isFraudulent ? Colors.red : null,
         ),
         
-        // 所有元素现在都从 config 对象读取它们的样式和位置
+        // 所有元素现在都�?config 对象读取它们的样式和位置
         _buildPositionedElement(
           child: _buildAvatar(callerIdData, config, isFraudulent),
           position: config.avatarPosition,
@@ -230,7 +230,7 @@ class CallOverlayContentBuilder {
   static Widget _buildAvatar(CallerIdData callerIdData, CallOverlayConfig config, bool isFraudulent) {
     // 诈骗电话使用红色边框
     final borderColor = isFraudulent ? Colors.red : config.avatarBorderColor;
-    // 从 callerIdData 中提取用于 AvatarUtils 的标签文本
+    // �?callerIdData 中提取用�?AvatarUtils 的标签文�?
     final String? labelText = callerIdData.labels?.isNotEmpty == true 
         ? callerIdData.labels!.first.label 
         : null;
@@ -242,7 +242,7 @@ class CallOverlayContentBuilder {
         radius: config.avatarSize / 2,
         // 调用 AvatarUtils 中的静态方法来获取 ImageProvider
         backgroundImage: AvatarUtils.getAvatarImage(callerIdData.avatar, labelText),
-        // 如果你还想在没有图片时显示首字母，可以这样做：
+        // 如果你还想在没有图片时显示首字母，可以这样做�?
         child: AvatarUtils.getAvatarImage(callerIdData.avatar, labelText) == null
              ? Text(AvatarUtils.getAvatarInitial(callerIdData.name ?? labelText))
             : null,
@@ -278,7 +278,7 @@ class CallOverlayContentBuilder {
     );
   }
 
-  // 【关键修改点】: 接收统一的 config 对象
+  // 【关键修改点�? 接收统一�?config 对象
   static Widget buildOverlayContainer({
     required CallOverlayConfig config,
     required Widget child,

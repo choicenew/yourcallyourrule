@@ -1,0 +1,8 @@
+{
+  "@@locale": "zh",
+  "cloudflareSyncTitle": "Cloudflare Worker 边缘同步",
+  "supabaseSyncTitle": "Supabase 云端数据库同步",
+  "testConnection": "测试物理连通性",
+  "connected": "网络物理连通成功！",
+  "connectionFailed": "无法连接，请检查配置"
+}

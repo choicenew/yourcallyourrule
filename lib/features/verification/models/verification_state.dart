@@ -1,10 +1,9 @@
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
-import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 
-/// 号码验证状态数据模型
-class VerificationState {
+/// 号码验证状态数据模�?class VerificationState {
   final String phoneNumber;
   final String countryCode;
   final List<String> candidateCountries;

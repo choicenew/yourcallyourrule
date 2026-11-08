@@ -2,16 +2,16 @@ import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
-import 'package:yourcallyourrule/core/repositories/location_repository.dart';
+import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';
+import 'package:yourcallyourrule/features/location/repositories/location_repository.dart';
 import 'package:yourcallyourrule/data/repositories/location_repository_impl.dart';
-import 'package:yourcallyourrule/core/services/list_service.dart';
-import 'package:yourcallyourrule/core/services/universal_import_export_service.dart';
+import 'package:yourcallyourrule/features/common/services/list_service.dart';
+import 'package:yourcallyourrule/features/rules/services/universal_import_export_service.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
 
 part 'location_service.g.dart';
 
-/// LocationService 的 @Riverpod Provider
+/// LocationService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 LocationService locationService(Ref ref) {
   final locationRepository = ref.watch(locationRepositoryProvider);
@@ -28,7 +28,7 @@ class LocationService extends ListService<LocationEntry, String> {
   final PhoneNumberToCarrierMapper _carrierMapper;
 
   LocationService(this._repository)
-      : _importExportService = UniversalImportExportService<LocationEntry>(_repository), // 正确初始化泛型服务
+      : _importExportService = UniversalImportExportService<LocationEntry>(_repository), // 正确初始化泛型服�?
         _phoneNumberUtil = PhoneNumberUtil.instance,
         _geocoder = PhoneNumberOfflineGeocoder.instance,
         _carrierMapper = PhoneNumberToCarrierMapper.instance,
@@ -49,7 +49,7 @@ class LocationService extends ListService<LocationEntry, String> {
 
     final entry = LocationEntry(
       id: const Uuid().v4(),
-      phoneNumber: vo.PhoneNumber.fromString(phoneNumber),  // 使用前缀后的构造方式
+      phoneNumber: vo.PhoneNumber.fromString(phoneNumber),  // 使用前缀后的构造方�?
       region: region,
       countryName: _phoneNumberUtil.getRegionCodeForNumber(parsedNumber),
       carrier: carrier,
@@ -60,30 +60,30 @@ class LocationService extends ListService<LocationEntry, String> {
     return entry;
   }
   
-  /// 【【【 最终、唯一的、正确的修复 】】】
-  /// 新增一个 saveLocation 方法，以供 LocationSyncService 调用。
-  /// 这个方法将保存操作委托给底层的 Repository。
+  /// 【【�?最终、唯一的、正确的修复 】】�?
+  /// 新增一�?saveLocation 方法，以�?LocationSyncService 调用�?
+  /// 这个方法将保存操作委托给底层�?Repository�?
   Future<void> saveLocation(LocationEntry entry) async {
-    // 调用您在 Repository 中已经定义好的 save 方法
+    // 调用您在 Repository 中已经定义好�?save 方法
     await _repository.save(entry);
   }
 
 
-  // 数据库操作方法
+  // 数据库操作方�?
   Future<void> updateLocationData(LocationEntry entry) async {
     await _repository.update(entry);
   }
 
   Future<LocationEntry?> getByPhoneNumber(String phoneNumber) async {
-     // 【【【 最终、唯一的、正确的修复 】】】
-    // 您的 Repository 已经提供了一个更高效、更安全的方法，我们应该直接使用它。
-    // 它直接在数据库层面查询，而不是获取全部数据到内存再筛选。
+     // 【【�?最终、唯一的、正确的修复 】】�?
+    // 您的 Repository 已经提供了一个更高效、更安全的方法，我们应该直接使用它�?
+    // 它直接在数据库层面查询，而不是获取全部数据到内存再筛选�?
     return await _repository.getByPhoneNumber(phoneNumber);
   }
  
  
 
-  // 继承自ListService的方法
+  // 继承自ListService的方�?
   @override
   Future<List<LocationEntry>> getAll() async {
     final rules = await _repository.getAll();

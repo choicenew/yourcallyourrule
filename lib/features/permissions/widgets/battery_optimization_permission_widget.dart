@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart' as permissionService;
-import 'package:yourcallyourrule/core/services/permission_service_impl.dart';
+import 'package:yourcallyourrule/features/permissions/services/permission_service_impl.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class BatteryOptimizationPermissionWidget extends ConsumerStatefulWidget {

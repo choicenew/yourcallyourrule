@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:yourcallyourrule/core/entities/call/call_log.dart';
-import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_service.dart';
 import 'package:yourcallyourrule/features/call_policy/evaluators/call_protection_service.dart';
 import '../models/home_stats_model.dart';
@@ -20,10 +20,8 @@ class HomeStatsService {
 
   // 使用真实数据接口
   Future<HomeStats> getHomeStats(List<CallLog> callLogs, List<RuleBase> rules) async {
-    // 检查呼叫保护是否激活
-    final isProtectionActive = await _protectionService.isProtectionActive();
-    // 计算拦截率
-    final totalCalls = callLogs.length;
+    // 检查呼叫保护是否激�?    final isProtectionActive = await _protectionService.isProtectionActive();
+    // 计算拦截�?    final totalCalls = callLogs.length;
     final blockedCalls = _statisticsService.getTotalBlockedCount(callLogs);
     final blockRate = totalCalls > 0 ? blockedCalls / totalCalls : 0.0;
     
@@ -56,13 +54,11 @@ class HomeStatsService {
     }
     
     // 计算各类规则数量
-    // 使用新的方法获取四种action类型的规则数量
-    final allowRulesCount = _statisticsService.getAllowRulesCount(rules);
+    // 使用新的方法获取四种action类型的规则数�?    final allowRulesCount = _statisticsService.getAllowRulesCount(rules);
     final blockRulesCount = _statisticsService.getBlockRulesCount(rules);
     final silenceRulesCount = _statisticsService.getSilenceRulesCount(rules);
     final noneRulesCount = _statisticsService.getNoneRulesCount(rules);
-    // 计算时间规则数量 - 使用专门的方法获取
-    final timeRulesCount = await _statisticsService.getTimeRulesCount(_configRepository);
+    // 计算时间规则数量 - 使用专门的方法获�?    final timeRulesCount = await _statisticsService.getTimeRulesCount(_configRepository);
     final totalRulesCount = rules.length;
     
     return HomeStats(
@@ -75,8 +71,7 @@ class HomeStatsService {
       // 但实际上分别对应blockRulesCount和allowRulesCount
     //  blacklistRules: blockRulesCount,
    //   whitelistRules: allowRulesCount,
-      // 添加新的字段来存储四种action类型的规则数量
-      allowRules: allowRulesCount,
+      // 添加新的字段来存储四种action类型的规则数�?      allowRules: allowRulesCount,
       blockRules: blockRulesCount,
       silenceRules: silenceRulesCount,
       noneRules: noneRulesCount,

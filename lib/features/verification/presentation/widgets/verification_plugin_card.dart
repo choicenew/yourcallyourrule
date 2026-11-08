@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 插件扩展数据卡片（完全基于 PluginSourceData 强实体，消除旧数据接口）
+/// 插件扩展数据卡片（完全基�?PluginSourceData 强实体，消除旧数据接口）
 class VerificationPluginCard extends StatelessWidget {
   final PluginSourceData? pluginSourceData;
 

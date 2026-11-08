@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
-import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
+import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 本地通讯录与标签匹配卡片（合并 SearchPage 的本地能力）
+/// 本地通讯录与标签匹配卡片（合�?SearchPage 的本地能力）
 class VerificationLocalMatchCard extends StatelessWidget {
   final Contact? matchedContact;
   final LabelPhoneEntry? matchedLabel;

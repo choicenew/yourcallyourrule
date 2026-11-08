@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:yourcallyourrule/common/utils/phone_utils.dart';
+import 'package:yourcallyourrule/features/phone/utils/phone_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 创建删除提议对话框
+/// 创建删除提议对话�?
 class CreateProposalDialog extends StatefulWidget {
   final Future<void> Function(String phoneNumber, String reason, int riskLevel) onSubmit;
 

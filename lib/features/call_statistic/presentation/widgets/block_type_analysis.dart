@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
+import 'package:yourcallyourrule/features/call_history/entities/local_call_type.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -10,7 +10,7 @@ class BlockTypeAnalysis extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // 消费 CallStatisticsNotifier 的状态
+    // 消费 CallStatisticsNotifier 的状�?
     final statisticsState = ref.watch(callStatisticsProvider);
 
     return Container(
@@ -38,7 +38,7 @@ class BlockTypeAnalysis extends ConsumerWidget {
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
           ),
           const SizedBox(height: 16),
-          // 加载和错误状态由父 Widget (CallStatisticsPage) 处理
+          // 加载和错误状态由�?Widget (CallStatisticsPage) 处理
           if (statisticsState.blockTypeAnalysis.isEmpty && !statisticsState.isLoading)
             Center(child: Text(AppLocalizations.of(context)!.noBlockedTypeData, style: const TextStyle(color: Colors.grey)))
           else

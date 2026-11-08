@@ -3,8 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yourcallyourrule/cloud_sync/provider/cloud_sync_provider.dart';
-import 'package:yourcallyourrule/core/provider/rules_provider.dart';
+import 'package:yourcallyourrule/features/sync/providers/cloud_sync/cloud_sync_provider.dart';
+import 'package:yourcallyourrule/features/rules/providers/rules_provider.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/statistics_provider.dart';
 
@@ -13,11 +13,11 @@ import 'package:yourcallyourrule/features/language/provider/language_provider.da
 part 'app_widget_sync_service.g.dart';
 
 /// 桌面小组件数据计算与 1:1 MethodChannel 同步服务
-/// 遵照 AGENTS.md / veherego-widget-realtime-protocol 铁律：
+/// 遵照 AGENTS.md / veherego-widget-realtime-protocol 铁律�?
 /// 1. 100% 绑定现有真实 Provider 实体数据
 /// 2. 绝对严禁任何硬编码假数据或硬编码汉字/模拟号码
-/// 3. 无数据时合规呈现 "--" 空状态
-/// 4. 监听 localeProvider 实时同步 app_locale 解决切语言不根治问题
+/// 3. 无数据时合规呈现 "--" 空状�?
+/// 4. 监听 localeProvider 实时同步 app_locale 解决切语言不根治问�?
 @riverpod
 class AppWidgetSyncService extends _$AppWidgetSyncService {
   static const MethodChannel _channel = MethodChannel('com.yours.yourcallyourrule/app_widget_sync');
@@ -38,7 +38,7 @@ class AppWidgetSyncService extends _$AppWidgetSyncService {
       }
     });
 
-    // 监听规则与同步状态
+    // 监听规则与同步状�?
     ref.listen(rulesProvider, (previous, next) {
       syncWidgetData();
     });
@@ -52,7 +52,7 @@ class AppWidgetSyncService extends _$AppWidgetSyncService {
       syncWidgetData();
     });
 
-    // 监听社区判官与提议统计
+    // 监听社区判官与提议统�?
     ref.listen(proposalStatisticsProvider, (previous, next) {
       syncWidgetData();
     });
@@ -62,7 +62,7 @@ class AppWidgetSyncService extends _$AppWidgetSyncService {
     try {
       final prefs = await SharedPreferences.getInstance();
 
-      // 1. 读取规则与云端同步状态
+      // 1. 读取规则与云端同步状�?
       final rulesState = ref.read(rulesProvider);
       final syncStatusAsync = ref.read(cloudSyncStatusProvider);
 
@@ -86,7 +86,7 @@ class AppWidgetSyncService extends _$AppWidgetSyncService {
       final mediumRisk = proposalStats['mediumRisk'] ?? 0;
       final lowRisk = proposalStats['lowRisk'] ?? 0;
 
-      // 写入 SharedPrefs 物理磁盘（1:1 与 Kotlin 键名一致，无硬编码）
+      // 写入 SharedPrefs 物理磁盘�?:1 �?Kotlin 键名一致，无硬编码�?
       await prefs.setInt('widget_total_rules', totalRules);
       await prefs.setString('widget_last_sync', lastSyncTime);
       await prefs.setString('widget_service_type', serviceType);

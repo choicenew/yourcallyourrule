@@ -4,7 +4,7 @@ import 'dart:typed_data';
 
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:http/http.dart' as http;
-import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:html/parser.dart' as html_parser;
 import 'package:html/dom.dart' as dom;
 
@@ -57,7 +57,7 @@ class PluginTestService {
   }
 
   // =======================================================================
-  // 并发安全版 _shouldInterceptRequest
+  // 并发安全�?_shouldInterceptRequest
   // =======================================================================
   Future<WebResourceResponse?> _shouldInterceptRequest(
       InAppWebViewController controller, WebResourceRequest request) async {
@@ -66,7 +66,7 @@ class PluginTestService {
 
     // --- 分支 1: 处理我们自己的代理URL，这是会话的起点 ---
     if (uri.scheme == PROXY_SCHEME && uri.host == PROXY_HOST) {
-      // 主代理请求
+      // 主代理请�?
       requestId = uri.queryParameters['requestId'];
       final originParam = uri.queryParameters['originalOrigin'];
 
@@ -76,7 +76,7 @@ class PluginTestService {
         _sessionOrigins[requestId] = originParam;
       }
       return _handleOriginalProxyRequest(
-          controller, request); // 使用您原封不动的原始处理器
+          controller, request); // 使用您原封不动的原始处理�?
     }
 
     // --- 分支 2: 精确打击 - 尝试通过 Referer 识别泄漏请求 ---
@@ -84,12 +84,12 @@ class PluginTestService {
     if (referer != null) {
       try {
         final refererUri = Uri.parse(referer);
-        // 确保 Referer 是我们的代理 URL，这样才能从中解析 requestId
+        // 确保 Referer 是我们的代理 URL，这样才能从中解�?requestId
         if (refererUri.host == PROXY_HOST) {
           final requestId = refererUri.queryParameters['requestId'];
           if (requestId != null) {
             final expectedOrigin = _sessionOrigins[requestId];
-            // 如果找到了对应的会话，并且 origin 匹配，就精确处理
+            // 如果找到了对应的会话，并�?origin 匹配，就精确处理
             if (expectedOrigin != null && uri.origin == expectedOrigin) {
               _addLog(
                   '🎯 Precisely caught LEAKED request via Referer for session [$requestId]: ${request.url}');
@@ -102,8 +102,8 @@ class PluginTestService {
       }
     }
 
-    // --- 分支 3: 保险层 - 捕获所有其他发往活跃 origin 的请求 ---
-    // .values 会返回所有 active origins 的集合
+    // --- 分支 3: 保险�?- 捕获所有其他发往活跃 origin 的请�?---
+    // .values 会返回所�?active origins 的集�?
     if (_sessionOrigins.values.contains(uri.origin)) {
       _addLog(
           '🔥 Insurance layer caught a request to an active origin: ${uri.toString()}');
@@ -116,16 +116,16 @@ class PluginTestService {
   }
 
 // =======================================================================
-// ==      1. 严谨、独立的HTML预处理函数 (最终语法正确版)      ==
+// ==      1. 严谨、独立的HTML预处理函�?(最终语法正确版)      ==
 // =======================================================================
-  /// 对HTML内容进行预处理，将所有相对路径的资源URL重写为我们的代理URL。
-  /// @param htmlBody 原始HTML字符串。
-  /// @param requestUri 触发这次代理的完整URI (e.g., https://.../fetch?requestId=...)。
-  ///                   我们需要它来获取 requestId 和 originalOrigin。
-  /// @return 处理过的HTML字符串。
-  /// 对HTML内容进行预处理。
-  /// 它会先检查内容是否为HTML，如果不是，则直接返回原始内容。
-  /// 如果是HTML，它会将所有相对路径的资源URL重写为我们的代理URL。
+  /// 对HTML内容进行预处理，将所有相对路径的资源URL重写为我们的代理URL�?
+  /// @param htmlBody 原始HTML字符串�?
+  /// @param requestUri 触发这次代理的完整URI (e.g., https://.../fetch?requestId=...)�?
+  ///                   我们需要它来获�?requestId �?originalOrigin�?
+  /// @return 处理过的HTML字符串�?
+  /// 对HTML内容进行预处理�?
+  /// 它会先检查内容是否为HTML，如果不是，则直接返回原始内容�?
+  /// 如果是HTML，它会将所有相对路径的资源URL重写为我们的代理URL�?
   String _preprocessHtml(
       String htmlBody, http.Response response, Uri requestUri) {
     // 假设 _addLog, PROXY_HOST, PROXY_PATH_FETCH 已经定义
@@ -149,8 +149,8 @@ class PluginTestService {
     }
 
     // **关键修正点：**
-    // 使用三引号 r'''...''' 来定义原始字符串，以避免内部的单引号 ' 和双引号 "
-    // 引起Dart语法错误。这是解决“爆红报错”的根本方法。
+    // 使用三引�?r'''...''' 来定义原始字符串，以避免内部的单引号 ' 和双引号 "
+    // 引起Dart语法错误。这是解决“爆红报错”的根本方法�?
     final attrRegex = RegExp(r'''(src|href)\s*=\s*("([^"]+)"|\'([^\']+)\')''',
         caseSensitive: false);
 
@@ -158,7 +158,7 @@ class PluginTestService {
       final originalMatch = match.group(0)!;
       final attr = match.group(1);
 
-      // 如果group(3)不为null, 说明是双引号匹配; 否则是group(4)单引号匹配
+      // 如果group(3)不为null, 说明是双引号匹配; 否则是group(4)单引号匹�?
       final path = match.group(3) ?? match.group(4);
 
       if (path == null ||
@@ -178,11 +178,11 @@ class PluginTestService {
         }).toString();
 
         _addLog('🔄 Pre-processing URL in Dart: $path -> $newProxyUrl');
-        // 保持原始的引号类型
+        // 保持原始的引号类�?
         if (match.group(3) != null) {
-          return '$attr="$newProxyUrl"'; // 双引号
+          return '$attr="$newProxyUrl"'; // 双引�?
         } else {
-          return "$attr='$newProxyUrl'"; // 单引号
+          return "$attr='$newProxyUrl'"; // 单引�?
         }
       } catch (e) {
         _addLog('⚠️ Error pre-processing path "$path": $e.');
@@ -190,20 +190,20 @@ class PluginTestService {
       }
     });
 
-    _addLog('✅ HTML pre-processing finished.');
+    _addLog('�?HTML pre-processing finished.');
     return processedHtml;
   }
 
-  /// 一个独立的、通用的HTML内容净化函数。
-  /// 它会从请求的URI中解析'purgeRules'参数，并根据规则对HTML内容进行清理。
+  /// 一个独立的、通用的HTML内容净化函数�?
+  /// 它会从请求的URI中解�?purgeRules'参数，并根据规则对HTML内容进行清理�?
   ///
-  /// @param htmlBody 原始的HTML内容字符串。
-  /// @param requestUri 触发本次代理的请求URI，用于从中获取净化规则。
-  /// @return 净化后的HTML字符串。如果无需净化或发生错误，则返回原始字符串。
+  /// @param htmlBody 原始的HTML内容字符串�?
+  /// @param requestUri 触发本次代理的请求URI，用于从中获取净化规则�?
+  /// @return 净化后的HTML字符串。如果无需净化或发生错误，则返回原始字符串�?
   String _purgeHarmfulContent(String htmlBody, Uri requestUri) {
     final purgeRulesParam = requestUri.queryParameters['purgeRules'];
 
-    // 如果没有提供净化规则，直接返回原始HTML，不进行任何操作。
+    // 如果没有提供净化规则，直接返回原始HTML，不进行任何操作�?
     if (purgeRulesParam == null || purgeRulesParam.isEmpty) {
       return htmlBody;
     }
@@ -238,7 +238,7 @@ class PluginTestService {
 
           int removedCount = 0;
           for (var element in elementsToRemove) {
-            // 如果有内容匹配规则，则检查元素内容是否符合
+            // 如果有内容匹配规则，则检查元素内容是否符�?
             if (contentMatch == null ||
                 (element.innerHtml.contains(contentMatch))) {
               element.remove();
@@ -251,10 +251,10 @@ class PluginTestService {
                 '  - Rule successfully removed $removedCount element(s) matching selector: "$selector"');
           }
         }
-        // 未来可以扩展其他类型的规则，比如 'modifyAttribute', 'clearContent' 等
+        // 未来可以扩展其他类型的规则，比如 'modifyAttribute', 'clearContent' �?
       }
 
-      _addLog('✅ DOM sanitization finished.');
+      _addLog('�?DOM sanitization finished.');
       // 仅在实际发生修改时才重新序列化HTML，以提高性能
       return documentModified ? document.outerHtml : htmlBody;
     } catch (e) {
@@ -264,7 +264,7 @@ class PluginTestService {
     }
   }
 
-// 2. 处理器一：原封不动的原始逻辑 (现在它不再需要更新 _currentProxyOrigin)
+// 2. 处理器一：原封不动的原始逻辑 (现在它不再需要更�?_currentProxyOrigin)
   Future<WebResourceResponse?> _handleOriginalProxyRequest(
       InAppWebViewController controller, WebResourceRequest request) async {
     final uri = request.url;
@@ -323,13 +323,13 @@ class PluginTestService {
 
         String htmlBody = utf8.decode(response.bodyBytes, allowMalformed: true);
 
-        // 【无损插入点】 - 调用上面那个已经修正好的函数
+        // 【无损插入点�?- 调用上面那个已经修正好的函数
         htmlBody = _purgeHarmfulContent(htmlBody, uri); //清除脚本由js本身提供
         htmlBody = _preprocessHtml(htmlBody, response, uri); //预处理html
 
         String receiverScript = _getReceiverScript();
 
-        // 获取需要阻止的原始域
+        // 获取需要阻止的原始�?
         final originToBlock = Uri.parse(targetUrlParam!).origin;
 
         // 生成所有需要注入的脚本
@@ -359,26 +359,26 @@ class PluginTestService {
           }
         } else {
           _addLog(
-              '⏩ Skipping script injection for non-HTML content ($contentType).');
+              '�?Skipping script injection for non-HTML content ($contentType).');
         }
 
         final Map<String, String> responseHeaders = {};
-        // 定义一个“黑名单”，包含所有需要被移除的头信息（统一使用小写以便比较）。
+        // 定义一个“黑名单”，包含所有需要被移除的头信息（统一使用小写以便比较）�?
         final headersToRemove = [
-          'x-frame-options', // 核心问题：禁止 iframe 嵌入
+          'x-frame-options', // 核心问题：禁�?iframe 嵌入
           'content-security-policy', // 可能阻止我们注入的脚本或页面内的资源加载
           'permissions-policy', // 可能限制 iframe 内的功能
-          'feature-policy', // permissions-policy 的旧版名称
+          'feature-policy', // permissions-policy 的旧版名�?
           'cross-origin-embedder-policy', // 启用跨域隔离，会破坏代理内容
           'cross-origin-opener-policy', // 同上
         ];
-        // 遍历从 cleverdialer.com 收到的每一个响应头
+        // 遍历�?cleverdialer.com 收到的每一个响应头
         response.headers.forEach((key, value) {
           final lowerCaseKey = key.toLowerCase();
 
           // 检查当前头是否在我们的“黑名单”中
           if (!headersToRemove.contains(lowerCaseKey)) {
-            // 如果不在黑名单里，就把它加入到最终要返回的响应头中
+            // 如果不在黑名单里，就把它加入到最终要返回的响应头�?
             responseHeaders[key] = value;
           } else {
             // 如果在黑名单里，就记录日志并丢弃它，不返回给 WebView
@@ -387,7 +387,7 @@ class PluginTestService {
         });
         // --- [修改结束] ---
 
-        // --- 【最终修正】 ---
+        // --- 【最终修正�?---
         // 错误的参数名 `encoding` 已被修正为正确的 `contentEncoding`
         return WebResourceResponse(
           contentType: 'text/html',
@@ -396,7 +396,7 @@ class PluginTestService {
           statusCode: response.statusCode,
           headers: responseHeaders,
         );
-        // --- 【修正结束】 ---
+        // --- 【修正结束�?---
 
       } catch (e) {
         _addLog('Proxy request failed entirely: $e');
@@ -458,7 +458,7 @@ class PluginTestService {
         const PROXY_PATH_FETCH = "$PROXY_PATH_FETCH";
         const PROXY_TEMPLATE = PROXY_SCHEME + "://" + PROXY_HOST + PROXY_PATH_FETCH + "?targetUrl=";
         
-        // 检测原始域名
+        // 检测原始域�?
         let originalDomain = '';
         try {
           if (window.location.href.includes('targetUrl=')) {
@@ -567,7 +567,7 @@ class PluginTestService {
             return xhr;
           };
           
-          // 复制静态属性
+          // 复制静态属�?
           Object.setPrototypeOf(window.XMLHttpRequest, OriginalXHR);
           Object.defineProperties(window.XMLHttpRequest, Object.getOwnPropertyDescriptors(OriginalXHR));
           
@@ -653,7 +653,7 @@ class PluginTestService {
           function isBlockedUrl(urlString) {
             if (typeof urlString !== 'string') return false;
             try {
-              // 将相对路径转换为绝对路径再判断
+              // 将相对路径转换为绝对路径再判�?
               const absoluteUrl = new URL(urlString, document.baseURI).href;
               return absoluteUrl.includes(BLOCKED_ORIGIN) && !absoluteUrl.includes(PROXY_HOST);
             } catch(e) {
@@ -661,17 +661,17 @@ class PluginTestService {
             }
           }
 
-          // 1. 阻止 location 的修改
+          // 1. 阻止 location 的修�?
           const originalLocation = window.location;
           try {
             Object.defineProperty(window, 'location', {
               get: function() { return originalLocation; },
               set: function(url) {
                 if (isBlockedUrl(url)) {
-                  console.error(`[Domain-Blocker] ❌ Blocked location.href assignment to: \${url}`);
+                  console.error(`[Domain-Blocker] �?Blocked location.href assignment to: \${url}`);
                   return; // 直接阻止
                 }
-                console.log(`[Domain-Blocker] ✅ Allowed location change to: \${url}`);
+                console.log(`[Domain-Blocker] �?Allowed location change to: \${url}`);
                 originalLocation.href = url;
               },
               configurable: true 
@@ -684,19 +684,19 @@ class PluginTestService {
           const originalOpen = window.open;
           window.open = function(url, ...args) {
             if (isBlockedUrl(url)) {
-              console.error(`[Domain-Blocker] ❌ Blocked window.open to: \${url}`);
+              console.error(`[Domain-Blocker] �?Blocked window.open to: \${url}`);
               return null; // 返回null表示窗口打开失败
             }
             return originalOpen.apply(this, arguments);
           };
           
-          // ======================= ▼▼▼ 新增整合部分 ▼▼▼ =======================
+          // ======================= ▼▼�?新增整合部分 ▼▼�?=======================
           
-          // 3. 新增：终极防线 - 拦截 beforeunload 事件
-          // 这部分作为对 location.href 拦截失败的补充，是专门用来对付 cleverdialer 这种脚本的
+          // 3. 新增：终极防�?- 拦截 beforeunload 事件
+          // 这部分作为对 location.href 拦截失败的补充，是专门用来对�?cleverdialer 这种脚本�?
           window.addEventListener('beforeunload', function(event) {
-               // 在后台场景中，任何未经我们允许的导航都应被视为有害
-               console.error(`[Domain-Blocker-Unload] ❌ Intercepted an unload/navigation event. Blocking it as a safety measure.`);
+               // 在后台场景中，任何未经我们允许的导航都应被视为有�?
+               console.error(`[Domain-Blocker-Unload] �?Intercepted an unload/navigation event. Blocking it as a safety measure.`);
                
                // 标准方法，确保在所有浏览器中都能最大概率地阻止导航
                event.preventDefault(); 
@@ -704,33 +704,33 @@ class PluginTestService {
                return '';
           });
 
-          // ======================= ▲▲▲ 新增整合部分结束 ▲▲▲ =======================
+          // ======================= ▲▲�?新增整合部分结束 ▲▲�?=======================
 
 
 
 
 
-          console.log(`[Domain-Blocker] ✅ Active for origin: \${BLOCKED_ORIGIN}`);
+          console.log(`[Domain-Blocker] �?Active for origin: \${BLOCKED_ORIGIN}`);
         })();
       </script>
     ''';
   }
 
   /// 处理器二：处理从iframe“泄漏”出来的、发往原始域的请求
-  /// 这种请求通常是页面内的脚本（如XHR/fetch）发起的，它们没有经过我们重写的URL。
+  /// 这种请求通常是页面内的脚本（如XHR/fetch）发起的，它们没有经过我们重写的URL�?
   Future<WebResourceResponse?> _handleLeakedRequest(
       InAppWebViewController controller, WebResourceRequest request) async {
         
     final uri = request.url;
 
     try {
-      // 1. 使用 http 包发起网络请求，注意要传递原始请求中的头信息（特别是Cookie）
-      // 注意：request.headers 是一个 Map<String, String>，可以直接使用
+      // 1. 使用 http 包发起网络请求，注意要传递原始请求中的头信息（特别是Cookie�?
+      // 注意：request.headers 是一�?Map<String, String>，可以直接使�?
       _addLog('Making backend HTTP GET for LEAKED request to: $uri with headers: ${request.headers}');
       final response = await http.get(uri, headers: request.headers ?? {});
       _addLog('Backend response for LEAKED request: ${response.statusCode} for $uri');
           
-      // 2. 准备一个新的 Map 来存放清理过的响应头
+      // 2. 准备一个新�?Map 来存放清理过的响应头
       final responseHeaders = <String, String>{};
 
       // 3. 定义需要被移除的有害响应头列表
@@ -752,28 +752,28 @@ class PluginTestService {
         if (!headersToRemove.contains(lowerCaseKey)) {
           responseHeaders[key] = value;
         } else {
-          // 否则，记录日志并丢弃它
+          // 否则，记录日志并丢弃�?
           _addLog('For LEAKED request, REMOVED problematic header: "$key"');
         }
       });
 
-      // 6. 构建并返回一个 WebResourceResponse
+      // 6. 构建并返回一�?WebResourceResponse
       return WebResourceResponse(
-        // 使用从服务器获取的真实 content-type
+        // 使用从服务器获取的真�?content-type
         contentType: response.headers['content-type'],
         // 直接使用从服务器获取的原始响应体字节
         data: response.bodyBytes,
         // 使用从服务器获取的真实状态码
         statusCode: response.statusCode,
-        // 使用我们清理过的头信息
+        // 使用我们清理过的头信�?
         headers: responseHeaders,
-        // 如果服务器返回了 reasonPhrase，也一并传递
+        // 如果服务器返回了 reasonPhrase，也一并传�?
         reasonPhrase: response.reasonPhrase,
       );
     } catch (e) {
-      // 如果在代理过程中发生任何网络错误或其他异常
+      // 如果在代理过程中发生任何网络错误或其他异�?
       _addLog('LEAKED request failed during proxying: $e');
-      // 返回一个表示服务器错误的响应，这样WebView端能知道请求失败了
+      // 返回一个表示服务器错误的响应，这样WebView端能知道请求失败�?
       return WebResourceResponse(
           contentType: 'text/plain',
           data: Uint8List.fromList('Leaked request proxy failed: $e'.codeUnits),
@@ -821,14 +821,14 @@ class PluginTestService {
               final requestId = resultData['requestId'] as String?;
 
 
-              // ▼▼▼        在这里添加会话清理逻辑         ▼▼▼
+              // ▼▼�?       在这里添加会话清理逻辑         ▼▼�?
               // ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
               if (requestId != null) {
                 _sessionOrigins.remove(requestId);
                 _addLog('Session cleaned for completed requestId: $requestId. Current sessions: ${_sessionOrigins.length}');
               }
               // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
-              // ▲▲▲          会话清理逻辑结束           ▲▲▲
+              // ▲▲�?         会话清理逻辑结束           ▲▲�?
 
 
 

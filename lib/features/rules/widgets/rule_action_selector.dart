@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action.dart';
 import 'package:yourcallyourrule/features/call_policy/rules/end_call_rule_action_mapper.dart';
 import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 规则动作选择器
-/// 用于在创建或编辑规则时选择规则动作和拦截动作
+/// 规则动作选择�?
+/// 用于在创建或编辑规则时选择规则动作和拦截动�?
 class RuleActionSelector extends StatefulWidget {
-  /// 当前选择的规则动作
+  /// 当前选择的规则动�?
   final RuleAction initialAction;
 
-  /// 当规则动作改变时的回调
+  /// 当规则动作改变时的回�?
   final ValueChanged<RuleAction> onActionChanged;
 
   /// 是否显示广告
@@ -43,7 +43,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
     super.initState();
     _currentAction = widget.initialAction;
 
-    // 如果是block类型，尝试从参数中获取拦截动作
+    // 如果是block类型，尝试从参数中获取拦截动�?
     if (_currentAction.type == RuleActionType.block) {
       _selectedInterceptAction = RuleActionMapper.mapToInterceptAction(_currentAction);
     }
@@ -118,7 +118,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
           ),
         ),
 
-        // 如果选择了阻止动作，显示拦截动作选择器
+        // 如果选择了阻止动作，显示拦截动作选择�?
         if (_currentAction.type == RuleActionType.block)
           Padding(
             padding: effectivePadding,
@@ -203,15 +203,15 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
     );
   }
 
-  /// 当规则动作类型改变时的处理
+  /// 当规则动作类型改变时的处�?
   void _onActionTypeChanged(RuleActionType? type) {
     if (type == null) return;
 
-    // 根据选择的动作类型创建新的动作对象
+    // 根据选择的动作类型创建新的动作对�?
     RuleAction newAction;
     switch (type) {
       case RuleActionType.block:
-        // 如果选择了阻止动作，保留之前的拦截动作参数
+        // 如果选择了阻止动作，保留之前的拦截动作参�?
         if (_selectedInterceptAction != null) {
           newAction = RuleActionMapper.createBlockWithInterceptAction(
               _selectedInterceptAction!);
@@ -232,13 +232,13 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
         newAction = RuleAction.allow;
         break;
       default:
-        // 其他动作类型使用默认构造函数
+        // 其他动作类型使用默认构造函�?
         newAction = RuleAction(type: type);
     }
 
     setState(() {
       _currentAction = newAction;
-      // 只有在选择block类型时才显示拦截动作选择器
+      // 只有在选择block类型时才显示拦截动作选择�?
       if (type != RuleActionType.block) {
         _selectedInterceptAction = null;
       }
@@ -248,7 +248,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
     widget.onActionChanged(_currentAction);
   }
 
-  /// 当拦截动作改变时的处理
+  /// 当拦截动作改变时的处�?
   void _onInterceptActionChanged(InterceptAction? action) {
     setState(() {
       _selectedInterceptAction = action;

@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/platform/call_channel_switcher.dart';
 
 import 'base_call_handler.dart';

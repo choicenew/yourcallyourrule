@@ -1,17 +1,17 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_config.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 part 'auto_update_service.g.dart';
 
-/// AutoUpdateService 的 @Riverpod Provider
+/// AutoUpdateService Riverpod Provider
 @Riverpod(keepAlive: true)
 AutoUpdateService autoUpdateService(Ref ref) {
   final phoneService = ref.watch(phoneSubscriptionServiceProvider);
@@ -159,7 +159,6 @@ class AutoUpdateService {
   /// [serviceType] 可选的服务类型，如果不提供则检查所有类型
   /// [updateInterval] 可选的更新间隔，如果不提供则使用默认值
   Future<bool> shouldUpdate({String? serviceType, Duration? updateInterval}) async {
-    // 获取默认更新间隔（以天为单位）
     final defaultIntervals = {
       'phone': const Duration(days: 1),
       'sms': const Duration(days: 1),
@@ -168,10 +167,8 @@ class AutoUpdateService {
     };
     
     if (serviceType != null) {
-      // 检查特定服务类型
       final lastUpdated = await _config.getLastUpdateTime(serviceType);
       
-      // 获取用户自定义的更新间隔
       final userIntervalDays = await _config.getUserUpdateIntervalDays(serviceType);
       final interval = userIntervalDays != null
           ? Duration(days: userIntervalDays)
@@ -182,7 +179,6 @@ class AutoUpdateService {
       final durationSinceLastUpdate = DateTime.now().difference(lastUpdated);
       return durationSinceLastUpdate >= interval;
     } else {
-      // 检查所有服务类型
       for (final type in defaultIntervals.keys) {
         final shouldUpdateThis = await shouldUpdate(serviceType: type, updateInterval: updateInterval);
         if (shouldUpdateThis) return true;
@@ -216,10 +212,8 @@ class AutoUpdateService {
     final now = DateTime.now();
     
     if (serviceType != null) {
-      // 更新特定服务类型的时间
       await _config.saveLastUpdateTime(serviceType, now);
     } else {
-      // 更新所有服务类型的时间
       await _config.saveLastUpdateTime('phone', now);
       await _config.saveLastUpdateTime('sms', now);
       await _config.saveLastUpdateTime('contact', now);

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_phone_entry_to_remote.dart';
 

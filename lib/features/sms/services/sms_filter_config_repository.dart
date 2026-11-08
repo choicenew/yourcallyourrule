@@ -1,4 +1,4 @@
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 const String _smsFilterEnabledKey = 'config_sms_filter_enabled';
 
@@ -8,7 +8,7 @@ abstract class SmsFilterConfigRepository {
   Future<void> setIsEnabled(bool enabled);
 }
 
-/// SmsFilterConfigRepository 的 SharedPreferences 实现
+/// SmsFilterConfigRepository �?SharedPreferences 实现
 class SharedPreferencesSmsFilterConfigRepository implements SmsFilterConfigRepository {
   SharedPreferencesSmsFilterConfigRepository(this._configRepository);
 

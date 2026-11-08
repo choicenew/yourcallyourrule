@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
 import 'package:yourcallyourrule/ads/ad_list_utils.dart';
-import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/labels/services/label_phone_entry_to_remote.dart';
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_sync_service.dart';
@@ -159,13 +159,13 @@ class _MarkPhoneManagementPageState
       );
       await statisticsSyncService.syncSingleLabel(labelPhoneEntry);
 
-      // 使用标签到远程号码同步服务同步标记
+      // 使用标签到远程号码同步服务同步标�?
       final labelToRemoteSyncService = ref.read(
         labelPhoneEntryToRemoteProvider,
       );
       await labelToRemoteSyncService.sync(labelPhoneEntry);
 
-      // 清空输入框
+      // 清空输入�?
       _phoneController.clear();
       _nameController.clear();
       setState(() {
@@ -189,11 +189,11 @@ class _MarkPhoneManagementPageState
     // 导航到VIP兑换页面
     await Navigator.of(context).pushNamed('/vip-exchange');
 
-    // 返回后刷新标记次数
+    // 返回后刷新标记次�?
     await _loadMarkCount();
   }
 
-  // _exchangeVip 方法已移除，兑换功能现在在 VipExchangePage 中处理
+  // _exchangeVip 方法已移除，兑换功能现在�?VipExchangePage 中处�?
 
   @override
   void dispose() {
@@ -371,7 +371,7 @@ class _MarkPhoneManagementPageState
       return const Center(child: CircularProgressIndicator());
     }
 
-    // 如果列表为空，显示空状态
+    // 如果列表为空，显示空状�?
     if (_markedPhones.isEmpty) {
       return Card(
         elevation: 4,
@@ -395,7 +395,7 @@ class _MarkPhoneManagementPageState
       );
     }
 
-    // 构建标记号码列表，每隔3个项目插入一个广告
+    // 构建标记号码列表，每�?个项目插入一个广�?
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -434,7 +434,7 @@ class _MarkPhoneManagementPageState
     );
   }
 
-  /// 构建单个标记号码项
+  /// 构建单个标记号码�?
   Widget _buildMarkedPhoneItem(LabelPhoneEntry entry) {
     return Card(
       elevation: 2,

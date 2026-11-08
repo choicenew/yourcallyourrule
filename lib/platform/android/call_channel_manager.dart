@@ -1,11 +1,11 @@
 import 'package:flutter/services.dart';
-import 'package:yourcallyourrule/common/error/logger.dart';
+import 'package:yourcallyourrule/features/common/error/logger.dart';
 
 
 import '../call_channel_switcher.dart';
 
 
-/// Android平台的通话通道管理器实现
+/// Android平台的通话通道管理器实�?
 class AndroidCallChannelManager implements CallChannelInterface {
   // 单例模式
   static final AndroidCallChannelManager _instance = AndroidCallChannelManager._internal();
@@ -18,7 +18,7 @@ class AndroidCallChannelManager implements CallChannelInterface {
   static const shouldAcceptCallChannel = MethodChannel('com.yours.yourcallyourrule/should_accept_call');
   static const stirChannel = MethodChannel('com.yours.yourcallyourrule/stir_check');
   static const simChannel = MethodChannel('com.yours.yourcallyourrule/sim_check');
-  // ✅ 1. 定义新的 phone_state Channel
+  // �?1. 定义新的 phone_state Channel
   static const phoneStateChannel = MethodChannel('com.yours.yourcallyourrule/phone_state');
 
   // 回调函数
@@ -86,7 +86,7 @@ class AndroidCallChannelManager implements CallChannelInterface {
     try {
       await callerIdChannel.invokeMethod('initialize');
     } catch (e) {
-       AppLogger.error('初始化来电显示服务失败', e);
+       AppLogger.error('初始化来电显示服务失�?, e);
       
     }
   }

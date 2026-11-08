@@ -1,9 +1,9 @@
-import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
-import 'package:yourcallyourrule/core/repositories/base_repository.dart';
+import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
+// base_repository removed
 import 'package:yourcallyourrule/data/datasources/local/local_sms_regex_rule_datasource.dart';
 import 'package:yourcallyourrule/data/models/sms_regex_rule_model.dart';
 
-/// 短信正则规则仓库实现类 (100% 独立于通话仓库，直接接入短信专属数据源)
+/// 短信正则规则仓库实现�?(100% 独立于通话仓库，直接接入短信专属数据源)
 class SmsRegexRuleRepository implements BaseRepository<SmsRegexRule, String> {
   final LocalSmsRegexRuleDataSource _dataSource;
 

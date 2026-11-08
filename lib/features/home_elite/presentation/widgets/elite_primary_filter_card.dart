@@ -1,13 +1,13 @@
 // -----------------------------------------------------------------------------
 // 文件: elite_primary_filter_card.dart
-// 描述: Elite 基础过滤规则高质感控制卡片（已完全解耦拆分，保持主文件清爽连贯）。
+// 描述: Elite 基础过滤规则高质感控制卡片（已完全解耦拆分，保持主文件清爽连贯）�?
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/call/call_filter/config/call_filter_config.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primary_filter/defense_strategy_item.dart';
@@ -19,7 +19,7 @@ import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primar
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primary_filter/primary_filter_sim_bar.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-// ------------------- ElitePrimaryFilterCard 模块协调主卡片 -------------------
+// ------------------- ElitePrimaryFilterCard 模块协调主卡�?-------------------
 
 class ElitePrimaryFilterCard extends ConsumerStatefulWidget {
   const ElitePrimaryFilterCard({super.key});

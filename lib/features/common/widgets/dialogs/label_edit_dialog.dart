@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 标签编辑对话框
+/// 标签编辑对话�?
 /// 用于编辑标签信息，通过 PublicSelectLabel 组件来选择标签
 class LabelEditDialog extends ConsumerStatefulWidget {
   final LabelPhoneEntry label;
@@ -24,7 +24,7 @@ class LabelEditDialog extends ConsumerStatefulWidget {
   @override
   ConsumerState<LabelEditDialog> createState() => _LabelEditDialogState();
 
-  /// 显示标签编辑对话框的静态方法
+  /// 显示标签编辑对话框的静态方�?
   static void show(BuildContext context, LabelPhoneEntry label, {Function? onLabelUpdated, Color? themeColor}) {
     showDialog(
       context: context,
@@ -95,7 +95,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
         widget.onLabelUpdated!();
       }
 
-      // 关闭对话框
+      // 关闭对话�?
       if (mounted) {
         Navigator.pop(context);
 

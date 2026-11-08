@@ -1,12 +1,12 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:yourcallyourrule/features/notifications/config/notification_config.dart';
 import 'package:yourcallyourrule/features/notifications/service/notification_service.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 
 import 'base_sms_handler.dart';
 
-/// SMS通知处理器
+/// SMS通知处理�?
 class SmsNotificationHandler extends BaseSmsHandler {
   final NotificationService _notificationService;
   final ConfigRepository _configRepository;
@@ -17,7 +17,7 @@ class SmsNotificationHandler extends BaseSmsHandler {
   static const String smsLocalNotificationKey = 'config_sms_local_notification';
   static const String smsCancelLocalNotificationKey = 'config_sms_cancel_local_notification';
 
-  // 您的构造函数保持不变
+  // 您的构造函数保持不�?
   SmsNotificationHandler({
     NotificationService? notificationService,
     ConfigRepository? configRepository,
@@ -50,7 +50,7 @@ class SmsNotificationHandler extends BaseSmsHandler {
     await _configRepository.saveConfig(smsCancelLocalNotificationKey, {'value': cancelLocal});
   }
 
-  /// 【唯一修改点 A】: 修改方法签名，直接接收 NotificationConfig
+  /// 【唯一修改�?A�? 修改方法签名，直接接�?NotificationConfig
   Future<void> showSmsNotification({
     required String title,
     required String body,
@@ -61,7 +61,7 @@ class SmsNotificationHandler extends BaseSmsHandler {
     if (!useLocalNotification) return;
 
     await _notificationService.showNotification(
-      config: config, // 使用传入的 config
+      config: config, // 使用传入�?config
       title: title,
       body: body,
       payload: {'type': 'sms', 'phoneNumber': phoneNumber, 'messageContent': messageContent},
@@ -69,7 +69,7 @@ class SmsNotificationHandler extends BaseSmsHandler {
     );
   }
   
-  /// 【唯一修改点 B】: 修改方法签名，直接接收 NotificationConfig
+  /// 【唯一修改�?B�? 修改方法签名，直接接�?NotificationConfig
   Future<void> showBlockedSmsNotification({
     required String title,
     required String body,
@@ -79,7 +79,7 @@ class SmsNotificationHandler extends BaseSmsHandler {
     if (!useLocalNotification) return;
 
     await _notificationService.showNotification(
-      config: config, // 使用传入的 config
+      config: config, // 使用传入�?config
       title: title,
       body: body,
       payload: {'type': 'blocked_sms', 'phoneNumber': phoneNumber},

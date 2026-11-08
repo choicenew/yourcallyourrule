@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/common/utils/regex_hint.dart';
-import 'package:yourcallyourrule/core/entities/regex/regex_pattern.dart';
-import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
-import 'package:yourcallyourrule/core/services/import_export_service.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/rules/utils/regex_hint.dart';
+import 'package:yourcallyourrule/features/rules/entities/regex_pattern.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:yourcallyourrule/features/rules/services/import_export_service.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/services/import_export_service_component.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_rule_page.dart';
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
@@ -122,7 +122,7 @@ class RegexRulePage extends ConsumerWidget {
     );
   }
 
-  /// 显示添加规则对话框
+  /// 显示添加规则对话�?
   void _showAddRuleDialog(
       BuildContext context, RegexService service, Function refreshCallback) {
     final TextEditingController nameController = TextEditingController();
@@ -159,7 +159,7 @@ class RegexRulePage extends ConsumerWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              // 使用RuleActionSelector组件替换简单的下拉选择框
+              // 使用RuleActionSelector组件替换简单的下拉选择�?
               RuleActionSelector(
                 initialAction: selectedAction,
                 onActionChanged: (action) {
@@ -187,7 +187,7 @@ class RegexRulePage extends ConsumerWidget {
                 }
 
                 try {
-                  // 验证正则表达式
+                  // 验证正则表达�?
                   if (!service.isValidRegex(patternController.text)) {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text(AppLocalizations.of(context)!.invalidRegexPattern),

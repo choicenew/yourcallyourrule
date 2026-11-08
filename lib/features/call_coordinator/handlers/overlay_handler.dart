@@ -1,10 +1,10 @@
 import 'package:floating_window_android/floating_window_android.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/common/utils/global_variable.dart';
-import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
-import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:yourcallyourrule/features/common/utils/global_variable.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/configuration/call_overlay_config.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/providers/call_overlay_style_security_provider.dart';
 

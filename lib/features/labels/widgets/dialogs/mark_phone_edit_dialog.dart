@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 
-/// 标记电话编辑对话框
+/// 标记电话编辑对话�?
 /// 用于编辑标记电话条目
 class MarkPhoneEditDialog extends ConsumerStatefulWidget {
   final LabelPhoneEntry entry;
@@ -23,7 +23,7 @@ class MarkPhoneEditDialog extends ConsumerStatefulWidget {
   @override
   ConsumerState<MarkPhoneEditDialog> createState() => _MarkPhoneEditDialogState();
 
-  /// 显示标记电话编辑对话框的静态方法
+  /// 显示标记电话编辑对话框的静态方�?
   static void show(BuildContext context, LabelPhoneEntry entry, {Function? onEntryUpdated, Color? themeColor}) {
     showDialog(
       context: context,
@@ -84,7 +84,7 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
       );
 
       final ruleService = ref.read(ruleManagementServiceProvider);
-      // 使用保存方法而不是更新方法
+      // 使用保存方法而不是更新方�?
       await ruleService.saveRule(updatedEntry);
 
       // 调用回调函数
@@ -92,7 +92,7 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
         widget.onEntryUpdated!();
       }
 
-      // 关闭对话框
+      // 关闭对话�?
       if (mounted) {
         Navigator.pop(context);
 
@@ -179,7 +179,7 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
               keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: 12),
-            // 标签选择器
+            // 标签选择�?
             PublicSelectLabel(
               initialLabelId: _selectedLabelId,
               onLabelIdChanged: (labelId) {

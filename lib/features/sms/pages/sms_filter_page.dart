@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
+import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 
 
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_service.dart';
-import 'package:yourcallyourrule/common/utils/regex_hint.dart';
+import 'package:yourcallyourrule/features/rules/utils/regex_hint.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 短信过滤规则管理页面
@@ -162,7 +162,7 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
                 try {
                   final service = ref.read(smsServiceProvider);
 
-                  // 验证正则表达式
+                  // 验证正则表达�?
                   if (!service
                       .validateRegexPattern(contentPatternController.text)) {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(

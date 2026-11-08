@@ -5,21 +5,21 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_script_service.dart';
 
 import 'core/js_execution_service.dart';
 
 part 'plugin_url_execution_service.g.dart';
 
-/// PluginUrlExecutionService 的 @Riverpod Provider
+/// PluginUrlExecutionService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 PluginUrlExecutionService pluginUrlWebViewService(Ref ref) {
   return PluginUrlExecutionService();
 }
 
-/// 动态 URL 生成服务
-/// [Refactored] 使用 JsExecutionService + 模拟 RequestChannel 来捕获 URL
+/// 动�?URL 生成服务
+/// [Refactored] 使用 JsExecutionService + 模拟 RequestChannel 来捕�?URL
 class PluginUrlExecutionService {
   final PluginScriptService _scriptService = PluginScriptService();
 
@@ -67,7 +67,7 @@ class PluginUrlExecutionService {
     if (headersMatch != null) {
       try {
         String headersString = headersMatch.group(1)!;
-        // 简单修复 headers 字符串格式以符合 JSON 标准
+        // 简单修�?headers 字符串格式以符合 JSON 标准
         headersString = headersString.replaceAll("'", '"');
         headersString = headersString.replaceAll(RegExp(r',\s*}'), '}');
         // Handle 'userAgent' variable which breaks static JSON parsing
@@ -114,7 +114,7 @@ class PluginUrlExecutionService {
       await jsService.init();
 
       // 2. Register Capturing Channel
-      // 我们不发网络请求，只是为了捕获 URL
+      // 我们不发网络请求，只是为了捕�?URL
       jsService.onRequestChannel = (dynamic message) async {
         if (completer.isCompleted) return null;
 

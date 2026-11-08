@@ -1,9 +1,9 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 part 'sim_slot_config_provider.g.dart';
 
-/// 状态模型，用于封装 SIM 卡配置状态
+/// 状态模型，用于封装 SIM 卡配置状�?
 class SimSlotConfigState {
   // Map<simSlotIndex, isEnabled>
   final Map<int, bool> simSlotFilterEnabled;
@@ -54,7 +54,7 @@ class SimSlotConfigNotifier extends _$SimSlotConfigNotifier {
     });
   }
 
-  /// 启用指定SIM卡槽位的过滤器
+  /// 启用指定SIM卡槽位的过滤�?
   Future<void> enableSimSlotFilter(int simSlotIndex) async {
     final currentState = await future;
     final newMap = Map<int, bool>.from(currentState.simSlotFilterEnabled)
@@ -62,7 +62,7 @@ class SimSlotConfigNotifier extends _$SimSlotConfigNotifier {
     await _updateAndSave(currentState.copyWith(simSlotFilterEnabled: newMap));
   }
 
-  /// 禁用指定SIM卡槽位的过滤器
+  /// 禁用指定SIM卡槽位的过滤�?
   Future<void> disableSimSlotFilter(int simSlotIndex) async {
     final currentState = await future;
     final newMap = Map<int, bool>.from(currentState.simSlotFilterEnabled)

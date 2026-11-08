@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 
 import '../services/onboarding_service.dart';
@@ -15,7 +15,7 @@ import '../widgets/onboarding_spam_block_card.dart';
 import '../widgets/onboarding_permissions_card.dart';
 import '../widgets/onboarding_ready_card.dart';
 
-/// 应用引导主页面（100% 仿 InitialSetup 彻底解耦与模块化重构版）
+/// 应用引导主页面（100% �?InitialSetup 彻底解耦与模块化重构版�?
 class OnboardingPage extends ConsumerStatefulWidget {
   const OnboardingPage({super.key});
 
@@ -31,7 +31,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   @override
   void initState() {
     super.initState();
-    // 一进入引导页，立即标记 Onboarding 已进入/完成，绝不容许二次表达
+    // 一进入引导页，立即标记 Onboarding 已进�?完成，绝不容许二次表�?
     ref.read(onboardingServiceProvider).completeOnboarding();
   }
 

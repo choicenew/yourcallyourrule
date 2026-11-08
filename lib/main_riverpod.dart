@@ -3,17 +3,17 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:yourcallyourrule/core/router/app_router_provider.dart';
+import 'package:yourcallyourrule/features/common/router/app_router_provider.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/call_overlay_entry.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/core/services/firebase_service.dart';
-import 'package:yourcallyourrule/common/error/logger.dart';
+import 'package:yourcallyourrule/features/common/services/firebase_service.dart';
+import 'package:yourcallyourrule/features/common/error/logger.dart';
 
 Future<void> main() async {
-  // 确保 Flutter 绑定初始化
+  // 确保 Flutter 绑定初始�?
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  // 保持原生启动屏幕直到 Flutter 渲染第一帧
+  // 保持原生启动屏幕直到 Flutter 渲染第一�?
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   try {
@@ -21,7 +21,7 @@ Future<void> main() async {
     final firebaseService = FirebaseService();
     await firebaseService.initialize();
     
-    // 初始化应用日志服务
+    // 初始化应用日志服�?
     AppLogger.initialize();
     
     // 初始化广告SDK
@@ -35,7 +35,7 @@ Future<void> main() async {
     ));
   } catch (e, stackTrace) {
     // 记录错误但不中断应用启动
-    print('初始化错误: $e');
+    print('初始化错�? $e');
     print('堆栈跟踪: $stackTrace');
     
     // 尝试记录错误到Firebase Crashlytics
@@ -45,7 +45,7 @@ Future<void> main() async {
       // 如果Crashlytics也无法初始化，则忽略错误
     }
   } finally {
-    // 无论初始化是否成功，都确保移除原生启动屏幕
+    // 无论初始化是否成功，都确保移除原生启动屏�?
     // 这样可以防止应用卡在启动屏幕
     FlutterNativeSplash.remove();
   }

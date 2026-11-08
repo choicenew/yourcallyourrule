@@ -1,10 +1,10 @@
-import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 import 'base_sms_handler.dart';
 
-/// SMS过滤处理器
+/// SMS过滤处理�?
 /// 专门负责处理SMS过滤相关的逻辑
 class SmsFilterHandler extends BaseSmsHandler {
   final List<SmsRegexRule> smsRules;
@@ -14,14 +14,14 @@ class SmsFilterHandler extends BaseSmsHandler {
   // 设置键名
   static const String smsFilterEnabledKey = 'config_sms_filter_enabled';
 
-  /// 构造函数
+  /// 构造函�?
   SmsFilterHandler({
     List<SmsRegexRule>? initialRules,
     ConfigRepository? configRepository,
   }) : smsRules = initialRules ?? [],
        _configRepository = configRepository ?? SharedPreferencesConfigRepository();
 
-  /// 初始化
+  /// 初始�?
   @override
   Future<void> initialize() async {
     await loadSettings();
@@ -74,11 +74,11 @@ class SmsFilterHandler extends BaseSmsHandler {
   Future<void> updateRules(List<SmsRegexRule> rules) async {
     // 清空现有规则
     smsRules.clear();
-    // 添加新规则
+    // 添加新规�?
     addRules(rules);
   }
 
-  /// 获取所有规则
+  /// 获取所有规�?
   Future<List<SmsRegexRule>> getRules() async {
     return List<SmsRegexRule>.from(smsRules);
   }
@@ -90,7 +90,7 @@ class SmsFilterHandler extends BaseSmsHandler {
     // 按优先级排序规则
     smsRules.sort((a, b) => b.priority.value.compareTo(a.priority.value));
     
-    // 遍历规则并检查匹配
+    // 遍历规则并检查匹�?
     for (final rule in smsRules) {
       if (rule.matches(messageContent, phoneNumber)) {
         // 根据规则动作类型决定是否通知

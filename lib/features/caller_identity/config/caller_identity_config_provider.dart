@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/caller_identity/config/caller_identity_config_repository.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/display_mode.dart';
 

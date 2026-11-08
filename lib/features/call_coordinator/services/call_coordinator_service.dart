@@ -3,8 +3,8 @@ import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:yourcallyourrule/core/entities/call/call_data.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_recorder.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/display_mode_handler.dart';
 import 'package:yourcallyourrule/features/call_monitor/events/call_monitor_events.dart';
@@ -28,7 +28,6 @@ CallCoordinatorService callCoordinatorService(Ref ref) {
 }
 
 /// 生产级全流程调度中枢 (Master Orchestrator / Async Event Hub)
-/// 0 毫秒延迟并发分发：监听到事件 ➔ 并行调度 Policy 策略 & Identity 身份画像 ➔ 汇总驱动 UI/通知与日志落库
 class CallCoordinatorService {
   final Ref _ref;
   final CallMonitorService _monitorService;
@@ -52,14 +51,13 @@ class CallCoordinatorService {
     _identitySubscription?.cancel();
     _identitySubscription = _identityService.callerIdStream.listen(_onCallerIdIncrementalUpdate);
 
-    debugPrint('[CallCoordinator Hub] 生产级全流程并发调度中枢已全面激活。');
+    debugPrint('[CallCoordinator Hub] 生产级全流程并发调度中枢已全面激活');
   }
 
   Future<void> _handleMonitorEvent(CallMonitorEvent event) async {
     if (event is IncomingCallEvent) {
-      debugPrint('[CallCoordinator Hub] 收到来电事件: ${event.phoneNumber}，发起 0ms 并发调度');
+      debugPrint('[CallCoordinator Hub] 收到来电事件: ${event.phoneNumber}');
 
-      // 1. 并发派发：并行发起 策略评估 & 身份画像拉取
       final policyFuture = _ref.read(callPolicyEvaluatorProvider).evaluateShouldAccept(
         rawNumber: event.phoneNumber,
         nationalNumber: event.phoneNumber,
@@ -71,13 +69,11 @@ class CallCoordinatorService {
         Locale.english,
       );
 
-      // 2. 策略先出结果时，秒级响应 Native 门禁
       unawaited(policyFuture.then((shouldAccept) {
-        debugPrint('[CallCoordinator Hub] 策略极速响应: $shouldAccept');
+        debugPrint('[CallCoordinator Hub] 策略响应: $shouldAccept');
         _ref.read(shouldAcceptCallHandlerProvider).sendDecision(shouldAccept);
       }));
 
-      // 3. 身份拉取完成后，刷新 UI 与落库
       final callerIdData = await identityFuture;
       final displayModeHandler = await _ref.read(displayModeHandlerProvider.future);
       await displayModeHandler.showCallerIdInfo(callerIdData, null, null);
@@ -97,7 +93,7 @@ class CallCoordinatorService {
   }
 
   Future<void> _onCallerIdIncrementalUpdate(CallerIdData data) async {
-    debugPrint('[CallCoordinator Hub] 接收到插件增量刷新，无缝更新 UI: ${data.name}');
+    debugPrint('[CallCoordinator Hub] 接收到插件增量刷新: ${data.name}');
     final displayModeHandler = await _ref.read(displayModeHandlerProvider.future);
     await displayModeHandler.showCallerIdInfo(data, null, null);
   }

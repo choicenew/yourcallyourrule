@@ -1,5 +1,5 @@
-import 'package:yourcallyourrule/core/router/app_router.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

@@ -5,19 +5,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
-import 'package:yourcallyourrule/common/utils/phone_utils.dart';
-import 'package:yourcallyourrule/core/entities/call/call_log.dart';
-import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
+import 'package:yourcallyourrule/features/phone/utils/phone_utils.dart';
+import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/labels/services/label_phone_entry_to_remote.dart';
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_sync_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 电话元数据编辑对话框
-/// 用于统一编辑一个电话号码关联的 Name 和 LabelId
+/// 用于统一编辑一个电话号码关联的 Name �?LabelId
 class PhoneMetaEditDialog extends ConsumerStatefulWidget {
   final CallLog log;
 
@@ -53,7 +53,7 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
     super.dispose();
   }
 
-  /// 核心保存逻辑 - 严格分离 CallLog 和 LabelPhoneEntry 的保存
+  /// 核心保存逻辑 - 严格分离 CallLog �?LabelPhoneEntry 的保�?
   Future<void> _saveChanges() async {
     setState(() => _isSaving = true);
 
@@ -62,23 +62,23 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
       final newLabelIds = _selectedLabelId != null ? [_selectedLabelId!] : <String>[];
       final callLogService = ref.read(callLogServiceProvider);
       
-      // 步骤 A: 独立地保存“事实档案” (LabelPhoneEntry)
+      // 步骤 A: 独立地保存“事实档案�?(LabelPhoneEntry)
       final entryToProcess = await _createOrUpdateLabelPhoneEntry(newName, _selectedLabelId);
 
-      // 步骤 B: 独立地、无条件地保存当前这一条“历史事件快照” (CallLog)
+      // 步骤 B: 独立地、无条件地保存当前这一条“历史事件快照�?(CallLog)
       await callLogService.updateLog(widget.log.copyWith(
         name: newName.isEmpty ? null : newName,
         labelIds: newLabelIds,
       ));
 
-      // 步骤 C: 在后台，批量更新数据库中所有使用该号码的 CallLog 记录
+      // 步骤 C: 在后台，批量更新数据库中所有使用该号码�?CallLog 记录
       await callLogService.updateNameAndLabelsByPhoneNumber(
         widget.log.phoneNumber, // 使用原始号码进行匹配
         newName.isEmpty ? null : newName,
         newLabelIds,
       );
 
-      // 步骤 D: (可选) 同步
+      // 步骤 D: (可�? 同步
       if (entryToProcess != null) {
         final syncService = ref.read(labelPhoneEntryToRemoteProvider);
         await syncService.sync(entryToProcess);
@@ -105,13 +105,13 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
     }
   }
 
-  /// 私有辅助方法，封装了创建或更新 LabelPhoneEntry 的逻辑
-  /// 它的唯一职责就是确保数据库中存在一条正确的记录，并返回它
-  /// **此方法严格使用 E.164 号码**
+  /// 私有辅助方法，封装了创建或更�?LabelPhoneEntry 的逻辑
+  /// 它的唯一职责就是确保数据库中存在一条正确的记录，并返回�?
+  /// **此方法严格使�?E.164 号码**
   Future<LabelPhoneEntry?> _createOrUpdateLabelPhoneEntry(String newName, String? newLabelId) async {
     final labelService = ref.read(labelServiceProvider);
     
-    // 1. 将 CallLog 中的原始号码转换为 E.164 格式
+    // 1. �?CallLog 中的原始号码转换�?E.164 格式
     final parsedResult = await PhoneUtils.parsePhoneNumber(widget.log.phoneNumber);
     final e164NumberString = parsedResult['e164Number'];
 
@@ -124,7 +124,7 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
       
     final e164PhoneNumber = PhoneNumber.fromString(e164NumberString);
       
-    // 2. 使用 E.164 号码在数据库中查找
+    // 2. 使用 E.164 号码在数据库中查�?
     LabelPhoneEntry? existingEntry = await labelService.getLabelByPhoneNumber(e164PhoneNumber);
     LabelPhoneEntry entryToProcess;
 
@@ -136,7 +136,7 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
       );
       await labelService.updateLabel(entryToProcess);
     } else {
-      // 3b. 如果不存在，则创建
+      // 3b. 如果不存在，则创�?
       entryToProcess = LabelPhoneEntry(
         id: const Uuid().v4(),
         phoneNumber: e164PhoneNumber,

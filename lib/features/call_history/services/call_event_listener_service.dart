@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:yourcallyourrule/core/entities/call/call_data.dart';
-import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:yourcallyourrule/features/call_history/entities/local_call_type.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_recorder.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/call_monitor/handlers/intercept_event_provider.dart';
@@ -59,7 +59,7 @@ class CallEventListenerService {
     // 3. 监听应用内拦截事件 (来自 EndCallHandler)
     _interceptEventSubscription = _ref.read(interceptEventStreamControllerProvider).stream.listen(_handleInterceptEvent);
     
-    debugPrint('✅ [EventListener] Initialized and listening to all event streams.');
+    debugPrint('🎧 [EventListener] Initialized and listening to all event streams.');
   }
 
   /// **处理函数 1**: 接收原生事件，更新内部状态字符串。
@@ -96,7 +96,7 @@ class CallEventListenerService {
         }
         break;
 
-      // 【新增】5. 处理电话被接听的事件
+      // 【新增】. 处理电话被接听的事件
       case 'onCallAnswered':
         // 收到电话接听事件。
         // 我们需要找到哪个正在响铃的电话被接听了。
@@ -110,7 +110,7 @@ class CallEventListenerService {
         }
         break;
 
-      // 【新增】6. 将 onCallEnded 的逻辑移到独立的函数中处理
+      // 【新增】. 将 onCallEnded 的逻辑移到独立的函数中处理
       case 'onCallEnded':
         // 收到通话结束事件，交由专门的函数处理。
         _handleCallEnded(timestamp);
@@ -170,7 +170,7 @@ class CallEventListenerService {
     debugPrint("🔔 [EventListener] Received intercept event for $phoneNumber, raw action name: ${event.actionName}");
 
     if (_pendingRawCallEvents.containsKey(phoneNumber)) {
-      // 直接使用来自 InterceptAction 枚举的名称 (如 'endCall') 作为我们的内部状态。
+      // 直接使用来自 InterceptAction 枚举的名称（如 'endCall'）作为我们的内部状态。
       // 这个状态字符串将在 _tryLogCall 中被翻译成最终的 LocalCallType。
       _pendingRawCallEvents[phoneNumber]?['status'] = event.actionName;
       debugPrint("   ➡️ Internal status updated to: ${event.actionName}");
@@ -180,7 +180,7 @@ class CallEventListenerService {
     }
   }
 
-  /// **调度中心 / 决策者**
+  /// **调度中心 / 决策者**:
   /// 它的职责是：
   /// 1. **检查**：确认记录日志所需的所有信息（rawEvent, callData）是否都已到达。
   /// 2. **决策**：根据 `status` 字符串，决定这次通话的最终类型 (`LocalCallType`)。
@@ -212,7 +212,7 @@ class CallEventListenerService {
     // 根据状态字符串，决定 callType 并准备好对应的 extraArgs 数据包。
     switch (statusString) {
       case 'completed':
-        // 已完成的通话，是 `incoming` 还是 `outgoing`？
+        // 已完成的通话，是 `incoming` 还是 `outgoing`。
         callType = rawEvent['type'] == 'incoming' ? LocalCallType.incoming : LocalCallType.outgoing;
         
         // 已完成的通话有特殊的时间数据：`startTime` 和 `duration`。
@@ -228,7 +228,7 @@ class CallEventListenerService {
         // extraArgs 不需要修改，因为它已经包含了我们需要的 `timestamp`。
         break;
 
-      case 'endCall': // 这是从 InterceptAction.name 来的字符串
+      case 'endCall': // 这是来自 InterceptAction.name 的字符串
         callType = LocalCallType.rejected;
         // extraArgs 同样不需要修改，因为它已经包含了 `timestamp`。
         break;
@@ -243,7 +243,7 @@ class CallEventListenerService {
         // extraArgs 同样不需要修改。
         break;
       
-      // 中间状态，决策为"不记录"，直接返回。
+      // 中间状态，决策者“不记录”，直接返回。
       case 'ringing':
       case 'dialing':
       case 'answered':
@@ -264,10 +264,10 @@ class CallEventListenerService {
     // 任务成功委派并执行后，清理这个号码的所有缓冲数据。
     _pendingRawCallEvents.remove(phoneNumber);
     _processedCallDataBuffer.remove(phoneNumber);
-    debugPrint('✅ [EventListener] Logged and cleaned up for $phoneNumber.');
+    debugPrint('🧹 [EventListener] Logged and cleaned up for $phoneNumber.');
   }
 
-  /// **执行者 / 传送带**
+  /// **执行者 / 传送带**:
   /// 它的职责是：
   /// 1. **接收**：接收来自 `_tryLogCall` 的、完全整理好的、类型安全的指令。
   /// 2. **分发**：根据 `LocalCallType`，将任务精确地分发给 `CallLogRecorder` 中对应的具体方法。

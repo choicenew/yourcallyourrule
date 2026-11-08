@@ -1,12 +1,12 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 import 'package:yourcallyourrule/features/remote_filter/config/remote_number_filter_config.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
-// 导入依赖的 Provider
+// 导入依赖�?Provider
 
 
 
@@ -20,12 +20,12 @@ RemoteNumberFilterService remoteNumberFilterService(Ref ref) {
   );
 }
 
-/// 远程号码过滤服务类 (无状态)
+/// 远程号码过滤服务�?(无状�?
 class RemoteNumberFilterService implements CallFilterInterface {
   final RemoteNumberService _remoteNumberService;
   final Future<RemoteNumberFilterConfig> Function() _getConfig;
 
-  // 构造函数明确依赖关系
+  // 构造函数明确依赖关�?
   RemoteNumberFilterService({
     required RemoteNumberService remoteNumberService,
     required Future<RemoteNumberFilterConfig> Function() getConfig,
@@ -39,7 +39,7 @@ class RemoteNumberFilterService implements CallFilterInterface {
   @override
   Future<bool> shouldAcceptCall(String phoneNumberStr, {SimInfo? simInfo}) async {
     try {
-      // 如果未启用远程号码过滤，则默认接受
+      // 如果未启用远程号码过滤，则默认接�?
       final config = await _getConfig();
       if (!config.enableRemoteNumberFilter) {
         return true;
@@ -54,7 +54,7 @@ class RemoteNumberFilterService implements CallFilterInterface {
         // 日志记录逻辑
       }
       
-      // 如果远程数据库中存在该号码
+      // 如果远程数据库中存在该号�?
       if (remoteInfo != null) {
         // 增加计数
         final updatedEntry = await _remoteNumberService.incrementCount(phoneNumber);
@@ -64,7 +64,7 @@ class RemoteNumberFilterService implements CallFilterInterface {
           return await _remoteNumberService.shouldAcceptBasedOnCount(phoneNumber);
         }
         
-        // 检查计数是否超过阈值
+        // 检查计数是否超过阈�?
         final isExceeded = await _remoteNumberService.isCountExceeded(phoneNumber);
          // 如果计数超过阈值且配置为拒绝超过阈值的号码
         if (isExceeded && config.rejectExceededNumbers) {

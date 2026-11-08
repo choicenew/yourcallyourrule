@@ -3,50 +3,50 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/call/call_log.dart' as app_call_log;
-import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
+import 'package:yourcallyourrule/features/call_history/entities/call_log.dart' as app_call_log;
+import 'package:yourcallyourrule/features/call_history/entities/local_call_type.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 
 part 'system_call_log_service.g.dart';
 
-/// 系统通话记录服务提供者
+/// 系统通话记录服务提供�?
 @Riverpod(keepAlive: true)
 SystemCallLogService systemCallLogService(Ref ref) {
   return SystemCallLogService(ref.watch(callLogServiceProvider));
 }
 
 /// 系统通话记录服务
-/// 使用call_log插件读取系统通话记录（注意：这是新添加的功能）
+/// 使用call_log插件读取系统通话记录（注意：这是新添加的功能�?
 /// 当应用有系统权限时，可以使用此服务读取系统通话记录
 /// 并将其转换为应用内通话记录格式
 /// 
-/// 此服务与call_log_recorder.dart不同：
+/// 此服务与call_log_recorder.dart不同�?
 /// - call_log_recorder.dart：记录应用内产生的通话记录
-/// - system_call_log_service.dart：读取系统通话记录并同步到应用内
+/// - system_call_log_service.dart：读取系统通话记录并同步到应用�?
 class SystemCallLogService {
   final CallLogService _callLogService;
 
-  /// 构造函数
+  /// 构造函�?
   SystemCallLogService(this._callLogService);
 
-  /// 检查是否有读取通话记录的权限
+  /// 检查是否有读取通话记录的权�?
   Future<bool> hasCallLogPermission() async {
     final status = await Permission.phone.status;
     return status.isGranted;
   }
 
-  /// 请求读取通话记录的权限
+  /// 请求读取通话记录的权�?
   Future<bool> requestCallLogPermission() async {
     final status = await Permission.phone.request();
     return status.isGranted;
   }
 
-  /// 从系统读取通话记录并同步到应用内
-  /// 返回同步的记录数量
+  /// 从系统读取通话记录并同步到应用�?
+  /// 返回同步的记录数�?
   Future<int> syncSystemCallLogs() async {
-    // 检查权限
+    // 检查权�?
     if (!await hasCallLogPermission()) {
-      return 0; // 没有权限，返回0
+      return 0; // 没有权限，返�?
     }
 
     try {
@@ -58,7 +58,7 @@ class SystemCallLogService {
       final systemLogs = await sys.CallLog.query();
       int syncCount = 0;
 
-      // 转换并保存记录
+      // 转换并保存记�?
       for (var entry in systemLogs) {
         // 跳过已同步的记录
         final callTimestamp = DateTime.fromMillisecondsSinceEpoch(entry.timestamp ?? 0);
@@ -69,7 +69,7 @@ class SystemCallLogService {
         // 转换通话类型
         final callType = _mapCallType(entry.callType);
 
-        // 新增：计算通话结束时间和时长
+        // 新增：计算通话结束时间和时�?
         final durationInSeconds = entry.duration ?? 0;
         final durationInMillis = durationInSeconds * 1000;
         final endTime = callTimestamp.add(Duration(seconds: durationInSeconds));
@@ -86,14 +86,14 @@ class SystemCallLogService {
           // 🔥 新增字段
           endTime: endTime,
           duration: durationInMillis,
-          // 以下字段可能在系统记录中不存在，使用默认值
+          // 以下字段可能在系统记录中不存在，使用默认�?
           carrierName: '',
           countryIso: '',
           subscriptionId: 0,
           labelIds: [],
         );
 
-        // 保存到应用内数据库
+        // 保存到应用内数据�?
         await _callLogService.addLog(appLog);
         syncCount++;
       }
@@ -105,21 +105,21 @@ class SystemCallLogService {
     }
   }
 
-  /// 根据通话记录中的 phoneAccountId 推断 SIM 卡槽索引。
+  /// 根据通话记录中的 phoneAccountId 推断 SIM 卡槽索引�?
   ///
-  /// 此实现基于对 Android `call_log` 插件行为的观察和您提供的原生代码逻辑：
-  /// 1. `phoneAccountId` 在很多设备上直接对应 SIM 卡的索引值（例如 "0", "1"）。
-  /// 2. 这是一个合理的备用方案，因为在纯 Dart 环境中无法直接访问 Android 的 TelecomManager 来获取通话账户列表并查找索引。
+  /// 此实现基于对 Android `call_log` 插件行为的观察和您提供的原生代码逻辑�?
+  /// 1. `phoneAccountId` 在很多设备上直接对应 SIM 卡的索引值（例如 "0", "1"）�?
+  /// 2. 这是一个合理的备用方案，因为在�?Dart 环境中无法直接访�?Android �?TelecomManager 来获取通话账户列表并查找索引�?
   ///
-  /// @param accountId 从 `CallLogEntry` 获取的 `phoneAccountId`。
-  /// @return 解析出的整数索引，如果解析失败或为空，则默认为 0。
+  /// @param accountId �?`CallLogEntry` 获取�?`phoneAccountId`�?
+  /// @return 解析出的整数索引，如果解析失败或为空，则默认�?0�?
   int _getSimSlotIndexFromAccountId(String? accountId) {
     if (accountId == null || accountId.isEmpty) {
       return 0; // 如果 accountId 为空，默认为卡槽 0
     }
-    // 尝试将 accountId 直接解析为整数。这在许多 Android 版本和设备上是有效的。
+    // 尝试�?accountId 直接解析为整数。这在许�?Android 版本和设备上是有效的�?
     final int? parsedIndex = int.tryParse(accountId);
-    // 如果解析成功且为非负数，则使用该值。否则，默认为 0。
+    // 如果解析成功且为非负数，则使用该值。否则，默认�?0�?
     return (parsedIndex != null && parsedIndex >= 0) ? parsedIndex : 0;
   }
 

@@ -1,12 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/common/utils/phone_utils.dart';
-import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/entities/remote/remote_number_entry.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
+import 'package:yourcallyourrule/features/phone/utils/phone_utils.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:pyro_phone_remote_filter_protocol/pyro_phone_remote_filter_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_priority.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 
@@ -19,9 +19,7 @@ LabelPhoneEntryToRemote labelPhoneEntryToRemote(Ref ref) {
   return LabelPhoneEntryToRemote(remoteNumberService, predefinedLabelService);
 }
 
-/// 标签电话条目到远程同步服务
-/// 负责将 LabelPhoneEntry 同步到远程号码服务
-class LabelPhoneEntryToRemote {
+/// 标签电话条目到远程同步服�?/// 负责�?LabelPhoneEntry 同步到远程号码服�?class LabelPhoneEntryToRemote {
   final RemoteNumberService _remoteNumberService;
   final PredefinedLabelService _predefinedLabelService;
 
@@ -42,8 +40,7 @@ class LabelPhoneEntryToRemote {
         null,
       );
 
-      // 获取E164格式的电话号码
-      final e164Number = phoneNumberMap['e164'] ?? phoneNumber.value;
+      // 获取E164格式的电话号�?      final e164Number = phoneNumberMap['e164'] ?? phoneNumber.value;
       final formattedPhoneNumber = PhoneNumber.fromString(e164Number);
 
       await _syncInternal(formattedPhoneNumber, labelPhoneEntry);
@@ -57,8 +54,7 @@ class LabelPhoneEntryToRemote {
     PhoneNumber phoneNumber,
     LabelPhoneEntry labelPhoneEntry,
   ) async {
-    // 获取预定义标签信息
-    final predefinedLabel = await _predefinedLabelService.getLabelById(
+    // 获取预定义标签信�?    final predefinedLabel = await _predefinedLabelService.getLabelById(
       labelPhoneEntry.labelId,
     );
     final labelText = predefinedLabel?.text ?? '';
@@ -94,8 +90,7 @@ class LabelPhoneEntryToRemote {
         );
       }
     } else {
-      // 创建新条目
-      final newEntry = RemoteNumberEntry(
+      // 创建新条�?      final newEntry = RemoteNumberEntry(
         id: const Uuid().v4(),
         phoneNumber: phoneNumber,
         name: labelPhoneEntry.name,

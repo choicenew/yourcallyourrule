@@ -4,19 +4,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
-import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
-import 'package:yourcallyourrule/core/services/list_service.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_priority.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.dart';
+import 'package:yourcallyourrule/features/common/services/list_service.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_priority.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
 part 'mark_phone_service.g.dart';
 
-/// LabelPhoneService 的 @Riverpod Provider
+/// LabelPhoneService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 LabelPhoneService markPhoneService(Ref ref) {
   final ruleRepository = ref.watch(ruleRepositoryProvider);
@@ -24,14 +24,14 @@ LabelPhoneService markPhoneService(Ref ref) {
   return LabelPhoneService(ruleRepository, predefinedLabelService);
 }
 
-/// 电话号码标签服务类
+/// 电话号码标签服务�?
 /// 负责将电话号码与标签ID关联，处理号码标记的业务逻辑
 class LabelPhoneService extends ListService {
   final RuleRepository _ruleRepository;
   final PredefinedLabelService _predefinedLabelService;
   final Uuid _uuid = Uuid();
   
-  /// 构造函数
+  /// 构造函�?
   LabelPhoneService(this._ruleRepository, this._predefinedLabelService) : super(_ruleRepository);
 
   /// 标记电话号码
@@ -46,7 +46,7 @@ class LabelPhoneService extends ListService {
     // 检查标签ID是否存在
     final label = await _predefinedLabelService.getLabelById(labelId);
     if (label == null) {
-      throw Exception('标签ID不存在: $labelId');
+      throw Exception('标签ID不存�? $labelId');
     }
     
     // 创建标签条目
@@ -79,11 +79,11 @@ class LabelPhoneService extends ListService {
     }
   }
 
-  /// 获取所有电话号码标记
+  /// 获取所有电话号码标�?
   Future<List<LabelPhoneEntry>> getAllPhoneMarks() async {
     final rules = await _ruleRepository.getAll();
-     print('markphone 获取到的所有 rules: $rules');
-    print('markphone获取所有电话号码标记: ${rules.map((e) {
+     print('markphone 获取到的所�?rules: $rules');
+    print('markphone获取所有电话号码标�? ${rules.map((e) {
     if (e is LabelPhoneEntry) {
       return 'ID: ${e.id}, 电话: ${e.phoneNumber}, 标签: ${e.labelId}';
     }
@@ -104,7 +104,7 @@ class LabelPhoneService extends ListService {
     }
   }
 
-  /// 根据标签ID获取所有标记
+  /// 根据标签ID获取所有标�?
   Future<List<LabelPhoneEntry>> getMarksByLabelId(String labelId) async {
     final marks = await getAllPhoneMarks();
     return marks.where((mark) => mark.labelId == labelId).toList();
@@ -116,7 +116,7 @@ class LabelPhoneService extends ListService {
     return mark != null;
   }
   
-  /// 获取标记的视图模型（包含标签详细信息）
+  /// 获取标记的视图模型（包含标签详细信息�?
   Future<LabelViewModel> getMarkViewModel(LabelPhoneEntry entry) async {
     final label = await _predefinedLabelService.getLabelById(entry.labelId);
     return LabelViewModel(
@@ -126,7 +126,7 @@ class LabelPhoneService extends ListService {
     );
   }
   
-  /// 批量获取标记的视图模型
+  /// 批量获取标记的视图模�?
   Future<List<LabelViewModel>> getMarkViewModels(List<LabelPhoneEntry> entries) async {
     // 提取所有使用的标签ID
     final labelIds = entries.map((e) => e.labelId).toSet().toList();
@@ -157,13 +157,13 @@ class LabelViewModel<T> {
   /// 规则对象
   final T rule;
   
-  /// 预定义标签
+  /// 预定义标�?
   final PredefinedLabel? label;
   
-  /// 获取规则中labelId的函数
+  /// 获取规则中labelId的函�?
   final String Function(T) getLabelId;
 
-  /// 构造函数
+  /// 构造函�?
   LabelViewModel({
     required this.rule,
     this.label,

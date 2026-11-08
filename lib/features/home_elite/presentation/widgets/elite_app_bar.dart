@@ -1,13 +1,13 @@
 // -----------------------------------------------------------------------------
 // 文件: elite_app_bar.dart
-// 描述: Elite 顶部应用栏（去除硬编码主题依赖，100% 切换为原生 Theme.of(context)）。
+// 描述: Elite 顶部应用栏（去除硬编码主题依赖，100% 切换为原�?Theme.of(context)）�?
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/call_monitor/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -280,7 +280,7 @@ Widget previewEliteAppBar() {
   );
 }
 
-// ------------------- 极简三尖角香槟金冠图标 -------------------
+// ------------------- 极简三尖角香槟金冠图�?-------------------
 
 class MinimalistCrownIcon extends StatelessWidget {
   final double size;
@@ -319,7 +319,7 @@ class _MinimalistCrownPainter extends CustomPainter {
       ..style = PaintingStyle.fill
       ..isAntiAlias = true;
 
-    // 精致三尖角皇冠 Path
+    // 精致三尖角皇�?Path
     final path = Path();
     path.moveTo(0, h * 0.20);
     path.lineTo(w * 0.25, h * 0.72);

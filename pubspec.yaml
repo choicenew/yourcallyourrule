@@ -128,10 +128,14 @@ dependencies:
   pyro_sim_hub:
     path: packages/sim/pyro_sim_hub
 
+  pyro_sms_protocol:
+    path: packages/sms/pyro_sms_protocol
   pyro_sms_connector:
     path: packages/sms/pyro_sms_connector
   pyro_sms_hub:
     path: packages/sms/pyro_sms_hub
+  pyro_sms_ui:
+    path: packages/sms/pyro_sms_ui
 
   pyro_stir_connector:
     path: packages/stir/pyro_stir_connector
@@ -292,6 +296,13 @@ dependencies:
   pyro_device_profile_ui:
     path: packages/device_profile/pyro_device_profile_ui
 
+  pyro_device_master_slave_protocol:
+    path: packages/device/pyro_device_master_slave_protocol
+  pyro_device_master_slave_hub:
+    path: packages/device/pyro_device_master_slave_hub
+  pyro_device_master_slave:
+    path: packages/device/pyro_device_master_slave
+
   pyro_phone_contacts_protocol:
     path: packages/phone_contacts/pyro_phone_contacts_protocol
   pyro_phone_contacts_connector:
@@ -354,6 +365,22 @@ dependencies:
     path: packages/phone_marking/pyro_phone_marking_hub
   pyro_phone_marking_ui:
     path: packages/phone_marking/pyro_phone_marking_ui
+
+  # === Sync, User DB & Central DB Package Suites ===
+  pyro_sync_protocol:
+    path: packages/sync/pyro_sync_protocol
+  pyro_sync_hub:
+    path: packages/sync/pyro_sync_hub
+
+  pyro_user_database_protocol:
+    path: packages/user_database/pyro_user_database_protocol
+  pyro_user_database_hub:
+    path: packages/user_database/pyro_user_database_hub
+
+  pyro_central_database_protocol:
+    path: packages/database/pyro_central_database_protocol
+  pyro_central_database_hub:
+    path: packages/database/pyro_central_database_hub
 
 dev_dependencies:
   flutter_test:

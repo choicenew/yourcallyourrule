@@ -3,12 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:yourcallyourrule/core/entities/call/call_log.dart';
-import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
-import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
+import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
+import 'package:yourcallyourrule/features/call_history/entities/local_call_type.dart';
+import 'package:yourcallyourrule/features/common/entities/list_entry.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 一个专门处理通话记录相关操作的工具类 (Handler)

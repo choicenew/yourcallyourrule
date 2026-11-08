@@ -1,6 +1,6 @@
 import 'package:dlibphonenumber/dlibphonenumber.dart';
-import 'package:yourcallyourrule/core/entities/call/call_data.dart';
-import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_recorder.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';

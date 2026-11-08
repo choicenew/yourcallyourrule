@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
-import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/label_edit_dialog.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -347,14 +347,14 @@ class _LabelManagementPageState extends ConsumerState<LabelManagementPage> {
   Widget _buildLabelChip(String label) {
     // 异步获取所有标签的文本，然后计算每个标签类型的数量
     // 这里需要一个更复杂的实现来正确计数
-    // 在实际应用中，应该在加载标签时预先构建映射关系
+    // 在实际应用中，应该在加载标签时预先构建映射关�?
     
     // 首先尝试找到与此标签文本对应的预定义标签
     Future<int> getCount() async {
       final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
       // 获取所有预定义标签
       final predefinedLabels = await predefinedLabelService.getAllLabels();
-      // 找到与当前标签文本匹配的预定义标签
+      // 找到与当前标签文本匹配的预定义标�?
       final matchingLabels = predefinedLabels.where((pl) => pl.text == label).toList();
       
       if (matchingLabels.isEmpty) return 0;
@@ -362,7 +362,7 @@ class _LabelManagementPageState extends ConsumerState<LabelManagementPage> {
       // 获取匹配标签的ID
       final labelIds = matchingLabels.map((l) => l.id).toSet();
       
-      // 计算使用这些标签ID的标签数量
+      // 计算使用这些标签ID的标签数�?
       return _labels.where((l) => labelIds.contains(l.labelId)).length;
     }
     

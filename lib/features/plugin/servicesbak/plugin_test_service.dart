@@ -6,7 +6,7 @@ import 'dart:typed_data';
 
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:http/http.dart' as http;
-import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:html/parser.dart' as html_parser;
 import 'package:html/dom.dart' as dom;
 
@@ -28,7 +28,7 @@ class PluginTestService {
   String? _loadedPluginId;
   final Map<String, Completer<Map<String, dynamic>?>> _requestCompleters = {};
 
-  // [新] 创建一个拦截器实例来处理所有网络请求
+  // [新] 创建一个拦截器实例来处理所有网络请�?
   final _requestInterceptor = WebViewRequestInterceptor();
 
   void _addLog(String log) {
@@ -52,7 +52,7 @@ class PluginTestService {
         _addLog('Headless WebView created.');
         await _setupJavaScriptHandlers(controller);
       },
-      // [关键修改] 将 shouldInterceptRequest 的职责完全委托给拦截器实例
+      // [关键修改] �?shouldInterceptRequest 的职责完全委托给拦截器实�?
       shouldInterceptRequest: (controller, request) {
         return _requestInterceptor.handleInterceptedRequest(
           controller,
@@ -123,12 +123,12 @@ class PluginTestService {
             }
             final requestId = resultData['requestId'] as String?;
 
-            // ▼▼▼ [修改] 在这里委托会话清理 ▼▼▼
+            // ▼▼�?[修改] 在这里委托会话清�?▼▼�?
             if (requestId != null) {
               _requestInterceptor.cleanupSession(requestId);
               _addLog('Session cleaned for completed requestId: $requestId.');
             }
-            // ▲▲▲ 会话清理逻辑结束 ▲▲▲
+            // ▲▲�?会话清理逻辑结束 ▲▲�?
 
             if (requestId != null &&
                 _requestCompleters.containsKey(requestId)) {
@@ -167,7 +167,7 @@ class PluginTestService {
 
           _addLog('Making Native HTTP Request: $method $url');
 
-          // [修复] 根据 method 动态选择请求方式，支持 POST/PUT 等
+          // [修复] 根据 method 动态选择请求方式，支�?POST/PUT �?
           final uri = Uri.parse(url);
           http.Response response;
 

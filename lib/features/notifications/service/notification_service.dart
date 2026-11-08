@@ -4,14 +4,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/notifications/domain/notification_category.dart';
 import '../config/notification_config.dart';
 import 'notification_service_contract.dart';
 import 'package:go_router/go_router.dart';
 
-/// 基于 flutter_local_notifications 的 NotificationService 实现
+/// 基于 flutter_local_notifications �?NotificationService 实现
 class NotificationService implements NotificationServiceContract {
   
   NotificationService() {
@@ -23,7 +23,7 @@ class NotificationService implements NotificationServiceContract {
   Function(String actionId, Map<String, dynamic>? payload)? _onActionHandler;
   bool _isInitialized = false;
 
-  /// 预定义的通知配置，现在是需要 BuildContext 的静态方法
+  /// 预定义的通知配置，现在是需�?BuildContext 的静态方�?
   static NotificationConfig defaultConfig(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return NotificationConfig(
@@ -66,7 +66,7 @@ class NotificationService implements NotificationServiceContract {
       priority: Priority.high,
       playSound: true,
       enableVibration: true,
-            // 【关键】: 将颜色设置为红色。Android 会用这个颜色给小图标着色。
+            // 【关键�? 将颜色设置为红色。Android 会用这个颜色给小图标着色�?
       color: Colors.red,
     );
   }

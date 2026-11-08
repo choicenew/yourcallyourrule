@@ -7,16 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
-import 'package:yourcallyourrule/common/error/logger.dart';
+import 'package:yourcallyourrule/features/common/error/logger.dart';
 
-import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
-import 'package:yourcallyourrule/core/repositories/plugin_repository.dart';
-import 'package:yourcallyourrule/core/services/list_service.dart';
-import 'package:yourcallyourrule/core/services/universal_import_export_service.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
+import 'package:yourcallyourrule/features/plugin/repositories/plugin_repository.dart';
+import 'package:yourcallyourrule/features/common/services/list_service.dart';
+import 'package:yourcallyourrule/features/rules/services/universal_import_export_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_config.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
-/// 插件管理服务 - 负责数据库操作
+/// 插件管理服务 - 负责数据库操�?
 /// 遵循单一职责原则，只负责插件的CRUD操作
 class PluginManagerService extends ListService<PluginEntry, String> {
   final PluginRepository _repository;
@@ -30,7 +30,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
         _config = PluginManagerConfig(configRepository: configRepository),
         super(_repository);
 
-  // region 基础CRUD操作（保持与PhoneSubscriptionService一致的结构）
+  // region 基础CRUD操作（保持与PhoneSubscriptionService一致的结构�?
   @override
   Future<PluginEntry> addEntry(PluginEntry entry) => _repository.save(entry);
 
@@ -49,7 +49,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
   // endregion
 
   // region 业务方法（按功能分组排序，与LabelService模式一致）
-  /// 获取所有插件
+  /// 获取所有插�?
   @override
   Future<List<PluginEntry>> getAll() async {
     return await _repository.getAll();
@@ -71,13 +71,13 @@ class PluginManagerService extends ListService<PluginEntry, String> {
     return plugins.where((entry) => entry.isEnabled).toList();
   }
 
-  /// 切换插件状态（与PhoneSubscriptionService的enable/disable模式对齐）
+  /// 切换插件状态（与PhoneSubscriptionService的enable/disable模式对齐�?
   Future<void> togglePluginStatus(PluginEntry entry, bool isEnabled) async {
     final updatedEntry = entry.copyWith(isEnabled: isEnabled);
     await _repository.update(updatedEntry);
   }
 /*
-  /// 批量切换所有插件状态
+  /// 批量切换所有插件状�?
   Future<void> toggleAllPluginsStatus(bool isEnabled) async {
     final plugins = await getAll();
     final updatedPlugins = plugins.map((plugin) => plugin.copyWith(isEnabled: isEnabled)).toList();
@@ -92,7 +92,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
     final pluginsDirectory =
         Directory(join(appSupportDirectory.path, 'plugins'));
 
-    // 如果 plugins 文件夹不存在，则创建它
+    // 如果 plugins 文件夹不存在，则创建�?
     if (!pluginsDirectory.existsSync()) {
       pluginsDirectory.createSync(recursive: true);
     }
@@ -100,13 +100,13 @@ class PluginManagerService extends ListService<PluginEntry, String> {
     return pluginsDirectory;
   }
 
-  /// 获取插件脚本的本地文件路径
+  /// 获取插件脚本的本地文件路�?
   Future<String> getScriptPath(String pluginId) async {
     final directory = await getPluginsDirectory();
     return '${directory.path}/$pluginId.js';
   }
 
-  /// 保存脚本到本地
+  /// 保存脚本到本�?
   Future<void> saveScriptToLocal(PluginEntry entry, String script) async {
     final scriptPath = await getScriptPath(entry.id);
     final scriptFile = File(scriptPath);
@@ -117,8 +117,8 @@ class PluginManagerService extends ListService<PluginEntry, String> {
 
   // 从插件脚本中提取插件信息
   static Map<String, dynamic> extractPluginInfo(String script) {
-  // 使用您的改进思路，并用 r"" 保证正则的正确性
-  // 增加 multiLine: true 让 ^ 和 $ 可以匹配行的开头和结尾，对这类解析更稳定
+  // 使用您的改进思路，并�?r"" 保证正则的正确�?
+  // 增加 multiLine: true �?^ �?$ 可以匹配行的开头和结尾，对这类解析更稳�?
   final idRegex = RegExp(r"id:\s*['""](.*?)['""],?", multiLine: true);
   final nameRegex = RegExp(r"name:\s*['""](.*?)['""],?", multiLine: true);
   final versionRegex = RegExp(r"version:\s*['""](.*?)['""],?", multiLine: true);
@@ -170,7 +170,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
     if (match != null && match.groupCount > 0) {
       return match.group(1)!;
     } else {
-      throw Exception('无法从脚本中提取远程版本号');
+      throw Exception('无法从脚本中提取远程版本�?);
     }
   }
 
@@ -193,7 +193,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
       await scriptFile.delete();
     }
 
-    // 从数据库中删除插件
+    // 从数据库中删除插�?
     await _repository.delete(entry);
   }
 
@@ -230,7 +230,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
 
   // 从URL添加插件
   Future<PluginEntry?> addPluginFromUrl(String url) async {
-    // 检查是否已存在相同URL的插件
+    // 检查是否已存在相同URL的插�?
     final existingPlugin = await getPluginByUrl(url);
     if (existingPlugin != null) {
       return existingPlugin;
@@ -241,10 +241,10 @@ class PluginManagerService extends ListService<PluginEntry, String> {
       final httpClientResponse = await response.close();
       final script = await utf8.decodeStream(httpClientResponse);
 
-      // 从脚本中提取插件信息并创建插件对象
+      // 从脚本中提取插件信息并创建插件对�?
       final entry = createPluginFromScript(script, url);
 
-      // 保存脚本到本地
+      // 保存脚本到本�?
       await saveScriptToLocal(entry, script);
 
       // 添加到数据库
@@ -258,21 +258,21 @@ class PluginManagerService extends ListService<PluginEntry, String> {
     }
   }
 
-  // 从本地文件添加插件
+  // 从本地文件添加插�?
   Future<PluginEntry?> addPluginFromLocal(String filePath) async {
     try {
       // 读取本地文件内容
       File file = File(filePath);
       if (!file.existsSync()) {
-        throw const FileSystemException('文件不存在');
+        throw const FileSystemException('文件不存�?);
       }
       List<int> bytes = await file.readAsBytes();
       String script = utf8.decode(bytes);
 
-      // 从脚本中提取插件信息并创建插件对象
+      // 从脚本中提取插件信息并创建插件对�?
       final entry = createPluginFromScript(script, '');
 
-      // 保存脚本到本地
+      // 保存脚本到本�?
       await saveScriptToLocal(entry, script);
 
       // 添加到数据库
@@ -315,7 +315,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
 
   // 自动更新插件
   Future<bool> autoUpdatePlugin(PluginEntry entry) async {
-    // 判断是否需要更新插件
+    // 判断是否需要更新插�?
     if (entry.isAutoUpdate) {
       // 执行插件更新操作
       final updated = await updatePluginFromUrl(entry);
@@ -335,7 +335,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
     }
   }
   
-  // 批量启用/禁用所有插件
+  // 批量启用/禁用所有插�?
   Future<void> toggleAllPluginsStatus(bool isEnabled) async {
     final plugins = await getAll();
     if (plugins.isEmpty) return;
@@ -361,7 +361,7 @@ class PluginManagerService extends ListService<PluginEntry, String> {
 }
 
 /*
-// 设置默认的外部存储目录
+// 设置默认的外部存储目�?
 Future<void> setDefaultStorageDirectory() async {
   final result = await FilePicker.getDirectoryPath();
   if (result != null) {
@@ -369,9 +369,9 @@ Future<void> setDefaultStorageDirectory() async {
   }
 }
 
-// 获取默认的外部存储目录
+// 获取默认的外部存储目�?
 Future<String> getDefaultStorageDirectory() async {
-  // 如果是 Android 平台，则使用 App 私有的 data 目录
+  // 如果�?Android 平台，则使用 App 私有�?data 目录
   if (Platform.isAndroid) {
     final appDataDirectory = await getApplicationSupportDirectory();
     return appDataDirectory.path;

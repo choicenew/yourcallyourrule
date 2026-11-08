@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
-import 'package:yourcallyourrule/core/entities/call/call_log.dart';
-import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
+import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
+import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
+import 'package:yourcallyourrule/features/call_history/entities/local_call_type.dart';
 import 'package:yourcallyourrule/features/call/call_history/utils/call_history_action_handler.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/phone_meta_edit_dialog.dart';
 import 'package:yourcallyourrule/features/call/call_history/widgets/rule_action_dialog.dart';
@@ -252,7 +252,7 @@ class CallLogCard extends ConsumerWidget {
         ),
         if (hasSimInfo) ...[
           const SizedBox(width: 4),
-          Text('â€¢', style: TextStyle(fontSize: 10, color: Colors.grey[400])),
+          Text('â€?, style: TextStyle(fontSize: 10, color: Colors.grey[400])),
           const SizedBox(width: 4),
           Flexible(
             child: Text(

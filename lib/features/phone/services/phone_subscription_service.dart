@@ -1,10 +1,10 @@
-// 电话规则订阅服务，用于处理电话规则订阅
+// 电话规则订阅服务，用于处理电话规则订�?
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 
 import '../../../core/entities/rule/rule_base.dart';
 import '../../../core/entities/rule/phone_rule.dart';
@@ -14,8 +14,8 @@ import '../../../core/entities/subscription/subscription.dart';
 import '../../../core/entities/subscription/subscription_table_type.dart';
 import '../../../core/repositories/rule_repository.dart';
 import '../../../core/repositories/subscription_repository.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
-import 'package:yourcallyourrule/data/repositories/subscription_repository_impl.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.dart';
+import 'package:yourcallyourrule/features/phone/data/repositories/subscription_repository_impl.dart';
 import '../../../core/services/rule_import_export_service.dart';
 import '../../../core/services/subscription_service_base.dart';
 import '../../../core/value_objects/rule_action.dart';
@@ -23,7 +23,7 @@ import '../../../core/value_objects/url.dart';
 
 part 'phone_subscription_service.g.dart';
 
-/// PhoneSubscriptionService 的 @Riverpod Provider
+/// PhoneSubscriptionService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 PhoneSubscriptionService phoneSubscriptionService(Ref ref) {
   final subscriptionRepository = ref.watch(subscriptionRepositoryProvider);
@@ -32,7 +32,7 @@ PhoneSubscriptionService phoneSubscriptionService(Ref ref) {
 }
 
 /// 电话规则订阅服务
-/// 处理电话规则的订阅功能
+/// 处理电话规则的订阅功�?
 class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, String> {
   final SubscriptionRepository _repository;
   final RuleRepository _ruleRepository;
@@ -50,7 +50,7 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
     return allSubscriptions.where((subscription) => subscription.isEnabled).toList();
   }
 
-  /// 获取指定动作类型的订阅
+  /// 获取指定动作类型的订�?
   Future<List<Subscription>> getSubscriptionsByAction(RuleAction action) async {
     final allSubscriptions = await getAll();
     return allSubscriptions.where((subscription) => subscription.action == action).toList();
@@ -75,7 +75,7 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
       name: name,
       url: Url.fromString(url),
       isEnabled: isEnabled,
-      action: action, // 使用传入的 action 参数
+      action: action, // 使用传入�?action 参数
       lastUpdated: DateTime.now(),
       autoUpdate: false,
       tableType: SubscriptionTableKeys.phone, // 明确设置表类型为phone
@@ -93,10 +93,10 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
 
   @override
   Future<bool> deleteSubscription(String id) async {
-    // 先获取订阅信息
+    // 先获取订阅信�?
     final subscription = await getById(id);
     if (subscription != null) {
-      // 删除与此订阅关联的规则
+      // 删除与此订阅关联的规�?
       await deleteRulesFromSubscription(subscription);
     }
     // 然后删除订阅本身
@@ -106,7 +106,7 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
   /// 删除与订阅关联的规则
   Future<int> deleteRulesFromSubscription(Subscription subscription) async {
     try {
-      // 获取所有已订阅的规则
+      // 获取所有已订阅的规�?
       final allRules = await _ruleRepository.getAll();
       final subscribedRules = allRules.where((rule) {
         // 使用 subscriptionId 字段进行匹配
@@ -133,7 +133,7 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
     }
   }
 
-  /// 切换订阅状态
+  /// 切换订阅状�?
   Future<void> toggleSubscriptionStatus(Subscription subscription, bool isEnabled) async {
     if (isEnabled) {
       await enableSubscription(subscription);
@@ -142,7 +142,7 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
     }
   }
 
-  /// 从URL获取规则，但不保存
+  /// 从URL获取规则，但不保�?
   Future<List<RuleBase>> fetchRulesFromSubscription(Subscription subscription, {String? ruleTypeOverride}) async {
     final data = await downloadFromUrl(subscription.url.toString());
     final rules = await _ruleImportExportService.parseImportData(data);
@@ -159,7 +159,7 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
       if (rule is PhoneRule) {
         final PhoneRule phoneRule = rule;
         if (overrideType == RuleType.allowBlock) {
-          // 转换为允许/阻止规则
+          // 转换为允�?阻止规则
           mapped.add(
             AllowedBlockedRule(
               id: phoneRule.id,
@@ -175,7 +175,7 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
             ),
           );
         } else {
-          // 默认处理为电话规则
+          // 默认处理为电话规�?
           final updated = phoneRule.copyWith(
             action: subscription.action,
             subscriptionId: subscription.id,
@@ -202,7 +202,7 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
     return mapped;
   }
 
-  /// 从订阅URL导入规则并保存
+  /// 从订阅URL导入规则并保�?
   Future<List<RuleBase>> importAndSaveRulesFromSubscription(Subscription subscription, {String? ruleTypeOverride}) async {
     debugPrint('[PhoneSubscriptionService] >>> Starting import for subscription: ${subscription.name}');
     final rules = await _updateRulesCore(subscription, ruleTypeOverride: ruleTypeOverride);
@@ -222,9 +222,9 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
     return rule.id;
   }
 
-  /// 核心规则增量更新方法（智能内存 Diff 对比，绝不盲目擦除）
+  /// 核心规则增量更新方法（智能内�?Diff 对比，绝不盲目擦除）
   Future<List<RuleBase>> _updateRulesCore(Subscription subscription, {String? ruleTypeOverride}) async {
-    // 1. 从网络拉取最新规则列表
+    // 1. 从网络拉取最新规则列�?
     final remoteRules = await fetchRulesFromSubscription(subscription, ruleTypeOverride: ruleTypeOverride);
     
     // 2. 读取本地已有的该订阅关联规则
@@ -261,7 +261,7 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
       }
     }
 
-    // 4. 增量提交差异，0 无关变动不操作数据库
+    // 4. 增量提交差异�? 无关变动不操作数据库
     if (rulesToDelete.isNotEmpty) {
       await _ruleRepository.deleteAll(rulesToDelete);
     }
@@ -285,7 +285,7 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
     }
   }
 
-  /// 手动更新（不带时间戳更新）
+  /// 手动更新（不带时间戳更新�?
   Future<List<RuleBase>> manualUpdateRulesFromSubscription(Subscription subscription, {String? ruleTypeOverride}) async {
     try {
       return await _updateRulesCore(subscription, ruleTypeOverride: ruleTypeOverride);
@@ -312,7 +312,7 @@ class PhoneSubscriptionService extends SubscriptionServiceBase<Subscription, Str
   // 新增导出功能
 
   // 新增文件导入功能- 基类已通过 _importExportService 处理具体逻辑
- //子类通过构造函数注入 RuleImportExportService 已满足依赖
+ //子类通过构造函数注�?RuleImportExportService 已满足依�?
  //无任何需要覆盖的特殊场景
 
 

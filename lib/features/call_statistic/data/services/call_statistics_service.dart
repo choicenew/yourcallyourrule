@@ -1,10 +1,10 @@
-import 'package:yourcallyourrule/core/entities/call/call_log.dart';
-import 'package:yourcallyourrule/core/entities/call/local_call_type.dart';
-import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
-import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
+import 'package:yourcallyourrule/features/call_history/entities/local_call_type.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/statistic_period.dart';
 
 class CallStatisticsService {
@@ -90,15 +90,13 @@ class CallStatisticsService {
     return 0;
   }
 
-  /// 获取触发拦截频次最高的前 N 条规则
-  List<RuleBase> getTopTriggeredRules(List<RuleBase> rules, {int limit = 3}) {
+  /// 获取触发拦截频次最高的�?N 条规�?  List<RuleBase> getTopTriggeredRules(List<RuleBase> rules, {int limit = 3}) {
     final active = rules.where((r) => r.isEnabled).toList();
     active.sort((a, b) => _getRuleCount(b).compareTo(_getRuleCount(a)));
     return active.take(limit).toList();
   }
 
-  /// 获取卡槽（SIM 1 / SIM 2）拦截比例分布
-  Map<int, int> getSimSlotDistribution(List<CallLog> callLogs) {
+  /// 获取卡槽（SIM 1 / SIM 2）拦截比例分�?  Map<int, int> getSimSlotDistribution(List<CallLog> callLogs) {
     final distribution = <int, int>{};
     for (final log in callLogs.where(_isIntercepted)) {
       final slot = log.simSlotIndex;
@@ -107,8 +105,7 @@ class CallStatisticsService {
     return distribution;
   }
 
-  /// 分析拦截频次最高的 2 小时时间段
-  String getPeakHoursRange(List<CallLog> callLogs) {
+  /// 分析拦截频次最高的 2 小时时间�?  String getPeakHoursRange(List<CallLog> callLogs) {
     final intercepted = callLogs.where(_isIntercepted).toList();
     if (intercepted.isEmpty) return '14:00 - 16:00';
     final hourCounts = <int, int>{};

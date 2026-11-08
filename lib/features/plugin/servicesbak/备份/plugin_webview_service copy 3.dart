@@ -5,7 +5,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:http/http.dart' as http;
-import 'package:yourcallyourrule/common/error/logger.dart';
+import 'package:yourcallyourrule/features/common/error/logger.dart';
 import 'package:html/parser.dart' as html_parser;
 import 'package:html/dom.dart' as dom;
 
@@ -15,14 +15,14 @@ const String PROXY_HOST = "flutter-webview-proxy.internal";
 const String PROXY_PATH_FETCH = "/fetch";
 
 /// 插件WebView服务 - 负责WebView核心管理
-/// 遵循单一职责原则，只负责WebView的初始化和基本操作
+/// 遵循单一职责原则，只负责WebView的初始化和基本操�?
 class PluginWebViewService {
   // --- [修改] Singleton Pattern ---
   static final PluginWebViewService _instance = PluginWebViewService._internal();
   factory PluginWebViewService() => _instance;
   PluginWebViewService._internal();
   
-  // 跟踪会话中的原始域名，用于安全拦截
+  // 跟踪会话中的原始域名，用于安全拦�?
   final Map<String, String> _sessionOrigins = {}; // 用于存储<requestId, origin>
   // --- [修改结束] ---
 
@@ -31,10 +31,10 @@ class PluginWebViewService {
   final Completer<void> _initCompleter = Completer<void>();
   // --- [新增结束] ---
 
-  // WebView控制器
+  // WebView控制�?
   InAppWebViewController? _webViewController;
 
-  // 跟踪每个插件的就绪状态
+  // 跟踪每个插件的就绪状�?
   final Map<String, bool> _pluginReadyStatus = {};
 
   // 用于通知插件就绪状态的StreamController
@@ -56,7 +56,7 @@ class PluginWebViewService {
     debugPrint(log);
   }
 
-  // 构造函数
+  // 构造函�?
   // [删除] PluginWebViewService();
 
   // --- [新增] 初始化Headless WebView ---
@@ -123,14 +123,14 @@ class PluginWebViewService {
               _loadedPluginId = jsonData['pluginId'];
               _isPluginLoaded = true;
 
-              // 标记插件为就绪状态
+              // 标记插件为就绪状�?
               _pluginReadyStatus[jsonData['pluginId']] = true;
               // 通过StreamController发送插件就绪通知
               _pluginReadyController.add(jsonData['pluginId']);
             } else if (jsonData['type'] == 'pluginReady') {
               debugPrint('Plugin ready: ${jsonData['pluginId']}');
 
-              // 标记插件为就绪状态
+              // 标记插件为就绪状�?
               _pluginReadyStatus[jsonData['pluginId']] = true;
               // 通过StreamController发送插件就绪通知
               _pluginReadyController.add(jsonData['pluginId']);
@@ -190,7 +190,7 @@ class PluginWebViewService {
             debugPrint('[PluginResultChannel] Error: No completer found for requestId: $requestId');
           }
         } catch (e) {
-          AppLogger.error('处理PluginResultChannel消息时发生异常', e);
+          AppLogger.error('处理PluginResultChannel消息时发生异�?, e);
           debugPrint('[PluginResultChannel] Error processing message: $e');
         }
       },
@@ -216,7 +216,7 @@ class PluginWebViewService {
             // 使用http包发起实际的网络请求
             final response = await _sendHttpRequest(method, url, headers, body);
 
-            // 将响应数据编码为JSON字符串
+            // 将响应数据编码为JSON字符�?
             final responseData = {
               'externalRequestId': externalRequestId,
               'phoneRequestId': phoneRequestId,
@@ -232,14 +232,14 @@ class PluginWebViewService {
               window.plugin.$_loadedPluginId.handleResponse($responseJson);
             ''');
           } catch (e) {
-            AppLogger.error('处理JS请求时发生异常', e);
+            AppLogger.error('处理JS请求时发生异�?, e);
             debugPrint('Error handling request: $e');
           }
         }
       },
     );
 
-    // 控制台日志处理程序
+    // 控制台日志处理程�?
     controller.addJavaScriptHandler(
       handlerName: 'consoleLog',
       callback: (args) {
@@ -284,16 +284,16 @@ class PluginWebViewService {
 
   // 加载脚本
   Future<void> loadScript(String pluginId, String script) async {
-    // --- [修改] 等待初始化完成 ---
+    // --- [修改] 等待初始化完�?---
     await _initCompleter.future;
     // --- [修改结束] ---
     if (_webViewController == null) {
-      throw Exception('WebView控制器未初始化');
+      throw Exception('WebView控制器未初始�?);
     }
 
     debugPrint('Executing script for plugin: $pluginId');
 
-    // 重置插件就绪状态
+    // 重置插件就绪状�?
     _pluginReadyStatus[pluginId] = false;
     _isPluginLoaded = false;
     _loadedPluginId = pluginId;
@@ -306,7 +306,7 @@ class PluginWebViewService {
 
   // 等待插件就绪
   Future<void> waitForPluginReady(String pluginId) async {
-    // --- [修改] 等待初始化完成 ---
+    // --- [修改] 等待初始化完�?---
     await _initCompleter.future;
     // --- [修改结束] ---
     // 如果插件已经就绪，则直接返回
@@ -314,10 +314,10 @@ class PluginWebViewService {
       return;
     }
 
-    // 创建一个Completer，用于等待插件就绪
+    // 创建一个Completer，用于等待插件就�?
     final completer = Completer<void>();
 
-    // 监听_pluginReadyController的流，等待指定pluginId的插件就绪
+    // 监听_pluginReadyController的流，等待指定pluginId的插件就�?
     StreamSubscription? sub;
     sub = _pluginReadyController.stream.listen((readyPluginId) {
       if (readyPluginId == pluginId) {
@@ -333,7 +333,7 @@ class PluginWebViewService {
     // 设置超时时间，如果在指定时间内插件未就绪，则打印提示信息
     await completer.future.timeout(const Duration(seconds: 5), onTimeout: () {
       debugPrint('Timeout: Plugin $pluginId did not send pluginReady message.');
-      // 超时后取消订阅
+      // 超时后取消订�?
       sub?.cancel();
     });
   }
@@ -344,11 +344,11 @@ class PluginWebViewService {
     String methodName,
     Map<String, dynamic> params,
   ) async {
-    // --- [修改] 等待初始化完成 ---
+    // --- [修改] 等待初始化完�?---
     await _initCompleter.future;
     // --- [修改结束] ---
     if (_webViewController == null) {
-      throw Exception('WebView控制器未初始化');
+      throw Exception('WebView控制器未初始�?);
     }
 
     final requestId = '${methodName}_${DateTime.now().millisecondsSinceEpoch}';
@@ -398,13 +398,13 @@ class PluginWebViewService {
     String nationalNumber,
     String e164Number,
   ) async {
-    // --- [修改] 等待初始化完成 ---
+    // --- [修改] 等待初始化完�?---
     await _initCompleter.future;
         // --- [修改结束] ---
     final requestId =
         'query_${pluginId}_${DateTime.now().millisecondsSinceEpoch}';
     if (_webViewController == null) {
-      throw Exception('WebView控制器未初始化');
+      throw Exception('WebView控制器未初始�?);
     }
 
     final completer = Completer<Map<String, dynamic>?>();
@@ -474,12 +474,12 @@ class PluginWebViewService {
     if (referer != null) {
       try {
         final refererUri = Uri.parse(referer);
-        // 确保 Referer 是我们的代理 URL，这样才能从中解析 requestId
+        // 确保 Referer 是我们的代理 URL，这样才能从中解�?requestId
         if (refererUri.host == PROXY_HOST) {
           final requestId = refererUri.queryParameters['requestId'];
           if (requestId != null) {
             final expectedOrigin = _sessionOrigins[requestId];
-            // 如果找到了对应的会话，并且 origin 匹配，就精确处理
+            // 如果找到了对应的会话，并�?origin 匹配，就精确处理
             if (expectedOrigin != null && uri.origin == expectedOrigin) {
               _addLog(
                   '🎯 Precisely caught LEAKED request via Referer for session [$requestId]: ${uri.toString()}');
@@ -492,7 +492,7 @@ class PluginWebViewService {
       }
     }
 
-    // --- 分支 3: 保险层 - 捕获所有其他发往活跃 origin 的请求 ---
+    // --- 分支 3: 保险�?- 捕获所有其他发往活跃 origin 的请�?---
     if (_sessionOrigins.values.contains(uri.origin)) {
       _addLog('🔥 Insurance layer caught a request to an active origin: ${uri.toString()}');
       return _handleLeakedRequest(controller, request);
@@ -503,7 +503,7 @@ class PluginWebViewService {
     return null;
   }
   
-  // 处理通过代理URL访问外部资源的请求
+  // 处理通过代理URL访问外部资源的请�?
   Future<WebResourceResponse?> _handleOriginalProxyRequest(
       InAppWebViewController controller, WebResourceRequest request) async {
     final uri = request.url;
@@ -526,7 +526,7 @@ class PluginWebViewService {
       final targetUrl = Uri.parse(targetUrlParam);
       _addLog('Proxying to target: $targetUrl');
       
-      // 记录原始域名，用于后续安全拦截
+      // 记录原始域名，用于后续安全拦�?
       final requestId = uri.queryParameters['requestId'];
       if (requestId != null) {
         _sessionOrigins[requestId] = targetUrl.origin;
@@ -589,7 +589,7 @@ class PluginWebViewService {
         </script>
       ''';
 
-      // 获取需要阻止的原始域
+      // 获取需要阻止的原始�?
       final originToBlock = Uri.parse(targetUrlParam).origin;
     
       // 生成所有需要注入的脚本
@@ -616,26 +616,26 @@ class PluginWebViewService {
           _addLog('Injection successful by prepending to the document.');
         }
       } else {
-        _addLog('⏩ Skipping script injection for non-HTML content ($contentType).');
+        _addLog('�?Skipping script injection for non-HTML content ($contentType).');
       }
    
       final Map<String, String> responseHeaders = {};
-      // 定义一个"黑名单"，包含所有需要被移除的头信息（统一使用小写以便比较）。
+      // 定义一�?黑名�?，包含所有需要被移除的头信息（统一使用小写以便比较）�?
       final headersToRemove = [
-        'x-frame-options',              // 核心问题：禁止 iframe 嵌入
+        'x-frame-options',              // 核心问题：禁�?iframe 嵌入
         'content-security-policy',      // 可能阻止我们注入的脚本或页面内的资源加载
         'permissions-policy',           // 可能限制 iframe 内的功能
-        'feature-policy',               // permissions-policy 的旧版名称
+        'feature-policy',               // permissions-policy 的旧版名�?
         'cross-origin-embedder-policy', // 启用跨域隔离，会破坏代理内容
         'cross-origin-opener-policy',   // 同上
       ];
-      // 遍历从 cleverdialer.com 收到的每一个响应头
+      // 遍历�?cleverdialer.com 收到的每一个响应头
       response.headers.forEach((key, value) {
         final lowerCaseKey = key.toLowerCase();
         
-        // 检查当前头是否在我们的"黑名单"中
+        // 检查当前头是否在我们的"黑名�?�?
         if (!headersToRemove.contains(lowerCaseKey)) {
-          // 如果不在黑名单里，就把它加入到最终要返回的响应头中
+          // 如果不在黑名单里，就把它加入到最终要返回的响应头�?
           responseHeaders[key] = value;
         } else {
           // 如果在黑名单里，就记录日志并丢弃它，不返回给 WebView
@@ -660,19 +660,19 @@ class PluginWebViewService {
     }
   }
   
-  // 处理泄漏到原始域的直接请求
+  // 处理泄漏到原始域的直接请�?
   Future<WebResourceResponse?> _handleLeakedRequest(
     InAppWebViewController controller, WebResourceRequest request) async {
       
     final uri = request.url;
 
     try {
-      // 1. 使用 http 包发起网络请求，注意要传递原始请求中的头信息（特别是Cookie）
+      // 1. 使用 http 包发起网络请求，注意要传递原始请求中的头信息（特别是Cookie�?
       _addLog('Making backend HTTP GET for LEAKED request to: $uri with headers: ${request.headers}');
       final response = await http.get(uri, headers: request.headers);
       _addLog('Backend response for LEAKED request: ${response.statusCode} for $uri');
           
-      // 2. 准备一个新的 Map 来存放清理过的响应头
+      // 2. 准备一个新�?Map 来存放清理过的响应头
       final responseHeaders = <String, String>{};
 
       // 3. 定义需要被移除的有害响应头列表
@@ -690,32 +690,32 @@ class PluginWebViewService {
         // 将头信息的key转为小写以进行不区分大小写的比较
         final lowerCaseKey = key.toLowerCase();
         
-        // 5. 如果当前头不在我们的"黑名单"中，就把它加入到最终的响应头里
+        // 5. 如果当前头不在我们的"黑名�?中，就把它加入到最终的响应头里
         if (!headersToRemove.contains(lowerCaseKey)) {
           responseHeaders[key] = value;
         } else {
-          // 否则，记录日志并丢弃它
+          // 否则，记录日志并丢弃�?
           _addLog('For LEAKED request, REMOVED problematic header: "$key"');
         }
       });
 
-      // 6. 构建并返回一个 WebResourceResponse
+      // 6. 构建并返回一�?WebResourceResponse
       return WebResourceResponse(
-        // 使用从服务器获取的真实 content-type
+        // 使用从服务器获取的真�?content-type
         contentType: response.headers['content-type'],
         // 直接使用从服务器获取的原始响应体字节
         data: response.bodyBytes,
         // 使用从服务器获取的真实状态码
         statusCode: response.statusCode,
-        // 使用我们清理过的头信息
+        // 使用我们清理过的头信�?
         headers: responseHeaders,
-        // 如果服务器返回了 reasonPhrase，也一并传递
+        // 如果服务器返回了 reasonPhrase，也一并传�?
         reasonPhrase: response.reasonPhrase,
       );
     } catch (e, stackTrace) {
-      // 如果在代理过程中发生任何网络错误或其他异常
+      // 如果在代理过程中发生任何网络错误或其他异�?
       _addLog('LEAKED request failed during proxying: $e\n$stackTrace');
-      // 返回一个表示服务器错误的响应，这样WebView端能知道请求失败了
+      // 返回一个表示服务器错误的响应，这样WebView端能知道请求失败�?
       return WebResourceResponse(
           contentType: 'text/plain',
           data: Uint8List.fromList('Leaked request proxy failed: $e'.codeUnits),
@@ -728,7 +728,7 @@ class PluginWebViewService {
   String _purgeHarmfulContent(String htmlBody, Uri requestUri) {
     final purgeRulesParam = requestUri.queryParameters['purgeRules'];
 
-    // 如果没有提供净化规则，直接返回原始HTML，不进行任何操作。
+    // 如果没有提供净化规则，直接返回原始HTML，不进行任何操作�?
     if (purgeRulesParam == null || purgeRulesParam.isEmpty) {
       return htmlBody;
     }
@@ -763,7 +763,7 @@ class PluginWebViewService {
 
           int removedCount = 0;
           for (var element in elementsToRemove) {
-            // 如果有内容匹配规则，则检查元素内容是否符合
+            // 如果有内容匹配规则，则检查元素内容是否符�?
             if (contentMatch == null ||
                 (element.innerHtml.contains(contentMatch))) {
               element.remove();
@@ -776,10 +776,10 @@ class PluginWebViewService {
                 '  - Rule successfully removed $removedCount element(s) matching selector: "$selector"');
           }
         }
-        // 未来可以扩展其他类型的规则，比如 'modifyAttribute', 'clearContent' 等
+        // 未来可以扩展其他类型的规则，比如 'modifyAttribute', 'clearContent' �?
       }
 
-      _addLog('✅ DOM sanitization finished.');
+      _addLog('�?DOM sanitization finished.');
       // 仅在实际发生修改时才重新序列化HTML，以提高性能
       return documentModified ? document.outerHtml : htmlBody;
     } catch (e) {
@@ -812,15 +812,15 @@ class PluginWebViewService {
       
       // 使用原始字符串来定义正则表达式，避免内部引号引起语法错误
   // **关键修正点：**
-  // 使用三引号 r'''...''' 来定义原始字符串，以避免内部的单引号 ' 和双引号 "
-  // 引起Dart语法错误。这是解决“爆红报错”的根本方法。
+  // 使用三引�?r'''...''' 来定义原始字符串，以避免内部的单引号 ' 和双引号 "
+  // 引起Dart语法错误。这是解决“爆红报错”的根本方法�?
   final attrRegex = RegExp(r'''(src|href)\s*=\s*("([^"]+)"|\'([^\']+)\')''', caseSensitive: false);
       
       final processedHtml = htmlBody.replaceAllMapped(attrRegex, (match) {
         final originalMatch = match.group(0)!;
         final attr = match.group(1);
         
-        // 如果group(2)不为null, 说明是双引号匹配; 否则是group(3)单引号匹配
+        // 如果group(2)不为null, 说明是双引号匹配; 否则是group(3)单引号匹�?
         final path = match.group(2) ?? match.group(3);
 
         if (path == null || 
@@ -840,11 +840,11 @@ class PluginWebViewService {
           ).toString();
 
           _addLog('🔄 Pre-processing URL: $path -> $newProxyUrl');
-          // 保持原始的引号类型
+          // 保持原始的引号类�?
           if (match.group(2) != null) {
-            return '$attr="$newProxyUrl"'; // 双引号
+            return '$attr="$newProxyUrl"'; // 双引�?
           } else {
-            return "$attr='$newProxyUrl'"; // 单引号
+            return "$attr='$newProxyUrl'"; // 单引�?
           }
         } catch (e) {
           _addLog('⚠️ Error pre-processing path "$path": $e.');
@@ -852,7 +852,7 @@ class PluginWebViewService {
         }
       });
 
-      _addLog('✅ HTML pre-processing finished.');
+      _addLog('�?HTML pre-processing finished.');
       return processedHtml;
     } catch (e) {
       _addLog('⚠️ Error in HTML pre-processing: $e');
@@ -886,7 +886,7 @@ class PluginWebViewService {
           function isBlockedUrl(urlString) {
             if (typeof urlString !== 'string') return false;
             try {
-              // 将相对路径转换为绝对路径再判断
+              // 将相对路径转换为绝对路径再判�?
               const absoluteUrl = new URL(urlString, document.baseURI).href;
               return absoluteUrl.includes(BLOCKED_ORIGIN) && !absoluteUrl.includes(PROXY_HOST);
             } catch(e) {
@@ -894,17 +894,17 @@ class PluginWebViewService {
             }
           }
 
-          // 1. 阻止 location 的修改
+          // 1. 阻止 location 的修�?
           const originalLocation = window.location;
           try {
             Object.defineProperty(window, 'location', {
               get: function() { return originalLocation; },
               set: function(url) {
                 if (isBlockedUrl(url)) {
-                  console.error(`[Domain-Blocker] ❌ Blocked location.href assignment to: \${url}`);
+                  console.error(`[Domain-Blocker] �?Blocked location.href assignment to: \${url}`);
                   return; // 直接阻止
                 }
-                console.log(`[Domain-Blocker] ✅ Allowed location change to: \${url}`);
+                console.log(`[Domain-Blocker] �?Allowed location change to: \${url}`);
                 originalLocation.href = url;
               },
               configurable: true 
@@ -917,7 +917,7 @@ class PluginWebViewService {
           const originalOpen = window.open;
           window.open = function(url, ...args) {
             if (isBlockedUrl(url)) {
-              console.error(`[Domain-Blocker] ❌ Blocked window.open to: \${url}`);
+              console.error(`[Domain-Blocker] �?Blocked window.open to: \${url}`);
               return null; // 返回null表示窗口打开失败
             }
             return originalOpen.apply(this, arguments);
@@ -925,8 +925,8 @@ class PluginWebViewService {
           
           // 3. 终极防线 - 拦截 beforeunload 事件
           window.addEventListener('beforeunload', function(event) {
-               // 在后台场景中，任何未经我们允许的导航都应被视为有害
-               console.error(`[Domain-Blocker-Unload] ❌ Intercepted an unload/navigation event. Blocking it as a safety measure.`);
+               // 在后台场景中，任何未经我们允许的导航都应被视为有�?
+               console.error(`[Domain-Blocker-Unload] �?Intercepted an unload/navigation event. Blocking it as a safety measure.`);
                
                // 标准方法，确保在所有浏览器中都能最大概率地阻止导航
                event.preventDefault(); 
@@ -934,13 +934,13 @@ class PluginWebViewService {
                return '';
           });
 
-          console.log(`[Domain-Blocker] ✅ Active for origin: \${BLOCKED_ORIGIN}`);
+          console.log(`[Domain-Blocker] �?Active for origin: \${BLOCKED_ORIGIN}`);
         })();
       </script>
     ''';
   }
   
-  // 获取通用网络拦截器脚本
+  // 获取通用网络拦截器脚�?
   String getUniversalNetworkInterceptorScript() {
     return '''
       <script type="text/javascript">
@@ -956,7 +956,7 @@ class PluginWebViewService {
           const PROXY_PATH_FETCH = "$PROXY_PATH_FETCH";
           const PROXY_TEMPLATE = PROXY_SCHEME + "://" + PROXY_HOST + PROXY_PATH_FETCH + "?targetUrl=";
           
-          // 检测原始域名
+          // 检测原始域�?
           let originalDomain = '';
           try {
             if (window.location.href.includes('targetUrl=')) {
@@ -1065,7 +1065,7 @@ class PluginWebViewService {
               return xhr;
             };
             
-            // 复制静态属性
+            // 复制静态属�?
             Object.setPrototypeOf(window.XMLHttpRequest, OriginalXHR);
             Object.defineProperties(window.XMLHttpRequest, Object.getOwnPropertyDescriptors(OriginalXHR));
             
@@ -1145,7 +1145,7 @@ class PluginWebViewService {
 
 
 
-// 添加状态监听扩展
+// 添加状态监听扩�?
 void addPluginStateListener(String pluginId, Function(bool) listener) {
   _pluginReadyController.stream.where((id) => id == pluginId).listen((_) {
     listener(_pluginReadyStatus[pluginId] ?? false);

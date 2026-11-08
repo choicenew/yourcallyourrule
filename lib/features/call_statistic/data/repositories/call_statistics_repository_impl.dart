@@ -1,6 +1,6 @@
-import 'package:yourcallyourrule/core/entities/call/call_log.dart';
-import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_service.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/statistic_period.dart';
 

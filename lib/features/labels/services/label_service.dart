@@ -2,20 +2,20 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
-import 'package:yourcallyourrule/core/services/import_export_service.dart';
-import 'package:yourcallyourrule/core/services/list_service.dart';
-import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.dart';
+import 'package:yourcallyourrule/features/rules/services/import_export_service.dart';
+import 'package:yourcallyourrule/features/common/services/list_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_import_export_service.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/labels/services/mark_phone_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
 part 'label_service.g.dart';
 
-/// LabelService 的 @Riverpod Provider
+/// LabelService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 LabelService labelService(Ref ref) {
   final ruleRepository = ref.watch(ruleRepositoryProvider);
@@ -26,10 +26,10 @@ LabelService labelService(Ref ref) {
 /// 标签服务类，继承自ListService，提供标签的管理功能
 /// 包括添加、删除、查询标签等操作
 /// 
-/// 最好使用通用的导入导出服务 [RuleImportExportService] 来实现导入和导出功能，不要创建多余的服务导入导出
-/// 使用 [LabelPhoneService] 和 [PredefinedLabelService] 来管理标签
+/// 最好使用通用的导入导出服�?[RuleImportExportService] 来实现导入和导出功能，不要创建多余的服务导入导出
+/// 使用 [LabelPhoneService] �?[PredefinedLabelService] 来管理标�?
 /// 
-/// 此服务整合了 [LabelPhoneService] 和 [PredefinedLabelService] 的功能，
+/// 此服务整合了 [LabelPhoneService] �?[PredefinedLabelService] 的功能，
 /// 作为标签系统的统一入口
 class LabelService extends ListService {
   final RuleRepository _ruleRepository;
@@ -42,7 +42,7 @@ class LabelService extends ListService {
   LabelService(this._ruleRepository, this._predefinedLabelService) : 
     _importExportService = RuleImportExportService(_ruleRepository),
     super(_ruleRepository) {
-    // 初始化电话标签服务
+    // 初始化电话标签服�?
     _labelPhoneService = LabelPhoneService(_ruleRepository, _predefinedLabelService);
   }
 
@@ -74,7 +74,7 @@ class LabelService extends ListService {
     // Optionally handle the case where the entry with labelId doesn't exist
   }
 
-  // 获取所有标签条目
+  // 获取所有标签条�?
   Future<List<LabelPhoneEntry>> getAllLabels() async {
     final rules = await _ruleRepository.getAll();
     return rules.whereType<LabelPhoneEntry>().toList();
@@ -82,11 +82,11 @@ class LabelService extends ListService {
 
   // 根据电话号码获取标签
   Future<LabelPhoneEntry?> getLabelByPhoneNumber(PhoneNumber phoneNumber) async {
-    // 委托给新的电话标签服务
+    // 委托给新的电话标签服�?
     return await _labelPhoneService.getLabelByPhoneNumber(phoneNumber);
   }
   
-  /// 根据电话号码字符串获取标签
+  /// 根据电话号码字符串获取标�?
   Future<LabelPhoneEntry?> getLabelByPhoneNumberString(String phoneNumberStr) async {
     if (phoneNumberStr.isEmpty) return null;
     final phoneNumber = PhoneNumber.fromString(phoneNumberStr);
@@ -95,7 +95,7 @@ class LabelService extends ListService {
 
   // 根据标签ID获取标签条目
   Future<List<LabelPhoneEntry>> getLabelsByLabelId(String labelId) async {
-    // 委托给新的电话标签服务
+    // 委托给新的电话标签服�?
     return await _labelPhoneService.getMarksByLabelId(labelId);
   }
 
@@ -113,7 +113,7 @@ class LabelService extends ListService {
 
   // 检查电话号码是否有标签
   Future<bool> hasLabel(PhoneNumber phoneNumber) async {
-    // 委托给新的电话标签服务
+    // 委托给新的电话标签服�?
     return await _labelPhoneService.isPhoneMarked(phoneNumber);
   }
 
@@ -123,7 +123,7 @@ class LabelService extends ListService {
     return rules.whereType<LabelPhoneEntry>().toList();
   }
 
-  // 从文件导入标签
+  // 从文件导入标�?
   Future<List<LabelPhoneEntry>> importLabelsFromFile(String filePath, {bool overwrite = false}) async {
     final rules = await _importExportService.importFromFile(
       filePath, 
@@ -132,13 +132,13 @@ class LabelService extends ListService {
     return rules.whereType<LabelPhoneEntry>().toList();
   }
 
-  // 导出标签到文件
+  // 导出标签到文�?
   Future<bool> exportLabelsToFile(String filePath) async {
     final labels = await getAllLabels();
     return await _importExportService.exportToFile(filePath, entities: labels);
   }
 
-  // 插入预定义标签
+  // 插入预定义标�?
   Future<void> insertPredefinedLabels(List<Map<String, dynamic>> predefinedLabels) async {
     // 委托给预定义标签服务
     await _predefinedLabelService.insertPredefinedLabels(predefinedLabels);
@@ -163,13 +163,13 @@ class LabelService extends ListService {
     return await _predefinedLabelService.getAllLabels();
   }
   
-  /// 获取启用的标签
+  /// 获取启用的标�?
   Future<List<LabelPhoneEntry>> getEnabledLabels() async {
     final labels = await getAllLabels();
     return labels.where((label) => label.isEnabled).toList();
   }
   
-  /// 删除标签（别名方法，与removeLabel功能相同）
+  /// 删除标签（别名方法，与removeLabel功能相同�?
   Future<void> deleteLabel(String labelId) async {
     await removeLabel(labelId);
   }

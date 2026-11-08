@@ -1,13 +1,13 @@
 // -----------------------------------------------------------------------------
 // 文件: elite_community_judge_card.dart
-// 描述: Elite 社区判官重点卡片，展示众包纠错提议并支持一键微互动投票。
+// 描述: Elite 社区判官重点卡片，展示众包纠错提议并支持一键微互动投票�?
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/deletion_proposal_provider.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/statistics_provider.dart';
@@ -69,7 +69,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
         borderRadius: BorderRadius.circular(24),
         child: Stack(
           children: [
-            // 顶部极光条
+            // 顶部极光�?
             Positioned(
               top: 0,
               right: 0,
@@ -89,7 +89,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // 顶部：徽章 + 标题 + 查看全部
+                  // 顶部：徽�?+ 标题 + 查看全部
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -172,7 +172,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
 
                   const SizedBox(height: 14),
 
-                  // 真实焦点提议互动卡片 / 精美空状态占位
+                  // 真实焦点提议互动卡片 / 精美空状态占�?
                   if (firstProposal != null)
                     Container(
                       padding: const EdgeInsets.all(12),
@@ -236,7 +236,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                           ),
                           const SizedBox(height: 10),
 
-                          // 多巴胺投票互动按钮
+                          // 多巴胺投票互动按�?
                           if (!_hasVoted)
                             Row(
                               children: [
@@ -327,7 +327,7 @@ class _EliteCommunityJudgeCardState extends ConsumerState<EliteCommunityJudgeCar
                       ),
                     )
                   else
-                    // 精美多巴胺空状态占位
+                    // 精美多巴胺空状态占�?
                     Container(
                       width: double.infinity,
                       padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),

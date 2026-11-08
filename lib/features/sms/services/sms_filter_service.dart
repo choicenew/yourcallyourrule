@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
+import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 import 'package:yourcallyourrule/data/repositories/sms_regex_rule_repository_impl.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_handlers/sms_filter_handler.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_handlers/sms_notification_handler.dart';
@@ -13,7 +13,7 @@ import 'sms_handlers/incoming_sms_handler.dart';
 
 part 'sms_filter_service.g.dart';
 
-/// SmsFilterService 的 @Riverpod Provider
+/// SmsFilterService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 SmsFilterService smsFilterService(Ref ref) {
   final smsRuleRepository = ref.watch(smsRegexRuleRepositoryProvider);
@@ -38,10 +38,10 @@ SmsFilterService smsFilterService(Ref ref) {
 class SmsFilterService {
   final SmsChannelInterface smsChannelManager;
 
-  // 处理器工厂
+  // 处理器工�?
   final SmsHandlerFactory _handlerFactory = SmsHandlerFactory();
   
-  // 处理器
+  // 处理�?
   late final SmsFilterHandler _filterHandler;
   late final SmsNotificationHandler _notificationHandler;
   late final IncomingSmsHandler _incomingSmsHandler;
@@ -77,17 +77,17 @@ class SmsFilterService {
   }
 
   void _initializeHandlers(List<SmsRegexRule> initialRules) {
-    // 创建过滤处理器
+    // 创建过滤处理�?
     _filterHandler = _handlerFactory.create(
       SmsFilterHandler(initialRules: initialRules)
     );
     
-    // 创建通知处理器
+    // 创建通知处理�?
     _notificationHandler = _handlerFactory.create(
       SmsNotificationHandler()
     );
     
-    // 创建接收SMS处理器
+    // 创建接收SMS处理�?
     _incomingSmsHandler = _handlerFactory.create(
       IncomingSmsHandler(
         filterHandler: _filterHandler,

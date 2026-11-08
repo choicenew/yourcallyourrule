@@ -4,13 +4,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/base/base_entity.dart';
+
 import 'package:yourcallyourrule/features/common/widgets/generic_timeline_with_ads_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 通用历史记录页面的逻辑控制器 (最终版 - 无假设)
+/// 通用历史记录页面的逻辑控制�?(最终版 - 无假�?
 ///
-/// [T] 是实体类型, [S] 是服务类型, [M] 是元数据类型
+/// [T] 是实体类�? [S] 是服务类�? [M] 是元数据类型
 class GenericHistoryPage<T extends BaseEntity, S, M> extends ConsumerStatefulWidget {
   final String title;
   final Color themeColor;
@@ -27,7 +27,7 @@ class GenericHistoryPage<T extends BaseEntity, S, M> extends ConsumerStatefulWid
   final Widget? Function(BuildContext context, List<T> allItems, Function(String key, dynamic value) updateFilters)? headerContentBuilder;
   final bool Function(T item, Map<String, dynamic> filters)? filterPredicate;
   
-  /// 搜索谓词回调，定义如何根据搜索关键字筛选项目
+  /// 搜索谓词回调，定义如何根据搜索关键字筛选项�?
   final bool Function(T item, String keyword) searchPredicate;
 
   final Widget Function() adBuilder;

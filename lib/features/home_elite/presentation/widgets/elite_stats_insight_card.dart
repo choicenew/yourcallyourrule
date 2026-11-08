@@ -1,13 +1,13 @@
 // -----------------------------------------------------------------------------
 // 文件: elite_stats_insight_card.dart
-// 描述: Elite 拦截成就与数据战报卡片，展示已防护通话统计与全类型规则分布。
+// 描述: Elite 拦截成就与数据战报卡片，展示已防护通话统计与全类型规则分布�?
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/statistic_period.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -53,7 +53,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
 
     final int sum = blockRules + allowRules + silenceRules + timeRules + noneRules;
 
-    // 动态规则类型分布数据建模，只保留数量大于 0 的有效分类（100% 真实数据驱动）
+    // 动态规则类型分布数据建模，只保留数量大�?0 的有效分类（100% 真实数据驱动�?
     final List<_RuleTypeShare> categories = [
       if (blockRules > 0)
         _RuleTypeShare(label: l10n.blockRules, count: blockRules, color: theme.colorScheme.error),
@@ -94,7 +94,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 标题与时间切换 (采用强类型 StatisticPeriod 枚举)
+          // 标题与时间切�?(采用强类�?StatisticPeriod 枚举)
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -155,7 +155,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
           ),
           const SizedBox(height: 14),
 
-          // 多巴胺全类型规则与统计成就横向滑块列表 (使各种 Rule 类型清晰可见)
+          // 多巴胺全类型规则与统计成就横向滑块列�?(使各�?Rule 类型清晰可见)
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
@@ -201,7 +201,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
 
           const SizedBox(height: 14),
 
-          // 动态多类型拦截比例分布进度条（根据真实数据计算）
+          // 动态多类型拦截比例分布进度条（根据真实数据计算�?
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -248,7 +248,7 @@ class _EliteStatsInsightCardState extends ConsumerState<EliteStatsInsightCard> {
                 ),
               ),
               const SizedBox(height: 6),
-              // 动态图例展示
+              // 动态图例展�?
               Wrap(
                 spacing: 12,
                 runSpacing: 4,

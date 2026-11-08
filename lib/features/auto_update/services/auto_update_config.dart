@@ -1,15 +1,15 @@
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 /// 自动更新服务的配置管理类
 /// 负责存储和获取自动更新相关的配置信息
 class AutoUpdateConfig {
   final ConfigRepository _configRepository;
   
-  /// 构造函数
+  /// 构造函�?
   AutoUpdateConfig({required ConfigRepository configRepository})
       : _configRepository = configRepository;
   
-  /// 获取最后更新时间
+  /// 获取最后更新时�?
   Future<DateTime?> getLastUpdateTime(String serviceType) async {
     final key = 'config_lastUpdated_$serviceType';
     final config = await _configRepository.getConfig(key);
@@ -24,20 +24,20 @@ class AutoUpdateConfig {
     }
   }
   
-  /// 保存最后更新时间
+  /// 保存最后更新时�?
   Future<void> saveLastUpdateTime(String serviceType, DateTime time) async {
     final key = 'config_lastUpdated_$serviceType';
     await _configRepository.saveConfig(key, {'value': time.toIso8601String()});
   }
   
-  /// 获取用户自定义更新间隔（天数）
+  /// 获取用户自定义更新间隔（天数�?
   Future<int?> getUserUpdateIntervalDays(String serviceType) async {
     final key = 'config_userInterval_$serviceType';
     final config = await _configRepository.getConfig(key);
     return config?['value'] as int?;
   }
   
-  /// 设置用户自定义更新间隔（天数）
+  /// 设置用户自定义更新间隔（天数�?
   Future<void> setUserUpdateIntervalDays(String serviceType, int days) async {
     final key = 'config_userInterval_$serviceType';
     await _configRepository.saveConfig(key, {'value': days});

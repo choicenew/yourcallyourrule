@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 来电显示身份信息卡片（全量国际化，支持悬浮窗/灵动岛/通知多模式实机测试）
+/// 来电显示身份信息卡片（全量国际化，支持悬浮窗/灵动�?通知多模式实机测试）
 class VerificationCallerIdCard extends StatelessWidget {
   final CallerIdData callerIdData;
   final String fallbackPhoneNumber;
@@ -90,7 +90,7 @@ class VerificationCallerIdCard extends StatelessWidget {
                         callerIdData.countryName,
                         callerIdData.region,
                         callerIdData.carrier,
-                      ].where((e) => e != null && e.isNotEmpty).join(' • '),
+                      ].where((e) => e != null && e.isNotEmpty).join(' �?'),
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
@@ -147,7 +147,7 @@ class VerificationCallerIdCard extends StatelessWidget {
           const Divider(height: 1),
           const SizedBox(height: 12),
 
-          // 来电显示测试工具箱标题
+          // 来电显示测试工具箱标�?
           Row(
             children: [
               const Icon(
@@ -168,7 +168,7 @@ class VerificationCallerIdCard extends StatelessWidget {
           ),
           const SizedBox(height: 10),
 
-          // 多模式测试按钮网格
+          // 多模式测试按钮网�?
           Row(
             children: [
               Expanded(

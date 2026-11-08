@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
-import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
 
 import 'package:yourcallyourrule/features/call/call_overlay/mock_data/call_overlay_mock.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/call_overlay_content_builder.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/providers/call_overlay_style_security_provider.dart';
 
-// 【关键修改点】: 改为 ConsumerWidget，不再需要 StatefulWidget
+// 【关键修改点�? 改为 ConsumerWidget，不再需�?StatefulWidget
 class CallOverlaySample extends ConsumerWidget {
   const CallOverlaySample({super.key});
   
-  // 【关键修改点】: initState 中的逻辑已废弃，Provider 会自我管理
+  // 【关键修改点�? initState 中的逻辑已废弃，Provider 会自我管�?
   
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // 【关键修改点】: 直接 watch 新的 provider
+    // 【关键修改点�? 直接 watch 新的 provider
     final asyncConfig = ref.watch(callOverlayStyleSecurityProvider);
 
     return OrientationBuilder(
@@ -28,7 +28,7 @@ class CallOverlaySample extends ConsumerWidget {
             : (mediaQuery.size.width * 0.6));
         final overlayHeight = overlayWidth * 0.5;
 
-        // 【关键修改点】: 使用 .when() 处理 provider 的状态
+        // 【关键修改点�? 使用 .when() 处理 provider 的状�?
         return asyncConfig.when(
           loading: () => const Center(child: CircularProgressIndicator()),
           error: (err, stack) => Center(child: Text('Error: $err')),

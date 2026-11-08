@@ -3,24 +3,24 @@ import 'dart:isolate';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
-import 'package:yourcallyourrule/core/entities/contact/contact_rule.dart';
-import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-import 'package:yourcallyourrule/core/repositories/contact_repository.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
+import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
+import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:yourcallyourrule/features/contacts/repositories/contact_repository.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/data/repositories/contact_repository_impl.dart';
 import 'package:yourcallyourrule/data/repositories/contact_subscription_repository_impl.dart';
-import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
-import 'package:yourcallyourrule/core/entities/subscription/contact_subscription.dart';
-import 'package:yourcallyourrule/core/repositories/contact_subscription_repository.dart';
-import 'package:yourcallyourrule/core/services/subscription_service_base.dart';
-import 'package:yourcallyourrule/core/value_objects/url.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_import_export_service.dart';
+import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
+import 'package:yourcallyourrule/features/contacts/repositories/contact_subscription_repository.dart';
+import 'package:yourcallyourrule/features/phone/services/subscription_service_base.dart';
+import 'package:yourcallyourrule/features/common/value_objects/url.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 
 part 'contact_subscription_service.g.dart';
 
-/// ContactSubscriptionService 的 @Riverpod Provider
+/// ContactSubscriptionService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 ContactSubscriptionService contactSubscriptionService(Ref ref) {
   final contactSubscriptionRepository = ref.watch(contactSubscriptionRepositoryProvider);
@@ -111,7 +111,7 @@ class ContactSubscriptionService
     return 'contact_${rule.contactId}_${rule.name}_${rule.action.toString()}';
   }
 
-  /// 核心规则更新方法（带增量对比 Diff Sync）
+  /// 核心规则更新方法（带增量对比 Diff Sync�?
   Future<List<ContactRule>> _updateRulesCore(
       ContactSubscription subscription) async {
     final data = await downloadFromUrl(subscription.url.toString());
@@ -123,7 +123,7 @@ class ContactSubscriptionService
             rule.copyWith(isSubscribed: true, contactId: rule.contactId))
         .toList();
 
-    // 读取本地已有的联系人规则，进行内存 Diff 对比
+    // 读取本地已有的联系人规则，进行内�?Diff 对比
     final allLocalRules = await _ruleRepository.getAll();
     final localRules = allLocalRules.whereType<ContactRule>().toList();
 
@@ -169,17 +169,17 @@ class ContactSubscriptionService
       await updateLastUpdated(subscription.id, DateTime.now());
       return result;
     } catch (e) {
-      throw Exception('更新联系人订阅规则失败: $e');
+      throw Exception('更新联系人订阅规则失�? $e');
     }
   }
 
-  /// 手动更新（不带时间戳更新）
+  /// 手动更新（不带时间戳更新�?
   Future<List<RuleBase>> manualUpdateRulesFromSubscription(
       ContactSubscription subscription) async {
     try {
       return await _updateRulesCore(subscription);
     } catch (e) {
-      throw Exception('手动更新联系人规则失败: $e');
+      throw Exception('手动更新联系人规则失�? $e');
     }
   }
 
@@ -198,14 +198,14 @@ class ContactSubscriptionService
   Future<void> _updateContactData(ContactSubscription subscription) async {
     try {
       final data = await downloadFromUrl(subscription.url.toString());
-      final contacts = await _parseContactData(data); // 修正方法名
+      final contacts = await _parseContactData(data); // 修正方法�?
       await _importContacts(contacts); // 添加联系人导入逻辑
     } catch (e) {
       throw Exception('数据更新失败: ${e.toString()}');
     }
   }
 
-  // 添加联系人数据解析方法 (在后台 Isolate 中高效解析，不占用主 UI 线程)
+  // 添加联系人数据解析方�?(在后�?Isolate 中高效解析，不占用主 UI 线程)
   Future<List<Contact>> _parseContactData(String data) async {
     try {
       return await Isolate.run(() {
@@ -213,11 +213,11 @@ class ContactSubscriptionService
         return jsonList.map((item) => Contact.fromMap(item)).toList();
       });
     } catch (e) {
-      throw FormatException('联系人数据解析失败: $e');
+      throw FormatException('联系人数据解析失�? $e');
     }
   }
 
-  // 添加联系人导入方法
+  // 添加联系人导入方�?
   Future<void> _importContacts(List<Contact> contacts) async {
     final contactService = ContactService(
       _contactRepository,

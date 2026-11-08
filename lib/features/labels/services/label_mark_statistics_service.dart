@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/data/repositories/label_mark_statistics_repository.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/labels/data/repositories/label_mark_statistics_repository.dart';
 
 part 'label_mark_statistics_service.g.dart';
 
-/// LabelMarkStatisticsService 的 @Riverpod Provider
+/// LabelMarkStatisticsService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 LabelMarkStatisticsService labelMarkStatisticsService(Ref ref) {
   final repository = ref.watch(labelMarkStatisticsRepositoryProvider);
@@ -21,7 +21,7 @@ LabelMarkStatisticsService labelMarkStatisticsService(Ref ref) {
 
 
 
-/// 标记统计服务类
+/// 标记统计服务�?
 /// 负责统计用户标记号码的次数，并提供相关的统计功能
 class LabelMarkStatisticsService {
   final LabelMarkStatisticsRepository _repository;
@@ -29,16 +29,16 @@ class LabelMarkStatisticsService {
   // 单例实例
   static LabelMarkStatisticsService? _instance;
   
-  // 工厂构造函数
+  // 工厂构造函�?
   factory LabelMarkStatisticsService(LabelMarkStatisticsRepository repository) {
     _instance ??= LabelMarkStatisticsService._internal(repository);
     return _instance!;
   }
   
-  // 私有构造函数
+  // 私有构造函�?
   LabelMarkStatisticsService._internal(this._repository);
   
-  // 获取标记流
+  // 获取标记�?
   Stream<int> get markCountStream => _repository.markCountStream;
   
   // 记录标记
@@ -56,7 +56,7 @@ class LabelMarkStatisticsService {
     return _repository.resetMarkCount();
   }
   
-  // 获取所有标记记录
+  // 获取所有标记记�?
   Future<List<dynamic>> getAllMarks() {
     return _repository.getAll();
   }

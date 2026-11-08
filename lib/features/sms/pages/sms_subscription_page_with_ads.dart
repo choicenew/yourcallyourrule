@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/sms/sms_subscription.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/core/value_objects/url.dart';
+import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/value_objects/url.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/ads/ad_control_service.dart';
 
 /// 短信订阅页面 - 集成广告功能
-/// 使用GenericListWithAdsPage组件减少重复代码并集成广告
+/// 使用GenericListWithAdsPage组件减少重复代码并集成广�?
 class SmsSubscriptionPageWithAds extends ConsumerStatefulWidget {
   const SmsSubscriptionPageWithAds({super.key});
 
@@ -436,7 +436,7 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
         margin: EdgeInsets.symmetric(vertical: 8.0),
         child: Padding(
           padding: EdgeInsets.all(16.0),
-          child: Text('广告位', textAlign: TextAlign.center),
+          child: Text('广告�?, textAlign: TextAlign.center),
         ),
       ),
       adInterval: 3,

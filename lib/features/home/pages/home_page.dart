@@ -8,7 +8,7 @@ import 'package:yourcallyourrule/features/home/pages/carousel_cards.dart';
 import 'package:yourcallyourrule/features/home/pages/feature_center.dart';
 import 'package:yourcallyourrule/features/home/pages/home_app_bar.dart';
 import 'package:yourcallyourrule/features/home/pages/rule_verification_card.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/features/home/widgets/vip_promotion_card.dart';
 
@@ -25,8 +25,7 @@ class _HomePageState extends ConsumerState<HomePage> {
   int _currentIndex = 0; // 当前选中的底部导航项
 
   /*
- // 【修改】initState 方法被完全移除。
-  @override
+ // 【修改】initState 方法被完全移除�?  @override
   void initState() {
     super.initState();
 
@@ -48,8 +47,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     const RuleVerificationCard(),
                     const FilterManagementWidget(),
                     const FeatureCenter(),
-                    //插入显示购买页
-                    const VipPromotionCard(),
+                    //插入显示购买�?                    const VipPromotionCard(),
 
                     nativeAdWidgetMedium(adWidth: 400, adHeight: 320),
                   ],

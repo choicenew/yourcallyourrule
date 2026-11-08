@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/rule/allowed_blocked_rule.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-/// 允许/阻止规则编辑对话框
-/// 用于编辑允许/阻止规则
+/// 允许/阻止规则编辑对话�?/// 用于编辑允许/阻止规则
 /// Used to edit allowed/blocked rules
 class AllowedBlockedRuleEditDialog extends ConsumerStatefulWidget {
   final AllowedBlockedRule rule;
@@ -24,8 +23,7 @@ class AllowedBlockedRuleEditDialog extends ConsumerStatefulWidget {
 
   @override
   ConsumerState<AllowedBlockedRuleEditDialog> createState() => _AllowedBlockedRuleEditDialogState();
-  /// 显示允许/阻止规则编辑对话框的静态方法
-  /// Static method to show the Allowed/Blocked Rule Edit Dialog
+  /// 显示允许/阻止规则编辑对话框的静态方�?  /// Static method to show the Allowed/Blocked Rule Edit Dialog
   static void show(
     BuildContext context,
     AllowedBlockedRule rule, {
@@ -102,8 +100,7 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
         widget.onRuleUpdated!();
       }
 
-      // 关闭对话框
-      if (mounted) {
+      // 关闭对话�?      if (mounted) {
         Navigator.pop(context);
 
         // 显示成功提示

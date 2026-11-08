@@ -2,21 +2,21 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/regex/regex_pattern.dart';
-import 'package:yourcallyourrule/core/entities/rule/regex_rule.dart';
-import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-import 'package:yourcallyourrule/core/entities/rule/rule_type.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
-import 'package:yourcallyourrule/core/services/import_export_service.dart';
-import 'package:yourcallyourrule/core/services/list_service.dart';
-import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/rules/entities/regex_pattern.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.dart';
+import 'package:yourcallyourrule/features/rules/services/import_export_service.dart';
+import 'package:yourcallyourrule/features/common/services/list_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_import_export_service.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 
 part 'regex_service.g.dart';
 
-/// RegexService 的 @Riverpod Provider
+/// RegexService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 RegexService regexService(Ref ref) {
   final ruleRepository = ref.watch(ruleRepositoryProvider);
@@ -36,7 +36,7 @@ class RegexService extends ListService {
   /// 获取导入导出服务
   RuleImportExportService get importExportService => _importExportService;
 
-  // 添加模式有效性检查
+  // 添加模式有效性检�?
   Future<void> addRegexRule(RegExPattern pattern) async {
     if (!pattern.isValid) {
       throw FormatException('无效的正则表达式: ${pattern.pattern}');
@@ -51,7 +51,7 @@ class RegexService extends ListService {
     await _ruleRepository.saveRule(rule);
   }
 
-  // 使用现有的导入导出方法
+  // 使用现有的导入导出方�?
   Future<List<RuleBase>> importRegexRulesFromFile(String filePath,
       {bool overwrite = false}) async {
     return _importExportService.importFromFile(filePath, mode: overwrite ? ImportMode.overwrite : ImportMode.merge);
@@ -75,7 +75,7 @@ class RegexService extends ListService {
     await _ruleRepository.deleteRule(ruleId);
   }
 
-  /// 获取所有正则规则
+  /// 获取所有正则规�?
   Future<List<RegexRule>> getAllRegexRules() async {
     final rules = await _ruleRepository.getRulesByType(RuleTypeKeys.regex);
     return rules.whereType<RegexRule>().toList();
@@ -87,7 +87,7 @@ class RegexService extends ListService {
     return rules.where((rule) => rule.action == action).toList();
   }
   
-  /// 获取匹配指定电话号码的正则规则
+  /// 获取匹配指定电话号码的正则规�?
   Future<List<RegexRule>> getMatchingRegexRules(String phoneNumberStr) async {
     final rules = await getAllRegexRules();
     return rules
@@ -102,7 +102,7 @@ class RegexService extends ListService {
       // 直接使用getMatchingRegexRules方法获取所有匹配的规则
       return getMatchingRegexRules(phoneNumberStr);
     } else {
-      // 获取特定动作类型的规则
+      // 获取特定动作类型的规�?
       final rules = await getRegexRulesByAction(action);
       return rules
           .where((rule) => rule.isEnabled && rule.matches(phoneNumberStr))
@@ -117,7 +117,7 @@ class RegexService extends ListService {
       // 直接使用getMatchingRegexRules方法获取所有匹配的规则
       return getMatchingRegexRules(phoneNumberStr);
     } else {
-      // 获取特定动作类型的规则
+      // 获取特定动作类型的规�?
       final rules = await getRegexRulesByAction(action);
       return rules
           .where((rule) => rule.isEnabled && rule.matches(phoneNumberStr))
@@ -130,8 +130,8 @@ class RegexService extends ListService {
     await _ruleRepository.updateRule(rule);
   }
 
-  /// 检查电话号码是否匹配任何正则规则
-  /// 返回匹配的规则和对应的动作
+  /// 检查电话号码是否匹配任何正则规�?
+  /// 返回匹配的规则和对应的动�?
   Future<Map<RegexRule, RuleAction>?> matchPhoneNumber(
       PhoneNumber phoneNumber) async {
     final rules = await getAllRegexRules();
@@ -152,7 +152,7 @@ class RegexService extends ListService {
     return null;
   }
 
-  /// 验证正则表达式是否有效
+  /// 验证正则表达式是否有�?
   bool isValidRegex(String pattern) {
     try {
       RegExp(pattern);

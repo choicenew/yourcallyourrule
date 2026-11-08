@@ -1,12 +1,10 @@
-// 文件: features/sync_country/services/download_status_service.dart
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 part 'download_status_service.g.dart';
 
-/// DownloadStatusService 的 @Riverpod Provider
+/// DownloadStatusService Riverpod Provider
 @Riverpod(keepAlive: true)
 DownloadStatusService downloadStatusService(Ref ref) {
   final configRepository = ref.watch(configRepositoryProvider);
@@ -17,7 +15,6 @@ DownloadStatusService downloadStatusService(Ref ref) {
 class DownloadStatusService {
   final ConfigRepository _configRepository;
 
-  // 使用一个独立的 Key 来存储下载状态，与用户选择完全分开。
   static const String _downloadedCountriesKey = 'config_downloaded_country_iso_codes';
 
   const DownloadStatusService(this._configRepository);

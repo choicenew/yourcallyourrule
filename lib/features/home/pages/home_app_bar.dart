@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
 import 'package:yourcallyourrule/features/search/widgets/search_result_item.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -41,9 +41,9 @@ class _HomeAppBarState extends ConsumerState<HomeAppBar> {
     }
   }
 
-  // 导航到搜索页面
+  // 导航到搜索页�?
   void _navigateToSearchPage(String searchText) {
-    // 使用 GoRouter 导航到搜索页面，并传递搜索文本
+    // 使用 GoRouter 导航到搜索页面，并传递搜索文�?
     context.push('/search', extra: searchText);
   }
 

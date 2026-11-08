@@ -4,14 +4,14 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_execution_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 
 part 'plugin_invoker_service.g.dart';
 
-/// PluginInvokerService 的 @Riverpod Provider
+/// PluginInvokerService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 PluginInvokerService pluginService(Ref ref) {
   final pluginManagerService = ref.watch(pluginManagerServiceProvider);
@@ -19,7 +19,7 @@ PluginInvokerService pluginService(Ref ref) {
   return PluginInvokerService(pluginManagerService, pluginExecutionService);
 }
 
-/// 插件调用服务 - 负责协调插件管理服务和插件执行服务
+/// 插件调用服务 - 负责协调插件管理服务和插件执行服�?
 /// 遵循单向依赖原则，作为连接数据库和执行引擎的桥梁
 class PluginInvokerService {
   final PluginManagerService _managerService;
@@ -29,7 +29,7 @@ class PluginInvokerService {
   final Map<String, bool> _loadedPlugins = {};
 
   PluginInvokerService(this._managerService, this._executionService) {
-    // 监听插件就绪状态
+    // 监听插件就绪状�?
     _executionService.pluginReadyStream.listen(_onPluginReady);
   }
 
@@ -51,16 +51,16 @@ class PluginInvokerService {
       final scriptPath = await _managerService.getScriptPath(plugin.id);
       final scriptFile = File(scriptPath);
 
-      // 检查脚本文件是否存在
+      // 检查脚本文件是否存�?
       if (!await scriptFile.exists()) {
-        debugPrint('插件脚本文件不存在: $scriptPath');
+        debugPrint('插件脚本文件不存�? $scriptPath');
         return false;
       }
 
       // 读取脚本内容
       final script = await scriptFile.readAsString();
 
-      // 加载脚本到引擎
+      // 加载脚本到引�?
       await _executionService.loadScript(plugin.id, script);
 
       // 等待插件就绪
@@ -87,13 +87,13 @@ class PluginInvokerService {
       // 获取插件
       final plugin = await _managerService.getPluginById(pluginId);
       if (plugin == null) {
-        debugPrint('插件不存在: $pluginId');
+        debugPrint('插件不存�? $pluginId');
         return null;
       }
 
-      // 检查插件是否启用
+      // 检查插件是否启�?
       if (!plugin.isEnabled) {
-        debugPrint('插件未启用: $pluginId');
+        debugPrint('插件未启�? $pluginId');
         return null;
       }
 
@@ -128,14 +128,14 @@ class PluginInvokerService {
       // 获取所有启用的插件
       final enabledPlugins = await _managerService.getEnabledPlugins();
       if (enabledPlugins.isEmpty) {
-        debugPrint('没有启用的插件');
+        debugPrint('没有启用的插�?);
         return null;
       }
 
       // 用于存储所有插件查询任务的Future
       List<Future<Map<String, dynamic>?>> futures = [];
 
-      // 加载并调用每个插件
+      // 加载并调用每个插�?
       for (final plugin in enabledPlugins) {
         // 加载插件
         final loaded = await loadPlugin(plugin);
@@ -172,7 +172,7 @@ class PluginInvokerService {
     }
   }
 
-  /// 调用所有启用的插件并返回所有结果（用于获取完整数据）
+  /// 调用所有启用的插件并返回所有结果（用于获取完整数据�?
   Future<(Map<String, dynamic>?, Future<List<Map<String, dynamic>>>)>
   callPluginsAll(
     String phoneNumber,
@@ -197,13 +197,13 @@ class PluginInvokerService {
       var completedCount = 0;
       final totalCount = plugins.length;
 
-      // 并行调用所有插件
+      // 并行调用所有插�?
       for (final plugin in plugins) {
         // 加载插件
         final loaded = await loadPlugin(plugin);
         if (loaded) {
           debugPrint('[Invoker] Calling plugin: ${plugin.id}');
-          // 异步调用插件并立即处理结果
+          // 异步调用插件并立即处理结�?
           _executionService
               .generatePluginOutput(
                 plugin.id,
@@ -214,7 +214,7 @@ class PluginInvokerService {
               .then((result) {
                 debugPrint('[Invoker] Got result for plugin: ${plugin.id}');
                 if (result != null) {
-                  // 使用锁确保线程安全
+                  // 使用锁确保线程安�?
                   synchronized(() {
                     results.add(result);
 
@@ -260,7 +260,7 @@ class PluginInvokerService {
         }
       }
 
-      // 设置超时，确保不会无限等待
+      // 设置超时，确保不会无限等�?
       Timer(const Duration(seconds: 20), () {
         if (!allResultsCompleter.isCompleted) {
           debugPrint(
@@ -276,7 +276,7 @@ class PluginInvokerService {
         }
       });
 
-      // 等待第一个有效结果（最多等待3秒）
+      // 等待第一个有效结果（最多等�?秒）
       try {
         debugPrint('[Invoker] Waiting for the first valid result...');
         firstValidResult = await firstResultCompleter.future.timeout(
@@ -295,7 +295,7 @@ class PluginInvokerService {
       // 返回第一个有效结果和所有结果的Future
       return (firstValidResult, allResultsCompleter.future);
     } catch (e) {
-      debugPrint('调用所有插件失败: $e');
+      debugPrint('调用所有插件失�? $e');
 
       if (!firstResultCompleter.isCompleted) {
         firstResultCompleter.complete(null);
@@ -308,7 +308,7 @@ class PluginInvokerService {
     }
   }
 
-  // region 强类型实体输出扩展 (Entity Boundary Extensions)
+  // region 强类型实体输出扩�?(Entity Boundary Extensions)
 
   /// 调用单个插件并直接输出强类型实体 PluginSourceData
   Future<PluginSourceData?> callPluginSourceData(
@@ -334,7 +334,7 @@ class PluginInvokerService {
   }
 
   /// 在插件服务的【输出出口】防线直接完成实体转换：
-  /// 返回第一个有效 PluginSourceData 强类型实体，以及包含所有插件结果实体的 Future<List<PluginSourceData>>
+  /// 返回第一个有�?PluginSourceData 强类型实体，以及包含所有插件结果实体的 Future<List<PluginSourceData>>
   Future<(PluginSourceData?, Future<List<PluginSourceData>>)> callPluginsAllEntities(
     String phoneNumber,
     String nationalNumber,
@@ -364,7 +364,7 @@ class PluginInvokerService {
     fn();
   }
 
-  // 定义一个函数来检查结果是否有效
+  // 定义一个函数来检查结果是否有�?
   bool isValidResult(Map<String, dynamic> result) {
     if (result['success'] == false) return false;
 
@@ -407,7 +407,7 @@ class PluginInvokerService {
         // 从URL安装插件
         plugin = await _managerService.addPluginFromUrl(source);
       } else {
-        // 从本地文件安装插件
+        // 从本地文件安装插�?
         plugin = await _managerService.addPluginFromLocal(source);
       }
 
@@ -429,14 +429,14 @@ class PluginInvokerService {
       // 获取插件
       final plugin = await _managerService.getPluginById(pluginId);
       if (plugin == null) {
-        debugPrint('插件不存在: $pluginId');
+        debugPrint('插件不存�? $pluginId');
         return false;
       }
 
-      // 从已加载插件列表中移除
+      // 从已加载插件列表中移�?
       _loadedPlugins.remove(pluginId);
 
-      // 从数据库中删除插件
+      // 从数据库中删除插�?
       await _managerService.deletePlugin(plugin);
 
       return true;
@@ -452,7 +452,7 @@ class PluginInvokerService {
       // 获取插件
       final plugin = await _managerService.getPluginById(pluginId);
       if (plugin == null) {
-        debugPrint('插件不存在: $pluginId');
+        debugPrint('插件不存�? $pluginId');
         return false;
       }
 
@@ -475,14 +475,14 @@ class PluginInvokerService {
       // 获取插件
       final plugin = await _managerService.getPluginById(pluginId);
       if (plugin == null) {
-        debugPrint('插件不存在: $pluginId');
+        debugPrint('插件不存�? $pluginId');
         return false;
       }
 
       // 禁用插件
       await _managerService.disablePlugin(plugin);
 
-      // 从已加载插件列表中移除
+      // 从已加载插件列表中移�?
       _loadedPlugins.remove(pluginId);
 
       return true;
@@ -498,7 +498,7 @@ class PluginInvokerService {
       // 获取插件
       final plugin = await _managerService.getPluginById(pluginId);
       if (plugin == null) {
-        debugPrint('插件不存在: $pluginId');
+        debugPrint('插件不存�? $pluginId');
         return false;
       }
 
@@ -506,7 +506,7 @@ class PluginInvokerService {
       final updated = await _managerService.updatePluginFromUrl(plugin);
 
       if (updated && plugin.isEnabled) {
-        // 从已加载插件列表中移除
+        // 从已加载插件列表中移�?
         _loadedPlugins.remove(pluginId);
 
         // 重新加载插件
@@ -520,7 +520,7 @@ class PluginInvokerService {
     }
   }
 
-  // 自动更新所有插件
+  // 自动更新所有插�?
   Future<void> autoUpdateAllPlugins() async {
     await _managerService.updatePlugins();
 
@@ -530,7 +530,7 @@ class PluginInvokerService {
     // 重新加载已更新的插件
     for (final plugin in enabledPlugins) {
       if (plugin.isEnabled) {
-        // 从已加载插件列表中移除
+        // 从已加载插件列表中移�?
         _loadedPlugins.remove(plugin.id);
 
         // 重新加载插件
@@ -558,7 +558,7 @@ class PluginInvokerService {
     return await _managerService.exportToFile(path);
   }
 
-  // 获取所有插件
+  // 获取所有插�?
   Future<List<PluginEntry>> getAllPlugins() async {
     return await _managerService.getAll();
   }
@@ -574,7 +574,7 @@ class PluginInvokerService {
       final plugin = await _managerService.getPluginById(pluginId);
       if (plugin == null) return null;
 
-      // 确保插件已加载
+      // 确保插件已加�?
       await loadPlugin(plugin);
 
       return await _executionService.getPluginSettings(pluginId);

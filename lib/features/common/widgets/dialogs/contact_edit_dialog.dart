@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
+import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
@@ -15,7 +15,7 @@ import 'package:yourcallyourrule/features/common/widgets/partials/avatar_crop_vi
 /// 联系人编辑对话框
 /// 用于添加或编辑联系人信息
 class ContactEditDialog extends ConsumerStatefulWidget {
-  final Contact? contact; // 可为null，表示添加新联系人
+  final Contact? contact; // 可为null，表示添加新联系�?
   final Function? onContactUpdated;
   final Color? themeColor;
 
@@ -29,7 +29,7 @@ class ContactEditDialog extends ConsumerStatefulWidget {
   @override
   ConsumerState<ContactEditDialog> createState() => _ContactEditDialogState();
 
-  /// 显示联系人编辑对话框的静态方法
+  /// 显示联系人编辑对话框的静态方�?
   static void show(
     BuildContext context, {
     Contact? contact,
@@ -137,7 +137,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
       final bool isEditing = widget.contact != null;
 
       if (isEditing) {
-        // 更新联系人
+        // 更新联系�?
         var updatedContact = widget.contact!.copyWith(
           name: _nameController.text,
           phoneNumbers:
@@ -194,7 +194,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
         widget.onContactUpdated!();
       }
 
-      // 关闭对话框
+      // 关闭对话�?
       if (mounted) {
         Navigator.pop(context);
 

@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
@@ -12,7 +12,7 @@ part 'enhanced_composite_filter_service.g.dart';
 
 @riverpod
 EnhancedCompositeFilterService enhancedCompositeFilterService(Ref ref) {
-  // 把所有的规则插件统一注入过滤链管道中：
+  // 把所有的规则插件统一注入过滤链管道中�?
   // simSlotRuleFilterService 放在第一位，在当前卡槽启用时享有优先判定特权
   final filters = [
     ref.watch(simSlotRuleFilterServiceProvider),
@@ -27,7 +27,7 @@ EnhancedCompositeFilterService enhancedCompositeFilterService(Ref ref) {
   );
 }
 
-/// 增强版组合过滤器服务 (无状态、纯依赖注入、零字符串)
+/// 增强版组合过滤器服务 (无状态、纯依赖注入、零字符�?
 class EnhancedCompositeFilterService implements CallFilterInterface {
   final List<CallFilterInterface> _filters;
   final Future<EnhancedFilterConfigState> Function() _getConfig;
@@ -59,9 +59,9 @@ class EnhancedCompositeFilterService implements CallFilterInterface {
           true;
 
       if (isEnabled) {
-        // 应用过滤器规则
+        // 应用过滤器规�?
         if (!await filter.shouldAcceptCall(phoneNumber, simInfo: simInfo)) {
-          // 如果任何一个过滤器拒绝，流水线直接截断，返回拒绝
+          // 如果任何一个过滤器拒绝，流水线直接截断，返回拒�?
           return false;
         }
       }
@@ -69,7 +69,7 @@ class EnhancedCompositeFilterService implements CallFilterInterface {
     return true;
   }
 
-  /// 保持向后兼容的方法（供外部 handler 平滑调用）
+  /// 保持向后兼容的方法（供外�?handler 平滑调用�?
   Future<bool> shouldAcceptCallWithSim(String phoneNumber, {SimInfo? simInfo}) {
     return shouldAcceptCall(phoneNumber, simInfo: simInfo);
   }

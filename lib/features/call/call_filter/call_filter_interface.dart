@@ -1,6 +1,6 @@
-// 通话过滤接口，所有过滤器都实现此接口以保持独立性
+// 通话过滤接口，所有过滤器都实现此接口以保持独立�?
 
-import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 
 /// 通话过滤接口

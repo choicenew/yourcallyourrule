@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 规则动作显示工具类
+/// 规则动作显示工具�?
 /// 提供获取动作类型名称、颜色、图标和描述的通用方法
 class RuleActionDisplayUtils {
   /// 获取动作类型名称

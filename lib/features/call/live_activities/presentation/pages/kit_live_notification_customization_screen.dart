@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
 import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
-import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
+import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/core/extensions/phone_number_type_extension.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/mock_data/call_overlay_mock.dart';
 import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
@@ -98,7 +98,7 @@ class _KitLiveNotificationCustomizationScreenState
               _buildLivePreviewCard(config),
               const SizedBox(height: 20),
 
-              // 2. 测试控制按钮栏
+              // 2. 测试控制按钮�?
               Row(
                 children: [
                   Expanded(
@@ -230,7 +230,7 @@ class _KitLiveNotificationCustomizationScreenState
     );
   }
 
-  /// 构建专属于 Live Activity / 实时通知的预览卡片
+  /// 构建专属�?Live Activity / 实时通知的预览卡�?
   Widget _buildLivePreviewCard(LiveNotificationConfig config) {
     final mockData = CallOverlayMockData.mockCallerIdData();
     final mockSimInfo = CallOverlayMockData.mockSimInfoData();
@@ -275,7 +275,7 @@ class _KitLiveNotificationCustomizationScreenState
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // 1. 展开大卡片（锁屏 / Android 展开式实时通知）
+        // 1. 展开大卡片（锁屏 / Android 展开式实时通知�?
         Container(
           width: double.infinity,
           padding: const EdgeInsets.all(16),
@@ -382,7 +382,7 @@ class _KitLiveNotificationCustomizationScreenState
         ),
         const SizedBox(height: 12),
 
-        // 2. 紧凑胶囊态（灵动岛 / 状态栏芯片）
+        // 2. 紧凑胶囊态（灵动�?/ 状态栏芯片�?
         Center(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),

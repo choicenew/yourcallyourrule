@@ -1,11 +1,11 @@
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 /// 插件管理服务的配置管理类
 /// 负责存储和获取插件管理相关的配置信息
 class PluginManagerConfig {
   final ConfigRepository _configRepository;
   
-  /// 构造函数
+  /// 构造函�?
   PluginManagerConfig({required ConfigRepository configRepository})
       : _configRepository = configRepository;
   

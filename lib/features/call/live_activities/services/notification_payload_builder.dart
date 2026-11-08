@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:live_activity_kit/live_activity_kit.dart';
-import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
-import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
-import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
 
 class LiveNotificationPayload {
@@ -29,7 +29,7 @@ class LiveNotificationPayload {
 }
 
 class LiveNotificationPayloadBuilder {
-  /// 将配置和真实数据转换为 LiveActivityKit 的节点 Bundle
+  /// 将配置和真实数据转换�?LiveActivityKit 的节�?Bundle
   static Future<LiveNotificationPayload> build(
     LiveNotificationConfig config,
     CallerIdData data,

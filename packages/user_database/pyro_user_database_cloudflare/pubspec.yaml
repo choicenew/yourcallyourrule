@@ -1,0 +1,31 @@
+name: pyro_user_database_cloudflare
+description: Cloudflare Worker 与 D1/KV 个人用户数据库物理驱动微包
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  meta: ^1.15.0
+  pyro_user_database_protocol:
+    path: ../pyro_user_database_protocol
+  pyro_cloudflare:
+    path: '../../infra/pyro_cloudflare'
+
+  material_ui: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  test: ^1.25.8
+
+flutter:
+  generate: true

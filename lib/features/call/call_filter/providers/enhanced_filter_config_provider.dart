@@ -1,11 +1,11 @@
 import 'dart:collection';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 
 part 'enhanced_filter_config_provider.g.dart';
 
-/// 兼容 Map 包装器：支持 CallFilterType 和历史 String 键无缝读取
+/// 兼容 Map 包装器：支持 CallFilterType 和历�?String 键无缝读�?
 class FilterEnabledCompatMap with MapMixin<dynamic, bool> {
   final Map<CallFilterType, bool> _inner;
   FilterEnabledCompatMap(this._inner);
@@ -39,7 +39,7 @@ class FilterEnabledCompatMap with MapMixin<dynamic, bool> {
 
 /// 状态模型，封装 Enhanced Filter 的所有配置（完全强类型驱动）
 class EnhancedFilterConfigState {
-  // 全局过滤器启用状态
+  // 全局过滤器启用状�?
   final Map<CallFilterType, bool> _filterEnabledMap;
   // SIM卡槽位特定过滤器配置
   final Map<int, Map<CallFilterType, bool>> simSlotFilterConfigMap;
@@ -49,10 +49,10 @@ class EnhancedFilterConfigState {
     this.simSlotFilterConfigMap = const {},
   }) : _filterEnabledMap = filterEnabledMap;
 
-  /// 强类型 Map 获取
+  /// 强类�?Map 获取
   Map<CallFilterType, bool> get typedFilterEnabledMap => _filterEnabledMap;
 
-  /// 兼容 Map 获取（支持 CallFilterType 和 String）
+  /// 兼容 Map 获取（支�?CallFilterType �?String�?
   FilterEnabledCompatMap get filterEnabledMap => FilterEnabledCompatMap(_filterEnabledMap);
 
   EnhancedFilterConfigState copyWith({
@@ -152,7 +152,7 @@ class EnhancedFilterConfigNotifier extends _$EnhancedFilterConfigNotifier {
     });
   }
 
-  // --- 强类型与向后兼容的更新方法 ---
+  // --- 强类型与向后兼容的更新方�?---
 
   Future<void> enableFilter(dynamic filter) async {
     final type = filter is CallFilterType ? filter : parseFilterType(filter.toString());

@@ -1,11 +1,11 @@
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
-// 定义 SMS 配置的键名
+// 定义 SMS 配置的键�?
 const String _smsLocalNotificationKey = 'config_sms_local_notification';
 const String _smsCancelLocalNotificationKey = 'config_sms_cancel_local_notification';
 
-/// SMS 配置仓库的抽象接口
-/// 封装了与 SMS 功能相关的配置的读取和写入逻辑。
+/// SMS 配置仓库的抽象接�?
+/// 封装了与 SMS 功能相关的配置的读取和写入逻辑�?
 abstract class SmsConfigRepository {
   Future<bool> getUseLocalNotification();
   Future<void> setUseLocalNotification(bool value);
@@ -14,7 +14,7 @@ abstract class SmsConfigRepository {
   Future<void> setCancelLocalNotification(bool value);
 }
 
-/// SmsConfigRepository 的 SharedPreferences 实现
+/// SmsConfigRepository �?SharedPreferences 实现
 class SharedPreferencesSmsConfigRepository implements SmsConfigRepository {
   SharedPreferencesSmsConfigRepository(this._configRepository);
 

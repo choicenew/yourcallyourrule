@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
-import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/call_overlay_content_builder.dart';
 
 import 'package:yourcallyourrule/features/call/call_overlay/configuration/call_overlay_config.dart';
@@ -26,14 +26,14 @@ class CallOverlay extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // 【关键修改点】: watch 统一的 provider
+    // 【关键修改点�? watch 统一�?provider
     final asyncConfig = ref.watch(callOverlayStyleSecurityProvider);
 
     return asyncConfig.when(
       loading: () => const Center(child: CircularProgressIndicator()),
       error: (err, stack) => Center(child: Text('Error: $err')),
       data: (config) {
-        // 【关键修改点】: read notifier 以便调用其方法
+        // 【关键修改点�? read notifier 以便调用其方�?
         final notifier = ref.read(callOverlayStyleSecurityProvider.notifier);
         
         final content = _buildOverlayContent(context, config, notifier);
@@ -59,8 +59,8 @@ class CallOverlay extends ConsumerWidget {
         config: config,
         simInfo: simInfo,
         stirInfo: stirInfo,
-        isDraggable: true, // 在预览界面，元素是可拖动的
-        // 【关键修改点】: 将 notifier 的方法作为回调传递下去
+        isDraggable: true, // 在预览界面，元素是可拖动�?
+        // 【关键修改点�? �?notifier 的方法作为回调传递下�?
         onAvatarPositionChanged: notifier.updateAvatarPosition,
         onCarrierPositionChanged: notifier.updateCarrierPosition,
         onNamePositionChanged: notifier.updateNamePosition,

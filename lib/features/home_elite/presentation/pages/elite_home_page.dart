@@ -1,13 +1,13 @@
 // -----------------------------------------------------------------------------
 // 文件: elite_home_page.dart
-// 描述: Elite 多巴胺极简主页，聚焦实时安全状态、一级拦截控制与社区判官投票。
+// 描述: Elite 多巴胺极简主页，聚焦实时安全状态、一级拦截控制与社区判官投票�?
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_app_bar.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_community_judge_card.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';

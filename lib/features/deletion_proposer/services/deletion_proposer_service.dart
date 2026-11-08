@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart'; // 为了使用 Provider
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/common/utils/phone_utils.dart';
+import 'package:yourcallyourrule/features/phone/utils/phone_utils.dart';
 
 import 'package:yourcallyourrule/features/deletion_proposal/data/repositories/proposal_repository_impl.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/repositories/proposal_repository.dart';
@@ -24,31 +24,31 @@ DeletionProposerService deletionProposerService(Ref ref) {
 }
 
 
-/// 提议创建服务。
+/// 提议创建服务�?
 ///
 /// 它的唯一职责是：
-/// 1. 对用户设备进行安全验证。
-/// 2. 如果验证通过，则创建一个“提议删除”操作并将其记录到待同步队列。
+/// 1. 对用户设备进行安全验证�?
+/// 2. 如果验证通过，则创建一个“提议删除”操作并将其记录到待同步队列�?
 class DeletionProposerService {
-  // 【MODIFIED】: 依赖项从具体的数据源改为了 Repository 抽象。
+  // 【MODIFIED�? 依赖项从具体的数据源改为�?Repository 抽象�?
   final ProposalRepository _proposalRepository;
   final DeviceProfileService _profileService;
 
-  // 【MODIFIED】: 构造函数现在接收 Repository。
+  // 【MODIFIED�? 构造函数现在接�?Repository�?
   DeletionProposerService({
     required ProposalRepository proposalRepository, 
     required DeviceProfileService profileService
   }) : _proposalRepository = proposalRepository, 
        _profileService = profileService;
 
-  /// 提议删除一个号码。
+  /// 提议删除一个号码�?
   ///
-  /// 此方法执行完整的设备验证流程，如果风险等级足够低，
-  /// 它会调用 Repository 将提议操作记录到 `pending_operations` 表。
+  /// 此方法执行完整的设备验证流程，如果风险等级足够低�?
+  /// 它会调用 Repository 将提议操作记录到 `pending_operations` 表�?
   ///
-  /// [phoneNumberToPropose] 用户想要提议删除的电话号码。
+  /// [phoneNumberToPropose] 用户想要提议删除的电话号码�?
   ///
-  /// 返回一个 `VerificationResult` 对象，其中包含了验证的结果和状态。
+  /// 返回一�?`VerificationResult` 对象，其中包含了验证的结果和状态�?
   Future<VerificationResult> proposeDeletion(String phoneNumberToPropose) async {
     try {
       // 1. 获取设备原始信息
@@ -68,14 +68,14 @@ class DeletionProposerService {
         simNumberE164: parsedSim['e164Number'],
       );
       
-      // 4. 分析设备画像，得出验证结果
+      // 4. 分析设备画像，得出验证结�?
       final verificationResult = analyzeProfile(verificationInput);
       
       // 5. 如果风险等级足够低（已验证或低风险），则记录操作
       if (verificationResult.riskLevel == RiskLevel.Verified || verificationResult.riskLevel == RiskLevel.Low) {
         
-        // 【MODIFIED】: 调用了 `ProposalRepository` 中正确的、职责清晰的方法。
-        // REASON: `proposeDeletion` 方法（旧的 logCustomOperation）现在被正确地封装在 `ProposalRepository` 中。
+        // 【MODIFIED�? 调用�?`ProposalRepository` 中正确的、职责清晰的方法�?
+        // REASON: `proposeDeletion` 方法（旧�?logCustomOperation）现在被正确地封装在 `ProposalRepository` 中�?
         await _proposalRepository.proposeDeletion(
           phoneNumber: phoneNumberToPropose,
           report: verificationResult.reportForServer.toJson(),
@@ -108,11 +108,11 @@ class DeletionProposerService {
   }
   
   // =======================================================================
-  // 【MODIFIED】: `voteOnProposal` 方法已被移除。
-  // REASON: 根据职责分离原则，`DeletionProposerService` 只负责“创建”提议。
+  // 【MODIFIED�? `voteOnProposal` 方法已被移除�?
+  // REASON: 根据职责分离原则，`DeletionProposerService` 只负责“创建”提议�?
   //         “投票”是另一个独立的业务逻辑，它应该由我们之前重构的
-  //         `DeletionProposalService` 来处理。将两个职责混在一个类中
-  //         会导致逻辑混乱。
+  //         `DeletionProposalService` 来处理。将两个职责混在一个类�?
+  //         会导致逻辑混乱�?
   // =======================================================================
   //
   // REMOVED: Future<bool> voteOnProposal(...)

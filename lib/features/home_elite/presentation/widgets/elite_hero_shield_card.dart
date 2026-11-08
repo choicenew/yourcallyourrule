@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // 文件: elite_hero_shield_card.dart
-// 描述: Elite 极简通透防护盾牌卡片。刷新按钮融入 Updated 时间条后侧，不挤压顶部统计文本。
+// 描述: Elite 极简通透防护盾牌卡片。刷新按钮融�?Updated 时间条后侧，不挤压顶部统计文本�?
 // -----------------------------------------------------------------------------
 
 import 'package:flutter/material.dart';
@@ -8,7 +8,7 @@ import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action.dart';
 import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action_config_provider.dart';
@@ -75,7 +75,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
         final autoUpdateService = ref.read(autoUpdateServiceProvider);
         await autoUpdateService.updateAll();
       } catch (e) {
-        debugPrint('后台一键更新规则失败: $e');
+        debugPrint('后台一键更新规则失�? $e');
       } finally {
         if (mounted) {
           ref.invalidate(homeStatsProvider);

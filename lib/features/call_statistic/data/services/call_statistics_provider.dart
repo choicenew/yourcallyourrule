@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/entities/call/call_log.dart';
-import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/repositories/call_statistics_repository_impl.dart';
@@ -109,7 +109,7 @@ class CallStatisticsNotifier extends _$CallStatisticsNotifier {
     await _calculateStatistics(initialLogs, timeRange: _currentTimeRange);
   }
 
-  // ▼▼▼▼▼ 核心增量修改部分 ▼▼▼▼▼
+  // ▼▼▼▼�?核心增量修改部分 ▼▼▼▼�?
   Future<void> _calculateStatistics(List<CallLog> callLogs, {required StatisticPeriod timeRange}) async {
     try {
       final allRules = await ref.read(ruleManagementServiceProvider).getAllRules();
@@ -145,16 +145,16 @@ class CallStatisticsNotifier extends _$CallStatisticsNotifier {
     }
   }
 
-  /// [新增]: 辅助方法，用于生成完整的、填充了0的图表数据。
+  /// [新增]: 辅助方法，用于生成完整的、填充了0的图表数据�?
   Map<DateTime, int> _generateCompleteChartData(CallStatisticsRepositoryImpl repo, StatisticPeriod timeRange) {
     final now = DateTime.now();
     final Map<DateTime, int> completeData = {};
 
-    // 1. 从仓库获取原始的、可能不连续的数据。
+    // 1. 从仓库获取原始的、可能不连续的数据�?
     final rawData = repo.getBlockedCallsByDate(timeRange);
 
     if (timeRange == StatisticPeriod.year) {
-      // 对于年份，我们按月生成序列
+      // 对于年份，我们按月生成序�?
       for (int i = 11; i >= 0; i--) {
         final monthDate = DateTime(now.year, now.month - i, 1);
         int monthlyTotal = 0;
@@ -178,7 +178,7 @@ class CallStatisticsNotifier extends _$CallStatisticsNotifier {
 
     return completeData;
   }
-  // ▲▲▲▲▲ 增量修改结束 ▲▲▲▲▲
+  // ▲▲▲▲�?增量修改结束 ▲▲▲▲�?
 
   Future<void> updateTimeRange(dynamic newTimeRange) async {
     final StatisticPeriod period = newTimeRange is StatisticPeriod

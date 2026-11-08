@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 重新从“设置”打开配置页面的温馨提示卡片组件
+/// 重新从“设置”打开配置页面的温馨提示卡片组�?
 class InitialSetupSettingsHintCard extends StatelessWidget {
   const InitialSetupSettingsHintCard({super.key});
 

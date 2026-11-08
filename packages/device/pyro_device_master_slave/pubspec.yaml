@@ -1,0 +1,16 @@
+name: pyro_device_master_slave
+description: 主从设备物理拓扑、选举与数据库初始化权限管制驱动包
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+  pyro_device_master_slave_protocol:
+    path: ../pyro_device_master_slave_protocol
+  pyro_device_master_slave_hub:
+    path: ../pyro_device_master_slave_hub
+
+dev_dependencies:
+  test: ^1.24.0

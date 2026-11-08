@@ -1,0 +1,15 @@
+name: pyro_central_database_protocol
+description: 纯抽象系统中央数据库协议包，定义中央公共规则、公告与数据适配器接口
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+resolution: workspace
+
+dependencies:
+  meta: ^1.11.0
+
+dev_dependencies:
+  test: ^1.24.0

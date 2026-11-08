@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/services/import_export_service_component.dart';
 
 /// 规则管理通用 UI 挂载组件

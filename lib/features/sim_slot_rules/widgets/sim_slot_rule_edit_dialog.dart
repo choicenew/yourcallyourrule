@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
-import 'package:yourcallyourrule/core/entities/rule/sim_slot_rule.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/entities/list_entry.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provider.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// SIM卡槽位规则编辑/新增对话框 (Elite Dopamine 现代视觉规范)
+/// SIM卡槽位规则编�?新增对话�?(Elite Dopamine 现代视觉规范)
 class SimSlotRuleEditDialog extends ConsumerStatefulWidget {
   final SimSlotRule? rule;
   final int? simSlotIndex;
@@ -188,8 +188,8 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ▼▼▼▼▼ 核心修正部分 ▼▼▼▼▼
-            // [修正]: 仅在新增模式下显示 SIM 卡选择器
+            // ▼▼▼▼�?核心修正部分 ▼▼▼▼�?
+            // [修正]: 仅在新增模式下显�?SIM 卡选择�?
             if (!isEditing) ...[
               Text(
                 l10n.selectSimCard, 
@@ -201,7 +201,7 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
                   if (sims.isEmpty) {
                     return Text(l10n.noSimCardDetected, style: TextStyle(color: Colors.grey[600], fontSize: 12));
                   }
-                  // [注释]: 如果只有一个SIM卡，则自动选择它。
+                  // [注释]: 如果只有一个SIM卡，则自动选择它�?
                   if (sims.length == 1 && _selectedSimSlotIndex == null) {
                     _selectedSimSlotIndex = sims.first.simSlotIndex;
                   }
@@ -237,7 +237,7 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
               ),
               const SizedBox(height: 14),
             ],
-            // ▲▲▲▲▲ 修正结束 ▲▲▲▲▲
+            // ▲▲▲▲�?修正结束 ▲▲▲▲�?
             TextField(
               controller: _nameController,
               decoration: InputDecoration(

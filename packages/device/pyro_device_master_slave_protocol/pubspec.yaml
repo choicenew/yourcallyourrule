@@ -1,0 +1,13 @@
+name: pyro_device_master_slave_protocol
+description: 纯抽象主从设备拓扑、角色与初始化权限协议包
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+  meta: ^1.11.0
+
+dev_dependencies:
+  test: ^1.24.0

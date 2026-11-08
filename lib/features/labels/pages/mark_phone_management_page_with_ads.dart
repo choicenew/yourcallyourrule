@@ -3,14 +3,14 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/common/utils/avatar_utils.dart';
-import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
+import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/labels/services/label_phone_entry_to_remote.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_sync_service.dart';
 import 'package:yourcallyourrule/features/labels/services/mark_phone_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_service.dart';
 import 'package:yourcallyourrule/features/labels/widgets/dialogs/mark_phone_edit_dialog.dart';
@@ -18,11 +18,11 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 
 /// 号码标记管理页面 - 集成广告功能
 /// 用于用户添加号码标记，查看标记次数，以及兑换VIP功能
-/// 使用GenericListWithAdsPage组件减少重复代码并集成广告
+/// 使用GenericListWithAdsPage组件减少重复代码并集成广�?
 class MarkPhoneManagementPageWithAds extends ConsumerStatefulWidget {
   const MarkPhoneManagementPageWithAds({super.key});
 
@@ -59,7 +59,7 @@ class _MarkPhoneManagementPageWithAdsState
     // 加载标记数量
     _loadMarkCount();
     
-    // 加载标记的电话号码列表
+    // 加载标记的电话号码列�?
     _loadMarkedPhones();
 
     // 监听标记计数变化
@@ -224,7 +224,7 @@ class _MarkPhoneManagementPageWithAdsState
                     labelMarkStatisticsSyncServiceProvider,
                   );
                   await statisticsSyncService.syncSingleLabel(labelPhoneEntry);
-// 使用标签到远程号码同步服务同步标记
+// 使用标签到远程号码同步服务同步标�?
                   final labelPhoneEntryToRemote = ref.read(
                     labelPhoneEntryToRemoteProvider,
                   );
@@ -251,7 +251,7 @@ class _MarkPhoneManagementPageWithAdsState
     // 导航到VIP兑换页面
     context.pushNamed(AppRouter.vipExchange);
 
-    // 返回后刷新标记次数
+    // 返回后刷新标记次�?
     await _loadMarkCount();
   }
 
@@ -486,10 +486,10 @@ class _MarkPhoneManagementPageWithAdsState
     return label?.text ?? AppLocalizations.of(context)!.unknown;
   }
 
-  /// 编辑标记的电话号码
+  /// 编辑标记的电话号�?
   Future<void> _editMarkedPhone(LabelPhoneEntry entry) async {
     try {
-      // 使用MarkPhoneEditDialog显示编辑对话框
+      // 使用MarkPhoneEditDialog显示编辑对话�?
       MarkPhoneEditDialog.show(
         context, 
         entry,

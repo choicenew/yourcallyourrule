@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/services/permission_service_impl.dart';
+import 'package:yourcallyourrule/features/permissions/services/permission_service_impl.dart';
 import 'package:yourcallyourrule/features/call_monitor/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 引导页 5：核心权限授权卡片组件（全面支持实时状态检查与一键/单项授权落地）
+/// 引导�?5：核心权限授权卡片组件（全面支持实时状态检查与一�?单项授权落地�?
 class OnboardingPermissionsCard extends ConsumerStatefulWidget {
   const OnboardingPermissionsCard({super.key});
 
@@ -24,7 +24,7 @@ class _OnboardingPermissionsCardState extends ConsumerState<OnboardingPermission
     _checkPermissionStatuses();
   }
 
-  /// 全量检查三项核心权限状态
+  /// 全量检查三项核心权限状�?
   Future<void> _checkPermissionStatuses() async {
     if (!mounted) return;
     setState(() => _isLoading = true);
@@ -67,7 +67,7 @@ class _OnboardingPermissionsCardState extends ConsumerState<OnboardingPermission
     }
   }
 
-  /// 一键申请所有必要核心权限
+  /// 一键申请所有必要核心权�?
   Future<void> _requestAllPermissions() async {
     final l10n = AppLocalizations.of(context)!;
     final permissionService = ref.read(permissionServiceProvider);
@@ -76,7 +76,7 @@ class _OnboardingPermissionsCardState extends ConsumerState<OnboardingPermission
       // 1. 批量申请电话与联系人系统权限
       final results = await permissionService.requestPermissions(['call', 'contacts']);
       
-      // 2. 申请默认 Call Screening Role 拦截角权限
+      // 2. 申请默认 Call Screening Role 拦截角权�?
       final screeningRes = await CallScreeningPlugin.requestCallScreeningRole();
 
       if (mounted) {

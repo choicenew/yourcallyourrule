@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:floating_window_android/floating_window_android.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dlibphonenumber/enums/phone_number_type.dart';
-import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
-import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/call_overlay_content_builder.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/providers/call_overlay_style_security_provider.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
@@ -27,8 +27,8 @@ class _CallOverlayEntryState extends ConsumerState<CallOverlayEntry> {
   void initState() {
     super.initState();
     
-    // 【修改点】: initState 中不再需要手动加载配置或读取provider。
-    // Provider 会自动处理自己的初始化。我们只需要监听来自主App的数据。
+    // 【修改点�? initState 中不再需要手动加载配置或读取provider�?
+    // Provider 会自动处理自己的初始化。我们只需要监听来自主App的数据�?
     FloatingWindowAndroid.overlayListener.listen((event) {
        debugPrint('Received data: $event');
       if (event is Map<String, dynamic> && event.containsKey("configType")) {
@@ -42,8 +42,8 @@ class _CallOverlayEntryState extends ConsumerState<CallOverlayEntry> {
             _simInfo = SimInfo.fromJson(event);
           }
           // 注意：配置更新现在由主App保存，这里的Provider会自动重新加载，
-          // 所以不需要再手动处理 "callerIdStyle" 类型的消息。
-          debugPrint("接收到配置更新: ${_callerIdData?.toMap()}");
+          // 所以不需要再手动处理 "callerIdStyle" 类型的消息�?
+          debugPrint("接收到配置更�? ${_callerIdData?.toMap()}");
         });
       }
     });
@@ -79,7 +79,7 @@ class _CallOverlayEntryState extends ConsumerState<CallOverlayEntry> {
       );
     }
 
-    // 【关键修改点】: 在 build 方法中 watch 新的 provider
+    // 【关键修改点�? �?build 方法�?watch 新的 provider
     final asyncConfig = ref.watch(callOverlayStyleSecurityProvider);
 // 添加语言切换
     final asyncLocale = ref.watch(localeProvider);
@@ -97,7 +97,7 @@ class _CallOverlayEntryState extends ConsumerState<CallOverlayEntry> {
         return Localizations.override(
           context: context,
           locale: locale,
-          child: Builder( // 使用 Builder 获取包含新 locale 的 context
+          child: Builder( // 使用 Builder 获取包含�?locale �?context
             builder: (localizedContext) {
               // 从这里开始，所有的 AppLocalizations.of(localizedContext) 都会使用正确的语言
               
@@ -115,7 +115,7 @@ class _CallOverlayEntryState extends ConsumerState<CallOverlayEntry> {
                 loading: () => const Material(color: Colors.transparent, child: Center(child: CircularProgressIndicator())),
                 error: (err, stack) => Material(color: Colors.transparent, child: Center(child: Text('Config Error: $err'))),
         data: (config) {
-          // 在 Isolate 中，浮窗通常是可关闭的
+          // �?Isolate 中，浮窗通常是可关闭�?
                  return Material(
                     color: Colors.transparent,
                     child: InkWell(
@@ -129,12 +129,12 @@ class _CallOverlayEntryState extends ConsumerState<CallOverlayEntry> {
             child: CallOverlayContentBuilder.buildOverlayContainer(
               config: config,
               child: CallOverlayContentBuilder.buildCallOverlayContent(
-     context: localizedContext, // 传递新的 context
+     context: localizedContext, // 传递新�?context
                 callerIdData: _callerIdData!,
                 config: config,
                 simInfo: _simInfo,
                 stirInfo: _stirInfo,
-                isDraggable: false, // 在真实来电中，元素不可拖动
+                isDraggable: false, // 在真实来电中，元素不可拖�?
                         ),
                       ),
                     ),

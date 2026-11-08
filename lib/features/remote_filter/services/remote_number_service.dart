@@ -1,22 +1,22 @@
 import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/entities/remote/remote_number_entry.dart';
-import 'package:yourcallyourrule/core/services/list_service.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:pyro_phone_remote_filter_protocol/pyro_phone_remote_filter_protocol.dart';
+import 'package:yourcallyourrule/features/common/services/list_service.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/data/repositories/remote/remote_number_repository_impl.dart';
-// 导入依赖的 Provider
+// 导入依赖�?Provider
 
 part 'remote_number_service.g.dart';
 
-/// RemoteNumberService 的 @riverpod Provider
+/// RemoteNumberService �?@riverpod Provider
 @riverpod
 RemoteNumberService remoteNumberService(Ref ref) {
   // 注入 Repository 依赖
   return RemoteNumberService(ref.watch(remoteNumberRepositoryProvider));
 }
 
-/// 远程号码服务类 (基本无状态，阈值由外部设置)
+/// 远程号码服务�?(基本无状态，阈值由外部设置)
 class RemoteNumberService extends ListService<RemoteNumberEntry, String> {
   final RemoteNumberRepositoryImpl _remoteNumberRepository;
 
@@ -26,19 +26,19 @@ class RemoteNumberService extends ListService<RemoteNumberEntry, String> {
   RemoteNumberService(this._remoteNumberRepository)
     : super(_remoteNumberRepository);
 
-  // ... (所有方法保持不变，因为它们不直接依赖可变状态) ...
+  // ... (所有方法保持不变，因为它们不直接依赖可变状�? ...
 
   @override
   Future<List<RemoteNumberEntry>> getAll() async {
     return await _remoteNumberRepository.getAll();
   }
 
-  // 设置计数阈值
+  // 设置计数阈�?
   void setCountThreshold(int threshold) {
     _countThreshold = threshold;
   }
 
-  // 获取计数阈值
+  // 获取计数阈�?
   int getCountThreshold() {
     return _countThreshold;
   }
@@ -72,7 +72,7 @@ class RemoteNumberService extends ListService<RemoteNumberEntry, String> {
     }
   }
 
-  // 获取所有远程号码
+  // 获取所有远程号�?
   Future<List<RemoteNumberEntry>> getAllRemoteNumbers() async {
     final rules = await _remoteNumberRepository.getAll();
     return rules.whereType<RemoteNumberEntry>().toList();
@@ -101,7 +101,7 @@ class RemoteNumberService extends ListService<RemoteNumberEntry, String> {
     return rules.where((entry) => entry.action == action).toList();
   }
 
-  // 检查电话号码是否存在于远程数据中
+  // 检查电话号码是否存在于远程数据�?
   Future<bool> isInRemoteNumbers(PhoneNumber phoneNumber) async {
     return await _remoteNumberRepository.isInRemoteNumbers(phoneNumber);
   }
@@ -111,7 +111,7 @@ class RemoteNumberService extends ListService<RemoteNumberEntry, String> {
     return await _remoteNumberRepository.incrementCount(phoneNumber);
   }
 
-  // 检查远程号码的计数是否超过阈值
+  // 检查远程号码的计数是否超过阈�?
   Future<bool> isCountExceeded(PhoneNumber phoneNumber) async {
     return await _remoteNumberRepository.isCountExceeded(
       phoneNumber,
@@ -139,7 +139,7 @@ class RemoteNumberService extends ListService<RemoteNumberEntry, String> {
     return await _remoteNumberRepository.syncRemoteNumbers();
   }
 
-  // 关联号码和国家代码
+  // 关联号码和国家代�?
   Future<void> linkNumberToCountry(
     String phoneNumber,
     String countryIsoCode,

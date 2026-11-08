@@ -3,7 +3,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/configuration/call_overlay_config.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/configuration/call_overlay_config_service.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/configuration/configuration_manager.dart';
@@ -23,53 +23,53 @@ CallOverlayConfigService callOverlayConfigService(Ref ref) {
 }
 
 /// Provider for the ConfigurationManager.
-/// 这使得我们的业务逻辑层可以在整个应用中被轻松访问。
+/// 这使得我们的业务逻辑层可以在整个应用中被轻松访问�?
 @riverpod
 ConfigurationManager configurationManager(Ref ref) {
   return ConfigurationManager(ref.watch(configRepositoryProvider));
 }
 
 /// The UI State Notifier.
-/// 它的唯一职责是持有当前的UI状态(CallOverlayConfig)，并响应UI的实时调整。
-/// 它不包含任何保存、加载等业务逻辑。
+/// 它的唯一职责是持有当前的UI状�?CallOverlayConfig)，并响应UI的实时调整�?
+/// 它不包含任何保存、加载等业务逻辑�?
 @riverpod
 class CallOverlayStyleSecurityNotifier extends _$CallOverlayStyleSecurityNotifier {
   
-  /// `build` 方法负责提供初始状态。
-  /// 它通过调用 `ConfigurationManager` 来完成这个任务。
+  /// `build` 方法负责提供初始状态�?
+  /// 它通过调用 `ConfigurationManager` 来完成这个任务�?
   @override
   Future<CallOverlayConfig> build() async {
-    // 从 Provider 中读取 ConfigurationManager 实例来加载初始数据
+    // �?Provider 中读�?ConfigurationManager 实例来加载初始数�?
     final manager = ref.read(configurationManagerProvider);
     return await manager.loadConfig();
   }
 
-  /// 提供一个公开的方法，允许外部(例如UI层在执行完业务逻辑后)用一个新的配置对象来更新当前状态。
+  /// 提供一个公开的方法，允许外部(例如UI层在执行完业务逻辑�?用一个新的配置对象来更新当前状态�?
   void updateStateWith(CallOverlayConfig newConfig) {
     state = AsyncValue.data(newConfig);
   }
 
-  /// 私有辅助方法，用于处理实时的、不可变的UI状态更新。
+  /// 私有辅助方法，用于处理实时的、不可变的UI状态更新�?
   void _updateState(CallOverlayConfig Function(CallOverlayConfig current) updater) {
     if (state.hasValue) {
       state = AsyncValue.data(updater(state.value!));
     }
   }
 
-  // --- 所有用于UI实时调整的 set... 方法 ---
+  // --- 所有用于UI实时调整�?set... 方法 ---
 
-  /// 使用可选的【命名参数】来更新窗口尺寸，使其更加灵活。
-  /// 这样 UI 就可以只更新宽度，或只更新高度。
+  /// 使用可选的【命名参数】来更新窗口尺寸，使其更加灵活�?
+  /// 这样 UI 就可以只更新宽度，或只更新高度�?
   void setWindowSize({double? width, double? height}) {
     _updateState((currentConfig) => currentConfig.copyWith(
-      // 如果传入了新的 width，就使用它；否则 (??) 就使用 currentConfig 中原来的 width
+      // 如果传入了新�?width，就使用它；否则 (??) 就使�?currentConfig 中原来的 width
       windowWidth: width ?? currentConfig.windowWidth,
-      // 对 height 做同样的处理
+      // �?height 做同样的处理
       windowHeight: height ?? currentConfig.windowHeight,
     ));
   }
 
-  // --- 所有用于UI实时调整的 set... 方法都保持不变 ---
+  // --- 所有用于UI实时调整�?set... 方法都保持不�?---
   void setBackgroundColorStart(Color color) => _updateState((c) => c.copyWith(backgroundColorStart: color));
   void setBackgroundColorEnd(Color color) => _updateState((c) => c.copyWith(backgroundColorEnd: color));
   void setTextIconLabelColor(Color color) => _updateState((c) => c.copyWith(textIconLabelColor: color));

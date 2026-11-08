@@ -1,21 +1,21 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-import 'package:yourcallyourrule/core/entities/sms/sms_subscription.dart';
-import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
-import 'package:yourcallyourrule/core/repositories/sms_subscription_repository.dart';
-import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
+import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
+import 'package:yourcallyourrule/features/sms/repositories/sms_subscription_repository.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_import_export_service.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/data/repositories/sms_subscription_repository_impl.dart';
-import 'package:yourcallyourrule/core/services/subscription_service_base.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/core/value_objects/url.dart';
+import 'package:yourcallyourrule/features/phone/services/subscription_service_base.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/value_objects/url.dart';
 
 part 'sms_subscription_service.g.dart';
 
-/// SmsSubscriptionService 的 @Riverpod Provider
+/// SmsSubscriptionService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 SmsSubscriptionService smsSubscriptionService(Ref ref) {
   final smsSubscriptionRepository = ref.watch(smsSubscriptionRepositoryProvider);
@@ -29,16 +29,14 @@ SmsSubscriptionService smsSubscriptionService(Ref ref) {
 
 class SmsSubscriptionService
     extends SubscriptionServiceBase<SmsSubscription, String> {
-  /// 短信规则订阅表类型标识
-  static const String tableType = 'sms';
+  /// 短信规则订阅表类型标�?  static const String tableType = 'sms';
 
   final SmsSubscriptionRepository _repository; // 修正_repository声明
   final RuleImportExportService _importExportService;
   final RuleRepository _ruleRepository;
 
   SmsSubscriptionService(
-    this._repository, // 修正构造函数参数
-    this._ruleRepository,
+    this._repository, // 修正构造函数参�?    this._ruleRepository,
   ) : _importExportService = RuleImportExportService(_ruleRepository),
        super(_repository);
 
@@ -59,13 +57,12 @@ class SmsSubscriptionService
         .map((rule) => rule is SmsRegexRule 
             ? rule.copyWith(
                 action: subscription.action,
-                contentRegex: rule.contentPattern.pattern, // 保留原始正则表达式
-                senderRegex: rule.senderPattern?.pattern
+                contentRegex: rule.contentPattern.pattern, // 保留原始正则表达�?                senderRegex: rule.senderPattern?.pattern
               ) 
             : rule)
         .toList();
 
-    // 读取本地关联规则，进行内存 Diff 对比
+    // 读取本地关联规则，进行内�?Diff 对比
     final allLocalRules = await _ruleRepository.getAll();
     final localRules = allLocalRules.whereType<SmsRegexRule>().toList();
 
@@ -111,8 +108,7 @@ class SmsSubscriptionService
           name: name,
           url: Url(url),
           isEnabled: isEnabled,
-          action: RuleAction.block, // 使用默认值或从其他位置获取
-          lastUpdated: DateTime.now(),
+          action: RuleAction.block, // 使用默认值或从其他位置获�?          lastUpdated: DateTime.now(),
         ));
   }
 

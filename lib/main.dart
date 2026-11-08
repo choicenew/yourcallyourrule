@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:yourcallyourrule/common/error/logger.dart';
-import 'package:yourcallyourrule/core/services/background_sync_service.dart';
-import 'package:yourcallyourrule/core/services/foreground_sync_service.dart';
+import 'package:yourcallyourrule/features/common/error/logger.dart';
+import 'package:yourcallyourrule/features/sync/services/background_sync_service.dart';
+import 'package:yourcallyourrule/features/sync/services/foreground_sync_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_stream_sync_service.dart';
 import 'package:yourcallyourrule/features/caller_identity/services/plugin_to_remote_sync_service.dart';
 import 'package:yourcallyourrule/features/location/services/location_sync_service.dart';
-import 'package:yourcallyourrule/core/router/app_router_provider.dart';
-import 'package:yourcallyourrule/core/services/firebase_service.dart';
+import 'package:yourcallyourrule/features/common/router/app_router_provider.dart';
+import 'package:yourcallyourrule/features/common/services/firebase_service.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/features/call_history/provider/call_event_listener_provider.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/call_overlay_entry.dart';
@@ -79,7 +79,7 @@ void _initPackageConnectors() {
   PyroCallMonitorConnector.registerAll();
   PyroCallCoordinatorConnector.registerAll();
   PyroPhoneMarkingConnector.registerAll();
-  debugPrint('[Main] 33 个 Package Suite Connector 全外观自注册装配完成！');
+  debugPrint('[Main] 33 �?Package Suite Connector 全外观自注册装配完成�?);
 }
 
 Future<void> main() async {
@@ -141,7 +141,7 @@ Future<void> main() async {
       UncontrolledProviderScope(container: container, child: const MyApp()),
     );
   } catch (e, stackTrace) {
-    debugPrint('初始化错误: $e');
+    debugPrint('初始化错�? $e');
     debugPrint('堆栈跟踪: $stackTrace');
 
     try {

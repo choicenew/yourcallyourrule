@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart'; // [1] 导入 AppRouter
-import 'package:yourcallyourrule/features/notifications/service/notification_service.dart'; // [2] 导入以创建 Config
+import 'package:yourcallyourrule/features/common/router/app_router.dart'; // [1] 导入 AppRouter
+import 'package:yourcallyourrule/features/notifications/service/notification_service.dart'; // [2] 导入以创�?Config
 import 'package:yourcallyourrule/generated/app_localizations.dart'; // [3] 导入以使用国际化
 import 'base_sms_handler.dart';
 import 'sms_filter_handler.dart';
@@ -30,9 +30,9 @@ class IncomingSmsHandler extends BaseSmsHandler {
     }
   }
 
-  /// 【这是唯一被修改的方法】
+  /// 【这是唯一被修改的方法�?
   Future<void> handleIncomingSms(String phoneNumber, String messageContent) async {
-    // [A] 在方法内部获取 context
+    // [A] 在方法内部获�?context
     final context = AppRouter.navigatorKey.currentContext;
     if (context == null) return;
 
@@ -56,8 +56,8 @@ class IncomingSmsHandler extends BaseSmsHandler {
     } else {
       // [C] 调用新的方法，并传入在这里创建的 config
       await _notificationHandler.showBlockedSmsNotification(
-        title: '已拦截短信',//l10n.blockedSmsTitle,
-        body: '已成功拦截来自 $phoneNumber 的短信',//l10n.blockedSmsBody(phoneNumber),
+        title: '已拦截短�?,//l10n.blockedSmsTitle,
+        body: '已成功拦截来�?$phoneNumber 的短�?,//l10n.blockedSmsBody(phoneNumber),
         phoneNumber: phoneNumber,
         config: NotificationService.blockedCallConfig(context),
       );

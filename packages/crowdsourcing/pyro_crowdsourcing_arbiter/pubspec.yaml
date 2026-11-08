@@ -1,0 +1,15 @@
+name: pyro_crowdsourcing_arbiter
+description: 独立泛化众包数据裁决、置信度算法计算与共识跃迁 DAO 引擎包
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+resolution: workspace
+
+dependencies:
+  isar_community: ^3.4.1
+
+dev_dependencies:
+  test: ^1.24.0

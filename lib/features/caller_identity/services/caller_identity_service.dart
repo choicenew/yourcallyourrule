@@ -7,15 +7,15 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
 
-import 'package:yourcallyourrule/common/error/logger.dart';
-import 'package:yourcallyourrule/common/utils/phone_utils.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-import 'package:yourcallyourrule/core/entities/contact/contact_entry.dart';
-import 'package:yourcallyourrule/core/entities/label/label_phone_entry.dart';
-import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_source_data.dart';
-import 'package:yourcallyourrule/core/entities/remote/remote_number_entry.dart';
-import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
+import 'package:yourcallyourrule/features/common/error/logger.dart';
+import 'package:yourcallyourrule/features/phone/utils/phone_utils.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
+import 'package:pyro_phone_remote_filter_protocol/pyro_phone_remote_filter_protocol.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
@@ -48,7 +48,7 @@ CallerIdentityService callerIdentityService(Ref ref) {
   );
 }
 
-/// 生产级标准来电身份画像聚合服务 (CallerIdentityService)
+/// 生产级标准来电身份画像聚合服�?(CallerIdentityService)
 class CallerIdentityService {
   CallerIdentityService({
     required PluginInvokerService pluginService,
@@ -104,7 +104,7 @@ class CallerIdentityService {
     try {
       allLocalContacts = await fluttercontact.FlutterContacts.getAll();
     } catch (e) {
-      debugPrint('[CallerIdentityService] 获取系统联系人跳过/无权限: $e');
+      debugPrint('[CallerIdentityService] 获取系统联系人跳�?无权�? $e');
       allLocalContacts = [];
     }
 
@@ -261,7 +261,7 @@ class CallerIdentityService {
         }
       }
     } catch (e) {
-      AppLogger.error('处理所有插件数据失败', e);
+      AppLogger.error('处理所有插件数据失�?, e);
     }
   }
 

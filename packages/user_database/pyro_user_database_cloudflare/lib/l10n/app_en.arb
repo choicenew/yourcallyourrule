@@ -1,0 +1,16 @@
+{
+  "@@locale": "en",
+  "cloudflareConfigTitle": "Cloudflare Worker Edge Sync Configuration",
+  "workerUrlLabel": "Worker Endpoint URL",
+  "workerUrlHint": "https://your-worker.workers.dev",
+  "apiSecretLabel": "API Secret / Key",
+  "apiSecretHint": "Enter X-API-SECRET Key",
+  "deviceIdLabel": "Hardware Device ID",
+  "deviceIdHint": "e.g. dev_pixel8_001",
+  "saveConfigButton": "Save Configuration",
+  "testConnectionButton": "Test Connectivity",
+  "saveSuccessMessage": "Settings saved successfully!",
+  "testingMessage": "Testing connectivity with Cloudflare Worker...",
+  "testSuccessMessage": "Connectivity test passed! Cloudflare Worker is healthy.",
+  "testFailedMessage": "Connection failed. Please check Worker URL and API Key."
+}

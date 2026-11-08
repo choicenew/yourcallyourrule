@@ -1,22 +1,39 @@
-import 'dart:io' show Platform;
-
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 part 'device_id_service.g.dart';
 
-/// DeviceIdService Provider
+/// DeviceIdService Provider (主 App 极简设备服务兼容层)
 @Riverpod(keepAlive: true)
 DeviceIdService deviceIdService(Ref ref) {
   final configRepository = ref.watch(configRepositoryProvider);
   return DeviceIdService(configRepository);
 }
 
-/// A dedicated service to manage the persistent unique identifier for this device.
-/// Its sole responsibility is to provide a stable device ID across app sessions and reinstalls.
+/// 设备节点角色
+enum DeviceRole {
+  master,
+  slave,
+  unknown,
+}
+
+/// 设备节点数据与抽象标识
+class DeviceNode {
+  final String deviceId;
+  final String deviceName;
+  final DeviceRole role;
+  final DateTime lastHeartbeatTime;
+
+  const DeviceNode({
+    required this.deviceId,
+    required this.deviceName,
+    this.role = DeviceRole.master,
+    required this.lastHeartbeatTime,
+  });
+}
+
+/// 兼容转接服务：提供设备标识与节点查询，核心设备角色与状态托管至 Device Master Slave Hub
 class DeviceIdService {
   final ConfigRepository _configRepository;
 
@@ -25,12 +42,7 @@ class DeviceIdService {
 
   const DeviceIdService(this._configRepository);
 
-  /// Retrieves the persistent unique device ID.
-  ///
-  /// The logic is as follows:
-  /// 1. Check for a value in the config repository.
-  /// 2. If not found, generate a new ID based on the platform.
-  /// 3. Save the new ID to the config repository.
+  /// 获取设备的唯一标识
   Future<String> getDeviceId() async {
     final config = await _configRepository.getConfig(_configKey);
     final deviceId = config?[_idKey] as String?;
@@ -39,19 +51,19 @@ class DeviceIdService {
       return deviceId;
     }
 
-    final deviceInfo = DeviceInfoPlugin();
-    final String newId;
-    if (Platform.isAndroid) {
-      final androidInfo = await deviceInfo.androidInfo;
-      newId = androidInfo.id;
-    } else if (Platform.isIOS) {
-      final iosInfo = await deviceInfo.iosInfo;
-      newId = iosInfo.identifierForVendor ?? const Uuid().v4(); // Use const Uuid()
-    } else {
-      newId = const Uuid().v4();
-    }
-
+    const newId = 'local_primary_device';
     await _configRepository.saveConfig(_configKey, {_idKey: newId});
     return newId;
+  }
+
+  /// 构建并返回当前设备的 DeviceNode 节点实体
+  Future<DeviceNode> getDeviceNode({String? name}) async {
+    final id = await getDeviceId();
+    return DeviceNode(
+      deviceId: id,
+      deviceName: name ?? 'Pyro Phone Node',
+      role: DeviceRole.master,
+      lastHeartbeatTime: DateTime.now(),
+    );
   }
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/services.dart';
 
-import 'package:yourcallyourrule/common/error/logger.dart';
+import 'package:yourcallyourrule/features/common/error/logger.dart';
 
 import '../sms_channel_switcher.dart';
 
 
-/// Android平台的短信通道管理器实现
+/// Android平台的短信通道管理器实�?
 class AndroidSmsChannelManager implements SmsChannelInterface {
   // 单例模式
   static final AndroidSmsChannelManager _instance = AndroidSmsChannelManager._internal();
@@ -46,7 +46,7 @@ class AndroidSmsChannelManager implements SmsChannelInterface {
     try {
       await smsChannel.invokeMethod('unregisterSmsListener');
     } catch (e) {
-      AppLogger.error('注销短信监听器失败', e);
+      AppLogger.error('注销短信监听器失�?, e);
       
     }
   }
@@ -70,7 +70,7 @@ class AndroidSmsChannelManager implements SmsChannelInterface {
         'importance': importance,
       });
     } catch (e) {
-    AppLogger.error('设置短信通知通道重要性失败', e);
+    AppLogger.error('设置短信通知通道重要性失�?, e);
      
     }
   }

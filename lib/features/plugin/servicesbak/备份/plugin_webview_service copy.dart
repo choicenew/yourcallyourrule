@@ -4,16 +4,16 @@ import 'dart:io';
 
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:http/http.dart' as http;
-import 'package:yourcallyourrule/common/error/logger.dart';
+import 'package:yourcallyourrule/features/common/error/logger.dart';
 
 /// 插件WebView服务 - 负责WebView核心管理
-/// 遵循单一职责原则，只负责WebView的初始化和基本操作
+/// 遵循单一职责原则，只负责WebView的初始化和基本操�?
 class PluginWebViewService {
-  // WebView控制器
+  // WebView控制�?
   HeadlessInAppWebView? _headlessWebView;
   InAppWebViewController? _webViewController;
 
-  // 跟踪每个插件的就绪状态
+  // 跟踪每个插件的就绪状�?
   final Map<String, bool> _pluginReadyStatus = {};
 
   // 用于通知插件就绪状态的StreamController
@@ -31,7 +31,7 @@ class PluginWebViewService {
   // 获取插件就绪状态流
   Stream<String> get pluginReadyStream => _pluginReadyController.stream;
 
-  // 构造函数
+  // 构造函�?
   PluginWebViewService() {
     _initializeHeadlessWebView();
   }
@@ -74,14 +74,14 @@ class PluginWebViewService {
               _loadedPluginId = jsonData['pluginId'];
               _isPluginLoaded = true;
 
-              // 标记插件为就绪状态
+              // 标记插件为就绪状�?
               _pluginReadyStatus[jsonData['pluginId']] = true;
               // 通过StreamController发送插件就绪通知
               _pluginReadyController.add(jsonData['pluginId']);
             } else if (jsonData['type'] == 'pluginReady') {
               print('Plugin ready: ${jsonData['pluginId']}');
 
-              // 标记插件为就绪状态
+              // 标记插件为就绪状�?
               _pluginReadyStatus[jsonData['pluginId']] = true;
               // 通过StreamController发送插件就绪通知
               _pluginReadyController.add(jsonData['pluginId']);
@@ -127,7 +127,7 @@ class PluginWebViewService {
               }
             }
           } catch (e) {
-            AppLogger.error('处理PluginResultChannel消息时发生异常', e);
+            AppLogger.error('处理PluginResultChannel消息时发生异�?, e);
             print('Error processing message on PluginResultChannel: $e');
           }
         }
@@ -154,7 +154,7 @@ class PluginWebViewService {
             // 使用http包发起实际的网络请求
             final response = await _sendHttpRequest(method, url, headers, body);
 
-            // 将响应数据编码为JSON字符串
+            // 将响应数据编码为JSON字符�?
             final responseData = {
               'externalRequestId': externalRequestId,
               'phoneRequestId': phoneRequestId,
@@ -170,14 +170,14 @@ class PluginWebViewService {
               window.plugin.$_loadedPluginId.handleResponse($responseJson);
             ''');
           } catch (e) {
-            AppLogger.error('处理JS请求时发生异常', e);
+            AppLogger.error('处理JS请求时发生异�?, e);
             print('Error handling request: $e');
           }
         }
       },
     );
 
-    // 控制台日志处理程序
+    // 控制台日志处理程�?
     controller.addJavaScriptHandler(
       handlerName: 'consoleLog',
       callback: (args) {
@@ -223,12 +223,12 @@ class PluginWebViewService {
   // 加载脚本
   Future<void> loadScript(String pluginId, String script) async {
     if (_webViewController == null) {
-      throw Exception('WebView控制器未初始化');
+      throw Exception('WebView控制器未初始�?);
     }
 
     print('Executing script for plugin: $pluginId');
 
-    // 重置插件就绪状态
+    // 重置插件就绪状�?
     _pluginReadyStatus[pluginId] = false;
     _isPluginLoaded = false;
     _loadedPluginId = pluginId;
@@ -246,10 +246,10 @@ class PluginWebViewService {
       return;
     }
 
-    // 创建一个Completer，用于等待插件就绪
+    // 创建一个Completer，用于等待插件就�?
     final completer = Completer<void>();
 
-    // 监听_pluginReadyController的流，等待指定pluginId的插件就绪
+    // 监听_pluginReadyController的流，等待指定pluginId的插件就�?
     StreamSubscription? sub;
     sub = _pluginReadyController.stream.listen((readyPluginId) {
       if (readyPluginId == pluginId) {
@@ -265,7 +265,7 @@ class PluginWebViewService {
     // 设置超时时间，如果在指定时间内插件未就绪，则打印提示信息
     await completer.future.timeout(const Duration(seconds: 5), onTimeout: () {
       print('Timeout: Plugin $pluginId did not send pluginReady message.');
-      // 超时后取消订阅
+      // 超时后取消订�?
       sub?.cancel();
     });
   }
@@ -277,7 +277,7 @@ class PluginWebViewService {
     Map<String, dynamic> params,
   ) async {
     if (_webViewController == null) {
-      throw Exception('WebView控制器未初始化');
+      throw Exception('WebView控制器未初始�?);
     }
 
     final requestId = '${methodName}_${DateTime.now().millisecondsSinceEpoch}';
@@ -368,7 +368,7 @@ class PluginWebViewService {
   }
 
 
-// 添加状态监听扩展
+// 添加状态监听扩�?
 void addPluginStateListener(String pluginId, Function(bool) listener) {
   _pluginReadyController.stream.where((id) => id == pluginId).listen((_) {
     listener(_pluginReadyStatus[pluginId] ?? false);

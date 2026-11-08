@@ -1,8 +1,8 @@
 import 'package:dlibphonenumber/enums/phone_number_type.dart';
-import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
-import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 
 class CallOverlayMockData {
   static CallerIdData mockCallerIdData() {

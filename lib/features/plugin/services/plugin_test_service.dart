@@ -3,14 +3,14 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/features/plugin/services/core/js_execution_service.dart';
 import 'package:yourcallyourrule/features/plugin/services/core/native_request_channel.dart';
 import 'package:http/http.dart' as http; // For loading script via URL
 
 part 'plugin_test_service.g.dart';
 
-/// PluginTestService ÁöÑ @Riverpod Provider
+/// PluginTestService Áö?@Riverpod Provider
 @Riverpod(keepAlive: true)
 PluginTestService pluginTestService(Ref ref) {
   final service = PluginTestService();
@@ -120,7 +120,7 @@ class PluginTestService {
       if (response.statusCode == 200) {
         final res = await _jsService!.evaluate(response.body);
         if (res.isError) {
-          _addLog("‚ùå Script Load Error: ${res.stringResult}");
+          _addLog("‚ù?Script Load Error: ${res.stringResult}");
         } else {
           _addLog("Script injected.");
         }
@@ -181,7 +181,7 @@ class PluginTestService {
          })();
        ''');
       if (evalRes.isError) {
-        _addLog("‚ùå JS Execution Error: ${evalRes.stringResult}");
+        _addLog("‚ù?JS Execution Error: ${evalRes.stringResult}");
       }
 
       return await completer.future.timeout(

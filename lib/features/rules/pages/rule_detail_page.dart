@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:yourcallyourrule/core/base/base_entity.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
 
@@ -13,9 +13,9 @@ import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dar
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通用规则详情页面
-/// 用于显示规则详情，并提供编辑和删除功能
-/// [T] 是规则实体类型
-/// [S] 是规则服务类型
+/// 用于显示规则详情，并提供编辑和删除功�?
+/// [T] 是规则实体类�?
+/// [S] 是规则服务类�?
 class RuleDetailPage<T extends BaseEntity, S> extends ConsumerStatefulWidget {
   final String ruleId;
   final String title;
@@ -85,7 +85,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
 
     // 使用Riverpod获取服务实例
     // 如果提供了getServiceFromRef函数，则使用它从ref获取服务
-    // 这样可以确保在迁移过程中的兼容性
+    // 这样可以确保在迁移过程中的兼容�?
     final service = widget.getServiceFromRef != null 
         ? widget.getServiceFromRef!(ref) 
         : throw Exception('getServiceFromRef must be provided when using Riverpod');
@@ -111,13 +111,13 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
   void _startEditing() {
     if (_rule == null) return;
 
-    // 获取规则的动态属性
+    // 获取规则的动态属�?
     final dynamic dynamicRule = _rule;
     String name = '';
     String phoneNumber = '';
     String labelId = '';
 
-    // 尝试获取属性值
+    // 尝试获取属性�?
     if (dynamicRule is Map) {
       name = dynamicRule['name'] ?? '';
       phoneNumber = dynamicRule['phoneNumber']?.toString() ?? '';
@@ -128,7 +128,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
       labelId = dynamicRule.labelId ?? '';
     }
 
-    // 设置控制器值
+    // 设置控制器�?
     _nameController.text = name;
     _phoneController.text = phoneNumber;
     _selectedLabelId = labelId;
@@ -158,16 +158,16 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
     }
 
     try {
-      // 获取规则的动态属性
+      // 获取规则的动态属�?
       dynamic updatedRule = _rule;
       
-      // 更新规则属性
+      // 更新规则属�?
       if (updatedRule is Map) {
         updatedRule['name'] = _nameController.text;
         updatedRule['phoneNumber'] = PhoneNumber.fromString(_phoneController.text);
         updatedRule['labelId'] = _selectedLabelId ?? '';
       } else {
-        // 使用反射或其他方式更新属性
+        // 使用反射或其他方式更新属�?
         updatedRule.name = _nameController.text;
         updatedRule.phoneNumber = PhoneNumber.fromString(_phoneController.text);
         updatedRule.labelId = _selectedLabelId ?? '';
@@ -237,7 +237,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
             content: Text(AppLocalizations.of(context)!.ruleDeleteSuccess),
             backgroundColor: Theme.of(context).colorScheme.primary,
           ));
-          context.pop(); // 返回上一页
+          context.pop(); // 返回上一�?
         }
       } catch (e) {
         if (mounted) {
@@ -310,13 +310,13 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
   }
 
   Widget _buildRuleDetails() {
-    // 获取规则的动态属性
+    // 获取规则的动态属�?
     final dynamic dynamicRule = _rule;
     String name = '';
     String phoneNumber = '';
     String labelId = '';
 
-    // 尝试获取属性值
+    // 尝试获取属性�?
     if (dynamicRule is Map) {
       name = dynamicRule['name'] ?? '';
       phoneNumber = dynamicRule['phoneNumber']?.toString() ?? '';

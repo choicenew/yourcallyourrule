@@ -1,0 +1,13 @@
+name: pyro_cloudflare
+description: 纯粹最底层 Cloudflare 物理基础设施 Client SDK (D1, R2, KV, Worker Rest)
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+  http: ^1.2.0
+
+dev_dependencies:
+  test: ^1.24.0

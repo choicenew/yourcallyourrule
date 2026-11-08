@@ -3,11 +3,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:yourcallyourrule/core/services/import_export_service.dart';
+import 'package:yourcallyourrule/features/rules/services/import_export_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通用导入导出服务组件
-/// 提供通用的导入导出功能，可以在不同的规则管理页面中复用
+/// 提供通用的导入导出功能，可以在不同的规则管理页面中复�?
 class ImportExportServiceComponent<T, ID> {
   final ImportExportService<T, ID> importExportService;
   final String entityTypeName;
@@ -33,7 +33,7 @@ class ImportExportServiceComponent<T, ID> {
       if (result.isNotEmpty && result.single.path != null) {
         final entities = await importExportService.importFromFile(result.single.path!);
         
-        // 调用回调函数处理导入的实体
+        // 调用回调函数处理导入的实�?
         await onEntitiesImported(entities);
         
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -78,7 +78,7 @@ class ImportExportServiceComponent<T, ID> {
     }
   }
 
-  /// 构建导入导出按钮组
+  /// 构建导入导出按钮�?
   Widget buildImportExportButtons(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -104,7 +104,7 @@ class ImportExportServiceComponent<T, ID> {
     );
   }
   
-  /// 显示导入导出对话框
+  /// 显示导入导出对话�?
   void showImportExportDialog(BuildContext context) {
     showDialog(
       context: context,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
+import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_service.dart';
 import 'package:file_picker/file_picker.dart';
@@ -153,7 +153,7 @@ class _SmsManagementPageState extends ConsumerState<SmsManagementPage> {
                 try {
                   final service = ref.read(smsServiceProvider);
                   
-                  // 验证正则表达式
+                  // 验证正则表达�?
                   if (!service.validateRegexPattern(contentPatternController.text)) {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text(AppLocalizations.of(context)!.invalidContentRegex),
@@ -290,7 +290,7 @@ class _SmsManagementPageState extends ConsumerState<SmsManagementPage> {
         final importExportService = service.importExportService;
         final rules = await importExportService.importFromFile(result.single.path!);
         
-        // 过滤出短信规则
+        // 过滤出短信规�?
         final smsRules = rules.whereType<SmsRegexRule>().toList();
         
         if (smsRules.isEmpty) {
@@ -301,7 +301,7 @@ class _SmsManagementPageState extends ConsumerState<SmsManagementPage> {
           return;
         }
         
-        // 保存导入的规则
+        // 保存导入的规�?
         await service.saveAll(smsRules);
         await _loadRules();
         

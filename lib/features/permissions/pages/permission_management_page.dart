@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/services/permission_service.dart';
-import 'package:yourcallyourrule/core/services/permission_service_impl.dart';
+import 'package:yourcallyourrule/features/permissions/services/permission_service.dart';
+import 'package:yourcallyourrule/features/permissions/services/permission_service_impl.dart';
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

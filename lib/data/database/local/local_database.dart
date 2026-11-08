@@ -7,9 +7,20 @@ import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:drift/native.dart';
 import 'dart:io';
-import '../../../common/utils/predefined_labels.dart' as predefined;
+import 'package:yourcallyourrule/features/labels/utils/predefined_labels.dart' as predefined;
 import '../../../main.dart' show isOverlayMode;
 import 'package:uuid/uuid.dart';
+
+import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
+import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
+import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
+import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
+
+import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
 
 part 'local_database.g.dart';
 part 'drift_migration_helper.dart';
@@ -21,7 +32,7 @@ LocalDatabase localDatabase(Ref ref) {
 }
 
 // Table definitions
-@DataClassName('ContactData')
+@UseRowClass(ContactEntry)
 class Contacts extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get phoneNumber => text().withLength(min: 1)();
@@ -37,7 +48,7 @@ class Contacts extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@DataClassName('CallHistoryData')
+@UseRowClass(CallLog)
 class CallHistory extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get phoneNumber => text().withLength(min: 1)();
@@ -57,7 +68,7 @@ class CallHistory extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@DataClassName('RuleData')
+@UseRowClass(PhoneRule)
 class Rules extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().withLength(min: 1)();
@@ -76,7 +87,7 @@ class Rules extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@DataClassName('PhoneRuleData')
+@UseRowClass(PhoneRule)
 class PhoneRules extends Table {
   TextColumn get id => text().nullable()();
   TextColumn get name => text().withLength(min: 1)();
@@ -94,7 +105,7 @@ class PhoneRules extends Table {
   Set<Column> get primaryKey => {phoneNumber};
 }
 
-@DataClassName('RegexRuleData')
+@UseRowClass(RegexRule)
 class RegexRules extends Table {
   TextColumn get id => text().nullable()();
   TextColumn get name => text().withLength(min: 1)();
@@ -109,7 +120,7 @@ class RegexRules extends Table {
   Set<Column> get primaryKey => {pattern};
 }
 
-@DataClassName('SubscriptionData')
+@UseRowClass(Subscription)
 class Subscriptions extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().withLength(min: 1)();
@@ -143,7 +154,7 @@ class Sms extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@DataClassName('SmsRuleData')
+@UseRowClass(SmsRegexRule)
 class SmsRules extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().withLength(min: 1)();
@@ -158,7 +169,7 @@ class SmsRules extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@DataClassName('PluginData')
+@UseRowClass(PluginEntry)
 class Plugins extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().withLength(min: 1)();
@@ -174,7 +185,7 @@ class Plugins extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@DataClassName('LocationData')
+@UseRowClass(LocationEntry)
 class Locations extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get phoneNumber => text().withLength(min: 1)();
@@ -187,7 +198,7 @@ class Locations extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@DataClassName('PredefinedLabelData')
+@UseRowClass(PredefinedLabelEntry)
 class PredefinedLabels extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get labelText => text().withLength(min: 1)();
@@ -198,7 +209,7 @@ class PredefinedLabels extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@DataClassName('LabelPhoneData')
+@UseRowClass(LabelPhoneEntry)
 class LabelPhones extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().nullable()();
@@ -215,7 +226,7 @@ class LabelPhones extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@DataClassName('SimSlotRuleData')
+@UseRowClass(SimSlotRule)
 class SimSlotRules extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().withLength(min: 1)();
@@ -275,36 +286,24 @@ class UserMarkCount extends Table {
   ],
 )
 class LocalDatabase extends _$LocalDatabase {
-  // Singleton instance
   static final LocalDatabase _instance = LocalDatabase._internal();
 
-  // Stream controllers for table changes
-  final Map<String, StreamController<List<Map<String, dynamic>>>>
-  _tableControllers = {};
-
-  // Factory constructor
   factory LocalDatabase() => _instance;
 
-  // Database version
   @override
   int get schemaVersion => 4;
 
-  // Internal constructor
   LocalDatabase._internal() : super(_openConnection());
 
-  // Open connection
   static LazyDatabase _openConnection() {
     return LazyDatabase(() async {
       final dbFolder = await getApplicationDocumentsDirectory();
       final file = File(p.join(dbFolder.path, 'local_database.db'));
       return NativeDatabase(
         file,
-
         logStatements: false,
         setup: (db) {
           db.execute('PRAGMA foreign_keys = ON');
-          // 【关键改动在这里】
-          // 如果是 Overlay 模式，就将此连接设置为只读
           if (isOverlayMode) {
             db.execute('PRAGMA query_only = ON');
           }
@@ -313,57 +312,41 @@ class LocalDatabase extends _$LocalDatabase {
     });
   }
 
-  // Migration
   @override
   MigrationStrategy get migration => MigrationStrategy(
     onCreate: (Migrator m) async {
       await m.createAll();
 
-      // Insert predefined data in a single batch
       await batch((batch) {
-        // Insert predefined labels
-        // --- 插入预定义标签 ---
-        // 1. 遍历你的 predefinedLabels 列表
         final labelsToInsert =
             predefined.predefinedLabels
                 .map((labelMap) {
-                  // 2. 从 Map 中安全地获取 'text' 的值
                   final text = labelMap['text'] as String?;
-
-                  // 如果 text 无效，就跳过这条数据
                   if (text == null || text.isEmpty) {
                     return null;
                   }
 
-                  // 3. ✅【核心逻辑】根据 text 的值，生成 ID
                   var id = text
                       .toLowerCase()
                       .replaceAll(' ', '_')
                       .replaceAll(RegExp(r'[^a-z0-9_]'), '');
 
-                  // 4. 如果生成的 id 为空，则使用 Uuid 作为备用方案
                   if (id.isEmpty) {
                     id = const Uuid().v4();
                   }
 
-                  // 5. 创建用于插入的 Drift Companion 对象
                   return PredefinedLabelsCompanion.insert(
-                    // 【必填字段】
-                    id: id, // 使用我们刚刚生成的 id
-                    labelText: text, // 使用原始的 text
-                    // 【可空字段】因为源数据没有，所以显式设为 null
+                    id: id,
+                    labelText: text,
                     avatar: Value(null),
                     icon: Value(null),
                   );
                 })
-                // 6. 过滤掉所有无效数据 (返回 null 的项)
                 .whereType<PredefinedLabelsCompanion>()
                 .toList();
 
-        // 7. 批量插入所有有效数据
         batch.insertAll(predefinedLabels, labelsToInsert);
 
-        // Initialize user mark count
         batch.insert(
           userMarkCount,
           UserMarkCountCompanion.insert(
@@ -380,15 +363,10 @@ class LocalDatabase extends _$LocalDatabase {
       }
 
       if (from < 3) {
-        // Version 2 to 3 migration
-        // Add ruleType column to labelPhone table if it doesn't exist
-        // 【新增步骤】如果旧表名存在，就将其重命名为新的、遵循约定的表名
         await _DriftMigrationHelper.upgradeFrom2To3(m, this);
       }
 
       if (from < 4) {
-        // Version 3 to 4 migration
-        // Add endTime and duration columns to call_history table
         await _DriftMigrationHelper.upgradeFrom3To4(m, this);
       }
     },

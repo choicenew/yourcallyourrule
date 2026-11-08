@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/plugin/plugin_entry.dart';
+import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/features/plugin/presentation/pages/plugin_url_webview_page.dart';
 import 'package:yourcallyourrule/features/plugin/services/plugin_test_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -17,7 +17,7 @@ class PluginTestPage extends ConsumerStatefulWidget {
 }
 
 class _PluginTestPageState extends ConsumerState<PluginTestPage> {
-  // --- 状态变量 ---
+  // --- 状态变�?---
   // 简单模式的控制器和格式
   final _simplePhoneController = TextEditingController();
   String _selectedFormat = 'phoneNumber';
@@ -27,12 +27,12 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
   final _nationalNumberController = TextEditingController();
   final _e164NumberController = TextEditingController();
 
-  // 通用状态
+  // 通用状�?
   final _logs = <String>[];
   Map<String, dynamic>? _queryResult;
   bool _isLoading = false;
 
-  // 用于切换模式的开关状态
+  // 用于切换模式的开关状�?
   bool _isAdvancedMode = false;
 
   @override
@@ -84,7 +84,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
         return;
       }
     } else {
-      // --- 简单模式 ---
+      // --- 简单模�?---
       final singleNumber = _simplePhoneController.text.trim();
       if (singleNumber.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -94,7 +94,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
         );
         return;
       }
-      // 根据选择的格式，将 singleNumber 赋值给对应的变量
+      // 根据选择的格式，�?singleNumber 赋值给对应的变�?
       switch (_selectedFormat) {
         case 'phoneNumber':
           phoneNumber = singleNumber;
@@ -158,7 +158,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
           ),
         ],
       ),
-      // --- 改动 1: 将 body 包裹在 SingleChildScrollView 中 ---
+      // --- 改动 1: �?body 包裹�?SingleChildScrollView �?---
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -176,7 +176,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
                 '${AppLocalizations.of(context)!.log}:',
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 8), // 添加一点间距
+              const SizedBox(height: 8), // 添加一点间�?
               _buildLogsView(),
             ],
           ),
@@ -309,7 +309,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
   }
 
   Widget _buildResultView() {
-    // 这个 Widget 保持不变，因为它已经是可滚动的了（通过外层的 SingleChildScrollView）
+    // 这个 Widget 保持不变，因为它已经是可滚动的了（通过外层�?SingleChildScrollView�?
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -319,7 +319,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
         ),
         const SizedBox(height: 8),
         Container(
-          width: double.infinity, // 让容器撑满宽度
+          width: double.infinity, // 让容器撑满宽�?
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             color: Colors.grey.withOpacity(0.1),
@@ -338,7 +338,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
   }
 
   Widget _buildLogsView() {
-    // 这里不再需要 Expanded，因为它现在位于 SingleChildScrollView 中
+    // 这里不再需�?Expanded，因为它现在位于 SingleChildScrollView �?
     // 我们给它一个固定的或者有限的高度，以便在有内容时显示
     return Container(
       height: 200, // 给日志视图一个固定的高度

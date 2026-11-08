@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/core/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/call_statistics_container_widget.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/statistics_container_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 数据分析仪表盘页面
+/// 数据分析仪表盘页�?
 class DashboardPage extends ConsumerStatefulWidget {
   const DashboardPage({super.key});
 

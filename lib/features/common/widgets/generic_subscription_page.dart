@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
-import 'package:yourcallyourrule/core/base/base_entity.dart';
-import 'package:yourcallyourrule/core/services/subscription_service_base.dart';
+
+import 'package:yourcallyourrule/features/phone/services/subscription_service_base.dart';
 import 'package:yourcallyourrule/features/common/widgets/subscription_management_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通用订阅页面组件
-/// 用于处理各种类型的订阅管理页面，包括电话、短信、联系人等订阅
-/// [T] 是订阅实体类型
+/// 用于处理各种类型的订阅管理页面，包括电话、短信、联系人等订�?
+/// [T] 是订阅实体类�?
 /// [ID] 是实体ID类型
-/// [S] 是订阅服务类型
+/// [S] 是订阅服务类�?
 class GenericSubscriptionPage<T extends BaseEntity, ID, S extends SubscriptionServiceBase<T, ID>> extends StatefulWidget {
   /// 页面标题
   final String title;
   
-  /// 空状态文本
+  /// 空状态文�?
   final String emptyText;
   
-  /// 空状态图标
+  /// 空状态图�?
   final IconData emptyIcon;
   
   /// 信息卡片构建函数
@@ -26,13 +26,13 @@ class GenericSubscriptionPage<T extends BaseEntity, ID, S extends SubscriptionSe
   /// 订阅卡片构建函数
   final Widget Function(T subscription, GenericSubscriptionPageState<T, ID, S> state) buildSubscriptionCard;
   
-  /// 添加订阅对话框函数
+  /// 添加订阅对话框函�?
   final void Function(BuildContext context, S service, Function refreshCallback) showAddDialog;
   
   /// 更新订阅函数
   final Future<void> Function(T subscription, S service) updateSubscription;
   
-  /// 服务构建函数，用于获取服务实例
+  /// 服务构建函数，用于获取服务实�?
   final S Function(BuildContext context) serviceBuilder;
 
   const GenericSubscriptionPage({

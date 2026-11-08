@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/caller_id_data.dart';
-import 'package:yourcallyourrule/core/entities/location/location_entry.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';
 import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
 import 'package:yourcallyourrule/features/location/services/location_service.dart';
 
@@ -17,7 +17,7 @@ LocationSyncService locationSyncService(Ref ref) {
   return LocationSyncService(callerIdentityService, locationService);
 }
 
-/// 归属地同步服务：监听 CallerIdentityService 数据流并落库 Location 数据库
+/// 归属地同步服务：监听 CallerIdentityService 数据流并落库 Location 数据�?
 class LocationSyncService {
   final CallerIdentityService _callerIdentityService;
   final LocationService _locationService;

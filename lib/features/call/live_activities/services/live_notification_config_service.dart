@@ -1,6 +1,6 @@
 // lib/features/call/live_activities/services/live_notification_config_service.dart
 
-import 'package:yourcallyourrule/data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart'; 
 
 

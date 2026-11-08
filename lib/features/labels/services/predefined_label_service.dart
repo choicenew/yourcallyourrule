@@ -3,13 +3,13 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/core/entities/label/predefined_label_entry.dart';
-import 'package:yourcallyourrule/core/repositories/predefined_label_repository.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:yourcallyourrule/features/labels/repositories/predefined_label_repository.dart';
 import 'package:yourcallyourrule/data/repositories/predefined_label/predefined_label_repository_impl.dart';
 
 part 'predefined_label_service.g.dart';
 
-/// PredefinedLabelService 的 @Riverpod Provider
+/// PredefinedLabelService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 PredefinedLabelService predefinedLabelService(Ref ref) {
   final predefinedLabelRepository = ref.watch(predefinedLabelRepositoryProvider);
@@ -18,16 +18,16 @@ PredefinedLabelService predefinedLabelService(Ref ref) {
 
 /// 预定义标签服务类
 /// 负责创建和管理预定义标签
-/// 最好使用通用的导入导出服务 [RuleImportExportService或者UniversalImportExportService] 来实现导入和导出功能
-/// 负责创建和管理标签的基本属性（文本、图标、头像等）
+/// 最好使用通用的导入导出服�?[RuleImportExportService或者UniversalImportExportService] 来实现导入和导出功能
+/// 负责创建和管理标签的基本属性（文本、图标、头像等�?
 class PredefinedLabelService {
   final PredefinedLabelRepository _repository;
   final Uuid _uuid = Uuid();
 
-  /// 构造函数
+  /// 构造函�?
   PredefinedLabelService(this._repository);
 
-  /// 创建新标签（使用有意义的ID）
+  /// 创建新标签（使用有意义的ID�?
   Future<PredefinedLabel> createLabel(String text, {String? avatar, String? icon}) async {
     // 使用PredefinedLabel.create工厂方法创建标签，它会生成有意义的ID
     final label = PredefinedLabel.create(text, avatar: avatar, icon: icon);
@@ -55,7 +55,7 @@ class PredefinedLabelService {
     return label;
   }
 
-  /// 获取所有标签
+  /// 获取所有标�?
   Future<List<PredefinedLabel>> getAllLabels() async {
     return await _repository.getAll();
   }
@@ -76,7 +76,7 @@ class PredefinedLabelService {
     return await _repository.getByText(text);
   }
 
-  /// 【新增函数】: 根据文本获取标签ID，封装了仓库层的功能
+  /// 【新增函数�? 根据文本获取标签ID，封装了仓库层的功能
   Future<String?> getLabelIdByText(String text) async {
     return await _repository.getIdByText(text);
   }
@@ -92,7 +92,7 @@ class PredefinedLabelService {
     await _repository.delete(id);
   }
   
-  /// 批量插入预定义标签（使用有意义的ID）
+  /// 批量插入预定义标签（使用有意义的ID�?
   Future<List<PredefinedLabel>> insertPredefinedLabels(List<Map<String, dynamic>> predefinedLabels) async {
     final existingLabels = await getAllLabels();
     final existingTexts = existingLabels.map((e) => e.text).toSet();
@@ -118,7 +118,7 @@ class PredefinedLabelService {
           suffix++;
         }
         
-        // 如果ID发生了变化，创建一个新的标签对象
+        // 如果ID发生了变化，创建一个新的标签对�?
         final finalLabel = finalId != label.id
             ? PredefinedLabel(
                 id: finalId,
@@ -141,7 +141,7 @@ class PredefinedLabelService {
     return result;
   }
   
-  /// 获取所有标签文本
+  /// 获取所有标签文�?
   Future<List<String>> getAllLabelTexts() async {
     final labels = await getAllLabels();
     return labels.map((e) => e.text).toList();

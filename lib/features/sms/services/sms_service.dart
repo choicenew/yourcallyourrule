@@ -1,20 +1,20 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/entities/rule/rule_base.dart';
-import 'package:yourcallyourrule/core/entities/sms/sms_regex_rule.dart';
-import 'package:yourcallyourrule/core/repositories/base_repository.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/core/repositories/rule_repository_impl.dart';
-import 'package:yourcallyourrule/core/repositories/sms_subscription_repository.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
+// base_repository removed
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.dart';
+import 'package:yourcallyourrule/features/sms/repositories/sms_subscription_repository.dart';
 import 'package:yourcallyourrule/data/repositories/sms_regex_rule_repository_impl.dart';
 import 'package:yourcallyourrule/data/repositories/sms_subscription_repository_impl.dart';
-import 'package:yourcallyourrule/core/services/list_service.dart';
-import 'package:yourcallyourrule/core/services/rule_import_export_service.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/services/list_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_import_export_service.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 
 part 'sms_service.g.dart';
 
-/// SmsService çš„ @Riverpod Provider
+/// SmsService çš?@Riverpod Provider
 @Riverpod(keepAlive: true)
 SmsService smsService(Ref ref) {
   final smsRegexRuleRepository = ref.watch(smsRegexRuleRepositoryProvider);

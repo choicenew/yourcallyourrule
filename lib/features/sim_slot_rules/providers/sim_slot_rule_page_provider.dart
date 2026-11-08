@@ -1,13 +1,13 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/core/entities/list/list_entry.dart';
-import 'package:yourcallyourrule/core/entities/rule/sim_slot_rule.dart';
+import 'package:yourcallyourrule/features/common/entities/list_entry.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
-import 'package:yourcallyourrule/core/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
 
 part 'sim_slot_rule_page_provider.g.dart';
 
-/// 页面状态模型
+/// 页面状态模�?
 class SimSlotRulePageState {
   final List<SimSlotRule> rules;
   final Map<String, String> labelIdToTextMap;
@@ -23,7 +23,7 @@ class SimSlotRulePageState {
     this.searchKeyword = '',
   });
 
-  // [注释]: 过滤后的规则列表，UI将直接使用这个。
+  // [注释]: 过滤后的规则列表，UI将直接使用这个�?
   List<SimSlotRule> get filteredRules {
     return rules.where((rule) {
       if (selectedLabelId != null && rule.labelId != selectedLabelId) return false;
@@ -57,10 +57,10 @@ class SimSlotRulePageState {
   }
 }
 
-// [注释]: 使用 .family 来接收 simSlotIndex
+// [注释]: 使用 .family 来接�?simSlotIndex
 @riverpod
 class SimSlotRulePage extends _$SimSlotRulePage {
-  // [注释]: 便捷地获取 SimSlotRuleService 实例
+  // [注释]: 便捷地获�?SimSlotRuleService 实例
   SimSlotRuleService get _service => ref.read(simSlotRuleServiceProvider);
 
   @override

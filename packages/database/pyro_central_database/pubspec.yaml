@@ -1,0 +1,22 @@
+name: pyro_central_database
+description: 开发者/系统中央数据库驱动与调度管理器，提供对 Cloudflare/Supabase 等中央数据源的统一存取能力
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+resolution: workspace
+
+dependencies:
+  pyro_central_database_protocol:
+    path: ../pyro_central_database_protocol
+  pyro_central_database_hub:
+    path: ../pyro_central_database_hub
+  pyro_cloudflare:
+    path: '../../infra/pyro_cloudflare'
+  pyro_supabase:
+    path: '../../infra/pyro_supabase'
+
+dev_dependencies:
+  test: ^1.24.0

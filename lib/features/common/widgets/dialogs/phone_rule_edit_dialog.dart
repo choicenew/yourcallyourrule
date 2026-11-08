@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/core/entities/rule/phone_rule.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 
-/// 电话规则编辑对话框
-/// 用于编辑电话规则
+/// 电话规则编辑对话�?/// 用于编辑电话规则
 class PhoneRuleEditDialog extends ConsumerStatefulWidget {
   final PhoneRule rule;
   final Function? onRuleUpdated;
@@ -24,8 +23,7 @@ class PhoneRuleEditDialog extends ConsumerStatefulWidget {
   @override
   ConsumerState<PhoneRuleEditDialog> createState() => _PhoneRuleEditDialogState();
 
-  /// 显示电话规则编辑对话框的静态方法
-  static void show(BuildContext context, PhoneRule rule, {Function? onRuleUpdated, Color? themeColor}) {
+  /// 显示电话规则编辑对话框的静态方�?  static void show(BuildContext context, PhoneRule rule, {Function? onRuleUpdated, Color? themeColor}) {
     showDialog(
       context: context,
       builder: (context) => PhoneRuleEditDialog(
@@ -95,8 +93,7 @@ class _PhoneRuleEditDialogState extends ConsumerState<PhoneRuleEditDialog> {
         widget.onRuleUpdated!();
       }
 
-      // 关闭对话框
-      if (mounted) {
+      // 关闭对话�?      if (mounted) {
         Navigator.pop(context);
 
         // 显示成功提示
@@ -182,8 +179,7 @@ class _PhoneRuleEditDialogState extends ConsumerState<PhoneRuleEditDialog> {
               keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: 12),
-            // 标签选择器
-            PublicSelectLabel(
+            // 标签选择�?            PublicSelectLabel(
               initialLabelId: _selectedLabelId,
               onLabelIdChanged: (labelId) {
                 setState(() {
