@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:pyro_phone_call_history_ui/pyro_phone_call_history_ui.dart' as history_pkg_ui;
-import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
 import 'package:yourcallyourrule/features/call_history/providers/call_logs_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -28,7 +27,7 @@ class CallHistoryPage extends ConsumerWidget {
             itemBuilder: (context, index) {
               final log = logs[index];
               return history_pkg_ui.PyroCallLogCardWidget(
-                entry: log.toProtocolEntry(),
+                entry: log,
                 onTap: () {},
               );
             },

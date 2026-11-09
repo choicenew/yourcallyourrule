@@ -2,14 +2,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
 import 'package:yourcallyourrule/features/contacts/repositories/contact_repository.dart';
 import 'package:yourcallyourrule/features/contacts/data/repositories/contact_repository_impl.dart';
-import 'package:yourcallyourrule/features/contacts/data/models/contact_model.dart';
 
 /// 联系人数据状态的 Notifier
-class ContactsNotifier extends AsyncNotifier<List<Contact>> {
+class ContactsNotifier extends AsyncNotifier<List<PhoneContactEntry>> {
   late final ContactRepository _contactRepository;
 
   @override
-  Future<List<Contact>> build() async {
+  Future<List<PhoneContactEntry>> build() async {
     _initRepository();
     return _loadContacts();
   }
@@ -18,7 +17,7 @@ class ContactsNotifier extends AsyncNotifier<List<Contact>> {
     _contactRepository = ref.read(contactRepositoryProvider);
   }
 
-  Future<List<Contact>> _loadContacts() async {
+  Future<List<PhoneContactEntry>> _loadContacts() async {
     try {
       return await _contactRepository.getAll();
     } catch (e, stack) {
@@ -28,7 +27,7 @@ class ContactsNotifier extends AsyncNotifier<List<Contact>> {
   }
 
   /// 添加联系人
-  Future<void> addContact(Contact contact) async {
+  Future<void> addContact(PhoneContactEntry contact) async {
     state = const AsyncValue.loading();
     try {
       await _contactRepository.save(contact);
@@ -39,7 +38,7 @@ class ContactsNotifier extends AsyncNotifier<List<Contact>> {
   }
 
   /// 更新联系人
-  Future<void> updateContact(Contact contact) async {
+  Future<void> updateContact(PhoneContactEntry contact) async {
     state = const AsyncValue.loading();
     try {
       await _contactRepository.update(contact);
@@ -62,6 +61,6 @@ class ContactsNotifier extends AsyncNotifier<List<Contact>> {
 }
 
 /// 联系人数据提供者
-final contactsProvider = AsyncNotifierProvider<ContactsNotifier, List<Contact>>(() {
+final contactsProvider = AsyncNotifierProvider<ContactsNotifier, List<PhoneContactEntry>>(() {
   return ContactsNotifier();
 });
