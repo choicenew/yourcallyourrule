@@ -12,11 +12,16 @@ abstract class PhoneRuleEntity with _$PhoneRuleEntity {
     required String id,
     required String name,
     required String phoneNumber,
+    @Default('') String labelId,
+    String? avatar,
+    String? subscriptionId,
     @Default('block') String actionType,
     @Default(100) int priority,
     @Default(0) int count,
     @Default(true) bool isEnabled,
   }) = _PhoneRuleEntity;
+
+  bool get isSubscribed => subscriptionId != null;
 
   factory PhoneRuleEntity.fromJson(Map<String, dynamic> json) => _$PhoneRuleEntityFromJson(json);
 

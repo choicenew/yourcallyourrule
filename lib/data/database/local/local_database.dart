@@ -8,19 +8,18 @@ import 'package:path_provider/path_provider.dart';
 import 'package:drift/native.dart';
 import 'dart:io';
 import 'package:yourcallyourrule/features/labels/utils/predefined_labels.dart' as predefined;
-import '../../../main.dart' show isOverlayMode;
+import 'package:yourcallyourrule/main.dart' show isOverlayMode;
 import 'package:uuid/uuid.dart';
 
 import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
 import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
-
-import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
+import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
+import 'package:pyro_sim_slot_rules_protocol/pyro_sim_slot_rules_protocol.dart';
 
 part 'local_database.g.dart';
 part 'drift_migration_helper.dart';
@@ -32,7 +31,7 @@ LocalDatabase localDatabase(Ref ref) {
 }
 
 // Table definitions
-@UseRowClass(ContactEntry)
+@UseRowClass(PhoneContactEntry)
 class Contacts extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get phoneNumber => text().withLength(min: 1)();
@@ -48,7 +47,7 @@ class Contacts extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@UseRowClass(CallLog)
+@UseRowClass(CallLogEntry)
 class CallHistory extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get phoneNumber => text().withLength(min: 1)();
@@ -68,7 +67,7 @@ class CallHistory extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@UseRowClass(PhoneRule)
+@UseRowClass(PhoneRuleEntity)
 class Rules extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().withLength(min: 1)();
@@ -87,7 +86,7 @@ class Rules extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@UseRowClass(PhoneRule)
+@UseRowClass(PhoneRuleEntity)
 class PhoneRules extends Table {
   TextColumn get id => text().nullable()();
   TextColumn get name => text().withLength(min: 1)();
@@ -105,7 +104,7 @@ class PhoneRules extends Table {
   Set<Column> get primaryKey => {phoneNumber};
 }
 
-@UseRowClass(RegexRule)
+@UseRowClass(RegexRuleEntity)
 class RegexRules extends Table {
   TextColumn get id => text().nullable()();
   TextColumn get name => text().withLength(min: 1)();
@@ -120,7 +119,6 @@ class RegexRules extends Table {
   Set<Column> get primaryKey => {pattern};
 }
 
-@UseRowClass(Subscription)
 class Subscriptions extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().withLength(min: 1)();
@@ -154,7 +152,6 @@ class Sms extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@UseRowClass(SmsRegexRule)
 class SmsRules extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().withLength(min: 1)();
@@ -169,7 +166,6 @@ class SmsRules extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@UseRowClass(PluginEntry)
 class Plugins extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().withLength(min: 1)();
@@ -185,7 +181,6 @@ class Plugins extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@UseRowClass(LocationEntry)
 class Locations extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get phoneNumber => text().withLength(min: 1)();
@@ -198,7 +193,6 @@ class Locations extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@UseRowClass(PredefinedLabelEntry)
 class PredefinedLabels extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get labelText => text().withLength(min: 1)();
@@ -209,7 +203,6 @@ class PredefinedLabels extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@UseRowClass(LabelPhoneEntry)
 class LabelPhones extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().nullable()();
@@ -226,7 +219,6 @@ class LabelPhones extends Table {
   Set<Column> get primaryKey => {id};
 }
 
-@UseRowClass(SimSlotRule)
 class SimSlotRules extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().withLength(min: 1)();
