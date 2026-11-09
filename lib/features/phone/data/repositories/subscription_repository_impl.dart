@@ -2,60 +2,46 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
 import 'package:yourcallyourrule/features/phone/repositories/subscription_repository.dart';
-import 'package:yourcallyourrule/data/datasources/local/local_subscription_datasource.dart';
-import 'package:yourcallyourrule/features/phone/data/models/subscription_model.dart';
+import 'package:yourcallyourrule/features/phone/data/datasources/local_subscription_datasource.dart';
 
 part 'subscription_repository_impl.g.dart';
 
-/// 订阅仓库提供�?
 @Riverpod(keepAlive: true)
 SubscriptionRepository subscriptionRepository(Ref ref) {
   final dataSource = ref.watch(localSubscriptionDataSourceProvider);
   return SubscriptionRepositoryImpl(dataSource);
 }
 
-/// 订阅仓库实现�?
 class SubscriptionRepositoryImpl implements SubscriptionRepository {
   final LocalSubscriptionDataSource _dataSource;
 
   SubscriptionRepositoryImpl(this._dataSource);
 
   @override
-  Future<List<Subscription>> getAll() async {
-    final models = await _dataSource.getAll();
-    return models
-        .whereType<SubscriptionModel>()
-        .map((m) => m.toEntity())
-        .toList();
+  Future<List<PhoneSubscriptionPayload>> getAll() async {
+    return await _dataSource.getAll();
   }
 
   @override
-  Future<Subscription?> getById(String id) async {
-    final model = await _dataSource.getById(id);
-    if (model is SubscriptionModel) {
-      return model.toEntity();
-    }
-    return null;
+  Future<PhoneSubscriptionPayload?> getById(String id) async {
+    return await _dataSource.getById(id);
   }
 
   @override
-  Future<Subscription> save(Subscription entity) async {
-    final model = SubscriptionModel.fromEntity(entity);
-    await _dataSource.insert(model);
+  Future<PhoneSubscriptionPayload> save(PhoneSubscriptionPayload entity) async {
+    await _dataSource.insert(entity);
     return entity;
   }
 
   @override
-  Future<Subscription> update(Subscription entity) async {
-    final model = SubscriptionModel.fromEntity(entity);
-    await _dataSource.update(model);
+  Future<PhoneSubscriptionPayload> update(PhoneSubscriptionPayload entity) async {
+    await _dataSource.update(entity);
     return entity;
   }
 
   @override
-  Future<bool> delete(Subscription entity) async {
-    final result = await _dataSource.delete(entity.id);
-    return result > 0;
+  Future<bool> delete(PhoneSubscriptionPayload entity) async {
+    return await deleteById(entity.payloadId);
   }
 
   @override
@@ -65,117 +51,20 @@ class SubscriptionRepositoryImpl implements SubscriptionRepository {
   }
 
   @override
-  Future<bool> deleteAll(List<Subscription> entities) async {
-    final ids = entities.map((e) => e.id).toList();
+  Future<bool> deleteAll(List<PhoneSubscriptionPayload> entities) async {
+    final ids = entities.map((e) => e.payloadId).toList();
     final result = await _dataSource.deleteAll(ids);
     return result > 0;
   }
 
   @override
-  Future<List<Subscription>> saveAll(List<Subscription> entities) async {
-    final models =
-        entities.map((e) => SubscriptionModel.fromEntity(e)).toList();
-    await _dataSource.insertAll(models);
-    return entities;
-  }
-
-  @override
-  Future<bool> exists(String id) async {
-    final model = await _dataSource.getById(id);
-    return model != null;
-  }
-
-  @override
   Future<int> count() async {
-    final models = await _dataSource.getAll();
-    return models.length;
+    final items = await getAll();
+    return items.length;
   }
 
   @override
-  Subscription fromMap(Map<String, dynamic> map) {
-    return SubscriptionModel.fromMap(map).toEntity();
-  }
-
-  Future<List<Subscription>> getByType(String type) async {
-    final models = await _dataSource.getByType(type);
-    return models
-        .whereType<SubscriptionModel>()
-        .map((m) => m.toEntity())
-        .toList();
-  }
-
-  Future<List<Subscription>> getAllEnabled() async {
-    final models = await _dataSource.getEnabledSubscriptions();
-    return models
-        .whereType<SubscriptionModel>()
-        .map((m) => m.toEntity())
-        .toList();
-  }
-
-  Future<Subscription?> getByName(String name) async {
-    final models = await _dataSource.getByName(name);
-    if (models.isNotEmpty) {
-      final subscriptionModels = models.whereType<SubscriptionModel>();
-      if (subscriptionModels.isNotEmpty) {
-        return subscriptionModels.first.toEntity();
-      }
-    }
-    return null;
-  }
-
-  @override
-  Future<Subscription?> getByUrl(String url) async {
-    final model = await _dataSource.getByUrl(url);
-    if (model is SubscriptionModel) {
-      return model.toEntity();
-    }
-    return null;
-  }
-
-  @override
-  Future<int> batchUpdateStatus(List<String> ids, bool isEnabled) async {
-    int count = 0;
-    for (var id in ids) {
-      final subscription = await getById(id);
-      if (subscription != null) {
-        final updatedSubscription = subscription.copyWith(isEnabled: isEnabled);
-        await update(updatedSubscription);
-        count++;
-      }
-    }
-    return count;
-  }
-
-  @override
-  Future<void> updateLastUpdated(String id, DateTime time) async {
-    final subscription = await getById(id);
-    if (subscription != null) {
-      final updatedSubscription = subscription.copyWith(lastUpdated: time);
-      await update(updatedSubscription);
-    }
-  }
-
-  @override
-  Future<List<Subscription>> getPendingUpdateSubscriptions() async {
-    final subscriptions = await _dataSource.getAutoUpdateSubscriptions();
-    return subscriptions
-        .whereType<SubscriptionModel>()
-        .map((m) => m.toEntity())
-        .toList();
-  }
-
-  @override
-  Future<int> clearExpiredSubscriptions() async {
-    final subscriptions = await getAll();
-    final now = DateTime.now();
-    final expiredSubscriptions = subscriptions.where((subscription) {
-      if (subscription.lastUpdated == null) return false;
-      final difference = now.difference(subscription.lastUpdated!);
-      return difference.inDays >= 30;
-    }).toList();
-
-    await deleteAll(expiredSubscriptions);
-
-    return expiredSubscriptions.length;
+  Future<PhoneSubscriptionPayload?> getByUrl(String url) async {
+    return await _dataSource.getByUrl(url);
   }
 }

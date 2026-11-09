@@ -8,7 +8,6 @@ import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
-import 'package:yourcallyourrule/features/rules/data/models/phone_rule_model.dart';
 
 part 'local_regex_rule_datasource.g.dart';
 
@@ -21,80 +20,87 @@ LocalRegexRuleDataSource localRegexRuleDataSource(Ref ref) {
 class LocalRegexRuleDataSource {
   final LocalDatabase _database;
   final Uuid _uuid = const Uuid();
-  
+
   LocalRegexRuleDataSource(this._database);
 
-  Future<String> _save(PhoneRuleEntity rule) async {
+  RegexRulesCompanion _toCompanion(RegexRuleEntity rule) {
     final String id = rule.id.isEmpty ? _uuid.v4() : rule.id;
-    final companion = PhoneRuleModelMapper.toRegexRulesCompanion(rule);
-    final companionWithId = companion.copyWith(id: Value(id));
-    await _database.into(_database.regexRules).insertOnConflictUpdate(companionWithId);
-    return id;
+    return RegexRulesCompanion.insert(
+      id: Value(id),
+      name: rule.name,
+      ruleType: 'regex',
+      pattern: rule.pattern,
+      action: Value(rule.actionType),
+      priority: Value(rule.priority),
+      isEnabled: Value(rule.isEnabled ? 1 : 0),
+      subscriptionId: Value(rule.subscriptionId),
+    );
   }
 
-  Future<List<PhoneRuleEntity>> getAll() async {
-    final results = await _database.select(_database.regexRules).get();
-    return results.map(PhoneRuleModelMapper.fromRegexRuleData).toList();
+  Future<String> _save(RegexRuleEntity rule) async {
+    final companion = _toCompanion(rule);
+    await _database.into(_database.regexRules).insertOnConflictUpdate(companion);
+    return companion.id.value ?? '';
   }
 
-  Future<PhoneRuleEntity?> getById(String id) async {
-    final query = _database.select(_database.regexRules)
+  Future<List<RegexRuleEntity>> getAll() async {
+    return await _database.select(_database.regexRules).get();
+  }
+
+  Future<RegexRuleEntity?> getById(String id) async {
+    return await (_database.select(_database.regexRules)
       ..where((tbl) => tbl.id.equals(id))
-      ..limit(1);
-    final result = await query.getSingleOrNull();
-    return result != null ? PhoneRuleModelMapper.fromRegexRuleData(result) : null;
+      ..limit(1))
+      .getSingleOrNull();
   }
 
-  Future<String> insert(PhoneRuleEntity model) async {
+  Future<String> insert(RegexRuleEntity model) async {
     return _save(model);
   }
-  
-  Future<String> save(PhoneRuleEntity rule) async {
+
+  Future<String> save(RegexRuleEntity rule) async {
     return _save(rule);
   }
 
-  Future<int> update(PhoneRuleEntity rule) async {
-    final companion = PhoneRuleModelMapper.toRegexRulesCompanion(rule);
-    final updatedRows = await (_database.update(_database.regexRules)
+  Future<int> update(RegexRuleEntity rule) async {
+    final companion = _toCompanion(rule);
+    return await (_database.update(_database.regexRules)
       ..where((tbl) => tbl.id.equals(rule.id)))
       .write(companion);
-    return updatedRows;
   }
-  
+
   Future<int> delete(String id) async {
     return await (_database.delete(_database.regexRules)
       ..where((tbl) => tbl.id.equals(id)))
       .go();
   }
-  
-  Future<List<String>> insertAll(List<PhoneRuleEntity> models) async {
+
+  Future<List<String>> insertAll(List<RegexRuleEntity> models) async {
     final List<String> ids = [];
     await _database.batch((batch) {
       for (final rule in models) {
-        final id = rule.id.isEmpty ? _uuid.v4() : rule.id;
-        ids.add(id);
-        final companion = PhoneRuleModelMapper.toRegexRulesCompanion(rule);
-        final companionWithId = companion.copyWith(id: Value(id));
+        final companion = _toCompanion(rule);
+        ids.add(companion.id.value ?? '');
         batch.insert(
           _database.regexRules,
-          companionWithId,
+          companion,
           mode: InsertMode.insertOrReplace,
         );
       }
     });
     return ids;
   }
-  
-  Future<List<String>> saveAll(List<PhoneRuleEntity> rules) async {
+
+  Future<List<String>> saveAll(List<RegexRuleEntity> rules) async {
     return insertAll(rules);
   }
 
-  Future<int> updateAll(List<PhoneRuleEntity> rules) async {
+  Future<int> updateAll(List<RegexRuleEntity> rules) async {
     await _database.batch((batch) {
       for (final rule in rules) {
         batch.update(
           _database.regexRules,
-          PhoneRuleModelMapper.toRegexRulesCompanion(rule),
+          _toCompanion(rule),
           where: (tbl) => tbl.id.equals(rule.id),
         );
       }
@@ -103,11 +109,12 @@ class LocalRegexRuleDataSource {
   }
 
   Future<int> deleteAll(List<String> ids) async {
+    if (ids.isEmpty) return 0;
     return await (_database.delete(_database.regexRules)
       ..where((tbl) => tbl.id.isIn(ids)))
       .go();
   }
-  
+
   Future<void> clear() async {
     await _database.delete(_database.regexRules).go();
   }
@@ -128,11 +135,11 @@ class LocalRegexRuleDataSource {
     final List<Map<String, dynamic>> maps = rules.map((rule) => rule.toMap()).toList();
     return jsonEncode(maps);
   }
-  
+
   Future<bool> importData(String data) async {
     try {
       final List<dynamic> maps = jsonDecode(data) as List<dynamic>;
-      final List<PhoneRuleEntity> rules = maps.map((map) => PhoneRuleEntity.fromMap(map as Map<String, dynamic>)).toList();
+      final List<RegexRuleEntity> rules = maps.map((map) => RegexRuleEntity.fromMap(map as Map<String, dynamic>)).toList();
       await insertAll(rules);
       return true;
     } catch (e) {
@@ -140,39 +147,34 @@ class LocalRegexRuleDataSource {
     }
   }
 
-  Future<PhoneRuleEntity?> getByPattern(String pattern) async {
-    final query = _database.select(_database.regexRules)
+  Future<RegexRuleEntity?> getByPattern(String pattern) async {
+    return await (_database.select(_database.regexRules)
       ..where((tbl) => tbl.pattern.equals(pattern))
-      ..limit(1);
-    final result = await query.getSingleOrNull();
-    return result != null ? PhoneRuleModelMapper.fromRegexRuleData(result) : null;
+      ..limit(1))
+      .getSingleOrNull();
   }
 
-  Future<List<PhoneRuleEntity>> getEnabledRules() async {
-    final query = _database.select(_database.regexRules)
-      ..where((tbl) => tbl.isEnabled.equals(1));
-    final results = await query.get();
-    return results.map(PhoneRuleModelMapper.fromRegexRuleData).toList();
+  Future<List<RegexRuleEntity>> getEnabledRules() async {
+    return await (_database.select(_database.regexRules)
+      ..where((tbl) => tbl.isEnabled.equals(1)))
+      .get();
   }
 
-  Future<List<PhoneRuleEntity>> getDisabledRules() async {
-    final query = _database.select(_database.regexRules)
-      ..where((tbl) => tbl.isEnabled.equals(0));
-    final results = await query.get();
-    return results.map(PhoneRuleModelMapper.fromRegexRuleData).toList();
+  Future<List<RegexRuleEntity>> getDisabledRules() async {
+    return await (_database.select(_database.regexRules)
+      ..where((tbl) => tbl.isEnabled.equals(0)))
+      .get();
   }
 
-  Future<List<PhoneRuleEntity>> getByPriority(int priority) async {
-    final query = _database.select(_database.regexRules)
-      ..where((tbl) => tbl.priority.equals(priority));
-    final results = await query.get();
-    return results.map(PhoneRuleModelMapper.fromRegexRuleData).toList();
+  Future<List<RegexRuleEntity>> getByPriority(int priority) async {
+    return await (_database.select(_database.regexRules)
+      ..where((tbl) => tbl.priority.equals(priority)))
+      .get();
   }
 
-  Future<List<PhoneRuleEntity>> searchByName(String name) async {
-    final query = _database.select(_database.regexRules)
-      ..where((tbl) => tbl.name.like('%$name%'));
-    final results = await query.get();
-    return results.map(PhoneRuleModelMapper.fromRegexRuleData).toList();
+  Future<List<RegexRuleEntity>> searchByName(String name) async {
+    return await (_database.select(_database.regexRules)
+      ..where((tbl) => tbl.name.like('%$name%')))
+      .get();
   }
 }

@@ -7,6 +7,7 @@ import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_priority.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 import 'package:yourcallyourrule/features/call/call_filter/config/call_filter_config.dart';
@@ -70,15 +71,21 @@ class CallFilterService implements CallFilterInterface {
       return true;
     }
 
-    matchingRules.sort((a, b) => b.priority.value.compareTo(a.priority.value));
-    final highestPriorityRule = matchingRules.first;
+    matchingRules.sort((a, b) {
+      final prioA = RulePriority.fromInt((a as dynamic).priority as int).value;
+      final prioB = RulePriority.fromInt((b as dynamic).priority as int).value;
+      return prioB.compareTo(prioA);
+    });
 
-    switch (highestPriorityRule.action.type) {
+    final highestPriorityRule = matchingRules.first as dynamic;
+    final ruleAction = RuleAction.fromString(highestPriorityRule.actionType as String);
+
+    switch (ruleAction.type) {
       case RuleActionType.allow:
         return true;
       case RuleActionType.block:
       case RuleActionType.silence:
-        interceptAction = _getInterceptActionFromRule(highestPriorityRule.action);
+        interceptAction = _getInterceptActionFromRule(ruleAction);
         _setCurrentInterceptAction(interceptAction);
         return false;
       case RuleActionType.none:
@@ -122,22 +129,29 @@ class CallFilterService implements CallFilterInterface {
     return _currentInterceptAction;
   }
 
-  Future<List<RuleBase>> _getAllMatchingRules(PhoneNumber number) async {
+  Future<List<dynamic>> _getAllMatchingRules(PhoneNumber number) async {
     final String phoneNumberStr = number.value;
-    List<RuleBase> matchingRules = [];
-     
+    List<dynamic> matchingRules = [];
+
     final allowedBlockedRules = await _allowedBlockedService.getRulesByActionType(number, null);
     matchingRules.addAll(allowedBlockedRules);
+
     final matchingRegexRules = await _regexService.getMatchingRegexRulesByActionType(phoneNumberStr, null);
     matchingRules.addAll(matchingRegexRules);
+
     final phoneRules = await _ruleManagementService.getRulesByActionType(number, null);
     matchingRules.addAll(phoneRules);
+
     return matchingRules;
   }
 
-  Future<List<RuleBase>> verifyAllRules(PhoneNumber number) async {
+  Future<List<dynamic>> verifyAllRules(PhoneNumber number) async {
     final matchingRules = await _getAllMatchingRules(number);
-    matchingRules.sort((a, b) => b.priority.value.compareTo(a.priority.value));
+    matchingRules.sort((a, b) {
+      final prioA = RulePriority.fromInt((a as dynamic).priority as int).value;
+      final prioB = RulePriority.fromInt((b as dynamic).priority as int).value;
+      return prioB.compareTo(prioA);
+    });
     return matchingRules;
   }
 }

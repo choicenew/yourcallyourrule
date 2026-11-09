@@ -1,8 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
-import 'package:yourcallyourrule/features/phone/entities/phone_entry.dart';
-import 'package:yourcallyourrule/features/phone/entities/phone_entry_impl.dart';
 import 'package:yourcallyourrule/features/contacts/repositories/contact_repository.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/contacts/data/datasources/local_contact_datasource.dart';
@@ -21,10 +19,6 @@ class ContactRepositoryImpl implements ContactRepository {
   final LocalContactDataSource _localContactDataSource;
 
   ContactRepositoryImpl(this._localContactDataSource);
-
-  PhoneContactEntry fromMap(Map<String, dynamic> map) {
-    return PhoneContactEntry.fromMap(map);
-  }
 
   @override
   Future<List<PhoneContactEntry>> getAll() async {
@@ -45,7 +39,7 @@ class ContactRepositoryImpl implements ContactRepository {
   @override
   Future<void> deleteContactByUrl(String url) async {
     final contacts = await _localContactDataSource.getAll();
-    final contactToDelete = contacts.firstWhere((contact) => contact.photoUrl == url, orElse: () => throw Exception('Contact not found'));
+    final contactToDelete = contacts.firstWhere((contact) => contact.url == url, orElse: () => throw Exception('Contact not found'));
     await _localContactDataSource.delete(contactToDelete.id);
   }
 
@@ -84,7 +78,7 @@ class ContactRepositoryImpl implements ContactRepository {
   Future<bool> addToFavorites(String contactId) async {
     final entry = await _localContactDataSource.getById(contactId);
     if (entry != null) {
-      final updated = entry.copyWith(isStarred: true);
+      final updated = entry.copyWith(isFavorite: true);
       await _localContactDataSource.update(updated);
       return true;
     }
@@ -145,22 +139,10 @@ class ContactRepositoryImpl implements ContactRepository {
   }
 
   @override
-  Future<List<PhoneEntry>> getAllSortedByName() async {
+  Future<List<PhoneContactEntry>> getAllSortedByName() async {
     final contacts = await getAll();
     contacts.sort((a, b) => a.displayName.compareTo(b.displayName));
-    List<PhoneEntry> results = [];
-    for (var contact in contacts) {
-      final phoneEntries = contact.phoneNumbers
-          .map((p) => PhoneEntryImpl(
-            id: '${contact.id}_$p',
-            phoneNumber: PhoneNumber(p),
-            name: contact.displayName,
-            avatar: contact.photoUrl
-          ))
-          .toList();
-      results.addAll(phoneEntries);
-    }
-    return results;
+    return contacts;
   }
 
   @override
@@ -176,65 +158,25 @@ class ContactRepositoryImpl implements ContactRepository {
   @override
   Future<List<PhoneContactEntry>> getContactsByLabel(String labelId) async {
     final allContacts = await getAllContacts();
-    return allContacts;
+    return allContacts.where((c) => c.tags.contains(labelId)).toList();
   }
 
   @override
-  Future<List<PhoneContactEntry>> getContactsByList(String listId) async {
-    return await getAllContacts();
-  }
-
-  @override
-  Future<List<PhoneEntry>> getFavorites() async {
+  Future<List<PhoneContactEntry>> getFavorites() async {
     final allContacts = await getAllContacts();
-    return allContacts.where((c) => c.isStarred).map((e) => PhoneEntryImpl.fromContact(e)).toList();
+    return allContacts.where((c) => c.isFavorite).toList();
   }
 
   @override
-  Future<List<PhoneEntry>> getRecentlyAdded(int limit) async {
+  Future<List<PhoneContactEntry>> getRecentlyAdded(int limit) async {
     final contacts = await getAll();
     contacts.sort((a, b) => b.id.compareTo(a.id));
-    List<PhoneEntry> results = [];
-    for (var contact in contacts.take(limit)) {
-      final phoneEntries = contact.phoneNumbers
-          .map((p) => PhoneEntryImpl(
-            id: '${contact.id}_$p',
-            phoneNumber: PhoneNumber(p),
-            name: contact.displayName,
-            avatar: contact.photoUrl
-          ))
-          .toList();
-      results.addAll(phoneEntries);
-    }
-    return results;
-  }
-
-  @override
-  Future<List<PhoneEntry>> getRecentlyContacted(int limit) async {
-    return getRecentlyAdded(limit);
-  }
-
-  @override
-  Future<List<PhoneEntry>> importContacts(List<PhoneEntry> contacts) async {
-    List<PhoneEntry> importedContacts = [];
-    for (var phoneEntry in contacts) {
-      if (!await contactExists(phoneEntry.phoneNumber)) {
-        final contact = PhoneContactEntry(
-          id: '${DateTime.now().millisecondsSinceEpoch}_${phoneEntry.id}',
-          displayName: phoneEntry.name ?? phoneEntry.phoneNumber.value,
-          phoneNumbers: [phoneEntry.phoneNumber.value],
-          photoUrl: phoneEntry.avatar
-        );
-        await save(contact);
-        importedContacts.add(phoneEntry);
-      }
-    }
-    return importedContacts;
+    return contacts.take(limit).toList();
   }
 
   @override
   Future<int> importContactsList(List<PhoneContactEntry> contacts) async {
-    int count = 0;
+    int imported = 0;
     for (var contact in contacts) {
       bool exists = false;
       for (var phoneNumber in contact.phoneNumbers) {
@@ -245,42 +187,17 @@ class ContactRepositoryImpl implements ContactRepository {
       }
       if (!exists) {
         await save(contact);
-        count++;
+        imported++;
       }
     }
-    return count;
-  }
-
-  @override
-  Future<int> mergeDuplicates() async {
-    final contacts = await getAll();
-    Map<String, List<PhoneContactEntry>> phoneToContacts = {};
-    for (var contact in contacts) {
-      for (var phone in contact.phoneNumbers) {
-        if (!phoneToContacts.containsKey(phone)) {
-          phoneToContacts[phone] = [];
-        }
-        phoneToContacts[phone]!.add(contact);
-      }
-    }
-    int mergedCount = 0;
-    for (var phone in phoneToContacts.keys) {
-      final duplicates = phoneToContacts[phone]!;
-      if (duplicates.length > 1) {
-        for (var i = 1; i < duplicates.length; i++) {
-          await delete(duplicates[i]);
-          mergedCount++;
-        }
-      }
-    }
-    return mergedCount;
+    return imported;
   }
 
   @override
   Future<bool> removeFromFavorites(String contactId) async {
     final entry = await _localContactDataSource.getById(contactId);
     if (entry != null) {
-      final updated = entry.copyWith(isStarred: false);
+      final updated = entry.copyWith(isFavorite: false);
       await _localContactDataSource.update(updated);
       return true;
     }
@@ -294,46 +211,9 @@ class ContactRepositoryImpl implements ContactRepository {
   }
 
   @override
-  Future<List<PhoneContactEntry>> saveAll(List<PhoneContactEntry> entities) async {
-    final List<PhoneContactEntry> savedEntities = [];
-    for (final entity in entities) {
-      await save(entity);
-      savedEntities.add(entity);
-    }
-    return savedEntities;
-  }
-
-  @override
-  Future<List<PhoneEntry>> searchByName(String name) async {
+  Future<List<PhoneContactEntry>> searchByName(String name) async {
     final allContacts = await getAllContacts();
-    return allContacts.where((c) => c.displayName.toLowerCase().contains(name.toLowerCase())).map((e) => PhoneEntryImpl.fromContact(e)).toList();
-  }
-
-  @override
-  Future<bool> addContactToList(String contactId, String listId) async {
-    return true;
-  }
-
-  @override
-  Future<bool> removeContactFromList(String contactId, String listId) async {
-    return true;
-  }
-
-  @override
-  Future<List<PhoneEntry>> exportContacts() async {
-    final contacts = await getAll();
-    List<PhoneEntry> phoneEntries = [];
-    for (var contact in contacts) {
-      for (var phone in contact.phoneNumbers) {
-        phoneEntries.add(PhoneEntryImpl(
-          id: '${contact.id}_$phone',
-          phoneNumber: PhoneNumber(phone),
-          name: contact.displayName,
-          avatar: contact.photoUrl
-        ));
-      }
-    }
-    return phoneEntries;
+    return allContacts.where((c) => c.displayName.toLowerCase().contains(name.toLowerCase())).toList();
   }
 
   @override

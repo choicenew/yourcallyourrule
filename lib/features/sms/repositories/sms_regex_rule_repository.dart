@@ -1,80 +1,58 @@
-import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
-// base_repository removed
-import 'package:yourcallyourrule/data/datasources/local/local_sms_regex_rule_datasource.dart';
-import 'package:yourcallyourrule/data/models/sms_regex_rule_model.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:yourcallyourrule/features/sms/data/datasources/local_sms_regex_rule_datasource.dart';
 
-/// 短信正则规则仓库实现�?(100% 独立于通话仓库，直接接入短信专属数据源)
-class SmsRegexRuleRepository implements BaseRepository<SmsRegexRule, String> {
+/// 短信正则规则仓库实现类 (100% 独立，直接使用 RegexRuleEntity 包实体)
+class SmsRegexRuleRepository {
   final LocalSmsRegexRuleDataSource _dataSource;
 
   SmsRegexRuleRepository(this._dataSource);
 
-  @override
   Future<int> count() async {
-    final models = await _dataSource.getAll();
-    return models.length;
+    final rules = await _dataSource.getAll();
+    return rules.length;
   }
 
-  @override
-  Future<bool> delete(SmsRegexRule entity) async {
+  Future<bool> delete(RegexRuleEntity entity) async {
     final result = await _dataSource.delete(entity.id);
     return result > 0;
   }
 
-  @override
-  Future<bool> deleteAll(List<SmsRegexRule> entities) async {
+  Future<bool> deleteAll(List<RegexRuleEntity> entities) async {
     final ids = entities.map((e) => e.id).toList();
     final result = await _dataSource.deleteAll(ids);
     return result > 0;
   }
 
-  @override
   Future<bool> deleteById(String id) async {
     final result = await _dataSource.delete(id);
     return result > 0;
   }
 
-  @override
   Future<bool> exists(String id) async {
-    final model = await _dataSource.getById(id);
-    return model != null;
+    final rule = await _dataSource.getById(id);
+    return rule != null;
   }
 
-  @override
-  SmsRegexRule fromMap(Map<String, dynamic> map) {
-    return SmsRegexRule.fromMap(map);
+  Future<List<RegexRuleEntity>> getAll() async {
+    return await _dataSource.getAll();
   }
 
-  @override
-  Future<List<SmsRegexRule>> getAll() async {
-    final models = await _dataSource.getAll();
-    return models.map((m) => m.toEntity()).toList();
+  Future<RegexRuleEntity?> getById(String id) async {
+    return await _dataSource.getById(id);
   }
 
-  @override
-  Future<SmsRegexRule?> getById(String id) async {
-    final model = await _dataSource.getById(id);
-    return model?.toEntity();
-  }
-
-  @override
-  Future<SmsRegexRule> save(SmsRegexRule entity) async {
-    final model = SmsRegexRuleModel.fromEntity(entity);
-    await _dataSource.insert(model);
+  Future<RegexRuleEntity> save(RegexRuleEntity entity) async {
+    await _dataSource.insert(entity);
     return entity;
   }
 
-  @override
-  Future<List<SmsRegexRule>> saveAll(List<SmsRegexRule> entities) async {
-    final models = entities.map((e) => SmsRegexRuleModel.fromEntity(e)).toList();
-    await _dataSource.insertAll(models);
+  Future<List<RegexRuleEntity>> saveAll(List<RegexRuleEntity> entities) async {
+    await _dataSource.insertAll(entities);
     return entities;
   }
 
-  @override
-  Future<SmsRegexRule> update(SmsRegexRule entity) async {
-    final model = SmsRegexRuleModel.fromEntity(entity);
-    await _dataSource.update(model);
+  Future<RegexRuleEntity> update(RegexRuleEntity entity) async {
+    await _dataSource.update(entity);
     return entity;
   }
 }

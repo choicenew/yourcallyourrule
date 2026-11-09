@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
 import 'package:pyro_phone_contacts_hub/pyro_phone_contacts_hub.dart';
 import 'package:pyro_phone_contacts_ui/pyro_phone_contacts_ui.dart' as contacts_pkg_ui;
-import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -20,7 +20,7 @@ class ContactsManagementPage extends ConsumerWidget {
       items: contacts,
       emptyText: l10n.noContactsFound,
       adInterval: 3,
-      adBuilder: () => const InlineAdaptiveAd(),
+      adBuilder: () => const AdsInlineBanner(),
       itemBuilder: (context, contact) => contacts_pkg_ui.PyroPhoneContactCardWidget(
         entry: contact,
         onTap: () => ref.read(phoneContactsControlCenterProvider).showContactDetail(contact),

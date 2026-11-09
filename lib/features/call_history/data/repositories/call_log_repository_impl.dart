@@ -1,9 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
+import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:yourcallyourrule/features/call_history/repositories/call_log_repository.dart';
 import 'package:yourcallyourrule/features/call_history/data/datasources/local_call_log_datasource.dart';
-import 'package:yourcallyourrule/features/call_history/data/models/call_log_model.dart';
 
 part 'call_log_repository_impl.g.dart';
 
@@ -21,38 +20,34 @@ class CallLogRepositoryImpl implements CallLogRepository {
   CallLogRepositoryImpl(this._dataSource);
 
   @override
-  Future<List<CallLog>> getAll() async {
-    final models = await _dataSource.getAll();
-    return models.map((model) => model.toEntity()).toList();
+  Future<List<CallLogEntry>> getAll() async {
+    return await _dataSource.getAll();
   }
 
   @override
-  Future<CallLog?> getById(String id) async {
-    final model = await _dataSource.getById(id);
-    if (model == null) return null;
-    return model.toEntity();
+  Future<CallLogEntry?> getById(String id) async {
+    return await _dataSource.getById(id);
   }
 
   @override
-  Future<CallLog> save(CallLog entity) async {
-    await _dataSource.insert(CallLogModel.fromEntity(entity));
+  Future<CallLogEntry> save(CallLogEntry entity) async {
+    await _dataSource.insert(entity);
     return entity;
   }
 
   @override
-  Future<CallLog> update(CallLog entity) async {
-    await _dataSource.update(CallLogModel.fromEntity(entity));
+  Future<CallLogEntry> update(CallLogEntry entity) async {
+    await _dataSource.update(entity);
     return entity;
   }
 
   @override
-  Future<void> updateAll(List<CallLog> entities) async {
-    final models = entities.map((e) => CallLogModel.fromEntity(e)).toList();
-    await _dataSource.transactionUpdate(models);
+  Future<void> updateAll(List<CallLogEntry> entities) async {
+    await _dataSource.updateAll(entities);
   }
 
   @override
-  Future<bool> delete(CallLog entity) async {
+  Future<bool> delete(CallLogEntry entity) async {
     return await deleteById(entity.id);
   }
 
@@ -63,10 +58,9 @@ class CallLogRepositoryImpl implements CallLogRepository {
   }
 
   @override
-  Future<bool> deleteAll(List<CallLog> entities) async {
-    for (var entity in entities) {
-      await deleteById(entity.id);
-    }
+  Future<bool> deleteAll(List<CallLogEntry> entities) async {
+    final ids = entities.map((e) => e.id).toList();
+    await _dataSource.deleteAll(ids);
     return true;
   }
 
@@ -76,97 +70,79 @@ class CallLogRepositoryImpl implements CallLogRepository {
     return logs.length;
   }
 
-  CallLog fromMap(Map<String, dynamic> map) {
-    return CallLog.fromMap(map);
-  }
-
   @override
-  Future<List<CallLog>> getRecentLogs() async {
+  Future<List<CallLogEntry>> getRecentLogs() async {
     final logs = await getAll();
-    logs.sort((a, b) => b.timestamp.compareTo(a.timestamp));
+    logs.sort((a, b) => (b.timestamp ?? 0).compareTo(a.timestamp ?? 0));
     return logs.take(20).toList();
   }
 
   @override
-  Future<List<CallLog>> getLogsByPhoneNumber(String phoneNumber) async {
-    final logs = await getAll();
-    return logs.where((log) => log.phoneNumber == phoneNumber).toList();
+  Future<List<CallLogEntry>> getLogsByPhoneNumber(String phoneNumber) async {
+    return await _dataSource.getByNumber(phoneNumber);
   }
 
   @override
-  Future<List<CallLog>> getLogsByLabelId(String labelId) async {
+  Future<List<CallLogEntry>> getLogsByLabelId(String labelId) async {
     final logs = await getAll();
-    return logs.where((log) => log.labelIds?.contains(labelId) ?? false).toList();
+    return logs.where((log) => log.location?.contains(labelId) ?? false).toList();
   }
 
   @override
-  Future<List<CallLog>> getLogsWithAnyLabels(List<String> labelIds) async {
+  Future<List<CallLogEntry>> getLogsWithAnyLabels(List<String> labelIds) async {
     final logs = await getAll();
     return logs.where((log) =>
-      log.labelIds != null &&
-      log.labelIds!.any((id) => labelIds.contains(id))
+      log.location != null &&
+      labelIds.any((id) => log.location!.contains(id))
     ).toList();
   }
 
   @override
-  Future<List<CallLog>> getLogsWithAllLabels(List<String> labelIds) async {
+  Future<List<CallLogEntry>> getLogsWithAllLabels(List<String> labelIds) async {
     final logs = await getAll();
     return logs.where((log) =>
-      log.labelIds != null &&
-      labelIds.every((id) => log.labelIds!.contains(id))
+      log.location != null &&
+      labelIds.every((id) => log.location!.contains(id))
     ).toList();
   }
 
   @override
-  Future<int> deleteLogsByDateRange(
-      DateTime startDate, DateTime endDate) async {
+  Future<int> deleteLogsByDateRange(DateTime startDate, DateTime endDate) async {
     final logs = await getLogsByDateRange(startDate, endDate);
-    for (var log in logs) {
-      await delete(log);
-    }
-    return logs.length;
+    final ids = logs.map((l) => l.id).toList();
+    return await _dataSource.deleteAll(ids);
   }
 
   @override
-  Future<List<CallLog>> getLogsByDateRange(
-      DateTime startDate, DateTime endDate) async {
+  Future<List<CallLogEntry>> getLogsByDateRange(DateTime startDate, DateTime endDate) async {
     final logs = await getAll();
-    return logs
-        .where((log) =>
-            log.timestamp.isAfter(startDate) && log.timestamp.isBefore(endDate))
-        .toList();
+    final startMs = startDate.millisecondsSinceEpoch;
+    final endMs = endDate.millisecondsSinceEpoch;
+    return logs.where((log) {
+      final ts = log.timestamp ?? 0;
+      return ts >= startMs && ts <= endMs;
+    }).toList();
   }
 
   @override
-  Future<void> addLog(CallLog log) async {
+  Future<void> addLog(CallLogEntry log) async {
     await save(log);
   }
 
   @override
-  Future<List<CallLog>> getUnreadLogs() async {
+  Future<List<CallLogEntry>> getUnreadLogs() async {
     final logs = await getRecentLogs();
     return logs.take(10).toList();
   }
 
   @override
   Future<void> markAsRead(String logId) async {
-    final log = await getById(logId);
-    if (log != null) {
-      final callLogModel = await _dataSource.getById(logId);
-      if (callLogModel != null) {
-        final map = callLogModel.toMap();
-        map['isRead'] = true;
-        await _dataSource.update(CallLogModel.fromMap(map));
-      }
-    }
+    // CallLogEntry read state handling if needed
   }
 
   @override
   Future<void> markAllAsRead() async {
-    final logs = await getUnreadLogs();
-    for (var log in logs) {
-      await markAsRead(log.id);
-    }
+    // CallLogEntry read state handling if needed
   }
 
   @override
@@ -175,7 +151,7 @@ class CallLogRepositoryImpl implements CallLogRepository {
   }
 
   @override
-  Stream<List<CallLog>> watchLogs() {
-    return _dataSource.watchAll().map((models) => models.map((model) => model.toEntity()).toList());
+  Stream<List<CallLogEntry>> watchLogs() {
+    return _dataSource.watchAll();
   }
 }

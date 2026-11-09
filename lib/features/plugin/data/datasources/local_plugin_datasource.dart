@@ -17,83 +17,80 @@ LocalPluginDataSource localPluginDataSource(Ref ref) {
   return databaseService.localPluginDataSource;
 }
 
-abstract class PluginModelMapper {
-  static PluginEntry fromData(PluginData data) {
-    return PluginEntry(
-      id: data.id,
-      name: data.name,
-      url: data.url,
-      version: data.version,
-      description: data.description ?? '',
-      isEnabled: data.isEnabled == 1,
-      pluginOrder: data.pluginOrder,
-      isAutoUpdate: data.isAutoUpdate == 1,
-    );
-  }
-
-  static PluginsCompanion toCompanion(PluginEntry model) {
-    return PluginsCompanion(
-      id: Value(model.id),
-      name: Value(model.name),
-      url: Value(model.url),
-      version: Value(model.version),
-      description: Value(model.description),
-      isEnabled: Value(model.isEnabled ? 1 : 0),
-      pluginOrder: Value(model.pluginOrder),
-      isAutoUpdate: Value(model.isAutoUpdate ? 1 : 0),
-    );
-  }
-}
-
 class LocalPluginDataSource {
   final LocalDatabase _db;
   final Uuid _uuid = const Uuid();
 
   LocalPluginDataSource(this._db);
 
-  Future<List<PluginEntry>> getAll() async {
+  PluginsCompanion _toCompanion(PluginSourceData plugin) {
+    final id = plugin.id.isEmpty ? _uuid.v4() : plugin.id;
+    return PluginsCompanion.insert(
+      id: id,
+      name: plugin.id,
+      url: plugin.sourceUrl ?? '',
+      version: plugin.version,
+      description: Value(plugin.scriptContent),
+      isEnabled: Value(plugin.isEnabled ? 1 : 0),
+      pluginOrder: Value(plugin.priority),
+      isAutoUpdate: Value(plugin.isAutoUpdate ? 1 : 0),
+    );
+  }
+
+  PluginSourceData _fromData(PluginData data) {
+    return PluginSourceData(
+      id: data.id,
+      version: data.version,
+      sourceUrl: data.url,
+      scriptContent: data.description ?? '',
+      priority: data.pluginOrder,
+      isEnabled: data.isEnabled == 1,
+      isAutoUpdate: data.isAutoUpdate == 1,
+    );
+  }
+
+  Future<List<PluginSourceData>> getAll() async {
     final data = await (_db.select(_db.plugins)
           ..orderBy([(t) => OrderingTerm(expression: t.pluginOrder)])).get();
-    return data.map(PluginModelMapper.fromData).toList();
+    return data.map(_fromData).toList();
   }
 
-  Future<PluginEntry?> getById(String id) async {
+  Future<PluginSourceData?> getById(String id) async {
     final data = await (_db.select(_db.plugins)
           ..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
-    return data != null ? PluginModelMapper.fromData(data) : null;
+    return data != null ? _fromData(data) : null;
   }
 
-  Future<String> insert(PluginEntry model) async {
-    final id = model.id.isEmpty ? _uuid.v4() : model.id;
-    final companion = PluginModelMapper.toCompanion(model).copyWith(id: Value(id));
+  Future<String> insert(PluginSourceData model) async {
+    final companion = _toCompanion(model);
     await _db.into(_db.plugins).insert(companion, mode: InsertMode.replace);
-    return id;
+    return companion.id.value;
   }
 
-  Future<List<String>> insertAll(List<PluginEntry> models) async {
+  Future<List<String>> insertAll(List<PluginSourceData> models) async {
     final ids = <String>[];
     await _db.batch((batch) {
       for (final model in models) {
-        final id = model.id.isEmpty ? _uuid.v4() : model.id;
-        ids.add(id);
-        final companion = PluginModelMapper.toCompanion(model).copyWith(id: Value(id));
+        final companion = _toCompanion(model);
+        ids.add(companion.id.value);
         batch.insert(_db.plugins, companion, mode: InsertMode.replace);
       }
     });
     return ids;
   }
 
-  Future<int> update(PluginEntry model) async {
+  Future<int> update(PluginSourceData model) async {
+    final companion = _toCompanion(model);
     return await (_db.update(_db.plugins)
-      ..where((tbl) => tbl.id.equals(model.id))).write(PluginModelMapper.toCompanion(model));
+      ..where((tbl) => tbl.id.equals(model.id))).write(companion);
   }
 
-  Future<int> updateAll(List<PluginEntry> items) async {
+  Future<int> updateAll(List<PluginSourceData> items) async {
     await _db.batch((batch) {
       for (final item in items) {
         batch.update(
           _db.plugins,
-          PluginModelMapper.toCompanion(item),
+          _toCompanion(item),
           where: (tbl) => tbl.id.equals(item.id),
         );
       }
@@ -116,22 +113,22 @@ class LocalPluginDataSource {
     await _db.delete(_db.plugins).go();
   }
 
-  Future<PluginEntry?> getByUrl(String url) async {
+  Future<PluginSourceData?> getByUrl(String url) async {
     final data = await (_db.select(_db.plugins)
           ..where((tbl) => tbl.url.equals(url))).getSingleOrNull();
-    return data != null ? PluginModelMapper.fromData(data) : null;
+    return data != null ? _fromData(data) : null;
   }
 
-  Future<List<PluginEntry>> searchByName(String name) async {
+  Future<List<PluginSourceData>> searchByName(String name) async {
     final data = await (_db.select(_db.plugins)
           ..where((tbl) => tbl.name.like('%$name%'))).get();
-    return data.map(PluginModelMapper.fromData).toList();
+    return data.map(_fromData).toList();
   }
 
-  Future<List<PluginEntry>> getEnabled() async {
+  Future<List<PluginSourceData>> getEnabled() async {
     final data = await (_db.select(_db.plugins)
           ..where((tbl) => tbl.isEnabled.equals(1))).get();
-    return data.map(PluginModelMapper.fromData).toList();
+    return data.map(_fromData).toList();
   }
 
   Future<String> exportData() async {
@@ -141,8 +138,8 @@ class LocalPluginDataSource {
 
   Future<bool> importData(String data) async {
     try {
-      final List<dynamic> maps = jsonDecode(data);
-      final items = maps.map((map) => PluginEntry.fromMap(map as Map<String, dynamic>)).toList();
+      final List<dynamic> maps = jsonDecode(data) as List<dynamic>;
+      final items = maps.map((map) => PluginSourceData.fromMap(map as Map<String, dynamic>)).toList();
       await insertAll(items);
       return true;
     } catch (e) {

@@ -17,66 +17,50 @@ LocalLabelDataSource localLabelDataSource(Ref ref) {
   return databaseService.localLabelDataSource;
 }
 
-abstract class LabelModelMapper {
-  static LabelPhoneEntry fromData(LabelPhoneData data) {
-    return LabelPhoneEntry(
-      id: data.id,
-      name: data.name ?? '',
-      phoneNumber: data.phoneNumber,
-      labelId: data.labelId,
-      icon: data.icon,
-      avatar: data.avatar,
-      priority: data.priority,
-      action: data.action,
-      isEnabled: data.isEnabled == 1,
-    );
-  }
+class LocalLabelDataSource {
+  final LocalDatabase _database;
+  final Uuid _uuid = const Uuid();
 
-  static LabelPhonesCompanion toCompanion(LabelPhoneEntry entry) {
-    return LabelPhonesCompanion(
-      id: Value(entry.id),
+  LocalLabelDataSource(this._database);
+
+  LabelPhonesCompanion _toCompanion(LabelPhoneEntry entry) {
+    final id = entry.id.isEmpty ? _uuid.v4() : entry.id;
+    return LabelPhonesCompanion.insert(
+      id: id,
       name: Value(entry.name),
       icon: Value(entry.icon),
-      phoneNumber: Value(entry.phoneNumber),
-      labelId: Value(entry.labelId),
+      phoneNumber: entry.phoneNumber,
+      labelId: entry.labelId,
       avatar: Value(entry.avatar),
       priority: Value(entry.priority),
       action: Value(entry.action),
       isEnabled: Value(entry.isEnabled ? 1 : 0),
     );
   }
-}
-
-class LocalLabelDataSource {
-  final LocalDatabase _database;
-
-  LocalLabelDataSource(this._database);
 
   Future<List<LabelPhoneEntry>> getAll() async {
-    final data = await _database.select(_database.labelPhones).get();
-    return data.map(LabelModelMapper.fromData).toList();
+    return await _database.select(_database.labelPhones).get();
   }
-  
+
   Future<LabelPhoneEntry?> getById(String id) async {
-    final data = await (_database.select(_database.labelPhones)
+    return await (_database.select(_database.labelPhones)
           ..where((tbl) => tbl.id.equals(id)))
         .getSingleOrNull();
-    return data != null ? LabelModelMapper.fromData(data) : null;
   }
 
   Future<String> insert(LabelPhoneEntry label) async {
-    final id = label.id.isEmpty ? const Uuid().v4() : label.id;
-    final companion = LabelModelMapper.toCompanion(label).copyWith(id: Value(id));
+    final companion = _toCompanion(label);
     await _database
         .into(_database.labelPhones)
         .insert(companion, mode: InsertMode.replace);
-    return id;
+    return companion.id.value;
   }
 
   Future<int> update(LabelPhoneEntry label) async {
+    final companion = _toCompanion(label);
     return await (_database.update(_database.labelPhones)
           ..where((tbl) => tbl.id.equals(label.id)))
-        .write(LabelModelMapper.toCompanion(label));
+        .write(companion);
   }
 
   Future<int> delete(String id) async {
@@ -89,11 +73,9 @@ class LocalLabelDataSource {
     final ids = <String>[];
     await _database.batch((batch) {
       for (final label in labels) {
-        final id = label.id.isEmpty ? const Uuid().v4() : label.id;
-        ids.add(id);
-        final companion = LabelModelMapper.toCompanion(label).copyWith(id: Value(id));
-        batch.insert(_database.labelPhones, companion,
-            mode: InsertMode.replace);
+        final companion = _toCompanion(label);
+        ids.add(companion.id.value);
+        batch.insert(_database.labelPhones, companion, mode: InsertMode.replace);
       }
     });
     return ids;
@@ -104,7 +86,7 @@ class LocalLabelDataSource {
       for (final label in labels) {
         batch.update(
           _database.labelPhones,
-          LabelModelMapper.toCompanion(label),
+          _toCompanion(label),
           where: (tbl) => tbl.id.equals(label.id),
         );
       }
@@ -142,39 +124,21 @@ class LocalLabelDataSource {
   }
 
   Future<List<LabelPhoneEntry>> getByPhoneNumber(String phoneNumber) async {
-    final query = _database.select(_database.labelPhones)
-      ..where((tbl) => tbl.phoneNumber.equals(phoneNumber));
-    final data = await query.get();
-    return data.map(LabelModelMapper.fromData).toList();
+    return await (_database.select(_database.labelPhones)
+      ..where((tbl) => tbl.phoneNumber.equals(phoneNumber)))
+      .get();
   }
 
   Future<List<LabelPhoneEntry>> getByLabelId(String labelId) async {
-    final query = _database.select(_database.labelPhones)
-      ..where((tbl) => tbl.labelId.equals(labelId));
-    final data = await query.get();
-    return data.map(LabelModelMapper.fromData).toList();
-  }
-
-  Future<List<LabelPhoneEntry>> getByLabelText(String labelText) async {
-    final query = _database.select(_database.labelPhones).join([
-      innerJoin(
-          _database.predefinedLabels,
-          _database.predefinedLabels.id
-              .equalsExp(_database.labelPhones.labelId))
-    ])
-      ..where(_database.predefinedLabels.labelText.equals(labelText));
-
-    final results = await query.get();
-    return results.map((row) {
-      return LabelModelMapper.fromData(row.readTable(_database.labelPhones));
-    }).toList();
+    return await (_database.select(_database.labelPhones)
+      ..where((tbl) => tbl.labelId.equals(labelId)))
+      .get();
   }
 
   Future<List<LabelPhoneEntry>> getEnabledLabels() async {
-    final query = _database.select(_database.labelPhones)
-      ..where((tbl) => tbl.isEnabled.equals(1));
-    final data = await query.get();
-    return data.map(LabelModelMapper.fromData).toList();
+    return await (_database.select(_database.labelPhones)
+      ..where((tbl) => tbl.isEnabled.equals(1)))
+      .get();
   }
 
   Future<void> deleteByLabelId(String labelId) async {
@@ -184,16 +148,8 @@ class LocalLabelDataSource {
   }
 
   Future<List<LabelPhoneEntry>> getByName(String name) async {
-    final query = _database.select(_database.labelPhones)
-      ..where((tbl) => tbl.name.equals(name));
-    final data = await query.get();
-    return data.map(LabelModelMapper.fromData).toList();
-  }
-
-  Future<List<LabelPhoneEntry>> getByRuleType(String ruleType) async {
-    final query = _database.select(_database.labelPhones)
-      ..where((tbl) => tbl.ruleType.equals(ruleType));
-    final data = await query.get();
-    return data.map(LabelModelMapper.fromData).toList();
+    return await (_database.select(_database.labelPhones)
+      ..where((tbl) => tbl.name.equals(name)))
+      .get();
   }
 }

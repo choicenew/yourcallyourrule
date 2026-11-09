@@ -16,60 +16,56 @@ LocalSmsRegexRuleDataSource localSmsRegexRuleDataSource(Ref ref) {
   return databaseService.localSmsRegexRuleDataSource;
 }
 
-abstract class SmsRuleModelMapper {
-  static PhoneRuleEntity fromData(SmsRuleData data) {
-    return PhoneRuleEntity(
-      id: data.id,
-      name: data.name,
-      priority: data.priority,
-      action: data.action,
-      pattern: data.contentRegex,
-      isEnabled: data.isEnabled == 1,
-      ruleType: data.ruleType,
-    );
-  }
-
-  static SmsRulesCompanion toCompanion(PhoneRuleEntity model) {
-    return SmsRulesCompanion(
-      id: Value(model.id),
-      name: Value(model.name),
-      priority: Value(model.priority),
-      action: Value(model.action),
-      contentRegex: Value(model.pattern ?? ''),
-      isEnabled: Value(model.isEnabled ? 1 : 0),
-      ruleType: Value(model.ruleType),
-    );
-  }
-}
-
 class LocalSmsRegexRuleDataSource {
   final LocalDatabase _database;
   final Uuid _uuid = const Uuid();
 
   LocalSmsRegexRuleDataSource(this._database);
 
-  Future<List<PhoneRuleEntity>> getAll() async {
-    final results = await _database.select(_database.smsRules).get();
-    return results.map(SmsRuleModelMapper.fromData).toList();
+  SmsRulesCompanion _toCompanion(RegexRuleEntity rule) {
+    final String id = rule.id.isEmpty ? _uuid.v4() : rule.id;
+    return SmsRulesCompanion.insert(
+      id: id,
+      name: rule.name,
+      contentRegex: rule.pattern,
+      action: rule.actionType,
+      priority: Value(rule.priority),
+      isEnabled: Value(rule.isEnabled ? 1 : 0),
+      ruleType: 'sms_regex',
+    );
   }
 
-  Future<PhoneRuleEntity?> getById(String id) async {
+  RegexRuleEntity _fromData(SmsRuleData data) {
+    return RegexRuleEntity(
+      id: data.id,
+      name: data.name,
+      pattern: data.contentRegex,
+      actionType: data.action,
+      priority: data.priority,
+      isEnabled: data.isEnabled == 1,
+    );
+  }
+
+  Future<List<RegexRuleEntity>> getAll() async {
+    final results = await _database.select(_database.smsRules).get();
+    return results.map(_fromData).toList();
+  }
+
+  Future<RegexRuleEntity?> getById(String id) async {
     final result = await (_database.select(_database.smsRules)
       ..where((tbl) => tbl.id.equals(id)))
       .getSingleOrNull();
-    return result != null ? SmsRuleModelMapper.fromData(result) : null;
+    return result != null ? _fromData(result) : null;
   }
 
-  Future<String> insert(PhoneRuleEntity rule) async {
-    final String id = rule.id.isEmpty ? _uuid.v4() : rule.id;
-    final companion = SmsRuleModelMapper.toCompanion(rule);
-    final companionWithId = companion.copyWith(id: Value(id));
-    await _database.into(_database.smsRules).insertOnConflictUpdate(companionWithId);
-    return id;
+  Future<String> insert(RegexRuleEntity rule) async {
+    final companion = _toCompanion(rule);
+    await _database.into(_database.smsRules).insertOnConflictUpdate(companion);
+    return companion.id.value;
   }
 
-  Future<int> update(PhoneRuleEntity rule) async {
-    final companion = SmsRuleModelMapper.toCompanion(rule);
+  Future<int> update(RegexRuleEntity rule) async {
+    final companion = _toCompanion(rule);
     return await (_database.update(_database.smsRules)
       ..where((tbl) => tbl.id.equals(rule.id)))
       .write(companion);
@@ -81,17 +77,15 @@ class LocalSmsRegexRuleDataSource {
       .go();
   }
 
-  Future<List<String>> insertAll(List<PhoneRuleEntity> rules) async {
+  Future<List<String>> insertAll(List<RegexRuleEntity> rules) async {
     final List<String> ids = [];
     await _database.batch((batch) {
       for (final rule in rules) {
-        final String id = rule.id.isEmpty ? _uuid.v4() : rule.id;
-        ids.add(id);
-        final companion = SmsRuleModelMapper.toCompanion(rule);
-        final companionWithId = companion.copyWith(id: Value(id));
+        final companion = _toCompanion(rule);
+        ids.add(companion.id.value);
         batch.insert(
           _database.smsRules,
-          companionWithId,
+          companion,
           mode: InsertMode.insertOrReplace,
         );
       }
@@ -99,12 +93,12 @@ class LocalSmsRegexRuleDataSource {
     return ids;
   }
 
-  Future<int> updateAll(List<PhoneRuleEntity> rules) async {
+  Future<int> updateAll(List<RegexRuleEntity> rules) async {
     await _database.batch((batch) {
       for (final rule in rules) {
         batch.update(
           _database.smsRules,
-          SmsRuleModelMapper.toCompanion(rule),
+          _toCompanion(rule),
           where: (tbl) => tbl.id.equals(rule.id),
         );
       }
@@ -131,7 +125,7 @@ class LocalSmsRegexRuleDataSource {
   Future<bool> importData(String data) async {
     try {
       final List<dynamic> jsonList = jsonDecode(data) as List<dynamic>;
-      final rules = jsonList.map((j) => PhoneRuleEntity.fromMap(j as Map<String, dynamic>)).toList();
+      final rules = jsonList.map((j) => RegexRuleEntity.fromMap(j as Map<String, dynamic>)).toList();
       await insertAll(rules);
       return true;
     } catch (e) {

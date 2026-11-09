@@ -7,8 +7,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
-import 'package:yourcallyourrule/data/database/local/local_database.dart'; 
-import 'package:yourcallyourrule/features/rules/data/models/phone_rule_model.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 part 'local_phone_rule_datasource.g.dart';
 
@@ -24,51 +23,63 @@ class LocalPhoneRuleDataSource {
 
   LocalPhoneRuleDataSource(this._database);
 
+  PhoneRulesCompanion _toCompanion(PhoneRuleEntity rule) {
+    final id = rule.id.isEmpty ? _uuid.v4() : rule.id;
+    return PhoneRulesCompanion.insert(
+      id: Value(id),
+      name: rule.name,
+      ruleType: 'phone',
+      phoneNumber: rule.phoneNumber,
+      action: Value(rule.actionType),
+      priority: Value(rule.priority),
+      count: Value(rule.count),
+      isEnabled: Value(rule.isEnabled ? 1 : 0),
+      labelId: Value(rule.labelId),
+      avatar: Value(rule.avatar),
+      subscriptionId: Value(rule.subscriptionId),
+    );
+  }
+
   Future<String> _save(PhoneRuleEntity rule) async {
-    final String id = rule.id.isEmpty ? _uuid.v4() : rule.id;
-    final companion = PhoneRuleModelMapper.toPhoneRulesCompanion(rule);
-    final companionWithId = companion.copyWith(id: Value(id));
-    await _database.into(_database.phoneRules).insertOnConflictUpdate(companionWithId);
-    return id;
+    final companion = _toCompanion(rule);
+    await _database.into(_database.phoneRules).insertOnConflictUpdate(companion);
+    return companion.id.value ?? '';
   }
-  
+
   Future<List<PhoneRuleEntity>> getAll() async {
-    final results = await _database.select(_database.phoneRules).get();
-    return results.map(PhoneRuleModelMapper.fromPhoneRuleData).toList();
+    return await _database.select(_database.phoneRules).get();
   }
-  
+
   Future<String> insert(PhoneRuleEntity model) async {
     return _save(model);
   }
-  
+
   Future<List<String>> insertAll(List<PhoneRuleEntity> models) async {
     final List<String> ids = [];
     await _database.batch((batch) {
       for (final model in models) {
-        final String id = model.id.isEmpty ? _uuid.v4() : model.id;
-        ids.add(id);
-        final companion = PhoneRuleModelMapper.toPhoneRulesCompanion(model);
-        final companionWithId = companion.copyWith(id: Value(id));
+        final companion = _toCompanion(model);
+        ids.add(companion.id.value ?? '');
         batch.insert(
           _database.phoneRules,
-          companionWithId,
+          companion,
           mode: InsertMode.insertOrReplace,
         );
       }
     });
     return ids;
   }
-  
+
   Future<void> clear() async {
     await _database.delete(_database.phoneRules).go();
   }
-  
+
   Future<String> exportData() async {
     final rules = await getAll();
     final List<Map<String, dynamic>> maps = rules.map((rule) => rule.toMap()).toList();
     return jsonEncode(maps);
   }
-  
+
   Future<bool> importData(String data) async {
     try {
       final List<dynamic> maps = jsonDecode(data) as List<dynamic>;
@@ -81,11 +92,10 @@ class LocalPhoneRuleDataSource {
   }
 
   Future<PhoneRuleEntity?> getById(String id) async {
-    final result = await (_database.select(_database.phoneRules)
+    return await (_database.select(_database.phoneRules)
       ..where((tbl) => tbl.id.equals(id))
       ..limit(1))
       .getSingleOrNull();
-    return result != null ? PhoneRuleModelMapper.fromPhoneRuleData(result) : null;
   }
 
   Future<String> save(PhoneRuleEntity rule) async {
@@ -93,7 +103,7 @@ class LocalPhoneRuleDataSource {
   }
 
   Future<int> update(PhoneRuleEntity rule) async {
-    final companion = PhoneRuleModelMapper.toPhoneRulesCompanion(rule);
+    final companion = _toCompanion(rule);
     return await (_database.update(_database.phoneRules)
       ..where((tbl) => tbl.id.equals(rule.id)))
       .write(companion);
@@ -114,7 +124,7 @@ class LocalPhoneRuleDataSource {
       for (final rule in rules) {
         batch.update(
           _database.phoneRules,
-          PhoneRuleModelMapper.toPhoneRulesCompanion(rule),
+          _toCompanion(rule),
           where: (tbl) => tbl.id.equals(rule.id),
         );
       }
@@ -141,52 +151,45 @@ class LocalPhoneRuleDataSource {
   }
 
   Future<PhoneRuleEntity?> getByPhoneNumber(String phoneNumber) async {
-    final result = await (_database.select(_database.phoneRules)
+    return await (_database.select(_database.phoneRules)
       ..where((tbl) => tbl.phoneNumber.equals(phoneNumber))
       ..limit(1))
       .getSingleOrNull();
-    return result != null ? PhoneRuleModelMapper.fromPhoneRuleData(result) : null;
   }
 
   Future<List<PhoneRuleEntity>> getEnabledRules() async {
-    final results = await (_database.select(_database.phoneRules)
+    return await (_database.select(_database.phoneRules)
       ..where((tbl) => tbl.isEnabled.equals(1)))
       .get();
-    return results.map(PhoneRuleModelMapper.fromPhoneRuleData).toList();
   }
 
   Future<List<PhoneRuleEntity>> getDisabledRules() async {
-    final results = await (_database.select(_database.phoneRules)
+    return await (_database.select(_database.phoneRules)
       ..where((tbl) => tbl.isEnabled.equals(0)))
       .get();
-    return results.map(PhoneRuleModelMapper.fromPhoneRuleData).toList();
   }
 
   Future<List<PhoneRuleEntity>> getByPriority(int priority) async {
-    final results = await (_database.select(_database.phoneRules)
+    return await (_database.select(_database.phoneRules)
       ..where((tbl) => tbl.priority.equals(priority)))
       .get();
-    return results.map(PhoneRuleModelMapper.fromPhoneRuleData).toList();
   }
 
   Future<List<PhoneRuleEntity>> searchByName(String name) async {
-    final results = await (_database.select(_database.phoneRules)
+    return await (_database.select(_database.phoneRules)
       ..where((tbl) => tbl.name.like('%$name%')))
       .get();
-    return results.map(PhoneRuleModelMapper.fromPhoneRuleData).toList();
   }
 
   Future<List<PhoneRuleEntity>> searchByNamePrefix(String prefix) async {
-    final results = await (_database.select(_database.phoneRules)
+    return await (_database.select(_database.phoneRules)
       ..where((tbl) => tbl.name.like('$prefix%')))
       .get();
-    return results.map(PhoneRuleModelMapper.fromPhoneRuleData).toList();
   }
 
   Future<List<PhoneRuleEntity>> getSubscribedRules() async {
-    final results = await (_database.select(_database.phoneRules)
+    return await (_database.select(_database.phoneRules)
       ..where((tbl) => tbl.subscriptionId.isNotNull()))
       .get();
-    return results.map(PhoneRuleModelMapper.fromPhoneRuleData).toList();
   }
 }

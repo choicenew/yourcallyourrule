@@ -8,7 +8,6 @@ import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
-import 'package:yourcallyourrule/features/contacts/data/models/contact_model.dart';
 
 part 'local_contact_datasource.g.dart';
 
@@ -23,25 +22,38 @@ class LocalContactDataSource {
 
   LocalContactDataSource(this._database);
 
+  ContactsCompanion _toCompanion(PhoneContactEntry contact) {
+    final id = contact.id.isEmpty ? const Uuid().v4() : contact.id;
+    return ContactsCompanion.insert(
+      id: id,
+      phoneNumber: contact.phoneNumbers.isNotEmpty ? contact.phoneNumbers.first : '',
+      name: contact.displayName,
+      avatar: Value(contact.avatar),
+      url: Value(contact.url),
+      note: Value(contact.note),
+      labelIds: Value(contact.tags.join(',')),
+      isFavorite: Value(contact.isFavorite ? 1 : 0),
+      lastUpdated: DateTime.now().toIso8601String(),
+    );
+  }
+
   Future<List<PhoneContactEntry>> getAll() async {
-    final data = await _database.select(_database.contacts).get();
-    return data.map(ContactModelMapper.fromData).toList();
+    return await _database.select(_database.contacts).get();
   }
 
   Future<PhoneContactEntry?> getById(String id) async {
-    final data = await (_database.select(_database.contacts)..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
-    return data != null ? ContactModelMapper.fromData(data) : null;
+    return await (_database.select(_database.contacts)..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
   }
 
   Future<String> insert(PhoneContactEntry contact) async {
-    final id = contact.id.isEmpty ? const Uuid().v4() : contact.id;
-    final companion = ContactModelMapper.toCompanion(contact).copyWith(id: Value(id));
+    final companion = _toCompanion(contact);
     await _database.into(_database.contacts).insert(companion, mode: InsertMode.replace);
-    return id;
+    return companion.id.value;
   }
 
   Future<int> update(PhoneContactEntry contact) async {
-    return await (_database.update(_database.contacts)..where((tbl) => tbl.id.equals(contact.id))).write(ContactModelMapper.toCompanion(contact));
+    final companion = _toCompanion(contact);
+    return await (_database.update(_database.contacts)..where((tbl) => tbl.id.equals(contact.id))).write(companion);
   }
 
   Future<int> delete(String id) async {
@@ -52,9 +64,8 @@ class LocalContactDataSource {
     final ids = <String>[];
     await _database.batch((batch) {
       for (final contact in contacts) {
-        final id = contact.id.isEmpty ? const Uuid().v4() : contact.id;
-        ids.add(id);
-        final companion = ContactModelMapper.toCompanion(contact).copyWith(id: Value(id));
+        final companion = _toCompanion(contact);
+        ids.add(companion.id.value);
         batch.insert(_database.contacts, companion, mode: InsertMode.replace);
       }
     });
@@ -66,7 +77,7 @@ class LocalContactDataSource {
       for (final contact in contacts) {
         batch.update(
           _database.contacts,
-          ContactModelMapper.toCompanion(contact),
+          _toCompanion(contact),
           where: (tbl) => tbl.id.equals(contact.id),
         );
       }

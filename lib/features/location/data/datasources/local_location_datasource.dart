@@ -16,8 +16,25 @@ LocalLocationDataSource localLocationDataSource(Ref ref) {
   return databaseService.localLocationDataSource;
 }
 
-abstract class LocationModelMapper {
-  static PhoneLocationEntry fromData(LocationData data) {
+class LocalLocationDataSource {
+  final LocalDatabase _db;
+  final Uuid _uuid = const Uuid();
+
+  LocalLocationDataSource(this._db);
+
+  LocationsCompanion _toCompanion(PhoneLocationEntry entry) {
+    final id = entry.id.isEmpty ? _uuid.v4() : entry.id;
+    return LocationsCompanion.insert(
+      id: id,
+      phoneNumber: entry.phoneNumber,
+      region: Value(entry.region),
+      countryName: Value(entry.countryName),
+      carrier: Value(entry.carrier),
+      numberType: const Value(0),
+    );
+  }
+
+  PhoneLocationEntry _fromData(LocationData data) {
     return PhoneLocationEntry(
       id: data.id,
       phoneNumber: data.phoneNumber,
@@ -27,27 +44,9 @@ abstract class LocationModelMapper {
     );
   }
 
-  static LocationsCompanion toCompanion(PhoneLocationEntry entry) {
-    return LocationsCompanion(
-      id: Value(entry.id),
-      phoneNumber: Value(entry.phoneNumber),
-      region: Value(entry.region),
-      countryName: Value(entry.countryName),
-      carrier: Value(entry.carrier),
-      numberType: const Value(0),
-    );
-  }
-}
-
-class LocalLocationDataSource {
-  final LocalDatabase _db;
-  final Uuid _uuid = const Uuid();
-
-  LocalLocationDataSource(this._db);
-
   Future<List<PhoneLocationEntry>> getAll() async {
     final data = await _db.select(_db.locations).get();
-    return data.map(LocationModelMapper.fromData).toList();
+    return data.map(_fromData).toList();
   }
 
   Future<PhoneLocationEntry?> getById(String id) async {
@@ -55,20 +54,20 @@ class LocalLocationDataSource {
       ..where((tbl) => tbl.id.equals(id))
       ..limit(1))
       .getSingleOrNull();
-    return data != null ? LocationModelMapper.fromData(data) : null;
+    return data != null ? _fromData(data) : null;
   }
 
   Future<String> insert(PhoneLocationEntry location) async {
-    final id = location.id.isEmpty ? _uuid.v4() : location.id;
-    final companion = LocationModelMapper.toCompanion(location).copyWith(id: Value(id));
+    final companion = _toCompanion(location);
     await _db.into(_db.locations).insert(companion, mode: InsertMode.replace);
-    return id;
+    return companion.id.value;
   }
 
   Future<int> update(PhoneLocationEntry location) async {
+    final companion = _toCompanion(location);
     return (_db.update(_db.locations)
       ..where((tbl) => tbl.phoneNumber.equals(location.phoneNumber)))
-      .write(LocationModelMapper.toCompanion(location));
+      .write(companion);
   }
 
   Future<int> delete(String id) async {
@@ -80,10 +79,9 @@ class LocalLocationDataSource {
   Future<List<String>> insertAll(List<PhoneLocationEntry> locations) async {
     final ids = <String>[];
     final companions = locations.map((location) {
-      final id = location.id.isEmpty ? _uuid.v4() : location.id;
-      ids.add(id);
-      final companion = LocationModelMapper.toCompanion(location);
-      return companion.copyWith(id: Value(id)); 
+      final companion = _toCompanion(location);
+      ids.add(companion.id.value);
+      return companion;
     }).toList();
 
     await _db.batch((batch) {
@@ -97,7 +95,7 @@ class LocalLocationDataSource {
       for (final location in locations) {
         batch.update(
           _db.locations,
-          LocationModelMapper.toCompanion(location),
+          _toCompanion(location),
           where: (tbl) => tbl.phoneNumber.equals(location.phoneNumber),
         );
       }
@@ -135,18 +133,18 @@ class LocalLocationDataSource {
       ..where((tbl) => tbl.phoneNumber.equals(phoneNumber))
       ..limit(1))
       .getSingleOrNull();
-    return data != null ? LocationModelMapper.fromData(data) : null;
+    return data != null ? _fromData(data) : null;
   }
 
   Future<List<PhoneLocationEntry>> getByRegion(String region) async {
     final data = await (_db.select(_db.locations)..where((tbl) => tbl.region.equals(region))).get();
-    return data.map(LocationModelMapper.fromData).toList();
+    return data.map(_fromData).toList();
   }
 
   Future<List<PhoneLocationEntry>> getByName(String name) async {
     final data = await (_db.select(_db.locations)
       ..where((tbl) => tbl.countryName.equals(name)))
       .get();
-    return data.map(LocationModelMapper.fromData).toList();
+    return data.map(_fromData).toList();
   }
 }

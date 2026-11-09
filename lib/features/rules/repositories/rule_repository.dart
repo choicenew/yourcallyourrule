@@ -1,49 +1,32 @@
-// 规则仓库接口，定义规则相关的数据操作方法
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 
-import '../entities/rule/rule_base.dart';
-import 'base_repository.dart';
+/// 电话规则仓库接口
+abstract class RuleRepository {
+  Future<List<PhoneRuleEntity>> getAll();
+  Future<PhoneRuleEntity?> getById(String id);
+  Future<PhoneRuleEntity> save(PhoneRuleEntity entity);
+  Future<PhoneRuleEntity> update(PhoneRuleEntity entity);
+  Future<List<PhoneRuleEntity>> saveAll(List<PhoneRuleEntity> entities);
+  Future<bool> delete(PhoneRuleEntity entity);
+  Future<bool> deleteById(String id);
+  Future<bool> deleteAll(List<PhoneRuleEntity> entities);
+  Future<bool> exists(String id);
+  Future<int> count();
 
-/// 规则仓库接口
-abstract class RuleRepository extends BaseRepository<RuleBase, String> {
-  /// 从Map创建规则实体
-  RuleBase createRuleFromMap(Map<String, dynamic> map);
-
-  /// 创建一个空的规则实例，用于模板或验证
-  RuleBase createEmptyRule();
-
-  /// 保存规则
-  Future<void> saveRule(RuleBase rule);
-
-  /// 删除规则
+  Future<void> saveRule(PhoneRuleEntity rule);
   Future<void> deleteRule(String ruleId);
+  Future<void> updateRule(PhoneRuleEntity rule);
+  Future<PhoneRuleEntity?> getRuleById(String ruleId);
+  Future<List<PhoneRuleEntity>> getRulesByType(String type);
+  Future<List<PhoneRuleEntity>> searchByName(String name);
+  Future<PhoneRuleEntity> updateEnabledStatus(String id, bool isEnabled);
+  Future<PhoneRuleEntity> updatePriority(String id, int priority);
+  Future<List<PhoneRuleEntity>> getAllEnabled();
+  Future<List<PhoneRuleEntity>> getAllDisabled();
 
-  /// 更新规则
-  Future<void> updateRule(RuleBase rule);
-
-  /// 根据ID获取规则
-  Future<RuleBase?> getRuleById(String ruleId);
-
-  /// 根据类型获取规则
-  Future<List<RuleBase>> getRulesByType(String type);
-  
-  /// 根据规则名称搜索规则
-  Future<List<RuleBase>> searchByName(String name);
-  
-  /// 更新规则启用状态
-  Future<RuleBase> updateEnabledStatus(String id, bool isEnabled);
-  
-  /// 更新规则优先级
-  Future<RuleBase> updatePriority(String id, int priority);
-  
-  /// 获取所有启用的规则
-  Future<List<RuleBase>> getAllEnabled();
-  
-  /// 获取所有禁用的规则
-  Future<List<RuleBase>> getAllDisabled();
-
-  /// 从远程数据库查询号码信息
-  Future<Map<String, dynamic>?> queryRemoteNumberInfo(String phoneNumberStr);
-
-  /// 同步远程号码数据
-  Future<bool> syncRemoteNumbers();
+  // 正则规则操作支持
+  Future<List<RegexRuleEntity>> getAllRegexRules();
+  Future<RegexRuleEntity?> getRegexRuleById(String id);
+  Future<void> saveRegexRule(RegexRuleEntity rule);
+  Future<void> deleteRegexRule(String id);
 }

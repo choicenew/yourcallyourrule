@@ -1,31 +1,15 @@
-// 订阅仓库接口，专注数据库操作
-// base_repository removed
+import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
 
+/// 订阅仓库接口
+abstract class SubscriptionRepository {
+  Future<List<PhoneSubscriptionPayload>> getAll();
+  Future<PhoneSubscriptionPayload?> getById(String id);
+  Future<PhoneSubscriptionPayload> save(PhoneSubscriptionPayload entity);
+  Future<PhoneSubscriptionPayload> update(PhoneSubscriptionPayload entity);
+  Future<bool> deleteById(String id);
+  Future<bool> delete(PhoneSubscriptionPayload entity);
+  Future<bool> deleteAll(List<PhoneSubscriptionPayload> entities);
+  Future<int> count();
 
-import '../entities/subscription/subscription.dart';
-
-// 补充方法参数校验
-abstract class SubscriptionRepository extends BaseRepository<Subscription, String> {
-  // 批量更新订阅状�?
-  Future<int> batchUpdateStatus(List<String> ids, bool isEnabled) {
-    // 添加参数校验
-    if (ids.isEmpty) throw ArgumentError("IDs不能为空");
-    return _batchUpdateStatus(ids, isEnabled);
-  }
-
-  // 实际实现方法（示例）
-  Future<int> _batchUpdateStatus(List<String> ids, bool isEnabled);
-
-
-// 根据URL查询订阅
-Future<Subscription?> getByUrl(String url);
-
-// 更新最后更新时�?
-Future<void> updateLastUpdated(String id, DateTime time);
-
-// 获取所有待更新订阅
-Future<List<Subscription>> getPendingUpdateSubscriptions();
-
-// 清除过期订阅（超�?0天未更新�?
-Future<int> clearExpiredSubscriptions();
+  Future<PhoneSubscriptionPayload?> getByUrl(String url);
 }

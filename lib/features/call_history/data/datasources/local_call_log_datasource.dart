@@ -8,7 +8,6 @@ import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
-import 'package:yourcallyourrule/features/call_history/data/models/call_log_model.dart';
 
 part 'local_call_log_datasource.g.dart';
 
@@ -23,20 +22,34 @@ class LocalCallLogDataSource {
 
   LocalCallLogDataSource(this._db);
 
-  Future<String> insert(CallLogEntry log) async {
+  CallHistoryCompanion _toCompanion(CallLogEntry log) {
     final id = log.id.isEmpty ? const Uuid().v4() : log.id;
-    final companion = CallLogModelMapper.toCompanion(log).copyWith(id: Value(id));
+    final dt = log.timestamp != null
+        ? DateTime.fromMillisecondsSinceEpoch(log.timestamp!)
+        : DateTime.now();
+    return CallHistoryCompanion.insert(
+      id: id,
+      phoneNumber: log.phoneNumber,
+      callType: log.callType,
+      name: Value(log.name),
+      timestamp: dt.toIso8601String(),
+      duration: Value(log.durationSeconds != null ? log.durationSeconds! * 1000 : null),
+      countryIso: Value(log.location),
+    );
+  }
+
+  Future<String> insert(CallLogEntry log) async {
+    final companion = _toCompanion(log);
     await _db.into(_db.callHistory).insert(companion);
-    return id;
+    return companion.id.value;
   }
 
   Future<List<String>> insertAll(List<CallLogEntry> logs) async {
     final ids = <String>[];
     await _db.batch((batch) {
       for (final log in logs) {
-        final id = log.id.isEmpty ? const Uuid().v4() : log.id;
-        ids.add(id);
-        final companion = CallLogModelMapper.toCompanion(log).copyWith(id: Value(id));
+        final companion = _toCompanion(log);
+        ids.add(companion.id.value);
         batch.insert(_db.callHistory, companion);
       }
     });
@@ -44,17 +57,16 @@ class LocalCallLogDataSource {
   }
 
   Future<CallLogEntry?> getById(String id) async {
-    final data = await (_db.select(_db.callHistory)..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
-    return data != null ? CallLogModelMapper.fromData(data) : null;
+    return await (_db.select(_db.callHistory)..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
   }
 
   Future<List<CallLogEntry>> getByNumber(String number) async {
-    final data = await (_db.select(_db.callHistory)..where((tbl) => tbl.phoneNumber.equals(number))).get();
-    return data.map(CallLogModelMapper.fromData).toList();
+    return await (_db.select(_db.callHistory)..where((tbl) => tbl.phoneNumber.equals(number))).get();
   }
 
   Future<int> update(CallLogEntry log) async {
-    return await (_db.update(_db.callHistory)..where((tbl) => tbl.id.equals(log.id))).write(CallLogModelMapper.toCompanion(log));
+    final companion = _toCompanion(log);
+    return await (_db.update(_db.callHistory)..where((tbl) => tbl.id.equals(log.id))).write(companion);
   }
 
   Future<int> delete(String id) async {
@@ -62,8 +74,7 @@ class LocalCallLogDataSource {
   }
 
   Future<List<CallLogEntry>> getAll() async {
-    final data = await _db.select(_db.callHistory).get();
-    return data.map(CallLogModelMapper.fromData).toList();
+    return await _db.select(_db.callHistory).get();
   }
 
   Future<void> transactionUpdate(List<CallLogEntry> logs) async {
@@ -75,12 +86,11 @@ class LocalCallLogDataSource {
   }
 
   Future<List<CallLogEntry>> searchByRegex(String pattern) async {
-    final result = await (_db.select(_db.callHistory)..where((tbl) => tbl.phoneNumber.like('%$pattern%'))).get();
-    return result.map(CallLogModelMapper.fromData).toList();
+    return await (_db.select(_db.callHistory)..where((tbl) => tbl.phoneNumber.like('%$pattern%'))).get();
   }
 
   Stream<List<CallLogEntry>> watchAll() {
-    return _db.select(_db.callHistory).watch().map((data) => data.map(CallLogModelMapper.fromData).toList());
+    return _db.select(_db.callHistory).watch();
   }
 
   Future<int> updateAll(List<CallLogEntry> items) async {
@@ -88,7 +98,7 @@ class LocalCallLogDataSource {
       for (final item in items) {
         batch.update(
           _db.callHistory,
-          CallLogModelMapper.toCompanion(item),
+          _toCompanion(item),
           where: (tbl) => tbl.id.equals(item.id),
         );
       }
@@ -113,8 +123,8 @@ class LocalCallLogDataSource {
 
   Future<bool> importData(String data) async {
     try {
-      final List<dynamic> maps = jsonDecode(data);
-      final items = maps.map((map) => CallLogEntry.fromMap(map)).toList();
+      final List<dynamic> maps = jsonEncode(data) as List<dynamic>;
+      final items = maps.map((map) => CallLogEntry.fromMap(map as Map<String, dynamic>)).toList();
       await insertAll(items);
       return true;
     } catch (e) {
