@@ -3,12 +3,11 @@ import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_call_monitor_protocol/pyro_call_monitor_protocol.dart';
+import 'package:pyro_call_monitor_hub/pyro_call_monitor_hub.dart';
 import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
-import 'package:yourcallyourrule/features/call/call_history/services/call_log_recorder.dart';
+import 'package:yourcallyourrule/features/call_history/services/call_log_recorder.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/display_mode_handler.dart';
-import 'package:yourcallyourrule/features/call_monitor/events/call_monitor_events.dart';
-import 'package:yourcallyourrule/features/call_monitor/services/call_monitor_service.dart';
 import 'package:yourcallyourrule/features/call_monitor/handlers/should_accept_call_handler.dart';
 import 'package:yourcallyourrule/features/call_policy/evaluators/call_policy_evaluator.dart';
 import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
@@ -76,26 +75,19 @@ class CallCoordinatorService {
 
       final callerIdData = await identityFuture;
       final displayModeHandler = await _ref.read(displayModeHandlerProvider.future);
-      await displayModeHandler.showCallerIdInfo(callerIdData, null, null);
+      await displayModeHandler.handleDisplayMode(callerIdData);
 
       final recorder = _ref.read(callLogRecorderProvider);
-      final callData = CallData(
-        callerIdData: callerIdData,
-        e164Number: callerIdData.phoneNumber.value,
-        nationalNumber: callerIdData.phoneNumber.value,
-      );
-      await recorder.recordIncomingCall(event.phoneNumber, callData, false);
+      await recorder.recordIncomingCall(event.phoneNumber, callerIdData, false);
     } else if (event is CallEndedEvent) {
       debugPrint('[CallCoordinator Hub] 通话结束事件: ${event.phoneNumber}');
-      final displayModeHandler = await _ref.read(displayModeHandlerProvider.future);
-      await displayModeHandler.closeDisplay();
     }
   }
 
   Future<void> _onCallerIdIncrementalUpdate(CallerIdData data) async {
     debugPrint('[CallCoordinator Hub] 接收到插件增量刷新: ${data.name}');
     final displayModeHandler = await _ref.read(displayModeHandlerProvider.future);
-    await displayModeHandler.showCallerIdInfo(data, null, null);
+    await displayModeHandler.handleDisplayMode(data);
   }
 
   void dispose() {

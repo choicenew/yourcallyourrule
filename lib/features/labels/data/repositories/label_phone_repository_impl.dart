@@ -1,48 +1,83 @@
+import 'package:drift/drift.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
-import 'package:yourcallyourrule/features/labels/repositories/label_phone_repository.dart';
-import 'package:yourcallyourrule/data/datasources/local/local_label_datasource.dart';
-import 'package:yourcallyourrule/data/models/label_phone_model.dart';
+import '../../repositories/label_phone_repository.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 part 'label_phone_repository_impl.g.dart';
 
-/// 电话标签仓库提供�?
+/// 电话标签仓库提供者 (直连 Drift LocalDatabase)
 @Riverpod(keepAlive: true)
 LabelPhoneRepository labelPhoneRepository(Ref ref) {
-  final localLabelDataSource = ref.watch(localLabelDataSourceProvider);
-  return LabelPhoneRepositoryImpl(localLabelDataSource);
+  final db = ref.watch(localDatabaseProvider);
+  return LabelPhoneRepositoryImpl(db);
 }
 
-/// 电话标签仓库实现�?
+/// 电话标签仓库实现类
 class LabelPhoneRepositoryImpl implements LabelPhoneRepository {
-  final LocalLabelDataSource _dataSource;
+  final LocalDatabase _db;
+  final Uuid _uuid = const Uuid();
 
-  LabelPhoneRepositoryImpl(this._dataSource);
+  LabelPhoneRepositoryImpl(this._db);
+
+  LabelPhonesCompanion _toCompanion(LabelPhoneEntry entry) {
+    final id = entry.id.isEmpty ? _uuid.v4() : entry.id;
+    return LabelPhonesCompanion.insert(
+      id: id,
+      phoneNumber: entry.phoneNumber,
+      labelId: entry.labelId,
+      name: Value(entry.name),
+      icon: Value(entry.icon),
+      avatar: Value(entry.avatar),
+      priority: Value(entry.priority),
+      isEnabled: Value(entry.isEnabled ? 1 : 0),
+    );
+  }
+
+  LabelPhoneEntry _fromData(dynamic data) {
+    final Map<String, dynamic> rawMap = Map<String, dynamic>.from((data as dynamic).toJson() as Map);
+    rawMap.remove('action');
+    return LabelPhoneEntry.fromMap(rawMap);
+  }
 
   @override
   Future<List<LabelPhoneEntry>> getAll() async {
-    final models = await _dataSource.getAll();
-    return models.map((model) => model.toEntity()).toList();
+    final rows = await _db.select(_db.labelPhones).get();
+    return rows.map(_fromData).toList();
   }
 
   @override
   Future<LabelPhoneEntry?> getById(String id) async {
-    final model = await _dataSource.getById(id);
-    if (model == null) return null;
-    return model.toEntity();
+    final rows = await getAll();
+    try {
+      return rows.firstWhere((r) => r.id == id);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  @override
+  Future<LabelPhoneEntry> saveLabel(LabelPhoneEntry entity) async {
+    final companion = _toCompanion(entity);
+    await _db.into(_db.labelPhones).insertOnConflictUpdate(companion);
+    return entity;
   }
 
   @override
   Future<LabelPhoneEntry> save(LabelPhoneEntry entity) async {
-    await _dataSource.insert(LabelModel.fromEntity(entity));
-    return entity;
+    return await saveLabel(entity);
+  }
+
+  @override
+  Future<LabelPhoneEntry> updateLabel(LabelPhoneEntry entity) async {
+    return await saveLabel(entity);
   }
 
   @override
   Future<LabelPhoneEntry> update(LabelPhoneEntry entity) async {
-    await _dataSource.update(LabelModel.fromEntity(entity));
-    return entity;
+    return await saveLabel(entity);
   }
 
   @override
@@ -52,22 +87,31 @@ class LabelPhoneRepositoryImpl implements LabelPhoneRepository {
 
   @override
   Future<bool> deleteById(String id) async {
-    await _dataSource.delete(id);
+    final entity = await getById(id);
+    if (entity == null) return false;
+    await saveLabel(entity);
     return true;
   }
 
   @override
   Future<bool> deleteAll(List<LabelPhoneEntry> entities) async {
-    final ids = entities.map((e) => e.id).toList();
-    await _dataSource.deleteAll(ids);
+    for (final entity in entities) {
+      await delete(entity);
+    }
     return true;
   }
 
   @override
-  Future<List<LabelPhoneEntry>> saveAll(List<LabelPhoneEntry> entities) async {
-    final models = entities.map((e) => LabelModel.fromEntity(e)).toList();
-    await _dataSource.insertAll(models);
+  Future<List<LabelPhoneEntry>> saveAllLabels(List<LabelPhoneEntry> entities) async {
+    for (final entity in entities) {
+      await saveLabel(entity);
+    }
     return entities;
+  }
+
+  @override
+  Future<List<LabelPhoneEntry>> saveAll(List<LabelPhoneEntry> entities) async {
+    return await saveAllLabels(entities);
   }
 
   @override
@@ -89,15 +133,18 @@ class LabelPhoneRepositoryImpl implements LabelPhoneRepository {
 
   @override
   Future<LabelPhoneEntry?> getByName(String name) async {
-    final models = await _dataSource.getByName(name);
-    if (models.isEmpty) return null;
-    return models.first.toEntity();
+    final rows = await getAll();
+    try {
+      return rows.firstWhere((r) => r.name == name);
+    } catch (_) {
+      return null;
+    }
   }
 
   @override
   Future<List<LabelPhoneEntry>> getByType(String type) async {
-    final models = await _dataSource.getByRuleType(type);
-    return models.map((model) => model.toEntity()).toList();
+    final rows = await getAll();
+    return rows.where((r) => r.labelId == type).toList();
   }
 
   @override
@@ -108,22 +155,23 @@ class LabelPhoneRepositoryImpl implements LabelPhoneRepository {
 
   @override
   Future<List<LabelPhoneEntry>> getAllEnabled() async {
-    final models = await _dataSource.getEnabledLabels();
-    return models.map((model) => model.toEntity()).toList();
+    final rows = await getAll();
+    return rows.where((r) => r.isEnabled).toList();
   }
 
   @override
   Future<LabelPhoneEntry?> getByPhoneNumber(String phoneNumber) async {
-    final models = await _dataSource.getByPhoneNumber(phoneNumber);
-    if (models.isEmpty) {
+    final rows = await getAll();
+    try {
+      return rows.firstWhere((r) => r.phoneNumber == phoneNumber);
+    } catch (_) {
       return null;
     }
-    return models.first.toEntity();
   }
 
   @override
   Future<List<LabelPhoneEntry>> getByLabelId(String labelId) async {
-    final models = await _dataSource.getByLabelId(labelId);
-    return models.map((model) => model.toEntity()).toList();
+    final rows = await getAll();
+    return rows.where((r) => r.labelId == labelId).toList();
   }
 }

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-/// 全局列表广告工具类 (PyroAdListUtils)
-/// 提供带有 adWidgetCache 索引 Key 缓存与 Viewport 保活的列表构建器
-class PyroAdListUtils {
-  /// 在列表中每隔 [adInterval] 个元素插入一个广告
+/// 全局列表广告工具类 (AdListUtils)
+class AdListUtils {
   static Widget Function(BuildContext, int) buildListWithAds<T>({
     required List<T> items,
     required Widget Function() adBuilder,
@@ -19,8 +17,6 @@ class PyroAdListUtils {
     }
 
     final totalItemsWithAds = items.length + (items.length / adInterval).floor();
-
-    // 持久化广告 Key 缓存 map
     final Map<int, Widget> adWidgetCache = {};
 
     return (context, index) {
@@ -32,7 +28,7 @@ class PyroAdListUtils {
         return adWidgetCache.putIfAbsent(
           index,
           () => KeyedSubtree(
-            key: ValueKey('pyro_ad_list_item_$index'),
+            key: ValueKey('ad_list_item_$index'),
             child: adBuilder(),
           ),
         );
@@ -46,8 +42,8 @@ class PyroAdListUtils {
   }
 }
 
-/// 通用列表广告组件 (PyroAdListWidget)
-class PyroAdListWidget<T> extends StatelessWidget {
+/// 通用列表广告组件 (AdListWidget)
+class AdListWidget<T> extends StatelessWidget {
   final List<T> items;
   final Widget Function() adBuilder;
   final Widget Function(BuildContext, T) itemBuilder;
@@ -57,8 +53,10 @@ class PyroAdListWidget<T> extends StatelessWidget {
   final bool shrinkWrap;
   final ScrollPhysics? physics;
   final EdgeInsetsGeometry? padding;
+  final Widget? emptyWidget;
+  final dynamic adControlServiceProvider;
 
-  const PyroAdListWidget({
+  const AdListWidget({
     super.key,
     required this.items,
     required this.adBuilder,
@@ -69,13 +67,15 @@ class PyroAdListWidget<T> extends StatelessWidget {
     this.shrinkWrap = false,
     this.physics,
     this.padding,
+    this.emptyWidget,
+    this.adControlServiceProvider,
   });
 
   @override
   Widget build(BuildContext context) {
-    if (items.isEmpty) return const SizedBox.shrink();
+    if (items.isEmpty) return emptyWidget ?? const SizedBox.shrink();
 
-    final builder = PyroAdListUtils.buildListWithAds(
+    final builder = AdListUtils.buildListWithAds(
       items: items,
       adBuilder: adBuilder,
       itemBuilder: itemBuilder,
@@ -98,8 +98,8 @@ class PyroAdListWidget<T> extends StatelessWidget {
   }
 }
 
-/// 通用网格广告组件 (PyroAdGridWidget)
-class PyroAdGridWidget<T> extends StatelessWidget {
+/// 通用网格广告组件 (AdGridWidget)
+class AdGridWidget<T> extends StatelessWidget {
   final List<T> items;
   final Widget Function() adBuilder;
   final Widget Function(BuildContext, T) itemBuilder;
@@ -111,7 +111,7 @@ class PyroAdGridWidget<T> extends StatelessWidget {
   final ScrollPhysics? physics;
   final EdgeInsetsGeometry? padding;
 
-  const PyroAdGridWidget({
+  const AdGridWidget({
     super.key,
     required this.items,
     required this.adBuilder,
@@ -129,7 +129,7 @@ class PyroAdGridWidget<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     if (items.isEmpty) return const SizedBox.shrink();
 
-    final builder = PyroAdListUtils.buildListWithAds(
+    final builder = AdListUtils.buildListWithAds(
       items: items,
       adBuilder: adBuilder,
       itemBuilder: itemBuilder,

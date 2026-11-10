@@ -7,7 +7,6 @@ import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_
 
 part 'sim_slot_rule_filter_service.g.dart';
 
-// [重构]: Provider 注入依赖�?SimSlotRuleService�?
 @riverpod
 SimSlotRuleFilterService simSlotRuleFilterService(Ref ref) {
   return SimSlotRuleFilterService(
@@ -15,8 +14,7 @@ SimSlotRuleFilterService simSlotRuleFilterService(Ref ref) {
   );
 }
 
-/// [重构]: SIM卡槽位规�?*过滤* 服务 (无状�?
-/// 它只负责实现 CallFilterInterface 接口的过滤逻辑�?
+/// SIM 卡槽位规则过滤服务
 class SimSlotRuleFilterService implements CallFilterInterface {
   final SimSlotRuleService _simSlotRuleService;
 
@@ -45,7 +43,6 @@ class SimSlotRuleFilterService implements CallFilterInterface {
     return true;
   }
 
-  /// 保持向后兼容的方�?
   Future<bool> shouldAcceptCallWithSim(String phoneNumber, {SimInfo? simInfo}) {
     return shouldAcceptCall(phoneNumber, simInfo: simInfo);
   }

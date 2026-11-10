@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
@@ -25,54 +26,28 @@ class CallLogRecorder {
   CallLogRecorder(this._callLogService, this._predefinedLabelService);
 
   /// 记录来电
-  Future<void> recordIncomingCall(String phoneNumber, CallData callData, bool accepted, {DateTime? startTime, DateTime? endTime, int? duration, int? timestamp}) async {
+  Future<void> recordIncomingCall(String phoneNumber, CallerIdData callData, bool accepted, {DateTime? startTime, DateTime? endTime, int? duration, int? timestamp}) async {
     final callType = accepted ? 'incoming' : 'missed';
     debugPrint('recordIncomingCall: $phoneNumber, $callData, $accepted, $startTime, $endTime, $duration, $timestamp');
     await _recordCall(phoneNumber, callData, callType, startTime: startTime, endTime: endTime, duration: duration, timestamp: timestamp);
   }
 
   /// 记录去电
-  Future<void> recordOutgoingCall(String phoneNumber, CallData callData, {DateTime? startTime, Duration? duration}) async {
-    debugPrint('recordOutgoingCall: $phoneNumber, callData received, startTime: $startTime, duration: $duration');
-    await _recordCall(
-      phoneNumber,
-      callData,
-      'outgoing',
-      startTime: startTime,
-      duration: duration?.inMilliseconds
-    );
+  Future<void> recordOutgoingCall(String phoneNumber, CallerIdData callData, {DateTime? startTime, Duration? duration}) async {
+    debugPrint('recordOutgoingCall: $phoneNumber, $callData, $startTime, $duration');
+    await _recordCall(phoneNumber, callData, 'outgoing', startTime: startTime, duration: duration?.inMilliseconds);
   }
 
-  /// 记录拒接来电
-  Future<void> recordRejectedCall(String phoneNumber, CallData callData, {int? timestamp}) async {
-    debugPrint('recordRejectedCall: $phoneNumber, $callData, $timestamp');
-    await _recordCall(phoneNumber, callData, 'rejected', timestamp: timestamp);
-  }
-
-  /// 记录拦截来电
-  Future<void> recordBlockedCall(String phoneNumber, CallData callData, {int? timestamp}) async {
-    debugPrint('recordBlockedCall: $phoneNumber, $callData, $timestamp');
-    await _recordCall(phoneNumber, callData, 'blocked', timestamp: timestamp);
-  }
-
-  /// 记录静音来电
-  Future<void> recordSilencedCall(String phoneNumber, CallData callData, {int? timestamp}) async {
-    debugPrint('recordSilencedCall: $phoneNumber, $callData, $timestamp');
-    await _recordCall(phoneNumber, callData, 'silenced', timestamp: timestamp);
-  }
-
-  /// 记录通话的通用方法
-  Future<void> _recordCall(String phoneNumber, CallData callData, String callType, {DateTime? startTime, DateTime? endTime, int? duration, int? timestamp}) async {
-    final callLog = CallLogEntry(
+  Future<void> _recordCall(String phoneNumber, CallerIdData callData, String callType, {DateTime? startTime, DateTime? endTime, int? duration, int? timestamp}) async {
+    final entry = CallLogEntry(
       id: _uuid.v4(),
       phoneNumber: phoneNumber,
-      name: callData.callerIdData.name,
-      timestamp: startTime?.millisecondsSinceEpoch ?? (timestamp ?? DateTime.now().millisecondsSinceEpoch),
-      durationSeconds: duration != null ? (duration / 1000).round() : null,
       callType: callType,
-      location: callData.callerIdData.carrier,
+      timestamp: timestamp ?? (startTime?.millisecondsSinceEpoch ?? DateTime.now().millisecondsSinceEpoch),
+      durationSeconds: duration != null ? (duration ~/ 1000) : 0,
+      name: callData.name,
+      location: callData.region,
     );
-    debugPrint('Saving CallLogEntry: ${callLog.toMap()}');
-    await _callLogService.addLog(callLog);
+    await _callLogService.addLog(entry);
   }
 }

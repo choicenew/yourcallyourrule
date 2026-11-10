@@ -1,242 +1,109 @@
 import 'dart:convert';
 import 'dart:isolate';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
-import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
-import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:yourcallyourrule/features/contacts/repositories/contact_repository.dart';
-import 'package:yourcallyourrule/features/rules/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.dart';
-import 'package:yourcallyourrule/data/repositories/contact_repository_impl.dart';
-import 'package:yourcallyourrule/data/repositories/contact_subscription_repository_impl.dart';
-import 'package:yourcallyourrule/features/rules/services/rule_import_export_service.dart';
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
+import 'package:yourcallyourrule/features/contacts/repositories/contact_repository.dart';
+import 'package:yourcallyourrule/features/contacts/data/repositories/contact_repository_impl.dart';
 import 'package:yourcallyourrule/features/contacts/repositories/contact_subscription_repository.dart';
-import 'package:yourcallyourrule/features/phone/services/subscription_service_base.dart';
-import 'package:yourcallyourrule/features/common/value_objects/url.dart';
+import 'package:yourcallyourrule/features/contacts/data/repositories/contact_subscription_repository_impl.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 
 part 'contact_subscription_service.g.dart';
 
-/// ContactSubscriptionService �?@Riverpod Provider
+/// ContactSubscriptionService Riverpod Provider
 @Riverpod(keepAlive: true)
 ContactSubscriptionService contactSubscriptionService(Ref ref) {
   final contactSubscriptionRepository = ref.watch(contactSubscriptionRepositoryProvider);
-  final ruleRepository = ref.watch(ruleRepositoryProvider);
   final contactRepository = ref.watch(contactRepositoryProvider);
 
   return ContactSubscriptionService(
     contactSubscriptionRepository,
-    ruleRepository,
     contactRepository,
   );
 }
 
-class ContactSubscriptionService
-    extends SubscriptionServiceBase<ContactSubscription, String> {
-  /// 联系人订阅表类型标识
-  static const String tableType = 'contact';
-
+class ContactSubscriptionService {
   final ContactSubscriptionRepository _repository;
-  final RuleRepository _ruleRepository;
-  final ContactRepository _contactRepository; // Add missing repository
-  final RuleImportExportService _ruleImportExportService;
+  final ContactRepository _contactRepository;
+  final Uuid _uuid = const Uuid();
 
   ContactSubscriptionService(
     this._repository,
-    this._ruleRepository,
-    this._contactRepository, // Initialize new dependency
-  )   : _ruleImportExportService = RuleImportExportService(_ruleRepository),
-        super(_repository);
+    this._contactRepository,
+  );
 
-  @override
-  Future<List<ContactSubscription>> getEnabledSubscriptions() async {
+  Future<List<PhoneSubscriptionPayload>> getAll() async {
+    return await _repository.getAll();
+  }
+
+  Future<List<PhoneSubscriptionPayload>> getEnabledSubscriptions() async {
     final all = await _repository.getAll();
-    return all.where((s) => s.isEnabled).toList();
+    return all.where((s) => (s.rawJsonMap['isEnabled'] as bool? ?? true)).toList();
   }
 
-  @override
-  Future<void> enableSubscription(ContactSubscription subscription) async {
-    await _repository.save(subscription.copyWith(isEnabled: true));
+  Future<void> enableSubscription(PhoneSubscriptionPayload subscription) async {
+    final updatedMap = Map<String, dynamic>.from(subscription.rawJsonMap);
+    updatedMap['isEnabled'] = true;
+    await _repository.save(subscription.copyWith(rawJsonMap: updatedMap));
   }
 
-  @override
-  Future<void> disableSubscription(ContactSubscription subscription) async {
-    await _repository.save(subscription.copyWith(isEnabled: false));
+  Future<void> disableSubscription(PhoneSubscriptionPayload subscription) async {
+    final updatedMap = Map<String, dynamic>.from(subscription.rawJsonMap);
+    updatedMap['isEnabled'] = false;
+    await _repository.save(subscription.copyWith(rawJsonMap: updatedMap));
   }
 
-  @override
-  Future<ContactSubscription> addSubscription(String name, String url,
-      {bool isEnabled = true}) async {
-    final newSubscription = ContactSubscription(
-      id: const Uuid().v4(),
-      name: name,
-      url: Url.fromString(url),
-      isEnabled: isEnabled,
-      lastUpdated: DateTime.now(),
-      autoUpdate: false,
+  Future<PhoneSubscriptionPayload> addSubscription(String name, String url, {bool isEnabled = true}) async {
+    final payloadId = _uuid.v4();
+    final newSubscription = PhoneSubscriptionPayload(
+      payloadId: payloadId,
+      kind: PhoneSubscriptionKind.phoneRules,
+      rawJsonMap: {
+        'id': payloadId,
+        'name': name,
+        'url': url,
+        'isEnabled': isEnabled,
+      },
+      timestamp: DateTime.now().millisecondsSinceEpoch,
     );
-    return _repository.save(newSubscription);
+    return await _repository.save(newSubscription);
   }
 
-  @override
-  Future<int> clearExpiredSubscriptions() async {
-    return _repository.clearExpiredSubscriptions();
-  }
-
-  @override
   Future<bool> deleteSubscription(String id) async {
-    return _repository.deleteById(id);
+    return await _repository.deleteById(id);
   }
 
-  @override
-  Future<List<ContactSubscription>> getPendingUpdateSubscriptions() async {
-    return _repository.getPendingUpdateSubscriptions();
-  }
-
-  @override
-  Future<void> updateLastUpdated(String id, DateTime time) async {
-    await _repository.updateLastUpdated(id, time);
-  }
-
-  @override
-  Future<ContactSubscription> updateSubscription(
-      ContactSubscription subscription) async {
-    return _repository.save(subscription);
-  }
-
-  String _getContactRuleUniqueKey(ContactRule rule) {
-    return 'contact_${rule.contactId}_${rule.name}_${rule.action.toString()}';
-  }
-
-  /// 核心规则更新方法（带增量对比 Diff Sync�?
-  Future<List<ContactRule>> _updateRulesCore(
-      ContactSubscription subscription) async {
-    final data = await downloadFromUrl(subscription.url.toString());
-    final rules = await _ruleImportExportService.parseImportData(data);
-
-    final remoteRules = rules
-        .whereType<ContactRule>()
-        .map((rule) =>
-            rule.copyWith(isSubscribed: true, contactId: rule.contactId))
-        .toList();
-
-    // 读取本地已有的联系人规则，进行内�?Diff 对比
-    final allLocalRules = await _ruleRepository.getAll();
-    final localRules = allLocalRules.whereType<ContactRule>().toList();
-
-    final localMap = <String, ContactRule>{};
-    for (final rule in localRules) {
-      localMap[_getContactRuleUniqueKey(rule)] = rule;
-    }
-
-    final remoteMap = <String, ContactRule>{};
-    for (final rule in remoteRules) {
-      remoteMap[_getContactRuleUniqueKey(rule)] = rule;
-    }
-
-    final rulesToAdd = <ContactRule>[];
-    for (final entry in remoteMap.entries) {
-      if (!localMap.containsKey(entry.key)) {
-        rulesToAdd.add(entry.value);
-      }
-    }
-
-    final rulesToDelete = <ContactRule>[];
-    for (final entry in localMap.entries) {
-      if (!remoteMap.containsKey(entry.key)) {
-        rulesToDelete.add(entry.value);
-      }
-    }
-
-    if (rulesToDelete.isNotEmpty) {
-      await _ruleRepository.deleteAll(rulesToDelete);
-    }
-    if (rulesToAdd.isNotEmpty) {
-      await _ruleRepository.saveAll(rulesToAdd);
-    }
-
-    return remoteRules;
-  }
-
-  /// 自动更新（带时间戳更新）
-  Future<List<RuleBase>> updateRulesFromSubscription(
-      ContactSubscription subscription) async {
-    try {
-      final result = await _updateRulesCore(subscription);
-      await updateLastUpdated(subscription.id, DateTime.now());
-      return result;
-    } catch (e) {
-      throw Exception('更新联系人订阅规则失�? $e');
-    }
-  }
-
-  /// 手动更新（不带时间戳更新�?
-  Future<List<RuleBase>> manualUpdateRulesFromSubscription(
-      ContactSubscription subscription) async {
-    try {
-      return await _updateRulesCore(subscription);
-    } catch (e) {
-      throw Exception('手动更新联系人规则失�? $e');
-    }
-  }
-
-  Future<void> performAutoUpdate(ContactSubscription subscription) async {
-    if (!subscription.isEnabled || !subscription.autoUpdate) return;
-
-    await _updateContactData(subscription);
-    await _repository.updateLastUpdated(subscription.id, DateTime.now());
-  }
-
-  Future<void> performManualUpdate(ContactSubscription subscription) async {
-    if (!subscription.isEnabled) return;
+  Future<void> performManualUpdate(PhoneSubscriptionPayload subscription) async {
+    final isEnabled = subscription.rawJsonMap['isEnabled'] as bool? ?? true;
+    if (!isEnabled) return;
     await _updateContactData(subscription);
   }
 
-  Future<void> _updateContactData(ContactSubscription subscription) async {
+  Future<void> _updateContactData(PhoneSubscriptionPayload subscription) async {
     try {
-      final data = await downloadFromUrl(subscription.url.toString());
-      final contacts = await _parseContactData(data); // 修正方法�?
-      await _importContacts(contacts); // 添加联系人导入逻辑
+      final url = subscription.rawJsonMap['url'] as String? ?? '';
+      final contacts = await _parseContactData(url);
+      await _importContacts(contacts);
     } catch (e) {
       throw Exception('数据更新失败: ${e.toString()}');
     }
   }
 
-  // 添加联系人数据解析方�?(在后�?Isolate 中高效解析，不占用主 UI 线程)
-  Future<List<Contact>> _parseContactData(String data) async {
+  Future<List<PhoneContactEntry>> _parseContactData(String data) async {
     try {
       return await Isolate.run(() {
         final jsonList = jsonDecode(data) as List<dynamic>;
-        return jsonList.map((item) => Contact.fromMap(item)).toList();
+        return jsonList.map((item) => PhoneContactEntry.fromMap(item as Map<String, dynamic>)).toList();
       });
     } catch (e) {
-      throw FormatException('联系人数据解析失�? $e');
+      throw FormatException('联系人数据解析失败: $e');
     }
   }
 
-  // 添加联系人导入方�?
-  Future<void> _importContacts(List<Contact> contacts) async {
-    final contactService = ContactService(
-      _contactRepository,
-    );
-
+  Future<void> _importContacts(List<PhoneContactEntry> contacts) async {
+    final contactService = ContactService(_contactRepository);
     await contactService.addOrUpdateContacts(contacts);
-  }
-
-  Future<List<ContactSubscription>> getAutoUpdateSubscriptions() async {
-    return (await _repository.getAll())
-        .where((s) => s.autoUpdate)
-        .toList(); // 修正自动更新查询逻辑
-  }
-
-  Future<bool> urlExists(String url) async {
-    return await getSubscriptionByUrl(url) != null;
-  }
-
-  Future<ContactSubscription?> getSubscriptionByUrl(String url) async {
-    return _repository.getByUrl(url);
   }
 }

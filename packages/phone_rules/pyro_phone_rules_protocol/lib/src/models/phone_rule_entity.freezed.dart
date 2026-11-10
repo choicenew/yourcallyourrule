@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PhoneRuleEntity {
 
- String get id; String get name; String get phoneNumber; String get actionType; int get priority; int get count; bool get isEnabled;
+ String get id; String get name; String get phoneNumber; String get labelId; String? get avatar; String? get subscriptionId; String get actionType; int get priority; int get count; bool get isEnabled;
 /// Create a copy of PhoneRuleEntity
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,20 +30,20 @@ $PhoneRuleEntityCopyWith<PhoneRuleEntity> get copyWith => _$PhoneRuleEntityCopyW
 @override
 bool operator ==(Object other) {
   final _this = this as PhoneRuleEntity;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PhoneRuleEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.phoneNumber, _this.phoneNumber) || other.phoneNumber == _this.phoneNumber)&&(identical(other.actionType, _this.actionType) || other.actionType == _this.actionType)&&(identical(other.priority, _this.priority) || other.priority == _this.priority)&&(identical(other.count, _this.count) || other.count == _this.count)&&(identical(other.isEnabled, _this.isEnabled) || other.isEnabled == _this.isEnabled));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PhoneRuleEntity&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.phoneNumber, _this.phoneNumber) || other.phoneNumber == _this.phoneNumber)&&(identical(other.labelId, _this.labelId) || other.labelId == _this.labelId)&&(identical(other.avatar, _this.avatar) || other.avatar == _this.avatar)&&(identical(other.subscriptionId, _this.subscriptionId) || other.subscriptionId == _this.subscriptionId)&&(identical(other.actionType, _this.actionType) || other.actionType == _this.actionType)&&(identical(other.priority, _this.priority) || other.priority == _this.priority)&&(identical(other.count, _this.count) || other.count == _this.count)&&(identical(other.isEnabled, _this.isEnabled) || other.isEnabled == _this.isEnabled));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as PhoneRuleEntity;
-  return Object.hash(runtimeType,_this.id,_this.name,_this.phoneNumber,_this.actionType,_this.priority,_this.count,_this.isEnabled);
+  return Object.hash(runtimeType,_this.id,_this.name,_this.phoneNumber,_this.labelId,_this.avatar,_this.subscriptionId,_this.actionType,_this.priority,_this.count,_this.isEnabled);
 }
 
 @override
 String toString() {
   final _this = this as PhoneRuleEntity;
-  return 'PhoneRuleEntity(id: ${_this.id}, name: ${_this.name}, phoneNumber: ${_this.phoneNumber}, actionType: ${_this.actionType}, priority: ${_this.priority}, count: ${_this.count}, isEnabled: ${_this.isEnabled})';
+  return 'PhoneRuleEntity(id: ${_this.id}, name: ${_this.name}, phoneNumber: ${_this.phoneNumber}, labelId: ${_this.labelId}, avatar: ${_this.avatar}, subscriptionId: ${_this.subscriptionId}, actionType: ${_this.actionType}, priority: ${_this.priority}, count: ${_this.count}, isEnabled: ${_this.isEnabled})';
 }
 
 
@@ -54,7 +54,7 @@ abstract mixin class $PhoneRuleEntityCopyWith<$Res>  {
   factory $PhoneRuleEntityCopyWith(PhoneRuleEntity value, $Res Function(PhoneRuleEntity) _then) = _$PhoneRuleEntityCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, String phoneNumber, String actionType, int priority, int count, bool isEnabled
+ String id, String name, String phoneNumber, String labelId, String? avatar, String? subscriptionId, String actionType, int priority, int count, bool isEnabled
 });
 
 
@@ -71,12 +71,15 @@ class _$PhoneRuleEntityCopyWithImpl<$Res>
 
 /// Create a copy of PhoneRuleEntity
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? phoneNumber = null,Object? actionType = null,Object? priority = null,Object? count = null,Object? isEnabled = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? phoneNumber = null,Object? labelId = null,Object? avatar = freezed,Object? subscriptionId = freezed,Object? actionType = null,Object? priority = null,Object? count = null,Object? isEnabled = null,}) {
   return _then(PhoneRuleEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
-as String,actionType: null == actionType ? _self.actionType : actionType // ignore: cast_nullable_to_non_nullable
+as String,labelId: null == labelId ? _self.labelId : labelId // ignore: cast_nullable_to_non_nullable
+as String,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
+as String?,subscriptionId: freezed == subscriptionId ? _self.subscriptionId : subscriptionId // ignore: cast_nullable_to_non_nullable
+as String?,actionType: null == actionType ? _self.actionType : actionType // ignore: cast_nullable_to_non_nullable
 as String,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
 as int,count: null == count ? _self.count : count // ignore: cast_nullable_to_non_nullable
 as int,isEnabled: null == isEnabled ? _self.isEnabled : isEnabled // ignore: cast_nullable_to_non_nullable
@@ -89,17 +92,6 @@ as bool,
 
 /// Adds pattern-matching-related methods to [PhoneRuleEntity].
 extension PhoneRuleEntityPatterns on PhoneRuleEntity {
-/// A variant of `map` that fallback to returning `orElse`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
 
 @optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _PhoneRuleEntity value)?  $default,{required TResult orElse(),}){
 final _that = this;
@@ -110,18 +102,6 @@ return $default(_that);case _:
 
 }
 }
-/// A `switch`-like method, using callbacks.
-///
-/// Callbacks receives the raw object, upcasted.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case final Subclass2 value:
-///     return ...;
-/// }
-/// ```
 
 @optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _PhoneRuleEntity value)  $default,){
 final _that = this;
@@ -132,17 +112,6 @@ return $default(_that);case _:
 
 }
 }
-/// A variant of `map` that fallback to returning `null`.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case final Subclass value:
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
 
 @optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _PhoneRuleEntity value)?  $default,){
 final _that = this;
@@ -153,63 +122,29 @@ return $default(_that);case _:
 
 }
 }
-/// A variant of `when` that fallback to an `orElse` callback.
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return orElse();
-/// }
-/// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String phoneNumber,  String actionType,  int priority,  int count,  bool isEnabled)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String phoneNumber,  String labelId,  String? avatar,  String? subscriptionId,  String actionType,  int priority,  int count,  bool isEnabled)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PhoneRuleEntity() when $default != null:
-return $default(_that.id,_that.name,_that.phoneNumber,_that.actionType,_that.priority,_that.count,_that.isEnabled);case _:
+return $default(_that.id,_that.name,_that.phoneNumber,_that.labelId,_that.avatar,_that.subscriptionId,_that.actionType,_that.priority,_that.count,_that.isEnabled);case _:
   return orElse();
 
 }
 }
-/// A `switch`-like method, using callbacks.
-///
-/// As opposed to `map`, this offers destructuring.
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case Subclass2(:final field2):
-///     return ...;
-/// }
-/// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String phoneNumber,  String actionType,  int priority,  int count,  bool isEnabled)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String phoneNumber,  String labelId,  String? avatar,  String? subscriptionId,  String actionType,  int priority,  int count,  bool isEnabled)  $default,) {final _that = this;
 switch (_that) {
 case _PhoneRuleEntity():
-return $default(_that.id,_that.name,_that.phoneNumber,_that.actionType,_that.priority,_that.count,_that.isEnabled);case _:
+return $default(_that.id,_that.name,_that.phoneNumber,_that.labelId,_that.avatar,_that.subscriptionId,_that.actionType,_that.priority,_that.count,_that.isEnabled);case _:
   throw StateError('Unexpected subclass');
 
 }
 }
-/// A variant of `when` that fallback to returning `null`
-///
-/// It is equivalent to doing:
-/// ```dart
-/// switch (sealedClass) {
-///   case Subclass(:final field):
-///     return ...;
-///   case _:
-///     return null;
-/// }
-/// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String phoneNumber,  String actionType,  int priority,  int count,  bool isEnabled)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String phoneNumber,  String labelId,  String? avatar,  String? subscriptionId,  String actionType,  int priority,  int count,  bool isEnabled)?  $default,) {final _that = this;
 switch (_that) {
 case _PhoneRuleEntity() when $default != null:
-return $default(_that.id,_that.name,_that.phoneNumber,_that.actionType,_that.priority,_that.count,_that.isEnabled);case _:
+return $default(_that.id,_that.name,_that.phoneNumber,_that.labelId,_that.avatar,_that.subscriptionId,_that.actionType,_that.priority,_that.count,_that.isEnabled);case _:
   return null;
 
 }
@@ -221,19 +156,20 @@ return $default(_that.id,_that.name,_that.phoneNumber,_that.actionType,_that.pri
 @JsonSerializable()
 
 class _PhoneRuleEntity extends PhoneRuleEntity {
-  const _PhoneRuleEntity({required this.id, required this.name, required this.phoneNumber, this.actionType = 'block', this.priority = 100, this.count = 0, this.isEnabled = true}): super._();
+  const _PhoneRuleEntity({required this.id, required this.name, required this.phoneNumber, this.labelId = '', this.avatar, this.subscriptionId, this.actionType = 'block', this.priority = 100, this.count = 0, this.isEnabled = true}): super._();
   factory _PhoneRuleEntity.fromJson(Map<String, dynamic> json) => _$PhoneRuleEntityFromJson(json);
 
 @override final  String id;
 @override final  String name;
 @override final  String phoneNumber;
+@override@JsonKey() final  String labelId;
+@override final  String? avatar;
+@override final  String? subscriptionId;
 @override@JsonKey() final  String actionType;
 @override@JsonKey() final  int priority;
 @override@JsonKey() final  int count;
 @override@JsonKey() final  bool isEnabled;
 
-/// Create a copy of PhoneRuleEntity
-/// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 _$PhoneRuleEntityCopyWith<_PhoneRuleEntity> get copyWith => __$PhoneRuleEntityCopyWithImpl<_PhoneRuleEntity>(this, _$identity);
@@ -245,18 +181,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PhoneRuleEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.actionType, actionType) || other.actionType == actionType)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.count, count) || other.count == count)&&(identical(other.isEnabled, isEnabled) || other.isEnabled == isEnabled));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PhoneRuleEntity&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.labelId, labelId) || other.labelId == labelId)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.subscriptionId, subscriptionId) || other.subscriptionId == subscriptionId)&&(identical(other.actionType, actionType) || other.actionType == actionType)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.count, count) || other.count == count)&&(identical(other.isEnabled, isEnabled) || other.isEnabled == isEnabled));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,id,name,phoneNumber,actionType,priority,count,isEnabled);
+    return Object.hash(runtimeType,id,name,phoneNumber,labelId,avatar,subscriptionId,actionType,priority,count,isEnabled);
 }
 
 @override
 String toString() {
-    return 'PhoneRuleEntity(id: $id, name: $name, phoneNumber: $phoneNumber, actionType: $actionType, priority: $priority, count: $count, isEnabled: $isEnabled)';
+    return 'PhoneRuleEntity(id: $id, name: $name, phoneNumber: $phoneNumber, labelId: $labelId, avatar: $avatar, subscriptionId: $subscriptionId, actionType: $actionType, priority: $priority, count: $count, isEnabled: $isEnabled)';
 }
 
 
@@ -267,7 +203,7 @@ abstract mixin class _$PhoneRuleEntityCopyWith<$Res> implements $PhoneRuleEntity
   factory _$PhoneRuleEntityCopyWith(_PhoneRuleEntity value, $Res Function(_PhoneRuleEntity) _then) = __$PhoneRuleEntityCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, String phoneNumber, String actionType, int priority, int count, bool isEnabled
+ String id, String name, String phoneNumber, String labelId, String? avatar, String? subscriptionId, String actionType, int priority, int count, bool isEnabled
 });
 
 
@@ -282,14 +218,15 @@ class __$PhoneRuleEntityCopyWithImpl<$Res>
   final _PhoneRuleEntity _self;
   final $Res Function(_PhoneRuleEntity) _then;
 
-/// Create a copy of PhoneRuleEntity
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? phoneNumber = null,Object? actionType = null,Object? priority = null,Object? count = null,Object? isEnabled = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? phoneNumber = null,Object? labelId = null,Object? avatar = freezed,Object? subscriptionId = freezed,Object? actionType = null,Object? priority = null,Object? count = null,Object? isEnabled = null,}) {
   return _then(_PhoneRuleEntity(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
-as String,actionType: null == actionType ? _self.actionType : actionType // ignore: cast_nullable_to_non_nullable
+as String,labelId: null == labelId ? _self.labelId : labelId // ignore: cast_nullable_to_non_nullable
+as String,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
+as String?,subscriptionId: freezed == subscriptionId ? _self.subscriptionId : subscriptionId // ignore: cast_nullable_to_non_nullable
+as String?,actionType: null == actionType ? _self.actionType : actionType // ignore: cast_nullable_to_non_nullable
 as String,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
 as int,count: null == count ? _self.count : count // ignore: cast_nullable_to_non_nullable
 as int,isEnabled: null == isEnabled ? _self.isEnabled : isEnabled // ignore: cast_nullable_to_non_nullable

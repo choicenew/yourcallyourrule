@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
+import 'package:pyro_commercial_hub/pyro_commercial_hub.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -59,7 +59,7 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
     
     for (final type in _serviceTypeNames.keys) {
       final interval = await autoUpdateService.getUserUpdateInterval(type);
-      _userIntervals[type] = interval.inDays;
+      _userIntervals[type] = interval;
     }
 
     setState(() {
@@ -167,7 +167,7 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
                 const SizedBox(height: 14),
                 ..._serviceTypeNames.keys.map((type) => _buildServiceCard(type)),
                 const SizedBox(height: 16),
-                nativeAdWidgetMedium(adWidth: 320, adHeight: 320),
+                const SizedBox(height: 10),
               ],
             ),
     );

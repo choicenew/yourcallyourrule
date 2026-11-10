@@ -1,40 +1,38 @@
 import 'dart:async';
-
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
-import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
-import 'package:yourcallyourrule/features/labels/services/label_phone_entry_to_remote.dart';
+import 'package:pyro_phone_remote_filter_protocol/pyro_phone_remote_filter_protocol.dart';
+import 'package:yourcallyourrule/features/remote_filter/data/repositories/remote_number_repository_impl.dart';
 
 part 'label_stream_sync_service.g.dart';
 
 @Riverpod(keepAlive: true)
 LabelStreamSyncService labelStreamSyncService(Ref ref) {
-  final syncService = ref.watch(labelPhoneEntryToRemoteProvider);
-  return LabelStreamSyncService(syncService);
+  final remoteRepo = ref.watch(remoteNumberRepositoryProvider);
+  return LabelStreamSyncService(remoteRepo);
 }
 
-@Riverpod(keepAlive: true)
-void labelSyncServiceInitializer(Ref ref) {
-  final callerIdentityService = ref.watch(callerIdentityServiceProvider);
-  final labelStreamSyncService = ref.watch(labelStreamSyncServiceProvider);
-  labelStreamSyncService.startSync(callerIdentityService.labelPhoneEntryStream);
-}
-
+/// 号码标记到远程号码库的异步同步中枢
 class LabelStreamSyncService {
-  final LabelPhoneEntryToRemote _syncService;
+  final RemoteNumberRepositoryImpl _remoteRepo;
   StreamSubscription<LabelPhoneEntry>? _subscription;
-  LabelPhoneEntry? _lastProcessedEntry;
 
-  LabelStreamSyncService(this._syncService);
+  LabelStreamSyncService(this._remoteRepo);
 
   void startSync(Stream<LabelPhoneEntry> stream) {
     _subscription?.cancel();
-    _subscription = stream.listen((entry) {
-      if (entry.phoneNumber != _lastProcessedEntry?.phoneNumber) {
-        _syncService.sync(entry);
-        _lastProcessedEntry = entry;
-      }
+    _subscription = stream.listen((entry) async {
+      final remoteEntry = RemoteNumberEntry(
+        id: entry.id,
+        phoneNumber: entry.phoneNumber,
+        name: entry.name,
+        label: entry.labelId,
+        actionType: entry.action,
+      );
+      await _remoteRepo.save(remoteEntry);
+      debugPrint('[LabelStreamSyncService] Synced label to remote DB: ${entry.phoneNumber}');
     });
   }
 

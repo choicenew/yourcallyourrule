@@ -1,11 +1,10 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/language/config/locale_config.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 part 'locale_service.g.dart';
 
-/// LocaleService çš?@Riverpod Provider
+/// LocaleService Riverpod Provider
 @Riverpod(keepAlive: true)
 LocaleService localeService(Ref ref) {
   final configRepository = ref.watch(configRepositoryProvider);

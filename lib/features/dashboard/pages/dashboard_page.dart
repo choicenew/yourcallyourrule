@@ -7,7 +7,7 @@ import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart'
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/statistics_container_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 数据分析仪表盘页�?
+/// 数据分析仪表盘页面
 class DashboardPage extends ConsumerStatefulWidget {
   const DashboardPage({super.key});
 
@@ -32,7 +32,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> with SingleTicker
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
 
     return Scaffold(

@@ -18,16 +18,16 @@ class CallerIdentityService {
   CallerIdentityService._();
 
   final List<CallerIdentityFetchDriver> _fetchDrivers = [];
-  final _profileController = StreamController<CallerProfile>.broadcast();
+  final _profileController = StreamController<CallerIdData>.broadcast();
 
-  Stream<CallerProfile> get profileStream => _profileController.stream;
+  Stream<CallerIdData> get profileStream => _profileController.stream;
 
   void registerFetchDriver(CallerIdentityFetchDriver driver) {
     _fetchDrivers.add(driver);
     debugPrint('[CallerIdentityHub] 已挂载注册画像 Driver: ${driver.runtimeType}');
   }
 
-  CallerProfile assembleProfile({
+  CallerIdData assembleProfile({
     required String phoneNumber,
     String? name,
     String? region,
@@ -38,7 +38,7 @@ class CallerIdentityService {
     int pluginCount = 0,
     int remoteCount = 0,
   }) {
-    final profile = CallerProfile(
+    final profile = CallerIdData(
       phoneNumber: phoneNumber,
       name: name,
       region: region,

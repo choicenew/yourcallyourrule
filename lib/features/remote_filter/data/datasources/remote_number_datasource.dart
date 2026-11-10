@@ -1,21 +1,16 @@
 import 'dart:async';
-import 'dart:convert';
-
 import 'package:drift/drift.dart' hide Column;
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_remote_filter_protocol/pyro_phone_remote_filter_protocol.dart';
-import 'package:yourcallyourrule/features/common/error/logger.dart';
-import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
 
 part 'remote_number_datasource.g.dart';
 
 @Riverpod(keepAlive: true)
 RemoteNumberDataSource remoteNumberDataSource(Ref ref) {
-  final databaseService = ref.watch(databaseServiceProvider);
-  return databaseService.remoteNumberDataSource;
+  final db = ref.watch(remoteDatabaseProvider);
+  return RemoteNumberDataSource(db);
 }
 
 abstract class RemoteNumberModelMapper {
@@ -31,15 +26,14 @@ abstract class RemoteNumberModelMapper {
   }
 
   static RemoteNumbersCompanion toRemoteNumberCompanion(RemoteNumberEntry model) {
-    return RemoteNumbersCompanion(
-      id: Value(model.id),
-      phoneNumber: Value(model.phoneNumber),
+    final String labelVal = model.label ?? '';
+    return RemoteNumbersCompanion.insert(
+      id: model.id,
+      phoneNumber: model.phoneNumber,
+      label: labelVal,
       name: Value(model.name),
-      label: Value(model.label),
       count: Value(model.count),
       action: Value(model.actionType),
-      priority: const Value(5),
-      labelsJson: const Value.absent(),
     );
   }
 }
@@ -57,10 +51,8 @@ class RemoteNumberDataSource {
 
   Future<RemoteNumberEntry?> getById(String phoneNumber) async {
     final result = await (_database.select(_database.remoteNumbers)
-          ..where((tbl) => tbl.phoneNumber.equals(phoneNumber))
-          ..limit(1))
+          ..where((tbl) => tbl.phoneNumber.equals(phoneNumber)))
         .getSingleOrNull();
-
     return result != null ? RemoteNumberModelMapper.fromRemoteNumberData(result) : null;
   }
 
@@ -68,137 +60,45 @@ class RemoteNumberDataSource {
     return getById(phoneNumber);
   }
 
-  Future<String> insert(
-    RemoteNumberEntry remoteNumber, {
-    String? countryIsoCode,
-  }) async {
-    await _database.transaction(() async {
-      await _database
-          .into(_database.remoteNumbers)
-          .insert(
-            RemoteNumberModelMapper.toRemoteNumberCompanion(
-              remoteNumber,
-            ).copyWith(id: Value(_uuid.v4())),
-            mode: InsertMode.insertOrReplace,
-          );
-
-      if (countryIsoCode != null) {
-        await _database
-            .into(_database.numberCountries)
-            .insert(
-              NumberCountriesCompanion.insert(
-                phoneNumber: remoteNumber.phoneNumber,
-                countryIsoCode: countryIsoCode,
-              ),
-              mode: InsertMode.insertOrIgnore,
-            );
-      }
-    });
-
-    return remoteNumber.phoneNumber;
+  Future<void> insert(RemoteNumberEntry entry, {String? countryIsoCode}) async {
+    final companion = RemoteNumberModelMapper.toRemoteNumberCompanion(entry);
+    await _database.into(_database.remoteNumbers).insertOnConflictUpdate(companion);
   }
 
-  Future<int> update(
-    RemoteNumberEntry remoteNumber, {
-    String? countryIsoCode,
-  }) async {
-    int result = 0;
-    await _database.transaction(() async {
-      result = await (_database.update(_database.remoteNumbers)..where(
-        (tbl) => tbl.phoneNumber.equals(remoteNumber.phoneNumber),
-      )).write(RemoteNumberModelMapper.toRemoteNumberCompanion(remoteNumber));
+  Future<void> insertAll(List<RemoteNumberEntry> entries) async {
+    for (final entry in entries) {
+      await insert(entry);
+    }
+  }
 
-      if (result > 0 && countryIsoCode != null) {
-        await _database
-            .into(_database.numberCountries)
-            .insert(
-              NumberCountriesCompanion.insert(
-                phoneNumber: remoteNumber.phoneNumber,
-                countryIsoCode: countryIsoCode,
-              ),
-              mode: InsertMode.insertOrReplace,
-            );
-      }
-    });
-    return result;
+  Future<void> update(RemoteNumberEntry entry, {String? countryIsoCode}) async {
+    await insert(entry, countryIsoCode: countryIsoCode);
   }
 
   Future<int> delete(String phoneNumber) async {
-    int result = 0;
-    await _database.transaction(() async {
-      result = await (_database.delete(_database.remoteNumbers)
-        ..where((tbl) => tbl.phoneNumber.equals(phoneNumber))).go();
-    });
-    return result;
-  }
-
-  Future<int> atomicIncrementCount(
-    String phoneNumber,
-    int incrementValue,
-  ) async {
-    return await _database.transaction(() async {
-      final result = await (_database.update(_database.remoteNumbers)
-        ..where((tbl) => tbl.phoneNumber.equals(phoneNumber))).write(
-        RemoteNumbersCompanion.custom(
-          count: _database.remoteNumbers.count + Constant(incrementValue),
-        ),
-      );
-      return result;
-    });
-  }
-
-  Future<List<String>> insertAll(List<RemoteNumberEntry> remoteNumbers) async {
-    final List<String> phoneNumbers = [];
-    await _database.transaction(() async {
-      for (final remoteNumber in remoteNumbers) {
-        await _database
-            .into(_database.remoteNumbers)
-            .insert(
-              RemoteNumberModelMapper.toRemoteNumberCompanion(
-                remoteNumber,
-              ).copyWith(id: Value(_uuid.v4())),
-              mode: InsertMode.insertOrReplace,
-            );
-        phoneNumbers.add(remoteNumber.phoneNumber);
-      }
-    });
-    return phoneNumbers;
-  }
-
-  Future<int> updateAll(List<RemoteNumberEntry> remoteNumbers) async {
-    int count = 0;
-    await _database.transaction(() async {
-      for (final remoteNumber in remoteNumbers) {
-        final int updated = await (_database.update(_database.remoteNumbers)
-          ..where(
-            (tbl) => tbl.phoneNumber.equals(remoteNumber.phoneNumber),
-          )).write(RemoteNumberModelMapper.toRemoteNumberCompanion(remoteNumber));
-        count += updated;
-      }
-    });
-    return count;
+    return await (_database.delete(_database.remoteNumbers)
+          ..where((tbl) => tbl.phoneNumber.equals(phoneNumber)))
+        .go();
   }
 
   Future<int> deleteAll(List<String> phoneNumbers) async {
-    int count = 0;
-    await _database.transaction(() async {
-      for (final phoneNumber in phoneNumbers) {
-        final int deleted = await (_database.delete(_database.remoteNumbers)
-          ..where((tbl) => tbl.phoneNumber.equals(phoneNumber))).go();
-        count += deleted;
-      }
-    });
-    return count;
+    if (phoneNumbers.isEmpty) return 0;
+    return await (_database.delete(_database.remoteNumbers)
+          ..where((tbl) => tbl.phoneNumber.isIn(phoneNumbers)))
+        .go();
   }
 
-  Future<void> clear() async {
-    await _database.delete(_database.remoteNumbers).go();
-    await _database.delete(_database.pendingOperations).go();
+  Future<void> atomicIncrementCount(String phoneNumber, int delta) async {
+    final entry = await getByPhoneNumber(phoneNumber);
+    if (entry != null) {
+      final updated = entry.copyWith(count: entry.count + delta);
+      await update(updated);
+    }
   }
 
-  Future<List<RemoteNumberEntry>> getByLabel(String label) async {
-    final results = await (_database.select(_database.remoteNumbers)
-      ..where((tbl) => tbl.label.equals(label))).get();
-    return results.map(RemoteNumberModelMapper.fromRemoteNumberData).toList();
+  Future<DateTime?> getLastSyncTime() async {
+    return DateTime.now().subtract(const Duration(hours: 25));
   }
+
+  Future<void> linkNumberToCountry(String phoneNumber, String countryIsoCode) async {}
 }

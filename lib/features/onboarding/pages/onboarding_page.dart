@@ -5,7 +5,6 @@ import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 
 import '../services/onboarding_service.dart';
-import 'package:yourcallyourrule/features/initial_setup/providers/initial_setup_provider.dart';
 import '../widgets/onboarding_top_bar.dart';
 import '../widgets/onboarding_bottom_bar.dart';
 import '../widgets/onboarding_welcome_card.dart';
@@ -15,7 +14,7 @@ import '../widgets/onboarding_spam_block_card.dart';
 import '../widgets/onboarding_permissions_card.dart';
 import '../widgets/onboarding_ready_card.dart';
 
-/// 应用引导主页面（100% �?InitialSetup 彻底解耦与模块化重构版�?
+/// 应用引导主页面
 class OnboardingPage extends ConsumerStatefulWidget {
   const OnboardingPage({super.key});
 
@@ -31,7 +30,6 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   @override
   void initState() {
     super.initState();
-    // 一进入引导页，立即标记 Onboarding 已进�?完成，绝不容许二次表�?
     ref.read(onboardingServiceProvider).completeOnboarding();
   }
 
@@ -61,7 +59,6 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     }
   }
 
-  /// 统一处理 Onboarding 完成逻辑
   Future<void> _completeOnboardingFlow() async {
     final service = ref.read(onboardingServiceProvider);
     await service.completeOnboarding();

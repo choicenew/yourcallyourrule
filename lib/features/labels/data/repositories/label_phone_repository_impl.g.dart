@@ -8,12 +8,12 @@ part of 'label_phone_repository_impl.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 电话标签仓库提供者
+/// 电话标签仓库提供者 (直连 Drift LocalDatabase)
 
 @ProviderFor(labelPhoneRepository)
 final labelPhoneRepositoryProvider = LabelPhoneRepositoryProvider._();
 
-/// 电话标签仓库提供者
+/// 电话标签仓库提供者 (直连 Drift LocalDatabase)
 
 final class LabelPhoneRepositoryProvider
     extends
@@ -23,7 +23,7 @@ final class LabelPhoneRepositoryProvider
           LabelPhoneRepository
         >
     with $Provider<LabelPhoneRepository> {
-  /// 电话标签仓库提供者
+  /// 电话标签仓库提供者 (直连 Drift LocalDatabase)
   LabelPhoneRepositoryProvider._()
     : super(
         from: null,
@@ -36,7 +36,7 @@ final class LabelPhoneRepositoryProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => _$labelPhoneRepositoryHash();
+  String debugGetCreateSourceHash() => r'label_phone_repository_impl_hash_v2';
 
   @$internal
   @override
@@ -57,6 +57,3 @@ final class LabelPhoneRepositoryProvider
     );
   }
 }
-
-String _$labelPhoneRepositoryHash() =>
-    r'1fde3123b58aecd287764150d60d72ba3e04f151';

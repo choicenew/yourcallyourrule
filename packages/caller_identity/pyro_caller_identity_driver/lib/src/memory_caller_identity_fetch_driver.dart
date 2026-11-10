@@ -3,16 +3,16 @@ import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart
 
 /// 真实内存级身份画像拉取驱动 (MemoryCallerIdentityFetchDriver)
 class MemoryCallerIdentityFetchDriver implements CallerIdentityFetchDriver {
-  final Map<String, CallerProfile> _cache = {};
+  final Map<String, CallerIdData> _cache = {};
 
   MemoryCallerIdentityFetchDriver();
 
   @override
-  Future<CallerProfile?> fetchProfile(String phoneNumber) async {
+  Future<CallerIdData?> fetchProfile(String phoneNumber) async {
     return _cache[phoneNumber];
   }
 
-  void saveProfile(CallerProfile profile) {
+  void saveProfile(CallerIdData profile) {
     _cache[profile.phoneNumber] = profile;
     debugPrint('[MemoryIdentityDriver] 保存身份画像: ${profile.phoneNumber} -> ${profile.name}');
   }

@@ -8,17 +8,22 @@ part of 'call_log_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// CallLogService 的 @Riverpod Provider
+/// CallLogService Riverpod Provider
 
 @ProviderFor(callLogService)
 final callLogServiceProvider = CallLogServiceProvider._();
 
-/// CallLogService 的 @Riverpod Provider
+/// CallLogService Riverpod Provider
 
 final class CallLogServiceProvider
-    extends $FunctionalProvider<CallLogService, CallLogService, CallLogService>
+    extends
+        $FunctionalProvider<
+          CallLogService,
+          CallLogService,
+          CallLogService
+        >
     with $Provider<CallLogService> {
-  /// CallLogService 的 @Riverpod Provider
+  /// CallLogService Riverpod Provider
   CallLogServiceProvider._()
     : super(
         from: null,
@@ -31,12 +36,13 @@ final class CallLogServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => _$callLogServiceHash();
+  String debugGetCreateSourceHash() => r'call_log_service_hash_v2';
 
   @$internal
   @override
-  $ProviderElement<CallLogService> $createElement($ProviderPointer pointer) =>
-      $ProviderElement(pointer);
+  $ProviderElement<CallLogService> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
 
   @override
   CallLogService create(Ref ref) {
@@ -51,5 +57,3 @@ final class CallLogServiceProvider
     );
   }
 }
-
-String _$callLogServiceHash() => r'a009e0ba66ff0bf9fff7b4553d4fcc2e66847e11';

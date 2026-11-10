@@ -8,12 +8,9 @@ part of 'auto_update_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// AutoUpdateService 的 @Riverpod Provider
 
 @ProviderFor(autoUpdateService)
 final autoUpdateServiceProvider = AutoUpdateServiceProvider._();
-
-/// AutoUpdateService 的 @Riverpod Provider
 
 final class AutoUpdateServiceProvider
     extends
@@ -23,7 +20,6 @@ final class AutoUpdateServiceProvider
           AutoUpdateService
         >
     with $Provider<AutoUpdateService> {
-  /// AutoUpdateService 的 @Riverpod Provider
   AutoUpdateServiceProvider._()
     : super(
         from: null,
@@ -36,7 +32,7 @@ final class AutoUpdateServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => _$autoUpdateServiceHash();
+  String debugGetCreateSourceHash() => r'auto_update_service_hash_v15';
 
   @$internal
   @override
@@ -57,5 +53,3 @@ final class AutoUpdateServiceProvider
     );
   }
 }
-
-String _$autoUpdateServiceHash() => r'db3f2e75ff65d822a1c86669ef40f64b92b38bbf';

@@ -2,9 +2,7 @@
 import 'package:floating_window_android/floating_window_android.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
-import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/configuration/call_overlay_config.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/configuration/configuration_manager.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/providers/call_overlay_style_security_provider.dart';
@@ -94,7 +92,7 @@ class _CallOverlayCustomizationScreenState
                       padding: const EdgeInsets.all(16),
                       children: [
                         const Divider(),
-                        const GoogleAdWidget(adInfo: AdManager.bannerAd),
+                        const AdsInlineBanner(),
                         const Divider(),
                         // 设置项
                         _buildExpansionTile(
@@ -129,7 +127,7 @@ class _CallOverlayCustomizationScreenState
                                 .scrollingSecurityMessageSettings,
                             6,
                             _buildSecurityMessageSettings(config)),
-                        nativeAdWidgetMedium(adWidth: 320, adHeight: 320),
+                        const AdsInlineBanner(),
                       ],
                     ),
                   ),

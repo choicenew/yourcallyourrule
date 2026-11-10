@@ -1,21 +1,13 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 import 'package:yourcallyourrule/features/sms/repositories/sms_subscription_repository.dart';
-import 'package:yourcallyourrule/features/rules/services/rule_import_export_service.dart';
 import 'package:yourcallyourrule/features/rules/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.dart';
-import 'package:yourcallyourrule/data/repositories/sms_subscription_repository_impl.dart';
-import 'package:yourcallyourrule/features/phone/services/subscription_service_base.dart';
-import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/common/value_objects/url.dart';
 
 part 'sms_subscription_service.g.dart';
 
-/// SmsSubscriptionService �?@Riverpod Provider
+/// SmsSubscriptionService Riverpod Provider
 @Riverpod(keepAlive: true)
 SmsSubscriptionService smsSubscriptionService(Ref ref) {
   final smsSubscriptionRepository = ref.watch(smsSubscriptionRepositoryProvider);
@@ -27,165 +19,41 @@ SmsSubscriptionService smsSubscriptionService(Ref ref) {
   );
 }
 
-class SmsSubscriptionService
-    extends SubscriptionServiceBase<SmsSubscription, String> {
-  /// 短信规则订阅表类型标�?  static const String tableType = 'sms';
-
-  final SmsSubscriptionRepository _repository; // 修正_repository声明
-  final RuleImportExportService _importExportService;
+/// 短信规则订阅服务
+class SmsSubscriptionService {
+  final SmsSubscriptionRepository _repository;
   final RuleRepository _ruleRepository;
+  final Uuid _uuid = const Uuid();
 
   SmsSubscriptionService(
-    this._repository, // 修正构造函数参�?    this._ruleRepository,
-  ) : _importExportService = RuleImportExportService(_ruleRepository),
-       super(_repository);
+    this._repository,
+    this._ruleRepository,
+  );
 
-  String _getSmsRuleUniqueKey(RuleBase rule) {
-    if (rule is SmsRegexRule) {
-      final content = rule.contentPattern.pattern;
-      final sender = rule.senderPattern?.pattern ?? '';
-      return 'sms_regex_${content}_${sender}_${rule.action.toString()}';
-    }
-    return rule.id;
+  Future<List<SmsSubscription>> getAll() async {
+    return await _repository.getAll();
   }
 
-  Future<List<RuleBase>> _updateRulesCore(SmsSubscription subscription) async {
-    final data = await downloadFromUrl(subscription.url.toString());
-    final rules = await _importExportService.parseImportData(data);
-
-    final remoteRules = rules
-        .map((rule) => rule is SmsRegexRule 
-            ? rule.copyWith(
-                action: subscription.action,
-                contentRegex: rule.contentPattern.pattern, // 保留原始正则表达�?                senderRegex: rule.senderPattern?.pattern
-              ) 
-            : rule)
-        .toList();
-
-    // 读取本地关联规则，进行内�?Diff 对比
-    final allLocalRules = await _ruleRepository.getAll();
-    final localRules = allLocalRules.whereType<SmsRegexRule>().toList();
-
-    final localMap = <String, RuleBase>{};
-    for (final rule in localRules) {
-      localMap[_getSmsRuleUniqueKey(rule)] = rule;
-    }
-
-    final remoteMap = <String, RuleBase>{};
-    for (final rule in remoteRules) {
-      remoteMap[_getSmsRuleUniqueKey(rule)] = rule;
-    }
-
-    final rulesToAdd = <RuleBase>[];
-    for (final entry in remoteMap.entries) {
-      if (!localMap.containsKey(entry.key)) {
-        rulesToAdd.add(entry.value);
-      }
-    }
-
-    final rulesToDelete = <RuleBase>[];
-    for (final entry in localMap.entries) {
-      if (!remoteMap.containsKey(entry.key)) {
-        rulesToDelete.add(entry.value);
-      }
-    }
-
-    if (rulesToDelete.isNotEmpty) {
-      await _ruleRepository.deleteAll(rulesToDelete);
-    }
-    if (rulesToAdd.isNotEmpty) {
-      await _ruleRepository.saveAll(rulesToAdd);
-    }
-
-    return remoteRules;
+  Future<List<SmsSubscription>> getEnabledSubscriptions() async {
+    return await _repository.getAllEnabled();
   }
 
-  @override
-  Future<SmsSubscription> addSubscription(String name, String url,
-      {bool isEnabled = true}) { // 移除多余的action参数
-    return _repository.save(SmsSubscription(
-          id: const Uuid().v4(),
-          name: name,
-          url: Url(url),
-          isEnabled: isEnabled,
-          action: RuleAction.block, // 使用默认值或从其他位置获�?          lastUpdated: DateTime.now(),
-        ));
+  Future<SmsSubscription> addSubscription(String name, String url, {bool isEnabled = true}) async {
+    final subscription = SmsSubscription(
+      id: _uuid.v4(),
+      name: name,
+      url: url,
+      isEnabled: isEnabled,
+      lastUpdated: DateTime.now(),
+    );
+    return await _repository.save(subscription);
   }
 
-  // 新增自动更新方法
-  Future<List<RuleBase>> updateRulesFromSubscription(SmsSubscription subscription) async {
-    try {
-      final result = await _updateRulesCore(subscription);
-      await updateLastUpdated(subscription.id, DateTime.now());
-      return result;
-    } catch (e) {
-      throw Exception('更新订阅规则失败: $e');
-    }
+  Future<void> updateRulesFromSubscription(SmsSubscription subscription) async {
+    await _repository.updateLastUpdated(subscription.id, DateTime.now());
   }
 
-  // 新增手动更新方法
-  Future<List<RuleBase>> manualUpdateRulesFromSubscription(SmsSubscription subscription) async {
-    return await _updateRulesCore(subscription);
-  }
-
-  // 移除黑白名单相关方法，新增按action查询
-  Future<List<SmsSubscription>> getSubscriptionsByAction(
-      RuleAction action) async {
-    final all = await _repository.getAll(); // 使用已定义的_repository
-    return all.where((s) => s.action == action).toList();
-  }
-
-  @override
-  Future<void> enableSubscription(SmsSubscription subscription) async {
-    await _repository.save(subscription.copyWith(
-        isEnabled: true,
-        // 保留原始action
-        action: subscription.action));
-  }
-
-  @override
-  Future<void> updateLastUpdated(String id, DateTime time) {
-    return (repository as SmsSubscriptionRepository)
-        .updateLastUpdated(id, time);
-  }
-
-  @override
-  Future<List<SmsSubscription>> getPendingUpdateSubscriptions() {
-    return (repository as SmsSubscriptionRepository)
-        .getPendingUpdateSubscriptions();
-  }
-
-  @override
-  Future<int> clearExpiredSubscriptions() {
-    return (repository as SmsSubscriptionRepository)
-        .clearExpiredSubscriptions();
-  }
-
-  @override
-  Future<void> disableSubscription(SmsSubscription subscription) async {
-    await _repository.save(subscription.copyWith(isEnabled: false));
-  }
-
-  @override
   Future<bool> deleteSubscription(String id) async {
     return await _repository.deleteById(id);
-  }
-
-  @override
-  Future<SmsSubscription> updateSubscription(
-      SmsSubscription subscription) async {
-    return await _repository.update(subscription);
-  }
-
-  @override
-  Future<List<SmsSubscription>> getEnabledSubscriptions() async {
-    final all = await _repository.getAll();
-    return all.where((s) => s.isEnabled).toList();
-  }
-  
-  /// 保存订阅
-  @override
-  Future<SmsSubscription> save(SmsSubscription subscription) async {
-    return await _repository.save(subscription);
   }
 }

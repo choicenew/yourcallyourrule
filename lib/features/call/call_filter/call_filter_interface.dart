@@ -1,5 +1,3 @@
-// 通话过滤接口，所有过滤器都实现此接口以保持独立�?
-
 import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 
@@ -10,11 +8,8 @@ abstract class CallFilterInterface {
   CallFilterType get filterType;
 
   /// 判断是否应该接受来电
-  /// [phoneNumber] 电话号码
-  /// [simInfo] 可选的 SIM 卡通道信息
-  /// 返回是否应该接受来电
   Future<bool> shouldAcceptCall(String phoneNumber, {SimInfo? simInfo});
-  
+
   /// 初始化过滤器
   Future<void> initialize();
 }

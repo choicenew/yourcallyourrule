@@ -1,4 +1,4 @@
-library;
+library pyro_ads_hub;
 
 // Core Locator & Arbitrator
 export 'src/ads_hub.dart';

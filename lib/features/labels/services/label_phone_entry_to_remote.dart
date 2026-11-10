@@ -1,14 +1,16 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/features/phone/utils/phone_utils.dart';
+import 'package:yourcallyourrule/features/phone_subscription/utils/phone_utils.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:pyro_phone_remote_filter_protocol/pyro_phone_remote_filter_protocol.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_priority.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.g.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
+import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.g.dart';
 
 part 'label_phone_entry_to_remote.g.dart';
 
@@ -19,7 +21,8 @@ LabelPhoneEntryToRemote labelPhoneEntryToRemote(Ref ref) {
   return LabelPhoneEntryToRemote(remoteNumberService, predefinedLabelService);
 }
 
-/// 标签电话条目到远程同步服�?/// 负责�?LabelPhoneEntry 同步到远程号码服�?class LabelPhoneEntryToRemote {
+/// 标签电话条目到远程同步服务类
+class LabelPhoneEntryToRemote {
   final RemoteNumberService _remoteNumberService;
   final PredefinedLabelService _predefinedLabelService;
 
@@ -28,24 +31,20 @@ LabelPhoneEntryToRemote labelPhoneEntryToRemote(Ref ref) {
     this._predefinedLabelService,
   );
 
-  /// 处理单个标签数据并同步到远程号码服务
   Future<void> sync(LabelPhoneEntry labelPhoneEntry) async {
-    // 获取电话号码
     final phoneNumber = labelPhoneEntry.phoneNumber;
 
-    // 尝试将电话号码转换为E164格式
     try {
       final phoneNumberMap = await PhoneUtils.parsePhoneNumberWithoutIso(
         phoneNumber.value,
         null,
       );
 
-      // 获取E164格式的电话号�?      final e164Number = phoneNumberMap['e164'] ?? phoneNumber.value;
+      final e164Number = phoneNumberMap['e164Number'] ?? phoneNumber.value;
       final formattedPhoneNumber = PhoneNumber.fromString(e164Number);
 
       await _syncInternal(formattedPhoneNumber, labelPhoneEntry);
     } catch (e) {
-      // 如果电话号码格式化失败，使用原始号码
       await _syncInternal(phoneNumber, labelPhoneEntry);
     }
   }
@@ -54,17 +53,15 @@ LabelPhoneEntryToRemote labelPhoneEntryToRemote(Ref ref) {
     PhoneNumber phoneNumber,
     LabelPhoneEntry labelPhoneEntry,
   ) async {
-    // 获取预定义标签信�?    final predefinedLabel = await _predefinedLabelService.getLabelById(
+    final predefinedLabel = await _predefinedLabelService.getLabelById(
       labelPhoneEntry.labelId,
     );
     final labelText = predefinedLabel?.text ?? '';
 
-    // 检查远程号码服务中是否已存在该号码
     final existingEntry = await _remoteNumberService
         .getRemoteNumberByPhoneNumber(phoneNumber);
 
     if (existingEntry != null) {
-      // 更新现有条目
       final updatedEntry = RemoteNumberEntry(
         id: existingEntry.id,
         phoneNumber: phoneNumber,
@@ -77,7 +74,6 @@ LabelPhoneEntryToRemote labelPhoneEntryToRemote(Ref ref) {
       );
       await _remoteNumberService.updateRemoteNumber(updatedEntry);
 
-      // 处理国家代码
       final phoneDetails = await PhoneUtils.parsePhoneNumberWithoutIso(
         phoneNumber.value,
         null,
@@ -90,7 +86,7 @@ LabelPhoneEntryToRemote labelPhoneEntryToRemote(Ref ref) {
         );
       }
     } else {
-      // 创建新条�?      final newEntry = RemoteNumberEntry(
+      final newEntry = RemoteNumberEntry(
         id: const Uuid().v4(),
         phoneNumber: phoneNumber,
         name: labelPhoneEntry.name,
@@ -102,7 +98,6 @@ LabelPhoneEntryToRemote labelPhoneEntryToRemote(Ref ref) {
       );
       await _remoteNumberService.addRemoteNumber(newEntry);
 
-      // 处理国家代码
       final phoneDetails = await PhoneUtils.parsePhoneNumberWithoutIso(
         phoneNumber.value,
         null,
@@ -117,7 +112,6 @@ LabelPhoneEntryToRemote labelPhoneEntryToRemote(Ref ref) {
     }
   }
 
-  /// 确定名称
   String _determineName(
     LabelPhoneEntry labelPhoneEntry,
     RemoteNumberEntry existingEntry,

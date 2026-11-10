@@ -1,113 +1,87 @@
-import 'package:dlibphonenumber/dlibphonenumber.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';
 import 'package:yourcallyourrule/features/location/repositories/location_repository.dart';
-import 'package:yourcallyourrule/data/repositories/location_repository_impl.dart';
-import 'package:yourcallyourrule/features/common/services/list_service.dart';
-import 'package:yourcallyourrule/features/rules/services/universal_import_export_service.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
+import 'package:yourcallyourrule/features/location/data/repositories/location_repository_impl.dart';
 
 part 'location_service.g.dart';
 
-/// LocationService �?@Riverpod Provider
+/// LocationService Riverpod Provider
 @Riverpod(keepAlive: true)
 LocationService locationService(Ref ref) {
   final locationRepository = ref.watch(locationRepositoryProvider);
   return LocationService(locationRepository);
 }
 
-class LocationService extends ListService<LocationEntry, String> {
+/// 位置归属地服务类
+class LocationService {
   final LocationRepository _repository;
-  final UniversalImportExportService<LocationEntry> _importExportService; // 修改服务类型
-
-  //来自于dlibphonenumber的类
   final PhoneNumberUtil _phoneNumberUtil;
   final PhoneNumberOfflineGeocoder _geocoder;
   final PhoneNumberToCarrierMapper _carrierMapper;
+  final Uuid _uuid = const Uuid();
 
   LocationService(this._repository)
-      : _importExportService = UniversalImportExportService<LocationEntry>(_repository), // 正确初始化泛型服�?
-        _phoneNumberUtil = PhoneNumberUtil.instance,
+      : _phoneNumberUtil = PhoneNumberUtil.instance,
         _geocoder = PhoneNumberOfflineGeocoder.instance,
-        _carrierMapper = PhoneNumberToCarrierMapper.instance,
-        super(_repository);
+        _carrierMapper = PhoneNumberToCarrierMapper.instance;
 
-  // 核心业务方法
-  Future<LocationEntry?> getCallerLocation(String phoneNumber, Locale locale) async {  // 修改参数为Locale类型
-    final parsedNumber = _phoneNumberUtil.parse(phoneNumber, null);
-    
-    if (!_phoneNumberUtil.isValidNumber(parsedNumber)) {
+  Future<LocationEntry?> getCallerLocation(String phoneNumber, Locale locale) async {
+    try {
+      final parsedNumber = _phoneNumberUtil.parse(phoneNumber, null);
+
+      if (!_phoneNumberUtil.isValidNumber(parsedNumber)) {
+        return null;
+      }
+
+      final region = await _geocoder.getDescriptionForValidNumber(parsedNumber, locale, null);
+      final carrier = await _carrierMapper.getNameForNumber(parsedNumber, locale);
+      final numberTypeInt = _phoneNumberUtil.getNumberType(parsedNumber).index;
+
+      final entry = LocationEntry(
+        id: _uuid.v4(),
+        phoneNumber: phoneNumber,
+        region: region,
+        countryName: _phoneNumberUtil.getRegionCodeForNumber(parsedNumber),
+        carrier: carrier,
+        numberType: numberTypeInt,
+      );
+
+      await _repository.save(entry);
+      return entry;
+    } catch (_) {
       return null;
     }
-
-    // 直接使用传入的locale参数（与原始代码逻辑一致）
-    final region = await _geocoder.getDescriptionForValidNumber(parsedNumber, locale, null);
-    final carrier = await _carrierMapper.getNameForNumber(parsedNumber, locale);
-    final numberType = _phoneNumberUtil.getNumberType(parsedNumber);
-
-    final entry = LocationEntry(
-      id: const Uuid().v4(),
-      phoneNumber: vo.PhoneNumber.fromString(phoneNumber),  // 使用前缀后的构造方�?
-      region: region,
-      countryName: _phoneNumberUtil.getRegionCodeForNumber(parsedNumber),
-      carrier: carrier,
-      numberType: numberType,
-    );
-
-    await _repository.save(entry);
-    return entry;
   }
-  
-  /// 【【�?最终、唯一的、正确的修复 】】�?
-  /// 新增一�?saveLocation 方法，以�?LocationSyncService 调用�?
-  /// 这个方法将保存操作委托给底层�?Repository�?
+
   Future<void> saveLocation(LocationEntry entry) async {
-    // 调用您在 Repository 中已经定义好�?save 方法
     await _repository.save(entry);
   }
 
-
-  // 数据库操作方�?
   Future<void> updateLocationData(LocationEntry entry) async {
     await _repository.update(entry);
   }
 
   Future<LocationEntry?> getByPhoneNumber(String phoneNumber) async {
-     // 【【�?最终、唯一的、正确的修复 】】�?
-    // 您的 Repository 已经提供了一个更高效、更安全的方法，我们应该直接使用它�?
-    // 它直接在数据库层面查询，而不是获取全部数据到内存再筛选�?
     return await _repository.getByPhoneNumber(phoneNumber);
   }
- 
- 
 
-  // 继承自ListService的方�?
-  @override
   Future<List<LocationEntry>> getAll() async {
-    final rules = await _repository.getAll();
-    return rules.whereType<LocationEntry>().toList();
+    return await _repository.getAll();
   }
 
-  // 导入导出功能
-  // 更新导入导出方法
-  Future<List<LocationEntry>> importFromFile(String path) async {
-    return await _importExportService.importFromFile(path);
-  }
-
-  Future<bool> exportToFile(String path) async {
-    final data = await getAll();
-    return await _importExportService.exportToFile(path, data);
-  }
-
-  // 添加国家代码获取方法
   Future<String?> getCountryCode(String phoneNumber) async {
-    final parsed = _phoneNumberUtil.parse(phoneNumber, null);
-    return _phoneNumberUtil.getRegionCodeForNumber(parsed);
+    try {
+      final parsed = _phoneNumberUtil.parse(phoneNumber, null);
+      return _phoneNumberUtil.getRegionCodeForNumber(parsed);
+    } catch (_) {
+      return null;
+    }
   }
 
-  // 添加删除功能
   Future<void> deleteByPhoneNumber(String phoneNumber) async {
     final entry = await getByPhoneNumber(phoneNumber);
     if (entry != null) {

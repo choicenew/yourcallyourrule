@@ -15,6 +15,8 @@ abstract class PhoneSubscriptionKind with _$PhoneSubscriptionKind {
   static const PhoneSubscriptionKind phoneRules = PhoneSubscriptionKind(id: 'phoneRules');
   static const PhoneSubscriptionKind smartDictionary = PhoneSubscriptionKind(id: 'smartDictionary');
   static const PhoneSubscriptionKind deletionRules = PhoneSubscriptionKind(id: 'deletionRules');
+  static const PhoneSubscriptionKind contact = PhoneSubscriptionKind(id: 'contact');
+  static const PhoneSubscriptionKind rulesManifest = PhoneSubscriptionKind(id: 'rulesManifest');
 
   factory PhoneSubscriptionKind.fromJson(Map<String, dynamic> json) => _$PhoneSubscriptionKindFromJson(json);
 

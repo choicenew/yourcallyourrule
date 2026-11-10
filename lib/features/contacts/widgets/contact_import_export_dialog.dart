@@ -41,7 +41,7 @@ class ContactImportExportDialog extends ConsumerWidget {
               onTap: () async {
                 Navigator.pop(context);
                 try {
-                  final result = await FilePicker.platform.pickFiles(
+                  final result = await FilePicker.pickFiles(
                     type: FileType.custom,
                     allowedExtensions: ['vcf', 'csv', 'yaml', 'json'],
                   );

@@ -15,8 +15,8 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$PhoneSubscriptionPayload {
-
- String get payloadId; PhoneSubscriptionKind get kind; Map<String, dynamic> get rawJsonMap; int? get timestamp;
+  String get id => payloadId;
+  String get payloadId; PhoneSubscriptionKind get kind; Map<String, dynamic> get rawJsonMap; int? get timestamp;
 /// Create a copy of PhoneSubscriptionPayload
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)

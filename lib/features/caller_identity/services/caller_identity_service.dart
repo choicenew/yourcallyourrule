@@ -16,12 +16,12 @@ import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:pyro_phone_remote_filter_protocol/pyro_phone_remote_filter_protocol.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart' as vo;
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/location/services/location_service.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_invoker_service.dart';
+import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 
@@ -29,7 +29,7 @@ part 'caller_identity_service.g.dart';
 
 @Riverpod(keepAlive: true)
 CallerIdentityService callerIdentityService(Ref ref) {
-  final pluginService = ref.watch(pluginServiceProvider);
+  final pluginService = ref.watch(pluginManagerServiceProvider);
   final contactService = ref.watch(contactServiceProvider);
   final ruleManagementService = ref.watch(ruleManagementServiceProvider);
   final labelService = ref.watch(labelServiceProvider);
@@ -48,10 +48,10 @@ CallerIdentityService callerIdentityService(Ref ref) {
   );
 }
 
-/// 生产级标准来电身份画像聚合服�?(CallerIdentityService)
+/// 生产级标准来电身份画像聚合服务
 class CallerIdentityService {
   CallerIdentityService({
-    required PluginInvokerService pluginService,
+    required PluginManagerService pluginService,
     required ContactService contactService,
     required RuleManagementService ruleManagementService,
     required LabelService labelService,
@@ -73,7 +73,7 @@ class CallerIdentityService {
   final LabelService _labelService;
   final LocationService _locationService;
   final _pluginDataSubject = BehaviorSubject<PluginSourceData>();
-  final PluginInvokerService _pluginService;
+  final PluginManagerService _pluginService;
   final PredefinedLabelService _predefinedLabelService;
   final RemoteNumberService _remoteNumberService;
 
@@ -84,7 +84,7 @@ class CallerIdentityService {
   Future<CallerIdData> getCallerId(String phoneNumber, Locale locale) async {
     final parsed = await PhoneUtils.parsePhoneNumberWithIsoEntity(
       phoneNumber,
-      locale.country,
+      locale.countryCode ?? 'US',
     );
     return getCallerIdWithParsed(
       phoneNumber,
@@ -104,7 +104,7 @@ class CallerIdentityService {
     try {
       allLocalContacts = await fluttercontact.FlutterContacts.getAll();
     } catch (e) {
-      debugPrint('[CallerIdentityService] 获取系统联系人跳�?无权�? $e');
+      debugPrint('[CallerIdentityService] 获取系统联系人跳过: $e');
       allLocalContacts = [];
     }
 
@@ -122,147 +122,35 @@ class CallerIdentityService {
       if (localContact != null) break;
     }
 
-    final futures = await Future.wait([
-      _contactService.findContactByPhoneNumber(vo.PhoneNumber.fromString(phoneNumber)),
-      _ruleManagementService.getRulesByPhoneNumber(vo.PhoneNumber.fromString(phoneNumber)),
-      _labelService.getLabelByPhoneNumber(vo.PhoneNumber.fromString(phoneNumber)),
-      _pluginService.callPluginsAllEntities(phoneNumber, nationalNumber, e164Number),
-      _remoteNumberService.getRemoteNumberByPhoneNumber(vo.PhoneNumber.fromString(e164Number)),
-      _locationService.getCallerLocation(e164Number, locale),
-    ]);
+    final finalContact = await _contactService.findContactByPhoneNumber(vo.PhoneNumber.fromString(phoneNumber));
+    final allRules = await _ruleManagementService.getRulesByPhoneNumber(vo.PhoneNumber.fromString(phoneNumber));
+    final labelEntry = await _labelService.getLabelByPhoneNumber(vo.PhoneNumber.fromString(phoneNumber));
+    final remoteNumberEntry = await _remoteNumberService.getRemoteNumberByPhoneNumber(vo.PhoneNumber.fromString(e164Number));
+    final locationData = await _locationService.getCallerLocation(e164Number, locale);
 
-    final finalContact = futures[0] as Contact?;
-    final allRules = futures[1] as List<PhoneRule>;
-    final labelEntry = futures[2] as LabelPhoneEntry?;
-    final (firstResult, allResultsFuture) = futures[3] as (PluginSourceData?, Future<List<PluginSourceData>>);
-    final remoteNumberEntry = futures[4] as RemoteNumberEntry?;
-    final locationData = futures[5] as LocationEntry?;
-
-    PhoneRule? phoneRule;
+    PhoneRuleEntity? phoneRule;
     if (allRules.isNotEmpty) {
-      final matchingRules = allRules.where(
-        (rule) =>
-            rule.phoneNumber == vo.PhoneNumber.fromString(phoneNumber) ||
-            (e164Number.isNotEmpty && rule.phoneNumber == vo.PhoneNumber.fromString(e164Number)) ||
-            (nationalNumber.isNotEmpty && rule.phoneNumber == vo.PhoneNumber.fromString(nationalNumber)),
-      ).toList();
-      if (matchingRules.isNotEmpty) {
-        matchingRules.sort((a, b) => b.priority.value.compareTo(a.priority.value));
-        phoneRule = matchingRules.first;
-      }
+      phoneRule = allRules.first;
     }
 
-    PluginSourceData? pluginSourceData = firstResult;
-
+    PluginSourceData? pluginSourceData;
     final labelId = labelEntry?.labelId ?? phoneRule?.labelId;
     final labelFromId = labelId != null ? await _predefinedLabelService.getLabelById(labelId) : null;
 
-    final callerIdData = CallerIdData.resolve(
-      rawNumber: phoneNumber,
-      localContact: localContact,
-      finalContact: finalContact,
-      phoneRule: phoneRule,
-      labelEntry: labelEntry,
-      labelFromId: labelFromId,
-      remoteNumberEntry: remoteNumberEntry,
-      pluginSourceData: pluginSourceData,
-      locationData: locationData,
+    final callerIdData = CallerIdData(
+      phoneNumber: e164Number.isNotEmpty ? e164Number : phoneNumber,
+      name: localContact?.displayName ?? finalContact?.name ?? phoneRule?.name ?? remoteNumberEntry?.phoneNumber,
+      region: locationData?.region,
+      countryName: locationData?.countryName,
+      carrier: locationData?.carrier,
+      labels: labelFromId != null ? [labelFromId.text] : (labelEntry != null ? [labelEntry.labelId] : []),
+      localCount: phoneRule?.count ?? 0,
+      pluginCount: 0,
+      remoteCount: remoteNumberEntry != null ? 1 : 0,
     );
 
     _callerIdSubject.add(callerIdData);
-
-    final bool hasHighPriorityName = localContact != null || finalContact != null || phoneRule?.name != null || remoteNumberEntry?.name != null;
-    final bool hasHighPriorityAction = phoneRule?.action != null || remoteNumberEntry?.action != null;
-    final bool hasHighPriorityAvatar = finalContact?.avatar != null || phoneRule?.avatar != null;
-
-    unawaited(
-      _processAllPluginData(
-        allResultsFuture,
-        callerIdData,
-        hasHighPriorityName: hasHighPriorityName,
-        hasHighPriorityAction: hasHighPriorityAction,
-        hasHighPriorityAvatar: hasHighPriorityAvatar,
-      ),
-    );
-
     return callerIdData;
-  }
-
-  Future<void> _processAllPluginData(
-    Future<List<PluginSourceData>> allResultsFuture,
-    CallerIdData initialData, {
-    bool hasHighPriorityName = false,
-    bool hasHighPriorityAction = false,
-    bool hasHighPriorityAvatar = false,
-  }) async {
-    try {
-      final allResults = await allResultsFuture;
-      if (allResults.isEmpty) return;
-
-      final completePluginData = PluginSourceData.merge(allResults);
-
-      final updatedCallerIdData = initialData.enrichWith(
-        completePluginData,
-        hasHighPriorityName: hasHighPriorityName,
-        hasHighPriorityAction: hasHighPriorityAction,
-        hasHighPriorityAvatar: hasHighPriorityAvatar,
-      );
-
-      if (updatedCallerIdData.name != initialData.name ||
-          updatedCallerIdData.action != initialData.action ||
-          updatedCallerIdData.avatar != initialData.avatar ||
-          updatedCallerIdData.count != initialData.count ||
-          updatedCallerIdData.labels?.first.label != initialData.labels?.first.label) {
-        _callerIdSubject.add(updatedCallerIdData);
-      }
-
-      if (_pluginDataSubject.hasValue &&
-          _pluginDataSubject.value.phoneNumber == completePluginData.phoneNumber) {
-        if (completePluginData.name != null &&
-            completePluginData.name!.isNotEmpty &&
-            completePluginData.name != 'Unknown') {
-          _pluginDataSubject.add(completePluginData);
-        }
-      } else {
-        _pluginDataSubject.add(completePluginData);
-      }
-
-      if (completePluginData.predefinedLabel != null) {
-        final e164Number = completePluginData.phoneNumber ?? '';
-        if (e164Number.isNotEmpty) {
-          final existingLabel = await _labelService.getLabelByPhoneNumber(
-            vo.PhoneNumber.fromString(e164Number),
-          );
-
-          final matchingRules = await _ruleManagementService.getRulesByPhoneNumber(
-            vo.PhoneNumber.fromString(e164Number),
-          );
-          final matchingRule = matchingRules.firstOrNull;
-
-          if (existingLabel == null && matchingRule?.labelId == null) {
-            final labels = await _predefinedLabelService.getLabelsByText(
-              completePluginData.predefinedLabel!,
-            );
-            if (labels.isNotEmpty) {
-              final entry = LabelPhoneEntry(
-                id: const Uuid().v4(),
-                phoneNumber: vo.PhoneNumber.fromString(e164Number),
-                labelId: labels.first.id,
-                name: completePluginData.name ?? 'Unknown',
-                action: completePluginData.action,
-              );
-              if (!_labelPhoneEntrySubject.hasValue ||
-                  _labelPhoneEntrySubject.value.phoneNumber != entry.phoneNumber) {
-                await _labelService.addLabel(entry);
-                _labelPhoneEntrySubject.add(entry);
-              }
-            }
-          }
-        }
-      }
-    } catch (e) {
-      AppLogger.error('处理所有插件数据失�?, e);
-    }
   }
 
   void dispose() {

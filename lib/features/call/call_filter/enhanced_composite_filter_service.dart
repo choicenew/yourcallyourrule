@@ -12,8 +12,6 @@ part 'enhanced_composite_filter_service.g.dart';
 
 @riverpod
 EnhancedCompositeFilterService enhancedCompositeFilterService(Ref ref) {
-  // 把所有的规则插件统一注入过滤链管道中�?
-  // simSlotRuleFilterService 放在第一位，在当前卡槽启用时享有优先判定特权
   final filters = [
     ref.watch(simSlotRuleFilterServiceProvider),
     ref.watch(callFilterServiceProvider),
@@ -27,7 +25,7 @@ EnhancedCompositeFilterService enhancedCompositeFilterService(Ref ref) {
   );
 }
 
-/// 增强版组合过滤器服务 (无状态、纯依赖注入、零字符�?
+/// 增强版组合过滤器服务
 class EnhancedCompositeFilterService implements CallFilterInterface {
   final List<CallFilterInterface> _filters;
   final Future<EnhancedFilterConfigState> Function() _getConfig;
@@ -37,8 +35,8 @@ class EnhancedCompositeFilterService implements CallFilterInterface {
   EnhancedCompositeFilterService({
     required List<CallFilterInterface> filters,
     required Future<EnhancedFilterConfigState> Function() getConfig,
-  }) : _filters = filters,
-       _getConfig = getConfig;
+  })  : _filters = filters,
+        _getConfig = getConfig;
 
   @override
   CallFilterType get filterType => CallFilterType.basicRule;
@@ -48,7 +46,6 @@ class EnhancedCompositeFilterService implements CallFilterInterface {
     final config = await _getConfig();
     final simSlotIndex = simInfo?.simSlotIndex;
 
-    // 按照过滤链顺序依次检查各个过滤器
     for (final filter in _filters) {
       bool? slotSetting;
       if (simSlotIndex != null) {
@@ -59,9 +56,7 @@ class EnhancedCompositeFilterService implements CallFilterInterface {
           true;
 
       if (isEnabled) {
-        // 应用过滤器规�?
         if (!await filter.shouldAcceptCall(phoneNumber, simInfo: simInfo)) {
-          // 如果任何一个过滤器拒绝，流水线直接截断，返回拒�?
           return false;
         }
       }
@@ -69,7 +64,6 @@ class EnhancedCompositeFilterService implements CallFilterInterface {
     return true;
   }
 
-  /// 保持向后兼容的方法（供外�?handler 平滑调用�?
   Future<bool> shouldAcceptCallWithSim(String phoneNumber, {SimInfo? simInfo}) {
     return shouldAcceptCall(phoneNumber, simInfo: simInfo);
   }

@@ -1,0 +1,23 @@
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
+
+/// 插件管理服务的配置管理类
+class PluginManagerConfig {
+  final ConfigRepository _configRepository;
+
+  PluginManagerConfig({required ConfigRepository configRepository})
+      : _configRepository = configRepository;
+
+  Future<void> saveDefaultStorageDirectory(String path) async {
+    await _configRepository.saveConfig(
+      'config_defaultExternalStorageDirectory',
+      {'value': path},
+    );
+  }
+
+  Future<String?> getDefaultStorageDirectory() async {
+    final config = await _configRepository.getConfig(
+      'config_defaultExternalStorageDirectory',
+    );
+    return config?['value'] as String?;
+  }
+}

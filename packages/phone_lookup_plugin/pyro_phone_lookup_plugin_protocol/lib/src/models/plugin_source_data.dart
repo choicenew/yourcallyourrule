@@ -26,4 +26,6 @@ abstract class PluginSourceData with _$PluginSourceData {
   factory PluginSourceData.fromMap(Map<String, dynamic> map) => PluginSourceData.fromJson(map);
 
   Map<String, dynamic> toMap() => toJson();
+
+  String get id => phoneNumber ?? name ?? '';
 }

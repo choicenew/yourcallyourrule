@@ -12,8 +12,8 @@ part 'local_predefined_label_datasource.g.dart';
 
 @Riverpod(keepAlive: true)
 LocalPredefinedLabelDataSource localPredefinedLabelDataSource(Ref ref) {
-  final databaseService = ref.watch(databaseServiceProvider);
-  return databaseService.localPredefinedLabelDataSource;
+  final db = ref.watch(localDatabaseProvider);
+  return LocalPredefinedLabelDataSource(db);
 }
 
 abstract class PredefinedLabelModelMapper {

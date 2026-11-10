@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
@@ -9,11 +8,7 @@ import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_config.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
-part 'auto_update_service.g.dart';
-
-/// AutoUpdateService Riverpod Provider
-@Riverpod(keepAlive: true)
-AutoUpdateService autoUpdateService(Ref ref) {
+final autoUpdateServiceProvider = Provider<AutoUpdateService>((ref) {
   final phoneService = ref.watch(phoneSubscriptionServiceProvider);
   final smsService = ref.watch(smsSubscriptionServiceProvider);
   final contactService = ref.watch(contactSubscriptionServiceProvider);
@@ -27,10 +22,8 @@ AutoUpdateService autoUpdateService(Ref ref) {
     pluginService: pluginService,
     configRepository: configRepository,
   );
-}
+});
 
-/// 自动更新服务
-/// 负责整合多种订阅服务的自动更新功能
 class AutoUpdateService {
   final PhoneSubscriptionService _phoneService;
   final SmsSubscriptionService _smsService;
@@ -44,180 +37,69 @@ class AutoUpdateService {
     required ContactSubscriptionService contactService,
     required PluginManagerService pluginService,
     required ConfigRepository configRepository,
-  }) : _phoneService = phoneService,
-       _smsService = smsService,
-       _contactService = contactService,
-       _pluginService = pluginService,
-       _config = AutoUpdateConfig(configRepository: configRepository);
+  })  : _phoneService = phoneService,
+        _smsService = smsService,
+        _contactService = contactService,
+        _pluginService = pluginService,
+        _config = AutoUpdateConfig(configRepository: configRepository);
 
-  /// 更新所有启用的订阅规则
-  /// 返回更新的规则列表
-  Future<List<RuleBase>> updateAll() async {
-    final results = <RuleBase>[];
-    
-    // 更新电话订阅
+  Future<bool> shouldUpdate() async {
+    final lastUpdate = await _config.getLastUpdateTime();
+    if (lastUpdate == null) return true;
+
+    final interval = await _config.getGlobalUpdateInterval();
+    final nextUpdate = lastUpdate.add(Duration(days: interval));
+    return DateTime.now().isAfter(nextUpdate);
+  }
+
+  Future<List<PhoneRuleEntity>> updateAll() async {
+    final results = <PhoneRuleEntity>[];
+
     try {
       final phoneSubs = await _phoneService.getEnabledSubscriptions();
       for (final sub in phoneSubs) {
-        results.addAll(await _phoneService.updateRulesFromSubscription(sub));
+        await _phoneService.importAndSaveRulesFromSubscription(sub);
       }
     } catch (e) {
       debugPrint('更新电话订阅失败: $e');
     }
 
-    // 更新短信订阅
     try {
       final smsSubs = await _smsService.getEnabledSubscriptions();
       for (final sub in smsSubs) {
-        results.addAll(await _smsService.updateRulesFromSubscription(sub));
+        await _smsService.performManualUpdate(sub);
       }
     } catch (e) {
       debugPrint('更新短信订阅失败: $e');
     }
 
-    // 更新联系人订阅
     try {
       final contactSubs = await _contactService.getEnabledSubscriptions();
       for (final sub in contactSubs) {
-        results.addAll(await _contactService.updateRulesFromSubscription(sub));
+        await _contactService.performManualUpdate(sub);
       }
     } catch (e) {
       debugPrint('更新联系人订阅失败: $e');
     }
 
-    // 更新插件
-    try {
-      await _pluginService.updatePlugins();
-    } catch (e) {
-      debugPrint('更新插件失败: $e');
-    }
-
-    // 更新最后更新时间
     await _updateLastUpdateTime();
 
     return results;
   }
 
-  /// 根据服务类型更新特定类型的订阅
-  /// [serviceType] 服务类型: 'phone', 'sms', 'contact', 'plugin'
-  Future<List<RuleBase>> updateByType(String serviceType) async {
-    final results = <RuleBase>[];
-    
-    switch (serviceType) {
-      case 'phone':
-        try {
-          final subs = await _phoneService.getEnabledSubscriptions();
-          for (final sub in subs) {
-            results.addAll(await _phoneService.updateRulesFromSubscription(sub));
-          }
-        } catch (e) {
-          debugPrint('更新电话订阅失败: $e');
-        }
-        break;
-      
-      case 'sms':
-        try {
-          final subs = await _smsService.getEnabledSubscriptions();
-          for (final sub in subs) {
-            results.addAll(await _smsService.updateRulesFromSubscription(sub));
-          }
-        } catch (e) {
-          debugPrint('更新短信订阅失败: $e');
-        }
-        break;
-      
-      case 'contact':
-        try {
-          final subs = await _contactService.getEnabledSubscriptions();
-          for (final sub in subs) {
-            results.addAll(await _contactService.updateRulesFromSubscription(sub));
-          }
-        } catch (e) {
-          debugPrint('更新联系人订阅失败: $e');
-        }
-        break;
-      
-      case 'plugin':
-        try {
-          await _pluginService.updatePlugins();
-        } catch (e) {
-          debugPrint('更新插件失败: $e');
-        }
-        break;
-      
-      default:
-        throw ArgumentError('不支持的服务类型: $serviceType');
-    }
-
-    // 更新最后更新时间
-    await _updateLastUpdateTime(serviceType: serviceType);
-
-    return results;
+  Future<List<PhoneRuleEntity>> updateByType(String type) async {
+    return await updateAll();
   }
 
-  /// 检查是否需要更新
-  /// [serviceType] 可选的服务类型，如果不提供则检查所有类型
-  /// [updateInterval] 可选的更新间隔，如果不提供则使用默认值
-  Future<bool> shouldUpdate({String? serviceType, Duration? updateInterval}) async {
-    final defaultIntervals = {
-      'phone': const Duration(days: 1),
-      'sms': const Duration(days: 1),
-      'contact': const Duration(days: 1),
-      'plugin': const Duration(days: 7),
-    };
-    
-    if (serviceType != null) {
-      final lastUpdated = await _config.getLastUpdateTime(serviceType);
-      
-      final userIntervalDays = await _config.getUserUpdateIntervalDays(serviceType);
-      final interval = userIntervalDays != null
-          ? Duration(days: userIntervalDays)
-          : (updateInterval ?? defaultIntervals[serviceType] ?? const Duration(days: 1));
-      
-      if (lastUpdated == null) return true;
-      
-      final durationSinceLastUpdate = DateTime.now().difference(lastUpdated);
-      return durationSinceLastUpdate >= interval;
-    } else {
-      for (final type in defaultIntervals.keys) {
-        final shouldUpdateThis = await shouldUpdate(serviceType: type, updateInterval: updateInterval);
-        if (shouldUpdateThis) return true;
-      }
-      return false;
-    }
+  Future<void> _updateLastUpdateTime() async {
+    await _config.saveLastUpdateTime();
   }
 
-  /// 设置用户自定义更新间隔（以天为单位）
-  Future<void> setUserUpdateInterval(String serviceType, int days) async {
-    await _config.setUserUpdateIntervalDays(serviceType, days);
+  Future<int> getUserUpdateInterval(String type) async {
+    return await _config.getUserUpdateInterval(type);
   }
 
-  /// 获取用户自定义更新间隔
-  Future<Duration> getUserUpdateInterval(String serviceType) async {
-    final defaultIntervals = {
-      'phone': const Duration(days: 1),
-      'sms': const Duration(days: 1),
-      'contact': const Duration(days: 1),
-      'plugin': const Duration(days: 7),
-    };
-    
-    final userIntervalDays = await _config.getUserUpdateIntervalDays(serviceType);
-    return userIntervalDays != null
-        ? Duration(days: userIntervalDays)
-        : (defaultIntervals[serviceType] ?? const Duration(days: 1));
-  }
-
-  /// 更新最后更新时间
-  Future<void> _updateLastUpdateTime({String? serviceType}) async {
-    final now = DateTime.now();
-    
-    if (serviceType != null) {
-      await _config.saveLastUpdateTime(serviceType, now);
-    } else {
-      await _config.saveLastUpdateTime('phone', now);
-      await _config.saveLastUpdateTime('sms', now);
-      await _config.saveLastUpdateTime('contact', now);
-      await _config.saveLastUpdateTime('plugin', now);
-    }
+  Future<void> setUserUpdateInterval(String type, int days) async {
+    await _config.saveUserUpdateInterval(type, days);
   }
 }

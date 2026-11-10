@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
-import 'package:yourcallyourrule/features/common/value_objects/url.dart';
-import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -14,7 +12,7 @@ class ContactSubscriptionPage extends ConsumerStatefulWidget {
 }
 
 class _ContactSubscriptionPageState extends ConsumerState<ContactSubscriptionPage> {
-  List<ContactSubscription> _subscriptions = [];
+  List<PhoneSubscriptionPayload> _subscriptions = [];
   bool _isLoading = true;
 
   @override
@@ -36,57 +34,43 @@ class _ContactSubscriptionPageState extends ConsumerState<ContactSubscriptionPag
         _isLoading = false;
       });
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.loadSubscriptionsFailed(e.toString()))),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Load subscriptions failed: $e')),
+        );
+      }
       setState(() {
         _isLoading = false;
       });
     }
   }
 
-  Future<void> _toggleSubscriptionStatus(ContactSubscription subscription) async {
+  Future<void> _toggleSubscriptionStatus(PhoneSubscriptionPayload subscription) async {
     final subscriptionService = ref.read(contactSubscriptionServiceProvider);
+    final isEnabled = subscription.rawJsonMap['isEnabled'] as bool? ?? true;
     try {
-      if (subscription.isEnabled) {
+      if (isEnabled) {
         await subscriptionService.disableSubscription(subscription);
       } else {
         await subscriptionService.enableSubscription(subscription);
       }
       await _loadSubscriptions();
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.changeSubscriptionStatusFailed(e.toString()))),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Update subscription failed: $e')),
+        );
+      }
     }
   }
 
-  Future<void> _updateSubscription(ContactSubscription subscription) async {
-    setState(() {
-      _isLoading = true;
-    });
-
-    final subscriptionService = ref.read(contactSubscriptionServiceProvider);
-    try {
-      final updatedRules = await subscriptionService.updateRulesFromSubscription(subscription);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.updateSuccess('Contact', updatedRules.length))),
-      );
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.updateSubscriptionFailed(e.toString()))),
-      );
-    } finally {
-      await _loadSubscriptions();
-    }
-  }
-
-  Future<void> _deleteSubscription(ContactSubscription subscription) async {
+  Future<void> _deleteSubscription(PhoneSubscriptionPayload subscription) async {
+    final name = subscription.rawJsonMap['name'] as String? ?? 'Subscription';
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.deleteSubscription),
-        content: Text(AppLocalizations.of(context)!.deleteSubscriptionConfirm(subscription.name)),
+        title: const Text('Delete Subscription'),
+        content: Text('Confirm delete subscription: $name?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
@@ -103,15 +87,19 @@ class _ContactSubscriptionPageState extends ConsumerState<ContactSubscriptionPag
     if (confirmed == true) {
       final subscriptionService = ref.read(contactSubscriptionServiceProvider);
       try {
-        await subscriptionService.deleteSubscription(subscription.id);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionDeleted)),
-        );
+        await subscriptionService.deleteSubscription(subscription.payloadId);
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Subscription deleted')),
+          );
+        }
         await _loadSubscriptions();
       } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.deleteSubscriptionFailed(e.toString()))),
-        );
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Delete subscription failed: $e')),
+          );
+        }
       }
     }
   }
@@ -123,23 +111,23 @@ class _ContactSubscriptionPageState extends ConsumerState<ContactSubscriptionPag
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.addSubscription),
+        title: const Text('Add Subscription'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
               controller: nameController,
-              decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.subscriptionName,
-                hintText: AppLocalizations.of(context)!.enterSubscriptionName,
+              decoration: const InputDecoration(
+                labelText: 'Subscription Name',
+                hintText: 'Enter subscription name',
               ),
             ),
             const SizedBox(height: 16),
             TextField(
               controller: urlController,
-              decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.subscriptionUrl,
-                hintText: AppLocalizations.of(context)!.enterSubscriptionUrl,
+              decoration: const InputDecoration(
+                labelText: 'Subscription URL',
+                hintText: 'Enter subscription URL',
               ),
             ),
           ],
@@ -153,29 +141,33 @@ class _ContactSubscriptionPageState extends ConsumerState<ContactSubscriptionPag
             onPressed: () async {
               final name = nameController.text.trim();
               final url = urlController.text.trim();
-              
+
               if (name.isEmpty || url.isEmpty) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(AppLocalizations.of(context)!.enterValidNameAndUrl)),
+                  const SnackBar(content: Text('Please fill all fields')),
                 );
                 return;
               }
 
-              final subscriptionService = ref.read(contactSubscriptionServiceProvider);
               try {
+                final subscriptionService = ref.read(contactSubscriptionServiceProvider);
                 await subscriptionService.addSubscription(name, url);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionAddSuccess(name))),
-                );
-                Navigator.of(context).pop();
+                if (context.mounted) {
+                  Navigator.of(context).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Subscription added successfully')),
+                  );
+                }
                 await _loadSubscriptions();
               } catch (e) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(AppLocalizations.of(context)!.addSubscriptionFailed(e.toString()))),
-                );
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Add subscription failed: $e')),
+                  );
+                }
               }
             },
-            child: Text(AppLocalizations.of(context)!.add),
+            child: const Text('Add'),
           ),
         ],
       ),
@@ -186,7 +178,7 @@ class _ContactSubscriptionPageState extends ConsumerState<ContactSubscriptionPag
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.serviceTypeContact),
+        title: const Text('Contact Subscriptions'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
@@ -195,7 +187,7 @@ class _ContactSubscriptionPageState extends ConsumerState<ContactSubscriptionPag
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: _showAddSubscriptionDialog,
-            tooltip: AppLocalizations.of(context)!.addSubscription,
+            tooltip: 'Add Subscription',
           ),
         ],
       ),
@@ -206,155 +198,49 @@ class _ContactSubscriptionPageState extends ConsumerState<ContactSubscriptionPag
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.contacts_outlined, size: 64, color: Colors.grey),
+                      const Icon(Icons.rss_feed, size: 64, color: Colors.grey),
                       const SizedBox(height: 16),
-                      Text(AppLocalizations.of(context)!.noSubscriptions, style: const TextStyle(fontSize: 18, color: Colors.grey)),
+                      const Text('No subscriptions found', style: TextStyle(fontSize: 18, color: Colors.grey)),
                       const SizedBox(height: 24),
                       ElevatedButton.icon(
                         icon: const Icon(Icons.add),
-                        label: Text(AppLocalizations.of(context)!.addSubscription),
+                        label: const Text('Add Subscription'),
                         onPressed: _showAddSubscriptionDialog,
                       ),
                     ],
                   ),
                 )
-              : ListView(
+              : ListView.builder(
                   padding: const EdgeInsets.all(16.0),
-                  children: [
-                    _buildInfoCard(),
-                    const SizedBox(height: 16),
-                    ..._subscriptions.map(_buildSubscriptionCard),
-                  ],
-                ),
-    );
-  }
+                  itemCount: _subscriptions.length,
+                  itemBuilder: (context, index) {
+                    final subscription = _subscriptions[index];
+                    final name = subscription.rawJsonMap['name'] as String? ?? 'Subscription';
+                    final url = subscription.rawJsonMap['url'] as String? ?? '';
+                    final isEnabled = subscription.rawJsonMap['isEnabled'] as bool? ?? true;
 
-  Widget _buildInfoCard() {
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          children: [
-            const Icon(Icons.info_outline, color: Colors.blue, size: 24),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.aboutContactSubscription,
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    AppLocalizations.of(context)!.contactSubscriptionDescription,
-                    style: const TextStyle(fontSize: 14, color: Colors.grey),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSubscriptionCard(ContactSubscription subscription) {
-    final lastUpdated = subscription.lastUpdated;
-    final formattedDate = '${lastUpdated.year}-${lastUpdated.month.toString().padLeft(2, '0')}-${lastUpdated.day.toString().padLeft(2, '0')} ${lastUpdated.hour.toString().padLeft(2, '0')}:${lastUpdated.minute.toString().padLeft(2, '0')}';
-
-    return Card(
-      elevation: 2,
-      margin: const EdgeInsets.only(bottom: 16),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        subscription.name,
-                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        subscription.url.toString(),
-                        style: const TextStyle(fontSize: 12, color: Colors.grey),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                            decoration: BoxDecoration(
-                              color: Colors.green.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(4),
+                    return Card(
+                      margin: const EdgeInsets.only(bottom: 12.0),
+                      child: ListTile(
+                        title: Text(name),
+                        subtitle: Text(url),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Switch(
+                              value: isEnabled,
+                              onChanged: (_) => _toggleSubscriptionStatus(subscription),
                             ),
-                            child: Text(
-                              AppLocalizations.of(context)!.synchronized,
-                              style: const TextStyle(fontSize: 12, color: Colors.green),
+                            IconButton(
+                              icon: const Icon(Icons.delete, color: Colors.red),
+                              onPressed: () => _deleteSubscription(subscription),
                             ),
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            '${AppLocalizations.of(context)!.lastUpdated}: $formattedDate',
-                            style: const TextStyle(fontSize: 12, color: Colors.grey),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ],
-                  ),
+                    );
+                  },
                 ),
-                Switch(
-                  value: subscription.isEnabled,
-                  onChanged: (value) => _toggleSubscriptionStatus(subscription),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton.icon(
-                    icon: const Icon(Icons.sync),
-                    label: Text(AppLocalizations.of(context)!.syncNow),
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    onPressed: () => _updateSubscription(subscription),
-                  ),
-                ),
-                const SizedBox(width: 8),
-                OutlinedButton.icon(
-                  icon: const Icon(Icons.delete),
-                  label: Text(AppLocalizations.of(context)!.deleteButton),
-                  style: OutlinedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  onPressed: () => _deleteSubscription(subscription),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

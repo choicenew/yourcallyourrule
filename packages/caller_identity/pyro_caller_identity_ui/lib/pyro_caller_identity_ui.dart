@@ -5,7 +5,7 @@ import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart
 
 /// 100% 遵照 SKILL 规范：富 UI 元素、原生 Theme.of(context)、withValues(alpha: 0.8)
 class PyroCallerProfileCardWidget extends StatelessWidget {
-  final CallerProfile profile;
+  final CallerIdData profile;
   final Widget? avatar;
   final VoidCallback? onTap;
 
@@ -57,7 +57,3 @@ class PyroCallerProfileCardWidget extends StatelessWidget {
     );
   }
 }
-
-/// 兼容别名导出
-typedef CallerProfileTileView = PyroCallerProfileCardWidget;
-typedef CallerIdentityTileView = PyroCallerProfileCardWidget;

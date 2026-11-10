@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 
-import 'package:yourcallyourrule/features/phone/services/subscription_service_base.dart';
+import 'package:yourcallyourrule/features/phone_subscription/services/subscription_service_base.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通用订阅管理组件
-/// 用于处理各种类型的订阅管理，包括加载、启�?禁用、更新、删除订阅等功能
-/// [T] 是订阅实体类�?
+/// 用于处理各种类型的订阅管理，包括加载、启�?禁用、更新、删除订阅等功能
+/// [T] 是订阅实体类�?
 /// [ID] 是实体ID类型
 class SubscriptionManagementWidget<T extends BaseEntity, ID> extends StatefulWidget {
   /// 订阅服务
@@ -18,25 +18,25 @@ class SubscriptionManagementWidget<T extends BaseEntity, ID> extends StatefulWid
   /// 是否正在加载
   final bool isLoading;
   
-  /// 加载订阅的回�?
+  /// 加载订阅的回�?
   final Future<void> Function() onLoadSubscriptions;
   
-  /// 构建订阅卡片的回�?
+  /// 构建订阅卡片的回�?
   final Widget Function(T subscription) buildSubscriptionCard;
   
-  /// 构建信息卡片的回�?
+  /// 构建信息卡片的回�?
   final Widget Function() buildInfoCard;
   
-  /// 添加订阅的回�?
+  /// 添加订阅的回�?
   final void Function() onAddSubscription;
   
   /// 页面标题
   final String title;
   
-  /// 空状态图�?
+  /// 空状态图�?
   final IconData emptyIcon;
   
-  /// 空状态文�?
+  /// 空状态文�?
   final String emptyText;
 
   const SubscriptionManagementWidget({
@@ -113,7 +113,7 @@ class SubscriptionManagementWidgetState<T extends BaseEntity, ID> extends State<
     );
   }
 
-  /// 切换订阅状态（启用/禁用�?
+  /// 切换订阅状态（启用/禁用�?
   Future<void> toggleSubscriptionStatus(T subscription, bool isEnabled) async {
     try {
       if (isEnabled) {

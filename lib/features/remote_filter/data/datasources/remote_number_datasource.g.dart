@@ -32,7 +32,7 @@ final class RemoteNumberDataSourceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => _$remoteNumberDataSourceHash();
+  String debugGetCreateSourceHash() => r'remote_number_datasource_hash_v2';
 
   @$internal
   @override
@@ -53,6 +53,3 @@ final class RemoteNumberDataSourceProvider
     );
   }
 }
-
-String _$remoteNumberDataSourceHash() =>
-    r'3d16dfc495d73dfa22cddcdef6aef2ed034c3694';

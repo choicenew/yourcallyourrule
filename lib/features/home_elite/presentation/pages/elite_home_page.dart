@@ -1,8 +1,3 @@
-// -----------------------------------------------------------------------------
-// 文件: elite_home_page.dart
-// 描述: Elite 多巴胺极简主页，聚焦实时安全状态、一级拦截控制与社区判官投票�?
-// -----------------------------------------------------------------------------
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,8 +12,7 @@ import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_stats_insight_card.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-// ------------------- Widget 定义 -------------------
-
+/// Elite 多巴胺极简主页
 class EliteHomePage extends ConsumerStatefulWidget {
   const EliteHomePage({super.key});
 
@@ -73,8 +67,6 @@ class _EliteHomePageState extends ConsumerState<EliteHomePage> {
     );
   }
 }
-
-// ------------------- Widget Previewer 支持 -------------------
 
 @Preview(name: 'Elite Home Page', group: 'Elite Showcase')
 Widget previewEliteHomePage() {

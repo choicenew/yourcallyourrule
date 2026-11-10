@@ -5,7 +5,6 @@ import 'package:yourcallyourrule/features/call/call_filter/config/call_filter_co
 
 part 'call_filter_provider.g.dart';
 
-/// 集中�?Key 常量定义库（消除手写魔术字符串）
 abstract class CallFilterConfigKeys {
   static const String globalCallFilter = 'config_call_filter';
   static String simSlotCallFilter(int index) => 'config_call_filter_sim_$index';
@@ -13,7 +12,6 @@ abstract class CallFilterConfigKeys {
   static const String enabledField = 'enabled';
 }
 
-/// “多卡槽独立控制”开关的强类型配置实体类
 class SeparateSimsState {
   final bool isEnabled;
 
@@ -42,10 +40,9 @@ class CallFilterConfigNotifier extends _$CallFilterConfigNotifier {
     if (configMap != null) {
       return CallFilterConfig.fromMap(configMap);
     }
-    return CallFilterConfig(); // 返回默认配置
+    return CallFilterConfig();
   }
 
-  /// 提供一个统一的更新方法（同步乐观更新，避�?AsyncValue.loading 造成界面闪烁与状态回弹）
   Future<void> updateConfig(CallFilterConfig newConfig) async {
     state = AsyncValue.data(newConfig);
     try {
@@ -56,7 +53,6 @@ class CallFilterConfigNotifier extends _$CallFilterConfigNotifier {
   }
 }
 
-/// 分卡槽独立通话过滤配置 Notifier（按 simSlotIndex 独立存取与维护配置）
 @Riverpod(keepAlive: true)
 class SimSlotCallFilterConfigNotifier extends _$SimSlotCallFilterConfigNotifier {
   ConfigRepository get _configRepo => ref.read(configRepositoryProvider);
@@ -67,7 +63,6 @@ class SimSlotCallFilterConfigNotifier extends _$SimSlotCallFilterConfigNotifier 
     if (configMap != null) {
       return CallFilterConfig.fromMap(configMap);
     }
-    // 未设置时从全局配置继承基础初�?
     final globalConfig = await ref.read(callFilterConfigProvider.future);
     return globalConfig.copyWith();
   }
@@ -82,7 +77,6 @@ class SimSlotCallFilterConfigNotifier extends _$SimSlotCallFilterConfigNotifier 
   }
 }
 
-/// 是否开启“多卡槽独立控制”开关的持久�?Notifier (强实体绑定，keepAlive: true 保证切页面不释放状�?
 @Riverpod(keepAlive: true)
 class SeparateSimsNotifier extends _$SeparateSimsNotifier {
   ConfigRepository get _configRepo => ref.read(configRepositoryProvider);
@@ -97,14 +91,12 @@ class SeparateSimsNotifier extends _$SeparateSimsNotifier {
   }
 
   Future<void> setSeparateSims(bool value) async {
-    // 1. 同步乐观更新状态，保证 UI 绝不�?AsyncValue.loading 丢失 value 或闪烁回�?
     state = AsyncValue.data(value);
-    // 2. 后台异步保存�?SharedPreferences 持久�?
     try {
       final simState = SeparateSimsState(isEnabled: value);
       await _configRepo.saveConfig(CallFilterConfigKeys.separateSims, simState.toMap());
     } catch (e) {
-      debugPrint('[SeparateSimsNotifier] 持久化保存失�? $e');
+      debugPrint('[SeparateSimsNotifier] 持久化保存失败: $e');
     }
   }
 }

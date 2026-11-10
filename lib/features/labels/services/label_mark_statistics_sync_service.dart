@@ -4,11 +4,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_service.dart';
+import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_service.g.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.g.dart';
 
 part 'label_mark_statistics_sync_service.g.dart';
 
-/// LabelMarkStatisticsSyncService �?@Riverpod Provider
+/// LabelMarkStatisticsSyncService Riverpod Provider
 @Riverpod(keepAlive: true)
 LabelMarkStatisticsSyncService labelMarkStatisticsSyncService(Ref ref) {
   final statisticsService = ref.watch(labelMarkStatisticsServiceProvider);
@@ -16,8 +18,7 @@ LabelMarkStatisticsSyncService labelMarkStatisticsSyncService(Ref ref) {
   return LabelMarkStatisticsSyncService(statisticsService, predefinedLabelService);
 }
 
-/// 标签标记统计同步服务�?/// 负责监听标签电话条目流并记录标记统计
-/// 类似于LabelToRemoteSyncService，但专门用于标记统计
+/// 标签标记统计同步服务类
 class LabelMarkStatisticsSyncService {
   final LabelMarkStatisticsService _statisticsService;
   final PredefinedLabelService _predefinedLabelService;
@@ -28,38 +29,30 @@ class LabelMarkStatisticsSyncService {
     this._predefinedLabelService,
   );
 
-  /// 开始监听标签电话条目流并记录标记统�?  void startSync(Stream<LabelPhoneEntry> labelPhoneEntryStream) {
+  void startSync(Stream<LabelPhoneEntry> labelPhoneEntryStream) {
     _dataSubscription?.cancel();
-    
     _dataSubscription = labelPhoneEntryStream.listen(_handleLabelData);
   }
 
-  /// 处理单个标签数据并记录标记统�?  Future<void> syncSingleLabel(LabelPhoneEntry labelPhoneEntry) async {
+  Future<void> syncSingleLabel(LabelPhoneEntry labelPhoneEntry) async {
     await _handleLabelData(labelPhoneEntry);
   }
 
-  /// 处理标签数据并记录标记统�?  Future<void> _handleLabelData(LabelPhoneEntry labelPhoneEntry) async {
-    // 获取电话号码
+  Future<void> _handleLabelData(LabelPhoneEntry labelPhoneEntry) async {
     final phoneNumber = labelPhoneEntry.phoneNumber;
-    
-    // 获取标签ID
     final labelId = labelPhoneEntry.labelId;
-    
-    // 获取预定义标签信�?    final predefinedLabel = await _predefinedLabelService.getLabelById(labelId);
-    
-    // 如果标签不是"unknown"，则记录标记统计
+    final predefinedLabel = await _predefinedLabelService.getLabelById(labelId);
+
     if (predefinedLabel != null && predefinedLabel.text.toLowerCase() != 'unknown') {
       await _statisticsService.recordMark(phoneNumber, labelId);
     }
   }
 
-  /// 停止同步
   void stopSync() {
     _dataSubscription?.cancel();
     _dataSubscription = null;
   }
 
-  /// 释放资源
   void dispose() {
     stopSync();
   }

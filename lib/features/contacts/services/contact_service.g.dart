@@ -31,7 +31,7 @@ final class ContactServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => _$contactServiceHash();
+  String debugGetCreateSourceHash() => r'contact_service_hash_v2';
 
   @$internal
   @override
@@ -51,5 +51,3 @@ final class ContactServiceProvider
     );
   }
 }
-
-String _$contactServiceHash() => r'f6bdc87b992010321bf93b88aa5797a885036f88';

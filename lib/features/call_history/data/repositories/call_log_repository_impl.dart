@@ -1,49 +1,72 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:drift/drift.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:yourcallyourrule/features/call_history/repositories/call_log_repository.dart';
-import 'package:yourcallyourrule/features/call_history/data/datasources/local_call_log_datasource.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 part 'call_log_repository_impl.g.dart';
 
-/// 通话日志仓库提供者
+/// 通话日志仓库提供者 (直连 Drift LocalDatabase)
 @Riverpod(keepAlive: true)
 CallLogRepository callLogRepository(Ref ref) {
-  final localCallLogDataSource = ref.watch(localCallLogDataSourceProvider);
-  return CallLogRepositoryImpl(localCallLogDataSource);
+  final db = ref.watch(localDatabaseProvider);
+  return CallLogRepositoryImpl(db);
 }
 
-/// 通话日志仓库实现类
+/// 通话日志仓库实现类 (彻底去除中间 DataSource 层)
 class CallLogRepositoryImpl implements CallLogRepository {
-  final LocalCallLogDataSource _dataSource;
+  final LocalDatabase _db;
+  final Uuid _uuid = const Uuid();
 
-  CallLogRepositoryImpl(this._dataSource);
+  CallLogRepositoryImpl(this._db);
+
+  CallHistoryCompanion _toCompanion(CallLogEntry log) {
+    final id = log.id.isEmpty ? _uuid.v4() : log.id;
+    final dt = log.timestamp != null
+        ? DateTime.fromMillisecondsSinceEpoch(log.timestamp!)
+        : DateTime.now();
+    return CallHistoryCompanion.insert(
+      id: id,
+      phoneNumber: log.phoneNumber,
+      callType: log.callType,
+      name: Value(log.name),
+      timestamp: dt.toIso8601String(),
+      duration: Value(log.durationSeconds != null ? log.durationSeconds! * 1000 : null),
+      countryIso: Value(log.location),
+    );
+  }
 
   @override
   Future<List<CallLogEntry>> getAll() async {
-    return await _dataSource.getAll();
+    final rows = await _db.select(_db.callHistory).get();
+    return rows.map((row) => CallLogEntry.fromMap(row.toJson())).toList();
   }
 
   @override
   Future<CallLogEntry?> getById(String id) async {
-    return await _dataSource.getById(id);
+    final row = await (_db.select(_db.callHistory)..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
+    return row != null ? CallLogEntry.fromMap(row.toJson()) : null;
   }
 
   @override
   Future<CallLogEntry> save(CallLogEntry entity) async {
-    await _dataSource.insert(entity);
+    final companion = _toCompanion(entity);
+    await _db.into(_db.callHistory).insertOnConflictUpdate(companion);
     return entity;
   }
 
   @override
   Future<CallLogEntry> update(CallLogEntry entity) async {
-    await _dataSource.update(entity);
+    await save(entity);
     return entity;
   }
 
   @override
   Future<void> updateAll(List<CallLogEntry> entities) async {
-    await _dataSource.updateAll(entities);
+    for (final entity in entities) {
+      await save(entity);
+    }
   }
 
   @override
@@ -53,14 +76,14 @@ class CallLogRepositoryImpl implements CallLogRepository {
 
   @override
   Future<bool> deleteById(String id) async {
-    await _dataSource.delete(id);
-    return true;
+    final count = await (_db.delete(_db.callHistory)..where((tbl) => tbl.id.equals(id))).go();
+    return count > 0;
   }
 
   @override
   Future<bool> deleteAll(List<CallLogEntry> entities) async {
     final ids = entities.map((e) => e.id).toList();
-    await _dataSource.deleteAll(ids);
+    await (_db.delete(_db.callHistory)..where((tbl) => tbl.id.isIn(ids))).go();
     return true;
   }
 
@@ -79,7 +102,8 @@ class CallLogRepositoryImpl implements CallLogRepository {
 
   @override
   Future<List<CallLogEntry>> getLogsByPhoneNumber(String phoneNumber) async {
-    return await _dataSource.getByNumber(phoneNumber);
+    final rows = await (_db.select(_db.callHistory)..where((tbl) => tbl.phoneNumber.equals(phoneNumber))).get();
+    return rows.map((row) => CallLogEntry.fromMap(row.toJson())).toList();
   }
 
   @override
@@ -110,7 +134,8 @@ class CallLogRepositoryImpl implements CallLogRepository {
   Future<int> deleteLogsByDateRange(DateTime startDate, DateTime endDate) async {
     final logs = await getLogsByDateRange(startDate, endDate);
     final ids = logs.map((l) => l.id).toList();
-    return await _dataSource.deleteAll(ids);
+    if (ids.isEmpty) return 0;
+    return await (_db.delete(_db.callHistory)..where((tbl) => tbl.id.isIn(ids))).go();
   }
 
   @override
@@ -136,22 +161,18 @@ class CallLogRepositoryImpl implements CallLogRepository {
   }
 
   @override
-  Future<void> markAsRead(String logId) async {
-    // CallLogEntry read state handling if needed
-  }
+  Future<void> markAsRead(String logId) async {}
 
   @override
-  Future<void> markAllAsRead() async {
-    // CallLogEntry read state handling if needed
-  }
+  Future<void> markAllAsRead() async {}
 
   @override
-  Future<void> refreshLogs() async {
-    return;
-  }
+  Future<void> refreshLogs() async {}
 
   @override
   Stream<List<CallLogEntry>> watchLogs() {
-    return _dataSource.watchAll();
+    return _db.select(_db.callHistory).watch().map(
+      (rows) => rows.map((row) => CallLogEntry.fromMap(row.toJson())).toList(),
+    );
   }
 }

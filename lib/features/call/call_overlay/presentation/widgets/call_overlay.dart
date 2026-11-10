@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
 import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/call_overlay_content_builder.dart';
 
@@ -26,16 +25,14 @@ class CallOverlay extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // 【关键修改点�? watch 统一�?provider
     final asyncConfig = ref.watch(callOverlayStyleSecurityProvider);
 
     return asyncConfig.when(
       loading: () => const Center(child: CircularProgressIndicator()),
       error: (err, stack) => Center(child: Text('Error: $err')),
       data: (config) {
-        // 【关键修改点�? read notifier 以便调用其方�?
         final notifier = ref.read(callOverlayStyleSecurityProvider.notifier);
-        
+
         final content = _buildOverlayContent(context, config, notifier);
 
         return isDismissible
@@ -59,8 +56,7 @@ class CallOverlay extends ConsumerWidget {
         config: config,
         simInfo: simInfo,
         stirInfo: stirInfo,
-        isDraggable: true, // 在预览界面，元素是可拖动�?
-        // 【关键修改点�? �?notifier 的方法作为回调传递下�?
+        isDraggable: true,
         onAvatarPositionChanged: notifier.updateAvatarPosition,
         onCarrierPositionChanged: notifier.updateCarrierPosition,
         onNamePositionChanged: notifier.updateNamePosition,

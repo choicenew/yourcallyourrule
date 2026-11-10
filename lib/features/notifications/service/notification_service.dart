@@ -1,5 +1,3 @@
-// features/notifications/services/notification_service.dart
-
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -11,9 +9,8 @@ import '../config/notification_config.dart';
 import 'notification_service_contract.dart';
 import 'package:go_router/go_router.dart';
 
-/// 基于 flutter_local_notifications �?NotificationService 实现
+/// 基于 flutter_local_notifications 的 NotificationService 实现
 class NotificationService implements NotificationServiceContract {
-  
   NotificationService() {
     _plugin = FlutterLocalNotificationsPlugin();
   }
@@ -23,7 +20,7 @@ class NotificationService implements NotificationServiceContract {
   Function(String actionId, Map<String, dynamic>? payload)? _onActionHandler;
   bool _isInitialized = false;
 
-  /// 预定义的通知配置，现在是需�?BuildContext 的静态方�?
+  /// 预定义的通知配置
   static NotificationConfig defaultConfig(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return NotificationConfig(
@@ -32,7 +29,7 @@ class NotificationService implements NotificationServiceContract {
       channelDescription: l10n.defaultNotificationsDescription,
     );
   }
-  
+
   static NotificationConfig blockedCallConfig(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return NotificationConfig(
@@ -66,7 +63,6 @@ class NotificationService implements NotificationServiceContract {
       priority: Priority.high,
       playSound: true,
       enableVibration: true,
-            // 【关键�? 将颜色设置为红色。Android 会用这个颜色给小图标着色�?
       color: Colors.red,
     );
   }
@@ -88,7 +84,7 @@ class NotificationService implements NotificationServiceContract {
 
     const initializationSettingsAndroid = AndroidInitializationSettings('ic_notification');
     const initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
-    
+
     await _plugin.initialize(
       settings: initializationSettings,
       onDidReceiveNotificationResponse: (response) {
@@ -143,32 +139,43 @@ class NotificationService implements NotificationServiceContract {
   }
 
   @override
-  void onNotificationTapped(Function(Map<String, dynamic>? payload) handler) { _onTapHandler = handler; }
-  @override
-  void onNotificationActionTapped(Function(String actionId, Map<String, dynamic>? payload) handler) { _onActionHandler = handler; }
+  void onNotificationTapped(Function(Map<String, dynamic>? payload) handler) {
+    _onTapHandler = handler;
+  }
 
-  /// 私有方法，用于确保通知渠道在使用前已被创建
+  @override
+  void onNotificationActionTapped(Function(String actionId, Map<String, dynamic>? payload) handler) {
+    _onActionHandler = handler;
+  }
+
   Future<void> _createNotificationChannel(NotificationConfig config) async {
     final androidChannel = AndroidNotificationChannel(
-      config.channelId, config.channelName,
-      description: config.channelDescription, importance: config.importance,
+      config.channelId,
+      config.channelName,
+      description: config.channelDescription,
+      importance: config.importance,
     );
-    await _plugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+    await _plugin
+        .resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
         ?.createNotificationChannel(androidChannel);
   }
 
   @override
   Future<void> showNotification({
-    required String title, required String body, required NotificationConfig config,
-    int notificationId = 0, Map<String, dynamic>? payload,
-    bool autoCancel = true, Duration? autoCancelDelay,
+    required String title,
+    required String body,
+    required NotificationConfig config,
+    int notificationId = 0,
+    Map<String, dynamic>? payload,
+    bool autoCancel = true,
+    Duration? autoCancelDelay,
     NotificationStyle? style,
   }) async {
     if (!_isInitialized) await initialize();
     await _createNotificationChannel(config);
-    
+
     AndroidNotificationDetails androidDetails = config.createAndroidDetails();
-    
+
     if (style != null) {
       AndroidBitmap<Object>? largeIcon;
       if (style.largeIconPath != null) {
@@ -195,7 +202,7 @@ class NotificationService implements NotificationServiceContract {
         channelShowBadge: config.showBadge,
       );
     }
-    
+
     final details = NotificationDetails(android: androidDetails);
 
     await _plugin.show(
@@ -213,18 +220,26 @@ class NotificationService implements NotificationServiceContract {
 
   @override
   Future<void> showNotificationWithActions({
-    required String title, required String body, required NotificationConfig config,
+    required String title,
+    required String body,
+    required NotificationConfig config,
     required List<NotificationAction> actions,
-    int notificationId = 0, Map<String, dynamic>? payload,
+    int notificationId = 0,
+    Map<String, dynamic>? payload,
   }) async {
     if (!_isInitialized) await initialize();
     await _createNotificationChannel(config);
-    final androidActions = actions.map((action) => AndroidNotificationAction(
-      action.id, action.title, showsUserInterface: !action.isBackground,
-    )).toList();
-    
+    final androidActions = actions
+        .map((action) => AndroidNotificationAction(
+              action.id,
+              action.title,
+              showsUserInterface: !action.isBackground,
+            ))
+        .toList();
+
     final androidDetails = AndroidNotificationDetails(
-      config.channelId, config.channelName,
+      config.channelId,
+      config.channelName,
       channelDescription: config.channelDescription,
       importance: config.importance,
       priority: config.priority,
@@ -235,7 +250,7 @@ class NotificationService implements NotificationServiceContract {
       color: config.color,
       actions: androidActions,
     );
-    
+
     final details = NotificationDetails(android: androidDetails);
     await _plugin.show(
       id: notificationId,
@@ -247,19 +262,29 @@ class NotificationService implements NotificationServiceContract {
   }
 
   @override
-  Future<void> cancelNotification(int notificationId) async { await _plugin.cancel(id: notificationId); }
+  Future<void> cancelNotification(int notificationId) async {
+    await _plugin.cancel(id: notificationId);
+  }
+
   @override
-  Future<void> cancelAllNotifications() async { await _plugin.cancelAll(); }
+  Future<void> cancelAllNotifications() async {
+    await _plugin.cancelAll();
+  }
+
   @override
   Future<bool> checkPermission() async {
     final status = await Permission.notification.status;
     return status.isGranted;
   }
+
   @override
   Future<bool> requestPermission() async {
     final status = await Permission.notification.request();
     return status.isGranted;
   }
+
   @override
-  Future<void> openSettings() async { await openAppSettings(); }
+  Future<void> openSettings() async {
+    await openAppSettings();
+  }
 }

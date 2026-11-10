@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 
-
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_service.dart';
@@ -129,7 +128,6 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
                   },
                 ),
                 const SizedBox(height: 16),
-                // 标签选择
                 PublicSelectLabel(
                   initialLabelId: _selectedLabel,
                   onLabelIdChanged: (labelId) {
@@ -162,7 +160,6 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
                 try {
                   final service = ref.read(smsServiceProvider);
 
-                  // 验证正则表达�?
                   if (!service
                       .validateRegexPattern(contentPatternController.text)) {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -184,7 +181,6 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
                     return;
                   }
 
-                  // 创建短信规则
                   final rule = SmsRegexRule(
                     id: const Uuid().v4(),
                     name: nameController.text,
@@ -197,15 +193,12 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
                     labelId: _selectedLabel ?? '',
                   );
 
-                  // 添加规则
                   await service.save(rule);
 
-                  // 刷新规则列表
                   if (mounted) {
                     Navigator.pop(context);
                     await _loadRules();
 
-                    // 显示成功提示
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text(AppLocalizations.of(context)!
                           .smsFilterRuleAddedSuccessfully),
@@ -213,7 +206,6 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
                     ));
                   }
                 } catch (e) {
-                  // 显示错误提示
                   if (mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text(AppLocalizations.of(context)!
@@ -315,7 +307,6 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
             title: Text(AppLocalizations.of(context)!.importRules),
             onTap: () async {
               Navigator.pop(context);
-              // 导入规则逻辑
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content:
                     Text(AppLocalizations.of(context)!.importFeatureComingSoon),
@@ -327,7 +318,6 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
             title: Text(AppLocalizations.of(context)!.exportRules),
             onTap: () async {
               Navigator.pop(context);
-              // 导出规则逻辑
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 content:
                     Text(AppLocalizations.of(context)!.exportFeatureComingSoon),

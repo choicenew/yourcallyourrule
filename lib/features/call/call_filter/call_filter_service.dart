@@ -1,18 +1,13 @@
-import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
-import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
 import 'package:yourcallyourrule/features/rules/services/regex_service.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/common/value_objects/rule_priority.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 import 'package:yourcallyourrule/features/call/call_filter/config/call_filter_config.dart';
-import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
-import 'package:yourcallyourrule/features/caller_id/config/intercept_action.dart';
+import 'providers/call_filter_provider.dart';
 
 part 'call_filter_service.g.dart';
 
@@ -24,8 +19,7 @@ CallFilterService callFilterService(Ref ref) {
     allowedBlockedService: ref.watch(allowedBlockedServiceProvider),
     ruleManagementService: ref.watch(ruleManagementServiceProvider),
     getConfigForSim: (simSlotIndex) async {
-      final separateSims = await ref.read(separateSimsProvider.future);
-      if (separateSims && simSlotIndex != null) {
+      if (simSlotIndex != null) {
         return await ref.read(simSlotCallFilterConfigProvider(simSlotIndex).future);
       }
       return await ref.read(callFilterConfigProvider.future);
@@ -54,104 +48,57 @@ class CallFilterService implements CallFilterInterface {
   CallFilterType get filterType => CallFilterType.basicRule;
 
   @override
-  Future<bool> shouldAcceptCall(String phoneNumberStr, {SimInfo? simInfo}) async {
-    final config = await _getConfigForSim(simInfo?.simSlotIndex);
-    final phoneNumber = PhoneNumber(phoneNumberStr);
-    InterceptAction? interceptAction;
+  Future<bool> shouldAcceptCall(String phoneNumberStr, {dynamic simInfo}) async {
+    final phoneNumber = PhoneNumber.fromString(phoneNumberStr);
+    final int? simSlotIndex = (simInfo is int) ? simInfo : (simInfo != null ? (simInfo as dynamic).simSlotIndex as int? : null);
+    final config = await _getConfigForSim(simSlotIndex);
 
     if (config.rejectAllNumbers) {
-      _setCurrentInterceptAction(null);
-      debugPrint("rejectAllNumbers: ${config.rejectAllNumbers}");
       return false;
     }
 
-    final matchingRules = await _getAllMatchingRules(phoneNumber);
-
-    if (matchingRules.isEmpty) {
-      return true;
+    if (config.allowAllAllowedNumbers) {
+      final allowed = await _allowedBlockedService.isInAllowed(phoneNumber);
+      if (allowed) {
+        return true;
+      }
     }
 
-    matchingRules.sort((a, b) {
-      final prioA = RulePriority.fromInt((a as dynamic).priority as int).value;
-      final prioB = RulePriority.fromInt((b as dynamic).priority as int).value;
-      return prioB.compareTo(prioA);
-    });
-
-    final highestPriorityRule = matchingRules.first as dynamic;
-    final ruleAction = RuleAction.fromString(highestPriorityRule.actionType as String);
-
-    switch (ruleAction.type) {
-      case RuleActionType.allow:
-        return true;
-      case RuleActionType.block:
-      case RuleActionType.silence:
-        interceptAction = _getInterceptActionFromRule(ruleAction);
-        _setCurrentInterceptAction(interceptAction);
+    if (config.allowAllBlockRules) {
+      final blocked = await _allowedBlockedService.isInBlocked(phoneNumber);
+      if (blocked) {
         return false;
-      case RuleActionType.none:
-      default:
-        return true;
+      }
     }
+
+    final rules = await _ruleManagementService.getRulesByPhoneNumber(phoneNumber);
+    if (rules.isNotEmpty) {
+      final topRule = rules.first;
+      if (topRule.actionType == 'block') return false;
+      if (topRule.actionType == 'allow') return true;
+    }
+
+    if (config.allowRegexAllowRules || config.allowRegexBlockRules) {
+      final regexRules = await _regexService.getAllRegexRules();
+      for (final rule in regexRules) {
+        if (rule.matches(phoneNumberStr)) {
+          final map = rule.toMap();
+          final actionType = map['actionType'] as String? ?? 'block';
+          if (actionType == 'block') return false;
+          if (actionType == 'allow') return true;
+        }
+      }
+    }
+
+    return true;
+  }
+
+  Future<bool> shouldAcceptCallWithSim(String phoneNumberStr, {dynamic simInfo}) {
+    return shouldAcceptCall(phoneNumberStr, simInfo: simInfo);
   }
 
   @override
   Future<void> initialize() async {
     return;
-  }
-
-  InterceptAction? _getInterceptActionFromRule(RuleAction action) {
-    switch (action.type) {
-      case RuleActionType.block:
-        if (action.parameters == null || !action.parameters!.containsKey('interceptAction')) {
-          return null;
-        }
-        final actionName = action.parameters!['interceptAction'] as String?;
-        debugPrint("_getInterceptActionFromRule: $actionName");
-        return actionName != null ? InterceptAction.values.byName(actionName) : null;
-      case RuleActionType.silence:
-        return InterceptAction.silenceNoAnswer;
-
-      case RuleActionType.none:
-      case RuleActionType.allow:
-      default:
-        return null;
-    }
-  }
-
-  static InterceptAction? _currentInterceptAction;
-
-  void _setCurrentInterceptAction(InterceptAction? action) {
-    debugPrint("setCurrentInterceptAction: $action");
-    _currentInterceptAction = action;
-  }
-
-  static InterceptAction? getCurrentInterceptAction() {
-    return _currentInterceptAction;
-  }
-
-  Future<List<dynamic>> _getAllMatchingRules(PhoneNumber number) async {
-    final String phoneNumberStr = number.value;
-    List<dynamic> matchingRules = [];
-
-    final allowedBlockedRules = await _allowedBlockedService.getRulesByActionType(number, null);
-    matchingRules.addAll(allowedBlockedRules);
-
-    final matchingRegexRules = await _regexService.getMatchingRegexRulesByActionType(phoneNumberStr, null);
-    matchingRules.addAll(matchingRegexRules);
-
-    final phoneRules = await _ruleManagementService.getRulesByActionType(number, null);
-    matchingRules.addAll(phoneRules);
-
-    return matchingRules;
-  }
-
-  Future<List<dynamic>> verifyAllRules(PhoneNumber number) async {
-    final matchingRules = await _getAllMatchingRules(number);
-    matchingRules.sort((a, b) {
-      final prioA = RulePriority.fromInt((a as dynamic).priority as int).value;
-      final prioB = RulePriority.fromInt((b as dynamic).priority as int).value;
-      return prioB.compareTo(prioA);
-    });
-    return matchingRules;
   }
 }

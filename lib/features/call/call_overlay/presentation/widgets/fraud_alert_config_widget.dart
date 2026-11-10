@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/providers/fraud_alert_config_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -126,7 +125,7 @@ class FraudAlertConfigWidget extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 16),
-            const InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
+            const AdsInlineBanner(),
           ],
         );
       },

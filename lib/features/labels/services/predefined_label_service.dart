@@ -5,11 +5,11 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/labels/repositories/predefined_label_repository.dart';
-import 'package:yourcallyourrule/data/repositories/predefined_label/predefined_label_repository_impl.dart';
+import 'package:yourcallyourrule/features/labels/data/repositories/predefined_label_repository_impl.dart';
 
 part 'predefined_label_service.g.dart';
 
-/// PredefinedLabelService �?@Riverpod Provider
+/// PredefinedLabelService Riverpod Provider
 @Riverpod(keepAlive: true)
 PredefinedLabelService predefinedLabelService(Ref ref) {
   final predefinedLabelRepository = ref.watch(predefinedLabelRepositoryProvider);
@@ -17,108 +17,85 @@ PredefinedLabelService predefinedLabelService(Ref ref) {
 }
 
 /// 预定义标签服务类
-/// 负责创建和管理预定义标签
-/// 最好使用通用的导入导出服�?[RuleImportExportService或者UniversalImportExportService] 来实现导入和导出功能
-/// 负责创建和管理标签的基本属性（文本、图标、头像等�?
 class PredefinedLabelService {
   final PredefinedLabelRepository _repository;
-  final Uuid _uuid = Uuid();
+  final Uuid _uuid = const Uuid();
 
-  /// 构造函�?
   PredefinedLabelService(this._repository);
 
-  /// 创建新标签（使用有意义的ID�?
   Future<PredefinedLabel> createLabel(String text, {String? avatar, String? icon}) async {
-    // 使用PredefinedLabel.create工厂方法创建标签，它会生成有意义的ID
     final label = PredefinedLabel.create(text, avatar: avatar, icon: icon);
-    
     await _repository.save(label);
     return label;
   }
-  
-  /// 从英文名创建标签
+
   Future<PredefinedLabel> createLabelFromEnglishName(
     String englishName, {
     String? displayText,
     String? avatar,
     String? icon,
   }) async {
-    // 使用PredefinedLabel.fromEnglishName工厂方法创建标签
     final label = PredefinedLabel.fromEnglishName(
       englishName,
       displayText: displayText,
       avatar: avatar,
       icon: icon,
     );
-    
     await _repository.save(label);
     return label;
   }
 
-  /// 获取所有标�?
   Future<List<PredefinedLabel>> getAllLabels() async {
     return await _repository.getAll();
   }
 
-  /// 根据ID获取标签
   Future<PredefinedLabel?> getLabelById(String id) async {
     return await _repository.getById(id);
   }
-  
-  /// 同步获取标签文本
-  /// 如果标签不存在，返回null
+
   Future<String?> getLabelTextAsync(String id) async {
     return await _repository.getLabelTextAsync(id);
   }
-  
-  /// 根据文本获取标签
+
   Future<List<PredefinedLabel>> getLabelsByText(String text) async {
     return await _repository.getByText(text);
   }
 
-  /// 【新增函数�? 根据文本获取标签ID，封装了仓库层的功能
   Future<String?> getLabelIdByText(String text) async {
     return await _repository.getIdByText(text);
   }
 
-
-  /// 更新标签
   Future<void> updateLabel(PredefinedLabel label) async {
     await _repository.update(label);
   }
 
-  /// 删除标签
   Future<void> deleteLabel(String id) async {
     await _repository.delete(id);
   }
-  
-  /// 批量插入预定义标签（使用有意义的ID�?
+
   Future<List<PredefinedLabel>> insertPredefinedLabels(List<Map<String, dynamic>> predefinedLabels) async {
     final existingLabels = await getAllLabels();
     final existingTexts = existingLabels.map((e) => e.text).toSet();
     final existingIds = existingLabels.map((e) => e.id).toSet();
     final result = <PredefinedLabel>[];
     final labelsToSave = <PredefinedLabel>[];
-    
+
     for (final labelMap in predefinedLabels) {
       final labelText = labelMap['label'] as String;
       if (!existingTexts.contains(labelText)) {
-        // 使用PredefinedLabel.create工厂方法创建标签，它会生成有意义的ID
         final label = PredefinedLabel.create(
           labelText,
           icon: labelMap['icon'] as String?,
           avatar: labelMap['avatar'] as String?,
         );
-        
-        // 检查ID是否已存在，如果存在则添加后缀
+
         String finalId = label.id;
         int suffix = 1;
         while (existingIds.contains(finalId)) {
           finalId = '${label.id}_$suffix';
           suffix++;
         }
-        
-        // 如果ID发生了变化，创建一个新的标签对�?
+
         final finalLabel = finalId != label.id
             ? PredefinedLabel(
                 id: finalId,
@@ -127,21 +104,20 @@ class PredefinedLabelService {
                 avatar: label.avatar,
               )
             : label;
-        
+
         labelsToSave.add(finalLabel);
         result.add(finalLabel);
-        existingIds.add(finalId); // 添加到已存在ID集合中，防止后续重复
+        existingIds.add(finalId);
       }
     }
-    
+
     if (labelsToSave.isNotEmpty) {
       await _repository.saveAll(labelsToSave);
     }
-    
+
     return result;
   }
-  
-  /// 获取所有标签文�?
+
   Future<List<String>> getAllLabelTexts() async {
     final labels = await getAllLabels();
     return labels.map((e) => e.text).toList();

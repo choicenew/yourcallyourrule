@@ -5,7 +5,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:yourcallyourrule/features/common/services/firebase_crashlytics_service.dart';
 
 /// 增强版日志服务，支持多级别日志和文件输出
-/// 集成Firebase Crashlytics进行错误报告
+/// 集成 Firebase Crashlytics 进行错误报告
 class AppLogger {
   static Logger? _logger;
   static File? _logFile;
@@ -26,7 +26,7 @@ class AppLogger {
 
   static void initialize() {
     final List<LogOutput> outputs = [ConsoleOutput()];
-    
+
     if (kDebugMode) {
       _getLogFilePath().then((logFile) {
         if (logFile != null) {
@@ -47,23 +47,26 @@ class AppLogger {
     );
   }
 
-  /// 记录详细调试信息 
+  /// 记录详细调试信息
   static void verbose(String message) => _safeLogger.t(message);
 
   /// 记录调试信息
   static void debug(String message) => _safeLogger.d(message);
 
-  /// 记录普通信�?  static void info(String message) => _safeLogger.i(message);
+  /// 记录普通信息
+  static void info(String message) => _safeLogger.i(message);
 
   /// 记录警告信息
   static void warning(String message) => _safeLogger.w(message);
 
-  /// 记录错误信息（含堆栈跟踪�?  static void error(String message, [dynamic error, StackTrace? stackTrace]) {
+  /// 记录错误信息（含堆栈跟踪）
+  static void error(String message, [dynamic error, StackTrace? stackTrace]) {
     _safeLogger.e(message, error: error, stackTrace: stackTrace);
     _reportCrash(message, error, stackTrace);
   }
 
-  /// 记录致命错误信息（含堆栈跟踪），并强制崩�?  static void fatal(String message, [dynamic error, StackTrace? stackTrace]) {
+  /// 记录致命错误信息（含堆栈跟踪）
+  static void fatal(String message, [dynamic error, StackTrace? stackTrace]) {
     _safeLogger.f(message, error: error, stackTrace: stackTrace);
     _reportCrash(message, error, stackTrace, fatal: true);
   }
@@ -97,23 +100,22 @@ class AppLogger {
     }
   }
 
-  /// 向Firebase Crashlytics报告错误
+  /// 向 Firebase Crashlytics 报告错误
   static void _reportCrash(String message, dynamic error, StackTrace? stackTrace, {bool fatal = false}) {
-    // 添加自定义日志消�?    _crashlyticsService.log(message);
-    
-    // 记录错误
+    _crashlyticsService.log(message);
     _crashlyticsService.recordError(
-      error, 
+      error,
       stackTrace ?? StackTrace.current,
-      fatal: fatal
+      fatal: fatal,
     );
   }
-  
-  /// 设置用户标识�?  static Future<void> setUserIdentifier(String identifier) async {
+
+  /// 设置用户标识符
+  static Future<void> setUserIdentifier(String identifier) async {
     await _crashlyticsService.setUserIdentifier(identifier);
   }
-  
-  /// 添加自定义键值对到Crashlytics报告
+
+  /// 添加自定义键值对到 Crashlytics 报告
   static Future<void> setCustomKey(String key, dynamic value) async {
     await _crashlyticsService.setCustomKey(key, value);
   }

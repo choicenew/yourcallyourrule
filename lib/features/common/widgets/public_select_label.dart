@@ -3,18 +3,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.g.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
-import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-// 导入标签翻译工具类，替代原有的内联实�?import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
-/// 定义一个通用的标签服务接�?abstract class SelectLabelService {
+
+abstract class SelectLabelService {
   Future<List<String>> getAllLabelTexts();
   Future<List<PredefinedLabel>> getAllLabels();
   Future<String?> getLabelTextById(String labelId);
   Future<String?> getLabelIdByText(String labelText);
 }
 
-/// 预定义标签服务适配器，将PredefinedLabelService适配到SelectLabelService接口
 class PredefinedLabelServiceAdapter implements SelectLabelService {
   final PredefinedLabelService predefinedLabelService;
 
@@ -24,49 +24,34 @@ class PredefinedLabelServiceAdapter implements SelectLabelService {
   Future<List<String>> getAllLabelTexts() {
     return predefinedLabelService.getAllLabelTexts();
   }
-  
+
   @override
   Future<List<PredefinedLabel>> getAllLabels() {
     return predefinedLabelService.getAllLabels();
   }
-  
+
   @override
   Future<String?> getLabelTextById(String labelId) async {
-    // 通过标签ID获取标签文本
     final label = await predefinedLabelService.getLabelById(labelId);
-    return label?.text; // 注意：翻译将在UI层通过LabelTranslationUtils处理
+    return label?.text;
   }
-  
+
   @override
   Future<String?> getLabelIdByText(String labelText) async {
-    // 通过标签文本获取标签ID
     final labels = await predefinedLabelService.getLabelsByText(labelText);
     return labels.isNotEmpty ? labels.first.id : null;
   }
 }
 
-/// 可复用的标签选择组件，支持labelId
-/// 这个组件可以被各种需要标签功能的服务复用
-/// 例如：来电识别、短信过滤、规则设置等
 class PublicSelectLabel extends ConsumerStatefulWidget {
-  /// 初始选中的标签ID
   final String? initialLabelId;
-  
-  /// 初始选中的标签文本（如果没有提供initialLabelId�?  final String? initialLabelText;
-  
-  /// 电话号码（可选）
+  final String? initialLabelText;
   final String? phoneNumber;
-  
-  /// 标签ID变更回调
   final ValueChanged<String> onLabelIdChanged;
-  
-  /// 标签服务
   final SelectLabelService? selectLabelService;
-  
-  /// 主题色（可选）
   final Color? themeColor;
-  
-  /// 构造函�?  const PublicSelectLabel({
+
+  const PublicSelectLabel({
     super.key,
     this.initialLabelId,
     this.initialLabelText,
@@ -93,12 +78,11 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
     _initializeSelectedLabel();
     _loadLabels();
   }
-  
+
   Future<void> _initializeSelectedLabel() async {
     if (widget.initialLabelId != null) {
       _selectedLabelId = widget.initialLabelId;
-      // 如果提供了初始标签ID，尝试获取对应的标签文本
-      final service = widget.selectLabelService ?? 
+      final service = widget.selectLabelService ??
           PredefinedLabelServiceAdapter(ref.read(predefinedLabelServiceProvider));
       _selectedLabelText = await service.getLabelTextById(_selectedLabelId!);
     } else if (widget.initialLabelText != null) {
@@ -110,22 +94,21 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
     setState(() {
       _isLoading = true;
     });
-    
+
     try {
-      final SelectLabelService service = widget.selectLabelService ?? 
+      final SelectLabelService service = widget.selectLabelService ??
           PredefinedLabelServiceAdapter(ref.read(predefinedLabelServiceProvider));
 
-      
       final labels = await service.getAllLabelTexts();
       final allLabels = await service.getAllLabels();
-      
-      // 构建标签文本到ID的映�?      final Map<String, String> textToIdMap = {};
+
+      final Map<String, String> textToIdMap = {};
       for (var label in allLabels) {
         if (label.id.isNotEmpty) {
           textToIdMap[label.text] = label.id;
         }
       }
-      
+
       setState(() {
         _labels = labels;
         _labelTextToIdMap = textToIdMap;
@@ -144,7 +127,6 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
     }
   }
 
-  @override
   @override
   Widget build(BuildContext context) {
     final activeThemeColor = widget.themeColor ?? Theme.of(context).colorScheme.primary;
@@ -169,9 +151,9 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
-                color: activeThemeColor.withValues(alpha:0.1),
+                color: activeThemeColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: activeThemeColor.withValues(alpha:0.3)),
+                border: Border.all(color: activeThemeColor.withValues(alpha: 0.3)),
               ),
               child: Row(
                 children: [
@@ -228,9 +210,7 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
           spacing: 5,
           runSpacing: 5,
           children: _labels.map((labelText) {
-            // 翻译标签文本
-            final translatedText =
-                LabelTranslationUtils.translateLabelText(context, labelText);
+            final translatedText = LabelTranslationUtils.translateLabelText(context, labelText);
             final isSelected = labelText == _selectedLabelText;
             return ChoiceChip(
               label: Text(translatedText),
@@ -270,11 +250,10 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
   }
 }
 
-/// 标签选择页面
 class LabelSelectionPage extends ConsumerWidget {
   final String title;
   final ValueChanged<String> onLabelIdSelected;
-  
+
   const LabelSelectionPage({
     super.key,
     required this.title,

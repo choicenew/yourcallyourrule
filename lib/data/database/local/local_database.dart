@@ -7,7 +7,7 @@ import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:drift/native.dart';
 import 'dart:io';
-import 'package:yourcallyourrule/features/labels/utils/predefined_labels.dart' as predefined;
+import '../../../features/labels/utils/predefined_labels.dart' as predefined;
 import 'package:yourcallyourrule/main.dart' show isOverlayMode;
 import 'package:uuid/uuid.dart';
 
@@ -203,6 +203,7 @@ class PredefinedLabels extends Table {
   Set<Column> get primaryKey => {id};
 }
 
+@UseRowClass(LabelPhoneEntry)
 class LabelPhones extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().nullable()();

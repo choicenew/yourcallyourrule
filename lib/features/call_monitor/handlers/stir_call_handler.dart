@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
 import 'base_call_handler.dart';
 
 part 'stir_call_handler.g.dart';
@@ -50,12 +50,12 @@ class StirCallHandler extends _$StirCallHandler implements BaseCallHandler {
     final bool failed = isFailed is bool ? isFailed : false;
     final String? phoneNum = phoneNumber is String ? phoneNumber : null;
 
-    final newStirInfo = StirInfo(
-      isVerified: verified,
-      isNotVerified: notVerified,
-      isFailed: failed,
-      phoneNumber: phoneNum,
-    );
+    final newStirInfo = <String, dynamic>{
+      'isVerified': verified,
+      'isNotVerified': notVerified,
+      'isFailed': failed,
+      'phoneNumber': phoneNum,
+    };
 
     state = newStirInfo;
   }

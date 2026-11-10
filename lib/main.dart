@@ -79,7 +79,7 @@ void _initPackageConnectors() {
   PyroCallMonitorConnector.registerAll();
   PyroCallCoordinatorConnector.registerAll();
   PyroPhoneMarkingConnector.registerAll();
-  debugPrint('[Main] 33 �?Package Suite Connector 全外观自注册装配完成�?);
+  debugPrint('[Main] 33 个 Package Suite Connector 全外观自注册装配完成');
 }
 
 Future<void> main() async {
@@ -124,7 +124,7 @@ Future<void> main() async {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       container.read(locationSyncServiceProvider);
 
-      container.read(labelSyncServiceInitializerProvider);
+      container.read(labelStreamSyncServiceProvider);
 
       container.read(pluginSyncServiceInitializerProvider);
 
@@ -134,14 +134,14 @@ Future<void> main() async {
 
       container.read(foregroundSyncServiceProvider).syncIfNeeded();
 
-      container.read(appWidgetSyncServiceProvider);
+      container.read(appWidgetSyncServiceProvider.notifier);
     });
 
     runApp(
       UncontrolledProviderScope(container: container, child: const MyApp()),
     );
   } catch (e, stackTrace) {
-    debugPrint('初始化错�? $e');
+    debugPrint('初始化错误: $e');
     debugPrint('堆栈跟踪: $stackTrace');
 
     try {
@@ -164,7 +164,7 @@ void overlayMain() {
   isOverlayMode = true;
 
   runApp(
-    const ProviderScope(
+    ProviderScope(
       child: MaterialApp(
         title: 'Caller ID Overlay',
         home: CallOverlayEntry(),

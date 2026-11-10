@@ -6,12 +6,22 @@ part of 'caller_identity_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+/// CallerIdentityService Provider
+
 @ProviderFor(callerIdentityService)
 final callerIdentityServiceProvider = CallerIdentityServiceProvider._();
 
+/// CallerIdentityService Provider
+
 final class CallerIdentityServiceProvider
     extends
-        $FunctionalProvider<CallerIdentityService, CallerIdentityService, CallerIdentityService>
+        $FunctionalProvider<
+          CallerIdentityService,
+          CallerIdentityService,
+          CallerIdentityService
+        >
     with $Provider<CallerIdentityService> {
   CallerIdentityServiceProvider._()
     : super(
@@ -25,18 +35,20 @@ final class CallerIdentityServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => _$callerIdentityServiceHash();
+  String debugGetCreateSourceHash() => r'caller_identity_service_hash_v2';
 
   @$internal
   @override
-  $ProviderElement<CallerIdentityService> $createElement($ProviderPointer pointer) =>
-      $ProviderElement(pointer);
+  $ProviderElement<CallerIdentityService> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
 
   @override
   CallerIdentityService create(Ref ref) {
     return callerIdentityService(ref);
   }
 
+  /// {@macro riverpod.override_with_value}
   Override overrideWithValue(CallerIdentityService value) {
     return $ProviderOverride(
       origin: this,
@@ -44,5 +56,3 @@ final class CallerIdentityServiceProvider
     );
   }
 }
-
-String _$callerIdentityServiceHash() => r'b0e291c6a1c162a7fce507e2bcb3818befcc6f20';

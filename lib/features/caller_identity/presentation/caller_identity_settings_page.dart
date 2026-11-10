@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
-import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/call_coordinator/presentation/display_mode_selector.dart';
 import 'package:yourcallyourrule/features/permissions/widgets/overlay_permission_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 来电显示与身份配置设置页面
+/// 来电显示设置页面
 class CallerIdentitySettingsPage extends ConsumerWidget {
   const CallerIdentitySettingsPage({super.key});
 
@@ -34,14 +32,14 @@ class CallerIdentitySettingsPage extends ConsumerWidget {
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        children: [
-          const CallerIdDisplayModeSelector(),
-          const SizedBox(height: 14),
-          const GoogleAdWidget(adInfo: AdManager.bannerAd),
-          const SizedBox(height: 14),
-          const OverlayPermissionWidget(),
-          const SizedBox(height: 14),
-          nativeAdWidgetMedium(adWidth: 320, adHeight: 320),
+        children: const [
+          CallerIdDisplayModeSelector(),
+          SizedBox(height: 14),
+          AdsInlineBanner(),
+          SizedBox(height: 14),
+          OverlayPermissionWidget(),
+          SizedBox(height: 14),
+          AdsInlineBanner(),
         ],
       ),
     );

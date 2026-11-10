@@ -3,7 +3,6 @@ import 'package:floating_window_android/floating_window_android.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dlibphonenumber/enums/phone_number_type.dart';
 import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
 import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
@@ -26,11 +25,9 @@ class _CallOverlayEntryState extends ConsumerState<CallOverlayEntry> {
   @override
   void initState() {
     super.initState();
-    
-    // 【修改点�? initState 中不再需要手动加载配置或读取provider�?
-    // Provider 会自动处理自己的初始化。我们只需要监听来自主App的数据�?
+
     FloatingWindowAndroid.overlayListener.listen((event) {
-       debugPrint('Received data: $event');
+      debugPrint('Received data: $event');
       if (event is Map<String, dynamic> && event.containsKey("configType")) {
         setState(() {
           String configType = event["configType"];
@@ -41,9 +38,6 @@ class _CallOverlayEntryState extends ConsumerState<CallOverlayEntry> {
           } else if (configType == "simInfo") {
             _simInfo = SimInfo.fromJson(event);
           }
-          // 注意：配置更新现在由主App保存，这里的Provider会自动重新加载，
-          // 所以不需要再手动处理 "callerIdStyle" 类型的消息�?
-          debugPrint("接收到配置更�? ${_callerIdData?.toMap()}");
         });
       }
     });
@@ -79,28 +73,18 @@ class _CallOverlayEntryState extends ConsumerState<CallOverlayEntry> {
       );
     }
 
-    // 【关键修改点�? �?build 方法�?watch 新的 provider
     final asyncConfig = ref.watch(callOverlayStyleSecurityProvider);
-// 添加语言切换
     final asyncLocale = ref.watch(localeProvider);
 
-    debugPrint("当前配置:${asyncConfig.toString()}");
-
-
-
-    // 等待语言加载完成
     return asyncLocale.when(
       loading: () => const Material(color: Colors.transparent, child: Center(child: CircularProgressIndicator())),
       error: (err, stack) => Material(color: Colors.transparent, child: Center(child: Text('Lang Error: $err'))),
       data: (locale) {
-        // 2. 使用 Localizations.override 将加载的 locale 应用到子组件
         return Localizations.override(
           context: context,
           locale: locale,
-          child: Builder( // 使用 Builder 获取包含�?locale �?context
+          child: Builder(
             builder: (localizedContext) {
-              // 从这里开始，所有的 AppLocalizations.of(localizedContext) 都会使用正确的语言
-              
               if (_callerIdData == null) {
                 return const Material(
                   color: Colors.transparent,
@@ -108,33 +92,26 @@ class _CallOverlayEntryState extends ConsumerState<CallOverlayEntry> {
                 );
               }
 
-
-
-              // 等待样式配置加载完成
               return asyncConfig.when(
                 loading: () => const Material(color: Colors.transparent, child: Center(child: CircularProgressIndicator())),
                 error: (err, stack) => Material(color: Colors.transparent, child: Center(child: Text('Config Error: $err'))),
-        data: (config) {
-          // �?Isolate 中，浮窗通常是可关闭�?
-                 return Material(
+                data: (config) {
+                  return Material(
                     color: Colors.transparent,
                     child: InkWell(
-            key: Key(_callerIdData!.id),
-           
-             onTap: () async {
-              debugPrint("Content tapped, closing overlay...");
-              await FloatingWindowAndroid.closeOverlayFromOverlay();
-            },
-
-            child: CallOverlayContentBuilder.buildOverlayContainer(
-              config: config,
-              child: CallOverlayContentBuilder.buildCallOverlayContent(
-     context: localizedContext, // 传递新�?context
-                callerIdData: _callerIdData!,
-                config: config,
-                simInfo: _simInfo,
-                stirInfo: _stirInfo,
-                isDraggable: false, // 在真实来电中，元素不可拖�?
+                      key: Key(_callerIdData!.id),
+                      onTap: () async {
+                        await FloatingWindowAndroid.closeOverlayFromOverlay();
+                      },
+                      child: CallOverlayContentBuilder.buildOverlayContainer(
+                        config: config,
+                        child: CallOverlayContentBuilder.buildCallOverlayContent(
+                          context: localizedContext,
+                          callerIdData: _callerIdData!,
+                          config: config,
+                          simInfo: _simInfo,
+                          stirInfo: _stirInfo,
+                          isDraggable: false,
                         ),
                       ),
                     ),

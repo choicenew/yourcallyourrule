@@ -21,4 +21,8 @@ abstract class PhoneSubscriptionPayload with _$PhoneSubscriptionPayload {
   factory PhoneSubscriptionPayload.fromMap(Map<String, dynamic> map) => PhoneSubscriptionPayload.fromJson(map);
 
   Map<String, dynamic> toMap() => toJson();
+
+  String get id => payloadId;
+  String? get displayName => rawJsonMap['displayName'] as String? ?? rawJsonMap['name'] as String?;
+  String? get downloadUrl => rawJsonMap['downloadUrl'] as String? ?? rawJsonMap['url'] as String?;
 }

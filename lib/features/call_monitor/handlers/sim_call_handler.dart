@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
 import 'base_call_handler.dart';
 
 part 'sim_call_handler.g.dart';
@@ -60,19 +60,19 @@ class SimCallHandler extends _$SimCallHandler implements BaseCallHandler {
     String? simPhoneNumber,
     String? callType,
   ) {
-    final newSimInfo = SimInfo(
-      carrierName: carrierName,
-      displayName: displayName,
-      iccId: iccId,
-      countryIso: countryIso,
-      phoneNumber: phoneNumber,
-      simSlotIndex: simSlotIndex,
-      subscriptionId: subscriptionId,
-      mccString: mccString,
-      mncString: mncString,
-      simPhoneNumber: simPhoneNumber,
-      callType: callType,
-    );
+    final newSimInfo = <String, dynamic>{
+      'carrierName': carrierName,
+      'displayName': displayName,
+      'iccId': iccId,
+      'countryIso': countryIso,
+      'phoneNumber': phoneNumber,
+      'simSlotIndex': simSlotIndex,
+      'subscriptionId': subscriptionId,
+      'mccString': mccString,
+      'mncString': mncString,
+      'simPhoneNumber': simPhoneNumber,
+      'callType': callType,
+    };
     state = newSimInfo;
   }
 }

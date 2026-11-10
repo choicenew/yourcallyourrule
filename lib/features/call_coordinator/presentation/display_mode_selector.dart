@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/caller_identity/config/caller_identity_config_provider.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/display_mode.dart';
 import 'package:yourcallyourrule/features/call_coordinator/presentation/widgets/notification_settings_widget.dart';
@@ -90,7 +89,7 @@ class CallerIdDisplayModeSelector extends ConsumerWidget {
             onSelected: (mode) => notifier.setDisplayMode(mode),
           ),
           const SizedBox(height: 14),
-          InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
+          const AdsInlineBanner(),
         ],
       ),
     );

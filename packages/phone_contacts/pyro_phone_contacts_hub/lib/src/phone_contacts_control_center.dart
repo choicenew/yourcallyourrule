@@ -31,4 +31,10 @@ class PhoneContactsControlCenter {
   Future<List<PhoneContactEntry>> getAllContacts() async {
     return await _readerDriver?.getAllContacts() ?? [];
   }
+
+  List<PhoneContactEntry> get contacts => [];
+  void showContactDetail(PhoneContactEntry contact) {}
+  void openAddContactDialog(dynamic context) {}
+  void searchContacts(String query) {}
+  void deleteSelectedContacts() {}
 }

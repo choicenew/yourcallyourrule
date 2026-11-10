@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/ads/ad_control_service.dart';
-import 'package:yourcallyourrule/ads/ad_list_widget.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
+import 'package:yourcallyourrule/features/commercial/services/ad_control_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通用列表页面组件 - 集成广告功能
-/// 
+///
 /// 这个组件可用于以下页面：
 /// - plugin_management_page.dart
 /// - rule_management_page.dart
@@ -17,70 +17,70 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 class GenericListWithAdsPage<T> extends ConsumerStatefulWidget {
   /// 页面标题
   final String title;
-  
+
   /// 列表项
   final List<T> items;
-  
+
   /// 列表项构建器
   final Widget Function(BuildContext, T) itemBuilder;
-  
+
   /// 广告构建器
   final Widget Function() adBuilder;
-  
+
   /// 广告间隔
   final int adInterval;
-  
+
   /// 空状态文本
   final String emptyText;
-  
+
   /// 空状态图标
   final IconData emptyIcon;
-  
+
   /// 空状态操作按钮
   final Widget? emptyActionButton;
-  
+
   /// 主题颜色（可选，未指定时自适应系统主题）
   final Color? themeColor;
-  
+
   /// 是否正在加载
   final bool isLoading;
-  
+
   /// 刷新回调
   final VoidCallback? onRefresh;
-  
+
   /// 添加项目回调
   final VoidCallback? onAdd;
-  
+
   /// 更多选项回调
   final VoidCallback? onMoreOptions;
-  
+
   /// 自定义操作按钮列表
   final List<Widget>? actions;
-  
+
   /// 页面顶部的额外内容
   final Widget? headerContent;
-  
+
   /// 多选回调 - 当用户选择了多个项目时调用
   final void Function(List<T>)? onMultiSelect;
-  
+
   /// 获取项目ID的函数 - 用于多选模式
   final String Function(T)? getItemId;
-  
+
   /// 是否处于多选模式
   final bool isMultiSelectMode;
-  
+
   /// 选中的项目ID集合
   final Set<String> selectedItemIds;
-  
+
   /// 切换多选模式的回调
   final VoidCallback? onToggleMultiSelectMode;
-  
+
   /// 删除选中项目的回调
   final VoidCallback? onDeleteSelected;
-  
+
   /// 自定义操作按钮列表
   final List<Widget>? customActions;
-  
+
   /// 切换项目选择状态的回调
   final Function(String)? onToggleItemSelection;
 
@@ -92,12 +92,12 @@ class GenericListWithAdsPage<T> extends ConsumerStatefulWidget {
 
   /// 页面顶部的提示卡片
   final Widget? infoCard;
-  
+
   /// 【新增参数】是否显示 AppBar
   /// 默认为 true，这意味着你现有的所有代码都不受影响。
   /// 当需要在 TabBarView 中使用时，传入 false。
   final bool showAppBar;
-  
+
   /// 构造函数
   const GenericListWithAdsPage({
     super.key,
@@ -127,7 +127,7 @@ class GenericListWithAdsPage<T> extends ConsumerStatefulWidget {
     this.searchHintText,
     this.onSearchChanged,
     this.infoCard,
-    this.showAppBar = true, // 默认值为 true
+    this.showAppBar = true,
   });
 
   @override
@@ -165,7 +165,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
   // 获取选中的项目列表
   List<T> get _selectedItems {
     if (widget.getItemId == null) return [];
-    
+
     return widget.items.where((item) {
       final id = widget.getItemId!(item);
       return widget.selectedItemIds.contains(id);
@@ -177,29 +177,29 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
     final theme = Theme.of(context);
 
     // 根据 showAppBar 参数决定是否创建 AppBar Widget
-    final appBar = widget.showAppBar 
+    final appBar = widget.showAppBar
         ? AppBar(
             elevation: 0,
             scrolledUnderElevation: 0,
             backgroundColor: theme.scaffoldBackgroundColor,
             foregroundColor: theme.colorScheme.onSurface,
-            title: widget.isMultiSelectMode 
+            title: widget.isMultiSelectMode
               ? Text(
                   AppLocalizations.of(context)!.selectedItems(widget.selectedItemIds.length),
                   style: TextStyle(color: theme.colorScheme.onSurface, fontWeight: FontWeight.w900, fontSize: 18),
-                ) 
+                )
               : Text(
                   widget.title,
                   style: TextStyle(color: theme.colorScheme.onSurface, fontWeight: FontWeight.w900, fontSize: 20, letterSpacing: -0.3),
                 ),
-            leading: widget.isMultiSelectMode 
+            leading: widget.isMultiSelectMode
               ? IconButton(
                   icon: Icon(Icons.close_rounded, color: theme.colorScheme.onSurface),
                   onPressed: widget.onToggleMultiSelectMode,
                 )
               : null,
-            actions: widget.isMultiSelectMode 
-              ? _buildMultiSelectActions() 
+            actions: widget.isMultiSelectMode
+              ? _buildMultiSelectActions()
               : _buildDefaultActions(),
           )
         : null;
@@ -215,12 +215,12 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
 
   List<Widget> _buildDefaultActions() {
     final actions = <Widget>[];
-    
+
     // 自定义操作按钮
     if (widget.customActions != null) {
       actions.addAll(widget.customActions!);
     }
-    
+
     // 多选模式按钮
     if (widget.getItemId != null && widget.onToggleMultiSelectMode != null) {
       actions.add(
@@ -231,7 +231,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
         ),
       );
     }
-    
+
     // 添加按钮
     if (widget.onAdd != null) {
       actions.add(
@@ -242,7 +242,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
         ),
       );
     }
-    
+
     // 刷新按钮
     if (widget.onRefresh != null) {
       actions.add(
@@ -253,7 +253,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
         ),
       );
     }
-    
+
     // 更多选项按钮
     if (widget.onMoreOptions != null) {
       actions.add(
@@ -264,14 +264,14 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
         ),
       );
     }
-    
+
     if (widget.customActions == null && widget.actions != null) {
       actions.addAll(widget.actions!);
     }
-    
+
     return actions;
   }
-  
+
   List<Widget> _buildMultiSelectActions() {
     return [
       IconButton(
@@ -359,7 +359,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
                 ),
               ),
             ),
-          
+
           // 列表（占用剩余空间）
           Expanded(
             child: _buildList(),
@@ -368,7 +368,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
       ),
     );
   }
-  
+
   Widget _buildCollapsibleInfoCard() {
     final primaryColor = widget.themeColor ?? Theme.of(context).colorScheme.primary;
     if (!_isInfoCardExpanded) {
@@ -489,7 +489,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
         if (widget.isMultiSelectMode && widget.getItemId != null) {
           final itemId = widget.getItemId!(item);
           final isSelected = widget.selectedItemIds.contains(itemId);
-          
+
           // 包装原始的item widget，添加选择状态
           return InkWell(
             onTap: () => widget.onToggleItemSelection?.call(itemId),
@@ -507,7 +507,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
             ),
           );
         }
-        
+
         // 非多选模式，直接使用原始itemBuilder
         return widget.itemBuilder(context, item);
       },

@@ -8,10 +8,12 @@ part of 'phone_contacts_control_center.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// PhoneContactsControlCenter Provider
 
 @ProviderFor(phoneContactsControlCenter)
-final phoneContactsControlCenterProvider =
-    PhoneContactsControlCenterProvider._();
+final phoneContactsControlCenterProvider = PhoneContactsControlCenterProvider._();
+
+/// PhoneContactsControlCenter Provider
 
 final class PhoneContactsControlCenterProvider
     extends
@@ -21,6 +23,7 @@ final class PhoneContactsControlCenterProvider
           PhoneContactsControlCenter
         >
     with $Provider<PhoneContactsControlCenter> {
+  /// PhoneContactsControlCenter Provider
   PhoneContactsControlCenterProvider._()
     : super(
         from: null,
@@ -33,7 +36,7 @@ final class PhoneContactsControlCenterProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => _$phoneContactsControlCenterHash();
+  String debugGetCreateSourceHash() => r'phone_contacts_control_center_hash_v2';
 
   @$internal
   @override
@@ -54,6 +57,3 @@ final class PhoneContactsControlCenterProvider
     );
   }
 }
-
-String _$phoneContactsControlCenterHash() =>
-    r'c81e0262ff9535d678bdf295dbc6e9798569853d';

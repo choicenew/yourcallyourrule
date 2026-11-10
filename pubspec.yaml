@@ -32,7 +32,7 @@ dependencies:
     sdk: flutter
   flutter:
     sdk: flutter
-  flutter_secure_storage: ^11.2.0
+  flutter_secure_storage: ^9.2.4
   drift_flutter: ^0.3.1
   
   google_mobile_ads: ^9.1.0
@@ -70,7 +70,7 @@ dependencies:
   world_flags: ^3.3.0
   flutter_native_splash: ^2.4.8
   workmanager: ^0.10.10
-  riverpod_annotation: ^4.0.0
+  riverpod_annotation: ">=3.0.0 <5.0.0"
   riverpod_generator: ^4.0.0
   world_countries: ^4.4.0
   sim_card_code: ^0.2.0

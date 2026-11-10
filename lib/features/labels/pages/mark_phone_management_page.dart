@@ -2,20 +2,23 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/ads/ad_control_service.dart';
-import 'package:yourcallyourrule/ads/ad_list_utils.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/labels/services/label_phone_entry_to_remote.dart';
+import 'package:yourcallyourrule/features/labels/services/label_phone_entry_to_remote.g.dart';
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_sync_service.dart';
+import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_sync_service.g.dart';
 import 'package:yourcallyourrule/features/labels/services/mark_phone_service.dart';
+import 'package:yourcallyourrule/features/labels/services/mark_phone_service.g.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.g.dart';
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_service.dart';
+import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_service.g.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 号码标记管理页面
-/// 用于用户添加号码标记，查看标记次数，以及兑换VIP功能
 class MarkPhoneManagementPage extends ConsumerStatefulWidget {
   const MarkPhoneManagementPage({super.key});
 
@@ -34,14 +37,12 @@ class _MarkPhoneManagementPageState
   late LabelMarkStatisticsService _statisticsService;
   StreamSubscription? _markCountSubscription;
 
-  // 标记号码列表
   List<LabelPhoneEntry> _markedPhones = [];
   bool _isLoadingMarkedPhones = false;
 
   @override
   void initState() {
     super.initState();
-    // 初始化时不直接创建服务实例，而是在didChangeDependencies中通过Provider获取
     _loadMarkCount();
     _loadMarkedPhones();
   }
@@ -50,10 +51,8 @@ class _MarkPhoneManagementPageState
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    // 通过Provider获取服务实例
     _statisticsService = ref.read(labelMarkStatisticsServiceProvider);
 
-    // 监听标记计数变化
     _markCountSubscription?.cancel();
     _markCountSubscription = _statisticsService.markCountStream.listen((count) {
       setState(() {
@@ -92,7 +91,6 @@ class _MarkPhoneManagementPageState
     );
   }
 
-  /// 加载标记过的号码列表
   Future<void> _loadMarkedPhones() async {
     setState(() {
       _isLoadingMarkedPhones = true;
@@ -130,7 +128,6 @@ class _MarkPhoneManagementPageState
       return;
     }
 
-    // 检查标签ID是否有效
     final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
     final label = await predefinedLabelService.getLabelById(_selectedLabelId!);
     if (label == null) {
@@ -146,33 +143,28 @@ class _MarkPhoneManagementPageState
       final phoneNumber = PhoneNumber.fromString(phoneText);
       final markPhoneService = ref.read(markPhoneServiceProvider);
 
-      // 使用markPhoneService标记电话号码
       final labelPhoneEntry = await markPhoneService.markPhone(
         phoneNumber,
         _selectedLabelId!,
         name: name,
       );
 
-      // 使用标记统计同步服务记录标记
       final statisticsSyncService = ref.read(
         labelMarkStatisticsSyncServiceProvider,
       );
       await statisticsSyncService.syncSingleLabel(labelPhoneEntry);
 
-      // 使用标签到远程号码同步服务同步标�?
       final labelToRemoteSyncService = ref.read(
         labelPhoneEntryToRemoteProvider,
       );
       await labelToRemoteSyncService.sync(labelPhoneEntry);
 
-      // 清空输入�?
       _phoneController.clear();
       _nameController.clear();
       setState(() {
         _selectedLabelId = null;
       });
 
-      // 重新加载标记号码列表
       _loadMarkedPhones();
 
       _showSnackBar(AppLocalizations.of(context)!.markPhoneSuccess);
@@ -186,14 +178,9 @@ class _MarkPhoneManagementPageState
   }
 
   Future<void> _navigateToVipExchangePage() async {
-    // 导航到VIP兑换页面
     await Navigator.of(context).pushNamed('/vip-exchange');
-
-    // 返回后刷新标记次�?
     await _loadMarkCount();
   }
-
-  // _exchangeVip 方法已移除，兑换功能现在�?VipExchangePage 中处�?
 
   @override
   void dispose() {
@@ -211,7 +198,6 @@ class _MarkPhoneManagementPageState
         backgroundColor: Theme.of(context).colorScheme.surface,
         foregroundColor: Theme.of(context).colorScheme.onSurface,
         actions: [
-          // 添加兑换菜单按钮
           PopupMenuButton<String>(
             onSelected: (value) {
               if (value == 'exchange') {
@@ -240,13 +226,10 @@ class _MarkPhoneManagementPageState
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // 标记次数卡片
                   _buildMarkCountCard(),
                   const SizedBox(height: 24),
-                  // 添加号码标记表单
                   _buildMarkPhoneForm(),
                   const SizedBox(height: 24),
-                  // 标记号码列表
                   _buildMarkedPhonesList(),
                 ],
               ),
@@ -364,14 +347,11 @@ class _MarkPhoneManagementPageState
     );
   }
 
-  /// 构建标记号码列表
   Widget _buildMarkedPhonesList() {
-    // 如果正在加载，显示加载指示器
     if (_isLoadingMarkedPhones) {
       return const Center(child: CircularProgressIndicator());
     }
 
-    // 如果列表为空，显示空状�?
     if (_markedPhones.isEmpty) {
       return Card(
         elevation: 4,
@@ -395,7 +375,6 @@ class _MarkPhoneManagementPageState
       );
     }
 
-    // 构建标记号码列表，每�?个项目插入一个广�?
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -410,22 +389,13 @@ class _MarkPhoneManagementPageState
             ),
             const SizedBox(height: 16),
             SizedBox(
-              height: 400, // 设置一个固定高度，避免无限高度问题
-              child: AdListUtils.buildListViewWithAds(
-                items: _markedPhones,
-                adBuilder: () => Container(
-                  height: 90,
-                  margin: const EdgeInsets.symmetric(vertical: 8),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(child: Text('Ad')),
-                ),
-                itemBuilder: (context, item) => _buildMarkedPhoneItem(item),
-                adInterval: 3,
-                ref: ref,
-                adControlServiceProvider: adControlServiceProvider,
+              height: 400,
+              child: ListView.builder(
+                itemCount: _markedPhones.length,
+                itemBuilder: (context, index) {
+                  final entry = _markedPhones[index];
+                  return _buildMarkedPhoneItem(entry);
+                },
               ),
             ),
           ],
@@ -434,7 +404,6 @@ class _MarkPhoneManagementPageState
     );
   }
 
-  /// 构建单个标记号码�?
   Widget _buildMarkedPhoneItem(LabelPhoneEntry entry) {
     return Card(
       elevation: 2,
@@ -462,20 +431,17 @@ class _MarkPhoneManagementPageState
     );
   }
 
-  /// 获取标签名称
   Future<String> _getLabelName(String labelId) async {
     final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
     final label = await predefinedLabelService.getLabelById(labelId);
     return label?.text ?? AppLocalizations.of(context)!.unknown;
   }
 
-  /// 删除标记号码
   Future<void> _deleteMarkedPhone(LabelPhoneEntry entry) async {
     try {
       final markPhoneService = ref.read(markPhoneServiceProvider);
       await markPhoneService.removePhoneMark(entry.id);
 
-      // 重新加载标记号码列表
       _loadMarkedPhones();
 
       _showSnackBar(AppLocalizations.of(context)!.deleteSuccess);

@@ -1,6 +1,5 @@
 import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
 import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/call_log_extension.dart';
@@ -28,11 +27,6 @@ class OutgoingCallHandler {
       Locale.english,
     );
     onCallerIdDataReceived(callerIdData);
-    final callData = CallData(
-      callerIdData: callerIdData,
-      e164Number: callerIdData.phoneNumber.value,
-      nationalNumber: callerIdData.phoneNumber.value,
-    );
-    recordOutgoingCallWithOptionalRecorder(phoneNumber, callData);
+    recordOutgoingCallWithOptionalRecorder(phoneNumber, callerIdData);
   }
 }

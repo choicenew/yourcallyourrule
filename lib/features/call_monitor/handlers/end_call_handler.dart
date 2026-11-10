@@ -47,14 +47,6 @@ class EndCallHandler implements BaseCallHandler {
   void _handleInitializationComplete() {}
 
   Future<String?> _handleInterceptAction(String phoneNumber) async {
-    final rawAction = CallFilterService.getCurrentInterceptAction();
-    if (rawAction != null) {
-      final ruleAction = InterceptAction.fromString(rawAction.name);
-      setInterceptAction(ruleAction);
-      debugPrint("_handleInterceptAction (from rule): ${ruleAction.name}");
-      return ruleAction.name;
-    }
-
     final defaultAction = _ref.read(interceptActionConfigProvider);
 
     debugPrint(">>> [EndCallHandler EXECUTE] Read latest action from provider: $defaultAction");

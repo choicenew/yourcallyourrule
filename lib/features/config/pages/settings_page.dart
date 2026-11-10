@@ -55,7 +55,7 @@ class SettingsPage extends ConsumerWidget {
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
         physics: const BouncingScrollPhysics(),
         children: [
-          // 1. 账户与基础偏好�?
+          // 1. 账户与基础偏好组
           _buildSectionHeader(context, l10n.systemSettingsTitle, Icons.person_pin_circle_rounded, theme.colorScheme.primary),
           _buildGroupedCard(
             context: context,
@@ -106,7 +106,7 @@ class SettingsPage extends ConsumerWidget {
 
           const SizedBox(height: 20),
 
-          // 2. 防护与来电显示总控�?
+          // 2. 防护与来电显示总控制
           _buildSectionHeader(context, l10n.functionSettingsTitle, Icons.security_rounded, theme.colorScheme.error),
           _buildGroupedCard(
             context: context,

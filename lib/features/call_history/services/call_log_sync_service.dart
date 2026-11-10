@@ -2,14 +2,16 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/features/call/call_history/services/system_call_log_service.dart';
+import 'package:yourcallyourrule/features/call_history/services/system_call_log_service.dart';
+import 'package:yourcallyourrule/features/call_history/services/call_log_service.dart';
 
 part 'call_log_sync_service.g.dart';
 
 /// 通话记录同步服务提供者
 @Riverpod(keepAlive: true)
 CallLogSyncService callLogSyncService(Ref ref) {
-  final systemCallLogService = ref.watch(systemCallLogServiceProvider);
+  final callLogService = ref.watch(callLogServiceProvider);
+  final systemCallLogService = SystemCallLogService(callLogService);
   final syncService = CallLogSyncService(systemCallLogService);
   ref.onDispose(() {
     syncService.dispose();
@@ -19,22 +21,14 @@ CallLogSyncService callLogSyncService(Ref ref) {
 
 /// 通话记录同步服务
 /// 负责在后台同步系统通话记录到应用内数据库。
-/// 此服务设计为可由后台任务调度器（如 workmanager）调用。
 class CallLogSyncService {
   final SystemCallLogService _systemCallLogService;
 
-  /// 构造函数
   CallLogSyncService(this._systemCallLogService);
 
-  /// 初始化服务，此方法目前为空，因为实际的初始化和同步逻辑
-  /// 将由后台任务触发器直接调用 `syncSystemCallLogs`。
-  Future<void> initialize() async {
-    // 在后台任务模式下，不需要在此处进行初始化。
-    // 首次同步和定期同步将由 workmanager 管理。
-  }
+  Future<void> initialize() async {}
 
   /// 同步系统通话记录
-  /// 这是后台任务将执行的核心逻辑。
   Future<int> syncSystemCallLogs() async {
     try {
       final hasPermission = await _systemCallLogService.hasCallLogPermission();
@@ -52,8 +46,6 @@ class CallLogSyncService {
     }
   }
 
-  /// 请求权限并手动同步
-  /// 此方法供用户界面调用，以便用户可以手动触发一次同步。
   Future<int> requestPermissionAndSync() async {
     try {
       final granted = await _systemCallLogService.requestCallLogPermission();
@@ -68,9 +60,5 @@ class CallLogSyncService {
     }
   }
 
-  /// 释放资源
-  /// 在当前设计中，由于没有长连接或定时器，此方法为空。
-  void dispose() {
-    // 不需要释放资源
-  }
+  void dispose() {}
 }

@@ -3,9 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/dialogs.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
+import 'package:yourcallyourrule/features/contacts/services/contact_service.g.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
+import 'package:yourcallyourrule/features/labels/services/label_service.g.dart';
 import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
+import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.g.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
+import 'package:yourcallyourrule/features/rules/services/rule_management_service.g.dart';
 import 'package:yourcallyourrule/features/search/providers/search_provider.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
 import 'package:yourcallyourrule/features/search/widgets/search_result_item.dart';
@@ -46,7 +50,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
 
       if (searchText != null && searchText.isNotEmpty) {
         _searchController.text = searchText;
-        // [注释]: �?initState 之后调用 Notifier 的方法来执行初始搜索�?        ref.read(searchProvider.notifier).search(searchText);
+        ref.read(searchProvider.notifier).search(searchText);
       }
     });
   }
@@ -57,7 +61,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
     super.dispose();
   }
 
-  /// [注释]: 触发搜索的方法，现在调用�?Notifier�?  void _triggerSearch() {
+  void _triggerSearch() {
     final searchText = _searchController.text.trim();
     if (searchText.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -65,13 +69,13 @@ class _SearchPageState extends ConsumerState<SearchPage> {
           content: Text(AppLocalizations.of(context)!.enterSearchContent),
         ),
       );
-      // [注释]: 即使为空，也调用 search 方法，Notifier 内部会处理清空逻辑�?      ref.read(searchProvider.notifier).search(searchText);
+      ref.read(searchProvider.notifier).search(searchText);
       return;
     }
     ref.read(searchProvider.notifier).search(searchText);
   }
 
-  /// [注释]: 处理点击事件的逻辑保持不变�?  void _handleResultTap(SearchResult result) {
+  void _handleResultTap(SearchResult result) {
     if (result.type == SearchResultType.remoteNumber) {
       CallerIdDialog.show(context, result.phoneNumber);
     } else if (result.type == SearchResultType.notFound) {
@@ -79,7 +83,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
     } else if (result.type == SearchResultType.contact) {
       final contactService = ref.read(contactServiceProvider);
       contactService
-          .findContactByPhoneNumber(PhoneNumber(result.phoneNumber))
+          .findContactByPhoneNumber(PhoneNumber.fromString(result.phoneNumber))
           .then((contact) {
             if (contact != null) {
               ContactEditDialog.show(
@@ -139,7 +143,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
-                      AppLocalizations.of(context).ruleNotFound(e.toString()),
+                      AppLocalizations.of(context)!.ruleNotFound(e.toString()),
                     ),
                   ),
                 );
@@ -148,7 +152,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
             );
       } else if (result.ruleType == 'allow_block') {
         allowedBlockedService
-            .getAllRulesByActionType(null)
+            .getAllRulesByActionType(PhoneNumber.fromString(result.phoneNumber), null)
             .then((rules) {
               final rule = rules.firstWhere((r) => r.id == result.id);
               AllowedBlockedRuleEditDialog.show(
@@ -176,13 +180,12 @@ class _SearchPageState extends ConsumerState<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    // [注释]: 监听 searchProvider 的状态来驱动UI�?    final searchState = ref.watch(searchProvider);
+    final searchState = ref.watch(searchProvider);
 
-    // ▼▼▼▼�?核心修正部分 ▼▼▼▼�?    // [修正]: 使用 `ref.listen` �?`next` 参数来访问新状态，而不是使�?`state`�?    // `next` 是一个类型安全的 `AsyncValue<List<SearchResult>>` 对象�?    ref.listen<AsyncValue<List<SearchResult>>>(searchProvider, (
+    ref.listen<AsyncValue<List<SearchResult>>>(searchProvider, (
       previous,
       next,
     ) {
-      // 检查搜索完成且结果为空
       if (!next.isLoading &&
           next.hasValue &&
           next.value!.isEmpty &&
@@ -193,7 +196,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
           ),
         );
       }
-      // 检查是否发生错�?      if (next.hasError) {
+      if (next.hasError) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
@@ -203,7 +206,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
         );
       }
     });
-    // ▲▲▲▲�?修正结束 ▲▲▲▲�?
+
     final theme = Theme.of(context);
 
     return Scaffold(
@@ -275,9 +278,9 @@ class _SearchPageState extends ConsumerState<SearchPage> {
           ),
 
           Expanded(
-            // [注释]: 使用 searchState 来构建结果列表�?            child: searchState.when(
+            child: searchState.when(
               data: (results) {
-                // [注释]: _searchController.text.isEmpty 用于判断是否是初始状态�?                if (results.isEmpty && _searchController.text.isEmpty) {
+                if (results.isEmpty && _searchController.text.isEmpty) {
                   return Center(
                     child: Text(
                       AppLocalizations.of(

@@ -5,8 +5,7 @@ import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/enhanced_composite_filter_settings_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 过滤器设置页�?
-/// [注释]: 这个页面现在是一个纯粹的容器，负责展示所有过滤器的设置�?
+/// 过滤器设置页面
 class FilterSettingsPage extends ConsumerWidget {
   const FilterSettingsPage({super.key});
 

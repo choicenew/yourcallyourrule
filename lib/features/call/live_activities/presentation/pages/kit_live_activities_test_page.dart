@@ -1,11 +1,8 @@
-// lib/features/call/live_activities/presentation/pages/kit_live_activities_test_page.dart
-/// [New Version / 独立测试页面] 用于测试现代 live_activity_kit 灵动岛与 Android 实时通知
 library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/mock_data/call_overlay_mock.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/kit_live_activity_handler.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -71,7 +68,7 @@ class _KitLiveActivitiesTestPageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).liveActivitiesTestTitle),
+        title: Text(AppLocalizations.of(context)!.liveActivitiesTestTitle),
       ),
       body: Center(
         child: Padding(
@@ -84,7 +81,7 @@ class _KitLiveActivitiesTestPageState
                   size: 50, color: Colors.blue),
               const SizedBox(height: 15),
               Text(
-                AppLocalizations.of(context).liveActivityControlsTitle,
+                AppLocalizations.of(context)!.liveActivityControlsTitle,
                 style: Theme.of(context).textTheme.headlineSmall,
                 textAlign: TextAlign.center,
               ),
@@ -106,9 +103,9 @@ class _KitLiveActivitiesTestPageState
                 icon: const Icon(Icons.send),
                 label: Text(
                   !_isActive
-                      ? AppLocalizations.of(context)
+                      ? AppLocalizations.of(context)!
                           .liveActivitiesTestSendNewActivity
-                      : AppLocalizations.of(context)
+                      : AppLocalizations.of(context)!
                           .liveActivitiesTestUpdateActivity,
                 ),
                 style: ElevatedButton.styleFrom(
@@ -122,7 +119,7 @@ class _KitLiveActivitiesTestPageState
               OutlinedButton.icon(
                 icon: const Icon(Icons.cancel),
                 label: Text(
-                  AppLocalizations.of(context).liveActivitiesTestEndActivity,
+                  AppLocalizations.of(context)!.liveActivitiesTestEndActivity,
                 ),
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
@@ -131,14 +128,13 @@ class _KitLiveActivitiesTestPageState
               ),
               const SizedBox(height: 15),
               Text(
-                AppLocalizations.of(context).notification_instructions,
+                AppLocalizations.of(context)!.notification_instructions,
                 textAlign: TextAlign.center,
                 style:
                     const TextStyle(color: Color.fromARGB(255, 117, 117, 117)),
               ),
               const SizedBox(height: 12),
-              InlineAdaptiveBannerAdWidget(
-                  adInfo: AdManager.bannerAd, width: 400),
+              const AdsInlineBanner(),
             ],
           ),
         ),

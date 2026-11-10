@@ -8,17 +8,17 @@ part of 'label_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// LabelService 的 @Riverpod Provider
+/// LabelService Provider
 
 @ProviderFor(labelService)
 final labelServiceProvider = LabelServiceProvider._();
 
-/// LabelService 的 @Riverpod Provider
+/// LabelService Provider
 
 final class LabelServiceProvider
     extends $FunctionalProvider<LabelService, LabelService, LabelService>
     with $Provider<LabelService> {
-  /// LabelService 的 @Riverpod Provider
+  /// LabelService Provider
   LabelServiceProvider._()
     : super(
         from: null,
@@ -31,7 +31,7 @@ final class LabelServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => _$labelServiceHash();
+  String debugGetCreateSourceHash() => r'label_service_hash_v9';
 
   @$internal
   @override
@@ -51,5 +51,3 @@ final class LabelServiceProvider
     );
   }
 }
-
-String _$labelServiceHash() => r'4badd8cbd40530e407a551db99ec317f87868947';

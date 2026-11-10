@@ -6,19 +6,14 @@ part of 'incoming_call_handler.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(incomingCallHandler)
 final incomingCallHandlerProvider = IncomingCallHandlerProvider._();
 
 final class IncomingCallHandlerProvider
-    extends
-        $FunctionalProvider<
-          AsyncValue<IncomingCallHandler>,
-          IncomingCallHandler,
-          FutureOr<IncomingCallHandler>
-        >
-    with
-        $FutureModifier<IncomingCallHandler>,
-        $FutureProvider<IncomingCallHandler> {
+    extends $AsyncNotifierProvider<IncomingCallHandlerNotifier, IncomingCallHandler> {
   IncomingCallHandlerProvider._()
     : super(
         from: null,
@@ -31,19 +26,20 @@ final class IncomingCallHandlerProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => _$incomingCallHandlerHash();
+  String debugGetCreateSourceHash() => r'incoming_call_handler_hash_v2';
 
   @$internal
   @override
-  $FutureProviderElement<IncomingCallHandler> $createElement(
-    $ProviderPointer pointer,
-  ) => $FutureProviderElement(pointer);
-
-  @override
-  FutureOr<IncomingCallHandler> create(Ref ref) {
-    return incomingCallHandler(ref);
-  }
+  IncomingCallHandlerNotifier create() => IncomingCallHandlerNotifier();
 }
 
-String _$incomingCallHandlerHash() =>
-    r'250ddfa364336ee1e8af293ae9e8e8c7029db80a';
+abstract class _$IncomingCallHandlerNotifier extends $AsyncNotifier<IncomingCallHandler> {
+  FutureOr<IncomingCallHandler> build();
+}
+
+class IncomingCallHandlerNotifier extends _$IncomingCallHandlerNotifier {
+  @override
+  Future<IncomingCallHandler> build() async {
+    return IncomingCallHandler();
+  }
+}

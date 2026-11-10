@@ -14,8 +14,8 @@ final List<PredefinedLabel> predefinedLabelEntities = predefinedLabels
         ))
     .toList();
 
-/// 预定义标签列�?
-/// 用于初始化系统中的标准标�?
+/// 预定义标签列表
+/// 用于初始化系统中的标准标签
 @AppLabel()
 const List<Map<String, dynamic>> predefinedLabels = [
   {'text': 'Fraud Scam Likely'},

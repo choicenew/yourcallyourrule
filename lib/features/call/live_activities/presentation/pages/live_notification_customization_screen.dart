@@ -1,9 +1,7 @@
-// lib/features/call/live_activities/ui/live_notification_customization_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/customization/color_panel.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/customization/size_panel.dart';
 import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
@@ -15,7 +13,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:live_activity_kit/live_activity_kit.dart';
 import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/mock_data/call_overlay_mock.dart';
-import 'package:yourcallyourrule/features/call/live_activities/services/notification_payload_builder.dart';
+import '../../services/notification_payload_builder.dart';
 
 class LiveNotificationCustomizationScreen extends ConsumerStatefulWidget {
   const LiveNotificationCustomizationScreen({super.key});
@@ -232,7 +230,7 @@ class _LiveNotificationCustomizationScreenState
                           4,
                           _buildElementPositions(config),
                         ),
-                        nativeAdWidgetMedium(adWidth: 320, adHeight: 320),
+                        const AdsInlineBanner(),
                       ],
                     ),
                   ),

@@ -5,15 +5,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 part 'local_sms_regex_rule_datasource.g.dart';
 
 @Riverpod(keepAlive: true)
 LocalSmsRegexRuleDataSource localSmsRegexRuleDataSource(Ref ref) {
-  final databaseService = ref.watch(databaseServiceProvider);
-  return databaseService.localSmsRegexRuleDataSource;
+  final db = ref.watch(localDatabaseProvider);
+  return LocalSmsRegexRuleDataSource(db);
 }
 
 class LocalSmsRegexRuleDataSource {

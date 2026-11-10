@@ -1,307 +1,46 @@
-import 'dart:async';
-import 'dart:convert';
-import 'package:dlibphonenumber/enums/phone_number_type.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:live_activity_kit/live_activity_kit.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
 import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
-import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
-import 'package:yourcallyourrule/features/common/router/app_router.dart';
-import 'package:yourcallyourrule/features/call/call_overlay/core/extensions/phone_number_type_extension.dart';
-import 'package:yourcallyourrule/features/call_policy/evaluators/fraud_detection_service.dart';
-import 'package:yourcallyourrule/features/call/live_activities/services/live_notification_config_service.dart';
-import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/features/call/call_overlay/services/fraud_detection_service.dart';
+import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
+import 'package:yourcallyourrule/features/call/live_activities/providers/live_notification_config_provider.dart';
 
-part 'kit_live_activity_handler.g.dart';
-
-@Riverpod(keepAlive: true)
-Future<KitLiveActivityHandler> kitLiveActivityHandler(Ref ref) async {
-  final configRepository = ref.watch(configRepositoryProvider);
-  final configService = LiveNotificationConfigService(configRepository);
-
-  final handler = KitLiveActivityHandler(configService: configService);
-  await handler.initialize();
-  return handler;
-}
+final kitLiveActivityHandlerProvider = FutureProvider<KitLiveActivityHandler>((ref) async {
+  final config = await ref.watch(liveNotificationConfigProvider.future);
+  return KitLiveActivityHandler(ref, config);
+});
 
 class KitLiveActivityHandler {
-  final LiveNotificationConfigService _configService;
-  final Uuid _uuid;
-
+  final Ref _ref;
+  final LiveNotificationConfig _config;
   String? _currentActivityId;
-  StreamSubscription<String>? _deepLinkSubscription;
 
-  KitLiveActivityHandler({required LiveNotificationConfigService configService})
-      : _configService = configService,
-        _uuid = const Uuid();
-
-  Future<void> initialize({Function(String?)? onNotificationTapped}) async {}
+  KitLiveActivityHandler(this._ref, this._config);
 
   Future<void> showCallerIdActivity({
     required CallerIdData callerIdData,
-    required SimInfo? simInfo,
-    required StirInfo? stirInfo,
+    required Map<String, dynamic>? simCardData,
+    required Map<String, dynamic>? stirData,
   }) async {
+    final bool isFraudCall = FraudDetectionService.checkForFraudLabels(callerIdData);
+
     try {
-      final context = AppRouter.navigatorKey.currentContext;
-      final String numberDisplay = callerIdData.phoneNumber.value;
-      final String simSuffix = simInfo == null ? '' : '-SIM${simInfo.simSlotIndex! + 1}';
-      final bool isFraudCall = FraudDetectionService.checkForFraudLabels(callerIdData);
-
-      final String finalTitle = () {
-        if (context != null) {
-          if (isFraudCall) {
-            return "⚠️ ${AppLocalizations.of(context).fraudAlertTitle} ($numberDisplay)$simSuffix";
-          } else {
-            return "${AppLocalizations.of(context).callerIdNotificationTitle} ($numberDisplay)$simSuffix";
-          }
-        }
-        return "Incoming Call ($numberDisplay)$simSuffix";
-      }();
-
-      final String securityMessageText = () {
-        if (context != null) {
-          return AppLocalizations.of(context).securityMessage;
-        }
-        return 'Do not trust any phone calls. Always verify customer service numbers independently. Never share passwords, verification codes, card numbers, or personal information.';
-      }();
-
-      final config = await _configService.loadConfigOrDefault();
-      final String nameDisplay = callerIdData.name ?? finalTitle;
-
-      final String? labelText = (callerIdData.labels != null && callerIdData.labels!.isNotEmpty)
-          ? callerIdData.labels!.first.label
-          : null;
-      final Uint8List? avatarBytes = config.avatar.visible
-          ? await _getAvatarBytes(
-              callerIdData: callerIdData,
-              labelText: labelText,
-              nameDisplay: nameDisplay,
-              isFraudCall: isFraudCall,
-            )
-          : null;
-
-      final String? stirText = () {
-        if (stirInfo != null && stirInfo.isVerified) {
-          if (context != null) {
-            return AppLocalizations.of(context)!.stirVerified;
-          }
-          return 'STIR Pass';
-        }
-        return null;
-      }();
-
-      final List<String> details = [];
-      if (config.labels.visible && labelText != null && labelText.isNotEmpty) details.add(labelText);
-      if (config.count.visible && callerIdData.count > 0) {
-        final String countDisplay = context != null
-            ? AppLocalizations.of(context)!.callerIdMarkedByCount(callerIdData.count)
-            : 'Marked: ${callerIdData.count}';
-        details.add(countDisplay);
-      }
-      if (config.simCard.visible && simInfo?.displayName != null && simInfo!.displayName!.isNotEmpty) details.add(simInfo.displayName!);
-      if (config.carrier.visible && callerIdData.carrier != null && callerIdData.carrier!.isNotEmpty) details.add(callerIdData.carrier!);
-      if (config.location.visible && callerIdData.region != null && callerIdData.region!.isNotEmpty) details.add(callerIdData.region!);
-      if (config.countryName.visible && callerIdData.countryName != null && callerIdData.countryName!.isNotEmpty) details.add(callerIdData.countryName!);
-      if (config.numberType.visible && callerIdData.numberType != PhoneNumberType.unknown) {
-        final String numberTypeDisplay = context != null
-            ? callerIdData.numberType.translated(context)
-            : callerIdData.numberType.name;
-        details.add(numberTypeDisplay);
-      }
-      if (config.stir.visible && stirText != null) details.add(stirText);
-      final String detailLine = details.join(' · ');
-
-      final activityId = _currentActivityId ?? _uuid.v4();
-      final String deepLinkPayload = 'call_history';
-      final String? base64Avatar = avatarBytes != null ? base64Encode(avatarBytes) : null;
-
-      final avatarNode = base64Avatar != null
-          ? LAImage(
-              source: LAImageSource.asset,
-              value: base64Avatar,
-              width: 44,
-              height: 44,
-              cornerRadius: 22,
-            )
-          : LA.symbol(
-              'person.crop.circle.fill',
-              size: 40,
-              color: isFraudCall
-                  ? const Color(0xFFD32F2F)
-                  : AvatarUtils.getColorFromName(nameDisplay),
-            );
-
-      final lockScreenNode = LA.column([
-        LA.row([
-          avatarNode,
-          LA.spacer(minLength: 10),
-          LA.column([
-            if (config.name.visible)
-              LA.text(
-                nameDisplay,
-                size: config.name.fontSize,
-                weight: FontWeight.bold,
-                color: isFraudCall ? const Color(0xFFD32F2F) : null,
-              ),
-            if (config.number.visible)
-              LA.text(numberDisplay, size: config.number.fontSize),
-          ]),
-        ]),
-        if (detailLine.isNotEmpty)
-          LA.padding(
-            LA.text(detailLine, size: 12, color: const Color(0xFF888888)),
-            top: 4,
-          ),
-        if (config.stir.visible && stirText != null)
-          LA.padding(
-            LA.text(
-              stirText,
-              size: config.stir.fontSize,
-              color: const Color(0xFF2E7D32),
-            ),
-            top: 4,
-          ),
-        if (config.securityMessage.visible)
-          LA.padding(
-            LA.container(
-              padding: const LAInsets(top: 6, bottom: 6, left: 8, right: 8),
-              background: isFraudCall ? const Color(0x22D32F2F) : const Color(0x11000000),
-              cornerRadius: 6,
-              child: LA.text(
-                securityMessageText,
-                size: config.securityMessage.fontSize,
-                color: isFraudCall ? const Color(0xFFD32F2F) : const Color(0xFF555555),
-              ),
-            ),
-            top: 6,
-          ),
-      ]);
-
-      final compactLeadingNode = base64Avatar != null
-          ? LAImage(
-              source: LAImageSource.asset,
-              value: base64Avatar,
-              width: 20,
-              height: 20,
-              cornerRadius: 10,
-            )
-          : LA.symbol(
-              'phone.fill',
-              color: isFraudCall
-                  ? const Color(0xFFD32F2F)
-                  : AvatarUtils.getColorFromName(nameDisplay),
-            );
-      final compactTrailingNode = LA.text(
-        labelText ?? nameDisplay,
-        size: 12,
-        weight: FontWeight.bold,
-      );
-      final minimalNode = LA.symbol(
-        'phone.fill',
-        color: isFraudCall
-            ? const Color(0xFFD32F2F)
-            : AvatarUtils.getColorFromName(nameDisplay),
-      );
-      final expandedLeadingNode = base64Avatar != null
-          ? LAImage(
-              source: LAImageSource.asset,
-              value: base64Avatar,
-              width: 40,
-              height: 40,
-              cornerRadius: 20,
-            )
-          : LA.symbol(
-              'person.crop.circle.fill',
-              size: 36,
-              color: isFraudCall
-                  ? const Color(0xFFD32F2F)
-                  : AvatarUtils.getColorFromName(nameDisplay),
-            );
-      final expandedCenterNode = LA.column([
-        if (config.name.visible) LA.text(nameDisplay, size: 15, weight: FontWeight.bold),
-        if (config.number.visible) LA.text(numberDisplay, size: 13),
-        if (detailLine.isNotEmpty) LA.text(detailLine, size: 11),
-      ]);
-      final expandedBottomNode = (config.securityMessage.visible && isFraudCall)
-          ? LA.text(securityMessageText, size: 12, color: const Color(0xFFD32F2F))
-          : null;
-
       if (_currentActivityId != null) {
-        try {
-          await LiveActivity.update(
-            id: activityId,
-            deepLink: deepLinkPayload,
-            alert: LiveActivityAlert(title: nameDisplay, body: numberDisplay),
-            lockScreen: lockScreenNode,
-            compactLeading: compactLeadingNode,
-            compactTrailing: compactTrailingNode,
-            minimal: minimalNode,
-            expandedLeading: expandedLeadingNode,
-            expandedCenter: expandedCenterNode,
-            expandedBottom: expandedBottomNode,
-          );
-        } catch (_) {
-          await LiveActivity.show(
-            id: activityId,
-            deepLink: deepLinkPayload,
-            alert: LiveActivityAlert(title: nameDisplay, body: numberDisplay),
-            lockScreen: lockScreenNode,
-            compactLeading: compactLeadingNode,
-            compactTrailing: compactTrailingNode,
-            minimal: minimalNode,
-            expandedLeading: expandedLeadingNode,
-            expandedCenter: expandedCenterNode,
-            expandedBottom: expandedBottomNode,
-          );
-        }
-      } else {
-        await LiveActivity.show(
-          id: activityId,
-          deepLink: deepLinkPayload,
-          alert: LiveActivityAlert(title: nameDisplay, body: numberDisplay),
-          lockScreen: lockScreenNode,
-          compactLeading: compactLeadingNode,
-          compactTrailing: compactTrailingNode,
-          minimal: minimalNode,
-          expandedLeading: expandedLeadingNode,
-          expandedCenter: expandedCenterNode,
-          expandedBottom: expandedBottomNode,
+        await LiveActivity.update(
+          id: _currentActivityId!,
+          lockScreen: LA.text(callerIdData.name ?? 'Incoming Call'),
         );
-        _currentActivityId = activityId;
-        _startListeningDeepLinks();
+      } else {
+        final id = 'call_activity_${DateTime.now().millisecondsSinceEpoch}';
+        await LiveActivity.show(
+          id: id,
+          lockScreen: LA.text(callerIdData.name ?? 'Incoming Call'),
+        );
+        _currentActivityId = id;
       }
     } catch (e) {
-      debugPrint('Failed to show/update Live Activity: $e');
-    }
-  }
-
-  Future<Uint8List?> _getAvatarBytes({
-    required CallerIdData callerIdData,
-    required String? labelText,
-    required String nameDisplay,
-    required bool isFraudCall,
-  }) async {
-    try {
-      final provider = AvatarUtils.getAvatarImage(callerIdData.avatar, labelText);
-      if (provider is AssetImage) {
-        try {
-          final data = await rootBundle.load(provider.assetName);
-          return data.buffer.asUint8List();
-        } catch (_) {}
-      }
-
-      final fallbackData = await rootBundle.load('assets/avatars/Unknown.png');
-      return fallbackData.buffer.asUint8List();
-    } catch (e) {
-      debugPrint('KitLiveActivityHandler: _getAvatarBytes error: $e');
-      return null;
+      debugPrint('[KitLiveActivityHandler] Error managing Live Activity: $e');
     }
   }
 
@@ -311,45 +50,8 @@ class KitLiveActivityHandler {
         await LiveActivity.end(id: _currentActivityId!);
         _currentActivityId = null;
       } catch (e) {
-        debugPrint('Failed to end Live Activity: $e');
-        _currentActivityId = null;
-      } finally {
-        await _deepLinkSubscription?.cancel();
-        _deepLinkSubscription = null;
+        debugPrint('[KitLiveActivityHandler] Error ending Live Activity: $e');
       }
-    }
-  }
-
-  void _startListeningDeepLinks() {
-    _deepLinkSubscription?.cancel();
-    _deepLinkSubscription = LiveActivity.deepLinks.listen(
-      (payload) {
-        _handleDeepLinkNavigation(payload);
-      },
-      onError: (e) {
-        debugPrint('KitLiveActivityHandler: DeepLink error: $e');
-      },
-    );
-  }
-
-  void _handleDeepLinkNavigation(String payload) {
-    if (payload.isEmpty) return;
-    final context = AppRouter.navigatorKey.currentContext;
-    if (context == null) return;
-
-    try {
-      if (payload.contains('call-history') ||
-          payload.contains('call_history') ||
-          payload.contains('fraud_alert') ||
-          payload.contains('fraud-alert') ||
-          payload.contains('blocked_call') ||
-          payload.contains('stir_result')) {
-        GoRouter.of(context).goNamed(AppRouter.callHistory);
-      } else if (payload.contains('deletion_proposal') || payload.contains('deletion-proposal')) {
-        GoRouter.of(context).goNamed(AppRouter.deletionProposal);
-      }
-    } catch (e) {
-      debugPrint('KitLiveActivityHandler: Navigation error: $e');
     }
   }
 }

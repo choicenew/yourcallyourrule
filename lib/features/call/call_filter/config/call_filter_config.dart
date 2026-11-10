@@ -21,6 +21,9 @@ class CallFilterConfig {
   bool allowSilenceRules;
   bool allowNoneRules;
 
+  dynamic get regexConfig => this;
+  bool get enabled => true;
+
   CallFilterConfig({
     this.rejectAllNumbers = false,
     this.allowAllAllowedNumbers = true,

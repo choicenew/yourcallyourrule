@@ -7,18 +7,12 @@ import 'package:yourcallyourrule/features/sync/providers/cloud_sync/cloud_sync_p
 import 'package:yourcallyourrule/features/rules/providers/rules_provider.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/statistics_provider.dart';
-
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 
 part 'app_widget_sync_service.g.dart';
 
 /// 桌面小组件数据计算与 1:1 MethodChannel 同步服务
-/// 遵照 AGENTS.md / veherego-widget-realtime-protocol 铁律�?
-/// 1. 100% 绑定现有真实 Provider 实体数据
-/// 2. 绝对严禁任何硬编码假数据或硬编码汉字/模拟号码
-/// 3. 无数据时合规呈现 "--" 空状�?
-/// 4. 监听 localeProvider 实时同步 app_locale 解决切语言不根治问�?
-@riverpod
+@Riverpod(keepAlive: true)
 class AppWidgetSyncService extends _$AppWidgetSyncService {
   static const MethodChannel _channel = MethodChannel('com.yours.yourcallyourrule/app_widget_sync');
 
@@ -28,7 +22,6 @@ class AppWidgetSyncService extends _$AppWidgetSyncService {
   }
 
   void _listenToProviders() {
-    // 监听语言切换，实时将 app_locale 强落盘并通知 Glance 重绘
     ref.listen(localeProvider, (previous, next) async {
       final locale = next.value;
       if (locale != null) {
@@ -38,7 +31,6 @@ class AppWidgetSyncService extends _$AppWidgetSyncService {
       }
     });
 
-    // 监听规则与同步状�?
     ref.listen(rulesProvider, (previous, next) {
       syncWidgetData();
     });
@@ -47,12 +39,10 @@ class AppWidgetSyncService extends _$AppWidgetSyncService {
       syncWidgetData();
     });
 
-    // 监听 Dashboard 通话统计
     ref.listen(callStatisticsProvider, (previous, next) {
       syncWidgetData();
     });
 
-    // 监听社区判官与提议统�?
     ref.listen(proposalStatisticsProvider, (previous, next) {
       syncWidgetData();
     });
@@ -62,7 +52,6 @@ class AppWidgetSyncService extends _$AppWidgetSyncService {
     try {
       final prefs = await SharedPreferences.getInstance();
 
-      // 1. 读取规则与云端同步状�?
       final rulesState = ref.read(rulesProvider);
       final syncStatusAsync = ref.read(cloudSyncStatusProvider);
 
@@ -71,14 +60,12 @@ class AppWidgetSyncService extends _$AppWidgetSyncService {
       final serviceType = (syncStatus['service_type'] as String?) ?? '--';
       final lastSyncTime = (syncStatus['last_sync_time'] as String?) ?? '--';
 
-      // 2. 读取 CallStatisticsState 真实数据
       final callStats = ref.read(callStatisticsProvider);
       final blockedCallsCount = callStats.blockedCallsCount;
       final sim1Count = callStats.simSlotDistribution[0] ?? callStats.simSlotDistribution[1] ?? 0;
       final sim2Count = callStats.simSlotDistribution[2] ?? 0;
       final peakHours = callStats.peakHoursRange.isNotEmpty ? callStats.peakHoursRange : '--';
 
-      // 3. 读取社区判官真实统计数据
       final proposalStatsAsync = ref.read(proposalStatisticsProvider);
       final proposalStats = proposalStatsAsync.value ?? {};
       final voteCount = proposalStats['totalPending'] ?? 0;
@@ -86,7 +73,6 @@ class AppWidgetSyncService extends _$AppWidgetSyncService {
       final mediumRisk = proposalStats['mediumRisk'] ?? 0;
       final lowRisk = proposalStats['lowRisk'] ?? 0;
 
-      // 写入 SharedPrefs 物理磁盘�?:1 �?Kotlin 键名一致，无硬编码�?
       await prefs.setInt('widget_total_rules', totalRules);
       await prefs.setString('widget_last_sync', lastSyncTime);
       await prefs.setString('widget_service_type', serviceType);
@@ -102,7 +88,6 @@ class AppWidgetSyncService extends _$AppWidgetSyncService {
       await prefs.setString('widget_hot_tag', '--');
       await prefs.setString('widget_font_scale', '1.0');
 
-      // 通过 MethodChannel 唤醒 Android 原生触发 Glance 物理重绘
       if (defaultTargetPlatform == TargetPlatform.android) {
         await _channel.invokeMethod('updateAppWidgetState');
       }

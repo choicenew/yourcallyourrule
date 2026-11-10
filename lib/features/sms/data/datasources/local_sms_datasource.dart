@@ -12,8 +12,8 @@ part 'local_sms_datasource.g.dart';
 
 @Riverpod(keepAlive: true)
 LocalSmsDataSource localSmsDataSource(Ref ref) {
-  final databaseService = ref.watch(databaseServiceProvider);
-  return LocalSmsDataSource(databaseService.localDatabase);
+  final db = ref.watch(localDatabaseProvider);
+  return LocalSmsDataSource(db);
 }
 
 abstract class SmsMessageModelMapper {

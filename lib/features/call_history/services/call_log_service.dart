@@ -10,6 +10,11 @@ import 'package:yourcallyourrule/features/call_history/data/repositories/call_lo
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.g.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.dart';
+import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.g.dart';
 import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
 
 part 'call_log_service.g.dart';
@@ -19,7 +24,9 @@ part 'call_log_service.g.dart';
 CallLogService callLogService(Ref ref) {
   final callLogRepository = ref.watch(callLogRepositoryProvider);
   final contactService = ref.watch(contactServiceProvider);
-  final labelService = ref.watch(labelServiceProvider);
+  final ruleRepository = ref.watch(ruleRepositoryProvider);
+  final predefinedLabelService = ref.watch(predefinedLabelServiceProvider);
+  final labelService = LabelService(ruleRepository, predefinedLabelService);
   final ruleManagementService = ref.watch(ruleManagementServiceProvider);
 
   return CallLogService(
@@ -30,14 +37,14 @@ CallLogService callLogService(Ref ref) {
   );
 }
 
+/// 通话记录服务
 class CallLogService {
   final CallLogRepository _repository;
-  final StreamController<List<CallLogEntry>> _logController = StreamController.broadcast();
-
   final ContactService? _contactService;
   final LabelService? _labelService;
   final RuleManagementService? _blacklistWhitelistService;
 
+  final _logController = StreamController<List<CallLogEntry>>.broadcast();
   final Map<String, String?> _avatarCache = {};
 
   CallLogService(
@@ -51,9 +58,13 @@ class CallLogService {
 
   Stream<List<CallLogEntry>> get logsStream => _logController.stream;
 
+  Future<CallLogEntry?> getLastLog() async {
+    final recent = await _repository.getRecentLogs();
+    return recent.isNotEmpty ? recent.first : null;
+  }
+
   Future<void> initialize() async {
     await _loadAllLogs();
-    await _setupAutoRefresh();
   }
 
   Future<void> _loadAllLogs() async {
@@ -70,18 +81,28 @@ class CallLogService {
     await _loadAllLogs();
   }
 
-  Future<void> _setupAutoRefresh() async {
-    _repository.watchLogs().listen((logs) {
-      _logController.add(logs);
-    });
+  Future<void> addLog(CallLogEntry log) async {
+    await _repository.addLog(log);
+    await _loadAllLogs();
   }
 
-  Future<void> addLog(CallLogEntry log) async {
-    await _repository.save(log);
+  Future<void> deleteLog(String id) async {
+    await _repository.deleteById(id);
+    await _loadAllLogs();
+  }
+
+  Future<void> clearAllLogs() async {
+    final all = await _repository.getAll();
+    await _repository.deleteAll(all);
+    await _loadAllLogs();
   }
 
   Future<List<CallLogEntry>> getRecentLogs() async {
     return await _repository.getRecentLogs();
+  }
+
+  Future<List<CallLogEntry>> getLogsByPhoneNumber(String phoneNumber) async {
+    return await _repository.getLogsByPhoneNumber(phoneNumber);
   }
 
   Future<List<CallLogEntry>> getLogsByLabelId(String labelId) async {
@@ -92,15 +113,7 @@ class CallLogService {
     await _repository.update(log);
   }
 
-  Future<CallLogEntry?> getLastLog() async {
-    final logs = await _repository.getRecentLogs();
-    if (logs.isEmpty) return null;
-
-    logs.sort((a, b) => (b.timestamp ?? 0).compareTo(a.timestamp ?? 0));
-    return logs.first;
-  }
-
-  Future<String?> getAvatarForNumber(String phoneNumber) async {
+  Future<String?> getAvatarForPhoneNumber(String phoneNumber) async {
     if (_avatarCache.containsKey(phoneNumber)) {
       return _avatarCache[phoneNumber];
     }
@@ -109,18 +122,18 @@ class CallLogService {
     final phone = PhoneNumber.fromString(phoneNumber);
 
     if (_contactService != null) {
-      final contact = await _contactService!.findContactByPhoneNumber(phone);
-      if (contact != null && contact.url != null && contact.url!.isNotEmpty) {
-        avatar = contact.url;
+      final contact = await _contactService.findContactByPhoneNumber(phone);
+      if (contact != null && contact.photoUrl != null && contact.photoUrl!.isNotEmpty) {
+        avatar = contact.photoUrl;
       }
     }
 
     if (avatar == null && _blacklistWhitelistService != null) {
-      final allRules = await _blacklistWhitelistService!.getAllRulesByActionType(null);
+      final allRules = await _blacklistWhitelistService.getAllRulesByActionType(null);
       final matchingRules = allRules.where((rule) => rule.phoneNumber == phoneNumber);
 
-      if (matchingRules.isNotEmpty && matchingRules.first.avatar != null) {
-        avatar = matchingRules.first.avatar;
+      if (matchingRules.isNotEmpty && (matchingRules.first as dynamic).avatar != null) {
+        avatar = (matchingRules.first as dynamic).avatar as String?;
       }
     }
 
@@ -128,31 +141,7 @@ class CallLogService {
     return avatar;
   }
 
-  ImageProvider? getDefaultAvatarForLabel(String? label) {
-    if (label == null || label.isEmpty) {
-      return null;
-    }
-
-    return AssetImage(AvatarUtils.getSafeAvatarPath(label));
-  }
-
-  void clearAvatarCache() {
-    _avatarCache.clear();
-  }
-
-  Future<bool> deleteLogs(List<CallLogEntry> logsToDelete) async {
-    if (logsToDelete.isEmpty) {
-      return true;
-    }
-    return await _repository.deleteAll(logsToDelete);
-  }
-
-  Future<bool> deleteLog(String logId) async {
-    return await _repository.deleteById(logId);
-  }
-
-  Future<bool> clearAllLogs() async {
-    final logs = await getRecentLogs();
-    return await _repository.deleteAll(logs);
+  void dispose() {
+    _logController.close();
   }
 }
