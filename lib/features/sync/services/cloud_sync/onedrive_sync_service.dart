@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
+import 'package:yourcallyourrule/features/sync/domain/device_entity.dart';
 import 'package:yourcallyourrule/features/sync/services/cloud_sync/environment.dart';
 import 'package:yourcallyourrule/features/sync/providers/cloud_sync/device_management_provider.dart';
 import 'package:pyro_sync_protocol/pyro_sync_protocol.dart';
@@ -413,20 +413,17 @@ class OneDriveSyncService extends EnhancedCloudSyncService {
   }
   
   @override
-  Future<bool> doSyncRules(List<RuleBase> rules) async {
+  Future<bool> doSyncRules(List<PhoneRuleEntity> rules) async {
     try {
       if (!await _refreshTokenIfNeeded()) return false;
       
-      // Get or create rules folder
       final rulesFolder = await _getFolderByPath('$_appFolderName/$_rulesFolderName');
       if (rulesFolder == null) return false;
       
       final folderId = rulesFolder['id'] as String;
       
-      // Convert rules to JSON using CloudDataConverter
-      final rulesJson = jsonEncode(rules.map((rule) => CloudDataConverter.serialize(rule)).toList());
+      final rulesJson = jsonEncode(rules.map((rule) => rule.toMap()).toList());
       
-      // Upload rules file
       final response = await _dio.put(
         '$_driveUrl/items/$folderId:/rules.json:/content',
         data: rulesJson,
@@ -446,17 +443,15 @@ class OneDriveSyncService extends EnhancedCloudSyncService {
   }
   
   @override
-  Future<List<RuleBase>> getRulesFromCloud() async {
+  Future<List<PhoneRuleEntity>> getRulesFromCloud() async {
     try {
       if (!await _refreshTokenIfNeeded()) return [];
       
-      // Get rules folder
       final rulesFolder = await _getFolderByPath('$_appFolderName/$_rulesFolderName');
       if (rulesFolder == null) return [];
       
       final folderId = rulesFolder['id'] as String;
       
-      // Download rules file
       final response = await _dio.get(
         '$_driveUrl/items/$folderId:/rules.json:/content',
         options: Options(
@@ -469,7 +464,7 @@ class OneDriveSyncService extends EnhancedCloudSyncService {
       if (response.statusCode == 200) {
         final List<dynamic> rulesJson = jsonDecode(response.data as String);
         return rulesJson
-            .map((json) => CloudDataConverter.deserialize<RuleBase>(json as Map<String, dynamic>))
+            .map((json) => PhoneRuleEntity.fromMap(json as Map<String, dynamic>))
             .toList();
       }
       return [];

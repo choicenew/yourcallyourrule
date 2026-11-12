@@ -16,7 +16,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 /// 用于显示规则详情，并提供编辑和删除功�?
 /// [T] 是规则实体类�?
 /// [S] 是规则服务类�?
-class RuleDetailPage<T extends BaseEntity, S> extends ConsumerStatefulWidget {
+class RuleDetailPage<T extends Object, S> extends ConsumerStatefulWidget {
   final String ruleId;
   final String title;
   final Color? themeColor;
@@ -56,7 +56,7 @@ class RuleDetailPage<T extends BaseEntity, S> extends ConsumerStatefulWidget {
   ConsumerState<RuleDetailPage<T, S>> createState() => _RuleDetailPageState<T, S>();
 }
 
-class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDetailPage<T, S>> {
+class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetailPage<T, S>> {
   T? _rule;
   bool _isLoading = true;
   bool _isEditing = false;
@@ -480,7 +480,7 @@ class _RuleDetailPageState<T extends BaseEntity, S> extends ConsumerState<RuleDe
                 _selectedLabelId = labelId;
               });
             },
-            themeColor: widget.themeColor,
+            themeColor: widget.themeColor ?? Theme.of(context).colorScheme.primary,
           ),
           const SizedBox(height: 16),
           Text(AppLocalizations.of(context)!.ruleAction, style: const TextStyle(fontSize: 16)),

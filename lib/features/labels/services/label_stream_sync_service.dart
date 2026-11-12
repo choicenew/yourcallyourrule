@@ -29,7 +29,6 @@ class LabelStreamSyncService {
         phoneNumber: entry.phoneNumber,
         name: entry.name,
         label: entry.labelId,
-        actionType: entry.action,
       );
       await _remoteRepo.save(remoteEntry);
       debugPrint('[LabelStreamSyncService] Synced label to remote DB: ${entry.phoneNumber}');

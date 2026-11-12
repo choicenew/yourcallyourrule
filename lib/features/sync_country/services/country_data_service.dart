@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/data/database/sync/api_service.dart';
-import 'package:yourcallyourrule/data/datasources/remote/remote_number_datasource.dart';
+import 'package:yourcallyourrule/features/remote_filter/data/datasources/remote_number_datasource.dart';
 
 part 'country_data_service.g.dart';
 

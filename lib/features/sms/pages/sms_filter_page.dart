@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
-import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
+import 'package:yourcallyourrule/features/sms/domain/sms_regex_rule.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_service.dart';
-import 'package:yourcallyourrule/features/rules/utils/regex_hint.dart';
+import 'package:yourcallyourrule/features/phone_rules/utils/regex_hint.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 短信过滤规则管理页面
 class SmsFilterPage extends ConsumerStatefulWidget {
   const SmsFilterPage({super.key});
 
@@ -29,45 +28,57 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
   }
 
   Future<void> _loadRules() async {
-    setState(() {
-      _isLoading = true;
-    });
-
+    setState(() => _isLoading = true);
     try {
       final service = ref.read(smsServiceProvider);
-      final rules = await service.getAll();
+      final rules = await service.getAllRules();
+      if (mounted) {
+        setState(() {
+          _smsRules = rules;
+          _isLoading = false;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() => _isLoading = false);
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('${AppLocalizations.of(context)!.smsRuleLoadFailed}: $e'),
+        ));
+      }
+    }
+  }
 
-      setState(() {
-        _smsRules = rules;
-        _isLoading = false;
-      });
+  Future<void> _deleteRule(String ruleId) async {
+    try {
+      final service = ref.read(smsServiceProvider);
+      await service.deleteRule(ruleId);
+      await _loadRules();
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(AppLocalizations.of(context)!.ruleDeleted),
+        ));
+      }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(
-              AppLocalizations.of(context)!.smsRuleLoadFailed(e.toString())),
+          content: Text('${AppLocalizations.of(context)!.deleteRuleFailed}: $e'),
           backgroundColor: Colors.red,
         ));
       }
-      setState(() {
-        _isLoading = false;
-      });
     }
   }
 
   void _showAddRuleDialog() {
-    final TextEditingController nameController = TextEditingController();
-    final TextEditingController senderPatternController =
-        TextEditingController();
-    final TextEditingController contentPatternController =
-        TextEditingController();
+    final nameController = TextEditingController();
+    final contentPatternController = TextEditingController();
+    final senderPatternController = TextEditingController();
     RuleAction selectedAction = RuleAction.block;
 
     showDialog(
       context: context,
       builder: (context) => StatefulBuilder(
-        builder: (context, setState) => AlertDialog(
-          title: Text(AppLocalizations.of(context)!.addSmsFilterRule),
+        builder: (context, setDialogState) => AlertDialog(
+          title: Text(AppLocalizations.of(context)!.addSmsRule),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -76,66 +87,46 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
                   controller: nameController,
                   decoration: InputDecoration(
                     labelText: AppLocalizations.of(context)!.ruleName,
-                    hintText:
-                        AppLocalizations.of(context)!.exampleBlockMarketingSms,
                   ),
                 ),
-                const SizedBox(height: 16),
-                TextField(
-                  controller: senderPatternController,
-                  decoration: InputDecoration(
-                    labelText:
-                        AppLocalizations.of(context)!.senderRegexOptional,
-                    hintText: 'Example: ^\\d{11}\$',
-                  ),
-                ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 12),
                 TextField(
                   controller: contentPatternController,
                   decoration: InputDecoration(
                     labelText: AppLocalizations.of(context)!.contentRegex,
-                    hintText: AppLocalizations.of(context)!
-                        .exampleCouponPromotionDiscount,
+                    hintText: 'e.g. .*Verification Code.*',
                   ),
-                  maxLines: 2,
                 ),
-                const SizedBox(height: 16),
-                DropdownButtonFormField<RuleAction>(
-                  value: selectedAction,
+                const SizedBox(height: 12),
+                TextField(
+                  controller: senderPatternController,
                   decoration: InputDecoration(
-                    labelText: AppLocalizations.of(context)!.ruleAction,
+                    labelText: AppLocalizations.of(context)!.senderRegex,
+                    hintText: 'e.g. 106.*',
                   ),
-                  items: [
-                    DropdownMenuItem(
-                      value: RuleAction.block,
-                      child: Text(AppLocalizations.of(context)!.block),
-                    ),
-                    DropdownMenuItem(
-                      value: RuleAction.allow,
-                      child: Text(AppLocalizations.of(context)!.allow),
-                    ),
-                    DropdownMenuItem(
-                      value: RuleAction.silence,
-                      child: Text(AppLocalizations.of(context)!.silence),
-                    ),
-                  ],
-                  onChanged: (value) {
-                    if (value != null) {
-                      setState(() {
-                        selectedAction = value;
-                      });
+                ),
+                const SizedBox(height: 12),
+                DropdownButtonFormField<RuleAction>(
+                  initialValue: selectedAction,
+                  decoration: InputDecoration(
+                    labelText: AppLocalizations.of(context)!.action,
+                  ),
+                  items: RuleAction.values.map((a) {
+                    return DropdownMenuItem(
+                      value: a,
+                      child: Text(a.name),
+                    );
+                  }).toList(),
+                  onChanged: (val) {
+                    if (val != null) {
+                      setDialogState(() => selectedAction = val);
                     }
                   },
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 12),
                 PublicSelectLabel(
                   initialLabelId: _selectedLabel,
-                  onLabelIdChanged: (labelId) {
-                    setState(() {
-                      _selectedLabel = labelId;
-                    });
-                  },
-                  themeColor: Theme.of(context).colorScheme.primary,
+                  onLabelIdChanged: (id) => _selectedLabel = id,
                 ),
               ],
             ),
@@ -145,74 +136,29 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
               onPressed: () => Navigator.pop(context),
               child: Text(AppLocalizations.of(context)!.cancelButton),
             ),
-            TextButton(
+            ElevatedButton(
               onPressed: () async {
-                if (nameController.text.isEmpty ||
-                    contentPatternController.text.isEmpty) {
+                final service = ref.read(smsServiceProvider);
+                if (!service.validateRegexPattern(contentPatternController.text)) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(AppLocalizations.of(context)!
-                        .ruleNameAndContentRegexCannotBeEmpty),
+                    content: Text(AppLocalizations.of(context)!.invalidContentRegex),
                     backgroundColor: Colors.red,
                   ));
                   return;
                 }
 
-                try {
-                  final service = ref.read(smsServiceProvider);
+                final rule = SmsRegexRule(
+                  id: const Uuid().v4(),
+                  pattern: contentPatternController.text,
+                  action: selectedAction.name,
+                  isEnabled: true,
+                  description: nameController.text,
+                );
 
-                  if (!service
-                      .validateRegexPattern(contentPatternController.text)) {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text(
-                          AppLocalizations.of(context)!.invalidContentRegex),
-                      backgroundColor: Colors.red,
-                    ));
-                    return;
-                  }
-
-                  if (senderPatternController.text.isNotEmpty &&
-                      !service
-                          .validateRegexPattern(senderPatternController.text)) {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text(
-                          AppLocalizations.of(context)!.invalidSenderRegex),
-                      backgroundColor: Colors.red,
-                    ));
-                    return;
-                  }
-
-                  final rule = SmsRegexRule(
-                    id: const Uuid().v4(),
-                    name: nameController.text,
-                    contentRegex: contentPatternController.text,
-                    senderRegex: senderPatternController.text.isNotEmpty
-                        ? senderPatternController.text
-                        : null,
-                    action: selectedAction,
-                    isEnabled: true,
-                    labelId: _selectedLabel ?? '',
-                  );
-
-                  await service.save(rule);
-
-                  if (mounted) {
-                    Navigator.pop(context);
-                    await _loadRules();
-
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text(AppLocalizations.of(context)!
-                          .smsFilterRuleAddedSuccessfully),
-                      backgroundColor: Colors.green,
-                    ));
-                  }
-                } catch (e) {
-                  if (mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text(AppLocalizations.of(context)!
-                          .addRuleFailed(e.toString())),
-                      backgroundColor: Colors.red,
-                    ));
-                  }
+                await service.addRule(rule);
+                if (mounted) {
+                  Navigator.pop(context);
+                  _loadRules();
                 }
               },
               child: Text(AppLocalizations.of(context)!.save),
@@ -223,316 +169,143 @@ class _SmsFilterPageState extends ConsumerState<SmsFilterPage> {
     );
   }
 
-  Future<void> _toggleRule(String ruleId, bool isEnabled) async {
-    try {
-      final service = ref.read(smsServiceProvider);
-      final rule = _smsRules.firstWhere((r) => r.id == ruleId);
-      final updatedRule = SmsRegexRule(
-        id: rule.id,
-        name: rule.name,
-        contentRegex: rule.contentPattern.pattern,
-        senderRegex: rule.senderPattern?.pattern,
-        action: rule.action,
-        isEnabled: isEnabled,
-        labelId: rule.labelId,
-      );
-
-      await service.update(updatedRule);
-      await _loadRules();
-
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(AppLocalizations.of(context)!.ruleStatusChanged(isEnabled
-            ? AppLocalizations.of(context)!.enabled
-            : AppLocalizations.of(context)!.disabled)),
-        backgroundColor: Colors.green,
-      ));
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content:
-            Text(AppLocalizations.of(context)!.operationFailed(e.toString())),
-        backgroundColor: Colors.red,
-      ));
-    }
-  }
-
-  Future<void> _deleteRule(String ruleId) async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.deleteRule),
-        content: Text(AppLocalizations.of(context)!.confirmDeleteSmsFilterRule),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: Text(AppLocalizations.of(context)!.cancelButton),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(context, true),
-            child: Text(AppLocalizations.of(context)!.deleteButton,
-                style: const TextStyle(color: Colors.red)),
-          ),
-        ],
-      ),
+  void _showEditRuleDialog(SmsRegexRule rule) {
+    final nameController = TextEditingController(text: rule.description ?? '');
+    final contentPatternController = TextEditingController(text: rule.pattern);
+    RuleAction selectedAction = RuleAction.values.firstWhere(
+      (a) => a.name == rule.action,
+      orElse: () => RuleAction.block,
     );
 
-    if (confirmed == true) {
-      try {
-        final service = ref.read(smsServiceProvider);
-        final rule = _smsRules.firstWhere((r) => r.id == ruleId);
-        await service.delete(rule);
-        await _loadRules();
-
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(AppLocalizations.of(context)!.ruleDeletedSuccessfully),
-          backgroundColor: Colors.green,
-        ));
-      } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(
-              AppLocalizations.of(context)!.deleteRuleFailed(e.toString())),
-          backgroundColor: Colors.red,
-        ));
-      }
-    }
-  }
-
-  Future<void> _importExportRules() async {
-    showModalBottomSheet(
+    showDialog(
       context: context,
-      builder: (context) => Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ListTile(
-            leading: const Icon(Icons.file_upload),
-            title: Text(AppLocalizations.of(context)!.importRules),
-            onTap: () async {
-              Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content:
-                    Text(AppLocalizations.of(context)!.importFeatureComingSoon),
-              ));
-            },
+      builder: (context) => StatefulBuilder(
+        builder: (context, setDialogState) => AlertDialog(
+          title: Text(AppLocalizations.of(context)!.editRule),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                  controller: nameController,
+                  decoration: InputDecoration(
+                    labelText: AppLocalizations.of(context)!.ruleName,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                TextField(
+                  controller: contentPatternController,
+                  decoration: InputDecoration(
+                    labelText: AppLocalizations.of(context)!.contentRegex,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                DropdownButtonFormField<RuleAction>(
+                  initialValue: selectedAction,
+                  decoration: InputDecoration(
+                    labelText: AppLocalizations.of(context)!.action,
+                  ),
+                  items: RuleAction.values.map((a) {
+                    return DropdownMenuItem(
+                      value: a,
+                      child: Text(a.name),
+                    );
+                  }).toList(),
+                  onChanged: (val) {
+                    if (val != null) {
+                      setDialogState(() => selectedAction = val);
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
-          ListTile(
-            leading: const Icon(Icons.file_download),
-            title: Text(AppLocalizations.of(context)!.exportRules),
-            onTap: () async {
-              Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content:
-                    Text(AppLocalizations.of(context)!.exportFeatureComingSoon),
-              ));
-            },
-          ),
-        ],
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text(AppLocalizations.of(context)!.cancelButton),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final service = ref.read(smsServiceProvider);
+                final updatedRule = rule.copyWith(
+                  pattern: contentPatternController.text,
+                  action: selectedAction.name,
+                  description: nameController.text,
+                );
+
+                await service.updateRule(updatedRule);
+                if (mounted) {
+                  Navigator.pop(context);
+                  _loadRules();
+                }
+              },
+              child: Text(AppLocalizations.of(context)!.save),
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  String _getActionText(RuleAction action) {
-    switch (action) {
-      case RuleAction.block:
-        return AppLocalizations.of(context)!.block;
-      case RuleAction.allow:
-        return AppLocalizations.of(context)!.allow;
-      case RuleAction.silence:
-        return AppLocalizations.of(context)!.silence;
-      default:
-        return AppLocalizations.of(context)!.unknown;
-    }
-  }
-
-  Color _getActionColor(RuleAction action) {
-    switch (action) {
-      case RuleAction.block:
-        return Colors.red;
-      case RuleAction.allow:
-        return Colors.green;
-      case RuleAction.silence:
-        return Colors.orange;
-      default:
-        return Colors.grey;
-    }
+  Widget _buildRuleCard(SmsRegexRule rule) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 12),
+      child: ListTile(
+        title: Text(
+          rule.description != null && rule.description!.isNotEmpty
+              ? rule.description!
+              : rule.pattern,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+        subtitle: Text('Pattern: ${rule.pattern} | Action: ${rule.action}'),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Switch(
+              activeColor: Theme.of(context).colorScheme.primary,
+              value: rule.isEnabled,
+              onChanged: (val) async {
+                final service = ref.read(smsServiceProvider);
+                await service.updateRule(rule.copyWith(isEnabled: val));
+                _loadRules();
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.edit_outlined),
+              onPressed: () => _showEditRuleDialog(rule),
+            ),
+            IconButton(
+              icon: const Icon(Icons.delete_outline, color: Colors.red),
+              onPressed: () => _deleteRule(rule.id),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.smsFilterRules),
-        backgroundColor: Theme.of(context).colorScheme.surface,
-        foregroundColor: Theme.of(context).colorScheme.onSurface,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.import_export),
-            onPressed: _importExportRules,
-            tooltip: AppLocalizations.of(context)!.importExportRules,
-          ),
-          const RegexPatternExplanationButton(),
-        ],
+        title: Text(AppLocalizations.of(context)!.smsFilterTitle),
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.white, Color(0xFFFFF3E0)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
-        child: _isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : _buildRulesList(),
-      ),
+      body: _isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : _smsRules.isEmpty
+              ? Center(child: Text(AppLocalizations.of(context)!.noRules))
+              : ListView.builder(
+                  padding: const EdgeInsets.all(16),
+                  itemCount: _smsRules.length,
+                  itemBuilder: (context, index) {
+                    return _buildRuleCard(_smsRules[index]);
+                  },
+                ),
       floatingActionButton: FloatingActionButton(
         onPressed: _showAddRuleDialog,
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        foregroundColor: Theme.of(context).colorScheme.onPrimary,
         child: const Icon(Icons.add),
       ),
-    );
-  }
-
-  Widget _buildRulesList() {
-    if (_smsRules.isEmpty) {
-      return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.sms_failed,
-              size: 64,
-              color: Colors.grey,
-            ),
-            const SizedBox(height: 16),
-            Text(
-              AppLocalizations.of(context)!.noSmsFilterRulesYet,
-              style: const TextStyle(fontSize: 18, color: Colors.grey),
-            ),
-            const SizedBox(height: 24),
-            ElevatedButton.icon(
-              onPressed: _showAddRuleDialog,
-              icon: const Icon(Icons.add),
-              label: Text(AppLocalizations.of(context)!.addSmsFilterRule),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.primary,
-                foregroundColor: Theme.of(context).colorScheme.onPrimary,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    return ListView.builder(
-      padding: const EdgeInsets.all(16),
-      itemCount: _smsRules.length,
-      itemBuilder: (context, index) {
-        final rule = _smsRules[index];
-        final actionText = _getActionText(rule.action);
-        final actionColor = _getActionColor(rule.action);
-
-        return Card(
-          elevation: 4,
-          margin: const EdgeInsets.only(bottom: 16),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: actionColor.withValues(alpha: 0.2),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(
-                        Icons.sms_failed,
-                        color: actionColor,
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            rule.name,
-                            style: const TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            '${AppLocalizations.of(context)!.content}: ${rule.contentPattern.pattern}',
-                            style: const TextStyle(
-                                fontSize: 12,
-                                color: Colors.grey,
-                                fontFamily: 'monospace'),
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          if (rule.senderPattern != null) ...[
-                            const SizedBox(height: 2),
-                            Text(
-                              '${AppLocalizations.of(context)!.sender}: ${rule.senderPattern!.pattern}',
-                              style: const TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.grey,
-                                  fontFamily: 'monospace'),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ],
-                      ),
-                    ),
-                    Switch(
-                      value: rule.isEnabled,
-                      onChanged: (value) => _toggleRule(rule.id, value),
-                      activeColor: Theme.of(context).colorScheme.primary,
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.delete, color: Theme.of(context).colorScheme.error),
-                      onPressed: () => _deleteRule(rule.id),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8, right: 8),
-                      child: Chip(
-                        label: Text(actionText),
-                        backgroundColor: actionColor.withValues(alpha: 0.1),
-                        labelStyle: TextStyle(color: actionColor),
-                      ),
-                    ),
-                    if (rule.labelId.isNotEmpty)
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8),
-                        child: Chip(
-                          label: Text(rule.labelId),
-                          backgroundColor: Colors.blue.withValues(alpha: 0.1),
-                          labelStyle: const TextStyle(color: Colors.blue),
-                          avatar: const Icon(Icons.label,
-                              size: 16, color: Colors.blue),
-                        ),
-                      ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        );
-      },
     );
   }
 }

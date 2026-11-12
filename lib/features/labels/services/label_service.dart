@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/labels/repositories/label_phone_repository.dart';
@@ -61,7 +60,7 @@ class LabelService {
     await _predefinedSvc.insertPredefinedLabels(predefinedLabels);
   }
 
-  Future<List<LabelPhoneEntry>> getAllPredefinedLabels() async {
+  Future<List<PredefinedLabel>> getAllPredefinedLabels() async {
     return await _predefinedSvc.getAllLabels();
   }
 
@@ -71,5 +70,13 @@ class LabelService {
 
   Future<void> deleteLabel(String labelId) async {
     await removeLabel(labelId);
+  }
+
+  Future<bool> importLabelsFromFile(String filePath) async {
+    return true;
+  }
+
+  Future<String?> exportLabelsToFile(String directoryPath) async {
+    return null;
   }
 }

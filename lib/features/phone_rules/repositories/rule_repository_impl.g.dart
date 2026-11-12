@@ -8,17 +8,17 @@ part of 'rule_repository_impl.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 自动生成的 RuleRepository Provider
+/// 规则仓库提供者 (直连 Drift LocalDatabase)
 
 @ProviderFor(ruleRepository)
 final ruleRepositoryProvider = RuleRepositoryProvider._();
 
-/// 自动生成的 RuleRepository Provider
+/// 规则仓库提供者 (直连 Drift LocalDatabase)
 
 final class RuleRepositoryProvider
     extends $FunctionalProvider<RuleRepository, RuleRepository, RuleRepository>
     with $Provider<RuleRepository> {
-  /// 自动生成的 RuleRepository Provider
+  /// 规则仓库提供者 (直连 Drift LocalDatabase)
   RuleRepositoryProvider._()
     : super(
         from: null,
@@ -52,4 +52,4 @@ final class RuleRepositoryProvider
   }
 }
 
-String _$ruleRepositoryHash() => r'67eec2f4f5efbb4a7ebd3ad524dad650ee150bb2';
+String _$ruleRepositoryHash() => r'1d755165cb1f69d253c0ccf24a2abcaab4dcd6c4';

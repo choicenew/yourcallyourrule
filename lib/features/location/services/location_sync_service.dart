@@ -14,7 +14,6 @@ LocationSyncService locationSyncService(Ref ref) {
   return LocationSyncService(locationRepository);
 }
 
-/// 归属地同步服务：管理 Location 数据落库
 class LocationSyncService {
   final LocationRepository _locationRepository;
   final Uuid _uuid = const Uuid();
@@ -22,11 +21,11 @@ class LocationSyncService {
   LocationSyncService(this._locationRepository);
 
   Future<void> saveLocation(String phoneNumber, String province, String city, {String? carrier}) async {
-    final locationEntry = LocationEntry(
+    final locationEntry = PhoneLocationEntry(
       id: _uuid.v4(),
       phoneNumber: phoneNumber,
-      province: province,
-      city: city,
+      region: '$province $city',
+      countryName: province,
       carrier: carrier,
     );
     await _locationRepository.save(locationEntry);

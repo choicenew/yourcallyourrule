@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 热门触发防护规则排行卡片组件�?00% 系统主题 & 常驻渲染�?
 class TopRulesCard extends ConsumerWidget {
   const TopRulesCard({super.key});
 
@@ -165,8 +162,8 @@ class TopRulesCard extends ConsumerWidget {
   }
 
   int _getRuleCount(RuleBase rule) {
-    if (rule is PhoneRule) return rule.count;
-    if (rule is AllowedBlockedRule) return rule.count;
+    if (rule is PhoneRuleEntity) return rule.count;
+    if (rule is AllowedBlockedRuleEntity) return rule.count;
     return 0;
   }
 }

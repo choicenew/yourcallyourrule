@@ -1,10 +1,10 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:yourcallyourrule/purchase/purchase_state.dart';
+import 'package:pyro_purchase_core/pyro_purchase_core.dart';
 
-import '../../data/database/local/local_database.dart';
-import '../../data/database/sync/device_id_service.dart';
-import '../../data/repositories/config/config_repository.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
+import 'package:yourcallyourrule/data/database/sync/device_id_service.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'supabase_db_initializer.dart';
 import 'supabase_sync_manager.dart';
 import 'sync_log_service.dart';
@@ -145,9 +145,8 @@ class SupabaseSyncController extends _$SupabaseSyncController {
 
   // 辅助方法：检查是否是 VIP
   bool _checkVipStatus() {
-    // 直接 watch 最新状态
-    final purchaseState = ref.read(purchaseStateProvider);
-    return purchaseState.isPurchasedOrHasTempAccess();
+    final commercial = ref.read(commercialNotifierProvider);
+    return commercial.isVipActive;
   }
 
   Future<void> initializeDatabase() async {

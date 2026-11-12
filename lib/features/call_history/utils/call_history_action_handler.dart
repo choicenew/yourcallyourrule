@@ -1,12 +1,8 @@
-// lib/features/call/call_history/utils/call_history_action_handler.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
-import 'package:yourcallyourrule/features/call_history/entities/local_call_type.dart';
-import 'package:yourcallyourrule/features/common/entities/list_entry.dart';
-import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
+import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
+import 'package:yourcallyourrule/features/phone_rules/services/allowed_blocked_service.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -15,7 +11,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 class CallHistoryActionHandler {
   final BuildContext context;
   final WidgetRef ref;
-  final CallLog log;
+  final CallLogEntry log;
   final VoidCallback onRefresh;
 
   CallHistoryActionHandler({
@@ -27,7 +23,7 @@ class CallHistoryActionHandler {
 
   /// 主入口方法：根据通话记录类型，处理电话或拦截操作
   void handleCallAction() {
-    if (log.callType == LocalCallType.blocked) {
+    if (log.callType.toString() == 'blocked') {
       _showUnblockConfirmDialog();
     } else {
       _showCallActionDialog();
@@ -84,14 +80,11 @@ class CallHistoryActionHandler {
   Future<void> _blockNumber() async {
     final allowedBlockedService = ref.read(allowedBlockedServiceProvider);
     try {
-      final entry = ListEntry(
-        id: log.id,
-        phoneNumber: PhoneNumber(log.phoneNumber),
-        labelId: log.labelIds?.isNotEmpty == true ? log.labelIds!.first : '',
-        name: log.name ?? log.phoneNumber,
+      await allowedBlockedService.addAllowedBlockedRule(
+        log.name ?? log.phoneNumber,
+        PhoneNumber.fromString(log.phoneNumber),
+        RuleAction.block,
       );
-      
-      await allowedBlockedService.addAllowedBlockedRule(entry, RuleAction.block);
       
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -107,7 +100,7 @@ class CallHistoryActionHandler {
         ));
       }
     } finally {
-      onRefresh(); // Refresh the list to show the new 'blocked' status
+      onRefresh();
     }
   }
 
@@ -130,7 +123,7 @@ class CallHistoryActionHandler {
               try {
                 final blockedRules = await allowedBlockedService.getAllBlockedRules();
                 final matchingRules = blockedRules.where(
-                  (rule) => rule.phoneNumber.value == log.phoneNumber
+                  (rule) => rule.phoneNumber == log.phoneNumber
                 ).toList();
                 
                 for (final rule in matchingRules) {
@@ -151,7 +144,7 @@ class CallHistoryActionHandler {
                   ));
                 }
               } finally {
-                onRefresh(); // Always refresh to reflect the unblocked status
+                onRefresh();
               }
             },
             style: TextButton.styleFrom(foregroundColor: Colors.green),

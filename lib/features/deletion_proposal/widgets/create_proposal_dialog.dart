@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:yourcallyourrule/features/phone/utils/phone_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 创建删除提议对话�?
 class CreateProposalDialog extends StatefulWidget {
   final Future<void> Function(String phoneNumber, String reason, int riskLevel) onSubmit;
 
@@ -30,7 +29,6 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
   List<String> get _commonReasons => [
     AppLocalizations.of(context)!.reasonInaccurateInfo,
     AppLocalizations.of(context)!.reasonOutdated,
-
     AppLocalizations.of(context)!.reasonPrivacy,
     AppLocalizations.of(context)!.reasonNotInService,
     AppLocalizations.of(context)!.reasonWronglyIdentified,
@@ -113,10 +111,8 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header
-// 替换掉原来的 Row
               ListTile(
-                contentPadding: EdgeInsets.zero, // 去掉默认的内边距，这就和原来 Row 的位置一样了
+                contentPadding: EdgeInsets.zero,
                 leading: Icon(
                   Icons.report_problem,
                   color: Theme.of(context).colorScheme.primary,
@@ -124,7 +120,6 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                 title: Text(
                   AppLocalizations.of(context)!.createProposalTitle,
                   style: Theme.of(context).textTheme.headlineSmall,
-                  // ListTile 会自动限制宽度，但也建议保留 maxLines 防止太长撑破高度
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -140,7 +135,6 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Country Code input
                       Text(
                           AppLocalizations.of(context)!.countryCodeLabel,
                           style: Theme.of(context).textTheme.labelLarge,
@@ -165,7 +159,6 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                       ),
                       const SizedBox(height: 20),
 
-                      // Phone number input
                       Text(
                         '${AppLocalizations.of(context)!.phoneNumber} *',
                         style: Theme.of(context).textTheme.labelLarge,
@@ -194,7 +187,6 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                       ),
                       const SizedBox(height: 20),
                       
-                      // Common reasons
                       Text(
                         AppLocalizations.of(context)!.reason,
                         style: Theme.of(context).textTheme.labelLarge,
@@ -223,7 +215,6 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                       ),
                       const SizedBox(height: 20),
                       
-                      // Detailed reason
                       Text(
                         '${AppLocalizations.of(context)!.reason} *',
                         style: Theme.of(context).textTheme.labelLarge,
@@ -249,7 +240,6 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                       ),
                       const SizedBox(height: 20),
                       
-                      // Risk level
                       Text(
                         '${AppLocalizations.of(context)!.riskLevel} *',
                         style: Theme.of(context).textTheme.labelLarge,
@@ -273,20 +263,6 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                                 ],
                               ),
                               const SizedBox(height: 12),
-                              /*
-                              Slider(
-                                value: _selectedRiskLevel.toDouble(),
-                                min: 1,
-                                max: 5,
-                                divisions: 4,
-                                label: _getRiskLevelDescription(_selectedRiskLevel),
-                                onChanged: (value) {
-                                  setState(() {
-                                    _selectedRiskLevel = value.round();
-                                  });
-                                },
-                              ),
-                              */
                               Text(
                                 _getRiskLevelDescription(_selectedRiskLevel),
                                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
@@ -300,7 +276,6 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                       ),
                       const SizedBox(height: 20),
                       
-                      // Guidelines
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
@@ -329,10 +304,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                             ),
                             const SizedBox(height: 8),
                             Text(
-                              
                               AppLocalizations.of(context)!.reportingGuidelines,
-                              
-                              
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
                           ],
@@ -345,7 +317,6 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
               
               const SizedBox(height: 24),
               
-              // Action buttons
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

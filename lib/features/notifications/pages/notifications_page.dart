@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/notifications/providers/notification_history_provider.dart';
 import 'package:yourcallyourrule/features/notifications/service/notification_manager.dart';
-import 'package:yourcallyourrule/data/models/notification_item.dart';
+import 'package:yourcallyourrule/features/notifications/data/models/notification_item.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通知页面 (Elite Dopamine 现代视觉规范)

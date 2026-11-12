@@ -58,4 +58,4 @@ final class LocalPredefinedLabelDataSourceProvider
 }
 
 String _$localPredefinedLabelDataSourceHash() =>
-    r'ea3c1302486a18a2a2bb78b5878a81a3b7c11cb4';
+    r'65f605be01cfcd66a67afc1c3f813c2e9c517597';

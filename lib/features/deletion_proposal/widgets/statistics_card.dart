@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
@@ -13,7 +12,6 @@ import 'package:yourcallyourrule/features/deletion_proposal/widgets/proposal_tre
 import 'package:yourcallyourrule/features/deletion_proposal/widgets/risk_bento_grid.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 真实数据驱动 · 社区治理统计控制台组件（兼容支持 Proposal 强类型实体列表与 legacy statistics Map，100% 绑定真实 Provider & i18n）
 class StatisticsCard extends StatelessWidget {
   final List<Proposal>? proposals;
   final Map<String, int>? statistics;
@@ -49,7 +47,6 @@ class StatisticsCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // 1. 社区威胁情报与 VIP 战报指挥舱组件 (Hero Banner)
         ProposalHeroBanner(
           voteCount: count,
           totalPending: totalPending,
@@ -58,15 +55,12 @@ class StatisticsCard extends StatelessWidget {
         ),
         const SizedBox(height: 14),
 
-        // 2. 广告集成
-        const GoogleAdWidget(adInfo: AdManager.bannerAd),
+        const AdsInlineBanner(),
         const SizedBox(height: 14),
 
-        // 3. 待处理提议真实概览卡片
         _buildOverviewCard(context, l10n, totalPending),
         const SizedBox(height: 14),
 
-        // 4. 风险等级 3D 异形 Bento 盒组件（强类型实体/统计驱动）
         RiskBentoGrid(
           highRisk: highRisk,
           mediumRisk: mediumRisk,
@@ -74,37 +68,29 @@ class StatisticsCard extends StatelessWidget {
         ),
         const SizedBox(height: 14),
 
-        // 5. [FlChart 饼图卡片] 风险等级占比 3D 环形图 (ProposalRiskDonutChartCard)
         const ProposalRiskDonutChartCard(),
         const SizedBox(height: 14),
 
-        // 6. [FlChart 折线图卡片] 社区提议提交趋势折线图 (ProposalTrendLineChartCard)
         const ProposalTrendLineChartCard(),
         const SizedBox(height: 14),
 
-        // 7. [FlChart 柱状图卡片] 提议处置状态对比柱状图 (ProposalStatusBarChartCard)
         const ProposalStatusBarChartCard(),
         const SizedBox(height: 14),
 
-        // 8. 广告集成
-        const GoogleAdWidget(adInfo: AdManager.bannerAd),
+        const AdsInlineBanner(),
         const SizedBox(height: 14),
 
-        // 9. 社区共识通过率与下架率动态分析组件
         const ProposalConsensusCard(),
         const SizedBox(height: 14),
 
-        // 10. 社区防护影响力控制台卡片
         _buildImpactCard(context, l10n, totalPending, highRisk),
         const SizedBox(height: 14),
 
-        // 11. 实时社区提议与审议数据流日志组件
         const ProposalAuditStreamCard(),
       ],
     );
   }
 
-  /// 待处理提议真实概览
   Widget _buildOverviewCard(BuildContext context, AppLocalizations l10n, int totalPending) {
     final theme = Theme.of(context);
 
@@ -204,7 +190,6 @@ class StatisticsCard extends StatelessWidget {
     );
   }
 
-  /// 社区防护影响力控制台卡片
   Widget _buildImpactCard(BuildContext context, AppLocalizations l10n, int totalPending, int highRisk) {
     final theme = Theme.of(context);
 

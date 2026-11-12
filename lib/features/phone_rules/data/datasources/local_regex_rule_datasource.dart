@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart' hide Column;
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
@@ -36,7 +35,7 @@ class LocalRegexRuleDataSource {
     );
   }
 
-  RegexRuleEntity _fromData(RegexRuleData data) {
+  RegexRuleEntity _fromData(RegexRule data) {
     return RegexRuleEntity(
       id: data.id,
       name: data.name,
@@ -51,12 +50,12 @@ class LocalRegexRuleDataSource {
   Future<String> _save(RegexRuleEntity rule) async {
     final companion = _toCompanion(rule);
     await _database.into(_database.regexRules).insertOnConflictUpdate(companion);
-    return companion.id.value ?? '';
+    return companion.id.value;
   }
 
   Future<List<RegexRuleEntity>> getAll() async {
     final data = await _database.select(_database.regexRules).get();
-    return data.map(_fromData).toList();
+    return data.map<RegexRuleEntity>(_fromData).toList();
   }
 
   Future<RegexRuleEntity?> getById(String id) async {
@@ -172,27 +171,27 @@ class LocalRegexRuleDataSource {
     final data = await (_database.select(_database.regexRules)
       ..where((tbl) => tbl.isEnabled.equals(1)))
       .get();
-    return data.map(_fromData).toList();
+    return data.map<RegexRuleEntity>(_fromData).toList();
   }
 
   Future<List<RegexRuleEntity>> getDisabledRules() async {
     final data = await (_database.select(_database.regexRules)
       ..where((tbl) => tbl.isEnabled.equals(0)))
       .get();
-    return data.map(_fromData).toList();
+    return data.map<RegexRuleEntity>(_fromData).toList();
   }
 
   Future<List<RegexRuleEntity>> getByPriority(int priority) async {
     final data = await (_database.select(_database.regexRules)
       ..where((tbl) => tbl.priority.equals(priority)))
       .get();
-    return data.map(_fromData).toList();
+    return data.map<RegexRuleEntity>(_fromData).toList();
   }
 
   Future<List<RegexRuleEntity>> searchByName(String name) async {
     final data = await (_database.select(_database.regexRules)
       ..where((tbl) => tbl.name.like('%$name%')))
       .get();
-    return data.map(_fromData).toList();
+    return data.map<RegexRuleEntity>(_fromData).toList();
   }
 }

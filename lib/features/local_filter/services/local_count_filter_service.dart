@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
@@ -22,7 +21,6 @@ LocalCountFilterService localCountFilterService(Ref ref) {
   return service;
 }
 
-/// 本地号码计数过滤服务
 class LocalCountFilterService implements CallFilterInterface {
   final CallerIdentityService _callerIdentityService;
   final Future<LocalCountFilterConfig> Function() _getConfig;
@@ -42,7 +40,7 @@ class LocalCountFilterService implements CallFilterInterface {
   CallFilterType get filterType => CallFilterType.localCount;
 
   @override
-  Future<bool> shouldAcceptCall(String phoneNumberStr, {SimInfo? simInfo}) async {
+  Future<bool> shouldAcceptCall(String phoneNumberStr, {dynamic simInfo}) async {
     try {
       if (_isDisposed) {
         return true;
@@ -52,9 +50,9 @@ class LocalCountFilterService implements CallFilterInterface {
         return true;
       }
 
-      final phoneNumber = PhoneNumber(phoneNumberStr);
+      final phoneNumber = PhoneNumber.fromString(phoneNumberStr);
 
-      if (_latestPluginData != null && _latestPluginData!.phoneNumber == phoneNumberStr && _latestPluginData!.count != null) {
+      if (_latestPluginData != null && _latestPluginData!.phoneNumber == phoneNumber.value && _latestPluginData!.count != null) {
         final count = _latestPluginData!.count!;
         final isExceeded = count >= config.countThreshold;
         if (isExceeded && config.rejectExceededNumbers) {

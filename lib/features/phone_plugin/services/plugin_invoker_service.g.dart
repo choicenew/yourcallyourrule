@@ -8,12 +8,9 @@ part of 'plugin_invoker_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// PluginInvokerService 的 @Riverpod Provider
 
 @ProviderFor(pluginService)
 final pluginServiceProvider = PluginServiceProvider._();
-
-/// PluginInvokerService 的 @Riverpod Provider
 
 final class PluginServiceProvider
     extends
@@ -23,7 +20,6 @@ final class PluginServiceProvider
           PluginInvokerService
         >
     with $Provider<PluginInvokerService> {
-  /// PluginInvokerService 的 @Riverpod Provider
   PluginServiceProvider._()
     : super(
         from: null,

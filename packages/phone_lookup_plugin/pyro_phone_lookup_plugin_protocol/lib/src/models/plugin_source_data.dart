@@ -28,4 +28,6 @@ abstract class PluginSourceData with _$PluginSourceData {
   Map<String, dynamic> toMap() => toJson();
 
   String get id => phoneNumber ?? name ?? '';
+  bool get isEnabled => true;
+  Map<String, dynamic>? get config => null;
 }

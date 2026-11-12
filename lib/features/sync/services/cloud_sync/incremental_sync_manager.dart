@@ -68,6 +68,28 @@ class IncrementalSyncManager {
     await _configManager.clearSyncHistory(serviceType, dataType);
   }
 
+  Future<List<dynamic>> syncRulesIncrementally(
+    String serviceType,
+    List<dynamic> localRules,
+    List<dynamic> cloudRules,
+  ) async {
+    final conflict = await _conflictResolver.resolveConflicts({
+      'rules': {'local': localRules, 'cloud': cloudRules}
+    });
+    return (conflict['rules'] as List?)?.cast<dynamic>() ?? localRules;
+  }
+
+  Future<Map<String, dynamic>> syncSettingsIncrementally(
+    String serviceType,
+    Map<String, dynamic> localSettings,
+    Map<String, dynamic> cloudSettings,
+  ) async {
+    final conflict = await _conflictResolver.resolveConflicts({
+      'settings': {'local': localSettings, 'cloud': cloudSettings}
+    });
+    return (conflict['settings'] as Map?)?.cast<String, dynamic>() ?? localSettings;
+  }
+
   /// Get overall sync status for a service
   Future<Map<String, dynamic>> getOverallSyncStatus(String serviceType) async {
     final lastSyncRules = await getLastSyncTime(serviceType, 'rules');

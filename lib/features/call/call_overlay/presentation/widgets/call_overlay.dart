@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
 import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
-import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/call_overlay_content_builder.dart';
+import 'call_overlay_content_builder.dart';
 
-import 'package:yourcallyourrule/features/call/call_overlay/configuration/call_overlay_config.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/providers/call_overlay_style_security_provider.dart';
 
 class CallOverlay extends ConsumerWidget {
@@ -28,51 +27,15 @@ class CallOverlay extends ConsumerWidget {
     final asyncConfig = ref.watch(callOverlayStyleSecurityProvider);
 
     return asyncConfig.when(
-      loading: () => const Center(child: CircularProgressIndicator()),
-      error: (err, stack) => Center(child: Text('Error: $err')),
-      data: (config) {
-        final notifier = ref.read(callOverlayStyleSecurityProvider.notifier);
-
-        final content = _buildOverlayContent(context, config, notifier);
-
-        return isDismissible
-            ? Dismissible(
-                key: Key(callerIdData.id),
-                direction: DismissDirection.horizontal,
-                onDismissed: (_) => onDismiss(),
-                child: content,
-              )
-            : content;
-      },
-    );
-  }
-
-  Widget _buildOverlayContent(BuildContext context, CallOverlayConfig config, CallOverlayStyleSecurityNotifier notifier) {
-    return CallOverlayContentBuilder.buildOverlayContainer(
-      config: config,
-      child: CallOverlayContentBuilder.buildCallOverlayContent(
+      data: (config) => CallOverlayContentBuilder.buildCallOverlayContent(
         context: context,
-        callerIdData: callerIdData,
         config: config,
+        callerIdData: callerIdData,
         simInfo: simInfo,
         stirInfo: stirInfo,
-        isDraggable: true,
-        onAvatarPositionChanged: notifier.updateAvatarPosition,
-        onCarrierPositionChanged: notifier.updateCarrierPosition,
-        onNamePositionChanged: notifier.updateNamePosition,
-        onCountryNamePositionChanged: notifier.updateCountryNamePosition,
-        onLabelsPositionChanged: notifier.updateLabelsPosition,
-        onCountPositionChanged: notifier.updateCountPosition,
-        onNumberTypePositionChanged: notifier.updateNumberTypePosition,
-        onNumberPositionChanged: notifier.updateNumberPosition,
-        onLocationPositionChanged: notifier.updateLocationPosition,
-        onStirPositionChanged: notifier.updateStirPosition,
-        onCallTypePositionChanged: notifier.updateCallTypePosition,
-        onSimCardPositionChanged: notifier.updateSimCardPosition,
-        onSecurityMessagePositionChanged: notifier.updateSecurityMessagePosition,
       ),
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (e, s) => Center(child: Text('Error: $e')),
     );
   }
 }
-
-typedef CallerIdOverlay = CallOverlay;

@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
-import '../../call/call_filter/call_filter_interface.dart';
-import '../../call/call_filter/enhanced_composite_filter_service.dart';
+import 'package:pyro_call_filter_hub/pyro_call_filter_hub.dart';
+import '../../call/call_filter/enhanced_composite_filter_service.dart' hide enhancedCompositeFilterServiceProvider;
 import '../../call/time_interceptor/service/time_interceptor_service.dart';
 
 part 'call_policy_evaluator.g.dart';
@@ -20,49 +20,39 @@ CallPolicyEvaluator callPolicyEvaluator(Ref ref) {
 
 /// 通用呼叫策略评估服务
 class CallPolicyEvaluator {
-  final CallFilterInterface _callFilterService;
+  final EnhancedCompositeFilterService _callFilterService;
   final TimeInterceptorService _timeInterceptorService;
 
   CallPolicyEvaluator({
-    required CallFilterInterface callFilterService,
+    required EnhancedCompositeFilterService callFilterService,
     required TimeInterceptorService timeInterceptorService,
   })  : _callFilterService = callFilterService,
         _timeInterceptorService = timeInterceptorService;
 
-  Future<bool> evaluateShouldAccept({
-    required String rawNumber,
-    required String nationalNumber,
-    required String e164Number,
-    SimInfo? simInfo,
-  }) async {
-    final numbersToTest = [
-      rawNumber,
-      nationalNumber,
-      e164Number,
-    ].where((n) => n.isNotEmpty).cast<String>();
-
-    final filterService = _callFilterService;
-    if (filterService is EnhancedCompositeFilterService) {
-      await filterService.initialize();
+  Future<CallPolicyResult> evaluate(String phoneNumber, {int? simSlotIndex}) async {
+    final shouldTimeIntercept = await _timeInterceptorService.shouldIntercept(phoneNumber);
+    if (shouldTimeIntercept) {
+      return const CallPolicyResult(
+        action: 'block',
+        reason: 'Time interceptor triggered',
+      );
     }
 
-    final shouldAccept = await Future.any(
-      numbersToTest.map((number) async {
-        bool decision;
-        if (filterService is EnhancedCompositeFilterService && simInfo != null) {
-          decision = await filterService.shouldAcceptCallWithSim(number, simInfo: simInfo);
-        } else {
-          decision = await _callFilterService.shouldAcceptCall(number);
-        }
+    final accepted = await _callFilterService.shouldAcceptCall(phoneNumber);
 
-        if (!decision) {
-          decision = !await _timeInterceptorService.shouldIntercept(number);
-        }
-        return decision;
-      }),
+    return CallPolicyResult(
+      action: accepted ? 'allow' : 'block',
+      reason: accepted ? 'Allowed by filter' : 'Blocked by filter',
     );
-
-    debugPrint('[CallPolicyEvaluator] 策略评估完成: $rawNumber -> 放行? $shouldAccept');
-    return shouldAccept;
   }
+}
+
+class CallPolicyResult {
+  final String action;
+  final String reason;
+
+  const CallPolicyResult({
+    required this.action,
+    required this.reason,
+  });
 }

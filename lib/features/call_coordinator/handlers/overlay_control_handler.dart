@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:floating_window_android/floating_window_android.dart';
+import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 
 import 'package:yourcallyourrule/features/call_monitor/services/caller_id_monitor_service.dart';
 import 'package:yourcallyourrule/features/call_monitor/handlers/intercept_event_provider.dart';
@@ -11,7 +12,7 @@ part 'overlay_control_handler.g.dart';
 
 @Riverpod(keepAlive: true)
 OverlayControlHandler overlayControlHandler(Ref ref) {
-  final monitorService = ref.read(callerIdMonitorServiceProvider.notifier);
+  final monitorService = ref.read(callerIdMonitorServiceProvider);
   final interceptEventController = ref.read(interceptEventStreamControllerProvider);
 
   final handler = OverlayControlHandler(monitorService, interceptEventController.stream);
@@ -25,32 +26,21 @@ class OverlayControlHandler {
   final CallerIdMonitorService _monitorService;
   final Stream<InterceptEvent> _interceptEventStream;
 
-  StreamSubscription<MethodCall>? _rawCallSubscription;
+  StreamSubscription<CallerIdData>? _callerIdSubscription;
   StreamSubscription<InterceptEvent>? _interceptEventSubscription;
 
   OverlayControlHandler(this._monitorService, this._interceptEventStream);
 
   void initialize() {
-    _rawCallSubscription?.cancel(); 
+    _callerIdSubscription?.cancel(); 
     _interceptEventSubscription?.cancel();
     
-    _rawCallSubscription = _monitorService.rawCallEventStream.listen(_handleRawCallEvent);
+    _callerIdSubscription = _monitorService.callerIdStream.listen((data) {
+      debugPrint('🖼️ [OverlayControlHandler] Received callerIdStream data');
+    });
     _interceptEventSubscription = _interceptEventStream.listen(_handleInterceptEvent);
     
-    debugPrint("✅ [OverlayControlHandler] Initialized and listening to rawCallEventStream and interceptEventStream.");
-  }
-
-  void _handleRawCallEvent(MethodCall call) {
-    debugPrint('🖼️ [OverlayControlHandler] Received raw call event: ${call.method}');
-    switch (call.method) {
-      case 'onCallAnswered':
-      case 'onCallEnded':
-        debugPrint('... Raw call event matched. Closing overlay...');
-        _closeOverlay();
-        break;
-      default:
-        break;
-    }
+    debugPrint("✅ [OverlayControlHandler] Initialized and listening to callerIdStream and interceptEventStream.");
   }
 
   void _handleInterceptEvent(InterceptEvent event) {
@@ -75,7 +65,7 @@ class OverlayControlHandler {
   }
 
   void dispose() {
-    _rawCallSubscription?.cancel();
+    _callerIdSubscription?.cancel();
     _interceptEventSubscription?.cancel();
     debugPrint("🗑️ [OverlayControlHandler] Disposed and cancelled all subscriptions.");
   }

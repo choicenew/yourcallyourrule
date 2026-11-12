@@ -3,11 +3,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:yourcallyourrule/features/rules/services/import_export_service.dart';
+import 'package:yourcallyourrule/features/phone_rules/services/import_export_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 通用导入导出服务组件
-/// 提供通用的导入导出功能，可以在不同的规则管理页面中复�?
 class ImportExportServiceComponent<T, ID> {
   final ImportExportService<T, ID> importExportService;
   final String entityTypeName;
@@ -21,7 +19,6 @@ class ImportExportServiceComponent<T, ID> {
     required this.getEntitiesToExport,
   });
 
-  /// 导入规则
   Future<void> importFromFile(BuildContext context) async {
     try {
       final result = await FilePicker.pickFiles(
@@ -30,32 +27,31 @@ class ImportExportServiceComponent<T, ID> {
         allowedExtensions: ['json'],
       );
       
-      if (result.isNotEmpty && result.single.path != null) {
-        final entities = await importExportService.importFromFile(result.single.path!);
+      if (result != null && result.files.isNotEmpty && result.files.single.path != null) {
+        final entities = await importExportService.importFromFile(result.files.single.path!);
         
-        // 调用回调函数处理导入的实�?
         await onEntitiesImported(entities);
         
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(AppLocalizations.of(context)!.entityImportSuccess(entityTypeName, entities.length)),
-          backgroundColor: Colors.green,
-        ));
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(AppLocalizations.of(context)!.entityImportSuccess(entityTypeName, entities.length)),
+            backgroundColor: Colors.green,
+          ));
+        }
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(AppLocalizations.of(context)!.entityImportFailed(entityTypeName, e.toString())),
-        backgroundColor: Colors.red,
-      ));
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(AppLocalizations.of(context)!.entityImportFailed(entityTypeName, e.toString())),
+          backgroundColor: Colors.red,
+        ));
+      }
     }
   }
 
-  /// 导出规则
   Future<void> exportToFile(BuildContext context) async {
     try {
-      // 获取要导出的实体
       final entities = await getEntitiesToExport();
-      
-      // 准备导出数据字节
       final bytes = await importExportService.prepareExportBytes(entities);
 
       final result = await FilePicker.saveFile(
@@ -64,21 +60,22 @@ class ImportExportServiceComponent<T, ID> {
         bytes: bytes,
       );
       
-      if (result != null) {
+      if (result != null && context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(AppLocalizations.of(context)!.entityExportSuccess(entityTypeName)),
           backgroundColor: Colors.green,
         ));
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(AppLocalizations.of(context)!.entityExportFailed(entityTypeName, e.toString())),
-        backgroundColor: Colors.red,
-      ));
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(AppLocalizations.of(context)!.entityExportFailed(entityTypeName, e.toString())),
+          backgroundColor: Colors.red,
+        ));
+      }
     }
   }
 
-  /// 构建导入导出按钮�?
   Widget buildImportExportButtons(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -104,7 +101,6 @@ class ImportExportServiceComponent<T, ID> {
     );
   }
   
-  /// 显示导入导出对话�?
   void showImportExportDialog(BuildContext context) {
     showDialog(
       context: context,

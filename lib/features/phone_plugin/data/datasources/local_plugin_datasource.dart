@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
@@ -26,32 +25,28 @@ class LocalPluginDataSource {
     final id = plugin.id.isEmpty ? _uuid.v4() : plugin.id;
     return PluginsCompanion.insert(
       id: id,
-      name: plugin.id,
-      url: plugin.sourceUrl ?? '',
-      version: plugin.version,
-      description: Value(plugin.scriptContent),
-      isEnabled: Value(plugin.isEnabled ? 1 : 0),
-      pluginOrder: Value(plugin.priority),
-      isAutoUpdate: Value(plugin.isAutoUpdate ? 1 : 0),
+      name: plugin.name ?? id,
+      url: plugin.phoneNumber ?? '',
+      version: '1.0.0',
+      description: Value(plugin.sourceLabel),
+      isEnabled: const Value(1),
+      pluginOrder: 0,
+      isAutoUpdate: 1,
     );
   }
 
-  PluginSourceData _fromData(PluginData data) {
+  PluginSourceData _fromData(Plugin data) {
     return PluginSourceData(
-      id: data.id,
-      version: data.version,
-      sourceUrl: data.url,
-      scriptContent: data.description ?? '',
-      priority: data.pluginOrder,
-      isEnabled: data.isEnabled == 1,
-      isAutoUpdate: data.isAutoUpdate == 1,
+      name: data.name,
+      phoneNumber: data.url,
+      sourceLabel: data.description,
     );
   }
 
   Future<List<PluginSourceData>> getAll() async {
     final data = await (_db.select(_db.plugins)
           ..orderBy([(t) => OrderingTerm(expression: t.pluginOrder)])).get();
-    return data.map(_fromData).toList();
+    return data.map<PluginSourceData>(_fromData).toList();
   }
 
   Future<PluginSourceData?> getById(String id) async {
@@ -121,13 +116,13 @@ class LocalPluginDataSource {
   Future<List<PluginSourceData>> searchByName(String name) async {
     final data = await (_db.select(_db.plugins)
           ..where((tbl) => tbl.name.like('%$name%'))).get();
-    return data.map(_fromData).toList();
+    return data.map<PluginSourceData>(_fromData).toList();
   }
 
   Future<List<PluginSourceData>> getEnabled() async {
     final data = await (_db.select(_db.plugins)
           ..where((tbl) => tbl.isEnabled.equals(1))).get();
-    return data.map(_fromData).toList();
+    return data.map<PluginSourceData>(_fromData).toList();
   }
 
   Future<String> exportData() async {

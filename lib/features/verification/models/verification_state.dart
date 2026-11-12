@@ -3,7 +3,7 @@ import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 
-/// 号码验证状态数据模�?class VerificationState {
+class VerificationState {
   final String phoneNumber;
   final String countryCode;
   final List<String> candidateCountries;
@@ -11,7 +11,7 @@ import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_proto
   final bool isLoading;
   final bool hasVerified;
   final CallerIdData? callerIdData;
-  final Contact? matchedContact;
+  final PhoneContactEntry? matchedContact;
   final LabelPhoneEntry? matchedLabel;
   final PluginSourceData? pluginSourceData;
   final Map<String, bool> rulesResults;
@@ -40,7 +40,7 @@ import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_proto
     bool? isLoading,
     bool? hasVerified,
     CallerIdData? callerIdData,
-    Contact? matchedContact,
+    PhoneContactEntry? matchedContact,
     LabelPhoneEntry? matchedLabel,
     PluginSourceData? pluginSourceData,
     Map<String, bool>? rulesResults,

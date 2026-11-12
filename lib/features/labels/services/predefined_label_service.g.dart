@@ -8,12 +8,12 @@ part of 'predefined_label_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// PredefinedLabelService 的 @Riverpod Provider
+/// PredefinedLabelService Riverpod Provider
 
 @ProviderFor(predefinedLabelService)
 final predefinedLabelServiceProvider = PredefinedLabelServiceProvider._();
 
-/// PredefinedLabelService 的 @Riverpod Provider
+/// PredefinedLabelService Riverpod Provider
 
 final class PredefinedLabelServiceProvider
     extends
@@ -23,7 +23,7 @@ final class PredefinedLabelServiceProvider
           PredefinedLabelService
         >
     with $Provider<PredefinedLabelService> {
-  /// PredefinedLabelService 的 @Riverpod Provider
+  /// PredefinedLabelService Riverpod Provider
   PredefinedLabelServiceProvider._()
     : super(
         from: null,

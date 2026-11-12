@@ -50,7 +50,7 @@ final class SimSlotRulePageProvider
   }
 }
 
-String _$simSlotRulePageHash() => r'dff7ba4c2c0312542453be835abe2f6a2f4c542d';
+String _$simSlotRulePageHash() => r'88bf173ba6a001e5ba64f8c86d23feb180713ca3';
 
 final class SimSlotRulePageFamily extends $Family
     with

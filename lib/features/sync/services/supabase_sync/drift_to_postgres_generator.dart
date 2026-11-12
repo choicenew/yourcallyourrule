@@ -1,5 +1,5 @@
 import 'package:drift/drift.dart';
-import '../../data/database/local/local_database.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 class DriftToPostgresGenerator {
   final LocalDatabase db;

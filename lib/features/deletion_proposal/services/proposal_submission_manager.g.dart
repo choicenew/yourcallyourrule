@@ -8,16 +8,9 @@ part of 'proposal_submission_manager.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// ProposalSubmissionManager 的 Provider。
-///
-/// 【MODIFIED】: 使用 @riverpod 注解声明，替代了旧的手动 `Provider` 定义。
 
 @ProviderFor(proposalSubmissionManager)
 final proposalSubmissionManagerProvider = ProposalSubmissionManagerProvider._();
-
-/// ProposalSubmissionManager 的 Provider。
-///
-/// 【MODIFIED】: 使用 @riverpod 注解声明，替代了旧的手动 `Provider` 定义。
 
 final class ProposalSubmissionManagerProvider
     extends
@@ -27,9 +20,6 @@ final class ProposalSubmissionManagerProvider
           ProposalSubmissionManager
         >
     with $Provider<ProposalSubmissionManager> {
-  /// ProposalSubmissionManager 的 Provider。
-  ///
-  /// 【MODIFIED】: 使用 @riverpod 注解声明，替代了旧的手动 `Provider` 定义。
   ProposalSubmissionManagerProvider._()
     : super(
         from: null,

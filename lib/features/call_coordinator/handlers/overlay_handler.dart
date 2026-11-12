@@ -22,7 +22,7 @@ class OverlayHandler {
     StirInfo? stirInfo,
     SimInfo? simInfo,
   ) async {
-    debugPrint('[OverlayHandler] Showing overlay for ${callerIdData.phoneNumber.value}');
+    debugPrint('[OverlayHandler] Showing overlay for ${callerIdData.phoneNumber}');
   }
 
   Future<void> hideCallerIdOverlay() async {}

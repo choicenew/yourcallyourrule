@@ -4,7 +4,7 @@ part of 'local_database.dart';
 
 // ignore_for_file: type=lint
 class $ContactsTable extends Contacts
-    with TableInfo<$ContactsTable, ContactData> {
+    with TableInfo<$ContactsTable, PhoneContactEntry> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -122,7 +122,7 @@ class $ContactsTable extends Contacts
   static const String $name = 'contacts';
   @override
   VerificationContext validateIntegrity(
-    Insertable<ContactData> instance, {
+    Insertable<PhoneContactEntry> instance, {
     bool isInserting = false,
   }) {
     final context = VerificationContext();
@@ -198,44 +198,12 @@ class $ContactsTable extends Contacts
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  ContactData map(Map<String, dynamic> data, {String? tablePrefix}) {
+  PhoneContactEntry map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return ContactData(
+    return PhoneContactEntry(
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
-      )!,
-      phoneNumber: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}phone_number'],
-      )!,
-      name: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}name'],
-      )!,
-      avatar: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}avatar'],
-      ),
-      url: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}url'],
-      ),
-      note: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}note'],
-      ),
-      labelIds: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}label_ids'],
-      ),
-      isFavorite: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}is_favorite'],
-      )!,
-      lastUpdated: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}last_updated'],
       )!,
     );
   }
@@ -246,186 +214,7 @@ class $ContactsTable extends Contacts
   }
 }
 
-class ContactData extends DataClass implements Insertable<ContactData> {
-  final String id;
-  final String phoneNumber;
-  final String name;
-  final String? avatar;
-  final String? url;
-  final String? note;
-  final String? labelIds;
-  final int isFavorite;
-  final String lastUpdated;
-  const ContactData({
-    required this.id,
-    required this.phoneNumber,
-    required this.name,
-    this.avatar,
-    this.url,
-    this.note,
-    this.labelIds,
-    required this.isFavorite,
-    required this.lastUpdated,
-  });
-  @override
-  Map<String, Expression> toColumns(bool nullToAbsent) {
-    final map = <String, Expression>{};
-    map['id'] = Variable<String>(id);
-    map['phone_number'] = Variable<String>(phoneNumber);
-    map['name'] = Variable<String>(name);
-    if (!nullToAbsent || avatar != null) {
-      map['avatar'] = Variable<String>(avatar);
-    }
-    if (!nullToAbsent || url != null) {
-      map['url'] = Variable<String>(url);
-    }
-    if (!nullToAbsent || note != null) {
-      map['note'] = Variable<String>(note);
-    }
-    if (!nullToAbsent || labelIds != null) {
-      map['label_ids'] = Variable<String>(labelIds);
-    }
-    map['is_favorite'] = Variable<int>(isFavorite);
-    map['last_updated'] = Variable<String>(lastUpdated);
-    return map;
-  }
-
-  ContactsCompanion toCompanion(bool nullToAbsent) {
-    return ContactsCompanion(
-      id: Value(id),
-      phoneNumber: Value(phoneNumber),
-      name: Value(name),
-      avatar: avatar == null && nullToAbsent
-          ? const Value.absent()
-          : Value(avatar),
-      url: url == null && nullToAbsent ? const Value.absent() : Value(url),
-      note: note == null && nullToAbsent ? const Value.absent() : Value(note),
-      labelIds: labelIds == null && nullToAbsent
-          ? const Value.absent()
-          : Value(labelIds),
-      isFavorite: Value(isFavorite),
-      lastUpdated: Value(lastUpdated),
-    );
-  }
-
-  factory ContactData.fromJson(
-    Map<String, dynamic> json, {
-    ValueSerializer? serializer,
-  }) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return ContactData(
-      id: serializer.fromJson<String>(json['id']),
-      phoneNumber: serializer.fromJson<String>(json['phoneNumber']),
-      name: serializer.fromJson<String>(json['name']),
-      avatar: serializer.fromJson<String?>(json['avatar']),
-      url: serializer.fromJson<String?>(json['url']),
-      note: serializer.fromJson<String?>(json['note']),
-      labelIds: serializer.fromJson<String?>(json['labelIds']),
-      isFavorite: serializer.fromJson<int>(json['isFavorite']),
-      lastUpdated: serializer.fromJson<String>(json['lastUpdated']),
-    );
-  }
-  @override
-  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return <String, dynamic>{
-      'id': serializer.toJson<String>(id),
-      'phoneNumber': serializer.toJson<String>(phoneNumber),
-      'name': serializer.toJson<String>(name),
-      'avatar': serializer.toJson<String?>(avatar),
-      'url': serializer.toJson<String?>(url),
-      'note': serializer.toJson<String?>(note),
-      'labelIds': serializer.toJson<String?>(labelIds),
-      'isFavorite': serializer.toJson<int>(isFavorite),
-      'lastUpdated': serializer.toJson<String>(lastUpdated),
-    };
-  }
-
-  ContactData copyWith({
-    String? id,
-    String? phoneNumber,
-    String? name,
-    Value<String?> avatar = const Value.absent(),
-    Value<String?> url = const Value.absent(),
-    Value<String?> note = const Value.absent(),
-    Value<String?> labelIds = const Value.absent(),
-    int? isFavorite,
-    String? lastUpdated,
-  }) => ContactData(
-    id: id ?? this.id,
-    phoneNumber: phoneNumber ?? this.phoneNumber,
-    name: name ?? this.name,
-    avatar: avatar.present ? avatar.value : this.avatar,
-    url: url.present ? url.value : this.url,
-    note: note.present ? note.value : this.note,
-    labelIds: labelIds.present ? labelIds.value : this.labelIds,
-    isFavorite: isFavorite ?? this.isFavorite,
-    lastUpdated: lastUpdated ?? this.lastUpdated,
-  );
-  ContactData copyWithCompanion(ContactsCompanion data) {
-    return ContactData(
-      id: data.id.present ? data.id.value : this.id,
-      phoneNumber: data.phoneNumber.present
-          ? data.phoneNumber.value
-          : this.phoneNumber,
-      name: data.name.present ? data.name.value : this.name,
-      avatar: data.avatar.present ? data.avatar.value : this.avatar,
-      url: data.url.present ? data.url.value : this.url,
-      note: data.note.present ? data.note.value : this.note,
-      labelIds: data.labelIds.present ? data.labelIds.value : this.labelIds,
-      isFavorite: data.isFavorite.present
-          ? data.isFavorite.value
-          : this.isFavorite,
-      lastUpdated: data.lastUpdated.present
-          ? data.lastUpdated.value
-          : this.lastUpdated,
-    );
-  }
-
-  @override
-  String toString() {
-    return (StringBuffer('ContactData(')
-          ..write('id: $id, ')
-          ..write('phoneNumber: $phoneNumber, ')
-          ..write('name: $name, ')
-          ..write('avatar: $avatar, ')
-          ..write('url: $url, ')
-          ..write('note: $note, ')
-          ..write('labelIds: $labelIds, ')
-          ..write('isFavorite: $isFavorite, ')
-          ..write('lastUpdated: $lastUpdated')
-          ..write(')'))
-        .toString();
-  }
-
-  @override
-  int get hashCode => Object.hash(
-    id,
-    phoneNumber,
-    name,
-    avatar,
-    url,
-    note,
-    labelIds,
-    isFavorite,
-    lastUpdated,
-  );
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is ContactData &&
-          other.id == this.id &&
-          other.phoneNumber == this.phoneNumber &&
-          other.name == this.name &&
-          other.avatar == this.avatar &&
-          other.url == this.url &&
-          other.note == this.note &&
-          other.labelIds == this.labelIds &&
-          other.isFavorite == this.isFavorite &&
-          other.lastUpdated == this.lastUpdated);
-}
-
-class ContactsCompanion extends UpdateCompanion<ContactData> {
+class ContactsCompanion extends UpdateCompanion<PhoneContactEntry> {
   final Value<String> id;
   final Value<String> phoneNumber;
   final Value<String> name;
@@ -463,7 +252,7 @@ class ContactsCompanion extends UpdateCompanion<ContactData> {
        phoneNumber = Value(phoneNumber),
        name = Value(name),
        lastUpdated = Value(lastUpdated);
-  static Insertable<ContactData> custom({
+  static Insertable<PhoneContactEntry> custom({
     Expression<String>? id,
     Expression<String>? phoneNumber,
     Expression<String>? name,
@@ -570,7 +359,7 @@ class ContactsCompanion extends UpdateCompanion<ContactData> {
 }
 
 class $CallHistoryTable extends CallHistory
-    with TableInfo<$CallHistoryTable, CallHistoryData> {
+    with TableInfo<$CallHistoryTable, CallLogEntry> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -741,7 +530,7 @@ class $CallHistoryTable extends CallHistory
   static const String $name = 'call_history';
   @override
   VerificationContext validateIntegrity(
-    Insertable<CallHistoryData> instance, {
+    Insertable<CallLogEntry> instance, {
     bool isInserting = false,
   }) {
     final context = VerificationContext();
@@ -850,9 +639,9 @@ class $CallHistoryTable extends CallHistory
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  CallHistoryData map(Map<String, dynamic> data, {String? tablePrefix}) {
+  CallLogEntry map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return CallHistoryData(
+    return CallLogEntry(
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
@@ -861,49 +650,17 @@ class $CallHistoryTable extends CallHistory
         DriftSqlType.string,
         data['${effectivePrefix}phone_number'],
       )!,
-      name: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}name'],
-      ),
-      timestamp: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}timestamp'],
-      )!,
-      endTime: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}end_time'],
-      ),
-      duration: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}duration'],
-      ),
-      simDisplayName: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}sim_display_name'],
-      ),
       callType: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}call_type'],
       )!,
-      simSlotIndex: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}sim_slot_index'],
-      ),
-      carrierName: attachedDatabase.typeMapping.read(
+      timestamp: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
-        data['${effectivePrefix}carrier_name'],
-      ),
-      countryIso: attachedDatabase.typeMapping.read(
+        data['${effectivePrefix}timestamp'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
-        data['${effectivePrefix}country_iso'],
-      ),
-      subscriptionId: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}subscription_id'],
-      ),
-      labelIds: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}label_ids'],
+        data['${effectivePrefix}name'],
       ),
     );
   }
@@ -914,266 +671,7 @@ class $CallHistoryTable extends CallHistory
   }
 }
 
-class CallHistoryData extends DataClass implements Insertable<CallHistoryData> {
-  final String id;
-  final String phoneNumber;
-  final String? name;
-  final String timestamp;
-  final String? endTime;
-  final int? duration;
-  final String? simDisplayName;
-  final String callType;
-  final int? simSlotIndex;
-  final String? carrierName;
-  final String? countryIso;
-  final int? subscriptionId;
-  final String? labelIds;
-  const CallHistoryData({
-    required this.id,
-    required this.phoneNumber,
-    this.name,
-    required this.timestamp,
-    this.endTime,
-    this.duration,
-    this.simDisplayName,
-    required this.callType,
-    this.simSlotIndex,
-    this.carrierName,
-    this.countryIso,
-    this.subscriptionId,
-    this.labelIds,
-  });
-  @override
-  Map<String, Expression> toColumns(bool nullToAbsent) {
-    final map = <String, Expression>{};
-    map['id'] = Variable<String>(id);
-    map['phone_number'] = Variable<String>(phoneNumber);
-    if (!nullToAbsent || name != null) {
-      map['name'] = Variable<String>(name);
-    }
-    map['timestamp'] = Variable<String>(timestamp);
-    if (!nullToAbsent || endTime != null) {
-      map['end_time'] = Variable<String>(endTime);
-    }
-    if (!nullToAbsent || duration != null) {
-      map['duration'] = Variable<int>(duration);
-    }
-    if (!nullToAbsent || simDisplayName != null) {
-      map['sim_display_name'] = Variable<String>(simDisplayName);
-    }
-    map['call_type'] = Variable<String>(callType);
-    if (!nullToAbsent || simSlotIndex != null) {
-      map['sim_slot_index'] = Variable<int>(simSlotIndex);
-    }
-    if (!nullToAbsent || carrierName != null) {
-      map['carrier_name'] = Variable<String>(carrierName);
-    }
-    if (!nullToAbsent || countryIso != null) {
-      map['country_iso'] = Variable<String>(countryIso);
-    }
-    if (!nullToAbsent || subscriptionId != null) {
-      map['subscription_id'] = Variable<int>(subscriptionId);
-    }
-    if (!nullToAbsent || labelIds != null) {
-      map['label_ids'] = Variable<String>(labelIds);
-    }
-    return map;
-  }
-
-  CallHistoryCompanion toCompanion(bool nullToAbsent) {
-    return CallHistoryCompanion(
-      id: Value(id),
-      phoneNumber: Value(phoneNumber),
-      name: name == null && nullToAbsent ? const Value.absent() : Value(name),
-      timestamp: Value(timestamp),
-      endTime: endTime == null && nullToAbsent
-          ? const Value.absent()
-          : Value(endTime),
-      duration: duration == null && nullToAbsent
-          ? const Value.absent()
-          : Value(duration),
-      simDisplayName: simDisplayName == null && nullToAbsent
-          ? const Value.absent()
-          : Value(simDisplayName),
-      callType: Value(callType),
-      simSlotIndex: simSlotIndex == null && nullToAbsent
-          ? const Value.absent()
-          : Value(simSlotIndex),
-      carrierName: carrierName == null && nullToAbsent
-          ? const Value.absent()
-          : Value(carrierName),
-      countryIso: countryIso == null && nullToAbsent
-          ? const Value.absent()
-          : Value(countryIso),
-      subscriptionId: subscriptionId == null && nullToAbsent
-          ? const Value.absent()
-          : Value(subscriptionId),
-      labelIds: labelIds == null && nullToAbsent
-          ? const Value.absent()
-          : Value(labelIds),
-    );
-  }
-
-  factory CallHistoryData.fromJson(
-    Map<String, dynamic> json, {
-    ValueSerializer? serializer,
-  }) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return CallHistoryData(
-      id: serializer.fromJson<String>(json['id']),
-      phoneNumber: serializer.fromJson<String>(json['phoneNumber']),
-      name: serializer.fromJson<String?>(json['name']),
-      timestamp: serializer.fromJson<String>(json['timestamp']),
-      endTime: serializer.fromJson<String?>(json['endTime']),
-      duration: serializer.fromJson<int?>(json['duration']),
-      simDisplayName: serializer.fromJson<String?>(json['simDisplayName']),
-      callType: serializer.fromJson<String>(json['callType']),
-      simSlotIndex: serializer.fromJson<int?>(json['simSlotIndex']),
-      carrierName: serializer.fromJson<String?>(json['carrierName']),
-      countryIso: serializer.fromJson<String?>(json['countryIso']),
-      subscriptionId: serializer.fromJson<int?>(json['subscriptionId']),
-      labelIds: serializer.fromJson<String?>(json['labelIds']),
-    );
-  }
-  @override
-  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return <String, dynamic>{
-      'id': serializer.toJson<String>(id),
-      'phoneNumber': serializer.toJson<String>(phoneNumber),
-      'name': serializer.toJson<String?>(name),
-      'timestamp': serializer.toJson<String>(timestamp),
-      'endTime': serializer.toJson<String?>(endTime),
-      'duration': serializer.toJson<int?>(duration),
-      'simDisplayName': serializer.toJson<String?>(simDisplayName),
-      'callType': serializer.toJson<String>(callType),
-      'simSlotIndex': serializer.toJson<int?>(simSlotIndex),
-      'carrierName': serializer.toJson<String?>(carrierName),
-      'countryIso': serializer.toJson<String?>(countryIso),
-      'subscriptionId': serializer.toJson<int?>(subscriptionId),
-      'labelIds': serializer.toJson<String?>(labelIds),
-    };
-  }
-
-  CallHistoryData copyWith({
-    String? id,
-    String? phoneNumber,
-    Value<String?> name = const Value.absent(),
-    String? timestamp,
-    Value<String?> endTime = const Value.absent(),
-    Value<int?> duration = const Value.absent(),
-    Value<String?> simDisplayName = const Value.absent(),
-    String? callType,
-    Value<int?> simSlotIndex = const Value.absent(),
-    Value<String?> carrierName = const Value.absent(),
-    Value<String?> countryIso = const Value.absent(),
-    Value<int?> subscriptionId = const Value.absent(),
-    Value<String?> labelIds = const Value.absent(),
-  }) => CallHistoryData(
-    id: id ?? this.id,
-    phoneNumber: phoneNumber ?? this.phoneNumber,
-    name: name.present ? name.value : this.name,
-    timestamp: timestamp ?? this.timestamp,
-    endTime: endTime.present ? endTime.value : this.endTime,
-    duration: duration.present ? duration.value : this.duration,
-    simDisplayName: simDisplayName.present
-        ? simDisplayName.value
-        : this.simDisplayName,
-    callType: callType ?? this.callType,
-    simSlotIndex: simSlotIndex.present ? simSlotIndex.value : this.simSlotIndex,
-    carrierName: carrierName.present ? carrierName.value : this.carrierName,
-    countryIso: countryIso.present ? countryIso.value : this.countryIso,
-    subscriptionId: subscriptionId.present
-        ? subscriptionId.value
-        : this.subscriptionId,
-    labelIds: labelIds.present ? labelIds.value : this.labelIds,
-  );
-  CallHistoryData copyWithCompanion(CallHistoryCompanion data) {
-    return CallHistoryData(
-      id: data.id.present ? data.id.value : this.id,
-      phoneNumber: data.phoneNumber.present
-          ? data.phoneNumber.value
-          : this.phoneNumber,
-      name: data.name.present ? data.name.value : this.name,
-      timestamp: data.timestamp.present ? data.timestamp.value : this.timestamp,
-      endTime: data.endTime.present ? data.endTime.value : this.endTime,
-      duration: data.duration.present ? data.duration.value : this.duration,
-      simDisplayName: data.simDisplayName.present
-          ? data.simDisplayName.value
-          : this.simDisplayName,
-      callType: data.callType.present ? data.callType.value : this.callType,
-      simSlotIndex: data.simSlotIndex.present
-          ? data.simSlotIndex.value
-          : this.simSlotIndex,
-      carrierName: data.carrierName.present
-          ? data.carrierName.value
-          : this.carrierName,
-      countryIso: data.countryIso.present
-          ? data.countryIso.value
-          : this.countryIso,
-      subscriptionId: data.subscriptionId.present
-          ? data.subscriptionId.value
-          : this.subscriptionId,
-      labelIds: data.labelIds.present ? data.labelIds.value : this.labelIds,
-    );
-  }
-
-  @override
-  String toString() {
-    return (StringBuffer('CallHistoryData(')
-          ..write('id: $id, ')
-          ..write('phoneNumber: $phoneNumber, ')
-          ..write('name: $name, ')
-          ..write('timestamp: $timestamp, ')
-          ..write('endTime: $endTime, ')
-          ..write('duration: $duration, ')
-          ..write('simDisplayName: $simDisplayName, ')
-          ..write('callType: $callType, ')
-          ..write('simSlotIndex: $simSlotIndex, ')
-          ..write('carrierName: $carrierName, ')
-          ..write('countryIso: $countryIso, ')
-          ..write('subscriptionId: $subscriptionId, ')
-          ..write('labelIds: $labelIds')
-          ..write(')'))
-        .toString();
-  }
-
-  @override
-  int get hashCode => Object.hash(
-    id,
-    phoneNumber,
-    name,
-    timestamp,
-    endTime,
-    duration,
-    simDisplayName,
-    callType,
-    simSlotIndex,
-    carrierName,
-    countryIso,
-    subscriptionId,
-    labelIds,
-  );
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is CallHistoryData &&
-          other.id == this.id &&
-          other.phoneNumber == this.phoneNumber &&
-          other.name == this.name &&
-          other.timestamp == this.timestamp &&
-          other.endTime == this.endTime &&
-          other.duration == this.duration &&
-          other.simDisplayName == this.simDisplayName &&
-          other.callType == this.callType &&
-          other.simSlotIndex == this.simSlotIndex &&
-          other.carrierName == this.carrierName &&
-          other.countryIso == this.countryIso &&
-          other.subscriptionId == this.subscriptionId &&
-          other.labelIds == this.labelIds);
-}
-
-class CallHistoryCompanion extends UpdateCompanion<CallHistoryData> {
+class CallHistoryCompanion extends UpdateCompanion<CallLogEntry> {
   final Value<String> id;
   final Value<String> phoneNumber;
   final Value<String?> name;
@@ -1223,7 +721,7 @@ class CallHistoryCompanion extends UpdateCompanion<CallHistoryData> {
        phoneNumber = Value(phoneNumber),
        timestamp = Value(timestamp),
        callType = Value(callType);
-  static Insertable<CallHistoryData> custom({
+  static Insertable<CallLogEntry> custom({
     Expression<String>? id,
     Expression<String>? phoneNumber,
     Expression<String>? name,
@@ -1361,7 +859,7 @@ class CallHistoryCompanion extends UpdateCompanion<CallHistoryData> {
   }
 }
 
-class $RulesTable extends Rules with TableInfo<$RulesTable, RuleData> {
+class $RulesTable extends Rules with TableInfo<$RulesTable, PhoneRuleEntity> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -1518,7 +1016,7 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, RuleData> {
   static const String $name = 'rules';
   @override
   VerificationContext validateIntegrity(
-    Insertable<RuleData> instance, {
+    Insertable<PhoneRuleEntity> instance, {
     bool isInserting = false,
   }) {
     final context = VerificationContext();
@@ -1610,9 +1108,9 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, RuleData> {
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  RuleData map(Map<String, dynamic> data, {String? tablePrefix}) {
+  PhoneRuleEntity map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return RuleData(
+    return PhoneRuleEntity(
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
@@ -1620,10 +1118,6 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, RuleData> {
       name: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}name'],
-      )!,
-      ruleType: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}rule_type'],
       )!,
       phoneNumber: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
@@ -1633,33 +1127,21 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, RuleData> {
         DriftSqlType.string,
         data['${effectivePrefix}label_id'],
       ),
-      priority: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}priority'],
-      )!,
-      action: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}action'],
-      )!,
-      isEnabled: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}is_enabled'],
-      )!,
-      pattern: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}pattern'],
-      ),
       avatar: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}avatar'],
       ),
-      isSubscribed: attachedDatabase.typeMapping.read(
+      priority: attachedDatabase.typeMapping.read(
         DriftSqlType.int,
-        data['${effectivePrefix}is_subscribed'],
+        data['${effectivePrefix}priority'],
       )!,
       count: attachedDatabase.typeMapping.read(
         DriftSqlType.int,
         data['${effectivePrefix}count'],
+      )!,
+      isEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_enabled'],
       )!,
     );
   }
@@ -1670,224 +1152,7 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, RuleData> {
   }
 }
 
-class RuleData extends DataClass implements Insertable<RuleData> {
-  final String id;
-  final String name;
-  final String ruleType;
-  final String? phoneNumber;
-  final String? labelId;
-  final int priority;
-  final String action;
-  final int isEnabled;
-  final String? pattern;
-  final String? avatar;
-  final int isSubscribed;
-  final int count;
-  const RuleData({
-    required this.id,
-    required this.name,
-    required this.ruleType,
-    this.phoneNumber,
-    this.labelId,
-    required this.priority,
-    required this.action,
-    required this.isEnabled,
-    this.pattern,
-    this.avatar,
-    required this.isSubscribed,
-    required this.count,
-  });
-  @override
-  Map<String, Expression> toColumns(bool nullToAbsent) {
-    final map = <String, Expression>{};
-    map['id'] = Variable<String>(id);
-    map['name'] = Variable<String>(name);
-    map['rule_type'] = Variable<String>(ruleType);
-    if (!nullToAbsent || phoneNumber != null) {
-      map['phone_number'] = Variable<String>(phoneNumber);
-    }
-    if (!nullToAbsent || labelId != null) {
-      map['label_id'] = Variable<String>(labelId);
-    }
-    map['priority'] = Variable<int>(priority);
-    map['action'] = Variable<String>(action);
-    map['is_enabled'] = Variable<int>(isEnabled);
-    if (!nullToAbsent || pattern != null) {
-      map['pattern'] = Variable<String>(pattern);
-    }
-    if (!nullToAbsent || avatar != null) {
-      map['avatar'] = Variable<String>(avatar);
-    }
-    map['is_subscribed'] = Variable<int>(isSubscribed);
-    map['count'] = Variable<int>(count);
-    return map;
-  }
-
-  RulesCompanion toCompanion(bool nullToAbsent) {
-    return RulesCompanion(
-      id: Value(id),
-      name: Value(name),
-      ruleType: Value(ruleType),
-      phoneNumber: phoneNumber == null && nullToAbsent
-          ? const Value.absent()
-          : Value(phoneNumber),
-      labelId: labelId == null && nullToAbsent
-          ? const Value.absent()
-          : Value(labelId),
-      priority: Value(priority),
-      action: Value(action),
-      isEnabled: Value(isEnabled),
-      pattern: pattern == null && nullToAbsent
-          ? const Value.absent()
-          : Value(pattern),
-      avatar: avatar == null && nullToAbsent
-          ? const Value.absent()
-          : Value(avatar),
-      isSubscribed: Value(isSubscribed),
-      count: Value(count),
-    );
-  }
-
-  factory RuleData.fromJson(
-    Map<String, dynamic> json, {
-    ValueSerializer? serializer,
-  }) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return RuleData(
-      id: serializer.fromJson<String>(json['id']),
-      name: serializer.fromJson<String>(json['name']),
-      ruleType: serializer.fromJson<String>(json['ruleType']),
-      phoneNumber: serializer.fromJson<String?>(json['phoneNumber']),
-      labelId: serializer.fromJson<String?>(json['labelId']),
-      priority: serializer.fromJson<int>(json['priority']),
-      action: serializer.fromJson<String>(json['action']),
-      isEnabled: serializer.fromJson<int>(json['isEnabled']),
-      pattern: serializer.fromJson<String?>(json['pattern']),
-      avatar: serializer.fromJson<String?>(json['avatar']),
-      isSubscribed: serializer.fromJson<int>(json['isSubscribed']),
-      count: serializer.fromJson<int>(json['count']),
-    );
-  }
-  @override
-  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return <String, dynamic>{
-      'id': serializer.toJson<String>(id),
-      'name': serializer.toJson<String>(name),
-      'ruleType': serializer.toJson<String>(ruleType),
-      'phoneNumber': serializer.toJson<String?>(phoneNumber),
-      'labelId': serializer.toJson<String?>(labelId),
-      'priority': serializer.toJson<int>(priority),
-      'action': serializer.toJson<String>(action),
-      'isEnabled': serializer.toJson<int>(isEnabled),
-      'pattern': serializer.toJson<String?>(pattern),
-      'avatar': serializer.toJson<String?>(avatar),
-      'isSubscribed': serializer.toJson<int>(isSubscribed),
-      'count': serializer.toJson<int>(count),
-    };
-  }
-
-  RuleData copyWith({
-    String? id,
-    String? name,
-    String? ruleType,
-    Value<String?> phoneNumber = const Value.absent(),
-    Value<String?> labelId = const Value.absent(),
-    int? priority,
-    String? action,
-    int? isEnabled,
-    Value<String?> pattern = const Value.absent(),
-    Value<String?> avatar = const Value.absent(),
-    int? isSubscribed,
-    int? count,
-  }) => RuleData(
-    id: id ?? this.id,
-    name: name ?? this.name,
-    ruleType: ruleType ?? this.ruleType,
-    phoneNumber: phoneNumber.present ? phoneNumber.value : this.phoneNumber,
-    labelId: labelId.present ? labelId.value : this.labelId,
-    priority: priority ?? this.priority,
-    action: action ?? this.action,
-    isEnabled: isEnabled ?? this.isEnabled,
-    pattern: pattern.present ? pattern.value : this.pattern,
-    avatar: avatar.present ? avatar.value : this.avatar,
-    isSubscribed: isSubscribed ?? this.isSubscribed,
-    count: count ?? this.count,
-  );
-  RuleData copyWithCompanion(RulesCompanion data) {
-    return RuleData(
-      id: data.id.present ? data.id.value : this.id,
-      name: data.name.present ? data.name.value : this.name,
-      ruleType: data.ruleType.present ? data.ruleType.value : this.ruleType,
-      phoneNumber: data.phoneNumber.present
-          ? data.phoneNumber.value
-          : this.phoneNumber,
-      labelId: data.labelId.present ? data.labelId.value : this.labelId,
-      priority: data.priority.present ? data.priority.value : this.priority,
-      action: data.action.present ? data.action.value : this.action,
-      isEnabled: data.isEnabled.present ? data.isEnabled.value : this.isEnabled,
-      pattern: data.pattern.present ? data.pattern.value : this.pattern,
-      avatar: data.avatar.present ? data.avatar.value : this.avatar,
-      isSubscribed: data.isSubscribed.present
-          ? data.isSubscribed.value
-          : this.isSubscribed,
-      count: data.count.present ? data.count.value : this.count,
-    );
-  }
-
-  @override
-  String toString() {
-    return (StringBuffer('RuleData(')
-          ..write('id: $id, ')
-          ..write('name: $name, ')
-          ..write('ruleType: $ruleType, ')
-          ..write('phoneNumber: $phoneNumber, ')
-          ..write('labelId: $labelId, ')
-          ..write('priority: $priority, ')
-          ..write('action: $action, ')
-          ..write('isEnabled: $isEnabled, ')
-          ..write('pattern: $pattern, ')
-          ..write('avatar: $avatar, ')
-          ..write('isSubscribed: $isSubscribed, ')
-          ..write('count: $count')
-          ..write(')'))
-        .toString();
-  }
-
-  @override
-  int get hashCode => Object.hash(
-    id,
-    name,
-    ruleType,
-    phoneNumber,
-    labelId,
-    priority,
-    action,
-    isEnabled,
-    pattern,
-    avatar,
-    isSubscribed,
-    count,
-  );
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is RuleData &&
-          other.id == this.id &&
-          other.name == this.name &&
-          other.ruleType == this.ruleType &&
-          other.phoneNumber == this.phoneNumber &&
-          other.labelId == this.labelId &&
-          other.priority == this.priority &&
-          other.action == this.action &&
-          other.isEnabled == this.isEnabled &&
-          other.pattern == this.pattern &&
-          other.avatar == this.avatar &&
-          other.isSubscribed == this.isSubscribed &&
-          other.count == this.count);
-}
-
-class RulesCompanion extends UpdateCompanion<RuleData> {
+class RulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
   final Value<String> id;
   final Value<String> name;
   final Value<String> ruleType;
@@ -1933,7 +1198,7 @@ class RulesCompanion extends UpdateCompanion<RuleData> {
   }) : id = Value(id),
        name = Value(name),
        ruleType = Value(ruleType);
-  static Insertable<RuleData> custom({
+  static Insertable<PhoneRuleEntity> custom({
     Expression<String>? id,
     Expression<String>? name,
     Expression<String>? ruleType,
@@ -2064,7 +1329,7 @@ class RulesCompanion extends UpdateCompanion<RuleData> {
 }
 
 class $PhoneRulesTable extends PhoneRules
-    with TableInfo<$PhoneRulesTable, PhoneRuleData> {
+    with TableInfo<$PhoneRulesTable, PhoneRuleEntity> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -2208,7 +1473,7 @@ class $PhoneRulesTable extends PhoneRules
   static const String $name = 'phone_rules';
   @override
   VerificationContext validateIntegrity(
-    Insertable<PhoneRuleData> instance, {
+    Insertable<PhoneRuleEntity> instance, {
     bool isInserting = false,
   }) {
     final context = VerificationContext();
@@ -2294,9 +1559,9 @@ class $PhoneRulesTable extends PhoneRules
   @override
   Set<GeneratedColumn> get $primaryKey => {phoneNumber};
   @override
-  PhoneRuleData map(Map<String, dynamic> data, {String? tablePrefix}) {
+  PhoneRuleEntity map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return PhoneRuleData(
+    return PhoneRuleEntity(
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
@@ -2304,10 +1569,6 @@ class $PhoneRulesTable extends PhoneRules
       name: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}name'],
-      )!,
-      ruleType: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}rule_type'],
       )!,
       phoneNumber: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
@@ -2317,22 +1578,6 @@ class $PhoneRulesTable extends PhoneRules
         DriftSqlType.string,
         data['${effectivePrefix}label_id'],
       ),
-      priority: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}priority'],
-      )!,
-      action: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}action'],
-      )!,
-      isEnabled: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}is_enabled'],
-      )!,
-      count: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}count'],
-      )!,
       avatar: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}avatar'],
@@ -2341,6 +1586,18 @@ class $PhoneRulesTable extends PhoneRules
         DriftSqlType.string,
         data['${effectivePrefix}subscription_id'],
       ),
+      priority: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}priority'],
+      )!,
+      count: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}count'],
+      )!,
+      isEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_enabled'],
+      )!,
     );
   }
 
@@ -2350,212 +1607,7 @@ class $PhoneRulesTable extends PhoneRules
   }
 }
 
-class PhoneRuleData extends DataClass implements Insertable<PhoneRuleData> {
-  final String? id;
-  final String name;
-  final String ruleType;
-  final String phoneNumber;
-  final String? labelId;
-  final int priority;
-  final String action;
-  final int isEnabled;
-  final int count;
-  final String? avatar;
-  final String? subscriptionId;
-  const PhoneRuleData({
-    this.id,
-    required this.name,
-    required this.ruleType,
-    required this.phoneNumber,
-    this.labelId,
-    required this.priority,
-    required this.action,
-    required this.isEnabled,
-    required this.count,
-    this.avatar,
-    this.subscriptionId,
-  });
-  @override
-  Map<String, Expression> toColumns(bool nullToAbsent) {
-    final map = <String, Expression>{};
-    if (!nullToAbsent || id != null) {
-      map['id'] = Variable<String>(id);
-    }
-    map['name'] = Variable<String>(name);
-    map['rule_type'] = Variable<String>(ruleType);
-    map['phone_number'] = Variable<String>(phoneNumber);
-    if (!nullToAbsent || labelId != null) {
-      map['label_id'] = Variable<String>(labelId);
-    }
-    map['priority'] = Variable<int>(priority);
-    map['action'] = Variable<String>(action);
-    map['is_enabled'] = Variable<int>(isEnabled);
-    map['count'] = Variable<int>(count);
-    if (!nullToAbsent || avatar != null) {
-      map['avatar'] = Variable<String>(avatar);
-    }
-    if (!nullToAbsent || subscriptionId != null) {
-      map['subscription_id'] = Variable<String>(subscriptionId);
-    }
-    return map;
-  }
-
-  PhoneRulesCompanion toCompanion(bool nullToAbsent) {
-    return PhoneRulesCompanion(
-      id: id == null && nullToAbsent ? const Value.absent() : Value(id),
-      name: Value(name),
-      ruleType: Value(ruleType),
-      phoneNumber: Value(phoneNumber),
-      labelId: labelId == null && nullToAbsent
-          ? const Value.absent()
-          : Value(labelId),
-      priority: Value(priority),
-      action: Value(action),
-      isEnabled: Value(isEnabled),
-      count: Value(count),
-      avatar: avatar == null && nullToAbsent
-          ? const Value.absent()
-          : Value(avatar),
-      subscriptionId: subscriptionId == null && nullToAbsent
-          ? const Value.absent()
-          : Value(subscriptionId),
-    );
-  }
-
-  factory PhoneRuleData.fromJson(
-    Map<String, dynamic> json, {
-    ValueSerializer? serializer,
-  }) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return PhoneRuleData(
-      id: serializer.fromJson<String?>(json['id']),
-      name: serializer.fromJson<String>(json['name']),
-      ruleType: serializer.fromJson<String>(json['ruleType']),
-      phoneNumber: serializer.fromJson<String>(json['phoneNumber']),
-      labelId: serializer.fromJson<String?>(json['labelId']),
-      priority: serializer.fromJson<int>(json['priority']),
-      action: serializer.fromJson<String>(json['action']),
-      isEnabled: serializer.fromJson<int>(json['isEnabled']),
-      count: serializer.fromJson<int>(json['count']),
-      avatar: serializer.fromJson<String?>(json['avatar']),
-      subscriptionId: serializer.fromJson<String?>(json['subscriptionId']),
-    );
-  }
-  @override
-  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return <String, dynamic>{
-      'id': serializer.toJson<String?>(id),
-      'name': serializer.toJson<String>(name),
-      'ruleType': serializer.toJson<String>(ruleType),
-      'phoneNumber': serializer.toJson<String>(phoneNumber),
-      'labelId': serializer.toJson<String?>(labelId),
-      'priority': serializer.toJson<int>(priority),
-      'action': serializer.toJson<String>(action),
-      'isEnabled': serializer.toJson<int>(isEnabled),
-      'count': serializer.toJson<int>(count),
-      'avatar': serializer.toJson<String?>(avatar),
-      'subscriptionId': serializer.toJson<String?>(subscriptionId),
-    };
-  }
-
-  PhoneRuleData copyWith({
-    Value<String?> id = const Value.absent(),
-    String? name,
-    String? ruleType,
-    String? phoneNumber,
-    Value<String?> labelId = const Value.absent(),
-    int? priority,
-    String? action,
-    int? isEnabled,
-    int? count,
-    Value<String?> avatar = const Value.absent(),
-    Value<String?> subscriptionId = const Value.absent(),
-  }) => PhoneRuleData(
-    id: id.present ? id.value : this.id,
-    name: name ?? this.name,
-    ruleType: ruleType ?? this.ruleType,
-    phoneNumber: phoneNumber ?? this.phoneNumber,
-    labelId: labelId.present ? labelId.value : this.labelId,
-    priority: priority ?? this.priority,
-    action: action ?? this.action,
-    isEnabled: isEnabled ?? this.isEnabled,
-    count: count ?? this.count,
-    avatar: avatar.present ? avatar.value : this.avatar,
-    subscriptionId: subscriptionId.present
-        ? subscriptionId.value
-        : this.subscriptionId,
-  );
-  PhoneRuleData copyWithCompanion(PhoneRulesCompanion data) {
-    return PhoneRuleData(
-      id: data.id.present ? data.id.value : this.id,
-      name: data.name.present ? data.name.value : this.name,
-      ruleType: data.ruleType.present ? data.ruleType.value : this.ruleType,
-      phoneNumber: data.phoneNumber.present
-          ? data.phoneNumber.value
-          : this.phoneNumber,
-      labelId: data.labelId.present ? data.labelId.value : this.labelId,
-      priority: data.priority.present ? data.priority.value : this.priority,
-      action: data.action.present ? data.action.value : this.action,
-      isEnabled: data.isEnabled.present ? data.isEnabled.value : this.isEnabled,
-      count: data.count.present ? data.count.value : this.count,
-      avatar: data.avatar.present ? data.avatar.value : this.avatar,
-      subscriptionId: data.subscriptionId.present
-          ? data.subscriptionId.value
-          : this.subscriptionId,
-    );
-  }
-
-  @override
-  String toString() {
-    return (StringBuffer('PhoneRuleData(')
-          ..write('id: $id, ')
-          ..write('name: $name, ')
-          ..write('ruleType: $ruleType, ')
-          ..write('phoneNumber: $phoneNumber, ')
-          ..write('labelId: $labelId, ')
-          ..write('priority: $priority, ')
-          ..write('action: $action, ')
-          ..write('isEnabled: $isEnabled, ')
-          ..write('count: $count, ')
-          ..write('avatar: $avatar, ')
-          ..write('subscriptionId: $subscriptionId')
-          ..write(')'))
-        .toString();
-  }
-
-  @override
-  int get hashCode => Object.hash(
-    id,
-    name,
-    ruleType,
-    phoneNumber,
-    labelId,
-    priority,
-    action,
-    isEnabled,
-    count,
-    avatar,
-    subscriptionId,
-  );
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is PhoneRuleData &&
-          other.id == this.id &&
-          other.name == this.name &&
-          other.ruleType == this.ruleType &&
-          other.phoneNumber == this.phoneNumber &&
-          other.labelId == this.labelId &&
-          other.priority == this.priority &&
-          other.action == this.action &&
-          other.isEnabled == this.isEnabled &&
-          other.count == this.count &&
-          other.avatar == this.avatar &&
-          other.subscriptionId == this.subscriptionId);
-}
-
-class PhoneRulesCompanion extends UpdateCompanion<PhoneRuleData> {
+class PhoneRulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
   final Value<String?> id;
   final Value<String> name;
   final Value<String> ruleType;
@@ -2598,7 +1650,7 @@ class PhoneRulesCompanion extends UpdateCompanion<PhoneRuleData> {
   }) : name = Value(name),
        ruleType = Value(ruleType),
        phoneNumber = Value(phoneNumber);
-  static Insertable<PhoneRuleData> custom({
+  static Insertable<PhoneRuleEntity> custom({
     Expression<String>? id,
     Expression<String>? name,
     Expression<String>? ruleType,
@@ -2721,7 +1773,7 @@ class PhoneRulesCompanion extends UpdateCompanion<PhoneRuleData> {
 }
 
 class $RegexRulesTable extends RegexRules
-    with TableInfo<$RegexRulesTable, RegexRuleData> {
+    with TableInfo<$RegexRulesTable, RegexRuleEntity> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -2832,7 +1884,7 @@ class $RegexRulesTable extends RegexRules
   static const String $name = 'regex_rules';
   @override
   VerificationContext validateIntegrity(
-    Insertable<RegexRuleData> instance, {
+    Insertable<RegexRuleEntity> instance, {
     bool isInserting = false,
   }) {
     final context = VerificationContext();
@@ -2897,9 +1949,9 @@ class $RegexRulesTable extends RegexRules
   @override
   Set<GeneratedColumn> get $primaryKey => {pattern};
   @override
-  RegexRuleData map(Map<String, dynamic> data, {String? tablePrefix}) {
+  RegexRuleEntity map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return RegexRuleData(
+    return RegexRuleEntity(
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
@@ -2907,10 +1959,6 @@ class $RegexRulesTable extends RegexRules
       name: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}name'],
-      )!,
-      ruleType: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}rule_type'],
       )!,
       pattern: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
@@ -2920,18 +1968,14 @@ class $RegexRulesTable extends RegexRules
         DriftSqlType.int,
         data['${effectivePrefix}priority'],
       )!,
-      action: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}action'],
-      )!,
-      isEnabled: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
-        data['${effectivePrefix}is_enabled'],
-      )!,
       subscriptionId: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}subscription_id'],
       ),
+      isEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_enabled'],
+      )!,
     );
   }
 
@@ -2941,166 +1985,7 @@ class $RegexRulesTable extends RegexRules
   }
 }
 
-class RegexRuleData extends DataClass implements Insertable<RegexRuleData> {
-  final String? id;
-  final String name;
-  final String ruleType;
-  final String pattern;
-  final int priority;
-  final String action;
-  final int isEnabled;
-  final String? subscriptionId;
-  const RegexRuleData({
-    this.id,
-    required this.name,
-    required this.ruleType,
-    required this.pattern,
-    required this.priority,
-    required this.action,
-    required this.isEnabled,
-    this.subscriptionId,
-  });
-  @override
-  Map<String, Expression> toColumns(bool nullToAbsent) {
-    final map = <String, Expression>{};
-    if (!nullToAbsent || id != null) {
-      map['id'] = Variable<String>(id);
-    }
-    map['name'] = Variable<String>(name);
-    map['rule_type'] = Variable<String>(ruleType);
-    map['pattern'] = Variable<String>(pattern);
-    map['priority'] = Variable<int>(priority);
-    map['action'] = Variable<String>(action);
-    map['is_enabled'] = Variable<int>(isEnabled);
-    if (!nullToAbsent || subscriptionId != null) {
-      map['subscription_id'] = Variable<String>(subscriptionId);
-    }
-    return map;
-  }
-
-  RegexRulesCompanion toCompanion(bool nullToAbsent) {
-    return RegexRulesCompanion(
-      id: id == null && nullToAbsent ? const Value.absent() : Value(id),
-      name: Value(name),
-      ruleType: Value(ruleType),
-      pattern: Value(pattern),
-      priority: Value(priority),
-      action: Value(action),
-      isEnabled: Value(isEnabled),
-      subscriptionId: subscriptionId == null && nullToAbsent
-          ? const Value.absent()
-          : Value(subscriptionId),
-    );
-  }
-
-  factory RegexRuleData.fromJson(
-    Map<String, dynamic> json, {
-    ValueSerializer? serializer,
-  }) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return RegexRuleData(
-      id: serializer.fromJson<String?>(json['id']),
-      name: serializer.fromJson<String>(json['name']),
-      ruleType: serializer.fromJson<String>(json['ruleType']),
-      pattern: serializer.fromJson<String>(json['pattern']),
-      priority: serializer.fromJson<int>(json['priority']),
-      action: serializer.fromJson<String>(json['action']),
-      isEnabled: serializer.fromJson<int>(json['isEnabled']),
-      subscriptionId: serializer.fromJson<String?>(json['subscriptionId']),
-    );
-  }
-  @override
-  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return <String, dynamic>{
-      'id': serializer.toJson<String?>(id),
-      'name': serializer.toJson<String>(name),
-      'ruleType': serializer.toJson<String>(ruleType),
-      'pattern': serializer.toJson<String>(pattern),
-      'priority': serializer.toJson<int>(priority),
-      'action': serializer.toJson<String>(action),
-      'isEnabled': serializer.toJson<int>(isEnabled),
-      'subscriptionId': serializer.toJson<String?>(subscriptionId),
-    };
-  }
-
-  RegexRuleData copyWith({
-    Value<String?> id = const Value.absent(),
-    String? name,
-    String? ruleType,
-    String? pattern,
-    int? priority,
-    String? action,
-    int? isEnabled,
-    Value<String?> subscriptionId = const Value.absent(),
-  }) => RegexRuleData(
-    id: id.present ? id.value : this.id,
-    name: name ?? this.name,
-    ruleType: ruleType ?? this.ruleType,
-    pattern: pattern ?? this.pattern,
-    priority: priority ?? this.priority,
-    action: action ?? this.action,
-    isEnabled: isEnabled ?? this.isEnabled,
-    subscriptionId: subscriptionId.present
-        ? subscriptionId.value
-        : this.subscriptionId,
-  );
-  RegexRuleData copyWithCompanion(RegexRulesCompanion data) {
-    return RegexRuleData(
-      id: data.id.present ? data.id.value : this.id,
-      name: data.name.present ? data.name.value : this.name,
-      ruleType: data.ruleType.present ? data.ruleType.value : this.ruleType,
-      pattern: data.pattern.present ? data.pattern.value : this.pattern,
-      priority: data.priority.present ? data.priority.value : this.priority,
-      action: data.action.present ? data.action.value : this.action,
-      isEnabled: data.isEnabled.present ? data.isEnabled.value : this.isEnabled,
-      subscriptionId: data.subscriptionId.present
-          ? data.subscriptionId.value
-          : this.subscriptionId,
-    );
-  }
-
-  @override
-  String toString() {
-    return (StringBuffer('RegexRuleData(')
-          ..write('id: $id, ')
-          ..write('name: $name, ')
-          ..write('ruleType: $ruleType, ')
-          ..write('pattern: $pattern, ')
-          ..write('priority: $priority, ')
-          ..write('action: $action, ')
-          ..write('isEnabled: $isEnabled, ')
-          ..write('subscriptionId: $subscriptionId')
-          ..write(')'))
-        .toString();
-  }
-
-  @override
-  int get hashCode => Object.hash(
-    id,
-    name,
-    ruleType,
-    pattern,
-    priority,
-    action,
-    isEnabled,
-    subscriptionId,
-  );
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is RegexRuleData &&
-          other.id == this.id &&
-          other.name == this.name &&
-          other.ruleType == this.ruleType &&
-          other.pattern == this.pattern &&
-          other.priority == this.priority &&
-          other.action == this.action &&
-          other.isEnabled == this.isEnabled &&
-          other.subscriptionId == this.subscriptionId);
-}
-
-class RegexRulesCompanion extends UpdateCompanion<RegexRuleData> {
+class RegexRulesCompanion extends UpdateCompanion<RegexRuleEntity> {
   final Value<String?> id;
   final Value<String> name;
   final Value<String> ruleType;
@@ -3134,7 +2019,7 @@ class RegexRulesCompanion extends UpdateCompanion<RegexRuleData> {
   }) : name = Value(name),
        ruleType = Value(ruleType),
        pattern = Value(pattern);
-  static Insertable<RegexRuleData> custom({
+  static Insertable<RegexRuleEntity> custom({
     Expression<String>? id,
     Expression<String>? name,
     Expression<String>? ruleType,
@@ -3233,7 +2118,7 @@ class RegexRulesCompanion extends UpdateCompanion<RegexRuleData> {
 }
 
 class $SubscriptionsTable extends Subscriptions
-    with TableInfo<$SubscriptionsTable, SubscriptionData> {
+    with TableInfo<$SubscriptionsTable, Subscription> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -3368,7 +2253,7 @@ class $SubscriptionsTable extends Subscriptions
   static const String $name = 'subscriptions';
   @override
   VerificationContext validateIntegrity(
-    Insertable<SubscriptionData> instance, {
+    Insertable<Subscription> instance, {
     bool isInserting = false,
   }) {
     final context = VerificationContext();
@@ -3455,9 +2340,9 @@ class $SubscriptionsTable extends Subscriptions
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  SubscriptionData map(Map<String, dynamic> data, {String? tablePrefix}) {
+  Subscription map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return SubscriptionData(
+    return Subscription(
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
@@ -3507,8 +2392,7 @@ class $SubscriptionsTable extends Subscriptions
   }
 }
 
-class SubscriptionData extends DataClass
-    implements Insertable<SubscriptionData> {
+class Subscription extends DataClass implements Insertable<Subscription> {
   final String id;
   final String name;
   final String url;
@@ -3519,7 +2403,7 @@ class SubscriptionData extends DataClass
   final String? contactGroup;
   final String? keywordFilters;
   final String action;
-  const SubscriptionData({
+  const Subscription({
     required this.id,
     required this.name,
     required this.url,
@@ -3570,12 +2454,12 @@ class SubscriptionData extends DataClass
     );
   }
 
-  factory SubscriptionData.fromJson(
+  factory Subscription.fromJson(
     Map<String, dynamic> json, {
     ValueSerializer? serializer,
   }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
-    return SubscriptionData(
+    return Subscription(
       id: serializer.fromJson<String>(json['id']),
       name: serializer.fromJson<String>(json['name']),
       url: serializer.fromJson<String>(json['url']),
@@ -3605,7 +2489,7 @@ class SubscriptionData extends DataClass
     };
   }
 
-  SubscriptionData copyWith({
+  Subscription copyWith({
     String? id,
     String? name,
     String? url,
@@ -3616,7 +2500,7 @@ class SubscriptionData extends DataClass
     Value<String?> contactGroup = const Value.absent(),
     Value<String?> keywordFilters = const Value.absent(),
     String? action,
-  }) => SubscriptionData(
+  }) => Subscription(
     id: id ?? this.id,
     name: name ?? this.name,
     url: url ?? this.url,
@@ -3630,8 +2514,8 @@ class SubscriptionData extends DataClass
         : this.keywordFilters,
     action: action ?? this.action,
   );
-  SubscriptionData copyWithCompanion(SubscriptionsCompanion data) {
-    return SubscriptionData(
+  Subscription copyWithCompanion(SubscriptionsCompanion data) {
+    return Subscription(
       id: data.id.present ? data.id.value : this.id,
       name: data.name.present ? data.name.value : this.name,
       url: data.url.present ? data.url.value : this.url,
@@ -3655,7 +2539,7 @@ class SubscriptionData extends DataClass
 
   @override
   String toString() {
-    return (StringBuffer('SubscriptionData(')
+    return (StringBuffer('Subscription(')
           ..write('id: $id, ')
           ..write('name: $name, ')
           ..write('url: $url, ')
@@ -3686,7 +2570,7 @@ class SubscriptionData extends DataClass
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is SubscriptionData &&
+      (other is Subscription &&
           other.id == this.id &&
           other.name == this.name &&
           other.url == this.url &&
@@ -3699,7 +2583,7 @@ class SubscriptionData extends DataClass
           other.action == this.action);
 }
 
-class SubscriptionsCompanion extends UpdateCompanion<SubscriptionData> {
+class SubscriptionsCompanion extends UpdateCompanion<Subscription> {
   final Value<String> id;
   final Value<String> name;
   final Value<String> url;
@@ -3741,7 +2625,7 @@ class SubscriptionsCompanion extends UpdateCompanion<SubscriptionData> {
        url = Value(url),
        tableType = Value(tableType),
        lastUpdated = Value(lastUpdated);
-  static Insertable<SubscriptionData> custom({
+  static Insertable<Subscription> custom({
     Expression<String>? id,
     Expression<String>? name,
     Expression<String>? url,
@@ -4479,8 +3363,7 @@ class SmsCompanion extends UpdateCompanion<SmsMessageData> {
   }
 }
 
-class $SmsRulesTable extends SmsRules
-    with TableInfo<$SmsRulesTable, SmsRuleData> {
+class $SmsRulesTable extends SmsRules with TableInfo<$SmsRulesTable, SmsRule> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -4592,7 +3475,7 @@ class $SmsRulesTable extends SmsRules
   static const String $name = 'sms_rules';
   @override
   VerificationContext validateIntegrity(
-    Insertable<SmsRuleData> instance, {
+    Insertable<SmsRule> instance, {
     bool isInserting = false,
   }) {
     final context = VerificationContext();
@@ -4664,9 +3547,9 @@ class $SmsRulesTable extends SmsRules
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  SmsRuleData map(Map<String, dynamic> data, {String? tablePrefix}) {
+  SmsRule map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return SmsRuleData(
+    return SmsRule(
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
@@ -4708,7 +3591,7 @@ class $SmsRulesTable extends SmsRules
   }
 }
 
-class SmsRuleData extends DataClass implements Insertable<SmsRuleData> {
+class SmsRule extends DataClass implements Insertable<SmsRule> {
   final String id;
   final String name;
   final String contentRegex;
@@ -4717,7 +3600,7 @@ class SmsRuleData extends DataClass implements Insertable<SmsRuleData> {
   final int priority;
   final int isEnabled;
   final String ruleType;
-  const SmsRuleData({
+  const SmsRule({
     required this.id,
     required this.name,
     required this.contentRegex,
@@ -4758,12 +3641,12 @@ class SmsRuleData extends DataClass implements Insertable<SmsRuleData> {
     );
   }
 
-  factory SmsRuleData.fromJson(
+  factory SmsRule.fromJson(
     Map<String, dynamic> json, {
     ValueSerializer? serializer,
   }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
-    return SmsRuleData(
+    return SmsRule(
       id: serializer.fromJson<String>(json['id']),
       name: serializer.fromJson<String>(json['name']),
       contentRegex: serializer.fromJson<String>(json['contentRegex']),
@@ -4789,7 +3672,7 @@ class SmsRuleData extends DataClass implements Insertable<SmsRuleData> {
     };
   }
 
-  SmsRuleData copyWith({
+  SmsRule copyWith({
     String? id,
     String? name,
     String? contentRegex,
@@ -4798,7 +3681,7 @@ class SmsRuleData extends DataClass implements Insertable<SmsRuleData> {
     int? priority,
     int? isEnabled,
     String? ruleType,
-  }) => SmsRuleData(
+  }) => SmsRule(
     id: id ?? this.id,
     name: name ?? this.name,
     contentRegex: contentRegex ?? this.contentRegex,
@@ -4808,8 +3691,8 @@ class SmsRuleData extends DataClass implements Insertable<SmsRuleData> {
     isEnabled: isEnabled ?? this.isEnabled,
     ruleType: ruleType ?? this.ruleType,
   );
-  SmsRuleData copyWithCompanion(SmsRulesCompanion data) {
-    return SmsRuleData(
+  SmsRule copyWithCompanion(SmsRulesCompanion data) {
+    return SmsRule(
       id: data.id.present ? data.id.value : this.id,
       name: data.name.present ? data.name.value : this.name,
       contentRegex: data.contentRegex.present
@@ -4827,7 +3710,7 @@ class SmsRuleData extends DataClass implements Insertable<SmsRuleData> {
 
   @override
   String toString() {
-    return (StringBuffer('SmsRuleData(')
+    return (StringBuffer('SmsRule(')
           ..write('id: $id, ')
           ..write('name: $name, ')
           ..write('contentRegex: $contentRegex, ')
@@ -4854,7 +3737,7 @@ class SmsRuleData extends DataClass implements Insertable<SmsRuleData> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is SmsRuleData &&
+      (other is SmsRule &&
           other.id == this.id &&
           other.name == this.name &&
           other.contentRegex == this.contentRegex &&
@@ -4865,7 +3748,7 @@ class SmsRuleData extends DataClass implements Insertable<SmsRuleData> {
           other.ruleType == this.ruleType);
 }
 
-class SmsRulesCompanion extends UpdateCompanion<SmsRuleData> {
+class SmsRulesCompanion extends UpdateCompanion<SmsRule> {
   final Value<String> id;
   final Value<String> name;
   final Value<String> contentRegex;
@@ -4901,7 +3784,7 @@ class SmsRulesCompanion extends UpdateCompanion<SmsRuleData> {
        contentRegex = Value(contentRegex),
        action = Value(action),
        ruleType = Value(ruleType);
-  static Insertable<SmsRuleData> custom({
+  static Insertable<SmsRule> custom({
     Expression<String>? id,
     Expression<String>? name,
     Expression<String>? contentRegex,
@@ -4999,7 +3882,7 @@ class SmsRulesCompanion extends UpdateCompanion<SmsRuleData> {
   }
 }
 
-class $PluginsTable extends Plugins with TableInfo<$PluginsTable, PluginData> {
+class $PluginsTable extends Plugins with TableInfo<$PluginsTable, Plugin> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -5122,7 +4005,7 @@ class $PluginsTable extends Plugins with TableInfo<$PluginsTable, PluginData> {
   static const String $name = 'plugins';
   @override
   VerificationContext validateIntegrity(
-    Insertable<PluginData> instance, {
+    Insertable<Plugin> instance, {
     bool isInserting = false,
   }) {
     final context = VerificationContext();
@@ -5203,9 +4086,9 @@ class $PluginsTable extends Plugins with TableInfo<$PluginsTable, PluginData> {
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  PluginData map(Map<String, dynamic> data, {String? tablePrefix}) {
+  Plugin map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return PluginData(
+    return Plugin(
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
@@ -5251,7 +4134,7 @@ class $PluginsTable extends Plugins with TableInfo<$PluginsTable, PluginData> {
   }
 }
 
-class PluginData extends DataClass implements Insertable<PluginData> {
+class Plugin extends DataClass implements Insertable<Plugin> {
   final String id;
   final String name;
   final String url;
@@ -5261,7 +4144,7 @@ class PluginData extends DataClass implements Insertable<PluginData> {
   final int pluginOrder;
   final int isAutoUpdate;
   final String? configJson;
-  const PluginData({
+  const Plugin({
     required this.id,
     required this.name,
     required this.url,
@@ -5309,12 +4192,12 @@ class PluginData extends DataClass implements Insertable<PluginData> {
     );
   }
 
-  factory PluginData.fromJson(
+  factory Plugin.fromJson(
     Map<String, dynamic> json, {
     ValueSerializer? serializer,
   }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
-    return PluginData(
+    return Plugin(
       id: serializer.fromJson<String>(json['id']),
       name: serializer.fromJson<String>(json['name']),
       url: serializer.fromJson<String>(json['url']),
@@ -5342,7 +4225,7 @@ class PluginData extends DataClass implements Insertable<PluginData> {
     };
   }
 
-  PluginData copyWith({
+  Plugin copyWith({
     String? id,
     String? name,
     String? url,
@@ -5352,7 +4235,7 @@ class PluginData extends DataClass implements Insertable<PluginData> {
     int? pluginOrder,
     int? isAutoUpdate,
     Value<String?> configJson = const Value.absent(),
-  }) => PluginData(
+  }) => Plugin(
     id: id ?? this.id,
     name: name ?? this.name,
     url: url ?? this.url,
@@ -5363,8 +4246,8 @@ class PluginData extends DataClass implements Insertable<PluginData> {
     isAutoUpdate: isAutoUpdate ?? this.isAutoUpdate,
     configJson: configJson.present ? configJson.value : this.configJson,
   );
-  PluginData copyWithCompanion(PluginsCompanion data) {
-    return PluginData(
+  Plugin copyWithCompanion(PluginsCompanion data) {
+    return Plugin(
       id: data.id.present ? data.id.value : this.id,
       name: data.name.present ? data.name.value : this.name,
       url: data.url.present ? data.url.value : this.url,
@@ -5387,7 +4270,7 @@ class PluginData extends DataClass implements Insertable<PluginData> {
 
   @override
   String toString() {
-    return (StringBuffer('PluginData(')
+    return (StringBuffer('Plugin(')
           ..write('id: $id, ')
           ..write('name: $name, ')
           ..write('url: $url, ')
@@ -5416,7 +4299,7 @@ class PluginData extends DataClass implements Insertable<PluginData> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is PluginData &&
+      (other is Plugin &&
           other.id == this.id &&
           other.name == this.name &&
           other.url == this.url &&
@@ -5428,7 +4311,7 @@ class PluginData extends DataClass implements Insertable<PluginData> {
           other.configJson == this.configJson);
 }
 
-class PluginsCompanion extends UpdateCompanion<PluginData> {
+class PluginsCompanion extends UpdateCompanion<Plugin> {
   final Value<String> id;
   final Value<String> name;
   final Value<String> url;
@@ -5467,7 +4350,7 @@ class PluginsCompanion extends UpdateCompanion<PluginData> {
        url = Value(url),
        version = Value(version),
        pluginOrder = Value(pluginOrder);
-  static Insertable<PluginData> custom({
+  static Insertable<Plugin> custom({
     Expression<String>? id,
     Expression<String>? name,
     Expression<String>? url,
@@ -5574,7 +4457,7 @@ class PluginsCompanion extends UpdateCompanion<PluginData> {
 }
 
 class $LocationsTable extends Locations
-    with TableInfo<$LocationsTable, LocationData> {
+    with TableInfo<$LocationsTable, Location> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -5659,7 +4542,7 @@ class $LocationsTable extends Locations
   static const String $name = 'locations';
   @override
   VerificationContext validateIntegrity(
-    Insertable<LocationData> instance, {
+    Insertable<Location> instance, {
     bool isInserting = false,
   }) {
     final context = VerificationContext();
@@ -5715,9 +4598,9 @@ class $LocationsTable extends Locations
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  LocationData map(Map<String, dynamic> data, {String? tablePrefix}) {
+  Location map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return LocationData(
+    return Location(
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
@@ -5751,14 +4634,14 @@ class $LocationsTable extends Locations
   }
 }
 
-class LocationData extends DataClass implements Insertable<LocationData> {
+class Location extends DataClass implements Insertable<Location> {
   final String id;
   final String phoneNumber;
   final String? region;
   final String? countryName;
   final String? carrier;
   final int numberType;
-  const LocationData({
+  const Location({
     required this.id,
     required this.phoneNumber,
     this.region,
@@ -5801,12 +4684,12 @@ class LocationData extends DataClass implements Insertable<LocationData> {
     );
   }
 
-  factory LocationData.fromJson(
+  factory Location.fromJson(
     Map<String, dynamic> json, {
     ValueSerializer? serializer,
   }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
-    return LocationData(
+    return Location(
       id: serializer.fromJson<String>(json['id']),
       phoneNumber: serializer.fromJson<String>(json['phoneNumber']),
       region: serializer.fromJson<String?>(json['region']),
@@ -5828,14 +4711,14 @@ class LocationData extends DataClass implements Insertable<LocationData> {
     };
   }
 
-  LocationData copyWith({
+  Location copyWith({
     String? id,
     String? phoneNumber,
     Value<String?> region = const Value.absent(),
     Value<String?> countryName = const Value.absent(),
     Value<String?> carrier = const Value.absent(),
     int? numberType,
-  }) => LocationData(
+  }) => Location(
     id: id ?? this.id,
     phoneNumber: phoneNumber ?? this.phoneNumber,
     region: region.present ? region.value : this.region,
@@ -5843,8 +4726,8 @@ class LocationData extends DataClass implements Insertable<LocationData> {
     carrier: carrier.present ? carrier.value : this.carrier,
     numberType: numberType ?? this.numberType,
   );
-  LocationData copyWithCompanion(LocationsCompanion data) {
-    return LocationData(
+  Location copyWithCompanion(LocationsCompanion data) {
+    return Location(
       id: data.id.present ? data.id.value : this.id,
       phoneNumber: data.phoneNumber.present
           ? data.phoneNumber.value
@@ -5862,7 +4745,7 @@ class LocationData extends DataClass implements Insertable<LocationData> {
 
   @override
   String toString() {
-    return (StringBuffer('LocationData(')
+    return (StringBuffer('Location(')
           ..write('id: $id, ')
           ..write('phoneNumber: $phoneNumber, ')
           ..write('region: $region, ')
@@ -5879,7 +4762,7 @@ class LocationData extends DataClass implements Insertable<LocationData> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is LocationData &&
+      (other is Location &&
           other.id == this.id &&
           other.phoneNumber == this.phoneNumber &&
           other.region == this.region &&
@@ -5888,7 +4771,7 @@ class LocationData extends DataClass implements Insertable<LocationData> {
           other.numberType == this.numberType);
 }
 
-class LocationsCompanion extends UpdateCompanion<LocationData> {
+class LocationsCompanion extends UpdateCompanion<Location> {
   final Value<String> id;
   final Value<String> phoneNumber;
   final Value<String?> region;
@@ -5916,7 +4799,7 @@ class LocationsCompanion extends UpdateCompanion<LocationData> {
   }) : id = Value(id),
        phoneNumber = Value(phoneNumber),
        numberType = Value(numberType);
-  static Insertable<LocationData> custom({
+  static Insertable<Location> custom({
     Expression<String>? id,
     Expression<String>? phoneNumber,
     Expression<String>? region,
@@ -5999,7 +4882,7 @@ class LocationsCompanion extends UpdateCompanion<LocationData> {
 }
 
 class $PredefinedLabelsTable extends PredefinedLabels
-    with TableInfo<$PredefinedLabelsTable, PredefinedLabelData> {
+    with TableInfo<$PredefinedLabelsTable, PredefinedLabel> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -6053,7 +4936,7 @@ class $PredefinedLabelsTable extends PredefinedLabels
   static const String $name = 'predefined_labels';
   @override
   VerificationContext validateIntegrity(
-    Insertable<PredefinedLabelData> instance, {
+    Insertable<PredefinedLabel> instance, {
     bool isInserting = false,
   }) {
     final context = VerificationContext();
@@ -6089,9 +4972,9 @@ class $PredefinedLabelsTable extends PredefinedLabels
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  PredefinedLabelData map(Map<String, dynamic> data, {String? tablePrefix}) {
+  PredefinedLabel map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return PredefinedLabelData(
+    return PredefinedLabel(
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
@@ -6117,13 +5000,12 @@ class $PredefinedLabelsTable extends PredefinedLabels
   }
 }
 
-class PredefinedLabelData extends DataClass
-    implements Insertable<PredefinedLabelData> {
+class PredefinedLabel extends DataClass implements Insertable<PredefinedLabel> {
   final String id;
   final String labelText;
   final String? avatar;
   final String? icon;
-  const PredefinedLabelData({
+  const PredefinedLabel({
     required this.id,
     required this.labelText,
     this.avatar,
@@ -6154,12 +5036,12 @@ class PredefinedLabelData extends DataClass
     );
   }
 
-  factory PredefinedLabelData.fromJson(
+  factory PredefinedLabel.fromJson(
     Map<String, dynamic> json, {
     ValueSerializer? serializer,
   }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
-    return PredefinedLabelData(
+    return PredefinedLabel(
       id: serializer.fromJson<String>(json['id']),
       labelText: serializer.fromJson<String>(json['labelText']),
       avatar: serializer.fromJson<String?>(json['avatar']),
@@ -6177,19 +5059,19 @@ class PredefinedLabelData extends DataClass
     };
   }
 
-  PredefinedLabelData copyWith({
+  PredefinedLabel copyWith({
     String? id,
     String? labelText,
     Value<String?> avatar = const Value.absent(),
     Value<String?> icon = const Value.absent(),
-  }) => PredefinedLabelData(
+  }) => PredefinedLabel(
     id: id ?? this.id,
     labelText: labelText ?? this.labelText,
     avatar: avatar.present ? avatar.value : this.avatar,
     icon: icon.present ? icon.value : this.icon,
   );
-  PredefinedLabelData copyWithCompanion(PredefinedLabelsCompanion data) {
-    return PredefinedLabelData(
+  PredefinedLabel copyWithCompanion(PredefinedLabelsCompanion data) {
+    return PredefinedLabel(
       id: data.id.present ? data.id.value : this.id,
       labelText: data.labelText.present ? data.labelText.value : this.labelText,
       avatar: data.avatar.present ? data.avatar.value : this.avatar,
@@ -6199,7 +5081,7 @@ class PredefinedLabelData extends DataClass
 
   @override
   String toString() {
-    return (StringBuffer('PredefinedLabelData(')
+    return (StringBuffer('PredefinedLabel(')
           ..write('id: $id, ')
           ..write('labelText: $labelText, ')
           ..write('avatar: $avatar, ')
@@ -6213,14 +5095,14 @@ class PredefinedLabelData extends DataClass
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is PredefinedLabelData &&
+      (other is PredefinedLabel &&
           other.id == this.id &&
           other.labelText == this.labelText &&
           other.avatar == this.avatar &&
           other.icon == this.icon);
 }
 
-class PredefinedLabelsCompanion extends UpdateCompanion<PredefinedLabelData> {
+class PredefinedLabelsCompanion extends UpdateCompanion<PredefinedLabel> {
   final Value<String> id;
   final Value<String> labelText;
   final Value<String?> avatar;
@@ -6241,7 +5123,7 @@ class PredefinedLabelsCompanion extends UpdateCompanion<PredefinedLabelData> {
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        labelText = Value(labelText);
-  static Insertable<PredefinedLabelData> custom({
+  static Insertable<PredefinedLabel> custom({
     Expression<String>? id,
     Expression<String>? labelText,
     Expression<String>? avatar,
@@ -6308,7 +5190,7 @@ class PredefinedLabelsCompanion extends UpdateCompanion<PredefinedLabelData> {
 }
 
 class $LabelPhonesTable extends LabelPhones
-    with TableInfo<$LabelPhonesTable, LabelPhoneData> {
+    with TableInfo<$LabelPhonesTable, LabelPhoneEntry> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -6440,7 +5322,7 @@ class $LabelPhonesTable extends LabelPhones
   static const String $name = 'label_phones';
   @override
   VerificationContext validateIntegrity(
-    Insertable<LabelPhoneData> instance, {
+    Insertable<LabelPhoneEntry> instance, {
     bool isInserting = false,
   }) {
     final context = VerificationContext();
@@ -6517,21 +5399,13 @@ class $LabelPhonesTable extends LabelPhones
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  LabelPhoneData map(Map<String, dynamic> data, {String? tablePrefix}) {
+  LabelPhoneEntry map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return LabelPhoneData(
+    return LabelPhoneEntry(
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
       )!,
-      name: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}name'],
-      ),
-      icon: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}icon'],
-      ),
       phoneNumber: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}phone_number'],
@@ -6540,25 +5414,25 @@ class $LabelPhonesTable extends LabelPhones
         DriftSqlType.string,
         data['${effectivePrefix}label_id'],
       )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      ),
       avatar: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}avatar'],
+      ),
+      icon: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}icon'],
       ),
       priority: attachedDatabase.typeMapping.read(
         DriftSqlType.int,
         data['${effectivePrefix}priority'],
       )!,
-      action: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}action'],
-      )!,
       isEnabled: attachedDatabase.typeMapping.read(
         DriftSqlType.int,
         data['${effectivePrefix}is_enabled'],
-      )!,
-      ruleType: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
-        data['${effectivePrefix}rule_type'],
       )!,
     );
   }
@@ -6569,190 +5443,7 @@ class $LabelPhonesTable extends LabelPhones
   }
 }
 
-class LabelPhoneData extends DataClass implements Insertable<LabelPhoneData> {
-  final String id;
-  final String? name;
-  final String? icon;
-  final String phoneNumber;
-  final String labelId;
-  final String? avatar;
-  final int priority;
-  final String action;
-  final int isEnabled;
-  final String ruleType;
-  const LabelPhoneData({
-    required this.id,
-    this.name,
-    this.icon,
-    required this.phoneNumber,
-    required this.labelId,
-    this.avatar,
-    required this.priority,
-    required this.action,
-    required this.isEnabled,
-    required this.ruleType,
-  });
-  @override
-  Map<String, Expression> toColumns(bool nullToAbsent) {
-    final map = <String, Expression>{};
-    map['id'] = Variable<String>(id);
-    if (!nullToAbsent || name != null) {
-      map['name'] = Variable<String>(name);
-    }
-    if (!nullToAbsent || icon != null) {
-      map['icon'] = Variable<String>(icon);
-    }
-    map['phone_number'] = Variable<String>(phoneNumber);
-    map['label_id'] = Variable<String>(labelId);
-    if (!nullToAbsent || avatar != null) {
-      map['avatar'] = Variable<String>(avatar);
-    }
-    map['priority'] = Variable<int>(priority);
-    map['action'] = Variable<String>(action);
-    map['is_enabled'] = Variable<int>(isEnabled);
-    map['rule_type'] = Variable<String>(ruleType);
-    return map;
-  }
-
-  LabelPhonesCompanion toCompanion(bool nullToAbsent) {
-    return LabelPhonesCompanion(
-      id: Value(id),
-      name: name == null && nullToAbsent ? const Value.absent() : Value(name),
-      icon: icon == null && nullToAbsent ? const Value.absent() : Value(icon),
-      phoneNumber: Value(phoneNumber),
-      labelId: Value(labelId),
-      avatar: avatar == null && nullToAbsent
-          ? const Value.absent()
-          : Value(avatar),
-      priority: Value(priority),
-      action: Value(action),
-      isEnabled: Value(isEnabled),
-      ruleType: Value(ruleType),
-    );
-  }
-
-  factory LabelPhoneData.fromJson(
-    Map<String, dynamic> json, {
-    ValueSerializer? serializer,
-  }) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return LabelPhoneData(
-      id: serializer.fromJson<String>(json['id']),
-      name: serializer.fromJson<String?>(json['name']),
-      icon: serializer.fromJson<String?>(json['icon']),
-      phoneNumber: serializer.fromJson<String>(json['phoneNumber']),
-      labelId: serializer.fromJson<String>(json['labelId']),
-      avatar: serializer.fromJson<String?>(json['avatar']),
-      priority: serializer.fromJson<int>(json['priority']),
-      action: serializer.fromJson<String>(json['action']),
-      isEnabled: serializer.fromJson<int>(json['isEnabled']),
-      ruleType: serializer.fromJson<String>(json['ruleType']),
-    );
-  }
-  @override
-  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
-    serializer ??= driftRuntimeOptions.defaultSerializer;
-    return <String, dynamic>{
-      'id': serializer.toJson<String>(id),
-      'name': serializer.toJson<String?>(name),
-      'icon': serializer.toJson<String?>(icon),
-      'phoneNumber': serializer.toJson<String>(phoneNumber),
-      'labelId': serializer.toJson<String>(labelId),
-      'avatar': serializer.toJson<String?>(avatar),
-      'priority': serializer.toJson<int>(priority),
-      'action': serializer.toJson<String>(action),
-      'isEnabled': serializer.toJson<int>(isEnabled),
-      'ruleType': serializer.toJson<String>(ruleType),
-    };
-  }
-
-  LabelPhoneData copyWith({
-    String? id,
-    Value<String?> name = const Value.absent(),
-    Value<String?> icon = const Value.absent(),
-    String? phoneNumber,
-    String? labelId,
-    Value<String?> avatar = const Value.absent(),
-    int? priority,
-    String? action,
-    int? isEnabled,
-    String? ruleType,
-  }) => LabelPhoneData(
-    id: id ?? this.id,
-    name: name.present ? name.value : this.name,
-    icon: icon.present ? icon.value : this.icon,
-    phoneNumber: phoneNumber ?? this.phoneNumber,
-    labelId: labelId ?? this.labelId,
-    avatar: avatar.present ? avatar.value : this.avatar,
-    priority: priority ?? this.priority,
-    action: action ?? this.action,
-    isEnabled: isEnabled ?? this.isEnabled,
-    ruleType: ruleType ?? this.ruleType,
-  );
-  LabelPhoneData copyWithCompanion(LabelPhonesCompanion data) {
-    return LabelPhoneData(
-      id: data.id.present ? data.id.value : this.id,
-      name: data.name.present ? data.name.value : this.name,
-      icon: data.icon.present ? data.icon.value : this.icon,
-      phoneNumber: data.phoneNumber.present
-          ? data.phoneNumber.value
-          : this.phoneNumber,
-      labelId: data.labelId.present ? data.labelId.value : this.labelId,
-      avatar: data.avatar.present ? data.avatar.value : this.avatar,
-      priority: data.priority.present ? data.priority.value : this.priority,
-      action: data.action.present ? data.action.value : this.action,
-      isEnabled: data.isEnabled.present ? data.isEnabled.value : this.isEnabled,
-      ruleType: data.ruleType.present ? data.ruleType.value : this.ruleType,
-    );
-  }
-
-  @override
-  String toString() {
-    return (StringBuffer('LabelPhoneData(')
-          ..write('id: $id, ')
-          ..write('name: $name, ')
-          ..write('icon: $icon, ')
-          ..write('phoneNumber: $phoneNumber, ')
-          ..write('labelId: $labelId, ')
-          ..write('avatar: $avatar, ')
-          ..write('priority: $priority, ')
-          ..write('action: $action, ')
-          ..write('isEnabled: $isEnabled, ')
-          ..write('ruleType: $ruleType')
-          ..write(')'))
-        .toString();
-  }
-
-  @override
-  int get hashCode => Object.hash(
-    id,
-    name,
-    icon,
-    phoneNumber,
-    labelId,
-    avatar,
-    priority,
-    action,
-    isEnabled,
-    ruleType,
-  );
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      (other is LabelPhoneData &&
-          other.id == this.id &&
-          other.name == this.name &&
-          other.icon == this.icon &&
-          other.phoneNumber == this.phoneNumber &&
-          other.labelId == this.labelId &&
-          other.avatar == this.avatar &&
-          other.priority == this.priority &&
-          other.action == this.action &&
-          other.isEnabled == this.isEnabled &&
-          other.ruleType == this.ruleType);
-}
-
-class LabelPhonesCompanion extends UpdateCompanion<LabelPhoneData> {
+class LabelPhonesCompanion extends UpdateCompanion<LabelPhoneEntry> {
   final Value<String> id;
   final Value<String?> name;
   final Value<String?> icon;
@@ -6792,7 +5483,7 @@ class LabelPhonesCompanion extends UpdateCompanion<LabelPhoneData> {
   }) : id = Value(id),
        phoneNumber = Value(phoneNumber),
        labelId = Value(labelId);
-  static Insertable<LabelPhoneData> custom({
+  static Insertable<LabelPhoneEntry> custom({
     Expression<String>? id,
     Expression<String>? name,
     Expression<String>? icon,
@@ -6907,7 +5598,7 @@ class LabelPhonesCompanion extends UpdateCompanion<LabelPhoneData> {
 }
 
 class $SimSlotRulesTable extends SimSlotRules
-    with TableInfo<$SimSlotRulesTable, SimSlotRuleData> {
+    with TableInfo<$SimSlotRulesTable, SimSlotRule> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -7041,7 +5732,7 @@ class $SimSlotRulesTable extends SimSlotRules
   static const String $name = 'sim_slot_rules';
   @override
   VerificationContext validateIntegrity(
-    Insertable<SimSlotRuleData> instance, {
+    Insertable<SimSlotRule> instance, {
     bool isInserting = false,
   }) {
     final context = VerificationContext();
@@ -7129,9 +5820,9 @@ class $SimSlotRulesTable extends SimSlotRules
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  SimSlotRuleData map(Map<String, dynamic> data, {String? tablePrefix}) {
+  SimSlotRule map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return SimSlotRuleData(
+    return SimSlotRule(
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
@@ -7181,7 +5872,7 @@ class $SimSlotRulesTable extends SimSlotRules
   }
 }
 
-class SimSlotRuleData extends DataClass implements Insertable<SimSlotRuleData> {
+class SimSlotRule extends DataClass implements Insertable<SimSlotRule> {
   final String id;
   final String name;
   final int priority;
@@ -7192,7 +5883,7 @@ class SimSlotRuleData extends DataClass implements Insertable<SimSlotRuleData> {
   final String labelId;
   final String? avatar;
   final String ruleType;
-  const SimSlotRuleData({
+  const SimSlotRule({
     required this.id,
     required this.name,
     required this.priority,
@@ -7239,12 +5930,12 @@ class SimSlotRuleData extends DataClass implements Insertable<SimSlotRuleData> {
     );
   }
 
-  factory SimSlotRuleData.fromJson(
+  factory SimSlotRule.fromJson(
     Map<String, dynamic> json, {
     ValueSerializer? serializer,
   }) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
-    return SimSlotRuleData(
+    return SimSlotRule(
       id: serializer.fromJson<String>(json['id']),
       name: serializer.fromJson<String>(json['name']),
       priority: serializer.fromJson<int>(json['priority']),
@@ -7274,7 +5965,7 @@ class SimSlotRuleData extends DataClass implements Insertable<SimSlotRuleData> {
     };
   }
 
-  SimSlotRuleData copyWith({
+  SimSlotRule copyWith({
     String? id,
     String? name,
     int? priority,
@@ -7285,7 +5976,7 @@ class SimSlotRuleData extends DataClass implements Insertable<SimSlotRuleData> {
     String? labelId,
     Value<String?> avatar = const Value.absent(),
     String? ruleType,
-  }) => SimSlotRuleData(
+  }) => SimSlotRule(
     id: id ?? this.id,
     name: name ?? this.name,
     priority: priority ?? this.priority,
@@ -7297,8 +5988,8 @@ class SimSlotRuleData extends DataClass implements Insertable<SimSlotRuleData> {
     avatar: avatar.present ? avatar.value : this.avatar,
     ruleType: ruleType ?? this.ruleType,
   );
-  SimSlotRuleData copyWithCompanion(SimSlotRulesCompanion data) {
-    return SimSlotRuleData(
+  SimSlotRule copyWithCompanion(SimSlotRulesCompanion data) {
+    return SimSlotRule(
       id: data.id.present ? data.id.value : this.id,
       name: data.name.present ? data.name.value : this.name,
       priority: data.priority.present ? data.priority.value : this.priority,
@@ -7318,7 +6009,7 @@ class SimSlotRuleData extends DataClass implements Insertable<SimSlotRuleData> {
 
   @override
   String toString() {
-    return (StringBuffer('SimSlotRuleData(')
+    return (StringBuffer('SimSlotRule(')
           ..write('id: $id, ')
           ..write('name: $name, ')
           ..write('priority: $priority, ')
@@ -7349,7 +6040,7 @@ class SimSlotRuleData extends DataClass implements Insertable<SimSlotRuleData> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is SimSlotRuleData &&
+      (other is SimSlotRule &&
           other.id == this.id &&
           other.name == this.name &&
           other.priority == this.priority &&
@@ -7362,7 +6053,7 @@ class SimSlotRuleData extends DataClass implements Insertable<SimSlotRuleData> {
           other.ruleType == this.ruleType);
 }
 
-class SimSlotRulesCompanion extends UpdateCompanion<SimSlotRuleData> {
+class SimSlotRulesCompanion extends UpdateCompanion<SimSlotRule> {
   final Value<String> id;
   final Value<String> name;
   final Value<int> priority;
@@ -7406,7 +6097,7 @@ class SimSlotRulesCompanion extends UpdateCompanion<SimSlotRuleData> {
        phoneNumber = Value(phoneNumber),
        simSlotIndex = Value(simSlotIndex),
        labelId = Value(labelId);
-  static Insertable<SimSlotRuleData> custom({
+  static Insertable<SimSlotRule> custom({
     Expression<String>? id,
     Expression<String>? name,
     Expression<int>? priority,
@@ -8393,17 +7084,17 @@ class $$ContactsTableTableManager
         RootTableManager<
           _$LocalDatabase,
           $ContactsTable,
-          ContactData,
+          PhoneContactEntry,
           $$ContactsTableFilterComposer,
           $$ContactsTableOrderingComposer,
           $$ContactsTableAnnotationComposer,
           $$ContactsTableCreateCompanionBuilder,
           $$ContactsTableUpdateCompanionBuilder,
           (
-            ContactData,
-            BaseReferences<_$LocalDatabase, $ContactsTable, ContactData>,
+            PhoneContactEntry,
+            BaseReferences<_$LocalDatabase, $ContactsTable, PhoneContactEntry>,
           ),
-          ContactData,
+          PhoneContactEntry,
           PrefetchHooks Function()
         > {
   $$ContactsTableTableManager(_$LocalDatabase db, $ContactsTable table)
@@ -8468,12 +7159,12 @@ class $$ContactsTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable<$ContactsTable, ContactData>(table),
-                  BaseReferences<_$LocalDatabase, $ContactsTable, ContactData>(
-                    db,
-                    table,
-                    e,
-                  ),
+                  e.readTable<$ContactsTable, PhoneContactEntry>(table),
+                  BaseReferences<
+                    _$LocalDatabase,
+                    $ContactsTable,
+                    PhoneContactEntry
+                  >(db, table, e),
                 ),
               )
               .toList(),
@@ -8486,17 +7177,17 @@ typedef $$ContactsTableProcessedTableManager =
     ProcessedTableManager<
       _$LocalDatabase,
       $ContactsTable,
-      ContactData,
+      PhoneContactEntry,
       $$ContactsTableFilterComposer,
       $$ContactsTableOrderingComposer,
       $$ContactsTableAnnotationComposer,
       $$ContactsTableCreateCompanionBuilder,
       $$ContactsTableUpdateCompanionBuilder,
       (
-        ContactData,
-        BaseReferences<_$LocalDatabase, $ContactsTable, ContactData>,
+        PhoneContactEntry,
+        BaseReferences<_$LocalDatabase, $ContactsTable, PhoneContactEntry>,
       ),
-      ContactData,
+      PhoneContactEntry,
       PrefetchHooks Function()
     >;
 typedef $$CallHistoryTableCreateCompanionBuilder =
@@ -8750,17 +7441,17 @@ class $$CallHistoryTableTableManager
         RootTableManager<
           _$LocalDatabase,
           $CallHistoryTable,
-          CallHistoryData,
+          CallLogEntry,
           $$CallHistoryTableFilterComposer,
           $$CallHistoryTableOrderingComposer,
           $$CallHistoryTableAnnotationComposer,
           $$CallHistoryTableCreateCompanionBuilder,
           $$CallHistoryTableUpdateCompanionBuilder,
           (
-            CallHistoryData,
-            BaseReferences<_$LocalDatabase, $CallHistoryTable, CallHistoryData>,
+            CallLogEntry,
+            BaseReferences<_$LocalDatabase, $CallHistoryTable, CallLogEntry>,
           ),
-          CallHistoryData,
+          CallLogEntry,
           PrefetchHooks Function()
         > {
   $$CallHistoryTableTableManager(_$LocalDatabase db, $CallHistoryTable table)
@@ -8841,11 +7532,11 @@ class $$CallHistoryTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable<$CallHistoryTable, CallHistoryData>(table),
+                  e.readTable<$CallHistoryTable, CallLogEntry>(table),
                   BaseReferences<
                     _$LocalDatabase,
                     $CallHistoryTable,
-                    CallHistoryData
+                    CallLogEntry
                   >(db, table, e),
                 ),
               )
@@ -8859,17 +7550,17 @@ typedef $$CallHistoryTableProcessedTableManager =
     ProcessedTableManager<
       _$LocalDatabase,
       $CallHistoryTable,
-      CallHistoryData,
+      CallLogEntry,
       $$CallHistoryTableFilterComposer,
       $$CallHistoryTableOrderingComposer,
       $$CallHistoryTableAnnotationComposer,
       $$CallHistoryTableCreateCompanionBuilder,
       $$CallHistoryTableUpdateCompanionBuilder,
       (
-        CallHistoryData,
-        BaseReferences<_$LocalDatabase, $CallHistoryTable, CallHistoryData>,
+        CallLogEntry,
+        BaseReferences<_$LocalDatabase, $CallHistoryTable, CallLogEntry>,
       ),
-      CallHistoryData,
+      CallLogEntry,
       PrefetchHooks Function()
     >;
 typedef $$RulesTableCreateCompanionBuilder =
@@ -9100,14 +7791,17 @@ class $$RulesTableTableManager
         RootTableManager<
           _$LocalDatabase,
           $RulesTable,
-          RuleData,
+          PhoneRuleEntity,
           $$RulesTableFilterComposer,
           $$RulesTableOrderingComposer,
           $$RulesTableAnnotationComposer,
           $$RulesTableCreateCompanionBuilder,
           $$RulesTableUpdateCompanionBuilder,
-          (RuleData, BaseReferences<_$LocalDatabase, $RulesTable, RuleData>),
-          RuleData,
+          (
+            PhoneRuleEntity,
+            BaseReferences<_$LocalDatabase, $RulesTable, PhoneRuleEntity>,
+          ),
+          PhoneRuleEntity,
           PrefetchHooks Function()
         > {
   $$RulesTableTableManager(_$LocalDatabase db, $RulesTable table)
@@ -9184,8 +7878,8 @@ class $$RulesTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable<$RulesTable, RuleData>(table),
-                  BaseReferences<_$LocalDatabase, $RulesTable, RuleData>(
+                  e.readTable<$RulesTable, PhoneRuleEntity>(table),
+                  BaseReferences<_$LocalDatabase, $RulesTable, PhoneRuleEntity>(
                     db,
                     table,
                     e,
@@ -9202,14 +7896,17 @@ typedef $$RulesTableProcessedTableManager =
     ProcessedTableManager<
       _$LocalDatabase,
       $RulesTable,
-      RuleData,
+      PhoneRuleEntity,
       $$RulesTableFilterComposer,
       $$RulesTableOrderingComposer,
       $$RulesTableAnnotationComposer,
       $$RulesTableCreateCompanionBuilder,
       $$RulesTableUpdateCompanionBuilder,
-      (RuleData, BaseReferences<_$LocalDatabase, $RulesTable, RuleData>),
-      RuleData,
+      (
+        PhoneRuleEntity,
+        BaseReferences<_$LocalDatabase, $RulesTable, PhoneRuleEntity>,
+      ),
+      PhoneRuleEntity,
       PrefetchHooks Function()
     >;
 typedef $$PhoneRulesTableCreateCompanionBuilder =
@@ -9425,17 +8122,17 @@ class $$PhoneRulesTableTableManager
         RootTableManager<
           _$LocalDatabase,
           $PhoneRulesTable,
-          PhoneRuleData,
+          PhoneRuleEntity,
           $$PhoneRulesTableFilterComposer,
           $$PhoneRulesTableOrderingComposer,
           $$PhoneRulesTableAnnotationComposer,
           $$PhoneRulesTableCreateCompanionBuilder,
           $$PhoneRulesTableUpdateCompanionBuilder,
           (
-            PhoneRuleData,
-            BaseReferences<_$LocalDatabase, $PhoneRulesTable, PhoneRuleData>,
+            PhoneRuleEntity,
+            BaseReferences<_$LocalDatabase, $PhoneRulesTable, PhoneRuleEntity>,
           ),
-          PhoneRuleData,
+          PhoneRuleEntity,
           PrefetchHooks Function()
         > {
   $$PhoneRulesTableTableManager(_$LocalDatabase db, $PhoneRulesTable table)
@@ -9508,11 +8205,11 @@ class $$PhoneRulesTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable<$PhoneRulesTable, PhoneRuleData>(table),
+                  e.readTable<$PhoneRulesTable, PhoneRuleEntity>(table),
                   BaseReferences<
                     _$LocalDatabase,
                     $PhoneRulesTable,
-                    PhoneRuleData
+                    PhoneRuleEntity
                   >(db, table, e),
                 ),
               )
@@ -9526,17 +8223,17 @@ typedef $$PhoneRulesTableProcessedTableManager =
     ProcessedTableManager<
       _$LocalDatabase,
       $PhoneRulesTable,
-      PhoneRuleData,
+      PhoneRuleEntity,
       $$PhoneRulesTableFilterComposer,
       $$PhoneRulesTableOrderingComposer,
       $$PhoneRulesTableAnnotationComposer,
       $$PhoneRulesTableCreateCompanionBuilder,
       $$PhoneRulesTableUpdateCompanionBuilder,
       (
-        PhoneRuleData,
-        BaseReferences<_$LocalDatabase, $PhoneRulesTable, PhoneRuleData>,
+        PhoneRuleEntity,
+        BaseReferences<_$LocalDatabase, $PhoneRulesTable, PhoneRuleEntity>,
       ),
-      PhoneRuleData,
+      PhoneRuleEntity,
       PrefetchHooks Function()
     >;
 typedef $$RegexRulesTableCreateCompanionBuilder =
@@ -9705,17 +8402,17 @@ class $$RegexRulesTableTableManager
         RootTableManager<
           _$LocalDatabase,
           $RegexRulesTable,
-          RegexRuleData,
+          RegexRuleEntity,
           $$RegexRulesTableFilterComposer,
           $$RegexRulesTableOrderingComposer,
           $$RegexRulesTableAnnotationComposer,
           $$RegexRulesTableCreateCompanionBuilder,
           $$RegexRulesTableUpdateCompanionBuilder,
           (
-            RegexRuleData,
-            BaseReferences<_$LocalDatabase, $RegexRulesTable, RegexRuleData>,
+            RegexRuleEntity,
+            BaseReferences<_$LocalDatabase, $RegexRulesTable, RegexRuleEntity>,
           ),
-          RegexRuleData,
+          RegexRuleEntity,
           PrefetchHooks Function()
         > {
   $$RegexRulesTableTableManager(_$LocalDatabase db, $RegexRulesTable table)
@@ -9776,11 +8473,11 @@ class $$RegexRulesTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable<$RegexRulesTable, RegexRuleData>(table),
+                  e.readTable<$RegexRulesTable, RegexRuleEntity>(table),
                   BaseReferences<
                     _$LocalDatabase,
                     $RegexRulesTable,
-                    RegexRuleData
+                    RegexRuleEntity
                   >(db, table, e),
                 ),
               )
@@ -9794,17 +8491,17 @@ typedef $$RegexRulesTableProcessedTableManager =
     ProcessedTableManager<
       _$LocalDatabase,
       $RegexRulesTable,
-      RegexRuleData,
+      RegexRuleEntity,
       $$RegexRulesTableFilterComposer,
       $$RegexRulesTableOrderingComposer,
       $$RegexRulesTableAnnotationComposer,
       $$RegexRulesTableCreateCompanionBuilder,
       $$RegexRulesTableUpdateCompanionBuilder,
       (
-        RegexRuleData,
-        BaseReferences<_$LocalDatabase, $RegexRulesTable, RegexRuleData>,
+        RegexRuleEntity,
+        BaseReferences<_$LocalDatabase, $RegexRulesTable, RegexRuleEntity>,
       ),
-      RegexRuleData,
+      RegexRuleEntity,
       PrefetchHooks Function()
     >;
 typedef $$SubscriptionsTableCreateCompanionBuilder =
@@ -10009,21 +8706,17 @@ class $$SubscriptionsTableTableManager
         RootTableManager<
           _$LocalDatabase,
           $SubscriptionsTable,
-          SubscriptionData,
+          Subscription,
           $$SubscriptionsTableFilterComposer,
           $$SubscriptionsTableOrderingComposer,
           $$SubscriptionsTableAnnotationComposer,
           $$SubscriptionsTableCreateCompanionBuilder,
           $$SubscriptionsTableUpdateCompanionBuilder,
           (
-            SubscriptionData,
-            BaseReferences<
-              _$LocalDatabase,
-              $SubscriptionsTable,
-              SubscriptionData
-            >,
+            Subscription,
+            BaseReferences<_$LocalDatabase, $SubscriptionsTable, Subscription>,
           ),
-          SubscriptionData,
+          Subscription,
           PrefetchHooks Function()
         > {
   $$SubscriptionsTableTableManager(
@@ -10094,11 +8787,11 @@ class $$SubscriptionsTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable<$SubscriptionsTable, SubscriptionData>(table),
+                  e.readTable<$SubscriptionsTable, Subscription>(table),
                   BaseReferences<
                     _$LocalDatabase,
                     $SubscriptionsTable,
-                    SubscriptionData
+                    Subscription
                   >(db, table, e),
                 ),
               )
@@ -10112,17 +8805,17 @@ typedef $$SubscriptionsTableProcessedTableManager =
     ProcessedTableManager<
       _$LocalDatabase,
       $SubscriptionsTable,
-      SubscriptionData,
+      Subscription,
       $$SubscriptionsTableFilterComposer,
       $$SubscriptionsTableOrderingComposer,
       $$SubscriptionsTableAnnotationComposer,
       $$SubscriptionsTableCreateCompanionBuilder,
       $$SubscriptionsTableUpdateCompanionBuilder,
       (
-        SubscriptionData,
-        BaseReferences<_$LocalDatabase, $SubscriptionsTable, SubscriptionData>,
+        Subscription,
+        BaseReferences<_$LocalDatabase, $SubscriptionsTable, Subscription>,
       ),
-      SubscriptionData,
+      Subscription,
       PrefetchHooks Function()
     >;
 typedef $$SmsTableCreateCompanionBuilder =
@@ -10601,17 +9294,14 @@ class $$SmsRulesTableTableManager
         RootTableManager<
           _$LocalDatabase,
           $SmsRulesTable,
-          SmsRuleData,
+          SmsRule,
           $$SmsRulesTableFilterComposer,
           $$SmsRulesTableOrderingComposer,
           $$SmsRulesTableAnnotationComposer,
           $$SmsRulesTableCreateCompanionBuilder,
           $$SmsRulesTableUpdateCompanionBuilder,
-          (
-            SmsRuleData,
-            BaseReferences<_$LocalDatabase, $SmsRulesTable, SmsRuleData>,
-          ),
-          SmsRuleData,
+          (SmsRule, BaseReferences<_$LocalDatabase, $SmsRulesTable, SmsRule>),
+          SmsRule,
           PrefetchHooks Function()
         > {
   $$SmsRulesTableTableManager(_$LocalDatabase db, $SmsRulesTable table)
@@ -10672,8 +9362,8 @@ class $$SmsRulesTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable<$SmsRulesTable, SmsRuleData>(table),
-                  BaseReferences<_$LocalDatabase, $SmsRulesTable, SmsRuleData>(
+                  e.readTable<$SmsRulesTable, SmsRule>(table),
+                  BaseReferences<_$LocalDatabase, $SmsRulesTable, SmsRule>(
                     db,
                     table,
                     e,
@@ -10690,17 +9380,14 @@ typedef $$SmsRulesTableProcessedTableManager =
     ProcessedTableManager<
       _$LocalDatabase,
       $SmsRulesTable,
-      SmsRuleData,
+      SmsRule,
       $$SmsRulesTableFilterComposer,
       $$SmsRulesTableOrderingComposer,
       $$SmsRulesTableAnnotationComposer,
       $$SmsRulesTableCreateCompanionBuilder,
       $$SmsRulesTableUpdateCompanionBuilder,
-      (
-        SmsRuleData,
-        BaseReferences<_$LocalDatabase, $SmsRulesTable, SmsRuleData>,
-      ),
-      SmsRuleData,
+      (SmsRule, BaseReferences<_$LocalDatabase, $SmsRulesTable, SmsRule>),
+      SmsRule,
       PrefetchHooks Function()
     >;
 typedef $$PluginsTableCreateCompanionBuilder =
@@ -10890,17 +9577,14 @@ class $$PluginsTableTableManager
         RootTableManager<
           _$LocalDatabase,
           $PluginsTable,
-          PluginData,
+          Plugin,
           $$PluginsTableFilterComposer,
           $$PluginsTableOrderingComposer,
           $$PluginsTableAnnotationComposer,
           $$PluginsTableCreateCompanionBuilder,
           $$PluginsTableUpdateCompanionBuilder,
-          (
-            PluginData,
-            BaseReferences<_$LocalDatabase, $PluginsTable, PluginData>,
-          ),
-          PluginData,
+          (Plugin, BaseReferences<_$LocalDatabase, $PluginsTable, Plugin>),
+          Plugin,
           PrefetchHooks Function()
         > {
   $$PluginsTableTableManager(_$LocalDatabase db, $PluginsTable table)
@@ -10965,8 +9649,8 @@ class $$PluginsTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable<$PluginsTable, PluginData>(table),
-                  BaseReferences<_$LocalDatabase, $PluginsTable, PluginData>(
+                  e.readTable<$PluginsTable, Plugin>(table),
+                  BaseReferences<_$LocalDatabase, $PluginsTable, Plugin>(
                     db,
                     table,
                     e,
@@ -10983,14 +9667,14 @@ typedef $$PluginsTableProcessedTableManager =
     ProcessedTableManager<
       _$LocalDatabase,
       $PluginsTable,
-      PluginData,
+      Plugin,
       $$PluginsTableFilterComposer,
       $$PluginsTableOrderingComposer,
       $$PluginsTableAnnotationComposer,
       $$PluginsTableCreateCompanionBuilder,
       $$PluginsTableUpdateCompanionBuilder,
-      (PluginData, BaseReferences<_$LocalDatabase, $PluginsTable, PluginData>),
-      PluginData,
+      (Plugin, BaseReferences<_$LocalDatabase, $PluginsTable, Plugin>),
+      Plugin,
       PrefetchHooks Function()
     >;
 typedef $$LocationsTableCreateCompanionBuilder =
@@ -11133,17 +9817,17 @@ class $$LocationsTableTableManager
         RootTableManager<
           _$LocalDatabase,
           $LocationsTable,
-          LocationData,
+          Location,
           $$LocationsTableFilterComposer,
           $$LocationsTableOrderingComposer,
           $$LocationsTableAnnotationComposer,
           $$LocationsTableCreateCompanionBuilder,
           $$LocationsTableUpdateCompanionBuilder,
           (
-            LocationData,
-            BaseReferences<_$LocalDatabase, $LocationsTable, LocationData>,
+            Location,
+            BaseReferences<_$LocalDatabase, $LocationsTable, Location>,
           ),
-          LocationData,
+          Location,
           PrefetchHooks Function()
         > {
   $$LocationsTableTableManager(_$LocalDatabase db, $LocationsTable table)
@@ -11196,12 +9880,12 @@ class $$LocationsTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable<$LocationsTable, LocationData>(table),
-                  BaseReferences<
-                    _$LocalDatabase,
-                    $LocationsTable,
-                    LocationData
-                  >(db, table, e),
+                  e.readTable<$LocationsTable, Location>(table),
+                  BaseReferences<_$LocalDatabase, $LocationsTable, Location>(
+                    db,
+                    table,
+                    e,
+                  ),
                 ),
               )
               .toList(),
@@ -11214,17 +9898,14 @@ typedef $$LocationsTableProcessedTableManager =
     ProcessedTableManager<
       _$LocalDatabase,
       $LocationsTable,
-      LocationData,
+      Location,
       $$LocationsTableFilterComposer,
       $$LocationsTableOrderingComposer,
       $$LocationsTableAnnotationComposer,
       $$LocationsTableCreateCompanionBuilder,
       $$LocationsTableUpdateCompanionBuilder,
-      (
-        LocationData,
-        BaseReferences<_$LocalDatabase, $LocationsTable, LocationData>,
-      ),
-      LocationData,
+      (Location, BaseReferences<_$LocalDatabase, $LocationsTable, Location>),
+      Location,
       PrefetchHooks Function()
     >;
 typedef $$PredefinedLabelsTableCreateCompanionBuilder =
@@ -11331,21 +10012,21 @@ class $$PredefinedLabelsTableTableManager
         RootTableManager<
           _$LocalDatabase,
           $PredefinedLabelsTable,
-          PredefinedLabelData,
+          PredefinedLabel,
           $$PredefinedLabelsTableFilterComposer,
           $$PredefinedLabelsTableOrderingComposer,
           $$PredefinedLabelsTableAnnotationComposer,
           $$PredefinedLabelsTableCreateCompanionBuilder,
           $$PredefinedLabelsTableUpdateCompanionBuilder,
           (
-            PredefinedLabelData,
+            PredefinedLabel,
             BaseReferences<
               _$LocalDatabase,
               $PredefinedLabelsTable,
-              PredefinedLabelData
+              PredefinedLabel
             >,
           ),
-          PredefinedLabelData,
+          PredefinedLabel,
           PrefetchHooks Function()
         > {
   $$PredefinedLabelsTableTableManager(
@@ -11392,13 +10073,11 @@ class $$PredefinedLabelsTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable<$PredefinedLabelsTable, PredefinedLabelData>(
-                    table,
-                  ),
+                  e.readTable<$PredefinedLabelsTable, PredefinedLabel>(table),
                   BaseReferences<
                     _$LocalDatabase,
                     $PredefinedLabelsTable,
-                    PredefinedLabelData
+                    PredefinedLabel
                   >(db, table, e),
                 ),
               )
@@ -11412,21 +10091,21 @@ typedef $$PredefinedLabelsTableProcessedTableManager =
     ProcessedTableManager<
       _$LocalDatabase,
       $PredefinedLabelsTable,
-      PredefinedLabelData,
+      PredefinedLabel,
       $$PredefinedLabelsTableFilterComposer,
       $$PredefinedLabelsTableOrderingComposer,
       $$PredefinedLabelsTableAnnotationComposer,
       $$PredefinedLabelsTableCreateCompanionBuilder,
       $$PredefinedLabelsTableUpdateCompanionBuilder,
       (
-        PredefinedLabelData,
+        PredefinedLabel,
         BaseReferences<
           _$LocalDatabase,
           $PredefinedLabelsTable,
-          PredefinedLabelData
+          PredefinedLabel
         >,
       ),
-      PredefinedLabelData,
+      PredefinedLabel,
       PrefetchHooks Function()
     >;
 typedef $$LabelPhonesTableCreateCompanionBuilder =
@@ -11625,17 +10304,17 @@ class $$LabelPhonesTableTableManager
         RootTableManager<
           _$LocalDatabase,
           $LabelPhonesTable,
-          LabelPhoneData,
+          LabelPhoneEntry,
           $$LabelPhonesTableFilterComposer,
           $$LabelPhonesTableOrderingComposer,
           $$LabelPhonesTableAnnotationComposer,
           $$LabelPhonesTableCreateCompanionBuilder,
           $$LabelPhonesTableUpdateCompanionBuilder,
           (
-            LabelPhoneData,
-            BaseReferences<_$LocalDatabase, $LabelPhonesTable, LabelPhoneData>,
+            LabelPhoneEntry,
+            BaseReferences<_$LocalDatabase, $LabelPhonesTable, LabelPhoneEntry>,
           ),
-          LabelPhoneData,
+          LabelPhoneEntry,
           PrefetchHooks Function()
         > {
   $$LabelPhonesTableTableManager(_$LocalDatabase db, $LabelPhonesTable table)
@@ -11704,11 +10383,11 @@ class $$LabelPhonesTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable<$LabelPhonesTable, LabelPhoneData>(table),
+                  e.readTable<$LabelPhonesTable, LabelPhoneEntry>(table),
                   BaseReferences<
                     _$LocalDatabase,
                     $LabelPhonesTable,
-                    LabelPhoneData
+                    LabelPhoneEntry
                   >(db, table, e),
                 ),
               )
@@ -11722,17 +10401,17 @@ typedef $$LabelPhonesTableProcessedTableManager =
     ProcessedTableManager<
       _$LocalDatabase,
       $LabelPhonesTable,
-      LabelPhoneData,
+      LabelPhoneEntry,
       $$LabelPhonesTableFilterComposer,
       $$LabelPhonesTableOrderingComposer,
       $$LabelPhonesTableAnnotationComposer,
       $$LabelPhonesTableCreateCompanionBuilder,
       $$LabelPhonesTableUpdateCompanionBuilder,
       (
-        LabelPhoneData,
-        BaseReferences<_$LocalDatabase, $LabelPhonesTable, LabelPhoneData>,
+        LabelPhoneEntry,
+        BaseReferences<_$LocalDatabase, $LabelPhonesTable, LabelPhoneEntry>,
       ),
-      LabelPhoneData,
+      LabelPhoneEntry,
       PrefetchHooks Function()
     >;
 typedef $$SimSlotRulesTableCreateCompanionBuilder =
@@ -11933,21 +10612,17 @@ class $$SimSlotRulesTableTableManager
         RootTableManager<
           _$LocalDatabase,
           $SimSlotRulesTable,
-          SimSlotRuleData,
+          SimSlotRule,
           $$SimSlotRulesTableFilterComposer,
           $$SimSlotRulesTableOrderingComposer,
           $$SimSlotRulesTableAnnotationComposer,
           $$SimSlotRulesTableCreateCompanionBuilder,
           $$SimSlotRulesTableUpdateCompanionBuilder,
           (
-            SimSlotRuleData,
-            BaseReferences<
-              _$LocalDatabase,
-              $SimSlotRulesTable,
-              SimSlotRuleData
-            >,
+            SimSlotRule,
+            BaseReferences<_$LocalDatabase, $SimSlotRulesTable, SimSlotRule>,
           ),
-          SimSlotRuleData,
+          SimSlotRule,
           PrefetchHooks Function()
         > {
   $$SimSlotRulesTableTableManager(_$LocalDatabase db, $SimSlotRulesTable table)
@@ -12016,11 +10691,11 @@ class $$SimSlotRulesTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable<$SimSlotRulesTable, SimSlotRuleData>(table),
+                  e.readTable<$SimSlotRulesTable, SimSlotRule>(table),
                   BaseReferences<
                     _$LocalDatabase,
                     $SimSlotRulesTable,
-                    SimSlotRuleData
+                    SimSlotRule
                   >(db, table, e),
                 ),
               )
@@ -12034,17 +10709,17 @@ typedef $$SimSlotRulesTableProcessedTableManager =
     ProcessedTableManager<
       _$LocalDatabase,
       $SimSlotRulesTable,
-      SimSlotRuleData,
+      SimSlotRule,
       $$SimSlotRulesTableFilterComposer,
       $$SimSlotRulesTableOrderingComposer,
       $$SimSlotRulesTableAnnotationComposer,
       $$SimSlotRulesTableCreateCompanionBuilder,
       $$SimSlotRulesTableUpdateCompanionBuilder,
       (
-        SimSlotRuleData,
-        BaseReferences<_$LocalDatabase, $SimSlotRulesTable, SimSlotRuleData>,
+        SimSlotRule,
+        BaseReferences<_$LocalDatabase, $SimSlotRulesTable, SimSlotRule>,
       ),
-      SimSlotRuleData,
+      SimSlotRule,
       PrefetchHooks Function()
     >;
 typedef $$LabelMarkStatisticsTableCreateCompanionBuilder =

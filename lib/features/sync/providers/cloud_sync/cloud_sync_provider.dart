@@ -3,6 +3,7 @@ import 'package:yourcallyourrule/features/sync/services/cloud_sync/cloud_sync_se
 import 'package:yourcallyourrule/features/sync/services/cloud_sync/google_drive_sync_service.dart';
 import 'package:yourcallyourrule/features/sync/services/cloud_sync/onedrive_sync_service.dart';
 import 'package:yourcallyourrule/features/sync/services/cloud_sync/webdav_sync_service.dart';
+import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'device_management_provider.dart';
 
 // [无需修改] 
@@ -52,27 +53,27 @@ final cloudSyncStatusProvider = FutureProvider<Map<String, dynamic>>((ref) async
 });
 
 // [唯一修改的地方] 
-// 逻辑非常简单：遍历时，看看 activeService 是不是当前这个服务，如果是，就用 activeService�?
+// 逻辑非常简单：遍历时，看看 activeService 是不是当前这个服务，如果是，就用 activeService�?
 final allCloudSyncStatusProvider = FutureProvider<List<Map<String, dynamic>>>((ref) async {
-  // 1. 拿到那个“唯一真神�?(当前活跃且已连接的服务实�?
+  // 1. 拿到那个“唯一真神�?(当前活跃且已连接的服务实�?
   final activeService = ref.watch(activeSyncServiceProvider);
 
-  // 2. 拿到三个“默认替身�?(用于占位和初始化)
+  // 2. 拿到三个“默认替身�?(用于占位和初始化)
   final defaultServices = [
     ref.watch(webdavSyncServiceProvider),
     ref.watch(onedriveSyncServiceProvider),
     ref.watch(googleDriveSyncServiceProvider),
   ];
 
-  // 3. 【核心逻辑�? 遍历列表，并行获取状�?
-  // 逻辑只有一句话：如�?activeService 是当前这个类型的实例，就�?activeService，否则用默认的�?
+  // 3. 【核心逻辑�? 遍历列表，并行获取状�?
+  // 逻辑只有一句话：如�?activeService 是当前这个类型的实例，就�?activeService，否则用默认的�?
   final futures = defaultServices.map((service) {
     if (activeService != null && activeService.runtimeType == service.runtimeType) {
       // 发现 activeService 就是当前这个类型 (例如都是 GoogleDriveSyncService)
-      // 直接使用 activeService 获取状�?(它肯定是 Connected)
+      // 直接使用 activeService 获取状�?(它肯定是 Connected)
       return activeService.getSyncStatus();
     }
-    // 否则使用默认实例获取状�?(它肯定是 Disconnected)
+    // 否则使用默认实例获取状�?(它肯定是 Disconnected)
     return service.getSyncStatus();
   });
 

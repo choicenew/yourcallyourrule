@@ -1,43 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'package:intl/intl.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
-import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
-import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 
-import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
+import 'package:yourcallyourrule/features/sync/domain/device_entity.dart';
 import 'package:yourcallyourrule/features/sync/providers/cloud_sync/cloud_sync_provider.dart';
 import 'package:yourcallyourrule/features/sync/providers/cloud_sync/device_management_provider.dart';
 import 'package:yourcallyourrule/features/sync/services/cloud_sync/cloud_sync_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// Page for managing devices and multi-device synchronization
 class DeviceManagementPage extends ConsumerStatefulWidget {
-  /// Constructor
   const DeviceManagementPage({super.key});
 
   @override
-  ConsumerState<DeviceManagementPage> createState() =>
-      _DeviceManagementPageState();
+  ConsumerState<DeviceManagementPage> createState() => _DeviceManagementPageState();
 }
 
 class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
-  final _deviceNameController = TextEditingController();
-  bool _isLoading = false;
-
-  @override
-  void dispose() {
-    _deviceNameController.dispose();
-    super.dispose();
-  }
+  bool _isSyncing = false;
 
   @override
   Widget build(BuildContext context) {
     final currentDeviceAsync = ref.watch(currentDeviceProvider);
     final registeredDevicesAsync = ref.watch(registeredDevicesProvider);
-    final activeService = ref.watch(activeSyncServiceProvider);
 
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -55,31 +40,31 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
           onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator(strokeWidth: 2))
-          : SingleChildScrollView(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  _buildCurrentDeviceSection(currentDeviceAsync),
-                  const SizedBox(height: 16),
-                  GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
-                  const SizedBox(height: 16),
-                  _buildRegisteredDevicesSection(
-                      registeredDevicesAsync, activeService),
-                  const SizedBox(height: 16),
-                  nativeAdWidgetMedium(adWidth: 400, adHeight: 320),
-                ],
-              ),
-            ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            _buildCurrentDeviceSection(context, currentDeviceAsync),
+            const SizedBox(height: 16),
+            const AdsInlineBanner(),
+            const SizedBox(height: 16),
+            _buildRegisteredDevicesSection(context, registeredDevicesAsync),
+            const SizedBox(height: 16),
+            const AdsInlineBanner(),
+            const SizedBox(height: 16),
+            _buildSyncActionsSection(context),
+          ],
+        ),
+      ),
     );
   }
 
   Widget _buildCurrentDeviceSection(
-      AsyncValue<DeviceEntity> currentDeviceAsync) {
+    BuildContext context,
+    AsyncValue<DeviceEntity?> currentDeviceAsync,
+  ) {
     return Container(
-      padding: const EdgeInsets.all(18.0),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
@@ -87,82 +72,71 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
           color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
-            blurRadius: 10,
-            offset: const Offset(0, 3),
-          ),
-        ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
+      child: currentDeviceAsync.when(
+        data: (device) {
+          if (device == null) {
+            return const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text('No current device info'),
+            );
+          }
+          final dateFormat = DateFormat('yyyy-MM-dd HH:mm:ss');
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(12),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  AppLocalizations.of(context)!.currentDeviceTitle,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
                 ),
-                child: Icon(Icons.smartphone_rounded, color: Theme.of(context).colorScheme.primary, size: 20),
               ),
-              const SizedBox(width: 10),
-              Text(
-                AppLocalizations.of(context)!.currentDeviceTitle,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
+              const Divider(height: 1),
+              ListTile(
+                title: Text(AppLocalizations.of(context)!.deviceNameLabel),
+                subtitle: Text(device.name, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15, color: Theme.of(context).colorScheme.onSurface)),
+                leading: Icon(Icons.phone_android_rounded, color: Theme.of(context).colorScheme.primary),
+              ),
+              ListTile(
+                title: Text(AppLocalizations.of(context)!.deviceModelLabel),
+                subtitle: Text(device.model, style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14, color: Theme.of(context).colorScheme.onSurface)),
+                leading: Icon(Icons.info_outline_rounded, color: Theme.of(context).colorScheme.primary),
+              ),
+              ListTile(
+                title: Text(AppLocalizations.of(context)!.deviceIDLabel),
+                subtitle: Text(device.id, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                leading: Icon(Icons.fingerprint_rounded, color: Theme.of(context).colorScheme.primary),
+              ),
+              ListTile(
+                title: Text(AppLocalizations.of(context)!.lastSyncTimeLabel),
+                subtitle: Text(dateFormat.format(device.lastSyncTime), style: TextStyle(fontSize: 13, color: Theme.of(context).colorScheme.onSurface)),
+                leading: Icon(Icons.access_time_rounded, color: Theme.of(context).colorScheme.primary),
               ),
             ],
-          ),
-          const SizedBox(height: 16),
-          currentDeviceAsync.when(
-            data: (device) => Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  title: Text(AppLocalizations.of(context)!.deviceNameLabel, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                  subtitle: Text(device.name, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15, color: Theme.of(context).colorScheme.onSurface)),
-                  trailing: IconButton(
-                    icon: Icon(Icons.edit_note_rounded, size: 20, color: Theme.of(context).colorScheme.onSurfaceVariant),
-                    onPressed: () => _showRenameDeviceDialog(device),
-                  ),
-                ),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  title: Text(AppLocalizations.of(context)!.deviceModelLabel, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                  subtitle: Text(device.model, style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14, color: Theme.of(context).colorScheme.onSurface)),
-                ),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  title: Text(AppLocalizations.of(context)!.deviceIDLabel, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                  subtitle: Text(device.id, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                ),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  title: Text(AppLocalizations.of(context)!.lastSyncLabel, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                  subtitle: Text(
-                    DateFormat('yyyy-MM-dd HH:mm:ss')
-                        .format(device.lastSyncTime),
-                    style: TextStyle(fontWeight: FontWeight.w700, fontSize: 13, color: Theme.of(context).colorScheme.onSurface),
-                  ),
-                ),
-              ],
-            ),
-            loading: () => const Center(child: CircularProgressIndicator(strokeWidth: 2)),
-            error: (error, stack) => Text(AppLocalizations.of(context)!.errorOccurredMessage(error.toString())),
-          ),
-        ],
+          );
+        },
+        loading: () => const Padding(
+          padding: EdgeInsets.all(24.0),
+          child: Center(child: CircularProgressIndicator()),
+        ),
+        error: (error, _) => Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text('Failed to load device info: $error'),
+        ),
       ),
     );
   }
 
   Widget _buildRegisteredDevicesSection(
-      AsyncValue<List<DeviceEntity>> registeredDevicesAsync,
-      CloudSyncService? activeService) {
+    BuildContext context,
+    AsyncValue<List<DeviceEntity>> registeredDevicesAsync,
+  ) {
     return Container(
-      padding: const EdgeInsets.all(18.0),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
@@ -170,76 +144,50 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
           color: Theme.of(context).colorScheme.outlineVariant,
           width: 1.1,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
-            blurRadius: 10,
-            offset: const Offset(0, 3),
-          ),
-        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.secondary.withValues(alpha: 0.12),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Icon(Icons.devices_rounded, color: Theme.of(context).colorScheme.secondary, size: 20),
-                  ),
-                  const SizedBox(width: 10),
-                  Text(
-                    AppLocalizations.of(context)!.registeredDevicesTitle,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
-                  ),
-                ],
-              ),
-              if (activeService != null)
-                ElevatedButton.icon(
-                  icon: const Icon(Icons.sync_rounded, size: 16),
-                  label: Text(AppLocalizations.of(context)!.syncDevicesButton),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.primary,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                  ),
-                  onPressed: () => _syncDevices(activeService),
-                ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          if (activeService == null)
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                AppLocalizations.of(context)!.configureCloudSyncServiceMessage,
-                style: const TextStyle(color: Colors.orange, fontWeight: FontWeight.w600),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              AppLocalizations.of(context)!.syncDevicesTitle,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
+          ),
+          const Divider(height: 1),
           registeredDevicesAsync.when(
-            data: (devices) => devices.isEmpty
-                ? Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(AppLocalizations.of(context)!.noDevicesRegisteredMessage),
-                  )
-                : ListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: devices.length,
-                    itemBuilder: (context, index) {
-                      final device = devices[index];
-                      return _buildDeviceListItem(device);
-                    },
+            data: (devices) {
+              if (devices.isEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Center(
+                    child: Text(AppLocalizations.of(context)!.noRegisteredDevicesMessage),
                   ),
-            loading: () => const Center(child: CircularProgressIndicator(strokeWidth: 2)),
-            error: (error, stack) => Text(AppLocalizations.of(context)!.errorOccurredMessage(error.toString())),
+                );
+              }
+              return ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: devices.length,
+                separatorBuilder: (_, __) => const Divider(height: 1),
+                itemBuilder: (context, index) {
+                  return _buildDeviceListItem(devices[index]);
+                },
+              );
+            },
+            loading: () => const Padding(
+              padding: EdgeInsets.all(24.0),
+              child: Center(child: CircularProgressIndicator()),
+            ),
+            error: (error, _) => Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text('Error: $error'),
+            ),
           ),
         ],
       ),
@@ -247,217 +195,51 @@ class _DeviceManagementPageState extends ConsumerState<DeviceManagementPage> {
   }
 
   Widget _buildDeviceListItem(DeviceEntity device) {
-    final currentDeviceAsync = ref.watch(currentDeviceProvider);
-    bool isCurrentDevice = false;
-
-    if (currentDeviceAsync is AsyncData<DeviceEntity>) {
-      isCurrentDevice = currentDeviceAsync.value.id == device.id;
-    }
-
+    final dateFormat = DateFormat('yyyy-MM-dd HH:mm:ss');
     return ListTile(
-      title: Row(
-        children: [
-          Text(device.name),
-          if (isCurrentDevice)
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: Chip(
-                label: Text(AppLocalizations.of(context)!.currentDeviceLabel),
-                backgroundColor: Colors.green,
-                labelStyle: const TextStyle(color: Colors.white, fontSize: 12),
-              ),
-            ),
-        ],
-      ),
-      subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(device.model),
-          Text(
-              '${AppLocalizations.of(context)!.lastSyncLabel}: ${DateFormat('yyyy-MM-dd HH:mm:ss').format(device.lastSyncTime)}'),
-        ],
-      ),
-      trailing: !isCurrentDevice
-          ? IconButton(
-              icon: const Icon(Icons.delete),
-              onPressed: () => _showUnregisterDeviceDialog(device),
+      leading: Icon(Icons.devices_rounded, color: Theme.of(context).colorScheme.primary),
+      title: Text(device.name, style: const TextStyle(fontWeight: FontWeight.bold)),
+      subtitle: Text('${device.model} | Last Sync: ${dateFormat.format(device.lastSyncTime)}'),
+    );
+  }
+
+  Widget _buildSyncActionsSection(BuildContext context) {
+    return ElevatedButton.icon(
+      onPressed: _isSyncing ? null : _syncWithCloud,
+      icon: _isSyncing
+          ? const SizedBox(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
             )
-          : null,
+          : const Icon(Icons.sync_rounded),
+      label: Text(AppLocalizations.of(context)!.manualSyncButton),
+      style: ElevatedButton.styleFrom(
+        padding: const EdgeInsets.all(16),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
     );
   }
 
-  Future<void> _showRenameDeviceDialog(DeviceEntity device) async {
-    _deviceNameController.text = device.name;
-
-    return showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(AppLocalizations.of(context)!.renameDeviceTitle),
-          content: TextField(
-            controller: _deviceNameController,
-            decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.deviceNameLabel,
-              hintText: AppLocalizations.of(context)!.enterNewDeviceNameHint,
-            ),
-            autofocus: true,
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: Text(AppLocalizations.of(context)!.cancelButton),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
-              child: Text(AppLocalizations.of(context)!.saveButton),
-              onPressed: () async {
-                if (_deviceNameController.text.trim().isNotEmpty) {
-                  setState(() {
-                    _isLoading = true;
-                  });
-
-                  Navigator.of(context).pop();
-
-                  try {
-                    final deviceService =
-                        ref.read(deviceManagementServiceProvider);
-                    await deviceService
-                        .updateDeviceName(_deviceNameController.text.trim());
-
-                    // Refresh the device list
-                    ref.refresh(currentDeviceProvider);
-                    ref.refresh(registeredDevicesProvider);
-
-                    if (mounted) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                            content: Text(AppLocalizations.of(context)!.deviceRenamedSuccessfullyMessage)),
-                      );
-                    }
-                  } catch (e) {
-                    if (mounted) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(AppLocalizations.of(context)!.errorRenamingDeviceMessage(e.toString()))),
-                      );
-                    }
-                  } finally {
-                    if (mounted) {
-                      setState(() {
-                        _isLoading = false;
-                      });
-                    }
-                  }
-                }
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  Future<void> _showUnregisterDeviceDialog(DeviceEntity device) async {
-    return showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(AppLocalizations.of(context)!.unregisterDeviceTitle),
-          content: Text(AppLocalizations.of(context)!.unregisterDeviceConfirmationMessage(device.name)),
-          actions: <Widget>[
-            TextButton(
-              child: Text(AppLocalizations.of(context)!.cancelButton),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
-              child: Text(AppLocalizations.of(context)!.unregisterButton),
-              onPressed: () async {
-                setState(() {
-                  _isLoading = true;
-                });
-
-                Navigator.of(context).pop();
-
-                try {
-                  final deviceService =
-                      ref.read(deviceManagementServiceProvider);
-                  await deviceService.unregisterDevice(device.id);
-
-                  // Refresh the device list
-                  ref.refresh(registeredDevicesProvider);
-
-                  if (mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                          content: Text(AppLocalizations.of(context)!.deviceUnregisteredSuccessfullyMessage)),
-                    );
-                  }
-                } catch (e) {
-                  if (mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(AppLocalizations.of(context)!.errorUnregisteringDeviceMessage(e.toString()))),
-                    );
-                  }
-                } finally {
-                  if (mounted) {
-                    setState(() {
-                      _isLoading = false;
-                    });
-                  }
-                }
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  Future<void> _syncDevices(CloudSyncService syncService) async {
-    setState(() {
-      _isLoading = true;
-    });
-
+  Future<void> _syncWithCloud() async {
+    setState(() => _isSyncing = true);
     try {
-      final deviceService = ref.read(deviceManagementServiceProvider);
-      final currentDevice = await deviceService.getCurrentDevice();
-
-      // Update the last sync time for the current device
-      await deviceService.updateDeviceSyncStatus(
-        currentDevice.id,
-        DateTime.now(),
-      );
-
-      // Register the current device with the cloud service
-      await syncService.registerDeviceForSync(currentDevice);
-
-      // Sync devices from the cloud
-      await syncService.syncDevicesFromCloud();
-
-      // Refresh the device list
-      ref.refresh(currentDeviceProvider);
-      ref.refresh(registeredDevicesProvider);
-
+      final syncService = ref.read(cloudSyncServiceProvider);
+      await syncService.startIncrementalSync();
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.devicesSynchronizedSuccessfullyMessage)),
+          SnackBar(content: Text(AppLocalizations.of(context)!.syncCompletedMessage)),
         );
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.errorSynchronizingDevicesMessage(e.toString()))),
+          SnackBar(content: Text('${AppLocalizations.of(context)!.syncFailedMessage}: $e')),
         );
       }
     } finally {
       if (mounted) {
-        setState(() {
-          _isLoading = false;
-        });
+        setState(() => _isSyncing = false);
       }
     }
   }

@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
-import 'package:yourcallyourrule/data/repositories/sms_regex_rule_repository_impl.dart';
+import 'package:yourcallyourrule/features/sms/data/repositories/sms_regex_rule_repository_impl.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_handlers/sms_filter_handler.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_handlers/sms_notification_handler.dart';
 import 'package:yourcallyourrule/platform/sms_channel_switcher.dart';
@@ -13,11 +13,10 @@ import 'sms_handlers/incoming_sms_handler.dart';
 
 part 'sms_filter_service.g.dart';
 
-/// SmsFilterService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 SmsFilterService smsFilterService(Ref ref) {
   final smsRuleRepository = ref.watch(smsRegexRuleRepositoryProvider);
-  List<SmsRegexRule> initialRules = [];
+  List<SmsRegexRuleEntity> initialRules = [];
   final smsChannelManager = SmsChannelSwitcher.getPlatformChannelManager();
 
   final service = SmsFilterService(
@@ -34,28 +33,25 @@ SmsFilterService smsFilterService(Ref ref) {
   return service;
 }
 
-
 class SmsFilterService {
   final SmsChannelInterface smsChannelManager;
 
-  // 处理器工�?
   final SmsHandlerFactory _handlerFactory = SmsHandlerFactory();
   
-  // 处理�?
   late final SmsFilterHandler _filterHandler;
   late final SmsNotificationHandler _notificationHandler;
   late final IncomingSmsHandler _incomingSmsHandler;
   
   SmsFilterService({
     required this.smsChannelManager,
-    required List<SmsRegexRule> initialRules,
+    required List<SmsRegexRuleEntity> initialRules,
   }) {
     _initializeHandlers(initialRules);
   }
 
   static Future<SmsFilterService> create({
     required SmsChannelInterface smsChannelManager,
-    required List<SmsRegexRule> rules,
+    required List<SmsRegexRuleEntity> rules,
   }) async {
     final service = SmsFilterService(
       smsChannelManager: smsChannelManager,
@@ -66,28 +62,23 @@ class SmsFilterService {
     return service;
   }
   
-  /// 判断是否应该通知
   Future<bool> shouldNotify(String phoneNumber, String messageContent) async {
     return _filterHandler.shouldNotify(phoneNumber, messageContent);
   }
   
-  /// 处理接收到的SMS
   Future<void> handleIncomingSms(String phoneNumber, String messageContent) async {
     await _incomingSmsHandler.handleIncomingSms(phoneNumber, messageContent);
   }
 
-  void _initializeHandlers(List<SmsRegexRule> initialRules) {
-    // 创建过滤处理�?
+  void _initializeHandlers(List<SmsRegexRuleEntity> initialRules) {
     _filterHandler = _handlerFactory.create(
       SmsFilterHandler(initialRules: initialRules)
     );
     
-    // 创建通知处理�?
     _notificationHandler = _handlerFactory.create(
       SmsNotificationHandler()
     );
     
-    // 创建接收SMS处理�?
     _incomingSmsHandler = _handlerFactory.create(
       IncomingSmsHandler(
         filterHandler: _filterHandler,
@@ -115,8 +106,6 @@ class SmsFilterService {
     await _incomingSmsHandler.handleSmsChannelCall(call);
   }
 
-  // 公开的API方法，委托给相应的处理器
-
   Future<void> setEnabled(bool enabled) async {
     await _filterHandler.setEnabled(enabled);
   }
@@ -129,16 +118,15 @@ class SmsFilterService {
     await _notificationHandler.closeLocalNotification(cancelLocal);
   }
 
-  Future<void> updateRules(List<SmsRegexRule> rules) async {
+  Future<void> updateRules(List<SmsRegexRuleEntity> rules) async {
     await _filterHandler.updateRules(rules);
   }
 
-  Future<List<SmsRegexRule>> getRules() async {
+  Future<List<SmsRegexRuleEntity>> getRules() async {
     return _filterHandler.getRules();
   }
 
-  /// 添加规则
-  Future<void> addRules(List<SmsRegexRule> rules) async {
+  Future<void> addRules(List<SmsRegexRuleEntity> rules) async {
     _filterHandler.addRules(rules);
   }
 }

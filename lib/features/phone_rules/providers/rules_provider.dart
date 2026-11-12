@@ -3,7 +3,6 @@ import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository_impl.dart';
 
-/// 规则数据状态的Notifier
 class RulesNotifier extends AsyncNotifier<List<PhoneRuleEntity>> {
   late final RuleRepository _ruleRepository;
 
@@ -19,7 +18,7 @@ class RulesNotifier extends AsyncNotifier<List<PhoneRuleEntity>> {
 
   Future<List<PhoneRuleEntity>> _loadRules() async {
     try {
-      return await _ruleRepository.getAllRules();
+      return await _ruleRepository.getAll();
     } catch (e) {
       state = AsyncValue.error(e, StackTrace.current);
       return [];
@@ -29,7 +28,7 @@ class RulesNotifier extends AsyncNotifier<List<PhoneRuleEntity>> {
   Future<void> addRule(PhoneRuleEntity rule) async {
     state = const AsyncValue.loading();
     try {
-      await _ruleRepository.savePhoneRule(rule);
+      await _ruleRepository.saveRule(rule);
       state = AsyncValue.data(await _loadRules());
     } catch (e) {
       state = AsyncValue.error(e, StackTrace.current);
@@ -39,7 +38,7 @@ class RulesNotifier extends AsyncNotifier<List<PhoneRuleEntity>> {
   Future<void> updateRule(PhoneRuleEntity rule) async {
     state = const AsyncValue.loading();
     try {
-      await _ruleRepository.savePhoneRule(rule);
+      await _ruleRepository.saveRule(rule);
       state = AsyncValue.data(await _loadRules());
     } catch (e) {
       state = AsyncValue.error(e, StackTrace.current);
@@ -49,7 +48,7 @@ class RulesNotifier extends AsyncNotifier<List<PhoneRuleEntity>> {
   Future<void> deleteRule(String ruleId) async {
     state = const AsyncValue.loading();
     try {
-      await _ruleRepository.deletePhoneRule(ruleId);
+      await _ruleRepository.deleteRule(ruleId);
       state = AsyncValue.data(await _loadRules());
     } catch (e) {
       state = AsyncValue.error(e, StackTrace.current);

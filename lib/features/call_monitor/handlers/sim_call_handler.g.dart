@@ -41,7 +41,7 @@ final class SimCallHandlerProvider
   }
 }
 
-String _$simCallHandlerHash() => r'2f68475c3f5148bf1a8bceabddf14042dd969ee3';
+String _$simCallHandlerHash() => r'ac86564fafcf6ef6385d1a7ca0f1d2e6b4883442';
 
 abstract class _$SimCallHandler extends $Notifier<SimInfo?> {
   SimInfo? build();

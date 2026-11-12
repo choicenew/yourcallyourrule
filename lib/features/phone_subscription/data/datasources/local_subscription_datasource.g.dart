@@ -56,4 +56,4 @@ final class LocalSubscriptionDataSourceProvider
 }
 
 String _$localSubscriptionDataSourceHash() =>
-    r'd6cd148ce8cce8d27ad5178029c8cb797d623483';
+    r'f7ad3b602573b1c84a8b609dcdff808d1ce6ec8e';

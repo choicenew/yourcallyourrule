@@ -8,10 +8,17 @@ part of 'enhanced_composite_filter_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// 增强版组合过滤器服务中枢 Provider
+/// 统一接入 package:pyro_call_filter_hub 中的 EnhancedCompositeFilterService
+/// 避开对任何特定 feature 的横向依赖，所有子过滤器由各自 package 自注册接入！
 
 @ProviderFor(enhancedCompositeFilterService)
 final enhancedCompositeFilterServiceProvider =
     EnhancedCompositeFilterServiceProvider._();
+
+/// 增强版组合过滤器服务中枢 Provider
+/// 统一接入 package:pyro_call_filter_hub 中的 EnhancedCompositeFilterService
+/// 避开对任何特定 feature 的横向依赖，所有子过滤器由各自 package 自注册接入！
 
 final class EnhancedCompositeFilterServiceProvider
     extends
@@ -21,6 +28,9 @@ final class EnhancedCompositeFilterServiceProvider
           EnhancedCompositeFilterService
         >
     with $Provider<EnhancedCompositeFilterService> {
+  /// 增强版组合过滤器服务中枢 Provider
+  /// 统一接入 package:pyro_call_filter_hub 中的 EnhancedCompositeFilterService
+  /// 避开对任何特定 feature 的横向依赖，所有子过滤器由各自 package 自注册接入！
   EnhancedCompositeFilterServiceProvider._()
     : super(
         from: null,
@@ -58,4 +68,4 @@ final class EnhancedCompositeFilterServiceProvider
 }
 
 String _$enhancedCompositeFilterServiceHash() =>
-    r'28e4d332b976f60081d6605d2d737ea3294cb1ae';
+    r'791f67a3e94059d907a9cb5861b79d87184baee6';

@@ -13,7 +13,15 @@ part of 'incoming_call_handler.dart';
 final incomingCallHandlerProvider = IncomingCallHandlerProvider._();
 
 final class IncomingCallHandlerProvider
-    extends $AsyncNotifierProvider<IncomingCallHandlerNotifier, IncomingCallHandler> {
+    extends
+        $FunctionalProvider<
+          AsyncValue<IncomingCallHandler>,
+          IncomingCallHandler,
+          FutureOr<IncomingCallHandler>
+        >
+    with
+        $FutureModifier<IncomingCallHandler>,
+        $FutureProvider<IncomingCallHandler> {
   IncomingCallHandlerProvider._()
     : super(
         from: null,
@@ -26,20 +34,19 @@ final class IncomingCallHandlerProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => r'incoming_call_handler_hash_v2';
+  String debugGetCreateSourceHash() => _$incomingCallHandlerHash();
 
   @$internal
   @override
-  IncomingCallHandlerNotifier create() => IncomingCallHandlerNotifier();
-}
+  $FutureProviderElement<IncomingCallHandler> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
 
-abstract class _$IncomingCallHandlerNotifier extends $AsyncNotifier<IncomingCallHandler> {
-  FutureOr<IncomingCallHandler> build();
-}
-
-class IncomingCallHandlerNotifier extends _$IncomingCallHandlerNotifier {
   @override
-  Future<IncomingCallHandler> build() async {
-    return IncomingCallHandler();
+  FutureOr<IncomingCallHandler> create(Ref ref) {
+    return incomingCallHandler(ref);
   }
 }
+
+String _$incomingCallHandlerHash() =>
+    r'67637316c7ea5eed5ad86bf4f7f8ad1dc88a9e06';

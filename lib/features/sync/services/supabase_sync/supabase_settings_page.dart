@@ -3,9 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/purchase/purchase_state.dart';
-// 1. 引入你的路由定义文件
-
+import 'package:pyro_purchase_core/pyro_purchase_core.dart';
 
 import 'supabase_sync_manager.dart';
 import 'supabase_sync_providers.dart';
@@ -125,8 +123,8 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
   @override
   Widget build(BuildContext context) {
     final configAsync = ref.watch(supabaseConfigProvider);
-    final purchaseState = ref.watch(purchaseStateProvider);
-    final isVip = purchaseState.isPurchasedOrHasTempAccess();
+    final commercial = ref.watch(commercialNotifierProvider);
+    final isVip = commercial.isVipActive;
 
     ref.listen<AsyncValue<SyncResult?>>(supabaseSyncControllerProvider, (previous, next) {
       next.when(
@@ -181,7 +179,6 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
               const _SupabaseStatusBar(),
               const SizedBox(height: 14),
 
-              // Master Device Switch 卡片
               Container(
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.surface,
@@ -222,7 +219,6 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
               ),
               const SizedBox(height: 14),
 
-              // Form Fields 卡片
               Container(
                 padding: const EdgeInsets.all(18),
                 decoration: BoxDecoration(
@@ -295,7 +291,6 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
               ),
               const SizedBox(height: 14),
               
-              // 同步选项卡片
               Container(
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.surface,
@@ -380,8 +375,6 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
               ),
               const SizedBox(height: 18),
 
-              // 操作按钮�?
-              // 1. 保存设置
               OutlinedButton.icon(
                 onPressed: canInteract ? _handleSave : null,
                 icon: _currentOp == _ActiveOperation.saving
@@ -397,7 +390,6 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
               ),
               const SizedBox(height: 10),
 
-              // 2. 初始化数据库 (仅主设备)
               if (config.isMasterDevice) ...[
                 OutlinedButton.icon(
                   onPressed: canInteract ? () => _handleInitialize(isVip) : null,
@@ -414,7 +406,6 @@ class _SupabaseSettingsPageState extends ConsumerState<SupabaseSettingsPage> {
                 const SizedBox(height: 10),
               ],
 
-              // 3. 立即同步
               FilledButton.icon(
                 onPressed: canInteract ? () => _handleSync(isVip) : null,
                 icon: _currentOp == _ActiveOperation.syncing
@@ -445,8 +436,8 @@ class _SupabaseStatusBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final purchaseState = ref.watch(purchaseStateProvider);
-    final isVip = purchaseState.isPurchasedOrHasTempAccess();
+    final commercial = ref.watch(commercialNotifierProvider);
+    final isVip = commercial.isVipActive;
     
     final config = ref.watch(supabaseConfigProvider).value;
     final isConfigured = config != null && config.url.isNotEmpty && config.anonKey.isNotEmpty;

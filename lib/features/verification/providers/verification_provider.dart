@@ -45,7 +45,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
     });
   }
 
-  /// 初始化国家代码与号码（支持单�?双卡、多选同步国家及物理设备区域排序�?
+  /// 初始化国家代码与号码（支持单�?双卡、多选同步国家及物理设备区域排序�?
   Future<void> initLocaleAndNumber({String? initialNumber}) async {
     final candidates = <String>[];
 
@@ -60,7 +60,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
       }
     } catch (_) {}
 
-    // 2. 读取用户在「同步国家」中配置的多选国家列�?
+    // 2. 读取用户在「同步国家」中配置的多选国家列�?
     try {
       final selectedCountries = await ref.read(selectedCountriesProvider.future);
       for (final code in selectedCountries) {
@@ -71,7 +71,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
       }
     } catch (_) {}
 
-    // 3. 读取设备的物理系统地区（作为兜底�?
+    // 3. 读取设备的物理系统地区（作为兜底�?
     try {
       final platformCountry = PlatformDispatcher.instance.locale.countryCode?.trim().toUpperCase();
       if (platformCountry != null && platformCountry.isNotEmpty && !candidates.contains(platformCountry)) {
@@ -92,14 +92,14 @@ class VerificationNotifier extends Notifier<VerificationState> {
     }
   }
 
-  /// 自动从输入的号码中检测国家代�?
-  /// 直接调用 PhoneUtils，不拷贝或重写任何格式判�?
+  /// 自动从输入的号码中检测国家代�?
+  /// 直接调用 PhoneUtils，不拷贝或重写任何格式判�?
   Future<void> detectCountryCode(String phoneNumber) async {
     final trimmed = phoneNumber.trim();
     if (trimmed.isEmpty) return;
 
     try {
-      // 1. 直接使用 PhoneUtils 自动化解�?
+      // 1. 直接使用 PhoneUtils 自动化解�?
       final parsed = await PhoneUtils.parsePhoneNumberEntity(trimmed);
       if (parsed.isValid && parsed.countryCode.isNotEmpty) {
         state = state.copyWith(
@@ -108,7 +108,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
         return;
       }
 
-      // 2. 降级：若 PhoneUtils 解析失败，使用选中�?countryCode 进行 ISO 解析
+      // 2. 降级：若 PhoneUtils 解析失败，使用选中�?countryCode 进行 ISO 解析
       if (state.countryCode.isNotEmpty) {
         final fallbackParsed = await PhoneUtils.parsePhoneNumberWithIsoEntity(trimmed, state.countryCode);
         if (fallbackParsed.isValid && fallbackParsed.countryCode.isNotEmpty) {
@@ -120,7 +120,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
     } catch (_) {}
   }
 
-  /// 用户在顶�?Chip 中快速切换候选国�?
+  /// 用户在顶�?Chip 中快速切换候选国�?
   void selectCountry(String code) {
     final upper = code.trim().toUpperCase();
     if (upper.isNotEmpty && upper != state.countryCode) {
@@ -165,7 +165,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
       final callFilterConfig = await ref.read(callFilterConfigProvider.future);
       final currentLocale = await ref.read(localeProvider.future);
 
-      // 优先通过 Phone Utility 归一化解�?E.164 号码；解析失败时降级采用左上角国家代码补�?
+      // 优先通过 Phone Utility 归一化解�?E.164 号码；解析失败时降级采用左上角国家代码补�?
       ParsedPhoneNumber parsedEntity = ParsedPhoneNumber.empty;
       try {
         parsedEntity = await PhoneUtils.parsePhoneNumberEntity(target);
@@ -192,7 +192,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
         callerIdData = null;
       }
 
-      // 规则与各种过滤校验（优先使用 E.164 归一化号码，无结果时降级使用原始输入保底�?
+      // 规则与各种过滤校验（优先使用 E.164 归一化号码，无结果时降级使用原始输入保底�?
       var rules = await callFilterService.verifyAllRules(number);
       if (rules.isEmpty && number.value != rawNumber.value) {
         final fallbackRules = await callFilterService.verifyAllRules(rawNumber);
@@ -268,13 +268,13 @@ class VerificationNotifier extends Notifier<VerificationState> {
     } catch (e) {
       state = state.copyWith(
         isLoading: false,
-        hasVerified: true, // 降级容错：即便中间链路抛错，依然保证 hasVerified �?true 渲染卡片�?
+        hasVerified: true, // 降级容错：即便中间链路抛错，依然保证 hasVerified �?true 渲染卡片�?
         errorMessage: e.toString(),
       );
     }
   }
 
-  /// 1. 触发悬浮窗实机效果测�?(Overlay)
+  /// 1. 触发悬浮窗实机效果测�?(Overlay)
   Future<void> testOverlay() async {
     if (state.callerIdData != null) {
       final overlayHandler = ref.read(overlayHandlerProvider);
@@ -286,13 +286,13 @@ class VerificationNotifier extends Notifier<VerificationState> {
     }
   }
 
-  /// 关闭悬浮�?(Close Overlay)
+  /// 关闭悬浮�?(Close Overlay)
   Future<void> closeOverlay() async {
     final overlayHandler = ref.read(overlayHandlerProvider);
     overlayHandler.closeOverlay();
   }
 
-  /// 2. 触发 Live Activity / 灵动岛效果测�?
+  /// 2. 触发 Live Activity / 灵动岛效果测�?
   Future<void> testLiveActivity() async {
     if (state.callerIdData != null) {
       final liveActivityHandler = await ref.read(kitLiveActivityHandlerProvider.future);

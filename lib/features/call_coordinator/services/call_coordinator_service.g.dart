@@ -6,6 +6,9 @@ part of 'call_coordinator_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(callCoordinatorService)
 final callCoordinatorServiceProvider = CallCoordinatorServiceProvider._();
 
@@ -42,6 +45,7 @@ final class CallCoordinatorServiceProvider
     return callCoordinatorService(ref);
   }
 
+  /// {@macro riverpod.override_with_value}
   Override overrideWithValue(CallCoordinatorService value) {
     return $ProviderOverride(
       origin: this,
@@ -51,4 +55,4 @@ final class CallCoordinatorServiceProvider
 }
 
 String _$callCoordinatorServiceHash() =>
-    r'a11883fc51480fef8d34b3f889efc4f74d0234bc';
+    r'28536701c6a1e00a58fe00984522983c072bf423';

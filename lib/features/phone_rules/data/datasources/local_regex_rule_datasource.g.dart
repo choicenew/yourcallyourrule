@@ -55,4 +55,4 @@ final class LocalRegexRuleDataSourceProvider
 }
 
 String _$localRegexRuleDataSourceHash() =>
-    r'e3f271df5e63186482720adea890bb390d5ae263';
+    r'7323bdabab60489909bf3cdd900b2c268a55c0bc';

@@ -8,18 +8,18 @@ part of 'database_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 数据库服务提供者
+/// 数据库服务提供者 (简化版：仅托管数据库句柄，不持有废弃的 DataSource 实例)
 
 @ProviderFor(databaseService)
 final databaseServiceProvider = DatabaseServiceProvider._();
 
-/// 数据库服务提供者
+/// 数据库服务提供者 (简化版：仅托管数据库句柄，不持有废弃的 DataSource 实例)
 
 final class DatabaseServiceProvider
     extends
         $FunctionalProvider<DatabaseService, DatabaseService, DatabaseService>
     with $Provider<DatabaseService> {
-  /// 数据库服务提供者
+  /// 数据库服务提供者 (简化版：仅托管数据库句柄，不持有废弃的 DataSource 实例)
   DatabaseServiceProvider._()
     : super(
         from: null,

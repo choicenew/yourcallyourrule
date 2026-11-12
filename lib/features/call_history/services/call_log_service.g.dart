@@ -16,12 +16,7 @@ final callLogServiceProvider = CallLogServiceProvider._();
 /// CallLogService Riverpod Provider
 
 final class CallLogServiceProvider
-    extends
-        $FunctionalProvider<
-          CallLogService,
-          CallLogService,
-          CallLogService
-        >
+    extends $FunctionalProvider<CallLogService, CallLogService, CallLogService>
     with $Provider<CallLogService> {
   /// CallLogService Riverpod Provider
   CallLogServiceProvider._()
@@ -36,13 +31,12 @@ final class CallLogServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => r'call_log_service_hash_v2';
+  String debugGetCreateSourceHash() => _$callLogServiceHash();
 
   @$internal
   @override
-  $ProviderElement<CallLogService> $createElement(
-    $ProviderPointer pointer,
-  ) => $ProviderElement(pointer);
+  $ProviderElement<CallLogService> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
 
   @override
   CallLogService create(Ref ref) {
@@ -57,3 +51,5 @@ final class CallLogServiceProvider
     );
   }
 }
+
+String _$callLogServiceHash() => r'3dc721f2e71c67796bc2e7c1af40d87b53972c3f';

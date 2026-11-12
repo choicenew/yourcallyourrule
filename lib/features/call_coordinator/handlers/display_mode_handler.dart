@@ -22,6 +22,6 @@ class DisplayModeHandler {
     StirInfo? stirInfo,
     SimInfo? simInfo,
   }) async {
-    debugPrint('[DisplayModeHandler] Processing display mode for ${callerIdData.phoneNumber.value}');
+    debugPrint('[DisplayModeHandler] Processing display mode for ${callerIdData.phoneNumber}');
   }
 }

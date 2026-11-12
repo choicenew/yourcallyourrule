@@ -6,6 +6,9 @@ part of 'outgoing_call_handler.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(outgoingCallHandler)
 final outgoingCallHandlerProvider = OutgoingCallHandlerProvider._();
 
@@ -42,6 +45,7 @@ final class OutgoingCallHandlerProvider
     return outgoingCallHandler(ref);
   }
 
+  /// {@macro riverpod.override_with_value}
   Override overrideWithValue(OutgoingCallHandler value) {
     return $ProviderOverride(
       origin: this,
@@ -51,4 +55,4 @@ final class OutgoingCallHandlerProvider
 }
 
 String _$outgoingCallHandlerHash() =>
-    r'2d1be458a31e353f7053ea1253fe6ac1b938c2bc';
+    r'a26852eb9dcebc7aed68b3d7c9ff3f8259bc0f1b';

@@ -55,4 +55,4 @@ final class LocalContactDataSourceProvider
 }
 
 String _$localContactDataSourceHash() =>
-    r'8ed586b72d795f9c191e548707b171f4c429f005';
+    r'a1d5dfcccbb847ae7e0de75f86a87842933117e8';

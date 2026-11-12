@@ -2,12 +2,11 @@ import 'package:drift/drift.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
-import 'package:yourcallyourrule/features/plugin/repositories/plugin_repository.dart';
+import 'package:yourcallyourrule/features/phone_plugin/repositories/plugin_repository.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 part 'plugin_repository_impl.g.dart';
 
-/// 插件仓库提供者 (直连 Drift LocalDatabase)
 @Riverpod(keepAlive: true)
 PluginRepository pluginRepository(Ref ref) {
   final db = ref.watch(localDatabaseProvider);
@@ -42,7 +41,7 @@ class PluginRepositoryImpl implements PluginRepository {
     );
   }
 
-  PluginSourceData _fromData(PluginData data) {
+  PluginSourceData _fromData(Plugin data) {
     return PluginSourceData(
       name: data.name,
       phoneNumber: data.url,
@@ -53,7 +52,7 @@ class PluginRepositoryImpl implements PluginRepository {
   @override
   Future<List<PluginSourceData>> getAll() async {
     final rows = await _db.select(_db.plugins).get();
-    return rows.map(_fromData).toList();
+    return rows.map<PluginSourceData>(_fromData).toList();
   }
 
   @override
@@ -108,7 +107,7 @@ class PluginRepositoryImpl implements PluginRepository {
   @override
   Future<List<PluginSourceData>> searchByName(String name) async {
     final rows = await (_db.select(_db.plugins)..where((tbl) => tbl.name.contains(name))).get();
-    return rows.map(_fromData).toList();
+    return rows.map<PluginSourceData>(_fromData).toList();
   }
 
   @override
@@ -129,7 +128,7 @@ class PluginRepositoryImpl implements PluginRepository {
   @override
   Future<List<PluginSourceData>> getEnabled() async {
     final rows = await (_db.select(_db.plugins)..where((tbl) => tbl.isEnabled.equals(1))).get();
-    final items = rows.map(_fromData).toList();
+    final List<PluginSourceData> items = rows.map<PluginSourceData>(_fromData).toList();
     items.sort((a, b) => (a.count ?? 0).compareTo(b.count ?? 0));
     return items;
   }

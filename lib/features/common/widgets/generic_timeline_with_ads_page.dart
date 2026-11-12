@@ -4,8 +4,7 @@ import 'dart:math'; // 导入 math 库用于随机数（虽然我们最终用has
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 // 假设您的项目中存在这些文件
-import 'package:yourcallyourrule/ads/ad_control_service.dart';
-import 'package:yourcallyourrule/ads/ad_list_widget.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // 新增：用于切换显示模式的枚举
@@ -372,15 +371,18 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
   }
 
   Widget _buildFlatListLayout(BuildContext context, Widget emptyWidget) {
-    return AdListWidget<T>(
-      items: widget.items,
-      adBuilder: widget.adBuilder,
-      itemBuilder: (context, item) => _buildItemWidget(context, item),
-      adInterval: widget.adInterval,
-      adControlServiceProvider: adControlServiceProvider,
-      emptyWidget: emptyWidget,
+    if (widget.items.isEmpty) {
+      return emptyWidget;
+    }
+
+    return ListView.builder(
       padding: const EdgeInsets.symmetric(vertical: 8),
       physics: const AlwaysScrollableScrollPhysics(),
+      itemCount: widget.items.length,
+      itemBuilder: (context, index) {
+        final item = widget.items[index];
+        return _buildItemWidget(context, item);
+      },
     );
   }
 

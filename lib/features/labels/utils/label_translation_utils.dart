@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
-import 'package:yourcallyourrule/features/labels/services/predefined_label_service.g.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_translation_extension.dart';
 
-/// 标签翻译工具类
 class LabelTranslationUtils {
   static String translateLabelText(BuildContext context, String labelText) {
     return labelText.translate(context);
+  }
+
+  static String getTranslatedName(BuildContext context, String labelId, {String fallback = ''}) {
+    final translated = labelId.translate(context);
+    return translated.isNotEmpty ? translated : (fallback.isNotEmpty ? fallback : labelId);
   }
 
   static Future<String?> translateLabelById(

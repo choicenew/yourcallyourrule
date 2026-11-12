@@ -7,8 +7,6 @@ import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 标签编辑对话�?
-/// 用于编辑标签信息，通过 PublicSelectLabel 组件来选择标签
 class LabelEditDialog extends ConsumerStatefulWidget {
   final LabelPhoneEntry label;
   final Function? onLabelUpdated;
@@ -24,7 +22,6 @@ class LabelEditDialog extends ConsumerStatefulWidget {
   @override
   ConsumerState<LabelEditDialog> createState() => _LabelEditDialogState();
 
-  /// 显示标签编辑对话框的静态方�?
   static void show(BuildContext context, LabelPhoneEntry label, {Function? onLabelUpdated, Color? themeColor}) {
     showDialog(
       context: context,
@@ -59,7 +56,6 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
   }
 
   Future<void> _saveLabel() async {
-    // 验证输入
     final phoneText = _phoneController.text.trim();
     final iconText = _iconController.text.trim();
     
@@ -78,11 +74,9 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
     });
 
     try {
-      // 更新标签
-      final phoneNumber = PhoneNumber.fromString(phoneText);
       final updatedLabel = LabelPhoneEntry(
         id: widget.label.id,
-        phoneNumber: phoneNumber,
+        phoneNumber: phoneText,
         labelId: _selectedLabelId,
         icon: iconText.isNotEmpty ? iconText : null,
       );
@@ -90,29 +84,24 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
       final labelService = ref.read(labelServiceProvider);
       await labelService.updateLabel(updatedLabel);
 
-      // 调用回调函数
       if (widget.onLabelUpdated != null) {
         widget.onLabelUpdated!();
       }
 
-      // 关闭对话�?
       if (mounted) {
         Navigator.pop(context);
 
-        // 获取标签文本
         final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
         final labelText = await predefinedLabelService.getLabelById(_selectedLabelId);
 
-        // 显示成功提示
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('${AppLocalizations.of(context)!.labelUpdateSuccess}: $labelText?.text ?? _selectedLabelId}'),
+            content: Text('${AppLocalizations.of(context)!.labelUpdateSuccess}: ${labelText?.text ?? _selectedLabelId}'),
             backgroundColor: Theme.of(context).colorScheme.primary,
           ),
         );
       }
     } catch (e) {
-      // 显示错误提示
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -155,7 +144,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
                 });
               },
               selectLabelService: selectLabelService,
-              themeColor: widget.themeColor,
+              themeColor: widget.themeColor ?? theme.primaryColor,
             ),
             const SizedBox(height: 12),
             TextField(
@@ -166,15 +155,6 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
-                ),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               ),
               keyboardType: TextInputType.phone,
             ),
@@ -187,15 +167,6 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
-                ),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               ),
             ),
           ],
@@ -214,7 +185,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
                   height: 20,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : Text(AppLocalizations.of(context)!.save, style: TextStyle(color: widget.themeColor ?? Theme.of(context).colorScheme.primary)),
+              : Text(AppLocalizations.of(context)!.save),
         ),
       ],
     );

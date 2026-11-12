@@ -34,7 +34,7 @@ final class FraudAlertConfigNotifierProvider
 }
 
 String _$fraudAlertConfigNotifierHash() =>
-    r'c8d04d21c7dddced1ed45606e1eb608a34d94ab6';
+    r'aabdf7c4806f0c6de11903dc118887507868d7bc';
 
 abstract class _$FraudAlertConfigNotifier
     extends $AsyncNotifier<FraudAlertConfig> {

@@ -4,23 +4,9 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:googleapis/drive/v3.dart' as drive;
 import 'package:yourcallyourrule/features/sync/services/cloud_sync/environment.dart';
 
-// 定义应用需要的权限范围
 const List<String> _scopes = <String>[
   drive.DriveApi.driveFileScope,
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 class GoogleSignInTestPage extends StatefulWidget {
   const GoogleSignInTestPage({super.key});
@@ -42,25 +28,17 @@ class _GoogleSignInTestPageState extends State<GoogleSignInTestPage> {
     super.initState();
     _log('initState: Setting up GoogleSignIn...');
     
-    // 初始化并监听事件
     unawaited(_googleSignIn.initialize(
       serverClientId: Environment.googleServerClientId,
     ).then((_) {
       _log('initialize() complete.');
       _googleSignIn.authenticationEvents
           .listen(_handleAuthenticationEvent, onError: _handleAuthenticationError);
-
-      // ***************************************************************
-      // *** 核心修正：移除了这里的自动登录尝�?***
-      // _log('Attempting lightweight authentication...');
-      // _googleSignIn.attemptLightweightAuthentication();
-      // ***************************************************************
       _log('App is ready for user-initiated sign-in.');
-
     }));
   }
 
-  // 事件回调，只负责更新状�?  Future<void> _handleAuthenticationEvent(
+  Future<void> _handleAuthenticationEvent(
       GoogleSignInAuthenticationEvent event) async {
     _log('Auth event received: ${event.runtimeType}');
     
@@ -89,17 +67,15 @@ class _GoogleSignInTestPageState extends State<GoogleSignInTestPage> {
     _log('Authentication Error: $e');
   }
 
-  // 按钮回调：交互式登录
   Future<void> _handleAuthenticate() async {
     _log('Button pressed: SIGN IN');
     try {
-      // 只有在这里，才真正发起登录请�?      await _googleSignIn.authenticate();
+      await _googleSignIn.authenticate();
     } catch (e) {
       _log('authenticate() failed: $e');
     }
   }
 
-  // 按钮回调：交互式请求权限
   Future<void> _handleAuthorizeScopes() async {
     final user = _currentUser;
     if (user == null) return;
@@ -112,7 +88,7 @@ class _GoogleSignInTestPageState extends State<GoogleSignInTestPage> {
       
       setState(() {
         _isAuthorized = true;
-        _accessTokenInfo = 'Token acquired: ${auth.accessToken.substring(0,20)}...';
+        _accessTokenInfo = 'Token acquired: ${auth.accessToken.substring(0, 20)}...';
         _errorMessage = '';
       });
 
@@ -129,9 +105,8 @@ class _GoogleSignInTestPageState extends State<GoogleSignInTestPage> {
     await _googleSignIn.disconnect();
   }
 
-  // --- UI 部分 (保持不变) ---
   void _log(String message) {
-    print('[GoogleSignInTest] $message');
+    debugPrint('[GoogleSignInTest] $message');
     if (mounted) {
       setState(() {
         _logMessages.insert(0, '${DateTime.now().toIso8601String()}: $message');

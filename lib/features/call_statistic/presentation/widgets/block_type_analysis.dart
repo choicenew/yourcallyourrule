@@ -10,7 +10,6 @@ class BlockTypeAnalysis extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // 消费 CallStatisticsNotifier 的状�?
     final statisticsState = ref.watch(callStatisticsProvider);
 
     return Container(
@@ -38,7 +37,6 @@ class BlockTypeAnalysis extends ConsumerWidget {
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
           ),
           const SizedBox(height: 16),
-          // 加载和错误状态由�?Widget (CallStatisticsPage) 处理
           if (statisticsState.blockTypeAnalysis.isEmpty && !statisticsState.isLoading)
             Center(child: Text(AppLocalizations.of(context)!.noBlockedTypeData, style: const TextStyle(color: Colors.grey)))
           else
@@ -126,7 +124,7 @@ class BlockTypeData {
       iconColor = Colors.red;
     } else if (callTypeName == LocalCallType.blocked.name) {
       label = localizations.callTypeBlocked;
-      icon = Icons.shield;
+      icon = localizations.callTypeBlocked;
       iconColor = Colors.orange;
     } else if (callTypeName == LocalCallType.silenced.name) {
       label = localizations.callTypeSilenced;
@@ -137,7 +135,7 @@ class BlockTypeData {
     return BlockTypeData(
       icon: icon,
       iconColor: iconColor,
-      backgroundColor: iconColor.withOpacity(0.15),
+      backgroundColor: iconColor.withValues(alpha: 0.15),
       label: label,
       percentage: percentage,
     );

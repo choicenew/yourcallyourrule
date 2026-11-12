@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 来电显示身份信息卡片（全量国际化，支持悬浮窗/灵动�?通知多模式实机测试）
 class VerificationCallerIdCard extends StatelessWidget {
   final CallerIdData callerIdData;
   final String fallbackPhoneNumber;
@@ -51,25 +50,21 @@ class VerificationCallerIdCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 头部：头像与基本信息
           Row(
             children: [
               CircleAvatar(
-                backgroundImage: callerIdData.avatarImage,
                 radius: 26,
                 backgroundColor: Theme.of(context).colorScheme.primary,
-                child: callerIdData.avatarImage == null
-                    ? Text(
-                        callerIdData.labels?.isNotEmpty == true
-                            ? callerIdData.labels!.first.label[0].toUpperCase()
-                            : '?',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w900,
-                          fontSize: 18,
-                        ),
-                      )
-                    : null,
+                child: Text(
+                  callerIdData.labels.isNotEmpty
+                      ? callerIdData.labels.first[0].toUpperCase()
+                      : '?',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w900,
+                    fontSize: 18,
+                  ),
+                ),
               ),
               const SizedBox(width: 14),
               Expanded(
@@ -90,7 +85,7 @@ class VerificationCallerIdCard extends StatelessWidget {
                         callerIdData.countryName,
                         callerIdData.region,
                         callerIdData.carrier,
-                      ].where((e) => e != null && e.isNotEmpty).join(' �?'),
+                      ].where((e) => e != null && e.isNotEmpty).join(' * '),
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
@@ -103,7 +98,6 @@ class VerificationCallerIdCard extends StatelessWidget {
             ],
           ),
 
-          // 详细字段列表
           const SizedBox(height: 14),
           const Divider(height: 1),
           const SizedBox(height: 12),
@@ -112,18 +106,16 @@ class VerificationCallerIdCard extends StatelessWidget {
           _buildDetailRow(l10n.country, callerIdData.countryName ?? l10n.unknown),
           if (callerIdData.region != null && callerIdData.region!.isNotEmpty)
             _buildDetailRow(l10n.enableLocationSummary, callerIdData.region!),
-          _buildDetailRow(l10n.type, callerIdData.numberType.name),
-          _buildDetailRow(l10n.callerIdMarkedByCount(callerIdData.count), '${callerIdData.count}'),
+          _buildDetailRow(l10n.callerIdMarkedByCount(callerIdData.localCount + callerIdData.pluginCount + callerIdData.remoteCount), '${callerIdData.localCount + callerIdData.pluginCount + callerIdData.remoteCount}'),
           if (callerIdData.name != null && callerIdData.name!.isNotEmpty)
             _buildDetailRow(l10n.contactNameLabel, callerIdData.name!),
 
-          // 标签列表
-          if (callerIdData.labels?.isNotEmpty == true) ...[
+          if (callerIdData.labels.isNotEmpty) ...[
             const SizedBox(height: 10),
             Wrap(
               spacing: 8,
               runSpacing: 8,
-              children: callerIdData.labels!.map((l) {
+              children: callerIdData.labels.map((l) {
                 return Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
@@ -131,7 +123,7 @@ class VerificationCallerIdCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(
-                    l.label,
+                    l,
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w800,
@@ -147,7 +139,6 @@ class VerificationCallerIdCard extends StatelessWidget {
           const Divider(height: 1),
           const SizedBox(height: 12),
 
-          // 来电显示测试工具箱标�?
           Row(
             children: [
               const Icon(
@@ -168,7 +159,6 @@ class VerificationCallerIdCard extends StatelessWidget {
           ),
           const SizedBox(height: 10),
 
-          // 多模式测试按钮网�?
           Row(
             children: [
               Expanded(

@@ -57,10 +57,8 @@ class CallCoordinatorService {
     if (event is IncomingCallEvent) {
       debugPrint('[CallCoordinator Hub] 收到来电事件: ${event.phoneNumber}');
 
-      final policyFuture = _ref.read(callPolicyEvaluatorProvider).evaluateShouldAccept(
-        rawNumber: event.phoneNumber,
-        nationalNumber: event.phoneNumber,
-        e164Number: event.phoneNumber,
+      final policyFuture = _ref.read(callPolicyEvaluatorProvider).evaluate(
+        event.phoneNumber,
       );
 
       final identityFuture = _identityService.getCallerId(
@@ -68,8 +66,9 @@ class CallCoordinatorService {
         Locale.english,
       );
 
-      unawaited(policyFuture.then((shouldAccept) {
-        debugPrint('[CallCoordinator Hub] 策略响应: $shouldAccept');
+      unawaited(policyFuture.then((policyResult) {
+        final bool shouldAccept = policyResult.action == 'allow';
+        debugPrint('[CallCoordinator Hub] 策略响应: ${policyResult.action} ($shouldAccept)');
         _ref.read(shouldAcceptCallHandlerProvider).sendDecision(shouldAccept);
       }));
 

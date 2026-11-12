@@ -8,12 +8,9 @@ part of 'sms_subscription_repository_impl.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// SMS订阅仓库提供者
 
 @ProviderFor(smsSubscriptionRepository)
 final smsSubscriptionRepositoryProvider = SmsSubscriptionRepositoryProvider._();
-
-/// SMS订阅仓库提供者
 
 final class SmsSubscriptionRepositoryProvider
     extends
@@ -23,7 +20,6 @@ final class SmsSubscriptionRepositoryProvider
           SmsSubscriptionRepository
         >
     with $Provider<SmsSubscriptionRepository> {
-  /// SMS订阅仓库提供者
   SmsSubscriptionRepositoryProvider._()
     : super(
         from: null,

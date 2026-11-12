@@ -36,7 +36,7 @@ final class CallLogSyncServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => r'call_log_sync_hash';
+  String debugGetCreateSourceHash() => _$callLogSyncServiceHash();
 
   @$internal
   @override
@@ -57,3 +57,6 @@ final class CallLogSyncServiceProvider
     );
   }
 }
+
+String _$callLogSyncServiceHash() =>
+    r'6ae7eeeaf5d357c1f359fe931b1216f102133022';

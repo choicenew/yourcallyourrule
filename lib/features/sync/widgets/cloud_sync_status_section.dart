@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/sync/providers/cloud_sync/cloud_sync_provider.dart';
 import 'package:yourcallyourrule/features/sync/providers/cloud_sync/device_management_provider.dart';
-import 'package:yourcallyourrule/features/rules/providers/rules_provider.dart';
+import 'package:yourcallyourrule/features/phone_rules/providers/rules_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class CloudSyncStatusSection extends ConsumerWidget {
@@ -14,10 +14,10 @@ class CloudSyncStatusSection extends ConsumerWidget {
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           colors: [
-            const Color.fromARGB(255, 255, 167, 38),
-            const Color.fromARGB(255, 255, 186, 59),
+            Color.fromARGB(255, 255, 167, 38),
+            Color.fromARGB(255, 255, 186, 59),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -180,33 +180,30 @@ class CloudSyncStatusSection extends ConsumerWidget {
     }
 
     try {
-      // 显示加载指示�?      showDialog(
+      showDialog(
         context: context,
         barrierDismissible: false,
         builder: (context) => const Center(child: CircularProgressIndicator()),
       );
 
-      // 同步规则数据
       final rules = await ref.read(rulesProvider.future);
-      await activeService.syncRules(rules);
+      await (activeService as dynamic).syncRules(rules);
 
-      // 同步设备数据
       final currentDevice = await ref.read(currentDeviceProvider.future);
-      await activeService.registerDeviceForSync(currentDevice);
-      await activeService.syncDevicesFromCloud();
+      await (activeService as dynamic).registerDeviceForSync(currentDevice);
+      await (activeService as dynamic).syncDevicesFromCloud();
 
-      // 关闭加载指示�?      Navigator.of(context).pop();
+      if (context.mounted) {
+        Navigator.of(context).pop();
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.syncSuccessMessage),
+          ),
+        );
+      }
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context)!.syncSuccessMessage),
-        ),
-      );
-
-      // 刷新状态并等待完成
       final refreshResult = await ref.refresh(cloudSyncStatusProvider.future);
-      // 使用刷新结果更新UI
-      if (refreshResult['connected'] == true) {
+      if (context.mounted && refreshResult['connected'] == true) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
@@ -216,15 +213,16 @@ class CloudSyncStatusSection extends ConsumerWidget {
         );
       }
     } catch (e) {
-      // 关闭加载指示�?      Navigator.of(context).pop();
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            '${AppLocalizations.of(context)!.syncFailedMessage}: $e',
+      if (context.mounted) {
+        Navigator.of(context).pop();
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              '${AppLocalizations.of(context)!.syncFailedMessage}: $e',
+            ),
           ),
-        ),
-      );
+        );
+      }
     }
   }
 
@@ -242,30 +240,27 @@ class CloudSyncStatusSection extends ConsumerWidget {
     }
 
     try {
-      // 显示加载指示�?      showDialog(
+      showDialog(
         context: context,
         barrierDismissible: false,
         builder: (context) => const Center(child: CircularProgressIndicator()),
       );
 
-      // 断开连接
-      await activeService.disconnect();
+      await (activeService as dynamic).disconnect();
 
-      // 清除活动服务
-      ref.read(activeSyncServiceProvider.notifier).state = null;
+      ref.read(activeSyncServiceProvider.notifier).setActiveService(null);
 
-      // 关闭加载指示�?      Navigator.of(context).pop();
+      if (context.mounted) {
+        Navigator.of(context).pop();
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.disconnectedMessage),
+          ),
+        );
+      }
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context)!.disconnectedMessage),
-        ),
-      );
-
-      // 刷新状态并等待完成
       final refreshResult = await ref.refresh(cloudSyncStatusProvider.future);
-      // 使用刷新结果更新UI
-      if (refreshResult['connected'] == true) {
+      if (context.mounted && refreshResult['connected'] == true) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
@@ -275,15 +270,16 @@ class CloudSyncStatusSection extends ConsumerWidget {
         );
       }
     } catch (e) {
-      // 关闭加载指示�?      Navigator.of(context).pop();
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            '${AppLocalizations.of(context)!.disconnectFailedMessage}: $e',
+      if (context.mounted) {
+        Navigator.of(context).pop();
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              '${AppLocalizations.of(context)!.disconnectFailedMessage}: $e',
+            ),
           ),
-        ),
-      );
+        );
+      }
     }
   }
 }

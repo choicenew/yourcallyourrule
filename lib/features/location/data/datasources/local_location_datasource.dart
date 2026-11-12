@@ -29,7 +29,7 @@ class LocalLocationDataSource {
       region: Value(entry.region),
       countryName: Value(entry.countryName),
       carrier: Value(entry.carrier),
-      numberType: const Value(0),
+      numberType: int.tryParse(entry.numberType) ?? 0,
     );
   }
 

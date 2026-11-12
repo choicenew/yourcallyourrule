@@ -1,6 +1,6 @@
 import 'package:postgres/postgres.dart';
 // 引入你的数据库和生成器
-import '../../data/database/local/local_database.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
 import 'drift_to_postgres_generator.dart'; 
 
 class SupabaseDbInitializer {

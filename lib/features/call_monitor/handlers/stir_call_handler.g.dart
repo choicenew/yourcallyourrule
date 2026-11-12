@@ -41,7 +41,7 @@ final class StirCallHandlerProvider
   }
 }
 
-String _$stirCallHandlerHash() => r'9dcc65f4029e5286e999e5f83d238c38714a2d0b';
+String _$stirCallHandlerHash() => r'a2ecd5ff4360ec2a7d27067d2103574cb6d7239d';
 
 abstract class _$StirCallHandler extends $Notifier<StirInfo?> {
   StirInfo? build();

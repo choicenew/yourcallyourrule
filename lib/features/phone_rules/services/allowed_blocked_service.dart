@@ -1,4 +1,3 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
@@ -53,6 +52,10 @@ class AllowedBlockedService {
 
   Future<void> removeRule(String ruleId) async {
     await _ruleRepository.deleteRule(ruleId);
+  }
+
+  Future<void> updateAllowedBlockedRule(PhoneRuleEntity rule) async {
+    await _ruleRepository.updateRule(rule);
   }
 
   Future<void> toggleRuleStatus(String ruleId, bool isEnabled) async {

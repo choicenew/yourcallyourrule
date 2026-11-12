@@ -1,10 +1,9 @@
-// yourcallyourrule/lib/features/labels/pages/label_management_page.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
-import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/label_edit_dialog.dart'; 
 import 'package:yourcallyourrule/features/common/widgets/vip_access_checker.dart';
@@ -12,11 +11,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
-import 'package:yourcallyourrule/purchase/purchase_state.dart';
-import 'package:yourcallyourrule/ads/google_ad.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart';
 
-/// 标签条目管理页面
 class LabelManagementPageWithAds extends ConsumerStatefulWidget {
   const LabelManagementPageWithAds({super.key});
 
@@ -37,8 +32,6 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
     _loadLabels();
   }
 
-  // --- Data Handling Methods (No Changes) ---
-  // ... _loadLabels, _filterLabels, _onSearchChanged, _deleteLabel, etc. ...
   Future<void> _loadLabels() async {
     if (!mounted) return;
     setState(() => _isLoading = true);
@@ -74,7 +67,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
 
       return labels.where((label) {
         final labelText = labelIdToText[label.labelId] ?? '';
-        return label.phoneNumber.toString().contains(keyword) ||
+        return label.phoneNumber.contains(keyword) ||
             labelText.toLowerCase().contains(keyword) ||
             label.name.toLowerCase().contains(keyword);
       }).toList();
@@ -88,7 +81,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
   }
 
   Future<void> _deleteLabel(LabelPhoneEntry label) async {
-    final displayName = label.name.isNotEmpty ? label.name : label.phoneNumber.value;
+    final displayName = label.name.isNotEmpty ? label.name : label.phoneNumber;
     final confirmed = await _showConfirmationDialog(
       title: AppLocalizations.of(context)!.deleteLabel,
       content: AppLocalizations.of(context)!.confirmDeleteLabel(displayName),
@@ -134,8 +127,8 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
 
   Future<void> _importLabels() async {
     try {
-      final result = await ref.read(labelServiceProvider).importLabelsFromFile('labels.json');
-      _showSuccessSnackBar(AppLocalizations.of(context)!.labelsImportedSuccessfully(result.length));
+      final success = await ref.read(labelServiceProvider).importLabelsFromFile('labels.json');
+      _showSuccessSnackBar(AppLocalizations.of(context)!.labelsImportedSuccessfully(success ? 1 : 0));
       await _loadLabels();
     } catch (e) {
       _showErrorSnackBar(AppLocalizations.of(context)!.importLabelsFailed(e.toString()));
@@ -144,8 +137,8 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
 
   Future<void> _exportLabels() async {
     try {
-      final success = await ref.read(labelServiceProvider).exportLabelsToFile('labels.json');
-      if (success) {
+      final resultPath = await ref.read(labelServiceProvider).exportLabelsToFile('labels.json');
+      if (resultPath != null && resultPath.isNotEmpty) {
         _showSuccessSnackBar(AppLocalizations.of(context)!.labelsExportedSuccessfully);
       } else {
         throw Exception(AppLocalizations.of(context)!.exportFailed);
@@ -154,8 +147,6 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
       _showErrorSnackBar(AppLocalizations.of(context)!.exportLabelsFailed(e.toString()));
     }
   }
-  
-  // --- Dialogs and UI Helpers ---
 
   void _showAddLabelDialog() {
     if (!VipAccessChecker.checkVipAccess(ref: ref, context: context, onAccessGranted: () {})) return;
@@ -216,7 +207,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
               try {
                 final label = LabelPhoneEntry(
                   id: const Uuid().v4(),
-                  phoneNumber: PhoneNumber.fromString(phoneController.text.trim()),
+                  phoneNumber: phoneController.text.trim(),
                   labelId: selectedLabelId!,
                   name: nameController.text.trim(),
                   icon: iconController.text.trim().isNotEmpty ? iconController.text.trim() : null,
@@ -248,7 +239,6 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
     );
   }
 
-  /// �?关键新增：仿照您的正确示例，创建“更多选项”的弹窗
   void _showMoreOptions() {
     showModalBottomSheet(
       context: context,
@@ -304,8 +294,6 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
     return labelObject?.text ?? label.labelId;
   }
   
-  // --- Widget Builders (No Changes) ---
-  // ... _buildLabelCard, _buildLabelCategoriesCard, _buildLabelChip, _buildInfoCard ...
   Widget _buildLabelCard(LabelPhoneEntry label) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12.0),
@@ -346,7 +334,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  label.name.isNotEmpty ? label.name : label.phoneNumber.value,
+                  label.name.isNotEmpty ? label.name : label.phoneNumber,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -370,7 +358,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
                     ),
                     const SizedBox(width: 6),
                     Text(
-                      label.phoneNumber.toString(),
+                      label.phoneNumber,
                       style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -535,13 +523,12 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
     );
   }
   
-  /// �?最终修正：完全遵循GenericListWithAdsPage的设计模�?
   Widget _buildGenericListPage() {
     return GenericListWithAdsPage<LabelPhoneEntry>(
       title: AppLocalizations.of(context)!.labelManagement,
       items: _labels,
       itemBuilder: (context, label) => _buildLabelCard(label),
-      adBuilder: () => GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+      adBuilder: () => const AdsInlineBanner(),
       adInterval: 5,
       emptyText: AppLocalizations.of(context)!.noLabels,
       emptyIcon: Icons.label_off_outlined,
@@ -553,12 +540,10 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
       themeColor: Colors.blue,
       isLoading: _isLoading,
       
-      // �?关键修正：使用组件内置的回调来自动生成按�?
       onRefresh: _loadLabels,
       onAdd: _showAddLabelDialog,
-      onMoreOptions: _showMoreOptions, // <-- 菜单按钮
+      onMoreOptions: _showMoreOptions,
       onToggleMultiSelectMode: () => setState(() {
-        // 进入或退出多选模式时清空已选项
         _selectedLabelIds.clear();
       }),
       
@@ -579,7 +564,6 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
       onSearchChanged: _onSearchChanged,
       searchHintText: AppLocalizations.of(context)!.searchLabelsHint,
 
-      // �?关键修正：不再需�?customActions
       customActions: null, 
     );
   }

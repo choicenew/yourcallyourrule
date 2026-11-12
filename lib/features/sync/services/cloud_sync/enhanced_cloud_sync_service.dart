@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 
-import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
+import 'package:yourcallyourrule/features/sync/domain/device_entity.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'incremental_sync_manager.dart';
 import 'sync_conflict_resolver.dart';
@@ -284,8 +284,11 @@ abstract class EnhancedCloudSyncService implements CloudSyncService {
     }
   }
   
+  Future<bool> isConfigured();
+  Future<Map<String, dynamic>?> getSettingsFromCloud();
+
   /// Implementation-specific rule sync logic
-  Future<bool> doSyncRules(List<RuleBase> rules);
+  Future<bool> doSyncRules(List<dynamic> rules);
   
   /// Sync application settings to the cloud with conflict resolution and progress tracking
   @override

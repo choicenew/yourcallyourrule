@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
+import 'package:yourcallyourrule/features/phone_subscription/services/phone_subscription_service.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
+import 'package:yourcallyourrule/features/phone_plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_config.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
@@ -43,11 +43,11 @@ class AutoUpdateService {
         _pluginService = pluginService,
         _config = AutoUpdateConfig(configRepository: configRepository);
 
-  Future<bool> shouldUpdate() async {
-    final lastUpdate = await _config.getLastUpdateTime();
+  Future<bool> shouldUpdate(String serviceType) async {
+    final lastUpdate = await _config.getLastUpdateTime(serviceType);
     if (lastUpdate == null) return true;
 
-    final interval = await _config.getGlobalUpdateInterval();
+    final interval = await _config.getUserUpdateIntervalDays(serviceType) ?? 1;
     final nextUpdate = lastUpdate.add(Duration(days: interval));
     return DateTime.now().isAfter(nextUpdate);
   }
@@ -58,7 +58,8 @@ class AutoUpdateService {
     try {
       final phoneSubs = await _phoneService.getEnabledSubscriptions();
       for (final sub in phoneSubs) {
-        await _phoneService.importAndSaveRulesFromSubscription(sub);
+        final rules = await _phoneService.updateRulesFromSubscription(sub);
+        results.addAll(rules);
       }
     } catch (e) {
       debugPrint('更新电话订阅失败: $e');
@@ -67,7 +68,7 @@ class AutoUpdateService {
     try {
       final smsSubs = await _smsService.getEnabledSubscriptions();
       for (final sub in smsSubs) {
-        await _smsService.performManualUpdate(sub);
+        await _smsService.updateRulesFromSubscription(sub);
       }
     } catch (e) {
       debugPrint('更新短信订阅失败: $e');
@@ -82,7 +83,7 @@ class AutoUpdateService {
       debugPrint('更新联系人订阅失败: $e');
     }
 
-    await _updateLastUpdateTime();
+    await _updateLastUpdateTime('global');
 
     return results;
   }
@@ -91,15 +92,15 @@ class AutoUpdateService {
     return await updateAll();
   }
 
-  Future<void> _updateLastUpdateTime() async {
-    await _config.saveLastUpdateTime();
+  Future<void> _updateLastUpdateTime(String serviceType) async {
+    await _config.saveLastUpdateTime(serviceType, DateTime.now());
   }
 
   Future<int> getUserUpdateInterval(String type) async {
-    return await _config.getUserUpdateInterval(type);
+    return await _config.getUserUpdateIntervalDays(type) ?? 1;
   }
 
   Future<void> setUserUpdateInterval(String type, int days) async {
-    await _config.saveUserUpdateInterval(type, days);
+    await _config.setUserUpdateIntervalDays(type, days);
   }
 }

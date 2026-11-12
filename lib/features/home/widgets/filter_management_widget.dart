@@ -13,8 +13,6 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/enhanced_filter_config_provider.dart';
 
-import 'package:yourcallyourrule/features/call/call_filter/sim_slot_rule_filter_service.dart';
-
 class FilterManagementWidget extends ConsumerStatefulWidget {
   const FilterManagementWidget({super.key});
 

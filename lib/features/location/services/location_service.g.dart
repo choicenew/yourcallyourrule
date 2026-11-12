@@ -8,18 +8,14 @@ part of 'location_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// LocationService 的 @Riverpod Provider
 
 @ProviderFor(locationService)
 final locationServiceProvider = LocationServiceProvider._();
-
-/// LocationService 的 @Riverpod Provider
 
 final class LocationServiceProvider
     extends
         $FunctionalProvider<LocationService, LocationService, LocationService>
     with $Provider<LocationService> {
-  /// LocationService 的 @Riverpod Provider
   LocationServiceProvider._()
     : super(
         from: null,

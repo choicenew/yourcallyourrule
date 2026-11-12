@@ -8,17 +8,10 @@ part of 'deletion_proposal_statistics_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// DeletionProposalStatisticsService 的 Provider。
-///
-/// 【MODIFIED】: 使用 @riverpod 注解声明 Provider，自动处理依赖注入和实例生命周期。
 
 @ProviderFor(deletionProposalStatisticsService)
 final deletionProposalStatisticsServiceProvider =
     DeletionProposalStatisticsServiceProvider._();
-
-/// DeletionProposalStatisticsService 的 Provider。
-///
-/// 【MODIFIED】: 使用 @riverpod 注解声明 Provider，自动处理依赖注入和实例生命周期。
 
 final class DeletionProposalStatisticsServiceProvider
     extends
@@ -28,9 +21,6 @@ final class DeletionProposalStatisticsServiceProvider
           DeletionProposalStatisticsService
         >
     with $Provider<DeletionProposalStatisticsService> {
-  /// DeletionProposalStatisticsService 的 Provider。
-  ///
-  /// 【MODIFIED】: 使用 @riverpod 注解声明 Provider，自动处理依赖注入和实例生命周期。
   DeletionProposalStatisticsServiceProvider._()
     : super(
         from: null,

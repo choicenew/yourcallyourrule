@@ -1,15 +1,8 @@
-// 文件路径: lib/screens/splash_screen.dart (或您存放的位置)
-// 这个版本修复了时序竞争问题
-
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-// 确认路径正确
-import 'package:yourcallyourrule/ads/adwidgets/app_open_ad.dart';
-import 'package:yourcallyourrule/purchase/purchase_provider.dart';
-import 'package:yourcallyourrule/purchase/purchase_state.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
@@ -19,24 +12,13 @@ class SplashScreen extends ConsumerStatefulWidget {
 }
 
 class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerProviderStateMixin {
-  // --- 状态变量 ---
   bool _isFirstLaunch = true;
   bool _isVipUser = false;
   bool _hasNavigated = false;
-  bool _shouldLoadAd = false;
-  
-  // --- “双重门锁”控制变量 ---
-  bool _minTimeElapsed = false;   // 门锁1: 最小时间是否已到
-  bool _adLoadAttempted = false; // 门锁2: 广告加载尝试是否已完成（无论成功或失败）
 
-  // --- UI ---
   late AnimationController _animationController;
   late Animation<double> _animation;
 
-  // --- 广告管理器 ---
-  final AppOpenAdManager _appOpenAdManager = AppOpenAdManager.instance;
-
-  // --- 时间配置 ---
   static const Duration _minSplashDuration = Duration(milliseconds: 1500);
 
   @override
@@ -45,163 +27,66 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
     _initializeApp();
   }
 
+  Future<void> _initializeApp() async {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    );
+
+    _animation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeIn,
+    );
+
+    _animationController.forward();
+
+    await Future.wait([
+      _checkFirstLaunch(),
+      _checkVipStatus(),
+      Future.delayed(_minSplashDuration),
+    ]);
+
+    _navigateToNextScreen();
+  }
+
+  Future<void> _checkFirstLaunch() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      _isFirstLaunch = prefs.getBool('first_launch') ?? true;
+    } catch (_) {
+      _isFirstLaunch = true;
+    }
+  }
+
+  Future<void> _checkVipStatus() async {
+    _isVipUser = false;
+  }
+
+  Future<void> _setFirstLaunchComplete() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('first_launch', false);
+    } catch (_) {}
+  }
+
+  void _navigateToNextScreen() {
+    if (_hasNavigated || !mounted) return;
+    _hasNavigated = true;
+
+    if (_isFirstLaunch) {
+      _setFirstLaunchComplete();
+      context.go('/onboarding');
+    } else {
+      context.go('/');
+    }
+  }
+
   @override
   void dispose() {
     _animationController.dispose();
     super.dispose();
   }
 
-  Future<void> _initializeApp() async {
-    _initializeAnimation();
-    
-    // 并行检查用户状态
-    await Future.wait([
-      _checkFirstLaunch(),
-      _checkVipStatus(),
-    ]);
-    
-    _shouldLoadAd = !_isVipUser;
-    debugPrint('初始化完成 - VIP用户: $_isVipUser, 首次启动: $_isFirstLaunch');
-    
-    // 启动最小时间门锁
-    Timer(_minSplashDuration, () {
-      debugPrint('✅ 门锁1: 最小显示时间到达');
-      _minTimeElapsed = true;
-      _tryNavigate(); // 尝试开锁
-    });
-
-    if (_shouldLoadAd) {
-      // 尝试加载广告
-      debugPrint('开始加载广告...');
-      _appOpenAdManager.loadAd().whenComplete(() {
-        debugPrint('✅ 门锁2: 广告加载尝试完成 (isAdLoaded: ${_appOpenAdManager.isAdLoaded})');
-        _adLoadAttempted = true;
-        _tryNavigate(); // 尝试开锁
-      });
-    } else {
-      // 如果不需要加载广告，则直接认为广告门锁已打开
-      debugPrint('无需加载广告，广告门锁视为开启');
-      _adLoadAttempted = true;
-    }
-  }
-
-  /// 尝试导航，只有两个门锁都打开时才能通过
-  void _tryNavigate() {
-    if (_minTimeElapsed && _adLoadAttempted && mounted && !_hasNavigated) {
-      debugPrint('🟢 双重门锁开启，开始最终导航决策');
-      
-      // 如果广告已加载，则显示它。showAdIfAvailable 会处理后续的导航。
-      if (_shouldLoadAd && _appOpenAdManager.isAdLoaded) {
-        debugPrint('广告已就绪，尝试显示');
-        _appOpenAdManager.showAdIfAvailable(
-          onAdDismissed: () {
-            debugPrint('广告流程结束，导航到下一页');
-            _navigateToNextScreen();
-          },
-        );
-      } else {
-        // 如果广告未加载或无需广告，则直接导航
-        debugPrint('广告未就绪或无需广告，直接导航');
-        _navigateToNextScreen();
-      }
-    } else {
-      debugPrint('🟡 等待门锁... (时间到达: $_minTimeElapsed, 广告尝试完成: $_adLoadAttempted)');
-    }
-  }
-
-  Future<void> _navigateToNextScreen() async {
-    if (!mounted || _hasNavigated) return;
-    
-    _hasNavigated = true;
-    debugPrint('🛫 [Splash] 进入 _navigateToNextScreen - 状态: _isFirstLaunch=$_isFirstLaunch, _isVipUser=$_isVipUser');
-    
-    try {
-      if (_isFirstLaunch) {
-        debugPrint('⏳ [Splash] 首次启动分支: 开始等待 _setFirstLaunchComplete() 落盘...');
-        await _setFirstLaunchComplete();
-        if (!mounted) {
-          debugPrint('⚠️ [Splash] 写入完成时已 unmounted，终止路由跳转');
-          return;
-        }
-        debugPrint('🚀 [Splash] 即将执行路由跳转: -> onboarding');
-        GoRouter.of(context).goNamed('onboarding');
-      } else {
-        debugPrint('🚀 [Splash] 非首次启动分支: 即将执行路由跳转: -> home');
-        GoRouter.of(context).goNamed('home');
-      }
-    } catch (e, st) {
-      debugPrint('🚨 [Splash] 导航过程中出现异常: $e\n$st');
-    }
-  }
-
-  // --- 以下是无需修改的辅助方法 ---
-
-  void _initializeAnimation() {
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1500),
-    );
-    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut)
-    );
-    _animationController.forward();
-  }
-
-  Future<void> _checkFirstLaunch() async {
-    try {
-      debugPrint('🔍 [Splash] _checkFirstLaunch: 获取 SharedPreferences 实例...');
-      final prefs = await SharedPreferences.getInstance();
-      final val = prefs.get('first_launch');
-      debugPrint('🔍 [Splash] 读取到 key="first_launch" 原始值: $val (类型: ${val?.runtimeType})');
-      if (mounted) {
-        if (val is bool) {
-          _isFirstLaunch = val;
-        } else if (val is String) {
-          _isFirstLaunch = val.toLowerCase().trim() != 'false';
-        } else if (val is num) {
-          _isFirstLaunch = val != 0;
-        } else {
-          _isFirstLaunch = true;
-        }
-        debugPrint('🎯 [Splash] 最终判定 _isFirstLaunch = $_isFirstLaunch (mounted: $mounted)');
-      }
-    } catch (e, st) {
-      debugPrint('🚨 [Splash] _checkFirstLaunch 出现异常: $e\n$st');
-      if (mounted) {
-        _isFirstLaunch = false;
-        debugPrint('🛡️ [Splash] 异常兜底保护触发: 强制设置 _isFirstLaunch = false 防止死锁');
-      }
-    }
-  }
-  
-  Future<void> _checkVipStatus() async {
-    try {
-      await Future.delayed(const Duration(milliseconds: 100)); // 等待 a bit for Riverpod
-      if (mounted) {
-        // 关键改进：启动阶段预先激活后台 IAP 监听与官方账单自动校验恢复
-        ref.read(purchaseProvider);
-
-        final purchaseNotifier = ref.read(purchaseStateProvider.notifier);
-        await purchaseNotifier.loadState();
-        if (mounted) _isVipUser = purchaseNotifier.isPurchasesEnabled;
-      }
-    } catch (e) {
-      if (mounted) _isVipUser = false;
-    }
-  }
-
-  Future<void> _setFirstLaunchComplete() async {
-    try {
-      debugPrint('📝 [Splash] _setFirstLaunchComplete: 准备写入 prefs.setBool("first_launch", false)...');
-      final prefs = await SharedPreferences.getInstance();
-      final writeResult = await prefs.setBool('first_launch', false);
-      final verifyVal = prefs.get('first_launch');
-      debugPrint('✅ [Splash] _setFirstLaunchComplete: 写入执行结果=$writeResult, 立即回读验证值: $verifyVal (类型: ${verifyVal?.runtimeType})');
-    } catch (e, st) {
-      debugPrint('🚨 [Splash] _setFirstLaunchComplete 写入异常: $e\n$st');
-    }
-  }
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -215,8 +100,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> with SingleTickerPr
                 opacity: _animation,
                 child: Image.asset(
                   "assets/app_logo.png",
-                  width: 200, height: 200,
-                  errorBuilder: (c, e, s) => const Icon(Icons.error, size: 150),
+                  width: 200,
+                  height: 200,
+                  errorBuilder: (c, e, s) => const Icon(Icons.shield_rounded, size: 150, color: Colors.orange),
                 ),
               ),
               const SizedBox(height: 20),

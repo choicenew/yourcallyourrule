@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_script_service.dart';
+import 'package:yourcallyourrule/features/phone_plugin/services/plugin_script_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 final pluginScriptServiceProvider = Provider((ref) => PluginScriptService());
@@ -47,7 +47,7 @@ class _PluginScriptEditorPageState extends ConsumerState<PluginScriptEditorPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.editScriptFor(widget.plugin.name)),
+        title: Text(AppLocalizations.of(context)!.editScriptFor(widget.plugin.name ?? '')),
         actions: [
           IconButton(
             icon: const Icon(Icons.save),

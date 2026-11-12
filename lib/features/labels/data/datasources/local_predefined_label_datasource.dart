@@ -1,11 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:drift/drift.dart' hide Column; 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
-import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 part 'local_predefined_label_datasource.g.dart';
@@ -17,19 +15,19 @@ LocalPredefinedLabelDataSource localPredefinedLabelDataSource(Ref ref) {
 }
 
 abstract class PredefinedLabelModelMapper {
-  static PredefinedLabelEntry fromData(PredefinedLabelData data) {
-    return PredefinedLabelEntry(
+  static PredefinedLabel fromData(PredefinedLabelData data) {
+    return PredefinedLabel(
       id: data.id,
-      labelText: data.labelText, 
+      text: data.labelText, 
       avatar: data.avatar,
       icon: data.icon,
     );
   }
 
-  static PredefinedLabelsCompanion toCompanion(PredefinedLabelEntry model) {
+  static PredefinedLabelsCompanion toCompanion(PredefinedLabel model) {
     return PredefinedLabelsCompanion(
       id: Value(model.id),
-      labelText: Value(model.labelText),
+      labelText: Value(model.text),
       avatar: Value(model.avatar),
       icon: Value(model.icon),
     );
@@ -42,12 +40,12 @@ class LocalPredefinedLabelDataSource {
   
   LocalPredefinedLabelDataSource(this._database);
 
-  Future<List<PredefinedLabelEntry>> getAll() async {
+  Future<List<PredefinedLabel>> getAll() async {
     final results = await _database.select(_database.predefinedLabels).get();
     return results.map(PredefinedLabelModelMapper.fromData).toList();
   }
   
-  Future<PredefinedLabelEntry?> getById(String id) async {
+  Future<PredefinedLabel?> getById(String id) async {
     final query = _database.select(_database.predefinedLabels)
       ..where((tbl) => tbl.id.equals(id));
       
@@ -55,7 +53,7 @@ class LocalPredefinedLabelDataSource {
     return result != null ? PredefinedLabelModelMapper.fromData(result) : null;
   }
   
-  Future<List<PredefinedLabelEntry>> getByText(String text) async {
+  Future<List<PredefinedLabel>> getByText(String text) async {
     final query = _database.select(_database.predefinedLabels)
       ..where((tbl) => tbl.labelText.like('%$text%'));
       
@@ -73,7 +71,7 @@ class LocalPredefinedLabelDataSource {
     return result?.read(_database.predefinedLabels.id);
   }
 
-  Future<String> insert(PredefinedLabelEntry label) async {
+  Future<String> insert(PredefinedLabel label) async {
     final id = label.id.isEmpty ? _uuid.v4() : label.id;
     final companion = PredefinedLabelModelMapper.toCompanion(label).copyWith(id: Value(id));
     await _database.into(_database.predefinedLabels).insert(
@@ -83,7 +81,7 @@ class LocalPredefinedLabelDataSource {
     return id;
   }
   
-  Future<int> update(PredefinedLabelEntry label) async {
+  Future<int> update(PredefinedLabel label) async {
     final companion = PredefinedLabelModelMapper.toCompanion(label);
     final updatedRows = await (_database.update(_database.predefinedLabels)
       ..where((tbl) => tbl.id.equals(label.id)))
@@ -97,7 +95,7 @@ class LocalPredefinedLabelDataSource {
       .go();
   }
   
-  Future<List<String>> insertAll(List<PredefinedLabelEntry> labels) async {
+  Future<List<String>> insertAll(List<PredefinedLabel> labels) async {
     final List<String> ids = [];
     await _database.batch((batch) {
       for (final label in labels) {
@@ -114,7 +112,7 @@ class LocalPredefinedLabelDataSource {
     return ids;
   }
   
-  Future<int> updateAll(List<PredefinedLabelEntry> labels) async {
+  Future<int> updateAll(List<PredefinedLabel> labels) async {
     await _database.batch((batch) {
       for (final label in labels) {
         batch.update(
@@ -146,7 +144,7 @@ class LocalPredefinedLabelDataSource {
   Future<bool> importData(String data) async {
     try {
       final List<dynamic> labelMaps = jsonDecode(data) as List<dynamic>;
-      final List<PredefinedLabelEntry> labels = labelMaps.map((map) => PredefinedLabelEntry.fromMap(map as Map<String, dynamic>)).toList();
+      final List<PredefinedLabel> labels = labelMaps.map((map) => PredefinedLabel.fromMap(map as Map<String, dynamic>)).toList();
       await insertAll(labels);
       return true;
     } catch (e) {
@@ -156,7 +154,7 @@ class LocalPredefinedLabelDataSource {
   
   Future<bool> insertPredefinedLabels(List<Map<String, dynamic>> predefinedLabels) async {
     try {
-      final labels = predefinedLabels.map((map) => PredefinedLabelEntry.fromMap(map)).toList();
+      final labels = predefinedLabels.map((map) => PredefinedLabel.fromMap(map)).toList();
       await insertAll(labels);
       return true;
     } catch (e) {

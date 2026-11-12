@@ -1,39 +1,31 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 import 'package:yourcallyourrule/features/sms/repositories/sms_subscription_repository.dart';
-import 'package:yourcallyourrule/data/repositories/sms_subscription_repository_impl.dart';
+import 'package:yourcallyourrule/features/sms/data/repositories/sms_subscription_repository_impl.dart';
 
-
-/// 短信订阅数据状态的Notifier�?
-class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
+class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscriptionPayload>> {
   late final SmsSubscriptionRepository _smsSubscriptionRepository;
 
   @override
-  Future<List<SmsSubscription>> build() async {
-    // 初始化仓�?
+  Future<List<SmsSubscriptionPayload>> build() async {
     _initRepository();
-    // 加载所有短信订�?
     return _loadSmsSubscriptions();
   }
 
   void _initRepository() {
-    // 获取仓库实例
     _smsSubscriptionRepository = ref.read(smsSubscriptionRepositoryProvider);
   }
 
-  Future<List<SmsSubscription>> _loadSmsSubscriptions() async {
+  Future<List<SmsSubscriptionPayload>> _loadSmsSubscriptions() async {
     try {
-      // 获取所有短信订�?
       return await _smsSubscriptionRepository.getAll();
     } catch (e) {
-      // 错误处理
       state = AsyncValue.error(e, StackTrace.current);
       return [];
     }
   }
 
-  /// 添加短信订阅
-  Future<void> addSmsSubscription(SmsSubscription subscription) async {
+  Future<void> addSmsSubscription(SmsSubscriptionPayload subscription) async {
     state = const AsyncValue.loading();
     try {
       await _smsSubscriptionRepository.save(subscription);
@@ -43,8 +35,7 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
     }
   }
 
-  /// 更新短信订阅
-  Future<void> updateSmsSubscription(SmsSubscription subscription) async {
+  Future<void> updateSmsSubscription(SmsSubscriptionPayload subscription) async {
     state = const AsyncValue.loading();
     try {
       await _smsSubscriptionRepository.update(subscription);
@@ -54,7 +45,6 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
     }
   }
 
-  /// 删除短信订阅
   Future<void> deleteSmsSubscription(String subscriptionId) async {
     state = const AsyncValue.loading();
     try {
@@ -65,7 +55,6 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
     }
   }
   
-  /// 批量更新短信订阅状�?
   Future<void> batchUpdateStatus(List<String> ids, bool isEnabled) async {
     state = const AsyncValue.loading();
     try {
@@ -76,8 +65,7 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
     }
   }
   
-  /// 根据手机号获取订�?
-  Future<SmsSubscription?> getByPhoneNumber(String number) async {
+  Future<SmsSubscriptionPayload?> getByPhoneNumber(String number) async {
     try {
       return await _smsSubscriptionRepository.getByPhoneNumber(number);
     } catch (e) {
@@ -85,7 +73,6 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
     }
   }
   
-  /// 更新最后更新时�?
   Future<void> updateLastUpdated(String id, DateTime time) async {
     try {
       await _smsSubscriptionRepository.updateLastUpdated(id, time);
@@ -95,8 +82,7 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
     }
   }
   
-  /// 获取待更新的订阅
-  Future<List<SmsSubscription>> getPendingUpdateSubscriptions() async {
+  Future<List<SmsSubscriptionPayload>> getPendingUpdateSubscriptions() async {
     try {
       return await _smsSubscriptionRepository.getPendingUpdateSubscriptions();
     } catch (e) {
@@ -104,7 +90,6 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
     }
   }
   
-  /// 清除过期订阅
   Future<int> clearExpiredSubscriptions() async {
     try {
       return await _smsSubscriptionRepository.clearExpiredSubscriptions();
@@ -114,7 +99,6 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
   }
 }
 
-/// 短信订阅数据提供�?
-final smsSubscriptionsProvider = AsyncNotifierProvider<SmsSubscriptionsNotifier, List<SmsSubscription>>(() {
+final smsSubscriptionsProvider = AsyncNotifierProvider<SmsSubscriptionsNotifier, List<SmsSubscriptionPayload>>(() {
   return SmsSubscriptionsNotifier();
 });

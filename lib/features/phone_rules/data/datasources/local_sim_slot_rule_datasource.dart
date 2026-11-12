@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart' hide Column;
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_sim_slot_rules_protocol/pyro_sim_slot_rules_protocol.dart';
@@ -18,7 +17,7 @@ LocalSimSlotRuleDataSource localSimSlotRuleDataSource(Ref ref) {
 }
 
 abstract class SimSlotRuleModelMapper {
-  static SimSlotRuleEntity fromData(SimSlotRuleData data) {
+  static SimSlotRuleEntity fromData(SimSlotRule data) {
     return SimSlotRuleEntity(
       id: data.id,
       name: data.name,
@@ -56,7 +55,7 @@ class LocalSimSlotRuleDataSource {
   
   Future<List<SimSlotRuleEntity>> getAll() async {
     final results = await _database.select(_database.simSlotRules).get();
-    return results.map(SimSlotRuleModelMapper.fromData).toList();
+    return results.map<SimSlotRuleEntity>(SimSlotRuleModelMapper.fromData).toList();
   }
   
   Future<SimSlotRuleEntity?> getById(String id) async {
@@ -96,14 +95,14 @@ class LocalSimSlotRuleDataSource {
     final query = _database.select(_database.simSlotRules)
       ..where((tbl) => tbl.simSlotIndex.equals(simSlotIndex));
     final results = await query.get();
-    return results.map(SimSlotRuleModelMapper.fromData).toList();
+    return results.map<SimSlotRuleEntity>(SimSlotRuleModelMapper.fromData).toList();
   }
   
   Future<List<SimSlotRuleEntity>> getByPhoneNumber(String phoneNumber) async {
     final query = _database.select(_database.simSlotRules)
       ..where((tbl) => tbl.phoneNumber.equals(phoneNumber));
     final results = await query.get();
-    return results.map(SimSlotRuleModelMapper.fromData).toList();
+    return results.map<SimSlotRuleEntity>(SimSlotRuleModelMapper.fromData).toList();
   }
   
   Future<void> clear() async {

@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/data/models/notification_item.dart';
+import 'package:yourcallyourrule/features/notifications/data/models/notification_item.dart';
 
 part 'notification_history_service.g.dart';
 

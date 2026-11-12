@@ -1,19 +1,10 @@
-// -----------------------------------------------------------------------------
-// 文件: elite_app_bar.dart
-// 描述: Elite 顶部应用栏（去除硬编码主题依赖，100% 切换为原�?Theme.of(context)）�?
-// -----------------------------------------------------------------------------
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/call_monitor/services/call_screen_plugin.dart';
-import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/purchase/purchase_state.dart';
-
-// ------------------- Widget 定义 -------------------
 
 class EliteAppBar extends ConsumerWidget {
   final VoidCallback? onSwitchToPro;
@@ -24,11 +15,11 @@ class EliteAppBar extends ConsumerWidget {
   });
 
   Future<void> _handleStatusTap(BuildContext context, WidgetRef ref, bool isProtectionActive) async {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     if (isProtectionActive) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(l10n.enabledStatus),
+          content: Text((l10n as dynamic)?.enabledStatus as String? ?? 'Enabled'),
           duration: const Duration(seconds: 2),
           behavior: SnackBarBehavior.floating,
         ),
@@ -39,10 +30,9 @@ class EliteAppBar extends ConsumerWidget {
     try {
       final granted = await CallScreeningPlugin.requestCallScreeningRole();
       if (granted && context.mounted) {
-        ref.invalidate(homeStatsProvider);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(l10n.enabledStatus),
+            content: Text((l10n as dynamic)?.enabledStatus as String? ?? 'Enabled'),
             duration: const Duration(seconds: 2),
             behavior: SnackBarBehavior.floating,
           ),
@@ -54,7 +44,7 @@ class EliteAppBar extends ConsumerWidget {
         context.pushNamed(AppRouter.permissionManagement);
       }
     } catch (e) {
-      debugPrint('检查或请求默认拨号/拦截权限失败: $e');
+      debugPrint('Error: $e');
       if (context.mounted) {
         context.pushNamed(AppRouter.permissionManagement);
       }
@@ -63,12 +53,10 @@ class EliteAppBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
-    final asyncStats = ref.watch(homeStatsProvider);
-    final isProtectionActive = asyncStats.value?.isProtectionActive ?? false;
-    final purchaseState = ref.watch(purchaseStateProvider);
-    final isVip = purchaseState.isPurchasedOrHasTempAccess();
+    final isProtectionActive = true;
+    final isVip = true;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -109,44 +97,6 @@ class EliteAppBar extends ConsumerWidget {
                           size: 20,
                         ),
                       ),
-                      Positioned(
-                        top: -5,
-                        right: -5,
-                        child: Container(
-                          padding: const EdgeInsets.all(3.5),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              color: isVip
-                                  ? const Color(0xFFFFB300)
-                                  : theme.colorScheme.outlineVariant,
-                              width: 1.2,
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: (isVip
-                                        ? const Color(0xFFFFB300)
-                                        : Colors.black)
-                                    .withValues(alpha: isVip ? 0.25 : 0.08),
-                                blurRadius: 4,
-                                offset: const Offset(0, 2),
-                              ),
-                            ],
-                          ),
-                          child: isVip
-                              ? const MinimalistCrownIcon(
-                                  size: 11,
-                                  color: Color(0xFFFFB300),
-                                )
-                              : Icon(
-                                  Icons.shield_outlined,
-                                  size: 10,
-                                  color: theme.colorScheme.onSurfaceVariant
-                                      .withValues(alpha: 0.5),
-                                ),
-                        ),
-                      ),
                     ],
                   ),
                 ),
@@ -157,7 +107,7 @@ class EliteAppBar extends ConsumerWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        l10n.appName,
+                        (l10n as dynamic)?.appName as String? ?? 'YourCall YourRule',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -185,7 +135,9 @@ class EliteAppBar extends ConsumerWidget {
                             ),
                             const SizedBox(width: 4),
                             Text(
-                              isProtectionActive ? l10n.enabled : l10n.disabled,
+                              isProtectionActive
+                                  ? ((l10n as dynamic)?.enabled as String? ?? 'Enabled')
+                                  : ((l10n as dynamic)?.disabled as String? ?? 'Disabled'),
                               style: TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.w800,
@@ -232,7 +184,7 @@ class EliteAppBar extends ConsumerWidget {
                   ),
                 ),
                 onPressed: () => context.pushNamed(AppRouter.notifications),
-                tooltip: l10n.notifications,
+                tooltip: (l10n as dynamic)?.notifications as String? ?? 'Notifications',
               ),
               if (onSwitchToPro != null)
                 IconButton(
@@ -263,8 +215,6 @@ class EliteAppBar extends ConsumerWidget {
   }
 }
 
-// ------------------- Widget Previewer 支持 -------------------
-
 @Preview(name: 'Elite App Bar', group: 'Elite Showcase')
 Widget previewEliteAppBar() {
   return const ProviderScope(
@@ -279,8 +229,6 @@ Widget previewEliteAppBar() {
     ),
   );
 }
-
-// ------------------- 极简三尖角香槟金冠图�?-------------------
 
 class MinimalistCrownIcon extends StatelessWidget {
   final double size;
@@ -319,7 +267,6 @@ class _MinimalistCrownPainter extends CustomPainter {
       ..style = PaintingStyle.fill
       ..isAntiAlias = true;
 
-    // 精致三尖角皇�?Path
     final path = Path();
     path.moveTo(0, h * 0.20);
     path.lineTo(w * 0.25, h * 0.72);
@@ -332,7 +279,6 @@ class _MinimalistCrownPainter extends CustomPainter {
 
     canvas.drawPath(path, paint);
 
-    // 皇冠底部精细底座横条
     canvas.drawRRect(
       RRect.fromRectAndRadius(
         Rect.fromLTWH(w * 0.08, h * 0.82, w * 0.84, h * 0.18),

@@ -6,6 +6,9 @@ part of 'call_policy_evaluator.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
 @ProviderFor(callPolicyEvaluator)
 final callPolicyEvaluatorProvider = CallPolicyEvaluatorProvider._();
 
@@ -42,6 +45,7 @@ final class CallPolicyEvaluatorProvider
     return callPolicyEvaluator(ref);
   }
 
+  /// {@macro riverpod.override_with_value}
   Override overrideWithValue(CallPolicyEvaluator value) {
     return $ProviderOverride(
       origin: this,
@@ -51,4 +55,4 @@ final class CallPolicyEvaluatorProvider
 }
 
 String _$callPolicyEvaluatorHash() =>
-    r'49c44516ff8a83edae96bc5bf991361c4bb67a84';
+    r'4575f463d72865cf19f00c3c263753aef4a195eb';

@@ -8,12 +8,12 @@ part of 'plugin_test_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// PluginTestService 的 @Riverpod Provider
+/// PluginTestService �?@Riverpod Provider
 
 @ProviderFor(pluginTestService)
 final pluginTestServiceProvider = PluginTestServiceProvider._();
 
-/// PluginTestService 的 @Riverpod Provider
+/// PluginTestService �?@Riverpod Provider
 
 final class PluginTestServiceProvider
     extends
@@ -23,7 +23,7 @@ final class PluginTestServiceProvider
           PluginTestService
         >
     with $Provider<PluginTestService> {
-  /// PluginTestService 的 @Riverpod Provider
+  /// PluginTestService �?@Riverpod Provider
   PluginTestServiceProvider._()
     : super(
         from: null,

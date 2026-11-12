@@ -8,12 +8,9 @@ part of 'subscription_repository_impl.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 订阅仓库提供者
 
 @ProviderFor(subscriptionRepository)
 final subscriptionRepositoryProvider = SubscriptionRepositoryProvider._();
-
-/// 订阅仓库提供者
 
 final class SubscriptionRepositoryProvider
     extends
@@ -23,7 +20,6 @@ final class SubscriptionRepositoryProvider
           SubscriptionRepository
         >
     with $Provider<SubscriptionRepository> {
-  /// 订阅仓库提供者
   SubscriptionRepositoryProvider._()
     : super(
         from: null,
@@ -59,4 +55,4 @@ final class SubscriptionRepositoryProvider
 }
 
 String _$subscriptionRepositoryHash() =>
-    r'89a6bb498709ebcc05dfd880855cbab11ceaadd0';
+    r'af9ac7cc7b047243c4c9ea547c89f859e82358b1';

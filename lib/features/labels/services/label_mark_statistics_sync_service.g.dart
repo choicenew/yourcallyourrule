@@ -8,13 +8,13 @@ part of 'label_mark_statistics_sync_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// LabelMarkStatisticsSyncService 的 @Riverpod Provider
+/// LabelMarkStatisticsSyncService Riverpod Provider
 
 @ProviderFor(labelMarkStatisticsSyncService)
 final labelMarkStatisticsSyncServiceProvider =
     LabelMarkStatisticsSyncServiceProvider._();
 
-/// LabelMarkStatisticsSyncService 的 @Riverpod Provider
+/// LabelMarkStatisticsSyncService Riverpod Provider
 
 final class LabelMarkStatisticsSyncServiceProvider
     extends
@@ -24,7 +24,7 @@ final class LabelMarkStatisticsSyncServiceProvider
           LabelMarkStatisticsSyncService
         >
     with $Provider<LabelMarkStatisticsSyncService> {
-  /// LabelMarkStatisticsSyncService 的 @Riverpod Provider
+  /// LabelMarkStatisticsSyncService Riverpod Provider
   LabelMarkStatisticsSyncServiceProvider._()
     : super(
         from: null,

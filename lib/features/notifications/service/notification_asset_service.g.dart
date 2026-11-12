@@ -8,16 +8,9 @@ part of 'notification_asset_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 通知资源服务 Provider
-///
-/// 这是一个简单的服务型 Provider，提供一个 NotificationAssetService 的单例。
 
 @ProviderFor(notificationAssetService)
 final notificationAssetServiceProvider = NotificationAssetServiceProvider._();
-
-/// 通知资源服务 Provider
-///
-/// 这是一个简单的服务型 Provider，提供一个 NotificationAssetService 的单例。
 
 final class NotificationAssetServiceProvider
     extends
@@ -27,9 +20,6 @@ final class NotificationAssetServiceProvider
           NotificationAssetService
         >
     with $Provider<NotificationAssetService> {
-  /// 通知资源服务 Provider
-  ///
-  /// 这是一个简单的服务型 Provider，提供一个 NotificationAssetService 的单例。
   NotificationAssetServiceProvider._()
     : super(
         from: null,

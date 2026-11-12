@@ -8,7 +8,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:googleapis/drive/v3.dart' as drive;
 import 'package:http/http.dart' as http;
-import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
+import 'package:yourcallyourrule/features/sync/domain/device_entity.dart';
 import 'package:yourcallyourrule/features/sync/providers/cloud_sync/device_management_provider.dart';
 import 'package:pyro_sync_protocol/pyro_sync_protocol.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
@@ -250,7 +250,7 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
   // ... NO CHANGES NEEDED IN THE FOLLOWING METHODS ...
 
   @override
-  Future<bool> doSyncRules(List<RuleBase> rules) async {
+  Future<bool> doSyncRules(List<PhoneRuleEntity> rules) async {
     if (_driveApi == null || _rulesFolderId == null) {
       debugPrint(
         'Cannot sync rules: Drive API not ready or folder ID is null.',
@@ -260,7 +260,7 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
 
     try {
       final rulesJson = jsonEncode(
-        rules.map((rule) => CloudDataConverter.serialize(rule)).toList(),
+        rules.map((rule) => rule.toMap()).toList(),
       );
       final existingFileId = await _findFile('rules.json', _rulesFolderId!);
       final media = drive.Media(
@@ -291,7 +291,7 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
   }
 
   @override
-  Future<List<RuleBase>> getRulesFromCloud() async {
+  Future<List<PhoneRuleEntity>> getRulesFromCloud() async {
     if (_driveApi == null || _rulesFolderId == null || !await isConfigured()) {
       return [];
     }
@@ -312,7 +312,7 @@ class GoogleDriveSyncService extends EnhancedCloudSyncService {
       final List<dynamic> rulesList = jsonDecode(rulesJson);
       return rulesList
           .map(
-            (json) => CloudDataConverter.deserialize<RuleBase>(
+            (json) => PhoneRuleEntity.fromMap(
               json as Map<String, dynamic>,
             ),
           )

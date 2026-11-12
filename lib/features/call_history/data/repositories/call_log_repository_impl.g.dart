@@ -8,12 +8,12 @@ part of 'call_log_repository_impl.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 通话日志仓库提供者
+/// 通话日志仓库提供者 (直连 Drift LocalDatabase)
 
 @ProviderFor(callLogRepository)
 final callLogRepositoryProvider = CallLogRepositoryProvider._();
 
-/// 通话日志仓库提供者
+/// 通话日志仓库提供者 (直连 Drift LocalDatabase)
 
 final class CallLogRepositoryProvider
     extends
@@ -23,7 +23,7 @@ final class CallLogRepositoryProvider
           CallLogRepository
         >
     with $Provider<CallLogRepository> {
-  /// 通话日志仓库提供者
+  /// 通话日志仓库提供者 (直连 Drift LocalDatabase)
   CallLogRepositoryProvider._()
     : super(
         from: null,
@@ -58,4 +58,4 @@ final class CallLogRepositoryProvider
   }
 }
 
-String _$callLogRepositoryHash() => r'4f48e7fd252660fe7c048d950d9c1bc20d4dfbd3';
+String _$callLogRepositoryHash() => r'6586eee9cadf42b93da578452c58a3afd58e4112';

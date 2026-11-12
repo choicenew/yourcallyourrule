@@ -8,12 +8,12 @@ part of 'phone_subscription_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// PhoneSubscriptionService 的 @Riverpod Provider
+/// PhoneSubscriptionService Riverpod Provider
 
 @ProviderFor(phoneSubscriptionService)
 final phoneSubscriptionServiceProvider = PhoneSubscriptionServiceProvider._();
 
-/// PhoneSubscriptionService 的 @Riverpod Provider
+/// PhoneSubscriptionService Riverpod Provider
 
 final class PhoneSubscriptionServiceProvider
     extends
@@ -23,7 +23,7 @@ final class PhoneSubscriptionServiceProvider
           PhoneSubscriptionService
         >
     with $Provider<PhoneSubscriptionService> {
-  /// PhoneSubscriptionService 的 @Riverpod Provider
+  /// PhoneSubscriptionService Riverpod Provider
   PhoneSubscriptionServiceProvider._()
     : super(
         from: null,
@@ -36,7 +36,7 @@ final class PhoneSubscriptionServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => '';
+  String debugGetCreateSourceHash() => _$phoneSubscriptionServiceHash();
 
   @$internal
   @override
@@ -57,3 +57,6 @@ final class PhoneSubscriptionServiceProvider
     );
   }
 }
+
+String _$phoneSubscriptionServiceHash() =>
+    r'da8f85a459f595fa794cfdb3739ff37f8d62db55';

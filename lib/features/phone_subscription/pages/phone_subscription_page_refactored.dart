@@ -13,17 +13,16 @@ class PhoneSubscriptionPageRefactored extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
-    final controlCenter = ref.watch(phoneRulesSubscriptionControlCenterProvider);
 
     return GenericListWithAdsPage<PhoneSubscriptionPayload>(
-      title: l10n.subscription,
+      title: l10n.phoneSubscription,
       items: const [],
       emptyText: l10n.noData,
       adInterval: 3,
       adBuilder: () => const AdsInlineBanner(),
       itemBuilder: (context, sub) => sub_pkg_ui.PyroPhoneSubscriptionCardWidget(
         payload: sub,
-        onTap: () => controlCenter.dispatchPayload(sub),
+        onTap: () => PhoneSubscriptionControlCenter.instance.dispatchPayload(sub),
       ),
       getItemId: (sub) => sub.payloadId,
     );

@@ -25,11 +25,11 @@ class LocalExportWidget extends ConsumerWidget {
   Future<void> _exportAllToLocal(BuildContext context, WidgetRef ref) async {
     final backupService = ref.read(backupRestoreServiceProvider);
     try {
-      // 统一备份（数据库�?+ 设置）生成临时文�?      final tempPath = await backupService.backupAll('');
+      final tempPath = await backupService.backupAll('');
       final file = File(tempPath);
       final bytes = await file.readAsBytes();
 
-      // 通过 FilePicker 保存到本地（手机存储�?      final result = await FilePicker.saveFile(
+      final result = await FilePicker.saveFile(
         dialogTitle: AppLocalizations.of(context)!.backup,
         fileName: 'backup_${DateTime.now().millisecondsSinceEpoch}.json',
         bytes: bytes,
@@ -37,7 +37,7 @@ class LocalExportWidget extends ConsumerWidget {
         allowedExtensions: const ['json'],
       );
 
-      if (result != null) {
+      if (result != null && context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(AppLocalizations.of(context)!.settingsBackedUpTo(result)),
@@ -45,11 +45,13 @@ class LocalExportWidget extends ConsumerWidget {
         );
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context)!.failedToBackupSettings(e.toString())),
-        ),
-      );
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.failedToBackupSettings(e.toString())),
+          ),
+        );
+      }
     }
   }
 }

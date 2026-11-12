@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/features/phone_plugin/presentation/pages/plugin_url_webview_page.dart';
 import 'package:yourcallyourrule/features/phone_plugin/services/plugin_test_service.dart';
-import 'package:yourcallyourrule/features/phone_plugin/services/plugin_test_service.g.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class PluginTestPage extends ConsumerStatefulWidget {
@@ -190,10 +189,10 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
               '${AppLocalizations.of(context)!.pluginID}: ${widget.plugin.id}',
             ),
             Text(
-              '${AppLocalizations.of(context)!.pluginDescription}: ${widget.plugin.description}',
+              '${AppLocalizations.of(context)!.pluginDescription}: ${widget.plugin.sourceLabel ?? ''}',
             ),
             Text(
-              '${AppLocalizations.of(context)!.pluginURL}: ${widget.plugin.url}',
+              '${AppLocalizations.of(context)!.pluginURL}: ${widget.plugin.phoneNumber ?? ''}',
             ),
           ],
         ),

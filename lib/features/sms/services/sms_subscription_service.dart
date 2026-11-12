@@ -1,33 +1,27 @@
 import 'dart:async';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
+import 'package:yourcallyourrule/features/sms/domain/sms_subscription.dart';
 import 'package:yourcallyourrule/features/sms/repositories/sms_subscription_repository.dart';
-import 'package:yourcallyourrule/features/rules/repositories/rule_repository.dart';
 
 part 'sms_subscription_service.g.dart';
 
-/// SmsSubscriptionService Riverpod Provider
 @Riverpod(keepAlive: true)
 SmsSubscriptionService smsSubscriptionService(Ref ref) {
   final smsSubscriptionRepository = ref.watch(smsSubscriptionRepositoryProvider);
-  final ruleRepository = ref.watch(ruleRepositoryProvider);
 
   return SmsSubscriptionService(
     smsSubscriptionRepository,
-    ruleRepository,
   );
 }
 
-/// 短信规则订阅服务
 class SmsSubscriptionService {
   final SmsSubscriptionRepository _repository;
-  final RuleRepository _ruleRepository;
   final Uuid _uuid = const Uuid();
 
   SmsSubscriptionService(
     this._repository,
-    this._ruleRepository,
   );
 
   Future<List<SmsSubscription>> getAll() async {
@@ -47,6 +41,18 @@ class SmsSubscriptionService {
       lastUpdated: DateTime.now(),
     );
     return await _repository.save(subscription);
+  }
+
+  Future<SmsSubscription> save(SmsSubscription subscription) async {
+    return await _repository.save(subscription);
+  }
+
+  Future<void> enableSubscription(SmsSubscription subscription) async {
+    await _repository.update(subscription.copyWith(isEnabled: true));
+  }
+
+  Future<void> disableSubscription(SmsSubscription subscription) async {
+    await _repository.update(subscription.copyWith(isEnabled: false));
   }
 
   Future<void> updateRulesFromSubscription(SmsSubscription subscription) async {

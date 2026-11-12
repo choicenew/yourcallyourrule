@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
-import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:world_flags/world_flags.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -9,7 +7,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 class LanguageSelectionWidget extends StatelessWidget {
   final List<Map<String, dynamic>> supportedLocales;
   final Locale currentLocale;
-  final LocaleNotifier localeNotifier; // Riverpod 的 Notifier
+  final LocaleNotifier localeNotifier;
   final bool showCurrentLanguage;
   final bool showSelectionList;
   final bool showAds;
@@ -21,7 +19,7 @@ class LanguageSelectionWidget extends StatelessWidget {
     required this.localeNotifier,
     this.showCurrentLanguage = true,
     this.showSelectionList = true,
-    this.showAds = true, // 默认显示广告
+    this.showAds = true,
   });
 
   @override
@@ -33,13 +31,13 @@ class LanguageSelectionWidget extends StatelessWidget {
           const SizedBox(height: 16)
         ],
         if (showAds) ...[
-          GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd), //插入广告
+          const AdsInlineBanner(),
           const SizedBox(height: 16),
         ],
         if (showSelectionList) _buildLanguageSelectionCard(context),
         if (showAds) ...[
           const SizedBox(height: 16),
-          nativeAdWidgetMedium(adWidth: 400, adHeight: 320) //插入广告
+          const AdsInlineBanner(),
         ]
       ],
     );

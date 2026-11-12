@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart'; // 仍然需要 Consumer 来构建列表项
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
-import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
@@ -30,14 +28,13 @@ class SimSlotRuleFilterWidget extends StatelessWidget {
       children: [
         _buildFilterEnableSection(context),
         const Divider(height: 32),
-        GoogleAdWidget(adInfo: AdManager.bannerAd),
+        const AdsInlineBanner(),
         const SizedBox(height: 32),
-        // [注释]: 恢复了规则列表部分的显示。
         _buildRuleListSection(context),
         const SizedBox(height: 32),
         _buildExplanationCard(context),
         const SizedBox(height: 32),
-        InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
+        const AdsInlineBanner(),
       ],
     );
   }
@@ -128,7 +125,7 @@ class SimSlotRuleFilterWidget extends StatelessWidget {
                                   FutureBuilder<String?>(
                                     future: ref.read(predefinedLabelServiceProvider)
                                         .getLabelById(rule['labelId'])
-                                        .then((label) => label?.text),
+                                        .then((label) => (label as dynamic)?.text as String?),
                                     builder: (context, snapshot) {
                                       if (snapshot.connectionState == ConnectionState.waiting) {
                                         return Text(AppLocalizations.of(context)!.loadingTags);

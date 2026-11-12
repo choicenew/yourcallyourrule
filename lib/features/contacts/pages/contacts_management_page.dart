@@ -7,29 +7,28 @@ import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 联系人管理页面
 class ContactsManagementPage extends ConsumerWidget {
   const ContactsManagementPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
 
     return FutureBuilder<List<PhoneContactEntry>>(
       future: PhoneContactsControlCenter.instance.getAllContacts(),
       builder: (context, snapshot) {
-        final contacts = snapshot.data ?? [];
+        final itemsList = snapshot.data ?? [];
         return GenericListWithAdsPage<PhoneContactEntry>(
-          title: l10n.contact,
-          items: contacts,
-          emptyText: l10n.noData,
+          title: (l10n as dynamic)?.contactsManagement as String? ?? 'Contacts',
+          items: itemsList,
+          emptyText: (l10n as dynamic)?.noContactsYet as String? ?? 'No contacts yet',
           adInterval: 3,
           adBuilder: () => const AdsInlineBanner(),
-          itemBuilder: (context, contact) => contacts_pkg_ui.PyroPhoneContactCardWidget(
-            entry: contact,
+          itemBuilder: (context, item) => contacts_pkg_ui.PyroPhoneContactCardWidget(
+            entry: item,
             onTap: () {},
           ),
-          getItemId: (contact) => contact.id,
+          getItemId: (item) => item.id,
         );
       },
     );

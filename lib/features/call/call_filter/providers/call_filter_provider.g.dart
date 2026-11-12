@@ -56,20 +56,16 @@ abstract class _$CallFilterConfigNotifier
   }
 }
 
-/// 分卡槽独立通话过滤配置 Notifier（按 simSlotIndex 独立存取与维护配置）
-
 @ProviderFor(SimSlotCallFilterConfigNotifier)
 final simSlotCallFilterConfigProvider =
     SimSlotCallFilterConfigNotifierFamily._();
 
-/// 分卡槽独立通话过滤配置 Notifier（按 simSlotIndex 独立存取与维护配置）
 final class SimSlotCallFilterConfigNotifierProvider
     extends
         $AsyncNotifierProvider<
           SimSlotCallFilterConfigNotifier,
           CallFilterConfig
         > {
-  /// 分卡槽独立通话过滤配置 Notifier（按 simSlotIndex 独立存取与维护配置）
   SimSlotCallFilterConfigNotifierProvider._({
     required SimSlotCallFilterConfigNotifierFamily super.from,
     required int super.argument,
@@ -110,8 +106,6 @@ final class SimSlotCallFilterConfigNotifierProvider
 String _$simSlotCallFilterConfigNotifierHash() =>
     r'21c024a642cccd0db6f176d6a463951a816349a1';
 
-/// 分卡槽独立通话过滤配置 Notifier（按 simSlotIndex 独立存取与维护配置）
-
 final class SimSlotCallFilterConfigNotifierFamily extends $Family
     with
         $ClassFamilyOverride<
@@ -130,8 +124,6 @@ final class SimSlotCallFilterConfigNotifierFamily extends $Family
         isAutoDispose: false,
       );
 
-  /// 分卡槽独立通话过滤配置 Notifier（按 simSlotIndex 独立存取与维护配置）
-
   SimSlotCallFilterConfigNotifierProvider call(int simSlotIndex) =>
       SimSlotCallFilterConfigNotifierProvider._(
         argument: simSlotIndex,
@@ -141,8 +133,6 @@ final class SimSlotCallFilterConfigNotifierFamily extends $Family
   @override
   String toString() => r'simSlotCallFilterConfigProvider';
 }
-
-/// 分卡槽独立通话过滤配置 Notifier（按 simSlotIndex 独立存取与维护配置）
 
 abstract class _$SimSlotCallFilterConfigNotifier
     extends $AsyncNotifier<CallFilterConfig> {
@@ -167,15 +157,11 @@ abstract class _$SimSlotCallFilterConfigNotifier
   }
 }
 
-/// 是否开启“多卡槽独立控制”开关的持久化 Notifier (强实体绑定，keepAlive: true 保证切页面不释放状态)
-
 @ProviderFor(SeparateSimsNotifier)
 final separateSimsProvider = SeparateSimsNotifierProvider._();
 
-/// 是否开启“多卡槽独立控制”开关的持久化 Notifier (强实体绑定，keepAlive: true 保证切页面不释放状态)
 final class SeparateSimsNotifierProvider
     extends $AsyncNotifierProvider<SeparateSimsNotifier, bool> {
-  /// 是否开启“多卡槽独立控制”开关的持久化 Notifier (强实体绑定，keepAlive: true 保证切页面不释放状态)
   SeparateSimsNotifierProvider._()
     : super(
         from: null,
@@ -197,8 +183,6 @@ final class SeparateSimsNotifierProvider
 
 String _$separateSimsNotifierHash() =>
     r'f0407049712f92c828f269d28adc40ecc01e10b4';
-
-/// 是否开启“多卡槽独立控制”开关的持久化 Notifier (强实体绑定，keepAlive: true 保证切页面不释放状态)
 
 abstract class _$SeparateSimsNotifier extends $AsyncNotifier<bool> {
   FutureOr<bool> build();

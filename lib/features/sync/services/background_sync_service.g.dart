@@ -59,4 +59,4 @@ final class BackgroundSyncServiceProvider
 }
 
 String _$backgroundSyncServiceHash() =>
-    r'e5ac1419f20f161977c8b3af615fc567deb140da';
+    r'b1b2f65ecacccaedb266d4578467a3f328ab2048';

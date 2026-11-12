@@ -115,7 +115,7 @@ Future<void> main() async {
 
     final container = ProviderContainer();
 
-    container.read(callerIdMonitorServiceProvider.notifier);
+    container.read(callerIdMonitorServiceProvider);
     container.read(callEventListenerProvider);
 
     container.read(notificationServiceProvider);

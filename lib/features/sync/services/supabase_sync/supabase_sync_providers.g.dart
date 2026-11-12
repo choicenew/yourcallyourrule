@@ -120,7 +120,7 @@ final class SupabaseSyncControllerProvider
 }
 
 String _$supabaseSyncControllerHash() =>
-    r'fe83144fc3ad1a41096fe114f60281882a7260b1';
+    r'6ee984c5dc700274bf5396350f526df95b9dbcd6';
 
 abstract class _$SupabaseSyncController extends $AsyncNotifier<SyncResult?> {
   FutureOr<SyncResult?> build();

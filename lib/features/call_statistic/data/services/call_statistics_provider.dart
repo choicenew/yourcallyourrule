@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
+import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
-import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
-import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
+import 'package:yourcallyourrule/features/call_history/services/call_log_service.dart';
+import 'package:yourcallyourrule/features/phone_rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/repositories/call_statistics_repository_impl.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_service.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/statistic_period.dart';
@@ -23,7 +23,7 @@ class CallStatisticsState {
   final int timeRulesCount;
   final Map<String, double> blockTypeAnalysis;
   final Map<DateTime, int> chartData;
-  final List<RuleBase> topTriggeredRules;
+  final List<PhoneRuleEntity> topTriggeredRules;
   final Map<int, int> simSlotDistribution;
   final String peakHoursRange;
 
@@ -41,7 +41,7 @@ class CallStatisticsState {
     this.chartData = const {},
     this.topTriggeredRules = const [],
     this.simSlotDistribution = const {},
-    this.peakHoursRange = '',
+    this.peakHoursRange = 'N/A',
   });
 
   CallStatisticsState copyWith({
@@ -56,7 +56,7 @@ class CallStatisticsState {
     int? timeRulesCount,
     Map<String, double>? blockTypeAnalysis,
     Map<DateTime, int>? chartData,
-    List<RuleBase>? topTriggeredRules,
+    List<PhoneRuleEntity>? topTriggeredRules,
     Map<int, int>? simSlotDistribution,
     String? peakHoursRange,
   }) {
@@ -81,8 +81,7 @@ class CallStatisticsState {
 
 @Riverpod(keepAlive: true)
 class CallStatisticsNotifier extends _$CallStatisticsNotifier {
-
-  StreamSubscription? _dataSubscription;
+  StreamSubscription<List<CallLogEntry>>? _dataSubscription;
   StatisticPeriod _currentTimeRange = StatisticPeriod.week;
 
   @override
@@ -109,8 +108,7 @@ class CallStatisticsNotifier extends _$CallStatisticsNotifier {
     await _calculateStatistics(initialLogs, timeRange: _currentTimeRange);
   }
 
-  // ▼▼▼▼�?核心增量修改部分 ▼▼▼▼�?
-  Future<void> _calculateStatistics(List<CallLog> callLogs, {required StatisticPeriod timeRange}) async {
+  Future<void> _calculateStatistics(List<CallLogEntry> callLogs, {required StatisticPeriod timeRange}) async {
     try {
       final allRules = await ref.read(ruleManagementServiceProvider).getAllRules();
       final configRepo = ref.read(configRepositoryProvider);
@@ -128,7 +126,7 @@ class CallStatisticsNotifier extends _$CallStatisticsNotifier {
         isLoading: false,
         error: null,
         blockedCallsCount: repo.getWeeklyBlockedCallsCount(),
-        filteredSmsCount: repo.getWeeklyFilteredSmsCount(),
+        filteredSmsCount: await repo.getWeeklyFilteredSmsCount(),
         allowRulesCount: repo.getAllowRulesCount(),
         blockRulesCount: repo.getBlockRulesCount(),
         silenceRulesCount: repo.getSilenceRulesCount(),
@@ -145,52 +143,39 @@ class CallStatisticsNotifier extends _$CallStatisticsNotifier {
     }
   }
 
-  /// [新增]: 辅助方法，用于生成完整的、填充了0的图表数据�?
-  Map<DateTime, int> _generateCompleteChartData(CallStatisticsRepositoryImpl repo, StatisticPeriod timeRange) {
+  Map<DateTime, int> _generateCompleteChartData(CallStatisticsRepositoryImpl repo, StatisticPeriod period) {
     final now = DateTime.now();
+    final DateTime startDate;
+    int days = 7;
+
+    switch (period) {
+      case StatisticPeriod.week:
+        days = 7;
+        break;
+      case StatisticPeriod.month:
+        days = 30;
+        break;
+      case StatisticPeriod.year:
+        days = 365;
+        break;
+    }
+    
+    startDate = now.subtract(Duration(days: days - 1));
+    final rawData = repo.getBlockedCallsTrend(startDate: startDate, endDate: now);
+    
     final Map<DateTime, int> completeData = {};
-
-    // 1. 从仓库获取原始的、可能不连续的数据�?
-    final rawData = repo.getBlockedCallsByDate(timeRange);
-
-    if (timeRange == StatisticPeriod.year) {
-      // 对于年份，我们按月生成序�?
-      for (int i = 11; i >= 0; i--) {
-        final monthDate = DateTime(now.year, now.month - i, 1);
-        int monthlyTotal = 0;
-        rawData.forEach((date, count) {
-          if (date.year == monthDate.year && date.month == monthDate.month) {
-            monthlyTotal += count;
-          }
-        });
-        completeData[monthDate] = monthlyTotal;
-      }
-      return completeData;
+    for (int i = 0; i < days; i++) {
+      final date = DateTime(startDate.year, startDate.month, startDate.day).add(Duration(days: i));
+      completeData[date] = rawData[date] ?? 0;
     }
-
-    // 对于周和月，按天生成序列
-    int daysToGenerate = (timeRange == StatisticPeriod.month) ? 30 : 7;
-    for (int i = daysToGenerate - 1; i >= 0; i--) {
-      final date = DateTime(now.year, now.month, now.day - i);
-      final dateKey = DateTime(date.year, date.month, date.day);
-      completeData[dateKey] = rawData[dateKey] ?? 0;
-    }
-
     return completeData;
   }
-  // ▲▲▲▲�?增量修改结束 ▲▲▲▲�?
 
-  Future<void> updateTimeRange(dynamic newTimeRange) async {
-    final StatisticPeriod period = newTimeRange is StatisticPeriod
-        ? newTimeRange
-        : StatisticPeriod.fromString(newTimeRange.toString());
-
-    if (_currentTimeRange == period) return;
-    _currentTimeRange = period;
-
-    state = state.copyWith(isLoading: true);
-
-    final callLogs = await ref.read(callLogServiceProvider).getRecentLogs();
-    await _calculateStatistics(callLogs, timeRange: period);
+  void updateTimeRange(StatisticPeriod newPeriod) {
+    if (_currentTimeRange != newPeriod) {
+      _currentTimeRange = newPeriod;
+      state = state.copyWith(isLoading: true);
+      _initialLoad();
+    }
   }
 }

@@ -10,7 +10,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 /// [T] 是订阅实体类�?
 /// [ID] 是实体ID类型
 /// [S] 是订阅服务类�?
-class GenericSubscriptionPage<T extends BaseEntity, ID, S extends SubscriptionServiceBase<T, ID>> extends StatefulWidget {
+class GenericSubscriptionPage<T, ID, S extends SubscriptionServiceBase<T, ID>> extends StatefulWidget {
   /// 页面标题
   final String title;
   
@@ -51,7 +51,7 @@ class GenericSubscriptionPage<T extends BaseEntity, ID, S extends SubscriptionSe
   State<GenericSubscriptionPage<T, ID, S>> createState() => GenericSubscriptionPageState<T, ID, S>();
 }
 
-class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends SubscriptionServiceBase<T, ID>> extends State<GenericSubscriptionPage<T, ID, S>> {
+class GenericSubscriptionPageState<T, ID, S extends SubscriptionServiceBase<T, ID>> extends State<GenericSubscriptionPage<T, ID, S>> {
   List<T> _subscriptions = [];
   bool _isLoading = true;
 
@@ -68,7 +68,7 @@ class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends Subscript
 
     final subscriptionService = widget.serviceBuilder(context);
     try {
-      final subscriptions = await subscriptionService.getAll();
+      final subscriptions = await subscriptionService.getEnabledSubscriptions();
       setState(() {
         _subscriptions = subscriptions;
         _isLoading = false;
@@ -149,7 +149,7 @@ class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends Subscript
     if (confirmed == true) {
       final subscriptionService = widget.serviceBuilder(context);
       try {
-        await subscriptionService.deleteSubscription(subscription.id as ID);
+        await subscriptionService.disableSubscription(subscription);
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionDeleteSuccess)),
@@ -180,7 +180,7 @@ class GenericSubscriptionPageState<T extends BaseEntity, ID, S extends Subscript
       emptyIcon: widget.emptyIcon,
       onAddSubscription: () => widget.showAddDialog(context, subscriptionService, _loadSubscriptions),
       buildInfoCard: widget.buildInfoCard,
-      buildSubscriptionCard: (subscription) => widget.buildSubscriptionCard(subscription, this),
+      buildSubscriptionCard: (dynamic subscription) => widget.buildSubscriptionCard(subscription as T, this),
     );
   }
 }

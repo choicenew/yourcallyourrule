@@ -8,12 +8,9 @@ part of 'sms_regex_rule_repository_impl.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// SMS正则规则仓库提供者
 
 @ProviderFor(smsRegexRuleRepository)
 final smsRegexRuleRepositoryProvider = SmsRegexRuleRepositoryProvider._();
-
-/// SMS正则规则仓库提供者
 
 final class SmsRegexRuleRepositoryProvider
     extends
@@ -23,7 +20,6 @@ final class SmsRegexRuleRepositoryProvider
           SmsRegexRuleRepository
         >
     with $Provider<SmsRegexRuleRepository> {
-  /// SMS正则规则仓库提供者
   SmsRegexRuleRepositoryProvider._()
     : super(
         from: null,
@@ -59,4 +55,4 @@ final class SmsRegexRuleRepositoryProvider
 }
 
 String _$smsRegexRuleRepositoryHash() =>
-    r'e616cb54aec8ab3c15b03262322ecbca053fd16e';
+    r'1dcff08507d18ad965c2ffc0c8edd2bbb6373dd1';

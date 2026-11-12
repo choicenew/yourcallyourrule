@@ -1,5 +1,4 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/features/common/entities/list_entry.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
@@ -7,9 +6,8 @@ import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_
 
 part 'sim_slot_rule_page_provider.g.dart';
 
-/// 页面状态模�?
 class SimSlotRulePageState {
-  final List<SimSlotRule> rules;
+  final List<SimSlotRuleEntity> rules;
   final Map<String, String> labelIdToTextMap;
   final String? selectedLabelId;
   final RuleActionType? selectedActionType;
@@ -23,23 +21,21 @@ class SimSlotRulePageState {
     this.searchKeyword = '',
   });
 
-  // [注释]: 过滤后的规则列表，UI将直接使用这个�?
-  List<SimSlotRule> get filteredRules {
+  List<SimSlotRuleEntity> get filteredRules {
     return rules.where((rule) {
       if (selectedLabelId != null && rule.labelId != selectedLabelId) return false;
-      if (selectedActionType != null && rule.action.type != selectedActionType) return false;
+      if (selectedActionType != null && rule.action.actionName != selectedActionType?.name) return false;
       if (searchKeyword.isNotEmpty) {
         final keyword = searchKeyword.toLowerCase();
-        final nameMatch = rule.name.toLowerCase().contains(keyword);
-        final phoneMatch = rule.phoneNumber.value.toLowerCase().contains(keyword);
-        if (!nameMatch && !phoneMatch) return false;
+        final phoneMatch = rule.phoneNumber.toLowerCase().contains(keyword);
+        if (!phoneMatch) return false;
       }
       return true;
     }).toList();
   }
 
   SimSlotRulePageState copyWith({
-    List<SimSlotRule>? rules,
+    List<SimSlotRuleEntity>? rules,
     Map<String, String>? labelIdToTextMap,
     String? selectedLabelId,
     bool resetSelectedLabelId = false,
@@ -57,10 +53,8 @@ class SimSlotRulePageState {
   }
 }
 
-// [注释]: 使用 .family 来接�?simSlotIndex
 @riverpod
 class SimSlotRulePage extends _$SimSlotRulePage {
-  // [注释]: 便捷地获�?SimSlotRuleService 实例
   SimSlotRuleService get _service => ref.read(simSlotRuleServiceProvider);
 
   @override
@@ -82,7 +76,7 @@ class SimSlotRulePage extends _$SimSlotRulePage {
     state = await AsyncValue.guard(() async => await _loadData());
   }
 
-  Future<void> addRule(ListEntry entry, RuleAction action) async {
+  Future<void> addRule(dynamic entry, RuleAction action) async {
     await _service.addSimSlotRule(entry, simSlotIndex, action: action);
     await refresh();
   }

@@ -14,11 +14,7 @@ final purchaseServiceProvider = PurchaseServiceProvider._();
 
 final class PurchaseServiceProvider
     extends
-        $FunctionalProvider<
-          PurchaseService,
-          PurchaseService,
-          PurchaseService
-        >
+        $FunctionalProvider<PurchaseService, PurchaseService, PurchaseService>
     with $Provider<PurchaseService> {
   PurchaseServiceProvider._()
     : super(
@@ -32,13 +28,12 @@ final class PurchaseServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => r'purchase_service_hash';
+  String debugGetCreateSourceHash() => _$purchaseServiceHash();
 
   @$internal
   @override
-  $ProviderElement<PurchaseService> $createElement(
-    $ProviderPointer pointer,
-  ) => $ProviderElement(pointer);
+  $ProviderElement<PurchaseService> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
 
   @override
   PurchaseService create(Ref ref) {
@@ -53,3 +48,5 @@ final class PurchaseServiceProvider
     );
   }
 }
+
+String _$purchaseServiceHash() => r'd8294b9b7aed994fb0d0747739ce271ff6b50b4b';

@@ -34,8 +34,8 @@ class _KitLiveNotificationCustomizationScreenState
 
       await handler.showCallerIdActivity(
         callerIdData: mockData,
-        simInfo: mockSimInfo,
-        stirInfo: mockStirInfo,
+        simCardData: mockSimInfo,
+        stirData: mockStirInfo,
       );
 
       setState(() {
@@ -236,21 +236,18 @@ class _KitLiveNotificationCustomizationScreenState
     final mockStirInfo = CallOverlayMockData.mockStirInfoData();
 
     final String? labelText = (mockData.labels != null && mockData.labels!.isNotEmpty)
-        ? mockData.labels!.first.label
+        ? (mockData.labels!.first as dynamic).label ?? (mockData.labels!.first as dynamic).text
         : null;
     final ImageProvider? avatarProvider = config.avatar.visible
-        ? AvatarUtils.getAvatarImage(mockData.avatar, labelText)
+        ? AvatarUtils.getAvatarImage(null, labelText)
         : null;
 
     final List<String> details = [];
     if (config.labels.visible && labelText != null && labelText.isNotEmpty) {
       details.add(labelText);
     }
-    if (config.count.visible && mockData.count > 0) {
-      details.add(AppLocalizations.of(context).callerIdMarkedByCount(mockData.count));
-    }
-    if (config.simCard.visible && mockSimInfo.displayName != null) {
-      details.add(mockSimInfo.displayName!);
+    if (config.simCard.visible && mockSimInfo['displayName'] != null) {
+      details.add(mockSimInfo['displayName'] as String);
     }
     if (config.carrier.visible && mockData.carrier != null) {
       details.add(mockData.carrier!);
@@ -261,11 +258,8 @@ class _KitLiveNotificationCustomizationScreenState
     if (config.countryName.visible && mockData.countryName != null) {
       details.add(mockData.countryName!);
     }
-    if (config.numberType.visible) {
-      details.add(mockData.numberType.translated(context));
-    }
-    if (config.stir.visible && mockStirInfo.isVerified) {
-      details.add(AppLocalizations.of(context).stirVerified);
+    if (config.stir.visible && (mockStirInfo['isVerified'] == true)) {
+      details.add(AppLocalizations.of(context)!.stirVerified);
     }
     final String detailLine = details.join(' · ');
 
@@ -318,7 +312,7 @@ class _KitLiveNotificationCustomizationScreenState
                           ),
                         if (config.number.visible)
                           Text(
-                            mockData.phoneNumber.value,
+                            mockData.phoneNumber,
                             style: theme.textTheme.bodyMedium?.copyWith(
                               fontSize: config.number.fontSize,
                               color: theme.textTheme.bodyMedium?.color?.withAlpha(180),
@@ -338,7 +332,7 @@ class _KitLiveNotificationCustomizationScreenState
                   ),
                 ),
               ],
-              if (config.stir.visible && mockStirInfo.isVerified) ...[
+              if (config.stir.visible && (mockStirInfo['isVerified'] == true)) ...[
                 const SizedBox(height: 8),
                 Row(
                   children: [
@@ -415,7 +409,7 @@ class _KitLiveNotificationCustomizationScreenState
                   )
                 else
                   Text(
-                    mockData.phoneNumber.value,
+                    mockData.phoneNumber,
                     style: const TextStyle(
                       color: Colors.white70,
                       fontSize: 12,

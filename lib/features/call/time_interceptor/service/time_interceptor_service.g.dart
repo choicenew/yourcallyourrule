@@ -8,12 +8,9 @@ part of 'time_interceptor_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 使用生成器创建 Service 的 Provider
 
 @ProviderFor(timeInterceptorService)
 final timeInterceptorServiceProvider = TimeInterceptorServiceProvider._();
-
-/// 使用生成器创建 Service 的 Provider
 
 final class TimeInterceptorServiceProvider
     extends
@@ -23,7 +20,6 @@ final class TimeInterceptorServiceProvider
           TimeInterceptorService
         >
     with $Provider<TimeInterceptorService> {
-  /// 使用生成器创建 Service 的 Provider
   TimeInterceptorServiceProvider._()
     : super(
         from: null,

@@ -8,12 +8,12 @@ part of 'plugin_url_execution_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// PluginUrlExecutionService 的 @Riverpod Provider
+/// PluginUrlExecutionService �?@Riverpod Provider
 
 @ProviderFor(pluginUrlWebViewService)
 final pluginUrlWebViewServiceProvider = PluginUrlWebViewServiceProvider._();
 
-/// PluginUrlExecutionService 的 @Riverpod Provider
+/// PluginUrlExecutionService �?@Riverpod Provider
 
 final class PluginUrlWebViewServiceProvider
     extends
@@ -23,7 +23,7 @@ final class PluginUrlWebViewServiceProvider
           PluginUrlExecutionService
         >
     with $Provider<PluginUrlExecutionService> {
-  /// PluginUrlExecutionService 的 @Riverpod Provider
+  /// PluginUrlExecutionService �?@Riverpod Provider
   PluginUrlWebViewServiceProvider._()
     : super(
         from: null,

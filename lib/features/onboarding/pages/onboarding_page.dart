@@ -4,15 +4,15 @@ import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 
-import '../services/onboarding_service.dart';
-import '../widgets/onboarding_top_bar.dart';
-import '../widgets/onboarding_bottom_bar.dart';
-import '../widgets/onboarding_welcome_card.dart';
-import '../widgets/onboarding_language_card.dart';
-import '../widgets/onboarding_caller_id_card.dart';
-import '../widgets/onboarding_spam_block_card.dart';
-import '../widgets/onboarding_permissions_card.dart';
-import '../widgets/onboarding_ready_card.dart';
+import 'package:yourcallyourrule/features/onboarding/services/onboarding_service.dart';
+import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_top_bar.dart';
+import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_bottom_bar.dart';
+import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_welcome_card.dart';
+import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_language_card.dart';
+import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_caller_id_card.dart';
+import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_spam_block_card.dart';
+import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_permissions_card.dart';
+import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_ready_card.dart';
 
 /// 应用引导主页面
 class OnboardingPage extends ConsumerStatefulWidget {
@@ -90,13 +90,13 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                     _currentPage = index;
                   });
                 },
-                children: const [
-                  OnboardingWelcomeCard(),
-                  OnboardingLanguageCard(),
-                  OnboardingCallerIdCard(),
-                  OnboardingSpamBlockCard(),
-                  OnboardingPermissionsCard(),
-                  OnboardingReadyCard(),
+                children: [
+                  const OnboardingWelcomeCard(),
+                  const OnboardingLanguageCard(),
+                  const OnboardingCallerIdCard(),
+                  const OnboardingSpamBlockCard(),
+                  const OnboardingPermissionsCard(),
+                  const OnboardingReadyCard(),
                 ],
               ),
             ),

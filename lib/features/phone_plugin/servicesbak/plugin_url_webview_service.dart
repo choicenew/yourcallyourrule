@@ -5,12 +5,11 @@ import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_script_service.dart';
+import 'package:yourcallyourrule/features/phone_plugin/services/plugin_script_service.dart';
 
 class PluginUrlWebViewService {
   final PluginScriptService _scriptService = PluginScriptService();
 
-  // --- Scheme 1: Static Extraction ---
   static const String defaultUserAgent =
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36';
 
@@ -26,7 +25,6 @@ class PluginUrlWebViewService {
       );
       return null;
     }
-    // 2. 定义正则表达�?
     final baseUrlRegex = RegExp(
       r"""const\s+baseUrl\s*=\s*[`'"](https?:\/\/[^/]+\/)[^'"`]*[`'"];""",
     );
@@ -35,32 +33,27 @@ class PluginUrlWebViewService {
     );
     final headersRegex = RegExp(r"""const\s+headers\s*=\s*(\{[\s\S]*?\});""");
 
-    // 3. 定义一个内部变�?(您建议的 finalUrl)，用于存放最终找到的 URL
     String? finalUrl;
 
-    // 步骤 A: 优先使用 baseUrlRegex 进行匹配
     final baseUrlMatch = baseUrlRegex.firstMatch(scriptContent);
     if (baseUrlMatch != null) {
       finalUrl = baseUrlMatch.group(1);
-      debugPrint('[PluginService] 提取策略：成功找�?[baseUrl]: $finalUrl');
+      debugPrint('[PluginService] Extract strategy: found [baseUrl]: $finalUrl');
     } else {
-      // 步骤 B: 如果没找�?baseUrl，再使用 targetUrlRegex 进行匹配
       final targetUrlMatch = targetUrlRegex.firstMatch(scriptContent);
       if (targetUrlMatch != null) {
         finalUrl = targetUrlMatch.group(1);
         debugPrint(
-          '[PluginService] 提取策略：未找到 baseUrl, 但成功找�?[targetSearchUrl]: $finalUrl',
+          '[PluginService] Extract strategy: found [targetSearchUrl]: $finalUrl',
         );
       }
     }
 
-    // 如果两种方式都失败，�?finalUrl 仍然�?null
     if (finalUrl == null) {
-      debugPrint('[PluginService] 提取策略：未能找到任何有效的根路径�?);
+      debugPrint('[PluginService] Extract strategy: failed to find root url');
       return null;
     }
 
-    // 4. 提取 Headers
     Map<String, String> headers = {};
     final headersMatch = headersRegex.firstMatch(scriptContent);
     if (headersMatch != null) {
@@ -78,15 +71,13 @@ class PluginUrlWebViewService {
           (key, value) => MapEntry(key, value.toString()),
         );
       } catch (e) {
-        debugPrint('[PluginService] 从脚本解�?headers 时出�? $e');
+        debugPrint('[PluginService] Error parsing headers from script: $e');
       }
     }
 
-    // 5. 返回符合下游代码期望�?Map，使用固定的键名 'targetSearchUrl'
     return {'targetSearchUrl': finalUrl, 'headers': headers};
   }
 
-  // --- Scheme 2: Dynamic Generation ---
   HeadlessInAppWebView? _headlessWebView;
   Completer<String>? _urlCompleter;
 
@@ -117,7 +108,6 @@ class PluginUrlWebViewService {
       onWebViewCreated: (controller) async {
         debugPrint('[PluginUrlWebViewService] Headless WebView created.');
 
-        // Handler for errors reported from JS
         controller.addJavaScriptHandler(
           handlerName: 'urlHandler',
           callback: (args) {

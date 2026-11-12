@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
+import 'package:yourcallyourrule/features/call_statistic/domain/statistic_period.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/statistic_chart.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -94,7 +95,7 @@ class _TrendChartCardState extends ConsumerState<TrendChartCard> {
       onTap: () {
         if (!isSelected) {
           setState(() => _selectedTimeRange = range);
-          notifier.updateTimeRange(range);
+          notifier.updateTimeRange(StatisticPeriod.fromString(range));
         }
       },
       child: Container(

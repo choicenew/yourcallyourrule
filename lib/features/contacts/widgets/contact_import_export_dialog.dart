@@ -45,8 +45,8 @@ class ContactImportExportDialog extends ConsumerWidget {
                     type: FileType.custom,
                     allowedExtensions: ['vcf', 'csv', 'yaml', 'json'],
                   );
-                  if (result != null && result.files.isNotEmpty) {
-                    final pickedFile = result.files.single;
+                  if (result.isNotEmpty) {
+                    final pickedFile = result.first;
                     if (pickedFile.path == null) return;
                     final file = File(pickedFile.path!);
                     final content = await file.readAsString();

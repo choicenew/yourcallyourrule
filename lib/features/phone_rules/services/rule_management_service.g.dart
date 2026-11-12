@@ -8,12 +8,12 @@ part of 'rule_management_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// RuleManagementService 的 @Riverpod Provider
+/// RuleManagementService Riverpod Provider
 
 @ProviderFor(ruleManagementService)
 final ruleManagementServiceProvider = RuleManagementServiceProvider._();
 
-/// RuleManagementService 的 @Riverpod Provider
+/// RuleManagementService Riverpod Provider
 
 final class RuleManagementServiceProvider
     extends
@@ -23,7 +23,7 @@ final class RuleManagementServiceProvider
           RuleManagementService
         >
     with $Provider<RuleManagementService> {
-  /// RuleManagementService 的 @Riverpod Provider
+  /// RuleManagementService Riverpod Provider
   RuleManagementServiceProvider._()
     : super(
         from: null,

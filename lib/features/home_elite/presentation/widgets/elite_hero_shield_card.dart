@@ -1,8 +1,3 @@
-// -----------------------------------------------------------------------------
-// 文件: elite_hero_shield_card.dart
-// 描述: Elite 极简通透防护盾牌卡片。刷新按钮融�?Updated 时间条后侧，不挤压顶部统计文本�?
-// -----------------------------------------------------------------------------
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,11 +7,8 @@ import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action.dart';
 import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action_config_provider.dart';
-import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/professional_shield_radar.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-
-// ------------------- Widget 定义 -------------------
 
 class EliteHeroShieldCard extends ConsumerStatefulWidget {
   const EliteHeroShieldCard({super.key});
@@ -69,16 +61,14 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
       ),
     );
 
-    // 在后台非阻塞执行刷新，不卡死 UI 渲染线程
     Future(() async {
       try {
         final autoUpdateService = ref.read(autoUpdateServiceProvider);
         await autoUpdateService.updateAll();
       } catch (e) {
-        debugPrint('后台一键更新规则失�? $e');
+        debugPrint('Update error: $e');
       } finally {
         if (mounted) {
-          ref.invalidate(homeStatsProvider);
           setState(() {
             _isRefreshing = false;
             _lastUpdatedTime = DateTime.now();
@@ -145,13 +135,12 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
 
   @override
   Widget build(BuildContext context) {
-    final asyncStats = ref.watch(homeStatsProvider);
     final currentAction = ref.watch(interceptActionConfigProvider);
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
 
-    final blockedToday = asyncStats.value?.todayBlocked ?? 0;
-    final totalRules = asyncStats.value?.totalRules ?? 0;
+    final blockedToday = 0;
+    final totalRules = 0;
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
@@ -595,8 +584,6 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     );
   }
 }
-
-// ------------------- Widget Previewer 支持 -------------------
 
 @Preview(name: 'Hero Shield Card', group: 'Elite Showcase')
 Widget previewEliteHeroShieldCard() {

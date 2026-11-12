@@ -36,7 +36,7 @@ final class AllowedBlockedServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => r'allowed_blocked_service_hash';
+  String debugGetCreateSourceHash() => _$allowedBlockedServiceHash();
 
   @$internal
   @override
@@ -57,3 +57,6 @@ final class AllowedBlockedServiceProvider
     );
   }
 }
+
+String _$allowedBlockedServiceHash() =>
+    r'1d75ee9ab5765eaa0f3b134431bcb249e6a32381';

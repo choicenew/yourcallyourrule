@@ -5,7 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yourcallyourrule/features/common/constants/app_prefs_keys.dart';
 import '../models/setup_config.dart';
 
-/// 负责从云端拉�?Initial Setup 页面所需的动态配置，并提供内�?JSON 资产文件兜底�?IP 地区探测
 class InitialSetupService {
   final String rawConfigUrl;
   final String cdnConfigUrl;
@@ -33,7 +32,6 @@ class InitialSetupService {
               ),
             );
 
-  /// 从应用内置的 JSON 文件中加载兜底配置，避免网络不佳时白�?
   Future<SetupConfig> loadBuiltInConfig([String? assetPath]) async {
     final path = assetPath ?? localAssetPath;
     try {
@@ -49,7 +47,6 @@ class InitialSetupService {
     return SetupConfig(version: '1.0.0', countriesData: []);
   }
 
-  /// 基于 IP API 自动探测用户当前网络所在国�?地区代码（例�?"CN", "US", "FR"�?
   Future<String?> detectUserCountry() async {
     try {
       final response = await _dio.get('https://ip-api.com/json');
@@ -63,7 +60,6 @@ class InitialSetupService {
     return null;
   }
 
-  /// 获取初始配置。可根据 isPluginConfig 自动切换为拉取规则配�?(app_delta_setup_config.json) �?插件配置 (app_plugin_setup_config.json)
   Future<SetupConfig> fetchConfig({
     bool useCdn = false,
     String? customUrl,
@@ -88,11 +84,9 @@ class InitialSetupService {
       }
     } catch (_) {}
 
-    // 网络不可用或请求失败时，从内�?JSON 资产文件中读取兜底配�?
     return await loadBuiltInConfig(isPluginConfig ? localPluginAssetPath : localAssetPath);
   }
 
-  /// 统一标记 Initial Setup 流程完成
   Future<bool> completeInitialSetup() async {
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -103,7 +97,6 @@ class InitialSetupService {
     }
   }
 
-  /// 检�?Initial Setup 流程是否已完�?
   Future<bool> isInitialSetupCompleted() async {
     try {
       final prefs = await SharedPreferences.getInstance();

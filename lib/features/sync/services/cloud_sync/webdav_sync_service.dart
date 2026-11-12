@@ -6,7 +6,7 @@ import 'package:webdav_client/webdav_client.dart' as webdav;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
+import 'package:yourcallyourrule/features/sync/domain/device_entity.dart';
 import 'package:yourcallyourrule/features/sync/providers/cloud_sync/device_management_provider.dart';
 import 'package:yourcallyourrule/features/sync/services/cloud_sync/sync_conflict_resolver.dart';
 import 'package:pyro_sync_protocol/pyro_sync_protocol.dart';
@@ -207,14 +207,12 @@ class WebDAVSyncService extends EnhancedCloudSyncService {
   }
   
   @override
-  Future<bool> doSyncRules(List<RuleBase> rules) async {
+  Future<bool> doSyncRules(List<PhoneRuleEntity> rules) async {
     if (_client == null) return false;
     
     try {
-      // Convert rules to JSON using CloudDataConverter
-      final rulesJson = jsonEncode(rules.map((rule) => CloudDataConverter.serialize(rule)).toList());
+      final rulesJson = jsonEncode(rules.map((rule) => rule.toMap()).toList());
       
-      // Upload rules file
       final filePath = '$_rulesFolderName/rules.json';
       await _client!.write(
         filePath,
@@ -229,26 +227,24 @@ class WebDAVSyncService extends EnhancedCloudSyncService {
   }
   
   @override
-  Future<List<RuleBase>> getRulesFromCloud() async {
+  Future<List<PhoneRuleEntity>> getRulesFromCloud() async {
     if (_client == null || !await isConfigured()) return [];
     
     try {
       final filePath = '$_rulesFolderName/rules.json';
       
-      // Check if file exists
       try {
         await _client!.readProps(filePath);
       } catch (e) {
         return [];
       }
       
-      // Download rules file
       final response = await _client!.read(filePath);
       final rulesJson = utf8.decode(response);
       
       final List<dynamic> rulesList = jsonDecode(rulesJson);
       return rulesList
-          .map((json) => CloudDataConverter.deserialize<RuleBase>(json as Map<String, dynamic>))
+          .map((json) => PhoneRuleEntity.fromMap(json as Map<String, dynamic>))
           .toList();
     } catch (e) {
       debugPrint('Error getting rules from WebDAV: $e');

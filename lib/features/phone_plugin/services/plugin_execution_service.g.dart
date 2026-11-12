@@ -8,12 +8,12 @@ part of 'plugin_execution_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// PluginExecutionService 的 @Riverpod Provider
+/// PluginExecutionService �?@Riverpod Provider
 
 @ProviderFor(pluginExecutionService)
 final pluginExecutionServiceProvider = PluginExecutionServiceProvider._();
 
-/// PluginExecutionService 的 @Riverpod Provider
+/// PluginExecutionService �?@Riverpod Provider
 
 final class PluginExecutionServiceProvider
     extends
@@ -23,7 +23,7 @@ final class PluginExecutionServiceProvider
           PluginExecutionService
         >
     with $Provider<PluginExecutionService> {
-  /// PluginExecutionService 的 @Riverpod Provider
+  /// PluginExecutionService �?@Riverpod Provider
   PluginExecutionServiceProvider._()
     : super(
         from: null,

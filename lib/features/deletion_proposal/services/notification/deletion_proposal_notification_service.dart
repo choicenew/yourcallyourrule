@@ -2,15 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/common/router/app_router_provider.dart';
 
-// 【MODIFIED�? 引入了您项目中真实存在的 appRouterProvider
-
-// 引入所有必要的 Provider �?Service
 import 'package:yourcallyourrule/features/notifications/providers/notification_history_provider.dart';
 import 'package:yourcallyourrule/features/notifications/service/notification_manager.dart';
 import 'package:yourcallyourrule/features/notifications/service/notification_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-// 引入了强类型�?Proposal 模型
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 
 part 'deletion_proposal_notification_service.g.dart';
@@ -22,7 +18,6 @@ DeletionProposalNotificationService deletionProposalNotificationService(
   return DeletionProposalNotificationService(ref);
 }
 
-// DeletionProposalNotificationData �?DeletionProposalNotificationType 枚举保持不变
 class DeletionProposalNotificationData {
   final String proposalId;
   final String phoneNumber;
@@ -73,7 +68,6 @@ enum DeletionProposalNotificationType {
   newVoteReceived,
 }
 
-/// 提议通知服务�?
 class DeletionProposalNotificationService {
   final Ref _ref;
   late final NotificationManager _manager;
@@ -87,7 +81,6 @@ class DeletionProposalNotificationService {
     });
   }
 
-  // --- 所�?notify* 方法保持不变 ---
   Future<void> notifyProposalCreated({
     required String proposalId,
     required String phoneNumber,
@@ -284,7 +277,6 @@ class DeletionProposalNotificationService {
     );
   }
 
-  // --- 以下所有方法都与强类型兼容，无需修改 ---
   Future<void> showPendingProposalsNotification({
     required List<Proposal> proposals,
     required BuildContext context,
@@ -341,10 +333,6 @@ class DeletionProposalNotificationService {
     }
   }
 
-  // =======================================================================
-  // 【核心修正�? `_handleNotificationTap` 现在包含了完整的、基于您真实路由的跳转逻辑�?
-  // REASON: 这是实现“点击通知跳转”功能的核心，不再有任何假设�?
-  // =======================================================================
   void _handleNotificationTap(Map<String, dynamic> payload) {
     try {
       final notificationData = DeletionProposalNotificationData.fromJson(
@@ -354,22 +342,13 @@ class DeletionProposalNotificationService {
         'Deletion proposal notification tapped: ${notificationData.proposalId}',
       );
 
-      // 【MODIFIED�? 从您项目中真实存在的 `appRouterProvider` 获取 GoRouter 实例�?
       final router = _ref.read(appRouterProvider).router;
-
-      // 根据您提供的路由信息，基础路径�?'/deletion-proposal'
       const String deletionProposalPath = '/deletion-proposal';
 
-      // 根据通知类型决定跳转逻辑
       if (notificationData.proposalId.isNotEmpty &&
           notificationData.proposalId != 'pending_proposals') {
-        // 如果是针对某个具体提议的通知，跳转到该提议的详情页�?
-        // 根据您的路由结构，我们拼接子路由�?
-        // GoRouter �?`push` 方法会自动处理路径拼接�?
-        // 例如：router.push('/deletion-proposal/some_proposal_id')
         router.push('$deletionProposalPath/${notificationData.proposalId}');
       } else {
-        // 如果是“有待处理提议”的通用通知，直接跳转到提议列表页�?
         router.push(deletionProposalPath);
       }
     } catch (e) {
@@ -386,11 +365,12 @@ class DeletionProposalNotificationService {
   Future<void> clearAllDeletionProposalNotifications() async {
     final history = await _ref.read(notificationHistoryProvider.future);
     final proposalNotifications = history.where(
-      (item) => item.type == 'deletion_proposal',
+      (item) => (item as dynamic)?.type == 'deletion_proposal',
     );
     for (final notification in proposalNotifications) {
-      final proposalData = notification.payload?['data'];
-      if (proposalData is Map<String, dynamic>) {
+      final payloadMap = notification.payload;
+      if (payloadMap != null && payloadMap['data'] is Map<String, dynamic>) {
+        final proposalData = payloadMap['data'] as Map<String, dynamic>;
         final proposalId = proposalData['proposalId'] as String?;
         if (proposalId != null) {
           final notificationId = proposalId.hashCode;

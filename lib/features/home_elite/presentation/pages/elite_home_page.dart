@@ -3,16 +3,15 @@ import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
-import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_app_bar.dart';
-import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_community_judge_card.dart';
+import '../widgets/elite_app_bar.dart';
+import '../widgets/elite_community_judge_card.dart';
 import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
-import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_hero_shield_card.dart';
-import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_primary_filter_card.dart';
-import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_quick_capsules.dart';
-import 'package:yourcallyourrule/features/home_elite/presentation/widgets/elite_stats_insight_card.dart';
+import '../widgets/elite_hero_shield_card.dart';
+import '../widgets/elite_primary_filter_card.dart';
+import '../widgets/elite_quick_capsules.dart';
+import '../widgets/elite_stats_insight_card.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// Elite 多巴胺极简主页
 class EliteHomePage extends ConsumerStatefulWidget {
   const EliteHomePage({super.key});
 
@@ -47,12 +46,12 @@ class _EliteHomePageState extends ConsumerState<EliteHomePage> {
                 physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.only(bottom: 24),
                 child: Column(
-                  children: const [
-                    EliteHeroShieldCard(),
-                    ElitePrimaryFilterCard(),
-                    EliteCommunityJudgeCard(),
-                    EliteStatsInsightCard(),
-                    EliteQuickCapsules(),
+                  children: [
+                    const EliteHeroShieldCard(),
+                    const ElitePrimaryFilterCard(),
+                    const EliteCommunityJudgeCard(),
+                    const EliteStatsInsightCard(),
+                    const EliteQuickCapsules(),
                   ],
                 ),
               ),

@@ -6,7 +6,6 @@ class ImportExportService {
 
   ImportExportService(this._backupRestore);
 
-  /// 导出数据库为通用全表 JSON（tables�?
   Future<File> exportDatabaseJson({
     required String filePath,
     List<String>? includeTables,
@@ -20,7 +19,6 @@ class ImportExportService {
     return File(outPath);
   }
 
-  /// 从通用全表 JSON（tables）还�?
   Future<void> importDatabaseJson(
     File file, {
     List<String>? includeTables,

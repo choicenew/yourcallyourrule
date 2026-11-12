@@ -55,4 +55,4 @@ final class LocalPluginDataSourceProvider
 }
 
 String _$localPluginDataSourceHash() =>
-    r'58c34efb668469d80057f6e2d76dba844f92c7e6';
+    r'd7f0bb61cedc008d9f7d4e13960676afdf2f6b26';

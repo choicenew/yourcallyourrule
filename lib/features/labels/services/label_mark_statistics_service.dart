@@ -1,10 +1,8 @@
 import 'dart:async';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/labels/data/repositories/label_mark_statistics_repository.dart';
-import 'package:yourcallyourrule/features/labels/data/repositories/label_mark_statistics_repository.g.dart';
 
 part 'label_mark_statistics_service.g.dart';
 

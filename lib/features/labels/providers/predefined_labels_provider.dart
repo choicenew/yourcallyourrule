@@ -1,18 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/labels/repositories/predefined_label_repository.dart';
-import 'package:yourcallyourrule/data/repositories/predefined_label/predefined_label_repository_impl.dart';
+import 'package:yourcallyourrule/features/labels/data/repositories/predefined_label_repository_impl.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
-
-/// 预定义标签服务提供�?
 final predefinedLabelServiceProvider = Provider<PredefinedLabelService>((ref) {
   final repository = ref.watch(predefinedLabelRepositoryProvider);
   return PredefinedLabelService(repository);
 });
 
-
-/// 预定义标签数据状态的Notifier�?
 class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
   late final PredefinedLabelRepository _repository;
 
@@ -31,7 +27,6 @@ class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
     }
   }
 
-  /// 添加标签
   Future<void> addLabel(PredefinedLabel label) async {
     state = const AsyncValue.loading();
     try {
@@ -42,7 +37,6 @@ class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
     }
   }
 
-  /// 更新标签
   Future<void> updateLabel(PredefinedLabel label) async {
     state = const AsyncValue.loading();
     try {
@@ -53,7 +47,6 @@ class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
     }
   }
 
-  /// 删除标签
   Future<void> deleteLabel(String id) async {
     state = const AsyncValue.loading();
     try {
@@ -64,7 +57,6 @@ class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
     }
   }
 
-  /// 批量添加预定义标�?
   Future<void> addPredefinedLabels(List<Map<String, dynamic>> predefinedLabels) async {
     state = const AsyncValue.loading();
     try {
@@ -76,7 +68,6 @@ class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
     }
   }
   
-  /// 根据ID获取标签
   Future<PredefinedLabel?> getLabelById(String id) async {
     try {
       return await _repository.getById(id);
@@ -85,7 +76,6 @@ class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
     }
   }
   
-  /// 根据文本搜索标签
   Future<List<PredefinedLabel>> searchLabelsByText(String text) async {
     try {
       return await _repository.getByText(text);
@@ -95,12 +85,10 @@ class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
   }
 }
 
-/// 预定义标签数据提供�?
 final predefinedLabelsProvider = AsyncNotifierProvider<PredefinedLabelsNotifier, List<PredefinedLabel>>(() {
   return PredefinedLabelsNotifier();
 });
 
-/// 根据ID获取预定义标签的提供�?
 final predefinedLabelByIdProvider = FutureProvider.family<PredefinedLabel?, String>((ref, id) async {
   final notifier = ref.watch(predefinedLabelsProvider.notifier);
   return await notifier.getLabelById(id);

@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
 import 'package:yourcallyourrule/features/sync/providers/cloud_sync/cloud_config_provider.dart';
 import 'package:yourcallyourrule/features/sync/providers/cloud_sync/cloud_sync_provider.dart';
 import 'package:yourcallyourrule/features/sync/widgets/all_cloud_sync_status_section.dart';
 import 'package:yourcallyourrule/features/sync/widgets/cloud_sync_status_section.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/presentation/cloud/google_sign_in_test_page.dart';
-
-
-
-
-
-
+import 'package:yourcallyourrule/features/sync/pages/google_sign_in_test_page.dart';
 
 class CloudSettingsPage extends ConsumerWidget {
   const CloudSettingsPage({super.key});
@@ -21,7 +14,7 @@ class CloudSettingsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.grey[100], // A softer background color
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
         title: Text(
           AppLocalizations.of(context)!.cloudSyncTitle,
@@ -59,8 +52,6 @@ class CloudSettingsPage extends ConsumerWidget {
               ref,
             ),
             const SizedBox(height: 20),
-            nativeAdWidgetMedium(adWidth: 400, adHeight: 499),
-            const SizedBox(height: 20),
             _buildSectionTitle(context, 'Developer Options'),
             const SizedBox(height: 16),
             Card(
@@ -81,7 +72,7 @@ class CloudSettingsPage extends ConsumerWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => GoogleSignInTestPage(),
+                      builder: (context) => const GoogleSignInTestPage(),
                     ),
                   );
                 },
@@ -307,63 +298,64 @@ class CloudSettingsPage extends ConsumerWidget {
     Map<String, String> config,
   ) async {
     try {
-      // 显示加载指示�?
       showDialog(
         context: context,
         barrierDismissible: false,
         builder: (context) => const Center(child: CircularProgressIndicator()),
       );
 
-      // 获取WebDAV服务
       final webdavService = ProviderContainer().read(webdavSyncServiceProvider);
 
-      // 初始化服�?
       await webdavService.initialize({
         'server_url': config['server_url'],
         'username': config['username'],
         'password': config['password'],
       });
 
-      // 测试连接
       final result = await webdavService.connect({
         'server_url': config['server_url'],
         'username': config['username'],
         'password': config['password'],
       });
 
-      // 关闭加载指示�?
-      Navigator.of(context).pop();
+      if (context.mounted) {
+        Navigator.of(context).pop();
+      }
 
       if (result) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              AppLocalizations.of(context)!.connectionSuccessMessage,
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                AppLocalizations.of(context)!.connectionSuccessMessage,
+              ),
             ),
-          ),
-        );
+          );
+        }
       } else {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                AppLocalizations.of(
+                  context,
+                )!.connectionFailedCheckCredentialsMessage,
+              ),
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      if (context.mounted) {
+        Navigator.of(context).pop();
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              AppLocalizations.of(
-                context,
-              )!.connectionFailedCheckCredentialsMessage,
+              '${AppLocalizations.of(context)!.connectionFailedMessage}: $e',
             ),
           ),
         );
       }
-    } catch (e) {
-      // 关闭加载指示�?
-      Navigator.of(context).pop();
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            '${AppLocalizations.of(context)!.connectionFailedMessage}: $e',
-          ),
-        ),
-      );
     }
   }
 
@@ -373,66 +365,66 @@ class CloudSettingsPage extends ConsumerWidget {
     WidgetRef ref,
   ) async {
     try {
-      // 显示加载指示�?
       showDialog(
         context: context,
         barrierDismissible: false,
         builder: (context) => const Center(child: CircularProgressIndicator()),
       );
 
-      // 获取OneDrive服务
       final onedriveService = ProviderContainer().read(
         onedriveSyncServiceProvider,
       );
 
-      // 初始化服�?
       await onedriveService.initialize({
         'client_id': config['client_id'],
         'client_secret': config['client_secret'],
       });
 
-      // 测试连接
       final result = await onedriveService.connect({
         'client_id': config['client_id'],
         'client_secret': config['client_secret'],
       });
 
-      // 关闭加载指示�?
-      Navigator.of(context).pop();
+      if (context.mounted) {
+        Navigator.of(context).pop();
+      }
 
       if (result) {
-        // 设置为活动服�?
-        ref.read(activeSyncServiceProvider.notifier).state = onedriveService;
+        ref.read(activeSyncServiceProvider.notifier).setActiveService(onedriveService);
 
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              AppLocalizations.of(context)!.authorizationSuccessMessage,
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                AppLocalizations.of(context)!.authorizationSuccessMessage,
+              ),
             ),
-          ),
-        );
+          );
+        }
       } else {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                AppLocalizations.of(
+                  context,
+                )!.authorizationFailedCheckCredentialsMessage,
+              ),
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      if (context.mounted) {
+        Navigator.of(context).pop();
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              AppLocalizations.of(
-                context,
-              )!.authorizationFailedCheckCredentialsMessage,
+              '${AppLocalizations.of(context)!.authorizationFailedMessage}: $e',
             ),
           ),
         );
       }
-    } catch (e) {
-      // 关闭加载指示�?
-      Navigator.of(context).pop();
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            '${AppLocalizations.of(context)!.authorizationFailedMessage}: $e',
-          ),
-        ),
-      );
     }
   }
 
@@ -442,70 +434,68 @@ class CloudSettingsPage extends ConsumerWidget {
     WidgetRef ref,
   ) async {
     try {
-      // 显示加载指示�?
       showDialog(
         context: context,
         barrierDismissible: false,
         builder: (context) => const Center(child: CircularProgressIndicator()),
       );
 
-      // 获取Google Drive服务
       final googleDriveService = ProviderContainer().read(
         googleDriveSyncServiceProvider,
       );
 
-      // 初始化服�?
       await googleDriveService.initialize({
         'client_id': config['client_id'],
         'client_secret': config['client_secret'],
       });
 
-      // 测试连接
       final result = await googleDriveService.connect({
         'client_id': config['client_id'],
         'client_secret': config['client_secret'],
       });
 
-      // 关闭加载指示�?
-      Navigator.of(context).pop();
+      if (context.mounted) {
+        Navigator.of(context).pop();
+      }
 
       if (result) {
-        // 设置为活动服�?
-        ref.read(activeSyncServiceProvider.notifier).state = googleDriveService;
+        ref.read(activeSyncServiceProvider.notifier).setActiveService(googleDriveService);
 
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              AppLocalizations.of(context)!.authorizationSuccessMessage,
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                AppLocalizations.of(context)!.authorizationSuccessMessage,
+              ),
             ),
-          ),
-        );
+          );
+        }
       } else {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                AppLocalizations.of(
+                  context,
+                )!.authorizationFailedCheckCredentialsMessage,
+              ),
+            ),
+          );
+        }
+      }
+    } catch (e) {
+      if (context.mounted) {
+        Navigator.of(context).pop();
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              AppLocalizations.of(
-                context,
-              )!.authorizationFailedCheckCredentialsMessage,
+              '${AppLocalizations.of(context)!.authorizationFailedMessage}: $e',
             ),
           ),
         );
       }
-    } catch (e) {
-      // 关闭加载指示�?
-      Navigator.of(context).pop();
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            '${AppLocalizations.of(context)!.authorizationFailedMessage}: $e',
-          ),
-        ),
-      );
     }
   }
-
-
 
   Widget _buildTextField(
     BuildContext context, {
@@ -535,26 +525,6 @@ class CloudSettingsPage extends ConsumerWidget {
           horizontal: 20,
         ),
       ),
-    );
-  }
-
-  Widget _buildStatusRow(
-    BuildContext context,
-    IconData icon,
-    Color iconColor,
-    String text,
-  ) {
-    return Row(
-      children: [
-        Icon(icon, color: iconColor, size: 20),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Text(
-            text,
-            style: const TextStyle(color: Colors.white, fontSize: 16),
-          ),
-        ),
-      ],
     );
   }
 

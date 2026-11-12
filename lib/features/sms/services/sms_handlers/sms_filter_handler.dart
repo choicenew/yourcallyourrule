@@ -4,36 +4,29 @@ import 'package:yourcallyourrule/features/config/data/repositories/config_reposi
 
 import 'base_sms_handler.dart';
 
-/// SMS过滤处理�?
-/// 专门负责处理SMS过滤相关的逻辑
 class SmsFilterHandler extends BaseSmsHandler {
-  final List<SmsRegexRule> smsRules;
+  final List<SmsRegexRuleEntity> smsRules;
   bool isEnabled = false;
   final ConfigRepository _configRepository;
   
-  // 设置键名
   static const String smsFilterEnabledKey = 'config_sms_filter_enabled';
 
-  /// 构造函�?
   SmsFilterHandler({
-    List<SmsRegexRule>? initialRules,
+    List<SmsRegexRuleEntity>? initialRules,
     ConfigRepository? configRepository,
   }) : smsRules = initialRules ?? [],
        _configRepository = configRepository ?? SharedPreferencesConfigRepository();
 
-  /// 初始�?
   @override
   Future<void> initialize() async {
     await loadSettings();
   }
 
-  /// 加载设置
   Future<void> loadSettings() async {
     final config = await _configRepository.getConfig(smsFilterEnabledKey);
     isEnabled = config?['enabled'] as bool? ?? false;
   }
 
-  /// 设置是否启用过滤
   Future<void> setEnabled(bool enabled) async {
     if (isEnabled == enabled) return;
 
@@ -41,22 +34,19 @@ class SmsFilterHandler extends BaseSmsHandler {
     await _configRepository.saveConfig(smsFilterEnabledKey, {'enabled': enabled});
   }
 
-  /// 添加规则
-  void addRule(SmsRegexRule rule) {
+  void addRule(SmsRegexRuleEntity rule) {
     if (!smsRules.any((r) => r.id == rule.id)) {
       smsRules.add(rule);
     }
   }
 
-  /// 添加多个规则
-  void addRules(List<SmsRegexRule> rules) {
+  void addRules(List<SmsRegexRuleEntity> rules) {
     for (final rule in rules) {
       addRule(rule);
     }
   }
 
-  /// 更新规则
-  void updateRule(SmsRegexRule rule) {
+  void updateRule(SmsRegexRuleEntity rule) {
     final index = smsRules.indexWhere((r) => r.id == rule.id);
     if (index != -1) {
       smsRules[index] = rule;
@@ -65,50 +55,34 @@ class SmsFilterHandler extends BaseSmsHandler {
     }
   }
 
-  /// 删除规则
   void removeRule(String ruleId) {
     smsRules.removeWhere((rule) => rule.id == ruleId);
   }
 
-  /// 更新规则列表
-  Future<void> updateRules(List<SmsRegexRule> rules) async {
-    // 清空现有规则
+  Future<void> updateRules(List<SmsRegexRuleEntity> rules) async {
     smsRules.clear();
-    // 添加新规�?
     addRules(rules);
   }
 
-  /// 获取所有规�?
-  Future<List<SmsRegexRule>> getRules() async {
-    return List<SmsRegexRule>.from(smsRules);
+  Future<List<SmsRegexRuleEntity>> getRules() async {
+    return List<SmsRegexRuleEntity>.from(smsRules);
   }
 
-  /// 判断是否应该通知
   Future<bool> shouldNotify(String phoneNumber, String messageContent) async {
     if (!isEnabled) return true;
 
-    // 按优先级排序规则
-    smsRules.sort((a, b) => b.priority.value.compareTo(a.priority.value));
+    smsRules.sort((a, b) => b.priority.compareTo(a.priority));
     
-    // 遍历规则并检查匹�?
     for (final rule in smsRules) {
-      if (rule.matches(messageContent, phoneNumber)) {
-        // 根据规则动作类型决定是否通知
-        // 与CallFilterService保持一致，只有block和silence才阻止通知
-        switch (rule.action.type) {
-          case RuleActionType.allow:
-            return true;
-          case RuleActionType.block:
-          case RuleActionType.silence:
-            return false;
-          case RuleActionType.none:
-          default:
-            return true;
+      final reg = RegExp(rule.pattern);
+      if (reg.hasMatch(messageContent) || reg.hasMatch(phoneNumber)) {
+        if (rule.actionType == 'block' || rule.actionType == 'silence') {
+          return false;
         }
+        return true;
       }
     }
 
-    // 默认允许通知
     return true;
   }
 }

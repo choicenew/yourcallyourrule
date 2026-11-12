@@ -8,12 +8,9 @@ part of 'contact_repository_impl.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 联系人仓库提供者
 
 @ProviderFor(contactRepository)
 final contactRepositoryProvider = ContactRepositoryProvider._();
-
-/// 联系人仓库提供者
 
 final class ContactRepositoryProvider
     extends
@@ -23,7 +20,6 @@ final class ContactRepositoryProvider
           ContactRepository
         >
     with $Provider<ContactRepository> {
-  /// 联系人仓库提供者
   ContactRepositoryProvider._()
     : super(
         from: null,
@@ -58,4 +54,4 @@ final class ContactRepositoryProvider
   }
 }
 
-String _$contactRepositoryHash() => r'b9e4f58678ea80c68c53bbb9818db76fb7f301bd';
+String _$contactRepositoryHash() => r'44b268ac93d2b6c7ed4e8f4c61267e55c38dc506';

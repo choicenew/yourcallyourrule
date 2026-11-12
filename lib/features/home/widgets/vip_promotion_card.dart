@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/purchase/purchase_state.dart';
 
 class VipPromotionCard extends ConsumerWidget {
   const VipPromotionCard({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isVip = ref.watch(purchaseStateProvider.select((state) => state.isPurchasesEnabled));
+    final isVip = false;
 
     if (isVip) {
-      return const SizedBox.shrink(); // Don't show if user is VIP
+      return const SizedBox.shrink();
     }
 
     return Card(
@@ -62,10 +61,10 @@ class VipPromotionCard extends ConsumerWidget {
               ),
               const SizedBox(height: 8.0),
               Text(
-                AppLocalizations.of(context)!.monthlyMembershipDescription, // Using existing localization
+                AppLocalizations.of(context)!.monthlyMembershipDescription,
                 style: TextStyle(
                   fontSize: 16.0,
-                  color: Colors.white.withOpacity(0.9),
+                  color: Colors.white.withValues(alpha: 0.9),
                 ),
               ),
               const SizedBox(height: 20.0),
@@ -89,7 +88,7 @@ class VipPromotionCard extends ConsumerWidget {
                   },
                   icon: const Icon(Icons.arrow_forward),
                   label: Text(
-                    AppLocalizations.of(context)!.purchase, // Using existing localization
+                    AppLocalizations.of(context)!.purchase,
                     style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                 ),

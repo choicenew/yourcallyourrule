@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/adwidgets/native_ads.dart';
-import 'package:yourcallyourrule/ads/google_ad.dart';
 import 'package:yourcallyourrule/features/verification/presentation/widgets/verification_caller_id_card.dart';
 import 'package:yourcallyourrule/features/verification/presentation/widgets/verification_decision_hero.dart';
 import 'package:yourcallyourrule/features/verification/presentation/widgets/verification_input_card.dart';
@@ -15,8 +13,6 @@ import 'package:yourcallyourrule/features/verification/models/verification_state
 import 'package:yourcallyourrule/features/verification/providers/verification_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 号码验证与安全体检主页面
-/// 彻底解耦：仅负责 UI 拼装与状态绑定，所有 Service 和计算均由 VerificationNotifier 承接
 class VerificationPage extends ConsumerStatefulWidget {
   final String? initialPhoneNumber;
   const VerificationPage({super.key, this.initialPhoneNumber});
@@ -90,7 +86,6 @@ class _VerificationPageState extends ConsumerState<VerificationPage> {
     final verificationState = ref.watch(verificationProvider);
     final notifier = ref.read(verificationProvider.notifier);
 
-    // 监听错误提示
     ref.listen<VerificationState>(verificationProvider, (prev, next) {
       if (next.errorMessage != null && next.errorMessage != prev?.errorMessage) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -128,7 +123,7 @@ class _VerificationPageState extends ConsumerState<VerificationPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+            const AdsInlineBanner(),
             const SizedBox(height: 12),
             VerificationInputCard(
               countryCodeController: _countryCodeController,
@@ -180,9 +175,9 @@ class _VerificationPageState extends ConsumerState<VerificationPage> {
                 const SizedBox(height: 16),
               ],
             ],
-            const GoogleAdWidget(adInfo: AdManager.adaptiveBannerAd),
+            const AdsInlineBanner(),
             const SizedBox(height: 14),
-            nativeAdWidgetMedium(adWidth: 320, adHeight: 390),
+            const AdsInlineBanner(),
             const SizedBox(height: 24),
           ],
         ),

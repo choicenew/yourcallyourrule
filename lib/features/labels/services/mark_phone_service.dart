@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
@@ -40,7 +39,6 @@ class LabelPhoneService {
       avatar: avatar,
       icon: icon,
       priority: priority,
-      action: action,
       isEnabled: isEnabled,
     );
 

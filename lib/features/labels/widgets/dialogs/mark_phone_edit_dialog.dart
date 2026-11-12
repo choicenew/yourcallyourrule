@@ -4,10 +4,8 @@ import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
+import 'package:yourcallyourrule/features/phone_rules/services/rule_management_service.dart';
 
-/// 标记电话编辑对话�?
-/// 用于编辑标记电话条目
 class MarkPhoneEditDialog extends ConsumerStatefulWidget {
   final LabelPhoneEntry entry;
   final Function? onEntryUpdated;
@@ -23,7 +21,6 @@ class MarkPhoneEditDialog extends ConsumerStatefulWidget {
   @override
   ConsumerState<MarkPhoneEditDialog> createState() => _MarkPhoneEditDialogState();
 
-  /// 显示标记电话编辑对话框的静态方�?
   static void show(BuildContext context, LabelPhoneEntry entry, {Function? onEntryUpdated, Color? themeColor}) {
     showDialog(
       context: context,
@@ -58,7 +55,6 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
   }
 
   Future<void> _saveEntry() async {
-    // 验证输入
     if (_phoneController.text.isEmpty || _selectedLabelId == null || _selectedLabelId!.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -74,7 +70,6 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
     });
 
     try {
-      // 更新标记电话条目
       final updatedEntry = LabelPhoneEntry(
         id: widget.entry.id,
         name: _nameController.text,
@@ -84,19 +79,15 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
       );
 
       final ruleService = ref.read(ruleManagementServiceProvider);
-      // 使用保存方法而不是更新方�?
       await ruleService.saveRule(updatedEntry);
 
-      // 调用回调函数
       if (widget.onEntryUpdated != null) {
         widget.onEntryUpdated!();
       }
 
-      // 关闭对话�?
       if (mounted) {
         Navigator.pop(context);
 
-        // 显示成功提示
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(AppLocalizations.of(context)!.ruleUpdateSuccess),
@@ -105,11 +96,10 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
         );
       }
     } catch (e) {
-      // 显示错误提示
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content:Text(AppLocalizations.of(context)!.updateRuleFailed(e.toString())),
+            content: Text(AppLocalizations.of(context)!.updateRuleFailed(e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -179,7 +169,6 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
               keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: 12),
-            // 标签选择�?
             PublicSelectLabel(
               initialLabelId: _selectedLabelId,
               onLabelIdChanged: (labelId) {

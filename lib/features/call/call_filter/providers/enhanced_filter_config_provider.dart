@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart
 
 part 'enhanced_filter_config_provider.g.dart';
 
-/// 兼容 Map 包装器：支持 CallFilterType 和历�?String 键无缝读�?
+/// 兼容 Map 包装器
 class FilterEnabledCompatMap with MapMixin<dynamic, bool> {
   final Map<CallFilterType, bool> _inner;
   FilterEnabledCompatMap(this._inner);
@@ -37,11 +37,9 @@ class FilterEnabledCompatMap with MapMixin<dynamic, bool> {
   bool? remove(Object? key) => throw UnsupportedError('Read-only map');
 }
 
-/// 状态模型，封装 Enhanced Filter 的所有配置（完全强类型驱动）
+/// 状态模型
 class EnhancedFilterConfigState {
-  // 全局过滤器启用状�?
   final Map<CallFilterType, bool> _filterEnabledMap;
-  // SIM卡槽位特定过滤器配置
   final Map<int, Map<CallFilterType, bool>> simSlotFilterConfigMap;
 
   const EnhancedFilterConfigState({
@@ -49,10 +47,8 @@ class EnhancedFilterConfigState {
     this.simSlotFilterConfigMap = const {},
   }) : _filterEnabledMap = filterEnabledMap;
 
-  /// 强类�?Map 获取
   Map<CallFilterType, bool> get typedFilterEnabledMap => _filterEnabledMap;
 
-  /// 兼容 Map 获取（支�?CallFilterType �?String�?
   FilterEnabledCompatMap get filterEnabledMap => FilterEnabledCompatMap(_filterEnabledMap);
 
   EnhancedFilterConfigState copyWith({
@@ -77,7 +73,6 @@ class EnhancedFilterConfigNotifier extends _$EnhancedFilterConfigNotifier {
     for (final type in CallFilterType.values) {
       if (type.name == key) return type;
     }
-    // 兼容历史类名字符串持久化数据
     switch (key) {
       case 'CallFilterService': return CallFilterType.basicRule;
       case 'LocalCountFilterService': return CallFilterType.localCount;
@@ -90,7 +85,6 @@ class EnhancedFilterConfigNotifier extends _$EnhancedFilterConfigNotifier {
 
   @override
   Future<EnhancedFilterConfigState> build() async {
-    // 并行加载两个配置
     final results = await Future.wait([
       _configRepo.getConfig(_filterEnabledMapKey),
       _configRepo.getConfig(_simSlotFilterConfigKey),
@@ -151,8 +145,6 @@ class EnhancedFilterConfigNotifier extends _$EnhancedFilterConfigNotifier {
       return newState;
     });
   }
-
-  // --- 强类型与向后兼容的更新方�?---
 
   Future<void> enableFilter(dynamic filter) async {
     final type = filter is CallFilterType ? filter : parseFilterType(filter.toString());

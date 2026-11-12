@@ -5,7 +5,7 @@ import 'package:uuid/uuid.dart';
 import 'package:drift/drift.dart' hide Column;
 import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
-import 'package:yourcallyourrule/data/models/sync/sync_operation_type.dart';
+import 'package:yourcallyourrule/features/sync/services/cloud_sync/sync_progress_tracker.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/data/proposal_datasource.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';
@@ -303,7 +303,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     );
 
     await logCustomOperation(
-      operation: SyncOperationType.proposeDeletion.toRawString(),
+      operation: 'proposeDeletion',
       phoneNumber: phoneNumber,
       payload: syncPayload.toJson(),
     );
@@ -322,7 +322,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     );
 
     await logCustomOperation(
-      operation: SyncOperationType.voteDeletion.toRawString(),
+      operation: 'voteDeletion',
       phoneNumber: phoneNumber,
       payload: syncPayload.toJson(),
     );
@@ -332,7 +332,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
   Future<List<Map<String, dynamic>>>
   getPendingDeletionProposalOperations() async {
     final rows = await (_db.select(_db.pendingOperations)
-          ..where((t) => t.operation.equals(SyncOperationType.proposeDeletion.toRawString()))
+          ..where((t) => t.operation.equals('proposeDeletion'))
           ..orderBy([(t) => OrderingTerm.asc(t.timestamp)]))
         .get();
     return rows.map((r) => r.toOperationMap()).toList();
@@ -341,7 +341,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
   @override
   Future<List<Map<String, dynamic>>> getPendingDeletionVotes() async {
     final rows = await (_db.select(_db.pendingOperations)
-          ..where((t) => t.operation.equals(SyncOperationType.voteDeletion.toRawString()))
+          ..where((t) => t.operation.equals('voteDeletion'))
           ..orderBy([(t) => OrderingTerm.asc(t.timestamp)]))
         .get();
     return rows.map((r) => r.toOperationMap()).toList();
@@ -350,7 +350,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
   @override
   Future<bool> hasPendingDeletionProposal(String phoneNumber) async {
     final row = await (_db.select(_db.pendingOperations)
-          ..where((t) => t.operation.equals(SyncOperationType.proposeDeletion.toRawString()))
+          ..where((t) => t.operation.equals('proposeDeletion'))
           ..where((t) => t.entityId.equals(phoneNumber)))
         .getSingleOrNull();
     return row != null;
@@ -361,8 +361,8 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     await (_db.delete(_db.pendingOperations)
           ..where((t) => t.entityId.equals(phoneNumber))
           ..where((t) => t.operation.isIn([
-                SyncOperationType.proposeDeletion.toRawString(),
-                SyncOperationType.voteDeletion.toRawString(),
+                'proposeDeletion',
+                'voteDeletion',
               ])))
         .go();
   }
@@ -381,7 +381,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     try {
       final row = await (_db.select(_db.pendingOperations)
             ..where((t) => t.entityId.equals(phoneNumber))
-            ..where((t) => t.operation.equals(SyncOperationType.proposeDeletion.toRawString())))
+            ..where((t) => t.operation.equals('proposeDeletion')))
           .getSingleOrNull();
 
       if (row != null) {
@@ -398,7 +398,7 @@ class ProposalDataSourceImpl implements ProposalDataSource {
 
   @override
   Future<List<MyProposalHistoryItem>> getMyProposalHistory(String deviceId) async {
-    final proposeDeletionOpStr = SyncOperationType.proposeDeletion.toRawString();
+    final proposeDeletionOpStr = 'proposeDeletion';
 
     final submissions = await (_db.select(_db.proposalSubmissions)
           ..where((t) => t.proposerId.equals(deviceId))

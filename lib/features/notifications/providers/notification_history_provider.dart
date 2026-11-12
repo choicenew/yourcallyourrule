@@ -2,7 +2,7 @@
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/notifications/service/notification_history_service.dart';
-import 'package:yourcallyourrule/data/models/notification_item.dart';
+import 'package:yourcallyourrule/features/notifications/data/models/notification_item.dart';
 
 
 

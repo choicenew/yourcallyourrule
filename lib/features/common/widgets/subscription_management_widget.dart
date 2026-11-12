@@ -1,42 +1,19 @@
 import 'package:flutter/material.dart';
 
-
 import 'package:yourcallyourrule/features/phone_subscription/services/subscription_service_base.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通用订阅管理组件
-/// 用于处理各种类型的订阅管理，包括加载、启�?禁用、更新、删除订阅等功能
-/// [T] 是订阅实体类�?
-/// [ID] 是实体ID类型
-class SubscriptionManagementWidget<T extends BaseEntity, ID> extends StatefulWidget {
-  /// 订阅服务
+class SubscriptionManagementWidget<T, ID> extends StatefulWidget {
   final SubscriptionServiceBase<T, ID> subscriptionService;
-  
-  /// 订阅列表
   final List<T> subscriptions;
-  
-  /// 是否正在加载
   final bool isLoading;
-  
-  /// 加载订阅的回�?
   final Future<void> Function() onLoadSubscriptions;
-  
-  /// 构建订阅卡片的回�?
   final Widget Function(T subscription) buildSubscriptionCard;
-  
-  /// 构建信息卡片的回�?
   final Widget Function() buildInfoCard;
-  
-  /// 添加订阅的回�?
   final void Function() onAddSubscription;
-  
-  /// 页面标题
   final String title;
-  
-  /// 空状态图�?
   final IconData emptyIcon;
-  
-  /// 空状态文�?
   final String emptyText;
 
   const SubscriptionManagementWidget({
@@ -57,7 +34,7 @@ class SubscriptionManagementWidget<T extends BaseEntity, ID> extends StatefulWid
   State<SubscriptionManagementWidget<T, ID>> createState() => SubscriptionManagementWidgetState<T, ID>();
 }
 
-class SubscriptionManagementWidgetState<T extends BaseEntity, ID> extends State<SubscriptionManagementWidget<T, ID>> {
+class SubscriptionManagementWidgetState<T, ID> extends State<SubscriptionManagementWidget<T, ID>> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,7 +90,6 @@ class SubscriptionManagementWidgetState<T extends BaseEntity, ID> extends State<
     );
   }
 
-  /// 切换订阅状态（启用/禁用�?
   Future<void> toggleSubscriptionStatus(T subscription, bool isEnabled) async {
     try {
       if (isEnabled) {
@@ -131,7 +107,6 @@ class SubscriptionManagementWidgetState<T extends BaseEntity, ID> extends State<
     }
   }
 
-  /// 更新订阅
   Future<void> updateSubscription(T subscription, Future<void> Function(T) updateFunction) async {
     try {
       await updateFunction(subscription);
@@ -151,7 +126,6 @@ class SubscriptionManagementWidgetState<T extends BaseEntity, ID> extends State<
     }
   }
 
-  /// 删除订阅
   Future<void> deleteSubscription(T subscription) async {
     final confirmed = await showDialog<bool>(
       context: context,
@@ -173,7 +147,7 @@ class SubscriptionManagementWidgetState<T extends BaseEntity, ID> extends State<
 
     if (confirmed == true) {
       try {
-        await widget.subscriptionService.deleteSubscription(subscription.id as ID);
+        await widget.subscriptionService.disableSubscription(subscription);
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionDeleteSuccess)),

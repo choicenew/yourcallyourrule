@@ -8,18 +8,18 @@ part of 'device_id_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// DeviceIdService Provider
+/// DeviceIdService Provider (主 App 极简设备服务兼容层)
 
 @ProviderFor(deviceIdService)
 final deviceIdServiceProvider = DeviceIdServiceProvider._();
 
-/// DeviceIdService Provider
+/// DeviceIdService Provider (主 App 极简设备服务兼容层)
 
 final class DeviceIdServiceProvider
     extends
         $FunctionalProvider<DeviceIdService, DeviceIdService, DeviceIdService>
     with $Provider<DeviceIdService> {
-  /// DeviceIdService Provider
+  /// DeviceIdService Provider (主 App 极简设备服务兼容层)
   DeviceIdServiceProvider._()
     : super(
         from: null,

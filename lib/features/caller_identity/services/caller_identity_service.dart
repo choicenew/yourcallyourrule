@@ -8,7 +8,6 @@ import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:yourcallyourrule/features/common/error/logger.dart';
-import 'package:yourcallyourrule/features/phone/utils/phone_utils.dart';
 import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
@@ -18,78 +17,69 @@ import 'package:pyro_phone_remote_filter_protocol/pyro_phone_remote_filter_proto
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart' as vo;
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
+import 'package:yourcallyourrule/features/phone_rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
-import 'package:yourcallyourrule/features/location/services/location_service.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
-import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
+import 'package:yourcallyourrule/features/location/services/location_service.dart';
 
 part 'caller_identity_service.g.dart';
 
 @Riverpod(keepAlive: true)
 CallerIdentityService callerIdentityService(Ref ref) {
-  final pluginService = ref.watch(pluginManagerServiceProvider);
   final contactService = ref.watch(contactServiceProvider);
   final ruleManagementService = ref.watch(ruleManagementServiceProvider);
   final labelService = ref.watch(labelServiceProvider);
-  final locationService = ref.watch(locationServiceProvider);
   final predefinedLabelService = ref.watch(predefinedLabelServiceProvider);
   final remoteNumberService = ref.watch(remoteNumberServiceProvider);
+  final locationService = ref.watch(locationServiceProvider);
 
   return CallerIdentityService(
-    pluginService: pluginService,
     contactService: contactService,
     ruleManagementService: ruleManagementService,
     labelService: labelService,
-    locationService: locationService,
     predefinedLabelService: predefinedLabelService,
     remoteNumberService: remoteNumberService,
+    locationService: locationService,
   );
 }
 
-/// 生产级标准来电身份画像聚合服务
 class CallerIdentityService {
+  final ContactService _contactService;
+  final RuleManagementService _ruleManagementService;
+  final LabelService _labelService;
+  final PredefinedLabelService _predefinedLabelService;
+  final RemoteNumberService _remoteNumberService;
+  final LocationService _locationService;
+
+  final BehaviorSubject<PluginSourceData> _pluginDataSubject = BehaviorSubject<PluginSourceData>();
+  final BehaviorSubject<CallerIdData> _callerIdSubject = BehaviorSubject<CallerIdData>();
+  final BehaviorSubject<LabelPhoneEntry> _labelPhoneEntrySubject = BehaviorSubject<LabelPhoneEntry>();
+
   CallerIdentityService({
-    required PluginManagerService pluginService,
     required ContactService contactService,
     required RuleManagementService ruleManagementService,
     required LabelService labelService,
-    required LocationService locationService,
     required PredefinedLabelService predefinedLabelService,
     required RemoteNumberService remoteNumberService,
+    required LocationService locationService,
   })  : _contactService = contactService,
         _ruleManagementService = ruleManagementService,
         _labelService = labelService,
-        _locationService = locationService,
         _predefinedLabelService = predefinedLabelService,
-        _pluginService = pluginService,
-        _remoteNumberService = remoteNumberService;
-
-  final RuleManagementService _ruleManagementService;
-  final _callerIdSubject = BehaviorSubject<CallerIdData>();
-  final ContactService _contactService;
-  final _labelPhoneEntrySubject = BehaviorSubject<LabelPhoneEntry>();
-  final LabelService _labelService;
-  final LocationService _locationService;
-  final _pluginDataSubject = BehaviorSubject<PluginSourceData>();
-  final PluginManagerService _pluginService;
-  final PredefinedLabelService _predefinedLabelService;
-  final RemoteNumberService _remoteNumberService;
+        _remoteNumberService = remoteNumberService,
+        _locationService = locationService;
 
   Stream<PluginSourceData> get pluginDataStream => _pluginDataSubject.stream;
   Stream<CallerIdData> get callerIdStream => _callerIdSubject.stream;
   Stream<LabelPhoneEntry> get labelPhoneEntryStream => _labelPhoneEntrySubject.stream;
 
   Future<CallerIdData> getCallerId(String phoneNumber, Locale locale) async {
-    final parsed = await PhoneUtils.parsePhoneNumberWithIsoEntity(
-      phoneNumber,
-      locale.countryCode ?? 'US',
-    );
+    final e164 = phoneNumber.startsWith('+') ? phoneNumber : '+$phoneNumber';
     return getCallerIdWithParsed(
       phoneNumber,
-      parsed.e164Number,
-      parsed.nationalNumber,
+      e164,
+      phoneNumber,
       locale,
     );
   }
@@ -122,10 +112,11 @@ class CallerIdentityService {
       if (localContact != null) break;
     }
 
-    final finalContact = await _contactService.findContactByPhoneNumber(vo.PhoneNumber.fromString(phoneNumber));
-    final allRules = await _ruleManagementService.getRulesByPhoneNumber(vo.PhoneNumber.fromString(phoneNumber));
-    final labelEntry = await _labelService.getLabelByPhoneNumber(vo.PhoneNumber.fromString(phoneNumber));
-    final remoteNumberEntry = await _remoteNumberService.getRemoteNumberByPhoneNumber(vo.PhoneNumber.fromString(e164Number));
+    final voPhone = vo.PhoneNumber.fromString(phoneNumber);
+    final finalContact = await _contactService.findContactByPhoneNumber(voPhone);
+    final allRules = await _ruleManagementService.getRulesByPhoneNumber(voPhone);
+    final labelEntry = await _labelService.getLabelByPhoneNumber(phoneNumber);
+    final remoteNumberEntry = await _remoteNumberService.getRemoteNumberByPhoneNumber(voPhone);
     final locationData = await _locationService.getCallerLocation(e164Number, locale);
 
     PhoneRuleEntity? phoneRule;
@@ -139,7 +130,7 @@ class CallerIdentityService {
 
     final callerIdData = CallerIdData(
       phoneNumber: e164Number.isNotEmpty ? e164Number : phoneNumber,
-      name: localContact?.displayName ?? finalContact?.name ?? phoneRule?.name ?? remoteNumberEntry?.phoneNumber,
+      name: localContact?.displayName ?? finalContact?.displayName ?? phoneRule?.name ?? remoteNumberEntry?.phoneNumber,
       region: locationData?.region,
       countryName: locationData?.countryName,
       carrier: locationData?.carrier,
@@ -154,8 +145,8 @@ class CallerIdentityService {
   }
 
   void dispose() {
-    _callerIdSubject.close();
     _pluginDataSubject.close();
+    _callerIdSubject.close();
     _labelPhoneEntrySubject.close();
   }
 }

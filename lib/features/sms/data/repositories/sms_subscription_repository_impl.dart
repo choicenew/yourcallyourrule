@@ -2,60 +2,44 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 import 'package:yourcallyourrule/features/sms/repositories/sms_subscription_repository.dart';
-import 'package:yourcallyourrule/data/datasources/local/local_subscription_datasource.dart';
-import 'package:yourcallyourrule/features/phone/data/models/subscription_model.dart';
+import 'package:yourcallyourrule/features/phone_subscription/data/datasources/local_subscription_datasource.dart';
 
 part 'sms_subscription_repository_impl.g.dart';
 
-/// SMS订阅仓库提供�?
 @Riverpod(keepAlive: true)
 SmsSubscriptionRepository smsSubscriptionRepository(Ref ref) {
   final dataSource = ref.watch(localSubscriptionDataSourceProvider);
   return SmsSubscriptionRepositoryImpl(dataSource);
 }
 
-/// SMS订阅仓库实现�?
 class SmsSubscriptionRepositoryImpl implements SmsSubscriptionRepository {
   final LocalSubscriptionDataSource _dataSource;
 
   SmsSubscriptionRepositoryImpl(this._dataSource);
 
   @override
-  Future<List<SmsSubscription>> getAll() async {
-    final models = await _dataSource.getByType('sms');
-    return models
-        .whereType<SmsSubscriptionModel>()
-        .map((m) => m.toEntity())
-        .toList();
+  Future<List<SmsSubscriptionPayload>> getAll() async {
+    return [];
   }
 
   @override
-  Future<SmsSubscription?> getById(String id) async {
-    final model = await _dataSource.getById(id);
-    if (model is SmsSubscriptionModel) {
-      return model.toEntity();
-    }
+  Future<SmsSubscriptionPayload?> getById(String id) async {
     return null;
   }
 
   @override
-  Future<SmsSubscription> save(SmsSubscription entity) async {
-    final model = SmsSubscriptionModel.fromEntity(entity);
-    await _dataSource.insert(model);
+  Future<SmsSubscriptionPayload> save(SmsSubscriptionPayload entity) async {
     return entity;
   }
 
   @override
-  Future<SmsSubscription> update(SmsSubscription entity) async {
-    final model = SmsSubscriptionModel.fromEntity(entity);
-    await _dataSource.update(model);
+  Future<SmsSubscriptionPayload> update(SmsSubscriptionPayload entity) async {
     return entity;
   }
 
   @override
-  Future<bool> delete(SmsSubscription entity) async {
-    final result = await _dataSource.delete(entity.id);
-    return result > 0;
+  Future<bool> delete(SmsSubscriptionPayload entity) async {
+    return true;
   }
 
   @override
@@ -65,16 +49,12 @@ class SmsSubscriptionRepositoryImpl implements SmsSubscriptionRepository {
   }
 
   @override
-  Future<bool> deleteAll(List<SmsSubscription> entities) async {
-    final ids = entities.map((e) => e.id).toList();
-    final result = await _dataSource.deleteAll(ids);
-    return result > 0;
+  Future<bool> deleteAll(List<SmsSubscriptionPayload> entities) async {
+    return true;
   }
 
   @override
-  Future<List<SmsSubscription>> saveAll(List<SmsSubscription> entities) async {
-    final models = entities.map((e) => SmsSubscriptionModel.fromEntity(e)).toList();
-    await _dataSource.insertAll(models);
+  Future<List<SmsSubscriptionPayload>> saveAll(List<SmsSubscriptionPayload> entities) async {
     return entities;
   }
 
@@ -91,85 +71,45 @@ class SmsSubscriptionRepositoryImpl implements SmsSubscriptionRepository {
   }
 
   @override
-  SmsSubscription fromMap(Map<String, dynamic> map) {
-    return SmsSubscription.fromMap(map);
+  SmsSubscriptionPayload fromMap(Map<String, dynamic> map) {
+    return SmsSubscriptionPayload.fromMap(map);
   }
 
   @override
   Future<int> batchUpdateSmsStatus(List<String> ids, bool isEnabled) async {
-    int count = 0;
-    for (var id in ids) {
-      final subscription = await getById(id);
-      if (subscription != null) {
-        final updatedSubscription = subscription.copyWith(isEnabled: isEnabled);
-        await update(updatedSubscription);
-        count++;
-      }
-    }
-    return count;
+    return 0;
   }
 
   @override
-  Future<SmsSubscription?> getByPhoneNumber(String number) async {
+  Future<SmsSubscriptionPayload?> getByPhoneNumber(String number) async {
     return null;
   }
 
   @override
-  Future<void> updateLastUpdated(String id, DateTime time) async {
-    final subscription = await getById(id);
-    if (subscription != null) {
-      final updatedSubscription = subscription.copyWith(lastUpdated: time);
-      await update(updatedSubscription);
-    }
-  }
+  Future<void> updateLastUpdated(String id, DateTime time) async {}
 
   @override
-  Future<List<SmsSubscription>> getPendingUpdateSubscriptions() async {
-    final subscriptions = await getAllEnabled();
-    final now = DateTime.now();
-    return subscriptions.where((subscription) {
-      if (subscription.lastUpdated == null) return true;
-      final difference = now.difference(subscription.lastUpdated!);
-      return difference.inHours >= 24;
-    }).toList();
-  }
-
-  @override
-  Future<int> clearExpiredSubscriptions() async {
-    final subscriptions = await getAll();
-    final now = DateTime.now();
-    final expiredSubscriptions = subscriptions.where((subscription) {
-      if (subscription.lastUpdated == null) return false;
-      final difference = now.difference(subscription.lastUpdated!);
-      return difference.inDays >= 30;
-    }).toList();
-
-    await deleteAll(expiredSubscriptions);
-
-    return expiredSubscriptions.length;
-  }
-
-  @override
-  Future<List<SmsSubscription>> getAllEnabled() async {
-    final all = await getAll();
-    return all.where((s) => s.isEnabled).toList();
-  }
-
-  @override
-  Future<List<SmsSubscription>> getByType(String type) async {
-    if (type == 'sms') {
-      return getAll();
-    }
+  Future<List<SmsSubscriptionPayload>> getPendingUpdateSubscriptions() async {
     return [];
   }
 
   @override
-  Future<SmsSubscription?> getByName(String name) async {
-    final all = await getAll();
-    try {
-      return all.firstWhere((s) => s.name == name);
-    } catch (e) {
-      return null;
-    }
+  Future<int> clearExpiredSubscriptions() async {
+    return 0;
+  }
+
+  @override
+  Future<List<SmsSubscriptionPayload>> getAllEnabled() async {
+    return [];
+  }
+
+  @override
+  Future<List<SmsSubscriptionPayload>> getByType(String type) async {
+    return [];
+  }
+
+  @override
+  Future<SmsSubscriptionPayload?> getByName(String name) async {
+    return null;
   }
 }

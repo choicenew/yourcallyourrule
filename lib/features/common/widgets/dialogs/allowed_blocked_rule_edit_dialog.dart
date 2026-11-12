@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
+import 'package:yourcallyourrule/features/phone_rules/services/allowed_blocked_service.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
-
-import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
+import 'package:yourcallyourrule/features/phone_rules/widgets/rule_action_selector.dart';
+import 'package:yourcallyourrule/features/phone_rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-/// 允许/阻止规则编辑对话�?/// 用于编辑允许/阻止规则
-/// Used to edit allowed/blocked rules
+
 class AllowedBlockedRuleEditDialog extends ConsumerStatefulWidget {
-  final AllowedBlockedRule rule;
+  final PhoneRuleEntity rule;
   final Function? onRuleUpdated;
   final Color? themeColor;
 
@@ -23,10 +21,10 @@ class AllowedBlockedRuleEditDialog extends ConsumerStatefulWidget {
 
   @override
   ConsumerState<AllowedBlockedRuleEditDialog> createState() => _AllowedBlockedRuleEditDialogState();
-  /// 显示允许/阻止规则编辑对话框的静态方�?  /// Static method to show the Allowed/Blocked Rule Edit Dialog
+
   static void show(
     BuildContext context,
-    AllowedBlockedRule rule, {
+    PhoneRuleEntity rule, {
     Function? onRuleUpdated,
     Color? themeColor,
   }) {
@@ -36,7 +34,6 @@ class AllowedBlockedRuleEditDialog extends ConsumerStatefulWidget {
         rule: rule,
         onRuleUpdated: onRuleUpdated,
         themeColor: themeColor,
-
       ),
     );
   }
@@ -46,16 +43,16 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
   late TextEditingController _nameController;
   late TextEditingController _phoneController;
   String? _selectedLabelId;
-  late var _selectedAction;
+  String _selectedActionType = 'allow';
   bool _isProcessing = false;
 
   @override
   void initState() {
     super.initState();
     _nameController = TextEditingController(text: widget.rule.name);
-    _phoneController = TextEditingController(text: widget.rule.phoneNumber.toString());
+    _phoneController = TextEditingController(text: widget.rule.phoneNumber ?? '');
     _selectedLabelId = widget.rule.labelId;
-    _selectedAction = widget.rule.action;
+    _selectedActionType = widget.rule.actionType;
   }
 
   @override
@@ -66,7 +63,6 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
   }
 
   Future<void> _saveRule() async {
-    // 验证输入
     if (_nameController.text.isEmpty || _phoneController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -82,28 +78,22 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
     });
 
     try {
-      // 更新规则
-      final updatedRule = AllowedBlockedRule(
-        id: widget.rule.id,
+      final updatedRule = widget.rule.copyWith(
         name: _nameController.text,
-        phoneNumber: PhoneNumber.fromString(_phoneController.text),
+        phoneNumber: _phoneController.text,
         labelId: _selectedLabelId ?? '',
-        action: _selectedAction,
-        isEnabled: widget.rule.isEnabled,
+        actionType: _selectedActionType,
       );
 
       final service = ref.read(allowedBlockedServiceProvider);
       await service.updateAllowedBlockedRule(updatedRule);
 
-      // 调用回调函数
       if (widget.onRuleUpdated != null) {
         widget.onRuleUpdated!();
       }
 
-      // 关闭对话�?      if (mounted) {
+      if (mounted) {
         Navigator.pop(context);
-
-        // 显示成功提示
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(AppLocalizations.of(context)!.ruleUpdateSuccess),
@@ -112,7 +102,6 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
         );
       }
     } catch (e) {
-      // 显示错误提示
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -153,15 +142,6 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
-                ),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               ),
             ),
             const SizedBox(height: 12),
@@ -173,15 +153,6 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
-                ),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               ),
               keyboardType: TextInputType.phone,
             ),
@@ -193,16 +164,16 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
                   _selectedLabelId = labelId;
                 });
               },
-              themeColor: widget.themeColor,
+              themeColor: widget.themeColor ?? theme.primaryColor,
             ),
             const SizedBox(height: 12),
             RuleActionSelector(
-              initialAction: _selectedAction,
+              initialAction: RuleActionDisplayUtils.parseActionType(_selectedActionType),
               showAd: false,
               padding: EdgeInsets.zero,
               onActionChanged: (action) {
                 setState(() {
-                  _selectedAction = action;
+                  _selectedActionType = action.type.name;
                 });
               },
             ),

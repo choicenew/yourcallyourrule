@@ -31,7 +31,7 @@ class CallLogSyncService {
   /// 同步系统通话记录
   Future<int> syncSystemCallLogs() async {
     try {
-      final hasPermission = await _systemCallLogService.hasCallLogPermission();
+      final hasPermission = await _systemCallLogService.hasPermission();
       if (!hasPermission) {
         debugPrint('没有读取通话记录权限，跳过后台同步');
         return 0;
@@ -48,7 +48,7 @@ class CallLogSyncService {
 
   Future<int> requestPermissionAndSync() async {
     try {
-      final granted = await _systemCallLogService.requestCallLogPermission();
+      final granted = await _systemCallLogService.requestPermission();
       if (!granted) {
         debugPrint('用户拒绝了读取通话记录权限');
         return 0;

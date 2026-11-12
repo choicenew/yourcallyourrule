@@ -20,7 +20,7 @@ class AllowedBlockedPage extends ConsumerWidget {
       builder: (context, snapshot) {
         final rules = snapshot.data ?? [];
         return GenericListWithAdsPage<PhoneRuleEntity>(
-          title: l10n.allowedBlockedList,
+          title: l10n.allowedBlockedRuleManagement,
           items: rules,
           emptyText: l10n.noData,
           adInterval: 3,

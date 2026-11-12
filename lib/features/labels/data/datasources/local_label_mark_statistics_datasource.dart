@@ -2,14 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/data/database/database_service.dart';
-import 'package:yourcallyourrule/data/models/label_mark_statistics_model.dart';
 
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
-import 'package:yourcallyourrule/features/labels/data/datasource_interface.dart';
+import 'package:yourcallyourrule/features/labels/domain/label_mark_record_model.dart';
 
 part 'local_label_mark_statistics_datasource.g.dart';
 
@@ -19,18 +16,15 @@ LocalLabelMarkStatisticsDataSource localLabelMarkStatisticsDataSource(Ref ref) {
   return LocalLabelMarkStatisticsDataSource(db);
 }
 
-class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRecordModel> {
+class LocalLabelMarkStatisticsDataSource {
   final LocalDatabase _db;
   final Uuid _uuid = const Uuid();
 
-  // Stream controller for mark count changes
   final StreamController<int> _markCountController = StreamController<int>.broadcast();
-  // Subscription to user mark count table changes
   StreamSubscription<UserMarkCountData?>? _userMarkCountSubscription;
   bool _disposed = false;
 
   LocalLabelMarkStatisticsDataSource(this._db) {
-    // Listen to changes in the user mark count table and update the stream
     _userMarkCountSubscription = _db
         .select(_db.userMarkCount)
         .watchSingleOrNull()
@@ -41,14 +35,12 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
         }
       },
       onError: (error, stackTrace) {
-        print('Error listening to user mark count changes: $error');
       },
     );
   }
 
   Stream<int> get markCountStream => _markCountController.stream;
 
-  // Helper to convert from Drift data class to model
   LabelMarkRecordModel _fromRecordData(LabelMarkStatisticData data) {
     return LabelMarkRecordModel(
       id: data.id,
@@ -59,7 +51,6 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
     );
   }
 
-  // Helper to convert from model to Drift companion
   LabelMarkStatisticsCompanion _toRecordCompanion(LabelMarkRecordModel model) {
     return LabelMarkStatisticsCompanion(
       id: Value(model.id),
@@ -72,20 +63,18 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
 
   Future<bool> recordMark(String phoneNumber, String labelId) async {
     if (labelId.toLowerCase() == 'unknown') {
-      return false; // Do not record unknown labels
+      return false;
     }
 
-    // Check if the number has already been marked
     final existingMark = await (_db.select(_db.labelMarkStatistics)
           ..where((tbl) => tbl.phoneNumber.equals(phoneNumber)))
         .getSingleOrNull();
 
     if (existingMark != null) {
-      return false; // Already marked
+      return false;
     }
 
     await _db.transaction(() async {
-      // Record the new mark
       final markId = _uuid.v4();
       await _db.into(_db.labelMarkStatistics).insert(LabelMarkStatisticsCompanion.insert(
             id: markId,
@@ -95,7 +84,6 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
             isCounted: const Value(1),
           ));
 
-      // Increment the user mark count
       final countRecord = await (_db.select(_db.userMarkCount)..limit(1)).getSingleOrNull();
       if (countRecord != null) {
         final newCount = (countRecord.totalCount) + 1;
@@ -128,19 +116,16 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
      }
   }
 
-  @override
   Future<List<LabelMarkRecordModel>> getAll() async {
     final data = await _db.select(_db.labelMarkStatistics).get();
     return data.map(_fromRecordData).toList();
   }
 
-  @override
   Future<LabelMarkRecordModel?> getById(String id) async {
     final data = await (_db.select(_db.labelMarkStatistics)..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
     return data != null ? _fromRecordData(data) : null;
   }
 
-  @override
   Future<String> insert(LabelMarkRecordModel item) async {
     final id = item.id.isEmpty ? _uuid.v4() : item.id;
     final companion = _toRecordCompanion(item).copyWith(id: Value(id));
@@ -148,7 +133,6 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
     return id;
   }
 
-  @override
   Future<List<String>> insertAll(List<LabelMarkRecordModel> items) async {
     final ids = <String>[];
     await _db.batch((batch) {
@@ -162,12 +146,10 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
     return ids;
   }
 
-  @override
   Future<int> update(LabelMarkRecordModel item) async {
     return await (_db.update(_db.labelMarkStatistics)..where((tbl) => tbl.id.equals(item.id))).write(_toRecordCompanion(item));
   }
 
-  @override
   Future<int> updateAll(List<LabelMarkRecordModel> items) async {
     await _db.batch((batch) {
       for (final item in items) {
@@ -181,31 +163,24 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
     return items.length;
   }
 
-  @override
   Future<int> delete(String id) async {
     return await (_db.delete(_db.labelMarkStatistics)..where((tbl) => tbl.id.equals(id))).go();
   }
 
-  @override
   Future<int> deleteAll(List<String> ids) async {
     if (ids.isEmpty) return 0;
     return await (_db.delete(_db.labelMarkStatistics)..where((tbl) => tbl.id.isIn(ids))).go();
   }
 
-  @override
   Future<void> clear() async {
     await _db.delete(_db.labelMarkStatistics).go();
-    // Note: This does not clear the user_mark_count table, which seems to be the original intent.
-    // If you need to clear the count, call resetMarkCount().
   }
 
-  @override
   Future<String> exportData() async {
     final items = await getAll();
     return jsonEncode(items.map((item) => item.toMap()).toList());
   }
 
-  @override
   Future<bool> importData(String data) async {
     try {
       final List<dynamic> maps = jsonDecode(data);
@@ -213,26 +188,22 @@ class LocalLabelMarkStatisticsDataSource implements LocalDataSource<LabelMarkRec
       await insertAll(items);
       return true;
     } catch (e) {
-      print('Error importing label mark statistics data: $e');
       return false;
     }
   }
 
-  // Dispose resources: cancel table change subscription and close stream controller
   void dispose() {
     if (_disposed) return;
     _disposed = true;
     try {
       _userMarkCountSubscription?.cancel();
-    } catch (e) {
-      print('LocalLabelMarkStatisticsDataSource dispose subscription error: $e');
+    } catch (_) {
     }
     try {
       if (!_markCountController.isClosed) {
         _markCountController.close();
       }
-    } catch (e) {
-      print('LocalLabelMarkStatisticsDataSource dispose controller error: $e');
+    } catch (_) {
     }
   }
 }

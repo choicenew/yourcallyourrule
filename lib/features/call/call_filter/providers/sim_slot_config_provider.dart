@@ -3,9 +3,7 @@ import 'package:yourcallyourrule/features/config/data/repositories/config_reposi
 
 part 'sim_slot_config_provider.g.dart';
 
-/// 状态模型，用于封装 SIM 卡配置状�?
 class SimSlotConfigState {
-  // Map<simSlotIndex, isEnabled>
   final Map<int, bool> simSlotFilterEnabled;
 
   const SimSlotConfigState({
@@ -45,7 +43,6 @@ class SimSlotConfigNotifier extends _$SimSlotConfigNotifier {
   Future<void> _updateAndSave(SimSlotConfigState newState) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      // 保存时需要将 int key 转为 String key
       final configMap = newState.simSlotFilterEnabled.map(
         (key, value) => MapEntry(key.toString(), value),
       );
@@ -54,7 +51,6 @@ class SimSlotConfigNotifier extends _$SimSlotConfigNotifier {
     });
   }
 
-  /// 启用指定SIM卡槽位的过滤�?
   Future<void> enableSimSlotFilter(int simSlotIndex) async {
     final currentState = await future;
     final newMap = Map<int, bool>.from(currentState.simSlotFilterEnabled)
@@ -62,7 +58,6 @@ class SimSlotConfigNotifier extends _$SimSlotConfigNotifier {
     await _updateAndSave(currentState.copyWith(simSlotFilterEnabled: newMap));
   }
 
-  /// 禁用指定SIM卡槽位的过滤�?
   Future<void> disableSimSlotFilter(int simSlotIndex) async {
     final currentState = await future;
     final newMap = Map<int, bool>.from(currentState.simSlotFilterEnabled)

@@ -13,8 +13,13 @@ part of 'overlay_handler.dart';
 final overlayHandlerProvider = OverlayHandlerProvider._();
 
 final class OverlayHandlerProvider
-    extends $FunctionalProvider<OverlayHandler, OverlayHandler, OverlayHandler>
-    with $Provider<OverlayHandler> {
+    extends
+        $FunctionalProvider<
+          AsyncValue<OverlayHandler>,
+          OverlayHandler,
+          FutureOr<OverlayHandler>
+        >
+    with $FutureModifier<OverlayHandler>, $FutureProvider<OverlayHandler> {
   OverlayHandlerProvider._()
     : super(
         from: null,
@@ -31,21 +36,14 @@ final class OverlayHandlerProvider
 
   @$internal
   @override
-  $ProviderElement<OverlayHandler> $createElement($ProviderPointer pointer) =>
-      $ProviderElement(pointer);
+  $FutureProviderElement<OverlayHandler> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
 
   @override
-  OverlayHandler create(Ref ref) {
+  FutureOr<OverlayHandler> create(Ref ref) {
     return overlayHandler(ref);
-  }
-
-  /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(OverlayHandler value) {
-    return $ProviderOverride(
-      origin: this,
-      providerOverride: $SyncValueProvider<OverlayHandler>(value),
-    );
   }
 }
 
-String _$overlayHandlerHash() => r'91667c19b83acd40dea4c5146e5c815b9a9f44f5';
+String _$overlayHandlerHash() => r'f79ddc561babfb41eeab16434c257c0c23844c22';

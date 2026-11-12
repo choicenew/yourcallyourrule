@@ -55,4 +55,4 @@ final class LocalPhoneRuleDataSourceProvider
 }
 
 String _$localPhoneRuleDataSourceHash() =>
-    r'2cbb3c0b784dc95078aa139f69c0da4dab6a5696';
+    r'd2a9c57dc015e129443a341b85e4fe29efa2ff4d';

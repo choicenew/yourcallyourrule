@@ -8,12 +8,9 @@ part of 'config_backup_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 配置备份还原服务提供者
 
 @ProviderFor(configBackupService)
 final configBackupServiceProvider = ConfigBackupServiceProvider._();
-
-/// 配置备份还原服务提供者
 
 final class ConfigBackupServiceProvider
     extends
@@ -23,7 +20,6 @@ final class ConfigBackupServiceProvider
           ConfigBackupService
         >
     with $Provider<ConfigBackupService> {
-  /// 配置备份还原服务提供者
   ConfigBackupServiceProvider._()
     : super(
         from: null,

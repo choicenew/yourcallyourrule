@@ -16,12 +16,7 @@ final syncSchedulerProvider = SyncSchedulerProvider._();
 /// SyncScheduler Provider
 
 final class SyncSchedulerProvider
-    extends
-        $FunctionalProvider<
-          SyncScheduler,
-          SyncScheduler,
-          SyncScheduler
-        >
+    extends $FunctionalProvider<SyncScheduler, SyncScheduler, SyncScheduler>
     with $Provider<SyncScheduler> {
   /// SyncScheduler Provider
   SyncSchedulerProvider._()
@@ -40,9 +35,8 @@ final class SyncSchedulerProvider
 
   @$internal
   @override
-  $ProviderElement<SyncScheduler> $createElement(
-    $ProviderPointer pointer,
-  ) => $ProviderElement(pointer);
+  $ProviderElement<SyncScheduler> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
 
   @override
   SyncScheduler create(Ref ref) {
@@ -58,4 +52,4 @@ final class SyncSchedulerProvider
   }
 }
 
-String _$syncSchedulerHash() => r'sync_scheduler_hash';
+String _$syncSchedulerHash() => r'4ae0a9f3fcb65a6fd8389f06fdc915ef7d154b53';

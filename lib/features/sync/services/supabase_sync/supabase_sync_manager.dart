@@ -3,8 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:drift/drift.dart' as drift;
 
-import '../../data/database/local/local_database.dart';
-import '../../data/database/sync/device_id_service.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
+import 'package:yourcallyourrule/data/database/sync/device_id_service.dart';
 import 'sync_log_service.dart';
 
 class SyncResult {

@@ -49,4 +49,4 @@ final class DisplayModeHandlerProvider
 }
 
 String _$displayModeHandlerHash() =>
-    r'50e2c3b8ea1bdaa4419c1222ff536ab10f1c4cc1';
+    r'fdf4a7c07face6bd64279250bbbc2dedd1f078f4';

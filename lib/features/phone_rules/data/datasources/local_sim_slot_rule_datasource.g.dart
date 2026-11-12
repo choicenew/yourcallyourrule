@@ -56,4 +56,4 @@ final class LocalSimSlotRuleDataSourceProvider
 }
 
 String _$localSimSlotRuleDataSourceHash() =>
-    r'3bc4dad448e4bb260e50c078c5c4ae8e8b2f7419';
+    r'92a33b3b8bbd34ac53a74bd45ee0b65745332059';

@@ -1,19 +1,12 @@
-// lib/features/plugin/services/plugin_test_service.dart (或者你的文件名)
-
 import 'dart:async';
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:http/http.dart' as http;
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
-import 'package:html/parser.dart' as html_parser;
-import 'package:html/dom.dart' as dom;
 
-// [新] 导入我们拆分出去的拦截器
 import 'webview_request_interceptor.dart';
 
-// 常量保持不变
 const String PROXY_SCHEME = "https";
 const String PROXY_HOST = "flutter-webview-proxy.internal";
 const String PROXY_PATH_FETCH = "/fetch";
@@ -28,11 +21,10 @@ class PluginTestService {
   String? _loadedPluginId;
   final Map<String, Completer<Map<String, dynamic>?>> _requestCompleters = {};
 
-  // [新] 创建一个拦截器实例来处理所有网络请�?
   final _requestInterceptor = WebViewRequestInterceptor();
 
   void _addLog(String log) {
-    print(log); // Also print to console for debugging
+    print(log);
     _logController.add(log);
   }
 
@@ -52,7 +44,6 @@ class PluginTestService {
         _addLog('Headless WebView created.');
         await _setupJavaScriptHandlers(controller);
       },
-      // [关键修改] �?shouldInterceptRequest 的职责完全委托给拦截器实�?
       shouldInterceptRequest: (controller, request) {
         return _requestInterceptor.handleInterceptedRequest(
           controller,
@@ -72,16 +63,6 @@ class PluginTestService {
     await _headlessWebView?.run();
     _addLog("HeadlessInAppWebView is running.");
   }
-
-  // [已删除] 所有网络拦截相关的方法都已移至 WebViewRequestInterceptor
-  // - _shouldInterceptRequest
-  // - _handleOriginalProxyRequest
-  // - _handleLeakedRequest
-  // - _preprocessHtml
-  // - _purgeHarmfulContent
-  // - _getReceiverScript
-  // - getDomainBlockerScript
-  // - getUniversalNetworkInterceptorScript
 
   Future<void> _setupJavaScriptHandlers(
     InAppWebViewController controller,
@@ -123,12 +104,10 @@ class PluginTestService {
             }
             final requestId = resultData['requestId'] as String?;
 
-            // ▼▼�?[修改] 在这里委托会话清�?▼▼�?
             if (requestId != null) {
               _requestInterceptor.cleanupSession(requestId);
               _addLog('Session cleaned for completed requestId: $requestId.');
             }
-            // ▲▲�?会话清理逻辑结束 ▲▲�?
 
             if (requestId != null &&
                 _requestCompleters.containsKey(requestId)) {
@@ -142,7 +121,6 @@ class PluginTestService {
       },
     );
 
-    // [New] RequestChannel for Native HTTP Requests
     controller.addJavaScriptHandler(
       handlerName: 'RequestChannel',
       callback: (args) async {
@@ -167,7 +145,6 @@ class PluginTestService {
 
           _addLog('Making Native HTTP Request: $method $url');
 
-          // [修复] 根据 method 动态选择请求方式，支�?POST/PUT �?
           final uri = Uri.parse(url);
           http.Response response;
 
@@ -197,7 +174,7 @@ class PluginTestService {
             }
           } catch (e) {
             _addLog('Network Error during $method: $e');
-            throw e;
+            rethrow;
           }
 
           _addLog('Native HTTP Response: ${response.statusCode}');
@@ -244,7 +221,7 @@ class PluginTestService {
       _addLog('Error: WebView controller is null. Cannot load plugin JS.');
       return;
     }
-    String pluginUrl = plugin.url;
+    String pluginUrl = plugin.url ?? '';
     if (pluginUrl.isEmpty) {
       _addLog('Error: Plugin JS URL is empty.');
       return;
@@ -279,16 +256,13 @@ class PluginTestService {
       await initialize();
     }
 
-    // Reset state for a new test
     _isPluginJsLoaded = false;
     _loadedPluginId = null;
 
     await _loadPluginJs(plugin);
 
-    // Wait for the plugin to confirm it's loaded
     int attempts = 0;
     while (!_isPluginJsLoaded && attempts < 100) {
-      // Wait for max 10 seconds
       await Future.delayed(const Duration(milliseconds: 100));
       attempts++;
     }
@@ -324,7 +298,6 @@ class PluginTestService {
         source: '''
         (function(pluginId, requestId) {
           if (window.plugin && window.plugin[pluginId] && window.plugin[pluginId].generateOutput) {
-            // Inject Config
             window.plugin[pluginId].config = $configJson;
             
             console.log(`Calling plugin[pluginId].generateOutput with numbers...`);
@@ -345,7 +318,6 @@ class PluginTestService {
         const Duration(seconds: 30),
         onTimeout: () {
           _requestCompleters.remove(requestId);
-          // [修改] 委托会话清理
           _requestInterceptor.cleanupSession(requestId);
           _addLog('Query timeout for requestId: $requestId');
           return {'error': 'Query timeout', 'requestId': requestId};

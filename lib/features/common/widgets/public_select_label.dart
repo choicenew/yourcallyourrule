@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
-import 'package:yourcallyourrule/features/labels/services/predefined_label_service.g.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -49,7 +48,7 @@ class PublicSelectLabel extends ConsumerStatefulWidget {
   final String? phoneNumber;
   final ValueChanged<String> onLabelIdChanged;
   final SelectLabelService? selectLabelService;
-  final Color? themeColor;
+  final Color themeColor;
 
   const PublicSelectLabel({
     super.key,
@@ -58,7 +57,7 @@ class PublicSelectLabel extends ConsumerStatefulWidget {
     this.phoneNumber,
     required this.onLabelIdChanged,
     this.selectLabelService,
-    this.themeColor,
+    this.themeColor = const Color(0xFFF5A623),
   });
 
   @override
@@ -78,11 +77,11 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
     _initializeSelectedLabel();
     _loadLabels();
   }
-
+  
   Future<void> _initializeSelectedLabel() async {
     if (widget.initialLabelId != null) {
       _selectedLabelId = widget.initialLabelId;
-      final service = widget.selectLabelService ??
+      final service = widget.selectLabelService ?? 
           PredefinedLabelServiceAdapter(ref.read(predefinedLabelServiceProvider));
       _selectedLabelText = await service.getLabelTextById(_selectedLabelId!);
     } else if (widget.initialLabelText != null) {
@@ -94,21 +93,21 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
     setState(() {
       _isLoading = true;
     });
-
+    
     try {
-      final SelectLabelService service = widget.selectLabelService ??
+      final SelectLabelService service = widget.selectLabelService ?? 
           PredefinedLabelServiceAdapter(ref.read(predefinedLabelServiceProvider));
 
       final labels = await service.getAllLabelTexts();
       final allLabels = await service.getAllLabels();
-
+      
       final Map<String, String> textToIdMap = {};
       for (var label in allLabels) {
         if (label.id.isNotEmpty) {
           textToIdMap[label.text] = label.id;
         }
       }
-
+      
       setState(() {
         _labels = labels;
         _labelTextToIdMap = textToIdMap;
@@ -129,42 +128,40 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
 
   @override
   Widget build(BuildContext context) {
-    final activeThemeColor = widget.themeColor ?? Theme.of(context).colorScheme.primary;
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           AppLocalizations.of(context)!.selectLabel,
-          style: Theme.of(context).textTheme.titleSmall?.copyWith(
+          style: const TextStyle(
+            fontSize: 16,
             fontWeight: FontWeight.bold,
-            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
         const SizedBox(height: 12),
         _isLoading
             ? const Center(child: CircularProgressIndicator())
-            : _buildLabelChips(activeThemeColor),
+            : _buildLabelChips(),
         if (_selectedLabelText != null)
           Padding(
             padding: const EdgeInsets.only(top: 16),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
-                color: activeThemeColor.withValues(alpha: 0.1),
+                color: widget.themeColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: activeThemeColor.withValues(alpha: 0.3)),
+                border: Border.all(color: widget.themeColor.withValues(alpha: 0.3)),
               ),
               child: Row(
                 children: [
-                  Icon(Icons.label, color: activeThemeColor, size: 18),
+                  Icon(Icons.label, color: widget.themeColor, size: 18),
                   const SizedBox(width: 8),
                   Text(
                     '${AppLocalizations.of(context)!.selectedLabel}: ${_selectedLabelText != null ? LabelTranslationUtils.translateLabelText(context, _selectedLabelText!) : ''}',
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      color: activeThemeColor,
+                      color: widget.themeColor,
                     ),
                   ),
                 ],
@@ -175,17 +172,14 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
     );
   }
 
-  Widget _buildLabelChips(Color activeThemeColor) {
+  Widget _buildLabelChips() {
     if (_labels.isEmpty) {
       return Center(
         child: Column(
           children: [
-            Icon(Icons.label_off, color: Theme.of(context).colorScheme.onSurfaceVariant, size: 48),
+            const Icon(Icons.label_off, color: Colors.grey, size: 48),
             const SizedBox(height: 8),
-            Text(
-              AppLocalizations.of(context)!.noLabels,
-              style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant),
-            ),
+            Text(AppLocalizations.of(context)!.noLabels, style: const TextStyle(color: Colors.grey)),
             const SizedBox(height: 16),
             ElevatedButton.icon(
               onPressed: () {
@@ -194,89 +188,44 @@ class _PublicSelectLabelState extends ConsumerState<PublicSelectLabel> {
               icon: const Icon(Icons.add),
               label: Text(AppLocalizations.of(context)!.addLabelButton),
               style: ElevatedButton.styleFrom(
-                backgroundColor: activeThemeColor,
-                foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                backgroundColor: widget.themeColor,
+                foregroundColor: Colors.white,
               ),
             ),
           ],
         ),
       );
     }
-
-    return Container(
-      constraints: const BoxConstraints(maxHeight: 170),
-      child: SingleChildScrollView(
-        child: Wrap(
-          spacing: 5,
-          runSpacing: 5,
-          children: _labels.map((labelText) {
-            final translatedText = LabelTranslationUtils.translateLabelText(context, labelText);
-            final isSelected = labelText == _selectedLabelText;
-            return ChoiceChip(
-              label: Text(translatedText),
-              selected: isSelected,
-              onSelected: (selected) {
-                if (selected) {
-                  final labelId = _labelTextToIdMap[labelText] ?? '';
-                  setState(() {
-                    _selectedLabelText = labelText;
-                    _selectedLabelId = labelId;
-                  });
-                  widget.onLabelIdChanged(labelId);
-                }
-              },
-              selectedColor: activeThemeColor.withOpacity(0.2),
-              backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest.withOpacity(0.5),
-              side: BorderSide(
-                color: isSelected
-                    ? activeThemeColor
-                    : Theme.of(context).colorScheme.outlineVariant,
-              ),
-              labelStyle: TextStyle(
-                color: isSelected
-                    ? activeThemeColor
-                    : Theme.of(context).colorScheme.onSurface,
-                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-              ),
-              avatar: isSelected
-                  ? Icon(Icons.check, size: 14, color: activeThemeColor)
-                  : null,
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-            );
-          }).toList(),
-        ),
-      ),
-    );
-  }
-}
-
-class LabelSelectionPage extends ConsumerWidget {
-  final String title;
-  final ValueChanged<String> onLabelIdSelected;
-
-  const LabelSelectionPage({
-    super.key,
-    required this.title,
-    required this.onLabelIdSelected,
-  });
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        backgroundColor: Theme.of(context).colorScheme.surface,
-        foregroundColor: Theme.of(context).colorScheme.onSurface,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: PublicSelectLabel(
-          onLabelIdChanged: (labelId) {
-            onLabelIdSelected(labelId);
-            Navigator.pop(context);
+    
+    return Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      children: _labels.map((labelText) {
+        final translatedText = LabelTranslationUtils.translateLabelText(context, labelText);
+        final isSelected = labelText == _selectedLabelText;
+        return ChoiceChip(
+          label: Text(translatedText),
+          selected: isSelected,
+          onSelected: (selected) {
+            if (selected) {
+              final labelId = _labelTextToIdMap[labelText] ?? '';
+              setState(() {
+                _selectedLabelText = labelText;
+                _selectedLabelId = labelId;
+              });
+              widget.onLabelIdChanged(labelId);
+            }
           },
-        ),
-      ),
+          selectedColor: widget.themeColor,
+          backgroundColor: Colors.grey.shade200,
+          labelStyle: TextStyle(
+            color: isSelected ? Colors.white : Colors.black87,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+          ),
+          avatar: isSelected ? const Icon(Icons.check, size: 18, color: Colors.white) : null,
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        );
+      }).toList(),
     );
   }
 }

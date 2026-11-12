@@ -1,4 +1,3 @@
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 
 /// 通话过滤接口
@@ -8,7 +7,7 @@ abstract class CallFilterInterface {
   CallFilterType get filterType;
 
   /// 判断是否应该接受来电
-  Future<bool> shouldAcceptCall(String phoneNumber, {SimInfo? simInfo});
+  Future<bool> shouldAcceptCall(String phoneNumber, {dynamic simInfo});
 
   /// 初始化过滤器
   Future<void> initialize();

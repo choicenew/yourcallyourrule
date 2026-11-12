@@ -1,5 +1,3 @@
-// lib/features/call/call_history/widgets/call_log_card.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -95,7 +93,6 @@ class CallLogCard extends ConsumerWidget {
     );
   }
 
-  /// 构建卡片头部
   Widget _buildCardHeader(
     BuildContext context,
     WidgetRef ref,
@@ -214,7 +211,6 @@ class CallLogCard extends ConsumerWidget {
     );
   }
 
-  /// 构建底部信息与操作按钮组合栏
   Widget _buildFooterAndActions(
     BuildContext context,
     String timeString,
@@ -225,7 +221,6 @@ class CallLogCard extends ConsumerWidget {
 
     return Row(
       children: [
-        // 状态与时间标签
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
           decoration: BoxDecoration(
@@ -252,7 +247,7 @@ class CallLogCard extends ConsumerWidget {
         ),
         if (hasSimInfo) ...[
           const SizedBox(width: 4),
-          Text('�?, style: TextStyle(fontSize: 10, color: Colors.grey[400])),
+          Text('•', style: TextStyle(fontSize: 10, color: Colors.grey[400])),
           const SizedBox(width: 4),
           Flexible(
             child: Text(
@@ -265,7 +260,6 @@ class CallLogCard extends ConsumerWidget {
 
         const Spacer(),
 
-        // 快速操作图标按钮组
         _buildActionButton(
           icon: Icons.info_outline_rounded,
           tooltip: AppLocalizations.of(context)!.viewDetails,

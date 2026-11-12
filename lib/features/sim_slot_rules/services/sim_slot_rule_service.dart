@@ -2,10 +2,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.dart';
+import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
-import 'package:yourcallyourrule/features/rules/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/features/rules/services/rule_import_export_service.dart';
+import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository.dart';
 
 part 'sim_slot_rule_service.g.dart';
 
@@ -16,49 +15,51 @@ SimSlotRuleService simSlotRuleService(Ref ref) {
   return SimSlotRuleService(ruleRepository, configRepository);
 }
 
-/// SIM 卡槽位规则服务
 class SimSlotRuleService {
   final RuleRepository _ruleRepository;
-  final ConfigRepository _configRepository;
-  final RuleImportExportService _importExportService;
 
-  static const String _configKey = 'config_sim_slot_filter_enabled';
-
-  SimSlotRuleService(this._ruleRepository, this._configRepository)
-      : _importExportService = RuleImportExportService(_ruleRepository);
-
-  RuleImportExportService get importExportService => _importExportService;
-
-  Future<bool> isSimSlotFilterEnabled(int simSlotIndex) async {
-    final configMap = await _configRepository.getConfig(_configKey);
-    return configMap?[simSlotIndex.toString()] as bool? ?? false;
-  }
-
-  Future<void> enableSimSlotFilter(int simSlotIndex) async {
-    final configMap = await _configRepository.getConfig(_configKey) ?? {};
-    final newConfig = Map<String, dynamic>.from(configMap);
-    newConfig[simSlotIndex.toString()] = true;
-    await _configRepository.saveConfig(_configKey, newConfig);
-  }
-
-  Future<void> disableSimSlotFilter(int simSlotIndex) async {
-    final configMap = await _configRepository.getConfig(_configKey) ?? {};
-    final newConfig = Map<String, dynamic>.from(configMap);
-    newConfig[simSlotIndex.toString()] = false;
-    await _configRepository.saveConfig(_configKey, newConfig);
-  }
+  SimSlotRuleService(this._ruleRepository, dynamic configRepository);
 
   Future<List<PhoneRuleEntity>> getSimSlotRules(int simSlotIndex) async {
     final rules = await _ruleRepository.getAll();
-    return rules.where((r) => r.subscriptionId == simSlotIndex.toString()).toList();
+    return rules.where((r) => r.simSlotIndex == simSlotIndex).toList();
   }
 
   Future<List<PhoneRuleEntity>> getAllSimSlotRules() async {
     final rules = await _ruleRepository.getAll();
-    return rules.where((r) => r.subscriptionId != null).toList();
+    return rules;
+  }
+
+  Future<PhoneRuleEntity> addSimSlotRule(
+    dynamic entry,
+    int simSlotIndex, {
+    required dynamic action,
+  }) async {
+    final uuid = const Uuid();
+    final rule = PhoneRuleEntity(
+      id: uuid.v4(),
+      simSlotIndex: simSlotIndex,
+      action: action as RuleActionPayload,
+      phoneNumber: entry.phoneNumber as String? ?? '',
+      labelId: entry.labelId as String? ?? '',
+      avatar: entry.avatar as String?,
+    );
+    await _ruleRepository.saveRule(rule);
+    return rule;
   }
 
   Future<void> removeSimSlotRule(String ruleId) async {
     await _ruleRepository.deleteRule(ruleId);
+  }
+
+  Future<void> updateSimSlotRule(PhoneRuleEntity rule) async {
+    await _ruleRepository.saveRule(rule);
+  }
+
+  Future<void> toggleRuleStatus(String ruleId, bool isEnabled) async {
+    final rules = await _ruleRepository.getAll();
+    final rule = rules.firstWhere((r) => r.id == ruleId);
+    final updatedRule = rule.copyWith(isEnabled: isEnabled);
+    await _ruleRepository.saveRule(updatedRule);
   }
 }

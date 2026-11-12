@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
-import 'package:yourcallyourrule/features/rules/utils/rule_action_display_utils.dart';
+import 'package:yourcallyourrule/features/phone_rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 void showActionFilterDialog(BuildContext context, ValueChanged<RuleActionType?> onActionSelected) {
@@ -46,7 +46,7 @@ void showLabelFilterDialog(BuildContext context, ValueChanged<String?> onLabelSe
             onLabelSelected(labelId);
             Navigator.pop(context);
           },
-          themeColor: themeColor,
+          themeColor: themeColor ?? Theme.of(context).primaryColor,
         ),
       ),
       actions: [

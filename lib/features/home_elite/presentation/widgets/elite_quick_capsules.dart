@@ -1,22 +1,15 @@
-// -----------------------------------------------------------------------------
-// 文件: elite_quick_capsules.dart
-// 描述: Elite 功能快捷胶囊入口矩阵，聚合高频通讯工具与核心规则配置�?
-// -----------------------------------------------------------------------------
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-// ------------------- Widget 定义 -------------------
-
 class EliteQuickCapsules extends StatelessWidget {
   const EliteQuickCapsules({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
 
     return Container(
@@ -24,7 +17,6 @@ class EliteQuickCapsules extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 4 大核心日常功能入口（大卡片微光排列）
           Row(
             children: [
               Expanded(
@@ -85,7 +77,6 @@ class EliteQuickCapsules extends StatelessWidget {
 
           const SizedBox(height: 14),
 
-          // 核心拦截规则与工具胶囊网�?
           Text(
             l10n.phoneRuleManagement,
             style: TextStyle(
@@ -150,16 +141,9 @@ class EliteQuickCapsules extends StatelessWidget {
               _buildCompactCapsule(
                 context: context,
                 icon: Icons.cloud_sync_outlined,
-                title: l10n.cloudSyncTitle,
+                title: (l10n as dynamic)?.cloudSettings as String? ?? 'Cloud Settings',
                 color: theme.colorScheme.primary,
                 onTap: () => context.pushNamed(AppRouter.cloudSettings),
-              ),
-              _buildCompactCapsule(
-                context: context,
-                icon: Icons.storefront_rounded,
-                title: l10n.initialSetupTitle,
-                color: theme.colorScheme.primary,
-                onTap: () => context.pushNamed(AppRouter.initialSetup),
               ),
             ],
           ),
@@ -302,8 +286,6 @@ class EliteQuickCapsules extends StatelessWidget {
     );
   }
 }
-
-// ------------------- Widget Previewer 支持 -------------------
 
 @Preview(name: 'Quick Capsules', group: 'Elite Showcase')
 Widget previewEliteQuickCapsules() {

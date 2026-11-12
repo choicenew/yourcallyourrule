@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_invoker_service.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_url_execution_service.dart';
+import 'package:yourcallyourrule/features/phone_plugin/services/plugin_invoker_service.dart';
+import 'package:yourcallyourrule/features/phone_plugin/services/plugin_url_execution_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 
@@ -29,7 +29,9 @@ class _PluginSettingsDialogState extends State<PluginSettingsDialog> {
   @override
   void initState() {
     super.initState();
-    _config.addAll(widget.plugin.config);
+    if (widget.plugin.config != null) {
+      _config.addAll(widget.plugin.config!);
+    }
     _uaController.text = _config['userAgent']?.toString() ?? '';
     _loadSchema();
   }

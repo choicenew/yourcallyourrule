@@ -4,18 +4,18 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:ua_client_hints/ua_client_hints.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
-import 'package:yourcallyourrule/features/plugin/services/core/js_execution_service.dart';
-import 'package:yourcallyourrule/features/plugin/services/core/native_request_channel.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_script_service.dart';
+import 'package:yourcallyourrule/features/phone_plugin/services/core/js_execution_service.dart';
+import 'package:yourcallyourrule/features/phone_plugin/services/core/native_request_channel.dart';
+import 'package:yourcallyourrule/features/phone_plugin/services/plugin_script_service.dart';
 
 /// 瞬时插件执行会话 (Transient Plugin Execution Session)
-/// 架构设计：按需启用 �?并发跑完所有已启用插件 �?彻底销毁释�?QuickJS RAM
-/// 保证在无来电/无查询时，全系统�?JS 引擎的内存占用为 0 MB�?
+/// 架构设计：按需启用 �?并发跑完所有已启用插件 �?彻底销毁释�?QuickJS RAM
+/// 保证在无来电/无查询时，全系统�?JS 引擎的内存占用为 0 MB�?
 class TransientPluginSession {
   final PluginScriptService _scriptService = PluginScriptService();
   static String? _cachedSystemUserAgent;
 
-  /// 快速获取系统真�?User-Agent (带内存缓存，避免重复耗时)
+  /// 快速获取系统真�?User-Agent (带内存缓存，避免重复耗时)
   static Future<String> _getSystemUserAgent() async {
     if (_cachedSystemUserAgent != null) return _cachedSystemUserAgent!;
     try {
@@ -42,8 +42,8 @@ class TransientPluginSession {
   }
 
   /// 跑一次查询的闭环生命周期会话
-  /// [enabledPlugins]: 当前需执行的插件列�?
-  /// [onFirstResult]: 当首个有效结果到达时毫秒级回调（用于 UI 秒开�?
+  /// [enabledPlugins]: 当前需执行的插件列�?
+  /// [onFirstResult]: 当首个有效结果到达时毫秒级回调（用于 UI 秒开�?
   /// [onResultCompleted]: 当任一插件有结果到达时的流更新回调
   Future<List<Map<String, dynamic>>> executeSession({
     required List<PluginEntry> enabledPlugins,
@@ -68,7 +68,7 @@ class TransientPluginSession {
         '🚀 [TransientPluginSession] Spin up QuickJS session for ${enabledPlugins.length} plugins...',
       );
 
-      // 2. 初始�?QuickJS 引擎
+      // 2. 初始�?QuickJS 引擎
       await jsService.init();
 
       // 3. 获取 User-Agent 并注册网络请求通道
@@ -80,7 +80,7 @@ class TransientPluginSession {
       );
       requestChannel.register();
 
-      // 存储每个异步调用�?Completer
+      // 存储每个异步调用�?Completer
       final Map<String, Completer<Map<String, dynamic>?>> queryCompleters = {};
 
       // 注册就绪通道与结果接收通道
@@ -108,7 +108,7 @@ class TransientPluginSession {
         }
       });
 
-      // 4. 一次性载入所有启用插件的脚本源码并注�?Config
+      // 4. 一次性载入所有启用插件的脚本源码并注�?Config
       for (final plugin in enabledPlugins) {
         try {
           final scriptContent = await _scriptService.getScript(plugin);
@@ -116,7 +116,7 @@ class TransientPluginSession {
             await jsService.evaluate(scriptContent);
             await jsService.injectConfig(plugin.id, {
               'userAgent': sysUserAgent,
-              ...plugin.config,
+              ...?(plugin.config),
             });
           } else {
             debugPrint(
@@ -130,7 +130,7 @@ class TransientPluginSession {
         }
       }
 
-      // 5. 并发调度所有插件生成输�?
+      // 5. 并发调度所有插件生成输�?
       final List<Future<void>> taskFutures = [];
 
       for (final plugin in enabledPlugins) {
@@ -182,7 +182,7 @@ class TransientPluginSession {
         taskFutures.add(task);
       }
 
-      // 6. 最多等�?12 秒让慢速插件归包完�?
+      // 6. 最多等�?12 秒让慢速插件归包完�?
       await Future.wait(
         taskFutures,
       ).timeout(const Duration(seconds: 12), onTimeout: () => []);
@@ -192,7 +192,7 @@ class TransientPluginSession {
       debugPrint('⚠️ TransientPluginSession: Session Exception: $e');
       return results;
     } finally {
-      // 7. 【核心关键】无论成功还是异�?超时，彻底注销销�?QuickJS 引擎�?
+      // 7. 【核心关键】无论成功还是异�?超时，彻底注销销�?QuickJS 引擎�?
       jsService.dispose();
       debugPrint(
         '🧹 [TransientPluginSession] Session completed. QuickJS engine DISPOSED & RAM cleared.',

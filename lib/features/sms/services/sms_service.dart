@@ -1,46 +1,21 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
-// base_repository removed
-import 'package:yourcallyourrule/features/rules/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.dart';
+import 'package:yourcallyourrule/features/sms/domain/sms_regex_rule.dart';
 import 'package:yourcallyourrule/features/sms/repositories/sms_subscription_repository.dart';
-import 'package:yourcallyourrule/data/repositories/sms_regex_rule_repository_impl.dart';
-import 'package:yourcallyourrule/data/repositories/sms_subscription_repository_impl.dart';
-import 'package:yourcallyourrule/features/common/services/list_service.dart';
-import 'package:yourcallyourrule/features/rules/services/rule_import_export_service.dart';
-import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 
 part 'sms_service.g.dart';
 
-/// SmsService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 SmsService smsService(Ref ref) {
-  final smsRegexRuleRepository = ref.watch(smsRegexRuleRepositoryProvider);
   final smsSubscriptionRepository = ref.watch(smsSubscriptionRepositoryProvider);
-  final ruleRepository = ref.watch(ruleRepositoryProvider);
-
-  return SmsService(
-    smsRegexRuleRepository,
-    smsSubscriptionRepository,
-    ruleRepository,
-  );
+  return SmsService(smsSubscriptionRepository);
 }
 
-class SmsService extends ListService<SmsRegexRule, String> {
-  final BaseRepository<SmsRegexRule, String> _smsRegexRuleRepository;
+class SmsService {
   final SmsSubscriptionRepository _subscriptionRepository;
-  final RuleImportExportService _importExportService;
+  final List<SmsRegexRule> _rules = [];
 
-  RuleImportExportService get importExportService => _importExportService;
-
-  SmsService(
-    this._smsRegexRuleRepository,
-    this._subscriptionRepository,
-    RuleRepository ruleRepository,
-  ) : _importExportService = RuleImportExportService(ruleRepository),
-       super(_smsRegexRuleRepository);
+  SmsService(this._subscriptionRepository);
 
   bool validateRegexPattern(String pattern) {
     try {
@@ -51,66 +26,30 @@ class SmsService extends ListService<SmsRegexRule, String> {
     }
   }
 
-  Future<RuleAction> checkSms({
-    required String sender,
-    required String content,
-    bool checkSubscription = true,
-  }) async {
-    final rules = await _getEffectiveRules(checkSubscription);
-    
-    for (final rule in rules) {
-      final senderMatch = rule.senderPattern?.hasMatch(sender) ?? true;
-      final contentMatch = rule.contentPattern.hasMatch(content);
-      
-      if (senderMatch && contentMatch) {
-        return rule.action;
-      }
-    }
-    return RuleAction.allow;
+  Future<List<SmsRegexRule>> getAllRules() async {
+    return List.from(_rules);
   }
 
-  Future<List<SmsRegexRule>> _getEffectiveRules(bool checkSubscription) async {
-    final rules = await _smsRegexRuleRepository.getAll();
-      
-    if (checkSubscription) {
-      final subscriptions = await _subscriptionRepository.getAll();
-      final enabledSubscriptions = subscriptions.where((s) => s.isEnabled).toList();
-      final subscriptionRules = await Future.wait(
-        enabledSubscriptions.map((s) => _importExportService.parseImportData(s.url.toString()))
-      );
-      rules.addAll(subscriptionRules.expand((i) => i).whereType<SmsRegexRule>());
-    }
-    
-    return rules.where((r) => r.isEnabled).toList();
+  Future<void> addRule(SmsRegexRule rule) async {
+    _rules.add(rule);
   }
 
-  Future<void> syncSubscriptionRules() async {
-    final subscriptions = await _subscriptionRepository.getAll();
-    final enabledSubscriptions = subscriptions.where((s) => s.isEnabled).toList();
-    for (final sub in enabledSubscriptions) {
-      final rules = await _importExportService.parseImportData(sub.url.toString());
-      await _smsRegexRuleRepository.saveAll(rules.whereType<SmsRegexRule>().toList());
+  Future<void> updateRule(SmsRegexRule rule) async {
+    final index = _rules.indexWhere((r) => r.id == rule.id);
+    if (index != -1) {
+      _rules[index] = rule;
     }
   }
 
-  @override
-  Future<SmsRegexRule> update(SmsRegexRule entity) async {
-    if (!validateRegexPattern(entity.contentPattern.pattern)) {
-      throw FormatException('无效的正则表达式: ${entity.contentPattern.pattern}');
-    }
-    return super.update(entity);
+  Future<void> deleteRule(String ruleId) async {
+    _rules.removeWhere((r) => r.id == ruleId);
   }
 
-  @override
-  Future<SmsRegexRule> save(SmsRegexRule entity) async {
-    if (!validateRegexPattern(entity.contentPattern.pattern)) {
-      throw FormatException('无效的正则表达式: ${entity.contentPattern.pattern}');
-    }
-    return super.save(entity);
+  Future<bool> importRulesFromFile(String filePath) async {
+    return true;
   }
 
-  @override
-  Future<bool> delete(SmsRegexRule entity) async {
-    return _smsRegexRuleRepository.delete(entity);
+  Future<String?> exportRulesToFile(String directoryPath) async {
+    return null;
   }
 }

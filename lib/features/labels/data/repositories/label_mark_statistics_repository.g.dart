@@ -8,13 +8,10 @@ part of 'label_mark_statistics_repository.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 标记统计仓库提供者
 
 @ProviderFor(labelMarkStatisticsRepository)
 final labelMarkStatisticsRepositoryProvider =
     LabelMarkStatisticsRepositoryProvider._();
-
-/// 标记统计仓库提供者
 
 final class LabelMarkStatisticsRepositoryProvider
     extends
@@ -24,7 +21,6 @@ final class LabelMarkStatisticsRepositoryProvider
           LabelMarkStatisticsRepository
         >
     with $Provider<LabelMarkStatisticsRepository> {
-  /// 标记统计仓库提供者
   LabelMarkStatisticsRepositoryProvider._()
     : super(
         from: null,

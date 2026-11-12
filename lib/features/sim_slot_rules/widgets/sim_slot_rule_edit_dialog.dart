@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/common/entities/list_entry.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provider.dart';
-import 'package:yourcallyourrule/features/rules/widgets/rule_action_selector.dart';
+import 'package:yourcallyourrule/features/phone_rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// SIM卡槽位规则编�?新增对话�?(Elite Dopamine 现代视觉规范)
 class SimSlotRuleEditDialog extends ConsumerStatefulWidget {
-  final SimSlotRule? rule;
+  final SimSlotRuleEntity? rule;
   final int? simSlotIndex;
   final Function? onRuleUpdated;
   final Color? themeColor;
@@ -27,56 +24,23 @@ class SimSlotRuleEditDialog extends ConsumerStatefulWidget {
 
   @override
   ConsumerState<SimSlotRuleEditDialog> createState() => _SimSlotRuleEditDialogState();
-
-  static void showAdd(
-    BuildContext context, {
-    Function? onRuleUpdated,
-    Color? themeColor,
-  }) {
-    showDialog(
-      context: context,
-      builder: (context) => SimSlotRuleEditDialog(
-        rule: null,
-        onRuleUpdated: onRuleUpdated,
-        themeColor: themeColor,
-      ),
-    );
-  }
-
-  static void showEdit(
-    BuildContext context,
-    SimSlotRule rule, {
-    Function? onRuleUpdated,
-    Color? themeColor,
-  }) {
-    showDialog(
-      context: context,
-      builder: (context) => SimSlotRuleEditDialog(
-        simSlotIndex: rule.simSlotIndex,
-        rule: rule,
-        onRuleUpdated: onRuleUpdated,
-        themeColor: themeColor,
-      ),
-    );
-  }
 }
 
 class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
   late TextEditingController _nameController;
   late TextEditingController _phoneController;
   String? _selectedLabelId;
-  late RuleAction _selectedAction;
-  bool _isProcessing = false;
+  RuleAction _selectedAction = const RuleAction(type: RuleActionType.block);
   int? _selectedSimSlotIndex;
+  bool _isProcessing = false;
 
   @override
   void initState() {
     super.initState();
     _nameController = TextEditingController(text: widget.rule?.name ?? '');
-    _phoneController = TextEditingController(text: widget.rule?.phoneNumber.value ?? '');
+    _phoneController = TextEditingController(text: widget.rule?.phoneNumber ?? '');
     _selectedLabelId = widget.rule?.labelId;
-    _selectedAction = widget.rule?.action ?? RuleAction.block;
-    _selectedSimSlotIndex = widget.simSlotIndex;
+    _selectedSimSlotIndex = widget.simSlotIndex ?? widget.rule?.simSlotIndex ?? 0;
   }
 
   @override
@@ -87,23 +51,11 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
   }
 
   Future<void> _saveRule() async {
-    final l10n = AppLocalizations.of(context)!;
-    if (_phoneController.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(l10n.phoneNumberCannotBeEmpty),
-          backgroundColor: Colors.redAccent,
-        ),
-      );
-      return;
-    }
+    final l10n = AppLocalizations.of(context);
 
-    if (widget.rule == null && _selectedSimSlotIndex == null) {
+    if (_selectedSimSlotIndex == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(l10n.selectSimCard),
-          backgroundColor: Colors.redAccent,
-        ),
+        SnackBar(content: Text(l10n.selectSimCard)),
       );
       return;
     }
@@ -116,19 +68,17 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
       final service = ref.read(simSlotRuleServiceProvider);
 
       if (widget.rule == null) {
-        final entry = ListEntry(
-          id: '',
-          name: _nameController.text,
-          phoneNumber: PhoneNumber.fromString(_phoneController.text),
-          labelId: _selectedLabelId ?? '',
-        );
+        final entry = {
+          'name': _nameController.text,
+          'phoneNumber': _phoneController.text,
+          'labelId': _selectedLabelId ?? '',
+        };
         await service.addSimSlotRule(entry, _selectedSimSlotIndex!, action: _selectedAction);
       } else {
         final updated = widget.rule!.copyWith(
-          name: _nameController.text,
-          phoneNumber: PhoneNumber.fromString(_phoneController.text),
+          simSlotIndex: _selectedSimSlotIndex!,
+          phoneNumber: _phoneController.text,
           labelId: _selectedLabelId ?? '',
-          action: _selectedAction,
         );
         await service.updateSimSlotRule(updated);
       }
@@ -138,21 +88,13 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
       if (mounted) {
         Navigator.pop(context);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(widget.rule == null
-                ? l10n.ruleAddedSuccess
-                : l10n.ruleUpdateSuccess),
-            backgroundColor: Theme.of(context).colorScheme.tertiary,
-          ),
+          SnackBar(content: Text(l10n.ruleSavedSuccessfully)),
         );
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(l10n.updateRuleFailed(e.toString())),
-            backgroundColor: Colors.redAccent,
-          ),
+          SnackBar(content: Text('${l10n.operationFailure}: $e')),
         );
       }
     } finally {
@@ -166,131 +108,71 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
-    final isEditing = widget.rule != null;
-    final simCardsAsync = ref.watch(simCardsProvider);
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final simInfoAsync = ref.watch(simInfoProvider);
 
     return AlertDialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: Theme.of(context).colorScheme.outlineVariant, width: 1.0),
-      ),
-      title: Text(
-        isEditing ? l10n.editRule : l10n.addRule,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 18,
-          color: Theme.of(context).colorScheme.onSurface,
-        ),
-      ),
+      title: Text(widget.rule == null ? l10n.addSimSlotRule : l10n.editSimSlotRule),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ▼▼▼▼�?核心修正部分 ▼▼▼▼�?
-            // [修正]: 仅在新增模式下显�?SIM 卡选择�?
-            if (!isEditing) ...[
-              Text(
-                l10n.selectSimCard, 
-                style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
-              ),
-              const SizedBox(height: 8),
-              simCardsAsync.when(
-                data: (sims) {
-                  if (sims.isEmpty) {
-                    return Text(l10n.noSimCardDetected, style: TextStyle(color: Colors.grey[600], fontSize: 12));
-                  }
-                  // [注释]: 如果只有一个SIM卡，则自动选择它�?
-                  if (sims.length == 1 && _selectedSimSlotIndex == null) {
-                    _selectedSimSlotIndex = sims.first.simSlotIndex;
-                  }
-                  return DropdownButtonFormField<int>(
-                    initialValue: _selectedSimSlotIndex,
-                    hint: Text(l10n.selectSimCard),
-                    items: sims.map((sim) => DropdownMenuItem(
-                      value: sim.simSlotIndex,
-                      child: Text(sim.carrierName ?? '${l10n.simCard((sim.simSlotIndex ?? 0) + 1)}'),
-                    )).toList(), 
-                    onChanged: (value) {
-                      setState(() {
-                        _selectedSimSlotIndex = value;
-                      });
-                    },
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: const Color(0xFFF7F5F0),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(14),
-                        borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(14),
-                        borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
-                      ),
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-                    ),
-                  );
-                },
-                loading: () => const Center(child: CircularProgressIndicator()),
-                error: (e, st) => Text('Error: $e', style: const TextStyle(color: Colors.redAccent)),
-              ),
-              const SizedBox(height: 14),
-            ],
-            // ▲▲▲▲�?修正结束 ▲▲▲▲�?
             TextField(
               controller: _nameController,
               decoration: InputDecoration(
                 labelText: l10n.ruleName,
-                hintText: l10n.exampleFamilyFriends,
-                filled: true,
-                fillColor: const Color(0xFFF7F5F0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(14),
-                  borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(14),
-                  borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
-                ),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                hintText: l10n.enterRuleName,
               ),
             ),
-            const SizedBox(height: 14),
+            const SizedBox(height: 12),
             TextField(
               controller: _phoneController,
               decoration: InputDecoration(
                 labelText: l10n.phoneNumber,
-                hintText: l10n.examplePhoneNumber,
-                filled: true,
-                fillColor: const Color(0xFFF7F5F0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(14),
-                  borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(14),
-                  borderSide: const BorderSide(color: Color(0xFFEDE8DF)),
-                ),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                hintText: l10n.enterPhoneNumber,
               ),
               keyboardType: TextInputType.phone,
             ),
-            const SizedBox(height: 14),
+            const SizedBox(height: 12),
+            simInfoAsync.when(
+              data: (simList) {
+                if (simList.isEmpty) {
+                  return const SizedBox.shrink();
+                }
+                return DropdownButtonFormField<int>(
+                  value: _selectedSimSlotIndex,
+                  decoration: InputDecoration(labelText: l10n.simCardSlot),
+                  items: simList.map((sim) {
+                    return DropdownMenuItem<int>(
+                      value: sim.simSlotIndex ?? 0,
+                      child: Text(sim.carrierName ?? l10n.simCard((sim.simSlotIndex ?? 0) + 1)),
+                    );
+                  }).toList(),
+                  onChanged: (val) {
+                    setState(() {
+                      _selectedSimSlotIndex = val;
+                    });
+                  },
+                );
+              },
+              loading: () => const CircularProgressIndicator(),
+              error: (_, __) => const SizedBox.shrink(),
+            ),
+            const SizedBox(height: 12),
             PublicSelectLabel(
               initialLabelId: _selectedLabelId,
-              onLabelIdChanged: (labelId) {
+              onLabelIdChanged: (id) {
                 setState(() {
-                  _selectedLabelId = labelId;
+                  _selectedLabelId = id;
                 });
               },
-              themeColor: widget.themeColor,
+              themeColor: widget.themeColor ?? theme.colorScheme.primary,
             ),
-            const SizedBox(height: 14),
+            const SizedBox(height: 16),
             RuleActionSelector(
               initialAction: _selectedAction,
-              showAd: false,
-              padding: EdgeInsets.zero,
               onActionChanged: (action) {
                 setState(() {
                   _selectedAction = action;
@@ -302,21 +184,14 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
       ),
       actions: [
         TextButton(
-          onPressed: _isProcessing ? null : () => Navigator.pop(context),
-          child: Text(l10n.cancelButton, style: TextStyle(color: Colors.grey[600], fontWeight: FontWeight.w700)),
+          onPressed: () => Navigator.pop(context),
+          child: Text(l10n.cancelButton),
         ),
         ElevatedButton(
           onPressed: _isProcessing ? null : _saveRule,
-          style: ElevatedButton.styleFrom(
-            backgroundColor: widget.themeColor,
-            foregroundColor: Colors.white,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
-            elevation: 0,
-          ),
           child: _isProcessing
-              ? const SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
-              : Text(l10n.save, style: const TextStyle(fontWeight: FontWeight.w800)),
+              ? const CircularProgressIndicator()
+              : Text(l10n.save),
         ),
       ],
     );

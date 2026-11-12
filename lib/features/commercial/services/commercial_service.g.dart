@@ -8,12 +8,9 @@ part of 'commercial_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 商业化服务提供者
 
 @ProviderFor(commercialService)
 final commercialServiceProvider = CommercialServiceProvider._();
-
-/// 商业化服务提供者
 
 final class CommercialServiceProvider
     extends
@@ -23,7 +20,6 @@ final class CommercialServiceProvider
           CommercialService
         >
     with $Provider<CommercialService> {
-  /// 商业化服务提供者
   CommercialServiceProvider._()
     : super(
         from: null,
@@ -36,7 +32,7 @@ final class CommercialServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => r'commercial_service_hash_v2';
+  String debugGetCreateSourceHash() => _$commercialServiceHash();
 
   @$internal
   @override
@@ -57,3 +53,5 @@ final class CommercialServiceProvider
     );
   }
 }
+
+String _$commercialServiceHash() => r'00f4d40c611926319b5074ab83b30308e48ce48b';

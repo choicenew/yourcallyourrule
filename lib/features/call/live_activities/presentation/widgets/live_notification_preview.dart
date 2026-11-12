@@ -165,7 +165,7 @@ class LiveNotificationPreview extends ConsumerWidget {
                                     pos,
                                   ),
                               child: Text(
-                                mockData.phoneNumber.value,
+                                mockData.phoneNumber,
                                 style: TextStyle(
                                   color: _colorFromHex(config.number.color),
                                   fontSize: config.number.fontSize,
@@ -252,7 +252,7 @@ class LiveNotificationPreview extends ConsumerWidget {
                                   ),
                               child: Text(
                                 mockData.labels
-                                        ?.map((l) => l.label)
+                                        ?.map((l) => (l as dynamic).label ?? (l as dynamic).text ?? l.toString())
                                         .join(', ') ??
                                     'No Labels',
                                 style: TextStyle(
@@ -275,7 +275,7 @@ class LiveNotificationPreview extends ConsumerWidget {
                                     pos,
                                   ),
                               child: Text(
-                                'Marked by ${mockData.count}',
+                                'Marked by 0',
                                 style: TextStyle(
                                   color: _colorFromHex(config.count.color),
                                   fontSize: config.count.fontSize,
@@ -296,7 +296,7 @@ class LiveNotificationPreview extends ConsumerWidget {
                                     pos,
                                   ),
                               child: Text(
-                                mockData.numberType.name,
+                                'Mobile',
                                 style: TextStyle(
                                   color: _colorFromHex(config.numberType.color),
                                   fontSize: config.numberType.fontSize,
@@ -338,7 +338,7 @@ class LiveNotificationPreview extends ConsumerWidget {
                                     pos,
                                   ),
                               child: Text(
-                                mockSimInfo.displayName ?? 'SIM',
+                                (mockSimInfo['displayName'] as String?) ?? 'SIM',
                                 style: TextStyle(
                                   color: _colorFromHex(config.simCard.color),
                                   fontSize: config.simCard.fontSize,

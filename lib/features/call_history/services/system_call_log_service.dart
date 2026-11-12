@@ -1,4 +1,6 @@
-import 'package:advanced_call_log/advanced_call_log.dart' as sys hide CallLogEntry, CallLog;
+import 'dart:async';
+
+import 'package:advanced_call_log/advanced_call_log.dart' hide CallLogEntry;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -6,7 +8,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:yourcallyourrule/features/call_history/services/call_log_service.dart';
-import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
 
 part 'system_call_log_service.g.dart';
 
@@ -22,18 +23,19 @@ class SystemCallLogService {
 
   SystemCallLogService(this._callLogService);
 
-  Future<bool> hasCallLogPermission() async {
+  Future<bool> hasPermission() async {
     final status = await Permission.phone.status;
     return status.isGranted;
   }
 
-  Future<bool> requestCallLogPermission() async {
+  Future<bool> requestPermission() async {
     final status = await Permission.phone.request();
     return status.isGranted;
   }
 
   Future<int> syncSystemCallLogs() async {
-    if (!await hasCallLogPermission()) {
+    if (!await hasPermission()) {
+      debugPrint('[SystemCallLogService] 权限未授权，无法同步系统通话记录');
       return 0;
     }
 
@@ -43,7 +45,7 @@ class SystemCallLogService {
           ? DateTime.fromMillisecondsSinceEpoch(lastLog.timestamp!)
           : DateTime(2000);
 
-      final systemLogs = await sys.CallLog.query();
+      final systemLogs = await CallLog.get();
       int syncCount = 0;
 
       for (var entry in systemLogs) {
@@ -54,23 +56,23 @@ class SystemCallLogService {
 
         final durationInSeconds = entry.duration ?? 0;
 
-        final appLog = CallLog(
+        final appLog = CallLogEntry(
           id: const Uuid().v4(),
           phoneNumber: entry.number ?? '',
           callType: entry.callType?.toString() ?? 'incoming',
           timestamp: callTimestamp.millisecondsSinceEpoch,
           durationSeconds: durationInSeconds,
           name: entry.name,
-          location: entry.simDisplayName,
         );
 
         await _callLogService.addLog(appLog);
         syncCount++;
       }
 
+      debugPrint('[SystemCallLogService] 成功同步 $syncCount 条系统通话记录');
       return syncCount;
     } catch (e) {
-      debugPrint('同步系统通话记录错误: $e');
+      debugPrint('[SystemCallLogService] 同步系统通话记录失败: $e');
       return 0;
     }
   }

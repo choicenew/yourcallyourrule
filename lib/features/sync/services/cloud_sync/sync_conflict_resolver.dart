@@ -22,12 +22,12 @@ class SyncConflictResolver {
     userSelectedStrategy = strategy;
   }
 
-  String calculateEntitiesHash(List<RuleBase> entities) {
-    final sortedRules = List<RuleBase>.from(entities)
-      ..sort((a, b) => a.id.compareTo(b.id));
+  String calculateEntitiesHash(List<dynamic> entities) {
+    final sortedRules = List<dynamic>.from(entities)
+      ..sort((a, b) => ((a as dynamic).id as String).compareTo((b as dynamic).id as String));
     
     final jsonString = jsonEncode(
-      sortedRules.map((rule) => rule.toMap()).toList()
+      sortedRules.map((rule) => (rule as dynamic).toMap()).toList()
     );
     return _generateHash(jsonString);
   }
@@ -57,8 +57,8 @@ class SyncConflictResolver {
     if (userSelectedStrategy != null) return userSelectedStrategy!;
     if (defaultStrategy != ConflictResolutionStrategy.askUser) return defaultStrategy;
     
-    final localHash = local is List<RuleBase> ? calculateEntitiesHash(local) : _generateHash(jsonEncode(local));
-    final cloudHash = cloud is List<RuleBase> ? calculateEntitiesHash(cloud) : _generateHash(jsonEncode(cloud));
+    final localHash = local is List ? calculateEntitiesHash(local) : _generateHash(jsonEncode(local));
+    final cloudHash = cloud is List ? calculateEntitiesHash(cloud) : _generateHash(jsonEncode(cloud));
     
     return localHash == cloudHash ? ConflictResolutionStrategy.localWins 
       : key.contains('rule') ? ConflictResolutionStrategy.merge
@@ -79,13 +79,13 @@ class SyncConflictResolver {
   }
 
   dynamic _mergeData(dynamic local, dynamic cloud) {
-    if (local is List<RuleBase> && cloud is List<RuleBase>) {
-      final merged = <RuleBase>[];
-      final cloudIds = cloud.map((e) => e.id).toSet();
+    if (local is List && cloud is List) {
+      final merged = <dynamic>[];
+      final cloudIds = cloud.map((e) => (e as dynamic).id as String).toSet();
       
-      merged.addAll(local.where((localRule) => !cloudIds.contains(localRule.id)));
+      merged.addAll(local.where((localRule) => !cloudIds.contains((localRule as dynamic).id)));
       merged.addAll(cloud);
-      return merged..sort((a, b) => a.id.compareTo(b.id));
+      return merged..sort((a, b) => ((a as dynamic).id as String).compareTo((b as dynamic).id as String));
     }
     
     if (local is Map<String, dynamic> && cloud is Map<String, dynamic>) {

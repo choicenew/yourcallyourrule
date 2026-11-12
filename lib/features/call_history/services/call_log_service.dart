@@ -11,11 +11,9 @@ import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
-import 'package:yourcallyourrule/features/labels/services/predefined_label_service.g.dart';
-import 'package:yourcallyourrule/features/rules/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.dart';
-import 'package:yourcallyourrule/features/rules/repositories/rule_repository_impl.g.dart';
-import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
+import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository_impl.dart';
+import 'package:yourcallyourrule/features/phone_rules/services/rule_management_service.dart';
 
 part 'call_log_service.g.dart';
 
@@ -24,9 +22,7 @@ part 'call_log_service.g.dart';
 CallLogService callLogService(Ref ref) {
   final callLogRepository = ref.watch(callLogRepositoryProvider);
   final contactService = ref.watch(contactServiceProvider);
-  final ruleRepository = ref.watch(ruleRepositoryProvider);
-  final predefinedLabelService = ref.watch(predefinedLabelServiceProvider);
-  final labelService = LabelService(ruleRepository, predefinedLabelService);
+  final labelService = ref.watch(labelServiceProvider);
   final ruleManagementService = ref.watch(ruleManagementServiceProvider);
 
   return CallLogService(

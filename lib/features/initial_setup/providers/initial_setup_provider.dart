@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/setup_config.dart';
-import '../services/initial_setup_service.dart';
+import 'package:yourcallyourrule/features/initial_setup/services/initial_setup_service.dart';
 
 /// 基础服务提供者
 final initialSetupServiceProvider = Provider<InitialSetupService>((ref) {

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
-import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/call/call_filter/config/call_filter_config.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -28,7 +26,7 @@ class CallFilterSettingsWidget extends ConsumerWidget {
 
     return Column(
       children: [
-          const GoogleAdWidget(adInfo: AdManager.bannerAd),
+          const AdsInlineBanner(),
           const SizedBox(height: 12),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 6.0),
@@ -143,7 +141,7 @@ class CallFilterSettingsWidget extends ConsumerWidget {
             ),
           ),
           const SizedBox(height: 14),
-          const InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
+          const AdsInlineBanner(),
         ],
       );
   }

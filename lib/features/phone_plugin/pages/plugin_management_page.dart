@@ -1,34 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
-import 'package:pyro_phone_lookup_plugin_hub/pyro_phone_lookup_plugin_hub.dart';
 import 'package:pyro_phone_lookup_plugin_ui/pyro_phone_lookup_plugin_ui.dart' as plugin_pkg_ui;
-import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
+import 'package:yourcallyourrule/features/phone_plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class PluginManagementPage extends ConsumerWidget {
+class PluginManagementPage extends ConsumerStatefulWidget {
   const PluginManagementPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
-    final plugins = ref.watch(phoneLookupPluginControlCenterProvider).plugins;
+  ConsumerState<PluginManagementPage> createState() => _PluginManagementPageState();
+}
+
+class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
+  List<PluginSourceData> _plugins = [];
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadPlugins();
+  }
+
+  Future<void> _loadPlugins() async {
+    setState(() => _isLoading = true);
+    try {
+      final service = ref.read(pluginManagerServiceProvider);
+      final list = await service.getAllPlugins();
+      if (mounted) {
+        setState(() {
+          _plugins = list;
+          _isLoading = false;
+        });
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
 
     return GenericListWithAdsPage<PluginSourceData>(
-      title: l10n.pluginManagementTitle,
-      items: plugins,
-      emptyText: l10n.noPluginsFound,
+      title: l10n.pluginManagement,
+      items: _plugins,
+      isLoading: _isLoading,
+      emptyText: l10n.noPlugins,
       adInterval: 3,
-      adBuilder: () => const InlineAdaptiveAd(),
+      adBuilder: () => const AdsInlineBanner(),
       itemBuilder: (context, plugin) => plugin_pkg_ui.PyroPhoneLookupPluginCardWidget(
         data: plugin,
-        onTap: () => ref.read(phoneLookupPluginControlCenterProvider).editPlugin(plugin),
+        onTap: () {},
       ),
       getItemId: (plugin) => plugin.name ?? '',
-      onAdd: () => ref.read(phoneLookupPluginControlCenterProvider).openAddPluginDialog(context),
-      onSearchChanged: (query) => ref.read(phoneLookupPluginControlCenterProvider).searchPlugins(query),
-      onDeleteSelected: () => ref.read(phoneLookupPluginControlCenterProvider).deleteSelectedPlugins(),
+      onRefresh: _loadPlugins,
     );
   }
 }

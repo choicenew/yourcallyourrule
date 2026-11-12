@@ -1,28 +1,26 @@
-import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
-import 'package:yourcallyourrule/features/call_history/entities/local_call_type.dart';
+import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/statistic_period.dart';
 
 /// 通话统计服务类
 class CallStatisticsService {
-  bool _isIntercepted(CallLog log) =>
-      log.localCallType == LocalCallType.blocked ||
-      log.localCallType == LocalCallType.rejected ||
-      log.localCallType == LocalCallType.silenced;
+  bool _isIntercepted(CallLogEntry log) =>
+      log.callType == 'blocked' ||
+      log.callType == 'rejected' ||
+      log.callType == 'silenced';
 
-  int getTotalBlockedCount(List<CallLog> callLogs) =>
+  int getTotalBlockedCount(List<CallLogEntry> callLogs) =>
       callLogs.where(_isIntercepted).length;
 
-  int getWeeklyBlockedCallsCount(List<CallLog> callLogs) {
+  int getWeeklyBlockedCallsCount(List<CallLogEntry> callLogs) {
     final now = DateTime.now();
     final weekStart = now.subtract(Duration(days: now.weekday - 1));
-    final weekStartTimestamp = DateTime(weekStart.year, weekStart.month, weekStart.day);
-    return callLogs.where((log) => _isIntercepted(log) && log.dateTime.isAfter(weekStartTimestamp)).length;
+    final weekStartTimestamp = DateTime(weekStart.year, weekStart.month, weekStart.day).millisecondsSinceEpoch;
+    return callLogs.where((log) => _isIntercepted(log) && (log.timestamp ?? 0) >= weekStartTimestamp).length;
   }
 
-  int getWeeklyFilteredSmsCount(List<CallLog> callLogs) => 0;
+  int getWeeklyFilteredSmsCount(List<CallLogEntry> callLogs) => 0;
 
   int getAllowRulesCount(List<PhoneRuleEntity> rules) =>
       rules.where((r) => r.actionType == 'allow' && r.isEnabled).length;
@@ -53,29 +51,24 @@ class CallStatisticsService {
     return count;
   }
 
-  Map<String, double> getBlockTypeAnalysis(List<CallLog> callLogs) {
-    final typeCounts = <LocalCallType, int>{};
+  Map<String, double> getBlockTypeAnalysis(List<CallLogEntry> callLogs) {
+    final typeCounts = <String, int>{};
     final interceptedLogs = callLogs.where(_isIntercepted).toList();
     final totalBlocked = interceptedLogs.length;
     if (totalBlocked == 0) return {};
     for (final log in interceptedLogs) {
-      typeCounts[log.localCallType] = (typeCounts[log.localCallType] ?? 0) + 1;
+      typeCounts[log.callType] = (typeCounts[log.callType] ?? 0) + 1;
     }
-    return typeCounts.map((type, count) => MapEntry(type.name, (count / totalBlocked) * 100));
+    return typeCounts.map((type, count) => MapEntry(type, (count / totalBlocked) * 100));
   }
 
-  Map<DateTime, int> getBlockedCallsByDate(List<CallLog> callLogs, StatisticPeriod period) {
+  Map<DateTime, int> getBlockedCallsByDate(List<CallLogEntry> callLogs, StatisticPeriod period) {
     final result = <DateTime, int>{};
     final now = DateTime.now();
 
     int days;
     switch (period) {
       case StatisticPeriod.month:
-        days = 30;
-        break;
-      case StatisticPeriod.year:
-        days = 365;
-        break;
       case StatisticPeriod.week:
       default:
         days = 7;
@@ -83,14 +76,16 @@ class CallStatisticsService {
     }
 
     final startDate = now.subtract(Duration(days: days));
-    final relevantLogs = callLogs.where((log) => _isIntercepted(log) && log.dateTime.isAfter(startDate));
+    final startTimestamp = startDate.millisecondsSinceEpoch;
+    final relevantLogs = callLogs.where((log) => _isIntercepted(log) && (log.timestamp ?? 0) >= startTimestamp);
 
     for (final log in relevantLogs) {
+      final logDateTime = DateTime.fromMillisecondsSinceEpoch(log.timestamp ?? 0);
       DateTime key;
       if (period == StatisticPeriod.year) {
-        key = DateTime(log.dateTime.year, log.dateTime.month, 1);
+        key = DateTime(logDateTime.year, logDateTime.month, 1);
       } else {
-        key = DateTime(log.dateTime.year, log.dateTime.month, log.dateTime.day);
+        key = DateTime(logDateTime.year, logDateTime.month, logDateTime.day);
       }
       result[key] = (result[key] ?? 0) + 1;
     }
@@ -103,21 +98,22 @@ class CallStatisticsService {
     return active.take(limit).toList();
   }
 
-  Map<int, int> getSimSlotDistribution(List<CallLog> callLogs) {
+  Map<int, int> getSimSlotDistribution(List<CallLogEntry> callLogs) {
     final distribution = <int, int>{};
     for (final log in callLogs.where(_isIntercepted)) {
-      final slot = log.simSlotIndex;
+      final slot = 0;
       distribution[slot] = (distribution[slot] ?? 0) + 1;
     }
     return distribution;
   }
 
-  String getPeakHoursRange(List<CallLog> callLogs) {
+  String getPeakHoursRange(List<CallLogEntry> callLogs) {
     final intercepted = callLogs.where(_isIntercepted).toList();
     if (intercepted.isEmpty) return '14:00 - 16:00';
     final hourCounts = <int, int>{};
     for (final log in intercepted) {
-      final hour = log.dateTime.hour;
+      final logDateTime = DateTime.fromMillisecondsSinceEpoch(log.timestamp ?? 0);
+      final hour = logDateTime.hour;
       hourCounts[hour] = (hourCounts[hour] ?? 0) + 1;
     }
     var peakHour = 14;

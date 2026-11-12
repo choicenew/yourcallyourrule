@@ -126,9 +126,20 @@ static Color getColorFromName(String name) {
   return HSLColor.fromAHSL(1.0, hue, saturation, lightness).toColor();
 }
 
-
-
-
-
-
+  static Widget buildAvatarWithIcon(
+    BuildContext context, {
+    required String name,
+    String? avatarUrl,
+    String? iconCode,
+  }) {
+    return CircleAvatar(
+      backgroundColor: getColorFromName(name),
+      backgroundImage: getAvatarImage(avatarUrl, name),
+      child: avatarUrl == null && iconCode != null && iconCode.isNotEmpty
+          ? Text(iconCode[0], style: const TextStyle(color: Colors.white))
+          : (avatarUrl == null
+              ? Text(getAvatarInitial(name), style: const TextStyle(color: Colors.white))
+              : null),
+    );
+  }
 }

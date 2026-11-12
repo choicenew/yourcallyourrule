@@ -55,4 +55,4 @@ final class LocalLocationDataSourceProvider
 }
 
 String _$localLocationDataSourceHash() =>
-    r'8acd1cd29b3fca8582a3f668440358be59adcf8f';
+    r'e8599b8a527f8210c27db5b016634551cc9d4418';

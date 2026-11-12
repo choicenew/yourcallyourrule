@@ -1,21 +1,14 @@
 import 'package:flutter/services.dart';
-
 import 'package:yourcallyourrule/features/common/error/logger.dart';
-
 import '../sms_channel_switcher.dart';
 
-
-/// Android平台的短信通道管理器实�?
 class AndroidSmsChannelManager implements SmsChannelInterface {
-  // 单例模式
   static final AndroidSmsChannelManager _instance = AndroidSmsChannelManager._internal();
   factory AndroidSmsChannelManager() => _instance;
   AndroidSmsChannelManager._internal();
 
-  // 通道定义
   static const smsChannel = MethodChannel('com.yours.yourcallyourrule/sms_filter');
 
-  // 回调函数
   @override
   Function(MethodCall)? onSmsCall;
 
@@ -36,8 +29,7 @@ class AndroidSmsChannelManager implements SmsChannelInterface {
     try {
       await smsChannel.invokeMethod('initialize');
     } catch (e) {
-          AppLogger.error('初始化短信监听器失败', e);
-      
+      AppLogger.error('Failed to initialize SMS listener: $e');
     }
   }
 
@@ -46,8 +38,7 @@ class AndroidSmsChannelManager implements SmsChannelInterface {
     try {
       await smsChannel.invokeMethod('unregisterSmsListener');
     } catch (e) {
-      AppLogger.error('注销短信监听器失�?, e);
-      
+      AppLogger.error('Failed to unregister SMS listener: $e');
     }
   }
 
@@ -56,8 +47,7 @@ class AndroidSmsChannelManager implements SmsChannelInterface {
     try {
       return await smsChannel.invokeMethod('getDefaultSmsPackage');
     } catch (e) {
-      AppLogger.error('获取默认短信包名失败', e);
-      
+      AppLogger.error('Failed to get default SMS package: $e');
     }
     return null;
   }
@@ -70,8 +60,7 @@ class AndroidSmsChannelManager implements SmsChannelInterface {
         'importance': importance,
       });
     } catch (e) {
-    AppLogger.error('设置短信通知通道重要性失�?, e);
-     
+      AppLogger.error('Failed to set SMS notification importance: $e');
     }
   }
 }

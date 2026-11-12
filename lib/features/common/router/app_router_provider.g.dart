@@ -27,7 +27,7 @@ final class AppRouterProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => r'app_router_provider_hash_v10';
+  String debugGetCreateSourceHash() => _$appRouterHash();
 
   @$internal
   @override
@@ -47,3 +47,5 @@ final class AppRouterProvider
     );
   }
 }
+
+String _$appRouterHash() => r'ccde8baa9931259ce70cb1e422bda7d5a0116ccb';

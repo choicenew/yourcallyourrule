@@ -55,7 +55,7 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
 
     final allRulesCountProvider = FutureProvider<int>((ref) async {
       final service = ref.watch(simSlotRuleServiceProvider);
-      final rules = await service.getAllSimSlotRules();
+      final rules = await service.getSimSlotRules(selectedSimSlot);
       return rules.length;
     });
     final rulesCount = ref.watch(allRulesCountProvider).value ?? 0;

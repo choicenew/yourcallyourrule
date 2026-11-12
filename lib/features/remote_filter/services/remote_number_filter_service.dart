@@ -32,14 +32,14 @@ class RemoteNumberFilterService implements CallFilterInterface {
   CallFilterType get filterType => CallFilterType.remoteNumber;
 
   @override
-  Future<bool> shouldAcceptCall(String phoneNumberStr, {SimInfo? simInfo}) async {
+  Future<bool> shouldAcceptCall(String phoneNumberStr, {dynamic simInfo}) async {
     try {
       final config = await _getConfig();
       if (!config.enableRemoteNumberFilter) {
         return true;
       }
 
-      final phoneNumber = PhoneNumber(phoneNumberStr);
+      final phoneNumber = PhoneNumber.fromString(phoneNumberStr);
       final remoteInfo = await _remoteNumberService.queryRemoteNumberInfo(phoneNumberStr);
 
       if (remoteInfo != null) {

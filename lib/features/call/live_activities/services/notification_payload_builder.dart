@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:live_activity_kit/live_activity_kit.dart';
 import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
-import 'package:pyro_telephony_protocol/pyro_telephony_protocol.dart';
+import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
 import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
 
@@ -36,14 +36,14 @@ class LiveNotificationPayloadBuilder {
     String? securityMessage,
     bool isFraudCall = false,
   }) async {
-    final String numberDisplay = data.phoneNumber.value;
+    final String numberDisplay = data.phoneNumber;
     final String nameDisplay = data.name ?? numberDisplay;
 
     final String? labelText = (data.labels != null && data.labels!.isNotEmpty)
-        ? data.labels!.first.label
+        ? ((data.labels!.first as dynamic).label ?? (data.labels!.first as dynamic).text ?? data.labels!.first.toString())
         : null;
     final ImageProvider? avatarProvider = config.avatar.visible
-        ? AvatarUtils.getAvatarImage(data.avatar, labelText)
+        ? AvatarUtils.getAvatarImage(null, labelText)
         : null;
 
     final String? assetPath = (avatarProvider is AssetImage) ? avatarProvider.assetName : null;
@@ -53,11 +53,8 @@ class LiveNotificationPayloadBuilder {
     if (config.labels.visible && labelText != null && labelText.isNotEmpty) {
       details.add(labelText);
     }
-    if (config.count.visible && data.count > 0) {
-      details.add('Marked: ${data.count}');
-    }
-    if (config.simCard.visible && simInfo?.displayName != null && simInfo!.displayName!.isNotEmpty) {
-      details.add(simInfo.displayName!);
+    if (config.simCard.visible && simInfo?['displayName'] != null) {
+      details.add(simInfo!['displayName'] as String);
     }
     if (config.carrier.visible && data.carrier != null && data.carrier!.isNotEmpty) {
       details.add(data.carrier!);
@@ -68,7 +65,7 @@ class LiveNotificationPayloadBuilder {
     if (config.countryName.visible && data.countryName != null && data.countryName!.isNotEmpty) {
       details.add(data.countryName!);
     }
-    if (config.stir.visible && stirInfo != null && stirInfo.isVerified) {
+    if (config.stir.visible && stirInfo != null && (stirInfo['isVerified'] == true)) {
       details.add('STIR Pass');
     }
     final String detailLine = details.join(' · ');
@@ -104,7 +101,7 @@ class LiveNotificationPayloadBuilder {
           LA.text(detailLine, size: 12, color: const Color(0xFF888888)),
           top: 4,
         ),
-      if (config.stir.visible && stirInfo != null && stirInfo.isVerified)
+      if (config.stir.visible && stirInfo != null && (stirInfo['isVerified'] == true))
         LA.padding(
           LA.text(
             'STIR Pass',
@@ -118,10 +115,10 @@ class LiveNotificationPayloadBuilder {
           LA.container(
             padding: const LAInsets(top: 6, bottom: 6, left: 8, right: 8),
             background: const Color(0x22D32F2F),
-            cornerRadius: 6,
             child: LA.text(
               securityMessage,
-              size: config.securityMessage.fontSize,
+              size: 13,
+              weight: FontWeight.bold,
               color: const Color(0xFFD32F2F),
             ),
           ),
@@ -129,44 +126,43 @@ class LiveNotificationPayloadBuilder {
         ),
     ]);
 
-    final compactLeadingNode = hasAvatar
-        ? LA.asset(assetPath, width: 20, height: 20, cornerRadius: 10)
-        : LA.symbol(
-            'phone.fill',
-            color: isFraudCall
-                ? const Color(0xFFD32F2F)
-                : AvatarUtils.getColorFromName(nameDisplay),
-          );
+    final compactLeadingNode = avatarNode;
     final compactTrailingNode = LA.text(
-      nameDisplay,
-      size: 12,
+      isFraudCall ? 'SPAM' : (labelText ?? 'Call'),
+      color: isFraudCall ? const Color(0xFFD32F2F) : const Color(0xFF4CAF50),
       weight: FontWeight.bold,
     );
-    final minimalNode = LA.symbol(
-      'phone.fill',
-      color: isFraudCall
-          ? const Color(0xFFD32F2F)
-          : AvatarUtils.getColorFromName(nameDisplay),
-    );
-    final expandedLeadingNode = hasAvatar
-        ? LA.asset(assetPath, width: 40, height: 40, cornerRadius: 20)
-        : LA.symbol(
-            'person.crop.circle.fill',
-            size: 36,
-            color: isFraudCall
-                ? const Color(0xFFD32F2F)
-                : AvatarUtils.getColorFromName(nameDisplay),
-          );
+
+    final minimalNode = isFraudCall
+        ? LA.symbol('exclamationmark.shield.fill', color: const Color(0xFFD32F2F))
+        : LA.symbol('phone.fill', color: const Color(0xFF4CAF50));
+
+    final expandedLeadingNode = avatarNode;
     final expandedCenterNode = LA.column([
       if (config.name.visible)
-        LA.text(nameDisplay, size: 15, weight: FontWeight.bold),
+        LA.text(
+          nameDisplay,
+          size: config.name.fontSize,
+          weight: FontWeight.bold,
+          color: isFraudCall ? const Color(0xFFD32F2F) : null,
+        ),
       if (config.number.visible)
-        LA.text(numberDisplay, size: 13),
+        LA.text(numberDisplay, size: config.number.fontSize),
       if (detailLine.isNotEmpty)
-        LA.text(detailLine, size: 11),
+        LA.text(detailLine, size: 12, color: const Color(0xFF888888)),
     ]);
+
     final expandedBottomNode = (config.securityMessage.visible && securityMessage != null)
-        ? LA.text(securityMessage, size: 12, color: const Color(0xFFD32F2F))
+        ? LA.container(
+            padding: const LAInsets(top: 8, bottom: 8, left: 12, right: 12),
+            background: const Color(0x22D32F2F),
+            child: LA.text(
+              securityMessage,
+              size: 13,
+              weight: FontWeight.bold,
+              color: const Color(0xFFD32F2F),
+            ),
+          )
         : null;
 
     return LiveNotificationPayload(

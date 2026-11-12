@@ -8,12 +8,12 @@ part of 'download_status_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// DownloadStatusService 的 @Riverpod Provider
+/// DownloadStatusService Riverpod Provider
 
 @ProviderFor(downloadStatusService)
 final downloadStatusServiceProvider = DownloadStatusServiceProvider._();
 
-/// DownloadStatusService 的 @Riverpod Provider
+/// DownloadStatusService Riverpod Provider
 
 final class DownloadStatusServiceProvider
     extends
@@ -23,7 +23,7 @@ final class DownloadStatusServiceProvider
           DownloadStatusService
         >
     with $Provider<DownloadStatusService> {
-  /// DownloadStatusService 的 @Riverpod Provider
+  /// DownloadStatusService Riverpod Provider
   DownloadStatusServiceProvider._()
     : super(
         from: null,

@@ -8,12 +8,9 @@ part of 'location_repository_impl.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 位置仓库提供者
 
 @ProviderFor(locationRepository)
 final locationRepositoryProvider = LocationRepositoryProvider._();
-
-/// 位置仓库提供者
 
 final class LocationRepositoryProvider
     extends
@@ -23,7 +20,6 @@ final class LocationRepositoryProvider
           LocationRepository
         >
     with $Provider<LocationRepository> {
-  /// 位置仓库提供者
   LocationRepositoryProvider._()
     : super(
         from: null,
@@ -59,4 +55,4 @@ final class LocationRepositoryProvider
 }
 
 String _$locationRepositoryHash() =>
-    r'dc64bcaf9d27413f34e361ab9baa3012065e649a';
+    r'5c71275382306d33fa3b238525101bef81d312f8';

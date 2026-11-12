@@ -2,24 +2,23 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:ua_client_hints/ua_client_hints.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
-import 'package:yourcallyourrule/features/plugin/services/core/js_execution_service.dart';
-import 'package:yourcallyourrule/features/plugin/services/core/native_request_channel.dart';
-import 'package:yourcallyourrule/features/plugin/services/core/transient_plugin_session.dart';
+import 'package:yourcallyourrule/features/phone_plugin/services/core/js_execution_service.dart';
+import 'package:yourcallyourrule/features/phone_plugin/services/core/native_request_channel.dart';
+import 'package:yourcallyourrule/features/phone_plugin/services/core/transient_plugin_session.dart';
 
 part 'plugin_execution_service.g.dart';
 
-/// PluginExecutionService �?@Riverpod Provider
+/// PluginExecutionService �?@Riverpod Provider
 @Riverpod(keepAlive: true)
 PluginExecutionService pluginExecutionService(Ref ref) {
   return PluginExecutionService();
 }
 
 /// 插件执行服务 - 负责插件 JS 的加载与执行
-/// [Refactored] 移除 WebView，改�?JsExecutionService + NativeRequestChannel
+/// [Refactored] 移除 WebView，改�?JsExecutionService + NativeRequestChannel
 class PluginExecutionService {
   static final PluginExecutionService _instance =
       PluginExecutionService._internal();
@@ -33,7 +32,7 @@ class PluginExecutionService {
   final Completer<void> _initCompleter = Completer<void>();
   bool _isInitializing = false;
 
-  // 跟踪每个插件的就绪状�?
+  // 跟踪每个插件的就绪状�?
   final Map<String, bool> _pluginReadyStatus = {};
 
   // 用于通知插件就绪状态的StreamController
@@ -62,7 +61,7 @@ class PluginExecutionService {
       await _jsService!.init();
 
       // 2. Init Network Channel
-      // 使用�?Dart 现代插件 ua_client_hints 动态获取真实系统的完整标准 User-Agent（耗时 0.1ms�? 原生编译隐患�? WebView 渲染开销�?
+      // 使用�?Dart 现代插件 ua_client_hints 动态获取真实系统的完整标准 User-Agent（耗时 0.1ms�? 原生编译隐患�? WebView 渲染开销�?
       try {
         _systemUserAgent = await userAgent();
       } catch (e) {
@@ -253,7 +252,7 @@ class PluginExecutionService {
   }
 
   /// 使用瞬时闭环沙盒 (TransientPluginSession) 执行批量插件查询
-  /// [按需启用 �?并发跑插�?�?彻底物理销�?QuickJS RAM]
+  /// [按需启用 �?并发跑插�?�?彻底物理销�?QuickJS RAM]
   Future<List<Map<String, dynamic>>> executeBatchSession({
     required List<PluginEntry> enabledPlugins,
     required String phoneNumber,
@@ -278,7 +277,7 @@ class PluginExecutionService {
     _pluginReadyController.close();
   }
 
-  // 辅助方法：获�?Settings
+  // 辅助方法：获�?Settings
   Future<List<dynamic>?> getPluginSettings(String pluginId) async {
     await initialize();
     try {

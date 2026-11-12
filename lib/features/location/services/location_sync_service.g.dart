@@ -8,12 +8,9 @@ part of 'location_sync_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// LocationSyncService 的 @Riverpod Provider
 
 @ProviderFor(locationSyncService)
 final locationSyncServiceProvider = LocationSyncServiceProvider._();
-
-/// LocationSyncService 的 @Riverpod Provider
 
 final class LocationSyncServiceProvider
     extends
@@ -23,7 +20,6 @@ final class LocationSyncServiceProvider
           LocationSyncService
         >
     with $Provider<LocationSyncService> {
-  /// LocationSyncService 的 @Riverpod Provider
   LocationSyncServiceProvider._()
     : super(
         from: null,
@@ -59,4 +55,4 @@ final class LocationSyncServiceProvider
 }
 
 String _$locationSyncServiceHash() =>
-    r'473d076654cf48bacbda303a360264a26c992a44';
+    r'20230ed40c3d85f9ce19ff7fbd58b3b9f3c14c8c';

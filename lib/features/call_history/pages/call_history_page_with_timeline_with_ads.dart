@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:pyro_phone_call_history_hub/pyro_phone_call_history_hub.dart';
 import 'package:pyro_phone_call_history_ui/pyro_phone_call_history_ui.dart' as history_pkg_ui;
-import 'package:yourcallyourrule/ads/ad_widgets/inline_adaptive_ad.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_timeline_with_ads_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -12,26 +12,29 @@ class CallHistoryPageWithTimelineWithAds extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
-    final historyLogs = ref.watch(callHistoryControlCenterProvider).logs;
+    final l10n = AppLocalizations.of(context);
 
-    return GenericTimelineListWithAdsPage<CallLogEntry>(
-      title: l10n.callHistoryTitle,
-      items: historyLogs,
-      displayMode: ListDisplayMode.timeline,
-      getItemTimestamp: (entry) => entry.timestamp != null
-          ? DateTime.fromMillisecondsSinceEpoch(entry.timestamp!)
-          : null,
-      emptyText: l10n.noCallHistoryFound,
-      adInterval: 3,
-      adBuilder: () => const InlineAdaptiveAd(),
-      itemBuilder: (context, entry) => history_pkg_ui.PyroCallLogCardWidget(
-        entry: entry,
-        onTap: () => ref.read(callHistoryControlCenterProvider).showDetail(entry),
-      ),
-      getItemId: (entry) => entry.id,
-      onSearchChanged: (query) => ref.read(callHistoryControlCenterProvider).searchLogs(query),
-      onDeleteSelected: () => ref.read(callHistoryControlCenterProvider).deleteSelected(),
+    return FutureBuilder<List<CallLogEntry>>(
+      future: CallHistoryControlCenter.instance.getAllLogs(),
+      builder: (context, snapshot) {
+        final historyLogs = snapshot.data ?? [];
+        return GenericTimelineListWithAdsPage<CallLogEntry>(
+          title: (l10n as dynamic)?.callHistoryTitle as String? ?? 'Call History',
+          items: historyLogs,
+          displayMode: ListDisplayMode.timeline,
+          getItemTimestamp: (entry) => entry.timestamp != null
+              ? DateTime.fromMillisecondsSinceEpoch(entry.timestamp!)
+              : null,
+          emptyText: (l10n as dynamic)?.noCallHistoryFound as String? ?? 'No call history found',
+          adInterval: 3,
+          adBuilder: () => const AdsInlineBanner(),
+          itemBuilder: (context, entry) => history_pkg_ui.PyroCallLogCardWidget(
+            entry: entry,
+            onTap: () {},
+          ),
+          getItemId: (entry) => entry.id,
+        );
+      },
     );
   }
 }

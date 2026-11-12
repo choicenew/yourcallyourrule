@@ -1,12 +1,11 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
-import 'package:yourcallyourrule/features/call_history/entities/local_call_type.dart';
-import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
+import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
+import 'package:yourcallyourrule/features/call_history/services/call_log_service.dart';
 
 part 'blocked_calls_provider.g.dart';
 
 class BlockedCallsState {
-  final List<CallLog> logs;
+  final List<CallLogEntry> logs;
   final List<double> weeklyChartData;
 
   BlockedCallsState({required this.logs, required this.weeklyChartData});
@@ -28,15 +27,15 @@ class BlockedCalls extends _$BlockedCalls {
     final callLogService = ref.watch(callLogServiceProvider);
     final allLogs = await callLogService.getRecentLogs();
     
-    List<CallLog> filteredLogs;
+    List<CallLogEntry> filteredLogs;
 
     switch (tabIndex) {
       case 0:
       case 1:
         filteredLogs = allLogs.where((log) {
-          return log.callType == LocalCallType.blocked ||
-                 log.callType == LocalCallType.rejected ||
-                 log.callType == LocalCallType.silenced;
+          return log.callType == 'blocked' ||
+                 log.callType == 'rejected' ||
+                 log.callType == 'silenced';
         }).toList();
         break;
       case 2:
@@ -45,16 +44,17 @@ class BlockedCalls extends _$BlockedCalls {
         break;
     }
     
-    filteredLogs.sort((a, b) => b.timestamp.compareTo(a.timestamp));
+    filteredLogs.sort((a, b) => (b.timestamp ?? 0).compareTo(a.timestamp ?? 0));
 
     final now = DateTime.now();
     final weeklyChartData = List.generate(7, (index) {
       final day = now.subtract(Duration(days: index));
-      final count = filteredLogs.where((log) =>
-          log.timestamp.year == day.year &&
-          log.timestamp.month == day.month &&
-          log.timestamp.day == day.day
-      ).length;
+      final count = filteredLogs.where((log) {
+        final logDateTime = DateTime.fromMillisecondsSinceEpoch(log.timestamp ?? 0);
+        return logDateTime.year == day.year &&
+            logDateTime.month == day.month &&
+            logDateTime.day == day.day;
+      }).length;
       return count.toDouble();
     });
 

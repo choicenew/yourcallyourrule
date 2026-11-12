@@ -3,9 +3,8 @@ import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 本地通讯录与标签匹配卡片（合�?SearchPage 的本地能力）
 class VerificationLocalMatchCard extends StatelessWidget {
-  final Contact? matchedContact;
+  final PhoneContactEntry? matchedContact;
   final LabelPhoneEntry? matchedLabel;
 
   const VerificationLocalMatchCard({
@@ -66,7 +65,7 @@ class VerificationLocalMatchCard extends StatelessWidget {
                 child: Icon(Icons.person_rounded, color: Color(0xFF2E7D32)),
               ),
               title: Text(
-                matchedContact!.name,
+                matchedContact!.displayName,
                 style: const TextStyle(fontWeight: FontWeight.w800),
               ),
               subtitle: Text(matchedContact!.phoneNumbers.join(', ')),

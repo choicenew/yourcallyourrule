@@ -8,12 +8,12 @@ part of 'country_selection_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// CountrySelectionService 的 @Riverpod Provider
+/// CountrySelectionService Riverpod Provider
 
 @ProviderFor(countrySelectionService)
 final countrySelectionServiceProvider = CountrySelectionServiceProvider._();
 
-/// CountrySelectionService 的 @Riverpod Provider
+/// CountrySelectionService Riverpod Provider
 
 final class CountrySelectionServiceProvider
     extends
@@ -23,7 +23,7 @@ final class CountrySelectionServiceProvider
           CountrySelectionService
         >
     with $Provider<CountrySelectionService> {
-  /// CountrySelectionService 的 @Riverpod Provider
+  /// CountrySelectionService Riverpod Provider
   CountrySelectionServiceProvider._()
     : super(
         from: null,

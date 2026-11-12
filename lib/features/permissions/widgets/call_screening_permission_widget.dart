@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call_policy/evaluators/call_protection_service.dart';
 import 'package:yourcallyourrule/features/call_monitor/services/call_screen_plugin.dart';
-import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 系统默认来电拦截与筛选权限控制卡片
@@ -44,7 +43,6 @@ class _CallScreeningPermissionWidgetState extends ConsumerState<CallScreeningPer
       setState(() {
         _hasPermission = granted;
       });
-      ref.invalidate(homeStatsProvider);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(granted

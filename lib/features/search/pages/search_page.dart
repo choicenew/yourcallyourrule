@@ -1,20 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/features/common/widgets/dialogs/dialogs.dart';
-import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
-import 'package:yourcallyourrule/features/contacts/services/contact_service.g.dart';
-import 'package:yourcallyourrule/features/labels/services/label_service.dart';
-import 'package:yourcallyourrule/features/labels/services/label_service.g.dart';
-import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.dart';
-import 'package:yourcallyourrule/features/rules/services/allowed_blocked_service.g.dart';
-import 'package:yourcallyourrule/features/rules/services/rule_management_service.dart';
-import 'package:yourcallyourrule/features/rules/services/rule_management_service.g.dart';
 import 'package:yourcallyourrule/features/search/providers/search_provider.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
 import 'package:yourcallyourrule/features/search/widgets/search_result_item.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 
 class SearchPage extends ConsumerStatefulWidget {
   final String? initialSearchText;
@@ -26,297 +15,126 @@ class SearchPage extends ConsumerStatefulWidget {
 }
 
 class _SearchPageState extends ConsumerState<SearchPage> {
-  final TextEditingController _searchController = TextEditingController();
+  final _searchController = TextEditingController();
+  final _focusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) return;
-      Object? extra;
-      try {
-        extra = GoRouterState.of(context).extra;
-      } catch (_) {
-        extra = null;
-      }
-      String? searchText;
-
-      if (extra != null && extra is String) {
-        searchText = extra;
-      } else if (widget.initialSearchText != null) {
-        searchText = widget.initialSearchText;
-      }
-
-      if (searchText != null && searchText.isNotEmpty) {
-        _searchController.text = searchText;
-        ref.read(searchProvider.notifier).search(searchText);
-      }
-    });
+    if (widget.initialSearchText != null && widget.initialSearchText!.isNotEmpty) {
+      _searchController.text = widget.initialSearchText!;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        ref.read(searchProvider.notifier).search(widget.initialSearchText!);
+      });
+    }
   }
 
   @override
   void dispose() {
     _searchController.dispose();
+    _focusNode.dispose();
     super.dispose();
   }
 
-  void _triggerSearch() {
-    final searchText = _searchController.text.trim();
-    if (searchText.isEmpty) {
+  void _onSearchSubmitted(String query) {
+    if (query.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(AppLocalizations.of(context)!.enterSearchContent),
         ),
       );
-      ref.read(searchProvider.notifier).search(searchText);
       return;
     }
-    ref.read(searchProvider.notifier).search(searchText);
+
+    ref.read(searchProvider.notifier).search(query.trim());
   }
 
-  void _handleResultTap(SearchResult result) {
-    if (result.type == SearchResultType.remoteNumber) {
-      CallerIdDialog.show(context, result.phoneNumber);
-    } else if (result.type == SearchResultType.notFound) {
-      CountrySelectionDialog.show(context, result.phoneNumber);
-    } else if (result.type == SearchResultType.contact) {
-      final contactService = ref.read(contactServiceProvider);
-      contactService
-          .findContactByPhoneNumber(PhoneNumber.fromString(result.phoneNumber))
-          .then((contact) {
-            if (contact != null) {
-              ContactEditDialog.show(
-                context,
-                contact: contact,
-                onContactUpdated: () => _triggerSearch(),
-              );
-            } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(AppLocalizations.of(context)!.contactNotFound),
-                ),
-              );
-            }
-          });
-    } else if (result.type == SearchResultType.label) {
-      final labelService = ref.read(labelServiceProvider);
-      labelService.getLabelByPhoneNumberString(result.phoneNumber).then((
-        label,
-      ) {
-        if (label != null) {
-          LabelEditDialog.show(
-            context,
-            label,
-            onLabelUpdated: () => _triggerSearch(),
-            themeColor: Theme.of(context).primaryColor,
-          );
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(AppLocalizations.of(context)!.labelNotFound),
-            ),
-          );
-        }
-      });
-    } else if (result.type == SearchResultType.allow ||
-        result.type == SearchResultType.block ||
-        result.type == SearchResultType.silence ||
-        result.type == SearchResultType.none) {
-      final ruleService = ref.read(ruleManagementServiceProvider);
-      final allowedBlockedService = ref.read(allowedBlockedServiceProvider);
-
-      if (result.ruleType == 'phone_rule') {
-        ruleService
-            .getAllRulesByActionType(null)
-            .then((rules) {
-              final rule = rules.firstWhere((r) => r.id == result.id);
-              PhoneRuleEditDialog.show(
-                context,
-                rule,
-                onRuleUpdated: () => _triggerSearch(),
-                themeColor: Theme.of(context).primaryColor,
-              );
-            })
-            .catchError(
-              (e) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      AppLocalizations.of(context)!.ruleNotFound(e.toString()),
-                    ),
-                  ),
-                );
-                return null;
-              },
-            );
-      } else if (result.ruleType == 'allow_block') {
-        allowedBlockedService
-            .getAllRulesByActionType(PhoneNumber.fromString(result.phoneNumber), null)
-            .then((rules) {
-              final rule = rules.firstWhere((r) => r.id == result.id);
-              AllowedBlockedRuleEditDialog.show(
-                context,
-                rule,
-                onRuleUpdated: () => _triggerSearch(),
-                themeColor: Theme.of(context).primaryColor,
-              );
-            })
-            .catchError(
-              (e) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      AppLocalizations.of(context)!.ruleNotFound(e.toString()),
-                    ),
-                  ),
-                );
-                return null;
-              },
-            );
-      }
-    }
+  void _onResultItemTap(SearchResult result) {
+    // Tap handler for search item
   }
 
   @override
   Widget build(BuildContext context) {
-    final searchState = ref.watch(searchProvider);
-
-    ref.listen<AsyncValue<List<SearchResult>>>(searchProvider, (
-      previous,
-      next,
-    ) {
-      if (!next.isLoading &&
-          next.hasValue &&
-          next.value!.isEmpty &&
-          _searchController.text.isNotEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(AppLocalizations.of(context)!.noMatchingNumbersFound),
-          ),
-        );
-      }
-      if (next.hasError) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              AppLocalizations.of(context)!.searchError(next.error.toString()),
-            ),
-          ),
-        );
-      }
-    });
-
-    final theme = Theme.of(context);
+    final searchResultsAsync = ref.watch(searchProvider);
 
     return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
-        title: Text(
-          AppLocalizations.of(context)!.numberSearch,
-          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: theme.colorScheme.onSurface),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        foregroundColor: theme.colorScheme.onSurface,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: theme.colorScheme.onSurface),
-          onPressed: () => Navigator.of(context).maybePop(),
-        ),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _searchController,
-                    decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context)!.enterPhoneNumber,
-                      hintStyle: TextStyle(fontSize: 13, color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.5)),
-                      prefixIcon: Icon(Icons.search_rounded, color: theme.colorScheme.primary, size: 20),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.1),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide(color: theme.colorScheme.primary, width: 1.5),
-                      ),
-                      filled: true,
-                      fillColor: theme.colorScheme.surface,
-                      contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
-                    ),
-                    keyboardType: TextInputType.phone,
-                    onSubmitted: (_) => _triggerSearch(),
-                  ),
-                ),
-                const SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: searchState.isLoading ? null : _triggerSearch,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: theme.colorScheme.primary,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-                    elevation: 0,
-                  ),
-                  child:
-                      searchState.isLoading
-                          ? const SizedBox(
-                            width: 20,
-                            height: 20,
-                            child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
-                          )
-                          : Text(AppLocalizations.of(context)!.search, style: const TextStyle(fontWeight: FontWeight.w800)),
-                ),
-              ],
+        title: TextField(
+          controller: _searchController,
+          focusNode: _focusNode,
+          autofocus: true,
+          decoration: InputDecoration(
+            hintText: AppLocalizations.of(context)!.searchHint,
+            border: InputBorder.none,
+            hintStyle: TextStyle(
+              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
             ),
           ),
-
-          Expanded(
-            child: searchState.when(
-              data: (results) {
-                if (results.isEmpty && _searchController.text.isEmpty) {
-                  return Center(
-                    child: Text(
-                      AppLocalizations.of(
-                        context,
-                      )!.enterPhoneNumberToStartSearch,
-                    ),
-                  );
-                }
-                if (results.isEmpty) {
-                  return Center(
-                    child: Text(
-                      AppLocalizations.of(context)!.noMatchingNumbersFound,
-                    ),
-                  );
-                }
-                return ListView.builder(
-                  itemCount: results.length,
-                  itemBuilder: (context, index) {
-                    final result = results[index];
-                    return SearchResultItem(
-                      result: result,
-                      onTap: () => _handleResultTap(result),
-                    );
-                  },
-                );
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.onSurface,
+            fontSize: 18,
+          ),
+          onSubmitted: _onSearchSubmitted,
+          textInputAction: TextInputAction.search,
+        ),
+        actions: [
+          if (_searchController.text.isNotEmpty)
+            IconButton(
+              icon: const Icon(Icons.clear),
+              onPressed: () {
+                _searchController.clear();
+                ref.read(searchProvider.notifier).clear();
               },
-              loading: () => const Center(child: CircularProgressIndicator()),
-              error:
-                  (e, st) => Center(
-                    child: Text(
-                      AppLocalizations.of(context)!.searchError(e.toString()),
-                    ),
-                  ),
             ),
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () => _onSearchSubmitted(_searchController.text),
           ),
         ],
+      ),
+      body: searchResultsAsync.when(
+        data: (results) {
+          if (results.isEmpty) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.search_off,
+                    size: 64,
+                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.4),
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    AppLocalizations.of(context)!.noData,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                      fontSize: 16,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }
+
+          return ListView.builder(
+            itemCount: results.length,
+            itemBuilder: (context, index) {
+              final item = results[index];
+              return SearchResultItem(
+                result: item,
+                onTap: () => _onResultItemTap(item),
+              );
+            },
+          );
+        },
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (error, stack) => Center(
+          child: Text(
+            'Error: $error',
+            style: const TextStyle(color: Colors.red),
+          ),
+        ),
       ),
     );
   }

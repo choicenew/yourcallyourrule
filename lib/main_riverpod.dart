@@ -5,66 +5,51 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/features/common/router/app_router_provider.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/call_overlay_entry.dart';
-import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/common/services/firebase_service.dart';
 import 'package:yourcallyourrule/features/common/error/logger.dart';
 
 Future<void> main() async {
-  // 确保 Flutter 绑定初始�?
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  // 保持原生启动屏幕直到 Flutter 渲染第一�?
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   try {
-    // 初始化Firebase服务
     final firebaseService = FirebaseService();
     await firebaseService.initialize();
     
-    // 初始化应用日志服�?
     AppLogger.initialize();
     
-    // 初始化广告SDK
     await MobileAds.instance.initialize();
     
-    // 记录应用启动事件
     firebaseService.logAppOpen();
 
     runApp(const ProviderScope(
       child: MyRiverpodApp(),
     ));
   } catch (e, stackTrace) {
-    // 记录错误但不中断应用启动
-    print('初始化错�? $e');
-    print('堆栈跟踪: $stackTrace');
+    debugPrint('Initialization error: $e');
+    debugPrint('Stack trace: $stackTrace');
     
-    // 尝试记录错误到Firebase Crashlytics
     try {
       FirebaseService().recordError(e, stackTrace);
-    } catch (_) {
-      // 如果Crashlytics也无法初始化，则忽略错误
-    }
+    } catch (_) {}
   } finally {
-    // 无论初始化是否成功，都确保移除原生启动屏�?
-    // 这样可以防止应用卡在启动屏幕
     FlutterNativeSplash.remove();
   }
 }
 
-// 全局变量，标记当前是否处于覆盖层模式（只读模式）
 bool isOverlayMode = false;
 
 @pragma("vm:entry-point")
 void overlayMain() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // 设置为覆盖层模式（只读模式）
   isOverlayMode = true;
 
   runApp(const ProviderScope(
     child: MaterialApp(
       title: 'Caller ID Overlay',
-      home: CallOverlayEntry(), // 展示overlay内容
+      home: CallOverlayEntry(),
     ),
   ));
 }

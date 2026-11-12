@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:live_activity_kit/live_activity_kit.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
-import 'package:yourcallyourrule/features/call/call_overlay/mock_data/call_overlay_mock.dart';
 import 'package:yourcallyourrule/features/call/live_activities/providers/live_notification_config_provider.dart';
 
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class LiveActivitiesTestPage extends ConsumerStatefulWidget {
   const LiveActivitiesTestPage({super.key});
@@ -40,7 +38,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
       if (_activityId != null) {
         await LiveActivity.update(
           id: _activityId!,
-          lockScreen: const LiveActivityLockScreen(title: "Caller ID Notification", body: "Incoming Call"),
+          lockScreen: LA.text("Caller ID Notification - Incoming Call"),
         );
         setState(() {
           _status = "Successfully updated activity with ID:\n$_activityId";
@@ -49,7 +47,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
         final newActivityId = _uuid.v4();
         await LiveActivity.show(
           id: newActivityId,
-          lockScreen: const LiveActivityLockScreen(title: "Caller ID Notification", body: "Incoming Call"),
+          lockScreen: LA.text("Caller ID Notification - Incoming Call"),
         );
         setState(() {
           _activityId = newActivityId;
@@ -68,6 +66,7 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
       setState(() { _status = "No active activity to end."; });
       return;
     }
+
     try {
       await LiveActivity.end(id: _activityId!);
       setState(() {
@@ -85,65 +84,43 @@ class _LiveActivitiesTestPageState extends ConsumerState<LiveActivitiesTestPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.liveActivitiesTestTitle),
+        title: const Text('Live Activities Test'),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Icon(Icons.notifications_active, size: 50, color: Colors.blue),
-              const SizedBox(height: 15),
-              Text(
-                AppLocalizations.of(context)!.liveActivityControlsTitle,
-                style: Theme.of(context).textTheme.headlineSmall,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 16),
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: SelectableText(
-                  _status,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontFamily: 'monospace'),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Status',
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    const SizedBox(height: 8),
+                    Text(_status),
+                  ],
                 ),
               ),
-              const SizedBox(height: 15),
-              ElevatedButton.icon(
-                icon: const Icon(Icons.send),
-                label: Text(_activityId == null ? AppLocalizations.of(context)!.liveActivitiesTestSendNewActivity : AppLocalizations.of(context)!.liveActivitiesTestUpdateActivity),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
-                ),
-                onPressed: _sendLiveActivity,
-              ),
-              const SizedBox(height: 12),
-              OutlinedButton.icon(
-                icon: const Icon(Icons.cancel),
-                label: Text(AppLocalizations.of(context)!.liveActivitiesTestEndActivity),
-                style: OutlinedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                ),
-                onPressed: _activityId == null ? null : _endLiveActivity,
-              ),
-              const SizedBox(height: 15),
-              Text(
-                AppLocalizations.of(context)!.notification_instructions,
-                textAlign: TextAlign.center,
-                style: const TextStyle(color: Color.fromARGB(255, 117, 117, 117)),
-              ),
-              const SizedBox(height: 12),
-              const AdsInlineBanner(),
-            ],
-          ),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: _sendLiveActivity,
+              child: Text(_activityId == null ? 'Send Test Live Activity' : 'Update Live Activity'),
+            ),
+            const SizedBox(height: 8),
+            ElevatedButton(
+              onPressed: _activityId == null ? null : _endLiveActivity,
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.red, foregroundColor: Colors.white),
+              child: const Text('End Live Activity'),
+            ),
+            const SizedBox(height: 24),
+            const AdsInlineBanner(),
+          ],
         ),
       ),
     );

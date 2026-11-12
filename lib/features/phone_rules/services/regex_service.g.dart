@@ -31,7 +31,7 @@ final class RegexServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => r'regex_service_hash';
+  String debugGetCreateSourceHash() => _$regexServiceHash();
 
   @$internal
   @override
@@ -51,3 +51,5 @@ final class RegexServiceProvider
     );
   }
 }
+
+String _$regexServiceHash() => r'808e9b627f8472acbcdfc8435c301655c7f3dcf3';

@@ -31,7 +31,7 @@ final class LabelServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => r'label_service_hash_v9';
+  String debugGetCreateSourceHash() => _$labelServiceHash();
 
   @$internal
   @override
@@ -51,3 +51,5 @@ final class LabelServiceProvider
     );
   }
 }
+
+String _$labelServiceHash() => r'531813e3d84e3eb2c228876ae8b2648e2846981b';

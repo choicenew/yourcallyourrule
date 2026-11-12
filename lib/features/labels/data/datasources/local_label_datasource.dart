@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
@@ -22,6 +21,19 @@ class LocalLabelDataSource {
 
   LocalLabelDataSource(this._database);
 
+  LabelPhoneEntry _dataToEntry(LabelPhoneData data) {
+    return LabelPhoneEntry(
+      id: data.id,
+      phoneNumber: data.phoneNumber,
+      labelId: data.labelId,
+      name: data.name ?? '',
+      avatar: data.avatar,
+      icon: data.icon,
+      priority: data.priority ?? 100,
+      isEnabled: data.isEnabled == 1,
+    );
+  }
+
   LabelPhonesCompanion _toCompanion(LabelPhoneEntry entry) {
     final id = entry.id.isEmpty ? _uuid.v4() : entry.id;
     return LabelPhonesCompanion.insert(
@@ -32,19 +44,20 @@ class LocalLabelDataSource {
       labelId: entry.labelId,
       avatar: Value(entry.avatar),
       priority: Value(entry.priority),
-      action: Value(entry.action),
       isEnabled: Value(entry.isEnabled ? 1 : 0),
     );
   }
 
   Future<List<LabelPhoneEntry>> getAll() async {
-    return await _database.select(_database.labelPhones).get();
+    final dataList = await _database.select(_database.labelPhones).get();
+    return dataList.map(_dataToEntry).toList();
   }
 
   Future<LabelPhoneEntry?> getById(String id) async {
-    return await (_database.select(_database.labelPhones)
+    final data = await (_database.select(_database.labelPhones)
           ..where((tbl) => tbl.id.equals(id)))
         .getSingleOrNull();
+    return data != null ? _dataToEntry(data) : null;
   }
 
   Future<String> insert(LabelPhoneEntry label) async {
@@ -123,21 +136,24 @@ class LocalLabelDataSource {
   }
 
   Future<List<LabelPhoneEntry>> getByPhoneNumber(String phoneNumber) async {
-    return await (_database.select(_database.labelPhones)
+    final dataList = await (_database.select(_database.labelPhones)
       ..where((tbl) => tbl.phoneNumber.equals(phoneNumber)))
       .get();
+    return dataList.map(_dataToEntry).toList();
   }
 
   Future<List<LabelPhoneEntry>> getByLabelId(String labelId) async {
-    return await (_database.select(_database.labelPhones)
+    final dataList = await (_database.select(_database.labelPhones)
       ..where((tbl) => tbl.labelId.equals(labelId)))
       .get();
+    return dataList.map(_dataToEntry).toList();
   }
 
   Future<List<LabelPhoneEntry>> getEnabledLabels() async {
-    return await (_database.select(_database.labelPhones)
+    final dataList = await (_database.select(_database.labelPhones)
       ..where((tbl) => tbl.isEnabled.equals(1)))
       .get();
+    return dataList.map(_dataToEntry).toList();
   }
 
   Future<void> deleteByLabelId(String labelId) async {
@@ -147,8 +163,9 @@ class LocalLabelDataSource {
   }
 
   Future<List<LabelPhoneEntry>> getByName(String name) async {
-    return await (_database.select(_database.labelPhones)
+    final dataList = await (_database.select(_database.labelPhones)
       ..where((tbl) => tbl.name.equals(name)))
       .get();
+    return dataList.map(_dataToEntry).toList();
   }
 }

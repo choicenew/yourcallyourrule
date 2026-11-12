@@ -8,12 +8,9 @@ part of 'sms_filter_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// SmsFilterService 的 @Riverpod Provider
 
 @ProviderFor(smsFilterService)
 final smsFilterServiceProvider = SmsFilterServiceProvider._();
-
-/// SmsFilterService 的 @Riverpod Provider
 
 final class SmsFilterServiceProvider
     extends
@@ -23,7 +20,6 @@ final class SmsFilterServiceProvider
           SmsFilterService
         >
     with $Provider<SmsFilterService> {
-  /// SmsFilterService 的 @Riverpod Provider
   SmsFilterServiceProvider._()
     : super(
         from: null,
@@ -57,4 +53,4 @@ final class SmsFilterServiceProvider
   }
 }
 
-String _$smsFilterServiceHash() => r'e6c85f73dbe690f084f52abcd9d7378665cc8904';
+String _$smsFilterServiceHash() => r'62729c8ad0adbf50bf95b252b99473d5040e0225';

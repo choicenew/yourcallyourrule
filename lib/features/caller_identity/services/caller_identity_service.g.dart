@@ -8,12 +8,9 @@ part of 'caller_identity_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// CallerIdentityService Provider
 
 @ProviderFor(callerIdentityService)
 final callerIdentityServiceProvider = CallerIdentityServiceProvider._();
-
-/// CallerIdentityService Provider
 
 final class CallerIdentityServiceProvider
     extends
@@ -35,7 +32,7 @@ final class CallerIdentityServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => r'caller_identity_service_hash_v2';
+  String debugGetCreateSourceHash() => _$callerIdentityServiceHash();
 
   @$internal
   @override
@@ -56,3 +53,6 @@ final class CallerIdentityServiceProvider
     );
   }
 }
+
+String _$callerIdentityServiceHash() =>
+    r'c2e858aaf446318971500815beeb1e8f89c7c18e';

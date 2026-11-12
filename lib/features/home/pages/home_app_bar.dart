@@ -7,7 +7,6 @@ import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
 import 'package:yourcallyourrule/features/search/widgets/search_result_item.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/purchase/purchase_state.dart';
 
 class HomeAppBar extends ConsumerStatefulWidget {
   const HomeAppBar({super.key});
@@ -37,20 +36,17 @@ class _HomeAppBarState extends ConsumerState<HomeAppBar> {
         _searchResults = results;
       });
     } catch (e) {
-      debugPrint('${AppLocalizations.of(context)!.operationFailure}: $e');
+      debugPrint('Search failed: $e');
     }
   }
 
-  // 导航到搜索页�?
   void _navigateToSearchPage(String searchText) {
-    // 使用 GoRouter 导航到搜索页面，并传递搜索文�?
     context.push('/search', extra: searchText);
   }
 
   @override
   Widget build(BuildContext context) {
-    final purchaseState = ref.watch(purchaseStateProvider);
-    final isVip = purchaseState.isPurchasedOrHasTempAccess();
+    final bool isVip = true;
 
     return Column(
       children: [
@@ -106,10 +102,10 @@ class _HomeAppBarState extends ConsumerState<HomeAppBar> {
                             child: Stack(
                               clipBehavior: Clip.none,
                               children: [
-                                Image.asset(
-                                  'assets/app_logo.png',
-                                  width: 32,
-                                  height: 32,
+                                Icon(
+                                  Icons.shield_outlined,
+                                  size: 32,
+                                  color: Theme.of(context).colorScheme.primary,
                                 ),
                                 Positioned(
                                   top: -4,
@@ -127,14 +123,6 @@ class _HomeAppBarState extends ConsumerState<HomeAppBar> {
                                             : Theme.of(context).colorScheme.outlineVariant,
                                         width: 1,
                                       ),
-                                      boxShadow: [
-                                        if (isVip)
-                                          const BoxShadow(
-                                            color: Colors.black26,
-                                            blurRadius: 4,
-                                            offset: Offset(0, 1),
-                                          ),
-                                      ],
                                     ),
                                     child: Icon(
                                       Icons.workspace_premium_rounded,
@@ -193,7 +181,6 @@ class _HomeAppBarState extends ConsumerState<HomeAppBar> {
                 IconButton(
                   icon: const Icon(Icons.notifications_none),
                   onPressed: () {
-                    // 导航到通知页面
                     context.push('/notifications');
                   },
                 ),

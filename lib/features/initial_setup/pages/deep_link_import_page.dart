@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
+import 'package:yourcallyourrule/features/phone_subscription/services/phone_subscription_service.dart';
+import 'package:yourcallyourrule/features/phone_plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 负责处理从外部浏览器/网页 Deep Link (yourcallrule://import) 唤起的导入操作
@@ -121,7 +121,7 @@ class _DeepLinkImportPageState extends ConsumerState<DeepLinkImportPage> {
         final phoneService = ref.read(phoneSubscriptionServiceProvider);
         final name = widget.name?.trim().isNotEmpty == true ? widget.name! : l10n.deepLinkDefaultSubName;
         final sub = await phoneService.addSubscription(name, targetUrl);
-        await phoneService.importAndSaveRulesFromSubscription(sub);
+        await phoneService.updateRulesFromSubscription(sub);
       }
 
       if (mounted) {

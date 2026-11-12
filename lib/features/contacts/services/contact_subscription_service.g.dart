@@ -8,13 +8,13 @@ part of 'contact_subscription_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// ContactSubscriptionService 的 @Riverpod Provider
+/// ContactSubscriptionService Riverpod Provider
 
 @ProviderFor(contactSubscriptionService)
 final contactSubscriptionServiceProvider =
     ContactSubscriptionServiceProvider._();
 
-/// ContactSubscriptionService 的 @Riverpod Provider
+/// ContactSubscriptionService Riverpod Provider
 
 final class ContactSubscriptionServiceProvider
     extends
@@ -24,7 +24,7 @@ final class ContactSubscriptionServiceProvider
           ContactSubscriptionService
         >
     with $Provider<ContactSubscriptionService> {
-  /// ContactSubscriptionService 的 @Riverpod Provider
+  /// ContactSubscriptionService Riverpod Provider
   ContactSubscriptionServiceProvider._()
     : super(
         from: null,
@@ -60,4 +60,4 @@ final class ContactSubscriptionServiceProvider
 }
 
 String _$contactSubscriptionServiceHash() =>
-    r'1c35725feeb26f907e0b0e159820cce695201123';
+    r'a57bfddcf0e64e7b73a0eb61c055480df2b38a81';

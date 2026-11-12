@@ -52,6 +52,11 @@ abstract class ImportExportService<T, ID> {
     return const JsonEncoder.withIndent('  ').convert(listMap);
   }
 
+  Future<String> prepareYamlForExport(List<T> entities) async {
+    final listMap = entities.map((e) => toJson(e)).toList();
+    return _mapToYaml(listMap);
+  }
+
   Future<String> prepareCsvForExport(List<T> entities) async {
     if (entities.isEmpty) return '';
     final listMap = entities.map((e) => toJson(e)).toList();

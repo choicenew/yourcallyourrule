@@ -8,12 +8,9 @@ part of 'plugin_repository_impl.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 插件仓库提供者
 
 @ProviderFor(pluginRepository)
 final pluginRepositoryProvider = PluginRepositoryProvider._();
-
-/// 插件仓库提供者
 
 final class PluginRepositoryProvider
     extends
@@ -23,7 +20,6 @@ final class PluginRepositoryProvider
           PluginRepository
         >
     with $Provider<PluginRepository> {
-  /// 插件仓库提供者
   PluginRepositoryProvider._()
     : super(
         from: null,
@@ -57,4 +53,4 @@ final class PluginRepositoryProvider
   }
 }
 
-String _$pluginRepositoryHash() => r'6515ad85448141ebd618c6709644ef1bd7049032';
+String _$pluginRepositoryHash() => r'c86423c7b17d830fd0ceeefe42d66e186544c8f8';

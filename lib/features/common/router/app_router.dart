@@ -9,7 +9,6 @@ import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remot
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/enhanced_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/sim_slot_rule_filter_page.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/pages/call_filter_settings_page.dart';
-import 'package:yourcallyourrule/features/sim_slot_rules/pages/sim_slot_rule_page_with_ads.dart';
 import 'package:yourcallyourrule/features/config/pages/filter_settings_page.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
@@ -20,10 +19,8 @@ import 'package:yourcallyourrule/features/permissions/pages/special_permission_p
 import 'package:yourcallyourrule/features/language/pages/language_settings_page.dart';
 import 'package:yourcallyourrule/features/sync_country/widget/country_selection_widget.dart';
 import 'package:yourcallyourrule/features/commercial/pages/purchase_page.dart';
-import 'package:yourcallyourrule/features/rules/pages/allowed_blocked_page.dart';
-import 'package:yourcallyourrule/features/rules/pages/allowed_blocked_page_with_ads.dart';
-import 'package:yourcallyourrule/features/rules/pages/rule_management_page.dart';
-import 'package:yourcallyourrule/features/rules/pages/rule_management_page_with_ads.dart';
+import 'package:yourcallyourrule/features/phone_rules/pages/allowed_blocked_page.dart';
+import 'package:yourcallyourrule/features/phone_rules/pages/rule_management_page.dart';
 import 'package:yourcallyourrule/features/search/pages/search_page.dart';
 
 import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/live_notification_customization_screen.dart';
@@ -39,24 +36,23 @@ import 'package:yourcallyourrule/features/sync/pages/backup_restore_page.dart';
 import 'package:yourcallyourrule/features/sync/pages/cloud_settings_page.dart';
 import 'package:yourcallyourrule/features/sync/pages/device_management_page.dart';
 import 'package:yourcallyourrule/features/verification/presentation/pages/verification_page.dart';
-import 'package:yourcallyourrule/features/plugin/pages/plugin_test_page.dart';
-import 'package:yourcallyourrule/features/rules/pages/regex_test_page.dart';
+import 'package:yourcallyourrule/features/phone_plugin/presentation/pages/plugin_test_page.dart';
+import 'package:yourcallyourrule/features/phone_rules/pages/regex_test_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_subscription_page_with_ads.dart';
-import 'package:yourcallyourrule/features/contacts/pages/contact_subscription_page_with_ads.dart';
-import 'package:yourcallyourrule/features/contacts/pages/contacts_management_page_with_ads.dart';
+import 'package:yourcallyourrule/features/contacts/pages/contact_subscription_page.dart';
+import 'package:yourcallyourrule/features/contacts/pages/contacts_management_page.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/pages/blocked_calls_page.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/pages/call_statistics_page.dart';
-import 'package:yourcallyourrule/features/call_history/pages/call_history_page.dart';
+import 'package:yourcallyourrule/features/call_history/pages/call_history_page_with_timeline_with_ads.dart';
 import 'package:yourcallyourrule/features/auto_update/pages/auto_update_settings_page.dart';
 import 'package:yourcallyourrule/features/notifications/pages/notifications_page.dart';
 import 'package:yourcallyourrule/features/permissions/pages/permission_management_page.dart';
 import 'package:yourcallyourrule/features/onboarding/pages/onboarding_page.dart';
 import 'package:yourcallyourrule/features/dashboard/pages/dashboard_page.dart';
-import 'package:yourcallyourrule/features/plugin/pages/plugin_management_page_with_ads.dart';
-import 'package:yourcallyourrule/features/phone/pages/phone_subscription_page_refactored_with_ads.dart';
-import 'package:yourcallyourrule/features/rules/pages/regex_rule_page.dart';
-import 'package:yourcallyourrule/features/rules/pages/regex_rule_page_with_ads.dart';
+import 'package:yourcallyourrule/features/phone_plugin/pages/plugin_management_page.dart';
+import 'package:yourcallyourrule/features/phone_subscription/pages/phone_subscription_page_refactored.dart';
+import 'package:yourcallyourrule/features/phone_rules/pages/regex_rule_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_page.dart';
 import 'package:yourcallyourrule/features/labels/pages/label_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page_with_ads.dart';
@@ -222,7 +218,7 @@ class AppRouter {
       GoRoute(
         path: '/$allowedBlockedSettingsWithAds',
         name: allowedBlockedSettingsWithAds,
-        builder: (context, state) => const AllowedBlockedPageWithAds(),
+        builder: (context, state) => const AllowedBlockedPage(),
       ),
       GoRoute(
         path: '/$ruleManagementSettings',
@@ -232,7 +228,7 @@ class AppRouter {
       GoRoute(
         path: '/$ruleManagementSettingsWithAds',
         name: ruleManagementSettingsWithAds,
-        builder: (context, state) => const RuleManagementPageWithAds(),
+        builder: (context, state) => const RuleManagementPage(),
       ),
       GoRoute(
         path: '/$search',
@@ -277,7 +273,7 @@ class AppRouter {
         name: simSlotRuleWithAds,
         builder: (context, state) {
           final simSlotIndex = int.tryParse(state.pathParameters['simSlotIndex'] ?? '') ?? 0;
-          return SimSlotRulePageWithAds(simSlotIndex: simSlotIndex);
+          return SimSlotRuleFilterPage(simSlotIndex: simSlotIndex);
         },
       ),
       GoRoute(
@@ -383,12 +379,12 @@ class AppRouter {
       GoRoute(
         path: '/$contactSubscription',
         name: contactSubscription,
-        builder: (context, state) => const ContactSubscriptionPageWithAds(),
+        builder: (context, state) => const ContactSubscriptionPage(),
       ),
       GoRoute(
         path: '/$contactsManagement',
         name: contactsManagement,
-        builder: (context, state) => const ContactsManagementPageWithAds(),
+        builder: (context, state) => const ContactsManagementPage(),
       ),
       GoRoute(
         path: '/$blockedCalls',
@@ -403,7 +399,7 @@ class AppRouter {
       GoRoute(
         path: '/$callHistory',
         name: callHistory,
-        builder: (context, state) => const CallHistoryPage(),
+        builder: (context, state) => const CallHistoryPageWithTimelineWithAds(),
       ),
       GoRoute(
         path: '/$autoUpdate',
@@ -433,12 +429,12 @@ class AppRouter {
       GoRoute(
         path: '/$pluginManagement',
         name: pluginManagement,
-        builder: (context, state) => const PluginManagementPageWithAds(),
+        builder: (context, state) => const PluginManagementPage(),
       ),
       GoRoute(
         path: '/$phoneSubscription',
         name: phoneSubscription,
-        builder: (context, state) => const PhoneSubscriptionPageRefactoredWithAds(),
+        builder: (context, state) => const PhoneSubscriptionPageRefactored(),
       ),
       GoRoute(
         path: '/$regexRule',
@@ -448,7 +444,7 @@ class AppRouter {
       GoRoute(
         path: '/$regexRuleWithAds',
         name: regexRuleWithAds,
-        builder: (context, state) => const RegexRulePageWithAds(),
+        builder: (context, state) => const RegexRulePage(),
       ),
       GoRoute(
         path: '/$smsFilter',

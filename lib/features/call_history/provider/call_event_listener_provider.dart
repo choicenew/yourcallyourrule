@@ -1,9 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/call_history/services/call_log_service.dart';
-import 'package:yourcallyourrule/features/call_history/services/call_log_service.g.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
-import 'package:yourcallyourrule/features/labels/services/predefined_label_service.g.dart';
 import 'package:yourcallyourrule/features/call_monitor/services/caller_id_monitor_service.dart';
 import 'package:yourcallyourrule/features/call_history/services/call_event_listener_service.dart';
 
@@ -15,9 +13,7 @@ Future<CallEventListenerService> callEventListener(Ref ref) async {
   final callLogService = ref.watch(callLogServiceProvider);
   final predefinedLabelService = ref.watch(predefinedLabelServiceProvider);
 
-  await ref.watch(callerIdMonitorServiceProvider.future);
-
-  final callerIdMonitorService = ref.read(callerIdMonitorServiceProvider.notifier);
+  final callerIdMonitorService = ref.watch(callerIdMonitorServiceProvider);
 
   final service = CallEventListenerService(
     ref,

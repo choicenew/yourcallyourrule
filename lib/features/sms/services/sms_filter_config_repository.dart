@@ -2,13 +2,11 @@ import 'package:yourcallyourrule/features/config/data/repositories/config_reposi
 
 const String _smsFilterEnabledKey = 'config_sms_filter_enabled';
 
-/// SMS 过滤器配置仓库的抽象接口
 abstract class SmsFilterConfigRepository {
   Future<bool> getIsEnabled();
   Future<void> setIsEnabled(bool enabled);
 }
 
-/// SmsFilterConfigRepository �?SharedPreferences 实现
 class SharedPreferencesSmsFilterConfigRepository implements SmsFilterConfigRepository {
   SharedPreferencesSmsFilterConfigRepository(this._configRepository);
 

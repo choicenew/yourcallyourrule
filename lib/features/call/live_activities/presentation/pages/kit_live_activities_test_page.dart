@@ -1,8 +1,5 @@
-library;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/mock_data/call_overlay_mock.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/kit_live_activity_handler.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -17,14 +14,10 @@ class KitLiveActivitiesTestPage extends ConsumerStatefulWidget {
 
 class _KitLiveActivitiesTestPageState
     extends ConsumerState<KitLiveActivitiesTestPage> {
+  String _status = "Live Activity is inactive";
   bool _isActive = false;
-  String _status = "Ready to test Live Activity & Dynamic Island.";
 
-  Future<void> _sendLiveActivity() async {
-    setState(() {
-      _status = "Sending Live Activity...";
-    });
-
+  Future<void> _startLiveActivity() async {
     try {
       final handler = await ref.read(kitLiveActivityHandlerProvider.future);
       final mockData = CallOverlayMockData.mockCallerIdData();
@@ -33,14 +26,14 @@ class _KitLiveActivitiesTestPageState
 
       await handler.showCallerIdActivity(
         callerIdData: mockData,
-        simInfo: mockSimInfo,
-        stirInfo: mockStirInfo,
+        simCardData: mockSimInfo,
+        stirData: mockStirInfo,
       );
 
       setState(() {
         _isActive = true;
         _status =
-            "Live Activity Active: [${mockData.name ?? 'Unknown'}]\n${mockData.phoneNumber.value}";
+            "Live Activity Active: [${mockData.name ?? 'Unknown'}]\n${mockData.phoneNumber}";
       });
     } catch (e) {
       setState(() {
@@ -55,7 +48,7 @@ class _KitLiveActivitiesTestPageState
       await handler.endActivity();
       setState(() {
         _isActive = false;
-        _status = "Live Activity ended.";
+        _status = "Live Activity has ended";
       });
     } catch (e) {
       setState(() {
@@ -70,73 +63,58 @@ class _KitLiveActivitiesTestPageState
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.liveActivitiesTestTitle),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Icon(Icons.notifications_active,
-                  size: 50, color: Colors.blue),
-              const SizedBox(height: 15),
-              Text(
-                AppLocalizations.of(context)!.liveActivityControlsTitle,
-                style: Theme.of(context).textTheme.headlineSmall,
-                textAlign: TextAlign.center,
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Card(
+              elevation: 4,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    Icon(
+                      _isActive
+                          ? Icons.notifications_active
+                          : Icons.notifications_off,
+                      size: 48,
+                      color: _isActive ? Colors.green : Colors.grey,
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      _status,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
               ),
-              const SizedBox(height: 16),
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: SelectableText(
-                  _status,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontFamily: 'monospace'),
-                ),
+            ),
+            const SizedBox(height: 32),
+            ElevatedButton.icon(
+              onPressed: _isActive ? null : _startLiveActivity,
+              icon: const Icon(Icons.play_arrow),
+              label: const Text('Start Live Activity'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
               ),
-              const SizedBox(height: 15),
-              ElevatedButton.icon(
-                icon: const Icon(Icons.send),
-                label: Text(
-                  !_isActive
-                      ? AppLocalizations.of(context)!
-                          .liveActivitiesTestSendNewActivity
-                      : AppLocalizations.of(context)!
-                          .liveActivitiesTestUpdateActivity,
-                ),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
-                ),
-                onPressed: _sendLiveActivity,
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton.icon(
+              onPressed: _isActive ? _endLiveActivity : null,
+              icon: const Icon(Icons.stop),
+              label: const Text('Stop Live Activity'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                backgroundColor: Colors.red,
+                foregroundColor: Colors.white,
               ),
-              const SizedBox(height: 12),
-              OutlinedButton.icon(
-                icon: const Icon(Icons.cancel),
-                label: Text(
-                  AppLocalizations.of(context)!.liveActivitiesTestEndActivity,
-                ),
-                style: OutlinedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                ),
-                onPressed: !_isActive ? null : _endLiveActivity,
-              ),
-              const SizedBox(height: 15),
-              Text(
-                AppLocalizations.of(context)!.notification_instructions,
-                textAlign: TextAlign.center,
-                style:
-                    const TextStyle(color: Color.fromARGB(255, 117, 117, 117)),
-              ),
-              const SizedBox(height: 12),
-              const AdsInlineBanner(),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

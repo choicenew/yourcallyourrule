@@ -8,17 +8,13 @@ part of 'sms_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// SmsService 的 @Riverpod Provider
 
 @ProviderFor(smsService)
 final smsServiceProvider = SmsServiceProvider._();
 
-/// SmsService 的 @Riverpod Provider
-
 final class SmsServiceProvider
     extends $FunctionalProvider<SmsService, SmsService, SmsService>
     with $Provider<SmsService> {
-  /// SmsService 的 @Riverpod Provider
   SmsServiceProvider._()
     : super(
         from: null,
@@ -52,4 +48,4 @@ final class SmsServiceProvider
   }
 }
 
-String _$smsServiceHash() => r'8cadd83aa828637aeb121a0fae585dfd21585f69';
+String _$smsServiceHash() => r'900f5deb2b4f00f2cef7fd48565b73e8ccbe967b';

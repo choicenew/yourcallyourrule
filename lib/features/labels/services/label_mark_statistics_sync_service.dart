@@ -1,12 +1,9 @@
 import 'dart:async';
-
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_service.dart';
-import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_service.g.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
-import 'package:yourcallyourrule/features/labels/services/predefined_label_service.g.dart';
 
 part 'label_mark_statistics_sync_service.g.dart';
 
@@ -39,12 +36,12 @@ class LabelMarkStatisticsSyncService {
   }
 
   Future<void> _handleLabelData(LabelPhoneEntry labelPhoneEntry) async {
-    final phoneNumber = labelPhoneEntry.phoneNumber;
+    final phoneNumberStr = labelPhoneEntry.phoneNumber;
     final labelId = labelPhoneEntry.labelId;
     final predefinedLabel = await _predefinedLabelService.getLabelById(labelId);
 
     if (predefinedLabel != null && predefinedLabel.text.toLowerCase() != 'unknown') {
-      await _statisticsService.recordMark(phoneNumber, labelId);
+      await _statisticsService.recordMark(PhoneNumber.fromString(phoneNumberStr), labelId);
     }
   }
 

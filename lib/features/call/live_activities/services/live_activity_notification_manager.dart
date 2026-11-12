@@ -11,21 +11,18 @@ LiveActivityNotificationManager liveActivityNotificationManager(Ref ref) {
 }
 
 class LiveActivityNotificationManager {
-  /// 初始化已废弃。为防止�?ADV_CALL_LOG 原生插件抢占主线程引�?tombstoned�?  /// 本类的启动期 deepLinks 监听彻底移除�?  /// 所有的监听与释放均已移交至 KitLiveActivityHandler 按需处理�?  Future<void> initialize() async {
+  Future<void> initialize() async {
     debugPrint('LiveActivityNotificationManager: (Deprecated) initialize skipped to prevent Native lock.');
   }
 
-  /// 废弃
   void startListening() {
     debugPrint('LiveActivityNotificationManager: (Deprecated) startListening disabled.');
   }
 
-  /// 废弃
   void dispose() {
     debugPrint('LiveActivityNotificationManager: (Deprecated) dispose disabled.');
   }
 
-  /// 处理通知点击事件
   void handleNotificationTapped(String? payload) {
     debugPrint(
       'LiveActivityNotificationManager: Notification tapped with payload: $payload',
@@ -48,7 +45,6 @@ class LiveActivityNotificationManager {
     }
   }
 
-  /// 执行页面跳转
   void handleNavigation(String payload) {
     final context = AppRouter.navigatorKey.currentContext;
     if (context == null) {

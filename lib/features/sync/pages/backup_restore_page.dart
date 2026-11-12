@@ -3,17 +3,14 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:yourcallyourrule/ads/ad_manager.dart';
-import 'package:yourcallyourrule/ads/adwidgets/inline_adaptive_ad.dart';
-import 'package:yourcallyourrule/ads/google_ad.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-import 'package:yourcallyourrule/cloud_sync/entities/backup_config_entity.dart';
+import 'package:yourcallyourrule/features/sync/domain/backup_config_entity.dart';
 import 'package:yourcallyourrule/features/sync/providers/cloud_sync/backup_restore_provider.dart';
 import 'package:yourcallyourrule/features/sync/providers/cloud_sync/cloud_sync_provider.dart';
 import 'package:yourcallyourrule/features/sync/services/cloud_sync/backup_restore_service.dart';
-import 'package:yourcallyourrule/features/rules/providers/rules_provider.dart';
-
+import 'package:yourcallyourrule/features/phone_rules/providers/rules_provider.dart';
 
 class BackupRestorePage extends ConsumerWidget {
   const BackupRestorePage({super.key});
@@ -60,52 +57,49 @@ class BackupRestorePage extends ConsumerWidget {
                     encryptionEnabled = value;
                   });
                   if (value) {
-                    // If enabling encryption, prompt for password
                     Navigator.pop(context);
                     _showEncryptionPasswordDialog(context, ref, true).then((
                       _,
                     ) {
-                      // Re-open the backup config dialog after setting password
                       _showBackupConfigDialog(context, ref);
                     });
-                    }
-                  },
-                ),
-                const SizedBox(height: 16),
-                TextFormField(
-                  decoration: InputDecoration(
-                    labelText: AppLocalizations.of(context)!.deviceName,
-                    hintText: AppLocalizations.of(context)!.enterDeviceName,
-                  ),
-                  initialValue: deviceName,
-                  onChanged: (value) => deviceName = value,
-                ),
-              ],
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: Text(AppLocalizations.of(context)!.cancelButton),
-              ),
-              TextButton(
-                onPressed: () async {
-                  await backupService.updateBackupConfig(
-                    BackupConfigEntity(
-                      keepAllVersions: keepAllVersions,
-                      deviceName: deviceName,
-                      localBackupPath: config.localBackupPath,
-                      encryptionEnabled: encryptionEnabled,
-                    ),
-                  );
-                  Navigator.pop(context);
+                  }
                 },
-                child: Text(AppLocalizations.of(context)!.save),
+              ),
+              const SizedBox(height: 16),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.deviceName,
+                  hintText: AppLocalizations.of(context)!.enterDeviceName,
+                ),
+                initialValue: deviceName,
+                onChanged: (value) => deviceName = value,
               ),
             ],
           ),
-      )
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text(AppLocalizations.of(context)!.cancelButton),
+            ),
+            TextButton(
+              onPressed: () async {
+                await backupService.updateBackupConfig(
+                  BackupConfigEntity(
+                    keepAllVersions: keepAllVersions,
+                    deviceName: deviceName,
+                    localBackupPath: config.localBackupPath,
+                    encryptionEnabled: encryptionEnabled,
+                  ),
+                );
+                Navigator.pop(context);
+              },
+              child: Text(AppLocalizations.of(context)!.save),
+            ),
+          ],
+        ),
+      ),
     );
-    
   }
 
   Future<void> _showCloudSyncDialog(BuildContext context, WidgetRef ref) async {
@@ -114,7 +108,7 @@ class BackupRestorePage extends ConsumerWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            AppLocalizations.of(context)!.configureCloudSyncService,
+            AppLocalizations.of(context)!.noActiveCloudSyncServiceMessage,
           ),
         ),
       );
@@ -138,11 +132,9 @@ class BackupRestorePage extends ConsumerWidget {
                       final cloudService = ref.read(activeSyncServiceProvider);
                       if (cloudService == null) return;
 
-                      // 备份规则
                       final rules = ref.read(rulesProvider).value ?? [];
                       final rulesSuccess = await cloudService.syncRules(rules);
 
-                      // 备份设置
                       final backupService = ref.read(
                         backupRestoreServiceProvider,
                       );
@@ -188,14 +180,15 @@ class BackupRestorePage extends ConsumerWidget {
                       final cloudService = ref.read(activeSyncServiceProvider);
                       if (cloudService == null) return;
 
-                      // 从云端获取规�?
                       final rules = await cloudService.getRulesFromCloud();
                       if (rules.isNotEmpty) {
-                        final rulesNotifier = ref.read(rulesProvider.notifier);
-                        await rulesNotifier.importRules(rules);
+                        for (final r in rules) {
+                          if (r is PhoneRuleEntity) {
+                            await rulesNotifier.addRule(r);
+                          }
+                        }
                       }
 
-                      // 从云端获取设�?
                       final settings =
                           await cloudService.getSettingsFromCloud();
                       if (settings != null) {
@@ -261,15 +254,15 @@ class BackupRestorePage extends ConsumerWidget {
           children: [
             _buildBackupSection(context, ref, backupService),
             const SizedBox(height: 14),
-            GoogleAdWidget(adInfo: AdManager.bannerAd),  
+            const AdsInlineBanner(),
             const SizedBox(height: 14),
             _buildRestoreSection(context, ref, backupService),
             const SizedBox(height: 14),
-            GoogleAdWidget(adInfo: AdManager.bannerAd),  
+            const AdsInlineBanner(),
             const SizedBox(height: 14),
             _buildDataMigrationSection(context, ref, backupService),
             const SizedBox(height: 14),
-            InlineAdaptiveBannerAdWidget(adInfo: AdManager.bannerAd, width: 400),
+            const AdsInlineBanner(),
           ],
         ),
       ),
@@ -572,7 +565,6 @@ class BackupRestorePage extends ConsumerWidget {
         return;
       }
 
-      // 获取规则导出字节
       final bytes = await backupService.rulesImportExportService.prepareExportBytes(rules);
 
       final result = await FilePicker.saveFile(
@@ -605,12 +597,10 @@ class BackupRestorePage extends ConsumerWidget {
     BackupRestoreService backupService,
   ) async {
     try {
-      // 先准备备份数�?
       final tempPath = await backupService.prepareSettingsBackup();
       final backupFile = File(tempPath);
       final bytes = await backupFile.readAsBytes();
       
-      // 使用FilePicker保存文件，提供bytes参数
       final result = await FilePicker.saveFile(
         dialogTitle: AppLocalizations.of(context)!.backupSettings,
         fileName: 'settings_${DateTime.now().millisecondsSinceEpoch}.json',
@@ -653,7 +643,6 @@ class BackupRestorePage extends ConsumerWidget {
         try {
           final rules = await backupService.restoreRules(file.path);
 
-          // Show confirmation dialog with rule count
           final shouldImport =
               await showDialog<bool>(
                 context: context,
@@ -678,7 +667,6 @@ class BackupRestorePage extends ConsumerWidget {
               false;
 
           if (shouldImport) {
-            // Import rules using the rules provider
             final rulesNotifier = ref.read(rulesProvider.notifier);
             await rulesNotifier.importRules(rules);
 
@@ -693,18 +681,15 @@ class BackupRestorePage extends ConsumerWidget {
             );
           }
         } catch (error) {
-          // If decryption failed, prompt for password
           if (error.toString().contains('Encryption') ||
               error.toString().contains('decrypt') ||
               error.toString().contains('password')) {
-            // Show password dialog
             final passwordValid = await _showEncryptionPasswordDialog(
               context,
               ref,
               false,
             );
             if (passwordValid) {
-              // Try again with the correct password
               await _importRules(context, ref, backupService);
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
@@ -745,7 +730,6 @@ class BackupRestorePage extends ConsumerWidget {
       if (result.isNotEmpty) {
         final file = File(result.single.path!);
 
-        // Show confirmation dialog
         final shouldRestore =
             await showDialog<bool>(
               context: context,
@@ -790,18 +774,15 @@ class BackupRestorePage extends ConsumerWidget {
               );
             }
           } catch (error) {
-            // If decryption failed, prompt for password
             if (error.toString().contains('Encryption') ||
                 error.toString().contains('decrypt') ||
                 error.toString().contains('password')) {
-              // Show password dialog
               final passwordValid = await _showEncryptionPasswordDialog(
                 context,
                 ref,
                 false,
               );
               if (passwordValid) {
-                // Try again with the correct password
                 await _restoreSettings(context, ref, backupService);
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -961,7 +942,6 @@ class BackupRestorePage extends ConsumerWidget {
                           await backupService.setEncryptionEnabled(true);
                           Navigator.pop(context, true);
                         } else {
-                          // Validating password
                           if (password.isEmpty) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(

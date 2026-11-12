@@ -59,4 +59,4 @@ final class LocalLabelMarkStatisticsDataSourceProvider
 }
 
 String _$localLabelMarkStatisticsDataSourceHash() =>
-    r'b2c5d861735a1b3ffd9773af22f0551e718e1a85';
+    r'1d4d2e8d4e6412390806f4214d6ff8882ff59a70';

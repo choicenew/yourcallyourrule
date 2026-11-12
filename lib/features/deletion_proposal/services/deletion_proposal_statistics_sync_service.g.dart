@@ -8,37 +8,13 @@ part of 'deletion_proposal_statistics_sync_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 使用 Notifier 模式的删除提议统计同步服务。
-///
-/// 这个 Provider 本身不管理任何需要暴露给 UI 的状态 (其 state 类型为 void)，
-/// 它的主要作用是作为一个后台服务，响应其他 Provider 的状态变化来执行任务。
-///
-/// - `@Riverpod(keepAlive: true)`:
-///   使用 `keepAlive: true` 可以确保这个服务在被监听后，即使没有 UI 在 `watch` 它，
-///   也能持续在后台运行，直到被手动销毁或应用关闭。对于这类后台服务来说通常是必要的。
 
 @ProviderFor(DeletionProposalStatisticsSyncService)
 final deletionProposalStatisticsSyncServiceProvider =
     DeletionProposalStatisticsSyncServiceProvider._();
 
-/// 使用 Notifier 模式的删除提议统计同步服务。
-///
-/// 这个 Provider 本身不管理任何需要暴露给 UI 的状态 (其 state 类型为 void)，
-/// 它的主要作用是作为一个后台服务，响应其他 Provider 的状态变化来执行任务。
-///
-/// - `@Riverpod(keepAlive: true)`:
-///   使用 `keepAlive: true` 可以确保这个服务在被监听后，即使没有 UI 在 `watch` 它，
-///   也能持续在后台运行，直到被手动销毁或应用关闭。对于这类后台服务来说通常是必要的。
 final class DeletionProposalStatisticsSyncServiceProvider
     extends $NotifierProvider<DeletionProposalStatisticsSyncService, void> {
-  /// 使用 Notifier 模式的删除提议统计同步服务。
-  ///
-  /// 这个 Provider 本身不管理任何需要暴露给 UI 的状态 (其 state 类型为 void)，
-  /// 它的主要作用是作为一个后台服务，响应其他 Provider 的状态变化来执行任务。
-  ///
-  /// - `@Riverpod(keepAlive: true)`:
-  ///   使用 `keepAlive: true` 可以确保这个服务在被监听后，即使没有 UI 在 `watch` 它，
-  ///   也能持续在后台运行，直到被手动销毁或应用关闭。对于这类后台服务来说通常是必要的。
   DeletionProposalStatisticsSyncServiceProvider._()
     : super(
         from: null,
@@ -69,16 +45,7 @@ final class DeletionProposalStatisticsSyncServiceProvider
 }
 
 String _$deletionProposalStatisticsSyncServiceHash() =>
-    r'1048cf1419253105f1ee59ce68f7c5317b582c41';
-
-/// 使用 Notifier 模式的删除提议统计同步服务。
-///
-/// 这个 Provider 本身不管理任何需要暴露给 UI 的状态 (其 state 类型为 void)，
-/// 它的主要作用是作为一个后台服务，响应其他 Provider 的状态变化来执行任务。
-///
-/// - `@Riverpod(keepAlive: true)`:
-///   使用 `keepAlive: true` 可以确保这个服务在被监听后，即使没有 UI 在 `watch` 它，
-///   也能持续在后台运行，直到被手动销毁或应用关闭。对于这类后台服务来说通常是必要的。
+    r'91b9d4e6427a0810f2b41b81382d7921e2320b5a';
 
 abstract class _$DeletionProposalStatisticsSyncService extends $Notifier<void> {
   void build();

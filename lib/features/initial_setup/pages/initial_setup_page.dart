@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:uuid/uuid.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-import '../../../core/entities/subscription/subscription.dart';
-import '../../../core/value_objects/url.dart';
-import '../../../core/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/phone/services/phone_subscription_service.dart';
-import 'package:yourcallyourrule/features/plugin/services/plugin_manager_service.dart';
-import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
+import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/phone_subscription/services/phone_subscription_service.dart';
+import 'package:yourcallyourrule/features/phone_plugin/services/plugin_manager_service.dart';
 
-import '../models/setup_config.dart';
-import '../providers/initial_setup_provider.dart';
-import '../widgets/initial_setup_header_card.dart';
-import '../widgets/initial_setup_search_bar.dart';
-import '../widgets/initial_setup_tile.dart';
-import '../widgets/initial_setup_plugin_card.dart';
-import '../widgets/initial_setup_settings_hint_card.dart';
-import '../widgets/initial_setup_bottom_bar.dart';
-import '../widgets/initial_setup_error_view.dart';
+import 'package:yourcallyourrule/features/initial_setup/models/setup_config.dart';
+import 'package:yourcallyourrule/features/initial_setup/providers/initial_setup_provider.dart';
+import 'package:yourcallyourrule/features/initial_setup/widgets/initial_setup_header_card.dart';
+import 'package:yourcallyourrule/features/initial_setup/widgets/initial_setup_search_bar.dart';
+import 'package:yourcallyourrule/features/initial_setup/widgets/initial_setup_tile.dart';
+import 'package:yourcallyourrule/features/initial_setup/widgets/initial_setup_plugin_card.dart';
+import 'package:yourcallyourrule/features/initial_setup/widgets/initial_setup_settings_hint_card.dart';
+import 'package:yourcallyourrule/features/initial_setup/widgets/initial_setup_bottom_bar.dart';
+import 'package:yourcallyourrule/features/initial_setup/widgets/initial_setup_error_view.dart';
 
+/// 云端规则与插件初始向导主页面组件
 class InitialSetupPage extends ConsumerStatefulWidget {
   const InitialSetupPage({super.key});
 
@@ -30,55 +28,76 @@ class InitialSetupPage extends ConsumerStatefulWidget {
 
 class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
   final Set<String> _selectedCountryIds = {};
-  final TextEditingController _customUrlController = TextEditingController();
   final TextEditingController _searchController = TextEditingController();
-
-  bool _isDownloading = false;
+  final TextEditingController _customUrlController = TextEditingController();
+  String _searchQuery = '';
   bool _useCdn = false;
   bool _useCustomUrl = false;
-  bool _hasAutoSelected = false;
-  String _searchQuery = '';
+  bool _isDownloading = false;
+  String? _detectedCountryCode;
 
   @override
   void initState() {
     super.initState();
-    ref.read(initialSetupServiceProvider).completeInitialSetup();
+    _initAutoDetection();
   }
 
   @override
   void dispose() {
-    _customUrlController.dispose();
     _searchController.dispose();
+    _customUrlController.dispose();
     super.dispose();
+  }
+
+  Future<void> _initAutoDetection() async {
+    try {
+      final code = await ref.read(detectedCountryCodeProvider.future);
+      if (code != null && mounted) {
+        setState(() {
+          _detectedCountryCode = code;
+        });
+      }
+    } catch (_) {}
+  }
+
+  void _exit(BuildContext context) {
+    if (context.canPop()) {
+      context.pop();
+    } else {
+      context.go('/');
+    }
+  }
+
+  void _fetchCustomUrl(AppLocalizations l10n) {
+    final url = _customUrlController.text.trim();
+    if (url.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.deepLinkEmptyUrlError)),
+      );
+      return;
+    }
+    ref.read(setupCustomUrlProvider.notifier).setCustomUrl(url);
+    ref.invalidate(setupConfigProvider);
   }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final configAsync = ref.watch(setupConfigProvider);
-    final theme = Theme.of(context);
+    final setupConfigAsync = ref.watch(setupConfigProvider);
 
     return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-        title: Text(
-          l10n.initialSetupTitle,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: theme.colorScheme.onSurface,
+        title: Text(l10n.initialSetupTitle),
+        actions: [
+          TextButton(
+            onPressed: () => _exit(context),
+            child: Text(l10n.initialSetupSkip),
           ),
-        ),
-        automaticallyImplyLeading: false,
+        ],
       ),
-      body: configAsync.when(
+      body: setupConfigAsync.when(
         data: (config) => _buildBody(context, config, l10n),
-        loading: () => Center(
-          child: CircularProgressIndicator(color: theme.colorScheme.primary),
-        ),
+        loading: () => const Center(child: CircularProgressIndicator()),
         error: (err, stack) => InitialSetupErrorView(
           error: err,
           onSkip: () => _exit(context),
@@ -89,52 +108,29 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
   }
 
   Widget _buildBody(BuildContext context, SetupConfig config, AppLocalizations l10n) {
-    final detectedCode = ref.watch(detectedCountryCodeProvider).value?.toUpperCase();
-    final theme = Theme.of(context);
+    final pluginRec = config.pluginsRecommendation;
 
-    final sortedCountries = List<CountryData>.from(config.countriesData);
-    if (detectedCode != null && detectedCode.isNotEmpty) {
-      sortedCountries.sort((a, b) {
-        final aMatch = a.countryCode.toUpperCase() == detectedCode || a.id.toUpperCase() == detectedCode;
-        final bMatch = b.countryCode.toUpperCase() == detectedCode || b.id.toUpperCase() == detectedCode;
-        if (aMatch && !bMatch) return -1;
-        if (!aMatch && bMatch) return 1;
-        return 0;
-      });
+    final filteredCountries = config.countriesData.where((c) {
+      if (_searchQuery.isEmpty) return true;
+      final q = _searchQuery.toLowerCase();
+      return c.name.toLowerCase().contains(q) ||
+          c.id.toLowerCase().contains(q) ||
+          c.countryCode.toLowerCase().contains(q);
+    }).toList();
 
-      if (!_hasAutoSelected) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          if (mounted && !_hasAutoSelected) {
-            final match = sortedCountries
-                .where((c) => c.countryCode.toUpperCase() == detectedCode || c.id.toUpperCase() == detectedCode)
-                .firstOrNull;
-            if (match != null) {
-              setState(() {
-                _selectedCountryIds.add(match.id);
-                _hasAutoSelected = true;
-              });
-            }
-          }
-        });
+    // 默认自动勾选符合当前 IP 国家代码的项目
+    if (_detectedCountryCode != null && _selectedCountryIds.isEmpty) {
+      final matched = config.countriesData.where(
+        (c) => c.countryCode.toLowerCase() == _detectedCountryCode!.toLowerCase(),
+      );
+      for (final m in matched) {
+        _selectedCountryIds.add(m.id);
       }
     }
 
-    final filteredCountries = sortedCountries.where((c) {
-      if (_searchQuery.trim().isEmpty) return true;
-      final query = _searchQuery.toLowerCase().trim();
-      return c.name.toLowerCase().contains(query) ||
-          c.description.toLowerCase().contains(query) ||
-          c.countryCode.toLowerCase().contains(query) ||
-          c.ruleType.toLowerCase().contains(query) ||
-          c.id.toLowerCase().contains(query);
-    }).toList();
-
-    final pluginRec = config.pluginsRecommendation ??
-        PluginRecommendation(
-          title: l10n.pluginManagement,
-          description: l10n.pluginRulesInfo,
-          webPortalUrl: 'https://github.com/choicenew/yourcallrule/tree/main/plugins',
-        );
+    final isAllSelected = filteredCountries.isNotEmpty &&
+        filteredCountries.every((c) => _selectedCountryIds.contains(c.id));
+    final isAnySelected = _selectedCountryIds.isNotEmpty;
 
     return Column(
       children: [
@@ -142,68 +138,48 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
           useCdn: _useCdn,
           useCustomUrl: _useCustomUrl,
           customUrlController: _customUrlController,
-          onUseCdnChanged: (val) => setState(() => _useCdn = val),
+          onUseCdnChanged: (val) {
+            setState(() => _useCdn = val);
+            ref.read(setupUseCdnProvider.notifier).setUseCdn(val);
+          },
           onUseCustomUrlChanged: (val) => setState(() => _useCustomUrl = val),
-          onFetchCustomUrl: _fetchCustomUrl,
+          onFetchCustomUrl: () => _fetchCustomUrl(l10n),
         ),
-        const SizedBox(height: 8),
         InitialSetupSearchBar(
           searchController: _searchController,
           searchQuery: _searchQuery,
-          isAllSelected: _selectedCountryIds.length == sortedCountries.length,
-          isAnySelected: _selectedCountryIds.isNotEmpty,
-          onSearchChanged: (val) => setState(() => _searchQuery = val),
+          isAllSelected: isAllSelected,
+          isAnySelected: isAnySelected,
+          onSearchChanged: (q) => setState(() => _searchQuery = q),
           onClearSearch: () {
             _searchController.clear();
             setState(() => _searchQuery = '');
           },
           onToggleSelectAll: () {
             setState(() {
-              if (_selectedCountryIds.length == sortedCountries.length) {
+              if (isAllSelected) {
                 _selectedCountryIds.clear();
               } else {
-                _selectedCountryIds.clear();
-                _selectedCountryIds.addAll(sortedCountries.map((c) => c.id));
+                for (final c in filteredCountries) {
+                  _selectedCountryIds.add(c.id);
+                }
               }
             });
           },
         ),
-        const SizedBox(height: 8),
         Expanded(
           child: filteredCountries.isEmpty
-              ? Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.search_off_rounded,
-                        size: 40,
-                        color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.6),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        l10n.noData,
-                        style: TextStyle(color: theme.colorScheme.onSurfaceVariant, fontSize: 13),
-                      ),
-                    ],
-                  ),
-                )
+              ? Center(child: Text(l10n.noData))
               : ListView.builder(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                  physics: const BouncingScrollPhysics(),
                   itemCount: filteredCountries.length,
                   itemBuilder: (context, index) {
                     final country = filteredCountries[index];
                     final isSelected = _selectedCountryIds.contains(country.id);
-                    final isCurrentLocation = detectedCode != null &&
-                        (country.countryCode.toUpperCase() == detectedCode ||
-                            country.id.toUpperCase() == detectedCode);
-
                     return InitialSetupTile(
                       country: country,
                       isSelected: isSelected,
-                      isCurrentLocation: isCurrentLocation,
-                      onChanged: (bool? val) {
+                      isCurrentLocation: country.countryCode.toLowerCase() == _detectedCountryCode?.toLowerCase(),
+                      onChanged: (val) {
                         setState(() {
                           if (val == true) {
                             _selectedCountryIds.add(country.id);
@@ -216,7 +192,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
                   },
                 ),
         ),
-        InitialSetupPluginCard(pluginRec: pluginRec),
+        if (pluginRec != null) InitialSetupPluginCard(pluginRec: pluginRec),
         const InitialSetupSettingsHintCard(),
         InitialSetupBottomBar(
           selectedCount: _selectedCountryIds.length,
@@ -228,21 +204,9 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
     );
   }
 
-  void _fetchCustomUrl() {
-    final customUrl = _customUrlController.text.trim();
-    ref.read(setupCustomUrlProvider.notifier).setCustomUrl(
-          customUrl.isNotEmpty ? customUrl : null,
-        );
-  }
-
-  Future<void> _exit(BuildContext context) async {
-    await ref.read(initialSetupServiceProvider).completeInitialSetup();
-    if (context.mounted) {
-      context.goNamed('home');
-    }
-  }
-
   Future<void> _downloadSelected(SetupConfig config, AppLocalizations l10n) async {
+    if (_selectedCountryIds.isEmpty) return;
+
     setState(() {
       _isDownloading = true;
     });
@@ -251,8 +215,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
       final phoneService = ref.read(phoneSubscriptionServiceProvider);
       final pluginService = ref.read(pluginManagerServiceProvider);
 
-      final List<Subscription> subscriptionsToSave = [];
-      final List<String> pluginUrlsToInstall = [];
+      final List<PhoneSubscriptionPayload> subscriptionsToSave = [];
 
       for (final countryId in _selectedCountryIds) {
         final country = config.countriesData.firstWhere((c) => c.id == countryId);
@@ -261,27 +224,12 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
             : country.getEffectiveUrl(useCdn: _useCdn);
 
         if (country.ruleType.toLowerCase() == 'plugin') {
-          pluginUrlsToInstall.add(effectiveUrl);
+          await pluginService.addPluginFromUrl(effectiveUrl);
         } else {
-          final subscription = Subscription(
-            id: const Uuid().v4(),
-            name: country.name,
-            url: Url.fromString(effectiveUrl),
-            isEnabled: true,
-            action: RuleAction.block,
-            lastUpdated: DateTime.now(),
-            autoUpdate: true,
-            tableType: 'phone',
-          );
-          subscriptionsToSave.add(subscription);
+          final sub = await phoneService.addSubscription(country.name, effectiveUrl);
+          subscriptionsToSave.add(sub);
         }
       }
-
-      for (final sub in subscriptionsToSave) {
-        await phoneService.save(sub);
-      }
-
-      final container = ref.container;
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -290,29 +238,20 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
         _exit(context);
       }
 
+      // 后台异步解析规则
       Future.microtask(() async {
         for (final sub in subscriptionsToSave) {
           try {
-            await phoneService.importAndSaveRulesFromSubscription(sub);
+            await phoneService.updateRulesFromSubscription(sub);
           } catch (e) {
-            debugPrint('[InitialSetupPage] Background import rules failed for ${sub.name}: $e');
+            debugPrint('[InitialSetupPage] Background import rules failed: $e');
           }
         }
-
-        for (final pluginUrl in pluginUrlsToInstall) {
-          try {
-            await pluginService.addPluginFromUrl(pluginUrl);
-          } catch (e) {
-            debugPrint('[InitialSetupPage] Background install plugin failed for $pluginUrl: $e');
-          }
-        }
-
-        container.invalidate(callStatisticsProvider);
       });
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(l10n.initialSetupSaveFailed(e.toString()))),
+          SnackBar(content: Text('${l10n.operationFailure}: $e')),
         );
       }
     } finally {

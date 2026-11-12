@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:uuid/uuid.dart';
@@ -9,14 +8,12 @@ import 'package:yourcallyourrule/features/location/data/repositories/location_re
 
 part 'location_service.g.dart';
 
-/// LocationService Riverpod Provider
 @Riverpod(keepAlive: true)
 LocationService locationService(Ref ref) {
   final locationRepository = ref.watch(locationRepositoryProvider);
   return LocationService(locationRepository);
 }
 
-/// 位置归属地服务类
 class LocationService {
   final LocationRepository _repository;
   final PhoneNumberUtil _phoneNumberUtil;
@@ -29,7 +26,7 @@ class LocationService {
         _geocoder = PhoneNumberOfflineGeocoder.instance,
         _carrierMapper = PhoneNumberToCarrierMapper.instance;
 
-  Future<LocationEntry?> getCallerLocation(String phoneNumber, Locale locale) async {
+  Future<PhoneLocationEntry?> getCallerLocation(String phoneNumber, Locale locale) async {
     try {
       final parsedNumber = _phoneNumberUtil.parse(phoneNumber, null);
 
@@ -37,17 +34,17 @@ class LocationService {
         return null;
       }
 
-      final region = await _geocoder.getDescriptionForValidNumber(parsedNumber, locale, null);
+      final region = await _geocoder.getDescriptionForNumber(parsedNumber, locale, null);
       final carrier = await _carrierMapper.getNameForNumber(parsedNumber, locale);
       final numberTypeInt = _phoneNumberUtil.getNumberType(parsedNumber).index;
 
-      final entry = LocationEntry(
+      final entry = PhoneLocationEntry(
         id: _uuid.v4(),
         phoneNumber: phoneNumber,
         region: region,
         countryName: _phoneNumberUtil.getRegionCodeForNumber(parsedNumber),
         carrier: carrier,
-        numberType: numberTypeInt,
+        numberType: numberTypeInt.toString(),
       );
 
       await _repository.save(entry);
@@ -57,19 +54,19 @@ class LocationService {
     }
   }
 
-  Future<void> saveLocation(LocationEntry entry) async {
+  Future<void> saveLocation(PhoneLocationEntry entry) async {
     await _repository.save(entry);
   }
 
-  Future<void> updateLocationData(LocationEntry entry) async {
+  Future<void> updateLocationData(PhoneLocationEntry entry) async {
     await _repository.update(entry);
   }
 
-  Future<LocationEntry?> getByPhoneNumber(String phoneNumber) async {
+  Future<PhoneLocationEntry?> getByPhoneNumber(String phoneNumber) async {
     return await _repository.getByPhoneNumber(phoneNumber);
   }
 
-  Future<List<LocationEntry>> getAll() async {
+  Future<List<PhoneLocationEntry>> getAll() async {
     return await _repository.getAll();
   }
 

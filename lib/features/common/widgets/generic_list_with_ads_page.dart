@@ -480,17 +480,21 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
       ),
     );
 
-    // 使用AdListWidget构建列表
-    return AdListWidget<T>(
-      items: widget.items,
-      adBuilder: widget.adBuilder,
-      itemBuilder: (context, item) {
-        // 如果在多选模式下，并且提供了getItemId，则包装原始itemBuilder
+    if (widget.items.isEmpty) {
+      return emptyWidget;
+    }
+
+    return ListView.builder(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      physics: const AlwaysScrollableScrollPhysics(),
+      itemCount: widget.items.length,
+      itemBuilder: (context, index) {
+        final item = widget.items[index];
+
         if (widget.isMultiSelectMode && widget.getItemId != null) {
           final itemId = widget.getItemId!(item);
           final isSelected = widget.selectedItemIds.contains(itemId);
 
-          // 包装原始的item widget，添加选择状态
           return InkWell(
             onTap: () => widget.onToggleItemSelection?.call(itemId),
             child: Row(
@@ -508,14 +512,8 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
           );
         }
 
-        // 非多选模式，直接使用原始itemBuilder
         return widget.itemBuilder(context, item);
       },
-      adInterval: widget.adInterval,
-      adControlServiceProvider: adControlServiceProvider,
-      emptyWidget: emptyWidget,
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      physics: const AlwaysScrollableScrollPhysics(),
     );
   }
 }

@@ -36,7 +36,7 @@ final class SystemCallLogServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => r'system_call_log_service_hash';
+  String debugGetCreateSourceHash() => _$systemCallLogServiceHash();
 
   @$internal
   @override
@@ -57,3 +57,6 @@ final class SystemCallLogServiceProvider
     );
   }
 }
+
+String _$systemCallLogServiceHash() =>
+    r'0ddc3076b22945cf4f3f5a1bcd0b0a062877e21e';

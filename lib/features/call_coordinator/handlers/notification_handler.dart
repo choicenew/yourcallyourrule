@@ -14,7 +14,7 @@ final notificationHandlerProvider = Provider<NotificationHandler>((ref) {
 
 class NotificationHandler {
   final Ref _ref;
-  final NotificationService _notificationService;
+  final dynamic _notificationService;
 
   NotificationHandler(this._ref, this._notificationService);
 

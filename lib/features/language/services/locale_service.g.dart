@@ -8,17 +8,17 @@ part of 'locale_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// LocaleService 的 @Riverpod Provider
+/// LocaleService Riverpod Provider
 
 @ProviderFor(localeService)
 final localeServiceProvider = LocaleServiceProvider._();
 
-/// LocaleService 的 @Riverpod Provider
+/// LocaleService Riverpod Provider
 
 final class LocaleServiceProvider
     extends $FunctionalProvider<LocaleService, LocaleService, LocaleService>
     with $Provider<LocaleService> {
-  /// LocaleService 的 @Riverpod Provider
+  /// LocaleService Riverpod Provider
   LocaleServiceProvider._()
     : super(
         from: null,

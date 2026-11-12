@@ -176,7 +176,7 @@ String exportCsvIsolateTask(List<Map<String, dynamic>> rowsData) {
 class ContactService extends ListService<PhoneContactEntry, String> {
   final ContactRepository _contactRepository;
 
-  ContactService(this._contactRepository) : super(_contactRepository);
+  ContactService(this._contactRepository) : super();
 
   Future<void> editContact(PhoneContactEntry contact) async {
     if (contact.displayName.isEmpty) {

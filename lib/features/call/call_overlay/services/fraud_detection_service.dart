@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
-import 'package:yourcallyourrule/features/call/call_overlay/services/fraud_alert_config_service.dart';
+import 'fraud_alert_config_service.dart';
 import 'package:yourcallyourrule/features/notifications/service/notification_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -17,7 +17,7 @@ class FraudDetectionService {
       'Fraud Scam Likely', 'Spam Likely', 'Scams Likely',
       'Risk', 'Silent Call Voice Clone'
     ];
-    final hasSuspiciousNumberFeatures = callerIdData.phoneNumber.value.contains('+');
+    final hasSuspiciousNumberFeatures = callerIdData.phoneNumber.contains('+');
     for (final label in callerIdData.labels) {
       if (fraudKeywords.any((keyword) => label.toLowerCase().contains(keyword.toLowerCase()))) {
         return true;

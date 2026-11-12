@@ -1,6 +1,6 @@
 
 
-import 'package:yourcallyourrule/cloud_sync/entities/device_entity.dart';
+import 'package:yourcallyourrule/features/sync/domain/device_entity.dart';
 
 /// Interface for device management services
 abstract class DeviceManagementService {

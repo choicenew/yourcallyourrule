@@ -95,4 +95,12 @@ class RuleActionDisplayUtils {
         return AppLocalizations.of(context)!.customActionDescription;
     }
   }
+
+  static RuleAction parseActionType(String raw) {
+    final type = RuleActionType.values.firstWhere(
+      (e) => e.name.toLowerCase() == raw.toLowerCase(),
+      orElse: () => RuleActionType.allow,
+    );
+    return RuleAction(type: type);
+  }
 }

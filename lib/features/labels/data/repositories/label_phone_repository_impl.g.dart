@@ -36,7 +36,7 @@ final class LabelPhoneRepositoryProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => r'label_phone_repository_impl_hash_v2';
+  String debugGetCreateSourceHash() => _$labelPhoneRepositoryHash();
 
   @$internal
   @override
@@ -57,3 +57,6 @@ final class LabelPhoneRepositoryProvider
     );
   }
 }
+
+String _$labelPhoneRepositoryHash() =>
+    r'9348fc9403d11d7ca3fe08f1cf1d5b757c199514';

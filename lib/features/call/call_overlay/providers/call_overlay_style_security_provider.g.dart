@@ -113,13 +113,11 @@ String _$callOverlayConfigServiceHash() =>
     r'e67bf3a731c7ae7a70dd61292be32932c2dfdc44';
 
 /// Provider for the ConfigurationManager.
-/// 这使得我们的业务逻辑层可以在整个应用中被轻松访问。
 
 @ProviderFor(configurationManager)
 final configurationManagerProvider = ConfigurationManagerProvider._();
 
 /// Provider for the ConfigurationManager.
-/// 这使得我们的业务逻辑层可以在整个应用中被轻松访问。
 
 final class ConfigurationManagerProvider
     extends
@@ -130,7 +128,6 @@ final class ConfigurationManagerProvider
         >
     with $Provider<ConfigurationManager> {
   /// Provider for the ConfigurationManager.
-  /// 这使得我们的业务逻辑层可以在整个应用中被轻松访问。
   ConfigurationManagerProvider._()
     : super(
         from: null,
@@ -169,16 +166,12 @@ String _$configurationManagerHash() =>
     r'74fc71c28de241be3504804b505c7a926c693615';
 
 /// The UI State Notifier.
-/// 它的唯一职责是持有当前的UI状态(CallOverlayConfig)，并响应UI的实时调整。
-/// 它不包含任何保存、加载等业务逻辑。
 
 @ProviderFor(CallOverlayStyleSecurityNotifier)
 final callOverlayStyleSecurityProvider =
     CallOverlayStyleSecurityNotifierProvider._();
 
 /// The UI State Notifier.
-/// 它的唯一职责是持有当前的UI状态(CallOverlayConfig)，并响应UI的实时调整。
-/// 它不包含任何保存、加载等业务逻辑。
 final class CallOverlayStyleSecurityNotifierProvider
     extends
         $AsyncNotifierProvider<
@@ -186,8 +179,6 @@ final class CallOverlayStyleSecurityNotifierProvider
           CallOverlayConfig
         > {
   /// The UI State Notifier.
-  /// 它的唯一职责是持有当前的UI状态(CallOverlayConfig)，并响应UI的实时调整。
-  /// 它不包含任何保存、加载等业务逻辑。
   CallOverlayStyleSecurityNotifierProvider._()
     : super(
         from: null,
@@ -212,8 +203,6 @@ String _$callOverlayStyleSecurityNotifierHash() =>
     r'9df99f7be03d78d06f6cdf6cbb44bcce6f94cedf';
 
 /// The UI State Notifier.
-/// 它的唯一职责是持有当前的UI状态(CallOverlayConfig)，并响应UI的实时调整。
-/// 它不包含任何保存、加载等业务逻辑。
 
 abstract class _$CallOverlayStyleSecurityNotifier
     extends $AsyncNotifier<CallOverlayConfig> {

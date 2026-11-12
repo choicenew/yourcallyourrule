@@ -32,7 +32,7 @@ final class CallerIdMonitorServiceProvider
       );
 
   @override
-  String debugGetCreateSourceHash() => r'caller_id_monitor_service_hash_v1';
+  String debugGetCreateSourceHash() => _$callerIdMonitorServiceHash();
 
   @$internal
   @override
@@ -53,3 +53,6 @@ final class CallerIdMonitorServiceProvider
     );
   }
 }
+
+String _$callerIdMonitorServiceHash() =>
+    r'02cd7f996e8215f695c6c0e4fd0a0eae27d22dd7';

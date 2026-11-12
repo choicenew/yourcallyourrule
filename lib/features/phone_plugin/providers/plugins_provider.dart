@@ -1,38 +1,31 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
-import 'package:yourcallyourrule/features/plugin/repositories/plugin_repository.dart';
-import 'package:yourcallyourrule/data/repositories/plugin_repository_impl.dart';
+import 'package:yourcallyourrule/features/phone_plugin/repositories/plugin_repository.dart';
+import 'package:yourcallyourrule/features/phone_plugin/data/repositories/plugin_repository_impl.dart';
 
-/// 插件数据状态的Notifier�?
-class PluginsNotifier extends AsyncNotifier<List<PluginEntry>> {
+class PluginsNotifier extends AsyncNotifier<List<PluginSourceData>> {
   late final PluginRepository _pluginRepository;
 
   @override
-  Future<List<PluginEntry>> build() async {
-    // 初始化仓�?
+  Future<List<PluginSourceData>> build() async {
     _initRepository();
-    // 加载所有插�?
     return _loadPlugins();
   }
 
   void _initRepository() {
-    // 获取仓库实例
     _pluginRepository = ref.read(pluginRepositoryProvider);
   }
 
-  Future<List<PluginEntry>> _loadPlugins() async {
+  Future<List<PluginSourceData>> _loadPlugins() async {
     try {
-      // 获取所有插�?
       return await _pluginRepository.getAll();
     } catch (e) {
-      // 错误处理
       state = AsyncValue.error(e, StackTrace.current);
       return [];
     }
   }
 
-  /// 添加插件
-  Future<void> addPlugin(PluginEntry plugin) async {
+  Future<void> addPlugin(PluginSourceData plugin) async {
     state = const AsyncValue.loading();
     try {
       await _pluginRepository.save(plugin);
@@ -42,8 +35,7 @@ class PluginsNotifier extends AsyncNotifier<List<PluginEntry>> {
     }
   }
 
-  /// 更新插件
-  Future<void> updatePlugin(PluginEntry plugin) async {
+  Future<void> updatePlugin(PluginSourceData plugin) async {
     state = const AsyncValue.loading();
     try {
       await _pluginRepository.update(plugin);
@@ -53,7 +45,6 @@ class PluginsNotifier extends AsyncNotifier<List<PluginEntry>> {
     }
   }
 
-  /// 删除插件
   Future<void> deletePlugin(String pluginId) async {
     state = const AsyncValue.loading();
     try {
@@ -64,7 +55,6 @@ class PluginsNotifier extends AsyncNotifier<List<PluginEntry>> {
     }
   }
 
-  /// 更新插件启用状�?
   Future<void> updatePluginEnabledStatus(String pluginId, bool isEnabled) async {
     state = const AsyncValue.loading();
     try {
@@ -76,7 +66,6 @@ class PluginsNotifier extends AsyncNotifier<List<PluginEntry>> {
   }
 }
 
-/// 插件数据提供�?
-final pluginsProvider = AsyncNotifierProvider<PluginsNotifier, List<PluginEntry>>(() {
+final pluginsProvider = AsyncNotifierProvider<PluginsNotifier, List<PluginSourceData>>(() {
   return PluginsNotifier();
 });

@@ -1,5 +1,5 @@
 import 'package:drift/drift.dart';
-import '../../data/database/local/local_database.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 /// 变更数据捕获 (CDC) 服务
 /// 负责在运行时注入 SQL 触发器，记录数据变更

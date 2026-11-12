@@ -1,8 +1,3 @@
-// -----------------------------------------------------------------------------
-// 文件: elite_primary_filter_card.dart
-// 描述: Elite 基础过滤规则高质感控制卡片（已完全解耦拆分，保持主文件清爽连贯）�?
-// -----------------------------------------------------------------------------
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,8 +13,6 @@ import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primar
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primary_filter/primary_filter_master_section.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/primary_filter/primary_filter_sim_bar.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-
-// ------------------- ElitePrimaryFilterCard 模块协调主卡�?-------------------
 
 class ElitePrimaryFilterCard extends ConsumerStatefulWidget {
   const ElitePrimaryFilterCard({super.key});
@@ -50,7 +43,6 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
     final theme = Theme.of(context);
     final separateSims = ref.watch(separateSimsProvider).value ?? false;
 
-    // 当开启分卡槽控制时，根据当前选中的卡槽读取对应卡槽的 CallFilterConfig；否则读取全局配置
     final callConfig = separateSims
         ? ref.watch(simSlotCallFilterConfigProvider(_selectedSimSlot).select((v) => v.value))
         : ref.watch(callFilterConfigProvider.select((v) => v.value));
@@ -334,8 +326,6 @@ class _ElitePrimaryFilterCardState extends ConsumerState<ElitePrimaryFilterCard>
     );
   }
 }
-
-// ------------------- Widget Previewer 支持 -------------------
 
 @Preview(name: 'Primary Filter Card', group: 'Elite Showcase')
 Widget previewElitePrimaryFilterCard() {

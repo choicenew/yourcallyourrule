@@ -8,12 +8,9 @@ part of 'predefined_label_repository_impl.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 预定义标签仓库提供者
 
 @ProviderFor(predefinedLabelRepository)
 final predefinedLabelRepositoryProvider = PredefinedLabelRepositoryProvider._();
-
-/// 预定义标签仓库提供者
 
 final class PredefinedLabelRepositoryProvider
     extends
@@ -23,7 +20,6 @@ final class PredefinedLabelRepositoryProvider
           PredefinedLabelRepository
         >
     with $Provider<PredefinedLabelRepository> {
-  /// 预定义标签仓库提供者
   PredefinedLabelRepositoryProvider._()
     : super(
         from: null,
@@ -59,4 +55,4 @@ final class PredefinedLabelRepositoryProvider
 }
 
 String _$predefinedLabelRepositoryHash() =>
-    r'b70150f7fafec7d95696fd9f48a5f937d531f5a8';
+    r'746f00025c64d4fff5ce1f9f37bffa6b9ffcf2eb';

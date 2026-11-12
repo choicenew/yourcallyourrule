@@ -1,15 +1,11 @@
 import 'dart:async';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_config.dart';
 
-
-
 part 'time_interceptor_provider.g.dart';
 
-// 2. 移除�?TimeInterceptorConfig 类的重复定义
-
-// 状态管理器 (AsyncNotifier)
 @riverpod
 class TimeInterceptorConfigNotifier extends _$TimeInterceptorConfigNotifier {
   static const String _configKey = 'config_time_interceptor';
@@ -22,10 +18,9 @@ class TimeInterceptorConfigNotifier extends _$TimeInterceptorConfigNotifier {
     if (configMap != null) {
       return TimeInterceptorConfig.fromMap(configMap);
     }
-    return const TimeInterceptorConfig(); // 返回默认配置
+    return const TimeInterceptorConfig();
   }
 
-  // 更新方法保持不变
   Future<void> updateShouldIntercept(bool isEnabled) async {
     final previousState = await future;
     final newState = previousState.copyWith(shouldIntercept: isEnabled);

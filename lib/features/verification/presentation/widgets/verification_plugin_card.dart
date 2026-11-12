@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 插件扩展数据卡片（完全基�?PluginSourceData 强实体，消除旧数据接口）
 class VerificationPluginCard extends StatelessWidget {
   final PluginSourceData? pluginSourceData;
 
@@ -75,14 +74,14 @@ class VerificationPluginCard extends StatelessWidget {
           ),
           _buildInfoText(context, l10n.carrier, pluginSourceData?.carrier ?? l10n.unknown),
           _buildInfoText(context, l10n.callerIdMarkedByCount(pluginSourceData?.count ?? 0), '${pluginSourceData?.count ?? 0}'),
-          _buildInfoText(context, l10n.action, pluginSourceData?.action.toString() ?? l10n.actionNone),
+          _buildInfoText(context, l10n.action, pluginSourceData?.actionName),
         ],
       ),
     );
   }
 
-  Widget _buildInfoText(BuildContext context, String label, String value) {
-    if (value.isEmpty) return const SizedBox.shrink();
+  Widget _buildInfoText(BuildContext context, String label, String? value) {
+    if (value == null || value.isEmpty) return const SizedBox.shrink();
     final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 2.5),

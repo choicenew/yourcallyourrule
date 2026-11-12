@@ -18,7 +18,7 @@ class LiveActivityHandler {
     required Map<String, dynamic>? stirInfo,
   }) async {
     final bool isFraudCall = FraudDetectionService.checkForFraudLabels(callerIdData);
-    debugPrint('[LiveActivityHandler] Showing Live Activity for ${callerIdData.phoneNumber.value}, Fraud? $isFraudCall');
+    debugPrint('[LiveActivityHandler] Showing Live Activity for ${callerIdData.phoneNumber}, Fraud? $isFraudCall');
   }
 
   Future<void> endActivity() async {}
