@@ -1,4 +1,4 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -69,7 +69,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              AppLocalizations.of(context)!.pleaseEnterAtLeastOneNumber,
+              AppLocalizations.of(context).pleaseEnterAtLeastOneNumber,
             ),
           ),
         );
@@ -80,7 +80,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
       if (singleNumber.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context)!.enterPhoneNumber),
+            content: Text(AppLocalizations.of(context).enterPhoneNumber),
           ),
         );
         return;
@@ -130,12 +130,12 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '${AppLocalizations.of(context)!.testPlugin}: ${widget.plugin.name}',
+          '${AppLocalizations.of(context).testPlugin}: ${widget.plugin.name}',
         ),
         actions: [
           IconButton(
             icon: const Icon(Icons.public),
-            tooltip: AppLocalizations.of(context)!.openInWebView,
+            tooltip: AppLocalizations.of(context).openInWebView,
             onPressed: () {
               Navigator.push(
                 context,
@@ -162,7 +162,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
               if (_queryResult != null) _buildResultView(),
               const SizedBox(height: 16),
               Text(
-                '${AppLocalizations.of(context)!.log}:',
+                '${AppLocalizations.of(context).log}:',
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
@@ -182,17 +182,17 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '${AppLocalizations.of(context)!.pluginLabel}: ${widget.plugin.name}',
+              '${AppLocalizations.of(context).pluginLabel}: ${widget.plugin.name}',
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             Text(
-              '${AppLocalizations.of(context)!.pluginID}: ${widget.plugin.id}',
+              '${AppLocalizations.of(context).pluginID}: ${widget.plugin.id}',
             ),
             Text(
-              '${AppLocalizations.of(context)!.pluginDescription}: ${widget.plugin.sourceLabel ?? ''}',
+              '${AppLocalizations.of(context).pluginDescription}: ${widget.plugin.sourceLabel ?? ''}',
             ),
             Text(
-              '${AppLocalizations.of(context)!.pluginURL}: ${widget.plugin.phoneNumber ?? ''}',
+              '${AppLocalizations.of(context).pluginURL}: ${widget.plugin.phoneNumber ?? ''}',
             ),
           ],
         ),
@@ -207,7 +207,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(AppLocalizations.of(context)!.advancedMode),
+            Text(AppLocalizations.of(context).advancedMode),
             Switch(
               value: _isAdvancedMode,
               onChanged: (value) {
@@ -223,7 +223,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
           TextField(
             controller: _phoneNumberController,
             decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.phoneNumber,
+              labelText: AppLocalizations.of(context).phoneNumber,
               border: const OutlineInputBorder(),
             ),
             keyboardType: TextInputType.phone,
@@ -232,7 +232,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
           TextField(
             controller: _nationalNumberController,
             decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.nationalNumber,
+              labelText: AppLocalizations.of(context).nationalNumber,
               border: const OutlineInputBorder(),
             ),
             keyboardType: TextInputType.phone,
@@ -241,7 +241,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
           TextField(
             controller: _e164NumberController,
             decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.e164Number,
+              labelText: AppLocalizations.of(context).e164Number,
               border: const OutlineInputBorder(),
             ),
             keyboardType: TextInputType.phone,
@@ -250,7 +250,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
           TextField(
             controller: _simplePhoneController,
             decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.phoneNumber,
+              labelText: AppLocalizations.of(context).phoneNumber,
               border: const OutlineInputBorder(),
             ),
             keyboardType: TextInputType.phone,
@@ -259,21 +259,21 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
           DropdownButtonFormField<String>(
             value: _selectedFormat,
             decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.numberFormat,
+              labelText: AppLocalizations.of(context).numberFormat,
               border: const OutlineInputBorder(),
             ),
             items: [
               DropdownMenuItem(
                 value: 'phoneNumber',
-                child: Text(AppLocalizations.of(context)!.phoneNumber),
+                child: Text(AppLocalizations.of(context).phoneNumber),
               ),
               DropdownMenuItem(
                 value: 'nationalNumber',
-                child: Text(AppLocalizations.of(context)!.nationalNumber),
+                child: Text(AppLocalizations.of(context).nationalNumber),
               ),
               DropdownMenuItem(
                 value: 'e164Number',
-                child: Text(AppLocalizations.of(context)!.e164Number),
+                child: Text(AppLocalizations.of(context).e164Number),
               ),
             ],
             onChanged: (value) {
@@ -290,7 +290,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
           width: double.infinity,
           child: ElevatedButton(
             onPressed: _runTest,
-            child: Text(AppLocalizations.of(context)!.testPlugin),
+            child: Text(AppLocalizations.of(context).testPlugin),
           ),
         ),
       ],
@@ -302,7 +302,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          AppLocalizations.of(context)!.result,
+          AppLocalizations.of(context).result,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8),

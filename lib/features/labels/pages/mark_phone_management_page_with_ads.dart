@@ -1,9 +1,9 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart' hide PredefinedLabel;
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/features/labels/services/label_phone_entry_to_remote.dart';
@@ -75,7 +75,7 @@ class _MarkPhoneManagementPageWithAdsState
       });
     } catch (e) {
       _showSnackBar(
-        AppLocalizations.of(context)!.loadMarkedPhonesFailed(e.toString()),
+        AppLocalizations.of(context).loadMarkedPhonesFailed(e.toString()),
       );
     } finally {
       setState(() {
@@ -104,7 +104,7 @@ class _MarkPhoneManagementPageWithAdsState
 
     if (phoneText.isEmpty || _selectedLabelId == null) {
       _showSnackBar(
-        AppLocalizations.of(context)!.selectLabelAndEnterPhoneNumber,
+        AppLocalizations.of(context).selectLabelAndEnterPhoneNumber,
       );
       return;
     }
@@ -136,7 +136,7 @@ class _MarkPhoneManagementPageWithAdsState
 
       _showSnackBar((AppLocalizations.of(context) as dynamic).saveSuccess as String? ?? 'Save Success');
     } catch (e) {
-      _showSnackBar('${AppLocalizations.of(context)!.saveFailed}: $e');
+      _showSnackBar('${AppLocalizations.of(context).saveFailed}: $e');
     }
   }
 
@@ -145,9 +145,9 @@ class _MarkPhoneManagementPageWithAdsState
       final markPhoneService = ref.read(markPhoneServiceProvider);
       await markPhoneService.removePhoneMark(id);
       _loadMarkedPhones();
-      _showSnackBar(AppLocalizations.of(context)!.deleteSuccess);
+      _showSnackBar(AppLocalizations.of(context).deleteSuccess);
     } catch (e) {
-      _showSnackBar('${AppLocalizations.of(context)!.deleteFailed}: $e');
+      _showSnackBar('${AppLocalizations.of(context).deleteFailed}: $e');
     }
   }
 
@@ -164,11 +164,11 @@ class _MarkPhoneManagementPageWithAdsState
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text(AppLocalizations.of(context)!.cancelButton),
+            child: Text(AppLocalizations.of(context).cancelButton),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text(AppLocalizations.of(context)!.deleteButton),
+            child: Text(AppLocalizations.of(context).deleteButton),
           ),
         ],
       ),
@@ -207,7 +207,7 @@ class _MarkPhoneManagementPageWithAdsState
               TextField(
                 controller: _phoneController,
                 decoration: InputDecoration(
-                  labelText: AppLocalizations.of(context)!.phoneNumber,
+                  labelText: AppLocalizations.of(context).phoneNumber,
                   border: const OutlineInputBorder(),
                 ),
                 keyboardType: TextInputType.phone,
@@ -216,7 +216,7 @@ class _MarkPhoneManagementPageWithAdsState
               TextField(
                 controller: _nameController,
                 decoration: InputDecoration(
-                  labelText: AppLocalizations.of(context)!.name,
+                  labelText: AppLocalizations.of(context).name,
                   border: const OutlineInputBorder(),
                 ),
               ),
@@ -235,14 +235,14 @@ class _MarkPhoneManagementPageWithAdsState
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text(AppLocalizations.of(context)!.cancelButton),
+            child: Text(AppLocalizations.of(context).cancelButton),
           ),
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
               _saveMark();
             },
-            child: Text(AppLocalizations.of(context)!.save),
+            child: Text(AppLocalizations.of(context).save),
           ),
         ],
       ),
@@ -367,7 +367,7 @@ class _MarkPhoneManagementPageWithAdsState
   Future<String> _getLabelName(String labelId) async {
     final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
     final label = await predefinedLabelService.getLabelById(labelId);
-    return label?.text ?? AppLocalizations.of(context)!.unknown;
+    return label?.text ?? AppLocalizations.of(context).unknown;
   }
 
   Future<void> _editMarkedPhone(LabelPhoneEntry entry) async {
@@ -381,19 +381,19 @@ class _MarkPhoneManagementPageWithAdsState
         themeColor: Theme.of(context).colorScheme.primary,
       );
     } catch (e) {
-      _showSnackBar('${AppLocalizations.of(context)!.updateRuleFailed}: $e');
+      _showSnackBar('${AppLocalizations.of(context).updateRuleFailed}: $e');
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return GenericListWithAdsPage<LabelPhoneEntry>(
-      title: AppLocalizations.of(context)!.markPhoneManagementTitle,
+      title: AppLocalizations.of(context).markPhoneManagementTitle,
       items: _markedPhones,
       itemBuilder: (context, entry) => _buildMarkedPhoneCard(entry),
       adBuilder: () => const AdsInlineBanner(),
       adInterval: 3,
-      emptyText: AppLocalizations.of(context)!.noMarkedPhones,
+      emptyText: AppLocalizations.of(context).noMarkedPhones,
       emptyIcon: Icons.label_off,
       themeColor: Theme.of(context).colorScheme.primary,
       isLoading: _isLoadingMarkedPhones,
@@ -420,7 +420,7 @@ class _MarkPhoneManagementPageWithAdsState
       },
       headerContent: _buildStatisticsHeaderCard(),
       onSearchChanged: _onSearchChanged,
-      searchHintText: AppLocalizations.of(context)!.searchMarkedPhonesHint,
+      searchHintText: AppLocalizations.of(context).searchMarkedPhonesHint,
     );
   }
 }

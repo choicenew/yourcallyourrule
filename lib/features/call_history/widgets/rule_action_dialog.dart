@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:yourcallyourrule/features/phone_rules/services/allowed_blocked_service.dart';
@@ -43,7 +43,7 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(AppLocalizations.of(context)!.addRule),
+      title: Text(AppLocalizations.of(context).addRule),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -52,7 +52,7 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
             TextField(
               controller: _nameController,
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.ruleName,
+                labelText: AppLocalizations.of(context).ruleName,
                 hintText: 'Enter Rule Name',
               ),
             ),
@@ -80,7 +80,7 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
                 const Text('Target List'),
                 const SizedBox(width: 8),
                 ChoiceChip(
-                  label: Text(AppLocalizations.of(context)!.allowedBlockedRule),
+                  label: Text(AppLocalizations.of(context).allowedBlockedRule),
                   selected: _isAllowedBlockedService,
                   onSelected: (selected) {
                     if (selected) {
@@ -92,7 +92,7 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
                 ),
                 const SizedBox(width: 8),
                 ChoiceChip(
-                  label: Text(AppLocalizations.of(context)!.phoneRule),
+                  label: Text(AppLocalizations.of(context).phoneRule),
                   selected: !_isAllowedBlockedService,
                   onSelected: (selected) {
                     if (selected) {
@@ -110,11 +110,11 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: Text(AppLocalizations.of(context)!.cancelButton),
+          child: Text(AppLocalizations.of(context).cancelButton),
         ),
         TextButton(
           onPressed: _saveRule,
-          child: Text(AppLocalizations.of(context)!.save),
+          child: Text(AppLocalizations.of(context).save),
         ),
       ],
     );
@@ -124,7 +124,7 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
     try {
       final name = _nameController.text.trim();
       if (name.isEmpty) {
-        _showErrorSnackBar(AppLocalizations.of(context)!.nameCannotBeEmpty);
+        _showErrorSnackBar(AppLocalizations.of(context).nameCannotBeEmpty);
         return;
       }
 
@@ -140,7 +140,7 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
         Navigator.pop(context);
       }
     } catch (e) {
-      _showErrorSnackBar('${AppLocalizations.of(context)!.addRuleFailed}: $e');
+      _showErrorSnackBar('${AppLocalizations.of(context).addRuleFailed}: $e');
     }
   }
   
@@ -150,7 +150,7 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
     final actionName = RuleActionDisplayUtils.getActionTypeName(context, action.type);
     final actionColor = RuleActionDisplayUtils.getActionTypeColor(action.type);
 
-    final message = "${AppLocalizations.of(context)!.addToRules} $serviceName: $actionName";
+    final message = "${AppLocalizations.of(context).addToRules} $serviceName: $actionName";
 
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(message),
@@ -170,7 +170,7 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
       final service = ref.read(allowedBlockedServiceProvider);
       await service.addAllowedBlockedRule(name, phoneNumber, action);
       
-      final serviceName = AppLocalizations.of(context)!.allowedBlockedRule;
+      final serviceName = AppLocalizations.of(context).allowedBlockedRule;
       _showSuccessSnackBar(serviceName, action);
 
     } catch (e) {
@@ -183,7 +183,7 @@ class _RuleActionDialogState extends ConsumerState<RuleActionDialog> {
       final service = ref.read(ruleManagementServiceProvider);
       await service.addPhoneRule(name, phoneNumber, action);
       
-      final serviceName = AppLocalizations.of(context)!.phoneRule;
+      final serviceName = AppLocalizations.of(context).phoneRule;
       _showSuccessSnackBar(serviceName, action);
 
     } catch (e) {

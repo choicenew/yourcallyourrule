@@ -1,8 +1,8 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/sms/data/repositories/sms_regex_rule_repository_impl.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_handlers/sms_filter_handler.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_handlers/sms_notification_handler.dart';
@@ -16,7 +16,7 @@ part 'sms_filter_service.g.dart';
 @Riverpod(keepAlive: true)
 SmsFilterService smsFilterService(Ref ref) {
   final smsRuleRepository = ref.watch(smsRegexRuleRepositoryProvider);
-  List<SmsRegexRuleEntity> initialRules = [];
+  List<RegexRuleEntity> initialRules = [];
   final smsChannelManager = SmsChannelSwitcher.getPlatformChannelManager();
 
   final service = SmsFilterService(
@@ -44,14 +44,14 @@ class SmsFilterService {
   
   SmsFilterService({
     required this.smsChannelManager,
-    required List<SmsRegexRuleEntity> initialRules,
+    required List<RegexRuleEntity> initialRules,
   }) {
     _initializeHandlers(initialRules);
   }
 
   static Future<SmsFilterService> create({
     required SmsChannelInterface smsChannelManager,
-    required List<SmsRegexRuleEntity> rules,
+    required List<RegexRuleEntity> rules,
   }) async {
     final service = SmsFilterService(
       smsChannelManager: smsChannelManager,
@@ -70,7 +70,7 @@ class SmsFilterService {
     await _incomingSmsHandler.handleIncomingSms(phoneNumber, messageContent);
   }
 
-  void _initializeHandlers(List<SmsRegexRuleEntity> initialRules) {
+  void _initializeHandlers(List<RegexRuleEntity> initialRules) {
     _filterHandler = _handlerFactory.create(
       SmsFilterHandler(initialRules: initialRules)
     );
@@ -118,15 +118,15 @@ class SmsFilterService {
     await _notificationHandler.closeLocalNotification(cancelLocal);
   }
 
-  Future<void> updateRules(List<SmsRegexRuleEntity> rules) async {
+  Future<void> updateRules(List<RegexRuleEntity> rules) async {
     await _filterHandler.updateRules(rules);
   }
 
-  Future<List<SmsRegexRuleEntity>> getRules() async {
+  Future<List<RegexRuleEntity>> getRules() async {
     return _filterHandler.getRules();
   }
 
-  Future<void> addRules(List<SmsRegexRuleEntity> rules) async {
+  Future<void> addRules(List<RegexRuleEntity> rules) async {
     _filterHandler.addRules(rules);
   }
 }

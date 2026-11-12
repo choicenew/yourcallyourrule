@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 引导页底部导航按钮与分页小点控制器组件
@@ -21,7 +21,7 @@ class OnboardingBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final isLastPage = currentPage == totalPages - 1;
 
     return Padding(

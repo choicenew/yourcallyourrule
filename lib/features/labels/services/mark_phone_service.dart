@@ -1,9 +1,9 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
-import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart' hide PredefinedLabel;
 import 'package:yourcallyourrule/features/labels/data/datasources/local_label_datasource.dart';
 
 part 'mark_phone_service.g.dart';

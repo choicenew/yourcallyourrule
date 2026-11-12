@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -59,7 +59,7 @@ class _HomeAppBarState extends ConsumerState<HomeAppBar> {
                     ? TextField(
                         controller: _searchController,
                         decoration: InputDecoration(
-                          hintText: AppLocalizations.of(context)!.search,
+                          hintText: AppLocalizations.of(context).search,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),

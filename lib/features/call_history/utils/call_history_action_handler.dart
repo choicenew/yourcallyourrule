@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
@@ -39,7 +39,7 @@ class CallHistoryActionHandler {
           children: [
             ListTile(
               leading: const Icon(Icons.phone, color: Colors.green),
-              title: Text(AppLocalizations.of(context)!.call),
+              title: Text(AppLocalizations.of(context).call),
               onTap: () {
                 Navigator.pop(context);
                 _makePhoneCall();
@@ -47,7 +47,7 @@ class CallHistoryActionHandler {
             ),
             ListTile(
               leading: const Icon(Icons.block, color: Colors.red),
-              title: Text(AppLocalizations.of(context)!.blockNumber),
+              title: Text(AppLocalizations.of(context).blockNumber),
               onTap: () {
                 Navigator.pop(context);
                 _blockNumber();
@@ -70,7 +70,7 @@ class CallHistoryActionHandler {
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('${AppLocalizations.of(context)!.callingNumberFailed}: $e'),
+          content: Text('${AppLocalizations.of(context).callingNumberFailed}: $e'),
           backgroundColor: Colors.red,
         ));
       }
@@ -88,14 +88,14 @@ class CallHistoryActionHandler {
       
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(AppLocalizations.of(context)!.blockNumberSuccess),
+          content: Text(AppLocalizations.of(context).blockNumberSuccess),
           backgroundColor: Colors.green,
         ));
       }
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('${AppLocalizations.of(context)!.unblockNumberFailed}: $e'),
+          content: Text('${AppLocalizations.of(context).unblockNumberFailed}: $e'),
           backgroundColor: Colors.red,
         ));
       }
@@ -110,12 +110,12 @@ class CallHistoryActionHandler {
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.unblockNumber),
-        content: Text(AppLocalizations.of(context)!.unblockNumberConfirmation(log.phoneNumber)),
+        title: Text(AppLocalizations.of(context).unblockNumber),
+        content: Text(AppLocalizations.of(context).unblockNumberConfirmation(log.phoneNumber)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogContext),
-            child: Text(AppLocalizations.of(context)!.cancelButton),
+            child: Text(AppLocalizations.of(context).cancelButton),
           ),
           TextButton(
             onPressed: () async {
@@ -132,14 +132,14 @@ class CallHistoryActionHandler {
                 
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(AppLocalizations.of(context)!.unblockNumberSuccess),
+                    content: Text(AppLocalizations.of(context).unblockNumberSuccess),
                     backgroundColor: Colors.green,
                   ));
                 }
               } catch (e) {
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('${AppLocalizations.of(context)!.unblockNumberFailed}: $e'),
+                    content: Text('${AppLocalizations.of(context).unblockNumberFailed}: $e'),
                     backgroundColor: Colors.red,
                   ));
                 }
@@ -148,7 +148,7 @@ class CallHistoryActionHandler {
               }
             },
             style: TextButton.styleFrom(foregroundColor: Colors.green),
-            child: Text(AppLocalizations.of(context)!.unblock),
+            child: Text(AppLocalizations.of(context).unblock),
           ),
         ],
       ),

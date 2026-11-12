@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -7,13 +7,13 @@ Future<String?> showImportExportDialog(BuildContext context) async {
   final result = await showDialog<String?>(
     context: context,
     builder: (context) => AlertDialog(
-      title: Text(AppLocalizations.of(context)!.configManagement),
+      title: Text(AppLocalizations.of(context).configManagement),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           ListTile(
             leading: const Icon(Icons.upload_file),
-            title: Text(AppLocalizations.of(context)!.importConfig),
+            title: Text(AppLocalizations.of(context).importConfig),
             onTap: () async {
               final result = await FilePicker.pickFiles(
                 type: FileType.custom,
@@ -24,7 +24,7 @@ Future<String?> showImportExportDialog(BuildContext context) async {
           ),
           ListTile(
             leading: const Icon(Icons.download), 
-            title: Text(AppLocalizations.of(context)!.exportConfig),
+            title: Text(AppLocalizations.of(context).exportConfig),
             onTap: () async {
               final directory = await getDownloadsDirectory();
               final path = '${directory?.path}/caller_id_config.json';

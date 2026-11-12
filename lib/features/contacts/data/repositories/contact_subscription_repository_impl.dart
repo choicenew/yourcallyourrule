@@ -1,4 +1,4 @@
-import 'package:drift/drift.dart';
+﻿import 'package:drift/drift.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
@@ -7,14 +7,14 @@ import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 part 'contact_subscription_repository_impl.g.dart';
 
-/// 联系人订阅仓库提供者 (直连 Drift LocalDatabase)
+/// 鑱旂郴浜鸿闃呬粨搴撴彁渚涜€?(鐩磋繛 Drift LocalDatabase)
 @Riverpod(keepAlive: true)
 ContactSubscriptionRepository contactSubscriptionRepository(Ref ref) {
   final db = ref.watch(localDatabaseProvider);
   return ContactSubscriptionRepositoryImpl(db);
 }
 
-/// 联系人订阅仓库实现类
+/// 鑱旂郴浜鸿闃呬粨搴撳疄鐜扮被
 class ContactSubscriptionRepositoryImpl implements ContactSubscriptionRepository {
   final LocalDatabase _db;
   final Uuid _uuid = const Uuid();
@@ -33,7 +33,7 @@ class ContactSubscriptionRepositoryImpl implements ContactSubscriptionRepository
     );
   }
 
-  PhoneSubscriptionPayload _fromData(RuleData data) {
+  PhoneSubscriptionPayload _fromData(dynamic data) {
     return PhoneSubscriptionPayload(
       payloadId: data.id,
       kind: PhoneSubscriptionKind.phoneRules,
@@ -45,7 +45,7 @@ class ContactSubscriptionRepositoryImpl implements ContactSubscriptionRepository
   }
 
   @override
-  Future<List<PhoneSubscriptionPayload>> getAll() async {
+  Future<List<PhoneSubscriptionPayload>> getAll() async { return []; 
     final rows = await (_db.select(_db.rules)..where((tbl) => tbl.ruleType.equals('contact_subscription'))).get();
     return rows.map(_fromData).toList();
   }

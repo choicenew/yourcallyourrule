@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/phone_rules/utils/rule_action_display_utils.dart';
@@ -8,12 +8,12 @@ void showActionFilterDialog(BuildContext context, ValueChanged<RuleActionType?> 
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: Text(AppLocalizations.of(context)!.filterByAction),
+      title: Text(AppLocalizations.of(context).filterByAction),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           ListTile(
-            title: Text(AppLocalizations.of(context)!.all),
+            title: Text(AppLocalizations.of(context).all),
             onTap: () {
               onActionSelected(null);
               Navigator.pop(context);
@@ -38,7 +38,7 @@ void showLabelFilterDialog(BuildContext context, ValueChanged<String?> onLabelSe
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: Text(AppLocalizations.of(context)!.filterByLabel),
+      title: Text(AppLocalizations.of(context).filterByLabel),
       content: SizedBox(
         width: double.maxFinite,
         child: PublicSelectLabel(
@@ -52,14 +52,14 @@ void showLabelFilterDialog(BuildContext context, ValueChanged<String?> onLabelSe
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: Text(AppLocalizations.of(context)!.cancelButton),
+          child: Text(AppLocalizations.of(context).cancelButton),
         ),
         TextButton(
           onPressed: () {
             onLabelSelected(null);
             Navigator.pop(context);
           },
-          child: Text(AppLocalizations.of(context)!.clearFilter),
+          child: Text(AppLocalizations.of(context).clearFilter),
         ),
       ],
     ),

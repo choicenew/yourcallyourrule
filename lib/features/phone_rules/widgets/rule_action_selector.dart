@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action.dart';
@@ -63,7 +63,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                AppLocalizations.of(context)!.ruleAction,
+                AppLocalizations.of(context).ruleAction,
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: theme.colorScheme.onSurface,
@@ -71,7 +71,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
               ),
               const SizedBox(height: 4),
               Text(
-                AppLocalizations.of(context)!.selectActionWhenRuleMatches,
+                AppLocalizations.of(context).selectActionWhenRuleMatches,
                 style: theme.textTheme.bodySmall?.copyWith(
                   color: theme.colorScheme.onSurfaceVariant,
                 ),
@@ -125,7 +125,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.interceptAction,
+                  AppLocalizations.of(context).interceptAction,
                   style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: theme.colorScheme.onSurface,
@@ -133,7 +133,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  AppLocalizations.of(context)!.selectActionWhenBlockingCalls,
+                  AppLocalizations.of(context).selectActionWhenBlockingCalls,
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,
                   ),
@@ -142,7 +142,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
                 DropdownButtonFormField<InterceptAction?>(
                   value: _selectedInterceptAction,
                   hint: Text(
-                    AppLocalizations.of(context)!.useGlobalSettings,
+                    AppLocalizations.of(context).useGlobalSettings,
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant,
                     ),
@@ -153,7 +153,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
                     DropdownMenuItem<InterceptAction?>(
                       value: null,
                       child: Text(
-                        AppLocalizations.of(context)!.useGlobalSettings,
+                        AppLocalizations.of(context).useGlobalSettings,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.colorScheme.onSurface,
                         ),

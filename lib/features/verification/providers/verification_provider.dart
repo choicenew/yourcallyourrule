@@ -4,11 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dlibphonenumber/locale.dart' as dlibphone;
 import 'package:sim_reader/sim_reader.dart';
 
-import 'package:yourcallyourrule/features/phone/utils/phone_utils.dart';
+import 'package:yourcallyourrule/features/phone_subscription/utils/phone_utils.dart';
 import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
-import 'package:yourcallyourrule/core/value_objects/phone_number.dart' as vo;
+import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart' as vo;
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
@@ -244,14 +244,14 @@ class VerificationNotifier extends Notifier<VerificationState> {
       } catch (_) {}
 
       final rulesMap = <String, bool>{
-        'Allowed': rules.any((rule) => rule.action.type == RuleActionType.allow),
-        'Blocked': rules.any((rule) => rule.action.type == RuleActionType.block),
-        'Silenced': rules.any((rule) => rule.action.type == RuleActionType.silence),
-        'None Action': rules.any((rule) => rule.action.type == RuleActionType.none),
+        'Allowed': rules.any((rule) => rule.actionType == 'allow'),
+        'Blocked': rules.any((rule) => rule.actionType == 'block'),
+        'Silenced': rules.any((rule) => rule.actionType == 'silence'),
+        'None Action': rules.any((rule) => rule.actionType == 'none'),
         'Global Reject': callFilterConfig.rejectAllNumbers,
-        'Blacklist': rules.any((rule) => rule.action.type == RuleActionType.block),
-        'Whitelist': rules.any((rule) => rule.action.type == RuleActionType.allow),
-        'Regex': rules.any((rule) => rule is RegexRule),
+        'Blacklist': rules.any((rule) => rule.actionType == 'block'),
+        'Whitelist': rules.any((rule) => rule.actionType == 'allow'),
+        'Regex': rules.any((rule) => rule is RegexRuleEntity),
         'Time Rules': timeRuleHit,
         'Local Count Filter': localCountBlocked,
         'Remote Number Filter': remoteNumberBlocked,
@@ -277,8 +277,8 @@ class VerificationNotifier extends Notifier<VerificationState> {
   /// 1. 触发悬浮窗实机效果测�?(Overlay)
   Future<void> testOverlay() async {
     if (state.callerIdData != null) {
-      final overlayHandler = ref.read(overlayHandlerProvider);
-      await overlayHandler.showCallerIdOverlay(
+      final handler = await ref.read(overlayHandlerProvider.future);
+      await handler.showCallerIdOverlay(
         state.callerIdData!,
         null,
         null,
@@ -288,8 +288,8 @@ class VerificationNotifier extends Notifier<VerificationState> {
 
   /// 关闭悬浮�?(Close Overlay)
   Future<void> closeOverlay() async {
-    final overlayHandler = ref.read(overlayHandlerProvider);
-    overlayHandler.closeOverlay();
+    final handler = await ref.read(overlayHandlerProvider.future);
+    await handler.hideCallerIdOverlay();
   }
 
   /// 2. 触发 Live Activity / 灵动岛效果测�?
@@ -298,8 +298,8 @@ class VerificationNotifier extends Notifier<VerificationState> {
       final liveActivityHandler = await ref.read(kitLiveActivityHandlerProvider.future);
       await liveActivityHandler.showCallerIdActivity(
         callerIdData: state.callerIdData!,
-        simInfo: null,
-        stirInfo: null,
+        simCardData: null,
+        stirData: null,
       );
     }
   }
@@ -307,12 +307,11 @@ class VerificationNotifier extends Notifier<VerificationState> {
   /// 3. 触发系统本地通知效果测试 (Notification)
   Future<void> testNotification() async {
     if (state.callerIdData != null) {
-      final notificationHandler = await ref.read(notificationHandlerProvider.future);
+      final notificationHandler = ref.read(notificationHandlerProvider);
       await notificationHandler.showCallerIdNotification(
         callerIdData: state.callerIdData!,
         simInfo: null,
         stirInfo: null,
-        forceShow: true,
       );
     }
   }
@@ -321,10 +320,8 @@ class VerificationNotifier extends Notifier<VerificationState> {
   Future<void> testDefaultDisplayMode() async {
     if (state.callerIdData != null) {
       final displayHandler = await ref.read(displayModeHandlerProvider.future);
-      await displayHandler.showCallerIdInfo(
+      await displayHandler.handleDisplayMode(
         state.callerIdData!,
-        null,
-        null,
       );
     }
   }

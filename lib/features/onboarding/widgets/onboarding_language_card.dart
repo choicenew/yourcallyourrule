@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/language/language_data.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
@@ -12,7 +12,7 @@ class OnboardingLanguageCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final asyncLocale = ref.watch(localeProvider);
     final List<Map<String, dynamic>> supportedLocales = languages;
 

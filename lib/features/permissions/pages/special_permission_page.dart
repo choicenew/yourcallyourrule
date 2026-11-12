@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/permissions/widgets/battery_optimization_permission_widget.dart';
 import 'package:yourcallyourrule/features/permissions/widgets/call_screening_permission_widget.dart';
@@ -12,7 +12,7 @@ class SpecialPermissionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.permissionTitle),
+        title: Text(AppLocalizations.of(context).permissionTitle),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),

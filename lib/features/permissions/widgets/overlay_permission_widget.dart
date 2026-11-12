@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart' as permissionService;
 import 'package:yourcallyourrule/features/permissions/services/permission_service_impl.dart';
@@ -45,8 +45,8 @@ class _OverlayPermissionWidgetState extends ConsumerState<OverlayPermissionWidge
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(granted
-              ? AppLocalizations.of(context)!.permissionGranted
-              : AppLocalizations.of(context)!.permissionDenied),
+              ? AppLocalizations.of(context).permissionGranted
+              : AppLocalizations.of(context).permissionDenied),
           backgroundColor: granted ? Colors.green : Colors.orange,
         ),
       );
@@ -59,8 +59,8 @@ class _OverlayPermissionWidgetState extends ConsumerState<OverlayPermissionWidge
       elevation: 1,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: SwitchListTile(
-        title: Text(AppLocalizations.of(context)!.overlayPermission),
-        subtitle: Text(AppLocalizations.of(context)!.overlayPermissionDescription),
+        title: Text(AppLocalizations.of(context).overlayPermission),
+        subtitle: Text(AppLocalizations.of(context).overlayPermissionDescription),
         value: _hasPermission,
         onChanged: (value) {
           if (value) {

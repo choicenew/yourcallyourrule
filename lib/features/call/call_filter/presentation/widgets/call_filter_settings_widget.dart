@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/call/call_filter/config/call_filter_config.dart';
@@ -49,72 +49,72 @@ class CallFilterSettingsWidget extends ConsumerWidget {
               children: [
                 _buildSwitchListTile(
                   context,
-                  AppLocalizations.of(context)!.rejectAllNumbers,
-                  AppLocalizations.of(context)!.rejectAllNumbersDesc,
+                  AppLocalizations.of(context).rejectAllNumbers,
+                  AppLocalizations.of(context).rejectAllNumbersDesc,
                   config.rejectAllNumbers,
                   (value) => onConfigChanged(CallFilterConfig.keyRejectAllNumbers, value),
                 ),
                 Divider(height: 1, indent: 16, endIndent: 16, color: theme.colorScheme.outlineVariant),
                 _buildSwitchListTile(
                   context,
-                  AppLocalizations.of(context)!.allowAllowedNumbers,
-                  AppLocalizations.of(context)!.allowAllowedNumbersDesc,
+                  AppLocalizations.of(context).allowAllowedNumbers,
+                  AppLocalizations.of(context).allowAllowedNumbersDesc,
                   config.allowAllAllowedNumbers,
                   (value) => onConfigChanged(CallFilterConfig.keyAllowAllAllowedNumbers, value),
                 ),
                 Divider(height: 1, indent: 16, endIndent: 16, color: theme.colorScheme.outlineVariant),
                 _buildSwitchListTile(
                   context,
-                  AppLocalizations.of(context)!.allowBlockedNumbers,
-                  AppLocalizations.of(context)!.allowBlockedNumbersDesc,
+                  AppLocalizations.of(context).allowBlockedNumbers,
+                  AppLocalizations.of(context).allowBlockedNumbersDesc,
                   config.allowBlockedNumbers,
                   (value) => onConfigChanged(CallFilterConfig.keyAllowBlockedNumbers, value),
                 ),
                 Divider(height: 1, indent: 16, endIndent: 16, color: theme.colorScheme.outlineVariant),
                 _buildSwitchListTile(
                   context,
-                  AppLocalizations.of(context)!.allowRegexAllowRules,
-                  AppLocalizations.of(context)!.allowRegexAllowRulesDesc,
+                  AppLocalizations.of(context).allowRegexAllowRules,
+                  AppLocalizations.of(context).allowRegexAllowRulesDesc,
                   config.allowRegexAllowRules,
                   (value) => onConfigChanged(CallFilterConfig.keyAllowRegexAllowRules, value),
                 ),
                 Divider(height: 1, indent: 16, endIndent: 16, color: theme.colorScheme.outlineVariant),
                 _buildSwitchListTile(
                   context,
-                  AppLocalizations.of(context)!.allowAllAllowRules,
-                  AppLocalizations.of(context)!.allowAllAllowRulesDesc,
+                  AppLocalizations.of(context).allowAllAllowRules,
+                  AppLocalizations.of(context).allowAllAllowRulesDesc,
                   config.allowAllAllowRules,
                   (value) => onConfigChanged(CallFilterConfig.keyAllowAllAllowRules, value),
                 ),
                 Divider(height: 1, indent: 16, endIndent: 16, color: theme.colorScheme.outlineVariant),
                 _buildSwitchListTile(
                   context,
-                  AppLocalizations.of(context)!.allowRegexBlockRules,
-                  AppLocalizations.of(context)!.allowRegexBlockRulesDesc,
+                  AppLocalizations.of(context).allowRegexBlockRules,
+                  AppLocalizations.of(context).allowRegexBlockRulesDesc,
                   config.allowRegexBlockRules,
                   (value) => onConfigChanged(CallFilterConfig.keyAllowRegexBlockRules, value),
                 ),
                 Divider(height: 1, indent: 16, endIndent: 16, color: theme.colorScheme.outlineVariant),
                 _buildSwitchListTile(
                   context,
-                  AppLocalizations.of(context)!.enableMuteRules,
-                  AppLocalizations.of(context)!.enableMuteRulesDesc,
+                  AppLocalizations.of(context).enableMuteRules,
+                  AppLocalizations.of(context).enableMuteRulesDesc,
                   config.allowSilenceRules,
                   (value) => onConfigChanged(CallFilterConfig.keyAllowSilenceRules, value),
                 ),
                 Divider(height: 1, indent: 16, endIndent: 16, color: theme.colorScheme.outlineVariant),
                 _buildSwitchListTile(
                   context,
-                  AppLocalizations.of(context)!.enableNoneActionRules,
-                  AppLocalizations.of(context)!.enableNoneActionRulesDesc,
+                  AppLocalizations.of(context).enableNoneActionRules,
+                  AppLocalizations.of(context).enableNoneActionRulesDesc,
                   config.allowNoneRules,
                   (value) => onConfigChanged(CallFilterConfig.keyAllowNoneRules, value),
                 ),
                 Divider(height: 1, indent: 16, endIndent: 16, color: theme.colorScheme.outlineVariant),
                 _buildSwitchListTile(
                   context,
-                  AppLocalizations.of(context)!.allowAllBlockRules,
-                  AppLocalizations.of(context)!.allowAllBlockRulesDesc,
+                  AppLocalizations.of(context).allowAllBlockRules,
+                  AppLocalizations.of(context).allowAllBlockRulesDesc,
                   config.allowAllBlockRules,
                   (value) => onConfigChanged(CallFilterConfig.keyAllowAllBlockRules, value),
                 ),
@@ -134,10 +134,10 @@ class CallFilterSettingsWidget extends ConsumerWidget {
               ),
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaved)),
+                  SnackBar(content: Text(AppLocalizations.of(context).settingsSaved)),
                 );
               },
-              child: Text(AppLocalizations.of(context)!.saveSettings, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14)),
+              child: Text(AppLocalizations.of(context).saveSettings, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14)),
             ),
           ),
           const SizedBox(height: 14),
@@ -153,7 +153,7 @@ class CallFilterSettingsWidget extends ConsumerWidget {
       title: Text(title, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: theme.colorScheme.onSurface)),
       subtitle: Text(subtitle, style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant, height: 1.3)),
       value: value,
-      activeThumbColor: theme.colorScheme.primary,
+      activeColor: theme.colorScheme.primary,
       onChanged: onChanged,
     );
   }

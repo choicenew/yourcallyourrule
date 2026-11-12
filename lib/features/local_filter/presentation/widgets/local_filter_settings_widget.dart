@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
@@ -39,8 +39,8 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
           child: Column(
             children: [
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.enableLocalCountFilter, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15, color: Theme.of(context).colorScheme.onSurface)),
-                subtitle: Text(AppLocalizations.of(context)!.enableLocalCountFilterDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                title: Text(AppLocalizations.of(context).enableLocalCountFilter, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context).enableLocalCountFilterDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                 activeColor: Theme.of(context).colorScheme.primary,
                 value: config.enableLocalCountFilter,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(enableLocalCountFilter: value)),
@@ -139,24 +139,24 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
           child: Column(
             children: [
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.rejectExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
-                subtitle: Text(AppLocalizations.of(context)!.rejectExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                title: Text(AppLocalizations.of(context).rejectExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context).rejectExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                 activeColor: Theme.of(context).colorScheme.primary,
                 value: config.rejectExceededNumbers,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(rejectExceededNumbers: value)),
               ),
               Divider(height: 1, indent: 16, endIndent: 16, color: Theme.of(context).colorScheme.outlineVariant),
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.allowNonExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
-                subtitle: Text(AppLocalizations.of(context)!.allowNonExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                title: Text(AppLocalizations.of(context).allowNonExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context).allowNonExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                 activeColor: Theme.of(context).colorScheme.primary,
                 value: config.allowNonExceededNumbers,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(allowNonExceededNumbers: value)),
               ),
               Divider(height: 1, indent: 16, endIndent: 16, color: Theme.of(context).colorScheme.outlineVariant),
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.logAllLocalQueries, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
-                subtitle: Text(AppLocalizations.of(context)!.logAllLocalQueriesDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                title: Text(AppLocalizations.of(context).logAllLocalQueries, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context).logAllLocalQueriesDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                 activeColor: Theme.of(context).colorScheme.primary,
                 value: config.logAllLocalQueries,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(logAllLocalQueries: value)),

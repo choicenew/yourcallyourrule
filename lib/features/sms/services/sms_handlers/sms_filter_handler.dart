@@ -1,18 +1,19 @@
 import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 import 'base_sms_handler.dart';
 
 class SmsFilterHandler extends BaseSmsHandler {
-  final List<SmsRegexRuleEntity> smsRules;
+  final List<RegexRuleEntity> smsRules;
   bool isEnabled = false;
   final ConfigRepository _configRepository;
   
   static const String smsFilterEnabledKey = 'config_sms_filter_enabled';
 
   SmsFilterHandler({
-    List<SmsRegexRuleEntity>? initialRules,
+    List<RegexRuleEntity>? initialRules,
     ConfigRepository? configRepository,
   }) : smsRules = initialRules ?? [],
        _configRepository = configRepository ?? SharedPreferencesConfigRepository();
@@ -34,19 +35,19 @@ class SmsFilterHandler extends BaseSmsHandler {
     await _configRepository.saveConfig(smsFilterEnabledKey, {'enabled': enabled});
   }
 
-  void addRule(SmsRegexRuleEntity rule) {
+  void addRule(RegexRuleEntity rule) {
     if (!smsRules.any((r) => r.id == rule.id)) {
       smsRules.add(rule);
     }
   }
 
-  void addRules(List<SmsRegexRuleEntity> rules) {
+  void addRules(List<RegexRuleEntity> rules) {
     for (final rule in rules) {
       addRule(rule);
     }
   }
 
-  void updateRule(SmsRegexRuleEntity rule) {
+  void updateRule(RegexRuleEntity rule) {
     final index = smsRules.indexWhere((r) => r.id == rule.id);
     if (index != -1) {
       smsRules[index] = rule;
@@ -59,13 +60,13 @@ class SmsFilterHandler extends BaseSmsHandler {
     smsRules.removeWhere((rule) => rule.id == ruleId);
   }
 
-  Future<void> updateRules(List<SmsRegexRuleEntity> rules) async {
+  Future<void> updateRules(List<RegexRuleEntity> rules) async {
     smsRules.clear();
     addRules(rules);
   }
 
-  Future<List<SmsRegexRuleEntity>> getRules() async {
-    return List<SmsRegexRuleEntity>.from(smsRules);
+  Future<List<RegexRuleEntity>> getRules() async {
+    return List<RegexRuleEntity>.from(smsRules);
   }
 
   Future<bool> shouldNotify(String phoneNumber, String messageContent) async {

@@ -1,8 +1,7 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:advanced_call_log/advanced_call_log.dart' hide CallLogEntry;
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';

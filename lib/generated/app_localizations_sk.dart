@@ -1,4 +1,4 @@
-// ignore: unused_import
+﻿// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2544,7 +2544,7 @@ class AppLocalizationsSk extends AppLocalizations {
       'Vzory regulárnych výrazov na zhodu telefónnych čísel';
 
   @override
-  String get regexRule => 'Pravidlo regulárneho výrazu';
+  String get RegexRuleEntity => 'Pravidlo regulárneho výrazu';
 
   @override
   String regexRuleAddFailed(Object error) {

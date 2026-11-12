@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:world_flags/world_flags.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/caller_id_dialog.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -21,7 +21,7 @@ class CountrySelectionDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(AppLocalizations.of(context)!.selectCountry),
+            Text(AppLocalizations.of(context).selectCountry),
             const SizedBox(height: 16),
             SizedBox(
               height: 400,

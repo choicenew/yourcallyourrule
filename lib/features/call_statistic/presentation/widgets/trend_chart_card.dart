@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/features/call_statistic/domain/statistic_period.dart';
@@ -45,7 +45,7 @@ class _TrendChartCardState extends ConsumerState<TrendChartCard> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                AppLocalizations.of(context)!.blockingTrend,
+                AppLocalizations.of(context).blockingTrend,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
               ),
               Container(
@@ -57,9 +57,9 @@ class _TrendChartCardState extends ConsumerState<TrendChartCard> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    _buildTimeRangeButton(AppLocalizations.of(context)!.periodWeek, 'Week', notifier),
-                    _buildTimeRangeButton(AppLocalizations.of(context)!.periodMonth, 'Month', notifier),
-                    _buildTimeRangeButton(AppLocalizations.of(context)!.periodYear, 'Year', notifier),
+                    _buildTimeRangeButton(AppLocalizations.of(context).periodWeek, 'Week', notifier),
+                    _buildTimeRangeButton(AppLocalizations.of(context).periodMonth, 'Month', notifier),
+                    _buildTimeRangeButton(AppLocalizations.of(context).periodYear, 'Year', notifier),
                   ],
                 ),
               ),

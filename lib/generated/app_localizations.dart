@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
@@ -4648,11 +4648,11 @@ abstract class AppLocalizations {
   /// **'Regex Patterns for Phone Number Matching'**
   String get regexPatternsForPhoneNumberMatching;
 
-  /// No description provided for @regexRule.
+  /// No description provided for @RegexRuleEntity.
   ///
   /// In en, this message translates to:
   /// **'Regex Rule'**
-  String get regexRule;
+  String get RegexRuleEntity;
 
   /// No description provided for @regexRuleAddFailed.
   ///

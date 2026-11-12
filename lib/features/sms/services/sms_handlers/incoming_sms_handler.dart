@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/notifications/service/notification_service.dart';
@@ -36,7 +36,7 @@ class IncomingSmsHandler extends BaseSmsHandler {
     if (!_filterHandler.isEnabled) return;
     
     bool shouldNotifyUser = await _filterHandler.shouldNotify(phoneNumber, messageContent);
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
 
     if (shouldNotifyUser) {
       await _notificationHandler.showSmsNotification(

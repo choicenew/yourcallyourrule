@@ -61,7 +61,7 @@ class ForegroundSyncService {
       _lastCallLogSync = now;
     }
 
-    if (await _autoUpdateService.shouldUpdate()) {
+    if (await _autoUpdateService.shouldUpdate('rules')) {
       await _autoUpdateService.updateAll();
     }
   }

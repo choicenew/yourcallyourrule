@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -185,7 +185,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
             foregroundColor: theme.colorScheme.onSurface,
             title: widget.isMultiSelectMode
               ? Text(
-                  AppLocalizations.of(context)!.selectedItems(widget.selectedItemIds.length),
+                  AppLocalizations.of(context).selectedItems(widget.selectedItemIds.length),
                   style: TextStyle(color: theme.colorScheme.onSurface, fontWeight: FontWeight.w900, fontSize: 18),
                 )
               : Text(
@@ -227,7 +227,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
         _buildAppbarButton(
           icon: Icons.checklist_rtl_rounded,
           onPressed: widget.onToggleMultiSelectMode!,
-          tooltip: AppLocalizations.of(context)!.selectMultiple,
+          tooltip: AppLocalizations.of(context).selectMultiple,
         ),
       );
     }
@@ -238,7 +238,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
         _buildAppbarButton(
           icon: Icons.add_rounded,
           onPressed: widget.onAdd!,
-          tooltip: AppLocalizations.of(context)!.add,
+          tooltip: AppLocalizations.of(context).add,
         ),
       );
     }
@@ -249,7 +249,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
         _buildAppbarButton(
           icon: Icons.refresh_rounded,
           onPressed: widget.onRefresh!,
-          tooltip: AppLocalizations.of(context)!.refresh,
+          tooltip: AppLocalizations.of(context).refresh,
         ),
       );
     }
@@ -260,7 +260,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
         _buildAppbarButton(
           icon: Icons.more_horiz_rounded,
           onPressed: widget.onMoreOptions!,
-          tooltip: AppLocalizations.of(context)!.moreOptions,
+          tooltip: AppLocalizations.of(context).moreOptions,
         ),
       );
     }
@@ -277,7 +277,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
       IconButton(
         icon: Icon(Icons.delete_outline_rounded, color: Theme.of(context).colorScheme.error),
         onPressed: widget.selectedItemIds.isNotEmpty ? widget.onDeleteSelected : null,
-        tooltip: AppLocalizations.of(context)!.deleteSelected,
+        tooltip: AppLocalizations.of(context).deleteSelected,
       ),
     ];
   }
@@ -339,7 +339,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
                   controller: _searchController,
                   style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Theme.of(context).colorScheme.onSurface),
                   decoration: InputDecoration(
-                    hintText: widget.searchHintText ?? AppLocalizations.of(context)!.search,
+                    hintText: widget.searchHintText ?? AppLocalizations.of(context).search,
                     hintStyle: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.6), fontSize: 13, fontWeight: FontWeight.w500),
                     prefixIcon: Icon(Icons.search_rounded, color: widget.themeColor ?? Theme.of(context).colorScheme.primary, size: 20),
                     suffixIcon: _searchController.text.isNotEmpty
@@ -398,7 +398,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
-                  AppLocalizations.of(context)!.description,
+                  AppLocalizations.of(context).description,
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
@@ -439,7 +439,7 @@ class _GenericListWithAdsPageState<T> extends ConsumerState<GenericListWithAdsPa
                 ),
                 const SizedBox(width: 6),
                 Text(
-                  AppLocalizations.of(context)!.description,
+                  AppLocalizations.of(context).description,
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,

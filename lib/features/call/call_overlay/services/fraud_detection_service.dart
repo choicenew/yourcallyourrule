@@ -1,4 +1,4 @@
-import 'package:flutter/services.dart';
+﻿import 'package:flutter/services.dart';
 import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'fraud_alert_config_service.dart';
@@ -34,8 +34,8 @@ class FraudDetectionService {
     if (context == null) return;
 
     final notificationConfig = NotificationService.fraudAlertConfig(context);
-    final title = "⚠️ ${AppLocalizations.of(context)!.fraudAlertTitle} ($phoneNumber)";
-    final body = AppLocalizations.of(context)!.securityMessage;
+    final title = "⚠️ ${AppLocalizations.of(context).fraudAlertTitle} ($phoneNumber)";
+    final body = AppLocalizations.of(context).securityMessage;
 
     final config = await FraudAlertConfigService.getConfig();
 

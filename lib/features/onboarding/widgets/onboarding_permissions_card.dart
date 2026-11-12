@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/permissions/services/permission_service_impl.dart';
 import 'package:yourcallyourrule/features/call_monitor/services/call_screen_plugin.dart';
@@ -65,7 +65,7 @@ class _OnboardingPermissionsCardState extends ConsumerState<OnboardingPermission
   }
 
   Future<void> _requestAllPermissions() async {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final permissionService = ref.read(permissionServiceProvider);
 
     try {
@@ -106,7 +106,7 @@ class _OnboardingPermissionsCardState extends ConsumerState<OnboardingPermission
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),

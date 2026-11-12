@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class VerificationReportCard extends StatelessWidget {
@@ -24,45 +24,45 @@ class VerificationReportCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              AppLocalizations.of(context)!.verificationReport,
+              AppLocalizations.of(context).verificationReport,
               style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
             _buildReportItem(
               context,
               icon: Icons.security,
-              label: AppLocalizations.of(context)!.finalRisk,
+              label: AppLocalizations.of(context).finalRisk,
               value: report['finalRisk'] ?? 'N/A',
               valueColor: _getRiskColor(context, report['finalRisk']),
             ),
             _buildReportItem(
               context,
               icon: Icons.sim_card,
-              label: AppLocalizations.of(context)!.simState,
+              label: AppLocalizations.of(context).simState,
               value: report['simState'] ?? 'N/A',
             ),
             _buildReportItem(
               context,
               icon: Icons.public,
-              label: AppLocalizations.of(context)!.ipCountry,
+              label: AppLocalizations.of(context).ipCountry,
               value: report['ipCountry'] ?? 'N/A',
             ),
             _buildReportItem(
               context,
               icon: Icons.network_cell,
-              label: AppLocalizations.of(context)!.simCountry,
+              label: AppLocalizations.of(context).simCountry,
               value: report['simCountry'] ?? 'N/A',
             ),
             _buildReportItem(
               context,
               icon: Icons.airplanemode_active,
-              label: AppLocalizations.of(context)!.isRoaming,
+              label: AppLocalizations.of(context).isRoaming,
               value: (report['isRoaming'] ?? false).toString(),
             ),
             _buildReportItem(
               context,
               icon: Icons.verified_user,
-              label: AppLocalizations.of(context)!.isNumberMatch,
+              label: AppLocalizations.of(context).isNumberMatch,
               value: (report['isNumberMatch'] ?? false).toString(),
             ),
           ],

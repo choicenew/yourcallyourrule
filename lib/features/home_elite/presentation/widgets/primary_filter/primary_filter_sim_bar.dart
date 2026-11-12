@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provider.dart';
+import 'package:yourcallyourrule/features/device/provider/sim_info_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// SIM 卡槽 Tab 切换栏组件 (自动识别单卡/双卡在卡状态，采用简短地道的 SIM Slot 1 / 2 排版)

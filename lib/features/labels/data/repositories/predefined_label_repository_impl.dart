@@ -2,7 +2,7 @@ import 'package:drift/drift.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/labels/repositories/predefined_label_repository.dart';
-import 'package:yourcallyourrule/data/database/local/local_database.dart';
+import 'package:yourcallyourrule/data/database/local/local_database.dart' hide PredefinedLabel;
 
 part 'predefined_label_repository_impl.g.dart';
 
@@ -26,12 +26,12 @@ class PredefinedLabelRepositoryImpl implements PredefinedLabelRepository {
     );
   }
 
-  PredefinedLabel _fromData(PredefinedLabelData data) {
+  PredefinedLabel _fromData(dynamic data) {
     return PredefinedLabel(
-      id: data.id,
-      text: data.labelText,
-      avatar: data.avatar,
-      icon: data.icon,
+      id: data.id as String,
+      text: (data.labelText as String?) ?? '',
+      avatar: data.avatar as String?,
+      icon: data.icon as String?,
     );
   }
 

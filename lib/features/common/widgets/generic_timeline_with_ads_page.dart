@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'dart:math'; // 导入 math 库用于随机数（虽然我们最终用hashCode）
 
 import 'package:flutter/material.dart';
@@ -187,7 +187,7 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
         foregroundColor: theme.colorScheme.onSurface,
         title: widget.isMultiSelectMode 
           ? Text(
-              AppLocalizations.of(context)!.selectedItems(widget.selectedItemIds.length),
+              AppLocalizations.of(context).selectedItems(widget.selectedItemIds.length),
               style: TextStyle(color: theme.colorScheme.onSurface, fontWeight: FontWeight.w900, fontSize: 18),
             ) 
           : Text(
@@ -216,16 +216,16 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
       actions.addAll(widget.customActions!);
     }
     if (widget.getItemId != null && widget.onToggleMultiSelectMode != null) {
-      actions.add(_buildAppbarButton(icon: Icons.checklist_rtl_rounded, onPressed: widget.onToggleMultiSelectMode!, tooltip: AppLocalizations.of(context)!.selectMultiple));
+      actions.add(_buildAppbarButton(icon: Icons.checklist_rtl_rounded, onPressed: widget.onToggleMultiSelectMode!, tooltip: AppLocalizations.of(context).selectMultiple));
     }
     if (widget.onAdd != null) {
-      actions.add(_buildAppbarButton(icon: Icons.add_rounded, onPressed: widget.onAdd!, tooltip: AppLocalizations.of(context)!.add));
+      actions.add(_buildAppbarButton(icon: Icons.add_rounded, onPressed: widget.onAdd!, tooltip: AppLocalizations.of(context).add));
     }
     if (widget.onRefresh != null) {
-      actions.add(_buildAppbarButton(icon: Icons.refresh_rounded, onPressed: widget.onRefresh!, tooltip: AppLocalizations.of(context)!.refresh));
+      actions.add(_buildAppbarButton(icon: Icons.refresh_rounded, onPressed: widget.onRefresh!, tooltip: AppLocalizations.of(context).refresh));
     }
     if (widget.onMoreOptions != null) {
-      actions.add(_buildAppbarButton(icon: Icons.more_horiz_rounded, onPressed: widget.onMoreOptions!, tooltip: AppLocalizations.of(context)!.moreOptions));
+      actions.add(_buildAppbarButton(icon: Icons.more_horiz_rounded, onPressed: widget.onMoreOptions!, tooltip: AppLocalizations.of(context).moreOptions));
     }
     if (widget.customActions == null && widget.actions != null) {
       actions.addAll(widget.actions!);
@@ -238,7 +238,7 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
       IconButton(
         icon: const Icon(Icons.delete_outline_rounded, color: Colors.red),
         onPressed: widget.selectedItemIds.isNotEmpty ? widget.onDeleteSelected : null,
-        tooltip: AppLocalizations.of(context)!.deleteSelected,
+        tooltip: AppLocalizations.of(context).deleteSelected,
       ),
     ];
   }
@@ -295,7 +295,7 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
                   controller: _searchController,
                   style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.black87),
                   decoration: InputDecoration(
-                    hintText: widget.searchHintText ?? AppLocalizations.of(context)!.search,
+                    hintText: widget.searchHintText ?? AppLocalizations.of(context).search,
                     hintStyle: TextStyle(color: Colors.grey[400], fontSize: 13, fontWeight: FontWeight.w500),
                     prefixIcon: Icon(Icons.search_rounded, color: widget.themeColor ?? Theme.of(context).colorScheme.primary, size: 20),
                     suffixIcon: _searchController.text.isNotEmpty
@@ -388,7 +388,7 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
 
   Widget _buildTimelineLayout(BuildContext context) {
     final Map<String, List<T>> groupedItems = {};
-    final localizations = AppLocalizations.of(context)!;
+    final localizations = AppLocalizations.of(context);
     final now = DateTime.now();
     final today = DateTime(now.year, now.month, now.day);
     final yesterday = today.subtract(const Duration(days: 1));

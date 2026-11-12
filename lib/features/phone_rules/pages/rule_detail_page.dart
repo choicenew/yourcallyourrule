@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -98,7 +98,7 @@ class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetail
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(AppLocalizations.of(context)!.ruleLoadFailed(e.toString())),
+          content: Text(AppLocalizations.of(context).ruleLoadFailed(e.toString())),
           backgroundColor: Theme.of(context).colorScheme.error,
         ));
       }
@@ -151,7 +151,7 @@ class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetail
     // 验证输入
     if (_nameController.text.isEmpty || _phoneController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(AppLocalizations.of(context)!.ruleNameRequired),
+        content: Text(AppLocalizations.of(context).ruleNameRequired),
         backgroundColor: Colors.red,
       ));
       return;
@@ -192,14 +192,14 @@ class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetail
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(AppLocalizations.of(context)!.ruleUpdateSuccess),
+          content: Text(AppLocalizations.of(context).ruleUpdateSuccess),
           backgroundColor: Colors.green,
         ));
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(AppLocalizations.of(context)!.ruleUpdateFailed(e.toString())),
+          content: Text(AppLocalizations.of(context).ruleUpdateFailed(e.toString())),
           backgroundColor: Theme.of(context).colorScheme.error,
         ));
       }
@@ -210,16 +210,16 @@ class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetail
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.confirmDelete),
-        content: Text(AppLocalizations.of(context)!.confirmDeleteRuleMessage),
+        title: Text(AppLocalizations.of(context).confirmDelete),
+        content: Text(AppLocalizations.of(context).confirmDeleteRuleMessage),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text(AppLocalizations.of(context)!.cancelButton),
+            child: Text(AppLocalizations.of(context).cancelButton),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
-            child: Text(AppLocalizations.of(context)!.deleteButton, style: TextStyle(color: Theme.of(context).colorScheme.error)),
+            child: Text(AppLocalizations.of(context).deleteButton, style: TextStyle(color: Theme.of(context).colorScheme.error)),
           ),
         ],
       ),
@@ -234,7 +234,7 @@ class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetail
         await widget.deleteRule(service, widget.ruleId);
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(AppLocalizations.of(context)!.ruleDeleteSuccess),
+            content: Text(AppLocalizations.of(context).ruleDeleteSuccess),
             backgroundColor: Theme.of(context).colorScheme.primary,
           ));
           context.pop(); // 返回上一�?
@@ -242,7 +242,7 @@ class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetail
       } catch (e) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(AppLocalizations.of(context)!.ruleDeleteFailed(e.toString())),
+            content: Text(AppLocalizations.of(context).ruleDeleteFailed(e.toString())),
             backgroundColor: Theme.of(context).colorScheme.error,
           ));
         }
@@ -261,20 +261,20 @@ class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetail
             IconButton(
               icon: const Icon(Icons.edit),
               onPressed: _startEditing,
-              tooltip: AppLocalizations.of(context)!.editRule,
+              tooltip: AppLocalizations.of(context).editRule,
             ),
           if (!_isEditing && _rule != null)
             IconButton(
               icon: const Icon(Icons.delete),
               onPressed: _deleteRule,
-              tooltip: AppLocalizations.of(context)!.deleteRule,
+              tooltip: AppLocalizations.of(context).deleteRule,
             ),
         ],
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : _rule == null
-              ? Center(child: Text(AppLocalizations.of(context)!.ruleNotExist))
+              ? Center(child: Text(AppLocalizations.of(context).ruleNotExist))
               : _isEditing
                   ? _buildEditForm()
                   : _buildRuleDetails(),
@@ -288,7 +288,7 @@ class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetail
                     Expanded(
                       child: OutlinedButton(
                         onPressed: _cancelEditing,
-                        child: Text(AppLocalizations.of(context)!.cancelButton),
+                        child: Text(AppLocalizations.of(context).cancelButton),
                       ),
                     ),
                     const SizedBox(width: 16),
@@ -298,7 +298,7 @@ class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetail
                         style: ElevatedButton.styleFrom(
                           backgroundColor: widget.themeColor,
                         ),
-                        child: Text(AppLocalizations.of(context)!.save),
+                        child: Text(AppLocalizations.of(context).save),
                       ),
                     ),
                   ],
@@ -350,23 +350,23 @@ class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetail
                       const Icon(Icons.info, color: Colors.blue),
                       const SizedBox(width: 8),
                       Text(
-                    AppLocalizations.of(context)!.basicInfo,
+                    AppLocalizations.of(context).basicInfo,
                     style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                     ],
                   ),
                   const Divider(),
                   const SizedBox(height: 8),
-                  _buildInfoRow(AppLocalizations.of(context)!.ruleName, name),
-                  _buildInfoRow(AppLocalizations.of(context)!.phoneNumber, phoneNumber),
+                  _buildInfoRow(AppLocalizations.of(context).ruleName, name),
+                  _buildInfoRow(AppLocalizations.of(context).phoneNumber, phoneNumber),
                   FutureBuilder<String?>(
                     future: labelId.isNotEmpty
                         ? LabelTextUtils.getLabelTextById(context, ref, labelId)
-                        : Future.value(AppLocalizations.of(context)!.none),
+                        : Future.value(AppLocalizations.of(context).none),
                     builder: (context, snapshot) {
                       return _buildInfoRow(
-                        AppLocalizations.of(context)!.label,
-                        snapshot.data ?? (snapshot.connectionState == ConnectionState.waiting ? AppLocalizations.of(context)!.loading : AppLocalizations.of(context)!.none),
+                        AppLocalizations.of(context).label,
+                        snapshot.data ?? (snapshot.connectionState == ConnectionState.waiting ? AppLocalizations.of(context).loading : AppLocalizations.of(context).none),
                       );
                     },
                   ),
@@ -387,7 +387,7 @@ class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetail
                       Icon(Icons.rule, color: actionColor),
                       const SizedBox(width: 8),
                       Text(
-                        AppLocalizations.of(context)!.ruleAction,
+                        AppLocalizations.of(context).ruleAction,
                         style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                     ],
@@ -456,8 +456,8 @@ class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetail
           TextField(
             controller: _nameController,
             decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.ruleName,
-              hintText: AppLocalizations.of(context)!.ruleNameHint,
+              labelText: AppLocalizations.of(context).ruleName,
+              hintText: AppLocalizations.of(context).ruleNameHint,
               border: const OutlineInputBorder(),
             ),
           ),
@@ -465,14 +465,14 @@ class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetail
           TextField(
             controller: _phoneController,
             decoration: InputDecoration(
-              labelText: AppLocalizations.of(context)!.phoneNumber,
-              hintText: AppLocalizations.of(context)!.phoneNumberHint,
+              labelText: AppLocalizations.of(context).phoneNumber,
+              hintText: AppLocalizations.of(context).phoneNumberHint,
               border: const OutlineInputBorder(),
             ),
             keyboardType: TextInputType.phone,
           ),
           const SizedBox(height: 16),
-          Text(AppLocalizations.of(context)!.label, style: const TextStyle(fontSize: 16)),
+          Text(AppLocalizations.of(context).label, style: const TextStyle(fontSize: 16)),
           PublicSelectLabel(
             initialLabelId: _selectedLabelId,
             onLabelIdChanged: (labelId) {
@@ -483,7 +483,7 @@ class _RuleDetailPageState<T extends Object, S> extends ConsumerState<RuleDetail
             themeColor: widget.themeColor ?? Theme.of(context).colorScheme.primary,
           ),
           const SizedBox(height: 16),
-          Text(AppLocalizations.of(context)!.ruleAction, style: const TextStyle(fontSize: 16)),
+          Text(AppLocalizations.of(context).ruleAction, style: const TextStyle(fontSize: 16)),
           RuleActionSelector(
             initialAction: _selectedAction ?? const RuleAction(type: RuleActionType.block),
             onActionChanged: (action) {

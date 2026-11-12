@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/common/router/app_router_provider.dart';
 
@@ -87,7 +87,7 @@ class DeletionProposalNotificationService {
     required String reason,
     required BuildContext context,
   }) async {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final notificationData = DeletionProposalNotificationData(
       proposalId: proposalId,
       phoneNumber: phoneNumber,
@@ -113,7 +113,7 @@ class DeletionProposalNotificationService {
     required int opposeVotes,
     required BuildContext context,
   }) async {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final totalVotes = supportVotes + opposeVotes;
     final supportPercentage =
         totalVotes > 0 ? (supportVotes / totalVotes * 100).round() : 0;
@@ -150,7 +150,7 @@ class DeletionProposalNotificationService {
     required int opposeVotes,
     required BuildContext context,
   }) async {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final totalVotes = supportVotes + opposeVotes;
     final supportPercentage =
         totalVotes > 0 ? (supportVotes / totalVotes * 100).round() : 0;
@@ -186,7 +186,7 @@ class DeletionProposalNotificationService {
     required String reason,
     required BuildContext context,
   }) async {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final notificationData = DeletionProposalNotificationData(
       proposalId: proposalId,
       phoneNumber: phoneNumber,
@@ -213,7 +213,7 @@ class DeletionProposalNotificationService {
     required int opposeVotes,
     required BuildContext context,
   }) async {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final totalVotes = supportVotes + opposeVotes;
     final supportPercentage =
         totalVotes > 0 ? (supportVotes / totalVotes * 100).round() : 0;
@@ -252,7 +252,7 @@ class DeletionProposalNotificationService {
     required int currentOpposeVotes,
     required BuildContext context,
   }) async {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final totalVotes = currentSupportVotes + currentOpposeVotes;
     final voteType = isSupport ? l10n.support : l10n.oppose;
     final notificationData = DeletionProposalNotificationData(
@@ -281,7 +281,7 @@ class DeletionProposalNotificationService {
     required List<Proposal> proposals,
     required BuildContext context,
   }) async {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final notificationData = DeletionProposalNotificationData(
       proposalId: 'pending_proposals',
       phoneNumber: '',

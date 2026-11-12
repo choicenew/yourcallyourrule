@@ -2,9 +2,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_remote_filter_protocol/pyro_phone_remote_filter_protocol.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/data/database/remote/remote_data_access_restriction.dart';
-import '../../../sync/services/cloud_sync/incremental_sync_manager.dart';
-import '../../../sync/services/cloud_sync/sync_conflict_resolver.dart';
-import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/remote_filter/data/datasources/remote_number_datasource.dart';
 
 part 'remote_number_repository_impl.g.dart';
@@ -14,25 +11,20 @@ part 'remote_number_repository_impl.g.dart';
 RemoteNumberRepositoryImpl remoteNumberRepository(Ref ref) {
   final remoteNumberDataSource = ref.watch(remoteNumberDataSourceProvider);
   final remoteDataAccessRestriction = ref.watch(remoteDataAccessRestrictionProvider);
-  final configRepository = ref.watch(configRepositoryProvider);
-  final incrementalSyncManager = IncrementalSyncManager(SyncConflictResolver(), configRepository: configRepository);
 
   return RemoteNumberRepositoryImpl(
     remoteNumberDataSource,
     remoteDataAccessRestriction,
-    incrementalSyncManager,
   );
 }
 
 class RemoteNumberRepositoryImpl {
   final RemoteNumberDataSource _dataSource;
   final RemoteDataAccessRestriction _remoteDataAccess;
-  final IncrementalSyncManager _syncManager;
 
   RemoteNumberRepositoryImpl(
     this._dataSource,
     this._remoteDataAccess,
-    this._syncManager,
   );
 
   RemoteNumberEntry fromMap(Map<String, dynamic> map) {

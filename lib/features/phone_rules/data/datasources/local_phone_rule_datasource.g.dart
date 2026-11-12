@@ -9,50 +9,50 @@ part of 'local_phone_rule_datasource.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(localPhoneRuleDataSource)
-final localPhoneRuleDataSourceProvider = LocalPhoneRuleDataSourceProvider._();
+@ProviderFor(localdynamicSource)
+final localdynamicSourceProvider = LocaldynamicSourceProvider._();
 
-final class LocalPhoneRuleDataSourceProvider
+final class LocaldynamicSourceProvider
     extends
         $FunctionalProvider<
-          LocalPhoneRuleDataSource,
-          LocalPhoneRuleDataSource,
-          LocalPhoneRuleDataSource
+          LocaldynamicSource,
+          LocaldynamicSource,
+          LocaldynamicSource
         >
-    with $Provider<LocalPhoneRuleDataSource> {
-  LocalPhoneRuleDataSourceProvider._()
+    with $Provider<LocaldynamicSource> {
+  LocaldynamicSourceProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'localPhoneRuleDataSourceProvider',
+        name: r'localdynamicSourceProvider',
         isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$localPhoneRuleDataSourceHash();
+  String debugGetCreateSourceHash() => _$localdynamicSourceHash();
 
   @$internal
   @override
-  $ProviderElement<LocalPhoneRuleDataSource> $createElement(
+  $ProviderElement<LocaldynamicSource> $createElement(
     $ProviderPointer pointer,
   ) => $ProviderElement(pointer);
 
   @override
-  LocalPhoneRuleDataSource create(Ref ref) {
-    return localPhoneRuleDataSource(ref);
+  LocaldynamicSource create(Ref ref) {
+    return localdynamicSource(ref);
   }
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(LocalPhoneRuleDataSource value) {
+  Override overrideWithValue(LocaldynamicSource value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<LocalPhoneRuleDataSource>(value),
+      providerOverride: $SyncValueProvider<LocaldynamicSource>(value),
     );
   }
 }
 
-String _$localPhoneRuleDataSourceHash() =>
-    r'd2a9c57dc015e129443a341b85e4fe29efa2ff4d';
+String _$localdynamicSourceHash() =>
+    r'1f979bcacadbc7147069c0f52c99eda2ab0ac769';

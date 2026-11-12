@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:world_flags/world_flags.dart';
@@ -83,7 +83,7 @@ class LanguageSelectionWidget extends StatelessWidget {
               ),
               const SizedBox(width: 10),
               Text(
-                AppLocalizations.of(context)!.currentLanguage,
+                AppLocalizations.of(context).currentLanguage,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
               ),
             ],
@@ -151,7 +151,7 @@ class LanguageSelectionWidget extends StatelessWidget {
               ),
               const SizedBox(width: 10),
               Text(
-                AppLocalizations.of(context)!.selectLanguage,
+                AppLocalizations.of(context).selectLanguage,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
               ),
             ],

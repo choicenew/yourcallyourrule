@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // [注释] 导入所有需要的 Provider 和子 Widget
 
-import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provider.dart';
+import 'package:yourcallyourrule/features/device/provider/sim_info_provider.dart';
 import 'package:yourcallyourrule/features/local_filter/presentation/widgets/local_filter_settings_widget.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/widgets/remote_filter_settings_widget.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/call_filter_settings_widget.dart';
@@ -43,10 +43,10 @@ class EnhancedCompositeFilterSettingsWidgetState extends ConsumerState<EnhancedC
           controller: _tabController,
           isScrollable: true,
           tabs: [
-            Tab(text: AppLocalizations.of(context)!.localFilterSettings),
-            Tab(text: AppLocalizations.of(context)!.remoteFilterSettings),
-            Tab(text: AppLocalizations.of(context)!.basicRuleFilter),
-            Tab(text: AppLocalizations.of(context)!.simSlotRuleManagement),
+            Tab(text: AppLocalizations.of(context).localFilterSettings),
+            Tab(text: AppLocalizations.of(context).remoteFilterSettings),
+            Tab(text: AppLocalizations.of(context).basicRuleFilter),
+            Tab(text: AppLocalizations.of(context).simSlotRuleManagement),
           ],
         ),
         Expanded(
@@ -84,12 +84,12 @@ class EnhancedCompositeFilterSettingsWidgetState extends ConsumerState<EnhancedC
     final simCardsAsync = ref.watch(simCardsProvider);
     return simCardsAsync.when(
       data: (sims) {
-        if (sims.isEmpty) return Center(child: Text(AppLocalizations.of(context)!.noSimCardDetected));
+        if (sims.isEmpty) return Center(child: Text(AppLocalizations.of(context).noSimCardDetected));
         
         // 如果只有一个SIM卡，直接嵌入该卡的设置页面
         if (sims.length == 1) {
           final slotIndex = sims.first.simSlotIndex;
-          return slotIndex != null ? SimSlotRuleFilterPage(simSlotIndex: slotIndex) : Center(child: Text(AppLocalizations.of(context)!.invalidSimData));
+          return slotIndex != null ? SimSlotRuleFilterPage(simSlotIndex: slotIndex) : Center(child: Text(AppLocalizations.of(context).invalidSimData));
         }
 
         // 如果有多个SIM卡，显示一个选择列表以供导航
@@ -101,8 +101,8 @@ class EnhancedCompositeFilterSettingsWidgetState extends ConsumerState<EnhancedC
             if (slotIndex == null) return const SizedBox.shrink();
             return ListTile(
               leading: const Icon(Icons.sim_card_alert),
-              title: Text(sim.carrierName ?? AppLocalizations.of(context)!.unassignedSIMCard),
-              subtitle: Text(AppLocalizations.of(context)!.configureSimCardFilterRules),
+              title: Text(sim.carrierName ?? AppLocalizations.of(context).unassignedSIMCard),
+              subtitle: Text(AppLocalizations.of(context).configureSimCardFilterRules),
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.push(
                 context,

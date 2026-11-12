@@ -1,4 +1,4 @@
-// features/notifications/presentation/pages/notifications_page.dart
+﻿// features/notifications/presentation/pages/notifications_page.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,7 +14,7 @@ class NotificationsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final notificationHistoryAsync = ref.watch(notificationHistoryProvider);
     
     return Scaffold(
@@ -59,7 +59,7 @@ class NotificationsPage extends ConsumerWidget {
 
   /// 构建空状态视图
   Widget _buildEmptyState(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -118,7 +118,7 @@ class NotificationsPage extends ConsumerWidget {
 
   /// 显示清除确认对话框
   void _showClearConfirmationDialog(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
@@ -299,13 +299,13 @@ class NotificationCard extends StatelessWidget {
     final difference = now.difference(dateTime);
 
     if (difference.inDays > 0) {
-      return AppLocalizations.of(context)!.daysAgo(difference.inDays);
+      return AppLocalizations.of(context).daysAgo(difference.inDays);
     } else if (difference.inHours > 0) {
-      return AppLocalizations.of(context)!.hoursAgo(difference.inHours);
+      return AppLocalizations.of(context).hoursAgo(difference.inHours);
     } else if (difference.inMinutes > 0) {
-      return AppLocalizations.of(context)!.minutesAgo(difference.inMinutes);
+      return AppLocalizations.of(context).minutesAgo(difference.inMinutes);
     } else {
-      return AppLocalizations.of(context)!.justNow;
+      return AppLocalizations.of(context).justNow;
     }
   }
 }

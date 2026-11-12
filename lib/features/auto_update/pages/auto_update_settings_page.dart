@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pyro_commercial_hub/pyro_commercial_hub.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -37,10 +36,10 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
     super.didChangeDependencies();
     // 在这里初始化依赖context的内容
     _serviceTypeNames = {
-      'phone': AppLocalizations.of(context)!.serviceTypePhone,
-    //  'sms': AppLocalizations.of(context)!.serviceTypeSms,
-      'contact': AppLocalizations.of(context)!.serviceTypeContact,
-      'plugin': AppLocalizations.of(context)!.serviceTypePlugin,
+      'phone': AppLocalizations.of(context).serviceTypePhone,
+    //  'sms': AppLocalizations.of(context).serviceTypeSms,
+      'contact': AppLocalizations.of(context).serviceTypeContact,
+      'plugin': AppLocalizations.of(context).serviceTypePlugin,
     };
     
     // 只在第一次调用时加载间隔
@@ -76,7 +75,7 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
     });
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(AppLocalizations.of(context)!.intervalSetSuccess(_serviceTypeNames[type]!, days))),
+      SnackBar(content: Text(AppLocalizations.of(context).intervalSetSuccess(_serviceTypeNames[type]!, days))),
     );
   }
 
@@ -89,11 +88,11 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
     try {
       final updatedRules = await autoUpdateService.updateByType(type);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.updateSuccess(_serviceTypeNames[type]!, updatedRules.length))),
+        SnackBar(content: Text(AppLocalizations.of(context).updateSuccess(_serviceTypeNames[type]!, updatedRules.length))),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${_serviceTypeNames[type]}${AppLocalizations.of(context)!.serviceUpdateFailure(e)}')),
+        SnackBar(content: Text('${_serviceTypeNames[type]}${AppLocalizations.of(context).serviceUpdateFailure(e)}')),
       );
     } finally {
       setState(() {
@@ -111,11 +110,11 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
     try {
       final updatedRules = await autoUpdateService.updateAll();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.allUpdateSuccess(updatedRules.length))),
+        SnackBar(content: Text(AppLocalizations.of(context).allUpdateSuccess(updatedRules.length))),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.generalUpdateFailure(e))),
+        SnackBar(content: Text(AppLocalizations.of(context).generalUpdateFailure(e))),
       );
     } finally {
       setState(() {
@@ -127,7 +126,7 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
@@ -175,7 +174,7 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
 
   Widget _buildInfoCard() {
     final theme = Theme.of(context);
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
 
     return Container(
       padding: const EdgeInsets.all(16.0),
@@ -234,7 +233,7 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
 
   Widget _buildServiceCard(String type) {
     final theme = Theme.of(context);
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
 
     final days = _userIntervals[type] ?? 1;
     final name = _serviceTypeNames[type] ?? type;

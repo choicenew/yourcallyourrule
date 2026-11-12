@@ -1,4 +1,4 @@
-// ignore: unused_import
+﻿// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2571,7 +2571,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Mga Pattern ng Regex para sa Pagtutugma ng Numero ng Telepono';
 
   @override
-  String get regexRule => 'Regex Rule';
+  String get RegexRuleEntity => 'Regex Rule';
 
   @override
   String regexRuleAddFailed(Object error) {

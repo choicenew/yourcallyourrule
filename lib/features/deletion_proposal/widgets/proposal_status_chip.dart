@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/theme/dopamine_theme_extension.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -15,7 +15,7 @@ class ProposalStatusChip extends StatelessWidget {
     IconData icon;
     String displayText;
 
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final colorScheme = Theme.of(context).colorScheme;
 
     switch (status) {

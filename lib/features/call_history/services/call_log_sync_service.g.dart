@@ -59,4 +59,4 @@ final class CallLogSyncServiceProvider
 }
 
 String _$callLogSyncServiceHash() =>
-    r'6ae7eeeaf5d357c1f359fe931b1216f102133022';
+    r'5762717826746a1d64dae5ef66d0952efea6fac6';

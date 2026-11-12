@@ -7,7 +7,7 @@ import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_
 part 'sim_slot_rule_page_provider.g.dart';
 
 class SimSlotRulePageState {
-  final List<SimSlotRuleEntity> rules;
+  final List<dynamic> rules;
   final Map<String, String> labelIdToTextMap;
   final String? selectedLabelId;
   final RuleActionType? selectedActionType;
@@ -21,13 +21,13 @@ class SimSlotRulePageState {
     this.searchKeyword = '',
   });
 
-  List<SimSlotRuleEntity> get filteredRules {
+  List<dynamic> get filteredRules {
     return rules.where((rule) {
-      if (selectedLabelId != null && rule.labelId != selectedLabelId) return false;
-      if (selectedActionType != null && rule.action.actionName != selectedActionType?.name) return false;
+      if (selectedLabelId != null && rule?.labelId != selectedLabelId) return false;
+      if (selectedActionType != null && rule?.actionType != selectedActionType?.name) return false;
       if (searchKeyword.isNotEmpty) {
         final keyword = searchKeyword.toLowerCase();
-        final phoneMatch = rule.phoneNumber.toLowerCase().contains(keyword);
+        final phoneMatch = rule?.phoneNumber.toLowerCase().contains(keyword);
         if (!phoneMatch) return false;
       }
       return true;
@@ -35,7 +35,7 @@ class SimSlotRulePageState {
   }
 
   SimSlotRulePageState copyWith({
-    List<SimSlotRuleEntity>? rules,
+    List<dynamic>? rules,
     Map<String, String>? labelIdToTextMap,
     String? selectedLabelId,
     bool resetSelectedLabelId = false,

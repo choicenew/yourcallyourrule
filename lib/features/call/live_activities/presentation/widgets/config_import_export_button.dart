@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/call/live_activities/presentation/widgets/live_notification_import_export_dialog.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -24,7 +24,7 @@ class LiveNotificationConfigImportExportButton extends StatelessWidget {
           children: [
             const CircularProgressIndicator(),
             const SizedBox(height: 16),
-            Text(AppLocalizations.of(context)!.processingOperation),
+            Text(AppLocalizations.of(context).processingOperation),
           ],
         ),
       ),
@@ -48,12 +48,12 @@ class LiveNotificationConfigImportExportButton extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(success ? AppLocalizations.of(context)!.operationSuccess : AppLocalizations.of(context)!.operationFailure),
-        content: Text(success ? AppLocalizations.of(context)!.configUpdated : AppLocalizations.of(context)!.checkFileFormat),
+        title: Text(success ? AppLocalizations.of(context).operationSuccess : AppLocalizations.of(context).operationFailure),
+        content: Text(success ? AppLocalizations.of(context).configUpdated : AppLocalizations.of(context).checkFileFormat),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)!.confirmButton),
+            child: Text(AppLocalizations.of(context).confirmButton),
           ),
         ],
       ),

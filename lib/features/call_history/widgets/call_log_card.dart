@@ -4,9 +4,10 @@ import 'package:intl/intl.dart';
 import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
 import 'package:yourcallyourrule/features/call_history/entities/local_call_type.dart';
-import 'package:yourcallyourrule/features/call/call_history/utils/call_history_action_handler.dart';
-import 'package:yourcallyourrule/features/call/call_history/widgets/phone_meta_edit_dialog.dart';
-import 'package:yourcallyourrule/features/call/call_history/widgets/rule_action_dialog.dart';
+import 'package:yourcallyourrule/features/call_history/utils/call_history_action_handler.dart';
+import 'package:yourcallyourrule/features/call_history/widgets/phone_meta_edit_dialog.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
+import 'package:yourcallyourrule/features/phone_rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -41,9 +42,9 @@ class CallLogCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final callTypeInfo = _getCallTypeInfo(context, log.callType);
+    final callTypeInfo = _getCallTypeInfo(context, log.localCallType);
     final timeFormat = DateFormat('HH:mm');
-    final timeString = timeFormat.format(log.timestamp);
+    final timeString = timeFormat.format(log.dateTime);
     final primaryLabelId = log.labelIds?.firstOrNull;
     final rawLabelText = primaryLabelId != null ? labelIdToTextMap[primaryLabelId] : null;
     final translatedLabelText = rawLabelText != null ? LabelTranslationUtils.translateLabelText(context, rawLabelText) : null;
@@ -216,7 +217,7 @@ class CallLogCard extends ConsumerWidget {
     String timeString,
     _CallTypeInfo callTypeInfo,
   ) {
-    final simInfo = '${log.simDisplayName} ${log.carrierName}'.trim();
+    final simInfo = '${log.simDisplayName ?? ''} ${log.carrierName ?? ''}'.trim();
     final hasSimInfo = simInfo.isNotEmpty;
 
     return Row(
@@ -262,13 +263,13 @@ class CallLogCard extends ConsumerWidget {
 
         _buildActionButton(
           icon: Icons.info_outline_rounded,
-          tooltip: AppLocalizations.of(context)!.viewDetails,
+          tooltip: AppLocalizations.of(context).viewDetails,
           onTap: () => _showCallDetailsDialog(context),
         ),
         const SizedBox(width: 2),
         _buildActionButton(
           icon: Icons.label_outline_rounded,
-          tooltip: AppLocalizations.of(context)!.addLabel,
+          tooltip: AppLocalizations.of(context).addLabel,
           onTap: () async {
             final updated = await PhoneMetaEditDialog.show(context, log: log);
             if (updated && context.mounted) onRequiresRefresh();
@@ -276,17 +277,17 @@ class CallLogCard extends ConsumerWidget {
         ),
         const SizedBox(width: 2),
         _buildActionButton(
-          icon: log.callType == LocalCallType.blocked ? Icons.lock_open_rounded : Icons.phone_outlined,
-          color: log.callType == LocalCallType.blocked ? Theme.of(context).colorScheme.tertiary : Theme.of(context).colorScheme.primary,
-          tooltip: log.callType == LocalCallType.blocked
-              ? AppLocalizations.of(context)!.unblock
-              : AppLocalizations.of(context)!.call,
+          icon: log.localCallType == LocalCallType.blocked ? Icons.lock_open_rounded : Icons.phone_outlined,
+          color: log.localCallType == LocalCallType.blocked ? Theme.of(context).colorScheme.tertiary : Theme.of(context).colorScheme.primary,
+          tooltip: log.localCallType == LocalCallType.blocked
+              ? AppLocalizations.of(context).unblock
+              : AppLocalizations.of(context).call,
           onTap: actionHandler.handleCallAction,
         ),
         const SizedBox(width: 2),
         _buildActionButton(
           icon: Icons.rule_folder_outlined,
-          tooltip: AppLocalizations.of(context)!.addRule,
+          tooltip: AppLocalizations.of(context).addRule,
           onTap: () => _showRuleActionDialog(context),
         ),
       ],
@@ -352,17 +353,24 @@ class CallLogCard extends ConsumerWidget {
   void _showRuleActionDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => RuleActionDialog(log: log),
+      builder: (context) => AlertDialog(
+        content: RuleActionSelector(
+          initialAction: RuleAction.block,
+          onActionChanged: (action) {
+            Navigator.pop(context);
+          },
+        ),
+      ),
     );
   }
 
   void _showCallDetailsDialog(BuildContext context) {
     final dateFormat = DateFormat('yyyy-MM-dd HH:mm:ss');
-    final formattedTime = dateFormat.format(log.timestamp);
+    final formattedTime = dateFormat.format(log.dateTime);
     final primaryLabelId = log.labelIds?.firstOrNull;
     final rawLabelText = primaryLabelId != null ? labelIdToTextMap[primaryLabelId] : null;
     final translatedLabelText = rawLabelText != null ? LabelTranslationUtils.translateLabelText(context, rawLabelText) : '-';
-    final callTypeInfo = _getCallTypeInfo(context, log.callType);
+    final callTypeInfo = _getCallTypeInfo(context, log.localCallType);
     final theme = Theme.of(context);
 
     showDialog(
@@ -374,7 +382,7 @@ class CallLogCard extends ConsumerWidget {
             Icon(Icons.info_outline_rounded, color: theme.colorScheme.primary, size: 22),
             const SizedBox(width: 8),
             Text(
-              AppLocalizations.of(context)!.callDetails,
+              AppLocalizations.of(context).callDetails,
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
             ),
           ],
@@ -383,22 +391,22 @@ class CallLogCard extends ConsumerWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildDetailRow(AppLocalizations.of(context)!.phoneNumber, log.phoneNumber),
-            if (log.name != null) _buildDetailRow(AppLocalizations.of(context)!.name, log.name!),
-            _buildDetailRow(AppLocalizations.of(context)!.callType, callTypeInfo.text),
-            _buildDetailRow(AppLocalizations.of(context)!.callTime, formattedTime),
-            _buildDetailRow(AppLocalizations.of(context)!.label, translatedLabelText),
+            _buildDetailRow(AppLocalizations.of(context).phoneNumber, log.phoneNumber),
+            if (log.name != null) _buildDetailRow(AppLocalizations.of(context).name, log.name!),
+            _buildDetailRow(AppLocalizations.of(context).callType, callTypeInfo.text),
+            _buildDetailRow(AppLocalizations.of(context).callTime, formattedTime),
+            _buildDetailRow(AppLocalizations.of(context).label, translatedLabelText),
             if (region != null && region!.isNotEmpty)
-              _buildDetailRow(AppLocalizations.of(context)!.region, region!),
-            if (log.carrierName.isNotEmpty)
-              _buildDetailRow(AppLocalizations.of(context)!.carrier, log.carrierName),
+              _buildDetailRow(AppLocalizations.of(context).region, region!),
+            if (log.location != null && log.location!.isNotEmpty)
+              _buildDetailRow(AppLocalizations.of(context).carrier, log.location!),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
             child: Text(
-              AppLocalizations.of(context)!.confirm,
+              AppLocalizations.of(context).confirm,
               style: TextStyle(fontWeight: FontWeight.bold, color: theme.colorScheme.primary),
             ),
           ),
@@ -440,7 +448,7 @@ class CallLogCard extends ConsumerWidget {
   }
 
   _CallTypeInfo _getCallTypeInfo(BuildContext context, LocalCallType type) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     switch (type) {
       case LocalCallType.blocked:

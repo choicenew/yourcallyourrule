@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
+import 'package:pyro_sim_slot_rules_protocol/pyro_sim_slot_rules_protocol.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
-import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provider.dart';
+import 'package:yourcallyourrule/features/device/provider/sim_info_provider.dart';
 import 'package:yourcallyourrule/features/phone_rules/widgets/rule_action_selector.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -51,7 +51,7 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
   }
 
   Future<void> _saveRule() async {
-    final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     if (_selectedSimSlotIndex == null) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -88,7 +88,7 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
       if (mounted) {
         Navigator.pop(context);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(l10n.ruleSavedSuccessfully)),
+          SnackBar(content: Text(l10n.confirm)),
         );
       }
     } catch (e) {
@@ -108,12 +108,12 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
-    final simInfoAsync = ref.watch(simInfoProvider);
+    final simInfoAsync = ref.watch(simCardsProvider);
 
     return AlertDialog(
-      title: Text(widget.rule == null ? l10n.addSimSlotRule : l10n.editSimSlotRule),
+      title: Text(widget.rule == null ? l10n.addRule : l10n.editRule),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -123,7 +123,7 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
               controller: _nameController,
               decoration: InputDecoration(
                 labelText: l10n.ruleName,
-                hintText: l10n.enterRuleName,
+                hintText: l10n.addName,
               ),
             ),
             const SizedBox(height: 12),
@@ -131,7 +131,7 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
               controller: _phoneController,
               decoration: InputDecoration(
                 labelText: l10n.phoneNumber,
-                hintText: l10n.enterPhoneNumber,
+                hintText: l10n.phoneNumber,
               ),
               keyboardType: TextInputType.phone,
             ),
@@ -143,7 +143,7 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
                 }
                 return DropdownButtonFormField<int>(
                   value: _selectedSimSlotIndex,
-                  decoration: InputDecoration(labelText: l10n.simCardSlot),
+                  decoration: const InputDecoration(labelText: 'SIM Card'),
                   items: simList.map((sim) {
                     return DropdownMenuItem<int>(
                       value: sim.simSlotIndex ?? 0,

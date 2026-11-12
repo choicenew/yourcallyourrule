@@ -1,8 +1,8 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:googleapis/drive/v3.dart' as drive;
-import 'package:yourcallyourrule/features/sync/services/cloud_sync/environment.dart';
+import 'package:yourcallyourrule/features/cloud_drive/services/environment.dart';
 
 const List<String> _scopes = <String>[
   drive.DriveApi.driveFileScope,

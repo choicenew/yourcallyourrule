@@ -1,4 +1,4 @@
-// lib/features/call/live_activities/presentation/pages/kit_live_notification_customization_screen.dart
+﻿// lib/features/call/live_activities/presentation/pages/kit_live_notification_customization_screen.dart
 /// [New Version / 现代版本] 针对 live_activity_kit 灵动岛与 Android 实时通知的专属独立自定义与测试控制台
 library;
 
@@ -259,7 +259,7 @@ class _KitLiveNotificationCustomizationScreenState
       details.add(mockData.countryName!);
     }
     if (config.stir.visible && (mockStirInfo['isVerified'] == true)) {
-      details.add(AppLocalizations.of(context)!.stirVerified);
+      details.add(AppLocalizations.of(context).stirVerified);
     }
     final String detailLine = details.join(' · ');
 

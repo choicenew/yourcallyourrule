@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
-import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
+import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/features/phone_rules/services/rule_management_service.dart';
 
 class MarkPhoneEditDialog extends ConsumerStatefulWidget {
   final LabelPhoneEntry entry;
@@ -43,7 +42,7 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
   void initState() {
     super.initState();
     _nameController = TextEditingController(text: widget.entry.name);
-    _phoneController = TextEditingController(text: widget.entry.phoneNumber.toString());
+    _phoneController = TextEditingController(text: widget.entry.phoneNumber);
     _selectedLabelId = widget.entry.labelId;
   }
 
@@ -58,7 +57,7 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
     if (_phoneController.text.isEmpty || _selectedLabelId == null || _selectedLabelId!.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('${AppLocalizations.of(context)!.nameAndPhoneNumberCannotBeEmpty}, ${AppLocalizations.of(context)!.selectLabel}'),
+          content: Text('${AppLocalizations.of(context).nameAndPhoneNumberCannotBeEmpty}, ${AppLocalizations.of(context).selectLabel}'),
           backgroundColor: Colors.red,
         ),
       );
@@ -73,13 +72,13 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
       final updatedEntry = LabelPhoneEntry(
         id: widget.entry.id,
         name: _nameController.text,
-        phoneNumber: PhoneNumber.fromString(_phoneController.text),
+        phoneNumber: _phoneController.text,
         labelId: _selectedLabelId!,
         isEnabled: widget.entry.isEnabled,
       );
 
-      final ruleService = ref.read(ruleManagementServiceProvider);
-      await ruleService.saveRule(updatedEntry);
+      final labelPhoneService = ref.read(labelServiceProvider);
+      await labelPhoneService.updateLabel(updatedEntry);
 
       if (widget.onEntryUpdated != null) {
         widget.onEntryUpdated!();
@@ -90,7 +89,7 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context)!.ruleUpdateSuccess),
+            content: Text(AppLocalizations.of(context).ruleUpdateSuccess),
             backgroundColor: Colors.green,
           ),
         );
@@ -99,7 +98,7 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context)!.updateRuleFailed(e.toString())),
+            content: Text(AppLocalizations.of(context).updateRuleFailed(e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -122,7 +121,7 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.0),
       ),
-      title: Text(AppLocalizations.of(context)!.edit),
+      title: Text(AppLocalizations.of(context).edit),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -131,8 +130,8 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
             TextField(
               controller: _nameController,
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.name,
-                hintText: AppLocalizations.of(context)!.name,
+                labelText: AppLocalizations.of(context).name,
+                hintText: AppLocalizations.of(context).name,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
@@ -151,8 +150,8 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
             TextField(
               controller: _phoneController,
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.phoneNumber,
-                hintText: AppLocalizations.of(context)!.examplePhoneNumber,
+                labelText: AppLocalizations.of(context).phoneNumber,
+                hintText: AppLocalizations.of(context).examplePhoneNumber,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
@@ -176,7 +175,6 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
                   _selectedLabelId = labelId;
                 });
               },
-              themeColor: widget.themeColor,
             ),
           ],
         ),
@@ -184,7 +182,7 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
       actions: [
         TextButton(
           onPressed: _isProcessing ? null : () => Navigator.pop(context),
-          child: Text(AppLocalizations.of(context)!.cancelButton),
+          child: Text(AppLocalizations.of(context).cancelButton),
         ),
         TextButton(
           onPressed: _isProcessing ? null : _saveEntry,
@@ -194,7 +192,7 @@ class _MarkPhoneEditDialogState extends ConsumerState<MarkPhoneEditDialog> {
                   height: 20,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : Text(AppLocalizations.of(context)!.save),
+              : Text(AppLocalizations.of(context).save),
         ),
       ],
     );

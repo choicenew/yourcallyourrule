@@ -17,6 +17,9 @@ abstract class EntityStore<T> {
   /// 插入或更新单条记录 (Upsert)
   Future<void> save(T entity);
 
+  /// 更新单条记录
+  Future<void> update(T entity);
+
   /// 批量插入或更新 (Batch Upsert)
   Future<void> saveAll(List<T> entities);
 

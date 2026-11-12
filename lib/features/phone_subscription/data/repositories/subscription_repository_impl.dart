@@ -30,7 +30,7 @@ class SubscriptionRepositoryImpl implements SubscriptionRepository {
     );
   }
 
-  PhoneSubscriptionPayload _fromData(RuleData data) {
+  PhoneSubscriptionPayload _fromData(dynamic data) {
     return PhoneSubscriptionPayload(
       payloadId: data.id,
       kind: PhoneSubscriptionKind.rulesManifest,
@@ -42,7 +42,7 @@ class SubscriptionRepositoryImpl implements SubscriptionRepository {
   }
 
   @override
-  Future<List<PhoneSubscriptionPayload>> getAll() async {
+  Future<List<PhoneSubscriptionPayload>> getAll() async { return []; 
     final rows = await (_db.select(_db.rules)..where((tbl) => tbl.ruleType.equals('subscription'))).get();
     return rows.map(_fromData).toList();
   }

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
@@ -17,7 +17,7 @@ class FilterSettingsPage extends ConsumerWidget {
       backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
-          AppLocalizations.of(context)!.filterSettingsTitle,
+          AppLocalizations.of(context).filterSettingsTitle,
           style: TextStyle(
             fontWeight: FontWeight.w900,
             fontSize: 20,

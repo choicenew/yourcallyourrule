@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart' as permissionService;
 import 'package:yourcallyourrule/features/permissions/services/permission_service_impl.dart';
@@ -48,8 +48,8 @@ class _BatteryOptimizationPermissionWidgetState
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(granted
-              ? AppLocalizations.of(context)!.permissionGranted
-              : AppLocalizations.of(context)!.permissionDenied),
+              ? AppLocalizations.of(context).permissionGranted
+              : AppLocalizations.of(context).permissionDenied),
           backgroundColor: granted ? Colors.green : Colors.orange,
         ),
       );
@@ -62,9 +62,9 @@ class _BatteryOptimizationPermissionWidgetState
       elevation: 1,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: SwitchListTile(
-        title: Text(AppLocalizations.of(context)!.batteryOptimizationPermission),
+        title: Text(AppLocalizations.of(context).batteryOptimizationPermission),
         subtitle:
-            Text(AppLocalizations.of(context)!.batteryOptimizationPermissionDescription),
+            Text(AppLocalizations.of(context).batteryOptimizationPermissionDescription),
         value: _hasPermission,
         onChanged: (value) {
           if (value) {

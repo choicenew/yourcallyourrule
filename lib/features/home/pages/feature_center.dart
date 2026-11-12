@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/common/widgets/vip_access_checker.dart';
@@ -66,7 +66,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'mark_phone_management',
         context: context,
-        title: AppLocalizations.of(context)!.markPhoneManagementTitle,
+        title: AppLocalizations.of(context).markPhoneManagementTitle,
         icon: Icons.label,
         color: _getFeatureColor('mark_phone_management'),
         onTap: () => context.push('/mark-phone-management-with-ads'),
@@ -74,7 +74,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'plugin_management',
         context: context,
-        title: AppLocalizations.of(context)!.pluginManagement,
+        title: AppLocalizations.of(context).pluginManagement,
         icon: Icons.extension,
         color: _getFeatureColor('plugin_management'),
         onTap: () => context.push('/plugin-management-with-ads'),
@@ -82,7 +82,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'allow_block',
         context: context,
-        title: AppLocalizations.of(context)!.allowBlock,
+        title: AppLocalizations.of(context).allowBlock,
         icon: Icons.block,
         color: _getFeatureColor('allow_block'),
         onTap: () => context.push('/allowed-blocked-settings-with-ads'),
@@ -90,7 +90,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
        _buildFeatureItem(
         id: 'rule-management',
         context: context,
-        title: AppLocalizations.of(context)!.phoneRuleManagement,
+        title: AppLocalizations.of(context).phoneRuleManagement,
         icon: Icons.list,
         color: _getFeatureColor('rule-management'),
         onTap: () => context.push('/rule-management-settings-with-ads'),
@@ -98,7 +98,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'sim_slot_rules',
         context: context,
-        title: AppLocalizations.of(context)!.simSlotRules, // Assuming you will add this localization key
+        title: AppLocalizations.of(context).simSlotRules, // Assuming you will add this localization key
         icon: Icons.sim_card,
         color: _getFeatureColor('sim_slot_rules'),
         onTap: () => context.push('/sim-slot-rule-with-ads/0'), // Assuming simSlotIndex 0 for the first SIM slot
@@ -106,7 +106,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'regex_rules',
         context: context,
-        title: AppLocalizations.of(context)!.regexRules,
+        title: AppLocalizations.of(context).regexRules,
         icon: Icons.code,
         color: _getFeatureColor('regex_rules'),
         onTap: () => context.push('/regex-rule-with-ads'),
@@ -114,7 +114,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'phone_subscription',
         context: context,
-        title: AppLocalizations.of(context)!.phoneSubscription,
+        title: AppLocalizations.of(context).phoneSubscription,
         icon: Icons.phone_callback,
         color: _getFeatureColor('phone_subscription'),
         onTap: () => context.push('/phone-subscription-with-ads'),
@@ -122,7 +122,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'call_history',
         context: context,
-        title: AppLocalizations.of(context)!.callHistory,
+        title: AppLocalizations.of(context).callHistory,
         icon: Icons.call,
         color: _getFeatureColor('call_history'),
         onTap: () => context.push('/call-history'),
@@ -130,7 +130,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'contacts',
         context: context,
-        title: AppLocalizations.of(context)!.contacts,
+        title: AppLocalizations.of(context).contacts,
         icon: Icons.contacts,
         color: _getFeatureColor('contacts'),
         onTap: () => context.push('/contacts-management'),
@@ -138,7 +138,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'statistics',
         context: context,
-        title: AppLocalizations.of(context)!.statistics,
+        title: AppLocalizations.of(context).statistics,
         icon: Icons.bar_chart,
         color: _getFeatureColor('statistics'),
         onTap: () => context.push('/call-statistics'),
@@ -146,7 +146,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'deletion_proposal',
         context: context,
-        title: AppLocalizations.of(context)!.deletionProposals,
+        title: AppLocalizations.of(context).deletionProposals,
         icon: Icons.how_to_vote_outlined,
         color: _getFeatureColor('deletion_proposal'),
         onTap: () => context.push('/deletion-proposal'),
@@ -215,7 +215,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.featureCenter,
+                  AppLocalizations.of(context).featureCenter,
                   style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 IconButton(

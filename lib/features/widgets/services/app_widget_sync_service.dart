@@ -1,10 +1,11 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yourcallyourrule/features/sync/providers/cloud_sync/cloud_sync_provider.dart';
-import 'package:yourcallyourrule/features/rules/providers/rules_provider.dart';
+import 'package:yourcallyourrule/features/cloud_drive/providers/cloud_sync_provider.dart';
+import 'package:yourcallyourrule/features/phone_rules/providers/rules_provider.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/statistics_provider.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/theme/dopamine_theme_extension.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
@@ -30,7 +30,7 @@ class _ProposalCardState extends State<ProposalCard> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final proposal = widget.proposal;
     final phoneNumber = proposal.phoneNumber;
     final reason = proposal.reason;

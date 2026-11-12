@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:yourcallyourrule/features/phone/utils/phone_utils.dart';
+import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class CreateProposalDialog extends StatefulWidget {
@@ -27,12 +27,12 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
   bool _isSubmitting = false;
   
   List<String> get _commonReasons => [
-    AppLocalizations.of(context)!.reasonInaccurateInfo,
-    AppLocalizations.of(context)!.reasonOutdated,
-    AppLocalizations.of(context)!.reasonPrivacy,
-    AppLocalizations.of(context)!.reasonNotInService,
-    AppLocalizations.of(context)!.reasonWronglyIdentified,
-    AppLocalizations.of(context)!.reasonOther,
+    AppLocalizations.of(context).reasonInaccurateInfo,
+    AppLocalizations.of(context).reasonOutdated,
+    AppLocalizations.of(context).reasonPrivacy,
+    AppLocalizations.of(context).reasonNotInService,
+    AppLocalizations.of(context).reasonWronglyIdentified,
+    AppLocalizations.of(context).reasonOther,
   ];
   
   String? _selectedCommonReason;
@@ -52,13 +52,9 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
       });
 
       try {
-        final parsed = await PhoneUtils.parsePhoneNumberWithIso(
-          _phoneController.text,
-          _countryCodeController.text,
-        );
-        final e164Number = parsed['e164Number'];
+        final e164Number = _phoneController.text.trim();
 
-        if (e164Number == null || e164Number.isEmpty) {
+        if (e164Number.isEmpty) {
           if (mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
@@ -118,7 +114,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                   color: Theme.of(context).colorScheme.primary,
                 ),
                 title: Text(
-                  AppLocalizations.of(context)!.createProposalTitle,
+                  AppLocalizations.of(context).createProposalTitle,
                   style: Theme.of(context).textTheme.headlineSmall,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -136,23 +132,23 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                          AppLocalizations.of(context)!.countryCodeLabel,
+                          AppLocalizations.of(context).countryCodeLabel,
                           style: Theme.of(context).textTheme.labelLarge,
                         ),
                       const SizedBox(height: 8),
                       TextFormField(
                         controller: _countryCodeController,
                         decoration: InputDecoration(
-                          hintText: AppLocalizations.of(context)!.countryCodeHint,
+                          hintText: AppLocalizations.of(context).countryCodeHint,
                           prefixIcon: const Icon(Icons.public),
                           border: const OutlineInputBorder(),
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return AppLocalizations.of(context)!.countryCodeRequired;
+                            return AppLocalizations.of(context).countryCodeRequired;
                           }
                           if (value.length != 2) {
-                            return AppLocalizations.of(context)!.countryCodeTwoLetters;
+                            return AppLocalizations.of(context).countryCodeTwoLetters;
                           }
                           return null;
                         },
@@ -160,14 +156,14 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                       const SizedBox(height: 20),
 
                       Text(
-                        '${AppLocalizations.of(context)!.phoneNumber} *',
+                        '${AppLocalizations.of(context).phoneNumber} *',
                         style: Theme.of(context).textTheme.labelLarge,
                       ),
                       const SizedBox(height: 8),
                       TextFormField(
                         controller: _phoneController,
                         decoration: InputDecoration(
-                          hintText: AppLocalizations.of(context)!.enterPhoneNumber,
+                          hintText: AppLocalizations.of(context).enterPhoneNumber,
                           prefixIcon: const Icon(Icons.phone),
                           border: const OutlineInputBorder(),
                         ),
@@ -177,10 +173,10 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                         ],
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return AppLocalizations.of(context)!.phoneNumberRequired;
+                            return AppLocalizations.of(context).phoneNumberRequired;
                           }
                           if (value.length < 7) {
-                            return AppLocalizations.of(context)!.phoneNumberMinDigits;
+                            return AppLocalizations.of(context).phoneNumberMinDigits;
                           }
                           return null;
                         },
@@ -188,7 +184,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                       const SizedBox(height: 20),
                       
                       Text(
-                        AppLocalizations.of(context)!.reason,
+                        AppLocalizations.of(context).reason,
                         style: Theme.of(context).textTheme.labelLarge,
                       ),
                       const SizedBox(height: 8),
@@ -216,24 +212,24 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                       const SizedBox(height: 20),
                       
                       Text(
-                        '${AppLocalizations.of(context)!.reason} *',
+                        '${AppLocalizations.of(context).reason} *',
                         style: Theme.of(context).textTheme.labelLarge,
                       ),
                       const SizedBox(height: 8),
                       TextFormField(
                         controller: _reasonController,
                         decoration: InputDecoration(
-                          hintText: AppLocalizations.of(context)!.provideDetailedExplanation,
+                          hintText: AppLocalizations.of(context).provideDetailedExplanation,
                           border: const OutlineInputBorder(),
                         ),
                         maxLines: 3,
                         maxLength: 500,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return AppLocalizations.of(context)!.reasonRequired;
+                            return AppLocalizations.of(context).reasonRequired;
                           }
                           if (value.length < 10) {
-                            return AppLocalizations.of(context)!.reasonMinCharacters;
+                            return AppLocalizations.of(context).reasonMinCharacters;
                           }
                           return null;
                         },
@@ -241,7 +237,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                       const SizedBox(height: 20),
                       
                       Text(
-                        '${AppLocalizations.of(context)!.riskLevel} *',
+                        '${AppLocalizations.of(context).riskLevel} *',
                         style: Theme.of(context).textTheme.labelLarge,
                       ),
                       const SizedBox(height: 8),
@@ -253,7 +249,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                               Row(
                                 children: [
                                   Text(
-                                    '${AppLocalizations.of(context)!.riskLevelLabel} $_selectedRiskLevel',
+                                    '${AppLocalizations.of(context).riskLevelLabel} $_selectedRiskLevel',
                                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -294,7 +290,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                                 ),
                                 const SizedBox(width: 4),
                                 Text(
-                                  AppLocalizations.of(context)!.guidelinesLabel,
+                                  AppLocalizations.of(context).guidelinesLabel,
                                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                                     fontWeight: FontWeight.w600,
                                     color: Theme.of(context).colorScheme.primary,
@@ -304,7 +300,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                             ),
                             const SizedBox(height: 8),
                             Text(
-                              AppLocalizations.of(context)!.reportingGuidelines,
+                              AppLocalizations.of(context).reportingGuidelines,
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
                           ],
@@ -322,7 +318,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                 children: [
                   TextButton(
                     onPressed: _isSubmitting ? null : () => Navigator.of(context).pop(),
-                    child: Text(AppLocalizations.of(context)!.cancelButton),
+                    child: Text(AppLocalizations.of(context).cancelButton),
                   ),
                   const SizedBox(width: 8),
                   ElevatedButton(
@@ -333,7 +329,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
                             height: 20,
                             child: CircularProgressIndicator(strokeWidth: 2),
                           )
-                        : Text(AppLocalizations.of(context)!.submit),
+                        : Text(AppLocalizations.of(context).submit),
                   ),
                 ],
               ),

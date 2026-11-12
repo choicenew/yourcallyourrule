@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -20,7 +20,7 @@ class PositionPanel extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(AppLocalizations.of(context)!.axisPosition(axis.toUpperCase())),
+        Text(AppLocalizations.of(context).axisPosition(axis.toUpperCase())),
         Slider(
           value: currentValue,
           min: 0,

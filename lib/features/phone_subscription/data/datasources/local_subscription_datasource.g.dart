@@ -9,51 +9,50 @@ part of 'local_subscription_datasource.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(localSubscriptionDataSource)
-final localSubscriptionDataSourceProvider =
-    LocalSubscriptionDataSourceProvider._();
+@ProviderFor(localdynamicSource)
+final localdynamicSourceProvider = LocaldynamicSourceProvider._();
 
-final class LocalSubscriptionDataSourceProvider
+final class LocaldynamicSourceProvider
     extends
         $FunctionalProvider<
-          LocalSubscriptionDataSource,
-          LocalSubscriptionDataSource,
-          LocalSubscriptionDataSource
+          LocaldynamicSource,
+          LocaldynamicSource,
+          LocaldynamicSource
         >
-    with $Provider<LocalSubscriptionDataSource> {
-  LocalSubscriptionDataSourceProvider._()
+    with $Provider<LocaldynamicSource> {
+  LocaldynamicSourceProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'localSubscriptionDataSourceProvider',
+        name: r'localdynamicSourceProvider',
         isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$localSubscriptionDataSourceHash();
+  String debugGetCreateSourceHash() => _$localdynamicSourceHash();
 
   @$internal
   @override
-  $ProviderElement<LocalSubscriptionDataSource> $createElement(
+  $ProviderElement<LocaldynamicSource> $createElement(
     $ProviderPointer pointer,
   ) => $ProviderElement(pointer);
 
   @override
-  LocalSubscriptionDataSource create(Ref ref) {
-    return localSubscriptionDataSource(ref);
+  LocaldynamicSource create(Ref ref) {
+    return localdynamicSource(ref);
   }
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(LocalSubscriptionDataSource value) {
+  Override overrideWithValue(LocaldynamicSource value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<LocalSubscriptionDataSource>(value),
+      providerOverride: $SyncValueProvider<LocaldynamicSource>(value),
     );
   }
 }
 
-String _$localSubscriptionDataSourceHash() =>
-    r'f7ad3b602573b1c84a8b609dcdff808d1ce6ec8e';
+String _$localdynamicSourceHash() =>
+    r'1f979bcacadbc7147069c0f52c99eda2ab0ac769';

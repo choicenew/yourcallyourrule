@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import '../models/setup_config.dart';
 

@@ -31,7 +31,7 @@ class LocalPluginDataSource {
       description: Value(plugin.sourceLabel),
       isEnabled: const Value(1),
       pluginOrder: 0,
-      isAutoUpdate: 1,
+      isAutoUpdate: const Value(1),
     );
   }
 

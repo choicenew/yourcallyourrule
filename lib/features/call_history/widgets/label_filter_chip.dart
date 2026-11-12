@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
@@ -31,7 +31,7 @@ class LabelFilterChip extends ConsumerWidget {
             builder: (context, snapshot) {
               final labelText = snapshot.data ?? labelId;
               return Chip(
-                label: Text('${AppLocalizations.of(context)!.label}: $labelText'),
+                label: Text('${AppLocalizations.of(context).label}: $labelText'),
                 backgroundColor: activeColor.withValues(alpha: 0.1),
                 labelStyle: TextStyle(color: activeColor),
                 deleteIcon: const Icon(Icons.close, size: 18),

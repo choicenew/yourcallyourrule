@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
@@ -11,7 +11,7 @@ class RegexRulePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final regexSvc = ref.watch(regexServiceProvider);
 
     return FutureBuilder<List<RegexRuleEntity>>(
@@ -19,7 +19,7 @@ class RegexRulePage extends ConsumerWidget {
       builder: (context, snapshot) {
         final rules = snapshot.data ?? [];
         return GenericListWithAdsPage<RegexRuleEntity>(
-          title: l10n.regexRule,
+          title: l10n.RegexRuleEntity,
           items: rules,
           emptyText: l10n.noData,
           adInterval: 3,

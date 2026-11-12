@@ -101,4 +101,26 @@ class RemoteNumberDataSource {
   }
 
   Future<void> linkNumberToCountry(String phoneNumber, String countryIsoCode) async {}
+
+  Future<void> bulkInsertFromServer(String countryIsoCode, List<dynamic> numbers) async {
+    for (final numData in numbers) {
+      if (numData is Map<String, dynamic>) {
+        final phone = numData['phoneNumber'] as String? ?? numData['phone'] as String? ?? '';
+        if (phone.isNotEmpty) {
+          final entry = RemoteNumberEntry(
+            id: numData['id'] as String? ?? _uuid.v4(),
+            phoneNumber: phone,
+            name: numData['name'] as String? ?? '',
+            label: numData['label'] as String? ?? '',
+            actionType: numData['action'] as String? ?? 'block',
+          );
+          await insert(entry, countryIsoCode: countryIsoCode);
+        }
+      }
+    }
+  }
+
+  Future<int> deleteNumbersByCountry(String countryIsoCode) async {
+    return 0;
+  }
 }

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -34,32 +34,32 @@ class RemoteFilterSettingsWidget extends ConsumerWidget {
           child: Column(
             children: [
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.enableRemoteNumberFilter, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
-                subtitle: Text(AppLocalizations.of(context)!.enableRemoteNumberFilterDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                title: Text(AppLocalizations.of(context).enableRemoteNumberFilter, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context).enableRemoteNumberFilterDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                 activeColor: Theme.of(context).colorScheme.primary,
                 value: config.enableRemoteNumberFilter,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(enableRemoteNumberFilter: value)),
               ),
               Divider(height: 1, indent: 16, endIndent: 16, color: Theme.of(context).colorScheme.outlineVariant),
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.rejectExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
-                subtitle: Text(AppLocalizations.of(context)!.rejectExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                title: Text(AppLocalizations.of(context).rejectExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context).rejectExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                 activeColor: Theme.of(context).colorScheme.primary,
                 value: config.rejectExceededNumbers,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(rejectExceededNumbers: value)),
               ),
               Divider(height: 1, indent: 16, endIndent: 16, color: Theme.of(context).colorScheme.outlineVariant),
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.prioritizeRemoteAction, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
-                subtitle: Text(AppLocalizations.of(context)!.prioritizeRemoteActionDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                title: Text(AppLocalizations.of(context).prioritizeRemoteAction, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context).prioritizeRemoteActionDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                 activeColor: Theme.of(context).colorScheme.primary,
                 value: config.prioritizeRemoteAction,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(prioritizeRemoteAction: value)),
               ),
               Divider(height: 1, indent: 16, endIndent: 16, color: Theme.of(context).colorScheme.outlineVariant),
               SwitchListTile(
-                title: Text(AppLocalizations.of(context)!.logAllRemoteQueries, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
-                subtitle: Text(AppLocalizations.of(context)!.logAllRemoteQueriesDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                title: Text(AppLocalizations.of(context).logAllRemoteQueries, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(AppLocalizations.of(context).logAllRemoteQueriesDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
                 activeColor: Theme.of(context).colorScheme.primary,
                 value: config.logAllRemoteQueries,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(logAllRemoteQueries: value)),
@@ -85,7 +85,7 @@ class RemoteFilterSettingsWidget extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.countThresholdLabel,
+                    AppLocalizations.of(context).countThresholdLabel,
                     style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
                   ),
                   Container(
@@ -113,7 +113,7 @@ class RemoteFilterSettingsWidget extends ConsumerWidget {
                 onChanged: (value) => notifier.updateConfig(config.copyWith(countThreshold: value.round())),
               ),
               Text(
-                AppLocalizations.of(context)!.countThresholdDescription,
+                AppLocalizations.of(context).countThresholdDescription,
                 style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
             ],

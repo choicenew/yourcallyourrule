@@ -1,4 +1,4 @@
-// ignore: unused_import
+﻿// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2571,7 +2571,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Telefon raqamini moslashtirish uchun Regex naqshlari';
 
   @override
-  String get regexRule => 'Regex qoidasi';
+  String get RegexRuleEntity => 'Regex qoidasi';
 
   @override
   String regexRuleAddFailed(Object error) {

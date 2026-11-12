@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call_policy/evaluators/call_protection_service.dart';
 import 'package:yourcallyourrule/features/call_monitor/services/call_screen_plugin.dart';
@@ -46,8 +46,8 @@ class _CallScreeningPermissionWidgetState extends ConsumerState<CallScreeningPer
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(granted
-              ? AppLocalizations.of(context)!.permissionGranted
-              : AppLocalizations.of(context)!.callScreeningPermissionNotGranted),
+              ? AppLocalizations.of(context).permissionGranted
+              : AppLocalizations.of(context).callScreeningPermissionNotGranted),
           backgroundColor: granted ? Colors.green : Colors.orange,
         ),
       );
@@ -60,8 +60,8 @@ class _CallScreeningPermissionWidgetState extends ConsumerState<CallScreeningPer
       elevation: 1,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: SwitchListTile(
-        title: Text(AppLocalizations.of(context)!.callScreeningPermission),
-        subtitle: Text(AppLocalizations.of(context)!.callScreeningPermissionDescription),
+        title: Text(AppLocalizations.of(context).callScreeningPermission),
+        subtitle: Text(AppLocalizations.of(context).callScreeningPermissionDescription),
         value: _hasPermission,
         onChanged: (_) => _requestPermission(),
         secondary: _isLoading

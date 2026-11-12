@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/widgets/remote_filter_settings_widget.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
@@ -16,7 +16,7 @@ class RemoteFilterSettingsPage extends ConsumerWidget {
       backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
-          AppLocalizations.of(context)!.remoteFilterSettingsPageTitle,
+          AppLocalizations.of(context).remoteFilterSettingsPageTitle,
           style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: theme.colorScheme.onSurface),
         ),
         backgroundColor: Colors.transparent,

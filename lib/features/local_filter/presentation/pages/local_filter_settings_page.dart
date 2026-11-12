@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/local_filter/presentation/widgets/local_filter_settings_widget.dart';
 import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
@@ -16,7 +16,7 @@ class LocalFilterSettingsPage extends ConsumerWidget {
       backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
-          AppLocalizations.of(context)!.localCountFilterSettings,
+          AppLocalizations.of(context).localCountFilterSettings,
           style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: theme.colorScheme.onSurface),
         ),
         backgroundColor: Colors.transparent,

@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -55,33 +55,33 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
 
     final List<Widget> cards = [
       _buildCarouselCard(
-        title: AppLocalizations.of(context)!.callBlocking,
+        title: AppLocalizations.of(context).callBlocking,
         icon: Icons.call_end,
         color: const Color(0xFFE57373),
-        description: AppLocalizations.of(context)!.blockedSpamCalls,
+        description: AppLocalizations.of(context).blockedSpamCalls,
         value: '${state.blockedCallsCount}',
       ),
       asyncCommunityStats.when(
         data: (communityStats) => _buildCarouselCard(
-          title: AppLocalizations.of(context)!.proposalStatistics,
+          title: AppLocalizations.of(context).proposalStatistics,
           icon: Icons.groups,
           color: const Color(0xFF4DB6AC),
           onTap: () => GoRouter.of(context).push('/deletions'),
           customContent: _buildCommunityCardContent(communityStats),
         ),
         loading: () => _buildLoadingCard(),
-        error: (_, __) => _buildErrorCard(AppLocalizations.of(context)!.proposalStatistics),
+        error: (_, __) => _buildErrorCard(AppLocalizations.of(context).proposalStatistics),
       ),
       const AdsInlineBanner(),
       _buildCarouselCard(
-        title: AppLocalizations.of(context)!.ruleManagement,
+        title: AppLocalizations.of(context).ruleManagement,
         icon: Icons.rule,
         color: const Color(0xFF64B5F6),
-        description: AppLocalizations.of(context)!.createdRules,
+        description: AppLocalizations.of(context).createdRules,
         value: '${state.blockRulesCount + state.allowRulesCount}',
       ),
       _buildCarouselCard(
-        title: AppLocalizations.of(context)!.blockingTrend,
+        title: AppLocalizations.of(context).blockingTrend,
         icon: Icons.show_chart,
         color: const Color(0xFF7986CB),
         customContent: _buildTrendChartCardContent(state),

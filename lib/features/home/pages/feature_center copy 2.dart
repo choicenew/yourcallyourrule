@@ -1,4 +1,4 @@
-import 'dart:math';
+﻿import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -112,7 +112,7 @@ class _FeatureCenterState extends State<FeatureCenter> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              AppLocalizations.of(context)!.featureCenter,
+              AppLocalizations.of(context).featureCenter,
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),
@@ -128,7 +128,7 @@ class _FeatureCenterState extends State<FeatureCenter> {
 
                 final featureItem = _buildFeatureItem(
                   context: context,
-                  title: feature.title(AppLocalizations.of(context)!),
+                  title: feature.title(AppLocalizations.of(context)),
                   icon: feature.icon,
                   color: feature.color,
                   onTap: () => context.push(feature.route),

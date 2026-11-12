@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_timeline_with_ads_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class GenericHistoryPage<T extends BaseEntity, S, M> extends ConsumerStatefulWidget {
+class GenericHistoryPage<T extends dynamic, S, M> extends ConsumerStatefulWidget {
   final String title;
   final Color themeColor;
   final Provider<S> serviceProvider;
@@ -52,7 +52,7 @@ class GenericHistoryPage<T extends BaseEntity, S, M> extends ConsumerStatefulWid
   ConsumerState<GenericHistoryPage<T, S, M>> createState() => _GenericHistoryPageState<T, S, M>();
 }
 
-class _GenericHistoryPageState<T extends BaseEntity, S, M> extends ConsumerState<GenericHistoryPage<T, S, M>> {
+class _GenericHistoryPageState<T extends dynamic, S, M> extends ConsumerState<GenericHistoryPage<T, S, M>> {
   List<T> _allItems = [];
   List<T> _filteredItems = [];
   M? _metadata;
@@ -99,7 +99,7 @@ class _GenericHistoryPageState<T extends BaseEntity, S, M> extends ConsumerState
       if (mounted) {
         setState(() => _isLoading = false);
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(AppLocalizations.of(context)!.dataLoadFailure(e.toString())),
+          content: Text(AppLocalizations.of(context).dataLoadFailure(e.toString())),
           backgroundColor: Colors.red,
         ));
       }
@@ -147,7 +147,7 @@ class _GenericHistoryPageState<T extends BaseEntity, S, M> extends ConsumerState
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(AppLocalizations.of(context)!.deleteSuccess),
+          content: Text(AppLocalizations.of(context).deleteSuccess),
           backgroundColor: Colors.green,
         ));
       }
@@ -155,7 +155,7 @@ class _GenericHistoryPageState<T extends BaseEntity, S, M> extends ConsumerState
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(AppLocalizations.of(context)!.deleteFailed(e.toString())),
+          content: Text(AppLocalizations.of(context).deleteFailed(e.toString())),
           backgroundColor: Colors.red,
         ));
       }
@@ -171,7 +171,7 @@ class _GenericHistoryPageState<T extends BaseEntity, S, M> extends ConsumerState
           children: [
             ListTile(
               leading: Icon(_displayMode == ListDisplayMode.timeline ? Icons.view_list : Icons.timeline),
-              title: Text(_displayMode == ListDisplayMode.timeline ? AppLocalizations.of(context)!.listView : AppLocalizations.of(context)!.timelineView),
+              title: Text(_displayMode == ListDisplayMode.timeline ? AppLocalizations.of(context).listView : AppLocalizations.of(context).timelineView),
               onTap: () {
                 Navigator.pop(context);
                 if (mounted) { setState(() { _displayMode = _displayMode == ListDisplayMode.timeline ? ListDisplayMode.list : ListDisplayMode.timeline; }); }
@@ -180,7 +180,7 @@ class _GenericHistoryPageState<T extends BaseEntity, S, M> extends ConsumerState
             if (widget.clearAllItems != null)
               ListTile(
                 leading: const Icon(Icons.delete_sweep),
-                title: Text(AppLocalizations.of(context)!.clearAllCallLogs),
+                title: Text(AppLocalizations.of(context).clearAllCallLogs),
                 onTap: () {
                   Navigator.pop(context);
                   _showClearAllDialog();
@@ -196,14 +196,14 @@ class _GenericHistoryPageState<T extends BaseEntity, S, M> extends ConsumerState
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.clearAllCallLogs),
-        content: Text(AppLocalizations.of(context)!.clearAllCallLogsConfirmation),
+        title: Text(AppLocalizations.of(context).clearAllCallLogs),
+        content: Text(AppLocalizations.of(context).clearAllCallLogsConfirmation),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context, false), child: Text(AppLocalizations.of(context)!.cancelButton)),
+          TextButton(onPressed: () => Navigator.pop(context, false), child: Text(AppLocalizations.of(context).cancelButton)),
           TextButton(
             onPressed: () => Navigator.pop(context, true),
             style: TextButton.styleFrom(foregroundColor: Colors.red),
-            child: Text(AppLocalizations.of(context)!.delete),
+            child: Text(AppLocalizations.of(context).delete),
           ),
         ],
       ),
@@ -212,7 +212,7 @@ class _GenericHistoryPageState<T extends BaseEntity, S, M> extends ConsumerState
       await widget.clearAllItems!(ref.read(widget.serviceProvider));
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(AppLocalizations.of(context)!.allCallLogsCleared),
+          content: Text(AppLocalizations.of(context).allCallLogsCleared),
           backgroundColor: Colors.green,
         ));
       }
@@ -235,7 +235,7 @@ class _GenericHistoryPageState<T extends BaseEntity, S, M> extends ConsumerState
       adBuilder: widget.adBuilder,
       emptyText: widget.emptyText,
       emptyIcon: widget.emptyIcon,
-      searchHintText: AppLocalizations.of(context)!.searchHint,
+      searchHintText: AppLocalizations.of(context).searchHint,
       onSearchChanged: (keyword) {
         _searchKeyword = keyword;
         _applyFilters();

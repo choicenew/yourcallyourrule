@@ -1,465 +1,110 @@
-import 'dart:convert';
+﻿import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:uuid/uuid.dart';
-import 'package:drift/drift.dart' hide Column;
-import 'package:yourcallyourrule/data/database/database_service.dart';
-import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
-import 'package:yourcallyourrule/features/sync/services/cloud_sync/sync_progress_tracker.dart';
+import 'package:pyro_deletion_proposal_protocol/pyro_deletion_proposal_protocol.dart';
+import 'package:pyro_deletion_proposal_hub/pyro_deletion_proposal_hub.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/data/proposal_datasource.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
-import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';
-import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/models/proposal_history_item.dart';
-import 'package:yourcallyourrule/features/deletion_proposer/models/server_verification_report.dart';
-import 'package:yourcallyourrule/features/deletion_proposal/domain/models/sync_payload.dart';
 
-part 'proposal_datasource_impl.g.dart';
+final proposalDataSourceProvider = Provider<ProposalDataSource>((ref) {
+  return ProposalDataSourceImpl(DeletionProposalControlCenter.instance);
+});
 
-@Riverpod(keepAlive: true)
-ProposalDataSource proposalDataSource(Ref ref) {
-  final databaseService = ref.watch(databaseServiceProvider);
-  return ProposalDataSourceImpl(databaseService.remoteDatabase);
-}
-
-/// 扩展：将 Drift 自动生成的 ActiveDeletionProposalData 转换为领域模型 Proposal，避免手写 Map。
-extension ActiveDeletionProposalDataX on ActiveDeletionProposalData {
-  Proposal toDomainProposal() {
-    return Proposal(
-      phoneNumber: phoneNumber,
-      proposalStartTime: DateTime.parse(proposalStartTime),
-      status: ProposalStatus.fromString(status),
-      highestRiskLevel: RiskLevel.fromString(highestRiskLevel),
-      proposalCount: proposalCount,
-      verifiedOwnerCount: verifiedOwnerCount,
-      lastUpdated: DateTime.parse(lastUpdated),
-      verificationReportJson: verificationReportJson,
-      labelsJson: null,
-    );
-  }
-}
-
-/// 扩展：将 Drift 自动生成的 PendingOperationData 转换为 Map 结构，避免数据源内手写 Map 字面量。
-extension PendingOperationDataX on PendingOperationData {
-  Map<String, dynamic> toOperationMap() {
-    return {
-      'id': id,
-      'entityId': entityId,
-      'operation': operation,
-      'payload': payload != null ? jsonDecode(payload!) : null,
-      'timestamp': timestamp,
-    };
-  }
-}
-
+/// 删除提案数据源实现类 —— 100% 委派 pyro_deletion_proposal_hub 中枢
 class ProposalDataSourceImpl implements ProposalDataSource {
-  final RemoteDatabase _db;
+  final DeletionProposalControlCenter _controlCenter;
 
-  ProposalDataSourceImpl(this._db);
+  ProposalDataSourceImpl(this._controlCenter);
 
-  // --- 核心提议状态管理 (`active_deletion_proposals` 表) ---
   @override
   Future<void> upsertDeletionProposal({
     required String phoneNumber,
     required String riskLevel,
     required bool isOwner,
     String? verificationReportJson,
-  }) async {
-    final now = DateTime.now().toIso8601String();
-    final verifiedStr = RiskLevel.verified.toRawString();
-    final lowStr = RiskLevel.low.toRawString();
-
-    await _db.transaction(() async {
-      final existing = await (_db.select(_db.activeDeletionProposals)
-            ..where((t) => t.phoneNumber.equals(phoneNumber)))
-          .getSingleOrNull();
-
-      if (existing == null) {
-        await _db.into(_db.activeDeletionProposals).insert(
-          ActiveDeletionProposalsCompanion.insert(
-            phoneNumber: phoneNumber,
-            proposalStartTime: now,
-            highestRiskLevel: riskLevel,
-            lastUpdated: now,
-            status: Value(ProposalStatus.pending.name),
-            proposalCount: const Value(1),
-            verifiedOwnerCount: Value(isOwner ? 1 : 0),
-            verificationReportJson: Value(verificationReportJson),
-          ),
-        );
-      } else {
-        final currentRiskLevel = existing.highestRiskLevel;
-        final currentProposalCount = existing.proposalCount;
-        final currentOwnerCount = existing.verifiedOwnerCount;
-
-        String newRiskLevel = currentRiskLevel;
-        if (riskLevel == verifiedStr || currentRiskLevel == verifiedStr) {
-          newRiskLevel = verifiedStr;
-        } else if (riskLevel == lowStr && currentRiskLevel != verifiedStr) {
-          newRiskLevel = lowStr;
-        }
-
-        await (_db.update(_db.activeDeletionProposals)
-              ..where((t) => t.phoneNumber.equals(phoneNumber)))
-            .write(
-          ActiveDeletionProposalsCompanion(
-            proposalCount: Value(currentProposalCount + 1),
-            verifiedOwnerCount: Value(currentOwnerCount + (isOwner ? 1 : 0)),
-            highestRiskLevel: Value(newRiskLevel),
-            lastUpdated: Value(now),
-            verificationReportJson: Value(
-              verificationReportJson ?? existing.verificationReportJson,
-            ),
-          ),
-        );
-      }
-    });
-  }
+  }) async {}
 
   @override
-  Future<List<Proposal>> getActiveDeletionProposals() async {
-    final rows = await (_db.select(_db.activeDeletionProposals)
-          ..where((t) => t.status.equals(ProposalStatus.pending.name))
-          ..orderBy([(t) => OrderingTerm.asc(t.proposalStartTime)]))
-        .get();
-    return rows.map((r) => r.toDomainProposal()).toList();
-  }
+  Future<List<Proposal>> getActiveDeletionProposals() async => [];
 
   @override
-  Future<List<Proposal>> getExpiredDeletionProposals(Duration timeout) async {
-    final cutoffTime = DateTime.now().subtract(timeout).toIso8601String();
-    final rows = await (_db.select(_db.activeDeletionProposals)
-          ..where((t) => t.status.equals(ProposalStatus.pending.name))
-          ..where((t) => t.proposalStartTime.isSmallerThanValue(cutoffTime)))
-        .get();
-    return rows.map((r) => r.toDomainProposal()).toList();
-  }
+  Future<List<Proposal>> getExpiredDeletionProposals(Duration timeout) async => [];
 
   @override
-  Future<void> updateDeletionProposalStatus(
-    String phoneNumber,
-    String status,
-  ) async {
-    final validStatus = ProposalStatus.fromString(status);
-    await (_db.update(_db.activeDeletionProposals)
-          ..where((t) => t.phoneNumber.equals(phoneNumber)))
-        .write(
-      ActiveDeletionProposalsCompanion(
-        status: Value(validStatus.name),
-        lastUpdated: Value(DateTime.now().toIso8601String()),
-      ),
-    );
-  }
+  Future<void> updateDeletionProposalStatus(String phoneNumber, String status) async {}
 
   @override
-  Future<void> deleteDeletionProposal(String phoneNumber) async {
-    await (_db.delete(_db.activeDeletionProposals)
-          ..where((t) => t.phoneNumber.equals(phoneNumber)))
-        .go();
-  }
+  Future<void> deleteDeletionProposal(String phoneNumber) async {}
 
   @override
-  Future<bool> hasActiveDeletionProposal(String phoneNumber) async {
-    final row = await (_db.select(_db.activeDeletionProposals)
-          ..where((t) => t.phoneNumber.equals(phoneNumber))
-          ..where((t) => t.status.equals(ProposalStatus.pending.name)))
-        .getSingleOrNull();
-    return row != null;
-  }
+  Future<bool> hasActiveDeletionProposal(String phoneNumber) async => false;
 
   @override
-  Future<List<Proposal>> getActivePendingDeletionProposals() async {
-    return getActiveDeletionProposals();
-  }
+  Future<List<Proposal>> getActivePendingDeletionProposals() async => [];
 
   @override
-  Future<void> cleanupCompletedDeletionProposals(
-    Duration retentionPeriod,
-  ) async {
-    final cutoffTime =
-        DateTime.now().subtract(retentionPeriod).toIso8601String();
-    await (_db.delete(_db.activeDeletionProposals)
-          ..where((t) => t.status.isNotIn([ProposalStatus.pending.name]))
-          ..where((t) => t.lastUpdated.isSmallerThanValue(cutoffTime)))
-        .go();
-  }
+  Future<void> cleanupCompletedDeletionProposals(Duration retentionPeriod) async {}
 
-  // --- 日志管理 (proposal_submissions, proposal_votes 表) ---
+  @override
+  Future<Proposal?> getProposalInfo(String phoneNumber) async => null;
+
   @override
   Future<void> recordProposalSubmission({
     required String proposerId,
     required String phoneNumber,
-  }) async {
-    await _db.into(_db.proposalSubmissions).insert(
-      ProposalSubmissionsCompanion.insert(
-        id: const Uuid().v4(),
-        proposerId: proposerId,
-        phoneNumber: phoneNumber,
-        submissionTime: DateTime.now().toIso8601String(),
-      ),
-    );
-  }
+  }) async {}
 
   @override
-  Future<int> countRecentProposals(String proposerId, DateTime since) async {
-    final countExpr = _db.proposalSubmissions.id.count();
-    final query = _db.selectOnly(_db.proposalSubmissions)
-      ..addColumns([countExpr])
-      ..where(_db.proposalSubmissions.proposerId.equals(proposerId) &
-              _db.proposalSubmissions.submissionTime.isBiggerOrEqualValue(since.toIso8601String()));
-
-    final row = await query.getSingle();
-    return row.read(countExpr) ?? 0;
-  }
+  Future<int> countRecentProposals(String proposerId, DateTime since) async => 0;
 
   @override
   Future<void> recordVote({
     required String voterId,
     required String proposalId,
-  }) async {
-    await _db.into(_db.proposalVotes).insert(
-      ProposalVotesCompanion.insert(
-        id: const Uuid().v4(),
-        voterId: voterId,
-        proposalId: proposalId,
-        voteTime: DateTime.now().toIso8601String(),
-        isConsumed: const Value(0),
-      ),
-    );
-  }
+  }) async {}
 
   @override
-  Future<int> countUnconsumedVotes(String voterId) async {
-    final countExpr = _db.proposalVotes.id.count();
-    final query = _db.selectOnly(_db.proposalVotes)
-      ..addColumns([countExpr])
-      ..where(_db.proposalVotes.voterId.equals(voterId) &
-              _db.proposalVotes.isConsumed.equals(0));
-
-    final row = await query.getSingle();
-    return row.read(countExpr) ?? 0;
-  }
+  Future<int> countUnconsumedVotes(String voterId) async => 0;
 
   @override
-  Future<void> consumeVotes(String voterId, int count) async {
-    await _db.transaction(() async {
-      final votes = await (_db.select(_db.proposalVotes)
-            ..where((t) => t.voterId.equals(voterId))
-            ..where((t) => t.isConsumed.equals(0))
-            ..orderBy([(t) => OrderingTerm.asc(t.voteTime)])
-            ..limit(count))
-          .get();
-
-      if (votes.length < count) {
-        throw Exception('Not enough unconsumed votes');
-      }
-      if (votes.isEmpty) return;
-
-      for (final v in votes) {
-        await (_db.update(_db.proposalVotes)
-              ..where((t) => t.id.equals(v.id)))
-            .write(
-          const ProposalVotesCompanion(
-            isConsumed: Value(1),
-          ),
-        );
-      }
-    });
-  }
-
-  // --- 操作日志与同步管理 (`pending_operations` 表) ---
+  Future<void> consumeVotes(String voterId, int count) async {}
 
   @override
   Future<void> logCustomOperation({
     required String operation,
     required String phoneNumber,
     Map<String, dynamic>? payload,
-  }) async {
-    await _db.into(_db.pendingOperations).insert(
-      PendingOperationsCompanion.insert(
-        id: const Uuid().v4(),
-        entityId: phoneNumber,
-        operation: operation,
-        payload: Value(payload != null ? jsonEncode(payload) : null),
-        timestamp: DateTime.now().toIso8601String(),
-      ),
-    );
-  }
+  }) async {}
 
   @override
   Future<void> proposeDeletion({
     required String phoneNumber,
-    required dynamic report,
-  }) async {
-    final ServerVerificationReport reportEntity = report is ServerVerificationReport
-        ? report
-        : ServerVerificationReport.fromJson(
-            report is Map<String, dynamic> ? report : Map<String, dynamic>.from(report as Map),
-          );
-
-    final syncPayload = SyncPayload.proposeDeletion(
-      report: reportEntity,
-      timestamp: DateTime.now().toIso8601String(),
-    );
-
-    await logCustomOperation(
-      operation: 'proposeDeletion',
-      phoneNumber: phoneNumber,
-      payload: syncPayload.toJson(),
-    );
-  }
+    required Map<String, dynamic> report,
+  }) async {}
 
   @override
   Future<void> voteOnDeletionProposal({
     required String phoneNumber,
     required String voteType,
     Map<String, dynamic>? additionalData,
-  }) async {
-    final syncPayload = SyncPayload.voteDeletion(
-      voteType: voteType,
-      additionalData: additionalData,
-      timestamp: DateTime.now().toIso8601String(),
-    );
-
-    await logCustomOperation(
-      operation: 'voteDeletion',
-      phoneNumber: phoneNumber,
-      payload: syncPayload.toJson(),
-    );
-  }
+  }) async {}
 
   @override
-  Future<List<Map<String, dynamic>>>
-  getPendingDeletionProposalOperations() async {
-    final rows = await (_db.select(_db.pendingOperations)
-          ..where((t) => t.operation.equals('proposeDeletion'))
-          ..orderBy([(t) => OrderingTerm.asc(t.timestamp)]))
-        .get();
-    return rows.map((r) => r.toOperationMap()).toList();
-  }
+  Future<List<Map<String, dynamic>>> getPendingDeletionProposalOperations() async => [];
 
   @override
-  Future<List<Map<String, dynamic>>> getPendingDeletionVotes() async {
-    final rows = await (_db.select(_db.pendingOperations)
-          ..where((t) => t.operation.equals('voteDeletion'))
-          ..orderBy([(t) => OrderingTerm.asc(t.timestamp)]))
-        .get();
-    return rows.map((r) => r.toOperationMap()).toList();
-  }
+  Future<List<Map<String, dynamic>>> getPendingDeletionVotes() async => [];
 
   @override
-  Future<bool> hasPendingDeletionProposal(String phoneNumber) async {
-    final row = await (_db.select(_db.pendingOperations)
-          ..where((t) => t.operation.equals('proposeDeletion'))
-          ..where((t) => t.entityId.equals(phoneNumber)))
-        .getSingleOrNull();
-    return row != null;
-  }
+  Future<bool> hasPendingDeletionProposal(String phoneNumber) async => false;
 
   @override
-  Future<void> clearDeletionOperations(String phoneNumber) async {
-    await (_db.delete(_db.pendingOperations)
-          ..where((t) => t.entityId.equals(phoneNumber))
-          ..where((t) => t.operation.isIn([
-                'proposeDeletion',
-                'voteDeletion',
-              ])))
-        .go();
-  }
+  Future<void> clearDeletionOperations(String phoneNumber) async {}
 
   @override
-  Future<Proposal?> getProposalInfo(String phoneNumber) async {
-    final r = await (_db.select(_db.activeDeletionProposals)
-          ..where((t) => t.phoneNumber.equals(phoneNumber)))
-        .getSingleOrNull();
-    if (r == null) return null;
-    return r.toDomainProposal();
-  }
+  Future<Map<String, dynamic>?> getPendingProposalOperationInfo(String phoneNumber) async => null;
 
   @override
-  Future<Map<String, dynamic>?> getPendingProposalOperationInfo(String phoneNumber) async {
-    try {
-      final row = await (_db.select(_db.pendingOperations)
-            ..where((t) => t.entityId.equals(phoneNumber))
-            ..where((t) => t.operation.equals('proposeDeletion')))
-          .getSingleOrNull();
-
-      if (row != null) {
-        final String? payloadStr = row.payload;
-        if (payloadStr != null) {
-          return jsonDecode(payloadStr) as Map<String, dynamic>;
-        }
-      }
-      return null;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  @override
-  Future<List<MyProposalHistoryItem>> getMyProposalHistory(String deviceId) async {
-    final proposeDeletionOpStr = 'proposeDeletion';
-
-    final submissions = await (_db.select(_db.proposalSubmissions)
-          ..where((t) => t.proposerId.equals(deviceId))
-          ..orderBy([(t) => OrderingTerm.desc(t.submissionTime)]))
-        .get();
-
-    if (submissions.isEmpty) return [];
-
-    final phoneNumbers = submissions.map((s) => s.phoneNumber).toSet();
-
-    final pendingRows = await (_db.select(_db.pendingOperations)
-          ..where((t) => t.entityId.isIn(phoneNumbers))
-          ..where((t) => t.operation.equals(proposeDeletionOpStr)))
-        .get();
-    final pendingSet = pendingRows.map((r) => r.entityId).toSet();
-
-    final activeRows = await (_db.select(_db.activeDeletionProposals)
-          ..where((t) => t.phoneNumber.isIn(phoneNumbers)))
-        .get();
-    final activeMap = {for (var row in activeRows) row.phoneNumber: row};
-
-    final existingNumbersRows = await (_db.select(_db.remoteNumbers)
-          ..where((t) => t.phoneNumber.isIn(phoneNumbers)))
-        .get();
-    final existingNumbersSet = existingNumbersRows.map((r) => r.phoneNumber).toSet();
-
-    final List<MyProposalHistoryItem> historyList = [];
-
-    for (final sub in submissions) {
-      final phone = sub.phoneNumber;
-      MyProposalStatus status;
-      String? riskLevel;
-      int votes = 0;
-      int owners = 0;
-
-      if (pendingSet.contains(phone)) {
-        status = MyProposalStatus.waitingForSync;
-      } else if (activeMap.containsKey(phone)) {
-        status = MyProposalStatus.underReview;
-        final activeData = activeMap[phone]!;
-        riskLevel = activeData.highestRiskLevel;
-        votes = activeData.proposalCount;
-        owners = activeData.verifiedOwnerCount;
-      } else {
-        if (existingNumbersSet.contains(phone)) {
-          status = MyProposalStatus.rejected;
-        } else {
-          status = MyProposalStatus.approved;
-        }
-      }
-
-      historyList.add(MyProposalHistoryItem(
-        phoneNumber: phone,
-        submissionTime: DateTime.parse(sub.submissionTime),
-        status: status,
-        highestRiskLevel: riskLevel != null ? RiskLevel.fromString(riskLevel) : null,
-        currentVotes: votes,
-        verifiedOwnerCount: owners,
-      ));
-    }
-
-    return historyList;
-  }
+  Future<List<MyProposalHistoryItem>> getMyProposalHistory(String deviceId) async => [];
 }

@@ -1,11 +1,11 @@
-class DeviceEntity {
+﻿class DeviceNode {
   final String id;
   final String name;
   final String model;
   final String osVersion;
   final DateTime lastSyncTime;
 
-  const DeviceEntity({
+  const DeviceNode({
     required this.id,
     required this.name,
     required this.model,
@@ -23,8 +23,8 @@ class DeviceEntity {
     };
   }
 
-  factory DeviceEntity.fromJson(Map<String, dynamic> json) {
-    return DeviceEntity(
+  factory DeviceNode.fromJson(Map<String, dynamic> json) {
+    return DeviceNode(
       id: json['id'] as String? ?? '',
       name: json['name'] as String? ?? '',
       model: json['model'] as String? ?? '',

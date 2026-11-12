@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -103,7 +103,7 @@ Please generate a valid JSON array of regex rules according to my request.
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: Text(AppLocalizations.of(context)!.closeButton),
+          child: Text(AppLocalizations.of(context).closeButton),
         ),
         FilledButton.icon(
           onPressed: () {

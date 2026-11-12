@@ -1,0 +1,81 @@
+import 'dart:async';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:pyro_cloud_drive_hub/pyro_cloud_drive_hub.dart';
+import 'package:pyro_user_database_hub/pyro_user_database_hub.dart';
+import 'package:pyro_central_database_hub/pyro_central_database_hub.dart';
+import 'package:pyro_sync_hub/pyro_sync_hub.dart';
+
+import 'app_coordinator.dart';
+
+final appHubExchangeConnectorProvider = Provider<AppHubExchangeConnector>((ref) {
+  final coordinator = ref.watch(appCoordinatorProvider);
+  return AppHubExchangeConnector(ref, coordinator)..initializeConnectorBridge();
+});
+
+/// 应用微包中枢全量数据流转与协同连接器 (AppHubExchangeConnector)
+/// 负责在主 App 中交换调和 @clouddrive, @device, @user_database (Local), @database (Remote Central), @sim_slot_rules, @sync
+class AppHubExchangeConnector {
+  final Ref ref;
+  final AppCoordinator _coordinator;
+
+  AppHubExchangeConnector(this.ref, this._coordinator);
+
+  /// 初始化全量中枢交织桥接管道
+  void initializeConnectorBridge() {
+    debugPrint('[AppHubExchangeConnector] Wiring Exchange Bridge: Local User DB <-> Remote Central DB <-> CloudDrive <-> Device Hub <-> SIM Rules <-> SyncHub');
+
+    // 1. 云盘上下文配置 (CloudDrive Context)
+    CloudDriveHub.instance.configureHostContext(appName: 'YourCallYourRule');
+
+    // 2. 本地用户数据库 (Local User Database) 初始化
+    UserDatabaseHub.instance;
+
+    // 3. 远程中央数据库 (Remote Central Database) 初始化
+    CentralDatabaseHub.instance;
+
+    // 4. 设备节点变动通知 (Device Node Changes) -> 同步至 CloudDrive 上下文
+    _coordinator.on('device_node_updated', (payload) {
+      final deviceId = payload['deviceId'] as String?;
+      debugPrint('[Connector] Device node updated: $deviceId -> CloudDrive Context updated');
+      CloudDriveHub.instance.updateActiveAccount(deviceId);
+    });
+
+    // 5. 本地数据 CDC 变更 (Local User DB CDC Event)
+    _coordinator.on('local_user_data_changed', (payload) {
+      debugPrint('[Connector] Local User Database changed, notifying SyncHub...');
+      _coordinator.emit('trigger_incremental_sync');
+    });
+
+    // 6. 远程中央数据库拉取事件 (Remote Central DB Update Event)
+    _coordinator.on('remote_central_db_update', (payload) async {
+      final countryIsoCode = payload['countryIsoCode'] as String? ?? '';
+      debugPrint('[Connector] Remote Central DB update triggered for country: $countryIsoCode');
+    });
+
+    // 7. 触发全量增量 CDC 变更管道 (CDC Sync Event)
+    _coordinator.on('trigger_incremental_sync', (payload) async {
+      final moduleIds = SyncHub.instance.registeredModuleIds;
+      for (final moduleId in moduleIds) {
+        final adapter = SyncHub.instance.getAdapter(moduleId);
+        if (adapter != null) {
+          final items = await adapter.readAll();
+          debugPrint('[Connector] Incremental sync executed for module $moduleId (${items.length} items)');
+        }
+      }
+    });
+  }
+
+  /// 广播执行本地个人库 (Local User DB) 与 远程中央库 (Remote Central DB) 双流同步
+  Future<bool> triggerFullSystemSync() async {
+    try {
+      _coordinator.emit('trigger_incremental_sync');
+      _coordinator.emit('remote_central_db_update');
+      return true;
+    } catch (e) {
+      debugPrint('[Connector] System sync error: $e');
+      return false;
+    }
+  }
+}

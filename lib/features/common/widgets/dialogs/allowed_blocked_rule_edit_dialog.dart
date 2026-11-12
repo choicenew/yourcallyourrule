@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/phone_rules/services/allowed_blocked_service.dart';
@@ -66,7 +66,7 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
     if (_nameController.text.isEmpty || _phoneController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context)!.ruleNameAndPhoneNumberCannotBeEmpty),
+          content: Text(AppLocalizations.of(context).ruleNameAndPhoneNumberCannotBeEmpty),
           backgroundColor: Theme.of(context).colorScheme.error,
         ),
       );
@@ -96,7 +96,7 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
         Navigator.pop(context);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context)!.ruleUpdateSuccess),
+            content: Text(AppLocalizations.of(context).ruleUpdateSuccess),
             backgroundColor: Theme.of(context).colorScheme.primary,
           ),
         );
@@ -105,7 +105,7 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context)!.updateRuleFailed(e.toString())),
+            content: Text(AppLocalizations.of(context).updateRuleFailed(e.toString())),
             backgroundColor: Theme.of(context).colorScheme.error,
           ),
         );
@@ -128,7 +128,7 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.0),
       ),
-      title: Text(AppLocalizations.of(context)!.allowedBlockedRuleEditDialogTitle),
+      title: Text(AppLocalizations.of(context).allowedBlockedRuleEditDialogTitle),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -137,8 +137,8 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
             TextField(
               controller: _nameController,
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.ruleName,
-                hintText: AppLocalizations.of(context)!.exampleFamilyFriends,
+                labelText: AppLocalizations.of(context).ruleName,
+                hintText: AppLocalizations.of(context).exampleFamilyFriends,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
@@ -148,8 +148,8 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
             TextField(
               controller: _phoneController,
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.phoneNumber,
-                hintText: AppLocalizations.of(context)!.examplePhoneNumber,
+                labelText: AppLocalizations.of(context).phoneNumber,
+                hintText: AppLocalizations.of(context).examplePhoneNumber,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
@@ -183,13 +183,13 @@ class _AllowedBlockedRuleEditDialogState extends ConsumerState<AllowedBlockedRul
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: Text(AppLocalizations.of(context)!.cancelButton),
+          child: Text(AppLocalizations.of(context).cancelButton),
         ),
         _isProcessing
             ? const CircularProgressIndicator()
             : TextButton(
                 onPressed: _saveRule,
-                child: Text(AppLocalizations.of(context)!.save),
+                child: Text(AppLocalizations.of(context).save),
               ),
       ],
     );

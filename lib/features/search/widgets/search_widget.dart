@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -53,7 +53,7 @@ class _SearchWidgetState extends ConsumerState<SearchWidget> {
                 child: TextField(
                   controller: _searchController,
                   decoration: InputDecoration(
-                    hintText: AppLocalizations.of(context)!.search,
+                    hintText: AppLocalizations.of(context).search,
                     prefixIcon: const Icon(Icons.search),
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
                     contentPadding: const EdgeInsets.symmetric(horizontal: 16),
@@ -93,7 +93,7 @@ class _SearchWidgetState extends ConsumerState<SearchWidget> {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                   padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                 ),
-                child: Text(AppLocalizations.of(context)!.search),
+                child: Text(AppLocalizations.of(context).search),
               ),
             ],
           ),

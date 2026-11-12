@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/provider/time_interceptor_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -28,8 +28,8 @@ class TimeInterceptorSettingsWidget extends ConsumerWidget {
     return Column(
       children: [
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.enableTimeInterceptor),
-          subtitle: Text(AppLocalizations.of(context)!.timeInterceptorDescription),
+          title: Text(AppLocalizations.of(context).enableTimeInterceptor),
+          subtitle: Text(AppLocalizations.of(context).timeInterceptorDescription),
           value: config.shouldIntercept,
           onChanged: (isEnabled) {
             notifier.updateShouldIntercept(isEnabled);

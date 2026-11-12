@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sim_reader/sim_reader.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/provider/time_interceptor_provider.dart';
-import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provider.dart';
+import 'package:yourcallyourrule/features/device/provider/sim_info_provider.dart';
 import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -61,7 +61,7 @@ class _FilterControlWidgetState extends ConsumerState<FilterControlWidget> {
       if (state.hasError) {
         return Center(child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Text(AppLocalizations.of(context)!.dataLoadFailure(state.error.toString())),
+          child: Text(AppLocalizations.of(context).dataLoadFailure(state.error.toString())),
         ));
       }
     }
@@ -74,7 +74,7 @@ class _FilterControlWidgetState extends ConsumerState<FilterControlWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSectionTitle(AppLocalizations.of(context)!.filterControlPanelTitle),
+        _buildSectionTitle(AppLocalizations.of(context).filterControlPanelTitle),
         const SizedBox(height: 16),
         if (supportSimSlotConfig) _buildSimSlotSelector(availableSimSlots),
         const SizedBox(height: 16),
@@ -100,7 +100,7 @@ class _FilterControlWidgetState extends ConsumerState<FilterControlWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              AppLocalizations.of(context)!.configureSimCardFilterRules,
+              AppLocalizations.of(context).configureSimCardFilterRules,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 16),
@@ -111,12 +111,12 @@ class _FilterControlWidgetState extends ConsumerState<FilterControlWidget> {
               items: [
                 DropdownMenuItem<int>(
                   value: -1,
-                  child: Text(AppLocalizations.of(context)!.globalSettings),
+                  child: Text(AppLocalizations.of(context).globalSettings),
                 ),
                 ...availableSimSlots
                     .map((simInfo) => DropdownMenuItem<int>(
                           value: simInfo.simSlotIndex,
-                          child: Text(simInfo.carrierName ?? AppLocalizations.of(context)!.unassignedSIMCard),
+                          child: Text(simInfo.carrierName ?? AppLocalizations.of(context).unassignedSIMCard),
                         ))
                     .toList(),
               ],
@@ -151,60 +151,60 @@ class _FilterControlWidgetState extends ConsumerState<FilterControlWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSubSectionTitle(AppLocalizations.of(context)!.basicRuleFiltering),
+        _buildSubSectionTitle(AppLocalizations.of(context).basicRuleFiltering),
         // [注释]: 这是一个完整的、无删减的列表。
         // [注释]: onChanged 回调直接调用 notifier 的方法来更新状态。
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.rejectAllCalls),
-          subtitle: Text(AppLocalizations.of(context)!.rejectAllCallsDescription),
+          title: Text(AppLocalizations.of(context).rejectAllCalls),
+          subtitle: Text(AppLocalizations.of(context).rejectAllCallsDescription),
           value: config.rejectAllNumbers,
           onChanged: (value) => notifier.updateConfig(config.copyWith(rejectAllNumbers: value)),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowAllowedNumbers),
-          subtitle: Text(AppLocalizations.of(context)!.allowAllowedNumbersDesc),
+          title: Text(AppLocalizations.of(context).allowAllowedNumbers),
+          subtitle: Text(AppLocalizations.of(context).allowAllowedNumbersDesc),
           value: config.allowAllAllowedNumbers,
           onChanged: (value) => notifier.updateConfig(config.copyWith(allowAllAllowedNumbers: value)),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowRegexAllowRules),
-          subtitle: Text(AppLocalizations.of(context)!.allowRegexAllowRulesDescription),
+          title: Text(AppLocalizations.of(context).allowRegexAllowRules),
+          subtitle: Text(AppLocalizations.of(context).allowRegexAllowRulesDescription),
           value: config.allowRegexAllowRules,
           onChanged: (value) => notifier.updateConfig(config.copyWith(allowRegexAllowRules: value)),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowBlockedNumbers),
-          subtitle: Text(AppLocalizations.of(context)!.allowBlockedNumbersDesc),
+          title: Text(AppLocalizations.of(context).allowBlockedNumbers),
+          subtitle: Text(AppLocalizations.of(context).allowBlockedNumbersDesc),
           value: config.allowBlockedNumbers,
           onChanged: (value) => notifier.updateConfig(config.copyWith(allowBlockedNumbers: value)),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowAllAllowRules),
-          subtitle: Text(AppLocalizations.of(context)!.allowAllAllowRulesDesc),
+          title: Text(AppLocalizations.of(context).allowAllAllowRules),
+          subtitle: Text(AppLocalizations.of(context).allowAllAllowRulesDesc),
           value: config.allowAllAllowRules,
           onChanged: (value) => notifier.updateConfig(config.copyWith(allowAllAllowRules: value)),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowRegexBlockRules),
-          subtitle: Text(AppLocalizations.of(context)!.allowRegexBlockRulesDescription),
+          title: Text(AppLocalizations.of(context).allowRegexBlockRules),
+          subtitle: Text(AppLocalizations.of(context).allowRegexBlockRulesDescription),
           value: config.allowRegexBlockRules,
           onChanged: (value) => notifier.updateConfig(config.copyWith(allowRegexBlockRules: value)),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowAllBlockRules),
-          subtitle: Text(AppLocalizations.of(context)!.allowAllBlockRulesDesc),
+          title: Text(AppLocalizations.of(context).allowAllBlockRules),
+          subtitle: Text(AppLocalizations.of(context).allowAllBlockRulesDesc),
           value: config.allowAllBlockRules,
           onChanged: (value) => notifier.updateConfig(config.copyWith(allowAllBlockRules: value)),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.enableMuteRules),
-          subtitle: Text(AppLocalizations.of(context)!.enableMuteRulesDesc),
+          title: Text(AppLocalizations.of(context).enableMuteRules),
+          subtitle: Text(AppLocalizations.of(context).enableMuteRulesDesc),
           value: config.allowSilenceRules,
           onChanged: (value) => notifier.updateConfig(config.copyWith(allowSilenceRules: value)),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.enableNoneActionRules),
-          subtitle: Text(AppLocalizations.of(context)!.enableNoneActionRulesDesc),
+          title: Text(AppLocalizations.of(context).enableNoneActionRules),
+          subtitle: Text(AppLocalizations.of(context).enableNoneActionRulesDesc),
           value: config.allowNoneRules,
           onChanged: (value) => notifier.updateConfig(config.copyWith(allowNoneRules: value)),
         ),
@@ -221,10 +221,10 @@ class _FilterControlWidgetState extends ConsumerState<FilterControlWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSubSectionTitle(AppLocalizations.of(context)!.localCountFiltering),
+        _buildSubSectionTitle(AppLocalizations.of(context).localCountFiltering),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.enableLocalCountFilter),
-          subtitle: Text(AppLocalizations.of(context)!.enableLocalCountFilterDescription),
+          title: Text(AppLocalizations.of(context).enableLocalCountFilter),
+          subtitle: Text(AppLocalizations.of(context).enableLocalCountFilterDescription),
           value: config.enableLocalCountFilter,
           onChanged: (value) {
             notifier.updateConfig(config.copyWith(enableLocalCountFilter: value));
@@ -237,14 +237,14 @@ class _FilterControlWidgetState extends ConsumerState<FilterControlWidget> {
           },
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.rejectExceededNumbers),
-          subtitle: Text(AppLocalizations.of(context)!.rejectExceededNumbersDescription),
+          title: Text(AppLocalizations.of(context).rejectExceededNumbers),
+          subtitle: Text(AppLocalizations.of(context).rejectExceededNumbersDescription),
           value: config.rejectExceededNumbers,
           onChanged: (value) => notifier.updateConfig(config.copyWith(rejectExceededNumbers: value)),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.allowNonExceededNumbers),
-          subtitle: Text(AppLocalizations.of(context)!.allowNonExceededNumbersDescription),
+          title: Text(AppLocalizations.of(context).allowNonExceededNumbers),
+          subtitle: Text(AppLocalizations.of(context).allowNonExceededNumbersDescription),
           value: config.allowNonExceededNumbers,
           onChanged: (value) => notifier.updateConfig(config.copyWith(allowNonExceededNumbers: value)),
         ),
@@ -261,10 +261,10 @@ class _FilterControlWidgetState extends ConsumerState<FilterControlWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSubSectionTitle(AppLocalizations.of(context)!.remoteNumberFiltering),
+        _buildSubSectionTitle(AppLocalizations.of(context).remoteNumberFiltering),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.enableRemoteNumberFilter),
-          subtitle: Text(AppLocalizations.of(context)!.enableRemoteNumberFilterDescription),
+          title: Text(AppLocalizations.of(context).enableRemoteNumberFilter),
+          subtitle: Text(AppLocalizations.of(context).enableRemoteNumberFilterDescription),
           value: config.enableRemoteNumberFilter,
           onChanged: (value) {
             notifier.updateConfig(config.copyWith(enableRemoteNumberFilter: value));
@@ -276,14 +276,14 @@ class _FilterControlWidgetState extends ConsumerState<FilterControlWidget> {
           },
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.rejectExceededNumbers),
-          subtitle: Text(AppLocalizations.of(context)!.rejectExceededNumbersDescription),
+          title: Text(AppLocalizations.of(context).rejectExceededNumbers),
+          subtitle: Text(AppLocalizations.of(context).rejectExceededNumbersDescription),
           value: config.rejectExceededNumbers,
           onChanged: (value) => notifier.updateConfig(config.copyWith(rejectExceededNumbers: value)),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.prioritizeRemoteAction),
-          subtitle: Text(AppLocalizations.of(context)!.prioritizeRemoteActionDescription),
+          title: Text(AppLocalizations.of(context).prioritizeRemoteAction),
+          subtitle: Text(AppLocalizations.of(context).prioritizeRemoteActionDescription),
           value: config.prioritizeRemoteAction,
           onChanged: (value) => notifier.updateConfig(config.copyWith(prioritizeRemoteAction: value)),
         ),
@@ -299,10 +299,10 @@ class _FilterControlWidgetState extends ConsumerState<FilterControlWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSubSectionTitle(AppLocalizations.of(context)!.timeInterceptor),
+        _buildSubSectionTitle(AppLocalizations.of(context).timeInterceptor),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.enableTimeInterception),
-          subtitle: Text(AppLocalizations.of(context)!.enableTimeInterceptionDescription),
+          title: Text(AppLocalizations.of(context).enableTimeInterception),
+          subtitle: Text(AppLocalizations.of(context).enableTimeInterceptionDescription),
           value: config.shouldIntercept,
           onChanged: (value) => notifier.updateShouldIntercept(value),
         ),
@@ -310,8 +310,8 @@ class _FilterControlWidgetState extends ConsumerState<FilterControlWidget> {
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: Row(
             children: [
-              Text('${AppLocalizations.of(context)!.interceptionTimeInterval}: '),
-              Text('${config.duration.inMinutes} ${AppLocalizations.of(context)!.minutes}'),
+              Text('${AppLocalizations.of(context).interceptionTimeInterval}: '),
+              Text('${config.duration.inMinutes} ${AppLocalizations.of(context).minutes}'),
             ],
           ),
         ),
@@ -320,7 +320,7 @@ class _FilterControlWidgetState extends ConsumerState<FilterControlWidget> {
           min: 5,
           max: 60,
           divisions: 11,
-          label: '${config.duration.inMinutes} ${AppLocalizations.of(context)!.minutes}',
+          label: '${config.duration.inMinutes} ${AppLocalizations.of(context).minutes}',
           onChanged: (value) => notifier.updateDuration(value.round()),
         ),
       ],
@@ -342,15 +342,15 @@ class _FilterControlWidgetState extends ConsumerState<FilterControlWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(AppLocalizations.of(context)!.filterExplanation, style: const TextStyle(fontWeight: FontWeight.bold)),
+            Text(AppLocalizations.of(context).filterExplanation, style: const TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
-            Text(AppLocalizations.of(context)!.basicRuleFilteringExplanation),
-            Text(AppLocalizations.of(context)!.localCountFilteringExplanation),
-            Text(AppLocalizations.of(context)!.remoteNumberFilteringExplanation),
-            Text(AppLocalizations.of(context)!.timeInterceptorExplanation),
-            if (supportSimSlotConfig) Text(AppLocalizations.of(context)!.simCardConfigurationExplanation),
+            Text(AppLocalizations.of(context).basicRuleFilteringExplanation),
+            Text(AppLocalizations.of(context).localCountFilteringExplanation),
+            Text(AppLocalizations.of(context).remoteNumberFilteringExplanation),
+            Text(AppLocalizations.of(context).timeInterceptorExplanation),
+            if (supportSimSlotConfig) Text(AppLocalizations.of(context).simCardConfigurationExplanation),
             const SizedBox(height: 8),
-            Text(AppLocalizations.of(context)!.filterPriorityNote),
+            Text(AppLocalizations.of(context).filterPriorityNote),
           ],
         ),
       ),

@@ -1,7 +1,7 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+﻿import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/sms/domain/sms_regex_rule.dart';
 import 'package:yourcallyourrule/features/sms/repositories/sms_subscription_repository.dart';
+import 'package:yourcallyourrule/features/sms/data/repositories/sms_subscription_repository_impl.dart';
 
 part 'sms_service.g.dart';
 

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call/call_filter/presentation/widgets/call_filter_settings_widget.dart';
 import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
@@ -17,7 +17,7 @@ class CallFilterSettingsPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.callFilterSettings),
+        title: Text(AppLocalizations.of(context).callFilterSettings),
         actions: [
           // [注释]: 当配置正在后台更新时 (isReloading)，显示一个加载指示器。
           if (configAsync.isReloading)

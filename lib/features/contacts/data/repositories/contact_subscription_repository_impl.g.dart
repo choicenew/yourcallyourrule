@@ -8,13 +8,13 @@ part of 'contact_subscription_repository_impl.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 联系人订阅仓库提供者 (直连 Drift LocalDatabase)
+/// 鑱旂郴浜鸿闃呬粨搴撴彁渚涜€?(鐩磋繛 Drift LocalDatabase)
 
 @ProviderFor(contactSubscriptionRepository)
 final contactSubscriptionRepositoryProvider =
     ContactSubscriptionRepositoryProvider._();
 
-/// 联系人订阅仓库提供者 (直连 Drift LocalDatabase)
+/// 鑱旂郴浜鸿闃呬粨搴撴彁渚涜€?(鐩磋繛 Drift LocalDatabase)
 
 final class ContactSubscriptionRepositoryProvider
     extends
@@ -24,7 +24,7 @@ final class ContactSubscriptionRepositoryProvider
           ContactSubscriptionRepository
         >
     with $Provider<ContactSubscriptionRepository> {
-  /// 联系人订阅仓库提供者 (直连 Drift LocalDatabase)
+  /// 鑱旂郴浜鸿闃呬粨搴撴彁渚涜€?(鐩磋繛 Drift LocalDatabase)
   ContactSubscriptionRepositoryProvider._()
     : super(
         from: null,

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/language/language_data.dart';
@@ -24,7 +24,7 @@ class _LanguageSettingsPageState extends ConsumerState<LanguageSettingsPage> {
       backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
-          AppLocalizations.of(context)!.languageSettings,
+          AppLocalizations.of(context).languageSettings,
           style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: theme.colorScheme.onSurface),
         ),
         backgroundColor: Colors.transparent,
@@ -39,7 +39,7 @@ class _LanguageSettingsPageState extends ConsumerState<LanguageSettingsPage> {
           IconButton(
             icon: Icon(Icons.check_circle_rounded, color: theme.colorScheme.primary, size: 22),
             onPressed: () => Navigator.of(context).pop(),
-            tooltip: AppLocalizations.of(context)!.save,
+            tooltip: AppLocalizations.of(context).save,
           ),
         ],
       ),

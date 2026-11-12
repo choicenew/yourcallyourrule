@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
-import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart' hide PredefinedLabel;
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/common/widgets/dialogs/label_edit_dialog.dart'; 
@@ -55,7 +55,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
     } catch (e) {
       if (mounted) {
         setState(() => _isLoading = false);
-        _showErrorSnackBar(AppLocalizations.of(context)!.loadLabelsFailed(e.toString()));
+        _showErrorSnackBar(AppLocalizations.of(context).loadLabelsFailed(e.toString()));
       }
     }
   }
@@ -83,17 +83,17 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
   Future<void> _deleteLabel(LabelPhoneEntry label) async {
     final displayName = label.name.isNotEmpty ? label.name : label.phoneNumber;
     final confirmed = await _showConfirmationDialog(
-      title: AppLocalizations.of(context)!.deleteLabel,
-      content: AppLocalizations.of(context)!.confirmDeleteLabel(displayName),
+      title: AppLocalizations.of(context).deleteLabel,
+      content: AppLocalizations.of(context).confirmDeleteLabel(displayName),
     );
 
     if (confirmed == true) {
       try {
         await ref.read(labelServiceProvider).removeLabel(label.id);
-        _showSuccessSnackBar(AppLocalizations.of(context)!.labelDeleted);
+        _showSuccessSnackBar(AppLocalizations.of(context).labelDeleted);
         await _loadLabels();
       } catch (e) {
-        _showErrorSnackBar(AppLocalizations.of(context)!.deleteLabelFailed(e.toString()));
+        _showErrorSnackBar(AppLocalizations.of(context).deleteLabelFailed(e.toString()));
       }
     }
   }
@@ -102,8 +102,8 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
     if (_selectedLabelIds.isEmpty) return;
 
     final confirmed = await _showConfirmationDialog(
-      title: AppLocalizations.of(context)!.bulkDeleteLabels,
-      content: AppLocalizations.of(context)!.batchDeleteLabelsConfirm(_selectedLabelIds.length),
+      title: AppLocalizations.of(context).bulkDeleteLabels,
+      content: AppLocalizations.of(context).batchDeleteLabelsConfirm(_selectedLabelIds.length),
     );
     
     if (confirmed != true) return;
@@ -117,21 +117,21 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
       }
       if(mounted){
           setState(() => _selectedLabelIds.clear());
-          _showSuccessSnackBar(AppLocalizations.of(context)!.labelsDeleted(count));
+          _showSuccessSnackBar(AppLocalizations.of(context).labelsDeleted(count));
           await _loadLabels();
       }
     } catch (e) {
-      _showErrorSnackBar('${AppLocalizations.of(context)!.bulkDelete}: $e');
+      _showErrorSnackBar('${AppLocalizations.of(context).bulkDelete}: $e');
     }
   }
 
   Future<void> _importLabels() async {
     try {
       final success = await ref.read(labelServiceProvider).importLabelsFromFile('labels.json');
-      _showSuccessSnackBar(AppLocalizations.of(context)!.labelsImportedSuccessfully(success ? 1 : 0));
+      _showSuccessSnackBar(AppLocalizations.of(context).labelsImportedSuccessfully(success ? 1 : 0));
       await _loadLabels();
     } catch (e) {
-      _showErrorSnackBar(AppLocalizations.of(context)!.importLabelsFailed(e.toString()));
+      _showErrorSnackBar(AppLocalizations.of(context).importLabelsFailed(e.toString()));
     }
   }
 
@@ -139,12 +139,12 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
     try {
       final resultPath = await ref.read(labelServiceProvider).exportLabelsToFile('labels.json');
       if (resultPath != null && resultPath.isNotEmpty) {
-        _showSuccessSnackBar(AppLocalizations.of(context)!.labelsExportedSuccessfully);
+        _showSuccessSnackBar(AppLocalizations.of(context).labelsExportedSuccessfully);
       } else {
-        throw Exception(AppLocalizations.of(context)!.exportFailed);
+        throw Exception(AppLocalizations.of(context).exportFailed);
       }
     } catch (e) {
-      _showErrorSnackBar(AppLocalizations.of(context)!.exportLabelsFailed(e.toString()));
+      _showErrorSnackBar(AppLocalizations.of(context).exportLabelsFailed(e.toString()));
     }
   }
 
@@ -159,7 +159,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.addLabel),
+        title: Text(AppLocalizations.of(context).addLabel),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -172,8 +172,8 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
               TextField(
                 controller: phoneController,
                 decoration: InputDecoration(
-                  labelText: AppLocalizations.of(context)!.phoneNumber,
-                  hintText: AppLocalizations.of(context)!.enterPhoneNumber,
+                  labelText: AppLocalizations.of(context).phoneNumber,
+                  hintText: AppLocalizations.of(context).enterPhoneNumber,
                 ),
                 keyboardType: TextInputType.phone,
               ),
@@ -181,27 +181,27 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
               TextField(
                 controller: nameController,
                 decoration: InputDecoration(
-                  labelText: AppLocalizations.of(context)!.addName,
-                  hintText: AppLocalizations.of(context)!.nameCannotBeEmpty,
+                  labelText: AppLocalizations.of(context).addName,
+                  hintText: AppLocalizations.of(context).nameCannotBeEmpty,
                 ),
               ),
               const SizedBox(height: 16),
               TextField(
                 controller: iconController,
                 decoration: InputDecoration(
-                  labelText: AppLocalizations.of(context)!.iconCodeOptional,
-                  hintText: AppLocalizations.of(context)!.enterIconCode,
+                  labelText: AppLocalizations.of(context).iconCodeOptional,
+                  hintText: AppLocalizations.of(context).enterIconCode,
                 ),
               ),
             ],
           ),
         ),
         actions: [
-          TextButton(onPressed: () => Navigator.of(context).pop(), child: Text(AppLocalizations.of(context)!.cancelButton)),
+          TextButton(onPressed: () => Navigator.of(context).pop(), child: Text(AppLocalizations.of(context).cancelButton)),
           TextButton(
             onPressed: () async {
               if (selectedLabelId == null || phoneController.text.trim().isEmpty) {
-                _showErrorSnackBar(AppLocalizations.of(context)!.selectLabelAndEnterPhoneNumber);
+                _showErrorSnackBar(AppLocalizations.of(context).selectLabelAndEnterPhoneNumber);
                 return;
               }
               try {
@@ -216,14 +216,14 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
                 await ref.read(labelServiceProvider).addLabel(label);
                 
                 final labelText = await ref.read(predefinedLabelServiceProvider).getLabelById(selectedLabelId!);
-                _showSuccessSnackBar(AppLocalizations.of(context)!.labelAddedSuccessfully(labelText?.text ?? selectedLabelId!));
+                _showSuccessSnackBar(AppLocalizations.of(context).labelAddedSuccessfully(labelText?.text ?? selectedLabelId!));
                 Navigator.of(context).pop();
                 await _loadLabels();
               } catch (e) {
-                _showErrorSnackBar(AppLocalizations.of(context)!.addLabelFailed(e.toString()));
+                _showErrorSnackBar(AppLocalizations.of(context).addLabelFailed(e.toString()));
               }
             },
-            child: Text(AppLocalizations.of(context)!.add),
+            child: Text(AppLocalizations.of(context).add),
           ),
         ],
       ),
@@ -247,7 +247,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
         children: [
           ListTile(
             leading: const Icon(Icons.file_download),
-            title: Text(AppLocalizations.of(context)!.importLabels),
+            title: Text(AppLocalizations.of(context).importLabels),
             onTap: () {
               Navigator.pop(context);
               _importLabels();
@@ -255,7 +255,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
           ),
           ListTile(
             leading: const Icon(Icons.file_upload),
-            title: Text(AppLocalizations.of(context)!.exportLabels),
+            title: Text(AppLocalizations.of(context).exportLabels),
             onTap: () {
               Navigator.pop(context);
               _exportLabels();
@@ -273,8 +273,8 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
         title: Text(title),
         content: Text(content),
         actions: [
-          TextButton(onPressed: () => Navigator.of(context).pop(false), child: Text(AppLocalizations.of(context)!.cancelButton)),
-          TextButton(onPressed: () => Navigator.of(context).pop(true), child: Text(AppLocalizations.of(context)!.deleteButton, style: const TextStyle(color: Colors.red))),
+          TextButton(onPressed: () => Navigator.of(context).pop(false), child: Text(AppLocalizations.of(context).cancelButton)),
+          TextButton(onPressed: () => Navigator.of(context).pop(true), child: Text(AppLocalizations.of(context).deleteButton, style: const TextStyle(color: Colors.red))),
         ],
       ),
     );
@@ -370,12 +370,12 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
           IconButton(
             icon: const Icon(Icons.edit_rounded, color: Color(0xFF2D9CDB), size: 20),
             onPressed: () => _showEditLabelDialog(label),
-            tooltip: AppLocalizations.of(context)!.edit,
+            tooltip: AppLocalizations.of(context).edit,
           ),
           IconButton(
             icon: const Icon(Icons.delete_outline_rounded, color: Colors.redAccent, size: 20),
             onPressed: () => _deleteLabel(label),
-            tooltip: AppLocalizations.of(context)!.deleteButton,
+            tooltip: AppLocalizations.of(context).deleteButton,
           ),
         ],
       ),
@@ -404,7 +404,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(AppLocalizations.of(context)!.labelCategories, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w900, color: Colors.black87)),
+          Text(AppLocalizations.of(context).labelCategories, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w900, color: Colors.black87)),
           const SizedBox(height: 12),
           SizedBox(
             height: 38,
@@ -499,7 +499,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.aboutLabels,
+                  AppLocalizations.of(context).aboutLabels,
                   style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w800,
@@ -508,7 +508,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  AppLocalizations.of(context)!.labelDescription,
+                  AppLocalizations.of(context).labelDescription,
                   style: const TextStyle(
                     fontSize: 12.5,
                     color: Colors.black87,
@@ -525,16 +525,16 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
   
   Widget _buildGenericListPage() {
     return GenericListWithAdsPage<LabelPhoneEntry>(
-      title: AppLocalizations.of(context)!.labelManagement,
+      title: AppLocalizations.of(context).labelManagement,
       items: _labels,
       itemBuilder: (context, label) => _buildLabelCard(label),
       adBuilder: () => const AdsInlineBanner(),
       adInterval: 5,
-      emptyText: AppLocalizations.of(context)!.noLabels,
+      emptyText: AppLocalizations.of(context).noLabels,
       emptyIcon: Icons.label_off_outlined,
       emptyActionButton: ElevatedButton.icon(
         icon: const Icon(Icons.add),
-        label: Text(AppLocalizations.of(context)!.addLabel),
+        label: Text(AppLocalizations.of(context).addLabel),
         onPressed: _showAddLabelDialog,
       ),
       themeColor: Colors.blue,
@@ -562,7 +562,7 @@ class _LabelManagementPageWithAdsState extends ConsumerState<LabelManagementPage
       infoCard: _buildInfoCard(),
       headerContent: _buildLabelCategoriesCard(),
       onSearchChanged: _onSearchChanged,
-      searchHintText: AppLocalizations.of(context)!.searchLabelsHint,
+      searchHintText: AppLocalizations.of(context).searchLabelsHint,
 
       customActions: null, 
     );

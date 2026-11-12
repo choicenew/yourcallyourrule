@@ -1,7 +1,4 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:yourcallyourrule/features/phone_rules/services/import_export_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -20,21 +17,22 @@ class ImportExportServiceComponent<T, ID> {
   });
 
   Future<void> importFromFile(BuildContext context) async {
+    final l10n = AppLocalizations.of(context);
     try {
       final result = await FilePicker.pickFiles(
-        dialogTitle: AppLocalizations.of(context)!.importEntity(entityTypeName),
+        dialogTitle: l10n.importEntity(entityTypeName),
         type: FileType.custom,
         allowedExtensions: ['json'],
       );
       
-      if (result != null && result.files.isNotEmpty && result.files.single.path != null) {
-        final entities = await importExportService.importFromFile(result.files.single.path!);
+      if (result != null && result.isNotEmpty && result.first.path != null) {
+        final entities = await importExportService.importFromFile(result.first.path!);
         
         await onEntitiesImported(entities);
         
         if (context.mounted) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(AppLocalizations.of(context)!.entityImportSuccess(entityTypeName, entities.length)),
+            content: Text(l10n.entityImportSuccess(entityTypeName, entities.length)),
             backgroundColor: Colors.green,
           ));
         }
@@ -42,7 +40,7 @@ class ImportExportServiceComponent<T, ID> {
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(AppLocalizations.of(context)!.entityImportFailed(entityTypeName, e.toString())),
+          content: Text(l10n.entityImportFailed(entityTypeName, e.toString())),
           backgroundColor: Colors.red,
         ));
       }
@@ -50,26 +48,27 @@ class ImportExportServiceComponent<T, ID> {
   }
 
   Future<void> exportToFile(BuildContext context) async {
+    final l10n = AppLocalizations.of(context);
     try {
       final entities = await getEntitiesToExport();
       final bytes = await importExportService.prepareExportBytes(entities);
 
       final result = await FilePicker.saveFile(
-        dialogTitle: AppLocalizations.of(context)!.exportEntity(entityTypeName),
+        dialogTitle: l10n.exportEntity(entityTypeName),
         fileName: '${entityTypeName.toLowerCase().replaceAll(' ', '_')}_export.json',
         bytes: bytes,
       );
       
       if (result != null && context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(AppLocalizations.of(context)!.entityExportSuccess(entityTypeName)),
+          content: Text(l10n.entityExportSuccess(entityTypeName)),
           backgroundColor: Colors.green,
         ));
       }
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(AppLocalizations.of(context)!.entityExportFailed(entityTypeName, e.toString())),
+          content: Text(l10n.entityExportFailed(entityTypeName, e.toString())),
           backgroundColor: Colors.red,
         ));
       }
@@ -82,7 +81,7 @@ class ImportExportServiceComponent<T, ID> {
       children: [
         ElevatedButton.icon(
           icon: const Icon(Icons.file_upload),
-          label: Text(AppLocalizations.of(context)!.import),
+          label: Text(AppLocalizations.of(context).import),
           onPressed: () => importFromFile(context),
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.blue,
@@ -91,7 +90,7 @@ class ImportExportServiceComponent<T, ID> {
         const SizedBox(width: 16),
         ElevatedButton.icon(
           icon: const Icon(Icons.file_download),
-          label: Text(AppLocalizations.of(context)!.export),
+          label: Text(AppLocalizations.of(context).export),
           onPressed: () => exportToFile(context),
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.green,
@@ -105,11 +104,11 @@ class ImportExportServiceComponent<T, ID> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.importExportTitle),
+        title: Text(AppLocalizations.of(context).importExportTitle),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(AppLocalizations.of(context)!.importExportDescription(entityTypeName)),
+            Text(AppLocalizations.of(context).importExportDescription(entityTypeName)),
             const SizedBox(height: 16),
             buildImportExportButtons(context),
           ],
@@ -117,7 +116,7 @@ class ImportExportServiceComponent<T, ID> {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)!.closeButton),
+            child: Text(AppLocalizations.of(context).closeButton),
           ),
         ],
       ),

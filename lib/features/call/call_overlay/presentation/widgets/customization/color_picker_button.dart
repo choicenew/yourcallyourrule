@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:yourcallyourrule/features/common/utils/hsv_color_picker.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -33,7 +33,7 @@ class ColorPickerButton extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.colorPickerTitle),
+        title: Text(AppLocalizations.of(context).colorPickerTitle),
 
         content: SingleChildScrollView(
           child: HSVColorPicker(
@@ -46,7 +46,7 @@ class ColorPickerButton extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)!.confirmButton),
+            child: Text(AppLocalizations.of(context).confirmButton),
           ),
         ],
       ),

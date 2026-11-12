@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 删除提议风险等级强类型枚举（全链路 4 级精确对齐，100% 遵从原生 Theme.of(context).colorScheme）
@@ -68,7 +68,7 @@ enum RiskLevel {
 
   /// 获取对应的多语言文本
   String getLocalizedLabel(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     switch (this) {
       case RiskLevel.verified:
         return l10n.riskLevelVeryLow;

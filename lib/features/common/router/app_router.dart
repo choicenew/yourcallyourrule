@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/pages/fraud_alert_settings_page.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/screens/call_overlay_customization_screen.dart';
@@ -32,9 +32,9 @@ import 'package:yourcallyourrule/features/deletion_proposal/pages/proposal_detai
 
 import 'package:yourcallyourrule/features/call_policy/presentation/pages/end_call_settings_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_settings_page.dart';
-import 'package:yourcallyourrule/features/sync/pages/backup_restore_page.dart';
-import 'package:yourcallyourrule/features/sync/pages/cloud_settings_page.dart';
-import 'package:yourcallyourrule/features/sync/pages/device_management_page.dart';
+import 'package:yourcallyourrule/features/cloud_drive/pages/backup_restore_page.dart';
+import 'package:yourcallyourrule/features/cloud_drive/pages/cloud_settings_page.dart';
+import 'package:yourcallyourrule/features/device/pages/device_management_page.dart';
 import 'package:yourcallyourrule/features/verification/presentation/pages/verification_page.dart';
 import 'package:yourcallyourrule/features/phone_plugin/presentation/pages/plugin_test_page.dart';
 import 'package:yourcallyourrule/features/phone_rules/pages/regex_test_page.dart';
@@ -58,7 +58,7 @@ import 'package:yourcallyourrule/features/labels/pages/label_management_page_wit
 import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page_with_ads.dart';
 import 'package:yourcallyourrule/features/commercial/pages/vip_exchange_page.dart';
 import 'package:yourcallyourrule/features/caller_identity/presentation/caller_identity_settings_page.dart';
-import 'package:yourcallyourrule/features/sync/services/supabase_sync/supabase_settings_page.dart';
+
 import 'package:yourcallyourrule/features/initial_setup/pages/initial_setup_page.dart';
 import 'package:yourcallyourrule/features/initial_setup/pages/deep_link_import_page.dart';
 
@@ -124,7 +124,7 @@ class AppRouter {
   static const String search = 'search';
   static const String pluginManagement = 'plugin-management-with-ads';
   static const String phoneSubscription = 'phone-subscription-with-ads';
-  static const String regexRule = 'regex-rule';
+  static const String RegexRuleEntity = 'regex-rule';
   static const String regexRuleWithAds = 'regex-rule-with-ads';
   static const String smsFilter = 'sms-filter';
   static const String labelManagement = 'label-management';
@@ -437,8 +437,8 @@ class AppRouter {
         builder: (context, state) => const PhoneSubscriptionPageRefactored(),
       ),
       GoRoute(
-        path: '/$regexRule',
-        name: regexRule,
+        path: '/$RegexRuleEntity',
+        name: RegexRuleEntity,
         builder: (context, state) => const RegexRulePage(),
       ),
       GoRoute(
@@ -479,7 +479,7 @@ class AppRouter {
       GoRoute(
         path: '/supabase-settings',
         name: supabaseSettings,
-        builder: (context, state) => const SupabaseSettingsPage(),
+        builder: (context, state) => const CloudSettingsPage(),
       ),
       GoRoute(
         path: '/$kitLiveActivitiesTest',

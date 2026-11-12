@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/mock_data/call_overlay_mock.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/kit_live_activity_handler.dart';
@@ -61,7 +61,7 @@ class _KitLiveActivitiesTestPageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.liveActivitiesTestTitle),
+        title: Text(AppLocalizations.of(context).liveActivitiesTestTitle),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

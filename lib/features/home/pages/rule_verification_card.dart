@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/verification/presentation/pages/verification_page.dart';
 
@@ -49,7 +49,7 @@ class _RuleVerificationCardState extends State<RuleVerificationCard> {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  AppLocalizations.of(context)!.ruleVerification,
+                  AppLocalizations.of(context).ruleVerification,
                   style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -125,7 +125,7 @@ class _RuleVerificationCardState extends State<RuleVerificationCard> {
                     ),
                   ),
                   child: Text(
-                    AppLocalizations.of(context)!.verify,
+                    AppLocalizations.of(context).verify,
                     style: const TextStyle(fontSize: 16, color: Colors.white),
                   ),
                 ),

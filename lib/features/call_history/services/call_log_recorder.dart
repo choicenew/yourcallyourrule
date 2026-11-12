@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/call_history/services/call_log_service.dart';
+import 'package:yourcallyourrule/features/call_history/services/system_call_log_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
 part 'call_log_recorder.g.dart';

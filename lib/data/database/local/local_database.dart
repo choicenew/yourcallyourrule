@@ -1,7 +1,6 @@
-// Local database schema definition using drift
+﻿// Local database schema definition using drift
 import 'dart:async';
 import 'package:drift/drift.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -13,13 +12,8 @@ import 'package:uuid/uuid.dart';
 
 import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
-import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
-import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
-import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
-import 'package:pyro_sim_slot_rules_protocol/pyro_sim_slot_rules_protocol.dart';
 
 part 'local_database.g.dart';
 part 'drift_migration_helper.dart';

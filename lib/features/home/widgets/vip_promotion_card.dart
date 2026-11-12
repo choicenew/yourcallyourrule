@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -38,7 +38,7 @@ class VipPromotionCard extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.upgradeToVip,
+                    AppLocalizations.of(context).upgradeToVip,
                     style: const TextStyle(
                       fontSize: 22.0,
                       fontWeight: FontWeight.bold,
@@ -61,16 +61,16 @@ class VipPromotionCard extends ConsumerWidget {
               ),
               const SizedBox(height: 8.0),
               Text(
-                AppLocalizations.of(context)!.monthlyMembershipDescription,
+                AppLocalizations.of(context).monthlyMembershipDescription,
                 style: TextStyle(
                   fontSize: 16.0,
                   color: Colors.white.withValues(alpha: 0.9),
                 ),
               ),
               const SizedBox(height: 20.0),
-              _buildFeatureRow(context, Icons.block, AppLocalizations.of(context)!.noAds),
+              _buildFeatureRow(context, Icons.block, AppLocalizations.of(context).noAds),
               const SizedBox(height: 12.0),
-              _buildFeatureRow(context, Icons.cloud_sync, AppLocalizations.of(context)!.cloudBackup),
+              _buildFeatureRow(context, Icons.cloud_sync, AppLocalizations.of(context).cloudBackup),
               const SizedBox(height: 20.0),
               Center(
                 child: ElevatedButton.icon(
@@ -88,7 +88,7 @@ class VipPromotionCard extends ConsumerWidget {
                   },
                   icon: const Icon(Icons.arrow_forward),
                   label: Text(
-                    AppLocalizations.of(context)!.purchase,
+                    AppLocalizations.of(context).purchase,
                     style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                 ),

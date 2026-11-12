@@ -1,4 +1,4 @@
-// ignore: unused_import
+﻿// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2540,7 +2540,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Telefon Numarası Eşleştirmesi için Regex Kalıpları';
 
   @override
-  String get regexRule => 'Regex Kuralı';
+  String get RegexRuleEntity => 'Regex Kuralı';
 
   @override
   String regexRuleAddFailed(Object error) {

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
 import 'package:pyro_phone_subscription_hub/pyro_phone_subscription_hub.dart';
@@ -12,7 +12,7 @@ class PhoneSubscriptionPageRefactored extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
 
     return GenericListWithAdsPage<PhoneSubscriptionPayload>(
       title: l10n.phoneSubscription,
@@ -22,7 +22,7 @@ class PhoneSubscriptionPageRefactored extends ConsumerWidget {
       adBuilder: () => const AdsInlineBanner(),
       itemBuilder: (context, sub) => sub_pkg_ui.PyroPhoneSubscriptionCardWidget(
         payload: sub,
-        onTap: () => PhoneSubscriptionControlCenter.instance.dispatchPayload(sub),
+        onTap: () => PhoneRulesSubscriptionControlCenter.instance.dispatchPayload(sub),
       ),
       getItemId: (sub) => sub.payloadId,
     );

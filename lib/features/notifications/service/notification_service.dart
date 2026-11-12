@@ -1,4 +1,4 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -22,7 +22,7 @@ class NotificationService implements NotificationServiceContract {
 
   /// 预定义的通知配置
   static NotificationConfig defaultConfig(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     return NotificationConfig(
       channelId: 'default_channel',
       channelName: l10n.defaultNotifications,
@@ -31,7 +31,7 @@ class NotificationService implements NotificationServiceContract {
   }
 
   static NotificationConfig blockedCallConfig(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     return NotificationConfig(
       channelId: 'blocked_calls',
       channelName: l10n.blockedCallNotifications,
@@ -43,7 +43,7 @@ class NotificationService implements NotificationServiceContract {
   }
 
   static NotificationConfig stirResultConfig(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     return NotificationConfig(
       channelId: 'stir_results',
       channelName: l10n.stirVerification,
@@ -54,7 +54,7 @@ class NotificationService implements NotificationServiceContract {
   }
 
   static NotificationConfig fraudAlertConfig(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     return NotificationConfig(
       channelId: 'fraud_alert',
       channelName: l10n.fraudAlerts,
@@ -68,7 +68,7 @@ class NotificationService implements NotificationServiceContract {
   }
 
   static NotificationConfig deletionProposalConfig(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     return NotificationConfig(
       channelId: 'deletion_proposals',
       channelName: l10n.deletionProposals,

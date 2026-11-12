@@ -1,13 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
+import 'package:yourcallyourrule/features/sms/domain/sms_subscription.dart';
 import 'package:yourcallyourrule/features/sms/repositories/sms_subscription_repository.dart';
 import 'package:yourcallyourrule/features/sms/data/repositories/sms_subscription_repository_impl.dart';
 
-class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscriptionPayload>> {
+class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
   late final SmsSubscriptionRepository _smsSubscriptionRepository;
 
   @override
-  Future<List<SmsSubscriptionPayload>> build() async {
+  Future<List<SmsSubscription>> build() async {
     _initRepository();
     return _loadSmsSubscriptions();
   }
@@ -16,7 +16,7 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscriptionPayload
     _smsSubscriptionRepository = ref.read(smsSubscriptionRepositoryProvider);
   }
 
-  Future<List<SmsSubscriptionPayload>> _loadSmsSubscriptions() async {
+  Future<List<SmsSubscription>> _loadSmsSubscriptions() async {
     try {
       return await _smsSubscriptionRepository.getAll();
     } catch (e) {
@@ -25,7 +25,7 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscriptionPayload
     }
   }
 
-  Future<void> addSmsSubscription(SmsSubscriptionPayload subscription) async {
+  Future<void> addSmsSubscription(SmsSubscription subscription) async {
     state = const AsyncValue.loading();
     try {
       await _smsSubscriptionRepository.save(subscription);
@@ -35,7 +35,7 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscriptionPayload
     }
   }
 
-  Future<void> updateSmsSubscription(SmsSubscriptionPayload subscription) async {
+  Future<void> updateSmsSubscription(SmsSubscription subscription) async {
     state = const AsyncValue.loading();
     try {
       await _smsSubscriptionRepository.update(subscription);
@@ -65,7 +65,7 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscriptionPayload
     }
   }
   
-  Future<SmsSubscriptionPayload?> getByPhoneNumber(String number) async {
+  Future<SmsSubscription?> getByPhoneNumber(String number) async {
     try {
       return await _smsSubscriptionRepository.getByPhoneNumber(number);
     } catch (e) {
@@ -82,7 +82,7 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscriptionPayload
     }
   }
   
-  Future<List<SmsSubscriptionPayload>> getPendingUpdateSubscriptions() async {
+  Future<List<SmsSubscription>> getPendingUpdateSubscriptions() async {
     try {
       return await _smsSubscriptionRepository.getPendingUpdateSubscriptions();
     } catch (e) {
@@ -99,6 +99,6 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscriptionPayload
   }
 }
 
-final smsSubscriptionsProvider = AsyncNotifierProvider<SmsSubscriptionsNotifier, List<SmsSubscriptionPayload>>(() {
+final smsSubscriptionsProvider = AsyncNotifierProvider<SmsSubscriptionsNotifier, List<SmsSubscription>>(() {
   return SmsSubscriptionsNotifier();
 });

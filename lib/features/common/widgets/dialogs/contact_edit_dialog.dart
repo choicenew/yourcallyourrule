@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
@@ -107,7 +107,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            AppLocalizations.of(context)!.nameAndPhoneNumberCannotBeEmpty,
+            AppLocalizations.of(context).nameAndPhoneNumberCannotBeEmpty,
           ),
           backgroundColor: Theme.of(context).colorScheme.secondary,
         ),
@@ -149,8 +149,8 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
           SnackBar(
             content: Text(
               isEditing
-                  ? AppLocalizations.of(context)!.contactUpdateSuccess
-                  : AppLocalizations.of(context)!.contactAddSuccess,
+                  ? AppLocalizations.of(context).contactUpdateSuccess
+                  : AppLocalizations.of(context).contactAddSuccess,
             ),
             backgroundColor: Theme.of(context).colorScheme.primary,
           ),
@@ -162,8 +162,8 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
           SnackBar(
             content: Text(
               widget.contact != null
-                  ? AppLocalizations.of(context)!.updateContactFailed(e.toString())
-                  : AppLocalizations.of(context)!.addContactFailed(e.toString()),
+                  ? AppLocalizations.of(context).updateContactFailed(e.toString())
+                  : AppLocalizations.of(context).addContactFailed(e.toString()),
             ),
             backgroundColor: Theme.of(context).colorScheme.error,
           ),
@@ -182,11 +182,11 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
   Widget build(BuildContext context) {
     final bool isEditing = widget.contact != null;
     final String title = isEditing
-        ? AppLocalizations.of(context)!.editContact
-        : AppLocalizations.of(context)!.addContactButton;
+        ? AppLocalizations.of(context).editContact
+        : AppLocalizations.of(context).addContactButton;
     final String actionText = isEditing
-        ? AppLocalizations.of(context)!.save
-        : AppLocalizations.of(context)!.add;
+        ? AppLocalizations.of(context).save
+        : AppLocalizations.of(context).add;
 
     return AlertDialog(
       shape: RoundedRectangleBorder(
@@ -249,8 +249,8 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                     TextField(
                       controller: _nameController,
                       decoration: InputDecoration(
-                        labelText: AppLocalizations.of(context)!.name,
-                        hintText: AppLocalizations.of(context)!.enterContactName,
+                        labelText: AppLocalizations.of(context).name,
+                        hintText: AppLocalizations.of(context).enterContactName,
                         filled: true,
                         fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
                         border: OutlineInputBorder(
@@ -262,8 +262,8 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
                     TextField(
                       controller: _phoneController,
                       decoration: InputDecoration(
-                        labelText: AppLocalizations.of(context)!.phoneNumber,
-                        hintText: AppLocalizations.of(context)!.enterPhoneNumberMultiple,
+                        labelText: AppLocalizations.of(context).phoneNumber,
+                        hintText: AppLocalizations.of(context).enterPhoneNumberMultiple,
                         filled: true,
                         fillColor: Theme.of(context).colorScheme.surfaceContainerHighest,
                         border: OutlineInputBorder(
@@ -282,7 +282,7 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
               TextButton(
                 onPressed: _isProcessing ? null : () => Navigator.pop(context),
                 child: Text(
-                  AppLocalizations.of(context)!.cancelButton,
+                  AppLocalizations.of(context).cancelButton,
                 ),
               ),
               ElevatedButton(

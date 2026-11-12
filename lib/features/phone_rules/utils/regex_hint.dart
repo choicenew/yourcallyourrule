@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // ... RegexPatternHint Widget ...
@@ -12,7 +12,7 @@ class RegexPatternExplanationButton extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-            AppLocalizations.of(context)!.regexPatternExplanation,
+            AppLocalizations.of(context).regexPatternExplanation,
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                 color: Theme.of(context).colorScheme.onSurface,
                 fontWeight: FontWeight.w600),
@@ -30,7 +30,7 @@ class RegexPatternExplanationButton extends StatelessWidget {
                   foregroundColor: Theme.of(context).colorScheme.onSurface,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 24, vertical: 12)),
-              child: Text(AppLocalizations.of(context)!.closeButton),
+              child: Text(AppLocalizations.of(context).closeButton),
             ),
           ],
           shape:
@@ -57,7 +57,7 @@ class RegexPatternExplanationButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                AppLocalizations.of(context)!.regexPatternExplanationButton,
+                AppLocalizations.of(context).regexPatternExplanationButton,
                 style: Theme.of(context).textTheme.labelLarge?.copyWith(
                     color: Theme.of(context).colorScheme.primary,
                     fontWeight: FontWeight.w600),
@@ -83,9 +83,9 @@ class RegexPatternHint extends StatelessWidget {
       children: [
         _buildHintItem(
           context,
-          AppLocalizations.of(context)!.regexPatternsForPhoneNumberMatching,
+          AppLocalizations.of(context).regexPatternsForPhoneNumberMatching,
           description: Text(
-            AppLocalizations.of(context)!.useStandardRegexSyntaxToDefinePatternsExamples,
+            AppLocalizations.of(context).useStandardRegexSyntaxToDefinePatternsExamples,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
@@ -94,9 +94,9 @@ class RegexPatternHint extends StatelessWidget {
         const SizedBox(height: 10),
         _buildHintItem(
           context,
-          AppLocalizations.of(context)!.blockInternationalCallsTitle,
+          AppLocalizations.of(context).blockInternationalCallsTitle,
           description: Text(
-            "'^(?!\\+|00)' ${AppLocalizations.of(context)!.blockInternationalCalls}",
+            "'^(?!\\+|00)' ${AppLocalizations.of(context).blockInternationalCalls}",
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
@@ -104,9 +104,9 @@ class RegexPatternHint extends StatelessWidget {
         ),
         _buildHintItem(
           context,
-          AppLocalizations.of(context)!.blockPremiumRateNumbersTitle,
+          AppLocalizations.of(context).blockPremiumRateNumbersTitle,
           description: Text(
-            "'^(?!118|1[2-9]0)' ${AppLocalizations.of(context)!.blockPremiumRateNumbers}",
+            "'^(?!118|1[2-9]0)' ${AppLocalizations.of(context).blockPremiumRateNumbers}",
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
@@ -114,9 +114,9 @@ class RegexPatternHint extends StatelessWidget {
         ),
         _buildHintItem(
           context,
-          AppLocalizations.of(context)!.blockMobileNumbersTitle,
+          AppLocalizations.of(context).blockMobileNumbersTitle,
           description: Text(
-            "'^(?!1[3-9])' ${AppLocalizations.of(context)!.blockMobileNumbers}",
+            "'^(?!1[3-9])' ${AppLocalizations.of(context).blockMobileNumbers}",
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
@@ -134,9 +134,9 @@ class RegexPatternHint extends StatelessWidget {
 
         _buildHintItem(
           context,
-          AppLocalizations.of(context)!.blockSpecificAreaCodesTitle,
+          AppLocalizations.of(context).blockSpecificAreaCodesTitle,
           description: Text(
-            "'^0[0-9]{2,3}' ${AppLocalizations.of(context)!.blockSpecificAreaCodes}",
+            "'^0[0-9]{2,3}' ${AppLocalizations.of(context).blockSpecificAreaCodes}",
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
@@ -144,9 +144,9 @@ class RegexPatternHint extends StatelessWidget {
         ),
         _buildHintItem(
           context,
-          AppLocalizations.of(context)!.matchSpecificDigitPatternsTitle,
+          AppLocalizations.of(context).matchSpecificDigitPatternsTitle,
           description: Text(
-            "'[0-9]{3}-[0-9]{4}-[0-9]{4}' ${AppLocalizations.of(context)!.matchSpecificDigitPatterns}",
+            "'[0-9]{3}-[0-9]{4}-[0-9]{4}' ${AppLocalizations.of(context).matchSpecificDigitPatterns}",
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
@@ -154,9 +154,9 @@ class RegexPatternHint extends StatelessWidget {
         ),
         _buildHintItem(
           context,
-          AppLocalizations.of(context)!.matchNumbersWithSpecialCharactersTitle,
+          AppLocalizations.of(context).matchNumbersWithSpecialCharactersTitle,
           description: Text(
-            "'^170 [0-9]{3} 656 [0-9]{2}\$' ${AppLocalizations.of(context)!.matchNumbersWithSpecialCharacters}",
+            "'^170 [0-9]{3} 656 [0-9]{2}\$' ${AppLocalizations.of(context).matchNumbersWithSpecialCharacters}",
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
@@ -164,9 +164,9 @@ class RegexPatternHint extends StatelessWidget {
         ),
         _buildHintItem(
           context,
-          AppLocalizations.of(context)!.wildcardMatchingTitle,
+          AppLocalizations.of(context).wildcardMatchingTitle,
           description: Text(
-            AppLocalizations.of(context)!.wildcardMatchingDescription,
+            AppLocalizations.of(context).wildcardMatchingDescription,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),

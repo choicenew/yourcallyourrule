@@ -1,5 +1,5 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:yourcallyourrule/features/deletion_proposer/models/server_verification_report.dart';
+﻿import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:yourcallyourrule/features/deletion_proposal/models/server_verification_report.dart';
 
 part 'sync_payload.freezed.dart';
 part 'sync_payload.g.dart';

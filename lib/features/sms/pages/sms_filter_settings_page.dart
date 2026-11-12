@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_filter_service.dart';
@@ -39,7 +39,7 @@ class _SmsFilterSettingsPageState extends ConsumerState<SmsFilterSettingsPage> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.loadSettingsFailed(e.toString()))),
+          SnackBar(content: Text(AppLocalizations.of(context).loadSettingsFailed(e.toString()))),
         );
       }
       setState(() {
@@ -64,13 +64,13 @@ class _SmsFilterSettingsPageState extends ConsumerState<SmsFilterSettingsPage> {
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(value ? AppLocalizations.of(context)!.smsFilterEnabled : AppLocalizations.of(context)!.smsFilterDisabled)),
+          SnackBar(content: Text(value ? AppLocalizations.of(context).smsFilterEnabled : AppLocalizations.of(context).smsFilterDisabled)),
         );
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaveFailed(e.toString()))),
+          SnackBar(content: Text(AppLocalizations.of(context).settingsSaveFailed(e.toString()))),
         );
       }
       setState(() {
@@ -95,13 +95,13 @@ class _SmsFilterSettingsPageState extends ConsumerState<SmsFilterSettingsPage> {
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(value ? AppLocalizations.of(context)!.localNotificationEnabled : AppLocalizations.of(context)!.localNotificationDisabled)),
+          SnackBar(content: Text(value ? AppLocalizations.of(context).localNotificationEnabled : AppLocalizations.of(context).localNotificationDisabled)),
         );
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.settingsSaveFailed(e.toString()))),
+          SnackBar(content: Text(AppLocalizations.of(context).settingsSaveFailed(e.toString()))),
         );
       }
       setState(() {
@@ -112,7 +112,7 @@ class _SmsFilterSettingsPageState extends ConsumerState<SmsFilterSettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       backgroundColor: const Color(0xFFFAF8F5),
       appBar: AppBar(
@@ -140,7 +140,7 @@ class _SmsFilterSettingsPageState extends ConsumerState<SmsFilterSettingsPage> {
   }
 
   Widget _buildInfoCard() {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
@@ -197,7 +197,7 @@ class _SmsFilterSettingsPageState extends ConsumerState<SmsFilterSettingsPage> {
   }
 
   Widget _buildFilterSettingsCard() {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
@@ -229,7 +229,7 @@ class _SmsFilterSettingsPageState extends ConsumerState<SmsFilterSettingsPage> {
             subtitle: Text(l10n.enableSmsFilterDescription, style: TextStyle(fontSize: 12, color: Colors.grey[600])),
             value: _filterEnabled,
             onChanged: _toggleFilterEnabled,
-            activeThumbColor: const Color(0xFF2D9CDB),
+            activeColor: const Color(0xFF2D9CDB),
             secondary: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
@@ -265,7 +265,7 @@ class _SmsFilterSettingsPageState extends ConsumerState<SmsFilterSettingsPage> {
   }
 
   Widget _buildNotificationSettingsCard() {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
@@ -297,7 +297,7 @@ class _SmsFilterSettingsPageState extends ConsumerState<SmsFilterSettingsPage> {
             subtitle: Text(l10n.enableLocalNotificationDescription, style: TextStyle(fontSize: 12, color: Colors.grey[600])),
             value: _useLocalNotification,
             onChanged: _toggleLocalNotification,
-            activeThumbColor: const Color(0xFF6C5CE7),
+            activeColor: const Color(0xFF6C5CE7),
             secondary: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(

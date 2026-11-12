@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/features/call/time_interceptor/provider/time_interceptor_provider.dart';
-import 'package:yourcallyourrule/features/device_profile/provider/sim_info_provider.dart';
+import 'package:yourcallyourrule/features/device/provider/sim_info_provider.dart';
 import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
@@ -80,9 +80,9 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
         ),
       ),
       child: ExpansionTile(
-        title: Text(AppLocalizations.of(context)!.filterManagement, style: const TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(AppLocalizations.of(context).filterManagement, style: const TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Text(
-          AppLocalizations.of(context)!.filterManagementDescription,
+          AppLocalizations.of(context).filterManagementDescription,
         ),
         leading: const Icon(Icons.filter_alt, color: Color(0xFFFB8C00)),
         initiallyExpanded: _isExpanded,
@@ -120,7 +120,7 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
       error:
           (err, st) => Center(
             child: Text(
-              AppLocalizations.of(context)!.dataLoadFailure(err.toString()),
+              AppLocalizations.of(context).dataLoadFailure(err.toString()),
             ),
           ),
     );
@@ -151,7 +151,7 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
         if (simCards.isEmpty) {
           return Center(
             child: Text(
-              AppLocalizations.of(context)!.noSimCardsDetected,
+              AppLocalizations.of(context).noSimCardsDetected,
               style: TextStyle(fontSize: 16, color: Colors.grey[600]),
             ),
           );
@@ -304,7 +304,7 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
       error:
           (err, st) => Center(
             child: Text(
-              AppLocalizations.of(context)!.dataLoadFailure(err.toString()),
+              AppLocalizations.of(context).dataLoadFailure(err.toString()),
             ),
           ),
     );
@@ -321,8 +321,8 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     // [注释]: 如果初始数据还没加载好，config 会是 null，我们可以显示一个禁用的开关。
     if (config == null) {
       return _buildFilterSwitchItem(
-        title: AppLocalizations.of(context)!.simCardFilterRules,
-        subtitle: AppLocalizations.of(context)!.simCardFilterRulesDescription,
+        title: AppLocalizations.of(context).simCardFilterRules,
+        subtitle: AppLocalizations.of(context).simCardFilterRulesDescription,
         icon: Icons.sim_card,
         color: Colors.blue,
         count: 0,
@@ -342,8 +342,8 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
         final rulesCount = ref.watch(allRulesCountProvider).value ?? 0;
 
         return _buildFilterSwitchItem(
-          title: AppLocalizations.of(context)!.simCardFilterRules,
-          subtitle: AppLocalizations.of(context)!.simCardFilterRulesDescription,
+          title: AppLocalizations.of(context).simCardFilterRules,
+          subtitle: AppLocalizations.of(context).simCardFilterRulesDescription,
           icon: Icons.sim_card,
           color: Colors.blue,
           count: rulesCount,
@@ -366,8 +366,8 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     );
     if (config == null) {
       return _buildFilterSwitchItem(
-        title: AppLocalizations.of(context)!.localCountFilter,
-        subtitle: AppLocalizations.of(context)!.localCountFilterDescription,
+        title: AppLocalizations.of(context).localCountFilter,
+        subtitle: AppLocalizations.of(context).localCountFilterDescription,
         icon: Icons.filter_list,
         color: Colors.orange,
         count: 0,
@@ -377,8 +377,8 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     }
 
     return _buildFilterSwitchItem(
-      title: AppLocalizations.of(context)!.localCountFilter,
-      subtitle: AppLocalizations.of(context)!.localCountFilterDescription,
+      title: AppLocalizations.of(context).localCountFilter,
+      subtitle: AppLocalizations.of(context).localCountFilterDescription,
       icon: Icons.filter_list,
       color: Colors.orange,
       count: config.countThreshold,
@@ -397,8 +397,8 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     );
     if (config == null) {
       return _buildFilterSwitchItem(
-        title: AppLocalizations.of(context)!.remoteNumberFilter,
-        subtitle: AppLocalizations.of(context)!.remoteNumberFilterDescription,
+        title: AppLocalizations.of(context).remoteNumberFilter,
+        subtitle: AppLocalizations.of(context).remoteNumberFilterDescription,
         icon: Icons.filter,
         color: Colors.purple,
         count: 0,
@@ -408,8 +408,8 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     }
 
     return _buildFilterSwitchItem(
-      title: AppLocalizations.of(context)!.remoteNumberFilter,
-      subtitle: AppLocalizations.of(context)!.remoteNumberFilterDescription,
+      title: AppLocalizations.of(context).remoteNumberFilter,
+      subtitle: AppLocalizations.of(context).remoteNumberFilterDescription,
       icon: Icons.filter,
       color: Colors.purple,
       count: config.countThreshold,
@@ -428,8 +428,8 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     );
     if (config == null) {
       return _buildFilterSwitchItem(
-        title: AppLocalizations.of(context)!.timeInterceptor,
-        subtitle: AppLocalizations.of(context)!.timeInterceptorDescription,
+        title: AppLocalizations.of(context).timeInterceptor,
+        subtitle: AppLocalizations.of(context).timeInterceptorDescription,
         icon: Icons.timer,
         color: Colors.teal,
         count: 0,
@@ -439,8 +439,8 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     }
 
     return _buildFilterSwitchItem(
-      title: AppLocalizations.of(context)!.timeInterceptor,
-      subtitle: AppLocalizations.of(context)!.timeInterceptorDescription,
+      title: AppLocalizations.of(context).timeInterceptor,
+      subtitle: AppLocalizations.of(context).timeInterceptorDescription,
       icon: Icons.timer,
       color: Colors.teal,
       count: config.duration.inMinutes,
@@ -471,9 +471,9 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
           borderRadius: BorderRadius.circular(12),
         ),
         child: ListTile(
-          title: Text(AppLocalizations.of(context)!.callFilterRules),
+          title: Text(AppLocalizations.of(context).callFilterRules),
           subtitle: Text(
-            AppLocalizations.of(context)!.callFilterRulesDescription,
+            AppLocalizations.of(context).callFilterRulesDescription,
           ),
           leading: const Icon(Icons.call_end, color: Colors.grey),
           enabled: false,
@@ -491,16 +491,16 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
         borderRadius: BorderRadius.circular(12),
       ),
       child: ExpansionTile(
-        title: Text(AppLocalizations.of(context)!.callFilterRules),
+        title: Text(AppLocalizations.of(context).callFilterRules),
         subtitle: Text(
-          AppLocalizations.of(context)!.callFilterRulesDescription,
+          AppLocalizations.of(context).callFilterRulesDescription,
         ),
         leading: const Icon(Icons.call_end, color: Colors.red),
         children: [
           SwitchListTile(
-            title: Text(AppLocalizations.of(context)!.enableCallFilter),
+            title: Text(AppLocalizations.of(context).enableCallFilter),
             subtitle: Text(
-              AppLocalizations.of(context)!.enableCallFilterDescription,
+              AppLocalizations.of(context).enableCallFilterDescription,
             ),
             value: enhancedConfig.filterEnabledMap['CallFilterService'] ?? true,
             onChanged:
@@ -510,9 +510,9 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                         : enhancedNotifier.disableFilter('CallFilterService'),
           ),
           SwitchListTile(
-            title: Text(AppLocalizations.of(context)!.rejectAllCalls),
+            title: Text(AppLocalizations.of(context).rejectAllCalls),
             subtitle: Text(
-              AppLocalizations.of(context)!.rejectAllCallsDescription,
+              AppLocalizations.of(context).rejectAllCallsDescription,
             ),
             value: callConfig.rejectAllNumbers,
             onChanged:
@@ -522,9 +522,9 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
           ),
           // ... [注释]: 所有其他 SwitchListTile 保持原样，它们会正确工作
           SwitchListTile(
-            title: Text(AppLocalizations.of(context)!.allowAllowedNumbers),
+            title: Text(AppLocalizations.of(context).allowAllowedNumbers),
             subtitle: Text(
-              AppLocalizations.of(context)!.allowAllowedNumbersDesc,
+              AppLocalizations.of(context).allowAllowedNumbersDesc,
             ),
             value: callConfig.allowAllAllowedNumbers,
             onChanged:
@@ -533,9 +533,9 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                 ),
           ),
           SwitchListTile(
-            title: Text(AppLocalizations.of(context)!.allowRegexAllowRules),
+            title: Text(AppLocalizations.of(context).allowRegexAllowRules),
             subtitle: Text(
-              AppLocalizations.of(context)!.allowRegexAllowRulesDescription,
+              AppLocalizations.of(context).allowRegexAllowRulesDescription,
             ),
             value: callConfig.allowRegexAllowRules,
             onChanged:
@@ -544,9 +544,9 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                 ),
           ),
           SwitchListTile(
-            title: Text(AppLocalizations.of(context)!.allowBlockedNumbers),
+            title: Text(AppLocalizations.of(context).allowBlockedNumbers),
             subtitle: Text(
-              AppLocalizations.of(context)!.allowBlockedNumbersDesc,
+              AppLocalizations.of(context).allowBlockedNumbersDesc,
             ),
             value: callConfig.allowBlockedNumbers,
             onChanged:
@@ -555,9 +555,9 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                 ),
           ),
           SwitchListTile(
-            title: Text(AppLocalizations.of(context)!.allowAllAllowRules),
+            title: Text(AppLocalizations.of(context).allowAllAllowRules),
             subtitle: Text(
-              AppLocalizations.of(context)!.allowAllAllowRulesDesc,
+              AppLocalizations.of(context).allowAllAllowRulesDesc,
             ),
             value: callConfig.allowAllAllowRules,
             onChanged:
@@ -566,9 +566,9 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                 ),
           ),
           SwitchListTile(
-            title: Text(AppLocalizations.of(context)!.allowRegexBlockRules),
+            title: Text(AppLocalizations.of(context).allowRegexBlockRules),
             subtitle: Text(
-              AppLocalizations.of(context)!.allowRegexBlockRulesDescription,
+              AppLocalizations.of(context).allowRegexBlockRulesDescription,
             ),
             value: callConfig.allowRegexBlockRules,
             onChanged:
@@ -577,9 +577,9 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                 ),
           ),
           SwitchListTile(
-            title: Text(AppLocalizations.of(context)!.allowAllBlockRules),
+            title: Text(AppLocalizations.of(context).allowAllBlockRules),
             subtitle: Text(
-              AppLocalizations.of(context)!.allowAllBlockRulesDesc,
+              AppLocalizations.of(context).allowAllBlockRulesDesc,
             ),
             value: callConfig.allowAllBlockRules,
             onChanged:
@@ -588,8 +588,8 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                 ),
           ),
           SwitchListTile(
-            title: Text(AppLocalizations.of(context)!.enableMuteRules),
-            subtitle: Text(AppLocalizations.of(context)!.enableMuteRulesDesc),
+            title: Text(AppLocalizations.of(context).enableMuteRules),
+            subtitle: Text(AppLocalizations.of(context).enableMuteRulesDesc),
             value: callConfig.allowSilenceRules,
             onChanged:
                 (value) => callNotifier.updateConfig(
@@ -597,9 +597,9 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                 ),
           ),
           SwitchListTile(
-            title: Text(AppLocalizations.of(context)!.enableNoneActionRules),
+            title: Text(AppLocalizations.of(context).enableNoneActionRules),
             subtitle: Text(
-              AppLocalizations.of(context)!.enableNoneActionRulesDesc,
+              AppLocalizations.of(context).enableNoneActionRulesDesc,
             ),
             value: callConfig.allowNoneRules,
             onChanged:

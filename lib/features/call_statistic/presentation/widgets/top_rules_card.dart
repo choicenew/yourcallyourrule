@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
@@ -10,7 +10,7 @@ class TopRulesCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(callStatisticsProvider);
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final topRules = state.topTriggeredRules;
 
@@ -161,9 +161,9 @@ class TopRulesCard extends ConsumerWidget {
     );
   }
 
-  int _getRuleCount(RuleBase rule) {
+  int _getRuleCount(dynamic rule) {
     if (rule is PhoneRuleEntity) return rule.count;
-    if (rule is AllowedBlockedRuleEntity) return rule.count;
+    if (rule is PhoneRuleEntity) return rule.count;
     return 0;
   }
 }

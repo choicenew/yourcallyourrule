@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call_history/entities/local_call_type.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
@@ -33,12 +33,12 @@ class BlockTypeAnalysis extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppLocalizations.of(context)!.blockTypeAnalysisTitle,
+            AppLocalizations.of(context).blockTypeAnalysisTitle,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Theme.of(context).colorScheme.onSurface),
           ),
           const SizedBox(height: 16),
           if (statisticsState.blockTypeAnalysis.isEmpty && !statisticsState.isLoading)
-            Center(child: Text(AppLocalizations.of(context)!.noBlockedTypeData, style: const TextStyle(color: Colors.grey)))
+            Center(child: Text(AppLocalizations.of(context).noBlockedTypeData, style: const TextStyle(color: Colors.grey)))
           else
             _buildAnalysisContent(context, statisticsState.blockTypeAnalysis),
         ],
@@ -116,7 +116,7 @@ class BlockTypeData {
     IconData icon = Icons.block;
     Color iconColor = Colors.grey;
     String label = callTypeName;
-    final localizations = AppLocalizations.of(context)!;
+    final localizations = AppLocalizations.of(context);
 
     if (callTypeName == LocalCallType.rejected.name) {
       label = localizations.callTypeRejected;
@@ -124,7 +124,7 @@ class BlockTypeData {
       iconColor = Colors.red;
     } else if (callTypeName == LocalCallType.blocked.name) {
       label = localizations.callTypeBlocked;
-      icon = localizations.callTypeBlocked;
+      icon = Icons.block;
       iconColor = Colors.orange;
     } else if (callTypeName == LocalCallType.silenced.name) {
       label = localizations.callTypeSilenced;

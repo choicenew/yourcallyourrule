@@ -9,7 +9,7 @@ import 'package:yourcallyourrule/features/sync/services/background_sync_service.
 import 'package:yourcallyourrule/features/sync/services/foreground_sync_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_stream_sync_service.dart';
 import 'package:yourcallyourrule/features/caller_identity/services/plugin_to_remote_sync_service.dart';
-import 'package:yourcallyourrule/features/location/services/location_sync_service.dart';
+import 'package:yourcallyourrule/features/phone_location/services/location_sync_service.dart';
 import 'package:yourcallyourrule/features/common/router/app_router_provider.dart';
 import 'package:yourcallyourrule/features/common/services/firebase_service.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';

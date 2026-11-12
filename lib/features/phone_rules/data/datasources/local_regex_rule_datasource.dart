@@ -21,8 +21,7 @@ class LocalRegexRuleDataSource {
 
   LocalRegexRuleDataSource(this._database);
 
-  RegexRulesCompanion _toCompanion(RegexRuleEntity rule) {
-    final String id = rule.id.isEmpty ? _uuid.v4() : rule.id;
+  RegexRulesCompanion _toCompanion(RegexRuleEntity rule, String id) {
     return RegexRulesCompanion.insert(
       id: Value(id),
       name: rule.name,
@@ -35,22 +34,23 @@ class LocalRegexRuleDataSource {
     );
   }
 
-  RegexRuleEntity _fromData(RegexRule data) {
+  RegexRuleEntity _fromData(dynamic data) {
     return RegexRuleEntity(
-      id: data.id,
-      name: data.name,
-      pattern: data.pattern,
-      actionType: data.action,
-      priority: data.priority,
+      id: (data.id as String?) ?? '',
+      name: data.name as String,
+      pattern: data.pattern as String,
+      actionType: data.action as String,
+      priority: data.priority as int,
       isEnabled: data.isEnabled == 1,
-      subscriptionId: data.subscriptionId,
+      subscriptionId: data.subscriptionId as String?,
     );
   }
 
-  Future<String> _save(RegexRuleEntity rule) async {
-    final companion = _toCompanion(rule);
+  Future<String> save(RegexRuleEntity rule) async {
+    final id = rule.id.isEmpty ? _uuid.v4() : rule.id;
+    final companion = _toCompanion(rule, id);
     await _database.into(_database.regexRules).insertOnConflictUpdate(companion);
-    return companion.id.value;
+    return id;
   }
 
   Future<List<RegexRuleEntity>> getAll() async {
@@ -59,139 +59,43 @@ class LocalRegexRuleDataSource {
   }
 
   Future<RegexRuleEntity?> getById(String id) async {
-    final data = await (_database.select(_database.regexRules)
-      ..where((tbl) => tbl.id.equals(id))
-      ..limit(1))
-      .getSingleOrNull();
+    final query = _database.select(_database.regexRules)..where((tbl) => tbl.id.equals(id));
+    final data = await query.getSingleOrNull();
     return data != null ? _fromData(data) : null;
   }
 
-  Future<String> insert(RegexRuleEntity model) async {
-    return _save(model);
+  Future<void> deleteById(String id) async {
+    await (_database.delete(_database.regexRules)..where((tbl) => tbl.id.equals(id))).go();
   }
 
-  Future<String> save(RegexRuleEntity rule) async {
-    return _save(rule);
+  Future<void> deleteAll(List<String> ids) async {
+    if (ids.isEmpty) return;
+    await (_database.delete(_database.regexRules)..where((tbl) => tbl.id.isIn(ids))).go();
   }
 
-  Future<int> update(RegexRuleEntity rule) async {
-    final companion = _toCompanion(rule);
-    return await (_database.update(_database.regexRules)
-      ..where((tbl) => tbl.id.equals(rule.id)))
-      .write(companion);
-  }
-
-  Future<int> delete(String id) async {
-    return await (_database.delete(_database.regexRules)
-      ..where((tbl) => tbl.id.equals(id)))
-      .go();
-  }
-
-  Future<List<String>> insertAll(List<RegexRuleEntity> models) async {
-    final List<String> ids = [];
-    await _database.batch((batch) {
-      for (final rule in models) {
-        final companion = _toCompanion(rule);
-        ids.add(companion.id.value ?? '');
-        batch.insert(
-          _database.regexRules,
-          companion,
-          mode: InsertMode.insertOrReplace,
-        );
-      }
-    });
-    return ids;
-  }
-
-  Future<List<String>> saveAll(List<RegexRuleEntity> rules) async {
-    return insertAll(rules);
-  }
-
-  Future<int> updateAll(List<RegexRuleEntity> rules) async {
-    await _database.batch((batch) {
-      for (final rule in rules) {
-        batch.update(
-          _database.regexRules,
-          _toCompanion(rule),
-          where: (tbl) => tbl.id.equals(rule.id),
-        );
-      }
-    });
-    return rules.length;
-  }
-
-  Future<int> deleteAll(List<String> ids) async {
-    if (ids.isEmpty) return 0;
-    return await (_database.delete(_database.regexRules)
-      ..where((tbl) => tbl.id.isIn(ids)))
-      .go();
-  }
-
-  Future<void> clear() async {
-    await _database.delete(_database.regexRules).go();
-  }
-
-  Future<int> deleteAllRecords() async {
-    return await _database.delete(_database.regexRules).go();
-  }
-
-  Future<int> count() async {
-    final countExp = _database.regexRules.id.count();
-    final query = _database.selectOnly(_database.regexRules)..addColumns([countExp]);
-    final result = await query.map((row) => row.read(countExp)).getSingle();
-    return result ?? 0;
+  Future<void> updateStatus(String id, bool isEnabled) async {
+    await (_database.update(_database.regexRules)..where((tbl) => tbl.id.equals(id)))
+        .write(RegexRulesCompanion(isEnabled: Value(isEnabled ? 1 : 0)));
   }
 
   Future<String> exportData() async {
     final rules = await getAll();
-    final List<Map<String, dynamic>> maps = rules.map((rule) => rule.toMap()).toList();
-    return jsonEncode(maps);
+    final List<Map<String, dynamic>> ruleMaps = rules.map((rule) => rule.toMap()).toList();
+    return jsonEncode(ruleMaps);
   }
 
   Future<bool> importData(String data) async {
     try {
-      final List<dynamic> maps = jsonDecode(data) as List<dynamic>;
-      final List<RegexRuleEntity> rules = maps.map((map) => RegexRuleEntity.fromMap(map as Map<String, dynamic>)).toList();
-      await insertAll(rules);
+      final List<dynamic> ruleMaps = jsonDecode(data) as List<dynamic>;
+      final List<RegexRuleEntity> rules = ruleMaps
+          .map((map) => RegexRuleEntity.fromMap(map as Map<String, dynamic>))
+          .toList();
+      for (final rule in rules) {
+        await save(rule);
+      }
       return true;
     } catch (e) {
       return false;
     }
-  }
-
-  Future<RegexRuleEntity?> getByPattern(String pattern) async {
-    final data = await (_database.select(_database.regexRules)
-      ..where((tbl) => tbl.pattern.equals(pattern))
-      ..limit(1))
-      .getSingleOrNull();
-    return data != null ? _fromData(data) : null;
-  }
-
-  Future<List<RegexRuleEntity>> getEnabledRules() async {
-    final data = await (_database.select(_database.regexRules)
-      ..where((tbl) => tbl.isEnabled.equals(1)))
-      .get();
-    return data.map<RegexRuleEntity>(_fromData).toList();
-  }
-
-  Future<List<RegexRuleEntity>> getDisabledRules() async {
-    final data = await (_database.select(_database.regexRules)
-      ..where((tbl) => tbl.isEnabled.equals(0)))
-      .get();
-    return data.map<RegexRuleEntity>(_fromData).toList();
-  }
-
-  Future<List<RegexRuleEntity>> getByPriority(int priority) async {
-    final data = await (_database.select(_database.regexRules)
-      ..where((tbl) => tbl.priority.equals(priority)))
-      .get();
-    return data.map<RegexRuleEntity>(_fromData).toList();
-  }
-
-  Future<List<RegexRuleEntity>> searchByName(String name) async {
-    final data = await (_database.select(_database.regexRules)
-      ..where((tbl) => tbl.name.like('%$name%')))
-      .get();
-    return data.map<RegexRuleEntity>(_fromData).toList();
   }
 }

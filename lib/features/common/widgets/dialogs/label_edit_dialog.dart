@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
@@ -62,7 +62,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
     if (_selectedLabelId.isEmpty || phoneText.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context)!.pleaseSelectLabelAndEnterValidPhone),
+          content: Text(AppLocalizations.of(context).pleaseSelectLabelAndEnterValidPhone),
           backgroundColor: Theme.of(context).colorScheme.error,
         ),
       );
@@ -96,7 +96,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('${AppLocalizations.of(context)!.labelUpdateSuccess}: ${labelText?.text ?? _selectedLabelId}'),
+            content: Text('${AppLocalizations.of(context).labelUpdateSuccess}: ${labelText?.text ?? _selectedLabelId}'),
             backgroundColor: Theme.of(context).colorScheme.primary,
           ),
         );
@@ -105,7 +105,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(AppLocalizations.of(context)!.labelUpdateFailed(e.toString())),
+            content: Text(AppLocalizations.of(context).labelUpdateFailed(e.toString())),
             backgroundColor: Theme.of(context).colorScheme.error,
           ),
         );
@@ -130,7 +130,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.0),
       ),
-      title: Text(AppLocalizations.of(context)!.editLabel),
+      title: Text(AppLocalizations.of(context).editLabel),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -150,8 +150,8 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
             TextField(
               controller: _phoneController,
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.phoneNumber,
-                hintText: AppLocalizations.of(context)!.enterPhoneNumber,
+                labelText: AppLocalizations.of(context).phoneNumber,
+                hintText: AppLocalizations.of(context).enterPhoneNumber,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
@@ -162,8 +162,8 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
             TextField(
               controller: _iconController,
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.iconCodeOptional,
-                hintText: AppLocalizations.of(context)!.enterIconCode,
+                labelText: AppLocalizations.of(context).iconCodeOptional,
+                hintText: AppLocalizations.of(context).enterIconCode,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
@@ -175,7 +175,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: Text(AppLocalizations.of(context)!.cancelButton),
+          child: Text(AppLocalizations.of(context).cancelButton),
         ),
         TextButton(
           onPressed: _isProcessing ? null : _saveLabel,
@@ -185,7 +185,7 @@ class _LabelEditDialogState extends ConsumerState<LabelEditDialog> {
                   height: 20,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : Text(AppLocalizations.of(context)!.save),
+              : Text(AppLocalizations.of(context).save),
         ),
       ],
     );

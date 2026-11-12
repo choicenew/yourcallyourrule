@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/providers/fraud_alert_config_provider.dart';
@@ -53,37 +53,37 @@ class FraudAlertConfigWidget extends ConsumerWidget {
                       ),
                       const SizedBox(width: 10),
                       Text(
-                        AppLocalizations.of(context)!.fraudAlerSettingTitle,
+                        AppLocalizations.of(context).fraudAlerSettingTitle,
                         style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: theme.colorScheme.onSurface),
                       ),
                     ],
                   ),
                   const SizedBox(height: 14),
                   SwitchListTile(
-                    title: Text(AppLocalizations.of(context)!.enableFraudAlert, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: theme.colorScheme.onSurface)),
-                    subtitle: Text(AppLocalizations.of(context)!.enableFraudAlertDescription, style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant, height: 1.3)),
+                    title: Text(AppLocalizations.of(context).enableFraudAlert, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: theme.colorScheme.onSurface)),
+                    subtitle: Text(AppLocalizations.of(context).enableFraudAlertDescription, style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant, height: 1.3)),
                     value: config.isEnabled,
-                    activeThumbColor: theme.colorScheme.primary,
+                    activeColor: theme.colorScheme.primary,
                     onChanged: (value) {
                       notifier.updateConfig(config.copyWith(isEnabled: value));
                     },
                   ),
                   Divider(height: 1, indent: 16, endIndent: 16, color: theme.colorScheme.outlineVariant),
                   SwitchListTile(
-                    title: Text(AppLocalizations.of(context)!.enableVibration, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: theme.colorScheme.onSurface)),
-                    subtitle: Text(AppLocalizations.of(context)!.enableVibrationDescription, style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant, height: 1.3)),
+                    title: Text(AppLocalizations.of(context).enableVibration, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: theme.colorScheme.onSurface)),
+                    subtitle: Text(AppLocalizations.of(context).enableVibrationDescription, style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant, height: 1.3)),
                     value: config.isVibrationEnabled,
-                    activeThumbColor: theme.colorScheme.primary,
+                    activeColor: theme.colorScheme.primary,
                     onChanged: (value) {
                       notifier.updateConfig(config.copyWith(isVibrationEnabled: value));
                     },
                   ),
                   Divider(height: 1, indent: 16, endIndent: 16, color: theme.colorScheme.outlineVariant),
                   SwitchListTile(
-                    title: Text(AppLocalizations.of(context)!.autoCancelNotification, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: theme.colorScheme.onSurface)),
-                    subtitle: Text(AppLocalizations.of(context)!.autoCancelNotificationDescription, style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant, height: 1.3)),
+                    title: Text(AppLocalizations.of(context).autoCancelNotification, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: theme.colorScheme.onSurface)),
+                    subtitle: Text(AppLocalizations.of(context).autoCancelNotificationDescription, style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant, height: 1.3)),
                     value: config.isAutoCancelEnabled,
-                    activeThumbColor: theme.colorScheme.primary,
+                    activeColor: theme.colorScheme.primary,
                     onChanged: (value) {
                       notifier.updateConfig(config.copyWith(isAutoCancelEnabled: value));
                     },
@@ -94,7 +94,7 @@ class FraudAlertConfigWidget extends ConsumerWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                       child: Row(
                         children: [
-                          Text(AppLocalizations.of(context)!.setDelayTime, style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: theme.colorScheme.onSurface)),
+                          Text(AppLocalizations.of(context).setDelayTime, style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: theme.colorScheme.onSurface)),
                           Expanded(
                             child: Slider(
                               value: config.autoCancelDelaySeconds.toDouble(),

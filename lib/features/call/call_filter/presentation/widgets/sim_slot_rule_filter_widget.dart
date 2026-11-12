@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart'; // 仍然需要 Consumer 来构建列表项
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
@@ -48,33 +48,33 @@ class SimSlotRuleFilterWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              AppLocalizations.of(context)!.simSlotFilterSettingsTitle(simSlotIndex + 1),
+              AppLocalizations.of(context).simSlotFilterSettingsTitle(simSlotIndex + 1),
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 16),
-            Text(AppLocalizations.of(context)!.filterToggleInstructions),
+            Text(AppLocalizations.of(context).filterToggleInstructions),
             const SizedBox(height: 8),
             SwitchListTile(
-              title: Text(AppLocalizations.of(context)!.simSlotRuleManagement),
-              subtitle: Text(AppLocalizations.of(context)!.simSlotFilterDescription),
+              title: Text(AppLocalizations.of(context).simSlotRuleManagement),
+              subtitle: Text(AppLocalizations.of(context).simSlotFilterDescription),
               value: filterEnabledMap[CallFilterType.simSlotRule] ?? true,
               onChanged: (value) => onToggleFilterEnabled(CallFilterType.simSlotRule, value),
             ),
             SwitchListTile(
-              title: Text(AppLocalizations.of(context)!.basicRuleFilter),
-              subtitle: Text(AppLocalizations.of(context)!.basicRuleFilterSubtitle),
+              title: Text(AppLocalizations.of(context).basicRuleFilter),
+              subtitle: Text(AppLocalizations.of(context).basicRuleFilterSubtitle),
               value: filterEnabledMap[CallFilterType.basicRule] ?? true,
               onChanged: (value) => onToggleFilterEnabled(CallFilterType.basicRule, value),
             ),
             SwitchListTile(
-              title: Text(AppLocalizations.of(context)!.localCounterFilter),
-              subtitle: Text(AppLocalizations.of(context)!.localCounterFilterSubtitle),
+              title: Text(AppLocalizations.of(context).localCounterFilter),
+              subtitle: Text(AppLocalizations.of(context).localCounterFilterSubtitle),
               value: filterEnabledMap[CallFilterType.localCount] ?? true,
               onChanged: (value) => onToggleFilterEnabled(CallFilterType.localCount, value),
             ),
             SwitchListTile(
-              title: Text(AppLocalizations.of(context)!.remoteNumberFilter),
-              subtitle: Text(AppLocalizations.of(context)!.remoteNumberFilterSubtitle),
+              title: Text(AppLocalizations.of(context).remoteNumberFilter),
+              subtitle: Text(AppLocalizations.of(context).remoteNumberFilterSubtitle),
               value: filterEnabledMap[CallFilterType.remoteNumber] ?? true,
               onChanged: (value) => onToggleFilterEnabled(CallFilterType.remoteNumber, value),
             ),
@@ -94,7 +94,7 @@ class SimSlotRuleFilterWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              AppLocalizations.of(context)!.simSlotRuleListTitle,
+              AppLocalizations.of(context).simSlotRuleListTitle,
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 16),
@@ -102,7 +102,7 @@ class SimSlotRuleFilterWidget extends StatelessWidget {
                 ? Center(
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: Text(AppLocalizations.of(context)!.noRulesPrompt),
+                      child: Text(AppLocalizations.of(context).noRulesPrompt),
                     ),
                   )
                 : ListView.builder(
@@ -128,13 +128,13 @@ class SimSlotRuleFilterWidget extends StatelessWidget {
                                         .then((label) => (label as dynamic)?.text as String?),
                                     builder: (context, snapshot) {
                                       if (snapshot.connectionState == ConnectionState.waiting) {
-                                        return Text(AppLocalizations.of(context)!.loadingTags);
+                                        return Text(AppLocalizations.of(context).loadingTags);
                                       }
                                       if (snapshot.hasData) {
-                                        final labelText = snapshot.data ?? AppLocalizations.of(context)!.unknownTag;
-                                        return Text(AppLocalizations.of(context)!.tagLabel(labelText));
+                                        final labelText = snapshot.data ?? AppLocalizations.of(context).unknownTag;
+                                        return Text(AppLocalizations.of(context).tagLabel(labelText));
                                       }
-                                      return Text(AppLocalizations.of(context)!.unknownTag);
+                                      return Text(AppLocalizations.of(context).unknownTag);
                                     },
                                   ),
                               ],
@@ -159,17 +159,17 @@ class SimSlotRuleFilterWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(AppLocalizations.of(context)!.simRuleInstructionsTitle,
+            Text(AppLocalizations.of(context).simRuleInstructionsTitle,
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
             const SizedBox(height: 8),
-            Text(AppLocalizations.of(context)!.simRuleInstructions),
+            Text(AppLocalizations.of(context).simRuleInstructions),
             const SizedBox(height: 8),
-            Text(AppLocalizations.of(context)!.featureListTitle),
-            Text("• ${AppLocalizations.of(context)!.featureEnableDisable}"),
-            Text("• ${AppLocalizations.of(context)!.featureAddRules}"),
-            Text("• ${AppLocalizations.of(context)!.featureManageRules}"),
+            Text(AppLocalizations.of(context).featureListTitle),
+            Text("• ${AppLocalizations.of(context).featureEnableDisable}"),
+            Text("• ${AppLocalizations.of(context).featureAddRules}"),
+            Text("• ${AppLocalizations.of(context).featureManageRules}"),
             const SizedBox(height: 8),
-            Text(AppLocalizations.of(context)!.dualSimAdvice),
+            Text(AppLocalizations.of(context).dualSimAdvice),
           ],
         ),
       ),

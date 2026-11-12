@@ -57,7 +57,8 @@ class AppSyncBridgeConnector {
       for (final moduleId in moduleIds) {
         final adapter = SyncHub.instance.getAdapter(moduleId);
         if (adapter != null) {
-          await adapter.executeSync();
+          final items = await adapter.readAll();
+          debugPrint('[AppSyncBridgeConnector] Synced module $moduleId (${items.length} items)');
         }
       }
       return true;

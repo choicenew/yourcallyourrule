@@ -1,4 +1,4 @@
-import 'dart:io';
+﻿import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
@@ -91,7 +91,7 @@ class _AvatarCropViewState extends State<AvatarCropView> {
           children: [
             TextButton(
               onPressed: widget.onCancel,
-              child: Text(AppLocalizations.of(context)!.cancelButton),
+              child: Text(AppLocalizations.of(context).cancelButton),
             ),
             const SizedBox(width: 8),
             ElevatedButton(
@@ -109,7 +109,7 @@ class _AvatarCropViewState extends State<AvatarCropView> {
                           color: Colors.white,
                         ),
                       )
-                      : Text(AppLocalizations.of(context)!.confirm),
+                      : Text(AppLocalizations.of(context).confirm),
             ),
           ],
         ),

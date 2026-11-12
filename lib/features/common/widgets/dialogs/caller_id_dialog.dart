@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dlibphonenumber/dlibphonenumber.dart' as dlibphone;
 import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
@@ -62,7 +62,7 @@ class _CallerIdDialogState extends ConsumerState<CallerIdDialog> {
       });
     } catch (e) {
       setState(() {
-        _errorMessage = AppLocalizations.of(context)!.failedToGetCallerIdInfo(e.toString());
+        _errorMessage = AppLocalizations.of(context).failedToGetCallerIdInfo(e.toString());
         _isLoading = false;
       });
     }
@@ -79,7 +79,7 @@ class _CallerIdDialogState extends ConsumerState<CallerIdDialog> {
             children: [
               const CircularProgressIndicator(),
               const SizedBox(height: 16),
-              Text(AppLocalizations.of(context)!.fetchingCallerIdInfo),
+              Text(AppLocalizations.of(context).fetchingCallerIdInfo),
             ],
           ),
         ),
@@ -99,7 +99,7 @@ class _CallerIdDialogState extends ConsumerState<CallerIdDialog> {
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text(AppLocalizations.of(context)!.closeButton),
+                child: Text(AppLocalizations.of(context).closeButton),
               ),
             ],
           ),
@@ -114,24 +114,24 @@ class _CallerIdDialogState extends ConsumerState<CallerIdDialog> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('${AppLocalizations.of(context)!.number}: ${_callerIdData.phoneNumber}'),
+            Text('${AppLocalizations.of(context).number}: ${_callerIdData.phoneNumber}'),
             const SizedBox(height: 8),
-            Text('${AppLocalizations.of(context)!.name}: ${_callerIdData.name}'),
+            Text('${AppLocalizations.of(context).name}: ${_callerIdData.name}'),
             if (_callerIdData.countryName != null) ...[                  
               const SizedBox(height: 8),
-              Text('${AppLocalizations.of(context)!.country}: ${_callerIdData.countryName}'),
+              Text('${AppLocalizations.of(context).country}: ${_callerIdData.countryName}'),
             ],
             if (_callerIdData.region != null) ...[                  
               const SizedBox(height: 8),
-              Text('${AppLocalizations.of(context)!.region}: ${_callerIdData.region}'),
+              Text('${AppLocalizations.of(context).region}: ${_callerIdData.region}'),
             ],
             if (_callerIdData.carrier != null) ...[                  
               const SizedBox(height: 8),
-              Text('${AppLocalizations.of(context)!.carrier}: ${_callerIdData.carrier}'),
+              Text('${AppLocalizations.of(context).carrier}: ${_callerIdData.carrier}'),
             ],
             if (_callerIdData.labels != null) ...[                  
               const SizedBox(height: 8),
-              Text('${AppLocalizations.of(context)!.labels}: ${_callerIdData.labels!.map((l) => l.label).join(', ')}'),
+              Text('${AppLocalizations.of(context).labels}: ${_callerIdData.labels!.map((l) => l.label).join(', ')}'),
             ],
             const SizedBox(height: 16),
             Row(
@@ -139,7 +139,7 @@ class _CallerIdDialogState extends ConsumerState<CallerIdDialog> {
               children: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text(AppLocalizations.of(context)!.closeButton),
+                  child: Text(AppLocalizations.of(context).closeButton),
                 ),
               ],
             ),

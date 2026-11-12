@@ -1,4 +1,4 @@
-// ignore: unused_import
+﻿// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2474,7 +2474,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get regexPatternsForPhoneNumberMatching => 'ለስልክ ቁጥር ተዛማጅ የመግለጫ ንድፎች';
 
   @override
-  String get regexRule => 'የመግለጫ ደንብ';
+  String get RegexRuleEntity => 'የመግለጫ ደንብ';
 
   @override
   String regexRuleAddFailed(Object error) {

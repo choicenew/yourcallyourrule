@@ -21,7 +21,7 @@ import 'package:yourcallyourrule/features/phone_rules/services/rule_management_s
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
-import 'package:yourcallyourrule/features/location/services/location_service.dart';
+import 'package:yourcallyourrule/features/phone_location/services/location_service.dart';
 
 part 'caller_identity_service.g.dart';
 

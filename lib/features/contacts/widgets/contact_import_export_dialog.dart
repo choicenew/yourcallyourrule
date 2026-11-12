@@ -1,4 +1,4 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,14 +30,14 @@ class ContactImportExportDialog extends ConsumerWidget {
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(color: Theme.of(context).colorScheme.outlineVariant, width: 1.0),
       ),
-      title: Text(AppLocalizations.of(context)!.importExportContacts),
+      title: Text(AppLocalizations.of(context).importExportContacts),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
               leading: const Icon(Icons.file_upload),
-              title: Text(AppLocalizations.of(context)!.importContacts),
+              title: Text(AppLocalizations.of(context).importContacts),
               onTap: () async {
                 Navigator.pop(context);
                 try {
@@ -68,19 +68,19 @@ class ContactImportExportDialog extends ConsumerWidget {
                         await contactService.importContactsFromJson(jsonData);
                         break;
                       default:
-                        throw Exception(AppLocalizations.of(context)!.unsupportedFileFormat);
+                        throw Exception(AppLocalizations.of(context).unsupportedFileFormat);
                     }
                     await onImportSuccess();
                     if (context.mounted) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(AppLocalizations.of(context)!.importSuccess), backgroundColor: Colors.green),
+                        SnackBar(content: Text(AppLocalizations.of(context).importSuccess), backgroundColor: Colors.green),
                       );
                     }
                   }
                 } catch (e) {
                   if (context.mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('${AppLocalizations.of(context)!.importFailed}: $e'), backgroundColor: Colors.red),
+                      SnackBar(content: Text('${AppLocalizations.of(context).importFailed}: $e'), backgroundColor: Colors.red),
                     );
                   }
                 }
@@ -88,7 +88,7 @@ class ContactImportExportDialog extends ConsumerWidget {
             ),
             ListTile(
               leading: const Icon(Icons.file_download),
-              title: Text(AppLocalizations.of(context)!.exportContacts),
+              title: Text(AppLocalizations.of(context).exportContacts),
               onTap: () async {
                 Navigator.pop(context);
                 try {
@@ -114,7 +114,7 @@ class ContactImportExportDialog extends ConsumerWidget {
                                 if (context.mounted) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                      content: Text('${AppLocalizations.of(context)!.fileSavedTo}: ${file.path}'),
+                                      content: Text('${AppLocalizations.of(context).fileSavedTo}: ${file.path}'),
                                       backgroundColor: Colors.green,
                                     ),
                                   );
@@ -134,7 +134,7 @@ class ContactImportExportDialog extends ConsumerWidget {
                                 if (context.mounted) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                      content: Text('${AppLocalizations.of(context)!.fileSavedTo}: ${file.path}'),
+                                      content: Text('${AppLocalizations.of(context).fileSavedTo}: ${file.path}'),
                                       backgroundColor: Colors.green,
                                     ),
                                   );
@@ -149,7 +149,7 @@ class ContactImportExportDialog extends ConsumerWidget {
                 } catch (e) {
                   if (context.mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('${AppLocalizations.of(context)!.exportFailed}: $e'), backgroundColor: Colors.red),
+                      SnackBar(content: Text('${AppLocalizations.of(context).exportFailed}: $e'), backgroundColor: Colors.red),
                     );
                   }
                 }

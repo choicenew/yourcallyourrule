@@ -58,7 +58,7 @@ class _CallOverlayCustomizationScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.callerIdCustomizationTitle)),
+          title: Text(AppLocalizations.of(context).callerIdCustomizationTitle)),
       body: Consumer(
         builder: (context, ref, child) {
           // 只 watch 一个 Provider
@@ -96,34 +96,34 @@ class _CallOverlayCustomizationScreenState
                         const Divider(),
                         // 设置项
                         _buildExpansionTile(
-                            AppLocalizations.of(context)!.windowSizeSetting,
+                            AppLocalizations.of(context).windowSizeSetting,
                             0,
                             _buildWindowSizeSliders(config)),
                         _buildExpansionTile(
-                            AppLocalizations.of(context)!
+                            AppLocalizations.of(context)
                                 .backgroundGradientSetting,
                             1,
                             _buildBackgroundGradient(config)),
                         _buildExpansionTile(
-                            AppLocalizations.of(context)!.textColorsSetting,
+                            AppLocalizations.of(context).textColorsSetting,
                             2,
                             _buildTextColors(config)),
                         _buildExpansionTile(
-                            AppLocalizations.of(context)!.fontSizesSetting,
+                            AppLocalizations.of(context).fontSizesSetting,
                             3,
                             _buildFontSizes(config)),
                         _buildExpansionTile(
-                            AppLocalizations.of(context)!
+                            AppLocalizations.of(context)
                                 .avatarIconSizesSetting,
                             4,
                             _buildAvatarAndIconSizes(config)),
                         _buildExpansionTile(
-                            AppLocalizations.of(context)!
+                            AppLocalizations.of(context)
                                 .elementPositionsSetting,
                             5,
                             _buildElementPositions(config)),
                         _buildExpansionTile(
-                            AppLocalizations.of(context)!
+                            AppLocalizations.of(context)
                                 .scrollingSecurityMessageSettings,
                             6,
                             _buildSecurityMessageSettings(config)),
@@ -158,21 +158,11 @@ class _CallOverlayCustomizationScreenState
     // 2. 通过 `ref.read()` 从 Riverpod 容器中获取由 `overlayHandlerProvider` 提供的、
     //    全应用共享的唯一 `OverlayHandler` 实例。
     //    这个实例已经被正确地注入了它所需要的所有依赖 (比如 ref 本身)。
-    final overlayHandler = ref.read(overlayHandlerProvider);
+    final overlayHandler = await ref.read(overlayHandlerProvider.future);
     final mockData = CallOverlayMockData.mockCallerIdData();
     final stirInfo = CallOverlayMockData.mockStirInfoData();
     final simInfo = CallOverlayMockData.mockSimInfoData();
 
-      // 【修正】: setPixelRatio 的职责已经转移到了 OverlayHandler 内部的 _ensurePixelRatio 方法。
-    //            外部不再需要手动设置它。
-    /* 
-    final mediaQuery = MediaQuery.of(context);
-    overlayHandler.setPixelRatio(mediaQuery.devicePixelRatio); // <-- REMOVED
-    */
-  
-    
-    // 在重构后的模型中，OverlayHandler 应该也通过 Riverpod 获取最新的配置
-    // 因此这里不再需要手动传递配置，只需触发显示即可
     await overlayHandler.showCallerIdOverlay(mockData, stirInfo, simInfo);
   }
 
@@ -200,14 +190,14 @@ class _CallOverlayCustomizationScreenState
     return Column(
       children: [
         _buildSlider(
-          AppLocalizations.of(context)!.width,
+          AppLocalizations.of(context).width,
           config.windowWidth,
           200,
           400,
           (value) => notifier.setWindowSize(width: value),
         ),
         _buildSlider(
-          AppLocalizations.of(context)!.height,
+          AppLocalizations.of(context).height,
           config.windowHeight,
           100,
           300,
@@ -223,12 +213,12 @@ class _CallOverlayCustomizationScreenState
     return Column(
       children: [
         ColorPanel(
-          title: AppLocalizations.of(context)!.startColor,
+          title: AppLocalizations.of(context).startColor,
           currentColor: config.backgroundColorStart,
           onColorChanged: notifier.setBackgroundColorStart,
         ),
         ColorPanel(
-          title: AppLocalizations.of(context)!.endColor,
+          title: AppLocalizations.of(context).endColor,
           currentColor: config.backgroundColorEnd,
           onColorChanged: notifier.setBackgroundColorEnd,
         ),
@@ -242,59 +232,59 @@ class _CallOverlayCustomizationScreenState
     return Column(
       children: [
         ColorPanel(
-            title: AppLocalizations.of(context)!.labelIconColor,
+            title: AppLocalizations.of(context).labelIconColor,
             currentColor: config.textIconLabelColor,
             onColorChanged: notifier.setTextIconLabelColor),
         ColorPanel(
-            title: AppLocalizations.of(context)!.locationIconColor,
+            title: AppLocalizations.of(context).locationIconColor,
             currentColor: config.textIconLocationColor,
             onColorChanged: notifier.setTextIconLocationColor),
         ColorPanel(
-            title: AppLocalizations.of(context)!.callTypeIconColor,
+            title: AppLocalizations.of(context).callTypeIconColor,
             currentColor: config.textIconCallTypeColor,
             onColorChanged: notifier.setTextIconCallTypeColor),
         ColorPanel(
-            title: AppLocalizations.of(context)!.avatarBorderColor,
+            title: AppLocalizations.of(context).avatarBorderColor,
             currentColor: config.avatarBorderColor,
             onColorChanged: notifier.setAvatarBorderColor),
         ColorPanel(
-            title: AppLocalizations.of(context)!.nameColor,
+            title: AppLocalizations.of(context).nameColor,
             currentColor: config.textNameColor,
             onColorChanged: notifier.setTextNameColor),
         ColorPanel(
-            title: AppLocalizations.of(context)!.numberColor,
+            title: AppLocalizations.of(context).numberColor,
             currentColor: config.textNumberColor,
             onColorChanged: notifier.setTextNumberColor),
         ColorPanel(
-            title: AppLocalizations.of(context)!.locationColor,
+            title: AppLocalizations.of(context).locationColor,
             currentColor: config.textLocationColor,
             onColorChanged: notifier.setTextLocationColor),
         ColorPanel(
-            title: AppLocalizations.of(context)!.carrierColor,
+            title: AppLocalizations.of(context).carrierColor,
             currentColor: config.textCarrierColor,
             onColorChanged: notifier.setTextCarrierColor),
         ColorPanel(
-            title: AppLocalizations.of(context)!.countryNameColor,
+            title: AppLocalizations.of(context).countryNameColor,
             currentColor: config.textCountryNameColor,
             onColorChanged: notifier.setTextCountryNameColor),
         ColorPanel(
-            title: AppLocalizations.of(context)!.labelsColor,
+            title: AppLocalizations.of(context).labelsColor,
             currentColor: config.textLabelsColor,
             onColorChanged: notifier.setTextLabelsColor),
         ColorPanel(
-            title: AppLocalizations.of(context)!.countColor,
+            title: AppLocalizations.of(context).countColor,
             currentColor: config.textCountColor,
             onColorChanged: notifier.setTextCountColor),
         ColorPanel(
-            title: AppLocalizations.of(context)!.numberTypeColor,
+            title: AppLocalizations.of(context).numberTypeColor,
             currentColor: config.textNumberTypeColor,
             onColorChanged: notifier.setTextNumberTypeColor),
         ColorPanel(
-            title: AppLocalizations.of(context)!.stirColor,
+            title: AppLocalizations.of(context).stirColor,
             currentColor: config.textStirColor,
             onColorChanged: notifier.setTextStirColor),
         ColorPanel(
-            title: AppLocalizations.of(context)!.simCardColor,
+            title: AppLocalizations.of(context).simCardColor,
             currentColor: config.textSimCardColor,
             onColorChanged: notifier.setTextSimCardColor),
       ],
@@ -307,43 +297,43 @@ class _CallOverlayCustomizationScreenState
     return Column(
       children: [
         SizePanel(
-            label: AppLocalizations.of(context)!.nameFontSize,
+            label: AppLocalizations.of(context).nameFontSize,
             currentSize: config.nameFontSize,
             onSizeChanged: notifier.setNameFontSize),
         SizePanel(
-            label: AppLocalizations.of(context)!.carrierFontSize,
+            label: AppLocalizations.of(context).carrierFontSize,
             currentSize: config.carrierFontSize,
             onSizeChanged: notifier.setCarrierFontSize),
         SizePanel(
-            label: AppLocalizations.of(context)!.countryNameFontSize,
+            label: AppLocalizations.of(context).countryNameFontSize,
             currentSize: config.countryNameFontSize,
             onSizeChanged: notifier.setCountryNameFontSize),
         SizePanel(
-            label: AppLocalizations.of(context)!.labelsFontSize,
+            label: AppLocalizations.of(context).labelsFontSize,
             currentSize: config.labelsFontSize,
             onSizeChanged: notifier.setLabelsFontSize),
         SizePanel(
-            label: AppLocalizations.of(context)!.countFontSize,
+            label: AppLocalizations.of(context).countFontSize,
             currentSize: config.countFontSize,
             onSizeChanged: notifier.setCountFontSize),
         SizePanel(
-            label: AppLocalizations.of(context)!.numberTypeFontSize,
+            label: AppLocalizations.of(context).numberTypeFontSize,
             currentSize: config.numberTypeFontSize,
             onSizeChanged: notifier.setNumberTypeFontSize),
         SizePanel(
-            label: AppLocalizations.of(context)!.numberFontSize,
+            label: AppLocalizations.of(context).numberFontSize,
             currentSize: config.numberFontSize,
             onSizeChanged: notifier.setNumberFontSize),
         SizePanel(
-            label: AppLocalizations.of(context)!.locationFontSize,
+            label: AppLocalizations.of(context).locationFontSize,
             currentSize: config.locationFontSize,
             onSizeChanged: notifier.setLocationFontSize),
         SizePanel(
-            label: AppLocalizations.of(context)!.stirFontSize,
+            label: AppLocalizations.of(context).stirFontSize,
             currentSize: config.stirFontSize,
             onSizeChanged: notifier.setStirFontSize),
         SizePanel(
-            label: AppLocalizations.of(context)!.simCardFontSize,
+            label: AppLocalizations.of(context).simCardFontSize,
             currentSize: config.simCardFontSize,
             onSizeChanged: notifier.setSimCardFontSize),
       ],
@@ -356,18 +346,18 @@ class _CallOverlayCustomizationScreenState
     return Column(
       children: [
         _buildSlider(
-            AppLocalizations.of(context)!.avatarSize,
+            AppLocalizations.of(context).avatarSize,
             config.avatarSize,
             40,
             80,
             notifier.setAvatarSize),
         _buildSlider(
-            AppLocalizations.of(context)!.avatarBorderSize,
+            AppLocalizations.of(context).avatarBorderSize,
             config.avatarBorderSize,
             1,
             100,
             notifier.setAvatarBorderSize),
-        _buildSlider(AppLocalizations.of(context)!.iconSize, config.iconSize,
+        _buildSlider(AppLocalizations.of(context).iconSize, config.iconSize,
             16, 32, notifier.setIconSize),
       ],
     );
@@ -379,45 +369,45 @@ class _CallOverlayCustomizationScreenState
     return Column(
       children: [
         _buildPositionSlider(
-            AppLocalizations.of(context)!.avatarPosition,
+            AppLocalizations.of(context).avatarPosition,
             config.avatarPosition,
             notifier.updateAvatarPosition),
-        _buildPositionSlider(AppLocalizations.of(context)!.namePosition,
+        _buildPositionSlider(AppLocalizations.of(context).namePosition,
             config.namePosition, notifier.updateNamePosition),
         _buildPositionSlider(
-            AppLocalizations.of(context)!.carrierPosition,
+            AppLocalizations.of(context).carrierPosition,
             config.carrierPosition,
             notifier.updateCarrierPosition),
         _buildPositionSlider(
-            AppLocalizations.of(context)!.countryRegionNamePosition,
+            AppLocalizations.of(context).countryRegionNamePosition,
             config.countryNamePosition,
             notifier.updateCountryNamePosition),
         _buildPositionSlider(
-            AppLocalizations.of(context)!.labelsPosition,
+            AppLocalizations.of(context).labelsPosition,
             config.labelsPosition,
             notifier.updateLabelsPosition),
-        _buildPositionSlider(AppLocalizations.of(context)!.countPosition,
+        _buildPositionSlider(AppLocalizations.of(context).countPosition,
             config.countPosition, notifier.updateCountPosition),
         _buildPositionSlider(
-            AppLocalizations.of(context)!.numberTypePosition,
+            AppLocalizations.of(context).numberTypePosition,
             config.numberTypePosition,
             notifier.updateNumberTypePosition),
         _buildPositionSlider(
-            AppLocalizations.of(context)!.numberPosition,
+            AppLocalizations.of(context).numberPosition,
             config.numberPosition,
             notifier.updateNumberPosition),
         _buildPositionSlider(
-            AppLocalizations.of(context)!.locationPosition,
+            AppLocalizations.of(context).locationPosition,
             config.locationPosition,
             notifier.updateLocationPosition),
-        _buildPositionSlider(AppLocalizations.of(context)!.stirPosition,
+        _buildPositionSlider(AppLocalizations.of(context).stirPosition,
             config.stirPosition, notifier.updateStirPosition),
         _buildPositionSlider(
-            AppLocalizations.of(context)!.simCardPosition,
+            AppLocalizations.of(context).simCardPosition,
             config.simCardPosition,
             notifier.updateSimCardPosition),
         _buildPositionSlider(
-            AppLocalizations.of(context)!.callTypePosition,
+            AppLocalizations.of(context).callTypePosition,
             config.callTypePosition,
             notifier.updateCallTypePosition),
       ],
@@ -430,38 +420,38 @@ class _CallOverlayCustomizationScreenState
     return Column(
       children: [
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.enableSecurityMessage),
+          title: Text(AppLocalizations.of(context).enableSecurityMessage),
           value: config.securityMessageEnabled,
           onChanged: notifier.setSecurityMessageEnabled,
         ),
         ColorPanel(
-            title: AppLocalizations.of(context)!.messageColor,
+            title: AppLocalizations.of(context).messageColor,
             currentColor: config.securityMessageTextColor,
             onColorChanged: notifier.setSecurityMessageTextColor),
         ColorPanel(
-            title: AppLocalizations.of(context)!.messageBackgroundColor,
+            title: AppLocalizations.of(context).messageBackgroundColor,
             currentColor: config.securityMessageBackgroundColor,
             onColorChanged: notifier.setSecurityMessageBackgroundColor),
         SizePanel(
-            label: AppLocalizations.of(context)!.messageFontSize,
+            label: AppLocalizations.of(context).messageFontSize,
             currentSize: config.securityMessageFontSize,
             onSizeChanged: notifier.setSecurityMessageFontSize),
-        _buildSlider(AppLocalizations.of(context)!.height,
+        _buildSlider(AppLocalizations.of(context).height,
             config.securityMessageHeight, 20, 60, notifier.setSecurityMessageHeight),
         _buildSlider(
-            AppLocalizations.of(context)!.containerWidth,
+            AppLocalizations.of(context).containerWidth,
             config.securityMessageContainerWidth,
             100,
             400,
             notifier.setSecurityMessageContainerWidth),
         _buildSlider(
-            AppLocalizations.of(context)!.scrollSpeed,
+            AppLocalizations.of(context).scrollSpeed,
             config.securityMessageScrollSpeed,
             10,
             100,
             notifier.setSecurityMessageScrollSpeed),
         _buildPositionSlider(
-            AppLocalizations.of(context)!.messagePosition,
+            AppLocalizations.of(context).messagePosition,
             config.securityMessagePosition,
             notifier.updateSecurityMessagePosition),
       ],

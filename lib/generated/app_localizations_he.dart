@@ -1,4 +1,4 @@
-// ignore: unused_import
+﻿// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2486,7 +2486,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'דפוסי ביטוי רגולרי להתאמת מספרי טלפון';
 
   @override
-  String get regexRule => 'כלל ביטוי רגולרי';
+  String get RegexRuleEntity => 'כלל ביטוי רגולרי';
 
   @override
   String regexRuleAddFailed(Object error) {

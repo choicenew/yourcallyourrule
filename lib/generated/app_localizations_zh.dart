@@ -1,4 +1,4 @@
-// ignore: unused_import
+﻿// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2418,7 +2418,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get regexPatternsForPhoneNumberMatching => '用于电话号码匹配的正则表达式';
 
   @override
-  String get regexRule => '正则表达式规则';
+  String get RegexRuleEntity => '正则表达式规则';
 
   @override
   String regexRuleAddFailed(Object error) {
@@ -7185,7 +7185,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get regexPatternsForPhoneNumberMatching => '用于电话号码匹配的正则表达式';
 
   @override
-  String get regexRule => '正则表达式规则';
+  String get RegexRuleEntity => '正则表达式规则';
 
   @override
   String regexRuleAddFailed(Object error) {
@@ -11833,7 +11833,7 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get regexPatternsForPhoneNumberMatching => '用於電話號碼匹配的正則表達式模式';
 
   @override
-  String get regexRule => '正則表達式規則';
+  String get RegexRuleEntity => '正則表達式規則';
 
   @override
   String regexRuleAddFailed(Object error) {
@@ -16560,7 +16560,7 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get regexPatternsForPhoneNumberMatching => '用於電話號碼匹配的正則表達式模式';
 
   @override
-  String get regexRule => '正則表達式規則';
+  String get RegexRuleEntity => '正則表達式規則';
 
   @override
   String regexRuleAddFailed(Object error) {
@@ -21287,7 +21287,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get regexPatternsForPhoneNumberMatching => '用於電話號碼匹配的正規表示式';
 
   @override
-  String get regexRule => '正規表示式規則';
+  String get RegexRuleEntity => '正規表示式規則';
 
   @override
   String regexRuleAddFailed(Object error) {

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/widgets/sim_slot_rule_widget.dart';
@@ -20,7 +20,7 @@ class SimSlotRuleFilterPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.simSlotTitle(simSlotIndex + 1)),
+        title: Text(AppLocalizations.of(context).simSlotTitle(simSlotIndex + 1)),
         actions: [
           pageStateAsync.when(
             data: (state) {

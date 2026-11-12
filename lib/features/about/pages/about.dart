@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -34,14 +34,11 @@ class _AboutPageState extends State<AboutPage> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final textTheme = Theme.of(context).textTheme;
-    
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
-          AppLocalizations.of(context)!.aboutTitle,
+          AppLocalizations.of(context).aboutTitle,
           style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Theme.of(context).colorScheme.onSurface),
         ),
         backgroundColor: Colors.transparent,
@@ -103,7 +100,7 @@ class _AboutPageState extends State<AboutPage> {
                   const SizedBox(height: 12),
                   // 应用名称
                   Text(
-                    AppLocalizations.of(context)!.callerIdApp,
+                    AppLocalizations.of(context).callerIdApp,
                     style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w900,
@@ -132,7 +129,7 @@ class _AboutPageState extends State<AboutPage> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
-                      AppLocalizations.of(context)!.thisAppIsAPowerfulCallerIdToolThatAllows,
+                      AppLocalizations.of(context).thisAppIsAPowerfulCallerIdToolThatAllows,
                       style: TextStyle(
                         color: Colors.white.withValues(alpha: 0.9),
                         fontSize: 13,
@@ -152,7 +149,7 @@ class _AboutPageState extends State<AboutPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.features,
+                    AppLocalizations.of(context).features,
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w900,
@@ -163,25 +160,25 @@ class _AboutPageState extends State<AboutPage> {
                   _buildFeatureCard(
                     context, 
                     Icons.cloud_sync_rounded, 
-                    AppLocalizations.of(context)!.onlineCallerIdSubscription
+                    AppLocalizations.of(context).onlineCallerIdSubscription
                   ),
                   const SizedBox(height: 10),
                   _buildFeatureCard(
                     context, 
                     Icons.filter_list_rounded, 
-                    AppLocalizations.of(context)!.wildcardSupportForFlexibleFiltering
+                    AppLocalizations.of(context).wildcardSupportForFlexibleFiltering
                   ),
                   const SizedBox(height: 10),
                   _buildFeatureCard(
                     context, 
                     Icons.block_rounded, 
-                    AppLocalizations.of(context)!.blacklistingAndWhitelisting
+                    AppLocalizations.of(context).blacklistingAndWhitelisting
                   ),
                   const SizedBox(height: 10),
                   _buildFeatureCard(
                     context, 
                     Icons.send_rounded, 
-                    AppLocalizations.of(context)!.joinTheTelegramChannelAndGroupForMoreInfo
+                    AppLocalizations.of(context).joinTheTelegramChannelAndGroupForMoreInfo
                   ),
                   
                   const SizedBox(height: 24),
@@ -211,7 +208,7 @@ class _AboutPageState extends State<AboutPage> {
                         child: Icon(Icons.school_rounded, color: Theme.of(context).colorScheme.primary, size: 20),
                       ),
                       title: Text(
-                        AppLocalizations.of(context)!.tutorial,
+                        AppLocalizations.of(context).tutorial,
                         style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 15),
                       ),
                       trailing: const Icon(Icons.chevron_right_rounded, color: Colors.grey),
@@ -226,7 +223,7 @@ class _AboutPageState extends State<AboutPage> {
                     child: Column(
                       children: [
                         Text(
-                          AppLocalizations.of(context)!.contactUs,
+                          AppLocalizations.of(context).contactUs,
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w900,
@@ -242,21 +239,21 @@ class _AboutPageState extends State<AboutPage> {
                               context, 
                               Icons.code_rounded,
                               'https://github.com/choicenew/yourcallrule',
-                              AppLocalizations.of(context)!.github,
+                              AppLocalizations.of(context).github,
                             ),
                             const SizedBox(width: 16),
                             _buildSocialMediaButton(
                               context, 
                               Icons.send_rounded, 
                               'https://t.me/yourcallyourrule',
-                              AppLocalizations.of(context)!.telegram,
+                              AppLocalizations.of(context).telegram,
                             ),
                             const SizedBox(width: 16),
                             _buildSocialMediaButton(
                               context, 
                               Icons.email_rounded, 
                               'mailto:oakjeol@gmail.com',
-                              AppLocalizations.of(context)!.email,
+                              AppLocalizations.of(context).email,
                             ),
                           ],
                         ),

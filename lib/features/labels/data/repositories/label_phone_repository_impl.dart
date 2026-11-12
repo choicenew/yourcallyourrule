@@ -1,7 +1,7 @@
-import 'package:drift/drift.dart';
+﻿import 'package:drift/drift.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart' hide PredefinedLabel;
 import '../../repositories/label_phone_repository.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 

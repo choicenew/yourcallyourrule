@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
@@ -39,7 +39,7 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
       if (mounted) {
         setState(() => _isLoading = false);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${AppLocalizations.of(context)!.loadSubscriptionsFailed}: $e')),
+          SnackBar(content: Text('${AppLocalizations.of(context).loadSubscriptionsFailed}: $e')),
         );
       }
     }
@@ -57,7 +57,7 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${AppLocalizations.of(context)!.updateSubscriptionFailed}: $e')),
+          SnackBar(content: Text('${AppLocalizations.of(context).updateSubscriptionFailed}: $e')),
         );
       }
     }
@@ -71,7 +71,7 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${AppLocalizations.of(context)!.deleteSubscriptionFailed}: $e')),
+          SnackBar(content: Text('${AppLocalizations.of(context).deleteSubscriptionFailed}: $e')),
         );
       }
     }
@@ -84,21 +84,21 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.addSubscription),
+        title: Text(AppLocalizations.of(context).addSubscription),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
               controller: nameController,
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.subscriptionName,
+                labelText: AppLocalizations.of(context).subscriptionName,
               ),
             ),
             const SizedBox(height: 12),
             TextField(
               controller: urlController,
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.subscriptionUrl,
+                labelText: AppLocalizations.of(context).subscriptionUrl,
               ),
             ),
           ],
@@ -106,7 +106,7 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context)!.cancelButton),
+            child: Text(AppLocalizations.of(context).cancelButton),
           ),
           ElevatedButton(
             onPressed: () async {
@@ -121,7 +121,7 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
                 }
               }
             },
-            child: Text(AppLocalizations.of(context)!.save),
+            child: Text(AppLocalizations.of(context).save),
           ),
         ],
       ),
@@ -154,12 +154,12 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
   @override
   Widget build(BuildContext context) {
     return GenericListWithAdsPage<SmsSubscription>(
-      title: AppLocalizations.of(context)!.smsSubscriptionTitle,
+      title: AppLocalizations.of(context).confirm,
       items: _subscriptions,
       itemBuilder: (context, subscription) => _buildSubscriptionCard(subscription),
       adBuilder: () => const AdsInlineBanner(),
       adInterval: 3,
-      emptyText: AppLocalizations.of(context)!.noSubscriptions,
+      emptyText: AppLocalizations.of(context).noSubscriptions,
       emptyIcon: Icons.sms_outlined,
       themeColor: Theme.of(context).primaryColor,
       isLoading: _isLoading,

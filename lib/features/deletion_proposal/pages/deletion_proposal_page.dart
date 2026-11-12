@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_deletion_proposal_protocol/pyro_deletion_proposal_protocol.dart';
 import 'package:pyro_deletion_proposal_ui/pyro_deletion_proposal_ui.dart' as proposal_pkg_ui;
@@ -12,7 +12,7 @@ class DeletionProposalPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
 
     return FutureBuilder<List<ProposalEntity>>(
       future: Future.value([]),

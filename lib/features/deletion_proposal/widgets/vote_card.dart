@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/theme/dopamine_theme_extension.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';
@@ -71,7 +71,7 @@ class VoteCard extends StatelessWidget {
               const Spacer(),
               if (votedAt != null)
                 Text(
-                  '${AppLocalizations.of(context)!.voted} ${_formatDateTime(votedAt)}',
+                  '${AppLocalizations.of(context).voted} ${_formatDateTime(votedAt)}',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     color: Theme.of(context).colorScheme.outline,
                   ),
@@ -83,7 +83,7 @@ class VoteCard extends StatelessWidget {
           // 提议原因
           if (reason.isNotEmpty) ...[
             Text(
-              AppLocalizations.of(context)!.reason,
+              AppLocalizations.of(context).reason,
               style: Theme.of(context).textTheme.labelMedium?.copyWith(
                 fontWeight: FontWeight.w600,
               ),
@@ -109,7 +109,7 @@ class VoteCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  '${AppLocalizations.of(context)!.communityVotes}: $totalVotes ($supportPercentage% ${AppLocalizations.of(context)!.support})',
+                  '${AppLocalizations.of(context).communityVotes}: $totalVotes ($supportPercentage% ${AppLocalizations.of(context).support})',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     color: Theme.of(context).colorScheme.outline,
                   ),
@@ -134,7 +134,7 @@ class VoteCard extends StatelessWidget {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    AppLocalizations.of(context)!.waitingForMoreVotes,
+                    AppLocalizations.of(context).waitingForMoreVotes,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                       color: Theme.of(context).colorScheme.outline,
                     ),
@@ -162,7 +162,7 @@ class VoteCard extends StatelessWidget {
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    AppLocalizations.of(context)!.proposalProcessed,
+                    AppLocalizations.of(context).proposalProcessed,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.tertiary,
                       fontWeight: FontWeight.w500,
@@ -197,7 +197,7 @@ class VoteCard extends StatelessWidget {
           ),
           const SizedBox(width: 4),
           Text(
-            support ? AppLocalizations.of(context)!.supported : AppLocalizations.of(context)!.opposed,
+            support ? AppLocalizations.of(context).supported : AppLocalizations.of(context).opposed,
             style: TextStyle(
               color: color,
               fontSize: 11,

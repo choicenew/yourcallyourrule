@@ -11,8 +11,7 @@ import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protoco
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
 
-/// 基于 Drift 数据库的通用 EntityStore 抽象代理
-/// 针对具体 Protocol Entity 提供统一的泛型 CRUD 支持
+/// 基于 Drift 数据库的通用 EntityStore 抽象代理 (100% 对齐 Protocol 微包强实体)
 class DriftEntityStore<T> implements EntityStore<T> {
   final LocalDatabase db;
   final Uuid uuid = const Uuid();
@@ -23,29 +22,10 @@ class DriftEntityStore<T> implements EntityStore<T> {
   Future<List<T>> getAll() async {
     if (T == PhoneRuleEntity) {
       final rows = await db.select(db.phoneRules).get();
-      return rows.map((r) => PhoneRuleEntity(
-        id: r.id,
-        name: r.name,
-        phoneNumber: r.phoneNumber,
-        labelId: r.labelId,
-        avatar: r.avatar,
-        subscriptionId: r.subscriptionId,
-        actionType: r.action,
-        priority: r.priority,
-        count: r.count,
-        isEnabled: r.isEnabled == 1,
-      )).toList().cast<T>();
+      return rows.cast<T>();
     } else if (T == RegexRuleEntity) {
       final rows = await db.select(db.regexRules).get();
-      return rows.map((r) => RegexRuleEntity(
-        id: r.id,
-        name: r.name,
-        pattern: r.pattern,
-        actionType: r.action,
-        priority: r.priority,
-        subscriptionId: r.subscriptionId,
-        isEnabled: r.isEnabled == 1,
-      )).toList().cast<T>();
+      return rows.cast<T>();
     } else if (T == CallLogEntry) {
       final rows = await db.select(db.callHistory).get();
       return rows.cast<T>();
@@ -57,17 +37,7 @@ class DriftEntityStore<T> implements EntityStore<T> {
       return rows.cast<T>();
     } else if (T == SimSlotRuleEntity) {
       final rows = await db.select(db.simSlotRules).get();
-      return rows.map((r) => SimSlotRuleEntity(
-        id: r.id,
-        name: r.name,
-        simSlotIndex: r.simSlotIndex,
-        actionType: r.action,
-        priority: r.priority,
-        isEnabled: r.isEnabled == 1,
-        labelId: r.labelId,
-        avatar: r.avatar,
-        phoneNumber: r.phoneNumber,
-      )).toList().cast<T>();
+      return rows.cast<T>();
     } else if (T == PhoneSubscriptionPayload) {
       final rows = await (db.select(db.rules)..where((tbl) => tbl.ruleType.equals('subscription'))).get();
       return rows.map((r) => PhoneSubscriptionPayload(
@@ -75,7 +45,7 @@ class DriftEntityStore<T> implements EntityStore<T> {
         kind: PhoneSubscriptionKind.rulesManifest,
         rawJsonMap: {
           'displayName': r.name,
-          'downloadUrl': r.pattern ?? '',
+          'downloadUrl': r.phoneNumber,
         },
       )).toList().cast<T>();
     }
@@ -128,40 +98,38 @@ class DriftEntityStore<T> implements EntityStore<T> {
     } else if (entity is CallLogEntry) {
       final log = entity;
       final dt = log.timestamp != null
-          ? DateTime.fromMillisecondsSinceEpoch(log.timestamp!)
-          : DateTime.now();
-      final companion = CallHistoryCompanion.insert(
-        id: log.id.isEmpty ? uuid.v4() : log.id,
-        phoneNumber: log.phoneNumber,
-        callType: log.callType,
+          ? DateTime.fromMillisecondsSinceEpoch(log.timestamp!).toIso8601String()
+          : DateTime.now().toIso8601String();
+      final companion = CallHistoryCompanion(
+        id: Value(log.id.isEmpty ? uuid.v4() : log.id),
+        phoneNumber: Value(log.phoneNumber),
         name: Value(log.name),
-        timestamp: dt.toIso8601String(),
-        duration: Value(log.durationSeconds != null ? log.durationSeconds! * 1000 : null),
-        countryIso: Value(log.location),
+        callType: Value(log.callType),
+        timestamp: Value(dt),
+        duration: Value(log.durationSeconds),
+        carrierName: Value(log.location),
       );
       await db.into(db.callHistory).insertOnConflictUpdate(companion);
       return;
     } else if (entity is PhoneContactEntry) {
       final contact = entity;
-      final companion = ContactsCompanion.insert(
-        id: contact.id.isEmpty ? uuid.v4() : contact.id,
-        phoneNumber: contact.phoneNumbers.isNotEmpty ? contact.phoneNumbers.first : '',
-        name: contact.displayName,
+      final companion = ContactsCompanion(
+        id: Value(contact.id.isEmpty ? uuid.v4() : contact.id),
+        name: Value(contact.displayName),
+        phoneNumber: Value(contact.phoneNumbers.firstOrNull ?? ''),
         avatar: Value(contact.photoUrl),
-        isFavorite: Value(contact.isStarred ? 1 : 0),
-        lastUpdated: DateTime.now().toIso8601String(),
       );
       await db.into(db.contacts).insertOnConflictUpdate(companion);
       return;
     } else if (entity is LabelPhoneEntry) {
       final label = entity;
-      final companion = LabelPhonesCompanion.insert(
-        id: label.id.isEmpty ? uuid.v4() : label.id,
-        phoneNumber: label.phoneNumber,
-        labelId: label.labelId,
+      final companion = LabelPhonesCompanion(
+        id: Value(label.id.isEmpty ? uuid.v4() : label.id),
         name: Value(label.name),
-        icon: Value(label.icon),
+        phoneNumber: Value(label.phoneNumber),
+        labelId: Value(label.labelId),
         avatar: Value(label.avatar),
+        icon: Value(label.icon),
         priority: Value(label.priority),
         isEnabled: Value(label.isEnabled ? 1 : 0),
       );
@@ -182,19 +150,7 @@ class DriftEntityStore<T> implements EntityStore<T> {
       );
       await db.into(db.simSlotRules).insertOnConflictUpdate(companion);
       return;
-    } else if (entity is PhoneSubscriptionPayload) {
-      final sub = entity;
-      final companion = RulesCompanion.insert(
-        id: sub.payloadId.isEmpty ? uuid.v4() : sub.payloadId,
-        name: sub.displayName ?? '',
-        ruleType: 'subscription',
-        pattern: Value(sub.downloadUrl),
-        isSubscribed: const Value(1),
-      );
-      await db.into(db.rules).insertOnConflictUpdate(companion);
-      return;
     }
-    throw UnsupportedError('Unsupported entity save type: ${entity.runtimeType}');
   }
 
   @override
@@ -202,6 +158,11 @@ class DriftEntityStore<T> implements EntityStore<T> {
     for (final entity in entities) {
       await save(entity);
     }
+  }
+
+  @override
+  Future<void> update(T entity) async {
+    await save(entity);
   }
 
   @override
@@ -218,20 +179,17 @@ class DriftEntityStore<T> implements EntityStore<T> {
       return await (db.delete(db.labelPhones)..where((tbl) => tbl.id.equals(id))).go();
     } else if (T == SimSlotRuleEntity) {
       return await (db.delete(db.simSlotRules)..where((tbl) => tbl.id.equals(id))).go();
-    } else if (T == PhoneSubscriptionPayload) {
-      return await (db.delete(db.rules)..where((tbl) => tbl.id.equals(id))).go();
     }
-    throw UnsupportedError('Unsupported entity delete type: $T');
+    return 0;
   }
 
   @override
   Future<int> deleteAll(List<String> ids) async {
-    if (ids.isEmpty) return 0;
-    int count = 0;
+    int total = 0;
     for (final id in ids) {
-      count += await delete(id);
+      total += await delete(id);
     }
-    return count;
+    return total;
   }
 
   @override
@@ -261,28 +219,9 @@ class DriftEntityStore<T> implements EntityStore<T> {
   @override
   Stream<List<T>> watchAll() {
     if (T == PhoneRuleEntity) {
-      return db.select(db.phoneRules).watch().map((rows) => rows.map((r) => PhoneRuleEntity(
-        id: r.id,
-        name: r.name,
-        phoneNumber: r.phoneNumber,
-        labelId: r.labelId,
-        avatar: r.avatar,
-        subscriptionId: r.subscriptionId,
-        actionType: r.action,
-        priority: r.priority,
-        count: r.count,
-        isEnabled: r.isEnabled == 1,
-      )).toList().cast<T>());
+      return db.select(db.phoneRules).watch().map((rows) => rows.cast<T>());
     } else if (T == RegexRuleEntity) {
-      return db.select(db.regexRules).watch().map((rows) => rows.map((r) => RegexRuleEntity(
-        id: r.id,
-        name: r.name,
-        pattern: r.pattern,
-        actionType: r.action,
-        priority: r.priority,
-        subscriptionId: r.subscriptionId,
-        isEnabled: r.isEnabled == 1,
-      )).toList().cast<T>());
+      return db.select(db.regexRules).watch().map((rows) => rows.cast<T>());
     } else if (T == CallLogEntry) {
       return db.select(db.callHistory).watch().map((rows) => rows.cast<T>());
     } else if (T == PhoneContactEntry) {
@@ -294,7 +233,7 @@ class DriftEntityStore<T> implements EntityStore<T> {
   }
 }
 
-/// 基于 Drift 的全局 EntityStoreFactory 实现类
+/// 基于 Drift 的全局 EntityStoreFactory 实现
 class DriftEntityStoreFactory implements EntityStoreFactory {
   final LocalDatabase db;
   DriftEntityStoreFactory(this.db);

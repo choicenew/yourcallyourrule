@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -52,7 +52,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
       _isRefreshing = true;
     });
 
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(l10n.syncNowButton),
@@ -87,7 +87,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
   }
 
   String _getActionTitle(BuildContext context, InterceptAction action) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     switch (action) {
       case InterceptAction.endCall:
         return l10n.endCallImmediately;
@@ -99,7 +99,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
   }
 
   String _getActionDescription(BuildContext context, InterceptAction action) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     switch (action) {
       case InterceptAction.endCall:
         return l10n.blockActionDescription;
@@ -136,7 +136,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
   @override
   Widget build(BuildContext context) {
     final currentAction = ref.watch(interceptActionConfigProvider);
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
 
     final blockedToday = 0;

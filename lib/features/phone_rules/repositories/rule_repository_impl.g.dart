@@ -8,17 +8,17 @@ part of 'rule_repository_impl.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 规则仓库提供者 (直连 Drift LocalDatabase)
+/// 瑙勫垯浠撳簱鎻愪緵鑰?(鐩磋繛 Drift LocalDatabase)
 
 @ProviderFor(ruleRepository)
 final ruleRepositoryProvider = RuleRepositoryProvider._();
 
-/// 规则仓库提供者 (直连 Drift LocalDatabase)
+/// 瑙勫垯浠撳簱鎻愪緵鑰?(鐩磋繛 Drift LocalDatabase)
 
 final class RuleRepositoryProvider
     extends $FunctionalProvider<RuleRepository, RuleRepository, RuleRepository>
     with $Provider<RuleRepository> {
-  /// 规则仓库提供者 (直连 Drift LocalDatabase)
+  /// 瑙勫垯浠撳簱鎻愪緵鑰?(鐩磋繛 Drift LocalDatabase)
   RuleRepositoryProvider._()
     : super(
         from: null,

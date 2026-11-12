@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
@@ -206,27 +206,27 @@ class _LiveNotificationCustomizationScreenState
                       padding: const EdgeInsets.all(16),
                       children: [
                         _buildExpansionTile(
-                          AppLocalizations.of(context)!.elementsSettingsTitle,
+                          AppLocalizations.of(context).elementsSettingsTitle,
                           0,
                           _buildElementsVisibility(config),
                         ),
                         _buildExpansionTile(
-                          AppLocalizations.of(context)!.textColorsSetting,
+                          AppLocalizations.of(context).textColorsSetting,
                           1,
                           _buildTextColors(config),
                         ),
                         _buildExpansionTile(
-                          AppLocalizations.of(context)!.fontSizesSetting,
+                          AppLocalizations.of(context).fontSizesSetting,
                           2,
                           _buildFontSizes(config),
                         ),
                         _buildExpansionTile(
-                          AppLocalizations.of(context)!.avatarIconSizesSetting,
+                          AppLocalizations.of(context).avatarIconSizesSetting,
                           3,
                           _buildAvatarAndIconStyles(config),
                         ),
                         _buildExpansionTile(
-                          AppLocalizations.of(context)!.elementPositionsSetting,
+                          AppLocalizations.of(context).elementPositionsSetting,
                           4,
                           _buildElementPositions(config),
                         ),
@@ -363,69 +363,69 @@ class _LiveNotificationCustomizationScreenState
     return Column(
       children: [
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.avatar),
+          title: Text(AppLocalizations.of(context).avatar),
           value: config.avatar.visible,
           onChanged: (val) => notifier.updateElementVisibility('avatar', val),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.name),
+          title: Text(AppLocalizations.of(context).name),
           value: config.name.visible,
           onChanged: (val) => notifier.updateElementVisibility('name', val),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.phoneNumber),
+          title: Text(AppLocalizations.of(context).phoneNumber),
           value: config.number.visible,
           onChanged: (val) => notifier.updateElementVisibility('number', val),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.location),
+          title: Text(AppLocalizations.of(context).location),
           value: config.location.visible,
           onChanged: (val) => notifier.updateElementVisibility('location', val),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.carrier),
+          title: Text(AppLocalizations.of(context).carrier),
           value: config.carrier.visible,
           onChanged: (val) => notifier.updateElementVisibility('carrier', val),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.country),
+          title: Text(AppLocalizations.of(context).country),
           value: config.countryName.visible,
           onChanged:
               (val) => notifier.updateElementVisibility('countryName', val),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.labels),
+          title: Text(AppLocalizations.of(context).labels),
           value: config.labels.visible,
           onChanged: (val) => notifier.updateElementVisibility('labels', val),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.markCounts),
+          title: Text(AppLocalizations.of(context).markCounts),
           value: config.count.visible,
           onChanged: (val) => notifier.updateElementVisibility('count', val),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.phoneNumberType),
+          title: Text(AppLocalizations.of(context).phoneNumberType),
           value: config.numberType.visible,
           onChanged:
               (val) => notifier.updateElementVisibility('numberType', val),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.stirVerificationTitle),
+          title: Text(AppLocalizations.of(context).stirVerificationTitle),
           value: config.stir.visible,
           onChanged: (val) => notifier.updateElementVisibility('stir', val),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.simCardTitle),
+          title: Text(AppLocalizations.of(context).simCardTitle),
           value: config.simCard.visible,
           onChanged: (val) => notifier.updateElementVisibility('simCard', val),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.callType),
+          title: Text(AppLocalizations.of(context).callType),
           value: config.callType.visible,
           onChanged: (val) => notifier.updateElementVisibility('callType', val),
         ),
         SwitchListTile(
-          title: Text(AppLocalizations.of(context)!.securityMessage),
+          title: Text(AppLocalizations.of(context).securityMessage),
           value: config.securityMessage.visible,
           onChanged:
               (val) => notifier.updateElementVisibility('securityMessage', val),
@@ -443,21 +443,21 @@ class _LiveNotificationCustomizationScreenState
     return Column(
       children: [
         ColorPanel(
-          title: AppLocalizations.of(context)!.nameColor,
+          title: AppLocalizations.of(context).nameColor,
           currentColor: colorFromHex(config.name.color),
           onColorChanged:
               (color) =>
                   notifier.updateTextStyle('name', color: colorToHex(color)),
         ),
         ColorPanel(
-          title: AppLocalizations.of(context)!.numberColor,
+          title: AppLocalizations.of(context).numberColor,
           currentColor: colorFromHex(config.number.color),
           onColorChanged:
               (color) =>
                   notifier.updateTextStyle('number', color: colorToHex(color)),
         ),
         ColorPanel(
-          title: AppLocalizations.of(context)!.locationColor,
+          title: AppLocalizations.of(context).locationColor,
           currentColor: colorFromHex(config.location.color),
           onColorChanged:
               (color) => notifier.updateTextStyle(
@@ -466,14 +466,14 @@ class _LiveNotificationCustomizationScreenState
               ),
         ),
         ColorPanel(
-          title: AppLocalizations.of(context)!.carrierColor,
+          title: AppLocalizations.of(context).carrierColor,
           currentColor: colorFromHex(config.carrier.color),
           onColorChanged:
               (color) =>
                   notifier.updateTextStyle('carrier', color: colorToHex(color)),
         ),
         ColorPanel(
-          title: AppLocalizations.of(context)!.countryNameColor,
+          title: AppLocalizations.of(context).countryNameColor,
           currentColor: colorFromHex(config.countryName.color),
           onColorChanged:
               (color) => notifier.updateTextStyle(
@@ -482,21 +482,21 @@ class _LiveNotificationCustomizationScreenState
               ),
         ),
         ColorPanel(
-          title: AppLocalizations.of(context)!.labelsColor,
+          title: AppLocalizations.of(context).labelsColor,
           currentColor: colorFromHex(config.labels.color),
           onColorChanged:
               (color) =>
                   notifier.updateTextStyle('labels', color: colorToHex(color)),
         ),
         ColorPanel(
-          title: AppLocalizations.of(context)!.countColor,
+          title: AppLocalizations.of(context).countColor,
           currentColor: colorFromHex(config.count.color),
           onColorChanged:
               (color) =>
                   notifier.updateTextStyle('count', color: colorToHex(color)),
         ),
         ColorPanel(
-          title: AppLocalizations.of(context)!.numberTypeColor,
+          title: AppLocalizations.of(context).numberTypeColor,
           currentColor: colorFromHex(config.numberType.color),
           onColorChanged:
               (color) => notifier.updateTextStyle(
@@ -505,28 +505,28 @@ class _LiveNotificationCustomizationScreenState
               ),
         ),
         ColorPanel(
-          title: AppLocalizations.of(context)!.stirColor,
+          title: AppLocalizations.of(context).stirColor,
           currentColor: colorFromHex(config.stir.color),
           onColorChanged:
               (color) =>
                   notifier.updateTextStyle('stir', color: colorToHex(color)),
         ),
         ColorPanel(
-          title: AppLocalizations.of(context)!.simCardColor,
+          title: AppLocalizations.of(context).simCardColor,
           currentColor: colorFromHex(config.simCard.color),
           onColorChanged:
               (color) =>
                   notifier.updateTextStyle('simCard', color: colorToHex(color)),
         ),
         ColorPanel(
-          title: AppLocalizations.of(context)!.avatarBorderColor,
+          title: AppLocalizations.of(context).avatarBorderColor,
           currentColor: colorFromHex(config.avatar.borderColor),
           onColorChanged:
               (color) =>
                   notifier.updateAvatarConfig(borderColor: colorToHex(color)),
         ),
         ColorPanel(
-          title: AppLocalizations.of(context)!.callTypeIconColor,
+          title: AppLocalizations.of(context).callTypeIconColor,
           currentColor: colorFromHex(config.callType.color),
           onColorChanged:
               (color) => notifier.updateIconConfig(color: colorToHex(color)),
@@ -556,61 +556,61 @@ class _LiveNotificationCustomizationScreenState
     return Column(
       children: [
         SizePanel(
-          label: AppLocalizations.of(context)!.nameFontSize,
+          label: AppLocalizations.of(context).nameFontSize,
           currentSize: config.name.fontSize,
           onSizeChanged:
               (size) => notifier.updateTextStyle('name', fontSize: size),
         ),
         SizePanel(
-          label: AppLocalizations.of(context)!.numberFontSize,
+          label: AppLocalizations.of(context).numberFontSize,
           currentSize: config.number.fontSize,
           onSizeChanged:
               (size) => notifier.updateTextStyle('number', fontSize: size),
         ),
         SizePanel(
-          label: AppLocalizations.of(context)!.locationFontSize,
+          label: AppLocalizations.of(context).locationFontSize,
           currentSize: config.location.fontSize,
           onSizeChanged:
               (size) => notifier.updateTextStyle('location', fontSize: size),
         ),
         SizePanel(
-          label: AppLocalizations.of(context)!.carrierFontSize,
+          label: AppLocalizations.of(context).carrierFontSize,
           currentSize: config.carrier.fontSize,
           onSizeChanged:
               (size) => notifier.updateTextStyle('carrier', fontSize: size),
         ),
         SizePanel(
-          label: AppLocalizations.of(context)!.countryNameFontSize,
+          label: AppLocalizations.of(context).countryNameFontSize,
           currentSize: config.countryName.fontSize,
           onSizeChanged:
               (size) => notifier.updateTextStyle('countryName', fontSize: size),
         ),
         SizePanel(
-          label: AppLocalizations.of(context)!.labelsFontSize,
+          label: AppLocalizations.of(context).labelsFontSize,
           currentSize: config.labels.fontSize,
           onSizeChanged:
               (size) => notifier.updateTextStyle('labels', fontSize: size),
         ),
         SizePanel(
-          label: AppLocalizations.of(context)!.countFontSize,
+          label: AppLocalizations.of(context).countFontSize,
           currentSize: config.count.fontSize,
           onSizeChanged:
               (size) => notifier.updateTextStyle('count', fontSize: size),
         ),
         SizePanel(
-          label: AppLocalizations.of(context)!.numberTypeFontSize,
+          label: AppLocalizations.of(context).numberTypeFontSize,
           currentSize: config.numberType.fontSize,
           onSizeChanged:
               (size) => notifier.updateTextStyle('numberType', fontSize: size),
         ),
         SizePanel(
-          label: AppLocalizations.of(context)!.stirFontSize,
+          label: AppLocalizations.of(context).stirFontSize,
           currentSize: config.stir.fontSize,
           onSizeChanged:
               (size) => notifier.updateTextStyle('stir', fontSize: size),
         ),
         SizePanel(
-          label: AppLocalizations.of(context)!.simCardFontSize,
+          label: AppLocalizations.of(context).simCardFontSize,
           currentSize: config.simCard.fontSize,
           onSizeChanged:
               (size) => notifier.updateTextStyle('simCard', fontSize: size),
@@ -631,21 +631,21 @@ class _LiveNotificationCustomizationScreenState
     return Column(
       children: [
         _buildSlider(
-          AppLocalizations.of(context)!.avatarSize,
+          AppLocalizations.of(context).avatarSize,
           config.avatar.size,
           30,
           80,
           (value) => notifier.updateAvatarConfig(size: value),
         ),
         _buildSlider(
-          AppLocalizations.of(context)!.avatarBorderSize,
+          AppLocalizations.of(context).avatarBorderSize,
           config.avatar.borderWidth,
           0,
           10,
           (value) => notifier.updateAvatarConfig(borderWidth: value),
         ),
         _buildSlider(
-          AppLocalizations.of(context)!.iconSize,
+          AppLocalizations.of(context).iconSize,
           config.callType.size,
           16,
           32,
@@ -653,14 +653,14 @@ class _LiveNotificationCustomizationScreenState
         ),
         // 安全消息容器尺寸设置
         _buildSlider(
-          AppLocalizations.of(context)!.height,
+          AppLocalizations.of(context).height,
           config.securityMessage.height,
           20,
           60,
           (value) => notifier.updateSecurityMessageStyle(height: value),
         ),
         _buildSlider(
-          AppLocalizations.of(context)!.containerWidth,
+          AppLocalizations.of(context).containerWidth,
           config.securityMessage.containerWidth,
           100,
           400,
@@ -675,67 +675,67 @@ class _LiveNotificationCustomizationScreenState
     return Column(
       children: [
         _buildPositionSlider(
-          AppLocalizations.of(context)!.avatarPosition,
+          AppLocalizations.of(context).avatarPosition,
           Offset(config.avatar.position.x, config.avatar.position.y),
           (pos) => notifier.updateElementPosition('avatar', pos),
         ),
         _buildPositionSlider(
-          AppLocalizations.of(context)!.namePosition,
+          AppLocalizations.of(context).namePosition,
           Offset(config.name.position.x, config.name.position.y),
           (pos) => notifier.updateElementPosition('name', pos),
         ),
         _buildPositionSlider(
-          AppLocalizations.of(context)!.numberPosition,
+          AppLocalizations.of(context).numberPosition,
           Offset(config.number.position.x, config.number.position.y),
           (pos) => notifier.updateElementPosition('number', pos),
         ),
         _buildPositionSlider(
-          AppLocalizations.of(context)!.locationPosition,
+          AppLocalizations.of(context).locationPosition,
           Offset(config.location.position.x, config.location.position.y),
           (pos) => notifier.updateElementPosition('location', pos),
         ),
         _buildPositionSlider(
-          AppLocalizations.of(context)!.carrierPosition,
+          AppLocalizations.of(context).carrierPosition,
           Offset(config.carrier.position.x, config.carrier.position.y),
           (pos) => notifier.updateElementPosition('carrier', pos),
         ),
         _buildPositionSlider(
-          AppLocalizations.of(context)!.countryRegionNamePosition,
+          AppLocalizations.of(context).countryRegionNamePosition,
           Offset(config.countryName.position.x, config.countryName.position.y),
           (pos) => notifier.updateElementPosition('countryName', pos),
         ),
         _buildPositionSlider(
-          AppLocalizations.of(context)!.labelsPosition,
+          AppLocalizations.of(context).labelsPosition,
           Offset(config.labels.position.x, config.labels.position.y),
           (pos) => notifier.updateElementPosition('labels', pos),
         ),
         _buildPositionSlider(
-          AppLocalizations.of(context)!.countPosition,
+          AppLocalizations.of(context).countPosition,
           Offset(config.count.position.x, config.count.position.y),
           (pos) => notifier.updateElementPosition('count', pos),
         ),
         _buildPositionSlider(
-          AppLocalizations.of(context)!.numberTypePosition,
+          AppLocalizations.of(context).numberTypePosition,
           Offset(config.numberType.position.x, config.numberType.position.y),
           (pos) => notifier.updateElementPosition('numberType', pos),
         ),
         _buildPositionSlider(
-          AppLocalizations.of(context)!.stirPosition,
+          AppLocalizations.of(context).stirPosition,
           Offset(config.stir.position.x, config.stir.position.y),
           (pos) => notifier.updateElementPosition('stir', pos),
         ),
         _buildPositionSlider(
-          AppLocalizations.of(context)!.simCardPosition,
+          AppLocalizations.of(context).simCardPosition,
           Offset(config.simCard.position.x, config.simCard.position.y),
           (pos) => notifier.updateElementPosition('simCard', pos),
         ),
         _buildPositionSlider(
-          AppLocalizations.of(context)!.callTypePosition,
+          AppLocalizations.of(context).callTypePosition,
           Offset(config.callType.position.x, config.callType.position.y),
           (pos) => notifier.updateElementPosition('callType', pos),
         ),
         _buildPositionSlider(
-          AppLocalizations.of(context)!.messagePosition,
+          AppLocalizations.of(context).messagePosition,
           Offset(
             config.securityMessage.position.x,
             config.securityMessage.position.y,

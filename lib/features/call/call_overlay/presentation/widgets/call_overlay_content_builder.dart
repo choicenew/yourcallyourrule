@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
 import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
 import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
@@ -42,7 +42,7 @@ class CallOverlayContentBuilder {
           config: config,
           isDraggable: isDraggable,
           onPositionChanged: onSecurityMessagePositionChanged,
-          overrideMessage: isFraudulent ? AppLocalizations.of(context)!.fraudAlert : null,
+          overrideMessage: isFraudulent ? AppLocalizations.of(context).fraudAlert : null,
           overrideColor: isFraudulent ? Colors.red : null,
         ),
         
@@ -53,7 +53,7 @@ class CallOverlayContentBuilder {
         ),
         _buildPositionedElement(
           child: Text(
-            callerIdData.carrier ?? AppLocalizations.of(context)!.unknown,
+            callerIdData.carrier ?? AppLocalizations.of(context).unknown,
             style: TextStyle(fontSize: config.carrierFontSize, color: config.textCarrierColor),
           ),
           position: config.carrierPosition,
@@ -61,7 +61,7 @@ class CallOverlayContentBuilder {
         ),
         _buildPositionedElement(
           child: Text(
-            callerIdData.name ?? AppLocalizations.of(context)!.nameUnknown,
+            callerIdData.name ?? AppLocalizations.of(context).nameUnknown,
             style: TextStyle(fontSize: config.nameFontSize, color: config.textNameColor),
           ),
           position: config.namePosition,
@@ -69,7 +69,7 @@ class CallOverlayContentBuilder {
         ),
         _buildPositionedElement(
           child: Text(
-            callerIdData.countryName ?? AppLocalizations.of(context)!.unknown,
+            callerIdData.countryName ?? AppLocalizations.of(context).unknown,
             style: TextStyle(fontSize: config.countryNameFontSize, color: config.textCountryNameColor),
           ),
           position: config.countryNamePosition,
@@ -83,7 +83,7 @@ class CallOverlayContentBuilder {
               Text(
                 callerIdData.labels?.isNotEmpty == true
                     ? callerIdData.labels!.map((label) => LabelTranslationUtils.translatePredefinedLabel((label as dynamic).label ?? (label as dynamic).text ?? label.toString(), context)).join(', ')
-                    : AppLocalizations.of(context)!.unknown,
+                    : AppLocalizations.of(context).unknown,
                 style: TextStyle(fontSize: config.labelsFontSize, color: config.textLabelsColor),
               ),
             ],
@@ -93,7 +93,7 @@ class CallOverlayContentBuilder {
         ),
         _buildPositionedElement(
           child: Text(
-            AppLocalizations.of(context)!.markedByCount(0),
+            AppLocalizations.of(context).markedByCount(0),
             style: TextStyle(fontSize: config.countFontSize, color: config.textCountColor),
           ),
           position: config.countPosition,
@@ -101,7 +101,7 @@ class CallOverlayContentBuilder {
         ),
         _buildPositionedElement(
           child: Text(
-            AppLocalizations.of(context)!.unknown,
+            AppLocalizations.of(context).unknown,
             style: TextStyle(fontSize: config.numberTypeFontSize, color: config.textNumberTypeColor),
           ),
           position: config.numberTypePosition,
@@ -121,7 +121,7 @@ class CallOverlayContentBuilder {
               Icon(Icons.location_on, color: config.textIconLocationColor, size: config.iconSize),
               const SizedBox(width: 5),
               Text(
-                callerIdData.region ?? AppLocalizations.of(context)!.unknown,
+                callerIdData.region ?? AppLocalizations.of(context).unknown,
                 style: TextStyle(fontSize: config.locationFontSize, color: config.textLocationColor),
               ),
             ],
@@ -133,8 +133,8 @@ class CallOverlayContentBuilder {
           _buildPositionedElement(
             child: Text(
               ((stirInfo as dynamic)['isVerified'] == true)
-                  ? AppLocalizations.of(context)!.verifiedText
-                  : (((stirInfo as dynamic)['isNotVerified'] == true) ? AppLocalizations.of(context)!.notVerifiedText : AppLocalizations.of(context)!.verificationFailedText),
+                  ? AppLocalizations.of(context).verifiedText
+                  : (((stirInfo as dynamic)['isNotVerified'] == true) ? AppLocalizations.of(context).notVerifiedText : AppLocalizations.of(context).verificationFailedText),
               style: TextStyle(fontSize: config.stirFontSize, color: config.textStirColor),
             ),
             position: config.stirPosition,
@@ -160,10 +160,10 @@ class CallOverlayContentBuilder {
               padding: const EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
               child: Text(
                 (simInfo as dynamic)['simSlotIndex'] == 0
-                        ? AppLocalizations.of(context)!.simSlot1((simInfo as dynamic)['countryIso'] ?? "")
+                        ? AppLocalizations.of(context).simSlot1((simInfo as dynamic)['countryIso'] ?? "")
                         : ((simInfo as dynamic)['simSlotIndex'] != null
-                            ? AppLocalizations.of(context)!.simSlot2((simInfo as dynamic)['countryIso'] ?? "")
-                            : AppLocalizations.of(context)!.unknown),
+                            ? AppLocalizations.of(context).simSlot2((simInfo as dynamic)['countryIso'] ?? "")
+                            : AppLocalizations.of(context).unknown),
                 style: TextStyle(fontSize: config.simCardFontSize, color: config.textSimCardColor),
               ),
             ),

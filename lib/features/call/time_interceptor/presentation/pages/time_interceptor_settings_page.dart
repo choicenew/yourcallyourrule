@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/presentation/widgets/time_interceptor_settings_widget.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/provider/time_interceptor_provider.dart';
@@ -13,7 +13,7 @@ class TimeInterceptorSettingsPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.timeInterceptorSettingsTitle),
+        title: Text(AppLocalizations.of(context).timeInterceptorSettingsTitle),
         actions: [
           if (asyncConfig.isLoading)
             const Padding(

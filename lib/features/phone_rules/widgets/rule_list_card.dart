@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
@@ -117,18 +117,18 @@ class RuleListCard extends ConsumerWidget {
               Switch(
                 value: isEnabled,
                 onChanged: (value) => onToggleStatus(id, value),
-                activeThumbColor: themeColor,
+                activeColor: themeColor,
               ),
               if (!isMultiSelectMode) ...[
                 IconButton(
                   icon: const Icon(Icons.edit_rounded, size: 20, color: Color(0xFF2D9CDB)),
                   onPressed: onEdit,
-                  tooltip: AppLocalizations.of(context)!.edit,
+                  tooltip: AppLocalizations.of(context).edit,
                 ),
                 IconButton(
                   icon: const Icon(Icons.delete_outline_rounded, size: 20, color: Colors.redAccent),
                   onPressed: onDelete,
-                  tooltip: AppLocalizations.of(context)!.delete,
+                  tooltip: AppLocalizations.of(context).delete,
                 ),
               ],
             ],
@@ -172,7 +172,7 @@ class RuleListCard extends ConsumerWidget {
                     border: Border.all(color: const Color(0xFFEDE8DF)),
                   ),
                   child: Text(
-                    '${AppLocalizations.of(context)!.label}: ${LabelTranslationUtils.translateLabelText(context, labelIdToTextMap[labelId]!)}',
+                    '${AppLocalizations.of(context).label}: ${LabelTranslationUtils.translateLabelText(context, labelIdToTextMap[labelId]!)}',
                     style: TextStyle(
                       color: Colors.grey[800],
                       fontSize: 11,

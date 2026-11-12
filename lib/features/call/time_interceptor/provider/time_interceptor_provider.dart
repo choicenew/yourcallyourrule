@@ -1,5 +1,4 @@
-import 'dart:async';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+﻿import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call/time_interceptor/time_interceptor_config.dart';

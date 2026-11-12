@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_country_sync_hub/pyro_phone_country_sync_hub.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -8,7 +8,7 @@ class CountrySelectionWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final hub = ref.watch(phoneCountrySyncControlCenterProvider);
 
     return Scaffold(

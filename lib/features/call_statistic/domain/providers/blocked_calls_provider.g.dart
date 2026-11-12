@@ -33,7 +33,7 @@ final class BlockedCallsProvider
   BlockedCalls create() => BlockedCalls();
 }
 
-String _$blockedCallsHash() => r'c03bcf1430efaf0f174f8021929ea15eb7f61226';
+String _$blockedCallsHash() => r'3d71a93ff34990ef92be5fb0b58cefb8cb82d78c';
 
 abstract class _$BlockedCalls extends $AsyncNotifier<BlockedCallsState> {
   FutureOr<BlockedCallsState> build();

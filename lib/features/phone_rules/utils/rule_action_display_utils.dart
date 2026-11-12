@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -7,23 +7,23 @@ class RuleActionDisplayUtils {
   static String getActionTypeName(BuildContext context, RuleActionType type) {
     switch (type) {
       case RuleActionType.allow:
-        return AppLocalizations.of(context)!.allow;
+        return AppLocalizations.of(context).allow;
       case RuleActionType.block:
-        return AppLocalizations.of(context)!.block;
+        return AppLocalizations.of(context).block;
       case RuleActionType.silence:
-        return AppLocalizations.of(context)!.silence;
+        return AppLocalizations.of(context).silence;
       case RuleActionType.none:
-        return AppLocalizations.of(context)!.noAction;
+        return AppLocalizations.of(context).noAction;
       case RuleActionType.redirect:
-        return AppLocalizations.of(context)!.redirect;
+        return AppLocalizations.of(context).redirect;
       case RuleActionType.label:
-        return AppLocalizations.of(context)!.label;
+        return AppLocalizations.of(context).label;
       case RuleActionType.notify:
-        return AppLocalizations.of(context)!.notify;
+        return AppLocalizations.of(context).notify;
       case RuleActionType.log:
-        return AppLocalizations.of(context)!.log;
+        return AppLocalizations.of(context).log;
       case RuleActionType.custom:
-        return AppLocalizations.of(context)!.custom;
+        return AppLocalizations.of(context).custom;
     }
   }
 
@@ -76,23 +76,23 @@ class RuleActionDisplayUtils {
   static String getActionTypeDescription(BuildContext context, RuleActionType type) {
     switch (type) {
       case RuleActionType.allow:
-        return AppLocalizations.of(context)!.allowActionDescription;
+        return AppLocalizations.of(context).allowActionDescription;
       case RuleActionType.block:
-        return AppLocalizations.of(context)!.blockActionDescription;
+        return AppLocalizations.of(context).blockActionDescription;
       case RuleActionType.silence:
-        return AppLocalizations.of(context)!.silenceActionDescription;
+        return AppLocalizations.of(context).silenceActionDescription;
       case RuleActionType.none:
-        return AppLocalizations.of(context)!.noneActionDescription;
+        return AppLocalizations.of(context).noneActionDescription;
       case RuleActionType.redirect:
-        return AppLocalizations.of(context)!.redirectActionDescription;
+        return AppLocalizations.of(context).redirectActionDescription;
       case RuleActionType.label:
-        return AppLocalizations.of(context)!.labelActionDescription;
+        return AppLocalizations.of(context).labelActionDescription;
       case RuleActionType.notify:
-        return AppLocalizations.of(context)!.notifyActionDescription;
+        return AppLocalizations.of(context).notifyActionDescription;
       case RuleActionType.log:
-        return AppLocalizations.of(context)!.logActionDescription;
+        return AppLocalizations.of(context).logActionDescription;
       case RuleActionType.custom:
-        return AppLocalizations.of(context)!.customActionDescription;
+        return AppLocalizations.of(context).customActionDescription;
     }
   }
 

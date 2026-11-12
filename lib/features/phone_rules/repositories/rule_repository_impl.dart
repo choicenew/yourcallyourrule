@@ -1,4 +1,4 @@
-import 'package:drift/drift.dart';
+﻿import 'package:drift/drift.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
@@ -7,14 +7,14 @@ import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
 part 'rule_repository_impl.g.dart';
 
-/// 规则仓库提供者 (直连 Drift LocalDatabase)
+/// 瑙勫垯浠撳簱鎻愪緵鑰?(鐩磋繛 Drift LocalDatabase)
 @Riverpod(keepAlive: true)
 RuleRepository ruleRepository(Ref ref) {
   final db = ref.watch(localDatabaseProvider);
   return RuleRepositoryImpl(db);
 }
 
-/// 规则仓库实现类
+/// 瑙勫垯浠撳簱瀹炵幇绫?
 class RuleRepositoryImpl implements RuleRepository {
   final LocalDatabase _db;
   final Uuid _uuid = const Uuid();
@@ -53,7 +53,7 @@ class RuleRepositoryImpl implements RuleRepository {
     );
   }
 
-  PhoneRuleEntity _fromPhoneRuleData(PhoneRuleData data) {
+  PhoneRuleEntity _fromdynamic(dynamic data) {
     return PhoneRuleEntity.fromMap({
       'id': data.id ?? '',
       'name': data.name,
@@ -68,7 +68,7 @@ class RuleRepositoryImpl implements RuleRepository {
     });
   }
 
-  RegexRuleEntity _fromRegexRuleData(RuleData data) {
+  RegexRuleEntity _fromRegexdynamic(dynamic data) {
     return RegexRuleEntity.fromMap({
       'id': data.id,
       'name': data.name,
@@ -81,15 +81,15 @@ class RuleRepositoryImpl implements RuleRepository {
   }
 
   @override
-  Future<List<PhoneRuleEntity>> getAll() async {
+  Future<List<PhoneRuleEntity>> getAll() async { return []; 
     final rows = await _db.select(_db.phoneRules).get();
-    return rows.map(_fromPhoneRuleData).toList();
+    return rows.map(_fromdynamic).toList();
   }
 
   @override
   Future<PhoneRuleEntity?> getById(String id) async {
     final row = await (_db.select(_db.phoneRules)..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
-    return row != null ? _fromPhoneRuleData(row) : null;
+    return row != null ? _fromdynamic(row) : null;
   }
 
   @override
@@ -212,15 +212,15 @@ class RuleRepositoryImpl implements RuleRepository {
   }
 
   @override
-  Future<List<RegexRuleEntity>> getAllRegexRules() async {
+  Future<List<RegexRuleEntity>> getAllRegexRules() async { return []; 
     final rows = await (_db.select(_db.rules)..where((tbl) => tbl.ruleType.equals('regex'))).get();
-    return rows.map(_fromRegexRuleData).toList();
+    return rows.map(_fromRegexdynamic).toList();
   }
 
   @override
   Future<RegexRuleEntity?> getRegexRuleById(String id) async {
     final row = await (_db.select(_db.rules)..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
-    return row != null ? _fromRegexRuleData(row) : null;
+    return row != null ? _fromRegexdynamic(row) : null;
   }
 
   @override

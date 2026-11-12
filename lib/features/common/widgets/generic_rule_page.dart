@@ -25,7 +25,7 @@ class GenericRulePage<T, S> extends ConsumerStatefulWidget {
   final List<T> Function(List<T> rules, String query) searchRules;
   final List<T> Function(List<T> rules, String labelId)? filterRulesByLabel;
   final List<T> Function(List<T> rules, RuleActionType actionType)? filterRulesByAction;
-  final AlwaysAliveProviderBase<S> serviceProvider;
+  final dynamic serviceProvider;
   final ImportExportServiceComponent<T, String>? importExportComponent;
 
   const GenericRulePage({

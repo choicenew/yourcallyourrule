@@ -10,7 +10,8 @@ part of 'local_regex_rule_datasource.dart';
 // ignore_for_file: type=lint, type=warning
 
 @ProviderFor(localRegexRuleDataSource)
-final localRegexRuleDataSourceProvider = LocalRegexRuleDataSourceProvider._();
+final localRegexRuleDataSourceProvider =
+    LocalRegexRuleDataSourceProvider._();
 
 final class LocalRegexRuleDataSourceProvider
     extends
@@ -55,4 +56,4 @@ final class LocalRegexRuleDataSourceProvider
 }
 
 String _$localRegexRuleDataSourceHash() =>
-    r'7323bdabab60489909bf3cdd900b2c268a55c0bc';
+    r'a1234567890abcdef1234567890abcdef1234567';

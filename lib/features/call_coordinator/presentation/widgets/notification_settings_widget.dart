@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/caller_identity/config/caller_identity_config_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -27,7 +27,7 @@ class NotificationSettingsWidget extends ConsumerWidget {
             l10n.useLocalNotificationDescription,
             style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant),
           ),
-          activeThumbColor: theme.colorScheme.primary,
+          activeColor: theme.colorScheme.primary,
           value: config.useLocalNotification,
           onChanged: (value) => notifier.setUseLocalNotification(value),
         ),
@@ -42,7 +42,7 @@ class NotificationSettingsWidget extends ConsumerWidget {
             l10n.cancelLocalNotificationDescription,
             style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant),
           ),
-          activeThumbColor: theme.colorScheme.primary,
+          activeColor: theme.colorScheme.primary,
           value: config.cancelLocalNotification,
           onChanged: (value) => notifier.setCancelLocalNotification(value),
         ),

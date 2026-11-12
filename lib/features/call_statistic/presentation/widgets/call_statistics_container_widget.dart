@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
 import 'package:yourcallyourrule/features/call_statistic/presentation/widgets/call_hero_command_banner.dart';
@@ -75,7 +75,7 @@ class _CallStatisticsContainerWidgetState
   }
 
   Widget _buildStatsGrid(BuildContext context, CallStatisticsState state) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final colorScheme = Theme.of(context).colorScheme;
 
     return Column(

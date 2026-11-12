@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/search/providers/search_provider.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
@@ -40,7 +40,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
     if (query.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppLocalizations.of(context)!.enterSearchContent),
+          content: Text(AppLocalizations.of(context).enterSearchContent),
         ),
       );
       return;
@@ -64,7 +64,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
           focusNode: _focusNode,
           autofocus: true,
           decoration: InputDecoration(
-            hintText: AppLocalizations.of(context)!.searchHint,
+            hintText: AppLocalizations.of(context).searchHint,
             border: InputBorder.none,
             hintStyle: TextStyle(
               color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
@@ -106,7 +106,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    AppLocalizations.of(context)!.noData,
+                    AppLocalizations.of(context).noData,
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                       fontSize: 16,

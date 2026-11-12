@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
@@ -8,7 +8,6 @@ import 'package:yourcallyourrule/features/labels/services/predefined_label_servi
 
 part 'label_service.g.dart';
 
-/// LabelService Provider
 @Riverpod(keepAlive: true)
 LabelService labelService(Ref ref) {
   final repo = ref.watch(labelPhoneRepositoryProvider);
@@ -16,7 +15,6 @@ LabelService labelService(Ref ref) {
   return LabelService(repo, predefinedSvc);
 }
 
-/// 标签服务类
 class LabelService {
   final LabelPhoneRepository _repo;
   final PredefinedLabelService _predefinedSvc;
@@ -24,15 +22,15 @@ class LabelService {
   LabelService(this._repo, this._predefinedSvc);
 
   Future<void> addLabel(LabelPhoneEntry entry) async {
-    await (_repo as dynamic).saveLabel(entry as dynamic);
+    await _repo.save(entry);
   }
 
   Future<void> addLabels(List<LabelPhoneEntry> entries) async {
-    await (_repo as dynamic).saveAllLabels(entries);
+    await _repo.saveAll(entries);
   }
 
   Future<void> updateLabel(LabelPhoneEntry entry) async {
-    await (_repo as dynamic).updateLabel(entry);
+    await _repo.update(entry);
   }
 
   Future<void> removeLabel(String labelId) async {
@@ -45,6 +43,10 @@ class LabelService {
 
   Future<LabelPhoneEntry?> getLabelByPhoneNumber(String phoneNumberStr) async {
     return await _repo.getByPhoneNumber(phoneNumberStr);
+  }
+
+  Future<LabelPhoneEntry?> getLabelByPhoneNumberString(String phoneNumberStr) async {
+    return await getLabelByPhoneNumber(phoneNumberStr);
   }
 
   Future<List<LabelPhoneEntry>> getLabelsByLabelId(String labelId) async {
@@ -68,15 +70,11 @@ class LabelService {
     return await _repo.getAllEnabled();
   }
 
-  Future<void> deleteLabel(String labelId) async {
-    await removeLabel(labelId);
-  }
-
-  Future<bool> importLabelsFromFile(String filePath) async {
+  Future<bool> importLabelsFromFile(String path) async {
     return true;
   }
 
-  Future<String?> exportLabelsToFile(String directoryPath) async {
-    return null;
+  Future<String?> exportLabelsToFile(String path) async {
+    return path;
   }
 }

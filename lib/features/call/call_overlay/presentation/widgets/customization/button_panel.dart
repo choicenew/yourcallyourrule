@@ -1,4 +1,4 @@
-// lib/features/call/call_overlay/presentation/widgets/customization/button_panel.dart
+﻿// lib/features/call/call_overlay/presentation/widgets/customization/button_panel.dart
 
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
@@ -37,7 +37,7 @@ class ButtonPanel extends ConsumerWidget {
           // --- 导入按钮 ---
           FilledButton.icon(
             icon: const Icon(Icons.file_upload),
-            label: Text(AppLocalizations.of(context)!.import),
+            label: Text(AppLocalizations.of(context).import),
             onPressed: () async {
               try {
                 final result = await FilePicker.pickFiles();
@@ -49,14 +49,14 @@ class ButtonPanel extends ConsumerWidget {
 
                   if (context.mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(AppLocalizations.of(context)!.importSuccess)),
+                      SnackBar(content: Text(AppLocalizations.of(context).importSuccess)),
                     );
                   }
                 }
               } catch (e) {
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("${AppLocalizations.of(context)!.importFailure}: $e")),
+                    SnackBar(content: Text("${AppLocalizations.of(context).importFailure}: $e")),
                   );
                 }
               }
@@ -67,20 +67,20 @@ class ButtonPanel extends ConsumerWidget {
           // --- 导出按钮 ---
           FilledButton.icon(
             icon: const Icon(Icons.file_download),
-            label: Text(AppLocalizations.of(context)!.export),
+            label: Text(AppLocalizations.of(context).export),
             onPressed: () async {
               try {
                 // 调用 manager 执行导出
                 await configurationManager.exportConfig();
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(AppLocalizations.of(context)!.exportSuccesslly)),
+                    SnackBar(content: Text(AppLocalizations.of(context).exportSuccesslly)),
                   );
                 }
               } catch (e) {
                 if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("${AppLocalizations.of(context)!.exportFailure}: $e")),
+                    SnackBar(content: Text("${AppLocalizations.of(context).exportFailure}: $e")),
                   );
                 }
               }

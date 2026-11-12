@@ -1,4 +1,4 @@
-import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+﻿import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 
 abstract class PredefinedLabelRepository {
   Future<void> save(PredefinedLabel label);

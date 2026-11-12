@@ -193,7 +193,11 @@ class _DriftMigrationHelper {
         final isWhitelist = sub.read<int?>('isWhitelist') == 1;
         final isBlacklist = sub.read<int?>('isBlacklist') == 1;
         String action = 'none';
-        if (isWhitelist) action = 'allow'; else if (isBlacklist) action = 'block';
+        if (isWhitelist) {
+          action = 'allow';
+        } else if (isBlacklist) {
+          action = 'block';
+        }
         if (action != 'none') {
           await (db.update(db.subscriptions)..where((tbl) => tbl.id.equals(sub.read<String>('id'))))
               .write(SubscriptionsCompanion(action: Value(action))); // `action` 有默认值, 所以用 Value()

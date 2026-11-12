@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/configuration/call_overlay_config.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -58,7 +58,7 @@ class _ScrollingSecurityMessageState extends State<ScrollingSecurityMessage> {
     final config = widget.config;
     if (!config.securityMessageEnabled) return;
 
-    final message = widget.overrideMessage ?? AppLocalizations.of(context)!.securityMessage;
+    final message = widget.overrideMessage ?? AppLocalizations.of(context).securityMessage;
     final color = widget.overrideColor ?? config.securityMessageTextColor;
 
     final textPainter = TextPainter(
@@ -116,7 +116,7 @@ class _ScrollingSecurityMessageState extends State<ScrollingSecurityMessage> {
   }
 
   Widget _buildSecurityMessageContainer(CallOverlayConfig config) {
-    final message = widget.overrideMessage ?? AppLocalizations.of(context)!.securityMessage;
+    final message = widget.overrideMessage ?? AppLocalizations.of(context).securityMessage;
     final textColor = widget.overrideColor ?? config.securityMessageTextColor;
     
     return Container(

@@ -1,4 +1,4 @@
-// ignore: unused_import
+﻿// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2543,7 +2543,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Reguljära uttrycksmönster för matchning av telefonnummer';
 
   @override
-  String get regexRule => 'Reguljärt uttrycksregel';
+  String get RegexRuleEntity => 'Reguljärt uttrycksregel';
 
   @override
   String regexRuleAddFailed(Object error) {

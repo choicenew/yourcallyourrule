@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/permissions/services/permission_service.dart';
 import 'package:yourcallyourrule/features/permissions/services/permission_service_impl.dart';
@@ -24,51 +24,51 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
     _permissionItems = [
       PermissionItem(
         name: 'call',
-        title: AppLocalizations.of(context)!.phonePermission,
-        description: AppLocalizations.of(context)!.phonePermissionDescription,
+        title: AppLocalizations.of(context).phonePermission,
+        description: AppLocalizations.of(context).phonePermissionDescription,
         icon: Icons.phone,
         color: Colors.green,
       ),
       
       PermissionItem(
         name: 'sms',
-        title: AppLocalizations.of(context)!.smsPermission,
-        description: AppLocalizations.of(context)!.smsPermissionDescription,
+        title: AppLocalizations.of(context).smsPermission,
+        description: AppLocalizations.of(context).smsPermissionDescription,
         icon: Icons.sms,
         color: Colors.blue,
       ),
       PermissionItem(
         name: 'contacts',
-        title: AppLocalizations.of(context)!.contactsPermission,
-        description: AppLocalizations.of(context)!.contactsPermissionDescription,
+        title: AppLocalizations.of(context).contactsPermission,
+        description: AppLocalizations.of(context).contactsPermissionDescription,
         icon: Icons.contacts,
         color: Colors.orange,
       ),
       PermissionItem(
         name: 'storage',
-        title: AppLocalizations.of(context)!.storagePermission,
-        description: AppLocalizations.of(context)!.storagePermissionDescription,
+        title: AppLocalizations.of(context).storagePermission,
+        description: AppLocalizations.of(context).storagePermissionDescription,
         icon: Icons.storage,
         color: Colors.purple,
       ),
       PermissionItem(
         name: 'overlay',
-        title: AppLocalizations.of(context)!.overlayPermission,
-        description: AppLocalizations.of(context)!.overlayPermissionDescription,
+        title: AppLocalizations.of(context).overlayPermission,
+        description: AppLocalizations.of(context).overlayPermissionDescription,
         icon: Icons.picture_in_picture,
         color: Colors.teal,
       ),
       PermissionItem(
         name: 'notification',
-        title: AppLocalizations.of(context)!.notificationPermission,
-        description: AppLocalizations.of(context)!.notificationPermissionDescription,
+        title: AppLocalizations.of(context).notificationPermission,
+        description: AppLocalizations.of(context).notificationPermissionDescription,
         icon: Icons.notifications,
         color: Colors.red,
       ),
       PermissionItem(
         name: 'battery',
-        title: AppLocalizations.of(context)!.batteryOptimizationPermission,
-        description: AppLocalizations.of(context)!.batteryOptimizationPermissionDescription,
+        title: AppLocalizations.of(context).batteryOptimizationPermission,
+        description: AppLocalizations.of(context).batteryOptimizationPermissionDescription,
         icon: Icons.battery_charging_full,
         color: Colors.blueGrey,
       ),
@@ -101,7 +101,7 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(AppLocalizations.of(context)!.checkPermissionFailed(e.toString())),
+          content: Text(AppLocalizations.of(context).checkPermissionFailed(e.toString())),
           backgroundColor: Colors.red,
         ));
       }
@@ -121,12 +121,12 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
       });
 
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(granted ? AppLocalizations.of(context)!.permissionGranted : AppLocalizations.of(context)!.permissionDenied),
+        content: Text(granted ? AppLocalizations.of(context).permissionGranted : AppLocalizations.of(context).permissionDenied),
         backgroundColor: granted ? Colors.green : Colors.orange,
       ));
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(AppLocalizations.of(context)!.requestPermissionFailed(e.toString())),
+        content: Text(AppLocalizations.of(context).requestPermissionFailed(e.toString())),
         backgroundColor: Colors.red,
       ));
     }
@@ -144,12 +144,12 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
 
       final allGranted = results.values.every((granted) => granted);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(allGranted ? AppLocalizations.of(context)!.allPermissionsGranted : AppLocalizations.of(context)!.somePermissionsDenied),
+        content: Text(allGranted ? AppLocalizations.of(context).allPermissionsGranted : AppLocalizations.of(context).somePermissionsDenied),
         backgroundColor: allGranted ? Colors.green : Colors.orange,
       ));
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(AppLocalizations.of(context)!.requestPermissionFailed(e.toString())),
+        content: Text(AppLocalizations.of(context).requestPermissionFailed(e.toString())),
         backgroundColor: Colors.red,
       ));
     }
@@ -161,7 +161,7 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
       await permissionService.openAppSettings();
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(AppLocalizations.of(context)!.openAppSettingsFailed(e.toString())),
+        content: Text(AppLocalizations.of(context).openAppSettingsFailed(e.toString())),
         backgroundColor: Colors.red,
       ));
     }
@@ -172,19 +172,19 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.permissionManagement, style: TextStyle(color: Theme.of(context).colorScheme.onSurface)),
+        title: Text(AppLocalizations.of(context).permissionManagement, style: TextStyle(color: Theme.of(context).colorScheme.onSurface)),
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: _checkPermissions,
-            tooltip: AppLocalizations.of(context)!.refreshPermissionStatus,
+            tooltip: AppLocalizations.of(context).refreshPermissionStatus,
           ),
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: _openAppSettings,
-            tooltip: AppLocalizations.of(context)!.openAppSettings,
+            tooltip: AppLocalizations.of(context).openAppSettings,
           ),
         ],
       ),
@@ -204,7 +204,7 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
             padding: const EdgeInsets.symmetric(vertical: 16),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
-          child: Text(AppLocalizations.of(context)!.requestAllPermissions, style: const TextStyle(fontSize: 16)),
+          child: Text(AppLocalizations.of(context).requestAllPermissions, style: const TextStyle(fontSize: 16)),
         ),
       ),
     );
@@ -247,7 +247,7 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
                 const SizedBox(width: 16),
                 Expanded(
                   child: Text(
-                    AppLocalizations.of(context)!.permissionManagement,
+                    AppLocalizations.of(context).permissionManagement,
                     style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -255,7 +255,7 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
             ),
             const SizedBox(height: 16),
             Text(
-              AppLocalizations.of(context)!.onboardingPermissionsDescription,
+              AppLocalizations.of(context).onboardingPermissionsDescription,
               style: const TextStyle(fontSize: 14, color: Colors.grey),
             ),
           ],
@@ -308,7 +308,7 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
-                isGranted ? AppLocalizations.of(context)!.granted : AppLocalizations.of(context)!.notGranted,
+                isGranted ? AppLocalizations.of(context).granted : AppLocalizations.of(context).notGranted,
                 style: TextStyle(
                   fontSize: 12,
                   color: isGranted ? Colors.green : Colors.red,
@@ -323,7 +323,7 @@ class _PermissionManagementPageState extends ConsumerState<PermissionManagementP
                 color: isGranted ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.error,
               ),
               onPressed: () => _requestPermission(item.name),
-              tooltip: isGranted ? AppLocalizations.of(context)!.granted : AppLocalizations.of(context)!.requestPermission,
+              tooltip: isGranted ? AppLocalizations.of(context).granted : AppLocalizations.of(context).requestPermission,
             ),
           ],
         ),

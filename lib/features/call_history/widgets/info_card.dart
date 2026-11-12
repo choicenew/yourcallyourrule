@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class InfoCard extends StatelessWidget {
@@ -21,12 +21,12 @@ class InfoCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.callHistoryInfoTitle,
+                    AppLocalizations.of(context).callHistoryInfoTitle,
                     style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    AppLocalizations.of(context)!.callHistoryInfoDesc,
+                    AppLocalizations.of(context).callHistoryInfoDesc,
                     style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ],

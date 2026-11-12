@@ -1,4 +1,4 @@
-import 'dart:math';
+﻿import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -37,7 +37,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'mark_phone_management',
         context: context,
-        title: AppLocalizations.of(context)!.markPhoneManagementTitle,
+        title: AppLocalizations.of(context).markPhoneManagementTitle,
         icon: Icons.label,
         color: _randomColor(),
         onTap: () => context.push('/mark-phone-management-with-ads'),
@@ -45,7 +45,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'plugin_management',
         context: context,
-        title: AppLocalizations.of(context)!.pluginManagement,
+        title: AppLocalizations.of(context).pluginManagement,
         icon: Icons.extension,
         color: _randomColor(),
         onTap: () => context.push('/plugin-management-with-ads'),
@@ -53,7 +53,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'allow_block',
         context: context,
-        title: AppLocalizations.of(context)!.allowBlock,
+        title: AppLocalizations.of(context).allowBlock,
         icon: Icons.block,
         color: _randomColor(),
         onTap: () => context.push('/allowed-blocked-settings-with-ads'),
@@ -61,7 +61,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
        _buildFeatureItem(
         id: 'black_white_list',
         context: context,
-        title: AppLocalizations.of(context)!.blackWhiteList,
+        title: AppLocalizations.of(context).blackWhiteList,
         icon: Icons.list,
         color: _randomColor(),
         onTap: () => context.push('/rule-management-settings-with-ads'),
@@ -69,7 +69,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'regex_rules',
         context: context,
-        title: AppLocalizations.of(context)!.regexRules,
+        title: AppLocalizations.of(context).regexRules,
         icon: Icons.code,
         color: _randomColor(),
         onTap: () => context.push('/regex-rule-with-ads'),
@@ -77,7 +77,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'phone_subscription',
         context: context,
-        title: AppLocalizations.of(context)!.phoneSubscription,
+        title: AppLocalizations.of(context).phoneSubscription,
         icon: Icons.phone_callback,
         color: _randomColor(),
         onTap: () => context.push('/phone-subscription-with-ads'),
@@ -85,7 +85,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'call_history',
         context: context,
-        title: AppLocalizations.of(context)!.callHistory,
+        title: AppLocalizations.of(context).callHistory,
         icon: Icons.call,
         color: _randomColor(),
         onTap: () => context.push('/call-history'),
@@ -93,7 +93,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'contacts',
         context: context,
-        title: AppLocalizations.of(context)!.contacts,
+        title: AppLocalizations.of(context).contacts,
         icon: Icons.contacts,
         color: _randomColor(),
         onTap: () => context.push('/contacts-management'),
@@ -101,7 +101,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       _buildFeatureItem(
         id: 'statistics',
         context: context,
-        title: AppLocalizations.of(context)!.statistics,
+        title: AppLocalizations.of(context).statistics,
         icon: Icons.bar_chart,
         color: _randomColor(),
         onTap: () => context.push('/call-statistics'),
@@ -156,7 +156,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              AppLocalizations.of(context)!.featureCenter,
+              AppLocalizations.of(context).featureCenter,
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16),

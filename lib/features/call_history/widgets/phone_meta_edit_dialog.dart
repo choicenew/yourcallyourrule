@@ -1,12 +1,10 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/features/phone/utils/phone_utils.dart';
-import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
-import 'package:yourcallyourrule/features/call/call_history/services/call_log_service.dart';
+import 'package:yourcallyourrule/features/call_history/entities/call_log.dart';
+import 'package:yourcallyourrule/features/call_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
-import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/labels/services/label_phone_entry_to_remote.dart';
 import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_sync_service.dart';
@@ -52,21 +50,13 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
 
     try {
       final newName = _nameController.text.trim();
-      final newLabelIds = _selectedLabelId != null ? [_selectedLabelId!] : <String>[];
       final callLogService = ref.read(callLogServiceProvider);
       
       final entryToProcess = await _createOrUpdateLabelPhoneEntry(newName, _selectedLabelId);
 
       await callLogService.updateLog(widget.log.copyWith(
         name: newName.isEmpty ? null : newName,
-        labelIds: newLabelIds,
       ));
-
-      await callLogService.updateNameAndLabelsByPhoneNumber(
-        widget.log.phoneNumber,
-        newName.isEmpty ? null : newName,
-        newLabelIds,
-      );
 
       if (entryToProcess != null) {
         final syncService = ref.read(labelPhoneEntryToRemoteProvider);
@@ -96,33 +86,30 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
   Future<LabelPhoneEntry?> _createOrUpdateLabelPhoneEntry(String newName, String? newLabelId) async {
     final labelService = ref.read(labelServiceProvider);
     
-    final parsedResult = await PhoneUtils.parsePhoneNumber(widget.log.phoneNumber);
-    final e164NumberString = parsedResult['e164Number'];
+    final phoneStr = widget.log.phoneNumber;
 
-    if (e164NumberString == null || e164NumberString.isEmpty) {
+    if (phoneStr.isEmpty) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.numberInvalidFormat)));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context).numberInvalidFormat)));
       }
       return null;
     }
       
-    final e164PhoneNumber = PhoneNumber.fromString(e164NumberString);
-      
-    LabelPhoneEntry? existingEntry = await labelService.getLabelByPhoneNumber(e164PhoneNumber);
+    LabelPhoneEntry? existingEntry = await labelService.getLabelByPhoneNumber(phoneStr);
     LabelPhoneEntry entryToProcess;
 
     if (existingEntry != null) {
       entryToProcess = existingEntry.copyWith(
-        name: newName.isEmpty ? null : newName, 
+        name: newName, 
         labelId: newLabelId ?? '',
       );
       await labelService.updateLabel(entryToProcess);
     } else {
       entryToProcess = LabelPhoneEntry(
         id: const Uuid().v4(),
-        phoneNumber: e164PhoneNumber,
+        phoneNumber: phoneStr,
         labelId: newLabelId ?? '',
-        name: newName.isEmpty ? null : newName,
+        name: newName,
       );
       await labelService.addLabel(entryToProcess);
     }
@@ -139,7 +126,7 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.0),
       ),
-      title: Text(AppLocalizations.of(context)!.editRule),
+      title: Text(AppLocalizations.of(context).editRule),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -148,8 +135,8 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
             TextField(
               controller: _nameController,
               decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.name,
-                hintText: AppLocalizations.of(context)!.enterName,
+                labelText: AppLocalizations.of(context).name,
+                hintText: AppLocalizations.of(context).enterName,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
@@ -180,7 +167,7 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
         if (!_isSaving)
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text(AppLocalizations.of(context)!.cancelButton),
+            child: Text(AppLocalizations.of(context).cancelButton),
           ),
         ElevatedButton(
           onPressed: _isSaving ? null : _saveChanges,
@@ -201,7 +188,7 @@ class _PhoneMetaEditDialogState extends ConsumerState<PhoneMetaEditDialog> {
                     color: theme.colorScheme.onPrimary,
                   ),
                 )
-              : Text(AppLocalizations.of(context)!.save),
+              : Text(AppLocalizations.of(context).save),
         ),
       ],
     );

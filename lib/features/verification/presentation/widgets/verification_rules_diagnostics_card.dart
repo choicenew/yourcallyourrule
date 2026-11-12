@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 11 项规则拦截诊断卡片（全量国际化，消除硬编码文本）
@@ -28,7 +28,7 @@ class VerificationRulesDiagnosticsCard extends StatelessWidget {
       case 'Whitelist':
         return l10n.whitelist;
       case 'Regex':
-        return l10n.regexRule;
+        return l10n.RegexRuleEntity;
       case 'Time Rules':
         return l10n.timeInterceptor;
       case 'Local Count Filter':

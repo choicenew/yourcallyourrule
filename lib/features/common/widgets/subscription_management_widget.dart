@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 import 'package:yourcallyourrule/features/phone_subscription/services/subscription_service_base.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -48,7 +48,7 @@ class SubscriptionManagementWidgetState<T, ID> extends State<SubscriptionManagem
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: widget.onAddSubscription,
-            tooltip: AppLocalizations.of(context)!.addSubscriptionTooltip,
+            tooltip: AppLocalizations.of(context).addSubscriptionTooltip,
           ),
         ],
       ),
@@ -71,7 +71,7 @@ class SubscriptionManagementWidgetState<T, ID> extends State<SubscriptionManagem
           const SizedBox(height: 24),
           ElevatedButton.icon(
             icon: const Icon(Icons.add),
-            label: Text(AppLocalizations.of(context)!.addSubscriptionButton),
+            label: Text(AppLocalizations.of(context).addSubscriptionButton),
             onPressed: widget.onAddSubscription,
           ),
         ],
@@ -101,7 +101,7 @@ class SubscriptionManagementWidgetState<T, ID> extends State<SubscriptionManagem
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionStatusChangeFailed(e.toString()))),
+          SnackBar(content: Text(AppLocalizations.of(context).subscriptionStatusChangeFailed(e.toString()))),
         );
       }
     }
@@ -112,13 +112,13 @@ class SubscriptionManagementWidgetState<T, ID> extends State<SubscriptionManagem
       await updateFunction(subscription);
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionUpdateSuccess)),
+          SnackBar(content: Text(AppLocalizations.of(context).subscriptionUpdateSuccess)),
         );
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionUpdateFailed(e.toString()))),
+          SnackBar(content: Text(AppLocalizations.of(context).subscriptionUpdateFailed(e.toString()))),
         );
       }
     } finally {
@@ -130,16 +130,16 @@ class SubscriptionManagementWidgetState<T, ID> extends State<SubscriptionManagem
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.subscriptionDeleteConfirmTitle),
-        content: Text(AppLocalizations.of(context)!.subscriptionDeleteConfirmContent),
+        title: Text(AppLocalizations.of(context).subscriptionDeleteConfirmTitle),
+        content: Text(AppLocalizations.of(context).subscriptionDeleteConfirmContent),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text(AppLocalizations.of(context)!.cancelButton),
+            child: Text(AppLocalizations.of(context).cancelButton),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text(AppLocalizations.of(context)!.confirmButton),
+            child: Text(AppLocalizations.of(context).confirmButton),
           ),
         ],
       ),
@@ -150,14 +150,14 @@ class SubscriptionManagementWidgetState<T, ID> extends State<SubscriptionManagem
         await widget.subscriptionService.disableSubscription(subscription);
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionDeleteSuccess)),
+            SnackBar(content: Text(AppLocalizations.of(context).subscriptionDeleteSuccess)),
           );
         }
         await widget.onLoadSubscriptions();
       } catch (e) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionDeleteFailed(e.toString()))),
+            SnackBar(content: Text(AppLocalizations.of(context).subscriptionDeleteFailed(e.toString()))),
           );
         }
       }

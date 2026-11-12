@@ -1,4 +1,4 @@
-// ignore: unused_import
+﻿// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2540,7 +2540,7 @@ class AppLocalizationsNo extends AppLocalizations {
       'Regex-mønstre for telefonskattmatching';
 
   @override
-  String get regexRule => 'Regex-regel';
+  String get RegexRuleEntity => 'Regex-regel';
 
   @override
   String regexRuleAddFailed(Object error) {

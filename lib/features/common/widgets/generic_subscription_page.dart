@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 
 import 'package:yourcallyourrule/features/phone_subscription/services/subscription_service_base.dart';
@@ -76,7 +76,7 @@ class GenericSubscriptionPageState<T, ID, S extends SubscriptionServiceBase<T, I
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionLoadFailed(e.toString()))),
+          SnackBar(content: Text(AppLocalizations.of(context).subscriptionLoadFailed(e.toString()))),
         );
       }
       setState(() {
@@ -97,7 +97,7 @@ class GenericSubscriptionPageState<T, ID, S extends SubscriptionServiceBase<T, I
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionStatusChangeFailed(e.toString()))),
+          SnackBar(content: Text(AppLocalizations.of(context).subscriptionStatusChangeFailed(e.toString()))),
         );
       }
     }
@@ -113,13 +113,13 @@ class GenericSubscriptionPageState<T, ID, S extends SubscriptionServiceBase<T, I
       await widget.updateSubscription(subscription, subscriptionService);
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionUpdateSuccess)),
+          SnackBar(content: Text(AppLocalizations.of(context).subscriptionUpdateSuccess)),
         );
       }
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionUpdateFailed(e.toString()))),
+          SnackBar(content: Text(AppLocalizations.of(context).subscriptionUpdateFailed(e.toString()))),
         );
       }
     } finally {
@@ -131,16 +131,16 @@ class GenericSubscriptionPageState<T, ID, S extends SubscriptionServiceBase<T, I
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context)!.subscriptionDeleteConfirmTitle),
-        content: Text(AppLocalizations.of(context)!.subscriptionDeleteConfirmContent),
+        title: Text(AppLocalizations.of(context).subscriptionDeleteConfirmTitle),
+        content: Text(AppLocalizations.of(context).subscriptionDeleteConfirmContent),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text(AppLocalizations.of(context)!.cancelButton),
+            child: Text(AppLocalizations.of(context).cancelButton),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text(AppLocalizations.of(context)!.confirmButton),
+            child: Text(AppLocalizations.of(context).confirmButton),
           ),
         ],
       ),
@@ -152,14 +152,14 @@ class GenericSubscriptionPageState<T, ID, S extends SubscriptionServiceBase<T, I
         await subscriptionService.disableSubscription(subscription);
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionDeleteSuccess)),
+            SnackBar(content: Text(AppLocalizations.of(context).subscriptionDeleteSuccess)),
           );
         }
         await _loadSubscriptions();
       } catch (e) {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(AppLocalizations.of(context)!.subscriptionDeleteFailed(e.toString()))),
+            SnackBar(content: Text(AppLocalizations.of(context).subscriptionDeleteFailed(e.toString()))),
           );
         }
       }

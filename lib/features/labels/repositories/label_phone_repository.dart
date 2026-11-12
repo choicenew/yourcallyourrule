@@ -1,4 +1,4 @@
-import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
+﻿import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart' hide PredefinedLabel;
 
 /// 电话标签仓库接口
 abstract class LabelPhoneRepository {

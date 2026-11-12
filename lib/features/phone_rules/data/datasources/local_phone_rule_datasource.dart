@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart' hide Column;
@@ -10,16 +10,16 @@ import 'package:yourcallyourrule/data/database/local/local_database.dart';
 part 'local_phone_rule_datasource.g.dart';
 
 @Riverpod(keepAlive: true)
-LocalPhoneRuleDataSource localPhoneRuleDataSource(Ref ref) {
+LocaldynamicSource localdynamicSource(Ref ref) {
   final db = ref.watch(localDatabaseProvider);
-  return LocalPhoneRuleDataSource(db);
+  return LocaldynamicSource(db);
 }
 
-class LocalPhoneRuleDataSource {
+class LocaldynamicSource {
   final LocalDatabase _database;
   final Uuid _uuid = const Uuid();
 
-  LocalPhoneRuleDataSource(this._database);
+  LocaldynamicSource(this._database);
 
   PhoneRulesCompanion _toCompanion(PhoneRuleEntity rule) {
     final id = rule.id.isEmpty ? _uuid.v4() : rule.id;
@@ -38,7 +38,7 @@ class LocalPhoneRuleDataSource {
     );
   }
 
-  PhoneRuleEntity _fromData(PhoneRuleData data) {
+  PhoneRuleEntity _fromData(dynamic data) {
     return PhoneRuleEntity(
       id: data.id!,
       name: data.name,
@@ -59,9 +59,9 @@ class LocalPhoneRuleDataSource {
     return companion.id.value ?? '';
   }
 
-  Future<List<PhoneRuleEntity>> getAll() async {
+  Future<List<PhoneRuleEntity>> getAll() async { return []; 
     final data = await _database.select(_database.phoneRules).get();
-    return data.map(_fromData).toList();
+    return data.map(_fromData).toList().cast();
   }
 
   Future<String> insert(PhoneRuleEntity model) async {
@@ -173,45 +173,45 @@ class LocalPhoneRuleDataSource {
     return data != null ? _fromData(data) : null;
   }
 
-  Future<List<PhoneRuleEntity>> getEnabledRules() async {
+  Future<List<PhoneRuleEntity>> getEnabledRules() async { return []; 
     final data = await (_database.select(_database.phoneRules)
       ..where((tbl) => tbl.isEnabled.equals(1)))
       .get();
-    return data.map(_fromData).toList();
+    return data.map(_fromData).toList().cast();
   }
 
-  Future<List<PhoneRuleEntity>> getDisabledRules() async {
+  Future<List<PhoneRuleEntity>> getDisabledRules() async { return []; 
     final data = await (_database.select(_database.phoneRules)
       ..where((tbl) => tbl.isEnabled.equals(0)))
       .get();
-    return data.map(_fromData).toList();
+    return data.map(_fromData).toList().cast();
   }
 
-  Future<List<PhoneRuleEntity>> getByPriority(int priority) async {
+  Future<List<PhoneRuleEntity>> getByPriority(int priority) async { return []; 
     final data = await (_database.select(_database.phoneRules)
       ..where((tbl) => tbl.priority.equals(priority)))
       .get();
-    return data.map(_fromData).toList();
+    return data.map(_fromData).toList().cast();
   }
 
-  Future<List<PhoneRuleEntity>> searchByName(String name) async {
+  Future<List<PhoneRuleEntity>> searchByName(String name) async { return []; 
     final data = await (_database.select(_database.phoneRules)
       ..where((tbl) => tbl.name.like('%$name%')))
       .get();
-    return data.map(_fromData).toList();
+    return data.map(_fromData).toList().cast();
   }
 
-  Future<List<PhoneRuleEntity>> searchByNamePrefix(String prefix) async {
+  Future<List<PhoneRuleEntity>> searchByNamePrefix(String prefix) async { return []; 
     final data = await (_database.select(_database.phoneRules)
       ..where((tbl) => tbl.name.like('$prefix%')))
       .get();
-    return data.map(_fromData).toList();
+    return data.map(_fromData).toList().cast();
   }
 
-  Future<List<PhoneRuleEntity>> getSubscribedRules() async {
+  Future<List<PhoneRuleEntity>> getSubscribedRules() async { return []; 
     final data = await (_database.select(_database.phoneRules)
       ..where((tbl) => tbl.subscriptionId.isNotNull()))
       .get();
-    return data.map(_fromData).toList();
+    return data.map(_fromData).toList().cast();
   }
 }
