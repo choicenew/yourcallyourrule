@@ -120,14 +120,18 @@ jobs:
 
 
 
-      - name: Checkout packages
+      - name: Checkout packages repository
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.repository_owner }}/packages
-          path: packages
+          repository: choicenew/packages
+          path: external_packages_temp
           token: ${{ secrets.MMH_PAT || secrets.GH_PAT || secrets.GITHUB_TOKEN }}
-          clean: false
           submodules: false
+
+      - name: Sync packages into packages
+        run: |
+          mkdir -p packages
+          cp -rn external_packages_temp/* packages/ 2>/dev/null || true
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
