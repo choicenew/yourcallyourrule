@@ -133,16 +133,10 @@ jobs:
         run: |
           echo "=== Merging external packages into local packages/ directory ==="
           mkdir -p packages
-          if [ -d "external_packages_repo/wallpaper/packages" ]; then
-            cp -r external_packages_repo/wallpaper/packages/* packages/ 2>/dev/null || true
-          fi
-          if [ -d "external_packages_repo/packages" ]; then
-            cp -r external_packages_repo/packages/* packages/ 2>/dev/null || true
-          fi
           if [ -d "external_packages_repo" ]; then
-            cp -r external_packages_repo/* packages/ 2>/dev/null || true
+            cp -rn external_packages_repo/* packages/ 2>/dev/null || true
           fi
-          echo "✓ Merged all external package sources into packages/"
+          echo "✓ Merged external packages into local packages/"
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
