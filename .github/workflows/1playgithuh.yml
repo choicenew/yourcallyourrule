@@ -124,21 +124,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ github.repository_owner }}/packages
-          path: external_packages_repo
-          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+          path: packages
+          token: ${{ secrets.GH_PAT }}
           submodules: false
-        continue-on-error: true
-
-      - name: Merge External Packages
-        run: |
-          echo "=== Merging external packages into local packages/ directory ==="
-          mkdir -p packages
-          if [ -d "external_packages_repo/packages" ]; then
-            cp -rf external_packages_repo/packages/* packages/ 2>/dev/null || true
-          elif [ -d "external_packages_repo" ]; then
-            cp -rf external_packages_repo/* packages/ 2>/dev/null || true
-          fi
-          echo "✓ Merged external packages into local packages/"
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
