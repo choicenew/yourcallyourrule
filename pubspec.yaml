@@ -102,6 +102,18 @@ dependencies:
     path: packages/commercial/pyro_purchase_protocol
   pyro_app_launch_guard:
     path: packages/commercial/pyro_app_launch_guard
+  pyro_ads_protocol:
+    path: packages/commercial/pyro_ads_protocol
+  pyro_ads_admob:
+    path: packages/commercial/pyro_ads_admob
+  pyro_ads_unity:
+    path: packages/commercial/pyro_ads_unity
+  pyro_house_ads:
+    path: packages/commercial/pyro_house_ads
+  pyro_ads_policy:
+    path: packages/commercial/pyro_ads_policy
+  pyro_ads_startapp:
+    path: packages/commercial/pyro_ads_startapp
 
   # === CloudDrive Package Suite ===
   pyro_cloud_drive_hub:
@@ -110,6 +122,18 @@ dependencies:
     path: packages/clouddrive/pyro_cloud_drive_database
   pyro_cloud_drive_ui:
     path: packages/clouddrive/pyro_cloud_drive_ui
+  pyro_cloud_drive_protocol:
+    path: packages/clouddrive/pyro_cloud_drive_protocol
+  pyro_cloud_drive_hetu:
+    path: packages/clouddrive/pyro_cloud_drive_hetu
+  pyro_cloud_drive_crypto:
+    path: packages/clouddrive/pyro_cloud_drive_crypto
+  pyro_cloud_drive_webdav:
+    path: packages/clouddrive/pyro_cloud_drive_webdav
+  pyro_cloud_drive_onedrive:
+    path: packages/clouddrive/pyro_cloud_drive_onedrive
+  pyro_cloud_drive_googledrive:
+    path: packages/clouddrive/pyro_cloud_drive_googledrive
 
   # === Pyro 33 Package Suites Integration ===
   pyro_telephony_connector:
@@ -307,6 +331,8 @@ dependencies:
     path: packages/device/pyro_device_master_slave_hub
   pyro_device_master_slave:
     path: packages/device/pyro_device_master_slave
+  pyro_device_master_slave_ui:
+    path: packages/device/pyro_device_master_slave_ui
 
   pyro_phone_contacts_protocol:
     path: packages/phone_contacts/pyro_phone_contacts_protocol
@@ -382,16 +408,34 @@ dependencies:
     path: packages/sync/pyro_sync_protocol
   pyro_sync_hub:
     path: packages/sync/pyro_sync_hub
+  pyro_sync_ui:
+    path: packages/sync/pyro_sync_ui
+  pyro_sync_syncitron:
+    path: packages/sync/pyro_sync_syncitron
 
   pyro_user_database_protocol:
     path: packages/user_database/pyro_user_database_protocol
   pyro_user_database_hub:
     path: packages/user_database/pyro_user_database_hub
+  pyro_user_database_koreader:
+    path: packages/user_database/pyro_user_database_koreader
+  pyro_user_database_supabase:
+    path: packages/user_database/pyro_user_database_supabase
+  pyro_user_database_suwayomi:
+    path: packages/user_database/pyro_user_database_suwayomi
+  pyro_user_database_cloudflare:
+    path: packages/user_database/pyro_user_database_cloudflare
 
   pyro_central_database_protocol:
     path: packages/database/pyro_central_database_protocol
   pyro_central_database_hub:
     path: packages/database/pyro_central_database_hub
+  pyro_central_database:
+    path: packages/database/pyro_central_database
+  pyro_central_database_supabase:
+    path: packages/database/pyro_central_database_supabase
+  pyro_central_database_cloudflare:
+    path: packages/database/pyro_central_database_cloudflare
 
   pyro_cloudflare:
     path: packages/infra/pyro_cloudflare
