@@ -10,8 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  pyro_call_filter_protocol:
-    path: ../pyro_call_filter_protocol
+  pyro_phone_call_filter_protocol:
+    path: ../pyro_phone_call_filter_protocol
 
 dev_dependencies:
   flutter_test:
