@@ -8,17 +8,17 @@ part of 'api_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// ApiService Provider
+/// ApiService Provider (基于 pyro_cloudflare 微包中的 CloudflareApiService 实例)
 
 @ProviderFor(apiService)
 final apiServiceProvider = ApiServiceProvider._();
 
-/// ApiService Provider
+/// ApiService Provider (基于 pyro_cloudflare 微包中的 CloudflareApiService 实例)
 
 final class ApiServiceProvider
     extends $FunctionalProvider<ApiService, ApiService, ApiService>
     with $Provider<ApiService> {
-  /// ApiService Provider
+  /// ApiService Provider (基于 pyro_cloudflare 微包中的 CloudflareApiService 实例)
   ApiServiceProvider._()
     : super(
         from: null,
@@ -52,4 +52,4 @@ final class ApiServiceProvider
   }
 }
 
-String _$apiServiceHash() => r'f0304e4eddfeea0312a1630c83ab6bfaab344fff';
+String _$apiServiceHash() => r'ed7ff6ff3b36bbe4c46e658c61854138d19b6f20';

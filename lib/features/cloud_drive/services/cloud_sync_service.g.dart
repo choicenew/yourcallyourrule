@@ -9,11 +9,13 @@ part of 'cloud_sync_service.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 /// 主 App 云盘同步与加密备份 Riverpod 适配服务 (CloudSyncService)
+/// 100% 委派包内 pyro_cloud_drive_hub，零手写底层驱动
 
 @ProviderFor(cloudSyncService)
 final cloudSyncServiceProvider = CloudSyncServiceProvider._();
 
 /// 主 App 云盘同步与加密备份 Riverpod 适配服务 (CloudSyncService)
+/// 100% 委派包内 pyro_cloud_drive_hub，零手写底层驱动
 
 final class CloudSyncServiceProvider
     extends
@@ -24,6 +26,7 @@ final class CloudSyncServiceProvider
         >
     with $Provider<CloudSyncService> {
   /// 主 App 云盘同步与加密备份 Riverpod 适配服务 (CloudSyncService)
+  /// 100% 委派包内 pyro_cloud_drive_hub，零手写底层驱动
   CloudSyncServiceProvider._()
     : super(
         from: null,

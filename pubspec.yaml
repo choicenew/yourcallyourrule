@@ -140,6 +140,24 @@ dependencies:
     path: packages/sms/pyro_sms_hub
   pyro_sms_ui:
     path: packages/sms/pyro_sms_ui
+  pyro_sms_content_analyzer:
+    path: packages/sms/pyro_sms_content_analyzer
+  pyro_sms_driver_link_resolver:
+    path: packages/sms/pyro_sms_driver_link_resolver
+  pyro_sms_driver_phishtank:
+    path: packages/sms/pyro_sms_driver_phishtank
+  pyro_sms_driver_google_safe_browsing:
+    path: packages/sms/pyro_sms_driver_google_safe_browsing
+  pyro_sms_driver_virustotal:
+    path: packages/sms/pyro_sms_driver_virustotal
+  pyro_sms_driver_regex_rules:
+    path: packages/sms/pyro_sms_driver_regex_rules
+  pyro_sms_driver_ml_classifier:
+    path: packages/sms/pyro_sms_driver_ml_classifier
+  pyro_sms_driver_burst_protection:
+    path: packages/sms/pyro_sms_driver_burst_protection
+  pyro_sms_ml_scorer:
+    path: packages/sms/pyro_sms_ml_scorer
 
   pyro_stir_connector:
     path: packages/stir/pyro_stir_connector

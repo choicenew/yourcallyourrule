@@ -6,15 +6,15 @@ part of 'time_interceptor_config.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TimeInterceptorConfigImpl _$$TimeInterceptorConfigImplFromJson(
+_TimeInterceptorConfig _$TimeInterceptorConfigFromJson(
         Map<String, dynamic> json) =>
-    _$TimeInterceptorConfigImpl(
+    _TimeInterceptorConfig(
       durationMinutes: (json['durationMinutes'] as num?)?.toInt() ?? 30,
       shouldIntercept: json['shouldIntercept'] as bool? ?? true,
     );
 
-Map<String, dynamic> _$$TimeInterceptorConfigImplToJson(
-        _$TimeInterceptorConfigImpl instance) =>
+Map<String, dynamic> _$TimeInterceptorConfigToJson(
+        _TimeInterceptorConfig instance) =>
     <String, dynamic>{
       'durationMinutes': instance.durationMinutes,
       'shouldIntercept': instance.shouldIntercept,

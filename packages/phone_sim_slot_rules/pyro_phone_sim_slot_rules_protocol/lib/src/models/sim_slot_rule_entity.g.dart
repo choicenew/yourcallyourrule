@@ -6,9 +6,8 @@ part of 'sim_slot_rule_entity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SimSlotRuleEntityImpl _$$SimSlotRuleEntityImplFromJson(
-        Map<String, dynamic> json) =>
-    _$SimSlotRuleEntityImpl(
+_SimSlotRuleEntity _$SimSlotRuleEntityFromJson(Map<String, dynamic> json) =>
+    _SimSlotRuleEntity(
       id: json['id'] as String,
       name: json['name'] as String,
       phoneNumber: json['phoneNumber'] as String,
@@ -20,8 +19,7 @@ _$SimSlotRuleEntityImpl _$$SimSlotRuleEntityImplFromJson(
       isEnabled: json['isEnabled'] as bool? ?? true,
     );
 
-Map<String, dynamic> _$$SimSlotRuleEntityImplToJson(
-        _$SimSlotRuleEntityImpl instance) =>
+Map<String, dynamic> _$SimSlotRuleEntityToJson(_SimSlotRuleEntity instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

@@ -6,14 +6,12 @@ part of 'call_filter_type.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CallFilterTypeImpl _$$CallFilterTypeImplFromJson(
-        Map<String, dynamic> json) =>
-    _$CallFilterTypeImpl(
+_CallFilterType _$CallFilterTypeFromJson(Map<String, dynamic> json) =>
+    _CallFilterType(
       id: json['id'] as String,
     );
 
-Map<String, dynamic> _$$CallFilterTypeImplToJson(
-        _$CallFilterTypeImpl instance) =>
+Map<String, dynamic> _$CallFilterTypeToJson(_CallFilterType instance) =>
     <String, dynamic>{
       'id': instance.id,
     };

@@ -6,14 +6,12 @@ part of 'intercept_action.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$InterceptActionImpl _$$InterceptActionImplFromJson(
-        Map<String, dynamic> json) =>
-    _$InterceptActionImpl(
+_InterceptAction _$InterceptActionFromJson(Map<String, dynamic> json) =>
+    _InterceptAction(
       actionName: json['actionName'] as String,
     );
 
-Map<String, dynamic> _$$InterceptActionImplToJson(
-        _$InterceptActionImpl instance) =>
+Map<String, dynamic> _$InterceptActionToJson(_InterceptAction instance) =>
     <String, dynamic>{
       'actionName': instance.actionName,
     };

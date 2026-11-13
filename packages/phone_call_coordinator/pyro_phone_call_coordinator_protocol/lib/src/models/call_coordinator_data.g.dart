@@ -6,9 +6,8 @@ part of 'call_coordinator_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CallCoordinatorDataImpl _$$CallCoordinatorDataImplFromJson(
-        Map<String, dynamic> json) =>
-    _$CallCoordinatorDataImpl(
+_CallCoordinatorData _$CallCoordinatorDataFromJson(Map<String, dynamic> json) =>
+    _CallCoordinatorData(
       phoneNumber: json['phoneNumber'] as String,
       name: json['name'] as String?,
       region: json['region'] as String?,
@@ -23,8 +22,7 @@ _$CallCoordinatorDataImpl _$$CallCoordinatorDataImplFromJson(
       actionName: json['actionName'] as String? ?? 'allow',
     );
 
-Map<String, dynamic> _$$CallCoordinatorDataImplToJson(
-        _$CallCoordinatorDataImpl instance) =>
+Map<String, dynamic> _$CallCoordinatorDataToJson(_CallCoordinatorData instance) =>
     <String, dynamic>{
       'phoneNumber': instance.phoneNumber,
       'name': instance.name,

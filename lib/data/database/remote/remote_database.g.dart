@@ -3717,10 +3717,11 @@ class $$RemoteNumbersTableTableManager
                   getPrefetchedDataCallback: (items) async {
                     return [
                       if (numberCountriesRefs)
-                        await $_getPrefetchedData<
+                        await $_getPrefetchedDataByColumns<
                           RemoteNumberData,
                           $RemoteNumbersTable,
-                          NumberCountryData
+                          NumberCountryData,
+                          $NumberCountriesTable
                         >(
                           currentTable: table,
                           referencedTable: $$RemoteNumbersTableReferences
@@ -3731,17 +3732,16 @@ class $$RemoteNumbersTableTableManager
                                 table,
                                 p0,
                               ).numberCountriesRefs,
-                          referencedItemsForCurrentItem:
-                              (item, referencedItems) => referencedItems.where(
-                                (e) => e.phoneNumber == item.phoneNumber,
-                              ),
+                          currentColumn: 'phone_number',
+                          referencedColumn: 'phone_number',
                           typedResults: items,
                         ),
                       if (activeDeletionProposalsRefs)
-                        await $_getPrefetchedData<
+                        await $_getPrefetchedDataByColumns<
                           RemoteNumberData,
                           $RemoteNumbersTable,
-                          ActiveDeletionProposalData
+                          ActiveDeletionProposalData,
+                          $ActiveDeletionProposalsTable
                         >(
                           currentTable: table,
                           referencedTable: $$RemoteNumbersTableReferences
@@ -3752,10 +3752,8 @@ class $$RemoteNumbersTableTableManager
                                 table,
                                 p0,
                               ).activeDeletionProposalsRefs,
-                          referencedItemsForCurrentItem:
-                              (item, referencedItems) => referencedItems.where(
-                                (e) => e.phoneNumber == item.phoneNumber,
-                              ),
+                          currentColumn: 'phone_number',
+                          referencedColumn: 'phone_number',
                           typedResults: items,
                         ),
                     ];

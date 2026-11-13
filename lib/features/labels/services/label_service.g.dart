@@ -8,17 +8,13 @@ part of 'label_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// LabelService Provider
 
 @ProviderFor(labelService)
 final labelServiceProvider = LabelServiceProvider._();
 
-/// LabelService Provider
-
 final class LabelServiceProvider
     extends $FunctionalProvider<LabelService, LabelService, LabelService>
     with $Provider<LabelService> {
-  /// LabelService Provider
   LabelServiceProvider._()
     : super(
         from: null,
