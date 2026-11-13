@@ -1,21 +1,19 @@
 ﻿import 'dart:async';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pyro_deletion_proposal_protocol/pyro_deletion_proposal_protocol.dart';
-import 'package:pyro_deletion_proposal_hub/pyro_deletion_proposal_hub.dart';
+import 'package:pyro_crowdsourcing_arbiter/pyro_crowdsourcing_arbiter.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/data/proposal_datasource.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/models/proposal_history_item.dart';
 
 final proposalDataSourceProvider = Provider<ProposalDataSource>((ref) {
-  return ProposalDataSourceImpl(DeletionProposalControlCenter.instance);
+  return ProposalDataSourceImpl(CrowdsourcingArbiterService());
 });
 
-/// 删除提案数据源实现类 —— 100% 委派 pyro_deletion_proposal_hub 中枢
+/// 删除提案数据源实现类 —— 100% 委派 pyro_crowdsourcing_arbiter 众包裁决引擎
 class ProposalDataSourceImpl implements ProposalDataSource {
-  final DeletionProposalControlCenter _controlCenter;
+  final CrowdsourcingArbiterService _arbiterService;
 
-  ProposalDataSourceImpl(this._controlCenter);
+  ProposalDataSourceImpl(this._arbiterService);
 
   @override
   Future<void> upsertDeletionProposal({
@@ -23,7 +21,15 @@ class ProposalDataSourceImpl implements ProposalDataSource {
     required String riskLevel,
     required bool isOwner,
     String? verificationReportJson,
-  }) async {}
+  }) async {
+    await _arbiterService.proposeItem(
+      domain: 'deletion_proposal',
+      entityKey: phoneNumber,
+      payload: {'riskLevel': riskLevel, 'verificationReport': verificationReportJson},
+      deviceId: 'device_client',
+      isVerifiedOwner: isOwner,
+    );
+  }
 
   @override
   Future<List<Proposal>> getActiveDeletionProposals() async => [];
@@ -81,14 +87,28 @@ class ProposalDataSourceImpl implements ProposalDataSource {
   Future<void> proposeDeletion({
     required String phoneNumber,
     required Map<String, dynamic> report,
-  }) async {}
+  }) async {
+    await _arbiterService.proposeItem(
+      domain: 'deletion_proposal',
+      entityKey: phoneNumber,
+      payload: report,
+      deviceId: 'device_client',
+    );
+  }
 
   @override
   Future<void> voteOnDeletionProposal({
     required String phoneNumber,
     required String voteType,
     Map<String, dynamic>? additionalData,
-  }) async {}
+  }) async {
+    await _arbiterService.voteItem(
+      domain: 'deletion_proposal',
+      entityKey: phoneNumber,
+      support: voteType == 'support',
+      deviceId: 'device_client',
+    );
+  }
 
   @override
   Future<List<Map<String, dynamic>>> getPendingDeletionProposalOperations() async => [];

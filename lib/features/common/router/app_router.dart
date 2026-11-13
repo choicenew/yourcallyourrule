@@ -299,7 +299,7 @@ class AppRouter {
       GoRoute(
         path: '/$deletionProposal',
         name: deletionProposal,
-        builder: (context, state) => const DeletionProposalPage(),
+        builder: (context, state) => DeletionProposalPage(),
         routes: [
           GoRoute(
             path: ':proposalId',
@@ -307,7 +307,7 @@ class AppRouter {
             builder: (context, state) {
               final proposalId = state.pathParameters['proposalId'];
               if (proposalId == null) {
-                return const DeletionProposalPage();
+                return DeletionProposalPage();
               }
               return ProposalDetailPage(proposalId: proposalId);
             },

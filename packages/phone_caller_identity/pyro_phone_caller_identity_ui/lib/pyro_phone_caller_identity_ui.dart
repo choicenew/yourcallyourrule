@@ -1,17 +1,17 @@
-library pyro_sim_slot_rules_ui;
+library pyro_phone_caller_identity_ui;
 
 import 'package:flutter/material.dart';
-import 'package:pyro_phone_sim_slot_rules_protocol/pyro_phone_sim_slot_rules_protocol.dart';
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 
 /// 100% 遵照 SKILL 规范：富 UI 元素、原生 Theme.of(context)、withValues(alpha: 0.8)
-class PyroSimSlotRuleCardWidget extends StatelessWidget {
-  final SimSlotRuleEntity rule;
+class PyroCallerProfileCardWidget extends StatelessWidget {
+  final CallerIdData profile;
   final Widget? avatar;
   final VoidCallback? onTap;
 
-  const PyroSimSlotRuleCardWidget({
+  const PyroCallerProfileCardWidget({
     super.key,
-    required this.rule,
+    required this.profile,
     this.avatar,
     this.onTap,
   });
@@ -35,19 +35,19 @@ class PyroSimSlotRuleCardWidget extends StatelessWidget {
         contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         leading: avatar ??
             CircleAvatar(
-              backgroundColor: colorScheme.secondaryContainer,
-              foregroundColor: colorScheme.onSecondaryContainer,
-              child: const Icon(Icons.sim_card_rounded, size: 20),
+              backgroundColor: colorScheme.tertiaryContainer,
+              foregroundColor: colorScheme.onTertiaryContainer,
+              child: const Icon(Icons.account_circle_rounded, size: 20),
             ),
         title: Text(
-          rule.name,
+          profile.name ?? profile.phoneNumber,
           style: theme.textTheme.titleMedium?.copyWith(
             fontWeight: FontWeight.bold,
             color: colorScheme.onSurface,
           ),
         ),
         subtitle: Text(
-          'SIM Slot ${rule.simSlotIndex} • ${rule.phoneNumber}',
+          'Region: ${profile.region ?? "Unknown"} • ${profile.labels.join(", ")}',
           style: theme.textTheme.bodyMedium?.copyWith(
             color: colorScheme.onSurfaceVariant,
           ),
@@ -57,6 +57,3 @@ class PyroSimSlotRuleCardWidget extends StatelessWidget {
     );
   }
 }
-
-/// 兼容别名导出
-typedef SimSlotRuleTileView = PyroSimSlotRuleCardWidget;

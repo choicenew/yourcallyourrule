@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_sim_slot_rules_protocol/pyro_sim_slot_rules_protocol.dart';
+import 'package:pyro_phone_sim_slot_rules_protocol/pyro_phone_sim_slot_rules_protocol.dart';
 
 part 'sim_slot_rule_control_center.g.dart';
 

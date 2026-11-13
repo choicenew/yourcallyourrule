@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:pyro_sim_slot_rules_protocol/pyro_sim_slot_rules_protocol.dart';
+import 'package:pyro_phone_sim_slot_rules_protocol/pyro_phone_sim_slot_rules_protocol.dart';
 
 /// 真实内存级卡槽规则持久化驱动 (MemorySimSlotRuleStorageDriver)
 class MemorySimSlotRuleStorageDriver implements SimSlotRuleStorageDriver {

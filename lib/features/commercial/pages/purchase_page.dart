@@ -64,17 +64,17 @@ class _PurchasePageState extends ConsumerState<PurchasePage> {
       );
     }).toList();
 
-    const uiConfig = CommercialUIConfig(
+    final uiConfig = CommercialUIConfig(
       sheetTitle: 'VIP Premium Access',
       sheetSubtitle: 'Unlock all intelligent spam filtering & cloud sync features',
       itemConfigs: [
-        CommercialItemConfig(
+        CommercialItemUIConfig(
           productId: 'vip_monthly_subscription',
           title: 'Monthly VIP',
           subtitle: 'Auto-renews monthly',
           isDefaultSelected: true,
         ),
-        CommercialItemConfig(
+        CommercialItemUIConfig(
           productId: 'vip_annual_subscription',
           title: 'Annual VIP (Best Value)',
           subtitle: 'Auto-renews yearly',

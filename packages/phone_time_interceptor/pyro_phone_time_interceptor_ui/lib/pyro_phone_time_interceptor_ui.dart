@@ -1,4 +1,4 @@
-library pyro_time_interceptor_ui;
+library pyro_phone_time_interceptor_ui;
 
 import 'package:flutter/material.dart';
 import 'package:pyro_phone_time_interceptor_protocol/pyro_phone_time_interceptor_protocol.dart';

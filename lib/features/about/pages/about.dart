@@ -7,6 +7,11 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const pkg_about.AboutPage();
+    return const pkg_about.AboutPage(
+      config: pkg_about.AboutConfig(
+        appName: 'Your Call Your Rule',
+        version: '4.25.1',
+      ),
+    );
   }
 }

@@ -1,4 +1,4 @@
-library pyro_call_monitor_ui;
+library pyro_phone_call_monitor_ui;
 
 import 'package:flutter/material.dart';
 import 'package:pyro_phone_call_monitor_protocol/pyro_phone_call_monitor_protocol.dart';
