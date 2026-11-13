@@ -1,8 +1,0 @@
-external class Base32 {
-  static function encode(bytes, {encoding})
-  static function decode(base32String, {encoding})
-  static function encodeString(utf8String, {encoding})
-  static function decodeAsString(base32String, {encoding})
-  static function encodeHexString(b32Hex, {encoding})
-  static function decodeAsHexString(base32String, {encoding})
-}

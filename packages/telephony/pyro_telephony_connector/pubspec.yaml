@@ -11,9 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
   pyro_call_control_connector:
-    path: ../../call_control/pyro_call_control_connector
+    path: ../call_control/pyro_call_control_connector
   pyro_call_screening_connector:
-    path: ../../call_screening/pyro_call_screening_connector
+    path: ../call_screening/pyro_call_screening_connector
   pyro_telephony_hub:
     path: ../pyro_telephony_hub
 

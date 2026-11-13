@@ -1,9 +1,0 @@
-external class CloudDrive {
-  static fun list(provider: str, path: str)
-  static fun read(provider: str, path: str)
-  static fun write(provider: str, path: str, content: any)
-  static fun exists(provider: str, path: str)
-  static fun delete(provider: str, path: str)
-  static fun getDownloadUrl(provider: str, path: str)
-  static fun getAvailableProviders()
-}

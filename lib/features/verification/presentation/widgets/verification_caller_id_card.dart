@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class VerificationCallerIdCard extends StatelessWidget {

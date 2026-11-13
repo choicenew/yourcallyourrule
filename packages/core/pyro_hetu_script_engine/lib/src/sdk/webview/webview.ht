@@ -1,6 +1,0 @@
-external class Webview {
-  static function fetch(url, {purgeRules, waitFor, headers, allowNavigation})
-  static function getUserAgent()
-  static function openAndGetCookies(url, {userAgent})
-  static function solve(url)
-}

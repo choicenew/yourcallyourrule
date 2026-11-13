@@ -1,3 +1,3 @@
 library call_monitor_events;
 
-export 'package:pyro_call_monitor_protocol/pyro_call_monitor_protocol.dart';
+export 'package:pyro_phone_call_monitor_protocol/pyro_phone_call_monitor_protocol.dart';

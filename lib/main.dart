@@ -30,10 +30,10 @@ import 'package:pyro_telephony_connector/pyro_telephony_connector.dart';
 import 'package:pyro_call_redirection_connector/pyro_call_redirection_connector.dart';
 import 'package:pyro_call_screening_connector/pyro_call_screening_connector.dart';
 import 'package:pyro_phone_location_connector/pyro_phone_location_connector.dart';
-import 'package:pyro_sim_slot_rules_connector/pyro_sim_slot_rules_connector.dart';
-import 'package:pyro_call_interception_policy_connector/pyro_call_interception_policy_connector.dart';
+import 'package:pyro_phone_sim_slot_rules_connector/pyro_phone_sim_slot_rules_connector.dart';
+import 'package:pyro_phone_call_interception_policy_connector/pyro_phone_call_interception_policy_connector.dart';
 import 'package:pyro_deletion_proposal_connector/pyro_deletion_proposal_connector.dart';
-import 'package:pyro_time_interceptor_connector/pyro_time_interceptor_connector.dart';
+import 'package:pyro_phone_time_interceptor_connector/pyro_phone_time_interceptor_connector.dart';
 import 'package:pyro_phone_lookup_plugin_connector/pyro_phone_lookup_plugin_connector.dart';
 import 'package:pyro_phone_subscription_connector/pyro_phone_subscription_connector.dart';
 import 'package:pyro_phone_rules_connector/pyro_phone_rules_connector.dart';
@@ -47,10 +47,10 @@ import 'package:pyro_phone_country_sync_connector/pyro_phone_country_sync_connec
 import 'package:pyro_device_profile_connector/pyro_device_profile_connector.dart';
 import 'package:pyro_phone_contacts_connector/pyro_phone_contacts_connector.dart';
 import 'package:pyro_app_auto_update_connector/pyro_app_auto_update_connector.dart';
-import 'package:pyro_call_filter_connector/pyro_call_filter_connector.dart';
-import 'package:pyro_caller_identity_connector/pyro_caller_identity_connector.dart';
-import 'package:pyro_call_monitor_connector/pyro_call_monitor_connector.dart';
-import 'package:pyro_call_coordinator_connector/pyro_call_coordinator_connector.dart';
+import 'package:pyro_phone_call_filter_connector/pyro_phone_call_filter_connector.dart';
+import 'package:pyro_phone_caller_identity_connector/pyro_phone_caller_identity_connector.dart';
+import 'package:pyro_phone_call_monitor_connector/pyro_phone_call_monitor_connector.dart';
+import 'package:pyro_phone_call_coordinator_connector/pyro_phone_call_coordinator_connector.dart';
 import 'package:pyro_phone_marking_connector/pyro_phone_marking_connector.dart';
 
 void _initPackageConnectors() {

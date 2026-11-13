@@ -1,3 +1,0 @@
-external class Battery {
-  static function level()
-}

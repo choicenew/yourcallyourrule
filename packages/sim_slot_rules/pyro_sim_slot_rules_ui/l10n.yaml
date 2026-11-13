@@ -1,3 +1,0 @@
-arb-dir: lib/src/l10n
-template-arb-file: sim_slot_rules_en.arb
-output-localization-file: sim_slot_rules_localizations.dart

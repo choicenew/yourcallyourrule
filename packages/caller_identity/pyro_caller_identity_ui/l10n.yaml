@@ -1,3 +1,0 @@
-arb-dir: lib/src/l10n
-template-arb-file: caller_identity_en.arb
-output-localization-file: caller_identity_localizations.dart

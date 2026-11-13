@@ -5,7 +5,7 @@ import 'package:dlibphonenumber/locale.dart' as dlibphone;
 import 'package:sim_reader/sim_reader.dart';
 
 import 'package:yourcallyourrule/features/phone_subscription/utils/phone_utils.dart';
-import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart' as vo;

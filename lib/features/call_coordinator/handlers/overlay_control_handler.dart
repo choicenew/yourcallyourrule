@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:floating_window_android/floating_window_android.dart';
-import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 
 import 'package:yourcallyourrule/features/call_monitor/services/caller_id_monitor_service.dart';
 import 'package:yourcallyourrule/features/call_monitor/handlers/intercept_event_provider.dart';

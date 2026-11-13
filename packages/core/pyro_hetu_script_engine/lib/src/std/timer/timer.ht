@@ -1,7 +1,0 @@
-external class Timer {
-  constructor(duration, callback)
-  static function periodic(duration, callback)
-  function cancel()
-  get isActive
-  get tick
-}

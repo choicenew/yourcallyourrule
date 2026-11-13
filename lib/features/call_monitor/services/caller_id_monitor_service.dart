@@ -3,10 +3,10 @@ import 'package:flutter/material.dart' hide Locale;
 import 'package:dlibphonenumber/dlibphonenumber.dart' as dlib;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
 import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
-import 'package:pyro_call_filter_hub/pyro_call_filter_hub.dart';
+import 'package:pyro_phone_call_filter_hub/pyro_phone_call_filter_hub.dart';
 import 'package:yourcallyourrule/features/call_filter/enhanced_composite_filter_service.dart' hide enhancedCompositeFilterServiceProvider;
 import 'package:yourcallyourrule/features/time_interceptor/service/time_interceptor_service.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
-import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/call_log_extension.dart';
 
 part 'incoming_call_handler.g.dart';

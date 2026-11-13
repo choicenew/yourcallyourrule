@@ -11,15 +11,15 @@ dependencies:
   flutter:
     sdk: flutter
   pyro_call_control_protocol:
-    path: ../../call_control/pyro_call_control_protocol
+    path: ../call_control/pyro_call_control_protocol
   pyro_call_control_hub:
-    path: ../../call_control/pyro_call_control_hub
+    path: ../call_control/pyro_call_control_hub
   pyro_call_screening_protocol:
-    path: ../../call_screening/pyro_call_screening_protocol
+    path: ../call_screening/pyro_call_screening_protocol
   pyro_call_screening_hub:
-    path: ../../call_screening/pyro_call_screening_hub
+    path: ../call_screening/pyro_call_screening_hub
   pyro_call_policy:
-    path: ../../call_policy/pyro_call_policy
+    path: ../call_policy/pyro_call_policy
 
 dev_dependencies:
   flutter_test:

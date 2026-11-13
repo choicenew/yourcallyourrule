@@ -9,6 +9,9 @@ class SmsContentAnalyzerDriver extends LinkResolverDriver implements SmsContentA
   SmsContentAnalyzerDriver({super.isEnabled});
 
   @override
+  String get providerId => 'pyro_sms_content_analyzer';
+
+  @override
   Future<List<PhishingUrlItem>> analyzeUrls(String text) async {
     final urlRegex = RegExp(
       r'https?://(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&=]*)',

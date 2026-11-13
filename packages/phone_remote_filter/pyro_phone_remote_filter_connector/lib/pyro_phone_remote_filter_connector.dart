@@ -3,8 +3,8 @@ library pyro_phone_remote_filter_connector;
 import 'package:pyro_phone_remote_filter_protocol/pyro_phone_remote_filter_protocol.dart';
 import 'package:pyro_phone_remote_filter_hub/pyro_phone_remote_filter_hub.dart';
 import 'package:pyro_phone_remote_filter_driver/pyro_phone_remote_filter_driver.dart';
-import 'package:pyro_call_filter_protocol/pyro_call_filter_protocol.dart';
-import 'package:pyro_call_filter_hub/pyro_call_filter_hub.dart';
+import 'package:pyro_phone_call_filter_protocol/pyro_phone_call_filter_protocol.dart';
+import 'package:pyro_phone_call_filter_hub/pyro_phone_call_filter_hub.dart';
 
 /// 自提供的远程高危号码过滤器 Driver
 class RemoteRiskFilterDriver implements CallFilterInterface {

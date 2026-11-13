@@ -1,6 +1,6 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pyro_sim_slot_rules_protocol/pyro_sim_slot_rules_protocol.dart';
+import 'package:pyro_phone_sim_slot_rules_protocol/pyro_phone_sim_slot_rules_protocol.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/device/provider/sim_info_provider.dart';

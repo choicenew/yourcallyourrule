@@ -1,6 +1,0 @@
-external class User {
-  static function getWeights({type})
-  static function getLastTags({type})
-  static function getHistory({type})
-  static function getCollections({type})
-}

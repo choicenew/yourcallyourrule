@@ -8,7 +8,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:uuid/uuid.dart';
 
 import 'package:yourcallyourrule/features/common/error/logger.dart';
-import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';

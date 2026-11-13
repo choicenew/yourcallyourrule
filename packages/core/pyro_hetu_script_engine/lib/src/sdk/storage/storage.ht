@@ -1,4 +1,0 @@
-external class Storage {
-  static function getValue(key)
-  static function setValue(key, value)
-}

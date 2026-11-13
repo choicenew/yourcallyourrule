@@ -1,4 +1,4 @@
-import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call_history/services/call_log_recorder.dart';
 import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action.dart';

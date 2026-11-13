@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:phone_location/src/protocol/phone_location_entry.dart';
+import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';
 
 part 'phone_location_service.g.dart';
 

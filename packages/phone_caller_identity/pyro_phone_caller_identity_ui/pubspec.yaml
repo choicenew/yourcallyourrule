@@ -1,0 +1,21 @@
+name: pyro_phone_caller_identity_ui
+description: Caller Identity Fetch UI Subsystem
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^3.4.3
+  pyro_phone_caller_identity_protocol:
+    path: ../pyro_phone_caller_identity_protocol
+  pyro_phone_caller_identity_hub:
+    path: ../pyro_phone_caller_identity_hub
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

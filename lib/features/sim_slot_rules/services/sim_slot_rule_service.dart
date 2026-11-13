@@ -1,5 +1,5 @@
 ﻿import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pyro_sim_slot_rules_protocol/pyro_sim_slot_rules_protocol.dart';
+import 'package:pyro_phone_sim_slot_rules_protocol/pyro_phone_sim_slot_rules_protocol.dart';
 import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository.dart';

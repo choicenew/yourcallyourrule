@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:floating_window_android/floating_window_android.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
-import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 
 import 'call_overlay_content_builder.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/providers/call_overlay_style_security_provider.dart';

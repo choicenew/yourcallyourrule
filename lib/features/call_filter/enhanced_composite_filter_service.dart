@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_call_filter_hub/pyro_call_filter_hub.dart';
+import 'package:pyro_phone_call_filter_hub/pyro_phone_call_filter_hub.dart';
 
 part 'enhanced_composite_filter_service.g.dart';
 

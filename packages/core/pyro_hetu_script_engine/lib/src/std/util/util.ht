@@ -1,4 +1,0 @@
-external class Util {
-  static function random(min, max)
-  static function weightedRandom(weights)
-}

@@ -1,3 +1,0 @@
-arb-dir: lib/src/l10n
-template-arb-file: device_profile_en.arb
-output-localization-file: device_profile_localizations.dart

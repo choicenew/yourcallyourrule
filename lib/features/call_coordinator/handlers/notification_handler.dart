@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/services/fraud_detection_service.dart';

@@ -118,14 +118,14 @@ dependencies:
     path: packages/telephony/pyro_telephony_hub
 
   pyro_call_redirection_connector:
-    path: packages/call_redirection/pyro_call_redirection_connector
+    path: packages/telephony/call_redirection/pyro_call_redirection_connector
   pyro_call_redirection_hub:
-    path: packages/call_redirection/pyro_call_redirection_hub
+    path: packages/telephony/call_redirection/pyro_call_redirection_hub
 
   pyro_call_screening_connector:
-    path: packages/call_screening/pyro_call_screening_connector
+    path: packages/telephony/call_screening/pyro_call_screening_connector
   pyro_call_screening_hub:
-    path: packages/call_screening/pyro_call_screening_hub
+    path: packages/telephony/call_screening/pyro_call_screening_hub
 
   pyro_sim_connector:
     path: packages/sim/pyro_sim_connector
@@ -165,41 +165,32 @@ dependencies:
   pyro_phone_location_ui:
     path: packages/phone_location/pyro_phone_location_ui
 
-  pyro_sim_slot_rules_protocol:
-    path: packages/sim_slot_rules/pyro_sim_slot_rules_protocol
-  pyro_sim_slot_rules_connector:
-    path: packages/sim_slot_rules/pyro_sim_slot_rules_connector
-  pyro_sim_slot_rules_hub:
-    path: packages/sim_slot_rules/pyro_sim_slot_rules_hub
-  pyro_sim_slot_rules_ui:
-    path: packages/sim_slot_rules/pyro_sim_slot_rules_ui
+  pyro_phone_sim_slot_rules_protocol:
+    path: packages/phone_sim_slot_rules/pyro_phone_sim_slot_rules_protocol
+  pyro_phone_sim_slot_rules_connector:
+    path: packages/phone_sim_slot_rules/pyro_phone_sim_slot_rules_connector
+  pyro_phone_sim_slot_rules_hub:
+    path: packages/phone_sim_slot_rules/pyro_phone_sim_slot_rules_hub
+  pyro_phone_sim_slot_rules_ui:
+    path: packages/phone_sim_slot_rules/pyro_phone_sim_slot_rules_ui
 
-  pyro_call_interception_policy_protocol:
-    path: packages/call_interception_policy/pyro_call_interception_policy_protocol
-  pyro_call_interception_policy_connector:
-    path: packages/call_interception_policy/pyro_call_interception_policy_connector
-  pyro_call_interception_policy_hub:
-    path: packages/call_interception_policy/pyro_call_interception_policy_hub
-  pyro_call_interception_policy_ui:
-    path: packages/call_interception_policy/pyro_call_interception_policy_ui
+  pyro_phone_call_interception_policy_protocol:
+    path: packages/phone_call_interception_policy/pyro_phone_call_interception_policy_protocol
+  pyro_phone_call_interception_policy_connector:
+    path: packages/phone_call_interception_policy/pyro_phone_call_interception_policy_connector
+  pyro_phone_call_interception_policy_hub:
+    path: packages/phone_call_interception_policy/pyro_phone_call_interception_policy_hub
+  pyro_phone_call_interception_policy_ui:
+    path: packages/phone_call_interception_policy/pyro_phone_call_interception_policy_ui
 
-  pyro_deletion_proposal_protocol:
-    path: packages/deletion_proposal/pyro_deletion_proposal_protocol
-  pyro_deletion_proposal_connector:
-    path: packages/deletion_proposal/pyro_deletion_proposal_connector
-  pyro_deletion_proposal_hub:
-    path: packages/deletion_proposal/pyro_deletion_proposal_hub
-  pyro_deletion_proposal_ui:
-    path: packages/deletion_proposal/pyro_deletion_proposal_ui
-
-  pyro_time_interceptor_protocol:
-    path: packages/time_interceptor/pyro_time_interceptor_protocol
-  pyro_time_interceptor_connector:
-    path: packages/time_interceptor/pyro_time_interceptor_connector
-  pyro_time_interceptor_hub:
-    path: packages/time_interceptor/pyro_time_interceptor_hub
-  pyro_time_interceptor_ui:
-    path: packages/time_interceptor/pyro_time_interceptor_ui
+  pyro_phone_time_interceptor_protocol:
+    path: packages/phone_time_interceptor/pyro_phone_time_interceptor_protocol
+  pyro_phone_time_interceptor_connector:
+    path: packages/phone_time_interceptor/pyro_phone_time_interceptor_connector
+  pyro_phone_time_interceptor_hub:
+    path: packages/phone_time_interceptor/pyro_phone_time_interceptor_hub
+  pyro_phone_time_interceptor_ui:
+    path: packages/phone_time_interceptor/pyro_phone_time_interceptor_ui
 
   pyro_phone_lookup_plugin_protocol:
     path: packages/phone_lookup_plugin/pyro_phone_lookup_plugin_protocol
@@ -291,14 +282,6 @@ dependencies:
   pyro_phone_country_sync_ui:
     path: packages/phone_country_sync/pyro_phone_country_sync_ui
 
-  pyro_device_profile_protocol:
-    path: packages/device_profile/pyro_device_profile_protocol
-  pyro_device_profile_connector:
-    path: packages/device_profile/pyro_device_profile_connector
-  pyro_device_profile_hub:
-    path: packages/device_profile/pyro_device_profile_hub
-  pyro_device_profile_ui:
-    path: packages/device_profile/pyro_device_profile_ui
 
   pyro_device_master_slave_protocol:
     path: packages/device/pyro_device_master_slave_protocol
@@ -325,41 +308,41 @@ dependencies:
   pyro_app_auto_update_ui:
     path: packages/app_auto_update/pyro_app_auto_update_ui
 
-  pyro_call_filter_protocol:
-    path: packages/call_filter/pyro_call_filter_protocol
-  pyro_call_filter_connector:
-    path: packages/call_filter/pyro_call_filter_connector
-  pyro_call_filter_hub:
-    path: packages/call_filter/pyro_call_filter_hub
-  pyro_call_filter_ui:
-    path: packages/call_filter/pyro_call_filter_ui
+  pyro_phone_call_filter_protocol:
+    path: packages/phone_call_filter/pyro_phone_call_filter_protocol
+  pyro_phone_call_filter_connector:
+    path: packages/phone_call_filter/pyro_phone_call_filter_connector
+  pyro_phone_call_filter_hub:
+    path: packages/phone_call_filter/pyro_phone_call_filter_hub
+  pyro_phone_call_filter_ui:
+    path: packages/phone_call_filter/pyro_phone_call_filter_ui
 
-  pyro_caller_identity_protocol:
-    path: packages/caller_identity/pyro_caller_identity_protocol
-  pyro_caller_identity_connector:
-    path: packages/caller_identity/pyro_caller_identity_connector
-  pyro_caller_identity_hub:
-    path: packages/caller_identity/pyro_caller_identity_hub
-  pyro_caller_identity_ui:
-    path: packages/caller_identity/pyro_caller_identity_ui
+  pyro_phone_caller_identity_protocol:
+    path: packages/phone_caller_identity/pyro_phone_caller_identity_protocol
+  pyro_phone_caller_identity_connector:
+    path: packages/phone_caller_identity/pyro_phone_caller_identity_connector
+  pyro_phone_caller_identity_hub:
+    path: packages/phone_caller_identity/pyro_phone_caller_identity_hub
+  pyro_phone_caller_identity_ui:
+    path: packages/phone_caller_identity/pyro_phone_caller_identity_ui
 
-  pyro_call_monitor_protocol:
-    path: packages/call_monitor/pyro_call_monitor_protocol
-  pyro_call_monitor_connector:
-    path: packages/call_monitor/pyro_call_monitor_connector
-  pyro_call_monitor_hub:
-    path: packages/call_monitor/pyro_call_monitor_hub
-  pyro_call_monitor_ui:
-    path: packages/call_monitor/pyro_call_monitor_ui
+  pyro_phone_call_monitor_protocol:
+    path: packages/phone_call_monitor/pyro_phone_call_monitor_protocol
+  pyro_phone_call_monitor_connector:
+    path: packages/phone_call_monitor/pyro_phone_call_monitor_connector
+  pyro_phone_call_monitor_hub:
+    path: packages/phone_call_monitor/pyro_phone_call_monitor_hub
+  pyro_phone_call_monitor_ui:
+    path: packages/phone_call_monitor/pyro_phone_call_monitor_ui
 
-  pyro_call_coordinator_protocol:
-    path: packages/call_coordinator/pyro_call_coordinator_protocol
-  pyro_call_coordinator_connector:
-    path: packages/call_coordinator/pyro_call_coordinator_connector
-  pyro_call_coordinator_hub:
-    path: packages/call_coordinator/pyro_call_coordinator_hub
-  pyro_call_coordinator_ui:
-    path: packages/call_coordinator/pyro_call_coordinator_ui
+  pyro_phone_call_coordinator_protocol:
+    path: packages/phone_call_coordinator/pyro_phone_call_coordinator_protocol
+  pyro_phone_call_coordinator_connector:
+    path: packages/phone_call_coordinator/pyro_phone_call_coordinator_connector
+  pyro_phone_call_coordinator_hub:
+    path: packages/phone_call_coordinator/pyro_phone_call_coordinator_hub
+  pyro_phone_call_coordinator_ui:
+    path: packages/phone_call_coordinator/pyro_phone_call_coordinator_ui
 
   pyro_phone_marking_protocol:
     path: packages/phone_marking/pyro_phone_marking_protocol

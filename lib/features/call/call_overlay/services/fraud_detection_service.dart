@@ -1,5 +1,5 @@
 ﻿import 'package:flutter/services.dart';
-import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'fraud_alert_config_service.dart';
 import 'package:yourcallyourrule/features/notifications/service/notification_service.dart';

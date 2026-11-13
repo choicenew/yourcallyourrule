@@ -1,3 +1,0 @@
-external class Weather {
-  static function fetch(lat, lng)
-}

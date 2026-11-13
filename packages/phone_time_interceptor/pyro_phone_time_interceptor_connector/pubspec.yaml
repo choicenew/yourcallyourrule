@@ -1,0 +1,26 @@
+name: pyro_phone_time_interceptor_connector
+description: Time Interceptor Facade Connector Subsystem
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: ">=3.8.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_phone_time_interceptor_protocol:
+    path: ../pyro_phone_time_interceptor_protocol
+  pyro_phone_time_interceptor_hub:
+    path: ../pyro_phone_time_interceptor_hub
+  pyro_phone_time_interceptor_driver:
+    path: ../pyro_phone_time_interceptor_driver
+  pyro_phone_call_filter_protocol:
+    path: ../../phone_call_filter/pyro_phone_call_filter_protocol
+  pyro_phone_call_filter_hub:
+    path: ../../phone_call_filter/pyro_phone_call_filter_hub
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

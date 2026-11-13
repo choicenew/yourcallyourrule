@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:live_activity_kit/live_activity_kit.dart';
 import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
 import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
-import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';
 
 class LiveNotificationPayload {

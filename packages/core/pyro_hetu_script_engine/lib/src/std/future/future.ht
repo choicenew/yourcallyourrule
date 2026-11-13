@@ -1,5 +1,0 @@
-external class FutureUtils {
-  static function delayed(duration, [callback])
-  static function execute(futures, {delay})
-  static function chain(futures, {delay})
-}

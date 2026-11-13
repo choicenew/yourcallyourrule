@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:drift/drift.dart' hide Column;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:pyro_sim_slot_rules_protocol/pyro_sim_slot_rules_protocol.dart';
+import 'package:pyro_phone_sim_slot_rules_protocol/pyro_phone_sim_slot_rules_protocol.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 

@@ -1,6 +1,6 @@
 import 'package:dlibphonenumber/enums/phone_number_type.dart';
 import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
-import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 
 class CallOverlayMockData {

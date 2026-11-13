@@ -1,7 +1,7 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
 import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
-import 'package:pyro_caller_identity_protocol/pyro_caller_identity_protocol.dart';
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/configuration/call_overlay_config.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/scrolling_security_message.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/services/fraud_detection_service.dart';

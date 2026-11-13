@@ -1,3 +1,0 @@
-arb-dir: lib/src/l10n
-template-arb-file: call_monitor_en.arb
-output-localization-file: call_monitor_localizations.dart

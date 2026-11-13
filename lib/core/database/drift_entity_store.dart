@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/data/database/local/local_database.dart';
 import 'package:yourcallyourrule/core/database/entity_store.dart';
 
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:pyro_sim_slot_rules_protocol/pyro_sim_slot_rules_protocol.dart';
+import 'package:pyro_phone_sim_slot_rules_protocol/pyro_phone_sim_slot_rules_protocol.dart';
 import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
