@@ -32,7 +32,7 @@ dependencies:
     sdk: flutter
   flutter:
     sdk: flutter
-  flutter_secure_storage: ^9.2.4
+  flutter_secure_storage: ^11.2.0
   drift_flutter: ^0.3.1
   
   google_mobile_ads: ^9.1.0
@@ -462,11 +462,6 @@ dev_dependencies:
     path: local_plugins/label_generator
   live_activity_setup_generator:
     path: local_plugins/live_activity_setup_generator
-
-dependency_overrides:
-  win32: any
-  flutter_secure_storage: any
-  flutter_secure_storage_windows: any
 
 flutter:
   assets:
