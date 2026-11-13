@@ -4,6 +4,8 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   app_links
+  battery_plus
+  connectivity_plus
   dynamic_color
   file_selector_windows
   firebase_app_check
@@ -13,6 +15,8 @@ list(APPEND FLUTTER_PLUGIN_LIST
   flutter_inappwebview_windows
   flutter_js
   flutter_secure_storage_windows
+  geolocator_windows
+  isar_community_flutter_libs
   permission_handler_windows
   url_launcher_windows
 )

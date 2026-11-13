@@ -28,6 +28,33 @@ CallMonitorEvent _$CallMonitorEventFromJson(
           return CallEndedEvent.fromJson(
             json
           );
+
+          default:
+            throw CheckedFromJsonException(
+  json,
+  'runtimeType',
+  'CallMonitorEvent',
+  'Invalid union type "${json['runtimeType']}"!'
+);
+        }
+
+}
+CallMonitorEvent _$CallMonitorEventFromJson(
+  Map<String, dynamic> json
+) {
+        switch (json['runtimeType']) {
+                  case 'incoming':
+          return IncomingCallEvent.fromJson(
+            json
+          );
+                case 'outgoing':
+          return OutgoingCallEvent.fromJson(
+            json
+          );
+                case 'ended':
+          return CallEndedEvent.fromJson(
+            json
+          );
         
           default:
             throw CheckedFromJsonException(

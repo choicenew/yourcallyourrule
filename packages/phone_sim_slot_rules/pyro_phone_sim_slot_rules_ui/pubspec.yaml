@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_riverpod: ^3.4.3
+  flutter_riverpod: ^3.0.3
   pyro_phone_sim_slot_rules_protocol:
     path: ../pyro_phone_sim_slot_rules_protocol
   pyro_phone_sim_slot_rules_hub:

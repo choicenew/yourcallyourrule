@@ -9,6 +9,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   flutter_inappwebview_linux
   flutter_js
   flutter_secure_storage_linux
+  isar_community_flutter_libs
   url_launcher_linux
 )
 

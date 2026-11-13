@@ -1,12 +1,6 @@
 package com.pyro.call_control
 
-import android.Manifest
 import android.content.Context
-import android.content.pm.PackageManager
-import android.os.Build
-import android.telecom.TelecomManager
-import android.util.Log
-import androidx.core.content.ContextCompat
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -25,18 +19,6 @@ class CallControlDriverPlugin : FlutterPlugin, MethodCallHandler {
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         when (call.method) {
-            "isPermissionGranted" -> {
-                val ctx = applicationContext
-                if (ctx != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    val granted = ContextCompat.checkSelfPermission(
-                        ctx,
-                        Manifest.permission.ANSWER_PHONE_CALLS
-                    ) == PackageManager.PERMISSION_GRANTED
-                    result.success(granted)
-                } else {
-                    result.success(true)
-                }
-            }
             "executeAction" -> {
                 val actionType = call.argument<String>("actionType") ?: "allow"
                 val phoneNumber = call.argument<String>("phoneNumber") ?: ""
@@ -45,6 +27,7 @@ class CallControlDriverPlugin : FlutterPlugin, MethodCallHandler {
                 val ctx = applicationContext
 
                 if (actionType.equals("answerThenHangup", ignoreCase = true)) {
+                    // Register task in zero-disk-IO memory registry with 10s TTL
                     PendingActionRegistry.registerPendingAnswerHangup(
                         phoneNumber = phoneNumber,
                         delayMs = delayHangupMs,
@@ -52,44 +35,14 @@ class CallControlDriverPlugin : FlutterPlugin, MethodCallHandler {
                     )
 
                     if (ctx != null) {
-                        val telecomManager = ctx.getSystemService(Context.TELECOM_SERVICE) as? TelecomManager
                         AnswerHangupCoordinator.scheduleAnswerThenHangup(
                             context = ctx,
                             delayMs = delayHangupMs,
                             enableMicMuteProtection = enableMicMuteProtection,
-                            onAnswerAction = {
-                                try {
-                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                        telecomManager?.acceptRingingCall()
-                                        Log.i("CallControlPlugin", "Native acceptRingingCall executed via TelecomManager.")
-                                    }
-                                } catch (e: SecurityException) {
-                                    Log.e("CallControlPlugin", "Permission denied for TelecomManager.acceptRingingCall()", e)
-                                } catch (e: Exception) {
-                                    Log.e("CallControlPlugin", "Failed to accept ringing call: ${e.message}", e)
-                                }
-                            },
                             onHangupAction = {
-                                try {
-                                    val success = telecomManager?.endCall() ?: false
-                                    Log.i("CallControlPlugin", "Native hangup execution via TelecomManager: success=$success")
-                                } catch (e: SecurityException) {
-                                    Log.e("CallControlPlugin", "Permission denied for TelecomManager.endCall()", e)
-                                } catch (e: Exception) {
-                                    Log.e("CallControlPlugin", "Failed to end call: ${e.message}", e)
-                                }
+                                // Native hangup callback hook
                             }
                         )
-                    }
-                } else if (actionType.equals("reject", ignoreCase = true)) {
-                    if (ctx != null) {
-                        try {
-                            val telecomManager = ctx.getSystemService(Context.TELECOM_SERVICE) as? TelecomManager
-                            telecomManager?.endCall()
-                            Log.i("CallControlPlugin", "Native direct REJECT execution via TelecomManager.")
-                        } catch (e: Exception) {
-                            Log.e("CallControlPlugin", "Direct reject failed: ${e.message}")
-                        }
                     }
                 }
 
