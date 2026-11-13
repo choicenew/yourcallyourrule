@@ -99,9 +99,9 @@ dependencies:
   pyro_purchase_ui:
     path: packages/commercial/pyro_purchase_ui
   pyro_purchase_protocol:
-    path: ../../../designed/wallpaper/packages/commercial/pyro_purchase_protocol
+    path: packages/commercial/pyro_purchase_protocol
   pyro_app_launch_guard:
-    path: ../../../designed/wallpaper/packages/commercial/pyro_app_launch_guard
+    path: packages/commercial/pyro_app_launch_guard
 
   # === CloudDrive Package Suite ===
   pyro_cloud_drive_hub:
