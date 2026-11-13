@@ -449,6 +449,20 @@ dependencies:
     path: packages/config/pyro_config_local
   pyro_config_remote:
     path: packages/config/pyro_config_remote
+  pyro_l10n:
+    path: packages/config/pyro_l10n
+  material_ui:
+    path: packages/config/pyro_material_ui
+  pyro_risk_profiler:
+    path: packages/config/pyro_risk_profiler
+  pyro_bionic_reading:
+    path: packages/config/pyro_bionic_reading
+  pyro_shadow_identity:
+    path: packages/config/pyro_shadow_identity
+  pyro_ambient_light_ui:
+    path: packages/config/pyro_ambient_light_ui
+  pyro_typography_baseline:
+    path: packages/config/pyro_typography_baseline
 
 dev_dependencies:
   flutter_test:
