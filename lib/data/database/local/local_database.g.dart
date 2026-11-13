@@ -3,8 +3,7 @@
 part of 'local_database.dart';
 
 // ignore_for_file: type=lint
-class $ContactsTable extends Contacts
-    with TableInfo<$ContactsTable, PhoneContactEntry> {
+class $ContactsTable extends Contacts with TableInfo<$ContactsTable, Contact> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
@@ -122,7 +121,7 @@ class $ContactsTable extends Contacts
   static const String $name = 'contacts';
   @override
   VerificationContext validateIntegrity(
-    Insertable<PhoneContactEntry> instance, {
+    Insertable<Contact> instance, {
     bool isInserting = false,
   }) {
     final context = VerificationContext();
@@ -198,12 +197,44 @@ class $ContactsTable extends Contacts
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
   @override
-  PhoneContactEntry map(Map<String, dynamic> data, {String? tablePrefix}) {
+  Contact map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
-    return PhoneContactEntry(
+    return Contact(
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
+      )!,
+      phoneNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}phone_number'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      avatar: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}avatar'],
+      ),
+      url: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}url'],
+      ),
+      note: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}note'],
+      ),
+      labelIds: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}label_ids'],
+      ),
+      isFavorite: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}is_favorite'],
+      )!,
+      lastUpdated: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}last_updated'],
       )!,
     );
   }
@@ -214,7 +245,186 @@ class $ContactsTable extends Contacts
   }
 }
 
-class ContactsCompanion extends UpdateCompanion<PhoneContactEntry> {
+class Contact extends DataClass implements Insertable<Contact> {
+  final String id;
+  final String phoneNumber;
+  final String name;
+  final String? avatar;
+  final String? url;
+  final String? note;
+  final String? labelIds;
+  final int isFavorite;
+  final String lastUpdated;
+  const Contact({
+    required this.id,
+    required this.phoneNumber,
+    required this.name,
+    this.avatar,
+    this.url,
+    this.note,
+    this.labelIds,
+    required this.isFavorite,
+    required this.lastUpdated,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['phone_number'] = Variable<String>(phoneNumber);
+    map['name'] = Variable<String>(name);
+    if (!nullToAbsent || avatar != null) {
+      map['avatar'] = Variable<String>(avatar);
+    }
+    if (!nullToAbsent || url != null) {
+      map['url'] = Variable<String>(url);
+    }
+    if (!nullToAbsent || note != null) {
+      map['note'] = Variable<String>(note);
+    }
+    if (!nullToAbsent || labelIds != null) {
+      map['label_ids'] = Variable<String>(labelIds);
+    }
+    map['is_favorite'] = Variable<int>(isFavorite);
+    map['last_updated'] = Variable<String>(lastUpdated);
+    return map;
+  }
+
+  ContactsCompanion toCompanion(bool nullToAbsent) {
+    return ContactsCompanion(
+      id: Value(id),
+      phoneNumber: Value(phoneNumber),
+      name: Value(name),
+      avatar: avatar == null && nullToAbsent
+          ? const Value.absent()
+          : Value(avatar),
+      url: url == null && nullToAbsent ? const Value.absent() : Value(url),
+      note: note == null && nullToAbsent ? const Value.absent() : Value(note),
+      labelIds: labelIds == null && nullToAbsent
+          ? const Value.absent()
+          : Value(labelIds),
+      isFavorite: Value(isFavorite),
+      lastUpdated: Value(lastUpdated),
+    );
+  }
+
+  factory Contact.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return Contact(
+      id: serializer.fromJson<String>(json['id']),
+      phoneNumber: serializer.fromJson<String>(json['phoneNumber']),
+      name: serializer.fromJson<String>(json['name']),
+      avatar: serializer.fromJson<String?>(json['avatar']),
+      url: serializer.fromJson<String?>(json['url']),
+      note: serializer.fromJson<String?>(json['note']),
+      labelIds: serializer.fromJson<String?>(json['labelIds']),
+      isFavorite: serializer.fromJson<int>(json['isFavorite']),
+      lastUpdated: serializer.fromJson<String>(json['lastUpdated']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'phoneNumber': serializer.toJson<String>(phoneNumber),
+      'name': serializer.toJson<String>(name),
+      'avatar': serializer.toJson<String?>(avatar),
+      'url': serializer.toJson<String?>(url),
+      'note': serializer.toJson<String?>(note),
+      'labelIds': serializer.toJson<String?>(labelIds),
+      'isFavorite': serializer.toJson<int>(isFavorite),
+      'lastUpdated': serializer.toJson<String>(lastUpdated),
+    };
+  }
+
+  Contact copyWith({
+    String? id,
+    String? phoneNumber,
+    String? name,
+    Value<String?> avatar = const Value.absent(),
+    Value<String?> url = const Value.absent(),
+    Value<String?> note = const Value.absent(),
+    Value<String?> labelIds = const Value.absent(),
+    int? isFavorite,
+    String? lastUpdated,
+  }) => Contact(
+    id: id ?? this.id,
+    phoneNumber: phoneNumber ?? this.phoneNumber,
+    name: name ?? this.name,
+    avatar: avatar.present ? avatar.value : this.avatar,
+    url: url.present ? url.value : this.url,
+    note: note.present ? note.value : this.note,
+    labelIds: labelIds.present ? labelIds.value : this.labelIds,
+    isFavorite: isFavorite ?? this.isFavorite,
+    lastUpdated: lastUpdated ?? this.lastUpdated,
+  );
+  Contact copyWithCompanion(ContactsCompanion data) {
+    return Contact(
+      id: data.id.present ? data.id.value : this.id,
+      phoneNumber: data.phoneNumber.present
+          ? data.phoneNumber.value
+          : this.phoneNumber,
+      name: data.name.present ? data.name.value : this.name,
+      avatar: data.avatar.present ? data.avatar.value : this.avatar,
+      url: data.url.present ? data.url.value : this.url,
+      note: data.note.present ? data.note.value : this.note,
+      labelIds: data.labelIds.present ? data.labelIds.value : this.labelIds,
+      isFavorite: data.isFavorite.present
+          ? data.isFavorite.value
+          : this.isFavorite,
+      lastUpdated: data.lastUpdated.present
+          ? data.lastUpdated.value
+          : this.lastUpdated,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('Contact(')
+          ..write('id: $id, ')
+          ..write('phoneNumber: $phoneNumber, ')
+          ..write('name: $name, ')
+          ..write('avatar: $avatar, ')
+          ..write('url: $url, ')
+          ..write('note: $note, ')
+          ..write('labelIds: $labelIds, ')
+          ..write('isFavorite: $isFavorite, ')
+          ..write('lastUpdated: $lastUpdated')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    phoneNumber,
+    name,
+    avatar,
+    url,
+    note,
+    labelIds,
+    isFavorite,
+    lastUpdated,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is Contact &&
+          other.id == this.id &&
+          other.phoneNumber == this.phoneNumber &&
+          other.name == this.name &&
+          other.avatar == this.avatar &&
+          other.url == this.url &&
+          other.note == this.note &&
+          other.labelIds == this.labelIds &&
+          other.isFavorite == this.isFavorite &&
+          other.lastUpdated == this.lastUpdated);
+}
+
+class ContactsCompanion extends UpdateCompanion<Contact> {
   final Value<String> id;
   final Value<String> phoneNumber;
   final Value<String> name;
@@ -252,7 +462,7 @@ class ContactsCompanion extends UpdateCompanion<PhoneContactEntry> {
        phoneNumber = Value(phoneNumber),
        name = Value(name),
        lastUpdated = Value(lastUpdated);
-  static Insertable<PhoneContactEntry> custom({
+  static Insertable<Contact> custom({
     Expression<String>? id,
     Expression<String>? phoneNumber,
     Expression<String>? name,
@@ -7084,17 +7294,14 @@ class $$ContactsTableTableManager
         RootTableManager<
           _$LocalDatabase,
           $ContactsTable,
-          PhoneContactEntry,
+          Contact,
           $$ContactsTableFilterComposer,
           $$ContactsTableOrderingComposer,
           $$ContactsTableAnnotationComposer,
           $$ContactsTableCreateCompanionBuilder,
           $$ContactsTableUpdateCompanionBuilder,
-          (
-            PhoneContactEntry,
-            BaseReferences<_$LocalDatabase, $ContactsTable, PhoneContactEntry>,
-          ),
-          PhoneContactEntry,
+          (Contact, BaseReferences<_$LocalDatabase, $ContactsTable, Contact>),
+          Contact,
           PrefetchHooks Function()
         > {
   $$ContactsTableTableManager(_$LocalDatabase db, $ContactsTable table)
@@ -7159,12 +7366,12 @@ class $$ContactsTableTableManager
           withReferenceMapper: (p0) => p0
               .map(
                 (e) => (
-                  e.readTable<$ContactsTable, PhoneContactEntry>(table),
-                  BaseReferences<
-                    _$LocalDatabase,
-                    $ContactsTable,
-                    PhoneContactEntry
-                  >(db, table, e),
+                  e.readTable<$ContactsTable, Contact>(table),
+                  BaseReferences<_$LocalDatabase, $ContactsTable, Contact>(
+                    db,
+                    table,
+                    e,
+                  ),
                 ),
               )
               .toList(),
@@ -7177,17 +7384,14 @@ typedef $$ContactsTableProcessedTableManager =
     ProcessedTableManager<
       _$LocalDatabase,
       $ContactsTable,
-      PhoneContactEntry,
+      Contact,
       $$ContactsTableFilterComposer,
       $$ContactsTableOrderingComposer,
       $$ContactsTableAnnotationComposer,
       $$ContactsTableCreateCompanionBuilder,
       $$ContactsTableUpdateCompanionBuilder,
-      (
-        PhoneContactEntry,
-        BaseReferences<_$LocalDatabase, $ContactsTable, PhoneContactEntry>,
-      ),
-      PhoneContactEntry,
+      (Contact, BaseReferences<_$LocalDatabase, $ContactsTable, Contact>),
+      Contact,
       PrefetchHooks Function()
     >;
 typedef $$CallHistoryTableCreateCompanionBuilder =
