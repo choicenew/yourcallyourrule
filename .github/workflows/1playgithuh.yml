@@ -120,6 +120,26 @@ jobs:
 
 
 
+      - name: Checkout external packages
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository_owner }}/aura-wallpaper
+          path: external_packages_repo
+          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+          submodules: false
+        continue-on-error: true
+
+      - name: Merge External Packages & Remove Workstation Overrides
+        run: |
+          echo "=== Merging external packages into local packages/ directory ==="
+          if [ -d "external_packages_repo/packages" ]; then
+            cp -r external_packages_repo/packages/* packages/ 2>/dev/null || true
+            echo "✓ Merged external_packages_repo/packages into packages/"
+          fi
+          # 核心修复：在 CI 环境下彻底删除 pubspec_overrides.yaml，切断任何 ../../../designed/ 本地开发路径！
+          rm -f pubspec_overrides.yaml
+          echo "✓ Removed pubspec_overrides.yaml for clean CI build"
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
