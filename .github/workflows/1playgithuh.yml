@@ -126,6 +126,7 @@ jobs:
           repository: ${{ github.repository_owner }}/packages
           path: packages
           token: ${{ secrets.MMH_PAT || secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+          clean: false
           submodules: false
 
       - name: Setup Flutter
