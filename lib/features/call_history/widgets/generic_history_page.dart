@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:yourcallyourrule/features/common/widgets/generic_timeline_with_ads_page.dart';
+import 'package:yourcallyourrule/features/common/widgets/generic_timeline_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class GenericHistoryPage<T extends dynamic, S, M> extends ConsumerStatefulWidget {
@@ -222,7 +222,7 @@ class _GenericHistoryPageState<T extends dynamic, S, M> extends ConsumerState<Ge
 
   @override
   Widget build(BuildContext context) {
-    return GenericTimelineListWithAdsPage<T>(
+    return GenericTimelinePage<T>(
       title: widget.title,
       themeColor: widget.themeColor,
       items: _filteredItems,

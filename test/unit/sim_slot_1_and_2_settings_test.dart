@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yourcallyourrule/core/entities/call/sim_info.dart';
-import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
-import 'package:yourcallyourrule/features/call/call_filter/config/call_filter_config.dart';
-import 'package:yourcallyourrule/features/call/call_filter/providers/call_filter_provider.dart';
-import 'package:yourcallyourrule/features/call/call_filter/providers/enhanced_filter_config_provider.dart';
+import 'package:yourcallyourrule/features/call_filter/call_filter_type.dart';
+import 'package:yourcallyourrule/features/call_filter/config/call_filter_config.dart';
+import 'package:yourcallyourrule/features/call_filter/providers/call_filter_provider.dart';
+import 'package:yourcallyourrule/features/call_filter/providers/enhanced_filter_config_provider.dart';
 
 void main() {
   group('📱 SIM卡1与SIM卡2分卡槽独立设置与拦截决策全量单元测试', () {

@@ -1,4 +1,4 @@
-﻿// ignore: unused_import
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2535,7 +2535,7 @@ class AppLocalizationsHa extends AppLocalizations {
       'Samfuran Regex don Daidaita Lambobin Wayar';
 
   @override
-  String get RegexRuleEntity => 'Dokar Regex';
+  String get regexRule => 'Dokar Regex';
 
   @override
   String regexRuleAddFailed(Object error) {

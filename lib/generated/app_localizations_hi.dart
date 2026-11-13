@@ -1,4 +1,4 @@
-﻿// ignore: unused_import
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2535,7 +2535,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'फ़ोन नंबर मिलान के लिए रेगेक्स पैटर्न';
 
   @override
-  String get RegexRuleEntity => 'रेगेक्स नियम';
+  String get regexRule => 'रेगेक्स नियम';
 
   @override
   String regexRuleAddFailed(Object error) {

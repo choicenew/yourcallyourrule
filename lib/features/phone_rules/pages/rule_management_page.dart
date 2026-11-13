@@ -4,7 +4,7 @@ import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:pyro_phone_rules_ui/pyro_phone_rules_ui.dart' as rules_pkg_ui;
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/phone_rules/services/rule_management_service.dart';
-import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
+import 'package:yourcallyourrule/features/common/widgets/generic_list_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class RuleManagementPage extends ConsumerWidget {
@@ -19,7 +19,7 @@ class RuleManagementPage extends ConsumerWidget {
       future: ruleSvc.getAllRules(),
       builder: (context, snapshot) {
         final rules = snapshot.data ?? [];
-        return GenericListWithAdsPage<PhoneRuleEntity>(
+        return GenericListPage<PhoneRuleEntity>(
           title: l10n.ruleManagement,
           items: rules,
           emptyText: l10n.noData,

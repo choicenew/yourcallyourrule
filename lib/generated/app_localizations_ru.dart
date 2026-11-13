@@ -1,4 +1,4 @@
-﻿// ignore: unused_import
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2559,7 +2559,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Регулярные выражения для сопоставления номеров телефонов';
 
   @override
-  String get RegexRuleEntity => 'Правило регулярного выражения';
+  String get regexRule => 'Правило регулярного выражения';
 
   @override
   String regexRuleAddFailed(Object error) {

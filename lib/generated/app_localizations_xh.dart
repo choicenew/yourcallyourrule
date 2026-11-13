@@ -1,4 +1,4 @@
-﻿// ignore: unused_import
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2554,7 +2554,7 @@ class AppLocalizationsXh extends AppLocalizations {
       'Iipatheni ze-Regex zokufanisa inombolo yefowuni';
 
   @override
-  String get RegexRuleEntity => 'Umthetho we-Regex';
+  String get regexRule => 'Umthetho we-Regex';
 
   @override
   String regexRuleAddFailed(Object error) {

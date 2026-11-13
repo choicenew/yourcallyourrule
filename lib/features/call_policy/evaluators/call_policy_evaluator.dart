@@ -3,8 +3,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
 import 'package:pyro_call_filter_hub/pyro_call_filter_hub.dart';
-import '../../call/call_filter/enhanced_composite_filter_service.dart' hide enhancedCompositeFilterServiceProvider;
-import '../../call/time_interceptor/service/time_interceptor_service.dart';
+import '../../call_filter/enhanced_composite_filter_service.dart' hide enhancedCompositeFilterServiceProvider;
+import '../../time_interceptor/service/time_interceptor_service.dart';
 
 part 'call_policy_evaluator.g.dart';
 

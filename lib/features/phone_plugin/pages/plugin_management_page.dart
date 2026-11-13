@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:pyro_phone_lookup_plugin_ui/pyro_phone_lookup_plugin_ui.dart' as plugin_pkg_ui;
-import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
+import 'package:yourcallyourrule/features/common/widgets/generic_list_page.dart';
 import 'package:yourcallyourrule/features/phone_plugin/services/plugin_manager_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -46,7 +46,7 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
 
-    return GenericListWithAdsPage<PluginSourceData>(
+    return GenericListPage<PluginSourceData>(
       title: l10n.pluginManagement,
       items: _plugins,
       isLoading: _isLoading,

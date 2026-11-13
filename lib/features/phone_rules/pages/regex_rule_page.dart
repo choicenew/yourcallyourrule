@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/phone_rules/services/regex_service.dart';
-import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
+import 'package:yourcallyourrule/features/common/widgets/generic_list_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class RegexRulePage extends ConsumerWidget {
@@ -18,7 +18,7 @@ class RegexRulePage extends ConsumerWidget {
       future: regexSvc.getAllRegexRules(),
       builder: (context, snapshot) {
         final rules = snapshot.data ?? [];
-        return GenericListWithAdsPage<RegexRuleEntity>(
+        return GenericListPage<RegexRuleEntity>(
           title: l10n.RegexRuleEntity,
           items: rules,
           emptyText: l10n.noData,

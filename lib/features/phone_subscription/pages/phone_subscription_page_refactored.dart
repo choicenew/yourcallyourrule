@@ -4,7 +4,7 @@ import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protoco
 import 'package:pyro_phone_subscription_hub/pyro_phone_subscription_hub.dart';
 import 'package:pyro_phone_subscription_ui/pyro_phone_subscription_ui.dart' as sub_pkg_ui;
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
-import 'package:yourcallyourrule/features/common/widgets/generic_list_with_ads_page.dart';
+import 'package:yourcallyourrule/features/common/widgets/generic_list_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class PhoneSubscriptionPageRefactored extends ConsumerWidget {
@@ -14,7 +14,7 @@ class PhoneSubscriptionPageRefactored extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
 
-    return GenericListWithAdsPage<PhoneSubscriptionPayload>(
+    return GenericListPage<PhoneSubscriptionPayload>(
       title: l10n.phoneSubscription,
       items: const [],
       emptyText: l10n.noData,

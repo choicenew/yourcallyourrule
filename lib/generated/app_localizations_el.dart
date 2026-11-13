@@ -1,4 +1,4 @@
-﻿// ignore: unused_import
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2554,7 +2554,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Μοτίβα Regex για Αντιστοίχιση Αριθμών Τηλεφώνου';
 
   @override
-  String get RegexRuleEntity => 'Κανόνας Regex';
+  String get regexRule => 'Κανόνας Regex';
 
   @override
   String regexRuleAddFailed(Object error) {

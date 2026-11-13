@@ -388,6 +388,11 @@ dependencies:
   pyro_central_database_hub:
     path: packages/database/pyro_central_database_hub
 
+  pyro_cloudflare:
+    path: packages/infra/pyro_cloudflare
+  pyro_crowdsourcing_arbiter:
+    path: packages/crowdsourcing/pyro_crowdsourcing_arbiter
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

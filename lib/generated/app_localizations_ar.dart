@@ -1,4 +1,4 @@
-﻿// ignore: unused_import
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2513,7 +2513,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'أنماط Regex لمطابقة أرقام الهواتف';
 
   @override
-  String get RegexRuleEntity => 'قاعدة Regex';
+  String get regexRule => 'قاعدة Regex';
 
   @override
   String regexRuleAddFailed(Object error) {

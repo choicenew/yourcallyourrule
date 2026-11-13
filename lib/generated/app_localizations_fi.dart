@@ -1,4 +1,4 @@
-﻿// ignore: unused_import
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2539,7 +2539,7 @@ class AppLocalizationsFi extends AppLocalizations {
       'Puhelinnumeroiden vastaavuussäännöt';
 
   @override
-  String get RegexRuleEntity => 'Sääntö';
+  String get regexRule => 'Sääntö';
 
   @override
   String regexRuleAddFailed(Object error) {

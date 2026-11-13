@@ -1,4 +1,4 @@
-﻿// ignore: unused_import
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2533,7 +2533,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Pola Regex untuk Pencocokan Nomor Telepon';
 
   @override
-  String get RegexRuleEntity => 'Aturan Regex';
+  String get regexRule => 'Aturan Regex';
 
   @override
   String regexRuleAddFailed(Object error) {

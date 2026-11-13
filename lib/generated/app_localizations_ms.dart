@@ -1,4 +1,4 @@
-﻿// ignore: unused_import
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2528,7 +2528,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Corak Regex untuk Padanan Nombor Telefon';
 
   @override
-  String get RegexRuleEntity => 'Peraturan Regex';
+  String get regexRule => 'Peraturan Regex';
 
   @override
   String regexRuleAddFailed(Object error) {

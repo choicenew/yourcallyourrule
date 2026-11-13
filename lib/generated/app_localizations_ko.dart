@@ -1,4 +1,4 @@
-﻿// ignore: unused_import
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2452,7 +2452,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get regexPatternsForPhoneNumberMatching => '전화 번호 일치를 위한 정규식 패턴';
 
   @override
-  String get RegexRuleEntity => '정규식 규칙';
+  String get regexRule => '정규식 규칙';
 
   @override
   String regexRuleAddFailed(Object error) {

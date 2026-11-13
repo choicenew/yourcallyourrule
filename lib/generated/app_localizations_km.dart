@@ -1,4 +1,4 @@
-﻿// ignore: unused_import
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2527,7 +2527,7 @@ class AppLocalizationsKm extends AppLocalizations {
       'ទម្រង់​正则表达式​សម្រាប់​ការ​ផ្គូផ្គង​លេខ​ទូរស័ព្ទ';
 
   @override
-  String get RegexRuleEntity => 'ច្បាប់​正则表达式';
+  String get regexRule => 'ច្បាប់​正则表达式';
 
   @override
   String regexRuleAddFailed(Object error) {

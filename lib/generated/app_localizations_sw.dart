@@ -1,4 +1,4 @@
-﻿// ignore: unused_import
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2549,7 +2549,7 @@ class AppLocalizationsSw extends AppLocalizations {
       'Michoro ya Regex kwa Kulinganisha Nambari za Simu';
 
   @override
-  String get RegexRuleEntity => 'Sheria ya Regex';
+  String get regexRule => 'Sheria ya Regex';
 
   @override
   String regexRuleAddFailed(Object error) {

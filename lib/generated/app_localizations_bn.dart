@@ -1,4 +1,4 @@
-﻿// ignore: unused_import
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2527,7 +2527,7 @@ class AppLocalizationsBn extends AppLocalizations {
       'ফোন নম্বর মেলানোর জন্য রেজেক্স প্যাটার্ন';
 
   @override
-  String get RegexRuleEntity => 'রেজেক্স নিয়ম';
+  String get regexRule => 'রেজেক্স নিয়ম';
 
   @override
   String regexRuleAddFailed(Object error) {

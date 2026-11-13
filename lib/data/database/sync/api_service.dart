@@ -4,33 +4,33 @@ import 'package:yourcallyourrule/env.dart';
 
 part 'api_service.g.dart';
 
-/// ApiService Provider
+/// ApiService Provider (基于 pyro_cloudflare 微包中的 CloudflareApiService 实例)
 @Riverpod(keepAlive: true)
 ApiService apiService(Ref ref) {
-  return const ApiService();
+  return ApiService();
 }
 
-/// 经过 Cloudflare 驱动下沉配对的网络传输服务 (ApiService)
+/// 宿主 App 纯网络传输服务代理层 (ApiService)
+/// 实例化 pyro_cloudflare 微包中的 CloudflareApiService 并安全注入 Env 秘钥
 class ApiService {
-  static final CloudflareConfig _config = CloudflareConfig(
-    workerUrl: Env.cfWorkerUrl,
-    apiSecret: Env.workerApiSecret,
-    accountId: '',
-  );
+  late final CloudflareApiService _delegate;
 
-  static final CloudflareWorkerClient _workerClient = CloudflareWorkerClient(config: _config);
-
-  const ApiService();
+  ApiService({CloudflareApiService? delegate}) {
+    _delegate = delegate ??
+        CloudflareApiService(
+          config: CloudflareConfig(
+            workerUrl: Env.cfWorkerUrl,
+            apiSecret: Env.workerApiSecret,
+            accountId: '',
+          ),
+        );
+  }
 
   Future<bool> pushChanges({
     required List<Map<String, dynamic>> changes,
     required String deviceId,
   }) async {
-    final response = await _workerClient.post('/sync', {
-      'operations': changes,
-      'sourceDeviceId': deviceId,
-    });
-    return response != null;
+    return await _delegate.pushChanges(changes: changes, deviceId: deviceId);
   }
 
   /// 从服务器获取自上次同步以来的变更
@@ -39,36 +39,21 @@ class ApiService {
     required String deviceId,
     List<String>? countryCodes,
   }) async {
-    final queryParams = <String, String>{
-      'since': since?.toIso8601String() ??
-          DateTime.fromMillisecondsSinceEpoch(0).toIso8601String(),
-      'deviceId': deviceId,
-    };
-
-    if (countryCodes != null && countryCodes.isNotEmpty) {
-      queryParams['countryCodes'] = countryCodes.join(',');
-    }
-
-    final data = await _workerClient.get('/sync', queryParams);
-    if (data != null) {
-      return List<Map<String, dynamic>>.from(data['operations'] ?? []);
-    }
-    return [];
+    return await _delegate.getChanges(
+      since: since,
+      deviceId: deviceId,
+      countryCodes: countryCodes,
+    );
   }
 
   /// 获取特定国家的初始数据
   Future<List<Map<String, dynamic>>> getInitialDataForCountry(
     String countryIsoCode,
   ) async {
-    final data = await _workerClient.get('/country-data', {'countryCode': countryIsoCode});
-    if (data != null) {
-      return List<Map<String, dynamic>>.from(data['numbers'] ?? []);
-    }
-    return [];
+    return await _delegate.getInitialDataForCountry(countryIsoCode);
   }
 
   Future<Map<String, dynamic>> getProposalLimitsConfig() async {
-    final data = await _workerClient.get('/api/v1/config/proposal-limits');
-    return data ?? {};
+    return await _delegate.getProposalLimitsConfig();
   }
 }

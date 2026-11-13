@@ -2,7 +2,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_sim_slot_rules_protocol/pyro_sim_slot_rules_protocol.dart';
 import 'package:pyro_sim_slot_rules_ui/pyro_sim_slot_rules_ui.dart';
-import 'package:yourcallyourrule/features/call/call_filter/providers/sim_slot_config_provider.dart';
+import 'package:yourcallyourrule/features/call_filter/providers/sim_slot_config_provider.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

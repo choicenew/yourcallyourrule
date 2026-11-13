@@ -1,8 +1,8 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/features/call/call_filter/call_filter_interface.dart';
-import 'package:yourcallyourrule/features/call/call_filter/call_filter_type.dart';
+import 'package:yourcallyourrule/features/call_filter/call_filter_interface.dart';
+import 'package:yourcallyourrule/features/call_filter/call_filter_type.dart';
 import 'package:yourcallyourrule/features/remote_filter/config/remote_number_filter_config.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';

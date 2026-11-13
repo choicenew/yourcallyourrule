@@ -1,4 +1,4 @@
-﻿// ignore: unused_import
+// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
@@ -2524,7 +2524,7 @@ class AppLocalizationsUr extends AppLocalizations {
       'فون نمبر کی مطابقت کے لیے ریجیکس پیٹرن';
 
   @override
-  String get RegexRuleEntity => 'ریجیکس اصول';
+  String get regexRule => 'ریجیکس اصول';
 
   @override
   String regexRuleAddFailed(Object error) {
