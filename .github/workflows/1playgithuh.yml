@@ -120,11 +120,20 @@ jobs:
 
 
 
-      - name: Checkout external packages
+      - name: Checkout packages repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository_owner }}/packages
+          path: external_packages_repo
+          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+          submodules: false
+        continue-on-error: true
+
+      - name: Checkout aura-wallpaper repository
         uses: actions/checkout@v4
         with:
           repository: ${{ github.repository_owner }}/aura-wallpaper
-          path: external_packages_repo
+          path: external_wallpaper_repo
           token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
           submodules: false
         continue-on-error: true
@@ -132,10 +141,14 @@ jobs:
       - name: Merge External Packages
         run: |
           echo "=== Merging external packages into local packages/ directory ==="
-          if [ -d "external_packages_repo/packages" ]; then
-            cp -r external_packages_repo/packages/* packages/ 2>/dev/null || true
-            echo "✓ Merged external_packages_repo/packages into packages/"
+          mkdir -p packages
+          if [ -d "external_packages_repo" ]; then
+            cp -r external_packages_repo/* packages/ 2>/dev/null || true
           fi
+          if [ -d "external_wallpaper_repo/packages" ]; then
+            cp -r external_wallpaper_repo/packages/* packages/ 2>/dev/null || true
+          fi
+          echo "✓ Merged all external package sources into packages/"
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
