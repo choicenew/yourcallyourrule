@@ -98,6 +98,8 @@ dependencies:
     path: packages/commercial/pyro_purchase_core
   pyro_purchase_ui:
     path: packages/commercial/pyro_purchase_ui
+  pyro_app_launch_guard:
+    path: ../../../designed/wallpaper/packages/commercial/pyro_app_launch_guard
 
   # === CloudDrive Package Suite ===
   pyro_cloud_drive_hub:
@@ -368,9 +370,9 @@ dependencies:
 
   # === Telemetry Package Suite ===
   pyro_analytics_telemetry:
-    path: packages/telemetry/pyro_analytics_telemetry
+    path: ../../../designed/wallpaper/packages/telemetry/pyro_analytics_telemetry
   pyro_analytics_firebase:
-    path: packages/telemetry/pyro_analytics_firebase
+    path: ../../../designed/wallpaper/packages/telemetry/pyro_analytics_firebase
 
   # === Sync, User DB & Central DB Package Suites ===
   pyro_sync_protocol:
@@ -392,6 +394,8 @@ dependencies:
     path: packages/infra/pyro_cloudflare
   pyro_crowdsourcing_arbiter:
     path: packages/crowdsourcing/pyro_crowdsourcing_arbiter
+  pyro_about:
+    path: ../../../designed/wallpaper/packages/config/pyro_about
 
 dev_dependencies:
   flutter_test:

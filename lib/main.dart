@@ -25,6 +25,7 @@ import 'package:yourcallyourrule/theme/app_theme.dart';
 import 'package:yourcallyourrule/theme/theme_provider.dart';
 
 // === All 33 Package Suite Connectors ===
+import 'package:pyro_app_launch_guard/pyro_app_launch_guard.dart';
 import 'package:pyro_telephony_connector/pyro_telephony_connector.dart';
 import 'package:pyro_call_redirection_connector/pyro_call_redirection_connector.dart';
 import 'package:pyro_call_screening_connector/pyro_call_screening_connector.dart';
@@ -189,6 +190,7 @@ class MyApp extends ConsumerWidget {
 
     return MaterialApp.router(
       title: 'Your Call Your Rule',
+      builder: PyroAppLaunchGuard.builder(),
       theme: AppTheme.buildLightTheme(seedColor: themeColor),
       darkTheme: AppTheme.buildDarkTheme(seedColor: themeColor),
       themeMode: themeMode,
