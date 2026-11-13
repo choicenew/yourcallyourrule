@@ -463,6 +463,11 @@ dev_dependencies:
   live_activity_setup_generator:
     path: local_plugins/live_activity_setup_generator
 
+dependency_overrides:
+  win32: any
+  flutter_secure_storage: any
+  flutter_secure_storage_windows: any
+
 flutter:
   assets:
     - assets/avatars/
