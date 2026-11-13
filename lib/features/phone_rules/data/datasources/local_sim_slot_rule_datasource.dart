@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:drift/drift.dart' hide Column;
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:uuid/uuid.dart';
-import 'package:pyro_phone_sim_slot_rules_protocol/pyro_sim_slot_rules_protocol.dart';
+import 'package:pyro_phone_sim_slot_rules_protocol/pyro_phone_sim_slot_rules_protocol.dart';
 import 'package:yourcallyourrule/data/database/database_service.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
@@ -37,7 +37,6 @@ abstract class SimSlotRuleModelMapper {
       name: Value(model.name),
       priority: Value(model.priority),
       action: Value(model.actionType),
-      ruleType: const Value(''),
       phoneNumber: Value(model.phoneNumber),
       simSlotIndex: Value(model.simSlotIndex),
       labelId: Value(model.labelId),
@@ -48,123 +47,82 @@ abstract class SimSlotRuleModelMapper {
 }
 
 class LocalSimSlotRuleDataSource {
-  final LocalDatabase _database;
-  final Uuid _uuid = const Uuid();
-  
-  LocalSimSlotRuleDataSource(this._database);
-  
+  final LocalDatabase _db;
+
+  LocalSimSlotRuleDataSource(this._db);
+
   Future<List<SimSlotRuleEntity>> getAll() async {
-    final results = await _database.select(_database.simSlotRules).get();
-    return results.map<SimSlotRuleEntity>(SimSlotRuleModelMapper.fromData).toList();
+    final list = await _db.select(_db.simSlotRules).get();
+    return list.map((e) => SimSlotRuleModelMapper.fromData(e)).toList();
   }
-  
+
   Future<SimSlotRuleEntity?> getById(String id) async {
-    final result = await (_database.select(_database.simSlotRules)
-      ..where((tbl) => tbl.id.equals(id))
-      ..limit(1))
-      .getSingleOrNull();
-    return result != null ? SimSlotRuleModelMapper.fromData(result) : null;
+    final query = _db.select(_db.simSlotRules)..where((tbl) => tbl.id.equals(id));
+    final result = await query.getSingleOrNull();
+    return result == null ? null : SimSlotRuleModelMapper.fromData(result);
   }
-  
-  Future<String> insert(SimSlotRuleEntity model) async {
-    final String id = model.id.isEmpty ? _uuid.v4() : model.id;
-    final companion = SimSlotRuleModelMapper.toCompanion(model);
-    final companionWithId = companion.copyWith(id: Value(id));
-    await _database.into(_database.simSlotRules).insertOnConflictUpdate(companionWithId);
-    return id;
+
+  Future<List<SimSlotRuleEntity>> getBySimSlot(int simSlotIndex) async {
+    final query = _db.select(_db.simSlotRules)..where((tbl) => tbl.simSlotIndex.equals(simSlotIndex));
+    final list = await query.get();
+    return list.map((e) => SimSlotRuleModelMapper.fromData(e)).toList();
   }
-  
-  Future<void> save(SimSlotRuleEntity model) async {
-    await insert(model);
+
+  Future<void> insertRule(SimSlotRuleEntity rule) async {
+    final companion = SimSlotRuleModelMapper.toCompanion(rule);
+    await _db.into(_db.simSlotRules).insert(companion, mode: InsertMode.insertOrReplace);
   }
-  
-  Future<int> update(SimSlotRuleEntity model) async {
-    final companion = SimSlotRuleModelMapper.toCompanion(model);
-    return await (_database.update(_database.simSlotRules)
-      ..where((tbl) => tbl.id.equals(model.id)))
-      .write(companion);
+
+  Future<void> updateRule(SimSlotRuleEntity rule) async {
+    final companion = SimSlotRuleModelMapper.toCompanion(rule);
+    await _db.update(_db.simSlotRules).replace(companion);
   }
-  
-  Future<int> delete(String id) async {
-    return await (_database.delete(_database.simSlotRules)
-      ..where((tbl) => tbl.id.equals(id)))
-      .go();
+
+  Future<void> deleteRule(String id) async {
+    await (_db.delete(_db.simSlotRules)..where((tbl) => tbl.id.equals(id))).go();
   }
-  
-  Future<List<SimSlotRuleEntity>> getBySimSlotIndex(int simSlotIndex) async {
-    final query = _database.select(_database.simSlotRules)
-      ..where((tbl) => tbl.simSlotIndex.equals(simSlotIndex));
-    final results = await query.get();
-    return results.map<SimSlotRuleEntity>(SimSlotRuleModelMapper.fromData).toList();
+
+  Future<void> deleteAll() async {
+    await _db.delete(_db.simSlotRules).go();
   }
-  
-  Future<List<SimSlotRuleEntity>> getByPhoneNumber(String phoneNumber) async {
-    final query = _database.select(_database.simSlotRules)
-      ..where((tbl) => tbl.phoneNumber.equals(phoneNumber));
-    final results = await query.get();
-    return results.map<SimSlotRuleEntity>(SimSlotRuleModelMapper.fromData).toList();
+
+  Future<void> saveSimSlotRule(SimSlotRuleEntity rule) async {
+    await insertRule(rule);
   }
-  
-  Future<void> clear() async {
-    await _database.delete(_database.simSlotRules).go();
+
+  Future<List<SimSlotRuleEntity>> getSimSlotRules(int simSlotIndex) async {
+    return getBySimSlot(simSlotIndex);
   }
-  
-  Future<void> clearAll() async {
-    await clear();
-  }
-  
-  Future<List<String>> insertAll(List<SimSlotRuleEntity> items) async {
-    final List<String> ids = [];
-    await _database.batch((batch) {
-      for (var item in items) {
-        final String id = item.id.isEmpty ? _uuid.v4() : item.id;
-        ids.add(id);
-        final companion = SimSlotRuleModelMapper.toCompanion(item);
-        final companionWithId = companion.copyWith(id: Value(id));
-        batch.insert(
-          _database.simSlotRules,
-          companionWithId,
-          mode: InsertMode.insertOrReplace,
-        );
-      }
-    });
-    return ids;
-  }
-  
-  Future<int> updateAll(List<SimSlotRuleEntity> items) async {
-    await _database.batch((batch) {
-      for (var item in items) {
-        batch.update(
-          _database.simSlotRules,
-          SimSlotRuleModelMapper.toCompanion(item),
-          where: (tbl) => tbl.id.equals(item.id),
-        );
-      }
-    });
-    return items.length;
-  }
-  
-  Future<int> deleteAll(List<String> ids) async {
-    return await (_database.delete(_database.simSlotRules)
-      ..where((tbl) => tbl.id.isIn(ids)))
-      .go();
-  }
-  
-  Future<String> exportData() async {
-    final rules = await getAll();
-    final List<Map<String, dynamic>> maps = rules.map((rule) => rule.toMap()).toList();
-    return jsonEncode(maps);
-  }
-  
-  Future<bool> importData(String data) async {
-    try {
-      final List<dynamic> maps = jsonDecode(data) as List<dynamic>;
-      final List<SimSlotRuleEntity> rules = maps.map((map) => SimSlotRuleEntity.fromMap(map as Map<String, dynamic>)).toList();
-      await clear(); 
-      await insertAll(rules);
-      return true;
-    } catch (e) {
-      return false;
+
+  Future<void> setSimSlotRules(int simSlotIndex, List<SimSlotRuleEntity> rules) async {
+    await (_db.delete(_db.simSlotRules)..where((tbl) => tbl.simSlotIndex.equals(simSlotIndex))).go();
+    for (final r in rules) {
+      await insertRule(r);
     }
+  }
+
+  Future<void> addSimSlotRule(int simSlotIndex, SimSlotRuleEntity rule) async {
+    await insertRule(rule);
+  }
+
+  Future<void> deleteSimSlotRule(int simSlotIndex, String ruleId) async {
+    await deleteRule(ruleId);
+  }
+
+  Future<void> toggleSimSlotRule(int simSlotIndex, String ruleId) async {
+    final rule = await getById(ruleId);
+    if (rule != null) {
+      final updated = rule.copyWith(isEnabled: !rule.isEnabled);
+      await updateRule(updated);
+    }
+  }
+
+  Future<void> syncRulesToRemote(List<SimSlotRuleEntity> rules) async {
+    final List<Map<String, dynamic>> maps = rules.map((rule) => rule.toMap()).toList();
+    jsonEncode(maps);
+  }
+
+  Future<List<SimSlotRuleEntity>> syncRulesFromRemote() async {
+    return [];
   }
 }

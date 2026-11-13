@@ -26,6 +26,10 @@ class CallActionConfigTile extends StatelessWidget {
         return '秒接秒挂 (Answer then Hangup)';
       case CallActionType.voicemail:
         return '转接语音信箱 (Voicemail)';
+      case CallActionType.answer:
+        return '接听呼叫 (Answer)';
+      case CallActionType.hangup:
+        return '挂断呼叫 (Hangup)';
     }
   }
 
@@ -41,6 +45,10 @@ class CallActionConfigTile extends StatelessWidget {
         return '接通1秒后挂断，消耗骚扰源话费并闭麦保护隐私';
       case CallActionType.voicemail:
         return '将来电直接重定向至语音信箱';
+      case CallActionType.answer:
+        return '主动接听来电';
+      case CallActionType.hangup:
+        return '主动挂断来电';
     }
   }
 
@@ -56,6 +64,10 @@ class CallActionConfigTile extends StatelessWidget {
         return Icons.phone_callback;
       case CallActionType.voicemail:
         return Icons.voicemail;
+      case CallActionType.answer:
+        return Icons.call;
+      case CallActionType.hangup:
+        return Icons.call_end;
     }
   }
 
