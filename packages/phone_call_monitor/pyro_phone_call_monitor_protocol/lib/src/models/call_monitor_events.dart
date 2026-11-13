@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'call_monitor_events.freezed.dart';
-part 'call_monitor_events.g.dart';
 
 /// 纯数据驱动通话通道事件强实体 (CallMonitorEvent)
 @freezed
