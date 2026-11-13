@@ -134,7 +134,7 @@ jobs:
           echo "=== Merging external packages into local packages/ directory ==="
           mkdir -p packages
           if [ -d "external_packages_repo" ]; then
-            cp -rn external_packages_repo/* packages/ 2>/dev/null || true
+            cp -rf external_packages_repo/* packages/ 2>/dev/null || true
           fi
           echo "✓ Merged external packages into local packages/"
 
