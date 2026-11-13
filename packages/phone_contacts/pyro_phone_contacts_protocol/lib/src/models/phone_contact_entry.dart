@@ -10,11 +10,20 @@ abstract class PhoneContactEntry with _$PhoneContactEntry {
 
   const factory PhoneContactEntry({
     required String id,
-    required String displayName,
-    required List<String> phoneNumbers,
-    String? photoUrl,
-    @Default(false) bool isStarred,
+    required String phoneNumber,
+    required String name,
+    String? avatar,
+    String? url,
+    String? note,
+    String? labelIds,
+    @Default(0) int isFavorite,
+    @Default('') String lastUpdated,
   }) = _PhoneContactEntry;
+
+  String get displayName => name;
+  List<String> get phoneNumbers => phoneNumber.isNotEmpty ? [phoneNumber] : const [];
+  String? get photoUrl => avatar;
+  bool get isStarred => isFavorite == 1;
 
   factory PhoneContactEntry.fromJson(Map<String, dynamic> json) => _$PhoneContactEntryFromJson(json);
 
