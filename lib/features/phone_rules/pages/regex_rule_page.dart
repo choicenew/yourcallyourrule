@@ -19,7 +19,7 @@ class RegexRulePage extends ConsumerWidget {
       builder: (context, snapshot) {
         final rules = snapshot.data ?? [];
         return GenericListPage<RegexRuleEntity>(
-          title: l10n.RegexRuleEntity,
+          title: (l10n as dynamic)?.regexRulesTitle as String? ?? 'Regex Rules',
           items: rules,
           emptyText: l10n.noData,
           adInterval: 3,

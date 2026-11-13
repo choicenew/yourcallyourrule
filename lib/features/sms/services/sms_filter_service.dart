@@ -13,6 +13,8 @@ SmsFilterService smsFilterService(Ref ref) {
 /// 宿主 App 短信过滤服务代理层 —— 全量委托给 packages/sms/ (pyro_sms_hub)
 class SmsFilterService {
   final SmsScreeningPipeline _pipeline;
+  bool _isEnabled = true;
+  bool _useLocalNotification = true;
 
   SmsFilterService({SmsHub? hub})
       : _pipeline = SmsScreeningPipeline(hub ?? SmsHub.instance);
@@ -23,11 +25,29 @@ class SmsFilterService {
   }
 
   Future<bool> shouldNotify(String phoneNumber, String messageContent) async {
+    if (!_isEnabled) return true;
     final result = await screenMessage(SmsMessageEntity(
+      id: DateTime.now().millisecondsSinceEpoch.toString(),
       sender: phoneNumber,
       body: messageContent,
       timestamp: DateTime.now(),
     ));
     return result.recommendedAction == SmsFilterAction.allow;
   }
+
+  Future<void> setEnabled(bool enabled) async {
+    _isEnabled = enabled;
+  }
+
+  Future<void> setUseLocalNotification(bool useLocal) async {
+    _useLocalNotification = useLocal;
+  }
+
+  Future<void> closeLocalNotification(bool cancelLocal) async {
+    _useLocalNotification = !cancelLocal;
+  }
+
+  Future<List<dynamic>> getRules() async => [];
+  Future<void> updateRules(List<dynamic> rules) async {}
+  Future<void> addRules(List<dynamic> rules) async {}
 }

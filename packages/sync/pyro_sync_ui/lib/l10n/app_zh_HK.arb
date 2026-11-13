@@ -1,8 +1,0 @@
-{
-  "@@locale": "zh_HK",
-  "syncSettingsTitle": "云端数据同步设置",
-  "syncStatusIdle": "所有数据已全新同步",
-  "syncStatusSyncing": "正在同步增量数据...",
-  "syncNowLabel": "立即同步",
-  "@@last_modified": "2026-10-18T07:51:12.973733"
-}

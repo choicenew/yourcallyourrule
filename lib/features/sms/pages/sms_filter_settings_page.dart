@@ -229,7 +229,7 @@ class _SmsFilterSettingsPageState extends ConsumerState<SmsFilterSettingsPage> {
             subtitle: Text(l10n.enableSmsFilterDescription, style: TextStyle(fontSize: 12, color: Colors.grey[600])),
             value: _filterEnabled,
             onChanged: _toggleFilterEnabled,
-            activeColor: const Color(0xFF2D9CDB),
+            activeTrackColor: const Color(0xFF2D9CDB),
             secondary: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
@@ -297,7 +297,7 @@ class _SmsFilterSettingsPageState extends ConsumerState<SmsFilterSettingsPage> {
             subtitle: Text(l10n.enableLocalNotificationDescription, style: TextStyle(fontSize: 12, color: Colors.grey[600])),
             value: _useLocalNotification,
             onChanged: _toggleLocalNotification,
-            activeColor: const Color(0xFF6C5CE7),
+            activeTrackColor: const Color(0xFF6C5CE7),
             secondary: Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(

@@ -28,7 +28,7 @@ class VerificationRulesDiagnosticsCard extends StatelessWidget {
       case 'Whitelist':
         return l10n.whitelist;
       case 'Regex':
-        return l10n.RegexRuleEntity;
+        return (l10n as dynamic)?.regexRulesTitle as String? ?? 'Regex Rules';
       case 'Time Rules':
         return l10n.timeInterceptor;
       case 'Local Count Filter':

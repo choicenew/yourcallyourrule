@@ -98,6 +98,8 @@ dependencies:
     path: packages/commercial/pyro_purchase_core
   pyro_purchase_ui:
     path: packages/commercial/pyro_purchase_ui
+  pyro_purchase_protocol:
+    path: ../../../designed/wallpaper/packages/commercial/pyro_purchase_protocol
   pyro_app_launch_guard:
     path: ../../../designed/wallpaper/packages/commercial/pyro_app_launch_guard
 
