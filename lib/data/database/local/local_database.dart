@@ -25,6 +25,7 @@ LocalDatabase localDatabase(Ref ref) {
 }
 
 // Table definitions
+@UseRowClass(PhoneContactEntry, constructorName: 'fromDrift')
 class Contacts extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get phoneNumber => text().withLength(min: 1)();

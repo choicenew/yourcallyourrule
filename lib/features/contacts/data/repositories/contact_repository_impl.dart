@@ -32,16 +32,26 @@ class ContactRepositoryImpl implements ContactRepository {
     );
   }
 
+  PhoneContactEntry _toEntity(Contact row) {
+    return PhoneContactEntry(
+      id: row.id,
+      displayName: row.name,
+      phoneNumbers: row.phoneNumber.isNotEmpty ? [row.phoneNumber] : const [],
+      photoUrl: row.avatar,
+      isStarred: row.isFavorite == 1,
+    );
+  }
+
   @override
   Future<List<PhoneContactEntry>> getAll() async {
     final rows = await _db.select(_db.contacts).get();
-    return rows.map((row) => PhoneContactEntry.fromMap(row.toJson())).toList();
+    return rows.map(_toEntity).toList();
   }
 
   @override
   Future<PhoneContactEntry?> getById(String id) async {
     final row = await (_db.select(_db.contacts)..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
-    return row != null ? PhoneContactEntry.fromMap(row.toJson()) : null;
+    return row != null ? _toEntity(row) : null;
   }
 
   @override
@@ -130,7 +140,7 @@ class ContactRepositoryImpl implements ContactRepository {
   @override
   Future<PhoneContactEntry?> findContactByPhoneNumber(PhoneNumber phoneNumber) async {
     final row = await (_db.select(_db.contacts)..where((tbl) => tbl.phoneNumber.equals(phoneNumber.value))).getSingleOrNull();
-    return row != null ? PhoneContactEntry.fromMap(row.toJson()) : null;
+    return row != null ? _toEntity(row) : null;
   }
 
   @override
