@@ -373,9 +373,9 @@ dependencies:
 
   # === Telemetry Package Suite ===
   pyro_analytics_telemetry:
-    path: ../../../designed/wallpaper/packages/telemetry/pyro_analytics_telemetry
+    path: packages/telemetry/pyro_analytics_telemetry
   pyro_analytics_firebase:
-    path: ../../../designed/wallpaper/packages/telemetry/pyro_analytics_firebase
+    path: packages/telemetry/pyro_analytics_firebase
 
   # === Sync, User DB & Central DB Package Suites ===
   pyro_sync_protocol:
@@ -398,7 +398,13 @@ dependencies:
   pyro_crowdsourcing_arbiter:
     path: packages/crowdsourcing/pyro_crowdsourcing_arbiter
   pyro_about:
-    path: ../../../designed/wallpaper/packages/config/pyro_about
+    path: packages/config/pyro_about
+  pyro_config_protocol:
+    path: packages/config/pyro_config_protocol
+  pyro_config_local:
+    path: packages/config/pyro_config_local
+  pyro_config_remote:
+    path: packages/config/pyro_config_remote
 
 dev_dependencies:
   flutter_test:
