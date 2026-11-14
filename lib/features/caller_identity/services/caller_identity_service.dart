@@ -130,7 +130,7 @@ class CallerIdentityService {
 
     final callerIdData = CallerIdData(
       phoneNumber: e164Number.isNotEmpty ? e164Number : phoneNumber,
-      name: localContact?.name ?? finalContact?.name ?? phoneRule?.name ?? remoteNumberEntry?.phoneNumber,
+      name: localContact?.displayName ?? finalContact?.name ?? phoneRule?.name ?? remoteNumberEntry?.phoneNumber,
       region: locationData?.region,
       countryName: locationData?.countryName,
       carrier: locationData?.carrier,

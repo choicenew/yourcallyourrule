@@ -97,15 +97,12 @@ class DriftEntityStore<T> implements EntityStore<T> {
       return;
     } else if (entity is CallLogEntry) {
       final log = entity;
-      final dt = log.timestamp != null
-          ? DateTime.fromMillisecondsSinceEpoch(log.timestamp!).toIso8601String()
-          : DateTime.now().toIso8601String();
       final companion = CallHistoryCompanion(
         id: Value(log.id.isEmpty ? uuid.v4() : log.id),
         phoneNumber: Value(log.phoneNumber),
         name: Value(log.name),
         callType: Value(log.callType),
-        timestamp: Value(dt),
+        timestamp: Value(log.timestamp),
         duration: Value(log.durationSeconds),
         carrierName: Value(log.location),
       );

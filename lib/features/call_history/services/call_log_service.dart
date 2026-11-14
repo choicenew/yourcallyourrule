@@ -118,8 +118,8 @@ class CallLogService {
 
     if (_contactService != null) {
       final contact = await _contactService.findContactByPhoneNumber(phone);
-      if (contact != null && contact.photoUrl != null && contact.photoUrl!.isNotEmpty) {
-        avatar = contact.photoUrl;
+      if (contact != null && contact.avatar != null && contact.avatar!.isNotEmpty) {
+        avatar = contact.avatar;
       }
     }
 

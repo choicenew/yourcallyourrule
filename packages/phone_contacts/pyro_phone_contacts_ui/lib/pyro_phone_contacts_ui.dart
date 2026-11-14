@@ -54,8 +54,8 @@ class PyroPhoneContactCardWidget extends StatelessWidget {
                   backgroundColor: colorScheme.tertiaryContainer,
                   foregroundColor: colorScheme.onTertiaryContainer,
                   child: Text(
-                    entry.displayName.isNotEmpty
-                        ? entry.displayName[0].toUpperCase()
+                    entry.name.isNotEmpty
+                        ? entry.name[0].toUpperCase()
                         : 'P',
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
@@ -64,7 +64,7 @@ class PyroPhoneContactCardWidget extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                entry.displayName,
+                entry.name,
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: colorScheme.onSurface,
@@ -73,7 +73,7 @@ class PyroPhoneContactCardWidget extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            if (entry.isStarred)
+            if (entry.isFavorite != 0)
               Icon(Icons.star_rounded, size: 18, color: colorScheme.primary),
           ],
         ),
@@ -82,7 +82,7 @@ class PyroPhoneContactCardWidget extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                entry.phoneNumbers.isNotEmpty ? entry.phoneNumbers.first : '',
+                entry.phoneNumber,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: colorScheme.onSurfaceVariant,
                 ),

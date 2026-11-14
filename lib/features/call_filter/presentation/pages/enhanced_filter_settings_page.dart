@@ -110,7 +110,7 @@ class EnhancedFilterSettingsPageState extends ConsumerState<EnhancedFilterSettin
 
   // [注释]: UI 构建辅助方法保持不变，仅修改数据来源。
   
-  Widget _buildEntryPointView(List<SimInfo> simCards) {
+  Widget _buildEntryPointView(List<SimCardEntity> simCards) {
     return ListView(
       padding: const EdgeInsets.all(16.0),
       children: [
@@ -166,7 +166,7 @@ class EnhancedFilterSettingsPageState extends ConsumerState<EnhancedFilterSettin
     );
   }
 
-  Widget _buildSimSlotSection(List<SimInfo> simCards) {
+  Widget _buildSimSlotSection(List<SimCardEntity> simCards) {
     // [注释]: 如果没有SIM卡，显示提示信息。
     if (simCards.isEmpty) {
       return Card(

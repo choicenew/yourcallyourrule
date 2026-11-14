@@ -66,7 +66,7 @@ class Rules extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().withLength(min: 1)();
   TextColumn get ruleType => text().withLength(min: 1)();
-  TextColumn get phoneNumber => text().withLength(min: 1)();
+  TextColumn get phoneNumber => text().withDefault(const Constant(''))();
   TextColumn get labelId => text().withDefault(const Constant(''))();
   IntColumn get priority => integer().withDefault(const Constant(5))();
   TextColumn get action => text().withDefault(const Constant('none'))();

@@ -932,9 +932,9 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, PhoneRuleEntity> {
     'phone_number',
     aliasedName,
     false,
-    additionalChecks: GeneratedColumn.checkTextLength(minTextLength: 1),
     type: DriftSqlType.string,
-    requiredDuringInsert: true,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(''),
   );
   static const VerificationMeta _labelIdMeta = const VerificationMeta(
     'labelId',
@@ -1083,8 +1083,6 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, PhoneRuleEntity> {
           _phoneNumberMeta,
         ),
       );
-    } else if (isInserting) {
-      context.missing(_phoneNumberMeta);
     }
     if (data.containsKey('label_id')) {
       context.handle(
@@ -1220,7 +1218,7 @@ class RulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
     required String id,
     required String name,
     required String ruleType,
-    required String phoneNumber,
+    this.phoneNumber = const Value.absent(),
     this.labelId = const Value.absent(),
     this.priority = const Value.absent(),
     this.action = const Value.absent(),
@@ -1232,8 +1230,7 @@ class RulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        name = Value(name),
-       ruleType = Value(ruleType),
-       phoneNumber = Value(phoneNumber);
+       ruleType = Value(ruleType);
   static Insertable<PhoneRuleEntity> custom({
     Expression<String>? id,
     Expression<String>? name,
@@ -7617,7 +7614,7 @@ typedef $$RulesTableCreateCompanionBuilder =
       required String id,
       required String name,
       required String ruleType,
-      required String phoneNumber,
+      Value<String> phoneNumber,
       Value<String> labelId,
       Value<int> priority,
       Value<String> action,
@@ -7899,7 +7896,7 @@ class $$RulesTableTableManager
                 required String id,
                 required String name,
                 required String ruleType,
-                required String phoneNumber,
+                Value<String> phoneNumber = const Value.absent(),
                 Value<String> labelId = const Value.absent(),
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),

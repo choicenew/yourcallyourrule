@@ -9,7 +9,7 @@ class MemoryPhoneContactReaderDriver implements PhoneContactReaderDriver {
 
   @override
   Future<bool> isContact(String phoneNumber) async {
-    return _contacts.values.any((c) => c.phoneNumbers.contains(phoneNumber));
+    return _contacts.values.any((c) => c.phoneNumber == phoneNumber);
   }
 
   @override
@@ -19,6 +19,6 @@ class MemoryPhoneContactReaderDriver implements PhoneContactReaderDriver {
 
   void addContact(PhoneContactEntry entry) {
     _contacts[entry.id] = entry;
-    debugPrint('[MemoryContactsDriver] 录入联系人白名单: ${entry.displayName}');
+    debugPrint('[MemoryContactsDriver] 录入联系人白名单: ${entry.name}');
   }
 }

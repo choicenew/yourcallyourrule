@@ -163,7 +163,7 @@ class ContactRepositoryImpl implements ContactRepository {
   @override
   Future<void> deleteContactByUrl(String url) async {
     final list = await getAll();
-    final match = list.firstWhere((c) => c.photoUrl == url, orElse: () => throw Exception('Contact not found'));
+    final match = list.firstWhere((c) => c.avatar == url, orElse: () => throw Exception('Contact not found'));
     await deleteById(match.id);
   }
 
@@ -188,7 +188,7 @@ class ContactRepositoryImpl implements ContactRepository {
   @override
   Future<List<PhoneContactEntry>> getAllSortedByName() async {
     final list = await getAll();
-    list.sort((a, b) => a.displayName.compareTo(b.displayName));
+    list.sort((a, b) => a.name.compareTo(b.name));
     return list;
   }
 
@@ -210,7 +210,7 @@ class ContactRepositoryImpl implements ContactRepository {
   @override
   Future<List<PhoneContactEntry>> getFavorites() async {
     final list = await getAll();
-    return list.where((c) => c.isStarred).toList();
+    return list.where((c) => c.isFavorite != 0).toList();
   }
 
   @override
@@ -232,7 +232,7 @@ class ContactRepositoryImpl implements ContactRepository {
   @override
   Future<List<PhoneContactEntry>> searchByName(String name) async {
     final list = await getAll();
-    return list.where((c) => c.displayName.toLowerCase().contains(name.toLowerCase())).toList();
+    return list.where((c) => c.name.toLowerCase().contains(name.toLowerCase())).toList();
   }
 
   @override
