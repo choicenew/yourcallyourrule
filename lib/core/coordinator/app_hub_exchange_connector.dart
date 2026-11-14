@@ -31,8 +31,11 @@ class AppHubExchangeConnector {
   void initializeConnectorBridge() {
     debugPrint('[AppHubExchangeConnector] Wiring Exchange Bridge: Local User DB <-> Remote Central DB <-> CloudDrive <-> Device Hub <-> SIM Rules <-> SyncHub');
 
-    // 1. 云盘上下文配置 (CloudDrive Context)
-    CloudDriveHub.instance.configureHostContext(appName: 'YourCallYourRule');
+    // 1. 云盘上下文配置 (CloudDrive Context) 主 App 注入配置 App 名称与加密标头
+    CloudDriveHub.instance.configureHostContext(
+      appName: 'YourCallYourRule',
+      encryptionHeaderTag: 'YOURCALL_ENC_V1',
+    );
 
     // 2. 本地用户数据库 (Local User Database) 初始化
     UserDatabaseHub.instance;
