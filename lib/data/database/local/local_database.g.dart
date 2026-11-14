@@ -431,13 +431,12 @@ class $CallHistoryTable extends CallHistory
     'timestamp',
   );
   @override
-  late final GeneratedColumn<String> timestamp = GeneratedColumn<String>(
+  late final GeneratedColumn<int> timestamp = GeneratedColumn<int>(
     'timestamp',
     aliasedName,
-    false,
-    additionalChecks: GeneratedColumn.checkTextLength(minTextLength: 1),
-    type: DriftSqlType.string,
-    requiredDuringInsert: true,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
   );
   static const VerificationMeta _endTimeMeta = const VerificationMeta(
     'endTime',
@@ -594,8 +593,6 @@ class $CallHistoryTable extends CallHistory
         _timestampMeta,
         timestamp.isAcceptableOrUnknown(data['timestamp']!, _timestampMeta),
       );
-    } else if (isInserting) {
-      context.missing(_timestampMeta);
     }
     if (data.containsKey('end_time')) {
       context.handle(
@@ -687,9 +684,9 @@ class $CallHistoryTable extends CallHistory
         data['${effectivePrefix}call_type'],
       )!,
       timestamp: attachedDatabase.typeMapping.read(
-        DriftSqlType.string,
+        DriftSqlType.int,
         data['${effectivePrefix}timestamp'],
-      )!,
+      ),
       name: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}name'],
@@ -707,7 +704,7 @@ class CallHistoryCompanion extends UpdateCompanion<CallLogEntry> {
   final Value<String> id;
   final Value<String> phoneNumber;
   final Value<String?> name;
-  final Value<String> timestamp;
+  final Value<int?> timestamp;
   final Value<String?> endTime;
   final Value<int?> duration;
   final Value<String?> simDisplayName;
@@ -738,7 +735,7 @@ class CallHistoryCompanion extends UpdateCompanion<CallLogEntry> {
     required String id,
     required String phoneNumber,
     this.name = const Value.absent(),
-    required String timestamp,
+    this.timestamp = const Value.absent(),
     this.endTime = const Value.absent(),
     this.duration = const Value.absent(),
     this.simDisplayName = const Value.absent(),
@@ -751,13 +748,12 @@ class CallHistoryCompanion extends UpdateCompanion<CallLogEntry> {
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        phoneNumber = Value(phoneNumber),
-       timestamp = Value(timestamp),
        callType = Value(callType);
   static Insertable<CallLogEntry> custom({
     Expression<String>? id,
     Expression<String>? phoneNumber,
     Expression<String>? name,
-    Expression<String>? timestamp,
+    Expression<int>? timestamp,
     Expression<String>? endTime,
     Expression<int>? duration,
     Expression<String>? simDisplayName,
@@ -791,7 +787,7 @@ class CallHistoryCompanion extends UpdateCompanion<CallLogEntry> {
     Value<String>? id,
     Value<String>? phoneNumber,
     Value<String?>? name,
-    Value<String>? timestamp,
+    Value<int?>? timestamp,
     Value<String?>? endTime,
     Value<int?>? duration,
     Value<String?>? simDisplayName,
@@ -834,7 +830,7 @@ class CallHistoryCompanion extends UpdateCompanion<CallLogEntry> {
       map['name'] = Variable<String>(name.value);
     }
     if (timestamp.present) {
-      map['timestamp'] = Variable<String>(timestamp.value);
+      map['timestamp'] = Variable<int>(timestamp.value);
     }
     if (endTime.present) {
       map['end_time'] = Variable<String>(endTime.value);
@@ -935,9 +931,10 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, PhoneRuleEntity> {
   late final GeneratedColumn<String> phoneNumber = GeneratedColumn<String>(
     'phone_number',
     aliasedName,
-    true,
+    false,
+    additionalChecks: GeneratedColumn.checkTextLength(minTextLength: 1),
     type: DriftSqlType.string,
-    requiredDuringInsert: false,
+    requiredDuringInsert: true,
   );
   static const VerificationMeta _labelIdMeta = const VerificationMeta(
     'labelId',
@@ -946,9 +943,10 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, PhoneRuleEntity> {
   late final GeneratedColumn<String> labelId = GeneratedColumn<String>(
     'label_id',
     aliasedName,
-    true,
+    false,
     type: DriftSqlType.string,
     requiredDuringInsert: false,
+    defaultValue: const Constant(''),
   );
   static const VerificationMeta _priorityMeta = const VerificationMeta(
     'priority',
@@ -1085,6 +1083,8 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, PhoneRuleEntity> {
           _phoneNumberMeta,
         ),
       );
+    } else if (isInserting) {
+      context.missing(_phoneNumberMeta);
     }
     if (data.containsKey('label_id')) {
       context.handle(
@@ -1157,11 +1157,11 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, PhoneRuleEntity> {
       phoneNumber: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}phone_number'],
-      ),
+      )!,
       labelId: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}label_id'],
-      ),
+      )!,
       avatar: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}avatar'],
@@ -1191,8 +1191,8 @@ class RulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
   final Value<String> id;
   final Value<String> name;
   final Value<String> ruleType;
-  final Value<String?> phoneNumber;
-  final Value<String?> labelId;
+  final Value<String> phoneNumber;
+  final Value<String> labelId;
   final Value<int> priority;
   final Value<String> action;
   final Value<bool> isEnabled;
@@ -1220,7 +1220,7 @@ class RulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
     required String id,
     required String name,
     required String ruleType,
-    this.phoneNumber = const Value.absent(),
+    required String phoneNumber,
     this.labelId = const Value.absent(),
     this.priority = const Value.absent(),
     this.action = const Value.absent(),
@@ -1232,7 +1232,8 @@ class RulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
     this.rowid = const Value.absent(),
   }) : id = Value(id),
        name = Value(name),
-       ruleType = Value(ruleType);
+       ruleType = Value(ruleType),
+       phoneNumber = Value(phoneNumber);
   static Insertable<PhoneRuleEntity> custom({
     Expression<String>? id,
     Expression<String>? name,
@@ -1269,8 +1270,8 @@ class RulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
     Value<String>? id,
     Value<String>? name,
     Value<String>? ruleType,
-    Value<String?>? phoneNumber,
-    Value<String?>? labelId,
+    Value<String>? phoneNumber,
+    Value<String>? labelId,
     Value<int>? priority,
     Value<String>? action,
     Value<bool>? isEnabled,
@@ -1374,9 +1375,10 @@ class $PhoneRulesTable extends PhoneRules
   late final GeneratedColumn<String> id = GeneratedColumn<String>(
     'id',
     aliasedName,
-    true,
+    false,
     type: DriftSqlType.string,
     requiredDuringInsert: false,
+    defaultValue: const Constant(''),
   );
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
@@ -1419,9 +1421,10 @@ class $PhoneRulesTable extends PhoneRules
   late final GeneratedColumn<String> labelId = GeneratedColumn<String>(
     'label_id',
     aliasedName,
-    true,
+    false,
     type: DriftSqlType.string,
     requiredDuringInsert: false,
+    defaultValue: const Constant(''),
   );
   static const VerificationMeta _priorityMeta = const VerificationMeta(
     'priority',
@@ -1603,7 +1606,7 @@ class $PhoneRulesTable extends PhoneRules
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
-      ),
+      )!,
       name: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}name'],
@@ -1615,7 +1618,7 @@ class $PhoneRulesTable extends PhoneRules
       labelId: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}label_id'],
-      ),
+      )!,
       avatar: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}avatar'],
@@ -1646,11 +1649,11 @@ class $PhoneRulesTable extends PhoneRules
 }
 
 class PhoneRulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
-  final Value<String?> id;
+  final Value<String> id;
   final Value<String> name;
   final Value<String> ruleType;
   final Value<String> phoneNumber;
-  final Value<String?> labelId;
+  final Value<String> labelId;
   final Value<int> priority;
   final Value<String> action;
   final Value<bool> isEnabled;
@@ -1719,11 +1722,11 @@ class PhoneRulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
   }
 
   PhoneRulesCompanion copyWith({
-    Value<String?>? id,
+    Value<String>? id,
     Value<String>? name,
     Value<String>? ruleType,
     Value<String>? phoneNumber,
-    Value<String?>? labelId,
+    Value<String>? labelId,
     Value<int>? priority,
     Value<String>? action,
     Value<bool>? isEnabled,
@@ -1821,9 +1824,10 @@ class $RegexRulesTable extends RegexRules
   late final GeneratedColumn<String> id = GeneratedColumn<String>(
     'id',
     aliasedName,
-    true,
+    false,
     type: DriftSqlType.string,
     requiredDuringInsert: false,
+    defaultValue: const Constant(''),
   );
   static const VerificationMeta _nameMeta = const VerificationMeta('name');
   @override
@@ -1996,7 +2000,7 @@ class $RegexRulesTable extends RegexRules
       id: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}id'],
-      ),
+      )!,
       name: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}name'],
@@ -2027,7 +2031,7 @@ class $RegexRulesTable extends RegexRules
 }
 
 class RegexRulesCompanion extends UpdateCompanion<RegexRuleEntity> {
-  final Value<String?> id;
+  final Value<String> id;
   final Value<String> name;
   final Value<String> ruleType;
   final Value<String> pattern;
@@ -2085,7 +2089,7 @@ class RegexRulesCompanion extends UpdateCompanion<RegexRuleEntity> {
   }
 
   RegexRulesCompanion copyWith({
-    Value<String?>? id,
+    Value<String>? id,
     Value<String>? name,
     Value<String>? ruleType,
     Value<String>? pattern,
@@ -5251,9 +5255,10 @@ class $LabelPhonesTable extends LabelPhones
   late final GeneratedColumn<String> name = GeneratedColumn<String>(
     'name',
     aliasedName,
-    true,
+    false,
     type: DriftSqlType.string,
     requiredDuringInsert: false,
+    defaultValue: const Constant(''),
   );
   static const VerificationMeta _iconMeta = const VerificationMeta('icon');
   @override
@@ -5461,7 +5466,7 @@ class $LabelPhonesTable extends LabelPhones
       name: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}name'],
-      ),
+      )!,
       avatar: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}avatar'],
@@ -5489,7 +5494,7 @@ class $LabelPhonesTable extends LabelPhones
 
 class LabelPhonesCompanion extends UpdateCompanion<LabelPhoneEntry> {
   final Value<String> id;
-  final Value<String?> name;
+  final Value<String> name;
   final Value<String?> icon;
   final Value<String> phoneNumber;
   final Value<String> labelId;
@@ -5557,7 +5562,7 @@ class LabelPhonesCompanion extends UpdateCompanion<LabelPhoneEntry> {
 
   LabelPhonesCompanion copyWith({
     Value<String>? id,
-    Value<String?>? name,
+    Value<String>? name,
     Value<String?>? icon,
     Value<String>? phoneNumber,
     Value<String>? labelId,
@@ -7239,7 +7244,7 @@ typedef $$CallHistoryTableCreateCompanionBuilder =
       required String id,
       required String phoneNumber,
       Value<String?> name,
-      required String timestamp,
+      Value<int?> timestamp,
       Value<String?> endTime,
       Value<int?> duration,
       Value<String?> simDisplayName,
@@ -7256,7 +7261,7 @@ typedef $$CallHistoryTableUpdateCompanionBuilder =
       Value<String> id,
       Value<String> phoneNumber,
       Value<String?> name,
-      Value<String> timestamp,
+      Value<int?> timestamp,
       Value<String?> endTime,
       Value<int?> duration,
       Value<String?> simDisplayName,
@@ -7293,7 +7298,7 @@ class $$CallHistoryTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<String> get timestamp => $composableBuilder(
+  ColumnFilters<int> get timestamp => $composableBuilder(
     column: $table.timestamp,
     builder: (column) => ColumnFilters(column),
   );
@@ -7368,7 +7373,7 @@ class $$CallHistoryTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<String> get timestamp => $composableBuilder(
+  ColumnOrderings<int> get timestamp => $composableBuilder(
     column: $table.timestamp,
     builder: (column) => ColumnOrderings(column),
   );
@@ -7439,7 +7444,7 @@ class $$CallHistoryTableAnnotationComposer
   GeneratedColumn<String> get name =>
       $composableBuilder(column: $table.name, builder: (column) => column);
 
-  GeneratedColumn<String> get timestamp =>
+  GeneratedColumn<int> get timestamp =>
       $composableBuilder(column: $table.timestamp, builder: (column) => column);
 
   GeneratedColumn<String> get endTime =>
@@ -7514,7 +7519,7 @@ class $$CallHistoryTableTableManager
                 Value<String> id = const Value.absent(),
                 Value<String> phoneNumber = const Value.absent(),
                 Value<String?> name = const Value.absent(),
-                Value<String> timestamp = const Value.absent(),
+                Value<int?> timestamp = const Value.absent(),
                 Value<String?> endTime = const Value.absent(),
                 Value<int?> duration = const Value.absent(),
                 Value<String?> simDisplayName = const Value.absent(),
@@ -7546,7 +7551,7 @@ class $$CallHistoryTableTableManager
                 required String id,
                 required String phoneNumber,
                 Value<String?> name = const Value.absent(),
-                required String timestamp,
+                Value<int?> timestamp = const Value.absent(),
                 Value<String?> endTime = const Value.absent(),
                 Value<int?> duration = const Value.absent(),
                 Value<String?> simDisplayName = const Value.absent(),
@@ -7612,8 +7617,8 @@ typedef $$RulesTableCreateCompanionBuilder =
       required String id,
       required String name,
       required String ruleType,
-      Value<String?> phoneNumber,
-      Value<String?> labelId,
+      required String phoneNumber,
+      Value<String> labelId,
       Value<int> priority,
       Value<String> action,
       Value<bool> isEnabled,
@@ -7628,8 +7633,8 @@ typedef $$RulesTableUpdateCompanionBuilder =
       Value<String> id,
       Value<String> name,
       Value<String> ruleType,
-      Value<String?> phoneNumber,
-      Value<String?> labelId,
+      Value<String> phoneNumber,
+      Value<String> labelId,
       Value<int> priority,
       Value<String> action,
       Value<bool> isEnabled,
@@ -7864,8 +7869,8 @@ class $$RulesTableTableManager
                 Value<String> id = const Value.absent(),
                 Value<String> name = const Value.absent(),
                 Value<String> ruleType = const Value.absent(),
-                Value<String?> phoneNumber = const Value.absent(),
-                Value<String?> labelId = const Value.absent(),
+                Value<String> phoneNumber = const Value.absent(),
+                Value<String> labelId = const Value.absent(),
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
                 Value<bool> isEnabled = const Value.absent(),
@@ -7894,8 +7899,8 @@ class $$RulesTableTableManager
                 required String id,
                 required String name,
                 required String ruleType,
-                Value<String?> phoneNumber = const Value.absent(),
-                Value<String?> labelId = const Value.absent(),
+                required String phoneNumber,
+                Value<String> labelId = const Value.absent(),
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
                 Value<bool> isEnabled = const Value.absent(),
@@ -7955,11 +7960,11 @@ typedef $$RulesTableProcessedTableManager =
     >;
 typedef $$PhoneRulesTableCreateCompanionBuilder =
     PhoneRulesCompanion Function({
-      Value<String?> id,
+      Value<String> id,
       required String name,
       required String ruleType,
       required String phoneNumber,
-      Value<String?> labelId,
+      Value<String> labelId,
       Value<int> priority,
       Value<String> action,
       Value<bool> isEnabled,
@@ -7970,11 +7975,11 @@ typedef $$PhoneRulesTableCreateCompanionBuilder =
     });
 typedef $$PhoneRulesTableUpdateCompanionBuilder =
     PhoneRulesCompanion Function({
-      Value<String?> id,
+      Value<String> id,
       Value<String> name,
       Value<String> ruleType,
       Value<String> phoneNumber,
-      Value<String?> labelId,
+      Value<String> labelId,
       Value<int> priority,
       Value<String> action,
       Value<bool> isEnabled,
@@ -8192,11 +8197,11 @@ class $$PhoneRulesTableTableManager
               $$PhoneRulesTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
-                Value<String?> id = const Value.absent(),
+                Value<String> id = const Value.absent(),
                 Value<String> name = const Value.absent(),
                 Value<String> ruleType = const Value.absent(),
                 Value<String> phoneNumber = const Value.absent(),
-                Value<String?> labelId = const Value.absent(),
+                Value<String> labelId = const Value.absent(),
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
                 Value<bool> isEnabled = const Value.absent(),
@@ -8220,11 +8225,11 @@ class $$PhoneRulesTableTableManager
               ),
           createCompanionCallback:
               ({
-                Value<String?> id = const Value.absent(),
+                Value<String> id = const Value.absent(),
                 required String name,
                 required String ruleType,
                 required String phoneNumber,
-                Value<String?> labelId = const Value.absent(),
+                Value<String> labelId = const Value.absent(),
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
                 Value<bool> isEnabled = const Value.absent(),
@@ -8282,7 +8287,7 @@ typedef $$PhoneRulesTableProcessedTableManager =
     >;
 typedef $$RegexRulesTableCreateCompanionBuilder =
     RegexRulesCompanion Function({
-      Value<String?> id,
+      Value<String> id,
       required String name,
       required String ruleType,
       required String pattern,
@@ -8294,7 +8299,7 @@ typedef $$RegexRulesTableCreateCompanionBuilder =
     });
 typedef $$RegexRulesTableUpdateCompanionBuilder =
     RegexRulesCompanion Function({
-      Value<String?> id,
+      Value<String> id,
       Value<String> name,
       Value<String> ruleType,
       Value<String> pattern,
@@ -8472,7 +8477,7 @@ class $$RegexRulesTableTableManager
               $$RegexRulesTableAnnotationComposer($db: db, $table: table),
           updateCompanionCallback:
               ({
-                Value<String?> id = const Value.absent(),
+                Value<String> id = const Value.absent(),
                 Value<String> name = const Value.absent(),
                 Value<String> ruleType = const Value.absent(),
                 Value<String> pattern = const Value.absent(),
@@ -8494,7 +8499,7 @@ class $$RegexRulesTableTableManager
               ),
           createCompanionCallback:
               ({
-                Value<String?> id = const Value.absent(),
+                Value<String> id = const Value.absent(),
                 required String name,
                 required String ruleType,
                 required String pattern,
@@ -10155,7 +10160,7 @@ typedef $$PredefinedLabelsTableProcessedTableManager =
 typedef $$LabelPhonesTableCreateCompanionBuilder =
     LabelPhonesCompanion Function({
       required String id,
-      Value<String?> name,
+      Value<String> name,
       Value<String?> icon,
       required String phoneNumber,
       required String labelId,
@@ -10169,7 +10174,7 @@ typedef $$LabelPhonesTableCreateCompanionBuilder =
 typedef $$LabelPhonesTableUpdateCompanionBuilder =
     LabelPhonesCompanion Function({
       Value<String> id,
-      Value<String?> name,
+      Value<String> name,
       Value<String?> icon,
       Value<String> phoneNumber,
       Value<String> labelId,
@@ -10375,7 +10380,7 @@ class $$LabelPhonesTableTableManager
           updateCompanionCallback:
               ({
                 Value<String> id = const Value.absent(),
-                Value<String?> name = const Value.absent(),
+                Value<String> name = const Value.absent(),
                 Value<String?> icon = const Value.absent(),
                 Value<String> phoneNumber = const Value.absent(),
                 Value<String> labelId = const Value.absent(),
@@ -10401,7 +10406,7 @@ class $$LabelPhonesTableTableManager
           createCompanionCallback:
               ({
                 required String id,
-                Value<String?> name = const Value.absent(),
+                Value<String> name = const Value.absent(),
                 Value<String?> icon = const Value.absent(),
                 required String phoneNumber,
                 required String labelId,

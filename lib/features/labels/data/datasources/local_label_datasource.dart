@@ -45,7 +45,7 @@ class LocalLabelDataSource {
       labelId: entry.labelId,
       avatar: Value(entry.avatar),
       priority: Value(entry.priority),
-      isEnabled: Value(entry.isEnabled ? 1 : 0),
+      isEnabled: Value(entry.isEnabled),
     );
   }
 
@@ -152,7 +152,7 @@ class LocalLabelDataSource {
 
   Future<List<LabelPhoneEntry>> getEnabledLabels() async {
     final dataList = await (_database.select(_database.labelPhones)
-      ..where((tbl) => tbl.isEnabled.equals(1)))
+      ..where((tbl) => tbl.isEnabled.equals(true)))
       .get();
     return dataList.map(_dataToEntry).toList();
   }

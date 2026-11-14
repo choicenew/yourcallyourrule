@@ -31,7 +31,7 @@ class ContactRepositoryImpl implements ContactRepository {
       note: Value(contact.note),
       labelIds: Value(contact.labelIds),
       isFavorite: Value(contact.isFavorite),
-      lastUpdated: Value(contact.lastUpdated.isEmpty ? DateTime.now().toIso8601String() : contact.lastUpdated),
+      lastUpdated: contact.lastUpdated.isEmpty ? DateTime.now().toIso8601String() : contact.lastUpdated,
     );
   }
 

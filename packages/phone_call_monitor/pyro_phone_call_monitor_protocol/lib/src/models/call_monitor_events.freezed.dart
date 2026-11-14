@@ -12,60 +12,6 @@ part of 'call_monitor_events.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
-CallMonitorEvent _$CallMonitorEventFromJson(
-  Map<String, dynamic> json
-) {
-        switch (json['runtimeType']) {
-                  case 'incoming':
-          return IncomingCallEvent.fromJson(
-            json
-          );
-                case 'outgoing':
-          return OutgoingCallEvent.fromJson(
-            json
-          );
-                case 'ended':
-          return CallEndedEvent.fromJson(
-            json
-          );
-
-          default:
-            throw CheckedFromJsonException(
-  json,
-  'runtimeType',
-  'CallMonitorEvent',
-  'Invalid union type "${json['runtimeType']}"!'
-);
-        }
-
-}
-CallMonitorEvent _$CallMonitorEventFromJson(
-  Map<String, dynamic> json
-) {
-        switch (json['runtimeType']) {
-                  case 'incoming':
-          return IncomingCallEvent.fromJson(
-            json
-          );
-                case 'outgoing':
-          return OutgoingCallEvent.fromJson(
-            json
-          );
-                case 'ended':
-          return CallEndedEvent.fromJson(
-            json
-          );
-        
-          default:
-            throw CheckedFromJsonException(
-  json,
-  'runtimeType',
-  'CallMonitorEvent',
-  'Invalid union type "${json['runtimeType']}"!'
-);
-        }
-      
-}
 
 /// @nodoc
 mixin _$CallMonitorEvent {

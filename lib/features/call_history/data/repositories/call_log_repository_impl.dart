@@ -31,7 +31,7 @@ class CallLogRepositoryImpl implements CallLogRepository {
       phoneNumber: log.phoneNumber,
       callType: log.callType,
       name: Value(log.name),
-      timestamp: dt.toIso8601String(),
+      timestamp: Value(dt.millisecondsSinceEpoch),
       duration: Value(log.durationSeconds != null ? log.durationSeconds! * 1000 : null),
       countryIso: Value(log.location),
     );

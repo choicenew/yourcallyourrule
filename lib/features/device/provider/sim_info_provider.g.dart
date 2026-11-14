@@ -22,11 +22,13 @@ final simCardsProvider = SimCardsProvider._();
 final class SimCardsProvider
     extends
         $FunctionalProvider<
-          AsyncValue<List<SimInfo>>,
-          List<SimInfo>,
-          FutureOr<List<SimInfo>>
+          AsyncValue<List<SimCardEntity>>,
+          List<SimCardEntity>,
+          FutureOr<List<SimCardEntity>>
         >
-    with $FutureModifier<List<SimInfo>>, $FutureProvider<List<SimInfo>> {
+    with
+        $FutureModifier<List<SimCardEntity>>,
+        $FutureProvider<List<SimCardEntity>> {
   /// 一个异步 Provider，负责请求权限并获取设备上所有 SIM 卡的信息。
   /// 它会自动处理加载、错误和成功状态，并缓存结果。
   /// Riverpod 会自动处理 keepAlive，确保信息只被获取一次。
@@ -46,14 +48,14 @@ final class SimCardsProvider
 
   @$internal
   @override
-  $FutureProviderElement<List<SimInfo>> $createElement(
+  $FutureProviderElement<List<SimCardEntity>> $createElement(
     $ProviderPointer pointer,
   ) => $FutureProviderElement(pointer);
 
   @override
-  FutureOr<List<SimInfo>> create(Ref ref) {
+  FutureOr<List<SimCardEntity>> create(Ref ref) {
     return simCards(ref);
   }
 }
 
-String _$simCardsHash() => r'f6b11792e2a3bcaf58b15f53831973eb8518b235';
+String _$simCardsHash() => r'44b9f75d874385eb2102a827971280f05f4d43fd';

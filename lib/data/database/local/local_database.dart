@@ -46,7 +46,7 @@ class CallHistory extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get phoneNumber => text().withLength(min: 1)();
   TextColumn get name => text().nullable()();
-  TextColumn get timestamp => text().withLength(min: 1)();
+  IntColumn get timestamp => integer().nullable()();
   TextColumn get endTime => text().nullable()();
   IntColumn get duration => integer().nullable()();
   TextColumn get simDisplayName => text().nullable()();
@@ -66,8 +66,8 @@ class Rules extends Table {
   TextColumn get id => text().withLength(min: 1)();
   TextColumn get name => text().withLength(min: 1)();
   TextColumn get ruleType => text().withLength(min: 1)();
-  TextColumn get phoneNumber => text().nullable()();
-  TextColumn get labelId => text().nullable()();
+  TextColumn get phoneNumber => text().withLength(min: 1)();
+  TextColumn get labelId => text().withDefault(const Constant(''))();
   IntColumn get priority => integer().withDefault(const Constant(5))();
   TextColumn get action => text().withDefault(const Constant('none'))();
   BoolColumn get isEnabled => boolean().withDefault(const Constant(true))();
@@ -82,11 +82,11 @@ class Rules extends Table {
 
 @UseRowClass(PhoneRuleEntity)
 class PhoneRules extends Table {
-  TextColumn get id => text().nullable()();
+  TextColumn get id => text().withDefault(const Constant(''))();
   TextColumn get name => text().withLength(min: 1)();
   TextColumn get ruleType => text().withLength(min: 1)();
   TextColumn get phoneNumber => text().withLength(min: 1)();
-  TextColumn get labelId => text().nullable()();
+  TextColumn get labelId => text().withDefault(const Constant(''))();
   IntColumn get priority => integer().withDefault(const Constant(5))();
   TextColumn get action => text().withDefault(const Constant('none'))();
   BoolColumn get isEnabled => boolean().withDefault(const Constant(true))();
@@ -100,7 +100,7 @@ class PhoneRules extends Table {
 
 @UseRowClass(RegexRuleEntity)
 class RegexRules extends Table {
-  TextColumn get id => text().nullable()();
+  TextColumn get id => text().withDefault(const Constant(''))();
   TextColumn get name => text().withLength(min: 1)();
   TextColumn get ruleType => text().withLength(min: 1)();
   TextColumn get pattern => text().withLength(min: 1)();
@@ -200,7 +200,7 @@ class PredefinedLabels extends Table {
 @UseRowClass(LabelPhoneEntry)
 class LabelPhones extends Table {
   TextColumn get id => text().withLength(min: 1)();
-  TextColumn get name => text().nullable()();
+  TextColumn get name => text().withDefault(const Constant(''))();
   TextColumn get icon => text().nullable()();
   TextColumn get phoneNumber => text().withLength(min: 1)();
   TextColumn get labelId => text().withLength(min: 1)();

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$PhoneContactEntry {
 
- String get id; String get displayName; List<String> get phoneNumbers; String? get photoUrl; bool get isStarred;
+ String get id; String get phoneNumber; String get name; String? get avatar; String? get url; String? get note; String? get labelIds; int get isFavorite; String get lastUpdated;
 /// Create a copy of PhoneContactEntry
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -30,20 +30,20 @@ $PhoneContactEntryCopyWith<PhoneContactEntry> get copyWith => _$PhoneContactEntr
 @override
 bool operator ==(Object other) {
   final _this = this as PhoneContactEntry;
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PhoneContactEntry&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.displayName, _this.displayName) || other.displayName == _this.displayName)&&const DeepCollectionEquality().equals(other.phoneNumbers, _this.phoneNumbers)&&(identical(other.photoUrl, _this.photoUrl) || other.photoUrl == _this.photoUrl)&&(identical(other.isStarred, _this.isStarred) || other.isStarred == _this.isStarred));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PhoneContactEntry&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.phoneNumber, _this.phoneNumber) || other.phoneNumber == _this.phoneNumber)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.avatar, _this.avatar) || other.avatar == _this.avatar)&&(identical(other.url, _this.url) || other.url == _this.url)&&(identical(other.note, _this.note) || other.note == _this.note)&&(identical(other.labelIds, _this.labelIds) || other.labelIds == _this.labelIds)&&(identical(other.isFavorite, _this.isFavorite) || other.isFavorite == _this.isFavorite)&&(identical(other.lastUpdated, _this.lastUpdated) || other.lastUpdated == _this.lastUpdated));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
   final _this = this as PhoneContactEntry;
-  return Object.hash(runtimeType,_this.id,_this.displayName,const DeepCollectionEquality().hash(_this.phoneNumbers),_this.photoUrl,_this.isStarred);
+  return Object.hash(runtimeType,_this.id,_this.phoneNumber,_this.name,_this.avatar,_this.url,_this.note,_this.labelIds,_this.isFavorite,_this.lastUpdated);
 }
 
 @override
 String toString() {
   final _this = this as PhoneContactEntry;
-  return 'PhoneContactEntry(id: ${_this.id}, displayName: ${_this.displayName}, phoneNumbers: ${_this.phoneNumbers}, photoUrl: ${_this.photoUrl}, isStarred: ${_this.isStarred})';
+  return 'PhoneContactEntry(id: ${_this.id}, phoneNumber: ${_this.phoneNumber}, name: ${_this.name}, avatar: ${_this.avatar}, url: ${_this.url}, note: ${_this.note}, labelIds: ${_this.labelIds}, isFavorite: ${_this.isFavorite}, lastUpdated: ${_this.lastUpdated})';
 }
 
 
@@ -54,7 +54,7 @@ abstract mixin class $PhoneContactEntryCopyWith<$Res>  {
   factory $PhoneContactEntryCopyWith(PhoneContactEntry value, $Res Function(PhoneContactEntry) _then) = _$PhoneContactEntryCopyWithImpl;
 @useResult
 $Res call({
- String id, String displayName, List<String> phoneNumbers, String? photoUrl, bool isStarred
+ String id, String phoneNumber, String name, String? avatar, String? url, String? note, String? labelIds, int isFavorite, String lastUpdated
 });
 
 
@@ -71,14 +71,18 @@ class _$PhoneContactEntryCopyWithImpl<$Res>
 
 /// Create a copy of PhoneContactEntry
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? displayName = null,Object? phoneNumbers = null,Object? photoUrl = freezed,Object? isStarred = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? phoneNumber = null,Object? name = null,Object? avatar = freezed,Object? url = freezed,Object? note = freezed,Object? labelIds = freezed,Object? isFavorite = null,Object? lastUpdated = null,}) {
   return _then(PhoneContactEntry(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
-as String,phoneNumbers: null == phoneNumbers ? _self.phoneNumbers : phoneNumbers // ignore: cast_nullable_to_non_nullable
-as List<String>,photoUrl: freezed == photoUrl ? _self.photoUrl : photoUrl // ignore: cast_nullable_to_non_nullable
-as String?,isStarred: null == isStarred ? _self.isStarred : isStarred // ignore: cast_nullable_to_non_nullable
-as bool,
+as String,phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
+as String?,url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
+as String?,note: freezed == note ? _self.note : note // ignore: cast_nullable_to_non_nullable
+as String?,labelIds: freezed == labelIds ? _self.labelIds : labelIds // ignore: cast_nullable_to_non_nullable
+as String?,isFavorite: null == isFavorite ? _self.isFavorite : isFavorite // ignore: cast_nullable_to_non_nullable
+as int,lastUpdated: null == lastUpdated ? _self.lastUpdated : lastUpdated // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 
@@ -163,10 +167,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String displayName,  List<String> phoneNumbers,  String? photoUrl,  bool isStarred)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String phoneNumber,  String name,  String? avatar,  String? url,  String? note,  String? labelIds,  int isFavorite,  String lastUpdated)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _PhoneContactEntry() when $default != null:
-return $default(_that.id,_that.displayName,_that.phoneNumbers,_that.photoUrl,_that.isStarred);case _:
+return $default(_that.id,_that.phoneNumber,_that.name,_that.avatar,_that.url,_that.note,_that.labelIds,_that.isFavorite,_that.lastUpdated);case _:
   return orElse();
 
 }
@@ -184,10 +188,10 @@ return $default(_that.id,_that.displayName,_that.phoneNumbers,_that.photoUrl,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String displayName,  List<String> phoneNumbers,  String? photoUrl,  bool isStarred)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String phoneNumber,  String name,  String? avatar,  String? url,  String? note,  String? labelIds,  int isFavorite,  String lastUpdated)  $default,) {final _that = this;
 switch (_that) {
 case _PhoneContactEntry():
-return $default(_that.id,_that.displayName,_that.phoneNumbers,_that.photoUrl,_that.isStarred);case _:
+return $default(_that.id,_that.phoneNumber,_that.name,_that.avatar,_that.url,_that.note,_that.labelIds,_that.isFavorite,_that.lastUpdated);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +208,10 @@ return $default(_that.id,_that.displayName,_that.phoneNumbers,_that.photoUrl,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String displayName,  List<String> phoneNumbers,  String? photoUrl,  bool isStarred)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String phoneNumber,  String name,  String? avatar,  String? url,  String? note,  String? labelIds,  int isFavorite,  String lastUpdated)?  $default,) {final _that = this;
 switch (_that) {
 case _PhoneContactEntry() when $default != null:
-return $default(_that.id,_that.displayName,_that.phoneNumbers,_that.photoUrl,_that.isStarred);case _:
+return $default(_that.id,_that.phoneNumber,_that.name,_that.avatar,_that.url,_that.note,_that.labelIds,_that.isFavorite,_that.lastUpdated);case _:
   return null;
 
 }
@@ -219,20 +223,18 @@ return $default(_that.id,_that.displayName,_that.phoneNumbers,_that.photoUrl,_th
 @JsonSerializable()
 
 class _PhoneContactEntry extends PhoneContactEntry {
-  const _PhoneContactEntry({required this.id, required this.displayName, required  List<String> phoneNumbers, this.photoUrl, this.isStarred = false}): _phoneNumbers = phoneNumbers,super._();
+  const _PhoneContactEntry({required this.id, required this.phoneNumber, required this.name, this.avatar, this.url, this.note, this.labelIds, this.isFavorite = 0, this.lastUpdated = ''}): super._();
   factory _PhoneContactEntry.fromJson(Map<String, dynamic> json) => _$PhoneContactEntryFromJson(json);
 
 @override final  String id;
-@override final  String displayName;
- final  List<String> _phoneNumbers;
-@override List<String> get phoneNumbers {
-  if (_phoneNumbers is EqualUnmodifiableListView) return _phoneNumbers;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_phoneNumbers);
-}
-
-@override final  String? photoUrl;
-@override@JsonKey() final  bool isStarred;
+@override final  String phoneNumber;
+@override final  String name;
+@override final  String? avatar;
+@override final  String? url;
+@override final  String? note;
+@override final  String? labelIds;
+@override@JsonKey() final  int isFavorite;
+@override@JsonKey() final  String lastUpdated;
 
 /// Create a copy of PhoneContactEntry
 /// with the given fields replaced by the non-null parameter values.
@@ -247,18 +249,18 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PhoneContactEntry&&(identical(other.id, id) || other.id == id)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&const DeepCollectionEquality().equals(other.phoneNumbers, _phoneNumbers)&&(identical(other.photoUrl, photoUrl) || other.photoUrl == photoUrl)&&(identical(other.isStarred, isStarred) || other.isStarred == isStarred));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _PhoneContactEntry&&(identical(other.id, id) || other.id == id)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.name, name) || other.name == name)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.url, url) || other.url == url)&&(identical(other.note, note) || other.note == note)&&(identical(other.labelIds, labelIds) || other.labelIds == labelIds)&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite)&&(identical(other.lastUpdated, lastUpdated) || other.lastUpdated == lastUpdated));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
 int get hashCode {
-    return Object.hash(runtimeType,id,displayName,const DeepCollectionEquality().hash(_phoneNumbers),photoUrl,isStarred);
+    return Object.hash(runtimeType,id,phoneNumber,name,avatar,url,note,labelIds,isFavorite,lastUpdated);
 }
 
 @override
 String toString() {
-    return 'PhoneContactEntry(id: $id, displayName: $displayName, phoneNumbers: $phoneNumbers, photoUrl: $photoUrl, isStarred: $isStarred)';
+    return 'PhoneContactEntry(id: $id, phoneNumber: $phoneNumber, name: $name, avatar: $avatar, url: $url, note: $note, labelIds: $labelIds, isFavorite: $isFavorite, lastUpdated: $lastUpdated)';
 }
 
 
@@ -269,7 +271,7 @@ abstract mixin class _$PhoneContactEntryCopyWith<$Res> implements $PhoneContactE
   factory _$PhoneContactEntryCopyWith(_PhoneContactEntry value, $Res Function(_PhoneContactEntry) _then) = __$PhoneContactEntryCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String displayName, List<String> phoneNumbers, String? photoUrl, bool isStarred
+ String id, String phoneNumber, String name, String? avatar, String? url, String? note, String? labelIds, int isFavorite, String lastUpdated
 });
 
 
@@ -286,14 +288,18 @@ class __$PhoneContactEntryCopyWithImpl<$Res>
 
 /// Create a copy of PhoneContactEntry
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? displayName = null,Object? phoneNumbers = null,Object? photoUrl = freezed,Object? isStarred = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? phoneNumber = null,Object? name = null,Object? avatar = freezed,Object? url = freezed,Object? note = freezed,Object? labelIds = freezed,Object? isFavorite = null,Object? lastUpdated = null,}) {
   return _then(_PhoneContactEntry(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,displayName: null == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
-as String,phoneNumbers: null == phoneNumbers ? _self._phoneNumbers : phoneNumbers // ignore: cast_nullable_to_non_nullable
-as List<String>,photoUrl: freezed == photoUrl ? _self.photoUrl : photoUrl // ignore: cast_nullable_to_non_nullable
-as String?,isStarred: null == isStarred ? _self.isStarred : isStarred // ignore: cast_nullable_to_non_nullable
-as bool,
+as String,phoneNumber: null == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
+as String?,url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
+as String?,note: freezed == note ? _self.note : note // ignore: cast_nullable_to_non_nullable
+as String?,labelIds: freezed == labelIds ? _self.labelIds : labelIds // ignore: cast_nullable_to_non_nullable
+as String?,isFavorite: null == isFavorite ? _self.isFavorite : isFavorite // ignore: cast_nullable_to_non_nullable
+as int,lastUpdated: null == lastUpdated ? _self.lastUpdated : lastUpdated // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 
