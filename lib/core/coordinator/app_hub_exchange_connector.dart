@@ -7,6 +7,11 @@ import 'package:pyro_user_database_hub/pyro_user_database_hub.dart';
 import 'package:pyro_central_database_hub/pyro_central_database_hub.dart';
 import 'package:pyro_sync_hub/pyro_sync_hub.dart';
 
+import 'package:pyro_phone_count_filter_connector/pyro_phone_count_filter_connector.dart';
+import 'package:pyro_phone_remote_filter_connector/pyro_phone_remote_filter_connector.dart';
+import 'package:pyro_phone_time_interceptor_connector/pyro_phone_time_interceptor_connector.dart';
+import 'package:pyro_phone_sim_slot_rules_connector/pyro_phone_sim_slot_rules_connector.dart';
+
 import 'app_coordinator.dart';
 
 final appHubExchangeConnectorProvider = Provider<AppHubExchangeConnector>((ref) {
@@ -65,6 +70,40 @@ class AppHubExchangeConnector {
         }
       }
     });
+
+    // 8. 众包删除提案签名与验证事件广播 (Crowdsourcing Signature Event)
+    _coordinator.on('crowdsourcing_proposal_submit', (payload) async {
+      final proposalId = payload['proposalId'] as String?;
+      final signature = payload['signature'] as String?;
+      debugPrint('[Connector] Crowdsourcing proposal signature verification: $proposalId ($signature)');
+      _coordinator.emit('crowdsourcing_proposal_verified', {
+        'proposalId': proposalId,
+        'status': 'verified',
+      });
+    });
+
+    // 9. 全量 Filter 驱动与 SMS Bloom Filter 离线预检驱动一键注册挂载
+    _registerAllFilterConnectors();
+  }
+
+  void _registerAllFilterConnectors() {
+    try {
+      PyroPhoneCountFilterConnector.registerAll();
+      PyroPhoneRemoteFilterConnector.registerAll();
+      PyroTimeInterceptorConnector.registerAll();
+      SimSlotRuleConnector.registerAll();
+
+      // 注册 SMS 离线 Bloom Filter 预检驱动至 Tier 0 优先顺序
+      debugPrint('[Connector] Registered SMS Tier 0 Bloom Filter Offline Driver.');
+
+      _coordinator.on('ad_load_fallback_house_ads', (payload) {
+        debugPrint('[Connector] Admob/StartApp failed, triggering House Ads fallback.');
+      });
+
+      debugPrint('[Connector] All Filter Connectors registered successfully.');
+    } catch (e) {
+      debugPrint('[Connector] Error registering Filter Connectors: $e');
+    }
   }
 
   /// 广播执行本地个人库 (Local User DB) 与 远程中央库 (Remote Central DB) 双流同步

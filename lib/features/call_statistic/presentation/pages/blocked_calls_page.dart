@@ -19,9 +19,9 @@ class BlockedCallsPage extends ConsumerWidget {
       builder: (context, snapshot) {
         final statData = snapshot.data ?? const PhoneCallStatisticData();
         return GenericListPage<PhoneCallStatisticData>(
-          title: (l10n as dynamic)?.blockedCallsTitle as String? ?? 'Blocked Calls',
+          title: l10n.blockedCallsTitle,
           items: [statData],
-          emptyText: (l10n as dynamic)?.noBlockedCallsFound as String? ?? 'No blocked calls found',
+          emptyText: l10n.noData,
           adInterval: 3,
           adBuilder: () => const AdsInlineBanner(),
           itemBuilder: (context, data) => stat_pkg_ui.PyroPhoneCallStatisticCardWidget(

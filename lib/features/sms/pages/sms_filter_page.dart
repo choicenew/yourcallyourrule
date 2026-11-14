@@ -13,7 +13,7 @@ class SmsFilterPage extends ConsumerWidget {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
-          AppLocalizations.of(context).confirm,
+          AppLocalizations.of(context).smsFilterSettings,
           style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Theme.of(context).colorScheme.onSurface),
         ),
         backgroundColor: Colors.transparent,

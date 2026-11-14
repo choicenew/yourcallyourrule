@@ -29,7 +29,7 @@ class CallFilterFullPipelineEngine {
 
     // 阶段 1: 联系人白名单全流程匹配 (Contacts Whitelist Stage)
     final contactMatch = contacts.any(
-      (c) => c.phoneNumbers.contains(phoneNumber) || c.phoneNumbers.any((p) => p.endsWith(phoneNumber.replaceAll('+86', ''))),
+      (c) => c.phoneNumber == phoneNumber || c.phoneNumber.endsWith(phoneNumber.replaceAll('+86', '')),
     );
     if (contactMatch) {
       return PipelineEvaluationResult(
@@ -142,8 +142,8 @@ void main() {
         contacts: const [
           PhoneContactEntry(
             id: 'c_1',
-            displayName: '张三 (公司同事)',
-            phoneNumbers: ['+8613900001111'],
+            name: '张三 (公司同事)',
+            phoneNumber: '+8613900001111',
           ),
         ],
         phoneRules: const [

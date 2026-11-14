@@ -34,4 +34,19 @@ class PhoneLookupPluginControlCenter {
     _pluginDataController.add(data);
     debugPrint('[PhoneLookupPluginHub] 无差别广播查号数据: ${data.phoneNumber} (count: ${data.count})');
   }
+
+  /// 批量并发号码插件查询 (executeBatchLookup)
+  Future<List<PluginSourceData>> executeBatchLookup(List<String> numbers) async {
+    if (_scriptDriver == null) return [];
+    final futures = numbers.map((num) => _scriptDriver!.fetchLookup(num)).toList();
+    final responses = await Future.wait(futures);
+    final results = <PluginSourceData>[];
+    for (final res in responses) {
+      if (res != null) {
+        results.add(res);
+        broadcastPluginData(res);
+      }
+    }
+    return results;
+  }
 }

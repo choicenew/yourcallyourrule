@@ -44,10 +44,20 @@ class AppSyncBridgeConnector {
 
   void _connectUserDatabaseHub() {
     final hub = UserDatabaseHub.instance;
+    // 补全：绑定 User Database (Local Drift DB) 规则与数据表监听通道，产生 CDC 变动广播给 SyncHub
+    _localDatabase.select(_localDatabase.phoneRules).watch().listen((rules) {
+      debugPrint('[AppSyncBridgeConnector] UserDatabase (phoneRules) changed, total ${rules.length} entries');
+      hub.notifyDataChanged('phone_rules', rules.length);
+    });
   }
 
   void _connectCentralDatabaseHub() {
     final hub = CentralDatabaseHub.instance;
+    // 补全：绑定 Central Database (Remote Drift DB) 远程规则与数据表监听通道
+    _remoteDatabase.select(_remoteDatabase.remoteRules).watch().listen((remoteRules) {
+      debugPrint('[AppSyncBridgeConnector] CentralDatabase (remoteRules) changed, total ${remoteRules.length} entries');
+      hub.notifyDataChanged('remote_rules', remoteRules.length);
+    });
   }
 
   Future<bool> syncIncremental() async {

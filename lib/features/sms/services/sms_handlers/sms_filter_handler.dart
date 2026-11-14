@@ -77,7 +77,8 @@ class SmsFilterHandler extends BaseSmsHandler {
     for (final rule in smsRules) {
       final reg = RegExp(rule.pattern);
       if (reg.hasMatch(messageContent) || reg.hasMatch(phoneNumber)) {
-        if (rule.actionType == 'block' || rule.actionType == 'silence') {
+        final parsedAction = RuleAction.fromString(rule.actionType);
+        if (parsedAction.type == RuleActionType.block || parsedAction.type == RuleActionType.silence) {
           return false;
         }
         return true;

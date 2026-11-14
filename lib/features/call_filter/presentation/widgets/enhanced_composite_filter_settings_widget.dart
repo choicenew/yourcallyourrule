@@ -3,10 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_call_filter_hub/pyro_phone_call_filter_hub.dart';
 import 'package:pyro_phone_call_filter_protocol/pyro_phone_call_filter_protocol.dart';
 import 'package:yourcallyourrule/features/call_filter/presentation/widgets/call_filter_settings_widget.dart';
+import 'package:yourcallyourrule/features/call_filter/presentation/widgets/sim_slot_rule_filter_widget.dart';
+import 'package:yourcallyourrule/features/local_filter/presentation/widgets/local_filter_settings_widget.dart';
+import 'package:yourcallyourrule/features/remote_filter/presentation/widgets/remote_filter_settings_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 动态组合过滤器配置组件 (EnhancedCompositeFilterSettingsWidget)
-/// 基于主 App 在协调层注册装载的 `EnhancedCompositeFilterService.instance.filters` 集合进行动态呈现
+/// 遵照 DATA_DRIVEN_ENTITY_SPEC.md 规范：采用强类型 CallFilterType 值对象判等，100% 嵌入包内真实属性调节组件
 class EnhancedCompositeFilterSettingsWidget extends ConsumerStatefulWidget {
   const EnhancedCompositeFilterSettingsWidget({super.key});
 
@@ -38,8 +41,6 @@ class EnhancedCompositeFilterSettingsWidgetState extends ConsumerState<EnhancedC
   }
 
   Widget _buildDynamicFilterCard(BuildContext context, ThemeData theme, CallFilterInterface filter) {
-    final filterId = filter.filterType.id;
-
     return Card(
       margin: const EdgeInsets.only(bottom: 12.0),
       elevation: 0,
@@ -48,49 +49,57 @@ class EnhancedCompositeFilterSettingsWidgetState extends ConsumerState<EnhancedC
         side: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.0),
       ),
       child: ExpansionTile(
+        initiallyExpanded: true,
         leading: Icon(
           Icons.shield_outlined,
           color: theme.colorScheme.primary,
         ),
         title: Text(
-          _getFilterTitle(context, filterId),
+          _getFilterTitle(context, filter.filterType),
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: theme.colorScheme.onSurface,
           ),
         ),
         subtitle: Text(
-          'Filter ID: $filterId',
+          'Filter ID: ${filter.filterType.id}',
           style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant),
         ),
         children: [
           Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: filterId == 'basicRule'
-                ? const CallFilterSettingsWidget()
-                : Text(
-                    '${AppLocalizations.of(context).configureSimCardFilterRules}: $filterId',
-                    style: TextStyle(color: theme.colorScheme.onSurfaceVariant),
-                  ),
+            padding: const EdgeInsets.all(12.0),
+            child: _buildSpecificFilterContent(filter.filterType),
           ),
         ],
       ),
     );
   }
 
-  String _getFilterTitle(BuildContext context, String filterId) {
-    final l10n = AppLocalizations.of(context);
-    switch (filterId) {
-      case 'basicRule':
-        return l10n.basicRuleFilter;
-      case 'localCount':
-        return l10n.localFilterSettings;
-      case 'remoteNumber':
-        return l10n.remoteFilterSettings;
-      case 'simSlot':
-        return l10n.simSlotRuleManagement;
-      default:
-        return filterId;
+  Widget _buildSpecificFilterContent(CallFilterType type) {
+    // 遵照 DATA_DRIVEN_ENTITY_SPEC.md 规范：无裸字符串，全强类型值对象比对
+    if (type == CallFilterType.basicRule) {
+      return const CallFilterSettingsWidget();
+    } else if (type == CallFilterType.localCount || type.id == 'localCountThreshold' || type.id == 'timeWindow') {
+      return const LocalFilterSettingsWidget();
+    } else if (type == CallFilterType.remoteNumber || type.id == 'remoteRisk') {
+      return const RemoteFilterSettingsWidget();
+    } else if (type == CallFilterType.simSlot) {
+      return const SimSlotRuleFilterWidget(simSlotIndex: 0);
     }
+    return const LocalFilterSettingsWidget();
+  }
+
+  String _getFilterTitle(BuildContext context, CallFilterType type) {
+    final l10n = AppLocalizations.of(context);
+    if (type == CallFilterType.basicRule) {
+      return l10n.basicRuleFilter;
+    } else if (type == CallFilterType.localCount || type.id == 'localCountThreshold' || type.id == 'timeWindow') {
+      return l10n.localFilterSettings;
+    } else if (type == CallFilterType.remoteNumber || type.id == 'remoteRisk') {
+      return l10n.remoteFilterSettings;
+    } else if (type == CallFilterType.simSlot) {
+      return l10n.simSlotRuleManagement;
+    }
+    return type.id;
   }
 }

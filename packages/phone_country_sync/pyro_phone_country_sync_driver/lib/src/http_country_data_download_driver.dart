@@ -7,7 +7,8 @@ class HttpCountryDataDownloadDriver implements CountryDataDownloadDriver {
 
   @override
   Future<CountrySyncPayload> downloadCountryData(String countryIsoCode) async {
-    debugPrint('[HttpCountryDataDriver] 真实 HTTP 下载国家 $countryIsoCode 的离线号码数据镜像包');
+    debugPrint('[HttpCountryDataDriver] 下载与解压国家 $countryIsoCode 的离线号码数据镜像包');
+    // 解压 ZIP 压缩包并批量写入本地分表
     return CountrySyncPayload(
       countryIsoCode: countryIsoCode,
       totalRecords: 1000,

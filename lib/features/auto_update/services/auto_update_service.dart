@@ -89,7 +89,38 @@ class AutoUpdateService {
   }
 
   Future<List<PhoneRuleEntity>> updateByType(String type) async {
-    return await updateAll();
+    final results = <PhoneRuleEntity>[];
+    switch (type.toLowerCase()) {
+      case 'phone':
+        final phoneSubs = await _phoneService.getEnabledSubscriptions();
+        for (final sub in phoneSubs) {
+          final rules = await _phoneService.updateRulesFromSubscription(sub);
+          results.addAll(rules);
+        }
+        await _updateLastUpdateTime('phone');
+        break;
+      case 'sms':
+        final smsSubs = await _smsService.getEnabledSubscriptions();
+        for (final sub in smsSubs) {
+          await _smsService.updateRulesFromSubscription(sub);
+        }
+        await _updateLastUpdateTime('sms');
+        break;
+      case 'contact':
+        final contactSubs = await _contactService.getEnabledSubscriptions();
+        for (final sub in contactSubs) {
+          await _contactService.performManualUpdate(sub);
+        }
+        await _updateLastUpdateTime('contact');
+        break;
+      case 'plugin':
+        await _pluginService.updatePlugins();
+        await _updateLastUpdateTime('plugin');
+        break;
+      default:
+        return await updateAll();
+    }
+    return results;
   }
 
   Future<void> _updateLastUpdateTime(String serviceType) async {

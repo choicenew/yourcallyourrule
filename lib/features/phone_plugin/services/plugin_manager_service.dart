@@ -92,6 +92,8 @@ class PluginManagerService {
     }
   }
 
+  Future<void> reloadPlugins() async => await updatePlugins();
+
   Future<void> updateEnabledStatus(String id, bool isEnabled) async {
     final plugin = await _repository.getById(id);
     if (plugin != null) {

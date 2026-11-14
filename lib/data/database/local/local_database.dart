@@ -356,6 +356,10 @@ class LocalDatabase extends _$LocalDatabase {
       if (from < 4) {
         await _DriftMigrationHelper.upgradeFrom3To4(m, this);
       }
+
+      if (from < 5) {
+        await _DriftMigrationHelper.upgradeFrom4To5(m, this);
+      }
     },
   );
 }

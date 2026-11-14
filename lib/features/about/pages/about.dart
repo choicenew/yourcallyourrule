@@ -7,10 +7,17 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const pkg_about.AboutPage(
-      config: pkg_about.AboutConfig(
-        appName: 'Your Call Your Rule',
-        version: '4.25.1',
+    return Localizations(
+      locale: Localizations.localeOf(context),
+      delegates: const [
+        DefaultMaterialLocalizations.delegate,
+        DefaultWidgetsLocalizations.delegate,
+      ],
+      child: const pkg_about.AboutPage(
+        config: pkg_about.AboutConfig(
+          appName: 'Your Call Your Rule',
+          version: '4.25.1',
+        ),
       ),
     );
   }

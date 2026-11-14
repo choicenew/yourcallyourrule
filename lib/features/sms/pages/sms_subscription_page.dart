@@ -154,7 +154,7 @@ class _SmsSubscriptionPageState extends ConsumerState<SmsSubscriptionPage> {
   @override
   Widget build(BuildContext context) {
     return GenericListPage<SmsSubscription>(
-      title: AppLocalizations.of(context).confirm,
+      title: AppLocalizations.of(context).smsSubscription,
       items: _subscriptions,
       itemBuilder: (context, subscription) => _buildSubscriptionCard(subscription),
       adBuilder: () => const AdsInlineBanner(),

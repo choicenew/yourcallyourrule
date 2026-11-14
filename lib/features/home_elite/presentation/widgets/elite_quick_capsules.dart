@@ -141,7 +141,7 @@ class EliteQuickCapsules extends StatelessWidget {
               _buildCompactCapsule(
                 context: context,
                 icon: Icons.cloud_sync_outlined,
-                title: (l10n as dynamic)?.cloudSettings as String? ?? 'Cloud Settings',
+                title: l10n.cloudSyncTitle,
                 color: theme.colorScheme.primary,
                 onTap: () => context.pushNamed(AppRouter.cloudSettings),
               ),

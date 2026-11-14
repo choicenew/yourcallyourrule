@@ -7,25 +7,48 @@ import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_timeline_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class CallHistoryPage extends ConsumerWidget {
+/// 真实包裹 GenericTimelinePage 时间线框架与广告流的 CallHistoryPage
+class CallHistoryPage extends ConsumerStatefulWidget {
   const CallHistoryPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<CallHistoryPage> createState() => _CallHistoryPageState();
+}
+
+class _CallHistoryPageState extends ConsumerState<CallHistoryPage> {
+  late Future<List<CallLogEntry>> _historyFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _historyFuture = CallHistoryControlCenter.instance.getAllLogs();
+  }
+
+  void _refreshLogs() {
+    setState(() {
+      _historyFuture = CallHistoryControlCenter.instance.getAllLogs();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
 
     return FutureBuilder<List<CallLogEntry>>(
-      future: CallHistoryControlCenter.instance.getAllLogs(),
+      future: _historyFuture,
       builder: (context, snapshot) {
+        final isLoading = snapshot.connectionState == ConnectionState.waiting;
         final historyLogs = snapshot.data ?? [];
         return GenericTimelinePage<CallLogEntry>(
-          title: (l10n as dynamic)?.callHistoryTitle as String? ?? 'Call History',
+          title: l10n.callHistory,
           items: historyLogs,
+          isLoading: isLoading,
+          onRefresh: _refreshLogs,
           displayMode: ListDisplayMode.timeline,
           getItemTimestamp: (entry) => entry.timestamp != null
               ? DateTime.fromMillisecondsSinceEpoch(entry.timestamp!)
               : null,
-          emptyText: (l10n as dynamic)?.noCallHistoryFound as String? ?? 'No call history found',
+          emptyText: l10n.noCallRecords,
           adInterval: 3,
           adBuilder: () => const AdsInlineBanner(),
           itemBuilder: (context, entry) => history_pkg_ui.PyroCallLogCardWidget(

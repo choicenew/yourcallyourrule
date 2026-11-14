@@ -136,7 +136,7 @@ class CallerIdentityService {
       carrier: locationData?.carrier,
       labels: labelFromId != null ? [labelFromId.text] : (labelEntry != null ? [labelEntry.labelId] : []),
       localCount: phoneRule?.count ?? 0,
-      pluginCount: 0,
+      pluginCount: pluginSourceData != null ? 1 : (_pluginDataSubject.hasValue ? 1 : 0),
       remoteCount: remoteNumberEntry != null ? 1 : 0,
     );
 

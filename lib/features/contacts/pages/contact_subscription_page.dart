@@ -1,6 +1,8 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
+import 'package:yourcallyourrule/features/common/widgets/generic_list_page.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -22,26 +24,23 @@ class _ContactSubscriptionPageState extends ConsumerState<ContactSubscriptionPag
   }
 
   Future<void> _loadSubscriptions() async {
-    setState(() {
-      _isLoading = true;
-    });
-
+    setState(() => _isLoading = true);
     final subscriptionService = ref.read(contactSubscriptionServiceProvider);
     try {
       final subscriptions = await subscriptionService.getAll();
-      setState(() {
-        _subscriptions = subscriptions;
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _subscriptions = subscriptions;
+          _isLoading = false;
+        });
+      }
     } catch (e) {
       if (mounted) {
+        setState(() => _isLoading = false);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Load subscriptions failed: $e')),
         );
       }
-      setState(() {
-        _isLoading = false;
-      });
     }
   }
 
@@ -174,73 +173,47 @@ class _ContactSubscriptionPageState extends ConsumerState<ContactSubscriptionPag
     );
   }
 
+  Widget _buildSubscriptionCard(PhoneSubscriptionPayload subscription) {
+    final name = subscription.rawJsonMap['name'] as String? ?? 'Subscription';
+    final url = subscription.rawJsonMap['url'] as String? ?? '';
+    final isEnabled = subscription.rawJsonMap['isEnabled'] as bool? ?? true;
+
+    return Card(
+      margin: const EdgeInsets.only(bottom: 12.0),
+      child: ListTile(
+        title: Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
+        subtitle: Text(url, maxLines: 1, overflow: TextOverflow.ellipsis),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Switch(
+              value: isEnabled,
+              onChanged: (_) => _toggleSubscriptionStatus(subscription),
+            ),
+            IconButton(
+              icon: const Icon(Icons.delete_outline, color: Colors.red),
+              onPressed: () => _deleteSubscription(subscription),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Contact Subscriptions'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: _showAddSubscriptionDialog,
-            tooltip: 'Add Subscription',
-          ),
-        ],
-      ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : _subscriptions.isEmpty
-              ? Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(Icons.rss_feed, size: 64, color: Colors.grey),
-                      const SizedBox(height: 16),
-                      const Text('No subscriptions found', style: TextStyle(fontSize: 18, color: Colors.grey)),
-                      const SizedBox(height: 24),
-                      ElevatedButton.icon(
-                        icon: const Icon(Icons.add),
-                        label: const Text('Add Subscription'),
-                        onPressed: _showAddSubscriptionDialog,
-                      ),
-                    ],
-                  ),
-                )
-              : ListView.builder(
-                  padding: const EdgeInsets.all(16.0),
-                  itemCount: _subscriptions.length,
-                  itemBuilder: (context, index) {
-                    final subscription = _subscriptions[index];
-                    final name = subscription.rawJsonMap['name'] as String? ?? 'Subscription';
-                    final url = subscription.rawJsonMap['url'] as String? ?? '';
-                    final isEnabled = subscription.rawJsonMap['isEnabled'] as bool? ?? true;
-
-                    return Card(
-                      margin: const EdgeInsets.only(bottom: 12.0),
-                      child: ListTile(
-                        title: Text(name),
-                        subtitle: Text(url),
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Switch(
-                              value: isEnabled,
-                              onChanged: (_) => _toggleSubscriptionStatus(subscription),
-                            ),
-                            IconButton(
-                              icon: const Icon(Icons.delete, color: Colors.red),
-                              onPressed: () => _deleteSubscription(subscription),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
+    return GenericListPage<PhoneSubscriptionPayload>(
+      title: 'Contact Subscriptions',
+      items: _subscriptions,
+      itemBuilder: (context, subscription) => _buildSubscriptionCard(subscription),
+      adBuilder: () => const AdsInlineBanner(),
+      adInterval: 3,
+      emptyText: AppLocalizations.of(context).noSubscriptions,
+      emptyIcon: Icons.rss_feed,
+      isLoading: _isLoading,
+      onRefresh: _loadSubscriptions,
+      onAdd: _showAddSubscriptionDialog,
+      getItemId: (sub) => sub.payloadId,
     );
   }
 }

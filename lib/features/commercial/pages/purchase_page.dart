@@ -1,11 +1,12 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:pyro_purchase_protocol/pyro_purchase_protocol.dart';
-import 'package:pyro_purchase_ui/pyro_purchase_ui.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
+import 'package:yourcallyourrule/features/commercial/widgets/modern_purchase_card.dart';
+import 'package:yourcallyourrule/features/commercial/pages/vip_exchange_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 商业 VIP 订阅页面 —— 全量通过 Google Play Service / StoreKit 动态查询真实货币价格
+/// 全量对齐 elite-ui 原始功能的 VIP 会员中心页面
 class PurchasePage extends ConsumerStatefulWidget {
   const PurchasePage({super.key});
 
@@ -14,99 +15,238 @@ class PurchasePage extends ConsumerStatefulWidget {
 }
 
 class _PurchasePageState extends ConsumerState<PurchasePage> {
-  bool _isLoading = true;
-  List<ProductDetails> _productDetails = [];
+  final Map<String, String> _productPrices = {
+    'remove_ads': '\$3.99',
+    'vip_monthly': '\$2.99 / Month',
+    'vip_quarterly': '\$6.99 / 3 Month',
+    'vip_lifetime': '\$9.99',
+  };
 
   static const Set<String> _kProductIds = {
-    'vip_monthly_subscription',
-    'vip_annual_subscription',
+    'remove_ads',
+    'vip_monthly',
+    'vip_quarterly',
+    'vip_lifetime',
   };
 
   @override
   void initState() {
     super.initState();
-    _fetchRealProductDetails();
+    _queryProductDetails();
   }
 
-  /// 向 Google Play Service / StoreKit 动态异步查询真实的地区货币价格
-  Future<void> _fetchRealProductDetails() async {
+  Future<void> _queryProductDetails() async {
+    try {
+      final available = await InAppPurchase.instance.isAvailable();
+      if (!available) return;
+
+      final response = await InAppPurchase.instance.queryProductDetails(_kProductIds);
+      if (mounted && response.productDetails.isNotEmpty) {
+        setState(() {
+          for (final pd in response.productDetails) {
+            _productPrices[pd.id] = pd.price;
+          }
+        });
+      }
+    } catch (_) {}
+  }
+
+  void _triggerPurchase(String productId) async {
     try {
       final available = await InAppPurchase.instance.isAvailable();
       if (!available) {
-        if (mounted) setState(() => _isLoading = false);
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Store service is currently unavailable')),
+          );
+        }
         return;
       }
-
-      final response = await InAppPurchase.instance.queryProductDetails(_kProductIds);
-      if (mounted) {
-        setState(() {
-          _productDetails = response.productDetails;
-          _isLoading = false;
-        });
+      final response = await InAppPurchase.instance.queryProductDetails({productId});
+      if (response.productDetails.isNotEmpty) {
+        final param = PurchaseParam(productDetails: response.productDetails.first);
+        await InAppPurchase.instance.buyNonConsumable(purchaseParam: param);
       }
-    } catch (_) {
-      if (mounted) setState(() => _isLoading = false);
-    }
+    } catch (_) {}
   }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final theme = Theme.of(context);
 
-    // 将 Google Play 真实价格转换映射为微包的 ProductItem
-    final products = _productDetails.map((pd) {
-      return ProductItem(
-        id: pd.id,
-        title: pd.title,
-        description: pd.description,
-        price: pd.price, // 包含真实的国家地区货币符号 (如 $4.99 或 ¥30)
-      );
-    }).toList();
-
-    final uiConfig = CommercialUIConfig(
-      sheetTitle: 'VIP Premium Access',
-      sheetSubtitle: 'Unlock all intelligent spam filtering & cloud sync features',
-      itemConfigs: [
-        CommercialItemUIConfig(
-          productId: 'vip_monthly_subscription',
-          title: 'Monthly VIP',
-          subtitle: 'Auto-renews monthly',
-          isDefaultSelected: true,
+    // 构建会员特权对比表卡片
+    final featureCard = ModernFeatureTableCard(
+      title: l10n.membershipCenter,
+      gradientColors: const [Color(0xFF5C6BC0), Color(0xFF3949AB)],
+      icon: Icons.star_rounded,
+      tableRows: [
+        TableRow(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(l10n.rules, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text('Free: Basic', style: TextStyle(color: Colors.white70)),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text('VIP: Unlimited', style: TextStyle(color: Colors.amber, fontWeight: FontWeight.bold)),
+            ),
+          ],
         ),
-        CommercialItemUIConfig(
-          productId: 'vip_annual_subscription',
-          title: 'Annual VIP (Best Value)',
-          subtitle: 'Auto-renews yearly',
+        TableRow(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(l10n.cloudDrive, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text('Free: Disabled', style: TextStyle(color: Colors.white70)),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text('VIP: E2EE Sync', style: TextStyle(color: Colors.amber, fontWeight: FontWeight.bold)),
+            ),
+          ],
         ),
       ],
     );
 
-    return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
-      appBar: AppBar(
-        title: Text(
-          l10n.aboutTitle,
-          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: theme.colorScheme.onSurface),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        scrolledUnderElevation: 0,
+    // 7 大购买卡片全量注入，无闪烁
+    final purchaseCards = [
+      // 1. 免广告卡片
+      ModernPurchaseCard(
+        title: 'Remove Ads',
+        description: 'Enjoy a completely clean, ad-free experience',
+        price: _productPrices['remove_ads'] ?? '\$3.99',
+        buttonText: l10n.add,
+        onTap: () => _triggerPurchase('remove_ads'),
+        gradientColors: const [Color(0xFFFFB74D), Color(0xFFFF9800)],
+        icon: Icons.block_rounded,
+        labels: const ['No Ads'],
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : CommercialPrivilegeSheet(
-              uiConfig: uiConfig,
-              products: products,
-              onBuyProduct: (productId) async {
-                final product = _productDetails.firstWhere((p) => p.id == productId, orElse: () => _productDetails.first);
-                final param = PurchaseParam(productDetails: product);
-                await InAppPurchase.instance.buyNonConsumable(purchaseParam: param);
-              },
-              onRestorePurchases: () async {
-                await InAppPurchase.instance.restorePurchases();
-              },
+
+      // 2 & 3. 月度与季度卡片
+      Row(
+        children: [
+          Expanded(
+            child: ModernPurchaseCard(
+              title: 'Monthly VIP',
+              description: 'Auto-renews monthly',
+              price: _productPrices['vip_monthly'] ?? '\$2.99 / Month',
+              buttonText: 'Subscribe',
+              onTap: () => _triggerPurchase('vip_monthly'),
+              gradientColors: const [Color(0xFF64B5F6), Color(0xFF2196F3)],
+              icon: Icons.calendar_month_rounded,
+              isSmall: true,
+              labels: const ['Flexible'],
             ),
+          ),
+          const SizedBox(width: 12.0),
+          Expanded(
+            child: ModernPurchaseCard(
+              title: 'Quarterly VIP',
+              description: 'Save 30% vs monthly',
+              price: _productPrices['vip_quarterly'] ?? '\$6.99 / 3 Month',
+              buttonText: 'Subscribe',
+              onTap: () => _triggerPurchase('vip_quarterly'),
+              gradientColors: const [Color(0xFF7986CB), Color(0xFF3F51B5)],
+              icon: Icons.calendar_today_rounded,
+              isSmall: true,
+              labels: const ['Popular'],
+            ),
+          ),
+        ],
+      ),
+
+      // 4. 终身会员卡片
+      ModernPurchaseCard(
+        title: 'Lifetime VIP',
+        description: 'Pay once, unlock all future premium features forever',
+        price: _productPrices['vip_lifetime'] ?? '\$9.99',
+        buttonText: 'Get Lifetime',
+        onTap: () => _triggerPurchase('vip_lifetime'),
+        gradientColors: const [Color(0xFF81C784), Color(0xFF4CAF50)],
+        icon: Icons.workspace_premium_rounded,
+        labels: const ['Best Value', 'One-time'],
+      ),
+
+      // 5. 标记兑换 VIP 卡片
+      ModernPurchaseCard(
+        title: 'Community Contribution VIP',
+        description: 'Earn VIP access by marking spam numbers for community protection',
+        price: 'Free Access',
+        buttonText: 'Exchange',
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const VipExchangePage()),
+          );
+        },
+        gradientColors: const [Color(0xFFBA68C8), Color(0xFF9C27B0)],
+        icon: Icons.card_giftcard_rounded,
+        labels: const ['Community Special'],
+      ),
+
+      // 6. 激励广告体验卡片 (100% 还原使用原有 .arb 多语言词条)
+      ModernPurchaseCard(
+        title: l10n.watchAdForTemp,
+        description: l10n.watchAdForTempDescription,
+        price: 'Free',
+        buttonText: l10n.watchAd,
+        onTap: () {
+          AdsRewarded.show(
+            AdTrafficTier.tier1Tier2Combined,
+            onUserEarnedReward: (reward) {
+              if (context.mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(l10n.grantedTempPurchaseWithExpiry('1', DateTime.now().add(const Duration(days: 1)).toString().substring(0, 10)))),
+                );
+              }
+            },
+          );
+        },
+        gradientColors: const [Color(0xFFAED581), Color(0xFF8BC34A)],
+        icon: Icons.ondemand_video_rounded,
+        labels: const ['Free Trial'],
+      ),
+    ];
+
+    // 7. 恢复购买按钮
+    final bottomButtons = [
+      Center(
+        child: ElevatedButton.icon(
+          onPressed: () async {
+            await InAppPurchase.instance.restorePurchases();
+            if (context.mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Purchases restored successfully')),
+              );
+            }
+          },
+          icon: const Icon(Icons.restore_rounded),
+          label: const Text('Restore Purchases'),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFFF5A623),
+            foregroundColor: Colors.white,
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            elevation: 4,
+          ),
+        ),
+      ),
+    ];
+
+    return ModernPurchasePage(
+      title: l10n.membershipCenter,
+      featureCard: featureCard,
+      purchaseCards: purchaseCards,
+      bottomButtons: bottomButtons,
     );
   }
 }
