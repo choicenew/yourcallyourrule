@@ -31,7 +31,7 @@ class LabelPhoneRepositoryImpl implements LabelPhoneRepository {
       icon: Value(entry.icon),
       avatar: Value(entry.avatar),
       priority: Value(entry.priority),
-      isEnabled: Value(entry.isEnabled ? 1 : 0),
+      isEnabled: Value(entry.isEnabled),
     );
   }
 

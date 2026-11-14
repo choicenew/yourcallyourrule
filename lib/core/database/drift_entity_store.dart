@@ -74,7 +74,7 @@ class DriftEntityStore<T> implements EntityStore<T> {
         action: Value(rule.actionType),
         priority: Value(rule.priority),
         count: Value(rule.count),
-        isEnabled: Value(rule.isEnabled ? 1 : 0),
+        isEnabled: Value(rule.isEnabled),
         labelId: Value(rule.labelId),
         avatar: Value(rule.avatar),
         subscriptionId: Value(rule.subscriptionId),
@@ -90,7 +90,7 @@ class DriftEntityStore<T> implements EntityStore<T> {
         pattern: Value(rule.pattern),
         action: Value(rule.actionType),
         priority: Value(rule.priority),
-        isEnabled: Value(rule.isEnabled ? 1 : 0),
+        isEnabled: Value(rule.isEnabled),
         subscriptionId: Value(rule.subscriptionId),
       );
       await db.into(db.regexRules).insertOnConflictUpdate(companion);
@@ -115,9 +115,14 @@ class DriftEntityStore<T> implements EntityStore<T> {
       final contact = entity;
       final companion = ContactsCompanion(
         id: Value(contact.id.isEmpty ? uuid.v4() : contact.id),
-        name: Value(contact.displayName),
-        phoneNumber: Value(contact.phoneNumbers.firstOrNull ?? ''),
-        avatar: Value(contact.photoUrl),
+        name: Value(contact.name),
+        phoneNumber: Value(contact.phoneNumber),
+        avatar: Value(contact.avatar),
+        url: Value(contact.url),
+        note: Value(contact.note),
+        labelIds: Value(contact.labelIds),
+        isFavorite: Value(contact.isFavorite),
+        lastUpdated: Value(contact.lastUpdated),
       );
       await db.into(db.contacts).insertOnConflictUpdate(companion);
       return;
@@ -131,7 +136,7 @@ class DriftEntityStore<T> implements EntityStore<T> {
         avatar: Value(label.avatar),
         icon: Value(label.icon),
         priority: Value(label.priority),
-        isEnabled: Value(label.isEnabled ? 1 : 0),
+        isEnabled: Value(label.isEnabled),
       );
       await db.into(db.labelPhones).insertOnConflictUpdate(companion);
       return;

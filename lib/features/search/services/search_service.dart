@@ -80,16 +80,14 @@ class SearchService {
 
       final contacts = await _contactService.getAll();
       for (final contact in contacts) {
-        for (final number in contact.phoneNumbers) {
-          if (number.contains(phoneNumberStr)) {
-            results.add(SearchResult(
-              id: contact.id,
-              phoneNumber: number,
-              name: contact.displayName,
-              type: SearchResultType.contact,
-              data: contact,
-            ));
-          }
+        if (contact.phoneNumber.contains(phoneNumberStr)) {
+          results.add(SearchResult(
+            id: contact.id,
+            phoneNumber: contact.phoneNumber,
+            name: contact.name,
+            type: SearchResultType.contact,
+            data: contact,
+          ));
         }
       }
 

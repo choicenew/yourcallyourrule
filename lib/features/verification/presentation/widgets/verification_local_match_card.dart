@@ -65,10 +65,10 @@ class VerificationLocalMatchCard extends StatelessWidget {
                 child: Icon(Icons.person_rounded, color: Color(0xFF2E7D32)),
               ),
               title: Text(
-                matchedContact!.displayName,
+                matchedContact!.name,
                 style: const TextStyle(fontWeight: FontWeight.w800),
               ),
-              subtitle: Text(matchedContact!.phoneNumbers.join(', ')),
+              subtitle: Text(matchedContact!.phoneNumber),
             ),
           if (matchedLabel != null)
             ListTile(

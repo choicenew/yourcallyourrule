@@ -178,12 +178,12 @@ class ContactService extends ListService<PhoneContactEntry, String> {
   ContactService(this._contactRepository) : super();
 
   Future<void> editContact(PhoneContactEntry contact) async {
-    if (contact.displayName.isEmpty) {
+    if (contact.name.isEmpty) {
       throw Exception('Contact name cannot be empty');
     }
 
     final exists = await _contactRepository.contactExists(
-      PhoneNumber(contact.phoneNumbers.first),
+      PhoneNumber(contact.phoneNumber),
     );
     if (!exists) {
       throw Exception('Contact does not exist');
@@ -218,9 +218,8 @@ class ContactService extends ListService<PhoneContactEntry, String> {
 
     for (final contact in contacts) {
       for (final existingContact in existingContacts) {
-        if (contact.phoneNumbers.any(
-          (phoneNumber) => existingContact.phoneNumbers.contains(phoneNumber),
-        )) {
+        if (contact.phoneNumber.isNotEmpty &&
+            contact.phoneNumber == existingContact.phoneNumber) {
           duplicateContacts.add(contact);
           break;
         }
@@ -235,13 +234,13 @@ class ContactService extends ListService<PhoneContactEntry, String> {
   }
 
   Future<void> addContact(PhoneContactEntry contact) async {
-    if (contact.displayName.isEmpty) {
+    if (contact.name.isEmpty) {
       throw Exception('Contact name cannot be empty');
     }
 
-    for (final phoneNumber in contact.phoneNumbers) {
+    if (contact.phoneNumber.isNotEmpty) {
       final exists = await _contactRepository.contactExists(
-        PhoneNumber(phoneNumber),
+        PhoneNumber(contact.phoneNumber),
       );
       if (exists) {
         throw Exception('Contact with this phone number already exists');
@@ -253,7 +252,7 @@ class ContactService extends ListService<PhoneContactEntry, String> {
 
   Future<void> addOrUpdateContact(PhoneContactEntry contact) async {
     final exists = await _contactRepository.contactExistsAny(
-      contact.phoneNumbers.map((p) => PhoneNumber(p)).toList(),
+      [PhoneNumber(contact.phoneNumber)],
     );
 
     if (exists) {
@@ -359,8 +358,8 @@ class ContactService extends ListService<PhoneContactEntry, String> {
     final contacts = await _contactRepository.getAll();
     final maps = contacts.map((c) => {
       'id': c.id,
-      'displayName': c.displayName,
-      'phoneNumbers': c.phoneNumbers,
+      'name': c.name,
+      'phoneNumber': c.phoneNumber,
     }).toList();
     return await compute(exportCsvIsolateTask, maps);
   }

@@ -85,9 +85,9 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
   @override
   void initState() {
     super.initState();
-    _nameController = TextEditingController(text: widget.contact?.displayName ?? '');
+    _nameController = TextEditingController(text: widget.contact?.name ?? '');
     _phoneController = TextEditingController(
-      text: widget.contact?.phoneNumbers.join(', ') ?? '',
+      text: widget.contact?.phoneNumber ?? '',
     );
     _emailController = TextEditingController();
   }
@@ -123,16 +123,16 @@ class _ContactEditDialogState extends ConsumerState<ContactEditDialog> {
 
       if (isEditing) {
         var updatedContact = widget.contact!.copyWith(
-          displayName: _nameController.text,
-          phoneNumbers: _phoneController.text.split(',').map((e) => e.trim()).toList(),
+          name: _nameController.text,
+          phoneNumber: _phoneController.text.trim(),
         );
 
         await contactService.editContact(updatedContact);
       } else {
         final newContact = PhoneContactEntry(
           id: const Uuid().v4(),
-          displayName: _nameController.text,
-          phoneNumbers: _phoneController.text.split(',').map((e) => e.trim()).toList(),
+          name: _nameController.text,
+          phoneNumber: _phoneController.text.trim(),
         );
         await contactService.addEntry(newContact);
       }

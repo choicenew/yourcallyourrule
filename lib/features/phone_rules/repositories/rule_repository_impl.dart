@@ -32,7 +32,7 @@ class RuleRepositoryImpl implements RuleRepository {
       action: Value((map['actionType'] as String?) ?? 'block'),
       priority: Value((map['priority'] as int?) ?? 100),
       count: Value((map['count'] as int?) ?? 0),
-      isEnabled: Value((map['isEnabled'] as bool? ?? true) ? 1 : 0),
+      isEnabled: Value(map['isEnabled'] as bool? ?? true),
       labelId: Value(map['labelId'] as String?),
       avatar: Value(map['avatar'] as String?),
       subscriptionId: Value(map['subscriptionId'] as String?),
@@ -49,7 +49,7 @@ class RuleRepositoryImpl implements RuleRepository {
       pattern: Value(map['pattern'] as String?),
       action: Value((map['actionType'] as String?) ?? 'block'),
       priority: Value((map['priority'] as int?) ?? 100),
-      isEnabled: Value((map['isEnabled'] as bool? ?? true) ? 1 : 0),
+      isEnabled: Value(map['isEnabled'] as bool? ?? true),
     );
   }
 

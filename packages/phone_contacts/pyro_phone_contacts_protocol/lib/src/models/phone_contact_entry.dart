@@ -20,11 +20,6 @@ abstract class PhoneContactEntry with _$PhoneContactEntry {
     @Default('') String lastUpdated,
   }) = _PhoneContactEntry;
 
-  String get displayName => name;
-  List<String> get phoneNumbers => phoneNumber.isNotEmpty ? [phoneNumber] : const [];
-  String? get photoUrl => avatar;
-  bool get isStarred => isFavorite == 1;
-
   factory PhoneContactEntry.fromJson(Map<String, dynamic> json) => _$PhoneContactEntryFromJson(json);
 
   factory PhoneContactEntry.fromMap(Map<String, dynamic> map) => PhoneContactEntry.fromJson(map);
