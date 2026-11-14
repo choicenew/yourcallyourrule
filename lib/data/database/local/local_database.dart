@@ -70,7 +70,7 @@ class Rules extends Table {
   TextColumn get labelId => text().nullable()();
   IntColumn get priority => integer().withDefault(const Constant(5))();
   TextColumn get action => text().withDefault(const Constant('none'))();
-  BoolColumn get isEnabled => boolean().withDefault(const Constant(true))();
+  IntColumn get isEnabled => integer().withDefault(const Constant(1))();
   TextColumn get pattern => text().nullable()();
   TextColumn get avatar => text().nullable()();
   IntColumn get isSubscribed => integer().withDefault(const Constant(0))();
@@ -89,7 +89,7 @@ class PhoneRules extends Table {
   TextColumn get labelId => text().nullable()();
   IntColumn get priority => integer().withDefault(const Constant(5))();
   TextColumn get action => text().withDefault(const Constant('none'))();
-  BoolColumn get isEnabled => boolean().withDefault(const Constant(true))();
+  IntColumn get isEnabled => integer().withDefault(const Constant(1))();
   IntColumn get count => integer().withDefault(const Constant(0))();
   TextColumn get avatar => text().nullable()();
   TextColumn get subscriptionId => text().nullable()();
@@ -106,7 +106,7 @@ class RegexRules extends Table {
   TextColumn get pattern => text().withLength(min: 1)();
   IntColumn get priority => integer().withDefault(const Constant(5))();
   TextColumn get action => text().withDefault(const Constant('none'))();
-  BoolColumn get isEnabled => boolean().withDefault(const Constant(true))();
+  IntColumn get isEnabled => integer().withDefault(const Constant(1))();
   TextColumn get subscriptionId => text().nullable()();
 
   @override
@@ -207,7 +207,7 @@ class LabelPhones extends Table {
   TextColumn get avatar => text().nullable()();
   IntColumn get priority => integer().withDefault(const Constant(0))();
   TextColumn get action => text().withDefault(const Constant('none'))();
-  BoolColumn get isEnabled => boolean().withDefault(const Constant(true))();
+  IntColumn get isEnabled => integer().withDefault(const Constant(1))();
   TextColumn get ruleType => text().withDefault(const Constant('label'))();
 
   @override
