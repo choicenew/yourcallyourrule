@@ -13,7 +13,8 @@ dependencies:
   pyro_sms_protocol:
     path: ../pyro_sms_protocol
 
-  pyro_sms_hub: any
+  pyro_sms_hub:
+    path: ../pyro_sms_hub
 dev_dependencies:
   flutter_test:
     sdk: flutter
