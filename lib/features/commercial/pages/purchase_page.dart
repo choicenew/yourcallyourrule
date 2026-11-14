@@ -1,7 +1,7 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:pyro_ads_hub/pyro_ads_hub.dart';
+import 'package:pyro_commercial_hub/pyro_commercial_hub.dart';
 import 'package:yourcallyourrule/features/commercial/widgets/modern_purchase_card.dart';
 import 'package:yourcallyourrule/features/commercial/pages/vip_exchange_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -191,18 +191,32 @@ class _PurchasePageState extends ConsumerState<PurchasePage> {
         labels: const ['Community Special'],
       ),
 
-      // 6. 激励广告体验卡片 (100% 还原使用原有 .arb 多语言词条)
+      // 6. 激励广告体验卡片 (100% 直接调起 CommercialHub 闭环策略，零二次套壳)
       ModernPurchaseCard(
         title: l10n.watchAdForTemp,
         description: l10n.watchAdForTempDescription,
         price: 'Free',
         buttonText: l10n.watchAd,
         onTap: () {
-          AdsRewarded.show(
-            onUserEarnedReward: (reward) {
+          CommercialHub.instance.showRewardedAdForPrivilege(
+            onResult: (thresholdReached, remaining, newExpiryDate) {
+              if (context.mounted) {
+                if (thresholdReached && newExpiryDate != null) {
+                  final dateStr = newExpiryDate.toString().substring(0, 10);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(l10n.grantedTempPurchaseWithExpiry('1', dateStr))),
+                  );
+                } else if (remaining > 0) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Watch $remaining more ad(s) to unlock VIP')),
+                  );
+                }
+              }
+            },
+            onError: (error) {
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(l10n.grantedTempPurchaseWithExpiry('1', DateTime.now().add(const Duration(days: 1)).toString().substring(0, 10)))),
+                  SnackBar(content: Text('Failed to play ad: $error')),
                 );
               }
             },
