@@ -2,7 +2,6 @@ group 'com.pyro.stir'
 version '1.0'
 
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 
 android {
     namespace 'com.pyro.stir'
