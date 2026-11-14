@@ -16,7 +16,8 @@ import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_ready_ca
 
 /// 应用引导主页面
 class OnboardingPage extends ConsumerStatefulWidget {
-  const OnboardingPage({super.key});
+  final VoidCallback? onComplete;
+  const OnboardingPage({super.key, this.onComplete});
 
   @override
   ConsumerState<OnboardingPage> createState() => _OnboardingPageState();
@@ -30,7 +31,6 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   @override
   void initState() {
     super.initState();
-    ref.read(onboardingServiceProvider).completeOnboarding();
   }
 
   @override
@@ -63,8 +63,12 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     final service = ref.read(onboardingServiceProvider);
     await service.completeOnboarding();
 
-    if (!mounted) return;
-    GoRouter.of(context).goNamed(AppRouter.initialSetup);
+    if (widget.onComplete != null) {
+      widget.onComplete!();
+    } else {
+      if (!mounted) return;
+      GoRouter.of(context).goNamed(AppRouter.initialSetup);
+    }
   }
 
   @override

@@ -29,20 +29,8 @@ class LocalRegexRuleDataSource {
       pattern: rule.pattern,
       action: Value(rule.actionType),
       priority: Value(rule.priority),
-      isEnabled: Value(rule.isEnabled ? 1 : 0),
+      isEnabled: Value(rule.isEnabled),
       subscriptionId: Value(rule.subscriptionId),
-    );
-  }
-
-  RegexRuleEntity _fromData(dynamic data) {
-    return RegexRuleEntity(
-      id: (data.id as String?) ?? '',
-      name: data.name as String,
-      pattern: data.pattern as String,
-      actionType: data.action as String,
-      priority: data.priority as int,
-      isEnabled: data.isEnabled == 1,
-      subscriptionId: data.subscriptionId as String?,
     );
   }
 
@@ -55,13 +43,13 @@ class LocalRegexRuleDataSource {
 
   Future<List<RegexRuleEntity>> getAll() async {
     final data = await _database.select(_database.regexRules).get();
-    return data.map<RegexRuleEntity>(_fromData).toList();
+    return data;
   }
 
   Future<RegexRuleEntity?> getById(String id) async {
     final query = _database.select(_database.regexRules)..where((tbl) => tbl.id.equals(id));
     final data = await query.getSingleOrNull();
-    return data != null ? _fromData(data) : null;
+    return data;
   }
 
   Future<void> deleteById(String id) async {
@@ -75,7 +63,7 @@ class LocalRegexRuleDataSource {
 
   Future<void> updateStatus(String id, bool isEnabled) async {
     await (_database.update(_database.regexRules)..where((tbl) => tbl.id.equals(id)))
-        .write(RegexRulesCompanion(isEnabled: Value(isEnabled ? 1 : 0)));
+        .write(RegexRulesCompanion(isEnabled: Value(isEnabled)));
   }
 
   Future<String> exportData() async {

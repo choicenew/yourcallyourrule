@@ -20,6 +20,9 @@ import 'package:yourcallyourrule/features/call_monitor/services/caller_id_monito
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
 import 'package:yourcallyourrule/features/widgets/services/app_widget_sync_service.dart';
+import 'package:yourcallyourrule/features/splash/splash_screen.dart';
+import 'package:yourcallyourrule/features/onboarding/pages/onboarding_page.dart';
+import 'package:yourcallyourrule/features/onboarding/services/onboarding_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/theme/app_theme.dart';
 import 'package:yourcallyourrule/theme/theme_provider.dart';
@@ -188,7 +191,23 @@ class MyApp extends ConsumerWidget {
 
     return MaterialApp.router(
       title: 'Your Call Your Rule',
-      builder: PyroAppLaunchGuard.builder(),
+      builder: PyroAppLaunchGuard.builder(
+        splashBuilder: (context) => const SplashScreen(),
+        config: LaunchConfig(
+          shouldShowOnboardingCheck: () async {
+            final onboardingService = ref.read(onboardingServiceProvider);
+            final isCompleted = await onboardingService.isOnboardingCompleted();
+            return !isCompleted;
+          },
+          onOnboardingCompletedSaveCallback: () async {
+            final onboardingService = ref.read(onboardingServiceProvider);
+            await onboardingService.completeOnboarding();
+          },
+        ),
+        onboardingBuilder: (context, onComplete) {
+          return OnboardingPage(onComplete: onComplete);
+        },
+      ),
       theme: AppTheme.buildLightTheme(seedColor: themeColor),
       darkTheme: AppTheme.buildDarkTheme(seedColor: themeColor),
       themeMode: themeMode,

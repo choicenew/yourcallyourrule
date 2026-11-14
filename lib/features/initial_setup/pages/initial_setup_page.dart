@@ -60,7 +60,9 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
     } catch (_) {}
   }
 
-  void _exit(BuildContext context) {
+  Future<void> _exit(BuildContext context) async {
+    await ref.read(initialSetupServiceProvider).completeInitialSetup();
+    if (!mounted) return;
     if (context.canPop()) {
       context.pop();
     } else {
