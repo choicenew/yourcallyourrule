@@ -24,39 +24,48 @@ class ContactRepositoryImpl implements ContactRepository {
     final id = contact.id.isEmpty ? _uuid.v4() : contact.id;
     return ContactsCompanion.insert(
       id: id,
-      phoneNumber: contact.phoneNumbers.isNotEmpty ? contact.phoneNumbers.first : '',
-      name: contact.displayName,
-      avatar: Value(contact.photoUrl),
-      isFavorite: Value(contact.isStarred ? 1 : 0),
-      lastUpdated: DateTime.now().toIso8601String(),
+      phoneNumber: contact.phoneNumber,
+      name: contact.name,
+      avatar: Value(contact.avatar),
+      url: Value(contact.url),
+      note: Value(contact.note),
+      labelIds: Value(contact.labelIds),
+      isFavorite: Value(contact.isFavorite),
+      lastUpdated: Value(contact.lastUpdated.isEmpty ? DateTime.now().toIso8601String() : contact.lastUpdated),
     );
   }
 
-  PhoneContactEntry _toEntity(Contact row) {
+  PhoneContactEntry _fromData(dynamic data) {
+    if (data is PhoneContactEntry) return data;
     return PhoneContactEntry(
-      id: row.id,
-      displayName: row.name,
-      phoneNumbers: row.phoneNumber.isNotEmpty ? [row.phoneNumber] : const [],
-      photoUrl: row.avatar,
-      isStarred: row.isFavorite == 1,
+      id: (data.id as String?) ?? '',
+      phoneNumber: (data.phoneNumber as String?) ?? '',
+      name: (data.name as String?) ?? '',
+      avatar: data.avatar as String?,
+      url: data.url as String?,
+      note: data.note as String?,
+      labelIds: data.labelIds as String?,
+      isFavorite: (data.isFavorite as int?) ?? 0,
+      lastUpdated: (data.lastUpdated as String?) ?? '',
     );
   }
 
   @override
   Future<List<PhoneContactEntry>> getAll() async {
     final rows = await _db.select(_db.contacts).get();
-    return rows.map(_toEntity).toList();
+    return rows.map(_fromData).toList();
   }
 
   @override
   Future<PhoneContactEntry?> getById(String id) async {
     final row = await (_db.select(_db.contacts)..where((tbl) => tbl.id.equals(id))).getSingleOrNull();
-    return row != null ? _toEntity(row) : null;
+    return row != null ? _fromData(row) : null;
   }
 
   @override
   Future<PhoneContactEntry> save(PhoneContactEntry entity) async {
-    await _db.into(_db.contacts).insertOnConflictUpdate(_toCompanion(entity));
+    final companion = _toCompanion(entity);
+    await _db.into(_db.contacts).insertOnConflictUpdate(companion);
     return entity;
   }
 
@@ -107,7 +116,7 @@ class ContactRepositoryImpl implements ContactRepository {
   Future<bool> addToFavorites(String contactId) async {
     final entry = await getById(contactId);
     if (entry != null) {
-      await save(entry.copyWith(isStarred: true));
+      await save(entry.copyWith(isFavorite: 1));
       return true;
     }
     return false;
@@ -117,7 +126,7 @@ class ContactRepositoryImpl implements ContactRepository {
   Future<bool> removeFromFavorites(String contactId) async {
     final entry = await getById(contactId);
     if (entry != null) {
-      await save(entry.copyWith(isStarred: false));
+      await save(entry.copyWith(isFavorite: 0));
       return true;
     }
     return false;
@@ -140,7 +149,7 @@ class ContactRepositoryImpl implements ContactRepository {
   @override
   Future<PhoneContactEntry?> findContactByPhoneNumber(PhoneNumber phoneNumber) async {
     final row = await (_db.select(_db.contacts)..where((tbl) => tbl.phoneNumber.equals(phoneNumber.value))).getSingleOrNull();
-    return row != null ? _toEntity(row) : null;
+    return row != null ? _fromData(row) : null;
   }
 
   @override

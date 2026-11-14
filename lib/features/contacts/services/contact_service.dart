@@ -313,9 +313,9 @@ class ContactService extends ListService<PhoneContactEntry, String> {
 
       contacts.add(PhoneContactEntry(
         id: map['id'] as String,
-        displayName: map['displayName'] as String,
-        phoneNumbers: List<String>.from(map['phoneNumbers'] as List),
-        photoUrl: avatarPath,
+        name: map['displayName'] as String? ?? map['name'] as String? ?? '',
+        phoneNumber: (map['phoneNumbers'] as List?)?.firstOrNull as String? ?? map['phoneNumber'] as String? ?? '',
+        avatar: avatarPath,
       ));
     }
 
