@@ -191,7 +191,7 @@ class _PurchasePageState extends ConsumerState<PurchasePage> {
         labels: const ['Community Special'],
       ),
 
-      // 6. 激励广告体验卡片 (100% 直接调起 CommercialHub 闭环策略，零二次套壳)
+      // 6. 激励广告体验卡片 (100% 全量使用主 App 原有 .arb 国际化词条)
       ModernPurchaseCard(
         title: l10n.watchAdForTemp,
         description: l10n.watchAdForTempDescription,
@@ -208,7 +208,7 @@ class _PurchasePageState extends ConsumerState<PurchasePage> {
                   );
                 } else if (remaining > 0) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Watch $remaining more ad(s) to unlock VIP')),
+                    SnackBar(content: Text(l10n.grantedTempPurchaseWithExpiry('$remaining', '...'))),
                   );
                 }
               }
@@ -216,7 +216,7 @@ class _PurchasePageState extends ConsumerState<PurchasePage> {
             onError: (error) {
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Failed to play ad: $error')),
+                  SnackBar(content: Text('${l10n.loadDataFailed}: $error')),
                 );
               }
             },
