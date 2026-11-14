@@ -976,13 +976,16 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, PhoneRuleEntity> {
     'isEnabled',
   );
   @override
-  late final GeneratedColumn<int> isEnabled = GeneratedColumn<int>(
+  late final GeneratedColumn<bool> isEnabled = GeneratedColumn<bool>(
     'is_enabled',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.bool,
     requiredDuringInsert: false,
-    defaultValue: const Constant(1),
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_enabled" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
   );
   static const VerificationMeta _patternMeta = const VerificationMeta(
     'pattern',
@@ -1172,7 +1175,7 @@ class $RulesTable extends Rules with TableInfo<$RulesTable, PhoneRuleEntity> {
         data['${effectivePrefix}count'],
       )!,
       isEnabled: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
+        DriftSqlType.bool,
         data['${effectivePrefix}is_enabled'],
       )!,
     );
@@ -1192,7 +1195,7 @@ class RulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
   final Value<String?> labelId;
   final Value<int> priority;
   final Value<String> action;
-  final Value<int> isEnabled;
+  final Value<bool> isEnabled;
   final Value<String?> pattern;
   final Value<String?> avatar;
   final Value<int> isSubscribed;
@@ -1238,7 +1241,7 @@ class RulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
     Expression<String>? labelId,
     Expression<int>? priority,
     Expression<String>? action,
-    Expression<int>? isEnabled,
+    Expression<bool>? isEnabled,
     Expression<String>? pattern,
     Expression<String>? avatar,
     Expression<int>? isSubscribed,
@@ -1270,7 +1273,7 @@ class RulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
     Value<String?>? labelId,
     Value<int>? priority,
     Value<String>? action,
-    Value<int>? isEnabled,
+    Value<bool>? isEnabled,
     Value<String?>? pattern,
     Value<String?>? avatar,
     Value<int>? isSubscribed,
@@ -1319,7 +1322,7 @@ class RulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
       map['action'] = Variable<String>(action.value);
     }
     if (isEnabled.present) {
-      map['is_enabled'] = Variable<int>(isEnabled.value);
+      map['is_enabled'] = Variable<bool>(isEnabled.value);
     }
     if (pattern.present) {
       map['pattern'] = Variable<String>(pattern.value);
@@ -1446,13 +1449,16 @@ class $PhoneRulesTable extends PhoneRules
     'isEnabled',
   );
   @override
-  late final GeneratedColumn<int> isEnabled = GeneratedColumn<int>(
+  late final GeneratedColumn<bool> isEnabled = GeneratedColumn<bool>(
     'is_enabled',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.bool,
     requiredDuringInsert: false,
-    defaultValue: const Constant(1),
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_enabled" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
   );
   static const VerificationMeta _countMeta = const VerificationMeta('count');
   @override
@@ -1627,7 +1633,7 @@ class $PhoneRulesTable extends PhoneRules
         data['${effectivePrefix}count'],
       )!,
       isEnabled: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
+        DriftSqlType.bool,
         data['${effectivePrefix}is_enabled'],
       )!,
     );
@@ -1647,7 +1653,7 @@ class PhoneRulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
   final Value<String?> labelId;
   final Value<int> priority;
   final Value<String> action;
-  final Value<int> isEnabled;
+  final Value<bool> isEnabled;
   final Value<int> count;
   final Value<String?> avatar;
   final Value<String?> subscriptionId;
@@ -1690,7 +1696,7 @@ class PhoneRulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
     Expression<String>? labelId,
     Expression<int>? priority,
     Expression<String>? action,
-    Expression<int>? isEnabled,
+    Expression<bool>? isEnabled,
     Expression<int>? count,
     Expression<String>? avatar,
     Expression<String>? subscriptionId,
@@ -1720,7 +1726,7 @@ class PhoneRulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
     Value<String?>? labelId,
     Value<int>? priority,
     Value<String>? action,
-    Value<int>? isEnabled,
+    Value<bool>? isEnabled,
     Value<int>? count,
     Value<String?>? avatar,
     Value<String?>? subscriptionId,
@@ -1767,7 +1773,7 @@ class PhoneRulesCompanion extends UpdateCompanion<PhoneRuleEntity> {
       map['action'] = Variable<String>(action.value);
     }
     if (isEnabled.present) {
-      map['is_enabled'] = Variable<int>(isEnabled.value);
+      map['is_enabled'] = Variable<bool>(isEnabled.value);
     }
     if (count.present) {
       map['count'] = Variable<int>(count.value);
@@ -1879,13 +1885,16 @@ class $RegexRulesTable extends RegexRules
     'isEnabled',
   );
   @override
-  late final GeneratedColumn<int> isEnabled = GeneratedColumn<int>(
+  late final GeneratedColumn<bool> isEnabled = GeneratedColumn<bool>(
     'is_enabled',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.bool,
     requiredDuringInsert: false,
-    defaultValue: const Constant(1),
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_enabled" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
   );
   static const VerificationMeta _subscriptionIdMeta = const VerificationMeta(
     'subscriptionId',
@@ -2005,7 +2014,7 @@ class $RegexRulesTable extends RegexRules
         data['${effectivePrefix}subscription_id'],
       ),
       isEnabled: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
+        DriftSqlType.bool,
         data['${effectivePrefix}is_enabled'],
       )!,
     );
@@ -2024,7 +2033,7 @@ class RegexRulesCompanion extends UpdateCompanion<RegexRuleEntity> {
   final Value<String> pattern;
   final Value<int> priority;
   final Value<String> action;
-  final Value<int> isEnabled;
+  final Value<bool> isEnabled;
   final Value<String?> subscriptionId;
   final Value<int> rowid;
   const RegexRulesCompanion({
@@ -2058,7 +2067,7 @@ class RegexRulesCompanion extends UpdateCompanion<RegexRuleEntity> {
     Expression<String>? pattern,
     Expression<int>? priority,
     Expression<String>? action,
-    Expression<int>? isEnabled,
+    Expression<bool>? isEnabled,
     Expression<String>? subscriptionId,
     Expression<int>? rowid,
   }) {
@@ -2082,7 +2091,7 @@ class RegexRulesCompanion extends UpdateCompanion<RegexRuleEntity> {
     Value<String>? pattern,
     Value<int>? priority,
     Value<String>? action,
-    Value<int>? isEnabled,
+    Value<bool>? isEnabled,
     Value<String?>? subscriptionId,
     Value<int>? rowid,
   }) {
@@ -2121,7 +2130,7 @@ class RegexRulesCompanion extends UpdateCompanion<RegexRuleEntity> {
       map['action'] = Variable<String>(action.value);
     }
     if (isEnabled.present) {
-      map['is_enabled'] = Variable<int>(isEnabled.value);
+      map['is_enabled'] = Variable<bool>(isEnabled.value);
     }
     if (subscriptionId.present) {
       map['subscription_id'] = Variable<String>(subscriptionId.value);
@@ -5314,13 +5323,16 @@ class $LabelPhonesTable extends LabelPhones
     'isEnabled',
   );
   @override
-  late final GeneratedColumn<int> isEnabled = GeneratedColumn<int>(
+  late final GeneratedColumn<bool> isEnabled = GeneratedColumn<bool>(
     'is_enabled',
     aliasedName,
     false,
-    type: DriftSqlType.int,
+    type: DriftSqlType.bool,
     requiredDuringInsert: false,
-    defaultValue: const Constant(1),
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_enabled" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
   );
   static const VerificationMeta _ruleTypeMeta = const VerificationMeta(
     'ruleType',
@@ -5463,7 +5475,7 @@ class $LabelPhonesTable extends LabelPhones
         data['${effectivePrefix}priority'],
       )!,
       isEnabled: attachedDatabase.typeMapping.read(
-        DriftSqlType.int,
+        DriftSqlType.bool,
         data['${effectivePrefix}is_enabled'],
       )!,
     );
@@ -5484,7 +5496,7 @@ class LabelPhonesCompanion extends UpdateCompanion<LabelPhoneEntry> {
   final Value<String?> avatar;
   final Value<int> priority;
   final Value<String> action;
-  final Value<int> isEnabled;
+  final Value<bool> isEnabled;
   final Value<String> ruleType;
   final Value<int> rowid;
   const LabelPhonesCompanion({
@@ -5524,7 +5536,7 @@ class LabelPhonesCompanion extends UpdateCompanion<LabelPhoneEntry> {
     Expression<String>? avatar,
     Expression<int>? priority,
     Expression<String>? action,
-    Expression<int>? isEnabled,
+    Expression<bool>? isEnabled,
     Expression<String>? ruleType,
     Expression<int>? rowid,
   }) {
@@ -5552,7 +5564,7 @@ class LabelPhonesCompanion extends UpdateCompanion<LabelPhoneEntry> {
     Value<String?>? avatar,
     Value<int>? priority,
     Value<String>? action,
-    Value<int>? isEnabled,
+    Value<bool>? isEnabled,
     Value<String>? ruleType,
     Value<int>? rowid,
   }) {
@@ -5599,7 +5611,7 @@ class LabelPhonesCompanion extends UpdateCompanion<LabelPhoneEntry> {
       map['action'] = Variable<String>(action.value);
     }
     if (isEnabled.present) {
-      map['is_enabled'] = Variable<int>(isEnabled.value);
+      map['is_enabled'] = Variable<bool>(isEnabled.value);
     }
     if (ruleType.present) {
       map['rule_type'] = Variable<String>(ruleType.value);
@@ -7604,7 +7616,7 @@ typedef $$RulesTableCreateCompanionBuilder =
       Value<String?> labelId,
       Value<int> priority,
       Value<String> action,
-      Value<int> isEnabled,
+      Value<bool> isEnabled,
       Value<String?> pattern,
       Value<String?> avatar,
       Value<int> isSubscribed,
@@ -7620,7 +7632,7 @@ typedef $$RulesTableUpdateCompanionBuilder =
       Value<String?> labelId,
       Value<int> priority,
       Value<String> action,
-      Value<int> isEnabled,
+      Value<bool> isEnabled,
       Value<String?> pattern,
       Value<String?> avatar,
       Value<int> isSubscribed,
@@ -7672,7 +7684,7 @@ class $$RulesTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get isEnabled => $composableBuilder(
+  ColumnFilters<bool> get isEnabled => $composableBuilder(
     column: $table.isEnabled,
     builder: (column) => ColumnFilters(column),
   );
@@ -7742,7 +7754,7 @@ class $$RulesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get isEnabled => $composableBuilder(
+  ColumnOrderings<bool> get isEnabled => $composableBuilder(
     column: $table.isEnabled,
     builder: (column) => ColumnOrderings(column),
   );
@@ -7800,7 +7812,7 @@ class $$RulesTableAnnotationComposer
   GeneratedColumn<String> get action =>
       $composableBuilder(column: $table.action, builder: (column) => column);
 
-  GeneratedColumn<int> get isEnabled =>
+  GeneratedColumn<bool> get isEnabled =>
       $composableBuilder(column: $table.isEnabled, builder: (column) => column);
 
   GeneratedColumn<String> get pattern =>
@@ -7856,7 +7868,7 @@ class $$RulesTableTableManager
                 Value<String?> labelId = const Value.absent(),
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
-                Value<int> isEnabled = const Value.absent(),
+                Value<bool> isEnabled = const Value.absent(),
                 Value<String?> pattern = const Value.absent(),
                 Value<String?> avatar = const Value.absent(),
                 Value<int> isSubscribed = const Value.absent(),
@@ -7886,7 +7898,7 @@ class $$RulesTableTableManager
                 Value<String?> labelId = const Value.absent(),
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
-                Value<int> isEnabled = const Value.absent(),
+                Value<bool> isEnabled = const Value.absent(),
                 Value<String?> pattern = const Value.absent(),
                 Value<String?> avatar = const Value.absent(),
                 Value<int> isSubscribed = const Value.absent(),
@@ -7950,7 +7962,7 @@ typedef $$PhoneRulesTableCreateCompanionBuilder =
       Value<String?> labelId,
       Value<int> priority,
       Value<String> action,
-      Value<int> isEnabled,
+      Value<bool> isEnabled,
       Value<int> count,
       Value<String?> avatar,
       Value<String?> subscriptionId,
@@ -7965,7 +7977,7 @@ typedef $$PhoneRulesTableUpdateCompanionBuilder =
       Value<String?> labelId,
       Value<int> priority,
       Value<String> action,
-      Value<int> isEnabled,
+      Value<bool> isEnabled,
       Value<int> count,
       Value<String?> avatar,
       Value<String?> subscriptionId,
@@ -8016,7 +8028,7 @@ class $$PhoneRulesTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get isEnabled => $composableBuilder(
+  ColumnFilters<bool> get isEnabled => $composableBuilder(
     column: $table.isEnabled,
     builder: (column) => ColumnFilters(column),
   );
@@ -8081,7 +8093,7 @@ class $$PhoneRulesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get isEnabled => $composableBuilder(
+  ColumnOrderings<bool> get isEnabled => $composableBuilder(
     column: $table.isEnabled,
     builder: (column) => ColumnOrderings(column),
   );
@@ -8134,7 +8146,7 @@ class $$PhoneRulesTableAnnotationComposer
   GeneratedColumn<String> get action =>
       $composableBuilder(column: $table.action, builder: (column) => column);
 
-  GeneratedColumn<int> get isEnabled =>
+  GeneratedColumn<bool> get isEnabled =>
       $composableBuilder(column: $table.isEnabled, builder: (column) => column);
 
   GeneratedColumn<int> get count =>
@@ -8187,7 +8199,7 @@ class $$PhoneRulesTableTableManager
                 Value<String?> labelId = const Value.absent(),
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
-                Value<int> isEnabled = const Value.absent(),
+                Value<bool> isEnabled = const Value.absent(),
                 Value<int> count = const Value.absent(),
                 Value<String?> avatar = const Value.absent(),
                 Value<String?> subscriptionId = const Value.absent(),
@@ -8215,7 +8227,7 @@ class $$PhoneRulesTableTableManager
                 Value<String?> labelId = const Value.absent(),
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
-                Value<int> isEnabled = const Value.absent(),
+                Value<bool> isEnabled = const Value.absent(),
                 Value<int> count = const Value.absent(),
                 Value<String?> avatar = const Value.absent(),
                 Value<String?> subscriptionId = const Value.absent(),
@@ -8276,7 +8288,7 @@ typedef $$RegexRulesTableCreateCompanionBuilder =
       required String pattern,
       Value<int> priority,
       Value<String> action,
-      Value<int> isEnabled,
+      Value<bool> isEnabled,
       Value<String?> subscriptionId,
       Value<int> rowid,
     });
@@ -8288,7 +8300,7 @@ typedef $$RegexRulesTableUpdateCompanionBuilder =
       Value<String> pattern,
       Value<int> priority,
       Value<String> action,
-      Value<int> isEnabled,
+      Value<bool> isEnabled,
       Value<String?> subscriptionId,
       Value<int> rowid,
     });
@@ -8332,7 +8344,7 @@ class $$RegexRulesTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get isEnabled => $composableBuilder(
+  ColumnFilters<bool> get isEnabled => $composableBuilder(
     column: $table.isEnabled,
     builder: (column) => ColumnFilters(column),
   );
@@ -8382,7 +8394,7 @@ class $$RegexRulesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get isEnabled => $composableBuilder(
+  ColumnOrderings<bool> get isEnabled => $composableBuilder(
     column: $table.isEnabled,
     builder: (column) => ColumnOrderings(column),
   );
@@ -8420,7 +8432,7 @@ class $$RegexRulesTableAnnotationComposer
   GeneratedColumn<String> get action =>
       $composableBuilder(column: $table.action, builder: (column) => column);
 
-  GeneratedColumn<int> get isEnabled =>
+  GeneratedColumn<bool> get isEnabled =>
       $composableBuilder(column: $table.isEnabled, builder: (column) => column);
 
   GeneratedColumn<String> get subscriptionId => $composableBuilder(
@@ -8466,7 +8478,7 @@ class $$RegexRulesTableTableManager
                 Value<String> pattern = const Value.absent(),
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
-                Value<int> isEnabled = const Value.absent(),
+                Value<bool> isEnabled = const Value.absent(),
                 Value<String?> subscriptionId = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => RegexRulesCompanion(
@@ -8488,7 +8500,7 @@ class $$RegexRulesTableTableManager
                 required String pattern,
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
-                Value<int> isEnabled = const Value.absent(),
+                Value<bool> isEnabled = const Value.absent(),
                 Value<String?> subscriptionId = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => RegexRulesCompanion.insert(
@@ -10150,7 +10162,7 @@ typedef $$LabelPhonesTableCreateCompanionBuilder =
       Value<String?> avatar,
       Value<int> priority,
       Value<String> action,
-      Value<int> isEnabled,
+      Value<bool> isEnabled,
       Value<String> ruleType,
       Value<int> rowid,
     });
@@ -10164,7 +10176,7 @@ typedef $$LabelPhonesTableUpdateCompanionBuilder =
       Value<String?> avatar,
       Value<int> priority,
       Value<String> action,
-      Value<int> isEnabled,
+      Value<bool> isEnabled,
       Value<String> ruleType,
       Value<int> rowid,
     });
@@ -10218,7 +10230,7 @@ class $$LabelPhonesTableFilterComposer
     builder: (column) => ColumnFilters(column),
   );
 
-  ColumnFilters<int> get isEnabled => $composableBuilder(
+  ColumnFilters<bool> get isEnabled => $composableBuilder(
     column: $table.isEnabled,
     builder: (column) => ColumnFilters(column),
   );
@@ -10278,7 +10290,7 @@ class $$LabelPhonesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
-  ColumnOrderings<int> get isEnabled => $composableBuilder(
+  ColumnOrderings<bool> get isEnabled => $composableBuilder(
     column: $table.isEnabled,
     builder: (column) => ColumnOrderings(column),
   );
@@ -10324,7 +10336,7 @@ class $$LabelPhonesTableAnnotationComposer
   GeneratedColumn<String> get action =>
       $composableBuilder(column: $table.action, builder: (column) => column);
 
-  GeneratedColumn<int> get isEnabled =>
+  GeneratedColumn<bool> get isEnabled =>
       $composableBuilder(column: $table.isEnabled, builder: (column) => column);
 
   GeneratedColumn<String> get ruleType =>
@@ -10370,7 +10382,7 @@ class $$LabelPhonesTableTableManager
                 Value<String?> avatar = const Value.absent(),
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
-                Value<int> isEnabled = const Value.absent(),
+                Value<bool> isEnabled = const Value.absent(),
                 Value<String> ruleType = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => LabelPhonesCompanion(
@@ -10396,7 +10408,7 @@ class $$LabelPhonesTableTableManager
                 Value<String?> avatar = const Value.absent(),
                 Value<int> priority = const Value.absent(),
                 Value<String> action = const Value.absent(),
-                Value<int> isEnabled = const Value.absent(),
+                Value<bool> isEnabled = const Value.absent(),
                 Value<String> ruleType = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => LabelPhonesCompanion.insert(
