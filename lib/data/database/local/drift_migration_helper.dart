@@ -70,8 +70,8 @@ class _DriftMigrationHelper {
               name: row.read<String?>('name') ?? 'Blocked Number',
               ruleType: 'blacklist',
               // ✅ 可空/有默认值字段，用 Value() 包装
-              phoneNumber: Value(row.read<String?>('phoneNumber')),
-              labelId: Value(row.read<String?>('label')),
+              phoneNumber: Value(row.read<String?>('phoneNumber') ?? ''),
+              labelId: Value(row.read<String?>('label') ?? ''),
               priority: const Value(10),
               action: const Value('block'),
               avatar: Value(row.read<String?>('avatar')),
@@ -90,8 +90,8 @@ class _DriftMigrationHelper {
               name: row.read<String?>('name') ?? 'Allowed Number',
               ruleType: 'whitelist',
               // ✅ 可空/有默认值字段，用 Value() 包装
-              phoneNumber: Value(row.read<String?>('phoneNumber')),
-              labelId: Value(row.read<String?>('label')),
+              phoneNumber: Value(row.read<String?>('phoneNumber') ?? ''),
+              labelId: Value(row.read<String?>('label') ?? ''),
               priority: const Value(20),
               action: const Value('allow'),
               avatar: Value(row.read<String?>('avatar')),
@@ -113,8 +113,8 @@ class _DriftMigrationHelper {
               ruleType: 'sms_regex',
               action: const Value('block'),
               // ✅ 可空/有默认值字段，用 Value() 包装
-              phoneNumber: Value(row.read<String>('phoneNumber')),
-              labelId: Value(row.read<String?>('label')),
+              phoneNumber: Value(row.read<String?>('phoneNumber') ?? ''),
+              labelId: Value(row.read<String?>('label') ?? ''),
               pattern: Value('.*${row.read<String?>('keyword') ?? ''}.*'),
               priority: const Value(15),
               avatar: Value(row.read<String?>('avatar')),
@@ -136,8 +136,8 @@ class _DriftMigrationHelper {
               ruleType: 'sms_regex',
               action: const Value('allow'),
               // ✅ 可空/有默认值字段，用 Value() 包装
-              phoneNumber: Value(row.read<String>('phoneNumber')),
-              labelId: Value(row.read<String?>('label')),
+              phoneNumber: Value(row.read<String?>('phoneNumber') ?? ''),
+              labelId: Value(row.read<String?>('label') ?? ''),
               pattern: Value('.*${row.read<String?>('keyword') ?? ''}.*'),
               priority: const Value(25),
               avatar: Value(row.read<String?>('avatar')),

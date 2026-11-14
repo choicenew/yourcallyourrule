@@ -33,7 +33,7 @@ class RuleRepositoryImpl implements RuleRepository {
       priority: Value((map['priority'] as int?) ?? 100),
       count: Value((map['count'] as int?) ?? 0),
       isEnabled: Value(map['isEnabled'] as bool? ?? true),
-      labelId: Value(map['labelId'] as String?),
+      labelId: Value((map['labelId'] as String?) ?? ''),
       avatar: Value(map['avatar'] as String?),
       subscriptionId: Value(map['subscriptionId'] as String?),
     );
