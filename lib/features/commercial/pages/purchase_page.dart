@@ -2,6 +2,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
+import 'package:pyro_ads_protocol/pyro_ads_protocol.dart';
 import 'package:yourcallyourrule/features/commercial/widgets/modern_purchase_card.dart';
 import 'package:yourcallyourrule/features/commercial/pages/vip_exchange_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -84,7 +85,7 @@ class _PurchasePageState extends ConsumerState<PurchasePage> {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(l10n.rules, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+              child: Text(l10n.basicRuleFilter, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
             ),
             const Padding(
               padding: EdgeInsets.all(8.0),
@@ -100,7 +101,7 @@ class _PurchasePageState extends ConsumerState<PurchasePage> {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(l10n.cloudDrive, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+              child: Text('Cloud Drive', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
             ),
             const Padding(
               padding: EdgeInsets.all(8.0),

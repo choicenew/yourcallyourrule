@@ -11,14 +11,14 @@ class SimSlotRuleFilterWidget extends StatelessWidget {
   final int simSlotIndex;
   final Map<CallFilterType, bool> filterEnabledMap;
   final List<Map<String, dynamic>> simSlotRules;
-  final Function(CallFilterType, bool) onToggleFilterEnabled;
+  final Function(CallFilterType, bool)? onToggleFilterEnabled;
 
   const SimSlotRuleFilterWidget({
     super.key,
     required this.simSlotIndex,
-    required this.filterEnabledMap,
-    required this.simSlotRules,
-    required this.onToggleFilterEnabled,
+    this.filterEnabledMap = const {},
+    this.simSlotRules = const [],
+    this.onToggleFilterEnabled,
   });
 
   @override

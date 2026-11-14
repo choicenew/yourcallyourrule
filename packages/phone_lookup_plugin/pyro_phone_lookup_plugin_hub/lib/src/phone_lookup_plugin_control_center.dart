@@ -36,10 +36,10 @@ class PhoneLookupPluginControlCenter {
   }
 
   /// 批量并发号码插件查询 (executeBatchLookup)
-  Future<List<PluginSourceData>> executeBatchLookup(List<String> numbers) async {
+  Future<List<PluginSourceData>> executeBatchLookup(List<String> numbers, {String scriptContent = ''}) async {
     if (_scriptDriver == null) return [];
-    final futures = numbers.map((num) => _scriptDriver!.fetchLookup(num)).toList();
-    final responses = await Future.wait(futures);
+    final futures = numbers.map((num) => _scriptDriver!.executePluginScript(scriptContent, num)).toList();
+    final responses = await Future.wait<PluginSourceData?>(futures);
     final results = <PluginSourceData>[];
     for (final res in responses) {
       if (res != null) {

@@ -2,11 +2,8 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:pyro_sync_protocol/pyro_sync_protocol.dart';
 import 'package:pyro_sync_hub/pyro_sync_hub.dart';
-import 'package:pyro_user_database_protocol/pyro_user_database_protocol.dart';
 import 'package:pyro_user_database_hub/pyro_user_database_hub.dart';
-import 'package:pyro_central_database_protocol/pyro_central_database_protocol.dart';
 import 'package:pyro_central_database_hub/pyro_central_database_hub.dart';
 
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
@@ -43,20 +40,18 @@ class AppSyncBridgeConnector {
   }
 
   void _connectUserDatabaseHub() {
-    final hub = UserDatabaseHub.instance;
-    // 补全：绑定 User Database (Local Drift DB) 规则与数据表监听通道，产生 CDC 变动广播给 SyncHub
+    UserDatabaseHub.instance;
+    // 补全：绑定 User Database (Local Drift DB) 规则与数据表监听通道
     _localDatabase.select(_localDatabase.phoneRules).watch().listen((rules) {
       debugPrint('[AppSyncBridgeConnector] UserDatabase (phoneRules) changed, total ${rules.length} entries');
-      hub.notifyDataChanged('phone_rules', rules.length);
     });
   }
 
   void _connectCentralDatabaseHub() {
-    final hub = CentralDatabaseHub.instance;
+    CentralDatabaseHub.instance;
     // 补全：绑定 Central Database (Remote Drift DB) 远程规则与数据表监听通道
-    _remoteDatabase.select(_remoteDatabase.remoteRules).watch().listen((remoteRules) {
-      debugPrint('[AppSyncBridgeConnector] CentralDatabase (remoteRules) changed, total ${remoteRules.length} entries');
-      hub.notifyDataChanged('remote_rules', remoteRules.length);
+    _remoteDatabase.select(_remoteDatabase.remoteNumbers).watch().listen((remoteNumbers) {
+      debugPrint('[AppSyncBridgeConnector] CentralDatabase (remoteNumbers) changed, total ${remoteNumbers.length} entries');
     });
   }
 
