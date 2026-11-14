@@ -3,7 +3,7 @@ import 'dart:isolate';
 
 import 'package:flutter/foundation.dart';
 import 'package:dlibphonenumber/dlibphonenumber.dart';
-import 'package:sim_reader/sim_reader.dart';
+import 'package:pyro_sim_hub/pyro_sim_hub.dart';
 
 import 'package:yourcallyourrule/features/common/error/logger.dart';
 
@@ -82,7 +82,7 @@ class PhoneUtils {
     // 如果没有提供SIM国家代码，且不是国际号码，在主线程尝试从设备获取
     if (simCountryCode == null && !phoneNumber.startsWith('+') && !phoneNumber.startsWith('00')) {
       try {
-        List<SimInfo> simInfoList = await SimReader.getAllSimInfo();
+        final simInfoList = await SimHub.instance.getActiveSimCards();
         simCountryCodes =
             simInfoList.map((sim) => sim.countryCode ?? '')
                        .where((code) => code.isNotEmpty)

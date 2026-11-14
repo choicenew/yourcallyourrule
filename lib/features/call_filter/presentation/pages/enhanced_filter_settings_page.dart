@@ -1,6 +1,6 @@
 ﻿import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sim_reader/sim_reader.dart';
+import 'package:pyro_sim_hub/pyro_sim_hub.dart';
 
 import 'package:yourcallyourrule/features/call_filter/presentation/widgets/enhanced_composite_filter_settings_widget.dart';
 import 'package:yourcallyourrule/features/call_filter/presentation/pages/sim_slot_rule_filter_page.dart';

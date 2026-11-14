@@ -50,8 +50,10 @@ import 'package:pyro_phone_caller_identity_connector/pyro_phone_caller_identity_
 import 'package:pyro_phone_call_monitor_connector/pyro_phone_call_monitor_connector.dart';
 import 'package:pyro_phone_call_coordinator_connector/pyro_phone_call_coordinator_connector.dart';
 import 'package:pyro_phone_marking_connector/pyro_phone_marking_connector.dart';
+import 'package:pyro_sim_connector/pyro_sim_connector.dart';
 
 void _initPackageConnectors() {
+  SimConnectors.ensureMounted();
   TelephonyConnectors.ensureMounted();
   CallRedirectionConnectors.ensureMounted();
   CallScreeningConnectors.ensureMounted();

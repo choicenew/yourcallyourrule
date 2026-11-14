@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dlibphonenumber/locale.dart' as dlibphone;
-import 'package:sim_reader/sim_reader.dart';
+import 'package:pyro_sim_hub/pyro_sim_hub.dart';
 
 import 'package:yourcallyourrule/features/phone_subscription/utils/phone_utils.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
@@ -51,7 +51,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
 
     // 1. 优先读取 SIM 卡国家（支持单卡与双卡）
     try {
-      final simInfoList = await SimReader.getAllSimInfo();
+      final simInfoList = await SimHub.instance.getActiveSimCards();
       for (final sim in simInfoList) {
         final code = sim.countryCode?.trim().toUpperCase();
         if (code != null && code.isNotEmpty && !candidates.contains(code)) {

@@ -4,8 +4,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:http/http.dart' as http;
-import 'package:sim_reader/sim_reader.dart';
-import 'package:sim_card_code/sim_card_code.dart' hide NetworkInfo;
+import 'package:pyro_sim_hub/pyro_sim_hub.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:crypto/crypto.dart';
 
@@ -34,8 +33,8 @@ class IpInfo {
 }
 
 class RawDeviceProfile {
-  final SimInfo? simInfo;
-  final NetworkInfo? networkInfo;
+  final SimCardEntity? simInfo;
+  final NetworkInfoEntity? networkInfo;
   final String? deviceId;
   final String? hashedDeviceId;
   final IpInfo? ipInfo;
@@ -72,18 +71,19 @@ class DeviceProfileService {
   Future<RawDeviceProfile> getRawProfile() async {
     if (!await requestPermissions()) throw Exception('Phone permission is required.');
     try {
-      final results = await Future.wait([
-        SimReader.getSimInfo(),
-        SimReader.getNetworkInfo(),
-        SimCardManager.deviceId,
-        _getIpInfo(),
-        SimCardManager.simState,
-      ]);
-      final deviceId = results[2] as String?;
+      final simCards = await SimHub.instance.getActiveSimCards();
+      final networkInfo = await SimHub.instance.getNetworkInfo();
+      final ipInfo = await _getIpInfo();
+      final firstSim = simCards.isNotEmpty ? simCards.first : null;
+      final deviceId = firstSim?.subscriptionId.toString();
+
       return RawDeviceProfile(
-        simInfo: results[0] as SimInfo?, networkInfo: results[1] as NetworkInfo?,
-        deviceId: deviceId, hashedDeviceId: _hashDeviceId(deviceId),
-        ipInfo: results[3] as IpInfo?, simState: results[4] as String?,
+        simInfo: firstSim,
+        networkInfo: networkInfo,
+        deviceId: deviceId,
+        hashedDeviceId: _hashDeviceId(deviceId),
+        ipInfo: ipInfo,
+        simState: firstSim?.state.name ?? 'absent',
       );
     } catch (e) {
       if (kDebugMode) {

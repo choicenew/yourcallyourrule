@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sim_reader/sim_reader.dart';
+import 'package:pyro_sim_hub/pyro_sim_hub.dart';
 import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
 import 'package:yourcallyourrule/features/deletion_proposer/models/server_verification_report.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/models/sync_payload.dart';
@@ -51,7 +51,20 @@ void main() {
       final rawProfile = RawDeviceProfile(
         hashedDeviceId: 'hash_999',
         simState: 'READY',
-        simInfo: SimInfo(isNetworkRoaming: false, countryCode: 'CN', phoneNumber: '+8613800138000'),
+        simInfo: SimCardEntity(
+          subscriptionId: 0,
+          slotIndex: SimSlotIndex.slot1,
+          state: SimStateType.ready,
+          phoneNumber: '+8613800138000',
+          iccId: '',
+          carrier: SimCarrierEntity(
+            displayName: 'China Mobile',
+            carrierName: 'China Mobile',
+            countryIso: 'CN',
+            mcc: '460',
+            mnc: '00',
+          ),
+        ),
         ipInfo: IpInfo(countryCode: 'CN'),
       );
 

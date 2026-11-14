@@ -24,6 +24,15 @@ class SimCardEntity {
     required this.carrier,
   });
 
+  /// Compatibility getters for seamless migration from sim_reader
+  int get simSlotIndex => slotIndex.rawIndex;
+  String? get carrierName => carrier.carrierName.isNotEmpty ? carrier.carrierName : carrier.displayName;
+  String? get displayName => carrier.displayName.isNotEmpty ? carrier.displayName : carrier.carrierName;
+  String? get countryCode => carrier.countryIso;
+  String get simPhoneNumber => phoneNumber;
+  String get mcc => carrier.mcc;
+  String get mnc => carrier.mnc;
+
   Map<String, dynamic> toMap() {
     return {
       'subscriptionId': subscriptionId,
