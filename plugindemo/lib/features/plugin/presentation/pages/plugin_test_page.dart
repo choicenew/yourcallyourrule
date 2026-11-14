@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:plugindemo/core/entities/plugin/plugin_entry.dart';
 import 'package:plugindemo/features/plugin/presentation/pages/plugin_url_webview_page.dart';

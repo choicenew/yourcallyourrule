@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';

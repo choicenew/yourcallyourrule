@@ -1,6 +1,6 @@
 library pyro_phone_call_monitor_ui;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_call_monitor_protocol/pyro_phone_call_monitor_protocol.dart';
 
 /// 通道事件 ListTile 组件

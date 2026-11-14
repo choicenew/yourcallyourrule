@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 系统主题 · 社区威胁情报与 VIP 战报指挥舱 Hero 独立解耦组件 (100% 真实数据 + 100% i18n)

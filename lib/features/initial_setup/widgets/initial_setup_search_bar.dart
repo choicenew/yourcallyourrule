@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 搜索与批量选择控制条组件：支持海量规则实时模糊匹配与一键全选/取消全选

@@ -1,6 +1,6 @@
-﻿// features/notifications/presentation/pages/notifications_page.dart
+// features/notifications/presentation/pages/notifications_page.dart
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/notifications/providers/notification_history_provider.dart';
 import 'package:yourcallyourrule/features/notifications/service/notification_manager.dart';

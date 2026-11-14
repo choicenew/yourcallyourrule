@@ -1,5 +1,5 @@
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';
 
 /// 搜索结果类型工具类

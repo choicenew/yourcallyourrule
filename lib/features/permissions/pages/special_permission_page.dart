@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/permissions/widgets/battery_optimization_permission_widget.dart';
 import 'package:yourcallyourrule/features/permissions/widgets/call_screening_permission_widget.dart';

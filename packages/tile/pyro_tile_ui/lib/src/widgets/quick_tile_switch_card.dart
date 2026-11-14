@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:pyro_tile_protocol/pyro_tile_protocol.dart';
 
 /// Card component allowing users to add or toggle Quick Settings Tile.

@@ -15,10 +15,11 @@ dependencies:
   pyro_call_redirection_hub:
     path: ../pyro_call_redirection_hub
 
+  material_ui: any
+  flutter_riverpod: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_riverpod: ^3.0.3
   flutter_lints: ^6.0.0
 
 flutter:

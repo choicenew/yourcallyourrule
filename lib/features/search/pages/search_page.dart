@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/search/providers/search_provider.dart';
 import 'package:yourcallyourrule/features/search/services/search_service.dart';

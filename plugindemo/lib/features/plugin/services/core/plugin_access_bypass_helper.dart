@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:collection';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'bypass_scripts.dart';
 

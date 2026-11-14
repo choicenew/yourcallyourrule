@@ -15,6 +15,7 @@ dependencies:
   pyro_theme_hub:
     path: ../pyro_theme_hub
 
+  material_ui: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

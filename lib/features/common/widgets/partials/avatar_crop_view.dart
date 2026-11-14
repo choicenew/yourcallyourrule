@@ -1,9 +1,9 @@
-﻿import 'dart:io';
+import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:crop_image/crop_image.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class AvatarCropView extends StatefulWidget {

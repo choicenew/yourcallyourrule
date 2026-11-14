@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:plugindemo/core/entities/plugin/plugin_entry.dart';
 import 'package:plugindemo/features/plugin/services/plugin_invoker_service.dart';
 import 'package:plugindemo/features/plugin/services/plugin_url_execution_service.dart';

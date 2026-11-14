@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:yourcallyourrule/theme/dopamine_theme_extension.dart';
 
 /// App 全局主题控制配置（主题包内部闭环整合，单一事实源：DopamineThemeExtension）

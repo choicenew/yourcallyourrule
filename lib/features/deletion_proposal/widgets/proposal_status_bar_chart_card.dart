@@ -1,5 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/deletion_proposal_provider.dart';

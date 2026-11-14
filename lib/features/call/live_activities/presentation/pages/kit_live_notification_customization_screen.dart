@@ -1,8 +1,8 @@
-﻿// lib/features/call/live_activities/presentation/pages/kit_live_notification_customization_screen.dart
+// lib/features/call/live_activities/presentation/pages/kit_live_notification_customization_screen.dart
 /// [New Version / 现代版本] 针对 live_activity_kit 灵动岛与 Android 实时通知的专属独立自定义与测试控制台
 library;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';

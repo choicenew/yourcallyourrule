@@ -1,6 +1,6 @@
 library pyro_phone_call_overlay_ui;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_call_overlay_protocol/pyro_phone_call_overlay_protocol.dart';
 
 /// 悬浮窗配置 ListTile 组件

@@ -1,6 +1,6 @@
 library pyro_phone_live_activities_ui;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_live_activities_protocol/pyro_phone_live_activities_protocol.dart';
 
 /// 灵动岛预览 ListTile 组件

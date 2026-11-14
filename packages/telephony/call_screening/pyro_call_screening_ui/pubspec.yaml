@@ -15,6 +15,7 @@ dependencies:
   pyro_call_screening_hub:
     path: ../pyro_call_screening_hub
 
+  material_ui: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

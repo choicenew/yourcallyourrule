@@ -1,5 +1,5 @@
-﻿import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/material.dart';
+import 'package:fl_chart/fl_chart.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class BlockedCallsChart extends StatelessWidget {

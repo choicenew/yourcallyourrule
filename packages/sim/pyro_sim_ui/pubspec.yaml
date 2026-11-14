@@ -15,6 +15,7 @@ dependencies:
   pyro_sim_hub:
     path: ../pyro_sim_hub
 
+  material_ui: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,6 +1,6 @@
 library pyro_phone_rules_ui;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 
 export 'src/dialogs/regex_ai_skills_dialog.dart';

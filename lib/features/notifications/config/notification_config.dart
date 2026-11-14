@@ -1,6 +1,6 @@
 // core/services/notification_config.dart
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 /// 通知配置数据类

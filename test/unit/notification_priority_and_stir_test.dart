@@ -1,5 +1,5 @@
 import 'package:dlibphonenumber/enums/phone_number_type.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yourcallyourrule/core/entities/call/stir_info.dart';
 import 'package:yourcallyourrule/features/call/caller_id/core/extensions/phone_number_type_extension.dart';

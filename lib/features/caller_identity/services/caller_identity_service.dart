@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:dlibphonenumber/dlibphonenumber.dart';
-import 'package:flutter/material.dart' hide Locale;
+import 'package:material_ui/material_ui.dart' hide Locale;
 import 'package:flutter_contacts/flutter_contacts.dart' as fluttercontact;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:rxdart/rxdart.dart';

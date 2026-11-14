@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';

@@ -3,7 +3,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call/live_activities/live_activity_config/live_notification_config.dart';

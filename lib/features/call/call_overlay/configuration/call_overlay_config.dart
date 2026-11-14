@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:yourcallyourrule/features/common/utils/color_converter.dart';
 import 'package:yourcallyourrule/features/common/utils/offset_converter.dart';

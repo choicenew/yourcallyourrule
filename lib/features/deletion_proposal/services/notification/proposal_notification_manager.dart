@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'package:yourcallyourrule/features/deletion_proposal/services/deletion_proposal_service.dart';
 import 'deletion_proposal_notification_service.dart';

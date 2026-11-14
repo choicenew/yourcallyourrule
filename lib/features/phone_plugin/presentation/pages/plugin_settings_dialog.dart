@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/features/phone_plugin/services/plugin_invoker_service.dart';
 import 'package:yourcallyourrule/features/phone_plugin/services/plugin_url_execution_service.dart';

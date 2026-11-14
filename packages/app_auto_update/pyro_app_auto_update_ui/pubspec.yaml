@@ -17,6 +17,7 @@ dependencies:
   pyro_app_auto_update_hub:
     path: ../pyro_app_auto_update_hub
 
+  material_ui: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

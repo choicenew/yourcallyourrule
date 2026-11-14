@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Flutter 官方标准 `ThemeExtension` 实现的多巴胺主题配置
 /// 

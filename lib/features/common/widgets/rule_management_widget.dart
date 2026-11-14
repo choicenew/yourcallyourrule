@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 
 /// 规则管理通用 UI 挂载组件

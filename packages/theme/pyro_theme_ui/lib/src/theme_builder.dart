@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:pyro_theme_hub/pyro_theme_hub.dart';
 
 /// Builder widget that rebuilds MaterialApp whenever ThemeHub settings change.

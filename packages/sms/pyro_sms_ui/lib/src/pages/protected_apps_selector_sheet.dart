@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 import '../l10n/sms_localizations.dart';
 

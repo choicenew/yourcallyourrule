@@ -448,6 +448,9 @@ dependencies:
   pyro_config_remote:
     path: packages/config/pyro_config_remote
 
+  material_ui: any
+  cupertino_ui: any
+  http: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -461,6 +464,7 @@ dev_dependencies:
   live_activity_setup_generator:
     path: local_plugins/live_activity_setup_generator
 
+  html: any
 flutter:
   assets:
     - assets/avatars/

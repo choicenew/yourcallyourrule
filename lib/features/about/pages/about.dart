@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:pyro_about/pyro_about.dart' as pkg_about;
 
 /// 主 App 关于页面 —— 全量直接调配与消费 pyro_about 微包组件

@@ -1,8 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:pyro_app_launch_guard/pyro_app_launch_guard.dart';
@@ -24,17 +23,19 @@ import 'package:yourcallyourrule/features/language/provider/language_provider.da
 import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
 import 'package:yourcallyourrule/features/widgets/services/app_widget_sync_service.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
-import 'package:yourcallyourrule/features/onboarding/pages/onboarding_page.dart';
-import 'package:yourcallyourrule/features/onboarding/services/onboarding_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/theme/app_theme.dart';
 import 'package:yourcallyourrule/theme/theme_provider.dart';
 
 Future<void> main() async {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  WidgetsFlutterBinding.ensureInitialized();
 
-  // === 一行调起独立文件的全量 Connector 注册 ===
+  // === 一行控制 commercial pyro_app_launch_guard 开屏 Splash 门禁 ===
+  PyroAppLaunchGuard.attach(
+    splashBuilder: (context) => const SplashScreen(),
+  );
+
+  // === 独立文件 33 个微包 Connector 自动挂载 ===
   initPackageConnectors();
 
   try {
@@ -70,9 +71,6 @@ Future<void> main() async {
     container.read(overlayControlHandlerProvider);
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // 第一帧绘制完成后平滑移除原生 Splash，绝不提前移除导致真机黑屏
-      FlutterNativeSplash.remove();
-
       container.read(locationSyncServiceProvider);
 
       container.read(labelStreamSyncServiceProvider);
@@ -100,7 +98,6 @@ Future<void> main() async {
     } catch (_) {
       // 忽略
     }
-    FlutterNativeSplash.remove();
   }
 }
 
@@ -142,23 +139,6 @@ class MyApp extends ConsumerWidget {
 
     return MaterialApp.router(
       title: 'Your Call Your Rule',
-      builder: PyroAppLaunchGuard.builder(
-        splashBuilder: (context) => const SplashScreen(),
-        config: LaunchConfig(
-          shouldShowOnboardingCheck: () async {
-            final onboardingService = ref.read(onboardingServiceProvider);
-            final isCompleted = await onboardingService.isOnboardingCompleted();
-            return !isCompleted;
-          },
-          onOnboardingCompletedSaveCallback: () async {
-            final onboardingService = ref.read(onboardingServiceProvider);
-            await onboardingService.completeOnboarding();
-          },
-        ),
-        onboardingBuilder: (context, onComplete) {
-          return OnboardingPage(onComplete: onComplete);
-        },
-      ),
       theme: AppTheme.buildLightTheme(seedColor: themeColor),
       darkTheme: AppTheme.buildDarkTheme(seedColor: themeColor),
       themeMode: themeMode,

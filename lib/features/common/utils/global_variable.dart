@@ -1,5 +1,5 @@
 // global.dart
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 Locale? currentLocale; 
 // 全局变量，在任何地方都可以访问

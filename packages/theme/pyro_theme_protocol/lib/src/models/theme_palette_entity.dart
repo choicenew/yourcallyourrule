@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Strongly typed Material 3 Theme Palette contract.
 class ThemePaletteEntity {

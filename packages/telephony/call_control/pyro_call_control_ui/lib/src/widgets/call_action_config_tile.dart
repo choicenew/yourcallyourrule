@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:pyro_call_control_protocol/pyro_call_control_protocol.dart';
 
 /// Interactive UI tile for configuring action behavior.

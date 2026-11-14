@@ -15,6 +15,7 @@ dependencies:
   pyro_stir_hub:
     path: ../pyro_stir_hub
 
+  material_ui: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

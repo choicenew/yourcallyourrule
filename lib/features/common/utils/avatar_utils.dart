@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// 头像工具类
 /// 用于处理头像图片的显示逻辑，支持网络图片、本地资源和默认头像

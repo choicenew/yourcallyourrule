@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:pyro_sim_protocol/pyro_sim_protocol.dart';
 
 /// Compact visual badge for representing SIM 1 or SIM 2.

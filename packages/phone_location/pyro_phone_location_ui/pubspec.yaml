@@ -17,6 +17,7 @@ dependencies:
   pyro_phone_location_hub:
     path: ../pyro_phone_location_hub
 
+  material_ui: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

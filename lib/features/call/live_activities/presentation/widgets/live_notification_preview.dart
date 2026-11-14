@@ -1,6 +1,6 @@
 // lib/features/call/live_activities/ui/widgets/live_notification_preview.dart
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/features/call/call_overlay/mock_data/call_overlay_mock.dart';

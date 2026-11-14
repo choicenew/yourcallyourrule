@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/configuration/call_overlay_config.dart';

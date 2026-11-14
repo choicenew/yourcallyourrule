@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 云端配置获取失败时的多巴胺重试/跳过错误提示视图组件

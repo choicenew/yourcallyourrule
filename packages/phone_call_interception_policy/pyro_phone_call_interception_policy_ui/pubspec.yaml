@@ -16,6 +16,7 @@ dependencies:
   pyro_phone_call_interception_policy_hub:
     path: ../pyro_phone_call_interception_policy_hub
 
+  material_ui: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

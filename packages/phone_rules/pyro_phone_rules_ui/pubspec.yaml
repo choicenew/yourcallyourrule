@@ -17,6 +17,7 @@ dependencies:
   pyro_phone_rules_hub:
     path: ../pyro_phone_rules_hub
 
+  material_ui: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

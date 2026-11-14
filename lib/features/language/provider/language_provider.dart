@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/language/services/locale_service.dart';
 // import 'package:yourcallyourrule/features/language/config/locale_config.dart'; // 如果没用到可以删除

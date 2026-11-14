@@ -1,6 +1,6 @@
 library pyro_app_auto_update_ui;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:pyro_app_auto_update_protocol/pyro_app_auto_update_protocol.dart';
 
 /// 100% 遵照 SKILL 规范：富 UI 元素、原生 Theme.of(context)、withValues(alpha: 0.8)

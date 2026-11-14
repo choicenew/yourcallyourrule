@@ -49,6 +49,8 @@ dependencies:
   pyro_sms_driver_openphish:
     path: ../../sms/pyro_sms_driver_openphish
 
+  material_ui: any
+  pyro_call_policy: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

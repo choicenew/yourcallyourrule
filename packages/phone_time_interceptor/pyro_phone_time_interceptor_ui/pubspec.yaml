@@ -16,6 +16,7 @@ dependencies:
   pyro_phone_time_interceptor_hub:
     path: ../pyro_phone_time_interceptor_hub
 
+  material_ui: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
