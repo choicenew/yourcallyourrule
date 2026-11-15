@@ -81,7 +81,7 @@ class RuleRepositoryImpl implements RuleRepository {
   }
 
   @override
-  Future<List<PhoneRuleEntity>> getAll() async { return []; 
+  Future<List<PhoneRuleEntity>> getAll() async {
     final rows = await _db.select(_db.phoneRules).get();
     return rows.map(_fromdynamic).toList();
   }
@@ -212,7 +212,7 @@ class RuleRepositoryImpl implements RuleRepository {
   }
 
   @override
-  Future<List<RegexRuleEntity>> getAllRegexRules() async { return []; 
+  Future<List<RegexRuleEntity>> getAllRegexRules() async { 
     final rows = await (_db.select(_db.rules)..where((tbl) => tbl.ruleType.equals('regex'))).get();
     return rows.map(_fromRegexdynamic).toList();
   }

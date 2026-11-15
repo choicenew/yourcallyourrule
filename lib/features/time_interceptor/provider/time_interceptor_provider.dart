@@ -21,24 +21,28 @@ class TimeInterceptorConfigNotifier extends _$TimeInterceptorConfigNotifier {
   }
 
   Future<void> updateShouldIntercept(bool isEnabled) async {
-    final previousState = await future;
+    final previousState = state.value ?? const TimeInterceptorConfig();
     final newState = previousState.copyWith(shouldIntercept: isEnabled);
 
-    state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() async {
+    // 0ms 乐观更新
+    state = AsyncValue.data(newState);
+    try {
       await _configRepo.saveConfig(_configKey, newState.toMap());
-      return newState;
-    });
+    } catch (e, st) {
+      state = AsyncValue.error(e, st);
+    }
   }
 
   Future<void> updateDuration(int minutes) async {
-    final previousState = await future;
+    final previousState = state.value ?? const TimeInterceptorConfig();
     final newState = previousState.copyWith(duration: Duration(minutes: minutes));
 
-    state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() async {
+    // 0ms 乐观更新
+    state = AsyncValue.data(newState);
+    try {
       await _configRepo.saveConfig(_configKey, newState.toMap());
-      return newState;
-    });
+    } catch (e, st) {
+      state = AsyncValue.error(e, st);
+    }
   }
 }

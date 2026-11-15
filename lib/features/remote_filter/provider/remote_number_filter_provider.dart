@@ -25,13 +25,15 @@ class RemoteNumberFilterConfigNotifier extends _$RemoteNumberFilterConfigNotifie
   }
 
   Future<void> updateConfig(RemoteNumberFilterConfig newConfig) async {
-    state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() async {
+    // 0ms 乐观更新，避免高频拖动 Slider 时触发 Loading 销毁 RenderBox
+    state = AsyncValue.data(newConfig);
+    try {
       await _configRepo.saveConfig(_configKey, newConfig.toMap());
       ref
           .read(remoteNumberServiceProvider)
           .setCountThreshold(newConfig.countThreshold);
-      return newConfig;
-    });
+    } catch (e, st) {
+      state = AsyncValue.error(e, st);
+    }
   }
 }

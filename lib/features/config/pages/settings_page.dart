@@ -151,8 +151,8 @@ class SettingsPage extends ConsumerWidget {
                 context: context,
                 icon: Icons.layers_rounded,
                 iconColor: theme.colorScheme.primary,
-                title: l10n.overlaySettingsTitle,
-                subtitle: l10n.overlaySettingsSubtitle,
+                title: l10n.overlayMode,
+                subtitle: l10n.overlayModeDescription,
                 onTap: () => context.pushNamed(AppRouter.callerIdCustomization),
               ),
               _buildDivider(context),
@@ -188,7 +188,7 @@ class SettingsPage extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // 3. 独立地域与规则库设置组 (Country & Rule Library Group)
-          _buildSectionHeader(context, l10n.countryAndRuleLibraryGroupTitle, Icons.public_rounded, theme.colorScheme.primary),
+          _buildSectionHeader(context, l10n.countrySyncSettingsTitle, Icons.public_rounded, theme.colorScheme.primary),
           _buildGroupedCard(
             context: context,
             glowColor: theme.colorScheme.primary,
@@ -226,8 +226,8 @@ class SettingsPage extends ConsumerWidget {
                 context: context,
                 icon: Icons.cloud_sync_rounded,
                 iconColor: theme.colorScheme.tertiary,
-                title: l10n.userDatabaseSyncTitle,
-                subtitle: l10n.userDatabaseSyncSubtitle,
+                title: l10n.localDatabaseSyncTitle,
+                subtitle: l10n.localDatabaseSyncSubtitle,
                 onTap: () => context.pushNamed(AppRouter.supabaseSettings),
               ),
               _buildDivider(context),

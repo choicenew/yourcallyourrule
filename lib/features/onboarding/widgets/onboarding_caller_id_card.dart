@@ -11,8 +11,14 @@ class OnboardingCallerIdCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);
-    final overlayConfig = ref.watch(callOverlayStyleSecurityProvider);
+    final overlayAsync = ref.watch(callOverlayStyleSecurityProvider);
+    final config = overlayAsync.value;
     final notifier = ref.read(callOverlayStyleSecurityProvider.notifier);
+
+    final bgColor = config?.backgroundColorStart ?? theme.colorScheme.surface;
+    final numberColor = config?.textNumberColor ?? theme.colorScheme.onSurface;
+    final nameColor = config?.textNameColor ?? theme.colorScheme.onSurfaceVariant;
+    final fontSize = config?.numberFontSize ?? 16.0;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -23,7 +29,7 @@ class OnboardingCallerIdCard extends ConsumerWidget {
           Container(
             padding: const EdgeInsets.all(18),
             decoration: BoxDecoration(
-              color: overlayConfig.backgroundColorStart.withValues(alpha: 0.9),
+              color: bgColor.withValues(alpha: 0.9),
               borderRadius: BorderRadius.circular(24),
               border: Border.all(color: theme.colorScheme.outlineVariant),
               boxShadow: [
@@ -51,15 +57,15 @@ class OnboardingCallerIdCard extends ConsumerWidget {
                           Text(
                             '+1 (800) ***-0***',
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: fontSize,
                               fontWeight: FontWeight.bold,
-                              color: overlayConfig.textNumberColor,
+                              color: numberColor,
                             ),
                           ),
                           const SizedBox(height: 2),
                           Text(
                             l10n.smartCallerId,
-                            style: TextStyle(fontSize: 11, color: overlayConfig.textNameColor),
+                            style: TextStyle(fontSize: 11, color: nameColor),
                           ),
                         ],
                       ),
@@ -125,7 +131,7 @@ class OnboardingCallerIdCard extends ConsumerWidget {
                   style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
                 ),
                 Slider(
-                  value: overlayConfig.numberFontSize,
+                  value: fontSize,
                   min: 12.0,
                   max: 24.0,
                   divisions: 6,

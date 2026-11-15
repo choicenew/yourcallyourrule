@@ -1,6 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/time_interceptor/provider/time_interceptor_provider.dart';
+import 'package:yourcallyourrule/features/time_interceptor/time_interceptor_config.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // TODO: 待规划功能——重复呼叫紧急穿透规则 (Repeat Call Emergency Penetration)
@@ -16,11 +17,11 @@ class OnboardingTimeInterceptorCard extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
 
     final configAsync = ref.watch(timeInterceptorConfigProvider);
-    final config = configAsync.value;
+    final config = configAsync.value ?? const TimeInterceptorConfig();
     final notifier = ref.read(timeInterceptorConfigProvider.notifier);
 
-    final isEnabled = config?.shouldIntercept ?? false;
-    final currentMinutes = config?.duration.inMinutes ?? 30;
+    final isEnabled = config.shouldIntercept;
+    final currentMinutes = config.duration.inMinutes;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -96,7 +97,6 @@ class OnboardingTimeInterceptorCard extends ConsumerWidget {
                       onChanged: (val) {
                         notifier.updateShouldIntercept(val);
                       },
-                      activeColor: theme.colorScheme.primary,
                     ),
                   ],
                 ),
@@ -141,7 +141,7 @@ class OnboardingTimeInterceptorCard extends ConsumerWidget {
                   selected: selected,
                   onSelected: isEnabled
                       ? (_) {
-                          notifier.updateDuration(Duration(minutes: mins));
+                          notifier.updateDuration(mins);
                         }
                       : null,
                 );

@@ -6,6 +6,7 @@ import 'package:yourcallyourrule/features/call_filter/presentation/widgets/call_
 import 'package:yourcallyourrule/features/call_filter/presentation/widgets/sim_slot_rule_filter_widget.dart';
 import 'package:yourcallyourrule/features/local_filter/presentation/widgets/local_filter_settings_widget.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/widgets/remote_filter_settings_widget.dart';
+import 'package:yourcallyourrule/features/time_interceptor/presentation/widgets/time_interceptor_settings_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 动态组合过滤器配置组件 (EnhancedCompositeFilterSettingsWidget)

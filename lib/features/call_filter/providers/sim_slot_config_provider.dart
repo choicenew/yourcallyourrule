@@ -41,14 +41,16 @@ class SimSlotConfigNotifier extends _$SimSlotConfigNotifier {
   }
 
   Future<void> _updateAndSave(SimSlotConfigState newState) async {
-    state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() async {
+    // 0ms 乐观更新，静默写盘
+    state = AsyncValue.data(newState);
+    try {
       final configMap = newState.simSlotFilterEnabled.map(
         (key, value) => MapEntry(key.toString(), value),
       );
       await _configRepo.saveConfig(_configKey, configMap);
-      return newState;
-    });
+    } catch (e, st) {
+      state = AsyncValue.error(e, st);
+    }
   }
 
   Future<void> enableSimSlotFilter(int simSlotIndex) async {

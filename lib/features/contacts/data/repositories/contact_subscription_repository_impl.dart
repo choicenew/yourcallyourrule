@@ -45,7 +45,7 @@ class ContactSubscriptionRepositoryImpl implements ContactSubscriptionRepository
   }
 
   @override
-  Future<List<PhoneSubscriptionPayload>> getAll() async { return []; 
+  Future<List<PhoneSubscriptionPayload>> getAll() async { 
     final rows = await (_db.select(_db.rules)..where((tbl) => tbl.ruleType.equals('contact_subscription'))).get();
     return rows.map(_fromData).toList();
   }

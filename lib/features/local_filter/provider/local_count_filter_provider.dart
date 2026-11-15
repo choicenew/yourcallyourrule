@@ -20,10 +20,12 @@ class LocalCountFilterConfigNotifier extends _$LocalCountFilterConfigNotifier {
   }
 
   Future<void> updateConfig(LocalCountFilterConfig newConfig) async {
-    state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() async {
+    // 0ms 乐观更新，不摧毁 UI 渲染树与手势
+    state = AsyncValue.data(newConfig);
+    try {
       await _configRepo.saveConfig(_configKey, newConfig.toMap());
-      return newConfig;
-    });
+    } catch (e, st) {
+      state = AsyncValue.error(e, st);
+    }
   }
 }

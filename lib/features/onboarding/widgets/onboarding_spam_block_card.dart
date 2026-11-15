@@ -13,9 +13,16 @@ class OnboardingSpamBlockCard extends ConsumerWidget {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);
 
-    final isFilterEnabled = ref.watch(callFilterProvider);
-    final simSlotConfig = ref.watch(simSlotConfigProvider);
+    final filterConfigAsync = ref.watch(callFilterConfigProvider);
+    final filterConfig = filterConfigAsync.value;
+    final isFilterEnabled = filterConfig?.enabled ?? true;
+
+    final simSlotAsync = ref.watch(simSlotConfigProvider);
+    final simState = simSlotAsync.value;
     final simNotifier = ref.read(simSlotConfigProvider.notifier);
+
+    final sim1Enabled = simState?.simSlotFilterEnabled[0] ?? true;
+    final sim2Enabled = simState?.simSlotFilterEnabled[1] ?? true;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -74,7 +81,11 @@ class OnboardingSpamBlockCard extends ConsumerWidget {
                     Switch(
                       value: isFilterEnabled,
                       onChanged: (val) {
-                        ref.read(callFilterProvider.notifier).toggleCallFilter(val);
+                        if (filterConfig != null) {
+                          ref.read(callFilterConfigProvider.notifier).updateConfig(
+                                filterConfig.copyWith(rejectAllNumbers: val),
+                              );
+                        }
                       },
                     ),
                   ],
@@ -133,10 +144,14 @@ class OnboardingSpamBlockCard extends ConsumerWidget {
                   children: [
                     Text('SIM 1 Rule', style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurface)),
                     ChoiceChip(
-                      label: Text(simSlotConfig.sim1Enabled ? 'Enabled' : 'Disabled'),
-                      selected: simSlotConfig.sim1Enabled,
+                      label: Text(sim1Enabled ? 'Enabled' : 'Disabled'),
+                      selected: sim1Enabled,
                       onSelected: (val) {
-                        simNotifier.setSim1Enabled(val);
+                        if (val) {
+                          simNotifier.enableSimSlotFilter(0);
+                        } else {
+                          simNotifier.disableSimSlotFilter(0);
+                        }
                       },
                     ),
                   ],
@@ -147,10 +162,14 @@ class OnboardingSpamBlockCard extends ConsumerWidget {
                   children: [
                     Text('SIM 2 Rule', style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurface)),
                     ChoiceChip(
-                      label: Text(simSlotConfig.sim2Enabled ? 'Enabled' : 'Disabled'),
-                      selected: simSlotConfig.sim2Enabled,
+                      label: Text(sim2Enabled ? 'Enabled' : 'Disabled'),
+                      selected: sim2Enabled,
                       onSelected: (val) {
-                        simNotifier.setSim2Enabled(val);
+                        if (val) {
+                          simNotifier.enableSimSlotFilter(1);
+                        } else {
+                          simNotifier.disableSimSlotFilter(1);
+                        }
                       },
                     ),
                   ],

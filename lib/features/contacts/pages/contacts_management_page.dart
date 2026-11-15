@@ -43,8 +43,8 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
         final filteredList = _searchKeyword.isEmpty
             ? itemsList
             : itemsList.where((item) {
-                final name = (item.displayName ?? '').toLowerCase();
-                final phone = item.phoneNumber ?? '';
+                final name = item.name.toLowerCase();
+                final phone = item.phoneNumber;
                 final keyword = _searchKeyword.toLowerCase();
                 return name.contains(keyword) || phone.contains(keyword);
               }).toList();

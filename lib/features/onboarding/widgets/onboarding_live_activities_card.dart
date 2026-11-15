@@ -11,8 +11,11 @@ class OnboardingLiveActivitiesCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);
-    final config = ref.watch(liveNotificationConfigProvider);
+    final configAsync = ref.watch(liveNotificationConfigProvider);
+    final config = configAsync.value;
     final notifier = ref.read(liveNotificationConfigProvider.notifier);
+
+    final isAvatarVisible = config?.avatar.visible ?? true;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -45,15 +48,17 @@ class OnboardingLiveActivitiesCard extends ConsumerWidget {
                   ),
                   child: Row(
                     children: [
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.primary,
-                          shape: BoxShape.circle,
+                      if (isAvatarVisible) ...[
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.primary,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(Icons.notifications_active_rounded, color: theme.colorScheme.onPrimary, size: 20),
                         ),
-                        child: Icon(Icons.notifications_active_rounded, color: theme.colorScheme.onPrimary, size: 20),
-                      ),
-                      const SizedBox(width: 12),
+                        const SizedBox(width: 12),
+                      ],
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,9 +144,9 @@ class OnboardingLiveActivitiesCard extends ConsumerWidget {
                 l10n.liveNotificationCustomizationSubtitle,
                 style: const TextStyle(fontSize: 11),
               ),
-              value: config.enabled,
+              value: isAvatarVisible,
               onChanged: (val) {
-                notifier.setEnabled(val);
+                notifier.updateElementVisibility('avatar', val);
               },
             ),
           ),

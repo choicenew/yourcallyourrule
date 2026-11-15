@@ -127,8 +127,9 @@ class EnhancedFilterConfigNotifier extends _$EnhancedFilterConfigNotifier {
   }
 
   Future<void> _updateAndSave(EnhancedFilterConfigState newState) async {
-    state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() async {
+    // 0ms 乐观更新，静默写盘
+    state = AsyncValue.data(newState);
+    try {
       final serializableGlobalMap = newState.typedFilterEnabledMap.map(
         (type, value) => MapEntry(type.name, value),
       );
@@ -142,8 +143,9 @@ class EnhancedFilterConfigNotifier extends _$EnhancedFilterConfigNotifier {
         _configRepo.saveConfig(_filterEnabledMapKey, serializableGlobalMap),
         _configRepo.saveConfig(_simSlotFilterConfigKey, serializableSimConfig),
       ]);
-      return newState;
-    });
+    } catch (e, st) {
+      state = AsyncValue.error(e, st);
+    }
   }
 
   Future<void> enableFilter(dynamic filter) async {
