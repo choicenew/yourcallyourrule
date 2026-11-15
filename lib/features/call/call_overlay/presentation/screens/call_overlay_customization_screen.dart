@@ -56,9 +56,13 @@ class _CallOverlayCustomizationScreenState
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-          title: Text(AppLocalizations.of(context).callerIdCustomizationTitle)),
+        title: Text(
+          (l10n as dynamic)?.overlaySettingsTitle as String? ?? 'Overlay / 悬浮窗显示与权限设置',
+        ),
+      ),
       body: Consumer(
         builder: (context, ref, child) {
           // 只 watch 一个 Provider
@@ -149,15 +153,23 @@ class _CallOverlayCustomizationScreenState
   Future<void> _closeOverlay() async {
     await FloatingWindowAndroid.closeOverlay();
   }
-  /// 显示预览浮窗
+  /// 显示预览浮窗 (含悬浮窗权限请求)
   Future<void> _showPreview(BuildContext context) async {
-     // 【核心修正】
-    // 1. 不再手动创建 `OverlayHandler` 实例。
-    // final overlayHandler = OverlayHandler(); // <-- REMOVED
+    try {
+      final granted = await FloatingWindowAndroid.isPermissionGranted();
+      if (!granted) {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Please grant "Display over other apps" permission to preview overlay window.')),
+          );
+        }
+        await FloatingWindowAndroid.requestPermission();
+        return;
+      }
+    } catch (e) {
+      debugPrint('FloatingWindowAndroid permission check error: $e');
+    }
 
-    // 2. 通过 `ref.read()` 从 Riverpod 容器中获取由 `overlayHandlerProvider` 提供的、
-    //    全应用共享的唯一 `OverlayHandler` 实例。
-    //    这个实例已经被正确地注入了它所需要的所有依赖 (比如 ref 本身)。
     final overlayHandler = await ref.read(overlayHandlerProvider.future);
     final mockData = CallOverlayMockData.mockCallerIdData();
     final stirInfo = CallOverlayMockData.mockStirInfoData();

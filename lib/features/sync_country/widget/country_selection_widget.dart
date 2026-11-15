@@ -1,10 +1,12 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:world_countries/world_countries.dart';
 import 'package:pyro_phone_country_sync_hub/pyro_phone_country_sync_hub.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
+/// 全量 250+ 国家动态检索与离线数据库同步下载选择页
 class CountrySelectionWidget extends ConsumerStatefulWidget {
   const CountrySelectionWidget({super.key});
 
@@ -13,27 +15,40 @@ class CountrySelectionWidget extends ConsumerStatefulWidget {
 }
 
 class _CountrySelectionWidgetState extends ConsumerState<CountrySelectionWidget> {
+  final TextEditingController _searchController = TextEditingController();
+  String _searchQuery = '';
   String _selectedCountryCode = 'US';
   bool _isDownloading = false;
 
-  static const List<Map<String, String>> _countries = [
-    {'code': 'CN', 'name': 'China (中国)', 'flag': '🇨🇳'},
-    {'code': 'US', 'name': 'United States (美国)', 'flag': '🇺🇸'},
-    {'code': 'GB', 'name': 'United Kingdom (英国)', 'flag': '🇬🇧'},
-    {'code': 'JP', 'name': 'Japan (日本)', 'flag': '🇯🇵'},
-    {'code': 'DE', 'name': 'Germany (德国)', 'flag': '🇩🇪'},
-    {'code': 'FR', 'name': 'France (法国)', 'flag': '🇫🇷'},
-    {'code': 'IN', 'name': 'India (印度)', 'flag': '🇮🇳'},
-    {'code': 'BR', 'name': 'Brazil (巴西)', 'flag': '🇧🇷'},
-    {'code': 'CA', 'name': 'Canada (加拿大)', 'flag': '🇨🇦'},
-    {'code': 'AU', 'name': 'Australia (澳大利亚)', 'flag': '🇦🇺'},
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _searchController.addListener(() {
+      setState(() {
+        _searchQuery = _searchController.text.toLowerCase();
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final hub = ref.watch(phoneCountrySyncControlCenterProvider);
+
+    final allCountries = WorldCountry.list;
+    final filteredCountries = allCountries.where((country) {
+      final name = country.name.common.toLowerCase();
+      final code = country.code.toLowerCase();
+      final codeShort = country.codeShort.toLowerCase();
+      return name.contains(_searchQuery) || code.contains(_searchQuery) || codeShort.contains(_searchQuery);
+    }).toList();
 
     return PopScope(
       canPop: false,
@@ -65,110 +80,119 @@ class _CountrySelectionWidgetState extends ConsumerState<CountrySelectionWidget>
             },
           ),
         ),
-        body: ListView(
-          padding: const EdgeInsets.all(16.0),
+        body: Column(
           children: [
-            Card(
-              elevation: 0,
-              color: theme.colorScheme.surfaceVariant.withValues(alpha: 0.3),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  children: [
-                    Icon(Icons.public_rounded, size: 32, color: theme.colorScheme.primary),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            l10n.countrySyncSettingsTitle,
-                            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            l10n.countrySyncSettingsSubtitle,
-                            style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              child: TextField(
+                controller: _searchController,
+                decoration: InputDecoration(
+                  hintText: 'Search (${allCountries.length} countries)',
+                  prefixIcon: const Icon(Icons.search_rounded),
+                  suffixIcon: _searchQuery.isNotEmpty
+                      ? IconButton(
+                          icon: const Icon(Icons.clear_rounded),
+                          onPressed: () => _searchController.clear(),
+                        )
+                      : null,
+                  filled: true,
+                  fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    borderSide: BorderSide.none,
+                  ),
                 ),
               ),
             ),
-            const SizedBox(height: 16),
-            ..._countries.map((country) {
-              final code = country['code']!;
-              final isSelected = _selectedCountryCode == code;
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                itemCount: filteredCountries.length,
+                itemBuilder: (context, index) {
+                  final country = filteredCountries[index];
+                  final code = country.codeShort;
+                  final isSelected = _selectedCountryCode == code;
 
-              return Card(
-                margin: const EdgeInsets.only(bottom: 8.0),
-                elevation: isSelected ? 2 : 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  side: BorderSide(
-                    color: isSelected ? theme.colorScheme.primary : theme.colorScheme.outlineVariant,
-                    width: isSelected ? 2 : 1,
-                  ),
-                ),
-                child: ListTile(
-                  leading: Text(country['flag']!, style: const TextStyle(fontSize: 24)),
-                  title: Text(country['name']!, style: const TextStyle(fontWeight: FontWeight.bold)),
-                  subtitle: Text('ISO Code: $code'),
-                  trailing: isSelected
-                      ? Icon(Icons.check_circle_rounded, color: theme.colorScheme.primary)
-                      : const Icon(Icons.circle_outlined, color: Colors.grey),
-                  onTap: () {
-                    setState(() {
-                      _selectedCountryCode = code;
-                    });
-                  },
-                ),
-              );
-            }),
-            const SizedBox(height: 20),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: theme.colorScheme.primary,
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-                ),
-                onPressed: _isDownloading
-                    ? null
-                    : () async {
+                  return Card(
+                    margin: const EdgeInsets.only(bottom: 8.0),
+                    elevation: isSelected ? 2 : 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      side: BorderSide(
+                        color: isSelected ? theme.colorScheme.primary : theme.colorScheme.outlineVariant,
+                        width: isSelected ? 2 : 1,
+                      ),
+                    ),
+                    child: ListTile(
+                      leading: Text(country.emoji, style: const TextStyle(fontSize: 26)),
+                      title: Text(country.name.common, style: const TextStyle(fontWeight: FontWeight.bold)),
+                      subtitle: Text('ISO: $code | ${country.namesNative.firstOrNull?.common ?? country.name.common}'),
+                      trailing: isSelected
+                          ? Icon(Icons.check_circle_rounded, color: theme.colorScheme.primary)
+                          : const Icon(Icons.circle_outlined, color: Colors.grey),
+                      onTap: () {
                         setState(() {
-                          _isDownloading = true;
+                          _selectedCountryCode = code;
                         });
-                        try {
-                          await hub.downloadCountryData(_selectedCountryCode);
-                          if (context.mounted) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('Downloaded database for $_selectedCountryCode successfully!')),
-                            );
-                          }
-                        } catch (e) {
-                          if (context.mounted) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text('Download failed: $e')),
-                            );
-                          }
-                        } finally {
-                          if (mounted) {
-                            setState(() {
-                              _isDownloading = false;
-                            });
-                          }
-                        }
                       },
-                icon: _isDownloading
-                    ? const SizedBox(width: 18, height: 18, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
-                    : const Icon(Icons.cloud_download_rounded),
-                label: Text(_isDownloading ? l10n.loading : l10n.confirmButton, style: const TextStyle(fontWeight: FontWeight.bold)),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(16.0),
+              decoration: BoxDecoration(
+                color: theme.colorScheme.surface,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.05),
+                    blurRadius: 10,
+                    offset: const Offset(0, -2),
+                  ),
+                ],
+              ),
+              child: SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: theme.colorScheme.primary,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                  ),
+                  onPressed: _isDownloading
+                      ? null
+                      : () async {
+                          setState(() {
+                            _isDownloading = true;
+                          });
+                          try {
+                            await hub.downloadCountryData(_selectedCountryCode);
+                            if (context.mounted) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('Downloaded database for $_selectedCountryCode successfully!')),
+                              );
+                            }
+                          } catch (e) {
+                            if (context.mounted) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('Download failed: $e')),
+                              );
+                            }
+                          } finally {
+                            if (mounted) {
+                              setState(() {
+                                _isDownloading = false;
+                              });
+                            }
+                          }
+                        },
+                  icon: _isDownloading
+                      ? const SizedBox(width: 18, height: 18, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
+                      : const Icon(Icons.cloud_download_rounded),
+                  label: Text(_isDownloading ? l10n.loading : '${l10n.confirmButton} ($_selectedCountryCode)', style: const TextStyle(fontWeight: FontWeight.bold)),
+                ),
               ),
             ),
           ],

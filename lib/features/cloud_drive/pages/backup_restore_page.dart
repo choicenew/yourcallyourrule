@@ -1,31 +1,26 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pyro_cloud_drive_ui/pyro_cloud_drive_ui.dart' as cloud_ui;
-import 'package:yourcallyourrule/generated/app_localizations.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 
-/// 云端与本地备份恢复页面 —— 100% 消费 pyro_cloud_drive_ui 与 pyro_cloud_drive_database 的包内服务
+/// 云端与本地备份恢复页面 —— 去除重复 Outer Scaffold/AppBar，解决双层 Toolbar 问题
 class BackupRestorePage extends ConsumerWidget {
   const BackupRestorePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      appBar: AppBar(
-        title: Text(
-          AppLocalizations.of(context).cloudSyncTitle,
-          style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Theme.of(context).colorScheme.onSurface),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        foregroundColor: Theme.of(context).colorScheme.onSurface,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new_rounded, size: 20, color: Theme.of(context).colorScheme.onSurface),
-          onPressed: () => Navigator.of(context).maybePop(),
-        ),
-      ),
-      body: const cloud_ui.CloudSettingsPage(),
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (GoRouter.of(context).canPop()) {
+          context.pop();
+        } else {
+          GoRouter.of(context).goNamed(AppRouter.home);
+        }
+      },
+      child: const cloud_ui.CloudSettingsPage(),
     );
   }
 }
