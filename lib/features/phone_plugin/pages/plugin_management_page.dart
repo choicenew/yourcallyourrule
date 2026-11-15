@@ -51,6 +51,7 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
       items: _plugins,
       isLoading: _isLoading,
       emptyText: l10n.noPlugins,
+      emptyIcon: Icons.extension_outlined,
       adInterval: 3,
       adBuilder: () => const AdsInlineBanner(),
       itemBuilder: (context, plugin) => plugin_pkg_ui.PyroPhoneLookupPluginCardWidget(

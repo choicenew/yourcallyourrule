@@ -9,7 +9,12 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final config = ref.watch(localCountFilterConfigProvider.select((asyncValue) => asyncValue.value)) ?? LocalCountFilterConfig();
+    final config = ref.watch(localCountFilterConfigProvider.select((asyncValue) => asyncValue.value));
+
+    if (config == null) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
     final notifier = ref.read(localCountFilterConfigProvider.notifier);
     final l10nDynamic = AppLocalizations.of(context) as dynamic;
 
