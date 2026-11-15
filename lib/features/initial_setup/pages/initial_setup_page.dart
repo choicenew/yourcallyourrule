@@ -229,27 +229,19 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
           await pluginService.addPluginFromUrl(effectiveUrl);
         } else {
           final sub = await phoneService.addSubscription(country.name, effectiveUrl);
+          await phoneService.updateRulesFromSubscription(sub);
           subscriptionsToSave.add(sub);
         }
       }
+
+      ref.invalidate(phoneSubscriptionServiceProvider);
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(l10n.initialSetupSaveSuccess)),
         );
-        _exit(context);
+        await _exit(context);
       }
-
-      // 后台异步解析规则
-      Future.microtask(() async {
-        for (final sub in subscriptionsToSave) {
-          try {
-            await phoneService.updateRulesFromSubscription(sub);
-          } catch (e) {
-            debugPrint('[InitialSetupPage] Background import rules failed: $e');
-          }
-        }
-      });
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(

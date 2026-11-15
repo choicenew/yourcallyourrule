@@ -275,7 +275,7 @@ class _MarkPhoneManagementPageState
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    (AppLocalizations.of(context) as dynamic).markedCountTitle as String? ?? 'Marked Count',
+                    AppLocalizations.of(context).markPhoneManagementTitle,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).colorScheme.onSurface,
