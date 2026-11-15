@@ -1,14 +1,50 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/providers/call_overlay_style_security_provider.dart';
+import 'package:yourcallyourrule/features/permissions/services/permission_service_impl.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 引导页 4：可选悬浮窗 (Overlay) 来电弹窗样式卡片组件（弱化次要配置）
-class OnboardingCallerIdCard extends ConsumerWidget {
+/// 引导页 4：可选悬浮窗 (Overlay) 来电弹窗样式与权限控制卡片组件
+class OnboardingCallerIdCard extends ConsumerStatefulWidget {
   const OnboardingCallerIdCard({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<OnboardingCallerIdCard> createState() => _OnboardingCallerIdCardState();
+}
+
+class _OnboardingCallerIdCardState extends ConsumerState<OnboardingCallerIdCard> {
+  bool _hasOverlayPermission = false;
+  bool _isChecking = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkPermission();
+  }
+
+  Future<void> _checkPermission() async {
+    final permissionService = ref.read(permissionServiceProvider);
+    final granted = await permissionService.hasOverlayPermission();
+    if (mounted) {
+      setState(() {
+        _hasOverlayPermission = granted;
+        _isChecking = false;
+      });
+    }
+  }
+
+  Future<void> _requestOverlayPermission() async {
+    final permissionService = ref.read(permissionServiceProvider);
+    final granted = await permissionService.requestOverlayPermission();
+    if (mounted) {
+      setState(() {
+        _hasOverlayPermission = granted;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);
     final overlayAsync = ref.watch(callOverlayStyleSecurityProvider);
@@ -94,7 +130,7 @@ class OnboardingCallerIdCard extends ConsumerWidget {
               ],
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 20),
           Text(
             l10n.smartCallerId,
             style: TextStyle(
@@ -103,41 +139,122 @@ class OnboardingCallerIdCard extends ConsumerWidget {
               color: theme.colorScheme.onSurface,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 6),
           Text(
             l10n.overlayModeDescription,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 13,
               color: theme.colorScheme.onSurfaceVariant,
-              height: 1.4,
+              height: 1.3,
             ),
           ),
           const SizedBox(height: 16),
 
-          // 下层：直接交互字体调大小/样式微调
+          // 下层：直接交互控制面板——悬浮窗权限申请与样式调优
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               color: theme.colorScheme.surface,
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: theme.colorScheme.outlineVariant),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
               children: [
-                Text(
-                  l10n.numberFontSize,
-                  style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                // 1. 悬浮窗系统权限申请开关
+                InkWell(
+                  onTap: _requestOverlayPermission,
+                  borderRadius: BorderRadius.circular(12),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: _hasOverlayPermission
+                                ? Colors.green.withValues(alpha: 0.15)
+                                : theme.colorScheme.primaryContainer,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.layers_rounded,
+                            color: _hasOverlayPermission ? Colors.green : theme.colorScheme.primary,
+                            size: 18,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                l10n.overlayPermission,
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.onSurface,
+                                ),
+                              ),
+                              Text(
+                                l10n.overlayPermissionDescription,
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  color: theme.colorScheme.onSurfaceVariant,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        if (_isChecking)
+                          const SizedBox(
+                            width: 16,
+                            height: 16,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                        else
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: _hasOverlayPermission
+                                  ? Colors.green.withValues(alpha: 0.15)
+                                  : theme.colorScheme.surfaceContainerHighest,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Text(
+                              _hasOverlayPermission ? l10n.granted : l10n.requestPermission,
+                              style: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.bold,
+                                color: _hasOverlayPermission ? Colors.green : theme.colorScheme.primary,
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
                 ),
-                Slider(
-                  value: fontSize,
-                  min: 12.0,
-                  max: 24.0,
-                  divisions: 6,
-                  onChanged: (val) {
-                    notifier.setNumberFontSize(val);
-                  },
+                const Divider(height: 16),
+                // 2. 字体大小调优 Slider
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      l10n.numberFontSize,
+                      style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                    ),
+                    Expanded(
+                      child: Slider(
+                        value: fontSize,
+                        min: 12.0,
+                        max: 24.0,
+                        divisions: 6,
+                        onChanged: (val) {
+                          notifier.setNumberFontSize(val);
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
