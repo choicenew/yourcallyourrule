@@ -13,8 +13,9 @@ final phoneSubscriptionsListProvider = FutureProvider.autoDispose<List<PhoneSubs
   return await service.getAll();
 });
 
-class PhoneSubscriptionPageRefactored extends ConsumerWidget {
-  const PhoneSubscriptionPageRefactored({super.key});
+/// 规范命名: 电话规则订阅主页面 (PhoneSubscriptionPage)
+class PhoneSubscriptionPage extends ConsumerWidget {
+  const PhoneSubscriptionPage({super.key});
 
   void _showAddSubscriptionDialog(BuildContext context, WidgetRef ref) {
     final nameController = TextEditingController();

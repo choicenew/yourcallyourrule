@@ -52,7 +52,7 @@ import 'package:yourcallyourrule/features/permissions/pages/permission_managemen
 import 'package:yourcallyourrule/features/onboarding/pages/onboarding_page.dart';
 import 'package:yourcallyourrule/features/dashboard/pages/dashboard_page.dart';
 import 'package:yourcallyourrule/features/phone_plugin/pages/plugin_management_page.dart';
-import 'package:yourcallyourrule/features/phone_subscription/pages/phone_subscription_page_refactored.dart';
+import 'package:yourcallyourrule/features/phone_subscription/pages/phone_subscription_page.dart';
 import 'package:yourcallyourrule/features/phone_rules/pages/regex_rule_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_page.dart';
 import 'package:yourcallyourrule/features/labels/pages/label_management_page.dart';
@@ -435,7 +435,7 @@ class AppRouter {
       GoRoute(
         path: '/$phoneSubscription',
         name: phoneSubscription,
-        builder: (context, state) => const PhoneSubscriptionPageRefactored(),
+        builder: (context, state) => const PhoneSubscriptionPage(),
       ),
       GoRoute(
         path: '/$RegexRuleEntity',
