@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 引导页 1：欢迎与众包隐私卡片组件
+/// 引导页 1：欢迎与众包隐私卡片组件（100% i18n 国际化）
 class OnboardingWelcomeCard extends StatelessWidget {
   const OnboardingWelcomeCard({super.key});
 
@@ -71,11 +71,11 @@ class OnboardingWelcomeCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Icon(Icons.lock_outline_rounded, color: Colors.green, size: 20),
+                    const Icon(Icons.lock_outline_rounded, color: Colors.green, size: 20),
                     const SizedBox(width: 8),
                     Expanded(
                       child: Text(
-                        '本地优先 & 零自动上传',
+                        l10n.localFirstPrivacyTitle,
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.bold,
@@ -87,7 +87,7 @@ class OnboardingWelcomeCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  '通话记录与通讯录 100% 仅在您的手机本地处理；仅当您主动标记骚扰并选择提交时，才会共享该号码标记。',
+                  l10n.localFirstPrivacyDescription,
                   style: TextStyle(
                     fontSize: 11,
                     color: theme.colorScheme.onSurfaceVariant,

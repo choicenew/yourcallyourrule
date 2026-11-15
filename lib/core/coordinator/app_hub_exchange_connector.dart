@@ -43,10 +43,10 @@ class AppHubExchangeConnector {
       encryptionHeaderTag: 'YOURCALL_ENC_V1',
     );
     try {
-      CloudDriveHub.instance.register(GoogleDriveAdapter());
-      CloudDriveHub.instance.register(OneDriveDriveAdapter());
-      CloudDriveHub.instance.register(WebDAVDriveAdapter());
-      debugPrint('[AppHubExchangeConnector] Registered CloudDrive Drivers: GoogleDrive, OneDrive, WebDAV');
+      CloudDriveHub.instance.register(GoogleDriveAdapter(), uiConfig: GoogleDriveAdapter.uiConfig);
+      CloudDriveHub.instance.register(OneDriveDriveAdapter(), uiConfig: OneDriveDriveAdapter.uiConfig);
+      CloudDriveHub.instance.register(WebDAVDriveAdapter(), uiConfig: WebDAVDriveAdapter.uiConfig);
+      debugPrint('[AppHubExchangeConnector] Registered CloudDrive Drivers with UIConfigs: GoogleDrive, OneDrive, WebDAV');
     } catch (e) {
       debugPrint('[AppHubExchangeConnector] Error registering CloudDrive Drivers: $e');
     }

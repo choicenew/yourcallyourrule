@@ -2258,6 +2258,27 @@ class AppLocalizationsEn extends AppLocalizations {
       'Your call management expert, providing comprehensive call identification and blocking services.';
 
   @override
+  String get userGuideTitle => 'User Guide & Manual';
+
+  @override
+  String get userGuideSubtitle =>
+      'Review all feature cards and interactive configurations anytime';
+
+  @override
+  String get localFirstPrivacyTitle => 'Local-First & Zero Automatic Upload';
+
+  @override
+  String get localFirstPrivacyDescription =>
+      'Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.';
+
+  @override
+  String get dynamicFilterRulesTitle => 'Dynamic Filter Rules & Engine';
+
+  @override
+  String get dynamicFilterRulesDescription =>
+      'Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.';
+
+  @override
   String get oneDriveAuthDescription =>
       'Authorize using system-configured OneDrive client ID and key';
 

@@ -27,6 +27,7 @@ import 'package:yourcallyourrule/features/call/live_activities/presentation/page
 import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/live_activities_test_page.dart';
 import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/kit_live_activities_test_page.dart';
 import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/kit_live_notification_customization_screen.dart';
+import 'package:yourcallyourrule/features/user_database/pages/user_database_sync_page.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/pages/deletion_proposal_page.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/pages/proposal_detail_page.dart';
 
@@ -479,7 +480,7 @@ class AppRouter {
       GoRoute(
         path: '/supabase-settings',
         name: supabaseSettings,
-        builder: (context, state) => const BackupRestorePage(),
+        builder: (context, state) => const UserDatabaseSyncPage(),
       ),
       GoRoute(
         path: '/$kitLiveActivitiesTest',

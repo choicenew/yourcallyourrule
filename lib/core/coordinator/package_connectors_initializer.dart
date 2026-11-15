@@ -72,9 +72,9 @@ void initPackageConnectors() {
     encryptionHeaderTag: 'YOURCALL_ENC_V1',
   );
   try {
-    CloudDriveHub.instance.register(GoogleDriveAdapter());
-    CloudDriveHub.instance.register(OneDriveDriveAdapter());
-    CloudDriveHub.instance.register(WebDAVDriveAdapter());
+    CloudDriveHub.instance.register(GoogleDriveAdapter(), uiConfig: GoogleDriveAdapter.uiConfig);
+    CloudDriveHub.instance.register(OneDriveDriveAdapter(), uiConfig: OneDriveDriveAdapter.uiConfig);
+    CloudDriveHub.instance.register(WebDAVDriveAdapter(), uiConfig: WebDAVDriveAdapter.uiConfig);
   } catch (e) {
     debugPrint('[PackageConnectors] CloudDrive Drivers register error: $e');
   }

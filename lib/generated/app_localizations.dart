@@ -4168,6 +4168,13 @@ abstract class AppLocalizations {
   /// **'Your call management expert, providing comprehensive call identification and blocking services.'**
   String get onboardingWelcomeDescription;
 
+  String get userGuideTitle;
+  String get userGuideSubtitle;
+  String get localFirstPrivacyTitle;
+  String get localFirstPrivacyDescription;
+  String get dynamicFilterRulesTitle;
+  String get dynamicFilterRulesDescription;
+
   /// No description provided for @oneDriveAuthDescription.
   ///
   /// In en, this message translates to:
