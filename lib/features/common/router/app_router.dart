@@ -479,7 +479,7 @@ class AppRouter {
       GoRoute(
         path: '/supabase-settings',
         name: supabaseSettings,
-        builder: (context, state) => const CloudSettingsPage(),
+        builder: (context, state) => const BackupRestorePage(),
       ),
       GoRoute(
         path: '/$kitLiveActivitiesTest',
