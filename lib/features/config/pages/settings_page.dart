@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/time_interceptor/presentation/widgets/time_interceptor_settings_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/features/about/pages/about.dart';
 import 'package:yourcallyourrule/theme/theme_selector.dart';
 
 class SettingsPage extends ConsumerWidget {
@@ -152,8 +151,8 @@ class SettingsPage extends ConsumerWidget {
                 context: context,
                 icon: Icons.layers_rounded,
                 iconColor: theme.colorScheme.primary,
-                title: (l10n as dynamic).overlaySettingsTitle as String? ?? 'Overlay / 悬浮窗显示与权限设置',
-                subtitle: (l10n as dynamic).overlaySettingsSubtitle as String? ?? l10n.callerIdCustomizationSubtitle,
+                title: l10n.overlaySettingsTitle,
+                subtitle: l10n.overlaySettingsSubtitle,
                 onTap: () => context.pushNamed(AppRouter.callerIdCustomization),
               ),
               _buildDivider(context),
@@ -189,7 +188,7 @@ class SettingsPage extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // 3. 独立地域与规则库设置组 (Country & Rule Library Group)
-          _buildSectionHeader(context, (l10n as dynamic).countryAndRuleLibraryGroupTitle as String? ?? '地域与规则库设置', Icons.public_rounded, theme.colorScheme.primary),
+          _buildSectionHeader(context, l10n.countryAndRuleLibraryGroupTitle, Icons.public_rounded, theme.colorScheme.primary),
           _buildGroupedCard(
             context: context,
             glowColor: theme.colorScheme.primary,
@@ -227,8 +226,8 @@ class SettingsPage extends ConsumerWidget {
                 context: context,
                 icon: Icons.cloud_sync_rounded,
                 iconColor: theme.colorScheme.tertiary,
-                title: (l10n as dynamic).userDatabaseSyncTitle as String? ?? l10n.localDatabaseSyncTitle,
-                subtitle: (l10n as dynamic).userDatabaseSyncSubtitle as String? ?? l10n.localDatabaseSyncSubtitle,
+                title: l10n.userDatabaseSyncTitle,
+                subtitle: l10n.userDatabaseSyncSubtitle,
                 onTap: () => context.pushNamed(AppRouter.supabaseSettings),
               ),
               _buildDivider(context),
@@ -263,12 +262,21 @@ class SettingsPage extends ConsumerWidget {
 
           const SizedBox(height: 20),
 
-          // 4. 关于应用
+          // 5. 关于应用与帮助手册
           _buildSectionHeader(context, l10n.aboutTitle, Icons.info_outline_rounded, theme.colorScheme.secondary),
           _buildGroupedCard(
             context: context,
             glowColor: theme.colorScheme.secondary,
             children: [
+              _buildTile(
+                context: context,
+                icon: Icons.menu_book_rounded,
+                iconColor: theme.colorScheme.primary,
+                title: '用户指南与使用手册',
+                subtitle: '随时查阅与微调 8 大功能卡片指引与交互配置',
+                onTap: () => context.pushNamed(AppRouter.onboarding),
+              ),
+              _buildDivider(context),
               _buildTile(
                 context: context,
                 icon: Icons.info_rounded,

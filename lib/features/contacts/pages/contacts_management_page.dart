@@ -17,6 +17,7 @@ class ContactsManagementPage extends ConsumerStatefulWidget {
 
 class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage> {
   late Future<List<PhoneContactEntry>> _contactsFuture;
+  String _searchKeyword = '';
 
   @override
   void initState() {
@@ -39,12 +40,28 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
       builder: (context, snapshot) {
         final isLoading = snapshot.connectionState == ConnectionState.waiting;
         final itemsList = snapshot.data ?? [];
+        final filteredList = _searchKeyword.isEmpty
+            ? itemsList
+            : itemsList.where((item) {
+                final name = (item.displayName ?? '').toLowerCase();
+                final phone = item.phoneNumber ?? '';
+                final keyword = _searchKeyword.toLowerCase();
+                return name.contains(keyword) || phone.contains(keyword);
+              }).toList();
+
         return GenericListPage<PhoneContactEntry>(
           title: l10n.contactsManagement,
-          items: itemsList,
+          items: filteredList,
           isLoading: isLoading,
           onRefresh: _refreshContacts,
+          onSearchChanged: (keyword) {
+            setState(() {
+              _searchKeyword = keyword;
+            });
+          },
+          searchHintText: l10n.search,
           emptyText: l10n.noContactsYet,
+          emptyIcon: Icons.perm_contact_calendar_rounded,
           adInterval: 3,
           adBuilder: () => const AdsInlineBanner(),
           itemBuilder: (context, item) => contacts_pkg_ui.PyroPhoneContactCardWidget(

@@ -1,4 +1,8 @@
 import 'package:flutter/foundation.dart';
+import 'package:pyro_cloud_drive_hub/pyro_cloud_drive_hub.dart';
+import 'package:pyro_cloud_drive_googledrive/pyro_cloud_drive_googledrive.dart';
+import 'package:pyro_cloud_drive_onedrive/pyro_cloud_drive_onedrive.dart';
+import 'package:pyro_cloud_drive_webdav/pyro_cloud_drive_webdav.dart';
 
 // === All 33 Package Suite Connectors ===
 import 'package:pyro_app_launch_guard/pyro_app_launch_guard.dart';
@@ -55,5 +59,19 @@ void initPackageConnectors() {
   PyroCallMonitorConnector.registerAll();
   PyroCallCoordinatorConnector.registerAll();
   PyroPhoneMarkingConnector.registerAll();
+
+  // 云盘 3 大 Driver 启动同步强行注册
+  CloudDriveHub.instance.configureHostContext(
+    appName: 'YourCallYourRule',
+    encryptionHeaderTag: 'YOURCALL_ENC_V1',
+  );
+  try {
+    CloudDriveHub.instance.register(GoogleDriveAdapter());
+    CloudDriveHub.instance.register(OneDriveDriveAdapter());
+    CloudDriveHub.instance.register(WebDAVDriveAdapter());
+  } catch (e) {
+    debugPrint('[PackageConnectors] CloudDrive Drivers register error: $e');
+  }
+
   debugPrint('[PackageConnectors] 33 个 Package Suite Connector 全外观自注册装配完成');
 }

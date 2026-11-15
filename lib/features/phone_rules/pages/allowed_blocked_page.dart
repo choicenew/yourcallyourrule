@@ -18,11 +18,14 @@ class AllowedBlockedPage extends ConsumerWidget {
     return FutureBuilder<List<PhoneRuleEntity>>(
       future: allowedBlockedSvc.getAllAllowedRules(),
       builder: (context, snapshot) {
+        final isLoading = snapshot.connectionState == ConnectionState.waiting;
         final rules = snapshot.data ?? [];
         return GenericListPage<PhoneRuleEntity>(
           title: l10n.allowedBlockedRuleManagement,
           items: rules,
+          isLoading: isLoading,
           emptyText: l10n.noData,
+          emptyIcon: Icons.verified_user_outlined,
           adInterval: 3,
           adBuilder: () => const AdsInlineBanner(),
           itemBuilder: (context, rule) => rules_pkg_ui.PyroPhoneRuleCardWidget(

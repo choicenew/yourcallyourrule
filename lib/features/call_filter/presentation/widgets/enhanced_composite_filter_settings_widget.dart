@@ -79,7 +79,9 @@ class EnhancedCompositeFilterSettingsWidgetState extends ConsumerState<EnhancedC
     // 遵照 DATA_DRIVEN_ENTITY_SPEC.md 规范：无裸字符串，全强类型值对象比对
     if (type == CallFilterType.basicRule) {
       return const CallFilterSettingsWidget();
-    } else if (type == CallFilterType.localCount || type.id == 'localCountThreshold' || type.id == 'timeWindow') {
+    } else if (type.id == 'timeWindow') {
+      return const TimeInterceptorSettingsWidget();
+    } else if (type == CallFilterType.localCount || type.id == 'localCountThreshold') {
       return const LocalFilterSettingsWidget();
     } else if (type == CallFilterType.remoteNumber || type.id == 'remoteRisk') {
       return const RemoteFilterSettingsWidget();
@@ -93,8 +95,10 @@ class EnhancedCompositeFilterSettingsWidgetState extends ConsumerState<EnhancedC
     final l10n = AppLocalizations.of(context);
     if (type == CallFilterType.basicRule) {
       return l10n.basicRuleFilter;
-    } else if (type == CallFilterType.localCount || type.id == 'localCountThreshold' || type.id == 'timeWindow') {
-      return l10n.localFilterSettings;
+    } else if (type.id == 'timeWindow') {
+      return l10n.timeInterceptorSettingsTitle;
+    } else if (type == CallFilterType.localCount || type.id == 'localCountThreshold') {
+      return l10n.localCountFilter;
     } else if (type == CallFilterType.remoteNumber || type.id == 'remoteRisk') {
       return l10n.remoteFilterSettings;
     } else if (type == CallFilterType.simSlot) {

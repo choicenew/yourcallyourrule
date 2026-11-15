@@ -9,14 +9,10 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final config = ref.watch(localCountFilterConfigProvider.select((asyncValue) => asyncValue.value));
-    
-    if (config == null) {
-      return const Center(child: CircularProgressIndicator());
-    }
-    
+    final configAsync = ref.watch(localCountFilterConfigProvider);
+    final config = configAsync.value ?? LocalCountFilterConfig();
     final notifier = ref.read(localCountFilterConfigProvider.notifier);
-    final l10nDynamic = AppLocalizations.of(context) as dynamic;
+    final l10n = AppLocalizations.of(context);
 
     return Column(
       children: [
@@ -39,9 +35,9 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
           child: Column(
             children: [
               SwitchListTile(
-                title: Text(AppLocalizations.of(context).enableLocalCountFilter, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15, color: Theme.of(context).colorScheme.onSurface)),
-                subtitle: Text(AppLocalizations.of(context).enableLocalCountFilterDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                activeColor: Theme.of(context).colorScheme.primary,
+                title: Text(l10n.enableLocalCountFilter, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(l10n.enableLocalCountFilterDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                activeThumbColor: Theme.of(context).colorScheme.primary,
                 value: config.enableLocalCountFilter,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(enableLocalCountFilter: value)),
               ),
@@ -71,12 +67,12 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  l10nDynamic.localCountThreshold as String? ?? 'Local Count Threshold',
+                  l10n.countThresholdLabel,
                   style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface),
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  l10nDynamic.localCountThresholdDescription as String? ?? 'Local Count Threshold Description',
+                  l10n.countThresholdDescription,
                   style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant),
                 ),
                 const SizedBox(height: 12),
@@ -139,25 +135,25 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
           child: Column(
             children: [
               SwitchListTile(
-                title: Text(AppLocalizations.of(context).rejectExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
-                subtitle: Text(AppLocalizations.of(context).rejectExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                activeColor: Theme.of(context).colorScheme.primary,
+                title: Text(l10n.rejectExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(l10n.rejectExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                activeThumbColor: Theme.of(context).colorScheme.primary,
                 value: config.rejectExceededNumbers,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(rejectExceededNumbers: value)),
               ),
               Divider(height: 1, indent: 16, endIndent: 16, color: Theme.of(context).colorScheme.outlineVariant),
               SwitchListTile(
-                title: Text(AppLocalizations.of(context).allowNonExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
-                subtitle: Text(AppLocalizations.of(context).allowNonExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                activeColor: Theme.of(context).colorScheme.primary,
+                title: Text(l10n.allowNonExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(l10n.allowNonExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                activeThumbColor: Theme.of(context).colorScheme.primary,
                 value: config.allowNonExceededNumbers,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(allowNonExceededNumbers: value)),
               ),
               Divider(height: 1, indent: 16, endIndent: 16, color: Theme.of(context).colorScheme.outlineVariant),
               SwitchListTile(
-                title: Text(AppLocalizations.of(context).logAllLocalQueries, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
-                subtitle: Text(AppLocalizations.of(context).logAllLocalQueriesDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                activeColor: Theme.of(context).colorScheme.primary,
+                title: Text(l10n.logAllLocalQueries, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
+                subtitle: Text(l10n.logAllLocalQueriesDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                activeThumbColor: Theme.of(context).colorScheme.primary,
                 value: config.logAllLocalQueries,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(logAllLocalQueries: value)),
               ),
@@ -173,7 +169,7 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
   }
 
   Widget _buildExplanationCard(BuildContext context) {
-    final l10nDynamic = AppLocalizations.of(context) as dynamic;
+    final l10n = AppLocalizations.of(context);
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -189,14 +185,14 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
               Icon(Icons.info_outline, size: 18, color: Theme.of(context).colorScheme.primary),
               const SizedBox(width: 8),
               Text(
-                l10nDynamic.aboutLocalCountFilter as String? ?? 'About Local Count Filter',
+                l10n.localCountFilterExplanationTitle,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Theme.of(context).colorScheme.primary),
               ),
             ],
           ),
           const SizedBox(height: 8),
           Text(
-            l10nDynamic.localCountFilterExplanation as String? ?? 'Local Count Filter Explanation',
+            l10n.localCountFilterExplanationContent,
             style: TextStyle(fontSize: 11.5, color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.4),
           ),
         ],

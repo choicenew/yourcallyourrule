@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pyro_ads_policy/pyro_ads_policy.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
+import 'package:yourcallyourrule/features/commercial/services/commercial_service.dart';
 import 'package:yourcallyourrule/features/call_monitor/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -20,7 +21,7 @@ class EliteAppBar extends ConsumerWidget {
     if (isProtectionActive) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text((l10n as dynamic)?.enabledStatus as String? ?? 'Enabled'),
+          content: Text(l10n.enabled),
           duration: const Duration(seconds: 2),
           behavior: SnackBarBehavior.floating,
         ),
@@ -33,7 +34,7 @@ class EliteAppBar extends ConsumerWidget {
       if (granted && context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text((l10n as dynamic)?.enabledStatus as String? ?? 'Enabled'),
+            content: Text(l10n.enabled),
             duration: const Duration(seconds: 2),
             behavior: SnackBarBehavior.floating,
           ),
@@ -57,7 +58,8 @@ class EliteAppBar extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final isProtectionActive = true;
-    final isVip = AdPolicyManager.instance.isVipUser;
+    final commercialSvc = ref.watch(commercialServiceProvider);
+    final isVip = commercialSvc.isVipActive || AdPolicyManager.instance.isVipUser;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -125,7 +127,7 @@ class EliteAppBar extends ConsumerWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        (l10n as dynamic)?.appName as String? ?? 'YourCall YourRule',
+                        l10n.appName,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -153,9 +155,7 @@ class EliteAppBar extends ConsumerWidget {
                             ),
                             const SizedBox(width: 4),
                             Text(
-                              isProtectionActive
-                                  ? ((l10n as dynamic)?.enabled as String? ?? 'Enabled')
-                                  : ((l10n as dynamic)?.disabled as String? ?? 'Disabled'),
+                              isProtectionActive ? l10n.enabled : l10n.disabled,
                               style: TextStyle(
                                 fontSize: 10,
                                 fontWeight: FontWeight.w800,
@@ -202,7 +202,7 @@ class EliteAppBar extends ConsumerWidget {
                   ),
                 ),
                 onPressed: () => context.pushNamed(AppRouter.notifications),
-                tooltip: (l10n as dynamic)?.notifications as String? ?? 'Notifications',
+                tooltip: l10n.notifications,
               ),
               if (onSwitchToPro != null)
                 IconButton(

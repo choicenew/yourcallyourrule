@@ -18,11 +18,14 @@ class RuleManagementPage extends ConsumerWidget {
     return FutureBuilder<List<PhoneRuleEntity>>(
       future: ruleSvc.getAllRules(),
       builder: (context, snapshot) {
+        final isLoading = snapshot.connectionState == ConnectionState.waiting;
         final rules = snapshot.data ?? [];
         return GenericListPage<PhoneRuleEntity>(
           title: l10n.ruleManagement,
           items: rules,
+          isLoading: isLoading,
           emptyText: l10n.noData,
+          emptyIcon: Icons.shield_outlined,
           adInterval: 3,
           adBuilder: () => const AdsInlineBanner(),
           itemBuilder: (context, rule) => rules_pkg_ui.PyroPhoneRuleCardWidget(

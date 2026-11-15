@@ -7,17 +7,52 @@ import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-class PhoneSubscriptionPageRefactored extends ConsumerWidget {
+import 'package:yourcallyourrule/features/phone_subscription/services/phone_subscription_service.dart';
+
+class PhoneSubscriptionPageRefactored extends ConsumerStatefulWidget {
   const PhoneSubscriptionPageRefactored({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<PhoneSubscriptionPageRefactored> createState() => _PhoneSubscriptionPageRefactoredState();
+}
+
+class _PhoneSubscriptionPageRefactoredState extends ConsumerState<PhoneSubscriptionPageRefactored> {
+  List<PhoneSubscriptionPayload> _subscriptions = [];
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadSubscriptions();
+  }
+
+  Future<void> _loadSubscriptions() async {
+    setState(() => _isLoading = true);
+    try {
+      final service = ref.read(phoneSubscriptionServiceProvider);
+      final list = await service.getAll();
+      if (mounted) {
+        setState(() {
+          _subscriptions = list;
+          _isLoading = false;
+        });
+      }
+    } catch (_) {
+      if (mounted) setState(() => _isLoading = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
 
     return GenericListPage<PhoneSubscriptionPayload>(
       title: l10n.phoneSubscription,
-      items: const [],
-      emptyText: l10n.noData,
+      items: _subscriptions,
+      isLoading: _isLoading,
+      onRefresh: _loadSubscriptions,
+      emptyText: l10n.noSubscriptions,
+      emptyIcon: Icons.rss_feed_rounded,
       adInterval: 3,
       adBuilder: () => const AdsInlineBanner(),
       itemBuilder: (context, sub) => sub_pkg_ui.PyroPhoneSubscriptionCardWidget(

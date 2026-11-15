@@ -17,16 +17,20 @@ class RegexRulePage extends ConsumerWidget {
     return FutureBuilder<List<RegexRuleEntity>>(
       future: regexSvc.getAllRegexRules(),
       builder: (context, snapshot) {
+        final isLoading = snapshot.connectionState == ConnectionState.waiting;
         final rules = snapshot.data ?? [];
         return GenericListPage<RegexRuleEntity>(
-          title: (l10n as dynamic)?.regexRulesTitle as String? ?? 'Regex Rules',
+          title: l10n.regexRules,
           items: rules,
-          emptyText: l10n.noData,
+          isLoading: isLoading,
+          emptyText: l10n.noRegexRules,
+          emptyIcon: Icons.rule_folder_outlined,
           adInterval: 3,
           adBuilder: () => const AdsInlineBanner(),
           itemBuilder: (context, rule) => ListTile(
-            title: Text(rule.name),
+            title: Text(rule.name, style: const TextStyle(fontWeight: FontWeight.bold)),
             subtitle: Text(rule.pattern),
+            leading: const Icon(Icons.code_rounded),
           ),
           getItemId: (rule) => rule.id,
         );

@@ -8,21 +8,8 @@ class TimeInterceptorSettingsWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final config = ref.watch(timeInterceptorConfigProvider.select((asyncValue) => asyncValue.value));
-    
-    if (config == null) {
-      final configAsync = ref.watch(timeInterceptorConfigProvider);
-      if (configAsync.hasError) {
-        return Center(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text('Error: ${configAsync.error}'),
-          ),
-        );
-      }
-      return const Center(child: CircularProgressIndicator());
-    }
-
+    final configAsync = ref.watch(timeInterceptorConfigProvider);
+    final config = configAsync.value ?? const TimeInterceptorConfig();
     final notifier = ref.read(timeInterceptorConfigProvider.notifier);
 
     return Column(

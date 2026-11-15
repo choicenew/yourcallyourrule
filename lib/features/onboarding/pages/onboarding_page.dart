@@ -9,12 +9,14 @@ import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_top_bar.
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_bottom_bar.dart';
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_welcome_card.dart';
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_language_card.dart';
+import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_live_activities_card.dart';
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_caller_id_card.dart';
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_spam_block_card.dart';
+import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_time_interceptor_card.dart';
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_permissions_card.dart';
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_ready_card.dart';
 
-/// 应用引导主页面
+/// 应用引导主页面（包含 8 大丰富化的功能与配置卡片）
 class OnboardingPage extends ConsumerStatefulWidget {
   final VoidCallback? onComplete;
   const OnboardingPage({super.key, this.onComplete});
@@ -26,7 +28,7 @@ class OnboardingPage extends ConsumerStatefulWidget {
 class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
-  final int _totalPages = 6;
+  final int _totalPages = 8;
 
   @override
   void initState() {
@@ -97,8 +99,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                 children: [
                   const OnboardingWelcomeCard(),
                   const OnboardingLanguageCard(),
+                  const OnboardingLiveActivitiesCard(),
                   const OnboardingCallerIdCard(),
                   const OnboardingSpamBlockCard(),
+                  const OnboardingTimeInterceptorCard(),
                   const OnboardingPermissionsCard(),
                   const OnboardingReadyCard(),
                 ],

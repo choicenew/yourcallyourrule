@@ -1,20 +1,28 @@
 import 'package:material_ui/material_ui.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:yourcallyourrule/features/call_filter/providers/call_filter_provider.dart';
+import 'package:yourcallyourrule/features/call_filter/providers/sim_slot_config_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 引导页 4：强力骚扰拦截演示卡片组件（100% i18n 国际化）
-class OnboardingSpamBlockCard extends StatelessWidget {
+/// 引导页 5：强力骚扰拦截与双卡 (SIM 1/2) 规则演示卡片组件
+class OnboardingSpamBlockCard extends ConsumerWidget {
   const OnboardingSpamBlockCard({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);
+
+    final isFilterEnabled = ref.watch(callFilterProvider);
+    final simSlotConfig = ref.watch(simSlotConfigProvider);
+    final simNotifier = ref.read(simSlotConfigProvider.notifier);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          // 上层：拦截演示 Banner
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
@@ -64,9 +72,10 @@ class OnboardingSpamBlockCard extends StatelessWidget {
                       ),
                     ),
                     Switch(
-                      value: true,
-                      onChanged: null,
-                      activeColor: theme.colorScheme.error,
+                      value: isFilterEnabled,
+                      onChanged: (val) {
+                        ref.read(callFilterProvider.notifier).toggleCallFilter(val);
+                      },
                     ),
                   ],
                 ),
@@ -88,23 +97,65 @@ class OnboardingSpamBlockCard extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 32),
+          const SizedBox(height: 24),
           Text(
             l10n.powerfulSpamBlocking,
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
               color: theme.colorScheme.onSurface,
             ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
           Text(
             l10n.onboardingPowerfulSpamBlockingDescription,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 13,
               color: theme.colorScheme.onSurfaceVariant,
               height: 1.4,
+            ),
+          ),
+          const SizedBox(height: 16),
+
+          // 下层：双卡 (SIM 1 / SIM 2) 独立拦截规则控制面板
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: theme.colorScheme.surface,
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: theme.colorScheme.outlineVariant),
+            ),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('SIM 1 Rule', style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurface)),
+                    ChoiceChip(
+                      label: Text(simSlotConfig.sim1Enabled ? 'Enabled' : 'Disabled'),
+                      selected: simSlotConfig.sim1Enabled,
+                      onSelected: (val) {
+                        simNotifier.setSim1Enabled(val);
+                      },
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 6),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('SIM 2 Rule', style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurface)),
+                    ChoiceChip(
+                      label: Text(simSlotConfig.sim2Enabled ? 'Enabled' : 'Disabled'),
+                      selected: simSlotConfig.sim2Enabled,
+                      onSelected: (val) {
+                        simNotifier.setSim2Enabled(val);
+                      },
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],

@@ -17,6 +17,7 @@ class CallHistoryPage extends ConsumerStatefulWidget {
 
 class _CallHistoryPageState extends ConsumerState<CallHistoryPage> {
   late Future<List<CallLogEntry>> _historyFuture;
+  String _searchKeyword = '';
 
   @override
   void initState() {
@@ -39,16 +40,32 @@ class _CallHistoryPageState extends ConsumerState<CallHistoryPage> {
       builder: (context, snapshot) {
         final isLoading = snapshot.connectionState == ConnectionState.waiting;
         final historyLogs = snapshot.data ?? [];
+        final filteredLogs = _searchKeyword.isEmpty
+            ? historyLogs
+            : historyLogs.where((log) {
+                final phone = log.phoneNumber;
+                final name = (log.name ?? '').toLowerCase();
+                final keyword = _searchKeyword.toLowerCase();
+                return phone.contains(keyword) || name.contains(keyword);
+              }).toList();
+
         return GenericTimelinePage<CallLogEntry>(
           title: l10n.callHistory,
-          items: historyLogs,
+          items: filteredLogs,
           isLoading: isLoading,
           onRefresh: _refreshLogs,
+          onSearchChanged: (keyword) {
+            setState(() {
+              _searchKeyword = keyword;
+            });
+          },
+          searchHintText: l10n.search,
           displayMode: ListDisplayMode.timeline,
           getItemTimestamp: (entry) => entry.timestamp != null
               ? DateTime.fromMillisecondsSinceEpoch(entry.timestamp!)
-              : null,
+              : DateTime.now(),
           emptyText: l10n.noCallRecords,
+          emptyIcon: Icons.phone_missed_rounded,
           adInterval: 3,
           adBuilder: () => const AdsInlineBanner(),
           itemBuilder: (context, entry) => history_pkg_ui.PyroCallLogCardWidget(

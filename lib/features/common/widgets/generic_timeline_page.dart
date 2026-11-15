@@ -292,17 +292,40 @@ class _GenericTimelinePageState<T> extends ConsumerState<GenericTimelinePage<T>>
   }
 
   Widget _buildList() {
-    final emptyWidget = Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(widget.emptyIcon, size: 64, color: Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.5)),
-          const SizedBox(height: 16),
-          Text(widget.emptyText, style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.onSurfaceVariant), textAlign: TextAlign.center),
-          if (widget.emptyActionButton != null) ...[const SizedBox(height: 24), widget.emptyActionButton!],
-        ],
+    final emptyContent = SingleChildScrollView(
+      physics: const AlwaysScrollableScrollPhysics(),
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.45,
+        alignment: Alignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(widget.emptyIcon, size: 48, color: widget.themeColor ?? Theme.of(context).colorScheme.primary),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              widget.emptyText,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.onSurfaceVariant),
+              textAlign: TextAlign.center,
+            ),
+            if (widget.emptyActionButton != null) ...[const SizedBox(height: 24), widget.emptyActionButton!],
+          ],
+        ),
       ),
     );
+
+    final emptyWidget = widget.onRefresh != null
+        ? RefreshIndicator(
+            onRefresh: () async => widget.onRefresh!(),
+            child: emptyContent,
+          )
+        : emptyContent;
 
     if (widget.items.isEmpty) {
       return emptyWidget;
