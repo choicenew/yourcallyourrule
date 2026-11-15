@@ -17,6 +17,7 @@ class PluginManagementPage extends ConsumerStatefulWidget {
 class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
   List<PluginSourceData> _plugins = [];
   bool _isLoading = true;
+  String _searchKeyword = '';
 
   @override
   void initState() {
@@ -46,11 +47,25 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
 
+    final filteredPlugins = _searchKeyword.isEmpty
+        ? _plugins
+        : _plugins.where((plugin) {
+            final name = (plugin.name ?? '').toLowerCase();
+            return name.contains(_searchKeyword.toLowerCase());
+          }).toList();
+
     return GenericListPage<PluginSourceData>(
       title: l10n.pluginManagement,
-      items: _plugins,
+      items: filteredPlugins,
       isLoading: _isLoading,
       emptyText: l10n.noPlugins,
+      emptyIcon: Icons.extension_outlined,
+      onSearchChanged: (keyword) {
+        setState(() {
+          _searchKeyword = keyword;
+        });
+      },
+      searchHintText: l10n.search,
       adInterval: 3,
       adBuilder: () => const AdsInlineBanner(),
       itemBuilder: (context, plugin) => plugin_pkg_ui.PyroPhoneLookupPluginCardWidget(
