@@ -1,8 +1,8 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
-import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action.dart';
-import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action_config_provider.dart';
+import 'package:yourcallyourrule/features/call_evaluators/evaluators/intercept_action.dart';
+import 'package:yourcallyourrule/features/call_evaluators/evaluators/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class EndCallSettingsPage extends ConsumerWidget {

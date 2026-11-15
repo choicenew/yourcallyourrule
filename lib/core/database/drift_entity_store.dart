@@ -40,14 +40,24 @@ class DriftEntityStore<T> implements EntityStore<T> {
       return rows.cast<T>();
     } else if (T == PhoneSubscriptionPayload) {
       final rows = await (db.select(db.rules)..where((tbl) => tbl.ruleType.equals('subscription'))).get();
-      return rows.map((r) => PhoneSubscriptionPayload(
-        payloadId: r.id,
-        kind: PhoneSubscriptionKind.rulesManifest,
-        rawJsonMap: {
-          'displayName': r.name,
-          'downloadUrl': r.phoneNumber,
-        },
-      )).toList().cast<T>();
+      return rows.map((dynamic r) {
+        String url = '';
+        try {
+          url = r.pattern ?? '';
+        } catch (_) {
+          try {
+            url = r.phoneNumber ?? '';
+          } catch (_) {}
+        }
+        return PhoneSubscriptionPayload(
+          payloadId: r.id,
+          kind: PhoneSubscriptionKind.rulesManifest,
+          rawJsonMap: {
+            'displayName': r.name,
+            'downloadUrl': url,
+          },
+        );
+      }).toList().cast<T>();
     }
     throw UnsupportedError('Unsupported entity type for DriftEntityStore: $T');
   }

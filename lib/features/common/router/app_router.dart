@@ -31,7 +31,7 @@ import 'package:yourcallyourrule/features/user_database/pages/user_database_sync
 import 'package:yourcallyourrule/features/deletion_proposal/pages/deletion_proposal_page.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/pages/proposal_detail_page.dart';
 
-import 'package:yourcallyourrule/features/call_policy/presentation/pages/end_call_settings_page.dart';
+import 'package:yourcallyourrule/features/call_evaluators/presentation/pages/end_call_settings_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/cloud_drive/pages/backup_restore_page.dart';
 import 'package:yourcallyourrule/features/cloud_drive/pages/cloud_settings_page.dart';

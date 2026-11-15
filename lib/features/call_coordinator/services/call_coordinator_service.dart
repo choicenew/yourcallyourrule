@@ -9,7 +9,7 @@ import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_p
 import 'package:yourcallyourrule/features/call_history/services/call_log_recorder.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/display_mode_handler.dart';
 import 'package:yourcallyourrule/features/call_monitor/handlers/should_accept_call_handler.dart';
-import 'package:yourcallyourrule/features/call_policy/evaluators/call_policy_evaluator.dart';
+import 'package:yourcallyourrule/features/call_evaluators/evaluators/call_policy_evaluator.dart';
 import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
 
 part 'call_coordinator_service.g.dart';

@@ -1,6 +1,6 @@
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action.dart';
+import 'package:yourcallyourrule/features/call_evaluators/evaluators/intercept_action.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 规则动作映射服务，负责将 RuleAction 映射到具体的拦截动作

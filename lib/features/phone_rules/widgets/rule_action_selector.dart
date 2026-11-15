@@ -1,8 +1,8 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action.dart';
-import 'package:yourcallyourrule/features/call_policy/rules/end_call_rule_action_mapper.dart';
+import 'package:yourcallyourrule/features/call_evaluators/evaluators/intercept_action.dart';
+import 'package:yourcallyourrule/features/call_evaluators/rules/end_call_rule_action_mapper.dart';
 import 'package:yourcallyourrule/features/phone_rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

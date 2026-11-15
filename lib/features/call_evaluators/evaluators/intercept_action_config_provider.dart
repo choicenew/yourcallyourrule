@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
-import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action.dart';
+import 'package:yourcallyourrule/features/call_evaluators/evaluators/intercept_action.dart';
 
 final configRepositoryProvider = Provider<ConfigRepository>((ref) {
   return SharedPreferencesConfigRepository();

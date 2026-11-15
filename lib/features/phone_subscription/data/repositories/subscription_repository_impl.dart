@@ -31,12 +31,33 @@ class SubscriptionRepositoryImpl implements SubscriptionRepository {
   }
 
   PhoneSubscriptionPayload _fromData(dynamic data) {
+    String url = '';
+    String displayName = '';
+    String id = '';
+    try {
+      url = data.pattern ?? '';
+      displayName = data.name ?? '';
+      id = data.id ?? '';
+    } catch (e) {
+      try {
+        if (data is Map) {
+          url = data['pattern'] ?? data['phoneNumber'] ?? '';
+          displayName = data['name'] ?? '';
+          id = data['id'] ?? '';
+        } else {
+          // It might be a PhoneRuleEntity that got returned by mistake
+          url = data.phoneNumber ?? '';
+          displayName = data.name ?? '';
+          id = data.id ?? '';
+        }
+      } catch (_) {}
+    }
     return PhoneSubscriptionPayload(
-      payloadId: data.id,
+      payloadId: id,
       kind: PhoneSubscriptionKind.rulesManifest,
       rawJsonMap: {
-        'displayName': data.name,
-        'downloadUrl': data.pattern ?? '',
+        'displayName': displayName,
+        'downloadUrl': url,
       },
     );
   }

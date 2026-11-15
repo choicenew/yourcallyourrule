@@ -200,6 +200,14 @@ class _GenericListPageState<T> extends ConsumerState<GenericListPage<T>> {
         body: widget.isLoading
             ? const Center(child: CircularProgressIndicator(strokeWidth: 2))
             : _buildContent(),
+        floatingActionButton: (widget.onAdd != null && !widget.isMultiSelectMode)
+            ? FloatingActionButton(
+                onPressed: widget.onAdd,
+                backgroundColor: widget.themeColor ?? theme.colorScheme.primary,
+                foregroundColor: theme.colorScheme.onPrimary,
+                child: const Icon(Icons.add_rounded),
+              )
+            : null,
       ),
     );
   }
@@ -217,16 +225,6 @@ class _GenericListPageState<T> extends ConsumerState<GenericListPage<T>> {
           icon: Icons.checklist_rtl_rounded,
           onPressed: widget.onToggleMultiSelectMode!,
           tooltip: AppLocalizations.of(context).selectMultiple,
-        ),
-      );
-    }
-
-    if (widget.onAdd != null) {
-      actions.add(
-        _buildAppbarButton(
-          icon: Icons.add_rounded,
-          onPressed: widget.onAdd!,
-          tooltip: AppLocalizations.of(context).add,
         ),
       );
     }

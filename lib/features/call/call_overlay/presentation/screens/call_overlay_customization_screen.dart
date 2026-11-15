@@ -155,58 +155,80 @@ class _CallOverlayCustomizationScreenState
   }
   /// 显示预览浮窗 (同时弹出应用内 Overlay Preview 弹窗 + 系统级悬浮窗)
   Future<void> _showPreview(BuildContext context) async {
+    final overlayHandlerAsync = ref.read(overlayHandlerProvider);
+    if (!overlayHandlerAsync.hasValue) {
+      return; // 如果还没加载完毕，直接返回
+    }
+    final overlayHandler = overlayHandlerAsync.value!;
+    
     final mockData = CallOverlayMockData.mockCallerIdData();
     final stirInfo = CallOverlayMockData.mockStirInfoData();
     final simInfo = CallOverlayMockData.mockSimInfoData();
+    final config = ref.read(callOverlayStyleSecurityProvider).value;
 
-    // 1. 100% 弹出应用内真实 Overlay Preview 弹窗 (彻底解决 Preview 不弹窗 Overlay 问题)
-    showDialog(
-      context: context,
-      builder: (ctx) => Dialog(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surface,
-            borderRadius: BorderRadius.circular(24),
-            border: Border.all(color: Theme.of(context).colorScheme.primary, width: 1.5),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                AppLocalizations.of(context).overlaySettingsTitle,
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-              ),
-              const SizedBox(height: 16),
-              CallOverlay(
-                callerIdData: mockData,
-                stirInfo: stirInfo,
-                simInfo: simInfo,
-                onDismiss: () => Navigator.of(ctx).pop(),
-                isDismissible: true,
-              ),
-              const SizedBox(height: 16),
-              ElevatedButton.icon(
-                icon: const Icon(Icons.close_rounded),
-                label: Text(AppLocalizations.of(context).cancelButton),
-                onPressed: () => Navigator.of(ctx).pop(),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-
-    // 2. 尝试调起系统级画中画悬浮窗
     try {
       final granted = await FloatingWindowAndroid.isPermissionGranted();
       if (granted) {
-        final overlayHandler = await ref.read(overlayHandlerProvider.future);
         await overlayHandler.showCallerIdOverlay(mockData, stirInfo, simInfo);
+        return;
       }
     } catch (_) {}
+
+    // Fallback: 如果没有悬浮窗权限或抛出异常，则使用 Dialog 进行模拟预览
+    if (context.mounted) {
+      showDialog(
+        context: context,
+        builder: (ctx) => Dialog(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.surface,
+              borderRadius: BorderRadius.circular(24),
+              border: Border.all(color: Theme.of(context).colorScheme.primary, width: 1.5),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  AppLocalizations.of(context).overlaySettingsTitle,
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
+                const SizedBox(height: 16),
+                if (config != null)
+                  Container(
+                    width: config.windowWidth,
+                    height: config.windowHeight,
+                    alignment: Alignment.center,
+                    child: CallOverlay(
+                      callerIdData: mockData,
+                      stirInfo: stirInfo,
+                      simInfo: simInfo,
+                      onDismiss: () => Navigator.of(ctx).pop(),
+                      isDismissible: true,
+                    ),
+                  )
+                else
+                  CallOverlay(
+                    callerIdData: mockData,
+                    stirInfo: stirInfo,
+                    simInfo: simInfo,
+                    onDismiss: () => Navigator.of(ctx).pop(),
+                    isDismissible: true,
+                  ),
+                const SizedBox(height: 16),
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.close_rounded),
+                  label: Text(AppLocalizations.of(context).cancelButton),
+                  onPressed: () => Navigator.of(ctx).pop(),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
   }
 
   /// 构建可折叠的设置项

@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action.dart';
-import 'package:yourcallyourrule/features/call_policy/evaluators/intercept_action_config_provider.dart';
+import 'package:yourcallyourrule/features/call_evaluators/evaluators/intercept_action.dart';
+import 'package:yourcallyourrule/features/call_evaluators/evaluators/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/features/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/call_log_extension.dart';
 import 'package:yourcallyourrule/features/call_monitor/handlers/intercept_event_provider.dart';

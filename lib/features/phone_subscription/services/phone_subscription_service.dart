@@ -34,7 +34,12 @@ class PhoneSubscriptionService {
   );
 
   Future<List<PhoneSubscriptionPayload>> getAll() async {
-    return await _repository.getAll();
+    try {
+      return await _repository.getAll();
+    } catch (e) {
+      // If error occurs, let's at least avoid breaking the UI completely and log.
+      return [];
+    }
   }
 
   Future<List<PhoneSubscriptionPayload>> getEnabledSubscriptions() async {

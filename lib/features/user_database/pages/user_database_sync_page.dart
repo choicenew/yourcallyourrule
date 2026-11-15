@@ -17,6 +17,9 @@ class UserDatabaseSyncPage extends ConsumerStatefulWidget {
 class _UserDatabaseSyncPageState extends ConsumerState<UserDatabaseSyncPage> {
   final _workerUrlController = TextEditingController();
   final _apiSecretController = TextEditingController();
+  final _supabaseUrlController = TextEditingController();
+  final _supabaseKeyController = TextEditingController();
+
   bool _isTesting = false;
   String? _testMessage;
 
@@ -62,10 +65,12 @@ class _UserDatabaseSyncPageState extends ConsumerState<UserDatabaseSyncPage> {
                       children: [
                         Icon(Icons.storage_rounded, color: theme.colorScheme.primary),
                         const SizedBox(width: 8),
-                        Text(
-                          l10n.userDatabaseSyncTitle,
-                          style: theme.textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
+                        Expanded(
+                          child: Text(
+                            l10n.userDatabaseSyncTitle,
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ],
@@ -89,14 +94,14 @@ class _UserDatabaseSyncPageState extends ConsumerState<UserDatabaseSyncPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'Cloudflare D1 & Supabase 节点配置',
+                      'Cloudflare D1 Configuration',
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                     const SizedBox(height: 12),
                     TextField(
                       controller: _workerUrlController,
                       decoration: const InputDecoration(
-                        labelText: 'Worker / Supabase URL',
+                        labelText: 'Cloudflare Worker URL',
                         hintText: 'https://callruleapi.workers.dev',
                         border: OutlineInputBorder(),
                       ),
@@ -111,12 +116,46 @@ class _UserDatabaseSyncPageState extends ConsumerState<UserDatabaseSyncPage> {
                         border: OutlineInputBorder(),
                       ),
                     ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Supabase Configuration',
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                    const SizedBox(height: 12),
+                    TextField(
+                      controller: _supabaseUrlController,
+                      decoration: InputDecoration(
+                        labelText: l10n.supabaseProjectUrl,
+                        hintText: 'https://xxx.supabase.co',
+                        border: const OutlineInputBorder(),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    TextField(
+                      controller: _supabaseKeyController,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        labelText: l10n.supabaseAnonKey,
+                        hintText: l10n.supabaseAnonKeyHint,
+                        border: const OutlineInputBorder(),
+                      ),
+                    ),
                     const SizedBox(height: 16),
                     if (_testMessage != null) ...[
                       Text(
                         _testMessage!,
                         style: TextStyle(
-                          color: _testMessage!.contains('成功') ? Colors.green : Colors.red,
+                          color: _testMessage!.contains('✅') ? Colors.green : Colors.red,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -133,7 +172,7 @@ class _UserDatabaseSyncPageState extends ConsumerState<UserDatabaseSyncPage> {
                                   child: CircularProgressIndicator(strokeWidth: 2),
                                 )
                               : const Icon(Icons.sync),
-                          label: const Text('测试连通性'),
+                          label: const Text('Test Connection'),
                           onPressed: _isTesting
                               ? null
                               : () async {
@@ -149,11 +188,11 @@ class _UserDatabaseSyncPageState extends ConsumerState<UserDatabaseSyncPage> {
                                     UserDatabaseHub.instance.registerAdapter(provider);
                                     final ok = await provider.testConnection();
                                     setState(() {
-                                      _testMessage = ok ? '✅ 数据库云节点测试连通成功！' : '❌ 连通失败，请检查 URL 与密钥。';
+                                      _testMessage = ok ? '✅ Connection successful!' : '❌ Connection failed.';
                                     });
                                   } catch (e) {
                                     setState(() {
-                                      _testMessage = '❌ 网络或密钥异常: $e';
+                                      _testMessage = '❌ Error: $e';
                                     });
                                   } finally {
                                     setState(() {
