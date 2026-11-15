@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pyro_about/pyro_about.dart' as pkg_about;
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 
-/// 主 App 关于页面 —— 消费 pyro_about 标准微包，全量包含联系方式、Telegram、官网与隐私条款
+/// 主 App 关于页面 —— 消费 pyro_about 标准微包，全量包含联系方式、Telegram、Discord、官网与隐私条款
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
 
@@ -46,6 +46,12 @@ class AboutPage extends StatelessWidget {
                 url: 'https://yourcallyourrule.com',
                 title: 'Official Website',
                 customIcon: Icons.public,
+              ),
+              pkg_about.ContactLink(
+                type: pkg_about.ContactChannelType.discord,
+                url: 'https://discord.gg/sbZyXKPbq6',
+                title: 'Discord Community',
+                customIcon: Icons.forum_rounded,
               ),
               pkg_about.ContactLink(
                 type: pkg_about.ContactChannelType.telegram,
