@@ -2,6 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pyro_ads_policy/pyro_ads_policy.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/call_monitor/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -56,7 +57,7 @@ class EliteAppBar extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final isProtectionActive = true;
-    final isVip = true;
+    final isVip = AdPolicyManager.instance.isVipUser;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -97,6 +98,23 @@ class EliteAppBar extends ConsumerWidget {
                           size: 20,
                         ),
                       ),
+                      if (isVip)
+                        Positioned(
+                          top: -5,
+                          right: -5,
+                          child: Container(
+                            padding: const EdgeInsets.all(2),
+                            decoration: const BoxDecoration(
+                              color: Color(0xFF101828),
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.workspace_premium_rounded,
+                              color: Color(0xFFFFD700),
+                              size: 13,
+                            ),
+                          ),
+                        ),
                     ],
                   ),
                 ),

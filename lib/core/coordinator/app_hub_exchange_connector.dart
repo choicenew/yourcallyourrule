@@ -3,6 +3,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:pyro_cloud_drive_hub/pyro_cloud_drive_hub.dart';
+import 'package:pyro_cloud_drive_googledrive/pyro_cloud_drive_googledrive.dart';
+import 'package:pyro_cloud_drive_onedrive/pyro_cloud_drive_onedrive.dart';
+import 'package:pyro_cloud_drive_webdav/pyro_cloud_drive_webdav.dart';
 import 'package:pyro_user_database_hub/pyro_user_database_hub.dart';
 import 'package:pyro_central_database_hub/pyro_central_database_hub.dart';
 import 'package:pyro_sync_hub/pyro_sync_hub.dart';
@@ -31,11 +34,19 @@ class AppHubExchangeConnector {
   void initializeConnectorBridge() {
     debugPrint('[AppHubExchangeConnector] Wiring Exchange Bridge: Local User DB <-> Remote Central DB <-> CloudDrive <-> Device Hub <-> SIM Rules <-> SyncHub');
 
-    // 1. 云盘上下文配置 (CloudDrive Context) 主 App 注入配置 App 名称与加密标头
+    // 1. 云盘上下文配置 (CloudDrive Context) 主 App 注入配置 App 名称与加密标头并挂载驱动
     CloudDriveHub.instance.configureHostContext(
       appName: 'YourCallYourRule',
       encryptionHeaderTag: 'YOURCALL_ENC_V1',
     );
+    try {
+      CloudDriveHub.instance.registerDriver(GoogleDriveAdapter());
+      CloudDriveHub.instance.registerDriver(OneDriveAdapter());
+      CloudDriveHub.instance.registerDriver(WebDavAdapter());
+      debugPrint('[AppHubExchangeConnector] Registered CloudDrive Drivers: GoogleDrive, OneDrive, WebDAV');
+    } catch (e) {
+      debugPrint('[AppHubExchangeConnector] Error registering CloudDrive Drivers: $e');
+    }
 
     // 2. 本地用户数据库 (Local User Database) 初始化
     UserDatabaseHub.instance;

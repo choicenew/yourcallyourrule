@@ -150,9 +150,9 @@ class SettingsPage extends ConsumerWidget {
               _buildDivider(context),
               _buildTile(
                 context: context,
-                icon: Icons.picture_in_picture_alt_rounded,
+                icon: Icons.layers_rounded,
                 iconColor: theme.colorScheme.primary,
-                title: l10n.callerIdCustomizationTitle,
+                title: 'Overlay / 悬浮窗显示与权限设置',
                 subtitle: l10n.callerIdCustomizationSubtitle,
                 onTap: () => context.pushNamed(AppRouter.callerIdCustomization),
               ),
@@ -188,16 +188,16 @@ class SettingsPage extends ConsumerWidget {
 
           const SizedBox(height: 20),
 
-          // 3. 云端同步与数据备份组
-          _buildSectionHeader(context, l10n.cloudSyncAndBackupTitle, Icons.cloud_done_rounded, theme.colorScheme.secondary),
+          // 3. 独立地域与规则库设置组 (Country & Rule Library Group)
+          _buildSectionHeader(context, '地域与规则库设置', Icons.public_rounded, theme.colorScheme.primary),
           _buildGroupedCard(
             context: context,
-            glowColor: theme.colorScheme.secondary,
+            glowColor: theme.colorScheme.primary,
             children: [
               _buildTile(
                 context: context,
                 icon: Icons.public_rounded,
-                iconColor: theme.colorScheme.secondary,
+                iconColor: theme.colorScheme.primary,
                 title: l10n.countrySyncSettingsTitle,
                 subtitle: l10n.countrySyncSettingsSubtitle,
                 onTap: () => context.pushNamed(AppRouter.countrySyncSettings),
@@ -206,11 +206,22 @@ class SettingsPage extends ConsumerWidget {
               _buildTile(
                 context: context,
                 icon: Icons.auto_awesome_rounded,
-                iconColor: theme.colorScheme.primary,
+                iconColor: theme.colorScheme.secondary,
                 title: l10n.initialSetupTitle,
                 subtitle: l10n.initialSetupDesc,
                 onTap: () => context.pushNamed(AppRouter.initialSetup),
               ),
+            ],
+          ),
+
+          const SizedBox(height: 20),
+
+          // 4. 云端同步与数据备份组 (Cloud Sync & Backup Group)
+          _buildSectionHeader(context, l10n.cloudSyncAndBackupTitle, Icons.cloud_done_rounded, theme.colorScheme.secondary),
+          _buildGroupedCard(
+            context: context,
+            glowColor: theme.colorScheme.secondary,
+            children: [
               _buildDivider(context),
               _buildTile(
                 context: context,
