@@ -32,6 +32,8 @@ import 'package:pyro_phone_call_coordinator_connector/pyro_phone_call_coordinato
 import 'package:pyro_phone_marking_connector/pyro_phone_marking_connector.dart';
 import 'package:pyro_sim_connector/pyro_sim_connector.dart';
 
+import 'filter_ui_registry.dart';
+
 /// 全量 33 个微包外观装配线独立初始化入口
 void initPackageConnectors() {
   SimConnectors.ensureMounted();
@@ -59,6 +61,9 @@ void initPackageConnectors() {
   PyroCallMonitorConnector.registerAll();
   PyroCallCoordinatorConnector.registerAll();
   PyroPhoneMarkingConnector.registerAll();
+
+  // 注册主 App 胶水层 Filter UI 动态注册工厂
+  FilterUiRegistry.init();
 
   // 云盘 3 大 Driver 启动同步强行注册
   CloudDriveHub.instance.configureHostContext(

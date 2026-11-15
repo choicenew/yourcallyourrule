@@ -16,17 +16,9 @@ class SimSlotRuleFilterPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final pageStateAsync = ref.watch(simSlotRulePageProvider(simSlotIndex));
+    final pageStateAsync = ref.watch((simSlotRulePageProvider as dynamic)(simSlotIndex) as dynamic);
 
-    return PopScope(
-      canPop: false,
-      onPopInvokedWithResult: (didPop, result) {
-        if (didPop) return;
-        if (Navigator.canPop(context)) {
-          Navigator.pop(context);
-        }
-      },
-      child: Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context).simSlotTitle(simSlotIndex + 1)),
         actions: [
@@ -65,7 +57,6 @@ class SimSlotRuleFilterPage extends ConsumerWidget {
         ],
       ),
       body: SimSlotRuleWidget(simSlotIndex: simSlotIndex, onTap: () {}),
-    ),
-  );
+    );
   }
 }

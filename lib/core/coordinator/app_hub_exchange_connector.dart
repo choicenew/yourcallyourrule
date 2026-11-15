@@ -106,12 +106,17 @@ class AppHubExchangeConnector {
     _registerAllFilterConnectors();
   }
 
+import 'filter_ui_registry.dart';
+
   void _registerAllFilterConnectors() {
     try {
       PyroPhoneCountFilterConnector.registerAll();
       PyroPhoneRemoteFilterConnector.registerAll();
       PyroTimeInterceptorConnector.registerAll();
       SimSlotRuleConnector.registerAll();
+
+      // 注册主 App 胶水层 Filter UI 动态注册工厂
+      FilterUiRegistry.init();
 
       // 注册 SMS 离线 Bloom Filter 预检驱动至 Tier 0 优先顺序
       debugPrint('[Connector] Registered SMS Tier 0 Bloom Filter Offline Driver.');
