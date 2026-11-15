@@ -13,13 +13,13 @@ class OnboardingDynamicFilterCard extends ConsumerWidget {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);
 
-    final localConfigAsync = ref.watch(localCountFilterConfigNotifierProvider);
+    final localConfigAsync = ref.watch(localCountFilterConfigProvider);
     final localConfig = localConfigAsync.value;
-    final localNotifier = ref.read(localCountFilterConfigNotifierProvider.notifier);
+    final localNotifier = ref.read(localCountFilterConfigProvider.notifier);
 
-    final remoteConfigAsync = ref.watch(remoteNumberFilterConfigNotifierProvider);
+    final remoteConfigAsync = ref.watch(remoteNumberFilterConfigProvider);
     final remoteConfig = remoteConfigAsync.value;
-    final remoteNotifier = ref.read(remoteNumberFilterConfigNotifierProvider.notifier);
+    final remoteNotifier = ref.read(remoteNumberFilterConfigProvider.notifier);
 
     final isLocalEnabled = localConfig?.enableLocalCountFilter ?? true;
     final isRemoteEnabled = remoteConfig?.enableRemoteNumberFilter ?? true;
@@ -62,7 +62,7 @@ class OnboardingDynamicFilterCard extends ConsumerWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            l10n.dynamicFilterRulesTitle,
+                            l10n.enhancedFilterSettingsTitle,
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
@@ -70,7 +70,7 @@ class OnboardingDynamicFilterCard extends ConsumerWidget {
                             ),
                           ),
                           Text(
-                            l10n.dynamicFilterRulesDescription,
+                            l10n.globalFilterDescription,
                             style: TextStyle(fontSize: 11, color: theme.colorScheme.onSurfaceVariant),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -97,7 +97,7 @@ class OnboardingDynamicFilterCard extends ConsumerWidget {
           ),
           const SizedBox(height: 24),
           Text(
-            l10n.dynamicFilterRulesTitle,
+            l10n.enhancedFilterSettingsTitle,
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -106,7 +106,7 @@ class OnboardingDynamicFilterCard extends ConsumerWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            l10n.dynamicFilterRulesDescription,
+            l10n.globalFilterDescription,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 13,
@@ -129,7 +129,7 @@ class OnboardingDynamicFilterCard extends ConsumerWidget {
                 SwitchListTile(
                   dense: true,
                   title: Text(l10n.localCountFilter, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
-                  subtitle: Text(l10n.localCountFilterThresholdSubtitle(localConfig?.countThreshold ?? 5), style: const TextStyle(fontSize: 11)),
+                  subtitle: Text(l10n.localCountFilterDescription, style: const TextStyle(fontSize: 11)),
                   value: isLocalEnabled,
                   onChanged: (val) {
                     if (localConfig != null) {
@@ -141,7 +141,7 @@ class OnboardingDynamicFilterCard extends ConsumerWidget {
                 SwitchListTile(
                   dense: true,
                   title: Text(l10n.remoteFilterSettings, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
-                  subtitle: Text(l10n.remoteCountFilterThresholdSubtitle(remoteConfig?.countThreshold ?? 5), style: const TextStyle(fontSize: 11)),
+                  subtitle: Text(l10n.remoteNumberFilterSubtitle, style: const TextStyle(fontSize: 11)),
                   value: isRemoteEnabled,
                   onChanged: (val) {
                     if (remoteConfig != null) {

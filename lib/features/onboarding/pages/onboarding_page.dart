@@ -20,7 +20,7 @@ import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_ready_ca
 /// 应用引导主页面（包含 9 大解耦功能与配置卡片）
 class OnboardingPage extends ConsumerStatefulWidget {
   final VoidCallback? onComplete;
-  const OnboardingPage({super.key});
+  const OnboardingPage({super.key, this.onComplete});
 
   @override
   ConsumerState<OnboardingPage> createState() => _OnboardingPageState();

@@ -6,7 +6,7 @@ import 'package:pyro_phone_country_sync_hub/pyro_phone_country_sync_hub.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 全量 250+ 国家动态检索与离线数据库同步下载选择页
+/// 支持 N 个国家多选批量下载、带已选国家 Chips 选框标签栏的动态选择页
 class CountrySelectionWidget extends ConsumerStatefulWidget {
   const CountrySelectionWidget({super.key});
 
@@ -17,7 +17,7 @@ class CountrySelectionWidget extends ConsumerStatefulWidget {
 class _CountrySelectionWidgetState extends ConsumerState<CountrySelectionWidget> {
   final TextEditingController _searchController = TextEditingController();
   String _searchQuery = '';
-  String _selectedCountryCode = 'US';
+  final Set<String> _selectedCountryCodes = {'US', 'CN'};
   bool _isDownloading = false;
 
   @override
@@ -48,6 +48,28 @@ class _CountrySelectionWidgetState extends ConsumerState<CountrySelectionWidget>
       final code = country.code.toLowerCase();
       final codeShort = country.codeShort.toLowerCase();
       return name.contains(_searchQuery) || code.contains(_searchQuery) || codeShort.contains(_searchQuery);
+    }).toList();
+
+    final selectedCountryWidgets = _selectedCountryCodes.map((code) {
+      final country = allCountries.firstWhere(
+        (c) => c.codeShort == code,
+        orElse: () => WorldCountry.fromCode(code),
+      );
+      return Padding(
+        padding: const EdgeInsets.only(right: 6.0),
+        child: InputChip(
+          avatar: Text(country.emoji, style: const TextStyle(fontSize: 16)),
+          label: Text('${country.name.common} ($code)', style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+          onDeleted: () {
+            setState(() {
+              _selectedCountryCodes.remove(code);
+            });
+          },
+          deleteIcon: const Icon(Icons.cancel_rounded, size: 16),
+          backgroundColor: theme.colorScheme.primaryContainer.withValues(alpha: 0.6),
+          labelStyle: TextStyle(color: theme.colorScheme.onPrimaryContainer),
+        ),
+      );
     }).toList();
 
     return PopScope(
@@ -81,6 +103,7 @@ class _CountrySelectionWidgetState extends ConsumerState<CountrySelectionWidget>
           ),
         ),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -104,6 +127,17 @@ class _CountrySelectionWidgetState extends ConsumerState<CountrySelectionWidget>
                 ),
               ),
             ),
+            if (_selectedCountryCodes.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                child: SizedBox(
+                  height: 42,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: selectedCountryWidgets,
+                  ),
+                ),
+              ),
             Expanded(
               child: ListView.builder(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -111,7 +145,7 @@ class _CountrySelectionWidgetState extends ConsumerState<CountrySelectionWidget>
                 itemBuilder: (context, index) {
                   final country = filteredCountries[index];
                   final code = country.codeShort;
-                  final isSelected = _selectedCountryCode == code;
+                  final isSelected = _selectedCountryCodes.contains(code);
 
                   return Card(
                     margin: const EdgeInsets.only(bottom: 8.0),
@@ -127,12 +161,26 @@ class _CountrySelectionWidgetState extends ConsumerState<CountrySelectionWidget>
                       leading: Text(country.emoji, style: const TextStyle(fontSize: 26)),
                       title: Text(country.name.common, style: const TextStyle(fontWeight: FontWeight.bold)),
                       subtitle: Text('ISO: $code | ${country.namesNative.firstOrNull?.common ?? country.name.common}'),
-                      trailing: isSelected
-                          ? Icon(Icons.check_circle_rounded, color: theme.colorScheme.primary)
-                          : const Icon(Icons.circle_outlined, color: Colors.grey),
+                      trailing: Checkbox(
+                        value: isSelected,
+                        activeColor: theme.colorScheme.primary,
+                        onChanged: (bool? checked) {
+                          setState(() {
+                            if (checked == true) {
+                              _selectedCountryCodes.add(code);
+                            } else {
+                              _selectedCountryCodes.remove(code);
+                            }
+                          });
+                        },
+                      ),
                       onTap: () {
                         setState(() {
-                          _selectedCountryCode = code;
+                          if (isSelected) {
+                            _selectedCountryCodes.remove(code);
+                          } else {
+                            _selectedCountryCodes.add(code);
+                          }
                         });
                       },
                     ),
@@ -161,17 +209,19 @@ class _CountrySelectionWidgetState extends ConsumerState<CountrySelectionWidget>
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
                   ),
-                  onPressed: _isDownloading
+                  onPressed: (_isDownloading || _selectedCountryCodes.isEmpty)
                       ? null
                       : () async {
                           setState(() {
                             _isDownloading = true;
                           });
                           try {
-                            await hub.downloadCountryData(_selectedCountryCode);
+                            for (final code in _selectedCountryCodes) {
+                              await hub.downloadCountryData(code);
+                            }
                             if (context.mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('Downloaded database for $_selectedCountryCode successfully!')),
+                                SnackBar(content: Text('Downloaded database for ${_selectedCountryCodes.length} countries successfully!')),
                               );
                             }
                           } catch (e) {
@@ -191,7 +241,12 @@ class _CountrySelectionWidgetState extends ConsumerState<CountrySelectionWidget>
                   icon: _isDownloading
                       ? const SizedBox(width: 18, height: 18, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
                       : const Icon(Icons.cloud_download_rounded),
-                  label: Text(_isDownloading ? l10n.loading : '${l10n.confirmButton} ($_selectedCountryCode)', style: const TextStyle(fontWeight: FontWeight.bold)),
+                  label: Text(
+                    _isDownloading
+                        ? l10n.loading
+                        : '${l10n.confirmButton} (${_selectedCountryCodes.length} Selected)',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ),

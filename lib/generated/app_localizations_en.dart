@@ -2272,7 +2272,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.';
 
   @override
-  String get dynamicFilterRulesTitle => 'Dynamic Filter Rules & Engine';
+  String get dynamicFilterRulesTitle => 'Dynamic Filter Rules & Plug-in Engine';
 
   @override
   String get dynamicFilterRulesDescription =>

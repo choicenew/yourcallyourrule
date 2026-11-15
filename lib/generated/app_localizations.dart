@@ -4168,11 +4168,40 @@ abstract class AppLocalizations {
   /// **'Your call management expert, providing comprehensive call identification and blocking services.'**
   String get onboardingWelcomeDescription;
 
+  /// No description provided for @userGuideTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'User Guide & Manual'**
   String get userGuideTitle;
+
+  /// No description provided for @userGuideSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Review all feature cards and interactive configurations anytime'**
   String get userGuideSubtitle;
+
+  /// No description provided for @localFirstPrivacyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Local-First & Zero Automatic Upload'**
   String get localFirstPrivacyTitle;
+
+  /// No description provided for @localFirstPrivacyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.'**
   String get localFirstPrivacyDescription;
+
+  /// No description provided for @dynamicFilterRulesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Dynamic Filter Rules & Plug-in Engine'**
   String get dynamicFilterRulesTitle;
+
+  /// No description provided for @dynamicFilterRulesDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.'**
   String get dynamicFilterRulesDescription;
 
   /// No description provided for @oneDriveAuthDescription.

@@ -2263,6 +2263,27 @@ class AppLocalizationsMy extends AppLocalizations {
       'သင့်ခေါ်ဆိုမှု စီမံခန့်ခွဲမှု ကျွမ်းကျင်သူ၊ ခေါ်ဆိုမှု အချက်အလက်နှင့် ပိတ်ဆို့ရေး ဝန်ဆောင်မှုများကို အပြည့်အဝ ပေးပါသည်။';
 
   @override
+  String get userGuideTitle => 'User Guide & Manual';
+
+  @override
+  String get userGuideSubtitle =>
+      'Review all feature cards and interactive configurations anytime';
+
+  @override
+  String get localFirstPrivacyTitle => 'Local-First & Zero Automatic Upload';
+
+  @override
+  String get localFirstPrivacyDescription =>
+      'Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.';
+
+  @override
+  String get dynamicFilterRulesTitle => 'Dynamic Filter Rules & Plug-in Engine';
+
+  @override
+  String get dynamicFilterRulesDescription =>
+      'Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.';
+
+  @override
   String get oneDriveAuthDescription =>
       'System-configured OneDrive client ID နှင့် key ကို အသုံးပြု၍ ခွင့်ပြုချက်';
 

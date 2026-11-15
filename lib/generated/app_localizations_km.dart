@@ -2267,6 +2267,27 @@ class AppLocalizationsKm extends AppLocalizations {
       'អ្នក​ជំនាញ​គ្រប់គ្រង​ការ​ហៅ​ទូរស័ព្ទ​របស់​អ្នក ដែល​ផ្តល់​សេវា​កំណត់​អត្តសញ្ញាណ និង​ទប់ស្កាត់​ការ​ហៅ​ទូរស័ព្ទ​គ្រប់ជ្រុងជ្រោយ។';
 
   @override
+  String get userGuideTitle => 'User Guide & Manual';
+
+  @override
+  String get userGuideSubtitle =>
+      'Review all feature cards and interactive configurations anytime';
+
+  @override
+  String get localFirstPrivacyTitle => 'Local-First & Zero Automatic Upload';
+
+  @override
+  String get localFirstPrivacyDescription =>
+      'Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.';
+
+  @override
+  String get dynamicFilterRulesTitle => 'Dynamic Filter Rules & Plug-in Engine';
+
+  @override
+  String get dynamicFilterRulesDescription =>
+      'Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.';
+
+  @override
   String get oneDriveAuthDescription =>
       'ផ្តល់​សិទ្ធិ​ដោយ​ប្រើ​អត្តសញ្ញាណ​អតិថិជន OneDrive ដែល​បាន​កំណត់​រចនាសម្ព័ន្ធ​ប្រព័ន្ធ និង​កូនសោ';
 

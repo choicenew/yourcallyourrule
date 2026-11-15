@@ -2168,6 +2168,26 @@ class AppLocalizationsZh extends AppLocalizations {
   String get onboardingWelcomeDescription => '您的通话管理专家，提供全面的来电识别和拦截服务。';
 
   @override
+  String get userGuideTitle => '用户指南与使用手册';
+
+  @override
+  String get userGuideSubtitle => '随时查阅与微调全量功能卡片指引与交互配置';
+
+  @override
+  String get localFirstPrivacyTitle => '本地优先 & 零自动上传';
+
+  @override
+  String get localFirstPrivacyDescription =>
+      '通话记录与通讯录 100% 仅在您的手机本地处理；仅当您主动标记骚扰并选择提交时，才会共享该号码标记。';
+
+  @override
+  String get dynamicFilterRulesTitle => '动态组合过滤规则与插件引擎';
+
+  @override
+  String get dynamicFilterRulesDescription =>
+      '支持通过 FilterUiRegistry 动态注册频次阈值、远端风险、时间拦截与双卡卡槽等拦截规则模块。';
+
+  @override
   String get oneDriveAuthDescription => '使用系统配置的 OneDrive 客户端 ID 和密钥进行授权';
 
   @override

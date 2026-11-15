@@ -2201,6 +2201,27 @@ class AppLocalizationsKo extends AppLocalizations {
       '종합적인 통화 식별 및 차단 서비스를 제공하는 통화 관리 전문가.';
 
   @override
+  String get userGuideTitle => 'User Guide & Manual';
+
+  @override
+  String get userGuideSubtitle =>
+      'Review all feature cards and interactive configurations anytime';
+
+  @override
+  String get localFirstPrivacyTitle => 'Local-First & Zero Automatic Upload';
+
+  @override
+  String get localFirstPrivacyDescription =>
+      'Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.';
+
+  @override
+  String get dynamicFilterRulesTitle => 'Dynamic Filter Rules & Plug-in Engine';
+
+  @override
+  String get dynamicFilterRulesDescription =>
+      'Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.';
+
+  @override
   String get oneDriveAuthDescription =>
       '시스템 구성 OneDrive 클라이언트 ID 및 키를 사용하여 권한 부여';
 
