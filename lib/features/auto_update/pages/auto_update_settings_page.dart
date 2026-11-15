@@ -1,5 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -128,47 +130,64 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);
 
-    return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          l10n.autoUpdateSettings,
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: theme.colorScheme.onSurface,
-          ),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh_rounded),
-            onPressed: _isLoading ? null : _updateAll,
-            tooltip: l10n.updateAllNow,
-          ),
-        ],
-      ),
-      body: _isLoading
-          ? Center(
-              child: CircularProgressIndicator(color: theme.colorScheme.primary),
-            )
-          : ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-              physics: const BouncingScrollPhysics(),
-              children: [
-                _buildInfoCard(),
-                const SizedBox(height: 14),
-                ..._serviceTypeNames.keys.map((type) => _buildServiceCard(type)),
-                const SizedBox(height: 16),
-                const SizedBox(height: 10),
-              ],
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (GoRouter.of(context).canPop()) {
+          context.pop();
+        } else {
+          GoRouter.of(context).goNamed(AppRouter.home);
+        }
+      },
+      child: Scaffold(
+        backgroundColor: theme.scaffoldBackgroundColor,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            l10n.autoUpdateSettings,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: theme.colorScheme.onSurface,
             ),
+          ),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
+            onPressed: () {
+              if (GoRouter.of(context).canPop()) {
+                context.pop();
+              } else {
+                GoRouter.of(context).goNamed(AppRouter.home);
+              }
+            },
+          ),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.refresh_rounded),
+              onPressed: _isLoading ? null : _updateAll,
+              tooltip: l10n.updateAllNow,
+            ),
+          ],
+        ),
+        body: _isLoading
+            ? Center(
+                child: CircularProgressIndicator(color: theme.colorScheme.primary),
+              )
+            : ListView(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                physics: const BouncingScrollPhysics(),
+                children: [
+                  _buildInfoCard(),
+                  const SizedBox(height: 14),
+                  ..._serviceTypeNames.keys.map((type) => _buildServiceCard(type)),
+                  const SizedBox(height: 16),
+                  const SizedBox(height: 10),
+                ],
+              ),
+      ),
     );
   }
 

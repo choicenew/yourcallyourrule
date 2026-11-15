@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pyro_ads_hub/pyro_ads_hub.dart';
-import 'package:yourcallyourrule/features/commercial/services/ad_control_service.dart';
+import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通用列表页面组件 - 标准通用框架 (包含广告插槽)
@@ -184,12 +184,23 @@ class _GenericListPageState<T> extends ConsumerState<GenericListPage<T>> {
           )
         : null;
 
-    return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
-      appBar: appBar,
-      body: widget.isLoading
-          ? const Center(child: CircularProgressIndicator(strokeWidth: 2))
-          : _buildContent(),
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (GoRouter.of(context).canPop()) {
+          context.pop();
+        } else {
+          GoRouter.of(context).goNamed(AppRouter.home);
+        }
+      },
+      child: Scaffold(
+        backgroundColor: theme.scaffoldBackgroundColor,
+        appBar: appBar,
+        body: widget.isLoading
+            ? const Center(child: CircularProgressIndicator(strokeWidth: 2))
+            : _buildContent(),
+      ),
     );
   }
 

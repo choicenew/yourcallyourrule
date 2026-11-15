@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pyro_ads_hub/pyro_ads_hub.dart';
+import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 enum ListDisplayMode {
@@ -111,35 +112,48 @@ class _GenericTimelinePageState<T> extends ConsumerState<GenericTimelinePage<T>>
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Scaffold(
+    final appBar = AppBar(
+      elevation: 0,
+      scrolledUnderElevation: 0,
       backgroundColor: theme.scaffoldBackgroundColor,
-      appBar: AppBar(
-        elevation: 0,
-        scrolledUnderElevation: 0,
+      foregroundColor: theme.colorScheme.onSurface,
+      title: widget.isMultiSelectMode 
+        ? Text(
+            AppLocalizations.of(context).selectedItems(widget.selectedItemIds.length),
+            style: TextStyle(color: theme.colorScheme.onSurface, fontWeight: FontWeight.w900, fontSize: 18),
+          ) 
+        : Text(
+            widget.title,
+            style: TextStyle(color: theme.colorScheme.onSurface, fontWeight: FontWeight.w900, fontSize: 20, letterSpacing: -0.3),
+          ),
+      leading: widget.isMultiSelectMode 
+        ? IconButton(
+            icon: Icon(Icons.close_rounded, color: theme.colorScheme.onSurface),
+            onPressed: widget.onToggleMultiSelectMode,
+          )
+        : null,
+      actions: widget.isMultiSelectMode 
+        ? _buildMultiSelectActions() 
+        : _buildDefaultActions(),
+    );
+
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (GoRouter.of(context).canPop()) {
+          context.pop();
+        } else {
+          GoRouter.of(context).goNamed(AppRouter.home);
+        }
+      },
+      child: Scaffold(
         backgroundColor: theme.scaffoldBackgroundColor,
-        foregroundColor: theme.colorScheme.onSurface,
-        title: widget.isMultiSelectMode 
-          ? Text(
-              AppLocalizations.of(context).selectedItems(widget.selectedItemIds.length),
-              style: TextStyle(color: theme.colorScheme.onSurface, fontWeight: FontWeight.w900, fontSize: 18),
-            ) 
-          : Text(
-              widget.title,
-              style: TextStyle(color: theme.colorScheme.onSurface, fontWeight: FontWeight.w900, fontSize: 20, letterSpacing: -0.3),
-            ),
-        leading: widget.isMultiSelectMode 
-          ? IconButton(
-              icon: Icon(Icons.close_rounded, color: theme.colorScheme.onSurface),
-              onPressed: widget.onToggleMultiSelectMode,
-            )
-          : null,
-        actions: widget.isMultiSelectMode 
-          ? _buildMultiSelectActions() 
-          : _buildDefaultActions(),
+        appBar: appBar,
+        body: widget.isLoading
+            ? const Center(child: CircularProgressIndicator(strokeWidth: 2))
+            : _buildContent(),
       ),
-      body: widget.isLoading
-          ? const Center(child: CircularProgressIndicator(strokeWidth: 2))
-          : _buildContent(),
     );
   }
 

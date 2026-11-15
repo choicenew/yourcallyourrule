@@ -1,7 +1,9 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:pyro_commercial_hub/pyro_commercial_hub.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/commercial/widgets/modern_purchase_card.dart';
 import 'package:yourcallyourrule/features/commercial/pages/vip_exchange_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -255,11 +257,22 @@ class _PurchasePageState extends ConsumerState<PurchasePage> {
       ),
     ];
 
-    return ModernPurchasePage(
-      title: l10n.membershipCenter,
-      featureCard: featureCard,
-      purchaseCards: purchaseCards,
-      bottomButtons: bottomButtons,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (GoRouter.of(context).canPop()) {
+          context.pop();
+        } else {
+          GoRouter.of(context).goNamed(AppRouter.home);
+        }
+      },
+      child: ModernPurchasePage(
+        title: l10n.membershipCenter,
+        featureCard: featureCard,
+        purchaseCards: purchaseCards,
+        bottomButtons: bottomButtons,
+      ),
     );
   }
 }

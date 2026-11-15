@@ -1,4 +1,6 @@
 import 'package:material_ui/material_ui.dart';
+import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 
 
 import 'package:yourcallyourrule/features/phone_subscription/services/subscription_service_base.dart';
@@ -170,17 +172,28 @@ class GenericSubscriptionPageState<T, ID, S extends SubscriptionServiceBase<T, I
   Widget build(BuildContext context) {
     final subscriptionService = widget.serviceBuilder(context);
     
-    return SubscriptionManagementWidget<T, ID>(
-      subscriptionService: subscriptionService,
-      subscriptions: _subscriptions,
-      isLoading: _isLoading,
-      onLoadSubscriptions: _loadSubscriptions,
-      title: widget.title,
-      emptyText: widget.emptyText,
-      emptyIcon: widget.emptyIcon,
-      onAddSubscription: () => widget.showAddDialog(context, subscriptionService, _loadSubscriptions),
-      buildInfoCard: widget.buildInfoCard,
-      buildSubscriptionCard: (dynamic subscription) => widget.buildSubscriptionCard(subscription as T, this),
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (GoRouter.of(context).canPop()) {
+          context.pop();
+        } else {
+          GoRouter.of(context).goNamed(AppRouter.home);
+        }
+      },
+      child: SubscriptionManagementWidget<T, ID>(
+        subscriptionService: subscriptionService,
+        subscriptions: _subscriptions,
+        isLoading: _isLoading,
+        onLoadSubscriptions: _loadSubscriptions,
+        title: widget.title,
+        emptyText: widget.emptyText,
+        emptyIcon: widget.emptyIcon,
+        onAddSubscription: () => widget.showAddDialog(context, subscriptionService, _loadSubscriptions),
+        buildInfoCard: widget.buildInfoCard,
+        buildSubscriptionCard: (dynamic subscription) => widget.buildSubscriptionCard(subscription as T, this),
+      ),
     );
   }
 }

@@ -1,10 +1,10 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/services/import_export_service_component.dart';
 import 'package:yourcallyourrule/features/common/widgets/rule_management_widget.dart';
-import 'package:yourcallyourrule/features/phone_rules/utils/rule_action_display_utils.dart';
-import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class GenericRulePage<T, S> extends ConsumerStatefulWidget {
   final String title;
@@ -61,28 +61,39 @@ class _GenericRulePageState<T, S> extends ConsumerState<GenericRulePage<T, S>> {
   Widget build(BuildContext context) {
     final service = ref.watch(widget.serviceProvider);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        backgroundColor: widget.themeColor,
-      ),
-      body: RuleManagementWidget<T>(
-        title: widget.title,
-        emptyText: widget.emptyText,
-        emptyIcon: widget.emptyIcon,
-        addButtonText: widget.addButtonText,
-        useLabelFilter: widget.useLabelFilter,
-        useActionFilter: widget.useActionFilter,
-        getItemId: widget.getItemId,
-        buildRuleCard: (context, rule) => widget.buildRuleCard(context, rule),
-        onAddPressed: () => widget.showAddDialog(context, service, () => setState(() {})),
-        getAllRules: () => widget.getAllRules(service),
-        deleteRule: (id) => widget.deleteRule(service, id),
-        toggleRuleStatus: (id, isEnabled) => widget.toggleRuleStatus(service, id, isEnabled),
-        searchRules: widget.searchRules,
-        filterRulesByLabel: widget.filterRulesByLabel,
-        filterRulesByAction: widget.filterRulesByAction,
-        importExportComponent: widget.importExportComponent,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (GoRouter.of(context).canPop()) {
+          context.pop();
+        } else {
+          GoRouter.of(context).goNamed(AppRouter.home);
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(widget.title),
+          backgroundColor: widget.themeColor,
+        ),
+        body: RuleManagementWidget<T>(
+          title: widget.title,
+          emptyText: widget.emptyText,
+          emptyIcon: widget.emptyIcon,
+          addButtonText: widget.addButtonText,
+          useLabelFilter: widget.useLabelFilter,
+          useActionFilter: widget.useActionFilter,
+          getItemId: widget.getItemId,
+          buildRuleCard: (context, rule) => widget.buildRuleCard(context, rule),
+          onAddPressed: () => widget.showAddDialog(context, service, () => setState(() {})),
+          getAllRules: () => widget.getAllRules(service),
+          deleteRule: (id) => widget.deleteRule(service, id),
+          toggleRuleStatus: (id, isEnabled) => widget.toggleRuleStatus(service, id, isEnabled),
+          searchRules: widget.searchRules,
+          filterRulesByLabel: widget.filterRulesByLabel,
+          filterRulesByAction: widget.filterRulesByAction,
+          importExportComponent: widget.importExportComponent,
+        ),
       ),
     );
   }
