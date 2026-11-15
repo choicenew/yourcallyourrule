@@ -123,7 +123,7 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(
-          color: isDark ? Colors.white.withOpacity(0.08) : Colors.black.withOpacity(0.04),
+          color: isDark ? Colors.white.withValues(alpha: 0.08) : Colors.black.withValues(alpha: 0.04),
           width: 1,
         ),
       ),
@@ -291,12 +291,12 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
           color: isDark ? const Color(0xFF1E2430) : const Color(0xFFF8FAFC),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: isDark ? Colors.white.withOpacity(0.08) : Colors.black.withOpacity(0.05),
+            color: isDark ? Colors.white.withValues(alpha: 0.08) : Colors.black.withValues(alpha: 0.05),
             width: 1,
           ),
           boxShadow: [
             BoxShadow(
-              color: isDark ? Colors.black.withOpacity(0.2) : Colors.black.withOpacity(0.02),
+              color: isDark ? Colors.black.withValues(alpha: 0.2) : Colors.black.withValues(alpha: 0.02),
               blurRadius: 6,
               offset: const Offset(0, 2),
             ),
@@ -309,10 +309,10 @@ class _FeatureCenterState extends ConsumerState<FeatureCenter> {
               width: 44,
               height: 44,
               decoration: BoxDecoration(
-                color: isDark ? color.withOpacity(0.25) : color,
+                color: isDark ? color.withValues(alpha: 0.25) : color,
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
-                  color: isDark ? Colors.white.withOpacity(0.1) : Colors.black.withOpacity(0.04),
+                  color: isDark ? Colors.white.withValues(alpha: 0.1) : Colors.black.withValues(alpha: 0.04),
                   width: 0.8,
                 ),
               ),
