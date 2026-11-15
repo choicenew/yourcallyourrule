@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/phone_subscription/services/phone_subscription_service.dart';
 import 'package:yourcallyourrule/features/phone_plugin/services/plugin_manager_service.dart';
 
@@ -232,14 +233,11 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
         }
       }
 
-      ref.invalidate(phoneSubscriptionServiceProvider);
-      ref.invalidate(pluginManagerServiceProvider);
-
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(l10n.initialSetupSaveSuccess)),
         );
-        await _exit(context);
+        _exit(context);
       }
 
       // 后台异步解析规则
