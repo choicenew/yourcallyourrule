@@ -4204,6 +4204,13 @@ abstract class AppLocalizations {
   /// **'Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.'**
   String get dynamicFilterRulesDescription;
 
+  String get deviceClusterControlPanelTitle;
+  String get masterPermissionHelp;
+  String get slavePermissionHelp;
+  String get connectedClusterNodesList;
+  String get noOtherNodesFound;
+  String get localDeviceSuffix;
+
   /// No description provided for @oneDriveAuthDescription.
   ///
   /// In en, this message translates to:

@@ -2283,6 +2283,27 @@ class AppLocalizationsEn extends AppLocalizations {
       'Authorize using system-configured OneDrive client ID and key';
 
   @override
+  String get deviceClusterControlPanelTitle =>
+      'Device Cluster & Initialization Control Panel';
+
+  @override
+  String get masterPermissionHelp =>
+      'Permission: Master device allowed to initialize global database';
+
+  @override
+  String get slavePermissionHelp =>
+      'Permission: Slave device possesses all cloud keys, skipping duplicate initialization';
+
+  @override
+  String get connectedClusterNodesList => 'Connected Cluster Device Nodes:';
+
+  @override
+  String get noOtherNodesFound => 'No other device nodes discovered';
+
+  @override
+  String get localDeviceSuffix => '(This Device)';
+
+  @override
   String get oneDriveConfigTitle => 'OneDrive Configuration';
 
   @override
