@@ -232,11 +232,14 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
         }
       }
 
+      ref.invalidate(phoneSubscriptionServiceProvider);
+      ref.invalidate(pluginManagerServiceProvider);
+
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(l10n.initialSetupSaveSuccess)),
         );
-        _exit(context);
+        await _exit(context);
       }
 
       // 后台异步解析规则
