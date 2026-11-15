@@ -8,8 +8,7 @@ import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_f
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-// [重构]: 导入所有需要的 Provider。
-
+import 'package:yourcallyourrule/features/call_filter/call_filter_type.dart';
 import 'package:yourcallyourrule/features/call_filter/providers/call_filter_provider.dart';
 import 'package:yourcallyourrule/features/call_filter/providers/enhanced_filter_config_provider.dart';
 
@@ -68,14 +67,14 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
           _isExpanded
               ? null
               : (isDark
-                  ? const Color(0xFFFFA726).withOpacity(0.15)
+                  ? const Color(0xFFFFA726).withValues(alpha: 0.15)
                   : const Color(0xFFFFF3E0)),
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       elevation: 2,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: BorderSide(
-          color: isDark ? Colors.white.withOpacity(0.08) : const Color(0xFFFFA726).withOpacity(0.3),
+          color: isDark ? Colors.white.withValues(alpha: 0.08) : const Color(0xFFFFA726).withValues(alpha: 0.3),
           width: 1,
         ),
       ),
@@ -102,28 +101,14 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
   }
 
   Widget _buildFilterContent() {
-    final enhancedConfigAsync = ref.watch(enhancedFilterConfigProvider);
+    final enhancedConfig = ref.watch(enhancedFilterConfigProvider).value;
+    final isSimSlotRuleEnabled = enhancedConfig?.filterEnabledMap['SimSlotRuleService'] ?? false;
 
-    // [注释]: 顶层仍然使用 .when 处理初始加载和致命错误。
-    return enhancedConfigAsync.when(
-      data: (enhancedConfig) {
-        final isSimSlotRuleEnabled =
-            enhancedConfig.filterEnabledMap['SimSlotRuleService'] ?? false;
-
-        if (isSimSlotRuleEnabled) {
-          return _buildSimSlotFilterContent();
-        } else {
-          return _buildGlobalFilterList();
-        }
-      },
-      loading: () => const Center(child: CircularProgressIndicator()),
-      error:
-          (err, st) => Center(
-            child: Text(
-              AppLocalizations.of(context).dataLoadFailure(err.toString()),
-            ),
-          ),
-    );
+    if (isSimSlotRuleEnabled) {
+      return _buildSimSlotFilterContent();
+    } else {
+      return _buildGlobalFilterList();
+    }
   }
 
   Widget _buildGlobalFilterList() {
@@ -210,7 +195,7 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                               Container(
                                 padding: const EdgeInsets.all(8),
                                 decoration: BoxDecoration(
-                                  color: Colors.blue.withOpacity(0.1),
+                                  color: Colors.blue.withValues(alpha: 0.1),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Row(
@@ -235,7 +220,7 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                                             simInfo.carrierName ??
                                                 AppLocalizations.of(
                                                   context,
-                                                )!.unassignedSIMCard,
+                                                ).unassignedSIMCard,
                                           ),
                                         ],
                                       ),
@@ -250,14 +235,15 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                                 title:
                                     AppLocalizations.of(
                                       context,
-                                    )!.localCountFilter,
+                                    ).localCountFilter,
                                 subtitle:
                                     AppLocalizations.of(
                                       context,
-                                    )!.localCountFilterDescription,
+                                    ).localCountFilterDescription,
                                 icon: Icons.filter_list,
                                 color: Colors.orange,
                                 simSlot: simSlot,
+                                filterType: CallFilterType.localCount,
                                 serviceId: 'LocalCountFilterService',
                               ),
                               const SizedBox(height: 16),
@@ -265,14 +251,15 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                                 title:
                                     AppLocalizations.of(
                                       context,
-                                    )!.remoteNumberFilter,
+                                    ).remoteNumberFilter,
                                 subtitle:
                                     AppLocalizations.of(
                                       context,
-                                    )!.remoteNumberFilterDescription,
+                                    ).remoteNumberFilterDescription,
                                 icon: Icons.filter,
                                 color: Colors.purple,
                                 simSlot: simSlot,
+                                filterType: CallFilterType.remoteNumber,
                                 serviceId: 'RemoteNumberFilterService',
                               ),
                               const SizedBox(height: 16),
@@ -280,14 +267,15 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                                 title:
                                     AppLocalizations.of(
                                       context,
-                                    )!.timeInterceptor,
+                                    ).timeInterceptor,
                                 subtitle:
                                     AppLocalizations.of(
                                       context,
-                                    )!.timeInterceptorDescription,
+                                    ).timeInterceptorDescription,
                                 icon: Icons.timer,
                                 color: Colors.teal,
                                 simSlot: simSlot,
+                                filterType: CallFilterType.basicRule,
                                 serviceId: 'TimeInterceptorService',
                               ),
                             ],
@@ -310,15 +298,11 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     );
   }
 
-  // ▼▼▼▼▼ 核心修正部分 ▼▼▼▼▼
-
   Widget _buildSimCardFilterRulesSwitch() {
-    // [修正]: 我们只 select provider 的 data 部分。
     final config = ref.watch(
       enhancedFilterConfigProvider.select((asyncValue) => asyncValue.value),
     );
 
-    // [注释]: 如果初始数据还没加载好，config 会是 null，我们可以显示一个禁用的开关。
     if (config == null) {
       return _buildFilterSwitchItem(
         title: AppLocalizations.of(context).simCardFilterRules,
@@ -331,7 +315,6 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
       );
     }
 
-    // [注释]: 这里仍然可以使用 Consumer 来异步获取规则数，这不会影响主UI的重建。
     return Consumer(
       builder: (context, ref, _) {
         final allRulesCountProvider = FutureProvider<int>((ref) async {
@@ -360,7 +343,6 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
   }
 
   Widget _buildLocalCountFilterSwitch() {
-    // [修正]: 使用 .select 只监听数据。当状态为 loading/error 时，UI 不会重建为空白。
     final config = ref.watch(
       localCountFilterConfigProvider.select((asyncValue) => asyncValue.value),
     );
@@ -391,7 +373,6 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
   }
 
   Widget _buildRemoteNumberFilterSwitch() {
-    // [修正]: 使用 .select 只监听数据。
     final config = ref.watch(
       remoteNumberFilterConfigProvider.select((asyncValue) => asyncValue.value),
     );
@@ -422,7 +403,6 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
   }
 
   Widget _buildTimeInterceptorSwitch() {
-    // [修正]: 使用 .select 只监听数据。
     final config = ref.watch(
       timeInterceptorConfigProvider.select((asyncValue) => asyncValue.value),
     );
@@ -453,7 +433,6 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
   }
 
   Widget _buildCallFilterSwitch() {
-    // [修正]: 对两个 provider 都使用 .select。
     final callConfig = ref.watch(
       callFilterConfigProvider.select((v) => v.value),
     );
@@ -461,13 +440,11 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
       enhancedFilterConfigProvider.select((v) => v.value),
     );
 
-    // [注释]: 只有当两个配置都加载完成后才构建UI。
     if (callConfig == null || enhancedConfig == null) {
-      // [注释]: 在初始加载时，显示一个禁用的、收起的 ExpansionTile。
       return Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 247, 32, 132).withOpacity(0.1),
+          color: const Color.fromARGB(255, 247, 32, 132).withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(12),
         ),
         child: ListTile(
@@ -487,7 +464,7 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 247, 32, 132).withOpacity(0.1),
+        color: const Color.fromARGB(255, 247, 32, 132).withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
       ),
       child: ExpansionTile(
@@ -520,7 +497,6 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
                   callConfig.copyWith(rejectAllNumbers: value),
                 ),
           ),
-          // ... [注释]: 所有其他 SwitchListTile 保持原样，它们会正确工作
           SwitchListTile(
             title: Text(AppLocalizations.of(context).allowAllowedNumbers),
             subtitle: Text(
@@ -618,20 +594,20 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     required IconData icon,
     required Color color,
     required int simSlot,
+    required CallFilterType filterType,
     required String serviceId,
   }) {
-    // [修正]: 使用 .select 只监听数据。
     final enhancedConfig = ref.watch(
       enhancedFilterConfigProvider.select((v) => v.value),
     );
     if (enhancedConfig == null) {
-      return Container(); // 返回一个空容器而不是 SizedBox.shrink()
+      return Container();
     }
 
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -659,16 +635,16 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
           ),
           Switch(
             value:
-                enhancedConfig.simSlotFilterConfigMap[simSlot]?[serviceId] ??
+                enhancedConfig.simSlotFilterConfigMap[simSlot]?[filterType] ??
                 enhancedConfig.filterEnabledMap[serviceId] ??
                 true,
             onChanged: (value) {
               final notifier = ref.read(enhancedFilterConfigProvider.notifier);
               value
-                  ? notifier.enableFilterForSimSlot(simSlot, serviceId)
-                  : notifier.disableFilterForSimSlot(simSlot, serviceId);
+                  ? notifier.enableFilterForSimSlot(simSlot, filterType)
+                  : notifier.disableFilterForSimSlot(simSlot, filterType);
             },
-            activeColor: color,
+            activeThumbColor: color,
           ),
         ],
       ),
@@ -687,7 +663,7 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -716,7 +692,7 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: color.withOpacity(0.2),
+              color: color.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Text(
@@ -725,7 +701,7 @@ class _FilterManagementWidgetState extends ConsumerState<FilterManagementWidget>
             ),
           ),
           const SizedBox(width: 8),
-          Switch(value: isEnabled, onChanged: onToggle, activeColor: color),
+          Switch(value: isEnabled, onChanged: onToggle, activeThumbColor: color),
         ],
       ),
     );
