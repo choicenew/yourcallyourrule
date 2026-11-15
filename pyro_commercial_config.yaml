@@ -1,0 +1,18 @@
+# =====================================================================
+# Pyro Commercial 编译期打包与策略配置文件
+# 主 App 包名：com.yours.yourcallyourrule
+# =====================================================================
+
+app_package_name: "com.yours.yourcallyourrule"
+
+# 1. 广告驱动打包开关 (配置为 true 才会拉取 SDK 并打入 APP)
+ads_drivers:
+  admob: true        # 启用 AdMob ➔ 编译期打包 pyro_ads_admob
+  applovin: false    # 禁用 ➔ 0 原生 SDK 占用
+  unity: false       # 禁用 ➔ 0 原生 SDK 占用
+  startio: false     # 禁用 ➔ 0 原生 SDK 占用
+  house_ads: false   # 禁用自家矩阵 ➔ 0 原生 SDK 占用
+
+# 2. Waterfall 瀑布流 Tier 梯队赋予映射 (由商业中台动态赋予驱动 Tier 等级)
+tier_mapping:
+  tier1: "admob"

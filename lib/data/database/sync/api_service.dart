@@ -4,20 +4,20 @@ import 'package:yourcallyourrule/env.dart';
 
 part 'api_service.g.dart';
 
-/// ApiService Provider (基于 pyro_cloudflare 微包中的 CloudflareApiService 实例)
+/// ApiService Provider (基于 pyro_cloudflare 最新微包中的 CloudflareWorkerClient 实例)
 @Riverpod(keepAlive: true)
 ApiService apiService(Ref ref) {
   return ApiService();
 }
 
 /// 宿主 App 纯网络传输服务代理层 (ApiService)
-/// 实例化 pyro_cloudflare 微包中的 CloudflareApiService 并安全注入 Env 秘钥
+/// 实例化 pyro_cloudflare 最新微包中的 CloudflareWorkerClient 并安全注入 Env 秘钥
 class ApiService {
-  late final CloudflareApiService _delegate;
+  late final CloudflareWorkerClient _delegate;
 
-  ApiService({CloudflareApiService? delegate}) {
+  ApiService({CloudflareWorkerClient? delegate}) {
     _delegate = delegate ??
-        CloudflareApiService(
+        CloudflareWorkerClient(
           config: CloudflareConfig(
             workerUrl: Env.cfWorkerUrl,
             apiSecret: Env.workerApiSecret,
@@ -30,7 +30,11 @@ class ApiService {
     required List<Map<String, dynamic>> changes,
     required String deviceId,
   }) async {
-    return await _delegate.pushChanges(changes: changes, deviceId: deviceId);
+    final res = await _delegate.post('/sync/push', {
+      'deviceId': deviceId,
+      'changes': changes,
+    });
+    return res != null && (res['success'] == true || res['status'] == 'ok');
   }
 
   /// 从服务器获取自上次同步以来的变更
@@ -39,21 +43,31 @@ class ApiService {
     required String deviceId,
     List<String>? countryCodes,
   }) async {
-    return await _delegate.getChanges(
-      since: since,
-      deviceId: deviceId,
-      countryCodes: countryCodes,
-    );
+    final query = <String, String>{
+      'deviceId': deviceId,
+      if (since != null) 'since': since.toIso8601String(),
+      if (countryCodes != null) 'countryCodes': countryCodes.join(','),
+    };
+    final res = await _delegate.get('/sync/pull', query);
+    if (res != null && res['changes'] is List) {
+      return List<Map<String, dynamic>>.from(res['changes'] as List);
+    }
+    return [];
   }
 
   /// 获取特定国家的初始数据
   Future<List<Map<String, dynamic>>> getInitialDataForCountry(
     String countryIsoCode,
   ) async {
-    return await _delegate.getInitialDataForCountry(countryIsoCode);
+    final res = await _delegate.get('/sync/initial/$countryIsoCode');
+    if (res != null && res['data'] is List) {
+      return List<Map<String, dynamic>>.from(res['data'] as List);
+    }
+    return [];
   }
 
   Future<Map<String, dynamic>> getProposalLimitsConfig() async {
-    return await _delegate.getProposalLimitsConfig();
+    final res = await _delegate.get('/config/limits');
+    return res ?? {};
   }
 }
