@@ -35,8 +35,18 @@ class _DashboardPageState extends ConsumerState<DashboardPage> with SingleTicker
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
 
-    return Scaffold(
-      backgroundColor: theme.scaffoldBackgroundColor,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (didPop) return;
+        if (GoRouter.of(context).canPop()) {
+          context.pop();
+        } else {
+          GoRouter.of(context).goNamed(AppRouter.home);
+        }
+      },
+      child: Scaffold(
+        backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         backgroundColor: theme.scaffoldBackgroundColor,
         elevation: 0,
@@ -132,6 +142,7 @@ class _DashboardPageState extends ConsumerState<DashboardPage> with SingleTicker
         currentIndex: 3,
         onTap: (index) => AppRouter.navigateToTab(context, index),
       ),
-    );
+    ),
+  );
   }
 }

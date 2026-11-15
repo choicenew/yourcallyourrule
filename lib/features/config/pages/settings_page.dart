@@ -152,8 +152,8 @@ class SettingsPage extends ConsumerWidget {
                 context: context,
                 icon: Icons.layers_rounded,
                 iconColor: theme.colorScheme.primary,
-                title: 'Overlay / 悬浮窗显示与权限设置',
-                subtitle: l10n.callerIdCustomizationSubtitle,
+                title: (l10n as dynamic).overlaySettingsTitle as String? ?? 'Overlay / 悬浮窗显示与权限设置',
+                subtitle: (l10n as dynamic).overlaySettingsSubtitle as String? ?? l10n.callerIdCustomizationSubtitle,
                 onTap: () => context.pushNamed(AppRouter.callerIdCustomization),
               ),
               _buildDivider(context),
@@ -189,7 +189,7 @@ class SettingsPage extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // 3. 独立地域与规则库设置组 (Country & Rule Library Group)
-          _buildSectionHeader(context, '地域与规则库设置', Icons.public_rounded, theme.colorScheme.primary),
+          _buildSectionHeader(context, (l10n as dynamic).countryAndRuleLibraryGroupTitle as String? ?? '地域与规则库设置', Icons.public_rounded, theme.colorScheme.primary),
           _buildGroupedCard(
             context: context,
             glowColor: theme.colorScheme.primary,
@@ -227,8 +227,8 @@ class SettingsPage extends ConsumerWidget {
                 context: context,
                 icon: Icons.cloud_sync_rounded,
                 iconColor: theme.colorScheme.tertiary,
-                title: l10n.localDatabaseSyncTitle,
-                subtitle: l10n.localDatabaseSyncSubtitle,
+                title: (l10n as dynamic).userDatabaseSyncTitle as String? ?? l10n.localDatabaseSyncTitle,
+                subtitle: (l10n as dynamic).userDatabaseSyncSubtitle as String? ?? l10n.localDatabaseSyncSubtitle,
                 onTap: () => context.pushNamed(AppRouter.supabaseSettings),
               ),
               _buildDivider(context),

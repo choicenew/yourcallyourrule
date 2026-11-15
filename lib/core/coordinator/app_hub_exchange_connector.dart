@@ -7,6 +7,7 @@ import 'package:pyro_cloud_drive_googledrive/pyro_cloud_drive_googledrive.dart';
 import 'package:pyro_cloud_drive_onedrive/pyro_cloud_drive_onedrive.dart';
 import 'package:pyro_cloud_drive_webdav/pyro_cloud_drive_webdav.dart';
 import 'package:pyro_user_database_hub/pyro_user_database_hub.dart';
+import 'package:pyro_user_database_cloudflare/pyro_user_database_cloudflare.dart';
 import 'package:pyro_central_database_hub/pyro_central_database_hub.dart';
 import 'package:pyro_sync_hub/pyro_sync_hub.dart';
 
@@ -40,16 +41,21 @@ class AppHubExchangeConnector {
       encryptionHeaderTag: 'YOURCALL_ENC_V1',
     );
     try {
-      CloudDriveHub.instance.registerDriver(GoogleDriveAdapter());
-      CloudDriveHub.instance.registerDriver(OneDriveAdapter());
-      CloudDriveHub.instance.registerDriver(WebDavAdapter());
+      CloudDriveHub.instance.register(GoogleDriveAdapter());
+      CloudDriveHub.instance.register(OneDriveDriveAdapter());
+      CloudDriveHub.instance.register(WebDAVDriveAdapter());
       debugPrint('[AppHubExchangeConnector] Registered CloudDrive Drivers: GoogleDrive, OneDrive, WebDAV');
     } catch (e) {
       debugPrint('[AppHubExchangeConnector] Error registering CloudDrive Drivers: $e');
     }
 
-    // 2. 本地用户数据库 (Local User Database) 初始化
-    UserDatabaseHub.instance;
+    // 2. 本地用户数据库 (Local User Database) 初始化并注册引擎节点
+    try {
+      UserDatabaseHub.instance.registerAdapter(CloudflareSyncProvider());
+      debugPrint('[AppHubExchangeConnector] Registered UserDatabase Sync Adapters');
+    } catch (e) {
+      debugPrint('[AppHubExchangeConnector] Error registering UserDatabase Sync Adapters: $e');
+    }
 
     // 3. 远程中央数据库 (Remote Central Database) 初始化
     CentralDatabaseHub.instance;
