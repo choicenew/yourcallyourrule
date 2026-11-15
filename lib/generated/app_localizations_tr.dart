@@ -2303,6 +2303,27 @@ class AppLocalizationsTr extends AppLocalizations {
       'Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.';
 
   @override
+  String get deviceClusterControlPanelTitle =>
+      'Device Cluster & Initialization Control Panel';
+
+  @override
+  String get masterPermissionHelp =>
+      'Permission: Master device allowed to initialize global database';
+
+  @override
+  String get slavePermissionHelp =>
+      'Permission: Slave device possesses all cloud keys, skipping duplicate initialization';
+
+  @override
+  String get connectedClusterNodesList => 'Connected Cluster Device Nodes:';
+
+  @override
+  String get noOtherNodesFound => 'No other device nodes discovered';
+
+  @override
+  String get localDeviceSuffix => '(This Device)';
+
+  @override
   String get oneDriveAuthDescription =>
       'Sistem tarafından yapılandırılmış OneDrive istemci kimliği ve anahtarı kullanarak yetkilendirin';
 

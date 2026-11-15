@@ -2279,10 +2279,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.';
 
   @override
-  String get oneDriveAuthDescription =>
-      'Authorize using system-configured OneDrive client ID and key';
-
-  @override
   String get deviceClusterControlPanelTitle =>
       'Device Cluster & Initialization Control Panel';
 
@@ -2302,6 +2298,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get localDeviceSuffix => '(This Device)';
+
+  @override
+  String get oneDriveAuthDescription =>
+      'Authorize using system-configured OneDrive client ID and key';
 
   @override
   String get oneDriveConfigTitle => 'OneDrive Configuration';

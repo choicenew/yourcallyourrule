@@ -2188,6 +2188,24 @@ class AppLocalizationsZh extends AppLocalizations {
       '支持通过 FilterUiRegistry 动态注册频次阈值、远端风险、时间拦截与双卡卡槽等拦截规则模块。';
 
   @override
+  String get deviceClusterControlPanelTitle => '主从设备集群与初始化权限控制面板';
+
+  @override
+  String get masterPermissionHelp => '权限: 主设备 (Master) 允许进行全局数据库初始化';
+
+  @override
+  String get slavePermissionHelp => '权限: 从设备 (Slave) 已拥有全部云端 Key，免去重复初始化';
+
+  @override
+  String get connectedClusterNodesList => '集群已接入设备节点列表:';
+
+  @override
+  String get noOtherNodesFound => '暂无发现其他设备节点';
+
+  @override
+  String get localDeviceSuffix => '(本机)';
+
+  @override
   String get oneDriveAuthDescription => '使用系统配置的 OneDrive 客户端 ID 和密钥进行授权';
 
   @override

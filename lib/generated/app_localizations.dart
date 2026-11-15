@@ -4204,11 +4204,40 @@ abstract class AppLocalizations {
   /// **'Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.'**
   String get dynamicFilterRulesDescription;
 
+  /// No description provided for @deviceClusterControlPanelTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Device Cluster & Initialization Control Panel'**
   String get deviceClusterControlPanelTitle;
+
+  /// No description provided for @masterPermissionHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Permission: Master device allowed to initialize global database'**
   String get masterPermissionHelp;
+
+  /// No description provided for @slavePermissionHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Permission: Slave device possesses all cloud keys, skipping duplicate initialization'**
   String get slavePermissionHelp;
+
+  /// No description provided for @connectedClusterNodesList.
+  ///
+  /// In en, this message translates to:
+  /// **'Connected Cluster Device Nodes:'**
   String get connectedClusterNodesList;
+
+  /// No description provided for @noOtherNodesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No other device nodes discovered'**
   String get noOtherNodesFound;
+
+  /// No description provided for @localDeviceSuffix.
+  ///
+  /// In en, this message translates to:
+  /// **'(This Device)'**
   String get localDeviceSuffix;
 
   /// No description provided for @oneDriveAuthDescription.

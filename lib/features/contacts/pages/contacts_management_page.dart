@@ -61,7 +61,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
                   name: name,
                   phoneNumber: phone,
                 );
-                await PhoneContactsControlCenter.instance.saveContact(entry);
+                await PhoneContactsControlCenter.instance.isContact(phone);
                 if (mounted) {
                   Navigator.pop(context);
                   ref.refresh(contactsStreamProvider);
