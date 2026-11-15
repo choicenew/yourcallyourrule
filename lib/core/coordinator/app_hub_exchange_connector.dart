@@ -10,6 +10,7 @@ import 'package:pyro_user_database_hub/pyro_user_database_hub.dart';
 import 'package:pyro_user_database_cloudflare/pyro_user_database_cloudflare.dart';
 import 'package:pyro_central_database_hub/pyro_central_database_hub.dart';
 import 'package:pyro_sync_hub/pyro_sync_hub.dart';
+import 'package:pyro_device_master_slave_protocol/pyro_device_master_slave_protocol.dart';
 
 import 'package:pyro_phone_count_filter_connector/pyro_phone_count_filter_connector.dart';
 import 'package:pyro_phone_remote_filter_connector/pyro_phone_remote_filter_connector.dart';
@@ -17,6 +18,7 @@ import 'package:pyro_phone_time_interceptor_connector/pyro_phone_time_intercepto
 import 'package:pyro_phone_sim_slot_rules_connector/pyro_phone_sim_slot_rules_connector.dart';
 
 import 'app_coordinator.dart';
+import 'filter_ui_registry.dart';
 
 final appHubExchangeConnectorProvider = Provider<AppHubExchangeConnector>((ref) {
   final coordinator = ref.watch(appCoordinatorProvider);
@@ -60,10 +62,15 @@ class AppHubExchangeConnector {
     // 3. 远程中央数据库 (Remote Central Database) 初始化
     CentralDatabaseHub.instance;
 
-    // 4. 设备节点变动通知 (Device Node Changes) -> 同步至 CloudDrive 上下文
+    // 4. 设备节点变动通知 (Device Node Changes) -> 同步至 CloudDrive 上下文 (使用强类型 DeviceNode 值对象)
     _coordinator.on('device_node_updated', (payload) {
-      final deviceId = payload['deviceId'] as String?;
-      debugPrint('[Connector] Device node updated: $deviceId -> CloudDrive Context updated');
+      final deviceNode = payload['deviceNode'] is DeviceNode 
+          ? (payload['deviceNode'] as DeviceNode)
+          : (payload['deviceNode'] is Map<String, dynamic>
+              ? DeviceNode.fromJson(payload['deviceNode'] as Map<String, dynamic>)
+              : null);
+      final deviceId = deviceNode?.deviceId ?? (payload['deviceId'] as String?);
+      debugPrint('[Connector] Device node updated: ${deviceNode?.deviceName} ($deviceId) -> CloudDrive Context updated');
       CloudDriveHub.instance.updateActiveAccount(deviceId);
     });
 
@@ -105,8 +112,6 @@ class AppHubExchangeConnector {
     // 9. 全量 Filter 驱动与 SMS Bloom Filter 离线预检驱动一键注册挂载
     _registerAllFilterConnectors();
   }
-
-import 'filter_ui_registry.dart';
 
   void _registerAllFilterConnectors() {
     try {
