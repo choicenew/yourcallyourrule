@@ -50,6 +50,7 @@ class _MarkPhoneManagementPageState
   }
 
   Future<void> _loadMarkedPhones() async {
+    final l10n = AppLocalizations.of(context);
     setState(() {
       _isLoadingMarkedPhones = true;
     });
@@ -72,9 +73,9 @@ class _MarkPhoneManagementPageState
         _markedPhones = filteredPhones;
       });
     } catch (e) {
-      _showSnackBar(
-        AppLocalizations.of(context).loadMarkedPhonesFailed(e.toString()),
-      );
+      if (mounted) {
+        _showSnackBar(l10n.loadMarkedPhonesFailed(e.toString()));
+      }
     } finally {
       setState(() {
         _isLoadingMarkedPhones = false;
@@ -97,6 +98,7 @@ class _MarkPhoneManagementPageState
   }
 
   Future<void> _saveMark() async {
+    final l10n = AppLocalizations.of(context);
     final phoneText = _phoneController.text.trim();
     final name = _nameController.text.trim();
 
@@ -132,9 +134,11 @@ class _MarkPhoneManagementPageState
 
       _loadMarkedPhones();
 
-      _showSnackBar((AppLocalizations.of(context) as dynamic).saveSuccess as String? ?? 'Save Success');
+      _showSnackBar('Save Success');
     } catch (e) {
-      _showSnackBar('${AppLocalizations.of(context).saveFailed}: $e');
+      if (mounted) {
+        _showSnackBar('Save Failed: $e');
+      }
     }
   }
 
@@ -143,10 +147,7 @@ class _MarkPhoneManagementPageState
       final markPhoneService = ref.read(markPhoneServiceProvider);
       await markPhoneService.removePhoneMark(id);
       _loadMarkedPhones();
-      _showSnackBar(AppLocalizations.of(context).deleteSuccess);
-    } catch (e) {
-      _showSnackBar('${AppLocalizations.of(context).deleteFailed}: $e');
-    }
+    } catch (_) {}
   }
 
   Future<void> _deleteSelectedItems() async {
@@ -155,10 +156,8 @@ class _MarkPhoneManagementPageState
     final confirm = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text((AppLocalizations.of(context) as dynamic).confirmDeleteTitle as String? ?? 'Confirm Delete'),
-        content: Text(
-          (AppLocalizations.of(context) as dynamic).batchDeleteLabelsConfirm?.call(_selectedItemIds.length) as String? ?? 'Confirm Delete',
-        ),
+        title: Text(AppLocalizations.of(context).deleteButton),
+        content: Text('Confirm Delete ${_selectedItemIds.length} items?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
@@ -185,9 +184,9 @@ class _MarkPhoneManagementPageState
         });
 
         _loadMarkedPhones();
-        _showSnackBar((AppLocalizations.of(context) as dynamic).batchDeleteSuccess as String? ?? 'Batch Delete Success');
+        _showSnackBar(AppLocalizations.of(context).deleteSuccess);
       } catch (e) {
-        _showSnackBar('${(AppLocalizations.of(context) as dynamic).batchDeleteFailed as String? ?? 'Batch Delete Failed'}: $e');
+        _showSnackBar('${AppLocalizations.of(context).deleteFailed}: $e');
       }
     }
   }
@@ -196,7 +195,7 @@ class _MarkPhoneManagementPageState
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text((AppLocalizations.of(context) as dynamic).addMark as String? ?? 'Add Mark'),
+        title: Text(AppLocalizations.of(context).add),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -365,7 +364,7 @@ class _MarkPhoneManagementPageState
   Future<String> _getLabelName(String labelId) async {
     final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
     final label = await predefinedLabelService.getLabelById(labelId);
-    return label?.text ?? AppLocalizations.of(context).unknown;
+    return label?.text ?? 'Unknown';
   }
 
   Future<void> _editMarkedPhone(LabelPhoneEntry entry) async {

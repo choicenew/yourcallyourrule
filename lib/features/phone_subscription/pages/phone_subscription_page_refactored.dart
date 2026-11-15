@@ -16,6 +16,107 @@ final phoneSubscriptionsListProvider = FutureProvider.autoDispose<List<PhoneSubs
 class PhoneSubscriptionPageRefactored extends ConsumerWidget {
   const PhoneSubscriptionPageRefactored({super.key});
 
+  void _showAddSubscriptionDialog(BuildContext context, WidgetRef ref) {
+    final nameController = TextEditingController();
+    final urlController = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(AppLocalizations.of(context).phoneSubscription),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: nameController,
+              decoration: const InputDecoration(
+                labelText: 'Subscription Name',
+                hintText: 'Enter subscription name',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: urlController,
+              decoration: const InputDecoration(
+                labelText: 'Subscription URL',
+                hintText: 'https://example.com/rules.json',
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(AppLocalizations.of(context).cancelButton),
+          ),
+          ElevatedButton(
+            onPressed: () async {
+              final name = nameController.text.trim();
+              final url = urlController.text.trim();
+              if (name.isNotEmpty && url.isNotEmpty) {
+                final service = ref.read(phoneSubscriptionServiceProvider);
+                final sub = await service.addSubscription(name, url);
+                await service.updateRulesFromSubscription(sub);
+                ref.invalidate(phoneSubscriptionsListProvider);
+                if (context.mounted) Navigator.pop(context);
+              }
+            },
+            child: Text(AppLocalizations.of(context).add),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInfoCard(BuildContext context, AppLocalizations l10n) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12.0),
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primaryContainer.withValues(alpha: 0.3),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
+        ),
+      ),
+      child: Row(
+        children: [
+          Icon(
+            Icons.rss_feed_rounded,
+            color: Theme.of(context).colorScheme.primary,
+            size: 24,
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  l10n.phoneSubscription,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  '支持订阅与云端自动同步全球防骚扰黑白名单库与规则系统',
+                  style: TextStyle(
+                    fontSize: 11.5,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
@@ -26,6 +127,8 @@ class PhoneSubscriptionPageRefactored extends ConsumerWidget {
         title: l10n.phoneSubscription,
         items: subscriptions,
         isLoading: false,
+        headerContent: _buildInfoCard(context, l10n),
+        onAdd: () => _showAddSubscriptionDialog(context, ref),
         onRefresh: () async {
           ref.invalidate(phoneSubscriptionsListProvider);
         },
