@@ -6,60 +6,47 @@ import 'package:pyro_phone_subscription_ui/pyro_phone_subscription_ui.dart' as s
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
-
 import 'package:yourcallyourrule/features/phone_subscription/services/phone_subscription_service.dart';
 
-class PhoneSubscriptionPageRefactored extends ConsumerStatefulWidget {
+final phoneSubscriptionsListProvider = FutureProvider.autoDispose<List<PhoneSubscriptionPayload>>((ref) async {
+  final service = ref.watch(phoneSubscriptionServiceProvider);
+  return await service.getAll();
+});
+
+class PhoneSubscriptionPageRefactored extends ConsumerWidget {
   const PhoneSubscriptionPageRefactored({super.key});
 
   @override
-  ConsumerState<PhoneSubscriptionPageRefactored> createState() => _PhoneSubscriptionPageRefactoredState();
-}
-
-class _PhoneSubscriptionPageRefactoredState extends ConsumerState<PhoneSubscriptionPageRefactored> {
-  List<PhoneSubscriptionPayload> _subscriptions = [];
-  bool _isLoading = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadSubscriptions();
-  }
-
-  Future<void> _loadSubscriptions() async {
-    setState(() => _isLoading = true);
-    try {
-      final service = ref.read(phoneSubscriptionServiceProvider);
-      final list = await service.getAll();
-      if (mounted) {
-        setState(() {
-          _subscriptions = list;
-          _isLoading = false;
-        });
-      }
-    } catch (_) {
-      if (mounted) setState(() => _isLoading = false);
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
+    final subsAsync = ref.watch(phoneSubscriptionsListProvider);
 
-    return GenericListPage<PhoneSubscriptionPayload>(
-      title: l10n.phoneSubscription,
-      items: _subscriptions,
-      isLoading: _isLoading,
-      onRefresh: _loadSubscriptions,
-      emptyText: l10n.noSubscriptions,
-      emptyIcon: Icons.rss_feed_rounded,
-      adInterval: 3,
-      adBuilder: () => const AdsInlineBanner(),
-      itemBuilder: (context, sub) => sub_pkg_ui.PyroPhoneSubscriptionCardWidget(
-        payload: sub,
-        onTap: () => PhoneRulesSubscriptionControlCenter.instance.dispatchPayload(sub),
+    return subsAsync.when(
+      data: (subscriptions) => GenericListPage<PhoneSubscriptionPayload>(
+        title: l10n.phoneSubscription,
+        items: subscriptions,
+        isLoading: false,
+        onRefresh: () async {
+          ref.invalidate(phoneSubscriptionsListProvider);
+        },
+        emptyText: l10n.noSubscriptions,
+        emptyIcon: Icons.rss_feed_rounded,
+        adInterval: 3,
+        adBuilder: () => const AdsInlineBanner(),
+        itemBuilder: (context, sub) => sub_pkg_ui.PyroPhoneSubscriptionCardWidget(
+          payload: sub,
+          onTap: () => PhoneRulesSubscriptionControlCenter.instance.dispatchPayload(sub),
+        ),
+        getItemId: (sub) => sub.payloadId,
       ),
-      getItemId: (sub) => sub.payloadId,
+      loading: () => Scaffold(
+        appBar: AppBar(title: Text(l10n.phoneSubscription)),
+        body: const Center(child: CircularProgressIndicator()),
+      ),
+      error: (err, st) => Scaffold(
+        appBar: AppBar(title: Text(l10n.phoneSubscription)),
+        body: Center(child: Text('Error: $err')),
+      ),
     );
   }
 }
