@@ -16,7 +16,7 @@ class SimSlotRuleFilterPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final pageStateAsync = ref.watch((simSlotRulePageProvider as dynamic)(simSlotIndex) as dynamic);
+    final pageStateAsync = ref.watch(simSlotRulePageProvider(simSlotIndex));
 
     return Scaffold(
       appBar: AppBar(
