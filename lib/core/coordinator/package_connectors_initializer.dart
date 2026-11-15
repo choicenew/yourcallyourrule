@@ -5,7 +5,6 @@ import 'package:pyro_cloud_drive_onedrive/pyro_cloud_drive_onedrive.dart';
 import 'package:pyro_cloud_drive_webdav/pyro_cloud_drive_webdav.dart';
 
 // === All 33 Package Suite Connectors ===
-import 'package:pyro_app_launch_guard/pyro_app_launch_guard.dart';
 import 'package:pyro_telephony_connector/pyro_telephony_connector.dart';
 import 'package:pyro_call_redirection_connector/pyro_call_redirection_connector.dart';
 import 'package:pyro_call_screening_connector/pyro_call_screening_connector.dart';
@@ -31,6 +30,7 @@ import 'package:pyro_phone_call_monitor_connector/pyro_phone_call_monitor_connec
 import 'package:pyro_phone_call_coordinator_connector/pyro_phone_call_coordinator_connector.dart';
 import 'package:pyro_phone_marking_connector/pyro_phone_marking_connector.dart';
 import 'package:pyro_sim_connector/pyro_sim_connector.dart';
+import 'package:yourcallyourrule/features/commercial/services/commercial_service.dart';
 
 import 'filter_ui_registry.dart';
 
@@ -61,6 +61,7 @@ void initPackageConnectors() {
   PyroCallMonitorConnector.registerAll();
   PyroCallCoordinatorConnector.registerAll();
   PyroPhoneMarkingConnector.registerAll();
+  CommercialService.instance.initialize();
 
   // 注册主 App 胶水层 Filter UI 动态注册工厂
   FilterUiRegistry.init();

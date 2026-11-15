@@ -21,7 +21,6 @@ import 'package:yourcallyourrule/features/call_monitor/services/caller_id_monito
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/notifications/providers/notification_providers.dart';
 import 'package:yourcallyourrule/features/widgets/services/app_widget_sync_service.dart';
-import 'package:yourcallyourrule/features/commercial/services/commercial_service.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/theme/app_theme.dart';
@@ -57,12 +56,6 @@ Future<void> main() async {
       MobileAds.instance.initialize().catchError((e) {
         debugPrint('MobileAds init error: $e');
         return Future<InitializationStatus>.value(InitializationStatus({}));
-      }),
-    );
-
-    unawaited(
-      CommercialService.instance.initialize().catchError((e) {
-        debugPrint('CommercialService init error: $e');
       }),
     );
 

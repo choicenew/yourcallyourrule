@@ -6,24 +6,34 @@ import 'package:http/http.dart' as http;
 void main() {
   String accountId = 'e87712496c83db17e89638a78a4ad71e';
   String databaseId = '5a1c8845-60a6-4ac0-a7bb-f3c445d8a386';
-  String apiToken = '';
+  String apiToken = Platform.environment['CLOUDFLARE_API_TOKEN'] ?? '';
 
-  final envFile = File('.env');
-  if (envFile.existsSync()) {
-    final lines = envFile.readAsLinesSync();
-    for (final line in lines) {
-      if (line.startsWith('CLOUDFLARE_API_TOKEN=')) {
-        apiToken = line.split('=')[1].trim();
-      } else if (line.startsWith('CLOUDFLARE_ACCOUNT_ID=')) {
-        accountId = line.split('=')[1].trim();
-      } else if (line.startsWith('D1_DATABASE_ID=')) {
-        databaseId = line.split('=')[1].trim();
+  final candidatePaths = [
+    '.env',
+    '../../.env',
+    'C:/Users/Ngokel/Desktop/en/test/github/yourcallyourrulemixhistory/.env',
+  ];
+
+  for (final path in candidatePaths) {
+    final file = File(path);
+    if (file.existsSync()) {
+      final lines = file.readAsLinesSync();
+      for (final line in lines) {
+        final trimmed = line.trim();
+        if (trimmed.startsWith('CLOUDFLARE_API_TOKEN=')) {
+          apiToken = trimmed.substring('CLOUDFLARE_API_TOKEN='.length).trim();
+        } else if (trimmed.startsWith('CLOUDFLARE_ACCOUNT_ID=')) {
+          accountId = trimmed.substring('CLOUDFLARE_ACCOUNT_ID='.length).trim();
+        } else if (trimmed.startsWith('D1_DATABASE_ID=')) {
+          databaseId = trimmed.substring('D1_DATABASE_ID='.length).trim();
+        }
       }
+      if (apiToken.isNotEmpty) break;
     }
   }
 
   test('🔌 在线实测 Cloudflare D1 (callrule_test_d1) 数据库 API 连通性', () async {
-    expect(apiToken.isNotEmpty, isTrue, reason: '.env 文件未找到 CLOUDFLARE_API_TOKEN 秘钥');
+    expect(apiToken.isNotEmpty, isTrue, reason: '未获取到 CLOUDFLARE_API_TOKEN 秘钥');
 
     final url = 'https://api.cloudflare.com/client/v4/accounts/$accountId/d1/database/$databaseId/query';
 
