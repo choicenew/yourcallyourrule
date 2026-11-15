@@ -641,6 +641,24 @@ class AppLocalizationsKo extends AppLocalizations {
   String get cloudSyncTitle => '클라우드 동기화';
 
   @override
+  String get overlaySettingsTitle => 'Overlay / Floating Window & Permissions';
+
+  @override
+  String get overlaySettingsSubtitle =>
+      'Configure overlay window style, PIP preview & draw over app permissions';
+
+  @override
+  String get countryAndRuleLibraryGroupTitle =>
+      'Country & Rule Library Settings';
+
+  @override
+  String get userDatabaseSyncTitle => 'User Database & Supabase Sync';
+
+  @override
+  String get userDatabaseSyncSubtitle =>
+      'Manage local Drift, Cloudflare D1 & Supabase node sync';
+
+  @override
   String get collection => '채권 추심';
 
   @override

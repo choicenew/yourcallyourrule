@@ -1378,6 +1378,36 @@ abstract class AppLocalizations {
   /// **'Cloud Sync'**
   String get cloudSyncTitle;
 
+  /// No description provided for @overlaySettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Overlay / Floating Window & Permissions'**
+  String get overlaySettingsTitle;
+
+  /// No description provided for @overlaySettingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure overlay window style, PIP preview & draw over app permissions'**
+  String get overlaySettingsSubtitle;
+
+  /// No description provided for @countryAndRuleLibraryGroupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Country & Rule Library Settings'**
+  String get countryAndRuleLibraryGroupTitle;
+
+  /// No description provided for @userDatabaseSyncTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'User Database & Supabase Sync'**
+  String get userDatabaseSyncTitle;
+
+  /// No description provided for @userDatabaseSyncSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage local Drift, Cloudflare D1 & Supabase node sync'**
+  String get userDatabaseSyncSubtitle;
+
   /// No description provided for @collection.
   ///
   /// In en, this message translates to:

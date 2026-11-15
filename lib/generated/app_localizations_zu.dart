@@ -673,6 +673,24 @@ class AppLocalizationsZu extends AppLocalizations {
   String get cloudSyncTitle => 'Ukuvumelanisa Efwini';
 
   @override
+  String get overlaySettingsTitle => 'Overlay / Floating Window & Permissions';
+
+  @override
+  String get overlaySettingsSubtitle =>
+      'Configure overlay window style, PIP preview & draw over app permissions';
+
+  @override
+  String get countryAndRuleLibraryGroupTitle =>
+      'Country & Rule Library Settings';
+
+  @override
+  String get userDatabaseSyncTitle => 'User Database & Supabase Sync';
+
+  @override
+  String get userDatabaseSyncSubtitle =>
+      'Manage local Drift, Cloudflare D1 & Supabase node sync';
+
+  @override
   String get collection => 'Ukuqoqwa Kwezikweletu';
 
   @override

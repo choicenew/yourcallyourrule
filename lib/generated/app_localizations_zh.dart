@@ -636,6 +636,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cloudSyncTitle => '云同步';
 
   @override
+  String get overlaySettingsTitle => 'Overlay / 悬浮窗显示与权限设置';
+
+  @override
+  String get overlaySettingsSubtitle => '配置悬浮窗样式、画中画与系统悬浮权限';
+
+  @override
+  String get countryAndRuleLibraryGroupTitle => '地域与规则库设置';
+
+  @override
+  String get userDatabaseSyncTitle => '用户个人数据库与 Supabase 同步';
+
+  @override
+  String get userDatabaseSyncSubtitle =>
+      '管理本地 Drift、Cloudflare D1 与 Supabase 云节点同步';
+
+  @override
   String get collection => '催收';
 
   @override
