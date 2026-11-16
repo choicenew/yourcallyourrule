@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:yourcallyourrule/features/call_evaluators/evaluators/intercept_action.dart';
-import 'package:yourcallyourrule/features/call_evaluators/evaluators/intercept_action_config_provider.dart';
+import 'package:yourcallyourrule/features/call_evaluators/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/professional_shield_radar.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -389,7 +389,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                     ),
                     const SizedBox(height: 10),
                     Row(
-                      children: InterceptAction.values.map((action) {
+                      children: InterceptActionExtension.values.map((action) {
                         final isSelected = action == currentAction;
                         final color = _getActionColor(context, action);
                         return Expanded(

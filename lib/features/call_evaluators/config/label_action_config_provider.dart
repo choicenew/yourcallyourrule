@@ -25,7 +25,7 @@ class LabelActionConfigNotifier extends Notifier<Map<String, InterceptAction>> {
       final resultMap = <String, InterceptAction>{};
       configMap.forEach((labelKey, actionVal) {
         if (actionVal is String) {
-          final action = InterceptAction.fromString(actionVal);
+          final action = InterceptActionExtension.fromString(actionVal);
           resultMap[labelKey] = action;
         }
       });

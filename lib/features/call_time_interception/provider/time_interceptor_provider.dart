@@ -1,7 +1,7 @@
 ﻿import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
-import 'package:yourcallyourrule/features/time_interceptor/time_interceptor_config.dart';
+import 'package:yourcallyourrule/features/call_time_interception/time_interceptor_config.dart';
 
 part 'time_interceptor_provider.g.dart';
 

@@ -5,7 +5,7 @@ import 'package:yourcallyourrule/features/call_filter/providers/enhanced_filter_
 import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
-import 'package:yourcallyourrule/features/time_interceptor/provider/time_interceptor_provider.dart';
+import 'package:yourcallyourrule/features/call_time_interception/provider/time_interceptor_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import 'filter_switch_tile.dart';

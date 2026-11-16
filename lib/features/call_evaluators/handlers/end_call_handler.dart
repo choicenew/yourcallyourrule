@@ -52,8 +52,9 @@ class EndCallHandler implements BaseCallHandler {
   Future<String?> _handleInterceptAction(String phoneNumber) async {
     final action = _injectedAction ?? _ref.read(interceptActionConfigProvider);
     _injectedAction = null;
-    debugPrint(">>> [EndCallHandler EXECUTE] Handled intercept action: ${action.actionName}");
-    return action.actionName;
+    final actionName = action?.actionName ?? InterceptAction.endCall.actionName;
+    debugPrint(">>> [EndCallHandler EXECUTE] Handled intercept action: $actionName");
+    return actionName;
   }
   
   @override

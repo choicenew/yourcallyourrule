@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/pages/fraud_alert_settings_page.dart';
 import 'package:yourcallyourrule/features/call/call_overlay/presentation/screens/call_overlay_customization_screen.dart';
 
-import 'package:yourcallyourrule/features/time_interceptor/presentation/pages/time_interceptor_settings_page.dart';
+import 'package:yourcallyourrule/features/call_time_interception/presentation/pages/time_interceptor_settings_page.dart';
 import 'package:yourcallyourrule/features/local_filter/presentation/pages/local_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remote_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/call_filter/presentation/pages/enhanced_filter_settings_page.dart';

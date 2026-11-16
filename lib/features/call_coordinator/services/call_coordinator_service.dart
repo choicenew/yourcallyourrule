@@ -15,7 +15,7 @@ import 'package:yourcallyourrule/features/call_evaluators/evaluators/call_policy
 import 'package:yourcallyourrule/features/call_evaluators/config/label_action_config_provider.dart';
 import 'package:yourcallyourrule/features/call_evaluators/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
-import 'package:yourcallyourrule/features/time_interceptor/service/time_interceptor_service.dart';
+import 'package:yourcallyourrule/features/call_time_interception/service/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/call_filter/enhanced_composite_filter_service.dart';
 
 part 'call_coordinator_service.g.dart';
@@ -84,18 +84,7 @@ class CallCoordinatorService {
       final labelActionMap = _ref.read(labelActionConfigProvider);
       final defaultAction = _ref.read(interceptActionConfigProvider);
 
-      final rawLabels = callerIdData.labels;
-      final List<String> labelsList = [];
-      if (rawLabels != null) {
-        for (final item in rawLabels) {
-          if (item is String) {
-            labelsList.add(item);
-          } else {
-            final str = (item as dynamic).label?.toString() ?? (item as dynamic).text?.toString() ?? item.toString();
-            labelsList.add(str);
-          }
-        }
-      }
+      final List<String> labelsList = callerIdData.labels;
 
       final policyContext = CallPolicyContext(
         phoneNumber: event.phoneNumber,

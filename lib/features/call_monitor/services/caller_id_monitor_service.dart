@@ -4,7 +4,6 @@ import 'package:dlibphonenumber/dlibphonenumber.dart' as dlib;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
-import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
 import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
 
 part 'caller_id_monitor_service.g.dart';

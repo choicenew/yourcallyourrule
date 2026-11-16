@@ -1,15 +1,13 @@
-/// 通用通话挂断/拦截动作枚举
-enum InterceptAction {
-  /// 立即挂断
-  endCall,
+export 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
 
-  /// 接听后立即挂断
-  answerThenHangup,
+extension InterceptActionExtension on InterceptAction {
+  static const List<InterceptAction> values = [
+    InterceptAction.endCall,
+    InterceptAction.answerThenHangup,
+    InterceptAction.silenceNoAnswer,
+  ];
 
-  /// 静音且不接听
-  silenceNoAnswer;
-
-  factory InterceptAction.fromString(dynamic raw) {
+  static InterceptAction fromString(dynamic raw) {
     if (raw == null) return InterceptAction.endCall;
     final str = raw.toString().trim();
     switch (str) {
@@ -21,9 +19,5 @@ enum InterceptAction {
       default:
         return InterceptAction.endCall;
     }
-  }
-
-  String toRawString() {
-    return name;
   }
 }

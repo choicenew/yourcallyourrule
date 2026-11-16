@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/call_evaluators/evaluators/intercept_action.dart';
+import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
 import 'package:yourcallyourrule/features/call_evaluators/rules/end_call_rule_action_mapper.dart';
 import 'package:yourcallyourrule/features/phone_rules/utils/rule_action_display_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -42,7 +42,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
     super.initState();
     _currentAction = widget.initialAction;
 
-    // 如果是block类型，尝试从参数中获取拦截动�?
+    // 如果是block类型，尝试从参数中获取拦截动?
     if (_currentAction.type == RuleActionType.block) {
       _selectedInterceptAction = RuleActionMapper.mapToInterceptAction(_currentAction);
     }
@@ -78,7 +78,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
               ),
               const SizedBox(height: 8),
               DropdownButtonFormField<RuleActionType>(
-                value: _currentAction.type,
+                initialValue: _currentAction.type,
                 onChanged: _onActionTypeChanged,
                 items: RuleActionType.values.map((type) {
                   return DropdownMenuItem(
@@ -105,7 +105,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
                   ),
                   contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                   filled: true,
-                  fillColor: theme.colorScheme.surfaceContainerHighest.withOpacity(0.3),
+                  fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
                 ),
                 dropdownColor: theme.colorScheme.surface,
                 icon: Icon(
@@ -140,7 +140,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
                 ),
                 const SizedBox(height: 8),
                 DropdownButtonFormField<InterceptAction?>(
-                  value: _selectedInterceptAction,
+                  initialValue: _selectedInterceptAction,
                   hint: Text(
                     AppLocalizations.of(context).useGlobalSettings,
                     style: theme.textTheme.bodyMedium?.copyWith(
@@ -189,7 +189,7 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
                     ),
                     contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                     filled: true,
-                    fillColor: theme.colorScheme.surfaceContainerHighest.withOpacity(0.3),
+                    fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
                   ),
                   dropdownColor: theme.colorScheme.surface,
                   icon: Icon(

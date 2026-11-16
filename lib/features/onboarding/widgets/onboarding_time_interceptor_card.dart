@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/time_interceptor/provider/time_interceptor_provider.dart';
-import 'package:yourcallyourrule/features/time_interceptor/time_interceptor_config.dart';
+import 'package:yourcallyourrule/features/call_time_interception/provider/time_interceptor_provider.dart';
+import 'package:yourcallyourrule/features/call_time_interception/time_interceptor_config.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 // TODO: 待规划功能——重复呼叫紧急穿透规则 (Repeat Call Emergency Penetration)

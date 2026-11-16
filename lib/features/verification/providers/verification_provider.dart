@@ -12,7 +12,7 @@ import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/call_filter/call_filter_service.dart';
 import 'package:yourcallyourrule/features/call_filter/providers/call_filter_provider.dart';
-import 'package:yourcallyourrule/features/time_interceptor/service/time_interceptor_service.dart';
+import 'package:yourcallyourrule/features/call_time_interception/service/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/display_mode_handler.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/kit_live_activity_handler.dart';
