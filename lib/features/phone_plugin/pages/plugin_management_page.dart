@@ -45,6 +45,7 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
 
   void _showAddPluginDialog(BuildContext context) {
     final urlController = TextEditingController();
+    final isZh = Localizations.localeOf(context).languageCode.toLowerCase().startsWith('zh');
 
     showDialog(
       context: context,
@@ -55,10 +56,10 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
           children: [
             TextField(
               controller: urlController,
-              decoration: const InputDecoration(
-                labelText: 'Plugin CDN / API URL',
+              decoration: InputDecoration(
+                labelText: isZh ? '插件 CDN / API 规则链接' : 'Plugin CDN / API URL',
                 hintText: 'https://example.com/plugin.js',
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
               ),
             ),
           ],
@@ -90,6 +91,7 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
   Widget _buildPluginStatusCard(BuildContext context) {
     final installedCount = _plugins.length;
     final theme = Theme.of(context);
+    final isZh = Localizations.localeOf(context).languageCode.toLowerCase().startsWith('zh');
 
     return Container(
       margin: const EdgeInsets.only(bottom: 12.0),
@@ -122,9 +124,9 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _buildStatusItem('Installed', '$installedCount', theme),
-              _buildStatusItem('Active Drivers', '$installedCount', theme),
-              _buildStatusItem('Auto Update', 'ON', theme),
+              _buildStatusItem(isZh ? '已安装' : 'Installed', '$installedCount', theme),
+              _buildStatusItem(isZh ? '活跃驱动' : 'Active Drivers', '$installedCount', theme),
+              _buildStatusItem(isZh ? '自动更新' : 'Auto Update', isZh ? '开启' : 'ON', theme),
             ],
           ),
         ],

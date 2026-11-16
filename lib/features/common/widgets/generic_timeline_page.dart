@@ -419,8 +419,8 @@ class _GenericTimelinePageState<T> extends ConsumerState<GenericTimelinePage<T>>
       
       timelineWidgets.add(
         Padding(
-          padding: const EdgeInsets.only(top: 16.0, bottom: 8.0, left: 18.0),
-          child: Text(groupKey, style: TextStyle(fontSize: 14, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+          padding: const EdgeInsets.only(top: 16.0, bottom: 8.0, left: 30.0),
+          child: Text(groupKey, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.onSurfaceVariant)),
         ),
       );
       
@@ -435,17 +435,17 @@ class _GenericTimelinePageState<T> extends ConsumerState<GenericTimelinePage<T>>
 
         timelineWidgets.add(
           Padding(
-            padding: const EdgeInsets.only(left: 0.0),
+            padding: const EdgeInsets.only(left: 10.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: 12,
-                  margin: const EdgeInsets.only(top: 16.0),
+                  width: 14,
+                  margin: const EdgeInsets.only(top: 18.0),
                   alignment: Alignment.center,
                   child: _buildTimelineNode(context, randomColor),
                 ),
-                const SizedBox(width: 2),
+                const SizedBox(width: 4),
                 Expanded(
                   child: _buildItemWidget(context, item),
                 ),
@@ -464,11 +464,11 @@ class _GenericTimelinePageState<T> extends ConsumerState<GenericTimelinePage<T>>
     return Stack(
       children: [
         Positioned(
-          left: 5,
+          left: 16,
           top: 0,
           bottom: 0,
           width: 2,
-          child: Container(color: Theme.of(context).colorScheme.outlineVariant),
+          child: Container(color: Theme.of(context).colorScheme.outlineVariant.withValues(alpha: 0.6)),
         ),
         ListView(
           padding: const EdgeInsets.only(top: 8, bottom: 8),
@@ -486,6 +486,13 @@ class _GenericTimelinePageState<T> extends ConsumerState<GenericTimelinePage<T>>
         color: color, 
         shape: BoxShape.circle,
         border: Border.all(color: Theme.of(context).colorScheme.surface, width: 2),
+        boxShadow: [
+          BoxShadow(
+            color: color.withValues(alpha: 0.4),
+            blurRadius: 4,
+            offset: const Offset(0, 1),
+          ),
+        ],
       ),
     );
   }

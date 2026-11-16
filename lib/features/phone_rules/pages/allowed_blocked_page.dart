@@ -65,9 +65,9 @@ class _AllowedBlockedPageState extends ConsumerState<AllowedBlockedPage> {
                 ),
                 const SizedBox(height: 12),
                 SegmentedButton<bool>(
-                  segments: const [
-                    ButtonSegment(value: true, label: Text('Allow')),
-                    ButtonSegment(value: false, label: Text('Block')),
+                  segments: [
+                    ButtonSegment(value: true, label: Text(AppLocalizations.of(context).allow)),
+                    ButtonSegment(value: false, label: Text(AppLocalizations.of(context).block)),
                   ],
                   selected: {isAllowed},
                   onSelectionChanged: (selected) {
@@ -105,6 +105,92 @@ class _AllowedBlockedPageState extends ConsumerState<AllowedBlockedPage> {
     );
   }
 
+  Future<void> _deleteRule(PhoneRuleEntity rule) async {
+    final l10n = AppLocalizations.of(context);
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(l10n.deleteRule),
+        content: Text(l10n.confirmDeleteRuleMessage),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: Text(l10n.cancelButton),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            style: TextButton.styleFrom(foregroundColor: Colors.red),
+            child: Text(l10n.deleteButton),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true) {
+      final service = ref.read(allowedBlockedServiceProvider);
+      await service.removeRule(rule.id);
+      ref.invalidate(allowedRulesListProvider);
+    }
+  }
+
+  Widget _buildInfoCard(BuildContext context, AppLocalizations l10n) {
+    final primaryColor = Theme.of(context).colorScheme.primary;
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12.0),
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: primaryColor.withValues(alpha: 0.05),
+        borderRadius: BorderRadius.circular(16.0),
+        border: Border.all(
+          color: primaryColor.withValues(alpha: 0.15),
+          width: 1.1,
+        ),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(6.0),
+            decoration: BoxDecoration(
+              color: primaryColor.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: Icon(
+              Icons.verified_user_rounded,
+              color: primaryColor,
+              size: 20,
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  l10n.allowedBlockedRuleManagement,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w800,
+                    color: primaryColor,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  l10n.allowedBlockedRulesInfo,
+                  style: TextStyle(
+                    fontSize: 12.5,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    height: 1.35,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
@@ -126,6 +212,7 @@ class _AllowedBlockedPageState extends ConsumerState<AllowedBlockedPage> {
       title: l10n.allowedBlockedRuleManagement,
       items: filteredList,
       isLoading: isLoading,
+      headerContent: _buildInfoCard(context, l10n),
       onRefresh: () async => ref.invalidate(allowedRulesListProvider),
       onAdd: () => _showAddRuleDialog(context),
       onSearchChanged: (kw) => setState(() => _searchKeyword = kw),
@@ -136,7 +223,7 @@ class _AllowedBlockedPageState extends ConsumerState<AllowedBlockedPage> {
       adBuilder: () => const AdsInlineBanner(),
       itemBuilder: (context, rule) => rules_pkg_ui.PyroPhoneRuleCardWidget(
         rule: rule,
-        onTap: () {},
+        onTap: () => _deleteRule(rule),
       ),
       getItemId: (rule) => rule.id,
     );
