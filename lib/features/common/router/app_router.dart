@@ -17,7 +17,7 @@ import 'package:yourcallyourrule/features/settings/pages/settings_page.dart';
 import 'package:yourcallyourrule/features/about/pages/about.dart';
 import 'package:yourcallyourrule/features/permissions/pages/special_permission_page.dart';
 import 'package:yourcallyourrule/features/language/pages/language_settings_page.dart';
-import 'package:yourcallyourrule/features/sync_country/widget/country_selection_widget.dart';
+import 'package:yourcallyourrule/features/country_database/widget/country_selection_widget.dart';
 import 'package:yourcallyourrule/features/commercial/pages/purchase_page.dart';
 import 'package:yourcallyourrule/features/phone_rules/pages/allowed_blocked_page.dart';
 import 'package:yourcallyourrule/features/phone_rules/pages/rule_management_page.dart';

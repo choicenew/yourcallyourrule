@@ -22,7 +22,7 @@ import 'package:yourcallyourrule/features/contacts/services/contact_service.dart
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
 import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
-import 'package:yourcallyourrule/features/sync_country/provider/country_selection_provider.dart';
+import 'package:yourcallyourrule/features/country_database/provider/country_selection_provider.dart';
 import 'package:yourcallyourrule/features/verification/models/verification_state.dart';
 
 /// Verification 业务逻辑管理 Notifier

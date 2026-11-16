@@ -1,7 +1,7 @@
 ﻿import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
-import 'package:yourcallyourrule/features/sync_country/services/country_selection_service.dart';
+import 'package:yourcallyourrule/features/country_database/services/country_selection_service.dart';
 
 part 'country_selection_provider.g.dart';
 
