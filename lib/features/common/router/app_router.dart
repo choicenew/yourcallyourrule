@@ -12,7 +12,7 @@ import 'package:yourcallyourrule/features/call_filter/presentation/pages/call_fi
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/pages/elite_home_page.dart';
-import 'package:yourcallyourrule/features/config/pages/settings_page.dart';
+import 'package:yourcallyourrule/features/settings/pages/settings_page.dart';
 import 'package:yourcallyourrule/features/about/pages/about.dart';
 import 'package:yourcallyourrule/features/permissions/pages/special_permission_page.dart';
 import 'package:yourcallyourrule/features/language/pages/language_settings_page.dart';
