@@ -274,7 +274,11 @@ class _PhoneSubscriptionPageState extends ConsumerState<PhoneSubscriptionPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        subscription.displayName ?? l10n.phoneSubscription,
+                        subscription.displayName?.trim().isNotEmpty == true
+                            ? subscription.displayName!.trim()
+                            : (subscription.rawJsonMap['name']?.toString().trim().isNotEmpty == true
+                                ? subscription.rawJsonMap['name'].toString().trim()
+                                : l10n.phoneSubscription),
                         style: theme.textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),

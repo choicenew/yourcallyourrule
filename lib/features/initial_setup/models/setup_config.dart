@@ -40,11 +40,13 @@ class CountryData {
 
     final cdnUrl = map['cdn_manifest_url']?.toString() ?? '';
     final ruleType = map['rule_type']?.toString() ?? '';
+    final rawName = map['name']?.toString() ?? map['title']?.toString() ?? map['label']?.toString();
+    final name = (rawName != null && rawName.trim().isNotEmpty) ? rawName.trim() : effectiveId;
 
     return CountryData(
       id: effectiveId,
       countryCode: countryCode,
-      name: map['name']?.toString() ?? '',
+      name: name,
       iconUrl: map['icon_url']?.toString() ?? '',
       description: map['description']?.toString() ?? '',
       ruleType: ruleType,

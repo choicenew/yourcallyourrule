@@ -145,6 +145,13 @@ class EliteQuickCapsules extends StatelessWidget {
                 color: theme.colorScheme.primary,
                 onTap: () => context.pushNamed(AppRouter.cloudSettings),
               ),
+              _buildCompactCapsule(
+                context: context,
+                icon: Icons.storefront_rounded,
+                title: l10n.initialSetupTitle,
+                color: theme.colorScheme.primary,
+                onTap: () => context.pushNamed(AppRouter.initialSetup),
+              ),
             ],
           ),
         ],

@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
-import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/phone_subscription/services/phone_subscription_service.dart';
 import 'package:yourcallyourrule/features/phone_plugin/services/plugin_manager_service.dart';
 
@@ -228,7 +227,8 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
         if (country.ruleType.toLowerCase() == 'plugin') {
           await pluginService.addPluginFromUrl(effectiveUrl);
         } else {
-          final sub = await phoneService.addSubscription(country.name, effectiveUrl);
+          final subName = country.name.trim().isNotEmpty ? country.name.trim() : country.id;
+          final sub = await phoneService.addSubscription(subName, effectiveUrl);
           await phoneService.updateRulesFromSubscription(sub);
           subscriptionsToSave.add(sub);
         }

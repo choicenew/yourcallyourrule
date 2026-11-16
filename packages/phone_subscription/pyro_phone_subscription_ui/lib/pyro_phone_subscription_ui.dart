@@ -57,7 +57,7 @@ class PyroPhoneSubscriptionCardWidget extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                payload.payloadId,
+                payload.displayName?.isNotEmpty == true ? payload.displayName! : (payload.rawJsonMap['name']?.toString() ?? payload.payloadId),
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: colorScheme.onSurface,
@@ -85,10 +85,12 @@ class PyroPhoneSubscriptionCardWidget extends StatelessWidget {
         subtitle: Padding(
           padding: const EdgeInsets.only(top: 2.0),
           child: Text(
-            'Timestamp: ${payload.timestamp ?? 0}',
+            payload.downloadUrl?.isNotEmpty == true ? payload.downloadUrl! : 'Timestamp: ${payload.timestamp ?? 0}',
             style: theme.textTheme.bodyMedium?.copyWith(
               color: colorScheme.onSurfaceVariant,
             ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
         trailing: onDelete != null

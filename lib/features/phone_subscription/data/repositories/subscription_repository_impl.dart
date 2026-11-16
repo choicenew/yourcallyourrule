@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
+import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
 import 'package:yourcallyourrule/features/phone_subscription/repositories/subscription_repository.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
@@ -21,11 +22,18 @@ class SubscriptionRepositoryImpl implements SubscriptionRepository {
 
   RulesCompanion _toCompanion(PhoneSubscriptionPayload entity) {
     final id = entity.payloadId.isEmpty ? _uuid.v4() : entity.payloadId;
+    final name = entity.displayName?.trim().isNotEmpty == true
+        ? entity.displayName!.trim()
+        : (entity.rawJsonMap['name']?.toString().trim().isNotEmpty == true
+            ? entity.rawJsonMap['name'].toString().trim()
+            : (entity.rawJsonMap['title']?.toString() ?? ''));
+    final url = entity.downloadUrl ?? entity.rawJsonMap['url']?.toString() ?? '';
     return RulesCompanion.insert(
       id: id,
-      name: entity.displayName ?? '',
+      name: name,
       ruleType: 'subscription',
-      pattern: Value(entity.downloadUrl),
+      phoneNumber: Value(url),
+      pattern: Value(url),
       isSubscribed: const Value(1),
     );
   }
@@ -34,31 +42,32 @@ class SubscriptionRepositoryImpl implements SubscriptionRepository {
     String url = '';
     String displayName = '';
     String id = '';
-    try {
-      url = data.pattern ?? '';
-      displayName = data.name ?? '';
-      id = data.id ?? '';
-    } catch (e) {
+    if (data is PhoneRuleEntity) {
+      id = data.id;
+      displayName = data.name;
+      url = data.phoneNumber.isNotEmpty ? data.phoneNumber : data.labelId;
+    } else if (data is Map) {
+      id = data['id']?.toString() ?? '';
+      displayName = data['name']?.toString() ?? data['displayName']?.toString() ?? '';
+      url = data['phoneNumber']?.toString() ?? data['pattern']?.toString() ?? data['url']?.toString() ?? '';
+    } else {
       try {
-        if (data is Map) {
-          url = data['pattern'] ?? data['phoneNumber'] ?? '';
-          displayName = data['name'] ?? '';
-          id = data['id'] ?? '';
-        } else {
-          // It might be a PhoneRuleEntity that got returned by mistake
-          url = data.phoneNumber ?? '';
-          displayName = data.name ?? '';
-          id = data.id ?? '';
-        }
+        id = (data.id ?? '').toString();
+        displayName = (data.name ?? '').toString();
+        url = (data.phoneNumber ?? data.pattern ?? '').toString();
       } catch (_) {}
     }
     return PhoneSubscriptionPayload(
       payloadId: id,
-      kind: PhoneSubscriptionKind.rulesManifest,
+      kind: PhoneSubscriptionKind.phoneRules,
       rawJsonMap: {
         'displayName': displayName,
+        'name': displayName,
         'downloadUrl': url,
+        'url': url,
+        'isEnabled': true,
       },
+      timestamp: DateTime.now().millisecondsSinceEpoch,
     );
   }
 
