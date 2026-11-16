@@ -3,8 +3,7 @@ import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/core/database/entity_store.dart';
 import 'package:yourcallyourrule/core/database/entity_store_provider.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
-import 'package:yourcallyourrule/features/call_filter/call_filter_interface.dart';
-import 'package:yourcallyourrule/features/call_filter/call_filter_type.dart';
+import 'package:pyro_phone_call_filter_protocol/pyro_phone_call_filter_protocol.dart';
 import 'package:yourcallyourrule/features/call_filter/config/call_filter_config.dart';
 import 'providers/call_filter_provider.dart';
 
