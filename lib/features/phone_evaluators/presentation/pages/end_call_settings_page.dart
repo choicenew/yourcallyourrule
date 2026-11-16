@@ -18,6 +18,11 @@ class EndCallSettingsPage extends ConsumerWidget {
     final labelActionNotifier = ref.read(labelActionConfigProvider.notifier);
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);
+    final isZh = Localizations.localeOf(context).languageCode.toLowerCase() == 'zh';
+    final cardTitle = isZh ? '按标签自定义拦截动作' : '${l10n.label} ${l10n.interceptAction}';
+    final cardSubtitle = isZh
+        ? '为特定号码标签独立指定处置动作（放行通过、立即挂断、接通后挂断或静音）'
+        : 'Specify intercept actions for specific caller labels';
 
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
@@ -162,21 +167,21 @@ class EndCallSettingsPage extends ConsumerWidget {
                                 ),
                                 const SizedBox(width: 10),
                                 Text(
-                                  l10n.labelActionDescription,
+                                  cardTitle,
                                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: theme.colorScheme.onSurface),
                                 ),
                               ],
                             ),
                             IconButton(
                               icon: Icon(Icons.add_circle_outline_rounded, color: theme.colorScheme.primary),
-                              tooltip: '添加标签规则',
-                              onPressed: () => _showAddLabelDialog(context, ref, l10n, theme),
+                              tooltip: isZh ? '添加标签规则' : '${l10n.addLabel} ${l10n.ruleAction}',
+                              onPressed: () => _showAddLabelDialog(context, ref, l10n, theme, isZh),
                             ),
                           ],
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          '为特定号码标签独立指定处置动作（放行通过、立即挂断、接通后挂断或静音）',
+                          cardSubtitle,
                           style: TextStyle(fontSize: 13, color: theme.colorScheme.onSurfaceVariant),
                         ),
                         const SizedBox(height: 14),
@@ -186,7 +191,7 @@ class EndCallSettingsPage extends ConsumerWidget {
                             padding: const EdgeInsets.symmetric(vertical: 12.0),
                             child: Center(
                               child: Text(
-                                '暂无自定义标签规则，点击右上角加号或下方快捷标签添加',
+                                isZh ? '暂无自定义标签规则，点击右上角加号或下方快捷标签添加' : 'No custom label rules yet. Tap + or quick tags below to add',
                                 style: TextStyle(fontSize: 13, color: theme.colorScheme.onSurfaceVariant),
                               ),
                             ),
@@ -219,7 +224,7 @@ class EndCallSettingsPage extends ConsumerWidget {
                                   // 左侧：标签名称展示与删除按钮
                                   IconButton(
                                     icon: Icon(Icons.remove_circle_outline_rounded, size: 20, color: theme.colorScheme.error),
-                                    tooltip: '删除此标签规则',
+                                    tooltip: l10n.deleteRule,
                                     onPressed: () => labelActionNotifier.removeActionForLabel(labelKey),
                                   ),
                                   const SizedBox(width: 4),
@@ -369,6 +374,7 @@ class EndCallSettingsPage extends ConsumerWidget {
     WidgetRef ref,
     AppLocalizations l10n,
     ThemeData theme,
+    bool isZh,
   ) {
     String selectedLabel = 'Spam Likely';
     InterceptAction chosenAction = InterceptAction.endCall;
@@ -383,7 +389,7 @@ class EndCallSettingsPage extends ConsumerWidget {
               backgroundColor: theme.colorScheme.surface,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               title: Text(
-                '添加标签处置规则',
+                isZh ? '添加标签处置规则' : '${l10n.addLabel} ${l10n.interceptAction}',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: theme.colorScheme.onSurface),
               ),
               content: SingleChildScrollView(
@@ -391,7 +397,7 @@ class EndCallSettingsPage extends ConsumerWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('选择预设标签或输入自定义标签：', style: TextStyle(fontSize: 13, color: theme.colorScheme.onSurfaceVariant)),
+                    Text(isZh ? '选择预设标签或输入自定义标签：' : 'Select predefined label or enter custom label:', style: TextStyle(fontSize: 13, color: theme.colorScheme.onSurfaceVariant)),
                     const SizedBox(height: 8),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -404,7 +410,7 @@ class EndCallSettingsPage extends ConsumerWidget {
                         child: DropdownButton<String>(
                           value: predefinedLabels.any((m) => m['text'] == selectedLabel) ? selectedLabel : null,
                           isExpanded: true,
-                          hint: Text('选择预设标签', style: TextStyle(fontSize: 14, color: theme.colorScheme.onSurfaceVariant)),
+                          hint: Text(l10n.selectLabel, style: TextStyle(fontSize: 14, color: theme.colorScheme.onSurfaceVariant)),
                           onChanged: (val) {
                             if (val != null) {
                               setDialogState(() {
@@ -428,8 +434,8 @@ class EndCallSettingsPage extends ConsumerWidget {
                       controller: textController,
                       style: TextStyle(color: theme.colorScheme.onSurface),
                       decoration: InputDecoration(
-                        labelText: '自定义标签名称',
-                        hintText: '例如: 骚扰电话、催收、外卖等',
+                        labelText: isZh ? '自定义标签名称' : '${l10n.custom} ${l10n.label}',
+                        hintText: isZh ? '例如: 骚扰电话、催收、外卖等' : 'e.g. Spam, Delivery, etc.',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                       ),
                       onChanged: (val) {
@@ -437,7 +443,7 @@ class EndCallSettingsPage extends ConsumerWidget {
                       },
                     ),
                     const SizedBox(height: 16),
-                    Text('处置动作：', style: TextStyle(fontSize: 13, color: theme.colorScheme.onSurfaceVariant)),
+                    Text('${l10n.ruleAction}:', style: TextStyle(fontSize: 13, color: theme.colorScheme.onSurfaceVariant)),
                     const SizedBox(height: 8),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -484,7 +490,7 @@ class EndCallSettingsPage extends ConsumerWidget {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogCtx).pop(),
-                  child: Text('取消', style: TextStyle(color: theme.colorScheme.onSurfaceVariant)),
+                  child: Text(l10n.cancelButton, style: TextStyle(color: theme.colorScheme.onSurfaceVariant)),
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -500,7 +506,7 @@ class EndCallSettingsPage extends ConsumerWidget {
                     }
                     Navigator.of(dialogCtx).pop();
                   },
-                  child: const Text('保存'),
+                  child: Text(l10n.save),
                 ),
               ],
             );
