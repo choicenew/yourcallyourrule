@@ -1,11 +1,11 @@
-﻿import 'dart:async';
+import 'dart:async';
 
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
-import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_service.dart';
-import 'package:yourcallyourrule/features/call_evaluators/evaluators/call_protection_service.dart';
+import 'package:yourcallyourrule/features/phone_statistic/data/services/call_statistics_service.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/evaluators/call_protection_service.dart';
 import '../models/home_stats_model.dart';
 
 class HomeStatsService {

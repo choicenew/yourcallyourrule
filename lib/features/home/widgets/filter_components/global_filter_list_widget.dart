@@ -1,11 +1,11 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/call_filter/providers/call_filter_provider.dart';
-import 'package:yourcallyourrule/features/call_filter/providers/enhanced_filter_config_provider.dart';
+import 'package:yourcallyourrule/features/phone_filter/providers/call_filter_provider.dart';
+import 'package:yourcallyourrule/features/phone_filter/providers/enhanced_filter_config_provider.dart';
 import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
-import 'package:yourcallyourrule/features/call_time_interception/provider/time_interceptor_provider.dart';
+import 'package:yourcallyourrule/features/phone_time_interception/provider/time_interceptor_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import 'filter_switch_tile.dart';

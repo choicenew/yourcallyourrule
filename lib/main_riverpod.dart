@@ -4,7 +4,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/features/common/router/app_router_provider.dart';
-import 'package:yourcallyourrule/features/call/call_overlay/presentation/widgets/call_overlay_entry.dart';
+import 'package:yourcallyourrule/features/phone_call/call_overlay/presentation/widgets/call_overlay_entry.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/common/services/firebase_service.dart';
 import 'package:yourcallyourrule/features/common/error/logger.dart';

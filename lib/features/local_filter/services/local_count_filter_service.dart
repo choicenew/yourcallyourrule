@@ -3,7 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:pyro_phone_call_filter_protocol/pyro_phone_call_filter_protocol.dart';
-import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
+import 'package:yourcallyourrule/features/phone_caller_identity/services/caller_identity_service.dart';
 import 'package:yourcallyourrule/features/local_filter/config/local_count_filter_config.dart';
 import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
 

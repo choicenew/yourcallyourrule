@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
-import 'package:yourcallyourrule/features/call_evaluators/config/intercept_action_config_provider.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/professional_shield_radar.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

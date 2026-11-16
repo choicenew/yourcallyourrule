@@ -1,14 +1,14 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/features/call/call_overlay/presentation/pages/fraud_alert_settings_page.dart';
-import 'package:yourcallyourrule/features/call/call_overlay/presentation/screens/call_overlay_customization_screen.dart';
+import 'package:yourcallyourrule/features/phone_call/call_overlay/presentation/pages/fraud_alert_settings_page.dart';
+import 'package:yourcallyourrule/features/phone_call/call_overlay/presentation/screens/call_overlay_customization_screen.dart';
 
-import 'package:yourcallyourrule/features/call_time_interception/presentation/pages/time_interceptor_settings_page.dart';
+import 'package:yourcallyourrule/features/phone_time_interception/presentation/pages/time_interceptor_settings_page.dart';
 import 'package:yourcallyourrule/features/local_filter/presentation/pages/local_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remote_filter_settings_page.dart';
-import 'package:yourcallyourrule/features/call_filter/presentation/pages/enhanced_filter_settings_page.dart';
-import 'package:yourcallyourrule/features/call_filter/presentation/pages/sim_slot_rule_filter_page.dart';
-import 'package:yourcallyourrule/features/call_filter/presentation/pages/call_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/phone_filter/presentation/pages/enhanced_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/phone_filter/presentation/pages/sim_slot_rule_filter_page.dart';
+import 'package:yourcallyourrule/features/phone_filter/presentation/pages/call_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/pages/elite_home_page.dart';
@@ -22,15 +22,15 @@ import 'package:yourcallyourrule/features/phone_rules/pages/allowed_blocked_page
 import 'package:yourcallyourrule/features/phone_rules/pages/rule_management_page.dart';
 import 'package:yourcallyourrule/features/search/pages/search_page.dart';
 
-import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/live_notification_customization_screen.dart';
-import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/live_activities_test_page.dart';
-import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/kit_live_activities_test_page.dart';
-import 'package:yourcallyourrule/features/call/live_activities/presentation/pages/kit_live_notification_customization_screen.dart';
+import 'package:yourcallyourrule/features/phone_call/live_activities/presentation/pages/live_notification_customization_screen.dart';
+import 'package:yourcallyourrule/features/phone_call/live_activities/presentation/pages/live_activities_test_page.dart';
+import 'package:yourcallyourrule/features/phone_call/live_activities/presentation/pages/kit_live_activities_test_page.dart';
+import 'package:yourcallyourrule/features/phone_call/live_activities/presentation/pages/kit_live_notification_customization_screen.dart';
 import 'package:yourcallyourrule/features/user_database/pages/user_database_sync_page.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/pages/deletion_proposal_page.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/pages/proposal_detail_page.dart';
 
-import 'package:yourcallyourrule/features/call_evaluators/presentation/pages/end_call_settings_page.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/presentation/pages/end_call_settings_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/cloud_drive/pages/backup_restore_page.dart';
 import 'package:yourcallyourrule/features/cloud_drive/pages/cloud_settings_page.dart';
@@ -42,9 +42,9 @@ import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_subscription_page.dart';
 import 'package:yourcallyourrule/features/contacts/pages/contact_subscription_page.dart';
 import 'package:yourcallyourrule/features/contacts/pages/contacts_management_page.dart';
-import 'package:yourcallyourrule/features/call_statistic/presentation/pages/blocked_calls_page.dart';
-import 'package:yourcallyourrule/features/call_statistic/presentation/pages/call_statistics_page.dart';
-import 'package:yourcallyourrule/features/call_history/pages/call_history_page.dart';
+import 'package:yourcallyourrule/features/phone_statistic/presentation/pages/blocked_calls_page.dart';
+import 'package:yourcallyourrule/features/phone_statistic/presentation/pages/call_statistics_page.dart';
+import 'package:yourcallyourrule/features/phone_history/pages/call_history_page.dart';
 import 'package:yourcallyourrule/features/auto_update/pages/auto_update_settings_page.dart';
 import 'package:yourcallyourrule/features/notifications/pages/notifications_page.dart';
 import 'package:yourcallyourrule/features/permissions/pages/permission_management_page.dart';
@@ -57,7 +57,7 @@ import 'package:yourcallyourrule/features/sms/pages/sms_filter_page.dart';
 import 'package:yourcallyourrule/features/labels/pages/label_management_page.dart';
 import 'package:yourcallyourrule/features/labels/pages/mark_phone_management_page.dart';
 import 'package:yourcallyourrule/features/commercial/pages/vip_exchange_page.dart';
-import 'package:yourcallyourrule/features/caller_identity/presentation/caller_identity_settings_page.dart';
+import 'package:yourcallyourrule/features/phone_caller_identity/presentation/caller_identity_settings_page.dart';
 
 import 'package:yourcallyourrule/features/initial_setup/pages/initial_setup_page.dart';
 import 'package:yourcallyourrule/features/initial_setup/pages/deep_link_import_page.dart';

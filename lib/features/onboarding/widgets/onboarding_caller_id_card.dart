@@ -1,6 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/call/call_overlay/providers/call_overlay_style_security_provider.dart';
+import 'package:yourcallyourrule/features/phone_call/call_overlay/providers/call_overlay_style_security_provider.dart';
 import 'package:yourcallyourrule/features/permissions/services/permission_service_impl.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

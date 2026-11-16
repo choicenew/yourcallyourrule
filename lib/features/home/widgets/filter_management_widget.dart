@@ -2,7 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/features/device/provider/sim_info_provider.dart';
-import 'package:yourcallyourrule/features/call_filter/providers/enhanced_filter_config_provider.dart';
+import 'package:yourcallyourrule/features/phone_filter/providers/enhanced_filter_config_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import 'filter_components/global_filter_list_widget.dart';

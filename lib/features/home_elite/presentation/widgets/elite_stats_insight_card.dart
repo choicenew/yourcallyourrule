@@ -3,8 +3,8 @@ import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
-import 'package:yourcallyourrule/features/call_statistic/data/services/call_statistics_provider.dart';
-import 'package:yourcallyourrule/features/call_statistic/domain/statistic_period.dart';
+import 'package:yourcallyourrule/features/phone_statistic/data/services/call_statistics_provider.dart';
+import 'package:yourcallyourrule/features/phone_statistic/domain/statistic_period.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class EliteStatsInsightCard extends ConsumerStatefulWidget {

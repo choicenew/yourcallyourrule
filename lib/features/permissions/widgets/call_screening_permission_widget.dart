@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/call_evaluators/evaluators/call_protection_service.dart';
-import 'package:yourcallyourrule/features/call_monitor/services/call_screen_plugin.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/evaluators/call_protection_service.dart';
+import 'package:yourcallyourrule/features/phone_monitor/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 系统默认来电拦截与筛选权限控制卡片

@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'sync_scheduler.dart';
 import 'app_sync_bridge_connector.dart';
 import 'package:yourcallyourrule/data/database/remote/remote_database.dart';
-import 'package:yourcallyourrule/features/call_history/services/call_log_sync_service.dart';
-import 'package:yourcallyourrule/features/call_history/services/system_call_log_service.dart';
+import 'package:yourcallyourrule/features/phone_history/services/call_log_sync_service.dart';
+import 'package:yourcallyourrule/features/phone_history/services/system_call_log_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/data/datasources/remote_number_datasource.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 

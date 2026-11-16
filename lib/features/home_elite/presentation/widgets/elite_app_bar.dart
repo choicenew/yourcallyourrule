@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pyro_ads_policy/pyro_ads_policy.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/commercial/services/commercial_service.dart';
-import 'package:yourcallyourrule/features/call_monitor/services/call_screen_plugin.dart';
+import 'package:yourcallyourrule/features/phone_monitor/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class EliteAppBar extends ConsumerWidget {

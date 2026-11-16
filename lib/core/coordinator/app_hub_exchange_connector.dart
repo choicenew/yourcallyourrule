@@ -29,7 +29,7 @@ import 'package:yourcallyourrule/features/notifications/providers/notification_h
 import 'package:yourcallyourrule/features/notifications/config/notification_config.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:yourcallyourrule/features/common/router/app_router_provider.dart';
-import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
+import 'package:yourcallyourrule/features/phone_caller_identity/services/caller_identity_service.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/phone_rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';

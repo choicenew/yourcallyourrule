@@ -1,0 +1,30 @@
+import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
+import 'package:yourcallyourrule/features/phone_history/services/call_log_recorder.dart';
+import 'package:yourcallyourrule/features/phone_monitor/handlers/incoming_call_handler.dart';
+import 'package:yourcallyourrule/features/phone_monitor/handlers/outgoing_call_handler.dart';
+
+extension IncomingCallHandlerExtension on IncomingCallHandler {
+  Future<void> recordIncomingCall(
+      String phoneNumber, CallerIdData callData, bool accepted, CallLogRecorder recorder) async {
+    await recorder.recordIncomingCall(phoneNumber, callData, accepted);
+  }
+
+  Future<void> recordBlockedCallWithOptionalRecorder(String phoneNumber, CallerIdData callData, [CallLogRecorder? recorder]) async {
+    if (recorder != null) {
+      await recorder.recordIncomingCall(phoneNumber, callData, false);
+    }
+  }
+}
+
+extension OutgoingCallHandlerExtension on OutgoingCallHandler {
+  Future<void> recordOutgoingCall(
+      String phoneNumber, CallerIdData callData, CallLogRecorder recorder) async {
+    await recorder.recordOutgoingCall(phoneNumber, callData);
+  }
+
+  Future<void> recordOutgoingCallWithOptionalRecorder(String phoneNumber, CallerIdData callData, [CallLogRecorder? recorder]) async {
+    if (recorder != null) {
+      await recorder.recordOutgoingCall(phoneNumber, callData);
+    }
+  }
+}

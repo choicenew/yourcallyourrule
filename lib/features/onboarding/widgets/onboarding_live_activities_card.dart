@@ -1,6 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/call/live_activities/providers/live_notification_config_provider.dart';
+import 'package:yourcallyourrule/features/phone_call/live_activities/providers/live_notification_config_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 引导页 3：主力来电提醒 - 实时通知/动态胶囊卡片组件
