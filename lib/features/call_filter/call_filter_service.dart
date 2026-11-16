@@ -57,31 +57,26 @@ class CallFilterService implements CallFilterInterface {
     final phoneRules = await _phoneRuleStore.getAll();
     final matchedRules = phoneRules.where((r) => r.phoneNumber == phoneNumber.value && r.isEnabled).toList();
 
-    if (config.allowAllAllowedNumbers) {
-      final isAllowed = matchedRules.any((r) => r.actionType == 'allow');
-      if (isAllowed) return true;
-    }
-
-    if (config.allowAllBlockRules) {
-      final isBlocked = matchedRules.any((r) => r.actionType == 'block');
-      if (isBlocked) return false;
-    }
-
     if (matchedRules.isNotEmpty) {
       matchedRules.sort((a, b) => b.priority.compareTo(a.priority));
-      final topRule = matchedRules.first;
-      if (topRule.actionType == 'block') return false;
-      if (topRule.actionType == 'allow') return true;
+      for (final rule in matchedRules) {
+        if (rule.isBlockAction && config.allowAllBlockRules) {
+          return false;
+        }
+        if (rule.isAllowAction && config.allowAllAllowedNumbers) {
+          return true;
+        }
+      }
     }
 
     if (config.allowRegexAllowRules || config.allowRegexBlockRules) {
       final regexRules = await _regexRuleStore.getAll();
       final enabledRegexRules = regexRules.where((r) => r.isEnabled).toList();
+      enabledRegexRules.sort((a, b) => b.priority.compareTo(a.priority));
       for (final rule in enabledRegexRules) {
         if (rule.matches(phoneNumberStr)) {
-          final actionType = rule.actionType;
-          if (actionType == 'block') return false;
-          if (actionType == 'allow') return true;
+          if (rule.isBlockAction && config.allowRegexBlockRules) return false;
+          if (rule.isAllowAction && config.allowRegexAllowRules) return true;
         }
       }
     }

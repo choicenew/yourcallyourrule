@@ -16,12 +16,21 @@ EndCallHandler endCallHandler(Ref ref) {
 
 class EndCallHandler implements BaseCallHandler {
   final Ref _ref;
-  InterceptAction? _injectedAction;
+  final Map<String, InterceptAction> _injectedActionsByPhone = {};
+  InterceptAction? _fallbackInjectedAction;
 
   EndCallHandler(this._ref);
 
+  void setInjectedActionForPhone(String phoneNumber, InterceptAction? action) {
+    if (action != null) {
+      _injectedActionsByPhone[phoneNumber] = action;
+    } else {
+      _injectedActionsByPhone.remove(phoneNumber);
+    }
+  }
+
   void setInjectedAction(InterceptAction? action) {
-    _injectedAction = action;
+    _fallbackInjectedAction = action;
   }
 
   @override
@@ -50,10 +59,12 @@ class EndCallHandler implements BaseCallHandler {
   void _handleInitializationComplete() {}
 
   Future<String?> _handleInterceptAction(String phoneNumber) async {
-    final action = _injectedAction ?? _ref.read(interceptActionConfigProvider);
-    _injectedAction = null;
+    final action = _injectedActionsByPhone.remove(phoneNumber) ??
+        _fallbackInjectedAction ??
+        _ref.read(interceptActionConfigProvider);
+    _fallbackInjectedAction = null;
     final actionName = action?.actionName ?? InterceptAction.endCall.actionName;
-    debugPrint(">>> [EndCallHandler EXECUTE] Handled intercept action: $actionName");
+    debugPrint(">>> [EndCallHandler EXECUTE] Handled intercept action for $phoneNumber: $actionName");
     return actionName;
   }
   

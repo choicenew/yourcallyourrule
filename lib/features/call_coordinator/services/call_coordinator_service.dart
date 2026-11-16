@@ -66,6 +66,9 @@ class CallCoordinatorService {
       final identityFuture = _identityService.getCallerId(
         event.phoneNumber,
         Locale.english,
+      ).timeout(
+        const Duration(milliseconds: 600),
+        onTimeout: () => CallerIdData(phoneNumber: event.phoneNumber),
       );
 
       final timeInterceptFuture = _ref.read(timeInterceptorServiceProvider).shouldIntercept(event.phoneNumber);
@@ -102,7 +105,7 @@ class CallCoordinatorService {
 
       if (verdict.shouldBlock) {
         if (verdict.action != null) {
-          _ref.read(endCallHandlerProvider).setInjectedAction(verdict.action);
+          _ref.read(endCallHandlerProvider).setInjectedActionForPhone(event.phoneNumber, verdict.action);
         }
         _ref.read(interceptEventStreamControllerProvider).add(
           InterceptEvent(

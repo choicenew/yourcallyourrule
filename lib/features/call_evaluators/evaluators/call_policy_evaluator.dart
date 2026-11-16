@@ -68,10 +68,16 @@ class CallPolicyEvaluator {
       );
     }
 
+    final normalizedActionMap = <String, InterceptAction>{};
+    context.labelActionMap.forEach((key, val) {
+      normalizedActionMap[key.trim().toLowerCase()] = val;
+    });
+
     for (final label in context.labels) {
-      if (context.labelActionMap.containsKey(label)) {
+      final normalizedLabel = label.trim().toLowerCase();
+      if (normalizedActionMap.containsKey(normalizedLabel)) {
         final action =
-            context.labelActionMap[label] ?? context.defaultInterceptAction;
+            normalizedActionMap[normalizedLabel] ?? context.defaultInterceptAction;
         return CallPolicyVerdict(
           shouldBlock: true,
           action: action,

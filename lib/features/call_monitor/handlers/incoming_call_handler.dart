@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
+import 'package:pyro_phone_call_monitor_protocol/pyro_phone_call_monitor_protocol.dart';
+import 'package:pyro_phone_call_monitor_hub/pyro_phone_call_monitor_hub.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/call_log_extension.dart';
 
@@ -18,6 +19,9 @@ class IncomingCallHandler {
 
   Future<void> processIncomingCall(String phoneNumber, Function(CallerIdData)? onCallerIdDataReceived, {dynamic simInfo}) async {
     debugPrint("--- [IncomingCallHandler Sensor] Received raw native incoming call: $phoneNumber ---");
+    CallMonitorService.instance.emitEvent(
+      IncomingCallEvent(phoneNumber: phoneNumber),
+    );
   }
 
   Future<void> handleCallRejection(String phoneNumber, [CallerIdData? callData]) async {

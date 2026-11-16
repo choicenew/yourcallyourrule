@@ -20,6 +20,11 @@ abstract class RegexRuleEntity with _$RegexRuleEntity {
 
   bool get isSubscribed => subscriptionId != null;
 
+  static const String actionBlock = 'block';
+  static const String actionAllow = 'allow';
+  bool get isBlockAction => actionType.toLowerCase().trim() == actionBlock;
+  bool get isAllowAction => actionType.toLowerCase().trim() == actionAllow;
+
   bool matches(String input) {
     if (!isEnabled) return false;
     try {

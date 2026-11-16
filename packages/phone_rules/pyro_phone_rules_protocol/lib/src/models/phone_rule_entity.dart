@@ -23,6 +23,11 @@ abstract class PhoneRuleEntity with _$PhoneRuleEntity {
 
   bool get isSubscribed => subscriptionId != null;
 
+  static const String actionBlock = 'block';
+  static const String actionAllow = 'allow';
+  bool get isBlockAction => actionType.toLowerCase().trim() == actionBlock;
+  bool get isAllowAction => actionType.toLowerCase().trim() == actionAllow;
+
   factory PhoneRuleEntity.fromJson(Map<String, dynamic> json) => _$PhoneRuleEntityFromJson(json);
 
   factory PhoneRuleEntity.fromMap(Map<String, dynamic> map) => PhoneRuleEntity.fromJson(map);

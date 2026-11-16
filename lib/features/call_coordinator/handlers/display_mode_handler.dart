@@ -3,6 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
+import 'overlay_handler.dart';
 
 part 'display_mode_handler.g.dart';
 
@@ -22,5 +23,7 @@ class DisplayModeHandler {
     SimInfo? simInfo,
   }) async {
     debugPrint('[DisplayModeHandler] Processing display mode for ${callerIdData.phoneNumber}');
+    final overlay = await _ref.read(overlayHandlerProvider.future);
+    await overlay.showCallerIdOverlay(callerIdData, stirInfo, simInfo);
   }
 }

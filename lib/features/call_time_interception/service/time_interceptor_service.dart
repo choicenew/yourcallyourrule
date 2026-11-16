@@ -24,7 +24,8 @@ class TimeInterceptorService {
     final logs = await _callLogRepository.getLogsByDateRange(startDate, now);
     final entries = logs.where((log) => log.phoneNumber == phoneNumber).toList();
 
-    return entries.isEmpty;
+    // 根据业务定义（短时间内拦截同一号码的频繁连拨），若在指定时段内已有记录则拦截
+    return entries.isNotEmpty;
   }
 }
 
