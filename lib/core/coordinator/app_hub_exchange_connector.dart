@@ -19,6 +19,11 @@ import 'package:pyro_phone_sim_slot_rules_connector/pyro_phone_sim_slot_rules_co
 
 import 'app_coordinator.dart';
 import 'filter_ui_registry.dart';
+import 'package:yourcallyourrule/features/notifications/service/notification_manager.dart';
+import 'package:yourcallyourrule/features/notifications/providers/notification_history_provider.dart';
+import 'package:yourcallyourrule/features/notifications/config/notification_config.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:yourcallyourrule/features/common/router/app_router_provider.dart';
 
 final appHubExchangeConnectorProvider = Provider<AppHubExchangeConnector>((ref) {
   final coordinator = ref.watch(appCoordinatorProvider);
@@ -111,6 +116,85 @@ class AppHubExchangeConnector {
 
     // 9. 全量 Filter 驱动与 SMS Bloom Filter 离线预检驱动一键注册挂载
     _registerAllFilterConnectors();
+
+    // 10. 全局系统通知总线调度 (System Notification Relay & Tap Dispatcher)
+    _setupNotificationRelay();
+  }
+
+  void _setupNotificationRelay() {
+    _coordinator.on('show_system_notification', (payload) async {
+      try {
+        final title = payload['title'] as String? ?? '';
+        final body = payload['body'] as String? ?? '';
+        final type = payload['type'] as String? ?? 'general';
+        final notificationId = payload['notificationId'] as int?;
+        final notificationPayload = payload['payload'] as Map<String, dynamic>?;
+        final manager = ref.read(notificationManagerProvider);
+        final config = NotificationConfig(
+          channelId: type == 'deletion_proposal' ? 'deletion_proposals' : 'general',
+          channelName: type == 'deletion_proposal' ? 'Deletion Proposals' : 'General Notifications',
+          importance: Importance.high,
+          priority: Priority.high,
+        );
+        await manager.showAndRecord(
+          title: title,
+          body: body,
+          config: config,
+          type: type,
+          notificationId: notificationId ?? 0,
+          payload: notificationPayload,
+        );
+      } catch (e) {
+        debugPrint('[Connector] show_system_notification error: $e');
+      }
+    });
+
+    _coordinator.on('cancel_system_notification', (payload) async {
+      try {
+        final notificationId = payload['notificationId'] as int?;
+        if (notificationId != null) {
+          final manager = ref.read(notificationManagerProvider);
+          await manager.rawNotificationService.cancelNotification(notificationId);
+        }
+      } catch (e) {
+        debugPrint('[Connector] cancel_system_notification error: $e');
+      }
+    });
+
+    _coordinator.on('clear_notifications_by_type', (payload) async {
+      try {
+        final type = payload['type'] as String?;
+        if (type != null) {
+          final manager = ref.read(notificationManagerProvider);
+          await manager.rawHistoryService.removeNotificationsByType(type);
+          ref.invalidate(notificationHistoryProvider);
+        }
+      } catch (e) {
+        debugPrint('[Connector] clear_notifications_by_type error: $e');
+      }
+    });
+
+    try {
+      final manager = ref.read(notificationManagerProvider);
+      manager.rawNotificationService.onNotificationTapped((payload) {
+        if (payload != null) {
+          final type = payload['type'] as String?;
+          if (type == 'deletion_proposal') {
+            final data = payload['data'] as Map<String, dynamic>?;
+            final proposalId = data?['proposalId'] as String?;
+            final router = ref.read(appRouterProvider).router;
+            const String deletionProposalPath = '/deletion-proposal';
+            if (proposalId != null && proposalId.isNotEmpty && proposalId != 'pending_proposals') {
+              router.push('$deletionProposalPath/$proposalId');
+            } else {
+              router.push(deletionProposalPath);
+            }
+          }
+        }
+      });
+    } catch (e) {
+      debugPrint('[Connector] onNotificationTapped setup error: $e');
+    }
   }
 
   void _registerAllFilterConnectors() {

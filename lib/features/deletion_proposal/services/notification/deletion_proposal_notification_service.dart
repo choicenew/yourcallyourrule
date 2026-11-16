@@ -1,10 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/features/common/router/app_router_provider.dart';
-
-import 'package:yourcallyourrule/features/notifications/providers/notification_history_provider.dart';
-import 'package:yourcallyourrule/features/notifications/service/notification_manager.dart';
-import 'package:yourcallyourrule/features/notifications/service/notification_service.dart';
+import 'package:yourcallyourrule/core/coordinator/app_coordinator.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
@@ -69,17 +65,10 @@ enum DeletionProposalNotificationType {
 }
 
 class DeletionProposalNotificationService {
-  final Ref _ref;
-  late final NotificationManager _manager;
+  final AppCoordinator _coordinator;
 
-  DeletionProposalNotificationService(this._ref) {
-    _manager = _ref.read(notificationManagerProvider);
-    _manager.rawNotificationService.onNotificationTapped((payload) {
-      if (payload != null && payload['type'] == 'deletion_proposal') {
-        _handleNotificationTap(payload);
-      }
-    });
-  }
+  DeletionProposalNotificationService(Ref ref)
+      : _coordinator = ref.read(appCoordinatorProvider);
 
   Future<void> notifyProposalCreated({
     required String proposalId,
@@ -96,14 +85,13 @@ class DeletionProposalNotificationService {
       body: l10n.deletionProposalCreatedBody(phoneNumber),
       additionalData: {'reason': reason},
     );
-    await _manager.showAndRecord(
-      title: notificationData.title,
-      body: notificationData.body,
-      config: NotificationService.deletionProposalConfig(context),
-      type: 'deletion_proposal',
-      notificationId: notificationData.proposalId.hashCode,
-      payload: {'type': 'deletion_proposal', 'data': notificationData.toJson()},
-    );
+    _coordinator.emit('show_system_notification', {
+      'title': notificationData.title,
+      'body': notificationData.body,
+      'type': 'deletion_proposal',
+      'notificationId': notificationData.proposalId.hashCode,
+      'payload': {'type': 'deletion_proposal', 'data': notificationData.toJson()},
+    });
   }
 
   Future<void> notifyProposalApproved({
@@ -133,14 +121,13 @@ class DeletionProposalNotificationService {
         'supportPercentage': supportPercentage,
       },
     );
-    await _manager.showAndRecord(
-      title: notificationData.title,
-      body: notificationData.body,
-      config: NotificationService.deletionProposalConfig(context),
-      type: 'deletion_proposal',
-      notificationId: notificationData.proposalId.hashCode,
-      payload: {'type': 'deletion_proposal', 'data': notificationData.toJson()},
-    );
+    _coordinator.emit('show_system_notification', {
+      'title': notificationData.title,
+      'body': notificationData.body,
+      'type': 'deletion_proposal',
+      'notificationId': notificationData.proposalId.hashCode,
+      'payload': {'type': 'deletion_proposal', 'data': notificationData.toJson()},
+    });
   }
 
   Future<void> notifyProposalRejected({
@@ -170,14 +157,13 @@ class DeletionProposalNotificationService {
         'supportPercentage': supportPercentage,
       },
     );
-    await _manager.showAndRecord(
-      title: notificationData.title,
-      body: notificationData.body,
-      config: NotificationService.deletionProposalConfig(context),
-      type: 'deletion_proposal',
-      notificationId: notificationData.proposalId.hashCode,
-      payload: {'type': 'deletion_proposal', 'data': notificationData.toJson()},
-    );
+    _coordinator.emit('show_system_notification', {
+      'title': notificationData.title,
+      'body': notificationData.body,
+      'type': 'deletion_proposal',
+      'notificationId': notificationData.proposalId.hashCode,
+      'payload': {'type': 'deletion_proposal', 'data': notificationData.toJson()},
+    });
   }
 
   Future<void> notifyVotingStarted({
@@ -195,14 +181,13 @@ class DeletionProposalNotificationService {
       body: l10n.communityVotingStartedBody(phoneNumber),
       additionalData: {'reason': reason},
     );
-    await _manager.showAndRecord(
-      title: notificationData.title,
-      body: notificationData.body,
-      config: NotificationService.deletionProposalConfig(context),
-      type: 'deletion_proposal',
-      notificationId: notificationData.proposalId.hashCode,
-      payload: {'type': 'deletion_proposal', 'data': notificationData.toJson()},
-    );
+    _coordinator.emit('show_system_notification', {
+      'title': notificationData.title,
+      'body': notificationData.body,
+      'type': 'deletion_proposal',
+      'notificationId': notificationData.proposalId.hashCode,
+      'payload': {'type': 'deletion_proposal', 'data': notificationData.toJson()},
+    });
   }
 
   Future<void> notifyVotingEnded({
@@ -234,14 +219,13 @@ class DeletionProposalNotificationService {
         'supportPercentage': supportPercentage,
       },
     );
-    await _manager.showAndRecord(
-      title: notificationData.title,
-      body: notificationData.body,
-      config: NotificationService.deletionProposalConfig(context),
-      type: 'deletion_proposal',
-      notificationId: notificationData.proposalId.hashCode,
-      payload: {'type': 'deletion_proposal', 'data': notificationData.toJson()},
-    );
+    _coordinator.emit('show_system_notification', {
+      'title': notificationData.title,
+      'body': notificationData.body,
+      'type': 'deletion_proposal',
+      'notificationId': notificationData.proposalId.hashCode,
+      'payload': {'type': 'deletion_proposal', 'data': notificationData.toJson()},
+    });
   }
 
   Future<void> notifyNewVoteReceived({
@@ -267,14 +251,13 @@ class DeletionProposalNotificationService {
         'currentOpposeVotes': currentOpposeVotes,
       },
     );
-    await _manager.showAndRecord(
-      title: notificationData.title,
-      body: notificationData.body,
-      config: NotificationService.deletionProposalConfig(context),
-      type: 'deletion_proposal',
-      notificationId: notificationData.proposalId.hashCode,
-      payload: {'type': 'deletion_proposal', 'data': notificationData.toJson()},
-    );
+    _coordinator.emit('show_system_notification', {
+      'title': notificationData.title,
+      'body': notificationData.body,
+      'type': 'deletion_proposal',
+      'notificationId': notificationData.proposalId.hashCode,
+      'payload': {'type': 'deletion_proposal', 'data': notificationData.toJson()},
+    });
   }
 
   Future<void> showPendingProposalsNotification({
@@ -289,14 +272,13 @@ class DeletionProposalNotificationService {
       title: l10n.pendingProposals,
       body: l10n.pendingProposalsBody(proposals.length),
     );
-    await _manager.showAndRecord(
-      title: notificationData.title,
-      body: notificationData.body,
-      config: NotificationService.deletionProposalConfig(context),
-      type: 'deletion_proposal',
-      notificationId: 'pending_proposals'.hashCode,
-      payload: {'type': 'deletion_proposal', 'data': notificationData.toJson()},
-    );
+    _coordinator.emit('show_system_notification', {
+      'title': notificationData.title,
+      'body': notificationData.body,
+      'type': 'deletion_proposal',
+      'notificationId': 'pending_proposals'.hashCode,
+      'payload': {'type': 'deletion_proposal', 'data': notificationData.toJson()},
+    });
   }
 
   Future<void> notifyVotingResultsUpdate(
@@ -333,56 +315,15 @@ class DeletionProposalNotificationService {
     }
   }
 
-  void _handleNotificationTap(Map<String, dynamic> payload) {
-    try {
-      final notificationData = DeletionProposalNotificationData.fromJson(
-        payload['data'],
-      );
-      debugPrint(
-        'Deletion proposal notification tapped: ${notificationData.proposalId}',
-      );
-
-      final router = _ref.read(appRouterProvider).router;
-      const String deletionProposalPath = '/deletion-proposal';
-
-      if (notificationData.proposalId.isNotEmpty &&
-          notificationData.proposalId != 'pending_proposals') {
-        router.push('$deletionProposalPath/${notificationData.proposalId}');
-      } else {
-        router.push(deletionProposalPath);
-      }
-    } catch (e) {
-      debugPrint('Error handling deletion proposal notification tap: $e');
-    }
-  }
-
   Future<void> clearProposalNotifications(String proposalId) async {
-    await _manager.rawNotificationService.cancelNotification(
-      proposalId.hashCode,
-    );
+    _coordinator.emit('cancel_system_notification', {
+      'notificationId': proposalId.hashCode,
+    });
   }
 
   Future<void> clearAllDeletionProposalNotifications() async {
-    final history = await _ref.read(notificationHistoryProvider.future);
-    final proposalNotifications = history.where(
-      (item) => (item as dynamic)?.type == 'deletion_proposal',
-    );
-    for (final notification in proposalNotifications) {
-      final payloadMap = notification.payload;
-      if (payloadMap != null && payloadMap['data'] is Map<String, dynamic>) {
-        final proposalData = payloadMap['data'] as Map<String, dynamic>;
-        final proposalId = proposalData['proposalId'] as String?;
-        if (proposalId != null) {
-          final notificationId = proposalId.hashCode;
-          await _manager.rawNotificationService.cancelNotification(
-            notificationId,
-          );
-        }
-      }
-    }
-    await _manager.rawHistoryService.removeNotificationsByType(
-      'deletion_proposal',
-    );
-    _ref.invalidate(notificationHistoryProvider);
+    _coordinator.emit('clear_notifications_by_type', {
+      'type': 'deletion_proposal',
+    });
   }
 }
