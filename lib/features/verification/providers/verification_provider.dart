@@ -10,7 +10,7 @@ import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart' as vo;
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/call_filter/call_filter_service.dart';
+import 'package:yourcallyourrule/features/phone_rules/services/basic_rule_filter_service.dart';
 import 'package:yourcallyourrule/features/call_filter/providers/call_filter_provider.dart';
 import 'package:yourcallyourrule/features/call_time_interception/service/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
@@ -154,7 +154,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
     );
 
     try {
-      final callFilterService = ref.read(callFilterServiceProvider);
+      final basicRuleFilterService = ref.read(basicRuleFilterServiceProvider);
       final timeInterceptorService = ref.read(timeInterceptorServiceProvider);
       final localCountFilterService = ref.read(localCountFilterServiceProvider);
       final remoteNumberFilterService = ref.read(remoteNumberFilterServiceProvider);
@@ -193,9 +193,9 @@ class VerificationNotifier extends Notifier<VerificationState> {
       }
 
       // 规则与各种过滤校验（优先使用 E.164 归一化号码，无结果时降级使用原始输入保底�?
-      var rules = await callFilterService.verifyAllRules(number);
+      var rules = await basicRuleFilterService.verifyAllRules(number);
       if (rules.isEmpty && number.value != rawNumber.value) {
-        final fallbackRules = await callFilterService.verifyAllRules(rawNumber);
+        final fallbackRules = await basicRuleFilterService.verifyAllRules(rawNumber);
         rules = [...rules, ...fallbackRules];
       }
 

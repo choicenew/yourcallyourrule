@@ -13,7 +13,7 @@ part of 'stir_call_handler.dart';
 final stirCallHandlerProvider = StirCallHandlerProvider._();
 
 final class StirCallHandlerProvider
-    extends $NotifierProvider<StirCallHandler, StirInfo?> {
+    extends $NotifierProvider<StirCallHandler, StirResultEntity?> {
   StirCallHandlerProvider._()
     : super(
         from: null,
@@ -33,30 +33,22 @@ final class StirCallHandlerProvider
   StirCallHandler create() => StirCallHandler();
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(StirInfo? value) {
+  Override overrideWithValue(StirResultEntity? value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<StirInfo?>(value),
+      providerOverride: $SyncValueProvider<StirResultEntity?>(value),
     );
   }
 }
 
 String _$stirCallHandlerHash() => r'a2ecd5ff4360ec2a7d27067d2103574cb6d7239d';
 
-abstract class _$StirCallHandler extends $Notifier<StirInfo?> {
-  StirInfo? build();
+abstract class _$StirCallHandler extends $Notifier<StirResultEntity?> {
+  StirResultEntity? build();
   @$mustCallSuper
   @override
   WhenComplete runBuild() {
-    final ref = this.ref as $Ref<StirInfo?, StirInfo?>;
-    final element =
-        ref.element
-            as $ClassProviderElement<
-              AnyNotifier<StirInfo?, StirInfo?>,
-              StirInfo?,
-              Object?,
-              Object?
-            >;
-    return element.handleCreate(ref, build);
+    final state = build();
+    return (state: state, result: null);
   }
 }

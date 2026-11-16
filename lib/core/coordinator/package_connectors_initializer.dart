@@ -30,6 +30,7 @@ import 'package:pyro_phone_call_monitor_connector/pyro_phone_call_monitor_connec
 import 'package:pyro_phone_call_coordinator_connector/pyro_phone_call_coordinator_connector.dart';
 import 'package:pyro_phone_marking_connector/pyro_phone_marking_connector.dart';
 import 'package:pyro_sim_connector/pyro_sim_connector.dart';
+import 'package:pyro_stir_connector/pyro_stir_connector.dart';
 import 'package:yourcallyourrule/features/commercial/services/commercial_service.dart';
 
 import 'filter_ui_registry.dart';
@@ -37,6 +38,7 @@ import 'filter_ui_registry.dart';
 /// 全量 33 个微包外观装配线独立初始化入口
 void initPackageConnectors() {
   SimConnectors.ensureMounted();
+  StirConnectors.ensureMounted();
   TelephonyConnectors.ensureMounted();
   CallRedirectionConnectors.ensureMounted();
   CallScreeningConnectors.ensureMounted();

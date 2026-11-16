@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
+import 'package:pyro_sim_hub/pyro_sim_hub.dart';
 import 'package:yourcallyourrule/features/common/base/base_call_handler.dart';
 
 part 'sim_call_handler.g.dart';
@@ -8,7 +8,7 @@ part 'sim_call_handler.g.dart';
 @Riverpod(keepAlive: true)
 class SimCallHandler extends _$SimCallHandler implements BaseCallHandler {
   @override
-  SimInfo? build() {
+  SimCardEntity? build() {
     ref.onDispose(() {});
     return null;
   }
@@ -26,19 +26,10 @@ class SimCallHandler extends _$SimCallHandler implements BaseCallHandler {
         return _handleInitializationComplete();
       case "onSimInfo":
         final args = call.arguments as Map<dynamic, dynamic>? ?? {};
-        return _handleSimInfo(
-          args['carrierName'] as String?,
-          args['displayName'] as String?,
-          args['iccId'] as String?,
-          args['countryIso'] as String?,
-          args['incomingPhoneNumber'] as String?,
-          args['simSlotIndex'] as int?,
-          args['subscriptionId'] as int?,
-          args['mccString'] as String?,
-          args['mncString'] as String?,
-          args['simPhoneNumber'] as String?,
-          args['callType'] as String?,
-        );
+        try {
+          state = SimCardEntity.fromMap(args);
+        } catch (_) {}
+        return null;
       default:
         throw UnimplementedError('SimCallHandler: 未实现的方法: ${call.method}');
     }
@@ -46,32 +37,13 @@ class SimCallHandler extends _$SimCallHandler implements BaseCallHandler {
 
   void _handleInitializationComplete() {}
 
-  void _handleSimInfo(
-    String? carrierName,
-    String? displayName,
-    String? iccId,
-    String? countryIso,
-    String? phoneNumber,
-    int? simSlotIndex,
-    int? subscriptionId,
-    String? mccString,
-    String? mncString,
-    String? simPhoneNumber,
-    String? callType,
-  ) {
-    final newSimInfo = <String, dynamic>{
-      'carrierName': carrierName,
-      'displayName': displayName,
-      'iccId': iccId,
-      'countryIso': countryIso,
-      'phoneNumber': phoneNumber,
-      'simSlotIndex': simSlotIndex,
-      'subscriptionId': subscriptionId,
-      'mccString': mccString,
-      'mncString': mncString,
-      'simPhoneNumber': simPhoneNumber,
-      'callType': callType,
-    };
-    state = newSimInfo;
+  /// 直接委托给 packages/sim 的 SimHub 查询活跃卡槽
+  Future<List<SimCardEntity>> getActiveSimCards() {
+    return SimHub.instance.getActiveSimCards();
+  }
+
+  /// 直接委托给 packages/sim 的 SimHub 查询指定卡槽
+  Future<SimCardEntity?> getSimBySlot(SimSlotIndex slot) {
+    return SimHub.instance.getSimBySlot(slot);
   }
 }

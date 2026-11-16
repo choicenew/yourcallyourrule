@@ -8,29 +8,25 @@ part of 'call_filter_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// CallFilterService Riverpod Provider (完全解耦，零横向 rules import)
 
 @ProviderFor(callFilterService)
 final callFilterServiceProvider = CallFilterServiceProvider._();
 
-/// CallFilterService Riverpod Provider (完全解耦，零横向 rules import)
-
 final class CallFilterServiceProvider
     extends
         $FunctionalProvider<
-          CallFilterService,
-          CallFilterService,
-          CallFilterService
+          EnhancedCompositeFilterService,
+          EnhancedCompositeFilterService,
+          EnhancedCompositeFilterService
         >
-    with $Provider<CallFilterService> {
-  /// CallFilterService Riverpod Provider (完全解耦，零横向 rules import)
+    with $Provider<EnhancedCompositeFilterService> {
   CallFilterServiceProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
         name: r'callFilterServiceProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -40,22 +36,71 @@ final class CallFilterServiceProvider
 
   @$internal
   @override
-  $ProviderElement<CallFilterService> $createElement(
+  $ProviderElement<EnhancedCompositeFilterService> $createElement(
     $ProviderPointer pointer,
   ) => $ProviderElement(pointer);
 
   @override
-  CallFilterService create(Ref ref) {
+  EnhancedCompositeFilterService create(Ref ref) {
     return callFilterService(ref);
   }
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(CallFilterService value) {
+  Override overrideWithValue(EnhancedCompositeFilterService value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<CallFilterService>(value),
+      providerOverride: $SyncValueProvider<EnhancedCompositeFilterService>(value),
     );
   }
 }
 
-String _$callFilterServiceHash() => r'5d1a84dc04a4071779e0d3cb1244ec8371657e8a';
+String _$callFilterServiceHash() => r'c2a543881df681577d611891e457fceabf4f3780';
+
+@ProviderFor(enhancedCompositeFilterService)
+final enhancedCompositeFilterServiceProvider =
+    EnhancedCompositeFilterServiceProvider._();
+
+final class EnhancedCompositeFilterServiceProvider
+    extends
+        $FunctionalProvider<
+          EnhancedCompositeFilterService,
+          EnhancedCompositeFilterService,
+          EnhancedCompositeFilterService
+        >
+    with $Provider<EnhancedCompositeFilterService> {
+  EnhancedCompositeFilterServiceProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'enhancedCompositeFilterServiceProvider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$enhancedCompositeFilterServiceHash();
+
+  @$internal
+  @override
+  $ProviderElement<EnhancedCompositeFilterService> $createElement(
+    $ProviderPointer pointer,
+  ) => $ProviderElement(pointer);
+
+  @override
+  EnhancedCompositeFilterService create(Ref ref) {
+    return enhancedCompositeFilterService(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(EnhancedCompositeFilterService value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<EnhancedCompositeFilterService>(value),
+    );
+  }
+}
+
+String _$enhancedCompositeFilterServiceHash() =>
+    r'db6b937667822fe1fa22caec61fb55979bb945d8';

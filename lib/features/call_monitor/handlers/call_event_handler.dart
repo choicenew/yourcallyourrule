@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:pyro_phone_call_monitor_protocol/pyro_phone_call_monitor_protocol.dart';
+import 'package:pyro_phone_call_monitor_hub/pyro_phone_call_monitor_hub.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/platform/call_channel_switcher.dart';
 
@@ -55,7 +57,11 @@ class CallEventHandler extends BaseCallHandler {
     await _incomingCallHandler.processIncomingCall(phoneNumber, _onCallerIdDataReceived);
   }
 
-  void _handleCallEnded(int? timestamp) {}
+  void _handleCallEnded(int? timestamp) {
+    CallMonitorService.instance.emitEvent(
+      const CallEndedEvent(phoneNumber: ''),
+    );
+  }
   void _handleCallAnswered(int? timestamp) {}
 
   Future<void> _handleOutgoingCall(String phoneNumber, int? timestamp) async {

@@ -13,7 +13,7 @@ part of 'sim_call_handler.dart';
 final simCallHandlerProvider = SimCallHandlerProvider._();
 
 final class SimCallHandlerProvider
-    extends $NotifierProvider<SimCallHandler, SimInfo?> {
+    extends $NotifierProvider<SimCallHandler, SimCardEntity?> {
   SimCallHandlerProvider._()
     : super(
         from: null,
@@ -33,30 +33,22 @@ final class SimCallHandlerProvider
   SimCallHandler create() => SimCallHandler();
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(SimInfo? value) {
+  Override overrideWithValue(SimCardEntity? value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<SimInfo?>(value),
+      providerOverride: $SyncValueProvider<SimCardEntity?>(value),
     );
   }
 }
 
 String _$simCallHandlerHash() => r'ac86564fafcf6ef6385d1a7ca0f1d2e6b4883442';
 
-abstract class _$SimCallHandler extends $Notifier<SimInfo?> {
-  SimInfo? build();
+abstract class _$SimCallHandler extends $Notifier<SimCardEntity?> {
+  SimCardEntity? build();
   @$mustCallSuper
   @override
   WhenComplete runBuild() {
-    final ref = this.ref as $Ref<SimInfo?, SimInfo?>;
-    final element =
-        ref.element
-            as $ClassProviderElement<
-              AnyNotifier<SimInfo?, SimInfo?>,
-              SimInfo?,
-              Object?,
-              Object?
-            >;
-    return element.handleCreate(ref, build);
+    final state = build();
+    return (state: state, result: null);
   }
 }

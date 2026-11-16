@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
+import 'package:pyro_stir_hub/pyro_stir_hub.dart';
 import 'package:yourcallyourrule/features/common/base/base_call_handler.dart';
 
 part 'stir_call_handler.g.dart';
@@ -8,7 +8,7 @@ part 'stir_call_handler.g.dart';
 @Riverpod(keepAlive: true)
 class StirCallHandler extends _$StirCallHandler implements BaseCallHandler {
   @override
-  StirInfo? build() {
+  StirResultEntity? build() {
     ref.onDispose(() {});
     return null;
   }
@@ -25,12 +25,9 @@ class StirCallHandler extends _$StirCallHandler implements BaseCallHandler {
       case "onStirInitializationComplete":
         return _handleInitializationComplete();
       case "onStirResult":
-        return _handleStirResult(
-          call.arguments['isVerified'],
-          call.arguments['isNotVerified'],
-          call.arguments['isFailed'],
-          call.arguments['phoneNumber'],
-        );
+        final map = call.arguments is Map ? (call.arguments as Map) : <dynamic, dynamic>{};
+        state = StirResultEntity.fromMap(map);
+        return null;
       default:
         throw UnimplementedError('StirCallHandler: 未实现的方法: ${call.method}');
     }
@@ -38,24 +35,8 @@ class StirCallHandler extends _$StirCallHandler implements BaseCallHandler {
 
   void _handleInitializationComplete() {}
 
-  void _handleStirResult(
-    dynamic isVerified,
-    dynamic isNotVerified,
-    dynamic isFailed,
-    dynamic phoneNumber,
-  ) {
-    final bool verified = isVerified is bool ? isVerified : false;
-    final bool notVerified = isNotVerified is bool ? isNotVerified : false;
-    final bool failed = isFailed is bool ? isFailed : false;
-    final String? phoneNum = phoneNumber is String ? phoneNumber : null;
-
-    final newStirInfo = <String, dynamic>{
-      'isVerified': verified,
-      'isNotVerified': notVerified,
-      'isFailed': failed,
-      'phoneNumber': phoneNum,
-    };
-
-    state = newStirInfo;
+  /// 直接委托给 packages/stir 的 StirHub 执行 STIR 验真
+  Future<StirResultEntity?> checkStirStatus(String phoneNumber) {
+    return StirHub.instance.checkStirStatus(phoneNumber);
   }
 }
