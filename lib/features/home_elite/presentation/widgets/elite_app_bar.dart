@@ -3,8 +3,8 @@ import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pyro_ads_policy/pyro_ads_policy.dart';
+import 'package:pyro_purchase_core/pyro_purchase_core.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
-import 'package:yourcallyourrule/features/commercial/services/commercial_service.dart';
 import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/features/phone_monitor/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -60,8 +60,8 @@ class EliteAppBar extends ConsumerWidget {
     final theme = Theme.of(context);
     final asyncStats = ref.watch(homeStatsProvider);
     final isProtectionActive = asyncStats.value?.isProtectionActive ?? true;
-    final commercialSvc = ref.watch(commercialServiceProvider);
-    final isVip = commercialSvc.isVipActive || AdPolicyManager.instance.isVipUser;
+    final commercialState = ref.watch(commercialNotifierProvider).value;
+    final isVip = (commercialState?.isPurchased == true || commercialState?.isAdFree == true) || AdPolicyManager.instance.isVipUser;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),

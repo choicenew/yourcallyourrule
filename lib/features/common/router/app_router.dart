@@ -7,7 +7,7 @@ import 'package:yourcallyourrule/features/phone_time_interception/presentation/p
 import 'package:yourcallyourrule/features/local_filter/presentation/pages/local_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remote_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/phone_filter/presentation/pages/enhanced_filter_settings_page.dart';
-import 'package:yourcallyourrule/features/phone_filter/presentation/pages/sim_slot_rule_filter_page.dart';
+import 'package:yourcallyourrule/features/sim_slot_rules/pages/sim_slot_rule_page_with_ads.dart';
 import 'package:yourcallyourrule/features/phone_filter/presentation/pages/call_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/phone_filter/presentation/pages/filter_settings_page.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
@@ -267,7 +267,7 @@ class AppRouter {
         name: simSlotRuleSettings,
         builder: (context, state) {
           final simSlotIndex = int.tryParse(state.pathParameters['simSlotIndex'] ?? '') ?? 0;
-          return SimSlotRuleFilterPage(simSlotIndex: simSlotIndex);
+          return SimSlotRulePageWithAds(simSlotIndex: simSlotIndex);
         },
       ),
       GoRoute(
@@ -275,7 +275,7 @@ class AppRouter {
         name: simSlotRuleWithAds,
         builder: (context, state) {
           final simSlotIndex = int.tryParse(state.pathParameters['simSlotIndex'] ?? '') ?? 0;
-          return SimSlotRuleFilterPage(simSlotIndex: simSlotIndex);
+          return SimSlotRulePageWithAds(simSlotIndex: simSlotIndex);
         },
       ),
       GoRoute(

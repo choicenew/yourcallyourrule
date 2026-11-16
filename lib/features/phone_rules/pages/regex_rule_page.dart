@@ -25,11 +25,25 @@ class RegexRulePage extends ConsumerStatefulWidget {
 
 class _RegexRulePageState extends ConsumerState<RegexRulePage> {
   String _searchKeyword = '';
+  final Set<String> _selectedRuleIds = {};
+  bool _isMultiSelectMode = false;
 
   void _onSearchChanged(String keyword) {
     setState(() {
       _searchKeyword = keyword;
     });
+  }
+
+  Future<void> _deleteSelectedRules() async {
+    final service = ref.read(regexServiceProvider);
+    for (final id in _selectedRuleIds) {
+      await service.removeRegexRule(id);
+    }
+    setState(() {
+      _selectedRuleIds.clear();
+      _isMultiSelectMode = false;
+    });
+    ref.invalidate(regexRulesListProvider);
   }
 
   Future<void> _showAddOrEditRegexDialog({RegexRuleEntity? rule}) async {
@@ -399,6 +413,22 @@ class _RegexRulePageState extends ConsumerState<RegexRulePage> {
           adInterval: 3,
           adBuilder: () => const AdsInlineBanner(),
           onMoreOptions: _showMoreOptions,
+          isMultiSelectMode: _isMultiSelectMode,
+          selectedItemIds: _selectedRuleIds,
+          onToggleMultiSelectMode: () => setState(() {
+            _isMultiSelectMode = !_isMultiSelectMode;
+            if (!_isMultiSelectMode) {
+              _selectedRuleIds.clear();
+            }
+          }),
+          onDeleteSelected: _deleteSelectedRules,
+          onToggleItemSelection: (ruleId) => setState(() {
+            if (_selectedRuleIds.contains(ruleId)) {
+              _selectedRuleIds.remove(ruleId);
+            } else {
+              _selectedRuleIds.add(ruleId);
+            }
+          }),
           itemBuilder: (context, rule) => _buildRuleCard(context, rule, l10n),
           getItemId: (rule) => rule.id,
         );
@@ -414,3 +444,6 @@ class _RegexRulePageState extends ConsumerState<RegexRulePage> {
     );
   }
 }
+
+/// 兼容别名：100% 对齐 elite-ui 路由与命名规范
+typedef RegexRulePageWithAds = RegexRulePage;

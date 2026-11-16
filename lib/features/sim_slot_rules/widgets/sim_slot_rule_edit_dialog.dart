@@ -22,6 +22,39 @@ class SimSlotRuleEditDialog extends ConsumerStatefulWidget {
     this.themeColor,
   });
 
+  static Future<void> showAdd(
+    BuildContext context, {
+    int? simSlotIndex,
+    Function? onRuleUpdated,
+    Color? themeColor,
+  }) {
+    return showDialog(
+      context: context,
+      builder: (ctx) => SimSlotRuleEditDialog(
+        simSlotIndex: simSlotIndex,
+        onRuleUpdated: onRuleUpdated,
+        themeColor: themeColor,
+      ),
+    );
+  }
+
+  static Future<void> showEdit(
+    BuildContext context,
+    SimSlotRuleEntity rule, {
+    Function? onRuleUpdated,
+    Color? themeColor,
+  }) {
+    return showDialog(
+      context: context,
+      builder: (ctx) => SimSlotRuleEditDialog(
+        rule: rule,
+        simSlotIndex: rule.simSlotIndex,
+        onRuleUpdated: onRuleUpdated,
+        themeColor: themeColor,
+      ),
+    );
+  }
+
   @override
   ConsumerState<SimSlotRuleEditDialog> createState() => _SimSlotRuleEditDialogState();
 }

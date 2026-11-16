@@ -22,11 +22,25 @@ class PhoneSubscriptionPage extends ConsumerStatefulWidget {
 class _PhoneSubscriptionPageState extends ConsumerState<PhoneSubscriptionPage> {
   String _searchKeyword = '';
   final Set<String> _updatingPayloadIds = {};
+  final Set<String> _selectedSubIds = {};
+  bool _isMultiSelectMode = false;
 
   void _onSearchChanged(String keyword) {
     setState(() {
       _searchKeyword = keyword;
     });
+  }
+
+  Future<void> _deleteSelectedSubscriptions() async {
+    final service = ref.read(phoneSubscriptionServiceProvider);
+    for (final id in _selectedSubIds) {
+      await service.deleteSubscription(id);
+    }
+    setState(() {
+      _selectedSubIds.clear();
+      _isMultiSelectMode = false;
+    });
+    ref.invalidate(phoneSubscriptionsListProvider);
   }
 
   Future<void> _showAddOrEditSubscriptionDialog({PhoneSubscriptionPayload? subscription}) async {
@@ -404,6 +418,22 @@ class _PhoneSubscriptionPageState extends ConsumerState<PhoneSubscriptionPage> {
           emptyIcon: Icons.subscriptions_outlined,
           adInterval: 3,
           adBuilder: () => const AdsInlineBanner(),
+          isMultiSelectMode: _isMultiSelectMode,
+          selectedItemIds: _selectedSubIds,
+          onToggleMultiSelectMode: () => setState(() {
+            _isMultiSelectMode = !_isMultiSelectMode;
+            if (!_isMultiSelectMode) {
+              _selectedSubIds.clear();
+            }
+          }),
+          onDeleteSelected: _deleteSelectedSubscriptions,
+          onToggleItemSelection: (id) => setState(() {
+            if (_selectedSubIds.contains(id)) {
+              _selectedSubIds.remove(id);
+            } else {
+              _selectedSubIds.add(id);
+            }
+          }),
           itemBuilder: (context, sub) => _buildSubscriptionCard(context, sub, l10n),
           getItemId: (sub) => sub.payloadId,
         );
@@ -419,3 +449,6 @@ class _PhoneSubscriptionPageState extends ConsumerState<PhoneSubscriptionPage> {
     );
   }
 }
+
+/// 兼容别名：100% 对齐 elite-ui 路由与命名规范
+typedef PhoneSubscriptionPageRefactoredWithAds = PhoneSubscriptionPage;

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:pyro_phone_rules_ui/pyro_phone_rules_ui.dart' as rules_pkg_ui;
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
+import 'package:yourcallyourrule/features/common/dialogs/filter_dialogs.dart';
 import 'package:yourcallyourrule/features/phone_rules/services/allowed_blocked_service.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
@@ -24,6 +25,54 @@ class AllowedBlockedPage extends ConsumerStatefulWidget {
 
 class _AllowedBlockedPageState extends ConsumerState<AllowedBlockedPage> {
   String _searchKeyword = '';
+  final Set<String> _selectedRuleIds = {};
+  bool _isMultiSelectMode = false;
+  RuleActionType? _selectedActionType;
+  String? _selectedLabelIdFilter;
+
+  void _showMoreOptions() {
+    final l10n = AppLocalizations.of(context);
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) => Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ListTile(
+            leading: const Icon(Icons.filter_list),
+            title: Text(l10n.filterByAction),
+            onTap: () {
+              Navigator.pop(ctx);
+              showActionFilterDialog(context, (type) {
+                setState(() => _selectedActionType = type);
+              });
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.label),
+            title: Text(l10n.filterByLabel),
+            onTap: () {
+              Navigator.pop(ctx);
+              showLabelFilterDialog(context, (labelId) {
+                setState(() => _selectedLabelIdFilter = labelId);
+              });
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _deleteSelectedRules() async {
+    final service = ref.read(allowedBlockedServiceProvider);
+    for (final id in _selectedRuleIds) {
+      await service.removeRule(id);
+    }
+    setState(() {
+      _selectedRuleIds.clear();
+      _isMultiSelectMode = false;
+    });
+    ref.invalidate(allowedRulesListProvider);
+  }
 
   void _showAddRuleDialog(BuildContext context) {
     final phoneController = TextEditingController();
@@ -199,14 +248,21 @@ class _AllowedBlockedPageState extends ConsumerState<AllowedBlockedPage> {
     final rulesList = rulesAsync.value ?? [];
     final isLoading = rulesAsync.isLoading && rulesList.isEmpty;
 
-    final filteredList = _searchKeyword.isEmpty
-        ? rulesList
-        : rulesList.where((rule) {
-            final name = rule.name.toLowerCase();
-            final phone = rule.phoneNumber;
-            final keyword = _searchKeyword.toLowerCase();
-            return name.contains(keyword) || phone.contains(keyword);
-          }).toList();
+    final filteredList = rulesList.where((rule) {
+      if (_selectedActionType != null && rule.actionType != _selectedActionType?.name) {
+        return false;
+      }
+      if (_selectedLabelIdFilter != null && rule.labelId != _selectedLabelIdFilter) {
+        return false;
+      }
+      if (_searchKeyword.isNotEmpty) {
+        final name = rule.name.toLowerCase();
+        final phone = rule.phoneNumber;
+        final keyword = _searchKeyword.toLowerCase();
+        return name.contains(keyword) || phone.contains(keyword);
+      }
+      return true;
+    }).toList();
 
     return GenericListPage<PhoneRuleEntity>(
       title: l10n.allowedBlockedRuleManagement,
@@ -215,17 +271,49 @@ class _AllowedBlockedPageState extends ConsumerState<AllowedBlockedPage> {
       headerContent: _buildInfoCard(context, l10n),
       onRefresh: () async => ref.invalidate(allowedRulesListProvider),
       onAdd: () => _showAddRuleDialog(context),
+      onMoreOptions: _showMoreOptions,
       onSearchChanged: (kw) => setState(() => _searchKeyword = kw),
       searchHintText: l10n.search,
       emptyText: l10n.noData,
       emptyIcon: Icons.verified_user_outlined,
       adInterval: 3,
       adBuilder: () => const AdsInlineBanner(),
+      isMultiSelectMode: _isMultiSelectMode,
+      selectedItemIds: _selectedRuleIds,
+      onToggleMultiSelectMode: () => setState(() {
+        _isMultiSelectMode = !_isMultiSelectMode;
+        if (!_isMultiSelectMode) {
+          _selectedRuleIds.clear();
+        }
+      }),
+      onDeleteSelected: _deleteSelectedRules,
+      onToggleItemSelection: (ruleId) => setState(() {
+        if (_selectedRuleIds.contains(ruleId)) {
+          _selectedRuleIds.remove(ruleId);
+        } else {
+          _selectedRuleIds.add(ruleId);
+        }
+      }),
       itemBuilder: (context, rule) => rules_pkg_ui.PyroPhoneRuleCardWidget(
         rule: rule,
-        onTap: () => _deleteRule(rule),
+        onTap: () {
+          if (_isMultiSelectMode) {
+            setState(() {
+              if (_selectedRuleIds.contains(rule.id)) {
+                _selectedRuleIds.remove(rule.id);
+              } else {
+                _selectedRuleIds.add(rule.id);
+              }
+            });
+          } else {
+            _deleteRule(rule);
+          }
+        },
       ),
       getItemId: (rule) => rule.id,
     );
   }
 }
+
+/// 兼容别名：100% 对齐 elite-ui 路由与命名规范
+typedef AllowedBlockedPageWithAds = AllowedBlockedPage;

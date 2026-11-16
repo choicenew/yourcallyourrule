@@ -22,6 +22,70 @@ class ContactsManagementPage extends ConsumerStatefulWidget {
 
 class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage> {
   String _searchKeyword = '';
+  final Set<String> _selectedContactIds = {};
+  bool _isMultiSelectMode = false;
+
+  Widget _buildInfoCard(BuildContext context, AppLocalizations l10n) {
+    final primaryColor = Theme.of(context).colorScheme.primary;
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12.0),
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: primaryColor.withValues(alpha: 0.05),
+        borderRadius: BorderRadius.circular(16.0),
+        border: Border.all(
+          color: primaryColor.withValues(alpha: 0.15),
+          width: 1.1,
+        ),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(6.0),
+            decoration: BoxDecoration(
+              color: primaryColor.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: Icon(
+              Icons.perm_contact_calendar_rounded,
+              color: primaryColor,
+              size: 20,
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  l10n.contactsManagement,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w800,
+                    color: primaryColor,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  l10n.contactsPermissionDescription,
+                  style: TextStyle(
+                    fontSize: 12.5,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    height: 1.35,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showMoreOptions() {
+    // 更多操作 BottomSheet
+  }
 
   void _showAddContactDialog() {
     final nameController = TextEditingController();
@@ -96,8 +160,10 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
       title: l10n.contactsManagement,
       items: filteredList,
       isLoading: isLoading,
+      headerContent: _buildInfoCard(context, l10n),
       onRefresh: () async => ref.refresh(contactsStreamProvider),
       onAdd: _showAddContactDialog,
+      onMoreOptions: _showMoreOptions,
       onSearchChanged: (keyword) {
         setState(() {
           _searchKeyword = keyword;
@@ -108,11 +174,45 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
       emptyIcon: Icons.perm_contact_calendar_rounded,
       adInterval: 3,
       adBuilder: () => const AdsInlineBanner(),
+      isMultiSelectMode: _isMultiSelectMode,
+      selectedItemIds: _selectedContactIds,
+      onToggleMultiSelectMode: () => setState(() {
+        _isMultiSelectMode = !_isMultiSelectMode;
+        if (!_isMultiSelectMode) {
+          _selectedContactIds.clear();
+        }
+      }),
+      onDeleteSelected: () async {
+        setState(() {
+          _selectedContactIds.clear();
+          _isMultiSelectMode = false;
+        });
+      },
+      onToggleItemSelection: (id) => setState(() {
+        if (_selectedContactIds.contains(id)) {
+          _selectedContactIds.remove(id);
+        } else {
+          _selectedContactIds.add(id);
+        }
+      }),
       itemBuilder: (context, item) => contacts_pkg_ui.PyroPhoneContactCardWidget(
         entry: item,
-        onTap: () {},
+        onTap: () {
+          if (_isMultiSelectMode) {
+            setState(() {
+              if (_selectedContactIds.contains(item.id)) {
+                _selectedContactIds.remove(item.id);
+              } else {
+                _selectedContactIds.add(item.id);
+              }
+            });
+          }
+        },
       ),
       getItemId: (item) => item.id,
     );
   }
 }
+
+/// 兼容别名：100% 对齐 elite-ui 路由与命名规范
+typedef ContactsManagementPageWithAds = ContactsManagementPage;

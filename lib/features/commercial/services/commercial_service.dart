@@ -19,9 +19,6 @@ class CommercialService {
 
   CommercialService._();
 
-  bool _isVipActive = true;
-  bool get isVipActive => _isVipActive;
-
   /// 初始化商业化服务与广告连接器
   Future<void> initialize() async {
     // 1. 根据环境自动选择 官方测试 ID 或 线上生产 ID，物理防止 AdMob 封号
@@ -37,11 +34,5 @@ class CommercialService {
     CommercialAdConnectors.ensureAdConnectorsMounted();
 
     debugPrint('[CommercialService] 主 App 商业化中枢服务挂载初始化完成');
-  }
-
-  /// 激活/取消 VIP 状态
-  void setVipActive(bool active) {
-    _isVipActive = active;
-    debugPrint('[CommercialService] VIP 状态变更: $active');
   }
 }
