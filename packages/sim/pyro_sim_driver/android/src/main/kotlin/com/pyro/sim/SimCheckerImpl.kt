@@ -15,52 +15,113 @@ object SimCheckerImpl {
         val telephonyManager = context.getSystemService(Context.TELEPHONY_SERVICE) as? TelephonyManager
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1 && subscriptionManager != null) {
-            val activeList = subscriptionManager.activeSubscriptionInfoList
-            if (activeList != null) {
-                for (info in activeList) {
-                    val simPhoneNumber = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                        try { subscriptionManager.getPhoneNumber(info.subscriptionId) } catch (_: Exception) { info.number }
-                    } else {
-                        info.number
+            try {
+                val activeList = subscriptionManager.activeSubscriptionInfoList
+                if (!activeList.isNullOrEmpty()) {
+                    for (info in activeList) {
+                        val simPhoneNumber = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                            try { subscriptionManager.getPhoneNumber(info.subscriptionId) } catch (_: Exception) { info.number }
+                        } else {
+                            info.number
+                        }
+
+                        val isRoaming = telephonyManager?.isNetworkRoaming ?: false
+                        val slotState = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && telephonyManager != null) {
+                            try { telephonyManager.getSimState(info.simSlotIndex) } catch (_: Exception) { telephonyManager.simState }
+                        } else {
+                            telephonyManager?.simState ?: TelephonyManager.SIM_STATE_READY
+                        }
+                        val stateStr = when (slotState) {
+                            TelephonyManager.SIM_STATE_READY -> "ready"
+                            TelephonyManager.SIM_STATE_ABSENT -> "absent"
+                            TelephonyManager.SIM_STATE_PIN_REQUIRED,
+                            TelephonyManager.SIM_STATE_PUK_REQUIRED,
+                            TelephonyManager.SIM_STATE_NETWORK_LOCKED -> "locked"
+                            else -> "not_ready"
+                        }
+
+                        val simMap = mapOf(
+                            "subscriptionId" to info.subscriptionId,
+                            "simSlotIndex" to info.simSlotIndex,
+                            "carrierName" to (info.carrierName?.toString()?.ifBlank { "No Service" } ?: "No Service"),
+                            "displayName" to (info.displayName?.toString()?.ifBlank { "SIM ${info.simSlotIndex + 1}" } ?: "SIM ${info.simSlotIndex + 1}"),
+                            "countryIso" to (info.countryIso ?: ""),
+                            "iccId" to (info.iccId ?: ""),
+                            "mccString" to if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) (info.mccString ?: "") else info.mcc.toString(),
+                            "mncString" to if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) (info.mncString ?: "") else info.mnc.toString(),
+                            "simPhoneNumber" to (simPhoneNumber ?: ""),
+                            "isDataRoaming" to info.dataRoaming,
+                            "isNetworkRoaming" to isRoaming,
+                            "state" to stateStr
+                        )
+                        simList.add(simMap)
+                    }
+                }
+            } catch (_: Exception) {}
+        }
+
+        // 检查物理卡槽，兼容处于 NOT_PROVISIONED / 无服务 / 欠费状态的 SIM 卡
+        if (telephonyManager != null) {
+            val slotCount = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                telephonyManager.activeModemCount
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                telephonyManager.phoneCount
+            } else {
+                1
+            }
+
+            for (slotIndex in 0 until slotCount) {
+                val alreadyAdded = simList.any { (it["simSlotIndex"] as? Int) == slotIndex }
+                if (alreadyAdded) continue
+
+                val slotSimState = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    try { telephonyManager.getSimState(slotIndex) } catch (_: Exception) { telephonyManager.simState }
+                } else {
+                    telephonyManager.simState
+                }
+
+                if (slotSimState != TelephonyManager.SIM_STATE_ABSENT) {
+                    val fallbackStateStr = when (slotSimState) {
+                        TelephonyManager.SIM_STATE_READY -> "ready"
+                        TelephonyManager.SIM_STATE_PIN_REQUIRED,
+                        TelephonyManager.SIM_STATE_PUK_REQUIRED,
+                        TelephonyManager.SIM_STATE_NETWORK_LOCKED -> "locked"
+                        else -> "not_ready"
                     }
 
-                    val isRoaming = telephonyManager?.isNetworkRoaming ?: false
-
                     val simMap = mapOf(
-                        "subscriptionId" to info.subscriptionId,
-                        "simSlotIndex" to info.simSlotIndex,
-                        "carrierName" to (info.carrierName?.toString() ?: ""),
-                        "displayName" to (info.displayName?.toString() ?: ""),
-                        "countryIso" to (info.countryIso ?: ""),
-                        "iccId" to (info.iccId ?: ""),
-                        "mccString" to if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) (info.mccString ?: "") else info.mcc.toString(),
-                        "mncString" to if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) (info.mncString ?: "") else info.mnc.toString(),
-                        "simPhoneNumber" to (simPhoneNumber ?: ""),
-                        "isDataRoaming" to info.dataRoaming,
-                        "isNetworkRoaming" to isRoaming,
-                        "state" to "ready"
+                        "subscriptionId" to slotIndex,
+                        "simSlotIndex" to slotIndex,
+                        "carrierName" to (telephonyManager.simOperatorName?.ifBlank { "No Service" } ?: "No Service"),
+                        "displayName" to "SIM ${slotIndex + 1}",
+                        "countryIso" to (telephonyManager.simCountryIso ?: ""),
+                        "iccId" to (try { telephonyManager.simSerialNumber ?: "" } catch (_: Exception) { "" }),
+                        "mccString" to getMcc(telephonyManager.simOperator),
+                        "mncString" to getMnc(telephonyManager.simOperator),
+                        "simPhoneNumber" to (try { telephonyManager.line1Number ?: "" } catch (_: Exception) { "" }),
+                        "isDataRoaming" to false,
+                        "isNetworkRoaming" to telephonyManager.isNetworkRoaming,
+                        "state" to fallbackStateStr
                     )
                     simList.add(simMap)
                 }
-                return simList
             }
         }
 
-        // Fallback for older API levels or single SIM devices
-        if (telephonyManager != null) {
+        if (simList.isEmpty() && telephonyManager != null && telephonyManager.simState != TelephonyManager.SIM_STATE_ABSENT) {
             val simMap = mapOf(
                 "subscriptionId" to 0,
                 "simSlotIndex" to 0,
-                "carrierName" to (telephonyManager.simOperatorName ?: ""),
-                "displayName" to (telephonyManager.simOperatorName ?: ""),
+                "carrierName" to "No Service",
+                "displayName" to "SIM 1",
                 "countryIso" to (telephonyManager.simCountryIso ?: ""),
-                "iccId" to (try { telephonyManager.simSerialNumber } catch (_: Exception) { "" }),
-                "mccString" to getMcc(telephonyManager.simOperator),
-                "mncString" to getMnc(telephonyManager.simOperator),
-                "simPhoneNumber" to (try { telephonyManager.line1Number } catch (_: Exception) { "" }),
+                "iccId" to "",
+                "mccString" to "",
+                "mncString" to "",
+                "simPhoneNumber" to "",
                 "isDataRoaming" to false,
                 "isNetworkRoaming" to telephonyManager.isNetworkRoaming,
-                "state" to if (telephonyManager.simState == TelephonyManager.SIM_STATE_READY) "ready" else "absent"
+                "state" to "not_ready"
             )
             simList.add(simMap)
         }
@@ -69,8 +130,32 @@ object SimCheckerImpl {
     }
 
     fun hasSimCard(context: Context): Boolean {
+        val subscriptionManager = context.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE) as? SubscriptionManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1 && subscriptionManager != null) {
+            try {
+                val list = subscriptionManager.activeSubscriptionInfoList
+                if (!list.isNullOrEmpty()) return true
+            } catch (_: Exception) {}
+        }
         val telephonyManager = context.getSystemService(Context.TELEPHONY_SERVICE) as? TelephonyManager ?: return false
-        return telephonyManager.simState == TelephonyManager.SIM_STATE_READY
+        val slotCount = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            telephonyManager.activeModemCount
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            telephonyManager.phoneCount
+        } else {
+            1
+        }
+        for (slotIndex in 0 until slotCount) {
+            val state = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                try { telephonyManager.getSimState(slotIndex) } catch (_: Exception) { telephonyManager.simState }
+            } else {
+                telephonyManager.simState
+            }
+            if (state != TelephonyManager.SIM_STATE_ABSENT) {
+                return true
+            }
+        }
+        return telephonyManager.simState != TelephonyManager.SIM_STATE_ABSENT
     }
 
     @SuppressLint("MissingPermission")

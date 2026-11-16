@@ -139,29 +139,45 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
 
   Widget _buildSimSlotContent(BuildContext context, WidgetRef ref) {
     final simCardsAsync = ref.watch(simCardsProvider);
+    final enhancedConfig = ref.watch(enhancedFilterConfigProvider).value;
+    final slotConfigMap = enhancedConfig?.simSlotFilterConfigMap[selectedSimSlot] ?? {};
+    final notifier = ref.read(enhancedFilterConfigProvider.notifier);
+
+    final isLocalCountEnabled = slotConfigMap[CallFilterType.localCount] ?? false;
+    final isRemoteEnabled = slotConfigMap[CallFilterType.remoteNumber] ?? false;
+    final isTimeEnabled = slotConfigMap[CallFilterType.simSlotRule] ?? false;
+
     final theme = Theme.of(context);
 
     return simCardsAsync.when(
       data: (simCards) {
-        if (simCards.isEmpty) {
-          return Center(
-            child: Text(
-              l10n.noSimCardsDetected,
-              style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant),
-            ),
-          );
-        }
+        final currentSim = simCards.where((s) => s.simSlotIndex == selectedSimSlot).firstOrNull;
+        final hasSim = currentSim != null || (simCards.isNotEmpty && selectedSimSlot == 0);
 
         return Column(
           children: [
+            if (!hasSim)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Text(
+                  l10n.noSimCardsDetected,
+                  style: TextStyle(fontSize: 11, color: theme.colorScheme.onSurfaceVariant),
+                ),
+              ),
             _buildSwitchTile(
               context: context,
               icon: Icons.filter_alt_outlined,
               iconColor: theme.colorScheme.primary,
               title: l10n.localCountFilter,
               subtitle: l10n.localCountFilterDescription,
-              value: true,
-              onChanged: (_) {},
+              value: isLocalCountEnabled,
+              onChanged: (val) {
+                if (val) {
+                  notifier.enableFilterForSimSlot(selectedSimSlot, CallFilterType.localCount);
+                } else {
+                  notifier.disableFilterForSimSlot(selectedSimSlot, CallFilterType.localCount);
+                }
+              },
             ),
             const SizedBox(height: 8),
             _buildSwitchTile(
@@ -170,8 +186,14 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
               iconColor: theme.colorScheme.tertiary,
               title: l10n.remoteNumberFilter,
               subtitle: l10n.remoteNumberFilterDescription,
-              value: true,
-              onChanged: (_) {},
+              value: isRemoteEnabled,
+              onChanged: (val) {
+                if (val) {
+                  notifier.enableFilterForSimSlot(selectedSimSlot, CallFilterType.remoteNumber);
+                } else {
+                  notifier.disableFilterForSimSlot(selectedSimSlot, CallFilterType.remoteNumber);
+                }
+              },
             ),
             const SizedBox(height: 8),
             _buildSwitchTile(
@@ -180,8 +202,14 @@ class PrimaryFilterAdvancedSection extends ConsumerWidget {
               iconColor: theme.colorScheme.secondary,
               title: l10n.timeInterceptor,
               subtitle: l10n.timeInterceptorDescription,
-              value: true,
-              onChanged: (_) {},
+              value: isTimeEnabled,
+              onChanged: (val) {
+                if (val) {
+                  notifier.enableFilterForSimSlot(selectedSimSlot, CallFilterType.simSlotRule);
+                } else {
+                  notifier.disableFilterForSimSlot(selectedSimSlot, CallFilterType.simSlotRule);
+                }
+              },
             ),
           ],
         );

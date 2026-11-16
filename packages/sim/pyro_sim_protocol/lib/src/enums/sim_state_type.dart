@@ -3,6 +3,7 @@ enum SimStateType {
   ready,
   absent,
   locked,
+  notReady,
   unknown;
 
   static SimStateType fromString(String raw) {
@@ -13,6 +14,9 @@ enum SimStateType {
         return SimStateType.absent;
       case 'locked':
         return SimStateType.locked;
+      case 'not_ready':
+      case 'notready':
+        return SimStateType.notReady;
       default:
         return SimStateType.unknown;
     }

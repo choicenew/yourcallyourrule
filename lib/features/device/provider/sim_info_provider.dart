@@ -12,26 +12,44 @@ part 'sim_info_provider.g.dart';
 Future<List<SimCardEntity>> simCards(Ref ref) async {
   // 1. 在 Android 平台处理权限请求。iOS平台不需要显式权限。
   if (Platform.isAndroid) {
-    final status = await Permission.phone.request();
-    if (!status.isGranted) {
-      // 如果用户拒绝了权限，抛出一个清晰的错误，UI层可以捕获并显示。
-      throw Exception('Phone permission is required to read SIM information.');
-    }
+    try {
+      await Permission.phone.request();
+    } catch (_) {}
   }
   
-  // 2. 检查设备上是否有SIM卡。
-  final hasSim = await SimHub.instance.hasSimCard();
-  if (!hasSim) {
-    // 如果没有SIM卡，返回一个空列表是合理的，而不是抛出错误。
-    return [];
-  }
-  
-  // 3. 调用插件获取所有SIM卡信息。
+  // 2. 优先调用插件获取所有已检测到的 SIM 卡（无论是否激活或有信号）
   try {
     final allSimCards = await SimHub.instance.getActiveSimCards();
-    return allSimCards;
-  } catch (e) {
-    // 捕获未知异常。
-    throw Exception('An unexpected error occurred while reading SIM info: $e');
-  }
+    if (allSimCards.isNotEmpty) {
+      return allSimCards;
+    }
+  } catch (_) {}
+
+  // 3. 兜底检查设备上是否有 SIM 卡（基于硬件槽位判定）
+  try {
+    final hasSim = await SimHub.instance.hasSimCard();
+    if (hasSim) {
+      // 若硬件判定有卡但没有读取出详情（如卡未激活 NOT_PROVISIONED），生成 SIM 1 兜底实体，确保用户可以设置卡槽规则
+      return const [
+        SimCardEntity(
+          subscriptionId: 0,
+          slotIndex: SimSlotIndex.slot1,
+          state: SimStateType.unknown,
+          phoneNumber: '',
+          iccId: '',
+          isDataRoaming: false,
+          isNetworkRoaming: false,
+          carrier: SimCarrierEntity(
+            carrierName: 'No Service',
+            displayName: 'SIM 1',
+            countryIso: '',
+            mcc: '',
+            mnc: '',
+          ),
+        ),
+      ];
+    }
+  } catch (_) {}
+  
+  return [];
 }
