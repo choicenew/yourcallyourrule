@@ -2300,6 +2300,27 @@ class AppLocalizationsEn extends AppLocalizations {
   String get localDeviceSuffix => '(This Device)';
 
   @override
+  String get masterSlaveOnboardingTitle => 'Master-Slave Cluster & Node Roles';
+
+  @override
+  String get masterSlaveOnboardingDescription =>
+      'Understand Master vs. Slave device roles to easily sync database structures and cloud keys across multiple devices.';
+
+  @override
+  String get masterRoleTitle => 'Master Device (Primary Node)';
+
+  @override
+  String get masterRoleDescription =>
+      'Can initialize global databases and manage cloud synchronization keys.';
+
+  @override
+  String get slaveRoleTitle => 'Slave Device (Secondary Node)';
+
+  @override
+  String get slaveRoleDescription =>
+      'Inherits cloud keys from Master without repeating initial setup.';
+
+  @override
   String get oneDriveAuthDescription =>
       'Authorize using system-configured OneDrive client ID and key';
 

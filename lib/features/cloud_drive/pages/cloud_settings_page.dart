@@ -8,13 +8,6 @@ class CloudSettingsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Localizations(
-      locale: Localizations.localeOf(context),
-      delegates: const [
-        DefaultMaterialLocalizations.delegate,
-        DefaultWidgetsLocalizations.delegate,
-      ],
-      child: const cloud_ui.CloudSettingsPage(),
-    );
+    return const cloud_ui.CloudSettingsPage();
   }
 }

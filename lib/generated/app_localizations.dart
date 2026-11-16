@@ -4240,6 +4240,13 @@ abstract class AppLocalizations {
   /// **'(This Device)'**
   String get localDeviceSuffix;
 
+  String get masterSlaveOnboardingTitle;
+  String get masterSlaveOnboardingDescription;
+  String get masterRoleTitle;
+  String get masterRoleDescription;
+  String get slaveRoleTitle;
+  String get slaveRoleDescription;
+
   /// No description provided for @oneDriveAuthDescription.
   ///
   /// In en, this message translates to:

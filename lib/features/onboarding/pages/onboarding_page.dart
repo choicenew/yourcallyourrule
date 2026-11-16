@@ -14,10 +14,11 @@ import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_caller_i
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_spam_block_card.dart';
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_dynamic_filter_card.dart';
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_time_interceptor_card.dart';
+import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_master_slave_card.dart';
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_permissions_card.dart';
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_ready_card.dart';
 
-/// 应用引导主页面（包含 9 大解耦功能与配置卡片）
+/// 应用引导主页面（包含 10 大解耦功能与配置卡片）
 class OnboardingPage extends ConsumerStatefulWidget {
   final VoidCallback? onComplete;
   const OnboardingPage({super.key, this.onComplete});
@@ -29,7 +30,7 @@ class OnboardingPage extends ConsumerStatefulWidget {
 class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
-  final int _totalPages = 9;
+  final int _totalPages = 10;
 
   @override
   void initState() {
@@ -105,6 +106,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                   const OnboardingSpamBlockCard(),
                   const OnboardingDynamicFilterCard(),
                   const OnboardingTimeInterceptorCard(),
+                  const OnboardingMasterSlaveCard(),
                   const OnboardingPermissionsCard(),
                   const OnboardingReadyCard(),
                 ],
