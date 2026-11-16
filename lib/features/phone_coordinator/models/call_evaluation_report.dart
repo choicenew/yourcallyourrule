@@ -16,3 +16,4 @@ class CallEvaluationReport {
     this.rulesResults = const {},
   });
 }
+
