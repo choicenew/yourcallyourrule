@@ -124,7 +124,7 @@ class OnboardingTimeInterceptorCard extends ConsumerWidget {
           ),
           const SizedBox(height: 16),
 
-          // 下层：时长选择直接交互
+          // 下层：时长选择直接交互（支持预设与自定义分钟数）
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
@@ -132,24 +132,111 @@ class OnboardingTimeInterceptorCard extends ConsumerWidget {
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: theme.colorScheme.outlineVariant),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [15, 30, 60, 120].map((mins) {
-                final selected = currentMinutes == mins;
-                return ChoiceChip(
-                  label: Text('${mins}m'),
-                  selected: selected,
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                ...[15, 30, 60, 120].map((mins) {
+                  final selected = currentMinutes == mins;
+                  return ChoiceChip(
+                    label: Text('${mins}m'),
+                    selected: selected,
+                    onSelected: isEnabled
+                        ? (_) {
+                            notifier.updateDuration(mins);
+                          }
+                        : null,
+                  );
+                }),
+                ChoiceChip(
+                  avatar: const Icon(Icons.tune_rounded, size: 14),
+                  label: Text(
+                    ![15, 30, 60, 120].contains(currentMinutes)
+                        ? '${currentMinutes}m'
+                        : l10n.custom,
+                  ),
+                  selected: ![15, 30, 60, 120].contains(currentMinutes),
                   onSelected: isEnabled
                       ? (_) {
-                          notifier.updateDuration(mins);
+                          _showCustomMinutesDialog(
+                            context,
+                            currentMinutes,
+                            notifier,
+                            l10n,
+                          );
                         }
                       : null,
-                );
-              }).toList(),
+                ),
+              ],
             ),
           ),
         ],
       ),
     );
+  }
+
+  Future<void> _showCustomMinutesDialog(
+    BuildContext context,
+    int initialMinutes,
+    TimeInterceptorConfigNotifier notifier,
+    AppLocalizations l10n,
+  ) async {
+    final controller = TextEditingController(text: initialMinutes.toString());
+    final result = await showDialog<int>(
+      context: context,
+      builder: (ctx) {
+        return AlertDialog(
+          title: Text(l10n.custom),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextField(
+                controller: controller,
+                keyboardType: TextInputType.number,
+                autofocus: true,
+                decoration: InputDecoration(
+                  labelText: l10n.minutes,
+                  suffixText: 'm',
+                  border: const OutlineInputBorder(),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Wrap(
+                spacing: 8,
+                children: [45, 90, 180, 360].map((preset) {
+                  return ActionChip(
+                    label: Text('${preset}m'),
+                    onPressed: () {
+                      controller.text = preset.toString();
+                    },
+                  );
+                }).toList(),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(),
+              child: Text(l10n.cancel),
+            ),
+            FilledButton(
+              onPressed: () {
+                final parsed = int.tryParse(controller.text.trim());
+                if (parsed != null && parsed > 0 && parsed <= 1440) {
+                  Navigator.of(ctx).pop(parsed);
+                }
+              },
+              child: Text(l10n.confirm),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (result != null) {
+      notifier.updateDuration(result);
+    }
   }
 }

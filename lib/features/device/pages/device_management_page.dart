@@ -11,11 +11,11 @@ class DeviceManagementPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isZh = Localizations.localeOf(context).languageCode.toLowerCase().startsWith('zh');
+    final deviceL10n = DeviceMasterSlaveLocalizations.of(context);
     final manager = MasterSlaveManager(
       localNode: DeviceNode(
         deviceId: 'local_device_01',
-        deviceName: isZh ? '本机设备' : 'Primary Phone',
+        deviceName: '${deviceL10n.thisDevice} (${deviceL10n.primaryBadge})',
         role: DeviceRole.master,
         lastHeartbeatTime: DateTime.now(),
       ),

@@ -4,6 +4,8 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:pyro_app_launch_guard/pyro_app_launch_guard.dart';
+import 'package:pyro_cloud_drive_ui/pyro_cloud_drive_ui.dart' as cloud_ui;
+import 'package:pyro_device_master_slave_ui/pyro_device_master_slave_ui.dart';
 import 'package:pyro_sms_ui/pyro_sms_ui.dart';
 import 'package:yourcallyourrule/core/coordinator/package_connectors_initializer.dart';
 import 'package:yourcallyourrule/features/common/error/logger.dart';
@@ -115,9 +117,11 @@ void overlayMain() {
       child: MaterialApp(
         title: 'Caller ID Overlay',
         home: CallOverlayEntry(),
-        localizationsDelegates: const [
+        localizationsDelegates: [
           AppLocalizations.delegate,
           SmsLocalizations.delegate,
+          cloud_ui.AppLocalizations.delegate,
+          DeviceMasterSlaveLocalizations.delegate,
           ...GlobalMaterialLocalizations.delegates,
         ],
         supportedLocales: AppLocalizations.supportedLocales,
@@ -145,9 +149,11 @@ class MyApp extends ConsumerWidget {
       themeMode: themeMode,
       routerConfig: appRouter.router,
       locale: locale,
-      localizationsDelegates: const [
+      localizationsDelegates: [
         AppLocalizations.delegate,
         SmsLocalizations.delegate,
+        cloud_ui.AppLocalizations.delegate,
+        DeviceMasterSlaveLocalizations.delegate,
         ...GlobalMaterialLocalizations.delegates,
       ],
       supportedLocales: AppLocalizations.supportedLocales,

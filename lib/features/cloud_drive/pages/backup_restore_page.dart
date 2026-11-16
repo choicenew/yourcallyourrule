@@ -7,7 +7,7 @@ import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_backup_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 云端与本地备份恢复专属页面 —— 彻底解耦与 CloudSettingsPage 的重复绑定
+/// 本地配置与规则全量备份恢复页面 —— 独立、纯净、无云盘宣传混淆
 class BackupRestorePage extends ConsumerStatefulWidget {
   const BackupRestorePage({super.key});
 
@@ -42,7 +42,8 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
     }
   }
 
-  Future<void> _createBackup(BuildContext context, bool isZh) async {
+  Future<void> _createBackup(BuildContext context) async {
+    final l10n = AppLocalizations.of(context);
     setState(() => _isLoading = true);
     try {
       final service = ref.read(configBackupServiceProvider);
@@ -52,7 +53,7 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(isZh ? '备份创建成功: $path' : 'Backup created successfully: $path'),
+            content: Text('${l10n.operationSuccess}: $path'),
             backgroundColor: Colors.green,
           ),
         );
@@ -61,7 +62,7 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(isZh ? '备份失败: $e' : 'Backup failed: $e'),
+            content: Text('${l10n.backupFailed}: $e'),
             backgroundColor: Colors.red,
           ),
         );
@@ -71,24 +72,21 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
     }
   }
 
-  Future<void> _restoreBackup(BuildContext context, String filePath, bool isZh) async {
+  Future<void> _restoreBackup(BuildContext context, String filePath) async {
+    final l10n = AppLocalizations.of(context);
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text(isZh ? '确认恢复备份？' : 'Restore Backup?'),
-        content: Text(
-          isZh
-              ? '恢复备份将覆盖当前的所有配置与规则设置，确定继续吗？'
-              : 'Restoring this backup will overwrite existing configurations and rules. Continue?',
-        ),
+        title: Text(l10n.restoreSettings),
+        content: Text(l10n.restoreSettingsConfirmation),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: Text(isZh ? '取消' : 'Cancel'),
+            child: Text(l10n.cancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: Text(isZh ? '确认恢复' : 'Restore'),
+            child: Text(l10n.restore),
           ),
         ],
       ),
@@ -104,7 +102,7 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(isZh ? '配置与规则已成功恢复！' : 'Configuration and rules restored successfully!'),
+            content: Text(l10n.settingsRestoredSuccessfully),
             backgroundColor: Colors.green,
           ),
         );
@@ -113,7 +111,7 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(isZh ? '恢复失败: $e' : 'Restore failed: $e'),
+            content: Text(l10n.failedToRestoreSettingsWithError(e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -123,7 +121,8 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
     }
   }
 
-  Future<void> _deleteBackup(BuildContext context, String filePath, bool isZh) async {
+  Future<void> _deleteBackup(BuildContext context, String filePath) async {
+    final l10n = AppLocalizations.of(context);
     try {
       final service = ref.read(configBackupServiceProvider);
       await service.initialize();
@@ -132,7 +131,7 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(isZh ? '备份记录已删除' : 'Backup deleted'),
+            content: Text(l10n.deleteSuccess),
           ),
         );
       }
@@ -140,7 +139,7 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(isZh ? '删除失败: $e' : 'Delete failed: $e'),
+            content: Text('${l10n.backupFailed}: $e'),
             backgroundColor: Colors.red,
           ),
         );
@@ -153,7 +152,6 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final l10n = AppLocalizations.of(context);
-    final isZh = Localizations.localeOf(context).languageCode.toLowerCase().startsWith('zh');
 
     return PopScope(
       canPop: false,
@@ -200,7 +198,7 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
             : ListView(
                 padding: const EdgeInsets.all(16.0),
                 children: [
-                  // 1. 创建备份卡片
+                  // 1. 创建本地备份卡片
                   Card(
                     elevation: 0,
                     shape: RoundedRectangleBorder(
@@ -217,7 +215,7 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
                               Icon(Icons.backup_rounded, color: colorScheme.primary, size: 24),
                               const SizedBox(width: 10),
                               Text(
-                                isZh ? '本地配置与规则全量备份' : 'Full Local Backup',
+                                l10n.backupSettings,
                                 style: theme.textTheme.titleMedium?.copyWith(
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -226,18 +224,16 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            isZh
-                                ? '将当前所有拦截规则、偏好设置和自定义配置打包生成 JSON 备份快照。'
-                                : 'Export all current block rules, preferences, and configs to a local JSON snapshot.',
+                            l10n.backupAndRestoreSubtitle,
                             style: theme.textTheme.bodySmall?.copyWith(
                               color: colorScheme.onSurfaceVariant,
                             ),
                           ),
                           const SizedBox(height: 14),
                           FilledButton.icon(
-                            onPressed: () => _createBackup(context, isZh),
+                            onPressed: () => _createBackup(context),
                             icon: const Icon(Icons.add_circle_outline_rounded, size: 18),
-                            label: Text(isZh ? '立即创建备份' : 'Create Backup Now'),
+                            label: Text(l10n.backup),
                           ),
                         ],
                       ),
@@ -262,7 +258,7 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
                               Icon(Icons.history_rounded, color: colorScheme.secondary, size: 24),
                               const SizedBox(width: 10),
                               Text(
-                                isZh ? '备份历史与恢复' : 'Backup History & Restore',
+                                l10n.restoreSettings,
                                 style: theme.textTheme.titleMedium?.copyWith(
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -275,7 +271,7 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
                               padding: const EdgeInsets.symmetric(vertical: 16.0),
                               child: Center(
                                 child: Text(
-                                  isZh ? '暂无本地备份记录' : 'No local backups available yet',
+                                  l10n.noData,
                                   style: TextStyle(color: colorScheme.onSurfaceVariant),
                                 ),
                               ),
@@ -309,63 +305,18 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       TextButton(
-                                        onPressed: () => _restoreBackup(context, filePath, isZh),
-                                        child: Text(isZh ? '恢复' : 'Restore'),
+                                        onPressed: () => _restoreBackup(context, filePath),
+                                        child: Text(l10n.restore),
                                       ),
                                       IconButton(
                                         icon: Icon(Icons.delete_outline_rounded, size: 18, color: colorScheme.error),
-                                        onPressed: () => _deleteBackup(context, filePath, isZh),
+                                        onPressed: () => _deleteBackup(context, filePath),
                                       ),
                                     ],
                                   ),
                                 );
                               },
                             ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-
-                  // 3. 云盘同步引导卡片
-                  Card(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                      side: BorderSide(color: colorScheme.outlineVariant),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(Icons.cloud_sync_rounded, color: colorScheme.tertiary, size: 24),
-                              const SizedBox(width: 10),
-                              Text(
-                                isZh ? '云端同步与异地存储' : 'Cloud Sync & Multi-Device',
-                                style: theme.textTheme.titleMedium?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            isZh
-                                ? '连接 Google Drive、OneDrive 或 WebDAV 云盘，可将规则实时同步至多台设备。'
-                                : 'Connect Google Drive, OneDrive, or WebDAV to sync your rules in real-time across multiple devices.',
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: colorScheme.onSurfaceVariant,
-                            ),
-                          ),
-                          const SizedBox(height: 12),
-                          OutlinedButton.icon(
-                            onPressed: () => context.pushNamed(AppRouter.cloudSettings),
-                            icon: const Icon(Icons.cloud_outlined, size: 18),
-                            label: Text(isZh ? '配置云盘同步账号' : 'Configure Cloud Accounts'),
-                          ),
                         ],
                       ),
                     ),
