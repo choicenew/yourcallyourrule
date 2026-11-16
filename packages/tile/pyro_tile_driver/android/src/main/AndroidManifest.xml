@@ -4,7 +4,7 @@
         <service
             android:name=".QuickSettingsTileService"
             android:icon="@android:drawable/ic_dialog_alert"
-            android:label="Call Blocker"
+            android:label="@string/tile_expected_call"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
             android:exported="true">
             <intent-filter>

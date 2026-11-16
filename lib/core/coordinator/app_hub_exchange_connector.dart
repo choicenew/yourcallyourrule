@@ -16,6 +16,7 @@ import 'package:pyro_phone_count_filter_connector/pyro_phone_count_filter_connec
 import 'package:pyro_phone_remote_filter_connector/pyro_phone_remote_filter_connector.dart';
 import 'package:pyro_phone_time_interceptor_connector/pyro_phone_time_interceptor_connector.dart';
 import 'package:pyro_phone_sim_slot_rules_connector/pyro_phone_sim_slot_rules_connector.dart';
+import 'package:pyro_phone_rules_connector/pyro_phone_rules_connector.dart';
 import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';
 import 'package:pyro_phone_location_hub/pyro_phone_location_hub.dart';
 import 'package:pyro_phone_location_connector/pyro_phone_location_connector.dart';
@@ -266,6 +267,7 @@ class AppHubExchangeConnector {
 
   void _registerAllFilterConnectors() {
     try {
+      PyroPhoneRulesConnector.registerAll();
       PyroPhoneCountFilterConnector.registerAll();
       PyroPhoneRemoteFilterConnector.registerAll();
       PyroTimeInterceptorConnector.registerAll();

@@ -12,6 +12,7 @@ class ExpectedCallCard extends ConsumerWidget {
     final expectedService = ref.watch(expectedCallServiceProvider);
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final isZh = Localizations.localeOf(context).languageCode.toLowerCase().startsWith('zh');
     final isActive = expectedService.isActive;
     final remaining = expectedService.remainingDuration;
 
@@ -48,7 +49,7 @@ class ExpectedCallCard extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '期待电话 · 临时放行',
+                        isZh ? '期待电话 · 临时放行' : 'Expected Call · Temporary Exemption',
                         style: theme.textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -56,8 +57,12 @@ class ExpectedCallCard extends ConsumerWidget {
                       const SizedBox(height: 2),
                       Text(
                         isActive
-                            ? '正在临时放行所有未知来电 (剩余 $timeStr)'
-                            : '等外卖/快递时临时豁免拦截规则',
+                            ? (isZh
+                                ? '正在临时放行所有未知来电 (剩余 $timeStr)'
+                                : 'Temporarily allowing all unknown calls ($timeStr remaining)')
+                            : (isZh
+                                ? '等外卖/快递时临时豁免拦截规则'
+                                : 'Temporarily exempt block rules while awaiting deliveries'),
                         style: theme.textTheme.bodySmall?.copyWith(
                           color: isActive ? colorScheme.primary : colorScheme.onSurfaceVariant,
                           fontWeight: isActive ? FontWeight.w600 : FontWeight.normal,
@@ -83,13 +88,13 @@ class ExpectedCallCard extends ConsumerWidget {
               const SizedBox(height: 12),
               Row(
                 children: [
-                  _buildDurationChip(context, expectedService, '15分钟', const Duration(minutes: 15)),
+                  _buildDurationChip(context, expectedService, isZh ? '15分钟' : '15 min', const Duration(minutes: 15)),
                   const SizedBox(width: 8),
-                  _buildDurationChip(context, expectedService, '30分钟', const Duration(minutes: 30)),
+                  _buildDurationChip(context, expectedService, isZh ? '30分钟' : '30 min', const Duration(minutes: 30)),
                   const SizedBox(width: 8),
-                  _buildDurationChip(context, expectedService, '1小时', const Duration(hours: 1)),
+                  _buildDurationChip(context, expectedService, isZh ? '1小时' : '1 hr', const Duration(hours: 1)),
                   const SizedBox(width: 8),
-                  _buildDurationChip(context, expectedService, '2小时', const Duration(hours: 2)),
+                  _buildDurationChip(context, expectedService, isZh ? '2小时' : '2 hrs', const Duration(hours: 2)),
                 ],
               ),
             ],
@@ -99,12 +104,32 @@ class ExpectedCallCard extends ConsumerWidget {
               onTap: () async {
                 final ok = await TileHub.instance.requestAddTile();
                 if (context.mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(ok ? '已发送添加至系统下拉通知栏请求' : '系统不支持或已添加下拉快捷开关'),
-                      duration: const Duration(seconds: 2),
-                    ),
-                  );
+                  if (ok) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(isZh ? '已发送添加至系统下拉通知栏请求' : 'Requested to add tile to Quick Settings'),
+                        duration: const Duration(seconds: 2),
+                      ),
+                    );
+                  } else {
+                    showDialog(
+                      context: context,
+                      builder: (ctx) => AlertDialog(
+                        title: Text(isZh ? '添加“期待电话”快捷开关' : 'Add Expected Call Tile'),
+                        content: Text(
+                          isZh
+                              ? '部分系统需手动添加：\n1. 从屏幕顶部向下滑动展开控制中心/通知栏\n2. 点击“编辑”按钮 (铅笔图标)\n3. 找到【期待电话】(Expected Call) 磁贴\n4. 将其拖动至上方常用快捷栏即可。'
+                              : 'Manual addition required on this system:\n1. Swipe down from screen top to open Quick Settings\n2. Tap the Edit button (pencil icon)\n3. Find "Expected Call" tile\n4. Drag it to your active quick tiles panel.',
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.of(ctx).pop(),
+                            child: Text(isZh ? '知道了' : 'Got it'),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
                 }
               },
               child: Padding(
@@ -114,7 +139,9 @@ class ExpectedCallCard extends ConsumerWidget {
                     Icon(Icons.dashboard_customize_rounded, size: 16, color: colorScheme.secondary),
                     const SizedBox(width: 6),
                     Text(
-                      '添加“期待电话”至系统下拉控制中心 (Quick Settings Tile)',
+                      isZh
+                          ? '添加“期待电话”至系统下拉控制中心 (Quick Settings Tile)'
+                          : 'Add "Expected Call" to Quick Settings Tile',
                       style: theme.textTheme.labelMedium?.copyWith(
                         color: colorScheme.secondary,
                         fontWeight: FontWeight.w600,

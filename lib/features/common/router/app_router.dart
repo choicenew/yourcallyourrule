@@ -9,6 +9,7 @@ import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remot
 import 'package:yourcallyourrule/features/phone_filter/presentation/pages/enhanced_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/phone_filter/presentation/pages/sim_slot_rule_filter_page.dart';
 import 'package:yourcallyourrule/features/phone_filter/presentation/pages/call_filter_settings_page.dart';
+import 'package:yourcallyourrule/features/phone_filter/presentation/pages/filter_settings_page.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/pages/elite_home_page.dart';
@@ -36,7 +37,6 @@ import 'package:yourcallyourrule/features/cloud_drive/pages/backup_restore_page.
 import 'package:yourcallyourrule/features/cloud_drive/pages/cloud_settings_page.dart';
 import 'package:yourcallyourrule/features/device/pages/device_management_page.dart';
 import 'package:yourcallyourrule/features/verification/presentation/pages/verification_page.dart';
-import 'package:yourcallyourrule/features/phone_plugin/presentation/pages/plugin_test_page.dart';
 import 'package:yourcallyourrule/features/phone_rules/pages/regex_test_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_management_page.dart';
 import 'package:yourcallyourrule/features/sms/pages/sms_subscription_page.dart';
@@ -210,7 +210,7 @@ class AppRouter {
       GoRoute(
         path: '/$filterSettings',
         name: filterSettings,
-        builder: (context, state) => const CallFilterSettingsPage(),
+        builder: (context, state) => const FilterSettingsPage(),
       ),
       GoRoute(
         path: '/$allowedBlockedSettings',

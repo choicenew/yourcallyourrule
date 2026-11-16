@@ -14,6 +14,7 @@ class SettingsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
+    final isZh = Localizations.localeOf(context).languageCode.toLowerCase().startsWith('zh');
 
     return PopScope(
       canPop: false,
@@ -178,8 +179,8 @@ class SettingsPage extends ConsumerWidget {
                 context: context,
                 icon: Icons.phone_forwarded_rounded,
                 iconColor: theme.colorScheme.tertiary,
-                title: '呼出防诈重定向与确认',
-                subtitle: '防范回拨吸费诈骗、3秒超时兜底与车载模式保护',
+                title: isZh ? '呼出防诈重定向与确认' : 'Call Redirection & Outbound Scam Protection',
+                subtitle: isZh ? '防范回拨吸费诈骗、3秒超时兜底与车载模式保护' : 'Protect against toll fraud, 3s timeout fallback & in-car mode',
                 onTap: () => context.pushNamed(AppRouter.callRedirectionSettings),
               ),
               _buildDivider(context),

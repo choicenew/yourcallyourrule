@@ -38,8 +38,9 @@ class TileDriverPlugin : FlutterPlugin, MethodCallHandler {
                     try {
                         val statusBarManager = ctx.getSystemService(StatusBarManager::class.java)
                         val componentName = ComponentName(ctx, QuickSettingsTileService::class.java)
-                        val appLabel = ctx.applicationInfo.loadLabel(ctx.packageManager).toString()
-                        val label = call.argument<String>("label") ?: appLabel
+                        val resId = ctx.resources.getIdentifier("tile_expected_call", "string", ctx.packageName)
+                        val defaultLabel = if (resId != 0) ctx.getString(resId) else ctx.applicationInfo.loadLabel(ctx.packageManager).toString()
+                        val label = call.argument<String>("label") ?: defaultLabel
                         val iconResId = ctx.applicationInfo.icon
                         val icon = Icon.createWithResource(ctx, if (iconResId != 0) iconResId else android.R.drawable.ic_dialog_info)
 
