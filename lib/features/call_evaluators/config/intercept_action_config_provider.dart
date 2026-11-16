@@ -26,7 +26,7 @@ class InterceptActionConfigNotifier extends Notifier<InterceptAction> {
     final config = await repository.getConfig(_interceptActionKey);
     debugPrint('InterceptAction config: $config');
     if (ref.mounted) {
-      final actionString = config?['value'] as String? ?? 'endCall';
+      final actionString = config?['value'] as String? ?? InterceptAction.endCall.actionName;
       state = availableValues.firstWhere(
         (e) => e.actionName == actionString,
         orElse: () => InterceptAction.endCall,
