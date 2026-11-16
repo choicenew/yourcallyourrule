@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/platform/call_channel_switcher.dart';
 
-import 'base_call_handler.dart';
+import 'package:yourcallyourrule/features/common/base/base_call_handler.dart';
 import 'incoming_call_handler.dart';
 import 'outgoing_call_handler.dart';
 
