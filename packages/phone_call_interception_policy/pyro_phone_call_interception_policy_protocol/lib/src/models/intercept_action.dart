@@ -25,15 +25,10 @@ abstract class InterceptAction with _$InterceptAction {
   static InterceptAction fromString(dynamic raw) {
     if (raw == null) return endCall;
     final str = raw.toString().trim();
-    switch (str) {
-      case 'answerThenHangup':
-        return answerThenHangup;
-      case 'silenceNoAnswer':
-        return silenceNoAnswer;
-      case 'endCall':
-      default:
-        return endCall;
-    }
+    return values.firstWhere(
+      (action) => action.actionName.toLowerCase() == str.toLowerCase(),
+      orElse: () => endCall,
+    );
   }
 
   factory InterceptAction.fromJson(Map<String, dynamic> json) => _$InterceptActionFromJson(json);
