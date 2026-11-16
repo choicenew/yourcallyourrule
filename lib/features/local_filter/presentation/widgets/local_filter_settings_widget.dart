@@ -180,29 +180,61 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
 
   Widget _buildExplanationCard(BuildContext context, AppLocalizations l10n) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(18.0),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surfaceContainerHighest.withValues(alpha: 0.5),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Theme.of(context).colorScheme.outlineVariant),
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: Theme.of(context).colorScheme.outlineVariant,
+          width: 1.1,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Icon(Icons.info_outline, size: 18, color: Theme.of(context).colorScheme.primary),
-              const SizedBox(width: 8),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF6C5CE7).withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(Icons.info_outline_rounded, color: Color(0xFF6C5CE7), size: 20),
+              ),
+              const SizedBox(width: 10),
               Text(
-                l10n.localCountFilterExplanationTitle,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Theme.of(context).colorScheme.primary),
+                l10n.localCountFilterExplanationTitle, 
+                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 15.5, color: Theme.of(context).colorScheme.onSurface),
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 12),
           Text(
             l10n.localCountFilterExplanationContent,
-            style: TextStyle(fontSize: 11.5, color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.4),
+            style: TextStyle(fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.4),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            l10n.howItWorksTitle,
+            style: TextStyle(fontWeight: FontWeight.w800, fontSize: 13.5, color: Theme.of(context).colorScheme.onSurface),
+          ),
+          const SizedBox(height: 4),
+          Text("• ${l10n.localCountFilterHowItWorksPoint1}", style: TextStyle(fontSize: 12.5, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+          Text("• ${l10n.localCountFilterHowItWorksPoint2}", style: TextStyle(fontSize: 12.5, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+          Text("• ${l10n.localCountFilterHowItWorksPoint3}", style: TextStyle(fontSize: 12.5, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+          Text("• ${l10n.localCountFilterHowItWorksPoint4}", style: TextStyle(fontSize: 12.5, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+          const SizedBox(height: 10),
+          Text(
+            l10n.localCountFilterUseCases,
+            style: TextStyle(fontSize: 12.5, color: Theme.of(context).colorScheme.onSurfaceVariant, height: 1.4),
           ),
         ],
       ),

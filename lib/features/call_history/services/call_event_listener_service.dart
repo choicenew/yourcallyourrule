@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:yourcallyourrule/features/call_history/services/call_log_recorder.dart';
 import 'package:yourcallyourrule/features/call_history/services/call_log_service.dart';
-import 'package:yourcallyourrule/features/call_monitor/handlers/intercept_event_provider.dart';
 import 'package:yourcallyourrule/features/call_monitor/services/caller_id_monitor_service.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';

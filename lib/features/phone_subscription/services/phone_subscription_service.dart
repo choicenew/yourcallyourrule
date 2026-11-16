@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
+import 'package:pyro_phone_subscription_hub/pyro_phone_subscription_hub.dart';
 import 'package:yourcallyourrule/features/phone_subscription/repositories/subscription_repository.dart';
 import 'package:yourcallyourrule/features/phone_subscription/data/repositories/subscription_repository_impl.dart';
 import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository.dart';
@@ -37,7 +37,6 @@ class PhoneSubscriptionService {
     try {
       return await _repository.getAll();
     } catch (e) {
-      // If error occurs, let's at least avoid breaking the UI completely and log.
       return [];
     }
   }
@@ -67,7 +66,9 @@ class PhoneSubscriptionService {
   }
 
   Future<List<PhoneRuleEntity>> updateRulesFromSubscription(PhoneSubscriptionPayload subscription) async {
+    // 纯粹通过 pyro_phone_subscription_hub 分发，遵循 Package 规范
+    await PhoneRulesSubscriptionControlCenter.instance.dispatchPayload(subscription);
     final rules = await _ruleRepository.getAll();
-    return rules.where((r) => r.isSubscribed).toList();
+    return rules.where((r) => r.subscriptionId == subscription.payloadId).toList();
   }
 }

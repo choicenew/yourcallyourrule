@@ -164,7 +164,10 @@ class _RuleActionSelectorState extends State<RuleActionSelector> {
                       return DropdownMenuItem<InterceptAction?>(
                         value: action,
                         child: Text(
-                          RuleActionMapper.getInterceptActionDisplayName(action),
+                          RuleActionMapper.getInterceptActionDisplayName(
+                            action,
+                            AppLocalizations.of(context),
+                          ),
                           style: theme.textTheme.bodyMedium?.copyWith(
                             color: theme.colorScheme.onSurface,
                           ),

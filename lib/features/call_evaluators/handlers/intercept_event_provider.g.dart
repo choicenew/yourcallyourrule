@@ -59,3 +59,4 @@ final class InterceptEventStreamControllerProvider
 
 String _$interceptEventStreamControllerHash() =>
     r'3e7612c30042ad98b49002152587c80f2c444a31';
+

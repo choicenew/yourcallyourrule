@@ -6,21 +6,14 @@ import 'package:rxdart/rxdart.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
 import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
-import 'package:pyro_phone_call_filter_hub/pyro_phone_call_filter_hub.dart';
-import 'package:yourcallyourrule/features/call_filter/enhanced_composite_filter_service.dart' hide enhancedCompositeFilterServiceProvider;
-import 'package:yourcallyourrule/features/time_interceptor/service/time_interceptor_service.dart';
 
 part 'caller_id_monitor_service.g.dart';
 
 @Riverpod(keepAlive: true)
 CallerIdMonitorService callerIdMonitorService(Ref ref) {
   final callerIdService = ref.watch(callerIdentityServiceProvider);
-  final filterService = ref.watch(enhancedCompositeFilterServiceProvider);
-  final timeInterceptor = ref.watch(timeInterceptorServiceProvider);
   return CallerIdMonitorService(
     callerIdService: callerIdService,
-    filterService: filterService,
-    timeInterceptorService: timeInterceptor,
   );
 }
 
@@ -28,19 +21,14 @@ CallerIdMonitorService callerIdMonitorService(Ref ref) {
 /// 负责监控和处理来电显示相关的事件流
 class CallerIdMonitorService {
   final CallerIdentityService _callerIdService;
-  final EnhancedCompositeFilterService _filterService;
-  final TimeInterceptorService _timeInterceptorService;
   final _callerIdSubject = BehaviorSubject<CallerIdData>();
 
   bool _isListening = false;
 
   CallerIdMonitorService({
     required CallerIdentityService callerIdService,
-    required EnhancedCompositeFilterService filterService,
-    required TimeInterceptorService timeInterceptorService,
-  })  : _callerIdService = callerIdService,
-        _filterService = filterService,
-        _timeInterceptorService = timeInterceptorService;
+  })
+    : _callerIdService = callerIdService;
 
   Stream<CallerIdData> get callerIdStream => _callerIdSubject.stream;
 

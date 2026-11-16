@@ -6,7 +6,7 @@ import 'package:floating_window_android/floating_window_android.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 
 import 'package:yourcallyourrule/features/call_monitor/services/caller_id_monitor_service.dart';
-import 'package:yourcallyourrule/features/call_monitor/handlers/intercept_event_provider.dart';
+import 'package:yourcallyourrule/features/call_evaluators/handlers/intercept_event_provider.dart';
 
 part 'overlay_control_handler.g.dart';
 

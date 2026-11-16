@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
-import 'package:yourcallyourrule/features/call_evaluators/evaluators/intercept_action.dart';
+import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
 import 'package:yourcallyourrule/features/call_evaluators/evaluators/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

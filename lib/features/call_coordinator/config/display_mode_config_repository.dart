@@ -1,12 +1,12 @@
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/call_coordinator/handlers/display_mode.dart';
 
-/// CallerID / Caller Identity 配置仓库
-class CallerIdConfigRepository {
+/// 呼叫协调与 UI 展现模式配置仓库 (Display Mode & Notification Config Repository)
+class DisplayModeConfigRepository {
   final ConfigRepository _configRepository;
-  
+
   static const String configKey = 'config_caller_id_functionality';
-  
+
   static const String useLocalNotificationKey = 'config_use_local_notification';
   static const String cancelLocalNotificationKey = 'config_cancel_local_notification';
   static const String useStirNotificationKey = 'config_use_stir_notification';
@@ -15,50 +15,50 @@ class CallerIdConfigRepository {
 
   static const int defaultNotificationAutoCancelDelayInSeconds = 5;
 
-  CallerIdConfigRepository(this._configRepository);
-  
+  DisplayModeConfigRepository(this._configRepository);
+
   Future<Map<String, dynamic>> getConfig() async {
     final config = await _configRepository.getConfig(configKey);
     return config ?? _getDefaultConfig();
   }
-  
+
   Future<void> saveConfig(Map<String, dynamic> config) async {
     await _configRepository.saveConfig(configKey, config);
   }
-  
+
   Future<bool> getUseLocalNotification() async {
     final config = await getConfig();
     return config[useLocalNotificationKey] as bool? ?? false;
   }
-  
+
   Future<void> setUseLocalNotification(bool value) async {
     final config = await getConfig();
     config[useLocalNotificationKey] = value;
     await saveConfig(config);
   }
-  
+
   Future<bool> getCancelLocalNotification() async {
     final config = await getConfig();
     return config[cancelLocalNotificationKey] as bool? ?? false;
   }
-  
+
   Future<void> setCancelLocalNotification(bool value) async {
     final config = await getConfig();
     config[cancelLocalNotificationKey] = value;
     await saveConfig(config);
   }
-  
+
   Future<bool> getUseStirNotification() async {
     final config = await getConfig();
     return config[useStirNotificationKey] as bool? ?? false;
   }
-  
+
   Future<void> setUseStirNotification(bool value) async {
     final config = await getConfig();
     config[useStirNotificationKey] = value;
     await saveConfig(config);
   }
-  
+
   Future<DisplayMode> getDisplayMode() async {
     final config = await getConfig();
     return DisplayMode.fromString(config[displayModeKey]);

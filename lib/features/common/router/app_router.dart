@@ -9,7 +9,6 @@ import 'package:yourcallyourrule/features/remote_filter/presentation/pages/remot
 import 'package:yourcallyourrule/features/call_filter/presentation/pages/enhanced_filter_settings_page.dart';
 import 'package:yourcallyourrule/features/call_filter/presentation/pages/sim_slot_rule_filter_page.dart';
 import 'package:yourcallyourrule/features/call_filter/presentation/pages/call_filter_settings_page.dart';
-import 'package:yourcallyourrule/features/config/pages/filter_settings_page.dart';
 import 'package:yourcallyourrule/features/splash/splash_screen.dart';
 import 'package:yourcallyourrule/features/home/pages/home_page.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/pages/elite_home_page.dart';

@@ -257,7 +257,31 @@ class _GenericListPageState<T> extends ConsumerState<GenericListPage<T>> {
   }
 
   List<Widget> _buildMultiSelectActions() {
+    final allSelected = widget.selectedItemIds.length == widget.items.length && widget.items.isNotEmpty;
     return [
+      IconButton(
+        icon: Icon(allSelected ? Icons.deselect_rounded : Icons.select_all_rounded, color: Theme.of(context).colorScheme.onSurface),
+        onPressed: () {
+          if (widget.getItemId != null && widget.onToggleItemSelection != null) {
+            if (allSelected) {
+              for (final item in widget.items) {
+                final itemId = widget.getItemId!(item);
+                if (widget.selectedItemIds.contains(itemId)) {
+                  widget.onToggleItemSelection!(itemId);
+                }
+              }
+            } else {
+              for (final item in widget.items) {
+                final itemId = widget.getItemId!(item);
+                if (!widget.selectedItemIds.contains(itemId)) {
+                  widget.onToggleItemSelection!(itemId);
+                }
+              }
+            }
+          }
+        },
+        tooltip: allSelected ? AppLocalizations.of(context).initialSetupDeselectAll : AppLocalizations.of(context).selectAll,
+      ),
       IconButton(
         icon: Icon(Icons.delete_outline_rounded, color: Theme.of(context).colorScheme.error),
         onPressed: widget.selectedItemIds.isNotEmpty ? widget.onDeleteSelected : null,

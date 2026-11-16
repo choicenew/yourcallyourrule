@@ -1,6 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/caller_identity/config/caller_identity_config_provider.dart';
+import 'package:yourcallyourrule/features/call_coordinator/config/display_mode_config_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 通知子设置小部件
@@ -9,8 +9,8 @@ class NotificationSettingsWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final config = ref.watch(callerIdConfigProvider);
-    final notifier = ref.read(callerIdConfigProvider.notifier);
+    final config = ref.watch(displayModeConfigProvider);
+    final notifier = ref.read(displayModeConfigProvider.notifier);
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);
 

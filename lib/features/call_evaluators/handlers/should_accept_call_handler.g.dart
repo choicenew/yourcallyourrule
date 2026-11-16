@@ -6,19 +6,15 @@ part of 'should_accept_call_handler.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-// GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint, type=warning
-
 @ProviderFor(shouldAcceptCallHandler)
 final shouldAcceptCallHandlerProvider = ShouldAcceptCallHandlerProvider._();
 
 final class ShouldAcceptCallHandlerProvider
-    extends
-        $FunctionalProvider<
-          ShouldAcceptCallHandler,
-          ShouldAcceptCallHandler,
-          ShouldAcceptCallHandler
-        >
+    extends $FunctionalProvider<
+        ShouldAcceptCallHandler,
+        ShouldAcceptCallHandler,
+        ShouldAcceptCallHandler
+    >
     with $Provider<ShouldAcceptCallHandler> {
   ShouldAcceptCallHandlerProvider._()
     : super(
@@ -28,24 +24,21 @@ final class ShouldAcceptCallHandlerProvider
         name: r'shouldAcceptCallHandlerProvider',
         isAutoDispose: false,
         dependencies: null,
-        $allTransitiveDependencies: null,
+        allTransitiveDependencies: null,
       );
 
-  @override
   String debugGetCreateSourceHash() => _$shouldAcceptCallHandlerHash();
 
-  @$internal
   @override
   $ProviderElement<ShouldAcceptCallHandler> $createElement(
     $ProviderPointer pointer,
-  ) => $ProviderElement(pointer);
+  ) => $ProviderElement(this, pointer);
 
   @override
   ShouldAcceptCallHandler create(Ref ref) {
     return shouldAcceptCallHandler(ref);
   }
 
-  /// {@macro riverpod.override_with_value}
   Override overrideWithValue(ShouldAcceptCallHandler value) {
     return $ProviderOverride(
       origin: this,
@@ -55,4 +48,7 @@ final class ShouldAcceptCallHandlerProvider
 }
 
 String _$shouldAcceptCallHandlerHash() =>
-    r'776f0cfe79f13efce3e1a9aacd98a56271979106';
+    r'db614f16bca88383a8b2dfa5f5fc8c0cda1fb591';
+// ignore_for_file: type=lint
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+
