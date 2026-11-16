@@ -1,27 +1,10 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:dlibphonenumber/locale.dart' as dlibphone;
 import 'package:pyro_sim_hub/pyro_sim_hub.dart';
 
 import 'package:yourcallyourrule/features/phone_subscription/utils/phone_utils.dart';
-import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
-import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
-import 'package:yourcallyourrule/features/labels/services/label_service.dart';
-import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart' as vo;
-import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/phone_rules/services/basic_rule_filter_service.dart';
-import 'package:yourcallyourrule/features/phone_filter/providers/call_filter_provider.dart';
-import 'package:yourcallyourrule/features/phone_time_interception/service/time_interceptor_service.dart';
-import 'package:yourcallyourrule/features/phone_caller_identity/services/caller_identity_service.dart';
-import 'package:yourcallyourrule/features/phone_coordinator/handlers/display_mode_handler.dart';
-import 'package:yourcallyourrule/features/phone_coordinator/handlers/kit_live_activity_handler.dart';
-import 'package:yourcallyourrule/features/phone_coordinator/handlers/notification_handler.dart';
-import 'package:yourcallyourrule/features/phone_coordinator/handlers/overlay_handler.dart';
-import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
-import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
-import 'package:yourcallyourrule/features/local_filter/services/local_count_filter_service.dart';
-import 'package:yourcallyourrule/features/remote_filter/services/remote_number_filter_service.dart';
+import 'package:yourcallyourrule/features/phone_coordinator/services/call_coordinator_service.dart';
 import 'package:yourcallyourrule/features/country_database/provider/country_selection_provider.dart';
 import 'package:yourcallyourrule/features/verification/models/verification_state.dart';
 
@@ -39,13 +22,13 @@ class VerificationNotifier extends Notifier<VerificationState> {
   }
 
   void _initSubscriptions() {
-    final callerIdentityService = ref.read(callerIdentityServiceProvider);
-    _pluginSub = callerIdentityService.pluginDataStream.listen((data) {
+    final coordinator = ref.read(callCoordinatorServiceProvider);
+    _pluginSub = coordinator.pluginDataStream.listen((data) {
       state = state.copyWith(pluginSourceData: data);
     });
   }
 
-  /// 初始化国家代码与号码（支持单�?双卡、多选同步国家及物理设备区域排序�?
+  /// 初始化国家代码与号码（支持单/双卡、多选同步国家及物理设备区域排序）
   Future<void> initLocaleAndNumber({String? initialNumber}) async {
     final candidates = <String>[];
 
@@ -60,7 +43,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
       }
     } catch (_) {}
 
-    // 2. 读取用户在「同步国家」中配置的多选国家列�?
+    // 2. 读取用户在「同步国家」中配置的多选国家列表
     try {
       final selectedCountries = await ref.read(selectedCountriesProvider.future);
       for (final code in selectedCountries) {
@@ -71,7 +54,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
       }
     } catch (_) {}
 
-    // 3. 读取设备的物理系统地区（作为兜底�?
+    // 3. 读取设备的物理系统地区（作为兜底）
     try {
       final platformCountry = PlatformDispatcher.instance.locale.countryCode?.trim().toUpperCase();
       if (platformCountry != null && platformCountry.isNotEmpty && !candidates.contains(platformCountry)) {
@@ -92,14 +75,14 @@ class VerificationNotifier extends Notifier<VerificationState> {
     }
   }
 
-  /// 自动从输入的号码中检测国家代�?
-  /// 直接调用 PhoneUtils，不拷贝或重写任何格式判�?
+  /// 自动从输入的号码中检测国家代码
+  /// 直接调用 PhoneUtils，不拷贝或重写任何格式判断
   Future<void> detectCountryCode(String phoneNumber) async {
     final trimmed = phoneNumber.trim();
     if (trimmed.isEmpty) return;
 
     try {
-      // 1. 直接使用 PhoneUtils 自动化解�?
+      // 1. 直接使用 PhoneUtils 自动化解析
       final parsed = await PhoneUtils.parsePhoneNumberEntity(trimmed);
       if (parsed.isValid && parsed.countryCode.isNotEmpty) {
         state = state.copyWith(
@@ -108,7 +91,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
         return;
       }
 
-      // 2. 降级：若 PhoneUtils 解析失败，使用选中�?countryCode 进行 ISO 解析
+      // 2. 降级：若 PhoneUtils 解析失败，使用选中的 countryCode 进行 ISO 解析
       if (state.countryCode.isNotEmpty) {
         final fallbackParsed = await PhoneUtils.parsePhoneNumberWithIsoEntity(trimmed, state.countryCode);
         if (fallbackParsed.isValid && fallbackParsed.countryCode.isNotEmpty) {
@@ -120,7 +103,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
     } catch (_) {}
   }
 
-  /// 用户在顶�?Chip 中快速切换候选国�?
+  /// 用户在顶部 Chip 中快速切换候选国家
   void selectCountry(String code) {
     final upper = code.trim().toUpperCase();
     if (upper.isNotEmpty && upper != state.countryCode) {
@@ -143,7 +126,7 @@ class VerificationNotifier extends Notifier<VerificationState> {
     }
   }
 
-  /// 执行综合号码验证业务逻辑
+  /// 执行综合号码验证业务逻辑（收敛至 CallCoordinatorService 进行 Dry-Run 空跑诊断）
   Future<void> verifyNumber(String phoneNumberStr) async {
     final target = phoneNumberStr.trim();
     if (target.isEmpty) return;
@@ -154,175 +137,61 @@ class VerificationNotifier extends Notifier<VerificationState> {
     );
 
     try {
-      final basicRuleFilterService = ref.read(basicRuleFilterServiceProvider);
-      final timeInterceptorService = ref.read(timeInterceptorServiceProvider);
-      final localCountFilterService = ref.read(localCountFilterServiceProvider);
-      final remoteNumberFilterService = ref.read(remoteNumberFilterServiceProvider);
-      final callerIdentityService = ref.read(callerIdentityServiceProvider);
-      final contactService = ref.read(contactServiceProvider);
-      final labelService = ref.read(labelServiceProvider);
-
-      final callFilterConfig = await ref.read(callFilterConfigProvider.future);
-      final currentLocale = await ref.read(localeProvider.future);
-
-      // 优先通过 Phone Utility 归一化解�?E.164 号码；解析失败时降级采用左上角国家代码补�?
-      ParsedPhoneNumber parsedEntity = ParsedPhoneNumber.empty;
-      try {
-        parsedEntity = await PhoneUtils.parsePhoneNumberEntity(target);
-        if (!parsedEntity.isValid && state.countryCode.isNotEmpty) {
-          parsedEntity = await PhoneUtils.parsePhoneNumberWithIsoEntity(target, state.countryCode);
-        }
-      } catch (_) {}
-
-      final effectiveCountryCode = parsedEntity.countryCode.isNotEmpty ? parsedEntity.countryCode : state.countryCode;
-      final queryNumberStr = parsedEntity.e164Number.isNotEmpty ? parsedEntity.e164Number : target;
-      final number = vo.PhoneNumber.fromString(queryNumberStr);
-      final rawNumber = vo.PhoneNumber.fromString(target);
-
-      final dlibLocale = dlibphone.Locale(
-        language: currentLocale.languageCode,
-        country: effectiveCountryCode,
-      );
-
-      CallerIdData? callerIdData;
-      try {
-        callerIdData = await callerIdentityService.getCallerId(number.value, dlibLocale);
-      } catch (e) {
-        debugPrint('[VerificationNotifier] getCallerId failed, fallback: $e');
-        callerIdData = null;
-      }
-
-      // 规则与各种过滤校验（优先使用 E.164 归一化号码，无结果时降级使用原始输入保底�?
-      var rules = await basicRuleFilterService.verifyAllRules(number);
-      if (rules.isEmpty && number.value != rawNumber.value) {
-        final fallbackRules = await basicRuleFilterService.verifyAllRules(rawNumber);
-        rules = [...rules, ...fallbackRules];
-      }
-
-      dynamic matchedContact;
-      try {
-        matchedContact = await contactService.findContactByPhoneNumber(number);
-        if (matchedContact == null && number.value != rawNumber.value) {
-          matchedContact = await contactService.findContactByPhoneNumber(rawNumber);
-        }
-      } catch (_) {
-        matchedContact = null;
-      }
-
-      dynamic matchedLabel;
-      try {
-        matchedLabel = await labelService.getLabelByPhoneNumberString(number.value);
-        if (matchedLabel == null && number.value != rawNumber.value) {
-          matchedLabel = await labelService.getLabelByPhoneNumberString(rawNumber.value);
-        }
-      } catch (_) {
-        matchedLabel = null;
-      }
-
-      bool timeRuleHit = false;
-      try {
-        timeRuleHit = await timeInterceptorService.shouldIntercept(number.value);
-        if (!timeRuleHit && number.value != rawNumber.value) {
-          timeRuleHit = await timeInterceptorService.shouldIntercept(rawNumber.value);
-        }
-      } catch (_) {}
-
-      bool localCountBlocked = false;
-      try {
-        localCountBlocked = !await localCountFilterService.shouldAcceptCall(number.value);
-        if (!localCountBlocked && number.value != rawNumber.value) {
-          localCountBlocked = !await localCountFilterService.shouldAcceptCall(rawNumber.value);
-        }
-      } catch (_) {}
-
-      bool remoteNumberBlocked = false;
-      try {
-        remoteNumberBlocked = !await remoteNumberFilterService.shouldAcceptCall(number.value);
-        if (!remoteNumberBlocked && number.value != rawNumber.value) {
-          remoteNumberBlocked = !await remoteNumberFilterService.shouldAcceptCall(rawNumber.value);
-        }
-      } catch (_) {}
-
-      final rulesMap = <String, bool>{
-        'Allowed': rules.any((rule) => rule.actionType == 'allow'),
-        'Blocked': rules.any((rule) => rule.actionType == 'block'),
-        'Silenced': rules.any((rule) => rule.actionType == 'silence'),
-        'None Action': rules.any((rule) => rule.actionType == 'none'),
-        'Global Reject': callFilterConfig.rejectAllNumbers,
-        'Blacklist': rules.any((rule) => rule.actionType == 'block'),
-        'Whitelist': rules.any((rule) => rule.actionType == 'allow'),
-        'Regex': rules.any((rule) => rule is RegexRuleEntity),
-        'Time Rules': timeRuleHit,
-        'Local Count Filter': localCountBlocked,
-        'Remote Number Filter': remoteNumberBlocked,
-      };
+      final coordinator = ref.read(callCoordinatorServiceProvider);
+      final report = await coordinator.dryRunEvaluate(target, countryIso: state.countryCode);
 
       state = state.copyWith(
         isLoading: false,
         hasVerified: true,
-        callerIdData: callerIdData,
-        matchedContact: matchedContact,
-        matchedLabel: matchedLabel,
-        rulesResults: rulesMap,
+        callerIdData: report.callerIdData,
+        matchedContact: report.matchedContact,
+        matchedLabel: report.matchedLabel,
+        rulesResults: report.rulesResults,
       );
     } catch (e) {
       state = state.copyWith(
         isLoading: false,
-        hasVerified: true, // 降级容错：即便中间链路抛错，依然保证 hasVerified �?true 渲染卡片�?
+        hasVerified: true, // 降级容错：即便中间链路抛错，依然保证 hasVerified 为 true 渲染卡片
         errorMessage: e.toString(),
       );
     }
   }
 
-  /// 1. 触发悬浮窗实机效果测�?(Overlay)
+  /// 1. 触发悬浮窗实机效果测试 (Overlay)
   Future<void> testOverlay() async {
     if (state.callerIdData != null) {
-      final handler = await ref.read(overlayHandlerProvider.future);
-      await handler.showCallerIdOverlay(
-        state.callerIdData!,
-        null,
-        null,
-      );
+      final coordinator = ref.read(callCoordinatorServiceProvider);
+      await coordinator.simulateOverlay(state.callerIdData!);
     }
   }
 
-  /// 关闭悬浮�?(Close Overlay)
+  /// 关闭悬浮窗 (Close Overlay)
   Future<void> closeOverlay() async {
-    final handler = await ref.read(overlayHandlerProvider.future);
-    await handler.hideCallerIdOverlay();
+    final coordinator = ref.read(callCoordinatorServiceProvider);
+    await coordinator.closeOverlay();
   }
 
-  /// 2. 触发 Live Activity / 灵动岛效果测�?
+  /// 2. 触发 Live Activity / 灵动岛效果测试
   Future<void> testLiveActivity() async {
     if (state.callerIdData != null) {
-      final liveActivityHandler = await ref.read(kitLiveActivityHandlerProvider.future);
-      await liveActivityHandler.showCallerIdActivity(
-        callerIdData: state.callerIdData!,
-        simCardData: null,
-        stirData: null,
-      );
+      final coordinator = ref.read(callCoordinatorServiceProvider);
+      await coordinator.simulateLiveActivity(state.callerIdData!);
     }
   }
 
   /// 3. 触发系统本地通知效果测试 (Notification)
   Future<void> testNotification() async {
     if (state.callerIdData != null) {
-      final notificationHandler = ref.read(notificationHandlerProvider);
-      await notificationHandler.showCallerIdNotification(
-        callerIdData: state.callerIdData!,
-        simInfo: null,
-        stirInfo: null,
-      );
+      final coordinator = ref.read(callCoordinatorServiceProvider);
+      await coordinator.simulateNotification(state.callerIdData!);
     }
   }
 
   /// 4. 触发当前配置模式测试 (Configured Display Mode)
   Future<void> testDefaultDisplayMode() async {
     if (state.callerIdData != null) {
-      final displayHandler = await ref.read(displayModeHandlerProvider.future);
-      await displayHandler.handleDisplayMode(
-        state.callerIdData!,
-      );
+      final coordinator = ref.read(callCoordinatorServiceProvider);
+      await coordinator.simulateDefaultDisplayMode(state.callerIdData!);
     }
   }
 }

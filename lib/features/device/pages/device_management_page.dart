@@ -15,7 +15,7 @@ class DeviceManagementPage extends ConsumerWidget {
     final manager = MasterSlaveManager(
       localNode: DeviceNode(
         deviceId: 'local_device_01',
-        deviceName: isZh ? '本机主节点 (Primary Node)' : 'Primary Phone Node',
+        deviceName: isZh ? '本机设备' : 'Primary Phone',
         role: DeviceRole.master,
         lastHeartbeatTime: DateTime.now(),
       ),

@@ -4,6 +4,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:pyro_app_launch_guard/pyro_app_launch_guard.dart';
+import 'package:pyro_sms_ui/pyro_sms_ui.dart';
 import 'package:yourcallyourrule/core/coordinator/package_connectors_initializer.dart';
 import 'package:yourcallyourrule/features/common/error/logger.dart';
 import 'package:yourcallyourrule/features/sync/services/background_sync_service.dart';
@@ -116,6 +117,7 @@ void overlayMain() {
         home: CallOverlayEntry(),
         localizationsDelegates: const [
           AppLocalizations.delegate,
+          SmsLocalizations.delegate,
           ...GlobalMaterialLocalizations.delegates,
         ],
         supportedLocales: AppLocalizations.supportedLocales,
@@ -145,6 +147,7 @@ class MyApp extends ConsumerWidget {
       locale: locale,
       localizationsDelegates: const [
         AppLocalizations.delegate,
+        SmsLocalizations.delegate,
         ...GlobalMaterialLocalizations.delegates,
       ],
       supportedLocales: AppLocalizations.supportedLocales,

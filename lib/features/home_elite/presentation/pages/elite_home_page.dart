@@ -61,6 +61,15 @@ class _EliteHomePageState extends ConsumerState<EliteHomePage> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        heroTag: 'rule_library_setup_fab',
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
+        elevation: 4,
+        tooltip: AppLocalizations.of(context).initialSetupTitle,
+        onPressed: () => context.pushNamed(AppRouter.initialSetup),
+        child: const Icon(Icons.storefront_rounded),
+      ),
       bottomNavigationBar: BottomNavigation(
         currentIndex: _currentNavIndex,
         onTap: _handleNavTap,

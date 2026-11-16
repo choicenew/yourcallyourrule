@@ -19,10 +19,10 @@ class EndCallSettingsPage extends ConsumerWidget {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);
     final isZh = Localizations.localeOf(context).languageCode.toLowerCase() == 'zh';
-    final cardTitle = isZh ? '按标签自定义拦截动作' : '${l10n.label} ${l10n.interceptAction}';
+    final cardTitle = isZh ? '按标签自定义拦截处置' : 'Action by Caller Label';
     final cardSubtitle = isZh
         ? '为特定号码标签独立指定处置动作（放行通过、立即挂断、接通后挂断或静音）'
-        : 'Specify intercept actions for specific caller labels';
+        : l10n.labelActionDescription;
 
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,

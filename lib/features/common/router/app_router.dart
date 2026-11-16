@@ -32,7 +32,7 @@ import 'package:yourcallyourrule/features/deletion_proposal/pages/deletion_propo
 import 'package:yourcallyourrule/features/deletion_proposal/pages/proposal_detail_page.dart';
 
 import 'package:yourcallyourrule/features/phone_evaluators/presentation/pages/end_call_settings_page.dart';
-import 'package:yourcallyourrule/features/sms/pages/sms_filter_settings_page.dart';
+import 'package:pyro_sms_ui/pyro_sms_ui.dart';
 import 'package:yourcallyourrule/features/cloud_drive/pages/backup_restore_page.dart';
 import 'package:yourcallyourrule/features/cloud_drive/pages/cloud_settings_page.dart';
 import 'package:yourcallyourrule/features/device/pages/device_management_page.dart';
@@ -100,6 +100,7 @@ class AppRouter {
   static const String fraudAlertSettings = 'fraud-alert-settings';
   static const String callRedirectionSettings = 'call-redirection-settings';
   static const String smsFilterSettings = 'sms-filter-settings';
+  static const String smsScreeningSettings = 'sms-screening-settings';
   static const String backupRestore = 'backup-restore';
   static const String cloudSettings = 'cloud-settings';
   static const String deviceManagement = 'device-management';
@@ -334,7 +335,12 @@ class AppRouter {
       GoRoute(
         path: '/$smsFilterSettings',
         name: smsFilterSettings,
-        builder: (context, state) => const SmsFilterSettingsPage(),
+        builder: (context, state) => const SmsScreeningSettingsPage(),
+      ),
+      GoRoute(
+        path: '/$smsScreeningSettings',
+        name: smsScreeningSettings,
+        builder: (context, state) => const SmsScreeningSettingsPage(),
       ),
       GoRoute(
         path: '/$backupRestore',
