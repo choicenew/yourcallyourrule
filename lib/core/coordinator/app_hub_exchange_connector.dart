@@ -16,6 +16,11 @@ import 'package:pyro_phone_count_filter_connector/pyro_phone_count_filter_connec
 import 'package:pyro_phone_remote_filter_connector/pyro_phone_remote_filter_connector.dart';
 import 'package:pyro_phone_time_interceptor_connector/pyro_phone_time_interceptor_connector.dart';
 import 'package:pyro_phone_sim_slot_rules_connector/pyro_phone_sim_slot_rules_connector.dart';
+import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';
+import 'package:pyro_phone_location_hub/pyro_phone_location_hub.dart';
+import 'package:pyro_phone_location_connector/pyro_phone_location_connector.dart';
+import 'package:dlibphonenumber/dlibphonenumber.dart';
+import 'package:uuid/uuid.dart';
 
 import 'app_coordinator.dart';
 import 'filter_ui_registry.dart';
@@ -24,6 +29,12 @@ import 'package:yourcallyourrule/features/notifications/providers/notification_h
 import 'package:yourcallyourrule/features/notifications/config/notification_config.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:yourcallyourrule/features/common/router/app_router_provider.dart';
+import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
+import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
+import 'package:yourcallyourrule/features/phone_rules/services/rule_management_service.dart';
+import 'package:yourcallyourrule/features/labels/services/label_service.dart';
+import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
 
 final appHubExchangeConnectorProvider = Provider<AppHubExchangeConnector>((ref) {
   final coordinator = ref.watch(appCoordinatorProvider);
@@ -119,6 +130,60 @@ class AppHubExchangeConnector {
 
     // 10. 全局系统通知总线调度 (System Notification Relay & Tap Dispatcher)
     _setupNotificationRelay();
+
+    // 11. 号码归属地查询中枢调度 (Phone Location Resolver & Event Bus)
+    _setupPhoneLocationRelay();
+
+    // 12. 来电识别数据委托统一装配 (Caller Identity Resolvers Glue Assembly)
+    _setupCallerIdentityResolvers();
+  }
+
+  void _setupCallerIdentityResolvers() {
+    try {
+      final callerIdService = ref.read(callerIdentityServiceProvider);
+      callerIdService.bindResolvers(
+        contactResolver: (phone) => ref.read(contactServiceProvider).findContactByPhoneNumber(phone),
+        rulesResolver: (phone) => ref.read(ruleManagementServiceProvider).getRulesByPhoneNumber(phone),
+        labelResolver: (phone) => ref.read(labelServiceProvider).getLabelByPhoneNumber(phone),
+        predefinedLabelResolver: (id) => ref.read(predefinedLabelServiceProvider).getLabelById(id),
+        remoteNumberResolver: (phone) => ref.read(remoteNumberServiceProvider).getRemoteNumberByPhoneNumber(phone),
+      );
+      debugPrint('[Connector] Bound all CallerIdentity Resolvers in AppHubExchangeConnector.');
+    } catch (e) {
+      debugPrint('[Connector] Error binding CallerIdentity Resolvers: $e');
+    }
+  }
+
+  void _setupPhoneLocationRelay() {
+    try {
+      PyroPhoneLocationConnector.registerAll(
+        customResolverDriver: HostPhoneLocationResolverDriver(),
+      );
+      debugPrint('[Connector] Registered PhoneLocation Connector with HostPhoneLocationResolverDriver.');
+    } catch (e) {
+      debugPrint('[Connector] Error registering PhoneLocation Connector: $e');
+    }
+
+    _coordinator.on('query_phone_location', (payload) async {
+      try {
+        final phoneNumber = payload['phoneNumber'] as String?;
+        final lang = payload['language'] as String? ?? 'en';
+        final country = payload['country'] as String?;
+        if (phoneNumber != null && phoneNumber.isNotEmpty) {
+          final entry = await PhoneLocationControlCenter.instance.getCallerLocation(
+            phoneNumber,
+            localeLanguage: lang,
+            localeCountry: country,
+          );
+          _coordinator.emit('phone_location_resolved', {
+            'phoneNumber': phoneNumber,
+            'entry': entry?.toJson(),
+          });
+        }
+      } catch (e) {
+        debugPrint('[Connector] query_phone_location error: $e');
+      }
+    });
   }
 
   void _setupNotificationRelay() {
@@ -229,6 +294,43 @@ class AppHubExchangeConnector {
     } catch (e) {
       debugPrint('[Connector] System sync error: $e');
       return false;
+    }
+  }
+}
+
+/// 主 App 原生离线号码归属地解析驱动 (基于 dlibphonenumber 离线码表)
+class HostPhoneLocationResolverDriver implements PhoneLocationResolverDriver {
+  final PhoneNumberUtil _phoneNumberUtil = PhoneNumberUtil.instance;
+  final PhoneNumberOfflineGeocoder _geocoder = PhoneNumberOfflineGeocoder.instance;
+  final PhoneNumberToCarrierMapper _carrierMapper = PhoneNumberToCarrierMapper.instance;
+  final Uuid _uuid = const Uuid();
+
+  @override
+  Future<PhoneLocationEntry?> resolveLocation(
+    String phoneNumber, {
+    String? localeLanguage,
+    String? localeCountry,
+  }) async {
+    try {
+      final parsedNumber = _phoneNumberUtil.parse(phoneNumber, null);
+      if (!_phoneNumberUtil.isValidNumber(parsedNumber)) {
+        return null;
+      }
+      final locale = Locale(language: localeLanguage ?? 'en', country: localeCountry ?? '');
+      final region = await _geocoder.getDescriptionForNumber(parsedNumber, locale, null);
+      final carrier = await _carrierMapper.getNameForNumber(parsedNumber, locale);
+      final numberTypeInt = _phoneNumberUtil.getNumberType(parsedNumber).index;
+
+      return PhoneLocationEntry(
+        id: _uuid.v4(),
+        phoneNumber: phoneNumber,
+        region: region,
+        countryName: _phoneNumberUtil.getRegionCodeForNumber(parsedNumber),
+        carrier: carrier,
+        numberType: numberTypeInt.toString(),
+      );
+    } catch (_) {
+      return null;
     }
   }
 }

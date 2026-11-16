@@ -3,14 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:pyro_phone_call_monitor_protocol/pyro_phone_call_monitor_protocol.dart';
 import 'package:pyro_phone_call_monitor_hub/pyro_phone_call_monitor_hub.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
-import 'package:yourcallyourrule/platform/call_channel_switcher.dart';
 
 import 'package:yourcallyourrule/features/common/base/base_call_handler.dart';
 import 'incoming_call_handler.dart';
 import 'outgoing_call_handler.dart';
 
 class CallEventHandler extends BaseCallHandler {
-  final CallChannelInterface _channelManager;
+  final dynamic _channelManager;
   final IncomingCallHandler _incomingCallHandler;
   final OutgoingCallHandler _outgoingCallHandler;
   final Function(CallerIdData) _onCallerIdDataReceived;

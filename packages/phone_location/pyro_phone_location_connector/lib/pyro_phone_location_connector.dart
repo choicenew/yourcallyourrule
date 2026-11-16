@@ -6,8 +6,14 @@ import 'package:pyro_phone_location_driver/pyro_phone_location_driver.dart';
 
 /// 归属地外观装配线 (Facade Assembly)
 class PyroPhoneLocationConnector {
-  static void registerAll({PhoneLocationStorageDriver? customStorageDriver}) {
+  static void registerAll({
+    PhoneLocationStorageDriver? customStorageDriver,
+    PhoneLocationResolverDriver? customResolverDriver,
+  }) {
     final driver = customStorageDriver ?? MemoryPhoneLocationStorageDriver();
     PhoneLocationControlCenter.instance.registerStorageDriver(driver);
+    if (customResolverDriver != null) {
+      PhoneLocationControlCenter.instance.registerResolverDriver(customResolverDriver);
+    }
   }
 }
