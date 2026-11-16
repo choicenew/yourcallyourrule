@@ -78,6 +78,14 @@ class CallPolicyEvaluator {
       if (normalizedActionMap.containsKey(normalizedLabel)) {
         final action =
             normalizedActionMap[normalizedLabel] ?? context.defaultInterceptAction;
+        if (action.isAllow) {
+          return CallPolicyVerdict(
+            shouldBlock: false,
+            action: action,
+            reason: 'Allowed by label action for: $label',
+            matchedLabel: label,
+          );
+        }
         return CallPolicyVerdict(
           shouldBlock: true,
           action: action,

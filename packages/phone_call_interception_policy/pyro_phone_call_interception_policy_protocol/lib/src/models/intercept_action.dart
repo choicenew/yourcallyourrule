@@ -12,20 +12,27 @@ abstract class InterceptAction with _$InterceptAction {
     required String actionName,
   }) = _InterceptAction;
 
+  static const InterceptAction allow = InterceptAction(actionName: 'allow');
   static const InterceptAction endCall = InterceptAction(actionName: 'endCall');
   static const InterceptAction answerThenHangup = InterceptAction(actionName: 'answerThenHangup');
   static const InterceptAction silenceNoAnswer = InterceptAction(actionName: 'silenceNoAnswer');
 
   static const List<InterceptAction> values = [
+    allow,
     endCall,
     answerThenHangup,
     silenceNoAnswer,
   ];
 
+  bool get isAllow => actionName == 'allow';
+  bool get isBlock => !isAllow;
+
   static InterceptAction fromString(dynamic raw) {
     if (raw == null) return endCall;
     final str = raw.toString().trim();
     switch (str) {
+      case 'allow':
+        return allow;
       case 'answerThenHangup':
         return answerThenHangup;
       case 'silenceNoAnswer':
