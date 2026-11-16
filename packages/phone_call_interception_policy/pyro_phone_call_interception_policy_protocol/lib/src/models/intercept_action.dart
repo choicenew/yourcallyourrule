@@ -16,6 +16,26 @@ abstract class InterceptAction with _$InterceptAction {
   static const InterceptAction answerThenHangup = InterceptAction(actionName: 'answerThenHangup');
   static const InterceptAction silenceNoAnswer = InterceptAction(actionName: 'silenceNoAnswer');
 
+  static const List<InterceptAction> values = [
+    endCall,
+    answerThenHangup,
+    silenceNoAnswer,
+  ];
+
+  static InterceptAction fromString(dynamic raw) {
+    if (raw == null) return endCall;
+    final str = raw.toString().trim();
+    switch (str) {
+      case 'answerThenHangup':
+        return answerThenHangup;
+      case 'silenceNoAnswer':
+        return silenceNoAnswer;
+      case 'endCall':
+      default:
+        return endCall;
+    }
+  }
+
   factory InterceptAction.fromJson(Map<String, dynamic> json) => _$InterceptActionFromJson(json);
 
   factory InterceptAction.fromMap(Map<String, dynamic> map) => InterceptAction.fromJson(map);

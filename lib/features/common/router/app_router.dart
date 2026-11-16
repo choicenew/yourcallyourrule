@@ -208,7 +208,7 @@ class AppRouter {
       GoRoute(
         path: '/$filterSettings',
         name: filterSettings,
-        builder: (context, state) => const FilterSettingsPage(),
+        builder: (context, state) => const CallFilterSettingsPage(),
       ),
       GoRoute(
         path: '/$allowedBlockedSettings',

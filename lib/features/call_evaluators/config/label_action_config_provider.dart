@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
-import 'package:yourcallyourrule/features/call_evaluators/evaluators/intercept_action.dart';
+import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
 
 final labelActionConfigProvider = NotifierProvider<LabelActionConfigNotifier, Map<String, InterceptAction>>(
   LabelActionConfigNotifier.new,
@@ -25,7 +25,7 @@ class LabelActionConfigNotifier extends Notifier<Map<String, InterceptAction>> {
       final resultMap = <String, InterceptAction>{};
       configMap.forEach((labelKey, actionVal) {
         if (actionVal is String) {
-          final action = InterceptActionExtension.fromString(actionVal);
+          final action = InterceptAction.fromString(actionVal);
           resultMap[labelKey] = action;
         }
       });

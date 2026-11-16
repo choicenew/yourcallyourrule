@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
-import 'package:yourcallyourrule/features/call_evaluators/evaluators/intercept_action.dart';
+import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
 import 'package:yourcallyourrule/features/call_evaluators/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/professional_shield_radar.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -95,6 +95,8 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
         return l10n.answerThenHangup;
       case InterceptAction.silenceNoAnswer:
         return l10n.silenceNoAnswer;
+      default:
+        return l10n.endCallImmediately;
     }
   }
 
@@ -107,6 +109,8 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
         return l10n.answerThenHangupDescription;
       case InterceptAction.silenceNoAnswer:
         return l10n.silenceActionDescription;
+      default:
+        return l10n.blockActionDescription;
     }
   }
 
@@ -119,6 +123,8 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
         return theme.colorScheme.primary;
       case InterceptAction.silenceNoAnswer:
         return theme.colorScheme.secondary;
+      default:
+        return theme.colorScheme.error;
     }
   }
 
@@ -130,6 +136,8 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
         return Icons.call_end_rounded;
       case InterceptAction.silenceNoAnswer:
         return Icons.notifications_off_rounded;
+      default:
+        return Icons.phone_disabled_rounded;
     }
   }
 
@@ -389,7 +397,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
                     ),
                     const SizedBox(height: 10),
                     Row(
-                      children: InterceptActionExtension.values.map((action) {
+                      children: InterceptAction.values.map((action) {
                         final isSelected = action == currentAction;
                         final color = _getActionColor(context, action);
                         return Expanded(
