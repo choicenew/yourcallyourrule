@@ -32,4 +32,21 @@ class PhoneRulesControlCenter {
     await _storageDriver?.saveRule(rule);
     debugPrint('[PhoneRulesHub] 中枢保存规则: ${rule.name} -> ${rule.phoneNumber}');
   }
+
+  Future<List<PhoneRuleEntity>> getAllRules() async {
+    return await _storageDriver?.getAllRules() ?? [];
+  }
+
+  Future<bool> shouldAcceptCall(String phoneNumber) async {
+    final rules = await getAllRules();
+    final matchedRules = rules.where((r) => r.phoneNumber == phoneNumber && r.isEnabled).toList();
+    if (matchedRules.isNotEmpty) {
+      matchedRules.sort((a, b) => b.priority.compareTo(a.priority));
+      for (final rule in matchedRules) {
+        if (rule.isBlockAction) return false;
+        if (rule.isAllowAction) return true;
+      }
+    }
+    return true;
+  }
 }

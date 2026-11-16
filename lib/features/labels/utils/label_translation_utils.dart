@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
-import 'package:yourcallyourrule/features/labels/utils/label_translation_extension.dart';
+import 'package:yourcallyourrule/features/labels/utils/predefined_labels.dart';
 
 class LabelTranslationUtils {
   static String translateLabelText(BuildContext context, String labelText) {

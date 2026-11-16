@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
 import 'package:build/build.dart';
 import 'package:source_gen/source_gen.dart';
 import 'package:analyzer/dart/element/element.dart';
@@ -93,6 +95,8 @@ class LabelGenerator extends Generator {
     buffer.writeln();
     buffer.writeln('    switch (normalizedLabel) {');
 
+    final Map<String, String> labelTranslations = {};
+
     for (final item in listValue) {
       final mapValue = item.toMapValue();
       if (mapValue != null) {
@@ -125,6 +129,8 @@ class LabelGenerator extends Generator {
             }
           }
 
+          labelTranslations[getterName] = text!;
+
           buffer.writeln("      case '$normalized':");
           buffer.writeln("        return appLocalizations.$getterName;");
         }
@@ -137,6 +143,60 @@ class LabelGenerator extends Generator {
     buffer.writeln('  }');
     buffer.writeln('}');
 
+    _syncToEnglishArb(labelTranslations);
+
     return buffer.toString();
+  }
+
+  void _syncToEnglishArb(Map<String, String> labelTranslations) {
+    if (labelTranslations.isEmpty) return;
+    try {
+      File? targetFile;
+      final candidates = [
+        'lib/l10n/app_en.arb',
+        '../lib/l10n/app_en.arb',
+        '../../lib/l10n/app_en.arb',
+      ];
+      for (final p in candidates) {
+        final f = File(p);
+        if (f.existsSync()) {
+          targetFile = f;
+          break;
+        }
+      }
+      if (targetFile == null) return;
+
+      final content = targetFile.readAsStringSync();
+      final dynamic decoded = jsonDecode(content);
+      if (decoded is! Map<String, dynamic>) return;
+
+      final missingEntries = <String, String>{};
+      labelTranslations.forEach((key, text) {
+        if (!decoded.containsKey(key)) {
+          missingEntries[key] = text;
+        }
+      });
+
+      if (missingEntries.isEmpty) return;
+
+      final lastBraceIndex = content.lastIndexOf('}');
+      if (lastBraceIndex != -1) {
+        final before = content.substring(0, lastBraceIndex).trimRight();
+        final buffer = StringBuffer(before);
+        if (!before.endsWith(',')) {
+          buffer.writeln(',');
+        } else {
+          buffer.writeln();
+        }
+        final list = missingEntries.entries.toList();
+        for (int i = 0; i < list.length; i++) {
+          final entry = list[i];
+          final isLast = i == list.length - 1;
+          buffer.writeln('  "${entry.key}": "${entry.value.replaceAll('"', '\\"')}"${isLast ? '' : ','}');
+        }
+        buffer.writeln('}');
+        targetFile.writeAsStringSync(buffer.toString());
+      }
+    } catch (_) {}
   }
 }

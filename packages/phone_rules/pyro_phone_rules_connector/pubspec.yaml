@@ -16,6 +16,10 @@ dependencies:
     path: ../pyro_phone_rules_hub
   pyro_phone_rules_driver:
     path: ../pyro_phone_rules_driver
+  pyro_phone_call_filter_protocol:
+    path: ../../phone_call_filter/pyro_phone_call_filter_protocol
+  pyro_phone_call_filter_hub:
+    path: ../../phone_call_filter/pyro_phone_call_filter_hub
 
 dev_dependencies:
   flutter_test:

@@ -17,7 +17,6 @@ import 'package:yourcallyourrule/features/call_evaluators/config/intercept_actio
 import 'package:yourcallyourrule/features/caller_identity/services/caller_identity_service.dart';
 import 'package:yourcallyourrule/features/call_time_interception/service/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/call_filter/call_filter_service.dart';
-import 'package:yourcallyourrule/features/phone_rules/services/basic_rule_filter_service.dart';
 
 part 'call_coordinator_service.g.dart';
 
@@ -56,9 +55,6 @@ class CallCoordinatorService {
 
     _identitySubscription?.cancel();
     _identitySubscription = _identityService.callerIdStream.listen(_onCallerIdIncrementalUpdate);
-
-    final compositeFilter = _ref.read(callFilterServiceProvider);
-    compositeFilter.registerFilter(_ref.read(basicRuleFilterServiceProvider));
 
     debugPrint('[CallCoordinator Hub] 生产级全流程并发调度中枢已全面激活');
   }
