@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pyro_ads_policy/pyro_ads_policy.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/commercial/services/commercial_service.dart';
+import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/features/phone_monitor/services/call_screen_plugin.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -57,7 +58,8 @@ class EliteAppBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
-    final isProtectionActive = true;
+    final asyncStats = ref.watch(homeStatsProvider);
+    final isProtectionActive = asyncStats.value?.isProtectionActive ?? true;
     final commercialSvc = ref.watch(commercialServiceProvider);
     final isVip = commercialSvc.isVipActive || AdPolicyManager.instance.isVipUser;
 
@@ -100,23 +102,44 @@ class EliteAppBar extends ConsumerWidget {
                           size: 20,
                         ),
                       ),
-                      if (isVip)
-                        Positioned(
-                          top: -5,
-                          right: -5,
-                          child: Container(
-                            padding: const EdgeInsets.all(2),
-                            decoration: const BoxDecoration(
-                              color: Color(0xFF101828),
-                              shape: BoxShape.circle,
+                      Positioned(
+                        top: -5,
+                        right: -5,
+                        child: Container(
+                          padding: const EdgeInsets.all(3.5),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.surface,
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: isVip
+                                  ? const Color(0xFFFFB300)
+                                  : theme.colorScheme.outlineVariant,
+                              width: 1.2,
                             ),
-                            child: const Icon(
-                              Icons.workspace_premium_rounded,
-                              color: Color(0xFFFFD700),
-                              size: 13,
-                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: (isVip
+                                        ? const Color(0xFFFFB300)
+                                        : Colors.black)
+                                    .withValues(alpha: isVip ? 0.25 : 0.08),
+                                blurRadius: 4,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
                           ),
+                          child: isVip
+                              ? const MinimalistCrownIcon(
+                                  size: 11,
+                                  color: Color(0xFFFFB300),
+                                )
+                              : Icon(
+                                  Icons.shield_outlined,
+                                  size: 10,
+                                  color: theme.colorScheme.onSurfaceVariant
+                                      .withValues(alpha: 0.5),
+                                ),
                         ),
+                      ),
                     ],
                   ),
                 ),

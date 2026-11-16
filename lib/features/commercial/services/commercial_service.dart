@@ -19,7 +19,7 @@ class CommercialService {
 
   CommercialService._();
 
-  bool _isVipActive = false;
+  bool _isVipActive = true;
   bool get isVipActive => _isVipActive;
 
   /// 初始化商业化服务与广告连接器
