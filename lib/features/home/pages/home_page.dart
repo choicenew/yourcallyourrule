@@ -2,6 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/home/pages/carousel_cards.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/presentation/widgets/expected_call_card.dart';
 import 'package:yourcallyourrule/features/home/pages/feature_center.dart';
 import 'package:yourcallyourrule/features/home/pages/home_app_bar.dart';
 import 'package:yourcallyourrule/features/home/pages/rule_verification_card.dart';
@@ -32,6 +33,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                 child: Column(
                   children: const [
                     CarouselCards(),
+                    ExpectedCallCard(),
                     RuleVerificationCard(),
                     FilterManagementWidget(),
                     FeatureCenter(),

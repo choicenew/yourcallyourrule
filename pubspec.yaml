@@ -143,6 +143,8 @@ dependencies:
     path: packages/telephony/call_redirection/pyro_call_redirection_connector
   pyro_call_redirection_hub:
     path: packages/telephony/call_redirection/pyro_call_redirection_hub
+  pyro_call_redirection_ui:
+    path: packages/telephony/call_redirection/pyro_call_redirection_ui
 
   pyro_call_screening_connector:
     path: packages/telephony/call_screening/pyro_call_screening_connector
@@ -190,6 +192,8 @@ dependencies:
     path: packages/tile/pyro_tile_connector
   pyro_tile_hub:
     path: packages/tile/pyro_tile_hub
+  pyro_tile_ui:
+    path: packages/tile/pyro_tile_ui
 
   pyro_theme_hub:
     path: packages/theme/pyro_theme_hub

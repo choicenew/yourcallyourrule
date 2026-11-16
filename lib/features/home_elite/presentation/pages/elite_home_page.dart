@@ -10,6 +10,7 @@ import '../widgets/elite_hero_shield_card.dart';
 import '../widgets/elite_primary_filter_card.dart';
 import '../widgets/elite_quick_capsules.dart';
 import '../widgets/elite_stats_insight_card.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/presentation/widgets/expected_call_card.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class EliteHomePage extends ConsumerStatefulWidget {
@@ -48,6 +49,7 @@ class _EliteHomePageState extends ConsumerState<EliteHomePage> {
                 child: Column(
                   children: [
                     const EliteHeroShieldCard(),
+                    const ExpectedCallCard(),
                     const ElitePrimaryFilterCard(),
                     const EliteCommunityJudgeCard(),
                     const EliteStatsInsightCard(),

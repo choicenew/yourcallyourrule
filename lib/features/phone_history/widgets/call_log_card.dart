@@ -285,6 +285,15 @@ class CallLogCard extends ConsumerWidget {
           onTap: actionHandler.handleCallAction,
         ),
         const SizedBox(width: 2),
+        if (log.localCallType != LocalCallType.blocked) ...[
+          _buildActionButton(
+            icon: Icons.block_rounded,
+            color: Theme.of(context).colorScheme.error,
+            tooltip: AppLocalizations.of(context).blockNumber,
+            onTap: actionHandler.handleQuickBlock,
+          ),
+          const SizedBox(width: 2),
+        ],
         _buildActionButton(
           icon: Icons.rule_folder_outlined,
           tooltip: AppLocalizations.of(context).addRule,

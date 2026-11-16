@@ -19,6 +19,8 @@ import 'package:pyro_phone_sim_slot_rules_connector/pyro_phone_sim_slot_rules_co
 import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';
 import 'package:pyro_phone_location_hub/pyro_phone_location_hub.dart';
 import 'package:pyro_phone_location_connector/pyro_phone_location_connector.dart';
+import 'package:pyro_call_redirection_connector/pyro_call_redirection_connector.dart';
+import 'package:pyro_tile_connector/pyro_tile_connector.dart';
 import 'package:dlibphonenumber/dlibphonenumber.dart';
 import 'package:uuid/uuid.dart';
 
@@ -268,6 +270,8 @@ class AppHubExchangeConnector {
       PyroPhoneRemoteFilterConnector.registerAll();
       PyroTimeInterceptorConnector.registerAll();
       SimSlotRuleConnector.registerAll();
+      CallRedirectionConnectors.ensureMounted();
+      TileConnectors.ensureMounted();
 
       // 注册主 App 胶水层 Filter UI 动态注册工厂
       FilterUiRegistry.init();

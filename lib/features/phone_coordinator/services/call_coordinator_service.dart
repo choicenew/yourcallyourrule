@@ -17,6 +17,8 @@ import 'package:yourcallyourrule/features/phone_evaluators/config/intercept_acti
 import 'package:yourcallyourrule/features/phone_caller_identity/services/caller_identity_service.dart';
 import 'package:yourcallyourrule/features/phone_time_interception/service/time_interceptor_service.dart';
 import 'package:yourcallyourrule/features/phone_filter/call_filter_service.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/evaluators/emergency_call_policy_service.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/evaluators/expected_call_service.dart';
 
 part 'call_coordinator_service.g.dart';
 
@@ -73,16 +75,20 @@ class CallCoordinatorService {
 
       final timeInterceptFuture = _ref.read(timeInterceptorServiceProvider).shouldIntercept(event.phoneNumber);
       final filterFuture = _ref.read(enhancedCompositeFilterServiceProvider).shouldAcceptCall(event.phoneNumber);
+      final emergencyExemptFuture = _ref.read(emergencyCallPolicyServiceProvider).isExempted();
+      final isExpectedActive = _ref.read(expectedCallServiceProvider).isActive;
 
       final results = await Future.wait([
         identityFuture,
         timeInterceptFuture,
         filterFuture,
+        emergencyExemptFuture,
       ]);
 
       final callerIdData = results[0] as CallerIdData;
       final isTimeBlocked = results[1] as bool;
       final isFilterAccepted = results[2] as bool;
+      final isEmergencyExempted = results[3] as bool;
 
       final labelActionMap = _ref.read(labelActionConfigProvider);
       final defaultAction = _ref.read(interceptActionConfigProvider);
@@ -93,6 +99,8 @@ class CallCoordinatorService {
         phoneNumber: event.phoneNumber,
         isTimeBlocked: isTimeBlocked,
         isFilterAccepted: isFilterAccepted,
+        isEmergencyExempted: isEmergencyExempted,
+        isExpectedCallActive: isExpectedActive,
         labels: labelsList,
         labelActionMap: labelActionMap,
         defaultInterceptAction: defaultAction,
@@ -120,6 +128,9 @@ class CallCoordinatorService {
 
       final recorder = _ref.read(callLogRecorderProvider);
       await recorder.recordIncomingCall(event.phoneNumber, callerIdData, verdict.shouldAccept);
+    } else if (event is OutgoingCallEvent) {
+      debugPrint('[CallCoordinator Hub] 去电事件: ${event.phoneNumber}');
+      await _ref.read(emergencyCallPolicyServiceProvider).recordEmergencyCallIfMatched(event.phoneNumber);
     } else if (event is CallEndedEvent) {
       debugPrint('[CallCoordinator Hub] 通话结束事件: ${event.phoneNumber}');
     }

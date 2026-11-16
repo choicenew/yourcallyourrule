@@ -6,6 +6,7 @@ import 'package:yourcallyourrule/features/phone_call/call_overlay/configuration/
 import 'package:yourcallyourrule/features/phone_call/call_overlay/presentation/widgets/scrolling_security_message.dart';
 import 'package:yourcallyourrule/features/phone_call/call_overlay/services/fraud_detection_service.dart';
 import 'package:yourcallyourrule/features/phone_call/call_overlay/utils/label_translation_utils.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/evaluators/block_and_end_action_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class CallOverlayContentBuilder {
@@ -170,6 +171,53 @@ class CallOverlayContentBuilder {
             position: config.simCardPosition,
             onPositionChanged: isDraggable ? onSimCardPositionChanged : null,
           ),
+        Positioned(
+          right: 10,
+          bottom: 8,
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              borderRadius: BorderRadius.circular(16),
+              onTap: () {
+                BlockAndEndActionService.blockAndEndCurrentCall(
+                  callerIdData.phoneNumber,
+                  name: callerIdData.name,
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                decoration: BoxDecoration(
+                  color: Colors.red.shade700.withValues(alpha: 0.92),
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.25),
+                      blurRadius: 4,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.call_end_rounded, color: Colors.white, size: 13),
+                    const SizedBox(width: 3),
+                    const Icon(Icons.block_rounded, color: Colors.white, size: 13),
+                    const SizedBox(width: 4),
+                    Text(
+                      AppLocalizations.of(context).endCallImmediately,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }

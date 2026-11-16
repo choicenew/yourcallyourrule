@@ -14,6 +14,8 @@ class CallPolicyContext {
   final int? simSlotIndex;
   final bool isTimeBlocked;
   final bool isFilterAccepted;
+  final bool isEmergencyExempted;
+  final bool isExpectedCallActive;
   final List<String> labels;
   final Map<String, InterceptAction> labelActionMap;
   final InterceptAction defaultInterceptAction;
@@ -23,6 +25,8 @@ class CallPolicyContext {
     this.simSlotIndex,
     this.isTimeBlocked = false,
     this.isFilterAccepted = true,
+    this.isEmergencyExempted = false,
+    this.isExpectedCallActive = false,
     this.labels = const [],
     this.labelActionMap = const {},
     this.defaultInterceptAction = InterceptAction.endCall,
@@ -52,6 +56,20 @@ class CallPolicyEvaluator {
   const CallPolicyEvaluator();
 
   CallPolicyVerdict evaluate(CallPolicyContext context) {
+    if (context.isEmergencyExempted) {
+      return const CallPolicyVerdict(
+        shouldBlock: false,
+        reason: 'Exempted by Emergency Call Policy (within 30 mins)',
+      );
+    }
+
+    if (context.isExpectedCallActive) {
+      return const CallPolicyVerdict(
+        shouldBlock: false,
+        reason: 'Allowed by Expected Call temporary exemption',
+      );
+    }
+
     if (context.isTimeBlocked) {
       return CallPolicyVerdict(
         shouldBlock: true,

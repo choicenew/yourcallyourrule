@@ -228,16 +228,28 @@
             android:windowSoftInputMode="adjustResize" /> -->
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
-        <!--  ===  Call Screening Service  ===  -->
+        <!--  ===  Call Screening Service (开机锁屏前直接防护 directBootAware)  ===  -->
         <service
             android:name=".MyCallScreeningService"
             android:permission="android.permission.BIND_SCREENING_SERVICE"
+            android:directBootAware="true"
             android:exported="true">
             <intent-filter>
                 <action
                     android:name="android.telecom.CallScreeningService"/>
                 <category
                     android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <!--  ===  Call Redirection Service (呼出防诈重定向与确认)  ===  -->
+        <service
+            android:name="com.pyro.call_redirection.CallRedirectionServiceImpl"
+            android:permission="android.permission.BIND_CALL_REDIRECTION_SERVICE"
+            android:directBootAware="true"
+            android:exported="true">
+            <intent-filter>
+                <action
+                    android:name="android.telecom.CallRedirectionService"/>
             </intent-filter>
         </service>
         <!--  ===  IN Call Service  ===  -->

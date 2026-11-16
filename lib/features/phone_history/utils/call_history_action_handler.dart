@@ -30,6 +30,11 @@ class CallHistoryActionHandler {
     }
   }
 
+  /// 快捷拉黑操作
+  Future<void> handleQuickBlock() async {
+    await _blockNumber();
+  }
+
   void _showCallActionDialog() {
     showModalBottomSheet(
       context: context,

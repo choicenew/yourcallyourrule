@@ -61,6 +61,7 @@ import 'package:yourcallyourrule/features/phone_caller_identity/presentation/cal
 
 import 'package:yourcallyourrule/features/initial_setup/pages/initial_setup_page.dart';
 import 'package:yourcallyourrule/features/initial_setup/pages/deep_link_import_page.dart';
+import 'package:pyro_call_redirection_ui/pyro_call_redirection_ui.dart';
 
 /// 应用路由配置
 class AppRouter {
@@ -97,6 +98,7 @@ class AppRouter {
   static const String callerIdSettings = 'caller-id-settings';
   static const String endCallSettings = 'end-call-settings';
   static const String fraudAlertSettings = 'fraud-alert-settings';
+  static const String callRedirectionSettings = 'call-redirection-settings';
   static const String smsFilterSettings = 'sms-filter-settings';
   static const String backupRestore = 'backup-restore';
   static const String cloudSettings = 'cloud-settings';
@@ -323,6 +325,11 @@ class AppRouter {
         path: '/$endCallSettings',
         name: endCallSettings,
         builder: (context, state) => const EndCallSettingsPage(),
+      ),
+      GoRoute(
+        path: '/$callRedirectionSettings',
+        name: callRedirectionSettings,
+        builder: (context, state) => const CallRedirectionSettingsPage(),
       ),
       GoRoute(
         path: '/$smsFilterSettings',

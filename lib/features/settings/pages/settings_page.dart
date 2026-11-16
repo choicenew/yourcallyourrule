@@ -176,6 +176,15 @@ class SettingsPage extends ConsumerWidget {
               _buildDivider(context),
               _buildTile(
                 context: context,
+                icon: Icons.phone_forwarded_rounded,
+                iconColor: theme.colorScheme.tertiary,
+                title: '呼出防诈重定向与确认',
+                subtitle: '防范回拨吸费诈骗、3秒超时兜底与车载模式保护',
+                onTap: () => context.pushNamed(AppRouter.callRedirectionSettings),
+              ),
+              _buildDivider(context),
+              _buildTile(
+                context: context,
                 icon: Icons.shield_outlined,
                 iconColor: theme.colorScheme.secondary,
                 title: l10n.permissionTitle,
