@@ -4,14 +4,14 @@ import 'package:pyro_device_master_slave_protocol/pyro_device_master_slave_proto
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 引导页：设备集群与节点角色介绍卡片组件（100% 标准 AppLocalizations 国际化）
-class OnboardingDeviceClusterCard extends ConsumerStatefulWidget {
-  const OnboardingDeviceClusterCard({super.key});
+class OnboardingMasterSlaveCard extends ConsumerStatefulWidget {
+  const OnboardingMasterSlaveCard({super.key});
 
   @override
-  ConsumerState<OnboardingDeviceClusterCard> createState() => _OnboardingDeviceClusterCardState();
+  ConsumerState<OnboardingMasterSlaveCard> createState() => _OnboardingMasterSlaveCardState();
 }
 
-class _OnboardingDeviceClusterCardState extends ConsumerState<OnboardingDeviceClusterCard> {
+class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlaveCard> {
   DeviceRole _selectedRole = DeviceRole.primary;
 
   @override
@@ -199,6 +199,3 @@ class _OnboardingDeviceClusterCardState extends ConsumerState<OnboardingDeviceCl
     );
   }
 }
-
-/// 兼容历史命名的别名导出
-typedef OnboardingMasterSlaveCard = OnboardingDeviceClusterCard;

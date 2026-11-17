@@ -24,7 +24,7 @@ final class ShouldAcceptCallHandlerProvider
         name: r'shouldAcceptCallHandlerProvider',
         isAutoDispose: false,
         dependencies: null,
-        allTransitiveDependencies: null,
+        $allTransitiveDependencies: null,
       );
 
   String debugGetCreateSourceHash() => _$shouldAcceptCallHandlerHash();
@@ -32,7 +32,7 @@ final class ShouldAcceptCallHandlerProvider
   @override
   $ProviderElement<ShouldAcceptCallHandler> $createElement(
     $ProviderPointer pointer,
-  ) => $ProviderElement(this, pointer);
+  ) => $ProviderElement(pointer);
 
   @override
   ShouldAcceptCallHandler create(Ref ref) {
