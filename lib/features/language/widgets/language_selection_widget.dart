@@ -170,7 +170,6 @@ class LanguageSelectionWidget extends StatelessWidget {
                 return _buildLanguageOption(
                   context,
                   language['name'],
-                  language['flag'] ?? '',
                   _resolveCountryCode(language),
                   isSelected,
                   () {
@@ -338,22 +337,18 @@ class LanguageSelectionWidget extends StatelessWidget {
         ),
         child: const Center(child: Icon(Icons.public, size: 18)),
       );
-    if (countryCode != null && countryCode.isNotEmpty) {
-      try {
-        final worldCountry = WorldCountry.fromCode(countryCode.toUpperCase());
-        return CountryFlag.simplified(
-          worldCountry,
-          height: 24,
-          aspectRatio: FlagConstants.defaultAspectRatio,
-        );
-      } catch (_) {}
     }
-    return CountryFlag.simplified(
-      WorldCountry.fromCode(countryCode),
+    try {
+      final worldCountry = WorldCountry.fromCode(countryCode.toUpperCase());
+      return CountryFlag.simplified(
+        worldCountry,
+        height: 24,
+        aspectRatio: FlagConstants.defaultAspectRatio,
+      );
+    } catch (_) {}
     return Container(
       width: 32,
       height: 24,
-      aspectRatio: FlagConstants.defaultAspectRatio,
       decoration: BoxDecoration(
         color: Colors.grey.shade300,
         borderRadius: BorderRadius.circular(4),

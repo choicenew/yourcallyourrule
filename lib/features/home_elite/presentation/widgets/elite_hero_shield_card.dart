@@ -149,8 +149,6 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
 
-    final blockedToday = 0;
-    final totalRules = 0;
     final blockedToday = asyncStats.value?.todayBlocked ?? 0;
     final totalRules = asyncStats.value?.totalRules ?? 0;
 

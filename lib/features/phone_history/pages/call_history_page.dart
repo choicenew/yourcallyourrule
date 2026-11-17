@@ -74,12 +74,10 @@ class _CallHistoryPageState extends ConsumerState<CallHistoryPage> {
     try {
       final callLogService = ref.read(callLogServiceProvider);
       final originalLogs = await callLogService.getRecentLogs();
-      final meta = await _getCallLogMetadata(originalLogs);
 
       if (mounted) {
         setState(() {
           _currentLogs = originalLogs;
-          _meta = meta;
           _isLoading = false;
         });
       }
@@ -117,34 +115,19 @@ class _CallHistoryPageState extends ConsumerState<CallHistoryPage> {
     final regionMap = <String, String?>{};
 
     final uniqueNumbers = logs.map((log) => log.phoneNumber).toSet();
-    for (var number in uniqueNumbers) {
-      final locationEntry = await locationService.getByPhoneNumber(number);
-      regionMap[number] = locationEntry?.region;
     await Future.wait(uniqueNumbers.map((number) async {
       try {
         final locationEntry = await locationService.getByPhoneNumber(number);
         regionMap[number] = locationEntry?.region;
 
-      final parsedResult = await PhoneUtils.parsePhoneNumber(number);
-      final e164Number = parsedResult['e164Number'];
-      if (e164Number != null && e164Number.isNotEmpty) {
-        final entry = await labelService.getLabelByPhoneNumber(
-          e164Number,
-        );
-        if (entry != null) {
-          avatarMap[number] = entry.avatar;
         final parsedResult = await PhoneUtils.parsePhoneNumber(number);
         final e164Number = parsedResult['e164Number'];
         if (e164Number != null && e164Number.isNotEmpty) {
-          final entry = await labelService.getLabelByPhoneNumber(
-            e164Number,
-          );
+          final entry = await labelService.getLabelByPhoneNumber(e164Number);
           if (entry != null) {
             avatarMap[number] = entry.avatar;
           }
         }
-      }
-    }
       } catch (_) {}
     }));
 
