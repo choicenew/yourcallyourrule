@@ -216,8 +216,10 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
     try {
       final phoneService = ref.read(phoneSubscriptionServiceProvider);
       final pluginService = ref.read(pluginManagerServiceProvider);
+      final container = ProviderScope.containerOf(context);
 
       final List<PhoneSubscriptionPayload> subscriptionsToSave = [];
+      final List<String> pluginUrlsToInstall = [];
 
       for (final countryId in _selectedCountryIds) {
         final country = config.countriesData.firstWhere((c) => c.id == countryId);
@@ -226,17 +228,13 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
             : country.getEffectiveUrl(useCdn: _useCdn);
 
         if (country.ruleType.toLowerCase() == 'plugin') {
-          await pluginService.addPluginFromUrl(effectiveUrl);
+          pluginUrlsToInstall.add(effectiveUrl);
         } else {
           final subName = country.name.trim().isNotEmpty ? country.name.trim() : country.id;
           final sub = await phoneService.addSubscription(subName, effectiveUrl);
-          await phoneService.updateRulesFromSubscription(sub);
           subscriptionsToSave.add(sub);
         }
       }
-
-      ref.invalidate(phoneSubscriptionServiceProvider);
-      ref.invalidate(homeStatsProvider);
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -244,6 +242,28 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
         );
         await _exit(context);
       }
+
+      Future.microtask(() async {
+        for (final sub in subscriptionsToSave) {
+          try {
+            await phoneService.updateRulesFromSubscription(sub);
+          } catch (e) {
+            debugPrint('[InitialSetupPage] Background update rules failed for ${sub.displayName}: $e');
+          }
+        }
+
+        for (final pluginUrl in pluginUrlsToInstall) {
+          try {
+            await pluginService.addPluginFromUrl(pluginUrl);
+          } catch (e) {
+            debugPrint('[InitialSetupPage] Background install plugin failed for $pluginUrl: $e');
+          }
+        }
+
+        container.invalidate(phoneSubscriptionServiceProvider);
+        container.invalidate(homeStatsProvider);
+        container.invalidate(pluginManagerServiceProvider);
+      });
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(

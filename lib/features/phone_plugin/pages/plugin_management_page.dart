@@ -154,11 +154,27 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
                 } else {
                   final url = urlController.text.trim();
                   if (url.isNotEmpty) {
-                    await service.addPluginFromUrl(url);
-                    if (mounted) {
-                      Navigator.pop(context);
-                      _loadPlugins();
-                    }
+                    Navigator.pop(context);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(l10n.initialSetupSaving)),
+                    );
+                    Future(() async {
+                      try {
+                        await service.addPluginFromUrl(url);
+                        if (mounted) {
+                          _loadPlugins();
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(l10n.pluginUpdateSuccess)),
+                          );
+                        }
+                      } catch (e) {
+                        if (mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(l10n.addPluginFailedWithError(e.toString()))),
+                          );
+                        }
+                      }
+                    });
                   }
                 }
               },
