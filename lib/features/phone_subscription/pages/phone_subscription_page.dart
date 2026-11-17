@@ -112,7 +112,7 @@ class _PhoneSubscriptionPageState extends ConsumerState<PhoneSubscriptionPage> {
               } catch (e) {
                 if (mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('${isEditing ? l10n.updateSubscriptionFailed : l10n.addSubscriptionFailed}: $e')),
+                    SnackBar(content: Text(isEditing ? l10n.updateSubscriptionFailed(e.toString()) : l10n.addSubscriptionFailed(e.toString()))),
                   );
                 }
               }
@@ -142,7 +142,7 @@ class _PhoneSubscriptionPageState extends ConsumerState<PhoneSubscriptionPage> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('${l10n.updateSubscriptionFailed}: $e'),
+            content: Text(l10n.updateSubscriptionFailed(e.toString())),
             backgroundColor: Colors.red,
           ),
         );

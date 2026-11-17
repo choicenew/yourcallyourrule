@@ -54,11 +54,22 @@ class RuleRepositoryImpl implements RuleRepository {
   }
 
   PhoneRuleEntity _fromdynamic(dynamic data) {
+    if (data is PhoneRuleEntity) {
+      return data;
+    }
+    String actionVal = 'block';
+    try {
+      actionVal = (data.action ?? data.actionType ?? 'block').toString();
+    } catch (_) {
+      try {
+        actionVal = (data.actionType ?? 'block').toString();
+      } catch (_) {}
+    }
     return PhoneRuleEntity.fromMap({
       'id': data.id ?? '',
       'name': data.name,
       'phoneNumber': data.phoneNumber,
-      'actionType': data.action,
+      'actionType': actionVal,
       'priority': data.priority,
       'count': data.count,
       'isEnabled': data.isEnabled == true || data.isEnabled == 1,
@@ -69,11 +80,22 @@ class RuleRepositoryImpl implements RuleRepository {
   }
 
   RegexRuleEntity _fromRegexdynamic(dynamic data) {
+    if (data is RegexRuleEntity) {
+      return data;
+    }
+    String actionVal = 'block';
+    try {
+      actionVal = (data.action ?? data.actionType ?? 'block').toString();
+    } catch (_) {
+      try {
+        actionVal = (data.actionType ?? 'block').toString();
+      } catch (_) {}
+    }
     return RegexRuleEntity.fromMap({
       'id': data.id,
       'name': data.name,
       'pattern': data.pattern ?? '',
-      'actionType': data.action,
+      'actionType': actionVal,
       'priority': data.priority,
       'isEnabled': data.isEnabled == true || data.isEnabled == 1,
       'subscriptionId': data.isSubscribed == 1 ? 'subscribed' : null,

@@ -74,6 +74,7 @@ class PhoneSubscriptionService {
   }
 
   Future<List<PhoneRuleEntity>> updateRulesFromSubscription(PhoneSubscriptionPayload subscription) async {
+    // 纯粹通过 pyro_phone_subscription_hub 分发，遵循 Package 规范
     final downloadUrl = subscription.downloadUrl;
     if (downloadUrl != null && downloadUrl.isNotEmpty) {
       try {

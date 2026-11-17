@@ -24,6 +24,7 @@ abstract class RegexRuleEntity with _$RegexRuleEntity {
   static const String actionAllow = 'allow';
   bool get isBlockAction => actionType.toLowerCase().trim() == actionBlock;
   bool get isAllowAction => actionType.toLowerCase().trim() == actionAllow;
+  String get action => actionType;
 
   bool matches(String input) {
     if (!isEnabled) return false;

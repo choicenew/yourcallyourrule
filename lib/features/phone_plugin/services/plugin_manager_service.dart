@@ -68,6 +68,7 @@ class PluginManagerService {
     return null;
   }
 
+  Future<PluginSourceData?> addPluginFromLocal(String source) async {
   Future<PluginSourceData?> addPluginFromLocal(String filePath) async {
     try {
       final file = File(filePath);

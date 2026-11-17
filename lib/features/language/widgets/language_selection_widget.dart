@@ -101,6 +101,7 @@ class LanguageSelectionWidget extends StatelessWidget {
               children: [
                 Row(
                   children: [
+                    _buildFlagImage(currentLanguage['flag'] ?? ''),
                     _buildFlagImage(_resolveCountryCode(currentLanguage)),
                     const SizedBox(width: 12),
                     Text(
@@ -169,6 +170,7 @@ class LanguageSelectionWidget extends StatelessWidget {
                 return _buildLanguageOption(
                   context,
                   language['name'],
+                  language['flag'] ?? '',
                   _resolveCountryCode(language),
                   isSelected,
                   () {
@@ -326,6 +328,16 @@ class LanguageSelectionWidget extends StatelessWidget {
   }
 
   Widget _buildFlagImage(String? countryCode) {
+    if (countryCode == null || countryCode.isEmpty) {
+      return Container(
+        width: 32,
+        height: 24,
+        decoration: BoxDecoration(
+          color: Colors.grey.shade300,
+          borderRadius: BorderRadius.circular(4),
+        ),
+        child: const Center(child: Icon(Icons.public, size: 18)),
+      );
     if (countryCode != null && countryCode.isNotEmpty) {
       try {
         final worldCountry = WorldCountry.fromCode(countryCode.toUpperCase());
@@ -336,9 +348,12 @@ class LanguageSelectionWidget extends StatelessWidget {
         );
       } catch (_) {}
     }
+    return CountryFlag.simplified(
+      WorldCountry.fromCode(countryCode),
     return Container(
       width: 32,
       height: 24,
+      aspectRatio: FlagConstants.defaultAspectRatio,
       decoration: BoxDecoration(
         color: Colors.grey.shade300,
         borderRadius: BorderRadius.circular(4),

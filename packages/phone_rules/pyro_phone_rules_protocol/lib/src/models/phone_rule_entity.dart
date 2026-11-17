@@ -27,6 +27,7 @@ abstract class PhoneRuleEntity with _$PhoneRuleEntity {
   static const String actionAllow = 'allow';
   bool get isBlockAction => actionType.toLowerCase().trim() == actionBlock;
   bool get isAllowAction => actionType.toLowerCase().trim() == actionAllow;
+  String get action => actionType;
 
   factory PhoneRuleEntity.fromJson(Map<String, dynamic> json) => _$PhoneRuleEntityFromJson(json);
 

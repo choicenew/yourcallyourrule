@@ -47,6 +47,7 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
   void _showAddPluginDialog(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final urlController = TextEditingController();
+    final isZh = Localizations.localeOf(context).languageCode.toLowerCase().startsWith('zh');
     final nameController = TextEditingController();
     final versionController = TextEditingController(text: '1.0.0');
     final descriptionController = TextEditingController();
@@ -54,6 +55,18 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
 
     showDialog(
       context: context,
+      builder: (context) => AlertDialog(
+        title: Text(AppLocalizations.of(context).pluginManagement),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: urlController,
+              decoration: InputDecoration(
+                labelText: isZh ? '插件 CDN / API 规则链接' : 'Plugin CDN / API URL',
+                hintText: 'https://example.com/plugin.js',
+                border: const OutlineInputBorder(),
+              ),
       builder: (context) => StatefulBuilder(
         builder: (context, setDialogState) => AlertDialog(
           title: Text(l10n.addPlugin),
@@ -123,7 +136,17 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
                 ),
               ],
             ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(AppLocalizations.of(context).cancelButton),
           ),
+          ElevatedButton(
+            onPressed: () async {
+              final url = urlController.text.trim();
+              if (url.isNotEmpty) {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
@@ -132,6 +155,10 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
             ElevatedButton(
               onPressed: () async {
                 final service = ref.read(pluginManagerServiceProvider);
+                await service.addPluginFromUrl(url);
+                if (mounted) {
+                  Navigator.pop(context);
+                  _loadPlugins();
                 if (manualEntry) {
                   final name = nameController.text.trim();
                   final url = urlController.text.trim();
@@ -160,6 +187,11 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
                     }
                   }
                 }
+              }
+            },
+            child: Text(AppLocalizations.of(context).add),
+          ),
+        ],
               },
               child: Text(l10n.add),
             ),
@@ -199,6 +231,7 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
   Widget _buildPluginStatusCard(BuildContext context) {
     final installedCount = _plugins.length;
     final theme = Theme.of(context);
+    final isZh = Localizations.localeOf(context).languageCode.toLowerCase().startsWith('zh');
     final l10n = AppLocalizations.of(context);
 
     return Container(
@@ -219,6 +252,7 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
               Icon(Icons.extension_rounded, color: theme.colorScheme.primary, size: 24),
               const SizedBox(width: 12),
               Text(
+                AppLocalizations.of(context).pluginManagement,
                 l10n.pluginManagement,
                 style: TextStyle(
                   fontSize: 16,
@@ -232,6 +266,9 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+              _buildStatusItem(isZh ? '已安装' : 'Installed', '$installedCount', theme),
+              _buildStatusItem(isZh ? '活跃驱动' : 'Active Drivers', '$installedCount', theme),
+              _buildStatusItem(isZh ? '自动更新' : 'Auto Update', isZh ? '开启' : 'ON', theme),
               _buildStatusItem(l10n.installed, '$installedCount', theme),
               _buildStatusItem(l10n.enabled, '$installedCount', theme),
               _buildStatusItem(l10n.autoUpdate, l10n.enabledStatus, theme),
