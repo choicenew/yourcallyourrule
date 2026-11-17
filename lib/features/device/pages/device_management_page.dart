@@ -1,22 +1,22 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pyro_device_master_slave_ui/pyro_device_master_slave_ui.dart';
+import 'package:pyro_device_master_slave_ui/pyro_device_master_slave_ui.dart' hide AppLocalizations;
 import 'package:pyro_device_master_slave/pyro_device_master_slave.dart';
 import 'package:pyro_device_master_slave_protocol/pyro_device_master_slave_protocol.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 设备集群与主从管理页面 —— 100% 渲染包内 pyro_device_master_slave_ui 自注册标准控制面板
+/// 设备集群管理页面 —— 100% 渲染包内自注册标准控制面板，100% 接入标准 AppLocalizations
 class DeviceManagementPage extends ConsumerWidget {
   const DeviceManagementPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final deviceL10n = DeviceMasterSlaveLocalizations.of(context);
-    final manager = MasterSlaveManager(
+    final l10n = AppLocalizations.of(context);
+    final manager = DeviceClusterManager(
       localNode: DeviceNode(
         deviceId: 'local_device_01',
-        deviceName: '${deviceL10n.thisDevice} (${deviceL10n.primaryBadge})',
-        role: DeviceRole.master,
+        deviceName: '${l10n.currentDeviceTitle} (${l10n.masterRoleTitle})',
+        role: DeviceRole.primary,
         lastHeartbeatTime: DateTime.now(),
       ),
     );
@@ -25,7 +25,7 @@ class DeviceManagementPage extends ConsumerWidget {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
-          AppLocalizations.of(context).deviceManagementTitle,
+          l10n.deviceManagementTitle,
           style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20, color: Theme.of(context).colorScheme.onSurface),
         ),
         backgroundColor: Colors.transparent,
@@ -38,7 +38,7 @@ class DeviceManagementPage extends ConsumerWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: DeviceMasterSlaveControlPanel(manager: manager),
+        child: DeviceClusterControlPanel(manager: manager),
       ),
     );
   }

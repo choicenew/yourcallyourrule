@@ -2188,13 +2188,13 @@ class AppLocalizationsZh extends AppLocalizations {
       '支持通过 FilterUiRegistry 动态注册频次阈值、远端风险、时间拦截与双卡卡槽等拦截规则模块。';
 
   @override
-  String get deviceClusterControlPanelTitle => '主从设备集群与初始化权限控制面板';
+  String get deviceClusterControlPanelTitle => '设备集群与节点角色控制面板';
 
   @override
-  String get masterPermissionHelp => '权限: 主设备 (Master) 允许进行全局数据库初始化';
+  String get masterPermissionHelp => '角色: 主设备 (Primary) 拥有全局数据库初始化与协同同步权限。';
 
   @override
-  String get slavePermissionHelp => '权限: 从设备 (Slave) 已拥有全部云端 Key，免去重复初始化';
+  String get slavePermissionHelp => '角色: 从属设备 (Secondary) 具备全量云端安全密钥，直接接收同步，免除重复初始化。';
 
   @override
   String get connectedClusterNodesList => '集群已接入设备节点列表:';
@@ -2204,6 +2204,27 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get localDeviceSuffix => '(本机)';
+
+  @override
+  String get masterSlaveOnboardingTitle => '设备集群与节点角色分配';
+
+  @override
+  String get masterSlaveOnboardingDescription =>
+      '了解主设备与从属设备的角色分工。主设备负责数据库初始化与协同；从属设备继承云端密钥，免除重复初始化。';
+
+  @override
+  String get masterRoleTitle => '主设备 (Primary)';
+
+  @override
+  String get masterRoleDescription =>
+      '具备全局数据库初始化权限，统一管理云端密钥与协同同步。';
+
+  @override
+  String get slaveRoleTitle => '从属设备 (Secondary)';
+
+  @override
+  String get slaveRoleDescription =>
+      '直接继承主设备云端安全密钥，免去重复繁琐的初始化步骤。';
 
   @override
   String get oneDriveAuthDescription => '使用系统配置的 OneDrive 客户端 ID 和密钥进行授权';

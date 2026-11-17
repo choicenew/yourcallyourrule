@@ -2280,15 +2280,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deviceClusterControlPanelTitle =>
-      'Device Cluster & Initialization Control Panel';
+      'Device Cluster & Role Control Panel';
 
   @override
   String get masterPermissionHelp =>
-      'Permission: Master device allowed to initialize global database';
+      'Role: Primary device is authorized to initialize global databases and coordinate sync.';
 
   @override
   String get slavePermissionHelp =>
-      'Permission: Slave device possesses all cloud keys, skipping duplicate initialization';
+      'Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.';
 
   @override
   String get connectedClusterNodesList => 'Connected Cluster Device Nodes:';
@@ -2300,25 +2300,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get localDeviceSuffix => '(This Device)';
 
   @override
-  String get masterSlaveOnboardingTitle => 'Master-Slave Cluster & Node Roles';
+  String get masterSlaveOnboardingTitle => 'Device Cluster & Primary/Secondary Roles';
 
   @override
   String get masterSlaveOnboardingDescription =>
-      'Understand Master vs. Slave device roles to easily sync database structures and cloud keys across multiple devices.';
+      'Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.';
 
   @override
-  String get masterRoleTitle => 'Master Device (Primary Node)';
+  String get masterRoleTitle => 'Primary Device';
 
   @override
   String get masterRoleDescription =>
       'Can initialize global databases and manage cloud synchronization keys.';
 
   @override
-  String get slaveRoleTitle => 'Slave Device (Secondary Node)';
+  String get slaveRoleTitle => 'Secondary Device';
 
   @override
   String get slaveRoleDescription =>
-      'Inherits cloud keys from Master without repeating initial setup.';
+      'Inherits cloud keys from Primary device without repeating initial setup.';
 
   @override
   String get oneDriveAuthDescription =>

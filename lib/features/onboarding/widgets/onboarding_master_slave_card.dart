@@ -1,26 +1,26 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_device_master_slave_protocol/pyro_device_master_slave_protocol.dart';
-import 'package:pyro_device_master_slave_ui/pyro_device_master_slave_ui.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 引导页：设备集群与节点角色介绍卡片组件（100% Primary/Secondary 规范与标准国际化）
-class OnboardingMasterSlaveCard extends ConsumerStatefulWidget {
-  const OnboardingMasterSlaveCard({super.key});
+/// 引导页：设备集群与节点角色介绍卡片组件（100% 标准 AppLocalizations 国际化）
+class OnboardingDeviceClusterCard extends ConsumerStatefulWidget {
+  const OnboardingDeviceClusterCard({super.key});
 
   @override
-  ConsumerState<OnboardingMasterSlaveCard> createState() => _OnboardingMasterSlaveCardState();
+  ConsumerState<OnboardingDeviceClusterCard> createState() => _OnboardingDeviceClusterCardState();
 }
 
-class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlaveCard> {
-  DeviceRole _selectedRole = DeviceRole.master;
+class _OnboardingDeviceClusterCardState extends ConsumerState<OnboardingDeviceClusterCard> {
+  DeviceRole _selectedRole = DeviceRole.primary;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    final deviceL10n = DeviceMasterSlaveLocalizations.of(context);
+    final l10n = AppLocalizations.of(context);
 
-    final isPrimary = _selectedRole == DeviceRole.master;
+    final isPrimary = _selectedRole == DeviceRole.primary;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -68,7 +68,7 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
                           Row(
                             children: [
                               Text(
-                                isPrimary ? deviceL10n.primaryRole : deviceL10n.secondaryRole,
+                                isPrimary ? l10n.masterRoleTitle : l10n.slaveRoleTitle,
                                 style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
@@ -86,7 +86,7 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
                                   ),
                                 ),
                                 child: Text(
-                                  isPrimary ? deviceL10n.primaryBadge : deviceL10n.secondaryBadge,
+                                  isPrimary ? l10n.masterRoleTitle : l10n.slaveRoleTitle,
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.bold,
@@ -98,7 +98,7 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            isPrimary ? deviceL10n.primaryDesc : deviceL10n.secondaryDesc,
+                            isPrimary ? l10n.masterRoleDescription : l10n.slaveRoleDescription,
                             style: TextStyle(fontSize: 11, color: colorScheme.onSurfaceVariant),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -125,7 +125,7 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
                       const SizedBox(width: 8),
                       Expanded(
                         child: Text(
-                          isPrimary ? deviceL10n.primaryDesc : deviceL10n.secondaryDesc,
+                          isPrimary ? l10n.masterPermissionHelp : l10n.slavePermissionHelp,
                           style: TextStyle(
                             fontSize: 11,
                             color: colorScheme.onSurfaceVariant,
@@ -141,7 +141,7 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
           ),
           const SizedBox(height: 24),
           Text(
-            deviceL10n.clusterOnboardingTitle,
+            l10n.masterSlaveOnboardingTitle,
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -150,7 +150,7 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
           ),
           const SizedBox(height: 8),
           Text(
-            deviceL10n.clusterOnboardingDesc,
+            l10n.masterSlaveOnboardingDescription,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 13,
@@ -160,7 +160,7 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
           ),
           const SizedBox(height: 16),
 
-          // 下层：角色快选体验 SegmentedButton (全宽、无单行挤压、无硬编码)
+          // 下层：角色快选体验 SegmentedButton (100% 标准 AppLocalizations 国际化、无单行挤压、无硬编码)
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
@@ -174,13 +174,13 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
                 SegmentedButton<DeviceRole>(
                   segments: [
                     ButtonSegment(
-                      value: DeviceRole.master,
-                      label: Text(deviceL10n.primaryRole),
+                      value: DeviceRole.primary,
+                      label: Text(l10n.masterRoleTitle),
                       icon: const Icon(Icons.stars_rounded, size: 16),
                     ),
                     ButtonSegment(
-                      value: DeviceRole.slave,
-                      label: Text(deviceL10n.secondaryRole),
+                      value: DeviceRole.secondary,
+                      label: Text(l10n.slaveRoleTitle),
                       icon: const Icon(Icons.phone_android_rounded, size: 16),
                     ),
                   ],
@@ -199,3 +199,6 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
     );
   }
 }
+
+/// 兼容历史命名的别名导出
+typedef OnboardingMasterSlaveCard = OnboardingDeviceClusterCard;
