@@ -9010,6 +9010,12 @@ abstract class AppLocalizations {
   String get ruleStoreTitle => 'Rule Store';
   String get primaryRoleTitle => 'Primary';
   String get secondaryRoleTitle => 'Secondary';
+  String get primaryRoleDescription => 'Acts as the primary hub, managing rules and synchronization.';
+  String get secondaryRoleDescription => 'Acts as a secondary node, receiving rules and reporting state.';
+  String get primaryPermissionHelp => 'Requires full permissions for call and SMS processing.';
+  String get secondaryPermissionHelp => 'Requires sync and notification permissions only.';
+  String get clusterOnboardingTitle => 'Device Cluster Setup';
+  String get clusterOnboardingDescription => 'Configure your device role in the cluster for seamless cross-device synchronization.';
 }
 
 class _AppLocalizationsDelegate

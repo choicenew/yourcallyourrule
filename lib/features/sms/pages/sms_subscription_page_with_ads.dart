@@ -1,4 +1,6 @@
 ﻿export 'sms_subscription_page.dart';
 import 'sms_subscription_page.dart';
 
-typedef SmsSubscriptionPageWithAds = SmsSubscriptionPage;
+class SmsSubscriptionPageWithAds extends SmsSubscriptionPage {
+  const SmsSubscriptionPageWithAds({super.key});
+}

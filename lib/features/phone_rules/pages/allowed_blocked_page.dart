@@ -13,7 +13,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 final allowedRulesListProvider = FutureProvider.autoDispose<List<PhoneRuleEntity>>((ref) async {
   final allowedBlockedSvc = ref.watch(allowedBlockedServiceProvider);
-  return await allowedBlockedSvc.getAllAllowedRules();
+  return await allowedBlockedSvc.getAllAllowedBlockedRules();
 });
 
 class AllowedBlockedPage extends ConsumerStatefulWidget {
@@ -182,6 +182,96 @@ class _AllowedBlockedPageState extends ConsumerState<AllowedBlockedPage> {
     }
   }
 
+  void _showEditRuleDialog(BuildContext context, PhoneRuleEntity rule) {
+    final phoneController = TextEditingController(text: rule.phoneNumber);
+    final nameController = TextEditingController(text: rule.name);
+    String? selectedLabelId = rule.labelId;
+    bool isAllowed = rule.actionType == RuleActionType.allow.name;
+
+    showDialog(
+      context: context,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setDialogState) => AlertDialog(
+          title: Text(AppLocalizations.of(context).editRule),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                  controller: phoneController,
+                  decoration: InputDecoration(
+                    labelText: AppLocalizations.of(context).phoneNumber,
+                    border: const OutlineInputBorder(),
+                  ),
+                  keyboardType: TextInputType.phone,
+                ),
+                const SizedBox(height: 12),
+                TextField(
+                  controller: nameController,
+                  decoration: InputDecoration(
+                    labelText: AppLocalizations.of(context).ruleName,
+                    border: const OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                PublicSelectLabel(
+                  initialLabelId: selectedLabelId,
+                  onLabelIdChanged: (labelId) {
+                    selectedLabelId = labelId;
+                  },
+                ),
+                const SizedBox(height: 12),
+                SegmentedButton<bool>(
+                  segments: [
+                    ButtonSegment(value: true, label: Text(AppLocalizations.of(context).allow)),
+                    ButtonSegment(value: false, label: Text(AppLocalizations.of(context).block)),
+                  ],
+                  selected: {isAllowed},
+                  onSelectionChanged: (selected) {
+                    setDialogState(() => isAllowed = selected.first);
+                  },
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                _deleteRule(rule);
+              },
+              style: TextButton.styleFrom(foregroundColor: Theme.of(context).colorScheme.error),
+              child: Text(AppLocalizations.of(context).delete),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text(AppLocalizations.of(context).cancelButton),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final phone = phoneController.text.trim();
+                final name = nameController.text.trim();
+                if (phone.isNotEmpty) {
+                  final service = ref.read(allowedBlockedServiceProvider);
+                  final updated = rule.copyWith(
+                    name: name.isNotEmpty ? name : phone,
+                    phoneNumber: phone,
+                    labelId: selectedLabelId ?? '',
+                    actionType: isAllowed ? RuleActionType.allow.name : RuleActionType.block.name,
+                  );
+                  await service.updateAllowedBlockedRule(updated);
+                  ref.invalidate(allowedRulesListProvider);
+                  if (context.mounted) Navigator.pop(context);
+                }
+              },
+              child: Text(AppLocalizations.of(context).save),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildInfoCard(BuildContext context, AppLocalizations l10n) {
     final primaryColor = Theme.of(context).colorScheme.primary;
     return Container(
@@ -306,7 +396,7 @@ class _AllowedBlockedPageState extends ConsumerState<AllowedBlockedPage> {
               }
             });
           } else {
-            _deleteRule(rule);
+            _showEditRuleDialog(context, rule);
           }
         },
       ),
@@ -314,6 +404,3 @@ class _AllowedBlockedPageState extends ConsumerState<AllowedBlockedPage> {
     );
   }
 }
-
-/// 兼容别名：100% 对齐 elite-ui 路由与命名规范
-typedef AllowedBlockedPageWithAds = AllowedBlockedPage;

@@ -41,6 +41,16 @@ class AllowedBlockedService {
     return rules.where((r) => r.actionType == RuleActionType.block.name && r.isEnabled).toList();
   }
 
+  Future<List<PhoneRuleEntity>> getAllAllowedBlockedRules() async {
+    final rules = await _ruleRepository.getAll();
+    return rules.where((r) =>
+      (r.actionType == RuleActionType.allow.name ||
+       r.actionType == RuleActionType.block.name ||
+       r.actionType == RuleActionType.silence.name) &&
+      r.ruleType != 'subscription'
+    ).toList();
+  }
+
   Future<List<PhoneRuleEntity>> getRulesByActionType(PhoneNumber phoneNumber, RuleAction? action) async {
     final rules = await _ruleRepository.getAll();
     return rules.where((rule) {

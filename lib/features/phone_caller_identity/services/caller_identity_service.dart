@@ -15,34 +15,28 @@ import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart
 
 part 'caller_identity_service.g.dart';
 
-typedef CallerContactResolver = Future<dynamic> Function(vo.PhoneNumber phone);
-typedef CallerRulesResolver = Future<List<PhoneRuleEntity>> Function(vo.PhoneNumber phone);
-typedef CallerLabelResolver = Future<LabelPhoneEntry?> Function(String phoneNumber);
-typedef CallerPredefinedLabelResolver = Future<PredefinedLabel?> Function(String labelId);
-typedef CallerRemoteNumberResolver = Future<RemoteNumberEntry?> Function(vo.PhoneNumber phone);
-
 @Riverpod(keepAlive: true)
 CallerIdentityService callerIdentityService(Ref ref) {
   return CallerIdentityService();
 }
 
 class CallerIdentityService {
-  CallerContactResolver? _contactResolver;
-  CallerRulesResolver? _rulesResolver;
-  CallerLabelResolver? _labelResolver;
-  CallerPredefinedLabelResolver? _predefinedLabelResolver;
-  CallerRemoteNumberResolver? _remoteNumberResolver;
+  Future<dynamic> Function(vo.PhoneNumber phone)? _contactResolver;
+  Future<List<PhoneRuleEntity>> Function(vo.PhoneNumber phone)? _rulesResolver;
+  Future<LabelPhoneEntry?> Function(String phoneNumber)? _labelResolver;
+  Future<PredefinedLabel?> Function(String labelId)? _predefinedLabelResolver;
+  Future<RemoteNumberEntry?> Function(vo.PhoneNumber phone)? _remoteNumberResolver;
 
   final BehaviorSubject<PluginSourceData> _pluginDataSubject = BehaviorSubject<PluginSourceData>();
   final BehaviorSubject<CallerIdData> _callerIdSubject = BehaviorSubject<CallerIdData>();
   final BehaviorSubject<LabelPhoneEntry> _labelPhoneEntrySubject = BehaviorSubject<LabelPhoneEntry>();
 
   CallerIdentityService({
-    CallerContactResolver? contactResolver,
-    CallerRulesResolver? rulesResolver,
-    CallerLabelResolver? labelResolver,
-    CallerPredefinedLabelResolver? predefinedLabelResolver,
-    CallerRemoteNumberResolver? remoteNumberResolver,
+    Future<dynamic> Function(vo.PhoneNumber phone)? contactResolver,
+    Future<List<PhoneRuleEntity>> Function(vo.PhoneNumber phone)? rulesResolver,
+    Future<LabelPhoneEntry?> Function(String phoneNumber)? labelResolver,
+    Future<PredefinedLabel?> Function(String labelId)? predefinedLabelResolver,
+    Future<RemoteNumberEntry?> Function(vo.PhoneNumber phone)? remoteNumberResolver,
   })  : _contactResolver = contactResolver,
         _rulesResolver = rulesResolver,
         _labelResolver = labelResolver,
@@ -50,11 +44,11 @@ class CallerIdentityService {
         _remoteNumberResolver = remoteNumberResolver;
 
   void bindResolvers({
-    CallerContactResolver? contactResolver,
-    CallerRulesResolver? rulesResolver,
-    CallerLabelResolver? labelResolver,
-    CallerPredefinedLabelResolver? predefinedLabelResolver,
-    CallerRemoteNumberResolver? remoteNumberResolver,
+    Future<dynamic> Function(vo.PhoneNumber phone)? contactResolver,
+    Future<List<PhoneRuleEntity>> Function(vo.PhoneNumber phone)? rulesResolver,
+    Future<LabelPhoneEntry?> Function(String phoneNumber)? labelResolver,
+    Future<PredefinedLabel?> Function(String labelId)? predefinedLabelResolver,
+    Future<RemoteNumberEntry?> Function(vo.PhoneNumber phone)? remoteNumberResolver,
   }) {
     if (contactResolver != null) _contactResolver = contactResolver;
     if (rulesResolver != null) _rulesResolver = rulesResolver;

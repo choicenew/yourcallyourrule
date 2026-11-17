@@ -84,28 +84,115 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
   }
 
   void _showMoreOptions() {
-    // 更多操作 BottomSheet
+    final l10n = AppLocalizations.of(context);
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.select_all_rounded),
+              title: Text(l10n.bulkDelete),
+              onTap: () {
+                Navigator.pop(ctx);
+                setState(() {
+                  _isMultiSelectMode = true;
+                });
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.refresh_rounded),
+              title: Text(l10n.refresh),
+              onTap: () {
+                Navigator.pop(ctx);
+                ref.invalidate(contactsStreamProvider);
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showEditContactDialog(PhoneContactEntry item) {
+    final l10n = AppLocalizations.of(context);
+    final nameController = TextEditingController(text: item.name);
+    final phoneController = TextEditingController(text: item.phoneNumber);
+
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(l10n.editContact),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: nameController,
+              decoration: InputDecoration(labelText: l10n.contactNameLabel),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: phoneController,
+              decoration: InputDecoration(labelText: l10n.phoneNumberLabel),
+              keyboardType: TextInputType.phone,
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text(l10n.cancelButton),
+          ),
+          ElevatedButton(
+            onPressed: () async {
+              final name = nameController.text.trim();
+              final phone = phoneController.text.trim();
+              if (name.isNotEmpty && phone.isNotEmpty) {
+                final driver = PhoneContactsControlCenter.instance.readerDriver;
+                try {
+                  (driver as dynamic)?.addContact(PhoneContactEntry(
+                    id: item.id,
+                    name: name,
+                    phoneNumber: phone,
+                  ));
+                } catch (_) {}
+                if (mounted) {
+                  Navigator.pop(ctx);
+                  ref.invalidate(contactsStreamProvider);
+                }
+              }
+            },
+            child: Text(l10n.saveButton),
+          ),
+        ],
+      ),
+    );
   }
 
   void _showAddContactDialog() {
+    final l10n = AppLocalizations.of(context);
     final nameController = TextEditingController();
     final phoneController = TextEditingController();
 
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text(AppLocalizations.of(context).addContactButton),
+        title: Text(l10n.addContactButton),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
               controller: nameController,
-              decoration: const InputDecoration(labelText: 'Contact Name'),
+              decoration: InputDecoration(labelText: l10n.contactNameLabel),
             ),
             const SizedBox(height: 12),
             TextField(
               controller: phoneController,
-              decoration: const InputDecoration(labelText: 'Phone Number'),
+              decoration: InputDecoration(labelText: l10n.phoneNumberLabel),
               keyboardType: TextInputType.phone,
             ),
           ],
@@ -113,7 +200,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(AppLocalizations.of(context).cancelButton),
+            child: Text(l10n.cancelButton),
           ),
           ElevatedButton(
             onPressed: () async {
@@ -125,14 +212,17 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
                   name: name,
                   phoneNumber: phone,
                 );
-                await PhoneContactsControlCenter.instance.isContact(phone);
+                final driver = PhoneContactsControlCenter.instance.readerDriver;
+                try {
+                  (driver as dynamic)?.addContact(entry);
+                } catch (_) {}
                 if (mounted) {
                   Navigator.pop(context);
-                  ref.refresh(contactsStreamProvider);
+                  ref.invalidate(contactsStreamProvider);
                 }
               }
             },
-            child: Text(AppLocalizations.of(context).add),
+            child: Text(l10n.add),
           ),
         ],
       ),
@@ -206,6 +296,8 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
                 _selectedContactIds.add(item.id);
               }
             });
+          } else {
+            _showEditContactDialog(item);
           }
         },
       ),
@@ -213,6 +305,3 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
     );
   }
 }
-
-/// 兼容别名：100% 对齐 elite-ui 路由与命名规范
-typedef ContactsManagementPageWithAds = ContactsManagementPage;

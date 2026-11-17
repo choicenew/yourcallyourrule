@@ -68,7 +68,7 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
                           Row(
                             children: [
                               Text(
-                                isPrimary ? l10n.masterRoleTitle : l10n.slaveRoleTitle,
+                                isPrimary ? l10n.primaryRoleTitle : l10n.secondaryRoleTitle,
                                 style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
@@ -86,7 +86,7 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
                                   ),
                                 ),
                                 child: Text(
-                                  isPrimary ? l10n.masterRoleTitle : l10n.slaveRoleTitle,
+                                  isPrimary ? l10n.primaryRoleTitle : l10n.secondaryRoleTitle,
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.bold,
@@ -98,7 +98,7 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            isPrimary ? l10n.masterRoleDescription : l10n.slaveRoleDescription,
+                            isPrimary ? l10n.primaryRoleDescription : l10n.secondaryRoleDescription,
                             style: TextStyle(fontSize: 11, color: colorScheme.onSurfaceVariant),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -125,7 +125,7 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
                       const SizedBox(width: 8),
                       Expanded(
                         child: Text(
-                          isPrimary ? l10n.masterPermissionHelp : l10n.slavePermissionHelp,
+                          isPrimary ? l10n.primaryPermissionHelp : l10n.secondaryPermissionHelp,
                           style: TextStyle(
                             fontSize: 11,
                             color: colorScheme.onSurfaceVariant,
@@ -141,7 +141,7 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
           ),
           const SizedBox(height: 24),
           Text(
-            l10n.masterSlaveOnboardingTitle,
+            l10n.clusterOnboardingTitle,
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -150,7 +150,7 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
           ),
           const SizedBox(height: 8),
           Text(
-            l10n.masterSlaveOnboardingDescription,
+            l10n.clusterOnboardingDescription,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 13,
@@ -175,12 +175,12 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
                   segments: [
                     ButtonSegment(
                       value: DeviceRole.primary,
-                      label: Text(l10n.masterRoleTitle),
+                      label: Text(l10n.primaryRoleTitle),
                       icon: const Icon(Icons.stars_rounded, size: 16),
                     ),
                     ButtonSegment(
                       value: DeviceRole.secondary,
-                      label: Text(l10n.slaveRoleTitle),
+                      label: Text(l10n.secondaryRoleTitle),
                       icon: const Icon(Icons.phone_android_rounded, size: 16),
                     ),
                   ],

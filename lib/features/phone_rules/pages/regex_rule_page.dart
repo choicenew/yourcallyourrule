@@ -444,6 +444,3 @@ class _RegexRulePageState extends ConsumerState<RegexRulePage> {
     );
   }
 }
-
-/// 兼容别名：100% 对齐 elite-ui 路由与命名规范
-typedef RegexRulePageWithAds = RegexRulePage;

@@ -39,7 +39,7 @@ class CallHistoryPage extends ConsumerStatefulWidget {
 }
 
 class _CallHistoryPageState extends ConsumerState<CallHistoryPage> {
-  List<CallLog> _currentLogs = [];
+  List<CallLogEntry> _currentLogs = [];
   CallLogMeta? _meta;
   bool _isLoading = true;
   bool _isInitialized = false;
@@ -98,7 +98,7 @@ class _CallHistoryPageState extends ConsumerState<CallHistoryPage> {
     }
   }
 
-  Future<CallLogMeta> _getCallLogMetadata(List<CallLog> logs) async {
+  Future<CallLogMeta> _getCallLogMetadata(List<CallLogEntry> logs) async {
     final predefinedLabelService = ref.read(predefinedLabelServiceProvider);
     final labelService = ref.read(labelServiceProvider);
     final locationService = ref.read(locationServiceProvider);
@@ -133,7 +133,7 @@ class _CallHistoryPageState extends ConsumerState<CallHistoryPage> {
     );
   }
 
-  List<CallLog> _getFilteredLogs() {
+  List<CallLogEntry> _getFilteredLogs() {
     if (_isLoading) return [];
 
     final localizations = AppLocalizations.of(context);
@@ -362,7 +362,7 @@ class _CallHistoryPageState extends ConsumerState<CallHistoryPage> {
     final localizations = AppLocalizations.of(context);
     final theme = Theme.of(context);
 
-    return GenericTimelinePage<CallLog>(
+    return GenericTimelinePage<CallLogEntry>(
       title: localizations.callHistory,
       themeColor: theme.colorScheme.primary,
       items: _getFilteredLogs(),
@@ -394,7 +394,7 @@ class _CallHistoryPageState extends ConsumerState<CallHistoryPage> {
     );
   }
 
-  Widget _buildCallLogCard(CallLog log) {
+  Widget _buildCallLogCard(CallLogEntry log) {
     return CallLogCard(
       key: ValueKey(log.id),
       log: log,
@@ -427,7 +427,7 @@ class _CallHistoryPageState extends ConsumerState<CallHistoryPage> {
 
 /// 独立的 Header Widget (双 Dopamine 统计卡片与分类 Tab)
 class _CallHistoryHeader extends StatefulWidget {
-  final List<CallLog> allItems;
+  final List<CallLogEntry> allItems;
   final String? selectedLabelId;
   final ValueChanged<String> onTabChanged;
   final ValueChanged<String?> onLabelChanged;

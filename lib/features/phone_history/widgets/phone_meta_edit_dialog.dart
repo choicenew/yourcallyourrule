@@ -11,11 +11,11 @@ import 'package:yourcallyourrule/features/labels/services/label_mark_statistics_
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class PhoneMetaEditDialog extends ConsumerStatefulWidget {
-  final CallLog log;
+  final CallLogEntry log;
 
   const PhoneMetaEditDialog({super.key, required this.log});
 
-  static Future<bool> show(BuildContext context, {required CallLog log}) async {
+  static Future<bool> show(BuildContext context, {required CallLogEntry log}) async {
     final bool? dataChanged = await showDialog<bool>(
       context: context,
       builder: (_) => PhoneMetaEditDialog(log: log),

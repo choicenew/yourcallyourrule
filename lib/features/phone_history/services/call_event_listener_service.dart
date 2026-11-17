@@ -10,8 +10,6 @@ import 'package:yourcallyourrule/features/phone_monitor/services/caller_id_monit
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
-typedef CallData = CallerIdData;
-
 class CallEventListenerService {
   final Ref _ref;
   final CallLogService _callLogService;
@@ -19,7 +17,7 @@ class CallEventListenerService {
   final PredefinedLabelService _predefinedLabelService;
   late final CallLogRecorder _callLogRecorder;
 
-  final Map<String, CallData> _processedCallDataBuffer = {};
+  final Map<String, CallerIdData> _processedCallDataBuffer = {};
 
   CallEventListenerService(
     this._ref,

@@ -14,7 +14,7 @@ class LabelTextUtils {
     return LabelTranslationUtils.translateLabelText(context, labelText);
   }
 
-  static Future<String?> getLabelTextFromCallLog(BuildContext context, WidgetRef ref, CallLog log) async {
+  static Future<String?> getLabelTextFromCallLog(BuildContext context, WidgetRef ref, CallLogEntry log) async {
     if (log.labelIds == null || log.labelIds!.isEmpty) {
       return null;
     }
@@ -37,7 +37,7 @@ class LabelTextUtils {
     return await getLabelTextById(context, ref, labelId);
   }
 
-  static Future<String?> getTranslatedLabelFromCallLog(BuildContext context, WidgetRef ref, CallLog log) async {
+  static Future<String?> getTranslatedLabelFromCallLog(BuildContext context, WidgetRef ref, CallLogEntry log) async {
     return await getLabelTextFromCallLog(context, ref, log);
   }
 

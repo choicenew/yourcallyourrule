@@ -19,7 +19,7 @@ class _CallTypeInfo {
 }
 
 class CallLogCard extends ConsumerWidget {
-  final CallLog log;
+  final CallLogEntry log;
   final Map<String, String> labelIdToTextMap;
   final String? avatarPath;
   final String? region;

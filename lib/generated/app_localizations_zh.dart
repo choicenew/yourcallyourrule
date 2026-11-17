@@ -4877,6 +4877,30 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get ruleStoreTitle => '规则库商店';
+
+  @override
+  String get primaryRoleTitle => '主设备';
+
+  @override
+  String get secondaryRoleTitle => '协同从设备';
+
+  @override
+  String get primaryRoleDescription => '作为集群中枢主节点，全权管理规则制定、拦截判定与数据同步。';
+
+  @override
+  String get secondaryRoleDescription => '作为从属辅助节点，接收同步规则并上报设备状态。';
+
+  @override
+  String get primaryPermissionHelp => '需要通话与短信全部核心权限以确保主设备实时拦截。';
+
+  @override
+  String get secondaryPermissionHelp => '仅需同步与通知权限即可实现多端协同。';
+
+  @override
+  String get clusterOnboardingTitle => '设备集群拓扑配置';
+
+  @override
+  String get clusterOnboardingDescription => '选择本台设备在跨端协同集群中的定位与角色，支持随时切换。';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -14284,6 +14308,30 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
 
   @override
   String get ruleStoreTitle => '规则库商店';
+
+  @override
+  String get primaryRoleTitle => '主设备';
+
+  @override
+  String get secondaryRoleTitle => '协同从设备';
+
+  @override
+  String get primaryRoleDescription => '作为集群中枢主节点，全权管理规则制定、拦截判定与数据同步。';
+
+  @override
+  String get secondaryRoleDescription => '作为从属辅助节点，接收同步规则并上报设备状态。';
+
+  @override
+  String get primaryPermissionHelp => '需要通话与短信全部核心权限以确保主设备实时拦截。';
+
+  @override
+  String get secondaryPermissionHelp => '仅需同步与通知权限即可实现多端协同。';
+
+  @override
+  String get clusterOnboardingTitle => '设备集群拓扑配置';
+
+  @override
+  String get clusterOnboardingDescription => '选择本台设备在跨端协同集群中的定位与角色，支持随时切换。';
 }
 
 /// The translations for Chinese, as used in Macao (`zh_MO`).
@@ -19044,6 +19092,30 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
 
   @override
   String get ruleStoreTitle => '规则库商店';
+
+  @override
+  String get primaryRoleTitle => '主设备';
+
+  @override
+  String get secondaryRoleTitle => '协同从设备';
+
+  @override
+  String get primaryRoleDescription => '作为集群中枢主节点，全权管理规则制定、拦截判定与数据同步。';
+
+  @override
+  String get secondaryRoleDescription => '作为从属辅助节点，接收同步规则并上报设备状态。';
+
+  @override
+  String get primaryPermissionHelp => '需要通话与短信全部核心权限以确保主设备实时拦截。';
+
+  @override
+  String get secondaryPermissionHelp => '仅需同步与通知权限即可实现多端协同。';
+
+  @override
+  String get clusterOnboardingTitle => '设备集群拓扑配置';
+
+  @override
+  String get clusterOnboardingDescription => '选择本台设备在跨端协同集群中的定位与角色，支持随时切换。';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -23688,4 +23760,28 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get ruleStoreTitle => '规则库商店';
+
+  @override
+  String get primaryRoleTitle => '主设备';
+
+  @override
+  String get secondaryRoleTitle => '协同从设备';
+
+  @override
+  String get primaryRoleDescription => '作为集群中枢主节点，全权管理规则制定、拦截判定与数据同步。';
+
+  @override
+  String get secondaryRoleDescription => '作为从属辅助节点，接收同步规则并上报设备状态。';
+
+  @override
+  String get primaryPermissionHelp => '需要通话与短信全部核心权限以确保主设备实时拦截。';
+
+  @override
+  String get secondaryPermissionHelp => '仅需同步与通知权限即可实现多端协同。';
+
+  @override
+  String get clusterOnboardingTitle => '设备集群拓扑配置';
+
+  @override
+  String get clusterOnboardingDescription => '选择本台设备在跨端协同集群中的定位与角色，支持随时切换。';
 }
