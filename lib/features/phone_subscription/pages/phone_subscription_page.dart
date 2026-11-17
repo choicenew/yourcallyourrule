@@ -42,6 +42,7 @@ class _PhoneSubscriptionPageState extends ConsumerState<PhoneSubscriptionPage> {
       _isMultiSelectMode = false;
     });
     ref.invalidate(phoneSubscriptionsListProvider);
+    ref.invalidate(homeStatsProvider);
   }
 
   Future<void> _showAddOrEditSubscriptionDialog({PhoneSubscriptionPayload? subscription}) async {
@@ -151,6 +152,7 @@ class _PhoneSubscriptionPageState extends ConsumerState<PhoneSubscriptionPage> {
       if (mounted) {
         setState(() => _updatingPayloadIds.remove(sub.payloadId));
         ref.invalidate(phoneSubscriptionsListProvider);
+        ref.invalidate(homeStatsProvider);
       }
     }
   }
