@@ -47,7 +47,7 @@ class AllowedBlockedService {
       (r.actionType == RuleActionType.allow.name ||
        r.actionType == RuleActionType.block.name ||
        r.actionType == RuleActionType.silence.name) &&
-      r.ruleType != 'subscription'
+      !r.isSubscribed
     ).toList();
   }
 

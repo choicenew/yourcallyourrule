@@ -2510,5 +2510,11 @@
   "callRedirectionSettingsSubtitle": "防范回拨吸费诈骗、3秒超时兜底与车载模式保护",
   "ruleStoreTitle": "规则库商店",
   "primaryRoleTitle": "主设备",
-  "secondaryRoleTitle": "从设备"
+  "secondaryRoleTitle": "从设备",
+  "primaryRoleDescription": "具备全局数据库初始化与规则协同管理权限。",
+  "secondaryRoleDescription": "直接继承主设备规则与云端密钥，免除重复初始化。",
+  "primaryPermissionHelp": "主设备需要完整电话与短信处理权限。",
+  "secondaryPermissionHelp": "从设备仅需要同步与通知相关权限。",
+  "clusterOnboardingTitle": "设备集群与节点角色分配",
+  "clusterOnboardingDescription": "配置本设备在多设备集群中的角色分工，实现无缝协同同步。"
 }

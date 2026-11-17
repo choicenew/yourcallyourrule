@@ -20838,6 +20838,123 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String labelTag(Object labelId) {
+    return '標籤：$labelId';
+  }
+
+  @override
+  String labelUpdateFailed(Object error) {
+    return '更新標籤失敗：$error';
+  }
+
+  @override
+  String get labelUpdateSuccess => '標籤 \"\$labelText\" 更新成功';
+
+  @override
+  String get languageSettings => '語言設定';
+
+  @override
+  String get languageSettingsSubtitle => '變更應用程式顯示語言';
+
+  @override
+  String get languageSettingsTitle => '語言設定';
+
+  @override
+  String get lastSyncLabel => '上次同步';
+
+  @override
+  String lastUpdated(Object date) {
+    return '上次更新時間：$date';
+  }
+
+  @override
+  String get lifetimeMembership => '終身會員';
+
+  @override
+  String get lifetimeMembershipDescription => '一次性購買，永久解鎖所有高級功能和未來更新';
+
+  @override
+  String loadContactsFailed(Object error) {
+    return '載入聯絡人失敗：$error';
+  }
+
+  @override
+  String get loadDataFailed => '載入資料失敗';
+
+  @override
+  String get loading => '載入中...';
+
+  @override
+  String get loadingTags => '載入標籤中...';
+
+  @override
+  String loadLabelFailed(Object error) {
+    return '載入標籤失敗：$error';
+  }
+
+  @override
+  String loadLabelsFailed(Object error) {
+    return '載入標籤失敗: $error';
+  }
+
+  @override
+  String loadMarkCountFailed(Object error) {
+    return '載入標記的電話號碼失敗: $error';
+  }
+
+  @override
+  String loadMarkedPhonesFailed(Object error) {
+    return '載入標記的電話失敗: $error';
+  }
+
+  @override
+  String loadPluginsFailed(Object error) {
+    return '載入外掛程式失敗: $error';
+  }
+
+  @override
+  String loadSettingsFailed(Object error) {
+    return '載入設定失敗: $error';
+  }
+
+  @override
+  String loadSmsRulesFailed(Object error) {
+    return '載入簡訊規則失敗: $error';
+  }
+
+  @override
+  String get loadStatusFailedMessage => '載入狀態失敗';
+
+  @override
+  String loadSubscriptionsFailed(Object error) {
+    return '載入訂閱項目失敗: $error';
+  }
+
+  @override
+  String get loan => '貸款';
+
+  @override
+  String get localCounterFilter => '本地計數器過濾器';
+
+  @override
+  String get localCounterFilterSubtitle => '根據通話頻率自動過濾垃圾電話';
+
+  @override
+  String get localCountFilter => '本地標記閾值防護';
+
+  @override
+  String get localCountFilterDescription => '自動攔截超過本地標記閾值的來電';
+
+  @override
+  String get localCountFilterExplanationContent =>
+      '本地計數過濾器會分析通話記錄，以自動識別和阻止頻繁的垃圾電話。';
+
+  @override
+  String get localCountFilterExplanationTitle => '本地計數過濾器說明';
+
+  @override
+  String get localCountFilterHowItWorksPoint1 => '• 確定是否根據號碼的計數值進行阻止';
+
+  @override
   String get localCountFilterHowItWorksPoint2 => '• 當號碼的計數超過設定的閾值時，您可以選擇自動阻止它';
 
   @override

@@ -2519,5 +2519,11 @@
   "callRedirectionSettingsSubtitle": "Protect against toll fraud, 3s timeout fallback & in-car mode",
   "ruleStoreTitle": "Rule Store",
   "primaryRoleTitle": "Primary",
-  "secondaryRoleTitle": "Secondary"
+  "secondaryRoleTitle": "Secondary",
+  "primaryRoleDescription": "Acts as the primary hub, managing rules and synchronization.",
+  "secondaryRoleDescription": "Acts as a secondary node, receiving rules and reporting state.",
+  "primaryPermissionHelp": "Requires full permissions for call and SMS processing.",
+  "secondaryPermissionHelp": "Requires sync and notification permissions only.",
+  "clusterOnboardingTitle": "Device Cluster Setup",
+  "clusterOnboardingDescription": "Configure your device role in the cluster for seamless cross-device synchronization."
 }

@@ -5056,4 +5056,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ruleStoreTitle => 'Rule Store';
+
+  @override
+  String get primaryRoleTitle => 'Primary';
+
+  @override
+  String get secondaryRoleTitle => 'Secondary';
+
+  @override
+  String get primaryRoleDescription => 'Acts as the primary hub, managing rules and synchronization.';
+
+  @override
+  String get secondaryRoleDescription => 'Acts as a secondary node, receiving rules and reporting state.';
+
+  @override
+  String get primaryPermissionHelp => 'Requires full permissions for call and SMS processing.';
+
+  @override
+  String get secondaryPermissionHelp => 'Requires sync and notification permissions only.';
+
+  @override
+  String get clusterOnboardingTitle => 'Device Cluster Setup';
+
+  @override
+  String get clusterOnboardingDescription => 'Configure your device role in the cluster for seamless cross-device synchronization.';
 }
