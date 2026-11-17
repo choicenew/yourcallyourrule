@@ -382,12 +382,12 @@ class AppRouter {
       GoRoute(
         path: '/$smsSubscription',
         name: smsSubscription,
-        builder: (context, state) => const SmsSubscriptionPage(),
+        builder: (context, state) => const SmsSubscriptionPageWithAds(),
       ),
       GoRoute(
         path: '/$smsSubscriptionWithAds',
         name: smsSubscriptionWithAds,
-        builder: (context, state) => const SmsSubscriptionPage(),
+        builder: (context, state) => const SmsSubscriptionPageWithAds(),
       ),
       GoRoute(
         path: '/$contactSubscription',
@@ -467,22 +467,22 @@ class AppRouter {
       GoRoute(
         path: '/$labelManagement',
         name: labelManagement,
-        builder: (context, state) => const LabelManagementPage(),
+        builder: (context, state) => const LabelManagementPageWithAds(),
       ),
       GoRoute(
         path: '/$labelManagementWithAds',
         name: labelManagementWithAds,
-        builder: (context, state) => const LabelManagementPage(),
+        builder: (context, state) => const LabelManagementPageWithAds(),
       ),
       GoRoute(
         path: '/$markPhoneManagement',
         name: markPhoneManagement,
-        builder: (context, state) => const MarkPhoneManagementPage(),
+        builder: (context, state) => const MarkPhoneManagementPageWithAds(),
       ),
       GoRoute(
         path: '/$markPhoneManagementWithAds',
         name: markPhoneManagementWithAds,
-        builder: (context, state) => const MarkPhoneManagementPage(),
+        builder: (context, state) => const MarkPhoneManagementPageWithAds(),
       ),
       GoRoute(
         path: '/$vipExchange',
