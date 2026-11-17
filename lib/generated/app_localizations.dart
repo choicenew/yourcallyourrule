@@ -8996,6 +8996,20 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Peak Harassment Hours'**
   String get peakHarassmentHours;
+
+  String get expectedCallTitle => 'Expected Call · Temporary Exemption';
+  String expectedCallActiveDesc(String remaining) => 'Temporarily allowing all unknown calls ($remaining remaining)';
+  String get expectedCallInactiveDesc => 'Temporarily exempt block rules while awaiting deliveries';
+  String get expectedCallAddTile => 'Add "Expected Call" to Quick Settings Tile';
+  String get duration15Min => '15 min';
+  String get duration30Min => '30 min';
+  String get duration1Hour => '1 hr';
+  String get duration2Hours => '2 hrs';
+  String get callRedirectionSettingsTitle => 'Call Redirection & Outbound Scam Protection';
+  String get callRedirectionSettingsSubtitle => 'Protect against toll fraud, 3s timeout fallback & in-car mode';
+  String get ruleStoreTitle => 'Rule Store';
+  String get primaryRoleTitle => 'Primary';
+  String get secondaryRoleTitle => 'Secondary';
 }
 
 class _AppLocalizationsDelegate

@@ -5023,4 +5023,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get peakHarassmentHours => 'Peak Harassment Hours';
+
+  @override
+  String get expectedCallTitle => 'Expected Call · Temporary Exemption';
+
+  @override
+  String expectedCallActiveDesc(String remaining) => 'Temporarily allowing all unknown calls ($remaining remaining)';
+
+  @override
+  String get expectedCallInactiveDesc => 'Temporarily exempt block rules while awaiting deliveries';
+
+  @override
+  String get expectedCallAddTile => 'Add "Expected Call" to Quick Settings Tile';
+
+  @override
+  String get duration15Min => '15 min';
+
+  @override
+  String get duration30Min => '30 min';
+
+  @override
+  String get duration1Hour => '1 hr';
+
+  @override
+  String get duration2Hours => '2 hrs';
+
+  @override
+  String get callRedirectionSettingsTitle => 'Call Redirection & Outbound Scam Protection';
+
+  @override
+  String get callRedirectionSettingsSubtitle => 'Protect against toll fraud, 3s timeout fallback & in-car mode';
+
+  @override
+  String get ruleStoreTitle => 'Rule Store';
 }

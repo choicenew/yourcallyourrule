@@ -2490,5 +2490,25 @@
   "ruleActionBreakdown": "规则动作分布",
   "dualSimDistribution": "双卡拦截分布对比",
   "topTriggeredRules": "热门触发规则排行榜",
-  "peakHarassmentHours": "24小时骚扰打扰热力图"
+  "peakHarassmentHours": "24小时骚扰打扰热力图",
+  "expectedCallTitle": "期待电话 · 临时放行",
+  "expectedCallActiveDesc": "正在临时放行所有未知来电 (剩余 {remaining})",
+  "@expectedCallActiveDesc": {
+    "placeholders": {
+      "remaining": {
+        "type": "String"
+      }
+    }
+  },
+  "expectedCallInactiveDesc": "等外卖/快递时临时豁免拦截规则",
+  "expectedCallAddTile": "添加“期待电话”至系统下拉控制中心 (Quick Settings Tile)",
+  "duration15Min": "15分钟",
+  "duration30Min": "30分钟",
+  "duration1Hour": "1小时",
+  "duration2Hours": "2小时",
+  "callRedirectionSettingsTitle": "呼出防诈重定向与确认",
+  "callRedirectionSettingsSubtitle": "防范回拨吸费诈骗、3秒超时兜底与车载模式保护",
+  "ruleStoreTitle": "规则库商店",
+  "primaryRoleTitle": "主设备",
+  "secondaryRoleTitle": "从设备"
 }

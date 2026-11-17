@@ -1,5 +1,3 @@
-library pyro_phone_subscription_ui;
-
 import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
 
@@ -57,7 +55,12 @@ class PyroPhoneSubscriptionCardWidget extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                payload.displayName?.isNotEmpty == true ? payload.displayName! : (payload.rawJsonMap['name']?.toString() ?? payload.payloadId),
+                payload.displayName?.isNotEmpty == true
+                    ? payload.displayName!
+                    : (payload.rawJsonMap['name']?.toString() ??
+                        (payload.downloadUrl != null && payload.downloadUrl!.isNotEmpty
+                            ? payload.downloadUrl!.split('/').last.replaceAll('.json', '')
+                            : payload.payloadId)),
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: colorScheme.onSurface,

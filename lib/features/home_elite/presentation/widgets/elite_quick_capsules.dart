@@ -148,7 +148,7 @@ class EliteQuickCapsules extends StatelessWidget {
               _buildCompactCapsule(
                 context: context,
                 icon: Icons.storefront_rounded,
-                title: l10n.initialSetupTitle,
+                title: l10n.ruleStoreTitle,
                 color: theme.colorScheme.primary,
                 onTap: () => context.pushNamed(AppRouter.initialSetup),
               ),

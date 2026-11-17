@@ -15,7 +15,7 @@ class DeviceManagementPage extends ConsumerWidget {
     final manager = DeviceClusterManager(
       localNode: DeviceNode(
         deviceId: 'local_device_01',
-        deviceName: '${l10n.currentDeviceTitle} (${l10n.masterRoleTitle})',
+        deviceName: '${l10n.currentDeviceTitle} (${l10n.primaryRoleTitle})',
         role: DeviceRole.primary,
         lastHeartbeatTime: DateTime.now(),
       ),

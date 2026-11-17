@@ -106,7 +106,7 @@ class _PhoneSubscriptionPageState extends ConsumerState<PhoneSubscriptionPage> {
                   await service.updateRulesFromSubscription(newSub);
                 }
                 ref.invalidate(phoneSubscriptionsListProvider);
-                if (mounted) Navigator.pop(ctx);
+                if (ctx.mounted) Navigator.pop(ctx);
               } catch (e) {
                 if (mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -449,6 +449,3 @@ class _PhoneSubscriptionPageState extends ConsumerState<PhoneSubscriptionPage> {
     );
   }
 }
-
-/// 兼容别名：100% 对齐 elite-ui 路由与命名规范
-typedef PhoneSubscriptionPageRefactoredWithAds = PhoneSubscriptionPage;

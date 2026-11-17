@@ -2499,5 +2499,25 @@
   "ruleActionBreakdown": "Rule Action Distribution",
   "dualSimDistribution": "Dual-SIM Interception Distribution",
   "topTriggeredRules": "Top Triggered Rules",
-  "peakHarassmentHours": "Peak Harassment Hours"
+  "peakHarassmentHours": "Peak Harassment Hours",
+  "expectedCallTitle": "Expected Call · Temporary Exemption",
+  "expectedCallActiveDesc": "Temporarily allowing all unknown calls ({remaining} remaining)",
+  "@expectedCallActiveDesc": {
+    "placeholders": {
+      "remaining": {
+        "type": "String"
+      }
+    }
+  },
+  "expectedCallInactiveDesc": "Temporarily exempt block rules while awaiting deliveries",
+  "expectedCallAddTile": "Add \"Expected Call\" to Quick Settings Tile",
+  "duration15Min": "15 min",
+  "duration30Min": "30 min",
+  "duration1Hour": "1 hr",
+  "duration2Hours": "2 hrs",
+  "callRedirectionSettingsTitle": "Call Redirection & Outbound Scam Protection",
+  "callRedirectionSettingsSubtitle": "Protect against toll fraud, 3s timeout fallback & in-car mode",
+  "ruleStoreTitle": "Rule Store",
+  "primaryRoleTitle": "Primary",
+  "secondaryRoleTitle": "Secondary"
 }
