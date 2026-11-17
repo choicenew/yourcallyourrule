@@ -1,6 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
+import 'package:yourcallyourrule/features/language/language_data.dart';
 import 'package:world_flags/world_flags.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -101,8 +102,7 @@ class LanguageSelectionWidget extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    _buildFlagImage(currentLanguage['flag'] ?? ''),
-                    _buildFlagImage(_resolveCountryCode(currentLanguage)),
+                    _buildFlagImage(currentLanguage['flag'] ?? resolveLanguageFlag(currentLanguage)),
                     const SizedBox(width: 12),
                     Text(
                       currentLanguage['name'],
@@ -170,7 +170,7 @@ class LanguageSelectionWidget extends StatelessWidget {
                 return _buildLanguageOption(
                   context,
                   language['name'],
-                  _resolveCountryCode(language),
+                  language['flag'] ?? resolveLanguageFlag(language),
                   isSelected,
                   () {
                     if (!isSelected) {
@@ -225,105 +225,6 @@ class LanguageSelectionWidget extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String _resolveCountryCode(Map<String, dynamic> language) {
-    final flag = language['flag']?.toString();
-    if (flag != null && flag.isNotEmpty) return flag;
-    final locale = language['code'] as Locale?;
-    if (locale == null) return '';
-    if (locale.countryCode != null && locale.countryCode!.isNotEmpty) {
-      return locale.countryCode!;
-    }
-    switch (locale.languageCode.toLowerCase()) {
-      case 'zh':
-        return 'CN';
-      case 'en':
-        return 'US';
-      case 'ja':
-        return 'JP';
-      case 'ko':
-        return 'KR';
-      case 'de':
-        return 'DE';
-      case 'fr':
-        return 'FR';
-      case 'es':
-        return 'ES';
-      case 'it':
-        return 'IT';
-      case 'pt':
-        return 'PT';
-      case 'ru':
-        return 'RU';
-      case 'ar':
-        return 'SA';
-      case 'tr':
-        return 'TR';
-      case 'nl':
-        return 'NL';
-      case 'pl':
-        return 'PL';
-      case 'uk':
-        return 'UA';
-      case 'th':
-        return 'TH';
-      case 'vi':
-        return 'VN';
-      case 'he':
-        return 'IL';
-      case 'el':
-        return 'GR';
-      case 'sv':
-        return 'SE';
-      case 'da':
-        return 'DK';
-      case 'fi':
-        return 'FI';
-      case 'cs':
-        return 'CZ';
-      case 'ro':
-        return 'RO';
-      case 'nb':
-        return 'NO';
-      case 'hi':
-        return 'IN';
-      case 'bn':
-        return 'BD';
-      case 'ur':
-        return 'PK';
-      case 'id':
-        return 'ID';
-      case 'ms':
-        return 'MY';
-      case 'fil':
-        return 'PH';
-      case 'fa':
-        return 'IR';
-      case 'sw':
-        return 'KE';
-      case 'ha':
-      case 'yo':
-        return 'NG';
-      case 'zu':
-      case 'xh':
-      case 'af':
-        return 'ZA';
-      case 'am':
-        return 'ET';
-      case 'et':
-        return 'EE';
-      case 'km':
-        return 'KH';
-      case 'sk':
-        return 'SK';
-      case 'uz':
-        return 'UZ';
-      case 'hu':
-        return 'HU';
-      default:
-        return locale.countryCode ?? '';
-    }
   }
 
   Widget _buildFlagImage(String? countryCode) {
