@@ -74,6 +74,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
             _isRefreshing = false;
             _lastUpdatedTime = DateTime.now();
           });
+          ref.invalidate(homeStatsProvider);
         }
       }
     });
