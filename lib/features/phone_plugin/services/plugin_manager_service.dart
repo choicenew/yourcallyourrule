@@ -1,4 +1,7 @@
 import 'dart:async';
+import 'dart:io';
+import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
@@ -47,11 +50,49 @@ class PluginManagerService {
   }
 
   Future<PluginSourceData?> addPluginFromUrl(String url) async {
+    try {
+      final response = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 10));
+      if (response.statusCode == 200) {
+        final script = response.body;
+        final info = extractPluginInfo(script);
+        final plugin = PluginSourceData(
+          name: info['name'] ?? 'Unknown Plugin',
+          phoneNumber: url,
+          count: 0,
+        );
+        return await _repository.save(plugin);
+      }
+    } catch (e) {
+      debugPrint('[PluginManagerService] addPluginFromUrl 失败: $e');
+    }
     return null;
   }
 
-  Future<PluginSourceData?> addPluginFromLocal(String source) async {
+  Future<PluginSourceData?> addPluginFromLocal(String filePath) async {
+    try {
+      final file = File(filePath);
+      if (await file.exists()) {
+        final script = await file.readAsString();
+        final info = extractPluginInfo(script);
+        final plugin = PluginSourceData(
+          name: info['name'] ?? (file.uri.pathSegments.isNotEmpty ? file.uri.pathSegments.last : 'Local Plugin'),
+          phoneNumber: filePath,
+          count: 0,
+        );
+        return await _repository.save(plugin);
+      }
+    } catch (e) {
+      debugPrint('[PluginManagerService] addPluginFromLocal 失败: $e');
+    }
     return null;
+  }
+
+  static Map<String, String> extractPluginInfo(String script) {
+    final nameRegex = RegExp(r'''name:\s*['"](.*?)['"]''');
+    final nameMatch = nameRegex.firstMatch(script);
+    return {
+      'name': nameMatch?.group(1) ?? 'Custom Plugin',
+    };
   }
 
   Future<PluginSourceData> updatePlugin(PluginSourceData plugin) async {

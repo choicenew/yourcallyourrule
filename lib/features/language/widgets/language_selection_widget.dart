@@ -101,7 +101,7 @@ class LanguageSelectionWidget extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    _buildFlagImage(currentLanguage['flag'] ?? ''),
+                    _buildFlagImage(_resolveCountryCode(currentLanguage)),
                     const SizedBox(width: 12),
                     Text(
                       currentLanguage['name'],
@@ -169,7 +169,7 @@ class LanguageSelectionWidget extends StatelessWidget {
                 return _buildLanguageOption(
                   context,
                   language['name'],
-                  language['flag'] ?? '',
+                  _resolveCountryCode(language),
                   isSelected,
                   () {
                     if (!isSelected) {
@@ -226,22 +226,124 @@ class LanguageSelectionWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildFlagImage(String? countryCode) {
-    if (countryCode == null || countryCode.isEmpty) {
-      return Container(
-        width: 32,
-        height: 24,
-        decoration: BoxDecoration(
-          color: Colors.grey.shade300,
-          borderRadius: BorderRadius.circular(4),
-        ),
-        child: const Center(child: Icon(Icons.public, size: 18)),
-      );
+  String _resolveCountryCode(Map<String, dynamic> language) {
+    final flag = language['flag']?.toString();
+    if (flag != null && flag.isNotEmpty) return flag;
+    final locale = language['code'] as Locale?;
+    if (locale == null) return '';
+    if (locale.countryCode != null && locale.countryCode!.isNotEmpty) {
+      return locale.countryCode!;
     }
-    return CountryFlag.simplified(
-      WorldCountry.fromCode(countryCode),
+    switch (locale.languageCode.toLowerCase()) {
+      case 'zh':
+        return 'CN';
+      case 'en':
+        return 'US';
+      case 'ja':
+        return 'JP';
+      case 'ko':
+        return 'KR';
+      case 'de':
+        return 'DE';
+      case 'fr':
+        return 'FR';
+      case 'es':
+        return 'ES';
+      case 'it':
+        return 'IT';
+      case 'pt':
+        return 'PT';
+      case 'ru':
+        return 'RU';
+      case 'ar':
+        return 'SA';
+      case 'tr':
+        return 'TR';
+      case 'nl':
+        return 'NL';
+      case 'pl':
+        return 'PL';
+      case 'uk':
+        return 'UA';
+      case 'th':
+        return 'TH';
+      case 'vi':
+        return 'VN';
+      case 'he':
+        return 'IL';
+      case 'el':
+        return 'GR';
+      case 'sv':
+        return 'SE';
+      case 'da':
+        return 'DK';
+      case 'fi':
+        return 'FI';
+      case 'cs':
+        return 'CZ';
+      case 'ro':
+        return 'RO';
+      case 'nb':
+        return 'NO';
+      case 'hi':
+        return 'IN';
+      case 'bn':
+        return 'BD';
+      case 'ur':
+        return 'PK';
+      case 'id':
+        return 'ID';
+      case 'ms':
+        return 'MY';
+      case 'fil':
+        return 'PH';
+      case 'fa':
+        return 'IR';
+      case 'sw':
+        return 'KE';
+      case 'ha':
+      case 'yo':
+        return 'NG';
+      case 'zu':
+      case 'xh':
+      case 'af':
+        return 'ZA';
+      case 'am':
+        return 'ET';
+      case 'et':
+        return 'EE';
+      case 'km':
+        return 'KH';
+      case 'sk':
+        return 'SK';
+      case 'uz':
+        return 'UZ';
+      case 'hu':
+        return 'HU';
+      default:
+        return locale.countryCode ?? '';
+    }
+  }
+
+  Widget _buildFlagImage(String? countryCode) {
+    if (countryCode != null && countryCode.isNotEmpty) {
+      try {
+        final worldCountry = WorldCountry.fromCode(countryCode.toUpperCase());
+        return CountryFlag.simplified(
+          worldCountry,
+          height: 24,
+          aspectRatio: FlagConstants.defaultAspectRatio,
+        );
+      } catch (_) {}
+    }
+    return Container(
+      width: 32,
       height: 24,
-      aspectRatio: FlagConstants.defaultAspectRatio,
+      decoration: BoxDecoration(
+        color: Colors.grey.shade300,
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: const Center(child: Icon(Icons.public, size: 18)),
     );
   }
 }

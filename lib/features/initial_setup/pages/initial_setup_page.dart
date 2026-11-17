@@ -6,6 +6,7 @@ import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
 import 'package:yourcallyourrule/features/phone_subscription/services/phone_subscription_service.dart';
 import 'package:yourcallyourrule/features/phone_plugin/services/plugin_manager_service.dart';
+import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 
 import 'package:yourcallyourrule/features/initial_setup/models/setup_config.dart';
 import 'package:yourcallyourrule/features/initial_setup/providers/initial_setup_provider.dart';
@@ -235,6 +236,7 @@ class _InitialSetupPageState extends ConsumerState<InitialSetupPage> {
       }
 
       ref.invalidate(phoneSubscriptionServiceProvider);
+      ref.invalidate(homeStatsProvider);
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(

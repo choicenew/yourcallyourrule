@@ -4,6 +4,7 @@ import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protoco
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_page.dart';
 import 'package:yourcallyourrule/features/phone_subscription/services/phone_subscription_service.dart';
+import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 final phoneSubscriptionsListProvider = FutureProvider.autoDispose<List<PhoneSubscriptionPayload>>((ref) async {
@@ -106,6 +107,7 @@ class _PhoneSubscriptionPageState extends ConsumerState<PhoneSubscriptionPage> {
                   await service.updateRulesFromSubscription(newSub);
                 }
                 ref.invalidate(phoneSubscriptionsListProvider);
+                ref.invalidate(homeStatsProvider);
                 if (ctx.mounted) Navigator.pop(ctx);
               } catch (e) {
                 if (mounted) {
@@ -178,6 +180,7 @@ class _PhoneSubscriptionPageState extends ConsumerState<PhoneSubscriptionPage> {
       final service = ref.read(phoneSubscriptionServiceProvider);
       await service.deleteSubscription(sub.payloadId);
       ref.invalidate(phoneSubscriptionsListProvider);
+      ref.invalidate(homeStatsProvider);
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(l10n.subscriptionDeleted)),
@@ -319,6 +322,7 @@ class _PhoneSubscriptionPageState extends ConsumerState<PhoneSubscriptionPage> {
                     final service = ref.read(phoneSubscriptionServiceProvider);
                     await service.updateRulesFromSubscription(updatedSub);
                     ref.invalidate(phoneSubscriptionsListProvider);
+                ref.invalidate(homeStatsProvider);
                   },
                 ),
               ],

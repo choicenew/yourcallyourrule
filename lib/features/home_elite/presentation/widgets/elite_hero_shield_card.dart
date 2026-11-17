@@ -8,6 +8,7 @@ import 'package:yourcallyourrule/features/auto_update/services/auto_update_servi
 import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
 import 'package:yourcallyourrule/features/phone_evaluators/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/features/home_elite/presentation/widgets/professional_shield_radar.dart';
+import 'package:yourcallyourrule/features/home/di/home_stats_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class EliteHeroShieldCard extends ConsumerStatefulWidget {
@@ -143,12 +144,13 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
 
   @override
   Widget build(BuildContext context) {
+    final asyncStats = ref.watch(homeStatsProvider);
     final currentAction = ref.watch(interceptActionConfigProvider);
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
 
-    final blockedToday = 0;
-    final totalRules = 0;
+    final blockedToday = asyncStats.value?.todayBlocked ?? 0;
+    final totalRules = asyncStats.value?.totalRules ?? 0;
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),

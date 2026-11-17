@@ -61,7 +61,7 @@ class RuleRepositoryImpl implements RuleRepository {
       'actionType': data.action,
       'priority': data.priority,
       'count': data.count,
-      'isEnabled': data.isEnabled == 1,
+      'isEnabled': data.isEnabled == true || data.isEnabled == 1,
       'labelId': data.labelId ?? '',
       'avatar': data.avatar,
       'subscriptionId': data.subscriptionId,
@@ -75,7 +75,7 @@ class RuleRepositoryImpl implements RuleRepository {
       'pattern': data.pattern ?? '',
       'actionType': data.action,
       'priority': data.priority,
-      'isEnabled': data.isEnabled == 1,
+      'isEnabled': data.isEnabled == true || data.isEnabled == 1,
       'subscriptionId': data.isSubscribed == 1 ? 'subscribed' : null,
     });
   }
@@ -107,9 +107,12 @@ class RuleRepositoryImpl implements RuleRepository {
 
   @override
   Future<List<PhoneRuleEntity>> saveAll(List<PhoneRuleEntity> entities) async {
-    for (final entity in entities) {
-      await save(entity);
-    }
+    await _db.batch((batch) {
+      for (final entity in entities) {
+        final companion = _toPhoneRuleCompanion(entity);
+        batch.insert(_db.phoneRules, companion, mode: InsertMode.insertOrReplace);
+      }
+    });
     return entities;
   }
 
