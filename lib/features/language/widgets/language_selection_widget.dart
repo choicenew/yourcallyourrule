@@ -1,7 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/language/provider/language_provider.dart';
-import 'package:yourcallyourrule/features/language/language_data.dart';
 import 'package:world_flags/world_flags.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -102,7 +101,7 @@ class LanguageSelectionWidget extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    _buildFlagImage(currentLanguage['flag'] ?? resolveLanguageFlag(currentLanguage)),
+                    _buildFlagImage(currentLanguage['flag'] ?? (currentLanguage['code'] as Locale?)?.countryCode ?? ''),
                     const SizedBox(width: 12),
                     Text(
                       currentLanguage['name'],
@@ -167,10 +166,11 @@ class LanguageSelectionWidget extends StatelessWidget {
                 final isSelected =
                     currentLocale.languageCode == language['code'].languageCode &&
                     (currentLocale.countryCode == null || language['code'].countryCode == null || currentLocale.countryCode == language['code'].countryCode);
+                final flagCode = (language['flag'] ?? (language['code'] as Locale?)?.countryCode ?? '') as String;
                 return _buildLanguageOption(
                   context,
                   language['name'],
-                  language['flag'] ?? resolveLanguageFlag(language),
+                  flagCode,
                   isSelected,
                   () {
                     if (!isSelected) {
