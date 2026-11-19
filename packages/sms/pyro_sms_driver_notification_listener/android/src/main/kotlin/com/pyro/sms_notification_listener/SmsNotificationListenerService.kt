@@ -5,7 +5,6 @@ import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.util.Log
 import io.flutter.plugin.common.BinaryMessenger
-import io.flutter.plugin.common.MethodChannel
 import java.util.concurrent.ConcurrentHashMap
 
 class SmsNotificationListenerService : NotificationListenerService() {
@@ -55,16 +54,20 @@ class SmsNotificationListenerService : NotificationListenerService() {
         Log.d(TAG, "Intercepted notification from $pkg: title=$title, key=${sbn.key}")
 
         val messenger = messenger ?: return
-        val payload = mapOf(
-            "id" to sbn.key,
-            "sender" to title,
-            "body" to text,
-            "packageName" to pkg,
-            "timestampMs" to sbn.postTime
+        val payload = PigeonSmsNotificationPayload(
+            id = sbn.key,
+            sender = title,
+            body = text,
+            packageName = pkg,
+            timestampMs = sbn.postTime
         )
 
         android.os.Handler(android.os.Looper.getMainLooper()).post {
-            MethodChannel(messenger, CHANNEL).invokeMethod("onNotificationReceived", payload)
+            SmsNotificationListenerFlutterApi(messenger).onNotificationReceived(payload) { result ->
+                if (result.isFailure) {
+                    Log.w(TAG, "Failed to deliver notification to Flutter: ${result.exceptionOrNull()?.message}")
+                }
+            }
         }
     }
 

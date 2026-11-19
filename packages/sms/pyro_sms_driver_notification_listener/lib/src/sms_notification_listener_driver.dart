@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:pyro_sms_hub/pyro_sms_hub.dart';
+import 'sms_notification_listener_api.g.dart';
 
 /// NotificationListenerService-based driver allowing permission-free SMS/messaging notification screening
 class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
@@ -10,7 +11,8 @@ class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
     return driver;
   }
 
-  static const MethodChannel _channel = MethodChannel('net.pyro.telephony/sms_notification_listener');
+  final SmsNotificationListenerHostApi _hostApi;
+  _NotificationListenerFlutterApiHandler? _flutterApiHandler;
 
   @override
   String get providerId => 'pyro_sms_driver_notification_listener';
@@ -19,29 +21,35 @@ class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
   final List<SmsEvidenceItem> _inMemoryEvidenceLogs = [];
   List<String> _protectedPackages = ProtectedAppInfo.defaults.map((e) => e.packageName).toList();
 
-  SmsNotificationListenerDriver() {
-    _channel.setMethodCallHandler(_handleMethodCall);
+  SmsNotificationListenerDriver({SmsNotificationListenerHostApi? hostApi})
+      : _hostApi = hostApi ?? SmsNotificationListenerHostApi() {
+    _flutterApiHandler = _NotificationListenerFlutterApiHandler(this);
+    SmsNotificationListenerFlutterApi.setUp(_flutterApiHandler);
   }
 
   void dispose() {
-    _channel.setMethodCallHandler(null);
+    SmsNotificationListenerFlutterApi.setUp(null);
+    _flutterApiHandler = null;
     _messageHandler = null;
   }
 
-  Future<dynamic> _handleMethodCall(MethodCall call) async {
-    if (call.method == 'onNotificationReceived') {
-      final map = Map<String, dynamic>.from(call.arguments as Map);
-      final entity = SmsMessageEntity.fromJson(map);
-      _messageHandler?.call(entity);
-    }
+  void _handleNativeNotification(PigeonSmsNotificationPayload notification) {
+    final entity = SmsMessageEntity(
+      id: notification.id ?? '',
+      sender: notification.sender ?? '',
+      body: notification.body ?? '',
+      timestamp: DateTime.fromMillisecondsSinceEpoch(
+          notification.timestampMs ?? DateTime.now().millisecondsSinceEpoch),
+      packageName: notification.packageName,
+    );
+    _messageHandler?.call(entity);
   }
 
   @override
   Future<bool> isPermissionGranted() async {
     try {
-      final bool? granted = await _channel.invokeMethod<bool>('isPermissionGranted');
-      return granted ?? false;
-    } on MissingPluginException {
+      return await _hostApi.isPermissionGranted();
+    } on PlatformException {
       return false;
     }
   }
@@ -49,8 +57,8 @@ class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
   @override
   Future<void> requestPermission() async {
     try {
-      await _channel.invokeMethod('requestPermission');
-    } on MissingPluginException {
+      await _hostApi.requestPermission();
+    } on PlatformException {
       // Fallback
     }
   }
@@ -63,11 +71,8 @@ class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
   @override
   Future<bool> cancelNotification(String notificationKey) async {
     try {
-      final bool? success = await _channel.invokeMethod<bool>('cancelNotification', {
-        'key': notificationKey,
-      });
-      return success ?? true;
-    } on MissingPluginException {
+      return await _hostApi.cancelNotification(notificationKey);
+    } on PlatformException {
       return true;
     }
   }
@@ -79,8 +84,14 @@ class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
       _inMemoryEvidenceLogs.removeLast();
     }
     try {
-      await _channel.invokeMethod('saveEvidence', evidence.toJson());
-    } on MissingPluginException {
+      await _hostApi.saveEvidence(PigeonSmsEvidencePayload(
+        key: evidence.evidenceId,
+        packageName: evidence.message.packageName,
+        sender: evidence.message.sender,
+        body: evidence.message.body,
+        timestampMs: evidence.capturedAt.millisecondsSinceEpoch,
+      ));
+    } on PlatformException {
       // In-memory fallback
     }
   }
@@ -94,9 +105,19 @@ class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
   Future<void> setProtectedPackages(List<String> packageNames) async {
     _protectedPackages = List.from(packageNames);
     try {
-      await _channel.invokeMethod('setProtectedPackages', {'packages': packageNames});
-    } on MissingPluginException {
+      await _hostApi.setProtectedPackages(packageNames);
+    } on PlatformException {
       // Fallback
     }
+  }
+}
+
+class _NotificationListenerFlutterApiHandler implements SmsNotificationListenerFlutterApi {
+  _NotificationListenerFlutterApiHandler(this._driver);
+  final SmsNotificationListenerDriver _driver;
+
+  @override
+  void onNotificationReceived(PigeonSmsNotificationPayload notification) {
+    _driver._handleNativeNotification(notification);
   }
 }

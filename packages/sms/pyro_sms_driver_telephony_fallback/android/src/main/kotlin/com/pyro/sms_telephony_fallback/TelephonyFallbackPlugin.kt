@@ -5,45 +5,26 @@ import android.content.Context
 import android.content.pm.PackageManager
 import androidx.core.content.ContextCompat
 import io.flutter.embedding.engine.plugins.FlutterPlugin
-import io.flutter.plugin.common.MethodCall
-import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.plugin.common.MethodChannel.Result
 
-class TelephonyFallbackPlugin : FlutterPlugin, MethodCallHandler {
-    private lateinit var channel: MethodChannel
+class TelephonyFallbackPlugin : FlutterPlugin, TelephonyFallbackHostApi {
     private var context: Context? = null
 
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
         context = binding.applicationContext
-        channel = MethodChannel(binding.binaryMessenger, "net.pyro.telephony/sms_fallback")
-        channel.setMethodCallHandler(this)
+        TelephonyFallbackHostApi.setUp(binding.binaryMessenger, this)
         SmsFallbackReceiver.messenger = binding.binaryMessenger
     }
 
-    override fun onMethodCall(call: MethodCall, result: Result) {
-        val ctx = context
-        if (ctx == null) {
-            result.error("NO_CONTEXT", "Application context is null", null)
-            return
-        }
-
-        when (call.method) {
-            "isSmsPermissionGranted" -> {
-                val granted = ContextCompat.checkSelfPermission(
-                    ctx,
-                    Manifest.permission.RECEIVE_SMS
-                ) == PackageManager.PERMISSION_GRANTED
-                result.success(granted)
-            }
-            else -> {
-                result.notImplemented()
-            }
-        }
+    override fun isSmsPermissionGranted(): Boolean {
+        val ctx = context ?: return false
+        return ContextCompat.checkSelfPermission(
+            ctx,
+            Manifest.permission.RECEIVE_SMS
+        ) == PackageManager.PERMISSION_GRANTED
     }
 
     override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        channel.setMethodCallHandler(null)
+        TelephonyFallbackHostApi.setUp(binding.binaryMessenger, null)
         SmsFallbackReceiver.messenger = null
         context = null
     }

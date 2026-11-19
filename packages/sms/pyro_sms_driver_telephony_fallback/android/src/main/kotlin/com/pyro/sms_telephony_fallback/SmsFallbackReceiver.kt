@@ -6,7 +6,6 @@ import android.content.Intent
 import android.provider.Telephony
 import android.util.Log
 import io.flutter.plugin.common.BinaryMessenger
-import io.flutter.plugin.common.MethodChannel
 
 class SmsFallbackReceiver : BroadcastReceiver() {
 
@@ -42,15 +41,19 @@ class SmsFallbackReceiver : BroadcastReceiver() {
 
             Log.d(TAG, "Intercepted SMS from $sender: body=$body")
 
-            val payload = mapOf(
-                "id" to "sms_$timestampMs",
-                "sender" to sender,
-                "body" to body,
-                "timestampMs" to timestampMs
+            val payload = PigeonTelephonySmsPayload(
+                id = "sms_$timestampMs",
+                sender = sender,
+                body = body,
+                timestampMs = timestampMs
             )
 
             android.os.Handler(android.os.Looper.getMainLooper()).post {
-                MethodChannel(msger, CHANNEL).invokeMethod("onSmsReceived", payload)
+                TelephonyFallbackFlutterApi(msger).onSmsReceived(payload) { result ->
+                    if (result.isFailure) {
+                        Log.w(TAG, "Failed to deliver SMS to Flutter: ${result.exceptionOrNull()?.message}")
+                    }
+                }
             }
         } catch (e: Exception) {
             Log.e(TAG, "Error processing SMS_RECEIVED intent: ${e.message}", e)

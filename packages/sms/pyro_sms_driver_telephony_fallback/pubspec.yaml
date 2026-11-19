@@ -25,3 +25,4 @@ flutter:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  pigeon: ^22.7.4

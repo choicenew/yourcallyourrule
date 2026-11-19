@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
-import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 import 'package:pyro_sms_hub/pyro_sms_hub.dart';
+import 'telephony_fallback_api.g.dart';
 
 /// Fallback driver connecting to native Android Telephony SMS_RECEIVED BroadcastReceiver and ContentProvider
 class TelephonyFallbackDriver implements SmsFilterAdapter {
@@ -11,8 +11,8 @@ class TelephonyFallbackDriver implements SmsFilterAdapter {
     return driver;
   }
 
-  static const MethodChannel _channel =
-      MethodChannel('net.pyro.telephony/sms_fallback');
+  final TelephonyFallbackHostApi _hostApi;
+  _TelephonyFallbackFlutterApiHandler? _flutterApiHandler;
 
   @override
   String get providerId => 'pyro_sms_driver_telephony_fallback';
@@ -25,21 +25,27 @@ class TelephonyFallbackDriver implements SmsFilterAdapter {
 
   Function(SmsMessageEntity message)? _smsReceivedHandler;
 
-  TelephonyFallbackDriver({this.isEnabled = true}) {
-    _channel.setMethodCallHandler(_handleMethodCall);
+  TelephonyFallbackDriver({this.isEnabled = true, TelephonyFallbackHostApi? hostApi})
+      : _hostApi = hostApi ?? TelephonyFallbackHostApi() {
+    _flutterApiHandler = _TelephonyFallbackFlutterApiHandler(this);
+    TelephonyFallbackFlutterApi.setUp(_flutterApiHandler);
   }
 
   void dispose() {
-    _channel.setMethodCallHandler(null);
+    TelephonyFallbackFlutterApi.setUp(null);
+    _flutterApiHandler = null;
     _smsReceivedHandler = null;
   }
 
-  Future<dynamic> _handleMethodCall(MethodCall call) async {
-    if (call.method == 'onSmsReceived') {
-      final map = Map<String, dynamic>.from(call.arguments as Map);
-      final entity = SmsMessageEntity.fromJson(map);
-      _smsReceivedHandler?.call(entity);
-    }
+  void _handleNativeSms(PigeonTelephonySmsPayload message) {
+    final entity = SmsMessageEntity(
+      id: message.id ?? '',
+      sender: message.sender ?? '',
+      body: message.body ?? '',
+      timestamp: DateTime.fromMillisecondsSinceEpoch(
+          message.timestampMs ?? DateTime.now().millisecondsSinceEpoch),
+    );
+    _smsReceivedHandler?.call(entity);
   }
 
   void onSmsReceived(Function(SmsMessageEntity message) handler) {
@@ -48,9 +54,8 @@ class TelephonyFallbackDriver implements SmsFilterAdapter {
 
   Future<bool> isSmsPermissionGranted() async {
     try {
-      final bool? granted = await _channel.invokeMethod<bool>('isSmsPermissionGranted');
-      return granted ?? false;
-    } on MissingPluginException {
+      return await _hostApi.isSmsPermissionGranted();
+    } on PlatformException {
       return false;
     }
   }
@@ -58,5 +63,15 @@ class TelephonyFallbackDriver implements SmsFilterAdapter {
   @override
   Future<SmsScreeningResult?> screenMessage(SmsMessageEntity message) async {
     return null;
+  }
+}
+
+class _TelephonyFallbackFlutterApiHandler implements TelephonyFallbackFlutterApi {
+  _TelephonyFallbackFlutterApiHandler(this._driver);
+  final TelephonyFallbackDriver _driver;
+
+  @override
+  void onSmsReceived(PigeonTelephonySmsPayload message) {
+    _driver._handleNativeSms(message);
   }
 }
