@@ -20,11 +20,47 @@ class BackupRestorePage extends ConsumerStatefulWidget {
 class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
   bool _isLoading = false;
   List<Map<String, dynamic>> _versions = [];
+  int _selectedBackupTab = 0;
+  List<CloudFileItem> _cloudBackupFiles = [];
+  bool _isLoadingCloudFiles = false;
 
   @override
   void initState() {
     super.initState();
     _loadBackupVersions();
+  }
+
+  Future<void> _loadCloudBackupFiles() async {
+    final driver = ref.read(activeCloudDriverProvider);
+    if (driver == null || !await driver.isConnected()) {
+      if (mounted) {
+        setState(() {
+          _cloudBackupFiles = [];
+          _isLoadingCloudFiles = false;
+        });
+      }
+      return;
+    }
+    setState(() => _isLoadingCloudFiles = true);
+    try {
+      var files = await driver.listFiles('backups');
+      if (files.isEmpty) {
+        files = await driver.listFiles('');
+      }
+      if (mounted) {
+        setState(() {
+          _cloudBackupFiles = files.where((f) => !f.isDirectory && f.name.endsWith('.json')).toList();
+          _isLoadingCloudFiles = false;
+        });
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(() {
+          _cloudBackupFiles = [];
+          _isLoadingCloudFiles = false;
+        });
+      }
+    }
   }
 
   Future<void> _loadBackupVersions() async {
@@ -52,6 +88,9 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
       await service.initialize();
       final path = await service.backupAllConfigs();
       await _loadBackupVersions();
+      if (_selectedBackupTab == 1) {
+        await _loadCloudBackupFiles();
+      }
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -130,6 +169,9 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
       await service.initialize();
       await service.deleteBackupVersion(filePath);
       await _loadBackupVersions();
+      if (_selectedBackupTab == 1) {
+        await _loadCloudBackupFiles();
+      }
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -186,6 +228,9 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
         }
       }
       await _loadBackupVersions();
+      if (_selectedBackupTab == 1) {
+        await _loadCloudBackupFiles();
+      }
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -281,7 +326,28 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
       ),
     );
 
-    if (selected == null || !context.mounted) return;
+    if (selected != null && context.mounted) {
+      await _restoreCloudFileItem(context, selected);
+    }
+  }
+
+  Future<void> _restoreCloudFileItem(BuildContext context, CloudFileItem selected) async {
+    final l10n = AppLocalizations.of(context);
+    final driver = ref.read(activeCloudDriverProvider);
+    if (driver == null || !await driver.isConnected()) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(l10n.configureCloudSyncServiceMessage),
+            action: SnackBarAction(
+              label: l10n.cloudSyncSettingsTitle,
+              onPressed: () => context.pushNamed(AppRouter.cloudSettings),
+            ),
+          ),
+        );
+      }
+      return;
+    }
 
     setState(() => _isLoading = true);
     try {
@@ -306,6 +372,9 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
       await service.initialize();
       await service.restoreAllConfigs(localTempPath);
       await _loadBackupVersions();
+      if (_selectedBackupTab == 1) {
+        await _loadCloudBackupFiles();
+      }
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -530,66 +599,172 @@ class _BackupRestorePageState extends ConsumerState<BackupRestorePage> {
                             children: [
                               Icon(Icons.history_rounded, color: colorScheme.secondary, size: 24),
                               const SizedBox(width: 10),
-                              Text(
-                                l10n.restoreSettings,
-                                style: theme.textTheme.titleMedium?.copyWith(
-                                  fontWeight: FontWeight.bold,
+                              Expanded(
+                                child: Text(
+                                  l10n.restoreSettings,
+                                  style: theme.textTheme.titleMedium?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
+                              if (_selectedBackupTab == 1 && isCloudConnected)
+                                IconButton(
+                                  icon: const Icon(Icons.refresh_rounded, size: 20),
+                                  tooltip: l10n.refresh,
+                                  onPressed: _loadCloudBackupFiles,
+                                ),
                             ],
                           ),
                           const SizedBox(height: 12),
-                          if (_versions.isEmpty)
-                            Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 16.0),
-                              child: Center(
-                                child: Text(
-                                  l10n.noData,
-                                  style: TextStyle(color: colorScheme.onSurfaceVariant),
-                                ),
+                          SegmentedButton<int>(
+                            segments: [
+                              ButtonSegment<int>(
+                                value: 0,
+                                label: Text(l10n.backupSettings),
+                                icon: const Icon(Icons.storage_rounded, size: 16),
                               ),
-                            )
-                          else
-                            ListView.separated(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              itemCount: _versions.length,
-                              separatorBuilder: (_, _) => const Divider(height: 1),
-                              itemBuilder: (ctx, index) {
-                                final ver = _versions[index];
-                                final filePath = ver['path'] as String? ?? '';
-                                final filename = ver['filename'] as String? ?? (filePath.isNotEmpty ? filePath.split(Platform.pathSeparator).last : 'backup.json');
-                                final timestamp = ver['timestamp'] as int? ?? 0;
-                                final dateStr = timestamp > 0
-                                    ? DateFormat('yyyy-MM-dd HH:mm').format(DateTime.fromMillisecondsSinceEpoch(timestamp))
-                                    : '';
+                              ButtonSegment<int>(
+                                value: 1,
+                                label: Text(l10n.cloudBackup),
+                                icon: const Icon(Icons.cloud_rounded, size: 16),
+                              ),
+                            ],
+                            selected: {_selectedBackupTab},
+                            onSelectionChanged: (Set<int> newSelection) {
+                              setState(() => _selectedBackupTab = newSelection.first);
+                              if (_selectedBackupTab == 1) {
+                                _loadCloudBackupFiles();
+                              }
+                            },
+                          ),
+                          const SizedBox(height: 12),
+                          if (_selectedBackupTab == 0)
+                            if (_versions.isEmpty)
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                                child: Center(
+                                  child: Text(
+                                    l10n.noData,
+                                    style: TextStyle(color: colorScheme.onSurfaceVariant),
+                                  ),
+                                ),
+                              )
+                            else
+                              ListView.separated(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: _versions.length,
+                                separatorBuilder: (_, _) => const Divider(height: 1),
+                                itemBuilder: (ctx, index) {
+                                  final ver = _versions[index];
+                                  final filePath = ver['path'] as String? ?? '';
+                                  final filename = ver['filename'] as String? ?? (filePath.isNotEmpty ? filePath.split(Platform.pathSeparator).last : 'backup.json');
+                                  final timestamp = ver['timestamp'] as int? ?? 0;
+                                  final dateStr = timestamp > 0
+                                      ? DateFormat('yyyy-MM-dd HH:mm').format(DateTime.fromMillisecondsSinceEpoch(timestamp))
+                                      : '';
 
-                                return ListTile(
-                                  contentPadding: EdgeInsets.zero,
-                                  title: Text(
-                                    filename,
-                                    style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
-                                  ),
-                                  subtitle: Text(
-                                    dateStr.isNotEmpty ? dateStr : filePath,
-                                    style: TextStyle(fontSize: 11, color: colorScheme.onSurfaceVariant),
-                                  ),
-                                  trailing: Row(
-                                    mainAxisSize: MainAxisSize.min,
+                                  return ListTile(
+                                    contentPadding: EdgeInsets.zero,
+                                    title: Text(
+                                      filename,
+                                      style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
+                                    ),
+                                    subtitle: Text(
+                                      dateStr.isNotEmpty ? dateStr : filePath,
+                                      style: TextStyle(fontSize: 11, color: colorScheme.onSurfaceVariant),
+                                    ),
+                                    trailing: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextButton(
+                                          onPressed: () => _restoreBackup(context, filePath),
+                                          child: Text(l10n.restore),
+                                        ),
+                                        IconButton(
+                                          icon: Icon(Icons.delete_outline_rounded, size: 18, color: colorScheme.error),
+                                          onPressed: () => _deleteBackup(context, filePath),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              )
+                          else
+                            if (!isCloudConnected)
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                                child: Center(
+                                  child: Column(
                                     children: [
-                                      TextButton(
-                                        onPressed: () => _restoreBackup(context, filePath),
-                                        child: Text(l10n.restore),
+                                      Text(
+                                        l10n.configureCloudSyncServiceMessage,
+                                        style: TextStyle(color: colorScheme.onSurfaceVariant),
                                       ),
-                                      IconButton(
-                                        icon: Icon(Icons.delete_outline_rounded, size: 18, color: colorScheme.error),
-                                        onPressed: () => _deleteBackup(context, filePath),
+                                      const SizedBox(height: 8),
+                                      FilledButton.tonalIcon(
+                                        onPressed: () => context.pushNamed(AppRouter.cloudSettings),
+                                        icon: const Icon(Icons.cloud_sync_rounded, size: 16),
+                                        label: Text(l10n.cloudSyncSettingsTitle),
                                       ),
                                     ],
                                   ),
-                                );
-                              },
-                            ),
+                                ),
+                              )
+                            else if (_isLoadingCloudFiles)
+                              const Padding(
+                                padding: EdgeInsets.symmetric(vertical: 24.0),
+                                child: Center(child: CircularProgressIndicator()),
+                              )
+                            else if (_cloudBackupFiles.isEmpty)
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                                child: Center(
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        l10n.noData,
+                                        style: TextStyle(color: colorScheme.onSurfaceVariant),
+                                      ),
+                                      const SizedBox(height: 8),
+                                      OutlinedButton.icon(
+                                        onPressed: () => _backupToCloud(context),
+                                        icon: const Icon(Icons.cloud_upload_rounded, size: 16),
+                                        label: Text(l10n.backup),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )
+                            else
+                              ListView.separated(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: _cloudBackupFiles.length,
+                                separatorBuilder: (_, _) => const Divider(height: 1),
+                                itemBuilder: (ctx, index) {
+                                  final file = _cloudBackupFiles[index];
+                                  final dateStr = DateFormat('yyyy-MM-dd HH:mm').format(file.lastModified);
+                                  final sizeKb = (file.size / 1024).toStringAsFixed(1);
+
+                                  return ListTile(
+                                    contentPadding: EdgeInsets.zero,
+                                    leading: Icon(Icons.cloud_done_rounded, color: colorScheme.primary, size: 20),
+                                    title: Text(
+                                      file.name,
+                                      style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
+                                    ),
+                                    subtitle: Text(
+                                      '$dateStr • ${sizeKb}KB',
+                                      style: TextStyle(fontSize: 11, color: colorScheme.onSurfaceVariant),
+                                    ),
+                                    trailing: FilledButton.tonal(
+                                      onPressed: () => _restoreCloudFileItem(context, file),
+                                      child: Text(l10n.restore),
+                                    ),
+                                  );
+                                },
+                              ),
                         ],
                       ),
                     ),

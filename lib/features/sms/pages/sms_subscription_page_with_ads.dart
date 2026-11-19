@@ -96,7 +96,7 @@ class _SmsSubscriptionPageWithAdsState extends ConsumerState<SmsSubscriptionPage
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('${AppLocalizations.of(context).updateSubscriptionFailed}: $e')),
+          SnackBar(content: Text(AppLocalizations.of(context).updateSubscriptionFailed(e.toString()))),
         );
       }
     } finally {
