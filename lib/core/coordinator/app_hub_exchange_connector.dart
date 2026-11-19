@@ -33,36 +33,58 @@ import 'package:yourcallyourrule/features/contacts/services/contact_service.dart
 import 'package:yourcallyourrule/features/phone_rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+import 'package:yourcallyourrule/features/cloud_drive/providers/cloud_sync_provider.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
+
+final centralDatabaseHubProvider = Provider<CentralDatabaseHub>((ref) => CentralDatabaseHub());
+final userDatabaseHubProvider = Provider<UserDatabaseHub>((ref) => UserDatabaseHub());
 
 final appHubExchangeConnectorProvider = Provider<AppHubExchangeConnector>((ref) {
   final coordinator = ref.watch(appCoordinatorProvider);
-  return AppHubExchangeConnector(ref, coordinator)..initializeConnectorBridge();
+  final centralDb = ref.watch(centralDatabaseHubProvider);
+  final userDb = ref.watch(userDatabaseHubProvider);
+  final cloudDrive = ref.watch(cloudDriveHubProvider);
+  return AppHubExchangeConnector(
+    ref,
+    coordinator,
+    centralDatabaseHub: centralDb,
+    userDatabaseHub: userDb,
+    cloudDriveHub: cloudDrive,
+  )..initializeConnectorBridge();
 });
 
 /// 应用微包中枢全量数据流转与协同连接器 (AppHubExchangeConnector)
-/// 负责在主 App 中交换调和 @clouddrive, @device, @user_database (Local), @database (Remote Central), @sim_slot_rules, @sync
+/// 负责在主 App 中交换调和 @clouddrive, @user_database (Local), @database (Remote Central), @sim_slot_rules, @sync
 class AppHubExchangeConnector {
   final Ref ref;
   final AppCoordinator _coordinator;
+  final CentralDatabaseHub centralDatabaseHub;
+  final UserDatabaseHub userDatabaseHub;
+  final CloudDriveHub cloudDriveHub;
 
-  AppHubExchangeConnector(this.ref, this._coordinator);
+  AppHubExchangeConnector(
+    this.ref,
+    this._coordinator, {
+    required this.centralDatabaseHub,
+    required this.userDatabaseHub,
+    required this.cloudDriveHub,
+  });
 
   /// 初始化全量中枢交织桥接管道
   void initializeConnectorBridge() {
-    debugPrint('[AppHubExchangeConnector] Wiring Exchange Bridge: Local User DB <-> Remote Central DB <-> CloudDrive <-> Device Hub <-> SIM Rules <-> SyncHub');
+    debugPrint('[AppHubExchangeConnector] Wiring Exchange Bridge: Local User DB <-> Remote Central DB <-> CloudDrive <-> SIM Rules');
 
     // 1. 云盘上下文配置 (CloudDrive Context) 主 App 注入配置 App 名称与加密标头并挂载驱动
-    CloudDriveHub.instance.configureHostContext(
+    cloudDriveHub.configureHostContext(
       appName: 'YourCallYourRule',
       encryptionHeaderTag: 'YOURCALL_ENC_V1',
     );
     try {
-      CloudDriveHub.instance.register(
+      cloudDriveHub.register(
         GoogleDriveAdapter(serverClientId: Environment.googleServerClientId),
         uiConfig: GoogleDriveAdapter.uiConfig,
       );
-      CloudDriveHub.instance.register(
+      cloudDriveHub.register(
         OneDriveDriveAdapter(
           clientId: Environment.msalClientId,
           redirectUri: Environment.msalAndroidRedirectUri,
@@ -70,7 +92,7 @@ class AppHubExchangeConnector {
         ),
         uiConfig: OneDriveDriveAdapter.uiConfig,
       );
-      CloudDriveHub.instance.register(WebDAVDriveAdapter(), uiConfig: WebDAVDriveAdapter.uiConfig);
+      cloudDriveHub.register(WebDAVDriveAdapter(), uiConfig: WebDAVDriveAdapter.uiConfig);
       debugPrint('[AppHubExchangeConnector] Registered CloudDrive Drivers with UIConfigs: GoogleDrive, OneDrive, WebDAV');
     } catch (e) {
       debugPrint('[AppHubExchangeConnector] Error registering CloudDrive Drivers: $e');
@@ -78,7 +100,7 @@ class AppHubExchangeConnector {
 
     // 2. 本地用户数据库 (Local User Database) 初始化并注册引擎节点
     try {
-      UserDatabaseHub.instance.registerAdapter(
+      userDatabaseHub.registerAdapter(
         CloudflareSyncProvider(
           workerUrl: Env.cfWorkerUrl,
           apiSecret: Env.workerApiSecret,
@@ -91,7 +113,7 @@ class AppHubExchangeConnector {
 
     // 3. 远程中央数据库 (Remote Central Database) 初始化并注册适配器
     try {
-      CentralDatabaseHub.instance.register(
+      centralDatabaseHub.register(
         CloudflareCentralDbAdapter(
           config: CloudflareConfig(
             workerUrl: Env.cfWorkerUrl,
@@ -105,13 +127,26 @@ class AppHubExchangeConnector {
       debugPrint('[AppHubExchangeConnector] Error registering CentralDatabase Adapters: $e');
     }
 
-    // 4. 全量 Filter 驱动与 SMS Bloom Filter 离线预检驱动一键注册挂载
+    // 4. 本地用户数据变更监听管道 (Local User DB CDC Event)
+    _coordinator.on('local_user_data_changed', (payload) async {
+      debugPrint('[Connector] Local User Database changed, triggering user sync...');
+      await syncUserDatabase();
+    });
+
+    // 5. 远程中央数据库拉取事件管道 (Remote Central DB Update Event)
+    _coordinator.on('remote_central_db_update', (payload) async {
+      final countryIsoCode = payload['countryIsoCode'] as String? ?? '';
+      debugPrint('[Connector] Remote Central DB update triggered for country: $countryIsoCode');
+      await syncCentralDatabase(countryIsoCode: countryIsoCode);
+    });
+
+    // 6. 全量 Filter 驱动与 SMS Bloom Filter 离线预检驱动一键注册挂载
     _registerAllFilterConnectors();
 
-    // 5. 全局系统通知总线调度 (System Notification Relay & Tap Dispatcher)
+    // 7. 全局系统通知总线调度 (System Notification Relay & Tap Dispatcher)
     _setupNotificationRelay();
 
-    // 6. 来电识别数据委托统一装配 (Caller Identity Resolvers Glue Assembly)
+    // 8. 来电识别数据委托统一装配 (Caller Identity Resolvers Glue Assembly)
     _setupCallerIdentityResolvers();
   }
 
@@ -233,4 +268,54 @@ class AppHubExchangeConnector {
     }
   }
 
+  /// 执行本地个人库 (Local User DB) 同步
+  Future<bool> syncUserDatabase() async {
+    try {
+      for (final providerId in userDatabaseHub.availableProviders) {
+        final adapter = userDatabaseHub.getAdapter(providerId);
+        if (adapter != null) {
+          await adapter.readAll();
+          debugPrint('[Connector] User database sync completed for provider: $providerId');
+        }
+      }
+      return true;
+    } catch (e) {
+      debugPrint('[Connector] syncUserDatabase error: $e');
+      return false;
+    }
+  }
+
+  /// 执行远程中央库 (Remote Central DB) 同步拉取
+  Future<bool> syncCentralDatabase({String countryIsoCode = ''}) async {
+    try {
+      for (final adapter in centralDatabaseHub.allAdapters) {
+        final domain = countryIsoCode.isNotEmpty ? 'rules_$countryIsoCode' : 'rules_global';
+        final entities = await adapter.fetchPublicEntities(domain);
+        debugPrint('[Connector] Central database fetched ${entities.length} entities for domain: $domain');
+      }
+      return true;
+    } catch (e) {
+      debugPrint('[Connector] syncCentralDatabase error: $e');
+      return false;
+    }
+  }
+
+  /// 广播执行本地个人库 (Local User DB) 与 远程中央库 (Remote Central DB) 双流同步
+  Future<bool> triggerFullSystemSync({String countryIsoCode = ''}) async {
+    try {
+      debugPrint('[Connector] Triggering Full System Dual-Stream Sync...');
+      final userSyncSuccess = await syncUserDatabase();
+      final centralSyncSuccess = await syncCentralDatabase(countryIsoCode: countryIsoCode);
+
+      _coordinator.emit('full_system_sync_completed', {
+        'userSyncSuccess': userSyncSuccess,
+        'centralSyncSuccess': centralSyncSuccess,
+        'timestamp': DateTime.now().toIso8601String(),
+      });
+      return userSyncSuccess && centralSyncSuccess;
+    } catch (e) {
+      debugPrint('[Connector] triggerFullSystemSync error: $e');
+      return false;
+    }
+  }
 }

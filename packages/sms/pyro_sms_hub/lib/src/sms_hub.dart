@@ -4,8 +4,8 @@ import 'sms_screening_pipeline.dart';
 
 /// Central singleton service locator and screening engine for SMS protection
 class SmsHub {
-  SmsHub._internal();
-  static final SmsHub instance = SmsHub._internal();
+  SmsHub();
+  static final SmsHub instance = SmsHub();
 
   final Map<String, SmsFilterAdapter> _filters = {};
   final Map<String, SmsLinkThreatAdapter> _linkThreatAdapters = {};
