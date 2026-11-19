@@ -9,6 +9,8 @@ import 'package:pyro_user_database_hub/pyro_user_database_hub.dart';
 import 'package:pyro_user_database_cloudflare/pyro_user_database_cloudflare.dart';
 import 'package:pyro_central_database_hub/pyro_central_database_hub.dart';
 import 'package:pyro_central_database_cloudflare/pyro_central_database_cloudflare.dart';
+import 'package:pyro_device_master_slave_hub/pyro_device_master_slave_hub.dart';
+import 'package:pyro_sync_hub/pyro_sync_hub.dart';
 import 'package:pyro_cloudflare/pyro_cloudflare.dart';
 import 'package:yourcallyourrule/env.dart';
 
@@ -38,29 +40,37 @@ import 'package:yourcallyourrule/features/remote_filter/services/remote_number_s
 
 final centralDatabaseHubProvider = Provider<CentralDatabaseHub>((ref) => CentralDatabaseHub());
 final userDatabaseHubProvider = Provider<UserDatabaseHub>((ref) => UserDatabaseHub());
+final deviceMasterSlaveHubProvider = Provider<DeviceMasterSlaveHub>((ref) => DeviceMasterSlaveHub());
+final syncHubProvider = Provider<SyncHub>((ref) => SyncHub());
 
 final appHubExchangeConnectorProvider = Provider<AppHubExchangeConnector>((ref) {
   final coordinator = ref.watch(appCoordinatorProvider);
   final centralDb = ref.watch(centralDatabaseHubProvider);
   final userDb = ref.watch(userDatabaseHubProvider);
   final cloudDrive = ref.watch(cloudDriveHubProvider);
+  final deviceHub = ref.watch(deviceMasterSlaveHubProvider);
+  final syncHub = ref.watch(syncHubProvider);
   return AppHubExchangeConnector(
     ref,
     coordinator,
     centralDatabaseHub: centralDb,
     userDatabaseHub: userDb,
     cloudDriveHub: cloudDrive,
+    deviceMasterSlaveHub: deviceHub,
+    syncHub: syncHub,
   )..initializeConnectorBridge();
 });
 
 /// 应用微包中枢全量数据流转与协同连接器 (AppHubExchangeConnector)
-/// 负责在主 App 中交换调和 @clouddrive, @user_database (Local), @database (Remote Central), @sim_slot_rules, @sync
+/// 负责在主 App 中交换调和 @clouddrive, @user_database (Local), @database (Remote Central), @device (Device Management), @sync (Incremental Sync)
 class AppHubExchangeConnector {
   final Ref ref;
   final AppCoordinator _coordinator;
   final CentralDatabaseHub centralDatabaseHub;
   final UserDatabaseHub userDatabaseHub;
   final CloudDriveHub cloudDriveHub;
+  final DeviceMasterSlaveHub deviceMasterSlaveHub;
+  final SyncHub syncHub;
 
   AppHubExchangeConnector(
     this.ref,
@@ -68,6 +78,8 @@ class AppHubExchangeConnector {
     required this.centralDatabaseHub,
     required this.userDatabaseHub,
     required this.cloudDriveHub,
+    required this.deviceMasterSlaveHub,
+    required this.syncHub,
   });
 
   /// 初始化全量中枢交织桥接管道
@@ -127,7 +139,10 @@ class AppHubExchangeConnector {
       debugPrint('[AppHubExchangeConnector] Error registering CentralDatabase Adapters: $e');
     }
 
-    // 4. 本地用户数据变更监听管道 (Local User DB CDC Event)
+    // 4. 设备管理中枢 (DeviceMasterSlaveHub) 与 增量同步中枢 (SyncHub) 平权挂载
+    debugPrint('[AppHubExchangeConnector] Initialized DeviceMasterSlaveHub & SyncHub for Multi-Device and Incremental Sync');
+
+    // 5. 本地用户数据变更监听管道 (Local User DB CDC Event)
     _coordinator.on('local_user_data_changed', (payload) async {
       debugPrint('[Connector] Local User Database changed, triggering user sync...');
       await syncUserDatabase();
