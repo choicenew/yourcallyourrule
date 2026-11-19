@@ -12,6 +12,13 @@ import 'package:pyro_central_database_cloudflare/pyro_central_database_cloudflar
 import 'package:pyro_device_master_slave_hub/pyro_device_master_slave_hub.dart';
 import 'package:pyro_sync_hub/pyro_sync_hub.dart';
 import 'package:pyro_cloudflare/pyro_cloudflare.dart';
+import 'package:pyro_crowdsourcing_arbiter/pyro_crowdsourcing_arbiter.dart';
+import 'package:pyro_sms_hub/pyro_sms_hub.dart';
+import 'package:pyro_sms_driver_burst_protection/pyro_sms_driver_burst_protection.dart';
+import 'package:pyro_sms_driver_google_safe_browsing/pyro_sms_driver_google_safe_browsing.dart';
+import 'package:pyro_sms_driver_phishtank/pyro_sms_driver_phishtank.dart';
+import 'package:pyro_sms_driver_virustotal/pyro_sms_driver_virustotal.dart';
+import 'package:pyro_sms_driver_regex_rules/pyro_sms_driver_regex_rules.dart';
 import 'package:yourcallyourrule/env.dart';
 
 import 'package:pyro_phone_count_filter_connector/pyro_phone_count_filter_connector.dart';
@@ -42,6 +49,17 @@ final centralDatabaseHubProvider = Provider<CentralDatabaseHub>((ref) => Central
 final userDatabaseHubProvider = Provider<UserDatabaseHub>((ref) => UserDatabaseHub());
 final deviceMasterSlaveHubProvider = Provider<DeviceMasterSlaveHub>((ref) => DeviceMasterSlaveHub());
 final syncHubProvider = Provider<SyncHub>((ref) => SyncHub());
+final crowdsourcingArbiterProvider = Provider<CrowdsourcingArbiterService>((ref) => CrowdsourcingArbiterService());
+
+final smsHubProvider = Provider<SmsHub>((ref) {
+  final hub = SmsHub();
+  hub.registerBurstProtection(SmsBurstProtectionDriver());
+  hub.registerLinkThreatAdapter(GoogleSafeBrowsingDriver());
+  hub.registerLinkThreatAdapter(PhishTankDriver());
+  hub.registerLinkThreatAdapter(VirusTotalDriver());
+  hub.registerFilter(RegexRulesDriver());
+  return hub;
+});
 
 final appHubExchangeConnectorProvider = Provider<AppHubExchangeConnector>((ref) {
   final coordinator = ref.watch(appCoordinatorProvider);
@@ -50,6 +68,8 @@ final appHubExchangeConnectorProvider = Provider<AppHubExchangeConnector>((ref) 
   final cloudDrive = ref.watch(cloudDriveHubProvider);
   final deviceHub = ref.watch(deviceMasterSlaveHubProvider);
   final syncHub = ref.watch(syncHubProvider);
+  final crowdsourcing = ref.watch(crowdsourcingArbiterProvider);
+  final smsHub = ref.watch(smsHubProvider);
   return AppHubExchangeConnector(
     ref,
     coordinator,
@@ -58,11 +78,13 @@ final appHubExchangeConnectorProvider = Provider<AppHubExchangeConnector>((ref) 
     cloudDriveHub: cloudDrive,
     deviceMasterSlaveHub: deviceHub,
     syncHub: syncHub,
+    crowdsourcingArbiter: crowdsourcing,
+    smsHub: smsHub,
   )..initializeConnectorBridge();
 });
 
 /// 应用微包中枢全量数据流转与协同连接器 (AppHubExchangeConnector)
-/// 负责在主 App 中交换调和 @clouddrive, @user_database (Local), @database (Remote Central), @device (Device Management), @sync (Incremental Sync)
+/// 负责在主 App 中交换调和 @clouddrive, @user_database (Local), @database (Remote Central), @device (Device Management), @sync (Incremental Sync), @crowdsourcing (Proposals)
 class AppHubExchangeConnector {
   final Ref ref;
   final AppCoordinator _coordinator;
@@ -71,6 +93,8 @@ class AppHubExchangeConnector {
   final CloudDriveHub cloudDriveHub;
   final DeviceMasterSlaveHub deviceMasterSlaveHub;
   final SyncHub syncHub;
+  final CrowdsourcingArbiterService crowdsourcingArbiter;
+  final SmsHub smsHub;
 
   AppHubExchangeConnector(
     this.ref,
@@ -80,6 +104,8 @@ class AppHubExchangeConnector {
     required this.cloudDriveHub,
     required this.deviceMasterSlaveHub,
     required this.syncHub,
+    required this.crowdsourcingArbiter,
+    required this.smsHub,
   });
 
   /// 初始化全量中枢交织桥接管道
@@ -142,7 +168,51 @@ class AppHubExchangeConnector {
     // 4. 设备管理中枢 (DeviceMasterSlaveHub) 与 增量同步中枢 (SyncHub) 平权挂载
     debugPrint('[AppHubExchangeConnector] Initialized DeviceMasterSlaveHub & SyncHub for Multi-Device and Incremental Sync');
 
-    // 5. 本地用户数据变更监听管道 (Local User DB CDC Event)
+    // 5. 众包提案 (Proposal / Crowdsourcing) 裁决引擎协同挂载
+    _coordinator.on('crowdsourcing_propose_item', (payload) async {
+      try {
+        final domain = payload['domain'] as String? ?? 'system_rule';
+        final entityKey = payload['entityKey'] as String? ?? '';
+        final data = payload['payload'] as Map<String, dynamic>? ?? {};
+        final deviceId = payload['deviceId'] as String? ?? '';
+        final result = await crowdsourcingArbiter.proposeItem(
+          domain: domain,
+          entityKey: entityKey,
+          payload: data,
+          deviceId: deviceId,
+        );
+        _coordinator.emit('crowdsourcing_item_proposed', {
+          'compositeKey': result?.compositeKey,
+          'status': result?.status,
+        });
+      } catch (e) {
+        debugPrint('[AppHubExchangeConnector] Error proposing crowdsourced item: $e');
+      }
+    });
+
+    _coordinator.on('crowdsourcing_vote_item', (payload) async {
+      try {
+        final domain = payload['domain'] as String? ?? 'system_rule';
+        final entityKey = payload['entityKey'] as String? ?? '';
+        final support = payload['support'] as bool? ?? true;
+        final deviceId = payload['deviceId'] as String? ?? '';
+        final updated = await crowdsourcingArbiter.voteItem(
+          domain: domain,
+          entityKey: entityKey,
+          support: support,
+          deviceId: deviceId,
+        );
+        _coordinator.emit('crowdsourcing_item_voted', {
+          'compositeKey': updated?.compositeKey,
+          'confidence': updated?.confidence,
+          'status': updated?.status,
+        });
+      } catch (e) {
+        debugPrint('[AppHubExchangeConnector] Error voting on crowdsourced item: $e');
+      }
+    });
+
+    // 6. 本地用户数据变更监听管道 (Local User DB CDC Event)
     _coordinator.on('local_user_data_changed', (payload) async {
       debugPrint('[Connector] Local User Database changed, triggering user sync...');
       await syncUserDatabase();

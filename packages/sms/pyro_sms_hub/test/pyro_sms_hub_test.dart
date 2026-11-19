@@ -26,15 +26,17 @@ class MockFilterAdapter implements SmsFilterAdapter {
 }
 
 void main() {
+  late SmsHub hub;
+
   setUp(() {
-    SmsHub.instance.clear();
+    hub = SmsHub();
   });
 
   test('SmsHub registers and evaluates filter adapters', () async {
     final mock = MockFilterAdapter();
-    SmsHub.instance.registerFilter(mock);
+    hub.registerFilter(mock);
 
-    expect(SmsHub.instance.activeFilters.length, 1);
+    expect(hub.activeFilters.length, 1);
 
     final safeMessage = SmsMessageEntity(
       id: '1',
@@ -42,7 +44,7 @@ void main() {
       body: 'Hello world',
       timestamp: DateTime.now(),
     );
-    final resultSafe = await SmsHub.instance.pipeline.evaluate(safeMessage);
+    final resultSafe = await hub.pipeline.evaluate(safeMessage);
     expect(resultSafe.recommendedAction, SmsFilterAction.allow);
 
     final spamMessage = SmsMessageEntity(
@@ -51,7 +53,7 @@ void main() {
       body: 'Get money now SPAM_MOCK',
       timestamp: DateTime.now(),
     );
-    final resultSpam = await SmsHub.instance.pipeline.evaluate(spamMessage);
+    final resultSpam = await hub.pipeline.evaluate(spamMessage);
     expect(resultSpam.recommendedAction, SmsFilterAction.cancelNotification);
   });
 }

@@ -28,13 +28,7 @@ import 'package:pyro_phone_marking_connector/pyro_phone_marking_connector.dart';
 import 'package:pyro_sim_connector/pyro_sim_connector.dart';
 import 'package:pyro_stir_connector/pyro_stir_connector.dart';
 import 'package:pyro_sms_connector/pyro_sms_connector.dart';
-import 'package:pyro_sms_hub/pyro_sms_hub.dart';
-import 'package:pyro_sms_driver_burst_protection/pyro_sms_driver_burst_protection.dart';
-import 'package:pyro_sms_driver_google_safe_browsing/pyro_sms_driver_google_safe_browsing.dart';
-import 'package:pyro_sms_driver_phishtank/pyro_sms_driver_phishtank.dart';
-import 'package:pyro_sms_driver_virustotal/pyro_sms_driver_virustotal.dart';
-import 'package:pyro_sms_driver_regex_rules/pyro_sms_driver_regex_rules.dart';
-import 'package:yourcallyourrule/features/commercial/services/commercial_service.dart';
+import 'package:pyro_commercial_hub/pyro_commercial_hub.dart';
 
 /// 全量 33 个微包外观装配线独立初始化入口
 void initPackageConnectors() {
@@ -64,15 +58,8 @@ void initPackageConnectors() {
   PyroCallMonitorConnector.registerAll();
   PyroCallCoordinatorConnector.registerAll();
   PyroPhoneMarkingConnector.registerAll();
-  CommercialService.instance.initialize();
-
-  // 短信微包体系驱动统一装配
+  CommercialAdConnectors.ensureAdConnectorsMounted();
   SmsConnectors.ensureMounted();
-  SmsHub.instance.registerBurstProtection(SmsBurstProtectionDriver());
-  SmsHub.instance.registerLinkThreatAdapter(GoogleSafeBrowsingDriver());
-  SmsHub.instance.registerLinkThreatAdapter(PhishTankDriver());
-  SmsHub.instance.registerLinkThreatAdapter(VirusTotalDriver());
-  SmsHub.instance.registerFilter(RegexRulesDriver());
 
   debugPrint('[PackageConnectors] 33 个 Package Suite Connector 全外观自注册装配完成');
 }

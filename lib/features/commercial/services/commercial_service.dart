@@ -9,15 +9,13 @@ part 'commercial_service.g.dart';
 
 @Riverpod(keepAlive: true)
 CommercialService commercialService(Ref ref) {
-  return CommercialService.instance;
+  return CommercialService();
 }
 
 /// 主 App 商业化中枢 Riverpod 适配服务 (CommercialService)
 /// 调配 AdMob 广告与 VIP 内购状态，无缝对接 pyro_commercial_hub 与 pyro_ads_hub
 class CommercialService {
-  static final CommercialService instance = CommercialService._();
-
-  CommercialService._();
+  CommercialService();
 
   /// 初始化商业化服务与广告连接器
   Future<void> initialize() async {
