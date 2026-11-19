@@ -2,6 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
 
 export 'src/label_action_policy_matrix_view.dart';
+export 'src/emergency_exemption_policy_card.dart';
 
 /// 策略动作显示 ListTile 组件
 class InterceptActionTileView extends StatelessWidget {

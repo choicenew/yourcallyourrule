@@ -16,12 +16,36 @@ final emergencyCallPolicyServiceProvider = Provider<EmergencyCallPolicyService>(
 class EmergencyCallPolicyService {
   static const String _prefKeyEmergencyTimestamp = 'emergency_call_last_timestamp';
   static const String _assetConfigPath = 'assets/emergency_numbers.json';
-  static const int exemptionDurationMs = 30 * 60 * 1000; // 30 分钟
 
   final Set<String> _emergencyNumbers = {};
+  final Set<String> _customNumbers = {};
+  bool isPolicyEnabled = true;
+  int exemptionDurationMinutes = 30;
   bool _isConfigLoaded = false;
   Completer<void>? _loadCompleter;
   int? _memoryTimestamp;
+
+  int get exemptionDurationMs => exemptionDurationMinutes * 60 * 1000;
+
+  List<String> get presetNumbers => _emergencyNumbers.toList();
+
+  void updateConfig({
+    bool? enabled,
+    int? durationMinutes,
+    List<String>? customNumbers,
+  }) {
+    if (enabled != null) isPolicyEnabled = enabled;
+    if (durationMinutes != null) exemptionDurationMinutes = durationMinutes;
+    if (customNumbers != null) {
+      _customNumbers.clear();
+      for (final n in customNumbers) {
+        final clean = n.replaceAll(RegExp(r'[^0-9]'), '');
+        if (clean.isNotEmpty) {
+          _customNumbers.add(clean);
+        }
+      }
+    }
+  }
 
   /// 初始化并从 JSON 资源文件加载全球紧急求救号码库
   Future<void> init() async {
@@ -67,21 +91,22 @@ class EmergencyCallPolicyService {
     }
   }
 
-  /// 异步判断号码是否为紧急求助电话
+  /// 异步判断号码是否为紧急求助电话 (内置 + 自定义)
   Future<bool> isEmergencyNumber(String phoneNumber) async {
     await _ensureLoaded();
     final clean = phoneNumber.replaceAll(RegExp(r'[^0-9]'), '');
-    return _emergencyNumbers.contains(clean);
+    return _emergencyNumbers.contains(clean) || _customNumbers.contains(clean);
   }
 
   /// 同步判断号码（如果已预加载）
   bool isEmergencyNumberSync(String phoneNumber) {
     final clean = phoneNumber.replaceAll(RegExp(r'[^0-9]'), '');
-    return _emergencyNumbers.contains(clean);
+    return _emergencyNumbers.contains(clean) || _customNumbers.contains(clean);
   }
 
   /// 记录紧急呼叫发生时间
   Future<void> recordEmergencyCallIfMatched(String phoneNumber) async {
+    if (!isPolicyEnabled) return;
     final matched = await isEmergencyNumber(phoneNumber);
     if (matched) {
       final now = DateTime.now().millisecondsSinceEpoch;
@@ -92,12 +117,13 @@ class EmergencyCallPolicyService {
       } catch (e) {
         debugPrint('[EmergencyCallPolicy] SharedPreferences 保存失败: $e');
       }
-      debugPrint('[EmergencyCallPolicy] 检测到拨打紧急求救电话: $phoneNumber，开启 30 分钟全局无条件放行豁免期');
+      debugPrint('[EmergencyCallPolicy] 检测到拨打紧急求救电话: $phoneNumber，开启 $exemptionDurationMinutes 分钟全局无条件放行豁免期');
     }
   }
 
-  /// 判断当前是否处于紧急呼叫后的 30 分钟无条件放行期
+  /// 判断当前是否处于紧急呼叫后的无条件放行期
   Future<bool> isExempted() async {
+    if (!isPolicyEnabled) return false;
     final now = DateTime.now().millisecondsSinceEpoch;
     if (_memoryTimestamp != null && (now - _memoryTimestamp!) < exemptionDurationMs) {
       return true;
@@ -111,5 +137,25 @@ class EmergencyCallPolicyService {
       }
     } catch (_) {}
     return false;
+  }
+
+  /// 获取当前剩余豁免秒数
+  Future<int?> getRemainingExemptionSeconds() async {
+    if (!isPolicyEnabled) return null;
+    final now = DateTime.now().millisecondsSinceEpoch;
+    int? lastTime = _memoryTimestamp;
+    if (lastTime == null) {
+      try {
+        final prefs = await SharedPreferences.getInstance();
+        lastTime = prefs.getInt(_prefKeyEmergencyTimestamp);
+      } catch (_) {}
+    }
+    if (lastTime != null) {
+      final diff = now - lastTime;
+      if (diff < exemptionDurationMs) {
+        return ((exemptionDurationMs - diff) / 1000).ceil();
+      }
+    }
+    return null;
   }
 }

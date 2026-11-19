@@ -5,6 +5,8 @@ import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_int
 import 'package:pyro_phone_call_interception_policy_ui/pyro_phone_call_interception_policy_ui.dart';
 import 'package:yourcallyourrule/features/phone_evaluators/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/features/phone_evaluators/config/label_action_config_provider.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/config/emergency_policy_config_provider.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/evaluators/emergency_call_policy_service.dart';
 import 'package:yourcallyourrule/features/labels/utils/predefined_labels.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -17,6 +19,8 @@ class EndCallSettingsPage extends ConsumerWidget {
     final interceptActionNotifier = ref.read(interceptActionConfigProvider.notifier);
     final labelActionMap = ref.watch(labelActionConfigProvider);
     final labelActionNotifier = ref.read(labelActionConfigProvider.notifier);
+    final emergencyConfig = ref.watch(emergencyPolicyConfigProvider);
+    final emergencyPolicyService = ref.read(emergencyCallPolicyServiceProvider);
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);
     final isZh = Localizations.localeOf(context).languageCode.toLowerCase() == 'zh';
@@ -162,6 +166,17 @@ class EndCallSettingsPage extends ConsumerWidget {
                     onActionRemoved: (label) {
                       labelActionNotifier.removeActionForLabel(label);
                     },
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // 3. 挂载微包自闭环的紧急呼叫放行防护卡片 (支持添加自定义地区紧急号码)
+                  EmergencyExemptionPolicyCard(
+                    config: emergencyConfig,
+                    onConfigChanged: (newConfig) {
+                      ref.read(emergencyPolicyConfigProvider.notifier).updateConfig(newConfig);
+                    },
+                    presetNumbers: emergencyPolicyService.presetNumbers,
                   ),
                 ],
               ),
