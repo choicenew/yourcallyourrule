@@ -3,7 +3,7 @@ import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 
 /// NotificationListenerService-based driver allowing permission-free SMS/messaging notification screening
 class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
-  /// Self-registers this driver instance to SmsHub
+  /// Registers this driver to the provided SmsHub
   static void register() {
     // Registered via SmsConnectors
   }

@@ -4,17 +4,11 @@ import 'package:pyro_sms_hub/pyro_sms_hub.dart';
 
 /// Fallback driver connecting to native Android Telephony SMS_RECEIVED BroadcastReceiver and ContentProvider
 class TelephonyFallbackDriver implements SmsFilterAdapter {
-  static TelephonyFallbackDriver? _instance;
-
-  /// Self-registers this driver instance to SmsHub
-  static void register() {
-    _instance ??= TelephonyFallbackDriver();
-    SmsHub.instance.registerFilter(_instance!);
-  }
-
-  static void unregister() {
-    _instance?.dispose();
-    _instance = null;
+  /// Registers this driver to the provided SmsHub
+  static TelephonyFallbackDriver register(SmsHub hub) {
+    final driver = TelephonyFallbackDriver();
+    hub.registerFilter(driver);
+    return driver;
   }
 
   static const MethodChannel _channel =

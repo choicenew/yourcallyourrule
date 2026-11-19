@@ -13,6 +13,7 @@ import 'package:pyro_device_master_slave_hub/pyro_device_master_slave_hub.dart';
 import 'package:pyro_sync_hub/pyro_sync_hub.dart';
 import 'package:pyro_cloudflare/pyro_cloudflare.dart';
 import 'package:pyro_crowdsourcing_arbiter/pyro_crowdsourcing_arbiter.dart';
+import 'package:pyro_sms_connector/pyro_sms_connector.dart';
 import 'package:pyro_sms_hub/pyro_sms_hub.dart';
 import 'package:pyro_sms_driver_burst_protection/pyro_sms_driver_burst_protection.dart';
 import 'package:pyro_sms_driver_google_safe_browsing/pyro_sms_driver_google_safe_browsing.dart';
@@ -53,6 +54,7 @@ final crowdsourcingArbiterProvider = Provider<CrowdsourcingArbiterService>((ref)
 
 final smsHubProvider = Provider<SmsHub>((ref) {
   final hub = SmsHub();
+  SmsConnectors.mountToHub(hub);
   hub.registerBurstProtection(SmsBurstProtectionDriver());
   hub.registerLinkThreatAdapter(GoogleSafeBrowsingDriver());
   hub.registerLinkThreatAdapter(PhishTankDriver());

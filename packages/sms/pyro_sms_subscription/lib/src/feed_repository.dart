@@ -3,8 +3,7 @@ import 'feed_downloader.dart';
 
 /// Central repository managing SMS threat feed subscriptions, parsing, and local storage
 class FeedRepository {
-  static final FeedRepository instance = FeedRepository._internal();
-  FeedRepository._internal();
+  FeedRepository();
 
   final FeedDownloader _downloader = FeedDownloader();
   final Map<String, Set<String>> _feedDomainStore = {};

@@ -3,17 +3,11 @@ import 'package:pyro_sms_hub/pyro_sms_hub.dart';
 
 /// NotificationListenerService-based driver allowing permission-free SMS/messaging notification screening
 class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
-  static SmsNotificationListenerDriver? _instance;
-
-  /// Self-registers this driver instance to SmsHub
-  static void register() {
-    _instance ??= SmsNotificationListenerDriver();
-    SmsHub.instance.registerNotificationListener(_instance!);
-  }
-
-  static void unregister() {
-    _instance?.dispose();
-    _instance = null;
+  /// Registers this driver to the provided SmsHub
+  static SmsNotificationListenerDriver register(SmsHub hub) {
+    final driver = SmsNotificationListenerDriver();
+    hub.registerNotificationListener(driver);
+    return driver;
   }
 
   static const MethodChannel _channel = MethodChannel('net.pyro.telephony/sms_notification_listener');

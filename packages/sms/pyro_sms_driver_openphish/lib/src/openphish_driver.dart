@@ -4,9 +4,9 @@ import 'package:pyro_sms_subscription/pyro_sms_subscription.dart';
 
 /// Driver integrating OpenPhish live threat feed via real feed repository
 class OpenPhishDriver implements SmsLinkThreatAdapter {
-  /// Self-registers this driver instance to SmsHub
-  static void register() {
-    SmsHub.instance.registerLinkThreatAdapter(OpenPhishDriver());
+  /// Registers this driver to the provided SmsHub
+  static void register(SmsHub hub, {FeedRepository? feedRepository}) {
+    hub.registerLinkThreatAdapter(OpenPhishDriver(feedRepository: feedRepository));
   }
 
   @override
@@ -18,7 +18,12 @@ class OpenPhishDriver implements SmsLinkThreatAdapter {
   @override
   bool isEnabled;
 
-  OpenPhishDriver({this.isEnabled = true});
+  final FeedRepository _feedRepository;
+
+  OpenPhishDriver({
+    this.isEnabled = true,
+    FeedRepository? feedRepository,
+  }) : _feedRepository = feedRepository ?? FeedRepository();
 
   @override
   Future<PhishingUrlItem?> checkUrl(String url) async {
@@ -31,7 +36,7 @@ class OpenPhishDriver implements SmsLinkThreatAdapter {
     final parts = domain.split('.');
     final tld = parts.isNotEmpty ? parts.last : '';
 
-    final openPhishDomains = FeedRepository.instance.getFeedDomains('openphish');
+    final openPhishDomains = _feedRepository.getFeedDomains('openphish');
     final inOpenPhish = openPhishDomains.contains(domain);
 
     if (inOpenPhish) {

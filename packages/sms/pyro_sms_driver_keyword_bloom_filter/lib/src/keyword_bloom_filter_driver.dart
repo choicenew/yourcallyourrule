@@ -5,9 +5,9 @@ import 'aho_corasick_automaton.dart';
 
 /// Ultra-high performance driver using Bloom Filter & AC Automaton for 100,000+ keyword searching
 class KeywordBloomFilterDriver implements SmsFilterAdapter {
-  /// Self-registers this driver instance to SmsHub
-  static void register({List<String> customKeywords = const []}) {
-    SmsHub.instance.registerFilter(
+  /// Registers this driver to the provided SmsHub
+  static void register(SmsHub hub, {List<String> customKeywords = const []}) {
+    hub.registerFilter(
       KeywordBloomFilterDriver(keywords: customKeywords),
     );
   }

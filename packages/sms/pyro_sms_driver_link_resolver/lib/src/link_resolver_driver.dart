@@ -4,7 +4,7 @@ import 'redos_backtracking_tree.dart';
 
 /// Link threat driver analyzing URL shorteners, TLD risk levels, and ReDoS safety
 class LinkResolverDriver implements SmsLinkThreatAdapter {
-  /// Self-registers this driver instance to SmsHub
+  /// Registers this driver to the provided SmsHub
   static void register() {
     // Register to SmsHub if available
   }

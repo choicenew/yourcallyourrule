@@ -10,7 +10,8 @@ https://malicious-domain-2.icu/account
 http://secure-update-3.xyz/verify
 ''';
 
-    final domains = await FeedRepository.instance.syncOpenPhishFeed(customFeedContent: mockRawFeed);
+    final repo = FeedRepository();
+    final domains = await repo.syncOpenPhishFeed(customFeedContent: mockRawFeed);
     expect(domains.contains('phishing-site-1.com'), true);
     expect(domains.contains('malicious-domain-2.icu'), true);
     expect(domains.contains('secure-update-3.xyz'), true);

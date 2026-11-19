@@ -6,9 +6,10 @@ import 'package:pyro_sms_subscription/pyro_sms_subscription.dart';
 void main() {
   test('OpenPhishDriver matches real synced threat domains', () async {
     const mockFeed = 'http://real-phishing-threat-domain.icu/login';
-    await FeedRepository.instance.syncOpenPhishFeed(customFeedContent: mockFeed);
+    final repo = FeedRepository();
+    await repo.syncOpenPhishFeed(customFeedContent: mockFeed);
 
-    final driver = OpenPhishDriver();
+    final driver = OpenPhishDriver(feedRepository: repo);
 
     final safeItem = await driver.checkUrl('http://github.com');
     expect(safeItem?.inOpenPhishFeed, false);
