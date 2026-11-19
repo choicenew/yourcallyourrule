@@ -2,49 +2,55 @@ package com.pyro.sim
 
 import android.content.Context
 import io.flutter.embedding.engine.plugins.FlutterPlugin
-import io.flutter.plugin.common.MethodCall
-import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.plugin.common.MethodChannel.Result
 
-class SimDriverPlugin : FlutterPlugin, MethodCallHandler {
-    private lateinit var channel: MethodChannel
+class SimDriverPlugin : FlutterPlugin, SimHostApi {
     private var applicationContext: Context? = null
 
     override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
         applicationContext = binding.applicationContext
-        channel = MethodChannel(binding.binaryMessenger, "net.pyro.telephony/sim")
-        channel.setMethodCallHandler(this)
+        SimHostApi.setUp(binding.binaryMessenger, this)
     }
 
-    override fun onMethodCall(call: MethodCall, result: Result) {
-        val ctx = applicationContext
-        if (ctx == null) {
-            result.error("CONTEXT_NULL", "Application context is null", null)
-            return
+    override fun getActiveSimCards(): List<PigeonSimCard> {
+        val ctx = applicationContext ?: return emptyList()
+        val rawList = SimCheckerImpl.getActiveSimCards(ctx)
+        return rawList.map { map ->
+            PigeonSimCard(
+                subscriptionId = (map["subscriptionId"] as? Number)?.toLong(),
+                simSlotIndex = (map["simSlotIndex"] as? Number)?.toLong(),
+                carrierName = map["carrierName"] as? String,
+                displayName = map["displayName"] as? String,
+                countryIso = map["countryIso"] as? String,
+                iccId = map["iccId"] as? String,
+                mccString = map["mccString"] as? String,
+                mncString = map["mncString"] as? String,
+                simPhoneNumber = map["simPhoneNumber"] as? String,
+                isDataRoaming = map["isDataRoaming"] as? Boolean,
+                isNetworkRoaming = map["isNetworkRoaming"] as? Boolean,
+                state = map["state"] as? String
+            )
         }
+    }
 
-        when (call.method) {
-            "getActiveSimCards" -> {
-                val simCards = SimCheckerImpl.getActiveSimCards(ctx)
-                result.success(simCards)
-            }
-            "hasSimCard" -> {
-                val hasSim = SimCheckerImpl.hasSimCard(ctx)
-                result.success(hasSim)
-            }
-            "getNetworkInfo" -> {
-                val netInfo = SimCheckerImpl.getNetworkInfo(ctx)
-                result.success(netInfo)
-            }
-            else -> {
-                result.notImplemented()
-            }
-        }
+    override fun hasSimCard(): Boolean {
+        val ctx = applicationContext ?: return false
+        return SimCheckerImpl.hasSimCard(ctx)
+    }
+
+    override fun getNetworkInfo(): PigeonNetworkInfo? {
+        val ctx = applicationContext ?: return null
+        val map = SimCheckerImpl.getNetworkInfo(ctx)
+        return PigeonNetworkInfo(
+            networkOperatorName = map["networkOperatorName"] as? String,
+            networkOperator = map["networkOperator"] as? String,
+            networkType = map["networkType"] as? String,
+            isNetworkAvailable = map["isNetworkAvailable"] as? Boolean,
+            isRoaming = map["isRoaming"] as? Boolean
+        )
     }
 
     override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        channel.setMethodCallHandler(null)
+        SimHostApi.setUp(binding.binaryMessenger, null)
         applicationContext = null
     }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:pyro_sim_hub/pyro_sim_hub.dart';
+import 'sim_api.g.dart';
 
 /// Native SIM driver bridging to Android SubscriptionManager, SimCheckerImpl, sim_reader, & sim_card_code.
 class SimDriver implements ISimReaderAdapter {
@@ -15,7 +16,9 @@ class SimDriver implements ISimReaderAdapter {
     _instance = null;
   }
 
-  static const MethodChannel _channel = MethodChannel('net.pyro.telephony/sim');
+  final SimHostApi _hostApi;
+
+  SimDriver({SimHostApi? hostApi}) : _hostApi = hostApi ?? SimHostApi();
 
   void dispose() {
     // Clean up if needed
@@ -27,17 +30,30 @@ class SimDriver implements ISimReaderAdapter {
   @override
   Future<List<SimCardEntity>> getActiveSimCards() async {
     try {
-      final List<dynamic>? rawList = await _channel.invokeListMethod<dynamic>('getActiveSimCards');
-      if (rawList != null) {
-        return rawList
-            .whereType<Map<dynamic, dynamic>>()
-            .map((map) => SimCardEntity.fromMap(map))
-            .toList();
-      }
-    } on MissingPluginException {
-      // Fallback
-    } catch (_) {}
-    return [];
+      final List<PigeonSimCard> rawList = await _hostApi.getActiveSimCards();
+      return rawList.map((card) {
+        return SimCardEntity(
+          subscriptionId: card.subscriptionId ?? -1,
+          slotIndex: SimSlotIndex.fromInt(card.simSlotIndex ?? -1),
+          state: SimStateType.fromString((card.state ?? 'ready').toString()),
+          phoneNumber: card.simPhoneNumber ?? '',
+          iccId: card.iccId ?? '',
+          isDataRoaming: card.isDataRoaming ?? false,
+          isNetworkRoaming: card.isNetworkRoaming ?? false,
+          carrier: SimCarrierEntity(
+            carrierName: card.carrierName ?? '',
+            displayName: card.displayName ?? '',
+            countryIso: card.countryIso ?? '',
+            mcc: card.mccString ?? '',
+            mnc: card.mncString ?? '',
+          ),
+        );
+      }).toList();
+    } on PlatformException {
+      return [];
+    } catch (_) {
+      return [];
+    }
   }
 
   @override
@@ -54,8 +70,9 @@ class SimDriver implements ISimReaderAdapter {
   @override
   Future<bool> hasSimCard() async {
     try {
-      final bool? hasSim = await _channel.invokeMethod<bool>('hasSimCard');
-      return hasSim ?? false;
+      return await _hostApi.hasSimCard();
+    } on PlatformException {
+      return false;
     } catch (_) {
       return false;
     }
@@ -64,11 +81,21 @@ class SimDriver implements ISimReaderAdapter {
   @override
   Future<NetworkInfoEntity?> getNetworkInfo() async {
     try {
-      final Map<dynamic, dynamic>? map = await _channel.invokeMethod<Map<dynamic, dynamic>>('getNetworkInfo');
-      if (map != null) {
-        return NetworkInfoEntity.fromMap(map);
+      final PigeonNetworkInfo? info = await _hostApi.getNetworkInfo();
+      if (info != null) {
+        return NetworkInfoEntity(
+          networkOperatorName: info.networkOperatorName ?? '',
+          networkOperator: info.networkOperator ?? '',
+          networkType: info.networkType ?? '',
+          isNetworkAvailable: info.isNetworkAvailable ?? false,
+          isRoaming: info.isRoaming ?? false,
+        );
       }
-    } catch (_) {}
+    } on PlatformException {
+      return null;
+    } catch (_) {
+      return null;
+    }
     return null;
   }
 }
