@@ -1,7 +1,7 @@
-import 'package:flutter/services.dart';
 import 'package:pyro_call_screening_hub/pyro_call_screening_hub.dart';
+import 'call_screening_api.g.dart';
 
-class CallScreeningDriver implements ICallScreeningAdapter {
+class CallScreeningDriver implements ICallScreeningAdapter, CallScreeningFlutterApi {
   static CallScreeningDriver? _instance;
 
   static void register() {
@@ -14,27 +14,30 @@ class CallScreeningDriver implements ICallScreeningAdapter {
     _instance = null;
   }
 
-  static const MethodChannel _channel = MethodChannel('net.pyro.telephony/call_screening');
+  final CallScreeningHostApi _hostApi;
 
-  CallScreeningDriver() {
-    _channel.setMethodCallHandler(_handleMethodCall);
+  CallScreeningDriver({CallScreeningHostApi? hostApi})
+      : _hostApi = hostApi ?? CallScreeningHostApi() {
+    CallScreeningFlutterApi.setUp(this);
   }
 
   void dispose() {
-    _channel.setMethodCallHandler(null);
+    CallScreeningFlutterApi.setUp(null);
   }
 
-  Future<dynamic> _handleMethodCall(MethodCall call) async {
-    if (call.method == 'evaluateCall') {
-      final Map<dynamic, dynamic> map = call.arguments is Map ? call.arguments as Map : {};
-      final entity = IncomingCallEntity.fromMap(map);
-      final action = await onScreeningRequested(entity);
-      return {
-        'action': action.toCode(),
-        'reason': 'Evaluated via CallScreeningHub',
-      };
-    }
-    return null;
+  @override
+  Future<CallScreeningDecision> evaluateCall(CallScreeningRequest request) async {
+    final entity = IncomingCallEntity(
+      callId: request.callId,
+      phoneNumber: request.phoneNumber,
+      normalizedNumber: request.normalizedNumber,
+      timestampMs: request.timestampMs,
+    );
+    final action = await onScreeningRequested(entity);
+    return CallScreeningDecision(
+      action: action.toCode(),
+      reason: 'Evaluated via CallScreeningHub',
+    );
   }
 
   @override
@@ -47,8 +50,7 @@ class CallScreeningDriver implements ICallScreeningAdapter {
 
   Future<bool> isServiceActive() async {
     try {
-      final bool? active = await _channel.invokeMethod<bool>('isServiceActive');
-      return active ?? false;
+      return await _hostApi.isServiceActive();
     } catch (_) {
       return false;
     }
@@ -56,18 +58,15 @@ class CallScreeningDriver implements ICallScreeningAdapter {
 
   Future<bool> isRoleGranted() async {
     try {
-      final bool? granted = await _channel.invokeMethod<bool>('isRoleGranted');
-      return granted ?? false;
-    } on MissingPluginException {
+      return await _hostApi.isRoleGranted();
+    } catch (_) {
       return false;
     }
   }
 
   Future<void> requestRole() async {
     try {
-      await _channel.invokeMethod('requestRole');
-    } on MissingPluginException {
-      // Fallback
-    }
+      await _hostApi.requestRole();
+    } catch (_) {}
   }
 }

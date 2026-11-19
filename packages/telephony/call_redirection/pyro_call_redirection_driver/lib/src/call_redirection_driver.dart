@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'package:flutter/services.dart';
 import 'package:pyro_call_redirection_hub/pyro_call_redirection_hub.dart';
+import 'call_redirection_api.g.dart';
 
 /// Driver for CallRedirectionService outbound fraud prevention
-class CallRedirectionDriver implements ICallRedirectionAdapter {
+class CallRedirectionDriver implements ICallRedirectionAdapter, CallRedirectionFlutterApi {
   static CallRedirectionDriver? _instance;
 
   /// Static auto-registration hook
@@ -20,13 +20,7 @@ class CallRedirectionDriver implements ICallRedirectionAdapter {
   /// Ensure mounted helper alias
   static void ensureMounted() => register();
 
-  static const MethodChannel _channel =
-      MethodChannel(RedirectionChannels.channelName);
-
-  void dispose() {
-    _channel.setMethodCallHandler(null);
-  }
-
+  final CallRedirectionHostApi _hostApi;
   final Map<String, DateTime> _bypassTokens = {};
 
   @override
@@ -34,29 +28,31 @@ class CallRedirectionDriver implements ICallRedirectionAdapter {
 
   bool isEnabled;
 
-  CallRedirectionDriver({this.isEnabled = true}) {
-    _channel.setMethodCallHandler(_handleMethodCall);
+  CallRedirectionDriver({this.isEnabled = true, CallRedirectionHostApi? hostApi})
+      : _hostApi = hostApi ?? CallRedirectionHostApi() {
+    CallRedirectionFlutterApi.setUp(this);
   }
 
-  Future<dynamic> _handleMethodCall(MethodCall call) async {
-    if (call.method == RedirectionChannels.methodEvaluateCall) {
-      final Map<dynamic, dynamic> args = call.arguments is Map ? call.arguments as Map : {};
-      final String rawNumber = (args[RedirectionMapKeys.rawPhoneNumber] ?? args['phoneNumber'] ?? '').toString();
-      final String normalized = (args[RedirectionMapKeys.normalizedPhoneNumber] ?? rawNumber.replaceAll(RegExp(r'\D'), '')).toString();
+  void dispose() {
+    CallRedirectionFlutterApi.setUp(null);
+  }
 
-      final entity = OutgoingCallEntity(
-        id: (args[RedirectionMapKeys.id] ?? 'call_${DateTime.now().millisecondsSinceEpoch}').toString(),
-        rawPhoneNumber: rawNumber,
-        normalizedPhoneNumber: normalized,
-        timestampMs: args[RedirectionMapKeys.timestampMs] is int ? args[RedirectionMapKeys.timestampMs] as int : DateTime.now().millisecondsSinceEpoch,
-        isInteractiveAllowed: args[RedirectionMapKeys.isInteractiveAllowed] as bool? ?? true,
-        isCarModeActive: args[RedirectionMapKeys.isCarModeActive] as bool? ?? false,
-      );
+  @override
+  Future<PigeonRedirectionDecision> evaluateCall(PigeonRedirectionRequest request) async {
+    final entity = OutgoingCallEntity(
+      id: request.id,
+      rawPhoneNumber: request.rawPhoneNumber,
+      normalizedPhoneNumber: request.normalizedPhoneNumber,
+      timestampMs: request.timestampMs,
+      isInteractiveAllowed: request.isInteractiveAllowed,
+      isCarModeActive: request.isCarModeActive,
+    );
 
-      final decision = await evaluateOutboundCall(entity);
-      return decision.toMap();
-    }
-    return null;
+    final decision = await evaluateOutboundCall(entity);
+    return PigeonRedirectionDecision(
+      action: decision.action.name,
+      reason: decision.reason?.name,
+    );
   }
 
   @override
@@ -110,20 +106,25 @@ class CallRedirectionDriver implements ICallRedirectionAdapter {
     _bypassTokens[phoneNumber] = DateTime.now().add(duration);
   }
 
+  Future<bool> isServiceActive() async {
+    try {
+      return await _hostApi.isServiceActive();
+    } catch (_) {
+      return false;
+    }
+  }
+
   Future<bool> isRoleGranted() async {
     try {
-      final bool? granted = await _channel.invokeMethod<bool>(RedirectionChannels.methodIsRoleGranted);
-      return granted ?? false;
-    } on MissingPluginException {
+      return await _hostApi.isRoleGranted();
+    } catch (_) {
       return false;
     }
   }
 
   Future<void> requestRole() async {
     try {
-      await _channel.invokeMethod(RedirectionChannels.methodRequestRole);
-    } on MissingPluginException {
-      // Fallback
-    }
+      await _hostApi.requestRole();
+    } catch (_) {}
   }
 }

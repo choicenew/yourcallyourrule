@@ -1,8 +1,8 @@
-import 'package:flutter/services.dart';
 import 'package:pyro_tile_hub/pyro_tile_hub.dart';
+import 'tile_api.g.dart';
 
 /// Native Tile driver bridging to Android Quick Settings TileService.
-class TileDriver implements ITileServiceAdapter {
+class TileDriver implements ITileServiceAdapter, TileFlutterApi {
   static TileDriver? _instance;
 
   static void register() {
@@ -15,10 +15,14 @@ class TileDriver implements ITileServiceAdapter {
     _instance = null;
   }
 
-  static const MethodChannel _channel = MethodChannel('net.pyro.telephony/tile');
+  final TileHostApi _hostApi;
+
+  TileDriver({TileHostApi? hostApi}) : _hostApi = hostApi ?? TileHostApi() {
+    TileFlutterApi.setUp(this);
+  }
 
   void dispose() {
-    // Clean up if needed
+    TileFlutterApi.setUp(null);
   }
 
   @override
@@ -27,11 +31,9 @@ class TileDriver implements ITileServiceAdapter {
   @override
   Future<bool> updateTileState(TileStateType state, {String? subtitle}) async {
     try {
-      final bool? success = await _channel.invokeMethod<bool>('updateTileState', {
-        'state': state.name,
-        'subtitle': subtitle,
-      });
-      return success ?? false;
+      return await _hostApi.updateTileState(
+        TileStateRequest(state: state.name, subtitle: subtitle),
+      );
     } catch (_) {
       return false;
     }
@@ -40,10 +42,14 @@ class TileDriver implements ITileServiceAdapter {
   @override
   Future<bool> requestAddTile() async {
     try {
-      final bool? success = await _channel.invokeMethod<bool>('requestAddTile');
-      return success ?? false;
+      return await _hostApi.requestAddTile(AddTileRequest());
     } catch (_) {
       return false;
     }
+  }
+
+  @override
+  void onTileClicked(String state) {
+    // Native tile click callback
   }
 }

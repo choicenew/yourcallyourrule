@@ -5,13 +5,11 @@ import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import androidx.annotation.RequiresApi
 import io.flutter.plugin.common.BinaryMessenger
-import io.flutter.plugin.common.MethodChannel
 
 @RequiresApi(Build.VERSION_CODES.N)
 class QuickSettingsTileService : TileService() {
 
     companion object {
-        const val CHANNEL = "net.pyro.telephony/tile"
         @Volatile var messenger: BinaryMessenger? = null
         @Volatile var instance: QuickSettingsTileService? = null
 
@@ -51,6 +49,6 @@ class QuickSettingsTileService : TileService() {
 
         val msger = messenger ?: return
         val stateName = if (newState == Tile.STATE_ACTIVE) "active" else "inactive"
-        MethodChannel(msger, CHANNEL).invokeMethod("onTileClicked", mapOf("state" to stateName))
+        TileFlutterApi(msger).onTileClicked(stateName)
     }
 }

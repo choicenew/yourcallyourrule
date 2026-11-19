@@ -1,5 +1,5 @@
-import 'package:flutter/services.dart';
 import 'package:pyro_stir_hub/pyro_stir_hub.dart';
+import 'stir_api.g.dart';
 
 /// Native STIR driver bridging to Call.Details.callerNumberVerificationStatus.
 class StirDriver implements IStirCheckerAdapter {
@@ -15,7 +15,9 @@ class StirDriver implements IStirCheckerAdapter {
     _instance = null;
   }
 
-  static const MethodChannel _channel = MethodChannel('net.pyro.telephony/stir_check');
+  final StirHostApi _hostApi;
+
+  StirDriver({StirHostApi? hostApi}) : _hostApi = hostApi ?? StirHostApi();
 
   void dispose() {
     // Clean up if needed
@@ -27,17 +29,15 @@ class StirDriver implements IStirCheckerAdapter {
   @override
   Future<StirResultEntity?> checkStirStatus(String phoneNumber) async {
     try {
-      final Map<dynamic, dynamic>? response = await _channel.invokeMethod<Map<dynamic, dynamic>>(
-        'checkStirStatus',
-        {'phoneNumber': phoneNumber},
+      final response = await _hostApi.checkStirStatus(phoneNumber);
+      return StirResultEntity(
+        phoneNumber: response.phoneNumber,
+        status: StirVerificationStatus.fromString(response.status),
+        isVerified: response.isVerified,
+        isFailed: response.isFailed,
       );
-
-      if (response != null) {
-        return StirResultEntity.fromMap(response);
-      }
-    } on MissingPluginException {
-      // Fallback
-    } catch (_) {}
-    return null;
+    } catch (_) {
+      return null;
+    }
   }
 }

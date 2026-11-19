@@ -6,7 +6,6 @@ import android.telecom.CallRedirectionService
 import android.telecom.PhoneAccountHandle
 import android.util.Log
 import io.flutter.plugin.common.BinaryMessenger
-import io.flutter.plugin.common.MethodChannel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -18,7 +17,6 @@ class CallRedirectionServiceImpl : CallRedirectionService() {
 
     companion object {
         private const val TAG = "CallRedirectionService"
-        const val CHANNEL = "net.pyro.telephony/call_redirection"
         private const val DEADLINE_MS = 3000L
         @Volatile var messenger: BinaryMessenger? = null
 
@@ -75,15 +73,15 @@ class CallRedirectionServiceImpl : CallRedirectionService() {
 
         serviceScope.launch {
             val startTime = SystemClock.elapsedRealtime()
-            val decisionMap = withTimeoutOrNull(DEADLINE_MS) {
+            val decision = withTimeoutOrNull(DEADLINE_MS) {
                 evaluateCallViaFlutter(rawNumber, allowInteractiveResponse)
             }
 
             val elapsed = SystemClock.elapsedRealtime() - startTime
-            Log.d(TAG, "Evaluation elapsed: ${elapsed}ms, decision=$decisionMap")
+            Log.d(TAG, "Evaluation elapsed: ${elapsed}ms, decision=$decision")
 
-            val action = decisionMap?.get("action") as? String ?: "proceed"
-            val reason = decisionMap?.get("reason") as? String ?: "databaseMatch"
+            val action = decision?.action ?: "proceed"
+            val reason = decision?.reason ?: "databaseMatch"
 
             when (action) {
                 "holdAndNotify", "block" -> {
@@ -102,41 +100,31 @@ class CallRedirectionServiceImpl : CallRedirectionService() {
 
     private val mainHandler = android.os.Handler(android.os.Looper.getMainLooper())
 
-    private suspend fun evaluateCallViaFlutter(rawNumber: String, allowInteractive: Boolean): Map<*, *>? {
+    private suspend fun evaluateCallViaFlutter(rawNumber: String, allowInteractive: Boolean): PigeonRedirectionDecision? {
         return kotlin.coroutines.suspendCoroutine { continuation ->
             val msger = messenger
             if (msger == null) {
-                continuation.resumeWith(Result.success(mapOf("action" to "proceed")))
+                continuation.resumeWith(Result.success(PigeonRedirectionDecision(action = "proceed")))
                 return@suspendCoroutine
             }
 
-            val callData = mapOf(
-                "id" to "call_${System.currentTimeMillis()}",
-                "rawPhoneNumber" to rawNumber,
-                "normalizedPhoneNumber" to rawNumber.replace(Regex("\\D"), ""),
-                "timestampMs" to System.currentTimeMillis(),
-                "isInteractiveAllowed" to allowInteractive,
-                "isCarModeActive" to false,
+            val request = PigeonRedirectionRequest(
+                id = "call_${System.currentTimeMillis()}",
+                rawPhoneNumber = rawNumber,
+                normalizedPhoneNumber = rawNumber.replace(Regex("\\D"), ""),
+                timestampMs = System.currentTimeMillis(),
+                isInteractiveAllowed = allowInteractive,
+                isCarModeActive = false,
             )
 
             mainHandler.post {
-                MethodChannel(msger, CHANNEL).invokeMethod("evaluateCall", callData, object : MethodChannel.Result {
-                    override fun success(result: Any?) {
-                        if (result is Map<*, *>) {
-                            continuation.resumeWith(Result.success(result))
-                        } else {
-                            continuation.resumeWith(Result.success(mapOf("action" to "proceed")))
-                        }
+                CallRedirectionFlutterApi(msger).evaluateCall(request) { result ->
+                    result.onSuccess { decision ->
+                        continuation.resumeWith(Result.success(decision))
+                    }.onFailure {
+                        continuation.resumeWith(Result.success(PigeonRedirectionDecision(action = "proceed")))
                     }
-
-                    override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
-                        continuation.resumeWith(Result.success(mapOf("action" to "proceed")))
-                    }
-
-                    override fun notImplemented() {
-                        continuation.resumeWith(Result.success(mapOf("action" to "proceed")))
-                    }
-                })
+                }
             }
         }
     }

@@ -7,13 +7,11 @@ import android.telecom.Call
 import android.telecom.CallScreeningService
 import android.telecom.Connection
 import android.util.Log
-import io.flutter.plugin.common.MethodChannel
 import kotlinx.coroutines.*
 
 class CallScreeningServiceImpl : CallScreeningService() {
     companion object {
         private const val TAG = "CallScreeningServiceImpl"
-        const val CHANNEL = "net.pyro.telephony/call_screening"
         private const val DEADLINE_MS = 3000L
         @Volatile var messenger: io.flutter.plugin.common.BinaryMessenger? = null
     }
@@ -48,15 +46,15 @@ class CallScreeningServiceImpl : CallScreeningService() {
             val startTime = System.currentTimeMillis()
             
             // Suspend and await Dart layer decision with timeout
-            val decisionMap = withTimeoutOrNull(DEADLINE_MS) {
+            val decision = withTimeoutOrNull(DEADLINE_MS) {
                 evaluateCallViaFlutter(rawNumber, callDetails)
             }
 
             val elapsed = System.currentTimeMillis() - startTime
-            Log.d(TAG, "Evaluation elapsed: ${elapsed}ms, decision=$decisionMap")
+            Log.d(TAG, "Evaluation elapsed: ${elapsed}ms, decision=$decision")
 
-            val action = decisionMap?.get("action") as? String ?: "allow"
-            val reason = decisionMap?.get("reason") as? String ?: "default_pass"
+            val action = decision?.action ?: "allow"
+            val reason = decision?.reason ?: "default_pass"
             
             val builder = CallResponse.Builder()
             
@@ -90,46 +88,33 @@ class CallScreeningServiceImpl : CallScreeningService() {
         }
     }
 
-    private suspend fun evaluateCallViaFlutter(rawNumber: String, callDetails: Call.Details): Map<*, *>? {
+    private suspend fun evaluateCallViaFlutter(rawNumber: String, callDetails: Call.Details): CallScreeningDecision? {
         return suspendCancellableCoroutine { continuation ->
             val msger = messenger
             if (msger == null) {
                 Log.e(TAG, "BinaryMessenger is NULL, cannot communicate with Dart layer.")
-                if (continuation.isActive) continuation.resumeWith(Result.success(mapOf("action" to "allow")))
+                if (continuation.isActive) continuation.resumeWith(Result.success(CallScreeningDecision(action = "allow")))
                 return@suspendCancellableCoroutine
             }
 
-            val callData = mapOf(
-                "callId" to "call_${System.currentTimeMillis()}",
-                "phoneNumber" to rawNumber,
-                "normalizedNumber" to rawNumber.replace(Regex("\\D"), ""),
-                "timestampMs" to System.currentTimeMillis()
+            val request = CallScreeningRequest(
+                callId = "call_${System.currentTimeMillis()}",
+                phoneNumber = rawNumber,
+                normalizedNumber = rawNumber.replace(Regex("\\D"), ""),
+                timestampMs = System.currentTimeMillis()
             )
 
             handler.post {
-                MethodChannel(msger, CHANNEL).invokeMethod("evaluateCall", callData, object : MethodChannel.Result {
-                    override fun success(result: Any?) {
-                        if (continuation.isActive) {
-                            if (result is Map<*, *>) {
-                                continuation.resumeWith(Result.success(result))
-                            } else if (result is String) {
-                                continuation.resumeWith(Result.success(mapOf("action" to result)))
-                            } else {
-                                continuation.resumeWith(Result.success(mapOf("action" to "allow")))
-                            }
+                CallScreeningFlutterApi(msger).evaluateCall(request) { result ->
+                    if (continuation.isActive) {
+                        result.onSuccess { decision ->
+                            continuation.resumeWith(Result.success(decision))
+                        }.onFailure { error ->
+                            Log.e(TAG, "Flutter evaluateCall error: ${error.message}")
+                            continuation.resumeWith(Result.success(CallScreeningDecision(action = "allow")))
                         }
                     }
-
-                    override fun error(errorCode: String, errorMessage: String?, errorDetails: Any?) {
-                        Log.e(TAG, "Flutter evaluateCall error: $errorMessage")
-                        if (continuation.isActive) continuation.resumeWith(Result.success(mapOf("action" to "allow")))
-                    }
-
-                    override fun notImplemented() {
-                        Log.e(TAG, "Flutter evaluateCall NOT IMPLEMENTED")
-                        if (continuation.isActive) continuation.resumeWith(Result.success(mapOf("action" to "allow")))
-                    }
-                })
+                }
             }
         }
     }

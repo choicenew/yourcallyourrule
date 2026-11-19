@@ -8,64 +8,50 @@ import android.os.Build
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-import io.flutter.plugin.common.MethodCall
-import io.flutter.plugin.common.MethodChannel
-import io.flutter.plugin.common.MethodChannel.MethodCallHandler
-import io.flutter.plugin.common.MethodChannel.Result
 
-class CallRedirectionDriverPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
-  private lateinit var channel : MethodChannel
+class CallRedirectionDriverPlugin: FlutterPlugin, CallRedirectionHostApi, ActivityAware {
   private var context: Context? = null
   private var activity: Activity? = null
 
   override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
     context = binding.applicationContext
-    channel = MethodChannel(binding.binaryMessenger, "net.pyro.telephony/call_redirection")
-    channel.setMethodCallHandler(this)
+    CallRedirectionHostApi.setUp(binding.binaryMessenger, this)
     CallRedirectionServiceImpl.messenger = binding.binaryMessenger
   }
 
-  override fun onMethodCall(call: MethodCall, result: Result) {
-    when (call.method) {
-      "isServiceActive" -> {
-        result.success(true)
-      }
-      "isRoleGranted" -> {
-        val ctx = context
-        if (ctx != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-          val roleManager = ctx.getSystemService(RoleManager::class.java)
-          val isGranted = roleManager?.isRoleHeld(RoleManager.ROLE_CALL_REDIRECTION) == true
-          result.success(isGranted)
-        } else {
-          result.success(false)
-        }
-      }
-      "requestRole" -> {
-        val act = activity
-        val ctx = context
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-          val roleManager = (act?.getSystemService(Context.ROLE_SERVICE) as? RoleManager)
-            ?: (ctx?.getSystemService(Context.ROLE_SERVICE) as? RoleManager)
-          if (roleManager != null && !roleManager.isRoleHeld(RoleManager.ROLE_CALL_REDIRECTION)) {
-            val intent = roleManager.createRequestRoleIntent(RoleManager.ROLE_CALL_REDIRECTION)
-            if (act != null) {
-              act.startActivity(intent)
-            } else if (ctx != null) {
-              intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-              ctx.startActivity(intent)
-            }
-          }
-        }
-        result.success(true)
-      }
-      else -> {
-        result.notImplemented()
-      }
+  override fun isServiceActive(): Boolean = true
+
+  override fun isRoleGranted(): Boolean {
+    val ctx = context
+    return if (ctx != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+      val roleManager = ctx.getSystemService(RoleManager::class.java)
+      roleManager?.isRoleHeld(RoleManager.ROLE_CALL_REDIRECTION) == true
+    } else {
+      false
     }
   }
 
+  override fun requestRole(): Boolean {
+    val act = activity
+    val ctx = context
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+      val roleManager = (act?.getSystemService(Context.ROLE_SERVICE) as? RoleManager)
+        ?: (ctx?.getSystemService(Context.ROLE_SERVICE) as? RoleManager)
+      if (roleManager != null && !roleManager.isRoleHeld(RoleManager.ROLE_CALL_REDIRECTION)) {
+        val intent = roleManager.createRequestRoleIntent(RoleManager.ROLE_CALL_REDIRECTION)
+        if (act != null) {
+          act.startActivity(intent)
+        } else if (ctx != null) {
+          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+          ctx.startActivity(intent)
+        }
+      }
+    }
+    return true
+  }
+
   override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-    channel.setMethodCallHandler(null)
+    CallRedirectionHostApi.setUp(binding.binaryMessenger, null)
     CallRedirectionServiceImpl.messenger = null
     context = null
   }
@@ -86,4 +72,3 @@ class CallRedirectionDriverPlugin: FlutterPlugin, MethodCallHandler, ActivityAwa
     activity = null
   }
 }
-

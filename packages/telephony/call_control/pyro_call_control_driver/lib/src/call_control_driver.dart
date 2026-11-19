@@ -1,7 +1,6 @@
 import 'dart:async';
-import 'package:flutter/services.dart';
 import 'package:pyro_call_control_hub/pyro_call_control_hub.dart';
-import 'call_control_channels.dart';
+import 'call_control_api.g.dart';
 
 /// Concrete Flutter implementation of ICallActionExecutor bridging to Native Android.
 class CallControlDriver implements ICallActionExecutor {
@@ -21,7 +20,10 @@ class CallControlDriver implements ICallActionExecutor {
   /// Alias helper hook.
   static void ensureMounted() => register();
 
-  static const MethodChannel _channel = MethodChannel(CallControlChannels.channelName);
+  final CallControlHostApi _hostApi;
+
+  CallControlDriver({CallControlHostApi? hostApi})
+      : _hostApi = hostApi ?? CallControlHostApi();
 
   void dispose() {
     // Clean up resources if needed
@@ -33,25 +35,20 @@ class CallControlDriver implements ICallActionExecutor {
   @override
   Future<CallExecutionResult> executeAction(CallActionContext context) async {
     try {
-      final Map<dynamic, dynamic>? response = await _channel.invokeMethod<Map<dynamic, dynamic>>(
-        CallControlChannels.methodExecuteAction,
-        context.toMap(),
+      final request = CallControlActionRequest(
+        actionType: context.actionType.toCode(),
+        phoneNumber: context.phoneNumber,
+        delayHangupMs: context.delayHangupMs,
+        enableMicMuteProtection: context.enableMicMuteProtection,
       );
 
-      if (response != null) {
-        return CallExecutionResult.fromMap(response);
-      }
+      final result = await _hostApi.executeAction(request);
 
       return CallExecutionResult(
-        success: true,
+        success: result.success,
         actionType: context.actionType,
-        message: 'Executed ${context.actionType.toCode()} via CallControlDriver',
-      );
-    } on MissingPluginException {
-      return CallExecutionResult(
-        success: false,
-        actionType: context.actionType,
-        message: 'CallControlDriver plugin not attached on current platform',
+        message: result.message,
+        executedAt: DateTime.fromMillisecondsSinceEpoch(result.executedAtMs),
       );
     } catch (e) {
       return CallExecutionResult(
@@ -65,13 +62,7 @@ class CallControlDriver implements ICallActionExecutor {
   @override
   Future<bool> setMicrophoneMuted(bool muted) async {
     try {
-      final bool? success = await _channel.invokeMethod<bool>(
-        CallControlChannels.methodSetMicMuted,
-        {'muted': muted},
-      );
-      return success ?? false;
-    } on MissingPluginException {
-      return false;
+      return await _hostApi.setMicrophoneMuted(muted);
     } catch (_) {
       return false;
     }
