@@ -7,13 +7,11 @@ part 'cloud_sync_service.g.dart';
 /// 100% 委派包内 pyro_cloud_drive_hub，零手写底层驱动
 @Riverpod(keepAlive: true)
 CloudSyncService cloudSyncService(Ref ref) {
-  return CloudSyncService.instance;
+  return CloudSyncService();
 }
 
 class CloudSyncService {
-  static final CloudSyncService instance = CloudSyncService._();
-
-  CloudSyncService._();
+  CloudSyncService();
 
   String get serviceType => 'cloud';
   String get serviceName => 'Cloud Sync';
