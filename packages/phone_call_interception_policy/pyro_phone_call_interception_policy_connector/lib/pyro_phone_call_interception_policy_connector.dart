@@ -4,8 +4,11 @@ import 'package:pyro_phone_call_interception_policy_driver/pyro_phone_call_inter
 
 /// 通话防护策略外观装配线 (Facade Assembly)
 class PyroCallInterceptionPolicyConnector {
-  static void registerAll({CallPolicyStorageDriver? customStorageDriver}) {
+  static void registerAll({
+    CallPolicyControlCenter? hub,
+    CallPolicyStorageDriver? customStorageDriver,
+  }) {
     final driver = customStorageDriver ?? MemoryCallPolicyStorageDriver();
-    CallPolicyControlCenter.instance.registerStorageDriver(driver);
+    hub?.registerStorageDriver(driver);
   }
 }
