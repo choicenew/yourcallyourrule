@@ -1,9 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:yourcallyourrule/features/cloud_drive/services/environment.dart';
-import 'package:pyro_cloud_drive_hub/pyro_cloud_drive_hub.dart';
-import 'package:pyro_cloud_drive_googledrive/pyro_cloud_drive_googledrive.dart';
-import 'package:pyro_cloud_drive_onedrive/pyro_cloud_drive_onedrive.dart';
-import 'package:pyro_cloud_drive_webdav/pyro_cloud_drive_webdav.dart';
 
 // === All 33 Package Suite Connectors ===
 import 'package:pyro_telephony_connector/pyro_telephony_connector.dart';
@@ -40,8 +35,6 @@ import 'package:pyro_sms_driver_phishtank/pyro_sms_driver_phishtank.dart';
 import 'package:pyro_sms_driver_virustotal/pyro_sms_driver_virustotal.dart';
 import 'package:pyro_sms_driver_regex_rules/pyro_sms_driver_regex_rules.dart';
 import 'package:yourcallyourrule/features/commercial/services/commercial_service.dart';
-
-import 'filter_ui_registry.dart';
 
 /// 全量 33 个微包外观装配线独立初始化入口
 void initPackageConnectors() {
@@ -80,32 +73,6 @@ void initPackageConnectors() {
   SmsHub.instance.registerLinkThreatAdapter(PhishTankDriver());
   SmsHub.instance.registerLinkThreatAdapter(VirusTotalDriver());
   SmsHub.instance.registerFilter(RegexRulesDriver());
-
-  // 注册主 App 胶水层 Filter UI 动态注册工厂
-  FilterUiRegistry.init();
-
-  // 云盘 3 大 Driver 启动同步强行注册
-  CloudDriveHub.instance.configureHostContext(
-    appName: 'YourCallYourRule',
-    encryptionHeaderTag: 'YOURCALL_ENC_V1',
-  );
-  try {
-    CloudDriveHub.instance.register(
-      GoogleDriveAdapter(serverClientId: Environment.googleServerClientId),
-      uiConfig: GoogleDriveAdapter.uiConfig,
-    );
-    CloudDriveHub.instance.register(
-      OneDriveDriveAdapter(
-        clientId: Environment.msalClientId,
-        redirectUri: Environment.msalAndroidRedirectUri,
-        authority: Environment.msalIosAuthority,
-      ),
-      uiConfig: OneDriveDriveAdapter.uiConfig,
-    );
-    CloudDriveHub.instance.register(WebDAVDriveAdapter(), uiConfig: WebDAVDriveAdapter.uiConfig);
-  } catch (e) {
-    debugPrint('[PackageConnectors] CloudDrive Drivers register error: $e');
-  }
 
   debugPrint('[PackageConnectors] 33 个 Package Suite Connector 全外观自注册装配完成');
 }

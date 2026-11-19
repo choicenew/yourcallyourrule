@@ -4,8 +4,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'app_coordinator.g.dart';
 
-/// 鍏ㄥ眬 App 涓灑鍗忚皟鍣?(App Coordinator / Event Mediator)
-/// 璐熻矗璺?Feature 閫氫俊涓庤В鑰︿簨浠舵淳鍙戯紝褰诲簳娑堥櫎 lib/features/X 璺ㄥ寘寮曠敤 lib/features/Y
+/// 全局 App 中枢协调器 (App Coordinator / Event Mediator)
+/// 负责跨 Feature 通信与解耦事件派发，彻底消除 lib/features/X 跨包引用 lib/features/Y
 @Riverpod(keepAlive: true)
 AppCoordinator appCoordinator(Ref ref) {
   return AppCoordinator(ref);
@@ -17,7 +17,7 @@ class AppCoordinator {
 
   AppCoordinator(this.ref);
 
-  /// 骞挎挱璺ㄦā鍧椾簨浠?
+  /// 广播跨模块事件
   void emit(String eventName, [Map<String, dynamic>? payload]) {
     debugPrint('[AppCoordinator] Event emitted: $eventName, payload: $payload');
     _eventBus.add({
@@ -26,7 +26,7 @@ class AppCoordinator {
     });
   }
 
-  /// 鐩戝惉鎸囧畾璺ㄦā鍧椾簨浠?
+  /// 监听指定跨模块事件
   StreamSubscription<Map<String, dynamic>> on(String eventName, void Function(Map<String, dynamic> payload) callback) {
     return _eventBus.stream.where((event) => event['event'] == eventName).listen((event) {
       callback(event['payload'] as Map<String, dynamic>);

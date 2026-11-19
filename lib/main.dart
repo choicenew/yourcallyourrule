@@ -8,6 +8,7 @@ import 'package:pyro_cloud_drive_ui/pyro_cloud_drive_ui.dart' as cloud_ui;
 import 'package:pyro_device_master_slave_ui/pyro_device_master_slave_ui.dart' as device_ui;
 import 'package:pyro_sms_ui/pyro_sms_ui.dart';
 import 'package:yourcallyourrule/core/coordinator/package_connectors_initializer.dart';
+import 'package:yourcallyourrule/core/coordinator/app_hub_exchange_connector.dart';
 import 'package:yourcallyourrule/features/common/error/logger.dart';
 import 'package:yourcallyourrule/features/sync/services/background_sync_service.dart';
 import 'package:yourcallyourrule/features/sync/services/foreground_sync_service.dart';
@@ -70,6 +71,7 @@ Future<void> main() async {
     container.read(callEventListenerProvider);
 
     container.read(notificationServiceProvider);
+    container.read(appHubExchangeConnectorProvider);
     container.read(overlayControlHandlerProvider);
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
