@@ -141,14 +141,8 @@ class EndCallSettingsPage extends ConsumerWidget {
                     title: cardTitle,
                     subtitle: cardSubtitle,
                     labelActionMap: labelActionMap,
-                    availableLabels: predefinedLabels.map((m) => m['text'] as String).toList(),
-                    quickAddLabels: const [
-                      'Fraud Scam Likely',
-                      'Spam Likely',
-                      'Telemarketing',
-                      'Delivery',
-                      'Takeaway',
-                    ],
+                    availableLabels: predefinedLabelEntities.map((e) => e.text).toList(),
+                    quickAddLabels: predefinedLabelEntities.take(5).map((e) => e.text).toList(),
                     labelTranslator: (label) => label.translate(context),
                     actionTranslator: (action) {
                       if (action == InterceptAction.allow) {

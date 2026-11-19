@@ -47,3 +47,4 @@ class EmergencyPolicyConfigNotifier extends Notifier<EmergencyPolicyConfig> {
         );
   }
 }
+
