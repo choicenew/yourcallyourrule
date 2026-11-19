@@ -1,6 +1,5 @@
 ﻿import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_cloud_drive_hub/pyro_cloud_drive_hub.dart';
 
 part 'cloud_sync_service.g.dart';
 
