@@ -27,6 +27,7 @@ import 'package:uuid/uuid.dart';
 
 import 'app_coordinator.dart';
 import 'filter_ui_registry.dart';
+import 'package:yourcallyourrule/features/cloud_drive/services/environment.dart';
 import 'package:yourcallyourrule/features/notifications/service/notification_manager.dart';
 import 'package:yourcallyourrule/features/notifications/providers/notification_history_provider.dart';
 import 'package:yourcallyourrule/features/notifications/config/notification_config.dart';
@@ -62,8 +63,18 @@ class AppHubExchangeConnector {
       encryptionHeaderTag: 'YOURCALL_ENC_V1',
     );
     try {
-      CloudDriveHub.instance.register(GoogleDriveAdapter(), uiConfig: GoogleDriveAdapter.uiConfig);
-      CloudDriveHub.instance.register(OneDriveDriveAdapter(), uiConfig: OneDriveDriveAdapter.uiConfig);
+      CloudDriveHub.instance.register(
+        GoogleDriveAdapter(serverClientId: Environment.googleServerClientId),
+        uiConfig: GoogleDriveAdapter.uiConfig,
+      );
+      CloudDriveHub.instance.register(
+        OneDriveDriveAdapter(
+          clientId: Environment.msalClientId,
+          redirectUri: Environment.msalAndroidRedirectUri,
+          authority: Environment.msalIosAuthority,
+        ),
+        uiConfig: OneDriveDriveAdapter.uiConfig,
+      );
       CloudDriveHub.instance.register(WebDAVDriveAdapter(), uiConfig: WebDAVDriveAdapter.uiConfig);
       debugPrint('[AppHubExchangeConnector] Registered CloudDrive Drivers with UIConfigs: GoogleDrive, OneDrive, WebDAV');
     } catch (e) {

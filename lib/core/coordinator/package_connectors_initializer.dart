@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:yourcallyourrule/features/cloud_drive/services/environment.dart';
 import 'package:pyro_cloud_drive_hub/pyro_cloud_drive_hub.dart';
 import 'package:pyro_cloud_drive_googledrive/pyro_cloud_drive_googledrive.dart';
 import 'package:pyro_cloud_drive_onedrive/pyro_cloud_drive_onedrive.dart';
@@ -89,8 +90,18 @@ void initPackageConnectors() {
     encryptionHeaderTag: 'YOURCALL_ENC_V1',
   );
   try {
-    CloudDriveHub.instance.register(GoogleDriveAdapter(), uiConfig: GoogleDriveAdapter.uiConfig);
-    CloudDriveHub.instance.register(OneDriveDriveAdapter(), uiConfig: OneDriveDriveAdapter.uiConfig);
+    CloudDriveHub.instance.register(
+      GoogleDriveAdapter(serverClientId: Environment.googleServerClientId),
+      uiConfig: GoogleDriveAdapter.uiConfig,
+    );
+    CloudDriveHub.instance.register(
+      OneDriveDriveAdapter(
+        clientId: Environment.msalClientId,
+        redirectUri: Environment.msalAndroidRedirectUri,
+        authority: Environment.msalIosAuthority,
+      ),
+      uiConfig: OneDriveDriveAdapter.uiConfig,
+    );
     CloudDriveHub.instance.register(WebDAVDriveAdapter(), uiConfig: WebDAVDriveAdapter.uiConfig);
   } catch (e) {
     debugPrint('[PackageConnectors] CloudDrive Drivers register error: $e');
