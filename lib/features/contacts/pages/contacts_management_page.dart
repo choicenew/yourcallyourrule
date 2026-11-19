@@ -4,6 +4,8 @@ import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
 import 'package:pyro_phone_contacts_hub/pyro_phone_contacts_hub.dart';
 import 'package:pyro_phone_contacts_ui/pyro_phone_contacts_ui.dart' as contacts_pkg_ui;
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
+import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_page.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -246,7 +248,13 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
             return name.contains(keyword) || phone.contains(keyword);
           }).toList();
 
-    return GenericListPage<PhoneContactEntry>(
+    return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      bottomNavigationBar: BottomNavigation(
+        currentIndex: 2,
+        onTap: (index) => AppRouter.navigateToTab(context, index),
+      ),
+      body: GenericListPage<PhoneContactEntry>(
       title: l10n.contactsManagement,
       items: filteredList,
       isLoading: isLoading,
@@ -302,6 +310,7 @@ class _ContactsManagementPageState extends ConsumerState<ContactsManagementPage>
         },
       ),
       getItemId: (item) => item.id,
+    ),
     );
   }
 }

@@ -54,32 +54,98 @@ class TimeInterceptorSettingsWidget extends ConsumerWidget {
   }
 
   Widget _buildDurationSetting(BuildContext context, int durationMinutes, ValueChanged<int> onChanged) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Text(
-            AppLocalizations.of(context).timeWindowLabel(durationMinutes), 
-            style: Theme.of(context).textTheme.titleMedium,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                l10n.timeWindowLabel(durationMinutes),
+                style: theme.textTheme.titleMedium,
+              ),
+              TextButton.icon(
+                icon: const Icon(Icons.edit_calendar_rounded, size: 18),
+                label: Text('$durationMinutes min (${l10n.custom})'),
+                onPressed: () => _showCustomDurationDialog(context, durationMinutes, onChanged),
+              ),
+            ],
           ),
         ),
         const SizedBox(height: 8),
         Slider(
-          value: durationMinutes.toDouble(),
-          min: 5,
-          max: 120,
-          divisions: 23,
-          label: durationMinutes.toString(),
+          value: durationMinutes.toDouble().clamp(1.0, 180.0),
+          min: 1,
+          max: 180,
+          divisions: 179,
+          label: '$durationMinutes min',
           onChanged: (value) {
             onChanged(value.round());
           },
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Text(AppLocalizations.of(context).timeWindowDescription),
+          child: Wrap(
+            spacing: 8,
+            children: [5, 15, 30, 60, 120].map((mins) {
+              final isSelected = durationMinutes == mins;
+              return ChoiceChip(
+                label: Text('$mins min'),
+                selected: isSelected,
+                onSelected: (_) => onChanged(mins),
+              );
+            }).toList(),
+          ),
+        ),
+        const SizedBox(height: 8),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(l10n.timeWindowDescription),
         ),
       ],
+    );
+  }
+
+  void _showCustomDurationDialog(BuildContext context, int currentMinutes, ValueChanged<int> onChanged) {
+    final controller = TextEditingController(text: currentMinutes.toString());
+    final l10n = AppLocalizations.of(context);
+
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(l10n.custom),
+        content: TextField(
+          controller: controller,
+          keyboardType: TextInputType.number,
+          decoration: InputDecoration(
+            labelText: l10n.timeWindowLabel(currentMinutes),
+            suffixText: 'min',
+            border: const OutlineInputBorder(),
+          ),
+          autofocus: true,
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text(l10n.cancel),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              final val = int.tryParse(controller.text.trim());
+              if (val != null && val > 0) {
+                onChanged(val);
+                Navigator.pop(ctx);
+              }
+            },
+            child: Text(l10n.confirm),
+          ),
+        ],
+      ),
     );
   }
 

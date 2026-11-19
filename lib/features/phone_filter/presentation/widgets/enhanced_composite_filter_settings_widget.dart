@@ -43,7 +43,7 @@ class EnhancedCompositeFilterSettingsWidget extends ConsumerWidget {
         side: BorderSide(color: theme.colorScheme.outlineVariant, width: 1.0),
       ),
       child: ExpansionTile(
-        initiallyExpanded: true,
+        initiallyExpanded: false,
         leading: Icon(
           uiSpec.icon,
           color: theme.colorScheme.primary,

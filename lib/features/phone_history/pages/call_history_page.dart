@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/phone_subscription/utils/phone_utils.dart';
+import 'package:yourcallyourrule/features/common/widgets/bottom_navigation.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_timeline_page.dart';
 import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
@@ -367,35 +368,42 @@ class _CallHistoryPageState extends ConsumerState<CallHistoryPage> {
     final localizations = AppLocalizations.of(context);
     final theme = Theme.of(context);
 
-    return GenericTimelinePage<CallLogEntry>(
-      title: localizations.callHistory,
-      themeColor: theme.colorScheme.primary,
-      items: _getFilteredLogs(),
-      isLoading: _isLoading,
-      onRefresh: _loadData,
-      displayMode: _displayMode,
-      getItemTimestamp: (log) => log.dateTime,
-      headerContent: _buildHeaderContent(),
-      itemBuilder: (context, log) => _buildCallLogCard(log),
-      adBuilder: () => const AdsInlineBanner(),
-      emptyText: localizations.noCallRecords,
-      emptyIcon: Icons.call,
-      searchHintText: localizations.searchHint,
-      onSearchChanged: _onSearchChanged,
-      isMultiSelectMode: _isMultiSelectMode,
-      selectedItemIds: _selectedLogIds,
-      getItemId: (log) => log.id,
-      onToggleMultiSelectMode: _toggleMultiSelectMode,
-      onToggleItemSelection: _toggleItemSelection,
-      onDeleteSelected: _deleteSelectedLogs,
-      onMoreOptions: _showMoreOptions,
-      customActions: [
-        IconButton(
-          icon: const Icon(Icons.filter_list),
-          onPressed: _showLabelFilterDialog,
-          tooltip: localizations.filterByLabel,
-        ),
-      ],
+    return Scaffold(
+      backgroundColor: theme.scaffoldBackgroundColor,
+      bottomNavigationBar: BottomNavigation(
+        currentIndex: 1,
+        onTap: (index) => AppRouter.navigateToTab(context, index),
+      ),
+      body: GenericTimelinePage<CallLogEntry>(
+        title: localizations.callHistory,
+        themeColor: theme.colorScheme.primary,
+        items: _getFilteredLogs(),
+        isLoading: _isLoading,
+        onRefresh: _loadData,
+        displayMode: _displayMode,
+        getItemTimestamp: (log) => log.dateTime,
+        headerContent: _buildHeaderContent(),
+        itemBuilder: (context, log) => _buildCallLogCard(log),
+        adBuilder: () => const AdsInlineBanner(),
+        emptyText: localizations.noCallRecords,
+        emptyIcon: Icons.call,
+        searchHintText: localizations.searchHint,
+        onSearchChanged: _onSearchChanged,
+        isMultiSelectMode: _isMultiSelectMode,
+        selectedItemIds: _selectedLogIds,
+        getItemId: (log) => log.id,
+        onToggleMultiSelectMode: _toggleMultiSelectMode,
+        onToggleItemSelection: _toggleItemSelection,
+        onDeleteSelected: _deleteSelectedLogs,
+        onMoreOptions: _showMoreOptions,
+        customActions: [
+          IconButton(
+            icon: const Icon(Icons.filter_list),
+            onPressed: _showLabelFilterDialog,
+            tooltip: localizations.filterByLabel,
+          ),
+        ],
+      ),
     );
   }
 

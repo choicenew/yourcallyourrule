@@ -3,7 +3,6 @@ import 'package:flutter/widget_previews.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
-import 'package:yourcallyourrule/features/phone_time_interception/presentation/widgets/time_interceptor_settings_widget.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/theme/theme_selector.dart';
 
@@ -133,9 +132,9 @@ class SettingsPage extends ConsumerWidget {
                 context: context,
                 icon: Icons.timelapse_rounded,
                 iconColor: theme.colorScheme.primary,
-                title: l10n.callFrequencyInterceptionTitle,
+                title: l10n.timeInterceptorSettingsTitle,
                 subtitle: l10n.callFrequencyInterceptionSubtitle,
-                onTap: () => _showTimeInterceptorSheet(context),
+                onTap: () => context.pushNamed(AppRouter.timeInterceptorSettings),
               ),
               _buildDivider(context),
               _buildTile(
@@ -428,30 +427,6 @@ class SettingsPage extends ConsumerWidget {
       indent: 56,
       endIndent: 16,
       color: Theme.of(context).colorScheme.outlineVariant,
-    );
-  }
-
-  void _showTimeInterceptorSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Theme.of(context).colorScheme.surface,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-      ),
-      builder: (context) => DraggableScrollableSheet(
-        initialChildSize: 0.7,
-        minChildSize: 0.5,
-        maxChildSize: 0.95,
-        expand: false,
-        builder: (context, scrollController) => SingleChildScrollView(
-          controller: scrollController,
-          child: const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: TimeInterceptorSettingsWidget(),
-          ),
-        ),
-      ),
     );
   }
 }

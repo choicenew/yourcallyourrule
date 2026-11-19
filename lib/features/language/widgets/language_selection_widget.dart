@@ -240,7 +240,13 @@ class LanguageSelectionWidget extends StatelessWidget {
       );
     }
     try {
-      final worldCountry = WorldCountry.fromCode(countryCode.toUpperCase());
+      final code = countryCode.trim().toUpperCase();
+      final worldCountry = WorldCountry.maybeFromAnyCode(code) ??
+          WorldCountry.maybeFromCodeShort(code) ??
+          WorldCountry.list.firstWhere(
+            (c) => c.codeShort.toUpperCase() == code || c.code.toUpperCase() == code,
+            orElse: () => const WorldCountry.usa(),
+          );
       return CountryFlag.simplified(
         worldCountry,
         height: 24,

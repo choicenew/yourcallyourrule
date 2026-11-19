@@ -1,7 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_sim_slot_rules_protocol/pyro_phone_sim_slot_rules_protocol.dart';
-import 'package:pyro_phone_sim_slot_rules_ui/pyro_phone_sim_slot_rules_ui.dart';
 import 'package:yourcallyourrule/features/phone_filter/providers/sim_slot_config_provider.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -64,17 +63,6 @@ class SimSlotRuleWidget extends ConsumerWidget {
                     }
                   },
                 ),
-                if (rules.isNotEmpty)
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: rules
-                          .take(3)
-                          .map((rule) => PyroSimSlotRuleCardWidget(rule: rule))
-                          .toList(),
-                    ),
-                  ),
               ],
             ),
           ),

@@ -39,17 +39,26 @@ class SystemCallLogService {
     }
 
     try {
-      final lastLog = await _callLogService.getLastLog();
-      final DateTime lastTimestamp = (lastLog != null && lastLog.timestamp != null)
-          ? DateTime.fromMillisecondsSinceEpoch(lastLog.timestamp!)
-          : DateTime(2000);
+      final recentLogs = await _callLogService.getRecentLogs();
+      final lastLog = recentLogs.isNotEmpty ? recentLogs.first : null;
+      final int lastTimestamp = lastLog?.timestamp ?? 0;
+      final Set<String> existingKeys = {
+        for (final l in recentLogs)
+          '${l.phoneNumber}_${l.timestamp}',
+      };
 
       final systemLogs = await CallLog.get();
       int syncCount = 0;
 
       for (var entry in systemLogs) {
-        final callTimestamp = DateTime.fromMillisecondsSinceEpoch(entry.timestamp ?? 0);
-        if (callTimestamp.isBefore(lastTimestamp)) {
+        final entryTime = entry.timestamp ?? 0;
+        if (entryTime < lastTimestamp) {
+          continue;
+        }
+
+        final number = entry.number ?? '';
+        final key = '${number}_$entryTime';
+        if (existingKeys.contains(key)) {
           continue;
         }
 
@@ -57,14 +66,15 @@ class SystemCallLogService {
 
         final appLog = CallLogEntry(
           id: const Uuid().v4(),
-          phoneNumber: entry.number ?? '',
+          phoneNumber: number,
           callType: entry.callType?.toString() ?? 'incoming',
-          timestamp: callTimestamp.millisecondsSinceEpoch,
+          timestamp: entryTime,
           durationSeconds: durationInSeconds,
           name: entry.name,
         );
 
         await _callLogService.addLog(appLog);
+        existingKeys.add(key);
         syncCount++;
       }
 
