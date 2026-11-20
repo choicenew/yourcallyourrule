@@ -16,11 +16,19 @@ class MarkPhoneControlCenter {
   MarkPhoneControlCenter._();
 
   PhoneMarkingStorageDriver? _storageDriver;
+  List<PredefinedLabel> _registeredPredefinedLabels = const [];
 
   void registerStorageDriver(PhoneMarkingStorageDriver driver) {
     _storageDriver = driver;
     debugPrint('[PhoneMarkingHub] 已挂载注册存储驱动: ${driver.runtimeType}');
   }
+
+  void registerPredefinedLabels(List<PredefinedLabel> labels) {
+    _registeredPredefinedLabels = List.unmodifiable(labels);
+    debugPrint('[PhoneMarkingHub] 成功注入预定义标签总数: ${labels.length}');
+  }
+
+  List<PredefinedLabel> get registeredPredefinedLabels => _registeredPredefinedLabels;
 
   PhoneMarkingStorageDriver? get storageDriver => _storageDriver;
 

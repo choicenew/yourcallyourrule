@@ -1,8 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:uuid/uuid.dart';
-import 'package:yourcallyourrule/data/database/sync/device_id_service.dart';
-import 'package:yourcallyourrule/data/database/sync/api_service.dart';
+import 'package:yourcallyourrule/core/coordinator/app_hub_exchange_connector.dart';
+import 'package:yourcallyourrule/features/device/providers/device_management_provider.dart';
 
 /// 一个独立的测试按钮 Widget，用于手动触发一次 PUSH 同步测试。
 ///
@@ -32,9 +31,8 @@ class _TestSyncButtonState extends ConsumerState<TestSyncButton> {
 
     try {
       // 1. 准备依赖
-      final apiService = ApiService();
-      final deviceIdService = ref.read(deviceIdServiceProvider);
-      final deviceId = await deviceIdService.getDeviceId();
+      final deviceId = await ref.read(deviceManagementServiceProvider).getCurrentDeviceId();
+      final syncConnector = ref.read(appHubExchangeConnectorProvider).databaseSync;
 
       // 2. 准备 PROPOSE_DELETION 测试数据
       // 这个数据结构现在与 worker.js 的期望完全匹配
@@ -60,7 +58,7 @@ class _TestSyncButtonState extends ConsumerState<TestSyncButton> {
       debugPrint("--- [MANUAL TEST] Data: $testOperations");
 
       // 3. 调用 pushChanges 方法
-      final bool success = await apiService.pushChanges(
+      final bool success = await syncConnector.pushChanges(
         changes: testOperations,
         deviceId: deviceId,
       );

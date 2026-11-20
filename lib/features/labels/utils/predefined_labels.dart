@@ -54,4 +54,9 @@ const List<Map<String, dynamic>> predefinedLabels = [
   {'text': 'Automotive Industry'},
   {'text': 'Car Rental'},
   {'text': 'Telecommunication'},
+  {'text': 'Auto Warranty Scam'},
+  {'text': 'Voice Clone Scam'},
+  {'text': 'AI Robocall'},
+  {'text': 'Public Safety'},
+  {'text': 'Healthcare'},
 ];

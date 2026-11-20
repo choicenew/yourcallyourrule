@@ -141,8 +141,12 @@ dependencies:
 
   pyro_call_redirection_connector:
     path: packages/telephony/call_redirection/pyro_call_redirection_connector
+  pyro_call_redirection_driver:
+    path: packages/telephony/call_redirection/pyro_call_redirection_driver
   pyro_call_redirection_hub:
     path: packages/telephony/call_redirection/pyro_call_redirection_hub
+  pyro_call_redirection_protocol:
+    path: packages/telephony/call_redirection/pyro_call_redirection_protocol
   pyro_call_redirection_ui:
     path: packages/telephony/call_redirection/pyro_call_redirection_ui
 

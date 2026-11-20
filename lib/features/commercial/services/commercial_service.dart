@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:pyro_ads_protocol/pyro_ads_protocol.dart';
+import 'package:pyro_ads_policy/pyro_ads_policy.dart';
 import 'package:pyro_commercial_hub/pyro_commercial_hub.dart';
 import 'package:pyro_purchase_core/pyro_purchase_core.dart';
 import '../config/app_ads_config.dart';
@@ -14,6 +15,12 @@ final commercialHubProvider = Provider<CommercialHub>((ref) {
   final hub = CommercialHub(commercialNotifier: notifier);
   CommercialHub.init(commercialNotifier: notifier);
   return hub;
+});
+
+/// 全局 VIP 用户特权响应式 Provider
+final isVipUserProvider = Provider<bool>((ref) {
+  final commercialState = ref.watch(commercialNotifierProvider).value;
+  return (commercialState?.isPurchased == true || commercialState?.isAdFree == true) || defaultAdPolicyManager.isVipUser;
 });
 
 @Riverpod(keepAlive: true)
@@ -30,10 +37,10 @@ class CommercialService {
   Future<void> initialize() async {
     // 1. 根据环境自动选择 官方测试 ID 或 线上生产 ID，物理防止 AdMob 封号
     if (kDebugMode) {
-      AdsHub.instance.setProductionConfig(const AdsConfig.test());
+      defaultAdsHub.setProductionConfig(const AdsConfig.test());
       debugPrint('[CommercialService] Debug 模式: 已注入 AdMob 官方测试 ID 隔离配置');
     } else {
-      AdsHub.instance.setProductionConfig(AppAdsConfig.production);
+      defaultAdsHub.setProductionConfig(AppAdsConfig.production);
       debugPrint('[CommercialService] Production 模式: 已注入 AdMob 生产环境广告 ID');
     }
 

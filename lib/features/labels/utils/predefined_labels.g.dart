@@ -86,6 +86,16 @@ extension LabelTranslationExtension on String {
         return appLocalizations.carRental;
       case 'telecommunication':
         return appLocalizations.telecommunication;
+      case 'autowarrantyscam':
+        return appLocalizations.autoWarrantyScam;
+      case 'voiceclonescam':
+        return appLocalizations.voiceCloneScam;
+      case 'airobocall':
+        return appLocalizations.aiRobocall;
+      case 'publicsafety':
+        return appLocalizations.publicSafety;
+      case 'healthcare':
+        return appLocalizations.healthcare;
       default:
         return this;
     }

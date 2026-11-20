@@ -5,6 +5,7 @@ import 'package:pyro_device_master_slave_protocol/pyro_device_master_slave_proto
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 abstract class DeviceManagementService {
+  Future<String> getCurrentDeviceId();
   Future<DeviceNode> getCurrentDevice();
   Future<List<DeviceNode>> getRegisteredDevices();
   Future<bool> registerDevice(DeviceNode device);
@@ -26,6 +27,7 @@ class DeviceManagementServiceImpl implements DeviceManagementService {
   DeviceManagementServiceImpl({ConfigRepository? configRepository})
       : _configRepository = configRepository ?? SharedPreferencesConfigRepository();
 
+  @override
   Future<String> getCurrentDeviceId() async {
     final config = await _configRepository.getConfig(_deviceIdKey);
     String? deviceId = config?['value'] as String?;
@@ -56,7 +58,7 @@ class DeviceManagementServiceImpl implements DeviceManagementService {
     _currentDevice = DeviceNode(
       deviceId: deviceId,
       deviceName: deviceName,
-      role: DeviceRole.master,
+      isPrimary: true,
       lastHeartbeatTime: DateTime.now(),
     );
 

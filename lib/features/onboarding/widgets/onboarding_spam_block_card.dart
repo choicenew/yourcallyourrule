@@ -1,5 +1,8 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/config/label_action_config_provider.dart';
+import 'package:yourcallyourrule/features/labels/utils/predefined_labels.dart';
 import 'package:yourcallyourrule/features/phone_filter/providers/call_filter_provider.dart';
 import 'package:yourcallyourrule/features/phone_filter/providers/sim_slot_config_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -24,11 +27,15 @@ class OnboardingSpamBlockCard extends ConsumerWidget {
     final sim1Enabled = simState?.simSlotFilterEnabled[0] ?? true;
     final sim2Enabled = simState?.simSlotFilterEnabled[1] ?? true;
 
+    final labelActionMap = ref.watch(labelActionConfigProvider);
+    final labelActionNotifier = ref.read(labelActionConfigProvider.notifier);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
           // 上层：拦截演示 Banner
           Container(
             padding: const EdgeInsets.all(20),
@@ -80,10 +87,10 @@ class OnboardingSpamBlockCard extends ConsumerWidget {
                     ),
                     Switch(
                       value: isFilterEnabled,
-                      onChanged: (val) {
+                      onChanged: (bool isEnabled) {
                         if (filterConfig != null) {
                           ref.read(callFilterConfigProvider.notifier).updateConfig(
-                                filterConfig.copyWith(rejectAllNumbers: val),
+                                filterConfig.copyWith(rejectAllNumbers: isEnabled),
                               );
                         }
                       },
@@ -127,7 +134,57 @@ class OnboardingSpamBlockCard extends ConsumerWidget {
               height: 1.4,
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 12),
+
+          // 中层：常见高频分类自主勾选拦截区（用户主权，可自由多选或留空）
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: theme.colorScheme.surface,
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: theme.colorScheme.outlineVariant),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      l10n.labelCategories,
+                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface),
+                    ),
+                    Text(
+                      l10n.selectedItems(labelActionMap.length),
+                      style: TextStyle(fontSize: 11, color: theme.colorScheme.primary, fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 6,
+                  runSpacing: 6,
+                  children: predefinedLabelEntities.map((labelEntity) {
+                    final labelText = labelEntity.text;
+                    final isSelected = labelActionMap.containsKey(labelText);
+                    return FilterChip(
+                      label: Text(labelText.translate(context), style: const TextStyle(fontSize: 11)),
+                      selected: isSelected,
+                      visualDensity: VisualDensity.compact,
+                      onSelected: (bool isSelected) {
+                        if (isSelected) {
+                          labelActionNotifier.setActionForLabel(labelText, InterceptAction.endCall);
+                        } else {
+                          labelActionNotifier.removeActionForLabel(labelText);
+                        }
+                      },
+                    );
+                  }).toList(),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
 
           // 下层：双卡 (SIM 1 / SIM 2) 独立拦截规则控制面板
           Container(
@@ -142,12 +199,12 @@ class OnboardingSpamBlockCard extends ConsumerWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('SIM 1 Rule', style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurface)),
+                    Text(l10n.simSlotTitle(1), style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurface)),
                     ChoiceChip(
-                      label: Text(sim1Enabled ? 'Enabled' : 'Disabled'),
+                      label: Text(sim1Enabled ? l10n.enabled : l10n.disabled),
                       selected: sim1Enabled,
-                      onSelected: (val) {
-                        if (val) {
+                      onSelected: (bool isSelected) {
+                        if (isSelected) {
                           simNotifier.enableSimSlotFilter(0);
                         } else {
                           simNotifier.disableSimSlotFilter(0);
@@ -160,12 +217,12 @@ class OnboardingSpamBlockCard extends ConsumerWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('SIM 2 Rule', style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurface)),
+                    Text(l10n.simSlotTitle(2), style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurface)),
                     ChoiceChip(
-                      label: Text(sim2Enabled ? 'Enabled' : 'Disabled'),
+                      label: Text(sim2Enabled ? l10n.enabled : l10n.disabled),
                       selected: sim2Enabled,
-                      onSelected: (val) {
-                        if (val) {
+                      onSelected: (bool isSelected) {
+                        if (isSelected) {
                           simNotifier.enableSimSlotFilter(1);
                         } else {
                           simNotifier.disableSimSlotFilter(1);
@@ -178,6 +235,7 @@ class OnboardingSpamBlockCard extends ConsumerWidget {
             ),
           ),
         ],
+      ),
       ),
     );
   }

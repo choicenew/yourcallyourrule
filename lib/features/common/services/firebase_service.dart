@@ -10,11 +10,13 @@ class FirebaseService {
 
   FirebaseService._internal();
 
+  final FirebaseTelemetryService _telemetry = defaultFirebaseTelemetryService;
+
   /// 初始化 Firebase 基础设施并一键装配 FirebaseTelemetryService
   Future<void> initialize() async {
     try {
       // 调配零阻塞异步初始化、冷启动 50 条缓冲队列与参数自动清洗的微包服务
-      await FirebaseTelemetryService.instance.init();
+      await _telemetry.init();
       debugPrint('Firebase & FirebaseTelemetryService 装配成功');
     } catch (e, stackTrace) {
       debugPrint('Firebase初始化错误: $e');
@@ -24,52 +26,52 @@ class FirebaseService {
 
   /// 记录自定义事件
   Future<void> logEvent({required String name, Map<String, Object>? parameters}) async {
-    await FirebaseTelemetryService.instance.logEvent(name, parameters: parameters);
+    await _telemetry.logEvent(name, parameters: parameters);
   }
 
   /// 设置用户ID
   Future<void> setUserId(String? userId) async {
-    await FirebaseTelemetryService.instance.setUserId(userId);
+    await _telemetry.setUserId(userId);
   }
 
   /// 记录应用崩溃/异常
   Future<void> recordError(dynamic exception, StackTrace stack, {bool fatal = false}) async {
-    await FirebaseTelemetryService.instance.recordError(exception, stack, fatal: fatal);
+    await _telemetry.recordError(exception, stack, fatal: fatal);
   }
 
   /// 记录应用启动事件
   Future<void> logAppOpen() async {
-    await FirebaseTelemetryService.instance.logEvent('app_open');
+    await _telemetry.logEvent('app_open');
   }
 
   /// 记录登录事件
   Future<void> logLogin({String? loginMethod}) async {
-    await FirebaseTelemetryService.instance.logEvent('login', parameters: {'method': loginMethod ?? 'unknown'});
+    await _telemetry.logEvent('login', parameters: {'method': loginMethod ?? 'unknown'});
   }
 
   /// 记录注册事件
   Future<void> logSignUp({String? signUpMethod}) async {
-    await FirebaseTelemetryService.instance.logEvent('sign_up', parameters: {'method': signUpMethod ?? 'unknown'});
+    await _telemetry.logEvent('sign_up', parameters: {'method': signUpMethod ?? 'unknown'});
   }
 
   /// 记录搜索事件
   Future<void> logSearch({required String searchTerm}) async {
-    await FirebaseTelemetryService.instance.logEvent('search', parameters: {'search_term': searchTerm});
+    await _telemetry.logEvent('search', parameters: {'search_term': searchTerm});
   }
 
   /// 记录来电识别事件
   Future<void> logCallerIdEvent({required String eventType, Map<String, Object>? parameters}) async {
-    await FirebaseTelemetryService.instance.logEvent('caller_id_$eventType', parameters: parameters);
+    await _telemetry.logEvent('caller_id_$eventType', parameters: parameters);
   }
 
   /// 记录过滤器事件
   Future<void> logFilterEvent({required String eventType, Map<String, Object>? parameters}) async {
-    await FirebaseTelemetryService.instance.logEvent('filter_$eventType', parameters: parameters);
+    await _telemetry.logEvent('filter_$eventType', parameters: parameters);
   }
 
   /// 记录日志消息
   Future<void> log(String message) async {
-    await FirebaseTelemetryService.instance.log(message);
+    await _telemetry.log(message);
   }
 
   /// 获取 App Check 令牌

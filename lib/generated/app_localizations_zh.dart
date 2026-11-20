@@ -2902,6 +2902,21 @@ class AppLocalizationsZh extends AppLocalizations {
   String get silentCallVoiceClone => '静音呼叫语音克隆';
 
   @override
+  String get autoWarrantyScam => '汽车质保诈骗';
+
+  @override
+  String get voiceCloneScam => 'AI拟声诈骗';
+
+  @override
+  String get aiRobocall => 'AI机器人外呼';
+
+  @override
+  String get publicSafety => '公共安全与应急';
+
+  @override
+  String get healthcare => '医疗健康就诊';
+
+  @override
   String get silentRules => '静音规则';
 
   @override
@@ -7724,6 +7739,21 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get silentCallVoiceClone => '静音呼叫语音克隆';
+
+  @override
+  String get autoWarrantyScam => '汽车质保诈骗';
+
+  @override
+  String get voiceCloneScam => 'AI拟声诈骗';
+
+  @override
+  String get aiRobocall => 'AI机器人外呼';
+
+  @override
+  String get publicSafety => '公共安全与应急';
+
+  @override
+  String get healthcare => '医疗健康就诊';
 
   @override
   String get silentRules => '静音规则';

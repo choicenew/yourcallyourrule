@@ -1,30 +1,25 @@
-﻿import 'package:flutter/services.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/core/coordinator/app_coordinator.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/evaluators/call_policy_evaluator.dart';
 import 'fraud_alert_config_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 诈骗检测服务
 class FraudDetectionService {
 
-  static bool checkForFraudLabels(CallerIdData callerIdData) {
+  static bool checkForFraudLabels(CallerIdData callerIdData, {List<String>? userCustomKeywords}) {
     if (callerIdData.labels.isEmpty) {
       return false;
     }
-    final fraudKeywords = [
-      'Fraud', 'Scam', 'Spam','Scams',
-      'Fraud Scam Likely', 'Spam Likely', 'Scams Likely',
-      'Risk', 'Silent Call Voice Clone'
-    ];
-    final hasSuspiciousNumberFeatures = callerIdData.phoneNumber.contains('+');
     for (final label in callerIdData.labels) {
-      if (fraudKeywords.any((keyword) => label.toLowerCase().contains(keyword.toLowerCase()))) {
+      if (CallPolicyEvaluator.isFraudLabel(label, userCustomKeywords: userCustomKeywords)) {
         return true;
       }
     }
-    if (hasSuspiciousNumberFeatures && callerIdData.labels.length <= 1) {
+    if (callerIdData.phoneNumber.contains('+') && callerIdData.labels.length <= 1) {
       return true;
     }
     return false;

@@ -5,6 +5,7 @@ import 'package:yourcallyourrule/features/phone_subscription/services/phone_subs
 import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
 import 'package:yourcallyourrule/features/phone_plugin/services/plugin_manager_service.dart';
+import 'package:yourcallyourrule/features/commercial/services/commercial_service.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_config.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
@@ -14,6 +15,7 @@ final autoUpdateServiceProvider = Provider<AutoUpdateService>((ref) {
   final contactService = ref.watch(contactSubscriptionServiceProvider);
   final pluginService = ref.watch(pluginManagerServiceProvider);
   final configRepository = ref.watch(configRepositoryProvider);
+  final isVip = ref.watch(isVipUserProvider);
 
   return AutoUpdateService(
     phoneService: phoneService,
@@ -21,6 +23,7 @@ final autoUpdateServiceProvider = Provider<AutoUpdateService>((ref) {
     contactService: contactService,
     pluginService: pluginService,
     configRepository: configRepository,
+    isVip: isVip,
   );
 });
 
@@ -30,6 +33,7 @@ class AutoUpdateService {
   final ContactSubscriptionService _contactService;
   final PluginManagerService _pluginService;
   final AutoUpdateConfig _config;
+  final bool isVip;
 
   AutoUpdateService({
     required PhoneSubscriptionService phoneService,
@@ -37,6 +41,7 @@ class AutoUpdateService {
     required ContactSubscriptionService contactService,
     required PluginManagerService pluginService,
     required ConfigRepository configRepository,
+    this.isVip = false,
   })  : _phoneService = phoneService,
         _smsService = smsService,
         _contactService = contactService,
@@ -44,6 +49,7 @@ class AutoUpdateService {
         _config = AutoUpdateConfig(configRepository: configRepository);
 
   Future<bool> shouldUpdate(String serviceType) async {
+    if (!isVip) return false;
     final lastUpdate = await _config.getLastUpdateTime(serviceType);
     if (lastUpdate == null) return true;
 

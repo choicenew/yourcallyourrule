@@ -1,6 +1,5 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pyro_device_master_slave_protocol/pyro_device_master_slave_protocol.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 引导页：设备集群与节点角色介绍卡片组件（100% 标准 AppLocalizations 国际化）
@@ -12,7 +11,7 @@ class OnboardingMasterSlaveCard extends ConsumerStatefulWidget {
 }
 
 class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlaveCard> {
-  DeviceRole _selectedRole = DeviceRole.primary;
+  bool _isPrimary = true;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,7 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
     final colorScheme = theme.colorScheme;
     final l10n = AppLocalizations.of(context);
 
-    final isPrimary = _selectedRole == DeviceRole.primary;
+    final isPrimary = _isPrimary;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -171,23 +170,23 @@ class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlav
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SegmentedButton<DeviceRole>(
+                SegmentedButton<bool>(
                   segments: [
                     ButtonSegment(
-                      value: DeviceRole.primary,
+                      value: true,
                       label: Text(l10n.masterRoleTitle),
                       icon: const Icon(Icons.stars_rounded, size: 16),
                     ),
                     ButtonSegment(
-                      value: DeviceRole.secondary,
+                      value: false,
                       label: Text(l10n.slaveRoleTitle),
                       icon: const Icon(Icons.phone_android_rounded, size: 16),
                     ),
                   ],
-                  selected: {_selectedRole},
-                  onSelectionChanged: (selected) {
+                  selected: {_isPrimary},
+                  onSelectionChanged: (selectedRoles) {
                     setState(() {
-                      _selectedRole = selected.first;
+                      _isPrimary = selectedRoles.first;
                     });
                   },
                 ),

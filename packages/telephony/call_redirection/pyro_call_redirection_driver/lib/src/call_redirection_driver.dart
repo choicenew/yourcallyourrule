@@ -2,9 +2,12 @@ import 'dart:async';
 import 'package:pyro_call_redirection_hub/pyro_call_redirection_hub.dart';
 import 'call_redirection_api.g.dart';
 
+typedef OutboundCallEvaluator = Future<RedirectionDecision?> Function(OutgoingCallEntity call);
+
 /// Driver for CallRedirectionService outbound fraud prevention
 class CallRedirectionDriver implements ICallRedirectionAdapter, CallRedirectionFlutterApi {
   static CallRedirectionDriver? _instance;
+  static OutboundCallEvaluator? outboundEvaluator;
 
   /// Static auto-registration hook
   static void register() {
@@ -70,6 +73,13 @@ class CallRedirectionDriver implements ICallRedirectionAdapter, CallRedirectionF
         action: RedirectionAction.proceed,
         description: 'Temporary user bypass active',
       );
+    }
+
+    if (outboundEvaluator != null) {
+      final customDecision = await outboundEvaluator!(call);
+      if (customDecision != null) {
+        return customDecision;
+      }
     }
 
     if (number.startsWith('+1800') || number.startsWith('+1900') || number.startsWith('400')) {

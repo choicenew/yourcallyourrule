@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
+import 'package:yourcallyourrule/features/commercial/services/commercial_service.dart';
+import 'package:yourcallyourrule/features/commercial/widgets/vip_feature_guard.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class AutoUpdateSettingsPage extends ConsumerStatefulWidget {
@@ -129,6 +131,13 @@ class _AutoUpdateSettingsPageState extends ConsumerState<AutoUpdateSettingsPage>
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);
+    final isVip = ref.watch(isVipUserProvider);
+
+    if (!isVip) {
+      return VipFeatureGuard(
+        title: l10n.autoUpdateSettings,
+      );
+    }
 
     return PopScope(
       canPop: false,

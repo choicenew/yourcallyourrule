@@ -55,6 +55,23 @@ class CallPolicyVerdict {
 class CallPolicyEvaluator {
   const CallPolicyEvaluator();
 
+  static const List<String> standardFraudKeywords = [
+    'fraud',
+    'scam',
+    'spam',
+    'scams',
+    'risk',
+    'voice clone',
+    'auto warranty',
+    'silent call',
+  ];
+
+  static bool isFraudLabel(String label, {List<String>? userCustomKeywords}) {
+    final lower = label.trim().toLowerCase();
+    final keywords = userCustomKeywords ?? standardFraudKeywords;
+    return keywords.any((kw) => lower.contains(kw.toLowerCase()));
+  }
+
   CallPolicyVerdict evaluate(CallPolicyContext context) {
     if (context.isEmergencyExempted) {
       return const CallPolicyVerdict(
@@ -108,6 +125,17 @@ class CallPolicyEvaluator {
           shouldBlock: true,
           action: action,
           reason: 'Matched label action for: $label',
+          matchedLabel: label,
+        );
+      }
+    }
+
+    for (final label in context.labels) {
+      if (isFraudLabel(label)) {
+        return CallPolicyVerdict(
+          shouldBlock: true,
+          action: context.defaultInterceptAction,
+          reason: 'High-risk fraud label identified: $label',
           matchedLabel: label,
         );
       }

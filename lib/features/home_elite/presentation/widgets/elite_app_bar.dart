@@ -61,7 +61,7 @@ class EliteAppBar extends ConsumerWidget {
     final asyncStats = ref.watch(homeStatsProvider);
     final isProtectionActive = asyncStats.value?.isProtectionActive ?? true;
     final commercialState = ref.watch(commercialNotifierProvider).value;
-    final isVip = (commercialState?.isPurchased == true || commercialState?.isAdFree == true) || AdPolicyManager.instance.isVipUser;
+    final isVip = (commercialState?.isPurchased == true || commercialState?.isAdFree == true) || defaultAdPolicyManager.isVipUser;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),

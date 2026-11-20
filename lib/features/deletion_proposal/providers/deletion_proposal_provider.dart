@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 // 引入所有必要的 Provider 和模型
-import 'package:yourcallyourrule/data/database/sync/device_id_service.dart';
+import 'package:yourcallyourrule/features/device/providers/device_management_provider.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/services/deletion_proposal_service.dart';
@@ -100,7 +100,7 @@ class DeletionProposalNotifier extends _$DeletionProposalNotifier {
   }
 
   Future<void> _loadInitialData() async {
-    _deviceId = await ref.read(deviceIdServiceProvider).getDeviceId();
+    _deviceId = await ref.read(deviceManagementServiceProvider).getCurrentDeviceId();
       // 【MODIFIED】: 初始化时同时加载提议和统计数据
     await Future.wait([
       loadPendingProposals(),

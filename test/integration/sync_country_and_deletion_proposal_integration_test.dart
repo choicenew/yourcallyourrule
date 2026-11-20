@@ -3,7 +3,8 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 
-import 'package:yourcallyourrule/data/database/sync/api_service.dart';
+import 'package:pyro_cloudflare/pyro_cloudflare.dart';
+import 'package:yourcallyourrule/env.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/data/proposal_datasource_impl.dart';
 import 'package:pyro_crowdsourcing_arbiter/pyro_crowdsourcing_arbiter.dart';
 
@@ -77,34 +78,47 @@ void main() {
       print('✅ [D1 DB] sync_country 与 deletion_proposal 底座数据库 (callrule_test_d1) 执行成功！');
     });
 
-    test('2. [sync_country] 实测 ApiService.getInitialDataForCountry("CN") 接口流程', () async {
-      final apiService = ApiService();
+    test('2. [sync_country] 实测 Cloudflare Worker /sync/initial/CN 接口流程', () async {
+      final workerClient = CloudflareWorkerClient(
+        config: CloudflareConfig(
+          workerUrl: Env.cfWorkerUrl,
+          apiSecret: Env.workerApiSecret,
+          accountId: '',
+        ),
+      );
 
       print('[sync_country] 请求获取 ISO 国家 "CN" 初始初始化数据集...');
-      final initialData = await apiService.getInitialDataForCountry('CN');
+      final res = await workerClient.get('/sync/initial/CN');
+      final initialData = (res != null && res['data'] is List) ? res['data'] as List : [];
 
       expect(initialData, isNotNull);
       print('✅ [sync_country] 成功请求国家 CN 初始化数据集，返回 ${initialData.length} 条记录！');
     });
 
-    test('3. [deletion_proposal] 实测 ApiService 提交流程 (pushChanges & getProposalLimitsConfig)', () async {
-      final apiService = ApiService();
+    test('3. [deletion_proposal] 实测 Cloudflare Worker 提交流程 (/sync/push & /config/limits)', () async {
+      final workerClient = CloudflareWorkerClient(
+        config: CloudflareConfig(
+          workerUrl: Env.cfWorkerUrl,
+          apiSecret: Env.workerApiSecret,
+          accountId: '',
+        ),
+      );
 
       print('[deletion_proposal] 请求拉取云端提案频次限制配置...');
-      final limits = await apiService.getProposalLimitsConfig();
+      final limits = await workerClient.get('/config/limits');
       expect(limits, isNotNull);
 
       print('[deletion_proposal] 推送试运行 deletion_proposal 变更操作到 Worker...');
-      final pushResult = await apiService.pushChanges(
-        changes: [
+      final pushResult = await workerClient.post('/sync/push', {
+        'deviceId': 'device_test_cloud_001',
+        'changes': [
           {
             'type': 'propose_deletion',
             'phoneNumber': '+8618888888888',
             'timestamp': DateTime.now().toIso8601String(),
           }
         ],
-        deviceId: 'device_test_cloud_001',
-      );
+      });
 
       // 测试环境下即使 HTTP 返回兼容响应，函数也无崩溃
       expect(pushResult, isNotNull);

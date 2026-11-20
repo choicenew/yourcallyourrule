@@ -16,7 +16,7 @@ class DeviceManagementPage extends ConsumerWidget {
       localNode: DeviceNode(
         deviceId: 'local_device_01',
         deviceName: '${l10n.currentDeviceTitle} (${l10n.primaryRoleTitle})',
-        role: DeviceRole.primary,
+        isPrimary: true,
         lastHeartbeatTime: DateTime.now(),
       ),
     );

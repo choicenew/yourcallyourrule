@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:yourcallyourrule/data/database/sync/api_service.dart';
+import 'package:yourcallyourrule/core/coordinator/app_hub_exchange_connector.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 
@@ -18,7 +18,7 @@ class ProposalLimitConfigService {
 
   Future<void> syncConfig() async {
     try {
-      final config = await _ref.read(apiServiceProvider).getProposalLimitsConfig();
+      final config = await _ref.read(appHubExchangeConnectorProvider).databaseSync.getProposalLimitsConfig();
       await _ref.read(configRepositoryProvider).saveConfig(_configKey, config);
     } catch (e) {
       // Handle error

@@ -47,7 +47,6 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
   void _showAddPluginDialog(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final urlController = TextEditingController();
-    final isZh = Localizations.localeOf(context).languageCode.toLowerCase().startsWith('zh');
     final nameController = TextEditingController();
     final versionController = TextEditingController(text: '1.0.0');
     final descriptionController = TextEditingController();
@@ -216,7 +215,6 @@ class _PluginManagementPageState extends ConsumerState<PluginManagementPage> {
   Widget _buildPluginStatusCard(BuildContext context) {
     final installedCount = _plugins.length;
     final theme = Theme.of(context);
-    final isZh = Localizations.localeOf(context).languageCode.toLowerCase().startsWith('zh');
     final l10n = AppLocalizations.of(context);
 
     return Container(

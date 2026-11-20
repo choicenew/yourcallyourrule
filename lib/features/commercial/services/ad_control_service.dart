@@ -25,5 +25,5 @@ class AdControlService {
   }
 
   /// 获取 AdsHub 实例
-  AdsHub get adsHub => AdsHub.instance;
+  AdsHub get adsHub => defaultAdsHub;
 }

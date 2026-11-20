@@ -5495,6 +5495,12 @@ abstract class AppLocalizations {
   /// **'Silent Call Voice Clone'**
   String get silentCallVoiceClone;
 
+  String get autoWarrantyScam => 'Auto Warranty Scam';
+  String get voiceCloneScam => 'Voice Clone Scam';
+  String get aiRobocall => 'AI Robocall';
+  String get publicSafety => 'Public Safety';
+  String get healthcare => 'Healthcare';
+
   /// No description provided for @silentRules.
   ///
   /// In en, this message translates to:
