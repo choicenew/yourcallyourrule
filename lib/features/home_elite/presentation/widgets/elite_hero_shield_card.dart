@@ -91,6 +91,8 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
   String _getActionTitle(BuildContext context, InterceptAction action) {
     final l10n = AppLocalizations.of(context);
     switch (action) {
+      case InterceptAction.allow:
+        return l10n.actionAllow;
       case InterceptAction.endCall:
         return l10n.endCallImmediately;
       case InterceptAction.answerThenHangup:
@@ -105,6 +107,8 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
   String _getActionDescription(BuildContext context, InterceptAction action) {
     final l10n = AppLocalizations.of(context);
     switch (action) {
+      case InterceptAction.allow:
+        return l10n.allowCalls;
       case InterceptAction.endCall:
         return l10n.blockActionDescription;
       case InterceptAction.answerThenHangup:
@@ -119,6 +123,8 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
   Color _getActionColor(BuildContext context, InterceptAction action) {
     final theme = Theme.of(context);
     switch (action) {
+      case InterceptAction.allow:
+        return Colors.green;
       case InterceptAction.endCall:
         return theme.colorScheme.error;
       case InterceptAction.answerThenHangup:
@@ -132,6 +138,8 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
 
   IconData _getActionIcon(InterceptAction action) {
     switch (action) {
+      case InterceptAction.allow:
+        return Icons.check_circle_outline_rounded;
       case InterceptAction.endCall:
         return Icons.phone_disabled_rounded;
       case InterceptAction.answerThenHangup:

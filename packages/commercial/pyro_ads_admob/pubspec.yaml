@@ -1,0 +1,32 @@
+name: pyro_ads_admob
+description: A standalone Flutter driver package for Google Mobile Ads (AdMob) implementing NetworkAdapter.
+version: 2.8.0
+publish_to: 'none'
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.yours.ads_package
+        pluginClass: AdsPackagePlugin
+      ios:
+        pluginClass: AdsPackagePlugin
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_mobile_ads: ^9.2.0
+  pyro_ads_protocol:
+    path: ../pyro_ads_protocol
+
+  material_ui: any
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0

@@ -47,10 +47,10 @@ class _LiveNotificationCustomizationScreenState
     final mockStirInfo = CallOverlayMockData.mockStirInfoData();
 
     try {
-      // 本地化安全消息文本 (Mock)
+      // 本地化安全消息文本 (Mock) - 适配 Android 16/17 Live Updates 规范，紧凑文本防止截断
       final String securityMessageText =
           AppLocalizations.of(context).securityMessage ??
-          'Do not trust any phone calls. Always verify customer service numbers independently.';
+          'Scam Risk: Never share passwords or OTP codes';
 
       final payload = await LiveNotificationPayloadBuilder.build(
         config,

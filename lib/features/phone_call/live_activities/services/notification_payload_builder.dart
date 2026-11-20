@@ -53,6 +53,10 @@ class LiveNotificationPayloadBuilder {
     if (config.labels.visible && labelText != null && labelText.isNotEmpty) {
       details.add(labelText);
     }
+    final int totalCount = data.localCount + data.pluginCount + data.remoteCount;
+    if (config.count.visible && totalCount > 0) {
+      details.add('$totalCount tags');
+    }
     if (config.simCard.visible && simInfo?['displayName'] != null) {
       details.add(simInfo!['displayName'] as String);
     }

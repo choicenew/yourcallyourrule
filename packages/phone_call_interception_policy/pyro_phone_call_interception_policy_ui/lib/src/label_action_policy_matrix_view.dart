@@ -1,5 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
+import 'interception_policy_localizations.dart';
 
 /// 标签与拦截处置动作矩阵视图组件 (LabelActionPolicyMatrixView)
 /// 100% 封装于微包内部，提供自闭环的策略列表、快速添加 Chip、动作选择下拉框及添加弹窗
@@ -31,18 +32,19 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
     return labelTranslator?.call(label) ?? label;
   }
 
-  String _translateAction(InterceptAction action) {
+  String _translateAction(BuildContext context, InterceptAction action) {
     if (actionTranslator != null) {
       return actionTranslator!(action);
     }
+    final l10n = InterceptionPolicyLocalizations.of(context);
     if (action == InterceptAction.allow) {
-      return '放行 (Allow)';
+      return l10n.actionAllow;
     } else if (action == InterceptAction.answerThenHangup) {
-      return '接通后挂断 (Answer & Hangup)';
+      return l10n.actionAnswerThenHangup;
     } else if (action == InterceptAction.silenceNoAnswer) {
-      return '静音不接听 (Silence)';
+      return l10n.actionSilence;
     }
-    return '直接挂断 (End Call)';
+    return l10n.actionEndCall;
   }
 
   IconData _getActionIcon(InterceptAction action) {
@@ -71,6 +73,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = InterceptionPolicyLocalizations.of(context);
 
     return Card(
       elevation: 0,
@@ -93,7 +96,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        title ?? '标签个性化拦截规则',
+                        title ?? l10n.labelPolicyTitle,
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -115,7 +118,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
                 ),
                 FilledButton.tonalIcon(
                   icon: const Icon(Icons.add_rounded, size: 18),
-                  label: const Text('添加标签规则'),
+                  label: Text(l10n.addLabelRuleTitle),
                   style: FilledButton.styleFrom(
                     visualDensity: VisualDensity.compact,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -159,7 +162,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    '暂未配置个性化标签处置，将按全局默认策略执行',
+                    l10n.noConfiguredLabels,
                     style: TextStyle(
                       fontSize: 13,
                       color: theme.colorScheme.onSurfaceVariant,
@@ -189,7 +192,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
                           size: 20,
                           color: theme.colorScheme.error,
                         ),
-                        tooltip: '删除此规则',
+                        tooltip: l10n.deleteRuleTooltip,
                         onPressed: () => onActionRemoved(label),
                       ),
                       const SizedBox(width: 4),
@@ -258,7 +261,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
                                     ),
                                     const SizedBox(width: 6),
                                     Text(
-                                      _translateAction(action),
+                                      _translateAction(context, action),
                                       style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.w600,
@@ -284,6 +287,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
 
   void _showAddLabelDialog(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = InterceptionPolicyLocalizations.of(context);
     String selectedLabel = availableLabels.isNotEmpty ? availableLabels.first : '';
     InterceptAction chosenAction = InterceptAction.endCall;
     final textController = TextEditingController(text: selectedLabel);
@@ -297,7 +301,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
               backgroundColor: theme.colorScheme.surface,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               title: Text(
-                '添加标签处置规则',
+                l10n.addLabelRuleTitle,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
@@ -311,7 +315,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
                   children: [
                     if (availableLabels.isNotEmpty) ...[
                       Text(
-                        '选择已有标签：',
+                        l10n.selectExistingLabel,
                         style: TextStyle(fontSize: 13, color: theme.colorScheme.onSurfaceVariant),
                       ),
                       const SizedBox(height: 8),
@@ -326,7 +330,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
                           child: DropdownButton<String>(
                             value: availableLabels.contains(selectedLabel) ? selectedLabel : null,
                             isExpanded: true,
-                            hint: Text('请选择标签', style: TextStyle(fontSize: 14, color: theme.colorScheme.onSurfaceVariant)),
+                            hint: Text(l10n.pleaseSelectLabel, style: TextStyle(fontSize: 14, color: theme.colorScheme.onSurfaceVariant)),
                             onChanged: (val) {
                               if (val != null) {
                                 setDialogState(() {
@@ -350,8 +354,8 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
                       controller: textController,
                       style: TextStyle(color: theme.colorScheme.onSurface),
                       decoration: InputDecoration(
-                        labelText: '自定义标签名称',
-                        hintText: '例如: 骚扰、催收、外卖、客服等',
+                        labelText: l10n.customLabelName,
+                        hintText: l10n.customLabelHint,
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                       ),
                       onChanged: (val) {
@@ -360,7 +364,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      '选择命中该标签时的处置动作：',
+                      l10n.selectActionPrompt,
                       style: TextStyle(fontSize: 13, color: theme.colorScheme.onSurfaceVariant),
                     ),
                     const SizedBox(height: 8),
@@ -389,7 +393,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
                                 children: [
                                   Icon(_getActionIcon(action), size: 16, color: _getActionColor(context, action)),
                                   const SizedBox(width: 8),
-                                  Text(_translateAction(action), style: TextStyle(color: theme.colorScheme.onSurface)),
+                                  Text(_translateAction(context, action), style: TextStyle(color: theme.colorScheme.onSurface)),
                                 ],
                               ),
                             );
@@ -403,7 +407,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogCtx).pop(),
-                  child: Text('取消', style: TextStyle(color: theme.colorScheme.onSurfaceVariant)),
+                  child: Text(l10n.cancel, style: TextStyle(color: theme.colorScheme.onSurfaceVariant)),
                 ),
                 FilledButton(
                   onPressed: () {
@@ -413,7 +417,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
                     }
                     Navigator.of(dialogCtx).pop();
                   },
-                  child: const Text('保存'),
+                  child: Text(l10n.save),
                 ),
               ],
             );

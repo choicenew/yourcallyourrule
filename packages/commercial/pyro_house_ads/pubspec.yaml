@@ -1,0 +1,22 @@
+name: pyro_house_ads
+description: A multi-app matrix cross-promotion, VIP conversion and adaptive house ad orchestration package for Flutter.
+version: 1.0.0
+repository: https://github.com/Ngokel/aura_wallpaper/tree/main/packages/pyro_house_ads
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  material_ui: any
+  pyro_ads_protocol:
+    path: ../pyro_ads_protocol
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0

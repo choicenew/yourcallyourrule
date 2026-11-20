@@ -1,60 +1,57 @@
-﻿import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_sim_slot_rules_protocol/pyro_phone_sim_slot_rules_protocol.dart';
 import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository.dart';
+import 'package:yourcallyourrule/features/phone_rules/data/datasources/local_sim_slot_rule_datasource.dart';
 
 final simSlotRuleServiceProvider = Provider<SimSlotRuleService>((ref) {
   final ruleRepository = ref.watch(ruleRepositoryProvider);
   final configRepository = ref.watch(configRepositoryProvider);
-  return SimSlotRuleService(ruleRepository, configRepository);
+  final simSlotDatasource = ref.watch(localSimSlotRuleDataSourceProvider);
+  return SimSlotRuleService(ruleRepository, configRepository, simSlotDatasource);
 });
 
 /// SIM 卡槽规则服务：100% 消费 pyro_sim_slot_rules_protocol 专属微包协议
 class SimSlotRuleService {
   final RuleRepository _ruleRepository;
+  final LocalSimSlotRuleDataSource _simSlotDatasource;
 
-  SimSlotRuleService(this._ruleRepository, dynamic configRepository);
+  SimSlotRuleService(this._ruleRepository, dynamic configRepository, this._simSlotDatasource);
 
   Future<List<SimSlotRuleEntity>> getSimSlotRules(int simSlotIndex) async {
-    final rules = await _ruleRepository.getAll();
-    return rules.map((r) => SimSlotRuleEntity(
-      id: r.id,
-      name: r.name,
-      phoneNumber: r.phoneNumber,
-      simSlotIndex: simSlotIndex,
-      actionType: r.actionType,
-      priority: r.priority,
-      isEnabled: r.isEnabled,
-    )).toList();
+    return await _simSlotDatasource.getBySimSlot(simSlotIndex);
   }
 
   Future<List<SimSlotRuleEntity>> getAllSimSlotRules() async {
-    final rules = await _ruleRepository.getAll();
-    return rules.map((r) => SimSlotRuleEntity(
-      id: r.id,
-      name: r.name,
-      phoneNumber: r.phoneNumber,
-      simSlotIndex: 0,
-      actionType: r.actionType,
-      priority: r.priority,
-      isEnabled: r.isEnabled,
-    )).toList();
+    return await _simSlotDatasource.getAll();
   }
 
   Future<void> addSimSlotRule(Map<String, dynamic> entry, int simSlotIndex, {dynamic action}) async {
-    // Add SIM slot rule implementation
+    final entity = SimSlotRuleEntity(
+      id: entry['id']?.toString() ?? DateTime.now().millisecondsSinceEpoch.toString(),
+      name: entry['name']?.toString() ?? '',
+      phoneNumber: entry['phoneNumber']?.toString() ?? '',
+      simSlotIndex: simSlotIndex,
+      actionType: action?.toString() ?? entry['actionType']?.toString() ?? 'block',
+      priority: entry['priority'] is int ? entry['priority'] as int : 0,
+      isEnabled: entry['isEnabled'] is bool ? entry['isEnabled'] as bool : true,
+    );
+    await _simSlotDatasource.insertRule(entity);
   }
 
   Future<void> removeSimSlotRule(String ruleId) async {
-    await _ruleRepository.deleteById(ruleId);
+    await _simSlotDatasource.deleteById(ruleId);
   }
 
   Future<void> updateSimSlotRule(SimSlotRuleEntity rule) async {
-    // Update SIM slot rule
+    await _simSlotDatasource.updateRule(rule);
   }
 
   Future<void> toggleRuleStatus(String ruleId, bool isEnabled) async {
-    // Toggle status
+    final rule = await _simSlotDatasource.getById(ruleId);
+    if (rule != null) {
+      await _simSlotDatasource.updateRule(rule.copyWith(isEnabled: isEnabled));
+    }
   }
 }

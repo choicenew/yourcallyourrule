@@ -1,6 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/phone_filter/call_filter_type.dart';
+import 'package:yourcallyourrule/features/sim_slot_rules/pages/sim_slot_rule_page_with_ads.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/widgets/sim_slot_rule_widget.dart';
 import 'package:yourcallyourrule/features/phone_filter/providers/enhanced_filter_config_provider.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/providers/sim_slot_rule_page_provider.dart';
@@ -64,7 +65,16 @@ class SimSlotRuleFilterPage extends ConsumerWidget {
           ),
         ],
       ),
-      body: SimSlotRuleWidget(simSlotIndex: simSlotIndex, onTap: () {}),
+      body: SimSlotRuleWidget(
+        simSlotIndex: simSlotIndex,
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => SimSlotRulePageWithAds(simSlotIndex: simSlotIndex),
+            ),
+          );
+        },
+      ),
     ),
   );
   }

@@ -1,5 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
+import 'interception_policy_localizations.dart';
 
 /// 紧急呼叫后全局拦截豁免配置卡片组件 (EmergencyExemptionPolicyCard)
 /// 100% 封装于微包内部，提供开启状态、放行时长下拉调节、内置与自定义紧急号码管理
@@ -28,6 +29,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
 
   void _showAddNumberDialog(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = InterceptionPolicyLocalizations.of(context);
     final controller = TextEditingController();
 
     showDialog<void>(
@@ -41,7 +43,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
               Icon(Icons.add_ic_call_rounded, color: theme.colorScheme.primary, size: 22),
               const SizedBox(width: 8),
               Text(
-                '添加紧急号码',
+                l10n.addEmergencyNumberTitle,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
@@ -55,7 +57,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '输入您所在地区的当地紧急电话（如社区求助站、保卫处、专线急救电话等）：',
+                l10n.addEmergencyNumberDesc,
                 style: TextStyle(fontSize: 13, color: theme.colorScheme.onSurfaceVariant),
               ),
               const SizedBox(height: 12),
@@ -65,8 +67,8 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                 autofocus: true,
                 style: TextStyle(color: theme.colorScheme.onSurface),
                 decoration: InputDecoration(
-                  labelText: '紧急电话号码',
-                  hintText: '例如: 120, 119, 010-12345',
+                  labelText: l10n.emergencyPhoneLabel,
+                  hintText: l10n.emergencyPhoneHint,
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
                   prefixIcon: const Icon(Icons.phone_rounded),
                 ),
@@ -76,7 +78,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
           actions: [
             TextButton(
               onPressed: () => Navigator.of(dialogCtx).pop(),
-              child: Text('取消', style: TextStyle(color: theme.colorScheme.onSurfaceVariant)),
+              child: Text(l10n.cancel, style: TextStyle(color: theme.colorScheme.onSurfaceVariant)),
             ),
             FilledButton(
               onPressed: () {
@@ -90,7 +92,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                 }
                 Navigator.of(dialogCtx).pop();
               },
-              child: const Text('添加'),
+              child: Text(l10n.add),
             ),
           ],
         );
@@ -101,6 +103,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = InterceptionPolicyLocalizations.of(context);
     final config = widget.config;
 
     return Card(
@@ -132,7 +135,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '紧急呼叫放行防护',
+                        l10n.emergencyExemptionTitle,
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w900,
@@ -141,7 +144,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        '拨打紧急求助电话后，限时无条件放行所有来电',
+                        l10n.emergencyExemptionSubtitle,
                         style: TextStyle(
                           fontSize: 12,
                           color: theme.colorScheme.onSurfaceVariant,
@@ -176,8 +179,8 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                     Expanded(
                       child: Text(
                         widget.remainingSeconds != null
-                            ? '紧急豁免保护生效中 (剩余 ${(widget.remainingSeconds! / 60).ceil()} 分钟)'
-                            : '紧急豁免保护生效中，来电将无条件直接接听',
+                            ? l10n.emergencyExemptionActiveWithTime((widget.remainingSeconds! / 60).ceil())
+                            : l10n.emergencyExemptionActive,
                         style: const TextStyle(
                           color: Colors.red,
                           fontSize: 13,
@@ -203,7 +206,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '放行豁免持续时长',
+                        l10n.durationTitle,
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -212,7 +215,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        '拨通后保持放行的时间窗口',
+                        l10n.durationSubtitle,
                         style: TextStyle(
                           fontSize: 12,
                           color: theme.colorScheme.onSurfaceVariant,
@@ -242,11 +245,11 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                             widget.onConfigChanged(config.copyWith(durationMinutes: newDuration));
                           }
                         },
-                        items: const [
-                          DropdownMenuItem(value: 15, child: Text('15 分钟')),
-                          DropdownMenuItem(value: 30, child: Text('30 分钟 (推荐)')),
-                          DropdownMenuItem(value: 60, child: Text('1 小时')),
-                          DropdownMenuItem(value: 120, child: Text('2 小时')),
+                        items: [
+                          DropdownMenuItem(value: 15, child: Text(l10n.duration15Min)),
+                          DropdownMenuItem(value: 30, child: Text(l10n.duration30Min)),
+                          DropdownMenuItem(value: 60, child: Text(l10n.duration1Hour)),
+                          DropdownMenuItem(value: 120, child: Text(l10n.duration2Hours)),
                         ],
                       ),
                     ),
@@ -266,7 +269,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '自定义紧急号码 (${config.customNumbers.length})',
+                        l10n.customEmergencyNumbers(config.customNumbers.length),
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -275,7 +278,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        '可添加当地急救、社区、家庭等重要号码',
+                        l10n.customEmergencySubtitle,
                         style: TextStyle(
                           fontSize: 12,
                           color: theme.colorScheme.onSurfaceVariant,
@@ -285,7 +288,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                   ),
                   FilledButton.tonalIcon(
                     icon: const Icon(Icons.add_rounded, size: 16),
-                    label: const Text('添加号码'),
+                    label: Text(l10n.addEmergencyNumberButton),
                     style: FilledButton.styleFrom(
                       visualDensity: VisualDensity.compact,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -307,7 +310,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                   ),
                   child: Center(
                     child: Text(
-                      '暂未添加自定义紧急电话，点击右上角快速添加',
+                      l10n.noCustomEmergencyNumbers,
                       style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant),
                     ),
                   ),
@@ -352,7 +355,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          '查看全球内置紧急号码库 (${widget.presetNumbers.length} 个)',
+                          l10n.viewGlobalPresetNumbers(widget.presetNumbers.length),
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,

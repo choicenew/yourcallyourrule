@@ -1,0 +1,33 @@
+name: pyro_commercial_hub
+description: Commercial monetization and ad-to-entitlement incentive hub for PyroMagma.
+version: 0.0.1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^3.0.3
+  pyro_purchase_protocol:
+    path: ../pyro_purchase_protocol
+  pyro_purchase_core:
+    path: ../pyro_purchase_core
+  pyro_ads_protocol:
+    path: ../pyro_ads_protocol
+  pyro_ads_hub:
+    path: ../pyro_ads_hub
+  pyro_ads_policy:
+    path: ../pyro_ads_policy
+  pyro_render_ad_protocol:
+    path: '../../render/pyro_render_ad_protocol'
+
+  material_ui: any
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0

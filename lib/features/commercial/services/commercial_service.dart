@@ -4,6 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:pyro_ads_protocol/pyro_ads_protocol.dart';
 import 'package:pyro_ads_policy/pyro_ads_policy.dart';
+import 'package:pyro_ads_admob/pyro_ads_admob.dart';
 import 'package:pyro_commercial_hub/pyro_commercial_hub.dart';
 import 'package:pyro_purchase_core/pyro_purchase_core.dart';
 import '../config/app_ads_config.dart';
@@ -44,7 +45,13 @@ class CommercialService {
       debugPrint('[CommercialService] Production 模式: 已注入 AdMob 生产环境广告 ID');
     }
 
-    // 2. 婚礼挂载商业广告连接器
+    // 2. 注册 AdMob 驱动到 AdsHub
+    defaultAdsHub.registerDriver(
+      level: 1,
+      adapter: PyroAdsAdmobAdapter(),
+    );
+
+    // 3. 婚礼挂载商业广告连接器
     CommercialAdConnectors.ensureAdConnectorsMounted();
 
     debugPrint('[CommercialService] 主 App 商业化中枢服务挂载初始化完成');

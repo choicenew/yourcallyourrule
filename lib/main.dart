@@ -7,6 +7,7 @@ import 'package:pyro_app_launch_guard/pyro_app_launch_guard.dart';
 import 'package:pyro_cloud_drive_ui/pyro_cloud_drive_ui.dart' as cloud_ui;
 import 'package:pyro_device_master_slave_ui/pyro_device_master_slave_ui.dart' as device_ui;
 import 'package:pyro_sms_ui/pyro_sms_ui.dart';
+import 'package:pyro_phone_call_interception_policy_ui/pyro_phone_call_interception_policy_ui.dart';
 import 'package:yourcallyourrule/core/coordinator/package_connectors_initializer.dart';
 import 'package:yourcallyourrule/core/coordinator/app_hub_exchange_connector.dart';
 import 'package:yourcallyourrule/features/common/error/logger.dart';
@@ -122,6 +123,7 @@ void overlayMain() {
         localizationsDelegates: [
           AppLocalizations.delegate,
           SmsLocalizations.delegate,
+          InterceptionPolicyLocalizations.delegate,
           cloud_ui.AppLocalizations.delegate,
           device_ui.AppLocalizations.delegate,
           ...GlobalMaterialLocalizations.delegates,
@@ -154,6 +156,7 @@ class MyApp extends ConsumerWidget {
       localizationsDelegates: [
         AppLocalizations.delegate,
         SmsLocalizations.delegate,
+        InterceptionPolicyLocalizations.delegate,
         cloud_ui.AppLocalizations.delegate,
         device_ui.AppLocalizations.delegate,
         ...GlobalMaterialLocalizations.delegates,

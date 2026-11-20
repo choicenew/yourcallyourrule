@@ -38,11 +38,24 @@ class CallLogRecorder {
   }
 
   Future<void> _recordCall(String phoneNumber, CallerIdData callData, String callType, {DateTime? startTime, DateTime? endTime, int? duration, int? timestamp}) async {
+    final entryTime = timestamp ?? (startTime?.millisecondsSinceEpoch ?? DateTime.now().millisecondsSinceEpoch);
+    // 5 秒窗口防抖去重：避免 Native 广播重复触发生成多条相同记录
+    final recentLogs = await _callLogService.getRecentLogs();
+    final isDuplicate = recentLogs.any((log) =>
+        log.phoneNumber == phoneNumber &&
+        log.timestamp != null &&
+        (log.timestamp! - entryTime).abs() < 5000);
+
+    if (isDuplicate) {
+      debugPrint('[CallLogRecorder] Ignored duplicate call event within 5s for: $phoneNumber');
+      return;
+    }
+
     final entry = CallLogEntry(
       id: _uuid.v4(),
       phoneNumber: phoneNumber,
       callType: callType,
-      timestamp: timestamp ?? (startTime?.millisecondsSinceEpoch ?? DateTime.now().millisecondsSinceEpoch),
+      timestamp: entryTime,
       durationSeconds: duration != null ? (duration ~/ 1000) : 0,
       name: callData.name,
       location: callData.region,
