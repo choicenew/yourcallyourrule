@@ -108,7 +108,7 @@ class _EliteHeroShieldCardState extends ConsumerState<EliteHeroShieldCard>
     final l10n = AppLocalizations.of(context);
     switch (action) {
       case InterceptAction.allow:
-        return l10n.allowCalls;
+        return l10n.actionAllow;
       case InterceptAction.endCall:
         return l10n.blockActionDescription;
       case InterceptAction.answerThenHangup:
