@@ -1,23 +1,21 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_sim_slot_rules_protocol/pyro_phone_sim_slot_rules_protocol.dart';
-import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository_impl.dart';
-import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
-import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/features/phone_rules/data/datasources/local_sim_slot_rule_datasource.dart';
 
-final simSlotRuleServiceProvider = Provider<SimSlotRuleService>((ref) {
-  final ruleRepository = ref.watch(ruleRepositoryProvider);
-  final configRepository = ref.watch(configRepositoryProvider);
+part 'sim_slot_rule_service.g.dart';
+
+@Riverpod(keepAlive: true)
+SimSlotRuleService simSlotRuleService(Ref ref) {
   final simSlotDatasource = ref.watch(localSimSlotRuleDataSourceProvider);
-  return SimSlotRuleService(ruleRepository, configRepository, simSlotDatasource);
-});
+  return SimSlotRuleService(simSlotDatasource);
+}
 
 /// SIM 卡槽规则服务：100% 消费 pyro_sim_slot_rules_protocol 专属微包协议
 class SimSlotRuleService {
-  final RuleRepository _ruleRepository;
   final LocalSimSlotRuleDataSource _simSlotDatasource;
 
-  SimSlotRuleService(this._ruleRepository, dynamic configRepository, this._simSlotDatasource);
+  SimSlotRuleService(this._simSlotDatasource);
 
   Future<List<SimSlotRuleEntity>> getSimSlotRules(int simSlotIndex) async {
     return await _simSlotDatasource.getBySimSlot(simSlotIndex);
@@ -41,7 +39,7 @@ class SimSlotRuleService {
   }
 
   Future<void> removeSimSlotRule(String ruleId) async {
-    await _simSlotDatasource.deleteById(ruleId);
+    await _simSlotDatasource.deleteRule(ruleId);
   }
 
   Future<void> updateSimSlotRule(SimSlotRuleEntity rule) async {
