@@ -2,7 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:pyro_commercial_hub/pyro_commercial_hub.dart';
+import 'package:yourcallyourrule/features/commercial/services/commercial_service.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/commercial/widgets/modern_purchase_card.dart';
 import 'package:yourcallyourrule/features/commercial/pages/vip_exchange_page.dart';
@@ -200,7 +200,7 @@ class _PurchasePageState extends ConsumerState<PurchasePage> {
         price: 'Free',
         buttonText: l10n.watchAd,
         onTap: () {
-          CommercialHub.instance.showRewardedAdForPrivilege(
+          ref.read(commercialHubProvider).showRewardedAdForPrivilege(
             onResult: (thresholdReached, remaining, newExpiryDate) {
               if (context.mounted) {
                 if (thresholdReached && newExpiryDate != null) {

@@ -17,6 +17,8 @@ class SmsFilterService {
   bool _isEnabled = true;
   bool _useLocalNotification = true;
 
+  bool get useLocalNotification => _useLocalNotification;
+
   SmsFilterService({SmsHub? hub})
       : _pipeline = SmsScreeningPipeline(hub ?? SmsHub());
 

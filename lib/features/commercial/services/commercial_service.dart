@@ -1,11 +1,20 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:pyro_ads_protocol/pyro_ads_protocol.dart';
 import 'package:pyro_commercial_hub/pyro_commercial_hub.dart';
+import 'package:pyro_purchase_core/pyro_purchase_core.dart';
 import '../config/app_ads_config.dart';
 
 part 'commercial_service.g.dart';
+
+final commercialHubProvider = Provider<CommercialHub>((ref) {
+  final notifier = ref.watch(commercialNotifierProvider.notifier);
+  final hub = CommercialHub(commercialNotifier: notifier);
+  CommercialHub.init(commercialNotifier: notifier);
+  return hub;
+});
 
 @Riverpod(keepAlive: true)
 CommercialService commercialService(Ref ref) {

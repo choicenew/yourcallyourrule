@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:pyro_cloud_drive_hub/pyro_cloud_drive_hub.dart';
+import '../providers/cloud_sync_provider.dart';
 
 part 'cloud_sync_service.g.dart';
 
@@ -7,24 +9,36 @@ part 'cloud_sync_service.g.dart';
 /// 100% 委派包内 pyro_cloud_drive_hub，零手写底层驱动
 @Riverpod(keepAlive: true)
 CloudSyncService cloudSyncService(Ref ref) {
-  return CloudSyncService();
+  final hub = ref.watch(cloudDriveHubProvider);
+  return CloudSyncService(hub: hub);
 }
 
 class CloudSyncService {
-  CloudSyncService();
+  final CloudDriveHub _hub;
 
-  String get serviceType => 'cloud';
-  String get serviceName => 'Cloud Sync';
+  CloudSyncService({CloudDriveHub? hub}) : _hub = hub ?? CloudDriveHub();
+
+  String get serviceType => _hub.currentDriver?.driverToken.toString() ?? 'cloud';
+  String get serviceName => _hub.currentDriver?.driverToken.toString() ?? 'Cloud Sync';
 
   Future<bool> initialize([dynamic config]) async {
     return true;
   }
 
   Future<bool> connect([dynamic credentials]) async {
+    final driver = _hub.currentDriver;
+    if (driver != null) {
+      return await driver.isConnected();
+    }
     return true;
   }
 
   Future<bool> disconnect() async {
+    final driver = _hub.currentDriver;
+    if (driver != null) {
+      await driver.disconnect();
+      return true;
+    }
     return true;
   }
 
@@ -51,9 +65,11 @@ class CloudSyncService {
   }
 
   Future<Map<String, dynamic>> getSyncStatus() async {
+    final driver = _hub.currentDriver;
+    final isConnected = driver != null ? await driver.isConnected() : false;
     return {
-      'connected': true,
-      'online': true,
+      'connected': isConnected,
+      'online': isConnected,
       'last_sync': DateTime.now().toIso8601String(),
     };
   }
