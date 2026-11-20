@@ -19,31 +19,6 @@ on:
         options:
           - "true"
           - "false"
-  issue_comment:
-    types: [created]
-  push:
-    paths:
-      - "lib/**"
-      - "test/ci/**"
-      - "test/perf/**"
-      - "tool/**"
-      - ".github/workflows/ci_comprehensive_test.yml"
-      - "pubspec.yaml"
-      - "pubspec.lock"
-    branches:
-      - main
-      - master
-      - "dev/**"
-      - "feature/**"
-  pull_request:
-    paths:
-      - "lib/**"
-      - "test/ci/**"
-      - "test/perf/**"
-      - "tool/**"
-      - ".github/workflows/ci_comprehensive_test.yml"
-      - "pubspec.yaml"
-      - "pubspec.lock"
 
 concurrency:
   group: ci-comprehensive-${{ github.ref || github.run_id }}

@@ -11,20 +11,6 @@ on:
         description: "Run full performance benchmark suite"
         type: boolean
         default: true
-  push:
-    paths:
-      - "lib/**"
-      - "test/**"
-      - "assets/**"
-      - "tool/**"
-      - ".github/workflows/perf_check.yml"
-    branches-ignore: []
-  pull_request:
-    paths:
-      - "lib/**"
-      - "test/**"
-      - "assets/**"
-      - "tool/**"
 
 permissions:
   contents: read
