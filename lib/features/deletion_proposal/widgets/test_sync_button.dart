@@ -32,7 +32,7 @@ class _TestSyncButtonState extends ConsumerState<TestSyncButton> {
     try {
       // 1. 准备依赖
       final deviceId = await ref.read(deviceManagementServiceProvider).getCurrentDeviceId();
-      final syncConnector = ref.read(appHubExchangeConnectorProvider).databaseSync;
+      final centralConnector = ref.read(appHubExchangeConnectorProvider).centralDatabase;
 
       // 2. 准备 PROPOSE_DELETION 测试数据
       // 这个数据结构现在与 worker.js 的期望完全匹配
@@ -58,7 +58,7 @@ class _TestSyncButtonState extends ConsumerState<TestSyncButton> {
       debugPrint("--- [MANUAL TEST] Data: $testOperations");
 
       // 3. 调用 pushChanges 方法
-      final bool success = await syncConnector.pushChanges(
+      final bool success = await centralConnector.pushChanges(
         changes: testOperations,
         deviceId: deviceId,
       );

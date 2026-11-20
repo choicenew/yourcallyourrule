@@ -19,11 +19,13 @@ import 'package:pyro_tile_connector/pyro_tile_connector.dart';
 import 'app_coordinator.dart';
 import 'filter_ui_registry.dart';
 import 'package:yourcallyourrule/features/cloud_drive/providers/cloud_sync_provider.dart';
+import 'connectors/central_database_exchange_connector.dart';
 import 'connectors/crowdsourcing_exchange_connector.dart';
 import 'connectors/database_sync_exchange_connector.dart';
 import 'connectors/notification_exchange_connector.dart';
 import 'connectors/telephony_policy_exchange_connector.dart';
 
+export 'connectors/central_database_exchange_connector.dart';
 export 'connectors/crowdsourcing_exchange_connector.dart';
 export 'connectors/database_sync_exchange_connector.dart';
 export 'connectors/notification_exchange_connector.dart';
@@ -32,10 +34,14 @@ export 'connectors/telephony_policy_exchange_connector.dart';
 
 final appHubExchangeConnectorProvider = Provider<AppHubExchangeConnector>((ref) {
   final coordinator = ref.watch(appCoordinatorProvider);
-  final databaseSync = DatabaseSyncExchangeConnector(
+  final centralDatabase = CentralDatabaseExchangeConnector(
     ref: ref,
     coordinator: coordinator,
     centralDatabaseHub: ref.watch(centralDatabaseHubProvider),
+  );
+  final databaseSync = DatabaseSyncExchangeConnector(
+    ref: ref,
+    coordinator: coordinator,
     userDatabaseHub: ref.watch(userDatabaseHubProvider),
     cloudDriveHub: ref.watch(cloudDriveHubProvider),
     deviceMasterSlaveHub: ref.watch(deviceMasterSlaveHubProvider),
@@ -54,6 +60,7 @@ final appHubExchangeConnectorProvider = Provider<AppHubExchangeConnector>((ref) 
   return AppHubExchangeConnector(
     ref: ref,
     coordinator: coordinator,
+    centralDatabase: centralDatabase,
     databaseSync: databaseSync,
     crowdsourcing: crowdsourcing,
     notification: notification,
@@ -66,6 +73,7 @@ final appHubExchangeConnectorProvider = Provider<AppHubExchangeConnector>((ref) 
 class AppHubExchangeConnector {
   final Ref ref;
   final AppCoordinator coordinator;
+  final CentralDatabaseExchangeConnector centralDatabase;
   final DatabaseSyncExchangeConnector databaseSync;
   final CrowdsourcingExchangeConnector crowdsourcing;
   final NotificationExchangeConnector notification;
@@ -74,13 +82,14 @@ class AppHubExchangeConnector {
   const AppHubExchangeConnector({
     required this.ref,
     required this.coordinator,
+    required this.centralDatabase,
     required this.databaseSync,
     required this.crowdsourcing,
     required this.notification,
     required this.telephonyPolicy,
   });
 
-  CentralDatabaseHub get centralDatabaseHub => databaseSync.centralDatabaseHub;
+  CentralDatabaseHub get centralDatabaseHub => centralDatabase.centralDatabaseHub;
   UserDatabaseHub get userDatabaseHub => databaseSync.userDatabaseHub;
   CloudDriveHub get cloudDriveHub => databaseSync.cloudDriveHub;
   DeviceMasterSlaveHub get deviceMasterSlaveHub => databaseSync.deviceMasterSlaveHub;
@@ -90,6 +99,7 @@ class AppHubExchangeConnector {
   /// 初始化全量中枢交织桥接管道
   void initializeConnectorBridge() {
     debugPrint('[AppHubExchangeConnector] Wiring Exchange Bridges across domain connectors...');
+    centralDatabase.initialize();
     databaseSync.initialize();
     crowdsourcing.initialize();
     telephonyPolicy.initialize();
@@ -121,9 +131,24 @@ class AppHubExchangeConnector {
 
   /// 执行远程中央库 (Remote Central DB) 同步拉取
   Future<bool> syncCentralDatabase({String countryIsoCode = ''}) =>
-      databaseSync.syncCentralDatabase(countryIsoCode: countryIsoCode);
+      centralDatabase.syncCentralDatabase(countryIsoCode: countryIsoCode);
 
   /// 广播执行本地个人库 (Local User DB) 与 远程中央库 (Remote Central DB) 双流同步
-  Future<bool> triggerFullSystemSync({String countryIsoCode = ''}) =>
-      databaseSync.triggerFullSystemSync(countryIsoCode: countryIsoCode);
+  Future<bool> triggerFullSystemSync({String countryIsoCode = ''}) async {
+    try {
+      debugPrint('[AppHubExchangeConnector] Triggering Full System Dual-Stream Sync...');
+      final userSyncSuccess = await syncUserDatabase();
+      final centralSyncSuccess = await syncCentralDatabase(countryIsoCode: countryIsoCode);
+
+      coordinator.emit('full_system_sync_completed', {
+        'userSyncSuccess': userSyncSuccess,
+        'centralSyncSuccess': centralSyncSuccess,
+        'timestamp': DateTime.now().toIso8601String(),
+      });
+      return userSyncSuccess && centralSyncSuccess;
+    } catch (e) {
+      debugPrint('[AppHubExchangeConnector] triggerFullSystemSync error: $e');
+      return false;
+    }
+  }
 }

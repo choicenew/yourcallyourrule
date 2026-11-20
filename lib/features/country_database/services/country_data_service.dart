@@ -8,30 +8,30 @@ part 'country_data_service.g.dart';
 /// CountryDataService 的 @Riverpod Provider
 @Riverpod(keepAlive: true)
 CountryDataService countryDataService(Ref ref) {
-  final syncConnector = ref.watch(appHubExchangeConnectorProvider).databaseSync;
+  final centralConnector = ref.watch(appHubExchangeConnectorProvider).centralDatabase;
   final remoteNumberDataSource = ref.watch(remoteNumberDataSourceProvider);
   return CountryDataService(
-    syncConnector: syncConnector,
+    centralConnector: centralConnector,
     remoteNumberDataSource: remoteNumberDataSource,
   );
 }
 
 /// 这个服务负责一次性下载特定国家的完整数据集。
 class CountryDataService {
-  final DatabaseSyncExchangeConnector _syncConnector;
+  final CentralDatabaseExchangeConnector _centralConnector;
   final RemoteNumberDataSource _dataSource;
 
   CountryDataService({
-    required DatabaseSyncExchangeConnector syncConnector,
+    required CentralDatabaseExchangeConnector centralConnector,
     required RemoteNumberDataSource remoteNumberDataSource,
-  }) : _syncConnector = syncConnector,
+  }) : _centralConnector = centralConnector,
        _dataSource = remoteNumberDataSource;
 
   /// 下载指定国家代码的所有号码并将其保存到本地数据库。
   /// 返回下载的数据条数
   Future<int> downloadCountryData(String countryIsoCode) async {
     try {
-      final downloadedCount = await _syncConnector.syncCentralCountryRules(
+      final downloadedCount = await _centralConnector.syncCentralCountryRules(
         countryIsoCode: countryIsoCode,
         dataSource: _dataSource,
       );

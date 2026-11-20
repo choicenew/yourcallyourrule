@@ -18,7 +18,7 @@ class ProposalLimitConfigService {
 
   Future<void> syncConfig() async {
     try {
-      final config = await _ref.read(appHubExchangeConnectorProvider).databaseSync.getProposalLimitsConfig();
+      final config = await _ref.read(appHubExchangeConnectorProvider).centralDatabase.getProposalLimitsConfig();
       await _ref.read(configRepositoryProvider).saveConfig(_configKey, config);
     } catch (e) {
       // Handle error
