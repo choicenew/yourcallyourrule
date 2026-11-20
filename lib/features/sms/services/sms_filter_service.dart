@@ -1,4 +1,4 @@
-﻿import 'dart:async';
+import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_sms_hub/pyro_sms_hub.dart';
 import '../../../core/coordinator/app_hub_exchange_connector.dart';

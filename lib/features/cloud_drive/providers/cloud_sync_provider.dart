@@ -3,7 +3,7 @@ import 'package:pyro_cloud_drive_hub/pyro_cloud_drive_hub.dart';
 
 /// 绑定 pyro_cloud_drive_hub 驱动中枢 Provider (消灭 Java 式 instance，纯依赖注入)
 final cloudDriveHubProvider = Provider<CloudDriveHub>((ref) {
-  return CloudDriveHub.instance;
+  return CloudDriveHub();
 });
 
 final activeCloudDriverProvider = Provider<CloudDriveAdapter?>((ref) {

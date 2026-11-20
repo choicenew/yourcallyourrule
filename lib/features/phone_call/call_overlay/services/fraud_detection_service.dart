@@ -1,8 +1,9 @@
 ﻿import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
+import 'package:yourcallyourrule/core/coordinator/app_coordinator.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'fraud_alert_config_service.dart';
-import 'package:yourcallyourrule/features/notifications/service/notification_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 诈骗检测服务
@@ -29,11 +30,10 @@ class FraudDetectionService {
     return false;
   }
 
-  static Future<void> triggerFraudAlert(String phoneNumber) async {
+  static Future<void> triggerFraudAlert(String phoneNumber, {AppCoordinator? coordinator}) async {
     final context = AppRouter.navigatorKey.currentContext;
     if (context == null) return;
 
-    final notificationConfig = NotificationService.fraudAlertConfig(context);
     final title = "⚠️ ${AppLocalizations.of(context).fraudAlertTitle} ($phoneNumber)";
     final body = AppLocalizations.of(context).securityMessage;
 
@@ -50,16 +50,21 @@ class FraudDetectionService {
       });
     }
 
-    final notificationService = NotificationService();
+    AppCoordinator? appCoordinator = coordinator;
+    if (appCoordinator == null) {
+      try {
+        appCoordinator = ProviderScope.containerOf(context, listen: false).read(appCoordinatorProvider);
+      } catch (_) {}
+    }
 
-    await notificationService.showNotification(
-      config: notificationConfig,
-      title: title,
-      body: body,
-      notificationId: phoneNumber.hashCode + 2,
-      payload: {'type': 'fraud_alert', 'phone': phoneNumber},
-      autoCancel: config.isAutoCancelEnabled,
-      autoCancelDelay: Duration(seconds: config.autoCancelDelaySeconds),
-    );
+    appCoordinator?.emit('show_system_notification', {
+      'title': title,
+      'body': body,
+      'type': 'fraud_alert',
+      'notificationId': phoneNumber.hashCode + 2,
+      'payload': {'type': 'fraud_alert', 'phone': phoneNumber},
+      'autoCancel': config.isAutoCancelEnabled,
+      'autoCancelDelaySeconds': config.autoCancelDelaySeconds,
+    });
   }
 }

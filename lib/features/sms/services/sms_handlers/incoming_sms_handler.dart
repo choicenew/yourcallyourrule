@@ -1,7 +1,5 @@
-import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
-import 'package:yourcallyourrule/features/notifications/service/notification_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'base_sms_handler.dart';
 import 'sms_filter_handler.dart';
@@ -44,14 +42,12 @@ class IncomingSmsHandler extends BaseSmsHandler {
         body: messageContent,
         phoneNumber: phoneNumber,
         messageContent: messageContent,
-        config: NotificationService.defaultConfig(context),
       );
     } else {
       await _notificationHandler.showBlockedSmsNotification(
         title: 'Blocked SMS',
         body: 'Blocked SMS from $phoneNumber',
         phoneNumber: phoneNumber,
-        config: NotificationService.blockedCallConfig(context),
       );
     }
   }

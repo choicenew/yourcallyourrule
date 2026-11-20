@@ -1,13 +1,11 @@
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:yourcallyourrule/features/notifications/config/notification_config.dart';
-import 'package:yourcallyourrule/features/notifications/service/notification_service.dart';
+import 'package:yourcallyourrule/core/coordinator/app_coordinator.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 import 'base_sms_handler.dart';
 
 class SmsNotificationHandler extends BaseSmsHandler {
-  final NotificationService _notificationService;
   final ConfigRepository _configRepository;
+  final AppCoordinator? _coordinator;
 
   bool useLocalNotification = false;
   bool cancelLocalNotification = false;
@@ -15,11 +13,10 @@ class SmsNotificationHandler extends BaseSmsHandler {
   static const String smsCancelLocalNotificationKey = 'config_sms_cancel_local_notification';
 
   SmsNotificationHandler({
-    NotificationService? notificationService,
     ConfigRepository? configRepository,
-    FlutterLocalNotificationsPlugin? notificationsPlugin,
-  })  : _notificationService = notificationService ?? NotificationService(),
-        _configRepository = configRepository ?? SharedPreferencesConfigRepository();
+    AppCoordinator? coordinator,
+  })  : _configRepository = configRepository ?? SharedPreferencesConfigRepository(),
+        _coordinator = coordinator;
 
   @override
   Future<void> initialize() async {
@@ -50,33 +47,33 @@ class SmsNotificationHandler extends BaseSmsHandler {
     required String body,
     required String phoneNumber,
     required String messageContent,
-    required NotificationConfig config,
   }) async {
     if (!useLocalNotification) return;
 
-    await _notificationService.showNotification(
-      config: config,
-      title: title,
-      body: body,
-      payload: {'type': 'sms', 'phoneNumber': phoneNumber, 'messageContent': messageContent},
-      autoCancel: cancelLocalNotification,
-    );
+    _coordinator?.emit('show_system_notification', {
+      'title': title,
+      'body': body,
+      'type': 'sms',
+      'notificationId': phoneNumber.hashCode,
+      'payload': {'type': 'sms', 'phoneNumber': phoneNumber, 'messageContent': messageContent},
+      'autoCancel': cancelLocalNotification,
+    });
   }
   
   Future<void> showBlockedSmsNotification({
     required String title,
     required String body,
     required String phoneNumber,
-    required NotificationConfig config,
   }) async {
     if (!useLocalNotification) return;
 
-    await _notificationService.showNotification(
-      config: config,
-      title: title,
-      body: body,
-      payload: {'type': 'blocked_sms', 'phoneNumber': phoneNumber},
-      autoCancel: cancelLocalNotification,
-    );
+    _coordinator?.emit('show_system_notification', {
+      'title': title,
+      'body': body,
+      'type': 'blocked_sms',
+      'notificationId': phoneNumber.hashCode,
+      'payload': {'type': 'blocked_sms', 'phoneNumber': phoneNumber},
+      'autoCancel': cancelLocalNotification,
+    });
   }
 }
