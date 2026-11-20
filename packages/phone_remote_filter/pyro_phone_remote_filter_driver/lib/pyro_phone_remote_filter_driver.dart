@@ -1,3 +1,3 @@
-library pyro_phone_remote_filter_driver;
+library;
 
 export 'src/memory_remote_number_storage_driver.dart';

@@ -1,4 +1,4 @@
-library pyro_phone_rules_connector;
+library;
 
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:pyro_phone_rules_hub/pyro_phone_rules_hub.dart';

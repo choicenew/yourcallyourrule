@@ -2,7 +2,6 @@
 // features/notifications/services/notification_service_contract.dart
 
 import 'package:flutter/services.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:yourcallyourrule/features/notifications/config/notification_config.dart';
 
 // 在文件顶部，或一个独立的模型文件中

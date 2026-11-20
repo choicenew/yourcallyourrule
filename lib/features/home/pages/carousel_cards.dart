@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/phone_statistic/data/services/call_statistics_provider.dart';
-import 'package:yourcallyourrule/features/phone_statistic/domain/statistic_period.dart';
 import 'package:yourcallyourrule/features/phone_statistic/presentation/widgets/statistic_chart.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/providers/statistics_provider.dart';
@@ -20,7 +19,7 @@ class _CarouselCardsState extends ConsumerState<CarouselCards> {
   final PageController _pageController = PageController(viewportFraction: 0.88);
   int _currentPage = 0;
   Timer? _timer;
-  String _selectedTimeRange = 'Week';
+  final String _selectedTimeRange = 'Week';
 
   @override
   void initState() {

@@ -1,3 +1,3 @@
-library pyro_phone_call_overlay_hub;
+library;
 
 export 'src/overlay_control_center.dart';

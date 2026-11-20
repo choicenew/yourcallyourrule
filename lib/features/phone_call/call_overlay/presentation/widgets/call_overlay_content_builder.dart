@@ -82,8 +82,8 @@ class CallOverlayContentBuilder {
               Icon(Icons.policy_outlined, color: config.textIconLabelColor, size: config.iconSize),
               const SizedBox(width: 5),
               Text(
-                callerIdData.labels?.isNotEmpty == true
-                    ? callerIdData.labels!.map((label) => LabelTranslationUtils.translatePredefinedLabel((label as dynamic).label ?? (label as dynamic).text ?? label.toString(), context)).join(', ')
+                callerIdData.labels.isNotEmpty == true
+                    ? callerIdData.labels.map((label) => LabelTranslationUtils.translatePredefinedLabel((label as dynamic).label ?? (label as dynamic).text ?? label.toString(), context)).join(', ')
                     : AppLocalizations.of(context).unknown,
                 style: TextStyle(fontSize: config.labelsFontSize, color: config.textLabelsColor),
               ),
@@ -266,8 +266,8 @@ class CallOverlayContentBuilder {
 
   static Widget _buildAvatar(CallerIdData callerIdData, CallOverlayConfig config, bool isFraudulent) {
     final borderColor = isFraudulent ? Colors.red : config.avatarBorderColor;
-    final String? labelText = callerIdData.labels?.isNotEmpty == true 
-        ? ((callerIdData.labels!.first as dynamic).label ?? (callerIdData.labels!.first as dynamic).text ?? callerIdData.labels!.first.toString())
+    final String? labelText = callerIdData.labels.isNotEmpty == true 
+        ? ((callerIdData.labels.first as dynamic).label ?? (callerIdData.labels.first as dynamic).text ?? callerIdData.labels.first.toString())
         : null;
     
     return CircleAvatar(

@@ -1,5 +1,4 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_phone_call_filter_protocol/pyro_phone_call_filter_protocol.dart';
 import 'package:pyro_phone_call_filter_hub/pyro_phone_call_filter_hub.dart';
 
 export 'package:pyro_phone_call_filter_protocol/pyro_phone_call_filter_protocol.dart';

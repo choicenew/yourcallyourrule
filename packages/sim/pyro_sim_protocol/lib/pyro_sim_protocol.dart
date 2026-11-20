@@ -1,4 +1,4 @@
-library pyro_sim_protocol;
+library;
 
 export 'src/enums/sim_slot_index.dart';
 export 'src/enums/sim_state_type.dart';

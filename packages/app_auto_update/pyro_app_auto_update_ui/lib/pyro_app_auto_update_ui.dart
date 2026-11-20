@@ -1,4 +1,4 @@
-library pyro_app_auto_update_ui;
+library;
 
 import 'package:material_ui/material_ui.dart';
 import 'package:pyro_app_auto_update_protocol/pyro_app_auto_update_protocol.dart';

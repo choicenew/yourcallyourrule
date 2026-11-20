@@ -1,4 +1,4 @@
-library phone_location;
+library;
 
 export 'src/protocol/phone_location_entry.dart';
 export 'src/hub/phone_location_service.dart';

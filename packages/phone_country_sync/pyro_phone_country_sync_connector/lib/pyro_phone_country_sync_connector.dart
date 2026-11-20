@@ -1,4 +1,4 @@
-library pyro_phone_country_sync_connector;
+library;
 
 import 'package:pyro_phone_country_sync_protocol/pyro_phone_country_sync_protocol.dart';
 import 'package:pyro_phone_country_sync_hub/pyro_phone_country_sync_hub.dart';

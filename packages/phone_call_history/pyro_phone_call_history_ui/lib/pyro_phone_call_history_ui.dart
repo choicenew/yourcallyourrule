@@ -1,4 +1,4 @@
-library pyro_phone_call_history_ui;
+library;
 
 import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';

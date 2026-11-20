@@ -1,3 +1,3 @@
-library pyro_sms_driver_phishtank;
+library;
 
 export 'src/phishtank_driver.dart';

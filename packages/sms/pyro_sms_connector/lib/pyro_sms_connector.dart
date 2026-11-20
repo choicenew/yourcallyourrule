@@ -1,3 +1,3 @@
-library pyro_sms_connector;
+library;
 
 export 'src/sms_connectors.dart';

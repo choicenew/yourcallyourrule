@@ -1,5 +1,4 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:yourcallyourrule/theme/dopamine_theme_extension.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal_status.dart';

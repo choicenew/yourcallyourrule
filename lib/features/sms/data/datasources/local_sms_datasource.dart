@@ -1,5 +1,4 @@
-﻿import 'dart:async';
-import 'package:drift/drift.dart' hide Column;
+import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';

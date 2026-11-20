@@ -1,4 +1,4 @@
-library pyro_sim_connector;
+library;
 
 export 'package:pyro_sim_hub/pyro_sim_hub.dart';
 export 'package:pyro_sim_driver/pyro_sim_driver.dart';

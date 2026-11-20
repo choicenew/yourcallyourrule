@@ -22,6 +22,7 @@ abstract class PhoneSubscriptionPayload with _$PhoneSubscriptionPayload {
 
   Map<String, dynamic> toMap() => toJson();
 
+  @override
   String get id => payloadId;
   String? get displayName => rawJsonMap['displayName'] as String? ?? rawJsonMap['name'] as String?;
   String? get downloadUrl => rawJsonMap['downloadUrl'] as String? ?? rawJsonMap['url'] as String?;

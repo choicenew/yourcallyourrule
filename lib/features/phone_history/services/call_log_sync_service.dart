@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/phone_history/services/system_call_log_service.dart';
-import 'package:yourcallyourrule/features/phone_history/services/call_log_service.dart';
 
 part 'call_log_sync_service.g.dart';
 

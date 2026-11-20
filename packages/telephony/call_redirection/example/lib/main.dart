@@ -16,7 +16,6 @@ import 'package:pyro_sms_driver_notification_listener/pyro_sms_driver_notificati
 import 'package:pyro_sms_driver_telephony_fallback/pyro_sms_driver_telephony_fallback.dart';
 import 'package:pyro_sms_driver_keyword_bloom_filter/pyro_sms_driver_keyword_bloom_filter.dart';
 import 'package:pyro_sms_driver_otp_guard/pyro_sms_driver_otp_guard.dart';
-import 'package:pyro_call_policy/pyro_call_policy.dart';
 
 class TestCallPolicyEvaluator implements ICallPolicyEvaluator {
   @override

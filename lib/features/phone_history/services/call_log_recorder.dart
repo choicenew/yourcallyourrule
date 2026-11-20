@@ -5,7 +5,6 @@ import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/phone_history/services/call_log_service.dart';
-import 'package:yourcallyourrule/features/phone_history/services/system_call_log_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
 part 'call_log_recorder.g.dart';

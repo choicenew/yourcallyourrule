@@ -1,4 +1,4 @@
-library pyro_phone_marking_connector;
+library;
 
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:pyro_phone_marking_hub/pyro_phone_marking_hub.dart';

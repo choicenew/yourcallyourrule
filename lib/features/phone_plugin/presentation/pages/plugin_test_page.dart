@@ -257,7 +257,7 @@ class _PluginTestPageState extends ConsumerState<PluginTestPage> {
           ),
           const SizedBox(height: 12),
           DropdownButtonFormField<String>(
-            value: _selectedFormat,
+            initialValue: _selectedFormat,
             decoration: InputDecoration(
               labelText: AppLocalizations.of(context).numberFormat,
               border: const OutlineInputBorder(),

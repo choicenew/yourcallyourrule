@@ -1,3 +1,3 @@
-library pyro_phone_marking_driver;
+library;
 
 export 'src/memory_phone_marking_storage_driver.dart';

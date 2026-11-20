@@ -27,7 +27,7 @@ class JsExecutionService {
           };
       }
     """;
-    await _runtime.evaluate(consoleBridge);
+    _runtime.evaluate(consoleBridge);
 
     // We only need to listen to channels.
     _runtime.onMessage('httpFetch', (dynamic args) async {
@@ -80,7 +80,7 @@ class JsExecutionService {
   /// Example: window.plugin['tellows'].handleResponse(...)
   Future<void> sendNativeResponse(String script) async {
     debugPrint("Sending Native Response to JS: $script");
-    await _runtime.evaluate(script);
+    _runtime.evaluate(script);
   }
 
   // DYNAMIC HANDLERS MAP
@@ -105,7 +105,7 @@ class JsExecutionService {
           console.warn('[Native] Plugin $pluginId not found during config injection');
       }
     """;
-    await _runtime.evaluate(script);
+    _runtime.evaluate(script);
   }
 
   void dispose() {

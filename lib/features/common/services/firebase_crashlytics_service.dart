@@ -168,7 +168,7 @@ class FirebaseCrashlyticsService {
     } catch (e) {
       // 记录异常并重新抛出以触发崩溃
       FirebaseCrashlytics.instance.recordError(e, StackTrace.current, reason: '手动触发崩溃');
-      throw e; // 重新抛出异常以触发实际崩溃
+      rethrow; // 重新抛出异常以触发实际崩溃
     }
   }
   

@@ -1,3 +1,3 @@
-library pyro_phone_call_statistic_driver;
+library;
 
 export 'src/memory_phone_call_statistic_driver.dart';

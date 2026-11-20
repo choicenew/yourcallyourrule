@@ -117,7 +117,7 @@ class RuleListCard extends ConsumerWidget {
               Switch(
                 value: isEnabled,
                 onChanged: (value) => onToggleStatus(id, value),
-                activeColor: themeColor,
+                activeThumbColor: themeColor,
               ),
               if (!isMultiSelectMode) ...[
                 IconButton(

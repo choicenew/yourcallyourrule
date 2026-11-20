@@ -1,4 +1,4 @@
-library pyro_sim_ui;
+library;
 
 export 'package:pyro_sim_hub/pyro_sim_hub.dart';
 export 'src/widgets/sim_card_badge.dart';

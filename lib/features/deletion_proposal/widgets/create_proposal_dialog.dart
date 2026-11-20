@@ -1,7 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 
-import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 class CreateProposalDialog extends StatefulWidget {
@@ -23,7 +22,7 @@ class _CreateProposalDialogState extends State<CreateProposalDialog> {
   final _countryCodeController = TextEditingController();
   static final _phoneInputRegex = RegExp(r'[0-9+\-\s\(\)]');
   
-  int _selectedRiskLevel = 3;
+  final int _selectedRiskLevel = 3;
   bool _isSubmitting = false;
   
   List<String> get _commonReasons => [

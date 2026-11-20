@@ -1,4 +1,4 @@
-library pyro_call_redirection_protocol;
+library;
 
 export 'src/enums/redirection_enums.dart';
 export 'src/models/outgoing_call_entity.dart';

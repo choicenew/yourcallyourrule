@@ -1,4 +1,4 @@
-library pyro_phone_marking_protocol;
+library;
 
 export 'src/models/label_phone_entry.dart';
 export 'src/models/predefined_label.dart';

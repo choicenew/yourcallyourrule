@@ -1,3 +1,3 @@
-library pyro_phone_rules_driver;
+library;
 
 export 'src/memory_phone_rule_storage_driver.dart';

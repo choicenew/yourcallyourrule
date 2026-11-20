@@ -1,6 +1,5 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_text_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 

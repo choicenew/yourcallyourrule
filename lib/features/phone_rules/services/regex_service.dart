@@ -3,7 +3,6 @@ import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository_impl.dart';
-import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 
 part 'regex_service.g.dart';

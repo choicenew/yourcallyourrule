@@ -1,4 +1,4 @@
-library pyro_tile_connector;
+library;
 
 export 'package:pyro_tile_hub/pyro_tile_hub.dart';
 export 'package:pyro_tile_driver/pyro_tile_driver.dart';

@@ -252,7 +252,7 @@ class LiveNotificationPreview extends ConsumerWidget {
                                   ),
                               child: Text(
                                 mockData.labels
-                                        ?.map((l) => (l as dynamic).label ?? (l as dynamic).text ?? l.toString())
+                                        .map((l) => (l as dynamic).label ?? (l as dynamic).text ?? l.toString())
                                         .join(', ') ??
                                     'No Labels',
                                 style: TextStyle(

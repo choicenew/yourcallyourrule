@@ -1,4 +1,4 @@
-library pyro_sms_protocol;
+library;
 
 export 'src/enums/sms_enums.dart';
 export 'src/models/sms_message_entity.dart';

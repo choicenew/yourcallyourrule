@@ -36,7 +36,7 @@ class RemoteFilterSettingsWidget extends ConsumerWidget {
               SwitchListTile(
                 title: Text(AppLocalizations.of(context).enableRemoteNumberFilter, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
                 subtitle: Text(AppLocalizations.of(context).enableRemoteNumberFilterDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                activeColor: Theme.of(context).colorScheme.primary,
+                activeThumbColor: Theme.of(context).colorScheme.primary,
                 value: config.enableRemoteNumberFilter,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(enableRemoteNumberFilter: value)),
               ),
@@ -44,7 +44,7 @@ class RemoteFilterSettingsWidget extends ConsumerWidget {
               SwitchListTile(
                 title: Text(AppLocalizations.of(context).rejectExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
                 subtitle: Text(AppLocalizations.of(context).rejectExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                activeColor: Theme.of(context).colorScheme.primary,
+                activeThumbColor: Theme.of(context).colorScheme.primary,
                 value: config.rejectExceededNumbers,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(rejectExceededNumbers: value)),
               ),
@@ -52,7 +52,7 @@ class RemoteFilterSettingsWidget extends ConsumerWidget {
               SwitchListTile(
                 title: Text(AppLocalizations.of(context).prioritizeRemoteAction, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
                 subtitle: Text(AppLocalizations.of(context).prioritizeRemoteActionDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                activeColor: Theme.of(context).colorScheme.primary,
+                activeThumbColor: Theme.of(context).colorScheme.primary,
                 value: config.prioritizeRemoteAction,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(prioritizeRemoteAction: value)),
               ),
@@ -60,7 +60,7 @@ class RemoteFilterSettingsWidget extends ConsumerWidget {
               SwitchListTile(
                 title: Text(AppLocalizations.of(context).logAllRemoteQueries, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
                 subtitle: Text(AppLocalizations.of(context).logAllRemoteQueriesDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                activeColor: Theme.of(context).colorScheme.primary,
+                activeThumbColor: Theme.of(context).colorScheme.primary,
                 value: config.logAllRemoteQueries,
                 onChanged: (value) => notifier.updateConfig(config.copyWith(logAllRemoteQueries: value)),
               ),

@@ -1,3 +1,3 @@
-library pyro_sms_driver_telephony_fallback;
+library;
 
 export 'src/telephony_fallback_driver.dart';

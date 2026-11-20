@@ -242,7 +242,7 @@ class _LiveNotificationCustomizationScreenState
                         Text(
                           AppLocalizations.of(
                             context,
-                          )!.notification_instructions,
+                          ).notification_instructions,
                           textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.labelMedium,
                         ),
@@ -257,10 +257,10 @@ class _LiveNotificationCustomizationScreenState
                                   _activityId == null
                                       ? AppLocalizations.of(
                                         context,
-                                      )!.liveActivitiesTestSendNewActivity
+                                      ).liveActivitiesTestSendNewActivity
                                       : AppLocalizations.of(
                                         context,
-                                      )!.liveActivitiesTestUpdateActivity,
+                                      ).liveActivitiesTestUpdateActivity,
                                 ),
                                 onPressed: _sendLiveActivity,
                                 style: ElevatedButton.styleFrom(
@@ -279,7 +279,7 @@ class _LiveNotificationCustomizationScreenState
                                 label: Text(
                                   AppLocalizations.of(
                                     context,
-                                  )!.liveActivitiesTestEndActivity,
+                                  ).liveActivitiesTestEndActivity,
                                 ),
                                 onPressed:
                                     _activityId == null

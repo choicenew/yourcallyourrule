@@ -1,4 +1,4 @@
-library pyro_sms_content_analyzer;
+library;
 
 export 'package:pyro_sms_driver_link_resolver/pyro_sms_driver_link_resolver.dart';
 
@@ -33,8 +33,4 @@ class SmsContentAnalyzerDriver extends LinkResolverDriver implements SmsContentA
     return PhishingTldDatabase.highRiskTlds.contains(tld.toLowerCase());
   }
 
-  @override
-  bool isRegexSafe(String pattern, {int maxBacktrackingPaths = 1000000}) {
-    return super.isRegexSafe(pattern, maxBacktrackingPaths: maxBacktrackingPaths);
-  }
 }

@@ -1,4 +1,4 @@
-library pyro_sms_ui;
+library;
 
 export 'src/l10n/sms_localizations.dart';
 export 'src/providers/sms_settings_provider.dart';

@@ -1,4 +1,4 @@
-library pyro_sms_hub;
+library;
 
 export 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 export 'src/sms_hub.dart';

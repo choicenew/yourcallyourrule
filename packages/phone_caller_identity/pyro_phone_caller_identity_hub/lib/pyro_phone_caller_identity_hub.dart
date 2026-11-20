@@ -1,3 +1,3 @@
-library pyro_phone_caller_identity_hub;
+library;
 
 export 'src/caller_identity_service.dart';

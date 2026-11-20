@@ -6,7 +6,6 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
-import 'package:yourcallyourrule/features/phone_call/call_overlay/core/extensions/phone_number_type_extension.dart';
 import 'package:yourcallyourrule/features/phone_call/call_overlay/mock_data/call_overlay_mock.dart';
 import 'package:yourcallyourrule/features/phone_call/live_activities/live_activity_config/live_notification_config.dart';
 import 'package:yourcallyourrule/features/phone_call/live_activities/providers/live_notification_config_provider.dart';
@@ -235,8 +234,8 @@ class _KitLiveNotificationCustomizationScreenState
     final mockSimInfo = CallOverlayMockData.mockSimInfoData();
     final mockStirInfo = CallOverlayMockData.mockStirInfoData();
 
-    final String? labelText = (mockData.labels != null && mockData.labels!.isNotEmpty)
-        ? (mockData.labels!.first as dynamic).label ?? (mockData.labels!.first as dynamic).text
+    final String? labelText = (mockData.labels.isNotEmpty)
+        ? (mockData.labels.first as dynamic).label ?? (mockData.labels.first as dynamic).text
         : null;
     final ImageProvider? avatarProvider = config.avatar.visible
         ? AvatarUtils.getAvatarImage(null, labelText)

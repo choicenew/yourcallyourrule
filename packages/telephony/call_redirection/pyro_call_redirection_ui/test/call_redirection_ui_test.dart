@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import '../lib/pyro_call_redirection_ui.dart';
+import 'package:pyro_call_redirection_ui/pyro_call_redirection_ui.dart';
 
 void main() {
   testWidgets('CallRedirectionSettingsPage renders with Riverpod', (WidgetTester tester) async {

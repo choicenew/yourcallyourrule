@@ -9,11 +9,7 @@ class Url {
   factory Url.fromString(String url) {
     // URL格式验证逻辑
     final urlRegExp = RegExp(
-      r'^(https?:\/\/)?'+ // 协议
-      r'((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|'+ // 域名
-      r'((\d{1,3}\.){3}\d{1,3}))'+ // IP地址
-      r'(\:\d+)?(\/[-a-z\d%_.~+]*)*'+ // 端口和路径
-      r'(\?[;&a-z\d%_.~+=-]*)?'+ // 查询字符串
+      r'^(https?:\/\/)?'r'((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|'r'((\d{1,3}\.){3}\d{1,3}))'r'(\:\d+)?(\/[-a-z\d%_.~+]*)*'r'(\?[;&a-z\d%_.~+=-]*)?'+ // 查询字符串
       r'(\#[-a-z\d_]*)?$', // 锚点
       caseSensitive: false
     );

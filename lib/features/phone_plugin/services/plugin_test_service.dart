@@ -91,10 +91,11 @@ class PluginTestService {
 
       try {
         Map<String, dynamic> result;
-        if (message is String)
+        if (message is String) {
           result = jsonDecode(message);
-        else
+        } else {
           result = Map<String, dynamic>.from(message);
+        }
 
         final requestId = result['requestId'];
         if (requestId != null && _requestCompleters.containsKey(requestId)) {

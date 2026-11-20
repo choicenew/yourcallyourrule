@@ -63,7 +63,7 @@ class FraudAlertConfigWidget extends ConsumerWidget {
                     title: Text(AppLocalizations.of(context).enableFraudAlert, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: theme.colorScheme.onSurface)),
                     subtitle: Text(AppLocalizations.of(context).enableFraudAlertDescription, style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant, height: 1.3)),
                     value: config.isEnabled,
-                    activeColor: theme.colorScheme.primary,
+                    activeThumbColor: theme.colorScheme.primary,
                     onChanged: (value) {
                       notifier.updateConfig(config.copyWith(isEnabled: value));
                     },
@@ -73,7 +73,7 @@ class FraudAlertConfigWidget extends ConsumerWidget {
                     title: Text(AppLocalizations.of(context).enableVibration, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: theme.colorScheme.onSurface)),
                     subtitle: Text(AppLocalizations.of(context).enableVibrationDescription, style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant, height: 1.3)),
                     value: config.isVibrationEnabled,
-                    activeColor: theme.colorScheme.primary,
+                    activeThumbColor: theme.colorScheme.primary,
                     onChanged: (value) {
                       notifier.updateConfig(config.copyWith(isVibrationEnabled: value));
                     },
@@ -83,7 +83,7 @@ class FraudAlertConfigWidget extends ConsumerWidget {
                     title: Text(AppLocalizations.of(context).autoCancelNotification, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: theme.colorScheme.onSurface)),
                     subtitle: Text(AppLocalizations.of(context).autoCancelNotificationDescription, style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant, height: 1.3)),
                     value: config.isAutoCancelEnabled,
-                    activeColor: theme.colorScheme.primary,
+                    activeThumbColor: theme.colorScheme.primary,
                     onChanged: (value) {
                       notifier.updateConfig(config.copyWith(isAutoCancelEnabled: value));
                     },

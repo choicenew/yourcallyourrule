@@ -4,7 +4,6 @@ import 'dart:isolate';
 import 'package:csv/csv.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'package:uuid/uuid.dart';
 import 'package:yaml/yaml.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 

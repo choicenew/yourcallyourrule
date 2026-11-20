@@ -40,7 +40,7 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
                 SwitchListTile(
                   title: Text(l10n.enableLocalCountFilter, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15, color: Theme.of(context).colorScheme.onSurface)),
                   subtitle: Text(l10n.enableLocalCountFilterDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                  activeColor: Theme.of(context).colorScheme.primary,
+                  activeThumbColor: Theme.of(context).colorScheme.primary,
                   value: config.enableLocalCountFilter,
                   onChanged: (value) => notifier.updateConfig(config.copyWith(enableLocalCountFilter: value)),
                 ),
@@ -146,7 +146,7 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
                 SwitchListTile(
                   title: Text(l10n.rejectExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
                   subtitle: Text(l10n.rejectExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                  activeColor: Theme.of(context).colorScheme.primary,
+                  activeThumbColor: Theme.of(context).colorScheme.primary,
                   value: config.rejectExceededNumbers,
                   onChanged: (value) => notifier.updateConfig(config.copyWith(rejectExceededNumbers: value)),
                 ),
@@ -154,7 +154,7 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
                 SwitchListTile(
                   title: Text(l10n.allowNonExceededNumbers, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
                   subtitle: Text(l10n.allowNonExceededNumbersDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                  activeColor: Theme.of(context).colorScheme.primary,
+                  activeThumbColor: Theme.of(context).colorScheme.primary,
                   value: config.allowNonExceededNumbers,
                   onChanged: (value) => notifier.updateConfig(config.copyWith(allowNonExceededNumbers: value)),
                 ),
@@ -162,7 +162,7 @@ class LocalFilterSettingsWidget extends ConsumerWidget {
                 SwitchListTile(
                   title: Text(l10n.logAllLocalQueries, style: TextStyle(fontWeight: FontWeight.w800, fontSize: 14.5, color: Theme.of(context).colorScheme.onSurface)),
                   subtitle: Text(l10n.logAllLocalQueriesDescription, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                  activeColor: Theme.of(context).colorScheme.primary,
+                  activeThumbColor: Theme.of(context).colorScheme.primary,
                   value: config.logAllLocalQueries,
                   onChanged: (value) => notifier.updateConfig(config.copyWith(logAllLocalQueries: value)),
                 ),

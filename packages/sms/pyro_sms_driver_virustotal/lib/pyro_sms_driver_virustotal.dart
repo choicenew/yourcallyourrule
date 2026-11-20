@@ -1,3 +1,3 @@
-library pyro_sms_driver_virustotal;
+library;
 
 export 'src/virustotal_driver.dart';

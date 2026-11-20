@@ -1,3 +1,3 @@
-library pyro_phone_call_coordinator_hub;
+library;
 
 export 'src/call_coordinator_service.dart';

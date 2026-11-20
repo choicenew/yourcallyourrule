@@ -1,3 +1,3 @@
-library pyro_phone_call_statistic_hub;
+library;
 
 export 'src/phone_call_statistic_control_center.dart';

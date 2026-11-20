@@ -193,7 +193,6 @@ class EnhancedFilterSettingsPageState extends ConsumerState<EnhancedFilterSettin
             // [注释]: 使用真实的 simCards 数据。
             ...simCards.map((simInfo) {
               final slotIndex = simInfo.simSlotIndex;
-              if (slotIndex == null) return const SizedBox.shrink();
               return Column(
                   children: [
                     ListTile(

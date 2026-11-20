@@ -1,3 +1,3 @@
-library pyro_sms_driver_burst_protection;
+library;
 
 export 'src/sms_burst_protection_driver.dart';

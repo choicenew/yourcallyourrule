@@ -1,3 +1,3 @@
-library pyro_phone_call_filter_hub;
+library;
 
 export 'src/enhanced_composite_filter_service.dart';

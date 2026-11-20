@@ -1,8 +1,5 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/generated/app_localizations.dart';
-import 'package:yourcallyourrule/features/commercial/services/purchase_service.dart';
 
 /// 可复用的VIP权限检查组件
 class VipAccessChecker {

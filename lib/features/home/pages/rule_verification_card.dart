@@ -64,7 +64,7 @@ class _RuleVerificationCardState extends State<RuleVerificationCard> {
                       hintText:
                           AppLocalizations.of(
                             context,
-                          )!.enterPhoneNumberToVerify,
+                          ).enterPhoneNumberToVerify,
                       prefixIcon: Icon(Icons.phone, color: primaryColor),
                       prefixIconColor: primaryColor,
                       filled: true,

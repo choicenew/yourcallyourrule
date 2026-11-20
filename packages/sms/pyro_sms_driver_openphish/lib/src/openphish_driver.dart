@@ -1,4 +1,3 @@
-import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 import 'package:pyro_sms_hub/pyro_sms_hub.dart';
 import 'package:pyro_sms_subscription/pyro_sms_subscription.dart';
 

@@ -1,4 +1,4 @@
-library pyro_phone_contacts_connector;
+library;
 
 import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
 import 'package:pyro_phone_contacts_hub/pyro_phone_contacts_hub.dart';

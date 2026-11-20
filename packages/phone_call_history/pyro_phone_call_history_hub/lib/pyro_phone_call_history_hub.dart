@@ -1,3 +1,3 @@
-library pyro_phone_call_history_hub;
+library;
 
 export 'src/call_history_control_center.dart';

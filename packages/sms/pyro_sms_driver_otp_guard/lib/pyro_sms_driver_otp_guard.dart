@@ -1,3 +1,3 @@
-library pyro_sms_driver_otp_guard;
+library;
 
 export 'src/otp_guard_driver.dart';

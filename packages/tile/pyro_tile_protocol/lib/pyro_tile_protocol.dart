@@ -1,4 +1,4 @@
-library pyro_tile_protocol;
+library;
 
 export 'src/enums/tile_state_type.dart';
 export 'src/models/tile_info_entity.dart';

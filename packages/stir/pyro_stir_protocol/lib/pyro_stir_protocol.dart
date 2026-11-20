@@ -1,4 +1,4 @@
-library pyro_stir_protocol;
+library;
 
 export 'src/enums/stir_verification_status.dart';
 export 'src/models/stir_result_entity.dart';

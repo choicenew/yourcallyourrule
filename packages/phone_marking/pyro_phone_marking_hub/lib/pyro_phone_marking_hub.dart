@@ -1,3 +1,3 @@
-library pyro_phone_marking_hub;
+library;
 
 export 'src/mark_phone_control_center.dart';

@@ -1,4 +1,4 @@
-library pyro_phone_subscription_connector;
+library;
 
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
 import 'package:pyro_phone_subscription_hub/pyro_phone_subscription_hub.dart';

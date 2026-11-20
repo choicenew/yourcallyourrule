@@ -1,3 +1,3 @@
-library pyro_sms_driver_regex_rules;
+library;
 
 export 'src/regex_rules_driver.dart';

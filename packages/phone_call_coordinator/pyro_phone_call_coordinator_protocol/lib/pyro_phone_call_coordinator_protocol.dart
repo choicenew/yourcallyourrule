@@ -1,4 +1,4 @@
-library pyro_phone_call_coordinator_protocol;
+library;
 
 export 'src/models/call_coordinator_data.dart';
 export 'src/drivers/call_coordinator_driver.dart';

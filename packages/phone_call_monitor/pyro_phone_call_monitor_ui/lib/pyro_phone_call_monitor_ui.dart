@@ -1,4 +1,4 @@
-library pyro_phone_call_monitor_ui;
+library;
 
 import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_call_monitor_protocol/pyro_phone_call_monitor_protocol.dart';

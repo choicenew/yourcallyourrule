@@ -1,3 +1,3 @@
-library pyro_phone_count_filter_driver;
+library;
 
 export 'src/memory_phone_count_storage_driver.dart';

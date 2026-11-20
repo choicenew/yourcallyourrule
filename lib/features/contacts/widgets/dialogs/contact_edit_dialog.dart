@@ -2,7 +2,6 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
-import 'package:yourcallyourrule/features/common/widgets/public_select_label.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 import 'dart:io';

@@ -1,3 +1,3 @@
-library pyro_phone_contacts_hub;
+library;
 
 export 'src/phone_contacts_control_center.dart';

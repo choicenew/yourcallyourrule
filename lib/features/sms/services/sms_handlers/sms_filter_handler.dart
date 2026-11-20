@@ -1,4 +1,3 @@
-import 'package:pyro_sms_protocol/pyro_sms_protocol.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';

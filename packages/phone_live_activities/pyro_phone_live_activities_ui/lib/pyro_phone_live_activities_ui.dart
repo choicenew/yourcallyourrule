@@ -1,4 +1,4 @@
-library pyro_phone_live_activities_ui;
+library;
 
 import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_live_activities_protocol/pyro_phone_live_activities_protocol.dart';

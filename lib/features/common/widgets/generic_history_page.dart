@@ -61,7 +61,7 @@ class _GenericHistoryPageState<T extends dynamic, S, M> extends ConsumerState<Ge
   final Set<String> _selectedItemIds = {};
   bool _isMultiSelectMode = false;
   String _searchKeyword = '';
-  Map<String, dynamic> _filters = {};
+  final Map<String, dynamic> _filters = {};
 
   @override
   void initState() {

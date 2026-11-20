@@ -1,4 +1,4 @@
-library pyro_sms_driver_link_resolver;
+library;
 
 export 'src/link_resolver_driver.dart';
 export 'src/phishing_tld_database.dart';

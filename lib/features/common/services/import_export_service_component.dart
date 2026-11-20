@@ -25,7 +25,7 @@ class ImportExportServiceComponent<T, ID> {
         allowedExtensions: ['json'],
       );
       
-      if (result != null && result.isNotEmpty && result.first.path != null) {
+      if (result.isNotEmpty && result.first.path != null) {
         final entities = await importExportService.importFromFile(result.first.path!);
         
         await onEntitiesImported(entities);

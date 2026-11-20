@@ -97,13 +97,13 @@ class ContactImportExportDialog extends ConsumerWidget {
                     showDialog(
                       context: context,
                       builder: (dialogCtx) => AlertDialog(
-                        title: Text(AppLocalizations.of(dialogCtx)!.selectExportFormat),
+                        title: Text(AppLocalizations.of(dialogCtx).selectExportFormat),
                         content: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             ListTile(
                               leading: const Icon(Icons.description),
-                              title: Text(AppLocalizations.of(dialogCtx)!.csvFormat),
+                              title: Text(AppLocalizations.of(dialogCtx).csvFormat),
                               onTap: () async {
                                 Navigator.pop(dialogCtx);
                                 final csvContent = await contactService.exportContactsToCsv();
@@ -123,7 +123,7 @@ class ContactImportExportDialog extends ConsumerWidget {
                             ),
                             ListTile(
                               leading: const Icon(Icons.code),
-                              title: Text(AppLocalizations.of(dialogCtx)!.jsonFormat),
+                              title: Text(AppLocalizations.of(dialogCtx).jsonFormat),
                               onTap: () async {
                                 Navigator.pop(dialogCtx);
                                 final jsonContent = await contactService.exportContactsToJson();

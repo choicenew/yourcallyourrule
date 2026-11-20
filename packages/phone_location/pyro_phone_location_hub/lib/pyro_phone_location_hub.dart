@@ -1,3 +1,3 @@
-library pyro_phone_location_hub;
+library;
 
 export 'src/phone_location_control_center.dart';

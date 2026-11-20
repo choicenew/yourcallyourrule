@@ -1,4 +1,4 @@
-library pyro_phone_live_activities_connector;
+library;
 
 import 'package:pyro_phone_live_activities_protocol/pyro_phone_live_activities_protocol.dart';
 import 'package:pyro_phone_live_activities_hub/pyro_phone_live_activities_hub.dart';

@@ -1,5 +1,4 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:yourcallyourrule/theme/dopamine_theme_extension.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/risk_level.dart';
 
 /// 删除提议风险等级 Chip 组件（100% 强类型 RiskLevel 枚举）

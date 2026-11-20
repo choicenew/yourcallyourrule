@@ -39,8 +39,8 @@ class LiveNotificationPayloadBuilder {
     final String numberDisplay = data.phoneNumber;
     final String nameDisplay = data.name ?? numberDisplay;
 
-    final String? labelText = (data.labels != null && data.labels!.isNotEmpty)
-        ? ((data.labels!.first as dynamic).label ?? (data.labels!.first as dynamic).text ?? data.labels!.first.toString())
+    final String? labelText = (data.labels.isNotEmpty)
+        ? ((data.labels.first as dynamic).label ?? (data.labels.first as dynamic).text ?? data.labels.first.toString())
         : null;
     final ImageProvider? avatarProvider = config.avatar.visible
         ? AvatarUtils.getAvatarImage(null, labelText)

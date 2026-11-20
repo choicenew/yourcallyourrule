@@ -1,4 +1,4 @@
-library pyro_phone_lookup_plugin_connector;
+library;
 
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:pyro_phone_lookup_plugin_hub/pyro_phone_lookup_plugin_hub.dart';

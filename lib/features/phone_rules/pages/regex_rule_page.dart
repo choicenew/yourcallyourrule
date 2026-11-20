@@ -84,7 +84,7 @@ class _RegexRulePageState extends ConsumerState<RegexRulePage> {
                 ),
                 const SizedBox(height: 14),
                 DropdownButtonFormField<RuleActionType>(
-                  value: selectedAction.type,
+                  initialValue: selectedAction.type,
                   decoration: InputDecoration(
                     labelText: l10n.ruleAction,
                     border: const OutlineInputBorder(),

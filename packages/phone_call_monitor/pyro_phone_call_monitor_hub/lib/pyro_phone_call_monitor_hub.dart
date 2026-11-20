@@ -1,3 +1,3 @@
-library pyro_phone_call_monitor_hub;
+library;
 
 export 'src/call_monitor_service.dart';

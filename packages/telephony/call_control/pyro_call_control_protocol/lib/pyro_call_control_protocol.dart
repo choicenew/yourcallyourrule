@@ -1,4 +1,4 @@
-library pyro_call_control_protocol;
+library;
 
 export 'src/enums/call_action_type.dart';
 export 'src/models/call_action_context.dart';

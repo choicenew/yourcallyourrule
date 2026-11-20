@@ -1,4 +1,4 @@
-library pyro_phone_subscription_protocol;
+library;
 
 export 'src/models/phone_subscription_kind.dart';
 export 'src/models/phone_subscription_payload.dart';

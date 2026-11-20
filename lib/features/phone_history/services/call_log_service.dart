@@ -1,17 +1,12 @@
 import 'dart:async';
 
-import 'package:material_ui/material_ui.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
-import 'package:yourcallyourrule/features/common/utils/avatar_utils.dart';
 import 'package:yourcallyourrule/features/phone_history/repositories/call_log_repository.dart';
 import 'package:yourcallyourrule/features/phone_history/data/repositories/call_log_repository_impl.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_service.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
-import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
-import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository.dart';
-import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/features/phone_rules/services/rule_management_service.dart';
 
 part 'call_log_service.g.dart';

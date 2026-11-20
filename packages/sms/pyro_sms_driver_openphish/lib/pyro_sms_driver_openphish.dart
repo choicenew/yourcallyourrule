@@ -1,3 +1,3 @@
-library pyro_sms_driver_openphish;
+library;
 
 export 'src/openphish_driver.dart';

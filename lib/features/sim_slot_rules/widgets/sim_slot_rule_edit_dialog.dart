@@ -84,7 +84,7 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
   }
 
   Future<void> _saveRule() async {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
 
     if (_selectedSimSlotIndex == null) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -141,7 +141,7 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final simInfoAsync = ref.watch(simCardsProvider);
 
@@ -175,7 +175,7 @@ class _SimSlotRuleEditDialogState extends ConsumerState<SimSlotRuleEditDialog> {
                   return const SizedBox.shrink();
                 }
                 return DropdownButtonFormField<int>(
-                  value: _selectedSimSlotIndex,
+                  initialValue: _selectedSimSlotIndex,
                   decoration: const InputDecoration(labelText: 'SIM Card'),
                   items: simList.map((sim) {
                     return DropdownMenuItem<int>(

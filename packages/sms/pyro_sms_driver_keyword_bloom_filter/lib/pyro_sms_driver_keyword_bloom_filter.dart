@@ -1,4 +1,4 @@
-library pyro_sms_driver_keyword_bloom_filter;
+library;
 
 export 'src/bloom_filter.dart';
 export 'src/aho_corasick_automaton.dart';

@@ -1,4 +1,4 @@
-library pyro_app_auto_update_connector;
+library;
 
 import 'package:pyro_app_auto_update_protocol/pyro_app_auto_update_protocol.dart';
 import 'package:pyro_app_auto_update_hub/pyro_app_auto_update_hub.dart';

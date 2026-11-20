@@ -1,4 +1,4 @@
-library pyro_phone_count_filter_connector;
+library;
 
 import 'package:pyro_phone_count_filter_protocol/pyro_phone_count_filter_protocol.dart';
 import 'package:pyro_phone_count_filter_hub/pyro_phone_count_filter_hub.dart';

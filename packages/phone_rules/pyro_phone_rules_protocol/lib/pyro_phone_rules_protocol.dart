@@ -1,4 +1,4 @@
-library pyro_phone_rules_protocol;
+library;
 
 export 'src/models/phone_rule_entity.dart';
 export 'src/models/regex_rule_entity.dart';

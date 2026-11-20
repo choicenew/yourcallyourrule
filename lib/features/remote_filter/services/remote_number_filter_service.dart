@@ -1,5 +1,4 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:pyro_phone_call_filter_protocol/pyro_phone_call_filter_protocol.dart';
 import 'package:yourcallyourrule/features/remote_filter/config/remote_number_filter_config.dart';

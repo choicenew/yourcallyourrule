@@ -1,4 +1,4 @@
-library pyro_phone_call_overlay_connector;
+library;
 
 import 'package:pyro_phone_call_overlay_protocol/pyro_phone_call_overlay_protocol.dart';
 import 'package:pyro_phone_call_overlay_hub/pyro_phone_call_overlay_hub.dart';

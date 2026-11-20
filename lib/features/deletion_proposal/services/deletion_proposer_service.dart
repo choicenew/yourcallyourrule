@@ -1,5 +1,4 @@
-﻿import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:yourcallyourrule/features/deletion_proposal/data/repositories/proposal_repository_impl.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/repositories/proposal_repository.dart';

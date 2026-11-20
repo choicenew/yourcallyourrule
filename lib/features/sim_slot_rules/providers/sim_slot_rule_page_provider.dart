@@ -1,5 +1,4 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/sim_slot_rules/services/sim_slot_rule_service.dart';

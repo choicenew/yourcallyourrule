@@ -1,4 +1,4 @@
-library pyro_call_screening_protocol;
+library;
 
 export 'package:pyro_call_control_protocol/pyro_call_control_protocol.dart';
 export 'src/models/incoming_call_entity.dart';

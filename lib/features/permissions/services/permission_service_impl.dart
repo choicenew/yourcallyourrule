@@ -2,7 +2,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'package:permission_handler/permission_handler.dart';
 import 'package:permission_handler/permission_handler.dart' as permission_handler show openAppSettings;
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/permissions/services/permission_service.dart';
 
 part 'permission_service_impl.g.dart';

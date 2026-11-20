@@ -1,4 +1,3 @@
-import 'package:material_ui/material_ui.dart';
 
 class HomeStats {
   final double blockRate;

@@ -1,4 +1,4 @@
-library pyro_telephony_hub;
+library;
 
 export 'package:pyro_call_control_hub/pyro_call_control_hub.dart';
 export 'package:pyro_call_screening_hub/pyro_call_screening_hub.dart';

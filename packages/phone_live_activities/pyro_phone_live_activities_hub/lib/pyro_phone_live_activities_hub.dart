@@ -1,3 +1,3 @@
-library pyro_phone_live_activities_hub;
+library;
 
 export 'src/live_hub_control_center.dart';

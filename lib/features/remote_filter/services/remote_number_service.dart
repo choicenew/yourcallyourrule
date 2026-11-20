@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_remote_filter_protocol/pyro_phone_remote_filter_protocol.dart';
-import 'package:yourcallyourrule/features/common/services/list_service.dart';
 import 'package:yourcallyourrule/features/common/value_objects/phone_number.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/remote_filter/data/repositories/remote_number_repository_impl.dart';

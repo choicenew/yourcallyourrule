@@ -1,4 +1,4 @@
-library pyro_phone_call_history_connector;
+library;
 
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:pyro_phone_call_history_hub/pyro_phone_call_history_hub.dart';

@@ -1,3 +1,3 @@
-library pyro_call_redirection_connector;
+library;
 
 export 'src/call_redirection_connectors.dart';

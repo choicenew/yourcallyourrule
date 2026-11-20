@@ -27,7 +27,7 @@ void showActionFilterDialog(BuildContext context, ValueChanged<RuleActionType?> 
                 Navigator.pop(context);
               },
             );
-          }).toList(),
+          }),
         ],
       ),
     ),

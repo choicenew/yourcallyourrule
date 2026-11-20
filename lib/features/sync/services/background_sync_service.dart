@@ -4,7 +4,6 @@ import 'package:workmanager/workmanager.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/sync/services/app_sync_bridge_connector.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
-import 'package:yourcallyourrule/features/phone_history/services/call_log_sync_service.dart';
 import 'package:yourcallyourrule/features/phone_subscription/services/phone_subscription_service.dart';
 import 'package:yourcallyourrule/features/contacts/services/contact_subscription_service.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';

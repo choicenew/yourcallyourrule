@@ -1,4 +1,4 @@
-library pyro_phone_country_sync_ui;
+library;
 
 import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_country_sync_protocol/pyro_phone_country_sync_protocol.dart';

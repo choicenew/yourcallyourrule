@@ -1,3 +1,3 @@
-library pyro_phone_country_sync_driver;
+library;
 
 export 'src/http_country_data_download_driver.dart';

@@ -1,4 +1,4 @@
-library pyro_phone_location_connector;
+library;
 
 import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';
 import 'package:pyro_phone_location_hub/pyro_phone_location_hub.dart';
