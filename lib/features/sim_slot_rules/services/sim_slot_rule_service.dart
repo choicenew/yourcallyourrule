@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_sim_slot_rules_protocol/pyro_phone_sim_slot_rules_protocol.dart';
+import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/phone_rules/data/datasources/local_sim_slot_rule_datasource.dart';
 
 part 'sim_slot_rule_service.g.dart';
@@ -25,14 +26,17 @@ class SimSlotRuleService {
     return await _simSlotDatasource.getAll();
   }
 
-  Future<void> addSimSlotRule(Map<String, dynamic> entry, int simSlotIndex, {dynamic action}) async {
+  Future<void> addSimSlotRule(Map<String, dynamic> entry, int simSlotIndex, {RuleAction? action}) async {
+    final actionName = action?.type.name ?? entry['actionType']?.toString() ?? RuleActionType.block.name;
     final entity = SimSlotRuleEntity(
       id: entry['id']?.toString() ?? DateTime.now().millisecondsSinceEpoch.toString(),
       name: entry['name']?.toString() ?? '',
       phoneNumber: entry['phoneNumber']?.toString() ?? '',
+      labelId: entry['labelId']?.toString() ?? '',
+      avatar: entry['avatar']?.toString(),
       simSlotIndex: simSlotIndex,
-      actionType: action?.toString() ?? entry['actionType']?.toString() ?? 'block',
-      priority: entry['priority'] is int ? entry['priority'] as int : 0,
+      actionType: actionName,
+      priority: entry['priority'] is int ? entry['priority'] as int : 100,
       isEnabled: entry['isEnabled'] is bool ? entry['isEnabled'] as bool : true,
     );
     await _simSlotDatasource.insertRule(entity);
