@@ -2,7 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
-import 'package:pyro_phone_call_interception_policy_ui/pyro_phone_call_interception_policy_ui.dart';
+import 'package:pyro_phone_call_interception_policy_ui/pyro_phone_call_interception_policy_ui.dart' hide AppLocalizations;
 import 'package:yourcallyourrule/features/phone_evaluators/config/intercept_action_config_provider.dart';
 import 'package:yourcallyourrule/features/phone_evaluators/config/label_action_config_provider.dart';
 import 'package:yourcallyourrule/features/phone_evaluators/config/emergency_policy_config_provider.dart';
