@@ -1,5 +1,11 @@
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
+import 'package:yourcallyourrule/core/coordinator/app_coordinator.dart';
+import 'package:yourcallyourrule/features/common/router/app_router.dart';
+import 'package:yourcallyourrule/features/labels/utils/predefined_labels.dart';
+import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 part 'call_policy_evaluator.g.dart';
 
@@ -55,21 +61,74 @@ class CallPolicyVerdict {
 class CallPolicyEvaluator {
   const CallPolicyEvaluator();
 
-  static const List<String> standardFraudKeywords = [
-    'fraud',
-    'scam',
-    'spam',
-    'scams',
-    'risk',
-    'voice clone',
-    'auto warranty',
-    'silent call',
-  ];
-
+  /// 检查标签是否匹配预定义标签库或用户自定义标签
   static bool isFraudLabel(String label, {List<String>? userCustomKeywords}) {
     final lower = label.trim().toLowerCase();
-    final keywords = userCustomKeywords ?? standardFraudKeywords;
-    return keywords.any((kw) => lower.contains(kw.toLowerCase()));
+    if (userCustomKeywords != null && userCustomKeywords.isNotEmpty) {
+      return userCustomKeywords.any((kw) => lower.contains(kw.toLowerCase()));
+    }
+    // 动态结合系统预定义标签实体库进行标准比对
+    return predefinedLabelEntities.any((entity) {
+      final text = entity.text.toLowerCase();
+      return text.contains('scam') ||
+              text.contains('fraud') ||
+              text.contains('risk')
+          ? lower.contains(text)
+          : false;
+    });
+  }
+
+  /// 综合检测来电号码与标签是否具备诈骗特征
+  static bool hasFraudIndicator({
+    required String phoneNumber,
+    List<dynamic> labels = const [],
+    List<String>? userCustomKeywords,
+  }) {
+    if (labels.isEmpty) {
+      return false;
+    }
+    for (final label in labels) {
+      final text = label is String ? label : (label?.toString() ?? '');
+      if (isFraudLabel(text, userCustomKeywords: userCustomKeywords)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /// 触发诈骗警示（支持触觉反馈与通知分发）
+  static Future<void> triggerFraudAlert(
+    String phoneNumber, {
+    dynamic coordinator,
+  }) async {
+    final context = AppRouter.navigatorKey.currentContext;
+    if (context == null) return;
+
+    final title =
+        "⚠️ ${AppLocalizations.of(context).fraudAlertTitle} ($phoneNumber)";
+    final body = AppLocalizations.of(context).securityMessage;
+
+    dynamic appCoordinator = coordinator;
+    if (appCoordinator == null) {
+      try {
+        appCoordinator = ProviderScope.containerOf(
+          context,
+          listen: false,
+        ).read(appCoordinatorProvider);
+      } catch (_) {}
+    }
+
+    HapticFeedback.heavyImpact();
+
+    appCoordinator?.emit('show_system_notification', {
+      'title': title,
+      'body': body,
+      'type': 'fraud_alert',
+      'notificationId': phoneNumber.hashCode + 2,
+      'payload': {'type': 'fraud_alert', 'phone': phoneNumber},
+      'autoCancel': true,
+      'autoCancelDelaySeconds': 10,
+    });
   }
 
   CallPolicyVerdict evaluate(CallPolicyContext context) {

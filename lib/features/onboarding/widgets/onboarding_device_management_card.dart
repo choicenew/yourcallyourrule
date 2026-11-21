@@ -2,15 +2,15 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-/// 引导页：设备集群与节点角色介绍卡片组件（100% 标准 AppLocalizations 国际化）
-class OnboardingMasterSlaveCard extends ConsumerStatefulWidget {
-  const OnboardingMasterSlaveCard({super.key});
+/// 引导页：设备管理与多设备协同卡片组件（100% 标准 AppLocalizations 国际化）
+class OnboardingDeviceManagementCard extends ConsumerStatefulWidget {
+  const OnboardingDeviceManagementCard({super.key});
 
   @override
-  ConsumerState<OnboardingMasterSlaveCard> createState() => _OnboardingMasterSlaveCardState();
+  ConsumerState<OnboardingDeviceManagementCard> createState() => _OnboardingDeviceManagementCardState();
 }
 
-class _OnboardingMasterSlaveCardState extends ConsumerState<OnboardingMasterSlaveCard> {
+class _OnboardingDeviceManagementCardState extends ConsumerState<OnboardingDeviceManagementCard> {
   bool _isPrimary = true;
 
   @override

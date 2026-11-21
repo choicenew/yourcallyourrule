@@ -1,6 +1,5 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:go_router/go_router.dart';
-import 'package:yourcallyourrule/features/phone_call/call_overlay/presentation/pages/fraud_alert_settings_page.dart';
 import 'package:yourcallyourrule/features/phone_call/call_overlay/presentation/screens/call_overlay_customization_screen.dart';
 
 import 'package:yourcallyourrule/features/phone_time_interception/presentation/pages/time_interceptor_settings_page.dart';
@@ -32,6 +31,7 @@ import 'package:yourcallyourrule/features/deletion_proposal/pages/deletion_propo
 import 'package:yourcallyourrule/features/deletion_proposal/pages/proposal_detail_page.dart';
 
 import 'package:yourcallyourrule/features/phone_evaluators/presentation/pages/end_call_settings_page.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/presentation/widgets/outbound_blocked_labels_setting_card.dart';
 import 'package:pyro_sms_ui/pyro_sms_ui.dart';
 import 'package:yourcallyourrule/features/cloud_drive/pages/backup_restore_page.dart';
 import 'package:yourcallyourrule/features/cloud_drive/pages/cloud_settings_page.dart';
@@ -318,11 +318,6 @@ class AppRouter {
         ],
       ),
       GoRoute(
-        path: '/$fraudAlertSettings',
-        name: fraudAlertSettings,
-        builder: (context, state) => const FraudAlertSettingsPage(),
-      ),
-      GoRoute(
         path: '/$endCallSettings',
         name: endCallSettings,
         builder: (context, state) => const EndCallSettingsPage(),
@@ -330,7 +325,9 @@ class AppRouter {
       GoRoute(
         path: '/$callRedirectionSettings',
         name: callRedirectionSettings,
-        builder: (context, state) => const CallRedirectionSettingsPage(),
+        builder: (context, state) => const CallRedirectionSettingsPage(
+          outboundLabelSelectionWidget: OutboundBlockedLabelsSettingCard(),
+        ),
       ),
       GoRoute(
         path: '/$smsFilterSettings',

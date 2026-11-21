@@ -166,18 +166,166 @@ class OnboardingSpamBlockCard extends ConsumerWidget {
                   runSpacing: 6,
                   children: predefinedLabelEntities.map((labelEntity) {
                     final labelText = labelEntity.text;
-                    final isSelected = labelActionMap.containsKey(labelText);
-                    return FilterChip(
-                      label: Text(labelText.translate(context), style: const TextStyle(fontSize: 11)),
-                      selected: isSelected,
-                      visualDensity: VisualDensity.compact,
-                      onSelected: (bool isSelected) {
-                        if (isSelected) {
-                          labelActionNotifier.setActionForLabel(labelText, InterceptAction.endCall);
-                        } else {
-                          labelActionNotifier.removeActionForLabel(labelText);
-                        }
+                      final currentAction = labelActionMap[labelText];
+                      final isSelected = currentAction != null;
+                      return InkWell(
+                        borderRadius: BorderRadius.circular(12),
+                        onTap: () {
+                          // 直接点击弹出清晰的动作选择菜单（放行、立即挂断、静音），避免长按不明显
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (ctx) => SafeArea(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  ListTile(
+                                    title: Text(
+                                      labelText.translate(context),
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    subtitle: Text(
+                                      l10n.incomingCallInterceptAction,
+                                    ),
+                                  ),
+                                  const Divider(height: 1),
+                                  ListTile(
+                                    leading: const Icon(
+                                      Icons.check_circle_outline,
+                                      color: Colors.green,
+                                    ),
+                                    title: Text(l10n.actionAllow),
+                                    selected:
+                                        currentAction == InterceptAction.allow,
+                                    onTap: () {
+                                      labelActionNotifier.setActionForLabel(
+                                        labelText,
+                                        InterceptAction.allow,
+                                      );
+                                      Navigator.pop(ctx);
+                                    },
+                                  ),
+                                  ListTile(
+                                    leading: const Icon(
+                                      Icons.call_end,
+                                      color: Colors.red,
+                                    ),
+                                    title: Text(l10n.endCallImmediately),
+                                    selected:
+                                        currentAction ==
+                                        InterceptAction.endCall,
+                                    onTap: () {
+                                      labelActionNotifier.setActionForLabel(
+                                        labelText,
+                                        InterceptAction.endCall,
+                                      );
+                                      Navigator.pop(ctx);
+                                    },
+                                  ),
+                                  ListTile(
+                                    leading: const Icon(
+                                      Icons.notifications_off,
+                                      color: Colors.amber,
+                                    ),
+                                    title: Text(l10n.silenceAndNoAnswer),
+                                    selected:
+                                        currentAction ==
+                                        InterceptAction.silenceNoAnswer,
+                                    onTap: () {
+                                      labelActionNotifier.setActionForLabel(
+                                        labelText,
+                                        InterceptAction.silenceNoAnswer,
+                                      );
+                                      Navigator.pop(ctx);
+                                    },
+                                  ),
+                                  if (isSelected) ...[
+                                    const Divider(height: 1),
+                                    ListTile(
+                                      leading: const Icon(
+                                        Icons.delete_outline,
+                                        color: Colors.grey,
+                                      ),
+                                      title: Text(l10n.actionNone),
+                                      onTap: () {
+                                        labelActionNotifier
+                                            .removeActionForLabel(labelText);
+                                        Navigator.pop(ctx);
+                                      },
+                                    ),
+                                  ],
+                                ],
+                              ),
+                            ),
+                          );
                       },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+                          decoration: BoxDecoration(
+                            color: isSelected
+                                ? (currentAction == InterceptAction.allow
+                                      ? Colors.green.withValues(alpha: 0.15)
+                                      : (currentAction ==
+                                                InterceptAction.silenceNoAnswer
+                                            ? Colors.amber.withValues(
+                                                alpha: 0.15,
+                                              )
+                                            : theme.colorScheme.primaryContainer
+                                                  .withValues(alpha: 0.6)))
+                                : theme.colorScheme.surfaceContainerHighest,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color: isSelected
+                                  ? (currentAction == InterceptAction.allow
+                                        ? Colors.green
+                                        : (currentAction ==
+                                                  InterceptAction
+                                                      .silenceNoAnswer
+                                              ? Colors.amber
+                                              : theme.colorScheme.primary))
+                                  : theme.colorScheme.outlineVariant,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                labelText.translate(context),
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: isSelected
+                                      ? FontWeight.bold
+                                      : FontWeight.normal,
+                                  color: isSelected
+                                      ? theme.colorScheme.onSurface
+                                      : theme.colorScheme.onSurfaceVariant,
+                                ),
+                              ),
+                              if (isSelected) ...[
+                                const SizedBox(width: 4),
+                                Icon(
+                                  currentAction == InterceptAction.allow
+                                      ? Icons.check
+                                      : (currentAction ==
+                                                InterceptAction.silenceNoAnswer
+                                            ? Icons.volume_off
+                                            : Icons.block),
+                                  size: 12,
+                                  color: currentAction == InterceptAction.allow
+                                      ? Colors.green
+                                      : (currentAction ==
+                                                InterceptAction.silenceNoAnswer
+                                            ? Colors.amber
+                                            : Colors.red),
+                                ),
+                              ],
+                            ],
+                          ),
+                        ),
                     );
                   }).toList(),
                 ),

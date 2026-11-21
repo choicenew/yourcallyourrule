@@ -2,6 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:yourcallyourrule/features/local_filter/provider/local_count_filter_provider.dart';
 import 'package:yourcallyourrule/features/remote_filter/provider/remote_number_filter_provider.dart';
+import 'package:yourcallyourrule/features/phone_filter/providers/call_filter_provider.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 引导页：动态组合过滤规则与插件引擎卡片组件 (基于 FilterUiRegistry 注册框架)
@@ -23,6 +24,10 @@ class OnboardingDynamicFilterCard extends ConsumerWidget {
 
     final isLocalEnabled = localConfig?.enableLocalCountFilter ?? true;
     final isRemoteEnabled = remoteConfig?.enableRemoteNumberFilter ?? true;
+
+    final callConfigAsync = ref.watch(callFilterConfigProvider);
+    final callConfig = callConfigAsync.value;
+    final callNotifier = ref.read(callFilterConfigProvider.notifier);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -116,7 +121,7 @@ class OnboardingDynamicFilterCard extends ConsumerWidget {
           ),
           const SizedBox(height: 16),
 
-          // 下层：直接交互 Local Count & Remote Risk 开关控制
+          // 下层：直接交互 Local Count & Remote Risk 与 CallFilter 核心拦截规则
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
@@ -126,6 +131,52 @@ class OnboardingDynamicFilterCard extends ConsumerWidget {
             ),
             child: Column(
               children: [
+                SwitchListTile(
+                  dense: true,
+                  title: Text(
+                    l10n.allowRegexBlockRules,
+                    style: const TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  subtitle: Text(
+                    l10n.allowRegexBlockRulesDesc,
+                    style: const TextStyle(fontSize: 11),
+                  ),
+                  value: callConfig?.allowRegexBlockRules ?? true,
+                  onChanged: (val) {
+                    if (callConfig != null) {
+                      callNotifier.updateConfig(
+                        callConfig.copyWith(allowRegexBlockRules: val),
+                      );
+                    }
+                  },
+                ),
+                const Divider(height: 1),
+                SwitchListTile(
+                  dense: true,
+                  title: Text(
+                    l10n.allowRegexAllowRules,
+                    style: const TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  subtitle: Text(
+                    l10n.allowRegexAllowRulesDesc,
+                    style: const TextStyle(fontSize: 11),
+                  ),
+                  value: callConfig?.allowRegexAllowRules ?? true,
+                  onChanged: (val) {
+                    if (callConfig != null) {
+                      callNotifier.updateConfig(
+                        callConfig.copyWith(allowRegexAllowRules: val),
+                      );
+                    }
+                  },
+                ),
+                const Divider(height: 1),
                 SwitchListTile(
                   dense: true,
                   title: Text(l10n.localCountFilter, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),

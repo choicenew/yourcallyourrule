@@ -2,7 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:live_activity_kit/live_activity_kit.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
-import 'package:yourcallyourrule/features/phone_call/call_overlay/services/fraud_detection_service.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/evaluators/call_policy_evaluator.dart';
 import 'package:yourcallyourrule/features/phone_call/live_activities/live_activity_config/live_notification_config.dart';
 import 'package:yourcallyourrule/features/phone_call/live_activities/providers/live_notification_config_provider.dart';
 
@@ -23,7 +23,10 @@ class KitLiveActivityHandler {
     required Map<String, dynamic>? simCardData,
     required Map<String, dynamic>? stirData,
   }) async {
-    final bool isFraudCall = FraudDetectionService.checkForFraudLabels(callerIdData);
+    final bool isFraudCall = CallPolicyEvaluator.hasFraudIndicator(
+      phoneNumber: callerIdData.phoneNumber,
+      labels: callerIdData.labels,
+    );
 
     try {
       if (_currentActivityId != null) {

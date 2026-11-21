@@ -93,13 +93,25 @@ class OnboardingLanguageCard extends ConsumerWidget {
                       children: [
                         Icon(Icons.public_rounded, color: theme.colorScheme.primary, size: 20),
                         const SizedBox(width: 8),
-                        Text(
-                          l10n.selectCountry,
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: theme.colorScheme.onSurface,
-                          ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              l10n.selectCountry,
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: theme.colorScheme.onSurface,
+                              ),
+                            ),
+                            Text(
+                              l10n.countryDataDisclaimer,
+                              style: TextStyle(
+                                fontSize: 11,
+                                color: theme.colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),

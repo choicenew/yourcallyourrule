@@ -4,7 +4,7 @@ import 'package:pyro_telephony_hub/pyro_telephony_hub.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/phone_call/call_overlay/configuration/call_overlay_config.dart';
 import 'package:yourcallyourrule/features/phone_call/call_overlay/presentation/widgets/scrolling_security_message.dart';
-import 'package:yourcallyourrule/features/phone_call/call_overlay/services/fraud_detection_service.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/evaluators/call_policy_evaluator.dart';
 import 'package:yourcallyourrule/features/phone_call/call_overlay/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/features/phone_evaluators/evaluators/block_and_end_action_service.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
@@ -32,10 +32,13 @@ class CallOverlayContentBuilder {
     Function(Offset)? onSecurityMessagePositionChanged,
     bool showQuickBlockButton = true,
   }) {
-    final bool isFraudulent = FraudDetectionService.checkForFraudLabels(callerIdData);
+    final bool isFraudulent = CallPolicyEvaluator.hasFraudIndicator(
+      phoneNumber: callerIdData.phoneNumber,
+      labels: callerIdData.labels,
+    );
 
     if (isFraudulent) {
-      FraudDetectionService.triggerFraudAlert(callerIdData.phoneNumber);
+      CallPolicyEvaluator.triggerFraudAlert(callerIdData.phoneNumber);
     }
     
     return Stack(

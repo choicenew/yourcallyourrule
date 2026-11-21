@@ -10,6 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
   flutter_riverpod: ^3.0.3
   pyro_phone_call_interception_policy_protocol:
     path: ../pyro_phone_call_interception_policy_protocol
@@ -20,3 +23,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter:
+  generate: true

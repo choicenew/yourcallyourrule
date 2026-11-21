@@ -14,7 +14,8 @@ import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_caller_i
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_spam_block_card.dart';
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_dynamic_filter_card.dart';
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_time_interceptor_card.dart';
-import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_master_slave_card.dart';
+import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_outbound_protection_card.dart';
+import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_device_management_card.dart';
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_permissions_card.dart';
 import 'package:yourcallyourrule/features/onboarding/widgets/onboarding_ready_card.dart';
 
@@ -30,7 +31,7 @@ class OnboardingPage extends ConsumerStatefulWidget {
 class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
-  final int _totalPages = 10;
+  final int _totalPages = 11;
 
   @override
   void initState() {
@@ -106,7 +107,8 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                   const OnboardingSpamBlockCard(),
                   const OnboardingDynamicFilterCard(),
                   const OnboardingTimeInterceptorCard(),
-                  const OnboardingMasterSlaveCard(),
+                  const OnboardingOutboundProtectionCard(),
+                  const OnboardingDeviceManagementCard(),
                   const OnboardingPermissionsCard(),
                   const OnboardingReadyCard(),
                 ],

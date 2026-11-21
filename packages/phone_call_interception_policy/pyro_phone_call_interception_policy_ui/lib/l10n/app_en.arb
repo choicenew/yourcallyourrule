@@ -1,0 +1,61 @@
+{
+  "@@locale": "en",
+  "actionAllow": "Allow",
+  "actionAnswerThenHangup": "Answer & Hangup",
+  "actionSilence": "Silence",
+  "actionEndCall": "End Call",
+  "labelPolicyTitle": "Label Interception Rules",
+  "labelPolicySubtitle": "Execute custom interception actions based on caller identity tags",
+  "noConfiguredLabels": "No custom label actions configured. Global default action will apply.",
+  "deleteRuleTooltip": "Delete this rule",
+  "addLabelRuleTitle": "Add Label Action Rule",
+  "selectExistingLabel": "Select existing tag:",
+  "pleaseSelectLabel": "Please select a tag",
+  "customLabelName": "Custom Tag Name",
+  "customLabelHint": "e.g. Spam, Telemarketing, Delivery, Support",
+  "selectActionPrompt": "Select action when tag matches:",
+  "cancel": "Cancel",
+  "save": "Save",
+  "add": "Add",
+  "emergencyExemptionTitle": "Emergency Exemption Guard",
+  "emergencyExemptionSubtitle": "Temporarily allow all incoming calls unconditionally after calling emergency services",
+  "emergencyExemptionActiveWithTime": "Emergency exemption active ({minutes} min remaining)",
+  "@emergencyExemptionActiveWithTime": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "emergencyExemptionActive": "Emergency exemption active. Incoming calls will connect unconditionally.",
+  "durationTitle": "Exemption Duration Window",
+  "durationSubtitle": "Time window to keep allowing incoming calls after emergency dial",
+  "duration15Min": "15 minutes",
+  "duration30Min": "30 minutes (Recommended)",
+  "duration1Hour": "1 hour",
+  "duration2Hours": "2 hours",
+  "customEmergencyNumbers": "Custom Emergency Numbers ({count})",
+  "@customEmergencyNumbers": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customEmergencySubtitle": "Add local EMS, community security, family emergency numbers",
+  "addEmergencyNumberButton": "Add Number",
+  "addEmergencyNumberTitle": "Add Emergency Number",
+  "addEmergencyNumberDesc": "Enter local emergency contact numbers (community rescue, station, dispatch, etc.):",
+  "emergencyPhoneLabel": "Emergency Phone Number",
+  "emergencyPhoneHint": "e.g. 911, 112, 999, 120",
+  "noCustomEmergencyNumbers": "No custom emergency numbers added yet. Tap top right to add.",
+  "viewGlobalPresetNumbers": "View Global Built-in Emergency Directory ({count})",
+  "@viewGlobalPresetNumbers": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}
+

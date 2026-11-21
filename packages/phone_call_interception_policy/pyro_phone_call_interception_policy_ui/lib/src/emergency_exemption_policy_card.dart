@@ -1,6 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
-import 'interception_policy_localizations.dart';
+import 'l10n/generated/app_localizations.dart';
 
 /// 紧急呼叫后全局拦截豁免配置卡片组件 (EmergencyExemptionPolicyCard)
 /// 100% 封装于微包内部，提供开启状态、放行时长下拉调节、内置与自定义紧急号码管理
@@ -29,7 +29,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
 
   void _showAddNumberDialog(BuildContext context) {
     final theme = Theme.of(context);
-    final l10n = InterceptionPolicyLocalizations.of(context);
+    final l10n = AppLocalizations.of(context);
     final controller = TextEditingController();
 
     showDialog<void>(
@@ -103,7 +103,7 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final l10n = InterceptionPolicyLocalizations.of(context);
+    final l10n = AppLocalizations.of(context);
     final config = widget.config;
 
     return Card(
@@ -152,6 +152,11 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                       ),
                     ],
                   ),
+                ),
+                IconButton(
+                  tooltip: l10n.addEmergencyNumberButton,
+                  icon: const Icon(Icons.add_circle_outline_rounded, color: Colors.red),
+                  onPressed: () => _showAddNumberDialog(context),
                 ),
                 Switch(
                   value: config.enabled,

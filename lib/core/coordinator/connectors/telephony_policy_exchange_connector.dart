@@ -10,6 +10,7 @@ import 'package:yourcallyourrule/features/labels/services/predefined_label_servi
 import 'package:yourcallyourrule/features/labels/utils/predefined_labels.dart';
 import 'package:yourcallyourrule/features/phone_caller_identity/services/caller_identity_service.dart';
 import 'package:yourcallyourrule/features/phone_evaluators/config/intercept_action_config_provider.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/config/outbound_blocked_labels_provider.dart';
 import 'package:yourcallyourrule/features/phone_evaluators/evaluators/call_policy_evaluator.dart';
 import 'package:yourcallyourrule/features/phone_rules/services/rule_management_service.dart';
 import 'package:yourcallyourrule/features/remote_filter/services/remote_number_service.dart';
@@ -59,6 +60,20 @@ class TelephonyPolicyExchangeConnector {
 
         final callerId = await ref.read(callerIdentityServiceProvider).getCallerId(phone, dlib.Locale.english);
         final defaultAction = ref.read(interceptActionConfigProvider);
+
+        // 优先检查用户明确配置的去电/外呼重定向拦截标签集
+        final outboundBlockedLabels = ref.read(outboundBlockedLabelsProvider);
+        for (final label in callerId.labels) {
+          final normalized = label.trim().toLowerCase();
+          if (outboundBlockedLabels.any((l) => l.trim().toLowerCase() == normalized)) {
+            debugPrint('[CallRedirection] Outbound call blocked by user Outbound Redirection Label: $label');
+            return RedirectionDecision(
+              action: RedirectionAction.block,
+              reason: RedirectionHoldReason.databaseMatch,
+              description: 'Blocked by user outbound redirection rule for: $label',
+            );
+          }
+        }
 
         final evaluator = ref.read(callPolicyEvaluatorProvider);
         final context = CallPolicyContext(

@@ -4,7 +4,8 @@ import '../providers/call_redirection_settings_provider.dart';
 
 /// Full settings page for Outbound Anti-Scam Call Redirection using Riverpod 3.0
 class CallRedirectionSettingsPage extends ConsumerStatefulWidget {
-  const CallRedirectionSettingsPage({super.key});
+  final Widget? outboundLabelSelectionWidget;
+  const CallRedirectionSettingsPage({super.key, this.outboundLabelSelectionWidget});
 
   @override
   ConsumerState<CallRedirectionSettingsPage> createState() => _CallRedirectionSettingsPageState();
@@ -48,6 +49,10 @@ class _CallRedirectionSettingsPageState extends ConsumerState<CallRedirectionSet
               ],
             ),
           ),
+          if (widget.outboundLabelSelectionWidget != null) ...[
+            const SizedBox(height: 16),
+            widget.outboundLabelSelectionWidget!,
+          ],
         ],
       ),
     );

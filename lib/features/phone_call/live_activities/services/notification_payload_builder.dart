@@ -55,7 +55,7 @@ class LiveNotificationPayloadBuilder {
     }
     final int totalCount = data.localCount + data.pluginCount + data.remoteCount;
     if (config.count.visible && totalCount > 0) {
-      details.add('$totalCount tags');
+      details.add('$totalCount');
     }
     if (config.simCard.visible && simInfo?['displayName'] != null) {
       details.add(simInfo!['displayName'] as String);
@@ -70,7 +70,8 @@ class LiveNotificationPayloadBuilder {
       details.add(data.countryName!);
     }
     if (config.stir.visible && stirInfo != null && (stirInfo['isVerified'] == true)) {
-      details.add('STIR Pass');
+      final stirVerstat = stirInfo['verstat']?.toString();
+      details.add(stirVerstat != null && stirVerstat.isNotEmpty ? stirVerstat : 'STIR/SHAKEN');
     }
     final String detailLine = details.join(' · ');
 
@@ -108,7 +109,7 @@ class LiveNotificationPayloadBuilder {
       if (config.stir.visible && stirInfo != null && (stirInfo['isVerified'] == true))
         LA.padding(
           LA.text(
-            'STIR Pass',
+            stirInfo['verstat']?.toString() ?? 'STIR/SHAKEN',
             size: config.stir.fontSize,
             color: const Color(0xFF2E7D32),
           ),
@@ -132,7 +133,7 @@ class LiveNotificationPayloadBuilder {
 
     final compactLeadingNode = avatarNode;
     final compactTrailingNode = LA.text(
-      isFraudCall ? 'SPAM' : (labelText ?? 'Call'),
+      (labelText != null && labelText.isNotEmpty) ? labelText : (data.name ?? data.phoneNumber),
       color: isFraudCall ? const Color(0xFFD32F2F) : const Color(0xFF4CAF50),
       weight: FontWeight.bold,
     );

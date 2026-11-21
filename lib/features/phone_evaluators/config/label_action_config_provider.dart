@@ -1,14 +1,13 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
 
-final labelActionConfigProvider = NotifierProvider<LabelActionConfigNotifier, Map<String, InterceptAction>>(
-  LabelActionConfigNotifier.new,
-);
+part 'label_action_config_provider.g.dart';
 
 /// 纯动态标签动作映射表配置 Notifier (零硬编码，支持任意动态标签文本)
-class LabelActionConfigNotifier extends Notifier<Map<String, InterceptAction>> {
+@Riverpod(keepAlive: true)
+class LabelActionConfig extends _$LabelActionConfig {
   static const String _labelActionMapKey = 'config_label_action_map';
 
   @override

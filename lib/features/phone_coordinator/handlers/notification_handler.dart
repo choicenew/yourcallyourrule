@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/core/coordinator/app_coordinator.dart';
-import 'package:yourcallyourrule/features/phone_call/call_overlay/services/fraud_detection_service.dart';
+import 'package:yourcallyourrule/features/phone_evaluators/evaluators/call_policy_evaluator.dart';
 
 final notificationHandlerProvider = Provider<NotificationHandler>((ref) {
   return NotificationHandler(ref);
@@ -17,7 +17,10 @@ class NotificationHandler {
     required Map<String, dynamic>? simInfo,
     required Map<String, dynamic>? stirInfo,
   }) async {
-    final isFraudCall = FraudDetectionService.checkForFraudLabels(callerIdData);
+    final isFraudCall = CallPolicyEvaluator.hasFraudIndicator(
+      phoneNumber: callerIdData.phoneNumber,
+      labels: callerIdData.labels,
+    );
     final String title = (callerIdData.name != null && callerIdData.name!.isNotEmpty)
         ? callerIdData.name!
         : callerIdData.phoneNumber;

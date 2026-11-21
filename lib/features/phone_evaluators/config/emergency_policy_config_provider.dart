@@ -1,16 +1,14 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 import 'package:yourcallyourrule/features/phone_evaluators/evaluators/emergency_call_policy_service.dart';
 
-final emergencyPolicyConfigProvider =
-    NotifierProvider<EmergencyPolicyConfigNotifier, EmergencyPolicyConfig>(
-  EmergencyPolicyConfigNotifier.new,
-);
+part 'emergency_policy_config_provider.g.dart';
 
 /// 紧急呼叫全局豁免策略配置 Notifier (支持开关、放行时长与自定义紧急号码持久化)
-class EmergencyPolicyConfigNotifier extends Notifier<EmergencyPolicyConfig> {
+@Riverpod(keepAlive: true)
+class EmergencyPolicyConfigNotifier extends _$EmergencyPolicyConfigNotifier {
   static const String _configKey = 'config_emergency_policy';
 
   @override

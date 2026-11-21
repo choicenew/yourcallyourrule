@@ -1,6 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
-import 'interception_policy_localizations.dart';
+import 'l10n/generated/app_localizations.dart';
 
 /// 标签与拦截处置动作矩阵视图组件 (LabelActionPolicyMatrixView)
 /// 100% 封装于微包内部，提供自闭环的策略列表、快速添加 Chip、动作选择下拉框及添加弹窗
@@ -36,7 +36,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
     if (actionTranslator != null) {
       return actionTranslator!(action);
     }
-    final l10n = InterceptionPolicyLocalizations.of(context);
+    final l10n = AppLocalizations.of(context);
     if (action == InterceptAction.allow) {
       return l10n.actionAllow;
     } else if (action == InterceptAction.answerThenHangup) {
@@ -73,7 +73,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final l10n = InterceptionPolicyLocalizations.of(context);
+    final l10n = AppLocalizations.of(context);
 
     return Card(
       elevation: 0,
@@ -287,7 +287,7 @@ class LabelActionPolicyMatrixView extends StatelessWidget {
 
   void _showAddLabelDialog(BuildContext context) {
     final theme = Theme.of(context);
-    final l10n = InterceptionPolicyLocalizations.of(context);
+    final l10n = AppLocalizations.of(context);
     String selectedLabel = availableLabels.isNotEmpty ? availableLabels.first : '';
     InterceptAction chosenAction = InterceptAction.endCall;
     final textController = TextEditingController(text: selectedLabel);

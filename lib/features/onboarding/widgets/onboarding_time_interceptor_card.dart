@@ -4,9 +4,6 @@ import 'package:yourcallyourrule/features/phone_time_interception/provider/time_
 import 'package:yourcallyourrule/features/phone_time_interception/time_interceptor_config.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
-// TODO: 待规划功能——重复呼叫紧急穿透规则 (Repeat Call Emergency Penetration)
-// 依据 EmergencyNumberFloor 现有硬规则防护，后续可扩展同一号码短时间内连续拨打自动穿透防打扰机制。
-
 /// 引导页 6：时间段拦截与防打扰卡片组件
 class OnboardingTimeInterceptorCard extends ConsumerWidget {
   const OnboardingTimeInterceptorCard({super.key});

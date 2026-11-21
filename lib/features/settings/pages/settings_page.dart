@@ -166,15 +166,6 @@ class SettingsPage extends ConsumerWidget {
               _buildDivider(context),
               _buildTile(
                 context: context,
-                icon: Icons.warning_amber_rounded,
-                iconColor: theme.colorScheme.error,
-                title: l10n.fraudAlerSettingTitle,
-                subtitle: l10n.fraudAlerSettingSubtitle,
-                onTap: () => context.pushNamed(AppRouter.fraudAlertSettings),
-              ),
-              _buildDivider(context),
-              _buildTile(
-                context: context,
                 icon: Icons.phone_forwarded_rounded,
                 iconColor: theme.colorScheme.tertiary,
                 title: l10n.callRedirectionSettingsTitle,

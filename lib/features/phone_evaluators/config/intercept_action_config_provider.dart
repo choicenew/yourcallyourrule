@@ -1,13 +1,12 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_call_interception_policy_protocol/pyro_phone_call_interception_policy_protocol.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
-final interceptActionConfigProvider = NotifierProvider<InterceptActionConfigNotifier, InterceptAction>(
-  InterceptActionConfigNotifier.new,
-);
+part 'intercept_action_config_provider.g.dart';
 
-class InterceptActionConfigNotifier extends Notifier<InterceptAction> {
+@Riverpod(keepAlive: true)
+class InterceptActionConfig extends _$InterceptActionConfig {
   static const String _interceptActionKey = 'config_intercept_action';
   static const List<InterceptAction> availableValues = [
     InterceptAction.endCall,
