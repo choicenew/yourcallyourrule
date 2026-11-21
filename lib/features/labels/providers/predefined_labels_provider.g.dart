@@ -9,54 +9,6 @@ part of 'predefined_labels_provider.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(predefinedLabelService)
-final predefinedLabelServiceProvider = PredefinedLabelServiceProvider._();
-
-final class PredefinedLabelServiceProvider
-    extends
-        $FunctionalProvider<
-          PredefinedLabelService,
-          PredefinedLabelService,
-          PredefinedLabelService
-        >
-    with $Provider<PredefinedLabelService> {
-  PredefinedLabelServiceProvider._()
-    : super(
-        from: null,
-        argument: null,
-        retry: null,
-        name: r'predefinedLabelServiceProvider',
-        isAutoDispose: false,
-        dependencies: null,
-        $allTransitiveDependencies: null,
-      );
-
-  @override
-  String debugGetCreateSourceHash() => _$predefinedLabelServiceHash();
-
-  @$internal
-  @override
-  $ProviderElement<PredefinedLabelService> $createElement(
-    $ProviderPointer pointer,
-  ) => $ProviderElement(pointer);
-
-  @override
-  PredefinedLabelService create(Ref ref) {
-    return predefinedLabelService(ref);
-  }
-
-  /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(PredefinedLabelService value) {
-    return $ProviderOverride(
-      origin: this,
-      providerOverride: $SyncValueProvider<PredefinedLabelService>(value),
-    );
-  }
-}
-
-String _$predefinedLabelServiceHash() =>
-    r'6ec98355c3d3903d0ab6012e542524a21a1e457c';
-
 @ProviderFor(PredefinedLabelsNotifier)
 final predefinedLabelsProvider = PredefinedLabelsNotifierProvider._();
 

@@ -43,9 +43,9 @@ class SetupIsPluginConfigNotifier extends _$SetupIsPluginConfigNotifier {
 @riverpod
 Future<SetupConfig> setupConfig(Ref ref) async {
   final service = ref.watch(initialSetupServiceProvider);
-  final useCdn = ref.watch(setupUseCdnNotifierProvider);
-  final customUrl = ref.watch(setupCustomUrlNotifierProvider);
-  final isPluginConfig = ref.watch(setupIsPluginConfigNotifierProvider);
+  final useCdn = ref.watch(setupUseCdnProvider);
+  final customUrl = ref.watch(setupCustomUrlProvider);
+  final isPluginConfig = ref.watch(setupIsPluginConfigProvider);
   return await service.fetchConfig(
     useCdn: useCdn,
     customUrl: customUrl,

@@ -8,12 +8,6 @@ import 'package:yourcallyourrule/features/labels/services/predefined_label_servi
 part 'predefined_labels_provider.g.dart';
 
 @Riverpod(keepAlive: true)
-PredefinedLabelService predefinedLabelService(Ref ref) {
-  final repository = ref.watch(predefinedLabelRepositoryProvider);
-  return PredefinedLabelService(repository);
-}
-
-@Riverpod(keepAlive: true)
 class PredefinedLabelsNotifier extends _$PredefinedLabelsNotifier {
   late final PredefinedLabelRepository _repository;
 
@@ -92,6 +86,6 @@ class PredefinedLabelsNotifier extends _$PredefinedLabelsNotifier {
 
 @riverpod
 Future<PredefinedLabel?> predefinedLabelById(Ref ref, String id) async {
-  final notifier = ref.watch(predefinedLabelsProvider.notifier);
+  final notifier = ref.watch(predefinedLabelsNotifierProvider.notifier);
   return await notifier.getLabelById(id);
 }
