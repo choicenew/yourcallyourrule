@@ -59,4 +59,4 @@ final class AppSyncBridgeConnectorProvider
 }
 
 String _$appSyncBridgeConnectorHash() =>
-    r'5cb2c1b25c0404ec0ebbe7cedf614baf06c33287';
+    r'ee45d07e218bc2726256259f2664cf9ae4cf5481';

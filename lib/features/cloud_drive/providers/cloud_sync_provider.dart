@@ -1,17 +1,23 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_cloud_drive_hub/pyro_cloud_drive_hub.dart';
 
-/// 绑定 pyro_cloud_drive_hub 驱动中枢 Provider (消灭 Java 式 instance，纯依赖注入)
-final cloudDriveHubProvider = Provider<CloudDriveHub>((ref) {
-  return CloudDriveHub();
-});
+part 'cloud_sync_provider.g.dart';
 
-final activeCloudDriverProvider = Provider<CloudDriveAdapter?>((ref) {
+/// 绑定 pyro_cloud_drive_hub 驱动中枢 Provider
+@Riverpod(keepAlive: true)
+CloudDriveHub cloudDriveHub(Ref ref) {
+  return CloudDriveHub();
+}
+
+@Riverpod(keepAlive: true)
+CloudDriveAdapter? activeCloudDriver(Ref ref) {
   final hub = ref.watch(cloudDriveHubProvider);
   return hub.currentDriver;
-});
+}
 
-final cloudSyncStatusProvider = FutureProvider<Map<String, dynamic>>((ref) async {
+@Riverpod(keepAlive: true)
+Future<Map<String, dynamic>> cloudSyncStatus(Ref ref) async {
   final hub = ref.watch(cloudDriveHubProvider);
   final activeDriver = hub.currentDriver;
   if (activeDriver == null) {
@@ -26,4 +32,4 @@ final cloudSyncStatusProvider = FutureProvider<Map<String, dynamic>>((ref) async
     'service_type': activeDriver.driverToken.toString(),
     'auto_sync_enabled': true,
   };
-});
+}

@@ -1,11 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/features/phone_evaluators/evaluators/call_policy_evaluator.dart';
 
-final liveActivityHandlerProvider = Provider<LiveActivityHandler>((ref) {
+part 'live_activity_handler.g.dart';
+
+@Riverpod(keepAlive: true)
+LiveActivityHandler liveActivityHandler(Ref ref) {
   return LiveActivityHandler(ref);
-});
+}
 
 class LiveActivityHandler {
   final Ref _ref;

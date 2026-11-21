@@ -1,12 +1,16 @@
 ﻿import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/sms/domain/sms_subscription.dart';
 import 'package:yourcallyourrule/features/sms/repositories/sms_subscription_repository.dart';
 import 'package:yourcallyourrule/features/phone_subscription/data/datasources/local_subscription_datasource.dart';
 
-final smsSubscriptionRepositoryProvider = Provider<SmsSubscriptionRepository>((ref) {
+part 'sms_subscription_repository_impl.g.dart';
+
+@Riverpod(keepAlive: true)
+SmsSubscriptionRepository smsSubscriptionRepository(Ref ref) {
   final dataSource = ref.watch(localSubscriptionDataSourceProvider);
   return SmsSubscriptionRepositoryImpl(dataSource);
-});
+}
 
 class SmsSubscriptionRepositoryImpl implements SmsSubscriptionRepository {
   final LocalSubscriptionDataSource _dataSource;

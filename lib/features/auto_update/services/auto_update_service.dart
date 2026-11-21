@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/phone_subscription/services/phone_subscription_service.dart';
 import 'package:yourcallyourrule/features/sms/services/sms_subscription_service.dart';
@@ -9,7 +9,10 @@ import 'package:yourcallyourrule/features/commercial/services/commercial_service
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_config.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
-final autoUpdateServiceProvider = Provider<AutoUpdateService>((ref) {
+part 'auto_update_service.g.dart';
+
+@Riverpod(keepAlive: true)
+AutoUpdateService autoUpdateService(Ref ref) {
   final phoneService = ref.watch(phoneSubscriptionServiceProvider);
   final smsService = ref.watch(smsSubscriptionServiceProvider);
   final contactService = ref.watch(contactSubscriptionServiceProvider);
@@ -25,7 +28,7 @@ final autoUpdateServiceProvider = Provider<AutoUpdateService>((ref) {
     configRepository: configRepository,
     isVip: isVip,
   );
-});
+}
 
 class AutoUpdateService {
   final PhoneSubscriptionService _phoneService;

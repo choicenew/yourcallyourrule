@@ -1,11 +1,15 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_caller_identity_protocol/pyro_phone_caller_identity_protocol.dart';
 import 'package:yourcallyourrule/core/coordinator/app_coordinator.dart';
 import 'package:yourcallyourrule/features/phone_evaluators/evaluators/call_policy_evaluator.dart';
 
-final notificationHandlerProvider = Provider<NotificationHandler>((ref) {
+part 'notification_handler.g.dart';
+
+@Riverpod(keepAlive: true)
+NotificationHandler notificationHandler(Ref ref) {
   return NotificationHandler(ref);
-});
+}
 
 class NotificationHandler {
   final Ref _ref;

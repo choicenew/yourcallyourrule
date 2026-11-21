@@ -41,14 +41,22 @@ final class StirCallHandlerProvider
   }
 }
 
-String _$stirCallHandlerHash() => r'a2ecd5ff4360ec2a7d27067d2103574cb6d7239d';
+String _$stirCallHandlerHash() => r'40f6390f198bfb625899097d79d0fa1f64ad9510';
 
 abstract class _$StirCallHandler extends $Notifier<StirResultEntity?> {
   StirResultEntity? build();
   @$mustCallSuper
   @override
   WhenComplete runBuild() {
-    final state = build();
-    return (state: state, result: null);
+    final ref = this.ref as $Ref<StirResultEntity?, StirResultEntity?>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<StirResultEntity?, StirResultEntity?>,
+              StirResultEntity?,
+              Object?,
+              Object?
+            >;
+    return element.handleCreate(ref, build);
   }
 }

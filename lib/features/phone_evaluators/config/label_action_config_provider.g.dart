@@ -8,12 +8,15 @@ part of 'label_action_config_provider.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// 纯动态标签动作映射表配置 Notifier (零硬编码，支持任意动态标签文本)
 
 @ProviderFor(LabelActionConfig)
 final labelActionConfigProvider = LabelActionConfigProvider._();
 
+/// 纯动态标签动作映射表配置 Notifier (零硬编码，支持任意动态标签文本)
 final class LabelActionConfigProvider
     extends $NotifierProvider<LabelActionConfig, Map<String, InterceptAction>> {
+  /// 纯动态标签动作映射表配置 Notifier (零硬编码，支持任意动态标签文本)
   LabelActionConfigProvider._()
     : super(
         from: null,
@@ -41,8 +44,9 @@ final class LabelActionConfigProvider
   }
 }
 
-String _$labelActionConfigHash() =>
-    r'93bfa6b216fce169d2737609a65691ae254559eb';
+String _$labelActionConfigHash() => r'ca14b6f83773657e2e512de627b0ebe96ca7906d';
+
+/// 纯动态标签动作映射表配置 Notifier (零硬编码，支持任意动态标签文本)
 
 abstract class _$LabelActionConfig
     extends $Notifier<Map<String, InterceptAction>> {
@@ -50,11 +54,16 @@ abstract class _$LabelActionConfig
   @$mustCallSuper
   @override
   WhenComplete runBuild() {
-    final ref = this.ref as $Ref<Map<String, InterceptAction>, Map<String, InterceptAction>>;
+    final ref =
+        this.ref
+            as $Ref<Map<String, InterceptAction>, Map<String, InterceptAction>>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<Map<String, InterceptAction>, Map<String, InterceptAction>>,
+              AnyNotifier<
+                Map<String, InterceptAction>,
+                Map<String, InterceptAction>
+              >,
               Map<String, InterceptAction>,
               Object?,
               Object?
@@ -62,4 +71,3 @@ abstract class _$LabelActionConfig
     return element.handleCreate(ref, build);
   }
 }
-

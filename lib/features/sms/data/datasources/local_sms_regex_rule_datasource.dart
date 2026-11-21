@@ -1,14 +1,18 @@
 ﻿import 'dart:async';
 import 'package:drift/drift.dart' hide Column;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
-final localSmsRegexRuleDataSourceProvider = Provider<LocalSmsRegexRuleDataSource>((ref) {
+part 'local_sms_regex_rule_datasource.g.dart';
+
+@Riverpod(keepAlive: true)
+LocalSmsRegexRuleDataSource localSmsRegexRuleDataSource(Ref ref) {
   final db = ref.watch(localDatabaseProvider);
   return LocalSmsRegexRuleDataSource(db);
-});
+}
 
 class LocalSmsRegexRuleDataSource {
   final LocalDatabase _database;

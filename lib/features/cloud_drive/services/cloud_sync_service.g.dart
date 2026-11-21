@@ -60,4 +60,4 @@ final class CloudSyncServiceProvider
   }
 }
 
-String _$cloudSyncServiceHash() => r'fe6a84c6ef73ac2559050993ed1fcfca2431c247';
+String _$cloudSyncServiceHash() => r'2d7254dc219e133e5603f123d3f791fd85c0b1eb';

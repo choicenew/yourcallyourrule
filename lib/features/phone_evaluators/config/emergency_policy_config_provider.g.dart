@@ -8,12 +8,19 @@ part of 'emergency_policy_config_provider.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// 紧急呼叫全局豁免策略配置 Notifier (支持开关、放行时长与自定义紧急号码持久化)
 
 @ProviderFor(EmergencyPolicyConfigNotifier)
 final emergencyPolicyConfigProvider = EmergencyPolicyConfigNotifierProvider._();
 
+/// 紧急呼叫全局豁免策略配置 Notifier (支持开关、放行时长与自定义紧急号码持久化)
 final class EmergencyPolicyConfigNotifierProvider
-    extends $NotifierProvider<EmergencyPolicyConfigNotifier, EmergencyPolicyConfig> {
+    extends
+        $NotifierProvider<
+          EmergencyPolicyConfigNotifier,
+          EmergencyPolicyConfig
+        > {
+  /// 紧急呼叫全局豁免策略配置 Notifier (支持开关、放行时长与自定义紧急号码持久化)
   EmergencyPolicyConfigNotifierProvider._()
     : super(
         from: null,
@@ -42,7 +49,9 @@ final class EmergencyPolicyConfigNotifierProvider
 }
 
 String _$emergencyPolicyConfigNotifierHash() =>
-    r'e0e854b77f98c91350a4bf85bc51381395c657a8';
+    r'99bcde3f94507b6c44e646426f08574f6eba2e14';
+
+/// 紧急呼叫全局豁免策略配置 Notifier (支持开关、放行时长与自定义紧急号码持久化)
 
 abstract class _$EmergencyPolicyConfigNotifier
     extends $Notifier<EmergencyPolicyConfig> {
@@ -62,4 +71,3 @@ abstract class _$EmergencyPolicyConfigNotifier
     return element.handleCreate(ref, build);
   }
 }
-

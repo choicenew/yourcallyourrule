@@ -6,17 +6,13 @@ import 'package:yourcallyourrule/features/country_database/services/country_sele
 part 'country_selection_provider.g.dart';
 
 /// Provider for the [CountrySelectionService].
-///
-/// This provider creates an instance of the service, injecting the necessary
-/// [ConfigRepository] dependency.
-final countrySelectionServiceProvider = Provider<CountrySelectionService>((ref) {
+@Riverpod(keepAlive: true)
+CountrySelectionService countrySelectionService(Ref ref) {
   final configRepository = ref.watch(configRepositoryProvider);
   return CountrySelectionService(configRepository);
-});
+}
 
 /// Notifier for managing the list of selected country iso codes.
-///
-/// This notifier handles loading, adding, and removing selected countries.
 @riverpod
 class SelectedCountries extends _$SelectedCountries {
   @override

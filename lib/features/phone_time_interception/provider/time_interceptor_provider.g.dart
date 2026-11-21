@@ -38,7 +38,7 @@ final class TimeInterceptorConfigNotifierProvider
 }
 
 String _$timeInterceptorConfigNotifierHash() =>
-    r'35913951c198d6bd9937c0ddfb3dbdb1e2dd1bf9';
+    r'586151013dc563160acc1d4f18494f82cc595157';
 
 abstract class _$TimeInterceptorConfigNotifier
     extends $AsyncNotifier<TimeInterceptorConfig> {

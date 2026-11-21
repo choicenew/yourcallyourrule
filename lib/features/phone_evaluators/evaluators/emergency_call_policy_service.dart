@@ -3,13 +3,17 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final emergencyCallPolicyServiceProvider = Provider<EmergencyCallPolicyService>((ref) {
+part 'emergency_call_policy_service.g.dart';
+
+@Riverpod(keepAlive: true)
+EmergencyCallPolicyService emergencyCallPolicyService(Ref ref) {
   final service = EmergencyCallPolicyService();
   service.init();
   return service;
-});
+}
 
 /// 紧急呼叫后 30 分钟全局最高优先级放行策略 (EmergencyCallPolicy)
 /// 当拨打紧急求救电话后，30 分钟内无条件放行所有来电，超越任何黑名单与拦截规则

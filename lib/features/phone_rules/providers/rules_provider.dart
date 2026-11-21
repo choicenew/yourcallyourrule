@@ -1,9 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository.dart';
 import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository_impl.dart';
 
-class RulesNotifier extends AsyncNotifier<List<PhoneRuleEntity>> {
+part 'rules_provider.g.dart';
+
+@Riverpod(keepAlive: true)
+class RulesNotifier extends _$RulesNotifier {
   late final RuleRepository _ruleRepository;
 
   @override
@@ -19,8 +23,8 @@ class RulesNotifier extends AsyncNotifier<List<PhoneRuleEntity>> {
   Future<List<PhoneRuleEntity>> _loadRules() async {
     try {
       return await _ruleRepository.getAll();
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
       return [];
     }
   }
@@ -30,8 +34,8 @@ class RulesNotifier extends AsyncNotifier<List<PhoneRuleEntity>> {
     try {
       await _ruleRepository.saveRule(rule);
       state = AsyncValue.data(await _loadRules());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -40,8 +44,8 @@ class RulesNotifier extends AsyncNotifier<List<PhoneRuleEntity>> {
     try {
       await _ruleRepository.saveRule(rule);
       state = AsyncValue.data(await _loadRules());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -50,12 +54,8 @@ class RulesNotifier extends AsyncNotifier<List<PhoneRuleEntity>> {
     try {
       await _ruleRepository.deleteRule(ruleId);
       state = AsyncValue.data(await _loadRules());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 }
-
-final rulesProvider = AsyncNotifierProvider<RulesNotifier, List<PhoneRuleEntity>>(() {
-  return RulesNotifier();
-});

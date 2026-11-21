@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'sync_scheduler.dart';
 import 'app_sync_bridge_connector.dart';
@@ -9,7 +10,10 @@ import 'package:yourcallyourrule/features/phone_history/services/system_call_log
 import 'package:yourcallyourrule/features/remote_filter/data/datasources/remote_number_datasource.dart';
 import 'package:yourcallyourrule/features/auto_update/services/auto_update_service.dart';
 
-final foregroundSyncServiceProvider = Provider<ForegroundSyncService>((ref) {
+part 'foreground_sync_service.g.dart';
+
+@Riverpod(keepAlive: true)
+ForegroundSyncService foregroundSyncService(Ref ref) {
   final syncManager = ref.watch(appSyncBridgeConnectorProvider);
   final remoteDb = ref.watch(remoteDatabaseProvider);
   final remoteNumberDataSource = RemoteNumberDataSource(remoteDb);
@@ -26,7 +30,7 @@ final foregroundSyncServiceProvider = Provider<ForegroundSyncService>((ref) {
     callLogSyncService: callLogSyncService,
     autoUpdateService: autoUpdateService,
   );
-});
+}
 
 class ForegroundSyncService {
   final AppSyncBridgeConnector _syncConnector;

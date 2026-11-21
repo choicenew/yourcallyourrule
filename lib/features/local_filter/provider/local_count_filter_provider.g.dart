@@ -39,7 +39,7 @@ final class LocalCountFilterConfigNotifierProvider
 }
 
 String _$localCountFilterConfigNotifierHash() =>
-    r'2acb3062a42a22c1a9c127e752fadb613a23313e';
+    r'745a7ca2b9aad95b8b8e9575577212382511fd53';
 
 abstract class _$LocalCountFilterConfigNotifier
     extends $AsyncNotifier<LocalCountFilterConfig> {

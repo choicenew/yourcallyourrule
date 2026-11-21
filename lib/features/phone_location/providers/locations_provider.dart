@@ -1,9 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_location_protocol/pyro_phone_location_protocol.dart';
 import 'package:yourcallyourrule/features/phone_location/repositories/location_repository.dart';
 import 'package:yourcallyourrule/features/phone_location/data/repositories/location_repository_impl.dart';
 
-class LocationsNotifier extends AsyncNotifier<List<PhoneLocationEntry>> {
+part 'locations_provider.g.dart';
+
+@Riverpod(keepAlive: true)
+class LocationsNotifier extends _$LocationsNotifier {
   late final LocationRepository _locationRepository;
 
   @override
@@ -19,8 +23,8 @@ class LocationsNotifier extends AsyncNotifier<List<PhoneLocationEntry>> {
   Future<List<PhoneLocationEntry>> _loadLocations() async {
     try {
       return await _locationRepository.getAll();
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
       return [];
     }
   }
@@ -30,8 +34,8 @@ class LocationsNotifier extends AsyncNotifier<List<PhoneLocationEntry>> {
     try {
       await _locationRepository.save(location);
       state = AsyncValue.data(await _loadLocations());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -40,8 +44,8 @@ class LocationsNotifier extends AsyncNotifier<List<PhoneLocationEntry>> {
     try {
       await _locationRepository.save(location);
       state = AsyncValue.data(await _loadLocations());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -50,12 +54,8 @@ class LocationsNotifier extends AsyncNotifier<List<PhoneLocationEntry>> {
     try {
       await _locationRepository.deleteById(locationId);
       state = AsyncValue.data(await _loadLocations());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 }
-
-final locationsProvider = AsyncNotifierProvider<LocationsNotifier, List<PhoneLocationEntry>>(() {
-  return LocationsNotifier();
-});

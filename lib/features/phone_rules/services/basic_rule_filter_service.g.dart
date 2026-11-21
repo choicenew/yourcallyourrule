@@ -54,4 +54,5 @@ final class BasicRuleFilterServiceProvider
   }
 }
 
-String _$basicRuleFilterServiceHash() => r'b64e5287f37f37478d10332306239bc7a87e8321';
+String _$basicRuleFilterServiceHash() =>
+    r'9937797dc1795ced4f5a91a8b9665af9d5859950';

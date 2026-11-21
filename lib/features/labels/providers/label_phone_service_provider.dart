@@ -1,10 +1,15 @@
 ﻿import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/labels/repositories/label_phone_repository.dart';
 import 'package:yourcallyourrule/features/labels/data/repositories/label_phone_repository_impl.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
+import 'labels_provider.dart';
 
-class LabelPhoneNotifier extends AsyncNotifier<List<LabelPhoneEntry>> {
+part 'label_phone_service_provider.g.dart';
+
+@Riverpod(keepAlive: true)
+class LabelPhonesNotifier extends _$LabelPhonesNotifier {
   late final LabelPhoneRepository _labelPhoneRepository;
 
   @override
@@ -20,8 +25,8 @@ class LabelPhoneNotifier extends AsyncNotifier<List<LabelPhoneEntry>> {
   Future<List<LabelPhoneEntry>> _loadLabels() async {
     try {
       return await _labelPhoneRepository.getAll();
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
       return [];
     }
   }
@@ -31,8 +36,8 @@ class LabelPhoneNotifier extends AsyncNotifier<List<LabelPhoneEntry>> {
     try {
       await _labelPhoneRepository.save(label);
       state = AsyncValue.data(await _loadLabels());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -41,8 +46,8 @@ class LabelPhoneNotifier extends AsyncNotifier<List<LabelPhoneEntry>> {
     try {
       await _labelPhoneRepository.update(label);
       state = AsyncValue.data(await _loadLabels());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -51,17 +56,14 @@ class LabelPhoneNotifier extends AsyncNotifier<List<LabelPhoneEntry>> {
     try {
       await _labelPhoneRepository.deleteById(labelId);
       state = AsyncValue.data(await _loadLabels());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 }
 
-final labelPhonesProvider = AsyncNotifierProvider<LabelPhoneNotifier, List<LabelPhoneEntry>>(() {
-  return LabelPhoneNotifier();
-});
-
-final labelPhoneByNumberProvider = FutureProvider.family<LabelPhoneEntry?, String>((ref, number) async {
+@riverpod
+Future<LabelPhoneEntry?> labelPhoneByNumber(Ref ref, String number) async {
   final labelService = ref.watch(labelServiceProvider);
   return await labelService.getLabelByPhoneNumber(number);
-});
+}

@@ -1,13 +1,17 @@
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_subscription_protocol/pyro_phone_subscription_protocol.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 
-final localSubscriptionDataSourceProvider = Provider<LocalSubscriptionDataSource>((ref) {
+part 'local_subscription_datasource.g.dart';
+
+@Riverpod(keepAlive: true)
+LocalSubscriptionDataSource localSubscriptionDataSource(Ref ref) {
   final db = ref.watch(localDatabaseProvider);
   return LocalSubscriptionDataSource(db);
-});
+}
 
 class LocalSubscriptionDataSource {
   final LocalDatabase _database;

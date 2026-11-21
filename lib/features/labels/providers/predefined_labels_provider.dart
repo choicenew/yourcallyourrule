@@ -1,15 +1,20 @@
 ﻿import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:yourcallyourrule/features/labels/repositories/predefined_label_repository.dart';
 import 'package:yourcallyourrule/features/labels/data/repositories/predefined_label_repository_impl.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
 
-final predefinedLabelServiceProvider = Provider<PredefinedLabelService>((ref) {
+part 'predefined_labels_provider.g.dart';
+
+@Riverpod(keepAlive: true)
+PredefinedLabelService predefinedLabelService(Ref ref) {
   final repository = ref.watch(predefinedLabelRepositoryProvider);
   return PredefinedLabelService(repository);
-});
+}
 
-class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
+@Riverpod(keepAlive: true)
+class PredefinedLabelsNotifier extends _$PredefinedLabelsNotifier {
   late final PredefinedLabelRepository _repository;
 
   @override
@@ -21,8 +26,8 @@ class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
   Future<List<PredefinedLabel>> _loadLabels() async {
     try {
       return await _repository.getAll();
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
       return [];
     }
   }
@@ -32,8 +37,8 @@ class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
     try {
       await _repository.save(label);
       state = AsyncValue.data(await _loadLabels());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -42,8 +47,8 @@ class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
     try {
       await _repository.update(label);
       state = AsyncValue.data(await _loadLabels());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -52,8 +57,8 @@ class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
     try {
       await _repository.delete(id);
       state = AsyncValue.data(await _loadLabels());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -63,11 +68,11 @@ class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
       final service = ref.read(predefinedLabelServiceProvider);
       await service.insertPredefinedLabels(predefinedLabels);
       state = AsyncValue.data(await _loadLabels());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
-  
+
   Future<PredefinedLabel?> getLabelById(String id) async {
     try {
       return await _repository.getById(id);
@@ -75,7 +80,7 @@ class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
       return null;
     }
   }
-  
+
   Future<List<PredefinedLabel>> searchLabelsByText(String text) async {
     try {
       return await _repository.getByText(text);
@@ -85,11 +90,8 @@ class PredefinedLabelsNotifier extends AsyncNotifier<List<PredefinedLabel>> {
   }
 }
 
-final predefinedLabelsProvider = AsyncNotifierProvider<PredefinedLabelsNotifier, List<PredefinedLabel>>(() {
-  return PredefinedLabelsNotifier();
-});
-
-final predefinedLabelByIdProvider = FutureProvider.family<PredefinedLabel?, String>((ref, id) async {
-  final notifier = ref.watch(predefinedLabelsProvider.notifier);
+@riverpod
+Future<PredefinedLabel?> predefinedLabelById(Ref ref, String id) async {
+  final notifier = ref.watch(predefinedLabelsNotifierProvider.notifier);
   return await notifier.getLabelById(id);
-});
+}

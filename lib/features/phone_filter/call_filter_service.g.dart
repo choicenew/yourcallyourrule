@@ -8,9 +8,14 @@ part of 'call_filter_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// 组合通话过滤器服务中枢 Provider (合并 enhancedCompositeFilterService)
+/// 零业务 Feature 依赖，所有子过滤器由各 Feature 自身实现并在 Coordinator 统一注册装配
 
 @ProviderFor(callFilterService)
 final callFilterServiceProvider = CallFilterServiceProvider._();
+
+/// 组合通话过滤器服务中枢 Provider (合并 enhancedCompositeFilterService)
+/// 零业务 Feature 依赖，所有子过滤器由各 Feature 自身实现并在 Coordinator 统一注册装配
 
 final class CallFilterServiceProvider
     extends
@@ -20,6 +25,8 @@ final class CallFilterServiceProvider
           EnhancedCompositeFilterService
         >
     with $Provider<EnhancedCompositeFilterService> {
+  /// 组合通话过滤器服务中枢 Provider (合并 enhancedCompositeFilterService)
+  /// 零业务 Feature 依赖，所有子过滤器由各 Feature 自身实现并在 Coordinator 统一注册装配
   CallFilterServiceProvider._()
     : super(
         from: null,
@@ -49,12 +56,14 @@ final class CallFilterServiceProvider
   Override overrideWithValue(EnhancedCompositeFilterService value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<EnhancedCompositeFilterService>(value),
+      providerOverride: $SyncValueProvider<EnhancedCompositeFilterService>(
+        value,
+      ),
     );
   }
 }
 
-String _$callFilterServiceHash() => r'c2a543881df681577d611891e457fceabf4f3780';
+String _$callFilterServiceHash() => r'dab4544350134158eee4505f34343c668913b202';
 
 @ProviderFor(enhancedCompositeFilterService)
 final enhancedCompositeFilterServiceProvider =
@@ -97,10 +106,12 @@ final class EnhancedCompositeFilterServiceProvider
   Override overrideWithValue(EnhancedCompositeFilterService value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<EnhancedCompositeFilterService>(value),
+      providerOverride: $SyncValueProvider<EnhancedCompositeFilterService>(
+        value,
+      ),
     );
   }
 }
 
 String _$enhancedCompositeFilterServiceHash() =>
-    r'db6b937667822fe1fa22caec61fb55979bb945d8';
+    r'fc5809c3ecb371e6a35efaa366fe7a50ab045366';

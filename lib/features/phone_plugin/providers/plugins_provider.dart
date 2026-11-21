@@ -1,9 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/features/phone_plugin/repositories/plugin_repository.dart';
 import 'package:yourcallyourrule/features/phone_plugin/data/repositories/plugin_repository_impl.dart';
 
-class PluginsNotifier extends AsyncNotifier<List<PluginSourceData>> {
+part 'plugins_provider.g.dart';
+
+@Riverpod(keepAlive: true)
+class PluginsNotifier extends _$PluginsNotifier {
   late final PluginRepository _pluginRepository;
 
   @override
@@ -19,8 +23,8 @@ class PluginsNotifier extends AsyncNotifier<List<PluginSourceData>> {
   Future<List<PluginSourceData>> _loadPlugins() async {
     try {
       return await _pluginRepository.getAll();
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
       return [];
     }
   }
@@ -30,8 +34,8 @@ class PluginsNotifier extends AsyncNotifier<List<PluginSourceData>> {
     try {
       await _pluginRepository.save(plugin);
       state = AsyncValue.data(await _loadPlugins());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -40,8 +44,8 @@ class PluginsNotifier extends AsyncNotifier<List<PluginSourceData>> {
     try {
       await _pluginRepository.update(plugin);
       state = AsyncValue.data(await _loadPlugins());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -50,8 +54,8 @@ class PluginsNotifier extends AsyncNotifier<List<PluginSourceData>> {
     try {
       await _pluginRepository.deleteById(pluginId);
       state = AsyncValue.data(await _loadPlugins());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -60,12 +64,8 @@ class PluginsNotifier extends AsyncNotifier<List<PluginSourceData>> {
     try {
       await _pluginRepository.updateEnabledStatus(pluginId, isEnabled);
       state = AsyncValue.data(await _loadPlugins());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 }
-
-final pluginsProvider = AsyncNotifierProvider<PluginsNotifier, List<PluginSourceData>>(() {
-  return PluginsNotifier();
-});

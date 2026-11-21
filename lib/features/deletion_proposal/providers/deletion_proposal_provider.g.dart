@@ -45,7 +45,7 @@ final class DeletionProposalNotifierProvider
 }
 
 String _$deletionProposalNotifierHash() =>
-    r'4722539504ad04d94c8d283bd483bc075700d23c';
+    r'c017c273d15f11d9b72a1a7d47b5e1a7ac167ac8';
 
 /// 删除提议状态的 Notifier。
 

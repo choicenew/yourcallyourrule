@@ -1,20 +1,25 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:pyro_phone_marking_protocol/pyro_phone_marking_protocol.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:pyro_phone_remote_filter_protocol/pyro_phone_remote_filter_protocol.dart';
 import 'package:yourcallyourrule/features/remote_filter/data/repositories/remote_number_repository_impl.dart';
 
-final pluginToRemoteSyncServiceProvider = Provider<PluginToRemoteSyncService>((ref) {
+part 'plugin_to_remote_sync_service.g.dart';
+
+@Riverpod(keepAlive: true)
+PluginToRemoteSyncService pluginToRemoteSyncService(Ref ref) {
   final remoteRepo = ref.watch(remoteNumberRepositoryProvider);
   return PluginToRemoteSyncService(remoteRepo);
-});
+}
 
-final pluginSyncServiceInitializerProvider = Provider<void>((ref) {
-  final syncService = ref.watch(pluginToRemoteSyncServiceProvider);
-});
+@Riverpod(keepAlive: true)
+void pluginSyncServiceInitializer(Ref ref) {
+  ref.watch(pluginToRemoteSyncServiceProvider);
+}
 
 class PluginToRemoteSyncService {
   final RemoteNumberRepositoryImpl _remoteRepo;

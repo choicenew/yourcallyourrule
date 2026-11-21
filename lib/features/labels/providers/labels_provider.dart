@@ -1,21 +1,21 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/labels/data/repositories/label_phone_repository_impl.dart';
 import 'package:yourcallyourrule/features/labels/services/label_service.dart';
 import 'package:yourcallyourrule/features/labels/services/predefined_label_service.dart';
+import 'predefined_labels_provider.dart';
 
-import 'label_phone_service_provider.dart';
+part 'labels_provider.g.dart';
 
-final labelServiceProvider = Provider<LabelService>((ref) {
+@Riverpod(keepAlive: true)
+LabelService labelService(Ref ref) {
   final labelPhoneRepository = ref.watch(labelPhoneRepositoryProvider);
   final predefinedLabelService = ref.watch(predefinedLabelServiceProvider);
-  
+
   return LabelService(labelPhoneRepository, predefinedLabelService);
-});
+}
 
-final labelsProvider = Provider<LabelPhoneNotifier>((ref) {
-  return ref.read(labelPhonesProvider.notifier);
-});
-
-final labelSystemProvider = Provider<LabelService>((ref) {
+@Riverpod(keepAlive: true)
+LabelService labelSystem(Ref ref) {
   return ref.watch(labelServiceProvider);
-});
+}

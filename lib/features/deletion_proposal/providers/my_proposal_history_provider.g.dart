@@ -48,4 +48,4 @@ final class MyProposalHistoryProvider
   }
 }
 
-String _$myProposalHistoryHash() => r'74b03f61e4629dd66f754671fa059973cd165453';
+String _$myProposalHistoryHash() => r'0256cce136ce028ee6248ad8071ef5c1311614a5';

@@ -1,10 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_call_history_protocol/pyro_phone_call_history_protocol.dart';
 import 'package:yourcallyourrule/features/phone_history/repositories/call_log_repository.dart';
 import 'package:yourcallyourrule/features/phone_history/data/repositories/call_log_repository_impl.dart';
 
+part 'call_logs_provider.g.dart';
+
 /// 通话记录数据状态的 Notifier
-class CallLogsNotifier extends AsyncNotifier<List<CallLogEntry>> {
+@Riverpod(keepAlive: true)
+class CallLogsNotifier extends _$CallLogsNotifier {
   late final CallLogRepository _callLogRepository;
 
   @override
@@ -59,8 +63,3 @@ class CallLogsNotifier extends AsyncNotifier<List<CallLogEntry>> {
     }
   }
 }
-
-/// 通话记录数据提供者
-final callLogsProvider = AsyncNotifierProvider<CallLogsNotifier, List<CallLogEntry>>(() {
-  return CallLogsNotifier();
-});

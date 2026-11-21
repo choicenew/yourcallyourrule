@@ -1,9 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/sms/domain/sms_subscription.dart';
 import 'package:yourcallyourrule/features/sms/repositories/sms_subscription_repository.dart';
 import 'package:yourcallyourrule/features/sms/data/repositories/sms_subscription_repository_impl.dart';
 
-class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
+part 'sms_subscriptions_provider.g.dart';
+
+@Riverpod(keepAlive: true)
+class SmsSubscriptionsNotifier extends _$SmsSubscriptionsNotifier {
   late final SmsSubscriptionRepository _smsSubscriptionRepository;
 
   @override
@@ -19,8 +23,8 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
   Future<List<SmsSubscription>> _loadSmsSubscriptions() async {
     try {
       return await _smsSubscriptionRepository.getAll();
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
       return [];
     }
   }
@@ -30,8 +34,8 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
     try {
       await _smsSubscriptionRepository.save(subscription);
       state = AsyncValue.data(await _loadSmsSubscriptions());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -40,8 +44,8 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
     try {
       await _smsSubscriptionRepository.update(subscription);
       state = AsyncValue.data(await _loadSmsSubscriptions());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
 
@@ -50,21 +54,21 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
     try {
       await _smsSubscriptionRepository.deleteById(subscriptionId);
       state = AsyncValue.data(await _loadSmsSubscriptions());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
-  
+
   Future<void> batchUpdateStatus(List<String> ids, bool isEnabled) async {
     state = const AsyncValue.loading();
     try {
       await _smsSubscriptionRepository.batchUpdateSmsStatus(ids, isEnabled);
       state = AsyncValue.data(await _loadSmsSubscriptions());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
-  
+
   Future<SmsSubscription?> getByPhoneNumber(String number) async {
     try {
       return await _smsSubscriptionRepository.getByPhoneNumber(number);
@@ -72,16 +76,16 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
       return null;
     }
   }
-  
+
   Future<void> updateLastUpdated(String id, DateTime time) async {
     try {
       await _smsSubscriptionRepository.updateLastUpdated(id, time);
       state = AsyncValue.data(await _loadSmsSubscriptions());
-    } catch (e) {
-      state = AsyncValue.error(e, StackTrace.current);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
     }
   }
-  
+
   Future<List<SmsSubscription>> getPendingUpdateSubscriptions() async {
     try {
       return await _smsSubscriptionRepository.getPendingUpdateSubscriptions();
@@ -89,7 +93,7 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
       return [];
     }
   }
-  
+
   Future<int> clearExpiredSubscriptions() async {
     try {
       return await _smsSubscriptionRepository.clearExpiredSubscriptions();
@@ -98,7 +102,3 @@ class SmsSubscriptionsNotifier extends AsyncNotifier<List<SmsSubscription>> {
     }
   }
 }
-
-final smsSubscriptionsProvider = AsyncNotifierProvider<SmsSubscriptionsNotifier, List<SmsSubscription>>(() {
-  return SmsSubscriptionsNotifier();
-});

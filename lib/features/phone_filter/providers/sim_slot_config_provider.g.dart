@@ -34,7 +34,7 @@ final class SimSlotConfigNotifierProvider
 }
 
 String _$simSlotConfigNotifierHash() =>
-    r'788650f67885e6cccedf8d12fe330d6a0f9dcf27';
+    r'4a92309a11f8ebfcc29414a980b8335d80e58dc1';
 
 abstract class _$SimSlotConfigNotifier
     extends $AsyncNotifier<SimSlotConfigState> {

@@ -1,10 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_contacts_protocol/pyro_phone_contacts_protocol.dart';
 import 'package:yourcallyourrule/features/contacts/repositories/contact_repository.dart';
 import 'package:yourcallyourrule/features/contacts/data/repositories/contact_repository_impl.dart';
 
+part 'contacts_provider.g.dart';
+
 /// 联系人数据状态的 Notifier
-class ContactsNotifier extends AsyncNotifier<List<PhoneContactEntry>> {
+@Riverpod(keepAlive: true)
+class ContactsNotifier extends _$ContactsNotifier {
   late final ContactRepository _contactRepository;
 
   @override
@@ -59,8 +63,3 @@ class ContactsNotifier extends AsyncNotifier<List<PhoneContactEntry>> {
     }
   }
 }
-
-/// 联系人数据提供者
-final contactsProvider = AsyncNotifierProvider<ContactsNotifier, List<PhoneContactEntry>>(() {
-  return ContactsNotifier();
-});

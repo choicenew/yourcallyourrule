@@ -40,7 +40,7 @@ final class RemoteNumberFilterConfigNotifierProvider
 }
 
 String _$remoteNumberFilterConfigNotifierHash() =>
-    r'0c27a0cf7929b4a239f6c05adef5a24d1e96322c';
+    r'b0024748a73e3cc97a0d181bea80ee458ddc0877';
 
 abstract class _$RemoteNumberFilterConfigNotifier
     extends $AsyncNotifier<RemoteNumberFilterConfig> {

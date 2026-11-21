@@ -3,18 +3,22 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_phone_lookup_plugin_protocol/pyro_phone_lookup_plugin_protocol.dart';
 import 'package:yourcallyourrule/data/database/local/local_database.dart';
 import 'package:yourcallyourrule/features/phone_plugin/repositories/plugin_repository.dart';
 import 'package:yourcallyourrule/features/phone_plugin/data/repositories/plugin_repository_impl.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
-final pluginManagerServiceProvider = Provider<PluginManagerService>((ref) {
+part 'plugin_manager_service.g.dart';
+
+@Riverpod(keepAlive: true)
+PluginManagerService pluginManagerService(Ref ref) {
   final db = ref.watch(localDatabaseProvider);
   final PluginRepository repo = PluginRepositoryImpl(db);
   final configRepo = ref.watch(configRepositoryProvider);
   return PluginManagerService(repo, configRepo);
-});
+}
 
 class PluginManagerService {
   final PluginRepository _repository;

@@ -58,4 +58,4 @@ final class SimCardsProvider
   }
 }
 
-String _$simCardsHash() => r'44b9f75d874385eb2102a827971280f05f4d43fd';
+String _$simCardsHash() => r'b82f4ee596c060ce0d0d639acc63804570f8d35e';

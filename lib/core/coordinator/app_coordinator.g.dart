@@ -8,20 +8,20 @@ part of 'app_coordinator.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// 鍏ㄥ眬 App 涓灑鍗忚皟鍣?(App Coordinator / Event Mediator)
-/// 璐熻矗璺?Feature 閫氫俊涓庤В鑰︿簨浠舵淳鍙戯紝褰诲簳娑堥櫎 lib/features/X 璺ㄥ寘寮曠敤 lib/features/Y
+/// 全局 App 中枢协调器 (App Coordinator / Event Mediator)
+/// 负责跨 Feature 通信与解耦事件派发，彻底消除 lib/features/X 跨包引用 lib/features/Y
 
 @ProviderFor(appCoordinator)
 final appCoordinatorProvider = AppCoordinatorProvider._();
 
-/// 鍏ㄥ眬 App 涓灑鍗忚皟鍣?(App Coordinator / Event Mediator)
-/// 璐熻矗璺?Feature 閫氫俊涓庤В鑰︿簨浠舵淳鍙戯紝褰诲簳娑堥櫎 lib/features/X 璺ㄥ寘寮曠敤 lib/features/Y
+/// 全局 App 中枢协调器 (App Coordinator / Event Mediator)
+/// 负责跨 Feature 通信与解耦事件派发，彻底消除 lib/features/X 跨包引用 lib/features/Y
 
 final class AppCoordinatorProvider
     extends $FunctionalProvider<AppCoordinator, AppCoordinator, AppCoordinator>
     with $Provider<AppCoordinator> {
-  /// 鍏ㄥ眬 App 涓灑鍗忚皟鍣?(App Coordinator / Event Mediator)
-  /// 璐熻矗璺?Feature 閫氫俊涓庤В鑰︿簨浠舵淳鍙戯紝褰诲簳娑堥櫎 lib/features/X 璺ㄥ寘寮曠敤 lib/features/Y
+  /// 全局 App 中枢协调器 (App Coordinator / Event Mediator)
+  /// 负责跨 Feature 通信与解耦事件派发，彻底消除 lib/features/X 跨包引用 lib/features/Y
   AppCoordinatorProvider._()
     : super(
         from: null,

@@ -41,14 +41,22 @@ final class SimCallHandlerProvider
   }
 }
 
-String _$simCallHandlerHash() => r'ac86564fafcf6ef6385d1a7ca0f1d2e6b4883442';
+String _$simCallHandlerHash() => r'19e6f1701283d096a06cd064c03592397cade65d';
 
 abstract class _$SimCallHandler extends $Notifier<SimCardEntity?> {
   SimCardEntity? build();
   @$mustCallSuper
   @override
   WhenComplete runBuild() {
-    final state = build();
-    return (state: state, result: null);
+    final ref = this.ref as $Ref<SimCardEntity?, SimCardEntity?>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<SimCardEntity?, SimCardEntity?>,
+              SimCardEntity?,
+              Object?,
+              Object?
+            >;
+    return element.handleCreate(ref, build);
   }
 }

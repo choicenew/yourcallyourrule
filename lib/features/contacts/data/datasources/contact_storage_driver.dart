@@ -1,4 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'contact_storage_driver.g.dart';
 
 abstract class ContactStorageDriver {
   Future<List<Map<String, dynamic>>> queryAll();
@@ -10,6 +13,7 @@ abstract class ContactStorageDriver {
   Future<int> count();
 }
 
-final contactStorageDriverProvider = Provider<ContactStorageDriver>((ref) {
-  throw UnimplementedError('contactStorageDriverProvider must be overridden or initialized');
-});
+@Riverpod(keepAlive: true)
+ContactStorageDriver contactStorageDriver(Ref ref) {
+  throw UnimplementedError('contactStorageDriver must be overridden or initialized');
+}

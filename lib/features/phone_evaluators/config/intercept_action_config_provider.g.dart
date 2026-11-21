@@ -42,7 +42,7 @@ final class InterceptActionConfigProvider
 }
 
 String _$interceptActionConfigHash() =>
-    r'490ff66d5bd106ca83f2a3ff48710ae7c2f0f49c';
+    r'65499140756e9d203057e084aa9b1190cc2e9dbd';
 
 abstract class _$InterceptActionConfig extends $Notifier<InterceptAction> {
   InterceptAction build();
@@ -61,4 +61,3 @@ abstract class _$InterceptActionConfig extends $Notifier<InterceptAction> {
     return element.handleCreate(ref, build);
   }
 }
-

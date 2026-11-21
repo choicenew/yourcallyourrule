@@ -1,13 +1,17 @@
 ﻿import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_crowdsourcing_arbiter/pyro_crowdsourcing_arbiter.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/data/proposal_datasource.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/domain/proposal.dart';
 import 'package:yourcallyourrule/features/deletion_proposal/models/proposal_history_item.dart';
 
-final proposalDataSourceProvider = Provider<ProposalDataSource>((ref) {
+part 'proposal_datasource_impl.g.dart';
+
+@Riverpod(keepAlive: true)
+ProposalDataSource proposalDataSource(Ref ref) {
   return ProposalDataSourceImpl(CrowdsourcingArbiterService());
-});
+}
 
 /// 删除提案数据源实现类 —— 100% 委派 pyro_crowdsourcing_arbiter 众包裁决引擎
 class ProposalDataSourceImpl implements ProposalDataSource {

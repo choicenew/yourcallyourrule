@@ -1,28 +1,28 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:yourcallyourrule/features/phone_rules/repositories/rule_repository_impl.dart';
 import 'package:yourcallyourrule/features/phone_history/services/call_log_service.dart';
 import 'package:yourcallyourrule/features/home/models/home_stats_model.dart';
 import 'package:yourcallyourrule/features/home/services/home_stats_service.dart';
 
-final homeStatsProvider = AsyncNotifierProvider<HomeStatsNotifier, HomeStats>(() {
-  return HomeStatsNotifier();
-});
+part 'home_stats_provider.g.dart';
 
-class HomeStatsNotifier extends AsyncNotifier<HomeStats> {
+@Riverpod(keepAlive: true)
+class HomeStatsNotifier extends _$HomeStatsNotifier {
   @override
   Future<HomeStats> build() async {
     final callLogService = ref.read(callLogServiceProvider);
     final ruleRepository = ref.read(ruleRepositoryProvider);
     final homeStatsService = HomeStatsService();
-      
+
     final callLogs = await callLogService.getRecentLogs();
     final allRules = await ruleRepository.getAll();
-      
+
     final homeStats = await homeStatsService.getHomeStats(
       callLogs,
       allRules,
     );
-      
+
     return homeStats;
   }
 

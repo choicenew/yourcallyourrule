@@ -11,18 +11,20 @@ import '../config/app_ads_config.dart';
 
 part 'commercial_service.g.dart';
 
-final commercialHubProvider = Provider<CommercialHub>((ref) {
+@Riverpod(keepAlive: true)
+CommercialHub commercialHub(Ref ref) {
   final notifier = ref.watch(commercialNotifierProvider.notifier);
   final hub = CommercialHub(commercialNotifier: notifier);
   CommercialHub.init(commercialNotifier: notifier);
   return hub;
-});
+}
 
 /// 全局 VIP 用户特权响应式 Provider
-final isVipUserProvider = Provider<bool>((ref) {
+@Riverpod(keepAlive: true)
+bool isVipUser(Ref ref) {
   final commercialState = ref.watch(commercialNotifierProvider).value;
   return (commercialState?.isPurchased == true || commercialState?.isAdFree == true) || defaultAdPolicyManager.isVipUser;
-});
+}
 
 @Riverpod(keepAlive: true)
 CommercialService commercialService(Ref ref) {
@@ -49,7 +51,7 @@ class CommercialService {
     final admobAdapter = PyroAdsAdmobAdapter();
     defaultAdsHub.register(admobAdapter);
 
-    // 3. 婚礼挂载商业广告连接器
+    // 3. 完美挂载商业广告连接器
     CommercialAdConnectors.ensureAdConnectorsMounted();
 
     debugPrint('[CommercialService] 主 App 商业化中枢服务挂载初始化完成');
