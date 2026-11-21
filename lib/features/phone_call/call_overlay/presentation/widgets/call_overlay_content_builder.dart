@@ -30,6 +30,7 @@ class CallOverlayContentBuilder {
     Function(Offset)? onCallTypePositionChanged,
     Function(Offset)? onSimCardPositionChanged,
     Function(Offset)? onSecurityMessagePositionChanged,
+    bool showQuickBlockButton = true,
   }) {
     final bool isFraudulent = FraudDetectionService.checkForFraudLabels(callerIdData);
 
@@ -171,10 +172,11 @@ class CallOverlayContentBuilder {
             position: config.simCardPosition,
             onPositionChanged: isDraggable ? onSimCardPositionChanged : null,
           ),
-        Positioned(
-          right: 10,
-          bottom: 8,
-          child: Material(
+        if (showQuickBlockButton)
+          Positioned(
+            right: 10,
+            bottom: 8,
+            child: Material(
             color: Colors.transparent,
             child: InkWell(
               borderRadius: BorderRadius.circular(16),
@@ -242,6 +244,7 @@ class CallOverlayContentBuilder {
     Function(Offset)? onCallTypePositionChanged,
     Function(Offset)? onSimCardPositionChanged,
     Function(Offset)? onSecurityMessagePositionChanged,
+    bool showQuickBlockButton = true,
   }) => buildCallOverlayContent(
     context: context,
     callerIdData: callerIdData,
@@ -262,6 +265,7 @@ class CallOverlayContentBuilder {
     onCallTypePositionChanged: onCallTypePositionChanged,
     onSimCardPositionChanged: onSimCardPositionChanged,
     onSecurityMessagePositionChanged: onSecurityMessagePositionChanged,
+    showQuickBlockButton: showQuickBlockButton,
   );
 
   static Widget _buildAvatar(CallerIdData callerIdData, CallOverlayConfig config, bool isFraudulent) {

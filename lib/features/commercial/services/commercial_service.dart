@@ -45,11 +45,15 @@ class CommercialService {
       debugPrint('[CommercialService] Production 模式: 已注入 AdMob 生产环境广告 ID');
     }
 
-    // 2. 注册 AdMob 驱动到 AdsHub
+    // 2. 注册 AdMob 驱动到 AdsHub 并绑定各 Tier
+    final admobAdapter = PyroAdsAdmobAdapter();
     defaultAdsHub.registerDriver(
       level: 1,
-      adapter: PyroAdsAdmobAdapter(),
+      adapter: admobAdapter,
     );
+    defaultAdsHub.mapTierProvider(AdTrafficTier.tier1, admobAdapter.providerId);
+    defaultAdsHub.mapTierProvider(AdTrafficTier.tier2, admobAdapter.providerId);
+    defaultAdsHub.mapTierProvider(AdTrafficTier.tier3, admobAdapter.providerId);
 
     // 3. 婚礼挂载商业广告连接器
     CommercialAdConnectors.ensureAdConnectorsMounted();

@@ -89,6 +89,7 @@ class _CallOverlayCustomizationScreenState
                       stirInfo: CallOverlayMockData.mockStirInfoData(),
                       onDismiss: () {},
                       isDismissible: false,
+                      isPreview: true,
                     ),
                   ),
                   Expanded(

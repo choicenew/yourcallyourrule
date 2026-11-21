@@ -29,6 +29,7 @@ import 'package:pyro_sim_connector/pyro_sim_connector.dart';
 import 'package:pyro_stir_connector/pyro_stir_connector.dart';
 import 'package:pyro_sms_connector/pyro_sms_connector.dart';
 import 'package:pyro_commercial_hub/pyro_commercial_hub.dart';
+import 'package:yourcallyourrule/features/commercial/services/commercial_service.dart';
 
 /// 全量 33 个微包外观装配线独立初始化入口
 void initPackageConnectors() {
@@ -58,6 +59,7 @@ void initPackageConnectors() {
   PyroCallMonitorConnector.registerAll();
   PyroCallCoordinatorConnector.registerAll();
   PyroPhoneMarkingConnector.registerAll();
+  CommercialService().initialize();
   CommercialAdConnectors.ensureAdConnectorsMounted();
   SmsConnectors.ensureMounted();
 

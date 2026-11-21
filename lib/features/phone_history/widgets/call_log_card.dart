@@ -6,8 +6,7 @@ import 'package:yourcallyourrule/features/phone_history/entities/call_log.dart';
 import 'package:yourcallyourrule/features/phone_history/entities/local_call_type.dart';
 import 'package:yourcallyourrule/features/phone_history/utils/call_history_action_handler.dart';
 import 'package:yourcallyourrule/features/phone_history/widgets/phone_meta_edit_dialog.dart';
-import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
-import 'package:yourcallyourrule/features/phone_rules/widgets/rule_action_selector.dart';
+import 'package:yourcallyourrule/features/phone_history/widgets/rule_action_dialog.dart';
 import 'package:yourcallyourrule/features/labels/utils/label_translation_utils.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -362,14 +361,7 @@ class CallLogCard extends ConsumerWidget {
   void _showRuleActionDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        content: RuleActionSelector(
-          initialAction: RuleAction.block,
-          onActionChanged: (action) {
-            Navigator.pop(context);
-          },
-        ),
-      ),
+      builder: (context) => RuleActionDialog(log: log),
     );
   }
 

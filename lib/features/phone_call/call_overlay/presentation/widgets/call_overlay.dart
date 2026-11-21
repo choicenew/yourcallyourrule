@@ -12,6 +12,7 @@ class CallOverlay extends ConsumerWidget {
   final StirInfo? stirInfo;
   final VoidCallback onDismiss;
   final bool isDismissible;
+  final bool isPreview;
 
   const CallOverlay({
     super.key,
@@ -20,6 +21,7 @@ class CallOverlay extends ConsumerWidget {
     this.stirInfo,
     required this.onDismiss,
     required this.isDismissible,
+    this.isPreview = false,
   });
 
   @override
@@ -33,6 +35,7 @@ class CallOverlay extends ConsumerWidget {
         callerIdData: callerIdData,
         simInfo: simInfo,
         stirInfo: stirInfo,
+        showQuickBlockButton: !isPreview,
       ),
       loading: () => const Center(child: CircularProgressIndicator()),
       error: (e, s) => Center(child: Text('Error: $e')),
