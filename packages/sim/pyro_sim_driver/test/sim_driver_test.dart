@@ -4,8 +4,8 @@ import 'package:pyro_sim_driver/src/sim_api.g.dart';
 
 class MockSimHostApi implements SimHostApi {
   bool simPresent = true;
-  List<PigeonSimCard> mockCards = [];
-  PigeonNetworkInfo? mockNetworkInfo;
+  List<SimCardPayload> mockCards = [];
+  NetworkInfoPayload? mockNetworkInfo;
 
   @override
   // ignore: non_constant_identifier_names
@@ -18,10 +18,10 @@ class MockSimHostApi implements SimHostApi {
   Future<bool> hasSimCard() async => simPresent;
 
   @override
-  Future<List<PigeonSimCard>> getActiveSimCards() async => mockCards;
+  Future<List<SimCardPayload>> getActiveSimCards() async => mockCards;
 
   @override
-  Future<PigeonNetworkInfo?> getNetworkInfo() async => mockNetworkInfo;
+  Future<NetworkInfoPayload?> getNetworkInfo() async => mockNetworkInfo;
 }
 
 void main() {
@@ -50,7 +50,7 @@ void main() {
 
     test('getActiveSimCards correctly maps to SimCardEntity', () async {
       mockHostApi.mockCards = [
-        PigeonSimCard(
+        SimCardPayload(
           subscriptionId: 1,
           simSlotIndex: 0,
           carrierName: 'China Mobile',
@@ -81,8 +81,8 @@ void main() {
 
     test('getSimBySlot finds corresponding slot card', () async {
       mockHostApi.mockCards = [
-        PigeonSimCard(subscriptionId: 10, simSlotIndex: 0),
-        PigeonSimCard(subscriptionId: 20, simSlotIndex: 1),
+        SimCardPayload(subscriptionId: 10, simSlotIndex: 0),
+        SimCardPayload(subscriptionId: 20, simSlotIndex: 1),
       ];
 
       final card0 = await driver.getSimBySlot(0);
@@ -98,7 +98,7 @@ void main() {
     });
 
     test('getNetworkInfo maps to NetworkInfoEntity', () async {
-      mockHostApi.mockNetworkInfo = PigeonNetworkInfo(
+      mockHostApi.mockNetworkInfo = NetworkInfoPayload(
         networkOperatorName: 'China Unicom',
         networkOperator: '46001',
         networkType: 'LTE',

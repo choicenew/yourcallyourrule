@@ -7,7 +7,7 @@ class MockNotificationHostApi implements SmsNotificationListenerHostApi {
   bool granted = true;
   String? lastCancelledKey;
   List<String>? lastPackages;
-  PigeonSmsEvidencePayload? lastEvidence;
+  SmsEvidencePayloadDetails? lastEvidence;
 
   @override
   // ignore: non_constant_identifier_names
@@ -29,7 +29,7 @@ class MockNotificationHostApi implements SmsNotificationListenerHostApi {
   }
 
   @override
-  Future<bool> saveEvidence(PigeonSmsEvidencePayload evidence) async {
+  Future<bool> saveEvidence(SmsEvidencePayloadDetails evidence) async {
     lastEvidence = evidence;
     return true;
   }
@@ -117,4 +117,3 @@ void main() {
     });
   });
 }
-

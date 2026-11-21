@@ -43,8 +43,8 @@ void main() {
       expect(await driver.isRoleGranted(), isTrue);
     });
 
-    test('evaluateCall receives strongly-typed PigeonRedirectionRequest', () async {
-      final request = PigeonRedirectionRequest(
+    test('evaluateCall receives strongly-typed RedirectionRequestDetails', () async {
+      final request = RedirectionRequestDetails(
         id: 'call_456',
         rawPhoneNumber: '+15559876543',
         normalizedPhoneNumber: '15559876543',
