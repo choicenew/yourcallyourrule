@@ -11,11 +11,11 @@ class SimDriverPlugin : FlutterPlugin, SimHostApi {
         SimHostApi.setUp(binding.binaryMessenger, this)
     }
 
-    override fun getActiveSimCards(): List<PigeonSimCard> {
+    override fun getActiveSimCards(): List<SimCardPayload> {
         val ctx = applicationContext ?: return emptyList()
         val rawList = SimCheckerImpl.getActiveSimCards(ctx)
         return rawList.map { map ->
-            PigeonSimCard(
+            SimCardPayload(
                 subscriptionId = (map["subscriptionId"] as? Number)?.toLong(),
                 simSlotIndex = (map["simSlotIndex"] as? Number)?.toLong(),
                 carrierName = map["carrierName"] as? String,
@@ -37,10 +37,10 @@ class SimDriverPlugin : FlutterPlugin, SimHostApi {
         return SimCheckerImpl.hasSimCard(ctx)
     }
 
-    override fun getNetworkInfo(): PigeonNetworkInfo? {
+    override fun getNetworkInfo(): NetworkInfoPayload? {
         val ctx = applicationContext ?: return null
         val map = SimCheckerImpl.getNetworkInfo(ctx)
-        return PigeonNetworkInfo(
+        return NetworkInfoPayload(
             networkOperatorName = map["networkOperatorName"] as? String,
             networkOperator = map["networkOperator"] as? String,
             networkType = map["networkType"] as? String,

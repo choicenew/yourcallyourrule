@@ -8,7 +8,7 @@ import 'package:pigeon/pigeon.dart';
     package: 'com.pyro.sim',
   ),
 ))
-class PigeonSimCard {
+class SimCardPayload {
   int? subscriptionId;
   int? simSlotIndex;
   String? carrierName;
@@ -23,7 +23,7 @@ class PigeonSimCard {
   String? state;
 }
 
-class PigeonNetworkInfo {
+class NetworkInfoPayload {
   String? networkOperatorName;
   String? networkOperator;
   String? networkType;
@@ -33,7 +33,7 @@ class PigeonNetworkInfo {
 
 @HostApi()
 abstract class SimHostApi {
-  List<PigeonSimCard> getActiveSimCards();
+  List<SimCardPayload> getActiveSimCards();
   bool hasSimCard();
-  PigeonNetworkInfo? getNetworkInfo();
+  NetworkInfoPayload? getNetworkInfo();
 }

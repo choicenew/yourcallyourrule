@@ -15,8 +15,7 @@ PlatformException _createConnectionError(String channelName) {
   );
 }
 
-List<Object?> wrapResponse(
-    {Object? result, PlatformException? error, bool empty = false}) {
+List<Object?> wrapResponse({Object? result, PlatformException? error, bool empty = false}) {
   if (empty) {
     return <Object?>[];
   }
@@ -26,8 +25,8 @@ List<Object?> wrapResponse(
   return <Object?>[error.code, error.message, error.details];
 }
 
-class PigeonTelephonySmsPayload {
-  PigeonTelephonySmsPayload({
+class TelephonySmsPayloadDetails {
+  TelephonySmsPayloadDetails({
     this.id,
     this.sender,
     this.body,
@@ -35,8 +34,11 @@ class PigeonTelephonySmsPayload {
   });
 
   String? id;
+
   String? sender;
+
   String? body;
+
   int? timestampMs;
 
   Object encode() {
@@ -48,9 +50,9 @@ class PigeonTelephonySmsPayload {
     ];
   }
 
-  static PigeonTelephonySmsPayload decode(Object result) {
+  static TelephonySmsPayloadDetails decode(Object result) {
     result as List<Object?>;
-    return PigeonTelephonySmsPayload(
+    return TelephonySmsPayloadDetails(
       id: result[0] as String?,
       sender: result[1] as String?,
       body: result[2] as String?,
@@ -59,15 +61,15 @@ class PigeonTelephonySmsPayload {
   }
 }
 
+
 class _PigeonCodec extends StandardMessageCodec {
   const _PigeonCodec();
-
   @override
   void writeValue(WriteBuffer buffer, Object? value) {
     if (value is int) {
       buffer.putUint8(4);
       buffer.putInt64(value);
-    } else if (value is PigeonTelephonySmsPayload) {
+    }    else if (value is TelephonySmsPayloadDetails) {
       buffer.putUint8(129);
       writeValue(buffer, value.encode());
     } else {
@@ -78,8 +80,8 @@ class _PigeonCodec extends StandardMessageCodec {
   @override
   Object? readValueOfType(int type, ReadBuffer buffer) {
     switch (type) {
-      case 129:
-        return PigeonTelephonySmsPayload.decode(readValue(buffer)!);
+      case 129: 
+        return TelephonySmsPayloadDetails.decode(readValue(buffer)!);
       default:
         return super.readValueOfType(type, buffer);
     }
@@ -88,14 +90,16 @@ class _PigeonCodec extends StandardMessageCodec {
 
 class TelephonyFallbackHostApi {
   /// Constructor for [TelephonyFallbackHostApi].  The [binaryMessenger] named argument is
-  /// available for testing purposes.
+  /// available for dependency injection.  If it is left null, the default
+  /// BinaryMessenger will be used which routes to the host platform.
   TelephonyFallbackHostApi({BinaryMessenger? binaryMessenger, String messageChannelSuffix = ''})
       : pigeonVar_binaryMessenger = binaryMessenger,
         pigeonVar_messageChannelSuffix = messageChannelSuffix.isNotEmpty ? '.$messageChannelSuffix' : '';
   final BinaryMessenger? pigeonVar_binaryMessenger;
-  final String pigeonVar_messageChannelSuffix;
 
   static const MessageCodec<Object?> pigeonChannelCodec = _PigeonCodec();
+
+  final String pigeonVar_messageChannelSuffix;
 
   Future<bool> isSmsPermissionGranted() async {
     final String pigeonVar_channelName = 'dev.flutter.pigeon.pyro_sms_driver_telephony_fallback.TelephonyFallbackHostApi.isSmsPermissionGranted$pigeonVar_messageChannelSuffix';
@@ -128,7 +132,7 @@ class TelephonyFallbackHostApi {
 abstract class TelephonyFallbackFlutterApi {
   static const MessageCodec<Object?> pigeonChannelCodec = _PigeonCodec();
 
-  void onSmsReceived(PigeonTelephonySmsPayload message);
+  void onSmsReceived(TelephonySmsPayloadDetails message);
 
   static void setUp(TelephonyFallbackFlutterApi? api, {BinaryMessenger? binaryMessenger, String messageChannelSuffix = '',}) {
     messageChannelSuffix = messageChannelSuffix.isNotEmpty ? '.$messageChannelSuffix' : '';
@@ -136,27 +140,26 @@ abstract class TelephonyFallbackFlutterApi {
       final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
           'dev.flutter.pigeon.pyro_sms_driver_telephony_fallback.TelephonyFallbackFlutterApi.onSmsReceived$messageChannelSuffix', pigeonChannelCodec,
           binaryMessenger: binaryMessenger);
-      if (api != null) {
+      if (api == null) {
+        pigeonVar_channel.setMessageHandler(null);
+      } else {
         pigeonVar_channel.setMessageHandler((Object? message) async {
           assert(message != null,
           'Argument for dev.flutter.pigeon.pyro_sms_driver_telephony_fallback.TelephonyFallbackFlutterApi.onSmsReceived was null.');
           final List<Object?> args = (message as List<Object?>?)!;
-          final PigeonTelephonySmsPayload? arg_message = (args[0] as PigeonTelephonySmsPayload?);
+          final TelephonySmsPayloadDetails? arg_message = (args[0] as TelephonySmsPayloadDetails?);
           assert(arg_message != null,
-              'Argument for dev.flutter.pigeon.pyro_sms_driver_telephony_fallback.TelephonyFallbackFlutterApi.onSmsReceived was null, expected non-null PigeonTelephonySmsPayload.');
+              'Argument for dev.flutter.pigeon.pyro_sms_driver_telephony_fallback.TelephonyFallbackFlutterApi.onSmsReceived was null, expected non-null TelephonySmsPayloadDetails.');
           try {
             api.onSmsReceived(arg_message!);
             return wrapResponse(empty: true);
           } on PlatformException catch (e) {
             return wrapResponse(error: e);
-          }          catch (err) {
-            return wrapResponse(error: PlatformException(code: 'error', message: err.toString()));
+          }          catch (e) {
+            return wrapResponse(error: PlatformException(code: 'error', message: e.toString()));
           }
         });
-      } else {
-        pigeonVar_channel.setMessageHandler(null);
       }
     }
   }
 }
-

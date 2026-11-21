@@ -32,7 +32,7 @@ class SmsNotificationListenerPlugin: FlutterPlugin, SmsNotificationListenerHostA
     return true
   }
 
-  override fun saveEvidence(evidence: PigeonSmsEvidencePayload): Boolean {
+  override fun saveEvidence(evidence: SmsEvidencePayloadDetails): Boolean {
     val ctx = context ?: return false
     val prefs = ctx.getSharedPreferences("pyro_sms_evidence", Context.MODE_PRIVATE)
     val now = evidence.timestampMs ?: System.currentTimeMillis()

@@ -7,7 +7,9 @@ package com.pyro.sim
 import android.util.Log
 import io.flutter.plugin.common.BasicMessageChannel
 import io.flutter.plugin.common.BinaryMessenger
+import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MessageCodec
+import io.flutter.plugin.common.StandardMethodCodec
 import io.flutter.plugin.common.StandardMessageCodec
 import java.io.ByteArrayOutputStream
 import java.nio.ByteBuffer
@@ -44,7 +46,8 @@ class FlutterError (
   val details: Any? = null
 ) : Throwable()
 
-data class PigeonSimCard (
+/** Generated class from Pigeon that represents data sent in messages. */
+data class SimCardPayload (
   val subscriptionId: Long? = null,
   val simSlotIndex: Long? = null,
   val carrierName: String? = null,
@@ -57,11 +60,12 @@ data class PigeonSimCard (
   val isDataRoaming: Boolean? = null,
   val isNetworkRoaming: Boolean? = null,
   val state: String? = null
-) {
+)
+ {
   companion object {
-    fun fromList(pigeonVar_list: List<Any?>): PigeonSimCard {
-      val subscriptionId = pigeonVar_list[0].let { num -> if (num is Number) num.toLong() else null }
-      val simSlotIndex = pigeonVar_list[1].let { num -> if (num is Number) num.toLong() else null }
+    fun fromList(pigeonVar_list: List<Any?>): SimCardPayload {
+      val subscriptionId = pigeonVar_list[0] as Long?
+      val simSlotIndex = pigeonVar_list[1] as Long?
       val carrierName = pigeonVar_list[2] as String?
       val displayName = pigeonVar_list[3] as String?
       val countryIso = pigeonVar_list[4] as String?
@@ -72,20 +76,7 @@ data class PigeonSimCard (
       val isDataRoaming = pigeonVar_list[9] as Boolean?
       val isNetworkRoaming = pigeonVar_list[10] as Boolean?
       val state = pigeonVar_list[11] as String?
-      return PigeonSimCard(
-        subscriptionId,
-        simSlotIndex,
-        carrierName,
-        displayName,
-        countryIso,
-        iccId,
-        mccString,
-        mncString,
-        simPhoneNumber,
-        isDataRoaming,
-        isNetworkRoaming,
-        state
-      )
+      return SimCardPayload(subscriptionId, simSlotIndex, carrierName, displayName, countryIso, iccId, mccString, mncString, simPhoneNumber, isDataRoaming, isNetworkRoaming, state)
     }
   }
   fun toList(): List<Any?> {
@@ -106,27 +97,23 @@ data class PigeonSimCard (
   }
 }
 
-data class PigeonNetworkInfo (
+/** Generated class from Pigeon that represents data sent in messages. */
+data class NetworkInfoPayload (
   val networkOperatorName: String? = null,
   val networkOperator: String? = null,
   val networkType: String? = null,
   val isNetworkAvailable: Boolean? = null,
   val isRoaming: Boolean? = null
-) {
+)
+ {
   companion object {
-    fun fromList(pigeonVar_list: List<Any?>): PigeonNetworkInfo {
+    fun fromList(pigeonVar_list: List<Any?>): NetworkInfoPayload {
       val networkOperatorName = pigeonVar_list[0] as String?
       val networkOperator = pigeonVar_list[1] as String?
       val networkType = pigeonVar_list[2] as String?
       val isNetworkAvailable = pigeonVar_list[3] as Boolean?
       val isRoaming = pigeonVar_list[4] as Boolean?
-      return PigeonNetworkInfo(
-        networkOperatorName,
-        networkOperator,
-        networkType,
-        isNetworkAvailable,
-        isRoaming
-      )
+      return NetworkInfoPayload(networkOperatorName, networkOperator, networkType, isNetworkAvailable, isRoaming)
     }
   }
   fun toList(): List<Any?> {
@@ -139,18 +126,17 @@ data class PigeonNetworkInfo (
     )
   }
 }
-
-private open class SimPigeonCodec : StandardMessageCodec() {
+private open class SimApiPigeonCodec : StandardMessageCodec() {
   override fun readValueOfType(type: Byte, buffer: ByteBuffer): Any? {
     return when (type) {
       129.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          PigeonSimCard.fromList(it)
+          SimCardPayload.fromList(it)
         }
       }
       130.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          PigeonNetworkInfo.fromList(it)
+          NetworkInfoPayload.fromList(it)
         }
       }
       else -> super.readValueOfType(type, buffer)
@@ -158,11 +144,11 @@ private open class SimPigeonCodec : StandardMessageCodec() {
   }
   override fun writeValue(stream: ByteArrayOutputStream, value: Any?)   {
     when (value) {
-      is PigeonSimCard -> {
+      is SimCardPayload -> {
         stream.write(129)
         writeValue(stream, value.toList())
       }
-      is PigeonNetworkInfo -> {
+      is NetworkInfoPayload -> {
         stream.write(130)
         writeValue(stream, value.toList())
       }
@@ -171,18 +157,19 @@ private open class SimPigeonCodec : StandardMessageCodec() {
   }
 }
 
-/** Generated interface from Pigeon that represents a handler of tool calls. */
+/** Generated interface from Pigeon that represents a handler of messages from Flutter. */
 interface SimHostApi {
-  fun getActiveSimCards(): List<PigeonSimCard>
+  fun getActiveSimCards(): List<SimCardPayload>
   fun hasSimCard(): Boolean
-  fun getNetworkInfo(): PigeonNetworkInfo?
+  fun getNetworkInfo(): NetworkInfoPayload?
 
   companion object {
     /** The codec used by SimHostApi. */
     val codec: MessageCodec<Any?> by lazy {
-      SimPigeonCodec()
+      SimApiPigeonCodec()
     }
     /** Sets up an instance of `SimHostApi` to handle messages through the `binaryMessenger`. */
+    @JvmOverloads
     fun setUp(binaryMessenger: BinaryMessenger, api: SimHostApi?, messageChannelSuffix: String = "") {
       val separatedMessageChannelSuffix = if (messageChannelSuffix.isNotEmpty()) ".$messageChannelSuffix" else ""
       run {

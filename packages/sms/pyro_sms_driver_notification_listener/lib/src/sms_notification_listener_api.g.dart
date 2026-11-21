@@ -15,8 +15,7 @@ PlatformException _createConnectionError(String channelName) {
   );
 }
 
-List<Object?> wrapResponse(
-    {Object? result, PlatformException? error, bool empty = false}) {
+List<Object?> wrapResponse({Object? result, PlatformException? error, bool empty = false}) {
   if (empty) {
     return <Object?>[];
   }
@@ -26,8 +25,8 @@ List<Object?> wrapResponse(
   return <Object?>[error.code, error.message, error.details];
 }
 
-class PigeonSmsNotificationPayload {
-  PigeonSmsNotificationPayload({
+class SmsNotificationPayloadDetails {
+  SmsNotificationPayloadDetails({
     this.id,
     this.sender,
     this.body,
@@ -36,9 +35,13 @@ class PigeonSmsNotificationPayload {
   });
 
   String? id;
+
   String? sender;
+
   String? body;
+
   String? packageName;
+
   int? timestampMs;
 
   Object encode() {
@@ -51,9 +54,9 @@ class PigeonSmsNotificationPayload {
     ];
   }
 
-  static PigeonSmsNotificationPayload decode(Object result) {
+  static SmsNotificationPayloadDetails decode(Object result) {
     result as List<Object?>;
-    return PigeonSmsNotificationPayload(
+    return SmsNotificationPayloadDetails(
       id: result[0] as String?,
       sender: result[1] as String?,
       body: result[2] as String?,
@@ -63,8 +66,8 @@ class PigeonSmsNotificationPayload {
   }
 }
 
-class PigeonSmsEvidencePayload {
-  PigeonSmsEvidencePayload({
+class SmsEvidencePayloadDetails {
+  SmsEvidencePayloadDetails({
     this.key,
     this.packageName,
     this.sender,
@@ -73,9 +76,13 @@ class PigeonSmsEvidencePayload {
   });
 
   String? key;
+
   String? packageName;
+
   String? sender;
+
   String? body;
+
   int? timestampMs;
 
   Object encode() {
@@ -88,9 +95,9 @@ class PigeonSmsEvidencePayload {
     ];
   }
 
-  static PigeonSmsEvidencePayload decode(Object result) {
+  static SmsEvidencePayloadDetails decode(Object result) {
     result as List<Object?>;
-    return PigeonSmsEvidencePayload(
+    return SmsEvidencePayloadDetails(
       key: result[0] as String?,
       packageName: result[1] as String?,
       sender: result[2] as String?,
@@ -100,18 +107,18 @@ class PigeonSmsEvidencePayload {
   }
 }
 
+
 class _PigeonCodec extends StandardMessageCodec {
   const _PigeonCodec();
-
   @override
   void writeValue(WriteBuffer buffer, Object? value) {
     if (value is int) {
       buffer.putUint8(4);
       buffer.putInt64(value);
-    } else if (value is PigeonSmsNotificationPayload) {
+    }    else if (value is SmsNotificationPayloadDetails) {
       buffer.putUint8(129);
       writeValue(buffer, value.encode());
-    } else if (value is PigeonSmsEvidencePayload) {
+    }    else if (value is SmsEvidencePayloadDetails) {
       buffer.putUint8(130);
       writeValue(buffer, value.encode());
     } else {
@@ -122,10 +129,10 @@ class _PigeonCodec extends StandardMessageCodec {
   @override
   Object? readValueOfType(int type, ReadBuffer buffer) {
     switch (type) {
-      case 129:
-        return PigeonSmsNotificationPayload.decode(readValue(buffer)!);
-      case 130:
-        return PigeonSmsEvidencePayload.decode(readValue(buffer)!);
+      case 129: 
+        return SmsNotificationPayloadDetails.decode(readValue(buffer)!);
+      case 130: 
+        return SmsEvidencePayloadDetails.decode(readValue(buffer)!);
       default:
         return super.readValueOfType(type, buffer);
     }
@@ -134,14 +141,16 @@ class _PigeonCodec extends StandardMessageCodec {
 
 class SmsNotificationListenerHostApi {
   /// Constructor for [SmsNotificationListenerHostApi].  The [binaryMessenger] named argument is
-  /// available for testing purposes.
+  /// available for dependency injection.  If it is left null, the default
+  /// BinaryMessenger will be used which routes to the host platform.
   SmsNotificationListenerHostApi({BinaryMessenger? binaryMessenger, String messageChannelSuffix = ''})
       : pigeonVar_binaryMessenger = binaryMessenger,
         pigeonVar_messageChannelSuffix = messageChannelSuffix.isNotEmpty ? '.$messageChannelSuffix' : '';
   final BinaryMessenger? pigeonVar_binaryMessenger;
-  final String pigeonVar_messageChannelSuffix;
 
   static const MessageCodec<Object?> pigeonChannelCodec = _PigeonCodec();
+
+  final String pigeonVar_messageChannelSuffix;
 
   Future<bool> isPermissionGranted() async {
     final String pigeonVar_channelName = 'dev.flutter.pigeon.pyro_sms_driver_notification_listener.SmsNotificationListenerHostApi.isPermissionGranted$pigeonVar_messageChannelSuffix';
@@ -219,7 +228,7 @@ class SmsNotificationListenerHostApi {
     }
   }
 
-  Future<bool> saveEvidence(PigeonSmsEvidencePayload evidence) async {
+  Future<bool> saveEvidence(SmsEvidencePayloadDetails evidence) async {
     final String pigeonVar_channelName = 'dev.flutter.pigeon.pyro_sms_driver_notification_listener.SmsNotificationListenerHostApi.saveEvidence$pigeonVar_messageChannelSuffix';
     final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
@@ -277,7 +286,7 @@ class SmsNotificationListenerHostApi {
 abstract class SmsNotificationListenerFlutterApi {
   static const MessageCodec<Object?> pigeonChannelCodec = _PigeonCodec();
 
-  void onNotificationReceived(PigeonSmsNotificationPayload notification);
+  void onNotificationReceived(SmsNotificationPayloadDetails notification);
 
   static void setUp(SmsNotificationListenerFlutterApi? api, {BinaryMessenger? binaryMessenger, String messageChannelSuffix = '',}) {
     messageChannelSuffix = messageChannelSuffix.isNotEmpty ? '.$messageChannelSuffix' : '';
@@ -285,27 +294,26 @@ abstract class SmsNotificationListenerFlutterApi {
       final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
           'dev.flutter.pigeon.pyro_sms_driver_notification_listener.SmsNotificationListenerFlutterApi.onNotificationReceived$messageChannelSuffix', pigeonChannelCodec,
           binaryMessenger: binaryMessenger);
-      if (api != null) {
+      if (api == null) {
+        pigeonVar_channel.setMessageHandler(null);
+      } else {
         pigeonVar_channel.setMessageHandler((Object? message) async {
           assert(message != null,
           'Argument for dev.flutter.pigeon.pyro_sms_driver_notification_listener.SmsNotificationListenerFlutterApi.onNotificationReceived was null.');
           final List<Object?> args = (message as List<Object?>?)!;
-          final PigeonSmsNotificationPayload? arg_notification = (args[0] as PigeonSmsNotificationPayload?);
+          final SmsNotificationPayloadDetails? arg_notification = (args[0] as SmsNotificationPayloadDetails?);
           assert(arg_notification != null,
-              'Argument for dev.flutter.pigeon.pyro_sms_driver_notification_listener.SmsNotificationListenerFlutterApi.onNotificationReceived was null, expected non-null PigeonSmsNotificationPayload.');
+              'Argument for dev.flutter.pigeon.pyro_sms_driver_notification_listener.SmsNotificationListenerFlutterApi.onNotificationReceived was null, expected non-null SmsNotificationPayloadDetails.');
           try {
             api.onNotificationReceived(arg_notification!);
             return wrapResponse(empty: true);
           } on PlatformException catch (e) {
             return wrapResponse(error: e);
-          }          catch (err) {
-            return wrapResponse(error: PlatformException(code: 'error', message: err.toString()));
+          }          catch (e) {
+            return wrapResponse(error: PlatformException(code: 'error', message: e.toString()));
           }
         });
-      } else {
-        pigeonVar_channel.setMessageHandler(null);
       }
     }
   }
 }
-

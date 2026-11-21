@@ -37,7 +37,7 @@ class TelephonyFallbackDriver implements SmsFilterAdapter {
     _smsReceivedHandler = null;
   }
 
-  void _handleNativeSms(PigeonTelephonySmsPayload message) {
+  void _handleNativeSms(TelephonySmsPayloadDetails message) {
     final entity = SmsMessageEntity(
       id: message.id ?? '',
       sender: message.sender ?? '',
@@ -71,7 +71,7 @@ class _TelephonyFallbackFlutterApiHandler implements TelephonyFallbackFlutterApi
   final TelephonyFallbackDriver _driver;
 
   @override
-  void onSmsReceived(PigeonTelephonySmsPayload message) {
+  void onSmsReceived(TelephonySmsPayloadDetails message) {
     _driver._handleNativeSms(message);
   }
 }

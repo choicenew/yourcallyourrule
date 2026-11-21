@@ -6,8 +6,8 @@ import 'package:pigeon/pigeon.dart';
   kotlinOptions: KotlinOptions(package: 'com.pyro.call_redirection'),
 ))
 
-class PigeonRedirectionRequest {
-  PigeonRedirectionRequest({
+class RedirectionRequestDetails {
+  RedirectionRequestDetails({
     required this.id,
     required this.rawPhoneNumber,
     required this.normalizedPhoneNumber,
@@ -24,8 +24,8 @@ class PigeonRedirectionRequest {
   bool isCarModeActive;
 }
 
-class PigeonRedirectionDecision {
-  PigeonRedirectionDecision({
+class RedirectionDecisionDetails {
+  RedirectionDecisionDetails({
     required this.action,
     this.reason,
   });
@@ -37,7 +37,7 @@ class PigeonRedirectionDecision {
 @FlutterApi()
 abstract class CallRedirectionFlutterApi {
   @async
-  PigeonRedirectionDecision evaluateCall(PigeonRedirectionRequest request);
+  RedirectionDecisionDetails evaluateCall(RedirectionRequestDetails request);
 }
 
 @HostApi()

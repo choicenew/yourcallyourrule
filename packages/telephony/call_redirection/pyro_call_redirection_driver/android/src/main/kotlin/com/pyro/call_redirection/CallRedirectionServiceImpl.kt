@@ -100,15 +100,15 @@ class CallRedirectionServiceImpl : CallRedirectionService() {
 
     private val mainHandler = android.os.Handler(android.os.Looper.getMainLooper())
 
-    private suspend fun evaluateCallViaFlutter(rawNumber: String, allowInteractive: Boolean): PigeonRedirectionDecision? {
+    private suspend fun evaluateCallViaFlutter(rawNumber: String, allowInteractive: Boolean): RedirectionDecisionDetails? {
         return kotlin.coroutines.suspendCoroutine { continuation ->
             val msger = messenger
             if (msger == null) {
-                continuation.resumeWith(Result.success(PigeonRedirectionDecision(action = "proceed")))
+                continuation.resumeWith(Result.success(RedirectionDecisionDetails(action = "proceed")))
                 return@suspendCoroutine
             }
 
-            val request = PigeonRedirectionRequest(
+            val request = RedirectionRequestDetails(
                 id = "call_${System.currentTimeMillis()}",
                 rawPhoneNumber = rawNumber,
                 normalizedPhoneNumber = rawNumber.replace(Regex("\\D"), ""),
@@ -122,7 +122,7 @@ class CallRedirectionServiceImpl : CallRedirectionService() {
                     result.onSuccess { decision ->
                         continuation.resumeWith(Result.success(decision))
                     }.onFailure {
-                        continuation.resumeWith(Result.success(PigeonRedirectionDecision(action = "proceed")))
+                        continuation.resumeWith(Result.success(RedirectionDecisionDetails(action = "proceed")))
                     }
                 }
             }

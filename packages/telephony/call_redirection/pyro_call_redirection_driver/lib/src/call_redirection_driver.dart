@@ -41,7 +41,7 @@ class CallRedirectionDriver implements ICallRedirectionAdapter, CallRedirectionF
   }
 
   @override
-  Future<PigeonRedirectionDecision> evaluateCall(PigeonRedirectionRequest request) async {
+  Future<RedirectionDecisionDetails> evaluateCall(RedirectionRequestDetails request) async {
     final entity = OutgoingCallEntity(
       id: request.id,
       rawPhoneNumber: request.rawPhoneNumber,
@@ -52,7 +52,7 @@ class CallRedirectionDriver implements ICallRedirectionAdapter, CallRedirectionF
     );
 
     final decision = await evaluateOutboundCall(entity);
-    return PigeonRedirectionDecision(
+    return RedirectionDecisionDetails(
       action: decision.action.name,
       reason: decision.reason?.name,
     );

@@ -9,7 +9,7 @@ import 'package:pigeon/pigeon.dart';
     package: 'com.pyro.sms_notification_listener',
   ),
 ))
-class PigeonSmsNotificationPayload {
+class SmsNotificationPayloadDetails {
   String? id;
   String? sender;
   String? body;
@@ -17,7 +17,7 @@ class PigeonSmsNotificationPayload {
   int? timestampMs;
 }
 
-class PigeonSmsEvidencePayload {
+class SmsEvidencePayloadDetails {
   String? key;
   String? packageName;
   String? sender;
@@ -30,12 +30,11 @@ abstract class SmsNotificationListenerHostApi {
   bool isPermissionGranted();
   void requestPermission();
   bool cancelNotification(String key);
-  bool saveEvidence(PigeonSmsEvidencePayload evidence);
+  bool saveEvidence(SmsEvidencePayloadDetails evidence);
   bool setProtectedPackages(List<String> packages);
 }
 
 @FlutterApi()
 abstract class SmsNotificationListenerFlutterApi {
-  void onNotificationReceived(PigeonSmsNotificationPayload notification);
+  void onNotificationReceived(SmsNotificationPayloadDetails notification);
 }
-

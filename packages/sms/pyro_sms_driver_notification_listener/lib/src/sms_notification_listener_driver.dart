@@ -33,7 +33,7 @@ class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
     _messageHandler = null;
   }
 
-  void _handleNativeNotification(PigeonSmsNotificationPayload notification) {
+  void _handleNativeNotification(SmsNotificationPayloadDetails notification) {
     final entity = SmsMessageEntity(
       id: notification.id ?? '',
       sender: notification.sender ?? '',
@@ -84,7 +84,7 @@ class SmsNotificationListenerDriver implements SmsNotificationListenerAdapter {
       _inMemoryEvidenceLogs.removeLast();
     }
     try {
-      await _hostApi.saveEvidence(PigeonSmsEvidencePayload(
+      await _hostApi.saveEvidence(SmsEvidencePayloadDetails(
         key: evidence.evidenceId,
         packageName: evidence.message.packageName,
         sender: evidence.message.sender,
@@ -117,7 +117,7 @@ class _NotificationListenerFlutterApiHandler implements SmsNotificationListenerF
   final SmsNotificationListenerDriver _driver;
 
   @override
-  void onNotificationReceived(PigeonSmsNotificationPayload notification) {
+  void onNotificationReceived(SmsNotificationPayloadDetails notification) {
     _driver._handleNativeNotification(notification);
   }
 }

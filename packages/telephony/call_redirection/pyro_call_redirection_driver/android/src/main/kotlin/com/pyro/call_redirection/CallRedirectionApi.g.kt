@@ -7,7 +7,9 @@ package com.pyro.call_redirection
 import android.util.Log
 import io.flutter.plugin.common.BasicMessageChannel
 import io.flutter.plugin.common.BinaryMessenger
+import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MessageCodec
+import io.flutter.plugin.common.StandardMethodCodec
 import io.flutter.plugin.common.StandardMessageCodec
 import java.io.ByteArrayOutputStream
 import java.nio.ByteBuffer
@@ -32,29 +34,40 @@ private fun wrapError(exception: Throwable): List<Any?> {
   }
 }
 
+private fun createConnectionError(channelName: String): FlutterError {
+  return FlutterError("channel-error",  "Unable to establish connection on channel: '$channelName'.", "")}
+
+/**
+ * Error class for passing custom error details to Flutter via a thrown PlatformException.
+ * @property code The error code.
+ * @property message The error message.
+ * @property details The error details. Must be a datatype supported by the api codec.
+ */
 class FlutterError (
   val code: String,
   override val message: String? = null,
   val details: Any? = null
 ) : Throwable()
 
-data class PigeonRedirectionRequest (
+/** Generated class from Pigeon that represents data sent in messages. */
+data class RedirectionRequestDetails (
   val id: String,
   val rawPhoneNumber: String,
   val normalizedPhoneNumber: String,
   val timestampMs: Long,
   val isInteractiveAllowed: Boolean,
   val isCarModeActive: Boolean
-) {
+)
+ {
   companion object {
-    fun fromList(pigeonVar_list: List<Any?>): PigeonRedirectionRequest {
+    fun fromList(pigeonVar_list: List<Any?>): RedirectionRequestDetails {
       val id = pigeonVar_list[0] as String
       val rawPhoneNumber = pigeonVar_list[1] as String
       val normalizedPhoneNumber = pigeonVar_list[2] as String
-      val timestampMs = pigeonVar_list[3].let { num -> if (num is Long) num else (num as Number).toLong() }
+      val timestampMs = pigeonVar_list[3] as Long
       val isInteractiveAllowed = pigeonVar_list[4] as Boolean
       val isCarModeActive = pigeonVar_list[5] as Boolean
-      return PigeonRedirectionRequest(id, rawPhoneNumber, normalizedPhoneNumber, timestampMs, isInteractiveAllowed, isCarModeActive)
+      return RedirectionRequestDetails(id, rawPhoneNumber, normalizedPhoneNumber, timestampMs, isInteractiveAllowed, isCarModeActive)
     }
   }
   fun toList(): List<Any?> {
@@ -69,15 +82,17 @@ data class PigeonRedirectionRequest (
   }
 }
 
-data class PigeonRedirectionDecision (
+/** Generated class from Pigeon that represents data sent in messages. */
+data class RedirectionDecisionDetails (
   val action: String,
   val reason: String? = null
-) {
+)
+ {
   companion object {
-    fun fromList(pigeonVar_list: List<Any?>): PigeonRedirectionDecision {
+    fun fromList(pigeonVar_list: List<Any?>): RedirectionDecisionDetails {
       val action = pigeonVar_list[0] as String
       val reason = pigeonVar_list[1] as String?
-      return PigeonRedirectionDecision(action, reason)
+      return RedirectionDecisionDetails(action, reason)
     }
   }
   fun toList(): List<Any?> {
@@ -87,31 +102,29 @@ data class PigeonRedirectionDecision (
     )
   }
 }
-
-private open class PigeonCodec : StandardMessageCodec() {
+private open class CallRedirectionApiPigeonCodec : StandardMessageCodec() {
   override fun readValueOfType(type: Byte, buffer: ByteBuffer): Any? {
     return when (type) {
       129.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          PigeonRedirectionRequest.fromList(it)
+          RedirectionRequestDetails.fromList(it)
         }
       }
       130.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          PigeonRedirectionDecision.fromList(it)
+          RedirectionDecisionDetails.fromList(it)
         }
       }
       else -> super.readValueOfType(type, buffer)
     }
   }
-
-  override fun writeValue(stream: ByteArrayOutputStream, value: Any?) {
+  override fun writeValue(stream: ByteArrayOutputStream, value: Any?)   {
     when (value) {
-      is PigeonRedirectionRequest -> {
+      is RedirectionRequestDetails -> {
         stream.write(129)
         writeValue(stream, value.toList())
       }
-      is PigeonRedirectionDecision -> {
+      is RedirectionDecisionDetails -> {
         stream.write(130)
         writeValue(stream, value.toList())
       }
@@ -120,44 +133,48 @@ private open class PigeonCodec : StandardMessageCodec() {
   }
 }
 
+/** Generated class from Pigeon that represents Flutter messages that can be called from Kotlin. */
 class CallRedirectionFlutterApi(private val binaryMessenger: BinaryMessenger, private val messageChannelSuffix: String = "") {
   companion object {
+    /** The codec used by CallRedirectionFlutterApi. */
     val codec: MessageCodec<Any?> by lazy {
-      PigeonCodec()
+      CallRedirectionApiPigeonCodec()
     }
   }
-
-  fun evaluateCall(requestArg: PigeonRedirectionRequest, callback: (Result<PigeonRedirectionDecision>) -> Unit) {
+  fun evaluateCall(requestArg: RedirectionRequestDetails, callback: (Result<RedirectionDecisionDetails>) -> Unit)
+{
     val separatedMessageChannelSuffix = if (messageChannelSuffix.isNotEmpty()) ".$messageChannelSuffix" else ""
     val channelName = "dev.flutter.pigeon.pyro_call_redirection_driver.CallRedirectionFlutterApi.evaluateCall$separatedMessageChannelSuffix"
     val channel = BasicMessageChannel<Any?>(binaryMessenger, channelName, codec)
-    channel.send(listOf(requestArg)) { reply ->
-      if (reply is List<*>) {
-        if (reply.size > 1) {
-          callback(Result.failure(FlutterError(reply[0] as String, reply[1] as String?, reply[2])))
-        } else if (reply[0] == null) {
-          callback(Result.failure(FlutterError("null-error", "Host platform returned null value for non-null return value.", null)))
+    channel.send(listOf(requestArg)) {
+      if (it is List<*>) {
+        if (it.size > 1) {
+          callback(Result.failure(FlutterError(it[0] as String, it[1] as String, it[2] as String?)))
+        } else if (it[0] == null) {
+          callback(Result.failure(FlutterError("null-error", "Flutter api returned null value for non-null return value.", "")))
         } else {
-          val data = reply[0] as PigeonRedirectionDecision
-          callback(Result.success(data))
+          val output = it[0] as RedirectionDecisionDetails
+          callback(Result.success(output))
         }
       } else {
-        callback(Result.failure(FlutterError("channel-error", "Unable to establish connection on channel: '$channelName'.", null)))
-      }
+        callback(Result.failure(createConnectionError(channelName)))
+      } 
     }
   }
 }
-
+/** Generated interface from Pigeon that represents a handler of messages from Flutter. */
 interface CallRedirectionHostApi {
   fun isServiceActive(): Boolean
   fun isRoleGranted(): Boolean
   fun requestRole(): Boolean
 
   companion object {
+    /** The codec used by CallRedirectionHostApi. */
     val codec: MessageCodec<Any?> by lazy {
-      PigeonCodec()
+      CallRedirectionApiPigeonCodec()
     }
-
+    /** Sets up an instance of `CallRedirectionHostApi` to handle messages through the `binaryMessenger`. */
+    @JvmOverloads
     fun setUp(binaryMessenger: BinaryMessenger, api: CallRedirectionHostApi?, messageChannelSuffix: String = "") {
       val separatedMessageChannelSuffix = if (messageChannelSuffix.isNotEmpty()) ".$messageChannelSuffix" else ""
       run {

@@ -41,7 +41,7 @@ class SmsFallbackReceiver : BroadcastReceiver() {
 
             Log.d(TAG, "Intercepted SMS from $sender: body=$body")
 
-            val payload = PigeonTelephonySmsPayload(
+            val payload = TelephonySmsPayloadDetails(
                 id = "sms_$timestampMs",
                 sender = sender,
                 body = body,

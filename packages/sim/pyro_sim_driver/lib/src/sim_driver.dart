@@ -30,7 +30,7 @@ class SimDriver implements ISimReaderAdapter {
   @override
   Future<List<SimCardEntity>> getActiveSimCards() async {
     try {
-      final List<PigeonSimCard> rawList = await _hostApi.getActiveSimCards();
+      final List<SimCardPayload> rawList = await _hostApi.getActiveSimCards();
       return rawList.map((card) {
         return SimCardEntity(
           subscriptionId: card.subscriptionId ?? -1,
@@ -81,7 +81,7 @@ class SimDriver implements ISimReaderAdapter {
   @override
   Future<NetworkInfoEntity?> getNetworkInfo() async {
     try {
-      final PigeonNetworkInfo? info = await _hostApi.getNetworkInfo();
+      final NetworkInfoPayload? info = await _hostApi.getNetworkInfo();
       if (info != null) {
         return NetworkInfoEntity(
           networkOperatorName: info.networkOperatorName ?? '',

@@ -54,7 +54,7 @@ class SmsNotificationListenerService : NotificationListenerService() {
         Log.d(TAG, "Intercepted notification from $pkg: title=$title, key=${sbn.key}")
 
         val messenger = messenger ?: return
-        val payload = PigeonSmsNotificationPayload(
+        val payload = SmsNotificationPayloadDetails(
             id = sbn.key,
             sender = title,
             body = text,
@@ -80,4 +80,3 @@ class SmsNotificationListenerService : NotificationListenerService() {
         }
     }
 }
-

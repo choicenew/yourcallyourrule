@@ -7,7 +7,9 @@ package com.pyro.sms_notification_listener
 import android.util.Log
 import io.flutter.plugin.common.BasicMessageChannel
 import io.flutter.plugin.common.BinaryMessenger
+import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MessageCodec
+import io.flutter.plugin.common.StandardMethodCodec
 import io.flutter.plugin.common.StandardMessageCodec
 import java.io.ByteArrayOutputStream
 import java.nio.ByteBuffer
@@ -32,6 +34,9 @@ private fun wrapError(exception: Throwable): List<Any?> {
   }
 }
 
+private fun createConnectionError(channelName: String): FlutterError {
+  return FlutterError("channel-error",  "Unable to establish connection on channel: '$channelName'.", "")}
+
 /**
  * Error class for passing custom error details to Flutter via a thrown PlatformException.
  * @property code The error code.
@@ -44,21 +49,23 @@ class FlutterError (
   val details: Any? = null
 ) : Throwable()
 
-data class PigeonSmsNotificationPayload (
+/** Generated class from Pigeon that represents data sent in messages. */
+data class SmsNotificationPayloadDetails (
   val id: String? = null,
   val sender: String? = null,
   val body: String? = null,
   val packageName: String? = null,
   val timestampMs: Long? = null
-) {
+)
+ {
   companion object {
-    fun fromList(pigeonVar_list: List<Any?>): PigeonSmsNotificationPayload {
+    fun fromList(pigeonVar_list: List<Any?>): SmsNotificationPayloadDetails {
       val id = pigeonVar_list[0] as String?
       val sender = pigeonVar_list[1] as String?
       val body = pigeonVar_list[2] as String?
       val packageName = pigeonVar_list[3] as String?
-      val timestampMs = pigeonVar_list[4].let { num -> if (num is Number) num.toLong() else null }
-      return PigeonSmsNotificationPayload(id, sender, body, packageName, timestampMs)
+      val timestampMs = pigeonVar_list[4] as Long?
+      return SmsNotificationPayloadDetails(id, sender, body, packageName, timestampMs)
     }
   }
   fun toList(): List<Any?> {
@@ -72,21 +79,23 @@ data class PigeonSmsNotificationPayload (
   }
 }
 
-data class PigeonSmsEvidencePayload (
+/** Generated class from Pigeon that represents data sent in messages. */
+data class SmsEvidencePayloadDetails (
   val key: String? = null,
   val packageName: String? = null,
   val sender: String? = null,
   val body: String? = null,
   val timestampMs: Long? = null
-) {
+)
+ {
   companion object {
-    fun fromList(pigeonVar_list: List<Any?>): PigeonSmsEvidencePayload {
+    fun fromList(pigeonVar_list: List<Any?>): SmsEvidencePayloadDetails {
       val key = pigeonVar_list[0] as String?
       val packageName = pigeonVar_list[1] as String?
       val sender = pigeonVar_list[2] as String?
       val body = pigeonVar_list[3] as String?
-      val timestampMs = pigeonVar_list[4].let { num -> if (num is Number) num.toLong() else null }
-      return PigeonSmsEvidencePayload(key, packageName, sender, body, timestampMs)
+      val timestampMs = pigeonVar_list[4] as Long?
+      return SmsEvidencePayloadDetails(key, packageName, sender, body, timestampMs)
     }
   }
   fun toList(): List<Any?> {
@@ -99,18 +108,17 @@ data class PigeonSmsEvidencePayload (
     )
   }
 }
-
-private open class SmsNotificationListenerPigeonCodec : StandardMessageCodec() {
+private open class SmsNotificationListenerApiPigeonCodec : StandardMessageCodec() {
   override fun readValueOfType(type: Byte, buffer: ByteBuffer): Any? {
     return when (type) {
       129.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          PigeonSmsNotificationPayload.fromList(it)
+          SmsNotificationPayloadDetails.fromList(it)
         }
       }
       130.toByte() -> {
         return (readValue(buffer) as? List<Any?>)?.let {
-          PigeonSmsEvidencePayload.fromList(it)
+          SmsEvidencePayloadDetails.fromList(it)
         }
       }
       else -> super.readValueOfType(type, buffer)
@@ -118,11 +126,11 @@ private open class SmsNotificationListenerPigeonCodec : StandardMessageCodec() {
   }
   override fun writeValue(stream: ByteArrayOutputStream, value: Any?)   {
     when (value) {
-      is PigeonSmsNotificationPayload -> {
+      is SmsNotificationPayloadDetails -> {
         stream.write(129)
         writeValue(stream, value.toList())
       }
-      is PigeonSmsEvidencePayload -> {
+      is SmsEvidencePayloadDetails -> {
         stream.write(130)
         writeValue(stream, value.toList())
       }
@@ -131,20 +139,21 @@ private open class SmsNotificationListenerPigeonCodec : StandardMessageCodec() {
   }
 }
 
-/** Generated interface from Pigeon that represents a handler of tool calls. */
+/** Generated interface from Pigeon that represents a handler of messages from Flutter. */
 interface SmsNotificationListenerHostApi {
   fun isPermissionGranted(): Boolean
   fun requestPermission()
   fun cancelNotification(key: String): Boolean
-  fun saveEvidence(evidence: PigeonSmsEvidencePayload): Boolean
+  fun saveEvidence(evidence: SmsEvidencePayloadDetails): Boolean
   fun setProtectedPackages(packages: List<String>): Boolean
 
   companion object {
     /** The codec used by SmsNotificationListenerHostApi. */
     val codec: MessageCodec<Any?> by lazy {
-      SmsNotificationListenerPigeonCodec()
+      SmsNotificationListenerApiPigeonCodec()
     }
     /** Sets up an instance of `SmsNotificationListenerHostApi` to handle messages through the `binaryMessenger`. */
+    @JvmOverloads
     fun setUp(binaryMessenger: BinaryMessenger, api: SmsNotificationListenerHostApi?, messageChannelSuffix: String = "") {
       val separatedMessageChannelSuffix = if (messageChannelSuffix.isNotEmpty()) ".$messageChannelSuffix" else ""
       run {
@@ -200,7 +209,7 @@ interface SmsNotificationListenerHostApi {
         if (api != null) {
           channel.setMessageHandler { message, reply ->
             val args = message as List<Any?>
-            val evidenceArg = args[0] as PigeonSmsEvidencePayload
+            val evidenceArg = args[0] as SmsEvidencePayloadDetails
             val wrapped: List<Any?> = try {
               listOf(api.saveEvidence(evidenceArg))
             } catch (exception: Throwable) {
@@ -232,30 +241,29 @@ interface SmsNotificationListenerHostApi {
     }
   }
 }
-
 /** Generated class from Pigeon that represents Flutter messages that can be called from Kotlin. */
 class SmsNotificationListenerFlutterApi(private val binaryMessenger: BinaryMessenger, private val messageChannelSuffix: String = "") {
   companion object {
     /** The codec used by SmsNotificationListenerFlutterApi. */
     val codec: MessageCodec<Any?> by lazy {
-      SmsNotificationListenerPigeonCodec()
+      SmsNotificationListenerApiPigeonCodec()
     }
   }
-  fun onNotificationReceived(notificationArg: PigeonSmsNotificationPayload, callback: (Result<Unit>) -> Unit) {
+  fun onNotificationReceived(notificationArg: SmsNotificationPayloadDetails, callback: (Result<Unit>) -> Unit)
+{
     val separatedMessageChannelSuffix = if (messageChannelSuffix.isNotEmpty()) ".$messageChannelSuffix" else ""
     val channelName = "dev.flutter.pigeon.pyro_sms_driver_notification_listener.SmsNotificationListenerFlutterApi.onNotificationReceived$separatedMessageChannelSuffix"
     val channel = BasicMessageChannel<Any?>(binaryMessenger, channelName, codec)
-    channel.send(listOf(notificationArg)) { response ->
-      if (response is List<*>) {
-        if (response.size > 1) {
-          callback(Result.failure(FlutterError(response[0] as String, response[1] as String?, response[2])))
+    channel.send(listOf(notificationArg)) {
+      if (it is List<*>) {
+        if (it.size > 1) {
+          callback(Result.failure(FlutterError(it[0] as String, it[1] as String, it[2] as String?)))
         } else {
           callback(Result.success(Unit))
         }
       } else {
-        callback(Result.failure(FlutterError("channel-error", "Unable to establish connection on channel: '$channelName'.", null)))
-      }
+        callback(Result.failure(createConnectionError(channelName)))
+      } 
     }
   }
 }
-

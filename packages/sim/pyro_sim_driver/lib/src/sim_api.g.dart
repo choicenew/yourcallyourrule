@@ -15,19 +15,8 @@ PlatformException _createConnectionError(String channelName) {
   );
 }
 
-List<Object?> wrapResponse(
-    {Object? result, PlatformException? error, bool empty = false}) {
-  if (empty) {
-    return <Object?>[];
-  }
-  if (error == null) {
-    return <Object?>[result];
-  }
-  return <Object?>[error.code, error.message, error.details];
-}
-
-class PigeonSimCard {
-  PigeonSimCard({
+class SimCardPayload {
+  SimCardPayload({
     this.subscriptionId,
     this.simSlotIndex,
     this.carrierName,
@@ -43,16 +32,27 @@ class PigeonSimCard {
   });
 
   int? subscriptionId;
+
   int? simSlotIndex;
+
   String? carrierName;
+
   String? displayName;
+
   String? countryIso;
+
   String? iccId;
+
   String? mccString;
+
   String? mncString;
+
   String? simPhoneNumber;
+
   bool? isDataRoaming;
+
   bool? isNetworkRoaming;
+
   String? state;
 
   Object encode() {
@@ -72,9 +72,9 @@ class PigeonSimCard {
     ];
   }
 
-  static PigeonSimCard decode(Object result) {
+  static SimCardPayload decode(Object result) {
     result as List<Object?>;
-    return PigeonSimCard(
+    return SimCardPayload(
       subscriptionId: result[0] as int?,
       simSlotIndex: result[1] as int?,
       carrierName: result[2] as String?,
@@ -91,8 +91,8 @@ class PigeonSimCard {
   }
 }
 
-class PigeonNetworkInfo {
-  PigeonNetworkInfo({
+class NetworkInfoPayload {
+  NetworkInfoPayload({
     this.networkOperatorName,
     this.networkOperator,
     this.networkType,
@@ -101,9 +101,13 @@ class PigeonNetworkInfo {
   });
 
   String? networkOperatorName;
+
   String? networkOperator;
+
   String? networkType;
+
   bool? isNetworkAvailable;
+
   bool? isRoaming;
 
   Object encode() {
@@ -116,9 +120,9 @@ class PigeonNetworkInfo {
     ];
   }
 
-  static PigeonNetworkInfo decode(Object result) {
+  static NetworkInfoPayload decode(Object result) {
     result as List<Object?>;
-    return PigeonNetworkInfo(
+    return NetworkInfoPayload(
       networkOperatorName: result[0] as String?,
       networkOperator: result[1] as String?,
       networkType: result[2] as String?,
@@ -128,18 +132,18 @@ class PigeonNetworkInfo {
   }
 }
 
+
 class _PigeonCodec extends StandardMessageCodec {
   const _PigeonCodec();
-
   @override
   void writeValue(WriteBuffer buffer, Object? value) {
     if (value is int) {
       buffer.putUint8(4);
       buffer.putInt64(value);
-    } else if (value is PigeonSimCard) {
+    }    else if (value is SimCardPayload) {
       buffer.putUint8(129);
       writeValue(buffer, value.encode());
-    } else if (value is PigeonNetworkInfo) {
+    }    else if (value is NetworkInfoPayload) {
       buffer.putUint8(130);
       writeValue(buffer, value.encode());
     } else {
@@ -150,10 +154,10 @@ class _PigeonCodec extends StandardMessageCodec {
   @override
   Object? readValueOfType(int type, ReadBuffer buffer) {
     switch (type) {
-      case 129:
-        return PigeonSimCard.decode(readValue(buffer)!);
-      case 130:
-        return PigeonNetworkInfo.decode(readValue(buffer)!);
+      case 129: 
+        return SimCardPayload.decode(readValue(buffer)!);
+      case 130: 
+        return NetworkInfoPayload.decode(readValue(buffer)!);
       default:
         return super.readValueOfType(type, buffer);
     }
@@ -162,16 +166,18 @@ class _PigeonCodec extends StandardMessageCodec {
 
 class SimHostApi {
   /// Constructor for [SimHostApi].  The [binaryMessenger] named argument is
-  /// available for testing purposes.
+  /// available for dependency injection.  If it is left null, the default
+  /// BinaryMessenger will be used which routes to the host platform.
   SimHostApi({BinaryMessenger? binaryMessenger, String messageChannelSuffix = ''})
       : pigeonVar_binaryMessenger = binaryMessenger,
         pigeonVar_messageChannelSuffix = messageChannelSuffix.isNotEmpty ? '.$messageChannelSuffix' : '';
   final BinaryMessenger? pigeonVar_binaryMessenger;
-  final String pigeonVar_messageChannelSuffix;
 
   static const MessageCodec<Object?> pigeonChannelCodec = _PigeonCodec();
 
-  Future<List<PigeonSimCard>> getActiveSimCards() async {
+  final String pigeonVar_messageChannelSuffix;
+
+  Future<List<SimCardPayload>> getActiveSimCards() async {
     final String pigeonVar_channelName = 'dev.flutter.pigeon.pyro_sim_driver.SimHostApi.getActiveSimCards$pigeonVar_messageChannelSuffix';
     final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
@@ -194,7 +200,7 @@ class SimHostApi {
         message: 'Host platform returned null value for non-null return value.',
       );
     } else {
-      return (pigeonVar_replyList[0] as List<Object?>?)!.cast<PigeonSimCard>();
+      return (pigeonVar_replyList[0] as List<Object?>?)!.cast<SimCardPayload>();
     }
   }
 
@@ -225,7 +231,7 @@ class SimHostApi {
     }
   }
 
-  Future<PigeonNetworkInfo?> getNetworkInfo() async {
+  Future<NetworkInfoPayload?> getNetworkInfo() async {
     final String pigeonVar_channelName = 'dev.flutter.pigeon.pyro_sim_driver.SimHostApi.getNetworkInfo$pigeonVar_messageChannelSuffix';
     final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
@@ -243,7 +249,7 @@ class SimHostApi {
         details: pigeonVar_replyList[2],
       );
     } else {
-      return (pigeonVar_replyList[0] as PigeonNetworkInfo?);
+      return (pigeonVar_replyList[0] as NetworkInfoPayload?);
     }
   }
 }

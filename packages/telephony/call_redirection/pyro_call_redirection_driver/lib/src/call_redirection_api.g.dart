@@ -15,8 +15,7 @@ PlatformException _createConnectionError(String channelName) {
   );
 }
 
-List<Object?> wrapResponse(
-    {Object? result, PlatformException? error, bool empty = false}) {
+List<Object?> wrapResponse({Object? result, PlatformException? error, bool empty = false}) {
   if (empty) {
     return <Object?>[];
   }
@@ -26,8 +25,8 @@ List<Object?> wrapResponse(
   return <Object?>[error.code, error.message, error.details];
 }
 
-class PigeonRedirectionRequest {
-  PigeonRedirectionRequest({
+class RedirectionRequestDetails {
+  RedirectionRequestDetails({
     required this.id,
     required this.rawPhoneNumber,
     required this.normalizedPhoneNumber,
@@ -37,10 +36,15 @@ class PigeonRedirectionRequest {
   });
 
   String id;
+
   String rawPhoneNumber;
+
   String normalizedPhoneNumber;
+
   int timestampMs;
+
   bool isInteractiveAllowed;
+
   bool isCarModeActive;
 
   Object encode() {
@@ -54,9 +58,9 @@ class PigeonRedirectionRequest {
     ];
   }
 
-  static PigeonRedirectionRequest decode(Object result) {
+  static RedirectionRequestDetails decode(Object result) {
     result as List<Object?>;
-    return PigeonRedirectionRequest(
+    return RedirectionRequestDetails(
       id: result[0]! as String,
       rawPhoneNumber: result[1]! as String,
       normalizedPhoneNumber: result[2]! as String,
@@ -67,13 +71,14 @@ class PigeonRedirectionRequest {
   }
 }
 
-class PigeonRedirectionDecision {
-  PigeonRedirectionDecision({
+class RedirectionDecisionDetails {
+  RedirectionDecisionDetails({
     required this.action,
     this.reason,
   });
 
   String action;
+
   String? reason;
 
   Object encode() {
@@ -83,27 +88,27 @@ class PigeonRedirectionDecision {
     ];
   }
 
-  static PigeonRedirectionDecision decode(Object result) {
+  static RedirectionDecisionDetails decode(Object result) {
     result as List<Object?>;
-    return PigeonRedirectionDecision(
+    return RedirectionDecisionDetails(
       action: result[0]! as String,
       reason: result[1] as String?,
     );
   }
 }
 
+
 class _PigeonCodec extends StandardMessageCodec {
   const _PigeonCodec();
-
   @override
   void writeValue(WriteBuffer buffer, Object? value) {
     if (value is int) {
       buffer.putUint8(4);
       buffer.putInt64(value);
-    } else if (value is PigeonRedirectionRequest) {
+    }    else if (value is RedirectionRequestDetails) {
       buffer.putUint8(129);
       writeValue(buffer, value.encode());
-    } else if (value is PigeonRedirectionDecision) {
+    }    else if (value is RedirectionDecisionDetails) {
       buffer.putUint8(130);
       writeValue(buffer, value.encode());
     } else {
@@ -114,10 +119,10 @@ class _PigeonCodec extends StandardMessageCodec {
   @override
   Object? readValueOfType(int type, ReadBuffer buffer) {
     switch (type) {
-      case 129:
-        return PigeonRedirectionRequest.decode(readValue(buffer)!);
-      case 130:
-        return PigeonRedirectionDecision.decode(readValue(buffer)!);
+      case 129: 
+        return RedirectionRequestDetails.decode(readValue(buffer)!);
+      case 130: 
+        return RedirectionDecisionDetails.decode(readValue(buffer)!);
       default:
         return super.readValueOfType(type, buffer);
     }
@@ -127,40 +132,31 @@ class _PigeonCodec extends StandardMessageCodec {
 abstract class CallRedirectionFlutterApi {
   static const MessageCodec<Object?> pigeonChannelCodec = _PigeonCodec();
 
-  Future<PigeonRedirectionDecision> evaluateCall(PigeonRedirectionRequest request);
+  Future<RedirectionDecisionDetails> evaluateCall(RedirectionRequestDetails request);
 
-  static void setUp(
-    CallRedirectionFlutterApi? api, {
-    BinaryMessenger? binaryMessenger,
-    String messageChannelSuffix = '',
-  }) {
-    messageChannelSuffix =
-        messageChannelSuffix.isNotEmpty ? '.$messageChannelSuffix' : '';
+  static void setUp(CallRedirectionFlutterApi? api, {BinaryMessenger? binaryMessenger, String messageChannelSuffix = '',}) {
+    messageChannelSuffix = messageChannelSuffix.isNotEmpty ? '.$messageChannelSuffix' : '';
     {
-      final BasicMessageChannel<Object?> pigeonVar_channel =
-          BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.pyro_call_redirection_driver.CallRedirectionFlutterApi.evaluateCall$messageChannelSuffix',
-        pigeonChannelCodec,
-        binaryMessenger: binaryMessenger,
-      );
+      final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
+          'dev.flutter.pigeon.pyro_call_redirection_driver.CallRedirectionFlutterApi.evaluateCall$messageChannelSuffix', pigeonChannelCodec,
+          binaryMessenger: binaryMessenger);
       if (api == null) {
         pigeonVar_channel.setMessageHandler(null);
       } else {
         pigeonVar_channel.setMessageHandler((Object? message) async {
           assert(message != null,
-              'Argument for dev.flutter.pigeon.pyro_call_redirection_driver.CallRedirectionFlutterApi.evaluateCall was null.');
+          'Argument for dev.flutter.pigeon.pyro_call_redirection_driver.CallRedirectionFlutterApi.evaluateCall was null.');
           final List<Object?> args = (message as List<Object?>?)!;
-          final PigeonRedirectionRequest? arg_request = (args[0] as PigeonRedirectionRequest?);
+          final RedirectionRequestDetails? arg_request = (args[0] as RedirectionRequestDetails?);
           assert(arg_request != null,
-              'Argument for dev.flutter.pigeon.pyro_call_redirection_driver.CallRedirectionFlutterApi.evaluateCall was null, expected non-null PigeonRedirectionRequest.');
+              'Argument for dev.flutter.pigeon.pyro_call_redirection_driver.CallRedirectionFlutterApi.evaluateCall was null, expected non-null RedirectionRequestDetails.');
           try {
-            final PigeonRedirectionDecision output = await api.evaluateCall(arg_request!);
+            final RedirectionDecisionDetails output = await api.evaluateCall(arg_request!);
             return wrapResponse(result: output);
           } on PlatformException catch (e) {
             return wrapResponse(error: e);
-          } catch (e) {
-            return wrapResponse(
-                error: PlatformException(code: 'error', message: e.toString()));
+          }          catch (e) {
+            return wrapResponse(error: PlatformException(code: 'error', message: e.toString()));
           }
         });
       }
@@ -169,11 +165,12 @@ abstract class CallRedirectionFlutterApi {
 }
 
 class CallRedirectionHostApi {
-  CallRedirectionHostApi(
-      {BinaryMessenger? binaryMessenger, String messageChannelSuffix = ''})
+  /// Constructor for [CallRedirectionHostApi].  The [binaryMessenger] named argument is
+  /// available for dependency injection.  If it is left null, the default
+  /// BinaryMessenger will be used which routes to the host platform.
+  CallRedirectionHostApi({BinaryMessenger? binaryMessenger, String messageChannelSuffix = ''})
       : pigeonVar_binaryMessenger = binaryMessenger,
-        pigeonVar_messageChannelSuffix =
-            messageChannelSuffix.isNotEmpty ? '.$messageChannelSuffix' : '';
+        pigeonVar_messageChannelSuffix = messageChannelSuffix.isNotEmpty ? '.$messageChannelSuffix' : '';
   final BinaryMessenger? pigeonVar_binaryMessenger;
 
   static const MessageCodec<Object?> pigeonChannelCodec = _PigeonCodec();
@@ -181,10 +178,8 @@ class CallRedirectionHostApi {
   final String pigeonVar_messageChannelSuffix;
 
   Future<bool> isServiceActive() async {
-    final String pigeonVar_channelName =
-        'dev.flutter.pigeon.pyro_call_redirection_driver.CallRedirectionHostApi.isServiceActive$pigeonVar_messageChannelSuffix';
-    final BasicMessageChannel<Object?> pigeonVar_channel =
-        BasicMessageChannel<Object?>(
+    final String pigeonVar_channelName = 'dev.flutter.pigeon.pyro_call_redirection_driver.CallRedirectionHostApi.isServiceActive$pigeonVar_messageChannelSuffix';
+    final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
       binaryMessenger: pigeonVar_binaryMessenger,
@@ -210,10 +205,8 @@ class CallRedirectionHostApi {
   }
 
   Future<bool> isRoleGranted() async {
-    final String pigeonVar_channelName =
-        'dev.flutter.pigeon.pyro_call_redirection_driver.CallRedirectionHostApi.isRoleGranted$pigeonVar_messageChannelSuffix';
-    final BasicMessageChannel<Object?> pigeonVar_channel =
-        BasicMessageChannel<Object?>(
+    final String pigeonVar_channelName = 'dev.flutter.pigeon.pyro_call_redirection_driver.CallRedirectionHostApi.isRoleGranted$pigeonVar_messageChannelSuffix';
+    final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
       binaryMessenger: pigeonVar_binaryMessenger,
@@ -239,10 +232,8 @@ class CallRedirectionHostApi {
   }
 
   Future<bool> requestRole() async {
-    final String pigeonVar_channelName =
-        'dev.flutter.pigeon.pyro_call_redirection_driver.CallRedirectionHostApi.requestRole$pigeonVar_messageChannelSuffix';
-    final BasicMessageChannel<Object?> pigeonVar_channel =
-        BasicMessageChannel<Object?>(
+    final String pigeonVar_channelName = 'dev.flutter.pigeon.pyro_call_redirection_driver.CallRedirectionHostApi.requestRole$pigeonVar_messageChannelSuffix';
+    final BasicMessageChannel<Object?> pigeonVar_channel = BasicMessageChannel<Object?>(
       pigeonVar_channelName,
       pigeonChannelCodec,
       binaryMessenger: pigeonVar_binaryMessenger,

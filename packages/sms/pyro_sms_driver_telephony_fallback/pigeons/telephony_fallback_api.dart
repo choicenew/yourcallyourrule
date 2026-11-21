@@ -9,7 +9,7 @@ import 'package:pigeon/pigeon.dart';
     package: 'com.pyro.sms_telephony_fallback',
   ),
 ))
-class PigeonTelephonySmsPayload {
+class TelephonySmsPayloadDetails {
   String? id;
   String? sender;
   String? body;
@@ -23,6 +23,5 @@ abstract class TelephonyFallbackHostApi {
 
 @FlutterApi()
 abstract class TelephonyFallbackFlutterApi {
-  void onSmsReceived(PigeonTelephonySmsPayload message);
+  void onSmsReceived(TelephonySmsPayloadDetails message);
 }
-
