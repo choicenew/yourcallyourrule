@@ -22,8 +22,6 @@ dependencies:
     path: ../pyro_sms_driver_keyword_bloom_filter
   pyro_sms_driver_bot_automation:
     path: ../pyro_sms_driver_bot_automation
-  pyro_sms_driver_telephony_fallback:
-    path: ../pyro_sms_driver_telephony_fallback
   pyro_sms_driver_notification_listener:
     path: ../pyro_sms_driver_notification_listener
 

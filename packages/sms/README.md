@@ -12,6 +12,8 @@ It consolidates all SMS link detection, threat feeds, and spam classification ca
 packages/sms/
 ├── pyro_sms_protocol/                      # Abstract contracts, data models, enums & adapters (0 heavy deps)
 ├── pyro_sms_hub/                           # Service locator singleton (SmsHub.instance) & screening pipeline
+├── pyro_sms_connector/                      # Play Store compliant plug-and-play assembly connector (0 SMS permissions)
+├── pyro_sms_connector_github/               # Full assembly connector with TelephonyFallbackDriver (for GitHub/F-Droid)
 ├── pyro_sms_driver_google_safe_browsing/  # Google Safe Browsing API v4 URL threat detection driver
 ├── pyro_sms_driver_phishtank/             # PhishTank verified phishing database driver
 ├── pyro_sms_driver_openphish/             # OpenPhish live phishing threat feed driver

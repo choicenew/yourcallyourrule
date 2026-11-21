@@ -1,0 +1,24 @@
+name: pyro_sms_connector_github
+description: Assembly and auto-registration facade connector with Telephony Fallback for GitHub/F-Droid builds.
+version: 1.0.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pyro_sms_protocol:
+    path: ../pyro_sms_protocol
+  pyro_sms_hub:
+    path: ../pyro_sms_hub
+  pyro_sms_connector:
+    path: ../pyro_sms_connector
+  pyro_sms_driver_telephony_fallback:
+    path: ../pyro_sms_driver_telephony_fallback
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
